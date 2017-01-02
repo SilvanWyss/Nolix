@@ -1,1 +1,8 @@
+#Java binaries
 *.class
+
+#Javadoc
+*.css
+*.html
+*.js
+package-list
