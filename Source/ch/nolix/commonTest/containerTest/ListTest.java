@@ -294,7 +294,7 @@ public final class ListTest extends ZetaTest {
 		);
 		
 		//execution and verification
-		expectThat(list.getVarianceByDouble(e -> e.doubleValue())).isEqualTo(0.2);
+		expectThat(list.getVarianceByDouble(e -> e.doubleValue())).equals(0.2);
 	}
 	
 	//test method

@@ -60,7 +60,7 @@ public abstract class Test implements Executable {
 						int errorCount = 0;
 						for (String le: lastErrors) {
 							errorCount++;
-							System.err.println("   " + errorCount + ". " + le);
+							System.err.println("   " + errorCount + ") " + le);
 							System.err.flush();
 						}
 						lastErrors.clear();

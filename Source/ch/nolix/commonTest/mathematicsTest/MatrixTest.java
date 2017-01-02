@@ -20,7 +20,7 @@ public class MatrixTest extends ZetaTest {
 	
 	//loop test method
 	public void loopTestCreateIdendityMatrix() {
-		
+				
 		//number of main loop iterations
 		final int n = 100;
 		
@@ -66,7 +66,7 @@ public class MatrixTest extends ZetaTest {
 			final Matrix matrix = Matrix.createIdendityMatrix(i);
 			
 			//execution and verification
-			expectThat(matrix.getTrace()).isEqualTo(i);
+			expectThat(matrix.getTrace()).equals(i);
 		}
 	}
 
@@ -165,8 +165,8 @@ public class MatrixTest extends ZetaTest {
 		
 		//verification
 		expectThat(solution.length).equals(2);;
-		expectThat(solution[0]).isEqualTo(2.5);
-		expectThat(solution[1]).isEqualTo(5.0);
+		expectThat(solution[0]).equals(2.5);
+		expectThat(solution[1]).equals(5.0);
 	}
 	
 	//test method
@@ -180,9 +180,9 @@ public class MatrixTest extends ZetaTest {
 		
 		//verification
 		expectThat(solution.length).equals(3);;
-		expectThat(solution[0]).isEqualTo(1.0);
-		expectThat(solution[1]).isEqualTo(1.0);
-		expectThat(solution[2]).isEqualTo(1.0);
+		expectThat(solution[0]).equals(1.0);
+		expectThat(solution[1]).equals(1.0);
+		expectThat(solution[2]).equals(1.0);
 	}
 	
 	//test method

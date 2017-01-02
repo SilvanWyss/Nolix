@@ -562,7 +562,7 @@ public final class Matrix implements ApproximativeEqualing {
 		
 		throwExceptionIfNotQuadratic();
 		
-		double trace = 0;
+		double trace = 0.0;
 		
 		for (int i = 0; i < getRowCount(); i++) {
 			trace += values[i][i];

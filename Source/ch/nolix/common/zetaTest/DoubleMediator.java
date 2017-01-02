@@ -91,9 +91,9 @@ public final class DoubleMediator {
 	 * @param value
 	 * @throws Error if the value of this double mediator is not equal to the given value
 	 */
-	public final void isEqualTo(final double value) {
+	public final void equals(final double value) {
 		if (this.value != value) {
-			test.addCurrentTestMethodError(value + " was expected, but " + this.value + " was expected.");
+			test.addCurrentTestMethodError(value + " was expected, but " + this.value + " was received.");
 		}
 	}
 	
@@ -177,7 +177,7 @@ public final class DoubleMediator {
 	 * @throws Error if the value of this double mediator is not 1.0
 	 */
 	public final void isOne() {
-		isEqualTo(1.0);
+		equals(1.0);
 	}
 
 	//method
@@ -217,7 +217,7 @@ public final class DoubleMediator {
 	 * @throws Error if the value of this double mediator is not zero
 	 */
 	public final void isZero() {
-		isEqualTo(0.0);
+		equals(0.0);
 	}
 	
 	//method
