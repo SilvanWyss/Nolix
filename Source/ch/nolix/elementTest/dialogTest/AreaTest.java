@@ -37,8 +37,8 @@ public final class AreaTest extends ZetaTest {
 		//verification
 		expectThat(area1).equals(area2);
 		expectThat(area2).equals(area1);
-		expectThat(area1).isNotEqualTo(new Area());
-		expectThat(area2).isNotEqualTo(new Area());
+		expectThat(area1).equalsNot(new Area());
+		expectThat(area2).equalsNot(new Area());
 	}
 	
 	//test method

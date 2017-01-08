@@ -3,6 +3,7 @@ package ch.nolix.common.zetaTest;
 
 //own imports
 import ch.nolix.common.interfaces.ApproximativeEqualing;
+import ch.nolix.common.test.Accessor;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
@@ -11,10 +12,9 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
  * @month 2016-08
  * @lines 80
  */
-public final class DoubleDeviationMediator {
+public final class DoubleDeviationMediator extends Mediator {
 
 	//attributes
-	private final ZetaTest zetaTest;
 	private final double value;
 	private final double maxDeviation;
 	
@@ -47,28 +47,27 @@ public final class DoubleDeviationMediator {
 		final double value,
 		final double maxDeviation
 	) {
-		//Checks if the given zeta test is not null.
-		ZetaValidator.supposeThat(zetaTest).thatIsNamed("zeta test").isNotNull();
+		//Calls constructor of the base class.
+		super(zetaTest);
 		
 		//Checks if the given max deviation is not negative.
 		ZetaValidator.supposeThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
 		
-		this.zetaTest = zetaTest;
 		this.value = value;
 		this.maxDeviation = maxDeviation;
 	}
 	
 	//method
 	/**
-	 * Generates an error if the value of this double deviation mediator is not equal to the given value with a deviation that is not bigger than the max deviation of this double deviation mediator.
+	 * Generates an error if the value of this double deviation mediator equals the given value with a deviation that is not bigger than the max deviation of this double deviation mediator.
 	 *
 	 * @param value
 	 */
 	public final void equals(final double value) {
 		
-		//Checks if the value of this double deviation mediator is equal to the given value with a devation that is not bigger than the max deviation of this double deviation mediator.
+		//Checks if the value of this double deviation mediator equals the given value with a devation that is not bigger than the max deviation of this double deviation mediator.
 		if (Math.abs(this.value - value) > maxDeviation) {
-			zetaTest.addCurrentTestMethodError(this.value + "±" + maxDeviation + " was expected, but " + value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError(this.value + "±" + maxDeviation + " was expected, but " + value + " was received.");
 		}
 	}
 	

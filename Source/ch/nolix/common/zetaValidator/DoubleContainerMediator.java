@@ -1,72 +1,88 @@
-/*
- * file:	DoubleContainerMediator.java
- * author:	Silvan Wyss
- * month:	2016-12
- * lines:	10
- */
-
 //package declaration
 package ch.nolix.common.zetaValidator;
 
 //own imports
+import ch.nolix.common.exception.NonBiggerArgumentException;
 import ch.nolix.common.exception.NonNegativeArgumentException;
 import ch.nolix.common.exception.NonPositiveArgumentException;
+import ch.nolix.common.exception.NullArgumentException;
 
 //class
-public final class DoubleContainerMediator {
-
-	//attribute
-	private final Iterable<Double> arguments;
+/**
+ * @author Silvan Wyss
+ * @month 2016-12
+ * @lines 80
+ */
+public final class DoubleContainerMediator extends ElementContainerMediator<Double> {
 	
-	//constructor
+	//package-visible constructor
 	/**
 	 * Creates new double container mediator with the given arguments.
 	 * 
 	 * @param arguments
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public DoubleContainerMediator(Iterable<Double> arguments) {
-		this.arguments = arguments;
+	DoubleContainerMediator(final Iterable<Double> arguments) {
+		
+		//Calls constructor of the base class.
+		super(arguments);
 	}
 	
-	public final void areNegative() {
+	//method
+	/**
+	 * @param value
+	 * @throws NonNBiggerArgumentExceotion if one of the arguments of this double container mediator is not bigger than the given value.
+	 */
+	public void areBiggerThan(final double value) {
 		
-		//Handles the case if the arguments of this double container mediator are null.
-		throwExceptionIfArguemntsAreNull();
-		
-		//Handles the case if the arguments of this double container mediator are not null.
-		for (double a: arguments) {
+		//Iterates through the arguments of this double container mediator.
+		int i = 1;
+		for (double a: getRefArguments()) {
 			
-			//Checks the current argument.
-			if (a > 0) {
-				throw new NonNegativeArgumentException(a);
+			//Checks if the current argument is bigger than the given value.
+			if (a <= value) {
+				throw new NonBiggerArgumentException(i + "th", a, value);
 			}
-		}
-	}
-
-	public final void arePositive() {
-		
-		//Handles the case if the arguments of this double container mediator are null.
-		throwExceptionIfArguemntsAreNull();
-		
-		//Handles the case if the arguments of this double container mediator are not null.
-		for (double a: arguments) {
 			
-			//Checks the current argument.
-			if (a <= 0) {
-				throw new NonPositiveArgumentException(a);
-			}
+			i++;
 		}
 	}
 	
 	//method
 	/**
-	 * @throws RuntimeException if the arguemtns of this double container mediator are null
+	 * @throws NonNegativeArgumentExceotion if one of the arguments of this double container mediator is not positive.
 	 */
-	private final void throwExceptionIfArguemntsAreNull() {
+	public void areNegative() {
+	
+		//Iterates through the arguments of this double container mediator.
+		int i = 1;
+		for (double a: getRefArguments()) {
+			
+			//Checks if the current arguemnt is negative.
+			if (a > 0) {
+				throw new NonNegativeArgumentException(i + "th", a);
+			}
+			
+			i++;
+		}
+	}
+
+	//method
+	/**
+	 * @throws NonPositiveArgumentExceotion if one of the arguments of this double container mediator is not positive.
+	 */
+	public void arePositive() {
 		
-		//Checks the arguments of this double container mediator.
-		if (arguments == null) {
-			throw new RuntimeException("The given arguments are null.");
+		//Iterates through the arguments of this double container mediator.
+		int i = 1;
+		for (double a: getRefArguments()) {
+			
+			//Checks if the current argument is positive.
+			if (a <= 0) {
+				throw new NonPositiveArgumentException(i + "th", a);
+			}
+			
+			i++;
 		}
 	}
 }

@@ -1,63 +1,50 @@
-/*
- * file:	StringMediator.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	190
- */
-
 //package declaration
 package ch.nolix.common.zetaTest;
 
-//own imports
-import ch.nolix.common.functional.IElementTakerBooleanGetter;
-import ch.nolix.common.test.Test;
-import ch.nolix.common.util.Validator;
+import ch.nolix.common.test.Accessor;
+//own import
+import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
-public class StringMediator {
+/**
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 190
+ */
+public class StringMediator extends ElementMediator<String> {
 
-	//attribute
-	private final Test test;
-	private final String value;
-	
 	//package-visible constructor
 	/**
-	 * Creates new string mediator with the given value.
+	 * Creates new string mediator that belongs to the given zeta test and has the given value.
 	 * 
+	 * @param zetaTest
 	 * @param value
+	 * @throws NullArgumentException if the given zeta test is null.
 	 */
-	StringMediator(Test test, String value) {
-		this.test = test;
-		this.value = value;
-	}
-	
-	//method
-	public void contains(final char character) {	
-		if (value == null || !value.contains(String.valueOf(character))) {
-			test.addCurrentTestMethodError("A string that contains the character '" + character + "' was expected, but '" + value + "' was received.");
-		}
+	StringMediator(final ZetaTest zetaTest, final String value) {
+		
+		//Calls constructor of the base class.
+		super(zetaTest, value);
 	}
 	
 	//method
 	/**
-	 * @param condition
-	 * @throws Exception if the given condition is null
-	 * @throws Error if the value of this string mediator does not fulfill the given condition
+	 * Generates an error if the value of this string mediator does not contain the given character.
+	 * 
+	 * @param character
 	 */
-	public void fulfils(IElementTakerBooleanGetter<String> condition) {
+	public StringConjunctionMediator contains(final char character) {	
 		
-		if (condition == null) {
-			throw new RuntimeException("The given condition is null.");
+		if (getValue() == null || !getValue().contains(String.valueOf(character))) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A string that contains the character '" + character + "' was expected, but '" + getValue() + "' was received.");
 		}
 		
-		if (!condition.getOutput(value)) {
-			test.addCurrentTestMethodError("A string that fulfils the given condition was expected, but '" + value + "' was received.");
-		}
+		return new StringConjunctionMediator(getZetaTest(), getValue());
 	}
 	
 	//method
 	/**
-	 * Generates an error if the value of this string mediator has not the given length.
+	 * Generates an error if the getValue() of this string mediator has not the given length.
 	 * 
 	 * @param length
 	 * @throws Exception if the given length is not positive
@@ -65,16 +52,16 @@ public class StringMediator {
 	public void hasLength(final int length) {
 		
 		//Checks the given length.
-		Validator.throwExceptionIfValueIsNotPositive("length", length);
+		ZetaValidator.supposeThat(length).thatIsNamed("length").isPositive();
 		
-		if (value == null || value.length() != length) {
-			test.addCurrentTestMethodError("A string with the length " + length + " was expected, but the string '" + value + "', that has the length " + value.length() + " was received.");
+		if (getValue() == null || getValue().length() != length) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A string with the length " + length + " was expected, but the string '" + getValue() + "', that has the length " + getValue().length() + " was received.");
 		}
 	}
 	
 	//method
 	/**
-	 * Generates an error if the value of this string mediator has not the given max length.
+	 * Generates an error if the getValue() of this string mediator has not the given max length.
 	 * 
 	 * @param maxLength
 	 * @return new string conjunction mediator that belongs 
@@ -83,85 +70,85 @@ public class StringMediator {
 	public StringConjunctionMediator hasMaxLength(final int maxLength) {
 		
 		//Checks the given max length.
-		Validator.throwExceptionIfValueIsNotPositive("max length", maxLength);
+		ZetaValidator.supposeThat(maxLength).thatIsNamed("max length").isPositive();
 		
-		if (value == null || value.length() > maxLength) {
-			test.addCurrentTestMethodError("A string with the max length " + maxLength + " was expected, but the string '" + value + "', that has the length " + value.length() + " was received.");
+		if (getValue() == null || getValue().length() > maxLength) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A string with the max length " + maxLength + " was expected, but the string '" + getValue() + "', that has the length " + getValue().length() + " was received.");
 		}
 		
-		return new StringConjunctionMediator(test, value);
+		return new StringConjunctionMediator(getZetaTest(), getValue());
 	}
 	
 	//method
 	/**
-	 * @throws Error if the value of this string mediator is no empty string
+	 * @throws Error if the getValue() of this string mediator is no empty string
 	 */
 	public void isEmpty() {
 		
-		if (value == null) {
-			test.addCurrentTestMethodError("An empty string was expected, but null was received.");
+		if (getValue() == null) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("An empty string was expected, but null was received.");
 		}
 		
-		if (value.length() > 0) {
-			test.addCurrentTestMethodError("An empty string was expected, but '" + value + "' was received.");
+		if (getValue().length() > 0) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("An empty string was expected, but '" + getValue() + "' was received.");
 		}
 	}
 	
 	//method
 	/**
 	 * @param value
-	 * @throws Error if the value of this string mediator is not equal to the given value
+	 * @throws Error if the getValue() of this string mediator is not equal to the given getValue()
 	 */
 	public void equals(String value) {
 		
-		if (this.value != null && value == null) {
-			test.addCurrentTestMethodError("'" + value + "' was expected, but null was received.");
+		if (this.getValue() != null && value == null) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("'" + value + "' was expected, but null was received.");
 		}
 		
-		if (this.value == null && value != null) {
-			test.addCurrentTestMethodError("Null was expected, but '" + this.value + "' was received.");
+		if (this.getValue() == null && value != null) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("Null was expected, but '" + getValue() + "' was received.");
 		}
 		
-		if (!this.value.equals(value)) {
-			test.addCurrentTestMethodError("'" + value + "' was expected, but '" + this.value + "' was received.");
+		if (!this.getValue().equals(value)) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("'" + value + "' was expected, but '" + getValue() + "' was received.");
 		}
 	}
 	
 	//method
 	/**
-	 * @throws Error if the value of this string mediator is null or an empty string
+	 * @throws Error if the getValue() of this string mediator is null or an empty string
 	 */
 	public void isNotEmpty() {
 		
-		if (value == null) {
-			test.addCurrentTestMethodError("A non-empty string was expected, but null was received.");
+		if (getValue() == null) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A non-empty string was expected, but null was received.");
 		}
 		
-		if (value.length() == 0) {
-			test.addCurrentTestMethodError("A non-empty string was expected, but an empty string was received.");
+		if (getValue().length() == 0) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A non-empty string was expected, but an empty string was received.");
 		}
 	}
 	
 	//method
 	/** 
-	 * @param value
-	 * @throws Error if the value of this string mediator is equal to the given value
+	 * @param getValue()
+	 * @throws Error if the getValue() of this string mediator is equal to the given getValue()
 	 */
 	public void isNotEqualTo(Object value) {
 		
-		if (this.value == null && value == null) {
-			test.addCurrentTestMethodError("A string was expected, but null was received.");
+		if (this.getValue() == null && getValue() == null) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A string was expected, but null was received.");
 		}
 		
-		if (this.value != null && value != null && this.value.equals(value)) {
-			test.addCurrentTestMethodError("An other string than '" + value + "' was expected, but '" + this.value + "' was received.");
+		if (this.getValue() != null && getValue() != null && this.getValue().equals(getValue())) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("An other string than '" + getValue() + "' was expected, but '" + this.getValue() + "' was received.");
 		}
 	}
 	
 	//method
 	/**
 	 * @param sequence
-	 * @throws Error if the value of this string mediator does not start with the given sequence
+	 * @throws Error if the getValue() of this string mediator does not start with the given sequence
 	 */
 	public void startsWith(final String sequence) {
 		
@@ -173,48 +160,48 @@ public class StringMediator {
 			throw new RuntimeException("The given sequence is an empty string.");
 		}
 		
-		if (value == null || !value.startsWith(sequence)) {
-			test.addCurrentTestMethodError("A string that starts with '" + sequence + "' was expected, but '" + value + "' was received.");
+		if (getValue() == null || !getValue().startsWith(sequence)) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A string that starts with '" + sequence + "' was expected, but '" + getValue() + "' was received.");
 		}
 	}
 	
 	//method
 	/**
-	 * @throws Error if the value of this string mediator does not start with a digit
+	 * @throws Error if the getValue() of this string mediator does not start with a digit
 	 */
 	public void startsWithADigit() {
-		if (value == null || value.length() < 1 || !Character.isDigit(value.charAt(0))) {
-			test.addCurrentTestMethodError("A string that starts with a digit was expected, but '" + value + "' was received.");
+		if (getValue() == null || getValue().length() < 1 || !Character.isDigit(getValue().charAt(0))) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A string that starts with a digit was expected, but '" + getValue() + "' was received.");
 		}
 	}
 	
 	//method
 	/**
-	 * @throws Error if the value of this string mediator does not start with a letter
+	 * @throws Error if the getValue() of this string mediator does not start with a letter
 	 */
 	public void startsWithALetter() {
-		if (value == null || value.length() < 1 || !Character.isLetter(value.charAt(0))) {
-			test.addCurrentTestMethodError("A string that starts with a letter was expected, but '" + value + "' was received.");
+		if (getValue() == null || getValue().length() < 1 || !Character.isLetter(getValue().charAt(0))) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A string that starts with a letter was expected, but '" + getValue() + "' was received.");
 		}
 	}
 	
 	//method
 	/**
-	 * @throws Error if the value of this string mediator does not start with a lower case letter
+	 * @throws Error if the getValue() of this string mediator does not start with a lower case letter
 	 */
 	public void startsWithLowerCaseLetter() {
-		if (value == null || value.length() < 1 || !Character.isLowerCase(value.charAt(0))) {
-			test.addCurrentTestMethodError("A string that starts with a lower case letter was expected, but '" + value + "' was received.");
+		if (getValue() == null || getValue().length() < 1 || !Character.isLowerCase(getValue().charAt(0))) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A string that starts with a lower case letter was expected, but '" + getValue() + "' was received.");
 		}
 	}
 	
 	//method
 	/**
-	 * @throws Error if the value of this string mediator does not start with an upper case letter
+	 * @throws Error if the getValue() of this string mediator does not start with an upper case letter
 	 */
 	public void startsWithUpperCaseLetter() {
-		if (value == null || value.length() < 1 || !Character.isUpperCase(value.charAt(0))) {
-			test.addCurrentTestMethodError("A string that starts with an upper case letter was expected, but '" + value + "' was received.");
+		if (getValue() == null || getValue().length() < 1 || !Character.isUpperCase(getValue().charAt(0))) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A string that starts with an upper case letter was expected, but '" + getValue() + "' was received.");
 		}
 	}
 }

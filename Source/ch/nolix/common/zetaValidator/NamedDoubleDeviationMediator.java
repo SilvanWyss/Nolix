@@ -1,32 +1,36 @@
-/*
- * file:	NamedMaxDeviationMediator.java
- * author:	Silvan Wyss
- * month:	2016-12
- * lines:	50
- */
-
 //package declaration
 package ch.nolix.common.zetaValidator;
 
-//own import
+//own imports
+import ch.nolix.common.exception.EmptyArgumentException;
+import ch.nolix.common.exception.NegativeArgumentException;
+import ch.nolix.common.exception.NullArgumentException;
 import ch.nolix.common.exception.UnequalArgumentException;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2016-12
+ * @lines 70
+ */
 public final class NamedDoubleDeviationMediator extends NamedArgumentMediator {
 
 	//attributes
 	private final double argument;
 	private final double maxDeviation;
 	
-	//constructor
+	//package-visible constructor
 	/**
-	 * Creates new named 
+	 * Creates new named double deviation mediator with the givne argument name, argument and max deviation.
 	 * 
 	 * @param argumentName
 	 * @param argument
 	 * @param maxDeviation
+	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws EmptyArgumentException if the given argument name is an empty string.
+	 * @throws NegativeArgumentException if the given max deviation is negative.
 	 */
-	public NamedDoubleDeviationMediator(
+	NamedDoubleDeviationMediator(
 		final String argumentName,
 		final Double argument, 
 		final double maxDeviation) {
@@ -34,8 +38,10 @@ public final class NamedDoubleDeviationMediator extends NamedArgumentMediator {
 		//Calls constructor of the base class.
 		super(argumentName);
 		
-		//Checks the given max deviation.
-		ZetaValidator.supposeThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
+		//Checks if the given max deviation is not negative.
+		if (maxDeviation < 0.0) {
+			throw new NegativeArgumentException("max deviation", maxDeviation);
+		}
 		
 		this.argument = argument;
 		this.maxDeviation = maxDeviation;
@@ -43,18 +49,21 @@ public final class NamedDoubleDeviationMediator extends NamedArgumentMediator {
 	
 	//method
 	/**
-	 * @param value		The value the argument of this named double deviation mediator is supposed to equals to with a deviation that is not bigger than the max deviation of this named double deviation mediator.
-	 * @throws UnequalArgumentException if the argument of this named double deviation mediator does not equal the given value with a deviation that is not bigger than the max deviation of this named double deviation mediator
+	 * @param value
+	 * @throws UnequalArgumentException if the argument of this named double deviation mediator does not equal the given value with a deviation that is not bigger than the max deviation of this named double deviation mediator.
 	 */
 	public void equals(final double value) {
 		
-		//Checks the argument of this named double deviation mediator.
+		//Checks if the argument of this named double deviation mediator equals the given value with a deviation that is not bigger than the max deviation of this named double deviation mediator.
 		if (Math.abs(value - argument) > maxDeviation) {
 			throw new UnequalArgumentException(getArgumentName(), value, argument);
 		}
 	}
 	
 	//method
+	/**
+	 * @throws UnequalArgumentException if the argument of htis named double deviation mediator is not 0.0 with a deviation that is not bigger than the max deviatio of this named double deviation mediator.
+	 */
 	public void isZero() {
 		equals(0.0);
 	}

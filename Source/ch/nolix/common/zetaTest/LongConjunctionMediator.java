@@ -8,7 +8,7 @@
 //package declaration
 package ch.nolix.common.zetaTest;
 
-import ch.nolix.common.test.Test;
+//own import
 
 //class
 /**
@@ -16,15 +16,17 @@ import ch.nolix.common.test.Test;
  * A long mediator supports all expectations a long conjunction mediator supports.
  * A long conjunction mediator supports only the expectations that are meaningful to be supported as additional expectations.
  */
-public final class LongConjunctionMediator {
+public final class LongConjunctionMediator extends Mediator {
 	
 	//attribute
-	private final Test test;
 	private final long value;
 	
 	//package-visible constructor
-	LongConjunctionMediator(final Test test, final long value) {
-		this.test = test;
+	LongConjunctionMediator(final ZetaTest zetaTest, final long value) {
+		
+		//Calls constructor of the base class.
+		super(zetaTest);
+		
 		this.value = value;
 	}
 	
@@ -33,7 +35,7 @@ public final class LongConjunctionMediator {
 		
 		
 		
-		new LongMediator(test, value).isBiggerThan(value);
+		new LongMediator(getZetaTest(), value).isBiggerThan(value);
 		
 		return this;
 	}
@@ -41,7 +43,7 @@ public final class LongConjunctionMediator {
 	//method
 	public LongConjunctionMediator andIsDividableBy(final int divisor) {
 		
-		new LongMediator(test, value).isDividableBy(divisor);
+		new LongMediator(getZetaTest(), value).isDividableBy(divisor);
 		
 		return this;
 	}
@@ -49,7 +51,7 @@ public final class LongConjunctionMediator {
 	//method
 	public LongConjunctionMediator andIsEven() {
 		
-		new LongMediator(test, value).isEven();
+		new LongMediator(getZetaTest(), value).isEven();
 		
 		return this;
 	}
@@ -57,7 +59,7 @@ public final class LongConjunctionMediator {
 	//method
 	public LongConjunctionMediator andIsNotOne() {
 		
-		new LongMediator(test, value).isNotOne();
+		new LongMediator(getZetaTest(), value).isNotOne();
 		
 		return this;
 	}
@@ -65,7 +67,7 @@ public final class LongConjunctionMediator {
 	//method
 	public LongConjunctionMediator andIsNotPrim() {
 		
-		new LongMediator(test, value).isNotPrime();
+		new LongMediator(getZetaTest(), value).isNotPrime();
 		
 		return this;
 	}
@@ -73,7 +75,7 @@ public final class LongConjunctionMediator {
 	//method
 	public LongConjunctionMediator andIsNotZero() {
 		
-		new LongMediator(test, value).isNotZero();
+		new LongMediator(getZetaTest(), value).isNotZero();
 		
 		return this;
 	}
@@ -81,7 +83,7 @@ public final class LongConjunctionMediator {
 	//method
 	public LongConjunctionMediator andIsOdd() {
 		
-		new LongMediator(test, value).isOdd();
+		new LongMediator(getZetaTest(), value).isOdd();
 		
 		return this;
 	}
@@ -89,7 +91,7 @@ public final class LongConjunctionMediator {
 	//method
 	public LongConjunctionMediator andIsPrime() {
 		
-		new LongMediator(test, value).isPrime();
+		new LongMediator(getZetaTest(), value).isPrime();
 		
 		return this;
 	}

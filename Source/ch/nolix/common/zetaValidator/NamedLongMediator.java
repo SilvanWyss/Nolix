@@ -1,20 +1,22 @@
-/*
- * file:	NamedLongMediator.java
- * author:	Silvan Wyss
- * month:	2016-12
- * lines:	80
- */
-
 //package declaration
 package ch.nolix.common.zetaValidator;
 
 //own imports
+import ch.nolix.common.exception.EmptyArgumentException;
+import ch.nolix.common.exception.NegativeArgumentException;
 import ch.nolix.common.exception.NonBiggerArgumentException;
 import ch.nolix.common.exception.NonNegativeArgumentException;
 import ch.nolix.common.exception.NonPositiveArgumentException;
+import ch.nolix.common.exception.NullArgumentException;
 import ch.nolix.common.exception.PositiveArgumentException;
+import ch.nolix.common.exception.SmallerArgumentException;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2016-12
+ * @lines 110
+ */
 public final class NamedLongMediator extends NamedArgumentMediator {
 	
 	//attribute
@@ -22,10 +24,12 @@ public final class NamedLongMediator extends NamedArgumentMediator {
 
 	//package-visible constructor
 	/**
-	 * Creates new named long mediator with the guven argument name and argument.
+	 * Creates new named long mediator with the given argument name and argument.
 	 * 
-	 * @param argumentName		The name of the arugment of this named long mediator.
-	 * @param argument			The argument of this named long mediator.
+	 * @param argumentName
+	 * @param argument
+	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws EmptyArgumentException if the given argument name is an empty string.
 	 */
 	NamedLongMediator(String argumentName, long argument) {
 		
@@ -37,12 +41,12 @@ public final class NamedLongMediator extends NamedArgumentMediator {
 	
 	//method
 	/**
-	 * @param value		The value the argument of this named long mediator is supposed to be bigger than.
-	 * @throws NonBiggerArgumentException if the argument of this named long mediator is not bigger than the given value
+	 * @param value
+	 * @throws NonBiggerArgumentException if the argument of this named long mediator is not bigger than the given value.
 	 */
 	public void isBiggerThan(final long value) {
 		
-		//Checks the argument of this named long mediator.
+		//Checks if the argument of this named long mediator is bigger than the given value.
 		if (argument <= value) {
 			throw new NonBiggerArgumentException(getArgumentName(), argument, value);
 		}
@@ -50,11 +54,24 @@ public final class NamedLongMediator extends NamedArgumentMediator {
 	
 	//method
 	/**
-	 * @throws NonNegativeArgumentException if the argument of this named long mediator is not negative
+	 * @param value
+	 * @throws SmallerArgumentException if the argument of htis named long mediator is not bigger than or does not equal the given value.
+	 */
+	public void isBiggerThanOrEquals(final long value) {
+		
+		//Checks if the argument of this named long mediator is bigger than or equals the given value.
+		if (argument < value) {
+			throw new SmallerArgumentException(getArgumentName(), argument, value);
+		}
+	}
+	
+	//method
+	/**
+	 * @throws NonNegativeArgumentException if the argument of this named long mediator is not negative.
 	 */
 	public void isNegative() {
 		
-		//Checks the argument of this named long mediator.
+		//Checks if the argument of this named long mediator is negative.
 		if (argument >= 0) {
 			throw new NonNegativeArgumentException(getArgumentName(), argument);
 		}
@@ -62,11 +79,23 @@ public final class NamedLongMediator extends NamedArgumentMediator {
 	
 	//method
 	/**
-	 * @throws PositiveArgumentException if the argument of this named long mediator is positive
+	 * @throws NegativeArgumentException if the argument of htis named long mediator is negative.
+	 */
+	public void isNotNegative() {
+		
+		//Checks if the argument of this named long mediator is not negative.
+		if (argument < 0.0) {
+			throw new NegativeArgumentException(getArgumentName(), argument);
+		}
+	}
+	
+	//method
+	/**
+	 * @throws PositiveArgumentException if the argument of this named long mediator is positive.
 	 */
 	public void isNotPositive() {
 		
-		//Checks the argument of this named long mediator.
+		//Checks if the argument of this named long mediator is not positive.
 		if (argument > 0) {
 			throw new PositiveArgumentException(getArgumentName(), argument);
 		}
@@ -74,18 +103,13 @@ public final class NamedLongMediator extends NamedArgumentMediator {
 	
 	//method
 	/**
-	 * @throws NonPositiveArgumentException if the argument of this named long mediator is not positive
+	 * @throws NonPositiveArgumentException if the argument of this named long mediator is not positive.
 	 */
 	public void isPositive() {
 		
-		//Checks the argument of this named long mediator.
+		//Checks if the argument of this named long mediator is positive.
 		if (argument < 1) {
 			throw new NonPositiveArgumentException(getArgumentName(), argument);
 		}
-	}
-
-	public void isNotNegative() {
-		// TODO Auto-generated method stub
-		
 	}
 }

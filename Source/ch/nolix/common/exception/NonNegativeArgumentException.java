@@ -29,7 +29,7 @@ public final class NonNegativeArgumentException extends ArgumentException {
 	}
 	
 	//constructor
-	public NonNegativeArgumentException(final String argumentName, final int argument) {
+	public NonNegativeArgumentException(final String argumentName, final double argument) {
 		
 		//Calls constructor of the base class.
 		super(argumentName, argument, PREDICATE);

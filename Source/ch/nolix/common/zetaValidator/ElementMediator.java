@@ -1,42 +1,62 @@
-/*
- * file:	ElementMediator.java
- * author:	Silvan Wyss
- * month:	2016-12
- * lines:	30
- */
-
 //package declaration
 package ch.nolix.common.zetaValidator;
 
+//own imports
+import ch.nolix.common.exception.NotNullArgumentException;
 import ch.nolix.common.exception.NullArgumentException;
 
-//class
-public abstract class ElementMediator<E> {
+//package-visible abstract class
+/**
+ * @author Silvan Wyss
+ * @month 2016-12
+ * @lines 70
+ *
+ * @param <E> - The type of the element of an element mediator.
+ */
+abstract class ElementMediator<E> {
 
 	//attribute
 	private final E argument;
 	
-	//package-visible constructor
+	//constructor
 	/**
 	 * Creates new element mediator with the given argument.
 	 * 
-	 * @param argument		The argument of this element mediator.
+	 * @param argument
 	 */
-	ElementMediator(final E argument) {
+	public ElementMediator(final E argument) {
 		this.argument = argument;
 	}
 	
 	//method
 	/**
-	 * @return the argument of this element mediator
+	 * @throws NullArgumentException if the argument of this element mediator is null.
 	 */
-	protected final E getArgument() {
-		return argument;
-	}
-	
 	public final void isNotNull() {
+		
+		//Checks if the argument of this element mediator is not null.
 		if (argument == null) {
 			throw new NullArgumentException();
 		}
+	}
+	
+	//method
+	/**
+	 * @throws NotNullArgumentException if the argument of this element mediator is not null.
+	 */
+	public final void isNull() {
+		
+		//Checks if the argument of this element mediator is null.
+		if (argument != null) {
+			throw new NotNullArgumentException(argument);
+		}
+	}
+	
+	//method
+	/**
+	 * @return the argument of this element mediator.
+	 */
+	protected final E getRefArgument() {
+		return argument;
 	}
 }

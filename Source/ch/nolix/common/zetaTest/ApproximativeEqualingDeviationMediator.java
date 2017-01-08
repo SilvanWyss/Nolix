@@ -3,6 +3,7 @@ package ch.nolix.common.zetaTest;
 
 //own imports
 import ch.nolix.common.interfaces.ApproximativeEqualing;
+import ch.nolix.common.test.Accessor;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
@@ -11,10 +12,9 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
  * @month 2016-08
  * @lines 80
  */
-public final class ApproximativeEqualingDeviationMediator {
+public final class ApproximativeEqualingDeviationMediator extends Mediator {
 
 	//attributes
-	private final ZetaTest zetaTestest;
 	private final ApproximativeEqualing value;
 	private final double maxDeviation;
 	
@@ -49,13 +49,12 @@ public final class ApproximativeEqualingDeviationMediator {
 		final ApproximativeEqualing value,
 		final double maxDeviation
 	) {
-		//Checks if the given zeta test is not null.
-		ZetaValidator.supposeThat(zetaTest).thatIsNamed("zeta test").isNotNull();
+		//Calls constructor of the base class.
+		super(zetaTest);
 		
 		//Checks if the given max deviation is not negative.
 		ZetaValidator.supposeThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
 		
-		this.zetaTestest = zetaTest;
 		this.value = value;
 		this.maxDeviation = maxDeviation;
 	}
@@ -68,15 +67,15 @@ public final class ApproximativeEqualingDeviationMediator {
 	public final void equals(ApproximativeEqualing value) {
 		
 		if (this.value != null && value == null) {
-			zetaTestest.addCurrentTestMethodError("'" + value + "'±" + maxDeviation + " was expected, but null was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("'" + value + "'±" + maxDeviation + " was expected, but null was received.");
 		}
 		
 		if (this.value == null && value != null) {
-			zetaTestest.addCurrentTestMethodError("Null was expected, but '" + this.value + "' was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("Null was expected, but '" + this.value + "' was received.");
 		}
 		
 		if (!this.value.equalsApproximatively(value, maxDeviation)) {
-			zetaTestest.addCurrentTestMethodError("'" + value + "'±" + maxDeviation + " was expected, but " + this.value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("'" + value + "'±" + maxDeviation + " was expected, but " + this.value + " was received.");
 		}
 	}
 }

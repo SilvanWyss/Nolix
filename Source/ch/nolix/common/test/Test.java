@@ -90,15 +90,15 @@ public abstract class Test implements Executable {
 		System.out.flush();
 	}
 	
-	//method
+	//package-visible method
 	/**
-	 * Adds the given error of the current test method to this test.
+	 * Adds the given current test method error to this test.
 	 * 
-	 * @param error
+	 * @param currentTestMethodError
 	 */
-	public final void addCurrentTestMethodError(final String error) {
+	final void addCurrentTestMethodError(final String currentTestMethodError) {
 		final String className = Thread.currentThread().getStackTrace()[3].getClassName();
 		final int line = Thread.currentThread().getStackTrace()[3].getLineNumber();
-		lastErrors.addElement(error + " (" + className + ".java:" + line + ")");
+		lastErrors.addElement(currentTestMethodError + " (" + className + ".java:" + line + ")");
 	}
 }

@@ -10,13 +10,12 @@ package ch.nolix.common.zetaTest;
 
 //own import
 import ch.nolix.common.functional.IElementTakerBooleanGetter;
-import ch.nolix.common.test.Test;
+import ch.nolix.common.test.Accessor;
 
 //class
-public class LongMediator {
+public class LongMediator extends Mediator {
 
 	//attribute
-	private final Test test;
 	private final long value;
 	
 	//package-visible constructor
@@ -25,8 +24,11 @@ public class LongMediator {
 	 * 
 	 * @param value
 	 */
-	LongMediator(final Test test, final long value) {
-		this.test = test;
+	LongMediator(final ZetaTest zetaTest, final long value) {
+		
+		//Calls constructor of the base class.
+		super(zetaTest);
+		
 		this.value = value;
 	}
 	
@@ -44,10 +46,10 @@ public class LongMediator {
 		}
 		
 		if (!condition.getOutput(value)) {
-			test.addCurrentTestMethodError("A value that fulfils the given condition was expected, but " + value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A value that fulfils the given condition was expected, but " + value + " was received.");
 		}
 		
-		return new LongConjunctionMediator(test, value);
+		return new LongConjunctionMediator(getZetaTest(), value);
 	}
 	
 	//method
@@ -65,10 +67,10 @@ public class LongMediator {
 		}
 		
 		if (value < min || value > max) {
-			test.addCurrentTestMethodError("A value that is between " + min + " and " + max + " was expected, but " + value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A value that is between " + min + " and " + max + " was expected, but " + value + " was received.");
 		}
 		
-		return new LongConjunctionMediator(test, value);
+		return new LongConjunctionMediator(getZetaTest(), value);
 	}
 	
 	//method
@@ -80,10 +82,10 @@ public class LongMediator {
 	public LongConjunctionMediator isBiggerThan(final long value) {
 		
 		if (this.value <= value) {
-			test.addCurrentTestMethodError("A value bigger than " + value + " was expected, but " + this.value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A value bigger than " + value + " was expected, but " + this.value + " was received.");
 		}
 		
-		return new LongConjunctionMediator(test, this.value);
+		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
 	
 	//method
@@ -102,10 +104,10 @@ public class LongMediator {
 		}
 		
 		if (this.value % value != 0) {
-			test.addCurrentTestMethodError("A value that is dividable by " + value + " was expected, but " + this.value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A value that is dividable by " + value + " was expected, but " + this.value + " was received.");
 		}
 		
-		return new LongConjunctionMediator(test, this.value);
+		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
 	
 	//method
@@ -115,7 +117,7 @@ public class LongMediator {
 	 */
 	public void equals(final int value) {		
 		if (this.value != value) {
-			test.addCurrentTestMethodError(value + " was expected, but " + this.value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError(value + " was expected, but " + this.value + " was received.");
 		}
 	}
 	
@@ -127,10 +129,10 @@ public class LongMediator {
 	public LongConjunctionMediator isEven() {
 		
 		if (value % 2 != 0) {
-			test.addCurrentTestMethodError("An even value was expected, but " + value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("An even value was expected, but " + value + " was received.");
 		}
 		
-		return new LongConjunctionMediator(test, this.value);
+		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
 	
 	//method
@@ -141,10 +143,10 @@ public class LongMediator {
 	public LongConjunctionMediator isNegative() {
 		
 		if (value > -1) {
-			test.addCurrentTestMethodError("A negative value was expected, but " + value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A negative value was expected, but " + value + " was received.");
 		}
 		
-		return new LongConjunctionMediator(test, this.value);
+		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
 	
 	//method
@@ -162,10 +164,10 @@ public class LongMediator {
 		}
 		
 		if (value >= min && value <= max) {
-			test.addCurrentTestMethodError("A value that is not between " + min + " and " + max + " was expected, but " + value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A value that is not between " + min + " and " + max + " was expected, but " + value + " was received.");
 		}
 		
-		return new LongConjunctionMediator(test, this.value);
+		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
 	
 	//method
@@ -177,10 +179,10 @@ public class LongMediator {
 	public LongConjunctionMediator equalsNot(final int value) {
 		
 		if (this.value == value) {
-			test.addCurrentTestMethodError("A value that is not " + value + " was expected, but " + this.value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A value that is not " + value + " was expected, but " + this.value + " was received.");
 		}
 		
-		return new LongConjunctionMediator(test, this.value);
+		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
 	
 	//method
@@ -191,10 +193,10 @@ public class LongMediator {
 	public LongConjunctionMediator isNotNegative() {
 		
 		if (value < 0) {
-			test.addCurrentTestMethodError("A value that is not negative was expected, but " + value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A value that is not negative was expected, but " + value + " was received.");
 		}
 		
-		return new LongConjunctionMediator(test, this.value);
+		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
 	
 	//method
@@ -206,7 +208,7 @@ public class LongMediator {
 		
 		equalsNot(1);
 		
-		return new LongConjunctionMediator(test, this.value);
+		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
 	
 	//method
@@ -217,10 +219,10 @@ public class LongMediator {
 	public LongConjunctionMediator isNotPositive() {
 		
 		if (value > 0) {
-			test.addCurrentTestMethodError("A value that is not positive was expected, but " + value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A value that is not positive was expected, but " + value + " was received.");
 		}
 		
-		return new LongConjunctionMediator(test, this.value);
+		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
 	
 	//method
@@ -231,10 +233,10 @@ public class LongMediator {
 	public LongConjunctionMediator isNotPrime() {
 		
 		if (valueIsPrime()) {
-			test.addCurrentTestMethodError("A value that is not prime was expected, but " + value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A value that is not prime was expected, but " + value + " was received.");
 		}
 		
-		return new LongConjunctionMediator(test, this.value);
+		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
 	
 	//method
@@ -246,7 +248,7 @@ public class LongMediator {
 		
 		equalsNot(0);
 		
-		return new LongConjunctionMediator(test, this.value);
+		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
 	
 	//method
@@ -257,10 +259,10 @@ public class LongMediator {
 	public LongConjunctionMediator isOdd() {
 		
 		if (value % 2 == 0) {
-			test.addCurrentTestMethodError("An odd value was expected, but " + value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("An odd value was expected, but " + value + " was received.");
 		}
 		
-		return new LongConjunctionMediator(test, this.value);
+		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
 	
 	//method
@@ -272,7 +274,7 @@ public class LongMediator {
 		
 		equals(1);
 		
-		return new LongConjunctionMediator(test, this.value);
+		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
 	
 	//method
@@ -283,10 +285,10 @@ public class LongMediator {
 	public LongConjunctionMediator isPositive() {
 		
 		if (value < 1) {
-			test.addCurrentTestMethodError("A positive value was expected, but " + value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A positive value was expected, but " + value + " was received.");
 		}
 		
-		return new LongConjunctionMediator(test, this.value);
+		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
 	
 	//method
@@ -297,10 +299,10 @@ public class LongMediator {
 	public LongConjunctionMediator isPrime() {
 		
 		if (!valueIsPrime()) {
-			test.addCurrentTestMethodError("A prime value was expected, but " + value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A prime value was expected, but " + value + " was received.");
 		}
 		
-		return new LongConjunctionMediator(test, this.value);
+		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
 	
 	//method
@@ -312,10 +314,10 @@ public class LongMediator {
 	public LongConjunctionMediator isSmallerThan(final long value) {
 		
 		if (this.value >= value) {
-			test.addCurrentTestMethodError("A value smaller than " + value + " was expected, but " + this.value + " was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A value smaller than " + value + " was expected, but " + this.value + " was received.");
 		}
 		
-		return new LongConjunctionMediator(test, this.value);
+		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
 	
 	//method
@@ -327,7 +329,7 @@ public class LongMediator {
 		
 		equals(0);
 		
-		return new LongConjunctionMediator(test, this.value);
+		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
 	
 	//method

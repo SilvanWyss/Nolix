@@ -3,7 +3,7 @@ package ch.nolix.common.interfaces;
 
 //interface
 /**
- * An approximative equaling object can be checked if it is approximative equal to an other object.
+ * An approximative equaling object can be checked if it equals approximatively an other object.
  * 
  * @author Silvan Wyss
  * @month 2016-07
@@ -17,7 +17,7 @@ public interface ApproximativeEqualing {
 	//default method
 	/**
 	 * @param object
-	 * @return true if this object is equal to the given object with a deviation that is smaller than the default deviation.
+	 * @return true if this object equals the given object with a deviation that is smaller than the default deviation.
 	 */
 	public default boolean equalsApproximatively(final Object object) {
 		return equalsApproximatively(object, DEFAULT_DEVIATION);
@@ -27,7 +27,7 @@ public interface ApproximativeEqualing {
 	/**
 	 * @param object
 	 * @param maxDeviation
-	 * @return true if this object is equal to the given object with a deviation that is smaller than the given max deviation.
+	 * @return true if this object equals the given object with a deviation that is smaller than the given max deviation.
 	 */
 	public abstract boolean equalsApproximatively(Object object, double maxDeviation);
 }

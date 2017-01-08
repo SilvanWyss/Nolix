@@ -5,14 +5,17 @@ package ch.nolix.common.zetaTest;
 import java.util.Vector;
 
 
-import ch.nolix.common.functional.IRunner;
+
+
 //own imports
+import ch.nolix.common.functional.IRunner;
 import ch.nolix.common.interfaces.ApproximativeEqualing;
+import ch.nolix.common.test.Accessor;
 import ch.nolix.common.test.Test;
 
 //abstract class
 /**
- * A zeta test is a test that provides the fluent pattern for how expectations can be written.
+ * A zeta test is a test that provides the fluent pattern for writing expectations.
  * 
  * @author Silvan Wyss
  * @month 2016-08
@@ -28,7 +31,7 @@ public abstract class ZetaTest extends Test {
 	 */
 	protected final void expectThat(final boolean value) {
 		if (!value) {
-			addCurrentTestMethodError("True was expected, but false was received.");
+			new Accessor(this).addCurrentTestMethodError("True was expected, but false was received.");
 		}
 	}
 	
@@ -52,7 +55,7 @@ public abstract class ZetaTest extends Test {
 	 */
 	protected final void expectThatNot(final boolean value) {
 		if (value) {
-			addCurrentTestMethodError("False was expected, but true was received.");
+			new Accessor(this).addCurrentTestMethodError("False was expected, but true was received.");
 		}
 	}
 	

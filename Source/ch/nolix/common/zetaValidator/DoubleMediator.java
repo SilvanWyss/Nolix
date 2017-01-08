@@ -1,10 +1,3 @@
-/*
- * file:	DoubleMediator.java
- * author:	Silvan Wyss
- * month:	2016-12
- * lines:	100
- */
-
 //package declaration
 package ch.nolix.common.zetaValidator;
 
@@ -14,31 +7,37 @@ import ch.nolix.common.exception.NonBiggerArgumentException;
 import ch.nolix.common.exception.NonNegativeArgumentException;
 import ch.nolix.common.exception.NonPositiveArgumentException;
 import ch.nolix.common.exception.PositiveArgumentException;
+import ch.nolix.common.exception.SmallerArgumentException;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2016-12
+ * @lines 110
+ */
 public final class DoubleMediator {
 
 	//attribute
 	private final double argument;
 	
-	//constructor
+	//package-visible constructor
 	/**
 	 * Creates new double mediator with the given argument.
 	 * 
-	 * @param argument		The argument of the double mediator.
+	 * @param argument
 	 */
-	public DoubleMediator(final double argument) {
+	DoubleMediator(final double argument) {
 		this.argument = argument;
 	}
 	
 	//method
 	/**
-	 * @param value		The value the argument of this double mediator is supposed to be bigger than.
-	 * @throws NonBiggerArgumentException if the argument of this double mediator is not bigger than the given value
+	 * @param value
+	 * @throws NonBiggerArgumentException if the argument of this double mediator is not bigger than the given value.
 	 */
 	public void isBiggerThan(final double value) {
 		
-		//Checks the argument of this double mediator.
+		//Checks if the argument of this double mediator is bigger than the given value.
 		if (argument <= value) {
 			throw new NonBiggerArgumentException(argument, value);
 		}
@@ -46,11 +45,24 @@ public final class DoubleMediator {
 	
 	//method
 	/**
-	 * @throws NonPositiveArgumentException if the argument of this double mediator is not positive
+	 * @param value
+	 * @throws SmallerArgumentException if the argument of this double mediator is not bigger than or does not equal the given value.
+	 */
+	public void isBiggerThanOrEquals(final double value) {
+		
+		//Checks if the argument of this double mediator is bigger than or equals the given value.
+		if (argument < value) {
+			throw new SmallerArgumentException(argument, value);
+		}
+	}
+	
+	//method
+	/**
+	 * @throws NonPositiveArgumentException if the argument of this double mediator is not positive.
 	 */
 	public void isPositive() {
 		
-		//Checks the argument of this double mediator.
+		//Checks if the argument of thid double mediator is positive.
 		if (argument <= 0) {
 			throw new NonPositiveArgumentException(argument);
 		}
@@ -58,11 +70,11 @@ public final class DoubleMediator {
 	
 	//method
 	/**
-	 * @throws NonNegativeArgumentException if the argument of this double mediator is not negative
+	 * @throws NonNegativeArgumentException if the argument of this double mediator is not negative.
 	 */
 	public void isNegative() {
 		
-		//Checks the argument of this double mediator.
+		//Checks if the argument of thid double mediator is negative.
 		if (argument >= 0) {
 			throw new NonNegativeArgumentException(argument);
 		}
@@ -70,11 +82,11 @@ public final class DoubleMediator {
 
 	//method
 	/**
-	 * @throws NegativeArgumentException if the argument of this double mediator is negative
+	 * @throws NegativeArgumentException if the argument of this double mediator is negative.
 	 */
 	public void isNotNegative() {
 		
-		//Checks the argument of this double mediator.
+		//Checks if the argument of thid double mediator is not negative.
 		if (argument < 0) {
 			throw new NegativeArgumentException(argument);
 		}
@@ -82,11 +94,11 @@ public final class DoubleMediator {
 	
 	//method
 	/**
-	 * @throws PositiveArgumentException if the argument of this double mediator is positive
+	 * @throws PositiveArgumentException if the argument of this double mediator is positive.
 	 */
 	public void isNotPositive() {
 		
-		//Checks the argument of this double mediator.
+		//Checks if the argument of thid double mediator is not positive.
 		if (argument > 0) {
 			throw new PositiveArgumentException(argument);
 		}
@@ -94,8 +106,8 @@ public final class DoubleMediator {
 
 	//method
 	/**
-	 * @param argumentName		The name of the argument of the created named double mediator
-	 * @return new named double mediator with the given argument named and the argument of this double mediator
+	 * @param argumentName
+	 * @return new named double mediator with the given argument name and the argument of this double mediator.
 	 */
 	public NamedDoubleMediator thatIsNamed(final String argumentName) {
 		return new NamedDoubleMediator(argumentName, argument);

@@ -10,4 +10,7 @@ public class FalseArgumentException extends ArgumentException {
 		super(argumentName, PREDICATE);
 	}
 
+	public FalseArgumentException() {
+		super(ArgumentException.DEFAULT_ARGUMENT_NAME, PREDICATE);
+	}
 }

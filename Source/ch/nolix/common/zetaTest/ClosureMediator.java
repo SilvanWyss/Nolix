@@ -3,18 +3,18 @@ package ch.nolix.common.zetaTest;
 
 //own imports
 import ch.nolix.common.functional.IRunner;
+import ch.nolix.common.test.Accessor;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2016-09
- * @lines 120
+ * @lines 110
  */
-public final class ClosureMediator {
+public final class ClosureMediator extends Mediator {
 
-	//attributes
-	private final ZetaTest zetaTest;
+	//attribute
 	final IRunner closure;
 	
 	//package-visible constructor
@@ -27,10 +27,9 @@ public final class ClosureMediator {
 	 */
 	ClosureMediator(final ZetaTest zetaTest, final IRunner closure) {
 		
-		//Checks if the given zeta test is not null.
-		ZetaValidator.supposeThat(zetaTest).thatIsNamed("zeta test").isNotNull();
-
-		this.zetaTest = zetaTest;
+		//Calls constructor of the base class.
+		super(zetaTest);
+		
 		this.closure = closure;
 	}
 	
@@ -44,14 +43,14 @@ public final class ClosureMediator {
 		
 		//Handles the case if the closure of this closure mediator is null.
 		if (closure == null) {
-			zetaTest.addCurrentTestMethodError("A closure that throws an exception was expected, but null was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A closure that throws an exception was expected, but null was received.");
 		}
 		
 		//Handles the case if the closure of this closure mediator is not null.
 		else {
 			try {
 				closure.run();
-				zetaTest.addCurrentTestMethodError("An exception was expected, but no exception was received.");
+				new Accessor(getZetaTest()).addCurrentTestMethodError("An exception was expected, but no exception was received.");
 			}
 			catch (Exception e) {}
 		}
@@ -72,18 +71,18 @@ public final class ClosureMediator {
 		
 		//Handles the case if the closure of this closure mediator is null.
 		if (closure == null) {
-			zetaTest.addCurrentTestMethodError("A closure that throws an exception of the type " + type.getName() + " was expected, but null was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A closure that throws an exception of the type " + type.getName() + " was expected, but null was received.");
 		}
 		
 		//Handles the case if the closure of this closure mediator is not null.
 		else {
 			try {
 				closure.run();
-				zetaTest.addCurrentTestMethodError("An exception of the type " + type.getName() + " was expected, but no exception was received.");
+				new Accessor(getZetaTest()).addCurrentTestMethodError("An exception of the type " + type.getName() + " was expected, but no exception was received.");
 			}
 			catch (Exception e) {
 				if (!e.getClass().isAssignableFrom(type)) {
-					zetaTest.addCurrentTestMethodError("An exception of the type " + type.getName() + " was expected, but an exception of the type " + e.getClass().getName() + " was received.");
+					new Accessor(getZetaTest()).addCurrentTestMethodError("An exception of the type " + type.getName() + " was expected, but an exception of the type " + e.getClass().getName() + " was received.");
 				}
 			}
 		}
@@ -99,7 +98,7 @@ public final class ClosureMediator {
 		
 		//Handles the case if the closure of this closure mediator is null.
 		if (closure == null) {
-			zetaTest.addCurrentTestMethodError("A closure that throws no exception was expected, but null was received.");
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A closure that throws no exception was expected, but null was received.");
 		}
 		
 		//Handles the case if the closure of this closure mediator is not null.
@@ -108,7 +107,7 @@ public final class ClosureMediator {
 				closure.run();
 			}
 			catch (Exception e) {
-				zetaTest.addCurrentTestMethodError("No exception was expected, but a " + e.getClass().getName() + " was received.");
+				new Accessor(getZetaTest()).addCurrentTestMethodError("No exception was expected, but a " + e.getClass().getName() + " was received.");
 			}
 		}
 	}
