@@ -2,6 +2,7 @@
 package ch.nolix.common.zetaValidator;
 
 //own imports
+import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.exception.EmptyArgumentException;
 import ch.nolix.common.exception.NullArgumentException;
 
@@ -31,7 +32,7 @@ abstract class NamedArgumentMediator {
 		}
 		
 		if (argumentName.isEmpty()) {
-			throw new EmptyArgumentException("argument name");
+			throw new EmptyArgumentException(new ArgumentName("argument name"));
 		}
 		
 		this.argumentName = argumentName;

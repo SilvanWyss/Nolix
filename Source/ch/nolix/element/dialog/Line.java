@@ -13,7 +13,10 @@ import java.awt.Graphics;
 
 //own imports
 import ch.nolix.common.container.List;
+import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.ArgumentName;
+import ch.nolix.common.exception.ErrorPredicate;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.Length;
@@ -201,7 +204,11 @@ extends Rectangle<L, SimpleRectangleStructure> {
 		
 		//Checks the given length.
 		if (length < MIN_LENGTH_TO_THICKNESS_RATIO * getThickness()) {
-			throw new ArgumentException("length", length, "is smaller than " + MIN_LENGTH_TO_THICKNESS_RATIO + "x the thickness " + getThickness() + ".");
+			throw new ArgumentException(
+				new ArgumentName("length"),
+				new Argument(length),
+				new ErrorPredicate("is smaller than " + MIN_LENGTH_TO_THICKNESS_RATIO + "x the thickness " + getThickness() + ".")
+			);
 		}
 		
 		this.length.setValue(length);
@@ -222,7 +229,11 @@ extends Rectangle<L, SimpleRectangleStructure> {
 		
 		//Checks the given thickness.
 		if (MIN_LENGTH_TO_THICKNESS_RATIO * thickness > getLength()) {
-			throw new ArgumentException("thickness", thickness, " multiplied with " + MIN_LENGTH_TO_THICKNESS_RATIO +  " is bigger than the length " + getLength() + ".");
+			throw new ArgumentException(
+				new ArgumentName("thickness"),
+				new Argument(thickness),
+				new ErrorPredicate(" multiplied with " + MIN_LENGTH_TO_THICKNESS_RATIO +  " is bigger than the length " + getLength() + ".")
+			);
 		}
 		
 		this.thickness.setValue(thickness);

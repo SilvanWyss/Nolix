@@ -6,9 +6,12 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 
+
 //own imports
 import ch.nolix.common.controller.ILevel2Controller;
-import ch.nolix.common.exception.InvalidArgumentException;
+import ch.nolix.common.exception.Argument;
+import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.module.CentralController;
 import ch.nolix.common.specification.Statement;
 import ch.nolix.common.util.WindowsEnvironmentVariablesManager;
@@ -79,7 +82,10 @@ public final class Nelix extends CentralController implements ILevel2Controller 
 		if (!request.hasNextStatement()) {
 			switch (request.toString()) {
 				default:
-					throw new InvalidArgumentException("request" ,request);
+					throw new ArgumentException(
+						new ArgumentName("request"),
+						new Argument(request)
+					);
 			}
 		}
 		String codeName = request.getFirstPartToString();
@@ -127,8 +133,10 @@ public final class Nelix extends CentralController implements ILevel2Controller 
 					quit();
 					return;
 				default:
-					
-					throw new InvalidArgumentException("command", command);
+					throw new ArgumentException(
+						new ArgumentName("command"),
+						new Argument(command)
+					);
 			}
 		}
 		

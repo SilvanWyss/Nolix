@@ -2,6 +2,7 @@
 package ch.nolix.common.zetaValidator;
 
 //own imports
+import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.NotNullArgumentException;
 import ch.nolix.common.exception.NullArgumentException;
 
@@ -48,7 +49,7 @@ abstract class ElementMediator<E> {
 		
 		//Checks if the argument of this element mediator is null.
 		if (argument != null) {
-			throw new NotNullArgumentException(argument);
+			throw new NotNullArgumentException(new Argument(argument));
 		}
 	}
 	

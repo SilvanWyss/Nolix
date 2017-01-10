@@ -1,113 +1,86 @@
-/*
- * file:	ValueUnderMinException.java
- * author:	Silvan Wyss
- * month:	2016-02
- * lines:	110
- */
-
 //package declaration
 package ch.nolix.common.exception;
 
 //class
 /**
- * An argument under min exception is an exception that is intended to be thrown when an argument is undesired smaller than a given minimum.
+ * A smaller argument exception is an exception that is intended to be thrown when an argument is undesired smaller than a given limit.
+ *
+ * @author Silvan Wyss
+ * @month 2016-02
+ * @lines 80
  */
 @SuppressWarnings("serial")
 public final class SmallerArgumentException extends ArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new under min argument exception with the default argument name and the given argument and maximum.
+	 * Creates new smaller argument exception for the given argument and limit.
 	 * 
-	 * @param argument	The argument of the under min argument exception.
-	 * @param min		The minimum of the under min argument exception.
+	 * @param argument
+	 * @param limit
 	 */
-	public SmallerArgumentException(
-		final double argument,
-		final double min) {
+	public SmallerArgumentException(final double argument, final double limit) {
 		
-		//Calls other constructor.
-		this(DEFAULT_ARGUMENT_NAME, argument, min);
+		//Calls constructor of the base class.
+		super(new Argument(argument), new ErrorPredicate("is smaller than " + limit));
 	}
 	
 	//constructor
 	/**
-	 * Creates new under min argument exception with the default argument name and the given argument and maximum.
+	 * Creates new smaller argument exception for the given argument and limit.
 	 * 
-	 * @param argument	The argument of the under min argument exception.
-	 * @param min		The minimum of the under min argument exception.
+	 * @param argument
+	 * @param limit
 	 */
-	public SmallerArgumentException(
-		final int argument,
-		final int min) {
+	public SmallerArgumentException(final long argument, final long limit) {
 		
-		//Calls other constructor.
-		this(DEFAULT_ARGUMENT_NAME, argument, min);
+		//Calls constructor of the base class.
+		super(new Argument(argument), new ErrorPredicate("is smaller than " + limit));
 	}
 	
 	//constructor
 	/**
-	 * Creates new under min argument exception with the default argument name and the given argument and maximum.
+	 * Creates new smaller argument exception for the given argument, that has the given argument name, and for the given limit.
 	 * 
-	 * @param argument	The argument of the under min argument exception.
-	 * @param min		The minimum of the under min argument exception.
-	 */
-	public SmallerArgumentException(
-		final long argument,
-		final long min) {
-		
-		//Calls other constructor.
-		this(DEFAULT_ARGUMENT_NAME, argument, min);
-	}
-	
-	//constructor
-	/**
-	 * Creates new under min argument exception with the given argument name, argument and maximum.
-	 * 
-	 * @param argumentName	The name of the argument of the under min argument exception.
-	 * @param argument		The argument of the under min argument exception.
-	 * @param min			The minimum of the under min argument exception.
+	 * @param argumentName
+	 * @param argument
+	 * @param limit
+	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is empty.
 	 */
 	public SmallerArgumentException(
 		final String argumentName,
 		final double argument,
-		final double min) {
-		
+		final double limit
+	) {
 		//Calls constructor of the base class.
-		super(argumentName, argument, " is smaller than " + min);
+		super(
+			new ArgumentName(argumentName),
+			new Argument(argument),
+			new ErrorPredicate("is smaller than " + limit)
+		);
 	}
 	
 	//constructor
 	/**
-	 * Creates new under min argument exception with the given argument name, argument and maximum.
+	 * Creates new smaller argument exception for the given argument, that has the given argument name, and for the given limit.
 	 * 
-	 * @param argumentName	The name of the argument of the under min argument exception.
-	 * @param argument		The argument of the under min argument exception.
-	 * @param min			The minimum of the under min argument exception.
-	 */
-	public SmallerArgumentException(
-		final String argumentName,
-		final int argument,
-		final int min) {
-		
-		//Calls constructor of the base class.
-		super(argumentName, argument, " is smaller than " + min);
-	}
-	
-	//constructor
-	/**
-	 * Creates new under min argument exception with the given argument name, argument and maximum.
-	 * 
-	 * @param argumentName	The name of the argument of the under min argument exception.
-	 * @param argument		The argument of the under min argument exception.
-	 * @param min			The minimum of the under min argument exception.
+	 * @param argumentName
+	 * @param argument
+	 * @param limit
+	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is empty.
 	 */
 	public SmallerArgumentException(
 		final String argumentName,
 		final long argument,
-		final long min) {
-		
+		final long limit
+	) {
 		//Calls constructor of the base class.
-		super(argumentName, argument, " is smaller than " + min);
+		super(
+			new ArgumentName(argumentName),
+			new Argument(argument),
+			new ErrorPredicate("is smaller than " + limit)
+		);
 	}
 }

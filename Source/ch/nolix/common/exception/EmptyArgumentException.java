@@ -1,37 +1,53 @@
-/*
- * file:	EmptyArgumentException.java
- * author:	Silvan Wyss
- * month:	2016-02
- * lines:	30
- */
-
 //package declaration
 package ch.nolix.common.exception;
 
 //class
 /**
  * An empty argument exception is an exception that is intended to be thrown when an argument is undesired empty.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-02
+ * @lines 50
  */
 @SuppressWarnings("serial")
 public final class EmptyArgumentException extends ArgumentException {
 
 	//constant
-	public final static String PREDICATE = "is empty";
+	private final static String ERROR_PREDICATE = "is empty";
 
+	//constructor
+	/**
+	 * Creates new empty argument exception.
+	 */
 	public EmptyArgumentException() {
 		
-		super(DEFAULT_ARGUMENT_NAME, PREDICATE);
+		//Calls constructor of the base class.
+		super(new ErrorPredicate(ERROR_PREDICATE));
 	}
 	
 	//constructor
 	/**
-	 * Creates new empty argument exception with the given argument name.
+	 * Creates new empty argument exception for the given argument.
 	 * 
-	 * @param argumentName	The name of the argument of the empty argument exception.
+	 * @param argument
+	 * @throws RuntimeException if the given argument is null.
 	 */
-	public EmptyArgumentException(final String argumentName) {
+	public EmptyArgumentException(final Argument argument) {
 		
 		//Calls constructor of the base class.
-		super(argumentName, PREDICATE);
+		super(argument, new ErrorPredicate(ERROR_PREDICATE));
+	}
+	
+	//constructor
+	/**
+	 * Creates new empty argument exception for an argument that has given argument name.
+	 * 
+	 * @param argumentName
+	 * @throws RuntimeException if the given argument name is null.
+	 */
+	public EmptyArgumentException(final ArgumentName argumentName) {
+		
+		//Calls constructor of the base class.
+		super(argumentName, new ErrorPredicate(ERROR_PREDICATE));
 	}
 }

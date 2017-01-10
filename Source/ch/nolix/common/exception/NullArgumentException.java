@@ -1,36 +1,41 @@
-/*
- * file:	NullArgumentException.java
- * author:	Silvan Wyss
- * month:	2016-04
- * lines:	30
- */
-
 //package declaration
 package ch.nolix.common.exception;
 
 //class
 /**
-* A null argument exception is an exception that is intended to be thrown when an argument is undesired null.
-*/
+ * A null argument exception is an exception that is intended to be thrown when an argument is undesired null.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-04
+ * @lines 40
+ */
 @SuppressWarnings("serial")
 public final class NullArgumentException extends ArgumentException {
 
 	//constant
-	private final static String PREDICATE = "is null";
+	private final static String ERROR_PREDICATE = "is null";
 	
+	//constructor
+	/**
+	 * Creates new null argument exception.
+	 */
 	public NullArgumentException() {
-		super(DEFAULT_ARGUMENT_NAME, PREDICATE);
+		
+		//Calls constructor of the base class.
+		super(new ErrorPredicate(ERROR_PREDICATE));
 	}
 	
 	//constructor
 	/**
-	 * Creates new null argument name exception with the given argument name.
+	 * Creates new null argument name exception for an argument with the given argument name.
 	 * 
-	 * @param argumentName	The name of the argument of this null argument exception
+	 * @param argumentName
+	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is empty.
 	 */
 	public NullArgumentException(final String argumentName) {
 		
 		//Calls constructor of the base class.
-		super(argumentName, PREDICATE);
+		super(new ArgumentName(argumentName), new ErrorPredicate(ERROR_PREDICATE));
 	}
 }

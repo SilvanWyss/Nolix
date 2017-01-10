@@ -1,30 +1,45 @@
-/*
- * file:	UnexistingAttributeException.java
- * author:	Silvan Wyss
- * month:	2016-02
- * lines:	30
- */
-
 //package declaration
 package ch.nolix.common.exception;
 
 //class
 /**
- * An unexisting attribute exception is an exception that is intended to be thrown when an object does not have a desired attribute.
+ * An unexisting attribute exception is an argument exception that is intended to be thrown when an argument does not have a desired attribute.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-02
+ * @lines 40
  */
 @SuppressWarnings("serial")
-public final class UnexistingAttributeException extends RuntimeException {
+public final class UnexistingAttributeException extends ArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new unexisting attribute for the given object and the attribute with the given name.
+	 * Creates new unexisting attribute exception for the given argument and attribute name.
 	 * 
-	 * @param object
-	 * @param name
+	 * @param argument
+	 * @param attributeName
+	 * @throws RuntimeException if the given argument is null.
+	 * @throws RuntimeException if the given attribute name is null.
+	 * @throws RuntimeException if the given attribute name is empty.
 	 */
-	public UnexistingAttributeException(Object object, String name) {
+	public UnexistingAttributeException(final Object argument, final String attributeName) {
 		
 		//Calls constructor of the base class.
-		super(object.getClass().getSimpleName() + " has no " + name + ".");
+		super(new Argument(argument), new ErrorPredicate("has no " + attributeName));
+		
+		//Checks if the given argument is null.
+		if (argument == null) {
+			throw new RuntimeException("The given argument is null.");
+		}
+		
+		//Checks if the given attribute name is null.
+		if (attributeName == null) {
+			throw new RuntimeException("The given attribtue name is null.");
+		}
+		
+		//Checks if the given attribute name is empty.
+		if (attributeName.isEmpty()) {
+			throw new RuntimeException("The given attribtue name is empty.");
+		}
 	}
 }

@@ -1,68 +1,86 @@
-/*
- * file:	NonBiggerArgumentException.java
- * author:	Silvan Wyss
- * month:	2016-12
- * lines:	60
- */
-
 //package declaration
 package ch.nolix.common.exception;
 
+//class
 /**
- * A non bigger argument exception is an argument exception that is indeed to be thrown when an argument is undesired not (!) bigger than a given value.
+ * A non bigger argument exception is an argument exception that is intended to be thrown when an argument is undesired not bigger than a given limit.
  * 
  * @author Silvan Wyss
+ * @month 2016-12
+ * @lines 80
  */
 @SuppressWarnings("serial")
 public class NonBiggerArgumentException extends ArgumentException {
 
 	//constructor
 	/**
-	 * Creates new non bigger argument exception with the given argument and value.
+	 * Creates new non bigger argument exception for the given argument and limit.
 	 * 
-	 * @param argument		The argument of this non bigger argument exception.
-	 * @param value			The value the argument of this non bigger argument exception is not bigger than.
+	 * @param argument
+	 * @param limit
 	 */
-	public NonBiggerArgumentException(
-		final double argument,
-		final double value
-	) {
+	public NonBiggerArgumentException(final double argument, final double limit) {
 		
 		//Calls constructor of the base class.
-		super(argument, " is not bigger than " + value);
-	}
-
-	//constructor
-	/**
-	 * Creates new non bigger argument exception with the given argument name, argument and value.
-	 * 
-	 * @param argumentName		The name of the argument of this non bigger argument exception.
-	 * @param argument			The argument of this non bigger argument exception.
-	 * @param value				The value the argument of this non bigger argument exception is not bigger than.
-	 */
-	public NonBiggerArgumentException(
-		final String argumentName,
-		final double argument,
-		final double value
-	) {
-		
-		super(argumentName, argument, " is not bigger than " + value);
+		super(new Argument(argument), new ErrorPredicate("is not bigger than " + limit));
 	}
 	
 	//constructor
 	/**
-	 * Creates new non bigger argument exception with the given argument name, argument and value.
+	 * Creates new non bigger argument exception for the given argument and limit.
 	 * 
-	 * @param argumentName		The name of the argument of this non bigger argument exception.
-	 * @param argument			The argument of this non bigger argument exception.
-	 * @param value				The value the argument of this non bigger argument exception is not bigger than.
+	 * @param argument
+	 * @param limit
+	 */
+	public NonBiggerArgumentException(final long argument, final long limit) {
+		
+		//Calls constructor of the base class.
+		super(new Argument(argument), new ErrorPredicate("is not bigger than " + limit));
+	}
+
+	//constructor
+	/**
+	 * Creates new non bigger argument exception for the given argument, that has the given argument name, and for the given limit.
+	 * 
+	 * @param argumentName
+	 * @param argument
+	 * @param limit
+	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is empty.
+	 */
+	public NonBiggerArgumentException(
+		final String argumentName,
+		final double argument,
+		final double limit
+	) {
+		//Calls constructor of the base class.
+		super(
+			new ArgumentName(argumentName),
+			new Argument(argument),
+			new ErrorPredicate("is not bigger than " + limit)
+		);
+	}
+	
+	//constructor
+	/**
+	 * Creates new non bigger argument exception for the given argument, that has the given argument name, and for the given limit.
+	 * 
+	 * @param argumentName
+	 * @param argument
+	 * @param limit
+	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is empty.
 	 */
 	public NonBiggerArgumentException(
 		final String argumentName,
 		final long argument,
-		final long value
+		final long limit
 	) {
-		
-		super(argumentName, argument, " is not bigger than " + value);
+		//Calls constructor of the base class.
+		super(
+			new ArgumentName(argumentName),
+			new Argument(argument),
+			new ErrorPredicate("is not bigger than " + limit)
+		);
 	}
 }

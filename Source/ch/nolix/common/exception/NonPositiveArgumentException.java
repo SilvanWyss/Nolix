@@ -1,62 +1,79 @@
-/*
- * file:	NoPositiveValueException.java
- * author:	Silvan Wyss
- * month:	2016-02
- * lines:	50
- */
-
 //package declaration
 package ch.nolix.common.exception;
 
 //class
 /**
- * A no positive value exception is an exception that is intended to be thrown when a value is undesired not positive.
+ * A non positive argument exception is an argument exception that is intended to be thrown when a value is undesired not positive.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-02
+ * @lines 70
  */
 @SuppressWarnings("serial")
 public final class NonPositiveArgumentException extends ArgumentException {
 
 	//constant
-	private final static String PREDICATE = "is not positive";
+	private final static String ERROR_PREDICATE = "is not positive";
 	
+	//constructor
+	/**
+	 * Creates new non positive argument exception for the given argument.
+	 * 
+	 * @param argument
+	 */
 	public NonPositiveArgumentException(final double argument) {
 		
-		super(argument, PREDICATE);
+		//Calls constructor of the base class.
+		super(new Argument(argument), new ErrorPredicate(ERROR_PREDICATE));
 	}
 	
 	//constructor
 	/**
-	 * Creates new no positive value exception for the given value, that has the given value name.
+	 * Creates new non positive argument exception for the given argument.
 	 * 
-	 * @param name
-	 * @param value
+	 * @param argument
 	 */
-	public NonPositiveArgumentException(String name, double value) {
-		super(name, value, PREDICATE);
-	}
-	
-	//constructor
-	/**
-	 * Creates new no positive value exception for the given value, that has the given value name.
-	 * 
-	 * @param name
-	 * @param value
-	 */
-	public NonPositiveArgumentException(String name, int value) {
+	public NonPositiveArgumentException(final long argument) {
 		
 		//Calls constructor of the base class.
-		super(name, value, PREDICATE);
+		super(new Argument(argument), new ErrorPredicate(ERROR_PREDICATE));
 	}
 	
 	//constructor
 	/**
-	 * Creates new no positive value exception for the given value, that has the given value name.
+	 * Creates new non positive argument exception for the given argument that has the given argument name.
 	 * 
-	 * @param name
-	 * @param value
+	 * @param argumentName
+	 * @param argument
+	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is empty.
 	 */
-	public NonPositiveArgumentException(String name, long value) {
+	public NonPositiveArgumentException(String argumentName, double argument) {
 		
 		//Calls constructor of the base class.
-		super(name, value, PREDICATE);
+		super(
+			new ArgumentName(argumentName),
+			new Argument(argument),
+			new ErrorPredicate(ERROR_PREDICATE)
+		);
+	}
+	
+	//constructor
+	/**
+	 * Creates new non positive argument exception for the given argument that has the given argument name.
+	 * 
+	 * @param argumentName
+	 * @param argument
+	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is empty.
+	 */
+	public NonPositiveArgumentException(String argumentName, long argument) {
+		
+		//Calls constructor of the base class.
+		super(
+			new ArgumentName(argumentName),
+			new Argument(argument),
+			new ErrorPredicate(ERROR_PREDICATE)
+		);
 	}
 }

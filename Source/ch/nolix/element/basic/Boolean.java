@@ -10,7 +10,9 @@ package ch.nolix.element.basic;
 
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.InvalidArgumentException;
+import ch.nolix.common.exception.Argument;
+import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.specification.Specification;
 
 //class
@@ -116,7 +118,10 @@ public final class Boolean extends Element {
 				setTrue();
 				break;
 			default:
-				throw new InvalidArgumentException("attribute", attribute);
+				throw new ArgumentException(
+					new ArgumentName("attribute"),
+					new Argument(attribute)
+				);
 		}
 	}
 	

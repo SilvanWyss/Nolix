@@ -1,16 +1,41 @@
+//package declaration
 package ch.nolix.common.exception;
 
+//class
+/**
+ * A false argument exception is an argument exception that is intended to be thrown when an argument is undesired false.
+ * 
+ * @author Silvan Wyss
+ * @month 2017-01
+ * @lines 30
+ */
 @SuppressWarnings("serial")
 public class FalseArgumentException extends ArgumentException {
 
-	private final static String PREDICATE = "is false";
+	//constant
+	private final static String ERROR_PREDICATE = "is false";
 	
-	public FalseArgumentException(String argumentName) {
-		
-		super(argumentName, PREDICATE);
-	}
-
+	//constructor
+	/**
+	 * Creates new false argument exception.
+	 */
 	public FalseArgumentException() {
-		super(ArgumentException.DEFAULT_ARGUMENT_NAME, PREDICATE);
+		
+		//Calls constructor of the base class.
+		super(new ErrorPredicate(ERROR_PREDICATE));
+	}
+	
+	//constructor
+	/**
+	 * Creates new false argument exception for an argument with the given argument name.
+	 * 
+	 * @param argumentName
+	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is empty.
+	 */
+	public FalseArgumentException(final String argumentName) {
+		
+		//Calls constructor of the base class.
+		super(new ArgumentName(argumentName), new ErrorPredicate(ERROR_PREDICATE));
 	}
 }

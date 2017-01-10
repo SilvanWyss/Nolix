@@ -10,7 +10,9 @@ package ch.nolix.element.dialog;
 
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.InvalidArgumentException;
+import ch.nolix.common.exception.Argument;
+import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.element.basic.Color;
@@ -663,7 +665,10 @@ extends RectangleStructure<BRS> {
 				setBottomBorderColor(attribute.getOneAttributeToString());
 				break;
 			default:
-				throw new InvalidArgumentException("attribute", attribute);
+				throw new ArgumentException(
+					new ArgumentName("attribute"),
+					new Argument(attribute)
+				);
 		}
 	}
 	

@@ -89,7 +89,7 @@ public final class LongMediator {
 		
 		//Checks if the argument of this long mediator is not 0.
 		if (argument == 0) {
-			throw new ZeroArgumentException(argument);
+			throw new ZeroArgumentException();
 		}
 	}
 	

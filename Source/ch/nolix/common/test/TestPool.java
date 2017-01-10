@@ -4,8 +4,12 @@ package ch.nolix.common.test;
 //Java import
 import java.util.Vector;
 
+
+
+import ch.nolix.common.exception.Argument;
 //own imports
 import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.ErrorPredicate;
 import ch.nolix.common.interfaces.Executable;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
@@ -117,7 +121,10 @@ public abstract class TestPool implements Executable {
 		
 		//Checks if the given test pool does not contain this test pool recursively.
 		if (testPool.containsTestPoolRecursively(this)) {
-			throw new ArgumentException(testPool, " contains the test pool recursively");
+			throw new ArgumentException(
+				new Argument(testPool),
+				new ErrorPredicate(" contains the test pool recursively")
+			);
 		}
 		
 		testoids.add(testPool);

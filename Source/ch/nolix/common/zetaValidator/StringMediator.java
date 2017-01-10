@@ -2,6 +2,7 @@
 package ch.nolix.common.zetaValidator;
 
 //own imports;
+import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.BiggerArgumentException;
 import ch.nolix.common.exception.EmptyArgumentException;
 import ch.nolix.common.exception.NonEmptyArgumentException;
@@ -56,7 +57,7 @@ public final class StringMediator extends ElementMediator<String> {
 		
 		//Checks if the argument of this string mediator is empty.
 		if (!getRefArgument().isEmpty()) {
-			throw new NonEmptyArgumentException(getRefArgument());
+			throw new NonEmptyArgumentException(new Argument(getRefArgument()));
 		}
 	}
 

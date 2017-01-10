@@ -1,15 +1,46 @@
+//package declaration
 package ch.nolix.common.exception;
 
-@SuppressWarnings("serial")
+//class
 /**
- * @author Silvan
+ * A not null argument exception is an argument exception that is intended to be thrown when an argument is undesired not null.
+ * 
+ * @author Silvan Wyss
  * @month 2017-01
+ * @lines 40
  */
+@SuppressWarnings("serial")
 public class NotNullArgumentException extends ArgumentException {
 
-	private final static String PREDICATE = "is not null";
+	//constant
+	private final static String ERROR_PREDICATE = "is not null";
 
-	public NotNullArgumentException(final Object argument) {
-		super(argument, PREDICATE);
+	//constructor
+	/**
+	 * Creates new not null argument exception for the given argument.
+	 * 
+	 * @param argument
+	 * @throws RuntimeException if the given argument is null.
+	 */
+	public NotNullArgumentException(final Argument argument) {
+		
+		//Calls constructor of the base class.
+		super(argument, new ErrorPredicate(ERROR_PREDICATE));
+	}
+	
+	//constructor
+	/**
+	 * Creates new not null argument exception for the given argument that has the given argument name.
+	 * 
+	 * @param argumentName
+	 * @param argument
+	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is empty.
+	 * @throws RuntimeException if the given argument is null.
+	 */
+	public NotNullArgumentException(final ArgumentName argumentName, final Argument argument) {
+		
+		//Calls constructor of the base class.
+		super(argumentName, argument, new ErrorPredicate(ERROR_PREDICATE));
 	}
 }

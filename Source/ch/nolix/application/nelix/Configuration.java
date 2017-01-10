@@ -3,7 +3,9 @@ package ch.nolix.application.nelix;
 
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.InvalidArgumentException;
+import ch.nolix.common.exception.Argument;
+import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.zetaValidator.ZetaValidator;
@@ -41,7 +43,10 @@ final class Configuration extends Element {
 				setDesign(attribute.getOneAttributeToString());
 				break;
 			default:
-				throw new InvalidArgumentException("attribute", attribute);
+				throw new ArgumentException(
+					new ArgumentName("attribute"),
+					new Argument(attribute)
+				);
 		}
 	}
 	

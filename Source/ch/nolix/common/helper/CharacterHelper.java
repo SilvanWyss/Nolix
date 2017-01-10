@@ -8,8 +8,10 @@
 //package declaration
 package ch.nolix.common.helper;
 
-//own import
-import ch.nolix.common.exception.InvalidArgumentException;
+//own imports
+import ch.nolix.common.exception.Argument;
+import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.ArgumentName;
 
 //class
 /**
@@ -62,7 +64,10 @@ public final class CharacterHelper {
 		}
 		
 		if (firstLetter < 65 || firstLetter > 90) {
-			throw new InvalidArgumentException("firstLetter", firstLetter);
+			throw new ArgumentException(
+				new ArgumentName("first letter"),
+				new Argument(firstLetter)
+			);
 		}
 		
 		return "a";

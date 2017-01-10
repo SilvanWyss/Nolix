@@ -5,8 +5,10 @@ package ch.nolix.common.container;
 import java.util.Iterator;
 import java.util.Random;
 
+
+import ch.nolix.common.exception.Argument;
 //own imports
-import ch.nolix.common.exception.EmptyElementException;
+import ch.nolix.common.exception.EmptyArgumentException;
 import ch.nolix.common.functional.IElementTakerDoubleGetter;
 import ch.nolix.common.functional.IElementTakerIntGetter;
 import ch.nolix.common.functional.IElementTakerLongGetter;
@@ -181,7 +183,7 @@ public interface IContainer<E> extends Iterable<E>, Clearable<IContainer<E>> {
 		
 		//Checks if this container is empty.
 		if (isEmpty()) {
-			throw new EmptyElementException(this);
+			throw new EmptyArgumentException(new Argument(this));
 		}
 		
 		double sum = 0.0;
@@ -203,7 +205,7 @@ public interface IContainer<E> extends Iterable<E>, Clearable<IContainer<E>> {
 		
 		//Checks if this container is empty.
 		if (isEmpty()) {
-			throw new EmptyElementException(this);
+			throw new EmptyArgumentException(new Argument(this));
 		}
 		
 		double sum = 0.0;
@@ -225,7 +227,7 @@ public interface IContainer<E> extends Iterable<E>, Clearable<IContainer<E>> {
 	
 		//Checks if this container is empty.
 		if (isEmpty()) {
-			throw new EmptyElementException(this);
+			throw new EmptyArgumentException(new Argument(this));
 		}
 		
 		double sum = 0.0;
@@ -392,7 +394,7 @@ public interface IContainer<E> extends Iterable<E>, Clearable<IContainer<E>> {
 		
 		//Checks if this list is empty.
 		if (isEmpty()) {
-			throw new EmptyElementException(this);
+			throw new EmptyArgumentException(new Argument(this));
 		}
 		
 		return (100.0 * getCount(selector) / getSize());
@@ -408,7 +410,7 @@ public interface IContainer<E> extends Iterable<E>, Clearable<IContainer<E>> {
 		
 		//Checks if this list is empty.
 		if (isEmpty()) {
-			throw new EmptyElementException(this);
+			throw new EmptyArgumentException(new Argument(this));
 		}
 		
 		return ((double)getCount(selector) / getSize());
@@ -423,7 +425,7 @@ public interface IContainer<E> extends Iterable<E>, Clearable<IContainer<E>> {
 		
 		//Checks if this list is empty.
 		if (isEmpty()) {
-			throw new EmptyElementException(this);
+			throw new EmptyArgumentException(new Argument(this));
 		}
 		
 		return getRefAt(new Random().nextInt(getSize()) + 1);

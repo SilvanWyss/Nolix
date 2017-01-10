@@ -14,7 +14,9 @@ import ch.nolix.common.container.List;
 import ch.nolix.common.duplexController.DuplexController;
 import ch.nolix.common.duplexController.LocalDuplexController;
 import ch.nolix.common.duplexController.NetDuplexController;
-import ch.nolix.common.exception.InvalidArgumentException;
+import ch.nolix.common.exception.Argument;
+import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.interfaces.Abortable;
 import ch.nolix.common.specification.Specification;
@@ -543,9 +545,11 @@ implements Abortable
 			case ClientProtocol.UPDATE_COMMAND:
 				update(command.getRefOneAttribute());
 				break;
-			default:	
-				
-				throw new InvalidArgumentException(command);
+			default:
+				throw new ArgumentException(
+					new ArgumentName("command"),
+					new Argument(command)
+				);
 		}
 	}
 	

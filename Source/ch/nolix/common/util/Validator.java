@@ -9,6 +9,7 @@
 package ch.nolix.common.util;
 
 //own imports
+import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.exception.EmptyArgumentException;
 import ch.nolix.common.exception.NegativeArgumentException;
 import ch.nolix.common.exception.NullArgumentException;
@@ -33,7 +34,7 @@ public final class Validator {
 		Validator.throwExceptionIfValueIsNull(name, string);
 		
 		if (string.length() < 1) {
-			throw new EmptyArgumentException(name);
+			throw new EmptyArgumentException(new ArgumentName(name));
 		}
 	}
 	

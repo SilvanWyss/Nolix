@@ -11,7 +11,6 @@ package ch.nolix.common.zetaEndPoint;
 //java import
 import java.net.ServerSocket;
 
-
 //own imports
 import ch.nolix.common.constants.PortManager;
 import ch.nolix.common.exception.UnexistingAttributeException;

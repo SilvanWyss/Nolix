@@ -13,10 +13,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-
-
-import ch.nolix.common.basic.AbortableElement;
 //own imports
+import ch.nolix.common.basic.AbortableElement;
 import ch.nolix.common.constants.PortManager;
 import ch.nolix.common.container.List;
 import ch.nolix.common.exception.UnexistingAttributeException;

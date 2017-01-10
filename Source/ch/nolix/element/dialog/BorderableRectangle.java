@@ -11,10 +11,6 @@ package ch.nolix.element.dialog;
 //Java import
 import java.awt.Graphics;
 
-
-
-
-
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.exception.UnexistingAttributeException;

@@ -11,7 +11,9 @@ package ch.nolix.common.specification;
 //own imports
 import ch.nolix.common.constants.StringManager;
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.InvalidArgumentException;
+import ch.nolix.common.exception.Argument;
+import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.helper.CharacterHelper;
 import ch.nolix.common.helper.StringHelper;
@@ -286,12 +288,18 @@ abstract class Specificationoid {
 			
 			//Checks whether the given specification string contains a closing bracket before an opening bracket.
 			if (character == CharacterHelper.CLOSING_BRACKET) {
-				throw new InvalidArgumentException("content", value);
+				throw new ArgumentException(
+					new ArgumentName("content"),
+					new Argument(value)
+				);
 			}
 			
 			//Checks whether the given specification string contains a comma before an opening bracket.
 			if (character == CharacterHelper.COMMA) {
-				throw new InvalidArgumentException("content", value);
+				throw new ArgumentException(
+					new ArgumentName("content"),
+					new Argument(value)
+				);
 			}
 			
 			if (character == CharacterHelper.OPENING_BRACKET) {	
@@ -309,7 +317,10 @@ abstract class Specificationoid {
 
 			//Checks whether the start index is too big.
 			if (startIndex > value.length() - 1) {
-				throw new InvalidArgumentException("content", value);
+				throw new ArgumentException(
+					new ArgumentName("content"),
+					new Argument(value)
+				);
 			}
 			
 			int level = 0;
@@ -340,12 +351,18 @@ abstract class Specificationoid {
 			
 			//Checks whether the given specificationoid string has not as many opening brackets as closing brackets.
 			if (level != 0) {
-				throw new InvalidArgumentException("content", value);
+				throw new ArgumentException(
+					new ArgumentName("content"),
+					new Argument(value)
+				);
 			}
 			
 			//Checks whether the last character of the given specificationoid string is a closing bracket.
 			if (value.charAt(value.length() - 1) != CharacterHelper.CLOSING_BRACKET) {
-				throw new InvalidArgumentException("content", value);
+				throw new ArgumentException(
+					new ArgumentName("content"),
+					new Argument(value)
+				);
 			}
 		}
 		else if (value.length() > 0) {

@@ -29,9 +29,12 @@ import javax.swing.JFrame;
 
 
 
+
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.InvalidArgumentException;
+import ch.nolix.common.exception.Argument;
+import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.Element;
@@ -154,7 +157,10 @@ public final class GraphicText extends Element {
 				setColor(attribute.getOneAttributeToString());
 				break;
 			default:
-				throw new InvalidArgumentException("attribute", attribute);
+				throw new ArgumentException(
+					new ArgumentName("attribute"),
+					new Argument(attribute)
+				);
 		}
 	}
 	

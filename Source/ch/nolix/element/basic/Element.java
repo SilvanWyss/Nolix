@@ -11,7 +11,9 @@ package ch.nolix.element.basic;
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.controller.ILevel2Controller;
-import ch.nolix.common.exception.InvalidArgumentException;
+import ch.nolix.common.exception.Argument;
+import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.specification.Specifiable;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.specification.Statement;
@@ -79,7 +81,10 @@ public abstract class Element implements
 			case TYPES_REQUEST:
 				return getTypes();
 			default:
-				throw new InvalidArgumentException("request", request);
+				throw new ArgumentException(
+					new ArgumentName("request"),
+					new Argument(request)
+				);
 		}	
 	}
 	
@@ -137,7 +142,10 @@ public abstract class Element implements
 		if (header.startsWith(SET_COMMAND_PREFIX)) {
 			
 			if (header.length() < 4) {
-				throw new InvalidArgumentException("command", command);
+				throw new ArgumentException(
+					new ArgumentName("command"),
+					new Argument(command)
+				);
 			}
 			
 			addOrChangeAttribute(new Specification(header.substring(3), command.getRefAttributes()));
@@ -159,7 +167,10 @@ public abstract class Element implements
 		}
 		
 		//Handles the case when the given command is not valid.
-		throw new InvalidArgumentException("commands", command);
+		throw new ArgumentException(
+			new ArgumentName("command"),
+			new Argument(command)
+		);
 	}
 			
 	//method
