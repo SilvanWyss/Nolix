@@ -1,25 +1,51 @@
 //package declaration
 package ch.nolix.system.neuro;
 
+//own import
+import ch.nolix.common.zetaValidator.ZetaValidator;
+
 //class
 /**
- * A triggerable neuronoid provides a neutro to trigger.
+ * A triggerable neuronoid provides a neutron to trigger.
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 10
- * @param <O>
- * @param <N>
+ * @lines 50
  */
-public class TriggerableNeuronoid<O, N extends Neuron<O, N>> {
+public final class TriggerableNeuronoid {
 	
-	final Neuron<O, N> neuron;
+	//attribute
+	private final Neuron<?, ?, ?> neuron;
+	
+	//constructor
+	/**
+	 * Creates new triggerable neuronoid with the givne neuron.
+	 * 
+	 * @param neuron
+	 * @throws NullArgumentException if the given neuron is null.
+	 */
+	public TriggerableNeuronoid(Neuron<?, ?, ?> neuron) {
 		
-	public TriggerableNeuronoid(Neuron<O, N> neuron) {
+		//Checks if the given neuron is not null.
+		ZetaValidator.supposeThat(neuron).thatIsInstanceOf(Neuron.class).isNotNull();
+		
 		this.neuron = neuron;
 	}
 	
-	public boolean hasNeuron(Neuron<O, N> n) {
-		return (n == neuron);
+	//method
+	/**
+	 * @param neuron
+	 * @return true if this triggerable neuronoid has the given neuron.
+	 */
+	public boolean hasNeuron(final Neuron<?, ?, ?> neuron) {
+		return (this.neuron == neuron);
+	}
+
+	//package-visible method
+	/**
+	 * @return the neuron of this triggerable neronoid.
+	 */
+	Neuron<?, ?, ?> getRefNeuron() {
+		return neuron;
 	}
 }

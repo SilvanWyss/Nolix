@@ -11,14 +11,20 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 60
- * @param <O> The type of the inputs and the output of the standard neuron.
+ * @lines 80
+ * @param <O> The type of the output of the standard neuron.
  */
 public final class StandardNeuron<O>
-extends Neuron<O, StandardNeuron<O>> {
-
+extends Neuron<O, O, StandardNeuron<O>> {
+	
 	//attribute
 	private IElementTakerElementGetter<Iterable<O>, O> outputFunction;
+	
+	public StandardNeuron() {}
+	
+	public StandardNeuron(final O output) {
+		setOutputFunction(output);
+	}
 	
 	//method
 	/**
@@ -64,5 +70,21 @@ extends Neuron<O, StandardNeuron<O>> {
 		setOutputFunction(c -> output);
 		
 		return this;
+	}
+
+	//method
+	/**
+	 * @return the maximal number of input neurons of this standard neuron.
+	 */
+	protected int getMaxInputNeuronCount() {
+		return Integer.MAX_VALUE;
+	}
+
+	//method
+	/**
+	 * @return the minimal number of input neurons of this standard neuron.
+	 */
+	protected int getMinInputNeuronCount() {
+		return 0;
 	}
 }

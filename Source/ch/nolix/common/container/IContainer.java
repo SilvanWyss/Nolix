@@ -5,9 +5,9 @@ package ch.nolix.common.container;
 import java.util.Iterator;
 import java.util.Random;
 
-
-import ch.nolix.common.exception.Argument;
 //own imports
+import ch.nolix.common.constants.StringManager;
+import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.EmptyArgumentException;
 import ch.nolix.common.functional.IElementTakerDoubleGetter;
 import ch.nolix.common.functional.IElementTakerIntGetter;
@@ -15,6 +15,7 @@ import ch.nolix.common.functional.IElementTakerLongGetter;
 import ch.nolix.common.functional.IElementTakerComparableGetter;
 import ch.nolix.common.functional.IElementTakerBooleanGetter;
 import ch.nolix.common.functional.IElementTakerElementGetter;
+import ch.nolix.common.helper.CharacterHelper;
 import ch.nolix.common.interfaces.Clearable;
 
 //interface
@@ -23,7 +24,7 @@ import ch.nolix.common.interfaces.Clearable;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 910
+ * @lines 1000
  * @param <E> - The type of the elements of the container.
  */
 public interface IContainer<E> extends Iterable<E>, Clearable<IContainer<E>> {
@@ -978,5 +979,29 @@ public interface IContainer<E> extends Iterable<E>, Clearable<IContainer<E>> {
 		}
 		
 		return array;
+	}
+	
+	//default method
+	/**
+	 * @return a tabulator separated string representation of this container.
+	 */
+	public default String toTablulatorSeparatedString() {
+		
+		String string = StringManager.EMPTY_STRING;
+		
+		boolean begin = true;
+		for (E e: this) {
+			
+			if (begin) {
+				begin = false;
+			}
+			else {
+				string += CharacterHelper.TABULATOR;
+			}
+			
+			string += e.toString();
+		}
+		
+		return string;
 	}
 }

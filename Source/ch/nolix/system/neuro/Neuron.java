@@ -11,18 +11,19 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
 /**
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 190
- * @param <O> - The type of the inputs and the output of a neuron.
- * @param <N> - The concrete type of a neuron.
+ * @lines 270
+ * @param <I> - The type of the inputs of a neuron.
+ * @param <O> - The type of the output of a neuron.
+ * @param <N> - The type of a neuron.
  */
-public abstract class Neuron<O, N extends Neuron<O, N>> {
+public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	
 	//attribute
 	private O output;
 	
 	//multiple attributes
-	private final List<InputNeuronoid<O>> inputNeurons = new List<InputNeuronoid<O>>();
-	private final List<TriggerableNeuronoid<O, N>> triggerableNeurons = new List<TriggerableNeuronoid<O, N>>();
+	private final List<InputNeuronoid<I>> inputNeurons = new List<InputNeuronoid<I>>();
+	private final List<TriggerableNeuronoid> triggerableNeurons = new List<TriggerableNeuronoid>();
 	
 	//method
 	/**
@@ -32,20 +33,34 @@ public abstract class Neuron<O, N extends Neuron<O, N>> {
 	 * @param inputNeuron
 	 * @return this neuron.
 	 * @throws NullArgumentException if the given input neuron is null.
+	 * @throws NonSmallerArgumentException if this neuron has reached its maximal number of input neurons.
+	 * @throws RuntimeException if this neuron contains already the given input neuron.
+	 */
+	public final N addInputNeuron(final Neuron<?, I, ?> inputNeuron) {
+		return addInputNeuron(new InputNeuronoid<I>(inputNeuron));
+	}
+	
+	//method
+	/**
+	 * Adds the given input neuron to this neuron.
+	 * An input neuron is a neuron this neuron can take its input from.
+	 * 
+	 * @param inputNeuron
+	 * @return this neuron.
+	 * @throws NullArgumentException if the given input neuron is null.
+	 * @throws NonSmallerArgumentException if this neuron has reached its maximal number of input neurons.
 	 * @throws RuntimeException if this neuron contains already the given input neuron.
 	 */
 	@SuppressWarnings("unchecked")
-	public final N addInputNeuron(final Neuron<O, ?> inputNeuron) {
+	public final N addInputNeuron(final InputNeuronoid<I> inputNeuron) {
 		
 		//Checks if the given input neuron is not null.
 		ZetaValidator.supposeThat(inputNeuron).thatIsNamed("input neuron").isNotNull();
 		
-		//Checks if this neuron does not contain the given input neuron.
-		if (inputNeurons.contains(in -> in.hasNeuron(inputNeuron))) {	
-			throw new RuntimeException("Neuron contains already the given input neuron.");
-		}
-		
-		inputNeurons.addAtEnd(new InputNeuronoid<O>(inputNeuron));
+		//Checks if this neuron has not reached its maximal number of input neurons.
+		ZetaValidator.supposeThat(getInputNeuronCount()).isSmallerThan(getMaxInputNeuronCount());
+				
+		inputNeurons.addAtEndRegardingSingularity(inputNeuron);
 		
 		return (N)this;
 	}
@@ -61,9 +76,27 @@ public abstract class Neuron<O, N extends Neuron<O, N>> {
 	 * @throws RuntimeException if this neuron contains already the given triggering neuron.
 	 */
 	@SuppressWarnings("unchecked")
-	public final N addTriggeringNeuron(final Neuron<O, N> triggeringNeuron) {	
+	public final N addTriggeringNeuron(final Neuron<?, ?, ?> triggeringNeuron) {	
 		
 		triggeringNeuron.addTriggerableNeuron(this);
+		
+		return (N)this;
+	}
+	
+	//method
+	/**
+	 * Removes all input neurons of this neuron.
+	 * 
+	 * @return this neuron.
+	 * @throws UnequalArgumentException if the minimal number of input neurons of this neuron is not 0.
+	 */
+	@SuppressWarnings("unchecked")
+	public final N clearInputNeurons() {
+		
+		//Checks if the minimal number of input neurons of this neuron is 0.
+		ZetaValidator.supposeThat(getMinInputNeuronCount()).thatIsNamed("minimal number of input neurons").isZero();
+		
+		inputNeurons.clear();
 		
 		return (N)this;
 	}
@@ -82,9 +115,13 @@ public abstract class Neuron<O, N extends Neuron<O, N>> {
 	 * 
 	 * @param inputNeuron
 	 * @return this neuron.
+	 * @throws NonSmallerArgumentException if this neuron has reached its minimal number of input neurons.
 	 */
 	@SuppressWarnings("unchecked")
-	public final N removeInputNeuron(final Neuron<O, N> inputNeuron) {
+	public final N removeInputNeuron(final Neuron<?, ?, ?> inputNeuron) {
+		
+		//Checks if this neuron has not reached its minimal number of input neurons.
+		ZetaValidator.supposeThat(getInputNeuronCount()).isSmallerThan(getMinInputNeuronCount());
 		
 		inputNeurons.removeFirst(in -> in.hasNeuron(inputNeuron));
 		
@@ -99,7 +136,7 @@ public abstract class Neuron<O, N extends Neuron<O, N>> {
 	 * @return this neuron.
 	 */
 	@SuppressWarnings("unchecked")
-	public final N removeTriggeringNeuron(final Neuron<O, N> triggeringNeuron) {
+	public final N removeTriggeringNeuron(final Neuron<?, ?, ?> triggeringNeuron) {
 		
 		triggeringNeuron.removeTriggerableNeuron(this);
 		
@@ -124,9 +161,29 @@ public abstract class Neuron<O, N extends Neuron<O, N>> {
 	
 	//method
 	/**
+	 * @return the number of input neurons of this neuron.
+	 */
+	protected final int getInputNeuronCount() {
+		return inputNeurons.getSize();
+	}
+	
+	//abstract method
+	/**
+	 * @return the maximal number of input neurons of this neuron.
+	 */
+	protected abstract int getMaxInputNeuronCount();
+	
+	//abstract method
+	/**
+	 * @return the minimal number of input neurons of this neuron.
+	 */
+	protected abstract int getMinInputNeuronCount();
+	
+	//method
+	/**
 	 * @return the input neurons of this neuron.
 	 */
-	protected final IContainer<InputNeuronoid<O>> getRefInputNeurons() {
+	protected final IContainer<InputNeuronoid<I>> getRefInputNeurons() {
 		return inputNeurons;
 	}
 	
@@ -134,15 +191,33 @@ public abstract class Neuron<O, N extends Neuron<O, N>> {
 	/**
 	 * @return the inputs of this neuron, what are the outputs of the input neurons of this neuron.
 	 */
-	protected final IContainer<O> getRefInputs() {
+	protected final List<I> getRefInputs() {
 		return inputNeurons.toContainer(in -> in.getRefInput());
+	}
+	
+	//method
+	/**
+	 * @return the one input of this neuron.
+	 * @throws Exception if this neuron has no or several inputs.
+	 */
+	protected final I getRefOneInput() {
+		return inputNeurons.getRefOne().getRefInput();
+	}
+	
+	//method
+	/**
+	 * @return the one input neuron of this neuron
+	 * @throws RuntimeException if this neuron contains no or several input neurons.
+	 */
+	protected final InputNeuronoid<I> getRefOneInputNeuron() {
+		return inputNeurons.getRefOne();
 	}
 	
 	//method
 	/**
 	 * @return the triggerable neurons of this neurons, what are the neurons this neuron can trigger.
 	 */
-	protected final IContainer<TriggerableNeuronoid<O, N>> getRefTriggerableNeurons() {
+	protected final IContainer<TriggerableNeuronoid> getRefTriggerableNeurons() {
 		return triggerableNeurons;
 	}
 	
@@ -152,7 +227,7 @@ public abstract class Neuron<O, N extends Neuron<O, N>> {
 	 * 
 	 * @param output
 	 */
-	protected final void setOutput(final O output) {
+	protected void setOutput(final O output) {
 		this.output = output;
 	}
 	
@@ -162,7 +237,7 @@ public abstract class Neuron<O, N extends Neuron<O, N>> {
 	 * 
 	 * @param processor
 	 */
-	abstract void trigger(final Processor processor);
+	protected abstract void trigger(final Processor processor);
 	
 	//method
 	/**
@@ -172,7 +247,7 @@ public abstract class Neuron<O, N extends Neuron<O, N>> {
 	 * @throws NullArgumentException if the given triggerable neuron is null.
 	 * @throws RuntimeException if this neuron contains already the given triggerable neuron.
 	 */
-	private void addTriggerableNeuron(Neuron<O, N> triggerableNeuron) {
+	private void addTriggerableNeuron(Neuron<?, ?, ?> triggerableNeuron) {
 		
 		//Checks if the given triggerable neuron is not null.
 		ZetaValidator.supposeThat(triggerableNeuron).thatIsNamed("triggerable neuron").isNotNull();
@@ -182,7 +257,7 @@ public abstract class Neuron<O, N extends Neuron<O, N>> {
 			throw new RuntimeException("Neuron contains already the given triggerable neuron.");
 		}
 		
-		triggerableNeurons.addAtEnd(new TriggerableNeuronoid<O, N>(triggerableNeuron));
+		triggerableNeurons.addAtEnd(new TriggerableNeuronoid(triggerableNeuron));
 	}
 	
 	//method
@@ -191,7 +266,7 @@ public abstract class Neuron<O, N extends Neuron<O, N>> {
 	 * 
 	 * @param triggerableNeuron
 	 */
-	private void removeTriggerableNeuron(final Neuron<O, N> triggerableNeuron) {
+	private void removeTriggerableNeuron(final Neuron<?, ?, ?> triggerableNeuron) {
 		triggerableNeurons.removeFirst(tn -> tn.hasNeuron(triggerableNeuron));
 	}
 }

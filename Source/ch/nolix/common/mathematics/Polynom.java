@@ -208,7 +208,6 @@ public final class Polynom {
 		}
 	}
 	
-	
 	//method
 	/**
 	 * Sets the coefficients of this polynom.

@@ -10,7 +10,6 @@ package ch.nolix.common.sequencer;
 
 //own import
 import ch.nolix.common.functional.IRunner;
-import ch.nolix.common.util.Validator;
 
 //class
 public final class ForCountMediator {
@@ -23,11 +22,11 @@ public final class ForCountMediator {
 	 * Creates new doer with the given count.
 	 * 
 	 * @param count
-	 * @throws Exception if the given count is not positve
+	 * @throws Exception if the given count is negative.
 	 */
 	public ForCountMediator(int count) {
 		
-		Validator.throwExceptionIfValueIsNotPositive("count", count);
+		//TODO: Check if count is not negative.
 		
 		this.count = count;
 	}

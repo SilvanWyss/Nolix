@@ -10,12 +10,13 @@ import ch.nolix.common.exception.NonPositiveArgumentException;
 import ch.nolix.common.exception.NullArgumentException;
 import ch.nolix.common.exception.PositiveArgumentException;
 import ch.nolix.common.exception.SmallerArgumentException;
+import ch.nolix.common.exception.UnequalArgumentException;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 110
+ * @lines 130
  */
 public final class NamedLongMediator extends NamedArgumentMediator {
 	
@@ -37,6 +38,19 @@ public final class NamedLongMediator extends NamedArgumentMediator {
 		super(argumentName);
 		
 		this.argument = argument;
+	}
+	
+	//method
+	/**
+	 * @param value
+	 * @throws UnequalArgumentException if the argument of this named long mediator does not equal the given value.
+	 */
+	public void equals(final long value) {
+		
+		//Checks if the argument of this named long mediator equals the given value.
+		if (argument != value) {
+			throw new UnequalArgumentException(getArgumentName(), argument, value);
+		}
 	}
 	
 	//method
@@ -111,5 +125,13 @@ public final class NamedLongMediator extends NamedArgumentMediator {
 		if (argument < 1) {
 			throw new NonPositiveArgumentException(getArgumentName(), argument);
 		}
+	}
+	
+	//method
+	/**
+	 * @throws UnequalArgumentException if the argument of this named long mediator is not 0.
+	 */
+	public void isZero() {
+		equals(0);
 	}
 }

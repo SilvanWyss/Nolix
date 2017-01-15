@@ -13,7 +13,7 @@ import ch.nolix.common.specification.Specification;
 
 //class
 public class FrontStandardClient extends Client<FrontStandardClient> {
-	
+		
 	//constructor
 	public FrontStandardClient(
 		final String ip,

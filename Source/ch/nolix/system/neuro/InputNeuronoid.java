@@ -1,14 +1,7 @@
-/*
- * file:	InputNeuronoid.java
- * author:	Silvan Wyss
- * month:	2016-12
- * lines:	10
- */
-
 //package declaration
 package ch.nolix.system.neuro;
 
-//onw import
+//own import
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
@@ -16,23 +9,25 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
  * An input neuronoid provides an input.
  * 
  * @author Silvan Wyss
+ * @month 2016-12
+ * @lines 50
  */
-public final class InputNeuronoid<I> {
+public final class InputNeuronoid<O> {
 
 	//attribute
-	private final Neuron<I, ?> neuron;
+	private final Neuron<?, O, ?> neuron;
 	
 	//constructor
 	/**
 	 * Creates new input neuronoid with the given neuron.
 	 * 
-	 * @param neuron		The neuron of this neuronoid.
-	 * @throws NullArgumentException if the given neuron is null
+	 * @param neuron
+	 * @throws NullArgumentException if the given neuron is null.
 	 */
-	public InputNeuronoid(final Neuron<I, ?> neuron) {
+	public InputNeuronoid(final Neuron<?, O, ?> neuron) {
 		
-		//Checks the given neuron.
-		ZetaValidator.supposeThat(neuron).thatIsNamed("neuron").isNotNull();
+		//Checks if the given neuron is not null.
+		ZetaValidator.supposeThat(neuron).thatIsInstanceOf(Neuron.class).isNotNull();
 		
 		this.neuron = neuron;
 	}
@@ -41,7 +36,7 @@ public final class InputNeuronoid<I> {
 	/**
 	 * @return the output of the neuron of this input neuronoid.
 	 */
-	public I getRefInput() {
+	public O getRefInput() {
 		return neuron.getRefOutput();
 	}
 	
@@ -50,7 +45,7 @@ public final class InputNeuronoid<I> {
 	 * @param neuron
 	 * @return true of this input neuronoid has the given neuron.
 	 */
-	public boolean hasNeuron(final Neuron<I, ?> neuron) {	
+	public boolean hasNeuron(final Neuron<?, ?, ?> neuron) {	
 		return (this.neuron == neuron);
 	}
 }
