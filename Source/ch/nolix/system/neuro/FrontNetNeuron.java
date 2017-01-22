@@ -4,6 +4,8 @@ package ch.nolix.system.neuro;
 //own imports
 import ch.nolix.common.functional.IElementTakerElementGetter;
 import ch.nolix.common.specification.Specification;
+import ch.nolix.common.zetaValidator.ZetaValidator;
+import ch.nolix.system.application.StandardClient;
 
 //class
 /**
@@ -12,7 +14,7 @@ import ch.nolix.common.specification.Specification;
  * @author Silvan Wyss
  * @month 2017-01
  * @lines 10
- * @param <O>
+ * @param <O> - The type of the output of a front net neuron.
  */
 public final class FrontNetNeuron<O>
 extends Neuron<Object, O, FrontNetNeuron<O>> {
@@ -27,24 +29,26 @@ extends Neuron<Object, O, FrontNetNeuron<O>> {
 	 * @param ip
 	 * @param port
 	 * @param transformer
+	 * @throws NullArgumentException if the given transformer is null.
 	 */
 	public FrontNetNeuron(
 		final String ip,
 		final int port,
 		IElementTakerElementGetter<Specification, O> transformer
 	) {
-		//TODO
 		
+		//Checks if the given transform function is not null.
+		ZetaValidator.supposeThat(transformer).thatIsNamed("transformer").isNotNull();
+				
+		//Sets the transformer of this net neuron.
 		this.transformer = transformer;
-	}
-
-	/**
-	 * Triggers this front net neuron using the given processor.
-	 * 
-	 * @param processor
-	 */
-	protected void trigger(Processor processor) {
-		getRefTriggerableNeurons().forEach(tn -> processor.addNeuronToTrigger(tn));
+		
+		new StandardClient(
+			ip,
+			port,
+			NetNeuron.DEFAULT_NET_NEURON_APPLICATION_NAME,
+			new FrontNetNeuronSession<O>(this)
+		);
 	}
 
 	//method
@@ -57,30 +61,39 @@ extends Neuron<Object, O, FrontNetNeuron<O>> {
 
 	//method
 	/**
-	 * @return the minimum number of input neuronso f this front net neuron.
+	 * @return the minimum number of input neurons of this front net neuron.
 	 */
 	protected int getMinInputNeuronCount() {
 		return 0;
 	}
 	
-	//package-visible method
+	//method
 	/**
-	 * Sets the output of this front net neuron and triggers this front net neuron.
+	 * Triggers this front net neuron using the given processor.
 	 * 
-	 * @param output
+	 * @param processor
 	 */
-	void setOutputAndTrigger(final Specification output) {
-		setOutput(transformer.getOutput(output));
-		trigger();
+	protected void trigger(Processor processor) {
+		getRefTriggerableNeurons().forEach(tn -> processor.addNeuronToTrigger(tn));
 	}
 	
 	//package-visible method
 	/**
-	 * Sets the output of this front net neuron and triggers this front net neuron.
+	 * Sets the output of this front net neuron.
 	 * 
 	 * @param output
 	 */
-	void setOutputAndTrigger(final String output) {
-		setOutputAndTrigger(new Specification(output));
+	void setOutput(final Specification output) {
+		setOutput(transformer.getOutput(output));
+	}
+	
+	//package-visible method
+	/**
+	 * Sets the output of this front net neuron.
+	 * 
+	 * @param output
+	 */
+	void setOutput(final String output) {
+		setOutput(transformer.getOutput(new Specification(output)));
 	}
 }

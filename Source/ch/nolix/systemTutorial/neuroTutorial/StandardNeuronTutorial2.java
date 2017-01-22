@@ -5,7 +5,7 @@ package ch.nolix.systemTutorial.neuroTutorial;
 import ch.nolix.common.mathematics.Calculator;
 import ch.nolix.system.neuro.StandardNeuron;
 
-//package-visible class
+//class
 /**
  * This class provides a tutorial for the standard neuron class.
  * 
@@ -13,7 +13,7 @@ import ch.nolix.system.neuro.StandardNeuron;
  * @month 2016-11
  * @lines 60
  */
-final class StandardNeuronTutorial2 {
+public final class StandardNeuronTutorial2 {
 
 	//main method
 	/**

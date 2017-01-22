@@ -35,7 +35,12 @@ extends ContextSession<StandardClient, FrontNetNeuron<O>> {
 	public void initialize() {}
 	
 	//run method
-	public void SetOutputAndTrigger(final String output) {
-		getRefContext().setOutputAndTrigger(output);
+	public void SetOutput(final String output) {
+		getRefContext().setOutput(output);
+	}
+	
+	//run method
+	public void Trigger() {
+		getRefContext().trigger();
 	}
 }

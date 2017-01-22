@@ -50,6 +50,28 @@ public final class StandardClient extends Client<StandardClient> {
 	
 	//constructor
 	/**
+	 * Creates new standard client that:
+	 * -Connects to the given target application on the given port on the machine with the given ip.
+	 * -Has the given initial session.
+	 * 
+	 * @param ip
+	 * @param port
+	 * @param targetApplication
+	 * @param initialSession
+	 */
+	public StandardClient(
+		final String ip,
+		final int port,
+		final String targetApplication,
+		final Session<StandardClient> initialSession
+	) {
+		
+		//Calls constructor of the base class.
+		super(ip, port, targetApplication, initialSession);
+	}
+	
+	//constructor
+	/**
 	 * Creates new standard client with the given duplex controller.
 	 * 
 	 * @param duplexController
@@ -59,6 +81,20 @@ public final class StandardClient extends Client<StandardClient> {
 				
 		//Calls constructor of the base class.
 		super(duplexController);
+	}
+	
+	//constructor
+	/**
+	 * Creates new standard client with the given duplex controller and initial session.
+	 * 
+	 * @param duplexController
+	 * @param initialSession
+	 * @throws NullArgumentException if the given duplex controller is null.
+	 * @throws NullArgumentException if the given initial session is null.
+	 */
+	public StandardClient(final DuplexController duplexController, final Session<StandardClient> initialSession) {
+		
+		super(duplexController, initialSession);
 	}
 	
 	//method

@@ -32,7 +32,7 @@ implements Abortable {
 	
 	//commands
 	protected final static String INVOKE_RUN_METHOD_COMMAND = "InvokeRunMethod";
-	protected final static String SET_READY_SIGNAL_COMMAND = "SetReadySignal";
+	protected final static String TAKE_READY_SIGNAL_COMMAND = "TakeReadySignal";
 	
 	//requests
 	protected final static String TYPE_REQUEST = "Type";
@@ -221,7 +221,7 @@ implements Abortable {
 		session = initialSession;
 		session.setClient(this);
 		
-		//7. Initializes the inital session of this client.
+		//7. Initializes the initial session of this client.
 		session.initialize();
 		internal_finishSessionInitialization();
 		
@@ -271,7 +271,7 @@ implements Abortable {
 		session = initialSession;
 		session.setClient(this);
 		
-		//8. Initializes the inital session of this client.
+		//8. Initializes the initial session of this client.
 		session.initialize();
 		internal_finishSessionInitialization();
 		
@@ -598,8 +598,8 @@ implements Abortable {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
-			case SET_READY_SIGNAL_COMMAND:
-				setReceivedReadySignalFlag();
+			case TAKE_READY_SIGNAL_COMMAND:
+				takeReadySignal();
 				break;
 			case INVOKE_RUN_METHOD_COMMAND:
 				internal_invokeRunMethod(command.getRefOneAttribute());
@@ -636,14 +636,14 @@ implements Abortable {
 	 * Lets this client send the ready signal.
 	 */
 	private final void sendReadySignal() {
-		duplexController.run(SET_READY_SIGNAL_COMMAND);
+		duplexController.run(TAKE_READY_SIGNAL_COMMAND);
 	}
 	
 	//method
 	/**
-	 * Sets the received ready signal flag of this client.
+	 * Sets the received ready flag of this client.
 	 */
-	private void setReceivedReadySignalFlag() {
+	private void takeReadySignal() {
 		receivedReadySignalFlag = true;
 	}
 	
@@ -657,7 +657,12 @@ implements Abortable {
 		
 		final long time = System.currentTimeMillis();
 		
-		while (!receivedReadySignalFlag) {			
+		//This loop suffers from being optimized away by the compiler or JVM.
+		while (!receivedReadySignalFlag) {
+			
+			//The following statement that is actually unnecessary makes that the loop is not optimized away.
+			System.out.flush();
+			
 			if (System.currentTimeMillis() - time > duplexController.getTimeoutInMilliseconds()) {
 				throw new RuntimeException("TimeOut");
 			}
