@@ -9,6 +9,13 @@ import ch.nolix.system.application.StandardClient;
 /**
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 10
+ * @lines 20
  */
-final class NetNeuronSession extends Session<StandardClient> {}
+final class NetNeuronSession extends Session<StandardClient> {
+
+	//method
+	/**
+	 * Initializes this net neuron session.
+	 */
+	public void initialize() {}
+}

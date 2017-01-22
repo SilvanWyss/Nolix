@@ -1,30 +1,27 @@
-/*
- * file:	Session.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	140
- */
-
 //package declaration
 package ch.nolix.system.application;
 
-//Java imports
+//Java import
 import java.lang.reflect.Method;
-
 
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.helper.MethodHelper;
-import ch.nolix.common.util.Validator;
+import ch.nolix.common.zetaValidator.ZetaValidator;
 
-//class
+//abstract class
 /**
- * A session handles the incoming commands and requests of a client on the origin computer.
+ * A session handles the run method commands and data method requests a client receives.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 150
+ * @param <C> - The type of the client of a session.
  */
-public class Session<C extends Client<?>> {
+public abstract class Session<C extends Client<?>> {
 	
-	//optional attribute
+	//attribute
 	private C client;
 
 	//multiple attributes	
@@ -37,7 +34,7 @@ public class Session<C extends Client<?>> {
 	 */
 	public Session() {
 		
-		//Extracts run methods and data methods of this session by iterating the methods of this session.
+		//Extracts the run methods and the data methods of this session by iterating the methods of this session.
 		for (Method m: getClass().getMethods()) {
 			if (Character.isUpperCase(m.getName().charAt(0)) && MethodHelper.allParametersOfMethodAreStrings(m)) {	
 				
@@ -60,60 +57,64 @@ public class Session<C extends Client<?>> {
 		}
 	}
 	
+	//abstract method
+	/**
+	 * Initializes this session.
+	 */
+	public abstract void initialize();
+	
 	//method
 	/**
-	 * @return the client of this session
-	 * @throws Exception if this session has no client
+	 * @return the client of this session.
+	 * @throws UnexistingAttributeException if this session has no client.
 	 */
 	protected final C getRefClient() {
 		
+		//Checks if this session has a client.
 		if (!hasClient()) {
-			throw new UnexistingAttributeException(this, "client");
+			throw new UnexistingAttributeException(this, Client.class);
 		}
 		
 		return client;
 	}
 	
-	//method
-	/**
-	 * Initializes this session.
-	 */
-	protected void initialize() {}
-	
 	//package-visible method
 	/**
-	 * Invokes the given run method using the given parameters.
+	 * Invokes the given data method with the given parameters.
 	 * 
-	 * @param runMethod
+	 * @param dataMethod
 	 * @param parameters
-	 * @throws Exception if an error occurs
+	 * @return the data the given data method returns for the given parameters.
+	 * @throws RuntimeException if an error occurs.
 	 */
-	final void invokeRunMethod(String runMethod, List<String> parameters) {
+	final Object invokeDataMethod(String dataMethod, List<String> parameters) {
 		
+		//Creates parameter array.
 		final Object[] parameterArray = parameters.toArray();
 		
 		try {
-			runMethods.getRefFirst(m -> m.getName().equals(runMethod)).invoke(this, parameterArray);
+			return dataMethods.getRefFirst(m -> m.getName().equals(dataMethod)).invoke(this, parameterArray);
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 	}
 	
-	//method
+	//package-visible method
 	/**
-	 * Invokes the given data method using the given parameters.
+	 * Invokes the given run method with the given parameters.
 	 * 
-	 * @param dataMethod
+	 * @param runMethod
 	 * @param parameters
-	 * @throws Exception if an error occurs
+	 * @throws RuntimeException if an error occurs.
 	 */
-	final Object invokeDataMethod(String dataMethod, List<String> parameters) {
+	final void invokeRunMethod(final String runMethod, final List<String> parameters) {
 		
-		Object[] parameterArray = parameters.toArray();
+		//Creates parameter array.
+		final Object[] parameterArray = parameters.toArray();
 		
 		try {
-			return dataMethods.getRefFirst(m -> m.getName().equals(dataMethod)).invoke(this, parameterArray);
+			runMethods.getRefFirst(m -> m.getName().equals(runMethod)).invoke(this, parameterArray);
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
@@ -125,26 +126,27 @@ public class Session<C extends Client<?>> {
 	 * Sets the client of this session.
 	 * 
 	 * @param client
-	 * @throws Exception if:
-	 * -The given client is null.
-	 * -This session has already a client.
+	 * @throws NullArgumentException if the given client is null.
+	 * @throws RuntimeException if this session has already a client.
 	 */
 	@SuppressWarnings("unchecked")
 	final void setClient(Client<?> client) {
 		
-		//Checks the given client.
-		Validator.throwExceptionIfValueIsNull("client", client);
+		//Checks if the given client is not null.
+		ZetaValidator.supposeThat(client).thatIsInstanceOf(Client.class).isNotNull();
 		
+		//Checks if this session has not already a client.
 		if (hasClient()) {
 			throw new RuntimeException("Session has already a client.");
 		}
 		
+		//Sets the client of this session.
 		this.client = (C)client;
 	}
 	
 	//method
 	/**
-	 * @return true if this session has a client
+	 * @return true if this session has a client.
 	 */
 	private boolean hasClient() {
 		return (client != null);

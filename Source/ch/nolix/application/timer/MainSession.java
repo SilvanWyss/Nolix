@@ -57,7 +57,7 @@ public final class MainSession extends Session<DialogClient> {
 		//Sets the design of the dialog of the dialog client of this main session.
 		getRefClient().getRefDialog().setConfiguration(new Design());
 
-		Sequencer.afterAllMilliseconds(100).runInBackground(()->{getRefClient().invoke("UpdateDialog");});
+		Sequencer.afterAllMilliseconds(100).runInBackground(()->{getRefClient().runLocally("UpdateDialog");});
 	}
 	
 	//method

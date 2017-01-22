@@ -57,7 +57,7 @@ public final class Nelix extends CentralController implements ILevel2Controller 
 		
 		//Creates front dialog client.
 		new FrontDialogClient(
-			new ContextApplication<Nelix, DialogClient>("Nelix", this, MainSession.class)
+			new ContextApplication<DialogClient, Nelix>("Nelix", this, MainSession.class)
 		);
 	}
 	

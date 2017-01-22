@@ -55,7 +55,7 @@ public final class MainSession extends Session<DialogClient> {
 		//Starts update method in background.
 		Sequencer
 		.afterAllMilliseconds(UPDATE_INTERVAL_IN_MILLISECONDS)
-		.runInBackground(()->getRefClient().invoke("UpdateDialog"));
+		.runInBackground(()->getRefClient().runLocally("UpdateDialog"));
 	}
 	
 	//method

@@ -9,7 +9,7 @@ import ch.nolix.system.application.StandardClient;
 /**
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 10
+ * @lines 40
  * @param <O> - The type of the output of the front net neuron of a front net neuron session.
  */
 final class FrontNetNeuronSession<O>
@@ -28,7 +28,13 @@ extends ContextSession<StandardClient, FrontNetNeuron<O>> {
 		super(context);
 	}
 	
-	//session method
+	//method
+	/**
+	 * Initializes this front net neuron session.
+	 */
+	public void initialize() {}
+	
+	//run method
 	public void SetOutputAndTrigger(final String output) {
 		getRefContext().setOutputAndTrigger(output);
 	}

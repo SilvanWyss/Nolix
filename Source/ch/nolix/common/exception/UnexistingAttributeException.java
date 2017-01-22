@@ -7,10 +7,29 @@ package ch.nolix.common.exception;
  * 
  * @author Silvan Wyss
  * @month 2016-02
- * @lines 40
+ * @lines 60
  */
 @SuppressWarnings("serial")
 public final class UnexistingAttributeException extends ArgumentException {
+	
+	//constructor
+	/**
+	 * Creates new unexisting attribute exception for the given argument that is of the given argument type.
+	 * 
+	 * @param argument
+	 * @param argumentType
+	 * @throws RuntimeException if the given argument is null.
+	 */
+	public UnexistingAttributeException(final Object argument, final Class<?> argumentType) {
+		
+		//Calls constructor of the base class.
+		super(new Argument(argument), new ErrorPredicate("has no " + argumentType.getSimpleName()));
+		
+		//Checks if the given argument is null.
+		if (argument == null) {
+			throw new RuntimeException("The given argument is null.");
+		}
+	}
 	
 	//constructor
 	/**

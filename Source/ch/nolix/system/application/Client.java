@@ -1,10 +1,3 @@
-/*
- * file:	Client.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	590
- */
-
 //package declaration
 package ch.nolix.system.application;
 
@@ -18,161 +11,272 @@ import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.ArgumentException;
 import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.exception.UnexistingAttributeException;
+import ch.nolix.common.functional.IElementTakerRunner;
 import ch.nolix.common.interfaces.Abortable;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.specification.Statement;
-import ch.nolix.common.util.Validator;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //abstract class
 /**
- * A client is a connection end point.
+ * A client is an a connection end point.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 660
+ * @param <C> - The type of a client.
  */
 public abstract class Client<C extends Client<C>>
 extends OptionalSignableElement<C>
-implements Abortable
-{	
+implements Abortable {
+	
+	//commands
+	protected final static String INVOKE_RUN_METHOD_COMMAND = "InvokeRunMethod";
+	protected final static String SET_READY_SIGNAL_COMMAND = "SetReadySignal";
+	
+	//requests
+	protected final static String TYPE_REQUEST = "Type";
+	protected final static String TARGET_APPLICATION_REQUEST = "TargetApplicationRequest";
+	protected static final String DATA_METHOD_REQUEST = "Data";
+		
 	//attributes
-	private DuplexController duplexController;
-	final boolean requestedConnection;
-	private boolean receivedReadySignal = false;
+	private final DuplexController duplexController;
+	private final boolean requestedConnectionFlag;
+	private boolean receivedReadySignalFlag = false;
 	
 	//optional attributes
-	Session<?> session;
 	private final String targetApplication;
+	private Session<C> session;
 	
 	//constructor
 	/**
-	 * Creates new client that will connect to the given application.
+	 * Creates new client that will connect to the given target application.
 	 * 
-	 * @param application
+	 * @param targetApplication
+	 * @throws NullArgumentException if the given target application is null.
 	 */
-	protected Client(final Application<C> application) {
+	public Client(final Application<C> targetApplication) {
 		
 		//1. Sets the request connection flag of this client.
-		requestedConnection = true;
+		requestedConnectionFlag = true;
 		
-		//2. Sets the target application of this client.
-		targetApplication = application.getName();
+		//2. Checks if the given target application is not null.
+		ZetaValidator.supposeThat(targetApplication).thatIsNamed("target application").isNotNull();
 		
-		//3. Creates the duplex controller of this client.
-		duplexController = new LocalDuplexController(new ClientReceiverController(this));
+		//3. Sets the target application of this client.
+		this.targetApplication = targetApplication.getName();
 		
-		//4. Connects this client to the given application.
-		application.createClient(new LocalDuplexController(duplexController));
+		//4. Creates the duplex controller of this client.
+		duplexController = new LocalDuplexController();
+		duplexController.setReceiverController(new ClientReceiverController(this));
 		
-		//5. Lets this client wait to the ready signal.
+		//5. Connects this client to the given application.
+		final LocalDuplexController duplexController2 = new LocalDuplexController();
+		((LocalDuplexController)duplexController).connectWith(duplexController2);
+		targetApplication.createClient(duplexController2);
+		
+		//6. Waits to the ready signal.
 		waitToReadySignal();
 	}
 	
 	//constructor
 	/**
-	 * Creates new client with the given setup object that will connect to the given application.
+	 * Creates new client that will connect to the given target application.
 	 * 
-	 * @param setupObject
-	 * @param application
+	 * @param targetApplication
+	 * @param initializationFunction
+	 * @throws NullArgumentException if the given target application is null.
+	 * @throws NullArgumentException if the given initialization function is null.
 	 */
-	protected Client(Object setupObject, Application<?> application) {
+	@SuppressWarnings("unchecked")
+	public Client(final Application<?> targetApplication, final IElementTakerRunner<C> initializationFunction) {
 		
-		requestedConnection = true;
+		//1. Sets the request connection flag of this client.
+		requestedConnectionFlag = true;
 		
-		//1. clearing targetApplication
-		targetApplication = null;
+		//2. Checks if the given target application is not null.
+		ZetaValidator.supposeThat(targetApplication).thatIsNamed("target application").isNotNull();
 		
-		//2. setup
-		this.initialize(setupObject);
+		//3. Sets the target application of this client.
+		this.targetApplication = targetApplication.getName();
 		
-		//3. setting duplex controller
+		//4. Initializes this client.
+		initializationFunction.run((C)this);
+		
+		//5. Creates the duplex controller of this client.
 		duplexController = new LocalDuplexController();
 		duplexController.setReceiverController(new ClientReceiverController(this));
 		
-		//4. connecting
-		LocalDuplexController endClientController = new LocalDuplexController();
-		endClientController.connectWith((LocalDuplexController)duplexController);
-		application.createClient(endClientController);
+		//6. Connects this client to the given application.
+		final LocalDuplexController duplexController2 = new LocalDuplexController();
+		((LocalDuplexController)duplexController).connectWith(duplexController2);
+		targetApplication.createClient(duplexController2);
 		
-		//5. waiting to ready signal
+		//7. Waits to the ready signal.
 		waitToReadySignal();
 	}
 	
 	//constructor
 	/**
 	 * Creates new client that:
+	 * -Will connect to the given target application.
 	 * -Has the given initial session.
-	 * -Will connect to the given application.
 	 * 
-	 * @param application
+	 * @param targetApplication
 	 * @param initialSession
+	 * @throws NullArgumentException if the given target application is null.
+	 * @throws NullArgumentException if the givne initial session is null.
 	 */
-	protected Client(
-		final Application<?> application,
-		final Session<?> initialSession
-	) {
+	public Client(final Application<?> targetApplication, final Session<C> initialSession) {
 		
 		//1. Sets the requested connection flag of this client.
-		requestedConnection = true;
+		requestedConnectionFlag = true;
+		
+		//2. Checks if the given target application is not null.
+		ZetaValidator.supposeThat(targetApplication).thatIsNamed("target application").isNotNull();
+		
+		//3. Sets the target application of this client.
+		this.targetApplication = targetApplication.getName();
+		
+		//4. Creates the duplex controller of this client.
+		duplexController = new LocalDuplexController();
+		duplexController.setReceiverController(new ClientReceiverController(this));
+		
+		//5. Checks if the given initial session is not null.
+		ZetaValidator.supposeThat(initialSession).thatIsNamed("initial session").isNotNull();
+		
+		//6. Sets the initial session of this client.
+		session = initialSession;
+		session.setClient(this);
+		
+		//7. Connects this client to the given application.
+		final LocalDuplexController endClientController = new LocalDuplexController();
+		endClientController.connectWith((LocalDuplexController)duplexController);
+		targetApplication.createClient(endClientController);
+		
+		//8. Waits to the ready signal.
+		waitToReadySignal();
+		
+		//9. Initializes the initial session of this client.
+		session.initialize();
+		internal_finishSessionInitialization();
+	}
+	
+	//constructor
+	/**
+	 * Creates new client with the given duplex controller.
+	 * 
+	 * @param duplexController
+	 * @throws NullArgumentException if the given duplex controller is null.
+	 */
+	public Client(final DuplexController duplexController) {
+		
+		//1. Sets the requested connection flag of this client.
+		requestedConnectionFlag = false;
 		
 		//2. Clears the target application of this client.
 		targetApplication = null;
 		
-		//3. Creates the duplex controller of this client.
-		duplexController =
-		new LocalDuplexController()
-		.setReceiverController(new ClientReceiverController(this));
+		//3. Checks if the given duplex controller is not null.
+		ZetaValidator.supposeThat(duplexController).thatIsInstanceOf(DuplexController.class).isNotNull();
 		
-		//4. Sets the initial session of this client.
-		session = initialSession;
-		session.setClient(this);
+		//4. Sets the duplex controller of this client.
+		this.duplexController = duplexController;
+		duplexController.setReceiverController(new ClientReceiverController(this));
 		
-		//4. connecting
-		LocalDuplexController endClientController = new LocalDuplexController();
-		endClientController.connectWith((LocalDuplexController)duplexController);
-		application.createClient(endClientController);
-		
-		//5. waiting to ready signal
-		waitToReadySignal();
-		
-		//6. initial session initializing
-		session.initialize();
-		completeRunMethod();
+		//5. Sends ready signal.
+		sendReadySignal();
 	}
 	
 	//constructor
 	/**
 	 * Creates new client that:
-	 * -Will connect to the given target application on the given port on the machine with the given ip.
-	 * -Will be initialized with the given initializing object.
+	 * -Has the given duplex controller.
+	 * -Has the given initial session.
 	 * 
-	 * @param ip
-	 * @param port
-	 * @param targetApplication
-	 * @param initializingObject
+	 * @param duplexController
+	 * @param initialSession
+	 * @throws NullArgumentException if the given duplex controller is null.
+	 * @throws NullArgumentException if the given initial session is null.
 	 */
-	protected Client(
-		final String ip,
-		final int port,
-		final String targetApplication,
-		final Object initializingObject
+	public Client(final DuplexController duplexController, final Session<C> initialSession) {
+		
+		//1. Sets the requested connection flag of this client.
+		requestedConnectionFlag = false;
+		
+		//2. Clears the target application of this client.
+		targetApplication = null;
+		
+		//3. Checks if the given duplex controller is not null.
+		ZetaValidator.supposeThat(duplexController).thatIsInstanceOf(DuplexController.class).isNotNull();
+
+		//4. Sets the duplex controller of this client.
+		this.duplexController = duplexController;
+		this.duplexController.setReceiverController(new ClientReceiverController(this));
+		
+		//5. Checks if the given initial session is not null.
+		ZetaValidator.supposeThat(initialSession).thatIsNamed("initial session").isNotNull();
+		
+		//6. Sets the initial session of this client.
+		session = initialSession;
+		session.setClient(this);
+		
+		//7. Initializes the inital session of this client.
+		session.initialize();
+		internal_finishSessionInitialization();
+		
+		//8. Sends ready signal
+		sendReadySignal();
+	}
+	
+	//constructor
+	/**
+	 * Creates new client that:
+	 * -Has the given duplex controller.
+	 * -Has the given initial session.
+	 * 
+	 * @param duplexController
+	 * @param initialSession
+	 * @throws NullArgumentException if the given duplex controller is null.
+	 * @throws NullArgumentException if the given initial session is null.
+	 * @throws NullArgumentException if the given initialization function is null.
+	 */
+	@SuppressWarnings("unchecked")
+	public Client(
+		final DuplexController duplexController,
+		final IElementTakerRunner<C> initializationFunction,
+		final Session<C> initialSession
 	) {
-		//1. Sets the requested connection flag.
-		requestedConnection = true;
 		
-		//2. Checks if the given target application is not null and no empty string.
-		ZetaValidator.supposeThat(targetApplication).thatIsNamed("target application").isNotEmpty();
+		//1. Sets the requested connection flag of this client.
+		requestedConnectionFlag = false;
 		
-		//3. Sets the target application of this client.
-		this.targetApplication = targetApplication;
+		//2. Clears the target application of this client.
+		targetApplication = null;
 		
-		//4. Initializes this client.
-		initialize(initializingObject);
+		//3. Initializes this client.
+		initializationFunction.run((C)this);
 		
-		//5. Creates the duplex controller of this client.
-		duplexController =
-		new NetDuplexController(ip, port)
-		.setReceiverController(new ClientReceiverController(this));
+		//4. Checks if the given duplex controller is not null.
+		ZetaValidator.supposeThat(duplexController).thatIsInstanceOf(DuplexController.class).isNotNull();
+
+		//5. Sets the duplex controller of this client.
+		this.duplexController = duplexController;
+		this.duplexController.setReceiverController(new ClientReceiverController(this));
 		
-		//6. Waits to the ready signal.
-		waitToReadySignal();
+		//6. Checks if the given initial session is not null.
+		ZetaValidator.supposeThat(initialSession).thatIsNamed("initial session").isNotNull();
+		
+		//7. Sets the initial session of this client.
+		session = initialSession;
+		session.setClient(this);
+		
+		//8. Initializes the inital session of this client.
+		session.initialize();
+		internal_finishSessionInitialization();
+		
+		//9. Sends ready signal
+		sendReadySignal();
 	}
 	
 	//constructor
@@ -183,24 +287,26 @@ implements Abortable
 	 * @param port
 	 * @param targetApplication
 	 * @throws NullArgumentException if the given target application is null.
-	 * @throws EmptyArgumentException if the given target application is an empty string.
+	 * @throws EmptyArgumentException if the given target application is empty.
 	 */
-	protected Client(
+	public Client(
 		final String ip,
 		final int port,
 		final String targetApplication
 	) {
-		//1. Sets the requested connection flag of this client.
-		requestedConnection = true;
 		
-		//2. Checks if the given target application is not null and no empty string.
+		//1. Sets the requested connection flag of this client.
+		requestedConnectionFlag = true;
+		
+		//2. Checks if the given target application is not empty.
 		ZetaValidator.supposeThat(targetApplication).thatIsNamed("target application").isNotEmpty();
 		
 		//3. Sets the target application of this client.
 		this.targetApplication = targetApplication;
 		
 		//4. Creates the duplex controller of this client.
-		duplexController = new NetDuplexController(ip, port, new ClientReceiverController(this));
+		duplexController =	new NetDuplexController(ip, port);
+		duplexController.setReceiverController(new ClientReceiverController(this));
 		
 		//5. Waits to the ready signal.
 		waitToReadySignal();
@@ -208,9 +314,49 @@ implements Abortable
 	
 	//constructor
 	/**
+	 * Creates new client that will connect to the given target application on the given port on the machine with the given ip.
+	 * 
+	 * @param ip
+	 * @param port
+	 * @param targetApplication
+	 * @param initializationFunction
+	 * @throws NullArgumentException if the given target application is null.
+	 * @throws EmptyArgumentException if the given target application is empty.
+	 * @throws NullArgumentException if the given initialization function
+	 */
+	@SuppressWarnings("unchecked")
+	public Client(
+		final String ip,
+		final int port,
+		final String targetApplication,
+		final IElementTakerRunner<C> initializationFunction
+	) {
+		
+		//1. Sets the requested connection flag of this client.
+		requestedConnectionFlag = true;
+		
+		//2. Checks if the given target application is not empty.
+		ZetaValidator.supposeThat(targetApplication).thatIsNamed("target application").isNotEmpty();
+		
+		//3. Sets the target application of this client.
+		this.targetApplication = targetApplication;
+		
+		//4. Initializes this client.
+		initializationFunction.run((C)this);
+		
+		//5. Creates the duplex controller of this client.
+		duplexController =	new NetDuplexController(ip, port);
+		duplexController.setReceiverController(new ClientReceiverController(this));
+		
+		//6. Waits to the ready signal.
+		waitToReadySignal();
+	}
+	
+	//constructor
+	/**
 	 * Creates new client that:
-	 * -Has the given initial session.
 	 * -That will connect to the given target application on the given port on the machine with the given ip.
+	 * -Has the given initial session.
 	 * 
 	 * @param ip
 	 * @param port
@@ -220,16 +366,17 @@ implements Abortable
 	 * @throws EmptyArgumentException if the given target application is an empty string.
 	 * @throws NullArgumentException if the given initial session is null.
 	 */
-	protected Client(
+	public Client(
 		final String ip,
 		final int port,
 		final String targetApplication,
-		final Session<?> initialSession
+		final Session<C> initialSession
 	) {
-		//1. Sets the requested connection flag of this client.
-		requestedConnection = true;
 		
-		//2. Checks if the given target application is not null and no empty string.
+		//1. Sets the requested connection flag of this client.
+		requestedConnectionFlag = true;
+		
+		//2. Checks if the given target application is not empty.
 		ZetaValidator.supposeThat(targetApplication).thatIsNamed("target application").isNotEmpty();
 		
 		//3. Sets the target application of this client.
@@ -243,160 +390,22 @@ implements Abortable
 		session.setClient(this);
 		
 		//6. Creates the duplex controller of this client.
-		duplexController = new NetDuplexController(ip, port, new ClientReceiverController(this));
+		duplexController =	new NetDuplexController(ip, port);
+		duplexController.setReceiverController(new ClientReceiverController(this));
 		
 		//7. Waits to the ready signal.
 		waitToReadySignal();
 		
 		//8. Initializes the initial session of this client.
 		session.initialize();
-		completeRunMethod();
-	}
-	
-	//package-visible constructor
-	protected Client(final DuplexController duplexController) {
-		
-		//1. Sets the requested connection flag of this client.
-		requestedConnection = false;
-		
-		//2. Clears the target application of this client.
-		targetApplication = null;
-		
-		//3. Sets the duplex controller of this client.
-		this.duplexController = duplexController;
-		duplexController.setReceiverController(new ClientReceiverController(this));
-		
-		//4. Sends the ready signal.
-		sendReadySignal();
-	}
-	
-	//package-visible constructor
-	protected Client(DuplexController duplexController, Session<?> initialSession) {
-		
-		requestedConnection = false;
-		
-		//1. clearing target application
-		targetApplication = null;
-		
-		//2. setting initial session & initializing initial session
-		session = initialSession;
-		session.setClient(this);
-		
-		//3. setting duplex controller
-		this.duplexController = duplexController;
-		duplexController.setReceiverController(new ClientReceiverController(this));
-		
-		//4.sending ready signal	
-		sendReadySignal();
-	
-		//5.
-		session.initialize();
-		completeRunMethod();
-	}
-	
-	//constructor
-	protected Client(Object object, DuplexController duplexController, Session<?> initialSession) {
-		
-		//1. Sets the requested connection flag.
-		requestedConnection = false;
-		
-		//2. Clears the target application of this client.
-		targetApplication = null;
-		
-		//3. Setups.
-		initialize(object);
-		
-		//4. setting initial session & initializing initial session
-		session = initialSession;
-		session.setClient(this);
-		
-		//5. setting duplex controller
-		this.duplexController = duplexController;
-		duplexController.setReceiverController(new ClientReceiverController(this));
-		
-		//6.sending ready signal	
-		sendReadySignal();
-		
-		//temp
-		receivedReadySignal = true;
-	
-		//5.
-		session.initialize();
-		completeRunMethod();
+		internal_finishSessionInitialization();
 	}
 	
 	//method
 	/**
-	 * @return the stop reason of this stoppable object
-	 * @throws Exception if this client has no stop reason
-	 */
-	public final String getAbortReason() {
-		return getRefDuplexController().getAbortReason();
-	}
-	
-	public void invoke(String command) {
-		getRefDuplexController().run(ClientProtocol.INVOKE_ON_ORIGIN_MACHINE_COMMAND + "(" + createUpdateSpecification() + "," + command + ")");
-	}
-	
-	//method
-	public void invokeOnOriginMachine(String command) {
-		getRefDuplexController().run(ClientProtocol.INVOKE_COMMAND + "(" + createUpdateSpecification() + "," + command + ")");
-	}
-
-	//method
-	/**
-	 * @return true if this client is a local client
-	 */
-	public final boolean isLocalClient() {
-		return getRefDuplexController().isLocalDuplexController();
-	}
-	
-	//method
-	/**
-	 * @return true if this client is a net client
-	 */
-	public final boolean isNetClient() {
-		return getRefDuplexController().isNetDuplexController();
-	}
-	
-	//method
-	/**
-	 * @return true if this client is stopped
-	 */
-	public final boolean isAborted() {
-		return getRefDuplexController().isAborted();
-	}
-	
-	//try
-	/**
-	 * Sets the session of this client.
+	 * Aborts this client.
 	 * 
-	 * @param session
-	 * @throws Exception if:
-	 * -The given session is null.
-	 * -The given session has already a client
-	 */
-	public void setSession(final Session<C> session) {
-		
-		//Checks the given session.
-		Validator.throwExceptionIfValueIsNull("session", session);
-		
-		if (hasRequestedConnection()) {
-			
-		}
-		
-		session.setClient(this);
-		this.session = session;
-		
-		session.initialize();
-		completeRunMethod();
-	}
-	
-	//method
-	/**
-	 * Stops this client.
-	 * 
-	 * @throws Exception if this client is stopped already
+	 * @throws RuntimeException if this client is already aborted.
 	 */
 	public final void abort() {
 		duplexController.abort();
@@ -404,71 +413,102 @@ implements Abortable
 	
 	//method
 	/**
-	 * Stops this client  because of the given stop reason.
+	 * Aborts this client because of the given abort reason.
 	 * 
-	 * @param stopReason
-	 * @throws Exception if this client is stopped already
+	 * @param abortReason
+	 * @throws RuntimeException if this client is already aborted.
+	 * @throws NullArgumentException if the given abort reason is null.
+	 * @throws EmptyArgumentException if the given abort reason is empty.
 	 */
-	public final void abort(String stopReason) {
-		getRefDuplexController().abort(stopReason);
+	public final void abort(final String abortReason) {
+		internal_getRefDuplexController().abort(abortReason);
+	}
+	
+	//method
+	/**
+	 * @return the abort reason of this client.
+	 * @throws UnexistingAttributeException if this client has no abort reason.
+	 */
+	public final String getAbortReason() {
+		return internal_getRefDuplexController().getAbortReason();
+	}
+	
+	//method
+	/**
+	 * @return the type of this client.
+	 */
+	public final String getType() {
+		return getClass().getSimpleName();
+	}
+	
+	//method
+	/**
+	 * @return true if this client is aborted.
+	 */
+	public final boolean isAborted() {
+		return internal_getRefDuplexController().isAborted();
+	}
+
+	//method
+	/**
+	 * @return true if this client is a local client.
+	 */
+	public final boolean isLocalClient() {
+		return internal_getRefDuplexController().isLocalDuplexController();
+	}
+	
+	//method
+	/**
+	 * @return true if this client is a net client.
+	 */
+	public final boolean isNetClient() {
+		return internal_getRefDuplexController().isNetDuplexController();
 	}
 	
 	//abstract method
 	/**
-	 * @return newly created update specification for the origin machine of this client
+	 * Finishes the initialization of the session of this client.
 	 */
-	protected abstract Specification createUpdateSpecification();
-		
+	protected abstract void internal_finishSessionInitialization();	
+	
 	//method
 	/**
-	 * @return the data the given request requests from the origin machine
+	 * @return the data the given request requests from this client.
+	 * @throws ArgumentException if the given request is not valid.
 	 */
-	protected Object getData(Statement request) {
+	protected Object internal_getData(final Statement request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
-			case ClientProtocol.TYPE_REQUEST:
+			case TYPE_REQUEST:
 				return getType();
-			case ClientProtocol.TARGET_APPLICATION_REQUEST:
-				return getTargetApplication();
+			case TARGET_APPLICATION_REQUEST:
+				return internal_getTargetApplication();
+			case DATA_METHOD_REQUEST:
+				return internal_invokeDataMethod(request.getRefOneAttribute());
 			default:
-				
-				//Extracts the name of the data method.
-				final String dataMethod = request.getHeader();
-				
-				//Extracts the arguments of the data method.
-				final List<String> parameters = request.getRefAttributes().toContainer(a -> a.toString());
-				
-				//Invokes the data method with the arguments and returns the result.
-				return session.invokeDataMethod(dataMethod, parameters);
+				throw new ArgumentException(new ArgumentName("reqest"), new Argument(request));
 		}
 	}
 	
 	//method
 	/**
-	 * @return the duplex controller of this client
+	 * @return the duplex controller of this client.
 	 */
-	protected final DuplexController getRefDuplexController() {
+	protected final DuplexController internal_getRefDuplexController() {
 		return duplexController;
 	}
 	
 	//method
 	/**
-	 * @return the session of this client
+	 * @return the target application of this client.
+	 * @throws UnexistingAttributeException if this client has no target application.
 	 */
-	protected final Session<?> getRefSession() {
-		return session;
-	}
-	
-	//method
-	/**
-	 * @return the target application of this client
-	 * @throws Exception if this client has no target application
-	 */
-	protected final String getTargetApplication() {
+	protected final String internal_getTargetApplication() {
 		
-		if (!hasTargetApplication()) {
-			throw new UnexistingAttributeException(this, "target application on origin machine");
+		//Checks if this client has a target application.
+		if (!internal_hasTargetApplication()) {
+			throw new UnexistingAttributeException(this, "target application");
 		}
 		
 		return targetApplication;
@@ -476,98 +516,119 @@ implements Abortable
 	
 	//method
 	/**
-	 * @return the type of this client
+	 * @return true if this client has requested the connection
 	 */
-	protected final String getType() {
-		return getClass().getSimpleName();
+	protected final boolean internal_hasRequestedConnection() {
+		return requestedConnectionFlag;
 	}
 	
 	//method
 	/**
-	 * @return true if this client has requested the connection
+	 * @return true if this client has a session.
 	 */
-	protected final boolean hasRequestedConnection() {
-		return requestedConnection;
+	protected boolean internal_hasSession() {
+		return (session != null);
 	}
 	
 	//method
 	/**
 	 * @return true if this client has a target application
 	 */
-	protected final boolean hasTargetApplication() {
+	protected final boolean internal_hasTargetApplication() {
 		return (targetApplication != null);
 	}
 	
 	//method
 	/**
-	 * Setups this client.
+	 * Invokes a data method of the session of this client.
 	 * 
-	 * @param initializingObject
+	 * @param dataMethodRequest
+	 * @return the data the given data method request requests
+	 * @throws UnexistingAttributeException if this client has no session.
 	 */
-	protected abstract void initialize(Object initializingObject);
+	protected final Object internal_invokeDataMethod(final Specification dataMethodRequest) {
+		
+		//Checks if this client has a session.
+		if (!internal_hasSession()) {
+			throw new UnexistingAttributeException(this, Session.class);
+		}
+		
+		//Extracts the name of the data method.
+		final String dataMethod = dataMethodRequest.getHeader();
+		
+		//Extracts the arguments of the given request.
+		final List<String> parameters = dataMethodRequest.getRefAttributes().toContainer(a -> a.toString());
+		
+		//Invokes the data method with the arguments and returns the result.
+		return session.invokeDataMethod(dataMethod, parameters);
+	}
 	
-	//package-visible method
+	//method
+	/**
+	 * Invokes a run method of the session of this client.
+	 * 
+	 * @param runMethodCommand
+	 * @throws UnexistingAttributeException if this client has no session.
+	 */
+	protected final void internal_invokeRunMethod(final Specification runMethodCommand) {
+		
+		//Checks if this client has a session.
+		if (!internal_hasSession()) {
+			throw new UnexistingAttributeException(this, Session.class);
+		}
+		
+		//Extracts the name of the command method.
+		final String runMethod = runMethodCommand.getHeader();
+		
+		//Extracts the arguments of the given command.
+		final List<String> arguments = runMethodCommand.getRefAttributes().toContainer(a -> a.toString());
+		
+		//Invokes the run method with the arguments.
+		session.invokeRunMethod(runMethod, arguments);
+	}
+	
+	//method
 	/**
 	 * Lets this client run the given command.
 	 * 
 	 * @param command
-	 * @throws Exception if the given command is not valid
+	 * @throws ArgumentException if the given command is not valid.
 	 */
-	protected void run(Statement command) {	
-
+	protected void internal_run(final Statement command) {
+		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
-			case ClientProtocol.SET_READY_SIGNAL_COMMAND:
-				receivedReadySignal = true;
+			case SET_READY_SIGNAL_COMMAND:
+				setReceivedReadySignalFlag();
 				break;
-			case ClientProtocol.INVOKE_COMMAND:
-				
-				update(command.getRefAttributes().getRefAt(1));
-
-				final Specification runCommand = command.getRefAttributes().getRefAt(2);
-				
-				//Extracts the name of the command method.
-				final String runMethod = runCommand.getHeader();
-				
-				//Extracts the arguments of the given command.
-				final List<String> arguments = runCommand.getRefAttributes().toContainer(a -> a.toString());
-				
-				//Invokes the command method with the arguments.
-				getRefSession().invokeRunMethod(runMethod, arguments);
-				
-				completeRunMethod();
-				
-				break;
-			case ClientProtocol.INVOKE_ON_ORIGIN_MACHINE_COMMAND:
-				update(command.getRefAttributes().getRefAt(1));
-				invokeOnOriginMachine(command.getRefAttributes().getRefAt(2).toString());
-				break;
-			case ClientProtocol.UPDATE_COMMAND:
-				update(command.getRefOneAttribute());
-				break;
+			case INVOKE_RUN_METHOD_COMMAND:
+				internal_invokeRunMethod(command.getRefOneAttribute());
+				break;			
 			default:
-				throw new ArgumentException(
-					new ArgumentName("command"),
-					new Argument(command)
-				);
+				throw new ArgumentException(new ArgumentName("command"), new Argument(command));
 		}
 	}
 	
-	//abstract method
-	/**
-	 * Updates this client using the given update specification.
-	 * 
-	 * @param updateSpecification
-	 */
-	protected abstract void update(Specification updateSpecification);
-	
 	//method
 	/**
-	 * Completes a run method of this client.
+	 * Sets the session of this client.
+	 * 
+	 * @param session
+	 * @throws NullArgumentException if the given session is null.
+	 * @throws RuntimeException if the given session has already a client.
 	 */
-	private final void completeRunMethod() {
-		getRefDuplexController().appendCommand(ClientProtocol.UPDATE_COMMAND + "(" + createUpdateSpecification() + ")");
-		getRefDuplexController().runAppendedCommands();
+	protected final void internal_setSessionAndInitializeSession(final Session<C> session) {
+		
+		//Checks if the given session is not null.
+		ZetaValidator.supposeThat(session).thatIsInstanceOf(Session.class).isNotNull();
+		
+		//Sets the given session to this client.
+		session.setClient(this);
+		this.session = session;
+		
+		//Initializes the given session.
+		session.initialize();
+		internal_finishSessionInitialization();
 	}
 	
 	//method
@@ -575,20 +636,28 @@ implements Abortable
 	 * Lets this client send the ready signal.
 	 */
 	private final void sendReadySignal() {
-		duplexController.run(ClientProtocol.SET_READY_SIGNAL_COMMAND);
+		duplexController.run(SET_READY_SIGNAL_COMMAND);
+	}
+	
+	//method
+	/**
+	 * Sets the received ready signal flag of this client.
+	 */
+	private void setReceivedReadySignalFlag() {
+		receivedReadySignalFlag = true;
 	}
 	
 	//method
 	/**
 	 * Lets this client wait to the ready signal.
 	 * 
-	 * @throws Exception if this client reached its timeout while waiting to the ready signal
+	 * @throws Exception if this client reached its timeout before receiving the ready signal.
 	 */
 	private final void waitToReadySignal() {
 		
 		final long time = System.currentTimeMillis();
 		
-		while (!receivedReadySignal) {			
+		while (!receivedReadySignalFlag) {			
 			if (System.currentTimeMillis() - time > duplexController.getTimeoutInMilliseconds()) {
 				throw new RuntimeException("TimeOut");
 			}

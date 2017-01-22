@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.system.application;
 
-//Java import
 import java.lang.reflect.Constructor;
 
 //class
@@ -10,24 +9,23 @@ import java.lang.reflect.Constructor;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 70
- * @param <C> - The type of the client of the standard application.
+ * @lines 60
+ * @param <C> - The type of the clients of a standard application.
  */
-public final class StandardApplication<C extends Client<C>> extends Application<C> {
+public final class StandardApplication<C extends Client<C>>
+extends Application<C> {
 
 	//constructor
 	/**
 	 * Creates new standard application with the given name and initial session class.
 	 * 
-	 * @param name - The name of this standard application.
-	 * @param initialSessionClass - The initial session class of this standard application.
-	 * @throws EmptyArgumentException if the given name is null or an empty string.
+	 * @param name
+	 * @param initialSessionClas
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws EmptyArgumentException if the given name is string.
 	 * @throws NullArgumentException if the given initial session class is null.
 	 */
-	public StandardApplication(
-		final String name,
-		final Class<?> initialSessionClass
-	) {
+	public StandardApplication(final String name, final Class<?> initialSessionClass) {
 		
 		//Calls constructor of the base class.
 		super(name, initialSessionClass);
@@ -35,35 +33,38 @@ public final class StandardApplication<C extends Client<C>> extends Application<
 	
 	//constructor
 	/**
-	 * Creates new standard application with the given name, port and initial session class.
+	 * Creates new standard application that:
+	 * -Has the given name and initial session class.
+	 * -Creates a server for itself, and for itself only, that listens to clients on the given port.
 	 * 
-	 * @param name - The name of this standard application.
-	 * @param port - The port of this stanard application.
-	 * @param initialSessionClass - The initial session class of this standard application.
-	 * @throws EmptyArgumentException if the given name is null or an empty string.
+	 * @param name
+	 * @param initialSessionClass
+	 * @param port
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws EmptyArgumentException if the given name is string.
 	 * @throws NullArgumentException if the given initial session class is null.
 	 */
 	public StandardApplication(
 		final String name,
-		final int port, 
-		final Class<?> initialSessionClass
+		final Class<?> initialSessionClass,
+		final int port
 	) {
-		
 		//Calls constructor of the base class.
-		super(name, port, initialSessionClass);
+		super(name, initialSessionClass, port);
 	}
 
 	//method
 	/**
-	 * @return a newl initial session of this application
+	 * @return a new initial session for a client of this standard application.
+	 * @throws RuntimeException if an error occurs.
 	 */
 	@SuppressWarnings("unchecked")
-	protected Session<C> createInitialSession() {	
-			
-		//Extracts the constructor of the initial session class of this application.
-		final Constructor<?> constructor = initialSessionClass.getDeclaredConstructors()[0];
+	protected Session<C> createInitialSession() {
+		
+		//Extract the constructor of the initial session class of this standard application.
+		final Constructor<?> constructor = getRefInitialSessionClass().getDeclaredConstructors()[0];
 		constructor.setAccessible(true);
-
+		
 		try {	
 			return (Session<C>)constructor.newInstance();
 		}

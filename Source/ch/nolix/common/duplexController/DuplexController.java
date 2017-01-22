@@ -16,7 +16,8 @@ import ch.nolix.common.interfaces.Abortable;
 import ch.nolix.common.util.Validator;
 
 //class
-public abstract class DuplexController implements ILevel2Controller, Abortable {
+public abstract class DuplexController
+implements ILevel2Controller, Abortable {
 	
 	//default value
 	public final static int DEFAULT_TIMEOUT_IN_MILLISECONDS = 10000;
@@ -103,13 +104,11 @@ public abstract class DuplexController implements ILevel2Controller, Abortable {
 	 * @param receiverController
 	 * @throws Exception if the given receiver controler is null
 	 */
-	public final DuplexController setReceiverController(ILevel2Controller receiverController) {
+	public final void setReceiverController(ILevel2Controller receiverController) {
 		
 		Validator.throwExceptionIfValueIsNull("receiver controller", receiverController);
 		
 		this.receiverController = receiverController;
-		
-		return this;
 	}
 	
 	//method

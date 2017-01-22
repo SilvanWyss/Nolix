@@ -1,17 +1,7 @@
-/*
- * file:	AlphaServer.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	110
- */
-
 //package declaration
 package ch.nolix.system.application;
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.duplexController.DuplexController;
-import ch.nolix.common.duplexController.DuplexControllerListener;
 import ch.nolix.common.exception.UnsupportedMethodException;
 import ch.nolix.common.module.CentralController;
 import ch.nolix.common.module.Module;
@@ -19,16 +9,22 @@ import ch.nolix.common.specification.Statement;
 
 //class
 /**
- * An alpha server contains applications and listens to clients on a specific port.
+ * A zeta server is a module that is a server.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 90
  */
 public final class ZetaServer extends Module {
 
-	//multiple attribute
-	private final List<Application<?>> applications = new List<Application<?>>();
+	//attribute
+	private final Server server;
 	
 	//constructor
 	/**
-	 * Creates new alpha server that belongs to the given central contorller and listens to clients on the given port.
+	 * Creates new zeta server that:
+	 * -Belongs to the given central controller.
+	 * -Listens to clients on the given port.
 	 * 
 	 * @param centralController
 	 * @param port
@@ -38,45 +34,35 @@ public final class ZetaServer extends Module {
 		//Calls constructor of the base class.
 		super(centralController);
 		
-		new DuplexControllerListener(port, new ZetaServerDuplexControllerTaker(this));
+		//Creates the server of this zeta server.
+		server = new Server(port);
 	}
 	
 	//method
 	/**
-	 * Adds the given application to this alpha server.
+	 * Adds the given application to this zeta server.
 	 * 
 	 * @param application
-	 * @throws Exception if:
-	 * -The given application is null.
-	 * -This alpha server contains already an other application with the same name as the given application
+	 * @throws NullArgumentException if the given application is null.
+	 * @throws RuntimeException if this zeta server contains already an application with the same name as the given application.
 	 */
 	public void addApplication(final Application<?> application) {
-		
-		if (containsApplication(application.getName())) {
-			throw new RuntimeException("Server contains already an other application with the name '" + application.getName() + "'.");
-		}
-		
-		applications.addAtEnd(application);
+		server.addApplication(application);
 	}
 	
 	//method
 	/**
-	 * @param name
-	 * @return true if this alpha server contains an application with the given name
+	 * @return true if this zeta server contains an application with the given name.
 	 */
 	public boolean containsApplication(final String name) {
-		return applications.contains(a -> a.hasName(name));
-	}
-	
-	public List<Application<?>> getRefApplications() {
-		return applications;
+		return server.containsApplication(name);
 	}
 
 	//method
 	/**
 	 * @throws UnsupportedMethodException
 	 */
-	public Object getRawReference(Statement request) {
+	public Object getRawReference(final Statement request) {
 		throw new UnsupportedMethodException(this, "get raw reference");
 	}
 
@@ -84,35 +70,25 @@ public final class ZetaServer extends Module {
 	/**
 	 * @throws UnsupportedMethodException
 	 */
-	public Object getRawData(Statement request) {
+	public Object getRawData(final Statement request) {
 		throw new UnsupportedMethodException(this, "get raw data");
 	}
 	
 	//method
 	/**
 	 * @param name
-	 * @return the application with the given name from this alpha server
+	 * @return the application with the given name from this zeta server.
+	 * @throws RuntimeException if this zeta server contains no application with the given name.
 	 */
-	public Application<?> getRefApplicationByName(String name) {
-		return applications.getRefFirst(a -> a.hasName(name));
+	public Application<?> getRefApplicationByName(final String name) {
+		return server.getRefApplicationByName(name);
 	}
 
 	//method
 	/**
 	 * @throws UnsupportedMethodException
 	 */
-	public void run(Statement command) {
-		throw new UnsupportedMethodException(this, "get raw reference");
-	}
-	
-	//method
-	/**
-	 * Lets this alpha server take the given duplex controller.
-	 * 
-	 * @param duplexController
-	 */
-	void takeDuplexController(DuplexController duplexController) {
-		getRefApplicationByName(duplexController.getData(ClientProtocol.TARGET_APPLICATION_REQUEST).toString())
-		.createClient(duplexController);
+	public void run(final Statement command) {
+		throw new UnsupportedMethodException(this, "run");
 	}
 }

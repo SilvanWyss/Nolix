@@ -38,13 +38,17 @@ public final class LocalDuplexController extends DuplexController {
 	 * @param receiverController
 	 * @throws Exception if the given receiver controller is null
 	 */
+	/*
 	public LocalDuplexController(final ILevel2Controller receiverController) {
 		setReceiverController(receiverController);
 	}
+	*/
 	
+	/*
 	public LocalDuplexController(final LocalDuplexController localDuplexController) {
 		connectWith(localDuplexController);
 	}
+	*/
 	
 	//method
 	/**

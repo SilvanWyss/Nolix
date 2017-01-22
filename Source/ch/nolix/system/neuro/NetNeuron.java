@@ -40,8 +40,8 @@ extends Neuron<I, O, NetNeuron<I, O>> {
 		application =
 		new StandardApplication<StandardClient>(
 			"Neuron",
-			port,
-			NetNeuronSession.class
+			NetNeuronSession.class,
+			port
 		);
 		
 		this.transformer = transformer;
@@ -58,7 +58,7 @@ extends Neuron<I, O, NetNeuron<I, O>> {
 		}
 		else {
 			setOutput(transformer.getOutput(getRefOneInput()));
-			application.getRefClients().forEach(c -> c.invokeOnOriginMachine("SetOutputAndTrigger(" + getRefOutput() + ")"));
+			application.getRefClients().forEach(c -> c.run("SetOutputAndTrigger(" + getRefOutput() + ")"));
 		}
 		
 		getRefTriggerableNeurons().forEach(tn -> processor.addNeuronToTrigger(tn));

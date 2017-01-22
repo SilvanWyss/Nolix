@@ -44,7 +44,7 @@ final class StandardNeuronTutorial1 {
 		.addInputNeuron(sourceNeuron1)
 		.addInputNeuron(sourceNeuron2)
 		.addInputNeuron(sourceNeuron3)
-		.setOutputFunction(Calculator.DOUBLE_AVERAGE);
+		.setOutputFunction(Calculator.DOUBLE_RANGE);
 
 		//Triggers neuron and prints out its output to the console.
 		neuron.trigger();

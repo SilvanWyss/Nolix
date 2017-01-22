@@ -1,10 +1,3 @@
-/*
- * file:	StandardClient.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	50
- */
-
 //package declaration
 package ch.nolix.system.application;
 
@@ -14,7 +7,11 @@ import ch.nolix.common.specification.Specification;
 
 //class
 /**
- * A standard client is a client that provides standard functionalities.
+ * A standard client is a normal client.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 80
  */
 public final class StandardClient extends Client<StandardClient> {
 	
@@ -23,22 +20,42 @@ public final class StandardClient extends Client<StandardClient> {
 	 * Creates new standard client that will connect to the given target application.
 	 * 
 	 * @param targetApplication
+	 * @throws NullArgumentException if the given target application is null.
 	 */
-	public StandardClient(Application<StandardClient> targetApplication) {
+	public StandardClient(final Application<StandardClient> targetApplication) {
 
 		//Calls constructor of the base class.
 		super(targetApplication);
 	}
 	
-
+	//constructor
+	/**
+	 * Creates new standard client that will connect to the given target application on the given port on the machine with the given ip.
+	 * 
+	 * @param ip
+	 * @param port
+	 * @param targetApplication
+	 * @throws NullArgumentException if the given target application is null.
+	 * @throws EmptyArgumentException if the given target application is empty.
+	 */	
+	public StandardClient(
+		final String ip,
+		final int port,
+		final String targetApplication
+	) {
+		
+		//Calls constructor of the base class.
+		super(ip, port, targetApplication);
+	}
 	
 	//constructor
 	/**
 	 * Creates new standard client with the given duplex controller.
 	 * 
 	 * @param duplexController
+	 * @throws NullArgumentException if the given duplex controller is null.
 	 */
-	public StandardClient(DuplexController duplexController) {
+	public StandardClient(final DuplexController duplexController) {
 				
 		//Calls constructor of the base class.
 		super(duplexController);
@@ -46,50 +63,26 @@ public final class StandardClient extends Client<StandardClient> {
 	
 	//method
 	/**
-	 * Appends the given command to this standard client.
-	 * 
-	 * @param command
+	 * @param request
+	 * @return the data the given data method request requests from a data method of the other side of this standard client.
 	 */
-	public void appendCommand(final String command) {
-		getRefDuplexController().appendCommand(command);
+	public Specification getData(final String dataMethodRequest) {
+		return internal_getRefDuplexController().getData(DATA_METHOD_REQUEST + "(" + dataMethodRequest + ")");
 	}
 	
 	//method
 	/**
-	 * @param request
-	 * @return the data the given request requests from the origin machine of this standard client
-	 * @throws Exception if the given request is not valid or requests for no specification
+	 * Runs a run method on the other side of this standard client.
+	 * 
+	 * @param runMethodCommand
 	 */
-	public Specification getDataFromOriginMachine(String request) {
-		
-		final Object data = getRefDuplexController().getData(request);
-		
-		//Checks the receveived data.
-		if (!(data instanceof Specification)) {
-			throw new RuntimeException("Request '" + request + "' requests for a " + data.getClass().getSimpleName() + " instead for a specification.");
-		}
-		
-		return (Specification)data;
-	}
-
-	//method
-	protected Specification createUpdateSpecification() {
-		return new Specification();
+	public void run(final String runMethodCommand) {
+		internal_getRefDuplexController().run(Client.INVOKE_RUN_METHOD_COMMAND + "(" + runMethodCommand + ")");
 	}
 
 	//method
 	/**
-	 * Updates this standard client using the given update specification.
-	 * 
-	 * @param updateSpecification
+	 * Finishes the initialization of the session of this standard client.
 	 */
-	protected void update(final Specification updateSpecification) {}
-
-	//method
-	/**
-	 * Initializes this standard client.
-	 * 
-	 * @param object
-	 */
-	protected void initialize(final Object object) {}
+	protected void internal_finishSessionInitialization() {}
 }
