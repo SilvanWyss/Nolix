@@ -16,7 +16,7 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
  * 
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 130
+ * @lines 160
  * @param <IO> - The type of the inputs and output of the neuronal nets a forward multi layer net creator creates.
  */
 public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreator<IO> {
@@ -24,7 +24,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	//attributes
 	private int layerCount = 1;
 	private int neuronsPerLayer = 1;
-	private IElementTakerElementGetter<Iterable<IO>, IO> outputFunction = c -> null;
+	private IElementTakerElementGetter<Iterable<InputNeuronoid<IO>>, IO> outputFunction = c -> null;
 	
 	//method
 	/**
@@ -50,7 +50,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 				else {
 					previousLayer.forEach(n -> neuron.addInputNeuron(n));
 				}		
-				neuron.setOutputFunction(outputFunction);
+				neuron.setWeightOutputFunction(outputFunction);
 				if (triggeringNeuron != null) {
 					neuron.addTriggeringNeuron(triggeringNeuron);
 				}
@@ -130,7 +130,38 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 		//Checks if the given output function is not null.
 		ZetaValidator.supposeThat(outputFunction).thatIsNamed("output function").isNotNull();
 		
-		this.outputFunction = outputFunction;
+		//Sets the output function of this forward multilayer net creator.
+		this.outputFunction
+		= in -> {
+			
+			//Creates input list.
+			final List<IO> inputs = new List<IO>();
+			for (InputNeuronoid<IO> n: in) {
+				inputs.addAtEnd(n.getRefInput());
+			}
+			
+			return outputFunction.getOutput(inputs);
+		};
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the output function of this forward multi layer net creator.
+	 * 
+	 * @param weightOutputFunction
+	 * @return this forward multi layer net creator.
+	 * @throws NullArgumentException if the given weight output function is null.
+	 */
+	public ForwardMultiLayerNetCreator<IO> setWeightOutputFunction(
+		final IElementTakerElementGetter<Iterable<InputNeuronoid<IO>>, IO> weightOutputFunction
+	) {
+		
+		//Checks if the given output function is not null.
+		ZetaValidator.supposeThat(weightOutputFunction).thatIsNamed("weight output function").isNotNull();
+		
+		outputFunction = weightOutputFunction;
 		
 		return this;
 	}

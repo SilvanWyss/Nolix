@@ -11,7 +11,7 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
 /**
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 270
+ * @lines 290
  * @param <I> - The type of the inputs of a neuron.
  * @param <O> - The type of the output of a neuron.
  * @param <N> - The type of a neuron.
@@ -61,6 +61,26 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 		ZetaValidator.supposeThat(getInputNeuronCount()).isSmallerThan(getMaxInputNeuronCount());
 				
 		inputNeurons.addAtEndRegardingSingularity(inputNeuron);
+		
+		return (N)this;
+	}
+	
+	//method
+	/**
+	 * Adds the given input neuron with the given weight to this neuron.
+	 * An input neuron is a neuron this neuron can take its input from.
+	 * 
+	 * @param weight
+	 * @param inputNeuron
+	 * @return this neuron.
+	 * @throws NullArgumentException if the given input neuron is null.
+	 * @throws NonSmallerArgumentException if this neuron has reached its maximal number of input neurons.
+	 * @throws RuntimeException if this neuron contains already the given input neuron.
+	 */
+	@SuppressWarnings("unchecked")
+	public final N addInputNeuron(final double weight, final Neuron<?, I, ?> inputNeuron) {
+		
+		addInputNeuron(new InputNeuronoid<I>(weight, inputNeuron));
 		
 		return (N)this;
 	}

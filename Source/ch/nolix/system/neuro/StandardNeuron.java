@@ -2,40 +2,24 @@
 package ch.nolix.system.neuro;
 
 //own imports
+import ch.nolix.common.container.List;
 import ch.nolix.common.functional.IElementTakerElementGetter;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
 /**
- * A standard neuron is a neuron with an output or an output function that can be set to dynamically.
+ * A standard neuron is a neuron with an output or an output function that can be set dynamically.
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 80
- * @param <O> The type of the output of the standard neuron.
+ * @lines 110
+ * @param <IO> - The type of the input and output of a standard neuron.
  */
-public final class StandardNeuron<O>
-extends Neuron<O, O, StandardNeuron<O>> {
+public final class StandardNeuron<IO>
+extends Neuron<IO, IO, StandardNeuron<IO>> {
 	
 	//attribute
-	private IElementTakerElementGetter<Iterable<O>, O> outputFunction;
-	
-	public StandardNeuron() {}
-	
-	public StandardNeuron(final O output) {
-		setOutputFunction(output);
-	}
-	
-	//method
-	/**
-	 * Triggers this standard neuron using the given processor.
-	 * 
-	 * @param processor
-	 */
-	protected void trigger(final Processor processor) {
-		setOutput(outputFunction.getOutput(getRefInputs()));
-		getRefTriggerableNeurons().forEach(tn -> processor.addNeuronToTrigger(tn));
-	}
+	private IElementTakerElementGetter<Iterable<InputNeuronoid<IO>>, IO> outputFunction;
 	
 	//method
 	/**
@@ -46,13 +30,25 @@ extends Neuron<O, O, StandardNeuron<O>> {
 	 * @return this standard neuron.
 	 * @throws NullArgumentException if the given output function is null.
 	 */
-	public StandardNeuron<O> setOutputFunction(
-		final IElementTakerElementGetter<Iterable<O>, O> outputFunction
+	public StandardNeuron<IO> setOutputFunction(
+		final IElementTakerElementGetter<Iterable<IO>, IO> outputFunction
 	) {
+		
 		//Checks if the given output function is not null.
 		ZetaValidator.supposeThat(outputFunction).thatIsNamed("output function").isNotNull();
 		
-		this.outputFunction = (IElementTakerElementGetter<Iterable<O>, O>)outputFunction;
+		//Sets the output function of this standard neuron.
+		this.outputFunction
+		= in -> {
+			
+			//Creates input list.
+			final List<IO> inputs = new List<IO>();
+			for (InputNeuronoid<IO> n: in) {
+				inputs.addAtEnd(n.getRefInput());
+			}
+			
+			return outputFunction.getOutput(inputs);
+		};
 
 		return this;
 	}
@@ -65,9 +61,29 @@ extends Neuron<O, O, StandardNeuron<O>> {
 	 * @param output
 	 * @return this standard neuron.
 	 */
-	public StandardNeuron<O> setOutputFunction(final O output) {
+	public StandardNeuron<IO> setOutputFunction(final IO output) {
 		
 		setOutputFunction(c -> output);
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the output function of this standard neuron.
+	 * 
+	 * @param weightOutputFunction
+	 * @return this standard neuron.
+	 * @throws NullArgumentException if the given weight output function is null.
+	 */
+	public StandardNeuron<IO> setWeightOutputFunction(
+		final IElementTakerElementGetter<Iterable<InputNeuronoid<IO>>, IO> weightOutputFunction
+	) {
+		
+		//Checks if the given output function is not null.
+		ZetaValidator.supposeThat(weightOutputFunction).thatIsNamed("weight output function").isNotNull();
+		
+		outputFunction = weightOutputFunction;
 		
 		return this;
 	}
@@ -86,5 +102,16 @@ extends Neuron<O, O, StandardNeuron<O>> {
 	 */
 	protected int getMinInputNeuronCount() {
 		return 0;
+	}
+	
+	//method
+	/**
+	 * Triggers this standard neuron using the given processor.
+	 * 
+	 * @param processor
+	 */
+	protected void trigger(final Processor processor) {
+		setOutput(outputFunction.getOutput(getRefInputNeurons()));
+		getRefTriggerableNeurons().forEach(tn -> processor.addNeuronToTrigger(tn));
 	}
 }
