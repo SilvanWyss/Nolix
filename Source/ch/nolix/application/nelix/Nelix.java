@@ -7,6 +7,9 @@ import java.io.File;
 import java.io.IOException;
 
 
+
+
+import ch.nolix.common.application.ContextApplication;
 //own imports
 import ch.nolix.common.controller.ILevel2Controller;
 import ch.nolix.common.exception.Argument;
@@ -16,11 +19,10 @@ import ch.nolix.common.module.CentralController;
 import ch.nolix.common.specification.Statement;
 import ch.nolix.common.util.WindowsEnvironmentVariablesManager;
 import ch.nolix.element.dialog.DefaultDesign;
-import ch.nolix.system.application.ContextApplication;
-import ch.nolix.system.application.DialogClient;
-import ch.nolix.system.application.FrontDialogClient;
 import ch.nolix.system.designs.BlackNBlueDesign;
 import ch.nolix.system.designs.GreenDesign;
+import ch.nolix.system.dialogClient.DialogClient;
+import ch.nolix.system.dialogClient.FrontDialogClient;
 import ch.nolix.system.modules.DesignManager;
 
 //class

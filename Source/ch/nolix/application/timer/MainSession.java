@@ -9,14 +9,14 @@
 package ch.nolix.application.timer;
 
 //own imports
+import ch.nolix.common.application.Session;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.element.dialog.Button;
 import ch.nolix.element.dialog.ContainerRole;
 import ch.nolix.element.dialog.HorizontalStack;
 import ch.nolix.element.dialog.Label;
 import ch.nolix.element.dialog.VerticalStack;
-import ch.nolix.system.application.DialogClient;
-import ch.nolix.system.application.Session;
+import ch.nolix.system.dialogClient.DialogClient;
 
 //package-visible class
 public final class MainSession extends Session<DialogClient> {

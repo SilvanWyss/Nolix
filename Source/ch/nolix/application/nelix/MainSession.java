@@ -2,6 +2,7 @@
 package ch.nolix.application.nelix;
 
 //own imports
+import ch.nolix.common.application.ContextSession;
 import ch.nolix.element.dialog.Button;
 import ch.nolix.element.dialog.ContainerRole;
 import ch.nolix.element.dialog.Label;
@@ -9,8 +10,7 @@ import ch.nolix.element.dialog.LabelRole;
 import ch.nolix.element.dialog.TabContainer;
 import ch.nolix.element.dialog.TabContainerTab;
 import ch.nolix.element.dialog.VerticalStack;
-import ch.nolix.system.application.ContextSession;
-import ch.nolix.system.application.DialogClient;
+import ch.nolix.system.dialogClient.DialogClient;
 import ch.nolix.system.modules.DesignManager;
 
 //class

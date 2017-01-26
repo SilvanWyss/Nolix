@@ -9,9 +9,9 @@
 package ch.nolix.application.performanceDetector;
 
 //own imports
-import ch.nolix.system.application.DialogClient;
-import ch.nolix.system.application.FrontDialogClient;
-import ch.nolix.system.application.StandardApplication;
+import ch.nolix.common.application.StandardApplication;
+import ch.nolix.system.dialogClient.DialogClient;
+import ch.nolix.system.dialogClient.FrontDialogClient;
 
 //class
 /**
