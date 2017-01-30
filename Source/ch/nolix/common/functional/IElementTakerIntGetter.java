@@ -8,7 +8,7 @@ package ch.nolix.common.functional;
  * @author Silvan Wyss
  * @month 2016-03
  * @lines 20
- * @param <E> - The type of the elements a concrete element taker int getter works with.
+ * @param <E> - The type of the elements an element taker int getter takes.
  */
 public interface IElementTakerIntGetter<E> {
 
@@ -17,5 +17,5 @@ public interface IElementTakerIntGetter<E> {
 	 * @param element
 	 * @return an int for the given element.
 	 */
-	public abstract int getValue(E element);
+	public abstract int getOutput(E element);
 }

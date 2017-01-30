@@ -8,7 +8,7 @@ package ch.nolix.common.functional;
  * @author Silvan Wyss
  * @month 2016-03
  * @lines 20
- * @param <E> - The type of the elements a concrete element taker comparable getter works with.
+ * @param <E> - The type of the elements an element taker comparable getter takes.
  */
 public interface IElementTakerComparableGetter<E, T> {
 
@@ -17,5 +17,5 @@ public interface IElementTakerComparableGetter<E, T> {
 	 * @param element
 	 * @return a comparable object for the given element.
 	 */
-	Comparable<T> getValue(E element);
+	public abstract Comparable<T> getValue(E element);
 }

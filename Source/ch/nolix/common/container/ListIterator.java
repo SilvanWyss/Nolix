@@ -1,32 +1,40 @@
-/*
- * file:	ListIterator.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	50
- */
-
 //package declaration
 package ch.nolix.common.container;
 
 //Java import
 import java.util.Iterator;
 
+//own imports
+import ch.nolix.common.exception.Argument;
+import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.ErrorPredicate;
+
 //package-visible class
-public final class ListIterator<E> implements Iterator<E> {
+/**
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 70
+ * @param <E> - The type of the elements of the list of a list iterator.
+ */
+final class ListIterator<E> implements Iterator<E> {
 	
 	//attribute
 	private ListNode<E> nextNode;
 	
 	//constructor
 	/**
-	 * Creates new list iterator for the list with the given bottom node.
+	 * Creates new list iterator with the given first node.
 	 * 
-	 * @param bottomNode
+	 * @param firstNode
 	 */
-	public ListIterator(ListNode<E> bottomNode) {
-		nextNode = bottomNode;
+	ListIterator(final ListNode<E> firstNode) {
+		nextNode = firstNode;
 	}
 	
+	//method
+	/**
+	 * @return a new copy of this list iterator.
+	 */
 	public ListIterator<E> getCopy() {
 		return new ListIterator<E>(nextNode);
 	}
@@ -41,11 +49,20 @@ public final class ListIterator<E> implements Iterator<E> {
 
 	//method
 	/**
-	 * @return the next element of this list iterator
-	 * @throws Exception if this list iterator has no next element
+	 * @return the next element of this list iterator.
+	 * @throws ArgumentException if this list iterator has no next element.
 	 */
 	public E next() {
-		E element = nextNode.getElement();
+		
+		//Checks if this list iterator has a next element.
+		if (!hasNext()) {
+			throw new ArgumentException(
+				new Argument(this),
+				new ErrorPredicate("has no next element")
+			);
+		}
+		
+		final E element = nextNode.getElement();
 		
 		if (nextNode.hasNextNode()) {
 			nextNode = nextNode.getNextNode();

@@ -8,7 +8,7 @@ package ch.nolix.common.functional;
  * @author Silvan Wyss
  * @month 2016-03
  * @lines 20
- * @param <E> - The type of the elements a concrete element taker long getter works with.
+ * @param <E> - The type of the elements an element taker long getter takes.
  */
 public interface IElementTakerLongGetter<E> {
 

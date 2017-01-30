@@ -212,13 +212,13 @@ extends Container<TabContainer, SimpleBorderableRectangleStructure> {
 		}
 				
 		attributes.addAtEnd(
-			getRefHoverMenuItemStructure().getAttributes().foreach(a -> a.addPrefixToHeader("NormalMenuItem"))
+			getRefHoverMenuItemStructure().getAttributes().forEachAndGetList(a -> a.addPrefixToHeader("NormalMenuItem"))
 		);
 		attributes.addAtEnd(
-			getRefHoverMenuItemStructure().getAttributes().foreach(a -> a.addPrefixToHeader("HoverMenuItem"))
+			getRefHoverMenuItemStructure().getAttributes().forEachAndGetList(a -> a.addPrefixToHeader("HoverMenuItem"))
 		);
 		attributes.addAtEnd(
-			getRefFocusMenuItemStructure().getAttributes().foreach(a -> a.addPrefixToHeader("FocusMenuItem"))
+			getRefFocusMenuItemStructure().getAttributes().forEachAndGetList(a -> a.addPrefixToHeader("FocusMenuItem"))
 		);
 			
 		if (hasCurrentTab()) {

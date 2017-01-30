@@ -1,25 +1,28 @@
-/*
- * file:	List.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	810
- */
-
 //package declaration
 package ch.nolix.common.container;
 
 //own imports
 import ch.nolix.common.constants.StringManager;
+import ch.nolix.common.exception.Argument;
+import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.EmptyArgumentException;
+import ch.nolix.common.exception.ErrorPredicate;
 import ch.nolix.common.functional.IElementTakerComparableGetter;
 import ch.nolix.common.functional.IElementTakerRunner;
 import ch.nolix.common.functional.IElementTakerBooleanGetter;
 import ch.nolix.common.functional.IElementTakerElementGetter;
 import ch.nolix.common.helper.CharacterHelper;
 import ch.nolix.common.helper.IterableHelper;
+import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
 /**
  * A list is a container that can add elements at the begin or at the end.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 910
+ * @param <E> - The type of the elements of a list.
  */
 public class List<E> implements IContainer<E> {
 	
@@ -31,33 +34,63 @@ public class List<E> implements IContainer<E> {
 	//constructor
 	/**
 	 * Creates new empty list.
-	 * The complexity of this implementation is O(1).
+	 * The complexity of this method is O(1).
 	 */
 	public List() {}
 	
 	//constructor
 	/**
-	 * Creates new list that contains the given elements.
-	 * The complexity of this implementation is O(n) if n elements are given.
+	 * Creates new list with the given element.
+	 * The complexity of this method is O(1).
+	 * 
+	 * @param element
+	 * @throws NullArgumentException if the given element is null.
+	 */
+	public List(final E element) {
+		addAtEnd(element);
+	}
+	
+	//constructor
+	/**
+	 * Creates new list with the given elements.
+	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
+	 * @throws NullArgumentException if the given element container is null.
+	 * @throws NullArgumentException if one of the given elements is null.
 	 */
-	public List(Iterable<E> elements) {
+	@SuppressWarnings("unchecked")
+	public List(final E... elements) {
+		addAtEnd(elements);
+	}
+	
+	//constructor
+	/**
+	 * Creates new list with the given elements.
+	 * The complexity of this method is O(n) if n elements are given.
+	 * 
+	 * @param elements
+	 * @throws NullArgumentException if the given element container is null.
+	 * @throws NullArgumentException if one of the given elements is null.
+	 */
+	public List(final Iterable<E> elements) {
 		addAtEnd(elements);
 	}
 	
 	//method
 	/**
 	 * Adds the given element at the begin of this list.
-	 * The complexity of this implementation is O(1).
+	 * The complexity of this method is O(1).
 	 * 
 	 * @param element
-	 * @return this list
-	 * @throws Exception if the given element is null
+	 * @return this list.
+	 * @throws NullArgumentException if the given element is null.
 	 */
 	public List<E> addAtBegin(E element) {
 		
-		ListNode<E> node = new ListNode<E>(element);
+		//Creates new node.
+		final ListNode<E> node = new ListNode<E>(element);
+		
 		if (isEmpty()) {
 			firstNode = node;
 			lastNode = node;
@@ -74,17 +107,22 @@ public class List<E> implements IContainer<E> {
 	//method
 	/**
 	 * Adds the given elements at the begin of this list.
-	 * The complexity of this implementation is O(n) if n elements are given.
+	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
-	 * @return this list
-	 * @throws Exception if one of the given elements is null
+	 * @return this list.
+	 * @throws NullArgumentException if the given element container is null.
+	 * @throws NullArgumentException if one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<E> addAtBegin(E... elements) {
+	public List<E> addAtBegin(final E... elements) {
 		
+		//Checks if the given element container is not null.
+		ZetaValidator.supposeThat(elements).thatIsNamed("element container").isNotNull();
+		
+		//Iterates the given elements.
 		for (int i = elements.length; i >= 0; i--) {
-			addAtEnd(elements[i]);
+			addAtBegin(elements[i]);
 		}
 		
 		return this;
@@ -92,19 +130,59 @@ public class List<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * Adds the given element at the begin of this list regarding singularity.
-	 * The complexity of this implementation is O(n) if this list contains n elements.
+	 * Adds the given elements at the begin of this list.
+	 * The complexity of this method is O(n) if n elements are given.
+	 * 
+	 * @param elements
+	 * @return this list.
+	 * @throws NullArgumentException if the given element container is null.
+	 * @throws NullArgumentException if one of the given elements is null.
+	 */
+	public List<E> addAtBegin(final Iterable<E> elements) {
+		
+		//Checks if the given element container is not null.
+		ZetaValidator.supposeThat(elements).thatIsNamed("element container").isNotNull();
+		
+		if (!IterableHelper.isEmpty(elements)) {
+			
+			ListNode<E> preNode = new ListNode<E>(null);
+			
+			ListNode<E> iterator = preNode;
+			for (final E e: elements) {
+				iterator.setElement(e);
+				iterator.setNextNode(new ListNode<E>(null));
+				iterator = iterator.getNextNode();
+				count++;
+			}
+			
+			this.firstNode = preNode.getNextNode();
+			
+			if (lastNode == null) {
+				lastNode = iterator;
+			}
+		}
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Adds the given element at the begin of this list with regarding singularity.
+	 * The complexity of this method is O(n) if this list contains n elements.
 	 * 
 	 * @param element
-	 * @return this list
-	 * @throws Exception if:
-	 * -the given element is null
-	 * -this list already contains the given element
+	 * @return this list.
+	 * @throws NullArgumentException if the given element is null.
+	 * @throws ArgumentException if this list contains already the given element.
 	 */
-	public List<E> addAtBeginRegardingSingularity(E element) {
+	public List<E> addAtBeginRegardingSingularity(final E element) {
 		
+		//Checks if this list contains already the given element.
 		if (contains(element)) {
-			throw new RuntimeException("List already contains the element '" + element.toString() + "'.");
+			throw new ArgumentException(
+				new Argument(element),
+				new ErrorPredicate("is already contained by the list")
+			);
 		}
 		
 		return addAtBegin(element);
@@ -113,15 +191,17 @@ public class List<E> implements IContainer<E> {
 	//method
 	/**
 	 * Adds the given element at the end of this list.
-	 * The complexity of this implementation is O(1).
+	 * The complexity of this method is O(1).
 	 * 
 	 * @param element
-	 * @return this list
-	 * @throws Exception if the given element is null
+	 * @return this list.
+	 * @throws NullArgumentException if the given element is null.
 	 */
-	public List<E> addAtEnd(E element) {
+	public List<E> addAtEnd(final E element) {
 		
-		ListNode<E> node = new ListNode<E>(element);
+		//Creates new node.
+		final ListNode<E> node = new ListNode<E>(element);
+		
 		if (isEmpty()) {
 			firstNode = node;
 			lastNode = node;
@@ -138,17 +218,21 @@ public class List<E> implements IContainer<E> {
 	//method
 	/**
 	 * Adds the given elements at the end of this list.
-	 * The complexity of this implementation is O(n) if n elements are given.
+	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
-	 * @return this list
-	 * @throws Exception if one of the given elements is null
+	 * @return this list.
+	 * @throws NullArgumentException if the given element container is null.
+	 * @throws NullArgumentException if one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<E> addAtEnd(E... elements) {
+	public List<E> addAtEnd(final E... elements) {
+		
+		//Checks if the given element container is not null.
+		ZetaValidator.supposeThat(elements).thatIsNamed("element container").isNotNull();
 		
 		//Iterates the given elements.
-		for (E e: elements) {
+		for (final E e: elements) {
 			addAtEnd(e);
 		}
 		
@@ -157,65 +241,18 @@ public class List<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * Adds the given element at the end of this list regarding singularity.
-	 * The complexity of this implementation is O(n) if this list contains n elements.
-	 * 
-	 * @param element
-	 * @return this list
-	 * @throws Exception if:
-	 * -the given element is null
-	 * -this list already contains the given element 
-	 */
-	public List<E> addAtEndRegardingSingularity(E element) {
-		
-		if (contains(element)) {
-			throw new RuntimeException("List already contains the element '" + element.toString() + "'.");
-		}
-		
-		return addAtEnd(element);
-	}
-	
-	//method
-	/**
-	 * Adds the given elements at the begin of this list.
-	 * The complexity of this implementation is O(n) if n elements are given.
+	 * Adds the given elements at the end of this list.
+	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
-	 * @return this list
+	 * @return this list.
+	 * @throws NullArgumentException if the given element container is null.
+	 * @throws NullArgumentException if one of the given elements is null.
 	 */
-	public List<E> addAtBegin(Iterable<E> elements) {
+	public List<E> addAtEnd(final Iterable<E> elements) {
 		
-		if (!IterableHelper.isEmpty(elements)) {
-			
-			ListNode<E> preNode = new ListNode<E>(null);
-			
-			ListNode<E> iterator = preNode;
-			for (E e: elements) {
-				count++;
-				iterator.setElement(e);
-				iterator.setNextNode(new ListNode<E>(null));
-				iterator = iterator.getNextNode();
-			}
-			
-			this.firstNode = preNode.getNextNode();
-			
-			if (lastNode == null) {
-				lastNode = iterator;
-			}
-		}
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Adds the the given elements at the end of this list.
-	 * The complexity of this implementation is O(n) when n elements are given.
-	 * 
-	 * @param elements
-	 * @return this list
-	 */
-	public List<E> addAtEnd(Iterable<E> elements) {
+		//Checks if the given element container is not null.
+		ZetaValidator.supposeThat(elements).thatIsNamed("element container").isNotNull();
 		
 		elements.forEach(e -> addAtEnd(e));
 		
@@ -224,8 +261,33 @@ public class List<E> implements IContainer<E> {
 	
 	//method
 	/**
+	 * Adds the given element at the begin of this list with regarding singularity.
+	 * The complexity of this method is O(n) if this list contains n elements.
+	 * 
+	 * @param element
+	 * @return this list.
+	 * @throws NullArgumentException if the given element is null.
+	 * @throws ArgumentException if this list contains already the given element.
+	 */
+	public List<E> addAtEndRegardingSingularity(final E element) {
+		
+		//Checks if this list contains already the given element.
+		if (contains(element)) {
+			throw new ArgumentException(
+				new Argument(element),
+				new ErrorPredicate("is already contained by the list")
+			);
+		}
+		
+		return addAtEnd(element);
+	}
+		
+	//method
+	/**
 	 * Removes all elements of this list.
-	 * The complexity of this implementation is O(n) when this list contains n elements.
+	 * The complexity of this method is O(n) when this list contains n elements.
+	 * 
+	 * @return this list.
 	 */
 	public List<E> clear() {
 		
@@ -233,8 +295,7 @@ public class List<E> implements IContainer<E> {
 			
 			ListNode<E> iterator = firstNode;		
 			while (iterator.hasNextNode()) {
-				ListNode<E> nextNode;
-				nextNode = iterator.getNextNode();
+				final ListNode<E> nextNode = iterator.getNextNode();
 				iterator.removeNextNode();
 				iterator = nextNode;
 			}
@@ -251,17 +312,16 @@ public class List<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(1).
+	 * Runs the given runner on each element of this list.
+	 * The complexity of this method is O(n) when this list contains n elements.
 	 * 
-	 * @return true if this list contains any element
+	 * @param runner
+	 * @return this list.
 	 */
-	public boolean containsAny() {
-		return (firstNode != null);
-	}
-	
-	public List<E> foreach(IElementTakerRunner<E> runner) {
+	public List<E> forEachAndGetList(final IElementTakerRunner<E> runner) {
 		
-		for (E e: this) {
+		//Iterates this list.
+		for (final E e: this) {
 			runner.run(e);
 		}
 		
@@ -270,56 +330,31 @@ public class List<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) when this list contains n elements.
+	 * The complexity of this method is O(n) when this list contains n elements.
 	 * 
 	 * @param selector
-	 * @return all elements of this list the given selector selects
+	 * @return all elements the given selector selects from this list.
 	 */
-	public List<E> getAll(IElementTakerBooleanGetter<E> selector) {
+	public List<E> getAll(final IElementTakerBooleanGetter<E> selector) {
 		
-		List<E> selectedElements = new List<E>();
+		//Creates list.
+		final List<E> elements = new List<E>();
 		
-		for (E t: this) {
-			if (selector.getOutput(t)) {
-				selectedElements.addAtEnd(t);
+		//Fills up the list with the elements the given selector selects from this list.
+		for (final E e: this) {
+			if (selector.getOutput(e)) {
+				elements.addAtEnd(e);
 			}
 		}
 		
-		return selectedElements;
+		return elements;
 	}
 		
 	//method
 	/**
-	 * Returns and removes the first element of this list.
+	 * The complexity of this method is O(n) if this list contains n elements.
 	 * 
-	 * @return the first element of this list
-	 * @throws Exception if this list is empty
-	 */
-	public E getAndRemoveFirst() {
-		E element = getRefFirst();
-		removeFirst();
-		return element;
-	}
-	
-	//default method
-	/**
-	 * Returns and removes the first element the given selector selects from this list.
-	 * 
-	 * @param selector
-	 * @return the first element the given selector selects
-	 * @throws Exception if this list contains no element the given selector selects
-	 */
-	public E getAndRemoveFirst(IElementTakerBooleanGetter<E> selector) {
-		E element = getRefFirst(selector);
-		removeFirst(selector);
-		return element;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if this list contains n elements.
-	 * 
-	 * @return a new list containing the elements of this list
+	 * @return a new list containing the elements of this list.
 	 */
 	public List<E> getCopy() {
 		return toContainer(e -> e);
@@ -327,8 +362,12 @@ public class List<E> implements IContainer<E> {
 	
 	//method
 	/**
+	 * The complexity of this method is O((n-m)*m) if:
+	 * -This list contains n elements.
+	 * -The sequences that matches the given sequence pattern contain m elements.
+	 * 
 	 * @param sequencePattern
-	 * @return the number of sequences from this list that match the given sequence pattern
+	 * @return the number of sequences from this list that match the given sequence pattern.
 	 */
 	public int getCount(final SequencePattern<E> sequencePattern) {
 		return getSequences(sequencePattern).getSize();
@@ -336,14 +375,19 @@ public class List<E> implements IContainer<E> {
 
 	//method
 	/**
+	 * The complexity of this method is O((n-m)*m) if:
+	 * -This list contains n elements.
+	 * -The sequences that matches the given sequence pattern contain m elements.
+	 * 
 	 * @param sequencePattern
-	 * @return  the ratio of the sequences from this list that match the given sequence pattern
-	 * @throws Exception if this list is empty
+	 * @return the ratio of the sequences from this list that match the given sequence pattern.
+	 * @throws NullArgumentException if this list is empty.
 	 */
 	public double getRatio(final SequencePattern<E> sequencePattern) {
 		
+		//Checks if this list is not empty.
 		if (isEmpty()) {
-			throw new RuntimeException("Container is empty.");
+			throw new EmptyArgumentException(new Argument(this));
 		}
 		
 		return ((double)getCount(sequencePattern) / getSize());
@@ -351,31 +395,33 @@ public class List<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(1).
+	 * The complexity of this method is O(1).
 	 * 
 	 * @return the first element of this list
-	 * @throws Exception if this list is empty
+	 * @throws NullArgumentException if this list is empty.
 	 */
 	public E getRefFirst() {
 		
-		for (E e: this) {
-			return e;
+		//Checks if this list is not empty.
+		if (isEmpty()) {
+			throw new EmptyArgumentException(new Argument(this));
 		}
 		
-		throw new RuntimeException("List is empty.");
+		return firstNode.getElement();
 	}
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(1).
+	 * The complexity of this method is O(1).
 	 * 
-	 * @return the last element of this list
-	 * @throws Exception if this container is empty
+	 * @return the last element of this list.
+	 * @throws NullArgumentException if this list is empty.
 	 */
 	public E getRefLast() {
 		
+		//Checks if this list is not empty.
 		if (isEmpty()) {
-			throw new RuntimeException("List is empty.");
+			throw new EmptyArgumentException(new Argument(this));
 		}
 		
 		return lastNode.getElement();
@@ -383,8 +429,12 @@ public class List<E> implements IContainer<E> {
 	
 	//method
 	/**
+	 * The complexity of this method is O((n-m)*m) if:
+	 * -This list contains n elements.
+	 * -The sequences that matches the given sequence pattern contain m elements.
+	 * 
 	 * @param sequencePattern
-	 * @return the sequences from this list that match the given sequence pattern
+	 * @return the sequences from this list that match the given sequence pattern.
 	 */
 	public List<List<E>> getSequences(final SequencePattern<E> sequencePattern) {
 		return sequencePattern.getSequences(this);
@@ -392,9 +442,9 @@ public class List<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(1).
+	 * The complexity of this method is O(1).
 	 * 
-	 * @return the number of elements of this list
+	 * @return the number of elements of this list.
 	 */
 	public int getSize() {
 		return count;
@@ -402,84 +452,100 @@ public class List<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * This implementation uses the merge sort algorithm.
-	 * The complexity of this implementation is O(n*log(n)) when this list contains n elements.
+	 * This method uses the merge sort algorithm.
+	 * The complexity of this method is O(n*log(n)) if this list contains n elements.
 	 * 
 	 * @param comparator
-	 * @return a new list containing the elements of this list sorted from smallest to biggest according to the given norm
+	 * @return a new list with the elements of this list sorted from smallest to biggest according to the given norm.
 	 */
-	public <E2> List<E> getSorted(IElementTakerComparableGetter<E, E2> norm) {
+	public <E2> List<E> getSorted(final IElementTakerComparableGetter<E, E2> norm) {
 		
+		//Handles the case if this list is empty.
 		if (isEmpty()) {
 			return new List<E>();
 		}
 		
+		//Handles the case if this list is not empty.
 		return getSortedSubList(1, getSize(), norm);
 	}
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(1).
+	 * The complexity of this method is O(1).
 	 * 
-	 * @return true if this list is empty
-	 */
-	public boolean isEmpty() {
-		return (firstNode == null);
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(1).
-	 * 
-	 * @return an iterator for this list
+	 * @return a new iterator of this list.
 	 */
 	public ListIterator<E> iterator() {
 		return new ListIterator<E>(firstNode);
 	}
 	
-	//default method
-	/**
-	 * @param sequencePattern
-	 * @return true if this list matches the given sequence pattern
-	 */
-	public boolean matches(final SequencePattern<E> sequencePattern) {
-		return sequencePattern.matches(this);
-	}
-	
 	//method
 	/**
 	 * Removes all elements the given selector selects from this list.
-	 * The complexity of this implementation is O(n) when this list contains n elements.
+	 * The complexity of this method is O(n) if this list contains n elements.
 	 * 
 	 * @param selector
-	 * @return this list
+	 * @return this list.
 	 */
-	public List<E> removeAll(IElementTakerBooleanGetter<E> selector) {
+	public List<E> removeAll(final IElementTakerBooleanGetter<E> selector) {
 		
-		List<E> temp = getAll(e -> !selector.getOutput(e));
+		final List<E> list = getAll(e -> !selector.getOutput(e));
 		clear();
-		addAtEnd(temp);
+		addAtEnd(list);
 		
 		return this;
 	}
 	
 	//method
 	/**
-	 * Removes the first element of this list.
-	 * The complexity of this implementation is O(1).
+	 * Removes and returns the first element of this list.
+	 * The complexity of this method is O(1).
 	 * 
-	 * @return this list
-	 * @throws Exception if this list is empty
+	 * @return the first element of this list.
+	 * @throws NullArgumentException if this list is empty.
+	 */
+	public E removeAndGetRefFirst() {
+		final E element = getRefFirst();
+		removeFirst();
+		return element;
+	}
+	
+	//default method
+	/**
+	 * Removes and returns the first element the given selector selects from this list.
+	 * The complexity of this method is O(n) if this list contains n elements.
+	 * 
+	 * @param selector
+	 * @return the first element the given selector selects from this list.
+	 * @throws ArgumentException if this list contains no element the given selector selects.
+	 */
+	public E removeAndGetRefFirst(final IElementTakerBooleanGetter<E> selector) {
+		E element = getRefFirst(selector);
+		removeFirst(selector);
+		return element;
+	}
+		
+	//method
+	/**
+	 * Removes the first element of this list.
+	 * The complexity of this method is O(1).
+	 * 
+	 * @return this list.
+	 * @throws NullArgumentException if this list is empty.
 	 */
 	public List<E> removeFirst() {
 		
+		//Checks if this list is not empty.
 		if (isEmpty()) {
-			throw new RuntimeException("List is empty.");
+			throw new EmptyArgumentException(new Argument(this));
 		}
 		
+		//Handles the case if this list contains 1 element.
 		if (containsOne()) {
 			clear();
 		}
+		
+		//Handles the case if this list contains several elements.
 		else {
 			firstNode = firstNode.getNextNode();
 			count--;
@@ -490,57 +556,63 @@ public class List<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * Removes the first appearance of the given element from this itemizable object.
-	 * The complexity of this implementation is O(n) when this itemizable object contains n elements.
+	 * Removes the first appearance of the given element from this list.
+	 * The complexity of this method is O(n) if this list contains n elements.
 	 * 
 	 * @param element
-	 * @throws Exception if this list does not contain the given element
+	 * @return this list.
+	 * @throws ArgumentException if this list does not contain the given element.
 	 */
-	public void removeFirst(E element) {
+	public List<E> removeFirst(final E element) {
 		
+		//Checks if this list is not empty.
 		if (isEmpty()) {
-			throw new RuntimeException("List contains no such element");
+			throw new ArgumentException(
+				new Argument(this),
+				new ErrorPredicate("contains not '" + element + "'")
+			);
 		}
 		
-		if (firstNode.containsElement(element)) {
-			removeFirst();
+		if (firstNode.contains(element)) {
+			return removeFirst();
 		}
-		
-		else if (lastNode.containsElement(element)) {
-			removeLast();
-		}
-		
-		else {
-			ListNode<E> iterator = firstNode;
-			while (iterator.hasNextNode()) {
-				try {
-					ListNode<E> nextNode = iterator.getNextNode();
-					if (nextNode.containsElement(element)) {
-						removeNextNode(iterator);
-						return;
-					}
-					iterator = nextNode;
-				}
-				catch (Exception e) {
-					e.printStackTrace();
-				}
+
+		ListNode<E> iterator = firstNode;
+		while (iterator.hasNextNode()) {
+			
+			final ListNode<E> nextNode = iterator.getNextNode();
+			
+			if (nextNode.contains(element)) {
+				removeNextNode(iterator);
+				return this;
 			}
-			throw new RuntimeException("List contains nu such element");
+			
+			iterator = nextNode;
 		}
+		
+		throw new ArgumentException(
+			new Argument(this),
+			new ErrorPredicate("contains not '" + element + "'")
+		);
 	}
 	
 	//method
 	/**
 	 * Removes the first element the given selector selects from this list.
-	 * The complexity of this implementation is O(n) when this list contains n elements.
+	 * The complexity of this method is O(n) if this list contains n elements.
 	 * 
 	 * @param selector
-	 * @return this list
+	 * @return this list.
+	 * @throws ArgumentException if this list contains no element the given selector selects.
 	 */
-	public List<E> removeFirst(IElementTakerBooleanGetter<E> selector) {
+	public List<E> removeFirst(final IElementTakerBooleanGetter<E> selector) {
 		
+		//Checks if this list is not empty.
 		if (isEmpty()) {
-			return this;
+			throw new ArgumentException(
+				new Argument(this),
+				new ErrorPredicate("contains no such element")
+			);
 		}
 
 		if (selector.getOutput(getRefFirst())) {
@@ -548,10 +620,10 @@ public class List<E> implements IContainer<E> {
 		}
 
 		ListNode<E> iterator = firstNode;
-		while (iterator.hasNextNode()) {
+		while (iterator.hasNextNode()) {	
 			
-			ListNode<E> nextNode = iterator.getNextNode();
-
+			final ListNode<E> nextNode = iterator.getNextNode();
+			
 			if (selector.getOutput(nextNode.getElement())) {
 				removeNextNode(iterator);
 				return this;
@@ -560,31 +632,41 @@ public class List<E> implements IContainer<E> {
 			iterator = nextNode;
 		}
 		
-		return this;
+		throw new ArgumentException(
+			new Argument(this),
+			new ErrorPredicate("contains no such element")
+		);
 	}
 	
 	//method
 	/**
 	 * Removes the last element of this list.
-	 * The complexity of this implementation is O(1).
+	 * The complexity of this method is O(1).
 	 * 
-	 * @return this list
-	 * @throws Exception if this list is empty
+	 * @return this list.
+	 * @throws NullArgumentException if this list is empty.
 	 */
 	public List<E> removeLast() {
 		
+		//Checks if this list is not empty.
 		if (isEmpty()) {
-			throw new RuntimeException("List is empty.");
+			throw new EmptyArgumentException(new Argument(this));
 		}
 		
+		//Handles the case if this list contains 1 element.
 		if (containsOne()) {
 			clear();
 		}
+		
+		//Handles the case if this list contains several elements.
 		else {
+			
 			ListNode<E> iterator = firstNode;
+			
 			while (iterator.getNextNode() != lastNode) {
 				iterator = iterator.getNextNode();
 			}
+			
 			iterator.removeNextNode();
 			lastNode = iterator;
 			count--;
@@ -595,143 +677,138 @@ public class List<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * Replaces the first element the given selector function selects from this list with the given element.
+	 * Replaces the first element the given selector selects from this list with the given element.
+	 * The complexity of this method is O(n) if this list contains n elements.
 	 * 
 	 * @param selector
 	 * @param element
+	 * @return this list.
+	 * @throws ArgumentException if this list contains no element the given selector selects.
+	 * @throws NullArgumentException if the given element is null.
 	 */
-	public void replaceFirst(IElementTakerBooleanGetter<E> selector, E element) {
+	public List<E> replaceFirst(IElementTakerBooleanGetter<E> selector, E element) {
 		
+		//Checks if this list is not empty.
 		if (isEmpty()) {
-			return;
+			throw new ArgumentException(
+				new Argument(this),
+				new ErrorPredicate("contains not '" + element + "'")
+			);
 		}
 		
 		ListNode<E> iterator = firstNode;
 		while (true) {
+			
 			if (selector.getOutput(iterator.getElement())) {
 				iterator.setElement(element);
-				break;
+				return this;
 			}
+			
 			if (iterator.hasNextNode()) {
-				try {
-					iterator = iterator.getNextNode();
-				}
-				catch (Exception e) {
-					e.printStackTrace();
-				}
+				iterator = iterator.getNextNode();
+				continue;
 			}
-			else {
-				break;
-			}			
+			
+			throw new ArgumentException(
+				new Argument(this),
+				new ErrorPredicate("contains not '" + element + "'")
+			);
 		}
 	}
 	
 	//method
 	/**
-	 * Reverses the order of the elements of this list.
-	 * The complexity of this implementation is O(n) when this list contains n elements.
+	 * Reverses the elements of this list.
+	 * The complexity of this method is O(n) if this list contains n elements.
+	 * 
+	 * @return this list.
 	 */
-	public void reverse() {
+	public List<E> reverse() {
+		
 		if (!isEmpty()) {
 			lastNode = firstNode;
 			ListNode<E> iterator = firstNode;
 			while (iterator.hasNextNode()) {
-				try {
-					ListNode<E> tempNode = iterator.getNextNode();
-					iterator.setNextNode(firstNode);
-					firstNode = iterator;
-					iterator = tempNode;
-				}
-				catch (Exception e1) {
-					e1.printStackTrace();
-				}
+				final ListNode<E> node = iterator.getNextNode();
+				iterator.setNextNode(firstNode);
+				firstNode = iterator;
+				iterator = node;
 			}
 			iterator.setNextNode(firstNode);
 			firstNode = iterator;
 		}
+		
+		return this;
 	}
 	
 	//method
 	/**
 	 * Sorts this list according to the given norm.
-	 * This implementation uses the merge sort algorithm.
-	 * The complexity of this implementation is O(n*log(n)) when this list contains n elements.
+	 * This method uses the merge sort algorithm.
+	 * The complexity of this method is O(n*log(n)) if this list contains n elements.
 	 * 
 	 * @param norm
+	 * @return this list.
 	 */
-	public <E2> void sort(IElementTakerComparableGetter<E, E2> norm) {
-		List<E> sorted = getSorted(norm);
+	public <E2> List<E> sort(IElementTakerComparableGetter<E, E2> norm) {
+		
+		final List<E> sorted = getSorted(norm);
 		clear();
 		addAtEnd(sorted);
+		
+		return this;
 	}
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) when this list contains n elements.
+	 * The complexity of this method is O(n) if this list contains n elements.
 	 * 
 	 * @param transformer
-	 * @return a list containing the elements the given transformer transforms from the elements of this list
+	 * @return a new list with the elements the given transformer transforms from the elements of this list.
 	 */
 	public <O> List<O> toContainer(IElementTakerElementGetter<E, O> transformer) {
-		
-		List<O> list = new List<O>();
-		
-		forEach(e -> list.addAtEnd(transformer.getOutput(e)));
-		
-		return list;
-	}
-	
-	public <O> List<O> toContainerFromForEach(IElementTakerElementGetter<E, Iterable<O>> x) {
-		
 		final List<O> list = new List<O>();
-		
-		forEach(e -> list.addAtEnd(x.getOutput(e)));
-		
+		forEach(e -> list.addAtEnd(transformer.getOutput(e)));
 		return list;
 	}
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) when this list contains n elements.
+	 * The complexity of this method is O(n) if this list contains n elements.
 	 * 
-	 * @return a string representation of this list
+	 * @return a string representation of this list.
 	 */
 	public String toString() {
 		
 		String string = StringManager.EMPTY_STRING;
-		boolean atBegin = true;
 		
-		for (E e: this) {
-			
+		//Iterates this list.
+		boolean atBegin = true;
+		for (final E e: this) {
 			if (atBegin) {
 				atBegin = false;
 			}
 			else {
 				string += CharacterHelper.COMMA;
-			}
-			
+			}		
 			string += e.toString();
 		}
 		
 		return string;
 	}
 	
-	public List<E> _createEmptyContainer() {
-		return new List<E>();
-	}
-	
-	public List<IContainer<E>> _createEmptyContainerOfContainers() {
-		return new List<IContainer<E>>();
-	}
-	
 	//method
 	/**
 	 * @param startIndex
 	 * @param endIndex
-	 * @return a new list containing the elements of the sub list with the given start index and end index sorted according to the given norm
+	 * @return a new list with the elements from the given start index to the given end index sorted according to the given norm.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private <E2> List<E> getSortedSubList(int startIndex, int endIndex, IElementTakerComparableGetter<E, E2> norm) {
+	private <E2> List<E> getSortedSubList(
+		final int startIndex,
+		final int endIndex,
+		final IElementTakerComparableGetter<E, E2> norm
+	) {
 		
 		//Searches for the start node.
 		ListNode<E> startNode = firstNode;
@@ -759,7 +836,7 @@ public class List<E> implements IContainer<E> {
 			List<E> list = new List<E>();
 			try {
 				Comparable element1Value = norm.getValue(startNode.getElement());
-				Comparable element2Value = norm.getValue(startNode.getElementOfNextNode());
+				Comparable element2Value = norm.getValue(startNode.getNextNode().getElement());
 				if (element1Value.compareTo(element2Value) > 0) {
 					list.addAtEnd(startNode.getNextNode().getElement());
 					list.addAtEnd(startNode.getElement());					
@@ -816,9 +893,13 @@ public class List<E> implements IContainer<E> {
 	 * Removes the next node of the given node.
 	 * 
 	 * @param node
-	 * @throws Exception if the given node has no next node
+	 * @throws NullArgumentException if the given node is null.
+	 * @throws UnexistingAttributeException if the given node has no next node.
 	 */
 	private void removeNextNode(ListNode<E> node) {
+		
+		//Checks if the given node is not null.
+		ZetaValidator.supposeThat(node).thatIsNamed("node").isNotNull();
 		
 		final ListNode<E> nextNode = node.getNextNode();
 		

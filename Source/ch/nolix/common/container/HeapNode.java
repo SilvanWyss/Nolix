@@ -1,17 +1,20 @@
-/*
- * file:	AlphaHeapNode.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	100
- */
-
 //package declaration
 package ch.nolix.common.container;
 
-//own import
-import ch.nolix.common.util.Validator;
+//own imports
+import ch.nolix.common.exception.UnexistingAttributeException;
+import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //package-visible class
+/**
+ * A heap node contains an element.
+ * A heap node can have a next node, a left sub node and a right sub node.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 110
+ * @param <E> - The type of the element of a heap node.
+ */
 final class HeapNode<E> {
 	
 	//attribute
@@ -24,81 +27,89 @@ final class HeapNode<E> {
 	
 	//constructor
 	/**
-	 * Creates new alpha heap node with the given element.
+	 * Creates new heap node with the given element.
 	 * 
 	 * @param element
-	 * @throws Exception if the given element is null
+	 * @throws NullArgumentException if the given element is null.
 	 */
-	public HeapNode(E element) {
+	public HeapNode(final E element) {
 		setElement(element);
 	}
 	
 	//method
 	/**
-	 * @return the element of this alpha heap node
+	 * @return the element of this heap node.
 	 */
-	public final E getElement() {
+	public E getElement() {
 		return element;
 	}
 	
 	//method
 	/**
-	 * @return the next node of this alpha heap node
+	 * @return the next node of this heap node.
+	 * @throws UnexistingAttributeException if this heap node has no next node.
 	 */
-	public final HeapNode<E> getNextNode() {
+	public HeapNode<E> getNextNode() {
+		
+		//Checks if this heap node has a next node.
+		if (!hasNextNode()) {
+			throw new UnexistingAttributeException(this, "next node");
+		}
+		
 		return nextNode;
 	}
 	
 	//method
 	/**
-	 * @return true if this alpha heap node has a next node
+	 * @return true if this heap node has a left sub node.
 	 */
-	public final boolean hasNextNode() {
-		return (nextNode != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this alpha heap node has a left sub node
-	 */
-	public final boolean hasLeftSubNode() {
+	public boolean hasLeftSubNode() {
 		return (leftSubNode != null);
 	}
 	
 	//method
 	/**
-	 * @return true if this alpha heap node has a left and right sub node
+	 * @return true if this heap node has a left and right sub node.
 	 */
-	public final boolean hasLeftAndRightSubNode() {
+	public boolean hasLeftAndRightSubNode() {
 		return (rightSubNode != null);
 	}
 	
 	//method
 	/**
-	 * Removes the next node of this alpha heap node.
+	 * @return true if this heap node has a next node.
 	 */
-	public final void removeNextNode() {
+	public boolean hasNextNode() {
+		return (nextNode != null);
+	}
+	
+	//method
+	/**
+	 * Removes the next node of this heap node.
+	 */
+	public void removeNextNode() {
 		nextNode = null;
 	}
 	
 	//method
 	/**
-	 * Removes the right sub node of this alpha heap node.
+	 * Removes the right sub node of this heap node.
 	 */
-	public final void removeRightSubNode() {
+	public void removeRightSubNode() {
 		rightSubNode = null;
 	}
 	
 	//method
 	/**
-	 * Sets the element of this alpha heap node.
+	 * Sets the element of this heap node.
 	 * 
 	 * @param element
-	 * @throws Exception if the given element is null
+	 * @throws NullArgumentException if the given element is null.
 	 */
-	public final void setElement(E element) {
+	public void setElement(final E element) {
 		
-		Validator.throwExceptionIfValueIsNull("element", element);
+		//Checks if the given element is not null.
+		ZetaValidator.supposeThat(element).thatIsNamed("element").isNotNull();
 		
 		this.element = element;
 	}

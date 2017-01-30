@@ -8,7 +8,7 @@ package ch.nolix.common.functional;
  * @author Silvan Wyss
  * @month 2016-03
  * @lines 20
- * @param <E> - The type of the elements a concrete element taker double getter works with.
+ * @param <E> - The type of the elements an element taker double getter takes.
  */
 public interface IElementTakerDoubleGetter<E> {
 
@@ -17,5 +17,5 @@ public interface IElementTakerDoubleGetter<E> {
 	 * @param element
 	 * @return a double for the given element.
 	 */
-	public abstract double getValue(E element);
+	public abstract double getOutput(E element);
 }

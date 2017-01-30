@@ -34,7 +34,7 @@ public final class DataProviderTest extends ZetaTest {
 		);
 		
 		for (Pair<Time, Double> dcp: dailyClosingPrices) {
-			expectThat(dcp.getSecondElement().doubleValue()).isNotNegative();
+			expectThat(dcp.getRefElement2().doubleValue()).isNotNegative();
 		}
 	}
 	

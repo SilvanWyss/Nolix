@@ -1,10 +1,3 @@
-/*
- * file:	Matrix.java
- * author:	Silvan Wyss
- * month:	2016-07
- * lines:	230
- */
-
 //package-declaration
 package ch.nolix.common.container;
 
@@ -12,55 +5,75 @@ package ch.nolix.common.container;
 import ch.nolix.common.constants.StringManager;
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.functional.IElementTakerElementGetter;
-import ch.nolix.common.util.Validator;
+import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
 /**
- * A matrix is a container that stores its elements like a table.
+ * A matrix is a container that stores its elements in rows and columns.
+ * 
+ * @author	Silvan Wyss
+ * @month 2016-07
+ * @lines 270
+ * @param <E> - The type of the elements of a matrix.
  */
-public final class Matrix<E> implements IContainer<E> {
+public class Matrix<E> implements IContainer<E> {
 
 	//attribute
 	private Object[][] elements;
 	
 	//method
 	/**
-	 * Adds new row to this matrix with the given elements.
+	 * Adds a new row to this matrix with the given elements.
+	 * The complexity of this method is O(n + m) if:
+	 * -This matrix contains n rows.
+	 * -m elements are given.
 	 * 
 	 * @param elements
-	 * @return this matrix
-	 * @throws Exception if:
-	 * -Not as many elements are given as many columns this matrix contains.
-	 * -One of the given elements is null.
+	 * @return this matrix.
+	 * @throws NullArgumentException if the given element container is null.
+	 * @throws EmptyArgumentException if the given element container is empty.
+	 * @throws UnequalArgumentException if not as many elements are given as the number of columns the other rows of this matrix have.
+	 * @throws NullArgumentException if one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public final Matrix<E> addRow(E... elements) {
+	public Matrix<E> addRow(final E... elements) {
 		
+		//Checks if the given element container is not null and not empty.
+		//TODO Add functionality for iterable objects to zeta validator.
+		//ZetaValidator.supposeThat(elements).thatIsNamed("element container").isNotEmpty();
+		
+		//Handles the case if this matrix is empty.
 		if (isEmpty()) {
 			
-			this.elements = new Object[1][elements.length];
+			this.elements = new Object[0][elements.length];
 			
+			//Iterates the given elements.
 			for (int i = 0; i < getColumnCount(); i++) {
 				
-				Validator.throwExceptionIfValueIsNull("element " + i , elements[i]);
-				
+				//Checks if the current element is not null.
+				ZetaValidator.supposeThat(elements[i]).thatIsNamed("element " + i + 1).isNotNull();
+						
 				this.elements[0][i] = elements[i];
 			}
 		}
+		
+		//Handles the case if this matrix is not empty.
 		else {
-			if (elements.length != getColumnCount()) {
-				throw new RuntimeException("There are not given as many elements as many columns this matrix contains.");
-			}
 			
-			Object[][] newElements = new Object[getRowCount() + 1][getColumnCount()];
+			//Checks if as many elements are given as the number of columns the other rows of this matrix have.
+			ZetaValidator.supposeThat(elements.length).thatIsNamed("number of given elements").equals(getColumnCount());
+			
+			final Object[][] newElements = new Object[getRowCount() + 1][getColumnCount()];
 			
 			for (int i = 0; i < getRowCount(); i++) {
 				newElements[i] = this.elements[i];
 			}
 			
+			//Iterates the given elements.
 			for (int i = 0; i < getColumnCount(); i++) {
 				
-				Validator.throwExceptionIfValueIsNull("element " + i , elements[i]);
+				//Checks if the current element is not null.
+				ZetaValidator.supposeThat(elements[i]).thatIsNamed("element " + i + 1).isNotNull();
 				
 				newElements[getRowCount()][i] = elements[i];
 			}
@@ -73,91 +86,108 @@ public final class Matrix<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * Removes all rows of this matrix.
+	 * Removes all elements of this matrix.
+	 * 
+	 * @return this matrix.
 	 */
-	public final Matrix<E> clear() {
+	public Matrix<E> clear() {
 		
 		elements = null;
+		System.gc();
 		
 		return this;
 	}
 	
 	//method
 	/**
-	 * @return a new matrix containing the elements of this matrix
+	 * @return the number of columns of this matrix.
 	 */
-	public final Matrix<E> getCopy() {
+	public int getColumnCount() {
 		
+		//Handles the case if this matrix is empty.
+		if (isEmpty()) {
+			return 0;
+		}
+		
+		//Handles the case if this matrix is not empty.
+		return elements[0].length;
+	}
+	
+	//method
+	/**
+	 * @return a new matrix with the elements of this matrix.
+	 */
+	public Matrix<E> getCopy() {
 		final Matrix<E> matrix = new Matrix<E>();
 		
-		matrix.elements = elements.clone();
+		if (!isEmpty()) {
+			matrix.elements = elements.clone();
+		}
 		
 		return matrix;
 	}
 	
 	//method
 	/**
-	 * @return the number of elements of this matrix
+	 * @return the number of rows of this matrix.
 	 */
-	public final int getSize() {
-		return (getRowCount() * getColumnCount());
-	}
-	
-	//method
-	/**
-	 * @param index
-	 * @return the element of this matrix with the given index
-	 * @throws Exception if this matrix contains no element with the given index
-	 */
-	@SuppressWarnings("unchecked")
-	public final E getRefAt(final int index) {
+	public int getRowCount() {
 		
-		if (index < 1 || index > getSize()) {
-			throw new RuntimeException("Matrix contains no element with the given index.");
+		//Handles the case if this matrix is empty.
+		if (isEmpty()) {
+			return 0;
 		}
 		
-		return (E)elements[(index / getColumnCount()) - 1][(index % getColumnCount()) - 1];
-	}
-	
-	//method
-	/**
-	 * @return the number of rows of this matrix
-	 */
-	public final int getRowCount() {
+		//Handles the case if this matrix is not empty.
 		return elements.length;
 	}
 	
 	//method
 	/**
-	 * @return the number of columns of this matrix
+	 * @return the number of elements of this matrix.
 	 */
-	public final int getColumnCount() {
-		
-		if (isEmpty()) {
-			return 0;
-		}
-		
-		return elements[0].length;
+	public int getSize() {
+		return (getRowCount() * getColumnCount());
 	}
-	
+		
+	//method
+	/**
+	 * @return true if this matrix is empty.
+	 */
 	public boolean isEmpty() {
-		return elements == null;
+		return (elements == null);
 	}
 	
 	//method
 	/**
-	 * @return an iterator for this matrix
+	 * @return a new iterator of this matrix.
 	 */
-	public final MatrixIterator<E> iterator() {
+	public MatrixIterator<E> iterator() {
 		return new MatrixIterator<E>(this);
 	}
 	
-	public final Matrix<E> setAt(int rowNumber, int columnNumber, E element) {
+	//method
+	/**
+	 * Sets the given element to this matrix in the row with the given row number and column with the given column number.
+	 * 
+	 * @param rowNumber
+	 * @param columnNumber
+	 * @param element
+	 * @return this matrix.
+	 * @throws UnexistingAttributeException if this matrix contains no row with the given row number.
+	 * @throws UnexistingAttributeException if this matrix contains no column with the given column number.
+	 * @throws NullArgumentException if the given element is null.
+	 */
+	public Matrix<E> set(
+		final int rowNumber,
+		final int columnNumber,
+		final E element
+	) {
 		
-		//Checks parameters.
+		//Checks the given parameters.
 		throwExceptionIfDoesNotContainRow(rowNumber);
 		throwExceptionIfDoesNotContainColumn(columnNumber);
-		Validator.throwExceptionIfValueIsNull("element", element);
+		ZetaValidator.supposeThat(element).thatIsNamed("element").isNotNull();
 		
 		elements[rowNumber - 1][columnNumber - 1] = element;
 		
@@ -166,13 +196,17 @@ public final class Matrix<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * @return a matrix containing the element the given transformer transforms from the elements of this matrix
+	 * @return a new matrix with the elements the given transformer transforms from the elements of this matrix.
+	 * 
+	 * @param transformer
 	 */
 	@SuppressWarnings("unchecked")
-	public final <O> Matrix<O> toContainer(final IElementTakerElementGetter<E, O> transformer) {
+	public <O> Matrix<O> toContainer(final IElementTakerElementGetter<E, O> transformer) {
 		
+		//Creates matrix.
 		final Matrix<O> matrix = new Matrix<O>();
 		
+		//Fills up the elements of the matrix.
 		matrix.elements = new Object[getRowCount()][getColumnCount()];
 		for (int i = 0; i < getRowCount(); i++) {
 			for (int j = 0; j < getColumnCount(); j++) {
@@ -187,7 +221,7 @@ public final class Matrix<E> implements IContainer<E> {
 	/**
 	 * @return a string that represents this matrix
 	 */
-	public final String toString() {
+	public String toString() {
 		
 		String string = StringManager.EMPTY_STRING;
 		
@@ -196,9 +230,7 @@ public final class Matrix<E> implements IContainer<E> {
 			String rowString = StringManager.EMPTY_STRING;
 			
 			for (int j = 0; j < getColumnCount(); j++) {
-				
 				rowString += elements[i][j].toString();
-			
 				if (j < getColumnCount() - 1) {
 					rowString += ',';
 				}
@@ -217,9 +249,9 @@ public final class Matrix<E> implements IContainer<E> {
 	//method
 	/**
 	 * @param columnNumber
-	 * @throws Exception if this matrix contains no column with the given column number
+	 * @throws UnexistingAttributeException if this matrix contains no column with the given column number.
 	 */
-	private final void throwExceptionIfDoesNotContainColumn(final int columnNumber) {
+	private void throwExceptionIfDoesNotContainColumn(final int columnNumber) {
 		if (columnNumber < 1 || columnNumber > getColumnCount()) {
 			throw new UnexistingAttributeException(this, "column with the column number " + columnNumber);
 		}
@@ -228,9 +260,9 @@ public final class Matrix<E> implements IContainer<E> {
 	//method
 	/**
 	 * @param rowNumber
-	 * @throws Exception if this matrix contains no row with the given row number
+	 * @throws UnexistingAttributeException if this matrix contains no row with the given row number.
 	 */
-	private final void throwExceptionIfDoesNotContainRow(final int rowNumber) {
+	private  void throwExceptionIfDoesNotContainRow(final int rowNumber) {
 		if (rowNumber < 1 || rowNumber > getRowCount()) {
 			throw new UnexistingAttributeException(this, "row with the row number " + rowNumber);
 		}

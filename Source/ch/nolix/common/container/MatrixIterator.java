@@ -1,18 +1,23 @@
-/*
- * file:	MatrixIterator.java
- * author:	Silvan Wyss
- * month:	2016-07
- * lines:	50
- */
-
 //package declaration
 package ch.nolix.common.container;
 
-//own import
-import ch.nolix.common.util.Validator;
+//Java import
+import java.util.Iterator;
+
+//own imports
+import ch.nolix.common.exception.Argument;
+import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.ErrorPredicate;
+import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //package-visible class
-final class MatrixIterator<E> implements java.util.Iterator<E> {
+/**
+ * @author Silvan Wyss
+ * @month 2016-07
+ * @lines 60
+ * @param <E> - The type of the elements of the matrix of a matrix iterator.
+ */
+final class MatrixIterator<E> implements Iterator<E> {
 
 	//attributes
 	private final Matrix<E> matrix;
@@ -23,18 +28,20 @@ final class MatrixIterator<E> implements java.util.Iterator<E> {
 	 * Creates new matrix iterator for the given matrix.
 	 * 
 	 * @param matrix
-	 * @throws Exception if the given matrix is null
+	 * @throws NullArgumentException if the given matrix is null,
 	 */
-	public MatrixIterator(Matrix<E> matrix) {
+	public MatrixIterator(final Matrix<E> matrix) {
 		
-		Validator.throwExceptionIfValueIsNull("matrix", matrix);
+		//Checks if the given matrix is not null.
+		ZetaValidator.supposeThat(matrix).thatIsInstanceOf(Matrix.class).isNotNull();
 		
+		//Sets the matrix of this matrix iterator.
 		this.matrix = matrix;
 	}
 	
 	//method
 	/**
-	 * @return true of this matrix iterator has a next element
+	 * @return true if this matrix iterator has a next element.
 	 */
 	public final boolean hasNext() {
 		return (nextElementIndex <= matrix.getSize());
@@ -42,15 +49,19 @@ final class MatrixIterator<E> implements java.util.Iterator<E> {
 	
 	//method
 	/**
-	 * @return the next element of this matrix iterator
-	 * @throws Exception if this matrix iterator has no next element
+	 * @return the next element of this matrix iterator.
+	 * @throws ArgumentException if this matrix iterator has no next element.
 	 */
 	public final E next() {
-		try {
-			return matrix.getRefAt(nextElementIndex++);
+		
+		//Checks if this matrix iterator has a next element.
+		if (!hasNext()) {
+			throw new ArgumentException(
+				new Argument(this),
+				new ErrorPredicate("has no next element")
+			);
 		}
-		catch (Exception expection) {
-			throw new RuntimeException("Matrix iterator has no next element.");
-		}
+		
+		return matrix.getRefAt(nextElementIndex++);
 	}
 }

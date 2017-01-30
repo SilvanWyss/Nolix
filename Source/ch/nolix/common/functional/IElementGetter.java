@@ -8,7 +8,7 @@ package ch.nolix.common.functional;
  * @author Silvan Wyss
  * @month 2016-09
  * @lines 20
- * @param <E> - The type of the elements a concrete element getter works with.
+ * @param <E> - The type of the elements an element getter returns.
  */
 public interface IElementGetter<E> {
 

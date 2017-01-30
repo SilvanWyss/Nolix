@@ -1,19 +1,21 @@
-/*
- * file:	ListNode.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	130
- */
-
 //package declaration
 package ch.nolix.common.container;
 
 //own imports
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.functional.IElementTakerBooleanGetter;
-import ch.nolix.common.util.Validator;
+import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //package-visible class
+/**
+ * A list node contains an element that is not null.
+ * A list node can have a next node.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 140
+ * @param <E> - The type of the element of a list node.
+ */
 final class ListNode<E> {
 
 	//attribute
@@ -27,54 +29,46 @@ final class ListNode<E> {
 	 * Creates new list node with the given element.
 	 * 
 	 * @param element
-	 * @throws Exception if the given element is null
+	 * @throws NullArgumentException if the given element is null.
 	 */
-	public ListNode(E element) {		
+	public ListNode(final E element) {		
 		setElement(element);
 	}
 	
 	// method
 	/**
 	 * @param element
-	 * @return true if this list node contains the given element
+	 * @return true if this list node contains the given element.
 	 */
-	public final boolean containsElement(E element) {
+	public boolean contains(final E element) {
 		return (getElement() == element);
 	}
 	
 	//method
 	/**
 	 * @param selector
-	 * @return true if this list node contains an element the given selector selects
+	 * @return true if this list node contains an element the given selector selects.
 	 */
-	public final boolean containsElement(IElementTakerBooleanGetter<E> selector) {
+	public boolean contains(final IElementTakerBooleanGetter<E> selector) {
 		return selector.getOutput(getElement());
 	}
 	
 	//method
 	/**
-	 * @return the element of this list node
+	 * @return the element of this list node.
 	 */
-	public final E getElement() {
+	public E getElement() {
 		return element;
 	}
 	
 	//method
 	/**
-	 * @return the element of the next node of this list node
-	 * @throws Exception if this list node has no next node
+	 * @return the next node of this list node.
+	 * @throws UnexistringAttributeException if this list node has no next node.
 	 */
-	public final E getElementOfNextNode() {
-		return getNextNode().getElement();
-	}
-	
-	//method
-	/**
-	 * @return the next node of this list node
-	 * @throws Exception if this list node has no next node
-	 */
-	public final ListNode<E> getNextNode() {
+	public ListNode<E> getNextNode() {
 		
+		//Checks if this list node has a next node.
 		if (!hasNextNode()) {
 			throw new UnexistingAttributeException(this, "next node");
 		}
@@ -84,9 +78,9 @@ final class ListNode<E> {
 	
 	//method
 	/**
-	 * @return true if this list node has a next node
+	 * @return true if this list node has a next node.
 	 */
-	public final boolean hasNextNode() {
+	public boolean hasNextNode() {
 		return (nextNode != null);
 	}
 	
@@ -94,7 +88,7 @@ final class ListNode<E> {
 	/**
 	 * Removes the next node of this list node.
 	 */
-	public final void removeNextNode() {
+	public void removeNextNode() {
 		nextNode = null;
 	}
 	
@@ -103,12 +97,14 @@ final class ListNode<E> {
 	 * Sets the element of this list node.
 	 * 
 	 * @param element
-	 * @throws Exception if the given element is null
+	 * @throws NullArgumentException if the given element is null.
 	 */
-	public final void setElement(E element) {
+	public void setElement(final E element) {
 		
-		Validator.throwExceptionIfValueIsNull("element", element);
+		//Checks if the given element is not null.
+		ZetaValidator.supposeThat(element).thatIsNamed("element").isNotNull();
 		
+		//Sets the element of this list node.
 		this.element = element;
 	}
 	
@@ -117,20 +113,32 @@ final class ListNode<E> {
 	 * Sets the next node of this list node.
 	 * 
 	 * @param nextNode
+	 * @throws NullArgumentException if the given next node is null.
 	 */
-	public final void setNextNode(ListNode<E> nextNode) {
+	public  void setNextNode(final ListNode<E> nextNode) {
+		
+		//Checks if the given next node is not null.
+		ZetaValidator.supposeThat(nextNode).thatIsNamed("next node").isNotNull();
+		
+		//Sets the next node of this list node.
 		this.nextNode = nextNode;
 	}
 	
 	//method
 	/**
-	 * Swaps the element of this list node with the element of the next node of this node.
+	 * Swaps the element of this list node with the element of the next node of this list node.
 	 * 
-	 * @throws Exception if this node has no next node
+	 * @throws UnexistingAttributeException if this list node has no next node.
 	 */
-	public final void swapElementWithNextNode() {
-		E temp = getNextNode().getElement();
-		getNextNode().setElement(getElement());
-		setElement(temp);
+	public void swapElementWithNextNode() {
+		
+		//Checks if this list node has a next node.
+		if (!hasNextNode()) {
+			throw new UnexistingAttributeException(this, "next node");
+		}
+				
+		final E element = nextNode.getElement();
+		nextNode.setElement(getElement());
+		setElement(element);
 	}
 }

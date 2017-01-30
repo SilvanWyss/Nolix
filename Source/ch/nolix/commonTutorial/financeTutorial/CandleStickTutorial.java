@@ -46,7 +46,7 @@ public final class CandleStickTutorial {
 		final double percentage
 		= candleSticks.getSequences(
 			new SequencePattern<VolumeCandleStick>()
-			.addNextWithCondition(cs -> cs.isHammer())
+			.addConditionForNext(cs -> cs.isHammer())
 			.addBlankForNext()
 		)
 		.getPercentage(s -> s.getRefAt(2).isBullish());

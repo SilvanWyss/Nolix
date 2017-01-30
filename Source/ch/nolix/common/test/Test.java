@@ -97,8 +97,8 @@ public abstract class Test implements Executable {
 	 * @param currentTestMethodError
 	 */
 	final void addCurrentTestMethodError(final String currentTestMethodError) {
-		final String className = Thread.currentThread().getStackTrace()[3].getClassName();
-		final int line = Thread.currentThread().getStackTrace()[3].getLineNumber();
+		final String className = Thread.currentThread().getStackTrace()[4].getClassName();
+		final int line = Thread.currentThread().getStackTrace()[4].getLineNumber();
 		lastErrors.addElement(currentTestMethodError + " (" + className + ".java:" + line + ")");
 	}
 }

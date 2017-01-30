@@ -76,12 +76,12 @@ public final class ListTest extends ZetaTest {
 		Sequencer.forCount(10).run(() -> list.addAtEnd("y"));
 		
 		//execution and verification part 1
-		expectThat(list.containsOnce(s -> s.equals("x")));
+		expectThat(list.containsOne(s -> s.equals("x")));
 		
 		//execution and verification part 2
 		expectThatNot(
-			list.containsOnce(s -> s.equals("y")),
-			list.containsOnce(s -> s.equals("z"))
+			list.containsOne(s -> s.equals("y")),
+			list.containsOne(s -> s.equals("z"))
 		);
 	}
 	
@@ -235,8 +235,8 @@ public final class ListTest extends ZetaTest {
 		
 		//setup part 2
 		final SequencePattern<String> sequencePattern = new SequencePattern<String>()
-		.addNextWithCondition(s -> s.equals("x"))
-		.addNextWithCondition(s -> s.equals("xxxxx"));
+		.addConditionForNext(s -> s.equals("x"))
+		.addConditionForNext(s -> s.equals("xxxxx"));
 		
 		//execution
 		final List<List<String>> sequences = list.getSequences(sequencePattern);
@@ -266,7 +266,7 @@ public final class ListTest extends ZetaTest {
 		
 		//setup part 2
 		final SequencePattern<String> sequencePattern = new SequencePattern<String>()
-		.addNextWithCondition(s -> s.equals("x"))
+		.addConditionForNext(s -> s.equals("x"))
 		.addBlankForNext();
 		
 		//execution
@@ -331,13 +331,13 @@ public final class ListTest extends ZetaTest {
 		
 		//setup part 2
 		final SequencePattern<String> sequencePattern = new SequencePattern<String>()
-		.addNextWithCondition(s -> s.length() == 1)
-		.addNextWithCondition(s -> s.length() == 5)
-		.addNextWithCondition(s -> s.length() == 1)
-		.addNextWithCondition(s -> s.length() == 5);
+		.addConditionForNext(s -> s.length() == 1)
+		.addConditionForNext(s -> s.length() == 5)
+		.addConditionForNext(s -> s.length() == 1)
+		.addConditionForNext(s -> s.length() == 5);
 		
 		//execution and verification
-		expectThat(list.matches(sequencePattern));
+		expectThat(sequencePattern.matches(list));
 	}
 	
 	//test method
@@ -354,13 +354,13 @@ public final class ListTest extends ZetaTest {
 		
 		//setup part 2
 		final SequencePattern<String> sequencePattern = new SequencePattern<String>()
-		.addNextWithCondition(s -> s.length() == 1)
-		.addNextWithCondition(s -> s.length() == 5)
+		.addConditionForNext(s -> s.length() == 1)
+		.addConditionForNext(s -> s.length() == 5)
 		.addBlankForNext()
 		.addBlankForNext();
 		
 		//execution and verification
-		expectThat(list.matches(sequencePattern));
+		expectThat(sequencePattern.matches(list));
 	}
 	
 	//test method
@@ -372,10 +372,10 @@ public final class ListTest extends ZetaTest {
 		
 		//setup part 2
 		final SequencePattern<String> sequencePattern = new SequencePattern<String>()
-		.forCount(11).addBlankForNext();
+		.forNext(10).addBlank();
 		
 		//execution and verification
-		expectThatNot(list.matches(sequencePattern));
+		expectThat(sequencePattern.matches(list));
 	}
 	
 	//test method
