@@ -10,7 +10,7 @@ package ch.nolix.common.exception;
  * @lines 40
  */
 @SuppressWarnings("serial")
-public final class NonEmptyArgumentException extends ArgumentException {
+public final class NonEmptyArgumentException extends InvalidArgumentException {
 
 	//constant
 	private final static String PREDICATE = "is not empty";

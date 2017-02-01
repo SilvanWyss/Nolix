@@ -10,7 +10,7 @@ package ch.nolix.common.exception;
  * @lines 40
  */
 @SuppressWarnings("serial")
-public final class ZeroArgumentException extends ArgumentException {
+public final class ZeroArgumentException extends InvalidArgumentException {
 	
 	//constant
 	private final static String ERROR_PREDICATE = "is 0";

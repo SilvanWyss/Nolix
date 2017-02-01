@@ -10,7 +10,7 @@ package ch.nolix.common.exception;
  * @lines 30
  */
 @SuppressWarnings("serial")
-public class FalseArgumentException extends ArgumentException {
+public class FalseArgumentException extends InvalidArgumentException {
 
 	//constant
 	private final static String ERROR_PREDICATE = "is false";

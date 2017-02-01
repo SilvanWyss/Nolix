@@ -14,7 +14,7 @@ import java.awt.Graphics;
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.exception.ErrorPredicate;
 import ch.nolix.common.specification.Specification;
@@ -204,7 +204,7 @@ extends Rectangle<L, SimpleRectangleStructure> {
 		
 		//Checks the given length.
 		if (length < MIN_LENGTH_TO_THICKNESS_RATIO * getThickness()) {
-			throw new ArgumentException(
+			throw new InvalidArgumentException(
 				new ArgumentName("length"),
 				new Argument(length),
 				new ErrorPredicate("is smaller than " + MIN_LENGTH_TO_THICKNESS_RATIO + "x the thickness " + getThickness() + ".")
@@ -229,7 +229,7 @@ extends Rectangle<L, SimpleRectangleStructure> {
 		
 		//Checks the given thickness.
 		if (MIN_LENGTH_TO_THICKNESS_RATIO * thickness > getLength()) {
-			throw new ArgumentException(
+			throw new InvalidArgumentException(
 				new ArgumentName("thickness"),
 				new Argument(thickness),
 				new ErrorPredicate(" multiplied with " + MIN_LENGTH_TO_THICKNESS_RATIO +  " is bigger than the length " + getLength() + ".")

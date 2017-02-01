@@ -9,7 +9,7 @@ package ch.nolix.common.exception;
  * @month 2016-12
  * @lines 30
  */
-public final class NonSmallerArgumentException extends ArgumentException {
+public final class NonSmallerArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**

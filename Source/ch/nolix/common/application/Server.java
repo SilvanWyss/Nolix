@@ -5,7 +5,7 @@ package ch.nolix.common.application;
 import ch.nolix.common.container.List;
 import ch.nolix.common.duplexController.DuplexControllerListener;
 import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ErrorPredicate;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
@@ -41,7 +41,7 @@ public final class Server {
 	 * @param port
 	 * @param applications
 	 * @throws NullArgumentException if one of the given applications is null.
-	 * @throws ArgumentException if the given applications contains several applications with the same name.
+	 * @throws InvalidArgumentException if the given applications contains several applications with the same name.
 	 */
 	public Server(final int port, final Application<?>... applications) {
 		
@@ -57,7 +57,7 @@ public final class Server {
 	 * 
 	 * @param application
 	 * @throws NullArgumentException if the given application is null.
-	 * @throws ArgumentException if this server contains already anapplication with the same name as the given application.
+	 * @throws InvalidArgumentException if this server contains already anapplication with the same name as the given application.
 	 */
 	public final void addApplication(final Application<?> application) {
 		
@@ -66,7 +66,7 @@ public final class Server {
 		
 		//Checks if the given  this server contains not already an other application with the same name as the given applicaiton.
 		if (containsApplication(application.getName())) {
-			throw new ArgumentException(new Argument(this), new ErrorPredicate("contains already an application with the name " + application.getNameInQuotes() + "."));
+			throw new InvalidArgumentException(new Argument(this), new ErrorPredicate("contains already an application with the name " + application.getNameInQuotes() + "."));
 		}
 		
 		applications.addAtEnd(application);
@@ -78,7 +78,7 @@ public final class Server {
 	 * 
 	 * @param applications
 	 * @throws NullArgumentException if one of the given applications is null.
-	 * @throws ArgumentException if this server already contains an other application with the same name as one of the given applications.
+	 * @throws InvalidArgumentException if this server already contains an other application with the same name as one of the given applications.
 	 */
 	public final void addApplication(final Application<?>... applications) {
 		

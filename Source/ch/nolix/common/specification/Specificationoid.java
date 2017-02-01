@@ -12,7 +12,7 @@ package ch.nolix.common.specification;
 import ch.nolix.common.constants.StringManager;
 import ch.nolix.common.container.List;
 import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.helper.CharacterHelper;
@@ -288,7 +288,7 @@ abstract class Specificationoid {
 			
 			//Checks whether the given specification string contains a closing bracket before an opening bracket.
 			if (character == CharacterHelper.CLOSING_BRACKET) {
-				throw new ArgumentException(
+				throw new InvalidArgumentException(
 					new ArgumentName("content"),
 					new Argument(value)
 				);
@@ -296,7 +296,7 @@ abstract class Specificationoid {
 			
 			//Checks whether the given specification string contains a comma before an opening bracket.
 			if (character == CharacterHelper.COMMA) {
-				throw new ArgumentException(
+				throw new InvalidArgumentException(
 					new ArgumentName("content"),
 					new Argument(value)
 				);
@@ -317,7 +317,7 @@ abstract class Specificationoid {
 
 			//Checks whether the start index is too big.
 			if (startIndex > value.length() - 1) {
-				throw new ArgumentException(
+				throw new InvalidArgumentException(
 					new ArgumentName("content"),
 					new Argument(value)
 				);
@@ -351,7 +351,7 @@ abstract class Specificationoid {
 			
 			//Checks whether the given specificationoid string has not as many opening brackets as closing brackets.
 			if (level != 0) {
-				throw new ArgumentException(
+				throw new InvalidArgumentException(
 					new ArgumentName("content"),
 					new Argument(value)
 				);
@@ -359,7 +359,7 @@ abstract class Specificationoid {
 			
 			//Checks whether the last character of the given specificationoid string is a closing bracket.
 			if (value.charAt(value.length() - 1) != CharacterHelper.CLOSING_BRACKET) {
-				throw new ArgumentException(
+				throw new InvalidArgumentException(
 					new ArgumentName("content"),
 					new Argument(value)
 				);

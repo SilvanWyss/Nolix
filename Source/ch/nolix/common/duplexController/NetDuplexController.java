@@ -12,7 +12,7 @@ package ch.nolix.common.duplexController;
 import ch.nolix.common.container.List;
 import ch.nolix.common.controller.ILevel2Controller;
 import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.specification.Statement;
@@ -210,7 +210,7 @@ public final class NetDuplexController extends DuplexController {
 					')'
 				);
 			default:
-				throw new ArgumentException(
+				throw new InvalidArgumentException(
 					new ArgumentName("message"),
 					new Argument(message)
 				);

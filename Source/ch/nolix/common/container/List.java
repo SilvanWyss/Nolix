@@ -4,7 +4,7 @@ package ch.nolix.common.container;
 //own imports
 import ch.nolix.common.constants.StringManager;
 import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.EmptyArgumentException;
 import ch.nolix.common.exception.ErrorPredicate;
 import ch.nolix.common.functional.IElementTakerComparableGetter;
@@ -173,13 +173,13 @@ public class List<E> implements IContainer<E> {
 	 * @param element
 	 * @return this list.
 	 * @throws NullArgumentException if the given element is null.
-	 * @throws ArgumentException if this list contains already the given element.
+	 * @throws InvalidArgumentException if this list contains already the given element.
 	 */
 	public List<E> addAtBeginRegardingSingularity(final E element) {
 		
 		//Checks if this list contains already the given element.
 		if (contains(element)) {
-			throw new ArgumentException(
+			throw new InvalidArgumentException(
 				new Argument(element),
 				new ErrorPredicate("is already contained by the list")
 			);
@@ -267,13 +267,13 @@ public class List<E> implements IContainer<E> {
 	 * @param element
 	 * @return this list.
 	 * @throws NullArgumentException if the given element is null.
-	 * @throws ArgumentException if this list contains already the given element.
+	 * @throws InvalidArgumentException if this list contains already the given element.
 	 */
 	public List<E> addAtEndRegardingSingularity(final E element) {
 		
 		//Checks if this list contains already the given element.
 		if (contains(element)) {
-			throw new ArgumentException(
+			throw new InvalidArgumentException(
 				new Argument(element),
 				new ErrorPredicate("is already contained by the list")
 			);
@@ -517,7 +517,7 @@ public class List<E> implements IContainer<E> {
 	 * 
 	 * @param selector
 	 * @return the first element the given selector selects from this list.
-	 * @throws ArgumentException if this list contains no element the given selector selects.
+	 * @throws InvalidArgumentException if this list contains no element the given selector selects.
 	 */
 	public E removeAndGetRefFirst(final IElementTakerBooleanGetter<E> selector) {
 		E element = getRefFirst(selector);
@@ -561,13 +561,13 @@ public class List<E> implements IContainer<E> {
 	 * 
 	 * @param element
 	 * @return this list.
-	 * @throws ArgumentException if this list does not contain the given element.
+	 * @throws InvalidArgumentException if this list does not contain the given element.
 	 */
 	public List<E> removeFirst(final E element) {
 		
 		//Checks if this list is not empty.
 		if (isEmpty()) {
-			throw new ArgumentException(
+			throw new InvalidArgumentException(
 				new Argument(this),
 				new ErrorPredicate("contains not '" + element + "'")
 			);
@@ -590,7 +590,7 @@ public class List<E> implements IContainer<E> {
 			iterator = nextNode;
 		}
 		
-		throw new ArgumentException(
+		throw new InvalidArgumentException(
 			new Argument(this),
 			new ErrorPredicate("contains not '" + element + "'")
 		);
@@ -603,13 +603,13 @@ public class List<E> implements IContainer<E> {
 	 * 
 	 * @param selector
 	 * @return this list.
-	 * @throws ArgumentException if this list contains no element the given selector selects.
+	 * @throws InvalidArgumentException if this list contains no element the given selector selects.
 	 */
 	public List<E> removeFirst(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Checks if this list is not empty.
 		if (isEmpty()) {
-			throw new ArgumentException(
+			throw new InvalidArgumentException(
 				new Argument(this),
 				new ErrorPredicate("contains no such element")
 			);
@@ -632,7 +632,7 @@ public class List<E> implements IContainer<E> {
 			iterator = nextNode;
 		}
 		
-		throw new ArgumentException(
+		throw new InvalidArgumentException(
 			new Argument(this),
 			new ErrorPredicate("contains no such element")
 		);
@@ -683,14 +683,14 @@ public class List<E> implements IContainer<E> {
 	 * @param selector
 	 * @param element
 	 * @return this list.
-	 * @throws ArgumentException if this list contains no element the given selector selects.
+	 * @throws InvalidArgumentException if this list contains no element the given selector selects.
 	 * @throws NullArgumentException if the given element is null.
 	 */
 	public List<E> replaceFirst(IElementTakerBooleanGetter<E> selector, E element) {
 		
 		//Checks if this list is not empty.
 		if (isEmpty()) {
-			throw new ArgumentException(
+			throw new InvalidArgumentException(
 				new Argument(this),
 				new ErrorPredicate("contains not '" + element + "'")
 			);
@@ -709,7 +709,7 @@ public class List<E> implements IContainer<E> {
 				continue;
 			}
 			
-			throw new ArgumentException(
+			throw new InvalidArgumentException(
 				new Argument(this),
 				new ErrorPredicate("contains not '" + element + "'")
 			);

@@ -13,7 +13,7 @@ import ch.nolix.common.application.ContextApplication;
 //own imports
 import ch.nolix.common.controller.ILevel2Controller;
 import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.module.CentralController;
 import ch.nolix.common.specification.Statement;
@@ -84,7 +84,7 @@ public final class Nelix extends CentralController implements ILevel2Controller 
 		if (!request.hasNextStatement()) {
 			switch (request.toString()) {
 				default:
-					throw new ArgumentException(
+					throw new InvalidArgumentException(
 						new ArgumentName("request"),
 						new Argument(request)
 					);
@@ -135,7 +135,7 @@ public final class Nelix extends CentralController implements ILevel2Controller 
 					quit();
 					return;
 				default:
-					throw new ArgumentException(
+					throw new InvalidArgumentException(
 						new ArgumentName("command"),
 						new Argument(command)
 					);

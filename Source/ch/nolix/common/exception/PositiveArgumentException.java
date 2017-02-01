@@ -10,7 +10,7 @@ package ch.nolix.common.exception;
  * @lines 60
  */
 @SuppressWarnings("serial")
-public final class PositiveArgumentException extends ArgumentException {
+public final class PositiveArgumentException extends InvalidArgumentException {
 
 	//constant
 	private final static String ERROR_PREDICATE = "is positive";

@@ -8,7 +8,7 @@ import java.util.Random;
 //own imports
 import ch.nolix.common.constants.StringManager;
 import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.EmptyArgumentException;
 import ch.nolix.common.exception.ErrorPredicate;
 import ch.nolix.common.functional.IElementTakerDoubleGetter;
@@ -442,7 +442,7 @@ extends Clearable<IContainer<E>>, Iterable<E> {
 	/**
 	 * @param index
 	 * @return the element at the given index.
-	 * @throws ArgumentException if this container contains no element at the given index.
+	 * @throws InvalidArgumentException if this container contains no element at the given index.
 	 */
 	public default E getRefAt(final int index) {
 		
@@ -458,7 +458,7 @@ extends Clearable<IContainer<E>>, Iterable<E> {
 			counter++;
 		}
 		
-		throw new ArgumentException(
+		throw new InvalidArgumentException(
 			new Argument(index),
 			new ErrorPredicate("is no index the container contains an element at")
 		);
@@ -669,7 +669,7 @@ extends Clearable<IContainer<E>>, Iterable<E> {
 	/**
 	 * @param selector
 	 * @return the first element the given selector selects from this container.
-	 * @throws ArgumentException if this container contains no element the given selector selects.
+	 * @throws InvalidArgumentException if this container contains no element the given selector selects.
 	 */
 	public default E getRefFirst(final IElementTakerBooleanGetter<E> selector) {
 		
@@ -682,7 +682,7 @@ extends Clearable<IContainer<E>>, Iterable<E> {
 			}
 		}
 		
-		throw new ArgumentException(
+		throw new InvalidArgumentException(
 			new Argument(this),
 			new ErrorPredicate("contains no element the given selector selects")
 		);
@@ -692,7 +692,7 @@ extends Clearable<IContainer<E>>, Iterable<E> {
 	/**
 	 * @return the one element of this container.
 	 * @throws EmptyArgumentException if this container is empty.
-	 * @throws ArgumentException if this container contains several elements.
+	 * @throws InvalidArgumentException if this container contains several elements.
 	 */
 	public default E getRefOne() {
 		
@@ -701,7 +701,7 @@ extends Clearable<IContainer<E>>, Iterable<E> {
 			throw new EmptyArgumentException(new Argument(this));
 		}
 		if (getSize() > 1) {
-			throw new ArgumentException(
+			throw new InvalidArgumentException(
 				new Argument(this),
 				new ErrorPredicate("contains several elements")
 			);
@@ -714,7 +714,7 @@ extends Clearable<IContainer<E>>, Iterable<E> {
 	/**
 	 * @param selector
 	 * @return the one element the given selector selects from this container.
-	 * @throws ArgumentException if the given selector selects no or several elements from this container.
+	 * @throws InvalidArgumentException if the given selector selects no or several elements from this container.
 	 */
 	public default E getRefOne(final IElementTakerBooleanGetter<E> selector) {
 		
@@ -725,7 +725,7 @@ extends Clearable<IContainer<E>>, Iterable<E> {
 			if (selector.getOutput(e)) {
 				
 				if (element != null) {
-					throw new ArgumentException(
+					throw new InvalidArgumentException(
 						new Argument(this),
 						new ErrorPredicate("contains several elements the given selector selects")
 					);
@@ -736,7 +736,7 @@ extends Clearable<IContainer<E>>, Iterable<E> {
 		}
 		
 		if (element == null) {
-			throw new ArgumentException(
+			throw new InvalidArgumentException(
 				new Argument(this),
 				new ErrorPredicate("contains no element the given selector selects")
 			);

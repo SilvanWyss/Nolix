@@ -10,7 +10,7 @@ package ch.nolix.common.exception;
  * @lines 40
  */
 @SuppressWarnings("serial")
-public final class UnsupportedMethodException extends ArgumentException {
+public final class UnsupportedMethodException extends InvalidArgumentException {
 	
 	//constructor
 	/**

@@ -11,7 +11,7 @@ package ch.nolix.element.basic;
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.interfaces.IRequestableContainer;
 import ch.nolix.common.interfaces.Namable;
@@ -89,7 +89,7 @@ public abstract class NamableElement<NE extends NamableElement<NE>> extends Elem
 				setName(attribute.getOneAttributeToString());
 				break;
 			default:
-				throw new ArgumentException(
+				throw new InvalidArgumentException(
 					new ArgumentName("attribute"),
 					new Argument(attribute)
 				);

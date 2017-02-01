@@ -151,7 +151,7 @@ public final class DialogClient extends Client<DialogClient> {
 	 * Lets this client run the given command.
 	 * 
 	 * @param command
-	 * @throws ArgumentException if the given command is not valid.
+	 * @throws InvalidArgumentException if the given command is not valid.
 	 */
 	protected void internal_run(final Statement command) {
 		

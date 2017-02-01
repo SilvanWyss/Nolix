@@ -8,7 +8,7 @@ import java.util.Vector;
 
 import ch.nolix.common.exception.Argument;
 //own imports
-import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ErrorPredicate;
 import ch.nolix.common.interfaces.Executable;
 import ch.nolix.common.zetaValidator.ZetaValidator;
@@ -112,7 +112,7 @@ public abstract class TestPool implements Executable {
 	 * 
 	 * @param testPool
 	 * @throws NullArgumentException if the given test pool is null.
-	 * @throws ArgumentException if the given test pool contains this test pool recursively.
+	 * @throws InvalidArgumentException if the given test pool contains this test pool recursively.
 	 */
 	protected final void addTestPool(final TestPool testPool) {
 		
@@ -121,7 +121,7 @@ public abstract class TestPool implements Executable {
 		
 		//Checks if the given test pool does not contain this test pool recursively.
 		if (testPool.containsTestPoolRecursively(this)) {
-			throw new ArgumentException(
+			throw new InvalidArgumentException(
 				new Argument(testPool),
 				new ErrorPredicate(" contains the test pool recursively")
 			);
@@ -136,7 +136,7 @@ public abstract class TestPool implements Executable {
 	 * 
 	 * @param testPools
 	 * @throws NullArgumentException if one of the given test pools is null.
-	 * @throws ArgumentException if one of the given test pools contains this test pool recursively.
+	 * @throws InvalidArgumentException if one of the given test pools contains this test pool recursively.
 	 */
 	protected final void addTestPool(final TestPool... testPools) {
 		

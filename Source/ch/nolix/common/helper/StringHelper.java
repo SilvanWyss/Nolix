@@ -11,7 +11,7 @@ package ch.nolix.common.helper;
 //own imports
 import ch.nolix.common.constants.StringManager;
 import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.util.Validator;
 
 //class
@@ -97,7 +97,7 @@ public final class StringHelper {
 		}
 		
 		if (string.length() - startIndex > 10) {
-			throw new ArgumentException(new Argument(string));
+			throw new InvalidArgumentException(new Argument(string));
 		}
 		
 		if (negative) {
@@ -168,7 +168,7 @@ public final class StringHelper {
 					number += 9;
 					break;
 				default:
-					throw new ArgumentException(new Argument(string));
+					throw new InvalidArgumentException(new Argument(string));
 			}
 		}
 		
@@ -238,7 +238,7 @@ public final class StringHelper {
 					number += 15;
 					break;
 				default:
-					throw new ArgumentException(new Argument(string));
+					throw new InvalidArgumentException(new Argument(string));
 			}
 		}
 		

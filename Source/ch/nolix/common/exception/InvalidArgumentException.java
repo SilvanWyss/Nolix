@@ -2,16 +2,16 @@
 package ch.nolix.common.exception;
 
 /**
- * An argument exception is a runtime exception that is intended to be thrown when an argument is not valid or has a undesired property.
- * An argument exception stores always the argument name of the argument it is created for.
- * An argument exception can store optionally the argument it is created for.
+ * An invalid invalid argument exception is a runtime exception that is intended to be thrown when an argument is not valid or has a undesired property.
+ * An invalid invalid argument exception stores always the argument name of the argument it is created for.
+ * An invalid invalid argument exception can store optionally the argument it is created for.
  * 
  * @author Silvan Wyss
  * @month 2016-11
  * @lines 230
  */
 @SuppressWarnings("serial")
-public class ArgumentException extends RuntimeException {
+public class InvalidArgumentException extends RuntimeException {
 
 	//constants
 	private final static String DEFAULT_ARGUMENT_NAME = "argument";
@@ -26,9 +26,9 @@ public class ArgumentException extends RuntimeException {
 	
 	//constructor
 	/**
-	 * Creates new argument exception.
+	 * Creates new invalid argument exception.
 	 */
-	public ArgumentException() {
+	public InvalidArgumentException() {
 		
 		//Calls constructor of the base class.
 		super("The given " + DEFAULT_ARGUMENT_NAME + " " + DEFAULT_ERROR_PREDICATE + ".");
@@ -40,12 +40,12 @@ public class ArgumentException extends RuntimeException {
 	
 	//constructor
 	/**
-	 * Creates new argument exception for the given argument.
+	 * Creates new invalid argument exception for the given argument.
 	 * 
 	 * @param argument
 	 * @throws RuntimeException if the given argument is null.
 	 */
-	public ArgumentException(final Argument argument) {
+	public InvalidArgumentException(final Argument argument) {
 		
 		//Calls constructor of the base class.
 		super("The given " + argument + " " + DEFAULT_ERROR_PREDICATE + ".");
@@ -61,12 +61,12 @@ public class ArgumentException extends RuntimeException {
 	}
 
 	/**
-	 * Creates new argument exception for an argument with a default argument name and for the given error predicate.
+	 * Creates new invalid argument exception for an argument with a default argument name and for the given error predicate.
 	 * 
 	 * @param errorPredicate
 	 * @throws RuntimeException if the given error predicate is null.
 	 */
-	public ArgumentException(final ErrorPredicate errorPredicate) {
+	public InvalidArgumentException(final ErrorPredicate errorPredicate) {
 		
 		//Calls constructor of the base class.
 		super("The given " + DEFAULT_ARGUMENT_NAME + " " + errorPredicate + ".");
@@ -83,14 +83,14 @@ public class ArgumentException extends RuntimeException {
 	
 	//constructor
 	/**
-	 * Creates new argument exception for the given argument and the given error predicate.
+	 * Creates new invalid argument exception for the given argument and the given error predicate.
 	 * 
 	 * @param argument
 	 * @param errorPredicate
 	 * @throws RuntimeException if the given argument is null.
 	 * @throws RuntimeException if the given error predicate is null.
 	 */
-	public ArgumentException(final Argument argument, final ErrorPredicate errorPredicate) {
+	public InvalidArgumentException(final Argument argument, final ErrorPredicate errorPredicate) {
 		
 		//Calls constructor of the base class.
 		super("The given " + argument.createArgumentName() + " " + argument + " " + errorPredicate + ".");
@@ -107,14 +107,14 @@ public class ArgumentException extends RuntimeException {
 	
 	//constructor
 	/**
-	 * Creates new argument exception for the given argument that has the given argument name.
+	 * Creates new invalid argument exception for the given argument that has the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument is null.
 	 */
-	public ArgumentException(final ArgumentName argumentName, final Argument argument) {
+	public InvalidArgumentException(final ArgumentName argumentName, final Argument argument) {
 		
 		//Calls constructor of the base class.
 		super("The given " + argumentName + " " + argument + " " + DEFAULT_ERROR_PREDICATE + ".");
@@ -136,14 +136,14 @@ public class ArgumentException extends RuntimeException {
 	
 	//constructor
 	/**
-	 * Creates new argument exception for an argument with the given argument name and the given error predicate.
+	 * Creates new invalid argument exception for an argument with the given argument name and the given error predicate.
 	 * 
 	 * @param argumentName
 	 * @param errorPredicate
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given error predicate is null.
 	 */
-	public ArgumentException(
+	public InvalidArgumentException(
 		final ArgumentName argumentName,
 		final ErrorPredicate errorPredicate
 	) {
@@ -167,7 +167,7 @@ public class ArgumentException extends RuntimeException {
 	
 	//constructor
 	/**
-	 * Creates new argument exception for the given argument with the given argument name and the given error predicate.
+	 * Creates new invalid argument exception for the given argument with the given argument name and the given error predicate.
 	 * 
 	 * @param argumentName
 	 * @param argument
@@ -176,7 +176,7 @@ public class ArgumentException extends RuntimeException {
 	 * @throws RuntimeException if the given argument is null.
 	 * @throws RuntimeException if the given error predicate is null.
 	 */
-	public ArgumentException(
+	public InvalidArgumentException(
 		final ArgumentName argumentName,
 		final Argument argument,
 		final ErrorPredicate errorPredicate
@@ -206,14 +206,14 @@ public class ArgumentException extends RuntimeException {
 	
 	//method
 	/**
-	 * @return the argument of this argument exception.
-	 * @throws RuntimeException if this argument exception has no argument.
+	 * @return the argument of this invalid argument exception.
+	 * @throws RuntimeException if this invalid argument exception has no argument.
 	 */
 	public final Object getArgument() {
 		
-		//Checks if this argument exception has an argument.
+		//Checks if this invalid argument exception has an argument.
 		if (!hasArgument()) {
-			throw new RuntimeException("Argument exception has no argument.");
+			throw new RuntimeException("invalid argument exception has no argument.");
 		}
 		
 		return argument;
@@ -221,7 +221,7 @@ public class ArgumentException extends RuntimeException {
 	
 	//method
 	/**
-	 * @return the argument name of the argument of this argument exception.
+	 * @return the argument name of the argument of this invalid argument exception.
 	 */
 	public final String getArgumentName() {
 		return argumentName;
@@ -229,7 +229,7 @@ public class ArgumentException extends RuntimeException {
 	
 	//method
 	/**
-	 * @return true if this argument exception has an argument.
+	 * @return true if this invalid argument exception has an argument.
 	 */
 	public final boolean hasArgument() {
 		return hasArgumentFlag;

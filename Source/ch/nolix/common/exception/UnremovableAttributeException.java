@@ -10,7 +10,7 @@ package ch.nolix.common.exception;
  * @lines 40
  */
 @SuppressWarnings("serial")
-public final class UnremovableAttributeException extends ArgumentException {
+public final class UnremovableAttributeException extends InvalidArgumentException {
 
 	//constructor
 	/**

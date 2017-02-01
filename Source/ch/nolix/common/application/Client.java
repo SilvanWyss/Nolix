@@ -8,7 +8,7 @@ import ch.nolix.common.duplexController.DuplexController;
 import ch.nolix.common.duplexController.LocalDuplexController;
 import ch.nolix.common.duplexController.NetDuplexController;
 import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.functional.IElementTakerRunner;
@@ -474,7 +474,7 @@ implements Abortable {
 	//method
 	/**
 	 * @return the data the given request requests from this client.
-	 * @throws ArgumentException if the given request is not valid.
+	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
 	protected Object internal_getData(final Statement request) {
 		
@@ -487,7 +487,7 @@ implements Abortable {
 			case DATA_METHOD_REQUEST:
 				return internal_invokeDataMethod(request.getRefOneAttribute());
 			default:
-				throw new ArgumentException(new ArgumentName("reqest"), new Argument(request));
+				throw new InvalidArgumentException(new ArgumentName("reqest"), new Argument(request));
 		}
 	}
 	
@@ -592,7 +592,7 @@ implements Abortable {
 	 * Lets this client run the given command.
 	 * 
 	 * @param command
-	 * @throws ArgumentException if the given command is not valid.
+	 * @throws InvalidArgumentException if the given command is not valid.
 	 */
 	protected void internal_run(final Statement command) {
 		
@@ -605,7 +605,7 @@ implements Abortable {
 				internal_invokeRunMethod(command.getRefOneAttribute());
 				break;			
 			default:
-				throw new ArgumentException(new ArgumentName("command"), new Argument(command));
+				throw new InvalidArgumentException(new ArgumentName("command"), new Argument(command));
 		}
 	}
 	

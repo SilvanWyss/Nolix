@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ErrorPredicate;
 
 //package-visible class
@@ -50,13 +50,13 @@ final class ListIterator<E> implements Iterator<E> {
 	//method
 	/**
 	 * @return the next element of this list iterator.
-	 * @throws ArgumentException if this list iterator has no next element.
+	 * @throws InvalidArgumentException if this list iterator has no next element.
 	 */
 	public E next() {
 		
 		//Checks if this list iterator has a next element.
 		if (!hasNext()) {
-			throw new ArgumentException(
+			throw new InvalidArgumentException(
 				new Argument(this),
 				new ErrorPredicate("has no next element")
 			);

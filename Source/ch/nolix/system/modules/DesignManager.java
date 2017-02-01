@@ -15,7 +15,7 @@ import java.io.File;
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.exception.UnsupportedMethodException;
@@ -150,7 +150,7 @@ public final class DesignManager extends Module {
 			case DESIGN_NAMES_REQUEST:
 				return getDesignNames();
 			default:
-				throw new ArgumentException(
+				throw new InvalidArgumentException(
 					new ArgumentName("request"),
 					new Argument(request)
 				);

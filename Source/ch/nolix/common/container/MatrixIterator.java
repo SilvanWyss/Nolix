@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.ArgumentException;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ErrorPredicate;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
@@ -50,13 +50,13 @@ final class MatrixIterator<E> implements Iterator<E> {
 	//method
 	/**
 	 * @return the next element of this matrix iterator.
-	 * @throws ArgumentException if this matrix iterator has no next element.
+	 * @throws InvalidArgumentException if this matrix iterator has no next element.
 	 */
 	public final E next() {
 		
 		//Checks if this matrix iterator has a next element.
 		if (!hasNext()) {
-			throw new ArgumentException(
+			throw new InvalidArgumentException(
 				new Argument(this),
 				new ErrorPredicate("has no next element")
 			);

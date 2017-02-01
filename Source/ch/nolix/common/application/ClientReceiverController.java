@@ -39,7 +39,7 @@ final class ClientReceiverController implements ILevel2Controller {
 	/**
 	 * @param request
 	 * @return the data the given request requests.
-	 * @throws ArgumentException if the given request is not valid.
+	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
 	public Object getRawData(final Statement request) {
 		return client.internal_getData(request);
@@ -50,7 +50,7 @@ final class ClientReceiverController implements ILevel2Controller {
 	 * Lets this client receiver controller run the given command.
 	 * 
 	 * @param command
-	 * @throws ArgumentException if the given command is not valid.
+	 * @throws InvalidArgumentException if the given command is not valid.
 	 */
 	public void run(Statement command) {
 		client.internal_run(command);

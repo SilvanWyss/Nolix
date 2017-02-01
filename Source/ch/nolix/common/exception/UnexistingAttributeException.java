@@ -10,7 +10,7 @@ package ch.nolix.common.exception;
  * @lines 60
  */
 @SuppressWarnings("serial")
-public final class UnexistingAttributeException extends ArgumentException {
+public final class UnexistingAttributeException extends InvalidArgumentException {
 	
 	//constructor
 	/**

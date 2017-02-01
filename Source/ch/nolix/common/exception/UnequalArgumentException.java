@@ -10,7 +10,7 @@ package ch.nolix.common.exception;
  * @lines 80
  */
 @SuppressWarnings("serial")
-public final class UnequalArgumentException extends ArgumentException {
+public final class UnequalArgumentException extends InvalidArgumentException {
 
 	//constructor
 	/**
