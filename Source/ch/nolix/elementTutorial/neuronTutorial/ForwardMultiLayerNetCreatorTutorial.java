@@ -15,7 +15,7 @@ import ch.nolix.element.neuron.SourceNeuron;
  * 
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 50
+ * @lines 60
  */
 public final class ForwardMultiLayerNetCreatorTutorial {
 
@@ -52,4 +52,10 @@ public final class ForwardMultiLayerNetCreatorTutorial {
 			System.out.println(v);
 		}
 	}
+	
+	//private constructor
+	/**
+	 * Avoids that an instance of this class can be created.
+	 */
+	private ForwardMultiLayerNetCreatorTutorial() {}
 }

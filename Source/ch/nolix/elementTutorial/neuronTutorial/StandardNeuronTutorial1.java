@@ -18,7 +18,7 @@ public final class StandardNeuronTutorial1 {
 
 	//main method
 	/**
-	 * 1. Creates 3 source neurons and 1 standard neurons. The output type of the neurons is a floating point number.
+	 * 1. Creates 3 source neurons and 1 standard neuron. The output type of the neurons is a floating point number.
 	 * 2. Adds the source neurons as input neurons to the standard neuron.
 	 * 3. Sets the output function of the standard neuron that it will calculate its output as the average of the outputs of its input neurons.
 	 * 4. Triggers the standard neuron that it calculates its output.

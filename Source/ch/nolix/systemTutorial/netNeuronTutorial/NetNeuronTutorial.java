@@ -47,7 +47,13 @@ public final class NetNeuronTutorial {
 		System.out.println("front net neuron 1, output: " + frontNetNeuron1.getRefOutput());
 		System.out.println("front net neuron 2, output: " + frontNetNeuron2.getRefOutput());
 		
-		//Exits this program successfully.
+		//Exits the program successfully.
 		System.exit(0);
 	}
+	
+	//private constructor
+	/**
+	 * Avoids that an instance of this class can be created.
+	 */
+	private NetNeuronTutorial() {}
 }

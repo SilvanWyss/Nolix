@@ -11,6 +11,7 @@ package ch.nolix.element.dialog;
 //Java import
 import java.awt.Graphics;
 
+
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.exception.UnexistingAttributeException;
@@ -441,13 +442,18 @@ extends Rectangle<BR, BRS> {
 	 * Sets the padding of this borderale rectangle.
 	 * 
 	 * @param padding
+	 * @return this borderable rectangle.
 	 * @throws Exception if the given padding is not positive
 	 */
-	public final void setPadding(int padding) {
+	@SuppressWarnings("unchecked")
+	public final BR setPadding(int padding) {
+		
 		setLeftPadding(padding);
 		setRightPadding(padding);
 		setTopPadding(padding);
 		setBottomPadding(padding);
+		
+		return (BR)this;
 	}
 	
 	//method

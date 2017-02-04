@@ -430,6 +430,17 @@ extends RectangleStructure<BRS> {
 	
 	//method
 	/**
+	 * Sets the background color of this borderable rectangle structure.
+	 * 
+	 * @param backgroundColor
+	 * @throws InvalidArgumentException if the given background color is no true color value.
+	 */
+	public final void setBackgroundColor(int backgroundColor) {
+		this.backgroundColor = new BackgroundColor(backgroundColor);
+	}
+	
+	//method
+	/**
 	 * Sets the color of the border of this borderable rectangle structure.
 	 * 
 	 * @param borderColor

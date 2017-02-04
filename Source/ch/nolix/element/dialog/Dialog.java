@@ -22,6 +22,8 @@ import java.awt.event.KeyEvent;
 
 
 
+
+
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.controller.ILevel1Controller;
@@ -319,13 +321,30 @@ implements
 	
 	//method
 	/**
+	 * Sets the background color of this dialog.
+	 * 
+	 * @param backgroundColor
+	 * @return this dialog.
+	 * @throws ArgumentException if the given color is no true color value.
+	 */
+	@SuppressWarnings("unchecked")
+	public final D setBackgroundColor(final int backgroundColor) {
+		this.backgroundColor.setValue(backgroundColor);
+		return (D)this;
+	}
+	
+	//method
+	/**
 	 * Sets the background color of this frame.
 	 * 
 	 * @param backgroundColor
+	 * @return this dialog.
 	 * @throws Exception if the given background color is no color name or no true color value
 	 */
-	public final void setBackgroundColor(String backgroundColor) {
+	@SuppressWarnings("unchecked")
+	public final D setBackgroundColor(String backgroundColor) {
 		this.backgroundColor.setValue(backgroundColor);
+		return (D)this;
 	}
 	
 	//method

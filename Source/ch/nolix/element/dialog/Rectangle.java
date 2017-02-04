@@ -12,6 +12,7 @@ package ch.nolix.element.dialog;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
+
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.exception.UnexistingAttributeException;
@@ -418,8 +419,12 @@ public abstract class Rectangle<R extends Rectangle<R, ?>, RS extends RectangleS
 	 * 
 	 * @param cursorIcon
 	 */
-	public final void setCursorIcon(CursorIcon cursorIcon) {
+	@SuppressWarnings("unchecked")
+	public final R setCursorIcon(CursorIcon cursorIcon) {
+		
 		this.cursorIcon = cursorIcon;
+		
+		return (R)this;
 	}
 	
 	//method
