@@ -42,11 +42,11 @@ public class DataProvider {
 			
 			final String URLString = "http://chart.finance.yahoo.com/table.csv"
 				+ "?s=" + productSymbol
-				+ "&amp;a=" + (startDate.getMonth() - 1)
-				+ "&amp;b=" + startDate.getDay()
+				+ "&amp;a=" + (startDate.getMonthOfYear() - 1)
+				+ "&amp;b=" + startDate.getDayOfMonth()
 				+ "&amp;c=" + startDate.getYear()
-				+ "&amp;d=" + (endDate.getMonth() - 1)
-				+ "&amp;e=" + endDate.getDay()
+				+ "&amp;d=" + (endDate.getMonthOfYear() - 1)
+				+ "&amp;e=" + endDate.getDayOfMonth()
 				+ "&amp;f=" + endDate.getYear()
 				+ "&amp;g=d"
 				+ "&amp;ignore=.csv";
@@ -90,11 +90,11 @@ public class DataProvider {
 			
 			final String URLString = "http://chart.finance.yahoo.com/table.csv"
 				+ "?s=" + productSymbol
-				+ "&amp;a=" + (startDate.getMonth() - 1)
-				+ "&amp;b=" + startDate.getDay()
+				+ "&amp;a=" + (startDate.getMonthOfYear() - 1)
+				+ "&amp;b=" + startDate.getDayOfMonth()
 				+ "&amp;c=" + startDate.getYear()
-				+ "&amp;d=" + (endDate.getMonth() - 1)
-				+ "&amp;e=" + endDate.getDay()
+				+ "&amp;d=" + (endDate.getMonthOfYear() - 1)
+				+ "&amp;e=" + endDate.getDayOfMonth()
 				+ "&amp;f=" + endDate.getYear()
 				+ "&amp;g=d"
 				+ "&amp;ignore=.csv";
@@ -143,11 +143,11 @@ public class DataProvider {
 			
 			final String URLString = "http://chart.finance.yahoo.com/table.csv"
 				+ "?s=" + productSymbol
-				+ "&amp;a=" + (startDate.getMonth() - 1)
-				+ "&amp;b=" + startDate.getDay()
+				+ "&amp;a=" + (startDate.getMonthOfYear() - 1)
+				+ "&amp;b=" + startDate.getDayOfMonth()
 				+ "&amp;c=" + startDate.getYear()
-				+ "&amp;d=" + (endDate.getMonth() - 1)
-				+ "&amp;e=" + endDate.getDay()
+				+ "&amp;d=" + (endDate.getMonthOfYear() - 1)
+				+ "&amp;e=" + endDate.getDayOfMonth()
 				+ "&amp;f=" + endDate.getYear()
 				+ "&amp;g=d"
 				+ "&amp;ignore=.csv";

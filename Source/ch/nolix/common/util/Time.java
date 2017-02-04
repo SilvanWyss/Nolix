@@ -1,187 +1,474 @@
-/*
- * file:	Time.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	10
- */
-
 //package declaration
 package ch.nolix.common.util;
+
+//Java import
+import java.util.GregorianCalendar;
+
+//own imports
+import ch.nolix.common.exception.Argument;
+import ch.nolix.common.exception.ErrorPredicate;
+import ch.nolix.common.exception.InvalidArgumentException;
+import ch.nolix.common.interfaces.Freezable;
+import ch.nolix.common.interfaces.Resettable;
 
 //class
 /**
  * A time stores a point in time with a precision of 1 millisecond.
  * A time stores a point in time according to the Gregorian calendar.
- * Since the Gregorian calendar is not proleptic (does officialy not allow calculations backwards from the point of its release, that was in 1582) a time can only store a point in time after 1600-01-01 00:00:000.
+ * Since the Gregorian calendar is not proleptic a time can only store a point in time after 1600-01-01 00:00:000.
+ * Not proleptic means that the Greogioan calender does officially not allow calculations backwards behind the point of its release, that was in 1582.
  * A time can be freezed so that it cannot be changed anymore.
+ * Technically, a time is a wrapper around JDK's Gregorian calendar class.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 470
  */
-public final class Time {
-
+public final class Time implements Freezable, Resettable {
+	
+	//default values
+	public final static int DEFAULT_YEAR = 2000;
+	public final static int DEFAULT_MONTH_OF_YEAR = 1;
+	public final static int DEFAULT_DAY_OF_MONTH = 0;
+	public final static int DEFAULT_HOUR_OF_DAY = 0;
+	public final static int DEFAULT_MINUTE_OF_HOUR = 0;
+	public final static int DEFAULT_SECOND_OF_MINUTE = 0;
+	public final static int DEFAULT_MILLISECOND_OF_SECOND = 0;
+	
 	//attributes
-	private int year = 2000;
-	private int month = 1;
-	private int day = 1;
-	private int hour = 0;
-	private int minute = 0;
-	private int second = 0;
-	private int millisecond = 0;
+	private final GregorianCalendar time = new GregorianCalendar();
+	private boolean frozen = false;
 	
-	public Time(String string) {
-		
-		String[] stringArray = string.split("-");
-		
-		setYear(Integer.valueOf(stringArray[0]));
-		setMonth(Integer.valueOf(stringArray[1]));
-		setDay(Integer.valueOf(stringArray[2]));
+	//constructor
+	/**
+	 * Creates new time with default values.
+	 */
+	public Time() {
+		time.setLenient(true);
+		reset();
 	}
-	
-	public Time(int year, int month, int day) {
-		setYear(year);
-		setMonth(month);
-		setDay(day);
-	}
-	
-	public final int getDay() {
-		return day;
-	}
-	
-	public final int getHour() {
-		return hour;
-	}
-	
-	public final int getMillisecond() {
-		return millisecond;
-	}
-	
-	public final int getMinute() {
-		return minute;
-	}
-	
-	public final int getMonth() {
-		return month;
-	}
-	
-	public final int getSecond() {
-		return second;
-	}
-	
-	public final int getYear() {
-		return year;
-	}
-	
-	public final boolean isInLeapYear() {
-		return ((getYear() % 4 == 0 && getYear() % 100 != 0) || getYear() % 400 == 0);
-	}
-	
-	public final Time setDay(final int day) {
 
-		switch (getMonth()) {
-			case 1:
-				setDayOf31DaysMonth(day);
-				break;
-			case 2:
-				setDayOfFebruary(day);
-				break;
-			case 3:
-				setDayOf31DaysMonth(day);
-				break;
-			case 4:
-				setDayOf30DaysMonth(day);
-				break;
-			case 5:
-				setDayOf31DaysMonth(day);
-				break;
-			case 6:
-				setDayOf30DaysMonth(day);
-				break;
-			case 7:
-				setDayOf31DaysMonth(day);
-				break;
-			case 8:
-				setDayOf31DaysMonth(day);
-				break;
-			case 9:
-				setDayOf30DaysMonth(day);
-				break;
-			case 10:
-				setDayOf31DaysMonth(day);
-				break;
-			case 11:
-				setDayOf30DaysMonth(day);
-				break;
-			case 12:
-				setDayOf31DaysMonth(day);
-				break;
+	//constructor
+	/**
+	 * Creates new time with the given year, month of year and day of month.
+	 * 
+	 * @param year
+	 * @param monthOfYear
+	 * @param dayOfMonth
+	 */
+	public Time(
+		final int year,
+		final int monthOfYear,
+		final int dayOfMonth
+	) {
+		
+		//Calls other constructor.
+		this();
+		
+		setYear(year);
+		setMonthOfYear(monthOfYear);
+		setDayOfMonth(dayOfMonth);
+	}
+	
+	//constructor
+	/**
+	 * Creates new time with the given year, month of year, day of month, hour of day and minute of hour.
+	 * 
+	 * @param year
+	 * @param monthOfYear
+	 * @param dayOfMonth
+	 * @param hourOfDay
+	 * @param minuteOfHour
+	 */
+	public Time(
+		final int year,
+		final int monthOfYear,
+		final int dayOfMonth,
+		final int hourOfDay,
+		final int minuteOfHour
+	) {
+		
+		//Calls other constructor.
+		this(year, monthOfYear, dayOfMonth);
+
+		setHourOfDay(hourOfDay);
+		setMinuteOfHour(minuteOfHour);
+	}
+	
+	//constructor
+	/**
+	 * Creates new time with the given year, month of year, day of month, hour of day, minute of hour and second and of minute.
+	 * 
+	 * @param year
+	 * @param monthOfYear
+	 * @param dayOfMonth
+	 * @param hourOfDay
+	 * @param minuteOfHour
+	 * @param secondOfMinute
+	 */
+	public Time(
+		final int year,
+		final int monthOfYear,
+		final int dayOfMonth,
+		final int hourOfDay,
+		final int minuteOfHour,
+		final int secondOfMinute
+	) {
+		
+		//Calls other constructor.
+		this(year, monthOfYear, dayOfMonth, hourOfDay, minuteOfHour);
+		
+		setSecondOfMinute(secondOfMinute);
+	}
+	
+	//constructor
+	/**
+	 * Creates new time with the given year, month of year, day of month, hour of day, minute of hour, second and of minute and millisecond of second.
+	 * 
+	 * @param year
+	 * @param monthOfYear
+	 * @param dayOfMonth
+	 * @param hourOfDay
+	 * @param minuteOfHour
+	 * @param secondOfMinute
+	 * @param millisecondOfSecond
+	 */
+	public Time(
+		final int year,
+		final int monthOfYear,
+		final int dayOfMonth,
+		final int hourOfDay,
+		final int minuteOfHour,
+		final int secondOfMinute,
+		final int millisecondOfSecond
+	) {
+		
+		//Calls other constructor.
+		this(year, monthOfYear, dayOfMonth, hourOfDay, minuteOfHour, secondOfMinute);
+		
+		setMillisecondOfSecond(millisecondOfSecond);
+	}
+	
+	//constructor
+	/**
+	 * Creates new time the given string represents.
+	 * 
+	 * @param string
+	 */
+	public Time(final String string) {
+		
+		//Calls other constructor.
+		this();
+		
+		//Creates array of values of the given string.
+		//TODO
+		final String[] array = string.split("-");
+		
+		//Checks if the array has a valid number of values.
+		//TODO: Add method to zeta validator.
+		//ZetaValidator.supposeThat(array.length).thatIsNamed("number of values of '" + string + "'").isBetween(3, 6).andIsNot(4);
+		
+		if (array.length >= 3) {
+			setYear(Integer.valueOf(array[0]));
+			setMonthOfYear(Integer.valueOf(array[1]));
+			setDayOfMonth(Integer.valueOf(array[2]));
+		}
+		if (array.length >= 5) {
+			setMinuteOfHour(Integer.valueOf(array[4]));
+		}
+		if (array.length >= 6) {
+			setSecondOfMinute(Integer.valueOf(array[5]));
+		}
+		if (array.length >= 7) {
+			setMillisecondOfSecond(Integer.valueOf(array[6]));
+		}
+	}
+	
+	//method
+	/**
+	 * @param object
+	 * @return true if this time equals the given object.
+	 */
+	public boolean equals(final Object object) {
+		
+		//Handles the case if the given object is no time.
+		if (!(object instanceof Time)) {
+			return false;
 		}
 		
-		return this;
-	}
-	
-	public final Time setMinute(final int minute) {
-		
-		//Checks the given minute.
-		Validator.throwExceptionIfValueIsNotInRange("minute", 0, 59, minute);
-		
-		this.minute = minute;
-		
-		return this;
-	}
-	
-	public final Time setMonth(final int month) {
-		
-		//Checks the given month.
-		Validator.throwExceptionIfValueIsNotInRange("month", 1, 12, month);
-		
-		this.month = month;
-		
-		return this;
-	}
-	
-	public final Time setYear(final int year) {
-		
-		//Checks the given year.
-		Validator.throwExceptionIfValueIsSmaller("year", 1600, year);
-		
-		this.year = year;
-		
-		return this;
-	}
-	
-	public final String toString() {
-		return String.format(
-			"%04d-%02d-%02d",
-			getYear(),
-			getMonth(),
-			getDay()
+		//Handles the case if the given object is a time.
+		final Time time = (Time)object;
+		return (
+			getYear() == time.getYear()
+			&& getMonthOfYear() == time.getMonthOfYear()
+			&& getDayOfMonth() == time.getDayOfMonth()
+			&& getHourOfDay() == time.getHourOfDay()
+			&& getMinuteOfHour() == time.getMinuteOfHour()
+			&& getSecondOfMinute() == time.getSecondOfMinute()
+			&& getMillisecondOfSecond() == time.getMillisecondOfSecond()
 		);
 	}
 	
-	private final void setDayOf30DaysMonth(final int day) {
-		
-		//Checks the given day.
-		Validator.throwExceptionIfValueIsNotInRange("day", 1, 30, day);
-		
-		this.day = day;
+	//method
+	/**
+	 * Freezes this time.
+	 */
+	public void freeze() {
+		frozen = true;
 	}
 	
-	private final void setDayOf31DaysMonth(final int day) {
+	//method
+	/**
+	 * @return a copy of this time.
+	 */
+	public Time getCopy() {
 		
-		//Checks the given day.
-		Validator.throwExceptionIfValueIsNotInRange("day", 1, 31, day);
+		final Time time = new Time();
+		time.setYear(getYear());
+		time.setMonthOfYear(getMonthOfYear());
+		time.setDayOfMonth(getDayOfMonth());
+		time.setHourOfDay(getHourOfDay());
+		time.setMinuteOfHour(getMinuteOfHour());
+		time.setSecondOfMinute(getSecondOfMinute());
+		time.setMillisecondOfSecond(getMillisecondOfSecond());
 		
-		this.day = day;
+		return time;
 	}
 	
-	private final void setDayOfFebruary(final int day) {
+	//method
+	/**
+	 * @return the day of the month of this time.
+	 */
+	public int getDayOfMonth() {
+		return time.get(GregorianCalendar.DAY_OF_MONTH);
+	}
+	
+	//method
+	/**
+	 * @return the hour of the month of this time.
+	 */
+	public int getHourOfDay() {
+		return time.get(GregorianCalendar.HOUR_OF_DAY);
+	}
+	
+	//method
+	/**
+	 * @return the millisecond of the second of this time.
+	 */
+	public int getMillisecondOfSecond() {
+		return time.get(GregorianCalendar.MILLISECOND);
+	}
+	
+	//method
+	/**
+	 * @return the minute of the hour of this time.
+	 */
+	public int getMinuteOfHour() {
+		return time.get(GregorianCalendar.MINUTE);
+	}
+	
+	//method
+	/**
+	 * @return the month of the year of this time.
+	 */
+	public int getMonthOfYear() {
+		return (time.get(GregorianCalendar.MONTH) + 1);
+	}
+	
+	//method
+	/**
+	 * @return the second of the minute of this time.
+	 */
+	public int getSecondOfMinute() {
+		return time.get(GregorianCalendar.SECOND);
+	}
+	
+	//method
+	/**
+	 * @return the year of this time.
+	 */
+	public int getYear() {
+		return time.get(GregorianCalendar.YEAR);
+	}
+	
+	//method
+	/**
+	 * @return true if this time is frozen.
+	 */
+	public boolean isFrozen() {
+		return frozen;
+	}
+	
+	//method
+	/**
+	 * @return true if this time is in a leap year.
+	 */
+	public boolean isInLeapYear() {
+		return ((getYear() % 4 == 0 && getYear() % 100 != 0) || getYear() % 400 == 0);
+	}
+	
+	//method
+	/**
+	 * Resets this time.
+	 * 
+	 * @throws InvalidArgumentException if this time is frozen.
+	 */
+	public void reset() {
+		setYear(DEFAULT_YEAR);
+		setMonthOfYear(DEFAULT_MONTH_OF_YEAR);
+		setDayOfMonth(DEFAULT_DAY_OF_MONTH);
+		setHourOfDay(DEFAULT_HOUR_OF_DAY);
+		setMinuteOfHour(DEFAULT_MINUTE_OF_HOUR);
+		setSecondOfMinute(DEFAULT_SECOND_OF_MINUTE);
+		setMillisecondOfSecond(DEFAULT_MILLISECOND_OF_SECOND);
+	}
+	
+	//method
+	/**
+	 * Sets the day of the month of this time.
+	 * 
+	 * @param dayOfMonth
+	 * @return this time.
+	 * @throws InvalidArgumentException if this time is frozen.
+	 */
+	public Time setDayOfMonth(final int dayOfMonth) {
 		
-		//Checks the given day.
-		if (isInLeapYear()) {
-			Validator.throwExceptionIfValueIsNotInRange("day", 1, 29, day);
-		}
-		else {
-			Validator.throwExceptionIfValueIsNotInRange("day", 1, 28, day);
-		}
+		throwsExceptionIfFrozen();
 		
-		this.day = day;
+		time.set(GregorianCalendar.DAY_OF_MONTH, dayOfMonth);
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the hour of the day of this time.
+	 * 
+	 * @param hourOfDay
+	 * @return this time.
+	 * @throws InvalidArgumentException if this time is frozen.
+	 */
+	public Time setHourOfDay(final int hourOfDay) {
+		
+		throwsExceptionIfFrozen();
+		
+		time.set(GregorianCalendar.HOUR_OF_DAY, hourOfDay);
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the millisecond of the second of this time.
+	 * 
+	 * @param millisecondOfSecond
+	 * @return this time.
+	 * @throws InvalidArgumentException if this time is frozen.
+	 */
+	public Time setMillisecondOfSecond(final int millisecondOfSecond) {
+		
+		throwsExceptionIfFrozen();
+		
+		time.set(GregorianCalendar.MILLISECOND, millisecondOfSecond);
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the minute of the hour of this time
+	 * 
+	 * @param minuteOfHour
+	 * @return this time.
+	 * @throws InvalidArgumentException if this time is frozen.
+	 */
+	public Time setMinuteOfHour(final int minuteOfHour) {
+		
+		throwsExceptionIfFrozen();
+			
+		time.set(GregorianCalendar.MINUTE, minuteOfHour);
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the month of the year of this time.
+	 * 
+	 * @param monthOfYear
+	 * @return this time.
+	 * @throws InvalidArgumentException if this time is frozen.
+	 */
+	public Time setMonthOfYear(final int monthOfYear) {
+		
+		throwsExceptionIfFrozen();
+		
+		time.set(GregorianCalendar.MONTH, monthOfYear - 1);
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the second of the minute of this time.
+	 * 
+	 * @param secondOfMinute
+	 * @return this time.
+	 * @throws InvalidArgumentException if this time is frozen.
+	 */
+	public Time setSecondOfMinute(final int secondOfMinute) {
+		
+		throwsExceptionIfFrozen();
+		
+		time.set(GregorianCalendar.SECOND, secondOfMinute);
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the year of this time.
+	 * 
+	 * @param year
+	 * @return this time.
+	 * @throws InvalidArgumentException if this time is frozen.
+	 */
+	public Time setYear(final int year) {
+		
+		throwsExceptionIfFrozen();
+		
+		time.set(GregorianCalendar.YEAR, year);
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * @return a string representation of this time.
+	 */
+	public String toString() {
+		return String.format(
+			"%04d-%02d-%02d-%02d-%02d-%02d-%03d",
+			getYear(),
+			getMonthOfYear(),
+			getDayOfMonth(),
+			getHourOfDay(),
+			getMinuteOfHour(),
+			getSecondOfMinute(),
+			getMillisecondOfSecond()
+		);
+	}
+	
+	//method
+	/**
+	 * @throws InvalidArgumentException if this time is frozen.
+	 */
+	private void throwsExceptionIfFrozen() {
+		if (frozen) {
+			new InvalidArgumentException(
+				new Argument(this),
+				new ErrorPredicate("is frozen")
+			);
+		}
 	}
 }
