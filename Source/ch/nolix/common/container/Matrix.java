@@ -39,7 +39,7 @@ public class Matrix<E> implements IContainer<E> {
 	public Matrix<E> addRow(final E... elements) {
 		
 		//Checks if the given element container is not null and not empty.
-		//TODO Add functionality for iterable objects to zeta validator.
+		//TODO: Add functionality for iterable objects to zeta validator.
 		//ZetaValidator.supposeThat(elements).thatIsNamed("element container").isNotEmpty();
 		
 		//Handles the case if this matrix is empty.

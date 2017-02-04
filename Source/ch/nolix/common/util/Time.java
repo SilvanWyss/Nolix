@@ -18,13 +18,13 @@ package ch.nolix.common.util;
 public final class Time {
 
 	//attributes
-	private int year;
-	private int month;
-	private int day;
-	private int hour;
-	private int minute;
-	private int second;
-	private int millisecond;
+	private int year = 2000;
+	private int month = 1;
+	private int day = 1;
+	private int hour = 0;
+	private int minute = 0;
+	private int second = 0;
+	private int millisecond = 0;
 	
 	public Time(String string) {
 		
