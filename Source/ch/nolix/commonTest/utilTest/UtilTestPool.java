@@ -10,7 +10,7 @@ import ch.nolix.common.test.TestPool;
  * @month 2017-02
  * @lines 20
  */
-public class UtilTestPool extends TestPool {
+public final class UtilTestPool extends TestPool {
 
 	//constructor
 	/**

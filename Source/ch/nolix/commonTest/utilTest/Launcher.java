@@ -7,7 +7,7 @@ package ch.nolix.commonTest.utilTest;
  * @month 2017-02
  * @lines 20
  */
-final class Launcher {
+public final class Launcher {
 
 	//main method
 	/**

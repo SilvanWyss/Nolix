@@ -13,10 +13,10 @@ import ch.nolix.common.zetaTest.ZetaTest;
  * @month 2017-02
  * @lines 80
  */
-public class TimeTest extends ZetaTest {
+public final class TimeTest extends ZetaTest {
 	
 	//loop test method
-	public void loopTestTimeYearMonthDayConstructor() {
+	public void loopTest_constructor_1() {
 		
 		//main loop
 		for (int y = 1600; y <= 1600; y++) {	
@@ -24,7 +24,7 @@ public class TimeTest extends ZetaTest {
 				final int dayCount = m != 2 ? 30 : 28;		
 				for (int d = 1; d <= dayCount; d++) {
 					
-					//setup and execution
+					//execution
 					final Time time = new Time(y, m, d);
 					
 					//verification
@@ -41,24 +41,26 @@ public class TimeTest extends ZetaTest {
 	}
 	
 	//loop test method
-	public void loopTestTimeYearMonthDayHourMinuteConstructor() {
-		
-		//test parameters
-		final int year = 2000;
-		final int month = 1;
-		final int day = 1;
-		
+	public void loopTest_constructor_2() {
+				
 		//main loop
 		for (int h = 0; h <= 23; h++) {		
 			for (int m = 0; m <= 59; m++) {
 					
-					//setup and execution
-					final Time time = new Time(year, month, day, h, m);
+					//execution
+					final Time time
+					= new Time(
+						Time.DEFAULT_YEAR,
+						Time.DEFAULT_MONTH_OF_YEAR,
+						Time.DEFAULT_DAY_OF_MONTH,
+						h,
+						m
+					);
 					
 					//verification
-					expectThat(time.getYear()).equals(year);
-					expectThat(time.getMonthOfYear()).equals(month);
-					expectThat(time.getDayOfMonth()).equals(day);
+					expectThat(time.getYear()).equals(Time.DEFAULT_YEAR);
+					expectThat(time.getMonthOfYear()).equals(Time.DEFAULT_MONTH_OF_YEAR);
+					expectThat(time.getDayOfMonth()).equals(Time.DEFAULT_DAY_OF_MONTH);
 					expectThat(time.getHourOfDay()).equals(h);
 					expectThat(time.getMinuteOfHour()).equals(m);
 					expectThat(time.getSecondOfMinute()).equals(Time.DEFAULT_SECOND_OF_MINUTE);
@@ -68,9 +70,9 @@ public class TimeTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testDefaultConstructor() {
+	public void test_constructor() {
 		
-		//setup and execution
+		//execution
 		final Time time = new Time();
 			
 		//verification
