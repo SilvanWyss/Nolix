@@ -2,7 +2,7 @@
  * file:	VolumeCandleStick
  * author:	Silvan Wyss
  * month:	2016-09
- * lines:	70
+ * lines:	90
  */
 
 //package declaration
@@ -66,5 +66,28 @@ public class VolumeCandleStick extends CandleStick {
 	 */
 	public final boolean hasBiggerVolumeThan(final VolumeCandleStick volumeCandleStick) {
 		return (getVolume() > volumeCandleStick.getVolume());
+	}
+	
+	//method
+	/**
+	 * @return a string representation of this volume candle stick.
+	 */
+	public String toString() {
+		return (
+			getClass().getSimpleName()
+			+ "("
+			+ "Time(" + getRefTime()+ ")"
+			+ ","
+			+ "Volume(" + getVolume() + ")"
+			+ ","
+			+ "OpeningPrice(" + getOpeningPrice() + ")"
+			+ ","
+			+ "ClosingPrice(" + getClosingPrice() + ")"
+			+ ","
+			+ "LowestPrice(" + getLowestPrice() + ")"
+			+ ","
+			+ "HighestPrice(" + getHighestPrice() + ")"
+			+ ")"
+		);
 	}
 }

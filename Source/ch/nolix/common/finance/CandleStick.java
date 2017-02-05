@@ -2,7 +2,7 @@
  * file:	CandleStick.java
  * author:	Silvan Wyss
  * month:	2016-08
- * lines:	320
+ * lines:	360
  */
 
 //package declaration
@@ -56,7 +56,8 @@ public class CandleStick {
 		Validator.throwExceptionIfValueIsNegative("highest price", highestPrice);
 		
 		//Sets the values of this candle stick.
-		this.time = time;
+		this.time = time.getCopy();
+		this.time.freeze();
 		this.openingPrice = openingPrice;
 		this.closingPrice = closingPrice;
 		this.lowestPrice = lowestPrice;
@@ -335,5 +336,26 @@ public class CandleStick {
 	 */
 	public final boolean isMarubozu() {
 		return Calculator.equalsApproximatively(getBodyLength(), getLength());
+	}
+	
+	//method
+	/**
+	 * @return a string representation of this candle stick.
+	 */
+	public String toString() {
+		return (
+			getClass().getSimpleName()
+			+ "("
+			+ "Time(" + getRefTime()+ ")"
+			+ ","
+			+ "OpeningPrice(" + getOpeningPrice() + ")"
+			+ ","
+			+ "ClosingPrice(" + getClosingPrice() + ")"
+			+ ","
+			+ "LowestPrice(" + getLowestPrice() + ")"
+			+ ","
+			+ "HighestPrice(" + getHighestPrice() + ")"
+			+ ")"
+		);
 	}
 }

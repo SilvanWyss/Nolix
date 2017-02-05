@@ -36,7 +36,7 @@ public final class CandleStickTutorial {
 		
 		//Loads the candle sticks.
 		final List<VolumeCandleStick> candleSticks
-		= DataProvider.getDailyCandleSticks(
+		= DataProvider.getCandleSticksPerDay2(
 			NYSEProductSymbolManager.BOEING,
 			new Time(2015, 1, 1),
 			new Time(2015, 12, 31)

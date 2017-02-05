@@ -14,7 +14,7 @@ import ch.nolix.common.zetaTest.ZetaTest;
  * @lines 80
  */
 public class TimeTest extends ZetaTest {
-
+	
 	//loop test method
 	public void loopTestTimeYearMonthDayConstructor() {
 		

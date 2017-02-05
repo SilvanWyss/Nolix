@@ -16,7 +16,7 @@ final class Launcher {
 	 * 
 	 * @param args
 	 */
-	public final static void main(String[] args) {
+	public final static void main(String[] args) {			
 		new FinanceTestPool().execute();
 	}
 	

@@ -22,7 +22,7 @@ import ch.nolix.common.interfaces.Resettable;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 470
+ * @lines 590
  */
 public final class Time implements Freezable, Resettable {
 	
@@ -38,6 +38,27 @@ public final class Time implements Freezable, Resettable {
 	//attributes
 	private final GregorianCalendar time = new GregorianCalendar();
 	private boolean frozen = false;
+	
+	//static method
+	/**
+	 * @return a new time that represents the current time on the machine it is created on.
+	 */
+	public static Time createCurrentTime() {
+		final Time time = new Time();
+		time.time.setTimeInMillis(new GregorianCalendar().getTimeInMillis());
+		return time;
+	}
+	
+	//static method
+	/**
+	 * @param unixTimeStamp
+	 * @return a new time from the given unix time stamp.
+	 */
+	public static Time createTimeFromUnixTimeStamp(final long unixTimeStamp) {
+		final Time time = new Time();
+		time.time.setTimeInMillis(1000 * unixTimeStamp);
+		return time;
+	}
 	
 	//constructor
 	/**
@@ -184,6 +205,49 @@ public final class Time implements Freezable, Resettable {
 		}
 	}
 	
+	/**
+	 * Adds the given milliseconds to this time.
+	 * 
+	 * @param milliseconds
+	 * @return this time.
+	 * @throws InvalidArgumentException if this time is frozen.
+	 */
+	public Time addMilliseconds(final int milliseconds) {
+		
+		//Checks if this time is frozen.
+		throwsExceptionIfFrozen();
+		
+		time.add(GregorianCalendar.MILLISECOND, milliseconds);
+		
+		return this;
+	}
+
+	//method
+	/**
+	 * Adds the given minutes to this time.
+	 * 
+	 * @param minutes
+	 * @return this time.
+	 * @throws InvalidArgumentException if this time is frozen.
+	 */
+	public Time addMinutes(final int minutes) {
+		//TODO: Create constant of milliseconds per minute.
+		return addMilliseconds(60 * 1000 * minutes);
+	}
+	
+	//method
+	/**
+	 * Adds the given seconds to this time.
+	 * 
+	 * @param seconds
+	 * @return this time.
+	 * @throws InvalidArgumentException if this time is frozen.
+	 */
+	public Time addSeconds(final int seconds) {
+		//TODO: Create constant of milliseconds per second.
+		return addMilliseconds(1000 * seconds);
+	}
+	
 	//method
 	/**
 	 * @param object
@@ -245,6 +309,18 @@ public final class Time implements Freezable, Resettable {
 	
 	//method
 	/**
+	 * This method returns a negative value if this time is after the given time.
+	 * 
+	 * @param time
+	 * @return the number of days from this time to the given time.
+	 */
+	public int getDaysTo(final Time time) {
+		//TODO: Create constant of seconds per day.
+		return (int)(getMillisecondsTo(time) / (24 * 60 * 60 * 1000));
+	}
+
+	//method
+	/**
 	 * @return the hour of the month of this time.
 	 */
 	public int getHourOfDay() {
@@ -257,6 +333,25 @@ public final class Time implements Freezable, Resettable {
 	 */
 	public int getMillisecondOfSecond() {
 		return time.get(GregorianCalendar.MILLISECOND);
+	}
+	
+	//method
+	/**
+	 * @return the milliseconds of this time.
+	 */
+	public long getMilliseconds() {
+		return time.getTimeInMillis();
+	}
+	
+	//method
+	/**
+	 * This method returns a negative value if this time is after the given time.
+	 * 
+	 * @param time
+	 * @return the number of milliseconds from this time to the given time.
+	 */
+	public long getMillisecondsTo(final Time time) {
+		return (time.getMilliseconds() - this.getMilliseconds());
 	}
 	
 	//method
@@ -301,6 +396,24 @@ public final class Time implements Freezable, Resettable {
 	
 	//method
 	/**
+	 * @param time
+	 * @return true if this time is after the given time.
+	 */
+	public boolean isAfter(final Time time) {
+		return (getMilliseconds() > time.getMilliseconds());
+	}
+	
+	//method
+	/**
+	 * @param time
+	 * @return true if this time is before the given time.
+	 */
+	public boolean isBefore(final Time time) {
+		return (getMilliseconds() < time.getMilliseconds());
+	}
+	
+	//method
+	/**
 	 * @return true if this time is in a leap year.
 	 */
 	public boolean isInLeapYear() {
@@ -313,7 +426,7 @@ public final class Time implements Freezable, Resettable {
 	 * 
 	 * @throws InvalidArgumentException if this time is frozen.
 	 */
-	public void reset() {
+	public void reset() {		
 		setYear(DEFAULT_YEAR);
 		setMonthOfYear(DEFAULT_MONTH_OF_YEAR);
 		setDayOfMonth(DEFAULT_DAY_OF_MONTH);
@@ -333,6 +446,7 @@ public final class Time implements Freezable, Resettable {
 	 */
 	public Time setDayOfMonth(final int dayOfMonth) {
 		
+		//Checks if this time is frozen.
 		throwsExceptionIfFrozen();
 		
 		time.set(GregorianCalendar.DAY_OF_MONTH, dayOfMonth);
@@ -350,6 +464,7 @@ public final class Time implements Freezable, Resettable {
 	 */
 	public Time setHourOfDay(final int hourOfDay) {
 		
+		//Checks if this time is frozen.
 		throwsExceptionIfFrozen();
 		
 		time.set(GregorianCalendar.HOUR_OF_DAY, hourOfDay);
@@ -367,6 +482,7 @@ public final class Time implements Freezable, Resettable {
 	 */
 	public Time setMillisecondOfSecond(final int millisecondOfSecond) {
 		
+		//Checks if this time is frozen.
 		throwsExceptionIfFrozen();
 		
 		time.set(GregorianCalendar.MILLISECOND, millisecondOfSecond);
@@ -384,6 +500,7 @@ public final class Time implements Freezable, Resettable {
 	 */
 	public Time setMinuteOfHour(final int minuteOfHour) {
 		
+		//Checks if this time is frozen.
 		throwsExceptionIfFrozen();
 			
 		time.set(GregorianCalendar.MINUTE, minuteOfHour);
@@ -401,6 +518,7 @@ public final class Time implements Freezable, Resettable {
 	 */
 	public Time setMonthOfYear(final int monthOfYear) {
 		
+		//Checks if this time is frozen.
 		throwsExceptionIfFrozen();
 		
 		time.set(GregorianCalendar.MONTH, monthOfYear - 1);
@@ -418,6 +536,7 @@ public final class Time implements Freezable, Resettable {
 	 */
 	public Time setSecondOfMinute(final int secondOfMinute) {
 		
+		//Checks if this time is frozen.
 		throwsExceptionIfFrozen();
 		
 		time.set(GregorianCalendar.SECOND, secondOfMinute);
@@ -435,6 +554,7 @@ public final class Time implements Freezable, Resettable {
 	 */
 	public Time setYear(final int year) {
 		
+		//Checks if this time is frozen.
 		throwsExceptionIfFrozen();
 		
 		time.set(GregorianCalendar.YEAR, year);
