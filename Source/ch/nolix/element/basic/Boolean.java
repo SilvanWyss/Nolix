@@ -19,11 +19,11 @@ import ch.nolix.common.specification.Specification;
 public final class Boolean extends Element {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "Boolean";
+	public static final String SIMPLE_CLASS_NAME = "Boolean";
 	
 	//value names
-	private final static String FALSE = "False";
-	private final static String TRUE = "True";
+	private static final String FALSE = "False";
+	private static final String TRUE = "True";
 	
 	//attribute
 	private boolean value = false;

@@ -24,7 +24,7 @@ public enum CursorIcon {
 	Wait;
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "CursorIcon";
+	public static final String SIMPLE_CLASS_NAME = "CursorIcon";
 	
 	//method
 	/**

@@ -19,7 +19,7 @@ public final class IterableHelper {
 	 * @param iterable
 	 * @return true if the given iterable object is empty
 	 */
-	public final static boolean isEmpty(Iterable<?> iterable) {
+	public static final boolean isEmpty(Iterable<?> iterable) {
 		return !iterable.iterator().hasNext();
 	}
 	

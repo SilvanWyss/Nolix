@@ -12,7 +12,7 @@ package ch.nolix.common.interfaces;
 public interface ApproximativeEqualing {
 	
 	//constant
-	public final static double DEFAULT_DEVIATION = 0.000000001; //10^-9
+	public static final double DEFAULT_DEVIATION = 0.000000001; //10^-9
 	
 	//default method
 	/**

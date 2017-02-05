@@ -23,7 +23,7 @@ public enum ContentOrientation {
 	Right,
 	RightBottom;
 	
-	public final static String SIMPLE_CLASS_NAME = "ContentOrientation";
+	public static final String SIMPLE_CLASS_NAME = "ContentOrientation";
 	
 	public final Specification getSpecification() {
 		return new Specification(SIMPLE_CLASS_NAME, toString());

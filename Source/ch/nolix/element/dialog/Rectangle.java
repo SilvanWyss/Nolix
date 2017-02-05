@@ -31,13 +31,13 @@ public abstract class Rectangle<R extends Rectangle<R, ?>, RS extends RectangleS
 	implements Configurable {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "Rectangle";
+	public static final String SIMPLE_CLASS_NAME = "Rectangle";
 	
 	//attribute header
-	private final static String STATE ="State";
-	private final static String NORMAL = "Normal";
-	private final static String FOCUS = "Focus";
-	private final static String HOVER = "Hover";
+	private static final String STATE ="State";
+	private static final String NORMAL = "Normal";
+	private static final String FOCUS = "Focus";
+	private static final String HOVER = "Hover";
 		
 	//attributes
 	private Dialog<?> dialog;

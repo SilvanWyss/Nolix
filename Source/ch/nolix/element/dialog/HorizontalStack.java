@@ -16,7 +16,7 @@ import ch.nolix.common.specification.Specification;
 public final class HorizontalStack extends Stack<HorizontalStack> {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "HorizontalStack";		
+	public static final String SIMPLE_CLASS_NAME = "HorizontalStack";		
 	
 	//constructor
 	/**

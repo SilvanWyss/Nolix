@@ -24,7 +24,7 @@ public enum RectangleState {
 	Collapsed;
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "RectangleState";
+	public static final String SIMPLE_CLASS_NAME = "RectangleState";
 	
 	//method
 	/**

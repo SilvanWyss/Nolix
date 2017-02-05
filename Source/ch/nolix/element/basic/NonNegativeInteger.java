@@ -15,10 +15,10 @@ import ch.nolix.common.util.Validator;
 public class NonNegativeInteger extends Integeroid {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "NonNegativeInteger";
+	public static final String SIMPLE_CLASS_NAME = "NonNegativeInteger";
 	
 	//default value
-	public final static int DEFAULT_VALUE = 0;
+	public static final int DEFAULT_VALUE = 0;
 	
 	//constructor
 	/**

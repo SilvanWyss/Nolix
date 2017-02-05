@@ -16,7 +16,7 @@ import ch.nolix.common.specification.Statement;
 final class MockDialogControlleroid implements ILevel1Controller {
 
 	//error messages
-	private final static String MOCK_DIALOG_CONTROLLEROID_PROVIDES_NO_CALLS = "Mock dialog controlleroid provides no calls.";
+	private static final String MOCK_DIALOG_CONTROLLEROID_PROVIDES_NO_CALLS = "Mock dialog controlleroid provides no calls.";
 
 	//method
 	/**

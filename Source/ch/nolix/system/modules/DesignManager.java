@@ -28,7 +28,7 @@ import ch.nolix.element.configuration.StandardConfiguration;
 public final class DesignManager extends Module {
 	
 	//request
-	public final static String DESIGN_NAMES_REQUEST = "DesignNames";
+	public static final String DESIGN_NAMES_REQUEST = "DesignNames";
 	
 	//constructor
 	/**

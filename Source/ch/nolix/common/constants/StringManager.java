@@ -10,10 +10,10 @@ package ch.nolix.common.constants;
 public final class StringManager {
 	
 	//strings
-	public final static String EMPTY_STRING = "";
-	public final static String DEFAULT_STRING = "Default";
-	public final static String HEXADECIMAL_PREFIX = "0x";
-	public final static String NULL_NAME = "null";
+	public static final String EMPTY_STRING = "";
+	public static final String DEFAULT_STRING = "Default";
+	public static final String HEXADECIMAL_PREFIX = "0x";
+	public static final String NULL_NAME = "null";
 
 	//private constructor
 	/**

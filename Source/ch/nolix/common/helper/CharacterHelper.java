@@ -20,23 +20,23 @@ import ch.nolix.common.exception.ArgumentName;
 public final class CharacterHelper {
 	
 	//characters
-	public final static char APOSTROPH = '\'';
-	public final static char BACK_SLASH = '\\';
-	public final static char CLOSING_BRACKET = ')';
-	public final static char CLOSING_CROCODILE_BRACKET = '>';
-	public final static char CLOSING_SQUARE_BRACKET = ']';
-	public final static char COMMA = ',';
-	public final static char DOT = '.';
-	public final static char MINUS = '-';
-	public final static char NEW_LINE = '\n';
-	public final static char OPENING_BRACKET = '(';
-	public final static char OPENING_CROCODILE_BRACKET = '<';
-	public final static char OPENING_SQUARE_BRACKET = '[';
-	public final static char QUOTE = '\"';
-	public final static char SLASH = '/';
-	public final static char SPACE = ' ';
-	public final static char TABULATOR = '\t';;
-	public final static char UNDERSCORE = '_';
+	public static final char APOSTROPH = '\'';
+	public static final char BACK_SLASH = '\\';
+	public static final char CLOSING_BRACKET = ')';
+	public static final char CLOSING_CROCODILE_BRACKET = '>';
+	public static final char CLOSING_SQUARE_BRACKET = ']';
+	public static final char COMMA = ',';
+	public static final char DOT = '.';
+	public static final char MINUS = '-';
+	public static final char NEW_LINE = '\n';
+	public static final char OPENING_BRACKET = '(';
+	public static final char OPENING_CROCODILE_BRACKET = '<';
+	public static final char OPENING_SQUARE_BRACKET = '[';
+	public static final char QUOTE = '\"';
+	public static final char SLASH = '/';
+	public static final char SPACE = ' ';
+	public static final char TABULATOR = '\t';;
+	public static final char UNDERSCORE = '_';
 	
 	//static method
 	/**

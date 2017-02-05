@@ -27,7 +27,7 @@ import ch.nolix.element.data.Name;
 public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<ONE>> extends Element implements OptionalNamable<ONE>  {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "NamableElement";
+	public static final String SIMPLE_CLASS_NAME = "NamableElement";
 	
 	//optional attributes
 	private IRequestableContainer searchContainer;

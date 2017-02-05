@@ -13,7 +13,7 @@ package ch.nolix.common.exception;
 public class FalseArgumentException extends InvalidArgumentException {
 
 	//constant
-	private final static String ERROR_PREDICATE = "is false";
+	private static final String ERROR_PREDICATE = "is false";
 	
 	//constructor
 	/**

@@ -17,11 +17,11 @@ import ch.nolix.common.functional.IRunner;
 public final class Sequencer {
 	
 	//static method
-	public final static AfterAllMediator afterAllMilliseconds(int timeIntervalInMilliseconds) {
+	public static final AfterAllMediator afterAllMilliseconds(int timeIntervalInMilliseconds) {
 		return new AfterAllMediator(timeIntervalInMilliseconds);
 	}
 	
-	public final static AfterAllMediator afterAllSeconds() {
+	public static final AfterAllMediator afterAllSeconds() {
 		return new AfterAllMediator(1000);
 	}
 	
@@ -31,11 +31,11 @@ public final class Sequencer {
 	 * @return new doer with the given count
 	 * @throws Exception if the given count is negative
 	 */
-	public final static ForCountMediator forCount(int count) {
+	public static final ForCountMediator forCount(int count) {
 		return new ForCountMediator(count);
 	}
 	
-	public final static void runInBackground(final IRunner runner) {
+	public static final void runInBackground(final IRunner runner) {
 		new BackgroundThread(runner);
 	}
 

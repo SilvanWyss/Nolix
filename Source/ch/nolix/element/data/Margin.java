@@ -17,7 +17,7 @@ import ch.nolix.element.basic.PositiveInteger;
 public final class Margin extends PositiveInteger {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "Margin";
+	public static final String SIMPLE_CLASS_NAME = "Margin";
 
 	//constructor
 	/**

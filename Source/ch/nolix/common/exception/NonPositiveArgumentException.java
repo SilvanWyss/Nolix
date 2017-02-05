@@ -13,7 +13,7 @@ package ch.nolix.common.exception;
 public final class NonPositiveArgumentException extends InvalidArgumentException {
 
 	//constant
-	private final static String ERROR_PREDICATE = "is not positive";
+	private static final String ERROR_PREDICATE = "is not positive";
 	
 	//constructor
 	/**

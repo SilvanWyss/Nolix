@@ -15,7 +15,7 @@ package ch.nolix.common.util;
 public final class WindowsEnvironmentVariablesManager {
 
 	//windows environment variable
-	public final static String APP_DATA = "APPDATA";
+	public static final String APP_DATA = "APPDATA";
 	
 	//private constructor
 	/**

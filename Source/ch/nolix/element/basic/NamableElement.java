@@ -25,10 +25,10 @@ import ch.nolix.common.util.Validator;
 public abstract class NamableElement<NE extends NamableElement<NE>> extends Element implements Namable<NE> {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "NamedElement";
+	public static final String SIMPLE_CLASS_NAME = "NamedElement";
 	
 	//attribute name
-	private final static String NAME = "Name";
+	private static final String NAME = "Name";
 	
 	//optional attribute
 	private IRequestableContainer containerOfNameds;

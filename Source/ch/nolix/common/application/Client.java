@@ -31,12 +31,12 @@ extends OptionalSignableElement<C>
 implements Abortable {
 	
 	//commands
-	protected final static String INVOKE_RUN_METHOD_COMMAND = "InvokeRunMethod";
-	protected final static String TAKE_READY_SIGNAL_COMMAND = "TakeReadySignal";
+	protected static final String INVOKE_RUN_METHOD_COMMAND = "InvokeRunMethod";
+	protected static final String TAKE_READY_SIGNAL_COMMAND = "TakeReadySignal";
 	
 	//requests
-	protected final static String TYPE_REQUEST = "Type";
-	protected final static String TARGET_APPLICATION_REQUEST = "TargetApplicationRequest";
+	protected static final String TYPE_REQUEST = "Type";
+	protected static final String TARGET_APPLICATION_REQUEST = "TargetApplicationRequest";
 	protected static final String DATA_METHOD_REQUEST = "Data";
 		
 	//attributes

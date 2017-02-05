@@ -47,16 +47,16 @@ implements
 	IRequestableContainer
 {
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "Dialog";
+	public static final String SIMPLE_CLASS_NAME = "Dialog";
 	
 	//default value
-	public final static ContentOrientation DEFAULT_CONTENT_ORIENTATION = ContentOrientation.LeftTop;
+	public static final ContentOrientation DEFAULT_CONTENT_ORIENTATION = ContentOrientation.LeftTop;
 	
 	//attribute headers
-	private final static String ROOT_RECTANGLE = "RootRectangle";
+	private static final String ROOT_RECTANGLE = "RootRectangle";
 
 	//command
-	private final static String REMOVE_ROOT_RECTANGLE = "RemoveRootRectangle";
+	private static final String REMOVE_ROOT_RECTANGLE = "RemoveRootRectangle";
 		
 	//attributes
 	private final Title title = new Title();

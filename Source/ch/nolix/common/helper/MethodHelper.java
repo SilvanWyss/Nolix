@@ -23,7 +23,7 @@ public class MethodHelper {
 	 * @param method
 	 * @return true if all parameters of the given method are strings
 	 */
-	public final static boolean allParametersOfMethodAreStrings(Method method) {
+	public static final boolean allParametersOfMethodAreStrings(Method method) {
 		
 		for (Parameter p: method.getParameters()) {
 			if (!p.getType().getSimpleName().equals(String.class.getSimpleName())) {

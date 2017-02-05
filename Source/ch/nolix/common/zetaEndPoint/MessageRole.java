@@ -15,9 +15,9 @@ public enum MessageRole {
 	ERROR_RESPONSE_MESSAGE;
 	
 	//prefixes
-	private final static char NORMAL_MESSAGE_PREFIX = 'M';
-	private final static char SUCCESS_RESPONSE_MESSAGE_PREFIX = 'R';
-	private final static char ERROR_RESPONSE_MESSAGE_PREFIX = 'E';
+	private static final char NORMAL_MESSAGE_PREFIX = 'M';
+	private static final char SUCCESS_RESPONSE_MESSAGE_PREFIX = 'R';
+	private static final char ERROR_RESPONSE_MESSAGE_PREFIX = 'E';
 	
 	public static MessageRole createMessageRole(char prefix) {
 		switch (prefix) {

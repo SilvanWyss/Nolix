@@ -24,13 +24,13 @@ extends NamableElement<C>
 implements Freezable {
 
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "Configuration";
+	public static final String SIMPLE_CLASS_NAME = "Configuration";
 	
 	//attribute names
-	private final static String SELECTOR_TYPE = "SelectorType";
+	private static final String SELECTOR_TYPE = "SelectorType";
 	private static final String SELECTOR_ROLE = "SelectorRole";
-	private final static String SELECTOR_TOKEN = "SelectorToken";
-	private final static String SELECTOR_NAME = "SelectorName";
+	private static final String SELECTOR_TOKEN = "SelectorToken";
+	private static final String SELECTOR_NAME = "SelectorName";
 	
 	//attributes
 	private final List<Specification> attachingAttributes = new List<Specification>();

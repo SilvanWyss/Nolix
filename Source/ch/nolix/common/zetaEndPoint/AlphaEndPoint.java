@@ -31,7 +31,7 @@ import ch.nolix.common.util.Validator;
 public final class AlphaEndPoint extends AbortableElement {
 	
 	//default value
-	public final static int DEFAULT_TIMEOUT_IN_MILLISECONDS = 2000;
+	public static final int DEFAULT_TIMEOUT_IN_MILLISECONDS = 2000;
 
 	//attributes
 	private int nextPackageIndex = 1;

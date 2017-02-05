@@ -19,7 +19,7 @@ import ch.nolix.element.basic.Command;
 public final class CloseCommand extends Command {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "CloseCommand";
+	public static final String SIMPLE_CLASS_NAME = "CloseCommand";
 
 	//constructor
 	/**

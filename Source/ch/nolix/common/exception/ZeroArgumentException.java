@@ -13,7 +13,7 @@ package ch.nolix.common.exception;
 public final class ZeroArgumentException extends InvalidArgumentException {
 	
 	//constant
-	private final static String ERROR_PREDICATE = "is 0";
+	private static final String ERROR_PREDICATE = "is 0";
 	
 	//constructor
 	/**

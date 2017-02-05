@@ -16,8 +16,8 @@ import ch.nolix.common.specification.Specification;
 public final class HorizontalLine extends Line<HorizontalLine> {
 
 	//constants
-	public final static String SIMPLE_CLASS_NAME = "HorizontalLine";
-	public final static String NONE = "NoHorizontalLine";
+	public static final String SIMPLE_CLASS_NAME = "HorizontalLine";
+	public static final String NONE = "NoHorizontalLine";
 	
 	//constructor
 	/**

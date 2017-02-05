@@ -10,12 +10,12 @@ package ch.nolix.common.constants;
 public final class PortManager {
 	
 	//ports
-	public final static int MIN_PORT = 0;
-	public final static int FTP_PORT = 20;
-	public final static int SMTP_PORT = 25;
-	public final static int HTTP_PORT = 80;
-	public final static int HTTPS_PORT = 443;
-	public final static int MAX_PORT = 65535;
+	public static final int MIN_PORT = 0;
+	public static final int FTP_PORT = 20;
+	public static final int SMTP_PORT = 25;
+	public static final int HTTP_PORT = 80;
+	public static final int HTTPS_PORT = 443;
+	public static final int MAX_PORT = 65535;
 
 	//private constructor
 	/**

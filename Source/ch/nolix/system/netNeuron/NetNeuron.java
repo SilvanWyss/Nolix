@@ -23,7 +23,7 @@ public final class NetNeuron<I>
 extends Neuron<I, Object, NetNeuron<I>> {
 	
 	//constant
-	final static String DEFAULT_NET_NEURON_APPLICATION_NAME = "FrontNetNeuronApplication";
+	static final String DEFAULT_NET_NEURON_APPLICATION_NAME = "FrontNetNeuronApplication";
 	
 	//attribute
 	private final IElementTakerElementGetter<I, Specification> transformer;

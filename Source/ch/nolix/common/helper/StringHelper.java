@@ -25,7 +25,7 @@ public final class StringHelper {
 	 * @param count
 	 * @return new string consisting of as many tabulators as the given count
 	 */
-	public final static String createTabulators(int count) {
+	public static final String createTabulators(int count) {
 		
 		String tabulators = StringManager.EMPTY_STRING;
 		
@@ -41,7 +41,7 @@ public final class StringHelper {
 	 * @param string
 	 * @return true if the given string is a non empty string
 	 */
-	public final static boolean isNonEmptyString(String string) {
+	public static final boolean isNonEmptyString(String string) {
 		return (string != null && string.length() > 0);
 	}
 	
@@ -51,7 +51,7 @@ public final class StringHelper {
 	 * @return the boolean the given string represents
 	 * @throws Exception if the given string does not represent a boolean
 	 */
-	public final static boolean toBoolean(String string) {
+	public static final boolean toBoolean(String string) {
 		switch (string) {
 			case "0":
 				return false;
@@ -76,7 +76,7 @@ public final class StringHelper {
 	 * @return the integer the given string represents
 	 * @throws Exception if the given string does not represent an integer
 	 */
-	public final static int toInteger(String string) {
+	public static final int toInteger(String string) {
 		
 		Validator.throwExceptionIfStringIsNullOrEmpty("string", string);
 		
@@ -129,7 +129,7 @@ public final class StringHelper {
 	 * @return the non negative decimal integer the given string represents
 	 * @throws Exception if the given string does not represent a negative decimal integer
 	 */
-	private final static int toIntegerFromNonNegativeDecimal(String string) {
+	private static final int toIntegerFromNonNegativeDecimal(String string) {
 		
 		int number = 0;
 		
@@ -181,7 +181,7 @@ public final class StringHelper {
 	 * @return the non-negative hexadecimal integer the given string represents
 	 * @throws Exception if the given string does not represent a non-negative decimal integer
 	 */
-	private final static int toIntegerFromNonNegativeHexaDecimal(String string) {
+	private static final int toIntegerFromNonNegativeHexaDecimal(String string) {
 		
 		int number = 0;
 		

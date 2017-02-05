@@ -35,18 +35,18 @@ import ch.nolix.element.data.Width;
 public final class TextBox extends TextLineRectangle<TextBox> {
 
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "TextBox";
+	public static final String SIMPLE_CLASS_NAME = "TextBox";
 	
 	//default values
-	public final static int DEFAULT_WIDTH = 200;
-	public final static String DEFAULT_BACKGROUND_COLOR = Color.WHITE_STRING;
-	public final static String DEFAULT_CURSOR_COLOR = Color.BLACK_STRING;
+	public static final int DEFAULT_WIDTH = 200;
+	public static final String DEFAULT_BACKGROUND_COLOR = Color.WHITE_STRING;
+	public static final String DEFAULT_CURSOR_COLOR = Color.BLACK_STRING;
 	
 	//limit value
-	public final static int MIN_WIDTH = 10;
+	public static final int MIN_WIDTH = 10;
 	
 	//attribute header
-	private final static String CURSOR_COLOR = "CursorColor";
+	private static final String CURSOR_COLOR = "CursorColor";
 	
 	//attributes
 	private final Width width = new Width();

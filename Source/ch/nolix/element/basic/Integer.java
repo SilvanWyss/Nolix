@@ -13,10 +13,10 @@ package ch.nolix.element.basic;
 public final class Integer extends Integeroid {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "Integer";
+	public static final String SIMPLE_CLASS_NAME = "Integer";
 	
 	//default value
-	public final static int DEFAULT_VALUE = 0;
+	public static final int DEFAULT_VALUE = 0;
 	
 	//constructor
 	/**

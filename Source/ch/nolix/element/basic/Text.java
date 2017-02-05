@@ -13,10 +13,10 @@ import ch.nolix.common.constants.StringManager;
 public final class Text extends Textoid {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "Text";
+	public static final String SIMPLE_CLASS_NAME = "Text";
 	
 	//default value
-	public final static String DEFAULT_VALUE = StringManager.EMPTY_STRING;
+	public static final String DEFAULT_VALUE = StringManager.EMPTY_STRING;
 	
 	//constructor
 	/**

@@ -15,7 +15,7 @@ import ch.nolix.element.basic.Color;
 public final class BackgroundColor extends Color {
 
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "BackgroundColor";
+	public static final String SIMPLE_CLASS_NAME = "BackgroundColor";
 	
 	//constructor
 	/**

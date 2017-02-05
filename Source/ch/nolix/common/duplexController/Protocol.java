@@ -12,13 +12,13 @@ package ch.nolix.common.duplexController;
 final class Protocol {
 		
 	//outgoing message headers
-	public final static String COMMANDS = "Commands";
-	public final static String DATA_REQUEST = "DataRequest";
+	public static final String COMMANDS = "Commands";
+	public static final String DATA_REQUEST = "DataRequest";
 	
 	//incoming message headers
-	public final static String DONE = "Done";
-	public final static String DATA = "Data";
-	public final static String ERROR = "Error";
+	public static final String DONE = "Done";
+	public static final String DATA = "Data";
+	public static final String ERROR = "Error";
 
 	//private constructor
 	/**

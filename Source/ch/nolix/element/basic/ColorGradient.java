@@ -22,14 +22,14 @@ import ch.nolix.common.specification.Specification;
 public final class ColorGradient extends Element {
 	
 	//default values
-	public final static ColorGradientPattern DEFAULT_PATTERN = ColorGradientPattern.TopToBottom;
-	public final static int DEFAULT_COLOR_1 = Color.BLACK;
-	public final static int DEFAULT_COLOR_2 = Color.WHITE;
+	public static final ColorGradientPattern DEFAULT_PATTERN = ColorGradientPattern.TopToBottom;
+	public static final int DEFAULT_COLOR_1 = Color.BLACK;
+	public static final int DEFAULT_COLOR_2 = Color.WHITE;
 	
 	//attribute headers
-	private final static String PATTERN = "Pattern";
-	private final static String COLOR_1 = "Color1";
-	private final static String COLOR_2 = "Color2";
+	private static final String PATTERN = "Pattern";
+	private static final String COLOR_1 = "Color1";
+	private static final String COLOR_2 = "Color2";
 
 	//attributes
 	private ColorGradientPattern pattern = DEFAULT_PATTERN;

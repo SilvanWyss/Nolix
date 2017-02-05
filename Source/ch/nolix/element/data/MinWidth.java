@@ -17,7 +17,7 @@ import ch.nolix.element.basic.PositiveInteger;
 public final class MinWidth extends PositiveInteger {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "MinWidth";
+	public static final String SIMPLE_CLASS_NAME = "MinWidth";
 
 	//constructor
 	/**

@@ -17,7 +17,7 @@ final class Launcher {
 	 * 
 	 * @param arguments
 	 */
-	public final static void main(final String[] arguments) {
+	public static final void main(final String[] arguments) {
 		new DataTestPool().execute();
 	}
 	

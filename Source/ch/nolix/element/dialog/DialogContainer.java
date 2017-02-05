@@ -15,8 +15,8 @@ public final class DialogContainer
 	extends BorderableRectangle<DialogContainer, SimpleBorderableRectangleStructure> {
 
 	//constants
-	public final static String SIMPLE_CLASS_NAME = "DialogContainer";
-	public final static String NONE = "NoDialogContainer";
+	public static final String SIMPLE_CLASS_NAME = "DialogContainer";
+	public static final String NONE = "NoDialogContainer";
 	
 	//attributes
 	private InnerDialog innerDialog;

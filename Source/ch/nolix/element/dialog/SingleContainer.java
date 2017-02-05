@@ -19,8 +19,8 @@ public final class SingleContainer
 	extends Container<SingleContainer, SimpleBorderableRectangleStructure> {
 	
 	//constants
-	public final static String SIMPLE_CLASS_NAME = "SingleContainer";
-	public final static String NONE = "NoSingleContainer";
+	public static final String SIMPLE_CLASS_NAME = "SingleContainer";
+	public static final String NONE = "NoSingleContainer";
 	
 	//attributes
 	private Rectangle<?, ?> rectangle;

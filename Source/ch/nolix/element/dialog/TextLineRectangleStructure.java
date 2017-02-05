@@ -19,8 +19,8 @@ import ch.nolix.element.data.Size;
 public final class TextLineRectangleStructure extends BorderableRectangleStructure<TextLineRectangleStructure> {
 	
 	//attribute headers
-	private final static String TEXT_SIZE = "TextSize";
-	private final static String TEXT_COLOR = "TextColor";
+	private static final String TEXT_SIZE = "TextSize";
+	private static final String TEXT_COLOR = "TextColor";
 
 	//optional attributes
 	private PositiveInteger textSize;

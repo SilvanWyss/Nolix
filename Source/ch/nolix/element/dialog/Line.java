@@ -32,13 +32,13 @@ public abstract class Line<L extends Line<L>>
 extends Rectangle<L, SimpleRectangleStructure> {
 	
 	//constants
-	public final static String SIMPLE_CLASS_NAME = "Line";
-	public final static int MIN_LENGTH_TO_THICKNESS_RATIO = 4;
+	public static final String SIMPLE_CLASS_NAME = "Line";
+	public static final int MIN_LENGTH_TO_THICKNESS_RATIO = 4;
 	
 	//default values
-	public final static int DEFAULT_LENGTH = 100;
-	public final static int DEFAULT_THICKNESS = 1;
-	public final static int DEFAULT_COLOR = Color.BLACK;
+	public static final int DEFAULT_LENGTH = 100;
+	public static final int DEFAULT_THICKNESS = 1;
+	public static final int DEFAULT_COLOR = Color.BLACK;
 	
 	//attributes
 	private final Length length = new Length();

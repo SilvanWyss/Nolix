@@ -19,19 +19,19 @@ import ch.nolix.common.functional.IElementTakerElementGetter;
 public final class FunctionManager {
 
 	//function
-	public final static IElementTakerElementGetter<Object, Object> IDENTITY
+	public static final IElementTakerElementGetter<Object, Object> IDENTITY
 	= (o) -> {
 		return o;
 	};
 	
 	//function
-	public final static IElementTakerElementGetter<Object, Object> NULL
+	public static final IElementTakerElementGetter<Object, Object> NULL
 	= (o) -> {
 		return null;
 	};
 	
 	//function
-	public final static IElementTakerElementGetter<Object, String> TO_STRING
+	public static final IElementTakerElementGetter<Object, String> TO_STRING
 	= (o) -> {
 		
 		//Handles the case if the given object is null.

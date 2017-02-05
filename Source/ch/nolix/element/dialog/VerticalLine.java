@@ -16,7 +16,7 @@ import ch.nolix.common.specification.Specification;
 public final class VerticalLine extends Line<VerticalLine> {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "VerticalLine";
+	public static final String SIMPLE_CLASS_NAME = "VerticalLine";
 
 	//constructor
 	/**

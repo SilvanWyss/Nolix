@@ -34,18 +34,18 @@ import ch.nolix.element.data.CloseCommand;
 public final class Frame extends Dialog<Frame> {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "Frame";
+	public static final String SIMPLE_CLASS_NAME = "Frame";
 	
 	//default values
-	public final static int DEFAULT_WIDTH = 800;
-	public final static int DEFAULT_HEIGHT = 500;
-	private final static int DEFAULT_X_POSITION = 200;
-	private final static int DEFAULT_Y_POSITION = 100;
-	public final static String DEFAULT_BACKGROUND_COLOR = Color.WHITE_STRING;
+	public static final int DEFAULT_WIDTH = 800;
+	public static final int DEFAULT_HEIGHT = 500;
+	private static final int DEFAULT_X_POSITION = 200;
+	private static final int DEFAULT_Y_POSITION = 100;
+	public static final String DEFAULT_BACKGROUND_COLOR = Color.WHITE_STRING;
 	
 	//minimum values
-	public final static int MINIMUM_WIDTH = 400;
-	public final static int MINIMUM_HEIGHT = 200;
+	public static final int MINIMUM_WIDTH = 400;
+	public static final int MINIMUM_HEIGHT = 200;
 	
 	//attributes
 	private final FrameContext frameContext;

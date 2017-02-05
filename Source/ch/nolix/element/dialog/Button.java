@@ -20,7 +20,7 @@ import ch.nolix.common.specification.Specification;
 public final class Button extends TextLineRectangle<Button> {
 		
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "Button";
+	public static final String SIMPLE_CLASS_NAME = "Button";
 	
 	//constructor
 	/**

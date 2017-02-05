@@ -12,7 +12,7 @@ package ch.nolix.common.container;
 public final class FPNPair {
 
 	//default value
-	public final static double DEFAULT_VALUE = 0.0;
+	public static final double DEFAULT_VALUE = 0.0;
 	
 	//attributes
 	private double value1 = DEFAULT_VALUE;

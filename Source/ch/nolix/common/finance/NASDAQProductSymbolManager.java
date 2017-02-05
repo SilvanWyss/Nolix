@@ -18,19 +18,19 @@ import ch.nolix.common.container.List;
 public class NASDAQProductSymbolManager {
 	
 	//NASDAQ product symbols
-	public final static String ADVANCED_MICRO_DEVICES_INC = "AMD";
-	public final static String CENTURY_ALUMINIUM_CORPORATION = "CENX";
-	public final static String FACEBOOK = "FB";
-	public final static String FORD_INDUSTRIES_INC = "FORD";
-	public final static String GENERAL_FINANCE_CORPORATION = "GFN";
-	public final static String INTEL_CORPORATION = "INTC";
-	public final static String MICROSOFT_CORPORATION = "MSFT";
-	public final static String NETFLIX_INC = "NFLX";
-	public final static String NVIDIA_CORPORATION = "NVDA";
-	public final static String STARBUCKS_CORPORATION = "SBUX";
-	public final static String TESLA_MOTORS_INC = "TSLA";
-	public final static String THE_KRAFT_HEINZ_COMPANY = "KHC";
-	public final static String UNIVERSAL_FOREST_PRODUCTS_INC = "UFPI";
+	public static final String ADVANCED_MICRO_DEVICES_INC = "AMD";
+	public static final String CENTURY_ALUMINIUM_CORPORATION = "CENX";
+	public static final String FACEBOOK = "FB";
+	public static final String FORD_INDUSTRIES_INC = "FORD";
+	public static final String GENERAL_FINANCE_CORPORATION = "GFN";
+	public static final String INTEL_CORPORATION = "INTC";
+	public static final String MICROSOFT_CORPORATION = "MSFT";
+	public static final String NETFLIX_INC = "NFLX";
+	public static final String NVIDIA_CORPORATION = "NVDA";
+	public static final String STARBUCKS_CORPORATION = "SBUX";
+	public static final String TESLA_MOTORS_INC = "TSLA";
+	public static final String THE_KRAFT_HEINZ_COMPANY = "KHC";
+	public static final String UNIVERSAL_FOREST_PRODUCTS_INC = "UFPI";
 	
 	//static method
 	/**

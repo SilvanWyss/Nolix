@@ -14,10 +14,10 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
 public class NonEmptyText extends Textoid {
 
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "NonEmptyText";
+	public static final String SIMPLE_CLASS_NAME = "NonEmptyText";
 	
 	//default value
-	public final static String DEFAULT_VALUE = StringManager.DEFAULT_STRING;
+	public static final String DEFAULT_VALUE = StringManager.DEFAULT_STRING;
 	
 	//constructor
 	/**

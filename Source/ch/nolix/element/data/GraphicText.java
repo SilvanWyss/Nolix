@@ -51,8 +51,8 @@ import ch.nolix.element.basic.Text;
  */
 public final class GraphicText extends Element {
 	
-	public final static int DEFAULT_SIZE = 10;
-	public final static String DEFAULT_COLOR = Color.BLACK_STRING;
+	public static final int DEFAULT_SIZE = 10;
+	public static final String DEFAULT_COLOR = Color.BLACK_STRING;
 	
 	//attributes
 	private final Text text = new Text();

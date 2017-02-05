@@ -25,7 +25,7 @@ extends OptionalNamableElement<CE>
 implements Configurable, OptionalTokenable<CE> {
 
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "ClassableNamableElement";	
+	public static final String SIMPLE_CLASS_NAME = "ClassableNamableElement";	
 	
 	//optional attribute
 	private Token token;

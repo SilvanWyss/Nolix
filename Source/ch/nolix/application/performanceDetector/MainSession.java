@@ -20,8 +20,8 @@ import ch.nolix.system.dialogClient.DialogClient;
 public final class MainSession extends Session<DialogClient> {
 	
 	//constants
-	private final static String TITLE = "Performance Detector";
-	private final static int UPDATE_INTERVAL_IN_MILLISECONDS = 500;
+	private static final String TITLE = "Performance Detector";
+	private static final int UPDATE_INTERVAL_IN_MILLISECONDS = 500;
 	
 	//attributes
 	private final Worker worker = new Worker();

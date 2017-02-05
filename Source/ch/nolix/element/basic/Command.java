@@ -21,7 +21,7 @@ import ch.nolix.common.util.Validator;
 public class Command extends Element {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "Command";
+	public static final String SIMPLE_CLASS_NAME = "Command";
 	
 	//attributes
 	private final ILevel1Controller controller;

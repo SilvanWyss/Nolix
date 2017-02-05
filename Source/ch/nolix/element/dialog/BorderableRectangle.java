@@ -27,14 +27,14 @@ public abstract class BorderableRectangle<BR extends BorderableRectangle<BR, ?>,
 extends Rectangle<BR, BRS> {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "BorderableRectangle";
+	public static final String SIMPLE_CLASS_NAME = "BorderableRectangle";
 	
 	//attribute headers
-	private final static String PADDING = "Padding";
-	private final static String LEFT_PADDING = "LeftPadding";
-	private final static String RIGHT_PADDING = "RightPadding";
-	private final static String BOTTOM_PADDING = "BottomPadding";
-	private final static String TOP_PADDING = "TopPadding";
+	private static final String PADDING = "Padding";
+	private static final String LEFT_PADDING = "LeftPadding";
+	private static final String RIGHT_PADDING = "RightPadding";
+	private static final String BOTTOM_PADDING = "BottomPadding";
+	private static final String TOP_PADDING = "TopPadding";
 	
 	//attributes
 	private ContentOrientation contentOrientation = ContentOrientation.Center;

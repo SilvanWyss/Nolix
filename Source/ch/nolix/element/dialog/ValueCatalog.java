@@ -12,9 +12,9 @@ package ch.nolix.element.dialog;
 public final class ValueCatalog {
 
 	//text sizes
-	public final static int SMALL_TEXT_SIZE = 10;
-	public final static int MEDIUM_TEXT_SIZE = 20;
-	public final static int LARGE_TEXT_SIZE = 30;
+	public static final int SMALL_TEXT_SIZE = 10;
+	public static final int MEDIUM_TEXT_SIZE = 20;
+	public static final int LARGE_TEXT_SIZE = 30;
 	
 	//private constructor
 	/**

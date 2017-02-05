@@ -21,12 +21,12 @@ import ch.nolix.element.data.Size;
 public final class CheckBox extends BorderableRectangle<CheckBox, CheckBoxStructure> {
 
 	//constants
-	public final static String SIMPLE_CLASS_NAME = "CheckBox";
-	public final static int THICKNESS = 2;
-	public final static int MIN_SIZE = 5;
+	public static final String SIMPLE_CLASS_NAME = "CheckBox";
+	public static final int THICKNESS = 2;
+	public static final int MIN_SIZE = 5;
 	
 	//default values
-	public final static int DEFAULT_SIZE = 10;
+	public static final int DEFAULT_SIZE = 10;
 	
 	//attribute specifications
 	private final String CHECKED = "Checked";

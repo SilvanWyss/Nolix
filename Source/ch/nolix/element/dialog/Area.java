@@ -29,12 +29,12 @@ import ch.nolix.element.data.Width;
 public final class Area extends Rectangle<Area, SimpleRectangleStructure> {
 
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "Area";
+	public static final String SIMPLE_CLASS_NAME = "Area";
 	
 	//default values
-	public final static int DEFAULT_WIDTH = 200;
-	public final static int DEFAULT_HEIGHT = 100;
-	public final static int DEFAULT_BACKGROUND_COLOR = Color.LIGHT_GREY;
+	public static final int DEFAULT_WIDTH = 200;
+	public static final int DEFAULT_HEIGHT = 100;
+	public static final int DEFAULT_BACKGROUND_COLOR = Color.LIGHT_GREY;
 	
 	//attributes
 	private final Width width = new Width();

@@ -47,7 +47,7 @@ public final class DataProvider {
 	 * @return the candle sticks per day from the given start date to the given end date of the product with the given product symbol.
 	 * @throws Exception if an error occurs
 	 */
-	public final static List<VolumeCandleStick> getCandleSticksPerDay2(
+	public static final List<VolumeCandleStick> getCandleSticksPerDay2(
 		final String productSymbol,
 		final Time startDate,
 		final Time endDate

@@ -15,7 +15,7 @@ import ch.nolix.common.util.Validator;
 public final class Vector {
 	
 	//default value
-	public final static int DEFAULT_LENTH = 3;
+	public static final int DEFAULT_LENTH = 3;
 
 	//attribute
 	private double[] values;

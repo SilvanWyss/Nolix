@@ -17,8 +17,8 @@ import ch.nolix.common.util.Validator;
 public class CandleStick {
 	
 	//constants
-	public final static double DEFAULT_HAMMER_MIN_LOWER_WICK_LENGTH_RATIO = 0.5;
-	public final static double DEFAULT_INVERTED_HAMMER_MIN_UPPER_WICK_LENGT_RATIO = 0.5;
+	public static final double DEFAULT_HAMMER_MIN_LOWER_WICK_LENGTH_RATIO = 0.5;
+	public static final double DEFAULT_INVERTED_HAMMER_MIN_UPPER_WICK_LENGT_RATIO = 0.5;
 
 	//attributes
 	private final Time time;

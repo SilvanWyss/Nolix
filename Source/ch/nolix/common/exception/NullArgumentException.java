@@ -13,7 +13,7 @@ package ch.nolix.common.exception;
 public final class NullArgumentException extends InvalidArgumentException {
 
 	//constant
-	private final static String ERROR_PREDICATE = "is null";
+	private static final String ERROR_PREDICATE = "is null";
 	
 	//constructor
 	/**

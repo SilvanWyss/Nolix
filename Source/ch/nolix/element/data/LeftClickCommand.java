@@ -19,7 +19,7 @@ import ch.nolix.element.basic.Command;
 public final class LeftClickCommand extends Command {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "LeftClickCommand";
+	public static final String SIMPLE_CLASS_NAME = "LeftClickCommand";
 
 	//constructor
 	/**

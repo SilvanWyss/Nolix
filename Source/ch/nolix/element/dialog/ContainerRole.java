@@ -14,5 +14,5 @@ public enum ContainerRole {
 	MainContainer;
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "ContainerRole";
+	public static final String SIMPLE_CLASS_NAME = "ContainerRole";
 }

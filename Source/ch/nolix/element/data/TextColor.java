@@ -15,7 +15,7 @@ import ch.nolix.element.basic.Color;
 public final class TextColor extends Color {
 
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "TextColor";
+	public static final String SIMPLE_CLASS_NAME = "TextColor";
 	
 	//constructor
 	/**

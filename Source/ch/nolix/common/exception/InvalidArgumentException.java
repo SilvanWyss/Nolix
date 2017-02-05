@@ -14,8 +14,8 @@ package ch.nolix.common.exception;
 public class InvalidArgumentException extends RuntimeException {
 
 	//constants
-	private final static String DEFAULT_ARGUMENT_NAME = "argument";
-	private final static String DEFAULT_ERROR_PREDICATE = "is not valid";
+	private static final String DEFAULT_ARGUMENT_NAME = "argument";
+	private static final String DEFAULT_ERROR_PREDICATE = "is not valid";
 	
 	//attributes
 	private final String argumentName;

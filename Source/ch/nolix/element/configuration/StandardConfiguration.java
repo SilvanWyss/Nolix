@@ -17,7 +17,7 @@ import ch.nolix.common.specification.Specification;
 public class StandardConfiguration extends Configuration<StandardConfiguration> {
 
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "StandardConfiguration";
+	public static final String SIMPLE_CLASS_NAME = "StandardConfiguration";
 	
 	//constructor
 	/**

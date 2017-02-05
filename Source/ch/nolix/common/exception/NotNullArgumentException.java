@@ -13,7 +13,7 @@ package ch.nolix.common.exception;
 public class NotNullArgumentException extends InvalidArgumentException {
 
 	//constant
-	private final static String ERROR_PREDICATE = "is not null";
+	private static final String ERROR_PREDICATE = "is not null";
 
 	//constructor
 	/**

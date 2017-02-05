@@ -13,7 +13,7 @@ package ch.nolix.common.exception;
 public final class NonEmptyArgumentException extends InvalidArgumentException {
 
 	//constant
-	private final static String PREDICATE = "is not empty";
+	private static final String PREDICATE = "is not empty";
 	
 	//constructor
 	/**

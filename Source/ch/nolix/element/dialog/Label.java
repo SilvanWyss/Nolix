@@ -26,10 +26,10 @@ import ch.nolix.common.util.Validator;
 public final class Label extends TextLineRectangle<Label> {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "Label";
+	public static final String SIMPLE_CLASS_NAME = "Label";
 	
 	//attribute header
-	private final static String ROLE_HEADER = "Role";
+	private static final String ROLE_HEADER = "Role";
 	
 	//optional attribute
 	private LabelRole role;

@@ -25,18 +25,18 @@ public class TabContainer
 extends Container<TabContainer, SimpleBorderableRectangleStructure> {
 
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "TabContainer";
+	public static final String SIMPLE_CLASS_NAME = "TabContainer";
 	
 	//attribute headers
-	private final static String MENU_ITEM_MARGIN = "MenuItemMargin";
-	private final static String MENU_ITEM_PADDING = "MenuItemPadding";
-	private final static String MENU_ITEM_LEFT_PADDING = "MenuItemLeftPadding";
-	private final static String MENU_ITEM_RIGHT_PADDING = "MenuItemRightPadding";
-	private final static String MENU_ITEM_BOTTOM_PADDING = "MenuItemBottomPadding";
-	private final static String MENU_ITEM_TOP_PADDING = "MenuItemTopPadding";
-	private final static String MENU_MARGIN = "MenuMargin";
-	private final static String TAB = "Tab";
-	private final static String CURRENT_TAB = "CurrentTab";
+	private static final String MENU_ITEM_MARGIN = "MenuItemMargin";
+	private static final String MENU_ITEM_PADDING = "MenuItemPadding";
+	private static final String MENU_ITEM_LEFT_PADDING = "MenuItemLeftPadding";
+	private static final String MENU_ITEM_RIGHT_PADDING = "MenuItemRightPadding";
+	private static final String MENU_ITEM_BOTTOM_PADDING = "MenuItemBottomPadding";
+	private static final String MENU_ITEM_TOP_PADDING = "MenuItemTopPadding";
+	private static final String MENU_MARGIN = "MenuMargin";
+	private static final String TAB = "Tab";
+	private static final String CURRENT_TAB = "CurrentTab";
 
 	//attributes
 	private final TabContainerMenuItemStructure normalMenuItemStructure = new TabContainerMenuItemStructure();

@@ -13,7 +13,7 @@ import java.util.Locale;
 
 public class DoubleHelper {
 
-	public final static String toString(double value) {
+	public static final String toString(double value) {
 		DecimalFormat decimalFormat = (DecimalFormat)NumberFormat.getNumberInstance(Locale.US);
 		decimalFormat.applyPattern("0.################");
 		return decimalFormat.format(value);

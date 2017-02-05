@@ -23,7 +23,7 @@ import ch.nolix.element.basic.Element;
 final class Configuration extends Element {
 	
 	//attribute header
-	private final static String DESIGN = "Design";
+	private static final String DESIGN = "Design";
 
 	//optional attribute
 	private String design;

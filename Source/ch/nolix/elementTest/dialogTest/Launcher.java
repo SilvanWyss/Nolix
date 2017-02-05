@@ -17,7 +17,7 @@ final class Launcher {
 	 * 
 	 * @param args
 	 */
-	public final static void main(String[] args) {
+	public static final void main(String[] args) {
 		new DialogTestPool().execute();
 	}
 	

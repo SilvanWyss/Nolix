@@ -27,14 +27,14 @@ public abstract class Element implements
 	ILevel2Controller {
 		
 	//requests
-	public final static String TYPE_REQUEST = "Type";
-	public final static String TYPES_REQUEST = "Types";
+	public static final String TYPE_REQUEST = "Type";
+	public static final String TYPES_REQUEST = "Types";
 	
 	//command
-	private final static String RESET = "Reset";
+	private static final String RESET = "Reset";
 	
 	//command prefix
-	private final static String SET_COMMAND_PREFIX = "Set";
+	private static final String SET_COMMAND_PREFIX = "Set";
 	
 	//method
 	/**

@@ -26,7 +26,7 @@ public final class NetNeuronTutorial {
 	 * 
 	 * @param arguments
 	 */
-	public final static void main(String[] arguments) {
+	public static final void main(String[] arguments) {
 		
 		//Defines port of net neuron.
 		final int port = 20000;

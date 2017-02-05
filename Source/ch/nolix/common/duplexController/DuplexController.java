@@ -20,7 +20,7 @@ public abstract class DuplexController
 implements ILevel2Controller, Abortable {
 	
 	//default value
-	public final static int DEFAULT_TIMEOUT_IN_MILLISECONDS = 10000;
+	public static final int DEFAULT_TIMEOUT_IN_MILLISECONDS = 10000;
 
 	//attribute
 	private int timeoutInMilliseconds = DEFAULT_TIMEOUT_IN_MILLISECONDS;

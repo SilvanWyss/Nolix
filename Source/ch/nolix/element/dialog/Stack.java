@@ -20,13 +20,13 @@ extends Container<S, BorderableRectangleStructure<?>>
 implements Clearable<S> {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "Stack";
+	public static final String SIMPLE_CLASS_NAME = "Stack";
 	
 	//default value
-	public final static int DEFAULT_ELEMENT_MARGIN = 10;
+	public static final int DEFAULT_ELEMENT_MARGIN = 10;
 	
 	//attribute header
-	private final static String ELEMENT_MARGIN = "ElementMargin";
+	private static final String ELEMENT_MARGIN = "ElementMargin";
 	
 	//optional attribute
 	private Margin elementMargin;

@@ -15,7 +15,7 @@ import ch.nolix.common.util.Validator;
 public final class InnerDialog extends Dialog<InnerDialog> {
 
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "InnerDialog";
+	public static final String SIMPLE_CLASS_NAME = "InnerDialog";
 	
 	//attribute
 	private final FrameContext frameContext;

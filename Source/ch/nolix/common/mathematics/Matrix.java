@@ -30,7 +30,7 @@ import ch.nolix.common.util.Validator;
 public final class Matrix implements ApproximativeEqualing {
 		
 	//default value
-	public final static int DEFAULT_SIZE = 3;
+	public static final int DEFAULT_SIZE = 3;
 
 	//multiple attribute
 	private double[][] values;
@@ -41,7 +41,7 @@ public final class Matrix implements ApproximativeEqualing {
 	 * @return a newly created identity matrix with the given size
 	 * @throws Exception if the given size is not positive
 	 */
-	public final static Matrix createIdendityMatrix(final int size) {
+	public static final Matrix createIdendityMatrix(final int size) {
 		return new Matrix(size).setDiagonalValuesTo(1.0);
 	}
 	
@@ -54,7 +54,7 @@ public final class Matrix implements ApproximativeEqualing {
 	 * -the given number of rows is not positive
 	 * -the given number of columns is not positive
 	 */
-	public final static Matrix createMatrixOfOnes(final int rowsCount, final int columnsCount) {
+	public static final Matrix createMatrixOfOnes(final int rowsCount, final int columnsCount) {
 		return new Matrix(rowsCount, columnsCount).setAllValuesTo(1.0);
 	}
 	
@@ -65,7 +65,7 @@ public final class Matrix implements ApproximativeEqualing {
 	 * @return a newly created matrix with the given number of rows and the given number of columns.
 	 * -The values of the matrix are whole random numbers between and with 1 and 100.
 	 */
-	public final static Matrix createRandomMatrix(final int rowsCount, final int columnsCount) {
+	public static final Matrix createRandomMatrix(final int rowsCount, final int columnsCount) {
 		
 		//Creates matrix.
 		final Matrix matrix = new Matrix(rowsCount, columnsCount);

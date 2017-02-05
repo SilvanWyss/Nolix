@@ -23,11 +23,11 @@ import ch.nolix.common.util.Validator;
 abstract class Specificationoid {
 	
 	//codes
-	public final static String OPEN_BRACKET_CODE = "$O";
-	public final static String CLOSED_BRACKET_CODE = "$C";
-	public final static String DOT_CODE = "$D";
-	public final static String COMMA_CODE = "$M";
-	public final static String DOLLAR_SIGN_CODE = "$L";
+	public static final String OPEN_BRACKET_CODE = "$O";
+	public static final String CLOSED_BRACKET_CODE = "$C";
+	public static final String DOT_CODE = "$D";
+	public static final String COMMA_CODE = "$M";
+	public static final String DOLLAR_SIGN_CODE = "$L";
 	
 	//optional attribute
 	private String header;

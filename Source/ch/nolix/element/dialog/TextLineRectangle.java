@@ -28,7 +28,7 @@ public abstract class TextLineRectangle<TLR extends TextLineRectangle<TLR>>
 extends BorderableRectangle<TLR, TextLineRectangleStructure> {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "TextLineRectangle";
+	public static final String SIMPLE_CLASS_NAME = "TextLineRectangle";
 
 	//attribute
 	private final Text text = new Text();

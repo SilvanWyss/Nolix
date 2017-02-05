@@ -16,7 +16,7 @@ import ch.nolix.element.basic.PositiveInteger;
 public final class Length extends PositiveInteger {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "Length";
+	public static final String SIMPLE_CLASS_NAME = "Length";
 
 	//constructor
 	/**

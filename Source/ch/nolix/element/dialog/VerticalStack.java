@@ -16,10 +16,10 @@ import ch.nolix.common.specification.Specification;
 public final class VerticalStack extends Stack<VerticalStack> {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "VerticalStack";
+	public static final String SIMPLE_CLASS_NAME = "VerticalStack";
 	
 	//attribute header
-	public final static String LAYOUT = "Layout";
+	public static final String LAYOUT = "Layout";
 
 	//constructor
 	/**

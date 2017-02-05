@@ -28,7 +28,7 @@ public final class Calculator {
 	/**
 	 * Is the default max deviation, that is 10^-9.
 	 */
-	public final static double DEFAULT_MAX_DEVIATION = 0.000000001;
+	public static final double DEFAULT_MAX_DEVIATION = 0.000000001;
 	
 	//function
 	/**
@@ -83,7 +83,7 @@ public final class Calculator {
 	/**
 	 * This function returns the minimum of its input values.
 	 */
-	public final static IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_MIN
+	public static final IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_MIN
 	= (values) -> {
 		
 		//Checks the given values.
@@ -107,7 +107,7 @@ public final class Calculator {
 	 * This function returns the range of its input values.
 	 * The range of some values is the difference between the maximum and the minimum of the values.
 	 */
-	public final static IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_RANGE
+	public static final IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_RANGE
 	= (values) -> {
 		
 		//Checks the given values.
@@ -136,7 +136,7 @@ public final class Calculator {
 	/**
 	 * This function returns the square of its input value.
 	 */
-	public final static IElementTakerElementGetter<Double, Double> DOUBLE_SQUARE
+	public static final IElementTakerElementGetter<Double, Double> DOUBLE_SQUARE
 	= (value) -> {
 		return (value * value);
 	};
@@ -145,7 +145,7 @@ public final class Calculator {
 	/**
 	 * This function returns the sum of its input values.
 	 */
-	public final static IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_SUM
+	public static final IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_SUM
 	= (values) -> {
 		
 		//Checks the given values.
@@ -163,7 +163,7 @@ public final class Calculator {
 	/**
 	 * This function returns the variance of its input values.
 	 */
-	public final static IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_VARIANCE
+	public static final IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_VARIANCE
 	= (values) -> {
 		
 		//Checks the given values.
@@ -185,7 +185,7 @@ public final class Calculator {
 	};
 	
 	//function
-	public final static IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_STANDARD_DEVIATION
+	public static final IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_STANDARD_DEVIATION
 	= (values) -> {
 		return Math.sqrt(DOUBLE_VARIANCE.getOutput(values));
 	};
@@ -194,7 +194,7 @@ public final class Calculator {
 	/**
 	 * This function returns the average of its input values.
 	 */
-	public final static IElementTakerElementGetter<Iterable<Long>, Double> LONG_AVERAGE
+	public static final IElementTakerElementGetter<Iterable<Long>, Double> LONG_AVERAGE
 	= (values) -> {
 		
 		//Checks the given values.
@@ -217,7 +217,7 @@ public final class Calculator {
 	/**
 	 * This function returns the maximum of its input values.
 	 */
-	public final static IElementTakerElementGetter<Iterable<Long>, Long> LONG_MAX
+	public static final IElementTakerElementGetter<Iterable<Long>, Long> LONG_MAX
 	= (values) -> {
 		
 		//Checks the given values.
@@ -241,7 +241,7 @@ public final class Calculator {
 	/**
 	 * This function returns the minimum of its input values.
 	 */
-	public final static IElementTakerElementGetter<Iterable<Long>, Long> LONG_MIN
+	public static final IElementTakerElementGetter<Iterable<Long>, Long> LONG_MIN
 	= (values) -> {
 		
 		//Checks the given values.
@@ -266,7 +266,7 @@ public final class Calculator {
 	 * This function returns the range of its input values.
 	 * The range of some values is the difference between the maximum and the minimum of the values.
 	 */
-	public final static IElementTakerElementGetter<Iterable<Long>, Double> LONG_RANGE
+	public static final IElementTakerElementGetter<Iterable<Long>, Double> LONG_RANGE
 	= (values) -> {
 		
 		//Checks the given values.
@@ -296,7 +296,7 @@ public final class Calculator {
 	/**
 	 * This function returns the sum of its input values.
 	 */
-	public final static IElementTakerElementGetter<Iterable<Long>, Long> LONG_SUM
+	public static final IElementTakerElementGetter<Iterable<Long>, Long> LONG_SUM
 	= (values) -> {
 	
 		//Checks the given values.
@@ -314,7 +314,7 @@ public final class Calculator {
 	/**
 	 * This function returns the variance of its input values.
 	 */
-	public final static IElementTakerElementGetter<Iterable<Long>, Double> LONG_VARIANCE
+	public static final IElementTakerElementGetter<Iterable<Long>, Double> LONG_VARIANCE
 	= (values) -> {
 		
 		//Checks the given values.
@@ -331,7 +331,7 @@ public final class Calculator {
 	};
 	
 	//function
-	public final static IElementTakerElementGetter<Iterable<Long>, Double> LONG_STANDARD_DEVIATION
+	public static final IElementTakerElementGetter<Iterable<Long>, Double> LONG_STANDARD_DEVIATION
 	= (values) -> {
 		return Math.sqrt(LONG_VARIANCE.getOutput(values));
 	};

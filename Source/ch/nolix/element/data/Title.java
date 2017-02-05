@@ -17,7 +17,7 @@ import ch.nolix.element.basic.NonEmptyText;
 public final class Title extends NonEmptyText {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "Title";
+	public static final String SIMPLE_CLASS_NAME = "Title";
 
 	//constructor
 	/**

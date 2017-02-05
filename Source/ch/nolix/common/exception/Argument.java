@@ -13,7 +13,7 @@ import ch.nolix.common.constants.StringManager;
 public final class Argument {
 
 	//default value
-	private final static String DEFAULT_ARGUMENT_NAME = "argument";
+	private static final String DEFAULT_ARGUMENT_NAME = "argument";
 	
 	//attribute
 	private final Object value;

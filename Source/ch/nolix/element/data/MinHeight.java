@@ -17,7 +17,7 @@ import ch.nolix.element.basic.PositiveInteger;
 public final class MinHeight extends PositiveInteger {
 	
 	//constant
-	public final static String SIMPLE_CLASS_NAME = "MinHeight";
+	public static final String SIMPLE_CLASS_NAME = "MinHeight";
 
 	//constructor
 	/**

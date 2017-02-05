@@ -24,8 +24,8 @@ import ch.nolix.element.dialog.MockDialog;
 public final class DialogClient extends Client<DialogClient> {
 	
 	//commands
-	final static String RESET_DIALOG_COMMAND = "ResetDialog";
-	final static String RESET_OTHER_SIDE_DIALOG_COMMAND = "ResetOtherSideDialog";
+	static final String RESET_DIALOG_COMMAND = "ResetDialog";
+	static final String RESET_OTHER_SIDE_DIALOG_COMMAND = "ResetOtherSideDialog";
 	
 	//attribute
 	private Dialog<?> dialog;

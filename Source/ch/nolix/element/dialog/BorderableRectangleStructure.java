@@ -23,8 +23,8 @@ public abstract class BorderableRectangleStructure<BRS extends BorderableRectang
 extends RectangleStructure<BRS> {
 	
 	//attribute headers
-	private final static String BORDER_SIZE = "BorderSize";
-	private final static String BORDER_COLOR = "BorderColor";
+	private static final String BORDER_SIZE = "BorderSize";
+	private static final String BORDER_COLOR = "BorderColor";
 	private static final String LEFT_BORDER_SIZE = "LeftBorderSize";
 	private static final String LEFT_BORDER_COLOR = "LeftBorderColor";
 	private static final String RIGHT_BORDER_SIZE = "RightBorderSize";

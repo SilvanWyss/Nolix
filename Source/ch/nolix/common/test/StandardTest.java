@@ -18,7 +18,7 @@ import ch.nolix.common.interfaces.ApproximativeEqualing;
 public abstract class StandardTest extends Test {
 	
 	//constant
-	private final static double EPSILON = 0.000000001;
+	private static final double EPSILON = 0.000000001;
 
 	//method
 	/**

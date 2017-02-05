@@ -27,13 +27,13 @@ import ch.nolix.common.interfaces.Resettable;
 public final class Time implements Freezable, Resettable {
 	
 	//default values
-	public final static int DEFAULT_YEAR = 2000;
-	public final static int DEFAULT_MONTH_OF_YEAR = 1;
-	public final static int DEFAULT_DAY_OF_MONTH = 0;
-	public final static int DEFAULT_HOUR_OF_DAY = 0;
-	public final static int DEFAULT_MINUTE_OF_HOUR = 0;
-	public final static int DEFAULT_SECOND_OF_MINUTE = 0;
-	public final static int DEFAULT_MILLISECOND_OF_SECOND = 0;
+	public static final int DEFAULT_YEAR = 2000;
+	public static final int DEFAULT_MONTH_OF_YEAR = 1;
+	public static final int DEFAULT_DAY_OF_MONTH = 0;
+	public static final int DEFAULT_HOUR_OF_DAY = 0;
+	public static final int DEFAULT_MINUTE_OF_HOUR = 0;
+	public static final int DEFAULT_SECOND_OF_MINUTE = 0;
+	public static final int DEFAULT_MILLISECOND_OF_SECOND = 0;
 	
 	//attributes
 	private final GregorianCalendar time = new GregorianCalendar();

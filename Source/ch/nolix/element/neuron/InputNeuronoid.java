@@ -15,7 +15,7 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
 public final class InputNeuronoid<O> {
 
 	//default value
-	public final static double DEFAULT_WEIGHT = 1.0;
+	public static final double DEFAULT_WEIGHT = 1.0;
 	
 	//attributes
 	private final Neuron<?, O, ?> neuron;

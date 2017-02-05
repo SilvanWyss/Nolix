@@ -34,11 +34,11 @@ import ch.nolix.system.modules.DesignManager;
 public final class Nelix extends CentralController implements ILevel2Controller {
 	
 	//constant
-	public final static int PORT = 50000;
+	public static final int PORT = 50000;
 	
 	//commands
-	public final static String OPEN_DIRECTORY_COMMAND = "OpenDirectory";
-	public final static String QUIT_COMMAND = "Quit";
+	public static final String OPEN_DIRECTORY_COMMAND = "OpenDirectory";
+	public static final String QUIT_COMMAND = "Quit";
 	
 	//constructor
 	/**
