@@ -1,14 +1,12 @@
-/*
- * file:	PortManager.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	20
- */
-
 //package declaration
 package ch.nolix.common.constants;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 20
+ */
 public final class PortManager {
 	
 	//ports

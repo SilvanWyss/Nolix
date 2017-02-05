@@ -1,14 +1,12 @@
-/*
- * file:	StringManager.java
- * author:	Silvan Wyss
- * month:	2016-09
- * lines:	20
- */
-
 //package declaration
 package ch.nolix.common.constants;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2016-09
+ * @lines 20
+ */
 public final class StringManager {
 	
 	//strings
