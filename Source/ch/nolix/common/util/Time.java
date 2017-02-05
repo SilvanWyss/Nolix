@@ -5,6 +5,7 @@ package ch.nolix.common.util;
 import java.util.GregorianCalendar;
 
 //own imports
+import ch.nolix.common.constants.TimeUnitManager;
 import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.ErrorPredicate;
 import ch.nolix.common.exception.InvalidArgumentException;
@@ -231,8 +232,7 @@ public final class Time implements Freezable, Resettable {
 	 * @throws InvalidArgumentException if this time is frozen.
 	 */
 	public Time addMinutes(final int minutes) {
-		//TODO: Create constant of milliseconds per minute.
-		return addMilliseconds(60 * 1000 * minutes);
+		return addMilliseconds(TimeUnitManager.MILLISECONDS_PER_MINUTE * minutes);
 	}
 	
 	//method
@@ -244,8 +244,7 @@ public final class Time implements Freezable, Resettable {
 	 * @throws InvalidArgumentException if this time is frozen.
 	 */
 	public Time addSeconds(final int seconds) {
-		//TODO: Create constant of milliseconds per second.
-		return addMilliseconds(1000 * seconds);
+		return addMilliseconds(TimeUnitManager.MILLISECONDS_PER_SECOND * seconds);
 	}
 	
 	//method
@@ -315,8 +314,7 @@ public final class Time implements Freezable, Resettable {
 	 * @return the number of days from this time to the given time.
 	 */
 	public int getDaysTo(final Time time) {
-		//TODO: Create constant of seconds per day.
-		return (int)(getMillisecondsTo(time) / (24 * 60 * 60 * 1000));
+		return (int)(getMillisecondsTo(time) / TimeUnitManager.MILLISECONDS_PER_DAY);
 	}
 
 	//method
