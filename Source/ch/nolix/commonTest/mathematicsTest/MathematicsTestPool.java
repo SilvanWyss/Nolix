@@ -1,10 +1,3 @@
-/*
- * file:	MathematicsTestPool.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	20
- */
-
 //package declaration
 package ch.nolix.commonTest.mathematicsTest;
 
@@ -12,6 +5,11 @@ package ch.nolix.commonTest.mathematicsTest;
 import ch.nolix.common.test.TestPool;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 20
+ */
 public final class MathematicsTestPool extends TestPool {
 
 	//constructor

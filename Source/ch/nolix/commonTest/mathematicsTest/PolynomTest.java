@@ -1,10 +1,3 @@
-/*
- * file:	PolynomTest.java
- * author:	Silvan Wyss
- * month:	2016-05
- * lines:	50
- */
-
 //package declaration
 package ch.nolix.commonTest.mathematicsTest;
 
@@ -15,10 +8,15 @@ import ch.nolix.common.zetaTest.ZetaTest;
 //test class
 /**
  * This class is a test class for the polynom class.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-05
+ * @lines 60
  */
 public final class PolynomTest extends ZetaTest {
 	
-	public void testConstructor() {
+	//test method
+	public void test_constructor() {
 		
 		//execution
 		final Polynom polynom = new Polynom(10);
@@ -28,7 +26,7 @@ public final class PolynomTest extends ZetaTest {
 	}
 		
 	//test method
-	public void testDerive() {
+	public void test_derive() {
 		
 		//setup
 		final Polynom polynom = new Polynom(10);
@@ -41,7 +39,7 @@ public final class PolynomTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testToString1() {
+	public void test_toString_1() {
 		
 		//setup
 		final Polynom polynom = new Polynom(2).setCoefficients(1.0, 2.0, 3.0);
@@ -51,7 +49,7 @@ public final class PolynomTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testToString2() {
+	public void test_toString_2() {
 		
 		//setup
 		final Polynom polynom = new Polynom(5).setCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);

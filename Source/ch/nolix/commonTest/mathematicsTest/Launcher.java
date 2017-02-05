@@ -1,23 +1,21 @@
-/*
- * file:	Launcher.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	20
- */
-
 //package declaration
 package ch.nolix.commonTest.mathematicsTest;
 
-//package-visible class
-final class Launcher {
+//class
+/**
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 20
+ */
+public final class Launcher {
 
 	//main method
 	/**
-	 * Creates new mathematics test pool and lets it execute its tests.
+	 * Creates new mathematics test pool and executes it.
 	 * 
-	 * @param args
+	 * @param arguments
 	 */
-	public static final void main(String[] args) {
+	public static final void main(final String[] arguments) {
 		new MathematicsTestPool().execute();
 	}
 	

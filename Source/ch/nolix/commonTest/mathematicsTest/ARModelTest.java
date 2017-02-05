@@ -1,10 +1,3 @@
-/*
- * file:	ARModelTest.java
- * author:	Silvan Wyss
- * month:	2016-07
- * lines:	100
- */
-
 //package declaration
 package ch.nolix.commonTest.mathematicsTest;
 
@@ -15,11 +8,15 @@ import ch.nolix.common.zetaTest.ZetaTest;
 //class
 /**
  * This class is a test class for the AR model class
+ * 
+ * @author Silvan Wyss
+ * @month 2016-07
+ * @lines 100
  */
 public final class ARModelTest extends ZetaTest {
 
 	//test method
-	public void testARModel1() {
+	public void test_constructor_1() {
 		
 		//execution
 		final double[] inputValues = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -33,7 +30,7 @@ public final class ARModelTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testARModel2() {
+	public void test_constructor_2() {
 		
 		//execution
 		final double[] inputValues = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -47,7 +44,7 @@ public final class ARModelTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testARModel3() {
+	public void test_constructor_3() {
 		
 		//execution
 		final double[] inputValues = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2};
@@ -61,7 +58,7 @@ public final class ARModelTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testARModel4() {
+	public void test_constructor_4() {
 		
 		//execution
 		final double[] inputValues = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2};
@@ -75,7 +72,7 @@ public final class ARModelTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testARModel5() {
+	public void test_constructor_5() {
 		
 		//execution
 		final double[] inputValues = {1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3};
@@ -91,7 +88,7 @@ public final class ARModelTest extends ZetaTest {
 	}
 	
 	//test method
-	public final void testARModel6() {
+	public final void test_constructor_6() {
 		
 		//exection
 		final double[] inputValues = {1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3};

@@ -1,10 +1,3 @@
-/*
- * file:	MatrixTest.java
- * author:	Silvan Wyss
- * month:	2016-06
- * lines:	260
- */
-
 //package declaration
 package ch.nolix.commonTest.mathematicsTest;
 
@@ -15,11 +8,15 @@ import ch.nolix.common.zetaTest.ZetaTest;
 //test class
 /**
 * This class is a test class for the matrix class.
+* 
+* @author Silvan Wyss
+* @month 2016-06
+* @lines 270
 */
-public class MatrixTest extends ZetaTest {
+public final class MatrixTest extends ZetaTest {
 	
 	//loop test method
-	public void loopTestCreateIdendityMatrix() {
+	public void loopTest_createIdendityMatrix() {
 				
 		//number of main loop iterations
 		final int n = 100;
@@ -37,7 +34,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//loop test method
-	public void loopTestGetRank() {
+	public void loopTest_getRank() {
 		
 		//number of main loop iterations
 		final int n = 10;
@@ -54,7 +51,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//loop test method
-	public void loopTestGetTrace() {
+	public void loop_testGetTrace() {
 		
 		//number of main loop iterations
 		final int n = 100;
@@ -71,7 +68,7 @@ public class MatrixTest extends ZetaTest {
 	}
 
 	//test method
-	public void testAdd() {
+	public void test_Add() {
 		
 		//setup
 		final Matrix matrix1 = new Matrix(2, 3).setValues(1.0, 1.0, 1.0, 2.0, 2.0, 2.0);
@@ -86,7 +83,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testAppendAtRight() {
+	public void test_AppendAtRight() {
 		
 		//setup
 		final Matrix matrix1 = new Matrix(2, 2).setValues(1.0, 1.0, 2.0, 2.0);
@@ -101,7 +98,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testGetInverse1() {
+	public void test_getInverse_1() {
 		
 		//setup
 		final Matrix matrix = new Matrix(2).setValues(1.0, 2.0, 3.0, 4.0);
@@ -114,7 +111,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testGetInverse2() {
+	public void test_getInverse_2() {
 		
 		//setup
 		final Matrix matrix = new Matrix(3).setValues(2.0, 6.0, 4.0, 1.0, 5.0, 9.0, 3.0, 7.0, 8.0);
@@ -127,7 +124,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testGetInverse3() {
+	public void test_getInverse_3() {
 		
 		//setup
 		final Matrix matrix = new Matrix(4).setValues(3.0, 1.0, 7.0, 3.0, 5.0, 9.0, 8.0, 7.0, 8.0, 6.0, 8.0, 4.0, 5.0, 9.0, 3.0, 2.0);
@@ -140,7 +137,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testGetProduct() {
+	public void test_getProduct() {
 		
 		//setup
 		final Matrix matrix1 = new Matrix(2, 3).setValues(1, 1, 1, 2, 2, 2);
@@ -155,7 +152,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testGetSolutionAsExtendedMatrix1() {
+	public void test_getSolutionAsExtendedMatrix_1() {
 		
 		//setup
 		final Matrix matrix = new Matrix(2, 3).setValues(4.0, 4.0, 30.0, 0.0, 2.0, 10.0);
@@ -170,7 +167,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testGetSolutionAsExtendedMatrix2() {
+	public void test_getSolutionAsExtendedMatrix_2() {
 		
 		//setup
 		final Matrix matrix = new Matrix(3, 4).setValues(1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0);
@@ -186,7 +183,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testGetTransposed() {
+	public void test_getTransposed() {
 		
 		//setup
 		final Matrix matrix = new Matrix(4, 3).setValues(20.0, 10.0, 1.0, 10.0, 20.0, 1.0, 20.0, 10.0, 1.0, 10.0, 20.0 ,1.0);
@@ -200,7 +197,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testToString1() {
+	public void test_toString_1() {
 		
 		//setup
 		final Matrix matrix = new Matrix(1);
@@ -210,7 +207,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testToString2() {
+	public void test_toString_2() {
 		
 		//setup
 		final Matrix matrix = new Matrix(2);
@@ -220,7 +217,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testToString3() {
+	public void test_toString_3() {
 		
 		//setup
 		final Matrix matrix = new Matrix(3);
@@ -230,7 +227,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testToString4() {
+	public void test_toString_4() {
 		
 		//setup
 		final Matrix matrix = new Matrix(4);
@@ -240,7 +237,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testToString5() {
+	public void test_toString_5() {
 		
 		//setup
 		final Matrix matrix = Matrix.createIdendityMatrix(1);
@@ -250,7 +247,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testToString6() {
+	public void test_toString_6() {
 		
 		//setup
 		final Matrix matrix = Matrix.createIdendityMatrix(2);
@@ -260,7 +257,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testToString7() {
+	public void test_toString_7() {
 		
 		//setup
 		final Matrix matrix = Matrix.createIdendityMatrix(3);
@@ -270,7 +267,7 @@ public class MatrixTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testToString8() {
+	public void test_toString_8() {
 		
 		//setup
 		final Matrix matrix = Matrix.createIdendityMatrix(4);
