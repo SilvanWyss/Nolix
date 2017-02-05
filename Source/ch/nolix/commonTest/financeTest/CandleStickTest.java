@@ -1,10 +1,3 @@
-/*
- * file:	CandleStickTest.java
- * author:	Silvan Wyss
- * month:	2016-09
- * lines:	100
- */
-
 //package declaration
 package ch.nolix.commonTest.financeTest;
 
@@ -16,11 +9,15 @@ import ch.nolix.common.zetaTest.ZetaTest;
 //test class
 /**
  * This class is a test class for the candle stick class.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-09
+ * @lines 100
  */
 public final class CandleStickTest extends ZetaTest {
 	
 	//test method
-	public void testIsBearish1() {
+	public void test_isBearish_1() {
 		
 		//setup
 		final CandleStick candleStick
@@ -37,7 +34,7 @@ public final class CandleStickTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testIsBearish2() {
+	public void test_isBearish_2() {
 		
 		//setup
 		final CandleStick candleStick
@@ -54,7 +51,7 @@ public final class CandleStickTest extends ZetaTest {
 	}
 
 	//test method
-	public void testIsBullish1() {
+	public void test_isBullish_1() {
 		
 		//setup
 		final CandleStick candleStick
@@ -71,7 +68,7 @@ public final class CandleStickTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testIsBullish2() {
+	public void test_isBullish_2() {
 		
 		//setup
 		final CandleStick candleStick
@@ -88,7 +85,7 @@ public final class CandleStickTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testIsHammer() {
+	public void test_isHammer() {
 		
 		//setup
 		final CandleStick candleStick

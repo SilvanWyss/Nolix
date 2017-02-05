@@ -1,22 +1,21 @@
-/*
- * file:	Launcher.java 
- * month:	2016-09
- * lines:	20
- */
-
 //package declaration
 package ch.nolix.commonTest.financeTest;
 
-//package-visible class
-final class Launcher {
+//class
+/**
+ * @author Silvan Wyss
+ * @month 2016-09
+ * @lines 20
+ */
+public final class Launcher {
 
 	//main method
 	/**
-	 * Creates new container test pool and lets it execute its tests.
+	 * Creates new finance test pool and executes it.
 	 * 
-	 * @param args
+	 * @param arguments
 	 */
-	public static final void main(String[] args) {			
+	public static final void main(final String[] arguments) {			
 		new FinanceTestPool().execute();
 	}
 	

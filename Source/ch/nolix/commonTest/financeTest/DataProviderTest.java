@@ -15,19 +15,19 @@ import ch.nolix.common.zetaTest.ZetaTest;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 70
+ * @lines 90
  */
-public class DataProviderTest extends ZetaTest {
+public final class DataProviderTest extends ZetaTest {
 
 	//test method
-	public void testGetDailyCandleSticks() {
+	public void test_getCandleSticksPerDay2() {
 		
 		//execution
 		final List<VolumeCandleStick> candleSticksPerDay 
 		= DataProvider.getCandleSticksPerDay2(
 			NASDAQProductSymbolManager.MICROSOFT_CORPORATION,
-			new Time(2015, 1, 1),
-			new Time(2016, 1, 1)
+			new Time(2015, 1, 1, 0, 0),
+			new Time(2015, 12, 31, 23, 59)
 		);
 		
 		//verification
@@ -44,14 +44,14 @@ public class DataProviderTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testGetCandleSticksPerHour() {
+	public void test_getCandleSticksPerHour() {
 		
 		//execution
 		final List<VolumeCandleStick> candleStricksPerHour 
 		= DataProvider.getCandleSticksPerHour(
 			NASDAQProductSymbolManager.MICROSOFT_CORPORATION,
-			new Time(2017, 1, 1),
-			new Time(2017, 2, 1)
+			new Time(2017, 1, 1, 0, 0),
+			new Time(2017, 1, 31, 23, 59)
 		);
 				
 		//verification
@@ -64,6 +64,30 @@ public class DataProviderTest extends ZetaTest {
 			expectThat(csph.getHighestPrice()).isBiggerThanOrEqual(csph.getOpeningPrice());
 			expectThat(csph.getHighestPrice()).isBiggerThanOrEqual(csph.getClosingPrice());
 			expectThat(csph.getHighestPrice()).isBiggerThanOrEqual(csph.getLowestPrice());
+		}
+	}
+	
+	//test method
+	public void test_getCandleSticksPerMinute() {
+		
+		//execution
+		final List<VolumeCandleStick> candleStricksPerMinute 
+		= DataProvider.getCandleSticksPerHour(
+			NASDAQProductSymbolManager.MICROSOFT_CORPORATION,
+			new Time(2017, 1, 1, 0, 0),
+			new Time(2017, 1, 31, 23, 59)
+		);
+				
+		//verification
+		for (final VolumeCandleStick cspm: candleStricksPerMinute) {
+
+			expectThat(cspm.getLowestPrice()).isSmallerThanOrEqualTo(cspm.getOpeningPrice());
+			expectThat(cspm.getLowestPrice()).isSmallerThanOrEqualTo(cspm.getClosingPrice());
+			expectThat(cspm.getLowestPrice()).isSmallerThanOrEqualTo(cspm.getHighestPrice());
+			
+			expectThat(cspm.getHighestPrice()).isBiggerThanOrEqual(cspm.getOpeningPrice());
+			expectThat(cspm.getHighestPrice()).isBiggerThanOrEqual(cspm.getClosingPrice());
+			expectThat(cspm.getHighestPrice()).isBiggerThanOrEqual(cspm.getLowestPrice());
 		}
 	}
 }
