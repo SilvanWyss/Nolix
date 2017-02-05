@@ -1,24 +1,21 @@
-/*
- * file:	Launcher.java
- * author:	Silvan Wyss
- * month:	2016-01
- * lines.	20
- */
-
 //package declaration
 package ch.nolix.commonTest;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2016-01
+ * @lines 20
+ */
 public final class Launcher {
 	
 	//main method
 	/**
-	 * Creates new common test pool and lets execute it its tests.
+	 * Creates new common test pool and executes it.
 	 * 
-	 * @param args
+	 * @param arguments
 	 */
-	public static void main(String[] args) {
-
+	public static void main(final String[] arguments) {
 		new CommonTestPool().execute();
 	}
 	
