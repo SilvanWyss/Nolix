@@ -60,7 +60,7 @@ public abstract class Test implements Executable {
 						int errorCount = 0;
 						for (String le: lastErrors) {
 							errorCount++;
-							System.err.println("   " + errorCount + ") " + le);
+							System.err.println("   #" + errorCount + ": " + le);
 							System.err.flush();
 						}
 						lastErrors.clear();
@@ -85,7 +85,7 @@ public abstract class Test implements Executable {
 		}
 		
 		timeInMiliseconds = System.currentTimeMillis() - timeInMiliseconds;
-		System.out.println("  =" + getClass().getSimpleName() + ": " + passedTestMethodsCount + "/" + testMethodsCount + " passed (" + timeInMiliseconds + "ms)");
+		System.out.println("  =" + getClass().getSimpleName() + ": " + passedTestMethodsCount + "/" + testMethodsCount + " passed test methods (" + timeInMiliseconds + "ms)");
 		System.out.println();
 		System.out.flush();
 	}
