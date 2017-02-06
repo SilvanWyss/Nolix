@@ -127,6 +127,12 @@ public final class DataProvider {
 		return getCandleSticks(productSymbol, startTime, endTime, 60);
 	}
 	
+	//private constructor
+	/**
+	 * Avoids that an instance of this class can be created.
+	 */
+	private DataProvider() {}
+	
 	//static method
 	/**
 	 * This method uses a web service from Alphabet Inc. as data source.
@@ -137,7 +143,7 @@ public final class DataProvider {
 	 * @param intervalInSeconds
 	 * @return the candle sticks per the given interval in seconds of the product with the given product symbol from the given start time to the given end time.
 	 */
-	public static List<VolumeCandleStick> getCandleSticks(
+	private static List<VolumeCandleStick> getCandleSticks(
 		final String productSymbol,
 		final Time startTime,
 		final Time endTime,
@@ -202,10 +208,4 @@ public final class DataProvider {
 			idcs -> idcs.getRefTime().isBefore(startTime) || idcs.getRefTime().isAfter(endTime)
 		);
 	}
-	
-	//private constructor
-	/**
-	 * Avoids that an instance of this class can be created.
-	 */
-	private DataProvider() {}
 }
