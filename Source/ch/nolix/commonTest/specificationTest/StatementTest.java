@@ -1,10 +1,3 @@
-/*
- * file:	StatementTest.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	60
- */
-
 //package declaration
 package ch.nolix.commonTest.specificationTest;
 
@@ -15,13 +8,17 @@ import ch.nolix.common.zetaTest.ZetaTest;
 //test class
 /**
  * This class is a test class for the statement class.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 60
  */
 public final class StatementTest extends ZetaTest {
 	
 	//text method
-	public void testConstructor1() {
+	public void test_constructor_1() {
 		
-		//setup
+		//execution
 		final Statement statement = new Statement();
 		
 		//verification
@@ -31,9 +28,9 @@ public final class StatementTest extends ZetaTest {
 	}
 
 	//text method
-	public void testConstructor2() {
+	public void test_constructor_2() {
 		
-		//setup
+		//execution
 		final Statement statement = new Statement("a");
 		
 		//verification
@@ -43,9 +40,9 @@ public final class StatementTest extends ZetaTest {
 	}
 	
 	//text method
-	public void testConstructor3() {
+	public void test_constructor_3() {
 		
-		//setup
+		//execution
 		final Statement statement = new Statement("a(b)");
 		
 		//verification
@@ -55,9 +52,9 @@ public final class StatementTest extends ZetaTest {
 	}
 	
 	//text method
-	public void testConstructor4() {
+	public void test_constructor_4() {
 		
-		//setup
+		//execution
 		final Statement statement = new Statement("a(b).c");
 		
 		//verification

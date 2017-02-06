@@ -1,10 +1,3 @@
-/*
- * file:	SpecificationTest.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	80
- */
-
 //package declaration
 package ch.nolix.commonTest.specificationTest;
 
@@ -15,11 +8,15 @@ import ch.nolix.common.zetaTest.ZetaTest;
 //test class
 /**
  * This class is a test class for the specification class.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 80
  */
 public final class SpecificationTest extends ZetaTest {
 	
 	//test method
-	public void testConstructor1() {
+	public void test_constructor_1() {
 		
 		//setup
 		final Specification specification = new Specification();
@@ -30,7 +27,7 @@ public final class SpecificationTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testConstructor2() {
+	public void test_constructor_2() {
 		
 		//setup
 		final Specification specification = new Specification("a");
@@ -41,7 +38,7 @@ public final class SpecificationTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testConstructor3() {
+	public void test_constructor_3() {
 		
 		//setup
 		final Specification specification = new Specification("a(b)");
@@ -52,7 +49,7 @@ public final class SpecificationTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testToString1() {
+	public void test_toString_1() {
 		
 		//setup
 		final Specification specification = new Specification();
@@ -62,7 +59,7 @@ public final class SpecificationTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testToString2() {
+	public void test_toString_2() {
 		
 		//setup
 		final Specification specification = new Specification("a");
@@ -72,7 +69,7 @@ public final class SpecificationTest extends ZetaTest {
 	}
 	
 	//test method
-	public void testToString3() {
+	public void test_toString_3() {
 		
 		//setup
 		final Specification specification = new Specification("a(b)");
