@@ -48,7 +48,7 @@ public final class ForwardMultiLayerNetCreatorTutorial {
 		//Triggers the neuronal net prints out its output to the console.
 		neuronalNet.trigger();
 		System.out.println("output values:");
-		for (Double v: neuronalNet.getRefOutput()) {
+		for (final double v: neuronalNet.getRefOutput()) {
 			System.out.println(v);
 		}
 	}
