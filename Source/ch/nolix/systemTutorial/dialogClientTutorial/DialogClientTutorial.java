@@ -23,7 +23,7 @@ public final class DialogClientTutorial {
 	//main method
 	/**
 	 * 1. Creates an application for dialog clients.
-	 * 2. Creates a dialog client that connects to the application.
+	 * 2. Creates a front dialog client that connects to the application.
 	 * 
 	 * @param arguments
 	 */
@@ -41,7 +41,7 @@ public final class DialogClientTutorial {
 	}
 	
 	//inner class
-	private static class MainSession extends Session<DialogClient> {
+	private static final class MainSession extends Session<DialogClient> {
 
 		//attribute
 		private int backgroundColor = Color.BLUE;
@@ -62,9 +62,11 @@ public final class DialogClientTutorial {
 			= new Button()
 			.setPadding(10)
 			.setText("Change color")
-			.setLeftClickCommand("ChangeColor");	
+			.setLeftClickCommand("ChangeColor");
+			
 			changeColorbutton.getRefNormalStructure().setBackgroundColor(Color.LIGHT_GREY);
 			changeColorbutton.getRefHoverStructure().setTextSize(30);
+			
 			getRefClient().getRefDialog().setRootRectangle(changeColorbutton);	
 		}
 		
