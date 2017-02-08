@@ -27,7 +27,7 @@ import ch.nolix.common.interfaces.Clearable;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1040
+ * @lines 1050
  * @param <E> - The type of the elements of a container.
  */
 public interface IContainer<E>
@@ -39,17 +39,7 @@ extends Clearable<IContainer<E>>, Iterable<E> {
 	 * @return true if this container contains the given element.
 	 */
 	public default boolean contains(final E element) {
-		
-		//Iterates this container.
-		for (final E e: this) {
-			
-			//Checks if the current element is the given element.
-			if (e == element) {
-				return true;
-			}
-		}
-		
-		return false;
+		return containsObject(element);
 	}
 	
 	//default method
@@ -134,6 +124,23 @@ extends Clearable<IContainer<E>>, Iterable<E> {
 	 */
 	public default boolean containsNone(final IElementTakerBooleanGetter<E> selector) {
 		return !contains(e -> selector.getOutput(e));
+	}
+	
+	//default method
+	/**
+	 * @param object
+	 * @return true if this container contains the given object.
+	 */
+	public default boolean containsObject(final Object object) {
+		
+		//Iterates this container.
+		for (E e: this) {
+			if (e == object) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	//default method

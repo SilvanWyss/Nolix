@@ -21,7 +21,7 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 910
+ * @lines 930
  * @param <E> - The type of the elements of a list.
  */
 public class List<E> implements IContainer<E> {
@@ -381,7 +381,7 @@ public class List<E> implements IContainer<E> {
 	 * 
 	 * @param sequencePattern
 	 * @return the ratio of the sequences from this list that match the given sequence pattern.
-	 * @throws NullArgumentException if this list is empty.
+	 * @throws EmptyArgumentException if this list is empty.
 	 */
 	public double getRatio(final SequencePattern<E> sequencePattern) {
 		
@@ -398,7 +398,7 @@ public class List<E> implements IContainer<E> {
 	 * The complexity of this method is O(1).
 	 * 
 	 * @return the first element of this list
-	 * @throws NullArgumentException if this list is empty.
+	 * @throws EmptyArgumentException if this list is empty.
 	 */
 	public E getRefFirst() {
 		
@@ -415,7 +415,7 @@ public class List<E> implements IContainer<E> {
 	 * The complexity of this method is O(1).
 	 * 
 	 * @return the last element of this list.
-	 * @throws NullArgumentException if this list is empty.
+	 * @throws EmptyArgumentException if this list is empty.
 	 */
 	public E getRefLast() {
 		
@@ -502,7 +502,7 @@ public class List<E> implements IContainer<E> {
 	 * The complexity of this method is O(1).
 	 * 
 	 * @return the first element of this list.
-	 * @throws NullArgumentException if this list is empty.
+	 * @throws EmptyArgumentException if this list is empty.
 	 */
 	public E removeAndGetRefFirst() {
 		final E element = getRefFirst();
@@ -510,7 +510,7 @@ public class List<E> implements IContainer<E> {
 		return element;
 	}
 	
-	//default method
+	//method
 	/**
 	 * Removes and returns the first element the given selector selects from this list.
 	 * The complexity of this method is O(n) if this list contains n elements.
@@ -524,6 +524,20 @@ public class List<E> implements IContainer<E> {
 		removeFirst(selector);
 		return element;
 	}
+	
+	//method
+	/**
+	 * Removes and returns the last element of this list.
+	 * The complexity of this method is O(1).
+	 * 
+	 * @return the last element of this list.
+	 * @throws EmptyArgumentException if this list is empty.
+	 */
+	public E removeAndGetRefLast() {
+		E element = getRefLast();
+		removeLast();
+		return element;
+	}
 		
 	//method
 	/**
@@ -531,7 +545,7 @@ public class List<E> implements IContainer<E> {
 	 * The complexity of this method is O(1).
 	 * 
 	 * @return this list.
-	 * @throws NullArgumentException if this list is empty.
+	 * @throws EmptyArgumentException if this list is empty.
 	 */
 	public List<E> removeFirst() {
 		
@@ -644,7 +658,7 @@ public class List<E> implements IContainer<E> {
 	 * The complexity of this method is O(1).
 	 * 
 	 * @return this list.
-	 * @throws NullArgumentException if this list is empty.
+	 * @throws EmptyArgumentException if this list is empty.
 	 */
 	public List<E> removeLast() {
 		
