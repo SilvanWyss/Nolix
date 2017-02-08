@@ -7,7 +7,7 @@ import ch.nolix.common.functional.IElementTakerElementGetter;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 import ch.nolix.element.neuron.Neuron;
-import ch.nolix.element.neuron.Processor;
+import ch.nolix.element.neuron.TriggerQueue;
 
 //class
 /**
@@ -75,8 +75,8 @@ extends Neuron<Object, O, FrontNetNeuron<O>> {
 	 * 
 	 * @param processor
 	 */
-	protected void trigger(Processor processor) {
-		getRefTriggerableNeurons().forEach(tn -> processor.addNeuronToTrigger(tn));
+	protected void trigger(TriggerQueue processor) {
+		getRefTriggerableNeurons().forEach(tn -> processor.addNeuron(tn));
 	}
 	
 	//package-visible method

@@ -56,6 +56,15 @@ extends Neuron<Iterable<O>, Iterable<O>, FanoutNeuron<O>> {
 	
 	//method
 	/**
+	 * @param neuron
+	 * @return true if this fanout neurons contains the given output neuron.
+	 */
+	public boolean containsOutputNeuron(final Neuron<?, ?, ?> neuron) {
+		return outputNeurons.containsObject(neuron);
+	}
+	
+	//method
+	/**
 	 * @return the maximum number of input neurons of this fanout neuron.
 	 */
 	protected int getMaxInputNeuronCount() {
@@ -76,7 +85,7 @@ extends Neuron<Iterable<O>, Iterable<O>, FanoutNeuron<O>> {
 	 * 
 	 * @param processor
 	 */
-	protected void trigger(final Processor processor) {
+	protected void trigger(final TriggerQueue processor) {
 		setOutput(getRefOneInput());
 		outputNeurons.forEach(on -> on.trigger());
 	}	

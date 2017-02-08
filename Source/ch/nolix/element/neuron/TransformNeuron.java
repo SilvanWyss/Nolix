@@ -7,7 +7,7 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
 /**
- * A transform neuron is a neuron that transform its single input to its output.
+ * A transform neuron is a neuron that transform a single input to an output.
  * 
  * @author Silvan Wyss
  * @month 2017-01
@@ -17,6 +17,10 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
  */
 public final class TransformNeuron<I, O>
 extends Neuron<I, O, TransformNeuron<I, O>> {
+	
+	//constants
+	private static final int MIN_INPUT_NEURON_COUNT = 1;
+	private static final int MAX_INPUT_NEURON_COUNT = 1;
 	
 	//attribute
 	private final IElementTakerElementGetter<I, O> transformer;
@@ -34,27 +38,11 @@ extends Neuron<I, O, TransformNeuron<I, O>> {
 		final Neuron<?, I, ?> inputNeuron,
 		final IElementTakerElementGetter<I, O> transformer
 	) {
-		//Calls other constructor.
-		this(new InputNeuronoid<I>(inputNeuron), transformer);
-	}
-	
-	//constructor
-	/**
-	 * Creates new transform neuron with the given input neuron and transform function.
-	 * 
-	 * @param inputNeuron
-	 * @param transformer
-	 * @throws NullArgumentException if the given input neuron is null.
-	 * @throws NullArgumentException if the given transform function is null.
-	 */
-	public TransformNeuron(
-		final InputNeuronoid<I> inputNeuron,
-		final IElementTakerElementGetter<I, O> transformer
-	) {
 		//Checks if the given transform function is not null.
 		ZetaValidator.supposeThat(transformer).thatIsNamed("transformern").isNotNull();
 		
 		this.transformer = transformer;
+		
 		addInputNeuron(inputNeuron);
 	}
 	
@@ -63,7 +51,7 @@ extends Neuron<I, O, TransformNeuron<I, O>> {
 	 * @return the maximum number of input neurons of this transform neuron.
 	 */
 	protected int getMaxInputNeuronCount() {
-		return 1;
+		return MAX_INPUT_NEURON_COUNT;
 	}
 
 	//method
@@ -71,7 +59,7 @@ extends Neuron<I, O, TransformNeuron<I, O>> {
 	 * @return the minimal number of input neurons of this transform neuron.
 	 */
 	protected int getMinInputNeuronCount() {
-		return 1;
+		return MIN_INPUT_NEURON_COUNT;
 	}
 	
 	//method
@@ -80,7 +68,7 @@ extends Neuron<I, O, TransformNeuron<I, O>> {
 	 * 
 	 * @param processor
 	 */
-	protected void trigger(final Processor processor) {
+	protected void trigger(final TriggerQueue processor) {
 		setOutput(transformer.getOutput(getRefOneInput()));
 	}
 }

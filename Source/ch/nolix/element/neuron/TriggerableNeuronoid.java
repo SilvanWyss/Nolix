@@ -6,7 +6,7 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
 /**
- * A triggerable neuronoid provides a neutron to trigger.
+ * A triggerable neuronoid provides a neuron to trigger.
  * 
  * @author Silvan Wyss
  * @month 2016-12
@@ -19,7 +19,7 @@ public final class TriggerableNeuronoid {
 	
 	//constructor
 	/**
-	 * Creates new triggerable neuronoid with the givne neuron.
+	 * Creates new triggerable neuronoid with the given neuron.
 	 * 
 	 * @param neuron
 	 * @throws NullArgumentException if the given neuron is null.

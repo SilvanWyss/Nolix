@@ -24,7 +24,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	//attributes
 	private int layerCount = 1;
 	private int neuronsPerLayer = 1;
-	private IElementTakerElementGetter<Iterable<InputNeuronoid<IO>>, IO> outputFunction = c -> null;
+	private IElementTakerElementGetter<Iterable<InputConnection<IO>>, IO> outputFunction = c -> null;
 	
 	//method
 	/**
@@ -136,7 +136,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 			
 			//Creates input list.
 			final List<IO> inputs = new List<IO>();
-			for (InputNeuronoid<IO> n: in) {
+			for (InputConnection<IO> n: in) {
 				inputs.addAtEnd(n.getRefInput());
 			}
 			
@@ -155,7 +155,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	 * @throws NullArgumentException if the given weight output function is null.
 	 */
 	public ForwardMultiLayerNetCreator<IO> setWeightOutputFunction(
-		final IElementTakerElementGetter<Iterable<InputNeuronoid<IO>>, IO> weightOutputFunction
+		final IElementTakerElementGetter<Iterable<InputConnection<IO>>, IO> weightOutputFunction
 	) {
 		
 		//Checks if the given output function is not null.

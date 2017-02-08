@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.element.neuron;
 
-//own import
+//own imports
+import ch.nolix.common.container.List;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //abstract class
@@ -10,7 +11,7 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
  * 
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 90
+ * @lines 180
  * @param <IO> - The type of the input and output of the neurons of this neuronal net.
  */
 public final class NeuronalNet<IO>
@@ -21,17 +22,20 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 	private final BundleNeuron<IO> outputBundleNeuron = new BundleNeuron<IO>();
 	private final Neuron<IO, IO, ?> triggerableStartNeuron;
 	
+	private final Iterable<Neuron<IO, IO, ?>> internalOutputNeurons;
+	
 	//constructor
 	/**
 	 * Creates new neuronal net with the given input layer neurons, output layer neurons and triggerable start neuron.
 	 * 
 	 * @param inputLayerNeurons
-	 * @param outputNeurons
+	 * @param internalOutputNeurons
 	 * @param triggerableStartNeuron
 	 * @throws NullArgumentException if the given input layer neuron container is null.
 	 * @throws NullArgumentException if the given output layer neuron container is null.
 	 * @throws NullArgumentException if the given triggerable start neuron is null.
 	 */
+	@SuppressWarnings("unchecked")
 	public <M extends Neuron<IO, IO, M>> NeuronalNet(
 		final Iterable<M> inputLayerNeurons,
 		final Iterable<M> outputLayerNeurons,
@@ -53,7 +57,6 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 			
 			i++;
 		}
-		inputFanoutNeuron.addTriggeringNeuron(this);
 
 		
 		//Connects the output bundle neuron of this neuronal net to the given output layer neurons.
@@ -61,8 +64,41 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 		
 		//Sets the triggerable start neuron of this neuronal net.
 		this.triggerableStartNeuron = triggerableStartNeuron;
+		
+		this.internalOutputNeurons = (Iterable<Neuron<IO, IO, ?>>)outputLayerNeurons;
+	}
+	
+	//method
+	/**
+	 * @return the neurons of this neuronal net.
+	 */
+	public List<Neuron<?, ?, ?>> getRefNeurons() {
+		final List<Neuron<?, ?, ?>> neurons = new List<Neuron<?, ?, ?>>();
+		internalOutputNeurons.forEach(on -> fillUpInputNeuronsRecursively(on, neurons));
+		return neurons;
 	}
 
+	//method
+	/**
+	 * @return the neurons of this neuronal net.
+	 */
+	@SuppressWarnings("unchecked")
+	public <N extends Neuron<IO, IO, N>> List<N> getRefNeuronsOfInputOutputType() {
+		
+		final List<N> neurons = new List<N>();
+		
+		//Adds the suitable internal output neurons of this neuronal net.
+		for (Neuron<IO, IO, ?> on : internalOutputNeurons) {
+			try {
+				final N outputNeuron = (N)on;
+				fillUpInputNeuronsOfInputOutputTypeRecursively(outputNeuron, neurons);
+			}
+			catch (Exception e) {} //Swallows any exception.
+		}
+		
+		return neurons;
+	}
+	
 	//method
 	/**
 	 * @return the maximum number of input neurons of this neuronal net.
@@ -85,7 +121,7 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 	 * 
 	 * @param processor
 	 */
-	protected void trigger(final Processor processor) {
+	protected void trigger(final TriggerQueue processor) {
 		
 		inputFanoutNeuron.clearInputNeurons();
 		inputFanoutNeuron.addInputNeuron(getRefOneInputNeuron());
@@ -94,6 +130,60 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 		outputBundleNeuron.trigger();
 		setOutput(outputBundleNeuron.getRefOutput());
 		
-		getRefTriggerableNeurons().forEach(tn -> processor.addNeuronToTrigger(tn));
+		getRefTriggerableNeurons().forEach(tn -> processor.addNeuron(tn));
+	}
+	
+	//method
+	/**
+	 * Fills up the given neuron container with the input neurons of the given neuron.
+	 * 
+	 * @param neuron
+	 * @param neurons
+	 */
+	private void fillUpInputNeuronsRecursively(
+		final Neuron<?, ?, ?> neuron,
+		final List<Neuron<?, ?, ?>> neurons
+	) {
+		if (!neurons.contains(neuron) && !isInternalInputNeuron(neuron)) {
+			neurons.addAtEnd(neuron);
+			neuron.getRefInputNeurons().forEach(in -> fillUpInputNeuronsRecursively(in, neurons));
+		}
+	}
+	
+	//method
+	/**
+	 * Fills up the given neuron container with the suitable input neurons of the given neuron.
+	 * 
+	 * @param neuron
+	 * @param neurons
+	 */
+	@SuppressWarnings("unchecked")
+	private <N extends Neuron<IO, IO, N>> void fillUpInputNeuronsOfInputOutputTypeRecursively(
+		final N neuron,
+		final List<N> neurons
+	) {
+		if (!neurons.contains(neuron) && !isInternalInputNeuron(neuron)) {
+			neurons.addAtEnd(neuron);
+			
+			//Iterates the input neurons of the given neuron.
+			for (Neuron<?, IO, ?> in: neuron.getRefInputNeurons()) {
+				
+				//Adds the suitable input neurons of the given neuron to the given neuron container.
+				try {
+					final N n = (N)in;
+					this.fillUpInputNeuronsOfInputOutputTypeRecursively(n, neurons);
+				}
+				catch(Exception e) {} //Swallows any exception and continue.
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * @param neuron
+	 * @return true if the given neuron is an internal input neuron.
+	 */
+	private boolean isInternalInputNeuron(final Neuron<?, ?, ?> neuron) {	
+		return inputFanoutNeuron.containsOutputNeuron(neuron);
 	}
 }

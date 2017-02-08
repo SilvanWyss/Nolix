@@ -35,7 +35,7 @@ extends Neuron<Object, O, SourceNeuron<O>> {
 	/**
 	 * @throws UnsupportedMethodException
 	 */
-	public void trigger(final Processor processor) {
+	public void trigger(final TriggerQueue processor) {
 		throw new UnsupportedMethodException(this, "trigger");
 	}
 	

@@ -8,7 +8,7 @@ import ch.nolix.common.functional.IElementTakerElementGetter;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 import ch.nolix.element.neuron.Neuron;
-import ch.nolix.element.neuron.Processor;
+import ch.nolix.element.neuron.TriggerQueue;
 
 //class
 /**
@@ -75,7 +75,7 @@ extends Neuron<I, Object, NetNeuron<I>> {
 	/**
 	 * Triggers this net neuron using the given processor.
 	 */
-	protected void trigger(final Processor processor) {
+	protected void trigger(final TriggerQueue processor) {
 		
 		if (getRefInputs().isEmpty()) {
 			setOutput(null);
@@ -90,6 +90,6 @@ extends Neuron<I, Object, NetNeuron<I>> {
 			);
 		}
 		
-		getRefTriggerableNeurons().forEach(tn -> processor.addNeuronToTrigger(tn));
+		getRefTriggerableNeurons().forEach(tn -> processor.addNeuron(tn));
 	}
 }

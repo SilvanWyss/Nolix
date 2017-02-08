@@ -19,7 +19,7 @@ public final class StandardNeuron<IO>
 extends Neuron<IO, IO, StandardNeuron<IO>> {
 	
 	//attribute
-	private IElementTakerElementGetter<Iterable<InputNeuronoid<IO>>, IO> outputFunction;
+	private IElementTakerElementGetter<Iterable<InputConnection<IO>>, IO> outputFunction;
 	
 	//method
 	/**
@@ -43,7 +43,7 @@ extends Neuron<IO, IO, StandardNeuron<IO>> {
 			
 			//Creates input list.
 			final List<IO> inputs = new List<IO>();
-			for (InputNeuronoid<IO> n: in) {
+			for (InputConnection<IO> n: in) {
 				inputs.addAtEnd(n.getRefInput());
 			}
 			
@@ -77,7 +77,7 @@ extends Neuron<IO, IO, StandardNeuron<IO>> {
 	 * @throws NullArgumentException if the given weight output function is null.
 	 */
 	public StandardNeuron<IO> setWeightOutputFunction(
-		final IElementTakerElementGetter<Iterable<InputNeuronoid<IO>>, IO> weightOutputFunction
+		final IElementTakerElementGetter<Iterable<InputConnection<IO>>, IO> weightOutputFunction
 	) {
 		
 		//Checks if the given output function is not null.
@@ -110,8 +110,8 @@ extends Neuron<IO, IO, StandardNeuron<IO>> {
 	 * 
 	 * @param processor
 	 */
-	protected void trigger(final Processor processor) {
-		setOutput(outputFunction.getOutput(getRefInputNeurons()));
-		getRefTriggerableNeurons().forEach(tn -> processor.addNeuronToTrigger(tn));
+	protected void trigger(final TriggerQueue processor) {
+		setOutput(outputFunction.getOutput(getRefInputConnections()));
+		getRefTriggerableNeurons().forEach(tn -> processor.addNeuron(tn));
 	}
 }

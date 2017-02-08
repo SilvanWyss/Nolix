@@ -36,7 +36,7 @@ extends Neuron<O, Iterable<O>, BundleNeuron<O>> {
 	 * 
 	 * @param processor
 	 */
-	protected void trigger(final Processor processor) {
+	protected void trigger(final TriggerQueue processor) {
 		setOutput(getRefInputs());
 	}
 }
