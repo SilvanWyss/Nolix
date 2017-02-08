@@ -11,7 +11,7 @@ import ch.nolix.common.zetaTest.ZetaTest;
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 60
+ * @lines 40
  */
 public final class PolynomTest extends ZetaTest {
 	
@@ -23,19 +23,6 @@ public final class PolynomTest extends ZetaTest {
 		
 		//verification
 		expectThat(polynom.getDegree()).equals(10);
-	}
-		
-	//test method
-	public void test_derive() {
-		
-		//setup
-		final Polynom polynom = new Polynom(10);
-		
-		//execution
-		polynom.derive();
-		
-		//verification
-		expectThat(polynom.getDegree()).equals(9);
 	}
 	
 	//test method
