@@ -1,10 +1,3 @@
-/*
- * file:	VolumeCandleStick
- * author:	Silvan Wyss
- * month:	2016-09
- * lines:	90
- */
-
 //package declaration
 package ch.nolix.common.finance;
 
@@ -15,6 +8,11 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
 //class
 /**
  * A volume candle stick is a candle stick that also stores the traded volume.
+ * A volume candle stick is immutable.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-09
+ * @lines 120
  */
 public class VolumeCandleStick extends CandleStick {
 	
@@ -53,6 +51,39 @@ public class VolumeCandleStick extends CandleStick {
 	
 	//method
 	/**
+	 * @return true if this volume candle stick equals the given object.
+	 */
+	public boolean equals(final Object object) {
+		
+		//Handles the case if the given object is no volume candle stick.
+		if (!(object instanceof VolumeCandleStick)) {
+			return false;
+		}
+		
+		//Handles the case if the given object is a volume candle stick.
+		final VolumeCandleStick volumeCandleStick = (VolumeCandleStick)object;
+		return (
+			super.equals(volumeCandleStick)
+			&& getVolume() == volumeCandleStick.getVolume()
+		);
+	}
+	
+	//method
+	/**
+	 * @return a copy of this volume candle stick.
+	 */
+	public VolumeCandleStick getCopy() {
+		return (
+			new VolumeCandleStick(getRefTime(),
+				getVolume(),
+				getOpeningPrice(),
+				getClosingPrice(), getLowestPrice(),
+				getHighestPrice())
+		);
+	}
+	
+	//method
+	/**
 	 * @return the volume of this volume candle stick
 	 */
 	public final int getVolume() {
@@ -76,7 +107,7 @@ public class VolumeCandleStick extends CandleStick {
 		return (
 			getClass().getSimpleName()
 			+ "("
-			+ "Time(" + getRefTime()+ ")"
+			+ getRefTime()
 			+ ","
 			+ "Volume(" + getVolume() + ")"
 			+ ","
