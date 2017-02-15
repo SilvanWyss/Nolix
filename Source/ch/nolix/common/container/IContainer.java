@@ -18,7 +18,6 @@ import ch.nolix.common.functional.IElementTakerComparableGetter;
 import ch.nolix.common.functional.IElementTakerBooleanGetter;
 import ch.nolix.common.functional.IElementTakerElementGetter;
 import ch.nolix.common.helper.CharacterHelper;
-import ch.nolix.common.interfaces.Clearable;
 
 //interface
 /**
@@ -31,7 +30,7 @@ import ch.nolix.common.interfaces.Clearable;
  * @param <E> - The type of the elements of a container.
  */
 public interface IContainer<E>
-extends Clearable<IContainer<E>>, Iterable<E> {
+extends Iterable<E> {
 		
 	//default method
 	/**

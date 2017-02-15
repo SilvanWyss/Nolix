@@ -87,15 +87,10 @@ public class Matrix<E> implements IContainer<E> {
 	//method
 	/**
 	 * Removes all elements of this matrix.
-	 * 
-	 * @return this matrix.
 	 */
-	public Matrix<E> clear() {
-		
+	public void clear() {
 		elements = null;
 		System.gc();
-		
-		return this;
 	}
 	
 	//method

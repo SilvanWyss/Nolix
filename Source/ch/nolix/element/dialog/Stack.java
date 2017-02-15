@@ -17,7 +17,7 @@ import ch.nolix.element.data.Margin;
 //class
 public abstract class Stack<S extends Stack<S>> 
 extends Container<S, BorderableRectangleStructure<?>>
-implements Clearable<S> {
+implements Clearable {
 	
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "Stack";
@@ -92,12 +92,11 @@ implements Clearable<S> {
 	/**
 	 * Removes the rectangles of this stack.
 	 */
-	@SuppressWarnings("unchecked")
-	public final S clear() {
+	public final void clear() {
 		
 		rectangles.clear();
 		
-		return (S)this;
+		//return (S)this;
 	}
 	
 	//method

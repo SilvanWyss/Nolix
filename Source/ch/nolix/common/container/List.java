@@ -13,6 +13,7 @@ import ch.nolix.common.functional.IElementTakerBooleanGetter;
 import ch.nolix.common.functional.IElementTakerElementGetter;
 import ch.nolix.common.helper.CharacterHelper;
 import ch.nolix.common.helper.IterableHelper;
+import ch.nolix.common.interfaces.Clearable;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
@@ -21,10 +22,13 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 930
+ * @lines 920
  * @param <E> - The type of the elements of a list.
  */
-public class List<E> implements IContainer<E> {
+public class List<E>
+implements
+	Clearable,
+	IContainer<E> {
 	
 	//attributes
 	private ListNode<E> firstNode;
@@ -286,10 +290,8 @@ public class List<E> implements IContainer<E> {
 	/**
 	 * Removes all elements of this list.
 	 * The complexity of this method is O(n) when this list contains n elements.
-	 * 
-	 * @return this list.
 	 */
-	public List<E> clear() {
+	public void clear() {
 		
 		if (!isEmpty()) {
 			
@@ -306,8 +308,16 @@ public class List<E> implements IContainer<E> {
 			
 			System.gc();
 		}
+	}
+	
+	//method
+	/**
+	 * @return true if this list contains any element.
+	 */
+	public boolean containsAny() {
 		
-		return this;
+		//Calls the method of the desired interface this list implements.
+		return IContainer.super.containsAny();
 	}
 	
 	//method
@@ -467,6 +477,16 @@ public class List<E> implements IContainer<E> {
 		
 		//Handles the case if this list is not empty.
 		return getSortedSubList(1, getSize(), norm);
+	}
+	
+	//method
+	/**
+	 * @return true if this list is empty
+	 */
+	public boolean isEmpty() {
+		
+		//Calls the method of the desired interface of this list.
+		return IContainer.super.isEmpty();
 	}
 	
 	//method

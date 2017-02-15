@@ -9,7 +9,7 @@ import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.zetaValidator.ZetaValidator;
-import ch.nolix.element.basic.Element;
+import ch.nolix.element.basic.MutableElement;
 
 //package-visible class
 /**
@@ -20,7 +20,7 @@ import ch.nolix.element.basic.Element;
  * @lines 130
  * 
  */
-final class Configuration extends Element {
+final class Configuration extends MutableElement {
 	
 	//attribute header
 	private static final String DESIGN = "Design";

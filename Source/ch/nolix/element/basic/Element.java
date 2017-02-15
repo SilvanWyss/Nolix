@@ -10,31 +10,21 @@ package ch.nolix.element.basic;
 
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.controller.ILevel2Controller;
 import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
-import ch.nolix.common.specification.Specifiable;
-import ch.nolix.common.specification.Specification;
+import ch.nolix.common.specification.Specified;
 import ch.nolix.common.specification.Statement;
 
 //class
 /**
  * An element is a specifiable object and a level 2 controller.
  */
-public abstract class Element implements
-	Specifiable,
-	ILevel2Controller {
+public abstract class Element implements Specified {
 		
 	//requests
 	public static final String TYPE_REQUEST = "Type";
 	public static final String TYPES_REQUEST = "Types";
-	
-	//command
-	private static final String RESET = "Reset";
-	
-	//command prefix
-	private static final String SET_COMMAND_PREFIX = "Set";
 	
 	//method
 	/**
@@ -126,52 +116,9 @@ public abstract class Element implements
 		return false;
 	}
 		
-	//element
-	/**
-	 * Runs the given command.
-	 * 
-	 * @param command
-	 * @throws Exception if the given command is not valid
-	 */
-	public void run(Statement command) {
+
 		
-		//Extracts the header of the given command.
-		String header = command.getHeader();
-		
-		//Handles the case when the given command is a set attribute command.
-		if (header.startsWith(SET_COMMAND_PREFIX)) {
-			
-			if (header.length() < 4) {
-				throw new InvalidArgumentException(
-					new ArgumentName("command"),
-					new Argument(command)
-				);
-			}
-			
-			addOrChangeAttribute(new Specification(header.substring(3), command.getRefAttributes()));
-			return;
-		}
-		
-		//Handels the case when the given command is a reset command.
-		if (header.equals(RESET)) {
-			
-			if (!command.containsAttributes()) {
-				reset();
-			}
-			else {
-				reset();
-				addOrChangeAttributes(command.getRefAttributes());
-			}
-			
-			return;
-		}
-		
-		//Handles the case when the given command is not valid.
-		throw new InvalidArgumentException(
-			new ArgumentName("command"),
-			new Argument(command)
-		);
-	}
+
 			
 	//method
 	/**

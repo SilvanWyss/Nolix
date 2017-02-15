@@ -43,7 +43,7 @@ import ch.nolix.element.data.Title;
 public abstract class Dialog<D extends Dialog<D>>
 extends ConfigurationElement<D>
 implements
-	Clearable<D>,
+	Clearable,
 	IRequestableContainer
 {
 	//constant
@@ -106,12 +106,8 @@ implements
 	/**
 	 * Clears this dialog.
 	 */
-	@SuppressWarnings("unchecked")
-	public final D clear() {
-		
+	public final void clear() {
 		removeRootRectangle();
-		
-		return (D)this;
 	}
 	
 	//method

@@ -70,7 +70,7 @@ public final class Nelix extends CentralController implements ILevel2Controller 
 	 */
 	public final String getDesign() {	
 		final Configuration configuration = new Configuration();
-		configuration.load(getDirectory() + "/Configuration.spec");
+		configuration.loadFrom(getDirectory() + "/Configuration.spec");
 		return configuration.getDesign();
 	}
 	
@@ -165,10 +165,10 @@ public final class Nelix extends CentralController implements ILevel2Controller 
 		final Configuration initialConfiguration = new Configuration();
 		
 		if (new File(getDirectory() + "/Configuration.spec").exists()) {
-			initialConfiguration.load(getDirectory() + "/Configuration.spec");
+			initialConfiguration.loadFrom(getDirectory() + "/Configuration.spec");
 		}
 		
 		initialConfiguration.setDesign(design);
-		initialConfiguration.save(getDirectory() + "/Configuration.spec");
+		initialConfiguration.saveTo(getDirectory() + "/Configuration.spec");
 	}
 }

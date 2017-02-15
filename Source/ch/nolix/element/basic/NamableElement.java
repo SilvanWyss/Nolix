@@ -22,7 +22,7 @@ import ch.nolix.common.util.Validator;
 /**
  * A named element is an element that has a name.
  */
-public abstract class NamableElement<NE extends NamableElement<NE>> extends Element implements Namable<NE> {
+public abstract class NamableElement<NE extends NamableElement<NE>> extends MutableElement implements Namable<NE> {
 	
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "NamedElement";

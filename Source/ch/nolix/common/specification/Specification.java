@@ -23,6 +23,13 @@ import ch.nolix.common.helper.StringHelper;
 //class
 public final class Specification extends Specificationoid {
 	
+	//static mehtod
+	public static final Specification loadSpecification(final String path) {
+		final Specification specification = new Specification();
+		specification.loadFromFile(path);
+		return specification;
+	}
+	
 	//constructor
 	/**
 	 * Creates new specification without header and without attributes.

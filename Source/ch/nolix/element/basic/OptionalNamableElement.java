@@ -24,7 +24,7 @@ import ch.nolix.element.data.Name;
 /**
  * A namable element is an element that can have a name.
  */
-public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<ONE>> extends Element implements OptionalNamable<ONE>  {
+public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<ONE>> extends MutableElement implements OptionalNamable<ONE>  {
 	
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "NamableElement";
