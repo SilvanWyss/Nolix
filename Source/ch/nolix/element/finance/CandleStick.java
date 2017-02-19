@@ -1,25 +1,70 @@
 //package declaration
-package ch.nolix.common.finance;
+package ch.nolix.element.finance;
 
 //own imports
+import ch.nolix.common.container.List;
+import ch.nolix.common.exception.Argument;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.mathematics.Calculator;
-import ch.nolix.common.util.Time;
+import ch.nolix.common.specification.Specification;
 import ch.nolix.common.zetaValidator.ZetaValidator;
+import ch.nolix.element.basic.Element;
+import ch.nolix.element.basic.FloatingPointNumber;
+import ch.nolix.element.basic.Time;
 
 //class
 /**
- * A candle stick is immutable.
+ * A candle stick is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2016-08
  * @lines 400
  */
-public class CandleStick {
+public class CandleStick extends Element {
 	
 	//constants
 	public static final double DEFAULT_HAMMER_MIN_LOWER_WICK_LENGTH_RATIO = 0.5;
 	public static final double DEFAULT_INVERTED_HAMMER_MIN_UPPER_WICK_LENGT_RATIO = 0.5;
 
+	//attribute names
+	private static final String OPENING_PRICE_NAME = "OpeningPrice";
+	private static final String CLOSING_PRICE_NAME = "ClosingPrice";
+	private static final String LOWEST_PRICE_NAME = "LowestPrice";
+	private static final String HIGHEST_PRICE_NAME = "HighestPrice";
+	
+	public static CandleStick createCandleStick(final Iterable<Specification> attributes) {
+		
+		Time time = null;
+		double openingPrice = 0.0;
+		double closingPrice = 0.0;
+		double lowestPrice = 0.0;
+		double highestPrice = 0.0;
+		
+		for (Specification a : attributes) {
+			switch (a.getHeader()) {
+				case Time.SIMPLE_CLASS_NAME:
+					time = Time.createTime(a.getRefAttributes());
+					break;
+				case OPENING_PRICE_NAME:
+					openingPrice = a.getOneAttributeToDouble();
+					break;
+				case CLOSING_PRICE_NAME:
+					closingPrice = a.getOneAttributeToDouble();
+					break;
+				case LOWEST_PRICE_NAME:
+					lowestPrice = a.getOneAttributeToDouble();
+					break;
+				case HIGHEST_PRICE_NAME:
+					highestPrice = a.getOneAttributeToDouble();
+					break;
+				default:
+					throw new InvalidArgumentException(new Argument(a));
+			}
+		}
+		
+		return new CandleStick(time, openingPrice, closingPrice, lowestPrice, highestPrice);
+	}
+	
 	//attributes
 	private final Time time;
 	private final double openingPrice;
@@ -57,8 +102,7 @@ public class CandleStick {
 		ZetaValidator.supposeThat(highestPrice).thatIsNamed("highest price").isNotNegative();
 		
 		//Sets the values of this candle stick.
-		this.time = time.getCopy();
-		this.time.freeze();
+		this.time = time;
 		this.openingPrice = openingPrice;
 		this.closingPrice = closingPrice;
 		this.lowestPrice = lowestPrice;
@@ -90,28 +134,6 @@ public class CandleStick {
 		return (
 			Calculator.getMax(getOpeningPrice(), getClosingPrice())
 			< Calculator.getMin(candleStick.getOpeningPrice(), candleStick.getClosingPrice())
-		);
-	}
-	
-	//method
-	/**
-	 * @return true if this candle stick equals the given object.
-	 */
-	public boolean equals(final Object object) {
-		
-		//Handles the case if the given object is no candle stick.
-		if (!(object instanceof CandleStick)) {
-			return false;
-		}
-		
-		//Handles the case if the given object is a candle stick
-		final CandleStick candleStick = (CandleStick)object;
-		return (
-			getRefTime().equals(candleStick.getRefTime())
-			&& getOpeningPrice() == candleStick.getOpeningPrice()
-			&& getClosingPrice() == candleStick.getClosingPrice()
-			&& getLowestPrice() == candleStick.getLowestPrice()
-			&& getHighestPrice() == candleStick.getHighestPrice()
 		);
 	}
 	
@@ -160,6 +182,15 @@ public class CandleStick {
 			getClosingPrice(),
 			getLowestPrice(),
 			getHighestPrice()
+		);
+	}
+	
+	public List<Specification> getAttributes() {
+		return new List<Specification>(
+			new FloatingPointNumber(getOpeningPrice()).getSpecificationAs(OPENING_PRICE_NAME),
+			new FloatingPointNumber(getClosingPrice()).getSpecificationAs(CLOSING_PRICE_NAME),
+			new FloatingPointNumber(getLowestPrice()).getSpecificationAs(LOWEST_PRICE_NAME),
+			new FloatingPointNumber(getHighestPrice()).getSpecificationAs(HIGHEST_PRICE_NAME)
 		);
 	}
 	
@@ -379,26 +410,5 @@ public class CandleStick {
 	 */
 	public final boolean isMarubozu() {
 		return Calculator.equalsApproximatively(getBodyLength(), getLength());
-	}
-	
-	//method
-	/**
-	 * @return a string representation of this candle stick.
-	 */
-	public String toString() {
-		return (
-			getClass().getSimpleName()
-			+ "("
-			+ getRefTime()
-			+ ","
-			+ "OpeningPrice(" + getOpeningPrice() + ")"
-			+ ","
-			+ "ClosingPrice(" + getClosingPrice() + ")"
-			+ ","
-			+ "LowestPrice(" + getLowestPrice() + ")"
-			+ ","
-			+ "HighestPrice(" + getHighestPrice() + ")"
-			+ ")"
-		);
 	}
 }

@@ -1,14 +1,15 @@
 //package declaration
-package ch.nolix.common.finance;
+package ch.nolix.element.finance;
 
 //Java imports
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
+
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.util.Time;
+import ch.nolix.element.basic.Time;
 
 //class
 /**
@@ -176,11 +177,10 @@ public final class DataProvider {
 					
 					if (array[0].startsWith("a")) {
 						timeStamp = Time.createTimeFromUnixTimeStamp(Long.valueOf(array[0].substring(1)));
-						currentTime = timeStamp.getCopy();
+						currentTime = timeStamp;
 					}
 					else {
-						currentTime = timeStamp.getCopy();
-						currentTime.addSeconds(Integer.valueOf(array[0]) * intervalInSeconds);		
+						currentTime = timeStamp.getTimeWithAddedSeconds(Integer.valueOf(array[0]) * intervalInSeconds);
 					}
 					
 					//System.out.println(currentTime);

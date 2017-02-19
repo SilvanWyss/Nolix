@@ -73,6 +73,16 @@ public final class StringHelper {
 	//static method
 	/**
 	 * @param string
+	 * @return the double the given string represents.
+	 */
+	public static double toDouble(final String string) {
+		//TODO: Checks the format.
+		return Double.valueOf(string);
+	}
+	
+	//static method
+	/**
+	 * @param string
 	 * @return the integer the given string represents
 	 * @throws Exception if the given string does not represent an integer
 	 */

@@ -11,10 +11,10 @@ package ch.nolix.commonTutorial.financeTutorial;
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.container.SequencePattern;
-import ch.nolix.common.finance.DataProvider;
-import ch.nolix.common.finance.NYSEProductSymbolManager;
-import ch.nolix.common.finance.VolumeCandleStick;
-import ch.nolix.common.util.Time;
+import ch.nolix.element.basic.Time;
+import ch.nolix.element.finance.DataProvider;
+import ch.nolix.element.finance.NYSEProductSymbolManager;
+import ch.nolix.element.finance.VolumeCandleStick;
 
 //class
 /**

@@ -2,9 +2,9 @@
 package ch.nolix.commonTest.financeTest;
 
 //own imports
-import ch.nolix.common.finance.CandleStick;
-import ch.nolix.common.util.Time;
 import ch.nolix.common.zetaTest.ZetaTest;
+import ch.nolix.element.basic.Time;
+import ch.nolix.element.finance.CandleStick;
 
 //test class
 /**

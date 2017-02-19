@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.common.finance;
+package ch.nolix.element.finance;
 
 //own import
 import ch.nolix.common.container.List;

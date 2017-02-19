@@ -2,8 +2,8 @@
 package ch.nolix.commonTest.utilTest;
 
 //own imports
-import ch.nolix.common.util.Time;
 import ch.nolix.common.zetaTest.ZetaTest;
+import ch.nolix.element.basic.Time;
 
 //test class
 /**

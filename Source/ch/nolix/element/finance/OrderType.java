@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.finance;
+package ch.nolix.element.finance;
 
 //enum
 /**

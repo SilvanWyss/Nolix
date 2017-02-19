@@ -3,11 +3,11 @@ package ch.nolix.commonTest.financeTest;
 
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.finance.DataProvider;
-import ch.nolix.common.finance.NASDAQProductSymbolManager;
-import ch.nolix.common.finance.VolumeCandleStick;
-import ch.nolix.common.util.Time;
 import ch.nolix.common.zetaTest.ZetaTest;
+import ch.nolix.element.basic.Time;
+import ch.nolix.element.finance.DataProvider;
+import ch.nolix.element.finance.NASDAQProductSymbolManager;
+import ch.nolix.element.finance.VolumeCandleStick;
 
 //test class
 /**

@@ -1,9 +1,9 @@
 //package declaration
-package ch.nolix.common.finance;
+package ch.nolix.element.finance;
 
 //own imports
-import ch.nolix.common.util.Time;
 import ch.nolix.common.zetaValidator.ZetaValidator;
+import ch.nolix.element.basic.Time;
 
 //class
 /**
@@ -51,25 +51,6 @@ public class VolumeCandleStick extends CandleStick {
 	
 	//method
 	/**
-	 * @return true if this volume candle stick equals the given object.
-	 */
-	public boolean equals(final Object object) {
-		
-		//Handles the case if the given object is no volume candle stick.
-		if (!(object instanceof VolumeCandleStick)) {
-			return false;
-		}
-		
-		//Handles the case if the given object is a volume candle stick.
-		final VolumeCandleStick volumeCandleStick = (VolumeCandleStick)object;
-		return (
-			super.equals(volumeCandleStick)
-			&& getVolume() == volumeCandleStick.getVolume()
-		);
-	}
-	
-	//method
-	/**
 	 * @return a copy of this volume candle stick.
 	 */
 	public VolumeCandleStick getCopy() {
@@ -97,28 +78,5 @@ public class VolumeCandleStick extends CandleStick {
 	 */
 	public final boolean hasBiggerVolumeThan(final VolumeCandleStick volumeCandleStick) {
 		return (getVolume() > volumeCandleStick.getVolume());
-	}
-	
-	//method
-	/**
-	 * @return a string representation of this volume candle stick.
-	 */
-	public String toString() {
-		return (
-			getClass().getSimpleName()
-			+ "("
-			+ getRefTime()
-			+ ","
-			+ "Volume(" + getVolume() + ")"
-			+ ","
-			+ "OpeningPrice(" + getOpeningPrice() + ")"
-			+ ","
-			+ "ClosingPrice(" + getClosingPrice() + ")"
-			+ ","
-			+ "LowestPrice(" + getLowestPrice() + ")"
-			+ ","
-			+ "HighestPrice(" + getHighestPrice() + ")"
-			+ ")"
-		);
 	}
 }

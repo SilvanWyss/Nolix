@@ -1,9 +1,9 @@
 //package declaration
-package ch.nolix.common.finance;
+package ch.nolix.element.finance;
 
 //own import
-import ch.nolix.common.util.Time;
 import ch.nolix.common.zetaValidator.ZetaValidator;
+import ch.nolix.element.basic.Time;
 
 //class
 /**
@@ -45,10 +45,7 @@ public final class Order {
 		ZetaValidator.supposeThat(volume).thatIsNamed("volume").isPositive();
 		
 		this.type = type;
-		
-		this.time = time.getCopy();
-		time.freeze();
-		
+		this.time = time;
 		this.productSymbol = productSymbol;
 		this.volume= volume;
 	}

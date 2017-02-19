@@ -179,6 +179,11 @@ abstract class Specificationoid {
 	}
 	
 	//method
+	public final double getOneAttributeToDouble() {
+		return getRefOneAttribute().toDouble();
+	}
+	
+	//method
 	/**
 	 * @return the integer the one attribute of this specificationoid represents
 	 * @throws Exception if:
@@ -408,6 +413,11 @@ abstract class Specificationoid {
 	 */
 	public final boolean toBoolean() {
 		return StringHelper.toBoolean(toString());
+	}
+	
+	//method
+	public final double toDouble() {
+		return StringHelper.toDouble(toString());
 	}
 	
 	//method

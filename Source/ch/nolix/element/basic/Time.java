@@ -1,16 +1,15 @@
 //package declaration
-package ch.nolix.common.util;
+package ch.nolix.element.basic;
 
 //Java import
 import java.util.GregorianCalendar;
 
 //own imports
 import ch.nolix.common.constants.TimeUnitManager;
-import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.ErrorPredicate;
+import ch.nolix.common.container.List;
 import ch.nolix.common.exception.InvalidArgumentException;
-import ch.nolix.common.interfaces.Freezable;
-import ch.nolix.common.interfaces.Resettable;
+import ch.nolix.common.helper.StringHelper;
+import ch.nolix.common.specification.Specification;
 
 //class
 /**
@@ -18,14 +17,17 @@ import ch.nolix.common.interfaces.Resettable;
  * A time stores a point in time according to the Gregorian calendar.
  * Since the Gregorian calendar is not proleptic a time can only store a point in time after 1600-01-01 00:00:000.
  * Not proleptic means that the Greogioan calender does officially not allow calculations backwards behind the point of its release, that was in 1582.
- * A time can be freezed so that it cannot be changed anymore.
+ * A time is not mutable.
  * Technically, a time is a wrapper around JDK's Gregorian calendar class.
  * 
  * @author Silvan Wyss
  * @month 2016-08
  * @lines 590
  */
-public final class Time implements Freezable, Resettable {
+public final class Time extends Element {
+	
+	//constant
+	public static final String SIMPLE_CLASS_NAME = "Time";
 	
 	//default values
 	public static final int DEFAULT_YEAR = 2000;
@@ -36,9 +38,8 @@ public final class Time implements Freezable, Resettable {
 	public static final int DEFAULT_SECOND_OF_MINUTE = 0;
 	public static final int DEFAULT_MILLISECOND_OF_SECOND = 0;
 	
-	//attributes
+	//attribute
 	private final GregorianCalendar time = new GregorianCalendar();
-	private boolean frozen = false;
 	
 	//static method
 	/**
@@ -48,6 +49,19 @@ public final class Time implements Freezable, Resettable {
 		final Time time = new Time();
 		time.time.setTimeInMillis(new GregorianCalendar().getTimeInMillis());
 		return time;
+	}
+	
+	//static method
+	/**
+	 * @param attributes
+	 * @return a new time with the given attributes.
+	 */
+	public static Time createTime(final Iterable<Specification> attributes) {
+
+		//Extracts the values.
+		final String attribute = attributes.iterator().next().toString();
+		
+		return new Time(attribute);
 	}
 	
 	//static method
@@ -191,111 +205,38 @@ public final class Time implements Freezable, Resettable {
 		//ZetaValidator.supposeThat(array.length).thatIsNamed("number of values of '" + string + "'").isBetween(3, 6).andIsNot(4);
 		
 		if (array.length >= 3) {
-			setYear(Integer.valueOf(array[0]));
-			setMonthOfYear(Integer.valueOf(array[1]));
-			setDayOfMonth(Integer.valueOf(array[2]));
+			setYear(StringHelper.toInteger(array[0]));
+			setMonthOfYear(StringHelper.toInteger(array[1]));
+			setDayOfMonth(StringHelper.toInteger(array[2]));
 		}
 		if (array.length >= 5) {
-			setMinuteOfHour(Integer.valueOf(array[4]));
+			setMinuteOfHour(StringHelper.toInteger(array[4]));
 		}
 		if (array.length >= 6) {
-			setSecondOfMinute(Integer.valueOf(array[5]));
+			setSecondOfMinute(StringHelper.toInteger(array[5]));
 		}
 		if (array.length >= 7) {
-			setMillisecondOfSecond(Integer.valueOf(array[6]));
+			setMillisecondOfSecond(StringHelper.toInteger(array[6]));
 		}
-	}
-	
-	/**
-	 * Adds the given milliseconds to this time.
-	 * 
-	 * @param milliseconds
-	 * @return this time.
-	 * @throws InvalidArgumentException if this time is frozen.
-	 */
-	public Time addMilliseconds(final int milliseconds) {
-		
-		//Checks if this time is frozen.
-		throwsExceptionIfFrozen();
-		
-		time.add(GregorianCalendar.MILLISECOND, milliseconds);
-		
-		return this;
-	}
-
-	//method
-	/**
-	 * Adds the given minutes to this time.
-	 * 
-	 * @param minutes
-	 * @return this time.
-	 * @throws InvalidArgumentException if this time is frozen.
-	 */
-	public Time addMinutes(final int minutes) {
-		return addMilliseconds(TimeUnitManager.MILLISECONDS_PER_MINUTE * minutes);
-	}
+	}	
 	
 	//method
 	/**
-	 * Adds the given seconds to this time.
-	 * 
-	 * @param seconds
-	 * @return this time.
-	 * @throws InvalidArgumentException if this time is frozen.
+	 * @return the attributes of this time.
 	 */
-	public Time addSeconds(final int seconds) {
-		return addMilliseconds(TimeUnitManager.MILLISECONDS_PER_SECOND * seconds);
-	}
-	
-	//method
-	/**
-	 * @param object
-	 * @return true if this time equals the given object.
-	 */
-	public boolean equals(final Object object) {
-		
-		//Handles the case if the given object is no time.
-		if (!(object instanceof Time)) {
-			return false;
-		}
-		
-		//Handles the case if the given object is a time.
-		final Time time = (Time)object;
-		return (
-			getYear() == time.getYear()
-			&& getMonthOfYear() == time.getMonthOfYear()
-			&& getDayOfMonth() == time.getDayOfMonth()
-			&& getHourOfDay() == time.getHourOfDay()
-			&& getMinuteOfHour() == time.getMinuteOfHour()
-			&& getSecondOfMinute() == time.getSecondOfMinute()
-			&& getMillisecondOfSecond() == time.getMillisecondOfSecond()
+	public List<Specification> getAttributes() {
+		return new List<Specification>(
+			new Specification(String.format(
+				"%04d-%02d-%02d-%02d-%02d-%02d-%03d",
+				getYear(),
+				getMonthOfYear(),
+				getDayOfMonth(),
+				getHourOfDay(),
+				getMinuteOfHour(),
+				getSecondOfMinute(),
+				getMillisecondOfSecond()
+			))
 		);
-	}
-	
-	//method
-	/**
-	 * Freezes this time.
-	 */
-	public void freeze() {
-		frozen = true;
-	}
-	
-	//method
-	/**
-	 * @return a copy of this time.
-	 */
-	public Time getCopy() {
-		
-		final Time time = new Time();
-		time.setYear(getYear());
-		time.setMonthOfYear(getMonthOfYear());
-		time.setDayOfMonth(getDayOfMonth());
-		time.setHourOfDay(getHourOfDay());
-		time.setMinuteOfHour(getMinuteOfHour());
-		time.setSecondOfMinute(getSecondOfMinute());
-		time.setMillisecondOfSecond(getMillisecondOfSecond());
-		
-		return time;
 	}
 	
 	//method
@@ -378,18 +319,65 @@ public final class Time implements Freezable, Resettable {
 	
 	//method
 	/**
-	 * @return the year of this time.
+	 * @param days
+	 * @return a new time with the given days added to this time.
 	 */
-	public int getYear() {
-		return time.get(GregorianCalendar.YEAR);
+	public Time getTimeWithAddedDays(final int days) {
+		final Time time = getCopy();
+		time.addDays(days);
+		return time;
 	}
 	
 	//method
 	/**
-	 * @return true if this time is frozen.
+	 * @param hours
+	 * @return a new time with the given hours added to this time.
 	 */
-	public boolean isFrozen() {
-		return frozen;
+	public Time getTimeWithAddedHours(final int hours) {
+		final Time time = getCopy();
+		time.addHours(hours);
+		return time;
+	}
+	
+	//method
+	/**
+	 * @param milliseconds
+	 * @return a new time with the given milliseconds added to this time.
+	 */
+	public Time getTimeWithAddedMilliseconds(final int milliseconds) {
+		final Time time = getCopy();
+		time.addMilliseconds(milliseconds);
+		return time;
+	}
+	
+	//method
+	/**
+	 * @param minutes
+	 * @return a new time with the given minutes added to this time.
+	 */
+	public Time getTimeWithAddedMinutes(final int minutes) {
+		final Time time = getCopy();
+		time.addMinutes(minutes);
+		return time;
+	}
+	
+	//method
+	/**
+	 * @param seconds
+	 * @return a new time with the given seconds added to this time.
+	 */
+	public Time getTimeWithAddedSeconds(final int seconds) {
+		final Time time = getCopy();
+		time.addSeconds(seconds);
+		return time;
+	}
+	
+	//method
+	/**
+	 * @return the year of this time.
+	 */
+	public int getYear() {
+		return time.get(GregorianCalendar.YEAR);
 	}
 	
 	//method
@@ -415,7 +403,67 @@ public final class Time implements Freezable, Resettable {
 	 * @return true if this time is in a leap year.
 	 */
 	public boolean isInLeapYear() {
-		return ((getYear() % 4 == 0 && getYear() % 100 != 0) || getYear() % 400 == 0);
+		return time.isLeapYear(getYear());
+	}
+	
+	//method
+	/**
+	 * Adds the given days to this time.
+	 * 
+	 * @param days
+	 */
+	private void addDays(final int days) {
+		addMilliseconds(TimeUnitManager.MILLISECONDS_PER_DAY * days);
+	}
+	
+	//method
+	/**
+	 * Adds the given hours to this time.
+	 * 
+	 * @param hours
+	 */
+	private void addHours(final int hours) {
+		addMilliseconds(TimeUnitManager.MILLISECONDS_PER_HOUR * hours);
+	}
+	
+	//method
+	/**
+	 * Adds the given milliseconds to this time.
+	 * 
+	 * @param milliseconds
+	 */
+	private void addMilliseconds(final int millisceconds) {
+		time.setTimeInMillis(getMilliseconds() + millisceconds);
+	}
+
+	//method
+	/**
+	 * Adds the given minutes to this time.
+	 * 
+	 * @param minutes
+	 */
+	private void addMinutes(final int minutes) {
+		addMilliseconds(TimeUnitManager.MILLISECONDS_PER_MINUTE * minutes);
+	}
+	
+	//method
+	/**
+	 * Adds the given seconds to this time.
+	 * 
+	 * @param seconds
+	 */
+	private void addSeconds(final int seconds) {
+		addMilliseconds(TimeUnitManager.MILLISECONDS_PER_SECOND * seconds);
+	}
+	
+	//method
+	/**
+	 * @return a copy of this time.
+	 */
+	private Time getCopy() {
+		final Time time = new Time();
+		time.time.setTimeInMillis(this.time.getTimeInMillis());
+		return time;
 	}
 	
 	//method
@@ -424,7 +472,7 @@ public final class Time implements Freezable, Resettable {
 	 * 
 	 * @throws InvalidArgumentException if this time is frozen.
 	 */
-	public void reset() {		
+	private void reset() {		
 		setYear(DEFAULT_YEAR);
 		setMonthOfYear(DEFAULT_MONTH_OF_YEAR);
 		setDayOfMonth(DEFAULT_DAY_OF_MONTH);
@@ -442,14 +490,8 @@ public final class Time implements Freezable, Resettable {
 	 * @return this time.
 	 * @throws InvalidArgumentException if this time is frozen.
 	 */
-	public Time setDayOfMonth(final int dayOfMonth) {
-		
-		//Checks if this time is frozen.
-		throwsExceptionIfFrozen();
-		
+	private void setDayOfMonth(final int dayOfMonth) {
 		time.set(GregorianCalendar.DAY_OF_MONTH, dayOfMonth);
-		
-		return this;
 	}
 	
 	//method
@@ -458,16 +500,9 @@ public final class Time implements Freezable, Resettable {
 	 * 
 	 * @param hourOfDay
 	 * @return this time.
-	 * @throws InvalidArgumentException if this time is frozen.
 	 */
-	public Time setHourOfDay(final int hourOfDay) {
-		
-		//Checks if this time is frozen.
-		throwsExceptionIfFrozen();
-		
+	private void setHourOfDay(final int hourOfDay) {
 		time.set(GregorianCalendar.HOUR_OF_DAY, hourOfDay);
-		
-		return this;
 	}
 	
 	//method
@@ -478,14 +513,8 @@ public final class Time implements Freezable, Resettable {
 	 * @return this time.
 	 * @throws InvalidArgumentException if this time is frozen.
 	 */
-	public Time setMillisecondOfSecond(final int millisecondOfSecond) {
-		
-		//Checks if this time is frozen.
-		throwsExceptionIfFrozen();
-		
+	private void setMillisecondOfSecond(final int millisecondOfSecond) {
 		time.set(GregorianCalendar.MILLISECOND, millisecondOfSecond);
-		
-		return this;
 	}
 	
 	//method
@@ -494,16 +523,9 @@ public final class Time implements Freezable, Resettable {
 	 * 
 	 * @param minuteOfHour
 	 * @return this time.
-	 * @throws InvalidArgumentException if this time is frozen.
 	 */
-	public Time setMinuteOfHour(final int minuteOfHour) {
-		
-		//Checks if this time is frozen.
-		throwsExceptionIfFrozen();
-			
+	private void setMinuteOfHour(final int minuteOfHour) {	
 		time.set(GregorianCalendar.MINUTE, minuteOfHour);
-		
-		return this;
 	}
 	
 	//method
@@ -514,14 +536,8 @@ public final class Time implements Freezable, Resettable {
 	 * @return this time.
 	 * @throws InvalidArgumentException if this time is frozen.
 	 */
-	public Time setMonthOfYear(final int monthOfYear) {
-		
-		//Checks if this time is frozen.
-		throwsExceptionIfFrozen();
-		
+	private void setMonthOfYear(final int monthOfYear) {
 		time.set(GregorianCalendar.MONTH, monthOfYear - 1);
-		
-		return this;
 	}
 	
 	//method
@@ -530,16 +546,9 @@ public final class Time implements Freezable, Resettable {
 	 * 
 	 * @param secondOfMinute
 	 * @return this time.
-	 * @throws InvalidArgumentException if this time is frozen.
 	 */
-	public Time setSecondOfMinute(final int secondOfMinute) {
-		
-		//Checks if this time is frozen.
-		throwsExceptionIfFrozen();
-		
+	private void setSecondOfMinute(final int secondOfMinute) {	
 		time.set(GregorianCalendar.SECOND, secondOfMinute);
-		
-		return this;
 	}
 	
 	//method
@@ -548,45 +557,8 @@ public final class Time implements Freezable, Resettable {
 	 * 
 	 * @param year
 	 * @return this time.
-	 * @throws InvalidArgumentException if this time is frozen.
 	 */
-	public Time setYear(final int year) {
-		
-		//Checks if this time is frozen.
-		throwsExceptionIfFrozen();
-		
+	private void setYear(final int year) {
 		time.set(GregorianCalendar.YEAR, year);
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * @return a string representation of this time.
-	 */
-	public String toString() {
-		return String.format(
-			"%04d-%02d-%02d-%02d-%02d-%02d-%03d",
-			getYear(),
-			getMonthOfYear(),
-			getDayOfMonth(),
-			getHourOfDay(),
-			getMinuteOfHour(),
-			getSecondOfMinute(),
-			getMillisecondOfSecond()
-		);
-	}
-	
-	//method
-	/**
-	 * @throws InvalidArgumentException if this time is frozen.
-	 */
-	private void throwsExceptionIfFrozen() {
-		if (frozen) {
-			new InvalidArgumentException(
-				new Argument(this),
-				new ErrorPredicate("is frozen")
-			);
-		}
 	}
 }
