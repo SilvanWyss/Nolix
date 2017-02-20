@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.neuron;
+package ch.nolix.common.neuron;
 
 //own import
 import ch.nolix.common.exception.UnsupportedMethodException;

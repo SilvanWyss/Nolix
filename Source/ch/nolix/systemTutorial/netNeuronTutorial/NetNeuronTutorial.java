@@ -2,8 +2,8 @@
 package ch.nolix.systemTutorial.netNeuronTutorial;
 
 //own imports
+import ch.nolix.common.neuron.SourceNeuron;
 import ch.nolix.common.specification.Specification;
-import ch.nolix.element.neuron.SourceNeuron;
 import ch.nolix.system.netNeuron.FrontNetNeuron;
 import ch.nolix.system.netNeuron.NetNeuron;
 

@@ -1,9 +1,9 @@
 //package declaration
-package ch.nolix.elementTutorial.neuronTutorial;
+package ch.nolix.commonTutorial.neuronTutorial;
 
 //own imports
 import ch.nolix.common.mathematics.Calculator;
-import ch.nolix.element.neuron.StandardNeuron;
+import ch.nolix.common.neuron.StandardNeuron;
 
 //class
 /**

@@ -5,10 +5,10 @@ package ch.nolix.system.netNeuron;
 import ch.nolix.common.application.StandardApplication;
 import ch.nolix.common.application.StandardClient;
 import ch.nolix.common.functional.IElementTakerElementGetter;
+import ch.nolix.common.neuron.Neuron;
+import ch.nolix.common.neuron.TriggerQueue;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.zetaValidator.ZetaValidator;
-import ch.nolix.element.neuron.Neuron;
-import ch.nolix.element.neuron.TriggerQueue;
 
 //class
 /**

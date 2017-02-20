@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.neuron;
+package ch.nolix.common.neuron;
 
 //own imports
 import ch.nolix.common.container.IContainer;

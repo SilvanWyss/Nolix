@@ -1,13 +1,13 @@
 //package declaration
-package ch.nolix.elementTutorial.neuronTutorial;
+package ch.nolix.commonTutorial.neuronTutorial;
 
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.mathematics.Calculator;
+import ch.nolix.common.neuron.ForwardMultiLayerNetCreator;
+import ch.nolix.common.neuron.NeuronalNet;
+import ch.nolix.common.neuron.SourceNeuron;
 import ch.nolix.common.sequencer.Sequencer;
-import ch.nolix.element.neuron.ForwardMultiLayerNetCreator;
-import ch.nolix.element.neuron.NeuronalNet;
-import ch.nolix.element.neuron.SourceNeuron;
 
 //class
 /**

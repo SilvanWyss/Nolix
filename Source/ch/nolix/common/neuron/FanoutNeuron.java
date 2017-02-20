@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.neuron;
+package ch.nolix.common.neuron;
 
 //Java import
 import java.util.Iterator;
