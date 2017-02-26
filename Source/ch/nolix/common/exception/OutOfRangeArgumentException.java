@@ -1,62 +1,55 @@
-/*
- * file:	ValueNotInRangeException.java
- * author:	Silvan Wyss
- * month:	2016-02
- * lines:	60
- */
-
 //package declaration
 package ch.nolix.common.exception;
 
 //class
 /**
- * A value not in range exception is an exception that is intended to be thrown when a value is undesired not in a given range.
+ * An out of range exception is an invalid argument exception that is intended to be thrown when a value is undesired not in a given range.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-02
+ * @lines 50
  */
 @SuppressWarnings("serial")
-public final class OutOfRangeArgumentException extends RuntimeException {
-
+public final class OutOfRangeArgumentException extends InvalidArgumentException {
+	
 	//constructor
 	/**
-	 * Creates new value not in range exception for the given value, that has the given name, and the given range.
+	 * Creates new out of range argument exception for the given argument and for the range defined by the given min and max.
 	 * 
-	 * @param name
+	 * @param argument
 	 * @param min
 	 * @param max
-	 * @param value
 	 */
-	public OutOfRangeArgumentException(String name, double min, double max, double value) {
+	public OutOfRangeArgumentException(final long argument, final long min, final long max) {
 		
 		//Calls constructor of the base class.
-		super("The " + name + " " + value + " is not in the range [" + min + ", " + max + "].");
+		super(
+			new Argument(argument),
+			new ErrorPredicate("is not between [" + min + ", " + max + "]")
+		);
 	}
 	
 	//constructor
 	/**
-	 * Creates new value not in range exception for the given value, that has the given name, and the given range.
+	 * Creates new out of range argument exception for the given argument, that has the given argument name, and for the ragne defined by the given min and max.
 	 * 
-	 * @param name
+	 * @param argumentName
+	 * @param argument
 	 * @param min
 	 * @param max
-	 * @param value
 	 */
-	public OutOfRangeArgumentException(String name, int min, int max, int value) {
+	public OutOfRangeArgumentException(
+		final String argumentName,
+		final long argument,
+		final long min,
+		final long max
+	) {
 		
 		//Calls constructor of the base class.
-		super("The " + name + " " + value + " is not in the range [" + min + ", " + max + "].");
-	}
-	
-	//constructor
-	/**
-	 * Creates new value not in range exception for the given value, that has the given name, and the given range.
-	 * 
-	 * @param name
-	 * @param min
-	 * @param max
-	 * @param value
-	 */
-	public OutOfRangeArgumentException(String name, long min, long max, long value) {
-		
-		//Calls constructor of the base class.
-		super("The " + name + " " + value + " is not in the range [" + min + ", " + max + "].");
+		super(
+			new ArgumentName(argumentName),
+			new Argument(argument),
+			new ErrorPredicate("is not between [" + min + ", " + max + "]")
+		);
 	}
 }

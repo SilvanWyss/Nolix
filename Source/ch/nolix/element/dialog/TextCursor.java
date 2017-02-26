@@ -15,7 +15,7 @@ import ch.nolix.element.basic.Color;
 public class TextCursor {
 
 	//attribute
-	private final Color color = new Color();
+	private Color color = new Color();
 	
 	//method
 	/**
@@ -32,6 +32,6 @@ public class TextCursor {
 	 * @throws Exception if the given color is no color name or no true color value
 	 */
 	public final void setColor(String color) {
-		getRefColor().setValue(color);
+		this.color = new Color(color);
 	}
 }

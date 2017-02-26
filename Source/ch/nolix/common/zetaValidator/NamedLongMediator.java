@@ -8,6 +8,7 @@ import ch.nolix.common.exception.NonBiggerArgumentException;
 import ch.nolix.common.exception.NonNegativeArgumentException;
 import ch.nolix.common.exception.NonPositiveArgumentException;
 import ch.nolix.common.exception.NullArgumentException;
+import ch.nolix.common.exception.OutOfRangeArgumentException;
 import ch.nolix.common.exception.PositiveArgumentException;
 import ch.nolix.common.exception.SmallerArgumentException;
 import ch.nolix.common.exception.UnequalArgumentException;
@@ -16,7 +17,7 @@ import ch.nolix.common.exception.UnequalArgumentException;
 /**
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 130
+ * @lines 150
  */
 public final class NamedLongMediator extends NamedArgumentMediator {
 	
@@ -50,6 +51,20 @@ public final class NamedLongMediator extends NamedArgumentMediator {
 		//Checks if the argument of this named long mediator equals the given value.
 		if (argument != value) {
 			throw new UnequalArgumentException(getArgumentName(), argument, value);
+		}
+	}
+	
+	//method
+	/**
+	 * @param min
+	 * @param max
+	 * @throws OutOfRangeArgumentException if the argument of this named long mediator is not between the given min and max.
+	 */
+	public void isBetween(final int min, final int max) {
+		
+		//Checks if the argument of htis named long mediator is in the range defined by the given min and max.
+		if (argument < min || argument > max) {
+			throw new OutOfRangeArgumentException(getArgumentName(), argument, min, max);
 		}
 	}
 	

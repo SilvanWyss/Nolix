@@ -33,7 +33,7 @@ public final class BorderableRectangleBorder {
 	
 	//attributes
 	private final Size size = new Size();
-	private final Color color = new Color();
+	private Color color = new Color();
 	
 	//constructor
 	/**
@@ -112,7 +112,7 @@ public final class BorderableRectangleBorder {
 	 * @throws Exception if the given color is no color name or no true color value
 	 */
 	public final void setColor(String color) {
-		this.color.setValue(color);
+		this.color = new Color(color);
 	}
 	
 	//method

@@ -57,7 +57,7 @@ public final class GraphicText extends Element {
 	//attributes
 	private final Text text = new Text();
 	private final PositiveInteger size = new PositiveInteger();
-	private final Color color = new Color();
+	private Color color = new Color();
 	
 	//constructor
 	/**
@@ -174,7 +174,7 @@ public final class GraphicText extends Element {
 	 */
 	public GraphicText setColor(int color) {
 		
-		this.color.setValue(color);
+		this.color = new Color(color);
 		
 		return this;
 	}
@@ -189,7 +189,7 @@ public final class GraphicText extends Element {
 	 */
 	public final GraphicText setColor(String color) {
 		
-		this.color.setValue(color);
+		this.color = new Color(color);
 		
 		return this;
 	}

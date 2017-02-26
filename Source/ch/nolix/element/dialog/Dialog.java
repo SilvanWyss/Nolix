@@ -60,7 +60,7 @@ implements
 		
 	//attributes
 	private final Title title = new Title();
-	protected final BackgroundColor backgroundColor = new BackgroundColor();
+	protected BackgroundColor backgroundColor = new BackgroundColor();
 	protected ContentOrientation contentOrientation = DEFAULT_CONTENT_ORIENTATION;
 				
 	//optional attributes
@@ -325,7 +325,7 @@ implements
 	 */
 	@SuppressWarnings("unchecked")
 	public final D setBackgroundColor(final int backgroundColor) {
-		this.backgroundColor.setValue(backgroundColor);
+		this.backgroundColor = new BackgroundColor(backgroundColor);
 		return (D)this;
 	}
 	
@@ -339,7 +339,7 @@ implements
 	 */
 	@SuppressWarnings("unchecked")
 	public final D setBackgroundColor(String backgroundColor) {
-		this.backgroundColor.setValue(backgroundColor);
+		this.backgroundColor = new BackgroundColor(backgroundColor);
 		return (D)this;
 	}
 	

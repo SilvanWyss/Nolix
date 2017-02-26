@@ -1,27 +1,24 @@
-/*
- * file:	Color.java
- * author:	Silvan Wyss
- * month:	2015
- * lines:	670
- */
-
 //package declaration
 package ch.nolix.element.basic;
 
 //own imports
-import java.awt.Graphics;
-
 import ch.nolix.common.constants.StringManager;
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.UnsupportedMethodException;
+import ch.nolix.common.exception.Argument;
+import ch.nolix.common.exception.ErrorPredicate;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.specification.Specification;
-import ch.nolix.common.specification.Statement;
-import ch.nolix.common.util.Validator;
+import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
 /**
  * This class represents a true color.
- * A true color is a color that consists of a blue, green and red value that have all the size of 1 byte.
+ * A true color is a color that consists of a blue, green and red value that all are integers in [0, 255].
+ * A color is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 680
  */
 public class Color extends Element {
 	
@@ -118,12 +115,20 @@ public class Color extends Element {
 	public static final String VERY_DARK_RED_STRING = "VeryDarkRed";
 	public static final int VERY_DARK_RED = 0x3F0000;
 	
+	//true colors
+	private static final int MIN_TRUE_COLOR = 0;
+	private static final int MAX_TRUE_COLOR = 16777215;
+	
+	//true color components
+	private static final int MIN_TRUE_COLOR_COMPONENT = 0;
+	private static final int MAX_TRUE_COLOR_COMPONENT = 255;
+	
 	//attribute
 	private int value = RED;
 	
 	//constructor
 	/**
-	 * Creates new color with default attributes.
+	 * Creates new color with default values.
 	 */
 	public Color() {}
 	
@@ -132,10 +137,24 @@ public class Color extends Element {
 	 * Creates new color with the given value.
 	 * 
 	 * @param value
-	 * @throws Exception if the given value is no true color value (negative or bigger than 16'777'215).
+	 * @throws OutOfRangeArgumentException if the given value is no true color value (in [0, 16'777'215]).
 	 */
-	public Color(int value) {
+	public Color(final int value) {
 		setValue(value);
+	}
+	
+	//constructor
+	/**
+	 * Creates new color with the given red value, green value and blue value.
+	 * 
+	 * @param redValue
+	 * @param greenValue
+	 * @param blueValue
+	 */
+	public Color(final int redValue, final int greenValue, final int blueValue) {
+		setRedValue(redValue);
+		setGreenValue(greenValue);
+		setBlueValue(blueValue);
 	}
 	
 	//constructor
@@ -143,15 +162,27 @@ public class Color extends Element {
 	 * Creates new color with the given value.
 	 * 
 	 * @param value
-	 * @throws Exception if the given value is no color name or no true color value
+	 * @throws InvalidArgumentException if the given value is no color name or no true color value
 	 */
-	public Color(String value) {
+	public Color(final String value) {
 		setValue(value);
 	}
 	
 	//method
 	/**
-	 * @return the attributes of this color
+	 * @return a new color that is the inverted color of this color.
+	 */
+	public final Color createInvertedColor() {
+		return new Color(
+			MAX_TRUE_COLOR_COMPONENT - getRedValue(),
+			MAX_TRUE_COLOR_COMPONENT - getGreenValue(),
+			MAX_TRUE_COLOR_COMPONENT - getBlueValue()
+		);
+	}
+	
+	//method
+	/**
+	 * @return the attributes of this color.
 	 */
 	public final List<Specification> getAttributes() {		
 		return new List<Specification>().addAtEnd(new Specification(getStringValue()));
@@ -159,7 +190,7 @@ public class Color extends Element {
 	
 	//method
 	/**
-	 * @return the blue value of this color
+	 * @return the blue value of this color.
 	 */
 	public final int getBlueValue() {
 		return (value % 256);
@@ -167,17 +198,15 @@ public class Color extends Element {
 	
 	//method
 	/**
-	 * @return a clone of this color
+	 * @return a copy of this color.
 	 */
 	public Color getCopy() {
-		Color color = new Color();
-		color.value = value;
-		return color;
+		return new Color(getValue());
 	}
 	
 	//method
 	/**
-	 * @return the green value of this color
+	 * @return the green value of this color.
 	 */
 	public final int getGreenValue() {
 		return ((value / 256) % 256);
@@ -185,15 +214,7 @@ public class Color extends Element {
 	
 	//method
 	/**
-	 * @return the integer value of this color
-	 */
-	public final int getValue() {
-		return value;
-	}
-	
-	//method
-	/**
-	 * @return the java color of this color
+	 * @return the java color of this color.
 	 */
 	public final java.awt.Color getJavaColor() {
 		return new java.awt.Color(getValue());
@@ -201,15 +222,7 @@ public class Color extends Element {
 	
 	//method
 	/**
-	 * @throws UnsupportedMethodException
-	 */
-	public Object getRawReference(Statement request) {
-		throw new UnsupportedMethodException(this, "get raw reference");
-	}
-	
-	//method
-	/**
-	 * @return the red value of this color
+	 * @return the red value of this color.
 	 */
 	public final int getRedValue() {
 		return (value / 65536);
@@ -217,9 +230,11 @@ public class Color extends Element {
 	
 	//method
 	/**
-	 * @return the value of this color
+	 * @return the string value of this color.
 	 */
 	public final String getStringValue() {
+		
+		//Enumerates the value of this color.
 		switch (getValue()) {			
 			
 			//Handles very light colors.
@@ -375,55 +390,10 @@ public class Color extends Element {
 	
 	//method
 	/**
-	 * Inverts this color.
+	 * @return the integer value of this color.
 	 */
-	public final void invert() {
-		try {
-			setRedValue(255 - getRedValue());
-			setGreenValue(255 - getGreenValue());
-			setBlueValue(255 - getBlueValue());
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	//method
-	/**
-	 * Paints this background color using the given graphics.
-	 * @param graphics
-	 * @param distanceFromLeftPanelBorder
-	 * @param distanceFromTopPanelBorder
-	 * @param width
-	 * @param height
-	 */
-	public final void paintRectangle(Graphics graphics, int distanceFromLeftPanelBorder, int distanceFromTopPanelBorder, int width, int height) {
-		graphics.setColor(getJavaColor());
-		graphics.fillRect(distanceFromLeftPanelBorder, distanceFromTopPanelBorder, width, height);
-	}
-	
-	//method
-	/**
-	 * @throws UnsupportedMethodException
-	 */
-	public void removeAttribute(String attribute) {
-		throw new UnsupportedMethodException(this, "remove attribute");
-	}
-	
-	//method
-	/**
-	 * Resets this color.
-	 */
-	public void reset() {
-		setValue(RED);
-	}
-	
-	//method
-	/**
-	 * @throws UnsupportedMethodException
-	 */
-	public void addOrChangeAttribute(Specification attribute) {
-		throw new UnsupportedMethodException(this, "set attribute");	
+	public final int getValue() {
+		return value;
 	}
 	
 	//method
@@ -431,26 +401,35 @@ public class Color extends Element {
 	 * Sets the blue value of this color.
 	 * 
 	 * @param blueValue
-	 * @throws Exception if the given blue value is negative or bigger than 255
+	 * @throws OutOfRangeException if the given blue value is no true color component (in [0, 255]).
 	 */
-	public final void setBlueValue(int blueValue) {
+	private void setBlueValue(final int blueValue) {
 		
-		Validator.throwExceptionIfValueIsNotInRange("blue value", 0, 255, blueValue);
+		//Checks if the given blue value is between 0 and 255.
+		ZetaValidator
+		.supposeThat(blueValue)
+		.thatIsNamed("blue value")
+		.isBetween(MIN_TRUE_COLOR_COMPONENT, MAX_TRUE_COLOR_COMPONENT);
 		
 		value = getValue() - getBlueValue() + blueValue;
 	}
 	
+	//method
 	/**
 	 * Sets the green value of this color.
 	 * 
 	 * @param greenValue
-	 * @throws Exception if the given green value is negative or bigger than 255
+	 * @throws OutOfRangeException if the given green value is no true color component (in [0, 255]5).
 	 */
-	public final void setGreenValue(int greenValue) {
+	private void setGreenValue(final int greenValue) {
 		
-		Validator.throwExceptionIfValueIsNotInRange("green value", 0, 255, greenValue);
+		//Checks if the given blue value is between 0 and 255.
+		ZetaValidator
+		.supposeThat(greenValue)
+		.thatIsNamed("green value")
+		.isBetween(MIN_TRUE_COLOR_COMPONENT, MAX_TRUE_COLOR_COMPONENT);
 		
-		value = getValue() - (getGreenValue() * 256) + (greenValue * 256);
+        value = getValue() - (getGreenValue() * 256) + (greenValue * 256);
 	}
 	
 	//method
@@ -458,24 +437,30 @@ public class Color extends Element {
 	 * Sets the red value of this color.
 	 * 
 	 * @param redValue
-	 * @throws Exception if the given red value is negative or bigger than 255
+	 * @throws OutOfRangeException if the given red value is no true color component (in [0, 255]).
 	 */
-	public final void setRedValue(int redValue) {
+	private void setRedValue(final int redValue) {
 		
-		Validator.throwExceptionIfValueIsNotInRange("red value", 0, 255, redValue);
+		//Checks if the given blue value is between 0 and 255.
+		ZetaValidator
+		.supposeThat(redValue)
+		.thatIsNamed("red value")
+		.isBetween(MIN_TRUE_COLOR_COMPONENT, MAX_TRUE_COLOR_COMPONENT);
 		
-		value = getValue() - (getRedValue() * 65536) + (redValue * 65536);
+        value = getValue() - (getRedValue() * 65536) + (redValue * 65536);
 	}
 	
 	//method
 	/**
 	 * Sets the value of this color.
+	 * 
 	 * @param value
-	 * @throws Exception if the given value is no true color value (negative or bigger than 16777215).
+	 * @throws OutOfRangeException if the given value is no true color (in [0, 16'777'215]).
 	 */
-	public final void setValue(int value) {
+	private void setValue(final int value) {
 		
-		Validator.throwExceptionIfValueIsNotInRange("value", 0, 16777215, value);
+		//Checks if the given value is between 0 and 16777215.
+		ZetaValidator.supposeThat(value).isBetween(MIN_TRUE_COLOR, MAX_TRUE_COLOR);
 		
 		this.value = value;
 	}
@@ -483,10 +468,13 @@ public class Color extends Element {
 	//method
 	/**
 	 * Sets the value of this color.
+	 * 
 	 * @param value
-	 * @throws Exception if the given value is no color name or no true color value
+	 * @throws InvalidArgumentException if the given value is no color name or no true color value.
 	 */
-	public final void setValue(String value) {
+	private void setValue(final String value) {
+		
+		//Enumerates the given value.
 		switch (value) {
 			
 			//Handles very light colors.
@@ -622,7 +610,10 @@ public class Color extends Element {
 			//Handles other colors.	
 			default:
 				if (value.length() != 8 && !value.substring(2).equals(StringManager.HEXADECIMAL_PREFIX)) {
-					throw new RuntimeException("Value '" + value + "' is no color name and no color value.");
+					throw new InvalidArgumentException(
+						new Argument(value),
+						new ErrorPredicate("is no color name or true color value")
+					);	
 				}
 				this.value = 0;
 				int base = 1;
@@ -678,7 +669,10 @@ public class Color extends Element {
 						tempValue = 15;
 						break;
 					default:
-						throw new RuntimeException("Value '" + value + "' is no color name and no color value.");
+						throw new InvalidArgumentException(
+							new Argument(value),
+							new ErrorPredicate("is no color name or true color value")
+						);	
 				}
 				this.value += tempValue * base;
 				base *= 16;

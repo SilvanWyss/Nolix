@@ -43,7 +43,7 @@ extends Rectangle<L, SimpleRectangleStructure> {
 	//attributes
 	private final Length length = new Length();
 	private final Thickness thickness = new Thickness();
-	private final Color color = new Color();
+	private Color color = new Color();
 	
 	//constructor
 	/**
@@ -168,7 +168,7 @@ extends Rectangle<L, SimpleRectangleStructure> {
 	@SuppressWarnings("unchecked")
 	public final L setColor(final int color) {
 		
-		this.color.setValue(color);
+		this.color = new Color(color);
 		
 		return (L)this;
 	}
@@ -184,7 +184,7 @@ extends Rectangle<L, SimpleRectangleStructure> {
 	@SuppressWarnings("unchecked")
 	public final L setColor(final String color) {
 		
-		this.color.setValue(color);
+		this.color = new Color(color);
 		
 		return (L)this;
 	}

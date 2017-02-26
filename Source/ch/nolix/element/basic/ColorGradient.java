@@ -33,8 +33,8 @@ public final class ColorGradient extends Element {
 
 	//attributes
 	private ColorGradientPattern pattern = DEFAULT_PATTERN;
-	private final Color color1 = new Color();
-	private final Color color2 = new Color();
+	private Color color1 = new Color();
+	private Color color2 = new Color();
 	
 	//method
 	/**
@@ -97,7 +97,7 @@ public final class ColorGradient extends Element {
 	 * @throws Exception if the given color is no true color value (negative or bigger than 16777215)
 	 */
 	public final void setColor1(int color) {
-		this.color1.setValue(color);
+		this.color1 = new Color(color);
 	}
 	
 	//method
@@ -108,7 +108,7 @@ public final class ColorGradient extends Element {
 	 * @throws Exception if the given color is no true color value (negative or bigger than 16777215)
 	 */
 	public final void setColor2(int color) {
-		this.color2.setValue(color);
+		this.color2 = new Color(color);
 	}
 	
 	//method

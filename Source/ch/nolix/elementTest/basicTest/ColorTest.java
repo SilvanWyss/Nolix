@@ -19,6 +19,34 @@ import ch.nolix.element.basic.Color;
 public final class ColorTest extends ZetaTest {
 	
 	//test method
+	public void test_createInvertedColor_1() {
+		
+		//setup
+		final Color color = new Color(0x000000);
+		
+		//execution
+		final Color invertedColor = color.createInvertedColor();
+
+		//verification
+		expectThat(color.getValue()).equals(0x000000);
+		expectThat(invertedColor.getValue()).equals(0xFFFFFF);
+	}
+	
+	//test method
+	public void test_createInvertedColor_2() {
+		
+		//setup
+		final Color color = new Color(0xFFFFFF);
+		
+		//execution
+		final Color invertedColor = color.createInvertedColor();
+
+		//verification
+		expectThat(color.getValue()).equals(0xFFFFFF);
+		expectThat(invertedColor.getValue()).equals(0x000000);
+	}
+	
+	//test method
 	public void testEquals() {
 		
 		//setup
@@ -48,31 +76,5 @@ public final class ColorTest extends ZetaTest {
 		expectThat(color.getRedValue()).equals(0x10);
 		expectThat(color.getGreenValue()).equals(0x20);
 		expectThat(color.getRedValue()).equals(0x30);
-	}
-	
-	//test method
-	public void testInvert1() {
-		
-		//setup
-		final Color color = new Color(0x000000);
-		
-		//execution
-		color.invert();
-		
-		//verification
-		expectThat(color.getValue()).equals(0xFFFFFF);
-	}
-	
-	//test method
-	public void testInvert2() {
-		
-		//setup
-		final Color color = new Color(0xFFFFFF);
-		
-		//execution
-		color.invert();
-		
-		//verification
-		expectThat(color.getValue()).equals(0x000000);
 	}
 }
