@@ -49,51 +49,6 @@ public final class DialogClient extends Client<DialogClient> {
 	
 	//constructor
 	/**
-	 * Creates new dialog client that will connect to the given target application on the given port on the machine with the given ip.
-	 * 
-	 * @param ip
-	 * @param port
-	 * @param targetApplication
-	 * @throws NullArgumentException if the given target application is null.
-	 * @throws EmptyArgumentException if the given target application is empty.
-	 */
-	public DialogClient(
-		final String ip,
-		final int port,
-		final String targetApplication
-	) {
-		
-		//Calls constructor of the base class.
-		super(ip, port, targetApplication, c -> c.setDialog(new MockDialog()));
-	}
-	
-	//constructor
-	/**
-	 * Creates new dialog client that:
-	 * -Will connect to the given target application on the given port on the machine with the given ip.
-	 * -Has the given dialog.
-	 * 
-	 * @param ip
-	 * @param port
-	 * @param targetApplication
-	 * @param dialog
-	 * @throws NullArgumentException if the given target application is null.
-	 * @throws EmptyArgumentException if the given target application is empty.
-	 * @throws NullArgumentException if the given dialog is null.
-	 */
-	public DialogClient(
-		final String ip,
-		final int port,
-		final String targetApplication,
-		final Dialog<?> dialog
-	) {
-		
-		//Calls constructor of the base class.
-		super(ip, port, targetApplication, c -> c.setDialog(dialog));
-	}
-	
-	//constructor
-	/**
 	 * Creates new dialog client with the given duplex controller and the given initial session.
 	 * 
 	 * @param duplexController
