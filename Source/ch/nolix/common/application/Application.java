@@ -5,8 +5,6 @@ package ch.nolix.common.application;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.ParameterizedType;
 
-
-
 //own imports
 import ch.nolix.common.basic.NamedElement;
 import ch.nolix.common.container.IContainer;
