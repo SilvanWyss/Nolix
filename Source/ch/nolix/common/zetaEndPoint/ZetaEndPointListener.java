@@ -22,11 +22,11 @@ import ch.nolix.common.util.Validator;
 /**
  * An alpha end point listener listens to alpha end points on a certain port.
  */
-public class AlphaEndPointListener extends Thread implements Abortable {
+public class ZetaEndPointListener extends Thread implements Abortable {
 	
 	//attributes
 	private final int port;
-	private final IAlphaEndPointTaker alphaEndPointTaker;
+	private final IZetaEndPointTaker alphaEndPointTaker;
 	private boolean stopped = false;
 	
 	//optional attribute
@@ -43,7 +43,7 @@ public class AlphaEndPointListener extends Thread implements Abortable {
 	 *  -the given port is negative or bigger than 65535
 	 *  -the given alpha end point taker is null
 	 */
-	public AlphaEndPointListener(int port, IAlphaEndPointTaker alphaEndPointTaker) {
+	public ZetaEndPointListener(int port, IZetaEndPointTaker alphaEndPointTaker) {
 		
 		//Calls other constructor.
 		this(port, alphaEndPointTaker, true);
@@ -61,7 +61,7 @@ public class AlphaEndPointListener extends Thread implements Abortable {
 	 *  -the given port is negative or bigger than 65535
 	 *  -the given alpha end point taker is null
 	 */
-	public AlphaEndPointListener(int port, IAlphaEndPointTaker alphaEndPointTaker, boolean start) {
+	public ZetaEndPointListener(int port, IZetaEndPointTaker alphaEndPointTaker, boolean start) {
 		
 		Validator.throwExceptionIfValueIsNotInRange(
 			"port",
@@ -126,7 +126,7 @@ public class AlphaEndPointListener extends Thread implements Abortable {
 			serverSocket = new ServerSocket(getPort());
 			
 			while (isRunning()) {
-				AlphaEndPoint alphaEndPoint = new AlphaEndPoint(serverSocket.accept());
+				ZetaEndPoint alphaEndPoint = new ZetaEndPoint(serverSocket.accept());
 				Sequencer.runInBackground(() -> alphaEndPointTaker.takeAlphaEndPoint(alphaEndPoint));
 			}			
 		}

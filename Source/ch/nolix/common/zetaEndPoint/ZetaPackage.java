@@ -16,7 +16,7 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
 /**
  * An advanced package is a package whose message has a specific role.
  */
-final class AdvancedPackage extends Package {
+final class ZetaPackage extends Package {
 	
 	//attribute
 	private final MessageRole messageRole;
@@ -32,7 +32,7 @@ final class AdvancedPackage extends Package {
 	 * -The given message role is null.
 	 * -The given message is null.
 	 */
-	public AdvancedPackage(int index, MessageRole messageRole, String message) {
+	public ZetaPackage(int index, MessageRole messageRole, String message) {
 		
 		//Calls constructor of the base class.
 		super(index, message);
@@ -50,7 +50,7 @@ final class AdvancedPackage extends Package {
 	 * @param string
 	 * @throws Exception if the given string is not valid
 	 */
-	public AdvancedPackage(String string) {
+	public ZetaPackage(String string) {
 		
 		//Calls other constructor.
 		this(

@@ -15,7 +15,7 @@ import ch.nolix.common.constants.PortManager;
 /**
  * A HTTP alpha end point listener listens to alpha end points on the HTTP port.
  */
-public final class HTTPAlphaEndPointListener extends AlphaEndPointListener {
+public final class HTTPZetaEndPointListener extends ZetaEndPointListener {
 	
 	//constructor
 	/**
@@ -25,7 +25,7 @@ public final class HTTPAlphaEndPointListener extends AlphaEndPointListener {
 	 * @param alphaEndPointTaker
 	 * @throws Exception if the given alpha end point taker is null
 	 */
-	public HTTPAlphaEndPointListener(IAlphaEndPointTaker endPointTaker)  {
+	public HTTPZetaEndPointListener(IZetaEndPointTaker endPointTaker)  {
 		
 		//Calls constructor of the base class.
 		super(PortManager.HTTP_PORT, endPointTaker);

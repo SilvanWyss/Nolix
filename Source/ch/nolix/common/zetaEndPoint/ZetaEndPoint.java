@@ -28,7 +28,7 @@ import ch.nolix.common.util.Validator;
  * 	-other process on the same computer
  *  -process on an other computer
  */
-public final class AlphaEndPoint extends AbortableElement {
+public final class ZetaEndPoint extends AbortableElement {
 	
 	//default value
 	public static final int DEFAULT_TIMEOUT_IN_MILLISECONDS = 2000;
@@ -43,7 +43,7 @@ public final class AlphaEndPoint extends AbortableElement {
 	private IZetaReceiver alphaReceiver;
 	
 	//multiple attribute
-	private final List<AdvancedPackage> receivedPackages = new List<AdvancedPackage>();
+	private final List<ZetaPackage> receivedPackages = new List<ZetaPackage>();
 
 	//constructor
 	/**
@@ -52,7 +52,7 @@ public final class AlphaEndPoint extends AbortableElement {
 	 * @param socket
 	 * @throws Exception if the given socket is null
 	 */
-	public AlphaEndPoint(Socket socket) {
+	public ZetaEndPoint(Socket socket) {
 		
 		//Checks the given socket.
 		Validator.throwExceptionIfValueIsNull("socket", socket);
@@ -78,7 +78,7 @@ public final class AlphaEndPoint extends AbortableElement {
 	 * @param port
 	 * @throws Exception if the given port is smaller than 0 or bigger than 65535
 	 */
-	public AlphaEndPoint(String ip, int port) {
+	public ZetaEndPoint(String ip, int port) {
 
 		Validator.throwExceptionIfValueIsNotInRange(
 			"port",
@@ -99,7 +99,7 @@ public final class AlphaEndPoint extends AbortableElement {
 		new Listener(this);
 	}
 	
-	public AlphaEndPoint(int port) {
+	public ZetaEndPoint(int port) {
 		this("::1", port);
 	}
 	
@@ -134,9 +134,9 @@ public final class AlphaEndPoint extends AbortableElement {
 		throwExceptionIfStopped();
 		
 		final int index = getNextPackageIndex();
-		send(new AdvancedPackage(index, MessageRole.NORMAL_MESSAGE, message));
+		send(new ZetaPackage(index, MessageRole.NORMAL_MESSAGE, message));
 		
-		final AdvancedPackage response = waitToAndRemoveAndGetReceivedResponse(index, message);
+		final ZetaPackage response = waitToAndRemoveAndGetReceivedResponse(index, message);
 		
 		//Enumerates the response.
 		switch (response.getMessageRole()) {
@@ -192,7 +192,7 @@ public final class AlphaEndPoint extends AbortableElement {
 	 */
 	void receive(String package_) {
 		
-		final AdvancedPackage package__ = new AdvancedPackage(package_);
+		final ZetaPackage package__ = new ZetaPackage(package_);
 
 		//Enumerates the received package.
 		switch (package__.getMessageRole()) {
@@ -203,11 +203,11 @@ public final class AlphaEndPoint extends AbortableElement {
 					}
 					
 					String responseMessage = getRefReceiver().receiveMessageAndGetReply(package__.getMessage());
-					send(new AdvancedPackage(package__.getIndex(), MessageRole.SUCCESS_RESPONSE_MESSAGE, responseMessage));
+					send(new ZetaPackage(package__.getIndex(), MessageRole.SUCCESS_RESPONSE_MESSAGE, responseMessage));
 				}
 				catch (Exception e) {
 					String responseMessage = e.getMessage();
-					send(new AdvancedPackage(package__.getIndex(), MessageRole.ERROR_RESPONSE_MESSAGE, responseMessage));
+					send(new ZetaPackage(package__.getIndex(), MessageRole.ERROR_RESPONSE_MESSAGE, responseMessage));
 				}
 				break;
 			default:
@@ -259,7 +259,7 @@ public final class AlphaEndPoint extends AbortableElement {
 	 * @return the reply with the given index
 	 * @throws Exception if this alpha end point has not received a reply with the given index
 	 */
-	private final AdvancedPackage removeAndGetReceivedResponse(int index) {
+	private final ZetaPackage removeAndGetReceivedResponse(int index) {
 		return this.receivedPackages.getRefFirst(p -> p.hasIndex(index));
 	}
 	
@@ -269,7 +269,7 @@ public final class AlphaEndPoint extends AbortableElement {
 	 * 
 	 * @param package_
 	 */
-	private void send(AdvancedPackage package_) {
+	private void send(ZetaPackage package_) {
 		printWriter.println(package_.toString());
 		printWriter.flush();
 	}
@@ -282,7 +282,7 @@ public final class AlphaEndPoint extends AbortableElement {
 	 * @return reply with the given index
 	 * @throws Exception if the timeout is reached before this alpha end point has received a reply with the given index
 	 */
-	private AdvancedPackage waitToAndRemoveAndGetReceivedResponse(int index, String message) {
+	private ZetaPackage waitToAndRemoveAndGetReceivedResponse(int index, String message) {
 		
 		long startTimeInMilliseconds = System.currentTimeMillis();
 		

@@ -12,7 +12,7 @@ package ch.nolix.common.zetaEndPoint;
 /**
  * A alpha end point taker takes alpha end points.
  */
-public interface IAlphaEndPointTaker {
+public interface IZetaEndPointTaker {
 
 	//abstract method
 	/**
@@ -20,5 +20,5 @@ public interface IAlphaEndPointTaker {
 	 * 
 	 * @param alphaEndPoint
 	 */
-	public abstract void takeAlphaEndPoint(AlphaEndPoint alphaEndPoint);
+	public abstract void takeAlphaEndPoint(ZetaEndPoint alphaEndPoint);
 }

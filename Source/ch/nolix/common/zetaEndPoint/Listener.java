@@ -23,7 +23,7 @@ import ch.nolix.common.util.Validator;
 final class Listener extends Thread {
 
 	//attribute
-	private final AlphaEndPoint alphaEndPoint;
+	private final ZetaEndPoint alphaEndPoint;
 	
 	//constructor
 	/**
@@ -33,7 +33,7 @@ final class Listener extends Thread {
 	 * @param alphaEndPoint
 	 * @throws Exception if the given alpha end point is null.
 	 */
-	public Listener(AlphaEndPoint alphaEndPoint) {
+	public Listener(ZetaEndPoint alphaEndPoint) {
 		
 		Validator.throwExceptionIfValueIsNull("alpha end point", alphaEndPoint);
 		

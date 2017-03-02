@@ -17,13 +17,13 @@ import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.specification.Statement;
 import ch.nolix.common.util.Validator;
-import ch.nolix.common.zetaEndPoint.AlphaEndPoint;
+import ch.nolix.common.zetaEndPoint.ZetaEndPoint;
 
 //class
 public final class NetDuplexController extends DuplexController {
 		
 	//attribute
-	private final AlphaEndPoint alphaEndPoint;
+	private final ZetaEndPoint alphaEndPoint;
 		
 	//constructor
 	/**
@@ -32,7 +32,7 @@ public final class NetDuplexController extends DuplexController {
 	 * @param alphaEndPoint
 	 * @throws Exception if the given end point is null
 	 */
-	public NetDuplexController(AlphaEndPoint alphaEndPoint) {
+	public NetDuplexController(ZetaEndPoint alphaEndPoint) {
 		
 		Validator.throwExceptionIfValueIsNull("alpha end point", alphaEndPoint);
 		
@@ -53,7 +53,7 @@ public final class NetDuplexController extends DuplexController {
 	public NetDuplexController(String ip, int port) {
 		
 		//Calls other constructor.
-		this(new AlphaEndPoint(ip, port));
+		this(new ZetaEndPoint(ip, port));
 	}
 	
 	public NetDuplexController(String ip, int port, ILevel2Controller receiverController) {

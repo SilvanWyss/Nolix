@@ -5,9 +5,9 @@ package ch.nolix.commonTest.alphaEndPointTest;
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.interfaces.IZetaReceiver;
 import ch.nolix.common.util.Validator;
-import ch.nolix.common.zetaEndPoint.AlphaEndPoint;
-import ch.nolix.common.zetaEndPoint.AlphaEndPointListener;
-import ch.nolix.common.zetaEndPoint.IAlphaEndPointTaker;
+import ch.nolix.common.zetaEndPoint.ZetaEndPoint;
+import ch.nolix.common.zetaEndPoint.ZetaEndPointListener;
+import ch.nolix.common.zetaEndPoint.IZetaEndPointTaker;
 import ch.nolix.common.zetaTest.ZetaTest;
 
 //test class
@@ -26,11 +26,11 @@ public final class AlphaEndPointTest extends ZetaTest {
 				
 		//setup
 		AlphaEndPointTakerMock alphaEndPointTakerMock = new AlphaEndPointTakerMock();
-		new AlphaEndPointListener(port, alphaEndPointTakerMock);
+		new ZetaEndPointListener(port, alphaEndPointTakerMock);
 		Thread.sleep(200);
 		
 		//execution
-		new AlphaEndPoint(port);
+		new ZetaEndPoint(port);
 		Thread.sleep(200);
 		
 		//verification
@@ -48,11 +48,11 @@ public final class AlphaEndPointTest extends ZetaTest {
 				
 		//setup
 		AlphaEndPointTakerMock alphaEndPointTakerMock = new AlphaEndPointTakerMock();
-		new AlphaEndPointListener(port, alphaEndPointTakerMock);
+		new ZetaEndPointListener(port, alphaEndPointTakerMock);
 		Thread.sleep(200);
 		
 		//execution
-		final AlphaEndPoint alphaEndPoint = new AlphaEndPoint(port);
+		final ZetaEndPoint alphaEndPoint = new ZetaEndPoint(port);
 		String response = alphaEndPoint.sendAndGetResponse("test");
 		Thread.sleep(200);
 		
@@ -68,17 +68,17 @@ public final class AlphaEndPointTest extends ZetaTest {
 	/**
 	 * An alpha end point taker mock is a mock of an alpha end point taker.
 	 */
-	private static final class AlphaEndPointTakerMock implements IAlphaEndPointTaker {
+	private static final class AlphaEndPointTakerMock implements IZetaEndPointTaker {
 
 		//optional attribute
-		private AlphaEndPoint lastAlphaEndPoint;
+		private ZetaEndPoint lastAlphaEndPoint;
 
 		//method
 		/**
 		 * @return the last alpha end point of this alpha end point taker mock
 		 * @throws Exception if this alpha end point taker mock has no last alpha end point
 		 */
-		public AlphaEndPoint getLastAlphaEndPoint() {
+		public ZetaEndPoint getLastAlphaEndPoint() {
 			
 			if (!hasLastAlphaEndPoint()) {
 				throw new UnexistingAttributeException(this, "last alpha end point");
@@ -102,7 +102,7 @@ public final class AlphaEndPointTest extends ZetaTest {
 		 * @param alphaEndPoint
 		 * @throws Exception if the given alpha end point is null
 		 */
-		public void takeAlphaEndPoint(final AlphaEndPoint alphaEndPoint) {
+		public void takeAlphaEndPoint(final ZetaEndPoint alphaEndPoint) {
 
 			Validator.throwExceptionIfValueIsNull("alpha end point", alphaEndPoint);
 			

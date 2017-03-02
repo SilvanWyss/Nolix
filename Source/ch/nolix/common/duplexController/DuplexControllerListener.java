@@ -11,8 +11,8 @@ package ch.nolix.common.duplexController;
 //own imports
 import ch.nolix.common.interfaces.Abortable;
 import ch.nolix.common.util.Validator;
-import ch.nolix.common.zetaEndPoint.AlphaEndPoint;
-import ch.nolix.common.zetaEndPoint.AlphaEndPointListener;
+import ch.nolix.common.zetaEndPoint.ZetaEndPoint;
+import ch.nolix.common.zetaEndPoint.ZetaEndPointListener;
 
 //class
 /**
@@ -22,7 +22,7 @@ public final class DuplexControllerListener implements Abortable {
 
 	//attributes
 	private final IDuplexControllerTaker duplexControllerTaker;
-	private final AlphaEndPointListener alphaEndPointListener;
+	private final ZetaEndPointListener alphaEndPointListener;
 	
 	public DuplexControllerListener(final int port, final IDuplexControllerTaker duplexControllerTaker) {
 		
@@ -30,7 +30,7 @@ public final class DuplexControllerListener implements Abortable {
 		Validator.throwExceptionIfValueIsNull("duplex controller taker", duplexControllerTaker);
 		
 		this.duplexControllerTaker = duplexControllerTaker;
-		this.alphaEndPointListener = new AlphaEndPointListener(port, new AlphaEndPointTaker(this));
+		this.alphaEndPointListener = new ZetaEndPointListener(port, new AlphaEndPointTaker(this));
 	}
 	
 	//method
@@ -60,7 +60,7 @@ public final class DuplexControllerListener implements Abortable {
 	 * @param alphaEndPoint
 	 * @throws Exception if the given alpha end point is null
 	 */
-	void takeAlphaEndPoint(final AlphaEndPoint alphaEndPoint) {
+	void takeAlphaEndPoint(final ZetaEndPoint alphaEndPoint) {
 		duplexControllerTaker.takeDuplexController(new NetDuplexController(alphaEndPoint));
 	}
 }
