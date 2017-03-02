@@ -37,6 +37,13 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	public VerticalStack(List<Specification> attributes) {
 		addOrChangeAttributes(attributes);
 	}
+	
+	public VerticalStack(final Rectangle<?, ?>... rectangles) {
+		
+		for (final Rectangle<?, ?> r: rectangles) {
+			addRectangle(r);
+		}
+	}
 		
 	//method
 	/**
