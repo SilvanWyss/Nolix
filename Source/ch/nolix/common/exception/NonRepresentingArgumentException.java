@@ -7,7 +7,7 @@ package ch.nolix.common.exception;
  * 
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 30
+ * @lines 20
  */
 @SuppressWarnings("serial")
 public final class NonRepresentingArgumentException extends InvalidArgumentException {
@@ -22,9 +22,6 @@ public final class NonRepresentingArgumentException extends InvalidArgumentExcep
 	public NonRepresentingArgumentException(final Object argument, final Class<?> type) {
 		
 		//Calls constructor of the base class.
-		super(
-			new Argument(argument),
-			new ErrorPredicate("represents no " + type)
-		);
+		super(new Argument(argument), new ErrorPredicate("represents no " + type));
 	}
 }
