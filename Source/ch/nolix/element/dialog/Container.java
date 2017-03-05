@@ -22,8 +22,8 @@ import ch.nolix.common.util.Validator;
 /**
  * A container is a rectangle that contains other rectangles.
  */
-public abstract class Container<C extends Container<C, ?>, BRS extends BorderableRectangleStructure<?>>
-extends BorderableRectangle<C, BRS> {
+public abstract class Container<BRS extends BorderableRectangleStructure<BRS>, C extends Container<BRS, C>>
+extends BorderableRectangle<BRS, C> {
 	
 	//attribute
 	private ContainerRole role;

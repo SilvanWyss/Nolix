@@ -18,7 +18,7 @@ import ch.nolix.common.util.Validator;
 import ch.nolix.element.data.Size;
 
 //class
-public final class CheckBox extends BorderableRectangle<CheckBox, CheckBoxStructure> {
+public final class CheckBox extends BorderableRectangle<CheckBoxStructure, CheckBox> {
 
 	//constants
 	public static final String SIMPLE_CLASS_NAME = "CheckBox";

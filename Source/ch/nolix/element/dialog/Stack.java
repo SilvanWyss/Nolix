@@ -16,7 +16,7 @@ import ch.nolix.element.data.Margin;
 
 //class
 public abstract class Stack<S extends Stack<S>> 
-extends Container<S, BorderableRectangleStructure<?>>
+extends Container<SimpleBorderableRectangleStructure, Stack<S>>
 implements Clearable {
 	
 	//constant

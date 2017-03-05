@@ -19,7 +19,7 @@ import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
 
 //class
-public abstract class BorderableRectangleStructure<BRS extends BorderableRectangleStructure<?>>
+public abstract class BorderableRectangleStructure<BRS extends BorderableRectangleStructure<BRS>>
 extends RectangleStructure<BRS> {
 	
 	//attribute headers

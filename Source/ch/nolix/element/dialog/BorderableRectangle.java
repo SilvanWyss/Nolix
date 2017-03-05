@@ -23,8 +23,8 @@ import ch.nolix.element.data.MinHeight;
 import ch.nolix.element.data.MinWidth;
 
 //class
-public abstract class BorderableRectangle<BR extends BorderableRectangle<BR, ?>, BRS extends BorderableRectangleStructure<?>>
-extends Rectangle<BR, BRS> {
+public abstract class BorderableRectangle<BRS extends BorderableRectangleStructure<BRS>, BR extends BorderableRectangle<BRS, BR>>
+extends Rectangle<BRS, BR> {
 	
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "BorderableRectangle";

@@ -26,9 +26,9 @@ import ch.nolix.element.data.RightClickCommand;
 /**
  * A rectangle is a dialog element and has a specific width and height.
  */
-public abstract class Rectangle<R extends Rectangle<R, ?>, RS extends RectangleStructure<?>>
-	extends ConfigurableElement<R>
-	implements Configurable {
+public abstract class Rectangle<RS extends RectangleStructure<RS>, R extends Rectangle<RS, R>>
+extends ConfigurableElement<R>
+implements Configurable {
 	
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "Rectangle";

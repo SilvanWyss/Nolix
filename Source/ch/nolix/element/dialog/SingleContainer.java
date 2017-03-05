@@ -16,7 +16,7 @@ import ch.nolix.common.specification.Specification;
 
 //class
 public final class SingleContainer
-	extends Container<SingleContainer, SimpleBorderableRectangleStructure> {
+	extends Container<SimpleBorderableRectangleStructure, SingleContainer> {
 	
 	//constants
 	public static final String SIMPLE_CLASS_NAME = "SingleContainer";

@@ -26,7 +26,7 @@ import ch.nolix.element.data.Width;
  * -Has a specific width and height.
  * -Can have a background color.
  */
-public final class Area extends Rectangle<Area, SimpleRectangleStructure> {
+public final class Area extends Rectangle<SimpleRectangleStructure, Area> {
 
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "Area";

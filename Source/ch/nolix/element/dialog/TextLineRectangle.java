@@ -25,7 +25,7 @@ import ch.nolix.element.data.GraphicText;
  * @author Silvan Wyss
  */
 public abstract class TextLineRectangle<TLR extends TextLineRectangle<TLR>>
-extends BorderableRectangle<TLR, TextLineRectangleStructure> {
+extends BorderableRectangle<TextLineRectangleStructure, TLR> {
 	
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "TextLineRectangle";

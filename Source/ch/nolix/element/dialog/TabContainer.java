@@ -22,7 +22,7 @@ import ch.nolix.element.data.TextColor;
 
 //class
 public class TabContainer
-extends Container<TabContainer, SimpleBorderableRectangleStructure> {
+extends Container<SimpleBorderableRectangleStructure, TabContainer> {
 
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "TabContainer";

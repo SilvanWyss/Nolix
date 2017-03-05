@@ -12,7 +12,7 @@ import java.awt.Graphics;
 
 //class
 public final class DialogContainer
-	extends BorderableRectangle<DialogContainer, SimpleBorderableRectangleStructure> {
+extends BorderableRectangle<SimpleBorderableRectangleStructure, DialogContainer> {
 
 	//constants
 	public static final String SIMPLE_CLASS_NAME = "DialogContainer";
