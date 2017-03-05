@@ -16,15 +16,15 @@ public final class IntegerValidationTutorial2 {
 
 	//main method
 	/**
-	 * Lets the alpha validator suppose once that 5 is positive and once suppose that 5 is negative.
+	 * Lets the zeta validator suppose once that 5 is positive and once suppose that 5 is negative.
 	 * This is done that the error message of a probable thrown exception contains the variable name.
 	 */
 	public static void main(String[] args) {
 
-		//Supposes that 5 is positive, what makes that the alpha validator does not complain.
+		//Supposes that 5 is positive, what makes that the zeta validator does not complain.
 		ZetaValidator.supposeThat(5).thatIsNamed("size").isPositive();
 		
-		//Supposes that 5 is negative, what makes that the alpha validator throws a NegativeArgumentException.
+		//Supposes that 5 is negative, what makes that the zeta validator throws a NegativeArgumentException.
 		ZetaValidator.supposeThat(5).thatIsNamed("size").isNegative();
 	}
 	

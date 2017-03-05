@@ -20,10 +20,10 @@ public final class BooleanValidationTutorial2 {
 	 */
 	public static void main(String[] args) {
 		
-		//Supposes that true booleans are all true, what makes that the alpha validator does not complain.
+		//Supposes that true booleans are all true, what makes that the zeta validator does not complain.
 		ZetaValidator.supposeThat(true, true, true, true);
 		
-		//Supposes that mixed booleans are all true, what makes that the alpha validator throws a FalseArgumentException.
+		//Supposes that mixed booleans are all true, what makes that the zeta validator throws a FalseArgumentException.
 		ZetaValidator.supposeThat(true, true, true, false);
 	}
 	

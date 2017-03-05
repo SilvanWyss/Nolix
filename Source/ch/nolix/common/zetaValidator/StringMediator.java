@@ -3,8 +3,9 @@ package ch.nolix.common.zetaValidator;
 
 //own imports;
 import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.BiggerArgumentException;
 import ch.nolix.common.exception.EmptyArgumentException;
+import ch.nolix.common.exception.ErrorPredicate;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.NonEmptyArgumentException;
 import ch.nolix.common.exception.NullArgumentException;
 
@@ -32,7 +33,7 @@ public final class StringMediator extends ElementMediator<String> {
 	/**
 	 * @param maxLength
 	 * @throws NullArgumentException if the argument of this string mediator is null
-	 * @throws BiggerArgumentException if the argument of this string mediator has a bigger length than the given max length.
+	 * @throws InvalidArgumentException if the argument of this string mediator has a bigger length than the given max length.
 	 */
 	public void hasMaxLength(final int maxLength) {
 		
@@ -41,7 +42,10 @@ public final class StringMediator extends ElementMediator<String> {
 		
 		//Checks if the argument of this string mediator has a bigger length than the given max length.
 		if (getRefArgument().length() > maxLength) {
-			throw new BiggerArgumentException("length", getRefArgument().length(), maxLength);
+			throw new InvalidArgumentException(
+				new Argument(getRefArgument()),
+				new ErrorPredicate("has the length " + getRefArgument().length() + " what is bigger than " + maxLength)
+			);
 		}
 	}
 	
