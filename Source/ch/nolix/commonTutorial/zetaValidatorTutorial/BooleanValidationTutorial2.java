@@ -1,25 +1,22 @@
-/*
- * file:	AlphaValidatorBooleanTutorial2.java
- * author:	Silvan Wyss
- * month:	2016-12
- * lines:	30
- */
-
 //package declaration
-package ch.nolix.commonTutorial.alphaValidatorTutorial;
+package ch.nolix.commonTutorial.zetaValidatorTutorial;
 
 //own import
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
-//package-visible class
+//class
 /**
- * This class provides a tutorial for the alpha validator class.
+ * This class provides a tutorial how the zeta validator validates a boolean.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-12
+ * @lines 30
  */
-final class AlphaValidatorBooleanTutorial2 {
+public final class BooleanValidationTutorial2 {
 
 	//main method
 	/**
-	 * Lets the alpha validator once suppose that true booleans are all true and once suppose that mixed booleans are all true.
+	 * Lets the zeta validator suppose once that true booleans are all true and once suppose that mixed booleans are all true.
 	 */
 	public static void main(String[] args) {
 		
@@ -34,5 +31,5 @@ final class AlphaValidatorBooleanTutorial2 {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private AlphaValidatorBooleanTutorial2() {}
+	private BooleanValidationTutorial2() {}
 }

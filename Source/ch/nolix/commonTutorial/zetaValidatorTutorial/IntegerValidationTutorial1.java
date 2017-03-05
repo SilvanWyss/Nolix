@@ -1,25 +1,22 @@
-/*
- * file:	AlphaValidatorIntTutorial1.java
- * author:	Silvan Wyss
- * month:	2016-11
- * lines:	30
- */
-
 //package declaration
-package ch.nolix.commonTutorial.alphaValidatorTutorial;
+package ch.nolix.commonTutorial.zetaValidatorTutorial;
 
 //own import
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
-//package-visible class
+//class
 /**
- * This class provides a tutorial for the alpha validator class.
+ * This class provides a tutorial how the zeta validator validates an integer.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-11
+ * @lines 30
  */
-final class AlphaValidatorIntTutorial1 {
+public final class IntegerValidationTutorial1 {
 
 	//main method
 	/**
-	 * Lets the alpha validator once suppose that 5 is positive and once suppose that 5 is negative.
+	 * Lets the zeta validator suppose once that 5 is positive and once suppose that 5 is negative.
 	 */
 	public static void main(String[] args) {
 		
@@ -34,5 +31,5 @@ final class AlphaValidatorIntTutorial1 {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private AlphaValidatorIntTutorial1() {}
+	private IntegerValidationTutorial1() {}
 }
