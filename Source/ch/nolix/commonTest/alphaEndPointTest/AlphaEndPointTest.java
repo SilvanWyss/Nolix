@@ -6,7 +6,7 @@ import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.interfaces.IZetaReceiver;
 import ch.nolix.common.util.Validator;
 import ch.nolix.common.zetaEndPoint.ZetaEndPoint;
-import ch.nolix.common.zetaEndPoint.ZetaEndPointListener;
+import ch.nolix.common.zetaEndPoint.Server;
 import ch.nolix.common.zetaEndPoint.IZetaEndPointTaker;
 import ch.nolix.common.zetaTest.ZetaTest;
 
@@ -26,7 +26,7 @@ public final class AlphaEndPointTest extends ZetaTest {
 				
 		//setup
 		AlphaEndPointTakerMock alphaEndPointTakerMock = new AlphaEndPointTakerMock();
-		new ZetaEndPointListener(port, alphaEndPointTakerMock);
+		new Server(port, alphaEndPointTakerMock);
 		Thread.sleep(200);
 		
 		//execution
@@ -48,12 +48,12 @@ public final class AlphaEndPointTest extends ZetaTest {
 				
 		//setup
 		AlphaEndPointTakerMock alphaEndPointTakerMock = new AlphaEndPointTakerMock();
-		new ZetaEndPointListener(port, alphaEndPointTakerMock);
+		new Server(port, alphaEndPointTakerMock);
 		Thread.sleep(200);
 		
 		//execution
 		final ZetaEndPoint alphaEndPoint = new ZetaEndPoint(port);
-		String response = alphaEndPoint.sendAndGetResponse("test");
+		String response = alphaEndPoint.sendMessageAndGetReply("test");
 		Thread.sleep(200);
 		
 		//verification
@@ -106,8 +106,14 @@ public final class AlphaEndPointTest extends ZetaTest {
 
 			Validator.throwExceptionIfValueIsNull("alpha end point", alphaEndPoint);
 			
-			alphaEndPoint.setAlphaReceiver(new ZetaReceiverMock());
+			alphaEndPoint.setReceiver(new ZetaReceiverMock());
 			lastAlphaEndPoint = alphaEndPoint;
+		}
+
+		@Override
+		public String getName() {
+			// TODO Auto-generated method stub
+			return null;
 		}
 	}
 	

@@ -8,11 +8,13 @@
 //package declaration
 package ch.nolix.common.zetaEndPoint;
 
+import ch.nolix.common.interfaces.Named;
+
 //interface
 /**
  * A alpha end point taker takes alpha end points.
  */
-public interface IZetaEndPointTaker {
+public interface IZetaEndPointTaker extends Named {
 
 	//abstract method
 	/**

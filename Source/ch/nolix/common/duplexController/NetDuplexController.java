@@ -39,7 +39,7 @@ public final class NetDuplexController extends DuplexController {
 		this.alphaEndPoint = alphaEndPoint;
 		
 		//Creates the receiver of this net duplex controller.
-		alphaEndPoint.setAlphaReceiver(new AlphaReceiver(this));
+		alphaEndPoint.setReceiver(new AlphaReceiver(this));
 	}
 	
 	//constructor
@@ -77,7 +77,7 @@ public final class NetDuplexController extends DuplexController {
 		String message = Protocol.DATA_REQUEST + '(' + request.toString() + ')';
 		
 		//Sends and gets reply.
-		Specification reply = new Specification(alphaEndPoint.sendAndGetResponse(message));
+		Specification reply = new Specification(alphaEndPoint.sendMessageAndGetReply(message));
 		
 		//Handles reply
 		switch (reply.getHeader()) {
@@ -232,7 +232,7 @@ public final class NetDuplexController extends DuplexController {
 		String message = Protocol.COMMANDS + '(' + commands.toString() + ')';
 				
 		//Sends message and gets reply.
-		Specification reply = new Specification(alphaEndPoint.sendAndGetResponse(message));
+		Specification reply = new Specification(alphaEndPoint.sendMessageAndGetReply(message));
 		
 		//Handles reply.
 		switch (reply.getHeader()) {

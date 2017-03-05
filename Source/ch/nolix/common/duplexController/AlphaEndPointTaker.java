@@ -37,4 +37,10 @@ final class AlphaEndPointTaker implements IZetaEndPointTaker {
 	public void takeAlphaEndPoint(ZetaEndPoint alphaEndPoint) {
 		netDuplexControllerListener.takeAlphaEndPoint(alphaEndPoint);
 	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

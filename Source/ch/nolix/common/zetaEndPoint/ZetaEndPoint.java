@@ -1,10 +1,3 @@
-/*
- * file:	AlphaEndPoint.java
- * author:	Silvan Wyss
- * month:	2016-05
- * lines:	290
- */
-
 //package declaration
 package ch.nolix.common.zetaEndPoint;
 
@@ -15,47 +8,137 @@ import java.net.Socket;
 
 //own imports
 import ch.nolix.common.basic.AbortableElement;
+import ch.nolix.common.constants.IPv6Manager;
 import ch.nolix.common.constants.PortManager;
 import ch.nolix.common.container.List;
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.interfaces.IZetaReceiver;
-import ch.nolix.common.util.Validator;
+import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
 /**
- * An alpha and point can send messages to an other alpha end point on:
+ * A zeta end point can send messages to an other zeta end point that is on:
  * 	-the same process
  * 	-other process on the same computer
  *  -process on an other computer
+ *  
+ *  @author Silvan Wyss
+ *  @month 2016-05
+ *  @lines 440
  */
-public final class ZetaEndPoint extends AbortableElement {
+public class ZetaEndPoint extends AbortableElement {
 	
 	//default value
 	public static final int DEFAULT_TIMEOUT_IN_MILLISECONDS = 2000;
+	
+	//constant
+	private static final String DEFAULT_TARGET_APPLICATION = "DefaultApplication";
 
 	//attributes
-	private int nextPackageIndex = 1;
 	private int timeoutInMilliseconds = DEFAULT_TIMEOUT_IN_MILLISECONDS;
+	private int nextSentPackageIndex = 1;
 	private final Socket socket;
 	private final PrintWriter printWriter;
 	
-	//optional attribute
+	//optional attributes
+	private String targetApplication;
 	private IZetaReceiver alphaReceiver;
 	
 	//multiple attribute
 	private final List<ZetaPackage> receivedPackages = new List<ZetaPackage>();
-
+	
 	//constructor
 	/**
-	 * Creates new alpha end point with the given socket.
+	 * Creates new zeta end point that will connect to the default target application on the given port on the local machine.
+	 * 
+	 * @param port
+	 * @throws OutOfRangeArgumentException if the given port is not in [0, 65'535].
+	 */
+	public ZetaEndPoint(final int port) {
+		
+		//Calls other constructor.
+		this(IPv6Manager.LOOP_BACK_ADDRESS, port, DEFAULT_TARGET_APPLICATION);
+	}
+	
+	//constructor
+	/**
+	 * Creates new zeta end point that will connect to the given target application on the given port on the local machine.
+	 * 
+	 * @param port
+	 * @param targetApplication
+	 * @throws OutOfRangeArgumentException if the given port is not in [0, 65'535].
+	 * @throws NullArgumentException if the given target application is null.
+	 * @throws EmptyArgumentException if the given target application is empty.
+	 */
+	public ZetaEndPoint(final int port, final String targetApplication) {
+		
+		//Calls other constructor.
+		this(IPv6Manager.LOOP_BACK_ADDRESS, port, DEFAULT_TARGET_APPLICATION);
+	}
+	
+	//constructor
+	/**
+	 * Creates new zeta end point that will connect to the default target application on the given port on the machine with the given ip.
+	 * 
+	 * @param ip
+	 * @param port
+	 * @throws OutOfRangeArgumentException if the given port is not in [0, 65'535].
+	 */
+	public ZetaEndPoint(final String ip, final int port) {
+		
+		//Calls other constructor.
+		this(ip, port, DEFAULT_TARGET_APPLICATION);
+	}
+	
+	//constructor
+	/**
+	 * Creates new zeta end point that will connect to the given target application on the given port on the machine with the given ip.
+	 * 
+	 * @param ip
+	 * @param port
+	 * @param targetApplication
+	 * @throws OutOfRangeArgumentException if the given port is not in [0, 65'535].
+	 * @throws NullArgumentException if the given target application is null.
+	 * @throws EmptyArgumentException if the given target aplication is empty.
+	 */
+	public ZetaEndPoint(final String ip, final int port, final String targetApplication) {
+		
+		//Checks if the givne port is in [0, 65'536].
+		ZetaValidator
+		.supposeThat(port)
+		.thatIsNamed("port")
+		.isBetween(PortManager.MIN_PORT, PortManager.MAX_PORT);
+		
+		
+			
+		//Sets the target application of this zeta end point.
+		this.targetApplication = targetApplication;
+	
+		try {
+			socket = new Socket(ip, port);
+			printWriter = new PrintWriter(socket.getOutputStream());
+		} 
+		catch (final IOException exception) {
+			throw new RuntimeException(exception);
+		}
+			
+		//Creates and starts listener of this zeta end point.
+		new Listener(this);
+		
+		send(new ZetaPackage(0, MessageRole.TARGET_APPLICATION_MESSAGE, targetApplication));
+	}
+	
+	//package-visible constructor
+	/**
+	 * Creates new zeta end point with the given socket.
 	 * 
 	 * @param socket
-	 * @throws Exception if the given socket is null
+	 * @throws NullArgumentException if the given socket is null
 	 */
-	public ZetaEndPoint(Socket socket) {
+	ZetaEndPoint(final Socket socket) {
 		
-		//Checks the given socket.
-		Validator.throwExceptionIfValueIsNull("socket", socket);
+		//Checks if the given socket is not null.
+		ZetaValidator.supposeThat(socket).thatIsInstanceOf(Socket.class).isNotNull();
 		
 		this.socket = socket;
 		
@@ -66,83 +149,59 @@ public final class ZetaEndPoint extends AbortableElement {
 			throw new RuntimeException(e);
 		}
 		
-		//Creates and starts listener of this alpha end point.
+		//Creates and starts listener of this zeta end point.
 		new Listener(this);
-	}
-	
-	//constructor
-	/**
-	 * Creates new alpha end point that will connect to the given port on the computer with the given ip.
-	 * 
-	 * @param ip
-	 * @param port
-	 * @throws Exception if the given port is smaller than 0 or bigger than 65535
-	 */
-	public ZetaEndPoint(String ip, int port) {
-
-		Validator.throwExceptionIfValueIsNotInRange(
-			"port",
-			PortManager.MIN_PORT,
-			PortManager.MAX_PORT,
-			port
-		);
 		
-		try {
-			socket = new Socket(ip, port);
-			printWriter = new PrintWriter(socket.getOutputStream());
-		} 
-		catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-		
-		//Creates and starts listener of this alpha end point.
-		new Listener(this);
-	}
-	
-	public ZetaEndPoint(int port) {
-		this("::1", port);
+		waitToTargetApplication();
 	}
 	
 	//method
 	/**
-	 * @return the timeout of this alpha end point in milliseconds
+	 * @return the target application of this zeta end point.
 	 */
-	public final int getTimeoutInMilliseconds() {
+	public String getTargetApplication() {
+		return targetApplication;
+	}
+	
+	//method
+	/**
+	 * @return the timeout of this zeta end point in milliseconds.
+	 */
+	public int getTimeoutInMilliseconds() {
 		return timeoutInMilliseconds;
 	}
 	
 	//method
 	/**
-	 * @return true if this alpha end point has a receiver
+	 * @return true if this zeta end point has a receiver.
 	 */
-	public final boolean hasReceiver() {
+	public boolean hasReceiver() {
 		return (alphaReceiver != null);
 	}
+	
+	
 
 	//method
 	/**
 	 * Sends the given message and returns the reply.
 	 * 
 	 * @param message
-	 * @return reply of the given message
-	 * @throws Exception if:
-	 *  -this alpha end point is stopped
-	 *  -an error occures by trying to send the given message
+	 * @return the reply of the given message.
+	 * @throws RuntimeException if this zeta end point is stopped.
+	 * @throws RuntimeException if an error occurs by trying to send the message.
 	 */
-	public final String sendAndGetResponse(String message) {
+	public String sendMessageAndGetReply(final String message) {
 		
-		throwExceptionIfStopped();
-		
-		final int index = getNextPackageIndex();
-		send(new ZetaPackage(index, MessageRole.NORMAL_MESSAGE, message));
-		
-		final ZetaPackage response = waitToAndRemoveAndGetReceivedResponse(index, message);
+		//Sends message nd receives reply.
+		final int index = getNextSentPackageIndex();
+		send(new ZetaPackage(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message));		
+		final ZetaPackage response = waitToAndGetAndRemoveReceivedPackage(index);
 		
 		//Enumerates the response.
 		switch (response.getMessageRole()) {
-			case SUCCESS_RESPONSE_MESSAGE:
+			case SUCCESS_RESPONSE:
 				return response.getMessage();
-			case ERROR_RESPONSE_MESSAGE:
+			case ERROR_RESPONSE:
 				throw new RuntimeException(response.getMessage());
 			default:
 				throw new RuntimeException("An error occured.");
@@ -151,92 +210,131 @@ public final class ZetaEndPoint extends AbortableElement {
 	
 	//method
 	/**
-	 * Sets the alpha receiver of this alpha end point.
+	 * Sets the receiver of this zeta end point.
 	 * 
 	 * @param receiver
+	 * @throws NullArgumentException if the given receiver is null.
 	 */
-	public final void setAlphaReceiver(IZetaReceiver receiver) {
+	public void setReceiver(final IZetaReceiver receiver) {
+		
+		//Checks if the given receiver is not null.
+		ZetaValidator.supposeThat(receiver).thatIsNamed("receiver").isNotNull();
+		
 		this.alphaReceiver = receiver;
 	}
 	
 	//method
 	/**
-	 * Sets the timeout of this alpha end point in milliseconds.
+	 * Sets the timeout of this zeta end point in milliseconds.
 	 * 
 	 * @param timeoutInMilliseconds
-	 * @throws Exception if:
-	 *  -the given timeout is not positive
-	 *  -this alpha end point is stopped
+	 * @throws NonPositiveArgumentException if the given timeout is not positive.
+	 * @throws RuntimeException if this zeta end point is stopped.
 	 */
-	public final void setTimeoutInMilliseconds(int timeoutInMilliseconds) {
+	public void setTimeoutInMilliseconds(final int timeoutInMilliseconds) {
 		
-		Validator.throwExceptionIfValueIsNotPositive("timeout", timeoutInMilliseconds);
-		
+		//Checks if the given timeout is positive.
+		ZetaValidator.supposeThat(timeoutInMilliseconds).thatIsNamed("timeout").isPositive();
+	
+		//Checks if this zeta end point is not stopped.
 		throwExceptionIfStopped();
 
 		this.timeoutInMilliseconds = timeoutInMilliseconds;
 	}
 	
-	//method
+	//package-visible method
 	/**
-	 * @return the socket of this alpha end point
+	 * @return the socket of this zeta end point.
 	 */
 	final Socket getRefSocket() {
 		return socket;
 	}
 	
-	//method
+	//package-visible method
 	/**
-	 * Receives the given package.
+	 * Lets this zeta end point receive the given message.
+	 * 
 	 * @param message
 	 */
-	void receive(String package_) {
+	void receive(final String message) {
+		receive(ZetaPackage.createZetaPackageFromString(message));
+	}
+	
+	//package-visible method
+	/**
+	 * Lets this zeta end point receive the given package.
+	 * 
+	 * @param package_
+	 */
+	private void receive(final ZetaPackage package_) {
 		
-		final ZetaPackage package__ = new ZetaPackage(package_);
-
-		//Enumerates the received package.
-		switch (package__.getMessageRole()) {
-			case NORMAL_MESSAGE:
+		//Enumerates the message role of the given package.
+		switch (package_.getMessageRole()) {
+			case TARGET_APPLICATION_MESSAGE:
+				setTargetApplication(package_.getMessage());
+				break;
+			case RESPONSE_EXPECTING_MESSAGE:
+				
 				try {
-					if (!hasReceiver()) {
-						throw new UnexistingAttributeException(this, "alpha receiver");
-					}
-					
-					String responseMessage = getRefReceiver().receiveMessageAndGetReply(package__.getMessage());
-					send(new ZetaPackage(package__.getIndex(), MessageRole.SUCCESS_RESPONSE_MESSAGE, responseMessage));
+					final String reply = getRefReceiver().receiveMessageAndGetReply(package_.getMessage());
+					send(new ZetaPackage(package_.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
 				}
-				catch (Exception e) {
-					String responseMessage = e.getMessage();
-					send(new ZetaPackage(package__.getIndex(), MessageRole.ERROR_RESPONSE_MESSAGE, responseMessage));
+				catch (final Exception exception) {
+					String responseMessage = exception.getMessage();
+					send(new ZetaPackage(package_.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
 				}
+				
 				break;
 			default:
-				receivedPackages.addAtEnd(package__);
+				receivedPackages.addAtEnd(package_);
 		}
 	}
 	
 	//method
 	/**
-	 * @return the index of the next message of this alpha end point
+	 * Lets this zeta end point return and remove the received package with the given index.
+	 * 
+	 * @param index
+	 * @return the reply with the given index
+	 * @throws InvalidArgumentException if this zeta end point has not received a package with the given index.
 	 */
-	private final int getNextPackageIndex() {
-		
-		if (nextPackageIndex == Integer.MAX_VALUE) {
-			nextPackageIndex = 0;
-		}
-		
-		return nextPackageIndex++;
+	private final ZetaPackage getAndRemoveReceivedPackage(final int index) {
+		return receivedPackages.removeAndGetRefFirst(rp -> rp.hasIndex(index));
 	}
 	
 	//method
 	/**
-	 * @return the receiver of this alpha end point
-	 * @throws Exception if this alpha end point has no receiver
+	 * @return the index of the next sent package. of this zeta end point
+	 */
+	private final int getNextSentPackageIndex() {
+		
+		//Resets the index of the text sent package if it has reached the maximum value.
+		if (nextSentPackageIndex == Integer.MAX_VALUE) {
+			nextSentPackageIndex = 0;
+		}
+		
+		//Returns and increments the next sent package index.
+		return nextSentPackageIndex++;
+	}
+	
+	//method
+	/**
+	 * @return the receiver of this zeta end point.
+	 * @throws UnexistingAttributeException if this zeta end point has no receiver.
 	 */
 	private final IZetaReceiver getRefReceiver() {
 		
-		if (!hasReceiver()) {
-			throw new UnexistingAttributeException(this, "receiver");
+		final long startTimeInMilliseconds = System.currentTimeMillis();
+		
+		//This loop suffers from being optimized away from the compiler or the JVM.
+		while (!hasReceiver()) {
+			
+			//The following statement that is actually unnecessary makes that the loop is not optimized away.
+			System.out.flush();
+			
+			if (System.currentTimeMillis() - startTimeInMilliseconds > getTimeoutInMilliseconds()) {
+				throw new UnexistingAttributeException(this, "receiver");
+			}
 		}
 		
 		return alphaReceiver;
@@ -244,54 +342,114 @@ public final class ZetaEndPoint extends AbortableElement {
 	
 	//method
 	/**
-	 * @param index
-	 * @return true if this alpha end point has received a reply with the given index
+	 * @return true if this zeta end point has a target application.
 	 */
-	private final boolean receivedPackage(int index) {
+	private boolean hasTargetApplication() {
+		return (targetApplication != null);
+	}
+	
+	//method
+	/**
+	 * @param index
+	 * @return true if this zeta end point has received a package with the given index.
+	 */
+	private final boolean receivedPackage(final int index) {
 		return receivedPackages.contains(rp -> rp.hasIndex(index));
 	}
 	
 	//method
 	/**
-	 * Removes and returns the received reply with the given index
-	 * 
-	 * @param index
-	 * @return the reply with the given index
-	 * @throws Exception if this alpha end point has not received a reply with the given index
-	 */
-	private final ZetaPackage removeAndGetReceivedResponse(int index) {
-		return this.receivedPackages.getRefFirst(p -> p.hasIndex(index));
-	}
-	
-	//method
-	/**
-	 * Sends the given package.
+	 * Lets this zeta end point send the given package.
 	 * 
 	 * @param package_
+	 * @throws RuntimeException if this zeta end point is stopped.
 	 */
-	private void send(ZetaPackage package_) {
-		printWriter.println(package_.toString());
+	private void send(final String package_) {
+		
+		//Checks if this zeta end point is not stopped.
+		throwExceptionIfStopped();
+		
+		printWriter.println(package_);
 		printWriter.flush();
 	}
 	
 	//method
 	/**
-	 * Waits to and removes and returns the reply with the given end point.
+	 * Lets this zeta end point send the given package.
+	 * 
+	 * @param package_
+	 * @throws RuntimeException if this zeta end point is stopped.
+	 */
+	private void send(final ZetaPackage package_) {
+		send(package_.toString());
+	}
+	
+	//method
+	/**
+	 * Sets the target application of this zeta end point.
+	 * 
+	 * @param targetApplication
+	 * @throws NullArgumentException if the given target application is null.
+	 * @throws EmptyArgumentException if the given target application is empty.
+	 */
+	private void setTargetApplication(final String targetApplication) {
+		
+		//Checks if the given target application is not null or empty.
+		ZetaValidator
+		.supposeThat(targetApplication)
+		.thatIsNamed("target application")
+		.isNotEmpty();
+		
+		//Checks if this zeta end point has already a target applicaiton.
+		if (hasTargetApplication()) {
+			throw new RuntimeException("Zeta end point has already a target application.");
+		}
+		
+		//Sets the target application of this zeta end point.
+		this.targetApplication = targetApplication;
+	}
+	
+	//method
+	/**
+	 * Lets this zeta end point wait to and return and remove the received package with the given index.
 	 * 
 	 * @param index
-	 * @return reply with the given index
-	 * @throws Exception if the timeout is reached before this alpha end point has received a reply with the given index
+	 * @return the received package with the given index.
+	 * @throws RuntimeException if this zeta end point reaches its timeout before it receives a package with the given index.
+	
 	 */
-	private ZetaPackage waitToAndRemoveAndGetReceivedResponse(int index, String message) {
+	private ZetaPackage waitToAndGetAndRemoveReceivedPackage(final int index) {
 		
-		long startTimeInMilliseconds = System.currentTimeMillis();
+		final long startTimeInMilliseconds = System.currentTimeMillis();
 		
 		while (!receivedPackage(index)) {
 			if (System.currentTimeMillis() - startTimeInMilliseconds > getTimeoutInMilliseconds()) {
-				throw new RuntimeException("Alpha end point reached timeout by waiting to response to message with index " + index + ". The message was '" + message + "'");
+				throw new RuntimeException("Zeta end point reached timeout while waiting to the package with the index " + index + ".");
 			}
 		}
-
-		return removeAndGetReceivedResponse(index);
+		
+		return getAndRemoveReceivedPackage(index);
+	}
+	
+	//method
+	/**
+	 * Lets this zeta end point wait until it gets its target application.
+	 * 
+	 *  @throws RuntimeException if this zeta end point reached its timeout before it gets its target application.
+	 */
+	private void waitToTargetApplication() {
+		
+		final long startTimeInMilliseconds = System.currentTimeMillis();
+		
+		//This loop suffers from being optimized away from the compiler or the JVM.
+		while (!hasTargetApplication()) {
+			
+			//The following statement that is actually unnecessary makes that the loop is not optimized away.
+			System.out.flush();
+			
+			if (System.currentTimeMillis() - startTimeInMilliseconds > getTimeoutInMilliseconds()) {
+				throw new RuntimeException("Zeta end point reached timeout while waiting to target application.");
+			}
+		}
 	}
 }

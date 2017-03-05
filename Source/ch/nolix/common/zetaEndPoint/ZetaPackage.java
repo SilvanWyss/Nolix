@@ -1,10 +1,3 @@
-/*
- * file:	AdvancedPackage.java
- * author:	Silvan Wyss
- * month:	2016-09
- * lines:	80
- */
-
 //package declaration
 package ch.nolix.common.zetaEndPoint;
 
@@ -14,55 +7,55 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //package-visible class
 /**
- * An advanced package is a package whose message has a specific role.
+ * A zeta package is a package with a message role.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-09
+ * @lines 70
  */
 final class ZetaPackage extends Package {
 	
 	//attribute
 	private final MessageRole messageRole;
 	
+	//static method
+	/**
+	 * @param string
+	 * @return a new zeta package the given string represents.
+	 */
+	public static ZetaPackage createZetaPackageFromString(final String string) {
+		return new ZetaPackage(
+			Integer.parseInt(string.substring(0, 8)),
+			MessageRole.createMessageRole(string.charAt(8)),
+			string.substring(9)
+		);
+	}
+	
 	//constructor
 	/**
-	 * Creates new advanced package with the given index, message role and message.
+	 * Creates new zeta package with the given index and message and the role the given message has.
 	 * 
 	 * @param index
 	 * @param messageRole
 	 * @param message
-	 * @throws Exception if:
-	 * -The given message role is null.
-	 * -The given message is null.
+	 * @throws NullArgumentException if the given message role is null.
+	 * @throws NullArgumentExcetpion if the givne message is null.
 	 */
-	public ZetaPackage(int index, MessageRole messageRole, String message) {
+	public ZetaPackage(final int index, final MessageRole messageRole, final String message) {
 		
 		//Calls constructor of the base class.
 		super(index, message);
 		
-		//Checks the given message.
-		ZetaValidator.supposeThat(messageRole).thatIsNamed("message role").isNotNull();
+		//Checks if the given message role is not null.
+		ZetaValidator.supposeThat(messageRole).thatIsInstanceOf(MessageRole.class).isNotNull();
 		
+		//Sets the message role of thsis zeta package.
 		this.messageRole = messageRole;
-	}
-	
-	//constructor
-	/**
-	 * Creates new advanced package the given string represents.
-	 * 
-	 * @param string
-	 * @throws Exception if the given string is not valid
-	 */
-	public ZetaPackage(String string) {
-		
-		//Calls other constructor.
-		this(
-			Integer.parseInt(string.substring(0, 8)),
-			MessageRole.createMessageRole(string.charAt(8)),
-			string.substring(9)
-		);	
 	}
 	
 	//method
 	/**
-	 * @return the role of the message of this advanced package
+	 * @return the role of the message of this zeta package.
 	 */
 	public final MessageRole getMessageRole() {
 		return messageRole;
@@ -70,9 +63,9 @@ final class ZetaPackage extends Package {
 	
 	//method
 	/**
-	 * @return a string representation of this advanced package
+	 * @return a string representation of this zeta package.
 	 */
 	public String toString() {
-		return (String.format("%08d", getIndex()) + getMessageRole().getPrefix() + getMessage());
+		return String.format("%08d%c%s", getIndex(), getMessageRole().getPrefix(), getMessage());
 	}
 }

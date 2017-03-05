@@ -1,138 +1,59 @@
-/*
- * file:	AlphaEndPointListener.java
- * author:	Silvan Wyss
- * month:	2016-05
- * lines:	190
- */
-
 //package declaration
 package ch.nolix.common.zetaEndPoint;
 
-//java import
 import java.net.ServerSocket;
 
-//own imports
-import ch.nolix.common.constants.PortManager;
-import ch.nolix.common.exception.UnexistingAttributeException;
-import ch.nolix.common.interfaces.Abortable;
 import ch.nolix.common.sequencer.Sequencer;
-import ch.nolix.common.util.Validator;
+import ch.nolix.common.zetaValidator.ZetaValidator;
 
-//class
+//package-visible class
 /**
- * An alpha end point listener listens to alpha end points on a certain port.
+ * A zeta end point listener listens to zeta end points on a specific port for a server.
+ * 
+ * @author Silvan Wyss
+ * @month 2017-03
+ * @lines 10
  */
-public class ZetaEndPointListener extends Thread implements Abortable {
+final class ZetaEndPointListener extends Thread {
 	
-	//attributes
-	private final int port;
-	private final IZetaEndPointTaker alphaEndPointTaker;
-	private boolean stopped = false;
-	
-	//optional attribute
-	private String stopReason;
-		
-	//constructor
-	/**
-	 * Creates new alpha end point listener with the given port and alpha end point taker.
-	 * The new alpha end point listener will start automatically.
-	 * 
-	 * @param port
-	 * @param alphaEndPointTaker
-	 * @throws Exception if:
-	 *  -the given port is negative or bigger than 65535
-	 *  -the given alpha end point taker is null
-	 */
-	public ZetaEndPointListener(int port, IZetaEndPointTaker alphaEndPointTaker) {
-		
-		//Calls other constructor.
-		this(port, alphaEndPointTaker, true);
-	}
+	//attribute
+	private final Server server;
 	
 	//constructor
 	/**
-	 * Creates new end point listener with the given port and the given alpha end point taker.
-	 * The new alpha end point listener will start if the given start is true.
+	 * Creates new zeta end point listener that belongs to the given server.
 	 * 
-	 * @param port
-	 * @parma alphaEndPointTaker
-	 * @param start
-	 * @throws Exception if:
-	 *  -the given port is negative or bigger than 65535
-	 *  -the given alpha end point taker is null
+	 * @param server
+	 * @throws NullArgumentException if the given server is null.
 	 */
-	public ZetaEndPointListener(int port, IZetaEndPointTaker alphaEndPointTaker, boolean start) {
+	public ZetaEndPointListener(final Server server) {
 		
-		Validator.throwExceptionIfValueIsNotInRange(
-			"port",
-			PortManager.MIN_PORT,
-			PortManager.MAX_PORT,
-			port
-		);
+		//Checks if the given server is not null.
+		ZetaValidator.supposeThat(server).thatIsInstanceOf(Server.class).isNotNull();
 		
-		Validator.throwExceptionIfValueIsNull("alpha end point taker", alphaEndPointTaker);
-		
-		this.port = port;
-		this.alphaEndPointTaker = alphaEndPointTaker;
-		
-		if (start) {
-			start();
-		}
+		//Sets the server of this zeta end point listener.
+		this.server = server;
 	}
-	
+
 	//method
 	/**
-	 * @return the port of this alpha end point listener
+	 * Runs this zeta end point listener.
 	 */
-	public final int getPort() {
-		return port;
-	}
-	
-	//method
-	/**
-	 * @return the stop reason of this alpha end point listener
-	 * @throws Exception if:
-	 *  -this alpha end point listener is not stopped
-	 *  -this alpha end point listener has no stop reason
-	 */
-	public final String getAbortReason() {
-		
-		throwExceptionIfNotStopped();
-		
-		if (stopReason == null) {
-			throw new UnexistingAttributeException(this, "stop reason");
-		}
-		
-		return stopReason;
-	}
-	
-	//method
-	/**
-	 * @return true if this alpha end point listener is stopped
-	 */
-	public final boolean isAborted() {
-		return stopped;
-	}
-	
-	//method
-	/**
-	 * Runs this alpha end point listener.
-	 */
-	public final void run() {
+	public void run() {
 		
 		ServerSocket serverSocket = null;
 		
 		try {
-			serverSocket = new ServerSocket(getPort());
 			
-			while (isRunning()) {
-				ZetaEndPoint alphaEndPoint = new ZetaEndPoint(serverSocket.accept());
-				Sequencer.runInBackground(() -> alphaEndPointTaker.takeAlphaEndPoint(alphaEndPoint));
+			serverSocket = new ServerSocket(server.getPort());
+			
+			while (server.isRunning()) {
+				final ZetaEndPoint zetaEndPoint = new ZetaEndPoint(serverSocket.accept());
+				Sequencer.runInBackground(() -> server.takeZetaEndPoint(zetaEndPoint));
 			}			
 		}
-		catch (Exception e) {	
-			abort(e.getMessage());
-			return;
+		catch (final Exception exception) {	
+			server.abort(exception.getMessage());
 		}
 		finally {
 			try {
@@ -140,56 +61,6 @@ public class ZetaEndPointListener extends Thread implements Abortable {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
-	}
-	
-	//method
-	/**
-	 * Stops this alpha end point listener.
-	 * 
-	 * @throws Exception if this alpha end point listener is stopped already
-	 */
-	public final void abort() {
-		
-		throwExceptionIfStopped();
-		
-		stopped = true;
-	}
-	
-	//method
-	/**
-	 * Stops this alpha end point listener because of the given stop reason.
-	 * 
-	 * @param stopReason
-	 * @throws Exception if:
-	 *  -the given stop reason is null or an empty string
-	 *  -this alpha end point listener is stopped already
-	 */
-	public final void abort(String stopReason) {
-		
-		Validator.throwExceptionIfStringIsNullOrEmpty(stopReason, "stop reason");
-		
-		abort();
-		this.stopReason = stopReason;
-	}
-	
-	//method
-	/**
-	 * @throws Exception if this alpha end point listener is stopped
-	 */
-	private final void throwExceptionIfStopped() {
-		if (isAborted()) {
-			throw new RuntimeException("Alpha end point listener is stopped.");
-		}
-	}
-	
-	//method
-	/**
-	 * @throws Exception if this alpha end point listener is not stopped
-	 */
-	private final void throwExceptionIfNotStopped() {
-		if (!isAborted()) {
-			throw new RuntimeException("Alpha end point listener is not stopped.");
 		}
 	}
 }

@@ -657,7 +657,7 @@ implements Abortable {
 		
 		final long time = System.currentTimeMillis();
 		
-		//This loop suffers from being optimized away by the compiler or JVM.
+		//This loop suffers from being optimized away from the compiler or the JVM.
 		while (!receivedReadySignalFlag) {
 			
 			//The following statement that is actually unnecessary makes that the loop is not optimized away.

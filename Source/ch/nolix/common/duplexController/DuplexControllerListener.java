@@ -12,7 +12,7 @@ package ch.nolix.common.duplexController;
 import ch.nolix.common.interfaces.Abortable;
 import ch.nolix.common.util.Validator;
 import ch.nolix.common.zetaEndPoint.ZetaEndPoint;
-import ch.nolix.common.zetaEndPoint.ZetaEndPointListener;
+import ch.nolix.common.zetaEndPoint.Server;
 
 //class
 /**
@@ -22,7 +22,7 @@ public final class DuplexControllerListener implements Abortable {
 
 	//attributes
 	private final IDuplexControllerTaker duplexControllerTaker;
-	private final ZetaEndPointListener alphaEndPointListener;
+	private final Server alphaEndPointListener;
 	
 	public DuplexControllerListener(final int port, final IDuplexControllerTaker duplexControllerTaker) {
 		
@@ -30,7 +30,7 @@ public final class DuplexControllerListener implements Abortable {
 		Validator.throwExceptionIfValueIsNull("duplex controller taker", duplexControllerTaker);
 		
 		this.duplexControllerTaker = duplexControllerTaker;
-		this.alphaEndPointListener = new ZetaEndPointListener(port, new AlphaEndPointTaker(this));
+		this.alphaEndPointListener = new Server(port, new AlphaEndPointTaker(this));
 	}
 	
 	//method
