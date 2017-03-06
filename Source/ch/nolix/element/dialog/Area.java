@@ -26,7 +26,7 @@ import ch.nolix.element.data.Width;
  * -Has a specific width and height.
  * -Can have a background color.
  */
-public final class Area extends Rectangle<SimpleRectangleStructure, Area> {
+public final class Area extends Rectangle<AreaStructure, Area> {
 
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "Area";
@@ -51,9 +51,9 @@ public final class Area extends Rectangle<SimpleRectangleStructure, Area> {
 		
 		//Calls constructor of the base class.
 		super(
-			new SimpleRectangleStructure(),
-			new SimpleRectangleStructure(),
-			new SimpleRectangleStructure()
+			new AreaStructure(),
+			new AreaStructure(),
+			new AreaStructure()
 		);
 		
 		resetConfiguration();
@@ -207,7 +207,7 @@ public final class Area extends Rectangle<SimpleRectangleStructure, Area> {
 	/**
 	 * Paints this area using the given rectangle structure and graphics.
 	 */
-	protected final void paint(SimpleRectangleStructure rectangleStructure, Graphics graphics) {
+	protected final void paint(AreaStructure rectangleStructure, Graphics graphics) {
 		if (hasBackgroundColor()) {
 			backgroundColor.paintRectangle(graphics, 0, 0, getWidth(), getHeight());
 		}
