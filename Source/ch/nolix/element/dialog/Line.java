@@ -29,7 +29,7 @@ import ch.nolix.element.data.Thickness;
  * @author Silvan Wyss
  */
 public abstract class Line<L extends Line<L>>
-extends Rectangle<SimpleRectangleStructure, L> {
+extends Rectangle<LineStructure, L> {
 	
 	//constants
 	public static final String SIMPLE_CLASS_NAME = "Line";
@@ -53,9 +53,9 @@ extends Rectangle<SimpleRectangleStructure, L> {
 		
 		//Calls constructor of the base class.
 		super(
-			new SimpleRectangleStructure(),
-			new SimpleRectangleStructure(),
-			new SimpleRectangleStructure()
+			new LineStructure(),
+			new LineStructure(),
+			new LineStructure()
 		);
 	}
 	
@@ -249,7 +249,7 @@ extends Rectangle<SimpleRectangleStructure, L> {
 	 * @param graphics
 	 */
 	protected final void paint(
-		final SimpleRectangleStructure rectangleStructure,
+		final LineStructure rectangleStructure,
 		final Graphics graphics
 	) {
 		graphics.setColor(color.getJavaColor());
