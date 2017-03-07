@@ -43,13 +43,13 @@ public final class MainSession extends Session<DialogClient> {
 				.addRectangle(
 					new Button()
 					.setText("Start")
-					.setLeftClickCommand("StartTimer"),
+					.setLeftMouseButtonPressCommand("Start Timer"),
 					new Button()
 					.setText("Stop")
-					.setLeftClickCommand("StopTimer"),
+					.setLeftMouseButtonPressCommand("StopTimer"),
 					new Button()
 					.setText("Reset")
-					.setLeftClickCommand("ResetTimer")
+					.setLeftMouseButtonPressCommand("ResetTimer")
 				)
 			)
 		);

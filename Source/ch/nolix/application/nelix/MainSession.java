@@ -49,7 +49,7 @@ public final class MainSession extends ContextSession<DialogClient, Nelix> {
 			homeVerticalStack.addRectangle(
 				new Button()
 				.setText("Open Directory")
-				.setLeftClickCommand("OpenDirectory")
+				.setLeftMouseButtonPressCommand("OpenDirectory")
 			);
 		}
 		
@@ -64,7 +64,7 @@ public final class MainSession extends ContextSession<DialogClient, Nelix> {
 			designVerticalStack.addRectangle(
 				new Button()
 				.setText(dn)
-				.setLeftClickCommand("SetDesign", dn)
+				.setLeftMouseButtonPressCommand("SetDesign", dn)
 			);
 		}
 		

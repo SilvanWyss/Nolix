@@ -13,22 +13,15 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-
-
-
-
-
 
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.mathematics.Calculator;
 import ch.nolix.common.specification.Specification;
+import ch.nolix.common.specification.Statement;
 import ch.nolix.element.basic.Color;
-import ch.nolix.element.data.CloseCommand;
 
 //class
 public final class Frame extends Dialog<Frame> {
@@ -46,6 +39,9 @@ public final class Frame extends Dialog<Frame> {
 	//minimum values
 	public static final int MINIMUM_WIDTH = 400;
 	public static final int MINIMUM_HEIGHT = 200;
+	
+	//attribute header
+	private static final String CLOSE_COMMAND_HEADER = "CloseCommand";
 	
 	//attributes
 	private final FrameContext frameContext;
@@ -75,7 +71,7 @@ public final class Frame extends Dialog<Frame> {
 	};
 	
 	//optional attribute
-	private CloseCommand closeCommand;
+	private Statement closeCommand;
 	
 	//constructor
 	/**
@@ -115,7 +111,7 @@ public final class Frame extends Dialog<Frame> {
 		List<Specification> attributes = super.getAttributes();
 		
 		if (hasCloseCommand()) {
-			attributes.addAtEnd(closeCommand.getSpecification());
+			attributes.addAtEnd(new Specification(CLOSE_COMMAND_HEADER, closeCommand.toString()));
 		}
 		
 		return attributes;
@@ -210,7 +206,7 @@ public final class Frame extends Dialog<Frame> {
 	 */
 	public void addOrChangeAttribute(Specification attribute) {
 		switch (attribute.getHeader()) {
-			case CloseCommand.SIMPLE_CLASS_NAME:
+			case CLOSE_COMMAND_HEADER:
 				setCloseCommand(attribute.getOneAttributeToString());
 				break;
 			default:
@@ -228,7 +224,7 @@ public final class Frame extends Dialog<Frame> {
 	 * @throws Exception if the given close command is not valid
 	 */
 	public final void setCloseCommand(String closeCommand) {
-		this.closeCommand = new CloseCommand(getRefController());
+		this.closeCommand = new Statement(closeCommand);
 	}
 	
 	public void update() {
@@ -263,7 +259,7 @@ public final class Frame extends Dialog<Frame> {
 	 */
 	protected void noteCloseButtonClick() {
 		if (hasCloseCommand()) {
-			closeCommand.run();
+			getRefController().run(closeCommand);
 		}
 		else {
 			System.exit(0);

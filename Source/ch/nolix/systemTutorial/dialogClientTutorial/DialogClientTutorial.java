@@ -62,7 +62,7 @@ public final class DialogClientTutorial {
 			= new Button()
 			.setPadding(10)
 			.setText("Change color")
-			.setLeftClickCommand("ChangeColor");
+			.setLeftMouseButtonPressCommand("ChangeColor");
 			
 			changeColorbutton.getRefNormalStructure().setBackgroundColor(Color.LIGHT_GREY);
 			changeColorbutton.getRefHoverStructure().setTextSize(30);

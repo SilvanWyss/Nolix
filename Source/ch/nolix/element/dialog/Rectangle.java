@@ -1,10 +1,3 @@
-/*
- * file:	Rectangle.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	700
- */
-
 //package declaration
 package ch.nolix.element.dialog;
 
@@ -12,28 +5,36 @@ package ch.nolix.element.dialog;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
-
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.specification.Configurable;
 import ch.nolix.common.specification.Specification;
+import ch.nolix.common.specification.Statement;
+import ch.nolix.common.zetaValidator.ZetaValidator;
 import ch.nolix.element.basic.ConfigurableElement;
-import ch.nolix.element.data.LeftClickCommand;
-import ch.nolix.element.data.RightClickCommand;
 
 //class
 /**
- * A rectangle is a dialog element and has a specific width and height.
+ * A rectangle is a control on a dialog and has a specific width and height.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 960
  */
 public abstract class Rectangle<RS extends RectangleStructure<RS>, R extends Rectangle<RS, R>>
-extends ConfigurableElement<R>
-implements Configurable {
+extends ConfigurableElement<R> {
 	
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "Rectangle";
 	
-	//attribute header
+	//attribute headers
+	private static final String LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER = "LeftMouseButtonPressCommand";
+	private static final String LEFT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER = "LeftMouseButtonReleaseCommand";
+	private static final String RIGHT_MOUSE_BUTTON_PRESS_COMMAND_HEADER = "RightMouseButtonPressCommand";
+	private static final String RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER = "RightMouseButtonReleaseCommand";
+	
+	//TODO: Remove.
 	private static final String STATE ="State";
 	private static final String NORMAL = "Normal";
 	private static final String FOCUS = "Focus";
@@ -52,8 +53,10 @@ implements Configurable {
 	private int mouseYPosition;
 	
 	//optional attributes
-	private LeftClickCommand leftClickCommand;
-	private RightClickCommand rightClickCommand;
+	private Statement leftMouseButtonPressCommand;
+	private Statement leftMouseButtonReleaseCommand;
+	private Statement rightMouseButtonPressCommand;
+	private Statement rightMouseButtonReleaseCommand;
 	
 	//constructor
 	/**
@@ -91,11 +94,17 @@ implements Configurable {
 			case CursorIcon.SIMPLE_CLASS_NAME:
 				setCursorIcon(CursorIcon.valueOf(attribute.getOneAttributeToString()));
 				break;
-			case LeftClickCommand.SIMPLE_CLASS_NAME:
-				setLeftClickCommandFromString(attribute.getOneAttributeToString());
+			case LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER:
+				setLeftMouseButtonPressCommand(attribute.getOneAttributeToString());
 				break;
-			case RightClickCommand.SIMPLE_CLASS_NAME:
-				setRightClickCommandFromString(attribute.getOneAttributeToString());
+			case LEFT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER:
+				setLeftMouseButtonReleaseCommand(attribute.getOneAttributeToString());
+				break;
+			case RIGHT_MOUSE_BUTTON_PRESS_COMMAND_HEADER:
+				setRightMouseButtonPressCommand(attribute.getOneAttributeToString());
+				break;
+			case RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER:
+				setRightMouseButtonReleaseCommand(attribute.getOneAttributeToString());
 				break;
 			default:
 				if (attribute.getHeader().startsWith(NORMAL.toString())) {
@@ -146,12 +155,40 @@ implements Configurable {
 			attributes.addAtEnd(cursorIcon.getSpecification());
 		}
 		
-		if (hasLeftClickCommand()) {
-			attributes.addAtEnd(leftClickCommand.getSpecification());
+		if (hasLeftMouseButtonPressCommand()) {
+			attributes.addAtEnd(
+				new Specification(
+					LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER,
+					leftMouseButtonPressCommand.toString()
+				)
+			);
 		}
 		
-		if (hasRightClickCommand()) {
-			attributes.addAtEnd(rightClickCommand.getSpecification());
+		if (hasLeftMouseButtonReleaseCommand()) {
+			attributes.addAtEnd(
+				new Specification(
+					LEFT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER,
+					leftMouseButtonReleaseCommand.toString()
+				)
+			);
+		}
+		
+		if (hasRightMouseButtonPressCommand()) {
+			attributes.addAtEnd(
+				new Specification(
+					RIGHT_MOUSE_BUTTON_PRESS_COMMAND_HEADER,
+					rightMouseButtonPressCommand.toString()
+				)
+			);	
+		}
+		
+		if (hasRightMouseButtonReleaseCommand()) {
+			attributes.addAtEnd(
+				new Specification(
+					RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER,
+					rightMouseButtonReleaseCommand.toString()
+				)
+			);
 		}
 	
 		//Adds normal attributes.		
@@ -214,18 +251,34 @@ implements Configurable {
 	
 	//method
 	/**
-	 * @return true if this rectangle has a left click command
+	 * @return true if this rectangle has a left mouse button press command.
 	 */
-	public final boolean hasLeftClickCommand() {
-		return (leftClickCommand != null);
+	public final boolean hasLeftMouseButtonPressCommand() {
+		return (leftMouseButtonPressCommand != null);
 	}
 	
 	//method
 	/**
-	 * @return true if this rectangle has a right click command
+	 * @return true if this rectangle has a left mouse button release command.
 	 */
-	public final boolean hasRightClickCommand() {
-		return (rightClickCommand != null);
+	public final boolean hasLeftMouseButtonReleaseCommand() {
+		return (leftMouseButtonReleaseCommand != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this rectangle has a right mouse button press command.
+	 */
+	public final boolean hasRightMouseButtonPressCommand() {
+		return (rightMouseButtonPressCommand != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this rectangle has a right mouse button release command.
+	 */
+	public final boolean hasRightMouseButtonReleaseCommand() {
+		return (rightMouseButtonReleaseCommand != null);
 	}
 	
 	//method
@@ -317,8 +370,8 @@ implements Configurable {
 		}
 		
 		if (isPointed()) {
-			if (hasLeftClickCommand()) {
-				leftClickCommand.run();
+			if (hasLeftMouseButtonPressCommand()) {
+				getRefDialog().getRefController().run(leftMouseButtonPressCommand);
 			}
 		}
 	}
@@ -372,18 +425,34 @@ implements Configurable {
 	
 	//method
 	/**
-	 * Removes the click command of this rectangle.
+	 * Removes the left mouse button press command of this rectangle.
 	 */
-	public final void removeLeftClickCommand() {
-		leftClickCommand = null;
+	public final void removeLeftMouseButtonPressCommand() {
+		leftMouseButtonPressCommand = null;
 	}
 	
 	//method
 	/**
-	 * Removes the right click command of this rectangle.
+	 * Removes the left mouse button release command of this rectangle.
 	 */
-	public final void removeRightClickCommand() {
-		rightClickCommand = null;
+	public final void removeLeftMouseButtonReleaseCommand() {
+		leftMouseButtonReleaseCommand = null;
+	}
+	
+	//method
+	/**
+	 * Removes the right mouse button press command of this rectangle.
+	 */
+	public final void removeRightMouseButtonPressCommand() {
+		rightMouseButtonPressCommand = null;
+	}
+	
+	//method
+	/**
+	 * Removes the right mouse button release command of this rectangle.
+	 */
+	public final void removeRightMouseButtonReleaseCommand() {
+		rightMouseButtonReleaseCommand = null;
 	}
 	
 	//method
@@ -392,8 +461,10 @@ implements Configurable {
 	 */
 	public void reset() {
 		setNormal();
-		removeLeftClickCommand();
-		removeRightClickCommand();
+		removeLeftMouseButtonPressCommand();
+		removeLeftMouseButtonReleaseCommand();
+		removeRightMouseButtonPressCommand();
+		removeRightMouseButtonReleaseCommand();
 		resetConfiguration();
 	}
 	
@@ -468,30 +539,209 @@ implements Configurable {
 	}
 	
 	//method
-	/**
-	 * Sets the left click command of this rectangle.
-	 * 
-	 * @param leftClickCommand
-	 * @param arguments
-	 * @throws Exception if the given left click command is not valid
-	 */
 	@SuppressWarnings("unchecked")
-	public final R setLeftClickCommand(String leftClickCommand, String... arguments) {
+	/**
+	 * Sets the left mouse button press command of this rectangle.
+	 * 
+	 * @param leftMouseButtonPressCommand
+	 * @return this rectangle.
+	 * @throws NullArgumentException if the given left mouse button press command is null.
+	 */
+	public final R setLeftMouseButtonPressCommand(final Statement leftMouseButtonPressCommand) {
 		
-		setLeftClickCommandFromString(new Specification(leftClickCommand, arguments).toString());
+		//Checks if the given left mouse button press command is not null.
+		ZetaValidator.supposeThat(leftMouseButtonPressCommand)
+		.thatIsNamed("left mouse button press command")
+		.isNotNull();
+		
+		this.leftMouseButtonPressCommand = leftMouseButtonPressCommand;
 		
 		return (R)this;
 	}
 	
 	//method
 	/**
-	 * Sets the left click command of this rectangle from string.
+	 * Sets the left mouse button press command of this rectangle.
 	 * 
-	 * @param leftClickCommand
-	 * @throws Exception if the given left click command is not valid
+	 * @param leftMouseButtonPressCommand
+	 * @return this rectangle.
+	 * @throws InvalidArgumentException if the given left mouse button press command is not valid.
 	 */
-	public final void setLeftClickCommandFromString(String leftClickCommand) {
-		this.leftClickCommand = new LeftClickCommand(new RectangleController(this), leftClickCommand);
+	public final R setLeftMouseButtonPressCommand(final String leftMouseButtonPressCommand) {
+		return setLeftMouseButtonPressCommand(new Statement(leftMouseButtonPressCommand));
+	}
+
+	//method
+	/**
+	 * Sets the given left mouse button press command, that has the given arguments, to this rectangle.
+	 * 
+	 * @param leftMouseButtonPressCommand
+	 * @return this rectangle.
+	 * @throws InvalidArgumentException if the given left mouse button press command or the given arguments are not valid.
+	 */
+	public final R setLeftMouseButtonPressCommand(
+		final String leftMouseButtonPressCommand,
+		final String... arguments
+	) {
+		return setLeftMouseButtonPressCommand(
+			new Specification(leftMouseButtonPressCommand, arguments).toString()
+		);
+	}
+	
+	//method
+	/**
+	 * Sets the left mouse button release command of this rectangle.
+	 * 
+	 * @param leftMouseButtonReleaseCommand
+	 * @return this rectangle.
+	 * @throws NullArgumentException if the given left mouse button release command is null.
+	 */
+	@SuppressWarnings("unchecked")
+	public final R setLeftMouseButtonReleaseCommand(final Statement leftMouseButtonReleaseCommand) {
+		
+		//Checks if the given left mouse button release command is not null.
+		ZetaValidator
+		.supposeThat(leftMouseButtonReleaseCommand)
+		.thatIsNamed("left mouse button release command")
+		.isNotNull();
+		
+		this.leftMouseButtonReleaseCommand = leftMouseButtonReleaseCommand;
+		
+		return (R)this;
+	}
+	
+	//method
+	/**
+	 * Sets the left mouse button release command of this rectangle.
+	 * 
+	 * @param leftMouseButtonReleaseCommand
+	 * @return this rectangle.
+	 * @throws InvalidArgumentException if the given left mouse button release command is not valid.
+	 */
+	public final R setLeftMouseButtonReleaseCommand(final String leftMouseButtonReleaseCommand) {
+		return setLeftMouseButtonReleaseCommand(new Statement(leftMouseButtonReleaseCommand));
+	}
+	
+	//method
+	/**
+	 * Sets the given left mouse release command, that has the given attributes, to this rectangle.
+	 * 
+	 * @param leftMouseButtonReleaseCommand
+	 * @param arguments
+	 * @return this rectangle.
+	 * @throws InvalidArgumentException if the given left mouse button release command or the given arguments are not valid.
+	 */
+	public final R setLeftMouseButtonReleaseCommand(
+		final String leftMouseButtonReleaseCommand,
+		final String... arguments
+	) {
+		return setLeftMouseButtonReleaseCommand(
+			new Specification(leftMouseButtonReleaseCommand, arguments).toString()
+		);
+	}
+	
+	//method
+	/**
+	 * Sets the right mouse button press command of this rectangle.
+	 * 
+	 * @param rightMouseButtonPressCommand
+	 * @return this rectangle.
+	 * @throws NullArgumentException if the given right mouse button press command is null.
+	 */
+	@SuppressWarnings("unchecked")
+	public final R setRightMouseButtonPressCommand(final Statement rightMouseButtonPressCommand) {
+		
+		//Checks if the given right mouse button press command is not null.
+		ZetaValidator
+		.supposeThat(rightMouseButtonPressCommand)
+		.thatIsNamed("right mouse button press command")
+		.isNotNull();
+		
+		this.rightMouseButtonPressCommand = rightMouseButtonPressCommand;
+		
+		return (R)this;
+	}
+	
+	//method
+	/**
+	 * Sets the right mouse button press command of this rectangle.
+	 * 
+	 * @param rightMouseButtonPressCommand
+	 * @return this rectangle.
+	 * @throws InvalidArgumentException if the givne right mouse button press command is not valid.
+	 */
+	public final R setRightMouseButtonPressCommand(final String rightMouseButtonPressCommand) {
+		return setRightMouseButtonPressCommand(new Statement(rightMouseButtonPressCommand));
+	}
+	
+	//method
+	/**
+	 * Sets the given right mouse button press command, that has the given arguments, to this rectangle.
+	 * 
+	 * @param rightMouseButtonPressCommand
+	 * @param arguments
+	 * @return this rectangle.
+	 * @throws InvalidArgumentException if the given right mouse button press command or the given arguments are not valid.
+	 */
+	public final R setRightMouseButtonPressCommand(
+		final String rightMouseButtonPressCommand,
+		final String... arguments
+	) {
+		return setRightMouseButtonPressCommand(
+			new Specification(rightMouseButtonPressCommand, arguments).toString()	
+		);
+	}
+	
+	//method
+	/**
+	 * Sets the right mouse button release command of this rectangle.
+	 * 
+	 * @param rightMouseButtonReleaseCommand
+	 * @return this rectangle.
+	 * @throws NullArgumentException if the given right mouse button release command is null.
+	 */
+	@SuppressWarnings("unchecked")
+	public final R setRightMouseButtonReleaseCommand(final Statement rightMouseButtonReleaseCommand) {
+		
+		//Checks if the given right mouse button release command is not null.
+		ZetaValidator
+		.supposeThat(rightMouseButtonReleaseCommand)
+		.thatIsNamed("right mouse button release command")
+		.isNotNull();
+		
+		this.rightMouseButtonReleaseCommand = rightMouseButtonReleaseCommand;
+		
+		return (R)this;
+	}
+	
+	//method
+	/**
+	 * Sets the right mouse button release command of this rectangle.
+	 * 
+	 * @param rightMouseButtonReleaseCommand
+	 * @return this rectangle.
+	 * @throws InvalidArgumentException if the given right mouse button release command is not valid.
+	 */
+	public final R setRightMouseButtonReleaseCommand(final String rightMouseButtonReleaseCommand) {
+		return setRightMouseButtonReleaseCommand(new Statement(rightMouseButtonReleaseCommand));
+	}
+	
+	//method
+	/**
+	 * Sets the givne right mouse button release command, that has the given arguments, to this rectangle.
+	 * 
+	 * @param rightMouseButtonReleaseCommand
+	 * @param arguments
+	 * @return this rectangle.
+	 * @throws InvalidArgumentException if the given right mouse button release command or the given argumnets are not valid.
+	 */
+	public final R setRightMouseButtonReleaseCommand(
+		final String rightMouseButtonReleaseCommand,
+		final String... arguments
+	) {
+		return setRightMouseButtonReleaseCommand(
+			new Specification(rightMouseButtonReleaseCommand, arguments).toString()	
+		);
 	}
 	
 	//method
@@ -502,29 +752,6 @@ implements Configurable {
 	 */
 	public final void setNormal() {
 		state = RectangleState.Normal;
-	}
-	
-	//method
-	/**
-	 * Sets the right click command of this rectangle.
-	 * 
-	 * @param rightClickCommand
-	 * @param arguments
-	 * @throws Exception if the given right click command is not valid
-	 */
-	public final void setRightClickCommand(String rightClickCommand, String... arguments) {
-		setRightClickCommandFromString(new Specification(rightClickCommand, arguments).toString());
-	}
-	
-	//method
-	/**
-	 * Sets the right click command of this rectangle from string.
-	 * 
-	 * @param rightClickCommand
-	 * @throws Exception if the given left click command is not valid
-	 */
-	public final void setRightClickCommandFromString(String rightClickCommand) {
-		this.rightClickCommand = new RightClickCommand(new RectangleController(this), rightClickCommand);
 	}
 	
 	//method

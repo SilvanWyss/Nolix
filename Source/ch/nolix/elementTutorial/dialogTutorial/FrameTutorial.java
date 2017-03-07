@@ -14,6 +14,7 @@ import ch.nolix.common.specification.Statement;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.dialog.Button;
+import ch.nolix.element.dialog.Console;
 import ch.nolix.element.dialog.Frame;
 import ch.nolix.element.dialog.Label;
 import ch.nolix.element.dialog.VerticalStack;
@@ -42,7 +43,8 @@ final class FrameTutorial {
 				.setText("Tutorial"),
 				new Button()
 				.setText("~ Quit ~")
-				.setLeftClickCommand("Quit")
+				.setLeftMouseButtonPressCommand("Quit"),
+				new Console().addTextLine("test", "test2")
 			)
 		)
 		.setController(
