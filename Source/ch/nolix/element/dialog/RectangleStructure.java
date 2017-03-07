@@ -51,7 +51,7 @@ public abstract class RectangleStructure<RS extends RectangleStructure<RS>> {
 	 * 
 	 * @param attribute
 	 */
-	protected abstract void setAttribute(Specification attribute);
+	protected void setAttribute(Specification attribute) {}
 	
 	//method
 	/**

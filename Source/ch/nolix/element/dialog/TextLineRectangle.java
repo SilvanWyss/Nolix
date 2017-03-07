@@ -154,9 +154,9 @@ extends BorderableRectangle<TextLineRectangleStructure, TLR> {
 		final Graphics graphics
 	) {
 		new GraphicText()
-			.setText(getText())
-			.setSize(rectangleStructure.getCurrentTextSize())
-			.setColor(rectangleStructure.getCurrentTextColor().getValue())
-			.paint(graphics);	
+		.setText(getText())
+		.setSize(rectangleStructure.getCurrentTextSize())
+		.setColor(rectangleStructure.getCurrentTextColor().getValue())
+		.paint(graphics);	
 	}
 }

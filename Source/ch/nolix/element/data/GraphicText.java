@@ -179,6 +179,13 @@ public final class GraphicText extends Element {
 		return this;
 	}
 	
+	public GraphicText setColor(Color color) {
+		
+		this.color = color;
+		
+		return this;
+	}
+	
 	//method
 	/**
 	 * Sets the color of this graphic text.

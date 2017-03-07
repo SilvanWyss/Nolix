@@ -35,6 +35,11 @@ public final class Statement extends Specificationoid {
 		setValue(string);
 	}
 	
+	public Statement getCopy() {
+		//TODO: Implement better.
+		return new Statement(toString());
+	}
+	
 	//method
 	/**
 	 * @return the first part of this statement to string

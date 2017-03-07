@@ -35,6 +35,10 @@ public final class Specification extends Specificationoid {
 	 * Creates new specification without header and without attributes.
 	 */
 	public Specification() {}
+	
+	public Specification(Object object) {
+		this(object.toString());
+	}
 		
 	//constructor
 	/**
