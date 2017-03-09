@@ -1,10 +1,3 @@
-/*
- * file:	Area.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	230
- */
-
 //package declaration
 package ch.nolix.element.dialog;
 
@@ -14,7 +7,7 @@ import java.awt.Graphics;
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.specification.Specification;
-import ch.nolix.common.util.Validator;
+import ch.nolix.common.zetaValidator.ZetaValidator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.Height;
@@ -25,6 +18,10 @@ import ch.nolix.element.data.Width;
  * An area is a rectangle that:
  * -Has a specific width and height.
  * -Can have a background color.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 210
  */
 public final class Area extends Rectangle<AreaStructure, Area> {
 
@@ -37,8 +34,8 @@ public final class Area extends Rectangle<AreaStructure, Area> {
 	public static final int DEFAULT_BACKGROUND_COLOR = Color.LIGHT_GREY;
 	
 	//attributes
-	private final Width width = new Width();
-	private final Height height = new Height();
+	private Width width = new Width();
+	private Height height = new Height();
 	
 	//optional attribute
 	private BackgroundColor backgroundColor;
@@ -61,67 +58,14 @@ public final class Area extends Rectangle<AreaStructure, Area> {
 	
 	//method
 	/**
-	 * @return the attributes of this area
-	 */
-	public List<Specification> getAttributes() {
-		
-		//Calls method of the base class.
-		List<Specification> attributes = super.getAttributes();
-		
-		attributes.addAtEnd(width.getSpecification())
-			.addAtEnd(height.getSpecification());
-		
-		if (hasBackgroundColor()) {
-			attributes.addAtEnd(backgroundColor.getSpecification());
-		}
-		
-		return attributes;
-	}
-	
-	//method
-	/**
-	 * @return true if this area has a background color
-	 */
-	public final boolean hasBackgroundColor() {
-		return (backgroundColor != null);
-	}
-	
-	public final boolean hasRole(final String role) {
-		return false;
-	}
-	
-	//method
-	/**
-	 * Removes the background color of this area.
-	 */
-	public final void removeBackgroundColor() {
-		backgroundColor = null;
-	}
-	
-	//method
-	/**
-	 * Sets the background color of this area.
-	 * @param backgroundColor
-	 * @throws Exception if the given background color is null
-	 */
-	public final Area setBackgroundColor(BackgroundColor backgroundColor) {
-		
-		//Checks the given background color.
-		Validator.throwExceptionIfValueIsNull("background color", backgroundColor);
-		
-		this.backgroundColor = backgroundColor;
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Sets the given attribute to this area.
+	 * Adds or changes the given attribute to this area.
 	 * 
 	 * @param attribute
-	 * @throws Exception if the given attribute is not valid
+	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(Specification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
+		
+		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case Width.SIMPLE_CLASS_NAME:
 				setWidth(attribute.getOneAttributeToInteger());
@@ -141,16 +85,49 @@ public final class Area extends Rectangle<AreaStructure, Area> {
 	
 	//method
 	/**
-	 * Resets this area.
+	 * @return the attributes of this area.
 	 */
-	public final void reset() {
+	public List<Specification> getAttributes() {
 		
 		//Calls method of the base class.
-		super.reset();
+		final List<Specification> attributes = super.getAttributes();
 		
-		removeBackgroundColor();
+		attributes
+		.addAtEnd(width.getSpecification())
+		.addAtEnd(height.getSpecification());
+		
+		if (hasBackgroundColor()) {
+			attributes.addAtEnd(backgroundColor.getSpecification());
+		}
+		
+		return attributes;
 	}
 	
+	//method
+	/**
+	 * @return true if this area has a background color.
+	 */
+	public final boolean hasBackgroundColor() {
+		return (backgroundColor != null);
+	}
+	
+	//method
+	/**
+	 * @param role
+	 * @return true if this area has the given role.
+	 */
+	public final boolean hasRole(final String role) {
+		return false;
+	}
+	
+	//method
+	/**
+	 * Removes the background color of this area.
+	 */
+	public final void removeBackgroundColor() {
+		backgroundColor = null;
+	}
+		
 	//method
 	/**
 	 * Resets the configuration of this area.
@@ -167,13 +144,31 @@ public final class Area extends Rectangle<AreaStructure, Area> {
 	
 	//method
 	/**
+	 * Sets the background color of this area.
+	 * 
+	 * @param backgroundColor
+	 * @throws NullArgumentException if the given background color is null.
+	 */
+	public final Area setBackgroundColor(final BackgroundColor backgroundColor) {
+		
+		//Checks if the given background color is not null.
+		ZetaValidator.supposeThat(backgroundColor).thatIsInstanceOf(BackgroundColor.class).isNotNull();
+		
+		//Sets the background color of this area.
+		this.backgroundColor = backgroundColor;
+		
+		return this;
+	}
+	
+	//method
+	/**
 	 * Sets the height of this area.
 	 * 
 	 * @param height
-	 * @throws Exception if the given height is not positive
+	 * @throws NonPositiveArgumentException if the given height is not positive.
 	 */
-	public final void setHeight(int height) {
-		this.height.setValue(height);
+	public final void setHeight(final int height) {
+		this.height = new Height(height);
 	}
 	
 	//method
@@ -181,15 +176,15 @@ public final class Area extends Rectangle<AreaStructure, Area> {
 	 * Sets the with of this area.
 	 * 
 	 * @param width
-	 * @throws Exception if the given width is not positive
+	 * @throws NonPositiveArgumentException if the given width is not positive.
 	 */
-	public final void setWidth(int width) {
-		this.width.setValue(width);
+	public final void setWidth(final int width) {
+		this.width = new Width(width);
 	}
 	
 	//method
 	/**
-	 * @return the height of this rectangle when it is not collapsed
+	 * @return the height of this rectangle when it is not collapsed.
 	 */
 	protected final int getHeightWhenNotCollapsed() {
 		return height.getValue();
@@ -197,7 +192,7 @@ public final class Area extends Rectangle<AreaStructure, Area> {
 	
 	//method
 	/**
-	 * @return the width of this rectangle when it is not collapsed
+	 * @return the width of this rectangle when it is not collapsed.
 	 */
 	protected final int getWidthWhenNotCollapsed() {
 		return width.getValue();
@@ -207,7 +202,7 @@ public final class Area extends Rectangle<AreaStructure, Area> {
 	/**
 	 * Paints this area using the given rectangle structure and graphics.
 	 */
-	protected final void paint(AreaStructure rectangleStructure, Graphics graphics) {
+	protected final void paint(final AreaStructure rectangleStructure, final Graphics graphics) {
 		if (hasBackgroundColor()) {
 			backgroundColor.paintRectangle(graphics, 0, 0, getWidth(), getHeight());
 		}
