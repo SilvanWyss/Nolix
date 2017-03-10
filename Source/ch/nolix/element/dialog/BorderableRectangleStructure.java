@@ -1,10 +1,3 @@
-/*
- * file:	BorderableRectangleStructure.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	700
- */
-
 //package declaration
 package ch.nolix.element.dialog;
 
@@ -13,118 +6,48 @@ import ch.nolix.common.container.List;
 import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
-import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.specification.Specification;
+import ch.nolix.common.zetaValidator.ZetaValidator;
 import ch.nolix.element.basic.Color;
+import ch.nolix.element.basic.PositiveInteger;
 import ch.nolix.element.data.BackgroundColor;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 780
+ * @param <BRS> - The type of a borderable rectangle structure.
+ */
 public abstract class BorderableRectangleStructure<BRS extends BorderableRectangleStructure<BRS>>
 extends RectangleStructure<BRS> {
 	
 	//attribute headers
-	private static final String BORDER_SIZE = "BorderSize";
-	private static final String BORDER_COLOR = "BorderColor";
-	private static final String LEFT_BORDER_SIZE = "LeftBorderSize";
-	private static final String LEFT_BORDER_COLOR = "LeftBorderColor";
-	private static final String RIGHT_BORDER_SIZE = "RightBorderSize";
-	private static final String RIGHT_BORDER_COLOR = "RightBorderColor";
-	private static final String TOP_BORDER_SIZE = "TopBorderSize";
-	private static final String TOP_BORDER_COLOR = "TopBorderColor";
-	private static final String BOTTOM_BORDER_SIZE = "BottomBorderSize";
-	private static final String BOTTOM_BORDER_COLOR = "BottomBorderColor";	
+	private static final String BORDER_SIZE_HEADER = "BorderSize";
+	private static final String LEFT_BORDER_SIZE_HEADER = "LeftBorderSize";
+	private static final String RIGHT_BORDER_SIZE_HEADER = "RightBorderSize";
+	private static final String TOP_BORDER_SIZE_HEADER = "TopBorderSize";
+	private static final String BOTTOM_BORDER_SIZE_HEADER = "BottomBorderSize";
+	private static final String BORDER_COLOR_HEADER = "BorderColor";
+	private static final String LEFT_BORDER_COLOR_HEADER = "LeftBorderColor";
+	private static final String RIGHT_BORDER_COLOR_HEADER = "RightBorderColor";
+	private static final String TOP_BORDER_COLOR_HEADER = "TopBorderColor";
+	private static final String BOTTOM_BORDER_COLOR_HEADER = "BottomBorderColor";	
 		
 	//optional attributes
 	private BackgroundColor backgroundColor;
-	private BorderableRectangleBorder leftBorder;
-	private BorderableRectangleBorder rightBorder;
-	private BorderableRectangleBorder topBorder;
-	private BorderableRectangleBorder bottomBorder;
+	private PositiveInteger leftBorderSize;
+	private Color leftBorderColor;
+	private PositiveInteger rightBorderSize;
+	private Color rightBorderColor;
+	private PositiveInteger topBorderSize;
+	private Color topBorderColor;
+	private PositiveInteger bottomBorderSize;
+	private Color bottomBorderColor;
 	
 	//method
 	/**
-	 * @return the recursive bottom border size of this borderable rectangle structure
-	 */
-	public final int getRecBottomBorderSize() {
-		
-		//Handles the case if this borderable rectangle structure has a bottom border.
-		if (hasBottomBorder()) {
-			return bottomBorder.getSize();
-		}
-		
-		//Handles the case if this borderable rectangle structure has no bottom border but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getRecBottomBorderSize();
-		}
-		
-		//Handles the case if this borderable rectangle structure has no bottom border and no normal structure.
-		return 0;
-	}
-	
-	//method
-	/**
-	 * @return the recursive left border size of this borderable rectangle structure
-	 */
-	public final int getRecLeftBorderSize() {
-		
-		//Handles the case if this borderable rectangle structure has a left border.
-		if (hasLeftBorder()) {
-			return leftBorder.getSize();
-		}
-		
-		//Handles the case if this borderablre rectangle structure has no left border but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getRecLeftBorderSize();
-		}
-		
-		//Handles the case if this borderable rectangle structure has no right border and no normal structure.
-		return 0;
-	}
-	
-	//method
-	/**
-	 * @return the recursive right border size of this borderable rectangle structure
-	 */
-	public final int getRecRightBorderSize() {
-		
-		//Handles the case if this borderable rectangle structure has a right border.
-		if (hasRightBorder()) {
-			return rightBorder.getSize();
-		}
-		
-		//Handles the case if this borderable rectangle structure has no right border but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getRecRightBorderSize();
-		}
-		
-		//Handles the case if this borderable rectangle structure has no right border and no normal structure.
-		return 0;
-	}
-	
-	//method
-	/**
-	 * @return the recursive top border ssize of this borderable rectangle structure
-	 */
-	public final int getRecTopBorderSize() {
-		
-		//Handles the case if this borderable rectangle structure has a top border.
-		if (hasTopBorder()) {
-			return topBorder.getSize();
-		}
-		
-		//Handles the case if this borderable rectangle structure has no top border but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getRecTopBorderSize();
-		}
-		
-		//Handles the case if this borderable rectangle structure has no top border and no normal structure.
-		return 0;
-	}
-	
-	//method
-	/**
-	 * @return the recursive background color of this borderable rectange structure
-	 * @throws Exception if this borderable rectangle has no recursive background color
+	 * @return the active background color of this borderable rectangle structure.
 	 */
 	public final BackgroundColor getRefRecBackgroundColor() {
 		
@@ -139,114 +62,170 @@ extends RectangleStructure<BRS> {
 		}
 		
 		//Handles the case if this borderable rectangle structure has no background color and no normal structure.
-		throw new UnexistingAttributeException(this, "background color");
+		return new BackgroundColor(Color.WHITE);
 	}
 	
-	//method
-	/**
-	 * @return the recursive bottom border color of this borderable rectangle structure
-	 * @throws Exception if this borderable rectangle structure has no recursive bottom border
-	 */
-	public final Color getRefRecBottomBorderColor() {
+	public final Color getActiveBottomBorderColor() {
 		
-		//Handles the case if this borderable rectangle structure has a bottom border.
-		if (hasBottomBorder()) {
-			return bottomBorder.getRefColor();
+		//Handles the case if this borderable rectangle structure has a bottom border color.
+		if (hasBottomBorderColor()) {
+			return bottomBorderColor;
 		}
 		
-		//Handles the case if this borderable rectangle structure has no bottom border but a normal structure.
+		//Handles the case if this borderable rectangle structure has no bottom border color but a normal structure.
 		if (hasNormalStructure()) {
-			return getRefNormalStructure().getRefRecBottomBorderColor();
+			return getRefNormalStructure().getActiveBottomBorderColor();
 		}
 		
-		//Handles the case if this borderable rectangle structure has no bottom border and no normal structure.
-		throw new UnexistingAttributeException("borderable rectangle", "bottom border");
+		//Handles the case if this borderable rectangle structure has no bottom border color and no normal structure.
+		return new Color(Color.BLACK);
 	}
-		
+	
 	//method
 	/**
-	 * @return the recursive left border color of this borderable rectangle structure
-	 * @throws Exception if this borderable rectangle structure has no recursive left border
+	 * @return the active bottom border size of this borderable rectangle structure.
 	 */
-	public final Color getRefRecLeftBorderColor() {
+	public final int getActiveBottomBorderSize() {
 		
-		//Handles the case if this borderable rectangle structure has a left border.
-		if (hasLeftBorder()) {
-			return leftBorder.getRefColor();
+		//Handles the case if this borderable rectangle structure has a bottom border size.
+		if (hasBottomBorderSize()) {
+			return bottomBorderSize.getValue();
 		}
 		
-		//Handles the case if this borderable rectangle structure has no left border but a normal structure.
+		//Handles the case if this borderable rectagnle structure has no bottom border size but a normal structure.
 		if (hasNormalStructure()) {
-			return getRefNormalStructure().getRefRecLeftBorderColor();
+			return getRefNormalStructure().getActiveBottomBorderSize();
 		}
 		
-		//Handles the case if this borderable rectangle structure has no left border and no normal structure.
-		throw new UnexistingAttributeException(this, "left border");
+		//Handles the case if this borderable rectangle structure has no bottom border size and no normal structure.
+		return 0;
 	}
 	
 	//method
 	/**
-	 * @return the recursive right border color of this borderable rectangle structure
-	 * @throws Exception if this borderable rectangle structure has no recursive right border color
+	 * @return the active left border color of this borderable rectangle structure.
 	 */
-	public final Color getRefRecRightBorderColor() {
+	public final Color getActiveLeftBorderColor() {
 		
-		//Handles the case if this borderable rectangle structure has a right border.
-		if (hasRightBorder()) {
-			return rightBorder.getRefColor();
+		//Handles the case if this borderable rectangle structure has a left border color.
+		if (hasLeftBorderColor()) {
+			return leftBorderColor;
 		}
 		
-		//Handles the case if this borderable rectangle structure has no right border but a normal structure.
+		//Handles the case if this borderable rectangle structure has no left border color but a normal structure.
 		if (hasNormalStructure()) {
-			return getRefNormalStructure().getRefRecRightBorderColor();
+			return getRefNormalStructure().getActiveLeftBorderColor();
 		}
 		
-		//Handles the case if this borderable rectangle structure has no right border and no normal structure.
-		throw new UnexistingAttributeException(this, "right border");
+		//Handles the case if this borderable rectangle structure has no left border color and no normal structure.
+		return new Color(Color.BLACK);
 	}
 	
 	//method
 	/**
-	 * @return the recursive top border color of this borderable rectangle structure
-	 * @throws Exception if this borderable rectangle structure has no recursive top border color
+	 * @return the active left border size of this borderable rectangle structure.
 	 */
-	public final Color getRefRecTopBorderColor() {
+	public final int getActiveLeftBorderSize() {
 		
-		//Handles the case if this borderable rectangle stucture has a top border.
-		if (hasTopBorder()) {
-			return topBorder.getRefColor();
+		//Handles the case if this borderable rectangle structure has a left border size.
+		if (hasLeftBorderSize()) {
+			return leftBorderSize.getValue();
 		}
 		
-		//Handles the case if this borderable rectangle structure has no top border but a normal structure.
+		//Hanldes the case if this borderable rectangle structure has no left border size but a normal structure.
 		if (hasNormalStructure()) {
-			return getRefNormalStructure().getRefRecTopBorderColor();
+			return getRefNormalStructure().getActiveLeftBorderSize();
 		}
 		
-		//Handles the case if this borderable rectangle structure has no top border and no normal structure.
-		throw new UnexistingAttributeException(this, "top border");
+		//Handles the case if this borderable rectangle structure has no left border size and no normal structure.
+		return 0;
 	}
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle structure has a background color
+	 * @return the active right border color of this borderable rectangle structure.
 	 */
-	public final boolean hasBackgroundColor() {
-		return (backgroundColor != null);
+	public final Color getActiveRightBorderColor() {
+		
+		//Handles the case if this borderable rectangle structure has a right border color.
+		if (hasRightBorderColor()) {
+			return rightBorderColor;
+		}
+		
+		//Handles the case if this borderable rectangle structure has no right border color but a normal structure.
+		if (hasNormalStructure()) {
+			return getRefNormalStructure().getActiveRightBorderColor();
+		}
+		
+		//Hadles the case if this borderable rectangle structure has no right border color and no normal structure.
+		return new Color(Color.BLACK);
 	}
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle structre has a bottom border
+	 * @return the active right border size of this borderable rectangle structure.
 	 */
-	public final boolean hasBottomBorder() {
-		return (bottomBorder != null);
+	public final int getActiveRightBorderSize() {
+		
+		//Handles the case if this borderable rectangle structure has a right border size.
+		if (hasRightBorderSize()) {
+			return rightBorderSize.getValue();
+		}
+		
+		//Handles the case if this borderable rectangle structure has no right border size but a normal structure.
+		if (hasNormalStructure()) {
+			return getRefNormalStructure().getActiveRightBorderSize();
+		}
+		
+		//Handles the case if this borderable rectangle structure has no right border size and no normal structure.
+		return 0;
 	}
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle structure has a recursive background color
+	 * @return the active top border color of this borderable rectangle structure.
 	 */
-	public final boolean hasRecBackgroundColor() {
+	public final Color getActiveTopBorderColor() {
+		
+		//Handles the case if this borderable rectangle structure has a top border color.
+		if (hasTopBorderColor()) {
+			return topBorderColor;
+		}
+		
+		//Handles the case if this borderable rectangle structure has no top border color but a normal structure.
+		if (hasNormalStructure()) {
+			return getRefNormalStructure().getActiveTopBorderColor();
+		}
+		
+		//Handles the case if this borderable rectangle structure has no top border color and no normal structure.
+		return new Color(Color.BLACK);
+	}
+	
+	//method
+	/**
+	 * @return the active top border size of this borderable rectangle structure.
+	 */
+	public final int getActiveTopBorderSize() {
+		
+		//Handles the case if this borderable rectangle structure has no top border size.
+		if (hasTopBorderSize()) {
+			return topBorderSize.getValue();
+		}
+		
+		//Handles the case if this borderable rectangle structure has no top border size but a normal structure.
+		if (hasNormalStructure()) {
+			return getRefNormalStructure().getActiveTopBorderSize();
+		}
+		
+		//Handles the case if this borderable rectangle structure has no top border size and no normal structure.
+		return 0;
+	}
+	
+	//method
+	/**
+	 * @return true if this borderable rectangle structure has an active background color.
+	 */
+	public final boolean hasActiveBackgroundColor() {
 		
 		//Handles the case if this borderable rectangle structure has a background color.
 		if (hasBackgroundColor()) {
@@ -255,115 +234,131 @@ extends RectangleStructure<BRS> {
 		
 		//Handles the case if this borderable rectangle structure has no background color but a normal structure.
 		if (hasNormalStructure()) {
-			return getRefNormalStructure().hasBackgroundColor();
+			return getRefNormalStructure().hasActiveBackgroundColor();
 		}
 		
-		//Handles the case if this borderable rectangle structure has no background color border and no normal structure.
+		//Handles the case if this borderable rectangle structure has no background color and no normal structure.
 		return false;
-	}	
+	}
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle structure has a recursive bottom border
+	 * @return true if this borderable rectangle structure has a background color.
 	 */
-	public final boolean hasRecBottomBorder() {
+	public final boolean hasBackgroundColor() {
+		return (backgroundColor != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this borderable rectangle has a bottom border color.
+	 */
+	public final boolean hasBottomBorderColor() {
+		return (bottomBorderColor != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this borderable rectangle has a bottom border size.
+	 */
+	public final boolean hasBottomBorderSize() {
+		return (bottomBorderSize != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this borderable rectangle has a left border color.
+	 */
+	public final boolean hasLeftBorderColor() {
+		return (leftBorderColor != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this borderable rectangle has a left border size.
+	 */
+	public final boolean hasLeftBorderSize() {
+		return (leftBorderSize != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this borderable rectangle has a right border color.
+	 */
+	public final boolean hasRightBorderColor() {
+		return (rightBorderColor != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this borderable rectangle has a right border size.
+	 */
+	public final boolean hasRightBorderSize() {
+		return (rightBorderSize != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this borderable rectangle structure has the same border color at each side.
+	 */
+	public final boolean hasSameBorderColorAtEachSide()  {
 		
-		//Handles the case if this borderable rectangle structure has a bottom border.
-		if (hasBottomBorder()) {
+		if (
+			!hasLeftBorderColor()
+			&& !hasRightBorderColor()
+			&& !hasTopBorderColor()
+			&& !hasBottomBorderColor()
+		) {
 			return true;
 		}
 		
-		//Handles the case if this borderablre rectangle structure has no bottom border but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().hasBottomBorder();
-		}
-		
-		//Handles the case if this borderable rectangle structure has no bottom border and no normal structure.//Handles the case if this borderable rectangle structure has neither a bottom border nor a normal structure.
-		return false;
+		return (
+			leftBorderColor.equals(rightBorderColor)
+			&& leftBorderColor.equals(topBorderColor)
+			&& leftBorderColor.equals(bottomBorderColor)
+		);
 	}
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle structure has a recursive left border
+	 * @return true if this borderable rectangle structure has the same border size at each side.
 	 */
-	public final boolean hasRecLeftBorder() {
+	public final boolean hasSameBorderSizeAtEachSide() {
 		
-		//Handles the case if this borderable rectangle structure has a left border.
-		if (hasLeftBorder()) {
+		if (
+			!hasLeftBorderSize()
+			&& !hasRightBorderSize()
+			&& !hasTopBorderSize()
+			&& !hasBottomBorderSize()
+		) {
 			return true;
 		}
 		
-		//Handles the case if this borderable rectangle structure has no left border but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().hasLeftBorder();
-		}
-		
-		//Handles the case if this borderable rectangle structure has no left border and no normal structure.
-		return false;
+		return (
+			hasLeftBorderSize()
+			&& hasRightBorderSize()
+			&& hasTopBorderSize()
+			&& hasBottomBorderSize()
+			&& leftBorderSize.getValue() == rightBorderSize.getValue()
+			&& leftBorderSize.getValue() == topBorderSize.getValue()
+			&& leftBorderSize.getValue() == bottomBorderSize.getValue()
+		);
 	}
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle has a recursive right border
+	 * @return true if this borderable rectangle has a topt border color.
 	 */
-	public final boolean hasRecRightBorder() {
-		
-		//Handles the case if this borderable rectangle structure has a right border.
-		if (hasRightBorder()) {
-			return true;
-		}
-		
-		//Handles the case if this borderable rectangle structure has no right border, but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().hasRightBorder();
-		}
-		
-		//Handles the case if this borderable rectangle has no right border and no normal structure.
-		return false;
+	public final boolean hasTopBorderColor() {
+		return (topBorderColor != null);
 	}
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle has a recursive top border
+	 * @return true if this borderable rectangle has a top border size.
 	 */
-	public final boolean hasRecTopBorder() {
-		
-		//Handles the case if this rectangle structure has a top border.
-		if (hasTopBorder()) {
-			return true;
-		}
-		
-		//Handles the case if this rectangle structure has no top border but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().hasTopBorder();
-		}
-		
-		//Handles the case if this rectangle structure has no top border and no normal structure.
-		return false;
-	}
-	
-	//method
-	/**
-	 * @return true if this borderable rectangle structure has a left border
-	 */
-	public final boolean hasLeftBorder() {
-		return (leftBorder != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this borderable rectangle structure has a right border
-	 */
-	public final boolean hasRightBorder() {
-		return (rightBorder != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this borderable rectangle structure has a top border
-	 */
-	public final boolean hasTopBorder() {
-		return (topBorder != null);
+	public final boolean hasTopBorderSize() {
+		return (topBorderSize != null);
 	}
 	
 	//method
@@ -376,45 +371,66 @@ extends RectangleStructure<BRS> {
 	
 	//method
 	/**
-	 * Removes the border of this borderable rectangle structure.
+	 * Removes the bottom border color of this borderable rectangle structure.
 	 */
-	public final void removeBorder() {
-		removeLeftBorder();
-		removeRightBorder();
-		removeTopBorder();
-		removeBottomBorder();
+	public final void removeBottomBorderColor() {
+		bottomBorderColor = null;
 	}
 	
 	//method
 	/**
-	 * Removes the bottom border of this borderable rectangle structure.
+	 * Removes the bottom border size of this rectangle structure.
 	 */
-	public final void removeBottomBorder() {
-		bottomBorder = null;
+	public final void removeBottomBorderSize() {
+		bottomBorderSize = null;
 	}
 	
 	//method
 	/**
-	 * Removes the left border of this borderable rectangle structure.
+	 * Removes the left border color of this borderable rectangle structure.
 	 */
-	public final void removeLeftBorder() {
-		leftBorder = null;
+	public final void removeLeftBorderColor() {
+		leftBorderColor = null;
 	}
 	
 	//method
 	/**
-	 * Removes the right border of this borderable rectangle structure.
+	 * Removes the left border size of this rectangle structure.
 	 */
-	public final void removeRightBorder() {
-		rightBorder = null;
+	public final void removeLeftBorderSize() {
+		leftBorderSize = null;
 	}
 	
 	//method
 	/**
-	 * Removes the top border of this borderable rectangle structure.
+	 * Removes the right border color of this borderable rectangle structure.
 	 */
-	public final void removeTopBorder() {
-		topBorder = null;
+	public final void removeRightBorderColor() {
+		rightBorderColor = null;
+	}
+	
+	//method
+	/**
+	 * Removes the right border size of this borderable rectangle structure.
+	 */
+	public final void removeRightBorderSize() {
+		rightBorderSize = null;
+	}
+	
+	//method
+	/**
+	 * Removes the top border color of this borderable rectangle structure.
+	 */
+	public final void removeTopBorderColor() {
+		topBorderColor = null;
+	}
+	
+	//method
+	/**
+	 * Removes the top border size of this borderable rectangle structure.
+	 */
+	public final void removeTopBorderSize() {
+		topBorderSize = null;
 	}
 	
 	//method
@@ -422,172 +438,213 @@ extends RectangleStructure<BRS> {
 	 * Sets the background color of this borderable rectangle structure.
 	 * 
 	 * @param backgroundColor
-	 * @throws Exception if the given background color is no color name or no true color value
+	 * @return this borderable rectangle structure.
+	 * @throws NullArgumentException if the given background color is null.
 	 */
-	public final void setBackgroundColor(String backgroundColor) {
-		this.backgroundColor = new BackgroundColor(backgroundColor);
+	@SuppressWarnings("unchecked")
+	public final BRS setBackgroundColor(final BackgroundColor backgroundColor) {
+		
+		//Checks if the given background color is not null.
+		ZetaValidator.supposeThat(backgroundColor).thatIsInstanceOf(BackgroundColor.class).isNotNull();
+		
+		//Sets the background color of this borderable rectangle structure.
+		this.backgroundColor = backgroundColor;
+		
+		return (BRS)this;
 	}
 	
 	//method
 	/**
-	 * Sets the background color of this borderable rectangle structure.
+	 * Sets the border color of this borderable rectangle structure.
 	 * 
-	 * @param backgroundColor
-	 * @throws InvalidArgumentException if the given background color is no true color value.
+	 * @param color
+	 * @return this borderable rectangle structure.
+	 * @throws NullArgumentException if the given border color is null.
 	 */
-	public final void setBackgroundColor(int backgroundColor) {
-		this.backgroundColor = new BackgroundColor(backgroundColor);
-	}
-	
-	//method
-	/**
-	 * Sets the color of the border of this borderable rectangle structure.
-	 * 
-	 * @param borderColor
-	 * @throws Exception if the given border color is no color name or no true color value
-	 */
-	public final void setBorderColor(String borderColor) {
+	@SuppressWarnings("unchecked")
+	public final BRS setBorderColor(final Color borderColor) {
+		
 		setLeftBorderColor(borderColor);
 		setRightBorderColor(borderColor);
 		setTopBorderColor(borderColor);
 		setBottomBorderColor(borderColor);
+		
+		return (BRS)this;
 	}
 	
 	//method
 	/**
-	 * Sets the size of the border of this borderbale rectangle structure.
+	 * Sets the border size of this borderable rectangle structure.
 	 * 
 	 * @param borderSize
-	 * @throws Exception if the given border size is not positive
+	 * @return this boderable rectangle structure.
+	 * @throws NonPositiveArgumentException if the given border size is not positive.
 	 */
-	public final void setBorderSize(int borderSize) {
+	@SuppressWarnings("unchecked")
+	public final BRS setBorderSize(final int borderSize) {
+		
 		setLeftBorderSize(borderSize);
 		setRightBorderSize(borderSize);
 		setTopBorderSize(borderSize);
 		setBottomBorderSize(borderSize);
+		
+		return (BRS)this;
 	}
 	
 	//method
 	/**
-	 * Sets the color of the bottom border of this borderable rectangle structure.
-	 * Creates new bottom border if this rectangle structure has no bottom border.
+	 * Sets the bottom border color of this borderable rectangle structure.
 	 * 
 	 * @param bottomBorderColor
-	 * @throws Exception if the given bottom border color is no color name or no true color value
+	 * @return this borderable rectangle structure.
+	 * @throws NullArgumentException if the given bottom broder color.
 	 */
-	public final void setBottomBorderColor(String bottomBorderColor) {
-		createBottomBorderIfHasNoBottomBorder();
-		bottomBorder.setColor(bottomBorderColor);
+	@SuppressWarnings("unchecked")
+	public final BRS setBottomBorderColor(final Color bottomBorderColor) {
+		
+		//Checks if the given bottom border color is not null.
+		ZetaValidator.supposeThat(bottomBorderColor).thatIsNamed("bottom border color").isNotNull();
+		
+		//Sets the bottom border color of this borderable rectangle structure.
+		this.bottomBorderColor = bottomBorderColor;
+		
+		return (BRS)this;
 	}
-	
+
 	//method
 	/**
-	 * Sets the size of the bottom border of this borderable rectangle structure.
-	 * Creates new bottom border if this borderable rectangle structure has no bottom border.
+	 * Sets the bottom border size of this borderable rectangle structure.
 	 * 
 	 * @param bottomBorderSize
-	 * @throws Exception if the given bottom border size is not positive
+	 * @return this borderable rectangle structure.
+	 * @throws NonPositiveArgumentException if the given bottom border size is not positive.
 	 */
-	public final void setBottomBorderSize(int bottomBorderSize) {
-		createBottomBorderIfHasNoBottomBorder();
-		bottomBorder.setSize(bottomBorderSize);
+	@SuppressWarnings("unchecked")
+	public final BRS setBottomBorderSize(final int bottomBorderSize) {
+
+		this.bottomBorderSize = new PositiveInteger(bottomBorderSize);
+		
+		return (BRS)this;
 	}
 	
 	//method
 	/**
-	 * Sets a default border to this borderable rectangle structure.
-	 */
-	public final void setDefaultBorder() {
-		setBorderSize(BorderableRectangleBorder.DEFAULT_SIZE);
-		setBorderColor(BorderableRectangleBorder.DEFAULT_COLOR);
-	}
-	
-	//method
-	/**
-	 * Sets the color of the left border of this borderable rectangle structure.
-	 * Creates new left border if this borderable rectangle structure has no left border.
+	 * Sets the left border color of this borderable rectangle structure.
 	 * 
 	 * @param leftBorderColor
-	 * @throws Exception if the given left border color is no color name or no true color value
+	 * @return this borderable rectangle structure.
+	 * @throws NullArgumentException if the given left border color is null.
 	 */
-	public final void setLeftBorderColor(String leftBorderColor) {
-		createLeftBorderIfHasNoLeftBorder();
-		leftBorder.setColor(leftBorderColor);
+	@SuppressWarnings("unchecked")
+	public final BRS setLeftBorderColor(final Color leftBorderColor) {
+		
+		//Checks if the given left border color is not null.
+		ZetaValidator.supposeThat(leftBorderColor).thatIsNamed("left border color").isNotNull();
+		
+		//Sets the left border color of this boderable rectangle structure.
+		this.leftBorderColor = leftBorderColor;
+		
+		return (BRS)this;
 	}
 	
 	//method
 	/**
-	 * Sets the size of the left border of this borderable rectangle structure.
-	 * Creates new left border if this rectangle structure has no left border.
+	 * Sets the left border size of this borderable rectangle structure.
 	 * 
-	 * @param leftBorderSize
-	 * @throws Exception if the given left border size is not positive
+	 * @param leftBordersize
+	 * @return this borderable rectangle structure.
+	 * @throws NonPositiveArgumentException if the given left border size is not positive.
 	 */
-	public final void setLeftBorderSize(int leftBorderSize) {
-		createLeftBorderIfHasNoLeftBorder();
-		leftBorder.setSize(leftBorderSize);
+	@SuppressWarnings("unchecked")
+	public final BRS setLeftBorderSize(final int leftBordersize) {
+		
+		this.leftBorderSize = new PositiveInteger(leftBordersize);
+		
+		return (BRS)this;
 	}
 	
 	//method
 	/**
-	 * Sets the color of the right border of this borderable rectangle structure.
-	 * Creates new right border if this right borderable rectangle structure has no right border.
+	 * Sets the right border color of this borderable rectangle structure.
 	 * 
 	 * @param rightBorderColor
-	 * @throws Exception if the given right border color is no color name or no true color value
+	 * @return this boderable rectangle structure.
+	 * @throws NullArgumentException if the given right border color is null.
 	 */
-	public final void setRightBorderColor(String rightBorderColor) {
-		createRightBorderIfHasNoRightBorder();
-		rightBorder.setColor(rightBorderColor);
+	@SuppressWarnings("unchecked")
+	public final BRS setRightBorderColor(final Color rightBorderColor) {
+		
+		//Checks if the given right border color is not null.
+		ZetaValidator.supposeThat(rightBorderColor).thatIsNamed("right border color").isNotNull();
+		
+		//Sets the right border color of this borderable rectangle structure.
+		this.rightBorderColor = rightBorderColor;
+		
+		return (BRS)this;
 	}
 	
 	//method
 	/**
-	 * Sets the size of the right border of this borderable rectangle structure.
-	 * Creates new right border if this borderable rectangle structure has no right border.
+	 * Sets the right border size of this borderable rectangle structure.
 	 * 
 	 * @param rightBorderSize
-	 * @throws Exception if the given right border size is not positive
+	 * @return this borderable rectangle structure.
+	 * @throws NonPositiveArgumentException if the given right border size is not positive.
 	 */
-	public final void setRightBorderSize(int rightBorderSize) {
-		createRightBorderIfHasNoRightBorder();
-		rightBorder.setSize(rightBorderSize);
+	@SuppressWarnings("unchecked")
+	public final BRS setRightBorderSize(final int rightBorderSize) {
+		
+		this.rightBorderSize = new PositiveInteger(rightBorderSize);
+		
+		return (BRS)this;
 	}
 	
 	//method
 	/**
-	 * Sets the color of the top border of this borderable rectangle structure.
-	 * Creates new top border if this borderable rectangle structure has no top border.
+	 * Sets the top border color of this borderable rectangle structure.
 	 * 
 	 * @param topBorderColor
-	 * @throws Exception if the given top border color is no color name or no true color value
+	 * @return this boderable rectangle structure.
+	 * @throws NullArgumentException if the given top border color is null.
 	 */
-	public final void setTopBorderColor(String topBorderColor) {
-		createTopBorderIfHasNoTopBorder();
-		topBorder.setColor(topBorderColor);
+	@SuppressWarnings("unchecked")
+	public final BRS setTopBorderColor(final Color topBorderColor) {
+		
+		//Checks if the given top border color is not null.
+		ZetaValidator.supposeThat(topBorderColor).thatIsNamed("top border color").isNotNull();
+		
+		//Sets the top border color of this borderable rectangle structure.
+		this.topBorderColor = topBorderColor;
+		
+		return (BRS)this;
 	}
 	
 	//method
 	/**
-	 * Sets the size of the top border of this borderable rectangle structure.
-	 * Creates new top border if this borderable rectangle structure has no top border.
+	 * Sets the top border size of this borderable rectangle structure.
 	 * 
 	 * @param topBorderSize
-	 * @throws Exception if the given top border is not positive
+	 * @return this borderable rectangle structure.
+	 * @throws NonPositiveArgumentException if the given top border size is not positive.
 	 */
-	public final void setTopBorderSize(int topBorderSize) {
-		createTopBorderIfHasNoTopBorder();
-		topBorder.setSize(topBorderSize);
+	@SuppressWarnings("unchecked")
+	public final BRS setTopBorderSize(final int topBorderSize) {
+		
+		this.topBorderSize = new PositiveInteger(topBorderSize);
+		
+		return (BRS)this;
 	}
 	
-	//method
-	/**
-	 * Applies the default configuration to this borderable rectangle structure.
-	 */
-	protected void applyDefaultConfiguration() {
-		removeBackgroundColor();
-		removeBorder();
-	}
+	
+	
+	
+	
+	
+	
+
+	
+
+	
 	
 	//method
 	/**
@@ -596,40 +653,56 @@ extends RectangleStructure<BRS> {
 	protected List<Specification> getAttributes() {
 		
 		//Calls method of the base class.
-		List<Specification> attributes = super.getAttributes();
+		final List<Specification> attributes = super.getAttributes();
 		
 		if (hasBackgroundColor()) {
 			attributes.addAtEnd(backgroundColor.getSpecification());
 		}
 		
-		if (hasLeftBorder()) {
-			attributes.addAtEnd(
-				leftBorder.getRefSize().getSpecificationAs(LEFT_BORDER_SIZE),
-				leftBorder.getRefColor().getSpecificationAs(LEFT_BORDER_COLOR)
-			);
+		if (hasABorderSize() && hasSameBorderSizeAtEachSide()) {
+			attributes.addAtEnd(leftBorderSize.getSpecificationAs(BORDER_SIZE_HEADER));
+		}
+		else {
+			
+			if (hasLeftBorderSize()) {
+				attributes.addAtEnd(leftBorderSize.getSpecificationAs(LEFT_BORDER_SIZE_HEADER));
+			}
+			
+			if (hasRightBorderSize()) {
+				attributes.addAtEnd(rightBorderSize.getSpecificationAs(RIGHT_BORDER_SIZE_HEADER));
+			}
+			
+			if (hasTopBorderSize()) {
+				attributes.addAtEnd(topBorderSize.getSpecificationAs(TOP_BORDER_SIZE_HEADER));
+			}
+			
+			if (hasBottomBorderSize()) {
+				attributes.addAtEnd(bottomBorderSize.getSpecificationAs(BOTTOM_BORDER_SIZE_HEADER));
+			}
 		}
 		
-		if (hasRightBorder()) {
-			attributes.addAtEnd(
-				rightBorder.getRefSize().getSpecificationAs(RIGHT_BORDER_SIZE),
-				rightBorder.getRefColor().getSpecificationAs(RIGHT_BORDER_COLOR)
-			);
+		if (hasABorderColor() && hasSameBorderColorAtEachSide()) {
+			attributes.addAtEnd(leftBorderColor.getSpecificationAs(BORDER_COLOR_HEADER));
+		}
+		else {
+			
+			if (hasLeftBorderColor()) {
+				attributes.addAtEnd(leftBorderColor.getSpecificationAs(LEFT_BORDER_COLOR_HEADER));
+			}
+			
+			if (hasRightBorderColor()) {
+				attributes.addAtEnd(rightBorderColor.getSpecificationAs(RIGHT_BORDER_COLOR_HEADER));
+			}
+			
+			if (hasTopBorderColor()) {
+				attributes.addAtEnd(topBorderColor.getSpecificationAs(TOP_BORDER_COLOR_HEADER));
+			}
+			
+			if (hasBottomBorderColor()) {
+				attributes.addAtEnd(bottomBorderColor.getSpecificationAs(BOTTOM_BORDER_COLOR_HEADER));
+			}
 		}
 		
-		if (hasTopBorder()) {
-			attributes.addAtEnd(
-				topBorder.getRefSize().getSpecificationAs(TOP_BORDER_SIZE),
-				topBorder.getRefColor().getSpecificationAs(TOP_BORDER_COLOR)
-			);
-		}
-		
-		if (hasBottomBorder()) {
-			attributes.addAtEnd(
-				bottomBorder.getRefSize().getSpecificationAs(BOTTOM_BORDER_SIZE),
-				bottomBorder.getRefColor().getSpecificationAs(BOTTOM_BORDER_COLOR)
-			);
-		}
-
 		return attributes;
 	}
 	
@@ -638,42 +711,44 @@ extends RectangleStructure<BRS> {
 	 * Sets the given attribute to this borderable rectangle structure.
 	 * 
 	 * @param attribute
-	 * @throws Exception if the given attribute is not valid
+	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	protected void setAttribute(Specification attribute) {
+	protected void setAttribute(final Specification attribute) {
+		
+		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case BackgroundColor.SIMPLE_CLASS_NAME:
-				setBackgroundColor(attribute.getOneAttributeToString());
+				setBackgroundColor(new BackgroundColor(attribute.getOneAttributeToString()));
 				break;
-			case BORDER_SIZE:
+			case BORDER_SIZE_HEADER:
 				setBorderSize(attribute.getOneAttributeToInteger());
 				break;
-			case BORDER_COLOR:
-				setBorderColor(attribute.getOneAttributeToString());
-				break;
-			case LEFT_BORDER_SIZE:
+			case LEFT_BORDER_SIZE_HEADER:
 				setLeftBorderSize(attribute.getOneAttributeToInteger());
 				break;
-			case LEFT_BORDER_COLOR:
-				setLeftBorderColor(attribute.getOneAttributeToString());
-				break;
-			case RIGHT_BORDER_SIZE:
+			case RIGHT_BORDER_SIZE_HEADER:
 				setRightBorderSize(attribute.getOneAttributeToInteger());
 				break;
-			case RIGHT_BORDER_COLOR:
-				setRightBorderColor(attribute.getOneAttributeToString());
-				break;
-			case TOP_BORDER_SIZE:
+			case TOP_BORDER_SIZE_HEADER:
 				setTopBorderSize(attribute.getOneAttributeToInteger());
 				break;
-			case TOP_BORDER_COLOR:
-				setTopBorderColor(attribute.getOneAttributeToString());
-				break;
-			case BOTTOM_BORDER_SIZE:
+			case BOTTOM_BORDER_SIZE_HEADER:
 				setBottomBorderSize(attribute.getOneAttributeToInteger());
 				break;
-			case BOTTOM_BORDER_COLOR:
-				setBottomBorderColor(attribute.getOneAttributeToString());
+			case BORDER_COLOR_HEADER:
+				setBorderColor(new Color(attribute.getOneAttributeToString()));
+				break;
+			case LEFT_BORDER_COLOR_HEADER:
+				setLeftBorderColor(new Color(attribute.getOneAttributeToString()));
+				break;
+			case RIGHT_BORDER_COLOR_HEADER:
+				setRightBorderColor(new Color(attribute.getOneAttributeToString()));
+				break;
+			case BOTTOM_BORDER_COLOR_HEADER:
+				setBottomBorderColor(new Color(attribute.getOneAttributeToString()));
+				break;
+			case TOP_BORDER_COLOR_HEADER:
+				setTopBorderColor(new Color(attribute.getOneAttributeToString()));
 				break;
 			default:
 				throw new InvalidArgumentException(
@@ -685,41 +760,27 @@ extends RectangleStructure<BRS> {
 	
 	//method
 	/**
-	 * Creates new bottom border if this borderable rectangle structure has no bottom border.
+	 * @return true if this boderable rectangle structure has a border color.
 	 */
-	private final void createBottomBorderIfHasNoBottomBorder() {
-		if (!hasBottomBorder()) {
-			bottomBorder = new BorderableRectangleBorder();
-		}
+	private boolean hasABorderColor() {
+		return (
+			hasLeftBorderColor()
+			|| hasRightBorderColor()
+			|| hasTopBorderColor()
+			|| hasBottomBorderColor()
+		);
 	}
 	
 	//method
 	/**
-	 * Creates new left border if this borderable rectangle structure has no left border.
+	 * @return true if this boderable rectangle structure has a border size.
 	 */
-	private final void createLeftBorderIfHasNoLeftBorder() {
-		if (!hasLeftBorder()) {
-			leftBorder = new BorderableRectangleBorder();
-		}
-	}
-	
-	//method
-	/**
-	 * Creates new right border if this borderable rectangle structure has no right border.
-	 */
-	private final void createRightBorderIfHasNoRightBorder() {
-		if (!hasRightBorder()) {
-			rightBorder = new BorderableRectangleBorder();
-		}
-	}
-	
-	//method
-	/**
-	 * Creates new top border if this borderable rectangle structure has no top border.
-	 */
-	private final void createTopBorderIfHasNoTopBorder() {
-		if (!hasTopBorder()) {
-			topBorder = new BorderableRectangleBorder();
-		}
+	private boolean hasABorderSize() {
+		return (
+			hasLeftBorderSize()
+			|| hasRightBorderSize()
+			|| hasTopBorderSize()
+			|| hasBottomBorderSize()
+		);
 	}
 }
