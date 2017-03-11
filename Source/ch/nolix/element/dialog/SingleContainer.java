@@ -16,7 +16,7 @@ import ch.nolix.common.specification.Specification;
 
 //class
 public final class SingleContainer
-	extends Container<SimpleBorderWidgetStructure, SingleContainer> {
+extends Container<SingleContainerStructure, SingleContainer> {
 	
 	//constants
 	public static final String SIMPLE_CLASS_NAME = "SingleContainer";
@@ -33,9 +33,9 @@ public final class SingleContainer
 		
 		//Calls constructor of the base class.
 		super(
-			new SimpleBorderWidgetStructure(),
-			new SimpleBorderWidgetStructure(),
-			new SimpleBorderWidgetStructure()
+			new SingleContainerStructure(),
+			new SingleContainerStructure(),
+			new SingleContainerStructure()
 		);
 		
 		rectangle = new Area();
@@ -153,7 +153,7 @@ public final class SingleContainer
 
 	@Override
 	protected void paintContent(
-			SimpleBorderWidgetStructure rectangleStructure,
+			SingleContainerStructure rectangleStructure,
 			Graphics graphics) {
 		// TODO Auto-generated method stub
 		
