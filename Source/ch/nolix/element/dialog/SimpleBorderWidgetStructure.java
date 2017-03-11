@@ -9,5 +9,5 @@
 package ch.nolix.element.dialog;
 
 //class
-public final class SimpleBorderableRectangleStructure
-extends BorderableRectangleStructure<SimpleBorderableRectangleStructure> {}
+public final class SimpleBorderWidgetStructure
+extends BorderWidgetStructure<SimpleBorderWidgetStructure> {}

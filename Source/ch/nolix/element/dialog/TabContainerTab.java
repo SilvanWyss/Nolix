@@ -23,7 +23,7 @@ public final class TabContainerTab extends NamableElement<TabContainerTab> {
 	private Label menuItem;
 	
 	//optional attribute
-	private Rectangle<?, ?> rectangle;
+	private Widget<?, ?> rectangle;
 	
 	//method
 	/**
@@ -53,7 +53,7 @@ public final class TabContainerTab extends NamableElement<TabContainerTab> {
 	 * @return the rectangle of this tab container
 	 * @throws Exception if this tab container has no rectangle
 	 */
-	public final Rectangle<?, ?> getRefRectangle() {
+	public final Widget<?, ?> getRefRectangle() {
 		
 		if (!hasRectangle()) {
 			throw new UnexistingAttributeException(this, "rectangle");
@@ -80,7 +80,7 @@ public final class TabContainerTab extends NamableElement<TabContainerTab> {
 	 * -the given rectangle is null
 	 * -the given rectangle already belongs to an other dialog than the tab container of this tab container tab belongs to
 	 */
-	public final TabContainerTab setRectangle(Rectangle<?, ?> rectangle) {
+	public final TabContainerTab setRectangle(Widget<?, ?> rectangle) {
 		
 		Validator.throwExceptionIfValueIsNull("rectangle", rectangle);
 		

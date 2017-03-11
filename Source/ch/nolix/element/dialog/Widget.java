@@ -16,17 +16,17 @@ import ch.nolix.element.basic.ConfigurableElement;
 
 //class
 /**
- * A rectangle is a control on a dialog and has a specific width and height.
+ * A widget is a control on a dialog and has a specific width and height.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 960
  */
-public abstract class Rectangle<RS extends RectangleStructure<RS>, R extends Rectangle<RS, R>>
+public abstract class Widget<RS extends WidgetStructure<RS>, R extends Widget<RS, R>>
 extends ConfigurableElement<R> {
 	
 	//constant
-	public static final String SIMPLE_CLASS_NAME = "Rectangle";
+	public static final String SIMPLE_CLASS_NAME = "widget";
 	
 	//attribute headers
 	private static final String LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER = "LeftMouseButtonPressCommand";
@@ -44,7 +44,7 @@ extends ConfigurableElement<R> {
 	private Dialog<?> dialog;
 	private int relativeXPosition = 0;
 	private int relativeYPosition = 0;
-	private RectangleState state = RectangleState.Normal;
+	private WidgetState state = WidgetState.Normal;
 	private CursorIcon cursorIcon = CursorIcon.Arrow;
 	private final RS normalStructure;
 	private final RS hoverStructure;
@@ -60,20 +60,20 @@ extends ConfigurableElement<R> {
 	
 	//constructor
 	/**
-	 * Creates new rectangle with the given structures.
+	 * Creates new widget with the given structures.
 	 * 
 	 * @param normalStructure
 	 * @param hoverStructure
 	 * @param focusStructure
 	 */
-	public Rectangle(
+	public Widget(
 		final RS normalStructure,
 		final RS hoverStructure,
 		final RS focusStructure
 	) {
-		ZetaValidator.supposeThat(normalStructure).thatIsInstanceOf(RectangleStructure.class).isNotNull();
-		ZetaValidator.supposeThat(hoverStructure).thatIsInstanceOf(RectangleStructure.class).isNotNull();
-		ZetaValidator.supposeThat(focusStructure).thatIsInstanceOf(RectangleStructure.class).isNotNull();
+		ZetaValidator.supposeThat(normalStructure).thatIsInstanceOf(WidgetStructure.class).isNotNull();
+		ZetaValidator.supposeThat(hoverStructure).thatIsInstanceOf(WidgetStructure.class).isNotNull();
+		ZetaValidator.supposeThat(focusStructure).thatIsInstanceOf(WidgetStructure.class).isNotNull();
 		
 		this.normalStructure = normalStructure;
 		this.hoverStructure = hoverStructure;
@@ -85,7 +85,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Sets the given attribute to this rectangle.
+	 * Sets the given attribute to this widget.
 	 * 
 	 * @param attributes
 	 * @throws Exception if the given attribute is not valid
@@ -93,7 +93,7 @@ extends ConfigurableElement<R> {
 	public void addOrChangeAttribute(Specification attribute) {
 		switch (attribute.getHeader()) {
 			case STATE:
-				setState(RectangleState.valueOf(attribute.getOneAttributeToString()));
+				setState(WidgetState.valueOf(attribute.getOneAttributeToString()));
 				break;
 			case CursorIcon.SIMPLE_CLASS_NAME:
 				setCursorIcon(CursorIcon.valueOf(attribute.getOneAttributeToString()));
@@ -136,7 +136,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return true if this rectangle belongs to a dialog
+	 * @return true if this widget belongs to a dialog
 	 */
 	public final boolean belongsToDialog() {
 		return (dialog != null);
@@ -144,7 +144,7 @@ extends ConfigurableElement<R> {
 
 	//method
 	/**
-	 * @return the attributes of this rectangle
+	 * @return the attributes of this widget
 	 */
 	public List<Specification> getAttributes() {
 		
@@ -215,7 +215,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return the configurable objects of this rectangle
+	 * @return the configurable objects of this widget
 	 */
 	public List<Configurable> getRefConfigurables() {
 		return new List<Configurable>();
@@ -223,7 +223,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return the focus structure of this rectangle
+	 * @return the focus structure of this widget
 	 */
 	public final RS getRefFocusStructure() {
 		return focusStructure;
@@ -231,7 +231,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return the hover structure of this rectangle
+	 * @return the hover structure of this widget
 	 */
 	public final RS getRefHoverStructure() {
 		return hoverStructure;
@@ -239,7 +239,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return the normal structure of this rectangle
+	 * @return the normal structure of this widget
 	 */
 	public final RS getRefNormalStructure() {
 		return normalStructure;
@@ -247,15 +247,15 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return the state of this rectangle
+	 * @return the state of this widget
 	 */
-	public final RectangleState getState() {
+	public final WidgetState getState() {
 		return state;
 	}
 	
 	//method
 	/**
-	 * @return true if this rectangle has a left mouse button press command.
+	 * @return true if this widget has a left mouse button press command.
 	 */
 	public final boolean hasLeftMouseButtonPressCommand() {
 		return (leftMouseButtonPressCommand != null);
@@ -263,7 +263,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return true if this rectangle has a left mouse button release command.
+	 * @return true if this widget has a left mouse button release command.
 	 */
 	public final boolean hasLeftMouseButtonReleaseCommand() {
 		return (leftMouseButtonReleaseCommand != null);
@@ -271,7 +271,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return true if this rectangle has a right mouse button press command.
+	 * @return true if this widget has a right mouse button press command.
 	 */
 	public final boolean hasRightMouseButtonPressCommand() {
 		return (rightMouseButtonPressCommand != null);
@@ -279,7 +279,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return true if this rectangle has a right mouse button release command.
+	 * @return true if this widget has a right mouse button release command.
 	 */
 	public final boolean hasRightMouseButtonReleaseCommand() {
 		return (rightMouseButtonReleaseCommand != null);
@@ -287,63 +287,63 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return true if this rectangle is collapsed
+	 * @return true if this widget is collapsed
 	 */
 	public final boolean isCollapsed() {
-		return (state == RectangleState.Collapsed);
+		return (state == WidgetState.Collapsed);
 	}
 	
 	//method
 	/**
-	 * @return true if this rectangle is disabled
+	 * @return true if this widget is disabled
 	 */
 	public final boolean isDisabled() {
-		return (state == RectangleState.Disabled);
+		return (state == WidgetState.Disabled);
 	}
 	
 	//method
 	/**
-	 * @return true if this rectangle is focused
+	 * @return true if this widget is focused
 	 */
 	public final boolean isFocused() {
-		return (state == RectangleState.Focused);
+		return (state == WidgetState.Focused);
 	}
 	
 	//method
 	/**
-	 * @return true if this rectangle is hovered
+	 * @return true if this widget is hovered
 	 */
 	public final boolean isHovered() {
-		return (state == RectangleState.Hovered);
+		return (state == WidgetState.Hovered);
 	}
 	
 	//method
 	/**
-	 * @return true if this rectangle is hover focues
+	 * @return true if this widget is hover focues
 	 */
 	public final boolean isHoverFocused() {
-		return (state == RectangleState.HoverFocused);
+		return (state == WidgetState.HoverFocused);
 	}
 	
 	//method
 	/**
-	 * @return true if this rectangle is invisble
+	 * @return true if this widget is invisble
 	 */
 	public final boolean isInvisible() {
-		return (state == RectangleState.Invisible);
+		return (state == WidgetState.Invisible);
 	}
 	
 	//method
 	/**
-	 * @return true if this rectangle is normal
+	 * @return true if this widget is normal
 	 */
 	public final boolean isNormal() {
-		return (state == RectangleState.Normal);
+		return (state == WidgetState.Normal);
 	}
 	
 	//method
 	/**
-	 * Lets this rectangle note a key press.
+	 * Lets this widget note a key press.
 	 * 
 	 * @param keyEvent
 	 */
@@ -351,7 +351,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Lets this rectangle note a key typing.
+	 * Lets this widget note a key typing.
 	 * 
 	 * @param keyEvent
 	 */
@@ -359,11 +359,11 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Lets this rectangle note a left mouse button press.
+	 * Lets this widget note a left mouse button press.
 	 */
 	public void noteLeftMouseButtonPress() {
 		
-		//Updates the state of this rectangle.
+		//Updates the state of this widget.
 		if (isPointed()) {	
 			setHoverFocused();
 		}
@@ -382,17 +382,17 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Lets this rectangle note a left mouse button release.
+	 * Lets this widget note a left mouse button release.
 	 */
 	public void noteLeftMouseButtonRelease() {}
 	
 	//method
 	/**
-	 * Lets this rectangle note a mouse move.
+	 * Lets this widget note a mouse move.
 	 */
 	public void noteMouseMove() {
 		
-		//Updates the state of this rectangle.
+		//Updates the state of this widget.
 		if (isPointed()) {
 			if (isNormal()) {
 				setHovered();
@@ -417,19 +417,19 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Lets this rectangle note a right mouse button press.
+	 * Lets this widget note a right mouse button press.
 	 */
 	public void noteRightMouseButtonPress() {}
 	
 	//method
 	/**
-	 * Lets this rectangle note a right mouse button release.
+	 * Lets this widget note a right mouse button release.
 	 */
 	public void noteRightMouseButtonRelease() {}
 	
 	//method
 	/**
-	 * Removes the left mouse button press command of this rectangle.
+	 * Removes the left mouse button press command of this widget.
 	 */
 	public final void removeLeftMouseButtonPressCommand() {
 		leftMouseButtonPressCommand = null;
@@ -437,7 +437,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Removes the left mouse button release command of this rectangle.
+	 * Removes the left mouse button release command of this widget.
 	 */
 	public final void removeLeftMouseButtonReleaseCommand() {
 		leftMouseButtonReleaseCommand = null;
@@ -445,7 +445,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Removes the right mouse button press command of this rectangle.
+	 * Removes the right mouse button press command of this widget.
 	 */
 	public final void removeRightMouseButtonPressCommand() {
 		rightMouseButtonPressCommand = null;
@@ -453,7 +453,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Removes the right mouse button release command of this rectangle.
+	 * Removes the right mouse button release command of this widget.
 	 */
 	public final void removeRightMouseButtonReleaseCommand() {
 		rightMouseButtonReleaseCommand = null;
@@ -461,7 +461,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Resets this rectangle.
+	 * Resets this widget.
 	 */
 	public void reset() {
 		setNormal();
@@ -474,7 +474,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Resets the configuration of this rectangle.
+	 * Resets the configuration of this widget.
 	 */
 	public void resetConfiguration() {		
 		setCursorIcon(CursorIcon.Arrow);
@@ -482,15 +482,15 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Sets this rectangle collapsed.
+	 * Sets this widget collapsed.
 	 */
 	public final void setCollapsed() {
-		state = RectangleState.Collapsed;
+		state = WidgetState.Collapsed;
 	}
 	
 	//method
 	/**
-	 * Sets the cursor icon of this rectangle.
+	 * Sets the cursor icon of this widget.
 	 * 
 	 * @param cursorIcon
 	 */
@@ -504,51 +504,51 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Sets this rectangle disabled.
+	 * Sets this widget disabled.
 	 */
 	public final void setDisabled() {
-		state = RectangleState.Disabled;
+		state = WidgetState.Disabled;
 	}
 	
 	//method
 	/**
-	 * Sets this rectangle focused.
+	 * Sets this widget focused.
 	 */
 	public final void setFocused() {
-		state = RectangleState.Focused;
+		state = WidgetState.Focused;
 	}
 	
 	//method
 	/**
-	 * Sets this rectangle hover focused.
+	 * Sets this widget hover focused.
 	 */
 	public final void setHoverFocused() {
-		state = RectangleState.HoverFocused;
+		state = WidgetState.HoverFocused;
 	}
 	
 	//method
 	/**
-	 * Sets this rectangle hovered.
+	 * Sets this widget hovered.
 	 */
 	public final void setHovered() {
-		state = RectangleState.Hovered;
+		state = WidgetState.Hovered;
 	}
 	
 	//metohd
 	/**
-	 * Sets this rectangle invisible.
+	 * Sets this widget invisible.
 	 */
 	public final void setInvisible() {
-		state = RectangleState.Invisible;
+		state = WidgetState.Invisible;
 	}
 	
 	//method
 	@SuppressWarnings("unchecked")
 	/**
-	 * Sets the left mouse button press command of this rectangle.
+	 * Sets the left mouse button press command of this widget.
 	 * 
 	 * @param leftMouseButtonPressCommand
-	 * @return this rectangle.
+	 * @return this widget.
 	 * @throws NullArgumentException if the given left mouse button press command is null.
 	 */
 	public final R setLeftMouseButtonPressCommand(final Statement leftMouseButtonPressCommand) {
@@ -565,10 +565,10 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Sets the left mouse button press command of this rectangle.
+	 * Sets the left mouse button press command of this widget.
 	 * 
 	 * @param leftMouseButtonPressCommand
-	 * @return this rectangle.
+	 * @return this widget.
 	 * @throws InvalidArgumentException if the given left mouse button press command is not valid.
 	 */
 	public final R setLeftMouseButtonPressCommand(final String leftMouseButtonPressCommand) {
@@ -577,10 +577,10 @@ extends ConfigurableElement<R> {
 
 	//method
 	/**
-	 * Sets the given left mouse button press command, that has the given arguments, to this rectangle.
+	 * Sets the given left mouse button press command, that has the given arguments, to this widget.
 	 * 
 	 * @param leftMouseButtonPressCommand
-	 * @return this rectangle.
+	 * @return this widget.
 	 * @throws InvalidArgumentException if the given left mouse button press command or the given arguments are not valid.
 	 */
 	public final R setLeftMouseButtonPressCommand(
@@ -594,10 +594,10 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Sets the left mouse button release command of this rectangle.
+	 * Sets the left mouse button release command of this widget.
 	 * 
 	 * @param leftMouseButtonReleaseCommand
-	 * @return this rectangle.
+	 * @return this widget.
 	 * @throws NullArgumentException if the given left mouse button release command is null.
 	 */
 	@SuppressWarnings("unchecked")
@@ -616,10 +616,10 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Sets the left mouse button release command of this rectangle.
+	 * Sets the left mouse button release command of this widget.
 	 * 
 	 * @param leftMouseButtonReleaseCommand
-	 * @return this rectangle.
+	 * @return this widget.
 	 * @throws InvalidArgumentException if the given left mouse button release command is not valid.
 	 */
 	public final R setLeftMouseButtonReleaseCommand(final String leftMouseButtonReleaseCommand) {
@@ -628,11 +628,11 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Sets the given left mouse release command, that has the given attributes, to this rectangle.
+	 * Sets the given left mouse release command, that has the given attributes, to this widget.
 	 * 
 	 * @param leftMouseButtonReleaseCommand
 	 * @param arguments
-	 * @return this rectangle.
+	 * @return this widget.
 	 * @throws InvalidArgumentException if the given left mouse button release command or the given arguments are not valid.
 	 */
 	public final R setLeftMouseButtonReleaseCommand(
@@ -646,10 +646,10 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Sets the right mouse button press command of this rectangle.
+	 * Sets the right mouse button press command of this widget.
 	 * 
 	 * @param rightMouseButtonPressCommand
-	 * @return this rectangle.
+	 * @return this widget.
 	 * @throws NullArgumentException if the given right mouse button press command is null.
 	 */
 	@SuppressWarnings("unchecked")
@@ -668,10 +668,10 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Sets the right mouse button press command of this rectangle.
+	 * Sets the right mouse button press command of this widget.
 	 * 
 	 * @param rightMouseButtonPressCommand
-	 * @return this rectangle.
+	 * @return this widget.
 	 * @throws InvalidArgumentException if the givne right mouse button press command is not valid.
 	 */
 	public final R setRightMouseButtonPressCommand(final String rightMouseButtonPressCommand) {
@@ -680,11 +680,11 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Sets the given right mouse button press command, that has the given arguments, to this rectangle.
+	 * Sets the given right mouse button press command, that has the given arguments, to this widget.
 	 * 
 	 * @param rightMouseButtonPressCommand
 	 * @param arguments
-	 * @return this rectangle.
+	 * @return this widget.
 	 * @throws InvalidArgumentException if the given right mouse button press command or the given arguments are not valid.
 	 */
 	public final R setRightMouseButtonPressCommand(
@@ -698,10 +698,10 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Sets the right mouse button release command of this rectangle.
+	 * Sets the right mouse button release command of this widget.
 	 * 
 	 * @param rightMouseButtonReleaseCommand
-	 * @return this rectangle.
+	 * @return this widget.
 	 * @throws NullArgumentException if the given right mouse button release command is null.
 	 */
 	@SuppressWarnings("unchecked")
@@ -720,10 +720,10 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Sets the right mouse button release command of this rectangle.
+	 * Sets the right mouse button release command of this widget.
 	 * 
 	 * @param rightMouseButtonReleaseCommand
-	 * @return this rectangle.
+	 * @return this widget.
 	 * @throws InvalidArgumentException if the given right mouse button release command is not valid.
 	 */
 	public final R setRightMouseButtonReleaseCommand(final String rightMouseButtonReleaseCommand) {
@@ -732,11 +732,11 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Sets the givne right mouse button release command, that has the given arguments, to this rectangle.
+	 * Sets the givne right mouse button release command, that has the given arguments, to this widget.
 	 * 
 	 * @param rightMouseButtonReleaseCommand
 	 * @param arguments
-	 * @return this rectangle.
+	 * @return this widget.
 	 * @throws InvalidArgumentException if the given right mouse button release command or the given argumnets are not valid.
 	 */
 	public final R setRightMouseButtonReleaseCommand(
@@ -750,22 +750,22 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Sets this rectangle normal.
+	 * Sets this widget normal.
 	 * 
 	 * @throws Exception if an error occurs
 	 */
 	public final void setNormal() {
-		state = RectangleState.Normal;
+		state = WidgetState.Normal;
 	}
 	
 	//method
 	/**
-	 * Sets the state of this rectangle.
+	 * Sets the state of this widget.
 	 * 
 	 * @param state
 	 */
 	@SuppressWarnings("unchecked")
-	public final R setState(RectangleState state) {
+	public final R setState(WidgetState state) {
 		
 		this.state = state;
 		
@@ -775,7 +775,7 @@ extends ConfigurableElement<R> {
 	//method
 	/**
 	 * @param dialog
-	 * @return true if this rectangle belongs to the given dialog
+	 * @return true if this widget belongs to the given dialog
 	 */
 	protected final boolean belongsToDialog(Dialog<?> dialog) {
 		return (this.dialog == dialog);
@@ -783,7 +783,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return the current height of this rectangle
+	 * @return the current height of this widget
 	 */
 	protected final int getHeight() {
 		
@@ -796,13 +796,13 @@ extends ConfigurableElement<R> {
 	
 	//abstract method
 	/**
-	 * @return the current height of this rectangle when it is s not collapsed
+	 * @return the current height of this widget when it is s not collapsed
 	 */
 	protected abstract int getHeightWhenNotCollapsed();
 	
 	//method
 	/**
-	 * @return the current width of this rectangle
+	 * @return the current width of this widget
 	 */
 	protected final int getWidth() {
 		
@@ -815,13 +815,13 @@ extends ConfigurableElement<R> {
 	
 	//abstract method
 	/**
-	 * @return the current width of this rectangle for the case when it is not collapsed
+	 * @return the current width of this widget for the case when it is not collapsed
 	 */
 	protected abstract int getWidthWhenNotCollapsed();
 	
 	//method
 	/**
-	 * @return the x-position of the mouse of this rectangle
+	 * @return the x-position of the mouse of this widget
 	 */
 	protected final int getMouseXPosition() {
 		return mouseXPosition;
@@ -829,7 +829,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return the y-position of the mouse of this rectangle
+	 * @return the y-position of the mouse of this widget
 	 */
 	protected final int getMouseYPosition() {
 		return mouseYPosition;
@@ -837,8 +837,8 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return the current structure of this rectangle
-	 * @throws Exception if this rectangle has no current structure
+	 * @return the current structure of this widget
+	 * @throws Exception if this widget has no current structure
 	 */
 	protected final RS getRefCurrentStructure() {
 		switch (state) {
@@ -857,7 +857,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return the dialog this rectangle belongs to
+	 * @return the dialog this widget belongs to
 	 */
 	protected final Dialog<?> getRefDialog() {
 		return dialog;
@@ -865,7 +865,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return the relative x position of this rectangle
+	 * @return the relative x position of this widget
 	 */
 	protected final int getRelativeXPosition() {
 		return relativeXPosition;
@@ -873,7 +873,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return the relative y position of this rectangle
+	 * @return the relative y position of this widget
 	 */
 	protected final int getRelativeYPosition() {
 		return relativeYPosition;
@@ -881,7 +881,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return true if this rectangle is pointed by the mouse
+	 * @return true if this widget is pointed by the mouse
 	 */
 	protected final boolean isPointed() {
 		return (
@@ -896,7 +896,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Paints this rectangle using the given graphics and relative position.
+	 * Paints this widget using the given graphics and relative position.
 	 * 
 	 * @param graphics
 	 * 
@@ -904,7 +904,7 @@ extends ConfigurableElement<R> {
 	 */
 	protected final void paintUsingRelativePosition(Graphics graphics) {
 		
-		if (getState() != RectangleState.Invisible) {
+		if (getState() != WidgetState.Invisible) {
 			graphics.translate(getRelativeXPosition(), getRelativeYPosition());
 			paint(getRefCurrentStructure(), graphics);
 			graphics.translate(-getRelativeXPosition(), -getRelativeYPosition());
@@ -915,23 +915,23 @@ extends ConfigurableElement<R> {
 	
 	//abstract method
 	/**
-	 * Paints this rectangle using the given rectangle structure and graphics.
+	 * Paints this widget using the given widget structure and graphics.
 	 * 
-	 * @param rectangleStructure
+	 * @param widgetStructure
 	 * @param graphics
 	 * 
 	 * This method does not translate the given graphics in the end.
 	 */
-	protected abstract void paint(RS rectangleStructure, Graphics graphics);
+	protected abstract void paint(RS widgetStructure, Graphics graphics);
 	
 	//method
 	/**
-	 * Sets the dialog this rectangle will belong to.
+	 * Sets the dialog this widget will belong to.
 	 * 
 	 * @param dialog
 	 * @throws Exception if:
 	 *  -the given dialog is null
-	 *  -this rectangle already belongs to an other dialog
+	 *  -this widget already belongs to an other dialog
 	 */
 	protected void setDialog(Dialog<?> dialog) {
 		
@@ -943,7 +943,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Sets the relative mouse position of this rectangle.
+	 * Sets the relative mouse position of this widget.
 	 * 
 	 * @param relativeMouseXPosition
 	 * @param relativeMouseYPosition
@@ -955,7 +955,7 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * Sets the relative position of this rectangle.
+	 * Sets the relative position of this widget.
 	 * 
 	 * @param relativeXPosition
 	 * @param relativeYPosition

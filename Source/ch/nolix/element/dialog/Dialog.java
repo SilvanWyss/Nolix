@@ -53,7 +53,7 @@ implements Clearable, IRequestableContainer {
 	protected ContentOrientation contentOrientation = DEFAULT_CONTENT_ORIENTATION;
 				
 	//optional attributes
-	private Rectangle<?, ?> rootRectangle;
+	private Widget<?, ?> rootRectangle;
 	private ILevel1Controller controller;
 	
 	//multiple attribute
@@ -147,9 +147,9 @@ implements Clearable, IRequestableContainer {
 		return getRefConfigurablesRecursively().contains(c -> c.hasName(name));
 	}
 	
-	private final Rectangle<?, ?> createRectangle(String type) {
+	private final Widget<?, ?> createRectangle(String type) {
 		try {
-			return (Rectangle<?, ?>)(rectangleClasses.getRefFirst(rc -> rc.getSimpleName().equals(type)).newInstance());
+			return (Widget<?, ?>)(rectangleClasses.getRefFirst(rc -> rc.getSimpleName().equals(type)).newInstance());
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
@@ -202,7 +202,7 @@ implements Clearable, IRequestableContainer {
 	 * @throws Exception if this 
 	 */
 	@SuppressWarnings("unchecked")
-	public final <R extends Rectangle<?, ?>> R getRefRecRectangleByName(final String name) {
+	public final <R extends Widget<?, ?>> R getRefRecRectangleByName(final String name) {
 		return (R)getRefRootRectangle().getRefConfigurablesRecursively().getRefFirst(r -> r.hasName(name));
 	}
 	
@@ -217,7 +217,7 @@ implements Clearable, IRequestableContainer {
 	 * @return the root rectangle of this dialog
 	 * @throws Exception if this dialog has no root rectangle
 	 */
-	public final Rectangle<?, ?> getRefRootRectangle() {
+	public final Widget<?, ?> getRefRootRectangle() {
 		
 		if (!hasRootRectangle()) {
 			throw new UnexistingAttributeException(this, "root rectangle");
@@ -412,7 +412,7 @@ implements Clearable, IRequestableContainer {
 	 *  -the given root rectangle already belongs to an other dialog
 	 */
 	@SuppressWarnings("unchecked")
-	public final D setRootRectangle(Rectangle<?, ?> rootRectangle) {
+	public final D setRootRectangle(Widget<?, ?> rootRectangle) {
 		rootRectangle.setDialog(this);
 		this.rootRectangle = rootRectangle;
 		
@@ -446,8 +446,8 @@ implements Clearable, IRequestableContainer {
 	 * @return the rectangle the given specification specifies
 	 * @throws Exception if the given specification is not valid
 	 */
-	protected final Rectangle<?, ?> createsAndAddsRectangle(Specification specification) {
-		Rectangle<?, ?> rectangle = createRectangle(specification.getHeader());
+	protected final Widget<?, ?> createsAndAddsRectangle(Specification specification) {
+		Widget<?, ?> rectangle = createRectangle(specification.getHeader());
 		rectangle.setDialog(this);
 		rectangle.addOrChangeAttributes(specification.getRefAttributes());
 		return rectangle;		

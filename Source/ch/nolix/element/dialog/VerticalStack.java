@@ -38,9 +38,9 @@ public final class VerticalStack extends Stack<VerticalStack> {
 		addOrChangeAttributes(attributes);
 	}
 	
-	public VerticalStack(final Rectangle<?, ?>... rectangles) {
+	public VerticalStack(final Widget<?, ?>... rectangles) {
 		
-		for (final Rectangle<?, ?> r: rectangles) {
+		for (final Widget<?, ?> r: rectangles) {
 			addRectangle(r);
 		}
 	}
@@ -53,7 +53,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 		
 		int contentHeight = 0;
 		
-		for (Rectangle<?, ?> r: getRefRectangles()) {
+		for (Widget<?, ?> r: getRefRectangles()) {
 			contentHeight += r.getHeightWhenNotCollapsed();
 		}
 				
@@ -95,7 +95,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 			case Left:	
 				final int x = getContentXPosition();
 				int y = getContentYPosition();
-				for (Rectangle<?, ?> r: getRefShownRectangles()) {
+				for (Widget<?, ?> r: getRefShownRectangles()) {
 					r.setRelativePosition(x, y);
 					y += r.getHeight() + getElementMargin();
 				}
@@ -106,7 +106,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				final int maxRectangleWidth2 = getRefShownRectangles().getMaxInt(r -> r.getWidth());
 				final int x2 = getContentXPosition();
 				int y2 = getContentYPosition();
-				for (Rectangle<?, ?> r: getRefShownRectangles()) {			
+				for (Widget<?, ?> r: getRefShownRectangles()) {			
 					r.setRelativePosition((int)(x2 + 0.5 * (maxRectangleWidth2 - r.getWidth())), y2);
 					y2 += r.getHeight() + getElementMargin();
 				}
@@ -117,7 +117,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				final int maxRectangleWidth3 = getRefShownRectangles().getMaxInt(r -> r.getWidth());
 				final int x3 = getContentXPosition();
 				int y3 = getContentYPosition();
-				for (Rectangle<?, ?> r: getRefShownRectangles()) {
+				for (Widget<?, ?> r: getRefShownRectangles()) {
 					r.setRelativePosition(x3 + maxRectangleWidth3 - r.getWidth(), y3);
 					y3 += r.getHeight() + getElementMargin();
 				}

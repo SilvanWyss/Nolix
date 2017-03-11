@@ -12,7 +12,7 @@ package ch.nolix.element.dialog;
 import ch.nolix.common.specification.Specification;
 
 //enum
-public enum RectangleState {
+public enum WidgetState {
 	Normal,
 	Focused,
 	Active,

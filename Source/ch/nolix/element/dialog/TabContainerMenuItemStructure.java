@@ -429,7 +429,7 @@ public final class TabContainerMenuItemStructure {
 		this.normalStructure = normalStructure;
 	}
 	
-	void applyTo(TextLineRectangleStructure textLineRectangleStructure) {
+	void applyTo(TextLineWidgetStructure textLineRectangleStructure) {
 		if (hasBackgroundColor()) {
 			//textLineRectangleStructure.setBackgroundColor(get);
 		}

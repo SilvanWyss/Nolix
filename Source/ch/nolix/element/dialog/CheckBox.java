@@ -16,7 +16,7 @@ import ch.nolix.element.data.Size;
  * @month 2016-05
  * @lines 160
  */
-public final class CheckBox extends Rectangle<CheckBoxStructure, CheckBox> {
+public final class CheckBox extends Widget<CheckBoxStructure, CheckBox> {
 
 	//constants
 	public static final String SIMPLE_CLASS_NAME = "CheckBox";

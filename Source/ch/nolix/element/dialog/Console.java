@@ -20,7 +20,7 @@ import ch.nolix.element.data.GraphicText;
  * @lines 250
  */
 public final class Console
-extends BorderableRectangle<ConsoleStructure, Console>
+extends BorderWidget<ConsoleStructure, Console>
 implements Clearable {
 	
 	//constant

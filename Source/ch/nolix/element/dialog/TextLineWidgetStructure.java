@@ -16,7 +16,7 @@ import ch.nolix.element.basic.PositiveInteger;
 import ch.nolix.element.data.Size;
 
 //class
-public final class TextLineRectangleStructure extends BorderableRectangleStructure<TextLineRectangleStructure> {
+public final class TextLineWidgetStructure extends BorderWidgetStructure<TextLineWidgetStructure> {
 	
 	//attribute headers
 	private static final String TEXT_SIZE = "TextSize";

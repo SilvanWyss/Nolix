@@ -15,7 +15,7 @@ import ch.nolix.element.data.Width;
 
 //class
 /**
- * An area is a rectangle that:
+ * An area is a widget that:
  * -Has a specific width and height.
  * -Can have a background color.
  * 
@@ -23,7 +23,7 @@ import ch.nolix.element.data.Width;
  * @month 2015-12
  * @lines 210
  */
-public final class Area extends Rectangle<AreaStructure, Area> {
+public final class Area extends Widget<AreaStructure, Area> {
 
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "Area";
@@ -184,7 +184,7 @@ public final class Area extends Rectangle<AreaStructure, Area> {
 	
 	//method
 	/**
-	 * @return the height of this rectangle when it is not collapsed.
+	 * @return the height of this widget when it is not collapsed.
 	 */
 	protected final int getHeightWhenNotCollapsed() {
 		return height.getValue();
@@ -192,7 +192,7 @@ public final class Area extends Rectangle<AreaStructure, Area> {
 	
 	//method
 	/**
-	 * @return the width of this rectangle when it is not collapsed.
+	 * @return the width of this widget when it is not collapsed.
 	 */
 	protected final int getWidthWhenNotCollapsed() {
 		return width.getValue();
@@ -200,9 +200,9 @@ public final class Area extends Rectangle<AreaStructure, Area> {
 	
 	//method
 	/**
-	 * Paints this area using the given rectangle structure and graphics.
+	 * Paints this area using the given widget structure and graphics.
 	 */
-	protected final void paint(final AreaStructure rectangleStructure, final Graphics graphics) {
+	protected final void paint(final AreaStructure widgetStructure, final Graphics graphics) {
 		if (hasBackgroundColor()) {
 			backgroundColor.paintRectangle(graphics, 0, 0, getWidth(), getHeight());
 		}

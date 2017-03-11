@@ -22,7 +22,7 @@ import ch.nolix.element.data.TextColor;
 
 //class
 public class TabContainer
-extends Container<SimpleBorderableRectangleStructure, TabContainer> {
+extends Container<SimpleBorderWidgetStructure, TabContainer> {
 
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "TabContainer";
@@ -64,9 +64,9 @@ extends Container<SimpleBorderableRectangleStructure, TabContainer> {
 		
 		//Calls constructor of the base class.
 		super(
-			new SimpleBorderableRectangleStructure(),
-			new SimpleBorderableRectangleStructure(),
-			new SimpleBorderableRectangleStructure()
+			new SimpleBorderWidgetStructure(),
+			new SimpleBorderWidgetStructure(),
+			new SimpleBorderWidgetStructure()
 		);
 		
 		hoverMenuItemStructure.setNormalStructure(normalMenuItemStructure);
@@ -370,9 +370,9 @@ extends Container<SimpleBorderableRectangleStructure, TabContainer> {
 	/**
 	 * @return the rectangles of this tab container
 	 */
-	public List<Rectangle<?, ?>> getRefRectangles() {
+	public List<Widget<?, ?>> getRefRectangles() {
 		
-		List<Rectangle<?, ?>> rectangles = new List<Rectangle<?, ?>>();
+		List<Widget<?, ?>> rectangles = new List<Widget<?, ?>>();
 		
 		for (TabContainerTab t: tabs) {
 			if (t.hasRectangle()) {
@@ -387,13 +387,13 @@ extends Container<SimpleBorderableRectangleStructure, TabContainer> {
 	/**
 	 * @return the rectangleso of this tab container that are shown
 	 */
-	public List<Rectangle<?, ?>> getRefShownRectangles() {
+	public List<Widget<?, ?>> getRefShownRectangles() {
 		
 		if (currentTab.hasRectangle()) {
-			return new List<Rectangle<?, ?>>().addAtEnd(currentTab.getRefRectangle());
+			return new List<Widget<?, ?>>().addAtEnd(currentTab.getRefRectangle());
 		}
 		
-		return new List<Rectangle<?, ?>>();
+		return new List<Widget<?, ?>>();
 	}
 	
 	//method
@@ -517,7 +517,7 @@ extends Container<SimpleBorderableRectangleStructure, TabContainer> {
 		if (tabs.contains(t -> t.hasName(name))) {
 			currentTab = tabs.getRefFirst(t -> t.hasName(name));
 			
-			for (Rectangle<?, ?> mi: menu.getRefRectangles()) {
+			for (Widget<?, ?> mi: menu.getRefRectangles()) {
 				Label menuItem = (Label)mi;
 				if (menuItem.getText().equals(name)) {
 					menuItem.setFocused();
@@ -714,14 +714,14 @@ extends Container<SimpleBorderableRectangleStructure, TabContainer> {
 	 * @param rectangleStructure
 	 * @param graphics
 	 */
-	protected void paintContent(SimpleBorderableRectangleStructure rectangleStructure, Graphics graphics) {
+	protected void paintContent(SimpleBorderWidgetStructure rectangleStructure, Graphics graphics) {
 		
 		super.paintContent(rectangleStructure, graphics);
 		
 		//Update problem, when does the menu take the data from the structures?
 		//Answer: not when it is painted, but on events: tab container must lead events though!
 		//Paints the menu of this tab container.
-		for (Rectangle<?, ?> mi: menu.getRefRectangles()) {
+		for (Widget<?, ?> mi: menu.getRefRectangles()) {
 			
 			Label label = (Label)mi;
 			

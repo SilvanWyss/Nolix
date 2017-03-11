@@ -24,8 +24,8 @@ import ch.nolix.element.data.GraphicText;
  * 
  * @author Silvan Wyss
  */
-public abstract class TextLineRectangle<TLR extends TextLineRectangle<TLR>>
-extends BorderableRectangle<TextLineRectangleStructure, TLR> {
+public abstract class TextLineWidget<TLR extends TextLineWidget<TLR>>
+extends BorderWidget<TextLineWidgetStructure, TLR> {
 	
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "TextLineRectangle";
@@ -37,13 +37,13 @@ extends BorderableRectangle<TextLineRectangleStructure, TLR> {
 	/**
 	 * Creates new text line rectangle with default values.
 	 */
-	public TextLineRectangle() {
+	public TextLineWidget() {
 		
 		//Calls constructor of the base class.
 		super(
-			new TextLineRectangleStructure(),
-			new TextLineRectangleStructure(),
-			new TextLineRectangleStructure()
+			new TextLineWidgetStructure(),
+			new TextLineWidgetStructure(),
+			new TextLineWidgetStructure()
 		);
 	}
 	
@@ -150,7 +150,7 @@ extends BorderableRectangle<TextLineRectangleStructure, TLR> {
 	 * @param graphics
 	 */
 	protected void paintContent(
-		final TextLineRectangleStructure rectangleStructure,
+		final TextLineWidgetStructure rectangleStructure,
 		final Graphics graphics
 	) {
 		new GraphicText()

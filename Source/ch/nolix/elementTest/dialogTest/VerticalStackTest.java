@@ -12,7 +12,7 @@ package ch.nolix.elementTest.dialogTest;
 import ch.nolix.common.zetaTest.ZetaTest;
 import ch.nolix.element.dialog.Button;
 import ch.nolix.element.dialog.Label;
-import ch.nolix.element.dialog.RectangleState;
+import ch.nolix.element.dialog.WidgetState;
 import ch.nolix.element.dialog.TextBox;
 import ch.nolix.element.dialog.VerticalStack;
 
@@ -29,7 +29,7 @@ public final class VerticalStackTest extends ZetaTest {
 		final VerticalStack verticalStack = new VerticalStack();
 		
 		//verification
-		expectThat(verticalStack.getState()).equals(RectangleState.Normal);
+		expectThat(verticalStack.getState()).equals(WidgetState.Normal);
 		expectThat(verticalStack.isEmpty());
 		expectThatNot(verticalStack.belongsToDialog());
 	}

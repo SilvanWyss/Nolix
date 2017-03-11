@@ -19,17 +19,17 @@ import ch.nolix.element.data.MinWidth;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 900
- * @param <BRS> - The type of the rectangle structures of a borderable rectangle.
- * @param <BR> - The type of a borderable rectangle.
+ * @param <BRS> - The type of the widget structures of a borderable widget.
+ * @param <BR> - The type of a borderable widget.
  */
-public abstract class BorderableRectangle<
-	BRS extends BorderableRectangleStructure<BRS>,
-	BR extends BorderableRectangle<BRS, BR>
+public abstract class BorderWidget<
+	BRS extends BorderWidgetStructure<BRS>,
+	BR extends BorderWidget<BRS, BR>
 >
-extends Rectangle<BRS, BR> {
+extends Widget<BRS, BR> {
 	
 	//constant
-	public static final String SIMPLE_CLASS_NAME = "BorderableRectangle";
+	public static final String SIMPLE_CLASS_NAME = "Borderablewidget";
 	
 	//attribute headers
 	private static final String PADDING_HEADER = "Padding";
@@ -51,14 +51,14 @@ extends Rectangle<BRS, BR> {
 	
 	//constructor
 	/**
-	 * Creates new borderable rectangle with the given structures.
+	 * Creates new borderable widget with the given structures.
 	 * 
 	 * @param normalStructure
 	 * @param hoverStructure
 	 * @param focusStructure
 	 * @throws NullArgumentException if one of the given structures is null.
 	 */
-	public BorderableRectangle(
+	public BorderWidget(
 		BRS normalStructure,
 		BRS hoverStructure,
 		BRS focusStructure
@@ -70,7 +70,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to this borderable rectangle.
+	 * Adds or changes the given attribute to this borderable widget.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -112,7 +112,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * @return the attributes of this borderable rectangle.
+	 * @return the attributes of this borderable widget.
 	 */
 	public List<Specification> getAttributes() {
 		
@@ -152,7 +152,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * @return the bottom padding of this borderable rectangle.
+	 * @return the bottom padding of this borderable widget.
 	 */
 	public final int getBottomPadding() {
 		
@@ -165,7 +165,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * @return the content orientation of this borderable rectangle.
+	 * @return the content orientation of this borderable widget.
 	 */
 	public final ContentOrientation getContentOrientation() {
 		return contentOrientation;
@@ -173,27 +173,27 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * @return the left padding of this borderable rectangle.
+	 * @return the left padding of this borderable widget.
 	 */
 	public final int getLeftPadding() {
 		
-		//Handles the case if this borderable rectangle has actually a left padding.
+		//Handles the case if this borderable widget has actually a left padding.
 		if (hasLeftPadding()) {
 			return leftPadding.getValue();
 		}
 		
-		//Handles the case if this borderable rectangle has actually no left padding.
+		//Handles the case if this borderable widget has actually no left padding.
 		return 0;
 	}
 	
 	//method
 	/**
-	 * @return the min height of this borderable rectangle.
-	 * @throws UnexistingAttributeException if this borderable rectangle has no min height.
+	 * @return the min height of this borderable widget.
+	 * @throws UnexistingAttributeException if this borderable widget has no min height.
 	 */
 	public final int getMinHeight() {
 		
-		//Checks if this borderable rectangle has a min height.
+		//Checks if this borderable widget has a min height.
 		if (!hasMinHeight()) {
 			throw new UnexistingAttributeException(this, "min height");
 		}
@@ -203,12 +203,12 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * @return the min width of this borderable rectangle.
-	 * @throws UnexistringAttributeException if this borderable rectangle has no min width.
+	 * @return the min width of this borderable widget.
+	 * @throws UnexistringAttributeException if this borderable widget has no min width.
 	 */
 	public final int getMinWidth() {
 		
-		//Checks if this borderable rectangle has a min width.
+		//Checks if this borderable widget has a min width.
 		if (!hasMinWidth()) {
 			throw new UnexistingAttributeException(this, "min width");
 		}
@@ -218,37 +218,37 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * @return the right padding of this borderable rectangle.
+	 * @return the right padding of this borderable widget.
 	 */
 	public final int getRightPadding() {
 		
-		//Handles the case if this borderable rectangle has actually a right padding.
+		//Handles the case if this borderable widget has actually a right padding.
 		if (hasRightPadding()) {
 			return rightPadding.getValue();
 		}
 		
-		//Handles the case if this borderable rectangle has actually no right padding.
+		//Handles the case if this borderable widget has actually no right padding.
 		return 0;
 	}
 	
 	//method
 	/**
-	 * @return the top padding of this borderable rectangle.
+	 * @return the top padding of this borderable widget.
 	 */
 	public final int getTopPadding() {
 		
-		//Handles the case if this borderable rectangle has actually a top padding.
+		//Handles the case if this borderable widget has actually a top padding.
 		if (hasTopPadding()) {
 			return topPadding.getValue();
 		}
 		
-		//Handles the case if this borderable rectangle has actually no top padding.
+		//Handles the case if this borderable widget has actually no top padding.
 		return 0;
 	}
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle has a padding.
+	 * @return true if this borderable widget has a padding.
 	 */
 	public final boolean hasAPadding() {
 		return (
@@ -261,7 +261,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle has a bottom padding.
+	 * @return true if this borderable widget has a bottom padding.
 	 */
 	public final boolean hasBottomPadding() {
 		return (bottomPadding != null);
@@ -269,7 +269,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle has a left padding.
+	 * @return true if this borderable widget has a left padding.
 	 */
 	public final boolean hasLeftPadding() {
 		return (leftPadding != null);
@@ -277,7 +277,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle has a min height.
+	 * @return true if this borderable widget has a min height.
 	 */	
 	public final boolean hasMinHeight() {
 		return (minHeight != null);
@@ -285,7 +285,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle has a min width.
+	 * @return true if this borderable widget has a min width.
 	 */
 	public final boolean hasMinWidth() {
 		return (minWidth != null);
@@ -293,7 +293,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle has a right padding
+	 * @return true if this borderable widget has a right padding
 	 */
 	public final boolean hasRightPadding() {
 		return (rightPadding != null);
@@ -301,7 +301,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle has the same padding at each side.
+	 * @return true if this borderable widget has the same padding at each side.
 	 */
 	public final boolean hasSamePaddingAtEachSide() {
 		
@@ -316,7 +316,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle has a top padding
+	 * @return true if this borderable widget has a top padding
 	 */
 	public final boolean hasTopPadding() {
 		return (topPadding != null);
@@ -324,7 +324,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Removes the bottom padding of this borderable rectangle.
+	 * Removes the bottom padding of this borderable widget.
 	 */
 	public final void removeBottomPadding() {
 		bottomPadding = null;
@@ -332,7 +332,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Removes the left padding of this borderable rectangle.
+	 * Removes the left padding of this borderable widget.
 	 */
 	public final void removeLeftPadding() {
 		leftPadding = null;
@@ -340,7 +340,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Removes the min height of this borderable rectangle.
+	 * Removes the min height of this borderable widget.
 	 */
 	public final void removeMinHeight() {
 		minHeight = null;
@@ -348,7 +348,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Removes the min width of this borderable rectangle.
+	 * Removes the min width of this borderable widget.
 	 */
 	public final void removeMinWidth() {
 		minWidth = null;
@@ -356,7 +356,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Removes the padding of this borderable rectangle.
+	 * Removes the padding of this borderable widget.
 	 */
 	public final void removePadding() {
 		removeBottomPadding();
@@ -367,7 +367,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Removes the right padding of this borderable rectangle.
+	 * Removes the right padding of this borderable widget.
 	 */
 	public final void removeRightPadding() {
 		rightPadding = null;
@@ -375,7 +375,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Removes the top padding of this borderable rectangle.
+	 * Removes the top padding of this borderable widget.
 	 */
 	public final void removeTopPadding() {
 		topPadding = null;
@@ -383,7 +383,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Resets the configuration of this borderable rectangle.
+	 * Resets the configuration of this borderable widget.
 	 */
 	public void resetConfiguration() {
 		
@@ -398,10 +398,10 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Sets the bottom padding of this borderable rectangle.
+	 * Sets the bottom padding of this borderable widget.
 	 * 
 	 * @param bottomPadding
-	 * @return this borderable rectangle.
+	 * @return this borderable widget.
 	 * @throws NonPositiveArgumentException if the given bottom padding is not positive.
 	 */
 	@SuppressWarnings("unchecked")
@@ -414,10 +414,10 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Sets the content orientation of this borderable rectangle.
+	 * Sets the content orientation of this borderable widget.
 	 * 
 	 * @param contentOrientation
-	 * @return this borderable rectangle.
+	 * @return this borderable widget.
 	 * @throws NullArgumentException if the given content orientation is null.
 	 */
 	@SuppressWarnings("unchecked")
@@ -429,7 +429,7 @@ extends Rectangle<BRS, BR> {
 		.thatIsInstanceOf(ContentOrientation.class)
 		.isNotNull();
 
-		//Sets the content orientation of this borderable rectangle.
+		//Sets the content orientation of this borderable widget.
 		this.contentOrientation = contentOrientation;
 		
 		return (BR)this;
@@ -437,10 +437,10 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Sets the left padding of this borderable rectangle.
+	 * Sets the left padding of this borderable widget.
 	 * 
 	 * @param leftPadding
-	 * @return this borderable rectangle.
+	 * @return this borderable widget.
 	 * @throws NonPositiveArgumentException if the given left padding is not positive.
 	 */
 	@SuppressWarnings("unchecked")
@@ -453,10 +453,10 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Sets the min height of this borderable rectangle structure.
+	 * Sets the min height of this borderable widget structure.
 	 * 
 	 * @param minHeight
-	 * @return this borderable rectangle.
+	 * @return this borderable widget.
 	 * @throws NonPositiveArgumentException if the given min height is not positive.
 	 */
 	@SuppressWarnings("unchecked")
@@ -469,10 +469,10 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Sets the min width of this borderable rectangle structure.
+	 * Sets the min width of this borderable widget structure.
 	 * 
 	 * @param minWidth
-	 * @return this borderable rectangle.
+	 * @return this borderable widget.
 	 * @throws NonPositiveArgumentException if the given min width is not positive.
 	 */
 	@SuppressWarnings("unchecked")
@@ -485,10 +485,10 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Sets the padding of this borderale rectangle.
+	 * Sets the padding of this borderale widget.
 	 * 
 	 * @param padding
-	 * @return this borderable rectangle.
+	 * @return this borderable widget.
 	 * @throws NonPositiveArgumentException if the given padding is not positive.
 	 */
 	@SuppressWarnings("unchecked")
@@ -504,10 +504,10 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Sets the right padding of this borderable rectangle.
+	 * Sets the right padding of this borderable widget.
 	 * 
 	 * @param rightPadding
-	 * @return this borderable rectangle.
+	 * @return this borderable widget.
 	 * @throws NonPositiveArgumentException if the given right padding is not positive.
 	 */
 	@SuppressWarnings("unchecked")
@@ -520,10 +520,10 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Sets the top padding of this borderable rectangle.
+	 * Sets the top padding of this borderable widget.
 	 * 
 	 * @param leftPadding
-	 * @return this borderable rectangle.
+	 * @return this borderable widget.
 	 * @throws NonPositiveArgumentException if the given top padding is not positive.
 	 */
 	@SuppressWarnings("unchecked")
@@ -536,7 +536,7 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * @return true if the content of this borderable rectangle is under mouse.
+	 * @return true if the content of this borderable widget is under mouse.
 	 */
 	protected final boolean contentIsUnderMouse() {
 		return(
@@ -551,7 +551,7 @@ extends Rectangle<BRS, BR> {
 	/**
 	 * @param xPosition
 	 * @param yPosition
-	 * @return true if the content of this borderable rectangle surrounds the given position.
+	 * @return true if the content of this borderable widget surrounds the given position.
 	 */
 	protected final boolean contentSurrounds(final int xPosition, final int yPosition) {
 		return (
@@ -564,23 +564,23 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * @return the height of the content of this borderable rectangle.
+	 * @return the height of the content of this borderable widget.
 	 */
 	protected abstract int getContentHeight();
 	
 	//method
 	/**
-	 * @return the width of the content of this borderable rectangle.
+	 * @return the width of the content of this borderable widget.
 	 */
 	protected abstract int getContentWidth();
 	
 	//method
 	/**
-	 * @return the x-position of the content of this borderable rectangle.
+	 * @return the x-position of the content of this borderable widget.
 	 */
 	protected final int getContentXPosition() {
 		
-		//Enumerates the content orientation of this borderable rectangle.
+		//Enumerates the content orientation of this borderable widget.
 		switch (getContentOrientation()) {
 			case LeftTop:
 				return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());
@@ -676,11 +676,11 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * @return the y-position of the content of this borderable rectangle.
+	 * @return the y-position of the content of this borderable widget.
 	 */
 	protected final int getContentYPosition() {
 		
-		//Enumerates the content orientation of this borderable rectangle.
+		//Enumerates the content orientation of this borderable widget.
 		switch (getContentOrientation()) {
 			case LeftTop:
 				return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
@@ -778,18 +778,18 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * @return the current height of this rectangle when it is not collapsed
+	 * @return the current height of this widget when it is not collapsed
 	 */
 	protected final int getHeightWhenNotCollapsed() {
 		
-		final BRS rectangleStructure = getRefCurrentStructure();
+		final BRS widgetStructure = getRefCurrentStructure();
 		
 		final int baseHeight
-		= rectangleStructure.getActiveTopBorderSize()
+		= widgetStructure.getActiveTopBorderSize()
 		+ getTopPadding()
 		+ getContentHeight()
 		+ getBottomPadding()
-		+ rectangleStructure.getActiveBottomBorderSize();
+		+ widgetStructure.getActiveBottomBorderSize();
 		
 		if (!hasMinHeight()) {
 			return baseHeight;
@@ -804,14 +804,14 @@ extends Rectangle<BRS, BR> {
 	 */
 	protected final int getWidthWhenNotCollapsed() {
 		
-		final BRS rectangleStructure = getRefCurrentStructure();
+		final BRS widgetStructure = getRefCurrentStructure();
 		
 		final int baseWidth
-		= rectangleStructure.getActiveLeftBorderSize()
+		= widgetStructure.getActiveLeftBorderSize()
 		+ getLeftPadding()
 		+ getContentWidth()
 		+ getRightPadding()
-		+ rectangleStructure.getActiveRightBorderSize();
+		+ widgetStructure.getActiveRightBorderSize();
 		
 		if (!hasMinWidth()) {
 			return baseWidth;
@@ -822,73 +822,73 @@ extends Rectangle<BRS, BR> {
 	
 	//method
 	/**
-	 * Paints this rectangle using the given rectangle structure and graphics.
+	 * Paints this widget using the given widget structure and graphics.
 	 * 
-	 * @param rectangleStructure
+	 * @param widgetStructure
 	 * @param graphics
 	 */
-	protected final void paint(BRS rectangleStructure, Graphics graphics) {
+	protected final void paint(BRS widgetStructure, Graphics graphics) {
 		
-		//Paints the background color  if the given rectangle structure has a background color.
-		if (rectangleStructure.hasActiveBackgroundColor()) {
-			rectangleStructure.getRefRecBackgroundColor().paintRectangle(graphics, 0, 0, getWidth(), getHeight());
+		//Paints the background color  if the given widget structure has a background color.
+		if (widgetStructure.hasActiveBackgroundColor()) {
+			widgetStructure.getRefRecBackgroundColor().paintRectangle(graphics, 0, 0, getWidth(), getHeight());
 		}
 		
-		//Paints the left border if the given rectangle structure has a left border.
-		if (rectangleStructure.getActiveLeftBorderSize() > 0) {
-			graphics.setColor(rectangleStructure.getActiveLeftBorderColor().getJavaColor());
+		//Paints the left border if the given widget structure has a left border.
+		if (widgetStructure.getActiveLeftBorderSize() > 0) {
+			graphics.setColor(widgetStructure.getActiveLeftBorderColor().getJavaColor());
 			graphics.fillRect(
 				0,
 				0,
-				rectangleStructure.getActiveLeftBorderSize(),
+				widgetStructure.getActiveLeftBorderSize(),
 				getHeightWhenNotCollapsed()
 			);
 		}
 		
-		//Paints the right border if the given rectangle structure has a right border.
-		if (rectangleStructure.getActiveRightBorderSize() > 0) {
-			graphics.setColor(rectangleStructure.getActiveRightBorderColor().getJavaColor());
+		//Paints the right border if the given widget structure has a right border.
+		if (widgetStructure.getActiveRightBorderSize() > 0) {
+			graphics.setColor(widgetStructure.getActiveRightBorderColor().getJavaColor());
 			graphics.fillRect(
-				getWidth() - rectangleStructure.getActiveLeftBorderSize(),
+				getWidth() - widgetStructure.getActiveLeftBorderSize(),
 				0,
-				rectangleStructure.getActiveLeftBorderSize(),
+				widgetStructure.getActiveLeftBorderSize(),
 				getHeightWhenNotCollapsed()
 			);
 		}
 		
-		//Paints the top border if the given rectangle structure has a top border.
-		if (rectangleStructure.getActiveTopBorderSize() > 0) {
-			graphics.setColor(rectangleStructure.getActiveTopBorderColor().getJavaColor());
+		//Paints the top border if the given widget structure has a top border.
+		if (widgetStructure.getActiveTopBorderSize() > 0) {
+			graphics.setColor(widgetStructure.getActiveTopBorderColor().getJavaColor());
 			graphics.fillRect(
 				0,
 				0,
 				getWidth(),
-				rectangleStructure.getActiveTopBorderSize()
+				widgetStructure.getActiveTopBorderSize()
 			);
 		}
 		
-		//Paints the bottom border if the given rectangle structure has a bottom border.
-		if (rectangleStructure.getActiveBottomBorderSize() > 0) {
-			graphics.setColor(rectangleStructure.getActiveBottomBorderColor().getJavaColor());
+		//Paints the bottom border if the given widget structure has a bottom border.
+		if (widgetStructure.getActiveBottomBorderSize() > 0) {
+			graphics.setColor(widgetStructure.getActiveBottomBorderColor().getJavaColor());
 			graphics.fillRect(
 				0,
-				getHeightWhenNotCollapsed() - rectangleStructure.getActiveBottomBorderSize(),
+				getHeightWhenNotCollapsed() - widgetStructure.getActiveBottomBorderSize(),
 				getWidth(),
-				rectangleStructure.getActiveBottomBorderSize()
+				widgetStructure.getActiveBottomBorderSize()
 			);
 		}
 
 		graphics.translate(getContentXPosition(), getContentYPosition());
-		paintContent(rectangleStructure, graphics);
+		paintContent(widgetStructure, graphics);
 		graphics.translate(-getContentXPosition(), -getContentYPosition());
 	}
 	
 	//abstract method
 	/**
-	 * Paints the content of this borderable rectangle using the given rectangle structure and graphics.
+	 * Paints the content of this borderable widget using the given widget structure and graphics.
 	 * 
-	 * @param rectangleStructure
+	 * @param widgetStructure
 	 * @param graphics
 	 */
-	protected abstract void paintContent(BRS rectangleStructure, Graphics graphics);
+	protected abstract void paintContent(BRS widgetStructure, Graphics graphics);
 }

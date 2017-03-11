@@ -56,7 +56,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 		
 		int contentWidth = 0;
 		
-		for (Rectangle<?, ?> r: getRefRectangles()) {
+		for (Widget<?, ?> r: getRefRectangles()) {
 			contentWidth += r.getWidth();
 		}
 			
@@ -87,7 +87,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 				
 				int x1 = getContentXPosition();
 				final int y1 = getContentYPosition();
-				for (Rectangle<?, ?> r: getRefRectangles()) {
+				for (Widget<?, ?> r: getRefRectangles()) {
 					r.setRelativePosition(x1, y1);
 					x1 += r.getWidth() + getElementMargin();
 				}
@@ -100,7 +100,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 				final int contentHeight2 = getContentHeight();
 				int x2 = getContentXPosition();
 				final int y2 = getContentYPosition();
-				for (Rectangle<?, ?> r: getRefRectangles()) {
+				for (Widget<?, ?> r: getRefRectangles()) {
 					r.setRelativePosition(x2, y2 + (contentHeight2 - r.getHeight()) / 2);
 					x2 += r.getWidth() + getElementMargin();
 				}
@@ -113,7 +113,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 				final int contentHeight3 = getContentHeight();
 				int x3 = getContentXPosition();
 				final int y3 = getContentYPosition();
-				for (Rectangle<?, ?> r: getRefRectangles()) {
+				for (Widget<?, ?> r: getRefRectangles()) {
 					r.setRelativePosition(x3, y3 + contentHeight3 - r.getHeight());
 					x3 += r.getWidth() + getElementMargin();
 				}

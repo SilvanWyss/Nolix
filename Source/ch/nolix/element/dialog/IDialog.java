@@ -17,5 +17,5 @@ extends Configurable {
 	/**
 	 * @return the root rectangle of this dialog.
 	 */
-	public abstract Rectangle<?, ?> getRefRootRectangle();
+	public abstract Widget<?, ?> getRefRootRectangle();
 }

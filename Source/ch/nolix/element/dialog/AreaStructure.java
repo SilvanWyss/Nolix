@@ -7,4 +7,4 @@ package ch.nolix.element.dialog;
  * @month 2017-03
  * @lines 10
  */
-public final class AreaStructure extends RectangleStructure<AreaStructure> {}
+public final class AreaStructure extends WidgetStructure<AreaStructure> {}

@@ -23,7 +23,7 @@ import ch.nolix.common.util.Validator;
  * 
  * @author Silvan Wyss
  */
-public final class Label extends TextLineRectangle<Label> {
+public final class Label extends TextLineWidget<Label> {
 	
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "Label";

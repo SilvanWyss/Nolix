@@ -16,7 +16,7 @@ import ch.nolix.element.data.Margin;
 
 //class
 public abstract class Stack<S extends Stack<S>> 
-extends Container<SimpleBorderableRectangleStructure, Stack<S>>
+extends Container<SimpleBorderWidgetStructure, Stack<S>>
 implements Clearable {
 	
 	//constant
@@ -32,7 +32,7 @@ implements Clearable {
 	private Margin elementMargin;
 	
 	//multiple attribute
-	private List<Rectangle<?, ?>> rectangles = new List<Rectangle<?, ?>>();
+	private List<Widget<?, ?>> rectangles = new List<Widget<?, ?>>();
 	
 	//constructor
 	/**
@@ -42,9 +42,9 @@ implements Clearable {
 		
 		//Calls constructor of the base class.
 		super(
-			new SimpleBorderableRectangleStructure(),
-			new SimpleBorderableRectangleStructure(),
-			new SimpleBorderableRectangleStructure()
+			new SimpleBorderWidgetStructure(),
+			new SimpleBorderWidgetStructure(),
+			new SimpleBorderWidgetStructure()
 		);
 	}
 	
@@ -55,7 +55,7 @@ implements Clearable {
 	 * @throws Exception if the given rectangle already belongs to a dialog
 	 */
 	@SuppressWarnings("unchecked")
-	public final S addRectangle(Rectangle<?, ?> rectangle) {
+	public final S addRectangle(Widget<?, ?> rectangle) {
 		
 		if (belongsToDialog()) {
 			rectangle.setDialog(getRefDialog());
@@ -78,10 +78,10 @@ implements Clearable {
 	 * -One of the given rectangles belongs already to a dialog
 	 */
 	@SuppressWarnings("unchecked")
-	public final S addRectangle(Rectangle<?, ?>... rectangles) {
+	public final S addRectangle(Widget<?, ?>... rectangles) {
 		
 		//Iterates the given rectangles.
-		for (Rectangle<?, ?> r: rectangles) {
+		for (Widget<?, ?> r: rectangles) {
 			addRectangle(r);
 		}
 		
@@ -134,7 +134,7 @@ implements Clearable {
 	/**
 	 * @return the rectangles of this container
 	 */
-	public final List<Rectangle<?, ?>> getRefRectangles() {
+	public final List<Widget<?, ?>> getRefRectangles() {
 		return rectangles;
 	}
 	
@@ -142,7 +142,7 @@ implements Clearable {
 	/**
 	 * @return the rectangles of this container that are shown
 	 */
-	public final List<Rectangle<?, ?>> getRefShownRectangles() {
+	public final List<Widget<?, ?>> getRefShownRectangles() {
 		return getRefRectangles();
 	}
 	

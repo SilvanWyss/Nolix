@@ -12,7 +12,7 @@ import java.awt.Graphics;
 
 //class
 public final class DialogContainer
-extends BorderableRectangle<SimpleBorderableRectangleStructure, DialogContainer> {
+extends BorderWidget<SimpleBorderWidgetStructure, DialogContainer> {
 
 	//constants
 	public static final String SIMPLE_CLASS_NAME = "DialogContainer";
@@ -25,7 +25,7 @@ extends BorderableRectangle<SimpleBorderableRectangleStructure, DialogContainer>
 	public DialogContainer(InnerDialog innerDialog) {
 		
 		//Calls constructor of the base class.
-		super(new SimpleBorderableRectangleStructure(), new SimpleBorderableRectangleStructure(), new SimpleBorderableRectangleStructure());
+		super(new SimpleBorderWidgetStructure(), new SimpleBorderWidgetStructure(), new SimpleBorderWidgetStructure());
 		
 		this.innerDialog = innerDialog;
 	}
@@ -37,7 +37,7 @@ extends BorderableRectangle<SimpleBorderableRectangleStructure, DialogContainer>
 	public DialogContainer() {
 		
 		//Calls constructor of the base class.
-		super(new SimpleBorderableRectangleStructure(), new SimpleBorderableRectangleStructure(), new SimpleBorderableRectangleStructure());
+		super(new SimpleBorderWidgetStructure(), new SimpleBorderWidgetStructure(), new SimpleBorderWidgetStructure());
 				
 		resetConfiguration();
 	}
@@ -72,7 +72,7 @@ extends BorderableRectangle<SimpleBorderableRectangleStructure, DialogContainer>
 
 	@Override
 	protected void paintContent(
-			SimpleBorderableRectangleStructure rectangleStructure,
+			SimpleBorderWidgetStructure rectangleStructure,
 			Graphics graphics) {
 		// TODO Auto-generated method stub
 		

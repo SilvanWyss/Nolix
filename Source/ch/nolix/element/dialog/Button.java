@@ -9,7 +9,7 @@ package ch.nolix.element.dialog;
  * @month 2015-12
  * @lines 40
  */
-public final class Button extends TextLineRectangle<Button> {
+public final class Button extends TextLineWidget<Button> {
 		
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "Button";

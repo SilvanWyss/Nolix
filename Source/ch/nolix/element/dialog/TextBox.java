@@ -34,7 +34,7 @@ import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.Width;
 
 //class
-public final class TextBox extends TextLineRectangle<TextBox> {
+public final class TextBox extends TextLineWidget<TextBox> {
 
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "TextBox";
@@ -228,7 +228,7 @@ public final class TextBox extends TextLineRectangle<TextBox> {
 	 * @param rectangleStructure
 	 * @param graphics
 	 */
-	protected final void paintContent(TextLineRectangleStructure rectangleStructure, Graphics graphics) {
+	protected final void paintContent(TextLineWidgetStructure rectangleStructure, Graphics graphics) {
 		
 		int textCursorDistanceFromTextBegin = new JFrame().getFontMetrics(new Font("Sans-Serif", Font.PLAIN, getRefCurrentStructure().getCurrentTextSize())).stringWidth(getTextBeforeTextCursor());
 		graphics.setColor(textCursor.getRefColor().getJavaColor());

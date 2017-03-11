@@ -18,7 +18,7 @@ import ch.nolix.common.util.Validator;
 /**
  * A rectangle structure stores a state-dependent part of a rectangle.
  */
-public abstract class RectangleStructure<RS extends RectangleStructure<RS>> {
+public abstract class WidgetStructure<RS extends WidgetStructure<RS>> {
 	
 	//optional attribute
 	private RS normalStructure;
@@ -71,7 +71,7 @@ public abstract class RectangleStructure<RS extends RectangleStructure<RS>> {
 	 * -this rectangle structure already has a normal structure
 	 */
 	@SuppressWarnings("unchecked")
-	final void setNormalStructure(RectangleStructure<?> normalStructure) {
+	final void setNormalStructure(WidgetStructure<?> normalStructure) {
 		
 		Validator.throwExceptionIfValueIsNull("normal structure", normalStructure);
 		

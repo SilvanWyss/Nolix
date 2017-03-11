@@ -19,8 +19,8 @@ import ch.nolix.element.data.BackgroundColor;
  * @lines 820
  * @param <BRS> - The type of a borderable rectangle structure.
  */
-public abstract class BorderableRectangleStructure<BRS extends BorderableRectangleStructure<BRS>>
-extends RectangleStructure<BRS> {
+public abstract class BorderWidgetStructure<BRS extends BorderWidgetStructure<BRS>>
+extends WidgetStructure<BRS> {
 	
 	//default value
 	public static final int DEFAULT_BORDER_SIZE = 1;

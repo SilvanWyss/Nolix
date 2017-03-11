@@ -16,14 +16,14 @@ import ch.nolix.common.specification.Specification;
 
 //class
 public final class SingleContainer
-	extends Container<SimpleBorderableRectangleStructure, SingleContainer> {
+	extends Container<SimpleBorderWidgetStructure, SingleContainer> {
 	
 	//constants
 	public static final String SIMPLE_CLASS_NAME = "SingleContainer";
 	public static final String NONE = "NoSingleContainer";
 	
 	//attributes
-	private Rectangle<?, ?> rectangle;
+	private Widget<?, ?> rectangle;
 	
 	//constructor
 	/**
@@ -33,9 +33,9 @@ public final class SingleContainer
 		
 		//Calls constructor of the base class.
 		super(
-			new SimpleBorderableRectangleStructure(),
-			new SimpleBorderableRectangleStructure(),
-			new SimpleBorderableRectangleStructure()
+			new SimpleBorderWidgetStructure(),
+			new SimpleBorderWidgetStructure(),
+			new SimpleBorderWidgetStructure()
 		);
 		
 		rectangle = new Area();
@@ -73,7 +73,7 @@ public final class SingleContainer
 	/**
 	 * @return the rectangle of this single container
 	 */
-	public final Rectangle<?, ?> getRefRectangle() {
+	public final Widget<?, ?> getRefRectangle() {
 		return rectangle;
 	}
 	
@@ -81,8 +81,8 @@ public final class SingleContainer
 	/**
 	 * @return the rectangles of this container
 	 */
-	public final List<Rectangle<?, ?>> getRefRectangles() {
-		List<Rectangle<?, ?>> rectangles = new List<Rectangle<?, ?>>();
+	public final List<Widget<?, ?>> getRefRectangles() {
+		List<Widget<?, ?>> rectangles = new List<Widget<?, ?>>();
 		rectangles.addAtEnd(getRefRectangle());
 		return rectangles;
 	}
@@ -91,8 +91,8 @@ public final class SingleContainer
 	/**
 	 * @return the rectangles of this single container that are shown
 	 */
-	public List<Rectangle<?, ?>> getRefShownRectangles() {
-		return new List<Rectangle<?, ?>>().addAtEnd(getRefRectangle());
+	public List<Widget<?, ?>> getRefShownRectangles() {
+		return new List<Widget<?, ?>>().addAtEnd(getRefRectangle());
 	}
 	
 	public final void addOrChangeAttribute(Specification attribute) {
@@ -112,7 +112,7 @@ public final class SingleContainer
 	 * @param rectangle
 	 * @throws Exception if the given rectangle does not belong to the dialog this single container belongs to
 	 */
-	public void setRectangle(Rectangle<?, ?> rectangle) {
+	public void setRectangle(Widget<?, ?> rectangle) {
 		rectangle.setDialog(getRefDialog());
 		this.rectangle = rectangle;
 	}
@@ -153,7 +153,7 @@ public final class SingleContainer
 
 	@Override
 	protected void paintContent(
-			SimpleBorderableRectangleStructure rectangleStructure,
+			SimpleBorderWidgetStructure rectangleStructure,
 			Graphics graphics) {
 		// TODO Auto-generated method stub
 		

@@ -15,7 +15,7 @@ import ch.nolix.element.data.Width;
  * @month 2017-03
  * @lines 270
  */
-public final class ConsoleStructure extends BorderableRectangleStructure<ConsoleStructure> {
+public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructure> {
 		
 	//optional attribute
 	private Width width;

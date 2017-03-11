@@ -29,7 +29,7 @@ import ch.nolix.element.data.Thickness;
  * @author Silvan Wyss
  */
 public abstract class Line<L extends Line<L>>
-extends Rectangle<LineStructure, L> {
+extends Widget<LineStructure, L> {
 	
 	//constants
 	public static final String SIMPLE_CLASS_NAME = "Line";

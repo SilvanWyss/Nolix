@@ -22,8 +22,8 @@ import ch.nolix.common.util.Validator;
 /**
  * A container is a rectangle that contains other rectangles.
  */
-public abstract class Container<BRS extends BorderableRectangleStructure<BRS>, C extends Container<BRS, C>>
-extends BorderableRectangle<BRS, C> {
+public abstract class Container<BRS extends BorderWidgetStructure<BRS>, C extends Container<BRS, C>>
+extends BorderWidget<BRS, C> {
 	
 	//attribute
 	private ContainerRole role;
@@ -74,13 +74,13 @@ extends BorderableRectangle<BRS, C> {
 	/**
 	 * @return the rectangles of this container
 	 */
-	public abstract List<Rectangle<?, ?>> getRefRectangles();
+	public abstract List<Widget<?, ?>> getRefRectangles();
 	
 	//abstract method
 	/**
 	 * @return the rectangles of this container that are shown
 	 */
-	public abstract List<Rectangle<?, ?>> getRefShownRectangles();
+	public abstract List<Widget<?, ?>> getRefShownRectangles();
 	
 	public final boolean hasRole() {
 		return (role != null);

@@ -7,4 +7,4 @@ package ch.nolix.element.dialog;
  * @month 2017-03
  * @lines 10
  */
-public final class LineStructure extends RectangleStructure<LineStructure> {}
+public final class LineStructure extends WidgetStructure<LineStructure> {}
