@@ -1,14 +1,12 @@
-/*
- * file:	CaptionPosition.java
- * author:	Silvan Wyss
- * month:	2016-04
- * lines:	20
- */
-
 //package declaration
 package ch.nolix.element.dialog;
 
 //enum
+/**
+ * @author Silvan Wyss
+ * @month 2016-04
+ * @lines 20
+ */
 public enum CaptionPosition {
 	LeftTop,
 	Left,
