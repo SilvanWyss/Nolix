@@ -67,10 +67,14 @@ extends ConfigurableElement<R> {
 	 * @param focusStructure
 	 */
 	public Rectangle(
-		RS normalStructure,
-		RS hoverStructure,
-		RS focusStructure
+		final RS normalStructure,
+		final RS hoverStructure,
+		final RS focusStructure
 	) {
+		ZetaValidator.supposeThat(normalStructure).thatIsInstanceOf(RectangleStructure.class).isNotNull();
+		ZetaValidator.supposeThat(hoverStructure).thatIsInstanceOf(RectangleStructure.class).isNotNull();
+		ZetaValidator.supposeThat(focusStructure).thatIsInstanceOf(RectangleStructure.class).isNotNull();
+		
 		this.normalStructure = normalStructure;
 		this.hoverStructure = hoverStructure;
 		this.focusStructure = focusStructure;
@@ -314,12 +318,12 @@ extends ConfigurableElement<R> {
 	}
 	
 	//method
-		/**
-		 * @return true if this rectangle is hover focues
-		 */
-		public final boolean isHoverFocused() {
-			return (state == RectangleState.HoverFocused);
-		}
+	/**
+	 * @return true if this rectangle is hover focues
+	 */
+	public final boolean isHoverFocused() {
+		return (state == RectangleState.HoverFocused);
+	}
 	
 	//method
 	/**

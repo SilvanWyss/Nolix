@@ -5,6 +5,7 @@ package ch.nolix.systemTutorial.dialogClientTutorial;
 import ch.nolix.common.application.Session;
 import ch.nolix.common.application.StandardApplication;
 import ch.nolix.element.basic.Color;
+import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.dialog.Button;
 import ch.nolix.element.dialog.ContentOrientation;
 import ch.nolix.system.dialogClient.DialogClient;
@@ -64,7 +65,7 @@ public final class DialogClientTutorial {
 			.setText("Change color")
 			.setLeftMouseButtonPressCommand("ChangeColor");
 			
-			changeColorbutton.getRefNormalStructure().setBackgroundColor(Color.LIGHT_GREY);
+			changeColorbutton.getRefNormalStructure().setBackgroundColor(new BackgroundColor(Color.LIGHT_GREY));
 			changeColorbutton.getRefHoverStructure().setTextSize(30);
 			
 			getRefClient().getRefDialog().setRootRectangle(changeColorbutton);	

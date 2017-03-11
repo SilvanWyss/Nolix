@@ -17,6 +17,7 @@ import ch.nolix.element.dialog.Button;
 import ch.nolix.element.dialog.Console;
 import ch.nolix.element.dialog.Frame;
 import ch.nolix.element.dialog.Label;
+import ch.nolix.element.dialog.TextBox;
 import ch.nolix.element.dialog.VerticalStack;
 
 //package-visible class
@@ -44,6 +45,7 @@ final class FrameTutorial {
 				new Button()
 				.setText("~ Quit ~")
 				.setLeftMouseButtonPressCommand("Quit"),
+				new TextBox().setText("test"),
 				new Console().addTextLine("test", "test2")
 			)
 		)

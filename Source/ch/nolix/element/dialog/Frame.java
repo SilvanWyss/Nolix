@@ -92,7 +92,7 @@ public final class Frame extends Dialog<Frame> {
 		frame.setMinimumSize(new Dimension(MINIMUM_WIDTH, MINIMUM_HEIGHT));
 		frame.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		frame.setLocation(DEFAULT_X_POSITION, DEFAULT_Y_POSITION);
-		
+
 		//Add listeners to this frame.
 		panel.addKeyListener(new FrameKeyListener(this));
 		panel.addMouseListener(new FrameMouseListener(this));

@@ -24,11 +24,13 @@ import javax.swing.JFrame;
 
 
 
+
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.util.Validator;
 import ch.nolix.element.basic.Color;
+import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.Width;
 
 //class
@@ -39,7 +41,7 @@ public final class TextBox extends TextLineRectangle<TextBox> {
 	
 	//default values
 	public static final int DEFAULT_WIDTH = 200;
-	public static final String DEFAULT_BACKGROUND_COLOR = Color.WHITE_STRING;
+	public static final int DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	public static final String DEFAULT_CURSOR_COLOR = Color.BLACK_STRING;
 	
 	//limit value
@@ -94,7 +96,7 @@ public final class TextBox extends TextLineRectangle<TextBox> {
 		//Calls method of the base class.
 		super.noteLeftMouseButtonPress();
 		
-		if (contentIsPointed())	{
+		if (contentIsUnderMouse())	{
 			int textCursorDistanceFromTextBegin = getMouseXPosition() - getContentXPosition();
 			JFrame frame = new JFrame();
 			boolean found = false;
@@ -201,8 +203,8 @@ public final class TextBox extends TextLineRectangle<TextBox> {
 		super.resetConfiguration();
 		
 		setWidth(DEFAULT_WIDTH);
-		getRefNormalStructure().setDefaultBorder();
-		getRefNormalStructure().setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+		getRefNormalStructure().setDefaultBorderSizes();
+		getRefNormalStructure().setBackgroundColor(new BackgroundColor(DEFAULT_BACKGROUND_COLOR));
 		setCursorColor(DEFAULT_CURSOR_COLOR);
 		setCursorIcon(CursorIcon.Edit);
 	}
@@ -263,8 +265,8 @@ public final class TextBox extends TextLineRectangle<TextBox> {
 		return (
 			getRefWidth().getValue() -
 			getLeftPadding() -
-			getRefCurrentStructure().getRecLeftBorderSize() -
-			getRefCurrentStructure().getRecRightBorderSize() -
+			getRefCurrentStructure().getActiveLeftBorderSize() -
+			getRefCurrentStructure().getActiveRightBorderSize() -
 			getRightPadding()
 		);
 	}

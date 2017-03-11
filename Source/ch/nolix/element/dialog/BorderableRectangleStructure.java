@@ -16,11 +16,14 @@ import ch.nolix.element.data.BackgroundColor;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 780
+ * @lines 820
  * @param <BRS> - The type of a borderable rectangle structure.
  */
 public abstract class BorderableRectangleStructure<BRS extends BorderableRectangleStructure<BRS>>
 extends RectangleStructure<BRS> {
+	
+	//default value
+	public static final int DEFAULT_BORDER_SIZE = 1;
 	
 	//attribute headers
 	private static final String BORDER_SIZE_HEADER = "BorderSize";
@@ -313,7 +316,8 @@ extends RectangleStructure<BRS> {
 		}
 		
 		return (
-			leftBorderColor.equals(rightBorderColor)
+			hasLeftBorderColor()
+			&& leftBorderColor.equals(rightBorderColor)
 			&& leftBorderColor.equals(topBorderColor)
 			&& leftBorderColor.equals(bottomBorderColor)
 		);
@@ -363,10 +367,46 @@ extends RectangleStructure<BRS> {
 	
 	//method
 	/**
+	 * Removes all attributes of this borderable rectangle structure.
+	 */
+	public void removeAttributes() {
+		
+		//Calls method of the base class.
+		super.removeAttributes();
+		
+		removeBackgroundColor();
+		removeBorderSizes();
+		removeBorderColors();
+	}
+	
+	//method
+	/**
 	 * Removes the background color of this borderable rectangle structure.
 	 */
 	public final void removeBackgroundColor() {
 		backgroundColor = null;
+	}
+	
+	//method
+	/**
+	 * Removes the border colors of this borderable rectangle structure.
+	 */
+	public final void removeBorderColors() {
+		removeLeftBorderColor();
+		removeRightBorderColor();
+		removeTopBorderColor();
+		removeBottomBorderColor();
+	}
+	
+	//method
+	/**
+	 * Removes the border sizes of this borderable rectangle structure.
+	 */
+	public final void removeBorderSizes() {
+		removeLeftBorderSize();
+		removeRightBorderSize();
+		removeTopBorderSize();
+		removeBottomBorderSize();
 	}
 	
 	//method
@@ -474,14 +514,14 @@ extends RectangleStructure<BRS> {
 	
 	//method
 	/**
-	 * Sets the border size of this borderable rectangle structure.
+	 * Sets the border sizes of this borderable rectangle structure.
 	 * 
 	 * @param borderSize
 	 * @return this boderable rectangle structure.
 	 * @throws NonPositiveArgumentException if the given border size is not positive.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BRS setBorderSize(final int borderSize) {
+	public final BRS setBorderSizes(final int borderSize) {
 		
 		setLeftBorderSize(borderSize);
 		setRightBorderSize(borderSize);
@@ -525,6 +565,10 @@ extends RectangleStructure<BRS> {
 		this.bottomBorderSize = new PositiveInteger(bottomBorderSize);
 		
 		return (BRS)this;
+	}
+	
+	public final BRS setDefaultBorderSizes() {
+		return setBorderSizes(DEFAULT_BORDER_SIZE);
 	}
 	
 	//method
@@ -721,7 +765,7 @@ extends RectangleStructure<BRS> {
 				setBackgroundColor(new BackgroundColor(attribute.getOneAttributeToString()));
 				break;
 			case BORDER_SIZE_HEADER:
-				setBorderSize(attribute.getOneAttributeToInteger());
+				setBorderSizes(attribute.getOneAttributeToInteger());
 				break;
 			case LEFT_BORDER_SIZE_HEADER:
 				setLeftBorderSize(attribute.getOneAttributeToInteger());

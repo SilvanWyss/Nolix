@@ -29,14 +29,18 @@ final class FrameKeyListener implements KeyListener {
 
 	//method
 	public void keyPressed(KeyEvent keyEvent) {
+		System.out.println("press");
 		frame.notePressedKey(keyEvent);
 	}
 
 	//method
-	public void keyReleased(KeyEvent arg0) {}
+	public void keyReleased(KeyEvent arg0) {
+		System.out.println("release");
+	}
 
 	//method
 	public void keyTyped(KeyEvent keyEvent) {
+		System.out.println("type");
 		frame.noteTypedKey(keyEvent);
 	}
 }

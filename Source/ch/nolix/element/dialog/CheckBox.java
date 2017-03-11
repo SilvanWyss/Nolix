@@ -1,24 +1,22 @@
-/*
- * file:	CheckBox.java
- * author:	Silvan Wyss
- * month:	2016-05
- * lines:	160
- */
-
 //package declaration
 package ch.nolix.element.dialog;
 
-//own imports
+//Java import
 import java.awt.Graphics;
 
-
+//own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.util.Validator;
 import ch.nolix.element.data.Size;
 
 //class
-public final class CheckBox extends BorderableRectangle<CheckBoxStructure, CheckBox> {
+/**
+ * @author Silvan Wyss
+ * @month 2016-05
+ * @lines 160
+ */
+public final class CheckBox extends Rectangle<CheckBoxStructure, CheckBox> {
 
 	//constants
 	public static final String SIMPLE_CLASS_NAME = "CheckBox";

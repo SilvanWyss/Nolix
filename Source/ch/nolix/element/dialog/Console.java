@@ -180,7 +180,7 @@ implements Clearable {
 		//Calls method of the base class.
 		super.resetConfiguration();
 		
-		getRefNormalStructure().setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+		getRefNormalStructure().setBackgroundColor(new BackgroundColor(DEFAULT_BACKGROUND_COLOR));
 	}
 
 	//method
@@ -193,9 +193,9 @@ implements Clearable {
 		
 		return (
 			consoleStructure.getActiveHeight()
-			- consoleStructure.getRecTopBorderSize()
+			- consoleStructure.getActiveTopBorderSize()
 			- getTopPadding()
-			- consoleStructure.getRecBottomBorderSize()
+			- consoleStructure.getActiveBottomBorderSize()
 			- getBottomPadding()
 		);
 	}
@@ -210,9 +210,9 @@ implements Clearable {
 		
 		return (
 			consoleStructure.getActiveWidth()
-			- consoleStructure.getRecLeftBorderSize()
+			- consoleStructure.getActiveLeftBorderSize()
 			- getLeftPadding()
-			- consoleStructure.getRecRightBorderSize()
+			- consoleStructure.getActiveRightBorderSize()
 			- getRightPadding()
 		);
 	}

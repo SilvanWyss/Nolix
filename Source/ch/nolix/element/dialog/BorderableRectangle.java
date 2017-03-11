@@ -394,15 +394,6 @@ extends Rectangle<BRS, BR> {
 		removeMinWidth();
 		removeMinHeight();
 		removePadding();
-		
-		getRefNormalStructure().removeBackgroundColor();
-		getRefNormalStructure().removeBorder();
-		
-		getRefHoverStructure().removeBackgroundColor();
-		getRefHoverStructure().removeBorder();
-		
-		getRefFocusStructure().removeBackgroundColor();
-		getRefFocusStructure().removeBorder();
 	}
 	
 	//method
@@ -592,90 +583,90 @@ extends Rectangle<BRS, BR> {
 		//Enumerates the content orientation of this borderable rectangle.
 		switch (getContentOrientation()) {
 			case LeftTop:
-				return (getRefCurrentStructure().getRecLeftBorderSize() + getLeftPadding());
+				return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());
 			case Left:
-				return (getRefCurrentStructure().getRecLeftBorderSize() + getLeftPadding());
+				return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());
 			case LeftBottom:
-				return (getRefCurrentStructure().getRecLeftBorderSize() + getLeftPadding());	
+				return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());	
 			case Top:
 				
 				if (!hasMinWidth()) {
-					return (getRefCurrentStructure().getRecLeftBorderSize() + getLeftPadding());
+					return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());
 				}
 				
 				final int contentXPosition1
 				= getMinWidth()
 				- getContentWidth()
-				+ getRefCurrentStructure().getRecLeftBorderSize()
+				+ getRefCurrentStructure().getActiveLeftBorderSize()
 				+ getLeftPadding()
-				- getRefCurrentStructure().getRecRightBorderSize()
+				- getRefCurrentStructure().getActiveRightBorderSize()
 				- getRightPadding();
 				
 				return (contentXPosition1 / 2);
 			case Center:
 				
 				if (!hasMinWidth()) {
-					return (getRefCurrentStructure().getRecLeftBorderSize() + getLeftPadding());
+					return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());
 				}
 				
 				final int contentXPosition2
 				= getMinWidth()
 				- getContentWidth()
-				+ getRefCurrentStructure().getRecLeftBorderSize()
+				+ getRefCurrentStructure().getActiveLeftBorderSize()
 				+ getLeftPadding()
-				- getRefCurrentStructure().getRecRightBorderSize()
+				- getRefCurrentStructure().getActiveRightBorderSize()
 				- getRightPadding();
 				
 				return (contentXPosition2 / 2);
 			case Bottom:
 				
 				if (!hasMinWidth()) {
-					return (getRefCurrentStructure().getRecLeftBorderSize() + getLeftPadding());
+					return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());
 				}
 				
 				final int contentXPosition3
 				= getMinWidth()
 				- getContentWidth()
-				+ getRefCurrentStructure().getRecLeftBorderSize()
+				+ getRefCurrentStructure().getActiveLeftBorderSize()
 				+ getLeftPadding()
-				- getRefCurrentStructure().getRecRightBorderSize()
+				- getRefCurrentStructure().getActiveRightBorderSize()
 				- getRightPadding();
 				
 				return (contentXPosition3 / 2);
 			case RightTop:
 				
 				if (!hasMinWidth()) {
-					return (getRefCurrentStructure().getRecLeftBorderSize() + getLeftPadding());
+					return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());
 				}
 				
 				return (
 					getMinWidth()
 					- getContentWidth()
-					- getRefCurrentStructure().getRecRightBorderSize()
+					- getRefCurrentStructure().getActiveRightBorderSize()
 					- getRightPadding()
 				);
 			case Right:
 			
 				if (!hasMinWidth()) {
-					return (getRefCurrentStructure().getRecLeftBorderSize() + getLeftPadding());
+					return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());
 				}
 				
 				return (
 					getMinWidth()
 					- getContentWidth()
-					- getRefCurrentStructure().getRecRightBorderSize()
+					- getRefCurrentStructure().getActiveRightBorderSize()
 					- getRightPadding()
 				);
 			case RightBottom:
 				
 				if (!hasMinWidth()) {
-					return (getRefCurrentStructure().getRecLeftBorderSize() + getLeftPadding());
+					return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());
 				}
 				
 				return (
 					getMinWidth()
 					- getContentWidth()
-					- getRefCurrentStructure().getRecRightBorderSize()
+					- getRefCurrentStructure().getActiveRightBorderSize()
 					- getRightPadding()
 				);
 		}
@@ -692,90 +683,90 @@ extends Rectangle<BRS, BR> {
 		//Enumerates the content orientation of this borderable rectangle.
 		switch (getContentOrientation()) {
 			case LeftTop:
-				return (getRefCurrentStructure().getRecTopBorderSize() + getTopPadding());
+				return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
 			case Left:
 				
 				if (!hasMinHeight()) {
-					return (getRefCurrentStructure().getRecTopBorderSize() + getTopPadding());
+					return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
 				}
 				
 				final int contentYPosition1
 				= getMinHeight()
 				- getContentHeight()
-				+ getRefCurrentStructure().getRecTopBorderSize()
+				+ getRefCurrentStructure().getActiveTopBorderSize()
 				+ getTopPadding()
-				- getRefCurrentStructure().getRecBottomBorderSize()
+				- getRefCurrentStructure().getActiveBottomBorderSize()
 				- getBottomPadding();
 				
 				return (contentYPosition1 / 2);	
 			case LeftBottom:
 				
 				if (!hasMinHeight()) {
-					return (getRefCurrentStructure().getRecTopBorderSize() + getTopPadding());
+					return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
 				}
 				
 				return (
 					getMinHeight()
 					- getContentHeight()
-					- getRefCurrentStructure().getRecBottomBorderSize()
+					- getRefCurrentStructure().getActiveBottomBorderSize()
 					- getBottomPadding()
 				);	
 			case Top:
-				return (getRefCurrentStructure().getRecTopBorderSize() + getTopPadding());
+				return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
 			case Center:
 				
 				if (!hasMinHeight()) {
-					return (getRefCurrentStructure().getRecTopBorderSize() + getTopPadding());
+					return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
 				}
 				
 				final int contentYPosition2
 				= getMinHeight()
 				- getContentHeight()
-				+ getRefCurrentStructure().getRecTopBorderSize()
+				+ getRefCurrentStructure().getActiveTopBorderSize()
 				+ getTopPadding()
-				- getRefCurrentStructure().getRecBottomBorderSize()
+				- getRefCurrentStructure().getActiveBottomBorderSize()
 				- getBottomPadding();
 				
 				return (contentYPosition2 / 2);
 			case Bottom:
 				
 				if (!hasMinHeight()) {
-					return (getRefCurrentStructure().getRecTopBorderSize() + getTopPadding());
+					return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
 				}
 				
 				return (
 					getMinHeight()
 					- getContentHeight()
-					- getRefCurrentStructure().getRecBottomBorderSize()
+					- getRefCurrentStructure().getActiveBottomBorderSize()
 					- getBottomPadding()
 				);
 			case RightTop:
-				return (getRefCurrentStructure().getRecTopBorderSize() + getTopPadding());
+				return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
 			case Right:
 				
 				if (!hasMinHeight()) {
-					return (getRefCurrentStructure().getRecTopBorderSize() + getTopPadding());
+					return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
 				}
 				
 				final int contentYPosition3
 				= getMinHeight()
 				- getContentHeight()
-				+ getRefCurrentStructure().getRecTopBorderSize()
+				+ getRefCurrentStructure().getActiveTopBorderSize()
 				+ getTopPadding()
-				- getRefCurrentStructure().getRecBottomBorderSize()
+				- getRefCurrentStructure().getActiveBottomBorderSize()
 				- getBottomPadding();
 				
 				return (contentYPosition3 / 2);
 			case RightBottom:
 				
 				if (!hasMinHeight()) {
-					return (getRefCurrentStructure().getRecTopBorderSize() + getTopPadding());
+					return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
 				}
 				
 				return (
 					getMinHeight()
 					- getContentHeight()
-					- getRefCurrentStructure().getRecBottomBorderSize()
+					- getRefCurrentStructure().getActiveBottomBorderSize()
 					- getBottomPadding()
 				);
 		}
@@ -794,11 +785,11 @@ extends Rectangle<BRS, BR> {
 		final BRS rectangleStructure = getRefCurrentStructure();
 		
 		final int baseHeight
-		= rectangleStructure.getRecTopBorderSize()
+		= rectangleStructure.getActiveTopBorderSize()
 		+ getTopPadding()
 		+ getContentHeight()
 		+ getBottomPadding()
-		+ rectangleStructure.getRecBottomBorderSize();
+		+ rectangleStructure.getActiveBottomBorderSize();
 		
 		if (!hasMinHeight()) {
 			return baseHeight;
@@ -816,11 +807,11 @@ extends Rectangle<BRS, BR> {
 		final BRS rectangleStructure = getRefCurrentStructure();
 		
 		final int baseWidth
-		= rectangleStructure.getRecLeftBorderSize()
+		= rectangleStructure.getActiveLeftBorderSize()
 		+ getLeftPadding()
 		+ getContentWidth()
 		+ getRightPadding()
-		+ rectangleStructure.getRecRightBorderSize();
+		+ rectangleStructure.getActiveRightBorderSize();
 		
 		if (!hasMinWidth()) {
 			return baseWidth;
@@ -839,51 +830,51 @@ extends Rectangle<BRS, BR> {
 	protected final void paint(BRS rectangleStructure, Graphics graphics) {
 		
 		//Paints the background color  if the given rectangle structure has a background color.
-		if (rectangleStructure.hasRecBackgroundColor()) {
+		if (rectangleStructure.hasActiveBackgroundColor()) {
 			rectangleStructure.getRefRecBackgroundColor().paintRectangle(graphics, 0, 0, getWidth(), getHeight());
 		}
 		
 		//Paints the left border if the given rectangle structure has a left border.
-		if (rectangleStructure.hasRecLeftBorder()) {
-			graphics.setColor(rectangleStructure.getRefRecLeftBorderColor().getJavaColor());
+		if (rectangleStructure.getActiveLeftBorderSize() > 0) {
+			graphics.setColor(rectangleStructure.getActiveLeftBorderColor().getJavaColor());
 			graphics.fillRect(
 				0,
 				0,
-				rectangleStructure.getRecLeftBorderSize(),
+				rectangleStructure.getActiveLeftBorderSize(),
 				getHeightWhenNotCollapsed()
 			);
 		}
 		
 		//Paints the right border if the given rectangle structure has a right border.
-		if (rectangleStructure.hasRecRightBorder()) {
-			graphics.setColor(rectangleStructure.getRefRecRightBorderColor().getJavaColor());
+		if (rectangleStructure.getActiveRightBorderSize() > 0) {
+			graphics.setColor(rectangleStructure.getActiveRightBorderColor().getJavaColor());
 			graphics.fillRect(
-				getWidth() - rectangleStructure.getRecLeftBorderSize(),
+				getWidth() - rectangleStructure.getActiveLeftBorderSize(),
 				0,
-				rectangleStructure.getRecLeftBorderSize(),
+				rectangleStructure.getActiveLeftBorderSize(),
 				getHeightWhenNotCollapsed()
 			);
 		}
 		
 		//Paints the top border if the given rectangle structure has a top border.
-		if (rectangleStructure.hasRecTopBorder()) {
-			graphics.setColor(rectangleStructure.getRefRecTopBorderColor().getJavaColor());
+		if (rectangleStructure.getActiveTopBorderSize() > 0) {
+			graphics.setColor(rectangleStructure.getActiveTopBorderColor().getJavaColor());
 			graphics.fillRect(
 				0,
 				0,
 				getWidth(),
-				rectangleStructure.getRecTopBorderSize()
+				rectangleStructure.getActiveTopBorderSize()
 			);
 		}
 		
 		//Paints the bottom border if the given rectangle structure has a bottom border.
-		if (rectangleStructure.hasRecBottomBorder()) {
-			graphics.setColor(rectangleStructure.getRefRecBottomBorderColor().getJavaColor());
+		if (rectangleStructure.getActiveBottomBorderSize() > 0) {
+			graphics.setColor(rectangleStructure.getActiveBottomBorderColor().getJavaColor());
 			graphics.fillRect(
 				0,
-				getHeightWhenNotCollapsed() - rectangleStructure.getRecBottomBorderSize(),
+				getHeightWhenNotCollapsed() - rectangleStructure.getActiveBottomBorderSize(),
 				getWidth(),
-				rectangleStructure.getRecBottomBorderSize()
+				rectangleStructure.getActiveBottomBorderSize()
 			);
 		}
 

@@ -742,7 +742,7 @@ extends Container<SimpleBorderableRectangleStructure, TabContainer> {
 			}
 			
 			if (getRefNormalMenuItemStructure().hasBackgroundColor()) {
-				label.getRefNormalStructure().setBackgroundColor(getRefNormalMenuItemStructure().getRefRecBackgroundColor().getStringValue());
+				label.getRefNormalStructure().setBackgroundColor(getRefNormalMenuItemStructure().getRefRecBackgroundColor());
 			}
 			else {
 				label.getRefNormalStructure().removeBackgroundColor();
@@ -751,7 +751,7 @@ extends Container<SimpleBorderableRectangleStructure, TabContainer> {
 			label.getRefNormalStructure().setTextColor(getRefNormalMenuItemStructure().getRefRecTextColor().getValue());
 			
 			if (getRefHoverMenuItemStructure().hasBackgroundColor()) {
-				label.getRefHoverStructure().setBackgroundColor(getRefHoverMenuItemStructure().getRefRecBackgroundColor().getStringValue());
+				label.getRefHoverStructure().setBackgroundColor(getRefHoverMenuItemStructure().getRefRecBackgroundColor());
 			}
 			else {
 				label.getRefHoverStructure().removeBackgroundColor();
@@ -760,7 +760,7 @@ extends Container<SimpleBorderableRectangleStructure, TabContainer> {
 			label.getRefHoverStructure().setTextColor(getRefHoverMenuItemStructure().getRefRecTextColor().getValue());
 			
 			if (getRefFocusMenuItemStructure().hasBackgroundColor()) {
-				label.getRefFocusStructure().setBackgroundColor(getRefFocusMenuItemStructure().getRefRecBackgroundColor().getStringValue());
+				label.getRefFocusStructure().setBackgroundColor(getRefFocusMenuItemStructure().getRefRecBackgroundColor());
 			}
 			else {
 				label.getRefFocusStructure().removeBackgroundColor();

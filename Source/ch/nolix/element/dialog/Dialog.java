@@ -1,32 +1,15 @@
-/*
- * file:	Dialog.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	340
- */
-
 //package declaration
 package ch.nolix.element.dialog;
 
 //Java import
 import java.awt.event.KeyEvent;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.controller.ILevel1Controller;
+import ch.nolix.common.exception.Argument;
+import ch.nolix.common.exception.ErrorPredicate;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.interfaces.Clearable;
 import ch.nolix.common.interfaces.IRequestableContainer;
@@ -34,22 +17,28 @@ import ch.nolix.common.specification.Configurable;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.specification.Statement;
 import ch.nolix.common.util.Validator;
+import ch.nolix.common.zetaValidator.ZetaValidator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.ConfigurationElement;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.Title;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 530
+ * @param <D> - The type of a dialog.
+ */
 public abstract class Dialog<D extends Dialog<D>>
 extends ConfigurationElement<D>
-implements
-	Clearable,
-	IRequestableContainer
-{
+implements Clearable, IRequestableContainer {
+	
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "Dialog";
 	
-	//default value
+	//default values
+	public static final String DEFAULT_TITLE = "Dialog";
 	public static final ContentOrientation DEFAULT_CONTENT_ORIENTATION = ContentOrientation.LeftTop;
 	
 	//attribute headers
@@ -59,43 +48,82 @@ implements
 	private static final String REMOVE_ROOT_RECTANGLE = "RemoveRootRectangle";
 		
 	//attributes
-	private final Title title = new Title();
+	private Title title = new Title();
 	protected BackgroundColor backgroundColor = new BackgroundColor();
 	protected ContentOrientation contentOrientation = DEFAULT_CONTENT_ORIENTATION;
 				
 	//optional attributes
-	private ILevel1Controller controller;
 	private Rectangle<?, ?> rootRectangle;
+	private ILevel1Controller controller;
 	
 	//multiple attribute
 	private final List<Class<?>> rectangleClasses = new List<Class<?>>();
 	
+	//constructor
+	/**
+	 * Creates new dialog with default values.
+	 */
 	public Dialog() {
 		
-		addRectangleClass(Area.class);
-		addRectangleClass(CheckBox.class);
-		addRectangleClass(HorizontalLine.class);
-		addRectangleClass(VerticalLine.class);
-		addRectangleClass(Label.class);
-		addRectangleClass(Button.class);
-		addRectangleClass(TextBox.class);
-		addRectangleClass(SingleContainer.class);
-		addRectangleClass(HorizontalStack.class);
-		addRectangleClass(VerticalStack.class);
-		addRectangleClass(TabContainer.class);
-		
-		setConfiguration(new DefaultDesign());
+		//Adds rectangle classes.
+		addRectangleClass(
+			Area.class,
+			Button.class,
+			CheckBox.class,
+			Console.class,
+			HorizontalLine.class,
+			HorizontalStack.class,
+			Label.class,
+			SingleContainer.class,
+			TabContainer.class,
+			TextBox.class,
+			VerticalLine.class,
+			VerticalStack.class
+		);
 	}
 	
-	public final  void addRectangleClass(Class<?> rectangleClass) {
+	//method
+	/**
+	 * Adds the given rectangle class to this dialog.
+	 * 
+	 * @param rectangleClass
+	 * @return this dialog.
+	 */
+	@SuppressWarnings("unchecked")
+	public final D addRectangleClass(final Class<?> rectangleClass) {
 		
-		Validator.throwExceptionIfValueIsNull("rectangle class", rectangleClass);
-		
+		//Checks if the given rectangle class is not null.
+		ZetaValidator.supposeThat(rectangleClass).thatIsNamed("rectangle class").isNotNull();
+
+		//Checks if this dialog can already create a rectangle of the same type as the given rectangle class.
 		if (canCreateRectangle(rectangleClass.getSimpleName())) {
-			throw new RuntimeException("Rectangle created already contains an other rectanlge class with the same name as the given rectangle class.");
+			throw new InvalidArgumentException(
+				new Argument(rectangleClass),
+				new ErrorPredicate("is invalid because the dialog can already create a rectangle of the same type")
+			);
 		}
 		
 		rectangleClasses.addAtEnd(rectangleClass);
+		
+		return (D)this;
+	}
+	
+	//method
+	/**
+	 * Adds the given rectangle classes to this dialog.
+	 * 
+	 * @param rectangleClasses
+	 * @return this dialog.
+	 */
+	@SuppressWarnings("unchecked")
+	public final D addRectangleClass(final Class<?>... rectangleClasses) {
+		
+		//Iterates the given rectangle classes.
+		for (final Class<?> rc : rectangleClasses) {
+			addRectangleClass(rc);
+		}
+		
+		return (D)this;
 	}
 	
 	public final boolean canCreateRectangle(String type) {
@@ -460,6 +488,7 @@ implements
 	 * @param keyEvent
 	 */
 	protected void notePressedKey(KeyEvent keyEvent) {
+		
 		if (hasRootRectangle()) {
 			getRefRootRectangle().noteKeyPress(keyEvent);
 		}
@@ -482,6 +511,7 @@ implements
 	 * @param keyEvent
 	 */
 	protected void noteTypedKey(KeyEvent keyEvent) {
+		System.out.println("typed");
 		if (hasRootRectangle()) {
 			getRefRootRectangle().noteKeyPress(keyEvent);
 		}

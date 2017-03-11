@@ -9,4 +9,4 @@
 package ch.nolix.element.dialog;
 
 //class
-public class CheckBoxStructure extends BorderableRectangleStructure<CheckBoxStructure> {}
+public class CheckBoxStructure extends RectangleStructure<CheckBoxStructure> {}
