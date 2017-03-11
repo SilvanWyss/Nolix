@@ -1,10 +1,3 @@
-/*
- * file:	RectangleStructure.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	80
- */
-
 //package declaration
 package ch.nolix.element.dialog;
 
@@ -12,20 +5,33 @@ package ch.nolix.element.dialog;
 import ch.nolix.common.container.List;
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.specification.Specification;
-import ch.nolix.common.util.Validator;
+import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
 /**
- * A rectangle structure stores a state-dependent part of a rectangle.
+ * A widget structure stores state-dependent attributes of a widget.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 80
+ * @param <WS> - The type of a widget structure.
  */
-public abstract class WidgetStructure<RS extends WidgetStructure<RS>> {
+public abstract class WidgetStructure<WS extends WidgetStructure<WS>> {
 	
 	//optional attribute
-	private RS normalStructure;
+	private WS normalStructure;
+	
+	//method
+	/**
+	 * Adds or changes the given attribute to this widget structure.
+	 * 
+	 * @param attribute
+	 */
+	protected void addOrChangeAttribute(final Specification attribute) {}
 		
 	//method
 	/**
-	 * @return the attributes of this rectangle structure
+	 * @return the attributes of this widget structure.
 	 */
 	protected List<Specification> getAttributes() {
 		return new List<Specification>();
@@ -33,11 +39,12 @@ public abstract class WidgetStructure<RS extends WidgetStructure<RS>> {
 	
 	//method
 	/**
-	 * @return the normal structure of this rectangle
-	 * @throws Exception if this rectangle structure has no normal structure
+	 * @return the normal structure of this widget structure.
+	 * @throws UnexistingAttributeException if this widget structure has no normal structure.
 	 */
-	protected final RS getRefNormalStructure() {
+	protected final WS getRefNormalStructure() {
 		
+		//Checks if this widget structure has a normal structure.
 		if (!hasNormalStructure()) {
 			throw new UnexistingAttributeException(this, "normal structure");
 		}
@@ -45,40 +52,33 @@ public abstract class WidgetStructure<RS extends WidgetStructure<RS>> {
 		return normalStructure;
 	}
 	
-	//abstract method
-	/**
-	 * Sets the given attribute to this rectangle structure.
-	 * 
-	 * @param attribute
-	 */
-	protected void setAttribute(Specification attribute) {}
-	
 	//method
 	/**
-	 * @return true if this rectangle structure has a normal structure
+	 * @return true if this widget structure has a normal structure.
 	 */
-	final boolean hasNormalStructure() {
+	protected final boolean hasNormalStructure() {
 		return (normalStructure != null);
 	}
 	
 	//method
 	/**
-	 * Sets the normal structure of this rectangle structure.
+	 * Removes all attributes of this widget structure.
+	 */
+	protected void removeAttributes() {}
+	
+	//package-visible method
+	/**
+	 * Sets the normal structure of this widget structure.
 	 * 
 	 * @param normalStructure
-	 * @throws Exception if:
-	 * -the given normal structure is null
-	 * -this rectangle structure already has a normal structure
+	 * @throws NullArgumentException if the given normal structure is null.
 	 */
-	@SuppressWarnings("unchecked")
-	final void setNormalStructure(WidgetStructure<?> normalStructure) {
+	final void setNormalStructure(final WS normalStructure) {
 		
-		Validator.throwExceptionIfValueIsNull("normal structure", normalStructure);
+		//Checks if the given normal structure is not null.
+		ZetaValidator.supposeThat(normalStructure).thatIsNamed("normal structure").isNotNull();
 		
-		if (hasNormalStructure()) {
-			throw new RuntimeException("Rectangle structure already has a normal structure.");
-		}
-		
-		this.normalStructure = (RS)normalStructure;
+		//Sets the normal structure of this widget structure.
+		this.normalStructure = normalStructure;
 	}
 }

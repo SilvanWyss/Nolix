@@ -16,7 +16,7 @@ import ch.nolix.element.data.BackgroundColor;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 820
+ * @lines 830
  * @param <BRS> - The type of a borderable rectangle structure.
  */
 public abstract class BorderWidgetStructure<BRS extends BorderWidgetStructure<BRS>>
@@ -757,7 +757,7 @@ extends WidgetStructure<BRS> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	protected void setAttribute(final Specification attribute) {
+	protected void addOrChangeAttribute(final Specification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {

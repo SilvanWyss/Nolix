@@ -146,7 +146,7 @@ public final class TextLineWidgetStructure extends BorderWidgetStructure<TextLin
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	protected final void setAttribute(Specification attribute) {
+	protected final void addOrChangeAttribute(Specification attribute) {
 		switch (attribute.getHeader()) {
 			case TEXT_SIZE:
 				setTextSize(attribute.getOneAttributeToInteger());
@@ -157,7 +157,7 @@ public final class TextLineWidgetStructure extends BorderWidgetStructure<TextLin
 			default:
 				
 				//Calls method of the base class.
-				super.setAttribute(attribute);
+				super.addOrChangeAttribute(attribute);
 		}
 	}
 }

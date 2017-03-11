@@ -207,7 +207,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 		return this;
 	}
 	
-	public void setAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -220,7 +220,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 			default:
 				
 				
-				super.setAttribute(attribute);
+				super.addOrChangeAttribute(attribute);
 		}
 	}
 	

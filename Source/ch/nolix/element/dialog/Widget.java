@@ -26,7 +26,7 @@ public abstract class Widget<RS extends WidgetStructure<RS>, R extends Widget<RS
 extends ConfigurableElement<R> {
 	
 	//constant
-	public static final String SIMPLE_CLASS_NAME = "widget";
+	public static final String SIMPLE_CLASS_NAME = "Widget";
 	
 	//attribute headers
 	private static final String LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER = "LeftMouseButtonPressCommand";
@@ -114,17 +114,17 @@ extends ConfigurableElement<R> {
 				if (attribute.getHeader().startsWith(NORMAL.toString())) {
 					Specification temp = attribute.getClone();
 					temp.setHeader(attribute.getHeader().substring(NORMAL.toString().length()));
-					getRefNormalStructure().setAttribute(temp);
+					getRefNormalStructure().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(HOVER.toString())) {
 					Specification temp = attribute.getClone();
 					temp.setHeader(attribute.getHeader().substring(HOVER.toString().length()));
-					getRefHoverStructure().setAttribute(temp);
+					getRefHoverStructure().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(FOCUS.toString())) {
 					Specification temp = attribute.getClone();
 					temp.setHeader(attribute.getHeader().substring(FOCUS.toString().length()));
-					getRefFocusStructure().setAttribute(temp);
+					getRefFocusStructure().addOrChangeAttribute(temp);
 				}
 				else {
 				

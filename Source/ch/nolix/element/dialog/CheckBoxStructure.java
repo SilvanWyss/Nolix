@@ -235,7 +235,7 @@ public final class CheckBoxStructure extends WidgetStructure<CheckBoxStructure> 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	protected void setAttribute(final Specification attribute) {
+	protected void addOrChangeAttribute(final Specification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -251,7 +251,7 @@ public final class CheckBoxStructure extends WidgetStructure<CheckBoxStructure> 
 			default:
 				
 				//Calls method of the base class.
-				super.setAttribute(attribute);
+				super.addOrChangeAttribute(attribute);
 		}
 	}
 }
