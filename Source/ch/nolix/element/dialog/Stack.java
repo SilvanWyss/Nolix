@@ -16,7 +16,7 @@ import ch.nolix.element.data.Margin;
 
 //class
 public abstract class Stack<S extends Stack<S>> 
-extends Container<SimpleBorderWidgetStructure, Stack<S>>
+extends Container<StackStructure, Stack<S>>
 implements Clearable {
 	
 	//constant
@@ -42,9 +42,9 @@ implements Clearable {
 		
 		//Calls constructor of the base class.
 		super(
-			new SimpleBorderWidgetStructure(),
-			new SimpleBorderWidgetStructure(),
-			new SimpleBorderWidgetStructure()
+			new StackStructure(),
+			new StackStructure(),
+			new StackStructure()
 		);
 	}
 	
