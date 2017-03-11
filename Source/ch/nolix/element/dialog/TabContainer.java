@@ -22,7 +22,7 @@ import ch.nolix.element.data.TextColor;
 
 //class
 public class TabContainer
-extends Container<SimpleBorderWidgetStructure, TabContainer> {
+extends Container<TabContainerStructure, TabContainer> {
 
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "TabContainer";
@@ -64,9 +64,9 @@ extends Container<SimpleBorderWidgetStructure, TabContainer> {
 		
 		//Calls constructor of the base class.
 		super(
-			new SimpleBorderWidgetStructure(),
-			new SimpleBorderWidgetStructure(),
-			new SimpleBorderWidgetStructure()
+			new TabContainerStructure(),
+			new TabContainerStructure(),
+			new TabContainerStructure()
 		);
 		
 		hoverMenuItemStructure.setNormalStructure(normalMenuItemStructure);
@@ -714,7 +714,7 @@ extends Container<SimpleBorderWidgetStructure, TabContainer> {
 	 * @param rectangleStructure
 	 * @param graphics
 	 */
-	protected void paintContent(SimpleBorderWidgetStructure rectangleStructure, Graphics graphics) {
+	protected void paintContent(TabContainerStructure rectangleStructure, Graphics graphics) {
 		
 		super.paintContent(rectangleStructure, graphics);
 		
