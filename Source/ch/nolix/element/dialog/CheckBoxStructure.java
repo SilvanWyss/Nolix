@@ -14,7 +14,7 @@ import ch.nolix.element.basic.PositiveInteger;
  * @month 2016-05
  * @lines 250
  */
-public final class CheckBoxStructure extends WidgetStructure<CheckBoxStructure> {
+public final class CheckBoxStructure extends BackgroundWidgetStructure<CheckBoxStructure> {
 	
 	//default values
 	public static final int DEFAULT_SIZE = 10;

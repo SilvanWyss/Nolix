@@ -7,36 +7,28 @@ import java.awt.Graphics;
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.specification.Specification;
-import ch.nolix.common.util.Validator;
-import ch.nolix.element.data.Size;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 160
+ * @lines 180
  */
-public final class CheckBox extends Widget<CheckBoxStructure, CheckBox> {
+public final class CheckBox extends BackgroundWidget<CheckBoxStructure, CheckBox> {
 
-	//constants
+	//constant
 	public static final String SIMPLE_CLASS_NAME = "CheckBox";
-	public static final int THICKNESS = 2;
-	public static final int MIN_SIZE = 5;
 	
-	//default values
-	public static final int DEFAULT_SIZE = 10;
+	//attribute headers
+	private final String CHECKED_HEADER = "Checked";
+	private final String UNCHECKED_HEADER = "Unchecked";
 	
-	//attribute specifications
-	private final String CHECKED = "Checked";
-	private final String UNCHECKED = "Unchecked";
-	
-	//attributes
+	//attribute
 	private boolean checked = false;
-	private final Size size = new Size();
 	
 	//constructor
 	/**
-	 * Creates new check box with default attributes.
+	 * Creates new check box with default values.
 	 */
 	public CheckBox() {
 		
@@ -52,81 +44,20 @@ public final class CheckBox extends Widget<CheckBoxStructure, CheckBox> {
 	
 	//method
 	/**
-	 * Applies the default configuration to this check box.
-	 */
-	public final void resetConfiguration() {
-		
-		//Calls method of the base class.
-		super.resetConfiguration();
-		
-		setSize(DEFAULT_SIZE);
-	}
-	
-	//method
-	/**
-	 * Checks this check box.
-	 */
-	public final void check() {
-		checked = true;
-	}
-	
-	//method
-	/**
-	 * @return the attributes of this check box
-	 */
-	public final List<Specification> getAttributes() {
-		
-		//Calls constructor of the base class.
-		List<Specification> attributes = super.getAttributes();
-		
-		if (isChecked()) {
-			attributes.addAtEnd(new Specification(CHECKED));
-		}
-		
-		if (getSize() != DEFAULT_SIZE) {
-			attributes.addAtEnd(size.getSpecification());
-		}
-		
-		return attributes;
-	}
-	
-	//method
-	/**
-	 * @return the size of this check box
-	 */
-	public final int getSize() {
-		return size.getValue();
-	}
-	
-	public final boolean hasRole(final String role) {
-		return false;
-	}
-	
-	//method
-	/**
-	 * @return true if this check box is checked
-	 */
-	public final boolean isChecked() {
-		return checked;
-	}
-	
-	//method
-	/**
-	 * Sets the given attribute to this check box.
+	 * Adds or changes the given attribute to this check box.
 	 * 
 	 * @param attribute
-	 * @throws Exception if the given attribute is not valid
+	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public final void addOrChangeAttribute(Specification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
+		
+		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case CHECKED:
+			case CHECKED_HEADER:
 				check();
 				break;
-			case UNCHECKED:
+			case UNCHECKED_HEADER:
 				uncheck();
-				break;
-			case Size.SIMPLE_CLASS_NAME:
-				setSize(attribute.getOneAttributeToInteger());
 				break;
 			default:
 				
@@ -137,61 +68,119 @@ public final class CheckBox extends Widget<CheckBoxStructure, CheckBox> {
 	
 	//method
 	/**
-	 * Sets the size of this check box.
+	 * Checks this check box.
 	 * 
-	 * @param size
-	 * @throws Exception if the given size is smaller than the min size of a check box
+	 * @return this check box.
 	 */
-	public final void setSize(int size) {
+	public CheckBox check() {
 		
-		Validator.throwExceptionIfValueIsSmaller("size", MIN_SIZE, size);
+		checked = true;
 		
-		this.size.setValue(size);
+		return this;
+	}
+	
+	//method
+	/**
+	 * @return the attributes of this check box.
+	 */
+	public List<Specification> getAttributes() {
+		
+		//Calls method of the base class.
+		final List<Specification> attributes = super.getAttributes();
+		
+		if (isChecked()) {
+			attributes.addAtEnd(new Specification(CHECKED_HEADER));
+		}
+		
+		return attributes;
+	}
+	
+	//method
+	/**
+	 * @return true if this check box has the given role.
+	 */
+	public boolean hasRole(final String role) {
+		return false;
+	}
+	
+	//method
+	/**
+	 * @return true if this check box is checked.
+	 */
+	public boolean isChecked() {
+		return checked;
 	}
 	
 	//method
 	/**
 	 * Unchecks this check box.
-	 */
-	public final void uncheck() {
-		checked = false;
-	}
-	
-	//method
-	/**
-	 * @return the current height of the content of this check box
-	 */
-	protected final int getContentHeight() {
-		return getSize();
-	}
-	
-	//method
-	/**
-	 * @return the current width of the content of this check box
-	 */
-	protected final int getContentWidth() {
-		return getSize();
-	}
-	
-	//method
-	/**
-	 * Paints this check box using the given rectangle structure and graphics.
 	 * 
-	 * @param rectangleStructure
+	 * @return this check box.
+	 */
+	public CheckBox uncheck() {
+		
+		checked = false;
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * @return the height of this check box when it is not collapsed. 
+	 */
+	protected int getHeightWhenNotCollapsed() {
+		return getRefCurrentStructure().getActiveSize();
+	}
+	
+	//method
+	/**
+	 * @return the width of this check box when it is not collapsed.
+	 */
+	protected final int getWidthWhenNotCollapsed() {
+		return getRefCurrentStructure().getActiveSize();
+	}
+	
+	//method
+	/**
+	 * Paints this check box using the given widget structure and graphics.
+	 * 
+	 * @param widgetStructure
 	 * @param graphics
 	 */
-	protected final void paintContent(CheckBoxStructure rectangleStructure, Graphics graphics) {
+	protected void paint(final CheckBoxStructure widgetStructure, final Graphics graphics) {
 		
-		//Paints left line of this check box.
-		graphics.drawRect(0, 0, THICKNESS, getSize());
+		//Calls method of the base class.
+		super.paint(widgetStructure, graphics);
 		
-		//Paints right line of this check box.
-		graphics.drawRect(getSize() - THICKNESS, 0, THICKNESS, getSize());
+		final int s = widgetStructure.getActiveSize();
+		final int t = widgetStructure.getActiveLineThickness();
 		
-		//Paints top line of this check box.
-		graphics.drawRect(0, 0, getSize(), THICKNESS);
+		graphics.setColor(widgetStructure.getActiveLineColor().getJavaColor());
 		
-		//Paints bottom line of this check box.
-		graphics.drawRect(getSize() - THICKNESS, 0, getSize(), THICKNESS);		
+		//Paints the left line of this check box.
+		graphics.fillRect(0, 0, t, s);
+		
+		//Paints the right line of this check box.
+		graphics.fillRect(s - t, 0, t, s);
+		
+		//Paints the top line of this check box.
+		graphics.fillRect(0, 0, s, t);
+		
+		//Paints the bottom line of this check box.
+		graphics.fillRect(s - t, 0, s, t);
+		
+		//Paints the icon of this check box if it is checked.
+		if (isChecked()) {
+			
+			final int[] x = new int[4];
+			final int[] y = new int[4];
+			
+			x[0] = 0;		y[0] = t;
+			x[1] = t;		y[1] = 0;
+			x[2] = s;		y[2] = s - t;
+			x[3] = s - t;	y[3] = s;
+			
+			graphics.fillPolygon(x, y, 4);
+		}
 	}
 }
