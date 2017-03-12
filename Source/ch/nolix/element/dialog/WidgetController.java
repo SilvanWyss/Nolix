@@ -13,11 +13,11 @@ import ch.nolix.common.controller.ILevel1Controller;
 import ch.nolix.common.specification.Statement;
 
 //class
-final class RectangleController implements ILevel1Controller {
+final class WidgetController implements ILevel1Controller {
 	
-	private final Rectangle<?, ?> rectangle;
+	private final Widget<?, ?> rectangle;
 	
-	public RectangleController(Rectangle<?, ?> rectangle) {
+	public WidgetController(Widget<?, ?> rectangle) {
 		this.rectangle = rectangle;
 	}
 
@@ -27,7 +27,7 @@ final class RectangleController implements ILevel1Controller {
 				case Dialog.SIMPLE_CLASS_NAME:
 					getRefRectangle().getRefDialog().run(command.getNextStatement());
 					return;
-				case Rectangle.SIMPLE_CLASS_NAME:
+				case Widget.SIMPLE_CLASS_NAME:
 					getRefRectangle().run(command.getNextStatement());
 					return;
 			}
@@ -35,7 +35,7 @@ final class RectangleController implements ILevel1Controller {
 		getRefRectangle().getRefDialog().getRefController().run(command);
 	}
 	
-	private Rectangle<?, ?> getRefRectangle() {
+	private Widget<?, ?> getRefRectangle() {
 		return rectangle;
 	}
 }
