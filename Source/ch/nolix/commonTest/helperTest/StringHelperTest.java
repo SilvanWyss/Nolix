@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.common.helperTest;
+package ch.nolix.commonTest.helperTest;
 
 //own imports
 import ch.nolix.common.helper.StringHelper;

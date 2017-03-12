@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commonTest.financeTest;
+package ch.nolix.elementTest.financeTest;
 
 //own imports
 import ch.nolix.common.zetaTest.ZetaTest;

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commonTutorial.financeTutorial;
+package ch.nolix.elementTutorial.financeTutorial;
 
 //own imports
 import ch.nolix.element.basic.Time;

@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.elementTutorial.dialogTutorial;
+package ch.nolix.elementTutorial.GUITutorial;
 
 //own imports
 import ch.nolix.common.controller.ILevel1Controller;

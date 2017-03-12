@@ -1,22 +1,22 @@
 //package declaration
-package ch.nolix.commonTest.alphaEndPointTest;
+package ch.nolix.elementTest.financeTest;
 
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-02
+ * @month 2016-09
  * @lines 20
  */
 public final class Launcher {
-	
+
 	//main method
 	/**
-	 * Creates new alpha end point test pool and executes it.
+	 * Creates new finance test pool and executes it.
 	 * 
 	 * @param arguments
 	 */
-	public static void main(final String[] arguments) {
-		new AlphaEndPointTestPool().execute();
+	public static final void main(final String[] arguments) {			
+		new FinanceTestPool().execute();
 	}
 	
 	//private constructor

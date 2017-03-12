@@ -1,22 +1,22 @@
 //package declaration
-package ch.nolix.commonTest.financeTest;
+package ch.nolix.commonTest.zetaEndPointTest;
 
 //class
 /**
  * @author Silvan Wyss
- * @month 2016-09
+ * @month 2017-02
  * @lines 20
  */
 public final class Launcher {
-
+	
 	//main method
 	/**
-	 * Creates new finance test pool and executes it.
+	 * Creates new alpha end point test pool and executes it.
 	 * 
 	 * @param arguments
 	 */
-	public static final void main(final String[] arguments) {			
-		new FinanceTestPool().execute();
+	public static void main(final String[] arguments) {
+		new ZetaEndPointTestPool().execute();
 	}
 	
 	//private constructor

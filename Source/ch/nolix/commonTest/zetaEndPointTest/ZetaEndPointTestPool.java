@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commonTest.alphaEndPointTest;
+package ch.nolix.commonTest.zetaEndPointTest;
 
 //own import
 import ch.nolix.common.test.TestPool;
@@ -10,13 +10,13 @@ import ch.nolix.common.test.TestPool;
  * @month 2017-02
  * @lines 20
  */
-public final class AlphaEndPointTestPool extends TestPool {
+public final class ZetaEndPointTestPool extends TestPool {
 
 	//constructor
 	/**
 	 * Creates new alpha end point test pool.
 	 */
-	public AlphaEndPointTestPool() {
-		addTest(new AlphaEndPointTest());
+	public ZetaEndPointTestPool() {
+		addTest(new ZetaEndPointTest());
 	}
 }

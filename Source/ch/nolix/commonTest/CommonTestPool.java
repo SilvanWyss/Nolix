@@ -4,10 +4,10 @@ package ch.nolix.commonTest;
 //own imports
 import ch.nolix.common.test.TestPool;
 import ch.nolix.commonTest.containerTest.ContainerTestPool;
-import ch.nolix.commonTest.financeTest.FinanceTestPool;
 import ch.nolix.commonTest.mathematicsTest.MathematicsTestPool;
 import ch.nolix.commonTest.specificationTest.SpecificationTestPool;
 import ch.nolix.commonTest.utilTest.UtilTestPool;
+import ch.nolix.elementTest.financeTest.FinanceTestPool;
 
 //class
 /**

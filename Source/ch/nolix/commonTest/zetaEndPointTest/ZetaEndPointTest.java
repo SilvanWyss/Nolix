@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.commonTest.alphaEndPointTest;
+package ch.nolix.commonTest.zetaEndPointTest;
 
 //own imports
 import ch.nolix.common.exception.UnexistingAttributeException;
@@ -16,7 +16,7 @@ import ch.nolix.common.zetaTest.ZetaTest;
  * @month 2016-09
  * @lines 120
  */
-public final class AlphaEndPointTest extends ZetaTest {
+public final class ZetaEndPointTest extends ZetaTest {
 
 	//test method
 	public void test_constructor() throws InterruptedException {
