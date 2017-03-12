@@ -22,6 +22,7 @@ public final class DialogTestPool extends TestPool {
 		addTest(
 			new AreaTest(),
 			new CaptionPositionTest(),
+			new CheckBoxTest(),
 			new LabelTest(),
 			new SingleContainerTest(),
 			new TextBoxTest(),
