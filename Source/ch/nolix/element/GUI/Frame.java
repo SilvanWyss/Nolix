@@ -98,6 +98,7 @@ public final class Frame extends GUI<Frame> {
 		panel.addMouseListener(new FrameMouseListener(this));
 		panel.addMouseMotionListener(new FrameMouseMotionListener(this));
 		panel.setFocusable(true);	//This is important that key events are handled.
+		panel.requestFocus(); //This is important that key events are handled.
 		
 		paint();
 	}

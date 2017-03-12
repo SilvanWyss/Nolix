@@ -1,10 +1,3 @@
-/*
- * file:	FrameKeyListener.java
- * author:	Silvan Wyss
- * month:	2015
- * lines:	50
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
@@ -12,7 +5,15 @@ package ch.nolix.element.GUI;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-//class
+//own import
+import ch.nolix.common.zetaValidator.ZetaValidator;
+
+//package-visible class
+/**
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 60
+ */
 final class FrameKeyListener implements KeyListener {
 	
 	//attribute
@@ -21,26 +22,40 @@ final class FrameKeyListener implements KeyListener {
 	//constructor
 	/**
 	 * Creates new frame key listener that belongs to the given frame.
+	 * 
 	 * @param frame
+	 * @throws NullArgumentException if the given frame is null.
 	 */
-	public FrameKeyListener(Frame frame) {
+	public FrameKeyListener(final Frame frame) {
+		
+		//Checks if the given frame is not null.
+		ZetaValidator.supposeThat(frame).thatIsInstanceOf(Frame.class).isNotNull();
+		
+		//Sets the frame of this frame key listener.
 		this.frame = frame;
 	}
 
 	//method
-	public void keyPressed(KeyEvent keyEvent) {
-		System.out.println("press");
-		frame.notePressedKey(keyEvent);
+	/**
+	 * Lets this frame key listener note a key press.
+	 */
+	public void keyPressed(final KeyEvent keyEvent) {
+		//Does nothing.
 	}
 
 	//method
-	public void keyReleased(KeyEvent arg0) {
-		System.out.println("release");
+	/**
+	 * Lets this frame key listener note a key release.
+	 */
+	public void keyReleased(final KeyEvent keyEvent) {
+		//Does nothing.
 	}
 
 	//method
-	public void keyTyped(KeyEvent keyEvent) {
-		System.out.println("type");
+	/**
+	 * Lets this frame key listener note a key typing.
+	 */
+	public void keyTyped(final KeyEvent keyEvent) {
 		frame.noteTypedKey(keyEvent);
 	}
 }

@@ -515,9 +515,8 @@ implements Clearable, IRequestableContainer {
 	 * @param keyEvent
 	 */
 	protected void noteTypedKey(KeyEvent keyEvent) {
-		System.out.println("typed");
 		if (hasRootRectangle()) {
-			getRefRootRectangle().noteKeyPress(keyEvent);
+			getRefRootRectangle().noteKeyTyping(keyEvent);
 		}
 	}
 	

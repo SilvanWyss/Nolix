@@ -25,12 +25,14 @@ import javax.swing.JFrame;
 
 
 
+
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.util.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
+import ch.nolix.element.data.GraphicText;
 import ch.nolix.element.data.Width;
 
 //class
@@ -139,9 +141,14 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	/**
 	 * Notes a press of a key.
 	 */
-	public final void noteKeyPress(KeyEvent keyEvent) {
+	public void noteKeyTyping(KeyEvent keyEvent) {
+		
+		if (true) { //if is focussed
 			
-		if (isFocused()) {
+			if (Character.isLetter(keyEvent.getKeyChar()) || Character.isDigit(keyEvent.getKeyChar())) {
+				insertCharacterAfterCursor(keyEvent.getKeyChar());
+			}
+			
 			switch (keyEvent.getKeyCode()) {
 				case KeyEvent.VK_LEFT:
 					if (getTextCursorPosition() > 0) {
@@ -232,6 +239,13 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		
 		int textCursorDistanceFromTextBegin = new JFrame().getFontMetrics(new Font("Sans-Serif", Font.PLAIN, getRefCurrentStructure().getCurrentTextSize())).stringWidth(getTextBeforeTextCursor());
 		graphics.setColor(textCursor.getRefColor().getJavaColor());
+		graphics.setColor(new Color(Color.ANTHRAZIT).getJavaColor());
+		
+		new GraphicText()
+		.setText(getText())
+		.setSize(rectangleStructure.getCurrentTextSize())
+		.paint(graphics);
+		
 		graphics.fillRect(
 			getContentXPosition() + textCursorDistanceFromTextBegin,
 			getContentYPosition(),
