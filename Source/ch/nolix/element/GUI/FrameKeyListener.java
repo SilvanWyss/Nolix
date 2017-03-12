@@ -1,0 +1,46 @@
+/*
+ * file:	FrameKeyListener.java
+ * author:	Silvan Wyss
+ * month:	2015
+ * lines:	50
+ */
+
+//package declaration
+package ch.nolix.element.GUI;
+
+//Java imports
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+//class
+final class FrameKeyListener implements KeyListener {
+	
+	//attribute
+	private final Frame frame;
+	
+	//constructor
+	/**
+	 * Creates new frame key listener that belongs to the given frame.
+	 * @param frame
+	 */
+	public FrameKeyListener(Frame frame) {
+		this.frame = frame;
+	}
+
+	//method
+	public void keyPressed(KeyEvent keyEvent) {
+		System.out.println("press");
+		frame.notePressedKey(keyEvent);
+	}
+
+	//method
+	public void keyReleased(KeyEvent arg0) {
+		System.out.println("release");
+	}
+
+	//method
+	public void keyTyped(KeyEvent keyEvent) {
+		System.out.println("type");
+		frame.noteTypedKey(keyEvent);
+	}
+}

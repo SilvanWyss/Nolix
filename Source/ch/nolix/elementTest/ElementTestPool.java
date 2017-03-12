@@ -10,8 +10,8 @@ package ch.nolix.elementTest;
 
 //own imports
 import ch.nolix.common.test.TestPool;
+import ch.nolix.elementTest.GUITest.GUITestPool;
 import ch.nolix.elementTest.dataTest.DataTestPool;
-import ch.nolix.elementTest.dialogTest.DialogTestPool;
 
 //class
 public final class ElementTestPool extends TestPool {
@@ -23,7 +23,7 @@ public final class ElementTestPool extends TestPool {
 	public ElementTestPool() {
 		addTestPool(
 			new DataTestPool(),
-			new DialogTestPool()
+			new GUITestPool()
 		);
 	}
 }

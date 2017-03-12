@@ -10,8 +10,8 @@ package ch.nolix.application.timer;
 
 //own imports
 import ch.nolix.common.application.StandardApplication;
-import ch.nolix.system.dialogClient.DialogClient;
-import ch.nolix.system.dialogClient.FrontDialogClient;
+import ch.nolix.system.GUIClient.GUIClient;
+import ch.nolix.system.GUIClient.FrontGUIClient;
 
 //class
 /**
@@ -28,7 +28,7 @@ public final class Launcher {
 	public static final void main(String[] args) {
 		
 		//Creates new front end dialog and connects it to a newly created timer application.
-		new FrontDialogClient(new StandardApplication<DialogClient>("Timer", MainSession.class));
+		new FrontGUIClient(new StandardApplication<GUIClient>("Timer", MainSession.class));
 	}
 	
 	//private constructor

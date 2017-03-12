@@ -12,12 +12,12 @@ package ch.nolix.application.performanceDetector;
 import ch.nolix.common.application.Session;
 import ch.nolix.common.sequencer.Sequencer;
 import ch.nolix.common.util.Timer;
-import ch.nolix.element.dialog.Label;
-import ch.nolix.element.dialog.VerticalStack;
-import ch.nolix.system.dialogClient.DialogClient;
+import ch.nolix.element.GUI.Label;
+import ch.nolix.element.GUI.VerticalStack;
+import ch.nolix.system.GUIClient.GUIClient;
 
 //class
-public final class MainSession extends Session<DialogClient> {
+public final class MainSession extends Session<GUIClient> {
 	
 	//constants
 	private static final String TITLE = "Performance Detector";

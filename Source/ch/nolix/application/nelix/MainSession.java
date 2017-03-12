@@ -3,14 +3,14 @@ package ch.nolix.application.nelix;
 
 //own imports
 import ch.nolix.common.application.ContextSession;
-import ch.nolix.element.dialog.Button;
-import ch.nolix.element.dialog.ContainerRole;
-import ch.nolix.element.dialog.Label;
-import ch.nolix.element.dialog.LabelRole;
-import ch.nolix.element.dialog.TabContainer;
-import ch.nolix.element.dialog.TabContainerTab;
-import ch.nolix.element.dialog.VerticalStack;
-import ch.nolix.system.dialogClient.DialogClient;
+import ch.nolix.element.GUI.Button;
+import ch.nolix.element.GUI.ContainerRole;
+import ch.nolix.element.GUI.Label;
+import ch.nolix.element.GUI.LabelRole;
+import ch.nolix.element.GUI.TabContainer;
+import ch.nolix.element.GUI.TabContainerTab;
+import ch.nolix.element.GUI.VerticalStack;
+import ch.nolix.system.GUIClient.GUIClient;
 import ch.nolix.system.modules.DesignManager;
 
 //class
@@ -22,7 +22,7 @@ import ch.nolix.system.modules.DesignManager;
  * @month 2016-02
  * @lines 140
  */
-public final class MainSession extends ContextSession<DialogClient, Nelix> {
+public final class MainSession extends ContextSession<GUIClient, Nelix> {
 	
 	//constructor
 	/**

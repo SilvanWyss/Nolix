@@ -11,15 +11,15 @@ package ch.nolix.application.timer;
 //own imports
 import ch.nolix.common.application.Session;
 import ch.nolix.common.sequencer.Sequencer;
-import ch.nolix.element.dialog.Button;
-import ch.nolix.element.dialog.ContainerRole;
-import ch.nolix.element.dialog.HorizontalStack;
-import ch.nolix.element.dialog.Label;
-import ch.nolix.element.dialog.VerticalStack;
-import ch.nolix.system.dialogClient.DialogClient;
+import ch.nolix.element.GUI.Button;
+import ch.nolix.element.GUI.ContainerRole;
+import ch.nolix.element.GUI.HorizontalStack;
+import ch.nolix.element.GUI.Label;
+import ch.nolix.element.GUI.VerticalStack;
+import ch.nolix.system.GUIClient.GUIClient;
 
 //package-visible class
-public final class MainSession extends Session<DialogClient> {
+public final class MainSession extends Session<GUIClient> {
 
 	//attribute
 	private final ch.nolix.common.util.Timer timer = new ch.nolix.common.util.Timer();

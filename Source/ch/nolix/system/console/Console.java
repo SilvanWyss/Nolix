@@ -6,10 +6,10 @@ import ch.nolix.common.application.Client;
 import ch.nolix.common.controller.ILevel1Controller;
 import ch.nolix.common.specification.Statement;
 import ch.nolix.common.zetaValidator.ZetaValidator;
-import ch.nolix.element.dialog.Dialog;
-import ch.nolix.element.dialog.Frame;
-import ch.nolix.element.dialog.TextBox;
-import ch.nolix.element.dialog.VerticalStack;
+import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.GUI.TextBox;
+import ch.nolix.element.GUI.VerticalStack;
 
 //class
 /**
@@ -22,7 +22,7 @@ import ch.nolix.element.dialog.VerticalStack;
 public final class Console extends Client<Console> {
 	
 	//attribute
-	private Dialog<?> dialog;
+	private GUI<?> dialog;
 
 	//constructor
 	/**
@@ -97,10 +97,10 @@ public final class Console extends Client<Console> {
 	 * @param dialog
 	 * @throws NullArgumentException if the given dialog is null.
 	 */
-	private void setDialog(final Dialog<?> dialog) {
+	private void setDialog(final GUI<?> dialog) {
 		
 		//Checks if the given dialog is not null.
-		ZetaValidator.supposeThat(dialog).thatIsInstanceOf(Dialog.class).isNotNull();
+		ZetaValidator.supposeThat(dialog).thatIsInstanceOf(GUI.class).isNotNull();
 		
 		this.dialog = dialog;
 		

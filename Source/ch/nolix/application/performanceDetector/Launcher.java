@@ -10,8 +10,8 @@ package ch.nolix.application.performanceDetector;
 
 //own imports
 import ch.nolix.common.application.StandardApplication;
-import ch.nolix.system.dialogClient.DialogClient;
-import ch.nolix.system.dialogClient.FrontDialogClient;
+import ch.nolix.system.GUIClient.GUIClient;
+import ch.nolix.system.GUIClient.FrontGUIClient;
 
 //class
 /**
@@ -28,8 +28,8 @@ public final class Launcher {
 	public static final void main(String[] args) {
 		
 		//Creates new front end dialog and connects it to a newly created performance detector application.
-		new FrontDialogClient(
-			new StandardApplication<DialogClient>("Performance Detector", MainSession.class)
+		new FrontGUIClient(
+			new StandardApplication<GUIClient>("Performance Detector", MainSession.class)
 		);
 	}
 	

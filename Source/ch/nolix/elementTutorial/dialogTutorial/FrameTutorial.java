@@ -11,14 +11,14 @@ package ch.nolix.elementTutorial.dialogTutorial;
 //own imports
 import ch.nolix.common.controller.ILevel1Controller;
 import ch.nolix.common.specification.Statement;
+import ch.nolix.element.GUI.Button;
+import ch.nolix.element.GUI.Console;
+import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.GUI.Label;
+import ch.nolix.element.GUI.TextBox;
+import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.StandardConfiguration;
-import ch.nolix.element.dialog.Button;
-import ch.nolix.element.dialog.Console;
-import ch.nolix.element.dialog.Frame;
-import ch.nolix.element.dialog.Label;
-import ch.nolix.element.dialog.TextBox;
-import ch.nolix.element.dialog.VerticalStack;
 
 //package-visible class
 /**
