@@ -3,24 +3,21 @@ package ch.nolix.element.dialog;
 
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.InvalidArgumentException;
-import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.PositiveInteger;
-import ch.nolix.element.data.BackgroundColor;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 830
+ * @lines 730
  * @param <BRS> - The type of a borderable rectangle structure.
  */
 public abstract class BorderWidgetStructure<BRS extends BorderWidgetStructure<BRS>>
-extends WidgetStructure<BRS> {
+extends BackgroundWidgetStructure<BRS> {
 	
 	//default value
 	public static final int DEFAULT_BORDER_SIZE = 1;
@@ -38,7 +35,6 @@ extends WidgetStructure<BRS> {
 	private static final String BOTTOM_BORDER_COLOR_HEADER = "BottomBorderColor";	
 		
 	//optional attributes
-	private BackgroundColor backgroundColor;
 	private PositiveInteger leftBorderSize;
 	private Color leftBorderColor;
 	private PositiveInteger rightBorderSize;
@@ -47,26 +43,6 @@ extends WidgetStructure<BRS> {
 	private Color topBorderColor;
 	private PositiveInteger bottomBorderSize;
 	private Color bottomBorderColor;
-	
-	//method
-	/**
-	 * @return the active background color of this borderable rectangle structure.
-	 */
-	public final BackgroundColor getRefRecBackgroundColor() {
-		
-		//Handles the case if this borderable rectangle structure has a background color.
-		if (hasBackgroundColor()) {
-			return backgroundColor.getCopy();
-		}
-		
-		//Handles the case if this borderable rectangle has no background color but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getRefRecBackgroundColor();
-		}
-		
-		//Handles the case if this borderable rectangle structure has no background color and no normal structure.
-		return new BackgroundColor(Color.WHITE);
-	}
 	
 	public final Color getActiveBottomBorderColor() {
 		
@@ -226,34 +202,6 @@ extends WidgetStructure<BRS> {
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle structure has an active background color.
-	 */
-	public final boolean hasActiveBackgroundColor() {
-		
-		//Handles the case if this borderable rectangle structure has a background color.
-		if (hasBackgroundColor()) {
-			return true;
-		}
-		
-		//Handles the case if this borderable rectangle structure has no background color but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().hasActiveBackgroundColor();
-		}
-		
-		//Handles the case if this borderable rectangle structure has no background color and no normal structure.
-		return false;
-	}
-	
-	//method
-	/**
-	 * @return true if this borderable rectangle structure has a background color.
-	 */
-	public final boolean hasBackgroundColor() {
-		return (backgroundColor != null);
-	}
-	
-	//method
-	/**
 	 * @return true if this borderable rectangle has a bottom border color.
 	 */
 	public final boolean hasBottomBorderColor() {
@@ -374,17 +322,8 @@ extends WidgetStructure<BRS> {
 		//Calls method of the base class.
 		super.removeAttributes();
 		
-		removeBackgroundColor();
 		removeBorderSizes();
 		removeBorderColors();
-	}
-	
-	//method
-	/**
-	 * Removes the background color of this borderable rectangle structure.
-	 */
-	public final void removeBackgroundColor() {
-		backgroundColor = null;
 	}
 	
 	//method
@@ -471,26 +410,6 @@ extends WidgetStructure<BRS> {
 	 */
 	public final void removeTopBorderSize() {
 		topBorderSize = null;
-	}
-	
-	//method
-	/**
-	 * Sets the background color of this borderable rectangle structure.
-	 * 
-	 * @param backgroundColor
-	 * @return this borderable rectangle structure.
-	 * @throws NullArgumentException if the given background color is null.
-	 */
-	@SuppressWarnings("unchecked")
-	public final BRS setBackgroundColor(final BackgroundColor backgroundColor) {
-		
-		//Checks if the given background color is not null.
-		ZetaValidator.supposeThat(backgroundColor).thatIsInstanceOf(BackgroundColor.class).isNotNull();
-		
-		//Sets the background color of this borderable rectangle structure.
-		this.backgroundColor = backgroundColor;
-		
-		return (BRS)this;
 	}
 	
 	//method
@@ -679,17 +598,6 @@ extends WidgetStructure<BRS> {
 		return (BRS)this;
 	}
 	
-	
-	
-	
-	
-	
-	
-
-	
-
-	
-	
 	//method
 	/**
 	 * @return the attributes of this borderable rectangle structure
@@ -698,10 +606,6 @@ extends WidgetStructure<BRS> {
 		
 		//Calls method of the base class.
 		final List<Specification> attributes = super.getAttributes();
-		
-		if (hasBackgroundColor()) {
-			attributes.addAtEnd(backgroundColor.getSpecification());
-		}
 		
 		if (hasABorderSize() && hasSameBorderSizeAtEachSide()) {
 			attributes.addAtEnd(leftBorderSize.getSpecificationAs(BORDER_SIZE_HEADER));
@@ -752,7 +656,7 @@ extends WidgetStructure<BRS> {
 	
 	//method
 	/**
-	 * Sets the given attribute to this borderable rectangle structure.
+	 * Adds or changes the given attribute to this border widget structure.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -761,9 +665,6 @@ extends WidgetStructure<BRS> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case BackgroundColor.SIMPLE_CLASS_NAME:
-				setBackgroundColor(new BackgroundColor(attribute.getOneAttributeToString()));
-				break;
 			case BORDER_SIZE_HEADER:
 				setBorderSizes(attribute.getOneAttributeToInteger());
 				break;
@@ -795,10 +696,9 @@ extends WidgetStructure<BRS> {
 				setTopBorderColor(new Color(attribute.getOneAttributeToString()));
 				break;
 			default:
-				throw new InvalidArgumentException(
-					new ArgumentName("attribute"),
-					new Argument(attribute)
-				);
+				
+				//Calls method of the base class.
+				super.addOrChangeAttribute(attribute);
 		}
 	}
 	

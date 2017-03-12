@@ -18,7 +18,7 @@ import ch.nolix.element.data.MinWidth;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 900
+ * @lines 890
  * @param <BRS> - The type of the widget structures of a borderable widget.
  * @param <BR> - The type of a borderable widget.
  */
@@ -26,7 +26,7 @@ public abstract class BorderWidget<
 	BRS extends BorderWidgetStructure<BRS>,
 	BR extends BorderWidget<BRS, BR>
 >
-extends Widget<BRS, BR> {
+extends BackgroundWidget<BRS, BR> {
 	
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "Borderablewidget";
@@ -822,17 +822,15 @@ extends Widget<BRS, BR> {
 	
 	//method
 	/**
-	 * Paints this widget using the given widget structure and graphics.
+	 * Paints this border widget using the given widget structure and graphics.
 	 * 
 	 * @param widgetStructure
 	 * @param graphics
 	 */
-	protected final void paint(BRS widgetStructure, Graphics graphics) {
-		
-		//Paints the background color  if the given widget structure has a background color.
-		if (widgetStructure.hasActiveBackgroundColor()) {
-			widgetStructure.getRefRecBackgroundColor().paintRectangle(graphics, 0, 0, getWidth(), getHeight());
-		}
+	protected final void paint(final BRS widgetStructure, final Graphics graphics) {
+				
+		//Calls method of the base class.
+		super.paint(widgetStructure, graphics);
 		
 		//Paints the left border if the given widget structure has a left border.
 		if (widgetStructure.getActiveLeftBorderSize() > 0) {
