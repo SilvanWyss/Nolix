@@ -6,6 +6,7 @@ import ch.nolix.common.application.Session;
 import ch.nolix.common.application.StandardApplication;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.ContentOrientation;
+import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.system.GUIClient.GUIClient;
@@ -63,7 +64,8 @@ public final class GUIClientTutorial {
 			= new Button()
 			.setPadding(10)
 			.setText("Change color")
-			.setLeftMouseButtonPressCommand("ChangeColor");
+			.setLeftMouseButtonPressCommand("ChangeColor")
+			.setCursorIcon(CursorIcon.Hand);
 			
 			changeColorbutton.getRefNormalStructure().setBackgroundColor(new BackgroundColor(Color.LIGHT_GREY));
 			changeColorbutton.getRefHoverStructure().setTextSize(30);

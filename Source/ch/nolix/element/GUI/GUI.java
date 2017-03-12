@@ -479,6 +479,10 @@ implements Clearable, IRequestableContainer {
 		if (hasRootRectangle()) {
 			getRefRootRectangle().noteMouseMove();
 		}
+		
+		if (!hasRootRectangle() || !getRefRootRectangle().isPointed()) {
+			getRefFrameContext().setCurrentCursorIcon(CursorIcon.Arrow);
+		}
 	}
 	
 	//method
