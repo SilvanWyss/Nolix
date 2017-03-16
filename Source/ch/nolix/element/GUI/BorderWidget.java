@@ -39,7 +39,7 @@ extends BackgroundWidget<BRS, BR> {
 	private static final String TOP_PADDING_HEADER = "TopPadding";
 	
 	//attribute
-	private ContentOrientation contentOrientation = ContentOrientation.Center;
+	private ContentPosition contentOrientation = ContentPosition.Center;
 	
 	//optional attributes
 	private MinWidth minWidth;
@@ -79,8 +79,8 @@ extends BackgroundWidget<BRS, BR> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case ContentOrientation.SIMPLE_CLASS_NAME:
-				setContentOrientation(ContentOrientation.valueOf(attribute.getOneAttributeToString()));
+			case ContentPosition.SIMPLE_CLASS_NAME:
+				setContentOrientation(ContentPosition.valueOf(attribute.getOneAttributeToString()));
 				break;
 			case MinWidth.SIMPLE_CLASS_NAME:
 				setMinWidth(attribute.getOneAttributeToInteger());
@@ -167,7 +167,7 @@ extends BackgroundWidget<BRS, BR> {
 	/**
 	 * @return the content orientation of this borderable widget.
 	 */
-	public final ContentOrientation getContentOrientation() {
+	public final ContentPosition getContentOrientation() {
 		return contentOrientation;
 	}
 	
@@ -390,7 +390,7 @@ extends BackgroundWidget<BRS, BR> {
 		//Calls method of the base class
 		super.resetConfiguration();
 		
-		setContentOrientation(ContentOrientation.LeftTop);
+		setContentOrientation(ContentPosition.LeftTop);
 		removeMinWidth();
 		removeMinHeight();
 		removePadding();
@@ -421,12 +421,12 @@ extends BackgroundWidget<BRS, BR> {
 	 * @throws NullArgumentException if the given content orientation is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BR setContentOrientation(final ContentOrientation contentOrientation) {
+	public final BR setContentOrientation(final ContentPosition contentOrientation) {
 		
 		//Checks the given content orientation.
 		ZetaValidator
 		.supposeThat(contentOrientation)
-		.thatIsInstanceOf(ContentOrientation.class)
+		.thatIsInstanceOf(ContentPosition.class)
 		.isNotNull();
 
 		//Sets the content orientation of this borderable widget.

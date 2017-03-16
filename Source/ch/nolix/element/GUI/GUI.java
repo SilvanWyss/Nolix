@@ -37,7 +37,7 @@ implements Clearable, IRequestableContainer {
 	
 	//default values
 	public static final String DEFAULT_TITLE = "GUI";
-	public static final ContentOrientation DEFAULT_CONTENT_POSITION = ContentOrientation.LeftTop;
+	public static final ContentPosition DEFAULT_CONTENT_POSITION = ContentPosition.LeftTop;
 	
 	//attribute header
 	private static final String ROOT_WIDGET_HEADER = "RootRectangle";
@@ -48,7 +48,7 @@ implements Clearable, IRequestableContainer {
 	//attributes
 	private Title title = new Title(DEFAULT_TITLE);
 	private BackgroundColor backgroundColor = new BackgroundColor();
-	private ContentOrientation contentPosition = DEFAULT_CONTENT_POSITION;
+	private ContentPosition contentPosition = DEFAULT_CONTENT_POSITION;
 				
 	//optional attributes
 	private Widget<?, ?> rootWidget;
@@ -104,8 +104,8 @@ implements Clearable, IRequestableContainer {
 			case BackgroundColor.SIMPLE_CLASS_NAME:
 				setBackgroundColor(new BackgroundColor(attribute.getOneAttributeToString()));
 				break;
-			case ContentOrientation.SIMPLE_CLASS_NAME:
-				setContentPosition(ContentOrientation.valueOf(attribute.getOneAttributeToString()));
+			case ContentPosition.SIMPLE_CLASS_NAME:
+				setContentPosition(ContentPosition.valueOf(attribute.getOneAttributeToString()));
 				break;
 			default:
 				
@@ -223,7 +223,7 @@ implements Clearable, IRequestableContainer {
 	/**
 	 * @return the content position of this GUI.
 	 */
-	public final ContentOrientation getContentPosition() {
+	public final ContentPosition getContentPosition() {
 		return contentPosition;
 	}
 	
@@ -479,12 +479,12 @@ implements Clearable, IRequestableContainer {
 	 * @throws NullArgumentException if the given content position is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public final G setContentPosition(final ContentOrientation contentPosition) {
+	public final G setContentPosition(final ContentPosition contentPosition) {
 		
 		//Checks if the given content position is not null.
 		ZetaValidator
 		.supposeThat(contentPosition)
-		.thatIsInstanceOf(ContentOrientation.class)
+		.thatIsInstanceOf(ContentPosition.class)
 		.isNotNull();
 		
 		//Sets the content position of this GUI.

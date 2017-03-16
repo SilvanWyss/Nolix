@@ -1,10 +1,3 @@
-/*
- * file:	ContentOrientation.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	20
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
@@ -12,7 +5,12 @@ package ch.nolix.element.GUI;
 import ch.nolix.common.specification.Specification;
 
 //enum
-public enum ContentOrientation {
+/**
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 30
+ */
+public enum ContentPosition {
 	LeftTop,
 	Left,
 	LeftBottom,
@@ -23,8 +21,13 @@ public enum ContentOrientation {
 	Right,
 	RightBottom;
 	
+	//constant
 	public static final String SIMPLE_CLASS_NAME = "ContentOrientation";
 	
+	//method
+	/**
+	 * @return the specification of this content position.
+	 */
 	public final Specification getSpecification() {
 		return new Specification(SIMPLE_CLASS_NAME, toString());
 	}

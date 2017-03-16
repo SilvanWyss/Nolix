@@ -5,7 +5,7 @@ package ch.nolix.systemTutorial.GUIClientTutorial;
 import ch.nolix.common.application.Session;
 import ch.nolix.common.application.StandardApplication;
 import ch.nolix.element.GUI.Button;
-import ch.nolix.element.GUI.ContentOrientation;
+import ch.nolix.element.GUI.ContentPosition;
 import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
@@ -57,7 +57,7 @@ public final class GUIClientTutorial {
 			getRefClient().getRefDialog()
 			.setTitle("Dialog Client Tutorial")
 			.removeConfiguration()
-			.setContentPosition(ContentOrientation.Center)
+			.setContentPosition(ContentPosition.Center)
 			.setBackgroundColor(new BackgroundColor(backgroundColor));
 			
 			final Button changeColorbutton
