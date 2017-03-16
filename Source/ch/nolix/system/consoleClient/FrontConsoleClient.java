@@ -1,8 +1,8 @@
 //package declaration
-package ch.nolix.system.console;
+package ch.nolix.system.consoleClient;
 
 //class
-public class ConsoleClient {
+public class FrontConsoleClient {
 
 	//commands
 	static final String WRITE_LINE_COMMAND = "WriteLine";

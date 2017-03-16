@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.console;
+package ch.nolix.system.consoleClient;
 
 //own import
 import ch.nolix.common.application.Client;
@@ -19,7 +19,7 @@ import ch.nolix.element.GUI.VerticalStack;
  * @month 2017-02
  * @lines 10
  */
-public final class Console extends Client<Console> {
+public final class ConsoleClient extends Client<ConsoleClient> {
 	
 	//attribute
 	private GUI<?> dialog;
@@ -34,7 +34,7 @@ public final class Console extends Client<Console> {
 	 * @throws NullArgumentException if the given target application is null.
 	 * @throws EmptyArgumentException if the given target application is empty.
 	 */
-	public Console(
+	public ConsoleClient(
 		final String ip,
 		final int port,
 		final String targetApplication
@@ -54,9 +54,9 @@ public final class Console extends Client<Console> {
 		
 		//Enumerates the given request.
 		switch (request.toString()) {
-			case ConsoleClient.READ_CHARACTER_COMMAND:
+			case FrontConsoleClient.READ_CHARACTER_COMMAND:
 				return readCharacter();
-			case ConsoleClient.READ_STRING_COMMAND:
+			case FrontConsoleClient.READ_STRING_COMMAND:
 				return readString();
 		
 			default:
@@ -77,10 +77,10 @@ public final class Console extends Client<Console> {
 		
 		//Enumerates the command of this console.
 		switch (command.getHeader()) {
-			case ConsoleClient.WRITE_LINE_COMMAND:
+			case FrontConsoleClient.WRITE_LINE_COMMAND:
 				writeLine(command.getOneAttributeToString());
 				break;
-			case ConsoleClient.READ_ENTER_COMMAND:
+			case FrontConsoleClient.READ_ENTER_COMMAND:
 				readEnter();
 				break;
 			default:
