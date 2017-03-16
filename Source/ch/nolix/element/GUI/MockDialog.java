@@ -31,15 +31,6 @@ public final class MockDialog extends GUI<MockDialog> {
 	public MockDialog(List<Specification> attributes) {
 		addOrChangeAttributes(attributes);
 	}
-
-	//method
-	/**
-	 * @throws Exception
-	 */
-	public FrameContext getRefFrameContext() {
-		throw new RuntimeException("Unsupported method");
-	}
-
 	
 	public void updateFromInteraction() {
 		// TODO Auto-generated method stub

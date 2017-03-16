@@ -46,7 +46,6 @@ public final class Frame extends GUI<Frame> {
 	private static final String CLOSE_COMMAND_HEADER = "CloseCommand";
 	
 	//attributes
-	private final FrameContext frameContext;
 	private CursorIcon currentCursorIcon = CursorIcon.Arrow;
 	private JFrame frame = new JFrame();
 	
@@ -80,10 +79,7 @@ public final class Frame extends GUI<Frame> {
 	 * Creates new frame.
 	 */
 	public Frame() {
-		
-		//Creates the frame context of this frame.
-		frameContext = new FrameContext(this);
-		
+				
 		frame.setLocationByPlatform(true);
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.addWindowListener(new FrameCloseListener(this));
@@ -126,14 +122,6 @@ public final class Frame extends GUI<Frame> {
 	 */
 	public final int getHeight() {
 		return frame.getHeight();
-	}
-	
-	//method
-	/**
-	 * @return the frame context of this frame
-	 */
-	public final FrameContext getRefFrameContext() {
-		return frameContext;
 	}
 	
 	//method
