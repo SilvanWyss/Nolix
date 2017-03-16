@@ -24,7 +24,7 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
  *  
  *  @author Silvan Wyss
  *  @month 2016-05
- *  @lines 440
+ *  @lines 490
  */
 public class ZetaEndPoint extends AbortableElement {
 	
@@ -108,8 +108,6 @@ public class ZetaEndPoint extends AbortableElement {
 		.supposeThat(port)
 		.thatIsNamed("port")
 		.isBetween(PortManager.MIN_PORT, PortManager.MAX_PORT);
-		
-		
 			
 		//Sets the target application of this zeta end point.
 		this.targetApplication = targetApplication;
@@ -133,20 +131,21 @@ public class ZetaEndPoint extends AbortableElement {
 	 * Creates new zeta end point with the given socket.
 	 * 
 	 * @param socket
-	 * @throws NullArgumentException if the given socket is null
+	 * @throws NullArgumentException if the given socket is null.
 	 */
 	ZetaEndPoint(final Socket socket) {
 		
 		//Checks if the given socket is not null.
 		ZetaValidator.supposeThat(socket).thatIsInstanceOf(Socket.class).isNotNull();
 		
+		//Sets the socket of this zeta end point.
 		this.socket = socket;
 		
 		try {
 			printWriter = new PrintWriter(socket.getOutputStream());
 		}
-		catch (IOException e) {
-			throw new RuntimeException(e);
+		catch (final IOException exception) {
+			throw new RuntimeException(exception);
 		}
 		
 		//Creates and starts listener of this zeta end point.
@@ -178,12 +177,11 @@ public class ZetaEndPoint extends AbortableElement {
 	public boolean hasReceiver() {
 		return (alphaReceiver != null);
 	}
-	
-	
 
 	//method
 	/**
 	 * Sends the given message and returns the reply.
+	 * This method throws an exception if no reply is received within the timeout.
 	 * 
 	 * @param message
 	 * @return the reply of the given message.
@@ -191,21 +189,21 @@ public class ZetaEndPoint extends AbortableElement {
 	 * @throws RuntimeException if an error occurs by trying to send the message.
 	 */
 	public String sendMessageAndGetReply(final String message) {
-		
-		//Sends message nd receives reply.
-		final int index = getNextSentPackageIndex();
-		send(new ZetaPackage(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message));		
-		final ZetaPackage response = waitToAndGetAndRemoveReceivedPackage(index);
-		
-		//Enumerates the response.
-		switch (response.getMessageRole()) {
-			case SUCCESS_RESPONSE:
-				return response.getMessage();
-			case ERROR_RESPONSE:
-				throw new RuntimeException(response.getMessage());
-			default:
-				throw new RuntimeException("An error occured.");
-		}
+		return sendMessageAndWaitToReply(message, true);
+	}
+	
+	//method
+	/**
+	 * Sends the given message and returns the reply.
+	 * This method waits to the reply without checking a timeout.
+	 * 
+	 * @param message
+	 * @return the reply of the given message.
+	 * @throws RuntimeException if this zeta end point is stopped.
+	 * @throws RuntimeException if an error occurs by trying to send the message.
+	 */	
+	public String sendMessageAndWaitToReply(final String message) {
+		return sendMessageAndWaitToReply(message, false);
 	}
 	
 	//method
@@ -258,36 +256,6 @@ public class ZetaEndPoint extends AbortableElement {
 	 */
 	void receive(final String message) {
 		receive(ZetaPackage.createZetaPackageFromString(message));
-	}
-	
-	//package-visible method
-	/**
-	 * Lets this zeta end point receive the given package.
-	 * 
-	 * @param package_
-	 */
-	private void receive(final ZetaPackage package_) {
-		
-		//Enumerates the message role of the given package.
-		switch (package_.getMessageRole()) {
-			case TARGET_APPLICATION_MESSAGE:
-				setTargetApplication(package_.getMessage());
-				break;
-			case RESPONSE_EXPECTING_MESSAGE:
-				
-				try {
-					final String reply = getRefReceiver().receiveMessageAndGetReply(package_.getMessage());
-					send(new ZetaPackage(package_.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
-				}
-				catch (final Exception exception) {
-					String responseMessage = exception.getMessage();
-					send(new ZetaPackage(package_.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
-				}
-				
-				break;
-			default:
-				receivedPackages.addAtEnd(package_);
-		}
 	}
 	
 	//method
@@ -350,6 +318,36 @@ public class ZetaEndPoint extends AbortableElement {
 	
 	//method
 	/**
+	 * Lets this zeta end point receive the given package.
+	 * 
+	 * @param package_
+	 */
+	private void receive(final ZetaPackage package_) {
+		
+		//Enumerates the message role of the given package.
+		switch (package_.getMessageRole()) {
+			case TARGET_APPLICATION_MESSAGE:
+				setTargetApplication(package_.getMessage());
+				break;
+			case RESPONSE_EXPECTING_MESSAGE:
+				
+				try {
+					final String reply = getRefReceiver().receiveMessageAndGetReply(package_.getMessage());
+					send(new ZetaPackage(package_.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
+				}
+				catch (final Exception exception) {
+					String responseMessage = exception.getMessage();
+					send(new ZetaPackage(package_.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
+				}
+				
+				break;
+			default:
+				receivedPackages.addAtEnd(package_);
+		}
+	}
+	
+	//method
+	/**
 	 * @param index
 	 * @return true if this zeta end point has received a package with the given index.
 	 */
@@ -386,6 +384,34 @@ public class ZetaEndPoint extends AbortableElement {
 	
 	//method
 	/**
+	 * Sends the given message and waits to the reply.
+	 * 
+	 * @param message
+	 * @param timeoutCheck
+	 * @return the reply to the given message.
+	 */
+	private String sendMessageAndWaitToReply(
+		final String message,
+		final boolean timeoutCheck
+	) {
+		//Sends message nd receives reply.
+		final int index = getNextSentPackageIndex();
+		send(new ZetaPackage(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message));		
+		final ZetaPackage response = waitToAndGetAndRemoveReceivedPackage(index, timeoutCheck);
+		
+		//Enumerates the response.
+		switch (response.getMessageRole()) {
+			case SUCCESS_RESPONSE:
+				return response.getMessage();
+			case ERROR_RESPONSE:
+				throw new RuntimeException(response.getMessage());
+			default:
+				throw new RuntimeException("An error occured.");
+		}
+	}
+	
+	//method
+	/**
 	 * Sets the target application of this zeta end point.
 	 * 
 	 * @param targetApplication
@@ -414,17 +440,26 @@ public class ZetaEndPoint extends AbortableElement {
 	 * Lets this zeta end point wait to and return and remove the received package with the given index.
 	 * 
 	 * @param index
+	 * @param timeoutCheck
 	 * @return the received package with the given index.
 	 * @throws RuntimeException if this zeta end point reaches its timeout before it receives a package with the given index.
-	
 	 */
-	private ZetaPackage waitToAndGetAndRemoveReceivedPackage(final int index) {
+	private ZetaPackage waitToAndGetAndRemoveReceivedPackage(
+		final int index,
+		final boolean timeoutCheck
+	) {
 		
-		final long startTimeInMilliseconds = System.currentTimeMillis();
-		
-		while (!receivedPackage(index)) {
-			if (System.currentTimeMillis() - startTimeInMilliseconds > getTimeoutInMilliseconds()) {
-				throw new RuntimeException("Zeta end point reached timeout while waiting to the package with the index " + index + ".");
+		if (!timeoutCheck) {
+			while (!receivedPackage(index));
+		}
+		else {
+			
+			final long startTimeInMilliseconds = System.currentTimeMillis();
+			
+			while (!receivedPackage(index)) {
+				if (System.currentTimeMillis() - startTimeInMilliseconds > getTimeoutInMilliseconds()) {
+					throw new RuntimeException("Zeta end point reached timeout while waiting to the package with the index " + index + ".");
+				}
 			}
 		}
 		
