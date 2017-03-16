@@ -37,7 +37,7 @@ public final class MainSession extends Session<GUIClient> {
 		getRefClient().getRefDialog()
 		.setTitle(TITLE)
 		.setConfiguration(new Design())
-		.setRootRectangle(
+		.setRootWidget(
 			new VerticalStack()
 			.addRectangle(
 				new Label()
@@ -69,7 +69,7 @@ public final class MainSession extends Session<GUIClient> {
 			final long polynomFitsPerSecond = (long)(1000.0 * worker.getPolynomFitsCount()) / (timer.getRunMilliseconds());
 	
 			//Fetches the benchmark label.
-			Label benchmarkLabel = getRefClient().getRefDialog().getRefRecRectangleByName("BenchmarkLabel");
+			Label benchmarkLabel = getRefClient().getRefDialog().getRefWidgetByNameRecursively("BenchmarkLabel");
 			
 			//Sets the text of the benchmark label.
 			benchmarkLabel.setText(Long.toString(polynomFitsPerSecond));

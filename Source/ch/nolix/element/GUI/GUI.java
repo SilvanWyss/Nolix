@@ -16,9 +16,7 @@ import ch.nolix.common.interfaces.IRequestableContainer;
 import ch.nolix.common.specification.Configurable;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.specification.Statement;
-import ch.nolix.common.util.Validator;
 import ch.nolix.common.zetaValidator.ZetaValidator;
-import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.ConfigurationElement;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.Title;
@@ -27,46 +25,46 @@ import ch.nolix.element.data.Title;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 530
- * @param <D> - The type of a dialog.
+ * @lines 610
+ * @param <G> - The type of a GUI.
  */
-public abstract class GUI<D extends GUI<D>>
-extends ConfigurationElement<D>
+public abstract class GUI<G extends GUI<G>>
+extends ConfigurationElement<G>
 implements Clearable, IRequestableContainer {
 	
 	//constant
-	public static final String SIMPLE_CLASS_NAME = "Dialog";
+	public static final String SIMPLE_CLASS_NAME = "GUI";
 	
 	//default values
-	public static final String DEFAULT_TITLE = "Dialog";
-	public static final ContentOrientation DEFAULT_CONTENT_ORIENTATION = ContentOrientation.LeftTop;
+	public static final String DEFAULT_TITLE = "GUI";
+	public static final ContentOrientation DEFAULT_CONTENT_POSITION = ContentOrientation.LeftTop;
 	
-	//attribute headers
-	private static final String ROOT_RECTANGLE = "RootRectangle";
+	//attribute header
+	private static final String ROOT_WIDGET_HEADER = "RootRectangle";
 
 	//command
-	private static final String REMOVE_ROOT_RECTANGLE = "RemoveRootRectangle";
+	private static final String REMOVE_ROOT_WIDGET_COMMAND = "RemoveRootRectangle";
 		
 	//attributes
-	private Title title = new Title();
-	protected BackgroundColor backgroundColor = new BackgroundColor();
-	protected ContentOrientation contentOrientation = DEFAULT_CONTENT_ORIENTATION;
+	private Title title = new Title(DEFAULT_TITLE);
+	private BackgroundColor backgroundColor = new BackgroundColor();
+	private ContentOrientation contentPosition = DEFAULT_CONTENT_POSITION;
 				
 	//optional attributes
-	private Widget<?, ?> rootRectangle;
+	private Widget<?, ?> rootWidget;
 	private ILevel1Controller controller;
 	
 	//multiple attribute
-	private final List<Class<?>> rectangleClasses = new List<Class<?>>();
+	private final List<Class<?>> widgetClasses = new List<Class<?>>();
 	
 	//constructor
 	/**
-	 * Creates new dialog with default values.
+	 * Creates new GUI with default values.
 	 */
 	public GUI() {
 		
-		//Adds rectangle classes.
-		addRectangleClass(
+		//Adds widget classes.
+		addWidgetClass(
 			Area.class,
 			Button.class,
 			CheckBox.class,
@@ -84,257 +82,30 @@ implements Clearable, IRequestableContainer {
 	
 	//method
 	/**
-	 * Adds the given rectangle class to this dialog.
-	 * 
-	 * @param rectangleClass
-	 * @return this dialog.
-	 */
-	@SuppressWarnings("unchecked")
-	public final D addRectangleClass(final Class<?> rectangleClass) {
-		
-		//Checks if the given rectangle class is not null.
-		ZetaValidator.supposeThat(rectangleClass).thatIsNamed("rectangle class").isNotNull();
-
-		//Checks if this dialog can already create a rectangle of the same type as the given rectangle class.
-		if (canCreateRectangle(rectangleClass.getSimpleName())) {
-			throw new InvalidArgumentException(
-				new Argument(rectangleClass),
-				new ErrorPredicate("is invalid because the dialog can already create a rectangle of the same type")
-			);
-		}
-		
-		rectangleClasses.addAtEnd(rectangleClass);
-		
-		return (D)this;
-	}
-	
-	//method
-	/**
-	 * Adds the given rectangle classes to this dialog.
-	 * 
-	 * @param rectangleClasses
-	 * @return this dialog.
-	 */
-	@SuppressWarnings("unchecked")
-	public final D addRectangleClass(final Class<?>... rectangleClasses) {
-		
-		//Iterates the given rectangle classes.
-		for (final Class<?> rc : rectangleClasses) {
-			addRectangleClass(rc);
-		}
-		
-		return (D)this;
-	}
-	
-	public final boolean canCreateRectangle(String type) {
-		return rectangleClasses.contains(rc -> rc.getSimpleName().equals(type));
-	}
-	
-	//method
-	/**
-	 * Clears this dialog.
-	 */
-	public final void clear() {
-		removeRootRectangle();
-	}
-	
-	//method
-	/**
-	 * @return true if this dialog contains an element with the given name
-	 * @param name
-	 */
-	public final boolean containsElement(String name) {
-		return getRefConfigurablesRecursively().contains(c -> c.hasName(name));
-	}
-	
-	private final Widget<?, ?> createRectangle(String type) {
-		try {
-			return (Widget<?, ?>)(rectangleClasses.getRefFirst(rc -> rc.getSimpleName().equals(type)).newInstance());
-		}
-		catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
-	
-	//method
-	/**
-	 * @return the attributes of this dialog
-	 */
-	public List<Specification> getAttributes() {
-		
-		final List<Specification> attributes
-		= super.getAttributes().addAtEnd(title.getSpecification(), backgroundColor.getSpecification());
-		
-		if (contentOrientation != DEFAULT_CONTENT_ORIENTATION) {
-			attributes.addAtEnd(contentOrientation.getSpecification());
-		}
-		
-		if (containsAny()) {
-			attributes.addAtEnd(getRefRootRectangle().getSpecification());
-		}
-		
-		return attributes;
-	}
-	
-	public final ContentOrientation getContentOrientation() {
-		return contentOrientation;
-	}
-	
-	//method
-	/**
-	 * @return the configurable objects of this dialog
-	 */
-	public final List<Configurable> getRefConfigurables() {
-		
-		final List<Configurable> configurables = new List<Configurable>();
-		
-		if (hasRootRectangle()) {
-			configurables.addAtEnd(getRefRootRectangle());
-		}
-		
-		return configurables;
-	}
-	
-	//method
-	/**
-	 * @param name
-	 * @return the rectangle that has the given name recursively from this dialog
-	 * @throws Exception if this 
-	 */
-	@SuppressWarnings("unchecked")
-	public final <R extends Widget<?, ?>> R getRefRecRectangleByName(final String name) {
-		return (R)getRefRootRectangle().getRefConfigurablesRecursively().getRefFirst(r -> r.hasName(name));
-	}
-	
-	//abstract method
-	/**
-	 * @return the frame context of this dialog
-	 */
-	public abstract FrameContext getRefFrameContext();
-	
-	//method
-	/**
-	 * @return the root rectangle of this dialog
-	 * @throws Exception if this dialog has no root rectangle
-	 */
-	public final Widget<?, ?> getRefRootRectangle() {
-		
-		if (!hasRootRectangle()) {
-			throw new UnexistingAttributeException(this, "root rectangle");
-		}
-		
-		return rootRectangle;
-	}
-	
-	public final boolean hasRole(final String role) {
-		return false;
-	}
-	
-	//method
-	/**
-	 * @return the title of this frame
-	 */
-	public final String getTitle() {
-		return title.getValue();
-	}
-	
-	//method
-	/**
-	 * @return true if this dialog has a root rectangle
-	 */
-	public final boolean hasRootRectangle() {
-		return (rootRectangle != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this dialog is empty
-	 */
-	public final boolean isEmpty() {
-		return !hasRootRectangle();
-	}
-	
-	//method
-	/**
-	 * Removes the root rectangle of this dialog.
-	 */
-	public final void removeRootRectangle() {
-		rootRectangle = null;
-	}
-	
-	//method
-	/**
-	 * Resets this dialog.
-	 */
-	public void reset() {
-
-		//Calls method of the base class.
-		super.reset();
-		
-		title.reset();
-		removeRootRectangle();
-	}
-	
-	//method
-	/**
-	 * Resets the configuration of this dialog.
-	 */
-	public void resetConfiguration() {
-		
-		setBackgroundColor(Color.WHITE_STRING);
-		setContentOrientation(DEFAULT_CONTENT_ORIENTATION);
-		
-		if (hasRootRectangle()) {
-			getRefRootRectangle().resetConfiguration();
-		}
-	}
-	
-	//method
-	/**
-	 * Lets this dialog run the given command.
-	 * 
-	 * @param command
-	 * @throws Exception if the given command is not valid
-	 */
-	public void run(Statement command) {
-		switch (command.getHeader()) {
-			case ROOT_RECTANGLE:
-				getRefRootRectangle().run(command.getNextStatement());
-				break;
-			case REMOVE_ROOT_RECTANGLE:
-				removeRootRectangle();
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.run(command);
-		}
-	}
-	
-	//method
-	/**
-	 * Sets the given attribute to this dialog.
+	 * Adds or changes the given attribute to this GUI.
 	 * 
 	 * @param attribute
-	 * @throws Exception if the given attribute is not valid
+	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(Specification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		
-		//Handles the case when the given attribute specifies a rectangle.
-		if (canCreateRectangle(attribute.getHeader())) {
-			setRootRectangle(createsAndAddsRectangle(attribute));
+		//Handles the case if the given attribute specifies a widget.
+		if (canCreateWidget(attribute.getHeader())) {
+			setRootWidget(createAndAddWidget(attribute));
 			return;
 		}
 		
+		//Handles the case if the given attribute specifices no widget.
+		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case Title.SIMPLE_CLASS_NAME:
 				setTitle(attribute.getOneAttributeToString());
 				break;
 			case BackgroundColor.SIMPLE_CLASS_NAME:
-				setBackgroundColor(attribute.getOneAttributeToString());
+				setBackgroundColor(new BackgroundColor(attribute.getOneAttributeToString()));
 				break;
 			case ContentOrientation.SIMPLE_CLASS_NAME:
-				setContentOrientation(ContentOrientation.valueOf(attribute.getOneAttributeToString()));
+				setContentPosition(ContentOrientation.valueOf(attribute.getOneAttributeToString()));
 				break;
 			default:
 				
@@ -345,117 +116,481 @@ implements Clearable, IRequestableContainer {
 	
 	//method
 	/**
-	 * Sets the background color of this dialog.
+	 * Adds the given widget class to this GUI.
+	 * 
+	 * @param widgetClass
+	 * @return this GUI.
+	 * @throws NullArgumentException if the given widget class is null.
+	 * @throws InvalidArgumentException if this GUI already can already create a widget of the same type as the given widget class.
+	 */
+	@SuppressWarnings("unchecked")
+	public final G addWidgetClass(final Class<?> widgetClass) {
+		
+		//Checks if the given widget class is not null.
+		ZetaValidator.supposeThat(widgetClass).thatIsNamed("widget class").isNotNull();
+
+		//Checks if this GUI can already create a widget of the same type as the given widget class.
+		if (canCreateWidget(widgetClass.getSimpleName())) {
+			throw new InvalidArgumentException(
+				new Argument(widgetClass),
+				new ErrorPredicate("is invalid because the GUI can already create a widget of the same type")
+			);
+		}
+		
+		//Adds the given widget class to this GUI.
+		widgetClasses.addAtEnd(widgetClass);
+		
+		return (G)this;
+	}
+	
+	//method
+	/**
+	 * Adds the given widget classes to this GUI.
+	 * 
+	 * @param widgetClasses
+	 * @return this dialog.
+	 * @throws NullArgumentException if one of the given widget classes is null.
+	 * @throws InvalidArgumentException if this GUI already can already create a widget of the same type as one of the given widget classes.
+	 */
+	@SuppressWarnings("unchecked")
+	public final G addWidgetClass(final Class<?>... widgetClasses) {
+		
+		//Iterates the given widget classes.
+		for (final Class<?> wc : widgetClasses) {
+			addWidgetClass(wc);
+		}
+		
+		return (G)this;
+	}
+	
+	//method
+	/**
+	 * @param type
+	 * @return true if this GUI can create a widget of the given type.
+	 */
+	public final boolean canCreateWidget(final String type) {
+		return widgetClasses.contains(wc -> wc.getSimpleName().equals(type));
+	}
+	
+	//method
+	/**
+	 * Removes the root widget of this GUI.
+	 */
+	public final void clear() {
+		removeRootWidget();
+	}
+	
+	//method
+	/**
+	 * @return true if this GUI contains an element with the given name.
+	 * @param name
+	 */
+	public final boolean containsElement(String name) {
+		return getRefConfigurablesRecursively().contains(c -> c.hasName(name));
+	}
+	
+	//method
+	/**
+	 * @return the attributes of GUI.
+	 */
+	public List<Specification> getAttributes() {
+		
+		//Calls method of the base class.
+		final List<Specification> attributes = super.getAttributes();
+		
+		attributes.addAtEnd(title.getSpecification(), backgroundColor.getSpecification());
+		
+		if (contentPosition != DEFAULT_CONTENT_POSITION) {
+			attributes.addAtEnd(contentPosition.getSpecification());
+		}
+		
+		if (hasRootWidget()) {
+			attributes.addAtEnd(getRefRootWidget().getSpecification());
+		}
+		
+		return attributes;
+	}
+	
+	//method
+	/**
+	 * @return the background color of this GUI.
+	 */
+	public final BackgroundColor getBackgroundColor() {
+		return backgroundColor;
+	}
+	
+	//method
+	/**
+	 * @return the content position of this GUI.
+	 */
+	public final ContentOrientation getContentPosition() {
+		return contentPosition;
+	}
+	
+	//method
+	/**
+	 * @return the configurable elements of this GUI.
+	 */
+	public final List<Configurable> getRefConfigurables() {
+		
+		final List<Configurable> configurableElements = new List<Configurable>();
+		
+		if (hasRootWidget()) {
+			final Widget<?, ?> rootWidget = getRefRootWidget();
+			configurableElements.addAtEnd(rootWidget);
+		}
+		
+		return configurableElements;
+	}
+	
+	//abstract method
+	/**
+	 * @return the frame context of this GUI.
+	 */
+	//public abstract FrameContext getRefFrameContext();
+	
+	//method
+	/**
+	 * @return the root widget of this GUI.
+	 * @throws UnexistingAttributeException if this GUI has no root widget.
+	 */
+	@SuppressWarnings("unchecked")
+	public final <W extends Widget<?, ?>> W getRefRootWidget() {
+		
+		//Checks if this GUI has a root widget.
+		if (!hasRootWidget()) {
+			throw new UnexistingAttributeException(this, ROOT_WIDGET_HEADER);
+		}
+		
+		return (W)rootWidget;
+	}
+	
+	//method
+	/**
+	 * @param name
+	 * @return the widget that has the given name recursively from this GUI.
+	 * @throws InvalidArgumentException if this GUI contains no widget with the given name.
+	 */
+	@SuppressWarnings("unchecked")
+	public final <W extends Widget<?, ?>> W getRefWidgetByNameRecursively(final String name) {
+		return (W)getRefRootWidget().getRefConfigurablesRecursively().getRefFirst(c -> c.hasName(name));
+	}
+	
+	//method
+	/**
+	 * @return the title of this GUI.
+	 */
+	public final String getTitle() {
+		return title.getValue();
+	}
+	
+	//method	
+	/**
+	 * @return true if this GUI has the given role.
+	 */
+	public final boolean hasRole(final String role) {
+		return false;
+	}
+	
+	//method
+	/**
+	 * @return true if this GUI has a root widget.
+	 */
+	public final boolean hasRootWidget() {
+		return (rootWidget != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this GUI has no root widget.
+	 */
+	public final boolean isEmpty() {
+		return !hasRootWidget();
+	}
+	
+	//method
+	/**
+	 * Lets this dialog note a key typing.
+	 * 
+	 * @param keyEvent
+	 */
+	public void noteKeyTyping(final KeyEvent keyEvent) {
+		if (hasRootWidget()) {
+			getRefRootWidget().noteKeyTyping(keyEvent);
+		}
+	}
+	
+	//method
+	/**
+	 * Lets this GUI note a left mouse button press.
+	 */
+	public final void noteLeftMouseButtonPress() {
+		
+		if (hasRootWidget()) {
+			getRefRootWidget().noteLeftMouseButtonPress();
+		}
+		
+		paint();
+	}
+	
+	//method
+	/**
+	 * Lets this GUI note a left mouse button release.
+	 */
+	public void noteLeftMouseButtonRelease() {
+		if (hasRootWidget()) {
+			getRefRootWidget().noteLeftMouseButtonRelease();
+		}
+	}
+	
+	//method
+	/**
+	 * Lets this GUI note a mouse move.
+	 */
+	public void noteMouseMove() {
+		
+		if (hasRootWidget()) {
+			getRefRootWidget().setRelativeMousePosition(getMouseXPosition(), getMouseYPosition());
+			getRefRootWidget().noteMouseMove();
+		}
+		
+		if (!hasRootWidget() || !getRefRootWidget().isPointed()) {
+			showCursorIcon(CursorIcon.Arrow);
+		}
+		
+		paint();
+	}
+	
+	//method
+	/**
+	 * Lets this GUI note a right mouse button press.
+	 */
+	public final void noteRightMouseButtonPress() {
+		
+		if (hasRootWidget()) {
+			getRefRootWidget().noteRightMouseButtonPress();
+		}
+		
+		paint();
+	}
+	
+	//method
+	/**
+	 * Lets this GUI note a right mouse button release.
+	 */
+	public final void noteRightMouseButtonRelease() {
+		
+		if (hasRootWidget()) {
+			getRefRootWidget().noteRightMouseButtonRelease();
+		}
+		
+		paint();
+	}
+	
+	//method
+	/**
+	 * Removes the root widget of this GUI.
+	 */
+	public final void removeRootWidget() {
+		rootWidget = null;
+	}
+	
+	//method
+	/**
+	 * Resets this GUI.
+	 */
+	public void reset() {
+
+		//Calls method of the base class.
+		super.reset();
+		
+		setTitle(DEFAULT_TITLE);
+		removeRootWidget();
+		resetConfiguration();
+	}
+	
+	//method
+	/**
+	 * Resets the configuration of this GUI.
+	 */
+	public void resetConfiguration() {
+		
+		setBackgroundColor(new BackgroundColor());
+		setContentPosition(DEFAULT_CONTENT_POSITION);
+		
+		if (hasRootWidget()) {
+			getRefRootWidget().resetConfiguration();
+		}
+	}
+	
+	//method
+	/**
+	 * Lets this GUI run the given command.
+	 * 
+	 * @param command
+	 * @throws InvalidArgumentException if the given command is not valid.
+	 */
+	public void run(final Statement command) {
+		
+		//Enumerates the header of the given command.
+		switch (command.getHeader()) {
+			case ROOT_WIDGET_HEADER:
+				getRefRootWidget().run(command.getNextStatement());
+				break;
+			case REMOVE_ROOT_WIDGET_COMMAND:
+				removeRootWidget();
+				break;
+			default:
+				
+				//Calls method of the base class.
+				super.run(command);
+		}
+	}
+	
+	//method
+	/**
+	 * Sets the background color of this GUI.
 	 * 
 	 * @param backgroundColor
-	 * @return this dialog.
-	 * @throws ArgumentException if the given color is no true color value.
+	 * @return this GUI.
+	 * @throws NullArgumentException if the given background color is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public final D setBackgroundColor(final int backgroundColor) {
-		this.backgroundColor = new BackgroundColor(backgroundColor);
-		return (D)this;
-	}
-	
-	//method
-	/**
-	 * Sets the background color of this frame.
-	 * 
-	 * @param backgroundColor
-	 * @return this dialog.
-	 * @throws Exception if the given background color is no color name or no true color value
-	 */
-	@SuppressWarnings("unchecked")
-	public final D setBackgroundColor(String backgroundColor) {
-		this.backgroundColor = new BackgroundColor(backgroundColor);
-		return (D)this;
-	}
-	
-	//method
-	/**
-	 * Sets the layout of this frame.
-	 * 
-	 * @param laoyut
-	 */
-	@SuppressWarnings("unchecked")
-	public final D setContentOrientation(ContentOrientation contentOrientation) {
+	public final G setBackgroundColor(final BackgroundColor backgroundColor) {
 		
-		this.contentOrientation = contentOrientation;
+		//Checks if the given background color is not null.
+		ZetaValidator
+		.supposeThat(backgroundColor)
+		.thatIsInstanceOf(BackgroundColor.class)
+		.isNotNull();
 		
-		return (D)this;
+		//Sets the background color of this GUI.
+		this.backgroundColor = backgroundColor;
+		
+		return (G)this;
+	}
+
+	//method
+	/**
+	 * Sets the content position of this GUI.
+	 * 
+	 * @param contentPosition
+	 * @return this GUI.
+	 * @throws NullArgumentException if the given content position is null.
+	 */
+	@SuppressWarnings("unchecked")
+	public final G setContentPosition(final ContentOrientation contentPosition) {
+		
+		//Checks if the given content position is not null.
+		ZetaValidator
+		.supposeThat(contentPosition)
+		.thatIsInstanceOf(ContentOrientation.class)
+		.isNotNull();
+		
+		//Sets the content position of this GUI.
+		this.contentPosition = contentPosition;
+		
+		return (G)this;
 	}
 	
 	//method
 	/**
-	 * Sets the controller of this dialog.
+	 * Sets the controller of this GUI.
 	 * 
 	 * @param controller
-	 * @throws Exception if the given controller is null
+	 * @return this GUI.
+	 * @throws NullArgumentException if the given controller is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public final D setController(ILevel1Controller controller) {
+	public final G setController(ILevel1Controller controller) {
 		
-		Validator.throwExceptionIfValueIsNull("controller", controller);
+		//Checks if the given controller is not null.
+		ZetaValidator.supposeThat(controller).thatIsNamed("controller").isNotNull();
 		
+		//Sets the controller of this GUI.
 		this.controller = controller;
 		
-		return (D)this;
+		return (G)this;
 	}
 	
 	//method
 	/**
-	 * Sets the root rectangle of this dialog.
+	 * Sets the root widget of this GUI.
 	 * 
-	 * @param rootRectangle
-	 * @throws Exception if:
-	 *  -the given root rectangle is null
-	 *  -the given root rectangle already belongs to an other dialog
+	 * @param rootWidget
+	 * @throws NullArgumentException if the given root widget is null.
+	 * @throws InvalidArgumentException if the given root widget belongs already to an other GUI. 
 	 */
 	@SuppressWarnings("unchecked")
-	public final D setRootRectangle(Widget<?, ?> rootRectangle) {
-		rootRectangle.setDialog(this);
-		this.rootRectangle = rootRectangle;
+	public final G setRootWidget(final Widget<?, ?> rootWidget) {
 		
-		return (D)this;
+		//Checks if the given root widget is not null.
+		ZetaValidator.supposeThat(rootWidget).thatIsNamed("root widget").isNotNull();
+		
+		//Sets the root widget of this GUI.
+		rootWidget.setDialog(this);
+		this.rootWidget = rootWidget;
+		
+		return (G)this;
 	}
 	
 	//method
 	/**
-	 * Sets the title of this frame.
+	 * Sets the title of this GUI.
 	 * 
 	 * @param title
-	 * @throws Exception if the given title is null or an empty string
+	 * @return this GUI.
+	 * @throws NullArgumentException if the given title is null.
+	 * @throws EmptyArgumentException if the given title is empty.
 	 */
 	@SuppressWarnings("unchecked")
-	public final D setTitle(String title) {
+	public final G setTitle(final String title) {
 		
 		this.title.setValue(title);
 		
-		return (D)this;
+		return (G)this;
 	}
 	
-	//temp
-	public abstract void update();
+	//abstract method
+	/**
+	 * Lets this GUI show the given cursor icon.
+	 * 
+	 * @param cursorIcon
+	 */
+	public abstract void showCursorIcon(final CursorIcon cursorIcon);
 	
 	//method
 	/**
-	 * Builds and returns the rectangle the given specification specifies.
-	 * The built rectangle will belong to this dialog.
+	 * Creates a widget the given specification specifies and adds it to this GUI.
 	 * 
 	 * @param specification
-	 * @return the rectangle the given specification specifies
-	 * @throws Exception if the given specification is not valid
+	 * @return the widget the given specification specifies.
+	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	protected final Widget<?, ?> createsAndAddsRectangle(Specification specification) {
-		Widget<?, ?> rectangle = createRectangle(specification.getHeader());
-		rectangle.setDialog(this);
-		rectangle.addOrChangeAttributes(specification.getRefAttributes());
-		return rectangle;		
+	protected final Widget<?, ?> createAndAddWidget(final Specification specification) {
+		
+		final Widget<?, ?> widget = createWidget(specification.getHeader());
+		widget.setDialog(this);
+		widget.addOrChangeAttributes(specification.getRefAttributes());
+		
+		return widget;		
 	}
 	
 	//method
 	/**
-	 * @return the controller of this dialog
+	 * @return the x-position of the mouse within this GUI.
+	 */
+	protected abstract int getMouseXPosition();
+	
+	//method
+	/**
+	 * @return the y-position of the mouse within this GUI.
+	 */
+	protected abstract int getMouseYPosition();
+	
+	//method
+	/**
+	 * @return the controller of this GUI.
 	 */
 	protected final ILevel1Controller getRefController() {
 		return controller;
@@ -463,73 +598,22 @@ implements Clearable, IRequestableContainer {
 	
 	//method
 	/**
-	 * Lets this dialog note a left click.
+	 * Lets this GUI paint itself.
 	 */
-	protected void noteLeftMouseButtonPress() {
-		if (hasRootRectangle()) {
-			getRefRootRectangle().noteLeftMouseButtonPress();
-		}
-	}
+	protected abstract void paint();
 	
 	//method
 	/**
-	 * Lets this dialog note a mouse move.
+	 * @param type
+	 * @return a new widget of the given type with default values.
+	 * @throws InvalidArgumentException if this GUI cannot create a widget of the given type.
 	 */
-	protected void noteMouseMove() {
-		if (hasRootRectangle()) {
-			getRefRootRectangle().noteMouseMove();
+	private Widget<?, ?> createWidget(final String type) {
+		try {
+			return (Widget<?, ?>)(widgetClasses.getRefFirst(rc -> rc.getSimpleName().equals(type)).newInstance());
 		}
-		
-		if (!hasRootRectangle() || !getRefRootRectangle().isPointed()) {
-			getRefFrameContext().setCurrentCursorIcon(CursorIcon.Arrow);
-		}
-	}
-	
-	//method
-	/**
-	 * Lets this dialog note a pressed key.
-	 * 
-	 * @param keyEvent
-	 */
-	protected void notePressedKey(KeyEvent keyEvent) {
-		
-		if (hasRootRectangle()) {
-			getRefRootRectangle().noteKeyPress(keyEvent);
-		}
-	}
-
-	//method
-	/**
-	 * Lets this dialog note a right click.
-	 */
-	protected void noteRightClick() {
-		if (hasRootRectangle()) {
-			getRefRootRectangle().noteRightMouseButtonPress();
-		}
-	}
-	
-	//method
-	/**
-	 * Lets this dialog note a typed key.
-	 * 
-	 * @param keyEvent
-	 */
-	protected void noteTypedKey(KeyEvent keyEvent) {
-		if (hasRootRectangle()) {
-			getRefRootRectangle().noteKeyTyping(keyEvent);
-		}
-	}
-	
-	//method
-	/**
-	 * Sets the mouse position of this dialog.
-	 * 
-	 * @param mouseXPosition
-	 * @param mouseYPosition
-	 */
-	protected final void setMousePosition(int mouseXPosition, int mouseYPosition) {
-		if (hasRootRectangle()) {
-			getRefRootRectangle().setRelativeMousePosition(mouseXPosition, mouseYPosition);
+		catch (final Exception exception) {
+			throw new RuntimeException(exception);
 		}
 	}
 }

@@ -37,7 +37,7 @@ final class FrameTutorial {
 	public static void main(String[] args) {
 		new Frame()
 		.setTitle("Tutorial")
-		.setRootRectangle(
+		.setRootWidget(
 			new VerticalStack()
 			.addRectangle(
 				new Label()

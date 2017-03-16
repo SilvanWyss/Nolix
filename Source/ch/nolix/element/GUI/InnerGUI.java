@@ -42,8 +42,8 @@ public final class InnerGUI extends GUI<InnerGUI> {
 		return frameContext;
 	}
 
-	@Override
-	public void update() {
+	
+	public void updateFromInteraction() {
 		// TODO Auto-generated method stub
 		
 	}

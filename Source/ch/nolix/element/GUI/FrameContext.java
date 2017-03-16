@@ -22,6 +22,18 @@ final class FrameContext {
 	public FrameContext(Frame frame) {
 		this.frame = frame;
 	}
+	
+	public int getMouseXPosition() {
+		if (frame.getRefPanel().getMousePosition() != null)
+		return (int)frame.getRefPanel().getMousePosition().getX();
+		return 0;
+	}
+	
+	public int getMouseYPosition() {
+		if (frame.getRefPanel().getMousePosition() != null)
+		return (int)frame.getRefPanel().getMousePosition().getY();
+		return 0;
+	}
 		
 	//method
 	/**
@@ -29,7 +41,7 @@ final class FrameContext {
 	 * @param cursorIcon
 	 */
 	public final void setCurrentCursorIcon(CursorIcon cursorIcon) {
-		getRefFrame().setCurrentCursorIcon(cursorIcon);
+		getRefFrame().showCursorIcon(cursorIcon);
 	}
 	
 	//method

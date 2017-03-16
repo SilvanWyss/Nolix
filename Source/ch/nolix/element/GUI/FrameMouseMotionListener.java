@@ -25,7 +25,7 @@ public final class FrameMouseMotionListener implements MouseMotionListener {
 
 	//method
 	public void mouseMoved(MouseEvent mouseEvent) {
-		frame.setMousePosition(mouseEvent.getX(), mouseEvent.getY());
+		//frame.setMousePosition(mouseEvent.getX(), mouseEvent.getY());
 		frame.noteMouseMove();
 	}
 

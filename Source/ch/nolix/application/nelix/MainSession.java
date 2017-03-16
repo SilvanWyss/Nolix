@@ -71,7 +71,7 @@ public final class MainSession extends ContextSession<GUIClient, Nelix> {
 		//Setups the dialog of the client of this main session.
 		getRefClient().getRefDialog()
 		.setTitle("Nelix 2016-12-27")
-		.setRootRectangle(
+		.setRootWidget(
 			new VerticalStack()
 			.setRole(ContainerRole.OverallContainer)
 			.addRectangle(

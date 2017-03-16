@@ -106,7 +106,7 @@ public final class Console extends Client<Console> {
 		
 		dialog
 		.setTitle(internal_getTargetApplication())
-		.setRootRectangle(
+		.setRootWidget(
 			new VerticalStack(
 				new TextBox()
 			)	

@@ -40,8 +40,8 @@ public final class MockDialog extends GUI<MockDialog> {
 		throw new RuntimeException("Unsupported method");
 	}
 
-	@Override
-	public void update() {
+	
+	public void updateFromInteraction() {
 		// TODO Auto-generated method stub
 		
 	}

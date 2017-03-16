@@ -40,7 +40,7 @@ final class FrameKeyListener implements KeyListener {
 	 * Lets this frame key listener note a key press.
 	 */
 	public void keyPressed(final KeyEvent keyEvent) {
-		//Does nothing.
+		frame.noteKeyTyping(keyEvent);
 	}
 
 	//method
@@ -56,6 +56,6 @@ final class FrameKeyListener implements KeyListener {
 	 * Lets this frame key listener note a key typing.
 	 */
 	public void keyTyped(final KeyEvent keyEvent) {
-		frame.noteTypedKey(keyEvent);
+		//Does nothing.
 	}
 }

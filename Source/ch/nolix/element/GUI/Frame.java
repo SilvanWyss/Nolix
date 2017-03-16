@@ -11,10 +11,11 @@ package ch.nolix.element.GUI;
 //Java imports
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Point;
 import java.awt.event.KeyEvent;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 
 //own imports
 import ch.nolix.common.container.List;
@@ -22,6 +23,7 @@ import ch.nolix.common.mathematics.Calculator;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.specification.Statement;
 import ch.nolix.element.basic.Color;
+import ch.nolix.element.data.BackgroundColor;
 
 //class
 public final class Frame extends GUI<Frame> {
@@ -64,8 +66,8 @@ public final class Frame extends GUI<Frame> {
 			super.paintComponent(graphics);
 			
 			//Lets the root rectangle of this frame paint on this panel.
-			if (hasRootRectangle()) {
-				getRefRootRectangle().paintUsingRelativePosition(graphics);
+			if (hasRootWidget()) {
+				getRefRootWidget().paintUsingRelativePosition(graphics);
 			}
 		}
 	};
@@ -195,7 +197,7 @@ public final class Frame extends GUI<Frame> {
 		//Calls method of the base class.
 		super.resetConfiguration();
 		
-		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+		setBackgroundColor(new BackgroundColor(DEFAULT_BACKGROUND_COLOR));
 	}
 	
 	//method
@@ -228,14 +230,15 @@ public final class Frame extends GUI<Frame> {
 		this.closeCommand = new Statement(closeCommand);
 	}
 	
-	public void update() {
+	/*
+	public void updateFromInteraction() {
 		
 		updateFromConfiguration();
 		
 		paint();
-		Point mousePosition = frame.getMousePosition(); //The mouse position is null if the mouse is outside of this frame.
+		Point mousePosition = getRefPanel().getMousePosition(); //The mouse position is null if the mouse is outside of this frame.
 		if (mousePosition != null) {
-			setMousePosition((int)mousePosition.getX() - 8, (int)mousePosition.getY() - 40);
+			setMousePosition((int)mousePosition.getX(), (int)mousePosition.getY());
 		}
 		else {
 			setMousePosition(0, 0);
@@ -244,6 +247,7 @@ public final class Frame extends GUI<Frame> {
 		noteMouseMove();
 		paint();
 	}
+	*/
 	
 	//method
 	/**
@@ -267,46 +271,7 @@ public final class Frame extends GUI<Frame> {
 		}
 	}
 	
-	//method
-	/**
-	 * Lets this frame note a left click.
-	 * 
-	 * @param mouseXPosition
-	 * @param mouseYPosition
-	 */
-	protected final void noteLeftMouseButtonPress() {
-		
-		//Calls method of the base class.
-		super.noteLeftMouseButtonPress();
-		
-		paint();
-	}
-	
-	//method
-	/**
-	 * Lets this frame note a mouse move.
-	 */
-	protected final void noteMouseMove() {
-		
-		//Calls method of the base class.
-		super.noteMouseMove();
-		
-		paint();
-	}
-	
-	//method
-	/**
-	 * Lets this frame note a pressed key.
-	 * 
-	 * @param keyEvent
-	 */
-	protected final void notePressedKey(KeyEvent keyEvent) {
-		
-		//Calls method of the base class.
-		super.notePressedKey(keyEvent);
-		
-		paint();
-	}
+
 	
 	//method
 	/**
@@ -318,26 +283,14 @@ public final class Frame extends GUI<Frame> {
 	
 	//method
 	/**
-	 * Lets this frame note a right click.
-	 */
-	protected final void noteRightClick() {
-		
-		//Calls method of the base class.
-		super.noteRightClick();
-		
-		paint();
-	}
-	
-	//method
-	/**
 	 * Lets this frame note a typed key.
 	 * 
 	 * @param keyEvent
 	 */
-	protected final void noteTypedKey(KeyEvent keyEvent) {
+	public final void noteKeyTyping(KeyEvent keyEvent) {
 		
 		//Calls method of the base class.
-		super.noteTypedKey(keyEvent);
+		super.noteKeyTyping(keyEvent);
 		
 		paint();
 	}
@@ -349,14 +302,14 @@ public final class Frame extends GUI<Frame> {
 	protected void paint() {
 		
 		frame.setTitle(getTitle());	
-		panel.setBackground(backgroundColor.getJavaColor());
+		panel.setBackground(getBackgroundColor().getJavaColor());
 		frame.setCursor(currentCursorIcon.getJavaCursor());
 		
-		if (hasRootRectangle()) {
-			switch (getContentOrientation()) {
+		if (hasRootWidget()) {
+			switch (getContentPosition()) {
 				case LeftTop:
 					
-					getRefRootRectangle().setRelativePosition(
+					getRefRootWidget().setRelativePosition(
 						0,
 						0
 					);
@@ -364,65 +317,65 @@ public final class Frame extends GUI<Frame> {
 					break;
 				case Left:
 					
-					getRefRootRectangle().setRelativePosition(
+					getRefRootWidget().setRelativePosition(
 						0,
-						Calculator.getMax(0, (getPaneHeight() - getRefRootRectangle().getHeight()) / 2)
+						Calculator.getMax(0, (getPaneHeight() - getRefRootWidget().getHeight()) / 2)
 					);
 					
 					break;					
 				case LeftBottom:
 					
-					getRefRootRectangle().setRelativePosition(
+					getRefRootWidget().setRelativePosition(
 						0,
-						Calculator.getMax(0, getPaneHeight() - getRefRootRectangle().getHeight())
+						Calculator.getMax(0, getPaneHeight() - getRefRootWidget().getHeight())
 					);
 					
 					break;
 				case Top:
 					
-					getRefRootRectangle().setRelativePosition(
-						Calculator.getMax(0, (getPaneWidth() - getRefRootRectangle().getWidth()) / 2),
+					getRefRootWidget().setRelativePosition(
+						Calculator.getMax(0, (getPaneWidth() - getRefRootWidget().getWidth()) / 2),
 						0
 					);
 					
 					break;
 				case Center:
 								
-					getRefRootRectangle().setRelativePosition(
-						Calculator.getMax(0, (getPaneWidth() - getRefRootRectangle().getWidth()) / 2),
-						Calculator.getMax(0, (getPaneHeight() - getRefRootRectangle().getHeight()) / 2)
+					getRefRootWidget().setRelativePosition(
+						Calculator.getMax(0, (getPaneWidth() - getRefRootWidget().getWidth()) / 2),
+						Calculator.getMax(0, (getPaneHeight() - getRefRootWidget().getHeight()) / 2)
 					);
 					
 					break;
 				case Bottom:
 					
-					getRefRootRectangle().setRelativePosition(
-						Calculator.getMax(0, (getPaneWidth() - getRefRootRectangle().getWidth()) / 2),
-						Calculator.getMax(0, getPaneHeight() - getRefRootRectangle().getHeight())
+					getRefRootWidget().setRelativePosition(
+						Calculator.getMax(0, (getPaneWidth() - getRefRootWidget().getWidth()) / 2),
+						Calculator.getMax(0, getPaneHeight() - getRefRootWidget().getHeight())
 					);
 					
 					break;
 				case RightTop:
 					
-					getRefRootRectangle().setRelativePosition(
-						Calculator.getMax(0, getPaneWidth() - getRefRootRectangle().getWidth()),
+					getRefRootWidget().setRelativePosition(
+						Calculator.getMax(0, getPaneWidth() - getRefRootWidget().getWidth()),
 						0
 					);
 					
 					break;
 				case Right:
 				
-					getRefRootRectangle().setRelativePosition(
-						Calculator.getMax(0, getWidth() - getRefRootRectangle().getWidth()),
-						Calculator.getMax(0, (frame.getComponent(0).getHeight() - getRefRootRectangle().getHeight()) / 2)
+					getRefRootWidget().setRelativePosition(
+						Calculator.getMax(0, getWidth() - getRefRootWidget().getWidth()),
+						Calculator.getMax(0, (frame.getComponent(0).getHeight() - getRefRootWidget().getHeight()) / 2)
 					);
 				
 					break;
 				case RightBottom:
 					
-					getRefRootRectangle().setRelativePosition(
-						Calculator.getMax(0, getWidth() - getRefRootRectangle().getWidth()),
-						Calculator.getMax(0, getHeight() - getRefRootRectangle().getHeight())
+					getRefRootWidget().setRelativePosition(
+						Calculator.getMax(0, getWidth() - getRefRootWidget().getWidth()),
+						Calculator.getMax(0, getHeight() - getRefRootWidget().getHeight())
 					);
 					
 					break;
@@ -438,7 +391,21 @@ public final class Frame extends GUI<Frame> {
 	 * 
 	 * @param currentCursorIcon
 	 */
-	protected final void setCurrentCursorIcon(CursorIcon currentCursorIcon) {
+	public final void showCursorIcon(CursorIcon currentCursorIcon) {
 		this.currentCursorIcon = currentCursorIcon;
+	}
+
+	@Override
+	public int getMouseXPosition() {
+		if (getRefPanel().getMousePosition() != null)
+		return (int)getRefPanel().getMousePosition().getX();
+		return 0;
+	}
+
+	@Override
+	public int getMouseYPosition() {
+		if (getRefPanel().getMousePosition() != null)
+		return (int)getRefPanel().getMousePosition().getY();
+		return 0;
 	}
 }

@@ -127,8 +127,14 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 * @param attributes
 	 */
 	private void resetDialog(final List<Specification> attributes) {
+
 		dialog.reset(attributes);
-		dialog.update();
+		dialog.updateFromConfiguration();
+		dialog.noteMouseMove();
+		
+		//dialog.setMousePosition(x, y);
+		dialog.noteMouseMove();
+		//dialog.updateFromInteraction();
 	}
 	
 	//method

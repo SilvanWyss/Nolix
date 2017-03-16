@@ -33,7 +33,7 @@ public final class MainSession extends Session<GUIClient> {
 		//Sets the title of the dialog of the dialog client of this main session.
 		getRefClient().getRefDialog().setTitle("Timer");
 		
-		getRefClient().getRefDialog().setRootRectangle(
+		getRefClient().getRefDialog().setRootWidget(
 			new VerticalStack()
 			.setRole(ContainerRole.MainContainer)
 			.addRectangle(
@@ -43,7 +43,7 @@ public final class MainSession extends Session<GUIClient> {
 				.addRectangle(
 					new Button()
 					.setText("Start")
-					.setLeftMouseButtonPressCommand("Start Timer"),
+					.setLeftMouseButtonPressCommand("StartTimer"),
 					new Button()
 					.setText("Stop")
 					.setLeftMouseButtonPressCommand("StopTimer"),
@@ -95,7 +95,7 @@ public final class MainSession extends Session<GUIClient> {
 		int seconds = (timer.getRunMilliseconds() / 1000) % 60;
 		int deciseconds = (timer.getRunMilliseconds() / 100) % 10;
 		
-		VerticalStack mainVerticalStack = (VerticalStack)getRefClient().getRefDialog().getRefRootRectangle();
+		VerticalStack mainVerticalStack = (VerticalStack)getRefClient().getRefDialog().getRefRootWidget();
 		Label timeLabel = (Label)mainVerticalStack.getRefRectangles().getRefFirst();
 		timeLabel.setText(String.format("%02d : %02d : %02d : %d", hours, minutes, seconds, deciseconds));
 	}

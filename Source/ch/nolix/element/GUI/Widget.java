@@ -411,7 +411,7 @@ extends ConfigurableElement<R> {
 		}
 		
 		if (isPointed()) {
-			getRefDialog().getRefFrameContext().setCurrentCursorIcon(cursorIcon);
+			getRefDialog().showCursorIcon(cursorIcon);
 		}
 	}
 	
@@ -909,7 +909,7 @@ extends ConfigurableElement<R> {
 			paint(getRefCurrentStructure(), graphics);
 			graphics.translate(-getRelativeXPosition(), -getRelativeYPosition());
 			
-			this.getRefDialog().getRefFrameContext().setCurrentCursorIcon(cursorIcon);
+			this.getRefDialog().showCursorIcon(cursorIcon);
 		}
 	}
 	

@@ -97,8 +97,8 @@ extends Container<SingleContainerStructure, SingleContainer> {
 	
 	public final void addOrChangeAttribute(Specification attribute) {
 		
-		if (attribute.hasHeader() && getRefDialog().canCreateRectangle(attribute.getHeader())) {
-			setRectangle(getRefDialog().createsAndAddsRectangle(attribute));
+		if (attribute.hasHeader() && getRefDialog().canCreateWidget(attribute.getHeader())) {
+			setRectangle(getRefDialog().createAndAddWidget(attribute));
 			return;
 		}
 		

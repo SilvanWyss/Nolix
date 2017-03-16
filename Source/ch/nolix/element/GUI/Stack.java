@@ -191,8 +191,8 @@ implements Clearable {
 	 */
 	public void addOrChangeAttribute(Specification attribute) {
 		
-		if (getRefDialog().canCreateRectangle(attribute.getHeader())) {
-			addRectangle(getRefDialog().createsAndAddsRectangle(attribute));
+		if (getRefDialog().canCreateWidget(attribute.getHeader())) {
+			addRectangle(getRefDialog().createAndAddWidget(attribute));
 			return;
 		}
 		
