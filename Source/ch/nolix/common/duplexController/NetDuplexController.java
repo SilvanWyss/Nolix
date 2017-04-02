@@ -174,6 +174,28 @@ public final class NetDuplexController extends DuplexController {
 	public final void abort(String stopReason) {		
 		alphaEndPoint.abort(stopReason);
 	}
+	
+	//method
+	public Specification waitToData(final String request) {
+		
+		//TODO: Implement base method for this method and the getRawData method.
+		
+		//Creates message.
+		String message = Protocol.DATA_REQUEST + '(' + request.toString() + ')';
+		
+		//Sends and gets reply.
+		Specification reply = new Specification(alphaEndPoint.sendMessageAndWaitToReply(message));
+		
+		//Handles reply
+		switch (reply.getHeader()) {
+			case Protocol.DATA:
+				return reply.getRefOneAttribute();
+			case Protocol.ERROR:
+				throw new RuntimeException(reply.getOneAttributeToString());
+			default:
+				throw new RuntimeException("Error occured.");
+		}
+	}
 		
 	//method
 	/**

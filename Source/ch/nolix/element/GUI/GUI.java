@@ -4,6 +4,7 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.event.KeyEvent;
 
+
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.controller.ILevel1Controller;
@@ -324,13 +325,10 @@ implements Clearable, IRequestableContainer {
 	/**
 	 * Lets this GUI note a left mouse button press.
 	 */
-	public final void noteLeftMouseButtonPress() {
-		
+	public void noteLeftMouseButtonPress() {	
 		if (hasRootWidget()) {
 			getRefRootWidget().noteLeftMouseButtonPress();
 		}
-		
-		paint();
 	}
 	
 	//method
@@ -355,36 +353,30 @@ implements Clearable, IRequestableContainer {
 		}
 		
 		if (!hasRootWidget() || !getRefRootWidget().isPointed()) {
-			showCursorIcon(CursorIcon.Arrow);
+			applyCursorIcon(CursorIcon.Arrow);
 		}
-		
-		paint();
 	}
 	
 	//method
 	/**
 	 * Lets this GUI note a right mouse button press.
 	 */
-	public final void noteRightMouseButtonPress() {
+	public void noteRightMouseButtonPress() {
 		
 		if (hasRootWidget()) {
 			getRefRootWidget().noteRightMouseButtonPress();
 		}
-		
-		paint();
 	}
 	
 	//method
 	/**
 	 * Lets this GUI note a right mouse button release.
 	 */
-	public final void noteRightMouseButtonRelease() {
+	public void noteRightMouseButtonRelease() {
 		
 		if (hasRootWidget()) {
 			getRefRootWidget().noteRightMouseButtonRelease();
 		}
-		
-		paint();
 	}
 	
 	//method
@@ -557,7 +549,7 @@ implements Clearable, IRequestableContainer {
 	 * 
 	 * @param cursorIcon
 	 */
-	public abstract void showCursorIcon(final CursorIcon cursorIcon);
+	public abstract void applyCursorIcon(final CursorIcon cursorIcon);
 	
 	//method
 	/**
@@ -595,12 +587,6 @@ implements Clearable, IRequestableContainer {
 	protected final ILevel1Controller getRefController() {
 		return controller;
 	}
-	
-	//method
-	/**
-	 * Lets this GUI paint itself.
-	 */
-	protected abstract void paint();
 	
 	//method
 	/**

@@ -11,7 +11,6 @@ package ch.nolix.element.GUI;
 //Java imports
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -26,7 +25,7 @@ import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
 
 //class
-public final class Frame extends GUI<Frame> {
+public final class Frame extends VisibleGUI<Frame> {
 	
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "Frame";
@@ -271,20 +270,6 @@ public final class Frame extends GUI<Frame> {
 	
 	//method
 	/**
-	 * Lets this frame note a typed key.
-	 * 
-	 * @param keyEvent
-	 */
-	public final void noteKeyTyping(KeyEvent keyEvent) {
-		
-		//Calls method of the base class.
-		super.noteKeyTyping(keyEvent);
-		
-		paint();
-	}
-	
-	//method
-	/**
 	 * Paints this frame.
 	 */
 	protected void paint() {
@@ -379,7 +364,7 @@ public final class Frame extends GUI<Frame> {
 	 * 
 	 * @param currentCursorIcon
 	 */
-	public final void showCursorIcon(CursorIcon currentCursorIcon) {
+	public final void applyCursorIcon(CursorIcon currentCursorIcon) {
 		this.currentCursorIcon = currentCursorIcon;
 	}
 

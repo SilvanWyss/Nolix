@@ -1,153 +1,130 @@
 //package declaration
 package ch.nolix.system.consoleClient;
 
-//own import
+//own imports
 import ch.nolix.common.application.Client;
-import ch.nolix.common.controller.ILevel1Controller;
-import ch.nolix.common.specification.Statement;
+import ch.nolix.common.duplexController.DuplexController;
+import ch.nolix.common.specification.Specification;
 import ch.nolix.common.zetaValidator.ZetaValidator;
-import ch.nolix.element.GUI.GUI;
-import ch.nolix.element.GUI.Frame;
-import ch.nolix.element.GUI.TextBox;
-import ch.nolix.element.GUI.VerticalStack;
 
 //class
 /**
- * A console is a client that provides a command display.
+ * A console is a client that provides a console.
  * 
  * @author Silvan Wyss
- * @month 2017-02
- * @lines 10
+ * @month 2017-03
+ * @lines 130
  */
 public final class ConsoleClient extends Client<ConsoleClient> {
 	
-	//attribute
-	private GUI<?> dialog;
-
+	//commands
+	static final String WRITE_NEXT_LINE_TO_CONSOLE_COMMAND = "WriteNextLineToConsole";
+	static final String CLEAR_CONSOLE_COMMAND = "ClearConsole";
+	static final String WRITE_NEXT_LINE_TO_INFO_PANEL_COMMAND = "WriteNextLineToInfoPanel";
+	static final String CLEAR_INFO_PANEL_COMMAND = "ClearInfoPanel";
+	
+	//requests
+	static final String NEXT_LINE_OF_CONSOLE_REQUEST = "NextLineOfConsole";
+	static final String NEXT_CHARACTER_OF_CONSOLE_REQUEST = "NextCharacterOfConsole";
+	static final String NEXT_ENTER_OF_CONSOLE_REQUEST = "NextEnterOfConsole";
+	static final String LINES_OF_CONSOLE_REQUEST = "LinesOfConsole";
+	
 	//constructor
 	/**
-	 * Creates new console that connects to the given target application on the given port on the machine with the given ip.
+	 * Creates new console client with the given duplex controller.
 	 * 
-	 * @param ip
-	 * @param port
-	 * @param targetApplication
-	 * @throws NullArgumentException if the given target application is null.
-	 * @throws EmptyArgumentException if the given target application is empty.
+	 * @param duplexController
+	 * @throws NullArgumentException if the given duplex controller is null.
 	 */
-	public ConsoleClient(
-		final String ip,
-		final int port,
-		final String targetApplication
-	) {
+	public ConsoleClient(final DuplexController duplexController) {
 		
 		//Calls constructor of the base class.
-		super(ip, port, targetApplication, c -> c.setDialog(new Frame()));
+		super(duplexController);
 	}
-
+	
 	//method
 	/**
-	 * Finishes the initialization of the session of this console.
+	 * Lets this console client clear the console.
 	 */
-	protected void internal_finishSessionInitialization() {}
-	
-	protected Object internal_getData(final Statement request) {
-		
-		//Enumerates the given request.
-		switch (request.toString()) {
-			case FrontConsoleClient.READ_CHARACTER_COMMAND:
-				return readCharacter();
-			case FrontConsoleClient.READ_STRING_COMMAND:
-				return readString();
-		
-			default:
-				
-				//Calls method of the base class.
-				return super.internal_getData(request);
-		}
+	public void clearConsole() {
+		internal_getRefDuplexController().run(CLEAR_CONSOLE_COMMAND);
 	}
 	
 	//method
 	/**
-	 * Lets this client run the given command.
+	 * Lets this console client clear the info panel.
+	 */
+	public void clearInfoPanel() {
+		internal_getRefDuplexController().run(CLEAR_INFO_PANEL_COMMAND);
+	}
+	
+	//method
+	/**
+	 * Lets this console client read the next character of the console.
 	 * 
-	 * @param command
-	 * @throws InvalidArgumentException if the given command is not valid.
+	 * @return the next character of the console.
 	 */
-	protected void internal_run(final Statement command) {
-		
-		//Enumerates the command of this console.
-		switch (command.getHeader()) {
-			case FrontConsoleClient.WRITE_LINE_COMMAND:
-				writeLine(command.getOneAttributeToString());
-				break;
-			case FrontConsoleClient.READ_ENTER_COMMAND:
-				readEnter();
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.internal_run(command);
-		}
+	public char readNextCharacterOfConsole() {
+		return internal_getRefDuplexController().waitToData(NEXT_CHARACTER_OF_CONSOLE_REQUEST).toString().charAt(0);
 	}
 	
 	//method
 	/**
-	 * Sets the dialog of this console.
+	 * Lets this console client read the next enter of the console.
+	 */
+	public void readNextEnterOfConsole() {
+		internal_getRefDuplexController().waitToData(NEXT_ENTER_OF_CONSOLE_REQUEST);
+	}
+	
+	//method
+	/**
+	 * Lets this console client read the next line of the console.
 	 * 
-	 * @param dialog
-	 * @throws NullArgumentException if the given dialog is null.
+	 * @return the next line of the console.
 	 */
-	private void setDialog(final GUI<?> dialog) {
-		
-		//Checks if the given dialog is not null.
-		ZetaValidator.supposeThat(dialog).thatIsInstanceOf(GUI.class).isNotNull();
-		
-		this.dialog = dialog;
-		
-		dialog
-		.setTitle(internal_getTargetApplication())
-		.setRootWidget(
-			new VerticalStack(
-				new TextBox()
-			)	
-		)
-		.setController(
-				
-			//anonymous class
-			new ILevel1Controller() {
-
-				//method
-				public void run(final Statement command) {
-					internal_run(command);
-				}
-			}
-		);
-	}
-	
-	//method
-	private char readCharacter() {
-		//TODO
-		return 0;
-	}
-	
-	//method
-	private void readEnter() {
-		//TODO
-	}
-	
-	//method
-	private String readString() {
-		//TODO
-		return null;
+	public String readLineFromConsole() {
+		return internal_getRefDuplexController().waitToData(NEXT_LINE_OF_CONSOLE_REQUEST).toString();
 	}
 	
 	//method
 	/**
-	 * Lets this console write the given line.
+	 * Lets this console client write the given line to the console.
 	 * 
 	 * @param line
+	 * @throws NullArgumentException if the given line is null.
 	 */
-	private void writeLine(final String line) {
-		//TODO
+	public void writeLineToConsole(final String line) {
+		
+		//Checks if the given line is not null.
+		ZetaValidator.supposeThat(line).thatIsNamed("line").isNotNull();
+		
+		internal_getRefDuplexController().run(new Specification(WRITE_NEXT_LINE_TO_CONSOLE_COMMAND, line).toString());
 	}
+	
+	//method
+	/**
+	 * Writes the given lines to the console.
+	 * 
+	 * @param lines
+     * @throws NullArgumentException if one of the givne line is null.
+	 */
+	public void writeLineToCosnole(final String... lines) {
+		
+		//Checks if no one of the given lines is null.
+		//TODO: Add are not null method to zeta validator.
+		//ZetaValidator.supposeThat(lines).areNotNull();
+		
+		//Iterates the given lines.
+		for (final String l : lines) {
+			internal_getRefDuplexController().appendCommand(new Specification(WRITE_NEXT_LINE_TO_CONSOLE_COMMAND, l).toString());
+		}
+		
+		internal_getRefDuplexController().runAppendedCommands();
+	}
+
+	//method
+	/**
+	 * Finishes the initialization of the session of this console client.
+	 */
+	protected void internal_finishSessionInitialization() {}
 }

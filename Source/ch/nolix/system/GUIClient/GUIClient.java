@@ -11,7 +11,7 @@ import ch.nolix.common.specification.Specification;
 import ch.nolix.common.specification.Statement;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 import ch.nolix.element.GUI.GUI;
-import ch.nolix.element.GUI.MockDialog;
+import ch.nolix.element.GUI.InvisibleGUI;
 
 //class
 /**
@@ -59,7 +59,7 @@ public final class GUIClient extends Client<GUIClient> {
 	public GUIClient(final DuplexController duplexController, final Session<GUIClient> initialSession) {
 		
 		//Calls constructor of the base class.
-		super(duplexController, c -> c.setDialog(new MockDialog()), initialSession);
+		super(duplexController, c -> c.setDialog(new InvisibleGUI()), initialSession);
 	}
 	
 	//method

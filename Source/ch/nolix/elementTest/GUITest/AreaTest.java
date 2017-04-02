@@ -23,22 +23,20 @@ public final class AreaTest extends ZetaTest {
 	public void testEquals() {
 		
 		//setup part 1
-		final Area area1 = new Area();
-		area1.setWidth(800);
-		area1.setHeight(600);
-		area1.setBackgroundColor(new BackgroundColor(BackgroundColor.GREEN_STRING));
+		final Area area1 = new Area()
+		.setWidth(800)
+		.setHeight(600)
+		.setBackgroundColor(new BackgroundColor(BackgroundColor.GREEN_STRING));
 		
 		//setup part 2
-		final Area area2 = new Area();
-		area2.setWidth(800);
-		area2.setHeight(600);
-		area2.setBackgroundColor(new BackgroundColor(BackgroundColor.GREEN_STRING));
+		final Area area2 = new Area()
+		.setWidth(800)
+		.setHeight(600)
+		.setBackgroundColor(new BackgroundColor(BackgroundColor.GREEN_STRING));
 		
 		//verification
 		expectThat(area1).equals(area2);
 		expectThat(area2).equals(area1);
-		expectThat(area1).equalsNot(new Area());
-		expectThat(area2).equalsNot(new Area());
 	}
 	
 	//test method

@@ -13,6 +13,7 @@ import ch.nolix.common.container.List;
 import ch.nolix.common.controller.ILevel2Controller;
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.interfaces.Abortable;
+import ch.nolix.common.specification.Specification;
 import ch.nolix.common.util.Validator;
 
 //class
@@ -128,6 +129,15 @@ implements ILevel2Controller, Abortable {
 
 		this.timeoutInMilliseconds = timeoutInMilliseconds;
 	}
+	
+	//abstract method
+	/**
+	 * Lets this duplex controller wait to the data the given request requests.
+	 * 
+	 * @param request
+	 * @return the data the given request requests.
+	 */
+	public abstract Specification waitToData(String request);
 	
 	//method
 	/**

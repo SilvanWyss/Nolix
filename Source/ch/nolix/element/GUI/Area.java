@@ -165,10 +165,14 @@ public final class Area extends Widget<AreaStructure, Area> {
 	 * Sets the height of this area.
 	 * 
 	 * @param height
+	 * @return this area.
 	 * @throws NonPositiveArgumentException if the given height is not positive.
 	 */
-	public final void setHeight(final int height) {
+	public final Area setHeight(final int height) {
+		
 		this.height = new Height(height);
+		
+		return this;
 	}
 	
 	//method
@@ -176,10 +180,14 @@ public final class Area extends Widget<AreaStructure, Area> {
 	 * Sets the with of this area.
 	 * 
 	 * @param width
+	 * @return this area.
 	 * @throws NonPositiveArgumentException if the given width is not positive.
 	 */
-	public final void setWidth(final int width) {
+	public final Area setWidth(final int width) {
+		
 		this.width = new Width(width);
+		
+		return this;
 	}
 	
 	//method
