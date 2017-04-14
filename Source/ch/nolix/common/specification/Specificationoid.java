@@ -14,7 +14,7 @@ import ch.nolix.common.container.List;
 import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
-import ch.nolix.common.exception.UnexistingAttributeException;
+import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.helper.CharacterHelper;
 import ch.nolix.common.helper.StringHelper;
 import ch.nolix.common.util.Validator;
@@ -152,7 +152,7 @@ abstract class Specificationoid {
 	public final String getHeader() {
 		
 		if (!hasHeader()) {
-			throw new UnexistingAttributeException(this, "header");
+			throw new UnexistingPropertyException(this, "header");
 		}
 		
 		return header;

@@ -121,7 +121,7 @@ public final class MainSession extends ContextSession<GUIClient, Nelix> {
 	 * Sets the given design to the nelix of this main session.
 	 * 
 	 * @param design
-	 * @throws UnexistingAttributeException if the design manager of the nelix of this main session does not contain the given design.
+	 * @throws UnexistingPropertyException if the design manager of the nelix of this main session does not contain the given design.
 	 */
 	public void SetDesign(final String design) {
 		

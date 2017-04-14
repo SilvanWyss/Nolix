@@ -3,7 +3,7 @@ package ch.nolix.common.container;
 
 //own imports
 import ch.nolix.common.constants.StringManager;
-import ch.nolix.common.exception.UnexistingAttributeException;
+import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.functional.IElementTakerElementGetter;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
@@ -169,8 +169,8 @@ public class Matrix<E> implements IContainer<E> {
 	 * @param columnNumber
 	 * @param element
 	 * @return this matrix.
-	 * @throws UnexistingAttributeException if this matrix contains no row with the given row number.
-	 * @throws UnexistingAttributeException if this matrix contains no column with the given column number.
+	 * @throws UnexistingPropertyException if this matrix contains no row with the given row number.
+	 * @throws UnexistingPropertyException if this matrix contains no column with the given column number.
 	 * @throws NullArgumentException if the given element is null.
 	 */
 	public Matrix<E> set(
@@ -244,22 +244,22 @@ public class Matrix<E> implements IContainer<E> {
 	//method
 	/**
 	 * @param columnNumber
-	 * @throws UnexistingAttributeException if this matrix contains no column with the given column number.
+	 * @throws UnexistingPropertyException if this matrix contains no column with the given column number.
 	 */
 	private void throwExceptionIfDoesNotContainColumn(final int columnNumber) {
 		if (columnNumber < 1 || columnNumber > getColumnCount()) {
-			throw new UnexistingAttributeException(this, "column with the column number " + columnNumber);
+			throw new UnexistingPropertyException(this, "column with the column number " + columnNumber);
 		}
 	}
 	
 	//method
 	/**
 	 * @param rowNumber
-	 * @throws UnexistingAttributeException if this matrix contains no row with the given row number.
+	 * @throws UnexistingPropertyException if this matrix contains no row with the given row number.
 	 */
 	private  void throwExceptionIfDoesNotContainRow(final int rowNumber) {
 		if (rowNumber < 1 || rowNumber > getRowCount()) {
-			throw new UnexistingAttributeException(this, "row with the row number " + rowNumber);
+			throw new UnexistingPropertyException(this, "row with the row number " + rowNumber);
 		}
 	}
 }

@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.UnexistingAttributeException;
+import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.specification.Configurable;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.specification.Statement;
@@ -851,7 +851,7 @@ extends ConfigurableElement<R> {
 			case HoverFocused:
 				return getRefHoverStructure();
 			default:
-				throw new UnexistingAttributeException(this, "current structure");
+				throw new UnexistingPropertyException(this, "current structure");
 		}
 	}
 	

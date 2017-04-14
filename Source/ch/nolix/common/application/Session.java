@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.UnexistingAttributeException;
+import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.helper.MethodHelper;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
@@ -68,13 +68,13 @@ public abstract class Session<C extends Client<?>> {
 	//method
 	/**
 	 * @return the client of this session.
-	 * @throws UnexistingAttributeException if this session has no client.
+	 * @throws UnexistingPropertyException if this session has no client.
 	 */
 	protected final C getRefClient() {
 		
 		//Checks if this session has a client.
 		if (!hasClient()) {
-			throw new UnexistingAttributeException(this, Client.class);
+			throw new UnexistingPropertyException(this, Client.class);
 		}
 		
 		return client;

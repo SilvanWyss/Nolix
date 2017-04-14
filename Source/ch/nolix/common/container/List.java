@@ -928,7 +928,7 @@ implements
 	 * 
 	 * @param node
 	 * @throws NullArgumentException if the given node is null.
-	 * @throws UnexistingAttributeException if the given node has no next node.
+	 * @throws UnexistingPropertyException if the given node has no next node.
 	 */
 	private void removeNextNode(ListNode<E> node) {
 		

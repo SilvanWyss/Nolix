@@ -13,7 +13,7 @@ import ch.nolix.common.container.List;
 import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
-import ch.nolix.common.exception.UnexistingAttributeException;
+import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.exception.UnremovableAttributeException;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.util.Validator;
@@ -132,7 +132,7 @@ public final class TabContainerMenuItemStructure {
 		}
 		
 		//Handles the case if this tab container menu item structure has a background color neither from itself nor from its normal structure.
-		throw new UnexistingAttributeException(this, "background color");
+		throw new UnexistingPropertyException(this, "background color");
 	}
 	
 	//method
@@ -153,7 +153,7 @@ public final class TabContainerMenuItemStructure {
 		}
 		
 		//Handles the case if this tab container menu item structure has a text color neither itself nor from its normal structure.
-		throw new UnexistingAttributeException(this, "text color");
+		throw new UnexistingPropertyException(this, "text color");
 	}
 	
 	//method
@@ -174,7 +174,7 @@ public final class TabContainerMenuItemStructure {
 		}
 		
 		//Handles the case if this tab container menu item structure has a text size neither itself nor from its normal structure.
-		throw new UnexistingAttributeException(this, "text size");
+		throw new UnexistingPropertyException(this, "text size");
 	}
 	
 	//method
@@ -345,7 +345,7 @@ public final class TabContainerMenuItemStructure {
 	protected final TabContainerMenuItemStructure getRefNormalStructure() {
 		
 		if (!hasNormalStructure()) {
-			throw new UnexistingAttributeException(this, "normal structure");
+			throw new UnexistingPropertyException(this, "normal structure");
 		}
 		
 		return normalStructure;

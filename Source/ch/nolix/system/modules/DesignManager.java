@@ -17,7 +17,7 @@ import ch.nolix.common.container.List;
 import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
-import ch.nolix.common.exception.UnexistingAttributeException;
+import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.exception.UnsupportedMethodException;
 import ch.nolix.common.module.CentralController;
 import ch.nolix.common.module.Module;
@@ -120,7 +120,7 @@ public final class DesignManager extends Module {
 			}			
 		}
 		
-		throw new UnexistingAttributeException(this, "design with name '" + name + "'.");
+		throw new UnexistingPropertyException(this, "design with name '" + name + "'.");
 	}
 	
 	//method

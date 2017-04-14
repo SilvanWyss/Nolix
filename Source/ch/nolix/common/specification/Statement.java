@@ -9,7 +9,7 @@
 package ch.nolix.common.specification;
 
 //own imports
-import ch.nolix.common.exception.UnexistingAttributeException;
+import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.helper.CharacterHelper;
 
 //class
@@ -58,7 +58,7 @@ public final class Statement extends Specificationoid {
 	public Statement getNextStatement() {
 		
 		if (!hasNextStatement()) {
-			throw new UnexistingAttributeException(this, "next statement");
+			throw new UnexistingPropertyException(this, "next statement");
 		}
 		
 		return nextStatement;

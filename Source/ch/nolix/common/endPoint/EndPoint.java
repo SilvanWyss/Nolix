@@ -9,7 +9,7 @@ import java.net.Socket;
 //own imports
 import ch.nolix.common.basic.AbortableElement;
 import ch.nolix.common.constants.PortManager;
-import ch.nolix.common.exception.UnexistingAttributeException;
+import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.interfaces.IReceiver;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
@@ -128,7 +128,7 @@ public final class EndPoint extends AbortableElement {
 	/**
 	 * @return the receiver of this end point
 	 * @throws InvalidArgumentException if this end point is aborted.
-	 * @throws UnexistingAttributeException if this end point has no receiver.
+	 * @throws UnexistingPropertyException if this end point has no receiver.
 	 */
 	final IReceiver getRefReceiver() {
 		
@@ -136,7 +136,7 @@ public final class EndPoint extends AbortableElement {
 		
 		//Checks if this end point has a receiver.
 		if (!hasReceiver()) {
-			throw new UnexistingAttributeException(this, "receiver");
+			throw new UnexistingPropertyException(this, "receiver");
 		}
 		
 		return receiver;

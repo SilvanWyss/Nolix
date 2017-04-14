@@ -10,7 +10,7 @@ package ch.nolix.element.configuration;
 
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.UnexistingAttributeException;
+import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.interfaces.Freezable;
 import ch.nolix.common.specification.Configurable;
 import ch.nolix.common.specification.Specification;
@@ -202,7 +202,7 @@ implements Freezable {
 	public final String getSelectorName() {
 		
 		if (!hasSelectorName()) {
-			throw new UnexistingAttributeException("configuration", "selector name");
+			throw new UnexistingPropertyException("configuration", "selector name");
 		}
 		
 		return selectorName.getValue();
@@ -216,7 +216,7 @@ implements Freezable {
 	public final String getSelectorRole() {
 		
 		if (!hasSelectorRole()) {
-			throw new UnexistingAttributeException(this, "selector role");
+			throw new UnexistingPropertyException(this, "selector role");
 		}
 		
 		return selectorRole.getValue();
@@ -230,7 +230,7 @@ implements Freezable {
 	public final String getSelectorToken() {
 		
 		if (!hasSelectorToken()) {
-			throw new UnexistingAttributeException(this, "selector token");
+			throw new UnexistingPropertyException(this, "selector token");
 		}
 		
 		return selectorToken.getValue();
@@ -248,7 +248,7 @@ implements Freezable {
 	public final String getSelectorType() {
 		
 		if (!hasSelectorType()) {
-			throw new UnexistingAttributeException("configuration", "selector SIMPLE_CLASS_NAME");
+			throw new UnexistingPropertyException("configuration", "selector SIMPLE_CLASS_NAME");
 		}
 		
 		return selectorType.getValue();

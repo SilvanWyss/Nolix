@@ -11,7 +11,7 @@ package ch.nolix.common.zetaEndPoint;
 //own imports
 import ch.nolix.common.constants.PortManager;
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.UnexistingAttributeException;
+import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.interfaces.Abortable;
 import ch.nolix.common.util.Validator;
 
@@ -99,7 +99,7 @@ public class Server implements Abortable {
 		throwExceptionIfNotStopped();
 		
 		if (stopReason == null) {
-			throw new UnexistingAttributeException(this, "stop reason");
+			throw new UnexistingPropertyException(this, "stop reason");
 		}
 		
 		return stopReason;

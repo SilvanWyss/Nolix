@@ -6,7 +6,7 @@ import java.awt.Graphics;
 
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.UnexistingAttributeException;
+import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.mathematics.Calculator;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.zetaValidator.ZetaValidator;
@@ -189,13 +189,13 @@ extends BackgroundWidget<BRS, BR> {
 	//method
 	/**
 	 * @return the min height of this borderable widget.
-	 * @throws UnexistingAttributeException if this borderable widget has no min height.
+	 * @throws UnexistingPropertyException if this borderable widget has no min height.
 	 */
 	public final int getMinHeight() {
 		
 		//Checks if this borderable widget has a min height.
 		if (!hasMinHeight()) {
-			throw new UnexistingAttributeException(this, "min height");
+			throw new UnexistingPropertyException(this, "min height");
 		}
 		
 		return minHeight.getValue();
@@ -210,7 +210,7 @@ extends BackgroundWidget<BRS, BR> {
 		
 		//Checks if this borderable widget has a min width.
 		if (!hasMinWidth()) {
-			throw new UnexistingAttributeException(this, "min width");
+			throw new UnexistingPropertyException(this, "min width");
 		}
 		
 		return minWidth.getValue();
