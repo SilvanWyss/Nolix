@@ -8,12 +8,13 @@ import ch.nolix.common.exception.NonBiggerArgumentException;
 import ch.nolix.common.exception.NonPositiveArgumentException;
 import ch.nolix.common.exception.NullArgumentException;
 import ch.nolix.common.exception.SmallerArgumentException;
+import ch.nolix.common.exception.ZeroArgumentException;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 80
+ * @lines 100
  */
 public final class NamedDoubleMediator extends NamedArgumentMediator {
 	
@@ -72,6 +73,18 @@ public final class NamedDoubleMediator extends NamedArgumentMediator {
 		//Checks if the argument of this named double mediator is not negative.
 		if (argument < 0) {
 			throw new NegativeArgumentException(getArgumentName(), argument);
+		}
+	}
+	
+	//method
+	/**
+	 * @throws ZeroArgumentException if the argument of this named double mediator is 0.
+	 */
+	public void isNotZero() {
+		
+		//Checks if the argument of this named double mediator is not zero.
+		if (argument == 0) {
+			throw new ZeroArgumentException(getArgumentName());
 		}
 	}
 	

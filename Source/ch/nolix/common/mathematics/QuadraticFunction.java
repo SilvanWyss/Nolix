@@ -1,41 +1,78 @@
-/*
- * file:	QuadraticFunction.java
- * author:	Silvan Wyss
- * month:	2016-05
- * lines:	120
- */
-
 //package declaration
 package ch.nolix.common.mathematics;
 
-//own import
-import ch.nolix.common.util.Validator;
+//own imports
+import ch.nolix.common.exception.UnexistingPropertyException;
+import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
-public final class QuadraticFunction {
+/**
+ * A quadratic function is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-05
+ * @lines 170
+ */
+public class QuadraticFunction {
 
 	//attributes
-	private double a = 1.0;
-	private double b = 0.0;
-	private double c = 0.0;
+	private final double a;
+	private final double b;
+	private final double c;
+	
+	//constructor
+	/**
+	 * Creates new quadratic function with the given coefficients.
+	 * 
+	 * @param a
+	 * @param b
+	 * @param c
+	 * @throws ZeroArgumentException if the given coefficient of the quadratic term is 0.0.
+	 */
+	public QuadraticFunction(final double a, final double b, final double c) {
+		
+		//Checks if the given coefficient of the quadratic term is not 0.0.
+		ZetaValidator.supposeThat(a).thatIsNamed("coefficient of the quadratic term").isNotZero();
+		
+		this.a = a;
+		this.b = b;
+		this.c = c;
+	}
 	
 	//method
 	/**
-	 * @return the discriminant of this quadratic function
+	 * @return the constant coefficient of this quadratic function.
 	 */
-	public final double getDiscriminant() {
+	public double getConstantCoefficient() {
+		return c;
+	}
+	
+	//method
+	/**
+	 * @return the discriminant of this quadratic function.
+	 */
+	public double getDiscriminant() {
 		return (Math.pow(b, 2) - (4 * a * c));
 	}
 	
 	//method
 	/**
-	 * @return the max of this quadratic function
-	 * @throws Exception if this quadratic function has no max
+	 * @return the linear coefficient of this quadratic function.
 	 */
-	public final double getMax() {
+	public double getLinearCoefficient() {
+		return b;
+	}
+	
+	//method
+	/**
+	 * @return the maximum of this quadratic function.
+	 * @throws UnexistingPropertyException if this quadratic function has no maximum.
+	 */
+	public double getMax() {
 		
-		if (a > 0) {
-			throw new RuntimeException("Quadraticfunction " + toString() + " has no max.");
+		//Checks if this quadratic function has a maximum.
+		if (!hasMax()) {
+			throw new UnexistingPropertyException(this, "maximum");
 		}
 		
 		return (-b / (2 * a));
@@ -43,13 +80,14 @@ public final class QuadraticFunction {
 	
 	//method
 	/**
-	 * @return the min of this quadratic function
-	 * @throws Exception if this quadratic function has no min
+	 * @return the minimum of this quadratic function.
+	 * @throws UnexistingPropertyException if this quadratic function has no minimum.
 	 */
-	public final double getMin() {
+	public double getMin() {
 		
-		if (a < 0) {
-			throw new RuntimeException("Quadraticfunction " + toString() + " has no min.");
+		//Checks if this quadratic function has a minimum.
+		if (hasMin()) {
+			throw new UnexistingPropertyException(this, "minimum");
 		}
 		
 		return (-b / (2 * a));
@@ -57,35 +95,47 @@ public final class QuadraticFunction {
 	
 	//method
 	/**
-	 * @return the solutions of this quadratic function
+	 * @return the quadratic coefficient of this quadratic function.
+	 */
+	public double getQuadtaticCoefficient() {
+		return a;
+	}
+	
+	//method
+	/**
+	 * @return the solutions of this quadratic function.
 	 */
 	public double[] getSolutions() {
 		
-		double discriminant = getDiscriminant();
+		final double discriminant = getDiscriminant();
 		
+		//Handles the case if this quadratic function has no solution.
 		if (discriminant < 0) {
 			return new double[0];
 		}
 		
+		//Handles the case if this quadratic function has 1 solution.
 		if (discriminant == 0) {
-			double[] solutions = new double[1];
+			final double[] solutions = new double[1];
 			solutions[0] = -b / (2 * a);
 		}
 		
-		double[] solutions = new double[2];
+		//Handles the case if this quadratic function has 2 solutions.
+		final double[] solutions = new double[2];
 		double discriminantRoot = Math.sqrt(discriminant);
 		solutions[0] = (-b - discriminantRoot) / (2 * a);
 		solutions[1] = (-b + discriminantRoot) / (2 * a);
+		
 		return solutions;
 	}
 	
 	//method
 	/**
-	 * @return the number of solutions of this quadratic function
+	 * @return the number of solutions of this quadratic function.
 	 */
-	public final int getSolutionsCount() {
+	public int getSolutionCount() {
 		
-		double discriminant = getDiscriminant();
+		final double discriminant = getDiscriminant();
 		
 		if (discriminant < 0) {
 			return 0;
@@ -100,26 +150,25 @@ public final class QuadraticFunction {
 	
 	//method
 	/**
-	 * Sets the parameters of this quadratic function.
-	 * 
-	 * @param parameters
-	 * @throws Exception if not 3 parameters are given
+	 * @return true if this quadratic function has a maximum.
 	 */
-	public final void setParameters(double... parameters) {
-		
-		Validator.throwExceptionIfValueIsNotEqual("parameters count", 3, parameters.length);
-		Validator.throwExceptionIfValueIsZero("coefficient of quadratic term", parameters[0]);
-		
-		a = parameters[0];
-		b = parameters[1];
-		c = parameters[2];
+	public boolean hasMax() {
+		return (a < 0);
 	}
 	
 	//method
 	/**
-	 * @return a polynom representation of this quadratic function
+	 * @return ttrue if this quadratic function has a minimum.
 	 */
-	public final Polynom toPolynom() {
+	public boolean hasMin() {
+		return (a > 0);
+	}
+	
+	//method
+	/**
+	 * @return a polynom representation of this quadratic function.
+	 */
+	public Polynom toPolynom() {
 		return new Polynom(3).setCoefficients(a, b, c);
 	}
 }
