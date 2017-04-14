@@ -21,7 +21,8 @@ public final class MathematicsTestPool extends TestPool {
 			new ARModelTest(),
 			new CalculatorTest(),
 			new MatrixTest(),
-			new PolynomTest()
+			new PolynomTest(),
+			new QuadraticFunctionTest()
 		);
 	}
 }

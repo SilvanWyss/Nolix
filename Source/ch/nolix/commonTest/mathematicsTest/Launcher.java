@@ -11,7 +11,7 @@ public final class Launcher {
 
 	//main method
 	/**
-	 * Creates new mathematics test pool and executes it.
+	 * Creates a new mathematics test pool and executes it.
 	 * 
 	 * @param arguments
 	 */
