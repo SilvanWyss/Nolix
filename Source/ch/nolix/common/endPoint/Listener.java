@@ -13,6 +13,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+
+import ch.nolix.common.sequencer.Sequencer;
 //own import
 import ch.nolix.common.util.Validator;
 
@@ -51,8 +53,9 @@ final class Listener extends Thread {
 			
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(endPoint.getRefSocket().getInputStream()));
 			
-			while (endPoint.isRunning()) {
-				endPoint.getRefReceiver().receive(bufferedReader.readLine());
+			while (endPoint.isNotAborted()) {
+				final String line = bufferedReader.readLine();
+				Sequencer.runInBackground(() -> endPoint.getRefReceiver().receive(line));
 			}
 		}
 		catch (IOException e) {

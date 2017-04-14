@@ -47,7 +47,7 @@ final class ZetaEndPointListener extends Thread {
 			
 			serverSocket = new ServerSocket(server.getPort());
 			
-			while (server.isRunning()) {
+			while (server.isNotAborted()) {
 				final ZetaEndPoint zetaEndPoint = new ZetaEndPoint(serverSocket.accept());
 				Sequencer.runInBackground(() -> server.takeZetaEndPoint(zetaEndPoint));
 			}			

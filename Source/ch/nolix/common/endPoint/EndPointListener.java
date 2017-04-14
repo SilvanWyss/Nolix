@@ -125,7 +125,7 @@ public class EndPointListener extends Thread implements Abortable {
 			
 			serverSocket = new ServerSocket(getPort());
 			
-			while (isRunning()) {
+			while (isNotAborted()) {
 				new EndPointTaking(endPointTaker, new EndPoint(serverSocket.accept()));
 			}
 		}

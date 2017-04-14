@@ -1,95 +1,98 @@
-/*
- * file:	AbortableElement.java
- * author:	Silvan Wyss
- * month:	2016-05
- * lines:	80
- */
-
 //package declaration
 package ch.nolix.common.basic;
 
 //own imports
+import ch.nolix.common.exception.Argument;
+import ch.nolix.common.exception.ErrorPredicate;
+import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.UnexistingAttributeException;
+import ch.nolix.common.exception.UntimelyMethodException;
 import ch.nolix.common.interfaces.Abortable;
-import ch.nolix.common.util.Validator;
+import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //abstract class
 /**
- * A abortable element can be stopped.
+ * An abortable element can be aborted.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-05
+ * @lines 90
  */
 public abstract class AbortableElement implements Abortable {
 
 	//attribute
-	private boolean stopped = false;
+	private boolean aborted = false;
 	
 	//optional attribute
-	private String stopReason;
+	private String abortReason;	
 	
 	//method
 	/**
-	 * @return the stop reason of this abortable element
-	 * @throws Exception if:
-	 *  -this abortable element is not stopped
-	 *  -this abortable element has no stop reason
-	 */
-	public final String getAbortReason() {
-		
-		if (!isAborted()) {
-			throw new RuntimeException("Stoppable element is not stopped.");
-		}
-		
-		if (stopReason == null) {
-			throw new UnexistingAttributeException(this, "stop reason");
-		}
-		
-		return stopReason;
-	}
-	
-	//method
-	/**
-	 * @return true if this abortable element is stopped
-	 */
-	public final boolean isAborted() {
-		return stopped;
-	}	
-	
-	//method
-	/**
-	 * Stops this abortable element.
+	 * Aborts this abortable element.
 	 * 
-	 * @throws Exception if this abortable element is stopped already
+	 * @throws InvalidArgumentException if this abortable element is aborted already.
 	 */
 	public void abort() {
 		
-		throwExceptionIfStopped();
+		throwExceptionIfAborted();
 		
-		stopped = true;
+		aborted = true;
 	}
 	
 	//method
 	/**
 	 * Stops this abortable element because of the given stop reason.
 	 * 
-	 * @param stopReason
-	 * @throws Exception if:
-	 *  -the given stop reason is null or an empty string
-	 *  -this abortable element is stopped already
+	 * @param abortReason
+	 * @throws NullArgumentException if the given abort reason is null.
+	 * @throws EmptyArgumentException if the given abort reason is empty.
+	 * @throws InvalidArgumentException if this abortable element is aborted already.
 	 */
-	public final void abort(String stopReason) {
+	public final void abort(String abortReason) {
 		
-		Validator.throwExceptionIfStringIsNullOrEmpty(stopReason, "stop reason");
-		
+		//Checks if the given abort reason is not empty.
+		ZetaValidator.supposeThat(abortReason).thatIsNamed("abort reason").isNotEmpty();
+
 		abort();
-		this.stopReason = stopReason;
+		this.abortReason = abortReason;
 	}
 	
 	//method
 	/**
-	 * @throws Exception if this abortable element is stopped
+	 * @return the abort reason of this abortable element.
+	 * @throws UntimelyMethodException if this abortable element is not stopped.
+	 * @throws UnexistingAttributeException if this abortable element has no abort reason.
 	 */
-	protected final void throwExceptionIfStopped() {
+	public final String getAbortReason() {
+		
+		//Checks if this abortable element is aborted.
+		if (!isAborted()) {
+			throw new UntimelyMethodException(this, "get abort reason");
+		}
+		
+		//Checks if this abortable element has an abort reason.
+		if (abortReason == null) {
+			throw new UnexistingAttributeException(this, "abort reason");
+		}
+		
+		return abortReason;
+	}
+	
+	//method
+	/**
+	 * @return true if this abortable element is aborted.
+	 */
+	public final boolean isAborted() {
+		return aborted;
+	}
+	
+	//method
+	/**
+	 * @throws InvalidArgumentException if this abortable element is stopped.
+	 */
+	protected final void throwExceptionIfAborted() {
 		if (isAborted()) {
-			throw new RuntimeException("Stoppable element is stopped.");
+			throw new InvalidArgumentException(new Argument(this), new ErrorPredicate("is aborted"));
 		}
 	}
 }

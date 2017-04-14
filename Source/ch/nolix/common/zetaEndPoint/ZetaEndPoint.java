@@ -18,13 +18,13 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
 //class
 /**
  * A zeta end point can send messages to an other zeta end point that is on:
- * 	-the same process
- * 	-other process on the same computer
- *  -process on an other computer
+ * -the same process
+ * -an other process on the same computer
+ * -a process on an other computer
  *  
- *  @author Silvan Wyss
- *  @month 2016-05
- *  @lines 490
+ * @author Silvan Wyss
+ * @month 2016-05
+ * @lines 490
  */
 public class ZetaEndPoint extends AbortableElement {
 	
@@ -235,7 +235,7 @@ public class ZetaEndPoint extends AbortableElement {
 		ZetaValidator.supposeThat(timeoutInMilliseconds).thatIsNamed("timeout").isPositive();
 	
 		//Checks if this zeta end point is not stopped.
-		throwExceptionIfStopped();
+		throwExceptionIfAborted();
 
 		this.timeoutInMilliseconds = timeoutInMilliseconds;
 	}
@@ -365,7 +365,7 @@ public class ZetaEndPoint extends AbortableElement {
 	private void send(final String package_) {
 		
 		//Checks if this zeta end point is not stopped.
-		throwExceptionIfStopped();
+		throwExceptionIfAborted();
 		
 		printWriter.println(package_);
 		printWriter.flush();

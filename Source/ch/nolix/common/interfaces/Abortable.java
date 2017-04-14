@@ -41,7 +41,7 @@ public interface Abortable {
 	/**
 	 * @return true if this abortable object is not aborted.
 	 */
-	public default boolean isRunning() {
+	public default boolean isNotAborted() {
 		return !isAborted();
 	}
 }

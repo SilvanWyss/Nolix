@@ -1,10 +1,3 @@
-/*
- * file:	EndPoint.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	220
- */
-
 //package declaration
 package ch.nolix.common.endPoint;
 
@@ -14,18 +7,23 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 //own imports
-
-
-
-
-
 import ch.nolix.common.basic.AbortableElement;
 import ch.nolix.common.constants.PortManager;
 import ch.nolix.common.exception.UnexistingAttributeException;
 import ch.nolix.common.interfaces.IReceiver;
-import ch.nolix.common.util.Validator;
+import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
+/**
+ * An end point can send messages to an other end point that is on:
+ * -the same process
+ * -an other process on the same computer
+ * -a process on an other computer
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 150
+ */
 public final class EndPoint extends AbortableElement {
 	
 	//attributes
@@ -37,72 +35,76 @@ public final class EndPoint extends AbortableElement {
 	
 	//constructor
 	/**
-	 * Creates new end point with the given socket.
-	 * 
-	 * @param socket
-	 * @throws Exception if the given socket is null
-	 */
-	public EndPoint(Socket socket) {
-		
-		Validator.throwExceptionIfValueIsNull("socket", socket);
-		
-		this.socket = socket;
-		try {
-			printWriter = new PrintWriter(socket.getOutputStream());
-		}
-		catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-		
-		//Creates and starts listener of this end point.
-		new Listener(this);
-	}
-	
-	//constructor
-	/**
-	 * Creates new end point that will connect to the given port on the computer with the given ip.
+	 * Creates new end point that will connect to the given port on the machine with the given ip.
 	 * 
 	 * @param ip
 	 * @param port
-	 * @throws Exception if the bigger port is smaller than 0 or bigger than 65535
+	 * @throws OutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public EndPoint(String ip, int port) {
+	public EndPoint(final String ip, final int port) {
 		
-		Validator.throwExceptionIfValueIsNotInRange(
-			"port",
-			PortManager.MIN_PORT,
-			PortManager.MAX_PORT,
-			port
-		);
+		//Checks if the given port is in [0, 65535]. 
+		ZetaValidator
+		.supposeThat(port)
+		.thatIsNamed("port")
+		.isBetween(PortManager.MIN_PORT, PortManager.MAX_PORT);
 		
 		try {
 			socket = new Socket(ip, port);
 			printWriter = new PrintWriter(socket.getOutputStream());
 		} 
+		catch (final IOException exception) {
+			throw new RuntimeException(exception);
+		}
+		
+		//Creates and starts the listener of this end point.
+		new Listener(this);
+	}
+	
+	//package-visible constructor
+	/**
+	 * Creates new end point with the given socket.
+	 * 
+	 * @param socket
+	 * @throws NullArgumentException if the given socket is null.
+	 */
+	EndPoint(final Socket socket) {
+		
+		//Checks if the given socket is not null.
+		ZetaValidator.supposeThat(socket).thatIsInstanceOf(Socket.class).isNotNull();
+		
+		this.socket = socket;
+		
+		try {
+			printWriter = new PrintWriter(socket.getOutputStream());
+		}
 		catch (IOException e) {
 			throw new RuntimeException(e);
 		}
 		
-		//Creates and start listener of this end point.
+		//Creates and starts the listener of this end point.
 		new Listener(this);
 	}
 	
 	//method
 	/**
-	 * @return true if this end point has a receiver
+	 * @return true if this end point has a receiver.
 	 */
-	public final boolean hasReceiver() {
+	public boolean hasReceiver() {
 		return (receiver != null);
 	}
 	
 	//method
 	/**
-	 * Sends the given message.
+	 * Lets this end point send the given message.
 	 * 
 	 * @param message
-	 * @throws Exception if an error occurs
+	 * @throws RuntimeEx
 	 */
-	public final void send(String message) {
+	public void send(final String message) {
+		
+		throwExceptionIfAborted();
+		
 		printWriter.println(message);
 		printWriter.flush();
 	}
@@ -112,42 +114,44 @@ public final class EndPoint extends AbortableElement {
 	 * Sets the receiver of this end point.
 	 * 
 	 * @param receiver
-	 * @throws Exception if the given receiver is null
+	 * @throws NullArgumentException if the given receiver is null.
 	 */
-	public final void setReceiver(IReceiver receiver) {
+	public void setReceiver(final IReceiver receiver) {
 		
-		Validator.throwExceptionIfValueIsNull("receiver", receiver);
+		//Checks if the given receiver is not null.
+		ZetaValidator.supposeThat(receiver).thatIsNamed("receiver").isNotNull();
 		
 		this.receiver = receiver;
-	}
-	
-	//method
-	/**
-	 * @return the socket of this end point
-	 * @throws Exception if this end point is stopped
-	 */
-	final Socket getRefSocket() {
-		
-		throwExceptionIfStopped();
-		
-		return socket;
 	}	
 	
-	//method
+	//package-visble method
 	/**
 	 * @return the receiver of this end point
-	 * @throws Exception if:
-	 *  -this end point is stopped
-	 *  -this end point has no receiver
+	 * @throws InvalidArgumentException if this end point is aborted.
+	 * @throws UnexistingAttributeException if this end point has no receiver.
 	 */
 	final IReceiver getRefReceiver() {
 		
-		throwExceptionIfStopped();
+		throwExceptionIfAborted();
 		
+		//Checks if this end point has a receiver.
 		if (!hasReceiver()) {
 			throw new UnexistingAttributeException(this, "receiver");
 		}
 		
 		return receiver;
+	}
+	
+	//package-visible method
+	/**
+	 * @return the socket of this end point.
+	 * @throws InvalidArgumentException if this end point is aborted.
+	 */
+	final Socket getRefSocket() {
+		
+		//Checks if this end point is not stopped.
+		throwExceptionIfAborted();
+		
+		return socket;
 	}
 }

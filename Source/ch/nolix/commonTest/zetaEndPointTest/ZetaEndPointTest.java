@@ -35,7 +35,7 @@ public final class ZetaEndPointTest extends ZetaTest {
 		
 		//verification
 		expectThat(alphaEndPointTakerMock.hasLastAlphaEndPoint());
-		expectThat(alphaEndPointTakerMock.getLastAlphaEndPoint().isRunning());
+		expectThat(alphaEndPointTakerMock.getLastAlphaEndPoint().isNotAborted());
 		
 		//TODO: Stop alpha end point listener.
 	}
@@ -58,7 +58,7 @@ public final class ZetaEndPointTest extends ZetaTest {
 		
 		//verification
 		expectThat(alphaEndPointTakerMock.hasLastAlphaEndPoint());
-		expectThat(alphaEndPointTakerMock.getLastAlphaEndPoint().isRunning());
+		expectThat(alphaEndPointTakerMock.getLastAlphaEndPoint().isNotAborted());
 		expectThat(response).equals("ok");
 		
 		//TODO: Stop alpha end point listener.

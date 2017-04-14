@@ -51,7 +51,7 @@ final class Listener extends Thread {
 			
 			final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(alphaEndPoint.getRefSocket().getInputStream()));
 			
-			while (alphaEndPoint.isRunning()) {	
+			while (alphaEndPoint.isNotAborted()) {	
 				final String line = bufferedReader.readLine();
 				Sequencer.runInBackground(()->alphaEndPoint.receive(line));
 			}
