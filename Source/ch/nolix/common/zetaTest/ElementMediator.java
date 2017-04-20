@@ -10,7 +10,7 @@ import ch.nolix.common.zetaValidator.ZetaValidator;
 /**
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 180
+ * @lines 200
  * @param <E> - The type of the element of an element mediator.
  */
 abstract class ElementMediator<E> extends Mediator {
@@ -60,8 +60,21 @@ abstract class ElementMediator<E> extends Mediator {
 		);
 	}
 	
+	//method
+	/**
+	 * Generates an error if the value of this element mediator equals the given value.
+	 * 
+	 * @param value
+	 */
 	public final void equalsNot(final Object value) {
-		//TODO
+
+		if (getValue() == null && value == null) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("A value was expected, but null was received.");
+		}
+		
+		if (getValue() != null && getValue().equals(value)) {
+			new Accessor(getZetaTest()).addCurrentTestMethodError("An other value than" + value + " was expected, but " +getValue() + " was received.");
+		}
 	}
 	
 	//method

@@ -236,7 +236,7 @@ public final class DoubleMediator extends Mediator {
 	 * @return new deviation mediator that belongs to this nolix test with a default max deviation
 	 */
 	public final DoubleDeviationMediator withDefaultMaxDeviation() {
-		return new DoubleDeviationMediator(getZetaTest(), value, 0.5); //TODO
+		return new DoubleDeviationMediator(getZetaTest(), value);
 	}
 	
 	//method

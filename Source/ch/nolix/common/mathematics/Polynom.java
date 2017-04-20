@@ -178,8 +178,9 @@ public final class Polynom {
 			coefficients[i] = this.coefficients[i];
 		}
 		
-		//TODO
-		
+		for (int i = 1; i <= integrationsCount; i++) {
+			//TODO
+		}
 		
 		return this;
 	}
