@@ -1,13 +1,13 @@
 package ch.nolix.system.modules;
 
-import ch.nolix.common.endPoint.EndPoint;
+import ch.nolix.common.endPoint2.NetEndPoint;
 import ch.nolix.common.interfaces.IReceiver;
 
 public class ApplicationManagerHTTPEndPointReceiver implements IReceiver {
 
-	private final EndPoint endPoint;
+	private final NetEndPoint endPoint;
 	
-	public ApplicationManagerHTTPEndPointReceiver(EndPoint endPoint) {
+	public ApplicationManagerHTTPEndPointReceiver(NetEndPoint endPoint) {
 		this.endPoint = endPoint;
 	}
 	
