@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.common.container;
 
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 //own imports
-import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //package-visible class
@@ -47,13 +47,13 @@ final class HeapNode<E> {
 	//method
 	/**
 	 * @return the next node of this heap node.
-	 * @throws UnexistingPropertyException if this heap node has no next node.
+	 * @throws UnexistingAttributeException if this heap node has no next node.
 	 */
 	public HeapNode<E> getNextNode() {
 		
 		//Checks if this heap node has a next node.
 		if (!hasNextNode()) {
-			throw new UnexistingPropertyException(this, "next node");
+			throw new UnexistingAttributeException(this, "next node");
 		}
 		
 		return nextNode;

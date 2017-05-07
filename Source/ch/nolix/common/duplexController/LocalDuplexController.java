@@ -11,7 +11,7 @@ package ch.nolix.common.duplexController;
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.controller.ILevel2Controller;
-import ch.nolix.common.exception.UnexistingPropertyException;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.specification.Statement;
 import ch.nolix.common.util.Validator;
 
@@ -97,7 +97,7 @@ public final class LocalDuplexController extends DuplexController {
 		}
 		
 		if (!hasStopReason()) {
-			throw new UnexistingPropertyException(this, "strop reason");
+			throw new UnexistingAttributeException(this, "strop reason");
 		}
 		
 		return stopReason;
@@ -202,12 +202,12 @@ public final class LocalDuplexController extends DuplexController {
 	//method
 	/**
 	 * @return the target controller of this local duplex controller
-	 * @throws Exception if this duplex controller has no target controller
+	 * @throws UnexistingAttributeException if this duplex controller has no target controller
 	 */
 	private final DuplexController getRefTargetController() {
 		
 		if (!hasTargetController()) {
-			throw new UnexistingPropertyException(this, "target controller");
+			throw new UnexistingAttributeException(this, "target controller");
 		}
 		
 		return targetController;

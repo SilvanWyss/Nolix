@@ -2,8 +2,8 @@
 package ch.nolix.commonTest.zetaEndPointTest;
 
 //own imports
-import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.interfaces.IZetaReceiver;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.util.Validator;
 import ch.nolix.common.zetaEndPoint.ZetaEndPoint;
 import ch.nolix.common.zetaEndPoint.Server;
@@ -76,12 +76,12 @@ public final class ZetaEndPointTest extends ZetaTest {
 		//method
 		/**
 		 * @return the last alpha end point of this alpha end point taker mock
-		 * @throws Exception if this alpha end point taker mock has no last alpha end point
+		 * @throws UnexistingAttributeException if this alpha end point taker mock has no last alpha end point
 		 */
 		public ZetaEndPoint getLastAlphaEndPoint() {
 			
 			if (!hasLastAlphaEndPoint()) {
-				throw new UnexistingPropertyException(this, "last alpha end point");
+				throw new UnexistingAttributeException(this, "last alpha end point");
 			}
 			
 			return lastAlphaEndPoint;

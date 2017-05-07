@@ -6,7 +6,7 @@ import ch.nolix.common.container.List;
 import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
-import ch.nolix.common.exception.UnexistingPropertyException;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 import ch.nolix.element.basic.MutableElement;
@@ -68,13 +68,13 @@ final class Configuration extends MutableElement {
 	//method
 	/**
 	 * @return the design of this configuration.
-	 * @throws UnexistingPropertyException if this configuration has no design.
+	 * @throws UnexistingAttributeException if this configuration has no design.
 	 */
 	public String getDesign() {
 		
 		//Checks if this configuration has a design.
 		if (!hasDesign()) {
-			throw new UnexistingPropertyException(this, "design");
+			throw new UnexistingAttributeException(this, "design");
 		}
 		
 		return design;

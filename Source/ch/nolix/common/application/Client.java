@@ -10,9 +10,9 @@ import ch.nolix.common.duplexController.NetDuplexController;
 import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
-import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.functional.IElementTakerRunner;
 import ch.nolix.common.interfaces.Abortable;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.specification.Statement;
 import ch.nolix.common.zetaValidator.ZetaValidator;
@@ -502,13 +502,13 @@ implements Abortable {
 	//method
 	/**
 	 * @return the target application of this client.
-	 * @throws UnexistingPropertyException if this client has no target application.
+	 * @throws UnexistingAttributeException if this client has no target application.
 	 */
 	protected final String internal_getTargetApplication() {
 		
 		//Checks if this client has a target application.
 		if (!internal_hasTargetApplication()) {
-			throw new UnexistingPropertyException(this, "target application");
+			throw new UnexistingAttributeException(this, "target application");
 		}
 		
 		return targetApplication;
@@ -544,13 +544,13 @@ implements Abortable {
 	 * 
 	 * @param dataMethodRequest
 	 * @return the data the given data method request requests
-	 * @throws UnexistingPropertyException if this client has no session.
+	 * @throws UnexistingAttributeException if this client has no session.
 	 */
 	protected final Object internal_invokeDataMethod(final Specification dataMethodRequest) {
 		
 		//Checks if this client has a session.
 		if (!internal_hasSession()) {
-			throw new UnexistingPropertyException(this, Session.class);
+			throw new UnexistingAttributeException(this, Session.class);
 		}
 		
 		//Extracts the name of the data method.
@@ -568,13 +568,13 @@ implements Abortable {
 	 * Invokes a run method of the session of this client.
 	 * 
 	 * @param runMethodCommand
-	 * @throws UnexistingPropertyException if this client has no session.
+	 * @throws UnexistingAttributeException if this client has no session.
 	 */
 	protected final void internal_invokeRunMethod(final Specification runMethodCommand) {
 		
 		//Checks if this client has a session.
 		if (!internal_hasSession()) {
-			throw new UnexistingPropertyException(this, Session.class);
+			throw new UnexistingAttributeException(this, Session.class);
 		}
 		
 		//Extracts the name of the command method.

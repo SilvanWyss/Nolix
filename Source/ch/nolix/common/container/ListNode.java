@@ -2,8 +2,8 @@
 package ch.nolix.common.container;
 
 //own imports
-import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.functional.IElementTakerBooleanGetter;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //package-visible class
@@ -70,7 +70,7 @@ final class ListNode<E> {
 		
 		//Checks if this list node has a next node.
 		if (!hasNextNode()) {
-			throw new UnexistingPropertyException(this, "next node");
+			throw new UnexistingAttributeException(this, "next node");
 		}
 		
 		return nextNode;
@@ -128,13 +128,13 @@ final class ListNode<E> {
 	/**
 	 * Swaps the element of this list node with the element of the next node of this list node.
 	 * 
-	 * @throws UnexistingPropertyException if this list node has no next node.
+	 * @throws UnexistingAttributeException if this list node has no next node.
 	 */
 	public void swapElementWithNextNode() {
 		
 		//Checks if this list node has a next node.
 		if (!hasNextNode()) {
-			throw new UnexistingPropertyException(this, "next node");
+			throw new UnexistingAttributeException(this, "next node");
 		}
 				
 		final E element = nextNode.getElement();

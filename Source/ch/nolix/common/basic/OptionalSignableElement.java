@@ -2,8 +2,8 @@
 package ch.nolix.common.basic;
 
 //own imports
-import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.interfaces.OptionalSignable;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //abstract class
@@ -23,13 +23,13 @@ implements OptionalSignable<OSE> {
 	//method
 	/**
 	 * @return the info string of this optional signable element.
-	 * @throws UnexistingPropertyException if this optional signable element has no info string.
+	 * @throws UnexistingAttributeException if this optional signable element has no info string.
 	 */
 	public final String getInfoString() {
 		
 		//Checks if this optional signable element has an info string.
 		if (!hasInfoString()) {
-			throw new UnexistingPropertyException(this, "info string");
+			throw new UnexistingAttributeException(this, "info string");
 		}
 		
 		return infoString;

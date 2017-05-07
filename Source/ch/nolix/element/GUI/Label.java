@@ -11,9 +11,10 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.event.KeyEvent;
 
+
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.UnexistingPropertyException;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.util.Validator;
 
@@ -111,7 +112,7 @@ public final class Label extends TextLineWidget<Label> {
 		
 		//Checks if this label has a role.
 		if (!hasRole()) {
-			throw new UnexistingPropertyException(this, ROLE_HEADER);
+			throw new UnexistingAttributeException(this, ROLE_HEADER);
 		}
 		
 		return role;

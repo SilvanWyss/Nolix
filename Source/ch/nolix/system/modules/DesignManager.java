@@ -13,12 +13,14 @@ import java.io.File;
 
 
 
+
+
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
-import ch.nolix.common.exception.UnexistingPropertyException;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.invalidStateException.UnsupportedMethodException;
 import ch.nolix.common.module.CentralController;
 import ch.nolix.common.module.Module;
@@ -107,7 +109,7 @@ public final class DesignManager extends Module {
 	/**
 	 * @param name
 	 * @return the design with the given name from this design manager
-	 * @throws Exception if this design manager contains no design with the given name
+	 * @throws UnexistingAttributeException if this design manager contains no design with the given name
 	 */
 	public StandardConfiguration getDesignByName(final String name) {
 		
@@ -121,7 +123,7 @@ public final class DesignManager extends Module {
 			}			
 		}
 		
-		throw new UnexistingPropertyException(this, "design with name '" + name + "'.");
+		throw new UnexistingAttributeException(this, "design with name '" + name + "'.");
 	}
 	
 	//method

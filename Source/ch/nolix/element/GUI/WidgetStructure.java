@@ -3,7 +3,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.UnexistingPropertyException;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
@@ -40,13 +40,13 @@ public abstract class WidgetStructure<WS extends WidgetStructure<WS>> {
 	//method
 	/**
 	 * @return the normal structure of this widget structure.
-	 * @throws UnexistingPropertyException if this widget structure has no normal structure.
+	 * @throws UnexistingAttributeException if this widget structure has no normal structure.
 	 */
 	protected final WS getRefNormalStructure() {
 		
 		//Checks if this widget structure has a normal structure.
 		if (!hasNormalStructure()) {
-			throw new UnexistingPropertyException(this, "normal structure");
+			throw new UnexistingAttributeException(this, "normal structure");
 		}
 		
 		return normalStructure;

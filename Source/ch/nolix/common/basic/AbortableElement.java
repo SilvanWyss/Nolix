@@ -5,8 +5,8 @@ package ch.nolix.common.basic;
 import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.ErrorPredicate;
 import ch.nolix.common.exception.InvalidArgumentException;
-import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.interfaces.Abortable;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.invalidStateException.UntimelyMethodException;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
@@ -61,7 +61,7 @@ public abstract class AbortableElement implements Abortable {
 	/**
 	 * @return the abort reason of this abortable element.
 	 * @throws UntimelyMethodException if this abortable element is not stopped.
-	 * @throws UnexistingPropertyException if this abortable element has no abort reason.
+	 * @throws UnexistingAttributeException if this abortable element has no abort reason.
 	 */
 	public final String getAbortReason() {
 		
@@ -72,7 +72,7 @@ public abstract class AbortableElement implements Abortable {
 		
 		//Checks if this abortable element has an abort reason.
 		if (abortReason == null) {
-			throw new UnexistingPropertyException(this, "abort reason");
+			throw new UnexistingAttributeException(this, "abort reason");
 		}
 		
 		return abortReason;

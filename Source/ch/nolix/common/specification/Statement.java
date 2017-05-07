@@ -9,8 +9,8 @@
 package ch.nolix.common.specification;
 
 //own imports
-import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.helper.CharacterHelper;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 
 //class
 public final class Statement extends Specificationoid {
@@ -53,12 +53,12 @@ public final class Statement extends Specificationoid {
 	//method
 	/**
 	 * @return the next statement of this statement
-	 * @throws Exception if this statement has no next statement
+	 * @throws UnexistingAttributeException if this statement has no next statement
 	 */
 	public Statement getNextStatement() {
 		
 		if (!hasNextStatement()) {
-			throw new UnexistingPropertyException(this, "next statement");
+			throw new UnexistingAttributeException(this, "next statement");
 		}
 		
 		return nextStatement;

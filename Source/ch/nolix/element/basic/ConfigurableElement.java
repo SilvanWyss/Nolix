@@ -10,8 +10,8 @@ package ch.nolix.element.basic;
 
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.interfaces.OptionalTokenable;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.specification.Configurable;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.element.data.Token;
@@ -48,11 +48,11 @@ implements Configurable, OptionalTokenable<CE> {
 	//method
 	/**
 	 * @return the class of this configurable element
-	 * @throws Exception if this configurable element has no class
+	 * @throws UnexistingAttribute if this configurable element has no class
 	 */
 	public final String getToken() {
 		if (!hasToken()) {
-			throw new UnexistingPropertyException(getType(), Token.SIMPLE_CLASS_NAME);
+			throw new UnexistingAttributeException(getType(), Token.SIMPLE_CLASS_NAME);
 		}
 		return token.getValue();
 	}

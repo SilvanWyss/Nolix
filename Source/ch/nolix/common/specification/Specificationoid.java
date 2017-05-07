@@ -14,9 +14,9 @@ import ch.nolix.common.container.List;
 import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
-import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.helper.CharacterHelper;
 import ch.nolix.common.helper.StringHelper;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.util.Validator;
 
 //package-visible class
@@ -147,12 +147,12 @@ abstract class Specificationoid {
 	//method
 	/**
 	 * @return the header of this specificationoid
-	 * @throws Exception if this specificationoid has no header
+	 * @throws UnexistingAttributeException if this specificationoid has no header
 	 */
 	public final String getHeader() {
 		
 		if (!hasHeader()) {
-			throw new UnexistingPropertyException(this, "header");
+			throw new UnexistingAttributeException(this, "header");
 		}
 		
 		return header;

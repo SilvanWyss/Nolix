@@ -4,9 +4,9 @@ package ch.nolix.common.endPoint2;
 //own imports
 import ch.nolix.common.basic.AbortableElement;
 import ch.nolix.common.exception.InvalidArgumentException;
-import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.interfaces.IReceiver;
 import ch.nolix.common.interfaces.ISender;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //abstract class
@@ -80,13 +80,13 @@ implements ISender {
 	//method
 	/**
 	 * @return the receiver of this end point.
-	 * @throws UnexistingPropertyException if this end point has no receiver.
+	 * @throws UnexistingAttributeException if this end point has no receiver.
 	 */
 	protected final IReceiver getRefReceiver() {
 		
 		//Checks if this end point has a receiver.
 		if (!hasReceiver()) {
-			throw new UnexistingPropertyException(this, "receiver");
+			throw new UnexistingAttributeException(this, "receiver");
 		}
 		
 		return receiver;

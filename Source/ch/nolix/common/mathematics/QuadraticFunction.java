@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.common.mathematics;
 
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 //own imports
-import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
@@ -66,13 +66,13 @@ public class QuadraticFunction {
 	//method
 	/**
 	 * @return the maximum of this quadratic function.
-	 * @throws UnexistingPropertyException if this quadratic function has no maximum.
+	 * @throws UnexistingAttributeException if this quadratic function has no maximum.
 	 */
 	public double getMax() {
 		
 		//Checks if this quadratic function has a maximum.
 		if (!hasMax()) {
-			throw new UnexistingPropertyException(this, "maximum");
+			throw new UnexistingAttributeException(this, "maximum");
 		}
 		
 		return (-b / (2 * a));
@@ -81,13 +81,13 @@ public class QuadraticFunction {
 	//method
 	/**
 	 * @return the minimum of this quadratic function.
-	 * @throws UnexistingPropertyException if this quadratic function has no minimum.
+	 * @throws UnexistingAttributeException if this quadratic function has no minimum.
 	 */
 	public double getMin() {
 		
 		//Checks if this quadratic function has a minimum.
 		if (hasMin()) {
-			throw new UnexistingPropertyException(this, "minimum");
+			throw new UnexistingAttributeException(this, "minimum");
 		}
 		
 		return (-b / (2 * a));

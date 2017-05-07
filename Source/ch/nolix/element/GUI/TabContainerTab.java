@@ -10,7 +10,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.UnexistingPropertyException;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.util.Validator;
 import ch.nolix.element.basic.NamableElement;
@@ -51,12 +51,12 @@ public final class TabContainerTab extends NamableElement<TabContainerTab> {
 	//method
 	/**
 	 * @return the rectangle of this tab container
-	 * @throws Exception if this tab container has no rectangle
+	 * @throws UnexistingAttributeException if this tab container has no rectangle
 	 */
 	public final Widget<?, ?> getRefRectangle() {
 		
 		if (!hasRectangle()) {
-			throw new UnexistingPropertyException(this, "rectangle");
+			throw new UnexistingAttributeException(this, "rectangle");
 		}
 		
 		return rectangle;

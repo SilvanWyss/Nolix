@@ -5,9 +5,10 @@ package ch.nolix.element.GUI;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
+
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.UnexistingPropertyException;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.specification.Configurable;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.specification.Statement;
@@ -838,7 +839,7 @@ extends ConfigurableElement<R> {
 	//method
 	/**
 	 * @return the current structure of this widget
-	 * @throws Exception if this widget has no current structure
+	 * @throws UnexistingAttributeException if this widget has no current structure
 	 */
 	protected final RS getRefCurrentStructure() {
 		switch (state) {
@@ -851,7 +852,7 @@ extends ConfigurableElement<R> {
 			case HoverFocused:
 				return getRefHoverStructure();
 			default:
-				throw new UnexistingPropertyException(this, "current structure");
+				throw new UnexistingAttributeException(this, "current structure");
 		}
 	}
 	

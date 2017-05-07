@@ -6,13 +6,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+
 //own imports
 import ch.nolix.common.basic.AbortableElement;
 import ch.nolix.common.constants.IPv6Manager;
 import ch.nolix.common.constants.PortManager;
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.interfaces.IZetaReceiver;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
@@ -288,7 +289,7 @@ public class ZetaEndPoint extends AbortableElement {
 	//method
 	/**
 	 * @return the receiver of this zeta end point.
-	 * @throws UnexistingPropertyException if this zeta end point has no receiver.
+	 * @throws UnexistingAttributeException if this zeta end point has no receiver.
 	 */
 	private final IZetaReceiver getRefReceiver() {
 		
@@ -301,7 +302,7 @@ public class ZetaEndPoint extends AbortableElement {
 			System.out.flush();
 			
 			if (System.currentTimeMillis() - startTimeInMilliseconds > getTimeoutInMilliseconds()) {
-				throw new UnexistingPropertyException(this, "receiver");
+				throw new UnexistingAttributeException(this, "receiver");
 			}
 		}
 		

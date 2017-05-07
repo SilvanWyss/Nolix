@@ -10,8 +10,8 @@ package ch.nolix.element.configuration;
 
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.interfaces.Freezable;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.specification.Configurable;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.element.basic.NamableElement;
@@ -197,12 +197,12 @@ implements Freezable {
 	//method
 	/**
 	 * @return the selector name of this configuration.
-	 * @throws Exception if this configuration has no selector name
+	 * @throws UnexistingAttributeException if this configuration has no selector name
 	 */
 	public final String getSelectorName() {
 		
 		if (!hasSelectorName()) {
-			throw new UnexistingPropertyException("configuration", "selector name");
+			throw new UnexistingAttributeException(this, "selector name");
 		}
 		
 		return selectorName.getValue();
@@ -211,12 +211,12 @@ implements Freezable {
 	//method
 	/**
 	 * @return the selector role of this configuration
-	 * @throws Exception if this configuration has no selector role
+	 * @throws UnexistingAttributeException if this configuration has no selector role
 	 */
 	public final String getSelectorRole() {
 		
 		if (!hasSelectorRole()) {
-			throw new UnexistingPropertyException(this, "selector role");
+			throw new UnexistingAttributeException(this, "selector role");
 		}
 		
 		return selectorRole.getValue();
@@ -225,12 +225,12 @@ implements Freezable {
 	//method
 	/**
 	 * @return the selector token of this configuration
-	 * @throws Exception if this configuration has no selector token
+	 * @throws UnexistingAttributeException if this configuration has no selector token
 	 */
 	public final String getSelectorToken() {
 		
 		if (!hasSelectorToken()) {
-			throw new UnexistingPropertyException(this, "selector token");
+			throw new UnexistingAttributeException(this, "selector token");
 		}
 		
 		return selectorToken.getValue();
@@ -243,12 +243,12 @@ implements Freezable {
 	//method
 	/**
 	 * @return the selector SIMPLE_CLASS_NAME of this configuration
-	 * @throws Exception uf this configuration has no selector SIMPLE_CLASS_NAME
+	 * @throws UnexistingAttributeException if this configuration has no selector SIMPLE_CLASS_NAME
 	 */
 	public final String getSelectorType() {
 		
 		if (!hasSelectorType()) {
-			throw new UnexistingPropertyException("configuration", "selector SIMPLE_CLASS_NAME");
+			throw new UnexistingAttributeException(this, SELECTOR_TYPE);
 		}
 		
 		return selectorType.getValue();

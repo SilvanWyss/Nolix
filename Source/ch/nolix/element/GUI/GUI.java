@@ -11,9 +11,9 @@ import ch.nolix.common.controller.ILevel1Controller;
 import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.ErrorPredicate;
 import ch.nolix.common.exception.InvalidArgumentException;
-import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.interfaces.Clearable;
 import ch.nolix.common.interfaces.IRequestableContainer;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.specification.Configurable;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.specification.Statement;
@@ -253,14 +253,14 @@ implements Clearable, IRequestableContainer {
 	//method
 	/**
 	 * @return the root widget of this GUI.
-	 * @throws UnexistingPropertyException if this GUI has no root widget.
+	 * @throws UnexistingAttributeException if this GUI has no root widget.
 	 */
 	@SuppressWarnings("unchecked")
 	public final <W extends Widget<?, ?>> W getRefRootWidget() {
 		
 		//Checks if this GUI has a root widget.
 		if (!hasRootWidget()) {
-			throw new UnexistingPropertyException(this, ROOT_WIDGET_HEADER);
+			throw new UnexistingAttributeException(this, ROOT_WIDGET_HEADER);
 		}
 		
 		return (W)rootWidget;

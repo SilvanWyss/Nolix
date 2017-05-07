@@ -11,8 +11,8 @@ package ch.nolix.common.duplexController;
 //own imports
 import ch.nolix.common.container.List;
 import ch.nolix.common.controller.ILevel2Controller;
-import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.interfaces.Abortable;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.util.Validator;
 
@@ -51,12 +51,12 @@ implements ILevel2Controller, Abortable {
 	//method
 	/**
 	 * @return the receiver controller of this duplex controller
-	 * @throws Exception if this duplex controller has no receiver controller
+	 * @throws UnexistingAttributeException if this duplex controller has no receiver controller
 	 */
 	public final ILevel2Controller getRefReceiverController() {
 		
 		if (!hasReceiverController()) {
-			throw new UnexistingPropertyException(this, "receiver controller");
+			throw new UnexistingAttributeException(this, "receiver controller");
 		}
 		
 		return receiverController;

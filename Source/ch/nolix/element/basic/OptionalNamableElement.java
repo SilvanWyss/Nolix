@@ -13,9 +13,9 @@ import ch.nolix.common.container.List;
 import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
-import ch.nolix.common.exception.UnexistingPropertyException;
 import ch.nolix.common.interfaces.IRequestableContainer;
 import ch.nolix.common.interfaces.OptionalNamable;
+import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.util.Validator;
 import ch.nolix.element.data.Name;
@@ -59,12 +59,12 @@ public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<
 	//method
 	/**
 	 * @return the name of this namable element
-	 * @throws Exception if this namable element has no name
+	 * @throws UnexistingAttributeException if this namable element has no name
 	 */
 	public final String getName() {
 		
 		if (!hasName()) {
-			throw new UnexistingPropertyException(this, "name");
+			throw new UnexistingAttributeException(this, "name");
 		}
 		
 		return name.getValue();
