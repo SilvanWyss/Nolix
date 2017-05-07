@@ -3,7 +3,8 @@ package ch.nolix.common.invalidStateException;
 
 //class
 /**
- * An invalid state exception is an exception that intended to be thrown when an object is in an invalid state.
+ * An invalid state exception is an exception that intended to be thrown
+ * when an object is in an invalid state.
  * 
  * @author Silvan Wyss
  * @month 2017-05
@@ -43,7 +44,7 @@ public class InvalidStateException extends RuntimeException {
 	public InvalidStateException(final Object object, final String errorPredicate) {
 		
 		//Calls constructor of the base class.
-		super(object.getClass().getSimpleName() + " " + errorPredicate);
+		super(object.getClass().getSimpleName() + " " + errorPredicate + ".");
 		
 		//Checks if the given error predicate is not null.
 		if (errorPredicate == null) {
