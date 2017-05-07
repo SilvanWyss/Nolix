@@ -2,7 +2,7 @@
 package ch.nolix.common.neuron;
 
 //own import
-import ch.nolix.common.exception.UnsupportedMethodException;
+import ch.nolix.common.invalidStateException.UnsupportedMethodException;
 
 //class
 /**

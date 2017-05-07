@@ -2,7 +2,7 @@
 package ch.nolix.common.application;
 
 //own imports
-import ch.nolix.common.exception.UnsupportedMethodException;
+import ch.nolix.common.invalidStateException.UnsupportedMethodException;
 import ch.nolix.common.module.CentralController;
 import ch.nolix.common.module.Module;
 import ch.nolix.common.specification.Statement;
