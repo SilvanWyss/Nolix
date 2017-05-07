@@ -23,7 +23,7 @@ abstract class NamedArgumentMediator {
 	 * 
 	 * @param argumentName
 	 * @throws NullArgumentException if the given argument name is null.
-	 * @throws EmptyArgumentException if the given argument name is an empty string.
+	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	public NamedArgumentMediator(final String argumentName) {
 		

@@ -5,7 +5,6 @@ package ch.nolix.common.container;
 import ch.nolix.common.constants.StringManager;
 import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.InvalidArgumentException;
-import ch.nolix.common.exception.EmptyArgumentException;
 import ch.nolix.common.exception.ErrorPredicate;
 import ch.nolix.common.functional.IElementTakerComparableGetter;
 import ch.nolix.common.functional.IElementTakerRunner;
@@ -14,6 +13,7 @@ import ch.nolix.common.functional.IElementTakerElementGetter;
 import ch.nolix.common.helper.CharacterHelper;
 import ch.nolix.common.helper.IterableHelper;
 import ch.nolix.common.interfaces.Clearable;
+import ch.nolix.common.invalidStateException.EmptyStateException;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //class
@@ -391,13 +391,13 @@ implements
 	 * 
 	 * @param sequencePattern
 	 * @return the ratio of the sequences from this list that match the given sequence pattern.
-	 * @throws EmptyArgumentException if this list is empty.
+	 * @throws EmptyStateException if this list is empty.
 	 */
 	public double getRatio(final SequencePattern<E> sequencePattern) {
 		
 		//Checks if this list is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(new Argument(this));
+			throw new EmptyStateException(this);
 		}
 		
 		return ((double)getCount(sequencePattern) / getSize());
@@ -408,13 +408,13 @@ implements
 	 * The complexity of this method is O(1).
 	 * 
 	 * @return the first element of this list
-	 * @throws EmptyArgumentException if this list is empty.
+	 * @throws EmptyStateException if this list is empty.
 	 */
 	public E getRefFirst() {
 		
 		//Checks if this list is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(new Argument(this));
+			throw new EmptyStateException(this);
 		}
 		
 		return firstNode.getElement();
@@ -425,13 +425,13 @@ implements
 	 * The complexity of this method is O(1).
 	 * 
 	 * @return the last element of this list.
-	 * @throws EmptyArgumentException if this list is empty.
+	 * @throws EmptyStateException if this list is empty.
 	 */
 	public E getRefLast() {
 		
 		//Checks if this list is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(new Argument(this));
+			throw new EmptyStateException(this);
 		}
 		
 		return lastNode.getElement();
@@ -565,13 +565,13 @@ implements
 	 * The complexity of this method is O(1).
 	 * 
 	 * @return this list.
-	 * @throws EmptyArgumentException if this list is empty.
+	 * @throws EmptyStateException if this list is empty.
 	 */
 	public List<E> removeFirst() {
 		
 		//Checks if this list is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(new Argument(this));
+			throw new EmptyStateException(this);
 		}
 		
 		//Handles the case if this list contains 1 element.
@@ -678,13 +678,13 @@ implements
 	 * The complexity of this method is O(1).
 	 * 
 	 * @return this list.
-	 * @throws EmptyArgumentException if this list is empty.
+	 * @throws EmptyStateException if this list is empty.
 	 */
 	public List<E> removeLast() {
 		
 		//Checks if this list is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(new Argument(this));
+			throw new EmptyStateException(this);
 		}
 		
 		//Handles the case if this list contains 1 element.

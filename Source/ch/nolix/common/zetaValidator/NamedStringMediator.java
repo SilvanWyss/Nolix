@@ -30,7 +30,7 @@ public final class NamedStringMediator extends NamedElementMediator<String> {
 
 	//method
 	/**
-	 * @throws EmptyArgumentException if the argument of htis named string mediator is empty.
+	 * @throws EmptyArgumentException if the argument of this named string mediator is empty.
 	 */
 	public void isNotEmpty() {		
 		

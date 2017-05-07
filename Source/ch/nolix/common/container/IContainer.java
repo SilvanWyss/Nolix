@@ -9,7 +9,6 @@ import java.util.Random;
 import ch.nolix.common.constants.StringManager;
 import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.InvalidArgumentException;
-import ch.nolix.common.exception.EmptyArgumentException;
 import ch.nolix.common.exception.ErrorPredicate;
 import ch.nolix.common.functional.IElementTakerDoubleGetter;
 import ch.nolix.common.functional.IElementTakerIntGetter;
@@ -18,6 +17,7 @@ import ch.nolix.common.functional.IElementTakerComparableGetter;
 import ch.nolix.common.functional.IElementTakerBooleanGetter;
 import ch.nolix.common.functional.IElementTakerElementGetter;
 import ch.nolix.common.helper.CharacterHelper;
+import ch.nolix.common.invalidStateException.EmptyStateException;
 
 //interface
 /**
@@ -228,13 +228,13 @@ extends Iterable<E> {
 	/**
 	 * @param doubleNorm
 	 * @return the average of the values the given double norm returns from the elements of this container.
-	 * @throws EmptyArgumentException if this container is empty.
+	 * @throws EmptyStateException if this container is empty.
 	 */
 	public default double getAverageByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		//Checks if this container is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(new Argument(this));
+			throw new EmptyStateException(this);
 		}
 		
 		return (getSumByDoubleNorm(doubleNorm) / getSize());
@@ -245,13 +245,13 @@ extends Iterable<E> {
 	/**
 	 * @param intNorm
 	 * @return the average of the values the given int norm returns from the elements of this container.
-	 * @throws EmptyArgumentException if this container is empty.
+	 * @throws EmptyStateException if this container is empty.
 	 */
 	public default double getAverageByInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		//Checks if this container is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(new Argument(this));
+			throw new EmptyStateException(this);
 		}
 		
 		return (getSumByInt(intNorm) / getSize());
@@ -261,13 +261,13 @@ extends Iterable<E> {
 	/**
 	 * @param longNorm
 	 * @return the average of the values the given long norm returns from the elements of this container.
-	 * @throws EmptyArgumentException if this container is empty.
+	 * @throws EmptyStateException if this container is empty.
 	 */
 	public default double getAverageByLong(final IElementTakerLongGetter<E> longNorm) {
 		
 		//Checks if this container is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(new Argument(this));
+			throw new EmptyStateException(this);
 		}
 		
 		return (getSumByLong(longNorm) / getSize());
@@ -417,13 +417,13 @@ extends Iterable<E> {
 	/**
 	 * @param selector
 	 * @return the ratio of elements the given selector selects from this container.
-	 * @throws EmptyElementException if this container is empty.
+	 * @throws EmptyStateException if this container is empty.
 	 */
 	public default double getRatio(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Checks if this container is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(new Argument(this));
+			throw new EmptyStateException(this);
 		}
 		
 		return ((double)getCount(selector) / getSize());
@@ -432,13 +432,13 @@ extends Iterable<E> {
 	//default method
 	/**
 	 * @return a randomly selected element of this container.
-	 * @throws EmptyArgumentException if this container is empty.
+	 * @throws EmptyStateException if this container is empty.
 	 */
 	public default E getRefAny() {
 		
 		//Checks if this container is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(new Argument(this));
+			throw new EmptyStateException(this);
 		}
 		
 		return getRefAt(new Random().nextInt(getSize()) + 1);
@@ -659,13 +659,13 @@ extends Iterable<E> {
 	//default method
 	/**
 	 * @return the first element of this container.
-	 * @throws EmptyArgumentException if this container is empty.
+	 * @throws EmptyStateException if this container is empty.
 	 */
 	public default E getRefFirst() {
 		
 		//Checks if this container is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(new Argument(this));
+			throw new EmptyStateException(this);
 		}
 
 		return iterator().next();	
@@ -697,14 +697,14 @@ extends Iterable<E> {
 	//default method
 	/**
 	 * @return the one element of this container.
-	 * @throws EmptyArgumentException if this container is empty.
+	 * @throws EmptyStateException if this container is empty.
 	 * @throws InvalidArgumentException if this container contains several elements.
 	 */
 	public default E getRefOne() {
 		
 		//Checks if this container contains exactly 1 element.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(new Argument(this));
+			throw new EmptyStateException(this);
 		}
 		if (getSize() > 1) {
 			throw new InvalidArgumentException(
