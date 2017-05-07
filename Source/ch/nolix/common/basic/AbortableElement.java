@@ -3,9 +3,8 @@ package ch.nolix.common.basic;
 
 //own imports
 import ch.nolix.common.interfaces.Abortable;
-import ch.nolix.common.invalidArgumentException.Argument;
-import ch.nolix.common.invalidArgumentException.ErrorPredicate;
 import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidStateException.InvalidStateException;
 import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.invalidStateException.UntimelyMethodException;
 import ch.nolix.common.zetaValidator.ZetaValidator;
@@ -88,11 +87,11 @@ public abstract class AbortableElement implements Abortable {
 	
 	//method
 	/**
-	 * @throws InvalidArgumentException if this abortable element is stopped.
+	 * @throws InvalidStateException if this abortable element is stopped.
 	 */
 	protected final void throwExceptionIfAborted() {
 		if (isAborted()) {
-			throw new InvalidArgumentException(new Argument(this), new ErrorPredicate("is aborted"));
+			throw new InvalidStateException(this, "is aborted");
 		}
 	}
 }
