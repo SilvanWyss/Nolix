@@ -7,7 +7,7 @@ import ch.nolix.common.container.List;
 
 //abstract class
 /**
- * A server manages end point taker and takes end points.
+ * A server manages end point taker.
  * A server is abortable.
  * 
  * @author Silvan Wyss
