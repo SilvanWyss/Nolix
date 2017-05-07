@@ -87,7 +87,7 @@ public abstract class AbortableElement implements Abortable {
 	
 	//method
 	/**
-	 * @throws InvalidStateException if this abortable element is stopped.
+	 * @throws InvalidStateException if this abortable element is aborted.
 	 */
 	protected final void throwExceptionIfAborted() {
 		if (isAborted()) {
