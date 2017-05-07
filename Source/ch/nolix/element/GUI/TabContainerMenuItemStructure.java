@@ -14,7 +14,7 @@ import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.ArgumentName;
 import ch.nolix.common.exception.UnexistingPropertyException;
-import ch.nolix.common.exception.UnremovableAttributeException;
+import ch.nolix.common.invalidStateException.UnremovableAttributeException;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.util.Validator;
 import ch.nolix.element.basic.Color;
