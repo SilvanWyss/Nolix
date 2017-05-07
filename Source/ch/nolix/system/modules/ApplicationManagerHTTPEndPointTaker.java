@@ -9,8 +9,8 @@
 package ch.nolix.system.modules;
 
 //own imports
-import ch.nolix.common.endPoint2.IEndPointTaker;
-import ch.nolix.common.endPoint2.NetEndPoint;
+import ch.nolix.common.endPoint.EndPoint;
+import ch.nolix.common.endPoint.IEndPointTaker;
 
 //class
 final class ApplicationManagerHTTPEndPointTaker implements IEndPointTaker {
@@ -20,7 +20,7 @@ final class ApplicationManagerHTTPEndPointTaker implements IEndPointTaker {
 	 * Takes the given end point.
 	 * @param endPoint
 	 */
-	public final void takeEndPoint(NetEndPoint endPoint) {
+	public final void takeEndPoint(EndPoint endPoint) {
 		endPoint.setReceiver(new ApplicationManagerHTTPEndPointReceiver(endPoint));
 	}
 }

@@ -12,6 +12,7 @@ package ch.nolix.common.duplexController;
 import ch.nolix.common.container.List;
 import ch.nolix.common.controller.ILevel2Controller;
 import ch.nolix.common.invalidStateException.UnexistingAttributeException;
+import ch.nolix.common.specification.Specification;
 import ch.nolix.common.specification.Statement;
 import ch.nolix.common.util.Validator;
 
@@ -219,5 +220,11 @@ public final class LocalDuplexController extends DuplexController {
 	 */
 	private final boolean hasStopReason() {
 		return (stopReason != null);
+	}
+
+	@Override
+	public Specification waitToData(String request) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -10,7 +10,6 @@ package ch.nolix.common.zetaEndPoint;
 
 //own imports
 import ch.nolix.common.constants.PortManager;
-import ch.nolix.common.container.List;
 import ch.nolix.common.interfaces.Abortable;
 import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.util.Validator;
@@ -112,8 +111,6 @@ public class Server implements Abortable {
 	public final boolean isAborted() {
 		return stopped;
 	}
-	
-	private List<IZetaEndPointTaker> endPointTakers;
 	
 	//method
 	/**

@@ -17,7 +17,7 @@ import ch.nolix.element.GUI.GUI;
 public final class FrontConsoleClient extends Client<FrontConsoleClient> {
 
 	//attribute
-	private GUI<?> gui;
+	//private GUI<?> gui;
 	
 	//constructor
 	/**
@@ -45,12 +45,10 @@ public final class FrontConsoleClient extends Client<FrontConsoleClient> {
 	 */
 	protected void internal_finishSessionInitialization() {}
 	
-	private void setGUI(final GUI<?> gui) {
+	public void setGUI(final GUI<?> gui) {
 		
 		ZetaValidator.supposeThat(gui).thatIsInstanceOf(GUI.class).isNotNull();
 		
-		this.gui = gui;
-		
-		
+		//this.gui = gui;	
 	}
 }
