@@ -5,8 +5,9 @@ package ch.nolix.common.zetaValidator;
 import java.util.Vector;
 
 //own import
-import ch.nolix.common.exception.FalseArgumentException;
-import ch.nolix.common.exception.TrueArgumentException;
+
+import ch.nolix.common.invalidArgumentException.FalseArgumentException;
+import ch.nolix.common.invalidArgumentException.TrueArgumentException;
 
 //class
 /**

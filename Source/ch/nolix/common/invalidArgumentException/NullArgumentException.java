@@ -1,25 +1,25 @@
 //package declaration
-package ch.nolix.common.exception;
+package ch.nolix.common.invalidArgumentException;
 
 //class
 /**
- * A zero argument exception is an exception that is intended to be thrown when an argument is undesired zero.
+ * A null argument exception is an exception that is intended to be thrown when an argument is undesired null.
  * 
  * @author Silvan Wyss
- * @month 2016-02
+ * @month 2016-04
  * @lines 40
  */
 @SuppressWarnings("serial")
-public final class ZeroArgumentException extends InvalidArgumentException {
-	
+public final class NullArgumentException extends InvalidArgumentException {
+
 	//constant
-	private static final String ERROR_PREDICATE = "is 0";
+	private static final String ERROR_PREDICATE = "is null";
 	
 	//constructor
 	/**
-	 * Creates new zero argument exception.
+	 * Creates new null argument exception.
 	 */
-	public ZeroArgumentException() {
+	public NullArgumentException() {
 		
 		//Calls constructor of the base class.
 		super(new ErrorPredicate(ERROR_PREDICATE));
@@ -27,13 +27,13 @@ public final class ZeroArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new zero argument exception for an argument that has the given argument name.
+	 * Creates new null argument name exception for an argument with the given argument name.
 	 * 
 	 * @param argumentName
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
-	public ZeroArgumentException(final String argumentName) {
+	public NullArgumentException(final String argumentName) {
 		
 		//Calls constructor of the base class.
 		super(new ArgumentName(argumentName), new ErrorPredicate(ERROR_PREDICATE));

@@ -2,9 +2,9 @@
 package ch.nolix.common.zetaEndPoint;
 
 //own imports
-import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.InvalidArgumentException;
-import ch.nolix.common.exception.NonRepresentingArgumentException;
+import ch.nolix.common.invalidArgumentException.Argument;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.NonRepresentingArgumentException;
 
 //enum
 /**

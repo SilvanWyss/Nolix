@@ -3,8 +3,8 @@ package ch.nolix.elementTest.dataTest;
 
 //own imports
 import ch.nolix.common.constants.StringManager;
-import ch.nolix.common.exception.EmptyArgumentException;
-import ch.nolix.common.exception.NullArgumentException;
+import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
+import ch.nolix.common.invalidArgumentException.NullArgumentException;
 import ch.nolix.common.zetaTest.ZetaTest;
 import ch.nolix.element.data.Title;
 

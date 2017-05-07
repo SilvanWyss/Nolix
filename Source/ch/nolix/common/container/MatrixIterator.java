@@ -5,9 +5,10 @@ package ch.nolix.common.container;
 import java.util.Iterator;
 
 //own imports
-import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.InvalidArgumentException;
-import ch.nolix.common.exception.ErrorPredicate;
+
+import ch.nolix.common.invalidArgumentException.Argument;
+import ch.nolix.common.invalidArgumentException.ErrorPredicate;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //package-visible class

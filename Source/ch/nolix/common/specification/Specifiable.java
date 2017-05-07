@@ -2,10 +2,10 @@
 package ch.nolix.common.specification;
 
 //own imports
-import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.ErrorPredicate;
-import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.interfaces.Resettable;
+import ch.nolix.common.invalidArgumentException.Argument;
+import ch.nolix.common.invalidArgumentException.ErrorPredicate;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 
 //interface
 /**

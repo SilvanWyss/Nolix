@@ -4,11 +4,12 @@ package ch.nolix.element.basic;
 //Java import
 import java.util.GregorianCalendar;
 
+
 //own imports
 import ch.nolix.common.constants.TimeUnitManager;
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.helper.StringHelper;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.specification.Specification;
 
 //class

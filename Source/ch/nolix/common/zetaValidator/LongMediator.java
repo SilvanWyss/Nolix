@@ -2,14 +2,14 @@
 package ch.nolix.common.zetaValidator;
 
 //own imports
-import ch.nolix.common.exception.NegativeArgumentException;
-import ch.nolix.common.exception.NonNegativeArgumentException;
-import ch.nolix.common.exception.NonPositiveArgumentException;
-import ch.nolix.common.exception.NonSmallerArgumentException;
-import ch.nolix.common.exception.OutOfRangeArgumentException;
-import ch.nolix.common.exception.SmallerArgumentException;
-import ch.nolix.common.exception.UnequalArgumentException;
-import ch.nolix.common.exception.ZeroArgumentException;
+import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
+import ch.nolix.common.invalidArgumentException.NonNegativeArgumentException;
+import ch.nolix.common.invalidArgumentException.NonPositiveArgumentException;
+import ch.nolix.common.invalidArgumentException.NonSmallerArgumentException;
+import ch.nolix.common.invalidArgumentException.OutOfRangeArgumentException;
+import ch.nolix.common.invalidArgumentException.SmallerArgumentException;
+import ch.nolix.common.invalidArgumentException.UnequalArgumentException;
+import ch.nolix.common.invalidArgumentException.ZeroArgumentException;
 
 //class
 /**

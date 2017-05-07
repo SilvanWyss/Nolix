@@ -5,11 +5,9 @@ package ch.nolix.common.container;
 import java.util.Iterator;
 import java.util.Random;
 
+
 //own imports
 import ch.nolix.common.constants.StringManager;
-import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.InvalidArgumentException;
-import ch.nolix.common.exception.ErrorPredicate;
 import ch.nolix.common.functional.IElementTakerDoubleGetter;
 import ch.nolix.common.functional.IElementTakerIntGetter;
 import ch.nolix.common.functional.IElementTakerLongGetter;
@@ -17,6 +15,9 @@ import ch.nolix.common.functional.IElementTakerComparableGetter;
 import ch.nolix.common.functional.IElementTakerBooleanGetter;
 import ch.nolix.common.functional.IElementTakerElementGetter;
 import ch.nolix.common.helper.CharacterHelper;
+import ch.nolix.common.invalidArgumentException.Argument;
+import ch.nolix.common.invalidArgumentException.ErrorPredicate;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.invalidStateException.EmptyStateException;
 
 //interface

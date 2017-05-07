@@ -3,9 +3,9 @@ package ch.nolix.application.nelix;
 
 //own imports
 import ch.nolix.common.container.List;
-import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.InvalidArgumentException;
-import ch.nolix.common.exception.ArgumentName;
+import ch.nolix.common.invalidArgumentException.Argument;
+import ch.nolix.common.invalidArgumentException.ArgumentName;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.specification.Specification;
 import ch.nolix.common.zetaValidator.ZetaValidator;

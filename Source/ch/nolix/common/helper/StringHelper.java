@@ -10,8 +10,8 @@ package ch.nolix.common.helper;
 
 //own imports
 import ch.nolix.common.constants.StringManager;
-import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.Argument;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.util.Validator;
 
 //class

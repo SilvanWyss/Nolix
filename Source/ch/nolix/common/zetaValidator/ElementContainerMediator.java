@@ -2,7 +2,7 @@
 package ch.nolix.common.zetaValidator;
 
 //own import
-import ch.nolix.common.exception.NullArgumentException;
+import ch.nolix.common.invalidArgumentException.NullArgumentException;
 
 //abstract package-visible class
 /**

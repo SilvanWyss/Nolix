@@ -1,6 +1,6 @@
 package ch.nolix.common.zetaValidator;
 
-import ch.nolix.common.exception.NullArgumentException;
+import ch.nolix.common.invalidArgumentException.NullArgumentException;
 
 public class ObjectMediator extends ElementMediator<Object> {
 

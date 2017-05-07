@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.exception;
+package ch.nolix.common.invalidArgumentException;
 
 /**
  * An invalid invalid argument exception is a runtime exception that is intended to be thrown when an argument is not valid or has a undesired property.

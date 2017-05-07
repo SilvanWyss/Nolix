@@ -9,13 +9,13 @@
 package ch.nolix.common.util;
 
 //own imports
-import ch.nolix.common.exception.ArgumentName;
-import ch.nolix.common.exception.EmptyArgumentException;
-import ch.nolix.common.exception.NegativeArgumentException;
-import ch.nolix.common.exception.NullArgumentException;
-import ch.nolix.common.exception.SmallerArgumentException;
-import ch.nolix.common.exception.UnequalArgumentException;
-import ch.nolix.common.exception.ZeroArgumentException;
+import ch.nolix.common.invalidArgumentException.ArgumentName;
+import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
+import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
+import ch.nolix.common.invalidArgumentException.NullArgumentException;
+import ch.nolix.common.invalidArgumentException.SmallerArgumentException;
+import ch.nolix.common.invalidArgumentException.UnequalArgumentException;
+import ch.nolix.common.invalidArgumentException.ZeroArgumentException;
 
 //class
 /**

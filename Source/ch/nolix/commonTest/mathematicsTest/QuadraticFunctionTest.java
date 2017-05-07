@@ -2,7 +2,7 @@
 package ch.nolix.commonTest.mathematicsTest;
 
 //own imports
-import ch.nolix.common.exception.ZeroArgumentException;
+import ch.nolix.common.invalidArgumentException.ZeroArgumentException;
 import ch.nolix.common.mathematics.QuadraticFunction;
 import ch.nolix.common.zetaTest.ZetaTest;
 

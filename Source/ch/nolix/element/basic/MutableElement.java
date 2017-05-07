@@ -2,9 +2,9 @@
 package ch.nolix.element.basic;
 
 import ch.nolix.common.controller.ILevel2Controller;
-import ch.nolix.common.exception.Argument;
-import ch.nolix.common.exception.ArgumentName;
-import ch.nolix.common.exception.InvalidArgumentException;
+import ch.nolix.common.invalidArgumentException.Argument;
+import ch.nolix.common.invalidArgumentException.ArgumentName;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 //own import
 import ch.nolix.common.specification.Specifiable;
 import ch.nolix.common.specification.Specification;

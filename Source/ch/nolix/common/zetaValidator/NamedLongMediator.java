@@ -2,16 +2,16 @@
 package ch.nolix.common.zetaValidator;
 
 //own imports
-import ch.nolix.common.exception.EmptyArgumentException;
-import ch.nolix.common.exception.NegativeArgumentException;
-import ch.nolix.common.exception.NonBiggerArgumentException;
-import ch.nolix.common.exception.NonNegativeArgumentException;
-import ch.nolix.common.exception.NonPositiveArgumentException;
-import ch.nolix.common.exception.NullArgumentException;
-import ch.nolix.common.exception.OutOfRangeArgumentException;
-import ch.nolix.common.exception.PositiveArgumentException;
-import ch.nolix.common.exception.SmallerArgumentException;
-import ch.nolix.common.exception.UnequalArgumentException;
+import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
+import ch.nolix.common.invalidArgumentException.NegativeArgumentException;
+import ch.nolix.common.invalidArgumentException.NonBiggerArgumentException;
+import ch.nolix.common.invalidArgumentException.NonNegativeArgumentException;
+import ch.nolix.common.invalidArgumentException.NonPositiveArgumentException;
+import ch.nolix.common.invalidArgumentException.NullArgumentException;
+import ch.nolix.common.invalidArgumentException.OutOfRangeArgumentException;
+import ch.nolix.common.invalidArgumentException.PositiveArgumentException;
+import ch.nolix.common.invalidArgumentException.SmallerArgumentException;
+import ch.nolix.common.invalidArgumentException.UnequalArgumentException;
 
 //class
 /**

@@ -1,27 +1,27 @@
 //package declaration
-package ch.nolix.common.exception;
+package ch.nolix.common.invalidArgumentException;
 
 //class
 /**
- * A non negative argument exception is an exception that is intended to be thrown when an argument is undesired not negative.
+ * A negative argument exception is an exception that is intended to be thrown when an argument is undesired negative.
  * 
  * @author Silvan Wyss
- * @month 2016-11
+ * @month 2016-02
  * @lines 70
  */
 @SuppressWarnings("serial")
-public final class NonNegativeArgumentException extends InvalidArgumentException {
-
+public final class NegativeArgumentException extends InvalidArgumentException {
+	
 	//constant
 	private static final String ERROR_PREDICATE = "is negative";
 	
 	//constructor
 	/**
-	 * Creates new non negative argument exception for the given argument.
+	 * Creates new negative argument exception for the given argument.
 	 * 
 	 * @param argument
 	 */
-	public NonNegativeArgumentException(final double argument) {
+	public NegativeArgumentException(final double argument) {
 		
 		//Calls constructor of the base class.
 		super(new Argument(argument), new ErrorPredicate(ERROR_PREDICATE));
@@ -29,11 +29,11 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
 	
 	//constructor
 	/**
-	 * Creates new non negative argument exception for the given argument.
+	 * Creates new negative argument exception for the given argument.
 	 * 
 	 * @param argument
 	 */
-	public NonNegativeArgumentException(final long argument) {
+	public NegativeArgumentException(final long argument) {
 		
 		//Calls constructor of the base class.
 		super(new Argument(argument), new ErrorPredicate(ERROR_PREDICATE));
@@ -41,14 +41,14 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
 	
 	//constructor
 	/**
-	 * Creates new non negative argument exception for the given argument that has the given argument name.
+	 * Creates new negative argument exception for the given argument that has the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
-	public NonNegativeArgumentException(final String argumentName, final double argument) {
+	public NegativeArgumentException(final String argumentName, final double argument) {
 		
 		//Calls constructor of the base class.
 		super(
@@ -60,14 +60,14 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
 	
 	//constructor
 	/**
-	 * Creates new non negative argument exception for the given argument that has the given argument name.
+	 * Creates new negative argument exception for the given argument that has the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
-	public NonNegativeArgumentException(final String argumentName, final long argument) {
+	public NegativeArgumentException(final String argumentName, final long argument) {
 		
 		//Calls constructor of the base class.
 		super(

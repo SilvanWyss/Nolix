@@ -3,9 +3,9 @@ package ch.nolix.common.endPoint2;
 
 //own imports
 import ch.nolix.common.basic.AbortableElement;
-import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.interfaces.IReceiver;
 import ch.nolix.common.interfaces.ISender;
+import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.common.invalidStateException.UnexistingAttributeException;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 

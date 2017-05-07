@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.exception;
+package ch.nolix.common.invalidArgumentException;
 
 @SuppressWarnings("serial")
 /**

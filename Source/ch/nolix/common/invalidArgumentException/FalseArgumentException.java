@@ -1,25 +1,25 @@
 //package declaration
-package ch.nolix.common.exception;
+package ch.nolix.common.invalidArgumentException;
 
 //class
 /**
- * A true argument exception is an argument exception that is intended to be thrown when an argument is undesired true.
+ * A false argument exception is an argument exception that is intended to be thrown when an argument is undesired false.
  * 
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 40
+ * @lines 30
  */
 @SuppressWarnings("serial")
-public class TrueArgumentException extends InvalidArgumentException {
+public class FalseArgumentException extends InvalidArgumentException {
 
 	//constant
-	private static final String ERROR_PREDICATE = "is true";
+	private static final String ERROR_PREDICATE = "is false";
 	
 	//constructor
 	/**
-	 * Creates new true argument exception.
+	 * Creates new false argument exception.
 	 */
-	public TrueArgumentException() {
+	public FalseArgumentException() {
 		
 		//Calls constructor of the base class.
 		super(new ErrorPredicate(ERROR_PREDICATE));
@@ -27,13 +27,13 @@ public class TrueArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new true argument exception for an argument with the given argument name.
+	 * Creates new false argument exception for an argument with the given argument name.
 	 * 
 	 * @param argumentName
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
-	public TrueArgumentException(final String argumentName) {
+	public FalseArgumentException(final String argumentName) {
 		
 		//Calls constructor of the base class.
 		super(new ArgumentName(argumentName), new ErrorPredicate(ERROR_PREDICATE));
