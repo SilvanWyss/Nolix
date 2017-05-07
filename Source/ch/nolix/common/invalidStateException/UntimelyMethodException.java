@@ -1,30 +1,32 @@
 //package declaration
-package ch.nolix.common.exception;
+package ch.nolix.common.invalidStateException;
 
 //class
 /**
- * An untimely method exception is an argument exception that is intended to be thrown when an object is not in a state for a certain method.
+ * An untimely method exception is an invalid state exception
+ * that is intended to be thrown when an object is not in a state for a called method.
  * 
  * @author Silvan Wyss
  * @month 2017-04
- * @lines 30
+ * @lines 40
  */
 @SuppressWarnings("serial")
-public final class UntimelyMethodException extends InvalidArgumentException {
+public final class UntimelyMethodException extends InvalidStateException {
 
 	//constructor
 	/**
-	 * Creates new untimely method exception for the given argument that is not in a state for a method with the given method name.
+	 * Creates new untimely method exception
+	 * for the given object that is not in a state for the called method with the given method name.
 	 * 
-	 * @param argument
+	 * @param object
 	 * @param methodName
 	 * @throws RuntimeException if the given method name is null.
 	 * @throws RuntimeException if the given method name is empty.
 	 */
-	public UntimelyMethodException(final Object argument, final String methodName) {
+	public UntimelyMethodException(final Object object, final String methodName) {
 		
 		//Calls constructor of the base class.
-		super(new Argument(argument), new ErrorPredicate("is not in a state for " + methodName));
+		super(object, "is not in a state for the method " + methodName);
 		
 		//Checks if the given method name is not null.
 		if (methodName == null) {

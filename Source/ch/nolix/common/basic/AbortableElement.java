@@ -6,8 +6,8 @@ import ch.nolix.common.exception.Argument;
 import ch.nolix.common.exception.ErrorPredicate;
 import ch.nolix.common.exception.InvalidArgumentException;
 import ch.nolix.common.exception.UnexistingPropertyException;
-import ch.nolix.common.exception.UntimelyMethodException;
 import ch.nolix.common.interfaces.Abortable;
+import ch.nolix.common.invalidStateException.UntimelyMethodException;
 import ch.nolix.common.zetaValidator.ZetaValidator;
 
 //abstract class

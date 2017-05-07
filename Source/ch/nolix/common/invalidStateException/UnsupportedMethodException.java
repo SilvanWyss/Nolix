@@ -4,7 +4,7 @@ package ch.nolix.common.invalidStateException;
 //class
 /**
  * An unsupported method exception is an invalid state exception that is intended to be thrown
- * when on an object a method is called that is not supported.
+ * when an object does not support a called method.
  * 
  * @author Silvan Wyss
  * @month 2016-05
