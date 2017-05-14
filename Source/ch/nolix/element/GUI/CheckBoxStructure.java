@@ -4,7 +4,7 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.PositiveInteger;
 

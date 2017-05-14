@@ -7,7 +7,8 @@ import java.awt.event.KeyListener;
 
 //own import
 
-import ch.nolix.core.zetaValidator.ZetaValidator;
+
+import ch.nolix.core.validator2.ZetaValidator;
 
 //package-visible class
 /**

@@ -11,13 +11,13 @@ package ch.nolix.core.duplexController;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.controller.ILevel2Controller;
+import ch.nolix.core.endPoint3.ZetaEndPoint;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.util.Validator;
-import ch.nolix.core.zetaEndPoint.ZetaEndPoint;
 
 //class
 public final class NetDuplexController extends DuplexController {

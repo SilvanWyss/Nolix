@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 
 //class
 /**

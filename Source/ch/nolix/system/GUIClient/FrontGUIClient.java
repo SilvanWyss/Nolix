@@ -7,7 +7,7 @@ import ch.nolix.core.application.Client;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.Frame;
 

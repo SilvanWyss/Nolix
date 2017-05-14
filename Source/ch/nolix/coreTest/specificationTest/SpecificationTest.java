@@ -3,7 +3,7 @@ package ch.nolix.coreTest.specificationTest;
 
 //own imports
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.zetaTest.ZetaTest;
+import ch.nolix.core.test2.ZetaTest;
 
 //test class
 /**

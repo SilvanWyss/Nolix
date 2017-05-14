@@ -10,7 +10,7 @@ package ch.nolix.core.basic;
 
 //own import
 import ch.nolix.core.util.Validator;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 
 //abstract class
 /**

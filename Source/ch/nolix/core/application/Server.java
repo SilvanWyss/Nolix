@@ -7,7 +7,7 @@ import ch.nolix.core.duplexController.DuplexControllerListener;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 
 //class
 /**

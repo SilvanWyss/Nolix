@@ -4,7 +4,7 @@ package ch.nolix.core.basic;
 //own imports
 import ch.nolix.core.interfaces.OptionalSignable;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 
 //abstract class
 /**

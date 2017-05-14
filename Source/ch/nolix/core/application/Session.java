@@ -7,10 +7,11 @@ import java.lang.reflect.Method;
 
 //own imports
 
+
 import ch.nolix.core.container.List;
 import ch.nolix.core.helper.MethodHelper;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 
 //abstract class
 /**

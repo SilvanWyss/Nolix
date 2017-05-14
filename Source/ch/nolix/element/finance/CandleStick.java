@@ -7,7 +7,7 @@ import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 import ch.nolix.element.basic.Element;
 import ch.nolix.element.basic.FloatingPointNumber;
 import ch.nolix.element.basic.Time;

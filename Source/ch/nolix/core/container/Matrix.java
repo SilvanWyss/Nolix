@@ -5,7 +5,7 @@ package ch.nolix.core.container;
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.functional.IElementTakerElementGetter;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 
 //class
 /**

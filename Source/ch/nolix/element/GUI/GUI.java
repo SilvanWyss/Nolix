@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 
 //own imports
 
+
 import ch.nolix.core.container.List;
 import ch.nolix.core.controller.ILevel1Controller;
 import ch.nolix.core.interfaces.Clearable;
@@ -19,7 +20,7 @@ import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Configurable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 import ch.nolix.element.basic.ConfigurationElement;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.Title;

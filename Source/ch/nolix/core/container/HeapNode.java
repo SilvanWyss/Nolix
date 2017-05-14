@@ -3,7 +3,7 @@ package ch.nolix.core.container;
 
 //own imports
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 
 //package-visible class
 /**

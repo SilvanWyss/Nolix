@@ -4,7 +4,7 @@ package ch.nolix.core.application;
 //own imports
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.duplexController.IDuplexControllerTaker;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 
 //package-visible class
 /**

@@ -6,8 +6,9 @@ import java.util.Vector;
 
 //own imports
 
+
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.zetaTest.ZetaTest;
+import ch.nolix.core.test2.ZetaTest;
 
 /**
  * This class is a test class for the calculator class.

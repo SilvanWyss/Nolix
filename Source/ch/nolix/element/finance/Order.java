@@ -2,7 +2,7 @@
 package ch.nolix.element.finance;
 
 //own import
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 import ch.nolix.element.basic.Time;
 
 //class

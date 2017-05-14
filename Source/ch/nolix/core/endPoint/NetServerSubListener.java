@@ -8,8 +8,9 @@ import java.net.Socket;
 
 //own imports
 
+
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 
 //package-visible class
 /**

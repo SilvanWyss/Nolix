@@ -5,7 +5,7 @@ package ch.nolix.elementTest.dataTest;
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
-import ch.nolix.core.zetaTest.ZetaTest;
+import ch.nolix.core.test2.ZetaTest;
 import ch.nolix.element.data.Title;
 
 //test class

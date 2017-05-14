@@ -3,7 +3,7 @@ package ch.nolix.coreTest.mathematicsTest;
 
 //own imports
 import ch.nolix.core.mathematics.ARModel;
-import ch.nolix.core.zetaTest.ZetaTest;
+import ch.nolix.core.test2.ZetaTest;
 
 //class
 /**

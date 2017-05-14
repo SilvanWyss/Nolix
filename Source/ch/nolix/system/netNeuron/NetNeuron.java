@@ -8,7 +8,7 @@ import ch.nolix.core.functional.IElementTakerElementGetter;
 import ch.nolix.core.neuron.Neuron;
 import ch.nolix.core.neuron.TriggerQueue;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 
 //class
 /**

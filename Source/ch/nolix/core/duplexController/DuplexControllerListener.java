@@ -9,10 +9,10 @@
 package ch.nolix.core.duplexController;
 
 //own imports
+import ch.nolix.core.endPoint3.Server;
+import ch.nolix.core.endPoint3.ZetaEndPoint;
 import ch.nolix.core.interfaces.Abortable;
 import ch.nolix.core.util.Validator;
-import ch.nolix.core.zetaEndPoint.Server;
-import ch.nolix.core.zetaEndPoint.ZetaEndPoint;
 
 //class
 /**

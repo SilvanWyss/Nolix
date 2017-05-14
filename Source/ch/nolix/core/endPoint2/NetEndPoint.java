@@ -8,9 +8,10 @@ import java.net.Socket;
 
 //own imports
 
+
 import ch.nolix.core.constants.IPv6Manager;
 import ch.nolix.core.constants.PortManager;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 
 //class
 /**

@@ -2,7 +2,7 @@
 package ch.nolix.coreTest.utilTest;
 
 //own imports
-import ch.nolix.core.zetaTest.ZetaTest;
+import ch.nolix.core.test2.ZetaTest;
 import ch.nolix.element.basic.Time;
 
 //test class

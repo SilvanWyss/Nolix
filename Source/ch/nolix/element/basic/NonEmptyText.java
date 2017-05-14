@@ -3,7 +3,7 @@ package ch.nolix.element.basic;
 
 //own imports
 import ch.nolix.core.constants.StringManager;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 
 //class
 /**

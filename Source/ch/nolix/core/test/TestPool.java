@@ -4,12 +4,13 @@ package ch.nolix.core.test;
 //Java import
 import java.util.Vector;
 
+
 //own imports
 import ch.nolix.core.interfaces.Executable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 
 //class
 /**

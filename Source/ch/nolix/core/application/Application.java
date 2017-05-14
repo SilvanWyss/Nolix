@@ -7,11 +7,12 @@ import java.lang.reflect.ParameterizedType;
 
 //own imports
 
+
 import ch.nolix.core.basic.NamedElement;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.duplexController.DuplexController;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 
 //abstract class
 /**

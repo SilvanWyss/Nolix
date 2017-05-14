@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.test;
 
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 
 //class
 public final class Accessor {

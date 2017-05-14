@@ -7,7 +7,7 @@ import ch.nolix.core.interfaces.IReceiver;
 import ch.nolix.core.interfaces.ISender;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 
 //abstract class
 /**

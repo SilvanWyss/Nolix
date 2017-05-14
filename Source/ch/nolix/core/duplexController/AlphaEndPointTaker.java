@@ -9,9 +9,9 @@
 package ch.nolix.core.duplexController;
 
 //own imports
+import ch.nolix.core.endPoint3.IZetaEndPointTaker;
+import ch.nolix.core.endPoint3.ZetaEndPoint;
 import ch.nolix.core.util.Validator;
-import ch.nolix.core.zetaEndPoint.IZetaEndPointTaker;
-import ch.nolix.core.zetaEndPoint.ZetaEndPoint;
 
 //package-visible class
 final class AlphaEndPointTaker implements IZetaEndPointTaker {

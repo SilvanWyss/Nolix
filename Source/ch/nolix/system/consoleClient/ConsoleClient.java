@@ -5,7 +5,7 @@ package ch.nolix.system.consoleClient;
 import ch.nolix.core.application.Client;
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.zetaValidator.ZetaValidator;
+import ch.nolix.core.validator2.ZetaValidator;
 
 //class
 /**
