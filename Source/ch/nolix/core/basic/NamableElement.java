@@ -1,22 +1,21 @@
-/*
- * file:	NamableElement.java
- * author:	Silvan Wyss
- * month:	2016-11
- * lines:	10
- */
-
 //package declaration
 package ch.nolix.core.basic;
 
-//own import
-import ch.nolix.core.util.Validator;
+//own imports
+import ch.nolix.core.interfaces.Namable;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
  * A namable element is an element that has a name.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-11
+ * @lines 60
+ * @parma <NE> - The type of a namable element.
  */
-public abstract class NamableElement {
+public abstract class NamableElement<NE extends NamableElement<NE>>
+implements Namable<NE> {
 
 	//attribute
 	private String name;
@@ -32,8 +31,12 @@ public abstract class NamableElement {
 		setName(name);
 	}
 	
-	public final boolean hasName() {
-		return (name != null);
+	//method
+	/**
+	 * @return the name of this namable element.
+	 */
+	public final String getName() {
+		return name;
 	}
 	
 	//method
@@ -41,15 +44,18 @@ public abstract class NamableElement {
 	 * Sets the name of this namable element.
 	 * 
 	 * @param name
-	 * @throws Exception if the given name is null or an empty string
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws EmptyArgumentException if the given name is empty.
 	 */
-	public final void setName(String name) {
+	@SuppressWarnings("unchecked")
+	public final NE setName(final String name) {
 		
-		//Checks the given name.
-		Validator.throwExceptionIfStringIsNullOrEmpty("name", name);
-		
+		//Checks if the given name is not null or empty.
 		Validator.supposeThat(name).thatIsNamed("name").isNotEmpty();
 		
+		//Sets the name of this namable element.
 		this.name = name;
+		
+		return (NE)this;
 	}
 }
