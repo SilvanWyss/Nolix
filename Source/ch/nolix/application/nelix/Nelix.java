@@ -12,15 +12,16 @@ import java.io.IOException;
 
 
 
-import ch.nolix.common.application.ContextApplication;
+
 //own imports
-import ch.nolix.common.controller.ILevel2Controller;
-import ch.nolix.common.invalidArgumentException.Argument;
-import ch.nolix.common.invalidArgumentException.ArgumentName;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.module.CentralController;
-import ch.nolix.common.specification.Statement;
-import ch.nolix.common.util.WindowsEnvironmentVariablesManager;
+import ch.nolix.core.application.ContextApplication;
+import ch.nolix.core.controller.ILevel2Controller;
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.module.CentralController;
+import ch.nolix.core.specification.Statement;
+import ch.nolix.core.util.WindowsEnvironmentVariablesManager;
 import ch.nolix.element.GUI.DefaultDesign;
 import ch.nolix.system.GUIClient.GUIClient;
 import ch.nolix.system.GUIClient.FrontGUIClient;

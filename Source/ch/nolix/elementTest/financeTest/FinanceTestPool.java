@@ -2,7 +2,7 @@
 package ch.nolix.elementTest.financeTest;
 
 //own import
-import ch.nolix.common.test.TestPool;
+import ch.nolix.core.test.TestPool;
 
 //class
 /**

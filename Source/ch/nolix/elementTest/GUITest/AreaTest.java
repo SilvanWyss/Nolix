@@ -9,7 +9,7 @@
 package ch.nolix.elementTest.GUITest;
 
 //own imports
-import ch.nolix.common.zetaTest.ZetaTest;
+import ch.nolix.core.zetaTest.ZetaTest;
 import ch.nolix.element.GUI.Area;
 import ch.nolix.element.data.BackgroundColor;
 

@@ -9,14 +9,14 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.invalidArgumentException.Argument;
-import ch.nolix.common.invalidArgumentException.ArgumentName;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.invalidStateException.UnexistingAttributeException;
-import ch.nolix.common.invalidStateException.UnremovableAttributeException;
-import ch.nolix.common.specification.Specification;
-import ch.nolix.common.util.Validator;
+import ch.nolix.core.container.List;
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.UnremovableAttributeException;
+import ch.nolix.core.specification.Specification;
+import ch.nolix.core.util.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.PositiveInteger;
 import ch.nolix.element.data.BackgroundColor;

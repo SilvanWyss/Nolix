@@ -11,8 +11,8 @@ package ch.nolix.element.GUI;
 //own imports
 import java.awt.Graphics;
 
-import ch.nolix.common.container.List;
-import ch.nolix.common.specification.Specification;
+import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Specification;
 
 //class
 public final class SingleContainer

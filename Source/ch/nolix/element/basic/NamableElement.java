@@ -9,14 +9,14 @@
 package ch.nolix.element.basic;
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.interfaces.IRequestableContainer;
-import ch.nolix.common.interfaces.Namable;
-import ch.nolix.common.invalidArgumentException.Argument;
-import ch.nolix.common.invalidArgumentException.ArgumentName;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.specification.Specification;
-import ch.nolix.common.util.Validator;
+import ch.nolix.core.container.List;
+import ch.nolix.core.interfaces.IRequestableContainer;
+import ch.nolix.core.interfaces.Namable;
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.specification.Specification;
+import ch.nolix.core.util.Validator;
 
 //class
 /**

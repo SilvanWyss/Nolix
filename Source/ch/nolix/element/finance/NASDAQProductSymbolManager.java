@@ -9,7 +9,7 @@
 package ch.nolix.element.finance;
 
 //own import
-import ch.nolix.common.container.List;
+import ch.nolix.core.container.List;
 
 //class
 /**

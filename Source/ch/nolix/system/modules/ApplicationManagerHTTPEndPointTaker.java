@@ -9,8 +9,8 @@
 package ch.nolix.system.modules;
 
 //own imports
-import ch.nolix.common.endPoint.EndPoint;
-import ch.nolix.common.endPoint.IEndPointTaker;
+import ch.nolix.core.endPoint.EndPoint;
+import ch.nolix.core.endPoint.IEndPointTaker;
 
 //class
 final class ApplicationManagerHTTPEndPointTaker implements IEndPointTaker {

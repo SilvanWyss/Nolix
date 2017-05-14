@@ -13,10 +13,11 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.specification.Configurable;
-import ch.nolix.common.specification.Specification;
-import ch.nolix.common.util.Validator;
+
+import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Configurable;
+import ch.nolix.core.specification.Specification;
+import ch.nolix.core.util.Validator;
 
 //class
 /**

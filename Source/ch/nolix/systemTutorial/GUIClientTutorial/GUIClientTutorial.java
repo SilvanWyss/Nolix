@@ -2,8 +2,8 @@
 package ch.nolix.systemTutorial.GUIClientTutorial;
 
 //own imports
-import ch.nolix.common.application.Session;
-import ch.nolix.common.application.StandardApplication;
+import ch.nolix.core.application.Session;
+import ch.nolix.core.application.StandardApplication;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.ContentPosition;
 import ch.nolix.element.GUI.CursorIcon;

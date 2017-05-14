@@ -6,11 +6,12 @@ import java.util.GregorianCalendar;
 
 
 //own imports
-import ch.nolix.common.constants.TimeUnitManager;
-import ch.nolix.common.container.List;
-import ch.nolix.common.helper.StringHelper;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.specification.Specification;
+
+import ch.nolix.core.constants.TimeUnitManager;
+import ch.nolix.core.container.List;
+import ch.nolix.core.helper.StringHelper;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.specification.Specification;
 
 //class
 /**

@@ -2,13 +2,13 @@
 package ch.nolix.system.netNeuron;
 
 //own imports
-import ch.nolix.common.application.StandardApplication;
-import ch.nolix.common.application.StandardClient;
-import ch.nolix.common.functional.IElementTakerElementGetter;
-import ch.nolix.common.neuron.Neuron;
-import ch.nolix.common.neuron.TriggerQueue;
-import ch.nolix.common.specification.Specification;
-import ch.nolix.common.zetaValidator.ZetaValidator;
+import ch.nolix.core.application.StandardApplication;
+import ch.nolix.core.application.StandardClient;
+import ch.nolix.core.functional.IElementTakerElementGetter;
+import ch.nolix.core.neuron.Neuron;
+import ch.nolix.core.neuron.TriggerQueue;
+import ch.nolix.core.specification.Specification;
+import ch.nolix.core.zetaValidator.ZetaValidator;
 
 //class
 /**

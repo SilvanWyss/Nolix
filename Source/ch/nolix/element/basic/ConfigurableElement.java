@@ -9,11 +9,11 @@
 package ch.nolix.element.basic;
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.interfaces.OptionalTokenable;
-import ch.nolix.common.invalidStateException.UnexistingAttributeException;
-import ch.nolix.common.specification.Configurable;
-import ch.nolix.common.specification.Specification;
+import ch.nolix.core.container.List;
+import ch.nolix.core.interfaces.OptionalTokenable;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.specification.Configurable;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.element.data.Token;
 
 //class

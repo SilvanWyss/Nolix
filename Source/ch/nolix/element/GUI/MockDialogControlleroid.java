@@ -9,8 +9,8 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.common.controller.ILevel1Controller;
-import ch.nolix.common.specification.Statement;
+import ch.nolix.core.controller.ILevel1Controller;
+import ch.nolix.core.specification.Statement;
 
 //class
 final class MockDialogControlleroid implements ILevel1Controller {

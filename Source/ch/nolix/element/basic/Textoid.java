@@ -9,10 +9,10 @@
 package ch.nolix.element.basic;
 
 //own imports
-import ch.nolix.common.constants.StringManager;
-import ch.nolix.common.container.List;
-import ch.nolix.common.specification.Specification;
-import ch.nolix.common.util.Validator;
+import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Specification;
+import ch.nolix.core.util.Validator;
 
 //package-visible class
 public abstract class Textoid extends Element {

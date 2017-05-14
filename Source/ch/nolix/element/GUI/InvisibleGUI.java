@@ -2,7 +2,7 @@
 package ch.nolix.element.GUI;
 
 //own import
-import ch.nolix.common.zetaValidator.ZetaValidator;
+import ch.nolix.core.zetaValidator.ZetaValidator;
 
 //class
 /**

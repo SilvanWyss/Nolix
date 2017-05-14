@@ -2,13 +2,13 @@
 package ch.nolix.element.basic;
 
 //own imports
-import ch.nolix.common.constants.StringManager;
-import ch.nolix.common.container.List;
-import ch.nolix.common.invalidArgumentException.Argument;
-import ch.nolix.common.invalidArgumentException.ErrorPredicate;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.specification.Specification;
-import ch.nolix.common.zetaValidator.ZetaValidator;
+import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.container.List;
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ErrorPredicate;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.specification.Specification;
+import ch.nolix.core.zetaValidator.ZetaValidator;
 
 //class
 /**

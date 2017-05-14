@@ -1,0 +1,35 @@
+//package declaration
+package ch.nolix.coreTutorial.zetaValidatorTutorial;
+
+//own import
+import ch.nolix.core.zetaValidator.ZetaValidator;
+
+//class
+/**
+ * This class provides a tutorial how the zeta validator validates a boolean.
+ * 
+ * @author Silvan Wys
+ * @month 2016-12
+ * @lines 30
+ */
+public final class BooleanValidationTutorial1 {
+
+	//main method
+	/**
+	 * Lets the zeta validator suppose once that a true boolean is true and once that a true boolean is false.
+	 */
+	public static void main(String[] args) {
+		
+		//Supposes that a true boolean is true, what makes that the zeta validator does not complain.
+		ZetaValidator.supposeThat(true);
+		
+		//Supposes that a true boolean is false, what makes that the zeta validator throws a TrueArgumentException.
+		ZetaValidator.supposeThatNot(true);
+	}
+	
+	//private constructor
+	/**
+	 * Avoids that an instance of this class can be created.
+	 */
+	private BooleanValidationTutorial1() {}
+}

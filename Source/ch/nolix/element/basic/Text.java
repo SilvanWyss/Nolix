@@ -2,7 +2,7 @@
 package ch.nolix.element.basic;
 
 //own import
-import ch.nolix.common.constants.StringManager;
+import ch.nolix.core.constants.StringManager;
 
 //class
 /**

@@ -17,15 +17,16 @@ import java.io.File;
 
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.invalidArgumentException.Argument;
-import ch.nolix.common.invalidArgumentException.ArgumentName;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.invalidStateException.UnexistingAttributeException;
-import ch.nolix.common.invalidStateException.UnsupportedMethodException;
-import ch.nolix.common.module.CentralController;
-import ch.nolix.common.module.Module;
-import ch.nolix.common.specification.Statement;
+
+import ch.nolix.core.container.List;
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.UnsupportedMethodException;
+import ch.nolix.core.module.CentralController;
+import ch.nolix.core.module.Module;
+import ch.nolix.core.specification.Statement;
 import ch.nolix.element.configuration.StandardConfiguration;
 
 //class

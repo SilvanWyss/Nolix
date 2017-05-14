@@ -9,7 +9,7 @@
 package ch.nolix.application.timer;
 
 //own imports
-import ch.nolix.common.application.StandardApplication;
+import ch.nolix.core.application.StandardApplication;
 import ch.nolix.system.GUIClient.GUIClient;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 

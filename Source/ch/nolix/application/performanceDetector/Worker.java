@@ -9,7 +9,7 @@
 package ch.nolix.application.performanceDetector;
 
 //own import
-import ch.nolix.common.mathematics.Calculator;
+import ch.nolix.core.mathematics.Calculator;
 
 //package-visible class
 final class Worker extends Thread {

@@ -2,10 +2,10 @@
 package ch.nolix.system.consoleClient;
 
 //own imports
-import ch.nolix.common.application.Client;
-import ch.nolix.common.duplexController.DuplexController;
-import ch.nolix.common.specification.Specification;
-import ch.nolix.common.zetaValidator.ZetaValidator;
+import ch.nolix.core.application.Client;
+import ch.nolix.core.duplexController.DuplexController;
+import ch.nolix.core.specification.Specification;
+import ch.nolix.core.zetaValidator.ZetaValidator;
 
 //class
 /**

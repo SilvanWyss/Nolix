@@ -6,3 +6,4 @@
 *.html
 *.js
 package-list
+/bin/

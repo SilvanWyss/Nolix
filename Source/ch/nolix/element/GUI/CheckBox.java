@@ -5,8 +5,9 @@ package ch.nolix.element.GUI;
 import java.awt.Graphics;
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.specification.Specification;
+
+import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Specification;
 
 //class
 /**

@@ -2,9 +2,9 @@
 package ch.nolix.element.basic;
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.helper.DoubleHelper;
-import ch.nolix.common.specification.Specification;
+import ch.nolix.core.container.List;
+import ch.nolix.core.helper.DoubleHelper;
+import ch.nolix.core.specification.Specification;
 
 //class
 /**

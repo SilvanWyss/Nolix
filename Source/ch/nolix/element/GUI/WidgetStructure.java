@@ -2,10 +2,10 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.invalidStateException.UnexistingAttributeException;
-import ch.nolix.common.specification.Specification;
-import ch.nolix.common.zetaValidator.ZetaValidator;
+import ch.nolix.core.container.List;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.specification.Specification;
+import ch.nolix.core.zetaValidator.ZetaValidator;
 
 //class
 /**

@@ -6,11 +6,12 @@ import java.awt.Graphics;
 
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.invalidStateException.UnexistingAttributeException;
-import ch.nolix.common.mathematics.Calculator;
-import ch.nolix.common.specification.Specification;
-import ch.nolix.common.zetaValidator.ZetaValidator;
+
+import ch.nolix.core.container.List;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.mathematics.Calculator;
+import ch.nolix.core.specification.Specification;
+import ch.nolix.core.zetaValidator.ZetaValidator;
 import ch.nolix.element.basic.PositiveInteger;
 import ch.nolix.element.data.MinHeight;
 import ch.nolix.element.data.MinWidth;

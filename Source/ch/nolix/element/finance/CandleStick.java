@@ -2,12 +2,12 @@
 package ch.nolix.element.finance;
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.invalidArgumentException.Argument;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.mathematics.Calculator;
-import ch.nolix.common.specification.Specification;
-import ch.nolix.common.zetaValidator.ZetaValidator;
+import ch.nolix.core.container.List;
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.mathematics.Calculator;
+import ch.nolix.core.specification.Specification;
+import ch.nolix.core.zetaValidator.ZetaValidator;
 import ch.nolix.element.basic.Element;
 import ch.nolix.element.basic.FloatingPointNumber;
 import ch.nolix.element.basic.Time;

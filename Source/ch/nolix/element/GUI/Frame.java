@@ -17,10 +17,11 @@ import javax.swing.JPanel;
 
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.mathematics.Calculator;
-import ch.nolix.common.specification.Specification;
-import ch.nolix.common.specification.Statement;
+
+import ch.nolix.core.container.List;
+import ch.nolix.core.mathematics.Calculator;
+import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.Statement;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
 

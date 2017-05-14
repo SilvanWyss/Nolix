@@ -2,8 +2,8 @@
 package ch.nolix.system.consoleClient;
 
 //own import
-import ch.nolix.common.application.Client;
-import ch.nolix.common.zetaValidator.ZetaValidator;
+import ch.nolix.core.application.Client;
+import ch.nolix.core.zetaValidator.ZetaValidator;
 import ch.nolix.element.GUI.GUI;
 
 //class

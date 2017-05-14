@@ -9,7 +9,7 @@
 package ch.nolix.elementTest.GUITest;
 
 //own import
-import ch.nolix.common.test.TestPool;
+import ch.nolix.core.test.TestPool;
 
 //class
 public final class GUITestPool extends TestPool {

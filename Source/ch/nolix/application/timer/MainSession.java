@@ -9,8 +9,8 @@
 package ch.nolix.application.timer;
 
 //own imports
-import ch.nolix.common.application.Session;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.core.application.Session;
+import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.GUI.HorizontalStack;
@@ -22,7 +22,7 @@ import ch.nolix.system.GUIClient.GUIClient;
 public final class MainSession extends Session<GUIClient> {
 
 	//attribute
-	private final ch.nolix.common.util.Timer timer = new ch.nolix.common.util.Timer();
+	private final ch.nolix.core.util.Timer timer = new ch.nolix.core.util.Timer();
 	
 	//method
 	/**

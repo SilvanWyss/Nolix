@@ -9,8 +9,8 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
 //own imports
-import ch.nolix.common.controller.ILevel1Controller;
-import ch.nolix.common.specification.Statement;
+import ch.nolix.core.controller.ILevel1Controller;
+import ch.nolix.core.specification.Statement;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.Console;
 import ch.nolix.element.GUI.Frame;

@@ -9,7 +9,7 @@
 package ch.nolix.elementTest.basicTest;
 
 //own imports
-import ch.nolix.common.zetaTest.ZetaTest;
+import ch.nolix.core.zetaTest.ZetaTest;
 import ch.nolix.element.basic.Color;
 
 //test class

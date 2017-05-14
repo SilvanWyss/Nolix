@@ -1,14 +1,14 @@
 //package declaration
 package ch.nolix.element.basic;
 
-import ch.nolix.common.controller.ILevel2Controller;
-import ch.nolix.common.invalidArgumentException.Argument;
-import ch.nolix.common.invalidArgumentException.ArgumentName;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
 //own import
-import ch.nolix.common.specification.Specifiable;
-import ch.nolix.common.specification.Specification;
-import ch.nolix.common.specification.Statement;
+import ch.nolix.core.controller.ILevel2Controller;
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.specification.Specifiable;
+import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.Statement;
 
 //class
 public abstract class MutableElement

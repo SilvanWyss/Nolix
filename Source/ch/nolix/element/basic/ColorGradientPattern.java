@@ -9,7 +9,7 @@
 package ch.nolix.element.basic;
 
 //own import
-import ch.nolix.common.specification.Specification;
+import ch.nolix.core.specification.Specification;
 
 //enum
 public enum ColorGradientPattern {

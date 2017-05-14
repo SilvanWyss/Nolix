@@ -7,18 +7,19 @@ import java.awt.event.KeyEvent;
 
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.controller.ILevel1Controller;
-import ch.nolix.common.interfaces.Clearable;
-import ch.nolix.common.interfaces.IRequestableContainer;
-import ch.nolix.common.invalidArgumentException.Argument;
-import ch.nolix.common.invalidArgumentException.ErrorPredicate;
-import ch.nolix.common.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.common.invalidStateException.UnexistingAttributeException;
-import ch.nolix.common.specification.Configurable;
-import ch.nolix.common.specification.Specification;
-import ch.nolix.common.specification.Statement;
-import ch.nolix.common.zetaValidator.ZetaValidator;
+
+import ch.nolix.core.container.List;
+import ch.nolix.core.controller.ILevel1Controller;
+import ch.nolix.core.interfaces.Clearable;
+import ch.nolix.core.interfaces.IRequestableContainer;
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ErrorPredicate;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.specification.Configurable;
+import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.Statement;
+import ch.nolix.core.zetaValidator.ZetaValidator;
 import ch.nolix.element.basic.ConfigurationElement;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.Title;

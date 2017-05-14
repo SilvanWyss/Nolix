@@ -9,7 +9,7 @@
 package ch.nolix.element.basic;
 
 //own imports
-import ch.nolix.common.util.Validator;
+import ch.nolix.core.util.Validator;
 
 //class
 public class PositiveInteger extends Integeroid {

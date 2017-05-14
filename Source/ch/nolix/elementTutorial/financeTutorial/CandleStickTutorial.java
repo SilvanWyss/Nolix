@@ -9,8 +9,8 @@
 package ch.nolix.elementTutorial.financeTutorial;
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.container.SequencePattern;
+import ch.nolix.core.container.List;
+import ch.nolix.core.container.SequencePattern;
 import ch.nolix.element.basic.Time;
 import ch.nolix.element.finance.DataProvider;
 import ch.nolix.element.finance.NYSEProductSymbolManager;

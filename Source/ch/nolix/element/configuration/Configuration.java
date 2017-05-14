@@ -9,11 +9,11 @@
 package ch.nolix.element.configuration;
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.interfaces.Freezable;
-import ch.nolix.common.invalidStateException.UnexistingAttributeException;
-import ch.nolix.common.specification.Configurable;
-import ch.nolix.common.specification.Specification;
+import ch.nolix.core.container.List;
+import ch.nolix.core.interfaces.Freezable;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.specification.Configurable;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.element.basic.NamableElement;
 import ch.nolix.element.basic.NonEmptyText;
 import ch.nolix.element.data.Name;

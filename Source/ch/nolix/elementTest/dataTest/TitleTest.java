@@ -2,10 +2,10 @@
 package ch.nolix.elementTest.dataTest;
 
 //own imports
-import ch.nolix.common.constants.StringManager;
-import ch.nolix.common.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.common.invalidArgumentException.NullArgumentException;
-import ch.nolix.common.zetaTest.ZetaTest;
+import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
+import ch.nolix.core.invalidArgumentException.NullArgumentException;
+import ch.nolix.core.zetaTest.ZetaTest;
 import ch.nolix.element.data.Title;
 
 //test class

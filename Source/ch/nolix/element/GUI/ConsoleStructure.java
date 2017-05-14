@@ -2,8 +2,8 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.specification.Specification;
+import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.element.data.Height;
 import ch.nolix.element.data.TextColor;
 import ch.nolix.element.data.TextSize;

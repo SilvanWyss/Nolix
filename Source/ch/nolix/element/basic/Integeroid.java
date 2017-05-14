@@ -9,9 +9,9 @@
 package ch.nolix.element.basic;
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.helper.StringHelper;
-import ch.nolix.common.specification.Specification;
+import ch.nolix.core.container.List;
+import ch.nolix.core.helper.StringHelper;
+import ch.nolix.core.specification.Specification;
 
 //package-visible class
 public abstract class Integeroid extends Element {

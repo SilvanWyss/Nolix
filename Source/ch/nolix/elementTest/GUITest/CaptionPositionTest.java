@@ -1,6 +1,6 @@
 package ch.nolix.elementTest.GUITest;
 
-import ch.nolix.common.zetaTest.ZetaTest;
+import ch.nolix.core.zetaTest.ZetaTest;
 
 public class CaptionPositionTest extends ZetaTest {
 

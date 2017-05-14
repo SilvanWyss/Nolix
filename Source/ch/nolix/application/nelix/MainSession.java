@@ -2,7 +2,7 @@
 package ch.nolix.application.nelix;
 
 //own imports
-import ch.nolix.common.application.ContextSession;
+import ch.nolix.core.application.ContextSession;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.GUI.Label;

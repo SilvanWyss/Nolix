@@ -27,9 +27,10 @@ import javax.swing.JFrame;
 
 
 //own imports
-import ch.nolix.common.container.List;
-import ch.nolix.common.specification.Specification;
-import ch.nolix.common.util.Validator;
+
+import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Specification;
+import ch.nolix.core.util.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.GraphicText;

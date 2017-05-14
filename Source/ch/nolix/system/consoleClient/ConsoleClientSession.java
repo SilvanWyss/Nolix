@@ -2,8 +2,8 @@
 package ch.nolix.system.consoleClient;
 
 //own imports
-import ch.nolix.common.application.Session;
-import ch.nolix.common.sequencer.Sequencer;
+import ch.nolix.core.application.Session;
+import ch.nolix.core.sequencer.Sequencer;
 
 //abstract class
 /**

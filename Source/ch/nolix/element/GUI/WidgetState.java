@@ -9,7 +9,7 @@
 package ch.nolix.element.GUI;
 
 //own import
-import ch.nolix.common.specification.Specification;
+import ch.nolix.core.specification.Specification;
 
 //enum
 public enum WidgetState {

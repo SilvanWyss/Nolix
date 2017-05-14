@@ -1,7 +1,7 @@
 package ch.nolix.system.modules;
 
-import ch.nolix.common.endPoint.EndPoint;
-import ch.nolix.common.interfaces.IReceiver;
+import ch.nolix.core.endPoint.EndPoint;
+import ch.nolix.core.interfaces.IReceiver;
 
 public class ApplicationManagerHTTPEndPointReceiver implements IReceiver {
 
