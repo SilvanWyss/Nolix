@@ -13,12 +13,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Vector;
 
-//own import
-
-import ch.nolix.core.interfaces.Executable;
-
 //class
-public abstract class Test implements Executable {
+public abstract class Test {
 	
 	//attribute
 	private final Vector<String> lastErrors = new Vector<String>();
@@ -27,7 +23,7 @@ public abstract class Test implements Executable {
 	/**
 	 * Executes this test and prints out the test result to the console.
 	 */
-	public final void execute() {
+	public final void run() {
 		
 		int testMethodsCount = 0;
 		int passedTestMethodsCount = 0;

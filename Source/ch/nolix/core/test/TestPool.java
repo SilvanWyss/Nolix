@@ -4,11 +4,7 @@ package ch.nolix.core.test;
 //Java import
 import java.util.Vector;
 
-
-
-
 //own imports
-
 import ch.nolix.core.interfaces.Executable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
@@ -26,7 +22,8 @@ import ch.nolix.core.zetaValidator.ZetaValidator;
 public abstract class TestPool implements Executable {
 
 	//multiple attribute
-	private final Vector<Executable> testoids = new Vector<Executable>();
+	private final Vector<Test> tests = new Vector<Test>();
+	private final Vector<TestPool> testPools = new Vector<TestPool>();
 	
 	//method
 	/**
@@ -35,13 +32,8 @@ public abstract class TestPool implements Executable {
 	 */
 	public final boolean containsTestPoolRecursively(final TestPool testPool) {
 		
-		for (Object t: testoids) {
-			
-			if (t == testPool) {
-				return true;
-			}
-			
-			if (t instanceof TestPool && ((TestPool)t).containsTestPoolRecursively(testPool)) {
+		for (final TestPool tp : testPools) {			
+			if (tp.containsTestPoolRecursively(testPool)) {
 				return true;
 			}
 		}
@@ -56,13 +48,14 @@ public abstract class TestPool implements Executable {
 	 */
 	public final boolean containsTestRecursively(final Test test) {
 		
-		for (Object t: testoids) {
-			
+		for (final Test t : tests) {
 			if (t == test) {
 				return true;
 			}
-			
-			if (t instanceof TestPool && ((TestPool)t).containsTestRecursively(test)) {
+		}
+		
+		for (final TestPool tp : testPools) {
+			if (tp.containsTestRecursively(test)) {
 				return true;
 			}
 		}
@@ -74,8 +67,9 @@ public abstract class TestPool implements Executable {
 	/**
 	 * Executes the tests and the test pools of this test pool.
 	 */
-	public final void execute() {
-		testoids.forEach(t -> t.execute());
+	public final void run() {
+		tests.forEach(t -> t.run());
+		testPools.forEach(tp -> tp.run());
 	}
 	
 	//method
@@ -90,7 +84,7 @@ public abstract class TestPool implements Executable {
 		//Checks if the given test is not null.
 		ZetaValidator.supposeThat(test).thatIsNamed("test").isNotNull();
 		
-		testoids.add(test);
+		tests.add(test);
 	}
 	
 	//method
@@ -129,7 +123,7 @@ public abstract class TestPool implements Executable {
 			);
 		}
 		
-		testoids.add(testPool);
+		testPools.add(testPool);
 	}
 	
 	//method

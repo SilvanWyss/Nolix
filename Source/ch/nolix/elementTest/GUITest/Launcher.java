@@ -18,7 +18,7 @@ final class Launcher {
 	 * @param args
 	 */
 	public static final void main(String[] args) {
-		new GUITestPool().execute();
+		new GUITestPool().run();
 	}
 	
 	//private constructor

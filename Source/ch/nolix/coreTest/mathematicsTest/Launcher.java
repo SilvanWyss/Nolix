@@ -16,7 +16,7 @@ public final class Launcher {
 	 * @param arguments
 	 */
 	public static final void main(final String[] arguments) {
-		new MathematicsTestPool().execute();
+		new MathematicsTestPool().run();
 	}
 	
 	//private constructor

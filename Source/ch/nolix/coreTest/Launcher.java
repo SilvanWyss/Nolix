@@ -16,7 +16,7 @@ public final class Launcher {
 	 * @param arguments
 	 */
 	public static void main(final String[] arguments) {
-		new CommonTestPool().execute();
+		new CommonTestPool().run();
 	}
 	
 	//private constructor

@@ -18,7 +18,7 @@ public final class Launcher {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		new ElementTestPool().execute();
+		new ElementTestPool().run();
 	}
 
 	//private constructor

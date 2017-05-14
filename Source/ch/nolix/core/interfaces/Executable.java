@@ -15,5 +15,5 @@ public interface Executable {
 	/**
 	 * Lets this executable object execute something.
 	 */
-	public abstract void execute();
+	public abstract void run();
 }
