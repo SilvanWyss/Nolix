@@ -202,8 +202,8 @@ public final class Validator {
 	 * @param arguments
 	 * @return a new object container mediator with the given arguments.
 	 */
-	public static ObjectContainerMediator supposeThatTheObjects(final Iterable<Object> arguments) {
-		return new ObjectContainerMediator(arguments);
+	public static ArgumentContainerMediator supposeThatTheObjects(final Iterable<Object> arguments) {
+		return new ArgumentContainerMediator(arguments);
 	}
 	
 	//static method

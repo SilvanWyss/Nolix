@@ -8,18 +8,20 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //class
 /**
+ * A string container mediator is not mutable.
+ * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 40
+ * @lines 50
  */
-public final class StringContainerMediator extends ElementContainerMediator<String> {
+public final class StringContainerMediator extends ArgumentContainerMediator<String> {
 
-	// package-visible constructor
+	//package-visible constructor
 	/**
 	 * Creates new string container mediator with the given arguments.
 	 * 
 	 * @param arguments
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws NullArgumentException if the given argument container is null.
 	 */
 	StringContainerMediator(final Iterable<String> arguments) {
 		
@@ -29,20 +31,25 @@ public final class StringContainerMediator extends ElementContainerMediator<Stri
 	
 	//method
 	/**
-	 * @throws EmptyArgumentException if one of the arguments of htis string container mediator is an empty string.
+	 * @throws NullArgumentException if one of the arguments of this strinc container mediator is null.
+	 * @throws EmptyArgumentException if one of the arguments of this string container mediator is empty.
 	 */
 	public void areNotEmpty() {
 		
-		//Iterates through the arguments of this string container mediator.
-		int i = 1;
-		for (String a: getRefArguments()) {
-			
-			//Checks if the current argument is an empty string.
+		//Checks if the arguments of this string container mediator are not null.
+		areNotNull();
+		
+		//Iterates the arguments of this string container mediator.
+		int index = 1;
+		for (final String a : getRefArguments()) {
+						
+			//Checks if the current argument is not empty.
 			if (a.isEmpty()) {
-				throw new EmptyArgumentException(new ArgumentName(i + "th argument"));
+				throw new EmptyArgumentException(new ArgumentName(index + "th argument"));
 			}
 			
-			i++;
+			//Increments index.
+			index++;
 		}
 	}
 }

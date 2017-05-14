@@ -13,7 +13,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * @month 2016-12
  * @lines 80
  */
-public final class DoubleContainerMediator extends ElementContainerMediator<Double> {
+public final class DoubleContainerMediator extends ArgumentContainerMediator<Double> {
 	
 	//package-visible constructor
 	/**

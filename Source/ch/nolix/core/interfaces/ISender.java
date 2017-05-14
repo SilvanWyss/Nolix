@@ -32,7 +32,7 @@ public interface ISender {
 	public default void send(final String... messages) {
 		
 		//TODO: Add required function to zeta validator.
-		//ZetaValidator.supposeThat(messages).thatIsNamed("message container").isNotNull();
+		//Validator.supposeThat(messages).thatIsNamed("message container").isNotNullContainer();
 		
 		//Iterates the given messages.
 		for (final String m : messages) {
