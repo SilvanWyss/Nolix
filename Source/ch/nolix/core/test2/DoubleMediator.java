@@ -4,7 +4,7 @@ package ch.nolix.core.test2;
 //own imports
 import ch.nolix.core.functional.IElementTakerBooleanGetter;
 import ch.nolix.core.test.Accessor;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -43,7 +43,7 @@ public final class DoubleMediator extends Mediator {
 	public final DoubleConjunctionMediator fulfils(final IElementTakerBooleanGetter<Double> condition) {
 		
 		//Checks if the given condition is not null.
-		ZetaValidator.supposeThat(condition).thatIsNamed("condition").isNotNull();
+		Validator.supposeThat(condition).thatIsNamed("condition").isNotNull();
 		
 		if (!condition.getOutput(value)) {
 			new Accessor(getZetaTest()).addCurrentTestMethodError("A value that fulfils the given condition was expected, but " + value + " was received.");
@@ -63,7 +63,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public final DoubleConjunctionMediator isBetween(final double min, final double max) {
 		
-		ZetaValidator.supposeThat(max).thatIsNamed("max").isBiggerThanOrEquals(min);
+		Validator.supposeThat(max).thatIsNamed("max").isBiggerThanOrEquals(min);
 		if (min > max) {
 			new Accessor(getZetaTest()).addCurrentTestMethodError("A value cannot not be between " + min + " and " + max + ".");
 		}

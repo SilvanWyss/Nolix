@@ -8,7 +8,7 @@ import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -406,7 +406,7 @@ public class Color extends Element {
 	private void setBlueValue(final int blueValue) {
 		
 		//Checks if the given blue value is between 0 and 255.
-		ZetaValidator
+		Validator
 		.supposeThat(blueValue)
 		.thatIsNamed("blue value")
 		.isBetween(MIN_TRUE_COLOR_COMPONENT, MAX_TRUE_COLOR_COMPONENT);
@@ -424,7 +424,7 @@ public class Color extends Element {
 	private void setGreenValue(final int greenValue) {
 		
 		//Checks if the given blue value is between 0 and 255.
-		ZetaValidator
+		Validator
 		.supposeThat(greenValue)
 		.thatIsNamed("green value")
 		.isBetween(MIN_TRUE_COLOR_COMPONENT, MAX_TRUE_COLOR_COMPONENT);
@@ -442,7 +442,7 @@ public class Color extends Element {
 	private void setRedValue(final int redValue) {
 		
 		//Checks if the given blue value is between 0 and 255.
-		ZetaValidator
+		Validator
 		.supposeThat(redValue)
 		.thatIsNamed("red value")
 		.isBetween(MIN_TRUE_COLOR_COMPONENT, MAX_TRUE_COLOR_COMPONENT);
@@ -460,7 +460,7 @@ public class Color extends Element {
 	private void setValue(final int value) {
 		
 		//Checks if the given value is between 0 and 16777215.
-		ZetaValidator.supposeThat(value).isBetween(MIN_TRUE_COLOR, MAX_TRUE_COLOR);
+		Validator.supposeThat(value).isBetween(MIN_TRUE_COLOR, MAX_TRUE_COLOR);
 		
 		this.value = value;
 	}

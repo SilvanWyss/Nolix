@@ -7,7 +7,7 @@ import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Element;
 import ch.nolix.element.basic.FloatingPointNumber;
 import ch.nolix.element.basic.Time;
@@ -95,11 +95,11 @@ public class CandleStick extends Element {
 		final double highestPrice
 	) {
 		//Checks the given arguments.
-		ZetaValidator.supposeThat(time).thatIsInstanceOf(Time.class).isNotNull();
-		ZetaValidator.supposeThat(openingPrice).thatIsNamed("opening price").isNotNegative();
-		ZetaValidator.supposeThat(closingPrice).thatIsNamed("closing price").isNotNegative();
-		ZetaValidator.supposeThat(lowestPrice).thatIsNamed("lowest price").isNotNegative();
-		ZetaValidator.supposeThat(highestPrice).thatIsNamed("highest price").isNotNegative();
+		Validator.supposeThat(time).thatIsInstanceOf(Time.class).isNotNull();
+		Validator.supposeThat(openingPrice).thatIsNamed("opening price").isNotNegative();
+		Validator.supposeThat(closingPrice).thatIsNamed("closing price").isNotNegative();
+		Validator.supposeThat(lowestPrice).thatIsNamed("lowest price").isNotNegative();
+		Validator.supposeThat(highestPrice).thatIsNamed("highest price").isNotNegative();
 		
 		//Sets the values of this candle stick.
 		this.time = time;
@@ -335,7 +335,7 @@ public class CandleStick extends Element {
 	public final boolean isHammer(final double minLowerWickLengthRatio) {
 		
 		//Checks if the given min lower wick length ratio is not negative.
-		ZetaValidator.supposeThat(minLowerWickLengthRatio).thatIsNamed("min lower wick length ration").isNotNegative();
+		Validator.supposeThat(minLowerWickLengthRatio).thatIsNamed("min lower wick length ration").isNotNegative();
 
 		//Calculates the needed characteristic values.
 		final double length = getLength();
@@ -383,7 +383,7 @@ public class CandleStick extends Element {
 	public final boolean isInvertedHammer(final double minUpperWickLengthRatio) {
 		
 		//Checks if the given min upper wick length ratio is not negative.
-		ZetaValidator.supposeThat(minUpperWickLengthRatio).thatIsNamed("min upper wick length ratio").isNotNegative();
+		Validator.supposeThat(minUpperWickLengthRatio).thatIsNamed("min upper wick length ratio").isNotNegative();
 
 		//Calculates the needed characteristic values.
 		final double length = getLength();

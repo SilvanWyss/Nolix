@@ -4,7 +4,7 @@ package ch.nolix.core.test2;
 //own imports
 import ch.nolix.core.functional.IRunner;
 import ch.nolix.core.test.Accessor;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -67,7 +67,7 @@ public final class ClosureMediator extends Mediator {
 	public void throwsExceptionOfType(final Class<?> type) {
 		
 		//Checks if the given type is not null.
-		ZetaValidator.supposeThat(type).thatIsNamed("type").isNotNull();
+		Validator.supposeThat(type).thatIsNamed("type").isNotNull();
 		
 		//Handles the case if the closure of this closure mediator is null.
 		if (closure == null) {

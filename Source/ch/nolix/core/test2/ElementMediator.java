@@ -4,7 +4,7 @@ package ch.nolix.core.test2;
 //own imports
 import ch.nolix.core.functional.IElementTakerBooleanGetter;
 import ch.nolix.core.test.Accessor;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //abstract package-visible class
 /**
@@ -87,7 +87,7 @@ abstract class ElementMediator<E> extends Mediator {
 	public final void fulfils(final IElementTakerBooleanGetter<E> condition) {
 		
 		//Checks if the given condition is not null.
-		ZetaValidator.supposeThat(condition).thatIsNamed("condition").isNotNull();
+		Validator.supposeThat(condition).thatIsNamed("condition").isNotNull();
 		
 		if (!condition.getOutput(getValue())) {
 			if (getValue() == null) {
@@ -109,7 +109,7 @@ abstract class ElementMediator<E> extends Mediator {
 	public final void fulfilsNot(final IElementTakerBooleanGetter<E> condition) {
 	
 		//Checks if the given condition is not null.
-		ZetaValidator.supposeThat(condition).thatIsNamed("condition").isNotNull();
+		Validator.supposeThat(condition).thatIsNamed("condition").isNotNull();
 		
 		if (condition.getOutput(getValue())) {
 			if (getValue() == null) {

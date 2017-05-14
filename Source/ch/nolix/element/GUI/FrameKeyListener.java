@@ -8,7 +8,7 @@ import java.awt.event.KeyListener;
 //own import
 
 
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
@@ -31,7 +31,7 @@ final class FrameKeyListener implements KeyListener {
 	public FrameKeyListener(final Frame frame) {
 		
 		//Checks if the given frame is not null.
-		ZetaValidator.supposeThat(frame).thatIsInstanceOf(Frame.class).isNotNull();
+		Validator.supposeThat(frame).thatIsInstanceOf(Frame.class).isNotNull();
 		
 		//Sets the frame of this frame key listener.
 		this.frame = frame;

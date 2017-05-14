@@ -2,7 +2,7 @@
 package ch.nolix.coreTutorial.validator2Tutorial;
 
 //own import
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -22,10 +22,10 @@ public final class IntegerValidationTutorial2 {
 	public static void main(String[] args) {
 
 		//Supposes that 5 is positive, what makes that the zeta validator does not complain.
-		ZetaValidator.supposeThat(5).thatIsNamed("size").isPositive();
+		Validator.supposeThat(5).thatIsNamed("size").isPositive();
 		
 		//Supposes that 5 is negative, what makes that the zeta validator throws a NegativeArgumentException.
-		ZetaValidator.supposeThat(5).thatIsNamed("size").isNegative();
+		Validator.supposeThat(5).thatIsNamed("size").isNegative();
 	}
 	
 	//private constructor

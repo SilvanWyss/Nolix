@@ -3,7 +3,7 @@ package ch.nolix.system.consoleClient;
 
 //own import
 import ch.nolix.core.application.Client;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.GUI.GUI;
 
 //class
@@ -47,7 +47,7 @@ public final class FrontConsoleClient extends Client<FrontConsoleClient> {
 	
 	public void setGUI(final GUI<?> gui) {
 		
-		ZetaValidator.supposeThat(gui).thatIsInstanceOf(GUI.class).isNotNull();
+		Validator.supposeThat(gui).thatIsInstanceOf(GUI.class).isNotNull();
 		
 		//this.gui = gui;	
 	}

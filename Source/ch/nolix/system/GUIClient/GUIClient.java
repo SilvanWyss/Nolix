@@ -9,7 +9,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleGUI;
 
@@ -155,7 +155,7 @@ public final class GUIClient extends Client<GUIClient> {
 	private void setDialog(final GUI<?> dialog) {
 		
 		//Checks if the given dialog is not null.
-		ZetaValidator.supposeThat(dialog).thatIsInstanceOf(GUI.class).isNotNull();
+		Validator.supposeThat(dialog).thatIsInstanceOf(GUI.class).isNotNull();
 		
 		//Sets the dialog of this dialog client.
 		this.dialog = dialog;

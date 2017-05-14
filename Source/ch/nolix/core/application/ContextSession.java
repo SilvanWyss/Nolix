@@ -2,7 +2,7 @@
 package ch.nolix.core.application;
 
 //own import
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -29,7 +29,7 @@ extends Session<CL> {
 	public ContextSession(CO context) {
 		
 		//Checks if the given context is not null.
-		ZetaValidator.supposeThat(context).thatIsNamed("context").isNotNull();
+		Validator.supposeThat(context).thatIsNamed("context").isNotNull();
 
 		//Sets the context of this context session.
 		this.context = context;

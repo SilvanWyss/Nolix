@@ -5,7 +5,7 @@ package ch.nolix.system.consoleClient;
 import ch.nolix.core.application.Client;
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -96,7 +96,7 @@ public final class ConsoleClient extends Client<ConsoleClient> {
 	public void writeLineToConsole(final String line) {
 		
 		//Checks if the given line is not null.
-		ZetaValidator.supposeThat(line).thatIsNamed("line").isNotNull();
+		Validator.supposeThat(line).thatIsNamed("line").isNotNull();
 		
 		internal_getRefDuplexController().run(new Specification(WRITE_NEXT_LINE_TO_CONSOLE_COMMAND, line).toString());
 	}

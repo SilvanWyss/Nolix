@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -76,7 +76,7 @@ public abstract class WidgetStructure<WS extends WidgetStructure<WS>> {
 	final void setNormalStructure(final WS normalStructure) {
 		
 		//Checks if the given normal structure is not null.
-		ZetaValidator.supposeThat(normalStructure).thatIsNamed("normal structure").isNotNull();
+		Validator.supposeThat(normalStructure).thatIsNamed("normal structure").isNotNull();
 		
 		//Sets the normal structure of this widget structure.
 		this.normalStructure = normalStructure;

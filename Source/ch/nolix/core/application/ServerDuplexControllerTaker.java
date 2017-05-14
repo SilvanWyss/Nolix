@@ -4,7 +4,7 @@ package ch.nolix.core.application;
 //own imports
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.duplexController.IDuplexControllerTaker;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
@@ -29,7 +29,7 @@ final class ServerDuplexControllerTaker implements IDuplexControllerTaker {
 	public ServerDuplexControllerTaker(final Server server) {
 		
 		//Checks if the given server is not null.
-		ZetaValidator.supposeThat(server).thatIsInstanceOf(Server.class).isNotNull();
+		Validator.supposeThat(server).thatIsInstanceOf(Server.class).isNotNull();
 		
 		//Sets the server of this server duplex controller taker.
 		this.server = server;

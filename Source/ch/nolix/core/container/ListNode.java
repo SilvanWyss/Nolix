@@ -4,7 +4,7 @@ package ch.nolix.core.container;
 //own imports
 import ch.nolix.core.functional.IElementTakerBooleanGetter;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
@@ -102,7 +102,7 @@ final class ListNode<E> {
 	public void setElement(final E element) {
 		
 		//Checks if the given element is not null.
-		ZetaValidator.supposeThat(element).thatIsNamed("element").isNotNull();
+		Validator.supposeThat(element).thatIsNamed("element").isNotNull();
 		
 		//Sets the element of this list node.
 		this.element = element;
@@ -118,7 +118,7 @@ final class ListNode<E> {
 	public  void setNextNode(final ListNode<E> nextNode) {
 		
 		//Checks if the given next node is not null.
-		ZetaValidator.supposeThat(nextNode).thatIsNamed("next node").isNotNull();
+		Validator.supposeThat(nextNode).thatIsNamed("next node").isNotNull();
 		
 		//Sets the next node of this list node.
 		this.nextNode = nextNode;

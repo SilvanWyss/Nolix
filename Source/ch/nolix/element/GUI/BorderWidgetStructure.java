@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.PositiveInteger;
 
@@ -462,7 +462,7 @@ extends BackgroundWidgetStructure<BRS> {
 	public final BRS setBottomBorderColor(final Color bottomBorderColor) {
 		
 		//Checks if the given bottom border color is not null.
-		ZetaValidator.supposeThat(bottomBorderColor).thatIsNamed("bottom border color").isNotNull();
+		Validator.supposeThat(bottomBorderColor).thatIsNamed("bottom border color").isNotNull();
 		
 		//Sets the bottom border color of this borderable rectangle structure.
 		this.bottomBorderColor = bottomBorderColor;
@@ -502,7 +502,7 @@ extends BackgroundWidgetStructure<BRS> {
 	public final BRS setLeftBorderColor(final Color leftBorderColor) {
 		
 		//Checks if the given left border color is not null.
-		ZetaValidator.supposeThat(leftBorderColor).thatIsNamed("left border color").isNotNull();
+		Validator.supposeThat(leftBorderColor).thatIsNamed("left border color").isNotNull();
 		
 		//Sets the left border color of this boderable rectangle structure.
 		this.leftBorderColor = leftBorderColor;
@@ -538,7 +538,7 @@ extends BackgroundWidgetStructure<BRS> {
 	public final BRS setRightBorderColor(final Color rightBorderColor) {
 		
 		//Checks if the given right border color is not null.
-		ZetaValidator.supposeThat(rightBorderColor).thatIsNamed("right border color").isNotNull();
+		Validator.supposeThat(rightBorderColor).thatIsNamed("right border color").isNotNull();
 		
 		//Sets the right border color of this borderable rectangle structure.
 		this.rightBorderColor = rightBorderColor;
@@ -574,7 +574,7 @@ extends BackgroundWidgetStructure<BRS> {
 	public final BRS setTopBorderColor(final Color topBorderColor) {
 		
 		//Checks if the given top border color is not null.
-		ZetaValidator.supposeThat(topBorderColor).thatIsNamed("top border color").isNotNull();
+		Validator.supposeThat(topBorderColor).thatIsNamed("top border color").isNotNull();
 		
 		//Sets the top border color of this borderable rectangle structure.
 		this.topBorderColor = topBorderColor;

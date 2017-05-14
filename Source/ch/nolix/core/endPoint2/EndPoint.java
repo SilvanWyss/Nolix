@@ -7,7 +7,7 @@ import ch.nolix.core.interfaces.IReceiver;
 import ch.nolix.core.interfaces.ISender;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
@@ -74,7 +74,7 @@ implements ISender {
 		throwExceptionIfAborted();
 		
 		//Checks if the given receiver is not null.
-		ZetaValidator.supposeThat(receiver).thatIsInstanceOf(IReceiver.class).isNotNull();
+		Validator.supposeThat(receiver).thatIsInstanceOf(IReceiver.class).isNotNull();
 	}
 	
 	//method

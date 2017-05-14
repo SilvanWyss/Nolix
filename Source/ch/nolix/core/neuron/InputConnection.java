@@ -2,7 +2,7 @@
 package ch.nolix.core.neuron;
 
 //own import
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -33,7 +33,7 @@ public final class InputConnection<O> {
 	public InputConnection(final Neuron<?, O, ?> inputNeuron) {
 		
 		//Checks if the given input neuron is not null.
-		ZetaValidator.supposeThat(inputNeuron).thatIsNamed("input neuron").isNotNull();
+		Validator.supposeThat(inputNeuron).thatIsNamed("input neuron").isNotNull();
 		
 		this.inputNeuron = inputNeuron;
 	}

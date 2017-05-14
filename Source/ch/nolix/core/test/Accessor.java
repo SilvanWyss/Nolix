@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.test;
 
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 public final class Accessor {
@@ -10,7 +10,7 @@ public final class Accessor {
 	
 	public Accessor(final Test test) {
 		
-		ZetaValidator.supposeThat(test).thatIsInstanceOf(Test.class);
+		Validator.supposeThat(test).thatIsInstanceOf(Test.class);
 		
 		this.test = test;
 	}

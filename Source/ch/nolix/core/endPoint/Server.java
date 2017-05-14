@@ -3,7 +3,7 @@ package ch.nolix.core.endPoint;
 
 //own imports
 import ch.nolix.core.basic.AbortableElement;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -30,7 +30,7 @@ implements IEndPointTaker {
 	public Server(final IEndPointTaker endPointTaker) {
 		
 		//Checks if the given end point taker is not null.
-		ZetaValidator.supposeThat(endPointTaker).thatIsInstanceOf(IEndPointTaker.class).isNotNull();
+		Validator.supposeThat(endPointTaker).thatIsInstanceOf(IEndPointTaker.class).isNotNull();
 		
 		//Sets the end point taker of this server.
 		this.endPointTaker = endPointTaker;

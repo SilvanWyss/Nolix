@@ -3,7 +3,7 @@ package ch.nolix.core.endPoint3;
 
 //own imports
 import ch.nolix.core.util.Package;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
@@ -47,7 +47,7 @@ final class ZetaPackage extends Package {
 		super(index, message);
 		
 		//Checks if the given message role is not null.
-		ZetaValidator.supposeThat(messageRole).thatIsInstanceOf(MessageRole.class).isNotNull();
+		Validator.supposeThat(messageRole).thatIsInstanceOf(MessageRole.class).isNotNull();
 		
 		//Sets the message role of thsis zeta package.
 		this.messageRole = messageRole;

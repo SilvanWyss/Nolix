@@ -3,7 +3,7 @@ package ch.nolix.element.basic;
 
 //own imports
 import ch.nolix.core.constants.StringManager;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -62,7 +62,7 @@ public class NonEmptyText extends Textoid {
 	public final void setValue(String value) {	
 		
 		//Checks if the given value is not null.
-		ZetaValidator.supposeThat(value).isNotEmpty();
+		Validator.supposeThat(value).isNotEmpty();
 		
 		//Calls method of the base class.
 		super.setValue(value);

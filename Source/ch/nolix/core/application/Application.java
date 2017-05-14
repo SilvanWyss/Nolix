@@ -12,7 +12,7 @@ import ch.nolix.core.basic.NamedElement;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.duplexController.DuplexController;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
@@ -45,7 +45,7 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 		super(name);
 		
 		//Checks if the given initial session class is not null.
-		ZetaValidator.supposeThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
+		Validator.supposeThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
 
 		//Sets the initial session class of this application.
 		this.initialSessionClass = initialSessionClass;

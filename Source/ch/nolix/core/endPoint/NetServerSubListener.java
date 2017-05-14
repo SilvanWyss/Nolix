@@ -10,7 +10,7 @@ import java.net.Socket;
 
 
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
@@ -36,7 +36,7 @@ final class NetServerSubListener extends Thread {
 	public NetServerSubListener(final NetServer netServer) {
 		
 		//Checks if the given net server is not null.
-		ZetaValidator.supposeThat(netServer).thatIsInstanceOf(NetServer.class).isNotNull();
+		Validator.supposeThat(netServer).thatIsInstanceOf(NetServer.class).isNotNull();
 		
 		//Sets the net server of htis net server sub listener.
 		this.netServer = netServer;

@@ -2,7 +2,7 @@
 package ch.nolix.core.endPoint;
 
 //own import
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -42,7 +42,7 @@ public final class LocalEndPoint extends EndPoint {
 	private LocalEndPoint(final LocalEndPoint counterPart) {
 		
 		//Checks if the given counterpart is not null.
-		ZetaValidator.supposeThat(counterPart).thatIsNamed("counterpart").isNotNull();
+		Validator.supposeThat(counterPart).thatIsNamed("counterpart").isNotNull();
 		
 		//Sets the counter part of this local end point.
 		this.counterPart = counterPart;
@@ -58,7 +58,7 @@ public final class LocalEndPoint extends EndPoint {
 	public void send(final String message) {
 		
 		//Checks if the given message is not null.
-		ZetaValidator.supposeThat(message).thatIsNamed("message").isNotNull();
+		Validator.supposeThat(message).thatIsNamed("message").isNotNull();
 		
 		//Checks if this local end point is not aborted.
 		throwExceptionIfAborted();

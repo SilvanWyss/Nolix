@@ -2,7 +2,7 @@
 package ch.nolix.coreTutorial.validator2Tutorial;
 
 //own import
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -21,10 +21,10 @@ public final class BooleanValidationTutorial1 {
 	public static void main(String[] args) {
 		
 		//Supposes that a true boolean is true, what makes that the zeta validator does not complain.
-		ZetaValidator.supposeThat(true);
+		Validator.supposeThat(true);
 		
 		//Supposes that a true boolean is false, what makes that the zeta validator throws a TrueArgumentException.
-		ZetaValidator.supposeThatNot(true);
+		Validator.supposeThatNot(true);
 	}
 	
 	//private constructor

@@ -8,7 +8,7 @@ import java.net.Socket;
 
 
 import ch.nolix.core.constants.PortManager;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -33,7 +33,7 @@ public final class NetServer extends Server {
 	public NetServer(final int port) {
 		
 		//Checks if the given port is in [0, 65535]. 
-		ZetaValidator.supposeThat(port).isBetween(PortManager.MIN_PORT, PortManager.MAX_PORT);
+		Validator.supposeThat(port).isBetween(PortManager.MIN_PORT, PortManager.MAX_PORT);
 		
 		//Sets the port of this server.
 		this.port = port;

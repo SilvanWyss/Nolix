@@ -14,7 +14,7 @@ import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Configurable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.ConfigurableElement;
 
 //class
@@ -74,9 +74,9 @@ extends ConfigurableElement<R> {
 		final RS hoverStructure,
 		final RS focusStructure
 	) {
-		ZetaValidator.supposeThat(normalStructure).thatIsInstanceOf(WidgetStructure.class).isNotNull();
-		ZetaValidator.supposeThat(hoverStructure).thatIsInstanceOf(WidgetStructure.class).isNotNull();
-		ZetaValidator.supposeThat(focusStructure).thatIsInstanceOf(WidgetStructure.class).isNotNull();
+		Validator.supposeThat(normalStructure).thatIsInstanceOf(WidgetStructure.class).isNotNull();
+		Validator.supposeThat(hoverStructure).thatIsInstanceOf(WidgetStructure.class).isNotNull();
+		Validator.supposeThat(focusStructure).thatIsInstanceOf(WidgetStructure.class).isNotNull();
 		
 		this.normalStructure = normalStructure;
 		this.hoverStructure = hoverStructure;
@@ -557,7 +557,7 @@ extends ConfigurableElement<R> {
 	public final R setLeftMouseButtonPressCommand(final Statement leftMouseButtonPressCommand) {
 		
 		//Checks if the given left mouse button press command is not null.
-		ZetaValidator.supposeThat(leftMouseButtonPressCommand)
+		Validator.supposeThat(leftMouseButtonPressCommand)
 		.thatIsNamed("left mouse button press command")
 		.isNotNull();
 		
@@ -607,7 +607,7 @@ extends ConfigurableElement<R> {
 	public final R setLeftMouseButtonReleaseCommand(final Statement leftMouseButtonReleaseCommand) {
 		
 		//Checks if the given left mouse button release command is not null.
-		ZetaValidator
+		Validator
 		.supposeThat(leftMouseButtonReleaseCommand)
 		.thatIsNamed("left mouse button release command")
 		.isNotNull();
@@ -659,7 +659,7 @@ extends ConfigurableElement<R> {
 	public final R setRightMouseButtonPressCommand(final Statement rightMouseButtonPressCommand) {
 		
 		//Checks if the given right mouse button press command is not null.
-		ZetaValidator
+		Validator
 		.supposeThat(rightMouseButtonPressCommand)
 		.thatIsNamed("right mouse button press command")
 		.isNotNull();
@@ -711,7 +711,7 @@ extends ConfigurableElement<R> {
 	public final R setRightMouseButtonReleaseCommand(final Statement rightMouseButtonReleaseCommand) {
 		
 		//Checks if the given right mouse button release command is not null.
-		ZetaValidator
+		Validator
 		.supposeThat(rightMouseButtonReleaseCommand)
 		.thatIsNamed("right mouse button release command")
 		.isNotNull();

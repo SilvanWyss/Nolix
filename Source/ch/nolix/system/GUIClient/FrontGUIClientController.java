@@ -4,7 +4,7 @@ package ch.nolix.system.GUIClient;
 //own imports
 import ch.nolix.core.controller.ILevel1Controller;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
@@ -26,7 +26,7 @@ final class FrontGUIClientController implements ILevel1Controller {
 	public FrontGUIClientController(final FrontGUIClient frontDialogClient) {
 		
 		//Checks if the given front dialog client is not null.
-		ZetaValidator.supposeThat(frontDialogClient).thatIsInstanceOf(FrontGUIClient.class).isNotNull();
+		Validator.supposeThat(frontDialogClient).thatIsInstanceOf(FrontGUIClient.class).isNotNull();
 		
 		//Sets the front dialog client of this front dialog client controller.
 		this.frontDialogClient = frontDialogClient;

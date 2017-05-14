@@ -8,7 +8,7 @@ import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
@@ -93,7 +93,7 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	public final N clearInputNeurons() {
 		
 		//Checks if the minimal number of input neurons of this neuron is 0.
-		ZetaValidator.supposeThat(getMinInputNeuronCount()).thatIsNamed("minimal number of input neurons").isZero();
+		Validator.supposeThat(getMinInputNeuronCount()).thatIsNamed("minimal number of input neurons").isZero();
 		
 		inputConnections.clear();
 		
@@ -121,7 +121,7 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	public final N removeInputNeuron(final Neuron<?, ?, ?> inputNeuron) {
 		
 		//Checks if this neuron has not reached its minimal number of input neurons.
-		ZetaValidator.supposeThat(getInputNeuronCount()).isSmallerThan(getMinInputNeuronCount());
+		Validator.supposeThat(getInputNeuronCount()).isSmallerThan(getMinInputNeuronCount());
 		
 		inputConnections.removeFirst(in -> in.hasInputNeuron(inputNeuron));
 		
@@ -273,10 +273,10 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	private final N addInputConnection(final InputConnection<I> inputConnection) {
 		
 		//Checks if the given input neuron is not null.
-		ZetaValidator.supposeThat(inputConnection).thatIsNamed("input neuron").isNotNull();
+		Validator.supposeThat(inputConnection).thatIsNamed("input neuron").isNotNull();
 		
 		//Checks if this neuron has not reached its maximal number of input neurons.
-		ZetaValidator.supposeThat(getInputNeuronCount()).isSmallerThan(getMaxInputNeuronCount());
+		Validator.supposeThat(getInputNeuronCount()).isSmallerThan(getMaxInputNeuronCount());
 		
 		//Checks if this neuron does not contain the input neuron of the given input connection.
 		if (inputConnections.contains(ic -> ic.hasInputNeuron(inputConnection.getRefInputNeuron()))) {
@@ -303,7 +303,7 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	private void addTriggerableNeuron(Neuron<?, ?, ?> triggerableNeuron) {
 		
 		//Checks if the given triggerable neuron is not null.
-		ZetaValidator.supposeThat(triggerableNeuron).thatIsNamed("triggerable neuron").isNotNull();
+		Validator.supposeThat(triggerableNeuron).thatIsNamed("triggerable neuron").isNotNull();
 		
 		//Checks if this neuron does not contain the given triggerable neuron.
 		if (triggerableNeurons.contains(in -> in.hasNeuron(triggerableNeuron))) {

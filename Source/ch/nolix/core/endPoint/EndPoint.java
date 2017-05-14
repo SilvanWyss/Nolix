@@ -6,7 +6,7 @@ import ch.nolix.core.basic.AbortableElement;
 import ch.nolix.core.interfaces.IReceiver;
 import ch.nolix.core.interfaces.ISender;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
@@ -42,7 +42,7 @@ implements ISender {
 	public final void setReceiver(final IReceiver receiver) {
 		
 		//Checks if the given receiver is not null.
-		ZetaValidator.supposeThat(receiver).thatIsInstanceOf(IReceiver.class);
+		Validator.supposeThat(receiver).thatIsInstanceOf(IReceiver.class);
 		
 		//Checks if this end point is not aborted.
 		throwExceptionIfAborted();

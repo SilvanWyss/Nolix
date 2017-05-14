@@ -4,7 +4,7 @@ package ch.nolix.core.application;
 //own imports
 import ch.nolix.core.controller.ILevel2Controller;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
@@ -29,7 +29,7 @@ final class ClientReceiverController implements ILevel2Controller {
 	public ClientReceiverController(final Client<?> client) {
 		
 		//Checks if the given client is not null.
-		ZetaValidator.supposeThat(client).thatIsInstanceOf(Client.class).isNotNull();
+		Validator.supposeThat(client).thatIsInstanceOf(Client.class).isNotNull();
 		
 		//Sets the client of this client receiver controller.
 		this.client = client;

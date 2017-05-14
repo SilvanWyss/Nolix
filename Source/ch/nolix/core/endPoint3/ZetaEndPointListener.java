@@ -4,7 +4,7 @@ package ch.nolix.core.endPoint3;
 import java.net.ServerSocket;
 
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
@@ -29,7 +29,7 @@ final class ZetaEndPointListener extends Thread {
 	public ZetaEndPointListener(final Server server) {
 		
 		//Checks if the given server is not null.
-		ZetaValidator.supposeThat(server).thatIsInstanceOf(Server.class).isNotNull();
+		Validator.supposeThat(server).thatIsInstanceOf(Server.class).isNotNull();
 		
 		//Sets the server of this zeta end point listener.
 		this.server = server;

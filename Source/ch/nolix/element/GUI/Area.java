@@ -9,7 +9,7 @@ import java.awt.Graphics;
 
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.Height;
@@ -154,7 +154,7 @@ public final class Area extends Widget<AreaStructure, Area> {
 	public final Area setBackgroundColor(final BackgroundColor backgroundColor) {
 		
 		//Checks if the given background color is not null.
-		ZetaValidator.supposeThat(backgroundColor).thatIsInstanceOf(BackgroundColor.class).isNotNull();
+		Validator.supposeThat(backgroundColor).thatIsInstanceOf(BackgroundColor.class).isNotNull();
 		
 		//Sets the background color of this area.
 		this.backgroundColor = backgroundColor;

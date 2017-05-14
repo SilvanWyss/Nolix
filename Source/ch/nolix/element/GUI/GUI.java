@@ -20,7 +20,7 @@ import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Configurable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.ConfigurationElement;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.Title;
@@ -131,7 +131,7 @@ implements Clearable, IRequestableContainer {
 	public final G addWidgetClass(final Class<?> widgetClass) {
 		
 		//Checks if the given widget class is not null.
-		ZetaValidator.supposeThat(widgetClass).thatIsNamed("widget class").isNotNull();
+		Validator.supposeThat(widgetClass).thatIsNamed("widget class").isNotNull();
 
 		//Checks if this GUI can already create a widget of the same type as the given widget class.
 		if (canCreateWidget(widgetClass.getSimpleName())) {
@@ -454,7 +454,7 @@ implements Clearable, IRequestableContainer {
 	public final G setBackgroundColor(final BackgroundColor backgroundColor) {
 		
 		//Checks if the given background color is not null.
-		ZetaValidator
+		Validator
 		.supposeThat(backgroundColor)
 		.thatIsInstanceOf(BackgroundColor.class)
 		.isNotNull();
@@ -477,7 +477,7 @@ implements Clearable, IRequestableContainer {
 	public final G setContentPosition(final ContentPosition contentPosition) {
 		
 		//Checks if the given content position is not null.
-		ZetaValidator
+		Validator
 		.supposeThat(contentPosition)
 		.thatIsInstanceOf(ContentPosition.class)
 		.isNotNull();
@@ -500,7 +500,7 @@ implements Clearable, IRequestableContainer {
 	public final G setController(ILevel1Controller controller) {
 		
 		//Checks if the given controller is not null.
-		ZetaValidator.supposeThat(controller).thatIsNamed("controller").isNotNull();
+		Validator.supposeThat(controller).thatIsNamed("controller").isNotNull();
 		
 		//Sets the controller of this GUI.
 		this.controller = controller;
@@ -520,7 +520,7 @@ implements Clearable, IRequestableContainer {
 	public final G setRootWidget(final Widget<?, ?> rootWidget) {
 		
 		//Checks if the given root widget is not null.
-		ZetaValidator.supposeThat(rootWidget).thatIsNamed("root widget").isNotNull();
+		Validator.supposeThat(rootWidget).thatIsNamed("root widget").isNotNull();
 		
 		//Sets the root widget of this GUI.
 		rootWidget.setDialog(this);

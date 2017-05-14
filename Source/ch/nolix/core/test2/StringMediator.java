@@ -3,7 +3,7 @@ package ch.nolix.core.test2;
 
 //own import
 import ch.nolix.core.test.Accessor;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -52,7 +52,7 @@ public class StringMediator extends ElementMediator<String> {
 	public void hasLength(final int length) {
 		
 		//Checks the given length.
-		ZetaValidator.supposeThat(length).thatIsNamed("length").isPositive();
+		Validator.supposeThat(length).thatIsNamed("length").isPositive();
 		
 		if (getValue() == null || getValue().length() != length) {
 			new Accessor(getZetaTest()).addCurrentTestMethodError("A string with the length " + length + " was expected, but the string '" + getValue() + "', that has the length " + getValue().length() + " was received.");
@@ -70,7 +70,7 @@ public class StringMediator extends ElementMediator<String> {
 	public StringConjunctionMediator hasMaxLength(final int maxLength) {
 		
 		//Checks the given max length.
-		ZetaValidator.supposeThat(maxLength).thatIsNamed("max length").isPositive();
+		Validator.supposeThat(maxLength).thatIsNamed("max length").isPositive();
 		
 		if (getValue() == null || getValue().length() > maxLength) {
 			new Accessor(getZetaTest()).addCurrentTestMethodError("A string with the max length " + maxLength + " was expected, but the string '" + getValue() + "', that has the length " + getValue().length() + " was received.");

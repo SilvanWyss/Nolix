@@ -11,7 +11,7 @@ import java.lang.reflect.Method;
 import ch.nolix.core.container.List;
 import ch.nolix.core.helper.MethodHelper;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
@@ -136,7 +136,7 @@ public abstract class Session<C extends Client<?>> {
 	final void setClient(Client<?> client) {
 		
 		//Checks if the given client is not null.
-		ZetaValidator.supposeThat(client).thatIsInstanceOf(Client.class).isNotNull();
+		Validator.supposeThat(client).thatIsInstanceOf(Client.class).isNotNull();
 		
 		//Checks if this session has not already a client.
 		if (hasClient()) {

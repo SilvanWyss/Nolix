@@ -2,7 +2,7 @@
 package ch.nolix.element.GUI;
 
 //own import
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -23,7 +23,7 @@ public final class InvisibleGUI extends GUI<InvisibleGUI> {
 	public void applyCursorIcon(final CursorIcon cursorIcon) {
 		
 		//Checks if the given cursor icon is not null.
-		ZetaValidator.supposeThat(cursorIcon).thatIsInstanceOf(CursorIcon.class).isNotNull();
+		Validator.supposeThat(cursorIcon).thatIsInstanceOf(CursorIcon.class).isNotNull();
 		
 		this.cursorIcon = cursorIcon;
 	}

@@ -2,7 +2,7 @@
 package ch.nolix.coreTutorial.validator2Tutorial;
 
 //own import
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -21,10 +21,10 @@ public final class StringValidationTutorial {
 	public static void main(String[] args) {
 		
 		//Supposes that the string 'Hello World!' is not null and not empty, what makes that the zeta validator does not complain.
-		ZetaValidator.supposeThat("Hello World!").isNotEmpty();
+		Validator.supposeThat("Hello World!").isNotEmpty();
 		
 		//Supposes that the string 'Hello World' has the max length 10, what makes that the zeta validator throws an InvalidArgumentException.
-		ZetaValidator.supposeThat("Hello World!").hasMaxLength(10);
+		Validator.supposeThat("Hello World!").hasMaxLength(10);
 	}
 	
 	//private constructor

@@ -10,7 +10,7 @@ import ch.nolix.core.interfaces.Executable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -83,7 +83,7 @@ public abstract class TestPool implements Executable {
 	protected final void addTest(final Test test) {
 		
 		//Checks if the given test is not null.
-		ZetaValidator.supposeThat(test).thatIsNamed("test").isNotNull();
+		Validator.supposeThat(test).thatIsNamed("test").isNotNull();
 		
 		tests.add(test);
 	}
@@ -114,7 +114,7 @@ public abstract class TestPool implements Executable {
 	protected final void addTestPool(final TestPool testPool) {
 		
 		//Checks if the given test pool is not null.
-		ZetaValidator.supposeThat(testPool).thatIsNamed("test pool").isNotNull();
+		Validator.supposeThat(testPool).thatIsNamed("test pool").isNotNull();
 		
 		//Checks if the given test pool does not contain this test pool recursively.
 		if (testPool.containsTestPoolRecursively(this)) {

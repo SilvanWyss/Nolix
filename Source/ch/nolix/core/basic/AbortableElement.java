@@ -7,7 +7,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.invalidStateException.UntimelyMethodException;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
@@ -50,7 +50,7 @@ public abstract class AbortableElement implements Abortable {
 	public final void abort(String abortReason) {
 		
 		//Checks if the given abort reason is not empty.
-		ZetaValidator.supposeThat(abortReason).thatIsNamed("abort reason").isNotEmpty();
+		Validator.supposeThat(abortReason).thatIsNamed("abort reason").isNotEmpty();
 
 		abort();
 		this.abortReason = abortReason;

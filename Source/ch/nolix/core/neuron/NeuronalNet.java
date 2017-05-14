@@ -3,7 +3,7 @@ package ch.nolix.core.neuron;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
@@ -42,11 +42,11 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 		final M triggerableStartNeuron
 	) {
 		//Checks if the given input layer neuron container and output layer neuron container is not null.
-		ZetaValidator.supposeThat(inputLayerNeurons).thatIsNamed("input layer neuron container").isNotNull();
-		ZetaValidator.supposeThat(outputLayerNeurons).thatIsNamed("output layer neuron container").isNotNull();
+		Validator.supposeThat(inputLayerNeurons).thatIsNamed("input layer neuron container").isNotNull();
+		Validator.supposeThat(outputLayerNeurons).thatIsNamed("output layer neuron container").isNotNull();
 		
 		//Checks if the given triggerable start neuron is not null.
-		ZetaValidator.supposeThat(triggerableStartNeuron).thatIsNamed("triggerable start neuron").isNotNull();
+		Validator.supposeThat(triggerableStartNeuron).thatIsNamed("triggerable start neuron").isNotNull();
 		
 		//Connects the input fanout neuron of this neuronal net to the given input layer neurons.
 		int i = 1;

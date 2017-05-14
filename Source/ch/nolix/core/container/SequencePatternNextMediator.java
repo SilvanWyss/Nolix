@@ -4,7 +4,7 @@ package ch.nolix.core.container;
 //own imports
 import ch.nolix.core.functional.IElementTakerBooleanGetter;
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -33,10 +33,10 @@ public final class SequencePatternNextMediator<E> {
 	SequencePatternNextMediator(final SequencePattern<E> sequencePattern, final int count) {
 		
 		//Checks if the given sequence pattern is not null.
-		ZetaValidator.supposeThat(sequencePattern).thatIsInstanceOf(SequencePattern.class).isNotNull();
+		Validator.supposeThat(sequencePattern).thatIsInstanceOf(SequencePattern.class).isNotNull();
 		
 		//Checks if the given count is not negative.
-		ZetaValidator.supposeThat(count).thatIsNamed("count").isNotNegative();
+		Validator.supposeThat(count).thatIsNamed("count").isNotNegative();
 		
 		this.sequencePattern = sequencePattern;
 		this.count = count;

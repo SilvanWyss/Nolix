@@ -10,7 +10,7 @@ package ch.nolix.core.basic;
 
 //own import
 import ch.nolix.core.util.Validator;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
@@ -48,7 +48,7 @@ public abstract class NamableElement {
 		//Checks the given name.
 		Validator.throwExceptionIfStringIsNullOrEmpty("name", name);
 		
-		ZetaValidator.supposeThat(name).thatIsNamed("name").isNotEmpty();
+		Validator.supposeThat(name).thatIsNamed("name").isNotEmpty();
 		
 		this.name = name;
 	}

@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 
 
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
@@ -35,7 +35,7 @@ final class NetEndPointSubListener extends Thread {
 	public NetEndPointSubListener(final NetEndPoint netEndPoint) {
 		
 		//Checks if the given net end point is not null.
-		ZetaValidator.supposeThat(netEndPoint).thatIsInstanceOf(NetEndPoint.class).isNotNull();
+		Validator.supposeThat(netEndPoint).thatIsInstanceOf(NetEndPoint.class).isNotNull();
 		
 		//Sets the net end point of this net end point sub listener.
 		this.netEndPoint = netEndPoint;

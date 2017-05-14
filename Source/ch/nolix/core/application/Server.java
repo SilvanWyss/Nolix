@@ -7,7 +7,7 @@ import ch.nolix.core.duplexController.DuplexControllerListener;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -62,7 +62,7 @@ public final class Server {
 	public final void addApplication(final Application<?> application) {
 		
 		//Checks if the given application is not null.
-		ZetaValidator.supposeThat(application).thatIsInstanceOf(Application.class).isNotNull();
+		Validator.supposeThat(application).thatIsInstanceOf(Application.class).isNotNull();
 		
 		//Checks if the given  this server contains not already an other application with the same name as the given applicaiton.
 		if (containsApplication(application.getName())) {

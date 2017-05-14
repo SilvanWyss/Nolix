@@ -4,7 +4,7 @@ package ch.nolix.core.test2;
 //own imports
 import ch.nolix.core.interfaces.ApproximativeEqualing;
 import ch.nolix.core.test.Accessor;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -53,7 +53,7 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 		super(zetaTest);
 		
 		//Checks if the given max deviation is not negative.
-		ZetaValidator.supposeThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
+		Validator.supposeThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
 		
 		this.value = value;
 		this.maxDeviation = maxDeviation;

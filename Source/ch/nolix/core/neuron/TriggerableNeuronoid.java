@@ -2,7 +2,7 @@
 package ch.nolix.core.neuron;
 
 //own import
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -27,7 +27,7 @@ public final class TriggerableNeuronoid {
 	public TriggerableNeuronoid(Neuron<?, ?, ?> neuron) {
 		
 		//Checks if the given neuron is not null.
-		ZetaValidator.supposeThat(neuron).thatIsInstanceOf(Neuron.class).isNotNull();
+		Validator.supposeThat(neuron).thatIsInstanceOf(Neuron.class).isNotNull();
 		
 		this.neuron = neuron;
 	}

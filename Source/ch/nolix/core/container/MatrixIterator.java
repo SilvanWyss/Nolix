@@ -11,7 +11,7 @@ import java.util.Iterator;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
@@ -36,7 +36,7 @@ final class MatrixIterator<E> implements Iterator<E> {
 	public MatrixIterator(final Matrix<E> matrix) {
 		
 		//Checks if the given matrix is not null.
-		ZetaValidator.supposeThat(matrix).thatIsInstanceOf(Matrix.class).isNotNull();
+		Validator.supposeThat(matrix).thatIsInstanceOf(Matrix.class).isNotNull();
 		
 		//Sets the matrix of this matrix iterator.
 		this.matrix = matrix;

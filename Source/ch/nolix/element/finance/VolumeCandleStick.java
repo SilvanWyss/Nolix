@@ -2,7 +2,7 @@
 package ch.nolix.element.finance;
 
 //own imports
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Time;
 
 //class
@@ -43,7 +43,7 @@ public class VolumeCandleStick extends CandleStick {
 		super(time, openingPrice, closingPrice, lowestPrice, highestPrice);
 		
 		//Checks the given volume.
-		ZetaValidator.supposeThat(volume).thatIsNamed("volume").isNotNegative();
+		Validator.supposeThat(volume).thatIsNamed("volume").isNotNegative();
 		
 		//Sets the volume of this candle stick.
 		this.volume = volume;

@@ -15,7 +15,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
@@ -61,7 +61,7 @@ implements Abortable {
 		requestedConnectionFlag = true;
 		
 		//2. Checks if the given target application is not null.
-		ZetaValidator.supposeThat(targetApplication).thatIsNamed("target application").isNotNull();
+		Validator.supposeThat(targetApplication).thatIsNamed("target application").isNotNull();
 		
 		//3. Sets the target application of this client.
 		this.targetApplication = targetApplication.getName();
@@ -95,7 +95,7 @@ implements Abortable {
 		requestedConnectionFlag = true;
 		
 		//2. Checks if the given target application is not null.
-		ZetaValidator.supposeThat(targetApplication).thatIsNamed("target application").isNotNull();
+		Validator.supposeThat(targetApplication).thatIsNamed("target application").isNotNull();
 		
 		//3. Sets the target application of this client.
 		this.targetApplication = targetApplication.getName();
@@ -133,7 +133,7 @@ implements Abortable {
 		requestedConnectionFlag = true;
 		
 		//2. Checks if the given target application is not null.
-		ZetaValidator.supposeThat(targetApplication).thatIsNamed("target application").isNotNull();
+		Validator.supposeThat(targetApplication).thatIsNamed("target application").isNotNull();
 		
 		//3. Sets the target application of this client.
 		this.targetApplication = targetApplication.getName();
@@ -143,7 +143,7 @@ implements Abortable {
 		duplexController.setReceiverController(new ClientReceiverController(this));
 		
 		//5. Checks if the given initial session is not null.
-		ZetaValidator.supposeThat(initialSession).thatIsNamed("initial session").isNotNull();
+		Validator.supposeThat(initialSession).thatIsNamed("initial session").isNotNull();
 		
 		//6. Sets the initial session of this client.
 		session = initialSession;
@@ -178,7 +178,7 @@ implements Abortable {
 		targetApplication = null;
 		
 		//3. Checks if the given duplex controller is not null.
-		ZetaValidator.supposeThat(duplexController).thatIsInstanceOf(DuplexController.class).isNotNull();
+		Validator.supposeThat(duplexController).thatIsInstanceOf(DuplexController.class).isNotNull();
 		
 		//4. Sets the duplex controller of this client.
 		this.duplexController = duplexController;
@@ -208,14 +208,14 @@ implements Abortable {
 		targetApplication = null;
 		
 		//3. Checks if the given duplex controller is not null.
-		ZetaValidator.supposeThat(duplexController).thatIsInstanceOf(DuplexController.class).isNotNull();
+		Validator.supposeThat(duplexController).thatIsInstanceOf(DuplexController.class).isNotNull();
 
 		//4. Sets the duplex controller of this client.
 		this.duplexController = duplexController;
 		this.duplexController.setReceiverController(new ClientReceiverController(this));
 		
 		//5. Checks if the given initial session is not null.
-		ZetaValidator.supposeThat(initialSession).thatIsNamed("initial session").isNotNull();
+		Validator.supposeThat(initialSession).thatIsNamed("initial session").isNotNull();
 		
 		//6. Sets the initial session of this client.
 		session = initialSession;
@@ -258,14 +258,14 @@ implements Abortable {
 		initializationFunction.run((C)this);
 		
 		//4. Checks if the given duplex controller is not null.
-		ZetaValidator.supposeThat(duplexController).thatIsInstanceOf(DuplexController.class).isNotNull();
+		Validator.supposeThat(duplexController).thatIsInstanceOf(DuplexController.class).isNotNull();
 
 		//5. Sets the duplex controller of this client.
 		this.duplexController = duplexController;
 		this.duplexController.setReceiverController(new ClientReceiverController(this));
 		
 		//6. Checks if the given initial session is not null.
-		ZetaValidator.supposeThat(initialSession).thatIsNamed("initial session").isNotNull();
+		Validator.supposeThat(initialSession).thatIsNamed("initial session").isNotNull();
 		
 		//7. Sets the initial session of this client.
 		session = initialSession;
@@ -299,7 +299,7 @@ implements Abortable {
 		requestedConnectionFlag = true;
 		
 		//2. Checks if the given target application is not empty.
-		ZetaValidator.supposeThat(targetApplication).thatIsNamed("target application").isNotEmpty();
+		Validator.supposeThat(targetApplication).thatIsNamed("target application").isNotEmpty();
 		
 		//3. Sets the target application of this client.
 		this.targetApplication = targetApplication;
@@ -336,7 +336,7 @@ implements Abortable {
 		requestedConnectionFlag = true;
 		
 		//2. Checks if the given target application is not empty.
-		ZetaValidator.supposeThat(targetApplication).thatIsNamed("target application").isNotEmpty();
+		Validator.supposeThat(targetApplication).thatIsNamed("target application").isNotEmpty();
 		
 		//3. Sets the target application of this client.
 		this.targetApplication = targetApplication;
@@ -377,13 +377,13 @@ implements Abortable {
 		requestedConnectionFlag = true;
 		
 		//2. Checks if the given target application is not empty.
-		ZetaValidator.supposeThat(targetApplication).thatIsNamed("target application").isNotEmpty();
+		Validator.supposeThat(targetApplication).thatIsNamed("target application").isNotEmpty();
 		
 		//3. Sets the target application of this client.
 		this.targetApplication = targetApplication;
 		
 		//4. Checks if the given initial session is not null.
-		ZetaValidator.supposeThat(initialSession).thatIsNamed("initial session").isNotNull();
+		Validator.supposeThat(initialSession).thatIsNamed("initial session").isNotNull();
 		
 		//5. Sets the initial session of this client.
 		session = initialSession;
@@ -620,7 +620,7 @@ implements Abortable {
 	protected final void internal_setSessionAndInitializeSession(final Session<C> session) {
 		
 		//Checks if the given session is not null.
-		ZetaValidator.supposeThat(session).thatIsInstanceOf(Session.class).isNotNull();
+		Validator.supposeThat(session).thatIsInstanceOf(Session.class).isNotNull();
 		
 		//Sets the given session to this client.
 		session.setClient(this);

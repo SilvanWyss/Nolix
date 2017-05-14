@@ -4,7 +4,7 @@ package ch.nolix.core.basic;
 //own imports
 import ch.nolix.core.interfaces.OptionalSignable;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
@@ -56,7 +56,7 @@ implements OptionalSignable<OSE> {
 	public final OSE setInfoString(final String infoString) {
 		
 		//Checks if the given info string is null or an empty string.
-		ZetaValidator.supposeThat(infoString).thatIsNamed("info string").isNotEmpty();
+		Validator.supposeThat(infoString).thatIsNamed("info string").isNotEmpty();
 		
 		this.infoString = infoString;
 		

@@ -8,7 +8,7 @@ import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.MutableElement;
 
 //package-visible class
@@ -120,7 +120,7 @@ final class Configuration extends MutableElement {
 	public Configuration setDesign(final String design) {
 		
 		//Checks if the given design is not null and no empty string.
-		ZetaValidator.supposeThat(design).thatIsNamed("design").isNotEmpty();
+		Validator.supposeThat(design).thatIsNamed("design").isNotEmpty();
 		
 		//Sets the design of this configuration.
 		this.design = design;

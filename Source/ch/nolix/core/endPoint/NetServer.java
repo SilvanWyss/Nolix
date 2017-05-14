@@ -2,7 +2,7 @@
 package ch.nolix.core.endPoint;
 
 import ch.nolix.core.constants.PortManager;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -32,7 +32,7 @@ public final class NetServer extends Server {
 		super(endPointTaker);
 		
 		//Checks if the given port is in [0, 65535]. 
-		ZetaValidator.supposeThat(port).isBetween(PortManager.MIN_PORT, PortManager.MAX_PORT);
+		Validator.supposeThat(port).isBetween(PortManager.MIN_PORT, PortManager.MAX_PORT);
 		
 		this.port = port;
 	}

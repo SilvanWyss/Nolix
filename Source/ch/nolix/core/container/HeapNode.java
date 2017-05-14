@@ -3,7 +3,7 @@ package ch.nolix.core.container;
 
 //own imports
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
@@ -109,7 +109,7 @@ final class HeapNode<E> {
 	public void setElement(final E element) {
 		
 		//Checks if the given element is not null.
-		ZetaValidator.supposeThat(element).thatIsNamed("element").isNotNull();
+		Validator.supposeThat(element).thatIsNamed("element").isNotNull();
 		
 		this.element = element;
 	}

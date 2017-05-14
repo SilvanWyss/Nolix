@@ -3,7 +3,7 @@ package ch.nolix.core.mathematics;
 
 //own imports
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -32,7 +32,7 @@ public class QuadraticFunction {
 	public QuadraticFunction(final double a, final double b, final double c) {
 		
 		//Checks if the given coefficient of the quadratic term is not 0.0.
-		ZetaValidator.supposeThat(a).thatIsNamed("coefficient of the quadratic term").isNotZero();
+		Validator.supposeThat(a).thatIsNamed("coefficient of the quadratic term").isNotZero();
 		
 		this.a = a;
 		this.b = b;

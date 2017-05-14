@@ -3,7 +3,7 @@ package ch.nolix.core.test2;
 
 //own imports
 import ch.nolix.core.interfaces.ApproximativeEqualing;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -30,7 +30,7 @@ public final class ApproximativeEqualingMediator {
 		final ApproximativeEqualing value
 	) {
 		//Checks if the given zeta test is not null.
-		ZetaValidator.supposeThat(zetaTest).thatIsNamed("zeta test").isNotNull();
+		Validator.supposeThat(zetaTest).thatIsNamed("zeta test").isNotNull();
 		
 		this.zetaTest = zetaTest;
 		this.value = value;

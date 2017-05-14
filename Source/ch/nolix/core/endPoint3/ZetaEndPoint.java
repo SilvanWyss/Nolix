@@ -16,7 +16,7 @@ import ch.nolix.core.constants.PortManager;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.IZetaReceiver;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -107,7 +107,7 @@ public class ZetaEndPoint extends AbortableElement {
 	public ZetaEndPoint(final String ip, final int port, final String targetApplication) {
 		
 		//Checks if the givne port is in [0, 65'536].
-		ZetaValidator
+		Validator
 		.supposeThat(port)
 		.thatIsNamed("port")
 		.isBetween(PortManager.MIN_PORT, PortManager.MAX_PORT);
@@ -139,7 +139,7 @@ public class ZetaEndPoint extends AbortableElement {
 	ZetaEndPoint(final Socket socket) {
 		
 		//Checks if the given socket is not null.
-		ZetaValidator.supposeThat(socket).thatIsInstanceOf(Socket.class).isNotNull();
+		Validator.supposeThat(socket).thatIsInstanceOf(Socket.class).isNotNull();
 		
 		//Sets the socket of this zeta end point.
 		this.socket = socket;
@@ -219,7 +219,7 @@ public class ZetaEndPoint extends AbortableElement {
 	public void setReceiver(final IZetaReceiver receiver) {
 		
 		//Checks if the given receiver is not null.
-		ZetaValidator.supposeThat(receiver).thatIsNamed("receiver").isNotNull();
+		Validator.supposeThat(receiver).thatIsNamed("receiver").isNotNull();
 		
 		this.alphaReceiver = receiver;
 	}
@@ -235,7 +235,7 @@ public class ZetaEndPoint extends AbortableElement {
 	public void setTimeoutInMilliseconds(final int timeoutInMilliseconds) {
 		
 		//Checks if the given timeout is positive.
-		ZetaValidator.supposeThat(timeoutInMilliseconds).thatIsNamed("timeout").isPositive();
+		Validator.supposeThat(timeoutInMilliseconds).thatIsNamed("timeout").isPositive();
 	
 		//Checks if this zeta end point is not stopped.
 		throwExceptionIfAborted();
@@ -424,7 +424,7 @@ public class ZetaEndPoint extends AbortableElement {
 	private void setTargetApplication(final String targetApplication) {
 		
 		//Checks if the given target application is not null or empty.
-		ZetaValidator
+		Validator
 		.supposeThat(targetApplication)
 		.thatIsNamed("target application")
 		.isNotEmpty();

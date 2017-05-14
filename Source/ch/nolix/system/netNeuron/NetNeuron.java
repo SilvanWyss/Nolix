@@ -8,7 +8,7 @@ import ch.nolix.core.functional.IElementTakerElementGetter;
 import ch.nolix.core.neuron.Neuron;
 import ch.nolix.core.neuron.TriggerQueue;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -41,7 +41,7 @@ extends Neuron<I, Object, NetNeuron<I>> {
 		final IElementTakerElementGetter<I, Specification> transformer)
 	{
 		//Checks if the given transform function is not null.
-		ZetaValidator.supposeThat(transformer).thatIsNamed("transformer").isNotNull();
+		Validator.supposeThat(transformer).thatIsNamed("transformer").isNotNull();
 		
 		//Sets the transformer of this net neuron.
 		this.transformer = transformer;

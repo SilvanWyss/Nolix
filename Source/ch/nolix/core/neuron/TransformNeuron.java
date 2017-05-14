@@ -3,7 +3,7 @@ package ch.nolix.core.neuron;
 
 //own imports
 import ch.nolix.core.functional.IElementTakerElementGetter;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -39,7 +39,7 @@ extends Neuron<I, O, TransformNeuron<I, O>> {
 		final IElementTakerElementGetter<I, O> transformer
 	) {
 		//Checks if the given transform function is not null.
-		ZetaValidator.supposeThat(transformer).thatIsNamed("transformern").isNotNull();
+		Validator.supposeThat(transformer).thatIsNamed("transformern").isNotNull();
 		
 		this.transformer = transformer;
 		

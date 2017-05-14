@@ -3,7 +3,7 @@ package ch.nolix.core.test2;
 
 //own imports
 import ch.nolix.core.test.Accessor;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -26,7 +26,7 @@ abstract class Mediator {
 	public Mediator(final ZetaTest zetaTest) {
 		
 		//Checks if the given test is not null.
-		ZetaValidator.supposeThat(zetaTest).thatIsNamed("test").isNotNull();
+		Validator.supposeThat(zetaTest).thatIsNamed("test").isNotNull();
 		
 		this.zetaTestest = zetaTest;
 	}

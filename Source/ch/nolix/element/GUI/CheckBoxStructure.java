@@ -4,7 +4,7 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.PositiveInteger;
 
@@ -164,7 +164,7 @@ public final class CheckBoxStructure extends BackgroundWidgetStructure<CheckBoxS
 	public CheckBoxStructure setLineColor(final Color lineColor) {
 		
 		//Checks if the given line color is not null.
-		ZetaValidator.supposeThat(lineColor).thatIsNamed("line color").isNotNull();
+		Validator.supposeThat(lineColor).thatIsNamed("line color").isNotNull();
 		
 		//Sets the line color of this check box structure.
 		this.lineColor = lineColor;

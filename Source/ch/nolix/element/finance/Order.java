@@ -2,7 +2,7 @@
 package ch.nolix.element.finance;
 
 //own import
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Time;
 
 //class
@@ -39,10 +39,10 @@ public final class Order {
 		final String productSymbol,
 		final int volume
 	) {
-		ZetaValidator.supposeThat(type).thatIsNamed("type").isNotNull();
-		ZetaValidator.supposeThat(time).thatIsInstanceOf(Time.class).isNotNull();
-		ZetaValidator.supposeThat(productSymbol).thatIsNamed("prodcut symbol").isNotEmpty();
-		ZetaValidator.supposeThat(volume).thatIsNamed("volume").isPositive();
+		Validator.supposeThat(type).thatIsNamed("type").isNotNull();
+		Validator.supposeThat(time).thatIsInstanceOf(Time.class).isNotNull();
+		Validator.supposeThat(productSymbol).thatIsNamed("prodcut symbol").isNotEmpty();
+		Validator.supposeThat(volume).thatIsNamed("volume").isPositive();
 		
 		this.type = type;
 		this.time = time;

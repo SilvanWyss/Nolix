@@ -14,7 +14,7 @@ import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.EmptyStateException;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -122,7 +122,7 @@ implements
 	public List<E> addAtBegin(final E... elements) {
 		
 		//Checks if the given element container is not null.
-		ZetaValidator.supposeThat(elements).thatIsNamed("element container").isNotNull();
+		Validator.supposeThat(elements).thatIsNamed("element container").isNotNull();
 		
 		//Iterates the given elements.
 		for (int i = elements.length; i >= 0; i--) {
@@ -145,7 +145,7 @@ implements
 	public List<E> addAtBegin(final Iterable<E> elements) {
 		
 		//Checks if the given element container is not null.
-		ZetaValidator.supposeThat(elements).thatIsNamed("element container").isNotNull();
+		Validator.supposeThat(elements).thatIsNamed("element container").isNotNull();
 		
 		if (!IterableHelper.isEmpty(elements)) {
 			
@@ -233,7 +233,7 @@ implements
 	public List<E> addAtEnd(final E... elements) {
 		
 		//Checks if the given element container is not null.
-		ZetaValidator.supposeThat(elements).thatIsNamed("element container").isNotNull();
+		Validator.supposeThat(elements).thatIsNamed("element container").isNotNull();
 		
 		//Iterates the given elements.
 		for (final E e: elements) {
@@ -256,7 +256,7 @@ implements
 	public List<E> addAtEnd(final Iterable<E> elements) {
 		
 		//Checks if the given element container is not null.
-		ZetaValidator.supposeThat(elements).thatIsNamed("element container").isNotNull();
+		Validator.supposeThat(elements).thatIsNamed("element container").isNotNull();
 		
 		elements.forEach(e -> addAtEnd(e));
 		
@@ -933,7 +933,7 @@ implements
 	private void removeNextNode(ListNode<E> node) {
 		
 		//Checks if the given node is not null.
-		ZetaValidator.supposeThat(node).thatIsNamed("node").isNotNull();
+		Validator.supposeThat(node).thatIsNamed("node").isNotNull();
 		
 		final ListNode<E> nextNode = node.getNextNode();
 		

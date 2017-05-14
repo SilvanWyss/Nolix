@@ -5,7 +5,7 @@ package ch.nolix.core.container;
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.functional.IElementTakerElementGetter;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -51,7 +51,7 @@ public class Matrix<E> implements IContainer<E> {
 			for (int i = 0; i < getColumnCount(); i++) {
 				
 				//Checks if the current element is not null.
-				ZetaValidator.supposeThat(elements[i]).thatIsNamed("element " + i + 1).isNotNull();
+				Validator.supposeThat(elements[i]).thatIsNamed("element " + i + 1).isNotNull();
 						
 				this.elements[0][i] = elements[i];
 			}
@@ -61,7 +61,7 @@ public class Matrix<E> implements IContainer<E> {
 		else {
 			
 			//Checks if as many elements are given as the number of columns the other rows of this matrix have.
-			ZetaValidator.supposeThat(elements.length).thatIsNamed("number of given elements").equals(getColumnCount());
+			Validator.supposeThat(elements.length).thatIsNamed("number of given elements").equals(getColumnCount());
 			
 			final Object[][] newElements = new Object[getRowCount() + 1][getColumnCount()];
 			
@@ -73,7 +73,7 @@ public class Matrix<E> implements IContainer<E> {
 			for (int i = 0; i < getColumnCount(); i++) {
 				
 				//Checks if the current element is not null.
-				ZetaValidator.supposeThat(elements[i]).thatIsNamed("element " + i + 1).isNotNull();
+				Validator.supposeThat(elements[i]).thatIsNamed("element " + i + 1).isNotNull();
 				
 				newElements[getRowCount()][i] = elements[i];
 			}
@@ -182,7 +182,7 @@ public class Matrix<E> implements IContainer<E> {
 		//Checks the given parameters.
 		throwExceptionIfDoesNotContainRow(rowNumber);
 		throwExceptionIfDoesNotContainColumn(columnNumber);
-		ZetaValidator.supposeThat(element).thatIsNamed("element").isNotNull();
+		Validator.supposeThat(element).thatIsNamed("element").isNotNull();
 		
 		elements[rowNumber - 1][columnNumber - 1] = element;
 		

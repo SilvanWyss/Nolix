@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
 
@@ -101,7 +101,7 @@ extends WidgetStructure<BWS> {
 	public final BWS setBackgroundColor(final BackgroundColor backgroundColor) {
 		
 		//Checks if the given background color is not null.
-		ZetaValidator.supposeThat(backgroundColor).thatIsInstanceOf(BackgroundColor.class).isNotNull();
+		Validator.supposeThat(backgroundColor).thatIsInstanceOf(BackgroundColor.class).isNotNull();
 		
 		//Sets the background color of this background color widget structure.
 		this.backgroundColor = backgroundColor;

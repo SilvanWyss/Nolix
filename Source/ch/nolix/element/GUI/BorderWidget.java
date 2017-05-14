@@ -12,7 +12,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.PositiveInteger;
 import ch.nolix.element.data.MinHeight;
 import ch.nolix.element.data.MinWidth;
@@ -427,7 +427,7 @@ extends BackgroundWidget<BRS, BR> {
 	public final BR setContentOrientation(final ContentPosition contentOrientation) {
 		
 		//Checks the given content orientation.
-		ZetaValidator
+		Validator
 		.supposeThat(contentOrientation)
 		.thatIsInstanceOf(ContentPosition.class)
 		.isNotNull();

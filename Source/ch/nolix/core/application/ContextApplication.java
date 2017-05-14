@@ -8,7 +8,7 @@ import java.lang.reflect.Constructor;
 //own import
 
 
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -47,7 +47,7 @@ extends Application<CL> {
 		super(name, initialSessionClass);
 		
 		//Checks if the given context is not null.
-		ZetaValidator.supposeThat(context).thatIsNamed("context").isNotNull();
+		Validator.supposeThat(context).thatIsNamed("context").isNotNull();
 		
 		//Sets the context of this context application.
 		this.context = context;
@@ -78,7 +78,7 @@ extends Application<CL> {
 		super(name, initialSessionClass, port);
 		
 		//Checks the given context.
-		ZetaValidator.supposeThat(context).thatIsNamed("context").isNotNull();
+		Validator.supposeThat(context).thatIsNamed("context").isNotNull();
 		
 		//Sets the context of this context application.
 		this.context = context;

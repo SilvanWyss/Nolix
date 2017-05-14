@@ -4,7 +4,7 @@ package ch.nolix.core.neuron;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.functional.IElementTakerElementGetter;
-import ch.nolix.core.validator2.ZetaValidator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -35,7 +35,7 @@ extends Neuron<IO, IO, StandardNeuron<IO>> {
 	) {
 		
 		//Checks if the given output function is not null.
-		ZetaValidator.supposeThat(outputFunction).thatIsNamed("output function").isNotNull();
+		Validator.supposeThat(outputFunction).thatIsNamed("output function").isNotNull();
 		
 		//Sets the output function of this standard neuron.
 		this.outputFunction
@@ -81,7 +81,7 @@ extends Neuron<IO, IO, StandardNeuron<IO>> {
 	) {
 		
 		//Checks if the given output function is not null.
-		ZetaValidator.supposeThat(weightOutputFunction).thatIsNamed("weight output function").isNotNull();
+		Validator.supposeThat(weightOutputFunction).thatIsNamed("weight output function").isNotNull();
 		
 		outputFunction = weightOutputFunction;
 		

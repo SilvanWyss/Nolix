@@ -18,7 +18,7 @@ import ch.nolix.core.invalidArgumentException.TrueArgumentException;
  * @month 2016-11
  * @lines 220
  */
-public final class ZetaValidator {
+public final class Validator {
 	
 	//static method
 	/**
@@ -219,5 +219,5 @@ public final class ZetaValidator {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private ZetaValidator() {}
+	private Validator() {}
 }
