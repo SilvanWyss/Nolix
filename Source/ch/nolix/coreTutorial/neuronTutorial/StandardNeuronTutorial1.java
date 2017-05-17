@@ -9,20 +9,23 @@ import ch.nolix.core.neuron.StandardNeuron;
 //class
 /**
  * This class provides a tutorial for the standard neuron class.
+ * Of this class no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 50
+ * @lines 60
  */
 public final class StandardNeuronTutorial1 {
 
 	//main method
 	/**
-	 * 1. Creates 3 source neurons and 1 standard neuron. The output type of the neurons is a floating point number.
+	 * 1. Creates 3 source neurons and 1 standard neuron. The output type of all neurons is a floating point number.
 	 * 2. Adds the source neurons as input neurons to the standard neuron.
-	 * 3. Sets the output function of the standard neuron that it will calculate its output as the average of the outputs of its input neurons.
+	 * 3. Sets the output function to the standard neuron.
 	 * 4. Triggers the standard neuron that it calculates its output.
-	 * 5. Prints out the output of the standard neuron out to the console.
+	 * 5. Prints the output of the standard neuron out to the console.
+	 * 
+	 * @param args
 	 */
 	public static void main(String[] args) {
 		
@@ -38,17 +41,19 @@ public final class StandardNeuronTutorial1 {
 		final SourceNeuron<Double> sourceNeuron3 =
 		new SourceNeuron<Double>(16.0);
 		
-		//Creates neuron.
-		final StandardNeuron<Double> neuron =
+		//Creates standard neuron.
+		final StandardNeuron<Double> standardNeuron =
 		new StandardNeuron<Double>()
 		.addInputNeuron(sourceNeuron1)
 		.addInputNeuron(sourceNeuron2)
 		.addInputNeuron(sourceNeuron3)
-		.setOutputFunction(Calculator.DOUBLE_RANGE);
+		.setOutputFunction(Calculator.DOUBLE_AVERAGE);
 
-		//Triggers neuron and prints out its output to the console.
-		neuron.trigger();
-		System.out.println("neuron output: " + neuron.getRefOutput());
+		//Triggers the standard neuron.
+		standardNeuron.trigger();
+		
+		//Prints the output of the standard neuron out to the console.
+		System.out.println("neuron output: " + standardNeuron.getRefOutput());
 	}
 	
 	//private constructor

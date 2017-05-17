@@ -12,6 +12,7 @@ import ch.nolix.core.sequencer.Sequencer;
 //class
 /**
  * This class provides a tutorial for the forward multi layer net creator class.
+ * Of this class no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2017-01
@@ -26,9 +27,9 @@ public final class ForwardMultiLayerNetCreatorTutorial {
 	 * 3. Creates the inputs for the neuronal net.
 	 * 4. Triggers the neuronal net and prints out its output to the console.
 	 * 
-	 * @param arguments
+	 * @param args
 	 */
-	public static void main(final String[] aruments) {
+	public static void main(final String[] args) {
 		
 		//Creates neuronal net creator.
 		final ForwardMultiLayerNetCreator<Double> neuronalNetCreator =
@@ -40,17 +41,19 @@ public final class ForwardMultiLayerNetCreatorTutorial {
 		//Lets the neuronal net creator create a neuronal net.
 		final NeuronalNet<Double> neuronalNet = neuronalNetCreator.createNeuronalNet();
 		
-		//Creates the inputs and sets them to the neuronal net.
+		//Creates inputs
 		final List<Double> inputs = new List<Double>();
 		Sequencer.forCount(5).run(() -> inputs.addAtEnd(0.01));
+		
+		//Sets the inputs to the neuronal net.
 		neuronalNet.addInputNeuron(new SourceNeuron<Iterable<Double>>(inputs));
 		
-		//Triggers the neuronal net prints out its output to the console.
+		//Triggers the neuronal net.
 		neuronalNet.trigger();
+		
+		//Prints the output of the neuronal net out to the console.
 		System.out.println("output values:");
-		for (final double v: neuronalNet.getRefOutput()) {
-			System.out.println(v);
-		}
+		neuronalNet.getRefOutput().forEach(v -> System.out.println(v));
 	}
 	
 	//private constructor

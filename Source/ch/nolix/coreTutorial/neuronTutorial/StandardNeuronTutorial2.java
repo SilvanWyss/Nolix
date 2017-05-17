@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.coreTutorial.neuronTutorial;
 
-//own imports
-import ch.nolix.core.mathematics.Calculator;
+//own import
 import ch.nolix.core.neuron.StandardNeuron;
 
 //class
 /**
  * This class provides a tutorial for the standard neuron class.
+ * Of this class no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2016-11
@@ -17,44 +17,45 @@ public final class StandardNeuronTutorial2 {
 
 	//main method
 	/**
-	 * 1. Creates 4 standard neurons. The output type of the neurons is a floating point number.
-	 * 2. Sets an output function of the neuron 1, 2, 3, so that these neurons will return a constant value as output.
-	 * 3. Adds neuron 1 as triggering neuron to neuron 1, 2, 3.
-	 * 4. Adds neuron 1, 2, 3 as input neurons to neuron 4.
-	 * 5. Adds an output function to neuron 4, so that neuron 4 will calculate its output as the average of the outputs of its input neurons.
-	 * 6. Triggers neuron 1, that then will trigger neuron 2, 3, 4. The neurons calculate their outputs when they are triggered.
-	 * 7. Prints out the output of neuron 4 out to the console.
+	 * 1. Creates 4 standard neurons that are connected in 1 line.
+	 * 2. Triggers the first neuron and prints the output of all neurons out to the console.
+	 * 
+	 * @param args
 	 */
 	public static void main(String[] args) {
 		
-		//Creates neuron 1, that will serve as input neuron.
-		final StandardNeuron<Double> neuron1 
-		= new StandardNeuron<Double>()
-		.setOutputFunction(6.0);
+		//Creates neuron 1.
+		final StandardNeuron<Double> neuron1 =
+		new StandardNeuron<Double>().setOutputFunction(1.0);
 		
-		//Creates neuron 2, that will serve as input neuron.
-		final StandardNeuron<Double> neuron2 
-		= new StandardNeuron<Double>()
-		.setOutputFunction(8.0)
-		.addTriggeringNeuron(neuron1);
-		
-		//Creates neuron 3, that will serve as input neuron.
-		final StandardNeuron<Double> neuron3
-		= new StandardNeuron<Double>()
-		.setOutputFunction(16.0)
-		.addTriggeringNeuron(neuron1);
-				
-		//Creates neuron 4, that will calculate its output as the average of the output of its input neurons.
-		final StandardNeuron<Double> neuron4
-		= new StandardNeuron<Double>()
+		//Creates neuron 2.
+		final StandardNeuron<Double> neuron2 =
+		new StandardNeuron<Double>()
+		.setOutputFunction(v -> 2.0 * v.iterator().next())
 		.addInputNeuron(neuron1)
-		.addInputNeuron(neuron2)
-		.addInputNeuron(neuron3)
-		.setOutputFunction(Calculator.DOUBLE_AVERAGE)
 		.addTriggeringNeuron(neuron1);
-
-		//Triggers neuron 1 and prints out the output of neuron 4 to the console.
+		
+		//Creates neuron 3.
+		final StandardNeuron<Double> neuron3 =
+		new StandardNeuron<Double>()
+		.setOutputFunction(v -> 2.0 * v.iterator().next())
+		.addInputNeuron(neuron2)
+		.addTriggeringNeuron(neuron2);
+		
+		//Creates neuron 4.
+		final StandardNeuron<Double> neuron4 =
+		new StandardNeuron<Double>()
+		.setOutputFunction(v -> 2.0 * v.iterator().next())
+		.addInputNeuron(neuron3)
+		.addTriggeringNeuron(neuron3);
+		
+		//Triggers neuron 1.
 		neuron1.trigger();
+		
+		//Prints the output of the neurons out to the console.
+		System.out.println("neuron 1 output: " + neuron1.getRefOutput());
+		System.out.println("neuron 2 output: " + neuron2.getRefOutput());
+		System.out.println("neuron 3 output: " + neuron3.getRefOutput());
 		System.out.println("neuron 4 output: " + neuron4.getRefOutput());
 	}
 	
