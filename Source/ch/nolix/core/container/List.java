@@ -18,17 +18,15 @@ import ch.nolix.core.validator2.Validator;
 
 //class
 /**
- * A list is a container that can add elements at the begin or at the end.
+ * A list is a clearable container that can add elements at the begin or end.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 920
+ * @lines 970
  * @param <E> - The type of the elements of a list.
  */
 public class List<E>
-implements
-	Clearable,
-	IContainer<E> {
+implements Clearable, IContainer<E> {
 	
 	//attributes
 	private ListNode<E> firstNode;
@@ -800,10 +798,41 @@ implements
 	 * @param transformer
 	 * @return a new list with the elements the given transformer transforms from the elements of this list.
 	 */
-	public <O> List<O> toContainer(IElementTakerElementGetter<E, O> transformer) {
+	public <O> List<O> toContainer(final IElementTakerElementGetter<E, O> transformer) {
 		final List<O> list = new List<O>();
 		forEach(e -> list.addAtEnd(transformer.getOutput(e)));
 		return list;
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(n^2) if this list contains n elements.
+	 * 
+	 * @param norm
+	 * @return a new list of new sub lists containing the elements of this list
+	 * whereas given norm selects from the elements of a sub list always an equal value.
+	 */
+	public <E2> List<List<E>> toLists(final IElementTakerElementGetter<E, E2> norm) {
+		
+		//Creates lists.
+		final List<List<E>> lists = new List<List<E>>();
+		
+		//Iterates this list.
+		for (final E e : this) {
+			
+			final E2 categoryRepresentator = norm.getOutput(e);
+			
+			final List<E> list = lists.getRefFirstOrNull(l -> l.contains(x -> x.equals(categoryRepresentator)));
+			
+			if (list== null) {
+				lists.addAtEnd(new List<E>(e));
+			}
+			else {
+				list.addAtEnd(e);
+			}
+		}
+		
+		return lists;
 	}
 	
 	//method

@@ -5,9 +5,7 @@ package ch.nolix.core.container;
 import java.util.Iterator;
 import java.util.Random;
 
-
 //own imports
-
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.functional.IElementTakerBooleanGetter;
 import ch.nolix.core.functional.IElementTakerComparableGetter;
@@ -20,15 +18,17 @@ import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.EmptyStateException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 
 //interface
 /**
- * A container is an iterable and clearable object that can store several elements of a certain type.
+ * A container is an iterable object that can store several elements of a certain type.
  * A container cannot contain null elements.
+ * This interface does not provide any mutating methods.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1050
+ * @lines 1110
  * @param <E> - The type of the elements of a container.
  */
 public interface IContainer<E>
@@ -51,7 +51,7 @@ extends Iterable<E> {
 	public default boolean contains(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			
 			//Checks if the given selector selects the current element.
 			if (selector.getOutput(e)) {
@@ -71,7 +71,7 @@ extends Iterable<E> {
 	public default boolean containsAll(final E... elements) {
 		
 		//Iterates this container.
-		for (final E e: elements) {
+		for (final E e : elements) {
 			
 			//Checks if this container contains the current element.
 			if (!contains(e)) {
@@ -90,7 +90,7 @@ extends Iterable<E> {
 	public default boolean containsAll(final Iterable<E> elements) {
 		
 		//Iterates this container.
-		for (final E e: elements) {
+		for (final E e : elements) {
 			
 			//Checks if this container contains the current element.
 			if (!contains(e)) {
@@ -101,12 +101,32 @@ extends Iterable<E> {
 		return true;
 	}
 	
-	//method
+	//default method
 	/**
 	 * @return true if this container contains any element.
 	 */
 	public default boolean containsAny() {
 		return iterator().hasNext();
+	}
+	
+	//default method
+	/**
+	 * @param elements
+	 * @return true if this container contains one of the given elements.
+	 */
+	@SuppressWarnings("unchecked")
+	public default boolean containsAny(final E... elements) {
+		
+		//Iterates the given elements.
+		for (final E e : elements) {
+			
+			//Checks if this container contains the current element.
+			if (contains(e)) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	//default method
@@ -120,8 +140,28 @@ extends Iterable<E> {
 	
 	//default method
 	/**
+	 * @param elements
+	 * @return true if this container contains no of the given elements.
+	 */
+	@SuppressWarnings("unchecked")
+	public default boolean containsNone(final E... elements) {
+		
+		//Iterates the given elements.
+		for (final E e : elements) {
+			
+			//Checks if this container contains the current element.
+			if (contains(e)) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	//default method
+	/**
 	 * @param selector
-	 * @return true if this container contains no elements the given selector selects.
+	 * @return true if this container contains no element the given selector selects.
 	 */
 	public default boolean containsNone(final IElementTakerBooleanGetter<E> selector) {
 		return !contains(e -> selector.getOutput(e));
@@ -135,7 +175,7 @@ extends Iterable<E> {
 	public default boolean containsObject(final Object object) {
 		
 		//Iterates this container.
-		for (E e: this) {
+		for (final E e : this) {
 			if (e == object) {
 				return true;
 			}
@@ -154,7 +194,7 @@ extends Iterable<E> {
 		boolean found = false;
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			if (e == element) {
 				
 				if (found) {
@@ -203,7 +243,7 @@ extends Iterable<E> {
 		boolean found = false;
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			if (selector.getOutput(e)) {
 				
 				if (found) {
@@ -291,7 +331,7 @@ extends Iterable<E> {
 		int count = 0;
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			
 			//Checks if the current element is the given element.
 			if (e == element) {
@@ -312,7 +352,7 @@ extends Iterable<E> {
 		int count = 0;
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			
 			//Checks if the given selector selects the current element.
 			if (selector.getOutput(e)) {
@@ -456,7 +496,7 @@ extends Iterable<E> {
 		
 		//Iterates this container.
 		int counter = 1;
-		for (final E e: this) {
+		for (final E e : this) {
 			
 			//Checks if the current index is the given index.
 			if (counter == index) {
@@ -485,7 +525,7 @@ extends Iterable<E> {
 		Comparable max = norm.getValue(element);
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			final Comparable value = norm.getValue(e);
 			if (value.compareTo(max) > 0) {
 				element = e;
@@ -508,7 +548,7 @@ extends Iterable<E> {
 		double max = doubleNorm.getOutput(element);
 		
 		//Iterates this container.
-		for (final E e: this) {			
+		for (final E e : this) {			
 			final double value = doubleNorm.getOutput(e);
 			if (value > max) {
 				element = e;
@@ -531,7 +571,7 @@ extends Iterable<E> {
 		int max = intNorm.getOutput(element);
 		
 		//Iterates this container.
-		for (final E e: this) {			
+		for (final E e : this) {			
 			final int value = intNorm.getOutput(e);
 			if (value > max) {
 				element = e;
@@ -542,7 +582,7 @@ extends Iterable<E> {
 		return element;
 	}
 	
-	//method
+	//default method
 	/**
 	 * @param longNorm
 	 * @return the element with the biggest value the given long norm returns from the elements of this container.
@@ -554,7 +594,7 @@ extends Iterable<E> {
 		long max = longNorm.getOutput(element);
 		
 		//Iterates this container.
-		for (final E e: this) {			
+		for (final E e : this) {			
 			final long value = longNorm.getOutput(e);
 			if (value > max) {
 				element = e;
@@ -578,7 +618,7 @@ extends Iterable<E> {
 		Comparable min = norm.getValue(element);
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			final Comparable value = norm.getValue(e);
 			if (value.compareTo(min) < 0) {
 				element = e;
@@ -601,7 +641,7 @@ extends Iterable<E> {
 		double min = doubleNorm.getOutput(element);
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			final double value = doubleNorm.getOutput(e);
 			if (value < min) {
 				element = e;
@@ -624,7 +664,7 @@ extends Iterable<E> {
 		int min = intNorm.getOutput(element);
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			final int value = intNorm.getOutput(e);
 			if (value < min) {
 				element = e;
@@ -647,7 +687,7 @@ extends Iterable<E> {
 		long min = longNorm.getOutput(element);
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			final long value = longNorm.getOutput(e);
 			if (value < min) {
 				element = e;
@@ -677,12 +717,12 @@ extends Iterable<E> {
 	/**
 	 * @param selector
 	 * @return the first element the given selector selects from this container.
-	 * @throws InvalidArgumentException if this container contains no element the given selector selects.
+	 * @throws UnexistingAttributeException if this container contains no element the given selector selects.
 	 */
 	public default E getRefFirst(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			
 			//Checks if the given selector selects the current element.
 			if (selector.getOutput(e)) {
@@ -690,10 +730,26 @@ extends Iterable<E> {
 			}
 		}
 		
-		throw new InvalidArgumentException(
-			new Argument(this),
-			new ErrorPredicate("contains no element the given selector selects")
-		);
+		throw new UnexistingAttributeException(this, "element the given selector selects");
+	}
+	
+	//default method
+	/**
+	 * @param selector
+	 * @return the first element the givne selector selects from this container or null.
+	 */
+	public default E getRefFirstOrNull(final IElementTakerBooleanGetter<E> selector) {
+		
+		//Iterates this container.
+		for (final E e : this) {
+			
+			//Checks if the given selector selects the current element.
+			if (selector.getOutput(e)) {
+				return e;
+			}
+		}
+		
+		return null;
 	}
 	
 	//default method
@@ -729,7 +785,7 @@ extends Iterable<E> {
 		E element = null;
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			if (selector.getOutput(e)) {
 				
 				if (element != null) {
@@ -799,7 +855,7 @@ extends Iterable<E> {
 		double sum = 0;
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			sum += doubleNorm.getOutput(e);
 		}
 		
@@ -816,7 +872,7 @@ extends Iterable<E> {
 		int sum = 0;
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			sum += intNorm.getOutput(e);
 		}
 		
@@ -833,7 +889,7 @@ extends Iterable<E> {
 		long sum = 0;
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			sum += longNorm.getOutput(e);
 		}
 		
@@ -852,7 +908,7 @@ extends Iterable<E> {
 		final double average = getAverageByDouble(doubleNorm);
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			sum += Math.pow(doubleNorm.getOutput(e) - average, 2);
 		}
 		
@@ -871,7 +927,7 @@ extends Iterable<E> {
 		final double average = getAverageByInt(intNorm);
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			sum += Math.pow(intNorm.getOutput(e) - average, 2);
 		}
 		
@@ -890,7 +946,7 @@ extends Iterable<E> {
 		final double average = getAverageByLong(longNorm);
 		
 		//Iterates this container.
-		for (final E e: this) {
+		for (final E e : this) {
 			sum += Math.pow(longNorm.getOutput(e) - average, 2);
 		}
 		
@@ -915,7 +971,7 @@ extends Iterable<E> {
 		
 		//Iterates this container.
 		E previous = null;
-		for (final E e: this) {
+		for (final E e : this) {
 			if (previous != null) {
 				Comparable value = norm.getValue(e);
 				if (value.compareTo(norm.getValue(previous)) < 0) {
@@ -940,7 +996,7 @@ extends Iterable<E> {
 		
 		//Fills up the array.
 		int counter = 0;
-		for (final E e: this) {
+		for (final E e : this) {
 			array[counter] = e;
 			counter++;
 		}
@@ -957,11 +1013,11 @@ extends Iterable<E> {
 	public default <E2> E2[] toArray(final IElementTakerElementGetter<E, E2> transformer) {
 		
 		//Creates array.
-		E2[] array = (E2[])(new Object[getSize()]);
+		final E2[] array = (E2[])(new Object[getSize()]);
 		
 		//Fills up the array.
 		int index = 0;
-		for (final E e: this) {
+		for (final E e : this) {
 			array[index] = transformer.getOutput(e);
 			index++;
 		}
@@ -981,7 +1037,7 @@ extends Iterable<E> {
 		
 		//Fills up the array.
 		int index = 0;
-		for (final E e: this) {
+		for (final E e : this) {
 			array[index] = doubleNorm.getOutput(e);
 			index++;
 		}
@@ -1001,7 +1057,7 @@ extends Iterable<E> {
 		
 		//Fills up the array.
 		int index = 0;
-		for (final E e: this) {
+		for (final E e : this) {
 			array[index] = intNorm.getOutput(e);
 			index++;
 		}
@@ -1021,7 +1077,7 @@ extends Iterable<E> {
 		
 		//Fills up the array.
 		int index = 0;
-		for (final E e: this) {
+		for (final E e : this) {
 			array[index] = longNorm.getOutput(e);
 			index++;
 		}
@@ -1039,7 +1095,7 @@ extends Iterable<E> {
 		
 		//Iterates this container.
 		boolean begin = true;
-		for (final E e: this) {
+		for (final E e : this) {
 			
 			if (begin) {
 				begin = false;
