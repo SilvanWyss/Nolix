@@ -10,6 +10,7 @@ package ch.nolix.core.sequencer;
 
 //own import
 import ch.nolix.core.functional.IRunner;
+import ch.nolix.core.validator2.Validator;
 
 //class
 public final class ForCountMediator {
@@ -22,12 +23,14 @@ public final class ForCountMediator {
 	 * Creates new doer with the given count.
 	 * 
 	 * @param count
-	 * @throws Exception if the given count is negative.
+	 * @throws NegativeArgumentException if the given count is negative.
 	 */
-	public ForCountMediator(int count) {
+	public ForCountMediator(final int count) {
 		
-		//TODO: Check if count is not negative.
+		//Checks if the given count is not negative.
+		Validator.supposeThat(count).thatIsNamed("count").isNotNegative();
 		
+		//Sets the count of this count mediator.
 		this.count = count;
 	}
 	

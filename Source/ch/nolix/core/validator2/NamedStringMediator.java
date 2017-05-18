@@ -11,7 +11,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * @month 2016-08
  * @lines 40
  */
-public final class NamedStringMediator extends NamedElementMediator<String> {
+public final class NamedStringMediator extends NamedArgumentMediator<String> {
 
 	//package-visible constructor
 	/**

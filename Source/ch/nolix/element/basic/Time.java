@@ -7,11 +7,13 @@ import java.util.GregorianCalendar;
 
 //own imports
 
+
 import ch.nolix.core.constants.TimeUnitManager;
 import ch.nolix.core.container.List;
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.Specification;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -202,9 +204,10 @@ public final class Time extends Element {
 		//TODO
 		final String[] array = string.split("-");
 		
-		//Checks if the array has a valid number of values.
-		//TODO: Add method to zeta validator.
-		//ZetaValidator.supposeThat(array.length).thatIsNamed("number of values of '" + string + "'").isBetween(3, 6).andIsNot(4);
+		Validator
+		.supposeThat(array.length)
+		.thatIsNamed("numer of values of '" + string + "'")
+		.equalsAny(3, 5, 6, 7);
 		
 		if (array.length >= 3) {
 			setYear(StringHelper.toInteger(array[0]));

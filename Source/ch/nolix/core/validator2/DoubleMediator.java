@@ -11,6 +11,8 @@ import ch.nolix.core.invalidArgumentException.SmallerArgumentException;
 
 //class
 /**
+ * A double mediator is not mutable.
+ * 
  * @author Silvan Wyss
  * @month 2016-12
  * @lines 110
@@ -33,7 +35,8 @@ public final class DoubleMediator {
 	//method
 	/**
 	 * @param value
-	 * @throws NonBiggerArgumentException if the argument of this double mediator is not bigger than the given value.
+	 * @throws NonBiggerArgumentException
+	 * if the argument of this double mediator is not bigger than the given value.
 	 */
 	public void isBiggerThan(final double value) {
 		
@@ -46,7 +49,8 @@ public final class DoubleMediator {
 	//method
 	/**
 	 * @param value
-	 * @throws SmallerArgumentException if the argument of this double mediator is not bigger than or does not equal the given value.
+	 * @throws SmallerArgumentException
+	 * if the argument of this double mediator is not bigger than or does not equal the given value.
 	 */
 	public void isBiggerThanOrEquals(final double value) {
 		
@@ -62,7 +66,7 @@ public final class DoubleMediator {
 	 */
 	public void isPositive() {
 		
-		//Checks if the argument of thid double mediator is positive.
+		//Checks if the argument of this double mediator is positive.
 		if (argument <= 0) {
 			throw new NonPositiveArgumentException(argument);
 		}
@@ -74,7 +78,7 @@ public final class DoubleMediator {
 	 */
 	public void isNegative() {
 		
-		//Checks if the argument of thid double mediator is negative.
+		//Checks if the argument of this double mediator is negative.
 		if (argument >= 0) {
 			throw new NonNegativeArgumentException(argument);
 		}
@@ -86,7 +90,7 @@ public final class DoubleMediator {
 	 */
 	public void isNotNegative() {
 		
-		//Checks if the argument of thid double mediator is not negative.
+		//Checks if the argument of this double mediator is not negative.
 		if (argument < 0) {
 			throw new NegativeArgumentException(argument);
 		}
@@ -98,7 +102,7 @@ public final class DoubleMediator {
 	 */
 	public void isNotPositive() {
 		
-		//Checks if the argument of thid double mediator is not positive.
+		//Checks if the argument of this double mediator is not positive.
 		if (argument > 0) {
 			throw new PositiveArgumentException(argument);
 		}

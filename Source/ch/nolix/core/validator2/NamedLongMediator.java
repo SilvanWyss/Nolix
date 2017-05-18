@@ -2,7 +2,11 @@
 package ch.nolix.core.validator2;
 
 //own imports
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
+import ch.nolix.core.invalidArgumentException.ErrorPredicate;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
 import ch.nolix.core.invalidArgumentException.NonBiggerArgumentException;
 import ch.nolix.core.invalidArgumentException.NonNegativeArgumentException;
@@ -15,11 +19,13 @@ import ch.nolix.core.invalidArgumentException.UnequalArgumentException;
 
 //class
 /**
+ * A named long mediator is not mutable.
+ * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 150
+ * @lines 180
  */
-public final class NamedLongMediator extends NamedArgumentMediator {
+public final class NamedLongMediator extends NamedMediator {
 	
 	//attribute
 	private final long argument;
@@ -33,11 +39,12 @@ public final class NamedLongMediator extends NamedArgumentMediator {
 	 * @throws NullArgumentException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument name is an empty string.
 	 */
-	NamedLongMediator(String argumentName, long argument) {
+	NamedLongMediator(final String argumentName, final long argument) {
 		
 		//Calls constructor of the base class.
 		super(argumentName);
 		
+		//Sets the argument of this named long mediator.
 		this.argument = argument;
 	}
 	
@@ -52,6 +59,30 @@ public final class NamedLongMediator extends NamedArgumentMediator {
 		if (argument != value) {
 			throw new UnequalArgumentException(getArgumentName(), argument, value);
 		}
+	}
+	
+	//method
+	/**
+	 * @param values
+	 * @throws InvalidArgumentException
+	 * if the argument of this named long mediator does not equal one of the given values.
+	 */
+	public void equalsAny(final long... values) {
+		
+		//Iterates the given values.
+		for (final long v : values) {
+			
+			//Checks if the argument of this named long mediator equals the current value.
+			if (argument == v) {
+				return;
+			}
+		}
+		
+		throw new InvalidArgumentException(
+			new ArgumentName(getArgumentName()),
+			new Argument(argument),
+			new ErrorPredicate("does not equal one of the given values")
+		);
 	}
 	
 	//method

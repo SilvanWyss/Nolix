@@ -9,7 +9,7 @@ import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
-//abstract package-visible class
+//abstract class
 /**
  * An argument container mediator is not mutable.
  * 
@@ -28,7 +28,7 @@ public class ArgumentContainerMediator<A> {
 	 * Creates new argument container mediator with the given arguments.
 	 * 
 	 * @param arguments
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws NullArgumentException if the given argument container is null.
 	 */
 	ArgumentContainerMediator(final Iterable<A> arguments) {
 
@@ -49,7 +49,7 @@ public class ArgumentContainerMediator<A> {
 		
 		//Iterates the arguments of this argument container mediator.
 		int index = 1;
-		for (final A a : arguments) {
+		for (final A a : getRefArguments()) {
 			
 			//Checks if the current argument is not null.
 			if (a == null) {
@@ -71,7 +71,7 @@ public class ArgumentContainerMediator<A> {
 		
 		//Iterates the arguments of this argument container mediator.
 		int index = 1;
-		for (final A a : arguments) {
+		for (final A a : getRefArguments()) {
 			
 			//Checks if the current argument fulfils the given condition.
 			if (!condition.getOutput(a)) {

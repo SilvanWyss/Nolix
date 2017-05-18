@@ -4,15 +4,14 @@ package ch.nolix.core.validator2;
 //Java import
 import java.util.Vector;
 
-//own import
-
-
+//own imports
 import ch.nolix.core.invalidArgumentException.FalseArgumentException;
 import ch.nolix.core.invalidArgumentException.TrueArgumentException;
 
 //class
 /**
  * This class provides some functions to validate arguments.
+ * Of this class no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2016-11
@@ -142,8 +141,8 @@ public final class Validator {
 	 * @param argument
 	 * @return a new object mediator with the given argument.
 	 */
-	public static ObjectMediator supposeThat(final Object argument) {
-		return new ObjectMediator(argument);
+	public static ArgumentMediator<Object> supposeThat(final Object argument) {
+		return new ArgumentMediator<Object>(argument);
 	}
 	
 	//static method
@@ -168,7 +167,7 @@ public final class Validator {
 		
 		//Iterates the given arguments.
 		int i = 1;
-		for (boolean a: arguments) {
+		for (final boolean a : arguments) {
 				
 			//Checks if the current argument is false.
 			if (a) {
@@ -202,8 +201,8 @@ public final class Validator {
 	 * @param arguments
 	 * @return a new object container mediator with the given arguments.
 	 */
-	public static ArgumentContainerMediator supposeThatTheObjects(final Iterable<Object> arguments) {
-		return new ArgumentContainerMediator(arguments);
+	public static ArgumentContainerMediator<Object> supposeThatTheObjects(final Iterable<Object> arguments) {
+		return new ArgumentContainerMediator<Object>(arguments);
 	}
 	
 	//static method

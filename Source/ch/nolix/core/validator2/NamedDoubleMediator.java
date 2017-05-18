@@ -16,7 +16,7 @@ import ch.nolix.core.invalidArgumentException.ZeroArgumentException;
  * @month 2016-12
  * @lines 100
  */
-public final class NamedDoubleMediator extends NamedArgumentMediator {
+public final class NamedDoubleMediator extends NamedMediator {
 	
 	//attribute
 	private final double argument;

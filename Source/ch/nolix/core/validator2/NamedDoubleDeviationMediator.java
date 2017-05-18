@@ -13,7 +13,7 @@ import ch.nolix.core.invalidArgumentException.UnequalArgumentException;
  * @month 2016-12
  * @lines 70
  */
-public final class NamedDoubleDeviationMediator extends NamedArgumentMediator {
+public final class NamedDoubleDeviationMediator extends NamedMediator {
 
 	//attributes
 	private final double argument;
