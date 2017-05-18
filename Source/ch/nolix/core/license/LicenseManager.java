@@ -37,7 +37,7 @@ public final class LicenseManager {
 	 * @return true if this license manager contains a license of the given type.
 	 */
 	public <L extends License> boolean  containsLicense(final Class<L> type) {
-		return licenses.contains(l -> l.getClass() == type);
+		return licenses.contains(l -> l.getClass().isAssignableFrom(type));
 	}
 	
 	//method
