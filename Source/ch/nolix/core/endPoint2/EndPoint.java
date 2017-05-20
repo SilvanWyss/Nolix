@@ -6,7 +6,6 @@ import ch.nolix.core.basic.AbortableElement;
 import ch.nolix.core.interfaces.IReceiver;
 import ch.nolix.core.interfaces.ISender;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
@@ -22,8 +21,9 @@ public abstract class EndPoint
 extends AbortableElement
 implements ISender {
 
-	//attribute
+	//attributes
 	private final boolean hasRequestedConnection;
+	private String target;
 	
 	//optional attribute
 	private IReceiver receiver;
@@ -38,11 +38,13 @@ implements ISender {
 		this.hasRequestedConnection = hasRequestedConnection;
 	}
 	
-	//abstract method
+	//method
 	/**
-	 * @return the target of this end point.
+	 * @return the target of this local end point.
 	 */
-	public abstract String getTarget();
+	public final String getTarget() {
+		return target;
+	}
 	
 	//method
 	/**
@@ -79,16 +81,50 @@ implements ISender {
 	
 	//method
 	/**
-	 * @return the receiver of this end point.
-	 * @throws UnexistingAttributeException if this end point has no receiver.
+	 * @return true if this end point has a target.
 	 */
-	protected final IReceiver getRefReceiver() {
+	protected boolean hasTarget() {
+		return (target != null);
+	}
+	
+	//method
+	/**
+	 * Lets this net end point receive the given message.
+	 * 
+	 * @param message
+	 * @throws InvalidArgumentException if this net end point is aborted.
+	 */
+	protected void receive(final String message) {
 		
-		//Checks if this end point has a receiver.
-		if (!hasReceiver()) {
-			throw new UnexistingAttributeException(this, "receiver");
+		//Checks if this net end point is not stopped.
+		throwExceptionIfAborted();
+		
+		if (!hasTarget()) {
+			setTarget(message);
 		}
+		else {
+			receive(message);
+		}
+	}
+	
+	//method
+	/**
+	 * Sets the target of this net end point.
+	 * 
+	 * @param target
+	 * @throws NullArgumentException if the given target is null.
+	 * @throws EmptyArgumentException if the given target is empty.
+	 * @throws InvalidArgumentException if this net end point is aborted.
+	 */
+	protected void setTarget(final String target) {
 		
-		return receiver;
+		//Checks if the given target is not empty.
+		Validator.supposeThat(target).thatIsNamed("target").isNotEmpty();
+		
+		//Checks if this net end point is not stopped.
+		throwExceptionIfAborted();
+		
+		//Sets the target of this end point.
+		this.target = target;
 	}
 }

@@ -15,7 +15,6 @@ import ch.nolix.core.validator2.Validator;
 public final class LocalEndPoint extends EndPoint {
 	
 	//attributes
-	private final String target;
 	private final LocalEndPoint counterpart;
 
 	//constructor
@@ -28,9 +27,6 @@ public final class LocalEndPoint extends EndPoint {
 		
 		//Calls consturctor of the base class.
 		super(true);
-		
-		//Sets the target of this local end point.
-		this.target = target.getName();
 		
 		//Creates the counterpart of this local end point.
 		counterpart = new LocalEndPoint(this);
@@ -56,12 +52,12 @@ public final class LocalEndPoint extends EndPoint {
 		Validator.supposeThat(target).thatIsNamed("target").isNotEmpty();
 		
 		//Sets the target of this local end point.
-		this.target = target;
+		setTarget(target);
 		
 		//Creates the counter part of this local end point.
 		counterpart = new LocalEndPoint(this);
 		
-		server.takeIncomingEndPoint(counterpart);
+		server.takeEndPoint(counterpart);
 	}
 	
 	//constructor
@@ -73,18 +69,12 @@ public final class LocalEndPoint extends EndPoint {
 		//Calls constructor of the base class.
 		super(false);
 		
-		this.target = localEndPoint.getTarget();
+		setTarget(localEndPoint.getTarget());
 		
 		this.counterpart = localEndPoint;
 	}
 	
-	//method
-	/**
-	 * @return the target of this local end point.
-	 */
-	public String getTarget() {
-		return target;
-	}
+
 
 	//method
 	/**
@@ -102,20 +92,5 @@ public final class LocalEndPoint extends EndPoint {
 		throwExceptionIfAborted();
 		
 		counterpart.receive(message);	
-	}
-	
-	//method
-	/**
-	 * Lets this local end point receive the given message.
-	 * 
-	 * @param message
-	 * @throws InvalidArgumentException if this local end point is aborted.
-	 */
-	private void receive(final String message) {
-		
-		//Checks if this local end point is not aborted.
-		throwExceptionIfAborted();
-		
-		getRefReceiver().receive(message);
 	}
 }

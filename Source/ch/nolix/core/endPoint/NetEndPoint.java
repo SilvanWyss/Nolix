@@ -36,6 +36,9 @@ public final class NetEndPoint extends EndPoint {
 	 */
 	public NetEndPoint(final String ip, final int port) {
 		
+		//Calls constructor of the base class.
+		super(true);
+		
 		//Checks if the given port is in [0, 65535]. 
 		Validator
 		.supposeThat(port)
@@ -66,6 +69,9 @@ public final class NetEndPoint extends EndPoint {
 	 * @throws NullArgumentException if the given socket is null.
 	 */
 	NetEndPoint(final Socket socket) {
+		
+		//Calls constructor of the base class.
+		super(false);
 		
 		//Checks if the given socket is not null.
 		Validator.supposeThat(socket).thatIsInstanceOf(Socket.class).isNotNull();
@@ -124,7 +130,7 @@ public final class NetEndPoint extends EndPoint {
 	/**
 	 * @return the socket of this net end point.
 	 */
-	Socket getRefSocket() {
+	protected Socket getRefSocket() {
 		return socket;
 	}
 }

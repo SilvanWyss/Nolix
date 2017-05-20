@@ -13,7 +13,7 @@ import ch.nolix.core.validator2.Validator;
 /**
  * A net server sub listener listens for net end points for a net server.
  * 
- * A net server sub listener of this net server have to be aborted from outside.
+ * A net server must be able to be aborted from outside.
  * Because a net server sub listener cannot check a status while waiting to a socket.
  * 
  * @author Silvan Wyss

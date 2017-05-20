@@ -26,6 +26,9 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	public LocalEndPoint(final IEndPointTaker endPointTaker) {
 		
+		//Calls constructor of the base class.
+		super(true);
+		
 		//Creates the counterpart of this local end point.
 		counterPart = new LocalEndPoint(this);
 		
@@ -40,6 +43,9 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws NullArgumentException if the given counterpart is null.
 	 */
 	private LocalEndPoint(final LocalEndPoint counterPart) {
+		
+		//Calls constructor of the base class.
+		super(false);
 		
 		//Checks if the given counterpart is not null.
 		Validator.supposeThat(counterPart).thatIsNamed("counterpart").isNotNull();

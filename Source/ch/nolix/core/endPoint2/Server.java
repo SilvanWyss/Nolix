@@ -4,6 +4,7 @@ package ch.nolix.core.endPoint2;
 //own imports
 import ch.nolix.core.basic.AbortableElement;
 import ch.nolix.core.container.List;
+import ch.nolix.core.invalidStateException.InvalidStateException;
 
 //abstract class
 /**
@@ -12,7 +13,7 @@ import ch.nolix.core.container.List;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 60
+ * @lines 70
  */
 public abstract class Server extends AbortableElement {
 	
@@ -24,13 +25,16 @@ public abstract class Server extends AbortableElement {
 	 * Adds the given end point taker to this server.
 	 * 
 	 * @param endPointTaker
-	 * @throws RuntimeException if this server contains end point taker with the same name as the given end point taker.
+	 * @throws InvalidStateException if this server contains an end point taker with the same name as the given end point taker.
 	 */
 	public final void addEndPointTaker(final IEndPointTaker endPointTaker) {
 		
 		//Checks if this server contains already an end point taker with the same name as the given end point taker.
 		if (containsEndPointTaker(endPointTaker.getName())) {
-			throw new RuntimeException("Server contains an end point taker with the same name.");
+			throw new InvalidStateException(
+				this,
+				"contains an end point taker with the same name as the given end point taker"
+			);
 		}
 		
 		this.endPointTaker.addAtEnd(endPointTaker);
@@ -39,7 +43,7 @@ public abstract class Server extends AbortableElement {
 	//method
 	/**
 	 * @param name
-	 * @return true if this server contains a end point taker with the given name.
+	 * @return true if this server contains an end point taker with the given name.
 	 */
 	public final boolean containsEndPointTaker(final String name) {
 		return endPointTaker.contains(ept -> ept.hasName(name));
@@ -58,12 +62,13 @@ public abstract class Server extends AbortableElement {
 	
 	//method
 	/**
-	 * Lets this server take the given incoming end point.
+	 * Lets this server take the given end point.
 	 * 
-	 * @param incomingEndPoint
+	 * @param endPoint
 	 */
-	protected final void takeIncomingEndPoint(final EndPoint incomingEndPoint) {
-		endPointTaker.getRefFirst(ept -> ept.hasName(incomingEndPoint.getTarget()))
-		.takeEndPoint(incomingEndPoint);
+	public final void takeEndPoint(final EndPoint endPoint) {
+		endPointTaker
+		.getRefFirst(ept -> ept.hasName(endPoint.getTarget()))
+		.takeEndPoint(endPoint);
 	}
 }

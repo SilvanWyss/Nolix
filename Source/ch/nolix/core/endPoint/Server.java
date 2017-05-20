@@ -43,7 +43,7 @@ implements IEndPointTaker {
 	 * @param endPoint
 	 * @throws InvalidStateException if this server is aborted.
 	 */
-	public void takeEndPoint(final EndPoint endPoint) {
+	public final void takeEndPoint(final EndPoint endPoint) {
 		
 		//Checks if this server is not aborted.
 		throwExceptionIfAborted();

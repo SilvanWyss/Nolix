@@ -14,14 +14,27 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 80
+ * @lines 100
  */
 public abstract class EndPoint
 extends AbortableElement
 implements ISender {
 	
+	//attribute
+	private final boolean hasRequestedConnection;
+	
 	//optional attribute
 	private IReceiver receiver;
+	
+	//constructor
+	/**
+	 * Creates new end point.
+	 * 
+	 * @param hasRequestedConnection
+	 */
+	public EndPoint(final boolean hasRequestedConnection) {
+		this.hasRequestedConnection = hasRequestedConnection;
+	}
 	
 	//method
 	/**
@@ -29,6 +42,14 @@ implements ISender {
 	 */
 	public final boolean hasReceiver() {
 		return (receiver != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this end point has requested the connection.
+	 */
+	public final boolean hasRequestedConnection() {
+		return hasRequestedConnection;
 	}
 	
 	//method

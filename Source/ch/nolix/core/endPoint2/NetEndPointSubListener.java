@@ -7,16 +7,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 //own imports
-
-
-
-
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
- * A net end point listeners listens to the incoming messages of a net end point
+ * A net end point sub listener listens to the incoming messages of a net end point.
  * 
  * @author Silvan Wyss
  * @month 2015-12
@@ -29,41 +25,40 @@ final class NetEndPointSubListener extends Thread {
 	
 	//constructor
 	/**
-	 * Creates new net end point listener that belongs to the given net end point.
-	 * The net end point listener will start automatically.
+	 * Creates new net end point sub listener that belongs to the given net end point.
 	 * 
 	 * @param netEndPoint
-	 * @throws NullArgumentException if the givne net end point is null.
+	 * @throws NullArgumentException if the given net end point is null.
 	 */
-	public NetEndPointSubListener(NetEndPoint netEndPoint) {
+	public NetEndPointSubListener(final NetEndPoint netEndPoint) {
 		
 		//Checks if the given net end point is not null.
 		Validator.supposeThat(netEndPoint).thatIsInstanceOf(NetEndPoint.class).isNotNull();
 		
-		//Sets the net end point of this net end point listener.
+		//Sets the net end point of this net end point sub listener.
 		this.netEndPoint = netEndPoint;
 		
 		start();
 	}
-
+	
 	//method
 	/**
-	 * Lets this net end point listener listens to incoming messages.
-	 * Stops the net end point of this net end point listener when an error occurs.
+	 * Runs this net end point sub listener.
 	 */
 	public void run() {
-		try {
-			
+		try (
 			final BufferedReader bufferedReader
-			= new BufferedReader(new InputStreamReader(netEndPoint.getRefSocket().getInputStream()));
-			
+			= new BufferedReader(new InputStreamReader(netEndPoint.getRefSocket().getInputStream()))
+		) {
 			while (netEndPoint.isNotAborted()) {
 				final String line = bufferedReader.readLine();
 				Sequencer.runInBackground(() -> netEndPoint.receive(line));
 			}
 		}
 		catch (final IOException exception) {
-			netEndPoint.abort(exception.getMessage());
+			if (netEndPoint.isNotAborted()) {
+				netEndPoint.abort(exception.getMessage());
+			}
 		}
 	}
 }

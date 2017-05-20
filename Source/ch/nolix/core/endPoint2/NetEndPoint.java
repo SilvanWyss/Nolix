@@ -7,10 +7,6 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 //own imports
-
-
-
-
 import ch.nolix.core.constants.IPv6Manager;
 import ch.nolix.core.constants.PortManager;
 import ch.nolix.core.validator2.Validator;
@@ -33,7 +29,6 @@ public final class NetEndPoint extends EndPoint {
 	private static final int TIMEOUT_IN_MILLISECONDS = 10000;
 	
 	//attributes
-	private String target;
 	private final Socket socket;
 	private final PrintWriter printWriter;
 		
@@ -83,6 +78,7 @@ public final class NetEndPoint extends EndPoint {
 		//Calls constructor of the base class.
 		super(true);
 		
+		//Sets the target of this net end point.
 		setTarget(target);
 		
 		//Checks if the given port is in [0, 65535]. 
@@ -141,14 +137,6 @@ public final class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * @return the target of this net end point.
-	 */
-	public String getTarget() {
-		return target;
-	}
-	
-	//method
-	/**
 	 * Lets this end point send the given message.
 	 * 
 	 * @param message
@@ -167,60 +155,12 @@ public final class NetEndPoint extends EndPoint {
 		printWriter.flush();
 	}
 
-	//package-visible method
+	//method
 	/**
 	 * @return the socket of this end point.
 	 */
-	Socket getRefSocket() {
+	protected Socket getRefSocket() {
 		return socket;
-	}
-	
-	//package-visible method
-	/**
-	 * Lets this net end point receive the given message.
-	 * 
-	 * @param message
-	 * @throws InvalidArgumentException if this net end point is aborted.
-	 */
-	void receive(final String message) {
-		
-		//Checks if this net end point is not stopped.
-		throwExceptionIfAborted();
-		
-		if (!receivedTarget()) {
-			setTarget(message);
-		}
-		else {
-			getRefReceiver().receive(message);
-		}
-	}
-	
-	//method
-	/**
-	 * @return true if this net end point received a target.
-	 */
-	private boolean receivedTarget() {
-		return (target != null);
-	}
-	
-	//method
-	/**
-	 * Sets the target of this net end point.
-	 * 
-	 * @param target
-	 * @throws NullArgumentException if the given target is null.
-	 * @throws EmptyArgumentException if the given target is empty.
-	 * @throws InvalidArgumentException if this net end point is aborted.
-	 */
-	private void setTarget(final String target) {
-		
-		//Checks if the given target is not empty.
-		Validator.supposeThat(target).thatIsNamed("target").isNotEmpty();
-		
-		//Checks if this net end point is not stopped.
-		throwExceptionIfAborted();
-		
-		this.target = target;
 	}
 
 	//method
@@ -238,7 +178,7 @@ public final class NetEndPoint extends EndPoint {
 		final long startTimeInMilliseconds = System.currentTimeMillis();
 		
 		//This loop suffers from being optimized away by the compiler or the JVM.
-		while (!receivedTarget()) {
+		while (!hasTarget()) {
 			
 			//This statement that is actually unnecessary makes that the loop is not optimized away.
 			System.out.flush();
