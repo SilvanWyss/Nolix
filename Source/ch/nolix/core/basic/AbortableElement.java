@@ -15,7 +15,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 90
+ * @lines 100
  */
 public abstract class AbortableElement implements Abortable {
 
@@ -52,8 +52,11 @@ public abstract class AbortableElement implements Abortable {
 		//Checks if the given abort reason is not empty.
 		Validator.supposeThat(abortReason).thatIsNamed("abort reason").isNotEmpty();
 
-		abort();
+		//Sets the abort reason of this abortable element.
 		this.abortReason = abortReason;
+		
+		//Calls other method.
+		abort();
 	}
 	
 	//method

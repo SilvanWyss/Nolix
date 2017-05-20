@@ -7,10 +7,6 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 //own imports
-
-
-
-
 import ch.nolix.core.constants.PortManager;
 import ch.nolix.core.validator2.Validator;
 
@@ -23,7 +19,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 100
+ * @lines 130
  */
 public final class NetEndPoint extends EndPoint {
 	
@@ -51,11 +47,15 @@ public final class NetEndPoint extends EndPoint {
 			//Creates the socket of this net end point.
 			socket = new Socket(ip, port);
 			
+			//Creates the printwriter of this net end point.
 			printWriter = new PrintWriter(socket.getOutputStream());
 		} 
 		catch (final IOException exception) {
 			throw new RuntimeException(exception);
 		}
+		
+		//Creates net end point sub listener for this net end point.
+		new NetEndPointSubListener(this);
 	}
 	
 	//constructor
@@ -77,9 +77,27 @@ public final class NetEndPoint extends EndPoint {
 		try {
 			printWriter = new PrintWriter(socket.getOutputStream());
 		}
-		catch (IOException e) {
-			throw new RuntimeException(e);
+		catch (final IOException exception) {
+			throw new RuntimeException(exception);
 		}
+		
+		//Creates net end point sub listener for this net end point.
+		new NetEndPointSubListener(this);
+	}
+	
+	//method
+	/**
+	 * Aborts this net end point.
+	 */
+	public void abort() {
+		
+		//Calls method of the base class.
+		super.abort();
+		
+		try {
+			socket.close();
+		}
+		catch (final IOException exception) {}
 	}
 	
 	//method
@@ -104,7 +122,7 @@ public final class NetEndPoint extends EndPoint {
 	
 	//package-visible method
 	/**
-	 * @return the socket of this net end point.s
+	 * @return the socket of this net end point.
 	 */
 	Socket getRefSocket() {
 		return socket;

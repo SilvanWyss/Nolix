@@ -4,6 +4,7 @@ package ch.nolix.coreTest;
 //own imports
 import ch.nolix.core.testBase.TestPool;
 import ch.nolix.coreTest.containerTest.ContainerTestPool;
+import ch.nolix.coreTest.endPointTest.EndPointTestPool;
 import ch.nolix.coreTest.mathematicsTest.MathematicsTestPool;
 import ch.nolix.coreTest.specificationTest.SpecificationTestPool;
 import ch.nolix.coreTest.utilTest.UtilTestPool;
@@ -24,6 +25,7 @@ public final class CoreTestPool extends TestPool {
 	public CoreTestPool() {
 		addTestPool(
 			new ContainerTestPool(),
+			new EndPointTestPool(),
 			new FinanceTestPool(),
 			new MathematicsTestPool(),
 			new SpecificationTestPool(),
