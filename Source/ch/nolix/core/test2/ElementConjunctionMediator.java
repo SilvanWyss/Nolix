@@ -11,13 +11,13 @@ abstract class ElementConjunctionMediator<E> extends Mediator {
 	/**
 	 * Creates new element conjunction mediator that belongs to the given zeta test and has the given value.
 	 * 
-	 * @param zetaTest
+	 * @param test
 	 * @param value
 	 * @throws NullArgumentException if the given zeta test is null.
 	 */
-	public ElementConjunctionMediator(final ZetaTest zetaTest, final E value) {
+	public ElementConjunctionMediator(final Test test, final E value) {
 		
-		super(zetaTest);
+		super(test);
 		
 		this.value = value;
 	}

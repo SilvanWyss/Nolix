@@ -13,7 +13,7 @@ package ch.nolix.core.test2;
 public final class StringConjunctionMediator {
 
 	//attribute
-	private final ZetaTest zetaTest;
+	private final Test test;
 	private final String value;
 	
 	//package-visible constructor
@@ -22,15 +22,15 @@ public final class StringConjunctionMediator {
 	 * 
 	 * @param value
 	 */
-	StringConjunctionMediator(final ZetaTest test, final String value) {
-		this.zetaTest = test;
+	StringConjunctionMediator(final Test test, final String value) {
+		this.test = test;
 		this.value = value;
 	}
 	
 	//method
 	public StringConjunctionMediator andContains(final char character) {
 		
-		new StringMediator(zetaTest, value).contains(character);
+		new StringMediator(test, value).contains(character);
 		
 		return this;
 	}

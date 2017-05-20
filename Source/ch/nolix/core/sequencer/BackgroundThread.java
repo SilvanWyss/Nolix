@@ -8,7 +8,7 @@
 //package declaration
 package ch.nolix.core.sequencer;
 
-import ch.nolix.core.functional.IRunner;
+import ch.nolix.core.functionInterfaces.IRunner;
 
 final class BackgroundThread extends Thread {
 

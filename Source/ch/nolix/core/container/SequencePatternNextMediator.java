@@ -2,7 +2,7 @@
 package ch.nolix.core.container;
 
 //own imports
-import ch.nolix.core.functional.IElementTakerBooleanGetter;
+import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.validator2.Validator;
 

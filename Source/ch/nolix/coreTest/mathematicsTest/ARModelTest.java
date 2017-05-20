@@ -3,7 +3,7 @@ package ch.nolix.coreTest.mathematicsTest;
 
 //own imports
 import ch.nolix.core.mathematics.ARModel;
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 
 //class
 /**
@@ -13,7 +13,7 @@ import ch.nolix.core.test2.ZetaTest;
  * @month 2016-07
  * @lines 100
  */
-public final class ARModelTest extends ZetaTest {
+public final class ARModelTest extends Test {
 
 	//test method
 	public void test_constructor_1() {

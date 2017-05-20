@@ -12,13 +12,13 @@ package ch.nolix.coreTest.containerTest;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.SequencePattern;
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 
 //test class
 /**
  * This class is a test class for the list class.
  */
-public final class ListTest extends ZetaTest {
+public final class ListTest extends Test {
 		
 	//test method
 	public void testClear() {

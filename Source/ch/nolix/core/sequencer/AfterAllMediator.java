@@ -2,8 +2,8 @@
 package ch.nolix.core.sequencer;
 
 //own imports
-import ch.nolix.core.functional.IBooleanGetter;
-import ch.nolix.core.functional.IRunner;
+import ch.nolix.core.functionInterfaces.IBooleanGetter;
+import ch.nolix.core.functionInterfaces.IRunner;
 import ch.nolix.core.util.Validator;
 
 //class

@@ -2,10 +2,10 @@
 package ch.nolix.systemTutorial.netNeuronTutorial;
 
 //own imports
-import ch.nolix.core.neuron.SourceNeuron;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.system.netNeuron.FrontNetNeuron;
 import ch.nolix.system.netNeuron.NetNeuron;
+import ch.nolix.system.neuron.SourceNeuron;
 
 //class
 /**

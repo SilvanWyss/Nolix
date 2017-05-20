@@ -3,10 +3,10 @@ package ch.nolix.core.container;
 
 //own imports
 import ch.nolix.core.constants.StringManager;
-import ch.nolix.core.functional.IElementTakerBooleanGetter;
-import ch.nolix.core.functional.IElementTakerComparableGetter;
-import ch.nolix.core.functional.IElementTakerElementGetter;
-import ch.nolix.core.functional.IElementTakerRunner;
+import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
+import ch.nolix.core.functionInterfaces.IElementTakerComparableGetter;
+import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
+import ch.nolix.core.functionInterfaces.IElementTakerRunner;
 import ch.nolix.core.helper.CharacterHelper;
 import ch.nolix.core.helper.IterableHelper;
 import ch.nolix.core.interfaces.Clearable;

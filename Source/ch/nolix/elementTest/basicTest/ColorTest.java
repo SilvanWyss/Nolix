@@ -9,14 +9,14 @@
 package ch.nolix.elementTest.basicTest;
 
 //own imports
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 import ch.nolix.element.basic.Color;
 
 //test class
 /**
  * This class is a test class for the color class.
  */
-public final class ColorTest extends ZetaTest {
+public final class ColorTest extends Test {
 	
 	//test method
 	public void test_createInvertedColor_1() {

@@ -2,7 +2,7 @@
 package ch.nolix.core.test2;
 
 //own imports
-import ch.nolix.core.test.Accessor;
+import ch.nolix.core.testBase.Accessor;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -14,21 +14,21 @@ import ch.nolix.core.validator2.Validator;
 abstract class Mediator {
 
 	//attribute
-	private final ZetaTest zetaTestest;
+	private final Test zetaTestest;
 	
 	//constructor
 	/**
 	 * Creates new mediator that belongs to the given test.
 	 * 
-	 * @param zetaTest
+	 * @param test
 	 * @throws NullArgumentException if the given test is null.
 	 */
-	public Mediator(final ZetaTest zetaTest) {
+	public Mediator(final Test test) {
 		
 		//Checks if the given test is not null.
-		Validator.supposeThat(zetaTest).thatIsNamed("test").isNotNull();
+		Validator.supposeThat(test).thatIsNamed("test").isNotNull();
 		
-		this.zetaTestest = zetaTest;
+		this.zetaTestest = test;
 	}
 	
 	//method
@@ -39,7 +39,7 @@ abstract class Mediator {
 		new Accessor(zetaTestest).addCurrentTestMethodError(error);
 	}
 	
-	protected final ZetaTest getZetaTest() {
+	protected final Test getZetaTest() {
 		return zetaTestest;
 	}
 }

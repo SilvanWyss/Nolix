@@ -2,9 +2,9 @@
 package ch.nolix.system.consoleClient;
 
 //own import
-import ch.nolix.core.application.Client;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.GUI.GUI;
+import ch.nolix.system.application.Client;
 
 //class
 /**

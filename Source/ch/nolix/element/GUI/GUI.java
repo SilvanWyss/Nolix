@@ -9,17 +9,21 @@ import java.awt.event.KeyEvent;
 //own imports
 
 
+
+
+
+
 import ch.nolix.core.container.List;
-import ch.nolix.core.controller.ILevel1Controller;
+import ch.nolix.core.controllerInterfaces.ILevel1Controller;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.interfaces.IRequestableContainer;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.specification.Configurable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.Statement;
+import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.ConfigurationElement;
 import ch.nolix.element.data.BackgroundColor;

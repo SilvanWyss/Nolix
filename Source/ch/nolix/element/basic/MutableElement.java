@@ -2,13 +2,13 @@
 package ch.nolix.element.basic;
 
 //own import
-import ch.nolix.core.controller.ILevel2Controller;
+import ch.nolix.core.controllerInterfaces.ILevel2Controller;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.specification.Specifiable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.Statement;
+import ch.nolix.core.specificationInterfaces.Specifiable;
 
 //class
 public abstract class MutableElement

@@ -9,7 +9,7 @@
 package ch.nolix.coreTest.containerTest;
 
 //own import
-import ch.nolix.core.test.TestPool;
+import ch.nolix.core.testBase.TestPool;
 
 //class
 public class ContainerTestPool extends TestPool {

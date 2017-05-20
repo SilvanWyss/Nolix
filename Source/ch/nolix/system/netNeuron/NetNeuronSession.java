@@ -2,8 +2,8 @@
 package ch.nolix.system.netNeuron;
 
 //own imports
-import ch.nolix.core.application.Session;
-import ch.nolix.core.application.StandardClient;
+import ch.nolix.system.application.Session;
+import ch.nolix.system.application.StandardClient;
 
 //package-visible class
 /**

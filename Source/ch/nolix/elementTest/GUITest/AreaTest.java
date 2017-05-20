@@ -9,7 +9,7 @@
 package ch.nolix.elementTest.GUITest;
 
 //own imports
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 import ch.nolix.element.GUI.Area;
 import ch.nolix.element.data.BackgroundColor;
 
@@ -17,7 +17,7 @@ import ch.nolix.element.data.BackgroundColor;
 /**
  * This class is a test class for the area class.
  */
-public final class AreaTest extends ZetaTest {
+public final class AreaTest extends Test {
 	
 	//test method
 	public void testEquals() {

@@ -2,14 +2,14 @@
 package ch.nolix.system.GUIClient;
 
 //own imports
-import ch.nolix.core.application.Application;
-import ch.nolix.core.application.Client;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.Frame;
+import ch.nolix.system.application.Application;
+import ch.nolix.system.application.Client;
 
 //class
 /**

@@ -17,9 +17,9 @@ public final class ObjectMediator extends ElementMediator<Object> {
 	 * 
 	 * @param value
 	 */
-	public ObjectMediator(final ZetaTest zetaTest, Object value) {
+	public ObjectMediator(final Test test, Object value) {
 		
 		//Calls constructor of the base class.
-		super(zetaTest, value);
+		super(test, value);
 	}
 }

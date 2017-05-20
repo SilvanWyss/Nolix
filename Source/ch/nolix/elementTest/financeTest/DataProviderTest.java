@@ -3,7 +3,7 @@ package ch.nolix.elementTest.financeTest;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 import ch.nolix.element.basic.Time;
 import ch.nolix.element.finance.DataProvider;
 import ch.nolix.element.finance.NASDAQProductSymbolManager;
@@ -17,7 +17,7 @@ import ch.nolix.element.finance.VolumeCandleStick;
  * @month 2016-08
  * @lines 90
  */
-public final class DataProviderTest extends ZetaTest {
+public final class DataProviderTest extends Test {
 
 	//test method
 	public void test_getCandleSticksPerDay2() {

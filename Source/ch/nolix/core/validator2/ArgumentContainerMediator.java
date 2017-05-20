@@ -2,7 +2,7 @@
 package ch.nolix.core.validator2;
 
 //own imports
-import ch.nolix.core.functional.IElementTakerBooleanGetter;
+import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;

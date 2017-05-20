@@ -10,7 +10,7 @@ package ch.nolix.core.util;
 
 //own imports
 import ch.nolix.core.constants.StringManager;
-import ch.nolix.core.functional.IElementTakerElementGetter;
+import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 
 //class
 /**

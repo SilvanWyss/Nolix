@@ -11,7 +11,7 @@ package ch.nolix.core.mathematics;
 //own imports
 import ch.nolix.core.container.FPNPair;
 import ch.nolix.core.container.List;
-import ch.nolix.core.functional.IElementTakerElementGetter;
+import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.util.Validator;
 
 //class

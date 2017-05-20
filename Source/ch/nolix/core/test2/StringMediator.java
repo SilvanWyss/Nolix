@@ -2,7 +2,7 @@
 package ch.nolix.core.test2;
 
 //own import
-import ch.nolix.core.test.Accessor;
+import ch.nolix.core.testBase.Accessor;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -17,14 +17,14 @@ public class StringMediator extends ElementMediator<String> {
 	/**
 	 * Creates new string mediator that belongs to the given zeta test and has the given value.
 	 * 
-	 * @param zetaTest
+	 * @param test
 	 * @param value
 	 * @throws NullArgumentException if the given zeta test is null.
 	 */
-	StringMediator(final ZetaTest zetaTest, final String value) {
+	StringMediator(final Test test, final String value) {
 		
 		//Calls constructor of the base class.
-		super(zetaTest, value);
+		super(test, value);
 	}
 	
 	//method

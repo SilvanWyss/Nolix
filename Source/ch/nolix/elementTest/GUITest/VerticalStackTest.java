@@ -9,7 +9,7 @@
 package ch.nolix.elementTest.GUITest;
 
 //own imports
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.TextBox;
@@ -20,7 +20,7 @@ import ch.nolix.element.GUI.WidgetState;
 /**
  * This class is a test class for the vertical stack class.
  */
-public final class VerticalStackTest extends ZetaTest {
+public final class VerticalStackTest extends Test {
 	
 	//test method
 	public void testConstructor() {

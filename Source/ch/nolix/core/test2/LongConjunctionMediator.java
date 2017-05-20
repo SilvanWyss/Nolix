@@ -22,10 +22,10 @@ public final class LongConjunctionMediator extends Mediator {
 	private final long value;
 	
 	//package-visible constructor
-	LongConjunctionMediator(final ZetaTest zetaTest, final long value) {
+	LongConjunctionMediator(final Test test, final long value) {
 		
 		//Calls constructor of the base class.
-		super(zetaTest);
+		super(test);
 		
 		this.value = value;
 	}

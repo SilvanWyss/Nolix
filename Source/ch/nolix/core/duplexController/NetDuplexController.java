@@ -10,7 +10,7 @@ package ch.nolix.core.duplexController;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.controller.ILevel2Controller;
+import ch.nolix.core.controllerInterfaces.ILevel2Controller;
 import ch.nolix.core.endPoint3.ZetaEndPoint;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;

@@ -2,8 +2,8 @@
 package ch.nolix.core.test2;
 
 //own imports
-import ch.nolix.core.functional.IRunner;
-import ch.nolix.core.test.Accessor;
+import ch.nolix.core.functionInterfaces.IRunner;
+import ch.nolix.core.testBase.Accessor;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -21,14 +21,14 @@ public final class ClosureMediator extends Mediator {
 	/**
 	 * Creates new closure mediator that belongs to the given zeta test and has the given closure.
 	 * 
-	 * @param zetaTest
+	 * @param test
 	 * @param closure
 	 * @throws NullArgumentException if the given zeta test is null.
 	 */
-	ClosureMediator(final ZetaTest zetaTest, final IRunner closure) {
+	ClosureMediator(final Test test, final IRunner closure) {
 		
 		//Calls constructor of the base class.
-		super(zetaTest);
+		super(test);
 		
 		this.closure = closure;
 	}

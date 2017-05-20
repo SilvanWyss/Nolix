@@ -3,7 +3,7 @@ package ch.nolix.coreTest.specificationTest;
 
 //own imports
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 
 //test class
 /**
@@ -13,7 +13,7 @@ import ch.nolix.core.test2.ZetaTest;
  * @month 2015-12
  * @lines 80
  */
-public final class SpecificationTest extends ZetaTest {
+public final class SpecificationTest extends Test {
 	
 	//test method
 	public void test_constructor_1() {

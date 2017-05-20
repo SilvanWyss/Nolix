@@ -1,7 +1,7 @@
 package ch.nolix.core.sequencer;
 
-import ch.nolix.core.functional.IBooleanGetter;
-import ch.nolix.core.functional.IRunner;
+import ch.nolix.core.functionInterfaces.IBooleanGetter;
+import ch.nolix.core.functionInterfaces.IRunner;
 import ch.nolix.core.util.Validator;
 
 class Runner extends Thread {

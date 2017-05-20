@@ -10,13 +10,13 @@ package ch.nolix.coreTest.helperTest;
 
 //own imports
 import ch.nolix.core.helper.CharacterHelper;
-import ch.nolix.core.test.StandardTest;
+import ch.nolix.core.test.Test;
 
 //test class
 /**
 * This class is a test class for the character helper class.
 */
-public class CharacterHelperTest extends StandardTest {
+public class CharacterHelperTest extends Test {
 
 	//test method
 	public void testIsDigit() {

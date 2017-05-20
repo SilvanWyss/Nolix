@@ -9,12 +9,12 @@
 package ch.nolix.application.performanceDetector;
 
 //own imports
-import ch.nolix.core.application.Session;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.util.Timer;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.system.GUIClient.GUIClient;
+import ch.nolix.system.application.Session;
 
 //class
 public final class MainSession extends Session<GUIClient> {

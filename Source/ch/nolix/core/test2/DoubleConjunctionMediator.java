@@ -18,13 +18,13 @@ public final class DoubleConjunctionMediator extends Mediator {
 	/**
 	 * Creates new double conjunction mediator that belongs to the given zeta test and has the given value.
 	 * 
-	 * @param zetaTest
+	 * @param test
 	 * @throws NullArgumentException if the given zeta test is null.
 	 */
-	DoubleConjunctionMediator(final ZetaTest zetaTest, final double value) {
+	DoubleConjunctionMediator(final Test test, final double value) {
 		
 		//Calls constructor of the base class.
-		super(zetaTest);
+		super(test);
 		
 		this.value = value;
 	}

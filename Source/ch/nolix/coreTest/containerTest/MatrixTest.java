@@ -10,13 +10,13 @@ package ch.nolix.coreTest.containerTest;
 
 //own imports
 import ch.nolix.core.container.Matrix;
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 
 //test class
 /**
  * This class is a test class for the matrix class.
  */
-public final class MatrixTest extends ZetaTest {
+public final class MatrixTest extends Test {
 
 	//test method
 	public final void testAddRow() {

@@ -2,7 +2,7 @@
 package ch.nolix.elementTest.financeTest;
 
 //own imports
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 import ch.nolix.element.basic.Time;
 import ch.nolix.element.finance.CandleStick;
 
@@ -14,7 +14,7 @@ import ch.nolix.element.finance.CandleStick;
  * @month 2016-09
  * @lines 100
  */
-public final class CandleStickTest extends ZetaTest {
+public final class CandleStickTest extends Test {
 	
 	//test method
 	public void test_isBearish_1() {

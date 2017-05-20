@@ -7,7 +7,7 @@ import ch.nolix.core.endPoint3.Server;
 import ch.nolix.core.endPoint3.ZetaEndPoint;
 import ch.nolix.core.interfaces.IZetaReceiver;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 import ch.nolix.core.util.Validator;
 
 //test class
@@ -16,7 +16,7 @@ import ch.nolix.core.util.Validator;
  * @month 2016-09
  * @lines 120
  */
-public final class ZetaEndPointTest extends ZetaTest {
+public final class ZetaEndPointTest extends Test {
 
 	//test method
 	public void test_constructor() throws InterruptedException {

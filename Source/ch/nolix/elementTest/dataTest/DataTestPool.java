@@ -2,7 +2,7 @@
 package ch.nolix.elementTest.dataTest;
 
 //own import
-import ch.nolix.core.test.TestPool;
+import ch.nolix.core.testBase.TestPool;
 
 //class
 /**

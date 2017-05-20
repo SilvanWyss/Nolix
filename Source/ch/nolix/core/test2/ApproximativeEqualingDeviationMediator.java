@@ -3,7 +3,7 @@ package ch.nolix.core.test2;
 
 //own imports
 import ch.nolix.core.interfaces.ApproximativeEqualing;
-import ch.nolix.core.test.Accessor;
+import ch.nolix.core.testBase.Accessor;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -22,35 +22,35 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 	/**
 	 * Creates new approximative equaling deviation mediator with the given zeta test, value and default max deviation.
 	 * 
-	 * @param zetaTest
+	 * @param test
 	 * @param value
 	 * @throws NullArgumentException if the given zeta test is null.
 	 */
 	public ApproximativeEqualingDeviationMediator(
-		final ZetaTest zetaTest,
+		final Test test,
 		final ApproximativeEqualing value
 	) {
 		//Calls other constructor.
-		this(zetaTest, value, ApproximativeEqualing.DEFAULT_DEVIATION);
+		this(test, value, ApproximativeEqualing.DEFAULT_DEVIATION);
 	}
 	
 	//package-visible constructor
 	/**
 	 * Creates new approximative equaling deviation mediator with the given zeta test, value and max deviation.
 	 * 
-	 * @param zetaTest
+	 * @param test
 	 * @param value
 	 * @param maxDeviation
 	 * @throws NullArgumentException if the given zeta test is null.
 	 * @throws NegativeArgumentException if the given max deviation is negative.
 	 */
 	ApproximativeEqualingDeviationMediator(
-		final ZetaTest zetaTest,
+		final Test test,
 		final ApproximativeEqualing value,
 		final double maxDeviation
 	) {
 		//Calls constructor of the base class.
-		super(zetaTest);
+		super(test);
 		
 		//Checks if the given max deviation is not negative.
 		Validator.supposeThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();

@@ -9,13 +9,13 @@
 package ch.nolix.elementTest.GUITest;
 
 //own imports
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 
 //test class
 /**
  * This class is a test class for the single container class.
  */
-public class SingleContainerTest extends ZetaTest {
+public class SingleContainerTest extends Test {
 
 	//test method
 	public void testGetTypes() {

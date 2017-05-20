@@ -2,7 +2,7 @@
 package ch.nolix.elementTest.GUITest;
 
 //own imports
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 import ch.nolix.element.GUI.CheckBox;
 
 //test class
@@ -13,7 +13,7 @@ import ch.nolix.element.GUI.CheckBox;
  * @month 2017-03
  * @lines 50
  */
-public final class CheckBoxTest extends ZetaTest {
+public final class CheckBoxTest extends Test {
 
 	//test method
 	public void test_constructor() {

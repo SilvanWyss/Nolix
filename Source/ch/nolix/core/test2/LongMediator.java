@@ -9,8 +9,8 @@
 package ch.nolix.core.test2;
 
 //own import
-import ch.nolix.core.functional.IElementTakerBooleanGetter;
-import ch.nolix.core.test.Accessor;
+import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
+import ch.nolix.core.testBase.Accessor;
 
 //class
 public class LongMediator extends Mediator {
@@ -24,10 +24,10 @@ public class LongMediator extends Mediator {
 	 * 
 	 * @param value
 	 */
-	LongMediator(final ZetaTest zetaTest, final long value) {
+	LongMediator(final Test test, final long value) {
 		
 		//Calls constructor of the base class.
-		super(zetaTest);
+		super(test);
 		
 		this.value = value;
 	}

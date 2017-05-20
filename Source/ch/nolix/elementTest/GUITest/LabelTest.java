@@ -9,14 +9,14 @@
 package ch.nolix.elementTest.GUITest;
 
 //own imports
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 import ch.nolix.element.GUI.Label;
 
 //test class
 /**
  * This class is a test class for the label class.
  */
-public final class LabelTest extends ZetaTest {
+public final class LabelTest extends Test {
 	
 	//test method
 	public void testSetNormalTextSize() {

@@ -10,13 +10,13 @@ package ch.nolix.coreTest.helperTest;
 
 //own imports
 import ch.nolix.core.helper.StringHelper;
-import ch.nolix.core.test.StandardTest;
+import ch.nolix.core.test.Test;
 
 //test class
 /**
  * This class is a test class for the string helper class.
  */
-public class StringHelperTest extends StandardTest {
+public class StringHelperTest extends Test {
 
 	//test method
 	public void testToInteger1() {

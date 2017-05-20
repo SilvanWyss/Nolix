@@ -8,7 +8,7 @@
 //package declaration
 package ch.nolix.core.test2;
 
-import ch.nolix.core.test.Accessor;
+import ch.nolix.core.testBase.Accessor;
 
 //own import
 
@@ -27,11 +27,11 @@ public final class LongContainerMediator extends Mediator {
 	 * @throws Excepion if the given test is null
 	 */
 	protected LongContainerMediator(
-		final ZetaTest zetaTest,
+		final Test test,
 		final Iterable<Long> values) {
 		
 		//Calls constructor of the base class.
-		super(zetaTest);
+		super(test);
 
 		this.values = values;
 	}

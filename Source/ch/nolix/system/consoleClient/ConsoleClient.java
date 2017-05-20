@@ -2,10 +2,10 @@
 package ch.nolix.system.consoleClient;
 
 //own imports
-import ch.nolix.core.application.Client;
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.validator2.Validator;
+import ch.nolix.system.application.Client;
 
 //class
 /**

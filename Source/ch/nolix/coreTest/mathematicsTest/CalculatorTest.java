@@ -8,7 +8,7 @@ import java.util.Vector;
 
 
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 
 /**
  * This class is a test class for the calculator class.
@@ -17,7 +17,7 @@ import ch.nolix.core.test2.ZetaTest;
  * @month 2016-08
  * @lines 70
  */
-public final class CalculatorTest extends ZetaTest {
+public final class CalculatorTest extends Test {
 
 	//test method
 	public void test_doubleAverage() {

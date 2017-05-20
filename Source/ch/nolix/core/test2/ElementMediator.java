@@ -2,8 +2,8 @@
 package ch.nolix.core.test2;
 
 //own imports
-import ch.nolix.core.functional.IElementTakerBooleanGetter;
-import ch.nolix.core.test.Accessor;
+import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
+import ch.nolix.core.testBase.Accessor;
 import ch.nolix.core.validator2.Validator;
 
 //abstract package-visible class
@@ -22,14 +22,14 @@ abstract class ElementMediator<E> extends Mediator {
 	/**
 	 * Creates new element mediator that belongs to the given zeta test and has the given value.
 	 * 
-	 * @param zetaTest
+	 * @param test
 	 * @param value
 	 * @throws NullArgumentException if the given zeta test is null.
 	 */
-	public ElementMediator(final ZetaTest zetaTest, final E value) {
+	public ElementMediator(final Test test, final E value) {
 		
 		//Calls constructor of the base class.
-		super(zetaTest);
+		super(test);
 		
 		this.value = value;
 	}

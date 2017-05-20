@@ -9,7 +9,7 @@
 package ch.nolix.elementTest;
 
 //own imports
-import ch.nolix.core.test.TestPool;
+import ch.nolix.core.testBase.TestPool;
 import ch.nolix.elementTest.GUITest.GUITestPool;
 import ch.nolix.elementTest.dataTest.DataTestPool;
 

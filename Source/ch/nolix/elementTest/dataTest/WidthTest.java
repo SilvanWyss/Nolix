@@ -2,7 +2,7 @@
 package ch.nolix.elementTest.dataTest;
 
 //own imports
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 import ch.nolix.element.data.Width;
 
 //class
@@ -13,7 +13,7 @@ import ch.nolix.element.data.Width;
  * @month 2016-12
  * @lines 50
  */
-public class WidthTest extends ZetaTest {
+public class WidthTest extends Test {
 	
 	//test method
 	public void testGetValue() {

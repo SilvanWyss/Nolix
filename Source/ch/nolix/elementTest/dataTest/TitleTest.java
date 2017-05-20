@@ -5,7 +5,7 @@ package ch.nolix.elementTest.dataTest;
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 import ch.nolix.element.data.Title;
 
 //test class
@@ -16,7 +16,7 @@ import ch.nolix.element.data.Title;
  * @month 2016-12
  * @lines 70
  */
-public final class TitleTest extends ZetaTest {
+public final class TitleTest extends Test {
 	
 	//test method
 	public void testGetType() {

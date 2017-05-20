@@ -14,25 +14,25 @@ import ch.nolix.core.validator2.Validator;
 public final class ApproximativeEqualingMediator {
 
 	//attributes
-	private final ZetaTest zetaTest;
+	private final Test test;
 	private final ApproximativeEqualing value;
 	
 	//package-visible constructor
 	/**
 	 * Creates new approximative equaling mediator with the given zeta test and value.
 	 * 
-	 * @param zetaTest
+	 * @param test
 	 * @param value
 	 * @throws NullArgumentException if the given zeta test is null.
 	 */
 	public ApproximativeEqualingMediator(
-		final ZetaTest zetaTest,
+		final Test test,
 		final ApproximativeEqualing value
 	) {
 		//Checks if the given zeta test is not null.
-		Validator.supposeThat(zetaTest).thatIsNamed("zeta test").isNotNull();
+		Validator.supposeThat(test).thatIsNamed("zeta test").isNotNull();
 		
-		this.zetaTest = zetaTest;
+		this.test = test;
 		this.value = value;
 	}
 	
@@ -42,7 +42,7 @@ public final class ApproximativeEqualingMediator {
 	 */
 	public ApproximativeEqualingDeviationMediator withDefaultMaxDeviation() {
 		return new ApproximativeEqualingDeviationMediator(
-			zetaTest,
+			test,
 			value,
 			ApproximativeEqualing.DEFAULT_DEVIATION
 		);
@@ -56,7 +56,7 @@ public final class ApproximativeEqualingMediator {
 	 */
 	public ApproximativeEqualingDeviationMediator withMaxDeviation(final double maxDeviation) {
 		return new ApproximativeEqualingDeviationMediator(
-			zetaTest,
+			test,
 			value,
 			maxDeviation
 		);

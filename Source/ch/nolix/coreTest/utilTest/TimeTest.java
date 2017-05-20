@@ -2,7 +2,7 @@
 package ch.nolix.coreTest.utilTest;
 
 //own imports
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 import ch.nolix.element.basic.Time;
 
 //test class
@@ -13,7 +13,7 @@ import ch.nolix.element.basic.Time;
  * @month 2017-02
  * @lines 80
  */
-public final class TimeTest extends ZetaTest {
+public final class TimeTest extends Test {
 	
 	//loop test method
 	public void loopTest_constructor_1() {

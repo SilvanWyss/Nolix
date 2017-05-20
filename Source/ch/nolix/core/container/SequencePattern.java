@@ -6,7 +6,8 @@ import java.util.Iterator;
 
 //own imports
 
-import ch.nolix.core.functional.IElementTakerBooleanGetter;
+
+import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.sequencer.Sequencer;
 
 //class

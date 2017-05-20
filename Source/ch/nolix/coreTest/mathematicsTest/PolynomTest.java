@@ -3,7 +3,7 @@ package ch.nolix.coreTest.mathematicsTest;
 
 //own imports
 import ch.nolix.core.mathematics.Polynom;
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 
 //test class
 /**
@@ -13,7 +13,7 @@ import ch.nolix.core.test2.ZetaTest;
  * @month 2016-05
  * @lines 70
  */
-public final class PolynomTest extends ZetaTest {
+public final class PolynomTest extends Test {
 	
 	//test method
 	public void test_constructor() {

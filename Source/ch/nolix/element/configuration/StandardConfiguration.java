@@ -10,8 +10,8 @@ package ch.nolix.element.configuration;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Configurable;
 import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specificationInterfaces.Configurable;
 
 //class
 public class StandardConfiguration extends Configuration<StandardConfiguration> {

@@ -3,7 +3,7 @@ package ch.nolix.coreTest.mathematicsTest;
 
 //own imports
 import ch.nolix.core.mathematics.Matrix;
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 
 //test class
 /**
@@ -13,7 +13,7 @@ import ch.nolix.core.test2.ZetaTest;
 * @month 2016-06
 * @lines 270
 */
-public final class MatrixTest extends ZetaTest {
+public final class MatrixTest extends Test {
 	
 	//loop test method
 	public void loopTest_createIdendityMatrix() {

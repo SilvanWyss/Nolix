@@ -9,7 +9,7 @@
 package ch.nolix.elementTest.GUITest;
 
 //own imports
-import ch.nolix.core.test2.ZetaTest;
+import ch.nolix.core.test2.Test;
 import ch.nolix.element.GUI.TextBox;
 import ch.nolix.element.basic.Color;
 
@@ -17,7 +17,7 @@ import ch.nolix.element.basic.Color;
 /**
  * This class is a test class for the text box class.
  */
-public class TextBoxTest extends ZetaTest {
+public class TextBoxTest extends Test {
 
 	//test method
 	public final void testDefaultConstructor() {
