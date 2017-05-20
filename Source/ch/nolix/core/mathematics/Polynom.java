@@ -1,19 +1,21 @@
-/*
- * file:	Polynom.java
- * author:	Silvan Wyss
- * month:	2016-02
- * lines:	300
- */
-
 //package declaration
 package ch.nolix.core.mathematics;
 
-//own import
+//own imports
 import ch.nolix.core.helper.DoubleHelper;
-import ch.nolix.core.util.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //class
-public final class Polynom {
+/**
+ * A polynom stores its coefficients internally in an array from the highest to the lowest coefficient.
+ * -degree:	n
+ * -array:	[a_n,... ,a_0]
+ * 
+ * @author Silvan Wyss
+ * @month 2016-02
+ * @lines 400
+ */
+public class Polynom {
 
 	//attribute
 	private double[] coefficients;
@@ -21,49 +23,55 @@ public final class Polynom {
 	//constructor
 	/**
 	 * Creates new polynom with the given degree.
+	 * The highest coefficient of the polynom will be 1.0, the resting coefficients will be 0.0.
 	 *  
 	 * @param degree
-	 * @throws Exception if the given degree is negativee
+	 * @throws NegaviteArgumentException if the given degree is negative.
 	 */
-	public Polynom(int degree) {
+	public Polynom(final int degree) {
 		
-		Validator.throwExceptionIfValueIsNegative("degree", degree);
+		//Checks if the given degree is not negative.
+		Validator.supposeThat(degree).thatIsNamed("degree").isNotNegative();
 		
+		//Allocates the coefficients of this polynom.
 		coefficients = new double[degree + 1];
-		setAllCoefficients(1);
+		
+		//Sets the highest coefficient of this polynom.
+		coefficients[0] = 1.0;
 	}
 	
 	//method
 	/**
 	 * Derives this polynom.
 	 * 
-	 * @return this polynom
+	 * @return this polynom.
 	 */
-	public final Polynom derive() {
+	public Polynom derive() {
 		return derive(1);
 	}
 	
 	//method
 	/**
-	 * Derives this polynom as many times the given derives count says.
+	 * Derives this polynom as many times the given derive count says.
 	 * 
-	 * @param derivesCount
-	 * @return this polynom
-	 * @throws Exception if the given derives count is negative.
+	 * @param deriveCount
+	 * @return this polynom,
+	 * @throws NegativeArgumentException if the given derive count is negative.
 	 */
-	public final Polynom derive(int derivesCount) {
+	public Polynom derive(final int deriveCount) {
 		
-		Validator.throwExceptionIfValueIsNegative("derives count", derivesCount);
+		//Checks if the given dervice count is not negative.
+		Validator.supposeThat(deriveCount).thatIsNamed("derive count").isNotNegative();
 		
-		for (int c = 1; c <= derivesCount; c++) {
+		for (int i = 1; i <= deriveCount; i++) {
 			
-			for (int i = coefficients.length - 1; i >= c; i--) {
-				coefficients[i] = (coefficients.length - i) * coefficients[i - 1];
+			for (int j = coefficients.length - 1; j >= i; j--) {
+				coefficients[j] = (coefficients.length - j) * coefficients[j - 1];
 			}
 			
-			coefficients[c - 1] = 0.0;
+			coefficients[i - 1] = 0.0;
 		}
-				
+		
 		removeLeadingZeroCoefficients();
 		
 		return this;
@@ -74,17 +82,13 @@ public final class Polynom {
 	 * @param object
 	 * @return true if this polynom equals the given object
 	 */
-	public final boolean equals(Object object) {
-		
-		if (object == null) {
-			return false;
-		}
+	public boolean equals(final Object object) {
 		
 		if (!(object instanceof Polynom)) {
 			return false;
 		}
 		
-		Polynom polynom = (Polynom)object;
+		final Polynom polynom = (Polynom)object;
 		
 		if (polynom.getDegree() != getDegree()) {
 			return false;
@@ -101,9 +105,9 @@ public final class Polynom {
 	
 	//method
 	/**
-	 * @return a clone of this polynom
+	 * @return a copy of this polynom.
 	 */
-	public final Polynom getClone() {
+	public Polynom getCopy() {
 		Polynom polynom = new Polynom(getDegree());
 		polynom.coefficients = coefficients.clone();
 		return polynom;
@@ -111,85 +115,94 @@ public final class Polynom {
 	
 	//method
 	/**
-	 * @return a vector with the coefficients of this polynom
+	 * @return the degree of this polynom.
 	 */
-	public final Vector getCoefficientsVector() {
-		return new Vector(getDegree() + 1).setValues(coefficients);
-	}
-	
-	//method
-	/**
-	 * @return the degree of this polynom
-	 */
-	public final int getDegree() {
+	public int getDegree() {
 		return (coefficients.length - 1);
 	}
 	
 	//method
 	/**
 	 * @param x
-	 * @return the slope of this polynom at x
+	 * @return the slope of this polynom at the given x.
 	 */
-	public final double getSlopeAt(double x) {
-		return getClone().derive().getValueAt(x);
+	public double getSlopeAt(final double x) {
+		return getCopy().derive().getValueAt(x);
 	}
 	
 	//method
 	/**
-	 * @param x
-	 * @return the function value of the given argument
+	 * This method uses the Horner scheme to calculate the value.
 	 * 
-	 * This implementation uses the Horner scheme to calculate the function value.
+	 * @param x
+	 * @return the value of this polynom at the given x.
 	 */
-	public final double getValueAt(double x) {
+	public double getValueAt(final double x) {
 		
+		//Handles the case if this polynom is a zero polynom.
 		if (isZeroPolynom()) {
 			return 0;
 		}
 		
-		double functionValue = coefficients[0];
+		double value = coefficients[0];
 		
-		double currentBase = 1;
+		double base = 1;
 		for (int i = 1; i < coefficients.length; i++) {
-			currentBase *= x;
-			functionValue += coefficients[i] * currentBase;
+			base *= x;
+			value += coefficients[i] * base;
 		}
 		
-		return functionValue;
+		return value;
 	}
 	
 	//method
 	/**
 	 * Integrates this polynom.
 	 * 
-	 * @return this polynom
+	 * @return this polynom.
 	 */
-	public final Polynom integrate() {
+	public Polynom integrate() {
 		return integrate(1);
 	}
 	
-	public final Polynom integrate(int integrationsCount) {
+	//method
+	/**
+	 * Integrates this polynom as many times as the given integration count says.
+	 * 
+	 * @param integrationCount
+	 * @return this polynom.
+	 * @throws NegativeArgumentException if the given integration count is negative.
+	 */
+	public Polynom integrate(int integrationCount) {
 		
-		Validator.throwExceptionIfValueIsNegative("number of integrations", integrationsCount); 
+		//Checks if the given integration count is not negative.
+		Validator.supposeThat(integrationCount).isNotNegative();
 		
-		double[] coefficients = new double[getDegree() + 1 + integrationsCount];
+		//Allocates new coefficients.
+		final double[] coefficients = new double[getDegree() + 1 + integrationCount];
 		
-		for (int i = 0; i < this.coefficients.length; i++) {
-			coefficients[i] = this.coefficients[i];
+		for (int i = integrationCount; i < coefficients.length; i++) {
+			coefficients[i] = this.coefficients[i - integrationCount];
+		}	
+		
+		for (int i = 1; i <= integrationCount; i++) {
+			for (int j = i - 1; j < coefficients.length - 1; j++) {
+				coefficients[j] = coefficients[j + 1] / (coefficients.length - j - 1);
+			}
 		}
 		
-		for (int i = 1; i <= integrationsCount; i++) {
-			//TODO
-		}
+		this.coefficients = coefficients;
 		
 		return this;
 	}
 	
 	//method
 	/**
-	 * @return true if this polynom is a zero polynom
+	 * A polynom is a zero polynom it has no coefficients.
+	 * 
+	 * @return true if this polynom is a zero polynom.
 	 */
-	public final boolean isZeroPolynom() {
+	public boolean isZeroPolynom() {
 		return (coefficients.length == 0);
 	}
 	
@@ -198,35 +211,16 @@ public final class Polynom {
 	 * Multiplies the coefficients of this polynom with the given factor.
 	 * 
 	 * @param factor
-	 * @throws Exception if the given factor is 0
+	 * @return this polynom.
+	 * @throws ZeroArgumentException if the given factor is 0.0.
 	 */
-	public final void multiplyCoefficientsWith(double factor) {
+	public Polynom multiplyCoefficientsWith(final double factor) {
 		
-		Validator.throwExceptionIfValueIsZero("factor", factor);
+		//Checks if the given factor is not 0.0.
+		Validator.supposeThat(factor).thatIsNamed("factor").isNotZero();
 		
 		for (int i = 0; i < coefficients.length; i++) {
 			coefficients[i] *= factor;
-		}
-	}
-	
-	//method
-	/**
-	 * Sets the coefficients of this polynom.
-	 * 
-	 * @param coefficients
-	 * @return this polynom
-	 * @throws Exception if not as many coefficients are given as the number of coefficients of this polynom
-	 */
-	public final Polynom setCoefficients(double... coefficients) {
-		
-		Validator.throwExceptionIfValueIsNotEqual("number of coefficients", getDegree() + 1, coefficients.length);
-		
-		if (!isZeroPolynom()) {
-			Validator.throwExceptionIfValueIsZero("highest coefficient", coefficients[0]);
-		}
-		
-		for (int i = 0; i < this.coefficients.length; i++) {
-			this.coefficients[i] = coefficients[i];
 		}
 		
 		return this;
@@ -234,15 +228,32 @@ public final class Polynom {
 	
 	//method
 	/**
+	 * Resets this polynom.
+	 * 
+	 * The degree of this polynom does not change.
+	 * The highest coefficient of the polynom will be 1.0, the resting coefficients will be 0.0.
+	 */
+	public void reset() {
+		
+		//Allocates the coefficients of this polynom.
+		coefficients = new double[getDegree() + 1];
+		
+		//Sets the highest coefficient of this polynom.
+		coefficients[0] = 1.0;
+	}
+	
+	//method
+	/**
 	 * Set the coefficients of this polynom to the given value.
 	 * 
 	 * @param value
-	 * @return this polynom
-	 * @throws Exception if the given value is zero
+	 * @return this polynom.
+	 * @throws ZeroArgumentException if the given value is 0.0.
 	 */
-	public final Polynom setAllCoefficients(double value) {
+	public Polynom setAllCoefficients(double value) {
 		
-		Validator.throwExceptionIfValueIsZero("value", value);
+		//Checks if the given value is not 0.0.
+		Validator.supposeThat(value).isNotZero();
 		
 		for (int i = 0; i < coefficients.length; i++) {
 			coefficients[i] = value;
@@ -253,17 +264,52 @@ public final class Polynom {
 	
 	//method
 	/**
-	 * @return an array with the coefficients of this polynom
+	 * Sets the coefficients of this polynom.
+	 * 
+	 * If less coefficients are given than the incremented degree of this polynom,
+	 * the given coefficients are set as the highest coefficients of this polynom.
+	 * 
+	 * If more coefficients are given than the incremented degree of this polynom,
+	 * this polynom is extended.
+	 * 
+	 * @param coefficients
+	 * @return this polynom.
+	 * @throws ZeroArgumentException if the given highest coefficient is 0.0.
 	 */
-	public final double[] toArray() {
+	public Polynom setCoefficients(double... coefficients) {
+		
+		//Checks if the given highest coefficient is not 0.0.
+		if (coefficients.length > 0) {
+			Validator.supposeThat(coefficients[0]).thatIsNamed("highest coefficient").isNotZero();
+		}
+		
+		if (coefficients.length <= getDegree() + 1) {
+			reset();
+		}
+		else {
+			this.coefficients = new double[coefficients.length];
+		}
+		
+		for (int i = 0; i < coefficients.length; i++) {
+			this.coefficients[i] = coefficients[i];
+		}
+		
+		return this;
+	}
+		
+	//method
+	/**
+	 * @return a new array with the coefficients of this polynom.
+	 */
+	public double[] toArray() {
 		return coefficients.clone();
 	}
 	
 	//method
 	/**
-	 * @return a string representation of this polynom
+	 * @return a string representation of this polynom.
 	 */
-	public final String toString() {
+	public String toString() {
 		
 		String string = "x->";
 		
@@ -322,12 +368,20 @@ public final class Polynom {
 	
 	//method
 	/**
+	 * @return a new vector with the coefficients of this polynom.
+	 */
+	public Vector toVector() {
+		return Vector.createVector(coefficients);
+	}
+	
+	//method
+	/**
 	 * Removes all leading zero coefficients to restore this polynom.
 	 * This method must be called internally when necessary!
 	 */
 	private void removeLeadingZeroCoefficients() {
 		
-		//Extracts index of the first coefficient that is not 0.
+		//Extracts the index of the highest coefficient that is not 0.0.
 		int firstNonZeroCoefficientIndex = 0;
 		for (int i = 0; i < coefficients.length; i++) {
 			if (coefficients[i] != 0) {
@@ -336,9 +390,9 @@ public final class Polynom {
 			}
 		}
 		
-		//Removes all first coefficients that are 0.
+		//Removes all leading coefficients that are 0.0.
 		if (firstNonZeroCoefficientIndex > 0) {	
-			double[] oldCoefficients = coefficients;
+			final double[] oldCoefficients = coefficients;
 			coefficients = new double[oldCoefficients.length - firstNonZeroCoefficientIndex];
 			for (int i = 0; i < coefficients.length; i++) {
 				coefficients[i] = oldCoefficients[i + firstNonZeroCoefficientIndex];

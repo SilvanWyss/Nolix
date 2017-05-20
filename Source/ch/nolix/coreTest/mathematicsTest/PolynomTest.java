@@ -11,7 +11,7 @@ import ch.nolix.core.test2.ZetaTest;
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 40
+ * @lines 70
  */
 public final class PolynomTest extends ZetaTest {
 	
@@ -23,6 +23,37 @@ public final class PolynomTest extends ZetaTest {
 		
 		//verification
 		expectThat(polynom.getDegree()).equals(10);
+	}
+	
+	//test method
+	public void test_integrate_1() {
+		
+		//setup
+		final Polynom polynom = new Polynom(2).setCoefficients(6.0);
+		
+		//execution
+		polynom.integrate();
+		
+		//verification
+		expectThat(polynom.getDegree()).equals(3);
+		expectThat(polynom.toString()).equals("x->2x^3");
+	}
+	
+	//test method
+	public void test_integrate_2() {
+		
+		//setup
+		final Polynom polynom = new Polynom(10).setCoefficients(66.0, 60.0);
+		
+		//execution
+		polynom.integrate();
+		
+		//verification
+		expectThat(polynom.getDegree()).equals(11);
+		final double[] coefficients = polynom.toArray();
+		expectThat(coefficients.length).equals(12);
+		expectThat(coefficients[0]).equals(6.0);
+		expectThat(coefficients[1]).equals(6.0);
 	}
 	
 	//test method

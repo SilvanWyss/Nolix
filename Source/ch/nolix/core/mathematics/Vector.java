@@ -16,6 +16,10 @@ public final class Vector {
 	
 	//default value
 	public static final int DEFAULT_LENTH = 3;
+	
+	public static Vector createVector(final double[] values) {
+		return new Vector(values.length).setValues(values);
+	}
 
 	//attribute
 	private double[] values;
@@ -35,7 +39,7 @@ public final class Vector {
 	 * Creates new zero vector with the given length.
 	 * 
 	 * @param length
-	 * @throws Exception if the given length is not positive
+	 * @throws Exception if the given length is not positive.
 	 */
 	public Vector(int length) {
 		

@@ -8,6 +8,7 @@ import ch.nolix.core.invalidArgumentException.NonNegativeArgumentException;
 import ch.nolix.core.invalidArgumentException.NonPositiveArgumentException;
 import ch.nolix.core.invalidArgumentException.PositiveArgumentException;
 import ch.nolix.core.invalidArgumentException.SmallerArgumentException;
+import ch.nolix.core.invalidArgumentException.ZeroArgumentException;
 
 //class
 /**
@@ -15,7 +16,7 @@ import ch.nolix.core.invalidArgumentException.SmallerArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 110
+ * @lines 130
  */
 public final class DoubleMediator {
 
@@ -103,8 +104,20 @@ public final class DoubleMediator {
 	public void isNotPositive() {
 		
 		//Checks if the argument of this double mediator is not positive.
-		if (argument > 0) {
+		if (argument > 0.0) {
 			throw new PositiveArgumentException(argument);
+		}
+	}
+	
+	//method
+	/**
+	 * @throws ZeroArgumentException if the argument of this double mediator is 0.0.
+	 */
+	public void isNotZero() {
+		
+		//Checks if the argument of this double mediator is not 0.0.
+		if (argument == 0.0) {
+			throw new ZeroArgumentException();
 		}
 	}
 
