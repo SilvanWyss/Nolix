@@ -8,13 +8,18 @@
 //package declaration
 package ch.nolix.core.endPoint3;
 
+//own import
 import ch.nolix.core.interfaces.Named;
 
 //interface
 /**
  * A alpha end point taker takes alpha end points.
  */
-public interface IZetaEndPointTaker extends Named {
+public interface IEndPointTaker extends Named {
+	
+	public default String getName() {
+		return EndPoint.DEFAULT_TARGET;
+	}
 
 	//abstract method
 	/**
@@ -22,5 +27,5 @@ public interface IZetaEndPointTaker extends Named {
 	 * 
 	 * @param alphaEndPoint
 	 */
-	public abstract void takeAlphaEndPoint(ZetaEndPoint alphaEndPoint);
+	public abstract void takeEndPoint(EndPoint endPoint);
 }

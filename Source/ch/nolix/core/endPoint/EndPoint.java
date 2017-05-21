@@ -26,13 +26,13 @@ implements ISender {
 	//optional attribute
 	private IReceiver receiver;
 	
-	//constructor
+	//package-visible constructor
 	/**
 	 * Creates new end point.
 	 * 
 	 * @param hasRequestedConnection
 	 */
-	public EndPoint(final boolean hasRequestedConnection) {
+	EndPoint(final boolean hasRequestedConnection) {
 		this.hasRequestedConnection = hasRequestedConnection;
 	}
 	

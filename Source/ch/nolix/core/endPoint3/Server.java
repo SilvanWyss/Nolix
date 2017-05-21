@@ -1,168 +1,80 @@
-/*
- * file:	AlphaEndPointListener.java
- * author:	Silvan Wyss
- * month:	2016-05
- * lines:	190
- */
-
 //package declaration
 package ch.nolix.core.endPoint3;
 
 //own imports
-import ch.nolix.core.constants.PortManager;
-import ch.nolix.core.interfaces.Abortable;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.util.Validator;
+import ch.nolix.core.basic.AbortableElement;
+import ch.nolix.core.invalidStateException.InvalidStateException;
 
-//class
+//abstract class
 /**
- * An alpha end point listener listens to alpha end points on a certain port.
+ * A server manages end point taker.
+ * A server is abortable.
+ * 
+ * @author Silvan Wyss
+ * @month 2017-05
+ * @lines 70
  */
-public class Server implements Abortable {
+public class Server extends AbortableElement {
 	
-	//attributes
-	private final int port;
-	private final IZetaEndPointTaker alphaEndPointTaker;
-	private boolean stopped = false;
+	//attribute
+	private final ch.nolix.core.endPoint2.Server internalServer;
 	
-	//optional attribute
-	private String stopReason;
-		
-	//constructor
-	/**
-	 * Creates new alpha end point listener with the given port and alpha end point taker.
-	 * The new alpha end point listener will start automatically.
-	 * 
-	 * @param port
-	 * @param alphaEndPointTaker
-	 * @throws Exception if:
-	 *  -the given port is negative or bigger than 65535
-	 *  -the given alpha end point taker is null
-	 */
-	public Server(int port, IZetaEndPointTaker alphaEndPointTaker) {
-		
-		//Calls other constructor.
-		this(port, alphaEndPointTaker, true);
+	Server(final ch.nolix.core.endPoint2.Server internalServer) {
+		this.internalServer = internalServer;
 	}
 	
-	//constructor
-	/**
-	 * Creates new end point listener with the given port and the given alpha end point taker.
-	 * The new alpha end point listener will start if the given start is true.
-	 * 
-	 * @param port
-	 * @parma alphaEndPointTaker
-	 * @param start
-	 * @throws Exception if:
-	 *  -the given port is negative or bigger than 65535
-	 *  -the given alpha end point taker is null
-	 */
-	public Server(int port, IZetaEndPointTaker alphaEndPointTaker, boolean start) {
-		
-		Validator.throwExceptionIfValueIsNotInRange(
-			"port",
-			PortManager.MIN_PORT,
-			PortManager.MAX_PORT,
-			port
-		);
-		
-		Validator.throwExceptionIfValueIsNull("alpha end point taker", alphaEndPointTaker);
-		
-		this.port = port;
-		this.alphaEndPointTaker = alphaEndPointTaker;
-		
-		new ZetaEndPointListener(this).start();
-	}
-	
-	public void addEndPointTaker(IZetaEndPointTaker endPointTaker) {
-		
-	}
-	
-	//method
-	/**
-	 * @return the port of this alpha end point listener
-	 */
-	public final int getPort() {
-		return port;
-	}
-	
-	//method
-	/**
-	 * @return the stop reason of this alpha end point listener
-	 * @throws Exception if:
-	 *  -this alpha end point listener is not stopped
-	 *  -this alpha end point listener has no stop reason
-	 */
-	public final String getAbortReason() {
-		
-		throwExceptionIfNotStopped();
-		
-		if (stopReason == null) {
-			throw new UnexistingAttributeException(this, "stop reason");
-		}
-		
-		return stopReason;
-	}
-	
-	//method
-	/**
-	 * @return true if this alpha end point listener is stopped
-	 */
-	public final boolean isAborted() {
-		return stopped;
-	}
-	
-	//method
-	/**
-	 * Stops this alpha end point listener.
-	 * 
-	 * @throws Exception if this alpha end point listener is stopped already
-	 */
 	public final void abort() {
 		
-		throwExceptionIfStopped();
+		super.abort();
 		
-		stopped = true;
+		internalServer.abort();
 	}
 	
 	//method
 	/**
-	 * Stops this alpha end point listener because of the given stop reason.
+	 * Adds the given end point taker to this server.
 	 * 
-	 * @param stopReason
-	 * @throws Exception if:
-	 *  -the given stop reason is null or an empty string
-	 *  -this alpha end point listener is stopped already
+	 * @param endPointTaker
+	 * @throws InvalidStateException if this server contains an end point taker with the same name as the given end point taker.
 	 */
-	public final void abort(String stopReason) {
+	public final void addEndPointTaker(final IEndPointTaker endPointTaker) {
 		
-		Validator.throwExceptionIfStringIsNullOrEmpty(stopReason, "stop reason");
-		
-		abort();
-		this.stopReason = stopReason;
-	}
-	
-	public void takeZetaEndPoint(final ZetaEndPoint zetaEndPoint) {
-		alphaEndPointTaker.takeAlphaEndPoint(zetaEndPoint);
+		internalServer.addEndPointTaker(
+			new EndPointTaker(endPointTaker)	
+		);	
 	}
 	
 	//method
 	/**
-	 * @throws Exception if this alpha end point listener is stopped
+	 * @param name
+	 * @return true if this server contains an end point taker with the given name.
 	 */
-	private final void throwExceptionIfStopped() {
-		if (isAborted()) {
-			throw new RuntimeException("Alpha end point listener is stopped.");
-		}
+	public final boolean containsEndPointTaker(final String name) {
+		return internalServer.containsEndPointTaker(name);
 	}
 	
 	//method
 	/**
-	 * @throws Exception if this alpha end point listener is not stopped
+	 * Removes the end point taker with the given name of this server.
+	 * 
+	 * @param name
+	 * @throws InvalidArgumentException if this server contains no end point taker with the given name.
 	 */
-	private final void throwExceptionIfNotStopped() {
-		if (!isAborted()) {
-			throw new RuntimeException("Alpha end point listener is not stopped.");
-		}
+	public final void removeEndPointTaker(final String name) {
+		internalServer.removeEndPointTaker(name);
+	}
+	
+	//method
+	/**
+	 * Lets this server take the given end point.
+	 * 
+	 * @param endPoint
+	 */
+	public final void takeEndPoint(final EndPoint endPoint) {
+		internalServer.takeEndPoint(endPoint.getRefInternalEndPoint());
+	}
+	
+	protected ch.nolix.core.endPoint2.Server getRefInternalServer() {
+		return internalServer;
 	}
 }

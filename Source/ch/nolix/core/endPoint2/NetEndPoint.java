@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+
 //own imports
 import ch.nolix.core.constants.IPv6Manager;
 import ch.nolix.core.constants.PortManager;
@@ -20,12 +21,11 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 240
+ * @lines 190
  */
 public final class NetEndPoint extends EndPoint {
 	
 	//constants
-	private static final String DEFAULT_TARGET = "Target";
 	private static final int TIMEOUT_IN_MILLISECONDS = 10000;
 	
 	//attributes
@@ -44,6 +44,11 @@ public final class NetEndPoint extends EndPoint {
 		
 		//Calls other constructor.
 		this(IPv6Manager.LOOP_BACK_ADDRESS, port, DEFAULT_TARGET);
+	}
+	
+	public NetEndPoint(int port, String target) {
+		
+		this(IPv6Manager.LOOP_BACK_ADDRESS, port, target);
 	}
 	
 	//constructor
@@ -133,6 +138,14 @@ public final class NetEndPoint extends EndPoint {
 		new NetEndPointSubListener(this);
 		
 		waitToTarget();
+	}
+
+	//method
+	/**
+	 * @return true if this net end point is a net end point.
+	 */
+	public boolean isNetEndPoint() {
+		return true;
 	}
 	
 	//method

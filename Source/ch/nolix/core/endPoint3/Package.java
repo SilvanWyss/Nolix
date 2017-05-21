@@ -1,19 +1,18 @@
 //package declaration
 package ch.nolix.core.endPoint3;
 
-//own imports
-import ch.nolix.core.util.Package;
+//own import
 import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
- * A zeta package is a package with a message role.
+ * A package in end point 3 is a package with a message role.
  * 
  * @author Silvan Wyss
  * @month 2016-09
  * @lines 70
  */
-final class ZetaPackage extends Package {
+final class Package extends ch.nolix.core.util.Package {
 	
 	//attribute
 	private final MessageRole messageRole;
@@ -23,8 +22,8 @@ final class ZetaPackage extends Package {
 	 * @param string
 	 * @return a new zeta package the given string represents.
 	 */
-	public static ZetaPackage createZetaPackageFromString(final String string) {
-		return new ZetaPackage(
+	public static Package createZetaPackageFromString(final String string) {
+		return new Package(
 			Integer.parseInt(string.substring(0, 8)),
 			MessageRole.createMessageRole(string.charAt(8)),
 			string.substring(9)
@@ -41,7 +40,7 @@ final class ZetaPackage extends Package {
 	 * @throws NullArgumentException if the given message role is null.
 	 * @throws NullArgumentExcetpion if the givne message is null.
 	 */
-	public ZetaPackage(final int index, final MessageRole messageRole, final String message) {
+	public Package(final int index, final MessageRole messageRole, final String message) {
 		
 		//Calls constructor of the base class.
 		super(index, message);

@@ -10,13 +10,13 @@ import ch.nolix.core.testBase.TestPool;
  * @month 2017-02
  * @lines 20
  */
-public final class ZetaEndPointTestPool extends TestPool {
+public final class EndPointTestPool extends TestPool {
 
 	//constructor
 	/**
-	 * Creates new alpha end point test pool.
+	 * Creates new end point test pool.
 	 */
-	public ZetaEndPointTestPool() {
-		addTest(new ZetaEndPointTest());
+	public EndPointTestPool() {
+		addTest(new EndPointTest());
 	}
 }

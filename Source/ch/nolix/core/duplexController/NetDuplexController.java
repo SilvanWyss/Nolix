@@ -11,7 +11,6 @@ package ch.nolix.core.duplexController;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerInterfaces.ILevel2Controller;
-import ch.nolix.core.endPoint3.ZetaEndPoint;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -23,7 +22,7 @@ import ch.nolix.core.util.Validator;
 public final class NetDuplexController extends DuplexController {
 		
 	//attribute
-	private final ZetaEndPoint alphaEndPoint;
+	private final NetEndPoint alphaEndPoint;
 		
 	//constructor
 	/**
@@ -32,7 +31,7 @@ public final class NetDuplexController extends DuplexController {
 	 * @param alphaEndPoint
 	 * @throws Exception if the given end point is null
 	 */
-	public NetDuplexController(ZetaEndPoint alphaEndPoint) {
+	public NetDuplexController(NetEndPoint alphaEndPoint) {
 		
 		Validator.throwExceptionIfValueIsNull("alpha end point", alphaEndPoint);
 		
@@ -53,7 +52,7 @@ public final class NetDuplexController extends DuplexController {
 	public NetDuplexController(String ip, int port) {
 		
 		//Calls other constructor.
-		this(new ZetaEndPoint(ip, port));
+		this(new NetEndPoint(ip, port));
 	}
 	
 	public NetDuplexController(String ip, int port, ILevel2Controller receiverController) {

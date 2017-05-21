@@ -6,6 +6,7 @@ import ch.nolix.core.basic.AbortableElement;
 import ch.nolix.core.interfaces.IReceiver;
 import ch.nolix.core.interfaces.ISender;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
@@ -15,11 +16,13 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-04
- * @lines 90
+ * @lines 140
  */
 public abstract class EndPoint
 extends AbortableElement
 implements ISender {
+	
+	static final String DEFAULT_TARGET = "DefaultTarget";
 
 	//attributes
 	private final boolean hasRequestedConnection;
@@ -28,13 +31,13 @@ implements ISender {
 	//optional attribute
 	private IReceiver receiver;
 	
-	//constructor
+	//package-visible constructor
 	/**
 	 * Creates new end point.
 	 * 
 	 * @param hasRequestedConnection
 	 */
-	public EndPoint(final boolean hasRequestedConnection) {
+	EndPoint(final boolean hasRequestedConnection) {
 		this.hasRequestedConnection = hasRequestedConnection;
 	}
 	
@@ -64,6 +67,20 @@ implements ISender {
 	
 	//method
 	/**
+	 * @return true if this end point is a local end point.
+	 */
+	public final boolean isLocalEndPoint() {
+		return !isNetEndPoint();
+	}
+	
+	//method
+	/**
+	 * @return true if this end point is a net end point.
+	 */
+	public abstract boolean isNetEndPoint();
+	
+	//method
+	/**
 	 * Sets the receiver of this end point.
 	 * 
 	 * @param receiver
@@ -77,6 +94,19 @@ implements ISender {
 		
 		//Checks if the given receiver is not null.
 		Validator.supposeThat(receiver).thatIsInstanceOf(IReceiver.class).isNotNull();
+		
+		//Sets the receiver of this end point.
+		this.receiver = receiver;
+	}
+	
+	private IReceiver getRefReceiver() {
+		
+		//Checks if this end point has a receiver.
+		if (!hasReceiver()) {
+			throw new UnexistingAttributeException(this, IReceiver.class);
+		}
+		
+		return receiver;
 	}
 	
 	//method
@@ -103,7 +133,7 @@ implements ISender {
 			setTarget(message);
 		}
 		else {
-			receive(message);
+			getRefReceiver().receive(message);
 		}
 	}
 	

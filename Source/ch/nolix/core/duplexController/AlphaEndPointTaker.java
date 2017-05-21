@@ -9,12 +9,11 @@
 package ch.nolix.core.duplexController;
 
 //own imports
-import ch.nolix.core.endPoint3.IZetaEndPointTaker;
-import ch.nolix.core.endPoint3.ZetaEndPoint;
+import ch.nolix.core.endPoint3.IEndPointTaker;
 import ch.nolix.core.util.Validator;
 
 //package-visible class
-final class AlphaEndPointTaker implements IZetaEndPointTaker {
+final class AlphaEndPointTaker implements IEndPointTaker {
 
 	//attribute
 	private final DuplexControllerListener netDuplexControllerListener;
@@ -34,7 +33,7 @@ final class AlphaEndPointTaker implements IZetaEndPointTaker {
 	 * 
 	 * @param alphaEndPoint
 	 */
-	public void takeAlphaEndPoint(ZetaEndPoint alphaEndPoint) {
+	public void takeEndPoint(NetEndPoint alphaEndPoint) {
 		netDuplexControllerListener.takeAlphaEndPoint(alphaEndPoint);
 	}
 

@@ -10,13 +10,13 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 120
+ * @lines 100
  */
 public final class LocalEndPoint extends EndPoint {
 	
 	//attributes
 	private final LocalEndPoint counterpart;
-
+	
 	//constructor
 	/**
 	 * Creates new local end point that will connect to the given target.
@@ -74,7 +74,13 @@ public final class LocalEndPoint extends EndPoint {
 		this.counterpart = localEndPoint;
 	}
 	
-
+	//method
+	/**
+	 * @return true if this local end point is a net end point.
+	 */
+	public boolean isNetEndPoint() {
+		return false;
+	}
 
 	//method
 	/**
