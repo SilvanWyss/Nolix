@@ -3,6 +3,7 @@ package ch.nolix.core.endPoint3;
 
 //own imports
 import ch.nolix.core.basic.AbortableElement;
+import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 
 //abstract class
@@ -14,34 +15,30 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
  * @month 2017-05
  * @lines 70
  */
-public class Server extends AbortableElement {
+public class Server 
+extends AbortableElement {
 	
-	//attribute
-	private final ch.nolix.core.endPoint2.Server internalServer;
-	
-	Server(final ch.nolix.core.endPoint2.Server internalServer) {
-		this.internalServer = internalServer;
-	}
-	
-	public final void abort() {
-		
-		super.abort();
-		
-		internalServer.abort();
-	}
+	//multiple attribute
+	private final List<IEndPointTaker> endPointTaker = new List<IEndPointTaker>();
 	
 	//method
 	/**
 	 * Adds the given end point taker to this server.
 	 * 
 	 * @param endPointTaker
-	 * @throws InvalidStateException if this server contains an end point taker with the same name as the given end point taker.
+	 * @throws InvalidStateException
+	 * if this server contains an end point taker with the same name as the given end point taker.
 	 */
-	public final void addEndPointTaker(final IEndPointTaker endPointTaker) {
+	public void addEndPointTaker(final IEndPointTaker endPointTaker) {
 		
-		internalServer.addEndPointTaker(
-			new EndPointTaker(endPointTaker)	
-		);	
+		if (containsEndPointTaker(endPointTaker.getName())) {
+			throw new InvalidStateException(
+				this,
+				"contains an end point taker with the same name as the given end point taker"
+			);
+		}
+		
+		this.endPointTaker.addAtEnd(endPointTaker);
 	}
 	
 	//method
@@ -50,18 +47,18 @@ public class Server extends AbortableElement {
 	 * @return true if this server contains an end point taker with the given name.
 	 */
 	public final boolean containsEndPointTaker(final String name) {
-		return internalServer.containsEndPointTaker(name);
+		return endPointTaker.contains(ept -> ept.hasName(name));
 	}
 	
 	//method
 	/**
-	 * Removes the end point taker with the given name of this server.
+	 * Removes the end point taker with the given name from this server.
 	 * 
 	 * @param name
 	 * @throws InvalidArgumentException if this server contains no end point taker with the given name.
 	 */
-	public final void removeEndPointTaker(final String name) {
-		internalServer.removeEndPointTaker(name);
+	public void removeEndPointTaker(final String name) {
+		endPointTaker.removeFirst(ept -> ept.hasName(name));
 	}
 	
 	//method
@@ -71,10 +68,8 @@ public class Server extends AbortableElement {
 	 * @param endPoint
 	 */
 	public final void takeEndPoint(final EndPoint endPoint) {
-		internalServer.takeEndPoint(endPoint.getRefInternalEndPoint());
-	}
-	
-	protected ch.nolix.core.endPoint2.Server getRefInternalServer() {
-		return internalServer;
+		endPointTaker
+		.getRefFirst(ept -> ept.hasName(endPoint.getTarget()))
+		.takeEndPoint(endPoint);
 	}
 }

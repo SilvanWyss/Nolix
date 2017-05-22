@@ -2,7 +2,9 @@
 package ch.nolix.coreTest.endPoint3Test;
 
 //own imports
+import ch.nolix.core.basic.NamedElement;
 import ch.nolix.core.endPoint3.EndPoint;
+import ch.nolix.core.endPoint3.NetEndPoint;
 import ch.nolix.core.endPoint3.IEndPointTaker;
 import ch.nolix.core.endPoint3.NetServer;
 import ch.nolix.core.interfaces.IReplier;
@@ -28,13 +30,13 @@ public final class EndPointTest extends Test {
 		final String reply = "ok";
 				
 		//setup
-		final EndPointTakerMock endPointTakerMock = new EndPointTakerMock(new ReplierMock(reply));
+		final EndPointTakerMock endPointTakerMock = new EndPointTakerMock("Target", new ReplierMock(reply));
 		final NetServer netServer = new NetServer(port);
 		netServer.addEndPointTaker(endPointTakerMock);
 		Thread.sleep(200);
 		
 		//execution
-		new EndPoint(port);
+		new NetEndPoint(port, "Target");
 		Thread.sleep(200);
 		
 		//verification
@@ -53,14 +55,14 @@ public final class EndPointTest extends Test {
 		final String reply = "ok";
 				
 		//setup
-		final EndPointTakerMock endPointTakerMock = new EndPointTakerMock(new ReplierMock(reply));
+		final EndPointTakerMock endPointTakerMock = new EndPointTakerMock("Target", new ReplierMock(reply));
 		final NetServer netServer = new NetServer(port);
 		netServer.addEndPointTaker(endPointTakerMock);
 		Thread.sleep(200);
 		
 		//execution
-		final EndPoint endPoint = new EndPoint(port);
-		final String received_reply = endPoint.sendMessageAndGetReply("test");
+		final NetEndPoint netEndPoint = new NetEndPoint(port, "Target");
+		final String received_reply = netEndPoint.sendAndGetReply("test");
 		Thread.sleep(200);
 		
 		//verification
@@ -76,11 +78,14 @@ public final class EndPointTest extends Test {
 	/**
 	 * An alpha end point taker mock is a mock of an alpha end point taker.
 	 */
-	private static final class EndPointTakerMock implements IEndPointTaker {
+	private static final class EndPointTakerMock extends NamedElement implements IEndPointTaker {
 
 		final IReplier replier;
 		
-		public EndPointTakerMock(final IReplier replier) {
+		public EndPointTakerMock(final String name, final IReplier replier) {
+			
+			super(name);
+			
 			this.replier = replier;
 		}
 		

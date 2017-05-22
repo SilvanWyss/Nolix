@@ -9,6 +9,7 @@
 package ch.nolix.core.duplexController;
 
 //own imports
+import ch.nolix.core.endPoint3.EndPoint;
 import ch.nolix.core.endPoint3.IEndPointTaker;
 import ch.nolix.core.util.Validator;
 
@@ -33,7 +34,7 @@ final class AlphaEndPointTaker implements IEndPointTaker {
 	 * 
 	 * @param alphaEndPoint
 	 */
-	public void takeEndPoint(NetEndPoint alphaEndPoint) {
+	public void takeEndPoint(EndPoint alphaEndPoint) {
 		netDuplexControllerListener.takeAlphaEndPoint(alphaEndPoint);
 	}
 

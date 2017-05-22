@@ -14,6 +14,6 @@ final class EndPointTaker implements ch.nolix.core.endPoint2.IEndPointTaker {
 	}
 
 	public void takeEndPoint(ch.nolix.core.endPoint2.EndPoint endPoint) {
-		endPointTaker.takeEndPoint(new EndPoint(endPoint));
+		endPointTaker.takeEndPoint(new NetEndPoint(endPoint));
 	}
 }

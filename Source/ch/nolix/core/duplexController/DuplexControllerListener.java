@@ -9,6 +9,7 @@
 package ch.nolix.core.duplexController;
 
 //own imports
+import ch.nolix.core.endPoint3.EndPoint;
 import ch.nolix.core.endPoint3.NetServer;
 import ch.nolix.core.interfaces.Abortable;
 import ch.nolix.core.util.Validator;
@@ -29,7 +30,8 @@ public final class DuplexControllerListener implements Abortable {
 		Validator.throwExceptionIfValueIsNull("duplex controller taker", duplexControllerTaker);
 		
 		this.duplexControllerTaker = duplexControllerTaker;
-		this.alphaEndPointListener = new NetServer(port, new AlphaEndPointTaker(this));
+		this.alphaEndPointListener = new NetServer(port);
+		alphaEndPointListener.addEndPointTaker(new AlphaEndPointTaker(this));
 	}
 	
 	//method
@@ -59,7 +61,7 @@ public final class DuplexControllerListener implements Abortable {
 	 * @param alphaEndPoint
 	 * @throws Exception if the given alpha end point is null
 	 */
-	void takeAlphaEndPoint(final NetEndPoint alphaEndPoint) {
+	void takeAlphaEndPoint(final EndPoint alphaEndPoint) {
 		duplexControllerTaker.takeDuplexController(new NetDuplexController(alphaEndPoint));
 	}
 }

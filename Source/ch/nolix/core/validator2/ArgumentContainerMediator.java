@@ -99,6 +99,10 @@ public class ArgumentContainerMediator<A> {
 		}
 	}
 	
+	public NamedArgumentContainerMediator<A> thatIsNamed(final String argumentName) {
+		return new NamedArgumentContainerMediator<A>(argumentName, getRefArguments());
+	}
+	
 	//method
 	/**
 	 * @return the arguments of this argument container mediator.

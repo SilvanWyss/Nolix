@@ -4,15 +4,15 @@ import ch.nolix.core.interfaces.IReceiver;
 
 public class Receiver implements IReceiver {
 
-	final EndPoint endPoint;
+	final NetEndPoint netEndPoint;
 	
-	public Receiver(EndPoint endPoint) {
-		this.endPoint = endPoint;
+	public Receiver(NetEndPoint netEndPoint) {
+		this.netEndPoint = netEndPoint;
 	}
 
 	@Override
 	public void receive(String message) {
-		endPoint.receive(message);
+		netEndPoint.receive(message);
 		
 	}
 }

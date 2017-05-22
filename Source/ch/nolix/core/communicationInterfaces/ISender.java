@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.interfaces;
+package ch.nolix.core.communicationInterfaces;
 
 //interface
 /**
@@ -7,7 +7,7 @@ package ch.nolix.core.interfaces;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 40
+ * @lines 30
  */
 public interface ISender {
 
@@ -24,15 +24,9 @@ public interface ISender {
 	 * Lets this sender send the given messages.
 	 * 
 	 * @param messages
-	 * @throws NullArgumentException if the given message container is null.
 	 * @throws NullArgumentException if one of the given messages is null.
-	 * 
-	 * @param messages
 	 */
 	public default void send(final String... messages) {
-		
-		//TODO: Add required function to zeta validator.
-		//Validator.supposeThat(messages).thatIsNamed("message container").isNotNullContainer();
 		
 		//Iterates the given messages.
 		for (final String m : messages) {

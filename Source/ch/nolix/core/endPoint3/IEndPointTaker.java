@@ -16,16 +16,12 @@ import ch.nolix.core.interfaces.Named;
  * A alpha end point taker takes alpha end points.
  */
 public interface IEndPointTaker extends Named {
-	
-	public default String getName() {
-		return EndPoint.DEFAULT_TARGET;
-	}
 
 	//abstract method
 	/**
 	 * Takes the given alpha end point.
 	 * 
-	 * @param alphaEndPoint
+	 * @param endPoint
 	 */
 	public abstract void takeEndPoint(EndPoint endPoint);
 }

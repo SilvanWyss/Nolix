@@ -11,6 +11,8 @@ package ch.nolix.core.duplexController;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerInterfaces.ILevel2Controller;
+import ch.nolix.core.endPoint3.EndPoint;
+import ch.nolix.core.endPoint3.NetEndPoint;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -22,7 +24,7 @@ import ch.nolix.core.util.Validator;
 public final class NetDuplexController extends DuplexController {
 		
 	//attribute
-	private final NetEndPoint alphaEndPoint;
+	private final EndPoint netEndPoint;
 		
 	//constructor
 	/**
@@ -31,14 +33,14 @@ public final class NetDuplexController extends DuplexController {
 	 * @param alphaEndPoint
 	 * @throws Exception if the given end point is null
 	 */
-	public NetDuplexController(NetEndPoint alphaEndPoint) {
+	public NetDuplexController(EndPoint alphaEndPoint) {
 		
 		Validator.throwExceptionIfValueIsNull("alpha end point", alphaEndPoint);
 		
-		this.alphaEndPoint = alphaEndPoint;
+		this.netEndPoint = alphaEndPoint;
 		
 		//Creates the receiver of this net duplex controller.
-		alphaEndPoint.setReceiver(new AlphaReceiver(this));
+		alphaEndPoint.setReplier(new AlphaReceiver(this));
 	}
 	
 	//constructor
@@ -76,7 +78,7 @@ public final class NetDuplexController extends DuplexController {
 		String message = Protocol.DATA_REQUEST + '(' + request.toString() + ')';
 		
 		//Sends and gets reply.
-		Specification reply = new Specification(alphaEndPoint.sendMessageAndGetReply(message));
+		Specification reply = new Specification(netEndPoint.sendAndGetReply(message));
 		
 		//Handles reply
 		switch (reply.getHeader()) {
@@ -97,7 +99,7 @@ public final class NetDuplexController extends DuplexController {
 	 *  -this net duplex controller has no stop reason
 	 */
 	public final String getAbortReason() {
-		return alphaEndPoint.getAbortReason();
+		return netEndPoint.getAbortReason();
 	}
 
 	//method
@@ -113,7 +115,7 @@ public final class NetDuplexController extends DuplexController {
 	 * @return true if this net duplex controller is stopped
 	 */
 	public final boolean isAborted() {
-		return alphaEndPoint.isAborted();
+		return netEndPoint.isAborted();
 	}
 	
 	//method
@@ -158,7 +160,7 @@ public final class NetDuplexController extends DuplexController {
 	 * @throws Exception if this net duplex controller is stopped already
 	 */
 	public final void abort() {
-		alphaEndPoint.abort();
+		netEndPoint.abort();
 	}
 	
 	//method
@@ -171,7 +173,7 @@ public final class NetDuplexController extends DuplexController {
 	 *  -this net duplex controller is stopped already
 	 */
 	public final void abort(String stopReason) {		
-		alphaEndPoint.abort(stopReason);
+		netEndPoint.abort(stopReason);
 	}
 	
 	//method
@@ -183,7 +185,8 @@ public final class NetDuplexController extends DuplexController {
 		String message = Protocol.DATA_REQUEST + '(' + request.toString() + ')';
 		
 		//Sends and gets reply.
-		Specification reply = new Specification(alphaEndPoint.sendMessageAndWaitToReply(message));
+		//TODO
+		Specification reply = new Specification(netEndPoint.sendAndWaitToReply(message));
 		
 		//Handles reply
 		switch (reply.getHeader()) {
@@ -253,7 +256,7 @@ public final class NetDuplexController extends DuplexController {
 		String message = Protocol.COMMANDS + '(' + commands.toString() + ')';
 				
 		//Sends message and gets reply.
-		Specification reply = new Specification(alphaEndPoint.sendMessageAndGetReply(message));
+		Specification reply = new Specification(netEndPoint.sendAndGetReply(message));
 		
 		//Handles reply.
 		switch (reply.getHeader()) {
