@@ -1,31 +1,29 @@
-/*
- * file:	Doer.java
- * author:	Silvan Wyss
- * month:	2016-05
- * lines:	40
- */
-
 //package declaration
 package ch.nolix.core.sequencer;
 
-//own import
+//own imports
 import ch.nolix.core.functionInterfaces.IRunner;
 import ch.nolix.core.validator2.Validator;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2016-05
+ * @lines 60
+ */
 public final class ForCountMediator {
 
 	//attribute
 	private final int count;
 	
-	//constructor
+	//package-visible constructor
 	/**
 	 * Creates new doer with the given count.
 	 * 
 	 * @param count
 	 * @throws NegativeArgumentException if the given count is negative.
 	 */
-	public ForCountMediator(final int count) {
+	ForCountMediator(final int count) {
 		
 		//Checks if the given count is not negative.
 		Validator.supposeThat(count).thatIsNamed("count").isNotNegative();
@@ -36,13 +34,33 @@ public final class ForCountMediator {
 	
 	//method
 	/**
-	 * Lets the given doer do something as many times as the count of this doer.
+	 * Lets this for count mediator run the given job
+	 * as many times as the count of this for count mediator defines.
 	 * 
-	 * @param doer
+	 * @param job
 	 */
-	public final void run(IRunner doer) {
+	public void run(final IRunner job) {
 		for (int i = 1; i <= count; i++) {
-			doer.run();
+			job.run();
 		}
+	}
+	
+	/**
+	 * Lets this for count mediator run the given job in background
+	 * as many times as the count of this for count mediator defines.
+	 * 
+	 * @param job
+	 * @return a new Future for the given job.
+	 */
+	public Future runInBackground(final Runner job) {
+		return new Future(
+			new BackgroundThread(
+				() -> {
+					for (int i = 1; i <= count; i++) {
+						job.run();
+					}
+				}
+			)
+		);
 	}
 }
