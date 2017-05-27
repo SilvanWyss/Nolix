@@ -3,7 +3,7 @@ package ch.nolix.core.communicationInterfaces;
 
 //interface
 /**
- * A sender can send messages and receive replies.
+ * A sender 2 can send messages and receive replies.
  * 
  * @author Silvan Wyss
  * @month 2017-05
@@ -13,7 +13,7 @@ public interface ISender2 {
 
 	//abstract method
 	/**
-	 * Lets this sender send the given message and return a reply.
+	 * Lets this sender 2 send the given message.
 	 * 
 	 * @param message
 	 * @return the reply to the given message.

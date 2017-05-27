@@ -24,7 +24,6 @@ public interface ISender {
 	 * Lets this sender send the given messages.
 	 * 
 	 * @param messages
-	 * @throws NullArgumentException if one of the given messages is null.
 	 */
 	public default void send(final String... messages) {
 		
