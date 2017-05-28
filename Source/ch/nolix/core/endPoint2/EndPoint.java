@@ -3,8 +3,9 @@ package ch.nolix.core.endPoint2;
 
 //own imports
 import ch.nolix.core.basic.AbortableElement;
-import ch.nolix.core.communicationInterfaces.ISender;
-import ch.nolix.core.interfaces.IReceiver;
+import ch.nolix.core.communicationInterfaces.IGenericReceiver;
+import ch.nolix.core.communicationInterfaces.IGenericSender;
+import ch.nolix.core.communicationInterfaces.IReceiver;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
@@ -18,9 +19,9 @@ import ch.nolix.core.validator2.Validator;
  * @month 2017-04
  * @lines 140
  */
-public abstract class EndPoint
+public abstract class EndPoint<M>
 extends AbortableElement
-implements ISender {
+implements IGenericSender<M> {
 	
 	static final String DEFAULT_TARGET = "DefaultTarget";
 
@@ -29,7 +30,7 @@ implements ISender {
 	private String target;
 	
 	//optional attribute
-	private IReceiver receiver;
+	private IGenericReceiver<M> receiver;
 	
 	//package-visible constructor
 	/**
@@ -87,7 +88,7 @@ implements ISender {
 	 * @throws NullArgumentException if the given receiver is null.
 	 * @throws InvalidArgumentException if this end point is aborted.
 	 */
-	public final void setReceiver(final IReceiver receiver) {
+	public final void setReceiver(final IGenericReceiver<M> receiver) {
 		
 		//Checks if this end point is aborted.
 		throwExceptionIfAborted();
@@ -99,7 +100,7 @@ implements ISender {
 		this.receiver = receiver;
 	}
 	
-	private IReceiver getRefReceiver() {
+	private IGenericReceiver<M> getRefReceiver() {
 		
 		//Checks if this end point has a receiver.
 		if (!hasReceiver()) {
@@ -117,24 +118,8 @@ implements ISender {
 		return (target != null);
 	}
 	
-	//method
-	/**
-	 * Lets this net end point receive the given message.
-	 * 
-	 * @param message
-	 * @throws InvalidArgumentException if this net end point is aborted.
-	 */
-	protected void receive(final String message) {
-		
-		//Checks if this net end point is not stopped.
-		throwExceptionIfAborted();
-		
-		if (!hasTarget()) {
-			setTarget(message);
-		}
-		else {
-			getRefReceiver().receive(message);
-		}
+	protected void receive(final M message) {
+		getRefReceiver().receive(message);	
 	}
 	
 	//method

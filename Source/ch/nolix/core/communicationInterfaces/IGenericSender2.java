@@ -3,7 +3,7 @@ package ch.nolix.core.communicationInterfaces;
 
 //interface
 /**
- * A generic sender 2 can send messages and receive replies.
+ * A generic sender 2 can send messages of a certain type and receive replies of a certain type.
  * 
  * @author Silvan Wyss
  * @month 2017-05

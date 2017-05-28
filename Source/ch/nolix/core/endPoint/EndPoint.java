@@ -3,8 +3,8 @@ package ch.nolix.core.endPoint;
 
 //own imports
 import ch.nolix.core.basic.AbortableElement;
+import ch.nolix.core.communicationInterfaces.IReceiver;
 import ch.nolix.core.communicationInterfaces.ISender;
-import ch.nolix.core.interfaces.IReceiver;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 

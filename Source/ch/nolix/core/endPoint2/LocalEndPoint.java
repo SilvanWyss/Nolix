@@ -12,10 +12,10 @@ import ch.nolix.core.validator2.Validator;
  * @month 2017-05
  * @lines 100
  */
-public final class LocalEndPoint extends EndPoint {
+public class LocalEndPoint<M> extends EndPoint<M> {
 	
 	//attributes
-	private final LocalEndPoint counterpart;
+	private final LocalEndPoint<M> counterpart;
 	
 	//constructor
 	/**
@@ -23,13 +23,13 @@ public final class LocalEndPoint extends EndPoint {
 	 * 
 	 * @param target
 	 */
-	public LocalEndPoint(final IEndPointTaker target) {
+	public LocalEndPoint(final IEndPointTaker<M> target	) {
 		
 		//Calls consturctor of the base class.
 		super(true);
 		
 		//Creates the counterpart of this local end point.
-		counterpart = new LocalEndPoint(this);
+		counterpart = new LocalEndPoint<M>(this);
 		
 		target.takeEndPoint(counterpart);
 	}
@@ -43,7 +43,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws NullArgumentException if the given target is null.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
-	public LocalEndPoint(final Server server, final String target) {
+	public LocalEndPoint(final Server<M> server, final String target) {
 		
 		//Calls constructor of the base class.
 		super(true);
@@ -55,7 +55,7 @@ public final class LocalEndPoint extends EndPoint {
 		setTarget(target);
 		
 		//Creates the counter part of this local end point.
-		counterpart = new LocalEndPoint(this);
+		counterpart = new LocalEndPoint<M>(this);
 		
 		server.takeEndPoint(counterpart);
 	}
@@ -64,7 +64,7 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * Creates new local end point.
 	 */
-	private LocalEndPoint(LocalEndPoint localEndPoint) {
+	private LocalEndPoint(LocalEndPoint<M> localEndPoint) {
 		
 		//Calls constructor of the base class.
 		super(false);
@@ -89,7 +89,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws NullArgumentException if the given message is null.
 	 * @throws InvalidArgumentException if this local end point is aborted.
 	 */
-	public void send(final String message) {
+	public void send(final M message) {
 		
 		//Checks if the given message is not null.
 		Validator.supposeThat(message).thatIsNamed("message").isNotNull();

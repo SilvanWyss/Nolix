@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+
+import ch.nolix.core.constants.IPv6Manager;
 //own imports
 import ch.nolix.core.constants.PortManager;
 import ch.nolix.core.validator2.Validator;
@@ -27,6 +29,10 @@ public final class NetEndPoint extends EndPoint {
 	private final Socket socket;
 	private final PrintWriter printWriter;
 
+	public NetEndPoint(final int port) {
+		this(IPv6Manager.LOOP_BACK_ADDRESS, port);
+	}
+	
 	//constructor
 	/**
 	 * Creates new net end point that will connect to the given port on the machine with the given ip.

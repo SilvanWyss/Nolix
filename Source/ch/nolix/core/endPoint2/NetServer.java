@@ -5,8 +5,12 @@ package ch.nolix.core.endPoint2;
 import java.io.IOException;
 import java.net.ServerSocket;
 
+
+
+
 //own imports
 import ch.nolix.core.constants.PortManager;
+import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -17,7 +21,9 @@ import ch.nolix.core.validator2.Validator;
 * @month 2015-12
 * @lines 80
 */
-public final class NetServer extends Server {
+public final class NetServer<M> extends Server<M> {
+	
+	private final IElementTakerElementGetter<String, M> messageTransformer;
 	
 	//attributes
 	private final int port;
@@ -32,7 +38,10 @@ public final class NetServer extends Server {
 	 * @throws NullArgumentException if the given end point taker is null.
 	 * @throws OutOfRangeArgumentException if the given port is not in [0, 65535].
 	 */
-	public NetServer(final int port) {
+	public NetServer(
+		final int port,
+		final IElementTakerElementGetter<String, M> messageTransformer
+	) {
 			
 		//Checks if the given port is in [0, 65535]. 
 		Validator.supposeThat(port).isBetween(PortManager.MIN_PORT, PortManager.MAX_PORT);
@@ -52,8 +61,10 @@ public final class NetServer extends Server {
 			throw new RuntimeException(exception);
 		}
 		
+		this.messageTransformer = messageTransformer;
+		
 		//Creates new net server sub listener for this net server.
-		new NetServerSubListener(this);
+		new NetServerSubListener<M>(this);
 	}
 	
 	//method
@@ -85,5 +96,9 @@ public final class NetServer extends Server {
 	 */
 	ServerSocket getRefServerSocket() {
 		return serverSocket;
+	}
+
+	IElementTakerElementGetter<String, M> getRefMessageTransformer() {
+		return messageTransformer;
 	}
 }

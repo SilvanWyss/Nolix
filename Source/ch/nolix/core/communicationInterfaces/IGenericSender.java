@@ -3,7 +3,7 @@ package ch.nolix.core.communicationInterfaces;
 
 //interface
 /**
- * A generic sender can send messages.
+ * A generic sender can send messages of a certain type.
  * 
  * @author Silvan Wyss
  * @month 2017-05

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.interfaces;
+package ch.nolix.core.communicationInterfaces;
 
 //interface
 /**
@@ -13,7 +13,7 @@ public interface IReceiver {
 
 	//abstract method
 	/**
-	 * Receives the given message.
+	 * Lets this receiver receive the given message.
 	 * 
 	 * @param message
 	 */

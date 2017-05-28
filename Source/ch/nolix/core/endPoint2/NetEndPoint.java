@@ -7,9 +7,14 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 
+
+
+
 //own imports
 import ch.nolix.core.constants.IPv6Manager;
 import ch.nolix.core.constants.PortManager;
+import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -23,7 +28,7 @@ import ch.nolix.core.validator2.Validator;
  * @month 2015-12
  * @lines 190
  */
-public final class NetEndPoint extends EndPoint {
+public final class NetEndPoint<M> extends EndPoint<M> {
 	
 	//constants
 	private static final int TIMEOUT_IN_MILLISECONDS = 10000;
@@ -31,6 +36,7 @@ public final class NetEndPoint extends EndPoint {
 	//attributes
 	private final Socket socket;
 	private final PrintWriter printWriter;
+	private final IElementTakerElementGetter<String, M> messageTransformer;
 		
 	//constructor
 	/**
@@ -40,15 +46,24 @@ public final class NetEndPoint extends EndPoint {
 	 * @param port
 	 * @throws OutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public NetEndPoint(final int port) {
+	public NetEndPoint(final int port, final IElementTakerElementGetter<String, M> messageTransformer) {
 		
 		//Calls other constructor.
-		this(IPv6Manager.LOOP_BACK_ADDRESS, port, DEFAULT_TARGET);
+		this(
+			IPv6Manager.LOOP_BACK_ADDRESS,
+			port,
+			DEFAULT_TARGET,
+			messageTransformer
+		);
 	}
 	
-	public NetEndPoint(int port, String target) {
+	public NetEndPoint(
+		int port,
+		String target,
+		final IElementTakerElementGetter<String, M> messageTransformer
+	) {
 		
-		this(IPv6Manager.LOOP_BACK_ADDRESS, port, target);
+		this(IPv6Manager.LOOP_BACK_ADDRESS, port, target, messageTransformer);
 	}
 	
 	//constructor
@@ -60,10 +75,13 @@ public final class NetEndPoint extends EndPoint {
 	 * @param port
 	 * @throws OutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public NetEndPoint(final String ip, final int port) {
+	public NetEndPoint(
+		final String ip,
+		final int port,
+		final IElementTakerElementGetter<String, M> messageTransformer) {
 		
 		//Calls other constructor.
-		this(ip, port, DEFAULT_TARGET);
+		this(ip, port, DEFAULT_TARGET, messageTransformer);
 	}
 	
 	//constructor
@@ -78,7 +96,11 @@ public final class NetEndPoint extends EndPoint {
 	 * @throws NullArgumentException if the given target is null.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
-	public NetEndPoint(final String ip, final int port, final String target) {
+	public NetEndPoint(
+		final String ip,
+		final int port,
+		final String target,
+		final IElementTakerElementGetter<String, M> messageTransformer) {
 		
 		//Calls constructor of the base class.
 		super(true);
@@ -103,12 +125,14 @@ public final class NetEndPoint extends EndPoint {
 			throw new RuntimeException(exception);
 		}
 		
+		this.messageTransformer = messageTransformer;
+		
 		//Creates and starts the listener of this net end point.
-		new NetEndPointSubListener(this);
+		new NetEndPointSubListener<M>(this);
 		
 		send(target);
 	}
-	
+
 	//package-visible constructor
 	/**
 	 * Creates new end point with the given socket.
@@ -116,7 +140,10 @@ public final class NetEndPoint extends EndPoint {
 	 * @param socket
 	 * @throws NullArgumentException if the given socket is null.
 	 */
-	NetEndPoint(final Socket socket) {
+	NetEndPoint(
+		final Socket socket,
+		final IElementTakerElementGetter<String, M> messageTransformer
+	) {
 		
 		//Calls constructor of the base class.
 		super(false);
@@ -134,8 +161,10 @@ public final class NetEndPoint extends EndPoint {
 			throw new RuntimeException(e);
 		}
 		
+		this.messageTransformer = messageTransformer;
+		
 		//Creates and starts the listener of this net end point.
-		new NetEndPointSubListener(this);
+		new NetEndPointSubListener<M>(this);
 		
 		waitToTarget();
 	}
@@ -156,7 +185,39 @@ public final class NetEndPoint extends EndPoint {
 	 * @throws NullArgumentException if the given message is null.
 	 * @throws InvalidArgumentException if this net end point is aborted.
 	 */
-	public void send(final String message) {
+	public void send( M message) {
+		send(message.toString());
+	}
+
+	//method
+	/**
+	 * @return the socket of this end point.
+	 */
+	protected Socket getRefSocket() {
+		return socket;
+	}
+	
+	//package-visible method
+	/**
+	 * Lets this net end point receive the given message.
+	 * 
+	 * @param message
+	 * @throws InvalidArgumentException if this net end point is aborted.
+	 */
+	void receive(final String message) {
+		
+		//Checks if this net end point is not stopped.
+		throwExceptionIfAborted();
+		
+		if (!hasTarget()) {
+			setTarget(message);
+		}
+		else {
+			receive(messageTransformer.getOutput(message));
+		}
+	}
+	
+	private void send(final String message) {
 		
 		//Checks if the given message is not null.
 		Validator.supposeThat(message).thatIsNamed("message").isNotNull();
@@ -166,14 +227,6 @@ public final class NetEndPoint extends EndPoint {
 		
 		printWriter.println(message);
 		printWriter.flush();
-	}
-
-	//method
-	/**
-	 * @return the socket of this end point.
-	 */
-	protected Socket getRefSocket() {
-		return socket;
 	}
 
 	//method

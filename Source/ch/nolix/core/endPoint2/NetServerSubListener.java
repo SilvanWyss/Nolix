@@ -20,10 +20,10 @@ import ch.nolix.core.validator2.Validator;
  * @month 2017-04
  * @lines 60
  */
-final class NetServerSubListener extends Thread {
+final class NetServerSubListener<M> extends Thread {
 
-	//attribute
-	private final NetServer netServer;
+	//attributes
+	private final NetServer<M> netServer;
 	
 	//constructor
 	/**
@@ -34,7 +34,7 @@ final class NetServerSubListener extends Thread {
 	 * @throws NullArgumentException if the given net server is null.
 	 * @throws RuntimeException if an error occurs.
 	 */
-	public NetServerSubListener(final NetServer netServer) {
+	public NetServerSubListener(final NetServer<M> netServer) {
 		
 		//Checks if the given net server is not null.
 		Validator.supposeThat(netServer).thatIsInstanceOf(NetServer.class).isNotNull();
@@ -77,6 +77,6 @@ final class NetServerSubListener extends Thread {
 	 * @param socket
 	 */
 	private void takeSocket(final Socket socket) {
-		netServer.takeEndPoint(new NetEndPoint(socket));
+		netServer.takeEndPoint(new NetEndPoint<M>(socket, netServer.getRefMessageTransformer()));
 	}
 }

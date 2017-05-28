@@ -1,6 +1,6 @@
 package ch.nolix.core.endPoint3;
 
-import ch.nolix.core.interfaces.IReceiver;
+import ch.nolix.core.communicationInterfaces.IReceiver;
 
 public class Receiver implements IReceiver {
 
