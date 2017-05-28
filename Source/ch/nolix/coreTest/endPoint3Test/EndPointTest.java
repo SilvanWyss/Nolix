@@ -3,11 +3,11 @@ package ch.nolix.coreTest.endPoint3Test;
 
 //own imports
 import ch.nolix.core.basic.NamedElement;
+import ch.nolix.core.communicationInterfaces.IGenericReplier;
 import ch.nolix.core.endPoint3.EndPoint;
 import ch.nolix.core.endPoint3.NetEndPoint;
 import ch.nolix.core.endPoint3.IEndPointTaker;
 import ch.nolix.core.endPoint3.NetServer;
-import ch.nolix.core.interfaces.IReplier;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.test2.Test;
 import ch.nolix.core.util.Validator;
@@ -31,12 +31,12 @@ public final class EndPointTest extends Test {
 				
 		//setup
 		final EndPointTakerMock endPointTakerMock = new EndPointTakerMock("Target", new ReplierMock(reply));
-		final NetServer netServer = new NetServer(port);
+		final NetServer<String, String> netServer = new NetServer<String, String>(port, s -> s, s -> s);
 		netServer.addEndPointTaker(endPointTakerMock);
 		Thread.sleep(200);
 		
 		//execution
-		new NetEndPoint(port, "Target");
+		new NetEndPoint<String, String>(port, "Target", s -> s, s -> s);
 		Thread.sleep(200);
 		
 		//verification
@@ -56,12 +56,12 @@ public final class EndPointTest extends Test {
 				
 		//setup
 		final EndPointTakerMock endPointTakerMock = new EndPointTakerMock("Target", new ReplierMock(reply));
-		final NetServer netServer = new NetServer(port);
+		final NetServer<String, String> netServer = new NetServer<String, String>(port, s -> s, s -> s);
 		netServer.addEndPointTaker(endPointTakerMock);
 		Thread.sleep(200);
 		
 		//execution
-		final NetEndPoint netEndPoint = new NetEndPoint(port, "Target");
+		final NetEndPoint<String, String> netEndPoint = new NetEndPoint<String, String>(port, "Target", s -> s, s -> s);
 		final String received_reply = netEndPoint.sendAndGetReply("test");
 		Thread.sleep(200);
 		
@@ -78,11 +78,11 @@ public final class EndPointTest extends Test {
 	/**
 	 * An alpha end point taker mock is a mock of an alpha end point taker.
 	 */
-	private static final class EndPointTakerMock extends NamedElement implements IEndPointTaker {
+	private static final class EndPointTakerMock extends NamedElement implements IEndPointTaker<String, String> {
 
-		final IReplier replier;
+		final IGenericReplier<String, String> replier;
 		
-		public EndPointTakerMock(final String name, final IReplier replier) {
+		public EndPointTakerMock(final String name, final IGenericReplier<String, String> replier) {
 			
 			super(name);
 			
@@ -90,14 +90,14 @@ public final class EndPointTest extends Test {
 		}
 		
 		//optional attribute
-		private EndPoint lastEndPoint;
+		private EndPoint<String, String> lastEndPoint;
 
 		//method
 		/**
 		 * @return the last alpha end point of this alpha end point taker mock
 		 * @throws UnexistingAttributeException if this alpha end point taker mock has no last alpha end point
 		 */
-		public EndPoint getLastEndPoint() {
+		public EndPoint<String, String> getLastEndPoint() {
 			
 			if (!hasLastEndPoint()) {
 				throw new UnexistingAttributeException(this, "last end point");
@@ -121,7 +121,7 @@ public final class EndPointTest extends Test {
 		 * @param alphaEndPoint
 		 * @throws Exception if the given alpha end point is null
 		 */
-		public void takeEndPoint(final EndPoint endPoint) {
+		public void takeEndPoint(final EndPoint<String, String> endPoint) {
 
 			Validator.throwExceptionIfValueIsNull("end point", endPoint);
 			
@@ -134,7 +134,7 @@ public final class EndPointTest extends Test {
 	/**
 	 * A zeta receiver mock is a mock of a zeta receiver.
 	 */
-	private static final class ReplierMock implements IReplier {
+	private static final class ReplierMock implements IGenericReplier<String, String> {
 
 		//attribute
 		private final String reply;
@@ -147,7 +147,7 @@ public final class EndPointTest extends Test {
 		/**
 		 * Lets this zeta receiver mock receive the given message.
 		 */
-		public String receiveMessageAndGetReply(final String message) {
+		public String getReply(final String message) {
 			return reply;
 		}
 	}

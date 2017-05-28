@@ -15,11 +15,11 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
  * @month 2017-05
  * @lines 70
  */
-public class Server 
+public class Server<M, R>
 extends AbortableElement {
 	
 	//multiple attribute
-	private final List<IEndPointTaker> endPointTaker = new List<IEndPointTaker>();
+	private final List<IEndPointTaker<M, R>> endPointTaker = new List<IEndPointTaker<M, R>>();
 	
 	//method
 	/**
@@ -29,7 +29,7 @@ extends AbortableElement {
 	 * @throws InvalidStateException
 	 * if this server contains an end point taker with the same name as the given end point taker.
 	 */
-	public void addEndPointTaker(final IEndPointTaker endPointTaker) {
+	public void addEndPointTaker(final IEndPointTaker<M, R> endPointTaker) {
 		
 		if (containsEndPointTaker(endPointTaker.getName())) {
 			throw new InvalidStateException(
@@ -67,7 +67,7 @@ extends AbortableElement {
 	 * 
 	 * @param endPoint
 	 */
-	public final void takeEndPoint(final EndPoint endPoint) {
+	public final void takeEndPoint(final EndPoint<M, R> endPoint) {
 		endPointTaker
 		.getRefFirst(ept -> ept.hasName(endPoint.getTarget()))
 		.takeEndPoint(endPoint);

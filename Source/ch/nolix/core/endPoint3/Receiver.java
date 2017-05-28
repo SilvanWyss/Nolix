@@ -1,17 +1,16 @@
 package ch.nolix.core.endPoint3;
 
-import ch.nolix.core.communicationInterfaces.IReceiver;
+import ch.nolix.core.communicationInterfaces.IGenericReceiver;
 
-public class Receiver implements IReceiver {
+class Receiver<M, R> implements IGenericReceiver<Package> {
 
-	final NetEndPoint netEndPoint;
+	final NetEndPoint<M, R> netEndPoint;
 	
-	public Receiver(NetEndPoint netEndPoint) {
+	public Receiver(NetEndPoint<M, R> netEndPoint) {
 		this.netEndPoint = netEndPoint;
 	}
 
-	@Override
-	public void receive(String message) {
+	public void receive(Package message) {
 		netEndPoint.receive(message);
 		
 	}

@@ -3,7 +3,9 @@ package ch.nolix.core.endPoint3;
 
 //own import
 import ch.nolix.core.basic.AbortableElement;
-import ch.nolix.core.communicationInterfaces.ISender2;
+import ch.nolix.core.communicationInterfaces.IGenericReplier;
+import ch.nolix.core.communicationInterfaces.IGenericSender2;
+import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.IReplier;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
@@ -17,21 +19,26 @@ import ch.nolix.core.validator2.Validator;
  * @month 2017-05
  * @lines 100
  */
-public abstract class EndPoint
+public abstract class EndPoint<M, R>
 extends AbortableElement
-implements ISender2 {
+implements IGenericSender2<M, R> {
 	
 	//constant
 	private static final long REPLIER_GETTING_DELAY_IN_MILLISECONDS = 5000;
 	
+	
+
+	
 	//optional attribute
-	private IReplier replier;
+	private IGenericReplier<M, R> replier;
 	
 	//abstract method
 	/**
 	 * @return the target of this end point.
 	 */
 	public abstract String getTarget();
+	
+
 	
 	//abstract method
 	/**
@@ -46,7 +53,7 @@ implements ISender2 {
 	 * @param replier
 	 * @throws NullArgumentException if the given replier is null.
 	 */
-	public void setReplier(final IReplier replier) {
+	public void setReplier(final IGenericReplier<M, R> replier) {
 		
 		//Checks if the given replier is not null.
 		Validator.supposeThat(replier).thatIsInstanceOf(IReplier.class).isNotNull();
@@ -60,7 +67,7 @@ implements ISender2 {
 	 * @return the replier of this end point.
 	 * @throws UnexistingAttributeException if this end point has no replier.
 	 */
-	protected final IReplier getRefReplier() {
+	protected final IGenericReplier<M, R> getRefReplier() {
 		
 		final long startTimeInMilliseconds = System.currentTimeMillis();
 		
@@ -78,6 +85,10 @@ implements ISender2 {
 		return replier;
 	}
 	
+
+	
+
+	
 	//method
 	/**
 	 * @return true if this end point has a replier.
@@ -85,4 +96,8 @@ implements ISender2 {
 	private boolean hasReplier() {
 		return (replier != null);
 	}
+	
+
+	
+
 }

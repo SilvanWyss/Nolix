@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.core.endPoint3;
 
-//own imports
 import ch.nolix.core.container.List;
+//own imports
+import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -13,70 +14,102 @@ import ch.nolix.core.validator2.Validator;
  * @month 2017-05
  * @lines 10
  */
-public final class NetEndPoint extends EndPoint {
+public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	
-	//default value
-	public static final int DEFAULT_TIMEOUT_IN_MILLISECONDS = 5000;
+	
 	
 	static final String DEFAULT_TARGET = "DefaultTarget";
 	
-	//attribute
-	private final ch.nolix.core.endPoint2.EndPoint internalEndPoint;
-	private int nextSentPackageIndex = 1;
+	//default value
+		public static final int DEFAULT_TIMEOUT_IN_MILLISECONDS = 5000;
+		private int nextSentPackageIndex = 1;
+	
+	//attributes
+	private final ch.nolix.core.endPoint2.EndPoint<Package> internalEndPoint;
+	private final IElementTakerElementGetter<String, M> messageTransformer;
+	private final IElementTakerElementGetter<String, R> replyTransformer;
 	private int timeoutInMilliseconds = DEFAULT_TIMEOUT_IN_MILLISECONDS;
 	
 	//multiple attribute
 	private final List<Package> receivedPackages = new List<Package>();
 	
-	public NetEndPoint(IEndPointTaker endPointTaker) {
+	public NetEndPoint(
+		final int port,
+		final IElementTakerElementGetter<String, M> messageTransformer,
+		final IElementTakerElementGetter<String, R> replyTransformer
+	) {
 		
+		//Creates the internal end point of this end point.
 		this(
-			new ch.nolix.core.endPoint2.LocalEndPoint(
-				new ch.nolix.core.endPoint2.IEndPointTaker() {
-				
-					public String getName() {
-						return endPointTaker.getName();
-					}
-	
-					public void takeEndPoint(ch.nolix.core.endPoint2.EndPoint endPoint) {
-						endPointTaker.takeEndPoint(new NetEndPoint(endPoint));
-					}
-				}
-			)
+			new ch.nolix.core.endPoint2.NetEndPoint<Package>(
+				port, s -> Package.createZetaPackageFromString(s)
+			),
+			messageTransformer,
+			replyTransformer
 		);
 	}
 	
-	public NetEndPoint(final int port) {
+	//constructor
+	public NetEndPoint(
+		final String ip,
+		final int port,
+		final IElementTakerElementGetter<String, M> messageTransformer,
+		final IElementTakerElementGetter<String, R> replyTransformer
+	) {
 		
 		//Creates the internal end point of this end point.
-		this(new ch.nolix.core.endPoint2.NetEndPoint(port));
+		this(
+			new ch.nolix.core.endPoint2.NetEndPoint<Package>(
+				ip, port, s -> Package.createZetaPackageFromString(s)
+			),
+			messageTransformer,
+			replyTransformer
+		);
 	}
 	
 	//constructor
-	public NetEndPoint(final String ip, final int port) {
+	public NetEndPoint(
+		final String ip,
+		final int port,
+		final String target,
+		final IElementTakerElementGetter<String, M> messageTransformer,
+		final IElementTakerElementGetter<String, R> replyTransformer) {
 		
 		//Creates the internal end point of this end point.
-		this(new ch.nolix.core.endPoint2.NetEndPoint(ip, port));
+		this(
+			new ch.nolix.core.endPoint2.NetEndPoint<Package>(
+				ip, port, target, s -> Package.createZetaPackageFromString(s)
+			),
+			messageTransformer,
+			replyTransformer
+		);
 	}
 	
-	//constructor
-	public NetEndPoint(final String ip, final int port, final String target) {
-		
-		//Creates the internal end point of this end point.
-		this(new ch.nolix.core.endPoint2.NetEndPoint(ip, port, target));
-	}
-	
-	public NetEndPoint(ch.nolix.core.endPoint2.EndPoint internalEndPoint) {
+	NetEndPoint(
+		final ch.nolix.core.endPoint2.EndPoint<Package> internalEndPoint,
+		final IElementTakerElementGetter<String, M> messageTransformer,
+		final IElementTakerElementGetter<String, R> replyTransformer
+	) {
 		
 		this.internalEndPoint = internalEndPoint;
+		this.messageTransformer = messageTransformer;
+		this.replyTransformer = replyTransformer;
 		
-		internalEndPoint.setReceiver(new Receiver(this));
+		internalEndPoint.setReceiver(new Receiver<M, R>(this));
 	}
 
-	public NetEndPoint(int port, String target) {
+	public NetEndPoint(int port, String target,
+			final IElementTakerElementGetter<String, M> messageTransformer,
+			final IElementTakerElementGetter<String, R> replyTransformer) {
 		
 		//Creates the internal end point of this end point.
-		this(new ch.nolix.core.endPoint2.NetEndPoint(port, target));
+		this(
+			new ch.nolix.core.endPoint2.NetEndPoint<Package>(
+				port, target, s -> Package.createZetaPackageFromString(s)
+			),
+			messageTransformer,
+			replyTransformer
+		);
 	}
 
 	//method
@@ -129,7 +162,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @throws RuntimeException if this zeta end point is stopped.
 	 * @throws RuntimeException if an error occurs by trying to send the message.
 	 */
-	public String sendAndGetReply(final String message) {
+	public R sendAndGetReply(final M message) {
 		return sendAndWaitToReply(message, true);
 	}
 	
@@ -143,7 +176,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @throws RuntimeException if this zeta end point is stopped.
 	 * @throws RuntimeException if an error occurs by trying to send the message.
 	 */	
-	public String sendMessageAndWaitToReply(final String message) {
+	public R sendMessageAndWaitToReply(final M message) {
 		return sendAndWaitToReply(message, false);
 	}
 	
@@ -167,7 +200,7 @@ public final class NetEndPoint extends EndPoint {
 		this.timeoutInMilliseconds = timeoutInMilliseconds;
 	}
 	
-	ch.nolix.core.endPoint2.EndPoint getRefInternalEndPoint() {
+	ch.nolix.core.endPoint2.EndPoint<Package> getRefInternalEndPoint() {
 		return internalEndPoint;
 	}
 	
@@ -183,107 +216,6 @@ public final class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets this zeta end point return and remove the received package with the given index.
-	 * 
-	 * @param index
-	 * @return the reply with the given index
-	 * @throws InvalidArgumentException if this zeta end point has not received a package with the given index.
-	 */
-	private final Package getAndRemoveReceivedPackage(final int index) {
-		return receivedPackages.removeAndGetRefFirst(rp -> rp.hasIndex(index));
-	}
-	
-	//method
-	/**
-	 * @return the index of the next sent package. of this zeta end point
-	 */
-	private final int getNextSentPackageIndex() {
-		
-		//Resets the index of the text sent package if it has reached the maximum value.
-		if (nextSentPackageIndex == Integer.MAX_VALUE) {
-			nextSentPackageIndex = 0;
-		}
-		
-		//Returns and increments the next sent package index.
-		return nextSentPackageIndex++;
-	}
-	
-	//method
-	/**
-	 * Lets this zeta end point receive the given package.
-	 * 
-	 * @param package_
-	 */
-	private void receive(final Package package_) {
-		
-		//Enumerates the message role of the given package.
-		switch (package_.getMessageRole()) {
-			case RESPONSE_EXPECTING_MESSAGE:
-				
-				try {
-					final String reply = getRefReplier().receiveMessageAndGetReply(package_.getMessage());
-					send(new Package(package_.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
-				}
-				catch (final Exception exception) {
-					String responseMessage = exception.getMessage();
-					send(new Package(package_.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
-				}
-				
-				break;
-			default:
-				receivedPackages.addAtEnd(package_);
-		}
-	}
-	
-	//method
-	/**
-	 * @param index
-	 * @return true if this zeta end point has received a package with the given index.
-	 */
-	private final boolean receivedPackage(final int index) {
-		return receivedPackages.contains(rp -> rp.hasIndex(index));
-	}
-	
-	//method
-	/**
-	 * Lets this end point send the given package.
-	 * 
-	 * @param package_
-	 */
-	private void send(final Package package_) {
-		internalEndPoint.send(package_.toString());
-	}
-	
-	//method
-	/**
-	 * Sends the given message and waits to the reply.
-	 * 
-	 * @param message
-	 * @param timeoutCheck
-	 * @return the reply to the given message.
-	 */
-	private String sendAndWaitToReply(
-		final String message,
-		final boolean timeoutCheck
-	) {
-		//Sends message nd receives reply.
-		final int index = getNextSentPackageIndex();
-		send(new Package(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message));		
-		final Package response = waitToAndGetAndRemoveReceivedPackage(index, timeoutCheck);
-		
-		//Enumerates the response.
-		switch (response.getMessageRole()) {
-			case SUCCESS_RESPONSE:
-				return response.getMessage();
-			case ERROR_RESPONSE:
-				throw new RuntimeException(response.getMessage());
-			default:
-				throw new RuntimeException("An error occured.");
-		}
-	}
-	
-	//method
-	/**
 	 * Lets this zeta end point wait to and return and remove the received package with the given index.
 	 * 
 	 * @param index
@@ -291,7 +223,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @return the received package with the given index.
 	 * @throws RuntimeException if this zeta end point reaches its timeout before it receives a package with the given index.
 	 */
-	private Package waitToAndGetAndRemoveReceivedPackage(
+	Package waitToAndGetAndRemoveReceivedPackage(
 		final int index,
 		final boolean timeoutCheck
 	) {
@@ -311,5 +243,112 @@ public final class NetEndPoint extends EndPoint {
 		}
 		
 		return getAndRemoveReceivedPackage(index);
+	}
+	
+	final List<Package> getRefReceivedPackages() {
+		return receivedPackages;
+	}
+	
+	//method
+	/**
+	 * Lets this zeta end point return and remove the received package with the given index.
+	 * 
+	 * @param index
+	 * @return the reply with the given index
+	 * @throws InvalidArgumentException if this zeta end point has not received a package with the given index.
+	 */
+	private final Package getAndRemoveReceivedPackage(final int index) {
+		return getRefReceivedPackages().removeAndGetRefFirst(rp -> rp.hasIndex(index));
+	}
+	
+	//method
+	/**
+	 * @return the index of the next sent package. of this zeta end point
+	 */
+	final int getNextSentPackageIndex() {
+		
+		//Resets the index of the text sent package if it has reached the maximum value.
+		if (nextSentPackageIndex == Integer.MAX_VALUE) {
+			nextSentPackageIndex = 0;
+		}
+		
+		//Returns and increments the next sent package index.
+		return nextSentPackageIndex++;
+	}
+	
+	//method
+	/**
+	 * @param index
+	 * @return true if this zeta end point has received a package with the given index.
+	 */
+	private final boolean receivedPackage(final int index) {
+		return getRefReceivedPackages().contains(rp -> rp.hasIndex(index));
+	}
+	
+	//method
+	/**
+	 * Lets this zeta end point receive the given package.
+	 * 
+	 * @param package_
+	 */
+	void receive(final Package package_) {
+		
+		//Enumerates the message role of the given package.
+		switch (package_.getMessageRole()) {
+			case RESPONSE_EXPECTING_MESSAGE:
+				
+				try {
+					final R reply = getRefReplier().getReply(messageTransformer.getOutput(package_.getMessage()));
+					send(new Package(package_.getIndex(), MessageRole.SUCCESS_RESPONSE, reply.toString()));
+				}
+				catch (final Exception exception) {
+					String responseMessage = exception.getMessage();
+					send(new Package(package_.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
+				}
+				
+				break;
+			default:
+				getRefReceivedPackages().addAtEnd(package_);
+		}
+	}
+	
+
+	
+	//method
+	/**
+	 * Lets this end point send the given package.
+	 * 
+	 * @param package_
+	 */
+	private void send(final Package package_) {
+		internalEndPoint.send(package_);
+	}
+	
+	//method
+	/**
+	 * Sends the given message and waits to the reply.
+	 * 
+	 * @param message
+	 * @param timeoutCheck
+	 * @return the reply to the given message.
+	 */
+	private R sendAndWaitToReply(
+		final M message,
+		final boolean timeoutCheck
+	) {
+		//Sends message nd receives reply.
+		final int index = getNextSentPackageIndex();
+		send(new Package(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message.toString()));		
+		final Package response = waitToAndGetAndRemoveReceivedPackage(index, timeoutCheck);
+		
+		//Enumerates the response.
+		switch (response.getMessageRole()) {
+			case SUCCESS_RESPONSE:
+				return replyTransformer.getOutput(response.getMessage());
+			case ERROR_RESPONSE:
+				throw new RuntimeException(response.getMessage());
+			default:
+				throw new RuntimeException("An error occured.");
+		}
 	}
 }

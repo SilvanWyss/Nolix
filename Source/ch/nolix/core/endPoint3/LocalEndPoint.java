@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.endPoint3;
 
+import ch.nolix.core.sequencer.Future;
+import ch.nolix.core.sequencer.Sequencer;
+import ch.nolix.core.util.Timer;
 //own import
 import ch.nolix.core.validator2.Validator;
 
@@ -12,36 +15,36 @@ import ch.nolix.core.validator2.Validator;
  * @month 2017-05
  * @lines 10
  */
-public final class LocalEndPoint extends EndPoint {
+public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 
 	//attributes
 	private final String target;
 	private final boolean requestedConnection;
-	private final LocalEndPoint counterPart;
+	private final LocalEndPoint<M, R> counterPart;
 	
-	public LocalEndPoint(final IEndPointTaker endPointTaker) {
+	public LocalEndPoint(final IEndPointTaker<M, R> endPointTaker) {
 		
 		requestedConnection = true;
 		target = endPointTaker.getName();
 		
-		counterPart = new LocalEndPoint(this);
+		counterPart = new LocalEndPoint<M, R>(this);
 		
 		endPointTaker.takeEndPoint(getRefCounterPart());
 	}
 	
-	public LocalEndPoint(final Server server, final String target) {
+	public LocalEndPoint(final Server<M, R> server, final String target) {
 		
 		Validator.supposeThat(target).isNotEmpty();
 		
 		requestedConnection = true;
 		this.target = target;
 		
-		counterPart = new LocalEndPoint(this);
+		counterPart = new LocalEndPoint<M, R>(this);
 		
 		server.takeEndPoint(getRefCounterPart());
 	}
 	
-	private LocalEndPoint(final LocalEndPoint counterPart) {
+	private LocalEndPoint(final LocalEndPoint<M, R> counterPart) {
 		
 		//Checks if the given counter part is not null.
 		Validator.supposeThat(counterPart).thatIsNamed("counterpart").isNotNull();
@@ -61,7 +64,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @return the reply to the given message.
 	 * @throws InvalidStateException if this local end point is aborted.
 	 */
-	public String sendAndGetReply(final String message) {
+	public R sendAndWaitToReply(final M message) {
 		
 		//Checks if this local end point is not aborted.
 		throwExceptionIfAborted();
@@ -73,7 +76,7 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * @return the counterpart of this local end point.
 	 */
-	private final LocalEndPoint getRefCounterPart() {
+	private final LocalEndPoint<M, R> getRefCounterPart() {
 		return counterPart;
 	}
 
@@ -84,8 +87,8 @@ public final class LocalEndPoint extends EndPoint {
 	 * @param message
 	 * @return the reply to the given message.
 	 */
-	private String receiveAndGetReply(final String message) {
-		return getRefReplier().receiveMessageAndGetReply(message);
+	private R receiveAndGetReply(final M message) {
+		return getRefReplier().getReply(message);
 	}
 
 	//method
@@ -102,5 +105,17 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	public boolean hasRequestedConnection() {
 		return requestedConnection;
+	}
+
+	@Override
+	public R sendAndGetReply(M message) {
+		
+		final Future future = Sequencer.runInBackground(() -> counterPart.receiveAndGetReply(message));
+		
+		while (future.isRunning()) {
+			
+		}
+		
+		return counterPart.receiveAndGetReply(message);
 	}
 }

@@ -9,11 +9,12 @@
 package ch.nolix.core.duplexController;
 
 //own import
+import ch.nolix.core.communicationInterfaces.IGenericReplier;
 import ch.nolix.core.interfaces.IReplier;
 import ch.nolix.core.util.Validator;
 
 //package-visible class
-final class AlphaReceiver implements IReplier {
+final class AlphaReceiver implements IGenericReplier<String, String> {
 
 	//attribute
 	private final NetDuplexController netController;
@@ -31,7 +32,7 @@ final class AlphaReceiver implements IReplier {
 		this.netController = netController;
 	}
 	
-	public String receiveMessageAndGetReply(String message) {
+	public String getReply(String message) {
 		return netController.receiveMessageAndGetReply(message);
 	}
 }

@@ -12,11 +12,11 @@ package ch.nolix.core.util;
 /**
  * A package bundles a message with an index.
  */
-public class Package {
+public class Package<M> {
 
 	//attributes
 	private final int index;
-	private final String message;
+	private final M message;
 	
 	//constructor
 	/**
@@ -26,10 +26,7 @@ public class Package {
 	 * @param message
 	 * @throws Exception if the given message is null
 	 */
-	public Package(int index, String message) {
-		
-		Validator.throwExceptionIfStringIsNullOrEmpty("message", message);
-		
+	public Package(int index, M message) {
 		this.index = index;
 		this.message = message;
 	}
@@ -46,7 +43,7 @@ public class Package {
 	/**
 	 * @return the message of this package
 	 */
-	public final String getMessage() {
+	public final M getMessage() {
 		return message;
 	}
 	

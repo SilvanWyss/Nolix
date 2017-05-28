@@ -54,7 +54,7 @@ public final class NetDuplexController extends DuplexController {
 	public NetDuplexController(String ip, int port) {
 		
 		//Calls other constructor.
-		this(new NetEndPoint(ip, port));
+		this(new NetEndPoint<String, String>(ip, port, s->s, s->s));
 	}
 	
 	public NetDuplexController(String ip, int port, ILevel2Controller receiverController) {

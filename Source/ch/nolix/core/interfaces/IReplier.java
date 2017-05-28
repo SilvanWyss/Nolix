@@ -9,7 +9,7 @@ package ch.nolix.core.interfaces;
  * @month 2015-12
  * @lines 20
  */
-public interface IReplier {
+public interface  IReplier {
 
 	//abstract method
 	/**
