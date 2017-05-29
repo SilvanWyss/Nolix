@@ -12,7 +12,7 @@ package ch.nolix.core.duplexController;
 import ch.nolix.core.endPoint3.EndPoint;
 import ch.nolix.core.endPoint3.NetServer;
 import ch.nolix.core.interfaces.Abortable;
-import ch.nolix.core.util.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 /**

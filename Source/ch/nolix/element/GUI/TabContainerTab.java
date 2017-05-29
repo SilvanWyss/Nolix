@@ -12,7 +12,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.util.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.element.basic.NamableElement;
 
 //class

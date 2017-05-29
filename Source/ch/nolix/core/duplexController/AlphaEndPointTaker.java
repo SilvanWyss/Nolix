@@ -11,7 +11,7 @@ package ch.nolix.core.duplexController;
 //own imports
 import ch.nolix.core.endPoint3.EndPoint;
 import ch.nolix.core.endPoint3.IEndPointTaker;
-import ch.nolix.core.util.Validator;
+import ch.nolix.core.validator.Validator;
 
 //package-visible class
 final class AlphaEndPointTaker implements IEndPointTaker {

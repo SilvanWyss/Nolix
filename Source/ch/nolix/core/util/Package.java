@@ -1,39 +1,55 @@
-/*
- * file:	Package.java
- * author:	Silvan Wyss
- * month:	2016-05
- * lines:	60
- */
-
 //package declaration
 package ch.nolix.core.util;
 
+//own import
+import ch.nolix.core.validator2.Validator;
+
 //class
 /**
- * A package bundles a message with an index.
+ * A package bundles an index and a context.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-05
+ * @lines 60
+ * @param <C> - The type of the context of a package.
  */
-public class Package<M> {
+public class Package<C> {
 
 	//attributes
 	private final int index;
-	private final M message;
+	private final C context;
 	
 	//constructor
 	/**
-	 * Creates new package with the given index and the given message.
+	 * Creates new package with the given index and context.
 	 * 
 	 * @param index
-	 * @param message
-	 * @throws Exception if the given message is null
+	 * @param context
+	 * @throws NullArgumentException if the given context is null.
 	 */
-	public Package(int index, M message) {
+	public Package(final int index, final C context) {
+		
+		//Checks if the given context is not null.
+		Validator.supposeThat(context).thatIsNamed("context").isNotNull();
+		
+		//Sets the index of this package.
 		this.index = index;
-		this.message = message;
+		
+		//sets the context of this package.
+		this.context = context;
 	}
 	
 	//method
 	/**
-	 * @return the index of this package
+	 * @return the context of this package.
+	 */
+	public final C getRefContext() {
+		return context;
+	}
+	
+	//method
+	/**
+	 * @return the index of this package.
 	 */
 	public final int getIndex() {
 		return index;
@@ -41,18 +57,10 @@ public class Package<M> {
 	
 	//method
 	/**
-	 * @return the message of this package
-	 */
-	public final M getMessage() {
-		return message;
-	}
-	
-	//method
-	/**
 	 * @param index
-	 * @return true if this package has the given index
+	 * @return true if this package has the given index.
 	 */
-	public final boolean hasIndex(int index) {
+	public final boolean hasIndex(final int index) {
 		return (getIndex() == index);
 	}
 }

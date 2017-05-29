@@ -14,7 +14,7 @@ import ch.nolix.core.controllerInterfaces.ILevel2Controller;
 import ch.nolix.core.interfaces.Abortable;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.util.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 public abstract class DuplexController

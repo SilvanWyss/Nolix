@@ -4,7 +4,7 @@ package ch.nolix.core.sequencer;
 //own imports
 import ch.nolix.core.functionInterfaces.IBooleanGetter;
 import ch.nolix.core.functionInterfaces.IRunner;
-import ch.nolix.core.util.Validator;
+import ch.nolix.core.validator.Validator;
 
 //package-visible class
 public class AsLongMediator {

@@ -13,11 +13,12 @@ import java.util.Random;
 
 //own imports
 
+
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.container.List;
 import ch.nolix.core.helper.DoubleHelper;
 import ch.nolix.core.interfaces.ApproximativeEqualing;
-import ch.nolix.core.util.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 /**

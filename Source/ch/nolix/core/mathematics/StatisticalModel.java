@@ -9,7 +9,7 @@
 package ch.nolix.core.mathematics;
 
 import ch.nolix.core.container.List;
-import ch.nolix.core.util.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 public abstract class StatisticalModel {

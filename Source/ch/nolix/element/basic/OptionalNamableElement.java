@@ -17,7 +17,7 @@ import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.util.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.element.data.Name;
 
 //class

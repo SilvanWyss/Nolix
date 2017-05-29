@@ -9,7 +9,7 @@
 package ch.nolix.core.mathematics;
 
 //own imports
-import ch.nolix.core.util.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 public final class ARModel extends StatisticalModel {

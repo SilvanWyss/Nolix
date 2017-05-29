@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.core.util;
+package ch.nolix.core.validator;
 
 //own imports
 import ch.nolix.core.invalidArgumentException.ArgumentName;

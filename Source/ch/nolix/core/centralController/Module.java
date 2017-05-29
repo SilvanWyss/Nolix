@@ -13,7 +13,7 @@ import java.io.File;
 
 import ch.nolix.core.controllerInterfaces.ILevel3Controller;
 import ch.nolix.core.interfaces.CodeNamed;
-import ch.nolix.core.util.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 /**

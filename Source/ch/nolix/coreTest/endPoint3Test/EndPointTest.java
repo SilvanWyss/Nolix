@@ -10,7 +10,7 @@ import ch.nolix.core.endPoint3.IEndPointTaker;
 import ch.nolix.core.endPoint3.NetServer;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.test2.Test;
-import ch.nolix.core.util.Validator;
+import ch.nolix.core.validator.Validator;
 
 //test class
 /**

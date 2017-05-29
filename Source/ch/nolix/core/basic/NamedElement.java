@@ -10,7 +10,7 @@ package ch.nolix.core.basic;
 
 //own imports
 import ch.nolix.core.interfaces.Named;
-import ch.nolix.core.util.Validator;
+import ch.nolix.core.validator.Validator;
 
 /**
  * A named element is an element that has a determined name.
