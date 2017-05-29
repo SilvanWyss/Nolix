@@ -12,7 +12,7 @@ package ch.nolix.element.basic;
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.util.Validator;
+import ch.nolix.core.validator.Validator;
 
 //package-visible class
 public abstract class Textoid extends Element {
