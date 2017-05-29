@@ -6,10 +6,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-
-
-
-
 //own imports
 import ch.nolix.core.constants.IPv6Manager;
 import ch.nolix.core.constants.PortManager;
@@ -28,7 +24,7 @@ import ch.nolix.core.validator2.Validator;
  * @month 2015-12
  * @lines 190
  */
-public final class NetEndPoint<M> extends EndPoint<M> {
+public class NetEndPoint<M> extends EndPoint<M> {
 	
 	//constants
 	private static final int TIMEOUT_IN_MILLISECONDS = 10000;

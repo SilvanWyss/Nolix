@@ -5,9 +5,6 @@ package ch.nolix.core.endPoint2;
 import java.io.IOException;
 import java.net.ServerSocket;
 
-
-
-
 //own imports
 import ch.nolix.core.constants.PortManager;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
@@ -21,7 +18,7 @@ import ch.nolix.core.validator2.Validator;
 * @month 2015-12
 * @lines 80
 */
-public final class NetServer<M> extends Server<M> {
+public class NetServer<M> extends Server<M> {
 	
 	private final IElementTakerElementGetter<String, M> messageTransformer;
 	
