@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.stringEndPoint2;
+package ch.nolix.core.endPoint2sub;
 
 //class
 /**
