@@ -1,12 +1,10 @@
 //package declaration
 package ch.nolix.core.endPoint3;
 
-//own import
+//own imports
 import ch.nolix.core.basic.AbortableElement;
-import ch.nolix.core.communicationInterfaces.IGenericReplier;
-import ch.nolix.core.communicationInterfaces.IGenericSender2;
-import ch.nolix.core.container.List;
-import ch.nolix.core.interfaces.IReplier;
+import ch.nolix.core.communicationInterfaces.IReplier;
+import ch.nolix.core.communicationInterfaces.ISender2;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 
@@ -19,26 +17,21 @@ import ch.nolix.core.validator2.Validator;
  * @month 2017-05
  * @lines 100
  */
-public abstract class EndPoint<M, R>
+public abstract class EndPoint
 extends AbortableElement
-implements IGenericSender2<M, R> {
+implements ISender2 {
 	
 	//constant
 	private static final long REPLIER_GETTING_DELAY_IN_MILLISECONDS = 5000;
 	
-	
-
-	
 	//optional attribute
-	private IGenericReplier<M, R> replier;
+	private IReplier replier;
 	
 	//abstract method
 	/**
 	 * @return the target of this end point.
 	 */
 	public abstract String getTarget();
-	
-
 	
 	//abstract method
 	/**
@@ -53,7 +46,7 @@ implements IGenericSender2<M, R> {
 	 * @param replier
 	 * @throws NullArgumentException if the given replier is null.
 	 */
-	public void setReplier(final IGenericReplier<M, R> replier) {
+	public void setReplier(final IReplier replier) {
 		
 		//Checks if the given replier is not null.
 		Validator.supposeThat(replier).thatIsInstanceOf(IReplier.class).isNotNull();
@@ -67,7 +60,7 @@ implements IGenericSender2<M, R> {
 	 * @return the replier of this end point.
 	 * @throws UnexistingAttributeException if this end point has no replier.
 	 */
-	protected final IGenericReplier<M, R> getRefReplier() {
+	protected final IReplier getRefReplier() {
 		
 		final long startTimeInMilliseconds = System.currentTimeMillis();
 		
@@ -85,10 +78,6 @@ implements IGenericSender2<M, R> {
 		return replier;
 	}
 	
-
-	
-
-	
 	//method
 	/**
 	 * @return true if this end point has a replier.
@@ -96,8 +85,4 @@ implements IGenericSender2<M, R> {
 	private boolean hasReplier() {
 		return (replier != null);
 	}
-	
-
-	
-
 }

@@ -3,9 +3,8 @@ package ch.nolix.core.endPoint2;
 
 //own imports
 import ch.nolix.core.basic.AbortableElement;
-import ch.nolix.core.communicationInterfaces.IGenericReceiver;
-import ch.nolix.core.communicationInterfaces.IGenericSender;
 import ch.nolix.core.communicationInterfaces.IReceiver;
+import ch.nolix.core.communicationInterfaces.ISender;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
@@ -19,9 +18,9 @@ import ch.nolix.core.validator2.Validator;
  * @month 2017-04
  * @lines 140
  */
-public abstract class EndPoint<M>
+public abstract class EndPoint
 extends AbortableElement
-implements IGenericSender<M> {
+implements ISender {
 	
 	static final String DEFAULT_TARGET = "DefaultTarget";
 
@@ -30,7 +29,7 @@ implements IGenericSender<M> {
 	private String target;
 	
 	//optional attribute
-	private IGenericReceiver<M> receiver;
+	private IReceiver receiver;
 	
 	//package-visible constructor
 	/**
@@ -41,7 +40,7 @@ implements IGenericSender<M> {
 	EndPoint(final boolean hasRequestedConnection) {
 		this.hasRequestedConnection = hasRequestedConnection;
 	}
-	
+
 	//method
 	/**
 	 * @return the target of this local end point.
@@ -88,7 +87,7 @@ implements IGenericSender<M> {
 	 * @throws NullArgumentException if the given receiver is null.
 	 * @throws InvalidArgumentException if this end point is aborted.
 	 */
-	public final void setReceiver(final IGenericReceiver<M> receiver) {
+	public final void setReceiver(final IReceiver receiver) {
 		
 		//Checks if this end point is aborted.
 		throwExceptionIfAborted();
@@ -100,7 +99,7 @@ implements IGenericSender<M> {
 		this.receiver = receiver;
 	}
 	
-	private IGenericReceiver<M> getRefReceiver() {
+	private IReceiver getRefReceiver() {
 		
 		//Checks if this end point has a receiver.
 		if (!hasReceiver()) {
@@ -118,7 +117,7 @@ implements IGenericSender<M> {
 		return (target != null);
 	}
 	
-	protected void receive(final M message) {
+	protected void receive(final String message) {
 		getRefReceiver().receive(message);	
 	}
 	

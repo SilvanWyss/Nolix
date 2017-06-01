@@ -54,7 +54,7 @@ public final class NetDuplexController extends DuplexController {
 	public NetDuplexController(String ip, int port) {
 		
 		//Calls other constructor.
-		this(new NetEndPoint<String, String>(ip, port, s->s, s->s));
+		this(new NetEndPoint(ip, port));
 	}
 	
 	public NetDuplexController(String ip, int port, ILevel2Controller receiverController) {
@@ -186,7 +186,7 @@ public final class NetDuplexController extends DuplexController {
 		
 		//Sends and gets reply.
 		//TODO
-		Specification reply = new Specification(netEndPoint.sendAndWaitToReply(message));
+		Specification reply = new Specification(netEndPoint.sendAndGetReply(message));
 		
 		//Handles reply
 		switch (reply.getHeader()) {

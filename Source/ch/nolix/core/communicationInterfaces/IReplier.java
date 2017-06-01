@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.interfaces;
+package ch.nolix.core.communicationInterfaces;
 
 //interface
 /**
@@ -18,5 +18,5 @@ public interface  IReplier {
 	 * @param message
 	 * @return the reply to the given message.
 	 */
-	public abstract String receiveMessageAndGetReply(String message);
+	public abstract String getReply(String message);
 }

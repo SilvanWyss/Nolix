@@ -30,7 +30,7 @@ public final class DuplexControllerListener implements Abortable {
 		Validator.throwExceptionIfValueIsNull("duplex controller taker", duplexControllerTaker);
 		
 		this.duplexControllerTaker = duplexControllerTaker;
-		this.alphaEndPointListener = new NetServer<String, String>(port, s->s, s->s);
+		this.alphaEndPointListener = new NetServer(port);
 		alphaEndPointListener.addEndPointTaker(new AlphaEndPointTaker(this));
 	}
 	

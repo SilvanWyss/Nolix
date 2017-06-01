@@ -18,10 +18,10 @@ import ch.nolix.core.validator2.Validator;
  * @month 2015-12
  * @lines 60
  */
-final class NetEndPointSubListener<M> extends Thread {
+final class NetEndPointSubListener extends Thread {
 
 	//attribute
-	private final NetEndPoint<M> netEndPoint;
+	private final NetEndPoint netEndPoint;
 	
 	//constructor
 	/**
@@ -30,7 +30,7 @@ final class NetEndPointSubListener<M> extends Thread {
 	 * @param netEndPoint
 	 * @throws NullArgumentException if the given net end point is null.
 	 */
-	public NetEndPointSubListener(final NetEndPoint<M> netEndPoint) {
+	public NetEndPointSubListener(final NetEndPoint netEndPoint) {
 		
 		//Checks if the given net end point is not null.
 		Validator.supposeThat(netEndPoint).thatIsInstanceOf(NetEndPoint.class).isNotNull();

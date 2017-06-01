@@ -9,7 +9,6 @@ import java.net.Socket;
 //own imports
 import ch.nolix.core.constants.IPv6Manager;
 import ch.nolix.core.constants.PortManager;
-import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator2.Validator;
 
@@ -24,15 +23,11 @@ import ch.nolix.core.validator2.Validator;
  * @month 2015-12
  * @lines 190
  */
-public class NetEndPoint<M> extends EndPoint<M> {
-	
-	//constants
-	private static final int TIMEOUT_IN_MILLISECONDS = 10000;
+public class NetEndPoint extends EndPoint {
 	
 	//attributes
 	private final Socket socket;
 	private final PrintWriter printWriter;
-	private final IElementTakerElementGetter<String, M> messageTransformer;
 		
 	//constructor
 	/**
@@ -42,24 +37,22 @@ public class NetEndPoint<M> extends EndPoint<M> {
 	 * @param port
 	 * @throws OutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public NetEndPoint(final int port, final IElementTakerElementGetter<String, M> messageTransformer) {
+	public NetEndPoint(final int port) {
 		
 		//Calls other constructor.
 		this(
 			IPv6Manager.LOOP_BACK_ADDRESS,
 			port,
-			DEFAULT_TARGET,
-			messageTransformer
+			DEFAULT_TARGET
 		);
 	}
 	
 	public NetEndPoint(
 		int port,
-		String target,
-		final IElementTakerElementGetter<String, M> messageTransformer
+		String target
 	) {
 		
-		this(IPv6Manager.LOOP_BACK_ADDRESS, port, target, messageTransformer);
+		this(IPv6Manager.LOOP_BACK_ADDRESS, port, target);
 	}
 	
 	//constructor
@@ -73,11 +66,10 @@ public class NetEndPoint<M> extends EndPoint<M> {
 	 */
 	public NetEndPoint(
 		final String ip,
-		final int port,
-		final IElementTakerElementGetter<String, M> messageTransformer) {
+		final int port) {
 		
 		//Calls other constructor.
-		this(ip, port, DEFAULT_TARGET, messageTransformer);
+		this(ip, port, DEFAULT_TARGET);
 	}
 	
 	//constructor
@@ -95,8 +87,7 @@ public class NetEndPoint<M> extends EndPoint<M> {
 	public NetEndPoint(
 		final String ip,
 		final int port,
-		final String target,
-		final IElementTakerElementGetter<String, M> messageTransformer) {
+		final String target) {
 		
 		//Calls constructor of the base class.
 		super(true);
@@ -121,10 +112,8 @@ public class NetEndPoint<M> extends EndPoint<M> {
 			throw new RuntimeException(exception);
 		}
 		
-		this.messageTransformer = messageTransformer;
-		
 		//Creates and starts the listener of this net end point.
-		new NetEndPointSubListener<M>(this);
+		new NetEndPointSubListener(this);
 		
 		send(target);
 	}
@@ -137,8 +126,7 @@ public class NetEndPoint<M> extends EndPoint<M> {
 	 * @throws NullArgumentException if the given socket is null.
 	 */
 	NetEndPoint(
-		final Socket socket,
-		final IElementTakerElementGetter<String, M> messageTransformer
+		final Socket socket
 	) {
 		
 		//Calls constructor of the base class.
@@ -157,10 +145,8 @@ public class NetEndPoint<M> extends EndPoint<M> {
 			throw new RuntimeException(e);
 		}
 		
-		this.messageTransformer = messageTransformer;
-		
 		//Creates and starts the listener of this net end point.
-		new NetEndPointSubListener<M>(this);
+		new NetEndPointSubListener(this);
 		
 		waitToTarget();
 	}
@@ -171,18 +157,6 @@ public class NetEndPoint<M> extends EndPoint<M> {
 	 */
 	public boolean isNetEndPoint() {
 		return true;
-	}
-	
-	//method
-	/**
-	 * Lets this end point send the given message.
-	 * 
-	 * @param message
-	 * @throws NullArgumentException if the given message is null.
-	 * @throws InvalidArgumentException if this net end point is aborted.
-	 */
-	public void send( M message) {
-		send(message.toString());
 	}
 
 	//method
@@ -200,7 +174,7 @@ public class NetEndPoint<M> extends EndPoint<M> {
 	 * @param message
 	 * @throws InvalidArgumentException if this net end point is aborted.
 	 */
-	void receive(final String message) {
+	protected void receive(final String message) {
 		
 		//Checks if this net end point is not stopped.
 		throwExceptionIfAborted();
@@ -209,11 +183,11 @@ public class NetEndPoint<M> extends EndPoint<M> {
 			setTarget(message);
 		}
 		else {
-			receive(messageTransformer.getOutput(message));
+			receive(message);
 		}
 	}
 	
-	private void send(final String message) {
+	public void send(final String message) {
 		
 		//Checks if the given message is not null.
 		Validator.supposeThat(message).thatIsNamed("message").isNotNull();
@@ -245,7 +219,7 @@ public class NetEndPoint<M> extends EndPoint<M> {
 			//This statement that is actually unnecessary makes that the loop is not optimized away.
 			System.out.flush();
 			
-			if (System.currentTimeMillis() - startTimeInMilliseconds > TIMEOUT_IN_MILLISECONDS) {
+			if (System.currentTimeMillis() - startTimeInMilliseconds > 5000) {
 				throw new RuntimeException("Zeta end point reached timeout while waiting to target application.");
 			}
 		}

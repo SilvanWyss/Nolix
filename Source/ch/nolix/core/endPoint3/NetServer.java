@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.core.endPoint3;
 
-import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 
 //class
@@ -12,12 +11,10 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
 * @month 2016-05
 * @lines 30
 */
-public final class NetServer<M, R> extends Server<M, R> {
+public final class NetServer extends Server {
 	
 	//attribute
-	private final ch.nolix.core.endPoint2.NetServer<Package> internalNetServer;
-	final IElementTakerElementGetter<String, M> messageTransformer;
-	final IElementTakerElementGetter<String, R> replyTransformer;
+	private final ch.nolix.core.endPoint2.NetServer internalNetServer;
 	
 	//constructor
 	/**
@@ -26,16 +23,10 @@ public final class NetServer<M, R> extends Server<M, R> {
 	 * @param port
 	 * @throws OutOfRangeArgumentException if the given port is not in [0, 65535].
 	 */
-	public NetServer(final int port,
-		final IElementTakerElementGetter<String, M> messageTransformer,
-		final IElementTakerElementGetter<String, R> replyTransformer) {
-		
-		this.messageTransformer = messageTransformer;
-		this.replyTransformer = replyTransformer;
+	public NetServer(final int port) {
 		
 		//Creates the internal net server of this net server.
-		internalNetServer =
-		new ch.nolix.core.endPoint2.NetServer<Package>(port, s -> Package.createZetaPackageFromString(s));
+		internalNetServer =	new ch.nolix.core.endPoint2.NetServer(port);
 	}
 	
 	//method
@@ -60,12 +51,12 @@ public final class NetServer<M, R> extends Server<M, R> {
 	 * @throws InvalidStateException
 	 * if this net server contains an end point taker with the same name as the given end point taker.
 	 */
-	public void addEndPointTaker(final IEndPointTaker<M, R> endPointTaker) {
+	public void addEndPointTaker(final IEndPointTaker endPointTaker) {
 		
 		//Calls method of the base class.
 		super.addEndPointTaker(endPointTaker);
 		
-		internalNetServer.addEndPointTaker(new EndPointTaker<M, R>(endPointTaker, messageTransformer, replyTransformer));
+		internalNetServer.addEndPointTaker(new EndPointTaker(endPointTaker));
 	}
 	
 	

@@ -10,12 +10,28 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 100
+ * @lines 120
  */
-public class LocalEndPoint<M> extends EndPoint<M> {
+public final class LocalEndPoint extends EndPoint {
 	
-	//attributes
-	private final LocalEndPoint<M> counterpart;
+	//attribute
+	private final LocalEndPoint counterpart;
+	
+	//constructor
+	/**
+	 * Creates new local end point that will connect to an other new local end point.
+	 */
+	public LocalEndPoint() {
+		
+		//Calls constructor of the base class.
+		super(true);
+		
+		//Sets the target of this local end point.
+		setTarget(DEFAULT_TARGET);
+		
+		//Creates the counterpart of this local end point.
+		counterpart = new LocalEndPoint(this);
+	}
 	
 	//constructor
 	/**
@@ -23,13 +39,16 @@ public class LocalEndPoint<M> extends EndPoint<M> {
 	 * 
 	 * @param target
 	 */
-	public LocalEndPoint(final IEndPointTaker<M> target	) {
+	public LocalEndPoint(final IEndPointTaker target	) {
 		
-		//Calls consturctor of the base class.
+		//Calls constructor of the base class.
 		super(true);
 		
+		//Sets the target of this local end point.
+		setTarget(target.getName());
+		
 		//Creates the counterpart of this local end point.
-		counterpart = new LocalEndPoint<M>(this);
+		counterpart = new LocalEndPoint(this);
 		
 		target.takeEndPoint(counterpart);
 	}
@@ -43,35 +62,44 @@ public class LocalEndPoint<M> extends EndPoint<M> {
 	 * @throws NullArgumentException if the given target is null.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
-	public LocalEndPoint(final Server<M> server, final String target) {
+	public LocalEndPoint(final Server server, final String target) {
 		
 		//Calls constructor of the base class.
 		super(true);
-		
-		//Checks if the given target is not null or empty.
-		Validator.supposeThat(target).thatIsNamed("target").isNotEmpty();
 		
 		//Sets the target of this local end point.
 		setTarget(target);
 		
 		//Creates the counter part of this local end point.
-		counterpart = new LocalEndPoint<M>(this);
+		counterpart = new LocalEndPoint(this);
 		
 		server.takeEndPoint(counterpart);
 	}
 	
 	//constructor
 	/**
-	 * Creates new local end point.
+	 * Creates new local end point the given local end point will connect to.
+	 * 
+	 * @param localEndPoint
 	 */
-	private LocalEndPoint(LocalEndPoint<M> localEndPoint) {
+	private LocalEndPoint(final LocalEndPoint localEndPoint) {
 		
 		//Calls constructor of the base class.
 		super(false);
 		
+		//Sets the target of this local end point.
 		setTarget(localEndPoint.getTarget());
 		
-		this.counterpart = localEndPoint;
+		//Sets the counterpart of this local end point.
+		counterpart = localEndPoint;
+	}
+	
+	//method
+	/**
+	 * @return the counterpart of this local end point.
+	 */
+	public LocalEndPoint getRefCounterPart() {
+		return counterpart;
 	}
 	
 	//method
@@ -89,7 +117,7 @@ public class LocalEndPoint<M> extends EndPoint<M> {
 	 * @throws NullArgumentException if the given message is null.
 	 * @throws InvalidArgumentException if this local end point is aborted.
 	 */
-	public void send(final M message) {
+	public void send(final String message) {
 		
 		//Checks if the given message is not null.
 		Validator.supposeThat(message).thatIsNamed("message").isNotNull();

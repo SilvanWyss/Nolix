@@ -7,7 +7,6 @@ import java.net.ServerSocket;
 
 //own imports
 import ch.nolix.core.constants.PortManager;
-import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -18,9 +17,7 @@ import ch.nolix.core.validator2.Validator;
 * @month 2015-12
 * @lines 80
 */
-public class NetServer<M> extends Server<M> {
-	
-	private final IElementTakerElementGetter<String, M> messageTransformer;
+public class NetServer extends Server {
 	
 	//attributes
 	private final int port;
@@ -36,8 +33,7 @@ public class NetServer<M> extends Server<M> {
 	 * @throws OutOfRangeArgumentException if the given port is not in [0, 65535].
 	 */
 	public NetServer(
-		final int port,
-		final IElementTakerElementGetter<String, M> messageTransformer
+		final int port
 	) {
 			
 		//Checks if the given port is in [0, 65535]. 
@@ -58,10 +54,8 @@ public class NetServer<M> extends Server<M> {
 			throw new RuntimeException(exception);
 		}
 		
-		this.messageTransformer = messageTransformer;
-		
 		//Creates new net server sub listener for this net server.
-		new NetServerSubListener<M>(this);
+		new NetServerSubListener(this);
 	}
 	
 	//method
@@ -93,9 +87,5 @@ public class NetServer<M> extends Server<M> {
 	 */
 	ServerSocket getRefServerSocket() {
 		return serverSocket;
-	}
-
-	IElementTakerElementGetter<String, M> getRefMessageTransformer() {
-		return messageTransformer;
 	}
 }

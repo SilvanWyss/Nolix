@@ -12,7 +12,7 @@ import ch.nolix.core.interfaces.Named;
  * @month 2015-12
  * @lines 20
  */
-public interface IEndPointTaker<M> extends Named {
+public interface IEndPointTaker extends Named {
 
 	//abstract method
 	/**
@@ -20,5 +20,5 @@ public interface IEndPointTaker<M> extends Named {
 	 * 
 	 * @param endPoint
 	 */
-	public abstract void takeEndPoint(EndPoint<M> endPoint);
+	public abstract void takeEndPoint(EndPoint endPoint);
 }

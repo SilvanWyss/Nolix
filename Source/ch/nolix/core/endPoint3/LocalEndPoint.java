@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.core.endPoint3;
 
+//own imports
 import ch.nolix.core.sequencer.Future;
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.util.Timer;
-//own import
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -15,36 +14,36 @@ import ch.nolix.core.validator2.Validator;
  * @month 2017-05
  * @lines 10
  */
-public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
+public final class LocalEndPoint extends EndPoint {
 
 	//attributes
 	private final String target;
 	private final boolean requestedConnection;
-	private final LocalEndPoint<M, R> counterPart;
+	private final LocalEndPoint counterPart;
 	
-	public LocalEndPoint(final IEndPointTaker<M, R> endPointTaker) {
+	public LocalEndPoint(final IEndPointTaker endPointTaker) {
 		
 		requestedConnection = true;
 		target = endPointTaker.getName();
 		
-		counterPart = new LocalEndPoint<M, R>(this);
+		counterPart = new LocalEndPoint(this);
 		
 		endPointTaker.takeEndPoint(getRefCounterPart());
 	}
 	
-	public LocalEndPoint(final Server<M, R> server, final String target) {
+	public LocalEndPoint(final Server server, final String target) {
 		
 		Validator.supposeThat(target).isNotEmpty();
 		
 		requestedConnection = true;
 		this.target = target;
 		
-		counterPart = new LocalEndPoint<M, R>(this);
+		counterPart = new LocalEndPoint(this);
 		
 		server.takeEndPoint(getRefCounterPart());
 	}
 	
-	private LocalEndPoint(final LocalEndPoint<M, R> counterPart) {
+	private LocalEndPoint(final LocalEndPoint counterPart) {
 		
 		//Checks if the given counter part is not null.
 		Validator.supposeThat(counterPart).thatIsNamed("counterpart").isNotNull();
@@ -64,7 +63,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	 * @return the reply to the given message.
 	 * @throws InvalidStateException if this local end point is aborted.
 	 */
-	public R sendAndWaitToReply(final M message) {
+	public String sendAndWaitToReply(final String message) {
 		
 		//Checks if this local end point is not aborted.
 		throwExceptionIfAborted();
@@ -76,7 +75,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	/**
 	 * @return the counterpart of this local end point.
 	 */
-	private final LocalEndPoint<M, R> getRefCounterPart() {
+	private final LocalEndPoint getRefCounterPart() {
 		return counterPart;
 	}
 
@@ -87,7 +86,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	 * @param message
 	 * @return the reply to the given message.
 	 */
-	private R receiveAndGetReply(final M message) {
+	private String receiveAndGetReply(final String message) {
 		return getRefReplier().getReply(message);
 	}
 
@@ -106,9 +105,8 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	public boolean hasRequestedConnection() {
 		return requestedConnection;
 	}
-
-	@Override
-	public R sendAndGetReply(M message) {
+	
+	public String sendAndGetReply(String message) {
 		
 		final Future future = Sequencer.runInBackground(() -> counterPart.receiveAndGetReply(message));
 		

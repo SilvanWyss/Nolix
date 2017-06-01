@@ -15,7 +15,7 @@ import ch.nolix.core.interfaces.Named;
 /**
  * A alpha end point taker takes alpha end points.
  */
-public interface IEndPointTaker<M, R> extends Named {
+public interface IEndPointTaker extends Named {
 
 	//abstract method
 	/**
@@ -23,5 +23,5 @@ public interface IEndPointTaker<M, R> extends Named {
 	 * 
 	 * @param endPoint
 	 */
-	public abstract void takeEndPoint(EndPoint<M, R> endPoint);
+	public abstract void takeEndPoint(EndPoint endPoint);
 }
