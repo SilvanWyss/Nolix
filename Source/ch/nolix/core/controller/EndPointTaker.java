@@ -40,7 +40,6 @@ final class EndPointTaker implements IEndPointTaker {
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Test";
 	}
 }

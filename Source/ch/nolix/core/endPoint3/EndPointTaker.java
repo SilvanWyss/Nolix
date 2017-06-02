@@ -5,10 +5,7 @@ final class EndPointTaker implements ch.nolix.core.endPoint2.IEndPointTaker {
 	private final IEndPointTaker endPointTaker;
 	
 	public EndPointTaker(IEndPointTaker endPointTaker) {
-		
 		this.endPointTaker = endPointTaker;
-		
-		System.out.println(endPointTaker.getName());
 	}
 	
 	public String getName() {

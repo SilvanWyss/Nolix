@@ -54,7 +54,7 @@ public final class NetController extends Controller {
 	public NetController(String ip, int port) {
 		
 		//Calls other constructor.
-		this(new NetEndPoint(ip, port));
+		this(new NetEndPoint(ip, port, "Test"));
 	}
 	
 	public NetController(String ip, int port, ILevel2Controller receiverController) {
