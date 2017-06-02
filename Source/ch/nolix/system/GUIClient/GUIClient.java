@@ -6,10 +6,8 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.controller.Controller;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleGUI;
-import ch.nolix.system.client.Application;
 import ch.nolix.system.client.Client;
 import ch.nolix.system.client.Session;
 
@@ -28,8 +26,16 @@ public final class GUIClient extends Client<GUIClient> {
 	static final String RESET_OTHER_SIDE_DIALOG_COMMAND = "ResetOtherSideDialog";
 	
 	//attribute
-	private GUI<?> dialog;
+	private final GUI<?> dialog;
 
+	public GUIClient(final Controller controller) {
+			
+		//Calls constructor of the base class.
+		super(controller);
+		
+		this.dialog = new InvisibleGUI();
+	}
+	
 	//constructor
 	/**
 	 * Creates new dialog client that:
@@ -41,10 +47,15 @@ public final class GUIClient extends Client<GUIClient> {
 	 * @throws NullArgumentException if the given target application is null.
 	 * @throws NullArgumentException if the given dialog is null.
 	 */
+	/*
 	public GUIClient(final Application<GUIClient> targetApplication, final GUI<?> dialog) {
 		
 		//Calls constructor of the base class.
-		super(targetApplication, c -> c.setDialog(dialog));
+		//super(targetApplication, c -> c.setDialog(dialog));
+		
+		super(targetApplication);
+		
+		this.dialog = dialog;
 	}
 	
 	//constructor
@@ -56,6 +67,7 @@ public final class GUIClient extends Client<GUIClient> {
 	 * @throws NullArgumentException if the given duplex controller is null.
 	 * @throws NullArgumentException if the given initial session is null.
 	 */
+	/*
 	public GUIClient(final Controller controller, final Session<GUIClient> initialSession) {
 		
 		//Calls constructor of the base class.
@@ -152,6 +164,7 @@ public final class GUIClient extends Client<GUIClient> {
 	 * @param dialog
 	 * @throws NullArgumentException if the given dialog is null.
 	 */
+	/*
 	private void setDialog(final GUI<?> dialog) {
 		
 		//Checks if the given dialog is not null.
@@ -160,4 +173,5 @@ public final class GUIClient extends Client<GUIClient> {
 		//Sets the dialog of this dialog client.
 		this.dialog = dialog;
 	}
+	*/
 }

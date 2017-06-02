@@ -44,7 +44,7 @@ final class ServerDuplexControllerTaker implements IControllerTaker {
 	public void takeDuplexController(final Controller controller) {
 		
 		//Extracts the name of the target application.
-		final String targetApplicaitonName = controller.getData(Client.TARGET_APPLICATION_REQUEST).toString();
+		final String targetApplicaitonName = controller.getData(Client.TARGET_REQUEST).toString();
 		
 		//Extracts the target application.
 		final Application<?> targetApplication = server.getRefApplicationByName(targetApplicaitonName);

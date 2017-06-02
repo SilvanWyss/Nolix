@@ -23,14 +23,20 @@ public final class LocalController extends Controller {
 	private boolean stopped = false;
 	
 	//optional attributes
-	private LocalController targetController;
+	private final LocalController counterPart;
 	private String stopReason;
 	
 	//constructor
 	/**
 	 * Creates new local duplex controller with default values.
 	 */
-	public LocalController() {}
+	public LocalController() {
+		this.counterPart = new LocalController(this);
+	}
+	
+	private LocalController(LocalController localController) {
+		this.counterPart = localController;
+	}
 	
 	//constructor
 	/**
@@ -59,12 +65,13 @@ public final class LocalController extends Controller {
 	 * @return this local duplex controller
 	 * @throws Exception if the given target controller is null
 	 */
-	public final void connectWith(LocalController targetController) {
+	/*
+	private final void connectWith(LocalController targetController) {
 		
 		Validator.throwExceptionIfValueIsNull("local duplex controller", targetController);
 		
-		this.targetController = targetController;
-		this.targetController.targetController = this;
+		this.counterPart = targetController;
+		this.counterPart.counterPart = this;
 	}
 	
 	//method
@@ -81,7 +88,7 @@ public final class LocalController extends Controller {
 		
 		throwExceptionIfStopped();
 
-		return getRefTargetController().getRefReceiverController().getData(request);
+		return getRefCounterpart().getRefReceiverController().getData(request);
 	}
 	
 	//method
@@ -109,7 +116,7 @@ public final class LocalController extends Controller {
 	 * @return true if this local duplex controller has a target controller
 	 */
 	public final boolean hasTargetController() {
-		return (targetController != null);
+		return (counterPart != null);
 	}
 
 	//method
@@ -145,7 +152,7 @@ public final class LocalController extends Controller {
 			
 			List<String> appendedCommands = this.appendedCommands.getCopy();
 			this.appendedCommands = new List<String>();
-			ILevel2Controller targetControllerReceiverController = getRefTargetController().getRefReceiverController();
+			ILevel2Controller targetControllerReceiverController = getRefCounterpart().getRefReceiverController();
 			appendedCommands.forEach(ac -> targetControllerReceiverController.run(ac));
 		}
 		finally {
@@ -167,7 +174,7 @@ public final class LocalController extends Controller {
 		
 		throwExceptionIfStopped();
 		
-		getRefTargetController().getRefReceiverController().run(command);
+		getRefCounterpart().getRefReceiverController().run(command);
 	}
 	
 	//method
@@ -205,13 +212,13 @@ public final class LocalController extends Controller {
 	 * @return the target controller of this local duplex controller
 	 * @throws UnexistingAttributeException if this duplex controller has no target controller
 	 */
-	private final Controller getRefTargetController() {
+	public final Controller getRefCounterpart() {
 		
 		if (!hasTargetController()) {
 			throw new UnexistingAttributeException(this, "target controller");
 		}
 		
-		return targetController;
+		return counterPart;
 	}
 	
 	//method

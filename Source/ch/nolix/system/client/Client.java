@@ -7,7 +7,6 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.controller.Controller;
 import ch.nolix.core.controller.LocalController;
 import ch.nolix.core.controller.NetController;
-import ch.nolix.core.functionInterfaces.IElementTakerRunner;
 import ch.nolix.core.interfaces.Abortable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
@@ -32,21 +31,40 @@ implements Abortable {
 	
 	//commands
 	protected static final String INVOKE_RUN_METHOD_COMMAND = "InvokeRunMethod";
-	protected static final String TAKE_READY_SIGNAL_COMMAND = "TakeReadySignal";
 	
 	//requests
 	protected static final String TYPE_REQUEST = "Type";
-	protected static final String TARGET_APPLICATION_REQUEST = "TargetApplicationRequest";
+	protected static final String TARGET_REQUEST = "TargetRequest";
 	protected static final String DATA_METHOD_REQUEST = "Data";
 		
 	//attributes
 	private final Controller controller;
 	private final boolean requestedConnectionFlag;
-	private boolean receivedReadySignalFlag = false;
 	
 	//optional attributes
-	private final String targetApplication;
+	private final String target;
 	private Session<C> session;
+	
+	public Client(final Application<?> target) {
+		requestedConnectionFlag = true;
+		this.target = target.getName();
+		controller = new LocalController();
+		controller.setReceiverController(new ClientReceiverController(this));
+		target.createClient(((LocalController)controller).getRefCounterpart());
+	}
+	
+	public Client(final Controller controller) {
+		requestedConnectionFlag = false;
+		this.controller = controller;
+		controller.setReceiverController(new ClientReceiverController(this));
+		target = controller.getData(TARGET_REQUEST);
+	}
+	
+	public Client(String ip, int port, String target) {
+		requestedConnectionFlag = true;
+		this.target = target;
+		controller = new NetController(ip, port);
+	}
 	
 	//constructor
 	/**
@@ -55,6 +73,7 @@ implements Abortable {
 	 * @param targetApplication
 	 * @throws NullArgumentException if the given target application is null.
 	 */
+	/*
 	public Client(final Application<C> targetApplication) {
 		
 		//1. Sets the request connection flag of this client.
@@ -88,6 +107,7 @@ implements Abortable {
 	 * @throws NullArgumentException if the given target application is null.
 	 * @throws NullArgumentException if the given initialization function is null.
 	 */
+	/*
 	@SuppressWarnings("unchecked")
 	public Client(final Application<?> targetApplication, final IElementTakerRunner<C> initializationFunction) {
 		
@@ -127,6 +147,7 @@ implements Abortable {
 	 * @throws NullArgumentException if the given target application is null.
 	 * @throws NullArgumentException if the givne initial session is null.
 	 */
+	/*
 	public Client(final Application<?> targetApplication, final Session<C> initialSession) {
 		
 		//1. Sets the requested connection flag of this client.
@@ -169,6 +190,7 @@ implements Abortable {
 	 * @param controller
 	 * @throws NullArgumentException if the given duplex controller is null.
 	 */
+	/*
 	public Client(final Controller controller) {
 		
 		//1. Sets the requested connection flag of this client.
@@ -199,6 +221,7 @@ implements Abortable {
 	 * @throws NullArgumentException if the given duplex controller is null.
 	 * @throws NullArgumentException if the given initial session is null.
 	 */
+	/*
 	public Client(final Controller controller, final Session<C> initialSession) {
 		
 		//1. Sets the requested connection flag of this client.
@@ -241,6 +264,7 @@ implements Abortable {
 	 * @throws NullArgumentException if the given initial session is null.
 	 * @throws NullArgumentException if the given initialization function is null.
 	 */
+	/*
 	@SuppressWarnings("unchecked")
 	public Client(
 		final Controller controller,
@@ -289,6 +313,7 @@ implements Abortable {
 	 * @throws NullArgumentException if the given target application is null.
 	 * @throws EmptyArgumentException if the given target application is empty.
 	 */
+	/*
 	public Client(
 		final String ip,
 		final int port,
@@ -324,6 +349,7 @@ implements Abortable {
 	 * @throws EmptyArgumentException if the given target application is empty.
 	 * @throws NullArgumentException if the given initialization function
 	 */
+	/*
 	@SuppressWarnings("unchecked")
 	public Client(
 		final String ip,
@@ -366,6 +392,7 @@ implements Abortable {
 	 * @throws EmptyArgumentException if the given target application is an empty string.
 	 * @throws NullArgumentException if the given initial session is null.
 	 */
+	/*
 	public Client(
 		final String ip,
 		final int port,
@@ -482,8 +509,8 @@ implements Abortable {
 		switch (request.getHeader()) {
 			case TYPE_REQUEST:
 				return getType();
-			case TARGET_APPLICATION_REQUEST:
-				return internal_getTargetApplication();
+			case TARGET_REQUEST:
+				return internal_getTarget();
 			case DATA_METHOD_REQUEST:
 				return internal_invokeDataMethod(request.getRefOneAttribute());
 			default:
@@ -504,14 +531,16 @@ implements Abortable {
 	 * @return the target application of this client.
 	 * @throws UnexistingAttributeException if this client has no target application.
 	 */
-	protected final String internal_getTargetApplication() {
+	protected final String internal_getTarget() {
 		
 		//Checks if this client has a target application.
-		if (!internal_hasTargetApplication()) {
+		/*
+		if !internal_hasTarget()) {
 			throw new UnexistingAttributeException(this, "target application");
 		}
+		*/
 		
-		return targetApplication;
+		return target;
 	}
 	
 	//method
@@ -528,14 +557,6 @@ implements Abortable {
 	 */
 	protected boolean internal_hasSession() {
 		return (session != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this client has a target application
-	 */
-	protected final boolean internal_hasTargetApplication() {
-		return (targetApplication != null);
 	}
 	
 	//method
@@ -598,9 +619,6 @@ implements Abortable {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
-			case TAKE_READY_SIGNAL_COMMAND:
-				takeReadySignal();
-				break;
 			case INVOKE_RUN_METHOD_COMMAND:
 				internal_invokeRunMethod(command.getRefOneAttribute());
 				break;			
@@ -629,43 +647,5 @@ implements Abortable {
 		//Initializes the given session.
 		session.initialize();
 		internal_finishSessionInitialization();
-	}
-	
-	//method
-	/**
-	 * Lets this client send the ready signal.
-	 */
-	private final void sendReadySignal() {
-		controller.run(TAKE_READY_SIGNAL_COMMAND);
-	}
-	
-	//method
-	/**
-	 * Sets the received ready flag of this client.
-	 */
-	private void takeReadySignal() {
-		receivedReadySignalFlag = true;
-	}
-	
-	//method
-	/**
-	 * Lets this client wait to the ready signal.
-	 * 
-	 * @throws Exception if this client reached its timeout before receiving the ready signal.
-	 */
-	private final void waitToReadySignal() {
-		
-		final long time = System.currentTimeMillis();
-		
-		//This loop suffers from being optimized away from the compiler or the JVM.
-		while (!receivedReadySignalFlag) {
-			
-			//The following statement that is actually unnecessary makes that the loop is not optimized away.
-			System.out.flush();
-			
-			if (System.currentTimeMillis() - time > controller.getTimeoutInMilliseconds()) {
-				throw new RuntimeException("TimeOut");
-			}
-		}
 	}
 }

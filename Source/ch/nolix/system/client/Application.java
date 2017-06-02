@@ -11,10 +11,12 @@ import java.lang.reflect.ParameterizedType;
 
 
 
+
 import ch.nolix.core.basic.NamedElement;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controller.Controller;
+import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
@@ -89,7 +91,7 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 	@SuppressWarnings("unchecked")
 	public final void createClient(Controller controller) {
 		try {
-			
+			/*
 			//Creates initial session.
 			final Session<C> initialSession = createInitialSession();	
 			
@@ -100,6 +102,21 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 			
 			//Creates client.
 			clients.addAtEnd((C)constructor.newInstance(controller, initialSession));
+			*/
+			
+			//Creates initial session.
+			final Session<C> initialSession = createInitialSession();	
+			
+			//Extracts the constructor of the class of the clients of this application.
+			final String className = ((ParameterizedType)initialSession.getClass().getGenericSuperclass()).getActualTypeArguments()[0].toString().split("\\s")[1];
+			final Constructor<?> constructor = Class.forName(className).getConstructor(Controller.class);	
+			constructor.setAccessible(true);
+			
+			//Creates client.
+			C client = (C)constructor.newInstance(controller);
+			
+			clients.addAtEnd(client);
+			Sequencer.runInBackground(() -> client.internal_setSessionAndInitializeSession(initialSession));
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);

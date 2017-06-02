@@ -59,6 +59,7 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @param targetApplication
 	 * @param initialSession
 	 */
+	/*
 	public StandardClient(
 		final String ip,
 		final int port,
@@ -92,6 +93,7 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @throws NullArgumentException if the given duplex controller is null.
 	 * @throws NullArgumentException if the given initial session is null.
 	 */
+	/*
 	public StandardClient(final Controller controller, final Session<StandardClient> initialSession) {
 		
 		super(controller, initialSession);
@@ -114,6 +116,10 @@ public final class StandardClient extends Client<StandardClient> {
 	 */
 	public void run(final String runMethodCommand) {
 		internal_getRefDuplexController().run(Client.INVOKE_RUN_METHOD_COMMAND + "(" + runMethodCommand + ")");
+	}
+	
+	public void setSession(Session<StandardClient> session) {
+		internal_setSessionAndInitializeSession(session);
 	}
 
 	//method

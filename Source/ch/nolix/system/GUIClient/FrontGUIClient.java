@@ -5,9 +5,8 @@ package ch.nolix.system.GUIClient;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.validator2.Validator;
-import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.GUI.GUI;
 import ch.nolix.system.client.Application;
 import ch.nolix.system.client.Client;
 
@@ -24,6 +23,12 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	//attribute
 	private GUI<?> dialog;
 	
+	public FrontGUIClient(Application<GUIClient> target) {
+		super(target);
+		
+		dialog = new Frame();
+	}
+	
 	//constructor
 	/**
 	 * Creates new front dialog client that conntects to the given target application on the given port on the machien with the given ip.
@@ -33,6 +38,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 * @param targetApplication
 	 * @throws NullArgumentException if the given target application is null.
 	 */
+	/*
 	public FrontGUIClient(final Application<GUIClient> targetApplication) {
 		
 		//Calls constructor of the base class.
@@ -47,6 +53,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 		);
 	}
 	
+	
 	//constructor
 	/**
 	 * Creates new front dialog client that conntects to the given target application on the given port on the machien with the given ip.
@@ -57,6 +64,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 * @throws NullArgumentException if the given target application is null.
 	 * @throws EmptyArgumentException if the given target application is empty.
 	 */
+	/*
 	public FrontGUIClient(
 		final String ip,
 		final int port,
@@ -128,12 +136,12 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 */
 	private void resetDialog(final List<Specification> attributes) {
 
-		dialog.reset(attributes);
-		dialog.updateFromConfiguration();
-		dialog.noteMouseMove();
+		getGUI().reset(attributes);
+		getGUI().updateFromConfiguration();
+		getGUI().noteMouseMove();
 		
 		//dialog.setMousePosition(x, y);
-		dialog.noteMouseMove();
+		getGUI().noteMouseMove();
 		//dialog.updateFromInteraction();
 	}
 	
@@ -144,7 +152,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 * @param attributes
 	 */
 	private void resetOtherSideDialog(final List<Specification> attributes) {
-		internal_getRefDuplexController().run(GUIClient.RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
+		internal_getRefDuplexController().run(GUIClient.RESET_DIALOG_COMMAND + "(" + getGUI().getAttributes() + ")");
 	}
 	
 	//method
@@ -154,12 +162,21 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 * @param dialog
 	 * @throws NullArgumentException if the given dialog is null.
 	 */
-	private void setDialog(final GUI<?> dialog) {
+	/*
+	private void setDialog0(final GUI<?> dialog) {
 		
 		//Checks if the given dialog is not null.
 		Validator.supposeThat(dialog).thatIsInstanceOf(GUI.class).isNotNull();
 			
 		//Sets the dialog of this front dialog client.
 		this.dialog = dialog;
+	}
+	*/
+	
+	private GUI<?> getGUI() {
+		
+		while (dialog == null) {}
+		
+		return dialog;
 	}
 }

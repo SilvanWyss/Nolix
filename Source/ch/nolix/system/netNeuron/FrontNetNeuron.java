@@ -33,6 +33,7 @@ extends Neuron<Object, O, FrontNetNeuron<O>> {
 	 * @param transformer
 	 * @throws NullArgumentException if the given transformer is null.
 	 */
+	/*
 	public FrontNetNeuron(
 		final String ip,
 		final int port,
@@ -52,6 +53,34 @@ extends Neuron<Object, O, FrontNetNeuron<O>> {
 			new FrontNetNeuronSession<O>(this)
 		);
 	}
+	
+	//constructor
+	/**
+	 * Creates new front net neuron that connects to the net neuron on the given port on the machine with the given ip.
+	 * 
+	 * @param ip
+	 * @param port
+	 * @param transformer
+	 * @throws NullArgumentException if the given transformer is null.
+	 */
+	public FrontNetNeuron(
+		final String ip,
+		final int port,
+		IElementTakerElementGetter<Specification, O> transformer
+	) {
+		
+		//Checks if the given transform function is not null.
+		Validator.supposeThat(transformer).thatIsNamed("transformer").isNotNull();
+				
+		//Sets the transformer of this net neuron.
+		this.transformer = transformer;
+		
+		new StandardClient(
+			ip,
+			port,
+			NetNeuron.DEFAULT_NET_NEURON_APPLICATION_NAME
+		).setSession(new FrontNetNeuronSession<O>(this));
+	}	
 
 	//method
 	/**
