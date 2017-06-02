@@ -11,7 +11,7 @@ package ch.nolix.application.performanceDetector;
 //own imports
 import ch.nolix.system.GUIClient.GUIClient;
 import ch.nolix.system.GUIClient.FrontGUIClient;
-import ch.nolix.system.application.StandardApplication;
+import ch.nolix.system.client.StandardApplication;
 
 //class
 /**

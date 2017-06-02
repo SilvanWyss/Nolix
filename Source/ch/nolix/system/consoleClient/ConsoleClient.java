@@ -5,7 +5,7 @@ package ch.nolix.system.consoleClient;
 import ch.nolix.core.controller.Controller;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.validator2.Validator;
-import ch.nolix.system.application.Client;
+import ch.nolix.system.client.Client;
 
 //class
 /**

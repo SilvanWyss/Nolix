@@ -8,8 +8,8 @@ import ch.nolix.core.specification.Statement;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.Frame;
-import ch.nolix.system.application.Application;
-import ch.nolix.system.application.Client;
+import ch.nolix.system.client.Application;
+import ch.nolix.system.client.Client;
 
 //class
 /**

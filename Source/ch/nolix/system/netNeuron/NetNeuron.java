@@ -5,8 +5,8 @@ package ch.nolix.system.netNeuron;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.validator2.Validator;
-import ch.nolix.system.application.StandardApplication;
-import ch.nolix.system.application.StandardClient;
+import ch.nolix.system.client.StandardApplication;
+import ch.nolix.system.client.StandardClient;
 import ch.nolix.system.neuron.Neuron;
 import ch.nolix.system.neuron.TriggerQueue;
 

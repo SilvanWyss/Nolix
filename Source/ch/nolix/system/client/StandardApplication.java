@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.application;
+package ch.nolix.system.client;
 
 import java.lang.reflect.Constructor;
 

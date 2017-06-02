@@ -16,7 +16,7 @@ import ch.nolix.element.GUI.HorizontalStack;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.system.GUIClient.GUIClient;
-import ch.nolix.system.application.Session;
+import ch.nolix.system.client.Session;
 
 //package-visible class
 public final class MainSession extends Session<GUIClient> {
