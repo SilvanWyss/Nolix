@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.core.duplexController;
+package ch.nolix.core.controller;
 
 //own imports
 import ch.nolix.core.container.List;
@@ -17,20 +17,20 @@ import ch.nolix.core.specification.Statement;
 import ch.nolix.core.validator.Validator;
 
 //class
-public final class LocalDuplexController extends DuplexController {
+public final class LocalController extends Controller {
 	
 	//attribute
 	private boolean stopped = false;
 	
 	//optional attributes
-	private LocalDuplexController targetController;
+	private LocalController targetController;
 	private String stopReason;
 	
 	//constructor
 	/**
 	 * Creates new local duplex controller with default values.
 	 */
-	public LocalDuplexController() {}
+	public LocalController() {}
 	
 	//constructor
 	/**
@@ -59,7 +59,7 @@ public final class LocalDuplexController extends DuplexController {
 	 * @return this local duplex controller
 	 * @throws Exception if the given target controller is null
 	 */
-	public final void connectWith(LocalDuplexController targetController) {
+	public final void connectWith(LocalController targetController) {
 		
 		Validator.throwExceptionIfValueIsNull("local duplex controller", targetController);
 		
@@ -205,7 +205,7 @@ public final class LocalDuplexController extends DuplexController {
 	 * @return the target controller of this local duplex controller
 	 * @throws UnexistingAttributeException if this duplex controller has no target controller
 	 */
-	private final DuplexController getRefTargetController() {
+	private final Controller getRefTargetController() {
 		
 		if (!hasTargetController()) {
 			throw new UnexistingAttributeException(this, "target controller");

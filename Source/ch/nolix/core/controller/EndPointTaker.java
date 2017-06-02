@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.core.duplexController;
+package ch.nolix.core.controller;
 
 //own imports
 import ch.nolix.core.endPoint3.EndPoint;
@@ -14,13 +14,13 @@ import ch.nolix.core.endPoint3.IEndPointTaker;
 import ch.nolix.core.validator.Validator;
 
 //package-visible class
-final class AlphaEndPointTaker implements IEndPointTaker {
+final class EndPointTaker implements IEndPointTaker {
 
 	//attribute
-	private final DuplexControllerListener netDuplexControllerListener;
+	private final NetServer netDuplexControllerListener;
 	
 	//constructor
-	public AlphaEndPointTaker(final DuplexControllerListener netDuplexControllerListener) {
+	public EndPointTaker(final NetServer netDuplexControllerListener) {
 		
 		//Checks the given net duplex controller listener.
 		Validator.throwExceptionIfValueIsNull("net duplex controller listener", netDuplexControllerListener);

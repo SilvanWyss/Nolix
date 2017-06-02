@@ -6,16 +6,16 @@
  */
 
 //package declaration
-package ch.nolix.core.duplexController;
+package ch.nolix.core.controller;
 
 //interface
-public interface IDuplexControllerTaker {
+public interface IControllerTaker {
 
 	//abstract method
 	/**
 	 * Lets this duplex controller taker take the given duplex controller.
 	 * 
-	 * @param duplexController
+	 * @param controller
 	 */
-	public void takeDuplexController(DuplexController duplexController);
+	public void takeDuplexController(Controller controller);
 }

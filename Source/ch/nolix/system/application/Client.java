@@ -4,9 +4,9 @@ package ch.nolix.system.application;
 //own imports
 import ch.nolix.core.basic.OptionalSignableElement;
 import ch.nolix.core.container.List;
-import ch.nolix.core.duplexController.DuplexController;
-import ch.nolix.core.duplexController.LocalDuplexController;
-import ch.nolix.core.duplexController.NetDuplexController;
+import ch.nolix.core.controller.Controller;
+import ch.nolix.core.controller.LocalController;
+import ch.nolix.core.controller.NetController;
 import ch.nolix.core.functionInterfaces.IElementTakerRunner;
 import ch.nolix.core.interfaces.Abortable;
 import ch.nolix.core.invalidArgumentException.Argument;
@@ -40,7 +40,7 @@ implements Abortable {
 	protected static final String DATA_METHOD_REQUEST = "Data";
 		
 	//attributes
-	private final DuplexController duplexController;
+	private final Controller controller;
 	private final boolean requestedConnectionFlag;
 	private boolean receivedReadySignalFlag = false;
 	
@@ -67,12 +67,12 @@ implements Abortable {
 		this.targetApplication = targetApplication.getName();
 		
 		//4. Creates the duplex controller of this client.
-		duplexController = new LocalDuplexController();
-		duplexController.setReceiverController(new ClientReceiverController(this));
+		controller = new LocalController();
+		controller.setReceiverController(new ClientReceiverController(this));
 		
 		//5. Connects this client to the given application.
-		final LocalDuplexController duplexController2 = new LocalDuplexController();
-		((LocalDuplexController)duplexController).connectWith(duplexController2);
+		final LocalController duplexController2 = new LocalController();
+		((LocalController)controller).connectWith(duplexController2);
 		targetApplication.createClient(duplexController2);
 		
 		//6. Waits to the ready signal.
@@ -104,12 +104,12 @@ implements Abortable {
 		initializationFunction.run((C)this);
 		
 		//5. Creates the duplex controller of this client.
-		duplexController = new LocalDuplexController();
-		duplexController.setReceiverController(new ClientReceiverController(this));
+		controller = new LocalController();
+		controller.setReceiverController(new ClientReceiverController(this));
 		
 		//6. Connects this client to the given application.
-		final LocalDuplexController duplexController2 = new LocalDuplexController();
-		((LocalDuplexController)duplexController).connectWith(duplexController2);
+		final LocalController duplexController2 = new LocalController();
+		((LocalController)controller).connectWith(duplexController2);
 		targetApplication.createClient(duplexController2);
 		
 		//7. Waits to the ready signal.
@@ -139,8 +139,8 @@ implements Abortable {
 		this.targetApplication = targetApplication.getName();
 		
 		//4. Creates the duplex controller of this client.
-		duplexController = new LocalDuplexController();
-		duplexController.setReceiverController(new ClientReceiverController(this));
+		controller = new LocalController();
+		controller.setReceiverController(new ClientReceiverController(this));
 		
 		//5. Checks if the given initial session is not null.
 		Validator.supposeThat(initialSession).thatIsNamed("initial session").isNotNull();
@@ -150,8 +150,8 @@ implements Abortable {
 		session.setClient(this);
 		
 		//7. Connects this client to the given application.
-		final LocalDuplexController endClientController = new LocalDuplexController();
-		endClientController.connectWith((LocalDuplexController)duplexController);
+		final LocalController endClientController = new LocalController();
+		endClientController.connectWith((LocalController)controller);
 		targetApplication.createClient(endClientController);
 		
 		//8. Waits to the ready signal.
@@ -166,10 +166,10 @@ implements Abortable {
 	/**
 	 * Creates new client with the given duplex controller.
 	 * 
-	 * @param duplexController
+	 * @param controller
 	 * @throws NullArgumentException if the given duplex controller is null.
 	 */
-	public Client(final DuplexController duplexController) {
+	public Client(final Controller controller) {
 		
 		//1. Sets the requested connection flag of this client.
 		requestedConnectionFlag = false;
@@ -178,11 +178,11 @@ implements Abortable {
 		targetApplication = null;
 		
 		//3. Checks if the given duplex controller is not null.
-		Validator.supposeThat(duplexController).thatIsInstanceOf(DuplexController.class).isNotNull();
+		Validator.supposeThat(controller).thatIsInstanceOf(Controller.class).isNotNull();
 		
 		//4. Sets the duplex controller of this client.
-		this.duplexController = duplexController;
-		duplexController.setReceiverController(new ClientReceiverController(this));
+		this.controller = controller;
+		controller.setReceiverController(new ClientReceiverController(this));
 		
 		//5. Sends ready signal.
 		sendReadySignal();
@@ -194,12 +194,12 @@ implements Abortable {
 	 * -Has the given duplex controller.
 	 * -Has the given initial session.
 	 * 
-	 * @param duplexController
+	 * @param controller
 	 * @param initialSession
 	 * @throws NullArgumentException if the given duplex controller is null.
 	 * @throws NullArgumentException if the given initial session is null.
 	 */
-	public Client(final DuplexController duplexController, final Session<C> initialSession) {
+	public Client(final Controller controller, final Session<C> initialSession) {
 		
 		//1. Sets the requested connection flag of this client.
 		requestedConnectionFlag = false;
@@ -208,11 +208,11 @@ implements Abortable {
 		targetApplication = null;
 		
 		//3. Checks if the given duplex controller is not null.
-		Validator.supposeThat(duplexController).thatIsInstanceOf(DuplexController.class).isNotNull();
+		Validator.supposeThat(controller).thatIsInstanceOf(Controller.class).isNotNull();
 
 		//4. Sets the duplex controller of this client.
-		this.duplexController = duplexController;
-		this.duplexController.setReceiverController(new ClientReceiverController(this));
+		this.controller = controller;
+		this.controller.setReceiverController(new ClientReceiverController(this));
 		
 		//5. Checks if the given initial session is not null.
 		Validator.supposeThat(initialSession).thatIsNamed("initial session").isNotNull();
@@ -235,7 +235,7 @@ implements Abortable {
 	 * -Has the given duplex controller.
 	 * -Has the given initial session.
 	 * 
-	 * @param duplexController
+	 * @param controller
 	 * @param initialSession
 	 * @throws NullArgumentException if the given duplex controller is null.
 	 * @throws NullArgumentException if the given initial session is null.
@@ -243,7 +243,7 @@ implements Abortable {
 	 */
 	@SuppressWarnings("unchecked")
 	public Client(
-		final DuplexController duplexController,
+		final Controller controller,
 		final IElementTakerRunner<C> initializationFunction,
 		final Session<C> initialSession
 	) {
@@ -258,11 +258,11 @@ implements Abortable {
 		initializationFunction.run((C)this);
 		
 		//4. Checks if the given duplex controller is not null.
-		Validator.supposeThat(duplexController).thatIsInstanceOf(DuplexController.class).isNotNull();
+		Validator.supposeThat(controller).thatIsInstanceOf(Controller.class).isNotNull();
 
 		//5. Sets the duplex controller of this client.
-		this.duplexController = duplexController;
-		this.duplexController.setReceiverController(new ClientReceiverController(this));
+		this.controller = controller;
+		this.controller.setReceiverController(new ClientReceiverController(this));
 		
 		//6. Checks if the given initial session is not null.
 		Validator.supposeThat(initialSession).thatIsNamed("initial session").isNotNull();
@@ -305,8 +305,8 @@ implements Abortable {
 		this.targetApplication = targetApplication;
 		
 		//4. Creates the duplex controller of this client.
-		duplexController =	new NetDuplexController(ip, port);
-		duplexController.setReceiverController(new ClientReceiverController(this));
+		controller =	new NetController(ip, port);
+		controller.setReceiverController(new ClientReceiverController(this));
 		
 		//5. Waits to the ready signal.
 		waitToReadySignal();
@@ -345,8 +345,8 @@ implements Abortable {
 		initializationFunction.run((C)this);
 		
 		//5. Creates the duplex controller of this client.
-		duplexController =	new NetDuplexController(ip, port);
-		duplexController.setReceiverController(new ClientReceiverController(this));
+		controller =	new NetController(ip, port);
+		controller.setReceiverController(new ClientReceiverController(this));
 		
 		//6. Waits to the ready signal.
 		waitToReadySignal();
@@ -390,8 +390,8 @@ implements Abortable {
 		session.setClient(this);
 		
 		//6. Creates the duplex controller of this client.
-		duplexController =	new NetDuplexController(ip, port);
-		duplexController.setReceiverController(new ClientReceiverController(this));
+		controller =	new NetController(ip, port);
+		controller.setReceiverController(new ClientReceiverController(this));
 		
 		//7. Waits to the ready signal.
 		waitToReadySignal();
@@ -408,7 +408,7 @@ implements Abortable {
 	 * @throws RuntimeException if this client is already aborted.
 	 */
 	public final void abort() {
-		duplexController.abort();
+		controller.abort();
 	}
 	
 	//method
@@ -495,8 +495,8 @@ implements Abortable {
 	/**
 	 * @return the duplex controller of this client.
 	 */
-	protected final DuplexController internal_getRefDuplexController() {
-		return duplexController;
+	protected final Controller internal_getRefDuplexController() {
+		return controller;
 	}
 	
 	//method
@@ -636,7 +636,7 @@ implements Abortable {
 	 * Lets this client send the ready signal.
 	 */
 	private final void sendReadySignal() {
-		duplexController.run(TAKE_READY_SIGNAL_COMMAND);
+		controller.run(TAKE_READY_SIGNAL_COMMAND);
 	}
 	
 	//method
@@ -663,7 +663,7 @@ implements Abortable {
 			//The following statement that is actually unnecessary makes that the loop is not optimized away.
 			System.out.flush();
 			
-			if (System.currentTimeMillis() - time > duplexController.getTimeoutInMilliseconds()) {
+			if (System.currentTimeMillis() - time > controller.getTimeoutInMilliseconds()) {
 				throw new RuntimeException("TimeOut");
 			}
 		}

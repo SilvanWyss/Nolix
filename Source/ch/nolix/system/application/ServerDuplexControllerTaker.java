@@ -2,8 +2,8 @@
 package ch.nolix.system.application;
 
 //own imports
-import ch.nolix.core.duplexController.DuplexController;
-import ch.nolix.core.duplexController.IDuplexControllerTaker;
+import ch.nolix.core.controller.Controller;
+import ch.nolix.core.controller.IControllerTaker;
 import ch.nolix.core.validator2.Validator;
 
 //package-visible class
@@ -14,7 +14,7 @@ import ch.nolix.core.validator2.Validator;
  * @month 2016-10
  * @lines 50
  */
-final class ServerDuplexControllerTaker implements IDuplexControllerTaker {
+final class ServerDuplexControllerTaker implements IControllerTaker {
 	
 	//attribute
 	private final Server server;
@@ -39,17 +39,17 @@ final class ServerDuplexControllerTaker implements IDuplexControllerTaker {
 	/**
 	 * Lets this server duplex controller taker take the given duplex controller.
 	 * 
-	 * @param duplexController
+	 * @param controller
 	 */
-	public void takeDuplexController(final DuplexController duplexController) {
+	public void takeDuplexController(final Controller controller) {
 		
 		//Extracts the name of the target application.
-		final String targetApplicaitonName = duplexController.getData(Client.TARGET_APPLICATION_REQUEST).toString();
+		final String targetApplicaitonName = controller.getData(Client.TARGET_APPLICATION_REQUEST).toString();
 		
 		//Extracts the target application.
 		final Application<?> targetApplication = server.getRefApplicationByName(targetApplicaitonName);
 		
 		//Creates client that belongs to the target application.
-		targetApplication.createClient(duplexController);
+		targetApplication.createClient(controller);
 	}
 }

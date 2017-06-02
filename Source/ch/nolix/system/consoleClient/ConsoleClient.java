@@ -2,7 +2,7 @@
 package ch.nolix.system.consoleClient;
 
 //own imports
-import ch.nolix.core.duplexController.DuplexController;
+import ch.nolix.core.controller.Controller;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.system.application.Client;
@@ -33,13 +33,13 @@ public final class ConsoleClient extends Client<ConsoleClient> {
 	/**
 	 * Creates new console client with the given duplex controller.
 	 * 
-	 * @param duplexController
+	 * @param controller
 	 * @throws NullArgumentException if the given duplex controller is null.
 	 */
-	public ConsoleClient(final DuplexController duplexController) {
+	public ConsoleClient(final Controller controller) {
 		
 		//Calls constructor of the base class.
-		super(duplexController);
+		super(controller);
 	}
 	
 	//method

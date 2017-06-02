@@ -6,11 +6,10 @@
  */
 
 //package declaration
-package ch.nolix.core.duplexController;
+package ch.nolix.core.controller;
 
 //own imports
 import ch.nolix.core.endPoint3.EndPoint;
-import ch.nolix.core.endPoint3.NetServer;
 import ch.nolix.core.interfaces.Abortable;
 import ch.nolix.core.validator.Validator;
 
@@ -18,20 +17,20 @@ import ch.nolix.core.validator.Validator;
 /**
  * A net duplex controller listener listens to net duplex controllers on a specific port.
  */
-public final class DuplexControllerListener implements Abortable {
+public final class NetServer implements Abortable {
 
 	//attributes
-	private final IDuplexControllerTaker duplexControllerTaker;
-	private final NetServer alphaEndPointListener;
+	private final IControllerTaker controllerTaker;
+	private final ch.nolix.core.endPoint3.NetServer alphaEndPointListener;
 	
-	public DuplexControllerListener(final int port, final IDuplexControllerTaker duplexControllerTaker) {
+	public NetServer(final int port, final IControllerTaker controllerTaker) {
 		
 		//Checks the given duplex controller taker.
-		Validator.throwExceptionIfValueIsNull("duplex controller taker", duplexControllerTaker);
+		Validator.throwExceptionIfValueIsNull("duplex controller taker", controllerTaker);
 		
-		this.duplexControllerTaker = duplexControllerTaker;
-		this.alphaEndPointListener = new NetServer(port);
-		alphaEndPointListener.addEndPointTaker(new AlphaEndPointTaker(this));
+		this.controllerTaker = controllerTaker;
+		this.alphaEndPointListener = new ch.nolix.core.endPoint3.NetServer(port);
+		alphaEndPointListener.addEndPointTaker(new EndPointTaker(this));
 	}
 	
 	//method
@@ -62,6 +61,6 @@ public final class DuplexControllerListener implements Abortable {
 	 * @throws Exception if the given alpha end point is null
 	 */
 	void takeAlphaEndPoint(final EndPoint alphaEndPoint) {
-		duplexControllerTaker.takeDuplexController(new NetDuplexController(alphaEndPoint));
+		controllerTaker.takeDuplexController(new NetController(alphaEndPoint));
 	}
 }

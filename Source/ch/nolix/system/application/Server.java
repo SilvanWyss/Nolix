@@ -3,7 +3,7 @@ package ch.nolix.system.application;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.duplexController.DuplexControllerListener;
+import ch.nolix.core.controller.NetServer;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -29,7 +29,7 @@ public final class Server {
 	 * @param port
 	 */
 	public Server(final int port) {	
-		new DuplexControllerListener(port, new ServerDuplexControllerTaker(this));
+		new NetServer(port, new ServerDuplexControllerTaker(this));
 	}
 	
 	//constructor

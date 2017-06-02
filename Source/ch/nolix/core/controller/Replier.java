@@ -6,17 +6,17 @@
  */
 
 //package declaration
-package ch.nolix.core.duplexController;
+package ch.nolix.core.controller;
 
 //own import
 import ch.nolix.core.communicationInterfaces.IReplier;
 import ch.nolix.core.validator.Validator;
 
 //package-visible class
-final class AlphaReceiver implements IReplier {
+final class Replier implements IReplier {
 
 	//attribute
-	private final NetDuplexController netController;
+	private final NetController netController;
 	
 	//constructor
 	/**
@@ -24,7 +24,7 @@ final class AlphaReceiver implements IReplier {
 	 * 
 	 * @param netController
 	 */
-	public AlphaReceiver(NetDuplexController netController) {
+	public Replier(NetController netController) {
 		
 		Validator.throwExceptionIfValueIsNull("net controller", netController);
 		

@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.core.duplexController;
+package ch.nolix.core.controller;
 
 //own imports
 import ch.nolix.core.container.List;
@@ -21,7 +21,7 @@ import ch.nolix.core.specification.Statement;
 import ch.nolix.core.validator.Validator;
 
 //class
-public final class NetDuplexController extends DuplexController {
+public final class NetController extends Controller {
 		
 	//attribute
 	private final EndPoint netEndPoint;
@@ -33,14 +33,14 @@ public final class NetDuplexController extends DuplexController {
 	 * @param alphaEndPoint
 	 * @throws Exception if the given end point is null
 	 */
-	public NetDuplexController(EndPoint alphaEndPoint) {
+	public NetController(EndPoint alphaEndPoint) {
 		
 		Validator.throwExceptionIfValueIsNull("alpha end point", alphaEndPoint);
 		
 		this.netEndPoint = alphaEndPoint;
 		
 		//Creates the receiver of this net duplex controller.
-		alphaEndPoint.setReplier(new AlphaReceiver(this));
+		alphaEndPoint.setReplier(new Replier(this));
 	}
 	
 	//constructor
@@ -51,13 +51,13 @@ public final class NetDuplexController extends DuplexController {
 	 * @param port
 	 * @throws Exception if the bigger port is smaller than 0 or bigger than 65535
 	 */
-	public NetDuplexController(String ip, int port) {
+	public NetController(String ip, int port) {
 		
 		//Calls other constructor.
 		this(new NetEndPoint(ip, port));
 	}
 	
-	public NetDuplexController(String ip, int port, ILevel2Controller receiverController) {
+	public NetController(String ip, int port, ILevel2Controller receiverController) {
 		
 		this(ip, port);
 		

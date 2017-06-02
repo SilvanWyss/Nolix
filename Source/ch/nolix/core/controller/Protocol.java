@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.core.duplexController;
+package ch.nolix.core.controller;
 
 //package-visible class
 final class Protocol {

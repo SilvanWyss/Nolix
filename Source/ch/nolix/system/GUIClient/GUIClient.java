@@ -3,7 +3,7 @@ package ch.nolix.system.GUIClient;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.duplexController.DuplexController;
+import ch.nolix.core.controller.Controller;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.validator2.Validator;
@@ -51,15 +51,15 @@ public final class GUIClient extends Client<GUIClient> {
 	/**
 	 * Creates new dialog client with the given duplex controller and the given initial session.
 	 * 
-	 * @param duplexController
+	 * @param controller
 	 * @param initialSession
 	 * @throws NullArgumentException if the given duplex controller is null.
 	 * @throws NullArgumentException if the given initial session is null.
 	 */
-	public GUIClient(final DuplexController duplexController, final Session<GUIClient> initialSession) {
+	public GUIClient(final Controller controller, final Session<GUIClient> initialSession) {
 		
 		//Calls constructor of the base class.
-		super(duplexController, c -> c.setDialog(new InvisibleGUI()), initialSession);
+		super(controller, c -> c.setDialog(new InvisibleGUI()), initialSession);
 	}
 	
 	//method

@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.core.duplexController;
+package ch.nolix.core.controller;
 
 //own imports
 import ch.nolix.core.container.List;
@@ -17,7 +17,7 @@ import ch.nolix.core.specification.Specification;
 import ch.nolix.core.validator.Validator;
 
 //class
-public abstract class DuplexController
+public abstract class Controller
 implements ILevel2Controller, Abortable {
 	
 	//default value
