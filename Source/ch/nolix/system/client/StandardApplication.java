@@ -12,7 +12,7 @@ import java.lang.reflect.Constructor;
  * @lines 60
  * @param <C> - The type of the clients of a standard application.
  */
-public final class StandardApplication<C extends Client<C>>
+public class StandardApplication<C extends Client<C>>
 extends Application<C> {
 
 	//constructor

@@ -41,7 +41,7 @@ public final class EndPointTest extends Test {
 		
 		//verification
 		expectThat(endPointTakerMock.hasLastEndPoint());
-		expectThat(endPointTakerMock.getLastEndPoint().isNotAborted());
+		expectThat(endPointTakerMock.getLastEndPoint().isRunning());
 		
 		//cleanup
 		netServer.abort();
@@ -67,7 +67,7 @@ public final class EndPointTest extends Test {
 		
 		//verification
 		expectThat(endPointTakerMock.hasLastEndPoint());
-		expectThat(endPointTakerMock.getLastEndPoint().isNotAborted());
+		expectThat(endPointTakerMock.getLastEndPoint().isRunning());
 		expectThat(received_reply).equals(reply);
 		
 		//cleanup

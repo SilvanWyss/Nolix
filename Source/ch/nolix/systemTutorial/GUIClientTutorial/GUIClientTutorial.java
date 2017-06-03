@@ -54,7 +54,7 @@ public final class GUIClientTutorial {
 		 */
 		public void initialize() {
 			
-			getRefClient().getRefDialog()
+			getRefClient().getRefGUI()
 			.setTitle("Dialog Client Tutorial")
 			.removeConfiguration()
 			.setContentPosition(ContentPosition.Center)
@@ -70,7 +70,7 @@ public final class GUIClientTutorial {
 			changeColorbutton.getRefNormalStructure().setBackgroundColor(new BackgroundColor(Color.LIGHT_GREY));
 			changeColorbutton.getRefHoverStructure().setTextSize(30);
 			
-			getRefClient().getRefDialog().setRootWidget(changeColorbutton);	
+			getRefClient().getRefGUI().setRootWidget(changeColorbutton);	
 		}
 		
 		//method
@@ -87,7 +87,7 @@ public final class GUIClientTutorial {
 				backgroundColor = Color.BLUE;
 			}
 			
-			getRefClient().getRefDialog().setBackgroundColor(new BackgroundColor(backgroundColor));
+			getRefClient().getRefGUI().setBackgroundColor(new BackgroundColor(backgroundColor));
 		}
 	}
 

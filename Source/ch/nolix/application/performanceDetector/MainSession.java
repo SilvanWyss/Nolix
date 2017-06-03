@@ -1,10 +1,3 @@
-/*
- * file:	MainSession.java
- * author:	Silvan Wyss
- * month:	2016-07
- * lines:	70
- */
-
 //package declaration
 package ch.nolix.application.performanceDetector;
 
@@ -16,8 +9,13 @@ import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.system.GUIClient.GUIClient;
 import ch.nolix.system.client.Session;
 
-//class
-public final class MainSession extends Session<GUIClient> {
+//package-visible class
+/**
+ * @author Silvan Wyss
+ * @month 2016-07
+ * @lines 80
+ */
+final class MainSession extends Session<GUIClient> {
 	
 	//constants
 	private static final String TITLE = "Performance Detector";
@@ -33,43 +31,49 @@ public final class MainSession extends Session<GUIClient> {
 	 */
 	public void initialize() {
 		
-		//Sets the title of the dialog of the dialog client of this main session.
-		getRefClient().getRefDialog()
+		//Setups the GUI.
+		getRefClient().getRefGUI()
 		.setTitle(TITLE)
-		.setConfiguration(new Design())
 		.setRootWidget(
 			new VerticalStack()
 			.addRectangle(
 				new Label()
-				.setName("BenchmarkLabel"),
+				.setName(WidgetNames.BENCHMARK_LABEL_NAME),
 				new Label()
-				.setName("BenchmarkInfoLabel")
+				.setName(WidgetNames.BENCHMARK_INFO_LABEL_NAME)
 				.setText("polynom fits per second (n = 100 / degree = 3)")
 			)
-		);
+		)
+		.setConfiguration(new Design());
 		
-		//Starts timer and worker.
+		//Starts the timer and worker.
 		timer.start();
 		worker.start();
 		
-		//Starts update method in background.
+		//Fetches the client.
+		final GUIClient client = getRefClient();
+		
+		//Starts the updateGUI method in background.	
 		Sequencer
+		.asLongAs(() -> client.isRunning())
 		.afterAllMilliseconds(UPDATE_INTERVAL_IN_MILLISECONDS)
-		.runInBackground(()->getRefClient().runLocally("UpdateDialog"));
+		.runInBackground(()->updateGUI());
 	}
 	
 	//method
 	/**
-	 * Updates the dialog client of this main session.
+	 * Updates the GUI of this main session.
 	 */
-	public void UpdateDialog() {	
+	public void updateGUI() {	
 		if (timer.getRunMilliseconds() > 0) {
 			
 			//Calculates the number of polynom fits per second.
-			final long polynomFitsPerSecond = (long)(1000.0 * worker.getPolynomFitsCount()) / (timer.getRunMilliseconds());
+			final long polynomFitsPerSecond 
+			= (long)(1000.0 * worker.getPolynomFitsCount()) / (timer.getRunMilliseconds());
 	
 			//Fetches the benchmark label.
-			Label benchmarkLabel = getRefClient().getRefDialog().getRefWidgetByNameRecursively("BenchmarkLabel");
+			final Label benchmarkLabel
+			= getRefClient().getRefGUI().getRefWidgetByNameRecursively(WidgetNames.BENCHMARK_LABEL_NAME);
 			
 			//Sets the text of the benchmark label.
 			benchmarkLabel.setText(Long.toString(polynomFitsPerSecond));

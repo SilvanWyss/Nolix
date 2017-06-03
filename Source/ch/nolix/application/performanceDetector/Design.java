@@ -16,6 +16,7 @@ final class Design extends StandardConfiguration {
 	//constructor
 	/**
 	 * Creates new design.
+	 * The design will be frozen.
 	 */
 	public Design() {
 		
@@ -25,14 +26,16 @@ final class Design extends StandardConfiguration {
 			new StandardConfiguration()
 			.addAttachingAttribute("ContentOrientation(Top)"),
 			new DeepConfiguration()
-			.setSelectorName("BenchmarkLabel")
+			.setSelectorName(WidgetNames.BENCHMARK_LABEL_NAME)
 			.addAttachingAttribute("NormalTextSize(100)"),
 			new DeepConfiguration()
-			.setSelectorName("BenchmarkInfoLabel")
+			.setSelectorName(WidgetNames.BENCHMARK_INFO_LABEL_NAME)
 			.addAttachingAttribute(
 				"NormalTextSize(30)",
 				"NormalTextColor(Grey)"
 			)
 		);
+		
+		freeze();
 	}
 }

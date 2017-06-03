@@ -1,41 +1,39 @@
-/*
- * file:	Launcher.java
- * author:	Silvan Wyss
- * month:	2016-07
- * lines:	30
- */
-
 //package declaration
 package ch.nolix.application.performanceDetector;
 
-//own imports
-import ch.nolix.system.GUIClient.GUIClient;
+//own import
 import ch.nolix.system.GUIClient.FrontGUIClient;
-import ch.nolix.system.client.StandardApplication;
 
-//class
+//package-visible class
 /**
  * This class provides a main method to launch a performance detector.
+ * Of this class no instance can be created.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-07
+ * @lines 30
  */
-public final class Launcher {
+final class Launcher {
 
 	//main method
 	/**
-	 * Launches new performance detector application.
+	 * Creates a new performance detector
+	 * and a new front GUI client that will connect to the performance detecto.
 	 * 
 	 * @param args
 	 */
 	public static final void main(String[] args) {
 		
-		//Creates new front end dialog and connects it to a newly created performance detector application.
-		new FrontGUIClient(
-			new StandardApplication<GUIClient>("Performance Detector", MainSession.class)
-		);
+		//Creates performance detector.
+		final PerformanceDetector performanceDetector = new PerformanceDetector();
+		
+		//Creates front GUI client.
+		new FrontGUIClient(performanceDetector);
 	}
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created from outside.
+	 * Avoids that an instance of this class can be created.
 	 */
 	private Launcher() {}
 }

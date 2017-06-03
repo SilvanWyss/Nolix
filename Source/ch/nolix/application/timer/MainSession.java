@@ -31,9 +31,9 @@ public final class MainSession extends Session<GUIClient> {
 	public final void initialize() {
 		
 		//Sets the title of the dialog of the dialog client of this main session.
-		getRefClient().getRefDialog().setTitle("Timer");
+		getRefClient().getRefGUI().setTitle("Timer");
 		
-		getRefClient().getRefDialog().setRootWidget(
+		getRefClient().getRefGUI().setRootWidget(
 			new VerticalStack()
 			.setRole(ContainerRole.MainContainer)
 			.addRectangle(
@@ -55,7 +55,7 @@ public final class MainSession extends Session<GUIClient> {
 		);
 		
 		//Sets the design of the dialog of the dialog client of this main session.
-		getRefClient().getRefDialog().setConfiguration(new Design());
+		getRefClient().getRefGUI().setConfiguration(new Design());
 
 		Sequencer.afterAllMilliseconds(100).runInBackground(()->{getRefClient().runLocally("UpdateDialog");});
 	}
@@ -95,7 +95,7 @@ public final class MainSession extends Session<GUIClient> {
 		int seconds = (timer.getRunMilliseconds() / 1000) % 60;
 		int deciseconds = (timer.getRunMilliseconds() / 100) % 10;
 		
-		VerticalStack mainVerticalStack = (VerticalStack)getRefClient().getRefDialog().getRefRootWidget();
+		VerticalStack mainVerticalStack = (VerticalStack)getRefClient().getRefGUI().getRefRootWidget();
 		Label timeLabel = (Label)mainVerticalStack.getRefRectangles().getRefFirst();
 		timeLabel.setText(String.format("%02d : %02d : %02d : %d", hours, minutes, seconds, deciseconds));
 	}
