@@ -1,0 +1,59 @@
+//package declaration
+package ch.nolix.core.sequencer;
+
+//own imports
+import ch.nolix.core.constants.TimeUnitManager;
+import ch.nolix.core.validator2.Validator;
+
+//package-visibel class
+/**
+ * This class provides methods to wait for specific durations.
+ * Of this class no instance can be created.
+ * 
+ * @author Silvan Wyss
+ * @month 2017-06
+ * @lines 50
+ */
+final class Waiter {
+
+	//static method
+	/**
+	 * Waits for the given number of seconds.
+	 * 
+	 * @param seconds
+	 * @throws NegativeArgumentException if the given seconds is negative.
+	 */
+	public static void waitForSeconds(int seconds) {
+		
+		//Checks if the given seconds is not negative.
+		Validator.supposeThat(seconds).thatIsNamed("seconds").isNotNegative();
+		
+		waitForMilliseconds(TimeUnitManager.MILLISECONDS_PER_SECOND * seconds);
+	}
+	
+	//static method
+	/**
+	 * Waits for the given number of milliseconds.
+	 * 
+	 * @param milliseconds
+	 * @throws NegativeArgumentException if the given milliseconds is negative.
+	 */
+	public static void waitForMilliseconds(final int milliseconds) {
+		
+		//Checks if the given milliseconds is not negative.
+		Validator.supposeThat(milliseconds).thatIsNamed("milliseconds").isNotNegative();
+		
+		try {
+			Thread.sleep(milliseconds);
+		}
+		catch (final InterruptedException ie) {
+			throw new RuntimeException(ie);
+		}
+	}
+	
+	//private constructor
+	/**
+	 * Avoids that an instance of this class can be created.
+	 */
+	private Waiter() {}
+}

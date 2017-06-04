@@ -57,26 +57,26 @@ final class MainSession extends Session<GUIClient> {
 		Sequencer
 		.asLongAs(() -> client.isRunning())
 		.afterAllMilliseconds(UPDATE_INTERVAL_IN_MILLISECONDS)
-		.runInBackground(()->updateGUI());
+		.runInBackground(()->getRefClient().runLocally("UpdateGUI"));
 	}
 	
 	//method
 	/**
 	 * Updates the GUI of this main session.
 	 */
-	public void updateGUI() {	
+	public void UpdateGUI() {	
 		if (timer.getRunMilliseconds() > 0) {
 			
 			//Calculates the number of polynom fits per second.
 			final long polynomFitsPerSecond 
 			= (long)(1000.0 * worker.getPolynomFitsCount()) / (timer.getRunMilliseconds());
-	
+			
 			//Fetches the benchmark label.
 			final Label benchmarkLabel
 			= getRefClient().getRefGUI().getRefWidgetByNameRecursively(WidgetNames.BENCHMARK_LABEL_NAME);
 			
 			//Sets the text of the benchmark label.
-			benchmarkLabel.setText(Long.toString(polynomFitsPerSecond));
+			benchmarkLabel.setText(Long.toString(polynomFitsPerSecond));			
 		}
 	}
 }

@@ -115,6 +115,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
 			case GUIClient.RESET_DIALOG_COMMAND:
+				System.out.println(8);
 				resetDialog(command.getRefAttributes());
 				break;
 			case GUIClient.RESET_OTHER_SIDE_DIALOG_COMMAND:
@@ -135,7 +136,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 * @param attributes
 	 */
 	private void resetDialog(final List<Specification> attributes) {
-
+		System.out.println(9);
 		getGUI().reset(attributes);
 		getGUI().updateFromConfiguration();
 		getGUI().noteMouseMove();

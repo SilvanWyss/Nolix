@@ -2,11 +2,8 @@
 package ch.nolix.system.GUIClient;
 
 //own imports
-import java.lang.reflect.Method;
-
 import ch.nolix.core.container.List;
 import ch.nolix.core.controller.Controller;
-import ch.nolix.core.functionInterfaces.IRunner;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.element.GUI.GUI;

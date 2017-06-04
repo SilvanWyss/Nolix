@@ -8,42 +8,66 @@ import ch.nolix.core.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 40
+ * @lines 60
  */
 public final class Future {
 
 	//attribute
-	private final BackgroundThread backgroundThread;
+	private final JobRunner jobRunner;
 	
 	//package-visible constructor
 	/**
-	 * Creates new future for the given background thread.
+	 * Creates new future with the given job runner.
 	 * 
-	 * @param backgroundThread
-	 * @throws NullArgumentException if the given background thread is null.
+	 * @param jobRunner
+	 * @throws NullArgumentException if the given job runner is null.
 	 */
-	Future(final BackgroundThread backgroundThread) {
+	Future(final JobRunner jobRunner) {
 		
-		//Checks if the given background thread is not null.
-		Validator.supposeThat(backgroundThread).thatIsInstanceOf(BackgroundThread.class).isNotNull();
+		//Checks if the given job runner is not null.
+		Validator.supposeThat(jobRunner).thatIsInstanceOf(JobRunner.class).isNotNull();
 		
-		//Sets the background thread of this future.
-		this.backgroundThread = backgroundThread;
+		//Sets the job runner of this future.
+		this.jobRunner = jobRunner;
 	}
 	
 	//method
 	/**
-	 * @return true if the job of the background thread of this future is finished.
+	 * @return true if this future has caught an error while running the jobs.
 	 */
-	public boolean isFinished() {
-		return backgroundThread.isFinished();
+	public boolean caughtError() {
+		return jobRunner.caughtError();
 	}
 	
 	//method
 	/**
-	 * @return true if the job of the background thread of htis future is running.
+	 * @return the number of finished job runs of this future.
 	 */
-	public boolean isRunning() {
-		return backgroundThread.isRunning();
+	public int getFinishedJobRunCount() {
+		return jobRunner.getFinishedJobRunCount();
+	}
+	
+	//method
+	/**
+	 * @return true if this future has finished the jobs.
+	 */
+	public boolean hasFinishedJobs() {
+		return jobRunner.hasFinishedJobs();
+	}
+	
+	//method
+	/**
+	 * @return true if this future has finished the jobs successfully.
+	 */
+	public boolean hasFinishedJobsSuccessfully() {
+		return (hasFinishedJobs() && !caughtError());
+	}
+	
+	//method
+	/**
+	 * @return true if this future is running the jobs.
+	 */
+	public boolean isRunningJobs() {
+		return jobRunner.isRunningJobs();
 	}
 }

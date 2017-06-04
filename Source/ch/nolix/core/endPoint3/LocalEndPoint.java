@@ -110,7 +110,7 @@ public final class LocalEndPoint extends EndPoint {
 		
 		final Future future = Sequencer.runInBackground(() -> counterPart.receiveAndGetReply(message));
 		
-		while (future.isRunning()) {
+		while (future.isRunningJobs()) {
 			
 		}
 		
