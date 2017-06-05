@@ -9,6 +9,8 @@
 package ch.nolix.system.designs;
 
 //own imports
+import ch.nolix.element.GUI.ContainerRole;
+import ch.nolix.element.GUI.LabelRole;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.StandardConfiguration;
 
@@ -29,7 +31,7 @@ public final class BlackNBlueDesign extends StandardConfiguration {
 		
 		addConfiguration(			
 			new DeepConfiguration()
-			.setSelectorRole("OverallContainer")
+			.setSelectorRole(ContainerRole.OverallContainer)
 			.addAttachingAttribute(
 				"NormalBackgroundColor(Anthrazit)",
 				"NormalTopBorderSize(50)",
@@ -37,7 +39,7 @@ public final class BlackNBlueDesign extends StandardConfiguration {
 				"Padding(10)"),
 			new DeepConfiguration()
 			.setSelectorType("TabContainer")
-			.setSelectorRole("MainContainer")
+			.setSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute(
 				"MinWidth(600)",
 				"MenuItemMargin(50)",
@@ -59,7 +61,7 @@ public final class BlackNBlueDesign extends StandardConfiguration {
 			),
 			new DeepConfiguration()
 			.setSelectorType("Label")
-			.setSelectorRole("Title")
+			.setSelectorRole(LabelRole.Title)
 			.addAttachingAttribute(
 				"NormalTextSize(50)",
 				"NormalTextColor(Blue)"

@@ -439,6 +439,10 @@ implements Freezable {
 		}
 	}
 	
+	public final C setSelectorRole(final Enum<?> selectorToken) {
+		return setSelectorRole(selectorToken.toString());
+	}
+	
 	//method
 	/**
 	 * Sets the selector role of this configuration.
@@ -450,7 +454,7 @@ implements Freezable {
 	 * -This configuration is frozen.
 	 */
 	@SuppressWarnings("unchecked")
-	public final C setSelectorRole(String selectorRole) {
+	private final C setSelectorRole(String selectorRole) {
 		
 		throwExceptionIfFrozen();
 		

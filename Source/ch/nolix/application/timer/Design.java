@@ -2,6 +2,7 @@
 package ch.nolix.application.timer;
 
 //own imports
+import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.StandardConfiguration;
 
@@ -27,7 +28,7 @@ public final class Design extends StandardConfiguration {
 		addConfiguration(
 			new DeepConfiguration()
 			.setSelectorType("VerticalStack")
-			.setSelectorRole("MainContainer")
+			.setSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute(
 				"TopPadding(50)",
 				"ContentOrientation(Center)",

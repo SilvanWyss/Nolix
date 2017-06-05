@@ -41,7 +41,7 @@ public final class DefaultDesign extends StandardConfiguration {
 			),
 			new DeepConfiguration()
 			.setSelectorType("Label")
-			.setSelectorRole("Title")
+			.setSelectorRole(LabelRole.Title)
 			.addAttachingAttribute("NormalTextSize(40)"),
 			new DeepConfiguration()
 			.setSelectorType("Button")
