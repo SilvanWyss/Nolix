@@ -18,7 +18,8 @@ public enum LabelRole {
 	Level2Header,
 	Level3Header,
 	Level4Header,
-	ParagraphHeader;
+	ParagraphHeader,
+	DynamicInfoLabel;
 	
 	public Specification getSpecificationAs(final String type) {
 		return new Specification(type, toString());
