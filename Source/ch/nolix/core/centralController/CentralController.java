@@ -1,27 +1,20 @@
-/*
- * file:	ModulePool.java
- * author:	Silvan Wyss
- * month:	2015
- * lines:	90
- */
-
 //package declaration
 package ch.nolix.core.centralController;
 
 //Java import
 import java.io.File;
 
-//own import
-
-
+//own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.core.invalidStateException.InvalidStateException;
 
 //class
 /**
- * A central controller is a level 2 controller that:
- * -contains modules
- * -has a directory
+ * A central controller manages modules.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 80
  */
 public class CentralController {
 	
@@ -33,54 +26,30 @@ public class CentralController {
 	
 	//constructor
 	/**
-	 * Creates new central controller with the givenc directory
+	 * Creates new central controller with the given directory.
+	 * The central controller will created the directoy if it does not exist.
 	 * 
 	 * @param directory
-	 * @throws Exception if:
-	 * -the given directory is null
-	 * -the given directory is a file
+	 * @throws InvalidArgumentException if the given directory does not specify a directory on the local machine.
 	 */
 	public CentralController(final String directory) {
 		
-		Validator.throwExceptionIfStringIsNullOrEmpty("directory", directory);
+		//Checks if the givne directory specifies a directory.
+		//TODO: Add specifiesProbableDirectoryOnLocalMachine method to validator. (hint: java.io.File.isDirectory)
+		//Validator.supposeThat(directory).specifiesProbableDirectoryOnLocalMachine(directory);
 			
+		//Sets the directory of this central controller.
 		this.directory = directory;
 		
-		File file = new File(getDirectory());
-		if (file.exists()) {
-			if (!file.isDirectory()) {
-				throw new RuntimeException("The directory '" + directory + "' is a file.");
-			}
-		}
-		else {
+		final File file = new File(getDirectory());
+		if (!file.exists()) {
 			file.mkdir();
 		}
 	}
 	
 	//method
 	/**
-	 * Adds the given module to this central controller.
-	 * 
-	 * @param module
-	 * @return this central controller
-	 * @throws Exception if this central controller already contains a module with the same code name as the given module
-	 */
-	public final CentralController addModule(Module module) {
-				
-		String codeName = module.getCodeName();
-		if (modules.contains(m -> m.hasCodeName(codeName))) {
-			throw new RuntimeException("Module pool already contains a module with the code name '" + codeName + "'.");
-		}
-		
-		module.setCentralController(this);
-		modules.addAtEnd(module);
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * @return the directory of this central controller
+	 * @return the directory of this central controller.
 	 */
 	public final String getDirectory() {
 		return directory;
@@ -88,12 +57,30 @@ public class CentralController {
 	
 	//method
 	/**
-	 * @param codeName
-	 * @return the module of this central central controller with the given code name
-	 * @throws Exception if this central controller contains no module with the given code name
+	 * @param name
+	 * @return the module of this central central controller with the given name.
+	 * @throws InvalidArgumentException if this central controller contains no module with the given code name.
 	 */
 	@SuppressWarnings("unchecked")
-	public final <M extends Module> M getRefModuleByCodeName(String codeName) {
-		return (M)(modules.getRefFirst(m -> m.hasCodeName(codeName)));
+	public final <M extends Module> M getModuleByName(final String name) {
+		return (M)(modules.getRefFirst(m -> m.hasName(name)));
+	}
+	
+	//package-visible method
+	/**
+	 * Adds the given module to this central controller.
+	 * 
+	 * @param module
+	 * @throws InvalidArgumentException
+	 * if this central controller contains an other module with the same name as the given module.
+	 */
+	void addModule(final Module module) {
+		
+		final String name = module.getName();
+		if (modules.contains(m -> m.hasName(name))) {
+			throw new InvalidStateException(this, "contains other module with the name '" + name + "'.");
+		}
+		
+		modules.addAtEnd(module);
 	}
 }
