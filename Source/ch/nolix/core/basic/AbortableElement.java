@@ -12,10 +12,11 @@ import ch.nolix.core.validator2.Validator;
 //abstract class
 /**
  * An abortable element can be aborted.
+ * An abortable element can be aborted only for 1 time.
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 100
+ * @lines 110
  */
 public abstract class AbortableElement implements Abortable {
 
@@ -29,10 +30,11 @@ public abstract class AbortableElement implements Abortable {
 	/**
 	 * Aborts this abortable element.
 	 * 
-	 * @throws InvalidArgumentException if this abortable element is aborted already.
+	 * @throws InvalidArgumentException if this abortable element is already aborted.
 	 */
 	public void abort() {
 		
+		//Checks if this abortable element is already aborted.
 		throwExceptionIfAborted();
 		
 		aborted = true;
@@ -40,29 +42,29 @@ public abstract class AbortableElement implements Abortable {
 	
 	//method
 	/**
-	 * Stops this abortable element because of the given stop reason.
+	 * Aborts this abortable element because of the given stop reason.
 	 * 
 	 * @param abortReason
 	 * @throws NullArgumentException if the given abort reason is null.
 	 * @throws EmptyArgumentException if the given abort reason is empty.
-	 * @throws InvalidArgumentException if this abortable element is aborted already.
+	 * @throws InvalidArgumentException if this abortable element is already aborted.
 	 */
 	public final void abort(String abortReason) {
 		
-		//Checks if the given abort reason is not empty.
+		//Checks if the given abort reason is not null or empty.
 		Validator.supposeThat(abortReason).thatIsNamed("abort reason").isNotEmpty();
-
+		
+		//Aborts this abortable element.
+		abort();
+		
 		//Sets the abort reason of this abortable element.
 		this.abortReason = abortReason;
-		
-		//Calls other method.
-		abort();
 	}
 	
 	//method
 	/**
 	 * @return the abort reason of this abortable element.
-	 * @throws UntimelyMethodException if this abortable element is not stopped.
+	 * @throws UntimelyMethodException if this abortable element is not aborted.
 	 * @throws UnexistingAttributeException if this abortable element has no abort reason.
 	 */
 	public final String getAbortReason() {
@@ -73,11 +75,19 @@ public abstract class AbortableElement implements Abortable {
 		}
 		
 		//Checks if this abortable element has an abort reason.
-		if (abortReason == null) {
+		if (!hasAbortReason()) {
 			throw new UnexistingAttributeException(this, "abort reason");
 		}
 		
 		return abortReason;
+	}
+	
+	//method
+	/**
+	 * @return true if this abortable element has an abort reason.
+	 */
+	public final boolean hasAbortReason() {
+		return (abortReason != null);
 	}
 	
 	//method

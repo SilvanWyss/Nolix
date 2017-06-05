@@ -13,6 +13,7 @@ import ch.nolix.core.validator2.Validator;
  * @author Silvan Wyss
  * @month 2016-12
  * @lines 60
+ * @param <OSE> - The type of an optional signable element.
  */
 public abstract class OptionalSignableElement<OSE extends OptionalSignableElement<OSE>>
 implements OptionalSignable<OSE> {
@@ -50,14 +51,15 @@ implements OptionalSignable<OSE> {
 	 * @param infoString
 	 * @return this optional signable element.
 	 * @throws NullArgumentException if the given info string is null.
-	 * @throws EmptyArgumentException if the given info string is an empty string.
+	 * @throws EmptyArgumentException if the given info string is empty.
 	 */
 	@SuppressWarnings("unchecked")
 	public final OSE setInfoString(final String infoString) {
 		
-		//Checks if the given info string is null or an empty string.
+		//Checks if the given info string is not null or empty.
 		Validator.supposeThat(infoString).thatIsNamed("info string").isNotEmpty();
 		
+		//Sets the info string of this optional signable element.
 		this.infoString = infoString;
 		
 		return (OSE)this;

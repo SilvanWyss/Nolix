@@ -7,7 +7,7 @@ import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
- * A namable element is an element that has a name.
+ * A namable element has a name.
  * 
  * @author Silvan Wyss
  * @month 2016-11
@@ -25,7 +25,8 @@ implements Namable<NE> {
 	 * Creates new namable element with the given name.
 	 * 
 	 * @param name
-	 * @throws Exception if the given name is null or an empty string
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public NamableElement(final String name) {
 		setName(name);

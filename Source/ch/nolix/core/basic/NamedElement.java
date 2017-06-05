@@ -1,21 +1,19 @@
-/*
- * file:	NamedElement.java
- * author:	Silvan Wyss
- * month:	2016-10
- * lines:	40
- */
-
 //package declaration
 package ch.nolix.core.basic;
 
 //own imports
 import ch.nolix.core.interfaces.Named;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.core.validator2.Validator;
 
+//abstract class
 /**
- * A named element is an element that has a determined name.
+ * A named element has a determined name.
+ * 
+ * @author Silvan Wyss
+ * @month: 2016-10
+ * @lines 40
  */
-public class NamedElement implements Named {
+public abstract class NamedElement implements Named {
 
 	//attribute
 	private final String name;
@@ -25,21 +23,21 @@ public class NamedElement implements Named {
 	 * Creates new named element with the given name.
 	 * 
 	 * @param name
-	 * @throws Exception if:
-	 * -The given name is null.
-	 * -The given name is an empty string.
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public NamedElement(final String name) {
 		
-		//Checks the given name.
-		Validator.throwExceptionIfStringIsNullOrEmpty("name", name);
+		//Checks if the given name is not null or empty.
+		Validator.supposeThat(name).thatIsNamed("name").isNotEmpty();
 		
+		//Sets the name of this named element.
 		this.name = name;
 	}
 	
 	//method
 	/**
-	 * @return the name of this named element
+	 * @return the name of this named element.
 	 */
 	public final String getName() {
 		return name;
