@@ -7,6 +7,7 @@ import java.io.File;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -34,9 +35,8 @@ public class CentralController {
 	 */
 	public CentralController(final String directory) {
 		
-		//Checks if the givne directory specifies a directory.
-		//TODO: Add specifiesProbableDirectoryOnLocalMachine method to validator. (hint: java.io.File.isDirectory)
-		//Validator.supposeThat(directory).specifiesProbableDirectoryOnLocalMachine(directory);
+		//Checks if the given directory specifies a directory.
+		Validator.supposeThat(directory).specifiesProbableDirectoryOnLocalMachine(directory);
 			
 		//Sets the directory of this central controller.
 		this.directory = directory;

@@ -48,13 +48,20 @@ implements Named, ILevel3Controller {
 	
 	//method
 	/**
-	 * @param name
-	 * @return the module with the given name of the central central controller this module belongs to.
-	 * @throws InvalidArgumentException
-	 * if the central controller this model belongs to contains no module with the given code name.
+	 * @return the directory of this module.
 	 */
-	public final <M extends Module> M getModuleByName(final String name) {
-		return centralController.getModuleByName(name);
+	public final String getDirectory() {	
+		
+		final String directory = centralController.getDirectory() + "/" + getName();
+		
+		Validator.supposeThat(directory).specifiesProbableDirectoryOnLocalMachine(directory);
+		
+		final File file = new File(directory);
+		if (!file.exists()) {
+			file.mkdir();
+		}
+		
+		return directory;
 	}
 	
 	//method
@@ -67,21 +74,12 @@ implements Named, ILevel3Controller {
 	
 	//method
 	/**
-	 * @return the directory of this module.
-	 * @throws Exception if this module has no directory
+	 * @param name
+	 * @return the module with the given name of the central central controller this module belongs to.
+	 * @throws InvalidArgumentException
+	 * if the central controller this model belongs to contains no module with the given code name.
 	 */
-	protected final String getDirectory() {	
-		
-		final String directory = centralController.getDirectory() + "/" + getName();
-		
-		//TODO: Add specifiesDirectoryOnLocalMachine method to validator.
-		//Validator.supposeThat(directory).specifiesProbableDirectoryOnLocalMachine(directory);
-		
-		final File file = new File(directory);
-		if (!file.exists()) {
-			file.mkdir();
-		}
-		
-		return directory;
+	protected final <M extends Module> M getRefModuleByName(final String name) {
+		return centralController.getModuleByName(name);
 	}
 }

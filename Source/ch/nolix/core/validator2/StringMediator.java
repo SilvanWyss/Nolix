@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.validator2;
 
+//Java import
+import java.io.File;
+
 //own imports;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
@@ -13,7 +16,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
 /**
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 80
+ * @lines 130
  */
 public final class StringMediator extends ArgumentMediator<String> {
 
@@ -78,6 +81,47 @@ public final class StringMediator extends ArgumentMediator<String> {
 		//Checks if the argument of this string mediator is not empty.
 		if (getRefArgument().isEmpty()) {
 			throw new EmptyArgumentException();
+		}
+	}
+	
+	//method
+	/**
+	 * @param directory
+	 * @throws InvalidArgumentException
+	 * if the given directory does not exist on the local machine or cannot be created on the local machine.
+	 */
+	public void specifiesProbableDirectoryOnLocalMachine(final String directory) {	
+		
+		boolean specifiesProbableDirectoryOnLocalMachine = true;
+		
+		try {
+			
+			final File file = new File(directory);
+			
+			//Handles the case if the given directory does not exist.
+			if (!file.exists()) {
+				if (file.mkdirs()) {
+					file.delete();
+				}
+				else {
+					specifiesProbableDirectoryOnLocalMachine = false;
+				}
+			}
+			
+			//Handles the case if the given directory exists.
+			else if (file.isFile()) {
+				specifiesProbableDirectoryOnLocalMachine = false;
+			}
+		}
+		catch(final Exception exception) {
+			specifiesProbableDirectoryOnLocalMachine = false;
+		}
+		
+		if (!specifiesProbableDirectoryOnLocalMachine) {
+			throw new InvalidArgumentException(
+				new Argument(directory),
+				new ErrorPredicate("is no probable directory on the local machine")
+			);
 		}
 	}
 	
