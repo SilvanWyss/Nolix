@@ -2,21 +2,23 @@
 package ch.nolix.application.timer;
 
 //own imports
+import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.StandardConfiguration;
 
-//class
+//package-visible class
 /**
  * @author Silvan Wyss
  * @month 2016-09
- * @lines 70
+ * @lines 50
  */
-public final class Design extends StandardConfiguration {
+final class Design extends StandardConfiguration {
 
 	//constructor
 	/**
 	 * Creates new design.
+	 * The design will be frozen.
 	 */
 	public Design() {
 		
@@ -27,39 +29,24 @@ public final class Design extends StandardConfiguration {
 		
 		addConfiguration(
 			new DeepConfiguration()
-			.setSelectorType("VerticalStack")
 			.setSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute(
 				"TopPadding(50)",
 				"ContentOrientation(Center)",
 				"ElementMargin(50)"
-			)
-			.addConfiguration(
-				new StandardConfiguration()
-				.setSelectorType("Label")
-				.addAttachingAttribute(
-					"NormalTextSize(60)",
-					"NormalTextColor(White)"
-				),
-				new StandardConfiguration()
-				.setSelectorType("HorizontalStack")
-				.addAttachingAttribute(
-					"NormalBackgroundColor(Blue)",
-					"LeftPadding(50)",
-					"RightPadding(50)",
-					"TopPadding(10)",
-					"BottomPadding(10)",
-					"ElementMargin(100)"
-				)
-				.addConfiguration(
-					new StandardConfiguration()
-					.setSelectorType("Button")
-					.addAttachingAttribute(
-						"CursorIcon(Hand)",
-						"NormalTextSize(30)",
-						"HoverTextColor(White)"
-					)
-				)
+			),
+			new StandardConfiguration()
+			.setSelectorName(WidgetNames.TIME_LABEL_NAME)
+			.addAttachingAttribute(
+				"NormalTextSize(60)",
+				"NormalTextColor(White)"
+			),	
+			new StandardConfiguration()
+			.setSelectorType(Button.SIMPLE_CLASS_NAME)
+			.addAttachingAttribute(
+				"CursorIcon(Hand)",
+				"NormalTextSize(30)",
+				"HoverTextColor(White)"
 			)
 		);
 		

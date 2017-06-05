@@ -4,6 +4,7 @@ package ch.nolix.application.performanceDetector;
 //own imports
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.util.Timer;
+import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.system.GUIClient.GUIClient;
@@ -36,6 +37,7 @@ final class MainSession extends Session<GUIClient> {
 		.setTitle(TITLE)
 		.setRootWidget(
 			new VerticalStack()
+			.setRole(ContainerRole.MainContainer)
 			.addRectangle(
 				new Label()
 				.setName(WidgetNames.BENCHMARK_LABEL_NAME),
@@ -50,19 +52,16 @@ final class MainSession extends Session<GUIClient> {
 		timer.start();
 		worker.start();
 		
-		//Fetches the client.
-		final GUIClient client = getRefClient();
-		
 		//Starts the updateGUI method in background.	
 		Sequencer
-		.asLongAs(() -> client.isRunning())
+		.asLongAs(() -> getRefClient().isRunning())
 		.afterAllMilliseconds(UPDATE_INTERVAL_IN_MILLISECONDS)
 		.runInBackground(()->getRefClient().runLocally("UpdateGUI"));
 	}
 	
 	//method
 	/**
-	 * Updates the GUI of this main session.
+	 * Updates the GUI of the client of this main session.
 	 */
 	public void UpdateGUI() {	
 		if (timer.getRunMilliseconds() > 0) {

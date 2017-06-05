@@ -18,7 +18,7 @@ final class Launcher {
 	//main method
 	/**
 	 * Creates a new performance detector
-	 * and a new front GUI client that will connect to the performance detecto.
+	 * and a new front GUI client that will connect to the performance detector.
 	 * 
 	 * @param args
 	 */

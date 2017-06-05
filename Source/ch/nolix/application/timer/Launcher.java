@@ -1,39 +1,38 @@
-/*
- * file:	TimerLauncher.java
- * author:	Silvan Wyss
- * month:	2016-06
- * lines:	30
- */
-
 //package declaration
 package ch.nolix.application.timer;
 
-//own imports
-import ch.nolix.system.GUIClient.GUIClient;
+//own import
 import ch.nolix.system.GUIClient.FrontGUIClient;
-import ch.nolix.system.client.StandardApplication;
 
-//class
+//package-visible class
 /**
- * This class provides a main method to launch a timer application.
+ * This class provides a main method to launch a timer.
+ * Of this class no instance can be created.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-06
+ * @lines 30
  */
-public final class Launcher {
+final class Launcher {
 
 	//main method
 	/**
-	 * Launches new timer application.
+	 * Creates a new timer and a new front GUI client that will connect to the timer.
 	 * 
 	 * @param args
 	 */
 	public static final void main(String[] args) {
 		
-		//Creates new front end dialog and connects it to a newly created timer application.
-		new FrontGUIClient(new StandardApplication<GUIClient>("Timer", MainSession.class));
+		//Creates timer.
+		final Timer timer = new Timer();
+		
+		//Creates front GUI client.
+		new FrontGUIClient(timer);
 	}
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created from outside.
+	 * Avoids that an instance of this class can be created.
 	 */
 	private Launcher() {}
 }

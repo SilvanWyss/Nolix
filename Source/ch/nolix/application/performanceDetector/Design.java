@@ -2,6 +2,7 @@
 package ch.nolix.application.performanceDetector;
 
 //own imports
+import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.StandardConfiguration;
 
@@ -23,7 +24,8 @@ final class Design extends StandardConfiguration {
 		addAttachingAttribute("ContentOrientation(Top)");
 		
 		addConfiguration(
-			new StandardConfiguration()
+			new DeepConfiguration()
+			.setSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute("ContentOrientation(Top)"),
 			new DeepConfiguration()
 			.setSelectorName(WidgetNames.BENCHMARK_LABEL_NAME)

@@ -1,10 +1,3 @@
-/*
- * file:	TimerSession.java
- * author:	Silvan Wyss
- * month:	2016-06
- * lines:	110
- */
-
 //package declaration
 package ch.nolix.application.timer;
 
@@ -19,25 +12,35 @@ import ch.nolix.system.GUIClient.GUIClient;
 import ch.nolix.system.client.Session;
 
 //package-visible class
-public final class MainSession extends Session<GUIClient> {
+/**
+ * @author Silvan Wyss
+ * @month 2016-06
+ * @lines 110
+ */
+final class MainSession extends Session<GUIClient> {
 
+	//constants
+	private static final String TITLE = "Timer";
+	private static final int UPDATE_INTERVAL_IN_MILLISECONDS = 100;
+	
 	//attribute
 	private final ch.nolix.core.util.Timer timer = new ch.nolix.core.util.Timer();
 	
 	//method
 	/**
-	 * Initializes this timer session.
+	 * Initializes this main session.
 	 */
-	public final void initialize() {
+	public void initialize() {
 		
-		//Sets the title of the dialog of the dialog client of this main session.
-		getRefClient().getRefGUI().setTitle("Timer");
-		
-		getRefClient().getRefGUI().setRootWidget(
+		//Setups the GUI.
+		getRefClient().getRefGUI()
+		.setTitle(TITLE)
+		.setRootWidget(
 			new VerticalStack()
 			.setRole(ContainerRole.MainContainer)
 			.addRectangle(
 				new Label()
+				.setName(WidgetNames.TIME_LABEL_NAME)
 				.setText("00 : 00 : 00 : 000"),
 				new HorizontalStack()
 				.addRectangle(
@@ -52,17 +55,19 @@ public final class MainSession extends Session<GUIClient> {
 					.setLeftMouseButtonPressCommand("ResetTimer")
 				)
 			)
-		);
-		
-		//Sets the design of the dialog of the dialog client of this main session.
-		getRefClient().getRefGUI().setConfiguration(new Design());
+		)
+		.setConfiguration(new Design());
 
-		Sequencer.afterAllMilliseconds(100).runInBackground(()->{getRefClient().runLocally("UpdateDialog");});
+		//Starts the update GUI method in background.
+		Sequencer
+		.asLongAs(() -> getRefClient().isRunning())
+		.afterAllMilliseconds(UPDATE_INTERVAL_IN_MILLISECONDS)
+		.runInBackground(() -> getRefClient().runLocally("UpdateDialog"));
 	}
 	
 	//method
 	/**
-	 * Resets the timer.
+	 * Resets the timer of this main session.
 	 */
 	public void ResetTimer() {
 		timer.reset();
@@ -70,7 +75,7 @@ public final class MainSession extends Session<GUIClient> {
 	
 	//method
 	/**
-	 * Starts the timer.
+	 * Starts the timer of this main session.
 	 */
 	public void StartTimer() {	
 		timer.start();
@@ -78,7 +83,7 @@ public final class MainSession extends Session<GUIClient> {
 	
 	//method
 	/**
-	 * Stops the timer.
+	 * Stops the timer of this main session.
 	 */
 	public void StopTimer() {
 		timer.stop();
@@ -86,17 +91,21 @@ public final class MainSession extends Session<GUIClient> {
 	
 	//method
 	/**
-	 * Updates the dialog of the dialog client of this timer session.
+	 * Updates the GUI of the client of this main session.
 	 */
 	public void UpdateDialog() {
 		
-		int hours = timer.getRunMilliseconds() / 3600000;
-		int minutes = (timer.getRunMilliseconds() / 60000) % 60;
-		int seconds = (timer.getRunMilliseconds() / 1000) % 60;
-		int deciseconds = (timer.getRunMilliseconds() / 100) % 10;
+		//Calculates the time the timer of has run.
+		final int hours = timer.getRunMilliseconds() / 3600000;
+		final int minutes = (timer.getRunMilliseconds() / 60000) % 60;
+		final int seconds = (timer.getRunMilliseconds() / 1000) % 60;
+		final int deciseconds = (timer.getRunMilliseconds() / 100) % 10;
 		
-		VerticalStack mainVerticalStack = (VerticalStack)getRefClient().getRefGUI().getRefRootWidget();
-		Label timeLabel = (Label)mainVerticalStack.getRefRectangles().getRefFirst();
+		//Fetches the time label.
+		final Label timeLabel
+		= getRefClient().getRefGUI().getRefWidgetByNameRecursively(WidgetNames.TIME_LABEL_NAME);
+		
+		//Sets the text of the time label.
 		timeLabel.setText(String.format("%02d : %02d : %02d : %d", hours, minutes, seconds, deciseconds));
 	}
 }
