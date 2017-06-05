@@ -40,7 +40,7 @@ final class MainSession extends Session<GUIClient> {
 			.setRole(ContainerRole.MainContainer)
 			.addRectangle(
 				new Label()
-				.setName(WidgetNames.TIME_LABEL_NAME)
+				.setName(WidgetNameManager.TIME_LABEL_NAME)
 				.setText("00 : 00 : 00 : 000"),
 				new HorizontalStack()
 				.addRectangle(
@@ -103,7 +103,7 @@ final class MainSession extends Session<GUIClient> {
 		
 		//Fetches the time label.
 		final Label timeLabel
-		= getRefClient().getRefGUI().getRefWidgetByNameRecursively(WidgetNames.TIME_LABEL_NAME);
+		= getRefClient().getRefGUI().getRefWidgetByNameRecursively(WidgetNameManager.TIME_LABEL_NAME);
 		
 		//Sets the text of the time label.
 		timeLabel.setText(String.format("%02d : %02d : %02d : %d", hours, minutes, seconds, deciseconds));

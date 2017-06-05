@@ -28,10 +28,10 @@ final class Design extends StandardConfiguration {
 			.setSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute("ContentOrientation(Top)"),
 			new DeepConfiguration()
-			.setSelectorName(WidgetNames.BENCHMARK_LABEL_NAME)
+			.setSelectorName(WidgetNameManager.BENCHMARK_LABEL_NAME)
 			.addAttachingAttribute("NormalTextSize(100)"),
 			new DeepConfiguration()
-			.setSelectorName(WidgetNames.BENCHMARK_INFO_LABEL_NAME)
+			.setSelectorName(WidgetNameManager.BENCHMARK_INFO_LABEL_NAME)
 			.addAttachingAttribute(
 				"NormalTextSize(30)",
 				"NormalTextColor(Grey)"

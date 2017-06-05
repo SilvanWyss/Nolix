@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.application.performanceDetector;
+package ch.nolix.application.timer;
 
 //package-visible constants class
 /**
@@ -9,15 +9,14 @@ package ch.nolix.application.performanceDetector;
  * @month 2017-06
  * @lines 20
  */
-final class WidgetNames {
+final class WidgetNameManager {
 	
 	//widget names
-	public static final String BENCHMARK_LABEL_NAME = "BenchmarkLabel";
-	public static final String BENCHMARK_INFO_LABEL_NAME = "BenchmarkInfoLabel";
+	public static final String TIME_LABEL_NAME = "TimeLabel";
 
 	//private constructor
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private WidgetNames() {} 
+	private WidgetNameManager() {} 
 }

@@ -40,9 +40,9 @@ final class MainSession extends Session<GUIClient> {
 			.setRole(ContainerRole.MainContainer)
 			.addRectangle(
 				new Label()
-				.setName(WidgetNames.BENCHMARK_LABEL_NAME),
+				.setName(WidgetNameManager.BENCHMARK_LABEL_NAME),
 				new Label()
-				.setName(WidgetNames.BENCHMARK_INFO_LABEL_NAME)
+				.setName(WidgetNameManager.BENCHMARK_INFO_LABEL_NAME)
 				.setText("polynom fits per second (n = 100 / degree = 3)")
 			)
 		)
@@ -72,7 +72,7 @@ final class MainSession extends Session<GUIClient> {
 			
 			//Fetches the benchmark label.
 			final Label benchmarkLabel
-			= getRefClient().getRefGUI().getRefWidgetByNameRecursively(WidgetNames.BENCHMARK_LABEL_NAME);
+			= getRefClient().getRefGUI().getRefWidgetByNameRecursively(WidgetNameManager.BENCHMARK_LABEL_NAME);
 			
 			//Sets the text of the benchmark label.
 			benchmarkLabel.setText(Long.toString(polynomFitsPerSecond));			

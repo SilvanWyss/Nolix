@@ -36,7 +36,7 @@ final class Design extends StandardConfiguration {
 				"ElementMargin(50)"
 			),
 			new StandardConfiguration()
-			.setSelectorName(WidgetNames.TIME_LABEL_NAME)
+			.setSelectorName(WidgetNameManager.TIME_LABEL_NAME)
 			.addAttachingAttribute(
 				"NormalTextSize(60)",
 				"NormalTextColor(White)"
