@@ -3,6 +3,8 @@ package ch.nolix.core.constants;
 
 //class
 /**
+ * Of this class no instance can be created.
+ * 
  * @author Silvan Wyss
  * @month 2016-09
  * @lines 20
