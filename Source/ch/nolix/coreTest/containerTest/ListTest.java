@@ -131,8 +131,8 @@ public final class ListTest extends Test {
 		list1.forEach(s -> list2.addAtEnd(s));
 		
 		//verification
-		expectThat(list2.getSize()).equals(list1.getSize());
-		for (int i = 1; i <= list1.getSize(); i++) {
+		expectThat(list2.getElementCount()).equals(list1.getElementCount());
+		for (int i = 1; i <= list1.getElementCount(); i++) {
 			expectThat(list2.getRefAt(i)).equals(list2.getRefAt(i));
 		}
 	}
@@ -242,9 +242,9 @@ public final class ListTest extends Test {
 		final List<List<String>> sequences = list.getSequences(sequencePattern);
 		
 		//verification
-		expectThat(sequences.getSize()).equals(4);
+		expectThat(sequences.getElementCount()).equals(4);
 		for (List<String> s: sequences) {
-			expectThat(s.getSize()).equals(2);
+			expectThat(s.getElementCount()).equals(2);
 			expectThat(s.getRefAt(1)).equals("x");
 			expectThat(s.getRefAt(2)).equals("xxxxx");
 		}
@@ -273,9 +273,9 @@ public final class ListTest extends Test {
 		final List<List<String>> sequences = list.getSequences(sequencePattern);
 		
 		//verification
-		expectThat(sequences.getSize()).equals(3);;
+		expectThat(sequences.getElementCount()).equals(3);;
 		for (List<String> s: sequences) {
-			expectThat(s.getSize()).equals(2);
+			expectThat(s.getElementCount()).equals(2);
 			expectThat(s.getRefAt(1)).equals("x");
 		}
 	}

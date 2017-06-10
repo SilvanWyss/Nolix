@@ -58,7 +58,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 		}
 				
 		if (containsAny()) {
-			contentHeight += (getRefRectangles().getSize() - 1) * getElementMargin();
+			contentHeight += (getRefRectangles().getElementCount() - 1) * getElementMargin();
 		}
 		
 		return contentHeight;

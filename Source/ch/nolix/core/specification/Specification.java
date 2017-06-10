@@ -103,7 +103,7 @@ public final class Specification extends Specificationoid {
 	 * @return a clone of this specification
 	 */
 	public final Specification getClone() {
-		return new Specification(getHeader(), getRefAttributes().toContainer(a -> a.getClone()));
+		return new Specification(getHeader(), getRefAttributes().to(a -> a.getClone()));
 	}
 	
 	//method
@@ -166,7 +166,7 @@ public final class Specification extends Specificationoid {
 				int currentParameter = 1;
 				for (Specification attribute: getRefAttributes()) {
 					formatedString += attribute.toFormatedReproducingString(tabulators + 1);
-					if (currentParameter != getRefAttributes().getSize()) {
+					if (currentParameter != getRefAttributes().getElementCount()) {
 						formatedString += CharacterHelper.COMMA;
 					}
 					formatedString += CharacterHelper.NEW_LINE;

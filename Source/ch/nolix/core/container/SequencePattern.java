@@ -5,15 +5,16 @@ package ch.nolix.core.container;
 import java.util.Iterator;
 
 //own imports
-
-
 import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.sequencer.Sequencer;
 
 //class
 /**
- * A sequence pattern is a pattern for sequences of elements from a list.
- * The sequences of a sequence pattern must have a defined length.
+ * A sequence pattern is a pattern for sequences.
+ * -The sequences of a sequence pattern must have a defined length.
+ * -The elements of the sequences of a sequence pattern
+ *  must fulfil the according element conditions of the sequence pattern.
+ * -The sequences of a sequence pattern must fulfil the sequence conditions of the sequence pattern.
  * 
  * @author Silvan Wyss
  * @motnh 2016-09
@@ -23,8 +24,10 @@ import ch.nolix.core.sequencer.Sequencer;
 public final class SequencePattern<E> {
 	
 	//multiple attributes
-	private final List<IElementTakerBooleanGetter<E>> elementConditions = new List<IElementTakerBooleanGetter<E>>();
-	private final List<IElementTakerBooleanGetter<List<E>>> sequenceConditions = new List<IElementTakerBooleanGetter<List<E>>>(); 
+	private final List<IElementTakerBooleanGetter<E>> elementConditions
+	= new List<IElementTakerBooleanGetter<E>>();
+	private final List<IElementTakerBooleanGetter<List<E>>> sequenceConditions
+	= new List<IElementTakerBooleanGetter<List<E>>>(); 
 	
 	//method
 	/**
@@ -34,7 +37,7 @@ public final class SequencePattern<E> {
 	 */
 	public SequencePattern<E> addBlankForNext() {
 		
-		addConditionForNext(e -> {return true;});	
+		addConditionForNext(e -> true);	
 		
 		return this;
 	}
@@ -56,16 +59,16 @@ public final class SequencePattern<E> {
 	//method
 	/**
 	 * Adds the given sequence condition to this sequence pattern.
-	 * A sequence condition must be fulfilled from the sequences of a sequence pattern.
+	 * The sequence conditions must be fulfilled from the sequences of a sequence pattern.
 	 * 
 	 * @param sequenceCondition
-	 * @return this sequenc pattern.
+	 * @return this sequence pattern.
 	 * @throws NullArgumentException if the given sequence condition is null.
 	 * 
 	 */
 	public SequencePattern<E> addSequenceCondition(
-		final IElementTakerBooleanGetter<List<E>> sequenceCondition)
-	{
+		final IElementTakerBooleanGetter<List<E>> sequenceCondition
+	) {
 		
 		sequenceConditions.addAtEnd(sequenceCondition);
 		
@@ -87,22 +90,23 @@ public final class SequencePattern<E> {
 	 * @return the number of elements of the sequences of this sequence pattern.
 	 */
 	public int getSize() {
-		return elementConditions.getSize();
+		return elementConditions.getElementCount();
 	}
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the given list contains n elements.
-	 * 
 	 * @param list
 	 * @return true if this sequence pattern matches the given list.
 	 */
-	public boolean matches(List<E> list) {
+	public boolean matches(final List<E> list) {
 		
-		if (list.getSize() != getSize()) {
+		//Checks if the given list has as many elements as this sequence pattern requires.
+		if (list.getElementCount() != getSize()) {
 			return false;
 		}
 		
+		//Checks if the elements of the given list
+		//fulfill the according element conditions this sequence pattern requires.
 		final Iterator<IElementTakerBooleanGetter<E>> iterator = elementConditions.iterator();
 		for (final E e: list) {
 			if (!iterator.next().getOutput(e)) {
@@ -110,6 +114,7 @@ public final class SequencePattern<E> {
 			}
 		}
 		
+		//Checks if the given list fulfils the sequence conditions of this sequence pattern.
 		return sequenceConditions.containsOnly(sc -> sc.getOutput(list));
 	}
 	
@@ -123,38 +128,38 @@ public final class SequencePattern<E> {
 		
 		final List<List<E>> sequences = new List<List<E>>();
 		
-		//Iterates the given list.
-		final int maxSequenceCount = list.getSize() - getSize() + 1;
-		int sequenceIndex = 1;	
-		final ListIterator<E> iterator = list.iterator();
-		while (sequenceIndex <= maxSequenceCount) {
+		final int maxSequenceCount = list.getElementCount() - getSize() + 1;
 		
-			//Determines if the current sequence fulfils the element conditions pf this sequence pattern.
-			boolean sequenceFulfilsElementConditions = true;
+		//Iterates the given list.
+		final ListIterator<E> iterator = list.iterator();
+		for (int i = 1; i <= maxSequenceCount; i++) {
+		
+			//Checks if the current sequence fulfills the element conditions of this sequence pattern.
+			boolean sequenceFulfillsElementConditions = true;
 			final ListIterator<E> iterator2 = iterator.getCopy();
-			for (IElementTakerBooleanGetter<E> c: elementConditions) {
+			for (final IElementTakerBooleanGetter<E> c : elementConditions) {
 				
 				final E element = iterator2.next();
 				
 				if (!c.getOutput(element)) {
-					sequenceFulfilsElementConditions = false;
+					sequenceFulfillsElementConditions = false;
 					break;
 				}
 			}
 			
-			if (sequenceFulfilsElementConditions) {
+			if (sequenceFulfillsElementConditions) {
 				
 				final List<E> sequence = new List<E>();
 				final ListIterator<E> iterator3 = iterator.getCopy();
 				Sequencer.forCount(getSize()).run(()->sequence.addAtEnd(iterator3.next()));
 				
+				//Checks if the current sequence fulfills the sequence conditions of this sequence pattern.
 				if (sequenceConditions.containsOnly(sc -> sc.getOutput(sequence))) {
 					sequences.addAtEnd(sequence);
 				}
 			}
 			
-			//Increments the sequence index and the iterator.
-			sequenceIndex++;
+			//Increments the iterator.
 			iterator.next();
 		}
 		

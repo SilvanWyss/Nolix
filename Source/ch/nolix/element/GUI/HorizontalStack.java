@@ -61,7 +61,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 		}
 			
 		if (containsAny()) {
-			contentWidth += (getRefRectangles().getSize() - 1) * getElementMargin();
+			contentWidth += (getRefRectangles().getElementCount() - 1) * getElementMargin();
 		}
 		
 		return contentWidth;

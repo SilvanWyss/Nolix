@@ -4,12 +4,8 @@ package ch.nolix.core.container;
 //Java import
 import java.util.Iterator;
 
-//own imports
-
-
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ErrorPredicate;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+//own import
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 
 //package-visible class
 /**
@@ -29,13 +25,13 @@ final class ListIterator<E> implements Iterator<E> {
 	 * 
 	 * @param firstNode
 	 */
-	ListIterator(final ListNode<E> firstNode) {
+	public ListIterator(final ListNode<E> firstNode) {
 		nextNode = firstNode;
 	}
 	
 	//method
 	/**
-	 * @return a new copy of this list iterator.
+	 * @return a copy of this list iterator.
 	 */
 	public ListIterator<E> getCopy() {
 		return new ListIterator<E>(nextNode);
@@ -52,16 +48,13 @@ final class ListIterator<E> implements Iterator<E> {
 	//method
 	/**
 	 * @return the next element of this list iterator.
-	 * @throws InvalidArgumentException if this list iterator has no next element.
+	 * @throws UnexistingAttributeException if this list iterator has no next element.
 	 */
 	public E next() {
 		
 		//Checks if this list iterator has a next element.
-		if (!hasNext()) {
-			throw new InvalidArgumentException(
-				new Argument(this),
-				new ErrorPredicate("has no next element")
-			);
+		if (!hasNext()) {	
+			throw new UnexistingAttributeException(this, "next element");
 		}
 		
 		final E element = nextNode.getElement();

@@ -5,14 +5,7 @@ package ch.nolix.core.container;
 import java.util.Iterator;
 
 //own imports
-
-
-
-
-
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ErrorPredicate;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //package-visible class
@@ -49,22 +42,19 @@ final class MatrixIterator<E> implements Iterator<E> {
 	 * @return true if this matrix iterator has a next element.
 	 */
 	public final boolean hasNext() {
-		return (nextElementIndex <= matrix.getSize());
+		return (nextElementIndex <= matrix.getElementCount());
 	}
 	
 	//method
 	/**
 	 * @return the next element of this matrix iterator.
-	 * @throws InvalidArgumentException if this matrix iterator has no next element.
+	 * @throws UnexistingAttributeException if this matrix iterator has no next element.
 	 */
 	public final E next() {
 		
 		//Checks if this matrix iterator has a next element.
 		if (!hasNext()) {
-			throw new InvalidArgumentException(
-				new Argument(this),
-				new ErrorPredicate("has no next element")
-			);
+			throw new UnexistingAttributeException(this, "next element");
 		}
 		
 		return matrix.getRefAt(nextElementIndex++);

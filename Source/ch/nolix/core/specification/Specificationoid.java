@@ -141,7 +141,7 @@ abstract class Specificationoid {
 	 * @return the number of attributes of this specificationoid
 	 */
 	public final int getAttributesCount() {
-		return attributes.getSize();
+		return attributes.getElementCount();
 	}
 
 	//method

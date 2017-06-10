@@ -36,7 +36,7 @@ extends Neuron<Iterable<O>, Iterable<O>, FanoutNeuron<O>> {
 	public TransformNeuron<Iterable<O>, O> getRefOutputNeuron(final int index) {
 		
 		//Handles the case if the output neuron for the element at the given index exists already.
-		if (outputNeurons.getSize() >= index) {
+		if (outputNeurons.getElementCount() >= index) {
 			return outputNeurons.getRefAt(index);
 		}
 		
@@ -61,7 +61,7 @@ extends Neuron<Iterable<O>, Iterable<O>, FanoutNeuron<O>> {
 	 * @return true if this fanout neurons contains the given output neuron.
 	 */
 	public boolean containsOutputNeuron(final Neuron<?, ?, ?> neuron) {
-		return outputNeurons.containsObject(neuron);
+		return outputNeurons.contains(neuron);
 	}
 	
 	//method

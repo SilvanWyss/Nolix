@@ -165,7 +165,7 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	 * @return the number of input neurons of this neuron.
 	 */
 	protected final int getInputNeuronCount() {
-		return inputConnections.getSize();
+		return inputConnections.getElementCount();
 	}
 	
 	//abstract method
@@ -193,7 +193,7 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	 * @return the inputs of this neuron.
 	 */
 	protected final IContainer<I> getRefInputs() {
-		return inputConnections.toContainer(ic -> ic.getRefInput());
+		return inputConnections.to(ic -> ic.getRefInput());
 	}
 	
 	//method
@@ -247,7 +247,7 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	 * @return the input neurons of this neuron.
 	 */
 	final IContainer<Neuron<?, I, ?>> getRefInputNeurons() {
-		return inputConnections.toContainer(ic -> ic.getRefInputNeuron());
+		return inputConnections.to(ic -> ic.getRefInputNeuron());
 	}
 	
 	//package-visible method

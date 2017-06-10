@@ -18,15 +18,15 @@ import ch.nolix.core.validator2.Validator;
 
 //class
 /**
- * A list is a clearable container that can add elements at the begin or end.
+ * A list is a container that can add elements at the begin or end.
+ * A list is clearable.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 970
+ * @lines 980
  * @param <E> - The type of the elements of a list.
  */
-public class List<E>
-implements Clearable, IContainer<E> {
+public final class List<E> implements Clearable, IContainer<E> {
 	
 	//attributes
 	private ListNode<E> firstNode;
@@ -314,7 +314,7 @@ implements Clearable, IContainer<E> {
 	 */
 	public boolean containsAny() {
 		
-		//Calls the method of the desired interface this list implements.
+		//Calls the default method of the required interface.
 		return IContainer.super.containsAny();
 	}
 	
@@ -335,37 +335,15 @@ implements Clearable, IContainer<E> {
 		
 		return this;
 	}
-	
-	//method
-	/**
-	 * The complexity of this method is O(n) when this list contains n elements.
-	 * 
-	 * @param selector
-	 * @return all elements the given selector selects from this list.
-	 */
-	public List<E> getAll(final IElementTakerBooleanGetter<E> selector) {
-		
-		//Creates list.
-		final List<E> elements = new List<E>();
-		
-		//Fills up the list with the elements the given selector selects from this list.
-		for (final E e: this) {
-			if (selector.getOutput(e)) {
-				elements.addAtEnd(e);
-			}
-		}
-		
-		return elements;
-	}
 		
 	//method
 	/**
 	 * The complexity of this method is O(n) if this list contains n elements.
 	 * 
-	 * @return a new list containing the elements of this list.
+	 * @return a new list with the elements of this list.
 	 */
 	public List<E> getCopy() {
-		return toContainer(e -> e);
+		return to(e -> e);
 	}
 	
 	//method
@@ -378,7 +356,59 @@ implements Clearable, IContainer<E> {
 	 * @return the number of sequences from this list that match the given sequence pattern.
 	 */
 	public int getCount(final SequencePattern<E> sequencePattern) {
-		return getSequences(sequencePattern).getSize();
+		return getSequences(sequencePattern).getElementCount();
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @return the number of elements of this list.
+	 */
+	public int getElementCount() {
+		return count;
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(n^2) if this list contains n elements.
+	 * 
+	 * @param norm
+	 * @return a new list of groups of the elements of this list
+	 * whereas the value of the given norm is equal for all elements of a group.
+	 */
+	public <E2> List<List<E>> getGroups(final IElementTakerElementGetter<E, E2> norm) {
+		
+		final List<List<E>> groups = new List<List<E>>();
+		
+		//Iterates this list.
+		for (final E e : this) {
+			
+			final E2 categoryRepresentator = norm.getOutput(e);
+			
+			final List<E> list
+			= groups.getRefFirstOrNull(l -> l.contains(e2 -> e2.equals(categoryRepresentator)));
+			
+			if (list== null) {
+				groups.addAtEnd(new List<E>(e));
+			}
+			else {
+				list.addAtEnd(e);
+			}
+		}
+		
+		return groups;
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(n) if this list contains n elements.
+	 * 
+	 * @param type
+	 * @return a new list with the elements from this list that are of the given type.
+	 */
+	public List<E> getOfType(final Class<E> type) {
+		return getSelected(e -> e.getClass().isAssignableFrom(type));
 	}
 
 	//method
@@ -398,7 +428,7 @@ implements Clearable, IContainer<E> {
 			throw new EmptyStateException(this);
 		}
 		
-		return ((double)getCount(sequencePattern) / getSize());
+		return ((double)getCount(sequencePattern) / getElementCount());
 	}
 	
 	//method
@@ -437,6 +467,28 @@ implements Clearable, IContainer<E> {
 	
 	//method
 	/**
+	 * The complexity of this method is O(n) when this list contains n elements.
+	 * 
+	 * @param selector
+	 * @return a new list with the elements the given selector selects from this list.
+	 */
+	public List<E> getSelected(final IElementTakerBooleanGetter<E> selector) {
+		
+		//Creates list.
+		final List<E> elements = new List<E>();
+		
+		//Fills up the list with the elements the given selector selects from this list.
+		for (final E e: this) {
+			if (selector.getOutput(e)) {
+				elements.addAtEnd(e);
+			}
+		}
+		
+		return elements;
+	}
+	
+	//method
+	/**
 	 * The complexity of this method is O((n-m)*m) if:
 	 * -This list contains n elements.
 	 * -The sequences that matches the given sequence pattern contain m elements.
@@ -450,23 +502,14 @@ implements Clearable, IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
-	 * 
-	 * @return the number of elements of this list.
-	 */
-	public int getSize() {
-		return count;
-	}
-	
-	//method
-	/**
 	 * This method uses the merge sort algorithm.
 	 * The complexity of this method is O(n*log(n)) if this list contains n elements.
 	 * 
 	 * @param comparator
-	 * @return a new list with the elements of this list sorted from smallest to biggest according to the given norm.
+	 * @return a new list with the elements of this list
+	 * sorted from smallest to biggest according to the given norm.
 	 */
-	public <E2> List<E> getSorted(final IElementTakerComparableGetter<E, E2> norm) {
+	public <E2> List<E> getSortedList(final IElementTakerComparableGetter<E, E2> norm) {
 		
 		//Handles the case if this list is empty.
 		if (isEmpty()) {
@@ -474,7 +517,7 @@ implements Clearable, IContainer<E> {
 		}
 		
 		//Handles the case if this list is not empty.
-		return getSortedSubList(1, getSize(), norm);
+		return getSortedSubList(1, getElementCount(), norm);
 	}
 	
 	//method
@@ -507,7 +550,7 @@ implements Clearable, IContainer<E> {
 	 */
 	public List<E> removeAll(final IElementTakerBooleanGetter<E> selector) {
 		
-		final List<E> list = getAll(e -> !selector.getOutput(e));
+		final List<E> list = getSelected(e -> !selector.getOutput(e));
 		clear();
 		addAtEnd(list);
 		
@@ -784,7 +827,7 @@ implements Clearable, IContainer<E> {
 	 */
 	public <E2> List<E> sort(IElementTakerComparableGetter<E, E2> norm) {
 		
-		final List<E> sorted = getSorted(norm);
+		final List<E> sorted = getSortedList(norm);
 		clear();
 		addAtEnd(sorted);
 		
@@ -795,44 +838,13 @@ implements Clearable, IContainer<E> {
 	/**
 	 * The complexity of this method is O(n) if this list contains n elements.
 	 * 
-	 * @param transformer
-	 * @return a new list with the elements the given transformer transforms from the elements of this list.
+	 * @param extractor
+	 * @return a new list with the elements the given extractor extract from the elements of this list.
 	 */
-	public <O> List<O> toContainer(final IElementTakerElementGetter<E, O> transformer) {
+	public <O> List<O> to(final IElementTakerElementGetter<E, O> extractor) {
 		final List<O> list = new List<O>();
-		forEach(e -> list.addAtEnd(transformer.getOutput(e)));
+		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
 		return list;
-	}
-	
-	//method
-	/**
-	 * The complexity of this method is O(n^2) if this list contains n elements.
-	 * 
-	 * @param norm
-	 * @return a new list of new sub lists containing the elements of this list
-	 * whereas given norm selects from the elements of a sub list always an equal value.
-	 */
-	public <E2> List<List<E>> toLists(final IElementTakerElementGetter<E, E2> norm) {
-		
-		//Creates lists.
-		final List<List<E>> lists = new List<List<E>>();
-		
-		//Iterates this list.
-		for (final E e : this) {
-			
-			final E2 categoryRepresentator = norm.getOutput(e);
-			
-			final List<E> list = lists.getRefFirstOrNull(l -> l.contains(x -> x.equals(categoryRepresentator)));
-			
-			if (list== null) {
-				lists.addAtEnd(new List<E>(e));
-			}
-			else {
-				list.addAtEnd(e);
-			}
-		}
-		
-		return lists;
 	}
 	
 	//method
@@ -876,52 +888,44 @@ implements Clearable, IContainer<E> {
 		//Searches for the start node.
 		ListNode<E> startNode = firstNode;
 		for (int i = 1; i < startIndex; i++) {
-			try {
-				startNode = startNode.getNextNode();
-			}
-			catch (Exception e) {
-				e.printStackTrace();
-			}
+			startNode = startNode.getNextNode();
 		}
 		
 		//Calculates the length of the sub list.
-		int length = (endIndex - startIndex) + 1;	
+		final int length = (endIndex - startIndex) + 1;	
 		
 		//Handles the case when the sub list contains 1 element.
 		if (length == 1) {
-			List<E> list = new List<E>();
-			list.addAtEnd(startNode.getElement());
-			return list;
+			return new List<E>(startNode.getElement());
 		}
 		
 		//Handles the case when the sub list contains 2 elements.
 		if (length == 2) {
-			List<E> list = new List<E>();
-			try {
-				Comparable element1Value = norm.getValue(startNode.getElement());
-				Comparable element2Value = norm.getValue(startNode.getNextNode().getElement());
-				if (element1Value.compareTo(element2Value) > 0) {
-					list.addAtEnd(startNode.getNextNode().getElement());
-					list.addAtEnd(startNode.getElement());					
-				}
-				else {
-					list.addAtEnd(startNode.getElement());
-					list.addAtEnd(startNode.getNextNode().getElement());
-				}
+			
+			final List<E> list = new List<E>();
+
+			final Comparable element1Value = norm.getValue(startNode.getElement());
+			final Comparable element2Value = norm.getValue(startNode.getNextNode().getElement());
+			if (element1Value.compareTo(element2Value) > 0) {
+				list.addAtEnd(startNode.getNextNode().getElement());
+				list.addAtEnd(startNode.getElement());					
 			}
-			catch (Exception e) {
-				e.printStackTrace();
-			}			
+			else {
+				list.addAtEnd(startNode.getElement());
+				list.addAtEnd(startNode.getNextNode().getElement());
+			}
+			
 			return list;
 		}
 		
 		//Handles the case when the sub list contains more than 2 elements.
-		List<E> list = new List<E>();
-		int middleIndex = startIndex + length / 2;
-		List<E> subList1 = getSortedSubList(startIndex, middleIndex, norm);
-		List<E> subList2 = getSortedSubList(middleIndex + 1, endIndex, norm);	
-		for (int i = 1; i <= length; i++) {
-			try {			
+		
+			final List<E> list = new List<E>();
+			final int middleIndex = startIndex + length / 2;
+			final List<E> subList1 = getSortedSubList(startIndex, middleIndex, norm);
+			final List<E> subList2 = getSortedSubList(middleIndex + 1, endIndex, norm);	
+			for (int i = 1; i <= length; i++) {
+				
 				if (subList1.isEmpty()) {					
 					list.addAtEnd(subList2.getRefFirst());
 					subList2.removeFirst();
@@ -932,8 +936,8 @@ implements Clearable, IContainer<E> {
 					
 				}
 				else {
-					Comparable value1 = norm.getValue(subList1.getRefFirst());
-					Comparable value2 = norm.getValue(subList2.getRefFirst());
+					final Comparable value1 = norm.getValue(subList1.getRefFirst());
+				 	final Comparable value2 = norm.getValue(subList2.getRefFirst());
 					if (value1.compareTo(value2) > 0) {
 						list.addAtEnd(subList2.getRefFirst());
 						subList2.removeFirst();
@@ -944,11 +948,8 @@ implements Clearable, IContainer<E> {
 					}
 				}
 			}
-			catch (Exception e) {
-				e.printStackTrace();
-			}
-		}		
-		return list;
+			
+			return list;
 	}
 	
 	//method

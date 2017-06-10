@@ -5,7 +5,6 @@ package ch.nolix.core.container;
 import java.util.Iterator;
 import java.util.Random;
 
-
 //own imports
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
@@ -20,29 +19,21 @@ import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.EmptyStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.validator2.Validator;
 
 //interface
 /**
- * A container is an iterable object that can store several elements of a certain type.
+ * A container can store several elements of a certain type.
+ * A container is iterable.
  * A container cannot contain null elements.
- * This interface does not provide any mutating methods.
+ * This interface provides no mutating methods.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1110
+ * @lines 1100
  * @param <E> - The type of the elements of a container.
  */
-public interface IContainer<E>
-extends Iterable<E> {
-		
-	//default method
-	/**
-	 * @param element
-	 * @return true if this container contains the given element.
-	 */
-	public default boolean contains(final E element) {
-		return containsObject(element);
-	}
+public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
@@ -65,14 +56,32 @@ extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @param elements.
-	 * @return true if this container contains all of the given elements.
+	 * @param element
+	 * @return true if this container contains the given element.
 	 */
-	@SuppressWarnings("unchecked")
-	public default boolean containsAll(final E... elements) {
+	public default boolean contains(final Object element) {
 		
 		//Iterates this container.
-		for (final E e : elements) {
+		for (final E e : this) {
+			
+			//Checks if the current element is the given element.
+			if (e == element) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	//default method
+	/**
+	 * @param elements
+	 * @return true if this container contains all of the given elements.
+	 */
+	public default boolean containsAll(final Iterable<Object> elements) {
+		
+		//Iterates the given elements.
+		for (final Object e : elements) {
 			
 			//Checks if this container contains the current element.
 			if (!contains(e)) {
@@ -88,10 +97,10 @@ extends Iterable<E> {
 	 * @param elements
 	 * @return true if this container contains all of the given elements.
 	 */
-	public default boolean containsAll(final Iterable<E> elements) {
+	public default boolean containsAll(final Object... elements) {
 		
-		//Iterates this container.
-		for (final E e : elements) {
+		//Iterates the given elements.
+		for (final Object e : elements) {
 			
 			//Checks if this container contains the current element.
 			if (!contains(e)) {
@@ -113,13 +122,12 @@ extends Iterable<E> {
 	//default method
 	/**
 	 * @param elements
-	 * @return true if this container contains one of the given elements.
+	 * @return true if this container contains any of the given elements.
 	 */
-	@SuppressWarnings("unchecked")
-	public default boolean containsAny(final E... elements) {
+	public default boolean containsAny(final Object... elements) {
 		
 		//Iterates the given elements.
-		for (final E e : elements) {
+		for (final Object e : elements) {
 			
 			//Checks if this container contains the current element.
 			if (contains(e)) {
@@ -135,28 +143,8 @@ extends Iterable<E> {
 	 * @param element
 	 * @return true if this container contains an element that equals the given given element.
 	 */
-	public default boolean containsEqualing(final E element) {
+	public default boolean containsEqualing(final Object element) {
 		return contains(e -> e.equals(element));
-	}
-	
-	//default method
-	/**
-	 * @param elements
-	 * @return true if this container contains no of the given elements.
-	 */
-	@SuppressWarnings("unchecked")
-	public default boolean containsNone(final E... elements) {
-		
-		//Iterates the given elements.
-		for (final E e : elements) {
-			
-			//Checks if this container contains the current element.
-			if (contains(e)) {
-				return false;
-			}
-		}
-		
-		return true;
 	}
 	
 	//default method
@@ -170,19 +158,21 @@ extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @param object
-	 * @return true if this container contains the given object.
+	 * @param elements
+	 * @return true if this container contains none of the given elements.
 	 */
-	public default boolean containsObject(final Object object) {
+	public default boolean containsNone(final Object... elements) {
 		
-		//Iterates this container.
-		for (final E e : this) {
-			if (e == object) {
-				return true;
+		//Iterates the given elements.
+		for (final Object e : elements) {
+			
+			//Checks if this container contains the current element.
+			if (contains(e)) {
+				return false;
 			}
 		}
 		
-		return false;
+		return true;
 	}
 	
 	//default method
@@ -280,9 +270,8 @@ extends Iterable<E> {
 			throw new EmptyStateException(this);
 		}
 		
-		return (getSumByDoubleNorm(doubleNorm) / getSize());
+		return (getSumByDoubleNorm(doubleNorm) / getElementCount());
 	}
-	
 	
 	//default method
 	/**
@@ -297,7 +286,7 @@ extends Iterable<E> {
 			throw new EmptyStateException(this);
 		}
 		
-		return (getSumByInt(intNorm) / getSize());
+		return (getSumByInt(intNorm) / getElementCount());
 	}
 	
 	//default method
@@ -313,7 +302,7 @@ extends Iterable<E> {
 			throw new EmptyStateException(this);
 		}
 		
-		return (getSumByLong(longNorm) / getSize());
+		return (getSumByLong(longNorm) / getElementCount());
 	}
 	
 	//abstract method
@@ -321,27 +310,6 @@ extends Iterable<E> {
 	 * @return a new container with the elements of this container.
 	 */
 	public abstract IContainer<E> getCopy();
-	
-	//default method
-	/**
-	 * @param element
-	 * @return the number of the times this container contains the given element.
-	 */
-	public default int getCount(final E element) {
-		
-		int count = 0;
-		
-		//Iterates this container.
-		for (final E e : this) {
-			
-			//Checks if the current element is the given element.
-			if (e == element) {
-				count++;
-			}
-		}
-		
-		return count;
-	}
 	
 	//default method
 	/**
@@ -363,6 +331,33 @@ extends Iterable<E> {
 		
 		return count;		
 	}
+	
+	//default method
+	/**
+	 * @param element
+	 * @return the number how many times this container contains the given element.
+	 */
+	public default int getCount(final Object element) {
+		
+		int count = 0;
+		
+		//Iterates this container.
+		for (final E e : this) {
+			
+			//Checks if the current element is the given element.
+			if (e == element) {
+				count++;
+			}
+		}
+		
+		return count;
+	}
+	
+	//abstract method
+	/**
+	 * @return the number of elements of this container.
+	 */
+	public abstract int getElementCount();
 	
 	//default method
 	/**
@@ -469,7 +464,7 @@ extends Iterable<E> {
 			throw new EmptyStateException(this);
 		}
 		
-		return ((double)getCount(selector) / getSize());
+		return ((double)getCount(selector) / getElementCount());
 	}
 	
 	//default method
@@ -484,33 +479,34 @@ extends Iterable<E> {
 			throw new EmptyStateException(this);
 		}
 		
-		return getRefAt(new Random().nextInt(getSize()) + 1);
+		return getRefAt(new Random().nextInt(getElementCount()) + 1);
 	}
 	
 	//default method
 	/**
 	 * @param index
 	 * @return the element at the given index.
-	 * @throws InvalidArgumentException if this container contains no element at the given index.
+	 * @throws NonPositiveArgumentException if the given index is not positive.
+	 * @throws UnexistringAttributeException if this container contains no element at the given index.
 	 */
 	public default E getRefAt(final int index) {
 		
+		//Checks if the given index is positive.
+		Validator.supposeThat(index).thatIsNamed("index").isPositive();
+		
 		//Iterates this container.
-		int counter = 1;
+		int i = 1;
 		for (final E e : this) {
 			
 			//Checks if the current index is the given index.
-			if (counter == index) {
+			if (i == index) {
 				return e;
 			}
 			
-			counter++;
+			i++;
 		}
 		
-		throw new InvalidArgumentException(
-			new Argument(index),
-			new ErrorPredicate("is no index the container contains an element at")
-		);
+		throw new UnexistingAttributeException(this, "element at " + index);
 	}
 	
 	//default method
@@ -737,7 +733,7 @@ extends Iterable<E> {
 	//default method
 	/**
 	 * @param selector
-	 * @return the first element the givne selector selects from this container or null.
+	 * @return the first element the given selector selects from this container or null.
 	 */
 	public default E getRefFirstOrNull(final IElementTakerBooleanGetter<E> selector) {
 		
@@ -765,7 +761,7 @@ extends Iterable<E> {
 		if (isEmpty()) {
 			throw new EmptyStateException(this);
 		}
-		if (getSize() > 1) {
+		if (getElementCount() > 1) {
 			throw new InvalidArgumentException(
 				new Argument(this),
 				new ErrorPredicate("contains several elements")
@@ -809,12 +805,6 @@ extends Iterable<E> {
 		
 		return element;
 	}
-	
-	//abstract method
-	/**
-	 * @return the number of elements of this container.
-	 */
-	public abstract int getSize();
 	
 	//default method
 	/**
@@ -913,7 +903,7 @@ extends Iterable<E> {
 			sum += Math.pow(doubleNorm.getOutput(e) - average, 2);
 		}
 		
-		return (sum / getSize());
+		return (sum / getElementCount());
 	}
 	
 	//default method
@@ -932,7 +922,7 @@ extends Iterable<E> {
 			sum += Math.pow(intNorm.getOutput(e) - average, 2);
 		}
 		
-		return (sum / getSize());
+		return (sum / getElementCount());
 	}
 	
 	//default method
@@ -951,7 +941,7 @@ extends Iterable<E> {
 			sum += Math.pow(longNorm.getOutput(e) - average, 2);
 		}
 		
-		return (sum / getSize());
+		return (sum / getElementCount());
 	}
 	
 	//default method
@@ -993,7 +983,7 @@ extends Iterable<E> {
 	public default E[] toArray() {	
 
 		//Creates array.
-		final E[] array = (E[])new Object[getSize()];
+		final E[] array = (E[])new Object[getElementCount()];
 		
 		//Fills up the array.
 		int counter = 0;
@@ -1007,19 +997,19 @@ extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @param transformer
-	 * @return a new array with the elements the given transformer transforms from the elements of this container.
+	 * @param extractor
+	 * @return a new array with the elements the given extractor extracts from the elements of this container.
 	 */
 	@SuppressWarnings("unchecked")
-	public default <E2> E2[] toArray(final IElementTakerElementGetter<E, E2> transformer) {
+	public default <E2> E2[] toArray(final IElementTakerElementGetter<E, E2> extractor) {
 		
 		//Creates array.
-		final E2[] array = (E2[])(new Object[getSize()]);
+		final E2[] array = (E2[])(new Object[getElementCount()]);
 		
 		//Fills up the array.
 		int index = 0;
 		for (final E e : this) {
-			array[index] = transformer.getOutput(e);
+			array[index] = extractor.getOutput(e);
 			index++;
 		}
 		
@@ -1034,7 +1024,7 @@ extends Iterable<E> {
 	public default double[] toDoubleArray(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		//Creates array.
-		double[] array = new double[getSize()];
+		double[] array = new double[getElementCount()];
 		
 		//Fills up the array.
 		int index = 0;
@@ -1054,7 +1044,7 @@ extends Iterable<E> {
 	public default int[] toIntArray(final IElementTakerLongGetter<E> intNorm) {
 		
 		//Creates array.
-		int[] array = new int[getSize()];
+		int[] array = new int[getElementCount()];
 		
 		//Fills up the array.
 		int index = 0;
@@ -1074,7 +1064,7 @@ extends Iterable<E> {
 	public default long[] toLongArray(final IElementTakerLongGetter<E> longNorm) {
 
 		//Creates array.
-		final long[] array = new long[getSize()];
+		final long[] array = new long[getElementCount()];
 		
 		//Fills up the array.
 		int index = 0;

@@ -11,7 +11,8 @@ import ch.nolix.core.validator2.Validator;
  * @author Silvan Wyss
  * @month 2016-09
  * @lines 70
- * @param <E> - The type of the elements of the sequences of the sequence pattern of a sequence pattern next mediator.
+ * @param <E>
+ * - The type the elements of the sequences of the sequence pattern of a sequence pattern next mediator.
  */
 public final class SequencePatternNextMediator<E> {
 
@@ -21,9 +22,7 @@ public final class SequencePatternNextMediator<E> {
 	
 	//package-visible constructor
 	/**
-	 * Creates new sequence pattern next mediator that:
-	 * -Belongs to the given sequence pattern.
-	 * -Has the given count.
+	 * Creates new sequence pattern next mediator for the given sequence pattern that has the given count.
 	 * 
 	 * @param sequencePattern
 	 * @param count
@@ -38,15 +37,17 @@ public final class SequencePatternNextMediator<E> {
 		//Checks if the given count is not negative.
 		Validator.supposeThat(count).thatIsNamed("count").isNotNegative();
 		
+		//Sets the sequence pattern and the count of this sequence pattern next mediator.
 		this.sequencePattern = sequencePattern;
 		this.count = count;
 	}
 	
 	//method
 	/**
-	 * Adds a blank condition for the next elements of the sequences of the sequence pattern this sequence pattern next mediator belongs to.
+	 * Adds a blank condition for the next elements
+	 * of the sequences of the sequence pattern of this sequence pattern next mediator.
 	 * 
-	 * @return the sequence pattern this sequence pattern next mediator belongs to.
+	 * @return the sequence pattern of this sequence pattern next mediator.
 	 */
 	public SequencePattern<E> addBlank() {
 			
@@ -57,10 +58,11 @@ public final class SequencePatternNextMediator<E> {
 	
 	//method
 	/**
-	 * Adds the given condition for the next elements of the sequences of the sequence pattern this sequence pattern next mediator belongs to.
+	 * Adds the given condition for the next elements
+	 * of the sequences of the sequence pattern of this sequence pattern next mediator.
 	 * 
 	 * @param condition
-	 * @return the sequence pattern this sequence pattern next mediator belongs to.
+	 * @return the sequence pattern of this sequence pattern next mediator.
 	 * @throws NullArgumentException if the given condition is null.
 	 */
 	public SequencePattern<E> addCondition(final IElementTakerBooleanGetter<E> condition) {

@@ -578,7 +578,7 @@ implements Abortable {
 		final String dataMethod = dataMethodRequest.getHeader();
 		
 		//Extracts the arguments of the given request.
-		final List<String> parameters = dataMethodRequest.getRefAttributes().toContainer(a -> a.toString());
+		final List<String> parameters = dataMethodRequest.getRefAttributes().to(a -> a.toString());
 		
 		//Invokes the data method with the arguments and returns the result.
 		return session.invokeDataMethod(dataMethod, parameters);
@@ -602,7 +602,7 @@ implements Abortable {
 		final String runMethod = runMethodCommand.getHeader();
 		
 		//Extracts the arguments of the given command.
-		final List<String> arguments = runMethodCommand.getRefAttributes().toContainer(a -> a.toString());
+		final List<String> arguments = runMethodCommand.getRefAttributes().to(a -> a.toString());
 		
 		//Invokes the run method with the arguments.
 		session.invokeRunMethod(runMethod, arguments);

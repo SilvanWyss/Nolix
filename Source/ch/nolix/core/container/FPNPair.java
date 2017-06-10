@@ -7,7 +7,7 @@ package ch.nolix.core.container;
  * 
  * @author Silvan Wyss
  * @month 2016-07
- * @lines 100
+ * @lines 110
  */
 public final class FPNPair {
 
@@ -27,6 +27,7 @@ public final class FPNPair {
 	//constructor
 	/**
 	 * Creates new FPN pair with the given values.
+	 * 
 	 * @param value1
 	 * @param value2
 	 */

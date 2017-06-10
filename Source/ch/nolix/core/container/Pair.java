@@ -6,7 +6,7 @@ import ch.nolix.core.validator2.Validator;
 
 //class
 /**
- * A pair contains two elements that each are of a certain type.
+ * A pair contains two elements that can be of different types.
  * 
  * @author Silvan Wyss
  * @month 2015-12
@@ -75,7 +75,7 @@ public class Pair<E1, E2> {
 	public void setElement2(final E2 element2) {
 		
 		//Checks if the given element 21 is not null.
-		Validator.supposeThat(element2).thatIsNamed("element21").isNotNull();
+		Validator.supposeThat(element2).thatIsNamed("element2").isNotNull();
 		
 		//Sets the element 2 of this pair.
 		this.element2 = element2;

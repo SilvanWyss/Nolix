@@ -225,7 +225,7 @@ extends Container<TabContainerStructure, TabContainer> {
 		if (hasCurrentTab()) {
 			attributes.addAtEnd(new Specification("CurrentTab(" + currentTab.getName() + ")"));
 		}
-		attributes.addAtEnd(tabs.toContainer(t -> t.getSpecificationAs(TAB)));
+		attributes.addAtEnd(tabs.to(t -> t.getSpecificationAs(TAB)));
 				
 		return attributes;
 	}

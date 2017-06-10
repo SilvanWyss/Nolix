@@ -45,7 +45,7 @@ public final class LicenseManager {
 	 * @return the number of licenses of this license manager.
 	 */
 	public int getLicenseCount() {
-		return licenses.getSize();
+		return licenses.getElementCount();
 	}
 	
 	//method

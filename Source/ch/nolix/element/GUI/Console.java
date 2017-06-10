@@ -62,7 +62,7 @@ implements Clearable {
 		//Enumerates the given attribute.
 		switch (attribute.getHeader()) {
 			case TEXT_LINES_HEADER:
-				addTextLines(attribute.getRefAttributes().toContainer(a -> a.toString()));
+				addTextLines(attribute.getRefAttributes().to(a -> a.toString()));
 				break;
 			default:
 				
