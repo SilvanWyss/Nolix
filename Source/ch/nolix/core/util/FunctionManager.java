@@ -1,37 +1,55 @@
-/*
- * file:	FunctionManager.java
- * author:	Silvan Wyss
- * month:	2016-12
- * lines:	10
- */
-
 //package declaration
 package ch.nolix.core.util;
 
 //own imports
 import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
+import ch.nolix.core.functionInterfaces.IElementTakerDoubleGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 
 //class
 /**
- * This class provides some general functions.
+ * This class provides general functions.
+ * Of this class no instance can be created.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-12
+ * @lines 80
  */
 public final class FunctionManager {
+	
+	//function
+	/**
+	 * This function returns false for a given input object.
+	 */
+	public static final IElementTakerBooleanGetter<Object> FALSE_FUNCTION
+	= (o) -> {
+		return false;
+	};
 
 	//function
-	public static final IElementTakerElementGetter<Object, Object> IDENTITY
+	/**
+	 * This function returns a given input object.
+	 */
+	public static final IElementTakerElementGetter<Object, Object> IDENTITY_FUNCTION
 	= (o) -> {
 		return o;
 	};
 	
 	//function
-	public static final IElementTakerElementGetter<Object, Object> NULL
+	/**
+	 * This function returns null for a given input object.
+	 */
+	public static final IElementTakerElementGetter<Object, Object> NULL_FUNCTION
 	= (o) -> {
 		return null;
 	};
 	
 	//function
-	public static final IElementTakerElementGetter<Object, String> TO_STRING
+	/**
+	 * This function returns the string representation for a given input object.
+	 */
+	public static final IElementTakerElementGetter<Object, String> TO_STRING_FUNCTION
 	= (o) -> {
 		
 		//Handles the case if the given object is null.
@@ -42,4 +60,28 @@ public final class FunctionManager {
 		//Handles the case if the given object is not null.
 		return o.toString();
 	};
+	
+	//function
+	/**
+	 * This function returns true for a given input object.
+	 */
+	public static final IElementTakerBooleanGetter<Object> TRUE_FUNCTION
+	= (o) -> {
+		return true;
+	};
+	
+	//function
+	/**
+	 * This function returns 0.0 for a given input object.
+	 */
+	public static final IElementTakerDoubleGetter<Object> ZERO_FUNCTION
+	= (o) -> {
+		return 0.0;
+	};
+	
+	//private constructor
+	/**
+	 * Avoids that an instance of this class can be created.
+	 */
+	private FunctionManager() {}
 }
