@@ -20,5 +20,5 @@ public interface IGenericSender2<M, R> {
 	 * @param message
 	 * @return the reply to the given message.
 	 */
-	public abstract R send(M message);
+	public abstract R sendAndGetReply(M message);
 }

@@ -13,8 +13,6 @@ public interface  IReplier {
 
 	//abstract method
 	/**
-	 * Lets this replier receive the given message.
-	 * 
 	 * @param message
 	 * @return the reply to the given message.
 	 */
