@@ -1,11 +1,19 @@
 package ch.nolix.core.endPoint4;
 
+import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
+
 final class EndPointTaker<M, R> implements ch.nolix.core.endPoint2.IEndPointTaker {
 
 	private final IEndPointTaker<M, R> endPointTaker;
+	private final IElementTakerElementGetter<String, M> messageTransformer;
+	private final IElementTakerElementGetter<String, R> replyTransformer;
 	
-	public EndPointTaker(IEndPointTaker<M, R> endPointTaker) {
+	public EndPointTaker(IEndPointTaker<M, R> endPointTaker,
+			IElementTakerElementGetter<String, M> messageTransformer,
+			IElementTakerElementGetter<String, R> replyTransformer) {
 		this.endPointTaker = endPointTaker;
+		this.messageTransformer = messageTransformer;
+		this.replyTransformer = replyTransformer;
 	}
 	
 	public String getName() {
@@ -15,7 +23,9 @@ final class EndPointTaker<M, R> implements ch.nolix.core.endPoint2.IEndPointTake
 	public void takeEndPoint(ch.nolix.core.endPoint2.EndPoint endPoint) {
 		endPointTaker.takeEndPoint(
 			new NetEndPoint<M, R>(
-				endPoint
+				endPoint,			
+				messageTransformer,
+				replyTransformer
 			)
 		);
 	}

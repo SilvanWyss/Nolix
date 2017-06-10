@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint4;
 
+import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 
 //class
@@ -15,6 +16,8 @@ public final class NetServer<M, R> extends Server<M, R> {
 	
 	//attribute
 	private final ch.nolix.core.endPoint2.NetServer internalNetServer;
+	private final IElementTakerElementGetter<String, M> messageTransformer;
+	private final IElementTakerElementGetter<String, R> replyTransformer;
 	
 	//constructor
 	/**
@@ -23,10 +26,14 @@ public final class NetServer<M, R> extends Server<M, R> {
 	 * @param port
 	 * @throws OutOfRangeArgumentException if the given port is not in [0, 65535].
 	 */
-	public NetServer(final int port) {
+	public NetServer(final int port, IElementTakerElementGetter<String, M> messageTransformer,
+			IElementTakerElementGetter<String, R> replyTransformer) {
 		
 		//Creates the internal net server of this net server.
 		internalNetServer =	new ch.nolix.core.endPoint2.NetServer(port);
+		
+		this.messageTransformer = messageTransformer;
+		this.replyTransformer = replyTransformer;
 	}
 	
 	//method
@@ -56,9 +63,8 @@ public final class NetServer<M, R> extends Server<M, R> {
 		//Calls method of the base class.
 		super.addEndPointTaker(endPointTaker);
 		
-		internalNetServer.addEndPointTaker(new EndPointTaker<M, R>(endPointTaker));
+		internalNetServer.addEndPointTaker(new EndPointTaker<M, R>(endPointTaker, messageTransformer, replyTransformer));
 	}
-	
 	
 	//method
 	/**

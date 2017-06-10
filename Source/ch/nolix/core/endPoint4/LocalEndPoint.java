@@ -63,7 +63,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	 * @return the reply to the given message.
 	 * @throws InvalidStateException if this local end point is aborted.
 	 */
-	public String sendAndWaitToReply(final String message) {
+	public R sendAndWaitToReply(final M message) {
 		
 		//Checks if this local end point is not aborted.
 		throwExceptionIfAborted();
@@ -86,7 +86,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	 * @param message
 	 * @return the reply to the given message.
 	 */
-	private R receiveAndGetReply(final M message) {
+	private R getReply(final M message) {
 		return getRefReplier().getReply(message);
 	}
 
@@ -108,12 +108,12 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	
 	public R sendAndGetReply(M message) {
 		
-		final Future future = Sequencer.runInBackground(() -> counterPart.receiveAndGetReply(message));
+		final Future future = Sequencer.runInBackground(() -> counterPart.getReply(message));
 		
 		while (future.isRunningJobs()) {
 			
 		}
 		
-		return counterPart.receiveAndGetReply(message);
+		return counterPart.getReply(message);
 	}
 }

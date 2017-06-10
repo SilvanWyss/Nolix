@@ -29,26 +29,16 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	private final List<Package> receivedPackages = new List<Package>();
 	
 	public NetEndPoint(
-		final int port
+		final int port,
+		IElementTakerElementGetter<String, M> messageTransformer,
+		IElementTakerElementGetter<String, R> replyTransformer
 	) {
 		
 		//Creates the internal end point of this end point.
 		this(
-			new ch.nolix.core.endPoint2.NetEndPoint(port)
-		);
-	}
-	
-	//constructor
-	public NetEndPoint(
-		final String ip,
-		final int port
-	) {
-		
-		//Creates the internal end point of this end point.
-		this(
-			new ch.nolix.core.endPoint2.NetEndPoint(
-				ip, port
-			)
+			new ch.nolix.core.endPoint2.NetEndPoint(port),
+			messageTransformer,
+			replyTransformer
 		);
 	}
 	
@@ -56,30 +46,60 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	public NetEndPoint(
 		final String ip,
 		final int port,
-		final String target) {
+		IElementTakerElementGetter<String, M> messageTransformer,
+		IElementTakerElementGetter<String, R> replyTransformer
+	) {
+		
+		//Creates the internal end point of this end point.
+		this(
+			new ch.nolix.core.endPoint2.NetEndPoint(
+				ip, port
+			),
+			messageTransformer,
+			replyTransformer
+		);
+	}
+	
+	//constructor
+	public NetEndPoint(
+		final String ip,
+		final int port,
+		final String target,
+		IElementTakerElementGetter<String, M> messageTransformer,
+		IElementTakerElementGetter<String, R> replyTransformer) {
 		
 		//Creates the internal end point of this end point.
 		this(
 			new ch.nolix.core.endPoint2.NetEndPoint(
 				ip, port, target
-			)
+			),
+			messageTransformer,
+			replyTransformer
 		);
 	}
 	
 	NetEndPoint(
-		final ch.nolix.core.endPoint2.EndPoint internalEndPoint
+		final ch.nolix.core.endPoint2.EndPoint internalEndPoint,
+		IElementTakerElementGetter<String, M> messageTransformer,
+		IElementTakerElementGetter<String, R> replyTransformer
 	) {
 		
 		this.internalEndPoint = internalEndPoint;
+		this.messageTransformer = messageTransformer;
+		this.replyTransformer = replyTransformer;
 		
 		internalEndPoint.setReceiver(new Receiver<M, R>(this));
 	}
 
-	public NetEndPoint(int port, String target) {
+	public NetEndPoint(int port, String target,
+			IElementTakerElementGetter<String, M> messageTransformer,
+			IElementTakerElementGetter<String, R> replyTransformer) {
 		
 		//Creates the internal end point of this end point.
 		this(
-			new ch.nolix.core.endPoint2.NetEndPoint(port, target)
+			new ch.nolix.core.endPoint2.NetEndPoint(port, target),
+			messageTransformer,
+			replyTransformer
 		);
 	}
 
@@ -214,7 +234,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 			case RESPONSE_EXPECTING_MESSAGE:
 				
 				try {
-					final String reply = getRefReplier().getReply(package_.getRefContent());
+					final R reply = getRefReplier().getReply(messageTransformer.getOutput(package_.getRefContent()));
 					send(new Package(package_.getIndex(), MessageRole.SUCCESS_RESPONSE, reply.toString()));
 				}
 				catch (final Exception exception) {
@@ -257,7 +277,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 		//Enumerates the response.
 		switch (response.getMessageRole()) {
 			case SUCCESS_RESPONSE:
-				return response.getRefContent();
+				return replyTransformer.getOutput(response.getRefContent());
 			case ERROR_RESPONSE:
 				throw new RuntimeException(response.getRefContent());
 			default:
