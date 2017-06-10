@@ -17,7 +17,7 @@ public class Package<C> {
 
 	//attributes
 	private final int index;
-	private final C context;
+	private final C content;
 	
 	//constructor
 	/**
@@ -36,15 +36,15 @@ public class Package<C> {
 		this.index = index;
 		
 		//sets the context of this package.
-		this.context = context;
+		this.content = context;
 	}
 	
 	//method
 	/**
 	 * @return the context of this package.
 	 */
-	public final C getRefContext() {
-		return context;
+	public final C getRefContent() {
+		return content;
 	}
 	
 	//method

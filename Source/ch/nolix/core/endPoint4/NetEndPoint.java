@@ -214,7 +214,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 			case RESPONSE_EXPECTING_MESSAGE:
 				
 				try {
-					final String reply = getRefReplier().getReply(package_.getRefContext());
+					final String reply = getRefReplier().getReply(package_.getRefContent());
 					send(new Package(package_.getIndex(), MessageRole.SUCCESS_RESPONSE, reply.toString()));
 				}
 				catch (final Exception exception) {
@@ -257,9 +257,9 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 		//Enumerates the response.
 		switch (response.getMessageRole()) {
 			case SUCCESS_RESPONSE:
-				return response.getRefContext();
+				return response.getRefContent();
 			case ERROR_RESPONSE:
-				throw new RuntimeException(response.getRefContext());
+				throw new RuntimeException(response.getRefContent());
 			default:
 				throw new RuntimeException("An error occured.");
 		}
