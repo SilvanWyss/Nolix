@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.core.controllerInterfaces;
+package ch.nolix.core.controllerInterfaces2;
 
 //own import
 import ch.nolix.core.specification.Statement;

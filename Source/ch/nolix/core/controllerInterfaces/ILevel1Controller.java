@@ -1,10 +1,3 @@
-/*
- * file:	ILevel1Controller.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	30
- */
-
 //package declaration
 package ch.nolix.core.controllerInterfaces;
 
@@ -13,15 +6,15 @@ import ch.nolix.core.specification.Statement;
 
 //interface
 /**
- * A level 1 controller can run commands.
- * 
- * The default methods of this interface need not to be overwritten.
+ * @author Silvan Wyss
+ * @month 2017-06
+ * @lines 30
  */
 public interface ILevel1Controller {
 
 	//abstract method
 	/**
-	 * Runs the given command.
+	 * Lets this level 1 controller run the given command.
 	 * 
 	 * @param command
 	 */
@@ -29,11 +22,11 @@ public interface ILevel1Controller {
 	
 	//default method
 	/**
-	 * Runs the given command.
+	 * Lets this level 1 controller run the given command.
 	 * 
 	 * @param command
 	 */
-	public default void run(String string) {
-		run(new Statement(string));
+	public default void run(final String command) {
+		run(new Statement(command));
 	}
 }

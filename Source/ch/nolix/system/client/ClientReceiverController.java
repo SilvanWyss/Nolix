@@ -2,7 +2,7 @@
 package ch.nolix.system.client;
 
 //own imports
-import ch.nolix.core.controllerInterfaces.ILevel2Controller;
+import ch.nolix.core.controllerInterfaces2.ILevel2Controller;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.validator2.Validator;
 

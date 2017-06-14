@@ -2,7 +2,7 @@
 package ch.nolix.system.GUIClient;
 
 //own imports
-import ch.nolix.core.controllerInterfaces.ILevel1Controller;
+import ch.nolix.core.controllerInterfaces2.ILevel1Controller;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.validator2.Validator;
 

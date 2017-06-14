@@ -2,7 +2,7 @@
 package ch.nolix.element.basic;
 
 //own import
-import ch.nolix.core.controllerInterfaces.ILevel2Controller;
+import ch.nolix.core.controllerInterfaces2.ILevel2Controller;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;

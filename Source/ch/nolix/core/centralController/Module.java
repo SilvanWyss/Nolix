@@ -5,7 +5,8 @@ package ch.nolix.core.centralController;
 import java.io.File;
 
 //own imports
-import ch.nolix.core.controllerInterfaces.ILevel3Controller;
+
+import ch.nolix.core.controllerInterfaces2.ILevel3Controller;
 import ch.nolix.core.interfaces.Named;
 import ch.nolix.core.validator2.Validator;
 

@@ -10,7 +10,7 @@ package ch.nolix.core.controller;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.controllerInterfaces.ILevel2Controller;
+import ch.nolix.core.controllerInterfaces2.ILevel2Controller;
 import ch.nolix.core.interfaces.Abortable;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Specification;

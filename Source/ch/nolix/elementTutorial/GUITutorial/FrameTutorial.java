@@ -9,7 +9,7 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
 //own imports
-import ch.nolix.core.controllerInterfaces.ILevel1Controller;
+import ch.nolix.core.controllerInterfaces2.ILevel1Controller;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.Console;
