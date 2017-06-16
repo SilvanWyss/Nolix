@@ -31,23 +31,10 @@ public final class NetServer<M, R> extends Server<M, R> {
 		
 		//Creates the internal net server of this net server.
 		internalNetServer =	new ch.nolix.core.endPoint2.NetServer(port);
+		createAbortDependency(internalNetServer);
 		
 		this.messageTransformer = messageTransformer;
 		this.replyTransformer = replyTransformer;
-	}
-	
-	//method
-	/**
-	 * Aborts this net server.
-	 * 
-	 * @throws InvalidStateException if this net server is already aborted.
-	 */
-	public final void abort() {
-		
-		//Calls method of the base class.
-		super.abort();
-		
-		internalNetServer.abort();
 	}
 	
 	//method

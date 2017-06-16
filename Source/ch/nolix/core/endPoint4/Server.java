@@ -72,4 +72,10 @@ extends AbortableElement {
 		.getRefFirst(ept -> ept.hasName(endPoint.getTarget()))
 		.takeEndPoint(endPoint);
 	}
+
+	@Override
+	protected void noteAbort() {
+		// TODO Auto-generated method stub
+		
+	}
 }

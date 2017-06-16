@@ -57,21 +57,6 @@ public class NetServer extends Server {
 		//Creates new net server sub listener for this net server.
 		new NetServerSubListener(this);
 	}
-	
-	//method
-	/**
-	 * Aborts this net server.
-	 */
-	public void abort() {
-		
-		//Calls method of the base class.
-		super.abort();
-		
-		try {
-			serverSocket.close();
-		}
-		catch (IOException exception) {}
-	}
 
 	//method
 	/**
@@ -87,5 +72,16 @@ public class NetServer extends Server {
 	 */
 	ServerSocket getRefServerSocket() {
 		return serverSocket;
+	}
+	
+	//method
+	/**
+	 * Lets this net server note an abort.
+	 */
+	protected void noteAbort() {
+		try {
+			serverSocket.close();
+		}
+		catch (final IOException exception) {}
 	}
 }

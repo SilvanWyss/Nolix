@@ -79,4 +79,10 @@ public final class LocalEndPoint extends EndPoint {
 	private LocalEndPoint getCounterPart() {
 		return counterPart;
 	}
+
+	@Override
+	protected void noteAbort() {
+		// TODO Auto-generated method stub
+		
+	}
 }

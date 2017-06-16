@@ -29,7 +29,7 @@ public final class Server {
 	 * @param port
 	 */
 	public Server(final int port) {	
-		new NetServer(port, new ServerDuplexControllerTaker(this));
+		new NetServer(port).addDuplexControllerTaker(new ServerDuplexControllerTaker(this));
 	}
 	
 	//constructor

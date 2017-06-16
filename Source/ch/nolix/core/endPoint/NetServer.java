@@ -63,11 +63,7 @@ public final class NetServer extends Server {
 	/**
 	 * Aborts this net server.
 	 */
-	public void abort() {
-		
-		//Calls method of the base class.
-		super.abort();
-		
+	public void noteAbort() {
 		try {
 			serverSocket.close();
 		}

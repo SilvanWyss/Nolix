@@ -56,6 +56,8 @@ implements IGenericSender2<M, R> {
 		this.replier = replier;
 	}
 	
+	protected final void noteAbort() {}
+	
 	//method
 	/**
 	 * @return the replier of this end point.

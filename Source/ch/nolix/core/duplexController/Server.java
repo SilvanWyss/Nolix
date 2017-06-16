@@ -22,4 +22,13 @@ public class Server extends AbortableElement {
 	 * Lets this server note an abort.
 	 */
 	protected void noteAbort() {}
+	
+	public void addDuplexControllerTaker(final IDuplexControllerTaker duplexControllerTaker) {
+		this.duplexControllerTaker.addAtEnd(duplexControllerTaker);
+	}
+	
+	public void takeDuplexController(final DuplexController duplexController) {
+		final String target = duplexController.getTarget();
+		duplexControllerTaker.getRefFirst(dct -> dct.hasName(target)).takeDuplexController(duplexController);
+	}
 }

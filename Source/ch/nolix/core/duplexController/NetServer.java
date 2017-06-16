@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.core.duplexController;
 
-//own imports
+//own import
 import ch.nolix.core.endPoint3.NetEndPoint;
-import ch.nolix.core.validator.Validator;
 
 //class
 /**
@@ -14,19 +13,17 @@ import ch.nolix.core.validator.Validator;
  * @lines 10
  */
 public final class NetServer extends Server {
-
-	//attributes
 	
-	private final ch.nolix.core.endPoint3.NetServer alphaEndPointListener;
+	//attribute
+	private ch.nolix.core.endPoint3.NetServer internalServer;
 	
-	public NetServer(final int port, final IDuplexControllerTaker duplexControllerTaker) {
+	//constructor
+	public NetServer(final int port) {
 		
-		//Checks the given duplex controller taker.
-		Validator.throwExceptionIfValueIsNull("duplex controller taker", duplexControllerTaker);
+		//Creates the internal server of this net server.
+		internalServer = new ch.nolix.core.endPoint3.NetServer(port);
 		
-		this.duplexControllerTaker = duplexControllerTaker;
-		this.alphaEndPointListener = new ch.nolix.core.endPoint3.NetServer(port);
-		alphaEndPointListener.addEndPointTaker(new EndPointTaker(this));
+		createAbortDependency(internalServer);
 	}
 
 	//package-visible method
@@ -36,7 +33,7 @@ public final class NetServer extends Server {
 	 * @param alphaEndPoint
 	 * @throws Exception if the given alpha end point is null
 	 */
-	void takeNetEndPoint(final NetEndPoint alphaEndPoint) {
-		duplexControllerTaker.takeDuplexController(new NetDuplexController(alphaEndPoint));
+	void takeNetEndPoint(final NetEndPoint netEndPoint) {
+		takeDuplexController(new NetDuplexController(netEndPoint));
 	}
 }

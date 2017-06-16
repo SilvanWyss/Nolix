@@ -57,6 +57,12 @@ implements ISender2 {
 	
 	//method
 	/**
+	 * Lets this end point note an abort.
+	 */
+	protected final void noteAbort() {}
+	
+	//method
+	/**
 	 * @return the replier of this end point.
 	 * @throws UnexistingAttributeException if this end point has no replier.
 	 */

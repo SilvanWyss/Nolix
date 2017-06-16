@@ -127,4 +127,10 @@ public final class LocalEndPoint extends EndPoint {
 		
 		counterpart.receive(message);	
 	}
+
+	//method
+	/**
+	 * Lets this local end point note an abort.
+	 */
+	protected void noteAbort() {}
 }

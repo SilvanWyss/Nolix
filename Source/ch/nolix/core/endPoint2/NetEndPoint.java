@@ -198,6 +198,16 @@ public class NetEndPoint extends EndPoint {
 		printWriter.println(message);
 		printWriter.flush();
 	}
+	
+	//method
+	/**
+	 * Lets this net end point note an abort.
+	 */
+	protected void noteAbort() {
+		try {
+			socket.close();
+		} catch (final IOException exception) {}
+	}
 
 	//method
 	/**

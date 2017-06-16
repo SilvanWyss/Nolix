@@ -52,4 +52,10 @@ final class ServerDuplexControllerTaker implements IDuplexControllerTaker {
 		//Creates client that belongs to the target application.
 		targetApplication.createClient(duplexController);
 	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

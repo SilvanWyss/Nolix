@@ -13,6 +13,9 @@ import ch.nolix.core.interfaces.Named;
  * @lines 20
  */
 public interface IEndPointTaker extends Named {
+	
+	//default name
+	public static final String DEFAULT_NAME = "Default";
 
 	//abstract method
 	/**

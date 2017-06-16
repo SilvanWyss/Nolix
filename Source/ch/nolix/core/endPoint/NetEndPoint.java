@@ -99,13 +99,9 @@ public final class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Aborts this net end point.
+	 * Lets this net end point note an abort.
 	 */
-	public void abort() {
-		
-		//Calls method of the base class.
-		super.abort();
-		
+	protected void noteAbort() {
 		try {
 			socket.close();
 		}

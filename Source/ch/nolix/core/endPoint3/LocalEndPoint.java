@@ -1,9 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint3;
 
-//own imports
-import ch.nolix.core.sequencer.Future;
-import ch.nolix.core.sequencer.Sequencer;
+//own import
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -106,14 +104,7 @@ public final class LocalEndPoint extends EndPoint {
 		return requestedConnection;
 	}
 	
-	public String sendAndGetReply(String message) {
-		
-		final Future future = Sequencer.runInBackground(() -> counterPart.receiveAndGetReply(message));
-		
-		while (future.isRunningJobs()) {
-			
-		}
-		
+	public String sendAndGetReply(String message) {		
 		return counterPart.receiveAndGetReply(message);
 	}
 }

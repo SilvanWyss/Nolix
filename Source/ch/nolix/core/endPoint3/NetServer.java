@@ -31,20 +31,6 @@ public final class NetServer extends Server {
 	
 	//method
 	/**
-	 * Aborts this net server.
-	 * 
-	 * @throws InvalidStateException if this net server is already aborted.
-	 */
-	public final void abort() {
-		
-		//Calls method of the base class.
-		super.abort();
-		
-		internalNetServer.abort();
-	}
-	
-	//method
-	/**
 	 * Adds the given end point taker to this net server.
 	 * 
 	 * @param endPointTaker

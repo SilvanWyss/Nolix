@@ -118,6 +118,14 @@ public final class LocalDuplexController extends DuplexController {
 	
 	//method
 	/**
+	 * @return the counterpart of this local duplex controller.
+	 */
+	public LocalDuplexController getRefCounterpart() {
+		return counterpart;
+	}
+	
+	//method
+	/**
 	 * @return true if this local duplex controller has an abort reason
 	 */
 	public boolean hasAbortReason00() {

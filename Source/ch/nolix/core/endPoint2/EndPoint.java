@@ -22,7 +22,8 @@ public abstract class EndPoint
 extends AbortableElement
 implements ISender {
 	
-	static final String DEFAULT_TARGET = "DefaultTarget";
+	//default target
+	protected static final String DEFAULT_TARGET = IEndPointTaker.DEFAULT_NAME;
 
 	//attributes
 	private final boolean hasRequestedConnection;
@@ -43,7 +44,7 @@ implements ISender {
 
 	//method
 	/**
-	 * @return the target of this local end point.
+	 * @return the target of this end point.
 	 */
 	public final String getTarget() {
 		return target;

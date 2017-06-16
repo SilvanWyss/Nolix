@@ -40,7 +40,7 @@ final class EndPointTaker implements IEndPointTaker {
 	 * @param alphaEndPoint
 	 */
 	public void takeEndPoint(EndPoint alphaEndPoint) {
-		duplexControllerTaker.takeNetEndPoint((NetEndPoint)alphaEndPoint);
+		duplexControllerTaker.takeDuplexController(new NetDuplexController((NetEndPoint)alphaEndPoint));
 	}
 
 	@Override

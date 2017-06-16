@@ -57,7 +57,7 @@ implements Abortable {
 		requestedConnectionFlag = false;
 		this.duplexController = duplexController;
 		duplexController.setReceiverController(new ClientReceiverController(this));
-		target = duplexController.getData(TARGET_REQUEST);
+		target = duplexController.getData(TARGET_REQUEST).toString();
 	}
 	
 	public Client(String ip, int port, String target) {
@@ -503,16 +503,16 @@ implements Abortable {
 	 * @return the data the given request requests from this client.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	protected Object internal_getData(final Statement request) {
+	protected Specification internal_getData(final Statement request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case TYPE_REQUEST:
-				return getType();
+				return new Specification(getType());
 			case TARGET_REQUEST:
-				return internal_getTarget();
+				return new Specification(internal_getTarget());
 			case DATA_METHOD_REQUEST:
-				return internal_invokeDataMethod(request.getRefOneAttribute());
+				return new Specification(internal_invokeDataMethod(request.getRefOneAttribute()));
 			default:
 				throw new InvalidArgumentException(new ArgumentName("reqest"), new Argument(request));
 		}

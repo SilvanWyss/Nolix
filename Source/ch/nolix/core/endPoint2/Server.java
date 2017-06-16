@@ -67,8 +67,13 @@ public class Server extends AbortableElement {
 	 * @param endPoint
 	 */
 	public final void takeEndPoint(final EndPoint endPoint) {
-		System.out.println(endPoint.getTarget());
 		endPointTaker.getRefFirst(ept -> ept.hasName(endPoint.getTarget()))
 		.takeEndPoint(endPoint);
 	}
+	
+	//method
+	/**
+	 * Lets this server note an abort.
+	 */
+	protected void noteAbort() {}
 }

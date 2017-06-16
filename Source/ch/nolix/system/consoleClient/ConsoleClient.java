@@ -65,7 +65,7 @@ public final class ConsoleClient extends Client<ConsoleClient> {
 	 * @return the next character of the console.
 	 */
 	public char readNextCharacterOfConsole() {
-		return internal_getRefDuplexController().waitToData(NEXT_CHARACTER_OF_CONSOLE_REQUEST).toString().charAt(0);
+		return internal_getRefDuplexController().getData(NEXT_CHARACTER_OF_CONSOLE_REQUEST).toString().charAt(0);
 	}
 	
 	//method
@@ -73,7 +73,7 @@ public final class ConsoleClient extends Client<ConsoleClient> {
 	 * Lets this console client read the next enter of the console.
 	 */
 	public void readNextEnterOfConsole() {
-		internal_getRefDuplexController().waitToData(NEXT_ENTER_OF_CONSOLE_REQUEST);
+		internal_getRefDuplexController().getData(NEXT_ENTER_OF_CONSOLE_REQUEST);
 	}
 	
 	//method
@@ -83,7 +83,7 @@ public final class ConsoleClient extends Client<ConsoleClient> {
 	 * @return the next line of the console.
 	 */
 	public String readLineFromConsole() {
-		return internal_getRefDuplexController().waitToData(NEXT_LINE_OF_CONSOLE_REQUEST).toString();
+		return internal_getRefDuplexController().getData(NEXT_LINE_OF_CONSOLE_REQUEST).toString();
 	}
 	
 	//method

@@ -50,4 +50,7 @@ implements IEndPointTaker {
 		
 		endPointTaker.takeEndPoint(endPoint);
 	}
+
+	@Override
+	protected void noteAbort() {}
 }
