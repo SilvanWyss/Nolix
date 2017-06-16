@@ -3,7 +3,7 @@ package ch.nolix.system.GUIClient;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.controller.Controller;
+import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.element.GUI.GUI;
@@ -28,10 +28,10 @@ public final class GUIClient extends Client<GUIClient> {
 	//attribute
 	private final GUI<?> dialog;
 
-	public GUIClient(final Controller controller) {
+	public GUIClient(final DuplexController duplexController) {
 			
 		//Calls constructor of the base class.
-		super(controller);
+		super(duplexController);
 		
 		this.dialog = new InvisibleGUI();
 	}

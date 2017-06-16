@@ -6,8 +6,6 @@ import ch.nolix.core.interfaces.Abortable;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.invalidStateException.UntimelyMethodException;
-import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
@@ -16,33 +14,28 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 110
+ * @lines 120
  */
 public abstract class AbortableElement implements Abortable {
 
 	//attribute
-	private boolean aborted = false;
-	
-	//optional attribute
-	private String abortReason;	
+	private AbortController abortController = new AbortController(this);
 	
 	//method
 	/**
 	 * Aborts this abortable element.
 	 * 
-	 * @throws InvalidArgumentException if this abortable element is already aborted.
+	 * @throws InvalidArgumentException if this abortable element
+	 * or an abort depency of this abortable elements is already aborted.
 	 */
-	public void abort() {
-		
-		//Checks if this abortable element is already aborted.
-		throwExceptionIfAborted();
-		
-		aborted = true;
+	public final void abort() {
+		abortController.abort();
+		noteAbort();
 	}
 	
 	//method
 	/**
-	 * Aborts this abortable element because of the given stop reason.
+	 * Aborts this abortable element because of the given abort reason.
 	 * 
 	 * @param abortReason
 	 * @throws NullArgumentException if the given abort reason is null.
@@ -50,36 +43,17 @@ public abstract class AbortableElement implements Abortable {
 	 * @throws InvalidArgumentException if this abortable element is already aborted.
 	 */
 	public final void abort(String abortReason) {
-		
-		//Checks if the given abort reason is not null or empty.
-		Validator.supposeThat(abortReason).thatIsNamed("abort reason").isNotEmpty();
-		
-		//Aborts this abortable element.
-		abort();
-		
-		//Sets the abort reason of this abortable element.
-		this.abortReason = abortReason;
+		abortController.abort(abortReason);
 	}
 	
 	//method
 	/**
 	 * @return the abort reason of this abortable element.
-	 * @throws UntimelyMethodException if this abortable element is not aborted.
+	 * @throws InvalidStateException if this abortable element not aborted.
 	 * @throws UnexistingAttributeException if this abortable element has no abort reason.
 	 */
 	public final String getAbortReason() {
-		
-		//Checks if this abortable element is aborted.
-		if (!isAborted()) {
-			throw new UntimelyMethodException(this, "get abort reason");
-		}
-		
-		//Checks if this abortable element has an abort reason.
-		if (!hasAbortReason()) {
-			throw new UnexistingAttributeException(this, "abort reason");
-		}
-		
-		return abortReason;
+		return abortController.getAbortReason();
 	}
 	
 	//method
@@ -87,7 +61,16 @@ public abstract class AbortableElement implements Abortable {
 	 * @return true if this abortable element has an abort reason.
 	 */
 	public final boolean hasAbortReason() {
-		return (abortReason != null);
+		return abortController.hasAbortReason();
+	}
+	
+	//method
+	/**
+	 * @param element
+	 * @return true if this abortable element has the given element as abort dependency.
+	 */
+	public final boolean hasAbortDependencyTo(final AbortableElement element) {
+		return abortController.containsElement(element);
 	}
 	
 	//method
@@ -95,16 +78,48 @@ public abstract class AbortableElement implements Abortable {
 	 * @return true if this abortable element is aborted.
 	 */
 	public final boolean isAborted() {
-		return aborted;
+		return abortController.isAborted();
 	}
+	
+	//method
+	/**
+	 * Creates an abort dependency between this aborteble element and the given element.
+	 * When an abortable element is aborted all of its abort dependencies are also aborted
+	 * and vice versa.
+	 * 
+	 * @param element
+	 * @throws InvalidStateException if this abortable element is aborted.
+	 * @throws InvalidStateException
+	 * if this abortable element has already an abort dependeny to the given element.
+	 */
+	protected final synchronized void createAbortDependency(final AbortableElement element) {
+		
+		//Checks if this abortable element is aborted.
+		throwExceptionIfAborted();
+		
+		//Checks if this abortable element has already an abort dependency to the given element.
+		if (hasAbortDependencyTo(element)) {
+			throw new InvalidStateException(
+				this,
+				"has already an abort dependency to the given element"
+			);
+		}
+		
+		abortController.elements.forEach(e -> e.abortController = abortController);
+		abortController.elements.addAtEnd(element.abortController.elements);
+	}
+	
+	//abstract method
+	/**
+	 * Lets this abortable element note an abort.
+	 */
+	protected abstract void noteAbort();
 	
 	//method
 	/**
 	 * @throws InvalidStateException if this abortable element is aborted.
 	 */
 	protected final void throwExceptionIfAborted() {
-		if (isAborted()) {
-			throw new InvalidStateException(this, "is aborted");
-		}
+		abortController.isAborted();
 	}
 }

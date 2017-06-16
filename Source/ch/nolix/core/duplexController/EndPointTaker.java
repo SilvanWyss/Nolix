@@ -6,26 +6,31 @@
  */
 
 //package declaration
-package ch.nolix.core.controller;
+package ch.nolix.core.duplexController;
 
 //own imports
 import ch.nolix.core.endPoint3.EndPoint;
 import ch.nolix.core.endPoint3.IEndPointTaker;
+import ch.nolix.core.endPoint3.NetEndPoint;
 import ch.nolix.core.validator.Validator;
 
 //package-visible class
+/**
+ * @author Silvan Wyss
+ * @month 
+ */
 final class EndPointTaker implements IEndPointTaker {
 
 	//attribute
-	private final NetServer netDuplexControllerListener;
+	private final IDuplexControllerTaker duplexControllerTaker;
 	
 	//constructor
-	public EndPointTaker(final NetServer netDuplexControllerListener) {
+	public EndPointTaker(final IDuplexControllerTaker netDuplexControllerListener) {
 		
 		//Checks the given net duplex controller listener.
 		Validator.throwExceptionIfValueIsNull("net duplex controller listener", netDuplexControllerListener);
 		
-		this.netDuplexControllerListener = netDuplexControllerListener;
+		this.duplexControllerTaker = netDuplexControllerListener;
 	}
 	
 	//method
@@ -35,11 +40,11 @@ final class EndPointTaker implements IEndPointTaker {
 	 * @param alphaEndPoint
 	 */
 	public void takeEndPoint(EndPoint alphaEndPoint) {
-		netDuplexControllerListener.takeAlphaEndPoint(alphaEndPoint);
+		duplexControllerTaker.takeNetEndPoint((NetEndPoint)alphaEndPoint);
 	}
 
 	@Override
 	public String getName() {
-		return "Test";
+		return duplexControllerTaker.getName();
 	}
 }

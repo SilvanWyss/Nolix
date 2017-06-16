@@ -12,10 +12,11 @@ import java.lang.reflect.ParameterizedType;
 
 
 
+
 import ch.nolix.core.basic.NamedElement;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.controller.Controller;
+import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.validator2.Validator;
 
@@ -86,10 +87,10 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 	/**
 	 * Creates a new client that has the given duplex controller and belongs to this application.
 	 * 
-	 * @param controller
+	 * @param duplexController
 	 */
 	@SuppressWarnings("unchecked")
-	public final void createClient(Controller controller) {
+	public final void createClient(DuplexController duplexController) {
 		try {
 			/*
 			//Creates initial session.
@@ -109,11 +110,11 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 			
 			//Extracts the constructor of the class of the clients of this application.
 			final String className = ((ParameterizedType)initialSession.getClass().getGenericSuperclass()).getActualTypeArguments()[0].toString().split("\\s")[1];
-			final Constructor<?> constructor = Class.forName(className).getConstructor(Controller.class);	
+			final Constructor<?> constructor = Class.forName(className).getConstructor(DuplexController.class);	
 			constructor.setAccessible(true);
 			
 			//Creates client.
-			C client = (C)constructor.newInstance(controller);
+			C client = (C)constructor.newInstance(duplexController);
 			
 			clients.addAtEnd(client);
 			Sequencer.runInBackground(() -> client.internal_setSessionAndInitializeSession(initialSession));

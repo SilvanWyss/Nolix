@@ -2,7 +2,7 @@
 package ch.nolix.system.client;
 
 //own imports
-import ch.nolix.core.controller.Controller;
+import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.specification.Specification;
 
 //class
@@ -78,10 +78,10 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @param controller
 	 * @throws NullArgumentException if the given duplex controller is null.
 	 */
-	public StandardClient(final Controller controller) {
+	public StandardClient(final DuplexController duplexController) {
 				
 		//Calls constructor of the base class.
-		super(controller);
+		super(duplexController);
 	}
 	
 	//constructor

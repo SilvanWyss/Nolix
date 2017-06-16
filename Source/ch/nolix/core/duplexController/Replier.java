@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.core.controller;
+package ch.nolix.core.duplexController;
 
 //own import
 import ch.nolix.core.communicationInterfaces.IReplier;
@@ -16,22 +16,22 @@ import ch.nolix.core.validator.Validator;
 final class Replier implements IReplier {
 
 	//attribute
-	private final NetController netController;
+	private final NetDuplexController netDuplexController;
 	
 	//constructor
 	/**
 	 * Creates new receiver that belongs to the given net controller.
 	 * 
-	 * @param netController
+	 * @param netDuplexController
 	 */
-	public Replier(NetController netController) {
+	public Replier(NetDuplexController netDuplexController) {
 		
-		Validator.throwExceptionIfValueIsNull("net controller", netController);
+		Validator.throwExceptionIfValueIsNull("net controller", netDuplexController);
 		
-		this.netController = netController;
+		this.netDuplexController = netDuplexController;
 	}
 	
 	public String getReply(String message) {
-		return netController.receiveMessageAndGetReply(message);
+		return netDuplexController.receiveAndGetReply(message);
 	}
 }

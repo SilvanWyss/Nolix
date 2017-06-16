@@ -6,16 +6,16 @@
  */
 
 //package declaration
-package ch.nolix.core.controller;
+package ch.nolix.core.duplexController;
 
 //package-visible class
 final class Protocol {
 		
-	//outgoing message headers
+	//message headers
 	public static final String COMMANDS = "Commands";
 	public static final String DATA_REQUEST = "DataRequest";
 	
-	//incoming message headers
+	//reply headers
 	public static final String DONE = "Done";
 	public static final String DATA = "Data";
 	public static final String ERROR = "Error";

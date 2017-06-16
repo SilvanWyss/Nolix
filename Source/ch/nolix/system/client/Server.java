@@ -3,7 +3,7 @@ package ch.nolix.system.client;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.controller.NetServer;
+import ch.nolix.core.duplexController.NetServer;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint3;
 
-//own imports
+//own import
 import ch.nolix.core.container.List;
 
 //class

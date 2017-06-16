@@ -4,9 +4,9 @@ package ch.nolix.system.client;
 //own imports
 import ch.nolix.core.basic.OptionalSignableElement;
 import ch.nolix.core.container.List;
-import ch.nolix.core.controller.Controller;
-import ch.nolix.core.controller.LocalController;
-import ch.nolix.core.controller.NetController;
+import ch.nolix.core.duplexController.DuplexController;
+import ch.nolix.core.duplexController.LocalDuplexController;
+import ch.nolix.core.duplexController.NetDuplexController;
 import ch.nolix.core.interfaces.Abortable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
@@ -38,7 +38,7 @@ implements Abortable {
 	protected static final String DATA_METHOD_REQUEST = "Data";
 		
 	//attributes
-	private final Controller controller;
+	private final DuplexController duplexController;
 	private final boolean requestedConnectionFlag;
 	
 	//optional attributes
@@ -48,22 +48,22 @@ implements Abortable {
 	public Client(final Application<?> target) {
 		requestedConnectionFlag = true;
 		this.target = target.getName();
-		controller = new LocalController();
-		controller.setReceiverController(new ClientReceiverController(this));
-		target.createClient(((LocalController)controller).getRefCounterpart());
+		duplexController = new LocalDuplexController();
+		duplexController.setReceiverController(new ClientReceiverController(this));
+		target.createClient(((LocalDuplexController)duplexController).getRefCounterpart());
 	}
 	
-	public Client(final Controller controller) {
+	public Client(final DuplexController duplexController) {
 		requestedConnectionFlag = false;
-		this.controller = controller;
-		controller.setReceiverController(new ClientReceiverController(this));
-		target = controller.getData(TARGET_REQUEST);
+		this.duplexController = duplexController;
+		duplexController.setReceiverController(new ClientReceiverController(this));
+		target = duplexController.getData(TARGET_REQUEST);
 	}
 	
 	public Client(String ip, int port, String target) {
 		requestedConnectionFlag = true;
 		this.target = target;
-		controller = new NetController(ip, port);
+		duplexController = new NetDuplexController(ip, port);
 	}
 	
 	//constructor
@@ -435,7 +435,7 @@ implements Abortable {
 	 * @throws RuntimeException if this client is already aborted.
 	 */
 	public final void abort() {
-		controller.abort();
+		duplexController.abort();
 	}
 	
 	//method
@@ -522,8 +522,8 @@ implements Abortable {
 	/**
 	 * @return the duplex controller of this client.
 	 */
-	protected final Controller internal_getRefDuplexController() {
-		return controller;
+	protected final DuplexController internal_getRefDuplexController() {
+		return duplexController;
 	}
 	
 	//method
