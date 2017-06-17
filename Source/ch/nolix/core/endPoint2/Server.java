@@ -13,7 +13,7 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 70
+ * @lines 80
  */
 public class Server extends AbortableElement {
 	
@@ -25,15 +25,17 @@ public class Server extends AbortableElement {
 	 * Adds the given end point taker to this server.
 	 * 
 	 * @param endPointTaker
-	 * @throws InvalidStateException if this server contains an end point taker with the same name as the given end point taker.
+	 * @throws InvalidStateException if this server contains an end point taker
+	 * with the same name the given end point taker has.
 	 */
 	public final void addEndPointTaker(final IEndPointTaker endPointTaker) {
 		
-		//Checks if this server contains already an end point taker with the same name as the given end point taker.
+		//Checks if this server contains an end point taker
+		//with the same name the given end point taker has.
 		if (containsEndPointTaker(endPointTaker.getName())) {
 			throw new InvalidStateException(
 				this,
-				"contains an end point taker with the same name as the given end point taker"
+				"contains an end point taker with the same name the given end point taker has"
 			);
 		}
 		
@@ -65,9 +67,14 @@ public class Server extends AbortableElement {
 	 * Lets this server take the given end point.
 	 * 
 	 * @param endPoint
+	 * @throws UnexistingAttributeException if this server contains no end point taker
+	 * with the same name as the target of the given end point taker. 
 	 */
 	public final void takeEndPoint(final EndPoint endPoint) {
-		endPointTaker.getRefFirst(ept -> ept.hasName(endPoint.getTarget()))
+		
+		final String target = endPoint.getTarget();
+		
+		endPointTaker.getRefFirst(ept -> ept.hasName(target))
 		.takeEndPoint(endPoint);
 	}
 	

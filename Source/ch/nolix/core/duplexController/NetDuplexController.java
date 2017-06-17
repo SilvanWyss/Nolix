@@ -227,4 +227,9 @@ public class NetDuplexController extends DuplexController {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public String getTarget() {
+		return netEndPoint.getTarget();
+	}
 }

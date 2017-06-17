@@ -21,7 +21,6 @@ extends AbortableElement
 implements ILevel2Controller {	
 	
 	//optional attributes
-	private String target;
 	private ILevel2Controller receiverController;
 	
 	//multiple attribute
@@ -91,13 +90,7 @@ implements ILevel2Controller {
 		appendedCommands.addAtEnd(commands);
 	}
 	
-	//method
-	/**
-	 * @return the target of this duplex controller.
-	 */
-	public final String getTarget() {
-		return target;
-	}
+	public abstract String getTarget();
 	
 	//method
 	/**
@@ -109,26 +102,12 @@ implements ILevel2Controller {
 	
 	//method
 	/**
-	 * @return true if this duplex controller has a target.
-	 */
-	public final boolean hasTarget() {
-		return (target != null);
-	}
-	
-	//method
-	/**
 	 * @param target
 	 * @return true if this duplex controller has the given target.
 	 */
-	public final boolean hasTarget(final String target) {
-		
-		if (!hasTarget()) {
-			return false;
-		}
-		
+	public final boolean hasTarget(final String target) {	
 		return getTarget().equals(target);
 	}
-	
 	
 	//method
 	/**

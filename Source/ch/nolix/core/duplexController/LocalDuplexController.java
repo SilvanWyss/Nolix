@@ -19,6 +19,7 @@ import ch.nolix.core.validator2.Validator;
 public final class LocalDuplexController extends DuplexController {
 	
 	//attribute
+	private String target;
 	private final LocalDuplexController counterpart;
 	private boolean aborted = false;
 	
@@ -122,6 +123,14 @@ public final class LocalDuplexController extends DuplexController {
 	 */
 	public LocalDuplexController getRefCounterpart() {
 		return counterpart;
+	}
+	
+	//method
+	/**
+	 * @return the target of this local duplex controller.
+	 */
+	public String getTarget() {
+		return target;
 	}
 	
 	//method

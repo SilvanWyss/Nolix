@@ -1,14 +1,14 @@
-/*
- * file:	Protocol.java
- * author:	Silvan Wyss
- * month:	2015
- * lines:	20
- */
-
 //package declaration
 package ch.nolix.core.duplexController;
 
 //package-visible class
+/**
+ * Of this class no instance can be created.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 20
+ */
 final class Protocol {
 		
 	//message headers
