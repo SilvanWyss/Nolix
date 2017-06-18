@@ -48,14 +48,10 @@ implements ILevel2Controller {
 	 */
 	public final void appendCommand(final Statement... commands) {
 		
-		//TODO: Add using method to list and use in this method the following code instead.
-		//throwExceptionIfAborted();
-		//appendedCommands.using(c -> c.toString).addAtEnd(commands);
+		//Checks if this duplex controller is not aborted.
+		throwExceptionIfAborted();
 		
-		//Iterates the given commands.
-		for (final Statement c : commands) {
-			appendCommand(c);
-		}
+		appendedCommands.using(c -> c.toString()).addAtEnd(commands);
 	}
 	
 	//method

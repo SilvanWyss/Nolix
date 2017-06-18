@@ -23,7 +23,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1010
+ * @lines 1020
  * @param <E> - The type of the elements of a list.
  */
 public final class List<E> implements Clearable, IContainer<E> {
@@ -908,6 +908,16 @@ public final class List<E> implements Clearable, IContainer<E> {
 		}
 		
 		return string;
+	}
+	
+	//method
+	/**
+	 * @param extractor
+	 * @return a new list using mediator with this list and the given extractor.
+	 * @throws NullArgumentException if the given extractor is null.
+	 */
+	public ListUsingMediator<E> using(final IElementTakerElementGetter<Object, E> extractor) {
+		return new ListUsingMediator<E>(this, extractor);
 	}
 	
 	//method
