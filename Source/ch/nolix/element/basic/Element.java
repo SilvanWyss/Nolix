@@ -13,6 +13,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.specificationInterfaces.Specified;
 
@@ -64,12 +65,12 @@ public abstract class Element implements Specified {
 	 * @return the data the given request requests
 	 * @throws Exception if the given request is not valid
 	 */
-	public Object getRawData(Statement request) {
+	public Specification getData(Statement request) {
 		switch (request.toString()) {
 			case TYPE_REQUEST:
-				return getType();
+				return new Specification(getType());
 			case TYPES_REQUEST:
-				return getTypes();
+				return new Specification(getTypes());
 			default:
 				throw new InvalidArgumentException(
 					new ArgumentName("request"),

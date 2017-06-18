@@ -5,8 +5,6 @@ package ch.nolix.core.centralController;
 import java.io.File;
 
 //own imports
-
-import ch.nolix.core.controllerInterfaces2.ILevel3Controller;
 import ch.nolix.core.interfaces.Named;
 import ch.nolix.core.validator2.Validator;
 
@@ -21,7 +19,7 @@ import ch.nolix.core.validator2.Validator;
  *  @lines 80
  */
 public abstract class Module
-implements Named, ILevel3Controller {
+implements Named {
 	
 	//attributes
 	private CentralController centralController;
