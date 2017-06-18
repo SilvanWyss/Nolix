@@ -70,10 +70,7 @@ public class Server extends AbortableElement {
 	 * @throws UnexistingAttributeException if this server contains no end point taker
 	 * with the same name as the target of the given end point taker. 
 	 */
-	public final void takeEndPoint(final EndPoint endPoint) {
-		
-		final String target = endPoint.getTarget();
-		
+	public final void takeEndPoint(final EndPoint endPoint, final String target) {
 		endPointTaker.getRefFirst(ept -> ept.hasName(target))
 		.takeEndPoint(endPoint);
 	}

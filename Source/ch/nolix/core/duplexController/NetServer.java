@@ -74,6 +74,7 @@ public final class NetServer extends Server {
 	 * contains no duplex controller with the same name as the target of the given net end point.
 	 */
 	void takeNetEndPoint(final NetEndPoint netEndPoint) {
-		takeDuplexController(new NetDuplexController(netEndPoint));
+		final NetDuplexController netDuplexController = new NetDuplexController(netEndPoint);
+		takeDuplexController(netDuplexController, netDuplexController.getTarget());
 	}
 }

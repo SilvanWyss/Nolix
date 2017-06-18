@@ -62,39 +62,6 @@ public class NetDuplexController extends DuplexController {
 	
 	//method
 	/**
-	 * Aborts this net duplex controller.
-	 * 
-	 * @throws InvalidStateException if this net duplex controller is already aborted.
-	 */
-	public void abort00() {
-		netEndPoint.abort();
-	}
-	
-	//method
-	/**
-	 * Aborts this net duplex controller because of the given abort reason
-	 * 
-	 * @param abortReason
-	 * @throws NullArgumentException if the given abort reason is null.
-	 * @throws EmptyArgumentException if the given abort reason is empty.
-	 * @throws InvalidStateException if this net duplex controller is already aborted.
-	 */
-	public void abort00(final String abortReason) {		
-		netEndPoint.abort(abortReason);
-	}
-	
-	//method
-	/**
-	 * @return the abort reason of this net duplex controller.
-	 * @throws InvalidStateException if this net duplex controller is not aborted.
-	 * @throws UnexistingAttributeException if this net duplex controller has no abort reason.
-	 */
-	public String getAbortReason00() {
-		return netEndPoint.getAbortReason();
-	}
-	
-	//method
-	/**
 	 * @param request
 	 * @return the data the given request requests from this net duplex controller.
 	 * @throws InvalidStateException if this net duplex controller is aborted.
@@ -118,12 +85,25 @@ public class NetDuplexController extends DuplexController {
 		}
 	}
 	
+	@Override
+	public String getTarget() {
+		return netEndPoint.getTarget();
+	}
+
 	//method
 	/**
-	 * @return true if this net duplex controller is aborted.
+	 * @return true if this net duplex controller has requested the connection.
 	 */
-	public boolean isAborted00() {
-		return netEndPoint.isAborted();
+	public boolean hasRequestedConnection() {
+		return netEndPoint.hasRequestedConnection();
+	}
+
+	//method
+	/**
+	 * @return true if this net duplex controller has a target.
+	 */
+	public boolean hasTarget() {
+		return netEndPoint.hasTarget();
 	}
 	
 	//method
@@ -220,16 +200,5 @@ public class NetDuplexController extends DuplexController {
 					new Argument(message)
 				);
 		}
-	}
-
-	@Override
-	protected void noteAbort() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public String getTarget() {
-		return netEndPoint.getTarget();
 	}
 }

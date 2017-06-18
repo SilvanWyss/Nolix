@@ -52,6 +52,8 @@ final class AbortController {
 		
 		//Sets this abort controller as aborted.
 		aborted = true;
+		
+		elements.forEach(e -> e.noteAbort());
 	}
 	
 	//method

@@ -122,6 +122,14 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	
 	//method
 	/**
+	 * @return true if this net end point has a target.
+	 */
+	public boolean hasTarget() {
+		return internalEndPoint.hasTarget();
+	}
+	
+	//method
+	/**
 	 * @return true if this end point is a local end point.
 	 */
 	public boolean isLocalEndPoint() {

@@ -67,7 +67,7 @@ extends AbortableElement {
 	 * 
 	 * @param endPoint
 	 */
-	public final void takeEndPoint(final EndPoint<M, R> endPoint) {
+	public final void takeEndPoint(final EndPoint<M, R> endPoint, final String target) {
 		endPointTaker
 		.getRefFirst(ept -> ept.hasName(endPoint.getTarget()))
 		.takeEndPoint(endPoint);

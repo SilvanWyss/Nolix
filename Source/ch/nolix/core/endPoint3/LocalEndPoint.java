@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.core.endPoint3;
 
-//own import
+//own imports
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -15,42 +16,120 @@ import ch.nolix.core.validator2.Validator;
 public final class LocalEndPoint extends EndPoint {
 
 	//attributes
-	private final String target;
 	private final boolean requestedConnection;
-	private final LocalEndPoint counterPart;
+	private final LocalEndPoint counterpart;
 	
-	public LocalEndPoint(final IEndPointTaker endPointTaker) {
+	//optional attribute
+	private final String target;
+	
+	//constructor
+	/**
+	 * Creates new local end point that will connect to an other new local end point.
+	 */
+	public LocalEndPoint() {
 		
-		requestedConnection = true;
-		target = endPointTaker.getName();
+		//Sets the requested connection flag of this local end point.
+		requestedConnection = false;
 		
-		counterPart = new LocalEndPoint(this);
+		//Creates the counterpart of this local end point.
+		counterpart = new LocalEndPoint(this);
 		
-		endPointTaker.takeEndPoint(getRefCounterPart());
+		//Clears the target of this local end point.
+		target = null;
 	}
 	
+	//constructor
+	/**
+	 * Creates new local end point that will connect to the given target
+	 * 
+	 * @param target
+	 * @throws NullArgumentException if the given target is null.
+	 */
+	public LocalEndPoint(final IEndPointTaker target) {
+		
+		//Sets the requested connection flag of this local end point.
+		requestedConnection = true;
+	
+		//Creates the counterpart of this local end point.
+		counterpart = new LocalEndPoint(this, target.getName());
+		
+		//Clears the target of this local end point.
+		this.target = null;
+		
+		target.takeEndPoint(getRefCounterpart());
+	}
+	
+	//constructor
+	/**
+	 * Creates new local end point
+	 * that will connect to the given target on the given server.
+	 * 
+	 * @param server
+	 * @param target
+	 */
 	public LocalEndPoint(final Server server, final String target) {
 		
-		Validator.supposeThat(target).isNotEmpty();
-		
+		//Sets the requested connection flag of this local end point.
 		requestedConnection = true;
-		this.target = target;
 		
-		counterPart = new LocalEndPoint(this);
+		//Creates the counterpart of this local end point.
+		counterpart = new LocalEndPoint(this, target);
 		
-		server.takeEndPoint(getRefCounterPart());
+		//Clears the target of this local end point.
+		this.target = null;
+		
+		//Lets the given server take the counterpart of this lcoal end point.
+		server.takeEndPoint(getRefCounterpart(), getRefCounterpart().getTarget());
 	}
 	
+	//constructor
+	/**
+	 * Creates new local end point with the given counterpart.
+	 * 
+	 * @param counterPart
+	 * @throws NullArgumentException if the given counterpart is null.
+	 */
 	private LocalEndPoint(final LocalEndPoint counterPart) {
+		
+		//Sets the requested connection flag of this local end point.
+		requestedConnection = false;
 		
 		//Checks if the given counter part is not null.
 		Validator.supposeThat(counterPart).thatIsNamed("counterpart").isNotNull();
 		
-		requestedConnection = false;
-		target = counterPart.getTarget();
+		//Sets the counter part of this local end point.
+		this.counterpart = counterPart;
 		
-		//Sets the counter part of htis local end point.
-		this.counterPart = counterPart;
+		//Clears the target of this local end point.
+		target = null;
+	}
+	
+	//constructor
+	/**
+	 * Creates new local end point with the given counterpart and target.
+	 * 
+	 * @param counterpart
+	 * @param target
+	 * @throws NullArgumentException if the given counterpart is null.
+	 * @throws NullArgumentException if the given target is null.
+	 * @throws EmptyArgumentException if the given target is empty.
+	 */
+	private LocalEndPoint(final LocalEndPoint counterpart, final String target) {
+		
+		//Sets the requested connection flag of this local end point.
+		requestedConnection = false;
+		
+		//Checks if the given counter part is not null.
+		Validator.supposeThat(counterpart).thatIsNamed("counterpart").isNotNull();
+		
+		//Sets the counter part of this local end point.
+		this.counterpart = counterpart;
+		
+		//Checks if the given target is not null or empty.
+		Validator.supposeThat(target).thatIsNamed("target").isNotEmpty();
+		
+		//Sets the target of this local end point.
+		this.target = target;
 	}
 
 	//method
@@ -66,15 +145,15 @@ public final class LocalEndPoint extends EndPoint {
 		//Checks if this local end point is not aborted.
 		throwExceptionIfAborted();
 		
-		return getRefCounterPart().receiveAndGetReply(message);
+		return getRefCounterpart().receiveAndGetReply(message);
 	}
 	
 	//method
 	/**
 	 * @return the counterpart of this local end point.
 	 */
-	private final LocalEndPoint getRefCounterPart() {
-		return counterPart;
+	public final LocalEndPoint getRefCounterpart() {
+		return counterpart;
 	}
 
 	//method
@@ -91,8 +170,15 @@ public final class LocalEndPoint extends EndPoint {
 	//method
 	/**
 	 * @return the target of this local end point.
+	 * @throws UnexistingAttributeException if this local end point has no target.
 	 */
 	public String getTarget() {
+		
+		//Checks if this local end point has a target.
+		if (!hasTarget()) {
+			throw new UnexistingAttributeException(this, "target");
+		}
+		
 		return target;
 	}
 
@@ -104,7 +190,21 @@ public final class LocalEndPoint extends EndPoint {
 		return requestedConnection;
 	}
 	
-	public String sendAndGetReply(String message) {		
-		return counterPart.receiveAndGetReply(message);
+	//method
+	/**
+	 * @return true if this local end point has a target.
+	 */
+	public boolean hasTarget() {
+		return (target != null);
+	}
+	
+	//method
+	/**
+	 * Lets this local end point send the given message.
+	 * 
+	 * @return the reply to the given message from this local end point.
+	 */
+	public String sendAndGetReply(final String message) {		
+		return getRefCounterpart().receiveAndGetReply(message);
 	}
 }

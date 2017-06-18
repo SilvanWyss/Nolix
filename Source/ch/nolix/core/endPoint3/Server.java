@@ -67,12 +67,15 @@ extends AbortableElement {
 	 * 
 	 * @param endPoint
 	 */
-	public final void takeEndPoint(final EndPoint endPoint) {
+	public final void takeEndPoint(final EndPoint endPoint, final String target) {
 		endPointTaker
 		.getRefFirst(ept -> ept.hasName(endPoint.getTarget()))
 		.takeEndPoint(endPoint);
 	}
 
-	@Override
-	protected void noteAbort() {}
+	//method
+	/**
+	 * Lets this server note an abort.
+	 */
+	protected final void noteAbort() {}
 }

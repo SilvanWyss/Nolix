@@ -25,11 +25,11 @@ implements ISender {
 	//default target
 	protected static final String DEFAULT_TARGET = IEndPointTaker.DEFAULT_NAME;
 
-	//attributes
+	//attribute
 	private final boolean hasRequestedConnection;
-	private String target;
 	
-	//optional attribute
+	//optional attributes
+	private String target;
 	private IReceiver receiver;
 	
 	//package-visible constructor
@@ -45,8 +45,15 @@ implements ISender {
 	//method
 	/**
 	 * @return the target of this end point.
+	 * @throws UnexistingAttributeException if this end point has no target.
 	 */
 	public final String getTarget() {
+		
+		//Checks if this end point has a target.
+		if (!hasTarget()) {
+			throw new UnexistingAttributeException(this, "target");
+		}
+		
 		return target;
 	}
 	
@@ -64,6 +71,14 @@ implements ISender {
 	 */
 	public final boolean hasRequestedConnection() {
 		return hasRequestedConnection;
+	}
+	
+	//method
+	/**
+	 * @return true if this end point has a target.
+	 */
+	public final boolean hasTarget() {
+		return (target != null);
 	}
 	
 	//method
@@ -100,24 +115,6 @@ implements ISender {
 		this.receiver = receiver;
 	}
 	
-	private IReceiver getRefReceiver() {
-		
-		//Checks if this end point has a receiver.
-		if (!hasReceiver()) {
-			throw new UnexistingAttributeException(this, IReceiver.class);
-		}
-		
-		return receiver;
-	}
-	
-	//method
-	/**
-	 * @return true if this end point has a target.
-	 */
-	protected boolean hasTarget() {
-		return (target != null);
-	}
-	
 	protected void receive(final String message) {
 		getRefReceiver().receive(message);	
 	}
@@ -141,5 +138,15 @@ implements ISender {
 		
 		//Sets the target of this end point.
 		this.target = target;
+	}
+	
+	private IReceiver getRefReceiver() {
+		
+		//Checks if this end point has a receiver.
+		if (!hasReceiver()) {
+			throw new UnexistingAttributeException(this, IReceiver.class);
+		}
+		
+		return receiver;
 	}
 }

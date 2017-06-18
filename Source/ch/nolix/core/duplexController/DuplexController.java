@@ -100,6 +100,10 @@ implements ILevel2Controller {
 		return (receiverController != null);
 	}
 	
+	public abstract boolean hasRequestedConnection();
+	
+	public abstract boolean hasTarget();
+	
 	//method
 	/**
 	 * @param target
@@ -171,6 +175,12 @@ implements ILevel2Controller {
 		
 		return receiverController;
 	}
+	
+	//method
+	/**
+	 * Lets this duplex controller note an abort.
+	 */
+	protected final void noteAbort() {}
 	
 	//abstract method
 	/**

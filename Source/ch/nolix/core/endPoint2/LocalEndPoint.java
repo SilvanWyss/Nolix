@@ -10,7 +10,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 120
+ * @lines 180
  */
 public final class LocalEndPoint extends EndPoint {
 	
@@ -26,9 +26,6 @@ public final class LocalEndPoint extends EndPoint {
 		//Calls constructor of the base class.
 		super(true);
 		
-		//Sets the target of this local end point.
-		setTarget(DEFAULT_TARGET);
-		
 		//Creates the counterpart of this local end point.
 		counterpart = new LocalEndPoint(this);
 	}
@@ -38,19 +35,21 @@ public final class LocalEndPoint extends EndPoint {
 	 * Creates new local end point that will connect to the given target.
 	 * 
 	 * @param target
+	 * @throws NullArgumentException if the given target is null.
 	 */
-	public LocalEndPoint(final IEndPointTaker target	) {
+	public LocalEndPoint(final IEndPointTaker target) {
 		
 		//Calls constructor of the base class.
 		super(true);
 		
-		//Sets the target of this local end point.
-		setTarget(target.getName());
-		
 		//Creates the counterpart of this local end point.
 		counterpart = new LocalEndPoint(this);
 		
-		target.takeEndPoint(counterpart);
+		//Sets the target of the counterpart of htis local end point.
+		getRefCounterPart().setTarget(target.getName());
+		
+		//Lets the given target take the counterpart of this local end point.
+		target.takeEndPoint(getRefCounterPart());
 	}
 	
 	//constructor
@@ -67,32 +66,36 @@ public final class LocalEndPoint extends EndPoint {
 		//Calls constructor of the base class.
 		super(true);
 		
-		//Sets the target of this local end point.
-		setTarget(target);
-		
-		//Creates the counter part of this local end point.
+		//Creates the counterpart of this local end point.
 		counterpart = new LocalEndPoint(this);
 		
-		server.takeEndPoint(counterpart);
+		//Sets the target of the counterpart of this local end point.
+		getRefCounterPart().setTarget(target);
+		
+		//Lets the given server take the counterpart of this local end point.
+		server.takeEndPoint(getRefCounterPart(), getRefCounterPart().getTarget());
 	}
 	
 	//constructor
 	/**
-	 * Creates new local end point the given local end point will connect to.
+	 * Creates new local end point with the given counterpart.
 	 * 
-	 * @param localEndPoint
+	 * @param counterpart
+	 * @throws NullArgumentException if the given counterpart is null.
 	 */
-	private LocalEndPoint(final LocalEndPoint localEndPoint) {
+	private LocalEndPoint(final LocalEndPoint counterpart) {
 		
 		//Calls constructor of the base class.
 		super(false);
 		
-		//Sets the target of this local end point.
-		setTarget(localEndPoint.getTarget());
-		
+		//Checks if the given counterpart is not null.
+		Validator.supposeThat(counterpart).thatIsNamed("counterpart").isNotNull();
+				
 		//Sets the counterpart of this local end point.
-		counterpart = localEndPoint;
+		this.counterpart = counterpart;
 	}
+	
+
 	
 	//method
 	/**

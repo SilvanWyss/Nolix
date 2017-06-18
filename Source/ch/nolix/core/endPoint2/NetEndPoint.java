@@ -92,9 +92,6 @@ public class NetEndPoint extends EndPoint {
 		//Calls constructor of the base class.
 		super(true);
 		
-		//Sets the target of this net end point.
-		setTarget(target);
-		
 		//Checks if the given port is in [0, 65535]. 
 		Validator
 		.supposeThat(port)
@@ -183,7 +180,9 @@ public class NetEndPoint extends EndPoint {
 			setTarget(message);
 		}
 		else {
-			receive(message);
+			
+			//Calls method of the base class.
+			super.receive(message);
 		}
 	}
 	

@@ -72,10 +72,7 @@ public class Server extends AbortableElement {
 	 * @throws UnexistingAttributeException if this server contains no duplex controller taker
 	 * with the same name as the target of the given duplex controller.
 	 */
-	public final void takeDuplexController(final DuplexController duplexController) {
-		
-		final String target = duplexController.getTarget();
-		
+	public final void takeDuplexController(final DuplexController duplexController, final String target) {
 		duplexControllerTaker.getRefFirst(dct -> dct.hasName(target))
 		.takeDuplexController(duplexController);
 	}

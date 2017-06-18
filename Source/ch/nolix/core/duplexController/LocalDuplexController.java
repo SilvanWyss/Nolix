@@ -18,13 +18,12 @@ import ch.nolix.core.validator2.Validator;
  */
 public final class LocalDuplexController extends DuplexController {
 	
-	//attribute
-	private String target;
+	//attributes
+	private final boolean requestedConnection;
 	private final LocalDuplexController counterpart;
-	private boolean aborted = false;
 	
 	//optional attribute
-	private String abortReason;
+	private final String target;
 	
 	//constructor
 	/**
@@ -33,8 +32,12 @@ public final class LocalDuplexController extends DuplexController {
 	 */
 	public LocalDuplexController() {
 		
+		requestedConnection = true;
+		
 		//Creates the counterpart of this local duplex controller.
 		this.counterpart = new LocalDuplexController(this);
+		
+		target = null;
 	}
 	
 	//constructor
@@ -46,66 +49,15 @@ public final class LocalDuplexController extends DuplexController {
 	 */
 	private LocalDuplexController(LocalDuplexController counterpart) {
 		
+		requestedConnection = false;
+		
 		//Checks if the given counterpart is not null.
 		Validator.supposeThat(counterpart).thatIsNamed("counterpart").isNotNull();
 		
 		//Sets the counterpart of this local duplex controller.
 		this.counterpart = counterpart;
-	}
-	
-	//method
-	/**
-	 * Aborts this local duplex controller.
-	 * 
-	 * @throws InvalidStateException if this local duplex controller is already aborted.
-	 */
-	public void abort00() {
 		
-		//Checks if this local duplex controller is not aborted.
-		throwExceptionIfAborted();
-		
-		aborted = true;
-	}
-	
-	//method
-	/**
-	 * Aborts this local duplex controller because of the given abort reason.
-	 * 
-	 * @param abortReason
-	 * @throws NullArgumentException if the given abort reason is null.
-	 * @throws EmptyArgumentException if the given abort reason is empty.
-	 * @throws InvalidStateException if this local duplex controller is already aborted.
-	 */
-	public void abort00(final String abortReason) {
-		
-		//Checks if the given abort reason is not null or empty.
-		Validator.supposeThat(abortReason).isNotEmpty();
-		
-		abort();
-		
-		//Sets the abort reason of this local duplex controller.
-		this.abortReason = abortReason;
-	}
-	
-	//method
-	/**
-	 * @return the abort reason of this local duplex controller.
-	 * @throws InvalidStateException if this local duplex controller is not aborted.
-	 * @throws UnexistingAttributeException if this local duplex controller has no abort reason.
-	 */
-	public final String getAbortReason00() {
-		
-		//Checks if this local duplex controller is aborted.
-		if (!isAborted()) {
-			throw new InvalidStateException(this, "is not aborted");
-		}
-		
-		//Checks if this local duplex controller has an abort reason.
-		if (!hasAbortReason()) {
-			throw new UnexistingAttributeException(this, "abort reason");
-		}
-		
-		return abortReason;
+		target = null;
 	}
 	
 	//method
@@ -115,6 +67,22 @@ public final class LocalDuplexController extends DuplexController {
 	 */
 	public Specification getData(final Statement request) {
 		return counterpart.getRefReceiverController().getData(request);
+	}
+	
+	//method
+	/**
+	 * @return true if this local duplex controller has a target.
+	 */
+	public boolean hasTarget() {
+		return (target != null);
+	}
+
+	//method
+	/**
+	 * @return true if this local duplex controller has requested the conneciton.
+	 */
+	public boolean hasRequestedConnection() {
+		return requestedConnection;
 	}
 	
 	//method
@@ -131,22 +99,6 @@ public final class LocalDuplexController extends DuplexController {
 	 */
 	public String getTarget() {
 		return target;
-	}
-	
-	//method
-	/**
-	 * @return true if this local duplex controller has an abort reason
-	 */
-	public boolean hasAbortReason00() {
-		return (abortReason != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this local duplex controller is aborted.
-	 */
-	public final boolean isAborted00() {
-		return aborted;
 	}
 
 	//method
@@ -190,11 +142,5 @@ public final class LocalDuplexController extends DuplexController {
 		= counterpart.getRefReceiverController();
 		
 		commands.forEach(c -> counterpartReceiverController.run(c));
-	}
-
-	@Override
-	protected void noteAbort() {
-		// TODO Auto-generated method stub
-		
 	}
 }

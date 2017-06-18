@@ -40,6 +40,12 @@ implements IGenericSender2<M, R> {
 	 */
 	public abstract boolean hasRequestedConnection();
 	
+	//abstract method
+	/**
+	 * @return true if this end point has a target.
+	 */
+	public abstract boolean hasTarget();
+	
 	//method
 	/**
 	 * Sets the replier of this end point.

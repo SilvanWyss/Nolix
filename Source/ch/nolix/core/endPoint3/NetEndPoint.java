@@ -263,4 +263,9 @@ public class NetEndPoint extends EndPoint {
 				throw new RuntimeException("An error occured.");
 		}
 	}
+
+	@Override
+	public boolean hasTarget() {
+		return internalEndPoint.hasTarget();
+	}
 }

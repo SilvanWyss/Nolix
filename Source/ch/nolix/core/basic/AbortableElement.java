@@ -30,7 +30,6 @@ public abstract class AbortableElement implements Abortable {
 	 */
 	public final void abort() {
 		abortController.abort();
-		noteAbort();
 	}
 	
 	//method

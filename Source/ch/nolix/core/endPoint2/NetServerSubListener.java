@@ -77,6 +77,7 @@ final class NetServerSubListener extends Thread {
 	 * @param socket
 	 */
 	private void takeSocket(final Socket socket) {
-		netServer.takeEndPoint(new NetEndPoint(socket));
+		final NetEndPoint netEndPoint = new NetEndPoint(socket);
+		netServer.takeEndPoint(netEndPoint, netEndPoint.getTarget());
 	}
 }

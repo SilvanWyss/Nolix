@@ -1,9 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint4;
 
-//own imports
-import ch.nolix.core.sequencer.Future;
-import ch.nolix.core.sequencer.Sequencer;
+//own import
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -17,77 +15,131 @@ import ch.nolix.core.validator2.Validator;
 public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 
 	//attributes
-	private final String target;
 	private final boolean requestedConnection;
-	private final LocalEndPoint<M, R> counterPart;
+	private final LocalEndPoint<M, R> counterpart;
 	
-	public LocalEndPoint(final IEndPointTaker<M, R> endPointTaker) {
+	//optional attribute
+	private final String target;
+	
+	//constructor
+	/**
+	 * Creates new local end point
+	 * that will connect to another new local end point.
+	 */
+	public LocalEndPoint() {
 		
+		//Sets the requested connection flag of this local end point.
 		requestedConnection = true;
-		target = endPointTaker.getName();
 		
-		counterPart = new LocalEndPoint<M, R>(this);
+		//Creates the counterpart of this local end point.
+		counterpart = new LocalEndPoint<>(this);
 		
-		endPointTaker.takeEndPoint(getRefCounterPart());
+		//Clears the target of this local end point.
+		target = null;
 	}
 	
+	//constructor
+	/**
+	 * Creates new local end point that will connect to the given target.
+	 * 
+	 * @param target
+	 */
+	public LocalEndPoint(final IEndPointTaker<M, R> target) {
+		
+		//Sets the requested connection flag of this local end point.
+		requestedConnection = true;
+		
+		//Creates the counterpart of thi local end point.
+		counterpart = new LocalEndPoint<M, R>(this);
+		
+		//Sets the target of this local end point.
+		this.target = target.getName();
+		
+		//Lets the given target take the counterpart of this local end point.
+		target.takeEndPoint(getRefCounterpart());
+	}
+	
+	//constructor
+	/**
+	 * Creates new local end point
+	 * that will connect to the given target on the given server.
+	 * 
+	 * @param server
+	 * @param target
+	 */
 	public LocalEndPoint(final Server<M, R> server, final String target) {
 		
-		Validator.supposeThat(target).isNotEmpty();
-		
+		//Sets the requested connection flag of this local end point.		
 		requestedConnection = true;
-		this.target = target;
 		
-		counterPart = new LocalEndPoint<M, R>(this);
+		//Creates the counterpart of this local end point.
+		counterpart = new LocalEndPoint<M, R>(this, target);
 		
-		server.takeEndPoint(getRefCounterPart());
+		//Clears the target of this local end point.
+		this.target = null;
+		
+		//Lets the given server take the counterpart of this local end point.
+		server.takeEndPoint(getRefCounterpart(), getRefCounterpart().getTarget());
 	}
 	
 	private LocalEndPoint(final LocalEndPoint<M, R> counterPart) {
 		
 		//Checks if the given counter part is not null.
-		Validator.supposeThat(counterPart).thatIsNamed("counterpart").isNotNull();
+		Validator
+		.supposeThat(counterPart)
+		.thatIsNamed("counterpart")
+		.isNotNull();
 		
 		requestedConnection = false;
 		target = counterPart.getTarget();
 		
 		//Sets the counter part of htis local end point.
-		this.counterPart = counterPart;
+		this.counterpart = counterPart;
 	}
-
-	//method
+	
+	//constructor
 	/**
-	 * Lets this local end point send the given message.
+	 * Creates new local end point with the given counterpart and target.
 	 * 
-	 * @param message
-	 * @return the reply to the given message.
-	 * @throws InvalidStateException if this local end point is aborted.
+	 * @param counterpart
+	 * @param target
+	 * @throws NullArgumentException if the given counterpart is null.
+	 * @throws NullArgumentException if the given target is null.
+	 * @throws EmptyArgumentException if the given target is empty.
 	 */
-	public R sendAndWaitToReply(final M message) {
+	private LocalEndPoint(
+		final LocalEndPoint<M, R> counterpart,
+		final String target
+	) {
 		
-		//Checks if this local end point is not aborted.
-		throwExceptionIfAborted();
+		//Sets the requested connection flag of this local end point.
+		requestedConnection = false;
 		
-		return getRefCounterPart().getReply(message);
+		//Checks if the given counter part is not null.
+		Validator
+		.supposeThat(counterpart)
+		.thatIsNamed("counterpart")
+		.isNotNull();
+		
+		//Sets the counter part of this local end point.
+		this.counterpart  = counterpart;
+		
+		//Checks if the given target is not null or empty.
+		Validator
+		.supposeThat(target)
+		.thatIsNamed("target")
+		.isNotEmpty();
+		
+		//Sets the target of this local end point.
+		this.target = target;
 	}
 	
 	//method
 	/**
 	 * @return the counterpart of this local end point.
 	 */
-	private final LocalEndPoint<M, R> getRefCounterPart() {
-		return counterPart;
-	}
-
-	//method
-	/**
-	 * Lets this local end point receive the given message.
-	 * 
-	 * @param message
-	 * @return the reply to the given message.
-	 */
-	private R getReply(final M message) {
-		return getRefReplier().getReply(message);
+	public final LocalEndPoint<M, R> getRefCounterpart() {
+		return counterpart;
 	}
 
 	//method
@@ -106,14 +158,36 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 		return requestedConnection;
 	}
 	
-	public R sendAndGetReply(M message) {
+	//method
+	/**
+	 * @return true if this local end point has a target.
+	 */
+	public boolean hasTarget() {
+		return (target != null);
+	}
+	
+	//method
+	/**
+	 * Lets this local end point send the given message.
+	 * 
+	 * @param message
+	 * @return the reply to the given message.
+	 * @throws InvalidStateException if this local end point is aborted.
+	 */
+	public R sendAndGetReply(final M message) {
 		
-		final Future future = Sequencer.runInBackground(() -> counterPart.getReply(message));
+		//Checks if this local end point is not aborted.
+		throwExceptionIfAborted();
 		
-		while (future.isRunningJobs()) {
-			
-		}
-		
-		return counterPart.getReply(message);
+		return getRefCounterpart().getReply(message);
+	}
+	
+	//method
+	/**
+	 * @param message
+	 * @return the reply to the given message from this local end point.
+	 */
+	private R getReply(final M message) {
+		return getRefReplier().getReply(message);
 	}
 }

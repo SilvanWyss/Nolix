@@ -27,6 +27,8 @@ public final class NetServer extends Server {
 		
 		//Creates the internal net server of this net server.
 		internalNetServer =	new ch.nolix.core.endPoint2.NetServer(port);
+		
+		createAbortDependency(internalNetServer);
 	}
 	
 	//method
