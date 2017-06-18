@@ -23,7 +23,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 980
+ * @lines 1010
  * @param <E> - The type of the elements of a list.
  */
 public final class List<E> implements Clearable, IContainer<E> {
@@ -467,7 +467,7 @@ public final class List<E> implements Clearable, IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) when this list contains n elements.
+	 * The complexity of this method is O(n) if this list contains n elements.
 	 * 
 	 * @param selector
 	 * @return a new list with the elements the given selector selects from this list.
@@ -475,16 +475,54 @@ public final class List<E> implements Clearable, IContainer<E> {
 	public List<E> getSelected(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Creates list.
-		final List<E> elements = new List<E>();
+		final List<E> list = new List<E>();
 		
 		//Fills up the list with the elements the given selector selects from this list.
-		for (final E e: this) {
+		for (final E e : this) {
 			if (selector.getOutput(e)) {
-				elements.addAtEnd(e);
+				list.addAtEnd(e);
 			}
 		}
 		
-		return elements;
+		return list;
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(m*n) if:
+	 * -This list contains m elements.
+	 * -n selectors are given.
+	 * 
+	 * @param selectors
+	 * @return a new list with the elements the given selectors selects from this list.
+	 */
+	@SuppressWarnings("unchecked")
+	public List<E> getSelected(final IElementTakerBooleanGetter<E>... selecors) {
+		
+		//Creates list.
+		final List<E> list = new List<E>();
+		
+		//Iterates this list.
+		for (final E e : this) {
+			
+			boolean selected = true;
+			
+			//Iterates the given selectors.
+			for (IElementTakerBooleanGetter<E> s : selecors) {
+				
+				//Checks if the current selector selects the current element.
+				if (!s.getOutput(e)) {
+					selected = false;
+					break;
+				}
+			}
+			
+			if (selected) {
+				list.addAtEnd(e);
+			}
+		}
+		
+		return list;
 	}
 	
 	//method
