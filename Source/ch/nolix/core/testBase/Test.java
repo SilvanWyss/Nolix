@@ -94,8 +94,20 @@ public abstract class Test {
 	 * @param currentTestMethodError
 	 */
 	final void addCurrentTestMethodError(final String currentTestMethodError) {
-		final String className = Thread.currentThread().getStackTrace()[4].getClassName();
-		final int line = Thread.currentThread().getStackTrace()[4].getLineNumber();
-		lastErrors.addElement(currentTestMethodError + " (" + className + ".java:" + line + ")");
+		
+		String className = null;
+		int lineNumber = -1;
+		for (final StackTraceElement ste : Thread.currentThread().getStackTrace()) {
+			if (ste.getClassName().equals(getClass().getName())) {
+				className = ste.getClassName();
+				lineNumber = ste.getLineNumber();
+			}
+		}
+		
+		if (className == null) {
+			throw new RuntimeException("Class was not found.");
+		}
+		
+		lastErrors.addElement(currentTestMethodError + " (" + className + ".java:" + lineNumber + ")");
 	}
 }
