@@ -5,9 +5,6 @@ package ch.nolix.core.duplexController;
 import ch.nolix.core.endPoint3.EndPoint;
 import ch.nolix.core.endPoint3.IEndPointTaker;
 import ch.nolix.core.endPoint3.NetEndPoint;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
-import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator2.Validator;
 
@@ -15,7 +12,7 @@ import ch.nolix.core.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2016-10
- * @lines 70
+ * @lines 60
  */
 final class EndPointTaker implements IEndPointTaker {
 
@@ -58,14 +55,8 @@ final class EndPointTaker implements IEndPointTaker {
 	 */
 	public void takeEndPoint(final EndPoint endPoint) {
 		
-		//Checks if the given end point is a net end point.
-		if (!(endPoint instanceof NetEndPoint)) {
-			throw new InvalidArgumentException(
-				new ArgumentName("end point"),
-				new Argument(endPoint),
-				new ErrorPredicate("is no net end point")
-			);
-		}
+		//TODO: Add isOfType method to validator.
+		//Validator.supposeThat(endPoint).thatIsInstanceOf(EndPoint.class).isOfType(NetEndPoint.class);
 		
 		duplexControllerTaker.takeDuplexController(
 			new NetDuplexController((NetEndPoint)endPoint)

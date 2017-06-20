@@ -12,9 +12,11 @@ import ch.nolix.core.validator2.Validator;
 
 //class
 /**
+ * A local duplex controller can interact with another local duplex controller.
+ * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 170
+ * @lines 200
  */
 public final class LocalDuplexController extends DuplexController {
 	
@@ -28,16 +30,39 @@ public final class LocalDuplexController extends DuplexController {
 	//constructor
 	/**
 	 * Creates new local duplex controller
-	 * that will be connected to an other new local duplex controller.
+	 * that will connect to another new local duplex controller.
 	 */
 	public LocalDuplexController() {
 		
+		//Sets the reqested connection flag of this local duplex controller.
 		requestedConnection = true;
 		
 		//Creates the counterpart of this local duplex controller.
 		this.counterpart = new LocalDuplexController(this);
 		
+		//Clears the target of this local duplex controller.
 		target = null;
+	}
+	
+	//constructor
+	/**
+	 * Creates new local duplex controller that will connect to the given target.
+	 * 
+	 * @param target
+	 */
+	public LocalDuplexController(final IDuplexControllerTaker target) {
+		
+		//Sets the reqested connection flag of this local duplex controller.
+		requestedConnection = true;
+		
+		//Creates the counterpart of this local duplex controller.
+		this.counterpart = new LocalDuplexController(this, target.getName());
+		
+		//Clears the target of this local duplex controller.
+		this.target = null;
+		
+		//Lets the given target take the counterpart of this local duplex controller.
+		target.takeDuplexController(getRefCounterpart());
 	}
 	
 	//constructor
@@ -49,6 +74,7 @@ public final class LocalDuplexController extends DuplexController {
 	 */
 	private LocalDuplexController(LocalDuplexController counterpart) {
 		
+		//Sets the reqested connection flag of this local duplex controller.
 		requestedConnection = false;
 		
 		//Checks if the given counterpart is not null.
@@ -57,9 +83,40 @@ public final class LocalDuplexController extends DuplexController {
 		//Sets the counterpart of this local duplex controller.
 		this.counterpart = counterpart;
 		
+		//Clears the target of this local duplex controller.
 		target = null;
 	}
 	
+	//constructor
+	/**
+	 * Creates new local duplex controller with the given counterpart and target.
+	 * 
+	 * @param counterpart
+	 * @param target
+	 * @throws NullArgumentException if the given target is null.
+	 * @throws EmptyArgumentException if the given target is empty.
+	 */
+	private LocalDuplexController(
+		final LocalDuplexController counterpart,
+		final String target
+	) {
+		
+		//Sets the requested connection flag of this local duplex controller.
+		requestedConnection = false;
+		
+		//Checks if the given counterpart is not null.
+		Validator.supposeThat(counterpart).thatIsNamed("counterpart").isNotNull();
+		
+		//Sets the counterpart of this local duplex controller.
+		this.counterpart = counterpart;
+		
+		//Checks if the given target is not null or empty.
+		Validator.supposeThat(target).thatIsNamed("target").isNotEmpty();
+		
+		//Sets the target of this local duplex controller.
+		this.target = target;
+	}
+
 	//method
 	/**
 	 * @return the data the given request requests from this local duplex controller.
@@ -67,22 +124,6 @@ public final class LocalDuplexController extends DuplexController {
 	 */
 	public Specification getData(final Statement request) {
 		return counterpart.getRefReceiverController().getData(request);
-	}
-	
-	//method
-	/**
-	 * @return true if this local duplex controller has a target.
-	 */
-	public boolean hasTarget() {
-		return (target != null);
-	}
-
-	//method
-	/**
-	 * @return true if this local duplex controller has requested the conneciton.
-	 */
-	public boolean hasRequestedConnection() {
-		return requestedConnection;
 	}
 	
 	//method
@@ -99,6 +140,22 @@ public final class LocalDuplexController extends DuplexController {
 	 */
 	public String getTarget() {
 		return target;
+	}
+
+	//method
+	/**
+	 * @return true if this local duplex controller has requested the conneciton.
+	 */
+	public boolean hasRequestedConnection() {
+		return requestedConnection;
+	}
+	
+	//method
+	/**
+	 * @return true if this local duplex controller has a target.
+	 */
+	public boolean hasTarget() {
+		return (target != null);
 	}
 
 	//method

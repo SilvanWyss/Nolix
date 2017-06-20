@@ -1,16 +1,17 @@
-/*
- * file:	IDuplexControllerTaker.java
- * author:	Silvan Wyss
- * month:	2016-10
- * lines:	20
- */
-
 //package declaration
 package ch.nolix.core.duplexController;
 
+//own import
 import ch.nolix.core.interfaces.Named;
 
 //interface
+/**
+ * A duplex controller taker can take duplex controllers.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-10
+ * @lines 20
+ */
 public interface IDuplexControllerTaker extends Named {
 
 	//abstract method
@@ -19,5 +20,5 @@ public interface IDuplexControllerTaker extends Named {
 	 * 
 	 * @param duplexController
 	 */
-	public void takeDuplexController(DuplexController duplexController);
+	public abstract void takeDuplexController(DuplexController duplexController);
 }

@@ -13,7 +13,7 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
  * 
  * @author Silvan Wyss
  * @month 2017-06
- * @lines 10
+ * @lines 80
  */
 public class Server extends AbortableElement {
 	

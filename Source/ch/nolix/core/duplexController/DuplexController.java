@@ -12,15 +12,17 @@ import ch.nolix.core.validator2.Validator;
 
 //class
 /**
+ * A duplex controller can interact with another duplex controller of the same type.
+ * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 180
+ * @lines 200
  */
 public abstract class DuplexController
 extends AbortableElement
 implements ILevel2Controller {	
 	
-	//optional attributes
+	//optional attribute
 	private ILevel2Controller receiverController;
 	
 	//multiple attribute
@@ -86,6 +88,10 @@ implements ILevel2Controller {
 		appendedCommands.addAtEnd(commands);
 	}
 	
+	//abstract method
+	/**
+	 * @return the target of this duplex controller.
+	 */
 	public abstract String getTarget();
 	
 	//method
@@ -96,8 +102,16 @@ implements ILevel2Controller {
 		return (receiverController != null);
 	}
 	
+	//abstract method
+	/**
+	 * @return true if this duplex controller has requested the connection.
+	 */
 	public abstract boolean hasRequestedConnection();
 	
+	//abstract method
+	/**
+	 * @return true if this duplex controller has a target.
+	 */
 	public abstract boolean hasTarget();
 	
 	//method
@@ -105,7 +119,14 @@ implements ILevel2Controller {
 	 * @param target
 	 * @return true if this duplex controller has the given target.
 	 */
-	public final boolean hasTarget(final String target) {	
+	public final boolean hasTarget(final String target) {
+		
+		//Handles the case if this duplex controller has no target.
+		if (!hasTarget()) {
+			return false;
+		}
+		
+		//Handles the case if this duplex controller has a target.
 		return getTarget().equals(target);
 	}
 	
@@ -146,9 +167,9 @@ implements ILevel2Controller {
 	 * Sets the receiver controller of this duplex controller.
 	 * 
 	 * @param receiverController
-	 * @throws NullArgumentException if the given receiver controller is null
+	 * @throws NullArgumentException if the given receiver controller is null.
 	 */
-	public final void setReceiverController(ILevel2Controller receiverController) {
+	public final void setReceiverController(final ILevel2Controller receiverController) {
 		
 		//Checks if the given receiver controller is not null.
 		Validator.supposeThat(receiverController).thatIsNamed("receiver controller").isNotNull();
@@ -185,14 +206,4 @@ implements ILevel2Controller {
 	 * @param commands
 	 */
 	protected abstract void run(List<String> commands);
-	
-	//method
-	/**
-	 * @throws InvalidStateException if this duplex controller is aborted.
-	 */
-	protected final void throwExceptionIfAborted00() {
-		if (isAborted()) {
-			throw new InvalidStateException(this, "is aborted");
-		}
-	}
 }

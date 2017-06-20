@@ -11,7 +11,7 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
  * 
  * @author Silvan Wyss
  * @month 2016-10
- * @lines 70
+ * @lines 80
  */
 public final class NetServer extends Server {
 	

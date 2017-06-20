@@ -2,6 +2,7 @@
 package ch.nolix.core.duplexController;
 
 //own imports
+import ch.nolix.core.constants.IPv6Manager;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerInterfaces.ILevel2Controller;
 import ch.nolix.core.endPoint3.NetEndPoint;
@@ -14,9 +15,11 @@ import ch.nolix.core.validator2.Validator;
 
 //class
 /**
+ * A net duplex controller can interact with another net duplex controller.
+ * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 240
+ * @lines 250
  */
 public class NetDuplexController extends DuplexController {
 		
@@ -26,7 +29,36 @@ public class NetDuplexController extends DuplexController {
 	//constructor
 	/**
 	 * Creates new net duplex controller
-	 * that will connect to the given port on the machine with the given ip.
+	 * that will connect to the default target on the given port on the local machine.
+	 * 
+	 * @param port
+	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 */
+	public NetDuplexController(final int port) {
+		
+		//Calls other constructor.
+		this(IPv6Manager.LOOP_BACK_ADDRESS, port);
+	}
+	
+	//constructor
+	/**
+	 * Creates new net duplex controller
+	 * that will connect to the given target on the given port on the local machine.
+	 * 
+	 * @param port
+	 * @param target
+	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 */
+	public NetDuplexController(final int port, final String target) {
+		
+		//Calls other constructor.
+		this(IPv6Manager.LOOP_BACK_ADDRESS, port, target);
+	}
+
+	//constructor
+	/**
+	 * Creates new net duplex controller
+	 * that will connect to the default target on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
 	 * @param port
@@ -36,6 +68,24 @@ public class NetDuplexController extends DuplexController {
 		
 		//Calls other constructor.
 		this(new NetEndPoint(ip, port));
+	}
+	
+	//constructor
+	/**
+	 * Creates new net duplex controller
+	 * that will connect to the given target on the given port on the machine with the given ip.
+	 * 
+	 * @param ip
+	 * @param port
+	 * @parma target
+	 * @throws OutOfRangeException if the given port is not in [0, 65535].
+	 * @throws NullArgumentException if the given target is null.
+	 * @throws EmptyArgumentException if the given target is empty.
+	 */
+	public NetDuplexController(final String ip, final int port, final String target) {
+		
+		//Calls other constructor.
+		this(new NetEndPoint(ip, port, target));
 	}
 	
 	//package-visible constructor
@@ -85,7 +135,11 @@ public class NetDuplexController extends DuplexController {
 		}
 	}
 	
-	@Override
+	//method
+	/**
+	 * @return the target of this net duplex controller.
+	 * @throws UnexistingAttributeException if this net duplex controller has no target.
+	 */
 	public String getTarget() {
 		return netEndPoint.getTarget();
 	}
@@ -180,6 +234,7 @@ public class NetDuplexController extends DuplexController {
 	 */
 	private final String receiveAndGetReply(final Specification message) {
 		
+		//Gets the receiver controller of this net duplex controller.
 		final ILevel2Controller receiverController = getRefReceiverController();
 		
 		//Enumerates the header of the given message.
