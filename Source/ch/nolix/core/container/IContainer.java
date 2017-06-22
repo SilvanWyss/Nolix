@@ -30,7 +30,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1100
+ * @lines 1160
  * @param <E> - The type of the elements of a container.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -804,6 +804,66 @@ public interface IContainer<E> extends Iterable<E> {
 		}
 		
 		return element;
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(n) if this container contains n elements.
+	 * 
+	 * @param selector
+	 * @return a new list with the elements the given selector selects from this container.
+	 */
+	public default List<E> getSelected(final IElementTakerBooleanGetter<E> selector) {
+		
+		//Creates list.
+		final List<E> list = new List<E>();
+		
+		//Fills up the list with the elements the given selector selects from this list.
+		for (final E e : this) {
+			if (selector.getOutput(e)) {
+				list.addAtEnd(e);
+			}
+		}
+		
+		return list;
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(m*n) if:
+	 * -This contains contains m elements.
+	 * -n selectors are given.
+	 * 
+	 * @param selectors
+	 * @return a new list with the elements the given selectors selects from this container.
+	 */
+	@SuppressWarnings("unchecked")
+	public default List<E> getSelected(final IElementTakerBooleanGetter<E>... selecors) {
+		
+		//Creates list.
+		final List<E> list = new List<E>();
+		
+		//Iterates this list.
+		for (final E e : this) {
+			
+			boolean selected = true;
+			
+			//Iterates the given selectors.
+			for (IElementTakerBooleanGetter<E> s : selecors) {
+				
+				//Checks if the current selector selects the current element.
+				if (!s.getOutput(e)) {
+					selected = false;
+					break;
+				}
+			}
+			
+			if (selected) {
+				list.addAtEnd(e);
+			}
+		}
+		
+		return list;
 	}
 	
 	//default method
