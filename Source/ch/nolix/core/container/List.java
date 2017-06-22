@@ -23,7 +23,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 960
+ * @lines 990
  * @param <E> - The type of the elements of a list.
  */
 public final class List<E> implements Clearable, IContainer<E> {
@@ -316,6 +316,30 @@ public final class List<E> implements Clearable, IContainer<E> {
 		
 		//Calls the default method of the required interface.
 		return IContainer.super.containsAny();
+	}
+	
+	//method
+	/**
+	 * An object equals a list if it is a list containing exactly the same elements.
+	 * 
+	 * @return true if the given object equals this list.
+	 */
+	public boolean equals(Object object) {
+		
+		//Handles the case if the given object is no list.
+		if (!(object instanceof List<?>)) {
+			return false;
+		}
+		
+		//Handles the case if the given object is a list.
+		
+			final List<?> list = (List<?>)object;
+			
+			if (getElementCount() != list.getElementCount()) {
+				return false;
+			}
+			
+			return containsAll(list);
 	}
 	
 	//method

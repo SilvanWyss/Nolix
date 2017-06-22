@@ -14,7 +14,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-06
- * @lines 60
+ * @lines 90
  * @param <E> - The type of the elements of an accessor container.
  */
 public final class AccessorContainer<E> implements IContainer<E> {
@@ -36,6 +36,31 @@ public final class AccessorContainer<E> implements IContainer<E> {
 		
 		//Sets the container of this accessor container.
 		this.container = container;
+	}
+	
+	//method
+	/**
+	 * An object equals an accessor container
+	 * if it is an accessor container containing exactly the same elements.
+	 * 
+	 * @return true if the given object equals this accessor container..
+	 */
+	public boolean equals(final Object object) {
+		
+		//Handles the case if the given object is no accessor container.
+		if (!(object instanceof AccessorContainer<?>)) {
+			return false;
+		}
+		
+		//Handles the case if the given object is an accessor container.
+		
+			final AccessorContainer<?> accessorContainer = (AccessorContainer<?>)object;
+			
+			if (getElementCount() != accessorContainer.getElementCount()) {
+				return false;
+			}
+			
+			return containsAll(accessorContainer);
 	}
 	
 	//method
