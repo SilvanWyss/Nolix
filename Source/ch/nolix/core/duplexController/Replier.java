@@ -23,7 +23,7 @@ final class Replier implements IReplier {
 	 * @param netDuplexController
 	 * @throws NullArgumentException if the given net duplex controller is null.
 	 */
-	public Replier(NetDuplexController netDuplexController) {
+	public Replier(final NetDuplexController netDuplexController) {
 		
 		//Checks if the given net duplex controller is not null.
 		Validator.throwExceptionIfValueIsNull("net controller", netDuplexController);

@@ -3,7 +3,7 @@ package ch.nolix.core.endPoint;
 
 //interface
 /**
- * An end point taker takes end points.
+ * An end point taker can take end points.
  * 
  * @author Silvan Wyss
  * @month 2017-05

@@ -51,6 +51,9 @@ implements IEndPointTaker {
 		endPointTaker.takeEndPoint(endPoint);
 	}
 
-	@Override
+	//method
+	/**
+	 * Lets this server note an abort.
+	 */
 	protected void noteAbort() {}
 }

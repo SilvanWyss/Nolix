@@ -10,7 +10,7 @@ import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
- * An end point can send messages to other end points.
+ * An end point can send messages to an other end point of the same type.
  * 
  * @author Silvan Wyss
  * @month 2017-05
@@ -54,7 +54,7 @@ implements ISender {
 	
 	//method
 	/**
-	 * Sets the receiver of this receiver.
+	 * Sets the receiver of this end point.
 	 * 
 	 * @param receiver
 	 * @throws NullArgumentException if the given receiver is null.
@@ -63,7 +63,7 @@ implements ISender {
 	public final void setReceiver(final IReceiver receiver) {
 		
 		//Checks if the given receiver is not null.
-		Validator.supposeThat(receiver).thatIsInstanceOf(IReceiver.class);
+		Validator.supposeThat(receiver).thatIsInstanceOf(IReceiver.class).isNotNull();
 		
 		//Checks if this end point is not aborted.
 		throwExceptionIfAborted();

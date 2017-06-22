@@ -15,14 +15,14 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 90
+ * @lines 80
  */
 public final class NetServer extends Server {
 	
 	//attributes
 	private final int port;
 	private final ServerSocket serverSocket;
-
+	
 	//constructor
 	/**
 	 * Creates new net server with the given port and end point taker.
@@ -48,7 +48,8 @@ public final class NetServer extends Server {
 			//Creates the server socket of this net server sub listener.
 			serverSocket = new ServerSocket(getPort());
 			
-			//This is important that the address can be reused immediately when this net server sub listener is aborted.
+			//This is important that the address can be reused
+			//immediately after this net server sub listener is aborted.
 			serverSocket.setReuseAddress(true);
 		}
 		catch (final IOException exception) {
@@ -57,17 +58,6 @@ public final class NetServer extends Server {
 		
 		//Creates new net server sub listener for this net server.
 		new NetServerSubListener(this);
-	}
-	
-	//method
-	/**
-	 * Aborts this net server.
-	 */
-	public void noteAbort() {
-		try {
-			serverSocket.close();
-		}
-		catch (IOException exception) {}
 	}
 
 	//method
@@ -84,5 +74,16 @@ public final class NetServer extends Server {
 	 */
 	ServerSocket getRefServerSocket() {
 		return serverSocket;
+	}
+	
+	//method
+	/**
+	 * Lets this net server note an abort.
+	 */
+	protected void noteAbort() {
+		try {
+			serverSocket.close();
+		}
+		catch (IOException exception) {}
 	}
 }

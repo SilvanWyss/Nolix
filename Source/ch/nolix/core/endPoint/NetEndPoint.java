@@ -6,29 +6,34 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-
-import ch.nolix.core.constants.IPv6Manager;
 //own imports
+import ch.nolix.core.constants.IPv6Manager;
 import ch.nolix.core.constants.PortManager;
 import ch.nolix.core.validator2.Validator;
 
 //class
 /**
- * A net end point is an end point that can send messages to an other net end point
+ * A net end point is an end point that can send messages to an other net end point that is:
  * -on the same process on the local machine
  * -on an other process on the local machine
  * -on an other machine
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 130
+ * @lines 140
  */
 public final class NetEndPoint extends EndPoint {
 	
-	//attribute
+	//attributes
 	private final Socket socket;
 	private final PrintWriter printWriter;
 
+	//constructor
+	/**
+	 * Creates new net end point that will connect to the given port on the local machine.
+	 * 
+	 * @param port
+	 */
 	public NetEndPoint(final int port) {
 		this(IPv6Manager.LOOP_BACK_ADDRESS, port);
 	}
@@ -39,6 +44,7 @@ public final class NetEndPoint extends EndPoint {
 	 * 
 	 * @param ip
 	 * @param port
+	 * @throws OutOfRangeArgumentException if the given port is not in [0, 65535].
 	 */
 	public NetEndPoint(final String ip, final int port) {
 		
@@ -67,7 +73,7 @@ public final class NetEndPoint extends EndPoint {
 		new NetEndPointSubListener(this);
 	}
 	
-	//constructor
+	//package-visible constructor
 	/**
 	 * Creates new net end point with the given socket.
 	 * 
@@ -99,17 +105,6 @@ public final class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets this net end point note an abort.
-	 */
-	protected void noteAbort() {
-		try {
-			socket.close();
-		}
-		catch (final IOException exception) {}
-	}
-	
-	//method
-	/**
 	 * Lets this net end point send the given message.
 	 * 
 	 * @param message
@@ -132,7 +127,18 @@ public final class NetEndPoint extends EndPoint {
 	/**
 	 * @return the socket of this net end point.
 	 */
-	protected Socket getRefSocket() {
+	Socket getRefSocket() {
 		return socket;
+	}
+	
+	//method
+	/**
+	 * Lets this net end point note an abort.
+	 */
+	protected void noteAbort() {
+		try {
+			socket.close();
+		}
+		catch (final IOException exception) {}
 	}
 }

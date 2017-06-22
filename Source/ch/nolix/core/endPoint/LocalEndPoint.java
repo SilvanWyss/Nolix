@@ -11,7 +11,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 70
+ * @lines 90
  */
 public final class LocalEndPoint extends EndPoint {
 
@@ -20,11 +20,11 @@ public final class LocalEndPoint extends EndPoint {
 	
 	//constructor
 	/**
-	 * Creates new local end point that will connect to the given end point taker.
+	 * Creates new local end point that will connect to the given target.
 	 * 
-	 * @param endPointTaker
+	 * @param target
 	 */
-	public LocalEndPoint(final IEndPointTaker endPointTaker) {
+	public LocalEndPoint(final IEndPointTaker target) {
 		
 		//Calls constructor of the base class.
 		super(true);
@@ -32,7 +32,11 @@ public final class LocalEndPoint extends EndPoint {
 		//Creates the counterpart of this local end point.
 		counterPart = new LocalEndPoint(this);
 		
-		endPointTaker.takeEndPoint(getCounterPart());
+		//Creates an abort dependency between this local end point and its counterpart.
+		createAbortDependency(getCounterPart());
+		
+		//Lets the given target take the counterpart of this local end point.
+		target.takeEndPoint(getCounterPart());
 	}
 	
 	//constructor
@@ -60,6 +64,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * 
 	 * @throws NullArgumentException if the given message is null.
 	 * @throws InvalidStateException if this local end point is aborted.
+	 * @throws UnexistingAttributeException if the counterpart of this local end point has no receiver.
 	 */
 	public void send(final String message) {
 		
@@ -74,15 +79,15 @@ public final class LocalEndPoint extends EndPoint {
 	
 	//method
 	/**
+	 * Lets this local end point note an abort.
+	 */
+	protected void noteAbort() {}
+	
+	//method
+	/**
 	 * @return the counterpart of this local end point.
 	 */
 	private LocalEndPoint getCounterPart() {
 		return counterPart;
-	}
-
-	@Override
-	protected void noteAbort() {
-		// TODO Auto-generated method stub
-		
 	}
 }

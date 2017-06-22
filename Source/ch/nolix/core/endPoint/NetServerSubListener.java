@@ -18,7 +18,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 100
+ * @lines 80
  */
 final class NetServerSubListener extends Thread {
 
@@ -32,7 +32,6 @@ final class NetServerSubListener extends Thread {
 	 * 
 	 * @param netServer
 	 * @throws NullArgumentException if the given net server is null.
-	 * @throws RuntimeException if an error occurs.
 	 */
 	public NetServerSubListener(final NetServer netServer) {
 		
