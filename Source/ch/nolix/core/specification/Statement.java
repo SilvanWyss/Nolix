@@ -9,7 +9,7 @@
 package ch.nolix.core.specification;
 
 //own imports
-import ch.nolix.core.helper.CharacterHelper;
+import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 
 //class
@@ -93,13 +93,13 @@ public final class Statement extends Specificationoid {
 		int openBrackets = 0;
 		for (int i = 0; i < value.length() - 1; i++) {
 			char character = value.charAt(i);
-			if (character == CharacterHelper.OPENING_BRACKET) {
+			if (character == CharacterManager.OPENING_BRACKET) {
 				openBrackets++;
 			}
-			else if (character == CharacterHelper.CLOSING_BRACKET) {
+			else if (character == CharacterManager.CLOSING_BRACKET) {
 				openBrackets--;
 			}
-			else if (character == CharacterHelper.DOT && openBrackets == 0) {
+			else if (character == CharacterManager.DOT && openBrackets == 0) {
 				setValue(value.substring(0, i));
 				nextStatement = new Statement(value.substring(i + 1, value.length()));
 				return;

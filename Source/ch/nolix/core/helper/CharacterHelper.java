@@ -2,7 +2,7 @@
  * file:	CharacterHelper.java
  * author:	Silvan Wyss
  * month:	2015-12
- * lines:	90
+ * lines:	80
  */
 
 //package declaration
@@ -18,25 +18,6 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * This class provides some methods to handle characters.
  */
 public final class CharacterHelper {
-	
-	//characters
-	public static final char APOSTROPH = '\'';
-	public static final char BACK_SLASH = '\\';
-	public static final char CLOSING_BRACKET = ')';
-	public static final char CLOSING_CROCODILE_BRACKET = '>';
-	public static final char CLOSING_SQUARE_BRACKET = ']';
-	public static final char COMMA = ',';
-	public static final char DOT = '.';
-	public static final char MINUS = '-';
-	public static final char NEW_LINE = '\n';
-	public static final char OPENING_BRACKET = '(';
-	public static final char OPENING_CROCODILE_BRACKET = '<';
-	public static final char OPENING_SQUARE_BRACKET = '[';
-	public static final char QUOTE = '\"';
-	public static final char SLASH = '/';
-	public static final char SPACE = ' ';
-	public static final char TABULATOR = '\t';;
-	public static final char UNDERSCORE = '_';
 	
 	//static method
 	/**

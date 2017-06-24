@@ -9,9 +9,9 @@
 package ch.nolix.core.specification;
 
 //own imports
+import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.container.List;
-import ch.nolix.core.helper.CharacterHelper;
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
@@ -292,7 +292,7 @@ abstract class Specificationoid {
 			Character character = value.charAt(i);
 			
 			//Checks whether the given specification string contains a closing bracket before an opening bracket.
-			if (character == CharacterHelper.CLOSING_BRACKET) {
+			if (character == CharacterManager.CLOSING_BRACKET) {
 				throw new InvalidArgumentException(
 					new ArgumentName("content"),
 					new Argument(value)
@@ -300,14 +300,14 @@ abstract class Specificationoid {
 			}
 			
 			//Checks whether the given specification string contains a comma before an opening bracket.
-			if (character == CharacterHelper.COMMA) {
+			if (character == CharacterManager.COMMA) {
 				throw new InvalidArgumentException(
 					new ArgumentName("content"),
 					new Argument(value)
 				);
 			}
 			
-			if (character == CharacterHelper.OPENING_BRACKET) {	
+			if (character == CharacterManager.OPENING_BRACKET) {	
 				hasAttributes = true;
 				if (i > 0) {
 					setHeader(value.substring(0, i));
@@ -333,18 +333,18 @@ abstract class Specificationoid {
 			for (int i = startIndex; i < value.length() - 1; i++)
 			{
 				char character = value.charAt(i);
-				if (character == CharacterHelper.DOT && level == 0) {
+				if (character == CharacterManager.DOT && level == 0) {
 					attributes.clear();
 					setHeader(value);
 					return;
 				}
-				if (character == CharacterHelper.OPENING_BRACKET) {
+				if (character == CharacterManager.OPENING_BRACKET) {
 					level++;
 				}
-				else if (character == CharacterHelper.CLOSING_BRACKET) {
+				else if (character == CharacterManager.CLOSING_BRACKET) {
 					level--;
 				}
-				if (character == CharacterHelper.COMMA && level == 0) {
+				if (character == CharacterManager.COMMA && level == 0) {
 					attributes.addAtEnd(new Specification(attributeString));
 					attributeString = StringManager.EMPTY_STRING;
 				}
@@ -363,7 +363,7 @@ abstract class Specificationoid {
 			}
 			
 			//Checks whether the last character of the given specificationoid string is a closing bracket.
-			if (value.charAt(value.length() - 1) != CharacterHelper.CLOSING_BRACKET) {
+			if (value.charAt(value.length() - 1) != CharacterManager.CLOSING_BRACKET) {
 				throw new InvalidArgumentException(
 					new ArgumentName("content"),
 					new Argument(value)
@@ -443,18 +443,18 @@ abstract class Specificationoid {
 		
 		//Handles attributes.
 		if (containsAttributes()) {
-			string += CharacterHelper.OPENING_BRACKET;
+			string += CharacterManager.OPENING_BRACKET;
 			boolean begin = true;
 			for (Specification a: attributes) {
 				if (begin) {
 					begin = false;
 				}
 				else {
-					string += CharacterHelper.COMMA;
+					string += CharacterManager.COMMA;
 				}
 				string += a.toReproducingString();
 			}
-			string += CharacterHelper.CLOSING_BRACKET;
+			string += CharacterManager.CLOSING_BRACKET;
 		}
 		return string;
 	}
@@ -471,18 +471,18 @@ abstract class Specificationoid {
 		
 		//Handles attributes.
 		if (containsAttributes()) {
-			string += CharacterHelper.OPENING_BRACKET;
+			string += CharacterManager.OPENING_BRACKET;
 			boolean begin = true;
 			for (Specification a: attributes) {
 				if (begin) {
 					begin = false;
 				}
 				else {
-					string += CharacterHelper.COMMA;
+					string += CharacterManager.COMMA;
 				}
 				string += a.toString();
 			}
-			string += CharacterHelper.CLOSING_BRACKET;
+			string += CharacterManager.CLOSING_BRACKET;
 		}
 		return string;
 	}

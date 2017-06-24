@@ -2,12 +2,12 @@
 package ch.nolix.core.container;
 
 //own imports
+import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerComparableGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerRunner;
-import ch.nolix.core.helper.CharacterHelper;
 import ch.nolix.core.helper.IterableHelper;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.invalidArgumentException.Argument;
@@ -866,7 +866,7 @@ public final class List<E> implements Clearable, IContainer<E> {
 				atBegin = false;
 			}
 			else {
-				string += CharacterHelper.COMMA;
+				string += CharacterManager.COMMA;
 			}		
 			string += e.toString();
 		}

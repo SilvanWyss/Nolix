@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Random;
 
 //own imports
+import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerComparableGetter;
@@ -13,7 +14,6 @@ import ch.nolix.core.functionInterfaces.IElementTakerDoubleGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerIntGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerLongGetter;
-import ch.nolix.core.helper.CharacterHelper;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -1152,7 +1152,7 @@ public interface IContainer<E> extends Iterable<E> {
 				begin = false;
 			}
 			else {
-				string += CharacterHelper.TABULATOR;
+				string += CharacterManager.TABULATOR;
 			}
 			
 			string += e.toString();

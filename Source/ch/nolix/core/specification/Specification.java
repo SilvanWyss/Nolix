@@ -15,9 +15,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 //own imports
-
+import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.container.List;
-import ch.nolix.core.helper.CharacterHelper;
 import ch.nolix.core.helper.StringHelper;
 
 //class
@@ -159,20 +158,20 @@ public final class Specification extends Specificationoid {
 	private final String toFormatedReproducingString(int tabulators) {		
 		if (containsAttributes()) {
 			if (allAttributesHaveNoAttributes()) {
-				return (StringHelper.createTabulators(tabulators) + getHeader() + CharacterHelper.OPENING_BRACKET + getRefAttributes().toString() + CharacterHelper.CLOSING_BRACKET);
+				return (StringHelper.createTabulators(tabulators) + getHeader() + CharacterManager.OPENING_BRACKET + getRefAttributes().toString() + CharacterManager.CLOSING_BRACKET);
 			}
 			else {
-				String formatedString = StringHelper.createTabulators(tabulators) + getHeader() + CharacterHelper.OPENING_BRACKET + CharacterHelper.NEW_LINE;
+				String formatedString = StringHelper.createTabulators(tabulators) + getHeader() + CharacterManager.OPENING_BRACKET + CharacterManager.NEW_LINE;
 				int currentParameter = 1;
 				for (Specification attribute: getRefAttributes()) {
 					formatedString += attribute.toFormatedReproducingString(tabulators + 1);
 					if (currentParameter != getRefAttributes().getElementCount()) {
-						formatedString += CharacterHelper.COMMA;
+						formatedString += CharacterManager.COMMA;
 					}
-					formatedString += CharacterHelper.NEW_LINE;
+					formatedString += CharacterManager.NEW_LINE;
 					currentParameter++;
 				}
-				return formatedString += StringHelper.createTabulators(tabulators) + CharacterHelper.CLOSING_BRACKET;
+				return formatedString += StringHelper.createTabulators(tabulators) + CharacterManager.CLOSING_BRACKET;
 			}
 		}
 		else {

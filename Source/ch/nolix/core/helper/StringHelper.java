@@ -9,6 +9,7 @@
 package ch.nolix.core.helper;
 
 //own imports
+import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -30,7 +31,7 @@ public final class StringHelper {
 		String tabulators = StringManager.EMPTY_STRING;
 		
 		for (int i = 1; i <= count; i++) {
-			tabulators += CharacterHelper.TABULATOR;
+			tabulators += CharacterManager.TABULATOR;
 		}
 		
 		return tabulators;
@@ -94,7 +95,7 @@ public final class StringHelper {
 		
 		boolean negative = false;
 		
-		if (string.charAt(0) == CharacterHelper.MINUS) {
+		if (string.charAt(0) == CharacterManager.MINUS) {
 			startIndex++;
 			negative = true;
 		}
