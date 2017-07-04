@@ -8,7 +8,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //class
 /**
- * This class provides some methods to handle characters.
+ * This class provides methods to handle characters.
  * Of this class no instance can be created.
  * 
  * @author Silvan Wyss
@@ -16,6 +16,10 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * @lines 90
  */
 public final class CharacterHelper {
+	
+	//articles
+	private static final String ARTICLE_A = "a";
+	private static final String ARTICLE_AN = "an";
 	
 	//static method
 	/**
@@ -40,29 +44,29 @@ public final class CharacterHelper {
 		//Handles the case if the given letter is a vowel.
 		switch (letter) {
 			case 'A':
-				return "an";
+				return ARTICLE_AN;
 			case 'a':
-				return "an";
+				return ARTICLE_AN;
 			case 'E':
-				return "an";
+				return ARTICLE_AN;
 			case 'e':
-				return "an";
+				return ARTICLE_AN;
 			case 'I':
-				return "an";
+				return ARTICLE_AN;
 			case 'i':
-				return "an";
+				return ARTICLE_AN;
 			case 'O':
-				return "an";
+				return ARTICLE_AN;
 			case 'o':
-				return "an";
+				return ARTICLE_AN;
 			case 'U':
-				return "an";
+				return ARTICLE_AN;
 			case 'u':
-				return "an";
+				return ARTICLE_AN;
 		}
 		
 		//Handles the case if the given letter is a consonant.
-		return "a";
+		return ARTICLE_A;
 	}
 
 	//static method
