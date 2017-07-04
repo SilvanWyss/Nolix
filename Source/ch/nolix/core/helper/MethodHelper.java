@@ -1,10 +1,3 @@
-/*
- * file:	MethodHelper.java
- * author:	Silvan Wyss
- * month:	28.02.2016
- * lines:	40
- */
-
 //package declaration
 package ch.nolix.core.helper;
 
@@ -14,18 +7,24 @@ import java.lang.reflect.Parameter;
 
 //class
 /**
- * This class provides some methods to handle methods.
+ * This class provides methods to handle methods.
+ * Of this class no instance can be created.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-02
+ * @lines 40
  */
-public class MethodHelper {
+public final class MethodHelper {
 
 	//static method
 	/**
 	 * @param method
-	 * @return true if all parameters of the given method are strings
+	 * @return true if all parameters of the given method are strings.
 	 */
-	public static final boolean allParametersOfMethodAreStrings(Method method) {
+	public static final boolean allParametersOfMethodAreStrings(final Method method) {
 		
-		for (Parameter p: method.getParameters()) {
+		//Iterates the parameters of the given method.
+		for (final Parameter p : method.getParameters()) {
 			if (!p.getType().getSimpleName().equals(String.class.getSimpleName())) {
 				return false;
 			}
