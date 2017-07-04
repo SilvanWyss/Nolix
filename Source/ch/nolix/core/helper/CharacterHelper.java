@@ -1,10 +1,3 @@
-/*
- * file:	CharacterHelper.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	80
- */
-
 //package declaration
 package ch.nolix.core.helper;
 
@@ -16,59 +9,77 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 //class
 /**
  * This class provides some methods to handle characters.
+ * Of this class no instance can be created.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 90
  */
 public final class CharacterHelper {
 	
 	//static method
 	/**
-	 * @param firstLetter
-	 * @return the article of a word with the given first letter
-	 * @throws Exception if the given first letter is not valid
+	 * @param letter
+	 * @return the article of a word that starts with the given letter.
+	 * @throws InvalidArgumentException if the given letter is not valid.
 	 */
-	public static String getArticle(char firstLetter) {
+	public static String getArticle(final char letter) {
 		
-		if (firstLetter > 90) {
-			firstLetter -= 32;
-		}
-		
-		switch (firstLetter) {
-			case 'A':
-				return "an";
-			case 'E':
-				return "an";
-			case 'I':
-				return "an";
-			case 'O':
-				return "an";
-			case 'U':
-				return "an";
-		}
-		
-		if (firstLetter < 65 || firstLetter > 90) {
+		//Handles the case if the given letter is not valid.
+		if (
+			letter < 65
+			|| (letter > 90 && letter < 97)
+			|| letter > 122
+		) {
 			throw new InvalidArgumentException(
-				new ArgumentName("first letter"),
-				new Argument(firstLetter)
+				new ArgumentName("letter"),
+				new Argument(letter)
 			);
 		}
 		
+		//Handles the case if the given letter is a vowel.
+		switch (letter) {
+			case 'A':
+				return "an";
+			case 'a':
+				return "an";
+			case 'E':
+				return "an";
+			case 'e':
+				return "an";
+			case 'I':
+				return "an";
+			case 'i':
+				return "an";
+			case 'O':
+				return "an";
+			case 'o':
+				return "an";
+			case 'U':
+				return "an";
+			case 'u':
+				return "an";
+		}
+		
+		//Handles the case if the given letter is a consonant.
 		return "a";
 	}
 
 	//static method
 	/**
 	 * @param character
-	 * @return true if the given character is a digit
+	 * @return true if the given character is a digit.
 	 */
-	public static boolean isDigit(char character) {		
+	public static boolean isDigit(final char character) {		
 		return (character >= 48 && character <= 57);
 	}
 	
 	//static method
 	/**
 	 * @param character
-	 * @return true if the given character is a hexadecimal digit
+	 * @return true if the given character is a hexadecimal digit.
 	 */
-	public static boolean isHexadecimalDigit(char character) {
+	public static boolean isHexadecimalDigit(final char character) {
 		return (isDigit(character) || (character >= 65 && character <= 70));
 	}
 	
