@@ -426,7 +426,7 @@ abstract class Specificationoid {
 	 * @throws Exception if this specificationoid does not represent an integer 
 	 */
 	public final int toInteger() {
-		return StringHelper.toInteger(toString());		
+		return StringHelper.toInt(toString());		
 	}
 	
 	//method

@@ -212,18 +212,18 @@ public final class Time extends Element {
 		.equalsAny(3, 5, 6, 7);
 		
 		if (array.length >= 3) {
-			setYear(StringHelper.toInteger(array[0]));
-			setMonthOfYear(StringHelper.toInteger(array[1]));
-			setDayOfMonth(StringHelper.toInteger(array[2]));
+			setYear(StringHelper.toInt(array[0]));
+			setMonthOfYear(StringHelper.toInt(array[1]));
+			setDayOfMonth(StringHelper.toInt(array[2]));
 		}
 		if (array.length >= 5) {
-			setMinuteOfHour(StringHelper.toInteger(array[4]));
+			setMinuteOfHour(StringHelper.toInt(array[4]));
 		}
 		if (array.length >= 6) {
-			setSecondOfMinute(StringHelper.toInteger(array[5]));
+			setSecondOfMinute(StringHelper.toInt(array[5]));
 		}
 		if (array.length >= 7) {
-			setMillisecondOfSecond(StringHelper.toInteger(array[6]));
+			setMillisecondOfSecond(StringHelper.toInt(array[6]));
 		}
 	}	
 	

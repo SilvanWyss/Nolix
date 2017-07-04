@@ -21,7 +21,7 @@ public final class MethodHelper {
 	 * @param method
 	 * @return true if all parameters of the given method are strings.
 	 */
-	public static final boolean allParametersOfMethodAreStrings(final Method method) {
+	public static boolean allParametersOfMethodAreStrings(final Method method) {
 		
 		//Iterates the parameters of the given method.
 		for (final Parameter p : method.getParameters()) {

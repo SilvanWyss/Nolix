@@ -102,6 +102,6 @@ public abstract class Integeroid extends Element {
 	 * @throws Exception if the given value is not valid
 	 */
 	public final void setValue(String value) {
-		setValue(StringHelper.toInteger(value));
+		setValue(StringHelper.toInt(value));
 	}
 }

@@ -1,10 +1,3 @@
-/*
- * file:	StringHelper.java
- * author:	Silvan Wyss
- * month:	2015
- * lines:	250
- */
-
 //package declaration
 package ch.nolix.core.helper;
 
@@ -12,47 +5,50 @@ package ch.nolix.core.helper;
 import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
- * This class provides some methods to handle strings.
+ * This class provides methods to handle strings.
+ * Of this class no instance can be created.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 270
  */
 public final class StringHelper {
 	
 	//static method
 	/**
-	 * @param count
-	 * @return new string consisting of as many tabulators as the given count
+	 * @param tabulatorCount
+	 * @return a new string consisting of as many tabulators as the given tabulator count says.
+	 * @throws NegativeArgumentException if the given tabulator count is negative.
 	 */
-	public static final String createTabulators(int count) {
+	public static String createTabulators(final int tabulatorCount) {
+		
+		//Checks if the given count is not negative.
+		Validator.supposeThat(tabulatorCount).thatIsNamed("count").isNotNegative();
 		
 		String tabulators = StringManager.EMPTY_STRING;
 		
-		for (int i = 1; i <= count; i++) {
+		for (int i = 1; i <= tabulatorCount; i++) {
 			tabulators += CharacterManager.TABULATOR;
 		}
 		
 		return tabulators;
 	}
-		
-	//static method
-	/**
-	 * @param string
-	 * @return true if the given string is a non empty string
-	 */
-	public static final boolean isNonEmptyString(String string) {
-		return (string != null && string.length() > 0);
-	}
 	
 	//static method
 	/**
 	 * @param string
-	 * @return the boolean the given string represents
-	 * @throws Exception if the given string does not represent a boolean
+	 * @return the boolean the given string represents.
+	 * @throws InvalidArgumentException if the given string represents no boolean.
 	 */
-	public static final boolean toBoolean(String string) {
+	public static boolean toBoolean(final String string) {
+		
+		//Enumerates the given string.
 		switch (string) {
 			case "0":
 				return false;
@@ -67,7 +63,10 @@ public final class StringHelper {
 			case "True":
 				return true;
 			default:
-				throw new RuntimeException("The string '" + string + "' does not represent a boolean.");
+				throw new InvalidArgumentException(
+					new Argument(string),
+					new ErrorPredicate("represents no boolean")
+				);
 		}
 	}
 	
@@ -77,19 +76,22 @@ public final class StringHelper {
 	 * @return the double the given string represents.
 	 */
 	public static double toDouble(final String string) {
-		//TODO: Checks the format.
+		
+		//TODO: Check the format of the given string.
+		
 		return Double.valueOf(string);
 	}
 	
 	//static method
 	/**
 	 * @param string
-	 * @return the integer the given string represents
-	 * @throws Exception if the given string does not represent an integer
+	 * @return the int the given string represents.
+	 * @throws InvalidArgumentException if the given string represents no int.
 	 */
-	public static final int toInteger(String string) {
+	public static int toInt(final String string) {
 		
-		Validator.throwExceptionIfStringIsNullOrEmpty("string", string);
+		//Checks if the given string is not null or empty.
+		Validator.supposeThat(string).isNotEmpty();
 		
 		int startIndex = 0;
 		
@@ -108,39 +110,36 @@ public final class StringHelper {
 		}
 		
 		if (string.length() - startIndex > 10) {
-			throw new InvalidArgumentException(new Argument(string));
+			throw new InvalidArgumentException(
+				new Argument(string),
+				new ErrorPredicate("represents no int")
+			);
 		}
 		
 		if (negative) {
 			
 			if (decimal) {
-				return -toIntegerFromNonNegativeDecimal(string.substring(startIndex));
+				return -toIntFromNonNegativeDecimal(string.substring(startIndex));
 			}
 			
-			return -toIntegerFromNonNegativeHexaDecimal(string.substring(startIndex));
+			return -toIntFromNonNegativeHexaDecimal(string.substring(startIndex));
 		}
 		else {
 			if (decimal) {
-				return toIntegerFromNonNegativeDecimal(string.substring(startIndex));
+				return toIntFromNonNegativeDecimal(string.substring(startIndex));
 			}
 			
-			return toIntegerFromNonNegativeHexaDecimal(string.substring(startIndex));
+			return toIntFromNonNegativeHexaDecimal(string.substring(startIndex));
 		}
 	}
-
-	//private constructor
-	/**
-	 * Avoids that an instance of this class can be created.
-	 */
-	private StringHelper() {}
 	
 	//static method
 	/**
 	 * @param string
-	 * @return the non negative decimal integer the given string represents
-	 * @throws Exception if the given string does not represent a negative decimal integer
+	 * @return the non negative decimal int the given string represents.
+	 * @throws InvalidArgumentException if the given string represents no non-negative decimal int.
 	 */
-	private static final int toIntegerFromNonNegativeDecimal(String string) {
+	private static int toIntFromNonNegativeDecimal(final String string) {
 		
 		int number = 0;
 		
@@ -148,6 +147,7 @@ public final class StringHelper {
 			
 			number *= 10;
 			
+			//Enumerates the current digit.
 			switch (string.charAt(i)) {
 				case '0':
 					break;
@@ -179,7 +179,10 @@ public final class StringHelper {
 					number += 9;
 					break;
 				default:
-					throw new InvalidArgumentException(new Argument(string));
+					throw new InvalidArgumentException(
+						new Argument(string),
+						new ErrorPredicate("represents no non-negative decimal int")
+					);
 			}
 		}
 		
@@ -189,10 +192,10 @@ public final class StringHelper {
 	//static method
 	/**
 	 * @param string
-	 * @return the non-negative hexadecimal integer the given string represents
-	 * @throws Exception if the given string does not represent a non-negative decimal integer
+	 * @return the non-negative hexadecimal int the given string represents.
+	 * @throws Exception if the given string represents no non-negative hexadecimal int.
 	 */
-	private static final int toIntegerFromNonNegativeHexaDecimal(String string) {
+	private static int toIntFromNonNegativeHexaDecimal(final String string) {
 		
 		int number = 0;
 		
@@ -200,6 +203,7 @@ public final class StringHelper {
 			
 			number *= 16;
 			
+			//Enumerates the current digit.
 			switch (string.charAt(i)) {
 				case '0':
 					break;
@@ -249,10 +253,19 @@ public final class StringHelper {
 					number += 15;
 					break;
 				default:
-					throw new InvalidArgumentException(new Argument(string));
+					throw new InvalidArgumentException(
+						new Argument(string),
+						new ErrorPredicate("represents no non-negative hexadecimal decimal int")
+					);
 			}
 		}
 		
 		return number;
 	}
+	
+	//private constructor
+	/**
+	 * Avoids that an instance of this class can be created.
+	 */
+	private StringHelper() {}
 }
