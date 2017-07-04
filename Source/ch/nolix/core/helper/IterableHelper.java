@@ -6,7 +6,8 @@ import java.util.Iterator;
 
 //class
 /**
- * This class provides some methods to handle iterable objects.
+ * This class provides methods to handle iterable objects.
+ * Of this class no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2016-03

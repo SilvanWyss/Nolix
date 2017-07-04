@@ -26,7 +26,7 @@ public final class DoubleHelper {
 	 * @param value
 	 * @return a string representation of the given value.
 	 */
-	public static final String toString(final double value) {
+	public static String toString(final double value) {
 		
 		final DecimalFormat decimalFormat = (DecimalFormat)NumberFormat.getNumberInstance(Locale.US);
 		decimalFormat.applyPattern("0.################");
