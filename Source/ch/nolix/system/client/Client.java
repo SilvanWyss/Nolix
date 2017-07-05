@@ -12,7 +12,7 @@ import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.validator2.Validator;
 
@@ -503,16 +503,16 @@ implements Abortable {
 	 * @return the data the given request requests from this client.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	protected Specification internal_getData(final Statement request) {
+	protected StandardSpecification internal_getData(final Statement request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case TYPE_REQUEST:
-				return new Specification(getType());
+				return new StandardSpecification(getType());
 			case TARGET_REQUEST:
-				return new Specification(internal_getTarget());
+				return new StandardSpecification(internal_getTarget());
 			case DATA_METHOD_REQUEST:
-				return new Specification(internal_invokeDataMethod(request.getRefOneAttribute()));
+				return new StandardSpecification(internal_invokeDataMethod(request.getRefOneAttribute()));
 			default:
 				throw new InvalidArgumentException(new ArgumentName("reqest"), new Argument(request));
 		}
@@ -567,7 +567,7 @@ implements Abortable {
 	 * @return the data the given data method request requests
 	 * @throws UnexistingAttributeException if this client has no session.
 	 */
-	protected final Object internal_invokeDataMethod(final Specification dataMethodRequest) {
+	protected final Object internal_invokeDataMethod(final StandardSpecification dataMethodRequest) {
 		
 		//Checks if this client has a session.
 		if (!internal_hasSession()) {
@@ -591,7 +591,7 @@ implements Abortable {
 	 * @param runMethodCommand
 	 * @throws UnexistingAttributeException if this client has no session.
 	 */
-	protected final void internal_invokeRunMethod(final Specification runMethodCommand) {
+	protected final void internal_invokeRunMethod(final StandardSpecification runMethodCommand) {
 		
 		//Checks if this client has a session.
 		if (!internal_hasSession()) {

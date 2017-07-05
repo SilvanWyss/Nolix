@@ -16,7 +16,7 @@ import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.data.Name;
 
@@ -45,9 +45,9 @@ public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<
 	/**
 	 * @return the attributes of this namable elment
 	 */
-	public List<Specification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
-		List<Specification> attributes = new List<Specification>();
+		List<StandardSpecification> attributes = new List<StandardSpecification>();
 		
 		if (hasName()) {
 			attributes.addAtEnd(name.getSpecification());
@@ -119,7 +119,7 @@ public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public void addOrChangeAttribute(Specification attribute) {
+	public void addOrChangeAttribute(StandardSpecification attribute) {
 		switch (attribute.getHeader()) {
 			case Name.SIMPLE_CLASS_NAME:
 				setName(attribute.getOneAttributeToString());

@@ -4,7 +4,7 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.PositiveInteger;
@@ -602,10 +602,10 @@ extends BackgroundWidgetStructure<BRS> {
 	/**
 	 * @return the attributes of this borderable rectangle structure
 	 */
-	protected List<Specification> getAttributes() {
+	protected List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<Specification> attributes = super.getAttributes();
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
 		if (hasABorderSize() && hasSameBorderSizeAtEachSide()) {
 			attributes.addAtEnd(leftBorderSize.getSpecificationAs(BORDER_SIZE_HEADER));
@@ -661,7 +661,7 @@ extends BackgroundWidgetStructure<BRS> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	protected void addOrChangeAttribute(final Specification attribute) {
+	protected void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {

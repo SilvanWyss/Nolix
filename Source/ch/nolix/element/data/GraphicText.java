@@ -37,7 +37,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.Element;
 import ch.nolix.element.basic.PositiveInteger;
@@ -73,8 +73,8 @@ public final class GraphicText extends Element {
 	/**
 	 * @return the attributes of this graphic text
 	 */
-	public final List<Specification> getAttributes() {	
-		return new List<Specification>()
+	public final List<StandardSpecification> getAttributes() {	
+		return new List<StandardSpecification>()
 			.addAtEnd(text.getSpecification())
 			.addAtEnd(size.getSpecification())
 			.addAtEnd(color.getSpecification());
@@ -147,7 +147,7 @@ public final class GraphicText extends Element {
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public final void addOrChangeAttribute(Specification attribute) {
+	public final void addOrChangeAttribute(StandardSpecification attribute) {
 		switch (attribute.getHeader()) {
 			case Text.SIMPLE_CLASS_NAME:
 				setText(attribute.getOneAttributeToString());

@@ -10,7 +10,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 
 //class
 public final class VerticalLine extends Line<VerticalLine> {
@@ -32,7 +32,7 @@ public final class VerticalLine extends Line<VerticalLine> {
 	 * @param attributes
 	 * @throws Exception if the given attributes are not valid
 	 */
-	public VerticalLine(List<Specification> attributes) {
+	public VerticalLine(List<StandardSpecification> attributes) {
 		
 		//Calls other constructor.
 		this();

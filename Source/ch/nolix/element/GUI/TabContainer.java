@@ -15,7 +15,7 @@ import java.awt.Graphics;
 
 import ch.nolix.core.container.List;
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.PositiveInteger;
 import ch.nolix.element.data.Margin;
@@ -81,7 +81,7 @@ extends Container<TabContainerStructure, TabContainer> {
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public void addOrChangeAttribute(Specification attribute) {
+	public void addOrChangeAttribute(StandardSpecification attribute) {
 		switch (attribute.getHeader()) {
 			case MENU_ITEM_PADDING:
 				setMenuItemPadding(attribute.getOneAttributeToInteger());
@@ -116,17 +116,17 @@ extends Container<TabContainerStructure, TabContainer> {
 				break;
 			default:	
 				if (attribute.getHeader().startsWith("NormalMenuItem")) {
-					Specification temp = attribute.getClone();
+					StandardSpecification temp = attribute.getClone();
 					temp.setHeader(attribute.getHeader().substring("NormalMenuItem".length()));
 					getRefNormalMenuItemStructure().setAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith("HoverMenuItem")) {
-					Specification temp = attribute.getClone();
+					StandardSpecification temp = attribute.getClone();
 					temp.setHeader(attribute.getHeader().substring("HoverMenuItem".length()));
 					getRefHoverMenuItemStructure().setAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith("FocusMenuItem")) {
-					Specification temp = attribute.getClone();
+					StandardSpecification temp = attribute.getClone();
 					temp.setHeader(attribute.getHeader().substring("FocusMenuItem".length()));
 					getRefFocusMenuItemStructure().setAttribute(temp);
 				}
@@ -186,13 +186,13 @@ extends Container<TabContainerStructure, TabContainer> {
 	/**
 	 * @return the attributes of this tab container
 	 */
-	public List<Specification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<Specification> attributes = super.getAttributes();
+		final List<StandardSpecification> attributes = super.getAttributes();
 				
 		if (hasMenuItemMargin()) {
-			attributes.addAtEnd(new Specification(MENU_ITEM_MARGIN + "(" + getMenuItemMargin() + ")"));
+			attributes.addAtEnd(new StandardSpecification(MENU_ITEM_MARGIN + "(" + getMenuItemMargin() + ")"));
 		}
 		
 		if (hasMenuItemLeftPadding()) {
@@ -209,7 +209,7 @@ extends Container<TabContainerStructure, TabContainer> {
 		}
 		
 		if (hasMenuMargin()) {
-			attributes.addAtEnd(new Specification(MENU_MARGIN, menuMargin.getAttributes()));
+			attributes.addAtEnd(new StandardSpecification(MENU_MARGIN, menuMargin.getAttributes()));
 		}
 				
 		attributes.addAtEnd(
@@ -223,7 +223,7 @@ extends Container<TabContainerStructure, TabContainer> {
 		);
 			
 		if (hasCurrentTab()) {
-			attributes.addAtEnd(new Specification("CurrentTab(" + currentTab.getName() + ")"));
+			attributes.addAtEnd(new StandardSpecification("CurrentTab(" + currentTab.getName() + ")"));
 		}
 		attributes.addAtEnd(tabs.to(t -> t.getSpecificationAs(TAB)));
 				

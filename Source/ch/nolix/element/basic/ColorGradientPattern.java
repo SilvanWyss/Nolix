@@ -9,7 +9,7 @@
 package ch.nolix.element.basic;
 
 //own import
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 
 //enum
 public enum ColorGradientPattern {
@@ -20,7 +20,7 @@ public enum ColorGradientPattern {
 	/**
 	 * @return the specification of this color gradient pattern
 	 */
-	public final Specification getSpecification() {
-		return new Specification(toString());
+	public final StandardSpecification getSpecification() {
+		return new StandardSpecification(toString());
 	}
 }

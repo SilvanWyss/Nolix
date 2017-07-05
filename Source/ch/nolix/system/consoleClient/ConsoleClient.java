@@ -3,7 +3,7 @@ package ch.nolix.system.consoleClient;
 
 //own imports
 import ch.nolix.core.duplexController.DuplexController;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.system.client.Client;
 
@@ -98,7 +98,7 @@ public final class ConsoleClient extends Client<ConsoleClient> {
 		//Checks if the given line is not null.
 		Validator.supposeThat(line).thatIsNamed("line").isNotNull();
 		
-		internal_getRefDuplexController().run(new Specification(WRITE_NEXT_LINE_TO_CONSOLE_COMMAND, line).toString());
+		internal_getRefDuplexController().run(new StandardSpecification(WRITE_NEXT_LINE_TO_CONSOLE_COMMAND, line).toString());
 	}
 	
 	//method
@@ -116,7 +116,7 @@ public final class ConsoleClient extends Client<ConsoleClient> {
 		
 		//Iterates the given lines.
 		for (final String l : lines) {
-			internal_getRefDuplexController().appendCommand(new Specification(WRITE_NEXT_LINE_TO_CONSOLE_COMMAND, l).toString());
+			internal_getRefDuplexController().appendCommand(new StandardSpecification(WRITE_NEXT_LINE_TO_CONSOLE_COMMAND, l).toString());
 		}
 		
 		internal_getRefDuplexController().runAppendedCommands();

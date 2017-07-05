@@ -19,7 +19,7 @@ import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.Length;
 import ch.nolix.element.data.Thickness;
@@ -68,7 +68,7 @@ extends Widget<LineStructure, L> {
 	 * @param attribute		The attribute to add or change to this line.
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public final void addOrChangeAttribute(final Specification attribute) {
+	public final void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Enumerates the given attribute.
 		switch (attribute.getHeader()) {
@@ -92,10 +92,10 @@ extends Widget<LineStructure, L> {
 	/**
 	 * @return the attributes of this line
 	 */
-	public final List<Specification> getAttributes() {	
+	public final List<StandardSpecification> getAttributes() {	
 		
 		//Calls method of the base class.
-		final List<Specification> attributes = super.getAttributes();
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
 		if (getLength() != DEFAULT_LENGTH) {
 			attributes.addAtEnd(length.getSpecification());

@@ -9,7 +9,7 @@ import ch.nolix.core.endPoint3.NetEndPoint;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.validator2.Validator;
 
@@ -116,13 +116,13 @@ public class NetDuplexController extends DuplexController {
 	 * @return the data the given request requests from this net duplex controller.
 	 * @throws InvalidStateException if this net duplex controller is aborted.
 	 */
-	public Specification getData(final Statement request) {
+	public StandardSpecification getData(final Statement request) {
 		
 		//Creates message.
 		final String message = Protocol.DATA_REQUEST + '(' + request.toString() + ')';
 		
 		//Sends message and gets reply.
-		final Specification reply = new Specification(netEndPoint.sendAndGetReply(message));
+		final StandardSpecification reply = new StandardSpecification(netEndPoint.sendAndGetReply(message));
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
@@ -194,7 +194,7 @@ public class NetDuplexController extends DuplexController {
 		final String message = Protocol.COMMANDS + '(' + commands.toString() + ')';
 				
 		//Sends the message and gets reply.
-		final Specification reply = new Specification(netEndPoint.sendAndGetReply(message));
+		final StandardSpecification reply = new StandardSpecification(netEndPoint.sendAndGetReply(message));
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
@@ -217,7 +217,7 @@ public class NetDuplexController extends DuplexController {
 	 */
 	final String receiveAndGetReply(final String message) {
 		try {
-			return receiveAndGetReply(new Specification(message));
+			return receiveAndGetReply(new StandardSpecification(message));
 		}
 		catch (final Exception exception) {
 			return (Protocol.ERROR + '(' + exception.getMessage() + ')');
@@ -232,7 +232,7 @@ public class NetDuplexController extends DuplexController {
 	 * @return the reply to the given message from this net duplex controller.
 	 * @throws UnexistringAttributeException if this net duplex contorller has no receiver.
 	 */
-	private final String receiveAndGetReply(final Specification message) {
+	private final String receiveAndGetReply(final StandardSpecification message) {
 		
 		//Gets the receiver controller of this net duplex controller.
 		final ILevel2Controller receiverController = getRefReceiverController();

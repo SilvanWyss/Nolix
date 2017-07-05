@@ -2,7 +2,7 @@
 package ch.nolix.systemTutorial.netNeuronTutorial;
 
 //own imports
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.system.netNeuron.FrontNetNeuron;
 import ch.nolix.system.netNeuron.NetNeuron;
 import ch.nolix.system.neuron.SourceNeuron;
@@ -33,7 +33,7 @@ public final class NetNeuronTutorial {
 		
 		//Creates net neuron and adds a source neuron as input neuron to it.
 		final NetNeuron<String> netNeuron =
-		new NetNeuron<String>(port, s -> new Specification(s))
+		new NetNeuron<String>(port, s -> new StandardSpecification(s))
 		.addInputNeuron(new SourceNeuron<String>("Hello_World!"));
 		
 		//Creates front net neurons that are connected to the net neuron.

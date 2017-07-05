@@ -6,7 +6,7 @@ import ch.nolix.core.controllerInterfaces.ILevel2Controller;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.specificationInterfaces.Specifiable;
 
@@ -43,7 +43,7 @@ implements ILevel2Controller, Specifiable {
 				);
 			}
 			
-			addOrChangeAttribute(new Specification(header.substring(3), command.getRefAttributes()));
+			addOrChangeAttribute(new StandardSpecification(header.substring(3), command.getRefAttributes()));
 			return;
 		}
 		

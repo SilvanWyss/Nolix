@@ -11,7 +11,7 @@ package ch.nolix.element.basic;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.helper.StringHelper;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 
 //package-visible class
 public abstract class Integeroid extends Element {
@@ -52,8 +52,8 @@ public abstract class Integeroid extends Element {
 	/**
 	 * @return the attributes of this integeroid
 	 */
-	public final List<Specification> getAttributes() {
-		return new List<Specification>().addAtEnd(new Specification(java.lang.Integer.toString(getValue())));
+	public final List<StandardSpecification> getAttributes() {
+		return new List<StandardSpecification>().addAtEnd(new StandardSpecification(java.lang.Integer.toString(getValue())));
 	}
 	
 	//method
@@ -80,7 +80,7 @@ public abstract class Integeroid extends Element {
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public final void addOrChangeAttribute(Specification attribute) {
+	public final void addOrChangeAttribute(StandardSpecification attribute) {
 		setValue(attribute.toString());
 	}
 	

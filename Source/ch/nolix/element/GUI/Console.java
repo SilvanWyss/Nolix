@@ -9,7 +9,7 @@ import java.awt.Graphics;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Clearable;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.GraphicText;
@@ -57,7 +57,7 @@ implements Clearable {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Enumerates the given attribute.
 		switch (attribute.getHeader()) {
@@ -136,13 +136,13 @@ implements Clearable {
 	/**
 	 * @return the attributes of this console.
 	 */
-	public List<Specification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<Specification> attributes = super.getAttributes();
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
 		if (containsTextLines()) {
-			attributes.addAtEnd(new Specification(TEXT_LINES_HEADER, textLines.toArray()));
+			attributes.addAtEnd(new StandardSpecification(TEXT_LINES_HEADER, textLines.toArray()));
 		}
 		
 		return attributes;

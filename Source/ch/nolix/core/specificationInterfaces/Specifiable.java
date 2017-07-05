@@ -6,7 +6,7 @@ import ch.nolix.core.interfaces.Resettable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 
 //interface
 /**
@@ -26,7 +26,7 @@ public interface Specifiable extends Resettable, Specified {
 	 * 
 	 * @param attribute
 	 */
-	public abstract void addOrChangeAttribute(final Specification attribute);
+	public abstract void addOrChangeAttribute(final StandardSpecification attribute);
 	
 	//default method
 	/**
@@ -35,10 +35,10 @@ public interface Specifiable extends Resettable, Specified {
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public default void addOrChangeAttribute(final Specification... attributes) {
+	public default void addOrChangeAttribute(final StandardSpecification... attributes) {
 		
 		//Iterates the given attributes.
-		for (final Specification a : attributes) {
+		for (final StandardSpecification a : attributes) {
 			addOrChangeAttribute(a);
 		}
 	}
@@ -51,7 +51,7 @@ public interface Specifiable extends Resettable, Specified {
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	public default void addOrChangeAttribute(final String attribute) {
-		addOrChangeAttribute(new Specification(attribute));
+		addOrChangeAttribute(new StandardSpecification(attribute));
 	}
 	
 	//default method
@@ -76,10 +76,10 @@ public interface Specifiable extends Resettable, Specified {
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public default void addOrChangeAttributes(final Iterable<Specification> attributes) {
+	public default void addOrChangeAttributes(final Iterable<StandardSpecification> attributes) {
 		
 		//Iterates the given attributes.
-		for (final Specification a : attributes) {
+		for (final StandardSpecification a : attributes) {
 			addOrChangeAttribute(a);
 		}
 	}
@@ -91,7 +91,7 @@ public interface Specifiable extends Resettable, Specified {
 	 * @param path
 	 */
 	public default void loadFrom(final String path) {
-		reset(Specification.loadSpecification(path));
+		reset(StandardSpecification.loadSpecification(path));
 	}
 	
 	//default method
@@ -101,7 +101,7 @@ public interface Specifiable extends Resettable, Specified {
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public default void reset(final Iterable<Specification> attributes) {
+	public default void reset(final Iterable<StandardSpecification> attributes) {
 		reset();
 		addOrChangeAttributes(attributes);
 	}
@@ -110,21 +110,21 @@ public interface Specifiable extends Resettable, Specified {
 	/**
 	 * Resets this specifiable object with the given specification.
 	 * 
-	 * @param specification
+	 * @param standardSpecification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public default void reset(final Specification specification) {
+	public default void reset(final StandardSpecification standardSpecification) {
 		
 		//Checks if the given specification is a specification for this specifiable object.
-		if (!specification.hasHeader(getType())) {
+		if (!standardSpecification.hasHeader(getType())) {
 			throw new InvalidArgumentException(
-				new Argument(specification),
+				new Argument(standardSpecification),
 				new ErrorPredicate("is no " + getType() + " specification")
 			);
 		}
 		
 		reset();
-		addOrChangeAttributes(specification.getRefAttributes());
+		addOrChangeAttributes(standardSpecification.getRefAttributes());
 	}
 	
 	//default method
@@ -135,6 +135,6 @@ public interface Specifiable extends Resettable, Specified {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public default void reset(final String specification) {
-		reset(new Specification(specification));
+		reset(new StandardSpecification(specification));
 	}
 }

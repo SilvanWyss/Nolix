@@ -3,7 +3,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.PositiveInteger;
@@ -208,10 +208,10 @@ public final class CheckBoxStructure extends BackgroundWidgetStructure<CheckBoxS
 	/**
 	 * @return the attributes of this check box structure.
 	 */
-	protected List<Specification> getAttributes() {
+	protected List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<Specification> attributes = super.getAttributes();
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
 		if (hasSize()) {
 			attributes.addAtEnd(size.getSpecificationAs(SIZE_HEADER));
@@ -235,7 +235,7 @@ public final class CheckBoxStructure extends BackgroundWidgetStructure<CheckBoxS
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	protected void addOrChangeAttribute(final Specification attribute) {
+	protected void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {

@@ -3,7 +3,7 @@ package ch.nolix.system.client;
 
 //own imports
 import ch.nolix.core.controllerInterfaces.ILevel2Controller;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.validator2.Validator;
 
@@ -42,7 +42,7 @@ final class ClientReceiverController implements ILevel2Controller {
 	 * @return the data the given request requests.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	public Specification getData(final Statement request) {
+	public StandardSpecification getData(final Statement request) {
 		return client.internal_getData(request);
 	}
 	

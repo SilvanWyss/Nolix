@@ -14,7 +14,7 @@ import ch.nolix.core.constants.TimeUnitManager;
 import ch.nolix.core.container.List;
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -62,7 +62,7 @@ public final class Time extends Element {
 	 * @param attributes
 	 * @return a new time with the given attributes.
 	 */
-	public static Time createTime(final Iterable<Specification> attributes) {
+	public static Time createTime(final Iterable<StandardSpecification> attributes) {
 
 		//Extracts the values.
 		final String attribute = attributes.iterator().next().toString();
@@ -231,9 +231,9 @@ public final class Time extends Element {
 	/**
 	 * @return the attributes of this time.
 	 */
-	public List<Specification> getAttributes() {
-		return new List<Specification>(
-			new Specification(String.format(
+	public List<StandardSpecification> getAttributes() {
+		return new List<StandardSpecification>(
+			new StandardSpecification(String.format(
 				"%04d-%02d-%02d-%02d-%02d-%02d-%03d",
 				getYear(),
 				getMonthOfYear(),

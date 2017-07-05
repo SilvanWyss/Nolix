@@ -10,7 +10,7 @@ import java.awt.Graphics;
 
 
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
@@ -67,7 +67,7 @@ public final class Area extends Widget<AreaStructure, Area> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -91,10 +91,10 @@ public final class Area extends Widget<AreaStructure, Area> {
 	/**
 	 * @return the attributes of this area.
 	 */
-	public List<Specification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<Specification> attributes = super.getAttributes();
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
 		attributes
 		.addAtEnd(width.getSpecification())

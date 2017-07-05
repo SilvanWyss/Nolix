@@ -13,7 +13,7 @@ import java.awt.Graphics;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.PositiveInteger;
 import ch.nolix.element.data.MinHeight;
@@ -80,7 +80,7 @@ extends BackgroundWidget<BRS, BR> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -119,10 +119,10 @@ extends BackgroundWidget<BRS, BR> {
 	/**
 	 * @return the attributes of this borderable widget.
 	 */
-	public List<Specification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class
-		final List<Specification> attributes = super.getAttributes();
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
 		attributes.addAtEnd(contentOrientation.getSpecification());
 		
@@ -139,16 +139,16 @@ extends BackgroundWidget<BRS, BR> {
 		}
 		else {
 			if (hasLeftPadding()) {
-				attributes.addAtEnd(new Specification(LEFT_PADDING_HEADER, leftPadding.getAttributes()));
+				attributes.addAtEnd(new StandardSpecification(LEFT_PADDING_HEADER, leftPadding.getAttributes()));
 			}
 			if (hasRightPadding()) {
-				attributes.addAtEnd(new Specification(RIGHT_PADDING_HEADER, rightPadding.getAttributes()));
+				attributes.addAtEnd(new StandardSpecification(RIGHT_PADDING_HEADER, rightPadding.getAttributes()));
 			}
 			if (hasTopPadding()) {
-				attributes.addAtEnd(new Specification(TOP_PADDING_HEADER, topPadding.getAttributes()));
+				attributes.addAtEnd(new StandardSpecification(TOP_PADDING_HEADER, topPadding.getAttributes()));
 			}
 			if (hasBottomPadding()) {
-				attributes.addAtEnd(new Specification(BOTTOM_PADDING_HEADER, bottomPadding.getAttributes()));
+				attributes.addAtEnd(new StandardSpecification(BOTTOM_PADDING_HEADER, bottomPadding.getAttributes()));
 			}
 		}
 

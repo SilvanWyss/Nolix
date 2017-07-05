@@ -18,7 +18,7 @@ public class SpecificationTestPool extends TestPool {
 	 */
 	public SpecificationTestPool() {
 		addTest(
-			new SpecificationTest(),
+			new StandardSpecificationTest(),
 			new StatementTest()
 		);
 	}

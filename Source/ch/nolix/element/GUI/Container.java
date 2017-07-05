@@ -17,7 +17,7 @@ import java.awt.event.KeyEvent;
 
 
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.core.validator.Validator;
 
@@ -49,12 +49,12 @@ extends BorderWidget<BRS, C> {
 		super(normalStructure, hoverStructure, focusStructure);
 	}
 	
-	public List<Specification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
-		List<Specification> attributes = super.getAttributes();
+		List<StandardSpecification> attributes = super.getAttributes();
 		
 		if (hasRole()) {
-			attributes.addAtEnd(new Specification("Role", role.toString()));
+			attributes.addAtEnd(new StandardSpecification("Role", role.toString()));
 		}
 		
 		return attributes;
@@ -111,7 +111,7 @@ extends BorderWidget<BRS, C> {
 		getRefRectangles().forEach(r -> r.resetConfiguration());
 	}
 	
-	public void addOrChangeAttribute(Specification attribute) {
+	public void addOrChangeAttribute(StandardSpecification attribute) {
 		switch (attribute.getHeader()) {
 		case "Role":
 			setRole(ContainerRole.valueOf(attribute.getOneAttributeToString()));

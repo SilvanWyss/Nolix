@@ -15,7 +15,7 @@ import ch.nolix.core.interfaces.Namable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -48,8 +48,8 @@ public abstract class NamableElement<NE extends NamableElement<NE>> extends Muta
 	/**
 	 * @return the attributes of this named element
 	 */
-	public List<Specification> getAttributes() {
-		return new List<Specification>().addAtEnd(name.getSpecificationAs(NAME));
+	public List<StandardSpecification> getAttributes() {
+		return new List<StandardSpecification>().addAtEnd(name.getSpecificationAs(NAME));
 	}
 	
 	//method
@@ -83,7 +83,7 @@ public abstract class NamableElement<NE extends NamableElement<NE>> extends Muta
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public void addOrChangeAttribute(Specification attribute) {
+	public void addOrChangeAttribute(StandardSpecification attribute) {
 		switch (attribute.getHeader()) {
 			case NAME:
 				setName(attribute.getOneAttributeToString());

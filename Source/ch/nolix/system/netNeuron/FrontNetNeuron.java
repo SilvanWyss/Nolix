@@ -3,7 +3,7 @@ package ch.nolix.system.netNeuron;
 
 //own imports
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.system.client.StandardClient;
 import ch.nolix.system.neuron.Neuron;
@@ -22,7 +22,7 @@ public final class FrontNetNeuron<O>
 extends Neuron<Object, O, FrontNetNeuron<O>> {
 
 	//attribute
-	private final IElementTakerElementGetter<Specification, O> transformer;
+	private final IElementTakerElementGetter<StandardSpecification, O> transformer;
 	
 	//constructor
 	/**
@@ -66,7 +66,7 @@ extends Neuron<Object, O, FrontNetNeuron<O>> {
 	public FrontNetNeuron(
 		final String ip,
 		final int port,
-		IElementTakerElementGetter<Specification, O> transformer
+		IElementTakerElementGetter<StandardSpecification, O> transformer
 	) {
 		
 		//Checks if the given transform function is not null.
@@ -114,7 +114,7 @@ extends Neuron<Object, O, FrontNetNeuron<O>> {
 	 * 
 	 * @param output
 	 */
-	void setOutput(final Specification output) {
+	void setOutput(final StandardSpecification output) {
 		setOutput(transformer.getOutput(output));
 	}
 	
@@ -125,6 +125,6 @@ extends Neuron<Object, O, FrontNetNeuron<O>> {
 	 * @param output
 	 */
 	void setOutput(final String output) {
-		setOutput(transformer.getOutput(new Specification(output)));
+		setOutput(transformer.getOutput(new StandardSpecification(output)));
 	}
 }

@@ -2,7 +2,7 @@
 package ch.nolix.element.GUI;
 
 //own import
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 
 //enum
 /**
@@ -28,7 +28,7 @@ public enum ContentPosition {
 	/**
 	 * @return the specification of this content position.
 	 */
-	public final Specification getSpecification() {
-		return new Specification(SIMPLE_CLASS_NAME, toString());
+	public final StandardSpecification getSpecification() {
+		return new StandardSpecification(SIMPLE_CLASS_NAME, toString());
 	}
 }

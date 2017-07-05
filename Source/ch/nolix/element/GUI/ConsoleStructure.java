@@ -3,7 +3,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.data.Height;
 import ch.nolix.element.data.TextColor;
 import ch.nolix.element.data.TextSize;
@@ -107,10 +107,10 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	/**
 	 * @return the attributes of this console structure.
 	 */
-	public List<Specification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<Specification> attributes = super.getAttributes();
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
 		if (hasTextSize()) {
 			attributes.addAtEnd(textSize.getSpecification());
@@ -207,7 +207,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 		return this;
 	}
 	
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {

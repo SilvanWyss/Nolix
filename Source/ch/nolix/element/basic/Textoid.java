@@ -11,7 +11,7 @@ package ch.nolix.element.basic;
 //own imports
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator.Validator;
 
 //package-visible class
@@ -45,8 +45,8 @@ public abstract class Textoid extends Element {
 	/**
 	 * @return the attributes of this textoid
 	 */
-	public final List<Specification> getAttributes() {
-		return new List<Specification>().addAtEnd(new Specification(getValue()));
+	public final List<StandardSpecification> getAttributes() {
+		return new List<StandardSpecification>().addAtEnd(new StandardSpecification(getValue()));
 	}
 	
 	//method
@@ -81,7 +81,7 @@ public abstract class Textoid extends Element {
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public final void addOrChangeAttribute(Specification attribute) {
+	public final void addOrChangeAttribute(StandardSpecification attribute) {
 		setValue(attribute.toString());
 	}
 	

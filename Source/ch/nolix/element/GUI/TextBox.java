@@ -30,7 +30,7 @@ import javax.swing.JFrame;
 
 
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
@@ -71,14 +71,14 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	/**
 	 * @return the attributes of this specifiable object
 	 */
-	public final List<Specification> getAttributes() {
+	public final List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		List<Specification> attributes = super.getAttributes();
+		List<StandardSpecification> attributes = super.getAttributes();
 		
 		try {
 			attributes.addAtEnd(getRefWidth().getSpecification());
-			attributes.addAtEnd(new Specification(CURSOR_COLOR, getRefTextCursor().getRefColor().getAttributes()));
+			attributes.addAtEnd(new StandardSpecification(CURSOR_COLOR, getRefTextCursor().getRefColor().getAttributes()));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -178,7 +178,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public final void addOrChangeAttribute(Specification attribute) {
+	public final void addOrChangeAttribute(StandardSpecification attribute) {
 		switch (attribute.getHeader()) {
 			case Width.SIMPLE_CLASS_NAME:
 				setWidth(attribute.getOneAttributeToInteger());

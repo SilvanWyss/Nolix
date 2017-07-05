@@ -10,7 +10,7 @@ package ch.nolix.element.configuration;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.element.basic.PositiveInteger;
 
@@ -38,7 +38,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * @param attributes
 	 * @throws Exception if the given attributes are not valid
 	 */
-	public DeepConfiguration(List<Specification> attributes) {
+	public DeepConfiguration(List<StandardSpecification> attributes) {
 		addOrChangeAttributes(attributes);
 	}
 	
@@ -71,10 +71,10 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	/**
 	 * @return the attributes of this deep configuration
 	 */
-	public final List<Specification> getAttributes() {
+	public final List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<Specification> attributes = super.getAttributes();
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
 		if (hasMaxSelectorLevel()) {
 			attributes.addAtEnd(maxSelectorLevel.getSpecificationAs(MAX_SELECTOR_LEVEL));
@@ -138,7 +138,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * -The given attribute is not valid.
 	 * -This deep configuration is frozen.
 	 */
-	public final void addOrChangeAttribute(Specification attribute) {
+	public final void addOrChangeAttribute(StandardSpecification attribute) {
 		
 		throwExceptionIfFrozen();
 		

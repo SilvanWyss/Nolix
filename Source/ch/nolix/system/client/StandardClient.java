@@ -3,7 +3,7 @@ package ch.nolix.system.client;
 
 //own imports
 import ch.nolix.core.duplexController.DuplexController;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 
 //class
 /**
@@ -104,7 +104,7 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @param request
 	 * @return the data the given data method request requests from a data method of the other side of this standard client.
 	 */
-	public Specification getData(final String dataMethodRequest) {
+	public StandardSpecification getData(final String dataMethodRequest) {
 		return internal_getRefDuplexController().getData(DATA_METHOD_REQUEST + "(" + dataMethodRequest + ")");
 	}
 	

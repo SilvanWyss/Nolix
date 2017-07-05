@@ -17,7 +17,7 @@ import java.awt.event.KeyEvent;
 
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -64,7 +64,7 @@ public final class Label extends TextLineWidget<Label> {
 	 * @param attributes
 	 * @throws Exception if the given attributes are not valid
 	 */
-	public Label(final Iterable<Specification> attributes) {
+	public Label(final Iterable<StandardSpecification> attributes) {
 		resetConfiguration();
 		addOrChangeAttributes(attributes);
 	}
@@ -75,7 +75,7 @@ public final class Label extends TextLineWidget<Label> {
 	 * 
 	 * @param attribute		The attribute to add or change to this label.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -93,13 +93,13 @@ public final class Label extends TextLineWidget<Label> {
 	/**
 	 * @return the attributes of this label
 	 */
-	public List<Specification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<Specification> attributes = super.getAttributes();
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
 		if (hasRole()) {
-			attributes.addAtEnd(new Specification(ROLE_HEADER, role.toString()));
+			attributes.addAtEnd(new StandardSpecification(ROLE_HEADER, role.toString()));
 		}
 		
 		return attributes;

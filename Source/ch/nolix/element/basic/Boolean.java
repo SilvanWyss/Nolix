@@ -13,7 +13,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 
 //class
 public final class Boolean extends Element {
@@ -48,15 +48,15 @@ public final class Boolean extends Element {
 	/**
 	 * @return the attributes of this boolean
 	 */
-	public final List<Specification> getAttributes() {
+	public final List<StandardSpecification> getAttributes() {
 		
-		List<Specification> attributes = new List<Specification>();
+		List<StandardSpecification> attributes = new List<StandardSpecification>();
 		
 		if (isTrue()) {
-			attributes.addAtEnd(new Specification(TRUE));
+			attributes.addAtEnd(new StandardSpecification(TRUE));
 		}
 		else {
-			attributes.addAtEnd(new Specification(FALSE));
+			attributes.addAtEnd(new StandardSpecification(FALSE));
 		}
 
 		return attributes;
@@ -109,7 +109,7 @@ public final class Boolean extends Element {
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public final void addOrChangeAttribute(Specification attribute) {
+	public final void addOrChangeAttribute(StandardSpecification attribute) {
 		switch (attribute.toString()) {
 			case FALSE:
 				setFalse();

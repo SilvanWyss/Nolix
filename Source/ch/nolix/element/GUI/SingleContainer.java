@@ -12,7 +12,7 @@ package ch.nolix.element.GUI;
 import java.awt.Graphics;
 
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 
 //class
 public final class SingleContainer
@@ -48,7 +48,7 @@ extends Container<SingleContainerStructure, SingleContainer> {
 	 * @param attributes
 	 * @throws Exception if the given attributes are not valid
 	 */
-	public SingleContainer(List<Specification> attributes) {
+	public SingleContainer(List<StandardSpecification> attributes) {
 		
 		//Calls other constructor.
 		this();
@@ -60,10 +60,10 @@ extends Container<SingleContainerStructure, SingleContainer> {
 	/**
 	 * @return the attributes of this element
 	 */
-	public final List<Specification> getAttributes() {
+	public final List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		List<Specification> attributes = super.getAttributes();
+		List<StandardSpecification> attributes = super.getAttributes();
 		
 		attributes.addAtEnd(getRefRectangle().getSpecification());
 		return attributes;
@@ -95,7 +95,7 @@ extends Container<SingleContainerStructure, SingleContainer> {
 		return new List<Widget<?, ?>>().addAtEnd(getRefRectangle());
 	}
 	
-	public final void addOrChangeAttribute(Specification attribute) {
+	public final void addOrChangeAttribute(StandardSpecification attribute) {
 		
 		if (attribute.hasHeader() && getRefDialog().canCreateWidget(attribute.getHeader())) {
 			setRectangle(getRefDialog().createAndAddWidget(attribute));

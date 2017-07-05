@@ -11,7 +11,7 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Clearable;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.data.Margin;
 
 //class
@@ -103,13 +103,13 @@ implements Clearable {
 	/**
 	 * @return the attributes of this stack
 	 */
-	public List<Specification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		List<Specification> attributes = super.getAttributes();
+		List<StandardSpecification> attributes = super.getAttributes();
 		
 		if (hasElementMargin()) {
-			attributes.addAtEnd(new Specification(ELEMENT_MARGIN, elementMargin.getAttributes()));
+			attributes.addAtEnd(new StandardSpecification(ELEMENT_MARGIN, elementMargin.getAttributes()));
 		}
 		
 		getRefRectangles().forEach(r -> attributes.addAtEnd(r.getSpecification()));	
@@ -189,7 +189,7 @@ implements Clearable {
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public void addOrChangeAttribute(Specification attribute) {
+	public void addOrChangeAttribute(StandardSpecification attribute) {
 		
 		if (getRefDialog().canCreateWidget(attribute.getHeader())) {
 			addRectangle(getRefDialog().createAndAddWidget(attribute));

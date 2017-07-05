@@ -33,7 +33,7 @@ abstract class Specificationoid {
 	private String header;
 	
 	//multiple attribute
-	private List<Specification> attributes = new List<Specification>();
+	private List<StandardSpecification> attributes = new List<StandardSpecification>();
 
 	//method
 	/**
@@ -42,7 +42,7 @@ abstract class Specificationoid {
 	 * @param attribute
 	 * @throws Exception if the given attribute is null
 	 */
-	public void addAttribute(Specification attribute) {
+	public void addAttribute(StandardSpecification attribute) {
 		attributes.addAtEnd(attribute);
 	}
 	
@@ -54,7 +54,7 @@ abstract class Specificationoid {
 	 * @throws Exception if the given attribute is not valid
 	 */
 	public void addAttribute(String attribute) {
-		addAttribute(new Specification(attribute));
+		addAttribute(new StandardSpecification(attribute));
 	}
 	
 	//method
@@ -208,7 +208,7 @@ abstract class Specificationoid {
 	 * @return the one attribute of this specificationoid
 	 * @throws Exception if this specificationoid has no or several attributes
 	 */
-	public final Specification getRefOneAttribute() {
+	public final StandardSpecification getRefOneAttribute() {
 		return attributes.getRefOne();
 	}
 	
@@ -220,7 +220,7 @@ abstract class Specificationoid {
 	 *  -this specificationoid contains no attribute with the given header
 	 *  -the first attribute of this specificationoid with the given header contains no or several attributes
 	 */
-	public final Specification getRefOneAttributeOfFirstAttribute(String header) {
+	public final StandardSpecification getRefOneAttributeOfFirstAttribute(String header) {
 		return attributes.getRefFirst(a -> a.hasHeader(header)).getRefOneAttribute();
 	}
 	
@@ -240,7 +240,7 @@ abstract class Specificationoid {
 	/**
 	 * @return the attributes of this specificationoid
 	 */
-	public final List<Specification> getRefAttributes() {
+	public final List<StandardSpecification> getRefAttributes() {
 		return attributes;
 	}
 	
@@ -250,7 +250,7 @@ abstract class Specificationoid {
 	 * @return the attributes of the first attribute with the given header
 	 * @throws Exception if this specificationoid contains no attribute with the given header
 	 */
-	public final List<Specification> getRefAttributesOfFirstAttribute(String header) {
+	public final List<StandardSpecification> getRefAttributesOfFirstAttribute(String header) {
 		return attributes.getRefFirst(a -> a.hasHeader(header)).getRefAttributes();
 	}
 	
@@ -345,14 +345,14 @@ abstract class Specificationoid {
 					level--;
 				}
 				if (character == CharacterManager.COMMA && level == 0) {
-					attributes.addAtEnd(new Specification(attributeString));
+					attributes.addAtEnd(new StandardSpecification(attributeString));
 					attributeString = StringManager.EMPTY_STRING;
 				}
 				else {
 					attributeString += character;
 				}
 			}
-			attributes.addAtEnd(new Specification(attributeString));
+			attributes.addAtEnd(new StandardSpecification(attributeString));
 			
 			//Checks whether the given specificationoid string has not as many opening brackets as closing brackets.
 			if (level != 0) {
@@ -382,7 +382,7 @@ abstract class Specificationoid {
 	 * @param attributes
 	 * @throws Exception if the given attributes are null
 	 */
-	public final void setAttributes(List<Specification> attributes) {
+	public final void setAttributes(List<StandardSpecification> attributes) {
 		
 		Validator.throwExceptionIfValueIsNull("attributes", attributes);
 		
@@ -445,7 +445,7 @@ abstract class Specificationoid {
 		if (containsAttributes()) {
 			string += CharacterManager.OPENING_BRACKET;
 			boolean begin = true;
-			for (Specification a: attributes) {
+			for (StandardSpecification a: attributes) {
 				if (begin) {
 					begin = false;
 				}
@@ -473,7 +473,7 @@ abstract class Specificationoid {
 		if (containsAttributes()) {
 			string += CharacterManager.OPENING_BRACKET;
 			boolean begin = true;
-			for (Specification a: attributes) {
+			for (StandardSpecification a: attributes) {
 				if (begin) {
 					begin = false;
 				}

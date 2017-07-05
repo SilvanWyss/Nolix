@@ -6,7 +6,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.controllerInterfaces.ILevel2Controller;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.validator2.Validator;
 
@@ -122,7 +122,7 @@ public final class LocalDuplexController extends DuplexController {
 	 * @return the data the given request requests from this local duplex controller.
 	 * @throws UnexistingAttributeException if this local duplex controller has no receiver controller.
 	 */
-	public Specification getData(final Statement request) {
+	public StandardSpecification getData(final Statement request) {
 		return counterpart.getRefReceiverController().getData(request);
 	}
 	

@@ -20,22 +20,22 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.helper.StringHelper;
 
 //class
-public final class Specification extends Specificationoid {
+public final class StandardSpecification extends Specificationoid {
 	
 	//static mehtod
-	public static final Specification loadSpecification(final String path) {
-		final Specification specification = new Specification();
-		specification.loadFromFile(path);
-		return specification;
+	public static final StandardSpecification loadSpecification(final String path) {
+		final StandardSpecification standardSpecification = new StandardSpecification();
+		standardSpecification.loadFromFile(path);
+		return standardSpecification;
 	}
 	
 	//constructor
 	/**
 	 * Creates new specification without header and without attributes.
 	 */
-	public Specification() {}
+	public StandardSpecification() {}
 	
-	public Specification(Object object) {
+	public StandardSpecification(Object object) {
 		this(object.toString());
 	}
 		
@@ -46,7 +46,7 @@ public final class Specification extends Specificationoid {
 	 * @param string
 	 * @throws Exception if the given string is not valid
 	 */
-	public Specification(String string) {
+	public StandardSpecification(String string) {
 		setValue(string);		
 	}
 	
@@ -60,7 +60,7 @@ public final class Specification extends Specificationoid {
 	 *  -the given header is null or an empty string
 	 *  -the given attributes are null
 	 */
-	public Specification(String header, List<Specification> attributes) {
+	public StandardSpecification(String header, List<StandardSpecification> attributes) {
 		setHeader(header);
 		setAttributes(attributes);
 	}
@@ -75,7 +75,7 @@ public final class Specification extends Specificationoid {
 	 *  -the given header is null or an empty string
 	 *  -the given attributes are not valid
 	 */
-	public Specification(String header, String... attributes) {
+	public StandardSpecification(String header, String... attributes) {
 		
 		setHeader(header);
 		
@@ -90,7 +90,7 @@ public final class Specification extends Specificationoid {
 			return false;
 		}
 		
-		if (!(object instanceof Specification)) {
+		if (!(object instanceof StandardSpecification)) {
 			return false;
 		}
 		
@@ -101,8 +101,8 @@ public final class Specification extends Specificationoid {
 	/**
 	 * @return a clone of this specification
 	 */
-	public final Specification getClone() {
-		return new Specification(getHeader(), getRefAttributes().to(a -> a.getClone()));
+	public final StandardSpecification getClone() {
+		return new StandardSpecification(getHeader(), getRefAttributes().to(a -> a.getClone()));
 	}
 	
 	//method
@@ -163,7 +163,7 @@ public final class Specification extends Specificationoid {
 			else {
 				String formatedString = StringHelper.createTabulators(tabulators) + getHeader() + CharacterManager.OPENING_BRACKET + CharacterManager.NEW_LINE;
 				int currentParameter = 1;
-				for (Specification attribute: getRefAttributes()) {
+				for (StandardSpecification attribute: getRefAttributes()) {
 					formatedString += attribute.toFormatedReproducingString(tabulators + 1);
 					if (currentParameter != getRefAttributes().getElementCount()) {
 						formatedString += CharacterManager.COMMA;

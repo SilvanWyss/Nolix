@@ -14,7 +14,7 @@ import java.awt.Graphics;
 //own imports
 
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.Text;
 import ch.nolix.element.data.GraphicText;
@@ -54,7 +54,7 @@ extends BorderWidget<TextLineWidgetStructure, TLR> {
 	 * 
 	 * @param attribute		The attribute to add or change to this text line rectangle.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Enumerates the given attribute.
 		switch (attribute.getHeader()) {
@@ -72,7 +72,7 @@ extends BorderWidget<TextLineWidgetStructure, TLR> {
 	/**
 	 * @return the attributes of this text line rectangle
 	 */
-	public List<Specification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		return super.getAttributes().addAtEnd(text.getSpecification());
 	}
 	

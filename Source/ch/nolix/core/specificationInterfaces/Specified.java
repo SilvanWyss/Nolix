@@ -4,7 +4,7 @@ package ch.nolix.core.specificationInterfaces;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Typed;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 
 //interface
 /**
@@ -20,14 +20,14 @@ public interface Specified extends Typed {
 	/**
 	 * @return the attributes of this specified object.
 	 */
-	public abstract List<Specification> getAttributes();
+	public abstract List<StandardSpecification> getAttributes();
 	
 	//default method
 	/**
 	 * @return the specification of this specified object.
 	 */
-	public default Specification getSpecification() {
-		return new Specification(getType(), getAttributes());
+	public default StandardSpecification getSpecification() {
+		return new StandardSpecification(getType(), getAttributes());
 	}
 	
 	//default method
@@ -37,8 +37,8 @@ public interface Specified extends Typed {
 	 * @throws NullArgumentException if the given type is null.
 	 * @throws EmptyArgumentException if the given type is empty.
 	 */
-	public default Specification getSpecificationAs(final String type) {
-		return new Specification(type, getAttributes());
+	public default StandardSpecification getSpecificationAs(final String type) {
+		return new StandardSpecification(type, getAttributes());
 	}
 	
 	//default method

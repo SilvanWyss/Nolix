@@ -7,7 +7,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -184,8 +184,8 @@ public class Color extends Element {
 	/**
 	 * @return the attributes of this color.
 	 */
-	public final List<Specification> getAttributes() {		
-		return new List<Specification>().addAtEnd(new Specification(getStringValue()));
+	public final List<StandardSpecification> getAttributes() {		
+		return new List<StandardSpecification>().addAtEnd(new StandardSpecification(getStringValue()));
 	}
 	
 	//method

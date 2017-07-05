@@ -10,7 +10,7 @@ package ch.nolix.element.configuration;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
 
 //class
@@ -31,7 +31,7 @@ public class StandardConfiguration extends Configuration<StandardConfiguration> 
 	 * @param attributes
 	 * @throws Exception if the given attributes are not valid
 	 */
-	public StandardConfiguration(List<Specification> attributes) {
+	public StandardConfiguration(List<StandardSpecification> attributes) {
 		addOrChangeAttributes(attributes);
 	}
 	

@@ -14,7 +14,7 @@ import java.awt.event.KeyEvent;
 
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.core.validator2.Validator;
@@ -96,7 +96,7 @@ extends ConfigurableElement<R> {
 	 * @param attributes
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public void addOrChangeAttribute(Specification attribute) {
+	public void addOrChangeAttribute(StandardSpecification attribute) {
 		switch (attribute.getHeader()) {
 			case STATE:
 				setState(WidgetState.valueOf(attribute.getOneAttributeToString()));
@@ -118,17 +118,17 @@ extends ConfigurableElement<R> {
 				break;
 			default:
 				if (attribute.getHeader().startsWith(NORMAL.toString())) {
-					Specification temp = attribute.getClone();
+					StandardSpecification temp = attribute.getClone();
 					temp.setHeader(attribute.getHeader().substring(NORMAL.toString().length()));
 					getRefNormalStructure().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(HOVER.toString())) {
-					Specification temp = attribute.getClone();
+					StandardSpecification temp = attribute.getClone();
 					temp.setHeader(attribute.getHeader().substring(HOVER.toString().length()));
 					getRefHoverStructure().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(FOCUS.toString())) {
-					Specification temp = attribute.getClone();
+					StandardSpecification temp = attribute.getClone();
 					temp.setHeader(attribute.getHeader().substring(FOCUS.toString().length()));
 					getRefFocusStructure().addOrChangeAttribute(temp);
 				}
@@ -152,13 +152,13 @@ extends ConfigurableElement<R> {
 	/**
 	 * @return the attributes of this widget
 	 */
-	public List<Specification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		List<Specification> attributes = super.getAttributes();
+		List<StandardSpecification> attributes = super.getAttributes();
 		
 		if (!isNormal()) {
-			attributes.addAtEnd(new Specification(STATE, state.toString()));
+			attributes.addAtEnd(new StandardSpecification(STATE, state.toString()));
 		}
 		
 		if (cursorIcon != CursorIcon.Arrow) {
@@ -167,7 +167,7 @@ extends ConfigurableElement<R> {
 		
 		if (hasLeftMouseButtonPressCommand()) {
 			attributes.addAtEnd(
-				new Specification(
+				new StandardSpecification(
 					LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER,
 					leftMouseButtonPressCommand.toString()
 				)
@@ -176,7 +176,7 @@ extends ConfigurableElement<R> {
 		
 		if (hasLeftMouseButtonReleaseCommand()) {
 			attributes.addAtEnd(
-				new Specification(
+				new StandardSpecification(
 					LEFT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER,
 					leftMouseButtonReleaseCommand.toString()
 				)
@@ -185,7 +185,7 @@ extends ConfigurableElement<R> {
 		
 		if (hasRightMouseButtonPressCommand()) {
 			attributes.addAtEnd(
-				new Specification(
+				new StandardSpecification(
 					RIGHT_MOUSE_BUTTON_PRESS_COMMAND_HEADER,
 					rightMouseButtonPressCommand.toString()
 				)
@@ -194,7 +194,7 @@ extends ConfigurableElement<R> {
 		
 		if (hasRightMouseButtonReleaseCommand()) {
 			attributes.addAtEnd(
-				new Specification(
+				new StandardSpecification(
 					RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER,
 					rightMouseButtonReleaseCommand.toString()
 				)
@@ -202,7 +202,7 @@ extends ConfigurableElement<R> {
 		}
 	
 		//Adds normal attributes.		
-		List<Specification> structureAttributes = getRefNormalStructure().getAttributes();
+		List<StandardSpecification> structureAttributes = getRefNormalStructure().getAttributes();
 		structureAttributes.forEach(a -> a.setHeader(NORMAL + a.getHeader()));
 		attributes.addAtEnd(structureAttributes);
 		
@@ -594,7 +594,7 @@ extends ConfigurableElement<R> {
 		final String... arguments
 	) {
 		return setLeftMouseButtonPressCommand(
-			new Specification(leftMouseButtonPressCommand, arguments).toString()
+			new StandardSpecification(leftMouseButtonPressCommand, arguments).toString()
 		);
 	}
 	
@@ -646,7 +646,7 @@ extends ConfigurableElement<R> {
 		final String... arguments
 	) {
 		return setLeftMouseButtonReleaseCommand(
-			new Specification(leftMouseButtonReleaseCommand, arguments).toString()
+			new StandardSpecification(leftMouseButtonReleaseCommand, arguments).toString()
 		);
 	}
 	
@@ -698,7 +698,7 @@ extends ConfigurableElement<R> {
 		final String... arguments
 	) {
 		return setRightMouseButtonPressCommand(
-			new Specification(rightMouseButtonPressCommand, arguments).toString()	
+			new StandardSpecification(rightMouseButtonPressCommand, arguments).toString()	
 		);
 	}
 	
@@ -750,7 +750,7 @@ extends ConfigurableElement<R> {
 		final String... arguments
 	) {
 		return setRightMouseButtonReleaseCommand(
-			new Specification(rightMouseButtonReleaseCommand, arguments).toString()	
+			new StandardSpecification(rightMouseButtonReleaseCommand, arguments).toString()	
 		);
 	}
 	

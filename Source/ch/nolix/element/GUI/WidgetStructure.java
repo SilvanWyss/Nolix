@@ -4,7 +4,7 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -27,14 +27,14 @@ public abstract class WidgetStructure<WS extends WidgetStructure<WS>> {
 	 * 
 	 * @param attribute
 	 */
-	protected void addOrChangeAttribute(final Specification attribute) {}
+	protected void addOrChangeAttribute(final StandardSpecification attribute) {}
 		
 	//method
 	/**
 	 * @return the attributes of this widget structure.
 	 */
-	protected List<Specification> getAttributes() {
-		return new List<Specification>();
+	protected List<StandardSpecification> getAttributes() {
+		return new List<StandardSpecification>();
 	}
 	
 	//method

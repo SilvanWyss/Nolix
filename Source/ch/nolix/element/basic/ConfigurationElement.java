@@ -10,7 +10,7 @@ package ch.nolix.element.basic;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.configuration.StandardConfiguration;
 
 //class
@@ -27,9 +27,9 @@ extends ConfigurableElement<CE> {
 	/**
 	 * @return the attributes of this configurable element
 	 */
-	public List<Specification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
-		List<Specification> attributes = new List<Specification>();
+		List<StandardSpecification> attributes = new List<StandardSpecification>();
 		
 		if (hasConfiguration()) {
 			attributes.addAtEnd(configuration.getSpecificationAs(StandardConfiguration.SIMPLE_CLASS_NAME));
@@ -69,7 +69,7 @@ extends ConfigurableElement<CE> {
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public void addOrChangeAttribute(Specification attribute) {
+	public void addOrChangeAttribute(StandardSpecification attribute) {
 		switch (attribute.getHeader()) {
 			case StandardConfiguration.SIMPLE_CLASS_NAME:
 				setConfiguration(new StandardConfiguration(attribute.getRefAttributes()));

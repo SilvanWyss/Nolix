@@ -8,7 +8,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 
 //enum
 public enum LabelRole {
@@ -21,7 +21,7 @@ public enum LabelRole {
 	ParagraphHeader,
 	DynamicInfoLabel;
 	
-	public Specification getSpecificationAs(final String type) {
-		return new Specification(type, toString());
+	public StandardSpecification getSpecificationAs(final String type) {
+		return new StandardSpecification(type, toString());
 	}
 }

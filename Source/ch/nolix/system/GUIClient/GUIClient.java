@@ -4,7 +4,7 @@ package ch.nolix.system.GUIClient;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.duplexController.DuplexController;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleGUI;
@@ -89,7 +89,7 @@ public final class GUIClient extends Client<GUIClient> {
 	 * @param runMethodCommand
 	 */
 	public void runLocally(final String runMethodCommand) {
-		internal_invokeRunMethod(new Specification(runMethodCommand));
+		internal_invokeRunMethod(new StandardSpecification(runMethodCommand));
 		internal_getRefDuplexController().run(RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
 	}
 	
@@ -143,7 +143,7 @@ public final class GUIClient extends Client<GUIClient> {
 	 * 
 	 * @param attributes
 	 */
-	private void resetDialog(final List<Specification> attributes) {
+	private void resetDialog(final List<StandardSpecification> attributes) {
 		dialog.reset(attributes);
 	}
 	
@@ -153,7 +153,7 @@ public final class GUIClient extends Client<GUIClient> {
 	 * 
 	 * @param attributes
 	 */
-	private void resetOtherSideDialog(final List<Specification> attributes) {
+	private void resetOtherSideDialog(final List<StandardSpecification> attributes) {
 		internal_getRefDuplexController().run(GUIClient.RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
 	}
 

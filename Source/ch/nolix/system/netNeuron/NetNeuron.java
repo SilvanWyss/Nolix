@@ -3,7 +3,7 @@ package ch.nolix.system.netNeuron;
 
 //own imports
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.system.client.StandardApplication;
 import ch.nolix.system.client.StandardClient;
@@ -26,7 +26,7 @@ extends Neuron<I, Object, NetNeuron<I>> {
 	static final String DEFAULT_NET_NEURON_APPLICATION_NAME = "FrontNetNeuronApplication";
 	
 	//attribute
-	private final IElementTakerElementGetter<I, Specification> transformer;
+	private final IElementTakerElementGetter<I, StandardSpecification> transformer;
 	private final StandardApplication<StandardClient> application;
 	
 	//constructor
@@ -38,7 +38,7 @@ extends Neuron<I, Object, NetNeuron<I>> {
 	 */
 	public NetNeuron(
 		final int port,
-		final IElementTakerElementGetter<I, Specification> transformer)
+		final IElementTakerElementGetter<I, StandardSpecification> transformer)
 	{
 		//Checks if the given transform function is not null.
 		Validator.supposeThat(transformer).thatIsNamed("transformer").isNotNull();

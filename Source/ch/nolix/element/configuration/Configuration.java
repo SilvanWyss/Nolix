@@ -12,7 +12,7 @@ package ch.nolix.element.configuration;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Freezable;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.element.basic.NamableElement;
 import ch.nolix.element.basic.NonEmptyText;
@@ -33,7 +33,7 @@ implements Freezable {
 	private static final String SELECTOR_NAME = "SelectorName";
 	
 	//attributes
-	private final List<Specification> attachingAttributes = new List<Specification>();
+	private final List<StandardSpecification> attachingAttributes = new List<StandardSpecification>();
 	protected final List<Configuration<?>> configurations = new List<Configuration<?>>();
 	private boolean frozen = false;
 	
@@ -60,7 +60,7 @@ implements Freezable {
 	 * -This configuration is frozen.
 	 */
 	@SuppressWarnings("unchecked")
-	public final C addAttachingAttribute(Specification attachingAttribute) {
+	public final C addAttachingAttribute(StandardSpecification attachingAttribute) {
 		
 		throwExceptionIfFrozen();
 				
@@ -83,7 +83,7 @@ implements Freezable {
 		
 		throwExceptionIfFrozen();
 		
-		return addAttachingAttribute(new Specification(attachingAttribute));
+		return addAttachingAttribute(new StandardSpecification(attachingAttribute));
 	}
 	
 	//method
@@ -168,9 +168,9 @@ implements Freezable {
 	/**
 	 * @return the attributes of this specifiable object
 	 */
-	public List<Specification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
-		final List<Specification> attributes = super.getAttributes();
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
 		if (hasSelectorType()) {
 			attributes.addAtEnd(selectorType.getSpecificationAs(SELECTOR_TYPE));
@@ -408,7 +408,7 @@ implements Freezable {
 	 * -The given attribute is not valid
 	 * -This configuration is frozen.
 	 */
-	public void addOrChangeAttribute(Specification attribute) {
+	public void addOrChangeAttribute(StandardSpecification attribute) {
 		
 		throwExceptionIfFrozen();
 		
@@ -531,7 +531,7 @@ implements Freezable {
 	 * @throws Exception if an attaching attribute of this configuration is not valid for the given element
 	 */
 	protected final void setAttachingAttributesTo(Configurable element) {
-		for (Specification a: attachingAttributes) {
+		for (StandardSpecification a: attachingAttributes) {
 			element.addOrChangeAttribute(a);
 		}
 	}

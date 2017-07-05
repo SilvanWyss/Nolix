@@ -6,7 +6,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Element;
 import ch.nolix.element.basic.FloatingPointNumber;
@@ -32,7 +32,7 @@ public class CandleStick extends Element {
 	private static final String LOWEST_PRICE_NAME = "LowestPrice";
 	private static final String HIGHEST_PRICE_NAME = "HighestPrice";
 	
-	public static CandleStick createCandleStick(final Iterable<Specification> attributes) {
+	public static CandleStick createCandleStick(final Iterable<StandardSpecification> attributes) {
 		
 		Time time = null;
 		double openingPrice = 0.0;
@@ -40,7 +40,7 @@ public class CandleStick extends Element {
 		double lowestPrice = 0.0;
 		double highestPrice = 0.0;
 		
-		for (Specification a : attributes) {
+		for (StandardSpecification a : attributes) {
 			switch (a.getHeader()) {
 				case Time.SIMPLE_CLASS_NAME:
 					time = Time.createTime(a.getRefAttributes());
@@ -185,8 +185,8 @@ public class CandleStick extends Element {
 		);
 	}
 	
-	public List<Specification> getAttributes() {
-		return new List<Specification>(
+	public List<StandardSpecification> getAttributes() {
+		return new List<StandardSpecification>(
 			new FloatingPointNumber(getOpeningPrice()).getSpecificationAs(OPENING_PRICE_NAME),
 			new FloatingPointNumber(getClosingPrice()).getSpecificationAs(CLOSING_PRICE_NAME),
 			new FloatingPointNumber(getLowestPrice()).getSpecificationAs(LOWEST_PRICE_NAME),

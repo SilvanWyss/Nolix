@@ -13,7 +13,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 
 //class
 /**
@@ -40,8 +40,8 @@ public final class ColorGradient extends Element {
 	/**
 	 * @return the attributes of this color gradient
 	 */
-	public final List<Specification> getAttributes() {
-		return new List<Specification>()
+	public final List<StandardSpecification> getAttributes() {
+		return new List<StandardSpecification>()
 			.addAtEnd(pattern.getSpecification())
 			.addAtEnd(color1.getSpecificationAs(COLOR_1))
 			.addAtEnd(color2.getSpecificationAs(COLOR_2));
@@ -70,7 +70,7 @@ public final class ColorGradient extends Element {
 	 * 
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public final void addOrChangeAttribute(Specification attribute) {
+	public final void addOrChangeAttribute(StandardSpecification attribute) {
 		switch (attribute.getHeader()) {
 			case PATTERN:
 				setPattern(ColorGradientPattern.valueOf(attribute.getOneAttributeToString()));

@@ -10,7 +10,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 
 //class
 public final class VerticalStack extends Stack<VerticalStack> {
@@ -34,7 +34,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 * @param attributes
 	 * @throws Exception if the given attributes are not valid
 	 */
-	public VerticalStack(List<Specification> attributes) {
+	public VerticalStack(List<StandardSpecification> attributes) {
 		addOrChangeAttributes(attributes);
 	}
 	

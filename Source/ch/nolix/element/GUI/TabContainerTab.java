@@ -11,7 +11,7 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.basic.NamableElement;
 
@@ -37,9 +37,9 @@ public final class TabContainerTab extends NamableElement<TabContainerTab> {
 	/**
 	 * @return the attributes of this tab container tab
 	 */
-	public final List<Specification> getAttributes() {
+	public final List<StandardSpecification> getAttributes() {
 		
-		List<Specification> attributes = super.getAttributes();
+		List<StandardSpecification> attributes = super.getAttributes();
 		
 		if (hasRectangle()) {
 			attributes.addAtEnd(getRefRectangle().getSpecification());
@@ -100,7 +100,7 @@ public final class TabContainerTab extends NamableElement<TabContainerTab> {
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public final void addOrChangeAttribute(Specification attribute) {
+	public final void addOrChangeAttribute(StandardSpecification attribute) {
 		
 		//Handles the case when the given attribute specifies a rectangle.
 		if (tabContainer.getRefDialog().canCreateWidget(attribute.getHeader())) {

@@ -9,7 +9,7 @@
 package ch.nolix.element.GUI;
 
 //own import
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 
 //enum
 public enum WidgetState {
@@ -30,7 +30,7 @@ public enum WidgetState {
 	/**
 	 * @return the specification of this rectangle state
 	 */
-	public Specification getSpecification() {
-		return new Specification(SIMPLE_CLASS_NAME, toString());
+	public StandardSpecification getSpecification() {
+		return new StandardSpecification(SIMPLE_CLASS_NAME, toString());
 	}
 }

@@ -15,7 +15,7 @@ import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.invalidStateException.UnremovableAttributeException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.PositiveInteger;
@@ -305,9 +305,9 @@ public final class TabContainerMenuItemStructure {
 	/**
 	 * @return the attributes of this tab container menu item structure
 	 */
-	protected final List<Specification> getAttributes() {
+	protected final List<StandardSpecification> getAttributes() {
 		
-		final List<Specification> attributes = new List<Specification>();
+		final List<StandardSpecification> attributes = new List<StandardSpecification>();
 		
 		if (hasLeftPadding()) {
 			attributes.addAtEnd(leftPadding.getSpecificationAs(LEFT_PADDING));
@@ -366,7 +366,7 @@ public final class TabContainerMenuItemStructure {
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	protected final void setAttribute(Specification attribute) {
+	protected final void setAttribute(StandardSpecification attribute) {
 		switch (attribute.getHeader()) {
 			case LEFT_PADDING:
 				setLeftPadding(attribute.getOneAttributeToInteger());

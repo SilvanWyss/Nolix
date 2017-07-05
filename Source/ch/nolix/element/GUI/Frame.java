@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 
 import ch.nolix.core.container.List;
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
@@ -105,12 +105,12 @@ public final class Frame extends VisibleGUI<Frame> {
 	/**
 	 * @return the attributes of this frame
 	 */
-	public List<Specification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
-		List<Specification> attributes = super.getAttributes();
+		List<StandardSpecification> attributes = super.getAttributes();
 		
 		if (hasCloseCommand()) {
-			attributes.addAtEnd(new Specification(CLOSE_COMMAND_HEADER, closeCommand.toString()));
+			attributes.addAtEnd(new StandardSpecification(CLOSE_COMMAND_HEADER, closeCommand.toString()));
 		}
 		
 		return attributes;
@@ -195,7 +195,7 @@ public final class Frame extends VisibleGUI<Frame> {
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public void addOrChangeAttribute(Specification attribute) {
+	public void addOrChangeAttribute(StandardSpecification attribute) {
 		switch (attribute.getHeader()) {
 			case CLOSE_COMMAND_HEADER:
 				setCloseCommand(attribute.getOneAttributeToString());

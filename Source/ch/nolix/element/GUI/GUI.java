@@ -13,7 +13,7 @@ import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.core.validator2.Validator;
@@ -87,7 +87,7 @@ implements Clearable, IRequestableContainer {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Handles the case if the given attribute specifies a widget.
 		if (canCreateWidget(attribute.getHeader())) {
@@ -193,10 +193,10 @@ implements Clearable, IRequestableContainer {
 	/**
 	 * @return the attributes of GUI.
 	 */
-	public List<Specification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<Specification> attributes = super.getAttributes();
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
 		attributes.addAtEnd(title.getSpecification(), backgroundColor.getSpecification());
 		
@@ -554,15 +554,15 @@ implements Clearable, IRequestableContainer {
 	/**
 	 * Creates a widget the given specification specifies and adds it to this GUI.
 	 * 
-	 * @param specification
+	 * @param standardSpecification
 	 * @return the widget the given specification specifies.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	protected final Widget<?, ?> createAndAddWidget(final Specification specification) {
+	protected final Widget<?, ?> createAndAddWidget(final StandardSpecification standardSpecification) {
 		
-		final Widget<?, ?> widget = createWidget(specification.getHeader());
+		final Widget<?, ?> widget = createWidget(standardSpecification.getHeader());
 		widget.setDialog(this);
-		widget.addOrChangeAttributes(specification.getRefAttributes());
+		widget.addOrChangeAttributes(standardSpecification.getRefAttributes());
 		
 		return widget;		
 	}

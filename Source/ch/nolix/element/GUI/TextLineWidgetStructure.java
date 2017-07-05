@@ -10,7 +10,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.PositiveInteger;
 import ch.nolix.element.data.Size;
@@ -123,10 +123,10 @@ public final class TextLineWidgetStructure extends BorderWidgetStructure<TextLin
 	/**
 	 * @return the attributes of this text line rectangle structure
 	 */
-	protected final List<Specification> getAttributes() {
+	protected final List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		List<Specification> attributes = super.getAttributes();
+		List<StandardSpecification> attributes = super.getAttributes();
 		
 		if (hasTextSize()) {
 			attributes.addAtEnd(textSize.getSpecificationAs(TEXT_SIZE));
@@ -146,7 +146,7 @@ public final class TextLineWidgetStructure extends BorderWidgetStructure<TextLin
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	protected final void addOrChangeAttribute(Specification attribute) {
+	protected final void addOrChangeAttribute(StandardSpecification attribute) {
 		switch (attribute.getHeader()) {
 			case TEXT_SIZE:
 				setTextSize(attribute.getOneAttributeToInteger());
