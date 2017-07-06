@@ -38,7 +38,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * @param attributes
 	 * @throws Exception if the given attributes are not valid
 	 */
-	public DeepConfiguration(List<StandardSpecification> attributes) {
+	public DeepConfiguration(Iterable<StandardSpecification> attributes) {
 		addOrChangeAttributes(attributes);
 	}
 	

@@ -1,21 +1,20 @@
 //package declaration
 package ch.nolix.core.specification;
 
-//own imports
 import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.container.AccessorContainer;
 
-//interface
+//abstract class
 /**
  * A specification can have:
  * -1 header
  * -an arbitrary number of attributes that are specifications themselves
  * 
  * @author Silvan Wyss
- * @month 2017-06
+ * @month 2017-07
  * @lines 100
  */
-public interface ISpecification {
+public abstract class Specification {
 
 	//abstract method
 	/**
@@ -23,7 +22,7 @@ public interface ISpecification {
 	 * 
 	 * @param attribute
 	 */
-	public abstract void addAttribute(final ISpecification attribute);
+	public abstract void addAttribute(final Specification attribute);
 	
 	//default method
 	/**
@@ -31,10 +30,10 @@ public interface ISpecification {
 	 * 
 	 * @param attributes
 	 */
-	public default void addAttribute(final ISpecification... attributes) {
+	public final void addAttribute(final Specification... attributes) {
 		
 		//Iterates the given attributes.
-		for (final ISpecification a : attributes) {
+		for (final Specification a : attributes) {
 			addAttribute(a);
 		}
 	}
@@ -43,7 +42,7 @@ public interface ISpecification {
 	/**
 	 * @return the number of attributes of this specification.
 	 */
-	public default int getAttributeCount() {
+	public final int getAttributeCount() {
 		return getRefAttributes().getElementCount();
 	}
 	
@@ -57,7 +56,7 @@ public interface ISpecification {
 	/**
 	 * @return the header of this specification in quotes.
 	 */
-	public default String getHeaderInQuotes() {
+	public final String getHeaderInQuotes() {
 		return (
 			CharacterManager.APOSTROPH
 			+ getHeader()
@@ -76,7 +75,7 @@ public interface ISpecification {
 	 * @param header
 	 * @return true if this specification has the given header.
 	 */
-	public default boolean hasHeader(final String header) {
+	public final boolean hasHeader(final String header) {
 		
 		//Handles the case if this specification has no header.
 		if (!hasHeader()) {
@@ -91,7 +90,7 @@ public interface ISpecification {
 	/**
 	 * @return the attributes of this specification.
 	 */
-	public abstract AccessorContainer<ISpecification> getRefAttributes();
+	public abstract <S extends Specification> AccessorContainer<S> getRefAttributes();
 	
 	//method
 	/**

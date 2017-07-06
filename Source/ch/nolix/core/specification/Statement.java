@@ -10,10 +10,14 @@ package ch.nolix.core.specification;
 
 //own imports
 import ch.nolix.core.constants.CharacterManager;
+import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 
 //class
-public final class Statement extends Specificationoid {
+public final class Statement {
+	
+	//attribute
+	StandardSpecification specification = new StandardSpecification();
 	
 	//optional attribute
 	Statement nextStatement;
@@ -35,6 +39,10 @@ public final class Statement extends Specificationoid {
 		setValue(string);
 	}
 	
+	public boolean containsAttributes() {
+		return specification.containsAttributes();
+	}
+	
 	public Statement getCopy() {
 		//TODO: Implement better.
 		return new Statement(toString());
@@ -48,6 +56,10 @@ public final class Statement extends Specificationoid {
 		
 		//Calls method of the base class.
 		return super.toString();
+	}
+	
+	public String getHeader() {
+		return specification.getHeader();
 	}
 	
 	//method
@@ -71,6 +83,18 @@ public final class Statement extends Specificationoid {
 	 */
 	public String getNextStatementToString() {
 		return getNextStatement().toString();
+	}
+	
+	public AccessorContainer<StandardSpecification> getRefAttributes() {
+		return specification.getRefAttributes();
+	}
+	
+	public StandardSpecification getRefOneAttribute() {
+		return specification.getRefOneAttribute();
+	}
+	
+	public boolean hasHeader() {
+		return specification.hasHeader();
 	}
 	
 	//method
@@ -107,7 +131,7 @@ public final class Statement extends Specificationoid {
 		}
 		
 		//Calls method of the base class.
-		super.setValue(value);
+		specification.setValue(value);
 	}
 	
 	//method
@@ -117,7 +141,7 @@ public final class Statement extends Specificationoid {
 	public final String toReproducingString() {
 		
 		//Calls method of the base class.
-		String string = super.toReproducingString();
+		String string = specification.toReproducingString();
 		
 		if (hasNextStatement()) {
 			string += "." + getNextStatement().toReproducingString();
@@ -129,7 +153,7 @@ public final class Statement extends Specificationoid {
 	public final String toString() {
 		
 		//Calls method of the base class.
-		String string = super.toReproducingString();
+		String string = specification.toReproducingString();
 		
 		if (hasNextStatement()) {
 			string += "." + getNextStatement().toString();

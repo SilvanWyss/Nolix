@@ -2,7 +2,6 @@
 package ch.nolix.system.GUIClient;
 
 //own imports
-import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.element.GUI.Frame;
@@ -135,7 +134,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 * 
 	 * @param attributes
 	 */
-	private void resetDialog(final List<StandardSpecification> attributes) {
+	private void resetDialog(final Iterable<StandardSpecification> attributes) {
 		System.out.println(9);
 		getGUI().reset(attributes);
 		getGUI().updateFromConfiguration();
@@ -152,7 +151,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 * 
 	 * @param attributes
 	 */
-	private void resetOtherSideDialog(final List<StandardSpecification> attributes) {
+	private void resetOtherSideDialog(final Iterable<StandardSpecification> attributes) {
 		internal_getRefDuplexController().run(GUIClient.RESET_DIALOG_COMMAND + "(" + getGUI().getAttributes() + ")");
 	}
 	

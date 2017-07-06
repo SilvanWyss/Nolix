@@ -31,7 +31,7 @@ public class StandardConfiguration extends Configuration<StandardConfiguration> 
 	 * @param attributes
 	 * @throws Exception if the given attributes are not valid
 	 */
-	public StandardConfiguration(List<StandardSpecification> attributes) {
+	public StandardConfiguration(Iterable<StandardSpecification> attributes) {
 		addOrChangeAttributes(attributes);
 	}
 	

@@ -5,6 +5,7 @@ package ch.nolix.core.container;
 import java.util.Iterator;
 import java.util.Random;
 
+
 //own imports
 import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.constants.StringManager;
@@ -1033,6 +1034,19 @@ public interface IContainer<E> extends Iterable<E> {
 		}
 		
 		return true;
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(n) if this container contains n elements.
+	 * 
+	 * @param extractor
+	 * @return a new list with the elements the given extractor extract from the elements of this container.
+	 */
+	public default <O> List<O> to(final IElementTakerElementGetter<E, O> extractor) {
+		final List<O> list = new List<O>();
+		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
+		return list;
 	}
 	
 	//default method

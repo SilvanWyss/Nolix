@@ -840,19 +840,6 @@ public final class List<E> implements Clearable, IContainer<E> {
 	/**
 	 * The complexity of this method is O(n) if this list contains n elements.
 	 * 
-	 * @param extractor
-	 * @return a new list with the elements the given extractor extract from the elements of this list.
-	 */
-	public <O> List<O> to(final IElementTakerElementGetter<E, O> extractor) {
-		final List<O> list = new List<O>();
-		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
-		return list;
-	}
-	
-	//method
-	/**
-	 * The complexity of this method is O(n) if this list contains n elements.
-	 * 
 	 * @return a string representation of this list.
 	 */
 	public String toString() {
