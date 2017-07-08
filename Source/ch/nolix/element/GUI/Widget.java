@@ -118,17 +118,17 @@ extends ConfigurableElement<R> {
 				break;
 			default:
 				if (attribute.getHeader().startsWith(NORMAL.toString())) {
-					StandardSpecification temp = attribute.getClone();
+					StandardSpecification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring(NORMAL.toString().length()));
 					getRefNormalStructure().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(HOVER.toString())) {
-					StandardSpecification temp = attribute.getClone();
+					StandardSpecification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring(HOVER.toString().length()));
 					getRefHoverStructure().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(FOCUS.toString())) {
-					StandardSpecification temp = attribute.getClone();
+					StandardSpecification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring(FOCUS.toString().length()));
 					getRefFocusStructure().addOrChangeAttribute(temp);
 				}

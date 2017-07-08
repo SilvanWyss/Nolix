@@ -512,7 +512,7 @@ implements Abortable {
 			case TARGET_REQUEST:
 				return new StandardSpecification(internal_getTarget());
 			case DATA_METHOD_REQUEST:
-				return new StandardSpecification(internal_invokeDataMethod(request.getRefOneAttribute()));
+				return new StandardSpecification(internal_invokeDataMethod(request.getRefOneAttribute()).toString());
 			default:
 				throw new InvalidArgumentException(new ArgumentName("reqest"), new Argument(request));
 		}

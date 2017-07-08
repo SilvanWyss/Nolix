@@ -116,17 +116,17 @@ extends Container<TabContainerStructure, TabContainer> {
 				break;
 			default:	
 				if (attribute.getHeader().startsWith("NormalMenuItem")) {
-					StandardSpecification temp = attribute.getClone();
+					StandardSpecification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring("NormalMenuItem".length()));
 					getRefNormalMenuItemStructure().setAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith("HoverMenuItem")) {
-					StandardSpecification temp = attribute.getClone();
+					StandardSpecification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring("HoverMenuItem".length()));
 					getRefHoverMenuItemStructure().setAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith("FocusMenuItem")) {
-					StandardSpecification temp = attribute.getClone();
+					StandardSpecification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring("FocusMenuItem".length()));
 					getRefFocusMenuItemStructure().setAttribute(temp);
 				}

@@ -1,10 +1,3 @@
-/*
- * file:	Specification.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	170
- */
-
 //package declaration
 package ch.nolix.core.specification;
 
@@ -13,29 +6,29 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
+import java.util.Iterator;
 
 //own imports
 import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //class
+/**
+ * A standard specification is a specification that is completely stored in the memory
+ * like as normal objects, but probably not like as other specifications.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 200
+ */
 public final class StandardSpecification extends Specification {
-	
-	//static mehtod
-	public static final StandardSpecification loadSpecification(final String path) {
-		final StandardSpecification standardSpecification = new StandardSpecification();
-		standardSpecification.loadFromFile(path);
-		return standardSpecification;
-	}
 	
 	//codes
 	public static final String OPEN_BRACKET_CODE = "$O";
@@ -44,28 +37,31 @@ public final class StandardSpecification extends Specification {
 	public static final String COMMA_CODE = "$M";
 	public static final String DOLLAR_SIGN_CODE = "$L";
 	
+	//static mehtod
+	public static final StandardSpecification loadSpecification(final String path) {
+		final StandardSpecification standardSpecification = new StandardSpecification();
+		standardSpecification.loadFromFile(path);
+		return standardSpecification;
+	}
+	
 	//optional attribute
 	private String header;
 	
 	//multiple attribute
-	private List<StandardSpecification> attributes = new List<StandardSpecification>();
+	private final List<StandardSpecification> attributes = new List<StandardSpecification>();
 	
 	//constructor
 	/**
 	 * Creates new specification without header and without attributes.
 	 */
 	public StandardSpecification() {}
-	
-	public StandardSpecification(Object object) {
-		this(object.toString());
-	}
 		
 	//constructor
 	/**
 	 * Creates new specification the given string represents.
 	 * 
 	 * @param string
-	 * @throws Exception if the given string is not valid
+	 * @throws InvalidArgumentException if the given string represents no standard specification.
 	 */
 	public StandardSpecification(String string) {
 		setValue(string);		
@@ -105,27 +101,6 @@ public final class StandardSpecification extends Specification {
 		}
 	}
 	
-	public final boolean equals(Object object) {
-
-		if (object == null) {
-			return false;
-		}
-		
-		if (!(object instanceof StandardSpecification)) {
-			return false;
-		}
-		
-		return object.toString().equals(toString());
-	}
-	
-	//method
-	/**
-	 * @return a clone of this specification
-	 */
-	public final StandardSpecification getClone() {
-		return new StandardSpecification(getHeader(), getRefAttributes().to(a -> a.getClone()));
-	}
-	
 	//method
 	/**
 	 * Loads this specification from the file with the given file path.
@@ -135,7 +110,7 @@ public final class StandardSpecification extends Specification {
 	 *  -the given file path is not valid
 	 *   -the file with the given file path is not valid
 	 */
-	public final void loadFromFile(String filePath) {
+	public void loadFromFile(String filePath) {
 		try {
 			setValue(new String(Files.readAllBytes(Paths.get(filePath))).replace("\n", "").replace("\t", ""));
 		}
@@ -153,7 +128,7 @@ public final class StandardSpecification extends Specification {
 	 *  -the given file path is not valid
 	 *  -an other error occurs
 	 */
-	public final void saveToFile(String filePath) {
+	public void saveToFile(String filePath) {
 		try (PrintWriter printWriter = new PrintWriter(filePath)) {
 			printWriter.print(toFormatedReproducingString());
 			printWriter.flush();
@@ -163,17 +138,15 @@ public final class StandardSpecification extends Specification {
 		}
 	}
 	
-	//method
-	/**
-	 * @return a formated string representation of this object
-	 */
-	public final String toFormatedReproducingString() {
-		return toFormatedReproducingString(0);
+	@Override
+	public void addAttribute(final Specification attribute) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	//method
 	/**
-	 * Adds the given attribute to this specificationoid.
+	 * Adds the given attribute to this standard specification.
 	 * 
 	 * @param attribute
 	 * @throws Exception if the given attribute is null
@@ -184,7 +157,7 @@ public final class StandardSpecification extends Specification {
 	
 	//method
 	/**
-	 * Adds the given attribute to this specificationoid.
+	 * Adds the given attribute to this standard specification.
 	 * 
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
@@ -195,97 +168,135 @@ public final class StandardSpecification extends Specification {
 	
 	//method
 	/**
-	 * Adds the given prefix to the header of this specificationoid.
+	 * Adds the given prefix to the header of this standard specification.
+	 * Sets the given prefix has header to this standard specification if it has no header.
 	 * 
 	 * @param prefix
-	 * @throws Exception if the given prefix is null or an empty string
+	 * @throws NullArgumentException if the given prefix is null.
+	 * @throws EmptyArgumentException if the given prefix is empty.
 	 */
-	public final void addPrefixToHeader(String prefix) {
+	public void addPrefixToHeader(final String prefix) {
 		
-		Validator.throwExceptionIfStringIsNullOrEmpty("prefix", prefix);
+		//Checks if the given prefix is not null or empty.
+		Validator.supposeThat(prefix).thatIsNamed("prefix").isNotEmpty();
 		
+		//Handles the case if this standard specification has no header.
 		if (hasHeader()) {
-			setHeader(prefix + getHeader());
-		}
-		else {
 			setHeader(prefix);
 		}
+		
+		//Handles the case if this standard specification has a header.
+		else {			
+			setHeader(prefix + getHeader());
+		}
 	}
 	
 	//method
 	/**
-	 * Adds the given postfix to the header of this specificationoid.
+	 * Adds the given postfix to the header of this standard specification.
+	 * Sets the given postfix as header to this standard specification if it has no header.
 	 * 
 	 * @param postfix
-	 * @throws Exception if the given postfix is null or an empty string
+	 * @throws NullArgumentException if the given postfix is null.
+	 * @throws EmptyArgumentException if the given postfix is empty.
 	 */
-	public final void addPostfixToHeader(String postfix) {
+	public void addPostfixToHeader(String postfix) {
 		
-		Validator.throwExceptionIfStringIsNullOrEmpty("postfix", postfix);
+		//Checks if the given postfix is not null or empty.
+		Validator.supposeThat(postfix).thatIsNamed("postfix").isNotEmpty();
 		
+		//Handles the case if this standard specification has no header.
 		if (hasHeader()) {
+			setHeader(postfix);			
+		}
+		
+		//Handles the case if this standard specification has a header.
+		else {
 			setHeader(getHeader() + postfix);
 		}
-		else {
-			setHeader(postfix);
+	}
+	
+	//method
+	/**
+	 * @return true if this standard specification contains attributes
+	 */
+	public boolean containsAttributes() {
+		return !getRefAttributes().isEmpty();
+	}
+	
+	//method
+	/**
+	 * @return true if this standard specification contains exactly 1 attribute
+	 */
+	public boolean containsOneAttribute() {
+		return getRefAttributes().containsOne();
+	}
+	
+	//method
+	/**
+	 * @return true if this standard specification equals the given object.
+	 */
+	public boolean equals(final Object object) {
+		
+		//Handles the case if the given object is no standard specification.
+		if (!(object instanceof StandardSpecification)) {
+			return false;
 		}
-	}
-
-	//method
-	/**
-	 * @return true if all attributes of this specificationoid have no attributes
-	 */
-	public boolean allAttributesHaveNoAttributes() {
-		return !attributes.contains(s -> s.containsAttributes());
-	}
-	
-	//method
-	/**
-	 * @return true if this specificationoid consists only of a header
-	 */
-	public final boolean consistsOfHeaderOnly() {
-		return (hasHeader() && !containsAttributes());
-	}
-	
-	//method
-	/**
-	 * @param header
-	 * @return true if htis specificationoid consists only of the given header
-	 */
-	public final boolean consistsOfHeader(final String header) {
-		return (hasHeader(header) && !containsAttributes());
-	}
-	
-	//method
-	/**
-	 * @return true if this specificationoid contains attributes
-	 */
-	public final boolean containsAttributes() {
-		return !attributes.isEmpty();
+		
+		//Handles the case if the given object is a standard specification.
+		
+			final StandardSpecification standardSpecification = (StandardSpecification)object;
+			
+			if (!hasHeader()) {
+				if (standardSpecification.hasHeader()) {
+					return false;
+				}
+			}
+			else {
+				if (!standardSpecification.hasHeader(getHeader())) {
+					return false;
+				}
+			}
+			
+			if (getAttributeCount() != standardSpecification.getAttributeCount()) {
+				return false;
+			}
+			
+			final Iterator<StandardSpecification> iterator
+			= standardSpecification.getRefAttributes().iterator();
+			
+			//Iterates the attributes of this standard specification.
+			for (final StandardSpecification a : getRefAttributes()) {
+				if (!a.equals(iterator.next())) {
+					return false;
+				}
+			}
+			
+			return true;
 	}
 	
 	//method
 	/**
-	 * @return true if this specificationoid contains exactly 1 attribute
+	 * @return the number of attributes of this standard specification.
 	 */
-	public final boolean containsOneAttribute() {
-		return attributes.containsOne();
-	}
-	
-	//method
-	/**
-	 * @return the number of attributes of this specificationoid
-	 */
-	public final int getAttributesCount() {
+	public int getAttributesCount() {
 		return attributes.getElementCount();
 	}
+	
+	//method
+	/**
+	 * @return a copy of this specification.
+	 */
+	public StandardSpecification getCopy() {
+		return new StandardSpecification(getHeader(), getRefAttributes().to(a -> a.getCopy()));
+	}
 
 	//method
 	/**
-	 * @return the header of this specificationoid
-	 * @throws UnexistingAttributeException if this specificationoid has no header
+	 * @return the header of this specification.
+	 * @throws UnexistingAttributeException if this specification has no header.
 	 */
-	public final String getHeader() {
+	public String getHeader() {
 		
 		if (!hasHeader()) {
 			throw new UnexistingAttributeException(this, "header");
@@ -296,46 +307,47 @@ public final class StandardSpecification extends Specification {
 	
 	//method
 	/**
-	 * @return the boolean the one attribute of this specificationoid represents
+	 * @return the boolean the one attribute of this standard specification represents
 	 * @throws Exception if:
-	 *  -this specificationoid contains no or several attributes
-	 *  -the one attribute of this specificationoid does not represent a boolean
+	 *  -this standard specification contains no or several attributes
+	 *  -the one attribute of this standard specification does not represent a boolean
 	 */
-	public final boolean getOneAttributeToBoolean() {
+	public boolean getOneAttributeToBoolean() {
 		return getRefOneAttribute().toBoolean();
 	}
 	
 	//method
-	public final double getOneAttributeToDouble() {
+	public double getOneAttributeToDouble() {
 		return getRefOneAttribute().toDouble();
 	}
 	
 	//method
 	/**
-	 * @return the integer the one attribute of this specificationoid represents
+	 * @return the integer the one attribute of this standard specification represents
 	 * @throws Exception if:
-	 *  -this specificationoid contains no or several attributes
-	 *  -the one attribute of this specificationoid does not represent an integer
+	 *  -this standard specification contains no or several attributes
+	 *  -the one attribute of this standard specification does not represent an integer
 	 */
-	public final int getOneAttributeToInteger() {
-		return getRefOneAttribute().toInteger();
+	public int getOneAttributeToInteger() {
+		return getRefOneAttribute().toInt();
 	}
 	
 	//method
 	/**
-	 * @return a string representation of the one attribute of this specificationoid
-	 * @throws Exception if this specificationoid contains no or several attributes
+	 * @return a string representation of the one attribute of this standard specification
+	 * @throws Exception if this standard specification contains no or several attributes
 	 */
-	public final String getOneAttributeToString() {
+	public String getOneAttributeToString() {
 		return getRefOneAttribute().toString();
 	}
 	
 	//method
 	/**
-	 * @return the one attribute of this specificationoid
-	 * @throws Exception if this specificationoid has no or several attributes
+	 * @return the one attribute of this standard specification
+	 * @throws Exception if this standard specification has no or several attributes
 	 */
-	public final StandardSpecification getRefOneAttribute() {
+	@SuppressWarnings("unchecked")
+	public StandardSpecification getRefOneAttribute() {
 		return attributes.getRefOne();
 	}
 	
@@ -344,10 +356,10 @@ public final class StandardSpecification extends Specification {
 	 * @param header
 	 * @return the one attribute of the first attribute with the given header
 	 * @throws Exception if:
-	 *  -this specificationoid contains no attribute with the given header
-	 *  -the first attribute of this specificationoid with the given header contains no or several attributes
+	 *  -this standard specification contains no attribute with the given header
+	 *  -the first attribute of this standard specification with the given header contains no or several attributes
 	 */
-	public final StandardSpecification getRefOneAttributeOfFirstAttribute(String header) {
+	public StandardSpecification getRefOneAttributeOfFirstAttribute(String header) {
 		return attributes.getRefFirst(a -> a.hasHeader(header)).getRefOneAttribute();
 	}
 	
@@ -356,19 +368,19 @@ public final class StandardSpecification extends Specification {
 	 * @param header
 	 * @return a string representation of the one attribute of the first attribute with the given header
 	 * @throws Exception if:
-	 *  -this specificationoid contains no attribute with the given header
-	 *  -the first attribute of this specificationoid with the given header contains no or several attributes
+	 *  -this standard specification contains no attribute with the given header
+	 *  -the first attribute of this standard specification with the given header contains no or several attributes
 	 */
-	public final String getRefOneAttributeOfFirstAttributeToString(String header)  {
+	public String getRefOneAttributeOfFirstAttributeToString(String header)  {
 		return getRefOneAttributeOfFirstAttribute(header).toString();
 	}
 	
 	//method
 	/**
-	 * @return the attributes of this specificationoid
+	 * @return the attributes of this standard specification
 	 */
 	@SuppressWarnings("unchecked")
-	public final AccessorContainer<StandardSpecification> getRefAttributes() {
+	public AccessorContainer<StandardSpecification> getRefAttributes() {
 		return new AccessorContainer<StandardSpecification>(attributes);
 	}
 	
@@ -376,34 +388,107 @@ public final class StandardSpecification extends Specification {
 	/**
 	 * @param header
 	 * @return the attributes of the first attribute with the given header
-	 * @throws Exception if this specificationoid contains no attribute with the given header
+	 * @throws Exception if this standard specification contains no attribute with the given header
 	 */
-	public final AccessorContainer<StandardSpecification> getRefAttributesOfFirstAttribute(String header) {
+	public AccessorContainer<StandardSpecification> getRefAttributesOfFirstAttribute(String header) {
 		return attributes.getRefFirst(a -> a.hasHeader(header)).getRefAttributes();
 	}
 	
 	//method
 	/**
-	 * @return true if this specificationoid has a header
+	 * @return true if this standard specification has a header
 	 */
-	public final boolean hasHeader() {
+	public boolean hasHeader() {
 		return (header != null);
 	}
 	
 	//method
 	/**
-	 * Sets the value of this specificationoid.
+	 * Sets the attributes of this standard specification.
+	 * 
+	 * @param attributes
+	 * @throws Exception if the given attributes are null
+	 */
+	public void setAttributes(final Iterable<StandardSpecification> attributes) {
+		
+		this.attributes.clear();
+		
+		this.attributes.addAtEnd(attributes);
+	}
+	
+	//method
+	/**
+	 * Sets the header of this standard specification.
+	 * 
+	 * @param header
+	 * @throws NullArgumentException if the given header is null.
+	 * @throws EmptyArgumentException if the given header is empty.
+	 */
+	public void setHeader(final String header) {
+		
+		//Checks if the given header is not null or empty.
+		Validator.supposeThat(header).thatIsNamed(header).isNotEmpty();
+		
+		this.header
+		= header
+		.replace(DOT_CODE, ".")
+		.replace(OPEN_BRACKET_CODE, "(")
+		.replace(CLOSED_BRACKET_CODE, ")");
+	}
+	
+	//method
+	/**
+	 * @return a string representation of this standard specification
+	 */
+	public String toReproducingString() {
+		String string = StringManager.EMPTY_STRING;
+		
+		//Handles header if this specification has a header.
+		if (hasHeader()) {
+			string += getHeader().replace(".", DOT_CODE).replace("(", OPEN_BRACKET_CODE).replace(")", CLOSED_BRACKET_CODE);
+		}
+		
+		//Handles attributes.
+		if (containsAttributes()) {
+			string += CharacterManager.OPENING_BRACKET;
+			boolean begin = true;
+			for (StandardSpecification a: attributes) {
+				if (begin) {
+					begin = false;
+				}
+				else {
+					string += CharacterManager.COMMA;
+				}
+				string += a.toReproducingString();
+			}
+			string += CharacterManager.CLOSING_BRACKET;
+		}
+		return string;
+	}
+	
+	//method
+	/**
+	 * @return a string representation of this object in quotes
+	 */
+	public String toStringInQuotes() {
+		return ("'" + toString() + "'");
+	}
+	
+	//method
+	/**
+	 * Sets the value of this standard specification.
 	 * 
 	 * @param value
-	 * @throws Exception if the given value is not valid
+	 * @throws InvalidValueException if the given value is not valid.
 	 */
-	public void setValue(String value) {
+	private void setValue(final String value) {
 		
-		//Extracts header and start index of attributes.
+		//Extracts the header and the start index of the attributes.
 		boolean hasAttributes = false;
 		int startIndex = 0;
 		for (int i = 0; i < value.length(); i++) {
-			Character character = value.charAt(i);
+			
+			final Character character = value.charAt(i);
 			
 			//Checks whether the given specification string contains a closing bracket before an opening bracket.
 			if (character == CharacterManager.CLOSING_BRACKET) {
@@ -468,7 +553,7 @@ public final class StandardSpecification extends Specification {
 			}
 			attributes.addAtEnd(new StandardSpecification(attributeString));
 			
-			//Checks whether the given specificationoid string has not as many opening brackets as closing brackets.
+			//Checks whether the given standard specification string has not as many opening brackets as closing brackets.
 			if (level != 0) {
 				throw new InvalidArgumentException(
 					new ArgumentName("content"),
@@ -476,7 +561,7 @@ public final class StandardSpecification extends Specification {
 				);
 			}
 			
-			//Checks whether the last character of the given specificationoid string is a closing bracket.
+			//Checks whether the last character of the given standard specification string is a closing bracket.
 			if (value.charAt(value.length() - 1) != CharacterManager.CLOSING_BRACKET) {
 				throw new InvalidArgumentException(
 					new ArgumentName("content"),
@@ -487,160 +572,5 @@ public final class StandardSpecification extends Specification {
 		else if (value.length() > 0) {
 			setHeader(value);
 		}
-	}
-	
-	//method
-	/**
-	 * Sets the attributes of this specificationoid.
-	 * 
-	 * @param attributes
-	 * @throws Exception if the given attributes are null
-	 */
-	public final void setAttributes(Iterable<StandardSpecification> attributes) {
-		
-		Validator.throwExceptionIfValueIsNull("attributes", attributes);
-		
-		this.attributes = new List<StandardSpecification>(attributes);
-	}
-	
-	//method
-	/**
-	 * Sets the header of this specificationoid.
-	 * 
-	 * @param header
-	 * @throws Exception if the given header is null or an empty string
-	 */
-	public final void setHeader(String header) {
-		
-		Validator.throwExceptionIfStringIsNullOrEmpty("header", header);
-		
-		this.header =
-		header.replace(DOT_CODE, ".")
-		.replace(OPEN_BRACKET_CODE, "(")
-		.replace(CLOSED_BRACKET_CODE, ")");
-	}
-	
-	//method
-	/**
-	 * @return the boolean this specificationoid represents
-	 * @throws Exception if this specificationoid does not represent a boolean
-	 */
-	public final boolean toBoolean() {
-		return StringHelper.toBoolean(toString());
-	}
-	
-	//method
-	public final double toDouble() {
-		return StringHelper.toDouble(toString());
-	}
-	
-	//method
-	/**
-	 * @return the integer this specificationoid represents
-	 * @throws Exception if this specificationoid does not represent an integer 
-	 */
-	public final int toInteger() {
-		return StringHelper.toInt(toString());		
-	}
-	
-	//method
-	/**
-	 * @return a string representation of this specificationoid
-	 */
-	public String toReproducingString() {
-		String string = StringManager.EMPTY_STRING;
-		
-		//Handles header if this specification has a header.
-		if (hasHeader()) {
-			string += getHeader().replace(".", DOT_CODE).replace("(", OPEN_BRACKET_CODE).replace(")", CLOSED_BRACKET_CODE);
-		}
-		
-		//Handles attributes.
-		if (containsAttributes()) {
-			string += CharacterManager.OPENING_BRACKET;
-			boolean begin = true;
-			for (StandardSpecification a: attributes) {
-				if (begin) {
-					begin = false;
-				}
-				else {
-					string += CharacterManager.COMMA;
-				}
-				string += a.toReproducingString();
-			}
-			string += CharacterManager.CLOSING_BRACKET;
-		}
-		return string;
-	}
-	
-	
-	public String toString() {
-		
-		String string = StringManager.EMPTY_STRING;
-		
-		//Handles header if this specification has a header.
-		if (hasHeader()) {
-			string += getHeader();
-		}
-		
-		//Handles attributes.
-		if (containsAttributes()) {
-			string += CharacterManager.OPENING_BRACKET;
-			boolean begin = true;
-			for (StandardSpecification a: attributes) {
-				if (begin) {
-					begin = false;
-				}
-				else {
-					string += CharacterManager.COMMA;
-				}
-				string += a.toString();
-			}
-			string += CharacterManager.CLOSING_BRACKET;
-		}
-		return string;
-	}
-	
-	//method
-	/**
-	 * @return a string representation of this object in quotes
-	 */
-	public final String toStringInQuotes() {
-		return ("'" + toString() + "'");
-	}
-	
-	//method
-	/**
-	 * @param tabulators
-	 * @return a formated string representation of this object with leading tabulators
-	 */
-	private final String toFormatedReproducingString(int tabulators) {		
-		if (containsAttributes()) {
-			if (allAttributesHaveNoAttributes()) {
-				return (StringHelper.createTabulators(tabulators) + getHeader() + CharacterManager.OPENING_BRACKET + getRefAttributes().toString() + CharacterManager.CLOSING_BRACKET);
-			}
-			else {
-				String formatedString = StringHelper.createTabulators(tabulators) + getHeader() + CharacterManager.OPENING_BRACKET + CharacterManager.NEW_LINE;
-				int currentParameter = 1;
-				for (StandardSpecification attribute: getRefAttributes()) {
-					formatedString += attribute.toFormatedReproducingString(tabulators + 1);
-					if (currentParameter != getRefAttributes().getElementCount()) {
-						formatedString += CharacterManager.COMMA;
-					}
-					formatedString += CharacterManager.NEW_LINE;
-					currentParameter++;
-				}
-				return formatedString += StringHelper.createTabulators(tabulators) + CharacterManager.CLOSING_BRACKET;
-			}
-		}
-		else {
-			return StringHelper.createTabulators(tabulators) + getHeader();		
-		}
-	}
-
-	@Override
-	public void addAttribute(Specification attribute) {
-		// TODO Auto-generated method stub
-		
 	}
 }

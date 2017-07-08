@@ -426,7 +426,7 @@ implements Clearable, IRequestableContainer {
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
 			case ROOT_WIDGET_HEADER:
-				getRefRootWidget().run(command.getNextStatement());
+				getRefRootWidget().run(command.getRefNextStatement());
 				break;
 			case REMOVE_ROOT_WIDGET_COMMAND:
 				removeRootWidget();

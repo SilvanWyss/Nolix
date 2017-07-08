@@ -25,10 +25,10 @@ final class WidgetController implements ILevel1Controller {
 		if (command.hasHeader()) {
 			switch (command.getHeader()) {
 				case GUI.SIMPLE_CLASS_NAME:
-					getRefRectangle().getRefDialog().run(command.getNextStatement());
+					getRefRectangle().getRefDialog().run(command.getRefNextStatement());
 					return;
 				case Widget.SIMPLE_CLASS_NAME:
-					getRefRectangle().run(command.getNextStatement());
+					getRefRectangle().run(command.getRefNextStatement());
 					return;
 			}
 		}

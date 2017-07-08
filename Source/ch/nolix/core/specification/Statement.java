@@ -1,10 +1,3 @@
-/*
- * file:	Statement.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	120
- */
-
 //package declaration
 package ch.nolix.core.specification;
 
@@ -14,17 +7,24 @@ import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 
 //class
+/**
+ * A statement consists of a specification and can have a next statement.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 190
+ */
 public final class Statement {
 	
 	//attribute
-	StandardSpecification specification = new StandardSpecification();
+	private StandardSpecification specification = new StandardSpecification();
 	
 	//optional attribute
-	Statement nextStatement;
+	private Statement nextStatement;
 	
 	//constructor
 	/**
-	 * Creates new statement without header, without attributes and without next statement.
+	 * Creates new statement.
 	 */
 	public Statement() {}
 	
@@ -33,42 +33,73 @@ public final class Statement {
 	 * Creates new statement the given string represents
 	 * 
 	 * @param string
-	 * @throws Exception if the given string is not valid
+	 * @throws InvalidArgumentException if the given string is not valid.
 	 */
-	public Statement(String string) {
+	public Statement(final String string) {
 		setValue(string);
 	}
 	
+	//method
+	/**
+	 * @return true if this statement contains attributes.
+	 */
 	public boolean containsAttributes() {
 		return specification.containsAttributes();
 	}
 	
+	//method
+	/**
+	 * @return a copy of this statement.
+	 */
 	public Statement getCopy() {
-		//TODO: Implement better.
+		
+		//TODO: Implement this better.
+		
 		return new Statement(toString());
 	}
 	
 	//method
 	/**
-	 * @return the first part of this statement to string
+	 * @return the first part of this statement to string.
 	 */
 	public String getFirstPartToString() {
-		
-		//Calls method of the base class.
-		return super.toString();
+		return specification.toString();
 	}
 	
+	//method
+	/**
+	 * @return the header of this statement.
+	 * @throws UnexistingAttributeException if this statement has no header.
+	 */
 	public String getHeader() {
 		return specification.getHeader();
 	}
 	
 	//method
 	/**
-	 * @return the next statement of this statement
-	 * @throws UnexistingAttributeException if this statement has no next statement
+	 * @return a string representation of the next statement of this statement.
+	 * @throws UnexistingAttributeException if this statement has no next statement.
 	 */
-	public Statement getNextStatement() {
+	public String getNextStatementToString() {
+		return getRefNextStatement().toString();
+	}
+	
+	//method
+	/**
+	 * @return the attributes of this statement.
+	 */
+	public AccessorContainer<StandardSpecification> getRefAttributes() {
+		return specification.getRefAttributes();
+	}
+	
+	//method
+	/**
+	 * @return the next statement of this statement.
+	 * @throws UnexistingAttributeException if this statement has no next statement.
+	 */
+	public Statement getRefNextStatement() {
 		
+		//Checks if this statement has a next statement.
 		if (!hasNextStatement()) {
 			throw new UnexistingAttributeException(this, "next statement");
 		}
@@ -78,28 +109,24 @@ public final class Statement {
 	
 	//method
 	/**
-	 * @return a string representation of the next statement of this statement
-	 * @throws Exception if this statement has no next statement
+	 * @return the one attribute of this statement.
+	 * @throws InvalidStateException if this statement contains no or several attributes.
 	 */
-	public String getNextStatementToString() {
-		return getNextStatement().toString();
-	}
-	
-	public AccessorContainer<StandardSpecification> getRefAttributes() {
-		return specification.getRefAttributes();
-	}
-	
 	public StandardSpecification getRefOneAttribute() {
 		return specification.getRefOneAttribute();
 	}
 	
+	//method
+	/**
+	 * @return true if this statement has a header.
+	 */
 	public boolean hasHeader() {
 		return specification.hasHeader();
 	}
 	
 	//method
 	/**
-	 * @return true if this statement has a next statement
+	 * @return true if this statement has a next statement.
 	 */
 	public boolean hasNextStatement() {
 		return (nextStatement != null);
@@ -107,16 +134,49 @@ public final class Statement {
 	
 	//method
 	/**
+	 * @return a reproducing string representation of this statement.
+	 */
+	public String toReproducingString() {
+		
+		String string = specification.toReproducingString();
+		
+		if (hasNextStatement()) {
+			string += CharacterManager.DOT + getRefNextStatement().toReproducingString();
+		}
+		
+		return string;
+	}
+	
+	//method
+	/**
+	 * @return a string representation of this statement.
+	 */
+	public String toString() {
+		
+		String string = specification.toReproducingString();
+		
+		if (hasNextStatement()) {
+			string += CharacterManager.DOT + getRefNextStatement().toString();
+		}
+				
+		return string;
+	}
+	
+	//method
+	/**
 	 * Sets the value of this statement.
 	 * 
 	 * @param value
-	 * @throws Exception if the given value is not valid
+	 * @throws InvalidArgumentException if the given value is not valid.
 	 */
-	public void setValue(String value) {
+	private void setValue(final String value) {
 		
 		int openBrackets = 0;
+		
 		for (int i = 0; i < value.length() - 1; i++) {
-			char character = value.charAt(i);
+			
+			final char character = value.charAt(i);
+			
 			if (character == CharacterManager.OPENING_BRACKET) {
 				openBrackets++;
 			}
@@ -130,35 +190,6 @@ public final class Statement {
 			}
 		}
 		
-		//Calls method of the base class.
-		specification.setValue(value);
-	}
-	
-	//method
-	/**
-	 * @return a string representation of this statement
-	 */
-	public final String toReproducingString() {
-		
-		//Calls method of the base class.
-		String string = specification.toReproducingString();
-		
-		if (hasNextStatement()) {
-			string += "." + getNextStatement().toReproducingString();
-		}
-		
-		return string;
-	}
-	
-	public final String toString() {
-		
-		//Calls method of the base class.
-		String string = specification.toReproducingString();
-		
-		if (hasNextStatement()) {
-			string += "." + getNextStatement().toString();
-		}
-				
-		return string;
+		specification = new StandardSpecification(value);
 	}
 }

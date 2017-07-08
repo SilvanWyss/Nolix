@@ -70,7 +70,7 @@ public abstract class Element implements Specified {
 			case TYPE_REQUEST:
 				return new StandardSpecification(getType());
 			case TYPES_REQUEST:
-				return new StandardSpecification(getTypes());
+				return new StandardSpecification(getTypes().toString());
 			default:
 				throw new InvalidArgumentException(
 					new ArgumentName("request"),
