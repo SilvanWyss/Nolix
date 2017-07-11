@@ -11,7 +11,7 @@ import ch.nolix.element.basic.Time;
  * 
  * @author Silvan Wyss
  * @month 2017-02
- * @lines 80
+ * @lines 70
  */
 public final class TimeTest extends Test {
 	
@@ -31,10 +31,6 @@ public final class TimeTest extends Test {
 					expectThat(time.getYear()).equals(y);
 					expectThat(time.getMonthOfYear()).equals(m);
 					expectThat(time.getDayOfMonth()).equals(d);
-					expectThat(time.getHourOfDay()).equals(Time.DEFAULT_HOUR_OF_DAY);
-					expectThat(time.getMinuteOfHour()).equals(Time.DEFAULT_MINUTE_OF_HOUR);
-					expectThat(time.getSecondOfMinute()).equals(Time.DEFAULT_SECOND_OF_MINUTE);
-					expectThat(time.getMillisecondOfSecond()).equals(Time.DEFAULT_MILLISECOND_OF_SECOND);
 				}
 			}
 		}
@@ -47,24 +43,17 @@ public final class TimeTest extends Test {
 		for (int h = 0; h <= 23; h++) {		
 			for (int m = 0; m <= 59; m++) {
 					
-					//execution
-					final Time time
-					= new Time(
-						Time.DEFAULT_YEAR,
-						Time.DEFAULT_MONTH_OF_YEAR,
-						Time.DEFAULT_DAY_OF_MONTH,
-						h,
-						m
-					);
-					
-					//verification
-					expectThat(time.getYear()).equals(Time.DEFAULT_YEAR);
-					expectThat(time.getMonthOfYear()).equals(Time.DEFAULT_MONTH_OF_YEAR);
-					expectThat(time.getDayOfMonth()).equals(Time.DEFAULT_DAY_OF_MONTH);
-					expectThat(time.getHourOfDay()).equals(h);
-					expectThat(time.getMinuteOfHour()).equals(m);
-					expectThat(time.getSecondOfMinute()).equals(Time.DEFAULT_SECOND_OF_MINUTE);
-					expectThat(time.getMillisecondOfSecond()).equals(Time.DEFAULT_MILLISECOND_OF_SECOND);
+				//execution
+				final Time time	= new Time(2000, 1,	1,	h,	m);
+				
+				//verification
+				expectThat(time.getYear()).equals(2000);
+				expectThat(time.getMonthOfYear()).equals(1);
+				expectThat(time.getDayOfMonth()).equals(1);
+				expectThat(time.getHourOfDay()).equals(h);
+				expectThat(time.getMinuteOfHour()).equals(m);
+				expectThat(time.getSecondOfMinute()).equals(0);
+				expectThat(time.getMillisecondOfSecond()).equals(0);
 			}
 		}
 	}

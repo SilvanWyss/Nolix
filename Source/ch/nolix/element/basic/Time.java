@@ -4,12 +4,7 @@ package ch.nolix.element.basic;
 //Java import
 import java.util.GregorianCalendar;
 
-
 //own imports
-
-
-
-
 import ch.nolix.core.constants.TimeUnitManager;
 import ch.nolix.core.container.List;
 import ch.nolix.core.helper.StringHelper;
@@ -24,11 +19,11 @@ import ch.nolix.core.validator2.Validator;
  * Since the Gregorian calendar is not proleptic a time can only store a point in time after 1600-01-01 00:00:000.
  * Not proleptic means that the Greogioan calender does officially not allow calculations backwards behind the point of its release, that was in 1582.
  * A time is not mutable.
- * Technically, a time is a wrapper around JDK's Gregorian calendar class.
+ * Technically, a time is a wrapper around JDK's GregorianCalendar.
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 590
+ * @lines 560
  */
 public final class Time extends Element {
 	
@@ -38,7 +33,7 @@ public final class Time extends Element {
 	//default values
 	public static final int DEFAULT_YEAR = 2000;
 	public static final int DEFAULT_MONTH_OF_YEAR = 1;
-	public static final int DEFAULT_DAY_OF_MONTH = 0;
+	public static final int DEFAULT_DAY_OF_MONTH = 1;
 	public static final int DEFAULT_HOUR_OF_DAY = 0;
 	public static final int DEFAULT_MINUTE_OF_HOUR = 0;
 	public static final int DEFAULT_SECOND_OF_MINUTE = 0;
