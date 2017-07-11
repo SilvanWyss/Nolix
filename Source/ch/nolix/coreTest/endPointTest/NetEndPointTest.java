@@ -28,8 +28,7 @@ public final class NetEndPointTest extends Test {
 		final int port = 29000;
 		final String message = "Hello World!";
 		
-		//setup
-		
+		//setup	
 			final ReceiverMock receiverMock = new ReceiverMock();
 		
 			final NetServer netServer
@@ -40,8 +39,7 @@ public final class NetEndPointTest extends Test {
 			
 			final NetEndPoint netEndPoint = new NetEndPoint(port);
 			
-		//execution
-			
+		//execution			
 			netEndPoint.send(message);
 			
 			try {
@@ -54,5 +52,6 @@ public final class NetEndPointTest extends Test {
 		
 		//cleanup
 		netServer.abort();
+		netEndPoint.abort();
 	}
 }

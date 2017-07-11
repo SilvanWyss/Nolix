@@ -4,6 +4,10 @@ package ch.nolix.core.container;
 //Java import
 import java.util.Iterator;
 
+
+
+import ch.nolix.core.constants.CharacterManager;
+import ch.nolix.core.constants.StringManager;
 //own import
 import ch.nolix.core.validator2.Validator;
 
@@ -85,5 +89,24 @@ public final class AccessorContainer<E> implements IContainer<E> {
 	 */
 	public Iterator<E> iterator() {
 		return container.iterator();
+	}
+	
+	public String toString() {
+		
+		String string = StringManager.EMPTY_STRING;
+		
+		//Iterates this accessor container.
+		boolean begin = true;
+		for (final E e : this) {
+			if (begin) {
+				begin = false;
+				string += e.toString();
+			}
+			else {
+				string += e.toString() + CharacterManager.COMMA;
+			}
+		}
+		
+		return string;
 	}
 }

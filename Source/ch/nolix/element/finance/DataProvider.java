@@ -58,7 +58,7 @@ public final class DataProvider {
 			
 			final List<VolumeCandleStick> dailyCandleSticks = new List<VolumeCandleStick>();
 			
-			final String URLString = "http://chart.finance.yahoo.com/table.csv"
+			final String URLString = "http://finance.yahoo.com/table.csv"
 				+ "?s=" + productSymbol
 				+ "&amp;a=" + (startDate.getMonthOfYear() - 1)
 				+ "&amp;b=" + startDate.getDayOfMonth()
