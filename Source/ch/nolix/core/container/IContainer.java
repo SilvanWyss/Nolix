@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Random;
 
 
+
 //own imports
 import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.constants.StringManager;
@@ -19,6 +20,7 @@ import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.EmptyStateException;
+import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 
@@ -754,7 +756,7 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * @return the one element of this container.
 	 * @throws EmptyStateException if this container is empty.
-	 * @throws InvalidArgumentException if this container contains several elements.
+	 * @throws InvalidStateException if this container contains several elements.
 	 */
 	public default E getRefOne() {
 		
@@ -763,10 +765,7 @@ public interface IContainer<E> extends Iterable<E> {
 			throw new EmptyStateException(this);
 		}
 		if (getElementCount() > 1) {
-			throw new InvalidArgumentException(
-				new Argument(this),
-				new ErrorPredicate("contains several elements")
-			);
+			throw new InvalidStateException(this, "contains several elements");
 		}
 		
 		return iterator().next();

@@ -2,8 +2,6 @@
 package ch.nolix.core.specification;
 
 //Java imports
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
@@ -26,7 +24,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 200
+ * @lines 570
  */
 public final class StandardSpecification extends Specification {
 	
@@ -37,10 +35,18 @@ public final class StandardSpecification extends Specification {
 	public static final String COMMA_CODE = "$M";
 	public static final String DOLLAR_SIGN_CODE = "$L";
 	
-	//static mehtod
-	public static final StandardSpecification loadSpecification(final String path) {
+	//static method
+	/**
+	 * Creates new standard specification from the file with the given file path.
+	 * 
+	 * @param filePath
+	 * @return a new standard specification from the file with the given file path.
+	 * @throws InvalidArgumentException if the given file path is not valid.
+	 * @throws InvalidArgumentException if the file with the given file path represents no standard specification.
+	 */
+	public static final StandardSpecification createSpecificationFromFile(final String filePath) {
 		final StandardSpecification standardSpecification = new StandardSpecification();
-		standardSpecification.loadFromFile(path);
+		standardSpecification.loadFromFile(filePath);
 		return standardSpecification;
 	}
 	
@@ -52,18 +58,18 @@ public final class StandardSpecification extends Specification {
 	
 	//constructor
 	/**
-	 * Creates new specification without header and without attributes.
+	 * Creates new standard specification without header and without attributes.
 	 */
 	public StandardSpecification() {}
 		
 	//constructor
 	/**
-	 * Creates new specification the given string represents.
+	 * Creates new standard specification the given string represents.
 	 * 
 	 * @param string
 	 * @throws InvalidArgumentException if the given string represents no standard specification.
 	 */
-	public StandardSpecification(String string) {
+	public StandardSpecification(final String string) {
 		setValue(string);		
 	}
 	
@@ -73,75 +79,44 @@ public final class StandardSpecification extends Specification {
 	 * 
 	 * @param header
 	 * @param attributes
-	 * @throws Exception if:
-	 *  -the given header is null or an empty string
-	 *  -the given attributes are null
+	 * @throws NullArgumentException if the given header is null.
+	 * @throws EmptyArgumentException if the given header is empty.
+	 * @throws NullArgumentException if one of the given attributes is null.
 	 */
-	public StandardSpecification(String header, Iterable<StandardSpecification> attributes) {
+	public StandardSpecification(final String header, final Iterable<StandardSpecification> attributes) {
 		setHeader(header);
 		setAttributes(attributes);
 	}
 	
 	//constructor
 	/**
-	 * Creates new specification with the given header and attributes.
+	 * Creates new standard specification with the given header and attributes.
 	 * 
 	 * @param header
 	 * @param attributes
-	 * @throws Exception if
-	 *  -the given header is null or an empty string
-	 *  -the given attributes are not valid
+	 * @throws NullArgumentException if the given header is null.
+	 * @throws EmptyArgumentException if the given header is empty.
+	 * @throws NullArgumentException if one of the given attributes is null.
 	 */
-	public StandardSpecification(String header, String... attributes) {
+	public StandardSpecification(final String header, final String... attributes) {
 		
+		//Sets the header of this standard specification.
 		setHeader(header);
 		
-		for (String a: attributes) {
+		//Iterates the given attributes.
+		for (final String a : attributes) {
+			
+			//Adds the current attribute to this standard specification.
 			addAttribute(a);
 		}
 	}
 	
 	//method
 	/**
-	 * Loads this specification from the file with the given file path.
-	 * 
-	 * @param filePath
-	 * @throws Exception if:
-	 *  -the given file path is not valid
-	 *   -the file with the given file path is not valid
+	 * Adds the given attribute to this standard specification.
 	 */
-	public void loadFromFile(String filePath) {
-		try {
-			setValue(new String(Files.readAllBytes(Paths.get(filePath))).replace("\n", "").replace("\t", ""));
-		}
-		catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
-	
-	//default method
-	/**
-	 * Saves this specification to the file with the given file path.
-	 * 
-	 * @param filePath
-	 * @throws Exception if:
-	 *  -the given file path is not valid
-	 *  -an other error occurs
-	 */
-	public void saveToFile(String filePath) {
-		try (PrintWriter printWriter = new PrintWriter(filePath)) {
-			printWriter.print(toFormatedReproducingString());
-			printWriter.flush();
-		}
-		catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-	}
-	
-	@Override
 	public void addAttribute(final Specification attribute) {
-		// TODO Auto-generated method stub
-		
+		addAttribute(attribute.toStandardSpecification());
 	}
 	
 	//method
@@ -298,6 +273,7 @@ public final class StandardSpecification extends Specification {
 	 */
 	public String getHeader() {
 		
+		//Checks if this standard specification has a header.
 		if (!hasHeader()) {
 			throw new UnexistingAttributeException(this, "header");
 		}
@@ -317,6 +293,10 @@ public final class StandardSpecification extends Specification {
 	}
 	
 	//method
+	/**
+	 * @return the double the one attribute of this standard specification represents.
+	 * @throws 
+	 */
 	public double getOneAttributeToDouble() {
 		return getRefOneAttribute().toDouble();
 	}
@@ -407,7 +387,8 @@ public final class StandardSpecification extends Specification {
 	 * Sets the attributes of this standard specification.
 	 * 
 	 * @param attributes
-	 * @throws Exception if the given attributes are null
+	 * @throws NullArgumentException if the given attribute container is null.
+	 * @throws NullArgumentException if one of the given attributes is null.
 	 */
 	public void setAttributes(final Iterable<StandardSpecification> attributes) {
 		
@@ -476,6 +457,24 @@ public final class StandardSpecification extends Specification {
 	
 	//method
 	/**
+	 * Loads this specification from the file with the given file path.
+	 * 
+	 * @param filePath
+	 * @throws Exception if:
+	 *  -the given file path is not valid
+	 *   -the file with the given file path is not valid
+	 */
+	private void loadFromFile(String filePath) {
+		try {
+			setValue(new String(Files.readAllBytes(Paths.get(filePath))).replace("\n", "").replace("\t", ""));
+		}
+		catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	//method
+	/**
 	 * Sets the value of this standard specification.
 	 * 
 	 * @param value
@@ -483,14 +482,13 @@ public final class StandardSpecification extends Specification {
 	 */
 	private void setValue(final String value) {
 		
-		//Extracts the header and the start index of the attributes.
 		boolean hasAttributes = false;
-		int startIndex = 0;
+		int attributestartIndex = 0;
 		for (int i = 0; i < value.length(); i++) {
 			
 			final Character character = value.charAt(i);
 			
-			//Checks whether the given specification string contains a closing bracket before an opening bracket.
+			//Checks if the current character is a closing bracket before an opening bracket.
 			if (character == CharacterManager.CLOSING_BRACKET) {
 				throw new InvalidArgumentException(
 					new ArgumentName("content"),
@@ -498,7 +496,7 @@ public final class StandardSpecification extends Specification {
 				);
 			}
 			
-			//Checks whether the given specification string contains a comma before an opening bracket.
+			//Checks if the current character is a comma before an opening bracket.
 			if (character == CharacterManager.COMMA) {
 				throw new InvalidArgumentException(
 					new ArgumentName("content"),
@@ -506,21 +504,29 @@ public final class StandardSpecification extends Specification {
 				);
 			}
 			
-			if (character == CharacterManager.OPENING_BRACKET) {	
+			//Handles the case if the current character is an opening bracket.
+			if (character == CharacterManager.OPENING_BRACKET) {
+				
 				hasAttributes = true;
+				
 				if (i > 0) {
 					setHeader(value.substring(0, i));
 				}
-				startIndex = i + 1;
+				
+				attributestartIndex = i + 1;
 				break;
 			}
-		}	
+		}
 		
-		//Extract attributes.
+		if (!hasAttributes && value.length() > 0) {
+			setHeader(value);
+		}
+		
+		//Extract the attributes of the given value.
 		if (hasAttributes) {
 
-			//Checks whether the start index is too big.
-			if (startIndex > value.length() - 1) {
+			//Checks if the start index is not too big.
+			if (attributestartIndex > value.length() - 1) {
 				throw new InvalidArgumentException(
 					new ArgumentName("content"),
 					new Argument(value)
@@ -529,7 +535,7 @@ public final class StandardSpecification extends Specification {
 			
 			int level = 0;
 			String attributeString = StringManager.EMPTY_STRING;
-			for (int i = startIndex; i < value.length() - 1; i++)
+			for (int i = attributestartIndex; i < value.length() - 1; i++)
 			{
 				char character = value.charAt(i);
 				if (character == CharacterManager.DOT && level == 0) {
@@ -553,7 +559,7 @@ public final class StandardSpecification extends Specification {
 			}
 			attributes.addAtEnd(new StandardSpecification(attributeString));
 			
-			//Checks whether the given standard specification string has not as many opening brackets as closing brackets.
+			//Checks if the given value has as many opening brackets as closing brackets.
 			if (level != 0) {
 				throw new InvalidArgumentException(
 					new ArgumentName("content"),
@@ -561,16 +567,13 @@ public final class StandardSpecification extends Specification {
 				);
 			}
 			
-			//Checks whether the last character of the given standard specification string is a closing bracket.
+			//Checks if the last character of the given value is a closing bracket.
 			if (value.charAt(value.length() - 1) != CharacterManager.CLOSING_BRACKET) {
 				throw new InvalidArgumentException(
 					new ArgumentName("content"),
 					new Argument(value)
 				);
 			}
-		}
-		else if (value.length() > 0) {
-			setHeader(value);
 		}
 	}
 }

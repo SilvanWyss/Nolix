@@ -6,6 +6,7 @@ import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.IContainer;
+import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.helper.StringHelper;
 
 //abstract class
@@ -16,7 +17,7 @@ import ch.nolix.core.helper.StringHelper;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 250
+ * @lines 280
  */
 public abstract class Specification {
 
@@ -116,6 +117,20 @@ public abstract class Specification {
 		return getHeader().equals(header);
 	}
 	
+	//method
+	/**
+	 * Saves this specification to the file with the given path.
+	 * 
+	 * @param filePath
+	 * @throws InvalidArgumentException if the given file path is not valid.
+	 */
+	public final void saveToFile(final String filePath) {
+		new FileSystemAccessor().createFile(
+			filePath,
+			toFormatedReproducingString()
+		);
+	}
+	
 	//abstract method
 	/**
 	 * Sets the header of this specification.
@@ -157,6 +172,23 @@ public abstract class Specification {
 	 */
 	public final int toInt() {
 		return StringHelper.toInt(toString());		
+	}
+	
+	//method
+	/**
+	 * @return a new standard specification representing this specification.
+	 */
+	public final StandardSpecification toStandardSpecification() {
+		
+		final StandardSpecification standardSpecification = new StandardSpecification();
+		
+		if (hasHeader()) {
+			standardSpecification.setHeader(getHeader());
+		}
+		
+		getRefAttributes().forEach(a -> a.addAttribute(a));
+		
+		return standardSpecification;
 	}
 	
 	//method

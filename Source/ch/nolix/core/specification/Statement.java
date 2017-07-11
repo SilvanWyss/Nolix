@@ -12,7 +12,7 @@ import ch.nolix.core.invalidStateException.UnexistingAttributeException;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 190
+ * @lines 200
  */
 public final class Statement {
 	
@@ -53,9 +53,15 @@ public final class Statement {
 	 */
 	public Statement getCopy() {
 		
-		//TODO: Implement this better.
+		final Statement statement = new Statement();
 		
-		return new Statement(toString());
+		statement.specification = specification;
+		
+		if (hasNextStatement()) {
+			statement.nextStatement = getRefNextStatement().getCopy();
+		}
+		
+		return statement;
 	}
 	
 	//method

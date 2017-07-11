@@ -97,6 +97,20 @@ public final class FileSystemAccessor {
 	
 	//method
 	/**
+	 * Creates new file with the given relative file path in the file system on the local machine.
+	 * Writes the given content to the created file.
+	 * 
+	 * @param relativeFilePath
+	 * @throws InvalidArgumentException if a file system item with the given relative file path
+	 * exists already in the file system on the local machine.
+	 * @throws RuntimeException if an error occurs.
+	 */
+	public void createFile(final String relativeFilePath, final String content) {
+		createFile(relativeFilePath).overwriteFile(content);
+	}
+	
+	//method
+	/**
 	 * Creates new empty folder with the given relative folder path in the file system on the local machine.
 	 * 
 	 * @param relativeFolderPath
