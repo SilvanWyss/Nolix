@@ -74,7 +74,7 @@ public final class Sequencer {
 	 * @throws NullArgumentException if the given job is null.
 	 */
 	public static Future runInBackground(final IRunner job) {
-		return new Future(new JobRunner(job));
+		return new Future(new JobRunner(job, 1));
 	}
 	
 	//static method
