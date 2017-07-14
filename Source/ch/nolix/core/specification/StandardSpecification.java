@@ -324,7 +324,8 @@ public final class StandardSpecification extends Specification {
 	//method
 	/**
 	 * @return the one attribute of this standard specification
-	 * @throws Exception if this standard specification has no or several attributes
+	 * @throws EmptyStateException if this standard specification contains no attributes.
+	 * @throws InvalidStateException if this standard specification contains several attributes.
 	 */
 	@SuppressWarnings("unchecked")
 	public StandardSpecification getRefOneAttribute() {
