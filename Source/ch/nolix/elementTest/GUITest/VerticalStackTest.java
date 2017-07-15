@@ -31,7 +31,7 @@ public final class VerticalStackTest extends Test {
 		//verification
 		expectThat(verticalStack.getState()).equals(WidgetState.Normal);
 		expectThat(verticalStack.isEmpty());
-		expectThatNot(verticalStack.belongsToDialog());
+		expectThatNot(verticalStack.belongsToGUI());
 	}
 	
 	//test method

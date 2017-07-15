@@ -24,14 +24,14 @@ import ch.nolix.element.data.MinWidth;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 890
- * @param <BRS> - The type of the widget structures of a borderable widget.
- * @param <BR> - The type of a borderable widget.
+ * @param <BWS> - The type of the widget structures of a borderable widget.
+ * @param <BW> - The type of a borderable widget.
  */
 public abstract class BorderWidget<
-	BRS extends BorderWidgetStructure<BRS>,
-	BR extends BorderWidget<BRS, BR>
+	BWS extends BorderWidgetStructure<BWS>,
+	BW extends BorderWidget<BWS, BW>
 >
-extends BackgroundWidget<BRS, BR> {
+extends BackgroundWidget<BWS, BW> {
 	
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "Borderablewidget";
@@ -64,9 +64,9 @@ extends BackgroundWidget<BRS, BR> {
 	 * @throws NullArgumentException if one of the given structures is null.
 	 */
 	public BorderWidget(
-		BRS normalStructure,
-		BRS hoverStructure,
-		BRS focusStructure
+		BWS normalStructure,
+		BWS hoverStructure,
+		BWS focusStructure
 	) {
 		
 		//Calls constructor of the base class.
@@ -410,11 +410,11 @@ extends BackgroundWidget<BRS, BR> {
 	 * @throws NonPositiveArgumentException if the given bottom padding is not positive.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BR setBottomPadding(final int bottomPadding) {
+	public final BW setBottomPadding(final int bottomPadding) {
 		
 		this.bottomPadding = new PositiveInteger(bottomPadding);
 		
-		return (BR)this;
+		return (BW)this;
 	}
 	
 	//method
@@ -426,7 +426,7 @@ extends BackgroundWidget<BRS, BR> {
 	 * @throws NullArgumentException if the given content orientation is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BR setContentOrientation(final ContentPosition contentOrientation) {
+	public final BW setContentOrientation(final ContentPosition contentOrientation) {
 		
 		//Checks the given content orientation.
 		Validator
@@ -437,7 +437,7 @@ extends BackgroundWidget<BRS, BR> {
 		//Sets the content orientation of this borderable widget.
 		this.contentOrientation = contentOrientation;
 		
-		return (BR)this;
+		return (BW)this;
 	}
 	
 	//method
@@ -449,11 +449,11 @@ extends BackgroundWidget<BRS, BR> {
 	 * @throws NonPositiveArgumentException if the given left padding is not positive.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BR setLeftPadding(final int leftPadding) {
+	public final BW setLeftPadding(final int leftPadding) {
 		
 		this.leftPadding = new PositiveInteger(leftPadding);
 		
-		return (BR)this;
+		return (BW)this;
 	}
 	
 	//method
@@ -465,11 +465,11 @@ extends BackgroundWidget<BRS, BR> {
 	 * @throws NonPositiveArgumentException if the given min height is not positive.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BR setMinHeight(final int minHeight) {
+	public final BW setMinHeight(final int minHeight) {
 		
 		this.minHeight = new MinHeight(minHeight);
 		
-		return (BR)this;
+		return (BW)this;
 	}
 	
 	//method
@@ -481,11 +481,11 @@ extends BackgroundWidget<BRS, BR> {
 	 * @throws NonPositiveArgumentException if the given min width is not positive.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BR setMinWidth(final int minWidth) {
+	public final BW setMinWidth(final int minWidth) {
 		
 		this.minWidth = new MinWidth(minWidth);
 		
-		return (BR)this;
+		return (BW)this;
 	}
 	
 	//method
@@ -497,14 +497,14 @@ extends BackgroundWidget<BRS, BR> {
 	 * @throws NonPositiveArgumentException if the given padding is not positive.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BR setPadding(final int padding) {
+	public final BW setPadding(final int padding) {
 		
 		setLeftPadding(padding);
 		setRightPadding(padding);
 		setTopPadding(padding);
 		setBottomPadding(padding);
 		
-		return (BR)this;
+		return (BW)this;
 	}
 	
 	//method
@@ -516,11 +516,11 @@ extends BackgroundWidget<BRS, BR> {
 	 * @throws NonPositiveArgumentException if the given right padding is not positive.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BR setRightPadding(final int rightPadding) {
+	public final BW setRightPadding(final int rightPadding) {
 		
 		this.rightPadding = new PositiveInteger(rightPadding);
 		
-		return (BR)this;
+		return (BW)this;
 	}
 	
 	//method
@@ -532,11 +532,11 @@ extends BackgroundWidget<BRS, BR> {
 	 * @throws NonPositiveArgumentException if the given top padding is not positive.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BR setTopPadding(final int topPadding) {
+	public final BW setTopPadding(final int topPadding) {
 		
 		this.topPadding = new PositiveInteger(topPadding);
 		
-		return (BR)this;
+		return (BW)this;
 	}
 	
 	//method
@@ -787,7 +787,7 @@ extends BackgroundWidget<BRS, BR> {
 	 */
 	protected final int getHeightWhenNotCollapsed() {
 		
-		final BRS widgetStructure = getRefCurrentStructure();
+		final BWS widgetStructure = getRefCurrentStructure();
 		
 		final int baseHeight
 		= widgetStructure.getActiveTopBorderSize()
@@ -809,7 +809,7 @@ extends BackgroundWidget<BRS, BR> {
 	 */
 	protected final int getWidthWhenNotCollapsed() {
 		
-		final BRS widgetStructure = getRefCurrentStructure();
+		final BWS widgetStructure = getRefCurrentStructure();
 		
 		final int baseWidth
 		= widgetStructure.getActiveLeftBorderSize()
@@ -832,7 +832,7 @@ extends BackgroundWidget<BRS, BR> {
 	 * @param widgetStructure
 	 * @param graphics
 	 */
-	protected final void paint(final BRS widgetStructure, final Graphics graphics) {
+	protected final void paint(final BWS widgetStructure, final Graphics graphics) {
 				
 		//Calls method of the base class.
 		super.paint(widgetStructure, graphics);
@@ -893,5 +893,5 @@ extends BackgroundWidget<BRS, BR> {
 	 * @param widgetStructure
 	 * @param graphics
 	 */
-	protected abstract void paintContent(BRS widgetStructure, Graphics graphics);
+	protected abstract void paintContent(BWS widgetStructure, Graphics graphics);
 }

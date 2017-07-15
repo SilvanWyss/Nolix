@@ -57,7 +57,7 @@ implements Clearable {
 	@SuppressWarnings("unchecked")
 	public final S addRectangle(Widget<?, ?> rectangle) {
 		
-		if (belongsToDialog()) {
+		if (belongsToGUI()) {
 			rectangle.setDialog(getRefDialog());
 		}
 		

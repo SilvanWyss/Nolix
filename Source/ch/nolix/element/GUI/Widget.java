@@ -5,13 +5,7 @@ package ch.nolix.element.GUI;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
-
 //own imports
-
-
-
-
-
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
@@ -20,16 +14,18 @@ import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.ConfigurableElement;
 
-//class
+//abstract class
 /**
- * A widget is a control on a dialog and has a specific width and height.
+ * A widget is an element on a GUI and has a width and height.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 960
+ * @param <WS> - The type of the widget structures of a widget.
+ * @param <W> - The type of a widget.
  */
-public abstract class Widget<RS extends WidgetStructure<RS>, R extends Widget<RS, R>>
-extends ConfigurableElement<R> {
+public abstract class Widget<WS extends WidgetStructure<WS>, W extends Widget<WS, W>>
+extends ConfigurableElement<W> {
 	
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "Widget";
@@ -52,9 +48,9 @@ extends ConfigurableElement<R> {
 	private int relativeYPosition = 0;
 	private WidgetState state = WidgetState.Normal;
 	private CursorIcon cursorIcon = CursorIcon.Arrow;
-	private final RS normalStructure;
-	private final RS hoverStructure;
-	private final RS focusStructure;
+	private final WS normalStructure;
+	private final WS hoverStructure;
+	private final WS focusStructure;
 	private int mouseXPosition;
 	private int mouseYPosition;
 	
@@ -73,9 +69,9 @@ extends ConfigurableElement<R> {
 	 * @param focusStructure
 	 */
 	public Widget(
-		final RS normalStructure,
-		final RS hoverStructure,
-		final RS focusStructure
+		final WS normalStructure,
+		final WS hoverStructure,
+		final WS focusStructure
 	) {
 		Validator.supposeThat(normalStructure).thatIsInstanceOf(WidgetStructure.class).isNotNull();
 		Validator.supposeThat(hoverStructure).thatIsInstanceOf(WidgetStructure.class).isNotNull();
@@ -142,9 +138,9 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return true if this widget belongs to a dialog
+	 * @return true if this widget belongs to a GUI.
 	 */
-	public final boolean belongsToDialog() {
+	public final boolean belongsToGUI() {
 		return (dialog != null);
 	}
 
@@ -231,7 +227,7 @@ extends ConfigurableElement<R> {
 	/**
 	 * @return the focus structure of this widget
 	 */
-	public final RS getRefFocusStructure() {
+	public final WS getRefFocusStructure() {
 		return focusStructure;
 	}
 	
@@ -239,7 +235,7 @@ extends ConfigurableElement<R> {
 	/**
 	 * @return the hover structure of this widget
 	 */
-	public final RS getRefHoverStructure() {
+	public final WS getRefHoverStructure() {
 		return hoverStructure;
 	}
 	
@@ -247,7 +243,7 @@ extends ConfigurableElement<R> {
 	/**
 	 * @return the normal structure of this widget
 	 */
-	public final RS getRefNormalStructure() {
+	public final WS getRefNormalStructure() {
 		return normalStructure;
 	}
 	
@@ -501,11 +497,11 @@ extends ConfigurableElement<R> {
 	 * @param cursorIcon
 	 */
 	@SuppressWarnings("unchecked")
-	public final R setCursorIcon(CursorIcon cursorIcon) {
+	public final W setCursorIcon(CursorIcon cursorIcon) {
 		
 		this.cursorIcon = cursorIcon;
 		
-		return (R)this;
+		return (W)this;
 	}
 	
 	//method
@@ -557,7 +553,7 @@ extends ConfigurableElement<R> {
 	 * @return this widget.
 	 * @throws NullArgumentException if the given left mouse button press command is null.
 	 */
-	public final R setLeftMouseButtonPressCommand(final Statement leftMouseButtonPressCommand) {
+	public final W setLeftMouseButtonPressCommand(final Statement leftMouseButtonPressCommand) {
 		
 		//Checks if the given left mouse button press command is not null.
 		Validator.supposeThat(leftMouseButtonPressCommand)
@@ -566,7 +562,7 @@ extends ConfigurableElement<R> {
 		
 		this.leftMouseButtonPressCommand = leftMouseButtonPressCommand;
 		
-		return (R)this;
+		return (W)this;
 	}
 	
 	//method
@@ -577,7 +573,7 @@ extends ConfigurableElement<R> {
 	 * @return this widget.
 	 * @throws InvalidArgumentException if the given left mouse button press command is not valid.
 	 */
-	public final R setLeftMouseButtonPressCommand(final String leftMouseButtonPressCommand) {
+	public final W setLeftMouseButtonPressCommand(final String leftMouseButtonPressCommand) {
 		return setLeftMouseButtonPressCommand(new Statement(leftMouseButtonPressCommand));
 	}
 
@@ -589,7 +585,7 @@ extends ConfigurableElement<R> {
 	 * @return this widget.
 	 * @throws InvalidArgumentException if the given left mouse button press command or the given arguments are not valid.
 	 */
-	public final R setLeftMouseButtonPressCommand(
+	public final W setLeftMouseButtonPressCommand(
 		final String leftMouseButtonPressCommand,
 		final String... arguments
 	) {
@@ -607,7 +603,7 @@ extends ConfigurableElement<R> {
 	 * @throws NullArgumentException if the given left mouse button release command is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public final R setLeftMouseButtonReleaseCommand(final Statement leftMouseButtonReleaseCommand) {
+	public final W setLeftMouseButtonReleaseCommand(final Statement leftMouseButtonReleaseCommand) {
 		
 		//Checks if the given left mouse button release command is not null.
 		Validator
@@ -617,7 +613,7 @@ extends ConfigurableElement<R> {
 		
 		this.leftMouseButtonReleaseCommand = leftMouseButtonReleaseCommand;
 		
-		return (R)this;
+		return (W)this;
 	}
 	
 	//method
@@ -628,7 +624,7 @@ extends ConfigurableElement<R> {
 	 * @return this widget.
 	 * @throws InvalidArgumentException if the given left mouse button release command is not valid.
 	 */
-	public final R setLeftMouseButtonReleaseCommand(final String leftMouseButtonReleaseCommand) {
+	public final W setLeftMouseButtonReleaseCommand(final String leftMouseButtonReleaseCommand) {
 		return setLeftMouseButtonReleaseCommand(new Statement(leftMouseButtonReleaseCommand));
 	}
 	
@@ -641,7 +637,7 @@ extends ConfigurableElement<R> {
 	 * @return this widget.
 	 * @throws InvalidArgumentException if the given left mouse button release command or the given arguments are not valid.
 	 */
-	public final R setLeftMouseButtonReleaseCommand(
+	public final W setLeftMouseButtonReleaseCommand(
 		final String leftMouseButtonReleaseCommand,
 		final String... arguments
 	) {
@@ -659,7 +655,7 @@ extends ConfigurableElement<R> {
 	 * @throws NullArgumentException if the given right mouse button press command is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public final R setRightMouseButtonPressCommand(final Statement rightMouseButtonPressCommand) {
+	public final W setRightMouseButtonPressCommand(final Statement rightMouseButtonPressCommand) {
 		
 		//Checks if the given right mouse button press command is not null.
 		Validator
@@ -669,7 +665,7 @@ extends ConfigurableElement<R> {
 		
 		this.rightMouseButtonPressCommand = rightMouseButtonPressCommand;
 		
-		return (R)this;
+		return (W)this;
 	}
 	
 	//method
@@ -680,7 +676,7 @@ extends ConfigurableElement<R> {
 	 * @return this widget.
 	 * @throws InvalidArgumentException if the givne right mouse button press command is not valid.
 	 */
-	public final R setRightMouseButtonPressCommand(final String rightMouseButtonPressCommand) {
+	public final W setRightMouseButtonPressCommand(final String rightMouseButtonPressCommand) {
 		return setRightMouseButtonPressCommand(new Statement(rightMouseButtonPressCommand));
 	}
 	
@@ -693,7 +689,7 @@ extends ConfigurableElement<R> {
 	 * @return this widget.
 	 * @throws InvalidArgumentException if the given right mouse button press command or the given arguments are not valid.
 	 */
-	public final R setRightMouseButtonPressCommand(
+	public final W setRightMouseButtonPressCommand(
 		final String rightMouseButtonPressCommand,
 		final String... arguments
 	) {
@@ -711,7 +707,7 @@ extends ConfigurableElement<R> {
 	 * @throws NullArgumentException if the given right mouse button release command is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public final R setRightMouseButtonReleaseCommand(final Statement rightMouseButtonReleaseCommand) {
+	public final W setRightMouseButtonReleaseCommand(final Statement rightMouseButtonReleaseCommand) {
 		
 		//Checks if the given right mouse button release command is not null.
 		Validator
@@ -721,7 +717,7 @@ extends ConfigurableElement<R> {
 		
 		this.rightMouseButtonReleaseCommand = rightMouseButtonReleaseCommand;
 		
-		return (R)this;
+		return (W)this;
 	}
 	
 	//method
@@ -732,7 +728,7 @@ extends ConfigurableElement<R> {
 	 * @return this widget.
 	 * @throws InvalidArgumentException if the given right mouse button release command is not valid.
 	 */
-	public final R setRightMouseButtonReleaseCommand(final String rightMouseButtonReleaseCommand) {
+	public final W setRightMouseButtonReleaseCommand(final String rightMouseButtonReleaseCommand) {
 		return setRightMouseButtonReleaseCommand(new Statement(rightMouseButtonReleaseCommand));
 	}
 	
@@ -745,7 +741,7 @@ extends ConfigurableElement<R> {
 	 * @return this widget.
 	 * @throws InvalidArgumentException if the given right mouse button release command or the given argumnets are not valid.
 	 */
-	public final R setRightMouseButtonReleaseCommand(
+	public final W setRightMouseButtonReleaseCommand(
 		final String rightMouseButtonReleaseCommand,
 		final String... arguments
 	) {
@@ -771,11 +767,11 @@ extends ConfigurableElement<R> {
 	 * @param state
 	 */
 	@SuppressWarnings("unchecked")
-	public final R setState(WidgetState state) {
+	public final W setState(WidgetState state) {
 		
 		this.state = state;
 		
-		return (R)this;
+		return (W)this;
 	}
 	
 	//method
@@ -789,39 +785,43 @@ extends ConfigurableElement<R> {
 	
 	//method
 	/**
-	 * @return the current height of this widget
+	 * @return the height of this widget.
 	 */
 	protected final int getHeight() {
 		
+		//Handles the case if this widget is collapsed.
 		if (isCollapsed()) {
 			return 0;
 		}
 		
+		//Handles the case if this widget is not collapsed.
 		return getHeightWhenNotCollapsed();
 	}
 	
 	//abstract method
 	/**
-	 * @return the current height of this widget when it is s not collapsed
+	 * @return the height of this widget when it is s not collapsed.
 	 */
 	protected abstract int getHeightWhenNotCollapsed();
 	
 	//method
 	/**
-	 * @return the current width of this widget
+	 * @return the width of this widget.
 	 */
 	protected final int getWidth() {
 		
+		//Handles the case if this widget is collapsed.
 		if (isCollapsed()) {
 			return 0;
 		}
 		
+		//Handles the case if this widget is not collapsed.
 		return getWidthWhenNotCollapsed();
 	}
 	
 	//abstract method
 	/**
-	 * @return the current width of this widget for the case when it is not collapsed
+	 * @return the width of this widget when it is not collapsed.
 	 */
 	protected abstract int getWidthWhenNotCollapsed();
 	
@@ -846,7 +846,7 @@ extends ConfigurableElement<R> {
 	 * @return the current structure of this widget
 	 * @throws UnexistingAttributeException if this widget has no current structure
 	 */
-	protected final RS getRefCurrentStructure() {
+	protected final WS getRefCurrentStructure() {
 		switch (state) {
 			case Normal:
 				return getRefNormalStructure();
@@ -898,8 +898,6 @@ extends ConfigurableElement<R> {
 		);		
 	}
 	
-	
-	
 	//method
 	/**
 	 * Paints this widget using the given graphics and relative position.
@@ -928,7 +926,7 @@ extends ConfigurableElement<R> {
 	 * 
 	 * This method does not translate the given graphics in the end.
 	 */
-	protected abstract void paint(RS widgetStructure, Graphics graphics);
+	protected abstract void paint(WS widgetStructure, Graphics graphics);
 	
 	//method
 	/**

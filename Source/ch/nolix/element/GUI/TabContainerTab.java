@@ -86,7 +86,7 @@ public final class TabContainerTab extends NamableElement<TabContainerTab> {
 		
 		this.rectangle = rectangle;
 		
-		if (belongsToTabContainer() && tabContainer.belongsToDialog()) {
+		if (belongsToTabContainer() && tabContainer.belongsToGUI()) {
 			rectangle.setDialog(tabContainer.getRefDialog());
 		}
 		

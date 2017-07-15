@@ -4,7 +4,7 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.Graphics;
 
-//class
+//abstract class
 /**
  * @author Silvan Wyss
  * @month 2017-03
