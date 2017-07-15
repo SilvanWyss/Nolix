@@ -54,25 +54,6 @@ extends BackgroundWidget<BWS, BW> {
 	private PositiveInteger topPadding;
 	private PositiveInteger bottomPadding;
 	
-	//constructor
-	/**
-	 * Creates new borderable widget with the given structures.
-	 * 
-	 * @param normalStructure
-	 * @param hoverStructure
-	 * @param focusStructure
-	 * @throws NullArgumentException if one of the given structures is null.
-	 */
-	public BorderWidget(
-		BWS normalStructure,
-		BWS hoverStructure,
-		BWS focusStructure
-	) {
-		
-		//Calls constructor of the base class.
-		super(normalStructure, hoverStructure, focusStructure);
-	}
-	
 	//method
 	/**
 	 * Adds or changes the given attribute to this borderable widget.

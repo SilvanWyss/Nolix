@@ -39,16 +39,6 @@ implements Clearable {
 	
 	//multiple attribute
 	private final List<String> textLines = new List<String>();
-
-	//constructor
-	/**
-	 * Creates new console with default values.
-	 */
-	public Console() {
-		
-		//Calls constructor of the base class.
-		super(new ConsoleStructure(), new ConsoleStructure(), new ConsoleStructure());
-	}
 	
 	//method
 	/**
@@ -247,5 +237,10 @@ implements Clearable {
 			graphicText.paint(graphics);
 			graphics.translate(0, textSize);
 		}
+	}
+
+	@Override
+	protected ConsoleStructure createWidgetStructure() {
+		return new ConsoleStructure();
 	}
 }

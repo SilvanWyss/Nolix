@@ -34,20 +34,6 @@ implements Clearable {
 	//multiple attribute
 	private List<Widget<?, ?>> rectangles = new List<Widget<?, ?>>();
 	
-	//constructor
-	/**
-	 * Creates new stack that has default attributes.
-	 */
-	public Stack() {
-		
-		//Calls constructor of the base class.
-		super(
-			new StackStructure(),
-			new StackStructure(),
-			new StackStructure()
-		);
-	}
-	
 	//method
 	/**
 	 * Adds the given rectangle to this stack.
@@ -216,5 +202,9 @@ implements Clearable {
 	 */
 	public final void setElementMargin(int elementMargin) {
 		this.elementMargin = new Margin(elementMargin);
+	}
+	
+	protected StackStructure createWidgetStructure() {
+		return new StackStructure();
 	}
 }

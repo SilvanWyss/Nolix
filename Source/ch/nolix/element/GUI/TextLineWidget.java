@@ -34,20 +34,6 @@ extends BorderWidget<TextLineWidgetStructure, TLR> {
 	//attribute
 	private final Text text = new Text();
 	
-	//constructor
-	/**
-	 * Creates new text line rectangle with default values.
-	 */
-	public TextLineWidget() {
-		
-		//Calls constructor of the base class.
-		super(
-			new TextLineWidgetStructure(),
-			new TextLineWidgetStructure(),
-			new TextLineWidgetStructure()
-		);
-	}
-	
 	//method
 	/**
 	 * Adds or change the given attribute to this text line rectangle.
@@ -159,5 +145,9 @@ extends BorderWidget<TextLineWidgetStructure, TLR> {
 		.setSize(rectangleStructure.getCurrentTextSize())
 		.setColor(rectangleStructure.getCurrentTextColor().getValue())
 		.paint(graphics);	
+	}
+	
+	protected TextLineWidgetStructure createWidgetStructure() {
+		return new TextLineWidgetStructure();
 	}
 }

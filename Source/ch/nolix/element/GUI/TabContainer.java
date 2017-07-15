@@ -63,13 +63,6 @@ extends Container<TabContainerStructure, TabContainer> {
 	 */
 	public TabContainer() {
 		
-		//Calls constructor of the base class.
-		super(
-			new TabContainerStructure(),
-			new TabContainerStructure(),
-			new TabContainerStructure()
-		);
-		
 		hoverMenuItemStructure.setNormalStructure(normalMenuItemStructure);
 		focusMenuItemStructure.setNormalStructure(normalMenuItemStructure);
 	}
@@ -818,5 +811,10 @@ extends Container<TabContainerStructure, TabContainer> {
 				getContentYPosition() + menu.getHeight() + getMenuMargin()
 			);
 		}
+	}
+
+	@Override
+	protected TabContainerStructure createWidgetStructure() {
+		return new TabContainerStructure();
 	}
 }

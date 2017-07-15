@@ -30,24 +30,6 @@ extends BorderWidget<BRS, C> {
 	
 	//attribute
 	private ContainerRole role;
-
-	//constructor
-	/**
-	 * Creates new container with the given structures.
-	 * 
-	 * @param normalStructure
-	 * @param hoverStructure
-	 * @param focusStructure
-	 * @param hoverFocusStructure
-	 */
-	public Container(
-		BRS normalStructure,
-		BRS hoverStructure,
-		BRS focusStructure) {
-		
-		//Calls constructor of the base class.
-		super(normalStructure, hoverStructure, focusStructure);
-	}
 	
 	public List<StandardSpecification> getAttributes() {
 		

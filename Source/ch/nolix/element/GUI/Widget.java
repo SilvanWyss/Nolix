@@ -62,24 +62,13 @@ extends ConfigurableElement<W> {
 	
 	//constructor
 	/**
-	 * Creates new widget with the given structures.
-	 * 
-	 * @param normalStructure
-	 * @param hoverStructure
-	 * @param focusStructure
+	 * Creates new widget.
 	 */
-	public Widget(
-		final WS normalStructure,
-		final WS hoverStructure,
-		final WS focusStructure
-	) {
-		Validator.supposeThat(normalStructure).thatIsInstanceOf(WidgetStructure.class).isNotNull();
-		Validator.supposeThat(hoverStructure).thatIsInstanceOf(WidgetStructure.class).isNotNull();
-		Validator.supposeThat(focusStructure).thatIsInstanceOf(WidgetStructure.class).isNotNull();
+	public Widget() {	
 		
-		this.normalStructure = normalStructure;
-		this.hoverStructure = hoverStructure;
-		this.focusStructure = focusStructure;
+		normalStructure = createWidgetStructure();
+		hoverStructure = createWidgetStructure();
+		focusStructure = createWidgetStructure();
 		
 		getRefHoverStructure().setNormalStructure(getRefNormalStructure());
 		getRefFocusStructure().setNormalStructure(getRefNormalStructure());
@@ -765,6 +754,8 @@ extends ConfigurableElement<W> {
 	 * @return the height of this widget when it is s not collapsed.
 	 */
 	protected abstract int getHeightWhenNotCollapsed();
+	
+	protected abstract WS createWidgetStructure();
 	
 	//method
 	/**

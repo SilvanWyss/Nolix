@@ -47,20 +47,6 @@ extends Widget<LineStructure, L> {
 	private final Thickness thickness = new Thickness();
 	private Color color = new Color();
 	
-	//constructor
-	/**
-	 * Creates new line with default values.
-	 */
-	public Line() {
-		
-		//Calls constructor of the base class.
-		super(
-			new LineStructure(),
-			new LineStructure(),
-			new LineStructure()
-		);
-	}
-	
 	//method
 	/**
 	 * Adds or change the given attribute to this line.
@@ -191,8 +177,6 @@ extends Widget<LineStructure, L> {
 		return (L)this;
 	}
 	
-	
-	
 	//method
 	/**
 	 * Sets the length of this line.
@@ -241,6 +225,14 @@ extends Widget<LineStructure, L> {
 		this.thickness.setValue(thickness);
 		
 		return (L)this;
+	}
+	
+	//method
+	/**
+	 * @return new widget structure for this line.
+	 */
+	protected final LineStructure createWidgetStructure() {
+		return new LineStructure();
 	}
 	
 	//method

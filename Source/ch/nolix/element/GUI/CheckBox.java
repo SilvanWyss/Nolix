@@ -32,14 +32,6 @@ public final class CheckBox extends BackgroundWidget<CheckBoxStructure, CheckBox
 	 * Creates new check box with default values.
 	 */
 	public CheckBox() {
-		
-		//Calls constructor of the base class.
-		super(
-			new CheckBoxStructure(),
-			new CheckBoxStructure(),
-			new CheckBoxStructure()
-		);
-		
 		resetConfiguration();
 	}
 	
@@ -183,5 +175,10 @@ public final class CheckBox extends BackgroundWidget<CheckBoxStructure, CheckBox
 			
 			graphics.fillPolygon(x, y, 4);
 		}
+	}
+
+	@Override
+	protected CheckBoxStructure createWidgetStructure() {
+		return new CheckBoxStructure();
 	}
 }

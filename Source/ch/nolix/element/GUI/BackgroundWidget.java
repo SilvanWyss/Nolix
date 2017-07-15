@@ -17,25 +17,6 @@ public abstract class BackgroundWidget<
 	BS extends BackgroundWidget<BWS, BS>
 >
 extends Widget<BWS, BS> {
-
-	//constructor
-	/**
-	 * Creates new background widget with the given structures.
-	 * 
-	 * @param normalStructure
-	 * @param hoverStructure
-	 * @param focusStructure
-	 * @throws NullArgumentException if one of the given structures is null.
-	 */
-	public BackgroundWidget(
-		final BWS normalStructure,
-		final BWS hoverStructure,
-		final BWS focusStructure
-	) {
-	
-		//Calls constructor of the base class.
-		super(normalStructure, hoverStructure, focusStructure);
-	}
 	
 	//method
 	/**

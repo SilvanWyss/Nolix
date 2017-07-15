@@ -49,14 +49,6 @@ public final class Area extends Widget<AreaStructure, Area> {
 	 * Creates new area with default values.
 	 */
 	public Area() {
-		
-		//Calls constructor of the base class.
-		super(
-			new AreaStructure(),
-			new AreaStructure(),
-			new AreaStructure()
-		);
-		
 		resetConfiguration();
 	}
 	
@@ -192,6 +184,14 @@ public final class Area extends Widget<AreaStructure, Area> {
 		this.width = new Width(width);
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * Creates new widget structure for this area.
+	 */
+	protected AreaStructure createWidgetStructure() {
+		return new AreaStructure();
 	}
 	
 	//method

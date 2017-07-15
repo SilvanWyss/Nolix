@@ -31,13 +31,6 @@ extends Container<SingleContainerStructure, SingleContainer> {
 	 */
 	public SingleContainer() {
 		
-		//Calls constructor of the base class.
-		super(
-			new SingleContainerStructure(),
-			new SingleContainerStructure(),
-			new SingleContainerStructure()
-		);
-		
 		rectangle = new Area();
 		resetConfiguration();
 	}
@@ -157,5 +150,10 @@ extends Container<SingleContainerStructure, SingleContainer> {
 			Graphics graphics) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	protected SingleContainerStructure createWidgetStructure() {
+		return new SingleContainerStructure();
 	}
 }
