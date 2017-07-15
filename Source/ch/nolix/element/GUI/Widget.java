@@ -321,22 +321,6 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return true if this widget is hover focues
-	 */
-	public final boolean isHoverFocused() {
-		return (state == WidgetState.HoverFocused);
-	}
-	
-	//method
-	/**
-	 * @return true if this widget is invisble
-	 */
-	public final boolean isInvisible() {
-		return (state == WidgetState.Invisible);
-	}
-	
-	//method
-	/**
 	 * @return true if this widget is normal
 	 */
 	public final boolean isNormal() {
@@ -367,10 +351,10 @@ extends ConfigurableElement<W> {
 		
 		//Updates the state of this widget.
 		if (isPointed()) {	
-			setHoverFocused();
+			
 		}
 		else {
-			if (isFocused() || isHoverFocused()) {
+			if (isFocused()) {
 				setNormal();
 			}
 		}
@@ -399,16 +383,10 @@ extends ConfigurableElement<W> {
 			if (isNormal()) {
 				setHovered();
 			}
-			else if (isFocused()) {
-				setHoverFocused();
-			}
 		}
 		else {
 			if (isHovered()) {
 				setNormal();
-			}
-			if (isHoverFocused()) {
-				setFocused();
 			}
 		}
 		
@@ -522,26 +500,10 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Sets this widget hover focused.
-	 */
-	public final void setHoverFocused() {
-		state = WidgetState.HoverFocused;
-	}
-	
-	//method
-	/**
 	 * Sets this widget hovered.
 	 */
 	public final void setHovered() {
 		state = WidgetState.Hovered;
-	}
-	
-	//metohd
-	/**
-	 * Sets this widget invisible.
-	 */
-	public final void setInvisible() {
-		state = WidgetState.Invisible;
 	}
 	
 	//method
@@ -854,8 +816,6 @@ extends ConfigurableElement<W> {
 				return getRefHoverStructure();
 			case Focused:
 				return getRefFocusStructure();
-			case HoverFocused:
-				return getRefHoverStructure();
 			default:
 				throw new UnexistingAttributeException(this, "current structure");
 		}
@@ -908,13 +868,11 @@ extends ConfigurableElement<W> {
 	 */
 	protected final void paintUsingRelativePosition(Graphics graphics) {
 		
-		if (getState() != WidgetState.Invisible) {
-			graphics.translate(getRelativeXPosition(), getRelativeYPosition());
-			paint(getRefCurrentStructure(), graphics);
-			graphics.translate(-getRelativeXPosition(), -getRelativeYPosition());
-			
-			this.getRefDialog().applyCursorIcon(cursorIcon);
-		}
+		graphics.translate(getRelativeXPosition(), getRelativeYPosition());
+		paint(getRefCurrentStructure(), graphics);
+		graphics.translate(-getRelativeXPosition(), -getRelativeYPosition());
+		
+		this.getRefDialog().applyCursorIcon(cursorIcon);
 	}
 	
 	//abstract method

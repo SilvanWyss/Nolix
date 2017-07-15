@@ -1,10 +1,3 @@
-/*
- * file:	RectangleState.java
- * author:	Silvan Wyss
- * month:	2016-04
- * lines:	30
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
@@ -12,23 +5,26 @@ package ch.nolix.element.GUI;
 import ch.nolix.core.specification.StandardSpecification;
 
 //enum
+/**
+ * A widget state defines the state of a widget.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-04
+ * @lines 30
+ */
 public enum WidgetState {
 	Normal,
-	Focused,
-	Active,
 	Hovered,
-	HoverFocused,
-	HoverActive,
+	Focused,
 	Disabled,
-	Invisible,
 	Collapsed;
 	
 	//constant
-	public static final String SIMPLE_CLASS_NAME = "RectangleState";
+	public static final String SIMPLE_CLASS_NAME = "WidgetState";
 	
 	//method
 	/**
-	 * @return the specification of this rectangle state
+	 * @return the specification of this widget state.
 	 */
 	public StandardSpecification getSpecification() {
 		return new StandardSpecification(SIMPLE_CLASS_NAME, toString());
