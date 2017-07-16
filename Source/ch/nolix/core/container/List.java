@@ -263,6 +263,25 @@ public final class List<E> implements Clearable, IContainer<E> {
 	
 	//method
 	/**
+	 * Adds the elements the given extractor extracts from the given elements
+	 * at the end of this list.
+	 * The complexity of this method is O(n) if n elements are given.
+	 * 
+	 * @param elements
+	 * @param extractor
+	 * @return this list.
+	 */
+	public <E2> List<E> addAtEnd(
+		final Iterable<E2> elements,
+		IElementTakerElementGetter<E2, E> extractor
+	) {
+		elements.forEach(e -> addAtEnd(extractor.getOutput(e)));
+		
+		return this;
+	}
+	
+	//method
+	/**
 	 * Adds the given element at the begin of this list with regarding singularity.
 	 * The complexity of this method is O(n) if this list contains n elements.
 	 * 

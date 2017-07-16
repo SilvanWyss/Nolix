@@ -22,7 +22,7 @@ public interface Specifiable extends Resettable, Specified {
 	
 	//abstract method
 	/**
-	 * Adds or change the given attribute to this specifiable object.
+	 * Adds or changes the given attribute to this specifiable object.
 	 * 
 	 * @param attribute
 	 */
@@ -30,7 +30,7 @@ public interface Specifiable extends Resettable, Specified {
 	
 	//default method
 	/**
-	 * Adds or change the given attributes to this specifiable object.
+	 * Adds or changes the given attributes to this specifiable object.
 	 * 
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
@@ -45,7 +45,7 @@ public interface Specifiable extends Resettable, Specified {
 	
 	//default method
 	/**
-	 * Adds or change the given attribute to this specifiable object.
+	 * Adds or changes the given attribute to this specifiable object.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -56,7 +56,7 @@ public interface Specifiable extends Resettable, Specified {
 	
 	//default method
 	/**
-	 * Adds or change the given attributes to this specifiable object.
+	 * Adds or changes the given attributes to this specifiable object.
 	 * 
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
@@ -71,7 +71,7 @@ public interface Specifiable extends Resettable, Specified {
 	
 	//default method
 	/**
-	 * Adds or change the given attributes to this specifiable object.
+	 * Adds or changes the given attributes to this specifiable object.
 	 * 
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.

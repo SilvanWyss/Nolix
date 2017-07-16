@@ -1,29 +1,29 @@
-/*
- * file:	Configuration.java
- * author:	Silvan Wyss
- * month:	2016-01
- * lines:	530
- */
-
 //package declaration
 package ch.nolix.element.configuration;
 
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Freezable;
+import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
-import ch.nolix.element.basic.NamableElement;
 import ch.nolix.element.basic.NonEmptyText;
+import ch.nolix.element.basic.OptionalNamableElement;
 import ch.nolix.element.data.Name;
 
 //abstract class
+/**
+ * @author Silvan Wyss
+ * @month 2016-01
+ * @lines 630
+ * @param <C> The type of a configuration.
+ */
 public abstract class Configuration<C extends Configuration<C>>
-extends NamableElement<C>
+extends OptionalNamableElement<C>
 implements Freezable {
 
-	//constant
+	//simple class name
 	public static final String SIMPLE_CLASS_NAME = "Configuration";
 	
 	//attribute names
@@ -32,10 +32,14 @@ implements Freezable {
 	private static final String SELECTOR_TOKEN = "SelectorToken";
 	private static final String SELECTOR_NAME = "SelectorName";
 	
-	//attributes
-	private final List<StandardSpecification> attachingAttributes = new List<StandardSpecification>();
-	protected final List<Configuration<?>> configurations = new List<Configuration<?>>();
+	//attribute
 	private boolean frozen = false;
+	
+	//multiple attributes
+	private final List<StandardSpecification> attachingAttributes
+		= new List<StandardSpecification>();
+	protected final List<Configuration<?>> configurations
+		= new List<Configuration<?>>();
 	
 	//optional attributes
 	private NonEmptyText selectorType;
@@ -43,28 +47,22 @@ implements Freezable {
 	private NonEmptyText selectorToken;
 	private NonEmptyText selectorName;
 	
-	//package-visible constructor
-	/**
-	 * Creates new configuration.
-	 */
-	Configuration() {};
-	
 	//method
 	/**
 	 * Adds the given attaching attribute to this configuration.
 	 * 
 	 * @param attachingAttribute
-	 * @return this configuration
-	 * @throws Exception if:
-	 * -The given attaching attributes is null.
-	 * -This configuration is frozen.
+	 * @return this configuration.
+	 * @throws NullArgumentException if the given attaching attribute is null.
+	 * @throws InvalidStateException if this configuration is frozen.
 	 */
 	@SuppressWarnings("unchecked")
-	public final C addAttachingAttribute(StandardSpecification attachingAttribute) {
+	public final C addAttachingAttribute(final StandardSpecification attachingAttribute) {
 		
-		throwExceptionIfFrozen();
+		//Checks if this configuration is not frozen.
+		supposeNotFrozen();
 				
-		this.attachingAttributes.addAtEnd(attachingAttribute);
+		attachingAttributes.addAtEnd(attachingAttribute);
 		
 		return (C)this;
 	}
@@ -75,13 +73,14 @@ implements Freezable {
 	 * 
 	 * @param attachingAttribute
 	 * @return this configuration
-	 * @throws Exception if:
-	 * -The given attaching attribute is not valid
-	 * -This configuratoin is frozen
+	 * @throws InvalidArgumentException
+	 * if the given attachingAttribute represents no standard specification.
+	 * @throws InvalidStateException if this configuration is frozen.
 	 */
-	public final C addAttachingAttribute(String attachingAttribute) {
+	public final C addAttachingAttribute(final String attachingAttribute) {
 		
-		throwExceptionIfFrozen();
+		//Checks if this configuration is not frozen.
+		supposeNotFrozen();			
 		
 		return addAttachingAttribute(new StandardSpecification(attachingAttribute));
 	}
@@ -91,18 +90,19 @@ implements Freezable {
 	 * Adds the given attaching attributes to this configuration.
 	 * 
 	 * @param attachingAttributes
-	 * @return this configuration
-	 * @throws Exception if:
-	 * -One of the given attaching attributes is not valid.
-	 * -This configuration is frozen.
+	 * @return this configuration.
+	 * @throws InvalidArgumentException
+	 * if one of the given attaching attributes represents no standard specification.
+	 * @throws InvalidStateException if this configuration is frozen.
 	 */
 	@SuppressWarnings("unchecked")
-	public final C addAttachingAttribute(String... attachingAttributes) {
+	public final C addAttachingAttribute(final String... attachingAttributes) {
 
-		throwExceptionIfFrozen();
+		//Checks if this configuration is not frozen.
+		supposeNotFrozen();		
 		
 		//Iterates the given attaching attributes.
-		for (String aa: attachingAttributes) {
+		for (final String aa : attachingAttributes) {
 			addAttachingAttribute(aa);
 		}
 		
@@ -114,15 +114,15 @@ implements Freezable {
 	 * Adds the given configuration to this configuration.
 	 * 
 	 * @param configuration
-	 * @return this configuration
-	 * @throws 
-	 * -Excetion if the given configuration is null.
-	 * -This configuration is null.
+	 * @return this configuration.
+	 * @throws NullArgumentException if the given configuration is null.
+	 * @throws InvalidStateException if this configuration is frozen.
 	 */
 	@SuppressWarnings("unchecked")
-	public final C addConfiguration(Configuration<?> configuration) {
+	public final C addConfiguration(final Configuration<?> configuration) {
 		
-		throwExceptionIfFrozen();
+		//Checks if this configuration is not frozen.
+		supposeNotFrozen();
 		
 		configurations.addAtEnd(configuration);
 		
@@ -134,285 +134,36 @@ implements Freezable {
 	 * Adds the given configurations to this configuration.
 	 * 
 	 * @param configurations
-	 * @return this configuration
-	 * @throws Exception if:
-	 * -One of the given configurations is null.
-	 * -This configuration is frozen.
+	 * @return this configuration.
+	 * @throws NullArgumentException if one of the given configurations is null.
+	 * @throws InvalidStateException if this configuration is frozen.
 	 */
 	@SuppressWarnings("unchecked")
-	public final C addConfiguration(Configuration<?>...configurations) {
+	public final C addConfiguration(final Configuration<?>...configurations) {
 		
-		throwExceptionIfFrozen();
+		//Checks if this configuration is not frozen.
+		supposeNotFrozen();
 		
 		this.configurations.addAtEnd(configurations);
 		
 		return (C)this;
 	}
 	
-	//abstract method
+	//method
 	/**
-	 * Lets this configuration configure the given element.
+	 * Adds or changes the given attribute to this configuration.
 	 * 
-	 * @param element
-	 */
-	public abstract void configure(Configurable element);
-	
-	public final void freeze() {
-		
-		throwExceptionIfFrozen();
-		
-		frozen = true;
-	}
-	
-	//method
-	/**
-	 * @return the attributes of this specifiable object
-	 */
-	public List<StandardSpecification> getAttributes() {
-		
-		final List<StandardSpecification> attributes = super.getAttributes();
-		
-		if (hasSelectorType()) {
-			attributes.addAtEnd(selectorType.getSpecificationAs(SELECTOR_TYPE));
-		}
-		
-		if (hasSelectorRole()) {
-			attributes.addAtEnd(selectorRole.getSpecificationAs(SELECTOR_ROLE));
-		}
-		
-		if (hasSelectorToken()) {
-			attributes.addAtEnd(selectorToken.getSpecificationAs(SELECTOR_TOKEN));
-		}
-		
-		if (hasSelectorName()) {
-			attributes.addAtEnd(selectorName.getSpecificationAs(SELECTOR_NAME));
-		}
-				
-		attributes.addAtEnd(attachingAttributes);
-		configurations.forEach(c -> attributes.addAtEnd(c.getSpecification()));
-		
-		return attributes;
-	}
-	
-	//method
-	/**
-	 * @return the selector name of this configuration.
-	 * @throws UnexistingAttributeException if this configuration has no selector name
-	 */
-	public final String getSelectorName() {
-		
-		if (!hasSelectorName()) {
-			throw new UnexistingAttributeException(this, "selector name");
-		}
-		
-		return selectorName.getValue();
-	}
-	
-	//method
-	/**
-	 * @return the selector role of this configuration
-	 * @throws UnexistingAttributeException if this configuration has no selector role
-	 */
-	public final String getSelectorRole() {
-		
-		if (!hasSelectorRole()) {
-			throw new UnexistingAttributeException(this, "selector role");
-		}
-		
-		return selectorRole.getValue();
-	}
-	
-	//method
-	/**
-	 * @return the selector token of this configuration
-	 * @throws UnexistingAttributeException if this configuration has no selector token
-	 */
-	public final String getSelectorToken() {
-		
-		if (!hasSelectorToken()) {
-			throw new UnexistingAttributeException(this, "selector token");
-		}
-		
-		return selectorToken.getValue();
-	}
-	
-	public final boolean hasAttachingAttributes() {
-		return attachingAttributes.containsAny();
-	}
-	
-	//method
-	/**
-	 * @return the selector SIMPLE_CLASS_NAME of this configuration
-	 * @throws UnexistingAttributeException if this configuration has no selector SIMPLE_CLASS_NAME
-	 */
-	public final String getSelectorType() {
-		
-		if (!hasSelectorType()) {
-			throw new UnexistingAttributeException(this, SELECTOR_TYPE);
-		}
-		
-		return selectorType.getValue();
-	}
-	
-	//method
-	/**
-	 * @return true if this configuration has a selector token
-	 */
-	public final boolean hasSelectorToken() {
-		return (selectorToken != null);
-	}
-	
-	//method
-	/**
-	 * @param selectorToken
-	 * @return true if this configuration has the given selector token
-	 */
-	public final boolean hasSelectorToken(String selectorToken) {
-		return (hasSelectorToken() && this.selectorToken.equals(selectorToken));
-	}
-	
-	//method
-	/**
-	 * @return true if this configuration has a selector name
-	 */
-	public final boolean hasSelectorName() {
-		return (selectorName != null);
-	}
-	
-	//method
-	/**
-	 * @param selectorName
-	 * @return true if this configuration has the given selector name
-	 */
-	public final boolean hasSelectorName(String selectorName) {
-		return (hasSelectorName() && this.selectorName.equals(selectorName));
-	}
-	
-	//method
-	/**
-	 * @return true if this configuration has a selector role
-	 */
-	public final boolean hasSelectorRole() {
-		return (selectorRole != null);
-	}
-	
-	public final boolean hasSelectorRole(String selectorRole) {
-		return (hasSelectorName() && this.selectorRole.equals(selectorRole));
-	}
-	
-	//method
-	/**
-	 * @return true if this configuration has a selector type
-	 */
-	public final boolean hasSelectorType() {
-		return (selectorType != null);
-	}
-	
-	//method
-	/**
-	 * @param selectorSIMPLE_CLASS_NAME
-	 * @return true if this configuration has the given selector type
-	 */
-	public final boolean hasSelectorType(String selectorType) {
-		return (hasSelectorType() && this.selectorType.equals(selectorType));
-	}
-	
-	//method
-	/**
-	 * Removes the selector token of this configuration.
-	 * 
-	 * @throws Exception if this configuration is frozen
-	 */
-	public final void removeSelectorToken() {
-		
-		throwExceptionIfFrozen();
-		
-		selectorToken = null;
-	}
-	
-	//method
-	/**
-	 * Removes the selector name of this configuration.
-	 * 
-	 * @throws Exception if this configuration is frozen
-	 */
-	public final void removeSelectorName() {
-		
-		throwExceptionIfFrozen();
-		
-		selectorName = null;
-	}
-	
-	//method
-	/**
-	 * Removes the selector type of this configuration.
-	 * 
-	 * @throws Exception if this configuration is frozen
-	 */
-	public final void removeSelectorType() {
-		
-		throwExceptionIfFrozen();
-		
-		selectorType = null;
-	}
-	
-	//method
-	/**
-	 * Resets this configuration.
-	 * 
-	 * @throws Exception if this configuration is frozen
-	 */
-	public void reset() {
-		
-		throwExceptionIfFrozen();
-		
-		removeSelectorType();
-		removeSelectorToken();
-		removeSelectorName();
-		
-		attachingAttributes.clear();
-		configurations.clear();
-	}
-	
-	//method
-	/**
-	 * @param element
-	 * @return true if this configuration selects the given element
-	 */
-	public final boolean selects(Configurable element) {		
-			
-		if (hasSelectorType() && !element.hasTypeOrSuperType(getSelectorType())) {
-			return false;
-		}
-		
-		if (hasSelectorRole() && !element.hasRole(getSelectorRole())) {
-			return false;
-		}
-		
-		if (hasSelectorToken() && !element.hasToken(getSelectorToken())) {
-			return false;
-		}
-		
-		if (hasSelectorName() && !element.hasName(getSelectorName())) {
-			return false;
-		}
-
-		return true;
-	}
-	
-	//method
-	/**
-	 * Adds the given attribute.
 	 * @param attribute
-	 * @throws Exception if:
-	 * -The given attribute is not valid
-	 * -This configuration is frozen.
+	 * @throws InvalidArgumentException if the givne attribute is not valid.
+	 * @throws InvalidStateException if this configuration is frozen.
 	 */
-	public void addOrChangeAttribute(StandardSpecification attribute) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
-		throwExceptionIfFrozen();
-		
+		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
+			case Name.SIMPLE_CLASS_NAME:
+				setName(attribute.getOneAttributeToString());
+				break;
 			case SELECTOR_TYPE:
 				setSelectorType(attribute.getOneAttributeToString());
 				break;
@@ -431,56 +182,335 @@ implements Freezable {
 			case DeepConfiguration.SIMPLE_CLASS_NAME:
 				addConfiguration(new DeepConfiguration(attribute.getRefAttributes()));
 				break;
-			case Name.SIMPLE_CLASS_NAME:
-				setName(attribute.getOneAttributeToString());
-				break;
 			default:
 				addAttachingAttribute(attribute);
 		}
 	}
 	
-	public final C setSelectorRole(final Enum<?> selectorToken) {
-		return setSelectorRole(selectorToken.toString());
+	//abstract method
+	/**
+	 * Lets this configuration configure the given element.
+	 * 
+	 * @param element
+	 */
+	public abstract void configure(Configurable element);
+	
+	//method
+	/**
+	 * Freezes this configuration.
+	 */
+	public final void freeze() {	
+		frozen = true;
 	}
 	
 	//method
 	/**
-	 * Sets the selector role of this configuration.
-	 * 
+	 * @return the attributes of this configuration.
+	 */
+	public List<StandardSpecification> getAttributes() {
+		
+		//Calls method of the base class.
+		final List<StandardSpecification> attributes = super.getAttributes();
+		
+		//Handles the option that this configuration has a selector type.
+		if (hasSelectorType()) {
+			attributes.addAtEnd(selectorType.getSpecificationAs(SELECTOR_TYPE));
+		}
+		
+		//Handles the option that this configuration has a selector role.
+		if (hasSelectorRole()) {
+			attributes.addAtEnd(selectorRole.getSpecificationAs(SELECTOR_ROLE));
+		}
+		
+		//Handles the option that this configuration has a selector token.
+		if (hasSelectorToken()) {
+			attributes.addAtEnd(selectorToken.getSpecificationAs(SELECTOR_TOKEN));
+		}
+		
+		//Handles the option that this configuration has a selector name.
+		if (hasSelectorName()) {
+			attributes.addAtEnd(selectorName.getSpecificationAs(SELECTOR_NAME));
+		}
+		
+		attributes.addAtEnd(attachingAttributes);
+		attributes.addAtEnd(configurations, c -> c.getSpecification());
+		
+		return attributes;
+	}
+	
+	//method
+	/**
+	 * @return the selector name of this configuration.
+	 * @throws UnexistingAttributeException if this configuration has no selector name.
+	 */
+	public final String getSelectorName() {
+		
+		//Checks if this configuration has a selector name.
+		if (!hasSelectorName()) {
+			throw new UnexistingAttributeException(this, "selector name");
+		}
+		
+		return selectorName.getValue();
+	}
+	
+	//method
+	/**
+	 * @return the selector role of this configuration
+	 * @throws UnexistingAttributeException if this configuration has no selector role.
+	 */
+	public final String getSelectorRole() {
+		
+		//Checks if this configuration has a selector role.
+		if (!hasSelectorRole()) {
+			throw new UnexistingAttributeException(this, "selector role");
+		}
+		
+		return selectorRole.getValue();
+	}
+	
+	//method
+	/**
+	 * @return the selector token of this configuration.
+	 * @throws UnexistingAttributeException if this configuration has no selector token.
+	 */
+	public final String getSelectorToken() {
+		
+		//Checks if this configuration has a selector token.
+		if (!hasSelectorToken()) {
+			throw new UnexistingAttributeException(this, "selector token");
+		}
+		
+		return selectorToken.getValue();
+	}
+	
+	//method
+	/**
+	 * @return true if this configuration has attaching attributes.
+	 */
+	public final boolean hasAttachingAttributes() {
+		return attachingAttributes.containsAny();
+	}
+	
+	//method
+	/**
+	 * @return the selector type of this configuration.
+	 * @throws UnexistingAttributeException if this configuration has no selector type.
+	 */
+	public final String getSelectorType() {
+		
+		//Checks if this configuration has a selector type.
+		if (!hasSelectorType()) {
+			throw new UnexistingAttributeException(this, "selector type");
+		}
+		
+		return selectorType.getValue();
+	}
+	
+	//method
+	/**
+	 * @return true if this configuration has a selector name.
+	 */
+	public final boolean hasSelectorName() {
+		return (selectorName != null);
+	}
+	
+	//method
+	/**
+	 * @param selectorName
+	 * @return true if this configuration has the given selector name.
+	 */
+	public final boolean hasSelectorName(final String selectorName) {
+		
+		//Handles the case if this configuration has no selector name.
+		if (!hasSelectorName()) {
+			return false;
+		}
+		
+		//Handles the case if this configuration has a selector name.
+		return getSelectorName().equals(selectorName);
+	}
+	
+	//method
+	/**
+	 * @return true if this configuration has a selector role.
+	 */
+	public final boolean hasSelectorRole() {
+		return (selectorRole != null);
+	}
+	
+	//method
+	/**
 	 * @param selectorRole
-	 * @return this configuration
-	 * @throws Exception if:
-	 * -The given selector role is null or an empty string.
-	 * -This configuration is frozen.
+	 * @return true if this configuration has the given selector role.
 	 */
-	@SuppressWarnings("unchecked")
-	private final C setSelectorRole(String selectorRole) {
+	public final boolean hasSelectorRole(final String selectorRole) {
 		
-		throwExceptionIfFrozen();
+		//Handles the case if this configuration has no selector role.
+		if (!hasSelectorRole()) {
+			return false;
+		}
 		
-		this.selectorRole = new NonEmptyText(selectorRole);
-		
-		return (C)this;
+		//Handles the case if this configuration has a selector role.
+		return getSelectorRole().equals(selectorRole);
 	}
 	
 	//method
 	/**
-	 * Sets the selector token of this configuration.
-	 * 
-	 * @param selectorToken
-	 * @return this configuration
-	 * @throws Exception if:
-	 * -The given selector token is null or an empty string.
-	 * -This configuration is frozen.
+	 * @return true if this configuration has a selector token.
 	 */
-	@SuppressWarnings("unchecked")
-	public final C setSelectorToken(String selectorToken) {
+	public final boolean hasSelectorToken() {
+		return (selectorToken != null);
+	}
+	
+	//method
+	/**
+	 * @param selectorToken
+	 * @return true if this configuration has the given selector token.
+	 */
+	public final boolean hasSelectorToken(final String selectorToken) {
 		
-		throwExceptionIfFrozen();
+		//Handles the case if this configuration has no selector token.
+		if (!hasSelectorToken()) {
+			return false;
+		}
 		
-		this.selectorToken = new NonEmptyText(selectorToken);
+		//Handles the case if this configuration as a selector token.
+		return getSelectorToken().equals(selectorToken);
+	}
+	
+	//method
+	/**
+	 * @return true if this configuration has a selector type.
+	 */
+	public final boolean hasSelectorType() {
+		return (selectorType != null);
+	}
+	
+	//method
+	/**
+	 * @param selectorType
+	 * @return true if this configuration has the given selector type.
+	 */
+	public final boolean hasSelectorType(final String selectorType) {
 		
-		return (C)this;
+		//Handles the case if this configuration has no selector type.
+		if (!hasSelectorType()) {
+			return false;
+		}
+		
+		//Handles the case if htis configuration has a selector type.
+		return getSelectorType().equals(selectorType);
+	}
+	
+	//method
+	/**
+	 * @return true if this configuration is frozen.
+	 */
+	public final boolean isFrozen() {
+		return frozen;
+	}
+	
+	//method
+	/**
+	 * Removes the selector name of this configuration.
+	 * 
+	 * @throws InvalidStateException if this configuration is frozen.
+	 */
+	public final void removeSelectorName() {
+		
+		//Checks if this configuration is not frozen.
+		supposeNotFrozen();
+		
+		selectorName = null;
+	}
+	
+	//method
+	/**
+	 * Removes the selector role of this configuration.
+	 * 
+	 * @throws InvalidStateException if this configuration is frozen.
+	 */
+	public final void removeSelectorRole() {
+		
+		//Checks if this configuration is not frozen.
+		supposeNotFrozen();
+		
+		selectorRole = null;
+	}
+	
+	//method
+	/**
+	 * Removes the selector token of this configuration.
+	 * 
+	 * @throws InvalidStateException if this configuration is frozen.
+	 */
+	public final void removeSelectorToken() {
+		
+		//Checks if this configuration is not frozen.
+		supposeNotFrozen();
+		
+		selectorToken = null;
+	}
+	
+	//method
+	/**
+	 * Removes the selector type of this configuration.
+	 * 
+	 * @throws Exception if this configuration is frozen
+	 */
+	public final void removeSelectorType() {
+		
+		//Checks if this configuration is not frozen.
+		supposeNotFrozen();
+		
+		selectorType = null;
+	}
+	
+	//method
+	/**
+	 * Resets this configuration.
+	 * 
+	 * @throws InvalidStateException if this configuration is frozen.
+	 */
+	public void reset() {
+
+		removeSelectorType();
+		removeSelectorRole();
+		removeSelectorToken();
+		removeSelectorName();
+		
+		attachingAttributes.clear();
+		configurations.clear();
+	}
+	
+	//method
+	/**
+	 * @param element
+	 * @return true if this configuration selects the given element.
+	 */
+	public final boolean selects(Configurable element) {		
+		
+		//Handles the option that this configuration has a selector type.
+		if (hasSelectorType() && !element.hasTypeOrSuperType(getSelectorType())) {
+			return false;
+		}
+		
+		//Handles the option that this configuration has a selector role.
+		if (hasSelectorRole() && !element.hasRole(getSelectorRole())) {
+			return false;
+		}
+		
+		//Handles the option that this configuration has a selector token.
+		if (hasSelectorToken() && !element.hasToken(getSelectorToken())) {
+			return false;
+		}
+		
+		//Handles the option that this configuration has a selector type.
+		if (hasSelectorName() && !element.hasName(getSelectorName())) {
+			return false;
+		}
+
+		return true;
 	}
 	
 	//method
@@ -488,15 +518,16 @@ implements Freezable {
 	 * Sets the selector name of this configuration.
 	 * 
 	 * @param selectorName
-	 * @return this configuration
-	 * @throws Exception if:
-	 * -The given selector name is an empty string.
-	 * -This configuration is frozen.
+	 * @return this configuration.
+	 * @throws NullArgumentException if the given selector name is null.
+	 * @throws EmptyArgumentException if the given selector name is empty.
+	 * @throws InvalidStateException if this configuration is frozen.
 	 */
 	@SuppressWarnings("unchecked")
-	public final C setSelectorName(String selectorName) {
+	public final C setSelectorName(final String selectorName) {
 		
-		throwExceptionIfFrozen();
+		//Checks if this configuration is not frozen.
+		supposeNotFrozen();
 		
 		this.selectorName = new NonEmptyText(selectorName);
 		
@@ -505,20 +536,53 @@ implements Freezable {
 	
 	//method
 	/**
-	 * Sets the selector SIMPLE_CLASS_NAME of this configuration.
+	 * Sets the selector role of this configuration.
+	 * @param selectorRole
+	 * @return this configuration.
+	 * @throws InvalidStateException if this configurtion is frozen.
+	 */
+	public final C setSelectorRole(final Enum<?> selectorRole) {
+		return setSelectorRole(selectorRole.toString());
+	}
+	
+	//method
+	/**
+	 * Sets the selector token of this configuration.
 	 * 
-	 * @param selectorSIMPLE_CLASS_NAME
-	 * @return this configuration
-	 * @throws Exception if:
-	 * -The given selector type is null or an empty string.
-	 * -This configuration is frozen.
+	 * @param selectorToken
+	 * @return this configuration.
+	 * @throws NullArgumentException if the given selector token is null.
+	 * @throws EmptyArgumentException if the given selector token is empty.
+	 * @throws InvalidStateException if this configuration is frozen.
 	 */
 	@SuppressWarnings("unchecked")
-	public final C setSelectorType(String selectorSIMPLE_CLASS_NAME) {
+	public final C setSelectorToken(final String selectorToken) {
 		
-		throwExceptionIfFrozen();
+		//Checks if this configuration is not frozen.
+		supposeNotFrozen();
 		
-		this.selectorType = new NonEmptyText(selectorSIMPLE_CLASS_NAME);
+		this.selectorToken = new NonEmptyText(selectorToken);
+		
+		return (C)this;
+	}
+	
+	//method
+	/**
+	 * Sets the selector type of this configuration.
+	 * 
+	 * @param selectorType
+	 * @return this configuration.
+	 * @throws NullArgumentException if the given type selector type is null.
+	 * @throws EmptyArgumentException if the given selector type is empty.
+	 * @throws InvalidStateException if this configuration is frozen.
+	 */
+	@SuppressWarnings("unchecked")
+	public final C setSelectorType(final String selectorType) {
+		
+		//Checks if this configuration is not frozen.
+		supposeNotFrozen();
+		
+		this.selectorType = new NonEmptyText(selectorType);
 		
 		return (C)this;
 	}
@@ -528,21 +592,43 @@ implements Freezable {
 	 * Sets the attaching attributes of this configuration to the given element.
 	 * 
 	 * @param element
-	 * @throws Exception if an attaching attribute of this configuration is not valid for the given element
+	 * @throws InvalidArgumentException if an attaching attribute of this configuration
+	 * is not valid for the given element.
 	 */
 	protected final void setAttachingAttributesTo(Configurable element) {
-		for (StandardSpecification a: attachingAttributes) {
-			element.addOrChangeAttribute(a);
-		}
+		attachingAttributes.forEach(aa -> element.addOrChangeAttribute(aa));
 	}
 	
 	//method
 	/**
-	 * @throws Exception if this configuration is frozen
+	 * Sets the selector role of this configuration.
+	 * 
+	 * @param selectorRole
+	 * @return this configuration.
+	 * @throws NullArgumentException if the given selector role is null.
+	 * @throws EmptyArgumentException if the given selector role is empty.
+	 * @throws InvalidStateException if this configuration is frozen.
 	 */
-	protected final void throwExceptionIfFrozen() {
-		if (frozen) {
-			throw new RuntimeException("Configuration is frozen.");
+	@SuppressWarnings("unchecked")
+	private final C setSelectorRole(final String selectorRole) {
+		
+		//Checks if this configuration is not frozen.
+		supposeNotFrozen();
+		
+		this.selectorRole = new NonEmptyText(selectorRole);
+		
+		return (C)this;
+	}
+	
+	//method
+	/**
+	 * @throws InvalidStateException if this configuration is frozen
+	 */
+	protected final void supposeNotFrozen() {
+		
+		//Checks if this configuration is not frozen.
+		if (isFrozen()) {
+			throw new InvalidStateException(this, "is frozen");
 		}
 	}
 }

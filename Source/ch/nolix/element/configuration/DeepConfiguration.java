@@ -108,7 +108,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 */
 	public final DeepConfiguration removeMaxSelectorLevel() {
 		
-		throwExceptionIfFrozen();
+		supposeNotFrozen();
 		
 		maxSelectorLevel = null;
 		
@@ -140,7 +140,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 */
 	public final void addOrChangeAttribute(StandardSpecification attribute) {
 		
-		throwExceptionIfFrozen();
+		supposeNotFrozen();
 		
 		switch (attribute.getHeader()) {
 			case MAX_SELECTOR_LEVEL:
@@ -161,7 +161,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 */
 	public final void setMaxSelectorLevel(int maxSelectorLevel) {
 		
-		throwExceptionIfFrozen();
+		supposeNotFrozen();
 		
 		this.maxSelectorLevel = new PositiveInteger(maxSelectorLevel);
 	}
