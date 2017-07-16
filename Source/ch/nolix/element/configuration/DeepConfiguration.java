@@ -1,26 +1,25 @@
-/*
- * file:	DeepConfiguration.java
- * author:	Silvan Wyss
- * month:	2016-01
- * lines:	190
- */
-
 //package declaration
 package ch.nolix.element.configuration;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.element.basic.PositiveInteger;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2016-01
+ * @lines 190
+ */
 public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 
-	//constant
+	//simple class name
 	public static final String SIMPLE_CLASS_NAME = "DeepConfiguration";
 	
-	//attribute header
+	//attribute name
 	private static final String MAX_SELECTOR_LEVEL = "MaxSelectorLevel";
 	
 	//optional attribute
@@ -35,47 +34,71 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	//constructor
 	/**
 	 * Creates new deep configuration with the given attributes.
+	 * 
 	 * @param attributes
-	 * @throws Exception if the given attributes are not valid
+	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public DeepConfiguration(Iterable<StandardSpecification> attributes) {
+	public DeepConfiguration(final Iterable<StandardSpecification> attributes) {
 		addOrChangeAttributes(attributes);
 	}
 	
 	//method
 	/**
-	 * Configures the given element.
-	 * @param element
+	 * Adds or changes the given attribute to this deep configuration.
+	 * 
+	 * @param attribute
+	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 * @throws InvalidStateException if this deep configuration is frozen.
 	 */
-	public final void configure(Configurable element) {
-
-		if (hasMaxSelectorLevel()) {
-			configure(element, getMaxSelectorLevel());
-		}
-		else {
-			
-			final List<Configurable> elements = element.getRefConfigurables();
-			
-			if (selects(element)) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
+		
+		//Enumerates the header of the given attribute.
+		switch (attribute.getHeader()) {
+			case MAX_SELECTOR_LEVEL:
+				setMaxSelectorLevel(attribute.getOneAttributeToInteger());
+				break;
+			default:
 				
-				setAttachingAttributesTo(element);
-				
-				elements.forEach(e -> configurations.forEach(c -> c.configure(e)));			
-			}
-				
-			elements.forEach(e -> configure(e));
+				//Calls method of the base class.
+				super.addOrChangeAttribute(attribute);
 		}
 	}
 	
 	//method
 	/**
-	 * @return the attributes of this deep configuration
+	/**
+	 * Lets this configuration configure the given element.
+	 * 
+	 * @param element
 	 */
-	public final List<StandardSpecification> getAttributes() {
+	public void configure(Configurable element) {
+
+		if (!hasMaxSelectorLevel()) {
+
+			final List<Configurable> elements = element.getRefConfigurables();
+			
+			if (selects(element)) {
+				setAttachingAttributesTo(element);		
+				elements.forEach(e -> configurations.forEach(c -> c.configure(e)));			
+			}
+				
+			elements.forEach(e -> configure(e));
+		}
+		else {
+			configure(element, getMaxSelectorLevel());
+		}
+	}
+	
+	//method
+	/**
+	 * @return the attributes of this deep configuration.
+	 */
+	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
+		//Handles the option that this deep configuration has a max selector level.
 		if (hasMaxSelectorLevel()) {
 			attributes.addAtEnd(maxSelectorLevel.getSpecificationAs(MAX_SELECTOR_LEVEL));
 		}
@@ -85,17 +108,24 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	
 	//method
 	/**
-	 * @return the max selector level of this deep configuration
+	 * @return the max selector level of this deep configuration.
+	 * @throws UnexistingAttributeException if this deep configuration has no max selector level.
 	 */
-	public final int getMaxSelectorLevel() {
+	public int getMaxSelectorLevel() {
+		
+		//Checks if this deep configuration has a max selector level.
+		if (!hasMaxSelectorLevel()) {
+			throw new UnexistingAttributeException(this, "max selector level");
+		}
+		
 		return maxSelectorLevel.getValue();
 	}
 	
 	//method
 	/**
-	 * @return true if this deep configuration has a max selector level
+	 * @return true if this deep configuration has a max selector level.
 	 */
-	public final boolean hasMaxSelectorLevel() {
+	public boolean hasMaxSelectorLevel() {
 		return (maxSelectorLevel != null);
 	}
 	
@@ -103,11 +133,12 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	/**
 	 * Removes the max selector level of this deep configuration.
 	 * 
-	 * @return this deep configuration
-	 * @throws Exception if this deep configuration is frozen
+	 * @return this deep configuration.
+	 * @throws InvalidStateException if this deep configuration is frozen.
 	 */
-	public final DeepConfiguration removeMaxSelectorLevel() {
+	public DeepConfiguration removeMaxSelectorLevel() {
 		
+		//Checks if this deep configuration is not frozen.
 		supposeNotFrozen();
 		
 		maxSelectorLevel = null;
@@ -119,48 +150,27 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	/**
 	 * Resets this deep configuration.
 	 * 
-	 * @throws Exception if this deep configuration is frozen
+	 * @throws InvalidStateException if this deep configuration is frozen.
 	 */
-	public final void reset() {
+	public void reset() {
 				
 		//Calls the method of the base class.
 		super.reset();
 		
 		removeMaxSelectorLevel();
 	}
-	
-	//method
-	/**
-	 * Sets the given attribute to this deep configuration.
-	 * 
-	 * @param attribute
-	 * @throws Exception if:
-	 * -The given attribute is not valid.
-	 * -This deep configuration is frozen.
-	 */
-	public final void addOrChangeAttribute(StandardSpecification attribute) {
 		
-		supposeNotFrozen();
-		
-		switch (attribute.getHeader()) {
-			case MAX_SELECTOR_LEVEL:
-				setMaxSelectorLevel(attribute.getOneAttributeToInteger());
-				break;
-			default:
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-	
 	//method
 	/**
 	 * Sets the max selector level of this deep configuration.
+	 * 
 	 * @param maxSelectorLevel
-	 * @throws Exception if:
-	 * -The given max selector level is not positive.
-	 * -This deep configuration is frozen.
+	 * @throws NonPositiveArgumentException if the given max selector level is not positive.
+	 * @throws InvalidStateException if this deep configuration is frozen.
 	 */
-	public final void setMaxSelectorLevel(int maxSelectorLevel) {
+	public void setMaxSelectorLevel(int maxSelectorLevel) {
 		
+		//Checks if this deep configuration is not frozen.
 		supposeNotFrozen();
 		
 		this.maxSelectorLevel = new PositiveInteger(maxSelectorLevel);
@@ -168,24 +178,22 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	
 	//method
 	/**
-	 * Lets this deep configuration configure the given element until the given max selector level.
+	 * Lets this deep configuration configure the given element recursively to the given level.
 	 * 
 	 * @param element
-	 * @param maxSelectorLevel
+	 * @param level
 	 */
-	private void configure(Configurable element, int maxSelectorLevel) {
-		if (maxSelectorLevel > 0) {
+	private void configure(Configurable element, int level) {
+		if (level > 0) {
 			
 			final List<Configurable> elements = element.getRefConfigurables();
 			
 			if (selects(element)) {
-				
 				setAttachingAttributesTo(element);
-				
 				elements.forEach(e -> configurations.forEach(c -> c.configure(e)));			
 			}
 				
-			elements.forEach(e -> configure(e, maxSelectorLevel - 1));
+			elements.forEach(e -> configure(e, level - 1));
 		}
 	}
 }

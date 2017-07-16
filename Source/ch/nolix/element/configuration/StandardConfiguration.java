@@ -1,10 +1,3 @@
-/*
- * file:	Configuration.java
- * author:	Silvan Wyss
- * month:	23.01.2016
- * lines:	50
- */
-
 //package declaration
 package ch.nolix.element.configuration;
 
@@ -14,9 +7,14 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2016-01
+ * @lines 50
+ */
 public class StandardConfiguration extends Configuration<StandardConfiguration> {
 
-	//constant
+	//simple class name
 	public static final String SIMPLE_CLASS_NAME = "StandardConfiguration";
 	
 	//constructor
@@ -28,14 +26,21 @@ public class StandardConfiguration extends Configuration<StandardConfiguration> 
 	//constructor
 	/**
 	 * Creates new configuration with the given attributes.
+	 * 
 	 * @param attributes
-	 * @throws Exception if the given attributes are not valid
+	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public StandardConfiguration(Iterable<StandardSpecification> attributes) {
+	public StandardConfiguration(final Iterable<StandardSpecification> attributes) {
 		addOrChangeAttributes(attributes);
 	}
 	
-	public final void configure(Configurable element) {	
+	//method
+	/**
+	 * Lets this configuration configure the given element.
+	 * 
+	 * @param element
+	 */
+	public final void configure(final Configurable element) {	
 		if (selects(element)) {
 			
 			setAttachingAttributesTo(element);

@@ -142,7 +142,7 @@ public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<
 	 *  -this namable element belongs to a search container that contains an other element with the given name
 	 */
 	@SuppressWarnings("unchecked")
-	public final ONE setName(String name) {
+	public ONE setName(String name) {
 		if (!hasName(name)) {
 			
 			if (belongsToSearchContainer() && searchContainer.containsElement(name)) {

@@ -16,7 +16,7 @@ import ch.nolix.element.data.Name;
 /**
  * @author Silvan Wyss
  * @month 2016-01
- * @lines 630
+ * @lines 650
  * @param <C> The type of a configuration.
  */
 public abstract class Configuration<C extends Configuration<C>>
@@ -154,7 +154,7 @@ implements Freezable {
 	 * Adds or changes the given attribute to this configuration.
 	 * 
 	 * @param attribute
-	 * @throws InvalidArgumentException if the givne attribute is not valid.
+	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
 	public void addOrChangeAttribute(final StandardSpecification attribute) {
@@ -511,6 +511,27 @@ implements Freezable {
 		}
 
 		return true;
+	}
+	
+	//method
+	/**
+	 * Sets the given name to this configuration.
+	 * 
+	 * @param name
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws EmptyArgumentException if the given name is empty.
+	 * @throws InvalidStateException if this configuration is frozen.
+	 */
+	@SuppressWarnings("unchecked")
+	public final C setName(final String name) {
+		
+		//Checks if this configuration is not frozen.
+		supposeNotFrozen();
+		
+		//Calls method of the base class.
+		super.setName(name);
+		
+		return (C)this;
 	}
 	
 	//method
