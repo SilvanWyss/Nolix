@@ -20,7 +20,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	public static final String SIMPLE_CLASS_NAME = "DeepConfiguration";
 	
 	//attribute name
-	private static final String MAX_SELECTOR_LEVEL = "MaxSelectorLevel";
+	private static final String MAX_SELECTOR_LEVEL_HEADER = "MaxSelectorLevel";
 	
 	//optional attribute
 	private PositiveInteger maxSelectorLevel;
@@ -54,7 +54,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case MAX_SELECTOR_LEVEL:
+			case MAX_SELECTOR_LEVEL_HEADER:
 				setMaxSelectorLevel(attribute.getOneAttributeToInteger());
 				break;
 			default:
@@ -100,7 +100,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 		
 		//Handles the option that this deep configuration has a max selector level.
 		if (hasMaxSelectorLevel()) {
-			attributes.addAtEnd(maxSelectorLevel.getSpecificationAs(MAX_SELECTOR_LEVEL));
+			attributes.addAtEnd(maxSelectorLevel.getSpecificationAs(MAX_SELECTOR_LEVEL_HEADER));
 		}
 		
 		return attributes;

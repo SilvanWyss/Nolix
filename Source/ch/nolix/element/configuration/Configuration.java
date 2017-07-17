@@ -26,11 +26,11 @@ implements Freezable {
 	//simple class name
 	public static final String SIMPLE_CLASS_NAME = "Configuration";
 	
-	//attribute names
-	private static final String SELECTOR_TYPE = "SelectorType";
-	private static final String SELECTOR_ROLE = "SelectorRole";
-	private static final String SELECTOR_TOKEN = "SelectorToken";
-	private static final String SELECTOR_NAME = "SelectorName";
+	//attribute headers
+	private static final String SELECTOR_TYPE_HEADER = "SelectorType";
+	private static final String SELECTOR_ROLE_HEADER = "SelectorRole";
+	private static final String SELECTOR_TOKEN_HEADER = "SelectorToken";
+	private static final String SELECTOR_NAME_HEADER = "SelectorName";
 	
 	//attribute
 	private boolean frozen = false;
@@ -164,16 +164,16 @@ implements Freezable {
 			case Name.SIMPLE_CLASS_NAME:
 				setName(attribute.getOneAttributeToString());
 				break;
-			case SELECTOR_TYPE:
+			case SELECTOR_TYPE_HEADER:
 				setSelectorType(attribute.getOneAttributeToString());
 				break;
-			case SELECTOR_ROLE:
+			case SELECTOR_ROLE_HEADER:
 				setSelectorRole(attribute.getOneAttributeToString());
 				break;
-			case SELECTOR_TOKEN:
+			case SELECTOR_TOKEN_HEADER:
 				setSelectorToken(attribute.getOneAttributeToString());
 				break;
-			case SELECTOR_NAME:
+			case SELECTOR_NAME_HEADER:
 				setSelectorName(attribute.getOneAttributeToString());
 				break;
 			case StandardConfiguration.SIMPLE_CLASS_NAME:
@@ -214,22 +214,22 @@ implements Freezable {
 		
 		//Handles the option that this configuration has a selector type.
 		if (hasSelectorType()) {
-			attributes.addAtEnd(selectorType.getSpecificationAs(SELECTOR_TYPE));
+			attributes.addAtEnd(selectorType.getSpecificationAs(SELECTOR_TYPE_HEADER));
 		}
 		
 		//Handles the option that this configuration has a selector role.
 		if (hasSelectorRole()) {
-			attributes.addAtEnd(selectorRole.getSpecificationAs(SELECTOR_ROLE));
+			attributes.addAtEnd(selectorRole.getSpecificationAs(SELECTOR_ROLE_HEADER));
 		}
 		
 		//Handles the option that this configuration has a selector token.
 		if (hasSelectorToken()) {
-			attributes.addAtEnd(selectorToken.getSpecificationAs(SELECTOR_TOKEN));
+			attributes.addAtEnd(selectorToken.getSpecificationAs(SELECTOR_TOKEN_HEADER));
 		}
 		
 		//Handles the option that this configuration has a selector name.
 		if (hasSelectorName()) {
-			attributes.addAtEnd(selectorName.getSpecificationAs(SELECTOR_NAME));
+			attributes.addAtEnd(selectorName.getSpecificationAs(SELECTOR_NAME_HEADER));
 		}
 		
 		attributes.addAtEnd(attachingAttributes);
