@@ -8,18 +8,20 @@ import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
-import ch.nolix.element.data.BackgroundColor;
 
 //abstract class
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 150
+ * @lines 160
  * @param <BWS> The type of a background widget structure.
  */
 public abstract class BackgroundWidgetStructure<BWS extends BackgroundWidgetStructure<BWS>>
 extends WidgetStructure<BWS> {
 
+	//attribute header
+	private final static String BACKGROUND_COLOR_HEADER = "BackgroundColor";
+	
 	//optional attribute
 	private Color backgroundColor;
 	
@@ -128,8 +130,8 @@ extends WidgetStructure<BWS> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case Color.SIMPLE_CLASS_NAME:
-				setBackgroundColor(new BackgroundColor(attribute.getOneAttributeToString()));
+			case BACKGROUND_COLOR_HEADER:
+				setBackgroundColor(new Color(attribute.getOneAttributeToString()));
 				break;
 			default:
 				
@@ -149,7 +151,8 @@ extends WidgetStructure<BWS> {
 		
 		//Handles the option that this background widget structure has a background color.
 		if (hasBackgroundColor()) {
-			attributes.addAtEnd(backgroundColor.getSpecification());
+			attributes
+			.addAtEnd(backgroundColor.getSpecificationAs(BACKGROUND_COLOR_HEADER));
 		}
 		
 		return attributes;
