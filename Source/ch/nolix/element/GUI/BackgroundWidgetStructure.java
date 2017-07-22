@@ -14,7 +14,7 @@ import ch.nolix.element.data.BackgroundColor;
  * @author Silvan Wyss
  * @month 2017-03
  * @lines 140
- * @param <BWS> - The type of a background widget structure.
+ * @param <BWS> The type of a background widget structure.
  */
 public abstract class BackgroundWidgetStructure<BWS extends BackgroundWidgetStructure<BWS>>
 extends WidgetStructure<BWS> {

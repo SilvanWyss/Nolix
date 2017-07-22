@@ -14,10 +14,10 @@ import ch.nolix.element.basic.PositiveInteger;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 730
- * @param <BRS> - The type of a borderable rectangle structure.
+ * @param <BWS> The type of a border widget structure.
  */
-public abstract class BorderWidgetStructure<BRS extends BorderWidgetStructure<BRS>>
-extends BackgroundWidgetStructure<BRS> {
+public abstract class BorderWidgetStructure<BWS extends BorderWidgetStructure<BWS>>
+extends BackgroundWidgetStructure<BWS> {
 	
 	//default value
 	public static final int DEFAULT_BORDER_SIZE = 1;
@@ -421,14 +421,14 @@ extends BackgroundWidgetStructure<BRS> {
 	 * @throws NullArgumentException if the given border color is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BRS setBorderColor(final Color borderColor) {
+	public final BWS setBorderColor(final Color borderColor) {
 		
 		setLeftBorderColor(borderColor);
 		setRightBorderColor(borderColor);
 		setTopBorderColor(borderColor);
 		setBottomBorderColor(borderColor);
 		
-		return (BRS)this;
+		return (BWS)this;
 	}
 	
 	//method
@@ -440,14 +440,14 @@ extends BackgroundWidgetStructure<BRS> {
 	 * @throws NonPositiveArgumentException if the given border size is not positive.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BRS setBorderSizes(final int borderSize) {
+	public final BWS setBorderSizes(final int borderSize) {
 		
 		setLeftBorderSize(borderSize);
 		setRightBorderSize(borderSize);
 		setTopBorderSize(borderSize);
 		setBottomBorderSize(borderSize);
 		
-		return (BRS)this;
+		return (BWS)this;
 	}
 	
 	//method
@@ -459,7 +459,7 @@ extends BackgroundWidgetStructure<BRS> {
 	 * @throws NullArgumentException if the given bottom broder color.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BRS setBottomBorderColor(final Color bottomBorderColor) {
+	public final BWS setBottomBorderColor(final Color bottomBorderColor) {
 		
 		//Checks if the given bottom border color is not null.
 		Validator.supposeThat(bottomBorderColor).thatIsNamed("bottom border color").isNotNull();
@@ -467,7 +467,7 @@ extends BackgroundWidgetStructure<BRS> {
 		//Sets the bottom border color of this borderable rectangle structure.
 		this.bottomBorderColor = bottomBorderColor;
 		
-		return (BRS)this;
+		return (BWS)this;
 	}
 
 	//method
@@ -479,14 +479,14 @@ extends BackgroundWidgetStructure<BRS> {
 	 * @throws NonPositiveArgumentException if the given bottom border size is not positive.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BRS setBottomBorderSize(final int bottomBorderSize) {
+	public final BWS setBottomBorderSize(final int bottomBorderSize) {
 
 		this.bottomBorderSize = new PositiveInteger(bottomBorderSize);
 		
-		return (BRS)this;
+		return (BWS)this;
 	}
 	
-	public final BRS setDefaultBorderSizes() {
+	public final BWS setDefaultBorderSizes() {
 		return setBorderSizes(DEFAULT_BORDER_SIZE);
 	}
 	
@@ -499,7 +499,7 @@ extends BackgroundWidgetStructure<BRS> {
 	 * @throws NullArgumentException if the given left border color is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BRS setLeftBorderColor(final Color leftBorderColor) {
+	public final BWS setLeftBorderColor(final Color leftBorderColor) {
 		
 		//Checks if the given left border color is not null.
 		Validator.supposeThat(leftBorderColor).thatIsNamed("left border color").isNotNull();
@@ -507,7 +507,7 @@ extends BackgroundWidgetStructure<BRS> {
 		//Sets the left border color of this boderable rectangle structure.
 		this.leftBorderColor = leftBorderColor;
 		
-		return (BRS)this;
+		return (BWS)this;
 	}
 	
 	//method
@@ -519,11 +519,11 @@ extends BackgroundWidgetStructure<BRS> {
 	 * @throws NonPositiveArgumentException if the given left border size is not positive.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BRS setLeftBorderSize(final int leftBordersize) {
+	public final BWS setLeftBorderSize(final int leftBordersize) {
 		
 		this.leftBorderSize = new PositiveInteger(leftBordersize);
 		
-		return (BRS)this;
+		return (BWS)this;
 	}
 	
 	//method
@@ -535,7 +535,7 @@ extends BackgroundWidgetStructure<BRS> {
 	 * @throws NullArgumentException if the given right border color is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BRS setRightBorderColor(final Color rightBorderColor) {
+	public final BWS setRightBorderColor(final Color rightBorderColor) {
 		
 		//Checks if the given right border color is not null.
 		Validator.supposeThat(rightBorderColor).thatIsNamed("right border color").isNotNull();
@@ -543,7 +543,7 @@ extends BackgroundWidgetStructure<BRS> {
 		//Sets the right border color of this borderable rectangle structure.
 		this.rightBorderColor = rightBorderColor;
 		
-		return (BRS)this;
+		return (BWS)this;
 	}
 	
 	//method
@@ -555,11 +555,11 @@ extends BackgroundWidgetStructure<BRS> {
 	 * @throws NonPositiveArgumentException if the given right border size is not positive.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BRS setRightBorderSize(final int rightBorderSize) {
+	public final BWS setRightBorderSize(final int rightBorderSize) {
 		
 		this.rightBorderSize = new PositiveInteger(rightBorderSize);
 		
-		return (BRS)this;
+		return (BWS)this;
 	}
 	
 	//method
@@ -571,7 +571,7 @@ extends BackgroundWidgetStructure<BRS> {
 	 * @throws NullArgumentException if the given top border color is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BRS setTopBorderColor(final Color topBorderColor) {
+	public final BWS setTopBorderColor(final Color topBorderColor) {
 		
 		//Checks if the given top border color is not null.
 		Validator.supposeThat(topBorderColor).thatIsNamed("top border color").isNotNull();
@@ -579,7 +579,7 @@ extends BackgroundWidgetStructure<BRS> {
 		//Sets the top border color of this borderable rectangle structure.
 		this.topBorderColor = topBorderColor;
 		
-		return (BRS)this;
+		return (BWS)this;
 	}
 	
 	//method
@@ -591,11 +591,11 @@ extends BackgroundWidgetStructure<BRS> {
 	 * @throws NonPositiveArgumentException if the given top border size is not positive.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BRS setTopBorderSize(final int topBorderSize) {
+	public final BWS setTopBorderSize(final int topBorderSize) {
 		
 		this.topBorderSize = new PositiveInteger(topBorderSize);
 		
-		return (BRS)this;
+		return (BWS)this;
 	}
 	
 	//method

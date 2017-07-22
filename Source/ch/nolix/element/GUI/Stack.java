@@ -16,8 +16,12 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.data.Margin;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @param <S> The type of a stack.
+ */
 public abstract class Stack<S extends Stack<S>> 
-extends Container<StackStructure, Stack<S>>
+extends Container<S, StackStructure>
 implements Clearable {
 	
 	//constant

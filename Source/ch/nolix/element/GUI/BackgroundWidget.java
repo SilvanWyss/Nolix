@@ -9,14 +9,14 @@ import java.awt.Graphics;
  * @author Silvan Wyss
  * @month 2017-03
  * @lines 50
- * @param <BWS> - The type of the background widget structures of a background widget.
- * @param <BS> - The type of a background widget.
+ * @param <BW> The type of a background widget.
+ * @param <BWS> The type of the background widget structures of a background widget.
  */
 public abstract class BackgroundWidget<
-	BWS extends BackgroundWidgetStructure<BWS>,
-	BS extends BackgroundWidget<BWS, BS>
+	BW extends BackgroundWidget<BW, BWS>,
+	BWS extends BackgroundWidgetStructure<BWS>
 >
-extends Widget<BWS, BS> {
+extends Widget<BW, BWS> {
 	
 	//method
 	/**

@@ -4,10 +4,8 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.Graphics;
 
-import ch.nolix.core.container.AccessorContainer;
-
 //own imports
-
+import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
 
@@ -17,7 +15,7 @@ import ch.nolix.core.specification.StandardSpecification;
  * @month 2016-05
  * @lines 180
  */
-public final class CheckBox extends BackgroundWidget<CheckBoxStructure, CheckBox> {
+public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxStructure> {
 
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "CheckBox";

@@ -26,9 +26,10 @@ import ch.nolix.element.data.GraphicText;
  * A text line rectangle is a rectangle that has a text in 1 line.
  * 
  * @author Silvan Wyss
+ * @param <TLW> The type of a text line widget.
  */
-public abstract class TextLineWidget<TLR extends TextLineWidget<TLR>>
-extends BorderWidget<TextLineWidgetStructure, TLR> {
+public abstract class TextLineWidget<TLW extends TextLineWidget<TLW>>
+extends BorderWidget<TLW, TextLineWidgetStructure> {
 	
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "TextLineRectangle";
@@ -100,11 +101,11 @@ extends BorderWidget<TextLineWidgetStructure, TLR> {
 	 * @throws Exception if the given text is null
 	 */
 	@SuppressWarnings("unchecked")
-	public TLR setText(String text) {
+	public TLW setText(String text) {
 		
 		this.text.setValue(text);
 		
-		return (TLR)this;
+		return (TLW)this;
 	}
 	
 	//method

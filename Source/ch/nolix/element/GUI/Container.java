@@ -19,10 +19,16 @@ import ch.nolix.core.validator.Validator;
 
 //class
 /**
- * A container is a rectangle that contains other rectangles.
+ * A container is a widget that can contain other widgets.
+ * 
+ * @param <C> The type of a container.
+ * @param <BWS> The type of the widget structures of a container.
  */
-public abstract class Container<BRS extends BorderWidgetStructure<BRS>, C extends Container<BRS, C>>
-extends BorderWidget<BRS, C> {
+public abstract class Container<
+	C extends Container<C, BWS>,
+	BWS extends BorderWidgetStructure<BWS>
+>
+extends BorderWidget<C, BWS> {
 	
 	//attribute
 	private ContainerRole role;
@@ -173,7 +179,7 @@ extends BorderWidget<BRS, C> {
 	 * @param rectangleStructure
 	 * @param graphics
 	 */
-	protected void paintContent(BRS rectangleStructure, Graphics graphics) {
+	protected void paintContent(BWS rectangleStructure, Graphics graphics) {
 		
 		graphics.translate(-getContentXPosition(), -getContentYPosition());
 		

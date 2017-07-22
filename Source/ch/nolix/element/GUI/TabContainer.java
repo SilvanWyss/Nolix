@@ -25,7 +25,7 @@ import ch.nolix.element.data.TextColor;
 
 //class
 public class TabContainer
-extends Container<TabContainerStructure, TabContainer> {
+extends Container<TabContainer, TabContainerStructure> {
 
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "TabContainer";

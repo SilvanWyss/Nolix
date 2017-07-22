@@ -17,7 +17,7 @@ import ch.nolix.core.specification.StandardSpecification;
 
 //class
 public final class SingleContainer
-extends Container<SingleContainerStructure, SingleContainer> {
+extends Container<SingleContainer, SingleContainerStructure> {
 	
 	//constants
 	public static final String SIMPLE_CLASS_NAME = "SingleContainer";

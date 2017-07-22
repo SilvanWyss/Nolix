@@ -30,9 +30,10 @@ import ch.nolix.element.data.Thickness;
  * A line is a rectangle that has a color and which length is clearly bigger than its thickness.
  * 
  * @author Silvan Wyss
+ * @param <L> The type of a line.
  */
 public abstract class Line<L extends Line<L>>
-extends Widget<LineStructure, L> {
+extends Widget<L, LineStructure> {
 	
 	//constants
 	public static final String SIMPLE_CLASS_NAME = "Line";

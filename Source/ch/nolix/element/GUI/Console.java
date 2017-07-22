@@ -23,7 +23,7 @@ import ch.nolix.element.data.GraphicText;
  * @lines 250
  */
 public final class Console
-extends BorderWidget<ConsoleStructure, Console>
+extends BorderWidget<Console, ConsoleStructure>
 implements Clearable {
 	
 	//constant

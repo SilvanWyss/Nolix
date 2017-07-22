@@ -25,7 +25,7 @@ import ch.nolix.element.data.Width;
  * @month 2015-12
  * @lines 260
  */
-public class Area extends Widget<AreaStructure, Area> {
+public class Area extends Widget<Area, AreaStructure> {
 
 	//type name
 	public static final String TYPE_NAME = "Area";

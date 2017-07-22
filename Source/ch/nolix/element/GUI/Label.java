@@ -11,10 +11,7 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.event.KeyEvent;
 
-
 //own imports
-
-
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;

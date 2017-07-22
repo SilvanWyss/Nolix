@@ -4,12 +4,7 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.Graphics;
 
-
 //own imports
-
-
-
-
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.mathematics.Calculator;
@@ -24,14 +19,14 @@ import ch.nolix.element.data.MinWidth;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 890
- * @param <BWS> - The type of the widget structures of a borderable widget.
- * @param <BW> - The type of a borderable widget.
+ * @param <BW> The type of a border widget.
+ * @param <BWS> The type of the widget structures of a border widget.
  */
 public abstract class BorderWidget<
-	BWS extends BorderWidgetStructure<BWS>,
-	BW extends BorderWidget<BWS, BW>
+	BW extends BorderWidget<BW, BWS>,
+	BWS extends BorderWidgetStructure<BWS>
 >
-extends BackgroundWidget<BWS, BW> {
+extends BackgroundWidget<BW, BWS> {
 	
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "Borderablewidget";

@@ -27,10 +27,12 @@ import ch.nolix.element.basic.ConfigurableElement;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 1100
- * @param <WS> The type of the widget structures of a widget.
  * @param <W> The type of a widget.
+ * @param <WS> The type of the widget structures of a widget.
  */
-public abstract class Widget<WS extends WidgetStructure<WS>, W extends Widget<WS, W>>
+//public abstract class Widget<WS extends WidgetStructure<WS>, W extends Widget<WS, W>>
+//extends ConfigurableElement<W> {
+public abstract class Widget<W extends Widget<W, WS>, WS extends WidgetStructure<WS>>
 extends ConfigurableElement<W> {
 	
 	//simple class name
