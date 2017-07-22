@@ -29,9 +29,8 @@ extends Widget<BW, BWS> {
 		
 		//Handles the option that the given widget structure has a background color.
 		if (widgetStructure.hasActiveBackgroundColor()) {
-			widgetStructure
-			.getActiveBackgroundColor()
-			.paintRectangle(graphics, 0, 0, getWidth(), getHeight());
+			graphics.setColor(widgetStructure.getActiveBackgroundColor().getJavaColor());
+			graphics.fillRect(0, 0, getWidth(), getHeight());
 		}
 	}
 }

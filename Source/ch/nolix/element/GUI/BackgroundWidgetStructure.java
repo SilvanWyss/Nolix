@@ -4,42 +4,47 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
 
-//class
+//abstract class
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 140
+ * @lines 150
  * @param <BWS> The type of a background widget structure.
  */
 public abstract class BackgroundWidgetStructure<BWS extends BackgroundWidgetStructure<BWS>>
 extends WidgetStructure<BWS> {
 
 	//optional attribute
-	private BackgroundColor backgroundColor;
+	private Color backgroundColor;
 	
 	//method
 	/**
 	 * @return the active background color of this background widget structure.
+	 * @throws UnexistingAttributeException if this background widget structure
+	 * has no  normal structure with a background color or no background color.
 	 */
-	public final BackgroundColor getActiveBackgroundColor() {
+	public final Color getActiveBackgroundColor() {
 		
 		//Handles the case if this  background widget structure has a background color.
 		if (hasBackgroundColor()) {
 			return backgroundColor.getCopy();
 		}
 		
-		//Handles the case if this  background widget has no background color but a normal structure.
+		//Handles the case if this background widget structure
+		//has no background color but a normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getActiveBackgroundColor();
 		}
 		
-		//Handles the case if this background widget structure has no background color and no normal structure.
-		return new BackgroundColor(Color.WHITE);
+		//Handles the case if this background widget structure
+		//has no background color and no normal structure.
+		throw new UnexistingAttributeException(this, "background color");
 	}
 	
 	//method
@@ -53,12 +58,14 @@ extends WidgetStructure<BWS> {
 			return true;
 		}
 		
-		//Handles the case if this background widget structure has no background color but a normal structure.
+		//Handles the case if this background widget structure
+		//has no background color but a normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().hasActiveBackgroundColor();
 		}
 		
-		//Handles the case if this background widget structure has no background color and no normal structure.
+		//Handles the case if this background widget structure
+		//has no background color and no normal structure.
 		return false;
 	}
 	
@@ -93,15 +100,16 @@ extends WidgetStructure<BWS> {
 	//method
 	/**
 	 * Sets the background color of this background color widget structure.
+	 * 
 	 * @param backgroundColor
 	 * @return this background color widget structure.
 	 * @throws NullArgumentException if the given background color is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public final BWS setBackgroundColor(final BackgroundColor backgroundColor) {
+	public final BWS setBackgroundColor(final Color backgroundColor) {
 		
 		//Checks if the given background color is not null.
-		Validator.supposeThat(backgroundColor).thatIsInstanceOf(BackgroundColor.class).isNotNull();
+		Validator.supposeThat(backgroundColor).thatIsNamed("background color").isNotNull();
 		
 		//Sets the background color of this background color widget structure.
 		this.backgroundColor = backgroundColor;
@@ -120,7 +128,7 @@ extends WidgetStructure<BWS> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case BackgroundColor.SIMPLE_CLASS_NAME:
+			case Color.SIMPLE_CLASS_NAME:
 				setBackgroundColor(new BackgroundColor(attribute.getOneAttributeToString()));
 				break;
 			default:
@@ -139,6 +147,7 @@ extends WidgetStructure<BWS> {
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
+		//Handles the option that this background widget structure has a background color.
 		if (hasBackgroundColor()) {
 			attributes.addAtEnd(backgroundColor.getSpecification());
 		}
