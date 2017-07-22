@@ -8,9 +8,9 @@ import java.awt.Graphics;
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 50
+ * @lines 30
  * @param <BW> The type of a background widget.
- * @param <BWS> The type of the background widget structures of a background widget.
+ * @param <BWS> The type of the widget structures of a background widget.
  */
 public abstract class BackgroundWidget<
 	BW extends BackgroundWidget<BW, BWS>,
@@ -27,9 +27,11 @@ extends Widget<BW, BWS> {
 	 */
 	protected void paint(final BWS widgetStructure, final Graphics graphics) {
 		
-		//Paints the background color of this background widget if the given widget structure has a background color.
+		//Handles the option that the given widget structure has a background color.
 		if (widgetStructure.hasActiveBackgroundColor()) {
-			widgetStructure.getActiveBackgroundColor().paintRectangle(graphics, 0, 0, getWidth(), getHeight());
+			widgetStructure
+			.getActiveBackgroundColor()
+			.paintRectangle(graphics, 0, 0, getWidth(), getHeight());
 		}
 	}
 }
