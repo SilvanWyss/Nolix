@@ -164,7 +164,7 @@ public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<
 	 *  -the given search container is null
 	 *  -this namable element already belongs to an other search container
 	 */
-	public final void setSearchContainer(IRequestableContainer searchContainer) {
+	public final void setParentContainer(IRequestableContainer searchContainer) {
 		
 		Validator.throwExceptionIfValueIsNull("search container", searchContainer);
 		

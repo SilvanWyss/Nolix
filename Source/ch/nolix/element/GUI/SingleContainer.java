@@ -11,6 +11,7 @@ package ch.nolix.element.GUI;
 //own imports
 import java.awt.Graphics;
 
+import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
 
@@ -90,8 +91,8 @@ extends Container<SingleContainerStructure, SingleContainer> {
 	
 	public final void addOrChangeAttribute(StandardSpecification attribute) {
 		
-		if (attribute.hasHeader() && getRefDialog().canCreateWidget(attribute.getHeader())) {
-			setRectangle(getRefDialog().createAndAddWidget(attribute));
+		if (attribute.hasHeader() && getRefGUI().canCreateWidget(attribute.getHeader())) {
+			setRectangle(getRefGUI().createAndAddWidget(attribute));
 			return;
 		}
 		
@@ -106,7 +107,7 @@ extends Container<SingleContainerStructure, SingleContainer> {
 	 * @throws Exception if the given rectangle does not belong to the dialog this single container belongs to
 	 */
 	public void setRectangle(Widget<?, ?> rectangle) {
-		rectangle.setDialog(getRefDialog());
+		rectangle.setGUI(getRefGUI());
 		this.rectangle = rectangle;
 	}
 	
@@ -133,12 +134,12 @@ extends Container<SingleContainerStructure, SingleContainer> {
 	 * @param distanceFromTopPanelBorder
 	 * @throws Exception if the given distance from left panel border is negative or the given distance from top panel border is negative
 	 */
-	protected final void setRelativePosition(int distanceFromLeftPanelBorder, int distanceFromTopPanelBorder) {
+	protected final void setPositionOnContainer(int distanceFromLeftPanelBorder, int distanceFromTopPanelBorder) {
 		
 		//Calls method of the base class.
-		super.setRelativePosition(distanceFromLeftPanelBorder, distanceFromTopPanelBorder);
+		super.setPositionOnContainer(distanceFromLeftPanelBorder, distanceFromTopPanelBorder);
 		
-		getRefRectangle().setRelativePosition(
+		getRefRectangle().setPositionOnContainer(
 				distanceFromLeftPanelBorder + getContentXPosition(),
 				distanceFromTopPanelBorder + getContentYPosition()
 		);
@@ -155,5 +156,10 @@ extends Container<SingleContainerStructure, SingleContainer> {
 	@Override
 	protected SingleContainerStructure createWidgetStructure() {
 		return new SingleContainerStructure();
+	}
+
+	@Override
+	public AccessorContainer<Widget<?, ?>> getRefElements() {
+		return new AccessorContainer<>();
 	}
 }

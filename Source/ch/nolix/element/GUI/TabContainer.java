@@ -11,6 +11,8 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.Graphics;
 
+import ch.nolix.core.container.AccessorContainer;
+
 //own imports
 
 import ch.nolix.core.container.List;
@@ -530,12 +532,12 @@ extends Container<TabContainerStructure, TabContainer> {
 	/**
 	 * Sets the dialog of this tab container.
 	 */
-	public void setDialog(GUI<?> dialog) {
+	public void setGUI(GUI<?> dialog) {
 		
 		//Calls method of the base class.
-		super.setDialog(dialog);
+		super.setGUI(dialog);
 		
-		menu.setDialog(dialog);
+		menu.setGUI(dialog);
 	}
 	
 	//method
@@ -686,12 +688,12 @@ extends Container<TabContainerStructure, TabContainer> {
 		//Calls method of the base class.
 		super.noteLeftMouseButtonPress();
 		
-		if (menu.isPointed()) {
+		if (menu.isUnderMouse()) {
 			
 			menu.noteLeftMouseButtonPress();
 			
-			if (menu.getRefRectangles().contains(r -> r.isPointed())) {
-				selectTab(((Label)menu.getRefRectangles().getRefFirst(r -> r.isPointed())).getText());
+			if (menu.getRefRectangles().contains(r -> r.isUnderMouse())) {
+				selectTab(((Label)menu.getRefRectangles().getRefFirst(r -> r.isUnderMouse())).getText());
 			}
 		}
 	}
@@ -762,11 +764,11 @@ extends Container<TabContainerStructure, TabContainer> {
 			label.getRefFocusStructure().setTextSize(getRefFocusMenuItemStructure().getRefRecTextSize());
 			label.getRefFocusStructure().setTextColor(getRefFocusMenuItemStructure().getRefRecTextColor().getValue());
 			
-			label.paintUsingRelativePosition(graphics);
+			label.paintUsingPositionOnContainer(graphics);
 		}
 		
 		graphics.translate(-getContentXPosition(), -getContentYPosition());
-		menu.paintUsingRelativePosition(graphics);
+		menu.paintUsingPositionOnContainer(graphics);
 		graphics.translate(getContentXPosition(), getContentYPosition());
 	}
 	
@@ -777,12 +779,12 @@ extends Container<TabContainerStructure, TabContainer> {
 	 * @param relativeMouseXPosition
 	 * @param realtiveMouseYPosition
 	 */
-	protected void setRelativeMousePosition(final int relativeMouseXPosition, final int relativeMouseYPosition) {
+	public void setMousePositionFromParentContainer(final int relativeMouseXPosition, final int relativeMouseYPosition) {
 		
 		//Calls method of the base class.
-		super.setRelativeMousePosition(relativeMouseXPosition, relativeMouseYPosition);
+		super.setMousePositionFromParentContainer(relativeMouseXPosition, relativeMouseYPosition);
 		
-		menu.setRelativeMousePosition(getMouseXPosition(), getMouseYPosition());
+		menu.setMousePositionFromParentContainer(getMouseXPosition(), getMouseYPosition());
 	}
 	
 	//method
@@ -792,21 +794,21 @@ extends Container<TabContainerStructure, TabContainer> {
 	 * @param relativeXPosition
 	 * @param relativeYPosition
 	 */
-	protected void setRelativePosition(
+	protected void setPositionOnContainer(
 		final int relaitveXPosition,
 		final int relativeYPosition
 	) {
 		
 		//Calls method of the base class.
-		super.setRelativePosition(relaitveXPosition, relativeYPosition);
+		super.setPositionOnContainer(relaitveXPosition, relativeYPosition);
 		
-		menu.setRelativePosition(
+		menu.setPositionOnContainer(
 			getContentXPosition(),
 			getContentYPosition()
 		);
 		
 		if (currentTab.hasRectangle()) {
-			currentTab.getRefRectangle().setRelativePosition(
+			currentTab.getRefRectangle().setPositionOnContainer(
 				getContentXPosition(),
 				getContentYPosition() + menu.getHeight() + getMenuMargin()
 			);
@@ -816,5 +818,10 @@ extends Container<TabContainerStructure, TabContainer> {
 	@Override
 	protected TabContainerStructure createWidgetStructure() {
 		return new TabContainerStructure();
+	}
+
+	@Override
+	public AccessorContainer<Widget<?, ?>> getRefElements() {
+		return new AccessorContainer<>();
 	}
 }

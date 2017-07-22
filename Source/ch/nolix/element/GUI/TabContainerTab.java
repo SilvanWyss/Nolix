@@ -87,7 +87,7 @@ public final class TabContainerTab extends NamableElement<TabContainerTab> {
 		this.rectangle = rectangle;
 		
 		if (belongsToTabContainer() && tabContainer.belongsToGUI()) {
-			rectangle.setDialog(tabContainer.getRefDialog());
+			rectangle.setGUI(tabContainer.getRefGUI());
 		}
 		
 		return this;
@@ -103,9 +103,9 @@ public final class TabContainerTab extends NamableElement<TabContainerTab> {
 	public final void addOrChangeAttribute(StandardSpecification attribute) {
 		
 		//Handles the case when the given attribute specifies a rectangle.
-		if (tabContainer.getRefDialog().canCreateWidget(attribute.getHeader())) {
-			rectangle = tabContainer.getRefDialog().createAndAddWidget(attribute);
-			rectangle.setDialog(tabContainer.getRefDialog());
+		if (tabContainer.getRefGUI().canCreateWidget(attribute.getHeader())) {
+			rectangle = tabContainer.getRefGUI().createAndAddWidget(attribute);
+			rectangle.setGUI(tabContainer.getRefGUI());
 			return;
 		}
 		

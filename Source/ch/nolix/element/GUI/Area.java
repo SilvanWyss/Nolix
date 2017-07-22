@@ -4,6 +4,8 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.Graphics;
 
+import ch.nolix.core.container.AccessorContainer;
+
 //own imports
 
 
@@ -198,7 +200,7 @@ public final class Area extends Widget<AreaStructure, Area> {
 	/**
 	 * @return the height of this widget when it is not collapsed.
 	 */
-	protected final int getHeightWhenNotCollapsed() {
+	public final int getHeightWhenNotCollapsed() {
 		return height.getValue();
 	}
 	
@@ -206,7 +208,7 @@ public final class Area extends Widget<AreaStructure, Area> {
 	/**
 	 * @return the width of this widget when it is not collapsed.
 	 */
-	protected final int getWidthWhenNotCollapsed() {
+	public final int getWidthWhenNotCollapsed() {
 		return width.getValue();
 	}
 	
@@ -218,5 +220,10 @@ public final class Area extends Widget<AreaStructure, Area> {
 		if (hasBackgroundColor()) {
 			backgroundColor.paintRectangle(graphics, 0, 0, getWidth(), getHeight());
 		}
+	}
+
+	@Override
+	public AccessorContainer<Widget<?, ?>> getRefElements() {
+		return new AccessorContainer<>();
 	}
 }

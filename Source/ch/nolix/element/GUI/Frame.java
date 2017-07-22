@@ -66,7 +66,7 @@ public final class Frame extends VisibleGUI<Frame> {
 			
 			//Lets the root rectangle of this frame paint on this panel.
 			if (hasRootWidget()) {
-				getRefRootWidget().paintUsingRelativePosition(graphics);
+				getRefRootWidget().paintUsingPositionOnContainer(graphics);
 			}
 		}
 	};
@@ -283,7 +283,7 @@ public final class Frame extends VisibleGUI<Frame> {
 			switch (getContentPosition()) {
 				case LeftTop:
 					
-					getRefRootWidget().setRelativePosition(
+					getRefRootWidget().setPositionOnContainer(
 						0,
 						0
 					);
@@ -291,7 +291,7 @@ public final class Frame extends VisibleGUI<Frame> {
 					break;
 				case Left:
 					
-					getRefRootWidget().setRelativePosition(
+					getRefRootWidget().setPositionOnContainer(
 						0,
 						Calculator.getMax(0, (getPaneHeight() - getRefRootWidget().getHeight()) / 2)
 					);
@@ -299,7 +299,7 @@ public final class Frame extends VisibleGUI<Frame> {
 					break;					
 				case LeftBottom:
 					
-					getRefRootWidget().setRelativePosition(
+					getRefRootWidget().setPositionOnContainer(
 						0,
 						Calculator.getMax(0, getPaneHeight() - getRefRootWidget().getHeight())
 					);
@@ -307,7 +307,7 @@ public final class Frame extends VisibleGUI<Frame> {
 					break;
 				case Top:
 					
-					getRefRootWidget().setRelativePosition(
+					getRefRootWidget().setPositionOnContainer(
 						Calculator.getMax(0, (getPaneWidth() - getRefRootWidget().getWidth()) / 2),
 						0
 					);
@@ -315,7 +315,7 @@ public final class Frame extends VisibleGUI<Frame> {
 					break;
 				case Center:
 								
-					getRefRootWidget().setRelativePosition(
+					getRefRootWidget().setPositionOnContainer(
 						Calculator.getMax(0, (getPaneWidth() - getRefRootWidget().getWidth()) / 2),
 						Calculator.getMax(0, (getPaneHeight() - getRefRootWidget().getHeight()) / 2)
 					);
@@ -323,7 +323,7 @@ public final class Frame extends VisibleGUI<Frame> {
 					break;
 				case Bottom:
 					
-					getRefRootWidget().setRelativePosition(
+					getRefRootWidget().setPositionOnContainer(
 						Calculator.getMax(0, (getPaneWidth() - getRefRootWidget().getWidth()) / 2),
 						Calculator.getMax(0, getPaneHeight() - getRefRootWidget().getHeight())
 					);
@@ -331,7 +331,7 @@ public final class Frame extends VisibleGUI<Frame> {
 					break;
 				case RightTop:
 					
-					getRefRootWidget().setRelativePosition(
+					getRefRootWidget().setPositionOnContainer(
 						Calculator.getMax(0, getPaneWidth() - getRefRootWidget().getWidth()),
 						0
 					);
@@ -339,7 +339,7 @@ public final class Frame extends VisibleGUI<Frame> {
 					break;
 				case Right:
 				
-					getRefRootWidget().setRelativePosition(
+					getRefRootWidget().setPositionOnContainer(
 						Calculator.getMax(0, getWidth() - getRefRootWidget().getWidth()),
 						Calculator.getMax(0, (frame.getComponent(0).getHeight() - getRefRootWidget().getHeight()) / 2)
 					);
@@ -347,7 +347,7 @@ public final class Frame extends VisibleGUI<Frame> {
 					break;
 				case RightBottom:
 					
-					getRefRootWidget().setRelativePosition(
+					getRefRootWidget().setPositionOnContainer(
 						Calculator.getMax(0, getWidth() - getRefRootWidget().getWidth()),
 						Calculator.getMax(0, getHeight() - getRefRootWidget().getHeight())
 					);
@@ -365,7 +365,7 @@ public final class Frame extends VisibleGUI<Frame> {
 	 * 
 	 * @param currentCursorIcon
 	 */
-	public final void applyCursorIcon(CursorIcon currentCursorIcon) {
+	public final void proposeCursorIcon(CursorIcon currentCursorIcon) {
 		this.currentCursorIcon = currentCursorIcon;
 	}
 

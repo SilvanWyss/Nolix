@@ -5,6 +5,7 @@ package ch.nolix.element.GUI;
 import java.awt.event.KeyEvent;
 
 //own imports
+import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerInterfaces.ILevel1Controller;
 import ch.nolix.core.interfaces.Clearable;
@@ -26,13 +27,13 @@ import ch.nolix.element.data.Title;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 610
- * @param <G> - The type of a GUI.
+ * @param <G> The type of a GUI.
  */
 public abstract class GUI<G extends GUI<G>>
 extends ConfigurationElement<G>
 implements Clearable, IRequestableContainer {
 	
-	//constant
+	//simple class name
 	public static final String SIMPLE_CLASS_NAME = "GUI";
 	
 	//default values
@@ -96,22 +97,22 @@ implements Clearable, IRequestableContainer {
 		}
 		
 		//Handles the case if the given attribute specifices no widget.
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case Title.SIMPLE_CLASS_NAME:
-				setTitle(attribute.getOneAttributeToString());
-				break;
-			case BackgroundColor.SIMPLE_CLASS_NAME:
-				setBackgroundColor(new BackgroundColor(attribute.getOneAttributeToString()));
-				break;
-			case ContentPosition.SIMPLE_CLASS_NAME:
-				setContentPosition(ContentPosition.valueOf(attribute.getOneAttributeToString()));
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
+			//Enumerates the header of the given attribute.
+			switch (attribute.getHeader()) {
+				case Title.SIMPLE_CLASS_NAME:
+					setTitle(attribute.getOneAttributeToString());
+					break;
+				case BackgroundColor.SIMPLE_CLASS_NAME:
+					setBackgroundColor(new BackgroundColor(attribute.getOneAttributeToString()));
+					break;
+				case ContentPosition.SIMPLE_CLASS_NAME:
+					setContentPosition(ContentPosition.valueOf(attribute.getOneAttributeToString()));
+					break;
+				default:
+					
+					//Calls method of the base class.
+					super.addOrChangeAttribute(attribute);
+			}
 	}
 	
 	//method
@@ -231,16 +232,19 @@ implements Clearable, IRequestableContainer {
 	/**
 	 * @return the configurable elements of this GUI.
 	 */
-	public final List<Configurable> getRefConfigurables() {
-		
-		final List<Configurable> configurableElements = new List<Configurable>();
+	public final AccessorContainer<Configurable> getRefConfigurables() {
+		return new AccessorContainer<>(getRefWidgets().to(w -> w));		
+	}
+	
+	public final AccessorContainer<Widget<?, ?>> getRefWidgets() {
+		final List<Widget<?, ?>> configurableElements = new List<Widget<?, ?>>();
 		
 		if (hasRootWidget()) {
 			final Widget<?, ?> rootWidget = getRefRootWidget();
 			configurableElements.addAtEnd(rootWidget);
 		}
 		
-		return configurableElements;
+		return new AccessorContainer<Widget<?, ?>>(configurableElements);
 	}
 	
 	//abstract method
@@ -324,9 +328,13 @@ implements Clearable, IRequestableContainer {
 	/**
 	 * Lets this GUI note a left mouse button press.
 	 */
-	public void noteLeftMouseButtonPress() {	
+	public void noteLeftMouseButtonPress() {
+		
 		if (hasRootWidget()) {
-			getRefRootWidget().noteLeftMouseButtonPress();
+			
+			getRefWidgets()
+			.getSelected(w -> w.isUnderMouse() && w.isEnabled())
+			.forEach(w -> w.noteLeftMouseButtonPress());
 		}
 	}
 	
@@ -335,8 +343,13 @@ implements Clearable, IRequestableContainer {
 	 * Lets this GUI note a left mouse button release.
 	 */
 	public void noteLeftMouseButtonRelease() {
+		
+		
 		if (hasRootWidget()) {
-			getRefRootWidget().noteLeftMouseButtonRelease();
+
+			getRefWidgets()
+			.getSelected(w -> w.isUnderMouse() && w.isEnabled())
+			.forEach(w -> w.noteLeftMouseButtonRelease());
 		}
 	}
 	
@@ -347,12 +360,12 @@ implements Clearable, IRequestableContainer {
 	public void noteMouseMove() {
 		
 		if (hasRootWidget()) {
-			getRefRootWidget().setRelativeMousePosition(getMouseXPosition(), getMouseYPosition());
+			getRefRootWidget().setMousePositionFromParentContainer(getMouseXPosition(), getMouseYPosition());
 			getRefRootWidget().noteMouseMove();
 		}
 		
-		if (!hasRootWidget() || !getRefRootWidget().isPointed()) {
-			applyCursorIcon(CursorIcon.Arrow);
+		if (!hasRootWidget() || !getRefRootWidget().isUnderMouse()) {
+			proposeCursorIcon(CursorIcon.Arrow);
 		}
 	}
 	
@@ -519,7 +532,7 @@ implements Clearable, IRequestableContainer {
 		Validator.supposeThat(rootWidget).thatIsNamed("root widget").isNotNull();
 		
 		//Sets the root widget of this GUI.
-		rootWidget.setDialog(this);
+		rootWidget.setGUI(this);
 		this.rootWidget = rootWidget;
 		
 		return (G)this;
@@ -548,7 +561,7 @@ implements Clearable, IRequestableContainer {
 	 * 
 	 * @param cursorIcon
 	 */
-	public abstract void applyCursorIcon(final CursorIcon cursorIcon);
+	public abstract void proposeCursorIcon(final CursorIcon cursorIcon);
 	
 	//method
 	/**
@@ -561,7 +574,7 @@ implements Clearable, IRequestableContainer {
 	protected final Widget<?, ?> createAndAddWidget(final StandardSpecification standardSpecification) {
 		
 		final Widget<?, ?> widget = createWidget(standardSpecification.getHeader());
-		widget.setDialog(this);
+		widget.setGUI(this);
 		widget.addOrChangeAttributes(standardSpecification.getRefAttributes());
 		
 		return widget;		
@@ -569,15 +582,15 @@ implements Clearable, IRequestableContainer {
 	
 	//method
 	/**
-	 * @return the x-position of the mouse within this GUI.
+	 * @return the x-position of the mouse on this GUI.
 	 */
-	protected abstract int getMouseXPosition();
+	public abstract int getMouseXPosition();
 	
 	//method
 	/**
-	 * @return the y-position of the mouse within this GUI.
+	 * @return the y-position of the mouse on this GUI.
 	 */
-	protected abstract int getMouseYPosition();
+	public abstract int getMouseYPosition();
 	
 	//method
 	/**

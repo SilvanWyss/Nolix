@@ -8,6 +8,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+import ch.nolix.core.container.AccessorContainer;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Clearable;
@@ -44,7 +45,7 @@ implements Clearable {
 	public final S addRectangle(Widget<?, ?> rectangle) {
 		
 		if (belongsToGUI()) {
-			rectangle.setDialog(getRefDialog());
+			rectangle.setGUI(getRefGUI());
 		}
 		
 		rectangles.addAtEnd(rectangle);
@@ -177,8 +178,8 @@ implements Clearable {
 	 */
 	public void addOrChangeAttribute(StandardSpecification attribute) {
 		
-		if (getRefDialog().canCreateWidget(attribute.getHeader())) {
-			addRectangle(getRefDialog().createAndAddWidget(attribute));
+		if (getRefGUI().canCreateWidget(attribute.getHeader())) {
+			addRectangle(getRefGUI().createAndAddWidget(attribute));
 			return;
 		}
 		
@@ -206,5 +207,10 @@ implements Clearable {
 	
 	protected StackStructure createWidgetStructure() {
 		return new StackStructure();
+	}
+	
+	@Override
+	public AccessorContainer<Widget<?, ?>> getRefElements() {
+		return new AccessorContainer<Widget<?, ?>>(rectangles);
 	}
 }

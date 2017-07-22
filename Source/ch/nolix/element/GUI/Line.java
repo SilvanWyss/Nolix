@@ -11,6 +11,7 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.Graphics;
 
+import ch.nolix.core.container.AccessorContainer;
 
 //own imports
 
@@ -248,10 +249,15 @@ extends Widget<LineStructure, L> {
 	) {
 		graphics.setColor(color.getJavaColor());
 		graphics.fillRect(
-			getRelativeXPosition(),
-			getRelativeYPosition(),
+			getXPositionOnContainer(),
+			getYPositionOnContainer(),
 			getWidthWhenNotCollapsed(),
 			getHeightWhenNotCollapsed()
 		);
+	}
+	
+	@Override
+	public AccessorContainer<Widget<?, ?>> getRefElements() {
+		return new AccessorContainer<>();
 	}
 }

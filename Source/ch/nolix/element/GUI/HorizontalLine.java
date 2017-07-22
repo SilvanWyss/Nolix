@@ -45,7 +45,7 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 	/**
 	 * @return the current height of this rectangle if it is not collapsed
 	 */
-	protected final int getHeightWhenNotCollapsed() {
+	public final int getHeightWhenNotCollapsed() {
 		return getThickness();
 	}
 	
@@ -53,7 +53,7 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 	/**
 	 * @return the current width of this rectangle if it is not collapsed
 	 */
-	protected final int getWidthWhenNotCollapsed() {
+	public final int getWidthWhenNotCollapsed() {
 		return getLength();
 	}
 }

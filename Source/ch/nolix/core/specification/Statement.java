@@ -39,6 +39,15 @@ public final class Statement {
 		setValue(string);
 	}
 	
+	public Statement(String leftMouseButtonPressCommand, String[] arguments) {
+		
+		specification.setHeader(leftMouseButtonPressCommand);
+		
+		for (final String a : arguments) {
+			specification.addAttribute(a);
+		}
+	}
+
 	//method
 	/**
 	 * @return true if this statement contains attributes.

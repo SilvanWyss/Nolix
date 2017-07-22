@@ -84,10 +84,10 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 * @param relativeXPosition
 	 * @param relativeYPosition
 	 */
-	protected final void setRelativePosition(final int relativeXPosition, final int relativeYPosition) {
+	protected final void setPositionOnContainer(final int relativeXPosition, final int relativeYPosition) {
 		
 		//Calls method of the base class.
-		super.setRelativePosition(relativeXPosition, relativeYPosition);
+		super.setPositionOnContainer(relativeXPosition, relativeYPosition);
 		
 		switch (getContentOrientation()) {
 			case LeftTop:
@@ -96,7 +96,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				final int x = getContentXPosition();
 				int y = getContentYPosition();
 				for (Widget<?, ?> r: getRefShownRectangles()) {
-					r.setRelativePosition(x, y);
+					r.setPositionOnContainer(x, y);
 					y += r.getHeight() + getElementMargin();
 				}
 				break;
@@ -107,7 +107,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				final int x2 = getContentXPosition();
 				int y2 = getContentYPosition();
 				for (Widget<?, ?> r: getRefShownRectangles()) {			
-					r.setRelativePosition((int)(x2 + 0.5 * (maxRectangleWidth2 - r.getWidth())), y2);
+					r.setPositionOnContainer((int)(x2 + 0.5 * (maxRectangleWidth2 - r.getWidth())), y2);
 					y2 += r.getHeight() + getElementMargin();
 				}
 				break;
@@ -118,7 +118,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				final int x3 = getContentXPosition();
 				int y3 = getContentYPosition();
 				for (Widget<?, ?> r: getRefShownRectangles()) {
-					r.setRelativePosition(x3 + maxRectangleWidth3 - r.getWidth(), y3);
+					r.setPositionOnContainer(x3 + maxRectangleWidth3 - r.getWidth(), y3);
 					y3 += r.getHeight() + getElementMargin();
 				}
 		}

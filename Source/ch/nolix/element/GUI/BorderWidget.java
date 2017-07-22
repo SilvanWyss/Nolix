@@ -766,7 +766,7 @@ extends BackgroundWidget<BWS, BW> {
 	/**
 	 * @return the current height of this widget when it is not collapsed
 	 */
-	protected final int getHeightWhenNotCollapsed() {
+	public final int getHeightWhenNotCollapsed() {
 		
 		final BWS widgetStructure = getRefCurrentStructure();
 		
@@ -788,7 +788,7 @@ extends BackgroundWidget<BWS, BW> {
 	/**
 	 * @return the current width of this rectanlge if it is not collapsed
 	 */
-	protected final int getWidthWhenNotCollapsed() {
+	public final int getWidthWhenNotCollapsed() {
 		
 		final BWS widgetStructure = getRefCurrentStructure();
 		

@@ -11,6 +11,8 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.Graphics;
 
+import ch.nolix.core.container.AccessorContainer;
+
 //own imports
 
 import ch.nolix.core.container.List;
@@ -149,5 +151,10 @@ extends BorderWidget<TextLineWidgetStructure, TLR> {
 	
 	protected TextLineWidgetStructure createWidgetStructure() {
 		return new TextLineWidgetStructure();
+	}
+	
+	@Override
+	public AccessorContainer<Widget<?, ?>> getRefElements() {
+		return new AccessorContainer<>();
 	}
 }

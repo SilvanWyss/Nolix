@@ -13,12 +13,8 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
 //own imports
-
-
-
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -40,19 +36,6 @@ extends BorderWidget<BRS, C> {
 		}
 		
 		return attributes;
-	}
-	
-	//method
-	/**
-	 * @return the configurable objects of this container
-	 */
-	public final List<Configurable> getRefConfigurables() {
-		
-		List<Configurable> configurables = new List<Configurable>();
-		
-		getRefRectangles().forEach(r -> configurables.addAtEnd(r));
-		
-		return configurables;
 	}
 	
 	//abstract method
@@ -195,7 +178,7 @@ extends BorderWidget<BRS, C> {
 		graphics.translate(-getContentXPosition(), -getContentYPosition());
 		
 		//Paints the rectangles of this container that are shown.
-		getRefShownRectangles().forEach(r -> r.paintUsingRelativePosition(graphics));
+		getRefShownRectangles().forEach(r -> r.paintUsingPositionOnContainer(graphics));
 		
 		graphics.translate(getContentXPosition(), getContentYPosition());
 	}
@@ -207,13 +190,13 @@ extends BorderWidget<BRS, C> {
 	 * @param dialog
 	 * @throws Exception if this rectangle or a rectangle of this container already belongs to an other dialog
 	 */
-	protected void setDialog(GUI<?> dialog) {
+	protected void setGUI(GUI<?> dialog) {
 		
 		//Calls method of the base class.
-		super.setDialog(dialog);
+		super.setGUI(dialog);
 		
 		//Sets the dialog of the rectangles of this container.
-		getRefRectangles().forEach(r -> r.setDialog(dialog));
+		getRefRectangles().forEach(r -> r.setGUI(dialog));
 	}
 	
 	//method
@@ -223,12 +206,12 @@ extends BorderWidget<BRS, C> {
 	 * @param relativeMouseXPosition
 	 * @parma mouseYPosition
 	 */
-	protected void setRelativeMousePosition(int relativeMouseXPosition, int relativeMouseYPosition) {
+	public void setMousePositionFromParentContainer(int relativeMouseXPosition, int relativeMouseYPosition) {
 		
 		//Calls method of the base class.
-		super.setRelativeMousePosition(relativeMouseXPosition, relativeMouseYPosition);
+		super.setMousePositionFromParentContainer(relativeMouseXPosition, relativeMouseYPosition);
 		
 		//Sets the relative mouse position of the rectangles of this container that are shown.
-		getRefShownRectangles().forEach(r -> r.setRelativeMousePosition(getMouseXPosition(), getMouseYPosition()));
+		getRefShownRectangles().forEach(r -> r.setMousePositionFromParentContainer(getMouseXPosition(), getMouseYPosition()));
 	}
 }

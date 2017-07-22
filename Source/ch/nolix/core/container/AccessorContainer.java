@@ -4,11 +4,9 @@ package ch.nolix.core.container;
 //Java import
 import java.util.Iterator;
 
-
-
+//own imports
 import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.constants.StringManager;
-//own import
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -18,17 +16,25 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-06
- * @lines 90
+ * @lines 110
  * @param <E> - The type of the elements of an accessor container.
  */
 public final class AccessorContainer<E> implements IContainer<E> {
-
+	
 	//attribute
 	private final IContainer<E> container;
 	
 	//constructor
 	/**
-	 * Creates new accessor container with the given container.
+	 * Creates new accessor container for a new empty container.
+	 */
+	public AccessorContainer() {
+		container = new List<E>();
+	}
+	
+	//constructor
+	/**
+	 * Creates new accessor container for the given container.
 	 * 
 	 * @param container
 	 * @throws NullArgumentException if the given container is null.
@@ -56,8 +62,7 @@ public final class AccessorContainer<E> implements IContainer<E> {
 			return false;
 		}
 		
-		//Handles the case if the given object is an accessor container.
-		
+		//Handles the case if the given object is an accessor container.		
 			final AccessorContainer<?> accessorContainer = (AccessorContainer<?>)object;
 			
 			if (getElementCount() != accessorContainer.getElementCount()) {
@@ -71,7 +76,7 @@ public final class AccessorContainer<E> implements IContainer<E> {
 	/**
 	 * @return a new list with the elements of this accessor container.
 	 */
-	public IContainer<E> getCopy() {
+	public List<E> getCopy() {
 		return new List<E>(this);
 	}
 

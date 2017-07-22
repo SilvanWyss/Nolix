@@ -49,5 +49,10 @@ final class FrameMouseListener implements MouseListener {
 	}
 
 	//method
-	public final void mouseReleased(MouseEvent arg0) {}
+	public final void mouseReleased(MouseEvent mouseEvent) {
+		
+		if (mouseEvent.getButton() == MouseEvent.BUTTON1) {
+			frame.noteLeftMouseButtonRelease();
+		}
+	}
 }

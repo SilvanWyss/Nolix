@@ -44,7 +44,7 @@ public final class VerticalLine extends Line<VerticalLine> {
 	/**
 	 * @return the current height of this rectangle if it is not collapsed
 	 */
-	protected final int getHeightWhenNotCollapsed() {
+	public final int getHeightWhenNotCollapsed() {
 		return getLength();
 	}
 	
@@ -52,7 +52,7 @@ public final class VerticalLine extends Line<VerticalLine> {
 	/**
 	 * @return the current width of this rectangle if it is not collapsed
 	 */
-	protected final int getWidthWhenNotCollapsed() {
+	public final int getWidthWhenNotCollapsed() {
 		return getThickness();
 	}
 }

@@ -20,7 +20,7 @@ public final class InvisibleGUI extends GUI<InvisibleGUI> {
 	private int mouseYPosition;
 	
 	//method
-	public void applyCursorIcon(final CursorIcon cursorIcon) {
+	public void proposeCursorIcon(final CursorIcon cursorIcon) {
 		
 		//Checks if the given cursor icon is not null.
 		Validator.supposeThat(cursorIcon).thatIsInstanceOf(CursorIcon.class).isNotNull();
@@ -40,12 +40,12 @@ public final class InvisibleGUI extends GUI<InvisibleGUI> {
 	}
 
 	//method
-	protected int getMouseXPosition() {
+	public int getMouseXPosition() {
 		return mouseYPosition;
 	}
 
 	//method
-	protected int getMouseYPosition() {
+	public int getMouseYPosition() {
 		return mouseXPosition;
 	}
 }

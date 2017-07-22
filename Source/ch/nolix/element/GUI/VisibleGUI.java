@@ -4,17 +4,21 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.event.KeyEvent;
 
-//class
+//abstract class
 /**
+ * A visible GUI is a GUI that is visible on the screen.
+ * 
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 70
- * @param <VG> - The type of a visible GUI.
+ * @lines 90
+ * @param <VGUI> The type of a visible GUI.
  */
-public abstract class VisibleGUI<VG extends VisibleGUI<VG>>
-extends GUI<VG> {
+public abstract class VisibleGUI<VGUI extends VisibleGUI<VGUI>> extends GUI<VGUI> {
 
 	//method
+	/**
+	 * Lets this visible GUI note a left mouse button press.
+	 */
 	public final void noteLeftMouseButtonPress() {
 		
 		//Calls method of the base class.
@@ -24,15 +28,21 @@ extends GUI<VG> {
 	}
 	
 	//method
+	/**
+	 * Lets this visible GUI note a left mouse button release.
+	 */
 	public final void noteLeftMouseButtonRelease() {
 		
-		//Calls mehtod of the base class.
+		//Calls method of the base class.
 		super.noteLeftMouseButtonRelease();
 		
 		paint();
 	}
 	
 	//method
+	/**
+	 * Lets this visible GUI note a mouse move.
+	 */
 	public final void noteMouseMove() {
 		
 		//Calls method of the base class.
@@ -42,6 +52,9 @@ extends GUI<VG> {
 	}
 	
 	//method
+	/**
+	 * Lets this visible GUI note a right mouse button press.
+	 */
 	public final void noteRightMouseButtonPress() {
 		
 		//Calls method of the base class.
@@ -51,6 +64,9 @@ extends GUI<VG> {
 	}
 	
 	//method
+	/**
+	 * Lets this visible GUI note a right mouse button release.
+	 */
 	public final void noteRightMouseButtonRelease() {
 		
 		//Calls method of the base class.
@@ -60,6 +76,11 @@ extends GUI<VG> {
 	}
 	
 	//method
+	/**
+	 * Lets this visible GUI note a key typing.
+	 * 
+	 * @param keyEvent
+	 */
 	public final void noteKeyTyping(final KeyEvent keyEvent) {
 		
 		//Calls method of the base class.

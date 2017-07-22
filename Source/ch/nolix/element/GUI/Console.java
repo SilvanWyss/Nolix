@@ -4,6 +4,8 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.Graphics;
 
+import ch.nolix.core.container.AccessorContainer;
+
 //own imports
 
 import ch.nolix.core.container.IContainer;
@@ -242,5 +244,10 @@ implements Clearable {
 	@Override
 	protected ConsoleStructure createWidgetStructure() {
 		return new ConsoleStructure();
+	}
+
+	@Override
+	public AccessorContainer<Widget<?, ?>> getRefElements() {
+		return new AccessorContainer<>();
 	}
 }

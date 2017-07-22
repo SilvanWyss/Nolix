@@ -4,6 +4,8 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.Graphics;
 
+import ch.nolix.core.container.AccessorContainer;
+
 //own imports
 
 import ch.nolix.core.container.List;
@@ -121,7 +123,7 @@ public final class CheckBox extends BackgroundWidget<CheckBoxStructure, CheckBox
 	/**
 	 * @return the height of this check box when it is not collapsed. 
 	 */
-	protected int getHeightWhenNotCollapsed() {
+	public int getHeightWhenNotCollapsed() {
 		return getRefCurrentStructure().getActiveSize();
 	}
 	
@@ -129,7 +131,7 @@ public final class CheckBox extends BackgroundWidget<CheckBoxStructure, CheckBox
 	/**
 	 * @return the width of this check box when it is not collapsed.
 	 */
-	protected final int getWidthWhenNotCollapsed() {
+	public final int getWidthWhenNotCollapsed() {
 		return getRefCurrentStructure().getActiveSize();
 	}
 	
@@ -180,5 +182,10 @@ public final class CheckBox extends BackgroundWidget<CheckBoxStructure, CheckBox
 	@Override
 	protected CheckBoxStructure createWidgetStructure() {
 		return new CheckBoxStructure();
+	}
+
+	@Override
+	public AccessorContainer<Widget<?, ?>> getRefElements() {
+		return new AccessorContainer<>();
 	}
 }
