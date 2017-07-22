@@ -4,14 +4,10 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.Graphics;
 
-import ch.nolix.core.container.AccessorContainer;
-
 //own imports
-
-
-
-
+import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
@@ -27,24 +23,27 @@ import ch.nolix.element.data.Width;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 210
+ * @lines 260
  */
-public final class Area extends Widget<AreaStructure, Area> {
+public class Area extends Widget<AreaStructure, Area> {
 
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "Area";
+	//type name
+	public static final String TYPE_NAME = "Area";
 	
 	//default values
 	public static final int DEFAULT_WIDTH = 200;
 	public static final int DEFAULT_HEIGHT = 100;
-	public static final int DEFAULT_BACKGROUND_COLOR = Color.LIGHT_GREY;
+	public static final Color DEFAULT_BACKGROUND_COLOR = new Color(Color.LIGHT_GREY);
+
+	//attribute header
+	private static final String BACKGROUND_COLOR_HEADER = "BackgroundColor";
 	
 	//attributes
 	private Width width = new Width();
 	private Height height = new Height();
 	
 	//optional attribute
-	private BackgroundColor backgroundColor;
+	private Color backgroundColor;
 	
 	//constructor
 	/**
@@ -72,7 +71,9 @@ public final class Area extends Widget<AreaStructure, Area> {
 				setHeight(attribute.getOneAttributeToInteger());
 				break;
 			case BackgroundColor.SIMPLE_CLASS_NAME:
-				setBackgroundColor(new BackgroundColor(attribute.getOneAttributeToString()));
+				setBackgroundColor(
+					new BackgroundColor(attribute.getOneAttributeToString())
+				);
 				break;
 			default:
 				
@@ -94,8 +95,11 @@ public final class Area extends Widget<AreaStructure, Area> {
 		.addAtEnd(width.getSpecification())
 		.addAtEnd(height.getSpecification());
 		
+		//Handles the option that this area has a background color.
 		if (hasBackgroundColor()) {
-			attributes.addAtEnd(backgroundColor.getSpecification());
+			attributes.addAtEnd(
+				getBackgroundColor().getSpecificationAs(BACKGROUND_COLOR_HEADER)
+			);
 		}
 		
 		return attributes;
@@ -103,9 +107,48 @@ public final class Area extends Widget<AreaStructure, Area> {
 	
 	//method
 	/**
+	 * @return the background color of this area.
+	 * @throws UnexistingAttributeException if this area has no background color.
+	 */
+	public Color getBackgroundColor() {
+		
+		//Checks if this area has a background color.
+		if (!hasBackgroundColor()) {
+			throw new UnexistingAttributeException(this, "background color");
+		}
+		
+		return backgroundColor;
+	}
+	
+	//method
+	/**
+	 * @return the height of this widget when it is not collapsed.
+	 */
+	public int getHeightWhenNotCollapsed() {
+		return height.getValue();
+	}
+	
+	//method
+	/**
+	 * @return the element of this area.
+	 */
+	public AccessorContainer<Widget<?, ?>> getRefElements() {
+		return new AccessorContainer<>();
+	}
+	
+	//method
+	/**
+	 * @return the width of this widget when it is not collapsed.
+	 */
+	public int getWidthWhenNotCollapsed() {
+		return width.getValue();
+	}
+	
+	//method
+	/**
 	 * @return true if this area has a background color.
 	 */
-	public final boolean hasBackgroundColor() {
+	public boolean hasBackgroundColor() {
 		return (backgroundColor != null);
 	}
 	
@@ -114,7 +157,7 @@ public final class Area extends Widget<AreaStructure, Area> {
 	 * @param role
 	 * @return true if this area has the given role.
 	 */
-	public final boolean hasRole(final String role) {
+	public boolean hasRole(final String role) {
 		return false;
 	}
 	
@@ -122,7 +165,7 @@ public final class Area extends Widget<AreaStructure, Area> {
 	/**
 	 * Removes the background color of this area.
 	 */
-	public final void removeBackgroundColor() {
+	public void removeBackgroundColor() {
 		backgroundColor = null;
 	}
 		
@@ -130,14 +173,14 @@ public final class Area extends Widget<AreaStructure, Area> {
 	/**
 	 * Resets the configuration of this area.
 	 */
-	public final void resetConfiguration() {
+	public void resetConfiguration() {
 		
 		//Calls method of the base class.
 		super.resetConfiguration();
 		
 		setWidth(DEFAULT_WIDTH);
 		setHeight(DEFAULT_HEIGHT);
-		setBackgroundColor(new BackgroundColor(DEFAULT_BACKGROUND_COLOR));			
+		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);			
 	}
 	
 	//method
@@ -145,12 +188,16 @@ public final class Area extends Widget<AreaStructure, Area> {
 	 * Sets the background color of this area.
 	 * 
 	 * @param backgroundColor
+	 * @return this area.
 	 * @throws NullArgumentException if the given background color is null.
 	 */
-	public final Area setBackgroundColor(final BackgroundColor backgroundColor) {
+	public Area setBackgroundColor(final Color backgroundColor) {
 		
 		//Checks if the given background color is not null.
-		Validator.supposeThat(backgroundColor).thatIsInstanceOf(BackgroundColor.class).isNotNull();
+		Validator
+		.supposeThat(backgroundColor)
+		.thatIsInstanceOf(BackgroundColor.class)
+		.isNotNull();
 		
 		//Sets the background color of this area.
 		this.backgroundColor = backgroundColor;
@@ -166,7 +213,7 @@ public final class Area extends Widget<AreaStructure, Area> {
 	 * @return this area.
 	 * @throws NonPositiveArgumentException if the given height is not positive.
 	 */
-	public final Area setHeight(final int height) {
+	public Area setHeight(final int height) {
 		
 		this.height = new Height(height);
 		
@@ -181,7 +228,7 @@ public final class Area extends Widget<AreaStructure, Area> {
 	 * @return this area.
 	 * @throws NonPositiveArgumentException if the given width is not positive.
 	 */
-	public final Area setWidth(final int width) {
+	public Area setWidth(final int width) {
 		
 		this.width = new Width(width);
 		
@@ -198,32 +245,19 @@ public final class Area extends Widget<AreaStructure, Area> {
 	
 	//method
 	/**
-	 * @return the height of this widget when it is not collapsed.
-	 */
-	public final int getHeightWhenNotCollapsed() {
-		return height.getValue();
-	}
-	
-	//method
-	/**
-	 * @return the width of this widget when it is not collapsed.
-	 */
-	public final int getWidthWhenNotCollapsed() {
-		return width.getValue();
-	}
-	
-	//method
-	/**
 	 * Paints this area using the given widget structure and graphics.
+	 * 
+	 * @param widgetStructure
+	 * @param graphics
 	 */
-	protected final void paint(final AreaStructure widgetStructure, final Graphics graphics) {
+	protected final void paint(
+		final AreaStructure widgetStructure,
+		final Graphics graphics
+	) {
+		//Handles the option that this area has a background color.
 		if (hasBackgroundColor()) {
-			backgroundColor.paintRectangle(graphics, 0, 0, getWidth(), getHeight());
+			graphics.setColor(backgroundColor.getJavaColor());
+			graphics.fillRect(0, 0, getWidth(), getHeight());
 		}
-	}
-
-	@Override
-	public AccessorContainer<Widget<?, ?>> getRefElements() {
-		return new AccessorContainer<>();
 	}
 }
