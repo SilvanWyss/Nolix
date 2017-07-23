@@ -32,41 +32,50 @@ extends BackgroundWidgetStructure<BWS> {
 	private static final String LEFT_BORDER_COLOR_HEADER = "LeftBorderColor";
 	private static final String RIGHT_BORDER_COLOR_HEADER = "RightBorderColor";
 	private static final String TOP_BORDER_COLOR_HEADER = "TopBorderColor";
-	private static final String BOTTOM_BORDER_COLOR_HEADER = "BottomBorderColor";	
-		
+	private static final String BOTTOM_BORDER_COLOR_HEADER = "BottomBorderColor";
+	private static final String PADDING_HEADER = "Padding";
+	private static final String LEFT_PADDING_HEADER = "LeftPadding";
+	private static final String RIGHT_PADDING_HEADER = "RightPadding";
+	private static final String BOTTOM_PADDING_HEADER = "BottomPadding";
+	private static final String TOP_PADDING_HEADER = "TopPadding";
+	
 	//optional attributes
 	private PositiveInteger leftBorderSize;
-	private Color leftBorderColor;
 	private PositiveInteger rightBorderSize;
-	private Color rightBorderColor;
 	private PositiveInteger topBorderSize;
-	private Color topBorderColor;
 	private PositiveInteger bottomBorderSize;
+	private Color leftBorderColor;
+	private Color rightBorderColor;
+	private Color topBorderColor;
 	private Color bottomBorderColor;
+	private PositiveInteger leftPadding;	
+	private PositiveInteger rightPadding;	
+	private PositiveInteger topPadding;	
+	private PositiveInteger bottomPadding;
 	
 	public final Color getActiveBottomBorderColor() {
 		
-		//Handles the case if this borderable rectangle structure has a bottom border color.
+		//Handles the case if this border widget structure has a bottom border color.
 		if (hasBottomBorderColor()) {
 			return bottomBorderColor;
 		}
 		
-		//Handles the case if this borderable rectangle structure has no bottom border color but a normal structure.
+		//Handles the case if this border widget structure has no bottom border color but a normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getActiveBottomBorderColor();
 		}
 		
-		//Handles the case if this borderable rectangle structure has no bottom border color and no normal structure.
+		//Handles the case if this border widget structure has no bottom border color and no normal structure.
 		return new Color(Color.BLACK);
 	}
 	
 	//method
 	/**
-	 * @return the active bottom border size of this borderable rectangle structure.
+	 * @return the active bottom border size of this border widget structure.
 	 */
 	public final int getActiveBottomBorderSize() {
 		
-		//Handles the case if this borderable rectangle structure has a bottom border size.
+		//Handles the case if this border widget structure has a bottom border size.
 		if (hasBottomBorderSize()) {
 			return bottomBorderSize.getValue();
 		}
@@ -76,127 +85,207 @@ extends BackgroundWidgetStructure<BWS> {
 			return getRefNormalStructure().getActiveBottomBorderSize();
 		}
 		
-		//Handles the case if this borderable rectangle structure has no bottom border size and no normal structure.
+		//Handles the case if this border widget structure has no bottom border size and no normal structure.
 		return 0;
 	}
 	
 	//method
 	/**
-	 * @return the active left border color of this borderable rectangle structure.
+	 * @return the active bottom padding of this border widget structure.
+	 */
+	public final int getActiveBottomPadding() {
+		
+		//Handles the case if this border widget structure has a bottom padding.
+		if (hasBottomPadding()) {
+			return bottomPadding.getValue();
+		}
+		
+		//Handles the case if this border widget structure has no bottom padding but a normal structure.
+		if (hasNormalStructure()) {
+			return getRefNormalStructure().getActiveBottomPadding();
+		}
+		
+		//Handles the case if this border widget structure has no bottom padding and no normal structure.
+		return 0;
+	}
+	
+	//method
+	/**
+	 * @return the active left border color of this border widget structure.
 	 */
 	public final Color getActiveLeftBorderColor() {
 		
-		//Handles the case if this borderable rectangle structure has a left border color.
+		//Handles the case if this border widget structure has a left border color.
 		if (hasLeftBorderColor()) {
 			return leftBorderColor;
 		}
 		
-		//Handles the case if this borderable rectangle structure has no left border color but a normal structure.
+		//Handles the case if this border widget structure has no left border color but a normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getActiveLeftBorderColor();
 		}
 		
-		//Handles the case if this borderable rectangle structure has no left border color and no normal structure.
+		//Handles the case if this border widget structure has no left border color and no normal structure.
 		return new Color(Color.BLACK);
 	}
 	
 	//method
 	/**
-	 * @return the active left border size of this borderable rectangle structure.
+	 * @return the active left border size of this border widget structure.
 	 */
 	public final int getActiveLeftBorderSize() {
 		
-		//Handles the case if this borderable rectangle structure has a left border size.
+		//Handles the case if this border widget structure has a left border size.
 		if (hasLeftBorderSize()) {
 			return leftBorderSize.getValue();
 		}
 		
-		//Hanldes the case if this borderable rectangle structure has no left border size but a normal structure.
+		//Handles the case if this border widget structure has no left border size but a normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getActiveLeftBorderSize();
 		}
 		
-		//Handles the case if this borderable rectangle structure has no left border size and no normal structure.
+		//Handles the case if this border widget structure has no left border size and no normal structure.
 		return 0;
 	}
 	
 	//method
 	/**
-	 * @return the active right border color of this borderable rectangle structure.
+	 * @return the active left padding of this border widget structure.
+	 */
+	public final int getActiveLeftPadding() {
+		
+		//Handles the case if this border widget structure has a left padding.
+		if (hasLeftPadding()) {
+			return leftPadding.getValue();
+		}
+		
+		//Handles the case if this border widget structure has no left padding but a normal structure.
+		if (hasNormalStructure()) {
+			return getRefNormalStructure().getActiveLeftPadding();
+		}
+		
+		//Handles the case if this border widget structure has no left padding and no normal structure.
+		return 0;
+	}
+	
+	//method
+	/**
+	 * @return the active right border color of this border widget structure.
 	 */
 	public final Color getActiveRightBorderColor() {
 		
-		//Handles the case if this borderable rectangle structure has a right border color.
+		//Handles the case if this border widget structure has a right border color.
 		if (hasRightBorderColor()) {
 			return rightBorderColor;
 		}
 		
-		//Handles the case if this borderable rectangle structure has no right border color but a normal structure.
+		//Handles the case if this border widget structure has no right border color but a normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getActiveRightBorderColor();
 		}
 		
-		//Hadles the case if this borderable rectangle structure has no right border color and no normal structure.
+		//Hadles the case if this border widget structure has no right border color and no normal structure.
 		return new Color(Color.BLACK);
 	}
 	
 	//method
 	/**
-	 * @return the active right border size of this borderable rectangle structure.
+	 * @return the active right border size of this border widget structure.
 	 */
 	public final int getActiveRightBorderSize() {
 		
-		//Handles the case if this borderable rectangle structure has a right border size.
+		//Handles the case if this border widget structure has a right border size.
 		if (hasRightBorderSize()) {
 			return rightBorderSize.getValue();
 		}
 		
-		//Handles the case if this borderable rectangle structure has no right border size but a normal structure.
+		//Handles the case if this border widget structure has no right border size but a normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getActiveRightBorderSize();
 		}
 		
-		//Handles the case if this borderable rectangle structure has no right border size and no normal structure.
+		//Handles the case if this border widget structure has no right border size and no normal structure.
 		return 0;
 	}
 	
 	//method
 	/**
-	 * @return the active top border color of this borderable rectangle structure.
+	 * @return the active right padding of this border widget structure.
+	 */
+	public final int getActiveRightPadding() {
+		
+		//Handles the case if this border widget structure has a right padding.
+		if (hasRightPadding()) {
+			return rightPadding.getValue();
+		}
+		
+		//Handles the case if this border widget structure has no right padding but a normal structure.
+		if (hasNormalStructure()) {
+			return getRefNormalStructure().getActiveRightPadding();
+		}
+		
+		//Handles the case if this border widget structure has no right padding and no normal structure.
+		return 0;
+	}
+	
+	//method
+	/**
+	 * @return the active top border color of this border widget structure.
 	 */
 	public final Color getActiveTopBorderColor() {
 		
-		//Handles the case if this borderable rectangle structure has a top border color.
+		//Handles the case if this border widget structure has a top border color.
 		if (hasTopBorderColor()) {
 			return topBorderColor;
 		}
 		
-		//Handles the case if this borderable rectangle structure has no top border color but a normal structure.
+		//Handles the case if this border widget structure has no top border color but a normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getActiveTopBorderColor();
 		}
 		
-		//Handles the case if this borderable rectangle structure has no top border color and no normal structure.
+		//Handles the case if this border widget structure has no top border color and no normal structure.
 		return new Color(Color.BLACK);
 	}
 	
 	//method
 	/**
-	 * @return the active top border size of this borderable rectangle structure.
+	 * @return the active top border size of this border widget structure.
 	 */
 	public final int getActiveTopBorderSize() {
 		
-		//Handles the case if this borderable rectangle structure has no top border size.
+		//Handles the case if this border widget structure has no top border size.
 		if (hasTopBorderSize()) {
 			return topBorderSize.getValue();
 		}
 		
-		//Handles the case if this borderable rectangle structure has no top border size but a normal structure.
+		//Handles the case if this border widget structure has no top border size but a normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getActiveTopBorderSize();
 		}
 		
-		//Handles the case if this borderable rectangle structure has no top border size and no normal structure.
+		//Handles the case if this border widget structure has no top border size and no normal structure.
+		return 0;
+	}
+	
+	//method
+	/**
+	 * @return the active top padding of this border widget structure.
+	 */
+	public final int getActiveTopPadding() {
+		
+		//Handles the case if this border widget structure has a top padding.
+		if (hasTopPadding()) {
+			return topPadding.getValue();
+		}
+		
+		//Handles the case if this border widget structure has no top padding but a normal structure.
+		if (hasNormalStructure()) {
+			return getRefNormalStructure().getActiveTopPadding();
+		}
+		
+		//Handles the case if this border widget structure has no top padding and no normal structure.
 		return 0;
 	}
 	
@@ -218,6 +307,14 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
+	 * @return true if this border widget has a bottom padding.
+	 */
+	public final boolean hasBottomPadding() {
+		return (bottomPadding != null);
+	}
+	
+	//method
+	/**
 	 * @return true if this borderable rectangle has a left border color.
 	 */
 	public final boolean hasLeftBorderColor() {
@@ -230,6 +327,14 @@ extends BackgroundWidgetStructure<BWS> {
 	 */
 	public final boolean hasLeftBorderSize() {
 		return (leftBorderSize != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this border widget has a left padding.
+	 */
+	public final boolean hasLeftPadding() {
+		return (bottomPadding != null);
 	}
 	
 	//method
@@ -250,7 +355,15 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle structure has the same border color at each side.
+	 * @return true if this border widget has a right padding.
+	 */
+	public final boolean hasRightPadding() {
+		return (rightPadding != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this border widget structure has the same border color at each side.
 	 */
 	public final boolean hasSameBorderColorAtEachSide()  {
 		
@@ -273,7 +386,7 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * @return true if this borderable rectangle structure has the same border size at each side.
+	 * @return true if this border widget structure has the same border size at each side.
 	 */
 	public final boolean hasSameBorderSizeAtEachSide() {
 		
@@ -299,6 +412,34 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
+	 * @return true if this border widget structure has the same padding at each side.
+	 */
+	public final boolean hasSamePaddingAtEachSide() {
+		
+		//Handles the case if this border widget structure has no paddings.
+		if (
+			!hasLeftPadding()
+			&& !hasRightPadding()
+			&& !hasTopPadding()
+			&& !hasBottomPadding()
+		) {
+			return true;
+		}
+		
+		//Handles the case if this border widget has a padding.
+		return (
+			hasLeftPadding()
+			&& hasRightPadding()
+			&& hasTopPadding()
+			&& hasBottomPadding()
+			&& rightPadding.equals(leftPadding)
+			&& topPadding.equals(leftPadding)
+			&& bottomPadding.equals(bottomPadding)
+		);
+	}
+	
+	//method
+	/**
 	 * @return true if this borderable rectangle has a topt border color.
 	 */
 	public final boolean hasTopBorderColor() {
@@ -315,7 +456,15 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Removes all attributes of this borderable rectangle structure.
+	 * @return true if this border widget has a top padding.
+	 */
+	public final boolean hasTopPadding() {
+		return (topPadding != null);
+	}
+	
+	//method
+	/**
+	 * Removes all attributes of this border widget structure.
 	 */
 	public void removeAttributes() {
 		
@@ -324,11 +473,12 @@ extends BackgroundWidgetStructure<BWS> {
 		
 		removeBorderSizes();
 		removeBorderColors();
+		removePaddings();
 	}
 	
 	//method
 	/**
-	 * Removes the border colors of this borderable rectangle structure.
+	 * Removes the border colors of this border widget structure.
 	 */
 	public final void removeBorderColors() {
 		removeLeftBorderColor();
@@ -339,7 +489,7 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Removes the border sizes of this borderable rectangle structure.
+	 * Removes the border sizes of this border widget structure.
 	 */
 	public final void removeBorderSizes() {
 		removeLeftBorderSize();
@@ -350,7 +500,7 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Removes the bottom border color of this borderable rectangle structure.
+	 * Removes the bottom border color of this border widget structure.
 	 */
 	public final void removeBottomBorderColor() {
 		bottomBorderColor = null;
@@ -366,7 +516,15 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Removes the left border color of this borderable rectangle structure.
+	 * Removes the bottom padding of this border widget structure.
+	 */
+	public final void removeBottomPadding() {
+		bottomPadding = null;
+	}
+	
+	//method
+	/**
+	 * Removes the left border color of this border widget structure.
 	 */
 	public final void removeLeftBorderColor() {
 		leftBorderColor = null;
@@ -382,7 +540,26 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Removes the right border color of this borderable rectangle structure.
+	 * Removes the left padding of this border widget structure.
+	 */
+	public final void removeLeftPadding() {
+		leftPadding = null;
+	}
+	
+	//method
+	/**
+	 * Removes the paddings of this border widget structure.
+	 */
+	public final void removePaddings() {
+		removeLeftPadding();
+		removeRightPadding();
+		removeTopPadding();
+		removeBottomPadding();
+	}
+	
+	//method
+	/**
+	 * Removes the right border color of this border widget structure.
 	 */
 	public final void removeRightBorderColor() {
 		rightBorderColor = null;
@@ -390,7 +567,7 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Removes the right border size of this borderable rectangle structure.
+	 * Removes the right border size of this border widget structure.
 	 */
 	public final void removeRightBorderSize() {
 		rightBorderSize = null;
@@ -398,7 +575,15 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Removes the top border color of this borderable rectangle structure.
+	 * Removes the right padding of this border widget structure.
+	 */
+	public final void removeRightPadding() {
+		rightPadding = null;
+	}
+	
+	//method
+	/**
+	 * Removes the top border color of this border widget structure.
 	 */
 	public final void removeTopBorderColor() {
 		topBorderColor = null;
@@ -406,7 +591,7 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Removes the top border size of this borderable rectangle structure.
+	 * Removes the top border size of this border widget structure.
 	 */
 	public final void removeTopBorderSize() {
 		topBorderSize = null;
@@ -414,10 +599,18 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Sets the border color of this borderable rectangle structure.
+	 * Removes the top padding of this border widget structure.
+	 */
+	public final void removeTopPadding() {
+		topPadding = null;
+	}
+	
+	//method
+	/**
+	 * Sets the border color of this border widget structure.
 	 * 
 	 * @param color
-	 * @return this borderable rectangle structure.
+	 * @return this border widget structure.
 	 * @throws NullArgumentException if the given border color is null.
 	 */
 	@SuppressWarnings("unchecked")
@@ -433,7 +626,7 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Sets the border sizes of this borderable rectangle structure.
+	 * Sets the border sizes of this border widget structure.
 	 * 
 	 * @param borderSize
 	 * @return this boderable rectangle structure.
@@ -452,10 +645,10 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Sets the bottom border color of this borderable rectangle structure.
+	 * Sets the bottom border color of this border widget structure.
 	 * 
 	 * @param bottomBorderColor
-	 * @return this borderable rectangle structure.
+	 * @return this border widget structure.
 	 * @throws NullArgumentException if the given bottom broder color.
 	 */
 	@SuppressWarnings("unchecked")
@@ -464,7 +657,7 @@ extends BackgroundWidgetStructure<BWS> {
 		//Checks if the given bottom border color is not null.
 		Validator.supposeThat(bottomBorderColor).thatIsNamed("bottom border color").isNotNull();
 		
-		//Sets the bottom border color of this borderable rectangle structure.
+		//Sets the bottom border color of this border widget structure.
 		this.bottomBorderColor = bottomBorderColor;
 		
 		return (BWS)this;
@@ -472,10 +665,10 @@ extends BackgroundWidgetStructure<BWS> {
 
 	//method
 	/**
-	 * Sets the bottom border size of this borderable rectangle structure.
+	 * Sets the bottom border size of this border widget structure.
 	 * 
 	 * @param bottomBorderSize
-	 * @return this borderable rectangle structure.
+	 * @return this border widget structure.
 	 * @throws NonPositiveArgumentException if the given bottom border size is not positive.
 	 */
 	@SuppressWarnings("unchecked")
@@ -486,16 +679,32 @@ extends BackgroundWidgetStructure<BWS> {
 		return (BWS)this;
 	}
 	
+	//method
+	/**
+	 * Sets the bottom padding of this border widget structure
+	 * 
+	 * @param bottomPadding
+	 * @return this border widget structure.
+	 * @throws NonPositiveArgumentException if the given bottom padding is not positive.
+	 */
+	@SuppressWarnings("unchecked")
+	public final BWS setBottomPadding(final int bottomPadding) {
+		
+		this.bottomPadding = new PositiveInteger(bottomPadding);
+		
+		return (BWS)this;
+	}
+	
 	public final BWS setDefaultBorderSizes() {
 		return setBorderSizes(DEFAULT_BORDER_SIZE);
 	}
 	
 	//method
 	/**
-	 * Sets the left border color of this borderable rectangle structure.
+	 * Sets the left border color of this border widget structure.
 	 * 
 	 * @param leftBorderColor
-	 * @return this borderable rectangle structure.
+	 * @return this border widget structure.
 	 * @throws NullArgumentException if the given left border color is null.
 	 */
 	@SuppressWarnings("unchecked")
@@ -512,10 +721,10 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Sets the left border size of this borderable rectangle structure.
+	 * Sets the left border size of this border widget structure.
 	 * 
 	 * @param leftBordersize
-	 * @return this borderable rectangle structure.
+	 * @return this border widget structure.
 	 * @throws NonPositiveArgumentException if the given left border size is not positive.
 	 */
 	@SuppressWarnings("unchecked")
@@ -528,7 +737,42 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Sets the right border color of this borderable rectangle structure.
+	 * Sets the left padding of this border widget structure.
+	 * 
+	 * @param leftPadding
+	 * @return this border widget structure.
+	 * @throws NonPositiveArgumentException if the given left padding is not positive.
+	 */
+	@SuppressWarnings("unchecked")
+	public final BWS setLeftPadding(final int leftPadding) {
+		
+		this.leftPadding = new PositiveInteger(leftPadding);
+		
+		return (BWS)this;
+	}
+	
+	//method
+	/**
+	 * Sets the padding of this border widget structure.
+	 * 
+	 * @param padding
+	 * @return this border widget structure
+	 * @throws NonPositiveArgumentException if the given padding is not positive.
+	 */
+	@SuppressWarnings("unchecked")
+	public final BWS setPadding(final int padding) {
+		
+		setLeftPadding(padding);
+		setRightPadding(padding);
+		setTopPadding(padding);
+		setBottomPadding(padding);
+		
+		return (BWS)this;
+	}
+	
+	//method
+	/**
+	 * Sets the right border color of this border widget structure.
 	 * 
 	 * @param rightBorderColor
 	 * @return this boderable rectangle structure.
@@ -540,7 +784,7 @@ extends BackgroundWidgetStructure<BWS> {
 		//Checks if the given right border color is not null.
 		Validator.supposeThat(rightBorderColor).thatIsNamed("right border color").isNotNull();
 		
-		//Sets the right border color of this borderable rectangle structure.
+		//Sets the right border color of this border widget structure.
 		this.rightBorderColor = rightBorderColor;
 		
 		return (BWS)this;
@@ -548,10 +792,10 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Sets the right border size of this borderable rectangle structure.
+	 * Sets the right border size of this border widget structure.
 	 * 
 	 * @param rightBorderSize
-	 * @return this borderable rectangle structure.
+	 * @return this border widget structure.
 	 * @throws NonPositiveArgumentException if the given right border size is not positive.
 	 */
 	@SuppressWarnings("unchecked")
@@ -564,7 +808,23 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Sets the top border color of this borderable rectangle structure.
+	 * Sets the right padding of this border widget structure.
+	 * 
+	 * @param rightPadding
+	 * @return this border widget structure.
+	 * @throws NonPositiveArgumentException if the given right padding is not positive.
+	 */
+	@SuppressWarnings("unchecked")
+	public final BWS setRightPadding(final int rightPadding) {
+		
+		this.rightPadding = new PositiveInteger(rightPadding);
+		
+		return (BWS)this;
+	}
+	
+	//method
+	/**
+	 * Sets the top border color of this border widget structure.
 	 * 
 	 * @param topBorderColor
 	 * @return this boderable rectangle structure.
@@ -576,7 +836,7 @@ extends BackgroundWidgetStructure<BWS> {
 		//Checks if the given top border color is not null.
 		Validator.supposeThat(topBorderColor).thatIsNamed("top border color").isNotNull();
 		
-		//Sets the top border color of this borderable rectangle structure.
+		//Sets the top border color of this border widget structure.
 		this.topBorderColor = topBorderColor;
 		
 		return (BWS)this;
@@ -584,10 +844,10 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Sets the top border size of this borderable rectangle structure.
+	 * Sets the top border size of this border widget structure.
 	 * 
 	 * @param topBorderSize
-	 * @return this borderable rectangle structure.
+	 * @return this border widget structure.
 	 * @throws NonPositiveArgumentException if the given top border size is not positive.
 	 */
 	@SuppressWarnings("unchecked")
@@ -600,7 +860,86 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * @return the attributes of this borderable rectangle structure
+	 * Sets the top padding of this border widget structure.
+	 * 
+	 * @param leftPadding
+	 * @return this border widget structure.
+	 * @throws NonPositiveArgumentException if the given top padding is not positive.
+	 */
+	@SuppressWarnings("unchecked")
+	public final BWS setTopPadding(final int topPadding) {
+		
+		this.topPadding = new PositiveInteger(topPadding);
+		
+		return (BWS)this;
+	}
+	
+	//method
+	/**
+	 * Adds or changes the given attribute to this border widget structure.
+	 * 
+	 * @param attribute
+	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 */
+	protected void addOrChangeAttribute(final StandardSpecification attribute) {
+		
+		//Enumerates the header of the given attribute.
+		switch (attribute.getHeader()) {
+			case BORDER_SIZE_HEADER:
+				setBorderSizes(attribute.getOneAttributeToInteger());
+				break;
+			case LEFT_BORDER_SIZE_HEADER:
+				setLeftBorderSize(attribute.getOneAttributeToInteger());
+				break;
+			case RIGHT_BORDER_SIZE_HEADER:
+				setRightBorderSize(attribute.getOneAttributeToInteger());
+				break;
+			case TOP_BORDER_SIZE_HEADER:
+				setTopBorderSize(attribute.getOneAttributeToInteger());
+				break;
+			case BOTTOM_BORDER_SIZE_HEADER:
+				setBottomBorderSize(attribute.getOneAttributeToInteger());
+				break;
+			case BORDER_COLOR_HEADER:
+				setBorderColor(new Color(attribute.getOneAttributeToString()));
+				break;
+			case LEFT_BORDER_COLOR_HEADER:
+				setLeftBorderColor(new Color(attribute.getOneAttributeToString()));
+				break;
+			case RIGHT_BORDER_COLOR_HEADER:
+				setRightBorderColor(new Color(attribute.getOneAttributeToString()));
+				break;
+			case BOTTOM_BORDER_COLOR_HEADER:
+				setBottomBorderColor(new Color(attribute.getOneAttributeToString()));
+				break;
+			case TOP_BORDER_COLOR_HEADER:
+				setTopBorderColor(new Color(attribute.getOneAttributeToString()));
+				break;
+			case PADDING_HEADER:
+				setPadding(attribute.getOneAttributeToInteger());
+				break;
+			case LEFT_PADDING_HEADER:
+				setLeftPadding(attribute.getOneAttributeToInteger());
+				break;
+			case RIGHT_PADDING_HEADER:
+				setRightPadding(attribute.getOneAttributeToInteger());
+				break;
+			case TOP_PADDING_HEADER:
+				setTopPadding(attribute.getOneAttributeToInteger());
+				break;
+			case BOTTOM_PADDING_HEADER:
+				setBottomPadding(attribute.getOneAttributeToInteger());
+				break;
+			default:
+				
+				//Calls method of the base class.
+				super.addOrChangeAttribute(attribute);
+		}
+	}
+	
+	//method
+	/**
+	 * @return the attributes of this border widget structure
 	 */
 	protected List<StandardSpecification> getAttributes() {
 		
@@ -651,55 +990,29 @@ extends BackgroundWidgetStructure<BWS> {
 			}
 		}
 		
-		return attributes;
-	}
-	
-	//method
-	/**
-	 * Adds or changes the given attribute to this border widget structure.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
-	 */
-	protected void addOrChangeAttribute(final StandardSpecification attribute) {
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case BORDER_SIZE_HEADER:
-				setBorderSizes(attribute.getOneAttributeToInteger());
-				break;
-			case LEFT_BORDER_SIZE_HEADER:
-				setLeftBorderSize(attribute.getOneAttributeToInteger());
-				break;
-			case RIGHT_BORDER_SIZE_HEADER:
-				setRightBorderSize(attribute.getOneAttributeToInteger());
-				break;
-			case TOP_BORDER_SIZE_HEADER:
-				setTopBorderSize(attribute.getOneAttributeToInteger());
-				break;
-			case BOTTOM_BORDER_SIZE_HEADER:
-				setBottomBorderSize(attribute.getOneAttributeToInteger());
-				break;
-			case BORDER_COLOR_HEADER:
-				setBorderColor(new Color(attribute.getOneAttributeToString()));
-				break;
-			case LEFT_BORDER_COLOR_HEADER:
-				setLeftBorderColor(new Color(attribute.getOneAttributeToString()));
-				break;
-			case RIGHT_BORDER_COLOR_HEADER:
-				setRightBorderColor(new Color(attribute.getOneAttributeToString()));
-				break;
-			case BOTTOM_BORDER_COLOR_HEADER:
-				setBottomBorderColor(new Color(attribute.getOneAttributeToString()));
-				break;
-			case TOP_BORDER_COLOR_HEADER:
-				setTopBorderColor(new Color(attribute.getOneAttributeToString()));
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
+		if (hasAPadding() && hasSamePaddingAtEachSide()) {
+			attributes.addAtEnd(leftPadding.getSpecificationAs(PADDING_HEADER));
 		}
+		else {
+			
+			if (hasLeftPadding()) {
+				attributes.addAtEnd(leftPadding.getSpecificationAs(LEFT_PADDING_HEADER));
+			}
+			
+			if (hasLeftPadding()) {
+				attributes.addAtEnd(rightPadding.getSpecificationAs(RIGHT_PADDING_HEADER));
+			}
+			
+			if (hasLeftPadding()) {
+				attributes.addAtEnd(topPadding.getSpecificationAs(TOP_PADDING_HEADER));
+			}
+			
+			if (hasLeftPadding()) {
+				attributes.addAtEnd(bottomPadding.getSpecificationAs(BOTTOM_PADDING_HEADER));
+			}
+		}
+		
+		return attributes;
 	}
 	
 	//method
@@ -712,6 +1025,19 @@ extends BackgroundWidgetStructure<BWS> {
 			|| hasRightBorderColor()
 			|| hasTopBorderColor()
 			|| hasBottomBorderColor()
+		);
+	}
+	
+	//method
+	/**
+	 * @return true if this border widget structure has a padding.
+	 */
+	private boolean hasAPadding() {
+		return (
+			hasLeftPadding()
+			|| hasRightPadding()
+			|| hasTopPadding()
+			|| hasBottomPadding()
 		);
 	}
 	

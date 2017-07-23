@@ -10,7 +10,6 @@ import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
-import ch.nolix.element.basic.PositiveInteger;
 import ch.nolix.element.data.MinHeight;
 import ch.nolix.element.data.MinWidth;
 
@@ -31,23 +30,12 @@ extends BackgroundWidget<BW, BWS> {
 	//constant
 	public static final String SIMPLE_CLASS_NAME = "Borderablewidget";
 	
-	//attribute headers
-	private static final String PADDING_HEADER = "Padding";
-	private static final String LEFT_PADDING_HEADER = "LeftPadding";
-	private static final String RIGHT_PADDING_HEADER = "RightPadding";
-	private static final String BOTTOM_PADDING_HEADER = "BottomPadding";
-	private static final String TOP_PADDING_HEADER = "TopPadding";
-	
 	//attribute
 	private ContentPosition contentOrientation = ContentPosition.Center;
 	
 	//optional attributes
 	private MinWidth minWidth;
 	private MinHeight minHeight;
-	private PositiveInteger leftPadding;
-	private PositiveInteger rightPadding;
-	private PositiveInteger topPadding;
-	private PositiveInteger bottomPadding;
 	
 	//method
 	/**
@@ -68,22 +56,7 @@ extends BackgroundWidget<BW, BWS> {
 				break;
 			case MinHeight.SIMPLE_CLASS_NAME:
 				setMinHeight(attribute.getOneAttributeToInteger());
-				break;
-			case PADDING_HEADER:
-				setPadding(attribute.getOneAttributeToInteger());
-				break;
-			case LEFT_PADDING_HEADER:
-				setLeftPadding(attribute.getOneAttributeToInteger());
-				break;
-			case RIGHT_PADDING_HEADER:
-				setRightPadding(attribute.getOneAttributeToInteger());
-				break;
-			case TOP_PADDING_HEADER:
-				setTopPadding(attribute.getOneAttributeToInteger());
-				break;
-			case BOTTOM_PADDING_HEADER:
-				setBottomPadding(attribute.getOneAttributeToInteger());
-				break;			
+				break;	
 			default:
 				
 				//Calls method of the base class.
@@ -109,39 +82,8 @@ extends BackgroundWidget<BW, BWS> {
 		if (hasMinHeight()) {
 			attributes.addAtEnd(minHeight.getSpecification());
 		}
-			
-		if (hasAPadding() && hasSamePaddingAtEachSide()) {
-			attributes.addAtEnd(leftPadding.getSpecificationAs(PADDING_HEADER));
-		}
-		else {
-			if (hasLeftPadding()) {
-				attributes.addAtEnd(new StandardSpecification(LEFT_PADDING_HEADER, leftPadding.getAttributes()));
-			}
-			if (hasRightPadding()) {
-				attributes.addAtEnd(new StandardSpecification(RIGHT_PADDING_HEADER, rightPadding.getAttributes()));
-			}
-			if (hasTopPadding()) {
-				attributes.addAtEnd(new StandardSpecification(TOP_PADDING_HEADER, topPadding.getAttributes()));
-			}
-			if (hasBottomPadding()) {
-				attributes.addAtEnd(new StandardSpecification(BOTTOM_PADDING_HEADER, bottomPadding.getAttributes()));
-			}
-		}
 
 		return attributes;
-	}
-	
-	//method
-	/**
-	 * @return the bottom padding of this borderable widget.
-	 */
-	public final int getBottomPadding() {
-		
-		if (hasBottomPadding()) {
-			return bottomPadding.getValue();
-		}
-		
-		return 0;
 	}
 	
 	//method
@@ -150,21 +92,6 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final ContentPosition getContentOrientation() {
 		return contentOrientation;
-	}
-	
-	//method
-	/**
-	 * @return the left padding of this borderable widget.
-	 */
-	public final int getLeftPadding() {
-		
-		//Handles the case if this borderable widget has actually a left padding.
-		if (hasLeftPadding()) {
-			return leftPadding.getValue();
-		}
-		
-		//Handles the case if this borderable widget has actually no left padding.
-		return 0;
 	}
 	
 	//method
@@ -199,65 +126,6 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the right padding of this borderable widget.
-	 */
-	public final int getRightPadding() {
-		
-		//Handles the case if this borderable widget has actually a right padding.
-		if (hasRightPadding()) {
-			return rightPadding.getValue();
-		}
-		
-		//Handles the case if this borderable widget has actually no right padding.
-		return 0;
-	}
-	
-	//method
-	/**
-	 * @return the top padding of this borderable widget.
-	 */
-	public final int getTopPadding() {
-		
-		//Handles the case if this borderable widget has actually a top padding.
-		if (hasTopPadding()) {
-			return topPadding.getValue();
-		}
-		
-		//Handles the case if this borderable widget has actually no top padding.
-		return 0;
-	}
-	
-	//method
-	/**
-	 * @return true if this borderable widget has a padding.
-	 */
-	public final boolean hasAPadding() {
-		return (
-			hasLeftPadding()
-			|| hasRightPadding()
-			|| hasTopPadding()
-			|| hasBottomPadding()
-		);
-	}
-	
-	//method
-	/**
-	 * @return true if this borderable widget has a bottom padding.
-	 */
-	public final boolean hasBottomPadding() {
-		return (bottomPadding != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this borderable widget has a left padding.
-	 */
-	public final boolean hasLeftPadding() {
-		return (leftPadding != null);
-	}
-	
-	//method
-	/**
 	 * @return true if this borderable widget has a min height.
 	 */	
 	public final boolean hasMinHeight() {
@@ -270,53 +138,6 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final boolean hasMinWidth() {
 		return (minWidth != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this borderable widget has a right padding
-	 */
-	public final boolean hasRightPadding() {
-		return (rightPadding != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this borderable widget has the same padding at each side.
-	 */
-	public final boolean hasSamePaddingAtEachSide() {
-		
-		final int currentLeftPadding = getLeftPadding();
-		
-		return (
-			getRightPadding() == currentLeftPadding &&
-			getTopPadding() ==  currentLeftPadding &&
-			getBottomPadding() == currentLeftPadding
-		);
-	}
-	
-	//method
-	/**
-	 * @return true if this borderable widget has a top padding
-	 */
-	public final boolean hasTopPadding() {
-		return (topPadding != null);
-	}
-	
-	//method
-	/**
-	 * Removes the bottom padding of this borderable widget.
-	 */
-	public final void removeBottomPadding() {
-		bottomPadding = null;
-	}
-	
-	//method
-	/**
-	 * Removes the left padding of this borderable widget.
-	 */
-	public final void removeLeftPadding() {
-		leftPadding = null;
 	}
 	
 	//method
@@ -337,33 +158,6 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Removes the padding of this borderable widget.
-	 */
-	public final void removePadding() {
-		removeBottomPadding();
-		removeLeftPadding();
-		removeRightPadding();
-		removeTopPadding();
-	}
-	
-	//method
-	/**
-	 * Removes the right padding of this borderable widget.
-	 */
-	public final void removeRightPadding() {
-		rightPadding = null;
-	}
-	
-	//method
-	/**
-	 * Removes the top padding of this borderable widget.
-	 */
-	public final void removeTopPadding() {
-		topPadding = null;
-	}
-	
-	//method
-	/**
 	 * Resets the configuration of this borderable widget.
 	 */
 	public void resetConfiguration() {
@@ -374,23 +168,6 @@ extends BackgroundWidget<BW, BWS> {
 		setContentOrientation(ContentPosition.LeftTop);
 		removeMinWidth();
 		removeMinHeight();
-		removePadding();
-	}
-	
-	//method
-	/**
-	 * Sets the bottom padding of this borderable widget.
-	 * 
-	 * @param bottomPadding
-	 * @return this borderable widget.
-	 * @throws NonPositiveArgumentException if the given bottom padding is not positive.
-	 */
-	@SuppressWarnings("unchecked")
-	public final BW setBottomPadding(final int bottomPadding) {
-		
-		this.bottomPadding = new PositiveInteger(bottomPadding);
-		
-		return (BW)this;
 	}
 	
 	//method
@@ -412,22 +189,6 @@ extends BackgroundWidget<BW, BWS> {
 
 		//Sets the content orientation of this borderable widget.
 		this.contentOrientation = contentOrientation;
-		
-		return (BW)this;
-	}
-	
-	//method
-	/**
-	 * Sets the left padding of this borderable widget.
-	 * 
-	 * @param leftPadding
-	 * @return this borderable widget.
-	 * @throws NonPositiveArgumentException if the given left padding is not positive.
-	 */
-	@SuppressWarnings("unchecked")
-	public final BW setLeftPadding(final int leftPadding) {
-		
-		this.leftPadding = new PositiveInteger(leftPadding);
 		
 		return (BW)this;
 	}
@@ -460,57 +221,6 @@ extends BackgroundWidget<BW, BWS> {
 	public final BW setMinWidth(final int minWidth) {
 		
 		this.minWidth = new MinWidth(minWidth);
-		
-		return (BW)this;
-	}
-	
-	//method
-	/**
-	 * Sets the padding of this borderale widget.
-	 * 
-	 * @param padding
-	 * @return this borderable widget.
-	 * @throws NonPositiveArgumentException if the given padding is not positive.
-	 */
-	@SuppressWarnings("unchecked")
-	public final BW setPadding(final int padding) {
-		
-		setLeftPadding(padding);
-		setRightPadding(padding);
-		setTopPadding(padding);
-		setBottomPadding(padding);
-		
-		return (BW)this;
-	}
-	
-	//method
-	/**
-	 * Sets the right padding of this borderable widget.
-	 * 
-	 * @param rightPadding
-	 * @return this borderable widget.
-	 * @throws NonPositiveArgumentException if the given right padding is not positive.
-	 */
-	@SuppressWarnings("unchecked")
-	public final BW setRightPadding(final int rightPadding) {
-		
-		this.rightPadding = new PositiveInteger(rightPadding);
-		
-		return (BW)this;
-	}
-	
-	//method
-	/**
-	 * Sets the top padding of this borderable widget.
-	 * 
-	 * @param leftPadding
-	 * @return this borderable widget.
-	 * @throws NonPositiveArgumentException if the given top padding is not positive.
-	 */
-	@SuppressWarnings("unchecked")
-	public final BW setTopPadding(final int topPadding) {
-		
-		this.topPadding = new PositiveInteger(topPadding);
 		
 		return (BW)this;
 	}
@@ -561,94 +271,96 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	protected final int getContentXPosition() {
 		
+		final BWS currentStructure = getRefCurrentStructure();
+		
 		//Enumerates the content orientation of this borderable widget.
 		switch (getContentOrientation()) {
 			case LeftTop:
-				return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());
+				return (currentStructure.getActiveLeftBorderSize() + currentStructure.getActiveLeftPadding());
 			case Left:
-				return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());
+				return (currentStructure .getActiveLeftBorderSize() + currentStructure.getActiveLeftPadding());
 			case LeftBottom:
-				return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());	
+				return (currentStructure .getActiveLeftBorderSize() + currentStructure.getActiveLeftPadding());	
 			case Top:
 				
 				if (!hasMinWidth()) {
-					return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());
+					return (currentStructure .getActiveLeftBorderSize() + currentStructure.getActiveLeftPadding());
 				}
 				
 				final int contentXPosition1
 				= getMinWidth()
 				- getContentWidth()
-				+ getRefCurrentStructure().getActiveLeftBorderSize()
-				+ getLeftPadding()
-				- getRefCurrentStructure().getActiveRightBorderSize()
-				- getRightPadding();
+				+ currentStructure .getActiveLeftBorderSize()
+				+ currentStructure.getActiveLeftPadding()
+				- currentStructure.getActiveRightBorderSize()
+				- currentStructure.getActiveRightPadding();
 				
 				return (contentXPosition1 / 2);
 			case Center:
 				
 				if (!hasMinWidth()) {
-					return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());
+					return (getRefCurrentStructure().getActiveLeftBorderSize() + currentStructure.getActiveLeftPadding());
 				}
 				
 				final int contentXPosition2
 				= getMinWidth()
 				- getContentWidth()
 				+ getRefCurrentStructure().getActiveLeftBorderSize()
-				+ getLeftPadding()
+				+ currentStructure.getActiveLeftPadding()
 				- getRefCurrentStructure().getActiveRightBorderSize()
-				- getRightPadding();
+				- currentStructure.getActiveRightPadding();
 				
 				return (contentXPosition2 / 2);
 			case Bottom:
 				
 				if (!hasMinWidth()) {
-					return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());
+					return (getRefCurrentStructure().getActiveLeftBorderSize() + currentStructure.getActiveLeftPadding());
 				}
 				
 				final int contentXPosition3
 				= getMinWidth()
 				- getContentWidth()
 				+ getRefCurrentStructure().getActiveLeftBorderSize()
-				+ getLeftPadding()
+				+ currentStructure.getActiveLeftPadding()
 				- getRefCurrentStructure().getActiveRightBorderSize()
-				- getRightPadding();
+				- currentStructure.getActiveRightPadding();
 				
 				return (contentXPosition3 / 2);
 			case RightTop:
 				
 				if (!hasMinWidth()) {
-					return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());
+					return (getRefCurrentStructure().getActiveLeftBorderSize() + currentStructure.getActiveLeftPadding());
 				}
 				
 				return (
 					getMinWidth()
 					- getContentWidth()
 					- getRefCurrentStructure().getActiveRightBorderSize()
-					- getRightPadding()
+					- currentStructure.getActiveRightPadding()
 				);
 			case Right:
 			
 				if (!hasMinWidth()) {
-					return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());
+					return (getRefCurrentStructure().getActiveLeftBorderSize() + currentStructure.getActiveLeftPadding());
 				}
 				
 				return (
 					getMinWidth()
 					- getContentWidth()
 					- getRefCurrentStructure().getActiveRightBorderSize()
-					- getRightPadding()
+					- currentStructure.getActiveRightPadding()
 				);
 			case RightBottom:
 				
 				if (!hasMinWidth()) {
-					return (getRefCurrentStructure().getActiveLeftBorderSize() + getLeftPadding());
+					return (getRefCurrentStructure().getActiveLeftBorderSize() + currentStructure.getActiveLeftPadding());
 				}
 				
 				return (
 					getMinWidth()
 					- getContentWidth()
 					- getRefCurrentStructure().getActiveRightBorderSize()
-					- getRightPadding()
+					- currentStructure.getActiveRightPadding()
 				);
 		}
 		
@@ -661,94 +373,96 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	protected final int getContentYPosition() {
 		
+		final BWS currentStructure = getRefCurrentStructure();
+		
 		//Enumerates the content orientation of this borderable widget.
 		switch (getContentOrientation()) {
 			case LeftTop:
-				return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
+				return (currentStructure.getActiveTopBorderSize() + currentStructure.getActiveTopPadding());
 			case Left:
 				
 				if (!hasMinHeight()) {
-					return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
+					return (currentStructure.getActiveTopBorderSize() + currentStructure.getActiveTopPadding());
 				}
 				
 				final int contentYPosition1
 				= getMinHeight()
 				- getContentHeight()
-				+ getRefCurrentStructure().getActiveTopBorderSize()
-				+ getTopPadding()
+				+ currentStructure.getActiveTopBorderSize()
+				+ currentStructure.getActiveTopPadding()
 				- getRefCurrentStructure().getActiveBottomBorderSize()
-				- getBottomPadding();
+				- currentStructure.getActiveBottomPadding();
 				
 				return (contentYPosition1 / 2);	
 			case LeftBottom:
 				
 				if (!hasMinHeight()) {
-					return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
+					return (getRefCurrentStructure().getActiveTopBorderSize() + currentStructure.getActiveTopPadding());
 				}
 				
 				return (
 					getMinHeight()
 					- getContentHeight()
 					- getRefCurrentStructure().getActiveBottomBorderSize()
-					- getBottomPadding()
+					- currentStructure.getActiveBottomPadding()
 				);	
 			case Top:
-				return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
+				return (getRefCurrentStructure().getActiveTopBorderSize() + currentStructure.getActiveTopPadding());
 			case Center:
 				
 				if (!hasMinHeight()) {
-					return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
+					return (getRefCurrentStructure().getActiveTopBorderSize() + currentStructure.getActiveTopPadding());
 				}
 				
 				final int contentYPosition2
 				= getMinHeight()
 				- getContentHeight()
-				+ getRefCurrentStructure().getActiveTopBorderSize()
-				+ getTopPadding()
+				+ currentStructure.getActiveTopBorderSize()
+				+ currentStructure.getActiveTopPadding()
 				- getRefCurrentStructure().getActiveBottomBorderSize()
-				- getBottomPadding();
+				- currentStructure.getActiveBottomPadding();
 				
 				return (contentYPosition2 / 2);
 			case Bottom:
 				
 				if (!hasMinHeight()) {
-					return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
+					return (currentStructure.getActiveTopBorderSize() + currentStructure.getActiveTopPadding());
 				}
 				
 				return (
 					getMinHeight()
 					- getContentHeight()
 					- getRefCurrentStructure().getActiveBottomBorderSize()
-					- getBottomPadding()
+					- currentStructure.getActiveBottomPadding()
 				);
 			case RightTop:
-				return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
+				return (getRefCurrentStructure().getActiveTopBorderSize() + currentStructure.getActiveTopPadding());
 			case Right:
 				
 				if (!hasMinHeight()) {
-					return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
+					return (getRefCurrentStructure().getActiveTopBorderSize() + currentStructure.getActiveTopPadding());
 				}
 				
 				final int contentYPosition3
 				= getMinHeight()
 				- getContentHeight()
 				+ getRefCurrentStructure().getActiveTopBorderSize()
-				+ getTopPadding()
+				+ currentStructure.getActiveTopPadding()
 				- getRefCurrentStructure().getActiveBottomBorderSize()
-				- getBottomPadding();
+				- currentStructure.getActiveBottomPadding();
 				
 				return (contentYPosition3 / 2);
 			case RightBottom:
 				
 				if (!hasMinHeight()) {
-					return (getRefCurrentStructure().getActiveTopBorderSize() + getTopPadding());
+					return (getRefCurrentStructure().getActiveTopBorderSize() + currentStructure.getActiveTopPadding());
 				}
 				
 				return (
 					getMinHeight()
 					- getContentHeight()
 					- getRefCurrentStructure().getActiveBottomBorderSize()
-					- getBottomPadding()
+					- currentStructure.getActiveBottomPadding()
 				);
 		}
 		
@@ -763,14 +477,14 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final int getHeightWhenNotCollapsed() {
 		
-		final BWS widgetStructure = getRefCurrentStructure();
+		final BWS currentStructure = getRefCurrentStructure();
 		
 		final int baseHeight
-		= widgetStructure.getActiveTopBorderSize()
-		+ getTopPadding()
+		= currentStructure.getActiveTopBorderSize()
+		+ currentStructure.getActiveTopPadding()
 		+ getContentHeight()
-		+ getBottomPadding()
-		+ widgetStructure.getActiveBottomBorderSize();
+		+ currentStructure.getActiveBottomPadding()
+		+ currentStructure.getActiveBottomBorderSize();
 		
 		if (!hasMinHeight()) {
 			return baseHeight;
@@ -785,14 +499,14 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final int getWidthWhenNotCollapsed() {
 		
-		final BWS widgetStructure = getRefCurrentStructure();
+		final BWS currentStructure = getRefCurrentStructure();
 		
 		final int baseWidth
-		= widgetStructure.getActiveLeftBorderSize()
-		+ getLeftPadding()
+		= currentStructure.getActiveLeftBorderSize()
+		+ currentStructure.getActiveLeftPadding()
 		+ getContentWidth()
-		+ getRightPadding()
-		+ widgetStructure.getActiveRightBorderSize();
+		+ currentStructure.getActiveRightPadding()
+		+ currentStructure.getActiveRightBorderSize();
 		
 		if (!hasMinWidth()) {
 			return baseWidth;

@@ -62,12 +62,13 @@ public final class GUIClientTutorial {
 			
 			final Button changeColorbutton
 			= new Button()
-			.setPadding(10)
 			.setText("Change color")
 			.setLeftMouseButtonPressCommand("ChangeColor")
-			.setCursorIcon(CursorIcon.Hand);
-			
-			changeColorbutton.getRefNormalStructure().setBackgroundColor(new BackgroundColor(Color.LIGHT_GREY));
+			.setCursorIcon(CursorIcon.Hand);			
+						
+			changeColorbutton.getRefNormalStructure()
+			.setPadding(10)
+			.setBackgroundColor(new BackgroundColor(Color.LIGHT_GREY));
 			changeColorbutton.getRefHoverStructure().setTextSize(30);
 			
 			getRefClient().getRefGUI().setRootWidget(changeColorbutton);	

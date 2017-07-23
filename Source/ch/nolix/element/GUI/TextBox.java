@@ -277,13 +277,16 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	/**
 	 * @return the width of this text box
 	 */
-	protected final int getContentWidth() {		
+	protected final int getContentWidth() {	
+		
+		final TextLineWidgetStructure currentStructure = getRefCurrentStructure();
+		
 		return (
 			getRefWidth().getValue() -
-			getLeftPadding() -
-			getRefCurrentStructure().getActiveLeftBorderSize() -
-			getRefCurrentStructure().getActiveRightBorderSize() -
-			getRightPadding()
+			currentStructure.getActiveLeftPadding() -
+			currentStructure.getActiveLeftBorderSize() -
+			currentStructure.getActiveRightBorderSize() -
+			currentStructure.getActiveRightPadding()
 		);
 	}
 	

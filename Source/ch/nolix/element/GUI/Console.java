@@ -182,14 +182,14 @@ implements Clearable {
 	 */
 	protected int getContentHeight() {
 		
-		final ConsoleStructure consoleStructure = getRefCurrentStructure();
+		final ConsoleStructure currentStructure = getRefCurrentStructure();
 		
 		return (
-			consoleStructure.getActiveHeight()
-			- consoleStructure.getActiveTopBorderSize()
-			- getTopPadding()
-			- consoleStructure.getActiveBottomBorderSize()
-			- getBottomPadding()
+			currentStructure.getActiveHeight()
+			- currentStructure.getActiveTopBorderSize()
+			- currentStructure.getActiveTopPadding()
+			- currentStructure.getActiveBottomBorderSize()
+			- currentStructure.getActiveBottomPadding()
 		);
 	}
 
@@ -199,14 +199,14 @@ implements Clearable {
 	 */
 	protected int getContentWidth() {
 		
-		final ConsoleStructure consoleStructure = getRefCurrentStructure();
+		final ConsoleStructure currentStructure = getRefCurrentStructure();
 		
 		return (
-			consoleStructure.getActiveWidth()
-			- consoleStructure.getActiveLeftBorderSize()
-			- getLeftPadding()
-			- consoleStructure.getActiveRightBorderSize()
-			- getRightPadding()
+				currentStructure.getActiveWidth()
+			- currentStructure.getActiveLeftBorderSize()
+			- currentStructure.getActiveLeftPadding()
+			- currentStructure.getActiveRightBorderSize()
+			- currentStructure.getActiveRightPadding()
 		);
 	}
 

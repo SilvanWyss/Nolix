@@ -198,9 +198,6 @@ extends Container<TabContainer, TabContainerStructure> {
 		}		
 		if (hasMenuItemBottomPadding()) {
 			attributes.addAtEnd(menuItemBottomPadding.getSpecificationAs(MENU_ITEM_BOTTOM_PADDING));
-		}		
-		if (hasTopPadding()) {
-			attributes.addAtEnd(menuItemTopPadding.getSpecificationAs(MENU_ITEM_TOP_PADDING));
 		}
 		
 		if (hasMenuMargin()) {
@@ -723,15 +720,15 @@ extends Container<TabContainer, TabContainerStructure> {
 			
 			label.setCursorIcon(CursorIcon.Hand);
 			
-			label.removePadding();
+			label.getRefNormalStructure().removePaddings();
 			if (hasMenuItemLeftPadding()) {
-				label.setLeftPadding(getMenuItemLeftPadding());
+				label.getRefNormalStructure().setLeftPadding(getMenuItemLeftPadding());
 			}
 			if (hasMenuItemRightPadding()) {
-				label.setRightPadding(getMenuItemRightPadding());
+				label.getRefNormalStructure().setRightPadding(getMenuItemRightPadding());
 			}
 			if (hasMenuItemBottomPadding()) {
-				label.setBottomPadding(getMenuItemBottomPadding());
+				label.getRefNormalStructure().setBottomPadding(getMenuItemBottomPadding());
 			}
 			if (hasMenuItemTopPadding()) {
 				//label.setTopPadding(getMenuItemTopPadding());
