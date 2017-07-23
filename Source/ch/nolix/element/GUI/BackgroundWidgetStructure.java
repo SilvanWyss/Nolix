@@ -3,6 +3,8 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
@@ -13,7 +15,7 @@ import ch.nolix.element.basic.Color;
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 160
+ * @lines 150
  * @param <BWS> The type of a background widget structure.
  */
 public abstract class BackgroundWidgetStructure<BWS extends BackgroundWidgetStructure<BWS>>
@@ -84,10 +86,6 @@ extends WidgetStructure<BWS> {
 	 * Removes all attributes of this background widget structure.
 	 */
 	public void removeAttributes() {
-		
-		//Calls method of the base class.
-		super.removeAttributes();
-		
 		removeBackgroundColor();
 	}
 	
@@ -134,9 +132,10 @@ extends WidgetStructure<BWS> {
 				setBackgroundColor(new Color(attribute.getOneAttributeToString()));
 				break;
 			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
+				throw new InvalidArgumentException(
+					new ArgumentName("attribute"),
+					new Argument(attribute)
+				);				
 		}
 	}
 	
@@ -147,7 +146,7 @@ extends WidgetStructure<BWS> {
 	protected List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
+		final List<StandardSpecification> attributes = new List<StandardSpecification>();
 		
 		//Handles the option that this background widget structure has a background color.
 		if (hasBackgroundColor()) {

@@ -11,31 +11,37 @@ import ch.nolix.core.validator2.Validator;
 /**
  * A widget structure stores state-dependent attributes of a widget.
  * 
+ * When a widget structure is asked to return an attribute the following approach must be proceeded.
+ * Step 1: If the widget structure has currently a value for the attribute it must return that value.
+ *         If the widget structure has currently no value for the attribute step 2 must be proceeded.
+ * Step 2: If the widget structure has a normal structure it must return what its normal structure returns for the attribute.
+ *         If the widget structure has no normal structure step 3 must be proceeded.
+ * Step 3: If the widget structure has a default value for the attribute it must return that default value.
+ *         If the widget structure has no default value for the attribute it must throw an UnexistingAttributeException.
+ * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 80
- * @param <WS> - The type of a widget structure.
+ * @lines 90
+ * @param <WS> The type of a widget structure.
  */
 public abstract class WidgetStructure<WS extends WidgetStructure<WS>> {
 	
 	//optional attribute
 	private WS normalStructure;
 	
-	//method
+	//abstract method
 	/**
 	 * Adds or changes the given attribute to this widget structure.
 	 * 
 	 * @param attribute
 	 */
-	protected void addOrChangeAttribute(final StandardSpecification attribute) {}
+	protected abstract void addOrChangeAttribute(StandardSpecification attribute);
 		
-	//method
+	//abstract method
 	/**
 	 * @return the attributes of this widget structure.
 	 */
-	protected List<StandardSpecification> getAttributes() {
-		return new List<StandardSpecification>();
-	}
+	protected abstract List<StandardSpecification> getAttributes();
 	
 	//method
 	/**
@@ -60,11 +66,11 @@ public abstract class WidgetStructure<WS extends WidgetStructure<WS>> {
 		return (normalStructure != null);
 	}
 	
-	//method
+	//abstract method
 	/**
 	 * Removes all attributes of this widget structure.
 	 */
-	protected void removeAttributes() {}
+	protected abstract void removeAttributes();
 	
 	//package-visible method
 	/**
