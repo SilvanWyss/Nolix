@@ -67,7 +67,7 @@ public final class GUIClientTutorial {
 			.setCursorIcon(CursorIcon.Hand);			
 						
 			changeColorbutton.getRefNormalStructure()
-			.setPadding(10)
+			.setPaddings(10)
 			.setBackgroundColor(new BackgroundColor(Color.LIGHT_GREY));
 			changeColorbutton.getRefHoverStructure().setTextSize(30);
 			

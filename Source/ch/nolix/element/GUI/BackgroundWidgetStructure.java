@@ -6,7 +6,6 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
@@ -21,6 +20,9 @@ import ch.nolix.element.basic.Color;
 public abstract class BackgroundWidgetStructure<BWS extends BackgroundWidgetStructure<BWS>>
 extends WidgetStructure<BWS> {
 
+	//default value
+	private static final Color DEFAULT_ACTIVE_BACKGROUND_COLOR = new Color(Color.WHITE);
+	
 	//attribute header
 	private final static String BACKGROUND_COLOR_HEADER = "BackgroundColor";
 	
@@ -30,8 +32,6 @@ extends WidgetStructure<BWS> {
 	//method
 	/**
 	 * @return the active background color of this background widget structure.
-	 * @throws UnexistingAttributeException if this background widget structure
-	 * has no  normal structure with a background color or no background color.
 	 */
 	public final Color getActiveBackgroundColor() {
 		
@@ -48,7 +48,7 @@ extends WidgetStructure<BWS> {
 		
 		//Handles the case if this background widget structure
 		//has no background color and no normal structure.
-		throw new UnexistingAttributeException(this, "background color");
+		return DEFAULT_ACTIVE_BACKGROUND_COLOR;
 	}
 	
 	//method

@@ -11,13 +11,12 @@ import ch.nolix.core.validator2.Validator;
 /**
  * A widget structure stores state-dependent attributes of a widget.
  * 
- * When a widget structure is asked to return an attribute the following approach must be proceeded.
- * Step 1: If the widget structure has currently a value for the attribute it must return that value.
- *         If the widget structure has currently no value for the attribute step 2 must be proceeded.
- * Step 2: If the widget structure has a normal structure it must return what its normal structure returns for the attribute.
+ * When a widget structure is asked to return an active value the following approach must be proceeded.
+ * Step 1: If the widget structure has a value it must return that value.
+ *         If the widget structure has no value step 2 must be proceeded.
+ * Step 2: If the widget structure has a normal structure it must return the active value of its normal structure.
  *         If the widget structure has no normal structure step 3 must be proceeded.
- * Step 3: If the widget structure has a default value for the attribute it must return that default value.
- *         If the widget structure has no default value for the attribute it must throw an UnexistingAttributeException.
+ * Step 3: The widget structure must return a default active value.
  * 
  * @author Silvan Wyss
  * @month 2015-12

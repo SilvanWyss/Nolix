@@ -212,7 +212,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		super.resetConfiguration();
 		
 		setWidth(DEFAULT_WIDTH);
-		getRefNormalStructure().setDefaultBorderSizes();
+		getRefNormalStructure().setBorderSizes(1);
 		getRefNormalStructure().setBackgroundColor(new BackgroundColor(DEFAULT_BACKGROUND_COLOR));
 		setCursorColor(DEFAULT_CURSOR_COLOR);
 		setCursorIcon(CursorIcon.Edit);
