@@ -18,6 +18,9 @@ import ch.nolix.core.validator2.Validator;
  *         If the widget structure has no normal structure step 3 must be proceeded.
  * Step 3: The widget structure must return a default active value.
  * 
+ * A default active value need not to be a valid value for the according setter method.
+ * For example, the default active border size is 0, but the border size can be set only to a positive value.
+ * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 90

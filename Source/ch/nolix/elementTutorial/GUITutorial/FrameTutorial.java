@@ -79,7 +79,7 @@ final class FrameTutorial {
 				.setSelectorType("Button")
 				.addAttachingAttribute(
 					"CursorIcon(Hand)",
-					"Padding(10)",
+					"NormalPadding(10)",
 					"NormalTextSize(50)",
 					"NormalBackgroundColor(LightGrey)",
 					"HoverBackgroundColor(Grey)"	

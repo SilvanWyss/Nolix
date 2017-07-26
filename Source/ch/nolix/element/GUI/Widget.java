@@ -22,7 +22,7 @@ import ch.nolix.element.basic.ConfigurableElement;
  * A widget is an element on a GUI.
  * A widget has a width and height.
  * A widget is a configurable element.
- * The methods concerning the position of this widget are not public.
+ * The methods concerning the position of a widget are not public.
  * 
  * @author Silvan Wyss
  * @month 2015-12
