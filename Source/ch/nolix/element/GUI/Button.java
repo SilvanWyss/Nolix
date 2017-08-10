@@ -3,7 +3,8 @@ package ch.nolix.element.GUI;
 
 //class
 /**
- * A button is a text line rectangle that is supposed to be used for left mouse button presses.
+ * A button is a text line rectangle
+ * that is supposed to be used for left mouse button presses.
  * 
  * @author Silvan Wyss
  * @month 2015-12
@@ -11,8 +12,8 @@ package ch.nolix.element.GUI;
  */
 public final class Button extends TextLineWidget<Button> {
 		
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "Button";
+	//type name
+	public static final String TYPE_NAME = "Button";
 	
 	//constructor
 	/**

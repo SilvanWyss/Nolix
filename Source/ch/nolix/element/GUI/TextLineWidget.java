@@ -83,7 +83,7 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 		super.resetConfiguration();
 		
 		getRefNormalStructure().setTextSize(ValueCatalog.MEDIUM_TEXT_SIZE);
-		getRefNormalStructure().setTextColor(Color.BLACK);
+		getRefNormalStructure().setTextColor(new Color(Color.BLACK));
 		
 		getRefHoverStructure().removeTextSize();
 		getRefHoverStructure().removeTextColor();
@@ -116,7 +116,7 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 		return
 			new GraphicText()
 			.setText(getText())
-			.setSize(getRefCurrentStructure().getCurrentTextSize())
+			.setSize(getRefCurrentStructure().getActiveTextSize())
 			.getHeight();
 	}
 	
@@ -128,7 +128,7 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 		return
 			new GraphicText()
 			.setText(getText())
-			.setSize(getRefCurrentStructure().getCurrentTextSize())
+			.setSize(getRefCurrentStructure().getActiveTextSize())
 			.getWidth();
 	}
 	
@@ -145,8 +145,8 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 	) {
 		new GraphicText()
 		.setText(getText())
-		.setSize(rectangleStructure.getCurrentTextSize())
-		.setColor(rectangleStructure.getCurrentTextColor().getValue())
+		.setSize(rectangleStructure.getActiveTextSize())
+		.setColor(rectangleStructure.getActiveTextColor().getValue())
 		.paint(graphics);	
 	}
 	

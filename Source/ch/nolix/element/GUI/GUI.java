@@ -332,6 +332,8 @@ implements Clearable, IRequestableContainer {
 		
 		if (hasRootWidget()) {
 			
+			System.out.println(getRefWidgets().getCount(w -> w.isUnderMouse()));
+			
 			getRefWidgets()
 			.getSelected(w -> w.isUnderMouse() && w.isEnabled())
 			.forEach(w -> w.noteLeftMouseButtonPress());

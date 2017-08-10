@@ -105,8 +105,8 @@ public final class TextBox extends TextLineWidget<TextBox> {
 			JFrame frame = new JFrame();
 			boolean found = false;
 			for (int i = 0; i < getText().length(); i++) {
-				int subTextWidth = frame.getFontMetrics(new Font("Sans-Serif", Font.PLAIN, getRefCurrentStructure().getCurrentTextSize())).stringWidth(getText().substring(0, i));
-				int nextSubTextWidth = frame.getFontMetrics(new Font("Sans-Serif", Font.PLAIN, getRefCurrentStructure().getCurrentTextSize())).stringWidth(getText().substring(0, i + 1));
+				int subTextWidth = frame.getFontMetrics(new Font("Sans-Serif", Font.PLAIN, getRefCurrentStructure().getActiveTextSize())).stringWidth(getText().substring(0, i));
+				int nextSubTextWidth = frame.getFontMetrics(new Font("Sans-Serif", Font.PLAIN, getRefCurrentStructure().getActiveTextSize())).stringWidth(getText().substring(0, i + 1));
 				int halfDistance = (nextSubTextWidth - subTextWidth) / 2;
 				if (
 					textCursorDistanceFromTextBegin > subTextWidth - halfDistance &&
@@ -239,20 +239,20 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 */
 	protected final void paintContent(TextLineWidgetStructure rectangleStructure, Graphics graphics) {
 		
-		int textCursorDistanceFromTextBegin = new JFrame().getFontMetrics(new Font("Sans-Serif", Font.PLAIN, getRefCurrentStructure().getCurrentTextSize())).stringWidth(getTextBeforeTextCursor());
+		int textCursorDistanceFromTextBegin = new JFrame().getFontMetrics(new Font("Sans-Serif", Font.PLAIN, getRefCurrentStructure().getActiveTextSize())).stringWidth(getTextBeforeTextCursor());
 		graphics.setColor(textCursor.getRefColor().getJavaColor());
 		graphics.setColor(new Color(Color.ANTHRAZIT).getJavaColor());
 		
 		new GraphicText()
 		.setText(getText())
-		.setSize(rectangleStructure.getCurrentTextSize())
+		.setSize(rectangleStructure.getActiveTextSize())
 		.paint(graphics);
 		
 		graphics.fillRect(
 			getContentXPosition() + textCursorDistanceFromTextBegin,
 			getContentYPosition(),
 			1,
-			getRefCurrentStructure().getCurrentTextSize()
+			getRefCurrentStructure().getActiveTextSize()
 		);
 	}
 	

@@ -7,19 +7,26 @@ import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 
-//class
+//abstract class
 /**
  * A widget structure stores state-dependent attributes of a widget.
+ * All attributes a widget structure can have are optional.
  * 
- * When a widget structure is asked to return an active value the following approach must be proceeded.
- * Step 1: If the widget structure has a value it must return that value.
- *         If the widget structure has no value step 2 must be proceeded.
- * Step 2: If the widget structure has a normal structure it must return the active value of its normal structure.
- *         If the widget structure has no normal structure step 3 must be proceeded.
- * Step 3: The widget structure must return a default active value.
+ * For each attribute A, a widget structure has a method hasRecursiveA().
+ * A method hasRecursiveAA must have the following scheme.
+ * Step 1: If the widget structure has a value, the hasRecursiveA() must return true.
+ * Step 2: If the widget structure has a normal structure, hasRecursiveA()
+ *         must return hasRecursiveA() of the normal structure.
+ * Step 3: hasRecursiveA() must return false.
  * 
- * A default active value need not to be a valid value for the according setter method.
- * For example, the default active border size is 0, but the border size can be set only to a positive value.
+ * For each attribute A, a widget structure has a method getActiveA().
+ * Step 1: If the widget structure has a value, getActiveA must return that value.
+ * Step 2: If the widget structure has a normal structure, getActiveA()
+ *         must return getActiveA() of the normal structure.
+ * Step 3: If the widget structure has a condition for a smart default value
+ *         and the condition is fulfilled,
+ *         getActiveOrDefaultA must return the smart default value.
+ * Step 4: The widget structure must return a default value.
  * 
  * @author Silvan Wyss
  * @month 2015-12

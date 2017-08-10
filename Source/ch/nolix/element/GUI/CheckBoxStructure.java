@@ -12,14 +12,15 @@ import ch.nolix.element.basic.PositiveInteger;
 /**
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 250
+ * @lines 260
  */
-public final class CheckBoxStructure extends BackgroundWidgetStructure<CheckBoxStructure> {
+public final class CheckBoxStructure
+extends BackgroundWidgetStructure<CheckBoxStructure> {
 	
 	//default values
 	public static final int DEFAULT_SIZE = 10;
 	public static final int DEFAULT_LINE_THICKNESS = 1;
-	public static final int DEFAULT_LINE_COLOR = Color.BLACK;
+	public static final Color DEFAULT_LINE_COLOR = new Color(Color.BLACK);
 	
 	//attribute headers
 	private static final String SIZE_HEADER = "Size";
@@ -42,13 +43,15 @@ public final class CheckBoxStructure extends BackgroundWidgetStructure<CheckBoxS
 			return lineColor;
 		}
 		
-		//Handles the case if this check box structure has no line color but a normal structure.
+		//Handles the case if this check box structure
+		//has no line color but a normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getActiveLineColor();
 		}
 		
-		//Handles the case if this check box structureh as no line color and no normal structure.
-		return new Color(DEFAULT_LINE_COLOR);
+		//Handles the case if this check box structure
+		//has no line color and no normal structure.
+		return DEFAULT_LINE_COLOR;
 	}
 	
 	//method
@@ -62,12 +65,14 @@ public final class CheckBoxStructure extends BackgroundWidgetStructure<CheckBoxS
 			return lineThickness.getValue();
 		}
 		
-		//Handles the case if this check box structure has no line thickness but a normal structure.
+		//Handles the case if this check box structure
+		//has no line thickness but a normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getActiveLineThickness();
 		}
 		
-		//Handles the case if this check box structure has no line thickness and no normal structure.
+		//Handles the case if this check box structure
+		//has no line thickness and no normal structure.
 		return DEFAULT_LINE_THICKNESS;
 	}
 	
@@ -82,12 +87,14 @@ public final class CheckBoxStructure extends BackgroundWidgetStructure<CheckBoxS
 			return size.getValue();
 		}
 		
-		//Handles the case if this check box structure has no size but a normal structure.
+		//Handles the case if this check box structure
+		//has no size but a normal structure.
 		if (hasNormalStructure()) {
 			getRefNormalStructure().getActiveSize();
 		}
 		
-		//Handles the case if this check box structure has no size and no normal structure.
+		//Handles the case if this check box structure
+		//has no size and no normal structure.
 		return DEFAULT_SIZE;
 	}
 	
@@ -206,30 +213,6 @@ public final class CheckBoxStructure extends BackgroundWidgetStructure<CheckBoxS
 	
 	//method
 	/**
-	 * @return the attributes of this check box structure.
-	 */
-	protected List<StandardSpecification> getAttributes() {
-		
-		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
-		
-		if (hasSize()) {
-			attributes.addAtEnd(size.getSpecificationAs(SIZE_HEADER));
-		}
-		
-		if (hasLineThickness()) {
-			attributes.addAtEnd(lineThickness.getSpecificationAs(LINE_THICKNESS_HEADER));
-		}
-		
-		if (hasLineColor()) {
-			attributes.addAtEnd(lineColor.getSpecificationAs(LINE_COLOR_HEADER));
-		}
-		
-		return attributes;
-	}
-	
-	//method
-	/**
 	 * Adds or changes the given attribute to this check box structure.
 	 * 
 	 * @param attribute
@@ -253,5 +236,32 @@ public final class CheckBoxStructure extends BackgroundWidgetStructure<CheckBoxS
 				//Calls method of the base class.
 				super.addOrChangeAttribute(attribute);
 		}
+	}
+	
+	//method
+	/**
+	 * @return the attributes of this check box structure.
+	 */
+	protected List<StandardSpecification> getAttributes() {
+		
+		//Calls method of the base class.
+		final List<StandardSpecification> attributes = super.getAttributes();
+		
+		//Handles the option that this check box structure has a size.
+		if (hasSize()) {
+			attributes.addAtEnd(size.getSpecificationAs(SIZE_HEADER));
+		}
+		
+		//Handles the option that this check box structure has a line thickness.
+		if (hasLineThickness()) {
+			attributes.addAtEnd(lineThickness.getSpecificationAs(LINE_THICKNESS_HEADER));
+		}
+		
+		//Handles the option that this check box structure has a line color.
+		if (hasLineColor()) {
+			attributes.addAtEnd(lineColor.getSpecificationAs(LINE_COLOR_HEADER));
+		}
+		
+		return attributes;
 	}
 }

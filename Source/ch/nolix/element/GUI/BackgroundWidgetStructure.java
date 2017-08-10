@@ -53,9 +53,17 @@ extends WidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * @return true if this background widget structure has an active background color.
+	 * @return true if this background widget structure has a background color.
 	 */
-	public final boolean hasActiveBackgroundColor() {
+	public final boolean hasBackgroundColor() {
+		return (backgroundColor != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this background widget structure has a recursive background color.
+	 */
+	public final boolean hasRecursiveBackgroundColor() {
 		
 		//Handles the case if this background widget structure has a background color.
 		if (hasBackgroundColor()) {
@@ -65,20 +73,12 @@ extends WidgetStructure<BWS> {
 		//Handles the case if this background widget structure
 		//has no background color but a normal structure.
 		if (hasNormalStructure()) {
-			return getRefNormalStructure().hasActiveBackgroundColor();
+			return getRefNormalStructure().hasRecursiveBackgroundColor();
 		}
 		
 		//Handles the case if this background widget structure
 		//has no background color and no normal structure.
 		return false;
-	}
-	
-	//method
-	/**
-	 * @return true if this background widget structure has a background color.
-	 */
-	public final boolean hasBackgroundColor() {
-		return (backgroundColor != null);
 	}
 	
 	//method

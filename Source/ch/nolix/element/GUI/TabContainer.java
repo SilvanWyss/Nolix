@@ -741,7 +741,7 @@ extends Container<TabContainer, TabContainerStructure> {
 				label.getRefNormalStructure().removeBackgroundColor();
 			}
 			label.getRefNormalStructure().setTextSize(getRefNormalMenuItemStructure().getRefRecTextSize());
-			label.getRefNormalStructure().setTextColor(getRefNormalMenuItemStructure().getRefRecTextColor().getValue());
+			label.getRefNormalStructure().setTextColor(getRefNormalMenuItemStructure().getRefRecTextColor());
 			
 			if (getRefHoverMenuItemStructure().hasBackgroundColor()) {
 				label.getRefHoverStructure().setBackgroundColor(getRefHoverMenuItemStructure().getRefRecBackgroundColor());
@@ -750,7 +750,7 @@ extends Container<TabContainer, TabContainerStructure> {
 				label.getRefHoverStructure().removeBackgroundColor();
 			}
 			label.getRefHoverStructure().setTextSize(getRefHoverMenuItemStructure().getRefRecTextSize());
-			label.getRefHoverStructure().setTextColor(getRefHoverMenuItemStructure().getRefRecTextColor().getValue());
+			label.getRefHoverStructure().setTextColor(getRefHoverMenuItemStructure().getRefRecTextColor());
 			
 			if (getRefFocusMenuItemStructure().hasBackgroundColor()) {
 				label.getRefFocusStructure().setBackgroundColor(getRefFocusMenuItemStructure().getRefRecBackgroundColor());
@@ -759,7 +759,7 @@ extends Container<TabContainer, TabContainerStructure> {
 				label.getRefFocusStructure().removeBackgroundColor();
 			}
 			label.getRefFocusStructure().setTextSize(getRefFocusMenuItemStructure().getRefRecTextSize());
-			label.getRefFocusStructure().setTextColor(getRefFocusMenuItemStructure().getRefRecTextColor().getValue());
+			label.getRefFocusStructure().setTextColor(getRefFocusMenuItemStructure().getRefRecTextColor());
 			
 			label.paintUsingPositionOnContainer(graphics);
 		}

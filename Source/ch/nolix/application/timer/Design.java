@@ -42,7 +42,7 @@ final class Design extends StandardConfiguration {
 				"NormalTextColor(White)"
 			),	
 			new StandardConfiguration()
-			.setSelectorType(Button.SIMPLE_CLASS_NAME)
+			.setSelectorType(Button.TYPE_NAME)
 			.addAttachingAttribute(
 				"CursorIcon(Hand)",
 				"NormalTextSize(30)",
