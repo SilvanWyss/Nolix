@@ -473,24 +473,7 @@ public final class List<E> implements Clearable, IContainer<E> {
 		
 		return ((double)getCount(sequencePattern) / getElementCount());
 	}
-	
-	//method
-	/**
-	 * The complexity of this method is O(1).
-	 * 
-	 * @return the first element of this list
-	 * @throws EmptyStateException if this list is empty.
-	 */
-	public E getRefFirst() {
 		
-		//Checks if this list is not empty.
-		if (isEmpty()) {
-			throw new EmptyStateException(this);
-		}
-		
-		return firstNode.getElement();
-	}
-	
 	//method
 	/**
 	 * The complexity of this method is O(1).
@@ -505,6 +488,23 @@ public final class List<E> implements Clearable, IContainer<E> {
 			throw new EmptyStateException(this);
 		}
 		
+		return lastNode.getElement();
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @return the last element of this list or null.
+	 */
+	public E getRefLastOrNull() {
+		
+		//Handles the case if this list is empty.
+		if (isEmpty()) {
+			return null;
+		}
+		
+		//Handles the case if this list is not empty.
 		return lastNode.getElement();
 	}
 	
