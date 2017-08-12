@@ -5,42 +5,57 @@ package ch.nolix.element.GUI;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-//class
-public final class FrameCloseListener implements WindowListener {
+//own import
+import ch.nolix.core.validator2.Validator;
 
-	//attributes
+//package-visible class
+/**
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 60
+ */
+final class FrameCloseListener implements WindowListener {
+
+	//attribute
+	//frame this frame close listener belongs to.
 	private Frame frame;
 	
 	//constructor
-	public FrameCloseListener(Frame frame) {
+	/**
+	 * Creates new frame close listener that belongs to the given frame.
+	 * 
+	 * @param frame
+	 * @throws NullArgumentException if the given frame is null.
+	 */
+	public FrameCloseListener(final Frame frame) {
+		
+		//Checks if the given frame is not null.
+		Validator.supposeThat(frame).thatIsInstanceOf(Frame.class).isNotNull();
+		
+		//Sets the frame of this frame close listener.
 		this.frame = frame;
 	}
 	
 	//method
-	public void windowActivated(WindowEvent windowEvent) {}
+	public void windowActivated(final WindowEvent windowEvent) {}
 
 	//method
-	public void windowClosed(WindowEvent windowEvent) {}
+	public void windowClosed(final WindowEvent windowEvent) {}
 		
 	//method
-	public void windowClosing(WindowEvent windowEvent) {
-		try {
-			frame.noteCloseButtonClick();
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+	public void windowClosing(final WindowEvent windowEvent) {
+		frame.noteCloseButtonClick();
 	}			
 
 	//method
-	public void windowDeactivated(WindowEvent windowEvent) {}		
+	public void windowDeactivated(final WindowEvent windowEvent) {}		
 
 	// method
-	public void windowDeiconified(WindowEvent windowEvent) {}			
+	public void windowDeiconified(final WindowEvent windowEvent) {}			
 
 	//method
-	public void windowIconified(WindowEvent windowEvent) {}			
+	public void windowIconified(final WindowEvent windowEvent) {}			
 
 	//method
-	public void windowOpened(WindowEvent arg0) {}	
+	public void windowOpened(final WindowEvent windowEvent) {}	
 }

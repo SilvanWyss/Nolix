@@ -10,8 +10,8 @@ package ch.nolix.element.GUI;
 
 //java import
 import java.awt.Graphics;
-import java.awt.event.KeyEvent;
 
+import ch.nolix.core.container.AccessorContainer;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
@@ -46,15 +46,9 @@ extends BorderWidget<C, BWS> {
 	
 	//abstract method
 	/**
-	 * @return the rectangles of this container
+	 * @return the widgets of this container that are shown.
 	 */
-	public abstract List<Widget<?, ?>> getRefRectangles();
-	
-	//abstract method
-	/**
-	 * @return the rectangles of this container that are shown
-	 */
-	public abstract List<Widget<?, ?>> getRefShownRectangles();
+	public abstract AccessorContainer<Widget<?, ?>> getRefShownWidgets();
 	
 	public final boolean hasRole() {
 		return (role != null);
@@ -79,7 +73,7 @@ extends BorderWidget<C, BWS> {
 		super.resetConfiguration();
 		
 		//Resets the configuration of the rectangles of this container.
-		getRefRectangles().forEach(r -> r.resetConfiguration());
+		getRefWidgets().forEach(r -> r.resetConfiguration());
 	}
 	
 	public void addOrChangeAttribute(StandardSpecification attribute) {
@@ -114,66 +108,6 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
-	 * Lets this container note a left click.
-	 */
-	public void noteLeftMouseButtonPress() {
-		
-		//Calls method of the base class.
-		super.noteLeftMouseButtonPress();
-		
-		//Lets the rectangles of this stack that are shown note a left click.
-		getRefShownRectangles().forEach(r -> r.noteLeftMouseButtonPress());
-	}
-	
-	//method
-	/**
-	 * Lets this container note a mouse move.
-	 */
-	public void noteMouseMove() {
-		
-		//Calls method of the base class.
-		super.noteMouseMove();
-		
-		//Lets the shown rectangles of this contianer note a mouse move.
-		getRefShownRectangles().forEach(r -> r.noteMouseMove());
-	}
-	
-	//method
-	/**
-	 * Lets this container note the given key event that has been created by a key pressing.
-	 * 
-	 * @param keyEvent
-	 */
-	public void noteKeyPress(KeyEvent keyEvent) {
-					
-		//Lets the shown rectangles of this container note the given key event that has been created by a key pressing.
-		getRefShownRectangles().forEach(r -> r.noteKeyPress(keyEvent));
-	}
-	
-	//method
-	/**
-	 * Lets this container note a right click
-	 */
-	public void noteRightMouseButtonPress() {
-		
-		//Lets the shown rectangles of this container note a right click.
-		getRefShownRectangles().forEach(r -> r.noteRightMouseButtonPress());
-	}
-	
-	//method
-	/**
-	 * Lets this container note the given key event that has been created by a key typing.
-	 * 
-	 * @param keyEvent
-	 */
-	public void noteKeyTyping(KeyEvent keyEvent) {
-					
-		//Lets the shown rectangles of this container note the given key event that has been created by a key typing.
-		getRefShownRectangles().forEach(r -> r.noteKeyTyping(keyEvent));
-	}
-	
-	//method
-	/**
 	 * Paints this container using the given rectangle structure and graphics.
 	 * 
 	 * @param rectangleStructure
@@ -184,7 +118,7 @@ extends BorderWidget<C, BWS> {
 		graphics.translate(-getContentXPosition(), -getContentYPosition());
 		
 		//Paints the rectangles of this container that are shown.
-		getRefShownRectangles().forEach(r -> r.paintUsingPositionOnContainer(graphics));
+		getRefShownWidgets().forEach(r -> r.paintUsingPositionOnContainer(graphics));
 		
 		graphics.translate(getContentXPosition(), getContentYPosition());
 	}
@@ -202,7 +136,7 @@ extends BorderWidget<C, BWS> {
 		super.setGUI(dialog);
 		
 		//Sets the dialog of the rectangles of this container.
-		getRefRectangles().forEach(r -> r.setGUI(dialog));
+		getRefWidgets().forEach(r -> r.setGUI(dialog));
 	}
 	
 	//method
@@ -212,12 +146,12 @@ extends BorderWidget<C, BWS> {
 	 * @param relativeMouseXPosition
 	 * @parma mouseYPosition
 	 */
-	public void setMousePositionFromParentContainer(int relativeMouseXPosition, int relativeMouseYPosition) {
+	public void setCursorPositionFromParentContainer(int relativeMouseXPosition, int relativeMouseYPosition) {
 		
 		//Calls method of the base class.
-		super.setMousePositionFromParentContainer(relativeMouseXPosition, relativeMouseYPosition);
+		super.setCursorPositionFromParentContainer(relativeMouseXPosition, relativeMouseYPosition);
 		
 		//Sets the relative mouse position of the rectangles of this container that are shown.
-		getRefShownRectangles().forEach(r -> r.setMousePositionFromParentContainer(getMouseXPosition(), getMouseYPosition()));
+		getRefShownWidgets().forEach(r -> r.setCursorPositionFromParentContainer(getMouseXPosition(), getMouseYPosition()));
 	}
 }

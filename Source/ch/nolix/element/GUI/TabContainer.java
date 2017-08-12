@@ -144,7 +144,7 @@ extends Container<TabContainer, TabContainerStructure> {
 		Label menuItemLabel = new Label();
 		menuItemLabel.setText(tab.getName());
 		menuItemLabel.setCursorIcon(CursorIcon.Hand);
-		menu.addRectangle(menuItemLabel);
+		menu.addWidget(menuItemLabel);
 		
 		tab.setTabContainer(this, menuItemLabel);
 		tabs.addAtEnd(tab);
@@ -227,7 +227,7 @@ extends Container<TabContainer, TabContainerStructure> {
 	 * @return the margin of the items of the menu of this tab container
 	 */
 	public int getMenuItemMargin() {
-		return menu.getElementMargin();
+		return menu.getActiveElementMargin();
 	}
 	
 	//method
@@ -363,30 +363,32 @@ extends Container<TabContainer, TabContainerStructure> {
 	/**
 	 * @return the rectangles of this tab container
 	 */
-	public List<Widget<?, ?>> getRefRectangles() {
+	public AccessorContainer<Widget<?, ?>> getRefWidgets() {
 		
-		List<Widget<?, ?>> rectangles = new List<Widget<?, ?>>();
+		final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>();
 		
 		for (TabContainerTab t: tabs) {
 			if (t.hasRectangle()) {
-				rectangles.addAtEnd(t.getRefRectangle());
+				widgets.addAtEnd(t.getRefRectangle());
 			}
 		}
 		
-		return rectangles;
+		return new AccessorContainer<>(widgets);
 	}
 	
 	//method
 	/**
 	 * @return the rectangleso of this tab container that are shown
 	 */
-	public List<Widget<?, ?>> getRefShownRectangles() {
+	public AccessorContainer<Widget<?, ?>> getRefShownWidgets() {
+		
+		final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>();
 		
 		if (currentTab.hasRectangle()) {
-			return new List<Widget<?, ?>>().addAtEnd(currentTab.getRefRectangle());
+			widgets.addAtEnd(currentTab.getRefRectangle());
 		}
 		
-		return new List<Widget<?, ?>>();
+		return new AccessorContainer<>(widgets);
 	}
 	
 	//method
@@ -510,7 +512,7 @@ extends Container<TabContainer, TabContainerStructure> {
 		if (tabs.contains(t -> t.hasName(name))) {
 			currentTab = tabs.getRefFirst(t -> t.hasName(name));
 			
-			for (Widget<?, ?> mi: menu.getRefRectangles()) {
+			for (Widget<?, ?> mi: menu.getRefWidgets()) {
 				Label menuItem = (Label)mi;
 				if (menuItem.getText().equals(name)) {
 					menuItem.setFocused();
@@ -685,12 +687,12 @@ extends Container<TabContainer, TabContainerStructure> {
 		//Calls method of the base class.
 		super.noteLeftMouseButtonPress();
 		
-		if (menu.isUnderMouse()) {
+		if (menu.isUnderCursor()) {
 			
 			menu.noteLeftMouseButtonPress();
 			
-			if (menu.getRefRectangles().contains(r -> r.isUnderMouse())) {
-				selectTab(((Label)menu.getRefRectangles().getRefFirst(r -> r.isUnderMouse())).getText());
+			if (menu.getRefWidgets().contains(r -> r.isUnderCursor())) {
+				selectTab(((Label)menu.getRefWidgets().getRefFirst(r -> r.isUnderCursor())).getText());
 			}
 		}
 	}
@@ -714,7 +716,7 @@ extends Container<TabContainer, TabContainerStructure> {
 		//Update problem, when does the menu take the data from the structures?
 		//Answer: not when it is painted, but on events: tab container must lead events though!
 		//Paints the menu of this tab container.
-		for (Widget<?, ?> mi: menu.getRefRectangles()) {
+		for (Widget<?, ?> mi: menu.getRefWidgets()) {
 			
 			Label label = (Label)mi;
 			
@@ -776,12 +778,12 @@ extends Container<TabContainer, TabContainerStructure> {
 	 * @param relativeMouseXPosition
 	 * @param realtiveMouseYPosition
 	 */
-	public void setMousePositionFromParentContainer(final int relativeMouseXPosition, final int relativeMouseYPosition) {
+	public void setCursorPositionFromParentContainer(final int relativeMouseXPosition, final int relativeMouseYPosition) {
 		
 		//Calls method of the base class.
-		super.setMousePositionFromParentContainer(relativeMouseXPosition, relativeMouseYPosition);
+		super.setCursorPositionFromParentContainer(relativeMouseXPosition, relativeMouseYPosition);
 		
-		menu.setMousePositionFromParentContainer(getMouseXPosition(), getMouseYPosition());
+		menu.setCursorPositionFromParentContainer(getMouseXPosition(), getMouseYPosition());
 	}
 	
 	//method
@@ -815,10 +817,5 @@ extends Container<TabContainer, TabContainerStructure> {
 	@Override
 	protected TabContainerStructure createWidgetStructure() {
 		return new TabContainerStructure();
-	}
-
-	@Override
-	public AccessorContainer<Widget<?, ?>> getRefElements() {
-		return new AccessorContainer<>();
 	}
 }

@@ -38,12 +38,12 @@ final class MainSession extends Session<GUIClient> {
 		.setRootWidget(
 			new VerticalStack()
 			.setRole(ContainerRole.MainContainer)
-			.addRectangle(
+			.addWidget(
 				new Label()
 				.setName(WidgetNameManager.TIME_LABEL_NAME)
 				.setText("00 : 00 : 00 : 000"),
 				new HorizontalStack()
-				.addRectangle(
+				.addWidget(
 					new Button()
 					.setText("Start")
 					.setLeftMouseButtonPressCommand("StartTimer"),

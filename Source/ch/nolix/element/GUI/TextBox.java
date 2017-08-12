@@ -145,30 +145,28 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 */
 	public void noteKeyTyping(KeyEvent keyEvent) {
 		
-		if (true) { //if is focussed
-			
-			if (Character.isLetter(keyEvent.getKeyChar()) || Character.isDigit(keyEvent.getKeyChar())) {
-				insertCharacterAfterCursor(keyEvent.getKeyChar());
-			}
-			
-			switch (keyEvent.getKeyCode()) {
-				case KeyEvent.VK_LEFT:
-					if (getTextCursorPosition() > 0) {
-						textCursorPosition--;
-					}
-					break;
-				case KeyEvent.VK_RIGHT:
-					if (getTextCursorPosition() < getText().length()) {
-						textCursorPosition++;
-					}
-					break;
-				case KeyEvent.VK_BACK_SPACE:
-					deleteCharacterBeforeTextCursor();
-					break;
-				case KeyEvent.VK_DELETE:
-					deleteCharacterAfterTextCursor();
-					break;
-			}
+
+		if (Character.isLetter(keyEvent.getKeyChar()) || Character.isDigit(keyEvent.getKeyChar())) {
+			insertCharacterAfterCursor(keyEvent.getKeyChar());
+		}
+		
+		switch (keyEvent.getKeyCode()) {
+			case KeyEvent.VK_LEFT:
+				if (getTextCursorPosition() > 0) {
+					textCursorPosition--;
+				}
+				break;
+			case KeyEvent.VK_RIGHT:
+				if (getTextCursorPosition() < getText().length()) {
+					textCursorPosition++;
+				}
+				break;
+			case KeyEvent.VK_BACK_SPACE:
+				deleteCharacterBeforeTextCursor();
+				break;
+			case KeyEvent.VK_DELETE:
+				deleteCharacterAfterTextCursor();
+				break;
 		}
 	}
 	

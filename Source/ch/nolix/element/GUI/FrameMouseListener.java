@@ -1,10 +1,3 @@
-/*
- * file:	FrameMouseListener
- * author:	Silvan Wyss
- * month:	2015
- * lines:	50
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
@@ -12,47 +5,71 @@ package ch.nolix.element.GUI;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-//class
+//own import
+import ch.nolix.core.validator2.Validator;
+
+//package-visible class
+/**
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 70
+ */
 final class FrameMouseListener implements MouseListener {
 	
 	//attribute
+	//Frame a frame mouse listener belongs to.
 	private final Frame frame;
 	
 	//constructor
 	/**
 	 * Creates new frame mouse listener that belongs to the given frame.
+	 * 
 	 * @param frame
+	 * @throws NullArgumentException if the given frame is null.
 	 */
-	public FrameMouseListener(Frame frame) {
+	public FrameMouseListener(final Frame frame) {
+		
+		//Checks if the given frame is not null.
+		Validator.supposeThat(frame).thatIsInstanceOf(Frame.class).isNotNull();
+		
+		//Sets the frame of this frame mouse listener.
 		this.frame = frame;
 	}
 
 	//method
-	public final void mouseClicked(MouseEvent arg0) {
+	public final void mouseClicked(final MouseEvent mouseEvent) {}
+
+	//method
+	public final void mouseEntered(final MouseEvent mouseEvent) {}
+
+	//method
+	public final void mouseExited(final MouseEvent mouseEvent0) {}
+
+	//method
+	public final void mousePressed(final MouseEvent mouseEvent) {
 		
-		//frame.noteLeftClicked();
-	}
-
-	//method
-	public final void mouseEntered(MouseEvent arg0) {
-		
-	}
-
-	//method
-	public final void mouseExited(MouseEvent arg0) {}
-
-	//method
-	public final void mousePressed(MouseEvent mouseEvent) {
-		if (mouseEvent.getButton() == MouseEvent.BUTTON1) {
-			frame.noteLeftMouseButtonPress();
+		//Enumerates the button of the given mouse event.
+		switch (mouseEvent.getButton()) {
+			case MouseEvent.BUTTON1:
+				frame.noteLeftMouseButtonPress();
+				break;
+			case MouseEvent.BUTTON3:
+				frame.noteRightMouseButtonPress();
+				break;
 		}
 	}
 
 	//method
-	public final void mouseReleased(MouseEvent mouseEvent) {
+	public final void mouseReleased(final MouseEvent mouseEvent) {
 		
-		if (mouseEvent.getButton() == MouseEvent.BUTTON1) {
-			frame.noteLeftMouseButtonRelease();
+		//Enumerates the button of the given mouse event.
+		switch (mouseEvent.getButton()) {
+			case MouseEvent.BUTTON1:
+				frame.noteLeftMouseButtonRelease();
+				break;
+			case MouseEvent.BUTTON3:
+				frame.noteRightMouseButtonRelease();
+				break;
 		}
 	}
 }

@@ -8,11 +8,15 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+//own import
+import ch.nolix.core.specification.StandardSpecification;
+
 //enum
 public enum ContainerRole {
 	OverallContainer,
 	MainContainer;
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "ContainerRole";
+	public StandardSpecification getSpecificationAs(final String type) {
+		return new StandardSpecification(type, toString());
+	}
 }

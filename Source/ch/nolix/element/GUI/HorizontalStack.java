@@ -45,7 +45,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 			return 0;
 		}
 		
-		return getRefRectangles().getMaxInt(r -> r.getHeight());
+		return getRefWidgets().getMaxInt(r -> r.getHeight());
 	}
 	
 	//method
@@ -56,12 +56,12 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 		
 		int contentWidth = 0;
 		
-		for (Widget<?, ?> r: getRefRectangles()) {
+		for (Widget<?, ?> r: getRefWidgets()) {
 			contentWidth += r.getWidth();
 		}
 			
 		if (containsAny()) {
-			contentWidth += (getRefRectangles().getElementCount() - 1) * getElementMargin();
+			contentWidth += (getRefWidgets().getElementCount() - 1) * getActiveElementMargin();
 		}
 		
 		return contentWidth;
@@ -87,9 +87,9 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 				
 				int x1 = getContentXPosition();
 				final int y1 = getContentYPosition();
-				for (Widget<?, ?> r: getRefRectangles()) {
+				for (Widget<?, ?> r: getRefWidgets()) {
 					r.setPositionOnContainer(x1, y1);
-					x1 += r.getWidth() + getElementMargin();
+					x1 += r.getWidth() + getActiveElementMargin();
 				}
 				
 				break;
@@ -100,9 +100,9 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 				final int contentHeight2 = getContentHeight();
 				int x2 = getContentXPosition();
 				final int y2 = getContentYPosition();
-				for (Widget<?, ?> r: getRefRectangles()) {
+				for (Widget<?, ?> r: getRefWidgets()) {
 					r.setPositionOnContainer(x2, y2 + (contentHeight2 - r.getHeight()) / 2);
-					x2 += r.getWidth() + getElementMargin();
+					x2 += r.getWidth() + getActiveElementMargin();
 				}
 				
 				break;
@@ -113,9 +113,9 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 				final int contentHeight3 = getContentHeight();
 				int x3 = getContentXPosition();
 				final int y3 = getContentYPosition();
-				for (Widget<?, ?> r: getRefRectangles()) {
+				for (Widget<?, ?> r: getRefWidgets()) {
 					r.setPositionOnContainer(x3, y3 + contentHeight3 - r.getHeight());
-					x3 += r.getWidth() + getElementMargin();
+					x3 += r.getWidth() + getActiveElementMargin();
 				}
 				break;
 		}

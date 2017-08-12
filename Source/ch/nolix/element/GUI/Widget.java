@@ -311,7 +311,7 @@ extends ConfigurableElement<W> {
 	public final AccessorContainer<Configurable> getRefConfigurables() {
 		
 		//TODO: Implement this better.
-		return new AccessorContainer<Configurable>(getRefElements().to(e -> e));
+		return new AccessorContainer<Configurable>(getRefWidgets().to(e -> e));
 	}
 	
 	//method
@@ -327,7 +327,7 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @return the elements of this widget.
 	 */
-	public abstract AccessorContainer<Widget<?, ?>> getRefElements();
+	public abstract AccessorContainer<Widget<?, ?>> getRefWidgets();
 	
 	//method
 	/**
@@ -515,7 +515,7 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @return true if the mouse is on this widget.
 	 */
-	public final boolean isUnderMouse() {
+	public final boolean isUnderCursor() {
 		return (
 			mouseXPosition >= 0	//First, checks the conditions that can be calculated easily.
 			&& mouseYPosition >= 0
@@ -523,6 +523,10 @@ extends ConfigurableElement<W> {
 			&& mouseYPosition < getHeight()
 		);		
 	}
+
+	public void noteHoverEntry() {}
+	
+	public void noteHoverRelease() {}
 	
 	//method
 	/**
@@ -538,7 +542,10 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @param keyEvent
 	 */
-	public void noteKeyTyping(KeyEvent keyEvent) {}
+	public void noteKeyTyping(KeyEvent keyEvent) {
+		
+		System.out.println(getType());
+	}
 	
 	//method
 	/**
@@ -560,7 +567,6 @@ extends ConfigurableElement<W> {
 		
 		//Handles the option that this widget has a left mouse button release command.
 		if (hasLeftMouseButtonReleaseCommand()) {
-			System.out.println(13420);
 			getRefGUI().getRefController().run(getLeftMouseButtonReleaseCommand());
 		}
 	}
@@ -570,22 +576,8 @@ extends ConfigurableElement<W> {
 	 * Lets this widget note a mouse move.
 	 */
 	public void noteMouseMove() {
-		//TODO
-		//Updates the state of this widget.
-		if (isUnderMouse()) {
-			if (isNormal()) {
-				setHovered();
-			}
-		}
-		else {
-			if (isHovered()) {
-				setNormal();
-			}
-		}
 		
-		if (isUnderMouse()) {
-			getRefGUI().proposeCursorIcon(cursorIcon);
-		}
+
 	}
 	
 	//method
@@ -839,7 +831,7 @@ extends ConfigurableElement<W> {
 	 * @param mouseXPositionOnParentContainer
 	 * @param mouseYPositionOnParentContainer
 	 */
-	public void setMousePositionFromParentContainer(
+	public void setCursorPositionFromParentContainer(
 			final int mouseXPositionOnParentContainer,
 			final int mouseYPositionOnParentContainer
 	) {
@@ -1088,11 +1080,6 @@ extends ConfigurableElement<W> {
 	private void paint(final Graphics graphics) {
 		
 		paint(getRefCurrentStructure(), graphics);
-		
-		//Handles the option that this widget is under the mouse.
-		if (isUnderMouse()) {
-			getRefGUI().proposeCursorIcon(getCursorIcon());
-		}
 		
 		//Handles the option that this widget is disabled.
 		if (isDisabled()) {

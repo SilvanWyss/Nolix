@@ -183,7 +183,7 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxStructure
 	}
 
 	@Override
-	public AccessorContainer<Widget<?, ?>> getRefElements() {
+	public AccessorContainer<Widget<?, ?>> getRefWidgets() {
 		return new AccessorContainer<>();
 	}
 }

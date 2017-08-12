@@ -155,7 +155,7 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 	}
 	
 	@Override
-	public AccessorContainer<Widget<?, ?>> getRefElements() {
+	public AccessorContainer<Widget<?, ?>> getRefWidgets() {
 		return new AccessorContainer<>();
 	}
 }

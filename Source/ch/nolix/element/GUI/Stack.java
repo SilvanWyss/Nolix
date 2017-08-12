@@ -1,79 +1,107 @@
-/*
- * file:	Stack.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	230
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
-import ch.nolix.core.container.AccessorContainer;
 //own imports
+import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.data.Margin;
 
-//class
+//abstract class
 /**
+ * A stack is a container that orders its widgets in a line.
+ * 
  * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 220
  * @param <S> The type of a stack.
  */
 public abstract class Stack<S extends Stack<S>> 
 extends Container<S, StackStructure>
 implements Clearable {
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "Stack";
+	//type name
+	public static final String TYPE_NAME = "Stack";
+	
+	//attribute header
+	private static final String ELEMENT_MARGIN_HEADER = "ElementMargin";
 	
 	//default value
 	public static final int DEFAULT_ELEMENT_MARGIN = 10;
-	
-	//attribute header
-	private static final String ELEMENT_MARGIN = "ElementMargin";
 	
 	//optional attribute
 	private Margin elementMargin;
 	
 	//multiple attribute
-	private List<Widget<?, ?>> rectangles = new List<Widget<?, ?>>();
+	private final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>();
 	
 	//method
 	/**
-	 * Adds the given rectangle to this stack.
-	 * @param rectangle
-	 * @throws Exception if the given rectangle already belongs to a dialog
-	 */
-	@SuppressWarnings("unchecked")
-	public final S addRectangle(Widget<?, ?> rectangle) {
-		
-		if (belongsToGUI()) {
-			rectangle.setGUI(getRefGUI());
-		}
-		
-		rectangles.addAtEnd(rectangle);
-		
-		return (S)this;
-	}
-	
-	
-	//method
-	/**
-	 * Adds the given rectangles to this stack.
+	 * Adds or changes the given attribute to this stack.
 	 * 
-	 * @param rectangles
-	 * @return this stack
-	 * @throws Exception if:
-	 * -One of the given rectangles is not valid.
-	 * -One of the given rectangles belongs already to a dialog
+	 * @param attribute
+	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 */
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
+		
+		if (getRefGUI().canCreateWidget(attribute.getHeader())) {
+			addWidget(getRefGUI().createAndAddWidget(attribute));
+			return;
+		}
+		
+		//Enumerates the header of the given attribute.
+		switch (attribute.getHeader()) {
+			case ELEMENT_MARGIN_HEADER:
+				setElementMargin(attribute.getOneAttributeToInteger());
+				break;		
+			default:
+				
+				//Calls method of the base class.
+				super.addOrChangeAttribute(attribute);
+		}
+	}
+	
+	//method
+	/**
+	 * Adds the given widget to this stack.
+	 * 
+	 * @param widget
+	 * @return this stack.
+	 * @throws NullArgumentException if the given widget is null.
+	 * @throws InvalidArgumentException
+	 * if the given widget belongs to another GUI than this stack.
 	 */
 	@SuppressWarnings("unchecked")
-	public final S addRectangle(Widget<?, ?>... rectangles) {
+	public final S addWidget(final Widget<?, ?> widget) {
 		
-		//Iterates the given rectangles.
-		for (Widget<?, ?> r: rectangles) {
-			addRectangle(r);
+		//Handles the option that this stack belongs to a GUI.
+		if (belongsToGUI()) {
+			widget.setGUI(getRefGUI());
+		}
+		
+		widgets.addAtEnd(widget);
+		
+		return (S)this;
+	}
+	
+	//method
+	/**
+	 * Adds the given widgets to this stack.
+	 * 
+	 * @param widgets
+	 * @return this stack.
+	 * @throws N
+	 * @throws NullArgumentException if one of the given widgets is null.
+	 * @throws InvalidArgumentException
+	 * if one of the given widgets belongs to another GUI than this stack.
+	 */
+	@SuppressWarnings("unchecked")
+	public final S addWidget(final Widget<?, ?>... widgets) {
+		
+		//Iterates the given widgets.
+		for (Widget<?, ?> r: widgets) {
+			addWidget(r);
 		}
 		
 		return (S)this;
@@ -81,65 +109,67 @@ implements Clearable {
 	
 	//method
 	/**
-	 * Removes the rectangles of this stack.
+	 * Removes the widgets of this stack.
 	 */
 	public final void clear() {
-		
-		rectangles.clear();
-		
-		//return (S)this;
+		widgets.clear();
 	}
 	
 	//method
 	/**
-	 * @return the attributes of this stack
+	 * @return the active element margin of this stack.
+	 */
+	public final int getActiveElementMargin() {
+		
+		//Handles the case if this stack has no element margin.
+		if (!hasElementMargin()) {
+			return 0;
+		}
+		
+		//Handles the case if this stack has an element margin.
+		return elementMargin.getValue();
+	}
+	
+	//method
+	/**
+	 * @return the attributes of this stack.
 	 */
 	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		List<StandardSpecification> attributes = super.getAttributes();
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
+		//Handles the option that this stack has an element margin.
 		if (hasElementMargin()) {
-			attributes.addAtEnd(new StandardSpecification(ELEMENT_MARGIN, elementMargin.getAttributes()));
+			attributes.addAtEnd(new StandardSpecification(ELEMENT_MARGIN_HEADER, elementMargin.getAttributes()));
 		}
 		
-		getRefRectangles().forEach(r -> attributes.addAtEnd(r.getSpecification()));	
+		getRefWidgets().forEach(r -> attributes.addAtEnd(r.getSpecification()));	
 		
 		return attributes;
 	}
 	
 	//method
 	/**
-	 * @return the element margin of this stack
+	 * @return the widgets of this stack that are shown.
 	 */
-	public final int getElementMargin() {
-		
-		if (hasElementMargin()) {
-			return elementMargin.getValue();
-		}
-		
-		return 0;
+	public final AccessorContainer<Widget<?, ?>> getRefShownWidgets() {
+		return new AccessorContainer<Widget<?, ?>>(
+			getRefWidgets().getSelected(w -> !w.isDisabled())
+		);
 	}
 	
 	//method
 	/**
-	 * @return the rectangles of this container
+	 * @return the widgets of this stack.
 	 */
-	public final List<Widget<?, ?>> getRefRectangles() {
-		return rectangles;
+	public AccessorContainer<Widget<?, ?>> getRefWidgets() {
+		return new AccessorContainer<Widget<?, ?>>(widgets);
 	}
 	
 	//method
 	/**
-	 * @return the rectangles of this container that are shown
-	 */
-	public final List<Widget<?, ?>> getRefShownRectangles() {
-		return getRefRectangles();
-	}
-	
-	//method
-	/**
-	 * @return true if this stack container has an element margin
+	 * @return true if this stack container has an element margin.
 	 */
 	public final boolean hasElementMargin() {
 		return (elementMargin != null);
@@ -147,10 +177,10 @@ implements Clearable {
 	
 	//method
 	/**
-	 * @return if this stack contains no rectangles
+	 * @return if this stack contains no widgets.
 	 */
 	public final boolean isEmpty() {
-		return getRefRectangles().isEmpty();
+		return getRefWidgets().isEmpty();
 	}
 	
 	//method
@@ -175,46 +205,25 @@ implements Clearable {
 	
 	//method
 	/**
-	 * Sets the given attribute to this stack.
+	 * Sets the element margin of this stack.
 	 * 
-	 * @param attribute
-	 * @throws Exception if the given attribute is not valid
+	 * @param elementMargin
+	 * @return this stack.
+	 * @throws NonPositiveArgumentException if the given element margin is not positive.
 	 */
-	public void addOrChangeAttribute(StandardSpecification attribute) {
+	@SuppressWarnings("unchecked")
+	public final S setElementMargin(final int elementMargin) {
 		
-		if (getRefGUI().canCreateWidget(attribute.getHeader())) {
-			addRectangle(getRefGUI().createAndAddWidget(attribute));
-			return;
-		}
+		this.elementMargin = new Margin(elementMargin);
 		
-		switch (attribute.getHeader()) {
-			case ELEMENT_MARGIN:
-				setElementMargin(attribute.getOneAttributeToInteger());
-				break;		
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
+		return (S)this;
 	}
 	
 	//method
 	/**
-	 * Sets the element margin of this stack.
-	 * 
-	 * @param elementMargin
-	 * @throws Exception if the given element margin is not positive
+	 * Lets this stack create a new widget structure.
 	 */
-	public final void setElementMargin(int elementMargin) {
-		this.elementMargin = new Margin(elementMargin);
-	}
-	
-	protected StackStructure createWidgetStructure() {
+	protected final StackStructure createWidgetStructure() {
 		return new StackStructure();
-	}
-	
-	@Override
-	public AccessorContainer<Widget<?, ?>> getRefElements() {
-		return new AccessorContainer<Widget<?, ?>>(rectangles);
 	}
 }

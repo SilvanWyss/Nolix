@@ -39,7 +39,7 @@ final class FrameTutorial {
 		.setTitle("Tutorial")
 		.setRootWidget(
 			new VerticalStack()
-			.addRectangle(
+			.addWidget(
 				new Label()
 				.setText("Tutorial"),
 				new Button()

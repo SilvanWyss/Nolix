@@ -136,7 +136,7 @@ public final class Label extends TextLineWidget<Label> {
 			return false;
 		}
 		
-		return this.role.equals(role.toString());
+		return this.role.toString().equals(role);
 	}
 	
 	//method

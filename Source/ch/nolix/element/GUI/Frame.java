@@ -1,52 +1,47 @@
-/*
- * file:	Frame.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	430
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
 //Java imports
 import java.awt.Dimension;
 import java.awt.Graphics;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-
 //own imports
-
 import ch.nolix.core.container.List;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.element.basic.Color;
-import ch.nolix.element.data.BackgroundColor;
 
 //class
-public final class Frame extends VisibleGUI<Frame> {
+/**
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 360
+ */
+public class Frame extends VisibleGUI<Frame> {
 	
 	//constant
-	public static final String SIMPLE_CLASS_NAME = "Frame";
+	public static final String TYPE_NAME = "Frame";
 	
 	//default values
 	public static final int DEFAULT_WIDTH = 800;
 	public static final int DEFAULT_HEIGHT = 500;
-	private static final int DEFAULT_X_POSITION = 200;
-	private static final int DEFAULT_Y_POSITION = 100;
-	public static final String DEFAULT_BACKGROUND_COLOR = Color.WHITE_STRING;
 	
 	//minimum values
-	public static final int MINIMUM_WIDTH = 400;
-	public static final int MINIMUM_HEIGHT = 200;
+	public static final int MIN_WIDTH = 400;
+	public static final int MIN_HEIGHT = 200;
+	
+	//default x-position of a frame on the screen
+	private static final int DEFAULT_X_POSITION = 200;
+	
+	//default y-position of a frame on the screen
+	private static final int DEFAULT_Y_POSITION = 100;
 	
 	//attribute header
 	private static final String CLOSE_COMMAND_HEADER = "CloseCommand";
 	
-	//attributes
-	private CursorIcon currentCursorIcon = CursorIcon.Arrow;
+	//attribute
 	private JFrame frame = new JFrame();
 	
 	//attribute
@@ -79,7 +74,7 @@ public final class Frame extends VisibleGUI<Frame> {
 	 * Creates new frame.
 	 */
 	public Frame() {
-				
+			
 		frame.setLocationByPlatform(true);
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.addWindowListener(new FrameCloseListener(this));
@@ -87,30 +82,60 @@ public final class Frame extends VisibleGUI<Frame> {
 		frame.setContentPane(panel);
 		frame.setVisible(true);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		frame.setMinimumSize(new Dimension(MINIMUM_WIDTH, MINIMUM_HEIGHT));
+		frame.setMinimumSize(new Dimension(MIN_WIDTH, MIN_HEIGHT));
 		frame.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		frame.setLocation(DEFAULT_X_POSITION, DEFAULT_Y_POSITION);
 
 		//Add listeners to this frame.
-		panel.addKeyListener(new FrameKeyListener(this));
-		panel.addMouseListener(new FrameMouseListener(this));
-		panel.addMouseMotionListener(new FrameMouseMotionListener(this));
-		panel.setFocusable(true);	//This is important that key events are handled.
-		panel.requestFocus(); //This is important that key events are handled.
+			panel.addKeyListener(new FrameKeyListener(this));
+			panel.addMouseListener(new FrameMouseListener(this));
+			panel.addMouseMotionListener(new FrameMouseMotionListener(this));
+			
+			//This is important that key events are handled.
+			panel.setFocusable(true);
+			
+			//This is important that key events are handled.
+			panel.requestFocus(); 
 		
-		paint();
+		resetConfiguration();		
+		repaint();
 	}
 	
 	//method
 	/**
-	 * @return the attributes of this frame
+	 * Adds or changes the given attribute to this frame.
+	 * 
+	 * @param attribute
+	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 */
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
+		
+		//Enumerates the header of the given attribute.
+		switch (attribute.getHeader()) {
+			case CLOSE_COMMAND_HEADER:
+				setCloseCommand(attribute.getOneAttributeToString());
+				break;
+			default:
+				
+				//Calls method of the base class.
+				super.addOrChangeAttribute(attribute);
+		}
+	}
+	
+	//method
+	/**
+	 * @return the attributes of this frame.
 	 */
 	public List<StandardSpecification> getAttributes() {
 		
-		List<StandardSpecification> attributes = super.getAttributes();
+		//Calls method of the base class.
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
+		//Handles the option that this frame has a close command.
 		if (hasCloseCommand()) {
-			attributes.addAtEnd(new StandardSpecification(CLOSE_COMMAND_HEADER, closeCommand.toString()));
+			attributes.addAtEnd(
+				new StandardSpecification(CLOSE_COMMAND_HEADER, closeCommand.toString())
+			);
 		}
 		
 		return attributes;
@@ -118,49 +143,94 @@ public final class Frame extends VisibleGUI<Frame> {
 	
 	//method
 	/**
-	 * @return the current height of this frame
+	 * @return height of the content of this frame.
 	 */
-	public final int getHeight() {
-		return frame.getHeight();
-	}
-	
-	//method
-	/**
-	 * @return height of the pane of this frame
-	 */
-	public final int getPaneHeight() {
+	public int getContentHeight() {
 		return frame.getComponent(0).getHeight();
 	}
 	
 	//method
 	/**
-	 * @return width of the pane of this frame
+	 * @return width of the content of this frame.
 	 */
-	public final int getPaneWidth() {
+	public int getContentWidth() {
 		return frame.getComponent(0).getWidth();
 	}
 	
 	//method
 	/**
-	 * @return the width of this frame
+	 * @return the x-position of the cursor on this frame.
 	 */
-	public final int getWidth() {
+	public int getCursorXPosition() {
+		
+		if (panel.getMousePosition() == null) {
+			return 0;
+		}
+		
+		return (int)panel.getMousePosition().getX();
+	}
+
+	//method
+	/**
+	 * @return the y-position of the cursor on this frame.
+	 */
+	public int getCursorYPosition() {
+		
+		if (panel.getMousePosition() == null) {
+			return 0;
+		}
+		return (int)panel.getMousePosition().getY();
+	}
+	
+	//method
+	/**
+	 * @return the height of this frame.
+	 */
+	public int getHeight() {
+		return frame.getHeight();
+	}
+	
+	//method
+	/**
+	 * @return the width of this frame.
+	 */
+	public int getWidth() {
 		return frame.getWidth();
 	}
 	
 	//method
 	/**
-	 * @return true if this frame has a close command
+	 * @return true if this frame has a close command.
 	 */
-	public final boolean hasCloseCommand() {
+	public boolean hasCloseCommand() {
 		return (closeCommand != null);
+	}
+	
+	//method
+	/**
+	 * Lets this frame not a close button click.
+	 * That means:
+	 * -Run the close command of this main frame if it has a close command.
+	 * -Exits the program otherwise.
+	 */
+	public void noteCloseButtonClick() {
+		
+		//Handles the case if this frame has no close command.
+		if (!hasCloseCommand()) {
+			System.exit(0);
+		}
+		
+		//Handles the case if this frame has a close command.
+		else {
+			getRefController().run(closeCommand);			
+		}
 	}
 	
 	//method
 	/**
 	 * Removes the close command of this frame.
 	 */
-	public final void removeCloseCommand() {
+	public void removeCloseCommand() {
 		closeCommand = null;
 	}
 	
@@ -178,108 +248,37 @@ public final class Frame extends VisibleGUI<Frame> {
 	
 	//method
 	/**
-	 * Resets the configuration of this frame.
-	 */
-	public final void resetConfiguration() {
-		
-		//Calls method of the base class.
-		super.resetConfiguration();
-		
-		setBackgroundColor(new BackgroundColor(DEFAULT_BACKGROUND_COLOR));
-	}
-	
-	//method
-	/**
-	 * Sets the given attribute to this frame.
-	 * 
-	 * @param attribute
-	 * @throws Exception if the given attribute is not valid
-	 */
-	public void addOrChangeAttribute(StandardSpecification attribute) {
-		switch (attribute.getHeader()) {
-			case CLOSE_COMMAND_HEADER:
-				setCloseCommand(attribute.getOneAttributeToString());
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-	
-	//method
-	/**
-	 * Sets the close command of this main frame.
+	 * Sets the close command of this frame.
 	 * 
 	 * @param closeCommand
-	 * @throws Exception if the given close command is not valid
+	 * @throws InvalidArgumentException if the given close command is not valid.
 	 */
-	public final void setCloseCommand(String closeCommand) {
+	public void setCloseCommand(final String closeCommand) {
 		this.closeCommand = new Statement(closeCommand);
 	}
-	
-	/*
-	public void updateFromInteraction() {
-		
-		updateFromConfiguration();
-		
-		paint();
-		Point mousePosition = getRefPanel().getMousePosition(); //The mouse position is null if the mouse is outside of this frame.
-		if (mousePosition != null) {
-			setMousePosition((int)mousePosition.getX(), (int)mousePosition.getY());
-		}
-		else {
-			setMousePosition(0, 0);
-		}
-		
-		noteMouseMove();
-		paint();
-	}
-	*/
-	
-	//method
-	/**
-	 * @return panel of this frame
-	 */
-	protected final JPanel getRefPanel() {
-		return panel;
-	}
-	
-	//method
-	/**
-	 * Notes a close button click.
-	 * That means: run the close command of this main frame if this main frame has a close command, exits program otherwise.
-	 */
-	protected void noteCloseButtonClick() {
-		if (hasCloseCommand()) {
-			getRefController().run(closeCommand);
-		}
-		else {
-			System.exit(0);
-		}
-	}
-	
-
 	
 	//method
 	/**
 	 * Lets this frame note a resizing.
 	 */
 	protected final void noteResizing() {
-		paint();
+		repaint();
 	}
 	
 	//method
 	/**
-	 * Paints this frame.
+	 * Repaints this frame.
 	 */
-	protected void paint() {
+	protected void repaint() {
 		
 		frame.setTitle(getTitle());	
 		panel.setBackground(getBackgroundColor().getJavaColor());
-		frame.setCursor(currentCursorIcon.getJavaCursor());
+		frame.setCursor(getActiveCursorIcon().getJavaCursor());
 		
+		//Handles the option that this frame has a root widget.
 		if (hasRootWidget()) {
+			
+			//Enumerates the content position of this frame.
 			switch (getContentPosition()) {
 				case LeftTop:
 					
@@ -293,7 +292,7 @@ public final class Frame extends VisibleGUI<Frame> {
 					
 					getRefRootWidget().setPositionOnContainer(
 						0,
-						Calculator.getMax(0, (getPaneHeight() - getRefRootWidget().getHeight()) / 2)
+						Calculator.getMax(0, (getContentHeight() - getRefRootWidget().getHeight()) / 2)
 					);
 					
 					break;					
@@ -301,14 +300,14 @@ public final class Frame extends VisibleGUI<Frame> {
 					
 					getRefRootWidget().setPositionOnContainer(
 						0,
-						Calculator.getMax(0, getPaneHeight() - getRefRootWidget().getHeight())
+						Calculator.getMax(0, getContentHeight() - getRefRootWidget().getHeight())
 					);
 					
 					break;
 				case Top:
 					
 					getRefRootWidget().setPositionOnContainer(
-						Calculator.getMax(0, (getPaneWidth() - getRefRootWidget().getWidth()) / 2),
+						Calculator.getMax(0, (getContentWidth() - getRefRootWidget().getWidth()) / 2),
 						0
 					);
 					
@@ -316,23 +315,23 @@ public final class Frame extends VisibleGUI<Frame> {
 				case Center:
 								
 					getRefRootWidget().setPositionOnContainer(
-						Calculator.getMax(0, (getPaneWidth() - getRefRootWidget().getWidth()) / 2),
-						Calculator.getMax(0, (getPaneHeight() - getRefRootWidget().getHeight()) / 2)
+						Calculator.getMax(0, (getContentWidth() - getRefRootWidget().getWidth()) / 2),
+						Calculator.getMax(0, (getContentHeight() - getRefRootWidget().getHeight()) / 2)
 					);
 					
 					break;
 				case Bottom:
 					
 					getRefRootWidget().setPositionOnContainer(
-						Calculator.getMax(0, (getPaneWidth() - getRefRootWidget().getWidth()) / 2),
-						Calculator.getMax(0, getPaneHeight() - getRefRootWidget().getHeight())
+						Calculator.getMax(0, (getContentWidth() - getRefRootWidget().getWidth()) / 2),
+						Calculator.getMax(0, getContentHeight() - getRefRootWidget().getHeight())
 					);
 					
 					break;
 				case RightTop:
 					
 					getRefRootWidget().setPositionOnContainer(
-						Calculator.getMax(0, getPaneWidth() - getRefRootWidget().getWidth()),
+						Calculator.getMax(0, getContentWidth() - getRefRootWidget().getWidth()),
 						0
 					);
 					
@@ -357,29 +356,5 @@ public final class Frame extends VisibleGUI<Frame> {
 		}
 		
 		frame.repaint();
-	}
-	
-	//method
-	/**
-	 * Sets the cursor icon of this frame.
-	 * 
-	 * @param currentCursorIcon
-	 */
-	public final void proposeCursorIcon(CursorIcon currentCursorIcon) {
-		this.currentCursorIcon = currentCursorIcon;
-	}
-
-	@Override
-	public int getMouseXPosition() {
-		if (getRefPanel().getMousePosition() != null)
-		return (int)getRefPanel().getMousePosition().getX();
-		return 0;
-	}
-
-	@Override
-	public int getMouseYPosition() {
-		if (getRefPanel().getMousePosition() != null)
-		return (int)getRefPanel().getMousePosition().getY();
-		return 0;
 	}
 }

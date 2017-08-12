@@ -132,7 +132,7 @@ public class Area extends Widget<Area, AreaStructure> {
 	/**
 	 * @return the element of this area.
 	 */
-	public AccessorContainer<Widget<?, ?>> getRefElements() {
+	public AccessorContainer<Widget<?, ?>> getRefWidgets() {
 		return new AccessorContainer<>();
 	}
 	

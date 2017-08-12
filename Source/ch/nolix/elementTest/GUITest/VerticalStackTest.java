@@ -39,7 +39,7 @@ public final class VerticalStackTest extends Test {
 		
 		//setup
 		final VerticalStack verticalStack = new VerticalStack()	
-		.addRectangle(
+		.addWidget(
 			new Label(),
 			new Button(),
 			new TextBox()

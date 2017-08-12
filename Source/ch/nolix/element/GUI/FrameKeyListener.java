@@ -6,21 +6,18 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 //own import
-
-
-
-
 import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 60
+ * @lines 40
  */
 final class FrameKeyListener implements KeyListener {
 	
 	//attribute
+	//frame this frame key listener belongs to
 	private final Frame frame;
 	
 	//constructor
@@ -40,26 +37,13 @@ final class FrameKeyListener implements KeyListener {
 	}
 
 	//method
-	/**
-	 * Lets this frame key listener note a key press.
-	 */
 	public void keyPressed(final KeyEvent keyEvent) {
 		frame.noteKeyTyping(keyEvent);
 	}
 
 	//method
-	/**
-	 * Lets this frame key listener note a key release.
-	 */
-	public void keyReleased(final KeyEvent keyEvent) {
-		//Does nothing.
-	}
+	public void keyReleased(final KeyEvent keyEvent) {}
 
 	//method
-	/**
-	 * Lets this frame key listener note a key typing.
-	 */
-	public void keyTyped(final KeyEvent keyEvent) {
-		//Does nothing.
-	}
+	public void keyTyped(final KeyEvent keyEvent) {}
 }

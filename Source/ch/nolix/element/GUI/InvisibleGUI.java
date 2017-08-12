@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own import
-import ch.nolix.core.validator2.Validator;
-
 //class
 /**
  * An invisble GUI is a GUI that is not visible.
@@ -15,37 +12,37 @@ import ch.nolix.core.validator2.Validator;
 public final class InvisibleGUI extends GUI<InvisibleGUI> {
 
 	//attributes
-	private CursorIcon cursorIcon;
-	private int mouseXPosition;
-	private int mouseYPosition;
+	private int cursorXPosition;
+	private int cursorYPosition;
 	
 	//method
-	public void proposeCursorIcon(final CursorIcon cursorIcon) {
-		
-		//Checks if the given cursor icon is not null.
-		Validator.supposeThat(cursorIcon).thatIsInstanceOf(CursorIcon.class).isNotNull();
-		
-		this.cursorIcon = cursorIcon;
-	}
-	
-	//method
-	public CursorIcon getCursorIcon() {
-		return cursorIcon;
-	}
-	
-	//method
-	public void setMousePosition(final int mouseXPosition, final int mouseYPosition) {
-		this.mouseXPosition = mouseXPosition;
-		this.mouseYPosition = mouseYPosition;
+	/**
+	 * Sets the position of the cursor on this invisible GUI.
+	 * 
+	 * @param cursorXPosition
+	 * @param cursorYPosition
+	 */
+	public void setCursorPosition(
+		final int cursorXPosition,
+		final int cursorYPosition
+	) {
+		this.cursorXPosition = cursorXPosition;
+		this.cursorYPosition = cursorYPosition;
 	}
 
 	//method
-	public int getMouseXPosition() {
-		return mouseYPosition;
+	/**
+	 * @return the x-position of the cursor on this invisible GUI.
+	 */
+	public int getCursorXPosition() {
+		return cursorYPosition;
 	}
 
 	//method
-	public int getMouseYPosition() {
-		return mouseXPosition;
+	/**
+	 * @return the y-position of the cursor on this invisible GUI.
+	 */
+	public int getCursorYPosition() {
+		return cursorXPosition;
 	}
 }

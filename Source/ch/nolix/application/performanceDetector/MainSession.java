@@ -38,7 +38,7 @@ final class MainSession extends Session<GUIClient> {
 		.setRootWidget(
 			new VerticalStack()
 			.setRole(ContainerRole.MainContainer)
-			.addRectangle(
+			.addWidget(
 				new Label()
 				.setName(WidgetNameManager.BENCHMARK_LABEL_NAME),
 				new Label()

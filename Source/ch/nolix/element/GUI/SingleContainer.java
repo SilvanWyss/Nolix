@@ -73,20 +73,10 @@ extends Container<SingleContainer, SingleContainerStructure> {
 	
 	//method
 	/**
-	 * @return the rectangles of this container
-	 */
-	public final List<Widget<?, ?>> getRefRectangles() {
-		List<Widget<?, ?>> rectangles = new List<Widget<?, ?>>();
-		rectangles.addAtEnd(getRefRectangle());
-		return rectangles;
-	}
-	
-	//method
-	/**
 	 * @return the rectangles of this single container that are shown
 	 */
-	public List<Widget<?, ?>> getRefShownRectangles() {
-		return new List<Widget<?, ?>>().addAtEnd(getRefRectangle());
+	public AccessorContainer<Widget<?, ?>> getRefShownWidgets() {
+		return getRefWidgets();
 	}
 	
 	public final void addOrChangeAttribute(StandardSpecification attribute) {
@@ -159,7 +149,7 @@ extends Container<SingleContainer, SingleContainerStructure> {
 	}
 
 	@Override
-	public AccessorContainer<Widget<?, ?>> getRefElements() {
-		return new AccessorContainer<>();
+	public AccessorContainer<Widget<?, ?>> getRefWidgets() {
+		return new AccessorContainer<Widget<?, ?>>();
 	}
 }
