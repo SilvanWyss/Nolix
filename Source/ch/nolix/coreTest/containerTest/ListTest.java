@@ -1,10 +1,3 @@
-/*
- * file:	ListTest.java
- * author:	Silvan Wyss
- * month:	2015
- * lines:	480
- */
-
 //package declaration
 package ch.nolix.coreTest.containerTest;
 
@@ -17,15 +10,25 @@ import ch.nolix.core.test2.Test;
 //test class
 /**
  * This class is a test class for the list class.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 510
  */
 public final class ListTest extends Test {
 		
 	//test method
-	public void testClear() {
+	public void test_clear() {
 		
 		//setup
-		final List<String> list = new List<String>();	
-		Sequencer.forCount(10).run(() -> list.addAtEnd("x"));
+		final List<String> list = new List<String>(
+			"x",
+			"xx",
+			"xxx",
+			"xxxx",
+			"xxxxx",
+			"xxxxxx"
+		);
 		
 		//execution
 		list.clear();
@@ -35,11 +38,10 @@ public final class ListTest extends Test {
 	}
 	
 	//test method
-	public void testContains() {
+	public void test_contains() {
 		
 		//setup
-		final List<String> list = new List<String>()
-		.addAtEnd(
+		final List<String> list = new List<String>(
 			"x",
 			"xx",
 			"xxx",
@@ -48,45 +50,28 @@ public final class ListTest extends Test {
 			"xxxxxx"
 		);
 		
-		//execution and verification part 1
-		expectThat(
-			list.contains(s -> s.equals("x")),
-			list.contains(s -> s.equals("xx")),
-			list.contains(s -> s.equals("xxx")),
-			list.contains(s -> s.equals("xxxx")),
-			list.contains(s -> s.equals("xxxxx")),
-			list.contains(s -> s.equals("xxxxxx"))
-		);
-		
-		//execution and verification part 2
-		expectThatNot(
-			list.contains(s -> s.equals("xxxxxxx")),
-			list.contains(s -> s.equals("xxxxxxxx")),
-			list.contains(s -> s.equals("xxxxxxxxx")),
-			list.contains(s -> s.equals("xxxxxxxxxx"))
-		);
+		//execution and verification
+			expectThat(
+				list.contains(s -> s.equals("x")),
+				list.contains(s -> s.equals("xx")),
+				list.contains(s -> s.equals("xxx")),
+				list.contains(s -> s.equals("xxxx")),
+				list.contains(s -> s.equals("xxxxx")),
+				list.contains(s -> s.equals("xxxxxx"))
+			);
+			
+			expectThatNot(
+				list.contains(s -> s.equals("xxxxxxx")),
+				list.contains(s -> s.equals("xxxxxxxx")),
+				list.contains(s -> s.equals("xxxxxxxxx")),
+				list.contains(s -> s.equals("xxxxxxxxxx")),
+				list.contains(s -> s.equals("xxxxxxxxxxx")),
+				list.contains(s -> s.equals("xxxxxxxxxxxx"))
+			);
 	}
 	
 	//test method
-	public void testContainsOnce() {
-		
-		//setup
-		final List<String> list = new List<String>();
-		list.addAtEnd("x");
-		Sequencer.forCount(10).run(() -> list.addAtEnd("y"));
-		
-		//execution and verification part 1
-		expectThat(list.containsOne(s -> s.equals("x")));
-		
-		//execution and verification part 2
-		expectThatNot(
-			list.containsOne(s -> s.equals("y")),
-			list.containsOne(s -> s.equals("z"))
-		);
-	}
-	
-	//test method
-	public void testContainsOne1() {
+	public void test_containsOne() {
 		
 		//setup
 		final List<String> list = new List<String>();
@@ -96,53 +81,69 @@ public final class ListTest extends Test {
 	}
 	
 	//test method
-	public void testContainsOne2() {
+	public void test_containsOne_2() {
 		
 		//setup
-		final List<String> list = new List<String>().addAtEnd("x");
+		final List<String> list = new List<String>("x");
 		
 		//execution and verification
 		expectThat(list.containsOne());
 	}
 	
 	//test method
-	public void testContainsOne3() {
+	public void test_containsOne_3() {
 		
 		//setup
-		final List<String> list = new List<String>();
-		list.addAtEnd(
-			"x",
-			"x"
-		);
+		final List<String> list = new List<String>("x", "x");
 		
 		//executation and verification
 		expectThatNot(list.containsOne());
 	}
 	
 	//test method
-	public void testForEach() {
+	public void test_containsOne_4() {
 		
 		//setup
-		final List<String> list1 = new List<String>();
-		Sequencer.forCount(10).run(() -> list1.addAtEnd("x")); 
+		final List<String> list
+		= new List<String>("x",  "xx", "xx", "xx", "xx", "xx");
 		
-		//execution
-		final List<String> list2 = new List<String>();
-		list1.forEach(s -> list2.addAtEnd(s));
-		
-		//verification
-		expectThat(list2.getElementCount()).equals(list1.getElementCount());
-		for (int i = 1; i <= list1.getElementCount(); i++) {
-			expectThat(list2.getRefAt(i)).equals(list2.getRefAt(i));
-		}
+		//execution and verification
+		expectThat(list.containsOne(s -> s.length() == 1));
+		expectThatNot(list.containsOne(s -> s.length() == 2));
 	}
 	
 	//test method
-	public void testGetRefByMax() {
+	public void test_forEach() {
 		
 		//setup
-		final List<String> list = new List<String>();
-		list.addAtEnd(
+			final List<String> list1 = new List<String>(
+				"x",
+				"xx",
+				"xxx",
+				"xxxx",
+				"xxxxx",
+				"xxxxxx"
+			);
+			
+			final List<String> list2 = new List<String>();
+		
+		//execution
+		list1.forEach(s -> list2.addAtEnd(s));
+		
+		//verification
+			expectThat(list2.getElementCount()).equals(list1.getElementCount());
+			
+			//Iterates list1.
+			for (int i = 1; i <= list1.getElementCount(); i++) {
+				expectThat(list2.getRefAt(i)).equals(list1.getRefAt(i));
+			}
+	}
+	
+	//test method
+	public void test_getRefByMax() {
+		
+		//setup
+		final List<String> list = new List<String>(
 			"cake",
 			"chocolate",
 			"ice cream",
@@ -158,11 +159,10 @@ public final class ListTest extends Test {
 	}
 	
 	//test method
-	public void testGetRefByMaxInt() {
+	public void test_getRefByMaxInt() {
 		
 		//setup
-		final List<String> list = new List<String>();
-		list.addAtEnd(
+		final List<String> list = new List<String>(
 			"x",
 			"xx",
 			"xxx",
@@ -176,11 +176,10 @@ public final class ListTest extends Test {
 	}
 	
 	//test method
-	public void testGetRefByMin() {
+	public void test_getRefByMin() {
 		
 		//setup
-		final List<String> list = new List<String>();
-		list.addAtEnd(
+		final List<String> list = new List<String>(
 			"cake",
 			"chocolate",
 			"ice cream",
@@ -196,11 +195,10 @@ public final class ListTest extends Test {
 	}
 	
 	//test method
-	public void testGetRefByMinInt() {
+	public void test_getRefByMinInt() {
 		
 		//setup
-		final List<String> list = new List<String>()
-		.addAtEnd(
+		final List<String> list = new List<String>(
 			"x",
 			"xx",
 			"xxx",
@@ -214,78 +212,79 @@ public final class ListTest extends Test {
 	}
 	
 	//test method
-	public void testGetSequences1() {
-		
-		//setup part 1
-		final List<String> list = new List<String>()
-		.addAtEnd(
-			"x",
-			"x",
-			"xxxxx",
-			"x",
-			"x",
-			"xxxxx",
-			"x",
-			"x",
-			"x",
-			"xxxxx",
-			"x",
-			"xxxxx"
-		);
-		
-		//setup part 2
-		final SequencePattern<String> sequencePattern = new SequencePattern<String>()
-		.addConditionForNext(s -> s.equals("x"))
-		.addConditionForNext(s -> s.equals("xxxxx"));
-		
-		//execution
-		final List<List<String>> sequences = list.getSequences(sequencePattern);
-		
-		//verification
-		expectThat(sequences.getElementCount()).equals(4);
-		for (List<String> s: sequences) {
-			expectThat(s.getElementCount()).equals(2);
-			expectThat(s.getRefAt(1)).equals("x");
-			expectThat(s.getRefAt(2)).equals("xxxxx");
-		}
-	}
-	
-	//test method
-	public void testGetSequences2() {
-		
-		//setup part 1
-		final List<String> list = new List<String>()
-		.addAtEnd(
-			"x",
-			"a",
-			"x",
-			"b",
-			"x",
-			"c"
-		);
-		
-		//setup part 2
-		final SequencePattern<String> sequencePattern = new SequencePattern<String>()
-		.addConditionForNext(s -> s.equals("x"))
-		.addBlankForNext();
-		
-		//execution
-		final List<List<String>> sequences = list.getSequences(sequencePattern);
-		
-		//verification
-		expectThat(sequences.getElementCount()).equals(3);;
-		for (List<String> s: sequences) {
-			expectThat(s.getElementCount()).equals(2);
-			expectThat(s.getRefAt(1)).equals("x");
-		}
-	}
-	
-	//test method
-	public final void testGetVarianceByDouble() {
+	public void test_getSequences() {
 		
 		//setup
-		final List<Double> list = new List<Double>()
-		.addAtEnd(
+			final List<String> list = new List<String>(
+				"x",
+				"a",
+				"x",
+				"b",
+				"x",
+				"c"
+			);
+			
+			final SequencePattern<String> sequencePattern
+			= new SequencePattern<String>()
+			.addConditionForNext(s -> s.equals("x"))
+			.addBlankForNext();
+		
+		//execution
+		final List<List<String>> sequences = list.getSequences(sequencePattern);
+		
+		//verification
+			expectThat(sequences.getElementCount()).equals(3);
+			
+			//Iterates the sequences.
+			for (final List<String> s : sequences) {
+				expectThat(s.getElementCount()).equals(2);
+				expectThat(s.getRefAt(1)).equals("x");
+			}
+	}
+	
+	//test method
+	public void test_getSequences_2() {
+		
+		//setup
+			final List<String> list = new List<String>(
+				"x",
+				"x",
+				"xxxx",
+				"x",
+				"x",
+				"xxxx",
+				"x",
+				"x",
+				"x",
+				"xxxx",
+				"x",
+				"xxxx"
+			);
+			
+			final SequencePattern<String> sequencePattern
+			= new SequencePattern<String>()
+			.addConditionForNext(s -> s.equals("x"))
+			.addConditionForNext(s -> s.equals("xxxx"));
+		
+		//execution
+		final List<List<String>> sequences = list.getSequences(sequencePattern);
+		
+		//verification
+			expectThat(sequences.getElementCount()).equals(4);
+			
+			//Iterates the sequences.
+			for (final List<String> s : sequences) {
+				expectThat(s.getElementCount()).equals(2);
+				expectThat(s.getRefAt(1)).equals("x");
+				expectThat(s.getRefAt(2)).equals("xxxx");
+			}
+	}
+	
+	//test method
+	public final void test_getVarianceByDouble() {
+		
+		//setup
+		final List<Double> list = new List<Double>(
 			0.0,
 			0.0,
 			0.5,
@@ -298,7 +297,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test method
-	public void testIsEmpty() {
+	public void test_isEmpty() {
 		
 		//setup
 		final List<String> list = new List<String>();
@@ -308,108 +307,134 @@ public final class ListTest extends Test {
 	}
 	
 	//test method
-	public void testIsEmpty2() {
+	public void test_isEmpty_2() {
 		
 		//setup
-		List<String> list = new List<String>().addAtEnd("x");
+		List<String> list = new List<String>("x");
 		
 		//execution and verification
 		expectThatNot(list.isEmpty());
 	}
 	
 	//test method
-	public void testMatches1() {
-		
-		//setup part 1
-		final List<String> list = new List<String>()
-		.addAtEnd(
-			"x",
-			"xxxxx",
-			"x",
-			"xxxxx"
-		);
-		
-		//setup part 2
-		final SequencePattern<String> sequencePattern = new SequencePattern<String>()
-		.addConditionForNext(s -> s.length() == 1)
-		.addConditionForNext(s -> s.length() == 5)
-		.addConditionForNext(s -> s.length() == 1)
-		.addConditionForNext(s -> s.length() == 5);
-		
-		//execution and verification
-		expectThat(sequencePattern.matches(list));
-	}
-	
-	//test method
-	public void testMatches2() {
-		
-		//setup part 1
-		final List<String> list = new List<String>();
-		list.addAtEnd(
-			"x",
-			"xxxxx",
-			"x",
-			"xxxxx"
-		);
-		
-		//setup part 2
-		final SequencePattern<String> sequencePattern = new SequencePattern<String>()
-		.addConditionForNext(s -> s.length() == 1)
-		.addConditionForNext(s -> s.length() == 5)
-		.addBlankForNext()
-		.addBlankForNext();
-		
-		//execution and verification
-		expectThat(sequencePattern.matches(list));
-	}
-	
-	//test method
-	public void testMatches3() {
-		
-		//setup part 1
-		final List<String> list = new List<String>();
-		Sequencer.forCount(10).run(() -> list.addAtEnd("x"));
-		
-		//setup part 2
-		final SequencePattern<String> sequencePattern = new SequencePattern<String>()
-		.forNext(10).addBlank();
-		
-		//execution and verification
-		expectThat(sequencePattern.matches(list));
-	}
-	
-	//test method
-	public void testSort() {
+	public void test_matches() {
 		
 		//setup
-		final List<String> list = new List<String>()
-		.addAtEnd(
+			final List<String> list = new List<String>(
+				"x",
+				"xxxx",
+				"x",
+				"xxxx"
+			);
+			
+			final SequencePattern<String> sequencePattern
+			= new SequencePattern<String>()
+			.addConditionForNext(s -> s.length() == 1)
+			.addConditionForNext(s -> s.length() == 4)
+			.addConditionForNext(s -> s.length() == 1)
+			.addConditionForNext(s -> s.length() == 4);
+		
+		//execution and verification
+		expectThat(list.matches(sequencePattern));
+	}
+	
+	//test method
+	public void test_matches_2() {
+		
+		//setup
+			final List<String> list = new List<String>();
+			list.addAtEnd(
+				"x",
+				"xxxx",
+				"x",
+				"xxxx"
+			);
+			
+			final SequencePattern<String> sequencePattern
+			= new SequencePattern<String>()
+			.addConditionForNext(s -> s.length() == 1)
+			.addConditionForNext(s -> s.length() == 4)
+			.addBlankForNext()
+			.addBlankForNext();
+		
+		//execution and verification
+		expectThat(list.matches(sequencePattern));
+	}
+	
+	//test method
+	public void test_matches_3() {
+		
+		//setup
+			final List<String> list = new List<String>();
+			Sequencer.forCount(10).run(() -> list.addAtEnd("x"));
+			
+			final SequencePattern<String> sequencePattern
+			= new SequencePattern<String>()
+			.forNext(10).addBlank();
+		
+		//execution and verification
+		expectThat(list.matches(sequencePattern));
+	}
+	
+	//test method
+	public void test_sort() {
+		
+		//setup
+		final List<String> list = new List<String>(
 			"xxxxxx",
 			"xxxxx",
 			"xxxx",
-			"x",
+			"xxx",
 			"xx",
-			"xxx"
+			"x"
 		);
 		
 		//execution
 		list.sort(s -> s.length());
 		
 		//verification
-		expectThat(list.getRefAt(1)).equals("x");
-		expectThat(list.getRefAt(2)).equals("xx");
-		expectThat(list.getRefAt(3)).equals("xxx");
-		expectThat(list.getRefAt(4)).equals("xxxx");
-		expectThat(list.getRefAt(5)).equals("xxxxx");
-		expectThat(list.getRefAt(6)).equals("xxxxxx");
+			expectThat(list.getElementCount(), 6);
+			
+			expectThat(list.getRefAt(1)).equals("x");
+			expectThat(list.getRefAt(2)).equals("xx");
+			expectThat(list.getRefAt(3)).equals("xxx");
+			expectThat(list.getRefAt(4)).equals("xxxx");
+			expectThat(list.getRefAt(5)).equals("xxxxx");
+			expectThat(list.getRefAt(6)).equals("xxxxxx");
 	}
 	
 	//test method
-	public void testToArray() {
+	public void test_sort_2() {
 		
 		//setup
-		final List<String> list = new List<String>()
-		.addAtEnd(
+		final List<String> list = new List<String>(
+			"python",
+			"elephant",
+			"zebra",
+			"lion",
+			"shark",
+			"jaguar"
+		);
+		
+		//execution
+		list.sort(s -> s);
+		
+		//verification
+			expectThat(list.getElementCount(), 6);
+			
+			expectThat(list.getRefAt(1)).equals("elephant");
+			expectThat(list.getRefAt(2)).equals("jaguar");
+			expectThat(list.getRefAt(3)).equals("lion");
+			expectThat(list.getRefAt(4)).equals("python");
+			expectThat(list.getRefAt(5)).equals("shark");
+			expectThat(list.getRefAt(6)).equals("zebra");
+	}
+	
+	//test method
+	public void test_toArray() {
+		
+		//setup
+		final List<String> list = new List<String>(
 			"x",
 			"xx",
 			"xxx",
@@ -422,21 +447,21 @@ public final class ListTest extends Test {
 		final Object[] array = list.toArray();
 		
 		//verification
-		expectThat(array.length).equals(6);
-		expectThat(array[0]).equals("x");
-		expectThat(array[1]).equals("xx");
-		expectThat(array[2]).equals("xxx");
-		expectThat(array[3]).equals("xxxx");
-		expectThat(array[4]).equals("xxxxx");
-		expectThat(array[5]).equals("xxxxxx");
+			expectThat(array.length).equals(6);
+			
+			expectThat(array[0]).equals("x");
+			expectThat(array[1]).equals("xx");
+			expectThat(array[2]).equals("xxx");
+			expectThat(array[3]).equals("xxxx");
+			expectThat(array[4]).equals("xxxxx");
+			expectThat(array[5]).equals("xxxxxx");
 	}
 	
 	//test method
-	public void testToIntArray() {
+	public void test_toIntArray() {
 		
 		//setup
-		final List<String> list = new List<String>()
-		.addAtEnd(
+		final List<String> list = new List<String>(
 			"x",
 			"xx",
 			"xxx",
@@ -449,17 +474,18 @@ public final class ListTest extends Test {
 		final int[] array = list.toIntArray(s -> s.length());
 		
 		//verification
-		expectThat(array.length).equals(6);
-		expectThat(array[0]).equals(1);
-		expectThat(array[1]).equals(2);
-		expectThat(array[2]).equals(3);
-		expectThat(array[3]).equals(4);
-		expectThat(array[4]).equals(5);
-		expectThat(array[5]).equals(6);
+			expectThat(array.length).equals(6);
+			
+			expectThat(array[0]).equals(1);
+			expectThat(array[1]).equals(2);
+			expectThat(array[2]).equals(3);
+			expectThat(array[3]).equals(4);
+			expectThat(array[4]).equals(5);
+			expectThat(array[5]).equals(6);
 	}
 	
 	//test method
-	public void testToString1() {
+	public void test_toString() {
 		
 		//setup
 		final List<String> list = new List<String>();
@@ -469,20 +495,19 @@ public final class ListTest extends Test {
 	}
 	
 	//test method
-	public void testToString2() {
+	public void test_toString_2() {
 		
 		//setup
-		final List<String> list = new List<String>();
-		list.addAtEnd(
-			"one",
-			"two",
-			"three",
-			"four",
-			"five",
-			"six"
+		final List<String> list = new List<String>(
+			"elephant",
+			"jaguar",
+			"lion",
+			"python",
+			"shark",
+			"zebra"
 		);
 		
 		//execution and verification
-		expectThat(list.toString()).equals("one,two,three,four,five,six");
+		expectThat(list.toString()).equals("elephant,jaguar,lion,python,shark,zebra");
 	}
 }

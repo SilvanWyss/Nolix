@@ -312,12 +312,18 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public abstract IContainer<E> getCopy();
 	
+	//abstract method
+	/**
+	 * @return the number of elements of this container.
+	 */
+	public abstract int getElementCount();
+	
 	//default method
 	/**
 	 * @param selector
 	 * @return the number of elements the given selector selects from this container.
 	 */
-	public default int getCount(final IElementTakerBooleanGetter<E> selector) {
+	public default int getElementCount(final IElementTakerBooleanGetter<E> selector) {
 		
 		int count = 0;
 		
@@ -338,7 +344,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param element
 	 * @return the number how many times this container contains the given element.
 	 */
-	public default int getCount(final Object element) {
+	public default int getElementCount(final Object element) {
 		
 		int count = 0;
 		
@@ -353,12 +359,6 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		return count;
 	}
-	
-	//abstract method
-	/**
-	 * @return the number of elements of this container.
-	 */
-	public abstract int getElementCount();
 	
 	//default method
 	/**
@@ -465,7 +465,7 @@ public interface IContainer<E> extends Iterable<E> {
 			throw new EmptyStateException(this);
 		}
 		
-		return ((double)getCount(selector) / getElementCount());
+		return ((double)getElementCount(selector) / getElementCount());
 	}
 	
 	//default method

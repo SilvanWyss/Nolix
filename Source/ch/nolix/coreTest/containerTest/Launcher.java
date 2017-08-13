@@ -1,19 +1,19 @@
-/*
- * file:	Launcher.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	20
- */
-
 //package declaration
 package ch.nolix.coreTest.containerTest;
 
-//package-visible class
-final class Launcher {
+//class
+/**
+ * Of this class no instance can be created.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 20
+ */
+public final class Launcher {
 
 	//main method
 	/**
-	 * Creates new container test pool and lets it execute its tests.
+	 * Creates new container test pool and runs it.
 	 * 
 	 * @param args
 	 */

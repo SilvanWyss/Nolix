@@ -23,7 +23,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 990
+ * @lines 1000
  * @param <E> - The type of the elements of a list.
  */
 public final class List<E> implements Clearable, IContainer<E> {
@@ -391,19 +391,6 @@ public final class List<E> implements Clearable, IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O((n-m)*m) if:
-	 * -This list contains n elements.
-	 * -The sequences that matches the given sequence pattern contain m elements.
-	 * 
-	 * @param sequencePattern
-	 * @return the number of sequences from this list that match the given sequence pattern.
-	 */
-	public int getCount(final SequencePattern<E> sequencePattern) {
-		return getSequences(sequencePattern).getElementCount();
-	}
-	
-	//method
-	/**
 	 * The complexity of this method is O(1).
 	 * 
 	 * @return the number of elements of this list.
@@ -471,7 +458,7 @@ public final class List<E> implements Clearable, IContainer<E> {
 			throw new EmptyStateException(this);
 		}
 		
-		return ((double)getCount(sequencePattern) / getElementCount());
+		return ((double)getSequenceCount(sequencePattern) / getElementCount());
 	}
 		
 	//method
@@ -506,6 +493,19 @@ public final class List<E> implements Clearable, IContainer<E> {
 		
 		//Handles the case if this list is not empty.
 		return getRefLast();
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O((n-m)*m) if:
+	 * -This list contains n elements.
+	 * -The sequences that matches the given sequence pattern contain m elements.
+	 * 
+	 * @param sequencePattern
+	 * @return the number of sequences from this list that match the given sequence pattern.
+	 */
+	public int getSequenceCount(final SequencePattern<E> sequencePattern) {
+		return getSequences(sequencePattern).getElementCount();
 	}
 	
 	//method
@@ -559,6 +559,17 @@ public final class List<E> implements Clearable, IContainer<E> {
 	 */
 	public ListIterator<E> iterator() {
 		return new ListIterator<E>(firstNode);
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(n) if this list contains n elements.
+	 * 
+	 * @param sequencePattern
+	 * @return true if this list matches the given sequence pattern.
+	 */
+	public boolean matches(final SequencePattern<E> sequencePattern) {
+		return sequencePattern.matches(this);
 	}
 	
 	//method

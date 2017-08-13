@@ -93,32 +93,6 @@ public final class SequencePattern<E> {
 		return elementConditions.getElementCount();
 	}
 	
-	//method
-	/**
-	 * @param list
-	 * @return true if this sequence pattern matches the given list.
-	 */
-	public boolean matches(final List<E> list) {
-		
-		//Checks if the given list has as many elements as this sequence pattern requires.
-		if (list.getElementCount() != getSize()) {
-			return false;
-		}
-		
-		//Checks if the elements of the given list
-		//fulfill the according element conditions this sequence pattern requires.
-		final Iterator<IElementTakerBooleanGetter<E>> iterator = elementConditions.iterator();
-		for (final E e: list) {
-			if (!iterator.next().getOutput(e)) {
-				return false;
-			}
-		}
-		
-		//Checks if the given list fulfils the sequence conditions of this sequence pattern.
-		return sequenceConditions.containsOnly(sc -> sc.getOutput(list));
-	}
-	
-	
 	//package visible method
 	/**
 	 * @param list
@@ -164,5 +138,30 @@ public final class SequencePattern<E> {
 		}
 		
 		return sequences;
+	}
+	
+	//package-visible method
+	/**
+	 * @param list
+	 * @return true if this sequence pattern matches the given list.
+	 */
+	boolean matches(final List<E> list) {
+		
+		//Checks if the given list has as many elements as this sequence pattern requires.
+		if (list.getElementCount() != getSize()) {
+			return false;
+		}
+		
+		//Checks if the elements of the given list
+		//fulfill the according element conditions this sequence pattern requires.
+		final Iterator<IElementTakerBooleanGetter<E>> iterator = elementConditions.iterator();
+		for (final E e: list) {
+			if (!iterator.next().getOutput(e)) {
+				return false;
+			}
+		}
+		
+		//Checks if the given list fulfils the sequence conditions of this sequence pattern.
+		return sequenceConditions.containsOnly(sc -> sc.getOutput(list));
 	}
 }
