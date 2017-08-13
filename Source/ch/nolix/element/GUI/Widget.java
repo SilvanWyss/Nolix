@@ -309,9 +309,7 @@ extends ConfigurableElement<W> {
 	 * @return the configurable elements of this widget.
 	 */
 	public final AccessorContainer<Configurable> getRefConfigurables() {
-		
-		//TODO: Implement this better.
-		return new AccessorContainer<Configurable>(getRefWidgets().to(e -> e));
+		return new AccessorContainer<Configurable>(getRefWidgets());
 	}
 	
 	//method

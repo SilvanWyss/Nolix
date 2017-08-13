@@ -13,7 +13,7 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 70
+ * @lines 80
  */
 public class Server<M, R>
 extends AbortableElement {
@@ -72,10 +72,10 @@ extends AbortableElement {
 		.getRefFirst(ept -> ept.hasName(endPoint.getTarget()))
 		.takeEndPoint(endPoint);
 	}
-
-	@Override
-	protected void noteAbort() {
-		// TODO Auto-generated method stub
-		
-	}
+	
+	//method
+	/**
+	 * Lets this server note an abort.
+	 */
+	protected void noteAbort() {}
 }

@@ -23,8 +23,8 @@ extends Container<SingleContainer, SingleContainerStructure> {
 	public static final String SIMPLE_CLASS_NAME = "SingleContainer";
 	public static final String NONE = "NoSingleContainer";
 	
-	//attributes
-	private Widget<?, ?> rectangle;
+	//attribute
+	private Widget<?, ?> widget;
 	
 	//constructor
 	/**
@@ -32,7 +32,7 @@ extends Container<SingleContainer, SingleContainerStructure> {
 	 */
 	public SingleContainer() {
 		
-		rectangle = new Area();
+		widget = new Area();
 		resetConfiguration();
 	}
 	
@@ -68,7 +68,7 @@ extends Container<SingleContainer, SingleContainerStructure> {
 	 * @return the rectangle of this single container
 	 */
 	public final Widget<?, ?> getRefRectangle() {
-		return rectangle;
+		return widget;
 	}
 	
 	//method
@@ -98,7 +98,7 @@ extends Container<SingleContainer, SingleContainerStructure> {
 	 */
 	public void setRectangle(Widget<?, ?> rectangle) {
 		rectangle.setGUI(getRefGUI());
-		this.rectangle = rectangle;
+		this.widget = rectangle;
 	}
 	
 	//method
@@ -134,21 +134,17 @@ extends Container<SingleContainer, SingleContainerStructure> {
 				distanceFromTopPanelBorder + getContentYPosition()
 		);
 	}
-
-	@Override
+	
 	protected void paintContent(
-			SingleContainerStructure rectangleStructure,
-			Graphics graphics) {
-		// TODO Auto-generated method stub
+		SingleContainerStructure rectangleStructure,
+		Graphics graphics) {
 		
+		widget.paintUsingPositionOnContainer(graphics);
 	}
 
-	@Override
 	protected SingleContainerStructure createWidgetStructure() {
 		return new SingleContainerStructure();
 	}
-
-	@Override
 	public AccessorContainer<Widget<?, ?>> getRefWidgets() {
 		return new AccessorContainer<Widget<?, ?>>();
 	}

@@ -39,13 +39,14 @@ public final class AccessorContainer<E> implements IContainer<E> {
 	 * @param container
 	 * @throws NullArgumentException if the given container is null.
 	 */
-	public AccessorContainer(final IContainer<E> container) {
+	@SuppressWarnings("unchecked")
+	public <E2 extends E> AccessorContainer(final IContainer<E2> container) {
 		
 		//Checks if the given container is not null.
 		Validator.supposeThat(container).thatIsNamed("container").isNotNull();
 		
 		//Sets the container of this accessor container.
-		this.container = container;
+		this.container = (IContainer<E>)container;
 	}
 	
 	//method
