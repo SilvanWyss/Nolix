@@ -451,7 +451,7 @@ public final class List<E> implements Clearable, IContainer<E> {
 	 * @return a new list with the elements from this list that are of the given type.
 	 */
 	public List<E> getOfType(final Class<E> type) {
-		return getSelected(e -> e.getClass().isAssignableFrom(type));
+		return getRefSelected(e -> e.getClass().isAssignableFrom(type));
 	}
 
 	//method
@@ -505,7 +505,7 @@ public final class List<E> implements Clearable, IContainer<E> {
 		}
 		
 		//Handles the case if this list is not empty.
-		return lastNode.getElement();
+		return getRefLast();
 	}
 	
 	//method
@@ -571,7 +571,7 @@ public final class List<E> implements Clearable, IContainer<E> {
 	 */
 	public List<E> removeAll(final IElementTakerBooleanGetter<E> selector) {
 		
-		final List<E> list = getSelected(e -> !selector.getOutput(e));
+		final List<E> list = getRefSelected(e -> !selector.getOutput(e));
 		clear();
 		addAtEnd(list);
 		
@@ -937,7 +937,6 @@ public final class List<E> implements Clearable, IContainer<E> {
 		}
 		
 		//Handles the case when the sub list contains more than 2 elements.
-		
 			final List<E> list = new List<E>();
 			final int middleIndex = startIndex + length / 2;
 			final List<E> subList1 = getSortedSubList(startIndex, middleIndex, norm);

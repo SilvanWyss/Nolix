@@ -5,8 +5,6 @@ package ch.nolix.core.container;
 import java.util.Iterator;
 import java.util.Random;
 
-
-
 //own imports
 import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.constants.StringManager;
@@ -33,7 +31,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1160
+ * @lines 1230
  * @param <E> - The type of the elements of a container.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -733,6 +731,21 @@ public interface IContainer<E> extends Iterable<E> {
 		throw new UnexistingAttributeException(this, "element the given selector selects");
 	}
 	
+	//method
+	/**
+	 * @return the first element of this container or null.
+	 */
+	public default E getRefFirstOrNull() {
+		
+		//Handles the case if this list is empty.
+		if (isEmpty()) {
+			return null;
+		}
+		
+		//Handles the case if this list is not empty.
+		return getRefFirst();
+	}
+	
 	//default method
 	/**
 	 * @param selector
@@ -813,7 +826,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param selector
 	 * @return a new list with the elements the given selector selects from this container.
 	 */
-	public default List<E> getSelected(final IElementTakerBooleanGetter<E> selector) {
+	public default List<E> getRefSelected(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Creates list.
 		final List<E> list = new List<E>();
@@ -838,12 +851,12 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new list with the elements the given selectors selects from this container.
 	 */
 	@SuppressWarnings("unchecked")
-	public default List<E> getSelected(final IElementTakerBooleanGetter<E>... selecors) {
+	public default List<E> getRefSelected(final IElementTakerBooleanGetter<E>... selecors) {
 		
 		//Creates list.
 		final List<E> list = new List<E>();
 		
-		//Iterates this list.
+		//Iterates this container.
 		for (final E e : this) {
 			
 			boolean selected = true;
@@ -858,7 +871,57 @@ public interface IContainer<E> extends Iterable<E> {
 				}
 			}
 			
+			//Handles the option that the current element is selected.
 			if (selected) {
+				list.addAtEnd(e);
+			}
+		}
+		
+		return list;
+	}
+	
+	/**
+	 * The complexity of this method is O(n) if this container contains n elements.
+	 * 
+	 * @param selector
+	 * @return a new list with the elements the given selector selects not (!) from this container.
+	 */
+	public default List<E> getRefUnselected(final IElementTakerBooleanGetter<E> selector) {
+		return getRefSelected(e -> !selector.getOutput(e));
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(m*n) if:
+	 * -This contains contains m elements.
+	 * -n selectors are given.
+	 * 
+	 * @param selectors
+	 * @return a new list with the elements the given selectors selects not (!) from this container.
+	 */
+	@SuppressWarnings("unchecked")
+	public default List<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selecors) {
+		
+		//Creates list.
+		final List<E> list = new List<E>();
+		
+		//Iterates this container.
+		for (final E e : this) {
+			
+			boolean selected = false;
+			
+			//Iterates the given selectors.
+			for (IElementTakerBooleanGetter<E> s : selecors) {
+				
+				//Checks if the current selector selects not the current element.
+				if (s.getOutput(e)) {
+					selected = true;
+					break;
+				}
+			}
+			
+			//Handles the option that the current element is not selected.
+			if (!selected) {
 				list.addAtEnd(e);
 			}
 		}

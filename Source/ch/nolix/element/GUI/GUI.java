@@ -203,7 +203,7 @@ implements Clearable, IRequestableContainer {
 	public CursorIcon getActiveCursorIcon() {
 		
 		final Widget<?, ?> widget
-		= getRefWidgets().getSelected(w -> w.isUnderCursor()).getRefLastOrNull();
+		= getRefWidgets().getRefSelected(w -> w.isUnderCursor()).getRefLastOrNull();
 		
 		if (widget == null) {
 			return CursorIcon.Arrow;
@@ -356,7 +356,7 @@ implements Clearable, IRequestableContainer {
 	 */
 	public void noteKeyTyping(final KeyEvent keyEvent) {
 		getRefWidgets()
-		.getSelected(w -> w.isFocused())
+		.getRefSelected(w -> w.isFocused())
 		.forEach(w -> w.noteKeyTyping(keyEvent));
 	}
 	
@@ -366,7 +366,7 @@ implements Clearable, IRequestableContainer {
 	 */
 	public void noteLeftMouseButtonPress() {
 		getRefWidgets()
-		.getSelected(w -> w.isEnabled())
+		.getRefSelected(w -> w.isEnabled())
 		.forEach(
 			w -> {
 				if (!w.isUnderCursor()) {
@@ -393,7 +393,7 @@ implements Clearable, IRequestableContainer {
 	 */
 	public void noteLeftMouseButtonRelease() {
 		getRefWidgets()
-		.getSelected(w -> w.isEnabled() && w.isUnderCursor())
+		.getRefSelected(w -> w.isEnabled() && w.isUnderCursor())
 		.forEach(w -> w.noteLeftMouseButtonRelease());
 	}
 	
@@ -410,7 +410,7 @@ implements Clearable, IRequestableContainer {
 			);
 		}
 		
-		getRefWidgets().getSelected(w -> w.isEnabled()).forEach(
+		getRefWidgets().getRefSelected(w -> w.isEnabled()).forEach(
 			w -> {
 				
 				if (!w.isUnderCursor()) {				
@@ -436,7 +436,7 @@ implements Clearable, IRequestableContainer {
 	 */
 	public void noteRightMouseButtonPress() {
 		getRefWidgets()
-		.getSelected(w -> w.isEnabled() && w.isUnderCursor())
+		.getRefSelected(w -> w.isEnabled() && w.isUnderCursor())
 		.forEach(w -> w.noteRightMouseButtonPress());
 	}
 	
@@ -446,7 +446,7 @@ implements Clearable, IRequestableContainer {
 	 */
 	public void noteRightMouseButtonRelease() {
 		getRefWidgets()
-		.getSelected(w -> w.isEnabled() && w.isUnderCursor())
+		.getRefSelected(w -> w.isEnabled() && w.isUnderCursor())
 		.forEach(w -> w.noteRightMouseButtonRelease());
 	}
 	
