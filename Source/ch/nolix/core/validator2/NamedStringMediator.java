@@ -35,7 +35,7 @@ public final class NamedStringMediator extends NamedArgumentMediator<String> {
 	public void isNotEmpty() {		
 		
 		//Checks if the argument of this named string mediator is not empty.
-		if (getArgument().isEmpty()) {
+		if (getRefArgument().isEmpty()) {
 			throw new EmptyArgumentException();
 		}
 	}

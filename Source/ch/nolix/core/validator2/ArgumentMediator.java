@@ -15,8 +15,8 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 100
- * @param <A> - The type of the argument of an argument mediator.
+ * @lines 120
+ * @param <A> The type of the argument of an argument mediator.
  */
 public class ArgumentMediator<A> {
 
@@ -72,6 +72,26 @@ public class ArgumentMediator<A> {
 		//Checks if the argument of this element mediator is null.
 		if (getRefArgument() != null) {
 			throw new NotNullArgumentException(new Argument(argument));
+		}
+	}
+	
+	//method
+	/**
+	 * @param type
+	 * @throws NullArgumentException if the argument of this argument mediator is null.
+	 * @throws InvalidArgumentException if the argument of this argument mediator is not of the given type.
+	 */
+	public final void isOfType(final Class<?> type) {
+		
+		//Checks if the argument of this argument mediator is not null.
+		isNotNull();
+		
+		//Checks if the argument of this argument mediator is of the given type.
+		if (!type.getClass().isAssignableFrom(getRefArgument().getClass())) {
+			throw new InvalidArgumentException(
+				new Argument(getRefArgument()),
+				new ErrorPredicate("is no " + type)
+			);
 		}
 	}
 	

@@ -51,12 +51,16 @@ final class EndPointTaker implements IEndPointTaker {
 	 * Lets this end point taker take the given end point.
 	 * 
 	 * @param endPoint
+	 * @throws NullArgumentException if the given end point is null.
 	 * @throws InvalidArgumentException if the given end point is no NetEndPoint.
 	 */
 	public void takeEndPoint(final EndPoint endPoint) {
 		
-		//TODO: Add isOfType method to validator.
-		//Validator.supposeThat(endPoint).thatIsInstanceOf(EndPoint.class).isOfType(NetEndPoint.class);
+		//Checks if the given end point is a NetEndPoint.
+		Validator
+		.supposeThat(endPoint)
+		.thatIsInstanceOf(EndPoint.class)
+		.isOfType(NetEndPoint.class);
 		
 		duplexControllerTaker.takeDuplexController(
 			new NetDuplexController((NetEndPoint)endPoint)

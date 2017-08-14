@@ -2,14 +2,18 @@
 package ch.nolix.core.validator2;
 
 //own imports
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
+import ch.nolix.core.invalidArgumentException.ErrorPredicate;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //package-visible abstract class
 /**
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 50
+ * @lines 80
  * @param <E> - The type of the element of a namd element mediator.
  */
 public class NamedArgumentMediator<E> extends NamedMediator {
@@ -48,9 +52,30 @@ public class NamedArgumentMediator<E> extends NamedMediator {
 	
 	//method
 	/**
+	 * @param type
+	 * @throws NullArgumentException if the argument of this named argument mediator is null.
+	 * @throws InvalidArgumentException if the argument of this named argument mediator is not of the given type.
+	 */
+	public final void isOfType(final Class<?> type) {
+		
+		//Checks if the argument of this argument mediator is not null.
+		isNotNull();
+		
+		//Checks if the argument of this argument mediator is of the given type.
+		if (!type.getClass().isAssignableFrom(getRefArgument().getClass())) {
+			throw new InvalidArgumentException(
+				new ArgumentName(getArgumentName()),
+				new Argument(getRefArgument()),
+				new ErrorPredicate("is no " + type)
+			);
+		}
+	}
+	
+	//method
+	/**
 	 * @return the argument of this named element mediator.
 	 */
-	protected E getArgument() {
+	protected E getRefArgument() {
 		return argument;
 	}
 }
