@@ -220,8 +220,19 @@ public final class Validator {
 	/**s
 	 * @param arguments
 	 * @return a new string container mediator with the given arguments.
+	 * @throws NullArgumentException if the given argument container is null.
 	 */
 	public static StringContainerMediator supposeThatTheStrings(final Iterable<String> arguments) {
+		return new StringContainerMediator(arguments);
+	}
+	
+	//static method
+	/**s
+	 * @param arguments
+	 * @return a new string container mediator with the given arguments.
+	 * @throws NullArgumentException if the given argument container is null.
+	 */
+	public static StringContainerMediator supposeThatTheStrings(final String[] arguments) {
 		return new StringContainerMediator(arguments);
 	}
 	

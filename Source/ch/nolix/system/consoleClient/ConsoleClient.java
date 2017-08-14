@@ -106,13 +106,14 @@ public final class ConsoleClient extends Client<ConsoleClient> {
 	 * Writes the given lines to the console.
 	 * 
 	 * @param lines
-     * @throws NullArgumentException if one of the givne line is null.
+	 * @throws NullArgumentExcetpion if the givne line container is null.
+     * @throws NullArgumentException if one of the given line is null.
 	 */
 	public void writeLineToCosnole(final String... lines) {
 		
-		//Checks if no one of the given lines is null.
-		//TODO: Add are not null method to zeta validator.
-		//ZetaValidator.supposeThat(lines).areNotNull();
+		//Checks if the given line container is not null
+		//and if the given lines are not null.
+		Validator.supposeThatTheStrings(lines).areNotNull();
 		
 		//Iterates the given lines.
 		for (final String l : lines) {

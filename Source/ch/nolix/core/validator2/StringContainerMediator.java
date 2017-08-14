@@ -29,6 +29,19 @@ public final class StringContainerMediator extends ArgumentContainerMediator<Str
 		super(arguments);
 	}
 	
+	//package-visible constructor
+	/**
+	 * Creates new string container mediator with the given arguments.
+	 * 
+	 * @param arguments
+	 * @throws NullArgumentException if the given argument container is null.
+	 */
+	StringContainerMediator(final String[] arguments) {
+		
+		//Calls method of the base class.
+		super(arguments);
+	}
+
 	//method
 	/**
 	 * @throws NullArgumentException if one of the arguments of this strinc container mediator is null.
