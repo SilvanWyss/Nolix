@@ -40,7 +40,9 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	@SuppressWarnings("unchecked")
 	public Matrix<E> addColumn(final E... elements) {
 		
-		//TODO: Check if all the given elements are not null.
+		//Checks if the given element container is not null
+		//and if the given elements are not null.
+		Validator.supposeThatTheObjects(elements).areNotNull();
 		
 		//Checks if the given element container is not empty.
 		if (elements.length == 0) {
@@ -100,7 +102,9 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	@SuppressWarnings("unchecked")
 	public Matrix<E> addRow(final E... elements) {
 		
-		//TODO: Check if all the given elements are not null.
+		//Checks if the given element container is not null
+		//and if the given elements are not null.
+		Validator.supposeThatTheObjects(elements).areNotNull();
 		
 		//Checks if the given element container is not empty.
 		if (elements.length == 0) {

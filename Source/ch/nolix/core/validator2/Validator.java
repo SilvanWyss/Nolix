@@ -200,8 +200,19 @@ public final class Validator {
 	/**
 	 * @param arguments
 	 * @return a new object container mediator with the given arguments.
+	 * @throws NullArgumentException if the given argument container is null.
 	 */
 	public static ArgumentContainerMediator<Object> supposeThatTheObjects(final Iterable<Object> arguments) {
+		return new ArgumentContainerMediator<Object>(arguments);
+	}
+	
+	//static method
+	/**
+	 * @param arguments
+	 * @return a new object container mediator with the given arguments.
+	 * @throws NullArgumentException if the given argument container is null.
+	 */
+	public static ArgumentContainerMediator<Object> supposeThatTheObjects(final Object[] arguments) {
 		return new ArgumentContainerMediator<Object>(arguments);
 	}
 	

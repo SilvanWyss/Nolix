@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.validator2;
 
+//Java import
+import java.util.Vector;
+
 //own imports
 import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.Argument;
@@ -39,6 +42,31 @@ public class ArgumentContainerMediator<A> {
 		
 		//Sets the arguments of this argument container mediator.
 		this.arguments = arguments;
+	}
+	
+	//package-visible constructor
+	/**
+	 * Creates new argument container mediator with the given arguments.
+	 * 
+	 * @param arguments
+	 * @throws NullArgumentException if the given argument container is null.
+	 */
+	ArgumentContainerMediator(final A[] arguments) {
+
+		//Checks if the given argument container is not null.
+		if (arguments == null) {
+			throw new NullArgumentException("argument container");
+		}
+		
+		//Sets the arguments of this argument container mediator.
+			final Vector<A> argumentVector = new Vector<A>();
+			
+			//Iterates the given arguments.
+			for (final A a : arguments) {
+				argumentVector.add(a);
+			}
+			
+			this.arguments = argumentVector;
 	}
 	
 	//method
@@ -85,22 +113,6 @@ public class ArgumentContainerMediator<A> {
 			//Increments the index.
 			index++;
 		}
-	}
-
-	//method
-	/**
-	 * @throws NullArgumentException if the argument container of this argument container mediator is null.
-	 */
-	public final void isNotNullContainer() {
-		
-		//Checks if the argument container of this argument container mediator is not null.
-		if (arguments == null) {
-			throw new NullArgumentException("argument container");
-		}
-	}
-	
-	public NamedArgumentContainerMediator<A> thatIsNamed(final String argumentName) {
-		return new NamedArgumentContainerMediator<A>(argumentName, getRefArguments());
 	}
 	
 	//method
