@@ -74,10 +74,16 @@ public final class StringHelper {
 	/**
 	 * @param string
 	 * @return the double the given string represents.
+	 * @throws InvalidArgumentException if the given string represents no double.
 	 */
 	public static double toDouble(final String string) {
 		
-		//TODO: Check the format of the given string.
+		if (!string.matches("\\d+.\\d+")) {
+			throw new InvalidArgumentException(
+				new Argument(string),
+				new ErrorPredicate("represents no double")
+			);
+		}
 		
 		return Double.valueOf(string);
 	}
