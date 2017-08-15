@@ -14,9 +14,34 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 50
+ * @lines 70
  */
 final class ArrayHelper {
+	
+	//static method
+	/**
+	 * Creates a new iterable object with the given values.
+	 * 
+	 * @param values
+	 * @return a new iterable object with the given values.
+	 * @throws NullArgumentExcetpion if the given value container is null.
+	 */
+	public static Iterable<?> createIterable(double[] values) {
+		
+		//Checks if the given value container is not null.
+		if (values == null) {
+			throw new NullArgumentException("value container");
+		}
+		
+		final Vector<Double> valueVector = new Vector<Double>();
+		
+		//Iterates the given elements.
+		for (final double v : values) {
+			valueVector.add(v);
+		}
+		
+		return valueVector;
+	}
 
 	//static method
 	/**

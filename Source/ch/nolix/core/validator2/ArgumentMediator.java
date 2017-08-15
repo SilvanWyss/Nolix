@@ -34,7 +34,7 @@ public class ArgumentMediator<A> {
 		//Sets the argument of this argument mediator.
 		this.argument = argument;
 	}
-	
+
 	//method
 	/**
 	 * @param condition

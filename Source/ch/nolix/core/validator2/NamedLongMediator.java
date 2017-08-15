@@ -4,6 +4,7 @@ package ch.nolix.core.validator2;
 //own imports
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
+import ch.nolix.core.invalidArgumentException.BiggerArgumentException;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -23,7 +24,7 @@ import ch.nolix.core.invalidArgumentException.UnequalArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 180
+ * @lines 190
  */
 public final class NamedLongMediator extends NamedMediator {
 	
@@ -134,6 +135,19 @@ public final class NamedLongMediator extends NamedMediator {
 		//Checks if the argument of this named long mediator is negative.
 		if (argument >= 0) {
 			throw new NonNegativeArgumentException(getArgumentName(), argument);
+		}
+	}
+	
+	//method
+	/**
+	 * @param value
+	 * @throws BiggerArgumentException if the argument of this named long mediator is bigger than the given value.
+	 */
+	public void isNotBiggerThan(final long value) {
+		
+		//Checks if the argument of this named long mediator is not bigger than the given value.
+		if (argument > value) {
+			throw new BiggerArgumentException(getArgumentName(), argument, value);
 		}
 	}
 	

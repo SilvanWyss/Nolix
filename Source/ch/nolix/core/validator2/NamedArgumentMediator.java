@@ -28,7 +28,7 @@ public class NamedArgumentMediator<E> extends NamedMediator {
 	 * @param argumentName
 	 * @param argument
 	 * @throws NullArgumentException if the given argument name is null.
-	 * @throws EmptyArgumentException if the given argument name is an empty string.
+	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	public NamedArgumentMediator(final String argumentName, final E argument) {
 		

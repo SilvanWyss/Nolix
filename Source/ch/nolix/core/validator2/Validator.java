@@ -63,18 +63,11 @@ public final class Validator {
 	
 	//static method
 	/**
-	 * @param arguments
-	 * @return a new double container mediator with the given arguments.
+	 * @param argument
+	 * @return a new container mediator with the given argument.
 	 */
-	public static DoubleContainerMediator supposeThat(final double... arguments) {
-		
-		//Creates argument vector.
-		final Vector<Double> argumentVector = new Vector<Double>();
-		for (double a: arguments) {
-			argumentVector.add(a);
-		}
-		
-		return new DoubleContainerMediator(argumentVector);
+	public static ContainerMediator supposeThat(final double[] argument) {
+		return new ContainerMediator(argument);
 	}
 
 	//static method
@@ -91,7 +84,7 @@ public final class Validator {
 	 * @param arguments
 	 * @return a new long container mediator with the given arguments.
 	 */
-	public static LongContainerMediator supposeThat(final int... arguments) {
+	public static LongContainerMediator supposeThatTheInts(final int... arguments) {
 		
 		//Creates argument vector.
 		final Vector<Long> argumentVector = new Vector<Long>();
@@ -120,21 +113,7 @@ public final class Validator {
 		return new StringMediator(argument);
 	}
 	
-	//static method
-	/**
-	 * @param arguments
-	 * @return a new string container mediator with the given arguments.
-	 */
-	public static StringContainerMediator supposeThat(final String... arguments) {
-		
-		//Creates argument vector.
-		final Vector<String> argumentVector = new Vector<String>();
-		for (String a: arguments) {
-			argumentVector.add(a);
-		}
-		
-		return new StringContainerMediator(argumentVector);
-	}
+
 	
 	//static method
 	/**
@@ -143,6 +122,15 @@ public final class Validator {
 	 */
 	public static ArgumentMediator<Object> supposeThat(final Object argument) {
 		return new ArgumentMediator<Object>(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new container mediator with the given argument.
+	 */
+	public static ContainerMediator supposeThat(final Object[] argument) {
+		return new ContainerMediator(argument);
 	}
 	
 	//static method
@@ -183,6 +171,22 @@ public final class Validator {
 	 * @param arguments
 	 * @return a new double container mediator with the given arguments.
 	 */
+	public static DoubleContainerMediator supposeThatTheDoubles(final double... arguments) {
+		
+		//Creates argument vector.
+		final Vector<Double> argumentVector = new Vector<Double>();
+		for (double a: arguments) {
+			argumentVector.add(a);
+		}
+		
+		return new DoubleContainerMediator(argumentVector);
+	}
+	
+	//static method
+	/**
+	 * @param arguments
+	 * @return a new double container mediator with the given arguments.
+	 */
 	public static DoubleContainerMediator supposeThatTheDoubles(final Iterable<Double> arguments) {
 		return new DoubleContainerMediator(arguments);
 	}
@@ -216,6 +220,8 @@ public final class Validator {
 		return new ArgumentContainerMediator<Object>(arguments);
 	}
 	
+
+	
 	//static method
 	/**s
 	 * @param arguments
@@ -227,13 +233,19 @@ public final class Validator {
 	}
 	
 	//static method
-	/**s
+	/**
 	 * @param arguments
 	 * @return a new string container mediator with the given arguments.
-	 * @throws NullArgumentException if the given argument container is null.
 	 */
-	public static StringContainerMediator supposeThatTheStrings(final String[] arguments) {
-		return new StringContainerMediator(arguments);
+	public static StringContainerMediator supposeThatTheStrings(final String... arguments) {
+		
+		//Creates argument vector.
+		final Vector<String> argumentVector = new Vector<String>();
+		for (String a: arguments) {
+			argumentVector.add(a);
+		}
+		
+		return new StringContainerMediator(argumentVector);
 	}
 	
 	//private constructor

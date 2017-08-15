@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.validator2;
 
-//Java import
-import java.util.Vector;
-
 //own imports
 import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.Argument;
@@ -18,8 +15,8 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 100
- * @param <A> - The type of the arguments of an argument container mediator.
+ * @lines 110
+ * @param <A> The type of the arguments of an argument container mediator.
  */
 public class ArgumentContainerMediator<A> {
 
@@ -53,20 +50,8 @@ public class ArgumentContainerMediator<A> {
 	 */
 	ArgumentContainerMediator(final A[] arguments) {
 
-		//Checks if the given argument container is not null.
-		if (arguments == null) {
-			throw new NullArgumentException("argument container");
-		}
-		
-		//Sets the arguments of this argument container mediator.
-			final Vector<A> argumentVector = new Vector<A>();
-			
-			//Iterates the given arguments.
-			for (final A a : arguments) {
-				argumentVector.add(a);
-			}
-			
-			this.arguments = argumentVector;
+		//Calls other constructor.
+		this(ArrayHelper.createIterable(arguments));		
 	}
 	
 	//method
