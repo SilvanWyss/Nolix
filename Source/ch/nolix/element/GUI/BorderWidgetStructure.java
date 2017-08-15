@@ -492,20 +492,6 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Removes all attributes of this border widget structure.
-	 */
-	public void removeAttributes() {
-		
-		//Calls method of the base class.
-		super.removeAttributes();
-		
-		removeBorderSizes();
-		removeBorderColors();
-		removePaddings();
-	}
-	
-	//method
-	/**
 	 * Removes the border colors of this border widget structure.
 	 */
 	public final void removeBorderColors() {
@@ -1049,6 +1035,20 @@ extends BackgroundWidgetStructure<BWS> {
 		}
 		
 		return attributes;
+	}
+	
+	//method
+	/**
+	 * Removes all attributes of this border widget structure.
+	 */
+	protected void removeAttributes() {
+		
+		//Calls method of the base class.
+		super.removeAttributes();
+		
+		removeBorderSizes();
+		removeBorderColors();
+		removePaddings();
 	}
 	
 	//method

@@ -83,14 +83,6 @@ extends WidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * Removes all attributes of this background widget structure.
-	 */
-	public void removeAttributes() {
-		removeBackgroundColor();
-	}
-	
-	//method
-	/**
 	 * Removes the background color of this background widget structure.
 	 */
 	public final void removeBackgroundColor() {
@@ -155,5 +147,13 @@ extends WidgetStructure<BWS> {
 		}
 		
 		return attributes;
+	}
+	
+	//method
+	/**
+	 * Removes all attributes of this background widget structure.
+	 */
+	protected void removeAttributes() {
+		removeBackgroundColor();
 	}
 }

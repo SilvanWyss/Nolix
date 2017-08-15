@@ -4,8 +4,10 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.validator2.Validator;
+import ch.nolix.element.basic.Color;
+import ch.nolix.element.basic.PositiveInteger;
 import ch.nolix.element.data.Height;
-import ch.nolix.element.data.TextColor;
 import ch.nolix.element.data.TextSize;
 import ch.nolix.element.data.Width;
 
@@ -13,15 +15,27 @@ import ch.nolix.element.data.Width;
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 270
+ * @lines 330
  */
 public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructure> {
 		
+	//default values
+	public static final int DEFAULT_WIDTH = 400;
+	public static final int DEFAULT_HEIGHT = 400;
+	public static final int DEFAULT_TEXT_SIZE = ValueCatalog.MEDIUM_TEXT_SIZE;
+	public static final Color DEFAULT_TEXT_COLOR = new Color(Color.WHITE);
+	
+	//attribute headers
+	private static final String WIDTH_HEADER = "Width";
+	private static final String HEIGHT_HEADER = "Height";
+	private static final String TEXT_SIZE_HEADER = "TextSize";
+	private static final String TEXT_COLOR_HEADER = "TextColor";
+	
 	//optional attribute
-	private Width width;
-	private Height height;
-	private TextSize textSize;
-	private TextColor textColor;
+	private PositiveInteger width;
+	private PositiveInteger height;
+	private PositiveInteger textSize;
+	private Color textColor;
 	
 	//method
 	/**
@@ -40,14 +54,14 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 		}
 		
 		//Handles the case if this console has no height and no normal structure.
-		return Console.DEFAULT_HEIGHT;
+		return DEFAULT_HEIGHT;
 	}
 	
 	//method
 	/**
 	 * @return active text color of this console structure.
 	 */
-	public TextColor getActiveTextColor() {
+	public Color getActiveTextColor() {
 		
 		//Handles the case if this console structure has a text color.
 		if (hasTextColor()) {
@@ -60,7 +74,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 		}
 		
 		//Handles the case if this console structure has no text color and no normal structure.
-		return new TextColor(Console.DEFAULT_TEXT_COLOR);
+		return DEFAULT_TEXT_COLOR;
 	}
 	
 	//method
@@ -80,7 +94,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 		}
 		
 		//Handles the case if this console structure has no text size and no normal structure.
-		return Console.DEFAULT_TEXT_SIZE;
+		return DEFAULT_TEXT_SIZE;
 	}
 	
 	//method
@@ -100,27 +114,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 		}
 		
 		//Handles the case if this console has no width and no normal structure.
-		return Console.DEFAULT_WIDTH;
-	}
-	
-	//method
-	/**
-	 * @return the attributes of this console structure.
-	 */
-	public List<StandardSpecification> getAttributes() {
-		
-		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
-		
-		if (hasTextSize()) {
-			attributes.addAtEnd(textSize.getSpecification());
-		}
-		
-		if (hasTextColor()) {
-			attributes.addAtEnd(textColor.getSpecification());
-		}
-		
-		return attributes;
+		return DEFAULT_WIDTH;
 	}
 	
 	//method
@@ -207,23 +201,6 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 		return this;
 	}
 	
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case TextSize.SIMPLE_CLASS_NAME:
-				setTextSize(attribute.getOneAttributeToInteger());
-				break;
-			case TextColor.SIMPLE_CLASS_NAME:
-				
-				break;
-			default:
-				
-				
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-	
 	//method
 	/**
 	 * Sets the height of this console structure.
@@ -235,6 +212,24 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	public ConsoleStructure setHeight(final int height) {
 		
 		this.height = new Height(height);
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the text color of this console structure.
+	 * 
+	 * @param textColor
+	 * @return this console strucutre
+	 * @throws NullArgumentException if the given text color is null.
+	 */
+	public ConsoleStructure setTextColor(final Color textColor) {
+		
+		//Checks if the given text color is not null.
+		Validator.supposeThat(textColor).thatIsNamed("text color").isNotNull();
+		
+		this.textColor = textColor;
 		
 		return this;
 	}
@@ -267,5 +262,75 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 		this.width = new Width(width);
 		
 		return this;
+	}
+	
+	protected void addOrChangeAttribute(final StandardSpecification attribute) {
+		
+		//Enumerates the header of the given attribute.
+		switch (attribute.getHeader()) {
+			case WIDTH_HEADER:
+				setWidth(attribute.getOneAttributeToInteger());
+				break;
+			case HEIGHT_HEADER:
+				setHeight(attribute.getOneAttributeToInteger());
+				break;
+			case TEXT_SIZE_HEADER:
+				setTextSize(attribute.getOneAttributeToInteger());
+				break;
+			case TEXT_COLOR_HEADER:
+				setTextColor(new Color(attribute.getOneAttributeToString()));
+				break;
+			default:
+				
+				//Calls method of the base class.
+				super.addOrChangeAttribute(attribute);
+		}
+	}
+	
+	//method
+	/**
+	 * @return the attributes of this console structure.
+	 */
+	protected List<StandardSpecification> getAttributes() {
+		
+		//Calls method of the base class.
+		final List<StandardSpecification> attributes = super.getAttributes();
+		
+		//Handles the option that this console structure has a width.
+		if (hasWidth()) {
+			attributes.addAtEnd(width.getSpecificationAs(WIDTH_HEADER));
+		}
+		
+		//Handles the option that this console structure has a height.
+		if (hasHeight()) {
+			attributes.addAtEnd(height.getSpecificationAs(HEIGHT_HEADER));
+		}
+		
+		//Handles the option that this console structure has a text size.
+		if (hasTextSize()) {
+			attributes.addAtEnd(textSize.getSpecificationAs(TEXT_SIZE_HEADER));
+		}
+		
+		//Handles the option that this console structure has a text color.
+		if (hasTextColor()) {
+			attributes.addAtEnd(textColor.getSpecificationAs(TEXT_COLOR_HEADER));
+		}
+		
+		return attributes;
+	}
+	
+	//method
+	/**
+	 * Removes all attributes of this console structure.
+	 */
+	protected void removeAttributes() {
+		
+		//Calls method of the base class.
+		super.removeAttributes();
+		
+		removeWidth();
+		removeHeight();
+		removeTextSize();
+		removeTextColor();
 	}
 }

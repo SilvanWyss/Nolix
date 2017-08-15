@@ -3,17 +3,16 @@ package ch.nolix.element.GUI;
 
 //Java import
 import java.awt.Graphics;
-
-import ch.nolix.core.container.AccessorContainer;
+import java.awt.event.KeyEvent;
 
 //own imports
-
+import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.basic.Color;
-import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.GraphicText;
 
 //class
@@ -26,18 +25,17 @@ public final class Console
 extends BorderWidget<Console, ConsoleStructure>
 implements Clearable {
 	
-	//constant
-	public final String SIMPLE_CLASS_NAME = "Console";
+	//type name
+	public final String TYPE_NAME = "Console";
 	
-	//default values
-	public static final int DEFAULT_WIDTH = 200;
-	public static final int DEFAULT_HEIGHT = 400;
-	public static final int DEFAULT_BACKGROUND_COLOR = BackgroundColor.LIGHT_GREY;
-	public static final int DEFAULT_TEXT_SIZE = ValueCatalog.MEDIUM_TEXT_SIZE;
-	public static final int DEFAULT_TEXT_COLOR = Color.BLACK;
+	//default value
+	public static final Color DEFAULT_BACKGROUND_COLOR = new Color(Color.BLACK);
 	
-	//attribute headers
+	//attribute header
 	private final static String TEXT_LINES_HEADER = "TextLines";
+	
+	//attribute
+	private String nextTextLine = StringManager.EMPTY_STRING;
 	
 	//multiple attribute
 	private final List<String> textLines = new List<String>();
@@ -51,7 +49,7 @@ implements Clearable {
 	 */
 	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
-		//Enumerates the given attribute.
+		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case TEXT_LINES_HEADER:
 				addTextLines(attribute.getRefAttributes().to(a -> a.toString()));
@@ -88,7 +86,10 @@ implements Clearable {
 	 */
 	public Console addTextLine(final String... textLines) {
 		
-		this.textLines.addAtEnd(textLines);
+		//Iterates the given text lines.
+		for (final String tl : textLines) {
+			addTextLine(tl);
+		}
 		
 		return this;
 	}
@@ -103,7 +104,10 @@ implements Clearable {
 	 */
 	public Console addTextLines(final IContainer<String> textLines) {
 
-		this.textLines.addAtEnd(textLines);
+		//Iterates the given text lines.
+		for (final String tl : textLines) {
+			addTextLine(tl);
+		}
 		
 		return this;
 	}
@@ -114,6 +118,7 @@ implements Clearable {
 	 */
 	public void clear() {
 		textLines.clear();
+		nextTextLine = StringManager.EMPTY_STRING;
 	}
 	
 	//method
@@ -133,8 +138,9 @@ implements Clearable {
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
+		//Handles the option that this console contains text lines.
 		if (containsTextLines()) {
-			attributes.addAtEnd(new StandardSpecification(TEXT_LINES_HEADER, textLines.toArray()));
+			attributes.addAtEnd(new StandardSpecification(TEXT_LINES_HEADER, textLines));
 		}
 		
 		return attributes;
@@ -142,10 +148,18 @@ implements Clearable {
 	
 	//method
 	/**
+	 * @return the widgets of this console.
+	 */
+	public AccessorContainer<Widget<?, ?>> getRefWidgets() {
+		return new AccessorContainer<>();
+	}
+	
+	//method
+	/**
 	 * @return the text lines of this console.
 	 */
-	public IContainer<String> getTextLines() {
-		return textLines;
+	public AccessorContainer<String> getTextLines() {
+		return new AccessorContainer<String>(textLines);
 	}
 	
 	//method
@@ -164,6 +178,31 @@ implements Clearable {
 		return getTextLines().isEmpty();
 	}
 	
+	public void noteKeyTyping(KeyEvent keyEvent) {
+		
+		if (Character.isLetter(keyEvent.getKeyChar()) || Character.isDigit(keyEvent.getKeyChar())) {
+			nextTextLine += keyEvent.getKeyChar();
+		}
+		
+		switch (keyEvent.getKeyCode()) {
+		
+			case KeyEvent.VK_ENTER:
+				addTextLine(nextTextLine);
+				nextTextLine = StringManager.EMPTY_STRING;
+			case KeyEvent.VK_LEFT:
+
+				break;
+			case KeyEvent.VK_RIGHT:
+
+				break;
+			case KeyEvent.VK_BACK_SPACE:
+
+				break;
+			case KeyEvent.VK_DELETE:
+				break;
+		}
+	}
+	
 	//method
 	/**
 	 * Resets the configuration of this console.
@@ -173,12 +212,20 @@ implements Clearable {
 		//Calls method of the base class.
 		super.resetConfiguration();
 		
-		getRefNormalStructure().setBackgroundColor(new BackgroundColor(DEFAULT_BACKGROUND_COLOR));
+		getRefNormalStructure().setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+	}
+	
+	//method
+	/**
+	 * Creates new widget structure for this console.
+	 */
+	protected ConsoleStructure createWidgetStructure() {
+		return new ConsoleStructure();
 	}
 
 	//method
 	/**
-	 * @return the current height of the content of this console.
+	 * @return the height of the content of this console.
 	 */
 	protected int getContentHeight() {
 		
@@ -195,14 +242,14 @@ implements Clearable {
 
 	//method
 	/**
-	 * @return the current width of the content of this console.
+	 * @return the width of the content of this console.
 	 */
 	protected int getContentWidth() {
 		
 		final ConsoleStructure currentStructure = getRefCurrentStructure();
 		
 		return (
-				currentStructure.getActiveWidth()
+			currentStructure.getActiveWidth()
 			- currentStructure.getActiveLeftBorderSize()
 			- currentStructure.getActiveLeftPadding()
 			- currentStructure.getActiveRightBorderSize()
@@ -212,23 +259,23 @@ implements Clearable {
 
 	//method
 	/**
-	 * Paints this console using the given rectangle structure and graphics.
+	 * Paints the content of this console using the given widget structure and graphics.
 	 * 
-	 * @param rectangleStructure
+	 * @param widgetStructure
 	 * @param graphics
 	 */
-	protected void paintContent(final ConsoleStructure rectangleStructure, final Graphics graphics) {
+	protected void paintContent(final ConsoleStructure widgetStructure, final Graphics graphics) {
 		
 		final int contentHeight = getContentHeight();
-		final int textSize = rectangleStructure.getActiveTextSize();
+		final int textSize = widgetStructure.getActiveTextSize();
 		final GraphicText graphicText =
 		new GraphicText()
-		.setSize(rectangleStructure.getActiveTextSize())
-		.setColor(rectangleStructure.getActiveTextColor());
+		.setSize(widgetStructure.getActiveTextSize())
+		.setColor(widgetStructure.getActiveTextColor());
 		
 		//Iterates the text lines of this console.
 		int totalTextLinesHight = 0;
-		for (final String tl: getTextLines()) {
+		for (final String tl : getTextLines()) {
 			
 			totalTextLinesHight += textSize;
 			if (totalTextLinesHight > contentHeight) {
@@ -239,15 +286,13 @@ implements Clearable {
 			graphicText.paint(graphics);
 			graphics.translate(0, textSize);
 		}
-	}
+		
+		graphicText.setText(">" + nextTextLine);
+		
+		graphics.setColor(java.awt.Color.GRAY);
+		graphics.fillRect(graphicText.getWidth() - 1, 0, 2, graphicText.getHeight());
 
-	@Override
-	protected ConsoleStructure createWidgetStructure() {
-		return new ConsoleStructure();
-	}
-
-	@Override
-	public AccessorContainer<Widget<?, ?>> getRefWidgets() {
-		return new AccessorContainer<>();
+		graphicText.paint(graphics);
+		
 	}
 }
