@@ -101,8 +101,4 @@ public final class ARModel extends StatisticalModel {
 	public final int getPOrder() {
 		return pCoefficients.length;
 	}
-	
-	void initialize() {
-		
-	}
 }

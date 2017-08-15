@@ -1,34 +1,38 @@
-/*
- * file:	StatisticalModel.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	10
- */
-
 //package declaration
 package ch.nolix.core.mathematics;
 
+//own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.core.validator2.Validator;
 
-//class
+//abstract class
+/**
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 10
+ */
 public abstract class StatisticalModel {
 
 	//attributes
-	private final int backStepsCount;
+	private final int backStepCount;
 	private final double[] inputValues;
-	private double[] calculatedValues;
+	private double[] calculatedInputValues;
 	private final List<Double>forecasts = new List<Double>();
 	
 	//constructor
-	public StatisticalModel(final int backStepsCount, final double[] inputValues) {
+	/**
+	 * Creates new statistical model with the given back step count and input values.
+	 * 
+	 * @param backStepsCount
+	 * @param inputValues
+	 */
+	public StatisticalModel( final int backStepsCount, final double[] inputValues) {
 		
-		//Checks the givne parameters.
-		Validator.throwExceptionIfValueIsZero("back steps count", backStepsCount);
-		//TODO check input values min length
+		Validator.supposeThat(inputValues).thatIsNamed("input values").isNotEmpty();		
+		Validator.supposeThat(backStepsCount).thatIsNamed("back step count").isBetween(1, inputValues.length);
 		
 		//Sets the back steps count of this statistical model.
-		this.backStepsCount = backStepsCount;
+		this.backStepCount = backStepsCount;
 		
 		//Sets the input values of this statistical model.
 		this.inputValues = inputValues.clone();	
@@ -39,7 +43,7 @@ public abstract class StatisticalModel {
 	 * @return the number of back steps of this statistical model
 	 */
 	public final int getBackStepsCount() {
-		return backStepsCount;
+		return backStepCount;
 	}
 	
 	//abstract method
@@ -48,8 +52,8 @@ public abstract class StatisticalModel {
 	//method
 	public final double getValueFromBack(final int index) {
 		
-		Validator.throwExceptionIfValueIsNotPositive("index", index);
-		Validator.throwExceptionIfValueIsBigger("index", inputValues.length + forecasts.getElementCount(), index);
+		Validator.supposeThat(index).thatIsNamed("index").isPositive();
+		Validator.supposeThat(index).thatIsNamed("index").isNotBiggerThan(inputValues.length + forecasts.getElementCount());
 		
 		if (index > forecasts.getElementCount()) {
 			return inputValues[getInputValuesCount() + forecasts.getElementCount() - index];
@@ -61,7 +65,7 @@ public abstract class StatisticalModel {
 	//method
 	public final double getForecast(final int index) {
 		
-		Validator.throwExceptionIfValueIsNotPositive("index", index);
+		Validator.supposeThat(index).thatIsNamed("index").isPositive();
 		
 		while (forecasts.getElementCount() < index) {
 			forecasts.addAtEnd(getNextValue());
@@ -80,15 +84,15 @@ public abstract class StatisticalModel {
 		return inputValues.length;
 	}
 	
-	void calculateValues() {
+	void calculateInputValues() {
 		
 		//Sets the calculated values of this statistical model.
-		calculatedValues = new double[getInputValuesCount()];
+		calculatedInputValues = new double[getInputValuesCount()];
 		for (int i = 0; i < getBackStepsCount(); i++) {
-			calculatedValues[i] = inputValues[i];
+			calculatedInputValues[i] = inputValues[i];
 		}
 		for (int i = getBackStepsCount(); i < getInputValuesCount(); i++) {
-			calculatedValues[i] = getNextValue();
+			calculatedInputValues[i] = getNextValue();
 		}
 	}
 }
