@@ -24,7 +24,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 570
+ * @lines 600
  */
 public final class StandardSpecification extends Specification {
 	
@@ -98,7 +98,7 @@ public final class StandardSpecification extends Specification {
 	 * @throws EmptyArgumentException if the given header is empty.
 	 * @throws NullArgumentException if one of the given attributes is null.
 	 */
-	public StandardSpecification(final String header, final String... attributes) {
+	public StandardSpecification(final String header, final List<String> attributes) {
 		
 		//Sets the header of this standard specification.
 		setHeader(header);
@@ -111,6 +111,29 @@ public final class StandardSpecification extends Specification {
 		}
 	}
 	
+	//constructor
+	/**
+	 * Creates new standard specification with the given header and attributes.
+	 * 
+	 * @param header
+	 * @param attributes
+	 * @throws NullArgumentException if the given header is null.
+	 * @throws EmptyArgumentException if the given header is empty.
+	 * @throws NullArgumentException if one of the given attributes is null.
+	 */
+	public StandardSpecification(final String header, final String... attributes) {
+		
+		//Sets the header of this standard specification.
+		setHeader(header);
+		
+		//Iterates the given attributes.
+		for (final String a : attributes) {
+			
+			//Adds the current attribute to this standard specification.
+			addAttribute(a);
+		}
+	}
+
 	//method
 	/**
 	 * Adds the given attribute to this standard specification.
@@ -263,7 +286,12 @@ public final class StandardSpecification extends Specification {
 	 * @return a copy of this specification.
 	 */
 	public StandardSpecification getCopy() {
-		return new StandardSpecification(getHeader(), getRefAttributes().to(a -> a.getCopy()));
+		
+		final StandardSpecification specification = new StandardSpecification();
+		specification.setHeader(getHeader());
+		getRefAttributes().forEach(a -> specification.addAttribute(a.getCopy()));
+		
+		return specification;
 	}
 
 	//method
