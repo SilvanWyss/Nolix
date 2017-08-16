@@ -4,6 +4,10 @@ package ch.nolix.core.util;
 //Java import
 import javax.swing.JOptionPane;
 
+//own imports
+import ch.nolix.core.constants.CharacterManager;
+import ch.nolix.core.constants.StringManager;
+
 //class
 /**
  * This class provides methods to show small pop-up windows.
@@ -11,7 +15,7 @@ import javax.swing.JOptionPane;
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 60
+ * @lines 110
  */
 public final class PopupWindowProvider {
 	
@@ -30,6 +34,59 @@ public final class PopupWindowProvider {
 			null,
 			errorMessage,
 			ERROR_WINDOW_TITLE,
+			JOptionPane.ERROR_MESSAGE
+		);
+	}
+	
+	//static method
+	/**
+	 * Shows an exception window with the given exception.
+	 * 
+	 * @param exception
+	 */
+	public static void showExceptionWindow(final Exception exception) {
+		
+		String title;
+		String text;
+		
+		//Handles the case if the given exception is null.
+		if (exception == null) {
+			title = "Exception";
+			text = "An exception, that is null, occured.";
+		}
+		
+		//Handles the case if the given exception is not null.
+		else {
+			
+			//Sets the title.
+			title = exception.getClass().getSimpleName();
+			
+			//Sets the text.
+				text = StringManager.EMPTY_STRING;
+				
+				//Handles the option that the given exception has a message.
+				if (exception.getMessage() != null && !exception.getMessage().isEmpty()) {
+					text += exception.getMessage() + CharacterManager.NEW_LINE + CharacterManager.NEW_LINE;
+				}
+				
+				//Iterates the stack trace of the given exception.
+				for (final StackTraceElement ste : exception.getStackTrace()) {
+					
+					final String[] classPath = ste.getClassName().split("\\.");
+					text += classPath[classPath.length - 1];
+							
+					if (ste.getLineNumber() > 0) {
+						text += " (line " + ste.getLineNumber() + ")";
+					}
+					
+					text += CharacterManager.NEW_LINE;
+				}
+		}
+		
+		JOptionPane.showMessageDialog(
+			null,
+			text,
+			title,
 			JOptionPane.ERROR_MESSAGE
 		);
 	}
