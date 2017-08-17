@@ -18,7 +18,7 @@ import ch.nolix.system.client.Session;
  * @month 2015-12
  * @lines 200
  */
-public final class GUIClient extends Client<GUIClient> {
+public final class GUIBackClient extends Client<GUIBackClient> {
 	
 	//commands
 	static final String RESET_DIALOG_COMMAND = "ResetDialog";
@@ -27,7 +27,7 @@ public final class GUIClient extends Client<GUIClient> {
 	//attribute
 	private final GUI<?> dialog;
 
-	public GUIClient(final DuplexController duplexController) {
+	public GUIBackClient(final DuplexController duplexController) {
 			
 		//Calls constructor of the base class.
 		internal_connect(duplexController);
@@ -100,7 +100,7 @@ public final class GUIClient extends Client<GUIClient> {
 	 * @throws NullArgumentException if the given session is null.
 	 * @throws RuntimeException if the given session has already a client.
 	 */
-	public void setSession(final Session<GUIClient> session) {
+	public void setSession(final Session<GUIBackClient> session) {
 		internal_setSessionAndInitializeSession(session);
 	}
 	
@@ -153,7 +153,7 @@ public final class GUIClient extends Client<GUIClient> {
 	 * @param attributes
 	 */
 	private void resetOtherSideDialog(final Iterable<StandardSpecification> attributes) {
-		internal_getRefDuplexController().run(GUIClient.RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
+		internal_getRefDuplexController().run(GUIBackClient.RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
 	}
 
 	//method

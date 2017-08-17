@@ -17,15 +17,15 @@ import ch.nolix.system.client.Client;
  * @month 2016-11
  * @lines 150
  */
-public final class FrontGUIClient extends Client<FrontGUIClient> {
+public final class GUIFrontClient extends Client<GUIFrontClient> {
 	
 	//attribute
 	private GUI<?> dialog;
 	
-	public FrontGUIClient(Application<GUIClient> target) {
+	public GUIFrontClient(Application<GUIBackClient> target) {
 		
 		dialog = new Frame();
-		dialog.setController(new FrontGUIClientController(this));
+		dialog.setController(new GUIFrontClientController(this));
 		internal_connect(target);
 	}
 	
@@ -41,9 +41,9 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 * @param runMethodCommand
 	 */
 	public void run(final Statement runMethodCommand) {
-		internal_getRefDuplexController().appendCommand(GUIClient.RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
+		internal_getRefDuplexController().appendCommand(GUIBackClient.RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
 		internal_getRefDuplexController().appendCommand(INVOKE_RUN_METHOD_COMMAND + "(" + runMethodCommand + ")");
-		internal_getRefDuplexController().appendCommand(GUIClient.RESET_OTHER_SIDE_DIALOG_COMMAND);
+		internal_getRefDuplexController().appendCommand(GUIBackClient.RESET_OTHER_SIDE_DIALOG_COMMAND);
 		internal_getRefDuplexController().runAppendedCommands();
 	}
 	
@@ -63,10 +63,10 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
-			case GUIClient.RESET_DIALOG_COMMAND:
+			case GUIBackClient.RESET_DIALOG_COMMAND:
 				resetDialog(command.getRefAttributes());
 				break;
-			case GUIClient.RESET_OTHER_SIDE_DIALOG_COMMAND:
+			case GUIBackClient.RESET_OTHER_SIDE_DIALOG_COMMAND:
 				resetOtherSideDialog(command.getRefAttributes());
 				break;
 			default:
@@ -101,7 +101,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 * @param attributes
 	 */
 	private void resetOtherSideDialog(final Iterable<StandardSpecification> attributes) {
-		internal_getRefDuplexController().run(GUIClient.RESET_DIALOG_COMMAND + "(" + getGUI().getAttributes() + ")");
+		internal_getRefDuplexController().run(GUIBackClient.RESET_DIALOG_COMMAND + "(" + getGUI().getAttributes() + ")");
 	}
 	
 	//method

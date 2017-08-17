@@ -7,8 +7,8 @@ import ch.nolix.element.GUI.ContentPosition;
 import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
-import ch.nolix.system.GUIClient.GUIClient;
-import ch.nolix.system.GUIClient.FrontGUIClient;
+import ch.nolix.system.GUIClient.GUIBackClient;
+import ch.nolix.system.GUIClient.GUIFrontClient;
 import ch.nolix.system.client.Session;
 import ch.nolix.system.client.StandardApplication;
 
@@ -32,18 +32,18 @@ public final class GUIClientTutorial {
 	public static void main(final String[] arguments) {
 		
 		//Creates application.
-		final StandardApplication<GUIClient> application
-		= new StandardApplication<GUIClient>(
+		final StandardApplication<GUIBackClient> application
+		= new StandardApplication<GUIBackClient>(
 			"Application",
 			MainSession.class
 		);
 		
 		//Creates front dialog client that connects to the application.
-		new FrontGUIClient(application);
+		new GUIFrontClient(application);
 	}
 	
 	//inner class
-	private static final class MainSession extends Session<GUIClient> {
+	private static final class MainSession extends Session<GUIBackClient> {
 
 		//attribute
 		private int backgroundColor = Color.BLUE;

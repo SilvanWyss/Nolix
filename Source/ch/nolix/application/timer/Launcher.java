@@ -2,7 +2,7 @@
 package ch.nolix.application.timer;
 
 //own import
-import ch.nolix.system.GUIClient.FrontGUIClient;
+import ch.nolix.system.GUIClient.GUIFrontClient;
 
 //package-visible class
 /**
@@ -27,7 +27,7 @@ final class Launcher {
 		final Timer timer = new Timer();
 		
 		//Creates front GUI client.
-		new FrontGUIClient(timer);
+		new GUIFrontClient(timer);
 	}
 	
 	//private constructor
