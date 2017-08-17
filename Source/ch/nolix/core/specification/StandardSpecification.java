@@ -24,7 +24,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 600
+ * @lines 610
  */
 public final class StandardSpecification extends Specification {
 	

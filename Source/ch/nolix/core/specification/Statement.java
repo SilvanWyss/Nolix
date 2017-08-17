@@ -12,7 +12,7 @@ import ch.nolix.core.invalidStateException.UnexistingAttributeException;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 200
+ * @lines 210
  */
 public final class Statement {
 	
@@ -97,6 +97,15 @@ public final class Statement {
 	 */
 	public String getNextStatementToString() {
 		return getRefNextStatement().toString();
+	}
+	
+	//method
+	/**
+	 * @return a string representation of the one attribute of this statement.
+	 * @throws InvalidStateException if this statement contains no or several attributes.
+	 */
+	public String getOneAttributeToString() {
+		return specification.getOneAttributeToString();
 	}
 	
 	//method

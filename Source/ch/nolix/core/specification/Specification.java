@@ -17,7 +17,7 @@ import ch.nolix.core.helper.StringHelper;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 280
+ * @lines 300
  */
 public abstract class Specification {
 
@@ -29,7 +29,7 @@ public abstract class Specification {
 	 */
 	public abstract void addAttribute(final Specification attribute);
 	
-	//default method
+	//method
 	/**
 	 * Adds the given attributes to this specification.
 	 * 
@@ -41,6 +41,18 @@ public abstract class Specification {
 		for (final Specification a : attributes) {
 			addAttribute(a);
 		}
+	}
+	
+	//method
+	/**
+	 * Adds the given attributes to this specification.
+	 * 
+	 * @param attributes
+	 */
+	public final void addAttributes(final Iterable<Specification> attributes) {
+		
+		//Iterates the given attributes.
+		attributes.forEach(a -> addAttribute(a));
 	}
 	
 	//method
@@ -57,7 +69,7 @@ public abstract class Specification {
 	 */
 	public abstract boolean containsAttributes();
 	
-	//default method
+	//method
 	/**
 	 * @return the number of attributes of this specification.
 	 */
@@ -71,7 +83,7 @@ public abstract class Specification {
 	 */
 	public abstract String getHeader();
 	
-	//default method
+	//method
 	/**
 	 * @return the header of this specification in quotes.
 	 */
@@ -101,7 +113,7 @@ public abstract class Specification {
 	 */
 	public abstract boolean hasHeader();
 	
-	//default method
+	//method
 	/**
 	 * @param header
 	 * @return true if this specification has the given header.
