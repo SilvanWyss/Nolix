@@ -61,6 +61,16 @@ public final class StandardSpecification extends Specification {
 	 * Creates new standard specification without header and without attributes.
 	 */
 	public StandardSpecification() {}
+	
+	//constructor
+	/**
+	 * Creates new standard specification with a header that consists of the given character.
+	 * 
+	 * @param character
+	 */
+	public StandardSpecification(final char character) {
+		setHeader(Character.toString(character));
+	}
 		
 	//constructor
 	/**
