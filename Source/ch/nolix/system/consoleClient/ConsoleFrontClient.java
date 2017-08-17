@@ -14,7 +14,7 @@ import ch.nolix.system.client.Client;
 * @month 2017-03
 * @lines 40
 */
-public final class FrontConsoleClient extends Client<FrontConsoleClient> {
+public final class ConsoleFrontClient extends Client<ConsoleFrontClient> {
 
 	//attribute
 	//private GUI<?> gui;
@@ -29,7 +29,7 @@ public final class FrontConsoleClient extends Client<FrontConsoleClient> {
 	 * @throws NullArgumentException if the given target application is null.
 	 * @throws EmptyArgumentException if the given target application is empty.
 	 */
-	public FrontConsoleClient(
+	public ConsoleFrontClient(
 		final String ip,
 		final int port,
 		final String targetApplication

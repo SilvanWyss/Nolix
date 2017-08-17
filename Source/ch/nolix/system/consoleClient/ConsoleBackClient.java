@@ -15,7 +15,7 @@ import ch.nolix.system.client.Client;
  * @month 2017-03
  * @lines 130
  */
-public final class ConsoleClient extends Client<ConsoleClient> {
+public final class ConsoleBackClient extends Client<ConsoleBackClient> {
 	
 	//commands
 	static final String WRITE_NEXT_LINE_TO_CONSOLE_COMMAND = "WriteNextLineToConsole";
@@ -36,7 +36,7 @@ public final class ConsoleClient extends Client<ConsoleClient> {
 	 * @param duplexController
 	 * @throws NullArgumentException if the given duplex controller is null.
 	 */
-	public ConsoleClient(final DuplexController duplexController) {
+	public ConsoleBackClient(final DuplexController duplexController) {
 		
 		//Calls constructor of the base class.
 		internal_connect(duplexController);

@@ -13,7 +13,7 @@ import ch.nolix.system.client.Session;
  * @month 2017-03
  * @lines 10
  */
-public abstract class ConsoleClientSession extends Session<ConsoleClient> {
+public abstract class ConsoleBackClientSession extends Session<ConsoleBackClient> {
 
 	//method
 	/**
