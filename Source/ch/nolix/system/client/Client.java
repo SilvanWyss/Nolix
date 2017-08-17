@@ -38,14 +38,14 @@ implements Abortable {
 	protected static final String DATA_METHOD_REQUEST = "Data";
 		
 	//attributes
-	private final DuplexController duplexController;
-	private final boolean requestedConnectionFlag;
+	private DuplexController duplexController;
+	private boolean requestedConnectionFlag;
 	
 	//optional attributes
-	private final String target;
+	private String target;
 	private Session<C> session;
 	
-	public Client(final Application<?> target) {
+	protected void internal_connect(final Application<?> target) {
 		requestedConnectionFlag = true;
 		this.target = target.getName();
 		duplexController = new LocalDuplexController();
@@ -53,14 +53,14 @@ implements Abortable {
 		target.createClient(((LocalDuplexController)duplexController).getRefCounterpart());
 	}
 	
-	public Client(final DuplexController duplexController) {
+	protected void internal_connect(final DuplexController duplexController) {
 		requestedConnectionFlag = false;
 		this.duplexController = duplexController;
 		duplexController.setReceiverController(new ClientReceiverController(this));
 		target = duplexController.getData(TARGET_REQUEST).toString();
 	}
 	
-	public Client(String ip, int port, String target) {
+	protected void internal_connect(String ip, int port, String target) {
 		requestedConnectionFlag = true;
 		this.target = target;
 		duplexController = new NetDuplexController(ip, port);

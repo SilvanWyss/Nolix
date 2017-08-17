@@ -23,66 +23,16 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	private GUI<?> dialog;
 	
 	public FrontGUIClient(Application<GUIClient> target) {
-		super(target);
 		
 		dialog = new Frame();
+		dialog.setController(new FrontGUIClientController(this));
+		internal_connect(target);
 	}
 	
-	//constructor
-	/**
-	 * Creates new front dialog client that conntects to the given target application on the given port on the machien with the given ip.
-	 * 
-	 * @param ip
-	 * @param port
-	 * @param targetApplication
-	 * @throws NullArgumentException if the given target application is null.
-	 */
-	/*
-	public FrontGUIClient(final Application<GUIClient> targetApplication) {
-		
-		//Calls constructor of the base class.
-		super(
-			targetApplication,
-			c -> {
-				c.setDialog(
-					new Frame()
-					.setController(new FrontGUIClientController(c))
-				);
-			}
-		);
-	}
+
 	
 	
-	//constructor
-	/**
-	 * Creates new front dialog client that conntects to the given target application on the given port on the machien with the given ip.
-	 * 
-	 * @param ip
-	 * @param port
-	 * @param targetApplication
-	 * @throws NullArgumentException if the given target application is null.
-	 * @throws EmptyArgumentException if the given target application is empty.
-	 */
-	/*
-	public FrontGUIClient(
-		final String ip,
-		final int port,
-		final String targetApplication
-	) {
-		
-		//Calls constructor of the base class.
-		super(
-			ip,
-			port,
-			targetApplication,
-			c -> {
-				c.setDialog(
-					new Frame()
-					.setController(new FrontGUIClientController(c))
-				);
-			}
-		);
-	}
+
 	
 	//method
 	/**
@@ -134,7 +84,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 * @param attributes
 	 */
 	private void resetDialog(final Iterable<StandardSpecification> attributes) {
-		System.out.println(9);
+		//dialog = new Frame();
 		getGUI().reset(attributes);
 		getGUI().updateFromConfiguration();
 		getGUI().noteMouseMove();
@@ -173,9 +123,6 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	*/
 	
 	private GUI<?> getGUI() {
-		
-		//while (dialog == null) {}
-		
 		return dialog;
 	}
 }

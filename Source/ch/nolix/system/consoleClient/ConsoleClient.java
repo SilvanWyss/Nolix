@@ -39,7 +39,7 @@ public final class ConsoleClient extends Client<ConsoleClient> {
 	public ConsoleClient(final DuplexController duplexController) {
 		
 		//Calls constructor of the base class.
-		super(duplexController);
+		internal_connect(duplexController);
 	}
 	
 	//method

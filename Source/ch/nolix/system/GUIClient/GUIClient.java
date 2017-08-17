@@ -30,7 +30,7 @@ public final class GUIClient extends Client<GUIClient> {
 	public GUIClient(final DuplexController duplexController) {
 			
 		//Calls constructor of the base class.
-		super(duplexController);
+		internal_connect(duplexController);
 		
 		this.dialog = new InvisibleGUI();
 	}

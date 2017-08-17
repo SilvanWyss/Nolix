@@ -36,7 +36,7 @@ public final class FrontConsoleClient extends Client<FrontConsoleClient> {
 	) {
 		
 		//Calls constructor of the base class.
-		super(ip, port, targetApplication);
+		internal_connect(ip, port, targetApplication);
 	}
 	
 	//method

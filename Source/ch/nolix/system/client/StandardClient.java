@@ -25,7 +25,7 @@ public final class StandardClient extends Client<StandardClient> {
 	public StandardClient(final Application<StandardClient> targetApplication) {
 
 		//Calls constructor of the base class.
-		super(targetApplication);
+		internal_connect(targetApplication);
 	}
 	
 	//constructor
@@ -45,7 +45,7 @@ public final class StandardClient extends Client<StandardClient> {
 	) {
 		
 		//Calls constructor of the base class.
-		super(ip, port, targetApplication);
+		internal_connect(ip, port, targetApplication);
 	}
 	
 	//constructor
@@ -81,7 +81,7 @@ public final class StandardClient extends Client<StandardClient> {
 	public StandardClient(final DuplexController duplexController) {
 				
 		//Calls constructor of the base class.
-		super(duplexController);
+		internal_connect(duplexController);
 	}
 	
 	//constructor
