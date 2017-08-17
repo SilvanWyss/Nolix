@@ -179,7 +179,7 @@ public final class StandardSpecification extends Specification {
 		Validator.supposeThat(prefix).thatIsNamed("prefix").isNotEmpty();
 		
 		//Handles the case if this standard specification has no header.
-		if (hasHeader()) {
+		if (!hasHeader()) {
 			setHeader(prefix);
 		}
 		
