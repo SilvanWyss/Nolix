@@ -4,6 +4,7 @@ package ch.nolix.element.GUI;
 //Java imports
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 
 //own imports
@@ -26,7 +27,7 @@ import ch.nolix.element.basic.ConfigurableElement;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1100
+ * @lines 1090
  * @param <W> The type of a widget.
  * @param <WS> The type of the widget structures of a widget.
  */
@@ -1030,14 +1031,23 @@ extends ConfigurableElement<W> {
 	//method
 	/**
 	 * Paints this widget using the position on its parent container using the given graphics.
-	 * This method does not translate the given graphics in the end.
+	 * This method promises that the given graphics
+	 * has the same position at the end as at the beginning.
 	 * 
 	 * @param graphics
 	 */
 	protected final void paintUsingPositionOnContainer(final Graphics graphics) {
+		
+		final Rectangle originalClip = graphics.getClipBounds();
+		
 		graphics.translate(getXPositionOnContainer(), getYPositionOnContainer());
 		paint(graphics);
-		graphics.translate(-getXPositionOnContainer(), -getYPositionOnContainer());
+		
+		final Rectangle actualClip = graphics.getClipBounds();
+		graphics.translate(
+				(int)(actualClip.getX() - originalClip.getX()),
+				(int)(actualClip.getY() - originalClip.getY())
+		);
 	}
 	
 	//method
