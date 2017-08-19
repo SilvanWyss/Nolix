@@ -9,11 +9,11 @@ import ch.nolix.core.test2.Test;
 
 //test class
 /**
- * This class is a test class for the list class.
+ * This class is a test class for the List class.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 510
+ * @lines 540
  */
 public final class ListTest extends Test {
 		
@@ -137,6 +137,35 @@ public final class ListTest extends Test {
 			for (int i = 1; i <= list1.getElementCount(); i++) {
 				expectThat(list2.getRefAt(i)).equals(list1.getRefAt(i));
 			}
+	}
+	
+	//test method
+	public void test_getElementCount() {
+		
+		//setup
+		final List<String> list = new List<String>("x", "x", "x", "x", "x", "x");
+		
+		//execution and verification
+		expectThat(list.getElementCount()).equals(6);
+	}
+	
+	//test method
+	public void test_getElementCount_2() {
+		
+		//setup
+		final List<String> list = new List<String>(
+			"x",
+			"xx",
+			"xxx",
+			"xxxx",
+			"xxxxx",
+			"xxxxxx"
+		);
+		
+		//execution and verification
+		expectThat(list.getElementCount(e -> e.length() > 0)).equals(6);
+		expectThat(list.getElementCount(e -> e.length() > 3)).equals(3);
+		expectThat(list.getElementCount(e -> e.length() > 6)).isZero();
 	}
 	
 	//test method
