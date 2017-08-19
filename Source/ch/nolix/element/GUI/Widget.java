@@ -541,10 +541,7 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @param keyEvent
 	 */
-	public void noteKeyTyping(KeyEvent keyEvent) {
-		
-		System.out.println(getType());
-	}
+	public void noteKeyTyping(KeyEvent keyEvent) {}
 	
 	//method
 	/**

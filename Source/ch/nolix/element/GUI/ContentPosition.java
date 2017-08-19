@@ -22,7 +22,7 @@ public enum ContentPosition {
 	RightBottom;
 	
 	//constant
-	public static final String SIMPLE_CLASS_NAME = "ContentOrientation";
+	public static final String SIMPLE_CLASS_NAME = "ContentPosition";
 	
 	//method
 	/**

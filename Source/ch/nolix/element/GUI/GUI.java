@@ -41,7 +41,7 @@ implements Clearable, IRequestableContainer {
 	//default values
 	public static final String DEFAULT_TITLE = "GUI";
 	public static final Color DEFAULT_BACKGROUND_COLOR = new Color(Color.WHITE);
-	public static final ContentPosition DEFAULT_CONTENT_POSITION = ContentPosition.LeftTop;
+	public static final ContentPosition DEFAULT_CONTENT_POSITION = ContentPosition.Top;
 	
 	//attribute header
 	private static final String ROOT_WIDGET_HEADER = "RootRectangle";
