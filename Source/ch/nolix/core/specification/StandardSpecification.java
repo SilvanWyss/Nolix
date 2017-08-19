@@ -24,7 +24,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 610
+ * @lines 630
  */
 public final class StandardSpecification extends Specification {
 	
@@ -45,9 +45,22 @@ public final class StandardSpecification extends Specification {
 	 * @throws InvalidArgumentException if the file with the given file path represents no standard specification.
 	 */
 	public static final StandardSpecification createSpecificationFromFile(final String filePath) {
-		final StandardSpecification standardSpecification = new StandardSpecification();
-		standardSpecification.loadFromFile(filePath);
-		return standardSpecification;
+		final StandardSpecification specification = new StandardSpecification();
+		specification.loadFromFile(filePath);
+		return specification;
+	}
+	
+	//static method
+	/**
+	 * Creates new standard specification that consists of the given header.
+	 * 
+	 * @param header
+	 * @return a new standard specification that consists of the given header.
+	 */
+	public static final StandardSpecification createSpecificationWithHeaderOnly(final String header) {
+		final StandardSpecification specification = new StandardSpecification();
+		specification.setHeader(header);
+		return specification;
 	}
 	
 	//optional attribute
@@ -117,7 +130,7 @@ public final class StandardSpecification extends Specification {
 		for (final String a : attributes) {
 			
 			//Adds the current attribute to this standard specification.
-			addAttribute(a);
+			addAttribute(createSpecificationWithHeaderOnly(a));
 		}
 	}
 	
@@ -140,7 +153,7 @@ public final class StandardSpecification extends Specification {
 		for (final String a : attributes) {
 			
 			//Adds the current attribute to this standard specification.
-			addAttribute(a);
+			addAttribute(createSpecificationWithHeaderOnly(a));
 		}
 	}
 
