@@ -24,7 +24,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 620
+ * @lines 640
  */
 public final class StandardSpecification extends Specification {
 	
@@ -34,6 +34,21 @@ public final class StandardSpecification extends Specification {
 	public static final String DOT_CODE = "$D";
 	public static final String COMMA_CODE = "$M";
 	public static final String DOLLAR_SIGN_CODE = "$L";
+	
+	//static method
+	/**
+	 * Creates an escape string for the given string.
+	 * 
+	 * @param string
+	 * @return a new escape string for the given string.
+	 * @throws NullArgumentException if the given string is null.
+	 */
+	public static String createEscapeString(final String string) {
+		return
+		StandardSpecification
+		.createSpecificationWithHeaderOnly(string)
+		.toReproducingString();
+	}
 	
 	//static method
 	/**
@@ -56,6 +71,7 @@ public final class StandardSpecification extends Specification {
 	 * 
 	 * @param header
 	 * @return a new standard specification that consists of the given header.
+	 * @throws NullArgumentException if the given header is null.
 	 */
 	public static final StandardSpecification createSpecificationWithHeaderOnly(final String header) {
 		final StandardSpecification specification = new StandardSpecification();
