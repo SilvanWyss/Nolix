@@ -25,8 +25,8 @@ public class Frame extends VisibleGUI<Frame> {
 	public static final String TYPE_NAME = "Frame";
 	
 	//default values
-	public static final int DEFAULT_WIDTH = 800;
-	public static final int DEFAULT_HEIGHT = 500;
+	public static final int DEFAULT_WIDTH = 1200;
+	public static final int DEFAULT_HEIGHT = 800;
 	
 	//minimum values
 	public static final int MIN_WIDTH = 400;
