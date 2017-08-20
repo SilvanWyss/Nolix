@@ -9,26 +9,14 @@ import ch.nolix.system.client.Client;
 
 //class
 /**
- * A console is a client that provides a console.
+ * A console is a client that provides a console and an info panel.
  * 
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 130
+ * @lines 170
  */
 public final class ConsoleBackClient extends Client<ConsoleBackClient> {
-	
-	//commands
-	static final String WRITE_NEXT_LINE_TO_CONSOLE_COMMAND = "WriteNextLineToConsole";
-	static final String CLEAR_CONSOLE_COMMAND = "ClearConsole";
-	static final String WRITE_NEXT_LINE_TO_INFO_PANEL_COMMAND = "WriteNextLineToInfoPanel";
-	static final String CLEAR_INFO_PANEL_COMMAND = "ClearInfoPanel";
-	
-	//requests
-	static final String NEXT_LINE_OF_CONSOLE_REQUEST = "NextLineOfConsole";
-	static final String NEXT_CHARACTER_OF_CONSOLE_REQUEST = "NextCharacterOfConsole";
-	static final String NEXT_ENTER_OF_CONSOLE_REQUEST = "NextEnterOfConsole";
-	static final String LINES_OF_CONSOLE_REQUEST = "LinesOfConsole";
-	
+		
 	//constructor
 	/**
 	 * Creates new console client with the given duplex controller.
@@ -47,7 +35,7 @@ public final class ConsoleBackClient extends Client<ConsoleBackClient> {
 	 * Lets this console client clear the console.
 	 */
 	public void clearConsole() {
-		internal_getRefDuplexController().run(CLEAR_CONSOLE_COMMAND);
+		internal_getRefDuplexController().run(Protocol.CLEAR_CONSOLE_COMMAND);
 	}
 	
 	//method
@@ -55,7 +43,7 @@ public final class ConsoleBackClient extends Client<ConsoleBackClient> {
 	 * Lets this console client clear the info panel.
 	 */
 	public void clearInfoPanel() {
-		internal_getRefDuplexController().run(CLEAR_INFO_PANEL_COMMAND);
+		internal_getRefDuplexController().run(Protocol.CLEAR_INFO_PANEL_COMMAND);
 	}
 	
 	//method
@@ -64,16 +52,20 @@ public final class ConsoleBackClient extends Client<ConsoleBackClient> {
 	 * 
 	 * @return the next character of the console.
 	 */
-	public char readNextCharacterOfConsole() {
-		return internal_getRefDuplexController().getData(NEXT_CHARACTER_OF_CONSOLE_REQUEST).toString().charAt(0);
+	public char readNextCharacterFromConsole() {
+		return
+		internal_getRefDuplexController()
+		.getData(Protocol.NEXT_CHARACTER_OF_CONSOLE_REQUEST)
+		.toString()
+		.charAt(0);
 	}
 	
 	//method
 	/**
 	 * Lets this console client read the next enter of the console.
 	 */
-	public void readNextEnterOfConsole() {
-		internal_getRefDuplexController().getData(NEXT_ENTER_OF_CONSOLE_REQUEST);
+	public void readNextEnterFromConsole() {
+		internal_getRefDuplexController().getData(Protocol.NEXT_ENTER_OF_CONSOLE_REQUEST);
 	}
 	
 	//method
@@ -82,8 +74,8 @@ public final class ConsoleBackClient extends Client<ConsoleBackClient> {
 	 * 
 	 * @return the next line of the console.
 	 */
-	public String readLineFromConsole() {
-		return internal_getRefDuplexController().getData(NEXT_LINE_OF_CONSOLE_REQUEST).toString();
+	public String readNextLineFromConsole() {
+		return internal_getRefDuplexController().getData(Protocol.NEXT_LINE_OF_CONSOLE_REQUEST).toString();
 	}
 	
 	//method
@@ -93,12 +85,12 @@ public final class ConsoleBackClient extends Client<ConsoleBackClient> {
 	 * @param line
 	 * @throws NullArgumentException if the given line is null.
 	 */
-	public void writeLineToConsole(final String line) {
+	public void writeNextLineToConsole(final String line) {
 		
 		//Checks if the given line is not null.
 		Validator.supposeThat(line).thatIsNamed("line").isNotNull();
-		
-		internal_getRefDuplexController().run(new StandardSpecification(WRITE_NEXT_LINE_TO_CONSOLE_COMMAND, line).toString());
+	
+		internal_getRefDuplexController().run(Protocol.WRITE_NEXT_LINE_TO_CONSOLE_COMMAND + "(" + line + ")");
 	}
 	
 	//method
@@ -106,10 +98,10 @@ public final class ConsoleBackClient extends Client<ConsoleBackClient> {
 	 * Writes the given lines to the console.
 	 * 
 	 * @param lines
-	 * @throws NullArgumentExcetpion if the givne line container is null.
+	 * @throws NullArgumentExcetpion if the given line container is null.
      * @throws NullArgumentException if one of the given line is null.
 	 */
-	public void writeLineToCosnole(final String... lines) {
+	public void writeNextLineToConsole(final String... lines) {
 		
 		//Checks if the given line container is not null
 		//and if the given lines are not null.
@@ -117,7 +109,55 @@ public final class ConsoleBackClient extends Client<ConsoleBackClient> {
 		
 		//Iterates the given lines.
 		for (final String l : lines) {
-			internal_getRefDuplexController().appendCommand(new StandardSpecification(WRITE_NEXT_LINE_TO_CONSOLE_COMMAND, l).toString());
+			internal_getRefDuplexController().appendCommand(Protocol.WRITE_NEXT_LINE_TO_CONSOLE_COMMAND + "(" + l + ")");
+		}
+		
+		internal_getRefDuplexController().runAppendedCommands();
+	}
+	
+	//method
+	/**
+	 * Writes the given line to the info panel.
+	 * 
+	 * @param line
+	 * @throws NullArgumentException if the given line is null.
+	 */
+	public void writeNextLineToInfoPanel(final String line) {
+		
+		//Checks if the given line is not null.
+		Validator.supposeThat(line).thatIsNamed("line").isNotNull();
+		
+		internal_getRefDuplexController().run(
+			Protocol.WRITE_NEXT_LINE_TO_INFO_PANEL_COMMAND
+			+ "("
+			+ StandardSpecification.createEscapeString(line)
+			+ ")"
+		);
+	}
+	
+	//method
+	/**
+	 * Writes the given lines to the info panel.
+	 * 
+	 * @param lines
+	 * @throws NullArgumentExcetpion if the given line container is null.
+     * @throws NullArgumentException if one of the given line is null.
+	 */
+	public void writeNextLineToInfoPanel(final String... lines) { 
+		
+		//Checks if the given line container is not null
+		//and if the given lines are not null.
+		Validator.supposeThatTheStrings(lines).areNotNull();
+		
+		//Iterates the givne lines.
+		for (final String l : lines) {
+			
+			internal_getRefDuplexController().appendCommand(
+				Protocol.WRITE_NEXT_LINE_TO_INFO_PANEL_COMMAND
+				+ "("
+				+ StandardSpecification.createEscapeString(l)
+				+ ")"	
+			);
 		}
 		
 		internal_getRefDuplexController().runAppendedCommands();
