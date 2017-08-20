@@ -28,7 +28,7 @@ extends BorderWidget<Console, ConsoleStructure>
 implements Clearable {
 	
 	//type name
-	public final String TYPE_NAME = "Console";
+	public static final String TYPE_NAME = "Console";
 	
 	//default value
 	public static final Color DEFAULT_BACKGROUND_COLOR = new Color(Color.BLACK);
