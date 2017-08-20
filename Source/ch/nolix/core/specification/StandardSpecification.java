@@ -24,7 +24,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 630
+ * @lines 620
  */
 public final class StandardSpecification extends Specification {
 	
@@ -589,12 +589,8 @@ public final class StandardSpecification extends Specification {
 			String attributeString = StringManager.EMPTY_STRING;
 			for (int i = attributestartIndex; i < value.length() - 1; i++)
 			{
-				char character = value.charAt(i);
-				if (character == CharacterManager.DOT && level == 0) {
-					attributes.clear();
-					setHeader(value);
-					return;
-				}
+				final char character = value.charAt(i);
+				
 				if (character == CharacterManager.OPENING_BRACKET) {
 					level++;
 				}
