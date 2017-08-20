@@ -203,7 +203,7 @@ implements Clearable, IRequestableContainer {
 	public CursorIcon getActiveCursorIcon() {
 		
 		final Widget<?, ?> widget
-		= getRefWidgets().getRefSelected(w -> w.isUnderCursor()).getRefLastOrNull();
+		= getRefWidgets().getRefSelected(w -> w.isEnabled() && w.isUnderCursor()).getRefLastOrNull();
 		
 		if (widget == null) {
 			return CursorIcon.Arrow;
