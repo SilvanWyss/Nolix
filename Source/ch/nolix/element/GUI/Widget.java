@@ -27,7 +27,7 @@ import ch.nolix.element.basic.ConfigurableElement;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1090
+ * @lines 1140
  * @param <W> The type of a widget.
  * @param <WS> The type of the widget structures of a widget.
  */
@@ -45,6 +45,7 @@ extends ConfigurableElement<W> {
 	private static final String LEFT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER = "LeftMouseButtonReleaseCommand";
 	private static final String RIGHT_MOUSE_BUTTON_PRESS_COMMAND_HEADER = "RightMouseButtonPressCommand";
 	private static final String RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER = "RightMouseButtonReleaseCommand";
+	private static final String NO_GREY_OUT_WHEN_DISABLED_HEADER = "NoGreyOutWhenDisabled";
 	
 	//attribute header prefixes
 	private static final String NORMAL = "Normal";
@@ -61,6 +62,7 @@ extends ConfigurableElement<W> {
 	private int xPositionOnContainer = 0;
 	private int yPositionOnContainer = 0;
 	private WidgetState state = WidgetState.Normal;
+	private boolean greyOutWhenDisabled = true;
 	private CursorIcon cursorIcon = CursorIcon.Arrow;
 	private final WS normalStructure;
 	private final WS hoverStructure;
@@ -116,6 +118,9 @@ extends ConfigurableElement<W> {
 				break;
 			case RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER:
 				setRightMouseButtonReleaseCommand(attribute.getOneAttributeToString());
+				break;
+			case NO_GREY_OUT_WHEN_DISABLED_HEADER:
+				removeGreyOutWhenDisabled();
 				break;
 			default:
 				if (attribute.getHeader().startsWith(NORMAL)) {
@@ -218,6 +223,11 @@ extends ConfigurableElement<W> {
 					rightMouseButtonReleaseCommand.toString()
 				)
 			);
+		}
+		
+		//Handles the option that this widget does not grey out when it is disabled.
+		if (!greysOutWhenDisabled()) {
+			attributes.addAtEnd(new StandardSpecification(NO_GREY_OUT_WHEN_DISABLED_HEADER));
 		}
 	
 		//Extracts the normal state attributes of this widget.
@@ -428,6 +438,14 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
+	 * @return true if this widget greys out when it is disabled.
+	 */
+	public final boolean greysOutWhenDisabled() {
+		return greyOutWhenDisabled;
+	}
+	
+	//method
+	/**
 	 * @return true if this widget has a left mouse button press command.
 	 */
 	public final boolean hasLeftMouseButtonPressCommand() {
@@ -590,6 +608,20 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
+	 * Avoids that this widget greys out when it is disabled.
+	 * 
+	 * @return this widget.
+	 */
+	@SuppressWarnings("unchecked")
+	public final W removeGreyOutWhenDisabled() {
+		
+		greyOutWhenDisabled = false;
+		
+		return (W)this;
+	}
+	
+	//method
+	/**
 	 * Removes the left mouse button press command of this widget.
 	 */
 	public final void removeLeftMouseButtonPressCommand() {
@@ -701,6 +733,20 @@ extends ConfigurableElement<W> {
 	public final W setFocused() {
 		
 		state = WidgetState.Focused;
+		
+		return (W)this;
+	}
+	
+	//method
+	/**
+	 * Lets this widget grey out when it is disabled.
+	 * 
+	 * @return this widget.
+	 */
+	@SuppressWarnings("unchecked")
+	public final W setGreyOutWhenDisabled() {
+		
+		greyOutWhenDisabled = true;
 		
 		return (W)this;
 	}
@@ -963,7 +1009,7 @@ extends ConfigurableElement<W> {
 		
 		//Checks if the given state is not null.
 		Validator.supposeThat(state).thatIsNamed("state").isNotNull();
-		
+
 		//Sets the state of this widget.
 		this.state = state;
 		
@@ -1086,10 +1132,10 @@ extends ConfigurableElement<W> {
 		
 		paint(getRefCurrentStructure(), graphics);
 		
-		//Handles the option that this widget is disabled.
-		if (isDisabled()) {
+		//Handles the option that this widget is disabled and would grey out.
+		if (isDisabled() && greysOutWhenDisabled()) {
 			graphics.setColor(new Color(127, 127, 127, 127));
-			graphics.drawRect(0, 0, getWidth(), getHeight());
+			graphics.fillRect(0, 0, getWidth(), getHeight());
 		}
 	}
 }
