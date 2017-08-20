@@ -6,20 +6,22 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
 //own imports
+import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Clearable;
+import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
-import ch.nolix.element.data.GraphicText;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 250
+ * @lines 520
  */
 public final class Console
 extends BorderWidget<Console, ConsoleStructure>
@@ -31,14 +33,28 @@ implements Clearable {
 	//default value
 	public static final Color DEFAULT_BACKGROUND_COLOR = new Color(Color.BLACK);
 	
-	//attribute header
+	//attribute headers
 	private final static String TEXT_LINES_HEADER = "TextLines";
 	
 	//attribute
-	private String nextTextLine = StringManager.EMPTY_STRING;
+	//The edit line is the line of this console that can be edited.
+	private String editLine = StringManager.EMPTY_STRING;
+	
+	//attribute
+	//The text cursor position is the position of the text cursor in the edit line of this console.
+	//The text cursor position is measured by the number of characters.
+	private int textCursorPosition = 0;
 	
 	//multiple attribute
 	private final List<String> textLines = new List<String>();
+	
+	//constructor
+	/**
+	 * Creates new console.
+	 */
+	public Console() {
+		resetConfiguration();
+	}
 	
 	//method
 	/**
@@ -52,7 +68,7 @@ implements Clearable {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case TEXT_LINES_HEADER:
-				addTextLines(attribute.getRefAttributes().to(a -> a.toString()));
+				attribute.getRefAttributes().forEach(a -> addTextLine(a.toString()));
 				break;
 			default:
 				
@@ -63,7 +79,18 @@ implements Clearable {
 	
 	//method
 	/**
-	 * Adds the given text line to this console.
+	 * Adds the next line to this console that consists of the given character.
+	 * 
+	 * @param character
+	 * @return this console.
+	 */
+	public Console addTextLine(final char character) {
+		return addTextLine(Character.toString(character));
+	}
+	
+	//method
+	/**
+	 * Adds the given text line to this console and clears the edit line of this console.
 	 * 
 	 * @param textLine
 	 * @return this console.
@@ -72,6 +99,7 @@ implements Clearable {
 	public Console addTextLine(final String textLine) {
 		
 		textLines.addAtEnd(textLine);
+		clearEditLine();
 		
 		return this;
 	}
@@ -114,11 +142,20 @@ implements Clearable {
 	
 	//method
 	/**
-	 * Removes all text lines of this console.
+	 * Removes all text lines of this console and clears the edit line of this console.
 	 */
 	public void clear() {
 		textLines.clear();
-		nextTextLine = StringManager.EMPTY_STRING;
+		clearEditLine();
+	}
+	
+	//method
+	/**
+	 * Clears the edit line of this console.
+	 */
+	public void clearEditLine() {		
+		editLine = StringManager.EMPTY_STRING;
+		textCursorPosition = 0;
 	}
 	
 	//method
@@ -127,6 +164,33 @@ implements Clearable {
 	 */
 	public boolean containsTextLines() {
 		return textLines.containsAny();
+	}
+	
+	//method
+	/**
+	 * Deletes the character after the text cursor
+	 * in the edit line of this console if there is one.
+	 */
+	public final void deleteCharacterAfterTextCursor() {
+		if (textCursorPosition < editLine.length()) {
+			editLine
+			= getEditLineBeforeTextCursor() + getEditLineAfterTextCursor().substring(1);
+		}
+	}
+	
+	//method
+	/**
+	 * Deletes the character before the text cursor
+	 * in the edit line of this console if there is one.
+	 */
+	public final void deleteCharacterBeforeTextCursor() {
+		if (!editLine.isEmpty() && textCursorPosition > 0) {
+			
+			editLine
+			= editLine.substring(0, textCursorPosition  - 1) + getEditLineAfterTextCursor();
+			
+			textCursorPosition--;
+		}
 	}
 	
 	//method
@@ -144,6 +208,32 @@ implements Clearable {
 		}
 		
 		return attributes;
+	}
+	
+	//method
+	/**
+	 * The edit line of a console is its next text line that can be edited.
+	 * 
+	 * @return the edit line of this console.
+	 */
+	public String getEditLine() {
+		return editLine;
+	}
+	
+	//method
+	/**
+	 * @return the text of the edit line of this console after the text cursor.
+	 */
+	public String getEditLineAfterTextCursor() {
+		return editLine.substring(textCursorPosition);
+	}
+	
+	//method
+	/**
+	 * @return the text of the edit line of this console before the text cursor.
+	 */
+	public String getEditLineBeforeTextCursor() {
+		return editLine.substring(0, textCursorPosition);
 	}
 	
 	//method
@@ -172,35 +262,123 @@ implements Clearable {
 	
 	//method
 	/**
+	 * Inserts the given character into the edit line of this console after the text cursor.
+	 * 
+	 * @param character
+	 */
+	public final void insertCharacterAfterCursor(final char character) {
+		
+		final int originalTextCursorPosition = textCursorPosition;
+		
+		setEditLine(
+			getEditLineBeforeTextCursor()
+			+ character
+			+ getEditLineAfterTextCursor()
+		);
+		
+		textCursorPosition = originalTextCursorPosition + 1;
+	}
+	
+	//method
+	/**
 	 * @return true if this console contains no text line.
 	 */
 	public boolean isEmpty() {
 		return getTextLines().isEmpty();
 	}
 	
-	public void noteKeyTyping(KeyEvent keyEvent) {
-		
-		if (Character.isLetter(keyEvent.getKeyChar()) || Character.isDigit(keyEvent.getKeyChar())) {
-			nextTextLine += keyEvent.getKeyChar();
+	//method
+	/**
+	 * Moves the text cursor position in the edit line of this console one character to the left if possible.
+	 */
+	public void moveTextCursorPositionToLeft() {
+		if (textCursorPosition > 0) {
+			textCursorPosition--;
 		}
+	}
+	
+	//method
+	/**
+	 * Moves the text cursor position in the edit line of this console one character to the right if possible.
+	 */
+	public void moveTextCursorPositionToRight() {
+		if (textCursorPosition < getEditLine().length()) {
+			textCursorPosition++;
+		}
+	}
+	
+	//method
+	/**
+	 * Lets this console note a key typing.
+	 */
+	public void noteKeyTyping(final KeyEvent keyEvent) {
 		
+		//Enumerates the key code of the given key event.
 		switch (keyEvent.getKeyCode()) {
-		
+			case KeyEvent.VK_SPACE:
+				insertCharacterAfterCursor(CharacterManager.SPACE);
+				break;
 			case KeyEvent.VK_ENTER:
-				addTextLine(nextTextLine);
-				nextTextLine = StringManager.EMPTY_STRING;
+				addTextLine(editLine);
+				break;
 			case KeyEvent.VK_LEFT:
-
+				moveTextCursorPositionToLeft();
 				break;
 			case KeyEvent.VK_RIGHT:
-
+				moveTextCursorPositionToRight();
 				break;
 			case KeyEvent.VK_BACK_SPACE:
-
+				deleteCharacterBeforeTextCursor();
 				break;
 			case KeyEvent.VK_DELETE:
+				deleteCharacterAfterTextCursor();
 				break;
+			default:
+				if (Character.isDefined(keyEvent.getKeyChar())) {
+					insertCharacterAfterCursor(keyEvent.getKeyChar());
+				}
 		}
+	}
+	
+	//method
+	/**
+	 * Attention: Clears the edit line of this console.
+	 * Attention: This method lasts until this console receives a next character.
+	 * 
+	 * @return
+	 */
+	public char readNextCharacter() {
+		
+		clearEditLine();
+		
+		while (getEditLine().isEmpty()) {
+			Sequencer.waitForMilliseconds(100);
+		}
+		
+		final char nextCharacter = getEditLine().charAt(0);	
+		addTextLine(nextCharacter);
+		
+		return nextCharacter;
+	}
+	
+	//method
+	/**
+	 * Attention: Clears the edit line of this console.
+	 * Attention: This method lasts until this console receives a next line.
+	 * 
+	 * @return the next text line of this console.
+	 */
+	public String readNextTextLine() {
+		
+		clearEditLine();
+		
+		final int textLineCount = textLines.getElementCount();
+		
+		while (getTextLines().getElementCount() == textLineCount) {
+			Sequencer.waitForMilliseconds(100);
+		}
+		
+		return textLines.getRefLast();
 	}
 	
 	//method
@@ -212,7 +390,30 @@ implements Clearable {
 		//Calls method of the base class.
 		super.resetConfiguration();
 		
+		setCursorIcon(CursorIcon.Edit);
 		getRefNormalStructure().setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+	}
+	
+	//method
+	/**
+	 * Sets the edit line of this console.
+	 * 
+	 * @param editLine
+	 * @return this console
+	 * @throws NullArgumentException if the given edit line is null.
+	 */
+	public Console setEditLine(final String editLine) {
+		
+		//Checks if the given edit line is not null.
+		Validator.supposeThat(editLine).thatIsNamed("edit line").isNotNull();
+		
+		//Sets the edit line of this console.
+		this.editLine = editLine;
+		
+		//Sets the text cursor position at the end of the edit line.
+		textCursorPosition = getEditLine().length();
+		
+		return this;
 	}
 	
 	//method
@@ -256,7 +457,7 @@ implements Clearable {
 			- currentStructure.getActiveRightPadding()
 		);
 	}
-
+	
 	//method
 	/**
 	 * Paints the content of this console using the given widget structure and graphics.
@@ -266,33 +467,57 @@ implements Clearable {
 	 */
 	protected void paintContent(final ConsoleStructure widgetStructure, final Graphics graphics) {
 		
+		final int contentWidth = getContentWidth();
 		final int contentHeight = getContentHeight();
-		final int textSize = widgetStructure.getActiveTextSize();
-		final GraphicText graphicText =
-		new GraphicText()
-		.setSize(widgetStructure.getActiveTextSize())
-		.setColor(widgetStructure.getActiveTextColor());
+		final int textSize = widgetStructure.getActiveTextSize();	
+		final Font font = new Font(FontFamily.Console, textSize, widgetStructure.getActiveTextColor());
+		final int textlineCount = getTextLines().getElementCount();
+		final int shownTextLineCount = contentHeight / textSize;
 		
 		//Iterates the text lines of this console.
-		int totalTextLinesHight = 0;
+		int lineNumber = 1;
 		for (final String tl : getTextLines()) {
 			
-			totalTextLinesHight += textSize;
-			if (totalTextLinesHight > contentHeight) {
-				break;
+			int offsetTextLineCount = isEnabled() ? 2 : 1;
+			
+			if (lineNumber > textlineCount - shownTextLineCount + offsetTextLineCount) {
+				font.paintText(getLinePrefix() + tl, getContentWidth(), graphics);
+				graphics.translate(0, textSize);
 			}
 			
-			graphicText.setText(">" + tl);
-			graphicText.paint(graphics);
-			graphics.translate(0, textSize);
+			lineNumber++;
 		}
 		
-		graphicText.setText(">" + nextTextLine);
+		if (isEnabled()) {
 		
-		graphics.setColor(java.awt.Color.GRAY);
-		graphics.fillRect(graphicText.getWidth() - 1, 0, 2, graphicText.getHeight());
+			//Paints the edit line of this console.
+			font.paintText(getLinePrefix() + getEditLine(), contentWidth, graphics);
+				
+			//Paints the text cursor of this console.
+			final int textCursorXPosition
+			= font.getTextWidth(getLinePrefix()
+			+ getEditLineBeforeTextCursor())
+			- 1;
+			
+			if (textCursorXPosition < contentWidth) {
+				graphics.setColor(java.awt.Color.GRAY);
+				graphics.fillRect(
+					textCursorXPosition,
+					0,
+					2,
+					font.getTextSize()
+				);
+			}
+		}
+	}
 
-		graphicText.paint(graphics);
-		
+	//method
+	/**
+	 * The line prefix is a prefix that is written at the beginning of each line of this console.
+	 * 
+	 * @return the line prefix of this console.
+	 */
+	private String getLinePrefix() {
+		return "> ";
 	}
 }
