@@ -5,6 +5,7 @@ package ch.nolix.element.GUI;
 import java.awt.Canvas;
 import java.awt.Graphics;
 
+import ch.nolix.core.constants.StringManager;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
@@ -88,6 +89,35 @@ public class Font extends Element {
 	
 	//method
 	/**
+	 * @param text
+	 * @param maxWidth
+	 * @return the first part of the given text this font can paint
+	 * and that is not longer than the given max width.
+	 * @throws NegativeArgumentException if the given max width is negative.
+	 */
+	public String getFirstTextPart(final String text, final int maxWidth) {
+		
+		//Checks if the given max width is not negative.
+		Validator.supposeThat(maxWidth).thatIsNamed("max width").isNotNegative();
+		
+		String firstPart = StringManager.EMPTY_STRING;
+		
+		int endIndex = 0;
+		while (endIndex < text.length() && getTextWidth(firstPart) < maxWidth) {
+			firstPart = text.substring(0, endIndex);
+			endIndex++;
+		}
+		
+		if (getTextWidth(text) < maxWidth) {
+			return text;
+		}
+		
+		endIndex--;
+		return text.substring(0, endIndex);
+	}
+	
+	//method
+	/**
 	 * @return the font family of this font.
 	 */
 	public FontFamily getFontFamily() {
@@ -144,7 +174,24 @@ public class Font extends Element {
 	
 	//method
 	/**
-	 * Lets this font paint the given text using the given graphics at the given position.
+	 * Lets this font paint the given text using the given graphics.
+	 * Only the first part of the given text that is not longer than the given max width will be painted.
+	 * 
+	 * @param text
+	 * @param graphics
+	 */
+	public void paintText(
+		final String text,
+		final int maxWidth,
+		final Graphics graphics) {
+		
+		//Calls other method.
+		paintText(text, maxWidth, graphics, 0, 0);
+	}
+	
+	//method
+	/**
+	 * Lets this font paint the given text at the given position using the given graphics.
 	 * 
 	 * @param text
 	 * @param graphics
@@ -160,5 +207,31 @@ public class Font extends Element {
 		graphics.setFont(javaFont);
 		graphics.setColor(getTextColor().getJavaColor());
 		graphics.drawString(text, xPosition, yPosition + getTextSize());		
+	}
+	
+	//method
+	/**
+	 * Lets this font paint the given text at the given position using the given graphics.
+	 * Only the first part of the given text that is not longer than the given max width will be painted.
+	 * 
+	 * @param text
+	 * @param maxWidth
+	 * @param graphics
+	 * @param xPosition
+	 * @param yPosition
+	 * @throws NegativeArgumentException if the given max width is negative.
+	 */
+	public void paintText(
+		final String text,
+		final int maxWidth,
+		final Graphics graphics,
+		final int xPosition,
+		final int yPosition
+	) {
+		final String firstPart = getFirstTextPart(text, maxWidth);
+		
+		graphics.setFont(javaFont);
+		graphics.setColor(getTextColor().getJavaColor());
+		graphics.drawString(firstPart, xPosition, yPosition + getTextSize());		
 	}
 }
