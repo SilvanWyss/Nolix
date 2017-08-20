@@ -145,11 +145,6 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 */
 	public void noteKeyTyping(KeyEvent keyEvent) {
 		
-
-		if (Character.isLetter(keyEvent.getKeyChar()) || Character.isDigit(keyEvent.getKeyChar())) {
-			insertCharacterAfterCursor(keyEvent.getKeyChar());
-		}
-		
 		switch (keyEvent.getKeyCode()) {
 			case KeyEvent.VK_LEFT:
 				if (getTextCursorPosition() > 0) {
@@ -167,6 +162,10 @@ public final class TextBox extends TextLineWidget<TextBox> {
 			case KeyEvent.VK_DELETE:
 				deleteCharacterAfterTextCursor();
 				break;
+			default:
+				if (Character.isDefined(keyEvent.getKeyChar())) {
+					insertCharacterAfterCursor(keyEvent.getKeyChar());
+				}
 		}
 	}
 	
