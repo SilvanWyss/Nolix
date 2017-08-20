@@ -49,6 +49,17 @@ public final class StandardSpecificationTest extends Test {
 	}
 	
 	//test method
+	public void test_constructor_4() {
+		
+		//setup
+		final StandardSpecification standardSpecification = new StandardSpecification("a(b.)");
+				
+		//verification
+		expectThat(standardSpecification.getHeader()).equals("a");
+		expectThat(standardSpecification.getRefOneAttribute()).equals("b.");
+	}
+	
+	//test method
 	public void test_toString_1() {
 		
 		//setup
