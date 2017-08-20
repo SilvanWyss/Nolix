@@ -155,7 +155,7 @@ implements Clearable {
 	 */
 	public final AccessorContainer<Widget<?, ?>> getRefShownWidgets() {
 		return new AccessorContainer<Widget<?, ?>>(
-			getRefWidgets().getRefSelected(w -> !w.isDisabled())
+			getRefWidgets().getRefSelected(w -> !w.isCollapsed())
 		);
 	}
 	
