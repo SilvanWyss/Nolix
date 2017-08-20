@@ -21,12 +21,12 @@ final class Design extends StandardConfiguration {
 	 */
 	public Design() {
 		
-		addAttachingAttribute("ContentOrientation(Top)");
+		addAttachingAttribute("ContentPosition(Top)");
 		
 		addConfiguration(
 			new DeepConfiguration()
 			.setSelectorRole(ContainerRole.MainContainer)
-			.addAttachingAttribute("ContentOrientation(Top)"),
+			.addAttachingAttribute("ContentPosition(Top)"),
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameManager.BENCHMARK_LABEL_NAME)
 			.addAttachingAttribute("NormalTextSize(100)"),
