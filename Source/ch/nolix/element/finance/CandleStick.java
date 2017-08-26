@@ -18,7 +18,7 @@ import ch.nolix.element.basic.Time;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 400
+ * @lines 420
  */
 public class CandleStick extends Element {
 	
@@ -139,6 +139,21 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
+	 * @return the attributes of this candle stick.
+	 */
+	public List<StandardSpecification> getAttributes() {
+		return
+		new List<StandardSpecification>(
+			time.getSpecification(),
+			new FloatingPointNumber(getOpeningPrice()).getSpecificationAs(OPENING_PRICE_NAME),
+			new FloatingPointNumber(getClosingPrice()).getSpecificationAs(CLOSING_PRICE_NAME),
+			new FloatingPointNumber(getLowestPrice()).getSpecificationAs(LOWEST_PRICE_NAME),
+			new FloatingPointNumber(getHighestPrice()).getSpecificationAs(HIGHEST_PRICE_NAME)
+		);
+	}
+	
+	//method
+	/**
 	 * The body of a candle stick is the area between its opening price and its closing price.
 	 * 
 	 * @return the length of the body of this candle stick.
@@ -182,15 +197,6 @@ public class CandleStick extends Element {
 			getClosingPrice(),
 			getLowestPrice(),
 			getHighestPrice()
-		);
-	}
-	
-	public List<StandardSpecification> getAttributes() {
-		return new List<StandardSpecification>(
-			new FloatingPointNumber(getOpeningPrice()).getSpecificationAs(OPENING_PRICE_NAME),
-			new FloatingPointNumber(getClosingPrice()).getSpecificationAs(CLOSING_PRICE_NAME),
-			new FloatingPointNumber(getLowestPrice()).getSpecificationAs(LOWEST_PRICE_NAME),
-			new FloatingPointNumber(getHighestPrice()).getSpecificationAs(HIGHEST_PRICE_NAME)
 		);
 	}
 	
