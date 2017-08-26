@@ -88,6 +88,16 @@ public final class ConsoleBackClient extends Client<ConsoleBackClient> {
 	
 	//method
 	/**
+	 * Let this console back client read the next line, that is not empty, of the console of its counterpart.
+	 * 
+	 * @return the next line of the console, that is not empty, of the console.
+	 */
+	public String readNextNonEmptyLineFromConsole() {
+		return internal_getRefDuplexController().getData(Protocol.NEXT_NON_EMPTY_LINE_OF_CONSOLE_REQUEST).toString();
+	}
+	
+	//method
+	/**
 	 * Sets the title of the console.
 	 * 
 	 * @param title

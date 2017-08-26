@@ -146,6 +146,8 @@ public final class ConsoleFrontClient extends Client<ConsoleFrontClient> {
 		switch (request.getHeader()) {
 			case Protocol.NEXT_LINE_OF_CONSOLE_REQUEST:
 				return new StandardSpecification(mainConsole.readNextTextLine());
+			case Protocol.NEXT_NON_EMPTY_LINE_OF_CONSOLE_REQUEST:
+				return StandardSpecification.createSpecificationWithHeaderOnly(mainConsole.readNextNonEmptyTextLine());
 			case Protocol.NEXT_CHARACTER_OF_CONSOLE_REQUEST:
 				return new StandardSpecification(mainConsole.readNextCharacter());
 			case Protocol.LINES_OF_CONSOLE_REQUEST:

@@ -21,6 +21,7 @@ final class Protocol {
 	
 	//requests
 	public static final String NEXT_LINE_OF_CONSOLE_REQUEST = "NextLineOfConsole";
+	public static final String NEXT_NON_EMPTY_LINE_OF_CONSOLE_REQUEST = "NextNonEmptyLineOfConsole";
 	public static final String NEXT_CHARACTER_OF_CONSOLE_REQUEST = "NextCharacterOfConsole";
 	public static final String NEXT_ENTER_OF_CONSOLE_REQUEST = "NextEnterOfConsole";
 	public static final String LINES_OF_CONSOLE_REQUEST = "LinesOfConsole";
