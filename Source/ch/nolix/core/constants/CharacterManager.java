@@ -19,6 +19,7 @@ public final class CharacterManager {
 	public static final char CLOSING_SQUARE_BRACKET = ']';
 	public static final char COMMA = ',';
 	public static final char DOT = '.';
+	public static final char ELLIPSIS = '…';
 	public static final char MINUS = '-';
 	public static final char NEW_LINE = '\n';
 	public static final char OPENING_BRACKET = '(';
@@ -27,7 +28,7 @@ public final class CharacterManager {
 	public static final char QUOTE = '\"';
 	public static final char SLASH = '/';
 	public static final char SPACE = ' ';
-	public static final char TABULATOR = '\t';;
+	public static final char TABULATOR = '\t';
 	public static final char UNDERSCORE = '_';
 	
 	//private constructor
