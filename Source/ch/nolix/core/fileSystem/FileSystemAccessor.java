@@ -181,6 +181,11 @@ public final class FileSystemAccessor {
 	 * @return the entry path of this file system accessor.
 	 */
 	private String getEntryPath() {
+		
+		if (!hasRootFolder()) {
+			return StringManager.EMPTY_STRING;
+		}
+		
 		return (getRootPathOrEmptyString() + CharacterManager.SLASH);
 	}
 	

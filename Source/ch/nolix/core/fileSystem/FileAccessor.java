@@ -64,7 +64,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 	 */
 	public void overwriteFile(final String content) {		
 		try (final PrintWriter printWriter = new PrintWriter(getInternalAccessor())) {
-			printWriter.print(content);
+			printWriter.print(content.replace("\n", "\r\n"));
 			printWriter.flush();
 		}
 		catch (final IOException exception) {
