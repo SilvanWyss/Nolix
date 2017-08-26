@@ -176,6 +176,9 @@ public final class ConsoleFrontClient extends Client<ConsoleFrontClient> {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
+			case Protocol.SET_TITLE:
+				GUI.setTitle(command.getOneAttributeToString());
+				break;
 			case Protocol.WRITE_NEXT_LINE_TO_CONSOLE_COMMAND:
 				mainConsole.addTextLine(command.getOneAttributeToString());
 				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.

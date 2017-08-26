@@ -13,7 +13,7 @@ import ch.nolix.system.client.Client;
  * 
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 170
+ * @lines 180
  */
 public final class ConsoleBackClient extends Client<ConsoleBackClient> {
 		
@@ -76,6 +76,23 @@ public final class ConsoleBackClient extends Client<ConsoleBackClient> {
 	 */
 	public String readNextLineFromConsole() {
 		return internal_getRefDuplexController().getData(Protocol.NEXT_LINE_OF_CONSOLE_REQUEST).toString();
+	}
+	
+	//method
+	/**
+	 * Sets the title of the console.
+	 * 
+	 * @param title
+	 * @throws NullArgumentException if the given title is null.
+	 * @throws EmptyArgumentException if the given title is empty.
+	 */
+	public void setTitle(final String title) {
+		internal_getRefDuplexController().run(
+			Protocol.SET_TITLE
+			+ "("
+			+ StandardSpecification.createEscapeString(title)
+			+")"
+		);
 	}
 	
 	//method
