@@ -48,6 +48,14 @@ public final class ConsoleBackClient extends Client<ConsoleBackClient> {
 	
 	//method
 	/**
+	 * Lets the counterpart of this console back client open a file explorer.
+	 */
+	public void openFileExplorer() {
+		internal_getRefDuplexController().run(Protocol.OPEN_FILE_EXPLORER_COMMAND);
+	}
+	
+	//method
+	/**
 	 * Lets this console client read the next character of the console.
 	 * 
 	 * @return the next character of the console.

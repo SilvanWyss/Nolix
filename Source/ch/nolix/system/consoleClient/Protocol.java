@@ -13,6 +13,7 @@ final class Protocol {
 	
 	//commands
 	public static final String SET_TITLE = "SetTitle";
+	public static final String OPEN_FILE_EXPLORER_COMMAND = "OpenFileExplorer";
 	public static final String WRITE_NEXT_LINE_TO_CONSOLE_COMMAND = "WriteNextLineToConsole";
 	public static final String CLEAR_CONSOLE_COMMAND = "ClearConsole";
 	public static final String WRITE_NEXT_LINE_TO_INFO_PANEL_COMMAND = "WriteNextLineToInfoPanel";
