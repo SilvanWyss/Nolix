@@ -366,6 +366,25 @@ implements Clearable {
 	 * Attention: Clears the edit line of this console.
 	 * Attention: This method lasts until this console receives a next line.
 	 * 
+	 * @return the next text line of this conosle, that is not empty.
+	 * 
+	 */
+	public String readNextNonEmptyTextLine() {
+		while (true) {
+			
+			final String nextTextLine = readNextTextLine();
+			
+			if (!nextTextLine.isEmpty()) {
+				return nextTextLine;
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * Attention: Clears the edit line of this console.
+	 * Attention: This method lasts until this console receives a next line.
+	 * 
 	 * @return the next text line of this console.
 	 */
 	public String readNextTextLine() {
