@@ -16,6 +16,8 @@ import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
+import ch.nolix.element.font.Font;
+import ch.nolix.element.font.FontFamily;
 
 //class
 /**

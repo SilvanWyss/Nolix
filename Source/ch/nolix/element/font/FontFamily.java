@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.element.GUI;
+package ch.nolix.element.font;
 
-//own imports
-import ch.nolix.core.invalidStateException.InvalidStateException;
+//own import
 import ch.nolix.core.specification.StandardSpecification;
 
 //enum
@@ -27,22 +26,16 @@ public enum FontFamily {
 	
 	//method
 	/**
-	 * @return the Java font family that represents this font family.
+	 * @return the Java font family of this font family.
 	 */
 	public String getJavaFontFamily() {
 		
 		//Enumerates this font family.
 		switch (this) {
-			case Arial:
-				return "Arial";
 			case Console:
 				return java.awt.Font.MONOSPACED;
-			case Papyrus:
-				return toString();
-			case Verdana:
-				return toString();
 			default:
-				throw new InvalidStateException(this);
+				return toString();
 		}
 	}
 }
