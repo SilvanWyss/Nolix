@@ -27,14 +27,14 @@ public final class ConsoleDesign extends StandardConfiguration {
 			.setSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute(
 				"NormalBackgroundColor(VeryLightGrey)",
-				"NormalPadding(20)",
-				"ElementMargin(20)"
+				"NormalPadding(10)",
+				"ElementMargin(10)"
 			),
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameManager.INFO_PANEL_NAME)
 			.addAttachingAttribute(
 				"NormalWidth(800)",
-				"NormalHeight(200)",
+				"NormalHeight(300)",
 				"NormalBackgroundColor(VeryLightBlue)",
 				"NormalPadding(10)",
 				"NormalTextColor(DarkBlue)"
