@@ -24,7 +24,7 @@ import ch.nolix.core.invalidArgumentException.UnequalArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 190
+ * @lines 200
  */
 public final class NamedLongMediator extends NamedMediator {
 	
@@ -172,6 +172,18 @@ public final class NamedLongMediator extends NamedMediator {
 		//Checks if the argument of this named long mediator is not positive.
 		if (argument > 0) {
 			throw new PositiveArgumentException(getArgumentName(), argument);
+		}
+	}
+	
+	//method
+	/**
+	 * @param SmallerArgumentException if the argument of this named long mediator is smaller than the given value.
+	 */
+	public void isNotSmallerThan(final long value) {
+	
+		//Checks if the argument of this named long mediator is not smaller than the given value.
+		if (argument < value) {
+			throw new SmallerArgumentException(getArgumentName(), argument, value);
 		}
 	}
 	
