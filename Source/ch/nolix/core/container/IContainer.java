@@ -31,8 +31,8 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1230
- * @param <E> - The type of the elements of a container.
+ * @lines 1250
+ * @param <E> The type of the elements of a container.
  */
 public interface IContainer<E> extends Iterable<E> {
 	
@@ -1096,6 +1096,17 @@ public interface IContainer<E> extends Iterable<E> {
 		}
 		
 		return true;
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @param n
+	 * @return a sub container of this container that skips the first n elements.
+	 */
+	public default SubContainer<E> skipFirstElements(final int n) {
+		return new SubContainer<E>(this, n + 1, getElementCount());
 	}
 	
 	//default method

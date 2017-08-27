@@ -1,9 +1,14 @@
 //package declaration
 package ch.nolix.coreTest.containerTest;
 
+//Java import
+import java.util.Iterator;
+
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.SequencePattern;
+import ch.nolix.core.container.SubContainer;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.test2.Test;
 
@@ -13,7 +18,7 @@ import ch.nolix.core.test2.Test;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 540
+ * @lines 580
  */
 public final class ListTest extends Test {
 		
@@ -403,6 +408,39 @@ public final class ListTest extends Test {
 		
 		//execution and verification
 		expectThat(list.matches(sequencePattern));
+	}
+	
+	//test methods
+	public void test_skipFirstElements() {
+		
+		//setup
+		final List<String> list = new List<String>(
+			"x",
+			"xx",
+			"xxx",
+			"xxxx",
+			"xxxxx",
+			"xxxxxx"
+		);
+		
+		//execution
+		final SubContainer<String> subList = list.skipFirstElements(3);
+		
+		//verification
+			expectThat(subList.getElementCount()).equals(3);
+			
+			final Iterator<String> iterator = subList.iterator();
+			
+			expectThat(iterator.hasNext());
+			expectThat(iterator.next()).equals("xxxx");
+			expectThat(iterator.hasNext());
+			expectThat(iterator.next()).equals("xxxxx");
+			expectThat(iterator.hasNext());
+			expectThat(iterator.next()).equals("xxxxxx");
+			expectThatNot(iterator.hasNext());
+			
+			expectThat(() -> iterator.next()).
+			throwsExceptionOfType(UnexistingAttributeException.class);
 	}
 	
 	//test method
