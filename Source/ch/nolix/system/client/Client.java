@@ -644,6 +644,9 @@ implements Abortable {
 		session.setClient(this);
 		this.session = session;
 		
+		//TODO: Add reset method to client.
+		//reset();
+		
 		//Initializes the given session.
 		session.initialize();
 		internal_finishSessionInitialization();

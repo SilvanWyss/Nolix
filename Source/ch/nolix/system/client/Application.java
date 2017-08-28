@@ -6,13 +6,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.ParameterizedType;
 
 //own imports
-
-
-
-
-
-
-
 import ch.nolix.core.basic.NamedElement;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
@@ -91,25 +84,21 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 	 */
 	@SuppressWarnings("unchecked")
 	public final void createClient(DuplexController duplexController) {
-		try {
-			/*
+		try {		
 			//Creates initial session.
 			final Session<C> initialSession = createInitialSession();	
 			
-			//Extracts the constructor of the class of the clients of this application.
-			final String className = ((ParameterizedType)initialSession.getClass().getGenericSuperclass()).getActualTypeArguments()[0].toString().split("\\s")[1];
-			final Constructor<?> constructor = Class.forName(className).getConstructor(Controller.class, Session.class);	
-			constructor.setAccessible(true);
+			//Extracts the direct sub class of the initial session class of this application.
+			Class<?> initialSessionDirectSubClass = initialSessionClass;
+			while (!initialSessionDirectSubClass.getSuperclass().getSimpleName().equals(Session.class.getSimpleName())) {
+				initialSessionDirectSubClass = initialSessionDirectSubClass.getSuperclass();
+			}
 			
-			//Creates client.
-			clients.addAtEnd((C)constructor.newInstance(controller, initialSession));
-			*/
-			
-			//Creates initial session.
-			final Session<C> initialSession = createInitialSession();	
-			
-			//Extracts the constructor of the class of the clients of this application.
-			final String className = ((ParameterizedType)initialSession.getClass().getGenericSuperclass()).getActualTypeArguments()[0].toString().split("\\s")[1];
+			//Extracts the constructor of the client class of this application.
+			final String className
+			= ((ParameterizedType)initialSessionDirectSubClass
+			.getGenericSuperclass())
+			.getActualTypeArguments()[0].toString().split("\\s")[1];
 			final Constructor<?> constructor = Class.forName(className).getConstructor(DuplexController.class);	
 			constructor.setAccessible(true);
 			
@@ -119,8 +108,8 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 			clients.addAtEnd(client);
 			Sequencer.runInBackground(() -> client.internal_setSessionAndInitializeSession(initialSession));
 		}
-		catch (Exception e) {
-			throw new RuntimeException(e);
+		catch (final Exception exception) {
+			throw new RuntimeException(exception);
 		}
 	}
 	
