@@ -144,13 +144,13 @@ public final class ConsoleFrontClient extends Client<ConsoleFrontClient> {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
-			case Protocol.NEXT_LINE_OF_CONSOLE_REQUEST:
+			case Protocol.NEXT_LINE_FROM_CONSOLE_REQUEST:
 				return new StandardSpecification(mainConsole.readNextTextLine());
-			case Protocol.NEXT_NON_EMPTY_LINE_OF_CONSOLE_REQUEST:
+			case Protocol.NEXT_NON_EMPTY_LINE_FROM_CONSOLE_REQUEST:
 				return StandardSpecification.createSpecificationWithHeaderOnly(mainConsole.readNextNonEmptyTextLine());
-			case Protocol.NEXT_CHARACTER_OF_CONSOLE_REQUEST:
+			case Protocol.NEXT_CHARACTER_FROM_CONSOLE_REQUEST:
 				return new StandardSpecification(mainConsole.readNextCharacter());
-			case Protocol.LINES_OF_CONSOLE_REQUEST:
+			case Protocol.LINES_FROM_CONSOLE_REQUEST:
 				
 				final StandardSpecification data = new StandardSpecification();
 				
@@ -178,7 +178,7 @@ public final class ConsoleFrontClient extends Client<ConsoleFrontClient> {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
-			case Protocol.SET_TITLE:
+			case Protocol.SET_TITLE_COMMAND:
 				GUI.setTitle(command.getOneAttributeToString());
 				break;
 			case Protocol.OPEN_FILE_EXPLORER_COMMAND:

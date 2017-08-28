@@ -12,19 +12,20 @@ package ch.nolix.system.consoleClient;
 final class Protocol {
 	
 	//commands
-	public static final String SET_TITLE = "SetTitle";
-	public static final String OPEN_FILE_EXPLORER_COMMAND = "OpenFileExplorer";
-	public static final String WRITE_NEXT_LINE_TO_CONSOLE_COMMAND = "WriteNextLineToConsole";
 	public static final String CLEAR_CONSOLE_COMMAND = "ClearConsole";
-	public static final String WRITE_NEXT_LINE_TO_INFO_PANEL_COMMAND = "WriteNextLineToInfoPanel";
 	public static final String CLEAR_INFO_PANEL_COMMAND = "ClearInfoPanel";
-	
+	public static final String OPEN_FILE_EXPLORER_COMMAND = "OpenFileExplorer";
+	public static final String READ_NEXT_ENTER_FROM_CONSOLE_COMMAND = "ReadNextEnterFromConsole";
+	public static final String SET_TITLE_COMMAND = "SetTitle";
+	public static final String WRITE_NEXT_LINE_TO_CONSOLE_COMMAND = "WriteNextLineToConsole";
+	public static final String WRITE_NEXT_LINE_TO_INFO_PANEL_COMMAND = "WriteNextLineToInfoPanel";
+		
 	//requests
-	public static final String NEXT_LINE_OF_CONSOLE_REQUEST = "NextLineOfConsole";
-	public static final String NEXT_NON_EMPTY_LINE_OF_CONSOLE_REQUEST = "NextNonEmptyLineOfConsole";
-	public static final String NEXT_CHARACTER_OF_CONSOLE_REQUEST = "NextCharacterOfConsole";
-	public static final String NEXT_ENTER_OF_CONSOLE_REQUEST = "NextEnterOfConsole";
-	public static final String LINES_OF_CONSOLE_REQUEST = "LinesOfConsole";
+	public static final String LINES_FROM_CONSOLE_REQUEST = "LinesOfConsole";
+	public static final String LINES_FROM_INFO_PANEL_REQUEST = "LinesOfInfoPanel";
+	public static final String NEXT_CHARACTER_FROM_CONSOLE_REQUEST = "NextCharacterFromConsole";	
+	public static final String NEXT_LINE_FROM_CONSOLE_REQUEST = "NextLineFromConsole";
+	public static final String NEXT_NON_EMPTY_LINE_FROM_CONSOLE_REQUEST = "NextNonEmptyLineFromConsole";	
 
 	//private constructor
 	/**
