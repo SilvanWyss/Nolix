@@ -6,6 +6,7 @@ import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.List;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.helper.StringHelper;
 
@@ -75,6 +76,14 @@ public abstract class Specification {
 	 */
 	public final int getAttributeCount() {
 		return getRefAttributes().getElementCount();
+	}
+	
+	//method
+	/**
+	 * @return the string representations of the attributes of this specification.
+	 */
+	public final List<String> getAttributesToStrings() {
+		return getRefAttributes().to(a -> a.toString());
 	}
 	
 	//abstract method
