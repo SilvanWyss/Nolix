@@ -4,6 +4,7 @@ package ch.nolix.core.specification;
 //own imports
 import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 
 //class
@@ -12,7 +13,7 @@ import ch.nolix.core.invalidStateException.UnexistingAttributeException;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 210
+ * @lines 220
  */
 public final class Statement {
 	
@@ -54,6 +55,14 @@ public final class Statement {
 	 */
 	public boolean containsAttributes() {
 		return specification.containsAttributes();
+	}
+	
+	//method
+	/**
+	 * @return the string representations of the attributes of this statement.
+	 */
+	public List<String> getAttributesToStrings() {
+		return specification.getAttributesToStrings();
 	}
 	
 	//method
