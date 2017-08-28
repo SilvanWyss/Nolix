@@ -24,7 +24,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 640
+ * @lines 650
  */
 public final class StandardSpecification extends Specification {
 	
@@ -44,6 +44,16 @@ public final class StandardSpecification extends Specification {
 	 * @throws NullArgumentException if the given string is null.
 	 */
 	public static String createEscapeString(final String string) {
+		
+		//Checks if the given string is not null.
+		Validator.supposeThat(string).thatIsInstanceOf(String.class).isNotNull();
+		
+		//Handles the case if the given string is empty.
+		if (string.isEmpty()) {
+			return StringManager.EMPTY_STRING;
+		}
+		
+		//Handles the case if the given string is not empty.
 		return
 		StandardSpecification
 		.createSpecificationWithHeaderOnly(string)
