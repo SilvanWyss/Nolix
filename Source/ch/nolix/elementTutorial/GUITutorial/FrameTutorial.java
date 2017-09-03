@@ -46,7 +46,7 @@ final class FrameTutorial {
 				.setText("~ Quit ~")
 				.setLeftMouseButtonPressCommand("Quit"),
 				new TextBox().setText("test"),
-				new Console().writeTextLine("test", "test2")
+				new Console().writeLine("test", "test2")
 			)
 		)
 		.setController(

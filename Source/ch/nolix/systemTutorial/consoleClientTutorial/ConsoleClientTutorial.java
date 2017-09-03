@@ -47,36 +47,36 @@ public final class ConsoleClientTutorial {
 		 */
 		public void initialize() {
 			
-			getRefClient().writeNextLineToInfoPanel(
+			getRefClient().writeLineToInfoPanel(
 				"This is the info panel of the console.",
 				"On the info panel informatiosn can be displayed.",
 				"The info panel cannot be edited."
 			);
 			
 			Sequencer.waitForMilliseconds(100);
-			getRefClient().writeNextLineToConsole("Enter your name.");
-			final String name = getRefClient().readNextLineFromConsole();
+			getRefClient().writeLineToConsole("Enter your name.");
+			final String name = getRefClient().readLineFromConsole();
 			
 			Sequencer.waitForMilliseconds(100);
-			getRefClient().writeNextLineToConsole("Hello " + name + ".");
+			getRefClient().writeLineToConsole("Hello " + name + ".");
 						
 			boolean answerIsValid = false;
 			do {
 				
 				Sequencer.waitForMilliseconds(100);
-				getRefClient().writeNextLineToConsole("Are you fine? (Press y for yes, press n for no.)");
+				getRefClient().writeLineToConsole("Are you fine? (Press y for yes, press n for no.)");
 				
-				final char answer = getRefClient().readNextCharacterFromConsole();
+				final char answer = getRefClient().readCharacterFromConsole();
 				
 				//Enumerates the received answer.
 				switch (answer) {
 					case 'y':
 						answerIsValid = true;
-						getRefClient().writeNextLineToConsole("Oh good!");
+						getRefClient().writeLineToConsole("Oh good!");
 						break;
 					case 'n':
 						answerIsValid = true;
-						getRefClient().writeNextLineToConsole("Oh sad!");
+						getRefClient().writeLineToConsole("Oh sad!");
 						break;
 				}
 			} while (!answerIsValid);

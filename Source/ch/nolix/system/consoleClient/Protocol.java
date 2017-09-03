@@ -7,27 +7,34 @@ package ch.nolix.system.consoleClient;
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 30
+ * @lines 40
  */
 final class Protocol {
 	
-	//commands
-	public static final String CLEAR_CONSOLE_COMMAND = "ClearConsole";
-	public static final String CLEAR_INFO_PANEL_COMMAND = "ClearInfoPanel";
-	
-	public static final String READ_NEXT_ENTER_FROM_CONSOLE_COMMAND = "ReadNextEnterFromConsole";
+	//general commands
 	public static final String SET_TITLE_COMMAND = "SetTitle";
-	public static final String WRITE_NEXT_LINE_TO_CONSOLE_COMMAND = "WriteNextLineToConsole";
-	public static final String WRITE_NEXT_LINE_TO_INFO_PANEL_COMMAND = "WriteNextLineToInfoPanel";
-	public static final String WRITE_NEXT_LINES_TO_CONSOLE_COMMAND = "WriteNextLinesToConsole";
-	public static final String WRITE_NEXT_LINES_TO_INFO_PANEL_COMMAND = "WriteNextLinesToInfoPanel";
+	
+	//console commands
+	public static final String CLEAR_CONSOLE_COMMAND = "ClearConsole";
+	public static final String READ_ENTER_FROM_CONSOLE_COMMAND = "ReadEnterFromConsole";
+	public static final String WRITE_EMPTY_LINE_TO_CONSOLE_COMMAND = "WriteEmptyTextLineToConsole";
+	public static final String WRITE_LINE_TO_CONSOLE_COMMAND = "WriteLineToConsole";
+	public static final String WRITE_LINES_TO_CONSOLE_COMMAND = "WriteLinesToConsole";
+	
+	//info panel commands
+	public static final String CLEAR_INFO_PANEL_COMMAND = "ClearInfoPanel";
+	public static final String WRITE_EMPTY_LINE_TO_INFO_PANEL_COMMAND = "WriteEmptyLineToInfoPanel";
+	public static final String WRITE_LINE_TO_INFO_PANEL_COMMAND = "WriteLineToInfoPanel";
+	public static final String WRITE_LINES_TO_INFO_PANEL_COMMAND = "WriteLinesToInfoPanel";
 		
-	//requests
-	public static final String LINES_FROM_CONSOLE_REQUEST = "LinesOfConsole";
-	public static final String LINES_FROM_INFO_PANEL_REQUEST = "LinesOfInfoPanel";
-	public static final String NEXT_CHARACTER_FROM_CONSOLE_REQUEST = "NextCharacterFromConsole";	
-	public static final String NEXT_LINE_FROM_CONSOLE_REQUEST = "NextLineFromConsole";
-	public static final String NEXT_NON_EMPTY_LINE_FROM_CONSOLE_REQUEST = "NextNonEmptyLineFromConsole";	
+	//console requests
+	public static final String LINES_OF_CONSOLE_REQUEST = "TextLinesOfConsole";
+	public static final String READ_CHARACTER_FROM_CONSOLE_REQUEST = "ReadtCharacterFromConsole";
+	public static final String READ_LINE_FROM_CONSOLE_REQUEST = "ReadLineFromConsole";
+	public static final String READ_NON_EMPTY_LINE_FROM_CONSOLE_REQUEST = "NonEmptyLineFromConsole";
+	
+	//info panel requests
+	public static final String LINES_OF_INFO_PANEL_REQUEST = "LinesOfInfoPanel";
 
 	//private constructor
 	/**

@@ -20,14 +20,14 @@ import ch.nolix.system.client.StandardApplication;
 * 
 * @author Silvan Wyss
 * @month 2017-03
-* @lines 190
+* @lines 220
 */
 public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> {
 
 	//attributes
 		private final GUI<?> GUI;
 		
-		private final Console mainConsole
+		private final Console console
 		= new Console().setName(WidgetNameManager.CONSOLE_NAME).setFocused();
 		
 		private final Console infoPanel =
@@ -120,7 +120,7 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 		.setRootWidget(
 			new VerticalStack(
 				infoPanel,
-				mainConsole
+				console
 			)
 			.setRole(ContainerRole.MainContainer)
 		)
@@ -144,18 +144,18 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
-			case Protocol.NEXT_LINE_FROM_CONSOLE_REQUEST:
-				return new StandardSpecification(mainConsole.readTextLine());
-			case Protocol.NEXT_NON_EMPTY_LINE_FROM_CONSOLE_REQUEST:
-				return StandardSpecification.createSpecificationWithHeaderOnly(mainConsole.readNonEmptyTextLine());
-			case Protocol.NEXT_CHARACTER_FROM_CONSOLE_REQUEST:
-				return new StandardSpecification(mainConsole.readCharacter());
-			case Protocol.LINES_FROM_CONSOLE_REQUEST:
+			case Protocol.READ_LINE_FROM_CONSOLE_REQUEST:
+				return new StandardSpecification(console.readLine());
+			case Protocol.READ_NON_EMPTY_LINE_FROM_CONSOLE_REQUEST:
+				return StandardSpecification.createSpecificationWithHeaderOnly(console.readNonEmptyLine());
+			case Protocol.READ_CHARACTER_FROM_CONSOLE_REQUEST:
+				return new StandardSpecification(console.readCharacter());
+			case Protocol.LINES_OF_CONSOLE_REQUEST:
 				
 				final StandardSpecification data = new StandardSpecification();
 				
 				//Iterates the text lines of the main console of this console front client.
-				for (final String tl : mainConsole.getTextLines()) {
+				for (final String tl : console.getLines()) {
 					data.addAttribute(StandardSpecification.createEscapeString(tl));
 				}
 				
@@ -178,31 +178,47 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
+		
+			//Handles general commands.
 			case Protocol.SET_TITLE_COMMAND:
 				GUI.setTitle(command.getOneAttributeToString());
 				break;
-			case Protocol.WRITE_NEXT_LINE_TO_CONSOLE_COMMAND:
-				mainConsole.writeTextLine(command.getOneAttributeToString());
-				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
-				break;
-			case Protocol.WRITE_NEXT_LINES_TO_CONSOLE_COMMAND:
-				mainConsole.writeTextLines(command.getAttributesToStrings());
-				break;
+		
+			//Handles console commands.
 			case Protocol.CLEAR_CONSOLE_COMMAND:
-				mainConsole.clear();
+				console.clear();
 				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
 				break;
-			case Protocol.WRITE_NEXT_LINE_TO_INFO_PANEL_COMMAND:
-				infoPanel.writeTextLine(command.getOneAttributeToString());
+			case Protocol.WRITE_EMPTY_LINE_TO_CONSOLE_COMMAND:
+				console.writeEmptyLine();
 				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
 				break;
-			case Protocol.WRITE_NEXT_LINES_TO_INFO_PANEL_COMMAND:
-				infoPanel.writeTextLines(command.getAttributesToStrings());
+			case Protocol.WRITE_LINE_TO_CONSOLE_COMMAND:
+				console.writeLine(command.getOneAttributeToString());
+				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
 				break;
+			case Protocol.WRITE_LINES_TO_CONSOLE_COMMAND:
+				console.writeLines(command.getAttributesToStrings());
+				break;
+			
+			//Handles info panel commands.
 			case Protocol.CLEAR_INFO_PANEL_COMMAND:
 				infoPanel.clear();
 				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
 				break;
+			case Protocol.WRITE_EMPTY_LINE_TO_INFO_PANEL_COMMAND:
+				infoPanel.writeEmptyLine();
+				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
+				break;
+			case Protocol.WRITE_LINE_TO_INFO_PANEL_COMMAND:
+				infoPanel.writeLine(command.getOneAttributeToString());
+				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
+				break;
+			case Protocol.WRITE_LINES_TO_INFO_PANEL_COMMAND:
+				infoPanel.writeLines(command.getAttributesToStrings());
+				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
+				break;
+			
 			default:
 				
 				//Calls method of the base class.

@@ -45,8 +45,8 @@ extends Session<ConsoleBackClient> {
 	 * @return the next character from the console
 	 * of the counterpart of the client of this console back client session.
 	 */
-	public final char readNextCharacterFromConsole() {
-		return getRefClient().readNextCharacterFromConsole();
+	public final char readCharacterFromConsole() {
+		return getRefClient().readCharacterFromConsole();
 	}
 	
 	//method
@@ -54,8 +54,8 @@ extends Session<ConsoleBackClient> {
 	 * Reads the next enter from the console
 	 * of the counterpart of the client of this console back client session.
 	 */
-	public void readNextEnterFromConsole() {
-		getRefClient().readNextEnterFromConsole();
+	public void readEnterFromConsole() {
+		getRefClient().readEnterFromConsole();
 	}
 	
 	//method
@@ -63,8 +63,8 @@ extends Session<ConsoleBackClient> {
 	 * @return the next line from the console
 	 * of the counterpart of the client of this console back client session.
 	 */
-	public final String readNextLineFromConsole() {
-		return getRefClient().readNextLineFromConsole();
+	public final String readTextLineFromConsole() {
+		return getRefClient().readLineFromConsole();
 	}
 	
 	//method
@@ -72,8 +72,8 @@ extends Session<ConsoleBackClient> {
 	 * @return the next line, that is not empty, from the console
 	 * of the counterpart of the client of this console back client session.
 	 */
-	public final String readNextNonEmptyLineFromConsole() {
-		return getRefClient().readNextNonEmptyLineFromConsole();
+	public final String readNonEmptyTextLineFromConsole() {
+		return getRefClient().readNonEmptyLineFromConsole();
 	}
 	
 	//method
@@ -94,8 +94,8 @@ extends Session<ConsoleBackClient> {
 	 * 
 	 * @param line
 	 */
-	public final void writeNextLineToConsole(final String line) {		
-		getRefClient().writeNextLineToConsole(line);
+	public final void writeTextLineToConsole(final String line) {		
+		getRefClient().writeLineToConsole(line);
 	}
 	
 	//method
@@ -105,8 +105,8 @@ extends Session<ConsoleBackClient> {
 	 * 
 	 * @param lines
 	 */
-	public final void writeNextLineToConsole(final String... lines) {		
-		getRefClient().writeNextLineToConsole(lines);
+	public final void writeTextLineToConsole(final String... lines) {		
+		getRefClient().writeLineToConsole(lines);
 	}
 	
 	//method
@@ -117,8 +117,8 @@ extends Session<ConsoleBackClient> {
 	 * @param line
 	 * @return this console back client session.
 	 */
-	public final void writeNextLineToInfoPanel(final String line) {	
-		getRefClient().writeNextLineToInfoPanel(line);
+	public final void writeTextLineToInfoPanel(final String line) {	
+		getRefClient().writeLineToInfoPanel(line);
 	}
 	
 	//method
@@ -129,6 +129,6 @@ extends Session<ConsoleBackClient> {
 	 * @param lines
 	 */
 	public final void writeNextLineToInfoPanel(final String... lines) {		
-		getRefClient().writeNextLineToInfoPanel(lines);
+		getRefClient().writeLineToInfoPanel(lines);
 	}
 }

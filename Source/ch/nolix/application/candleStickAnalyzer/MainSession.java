@@ -32,16 +32,16 @@ public final class MainSession extends Session<ConsoleBackClient> {
 		getRefClient().setTitle(CandleStickAnalyzer.getTitle());
 		
 		//Asks for the password.
-		getRefClient().writeNextLineToConsole("Enter the password.");
+		getRefClient().writeLineToConsole("Enter the password.");
 		while (true) {
 			
-			final String password = getRefClient().readNextLineFromConsole();
+			final String password = getRefClient().readLineFromConsole();
 			
 			if (password.equals("justin")) {
 				break;
 			}
 			
-			getRefClient().writeNextLineToConsole("Wrong password. Try again.");
+			getRefClient().writeLineToConsole("Wrong password. Try again.");
 		}
 		
 		refreshInfoPanel();
@@ -51,7 +51,7 @@ public final class MainSession extends Session<ConsoleBackClient> {
 		while (true) {
 			try {		
 			
-				final String[]inputs = getRefClient().readNextNonEmptyLineFromConsole().split(" ");
+				final String[]inputs = getRefClient().readNonEmptyLineFromConsole().split(" ");
 							
 				//Enumerates the entered command.
 				switch (inputs[0]) {	
@@ -84,7 +84,7 @@ public final class MainSession extends Session<ConsoleBackClient> {
 							
 					//Handles output commands.
 						case "sa":							
-							getRefClient().writeNextLinesToConsole(new Analysis(argumentOfficer).toStrings());
+							getRefClient().writeLinesToConsole(new Analysis(argumentOfficer).toStrings());
 							break;
 						case "saf":
 							saveAnalysisToFile();
@@ -94,7 +94,7 @@ public final class MainSession extends Session<ConsoleBackClient> {
 							break;
 						case "sad":
 							
-							getRefClient().writeNextLineToConsole(
+							getRefClient().writeLineToConsole(
 								" ",
 								"The product is bougth at the opening",
 								"of the next day after the confirmation.",
@@ -123,10 +123,10 @@ public final class MainSession extends Session<ConsoleBackClient> {
 				}
 				
 				refreshInfoPanel();
-				getRefClient().writeNextLineToConsole(Character.toString((char)0x2714));
+				getRefClient().writeLineToConsole(Character.toString((char)0x2714));
 			}
 			catch (final Exception exception) {
-				getRefClient().writeNextLineToConsole(Character.toString((char)0x2716));
+				getRefClient().writeLineToConsole(Character.toString((char)0x2716));
 			}
 		}
 	}
@@ -139,9 +139,9 @@ public final class MainSession extends Session<ConsoleBackClient> {
 	private void refreshInfoPanel() {		
 		getRefClient()
 		.clearInfoPanel()
-		.writeNextLinesToInfoPanel(argumentOfficer.toStrings())
-		.writeNextEmptyLineToInfoPanel()
-		.writeNextLineToInfoPanel("Enter 'sc' for showing commands.");
+		.writeLinesToInfoPanel(argumentOfficer.toStrings())
+		.writeEmptyTextLineToInfoPanel()
+		.writeLineToInfoPanel("Enter 'sc' for showing commands.");
 	}
 	
 	//method
@@ -179,7 +179,7 @@ public final class MainSession extends Session<ConsoleBackClient> {
 	 * of the counterpart of the client of this main session..
 	 */
 	private void writeCommandsToConsole() {
-		getRefClient().writeNextLineToConsole(	
+		getRefClient().writeLineToConsole(	
 				
 			//input commands
 			"sps x      select product symbol x",

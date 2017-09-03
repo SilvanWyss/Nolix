@@ -313,26 +313,6 @@ implements Clearable {
 	
 	//method
 	/**
-	 * Reads the next line, that is not empty, from this console.
-	 * Attention: Clears the edit line of this console.
-	 * Attention: Lasts until this console receives a non-empty line.
-	 * 
-	 * @return the next line, that is not empty, that is written to this console.
-	 * 
-	 */
-	public String readNonEmptyLine() {		
-		while (true) {
-			
-			final String nextLine = readLine();
-			
-			if (!nextLine.isEmpty()) {
-				return nextLine;
-			}
-		}
-	}
-	
-	//method
-	/**
 	 * Reads the next line from this console.
 	 * Attention: Clears the edit line of this console.
 	 * Attention: Lasts until this console receives a line.
@@ -349,6 +329,26 @@ implements Clearable {
 		}
 		
 		return lines.getRefLast();
+	}
+	
+	//method
+	/**
+	 * Reads the next line, that is not empty, from this console.
+	 * Attention: Clears the edit line of this console.
+	 * Attention: Lasts until this console receives a non-empty line.
+	 * 
+	 * @return the next line, that is not empty, that is written to this console.
+	 * 
+	 */
+	public String readNonEmptyLine() {		
+		while (true) {
+			
+			final String nextLine = readLine();
+			
+			if (!nextLine.isEmpty()) {
+				return nextLine;
+			}
+		}
 	}
 	
 	//method
