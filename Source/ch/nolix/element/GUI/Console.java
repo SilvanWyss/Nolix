@@ -23,7 +23,7 @@ import ch.nolix.element.font.FontFamily;
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 520
+ * @lines 570
  */
 public final class Console
 extends BorderWidget<Console, ConsoleStructure>
@@ -70,76 +70,13 @@ implements Clearable {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case TEXT_LINES_HEADER:
-				attribute.getRefAttributes().forEach(a -> addTextLine(a.toString()));
+				attribute.getRefAttributes().forEach(a -> writeTextLine(a.toString()));
 				break;
 			default:
 				
 				//Calls method of the base class.
 				super.addOrChangeAttribute(attribute);
 		}
-	}
-	
-	//method
-	/**
-	 * Adds the next line to this console that consists of the given character.
-	 * 
-	 * @param character
-	 * @return this console.
-	 */
-	public Console addTextLine(final char character) {
-		return addTextLine(Character.toString(character));
-	}
-	
-	//method
-	/**
-	 * Adds the given text line to this console and clears the edit line of this console.
-	 * 
-	 * @param textLine
-	 * @return this console.
-	 * @throws NullArgumentException if the given text line is null.
-	 */
-	public Console addTextLine(final String textLine) {
-		
-		textLines.addAtEnd(textLine);
-		clearEditLine();
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Adds the given text lines to this console.
-	 * 
-	 * @param textLines
-	 * @return this console.
-	 * @throws NullArgumentException if one of the given text lines is null.
-	 */
-	public Console addTextLine(final String... textLines) {
-		
-		//Iterates the given text lines.
-		for (final String tl : textLines) {
-			addTextLine(tl);
-		}
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Adds the given text lines to this console.
-	 * 
-	 * @param textLines
-	 * @return this console.
-	 * @throws NullArgumentException if one of the given text lines is null.
-	 */
-	public Console addTextLines(final IContainer<String> textLines) {
-
-		//Iterates the given text lines.
-		for (final String tl : textLines) {
-			addTextLine(tl);
-		}
-		
-		return this;
 	}
 	
 	//method
@@ -321,7 +258,7 @@ implements Clearable {
 				insertCharacterAfterCursor(CharacterManager.SPACE);
 				break;
 			case KeyEvent.VK_ENTER:
-				addTextLine(editLine);
+				writeEditLine();
 				break;
 			case KeyEvent.VK_LEFT:
 				moveTextCursorPositionToLeft();
@@ -344,12 +281,13 @@ implements Clearable {
 	
 	//method
 	/**
+	 * Reads the next character from this console. 
 	 * Attention: Clears the edit line of this console.
-	 * Attention: This method lasts until this console receives a next character.
+	 * Attention: Lasts until this console receives a character.
 	 * 
-	 * @return
+	 * @return the next character that is written to this console.
 	 */
-	public char readNextCharacter() {
+	public char readCharacter() {
 		
 		clearEditLine();
 		
@@ -358,23 +296,34 @@ implements Clearable {
 		}
 		
 		final char nextCharacter = getEditLine().charAt(0);	
-		addTextLine(nextCharacter);
+		writeTextLine(nextCharacter);
 		
 		return nextCharacter;
 	}
 	
 	//method
 	/**
+	 * Reads the next enter from this console.
 	 * Attention: Clears the edit line of this console.
-	 * Attention: This method lasts until this console receives a next line.
+	 * Attention: Lasts until this console receives an enter.
+	 */
+	public void readEnter() {
+		readTextLine();
+	}
+	
+	//method
+	/**
+	 * Reads the next text line, that is not empty, from this console.
+	 * Attention: Clears the edit line of this console.
+	 * Attention: Lasts until this console receives a non-empty text line.
 	 * 
-	 * @return the next text line of this conosle, that is not empty.
+	 * @return the next text line, that is not empty, that is written to this console.
 	 * 
 	 */
-	public String readNextNonEmptyTextLine() {
+	public String readNonEmptyTextLine() {		
 		while (true) {
 			
-			final String nextTextLine = readNextTextLine();
+			final String nextTextLine = readTextLine();
 			
 			if (!nextTextLine.isEmpty()) {
 				return nextTextLine;
@@ -384,17 +333,17 @@ implements Clearable {
 	
 	//method
 	/**
+	 * Reads the next text line from this console.
 	 * Attention: Clears the edit line of this console.
-	 * Attention: This method lasts until this console receives a next line.
+	 * Attention: Lasts until this console receives a text line.
 	 * 
 	 * @return the next text line of this console.
 	 */
-	public String readNextTextLine() {
+	public String readTextLine() {
 		
 		clearEditLine();
 		
-		final int textLineCount = textLines.getElementCount();
-		
+		final int textLineCount = textLines.getElementCount();	
 		while (getTextLines().getElementCount() == textLineCount) {
 			Sequencer.waitForMilliseconds(100);
 		}
@@ -433,6 +382,84 @@ implements Clearable {
 		
 		//Sets the text cursor position at the end of the edit line.
 		textCursorPosition = getEditLine().length();
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Writes the edit line of this console to this console.
+	 * Attention: Clears the edit line of this console.
+	 * 
+	 * @return this console.
+	 */
+	public Console writeEditLine() {
+		return writeTextLine(editLine);
+	}
+	
+	//method
+	/**
+	 * Writes a text line to this console that consists of the given character.
+	 * Attention: Clears the edit line of this console.
+	 * 
+	 * @param character
+	 * @return this console.
+	 */
+	public Console writeTextLine(final char character) {
+		return writeTextLine(Character.toString(character));
+	}
+	
+	//method
+	/**
+	 * Writes the given text line to this console.
+	 * Attention: Clears the edit line of this console.
+	 * 
+	 * @param textLine
+	 * @return this console.
+	 * @throws NullArgumentException if the given text line is null.
+	 */
+	public Console writeTextLine(final String textLine) {
+		
+		textLines.addAtEnd(textLine);
+		clearEditLine();
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Writes the given text lines to this console.
+	 * Attention: Clears the edit line of this console.
+	 * 
+	 * @param textLines
+	 * @return this console.
+	 * @throws NullArgumentException if one of the given text lines is null.
+	 */
+	public Console writeTextLine(final String... textLines) {
+		
+		//Iterates the given text lines.
+		for (final String tl : textLines) {
+			writeTextLine(tl);
+		}
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Writes the given textLines to this console.
+	 * Attention: Clears the edit line of this console.
+	 * 
+	 * @param textLines
+	 * @return this console.
+	 * @throws NullArgumentException if one of the given text lines is null.
+	 */
+	public Console writeTextLines(final IContainer<String> textLines) {
+
+		//Iterates the given text lines.
+		for (final String tl : textLines) {
+			writeTextLine(tl);
+		}
 		
 		return this;
 	}

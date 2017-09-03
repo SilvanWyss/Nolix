@@ -145,11 +145,11 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case Protocol.NEXT_LINE_FROM_CONSOLE_REQUEST:
-				return new StandardSpecification(mainConsole.readNextTextLine());
+				return new StandardSpecification(mainConsole.readTextLine());
 			case Protocol.NEXT_NON_EMPTY_LINE_FROM_CONSOLE_REQUEST:
-				return StandardSpecification.createSpecificationWithHeaderOnly(mainConsole.readNextNonEmptyTextLine());
+				return StandardSpecification.createSpecificationWithHeaderOnly(mainConsole.readNonEmptyTextLine());
 			case Protocol.NEXT_CHARACTER_FROM_CONSOLE_REQUEST:
-				return new StandardSpecification(mainConsole.readNextCharacter());
+				return new StandardSpecification(mainConsole.readCharacter());
 			case Protocol.LINES_FROM_CONSOLE_REQUEST:
 				
 				final StandardSpecification data = new StandardSpecification();
@@ -185,22 +185,22 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 				openFileExplorer();
 				break;
 			case Protocol.WRITE_NEXT_LINE_TO_CONSOLE_COMMAND:
-				mainConsole.addTextLine(command.getOneAttributeToString());
+				mainConsole.writeTextLine(command.getOneAttributeToString());
 				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
 				break;
 			case Protocol.WRITE_NEXT_LINES_TO_CONSOLE_COMMAND:
-				mainConsole.addTextLines(command.getAttributesToStrings());
+				mainConsole.writeTextLines(command.getAttributesToStrings());
 				break;
 			case Protocol.CLEAR_CONSOLE_COMMAND:
 				mainConsole.clear();
 				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
 				break;
 			case Protocol.WRITE_NEXT_LINE_TO_INFO_PANEL_COMMAND:
-				infoPanel.addTextLine(command.getOneAttributeToString());
+				infoPanel.writeTextLine(command.getOneAttributeToString());
 				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
 				break;
 			case Protocol.WRITE_NEXT_LINES_TO_INFO_PANEL_COMMAND:
-				infoPanel.addTextLines(command.getAttributesToStrings());
+				infoPanel.writeTextLines(command.getAttributesToStrings());
 				break;
 			case Protocol.CLEAR_INFO_PANEL_COMMAND:
 				infoPanel.clear();
