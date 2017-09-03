@@ -19,7 +19,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 190
+ * @lines 250
  */
 public final class FileSystemAccessor {
 
@@ -96,6 +96,39 @@ public final class FileSystemAccessor {
 	}
 	
 	//method
+	public FileAccessor createFile(
+		final String relativeFilePath,
+		final boolean incrementFileName) {
+		
+		if (!incrementFileName) {
+			return createFile(relativeFilePath);
+		}
+		
+		//Handles the case if no file system item with the given relative file path exists
+		//on the file system of the local machine.
+		if (!fileSystemItemExists(relativeFilePath)) {
+			return createFile(relativeFilePath);
+		}
+		
+		//TODO: Implement this better.
+		String producteRelativeFilePath;
+		int i = 1;
+		do {
+			
+			producteRelativeFilePath
+			= relativeFilePath.split("\\.")[0]
+			+ "_"
+			+ i
+			+ relativeFilePath.split("\\.")[relativeFilePath.split("\\.").length - 1];
+			
+			i++;
+		}
+		while (fileSystemItemExists(producteRelativeFilePath));
+		
+		return createFile(producteRelativeFilePath);
+	}
+	
+	//method
 	/**
 	 * Creates new file with the given relative file path in the file system on the local machine.
 	 * Writes the given content to the created file.
@@ -107,6 +140,14 @@ public final class FileSystemAccessor {
 	 */
 	public void createFile(final String relativeFilePath, final String content) {
 		createFile(relativeFilePath).overwriteFile(content);
+	}
+	
+	//method
+	public void createFile(
+		final String relativeFilePath,
+		final boolean incrementFileName,
+		final String content) {		
+		createFile(relativeFilePath, incrementFileName).overwriteFile(content);
 	}
 	
 	//method
