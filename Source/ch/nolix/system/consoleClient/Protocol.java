@@ -19,6 +19,8 @@ final class Protocol {
 	public static final String SET_TITLE_COMMAND = "SetTitle";
 	public static final String WRITE_NEXT_LINE_TO_CONSOLE_COMMAND = "WriteNextLineToConsole";
 	public static final String WRITE_NEXT_LINE_TO_INFO_PANEL_COMMAND = "WriteNextLineToInfoPanel";
+	public static final String WRITE_NEXT_LINES_TO_CONSOLE_COMMAND = "WriteNextLinesToConsole";
+	public static final String WRITE_NEXT_LINES_TO_INFO_PANEL_COMMAND = "WriteNextLinesToInfoPanel";
 		
 	//requests
 	public static final String LINES_FROM_CONSOLE_REQUEST = "LinesOfConsole";

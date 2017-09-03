@@ -11,7 +11,7 @@ import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.VerticalStack;
-import ch.nolix.system.client.Client;
+import ch.nolix.system.baseGUIClient.BaseGUIClient;
 import ch.nolix.system.client.StandardApplication;
 
 //class
@@ -22,7 +22,7 @@ import ch.nolix.system.client.StandardApplication;
 * @month 2017-03
 * @lines 190
 */
-public final class ConsoleFrontClient extends Client<ConsoleFrontClient> {
+public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> {
 
 	//attributes
 		private final GUI<?> GUI;
@@ -188,6 +188,9 @@ public final class ConsoleFrontClient extends Client<ConsoleFrontClient> {
 				mainConsole.addTextLine(command.getOneAttributeToString());
 				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
 				break;
+			case Protocol.WRITE_NEXT_LINES_TO_CONSOLE_COMMAND:
+				mainConsole.addTextLines(command.getAttributesToStrings());
+				break;
 			case Protocol.CLEAR_CONSOLE_COMMAND:
 				mainConsole.clear();
 				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
@@ -195,6 +198,9 @@ public final class ConsoleFrontClient extends Client<ConsoleFrontClient> {
 			case Protocol.WRITE_NEXT_LINE_TO_INFO_PANEL_COMMAND:
 				infoPanel.addTextLine(command.getOneAttributeToString());
 				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
+				break;
+			case Protocol.WRITE_NEXT_LINES_TO_INFO_PANEL_COMMAND:
+				infoPanel.addTextLines(command.getAttributesToStrings());
 				break;
 			case Protocol.CLEAR_INFO_PANEL_COMMAND:
 				infoPanel.clear();

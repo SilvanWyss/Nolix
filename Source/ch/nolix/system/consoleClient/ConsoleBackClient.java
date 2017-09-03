@@ -2,11 +2,12 @@
 package ch.nolix.system.consoleClient;
 
 //own imports
+import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.container.List;
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
-import ch.nolix.system.client.Client;
+import ch.nolix.system.baseGUIClient.BaseGUIClient;
 
 //class
 /**
@@ -15,9 +16,9 @@ import ch.nolix.system.client.Client;
  * 
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 240
+ * @lines 330
  */
-public final class ConsoleBackClient extends Client<ConsoleBackClient> {
+public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 		
 	//constructor
 	/**
@@ -177,6 +178,72 @@ public final class ConsoleBackClient extends Client<ConsoleBackClient> {
 	
 	//method
 	/**
+	 * Writes the an empty line to the console
+	 * of the counterpart of this console back client.
+	 * 
+	 * @return this console back client.
+	 */
+	public ConsoleBackClient writeNextEmptyLineToConsole() {
+		return writeNextLineToConsole(StringManager.EMPTY_STRING);
+	}
+	
+	//method
+	/**
+	 * Writes an empty line to the info panel
+	 * of the counterpart of this console back client.
+	 * 
+	 * @return this console back client.
+	 */
+	public ConsoleBackClient writeNextEmptyLineToInfoPanel() {
+		return writeNextLineToInfoPanel(StringManager.EMPTY_STRING);
+	}
+	
+	//method
+	/**
+	 * Writes the given lines to the console
+	 * of the counterpart of this console back client.
+	 * 
+	 * @param lines
+	 * @return this console back client.
+	 * @throws NullArgumentException if the given line container is null.
+	 * @throws NullArgumentException if one of the given line is null.
+	 */
+	public ConsoleBackClient writeNextLinesToConsole(final Iterable<String> lines) {
+		
+		internal_getRefDuplexController().run(
+			Protocol.WRITE_NEXT_LINES_TO_CONSOLE_COMMAND
+			+ '('
+			+ new List<String>(lines).to(s -> StandardSpecification.createEscapeString(s))
+			+ ')'
+		);
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Writes the given lines to the info panel
+	 * of the counterpart of this console back client.
+	 * 
+	 * @param lines
+	 * @return this console back client.
+	 * @throws NullArgumentException if the given line container is null.
+	 * @throws NullArgumentException if one of the given line is null.
+	 */
+	public ConsoleBackClient writeNextLinesToInfoPanel(final Iterable<String> lines) {
+		
+		internal_getRefDuplexController().run(
+			Protocol.WRITE_NEXT_LINES_TO_INFO_PANEL_COMMAND
+			+ '('
+			+ new List<String>(lines).to(s -> StandardSpecification.createEscapeString(s))
+			+ ')'
+		);
+		
+		return this;
+	}
+	
+	//method
+	/**
 	 * Writes the given line to the console
 	 * of the counterpart of this console back client.
 	 * 
@@ -210,17 +277,12 @@ public final class ConsoleBackClient extends Client<ConsoleBackClient> {
 	 */
 	public ConsoleBackClient writeNextLineToConsole(final String... lines) {
 				
-		//Iterates the given lines.
-		for (final String l : lines) {
-			internal_getRefDuplexController().appendCommand(
-				Protocol.WRITE_NEXT_LINE_TO_CONSOLE_COMMAND
-				+ "("
-				+ StandardSpecification.createEscapeString(l)
-				+ ")"
-			);
-		}
-		
-		internal_getRefDuplexController().runAppendedCommands();
+		internal_getRefDuplexController().run(
+			Protocol.WRITE_NEXT_LINES_TO_CONSOLE_COMMAND
+			+ '('
+			+ new List<String>(lines).to(s -> StandardSpecification.createEscapeString(s))
+			+ ')'
+		);
 		
 		return this;
 	}
@@ -256,17 +318,12 @@ public final class ConsoleBackClient extends Client<ConsoleBackClient> {
 	 */
 	public ConsoleBackClient writeNextLineToInfoPanel(final String... lines) { 
 				
-		//Iterates the given lines.
-		for (final String l : lines) {
-			internal_getRefDuplexController().appendCommand(
-				Protocol.WRITE_NEXT_LINE_TO_INFO_PANEL_COMMAND
-				+ "("
-				+ StandardSpecification.createEscapeString(l)
-				+ ")"	
-			);
-		}
-		
-		internal_getRefDuplexController().runAppendedCommands();
+		internal_getRefDuplexController().run(
+			Protocol.WRITE_NEXT_LINES_TO_INFO_PANEL_COMMAND
+			+ '('
+			+ new List<String>(lines).to(s -> StandardSpecification.createEscapeString(s))
+			+ ')'
+		);
 		
 		return this;
 	}
