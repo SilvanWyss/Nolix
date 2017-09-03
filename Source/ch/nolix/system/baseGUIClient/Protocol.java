@@ -14,6 +14,7 @@ final class Protocol {
 	//commands
 	public static final String SHOW_ERROR_MESSAGE = "ShowErrorMessage";
 	public static final String CREATE_FILE_COMMAND = "CreateFile";
+	public static final String OPEN_FILE_EXPLORER_COMMAND = "OpenFileExplorer";
 	
 	//private constructor
 	/**

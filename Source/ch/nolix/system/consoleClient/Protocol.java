@@ -14,7 +14,7 @@ final class Protocol {
 	//commands
 	public static final String CLEAR_CONSOLE_COMMAND = "ClearConsole";
 	public static final String CLEAR_INFO_PANEL_COMMAND = "ClearInfoPanel";
-	public static final String OPEN_FILE_EXPLORER_COMMAND = "OpenFileExplorer";
+	
 	public static final String READ_NEXT_ENTER_FROM_CONSOLE_COMMAND = "ReadNextEnterFromConsole";
 	public static final String SET_TITLE_COMMAND = "SetTitle";
 	public static final String WRITE_NEXT_LINE_TO_CONSOLE_COMMAND = "WriteNextLineToConsole";

@@ -181,9 +181,6 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 			case Protocol.SET_TITLE_COMMAND:
 				GUI.setTitle(command.getOneAttributeToString());
 				break;
-			case Protocol.OPEN_FILE_EXPLORER_COMMAND:
-				openFileExplorer();
-				break;
 			case Protocol.WRITE_NEXT_LINE_TO_CONSOLE_COMMAND:
 				mainConsole.writeTextLine(command.getOneAttributeToString());
 				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
@@ -211,13 +208,5 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 				//Calls method of the base class.
 				super.internal_run(command);
 		}
-	}
-	
-	//method
-	/**
-	 * Lets this console front client open a file explorer.
-	 */
-	private void openFileExplorer() {
-		//TODO
 	}
 }

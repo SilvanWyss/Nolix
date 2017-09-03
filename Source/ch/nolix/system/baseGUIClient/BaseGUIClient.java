@@ -49,6 +49,21 @@ extends Client<BGUIC> {
 	
 	//method
 	/**
+	 * Lets the counterpart of this base GUI client open a file explorer.
+	 * 
+	 * @return this base GUI client.
+	 */
+	@SuppressWarnings("unchecked")
+	public BGUIC openFileExplorer() {
+		
+		internal_getRefDuplexController()
+		.run(Protocol.OPEN_FILE_EXPLORER_COMMAND);
+		
+		return (BGUIC)this;
+	}
+	
+	//method
+	/**
 	 * Lets this base GUI client show the given error message.
 	 * 
 	 * @param errorMessage
@@ -92,7 +107,10 @@ extends Client<BGUIC> {
 					parameters.getRefAt(2)
 				);
 				
-				break;			
+				break;
+			case Protocol.OPEN_FILE_EXPLORER_COMMAND:
+				openFileExplorer();
+				break;
 			default:
 				
 				//Calls method of the base class.
@@ -113,6 +131,14 @@ extends Client<BGUIC> {
 	) {
 		new FileSystemAccessor()
 		.createFileIncrementingFileName(relativeFilePath, content.toString());
+	}
+	
+	//method
+	/**
+	 * Lets this base GUI client open a file explorer.
+	 */
+	protected final void internal_openFileExplorer() {
+		//TODO: Implement opening of a file explorer.
 	}
 	
 	//method

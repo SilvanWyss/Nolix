@@ -78,20 +78,6 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	
 	//method
 	/**
-	 * Lets the counterpart of this console back client open a file explorer.
-	 * 
-	 * @return this console back client.
-	 */
-	public ConsoleBackClient openFileExplorer() {
-		
-		internal_getRefDuplexController()
-		.run(Protocol.OPEN_FILE_EXPLORER_COMMAND);
-		
-		return this;
-	}
-	
-	//method
-	/**
 	 * @return the next character from the console
 	 * of the counterpart of this console back client.
 	 */
