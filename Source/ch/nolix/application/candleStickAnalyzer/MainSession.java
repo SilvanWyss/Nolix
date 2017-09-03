@@ -5,7 +5,6 @@ package ch.nolix.application.candleStickAnalyzer;
 import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.container.List;
-import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.element.basic.Time;
 import ch.nolix.element.finance.QuandlDataProvider;
 import ch.nolix.element.finance.VolumeCandleStick;
@@ -29,10 +28,11 @@ public final class MainSession extends Session<ConsoleBackClient> {
 	 */
 	public void initialize() {
 			
+		//Sets the title of the console.
 		getRefClient().setTitle(CandleStickAnalyzer.getTitle());
 		
+		//Asks for the password.
 		getRefClient().writeNextLineToConsole("Enter the password.");
-
 		while (true) {
 			
 			final String password = getRefClient().readNextLineFromConsole();
@@ -47,13 +47,12 @@ public final class MainSession extends Session<ConsoleBackClient> {
 		refreshInfoPanel();
 		getRefClient().clearConsole();
 		
+		//Processes until the user quits the program.
 		while (true) {
 			try {		
 			
-				final String[]inputs = getRefClient().readNextLineFromConsole().split(" ");
-				
-				boolean command = true;
-				
+				final String[]inputs = getRefClient().readNextNonEmptyLineFromConsole().split(" ");
+							
 				//Enumerates the entered command.
 				switch (inputs[0]) {	
 					
@@ -84,40 +83,14 @@ public final class MainSession extends Session<ConsoleBackClient> {
 							break;
 							
 					//Handles output commands.
-						case "sa":
-							
-							for (final String s : new Analysis(argumentOfficer).toStrings()) {
-								getRefClient().writeNextLineToConsole(s);
-							}
-							
+						case "sa":							
+							getRefClient().writeNextLinesToConsole(new Analysis(argumentOfficer).toStrings());
 							break;
 						case "saf":
-							new Analysis(argumentOfficer).save();
-							getRefClient().openFileExplorer();
+							saveAnalysisToFile();
 							break;
 						case "sdf":
-										
-							final List<VolumeCandleStick> candleSticks
-							= new QuandlDataProvider().getCandleSticksPerDay(
-								argumentOfficer.getProductSymbol(),
-								argumentOfficer.getStartTime(),
-								argumentOfficer.getEndTime()
-							);
-							
-							String data = StringManager.EMPTY_STRING;
-							for (final VolumeCandleStick vcs : candleSticks) {
-								data += vcs.getSpecification().toString() + CharacterManager.NEW_LINE;
-							}
-							
-							int i = 1;
-							while (new FileSystemAccessor().fileSystemItemExists("data_" + i + ".txt")) {
-								i++;
-							}
-							
-							new FileSystemAccessor().createFile("data_" + i + ".txt", data);
-							
-							getRefClient().openFileExplorer();
-							
+							saveDataToFile();														
 							break;
 						case "sad":
 							
@@ -144,42 +117,69 @@ public final class MainSession extends Session<ConsoleBackClient> {
 							//Stops the console front client.
 							//TODO: Add stop connection method to client.
 							System.exit(0);
-							break;
-						case StringManager.EMPTY_STRING:
-							command = false;
-							break;					
+							break;				
 					default:
 						throw new Exception("The entered command is invalid.");
 				}
 				
-				if (command) {
-					refreshInfoPanel();
-					getRefClient().writeNextLineToConsole(Character.toString((char)0x2713) + " done");
-				}
+				refreshInfoPanel();
+				getRefClient().writeNextLineToConsole(Character.toString((char)0x2714));
 			}
 			catch (final Exception exception) {
-				getRefClient().writeNextLineToConsole(Character.toString((char)0x2716) + " error");
+				getRefClient().writeNextLineToConsole(Character.toString((char)0x2716));
 			}
 		}
 	}
 	
 	//method
-	private void refreshInfoPanel() {
-		
-		getRefClient().clearInfoPanel();
-		
-		argumentOfficer.toStrings().forEach(s -> getRefClient().writeNextLineToInfoPanel(s));
-		
-		getRefClient().writeNextLineToInfoPanel(
-			" ",
-			"Enter 'sc' for showing commands."
-		);
+	/**
+	 * Refreshes the info panel
+	 * of the counterpart of the client of this main session.
+	 */
+	private void refreshInfoPanel() {		
+		getRefClient()
+		.clearInfoPanel()
+		.writeNextLinesToInfoPanel(argumentOfficer.toStrings())
+		.writeNextEmptyLineToInfoPanel()
+		.writeNextLineToInfoPanel("Enter 'sc' for showing commands.");
 	}
 	
 	//method
+	/**
+	 * Lets the counterpart of the client of this main session
+	 * save the analysis to a file.
+	 */
+	private void saveAnalysisToFile() {
+		getRefClient().createFile("analysis.txt", new Analysis(argumentOfficer).getData());
+		getRefClient().openFileExplorer();
+	}
+	
+	//method
+	private void saveDataToFile() {
+		
+		final List<VolumeCandleStick> candleSticks
+		= new QuandlDataProvider().getCandleSticksPerDay(
+			argumentOfficer.getProductSymbol(),
+			argumentOfficer.getStartTime(),
+			argumentOfficer.getEndTime()
+		);
+		
+		String data = StringManager.EMPTY_STRING;
+		for (final VolumeCandleStick vcs : candleSticks) {
+			data += vcs.getSpecification().toString() + CharacterManager.NEW_LINE;
+		}
+		
+		getRefClient().createFile("data.txt", data);
+		getRefClient().openFileExplorer();
+	}
+	
+	//method
+	/**
+	 * Writes the available commands to the console
+	 * of the counterpart of the client of this main session..
+	 */
 	private void writeCommandsToConsole() {
-		getRefClient().writeNextLineToConsole(
-			" ",
+		getRefClient().writeNextLineToConsole(	
 				
 			//input commands
 			"sps x      select product symbol x",
@@ -190,17 +190,15 @@ public final class MainSession extends Session<ConsoleBackClient> {
 			"shmlwlr x  select x as hammer minimal lower wick to length ratio",
 			"smlrd x    select x as max. loss ratio per day in format {d}.{d}",
 			"smkd x     select x max. keeping days from buying to selling",
-			
+					
 			//output commands
 			"sa         show analysis",
 			"sdf        save data to a file",
 			"saf        save analysis to a file",
 			"sad        show algorithm description",
-			
+		
 			//system commands
-			"q          quit program",
-			
-			" "
+			"q          quit program"
 		);
 	}
 }

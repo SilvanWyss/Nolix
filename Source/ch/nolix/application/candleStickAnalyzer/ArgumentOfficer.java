@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.application.candleStickAnalyzer;
 
+import ch.nolix.core.constants.StringManager;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.validator2.Validator;
@@ -32,7 +33,7 @@ public final class ArgumentOfficer {
 			.setProductSymbol(getProductSymbol())
 			.setStartTime(getStartTime())
 			.setEndTime(getEndTime())
-			.setRedCandleStickCountBeforeHammer(getGreenCandleStickCountAfterHammer())
+			.setRedCandleStickCountBeforeHammer(getRedCandleStickCountBeforeHammer())
 			.setGreenCandleStickCountAfterHammer(getGreenCandleStickCountAfterHammer())
 			.setHammerMinLowerWickLengthRation(getHammerMinLowerWickLengthRation())
 			.setMaxLossRatioPerDay(getMaxLossRatioPerDay())
@@ -180,14 +181,16 @@ public final class ArgumentOfficer {
 	public List<String> toStrings() {
 		return
 		new List<String>(		
-			"product symbol: " + getProductSymbol(),
-			"start time: " + getStartTime(),
-			"end time: " + getEndTime(),
-			"minimal number of red candle sticks before hammer: " + getRedCandleStickCountBeforeHammer(),
-			"minimal number of green candle sticks after hammer: " + getGreenCandleStickCountAfterHammer(),
-			"hammer minimal lower wick to length ratio: " + getHammerMinLowerWickLengthRation(),
-			"maximal number of keeping days: " + getMaxKeepingDayCount(),
-			"maximal loss ratio per day: " + getMaxLossRatioPerDay()
+			"product symbol:  " + getProductSymbol(),
+			"start time:      " + getStartTime(),
+			"end time:        " + getEndTime(),
+			StringManager.EMPTY_STRING,
+			"minimal number of red candle sticks before hammer:   " + getRedCandleStickCountBeforeHammer(),
+			"minimal number of green candle sticks after hammer:  " + getGreenCandleStickCountAfterHammer(),
+			"hammer minimal lower wick to length ratio:           " + getHammerMinLowerWickLengthRation(),
+			"maximal number of keeping days:                      " + getMaxKeepingDayCount(),
+			"maximal loss ratio per day:                          " + getMaxLossRatioPerDay()
+			
 		);
 	}
 }

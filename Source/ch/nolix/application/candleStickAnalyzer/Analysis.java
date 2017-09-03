@@ -6,7 +6,6 @@ import ch.nolix.core.constants.CharacterManager;
 import ch.nolix.core.constants.StringManager;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.SequencePattern;
-import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.element.finance.QuandlDataProvider;
 import ch.nolix.element.finance.VolumeCandleStick;
@@ -83,14 +82,21 @@ public final class Analysis {
 			final double sellPrice = ps.getRefAt(sellIndex).getOpeningPrice();
 			
 			final double outputToInputRatio = sellPrice / buyPrice;
-			outputToInputRatioSum += outputToInputRatio;
 			
 			if (outputToInputRatio > 1.0) {
 				winSequenceCount++;
 			}
+			
+			outputToInputRatioSum += outputToInputRatio;
 		}
 		
-		averageOutputToInputRatio = outputToInputRatioSum / potentialSequences.getElementCount();
+		if (potentialSequences.isEmpty()) {
+			averageOutputToInputRatio = 0.0;
+		}
+		else {
+			averageOutputToInputRatio = outputToInputRatioSum / potentialSequences.getElementCount();
+		}
+		
 		this.winSequenceCount = winSequenceCount;
 	}
 	
@@ -110,13 +116,8 @@ public final class Analysis {
 	}
 	
 	//method
-	public void save() {
-				
-		int i = 1;
-		while (new FileSystemAccessor().fileSystemItemExists("analysis_" + i + ".txt")) {
-			i++;
-		}
-		
+	public String getData() {
+			
 		String data = StringManager.EMPTY_STRING;
 		for (final String s : toStrings()) {
 			data += s + CharacterManager.NEW_LINE;
@@ -129,13 +130,14 @@ public final class Analysis {
 		for (final List<VolumeCandleStick> ps : potentialSequences) {
 			
 			for (final VolumeCandleStick vcs : ps) {
-				data += vcs.getSpecification().toString() + CharacterManager.NEW_LINE;
+				data += vcs.getSpecification().toString();
+			    data += CharacterManager.NEW_LINE;
 			}
 			
 			data += CharacterManager.NEW_LINE;
 		}
 		
-		new FileSystemAccessor().createFile("analysis_" + i + ".txt", data);
+		return data;
 	}
 	
 	//method
@@ -147,10 +149,10 @@ public final class Analysis {
 	public List<String> toStrings() {
 		return
 		argumentOfficer.toStrings().addAtEnd(
-			" ",
-			"potential patterns: " + getPotentialSequenceCount(),
-			"win patterns: " + getWinSequenceCount(),
-			"average output to input ratio: " + getAverageOutputToInputRatio()
+			StringManager.EMPTY_STRING,
+			"potential sequences:            " + getPotentialSequenceCount(),
+			"win sequences:                  " + getWinSequenceCount(),
+			"average output to input ratio:  " + getAverageOutputToInputRatio()
 		);
 	}
 }

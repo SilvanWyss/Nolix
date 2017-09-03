@@ -12,7 +12,6 @@ import ch.nolix.system.consoleClient.ConsoleFrontClient;
  * @author Silvan
  * @month 2017-08
  * @lines 30
- *
  */
 public final class Launcher {
 

@@ -2,7 +2,6 @@
 package ch.nolix.application.candleStickAnalyzer;
 
 //own imports
-import ch.nolix.element.basic.Time;
 import ch.nolix.system.client.StandardApplication;
 import ch.nolix.system.consoleClient.ConsoleBackClient;
 
@@ -22,17 +21,7 @@ public class CandleStickAnalyzer extends StandardApplication<ConsoleBackClient> 
 	 * @return the title of a candle stick analyzer.
 	 */
 	public static String getTitle() {
-		
-		final Time currentTime = Time.createCurrentTime();
-		
-		return
-		NAME
-		+ " "
-		+ currentTime.getYear()
-		+ "-"
-		+ currentTime.getMonthOfYear()
-		+ "-"
-		+ currentTime.getDayOfMonth();
+		return (NAME + " 2017-9-2");
 	}
 	
 	//constructor
