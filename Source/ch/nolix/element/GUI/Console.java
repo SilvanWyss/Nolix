@@ -23,7 +23,7 @@ import ch.nolix.element.font.FontFamily;
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 570
+ * @lines 580
  */
 public final class Console
 extends BorderWidget<Console, ConsoleStructure>
@@ -395,6 +395,17 @@ implements Clearable {
 	 */
 	public Console writeEditLine() {
 		return writeTextLine(editLine);
+	}
+	
+	//method
+	/**
+	 * Writes an empty line to this console.
+	 * Attention: Clears the edit line of this console.
+	 * 
+	 * @return this console.
+	 */
+	public Console writeEmptyLine() {
+		return writeTextLine(StringManager.EMPTY_STRING);
 	}
 	
 	//method
