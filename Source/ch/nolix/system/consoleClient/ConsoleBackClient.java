@@ -77,6 +77,14 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	
 	//method
 	/**
+	 * Quits the counterpart of this console back client.
+	 */
+	public void quit() {
+		internal_getRefDuplexController().run(Protocol.QUIT_COMMAND);
+	}
+	
+	//method
+	/**
 	 * @return the next character from the console
 	 * of the counterpart of this console back client.
 	 */

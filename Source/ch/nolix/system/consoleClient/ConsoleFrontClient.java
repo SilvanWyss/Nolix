@@ -99,6 +99,9 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 		internal_connect(ip, port, targetApplication);
 	}
 	
+	public void quit() {
+		((Frame)GUI).close();
+	}
 	
 	/**
 	 * /Creates new console front client with the given GUI.
@@ -180,9 +183,12 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 		switch (command.getHeader()) {
 		
 			//Handles general commands.
+			case Protocol.QUIT_COMMAND:
+				GUI.close();
+				break;
 			case Protocol.SET_TITLE_COMMAND:
 				GUI.setTitle(command.getOneAttributeToString());
-				break;
+				break;			
 		
 			//Handles console commands.
 			case Protocol.CLEAR_CONSOLE_COMMAND:
@@ -218,7 +224,7 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 				infoPanel.writeLines(command.getAttributesToStrings());
 				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
 				break;
-			
+				
 			default:
 				
 				//Calls method of the base class.
