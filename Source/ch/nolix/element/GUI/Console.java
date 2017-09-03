@@ -399,12 +399,12 @@ implements Clearable {
 	
 	//method
 	/**
-	 * Writes an empty line to this console.
+	 * Writes an empty text line to this console.
 	 * Attention: Clears the edit line of this console.
 	 * 
 	 * @return this console.
 	 */
-	public Console writeEmptyLine() {
+	public Console writeEmptyTextLine() {
 		return writeTextLine(StringManager.EMPTY_STRING);
 	}
 	
