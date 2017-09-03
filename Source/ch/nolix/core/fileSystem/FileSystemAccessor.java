@@ -19,7 +19,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 250
+ * @lines 270
  */
 public final class FileSystemAccessor {
 
@@ -61,7 +61,7 @@ public final class FileSystemAccessor {
 	
 	//method
 	/**
-	 * Creates new empty file with the given relative file path in the file system on the local machine.
+	 * Creates a new empty file with the given relative file path in the file system on the local machine.
 	 * 
 	 * @param relativeFilePath
 	 * @return file accessor to the created file.
@@ -91,46 +91,13 @@ public final class FileSystemAccessor {
 			throw new RuntimeException(exception);
 		}
 		
-		//Creates and returns file accessor.
+		//Creates and returns a file accessor to the created file.
 		return new FileAccessor(filePath);
 	}
 	
 	//method
-	public FileAccessor createFile(
-		final String relativeFilePath,
-		final boolean incrementFileName) {
-		
-		if (!incrementFileName) {
-			return createFile(relativeFilePath);
-		}
-		
-		//Handles the case if no file system item with the given relative file path exists
-		//on the file system of the local machine.
-		if (!fileSystemItemExists(relativeFilePath)) {
-			return createFile(relativeFilePath);
-		}
-		
-		//TODO: Implement this better.
-		String producteRelativeFilePath;
-		int i = 1;
-		do {
-			
-			producteRelativeFilePath
-			= relativeFilePath.split("\\.")[0]
-			+ "_"
-			+ i
-			+ relativeFilePath.split("\\.")[relativeFilePath.split("\\.").length - 1];
-			
-			i++;
-		}
-		while (fileSystemItemExists(producteRelativeFilePath));
-		
-		return createFile(producteRelativeFilePath);
-	}
-	
-	//method
 	/**
-	 * Creates new file with the given relative file path in the file system on the local machine.
+	 * Creates a new file with the given relative file path in the file system on the local machine.
 	 * Writes the given content to the created file.
 	 * 
 	 * @param relativeFilePath
@@ -138,16 +105,72 @@ public final class FileSystemAccessor {
 	 * exists already in the file system on the local machine.
 	 * @throws RuntimeException if an error occurs.
 	 */
-	public void createFile(final String relativeFilePath, final String content) {
+	public void createFile(
+		final String relativeFilePath,
+		final String content
+	) {	
 		createFile(relativeFilePath).overwriteFile(content);
 	}
 	
 	//method
-	public void createFile(
+	/**
+	 * Creates a new empty file with the given relative file path in the file system on the local machine.
+	 * 
+	 * Increments the file name if a file system item with the given relative file path
+	 * exists already in the file system on the local machine.
+	 * 
+	 * @param relativeFilePath
+	 * @return file accessor to the created file.
+	 * @throws RuntimeException if an error occurs.
+	 */
+	public FileAccessor createFileIncrementingFileName(
+		final String relativeFilePath
+	) {
+		
+		//Handles the case if no file system item with the given relative file path exists
+		//in the file system on the local machine.
+		if (!fileSystemItemExists(relativeFilePath)) {
+			return createFile(relativeFilePath);
+		}
+		
+		//Handles the case if a file system item with the given relative file path exists
+		//in the file system on the local machine.		
+			final String[] relativeFilePathParts = relativeFilePath.split("\\.");
+			
+			String producteRelativeFilePath;
+			int i = 1;
+			do {
+				
+				producteRelativeFilePath
+				= relativeFilePathParts[0]
+				+ "_"
+				+ i
+				+ relativeFilePathParts[relativeFilePathParts.length - 1];
+				
+				i++;
+			}
+			while (fileSystemItemExists(producteRelativeFilePath));
+			
+			return createFile(producteRelativeFilePath);
+	}
+	
+	//method
+	/**
+	 * Creates a new file with the given relative file path in the file system on the local machine.
+	 * Writes the given content to the created file.
+	 * 
+	 * Increments the file name if a file system item with the given relative file path
+	 * exists already in the file system on the local machine.
+	 * 
+	 * @param relativeFilePath
+	 * @throws RuntimeException if an error occurs.
+	 */
+	public void createFileIncrementingFileName(
 		final String relativeFilePath,
-		final boolean incrementFileName,
-		final String content) {		
-		createFile(relativeFilePath, incrementFileName).overwriteFile(content);
+		final String content
+	) {
+		createFileIncrementingFileName(relativeFilePath)
+		.overwriteFile(content);
 	}
 	
 	//method
