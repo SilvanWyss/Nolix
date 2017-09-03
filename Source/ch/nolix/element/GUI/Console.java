@@ -36,7 +36,7 @@ implements Clearable {
 	public static final Color DEFAULT_BACKGROUND_COLOR = new Color(Color.BLACK);
 	
 	//attribute headers
-	private final static String TEXT_LINES_HEADER = "TextLines";
+	private final static String LINES_HEADER = "Lines";
 	
 	//attribute
 	//The edit line is the line of this console that can be edited.
@@ -48,7 +48,7 @@ implements Clearable {
 	private int textCursorPosition = 0;
 	
 	//multiple attribute
-	private final List<String> textLines = new List<String>();
+	private final List<String> lines = new List<String>();
 	
 	//constructor
 	/**
@@ -69,8 +69,8 @@ implements Clearable {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case TEXT_LINES_HEADER:
-				attribute.getRefAttributes().forEach(a -> writeTextLine(a.toString()));
+			case LINES_HEADER:
+				attribute.getRefAttributes().forEach(a -> writeLine(a.toString()));
 				break;
 			default:
 				
@@ -81,10 +81,10 @@ implements Clearable {
 	
 	//method
 	/**
-	 * Removes all text lines of this console and clears the edit line of this console.
+	 * Removes all lines of this console and clears the edit line of this console.
 	 */
 	public void clear() {
-		textLines.clear();
+		lines.clear();
 		clearEditLine();
 	}
 	
@@ -99,10 +99,10 @@ implements Clearable {
 	
 	//method
 	/**
-	 * @return true if this console contains any text lines.
+	 * @return true if this console contains any lines.
 	 */
-	public boolean containsTextLines() {
-		return textLines.containsAny();
+	public boolean containsLines() {
+		return lines.containsAny();
 	}
 	
 	//method
@@ -141,9 +141,9 @@ implements Clearable {
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
-		//Handles the option that this console contains text lines.
-		if (containsTextLines()) {
-			attributes.addAtEnd(new StandardSpecification(TEXT_LINES_HEADER, textLines));
+		//Handles the option that this console contains lines.
+		if (containsLines()) {
+			attributes.addAtEnd(new StandardSpecification(LINES_HEADER, lines));
 		}
 		
 		return attributes;
@@ -151,7 +151,7 @@ implements Clearable {
 	
 	//method
 	/**
-	 * The edit line of a console is its next text line that can be edited.
+	 * The edit line of a console is its next line that can be edited.
 	 * 
 	 * @return the edit line of this console.
 	 */
@@ -185,10 +185,10 @@ implements Clearable {
 	
 	//method
 	/**
-	 * @return the text lines of this console.
+	 * @return the lines of this console.
 	 */
-	public AccessorContainer<String> getTextLines() {
-		return new AccessorContainer<String>(textLines);
+	public AccessorContainer<String> getLines() {
+		return new AccessorContainer<String>(lines);
 	}
 	
 	//method
@@ -220,10 +220,10 @@ implements Clearable {
 	
 	//method
 	/**
-	 * @return true if this console contains no text line.
+	 * @return true if this console contains no line.
 	 */
 	public boolean isEmpty() {
-		return getTextLines().isEmpty();
+		return getLines().isEmpty();
 	}
 	
 	//method
@@ -296,7 +296,7 @@ implements Clearable {
 		}
 		
 		final char nextCharacter = getEditLine().charAt(0);	
-		writeTextLine(nextCharacter);
+		writeLine(nextCharacter);
 		
 		return nextCharacter;
 	}
@@ -308,47 +308,47 @@ implements Clearable {
 	 * Attention: Lasts until this console receives an enter.
 	 */
 	public void readEnter() {
-		readTextLine();
+		readLine();
 	}
 	
 	//method
 	/**
-	 * Reads the next text line, that is not empty, from this console.
+	 * Reads the next line, that is not empty, from this console.
 	 * Attention: Clears the edit line of this console.
-	 * Attention: Lasts until this console receives a non-empty text line.
+	 * Attention: Lasts until this console receives a non-empty line.
 	 * 
-	 * @return the next text line, that is not empty, that is written to this console.
+	 * @return the next line, that is not empty, that is written to this console.
 	 * 
 	 */
-	public String readNonEmptyTextLine() {		
+	public String readNonEmptyLine() {		
 		while (true) {
 			
-			final String nextTextLine = readTextLine();
+			final String nextLine = readLine();
 			
-			if (!nextTextLine.isEmpty()) {
-				return nextTextLine;
+			if (!nextLine.isEmpty()) {
+				return nextLine;
 			}
 		}
 	}
 	
 	//method
 	/**
-	 * Reads the next text line from this console.
+	 * Reads the next line from this console.
 	 * Attention: Clears the edit line of this console.
-	 * Attention: Lasts until this console receives a text line.
+	 * Attention: Lasts until this console receives a line.
 	 * 
-	 * @return the next text line of this console.
+	 * @return the next line of this console.
 	 */
-	public String readTextLine() {
+	public String readLine() {
 		
 		clearEditLine();
 		
-		final int textLineCount = textLines.getElementCount();	
-		while (getTextLines().getElementCount() == textLineCount) {
+		final int lineCount = lines.getElementCount();	
+		while (getLines().getElementCount() == lineCount) {
 			Sequencer.waitForMilliseconds(100);
 		}
 		
-		return textLines.getRefLast();
+		return lines.getRefLast();
 	}
 	
 	//method
@@ -394,44 +394,44 @@ implements Clearable {
 	 * @return this console.
 	 */
 	public Console writeEditLine() {
-		return writeTextLine(editLine);
+		return writeLine(editLine);
 	}
 	
 	//method
 	/**
-	 * Writes an empty text line to this console.
+	 * Writes an empty line to this console.
 	 * Attention: Clears the edit line of this console.
 	 * 
 	 * @return this console.
 	 */
-	public Console writeEmptyTextLine() {
-		return writeTextLine(StringManager.EMPTY_STRING);
+	public Console writeEmptyLine() {
+		return writeLine(StringManager.EMPTY_STRING);
 	}
 	
 	//method
 	/**
-	 * Writes a text line to this console that consists of the given character.
+	 * Writes a line to this console that consists of the given character.
 	 * Attention: Clears the edit line of this console.
 	 * 
 	 * @param character
 	 * @return this console.
 	 */
-	public Console writeTextLine(final char character) {
-		return writeTextLine(Character.toString(character));
+	public Console writeLine(final char character) {
+		return writeLine(Character.toString(character));
 	}
 	
 	//method
 	/**
-	 * Writes the given text line to this console.
+	 * Writes the given line to this console.
 	 * Attention: Clears the edit line of this console.
 	 * 
-	 * @param textLine
+	 * @param line
 	 * @return this console.
-	 * @throws NullArgumentException if the given text line is null.
+	 * @throws NullArgumentException if the given line is null.
 	 */
-	public Console writeTextLine(final String textLine) {
+	public Console writeLine(final String line) {
 		
-		textLines.addAtEnd(textLine);
+		lines.addAtEnd(line);
 		clearEditLine();
 		
 		return this;
@@ -439,18 +439,18 @@ implements Clearable {
 	
 	//method
 	/**
-	 * Writes the given text lines to this console.
+	 * Writes the given lines to this console.
 	 * Attention: Clears the edit line of this console.
 	 * 
-	 * @param textLines
+	 * @param lines
 	 * @return this console.
-	 * @throws NullArgumentException if one of the given text lines is null.
+	 * @throws NullArgumentException if one of the given lines is null.
 	 */
-	public Console writeTextLine(final String... textLines) {
+	public Console writeLine(final String... lines) {
 		
-		//Iterates the given text lines.
-		for (final String tl : textLines) {
-			writeTextLine(tl);
+		//Iterates the given lines.
+		for (final String l : lines) {
+			writeLine(l);
 		}
 		
 		return this;
@@ -458,18 +458,18 @@ implements Clearable {
 	
 	//method
 	/**
-	 * Writes the given textLines to this console.
+	 * Writes the given lines to this console.
 	 * Attention: Clears the edit line of this console.
 	 * 
-	 * @param textLines
+	 * @param lines
 	 * @return this console.
-	 * @throws NullArgumentException if one of the given text lines is null.
+	 * @throws NullArgumentException if one of the given lines is null.
 	 */
-	public Console writeTextLines(final IContainer<String> textLines) {
+	public Console writeLines(final IContainer<String> lines) {
 
-		//Iterates the given text lines.
-		for (final String tl : textLines) {
-			writeTextLine(tl);
+		//Iterates the given lines.
+		for (final String l : lines) {
+			writeLine(l);
 		}
 		
 		return this;
@@ -530,17 +530,17 @@ implements Clearable {
 		final int contentHeight = getContentHeight();
 		final int textSize = widgetStructure.getActiveTextSize();	
 		final Font font = new Font(FontFamily.Console, textSize, widgetStructure.getActiveTextColor());
-		final int textlineCount = getTextLines().getElementCount();
-		final int shownTextLineCount = contentHeight / textSize;
+		final int lineCount = getLines().getElementCount();
+		final int shownLineCount = contentHeight / textSize;
 		
-		//Iterates the text lines of this console.
+		//Iterates the lines of this console.
 		int lineNumber = 1;
-		for (final String tl : getTextLines()) {
+		for (final String l : getLines()) {
 			
-			int offsetTextLineCount = isEnabled() ? 2 : 1;
+			int offsetLineCount = isEnabled() ? 2 : 1;
 			
-			if (lineNumber > textlineCount - shownTextLineCount + offsetTextLineCount) {
-				font.paintText(getLinePrefix() + tl, getContentWidth(), graphics);
+			if (lineNumber > lineCount - shownLineCount + offsetLineCount) {
+				font.paintText(getLinePrefix() + l, getContentWidth(), graphics);
 				graphics.translate(0, textSize);
 			}
 			
