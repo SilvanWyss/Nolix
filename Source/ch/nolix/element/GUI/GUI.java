@@ -191,6 +191,12 @@ implements Clearable, IRequestableContainer {
 		removeRootWidget();
 	}
 	
+	//abstract method
+	/**
+	 * Closes this GUI.
+	 */
+	public abstract void close();
+	
 	//method
 	/**
 	 * @return true if this GUI contains an element with the given name.

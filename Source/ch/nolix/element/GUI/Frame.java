@@ -124,6 +124,14 @@ public class Frame extends VisibleGUI<Frame> {
 	
 	//method
 	/**
+	 * Closes this frame.
+	 */
+	public void close() {
+		frame.dispose();
+	}
+	
+	//method
+	/**
 	 * @return the attributes of this frame.
 	 */
 	public List<StandardSpecification> getAttributes() {
@@ -217,7 +225,7 @@ public class Frame extends VisibleGUI<Frame> {
 		
 		//Handles the case if this frame has no close command.
 		if (!hasCloseCommand()) {
-			System.exit(0);
+			close();
 		}
 		
 		//Handles the case if this frame has a close command.

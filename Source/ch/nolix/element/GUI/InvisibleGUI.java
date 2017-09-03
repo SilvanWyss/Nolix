@@ -45,4 +45,10 @@ public final class InvisibleGUI extends GUI<InvisibleGUI> {
 	public int getCursorYPosition() {
 		return cursorXPosition;
 	}
+
+	//method
+	/**
+	 * Closes this invisible GUI.
+	 */
+	public void close() {}
 }
