@@ -31,7 +31,6 @@ public final class StandardSpecification extends Specification {
 	//codes
 	public static final String OPEN_BRACKET_CODE = "$O";
 	public static final String CLOSED_BRACKET_CODE = "$C";
-	public static final String DOT_CODE = "$D";
 	public static final String COMMA_CODE = "$M";
 	public static final String DOLLAR_SIGN_CODE = "$L";
 	
@@ -490,7 +489,7 @@ public final class StandardSpecification extends Specification {
 		
 		this.header
 		= header
-		.replace(DOT_CODE, ".")
+		.replace(COMMA_CODE, ",")
 		.replace(OPEN_BRACKET_CODE, "(")
 		.replace(CLOSED_BRACKET_CODE, ")");
 	}
@@ -504,7 +503,7 @@ public final class StandardSpecification extends Specification {
 		
 		//Handles header if this specification has a header.
 		if (hasHeader()) {
-			string += getHeader().replace(".", DOT_CODE).replace("(", OPEN_BRACKET_CODE).replace(")", CLOSED_BRACKET_CODE);
+			string += getHeader().replace(",", COMMA_CODE).replace("(", OPEN_BRACKET_CODE).replace(")", CLOSED_BRACKET_CODE);
 		}
 		
 		//Handles attributes.
