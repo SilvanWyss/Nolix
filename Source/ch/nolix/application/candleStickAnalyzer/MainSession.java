@@ -50,7 +50,6 @@ public final class MainSession extends Session<ConsoleBackClient> {
 		//Processes until the user quits the program.
 		while (true) {
 			try {		
-			
 				final String[]inputs = getRefClient().readNonEmptyLineFromConsole().split(" ");
 							
 				//Enumerates the entered command.
@@ -100,11 +99,8 @@ public final class MainSession extends Session<ConsoleBackClient> {
 						case CommandManager.SHOW_COMMANDS_COMMAND:
 							showCommands();
 							break;
-						case "q":
-							
-							//Stops the console front client.
-							//TODO: Add stop connection method to client.
-							System.exit(0);
+						case CommandManager.QUIT_COMMAND:
+							getRefClient().quit();
 							break;				
 					default:
 						throw new Exception("The entered command is invalid.");
