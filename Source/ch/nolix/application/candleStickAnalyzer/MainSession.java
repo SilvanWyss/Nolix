@@ -15,7 +15,7 @@ import ch.nolix.system.consoleClient.ConsoleBackClient;
 /**
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 190
+ * @lines 210
  */
 public final class MainSession extends Session<ConsoleBackClient> {
 	
@@ -56,61 +56,49 @@ public final class MainSession extends Session<ConsoleBackClient> {
 				//Enumerates the entered command.
 				switch (inputs[0]) {	
 					
-					//Handles input commands.
-						case "set":
-							argumentOfficer.setEndTime(new Time(inputs[1]));							
-							break;					
-						case "sps":
+					//Handles input commands.										
+						case CommandManager.SELECT_RPODUCT_SYMBOL_COMMAND:
 							argumentOfficer.setProductSymbol(inputs[1]);
 							break;
-						case "sst":
+						case CommandManager.SELECT_START_TIME_COMMAND:
 							argumentOfficer.setStartTime(new Time(inputs[1]));
 							break;
-						case "srcsbh":
+						case CommandManager.SELECT_END_TIME_COMMAND:
+							argumentOfficer.setEndTime(new Time(inputs[1]));							
+							break;	
+						case CommandManager.SELECT_RED_CANDLE_STICKS_BEFORE_HAMMER_COMMAND:
 							argumentOfficer.setRedCandleStickCountBeforeHammer(Integer.valueOf(inputs[1]));
 							break;
-						case "sgcsah":
+						case CommandManager.SELECT_GREEN_CANDLE_STICKS_AFTER_HAMMER_COMMAND:
 							argumentOfficer.setGreenCandleStickCountAfterHammer(Integer.valueOf(inputs[1]));
 							break;
-						case "shmlwlr":
+						case CommandManager.SELECT_HAMMER_MINIMAL_LOWER_WICK_LENGTH_RATIO_COMMAND:
 							argumentOfficer.setHammerMinLowerWickLengthRation(Double.valueOf(inputs[1]));
 							break;
-						case "smlrd":
+						case CommandManager.SELECT_MAX_LOSS_RATIO_PER_DAY_COMMAND:
 							argumentOfficer.setMaxLossRatioPerDay(Double.valueOf(inputs[1]));
 							break;
-						case "smkd":
+						case CommandManager.SELECT_MAX_KEEPING_DAYS_COMMAND:
 							argumentOfficer.setMaxKeepingDayCount(Integer.valueOf(inputs[1]));
 							break;
 							
 					//Handles output commands.
-						case "sa":							
+						case CommandManager.SHOW_ANALYSIS_COMMAND:							
 							getRefClient().writeLinesToConsole(new Analysis(argumentOfficer).toStrings());
 							break;
-						case "saf":
-							saveAnalysisToFile();
-							break;
-						case "sdf":
+						case CommandManager.SAVE_PRODUCT_DATA_TO_FILE_COMMAND:
 							saveDataToFile();														
 							break;
-						case "sad":
-							
-							getRefClient().writeLineToConsole(
-								" ",
-								"The product is bougth at the opening",
-								"of the next day after the confirmation.",
-								" ",
-								"The product is sold at the opening of the next day",
-								"if the loss ratio of the current day is too big.",
-								" ",
-								"The product is sold at the opening of the last day otherwise.",
-								" "
-							);						
-							
+						case CommandManager.SAVE_ANALYSIS_TO_FILE_COMMAND:
+							saveAnalysisToFile();
+							break;
+						case CommandManager.SHOW_ALGORITHM_FACTS_COMMAND:
+							showAlgorithmFacts();
 							break;
 						
 					//Handles system commands.
-						case "sc":
-							writeCommandsToConsole();
+						case CommandManager.SHOW_COMMANDS_COMMAND:
+							showCommands();
 							break;
 						case "q":
 							
@@ -175,10 +163,27 @@ public final class MainSession extends Session<ConsoleBackClient> {
 	
 	//method
 	/**
-	 * Writes the available commands to the console
-	 * of the counterpart of the client of this main session..
+	 * Writes algorithm facts to the console
+	 * of the counterpart of the client of this main session.
 	 */
-	private void writeCommandsToConsole() {
+	private void showAlgorithmFacts() {
+		getRefClient().writeLineToConsole(
+			"-The product is bougth at the opening",
+			" of the next day after the confirmation.",
+			StringManager.EMPTY_STRING,
+			"-The product is sold at the opening of the next day",
+			" if the loss ratio of the current day is too big.",
+			StringManager.EMPTY_STRING,
+			"-The product is sold at the opening of the last day otherwise."
+		);
+	}
+	
+	//method
+	/**
+	 * Writes the available commands to the console
+	 * of the counterpart of the client of this main session.
+	 */
+	private void showCommands() {
 		getRefClient().writeLineToConsole(	
 				
 			//input commands
@@ -187,15 +192,15 @@ public final class MainSession extends Session<ConsoleBackClient> {
 			"set x      select end time x in format YYYY-MM-DD",
 			"srcsbh x   select x red candle sticks before hammer",
 			"sgcsah x   select x green candle sticks after hammer",
-			"shmlwlr x  select x as hammer minimal lower wick to length ratio",
-			"smlrd x    select x as max. loss ratio per day in format {d}.{d}",
-			"smkd x     select x max. keeping days from buying to selling",
+			"shmlwlr x  select x as hammer minimal lower wick length ratio",
+			"smlrpd x   select x as max. loss ratio per day in format {d}.{d}",
+			"smkd x     select x as max. keeping days",
 					
 			//output commands
 			"sa         show analysis",
-			"sdf        save data to a file",
-			"saf        save analysis to a file",
-			"sad        show algorithm description",
+			"spdtf      save product data to file",
+			"satf       save analysis to file",
+			"saf        show algorithm facts",
 		
 			//system commands
 			"q          quit program"
