@@ -2,10 +2,15 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.core.container.List;
+import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
+import ch.nolix.element.basic.Color;
+import ch.nolix.element.data.TextColor;
+import ch.nolix.element.data.TextSize;
+import ch.nolix.element.entity.Entity;
+import ch.nolix.element.entity.Property;
+import ch.nolix.element.font.FontFamily;
 
 //abstract class
 /**
@@ -13,7 +18,7 @@ import ch.nolix.core.validator2.Validator;
  * All attributes a widget structure can have are optional.
  * 
  * For each attribute A, a widget structure has a method hasRecursiveA().
- * A method hasRecursiveAA must have the following scheme.
+ * A method hasRecursiveA() must have the following scheme.
  * Step 1: If the widget structure has a value, the hasRecursiveA() must return true.
  * Step 2: If the widget structure has a normal structure, hasRecursiveA()
  *         must return hasRecursiveA() of the normal structure.
@@ -25,32 +30,58 @@ import ch.nolix.core.validator2.Validator;
  *         must return getActiveA() of the normal structure.
  * Step 3: If the widget structure has a condition for a smart default value
  *         and the condition is fulfilled,
- *         getActiveOrDefaultA must return the smart default value.
- * Step 4: The widget structure must return a default value.
+ *         getActiveA() must return the smart default value.
+ * Step 4: getActiveA() must return a default value.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 90
  * @param <WS> The type of a widget structure.
  */
-public abstract class WidgetStructure<WS extends WidgetStructure<WS>> {
+public abstract class WidgetStructure<WS extends WidgetStructure<WS>>
+extends Entity {
+	
+	//attribute
+	private final Property<FontFamily> fontFamily
+	= new Property<FontFamily>(
+		"FontFamily",
+		FontFamily.Verdana,
+		s -> FontFamily.valueOf(s)
+	);
+	
+	//attribute
+	private final Property<TextSize> textSize
+	= new Property<TextSize>(
+		TextSize.SIMPLE_CLASS_NAME,
+		new TextSize(),
+		s -> new TextSize(StringHelper.toInt(s))
+	);
+	
+	//attribute
+	private final Property<TextColor> textColor
+	= new Property<TextColor>(
+		"TextColor",
+		new TextColor(),
+		s -> new TextColor(s)
+	);
 	
 	//optional attribute
 	private WS normalStructure;
 	
-	//abstract method
-	/**
-	 * Adds or changes the given attribute to this widget structure.
-	 * 
-	 * @param attribute
-	 */
-	protected abstract void addOrChangeAttribute(StandardSpecification attribute);
-		
-	//abstract method
-	/**
-	 * @return the attributes of this widget structure.
-	 */
-	protected abstract List<StandardSpecification> getAttributes();
+	//method
+	public FontFamily getActiveFontFamily() {
+		return fontFamily.getActiveValue();
+	}
+	
+	//method
+	public final Color getActiveTextColor() {
+		return textColor.getActiveValue();
+	}
+	
+	//method
+	public final int getActiveTextSize() {
+		return textSize.getActiveValue().getValue();
+	}
 	
 	//method
 	/**
@@ -75,12 +106,6 @@ public abstract class WidgetStructure<WS extends WidgetStructure<WS>> {
 		return (normalStructure != null);
 	}
 	
-	//abstract method
-	/**
-	 * Removes all attributes of this widget structure.
-	 */
-	protected abstract void removeAttributes();
-	
 	//package-visible method
 	/**
 	 * Sets the normal structure of this widget structure.
@@ -95,5 +120,7 @@ public abstract class WidgetStructure<WS extends WidgetStructure<WS>> {
 		
 		//Sets the normal structure of this widget structure.
 		this.normalStructure = normalStructure;
+		
+		setBaseEntity(normalStructure);
 	}
 }

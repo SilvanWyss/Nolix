@@ -3,8 +3,6 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
@@ -116,7 +114,7 @@ extends WidgetStructure<BWS> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	protected void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -124,10 +122,9 @@ extends WidgetStructure<BWS> {
 				setBackgroundColor(new Color(attribute.getOneAttributeToString()));
 				break;
 			default:
-				throw new InvalidArgumentException(
-					new ArgumentName("attribute"),
-					new Argument(attribute)
-				);				
+				
+				//Calls method of the base class.
+				super.addOrChangeAttribute(attribute);
 		}
 	}
 	
@@ -135,10 +132,10 @@ extends WidgetStructure<BWS> {
 	/**
 	 * @return the attributes of this background widget structure.
 	 */
-	protected List<StandardSpecification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<StandardSpecification> attributes = new List<StandardSpecification>();
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
 		//Handles the option that this background widget structure has a background color.
 		if (hasBackgroundColor()) {

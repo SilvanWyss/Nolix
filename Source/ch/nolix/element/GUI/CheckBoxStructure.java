@@ -218,7 +218,7 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	protected void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -242,7 +242,7 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 	/**
 	 * @return the attributes of this check box structure.
 	 */
-	protected List<StandardSpecification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();

@@ -33,6 +33,7 @@ extends BorderWidgetStructure<TextLineWidgetStructure> {
 	/**
 	 * @return the active text color of this text line widget structure
 	 */
+	/*
 	public Color getActiveTextColor() {
 		
 		//Handles the case if this text line widget structure has a text color.
@@ -50,11 +51,13 @@ extends BorderWidgetStructure<TextLineWidgetStructure> {
 		//has no text color and no normal structure.
 		return DEFAULT_TEXT_COLOR;
 	}
+	*/
 	
 	//method
 	/**
 	 * @return the active text size of this text line text line widget structure.
 	 */
+	/*
 	public int getActiveTextSize() {
 		
 		//Handles the case if this text line widget structure has a text size.
@@ -72,6 +75,7 @@ extends BorderWidgetStructure<TextLineWidgetStructure> {
 		//has no text size and no normal structure.
 		return DEFAULT_TEXT_SIZE;
 	}
+	*/
 
 	//method
 	/**
@@ -152,7 +156,7 @@ extends BorderWidgetStructure<TextLineWidgetStructure> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	protected final void addOrChangeAttribute(final StandardSpecification attribute) {
+	public final void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -173,7 +177,7 @@ extends BorderWidgetStructure<TextLineWidgetStructure> {
 	/**
 	 * @return the attributes of this text line text line widget structure.
 	 */
-	protected final List<StandardSpecification> getAttributes() {
+	public final List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
 		List<StandardSpecification> attributes = super.getAttributes();

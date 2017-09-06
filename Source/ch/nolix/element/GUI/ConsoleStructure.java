@@ -61,6 +61,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	/**
 	 * @return active text color of this console structure.
 	 */
+	/*
 	public Color getActiveTextColor() {
 		
 		//Handles the case if this console structure has a text color.
@@ -76,11 +77,13 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 		//Handles the case if this console structure has no text color and no normal structure.
 		return DEFAULT_TEXT_COLOR;
 	}
+	*/
 	
 	//method
 	/**
 	 * @return the active text size of this console structure.
 	 */
+	/*
 	public int getActiveTextSize() {
 		
 		//Handles the case if this console structure has a text size.
@@ -96,6 +99,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 		//Handles the case if this console structure has no text size and no normal structure.
 		return DEFAULT_TEXT_SIZE;
 	}
+	*/
 	
 	//method
 	/**
@@ -264,7 +268,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 		return this;
 	}
 	
-	protected void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -274,12 +278,15 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 			case HEIGHT_HEADER:
 				setHeight(attribute.getOneAttributeToInteger());
 				break;
+				/*
 			case TEXT_SIZE_HEADER:
 				setTextSize(attribute.getOneAttributeToInteger());
 				break;
+				
 			case TEXT_COLOR_HEADER:
 				setTextColor(new Color(attribute.getOneAttributeToString()));
 				break;
+				*/
 			default:
 				
 				//Calls method of the base class.
@@ -291,7 +298,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	/**
 	 * @return the attributes of this console structure.
 	 */
-	protected List<StandardSpecification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();

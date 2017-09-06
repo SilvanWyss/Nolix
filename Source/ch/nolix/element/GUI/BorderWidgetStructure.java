@@ -903,7 +903,7 @@ extends BackgroundWidgetStructure<BWS> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	protected void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -963,7 +963,7 @@ extends BackgroundWidgetStructure<BWS> {
 	/**
 	 * @return the attributes of this border widget structure
 	 */
-	protected List<StandardSpecification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
