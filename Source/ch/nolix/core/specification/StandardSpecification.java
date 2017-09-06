@@ -24,7 +24,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 650
+ * @lines 660
  */
 public final class StandardSpecification extends Specification {
 	
@@ -157,6 +157,21 @@ public final class StandardSpecification extends Specification {
 			//Adds the current attribute to this standard specification.
 			addAttribute(createSpecificationWithHeaderOnly(a));
 		}
+	}
+	
+	//constructor
+	/**
+	 * Creates new standard specificatio nwith the given header and attributes.
+	 * 
+	 * @param header
+	 * @param attributes
+	 * @throws NullArgumentException if the given header is null.
+	 * @throws EmptyArgumentException if the given header is empty.
+	 * @throws NullArgumentException if one of the given attributes is null.
+	 */
+	public StandardSpecification(final String header, final StandardSpecification... attributes) {	
+		setHeader(header);
+		addAttribute(attributes);
 	}
 	
 	//constructor
