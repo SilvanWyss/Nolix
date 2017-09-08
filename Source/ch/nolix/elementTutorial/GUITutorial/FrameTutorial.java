@@ -1,10 +1,3 @@
-/*
- * file:	FrameTutorial.java
- * author:	Silvan Wyss
- * month:	2016-11
- * lines:	90
- */
-
 //package declaration
 package ch.nolix.elementTutorial.GUITutorial;
 
@@ -12,41 +5,42 @@ package ch.nolix.elementTutorial.GUITutorial;
 import ch.nolix.core.controllerInterfaces.ILevel1Controller;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.element.GUI.Button;
-import ch.nolix.element.GUI.Console;
 import ch.nolix.element.GUI.Frame;
-import ch.nolix.element.GUI.Label;
-import ch.nolix.element.GUI.TextBox;
 import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.StandardConfiguration;
 
-//package-visible class
+//class
 /**
  * This class provides a tutorial for the frame class.
+ * Of this class no instance can be created.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-11
+ * @lines 90
  */
-final class FrameTutorial {
+public final class FrameTutorial {
 
 	//main method
 	/**
-	 * Creates new frame, sets its root rectangle, controller and configuration.
-	 * A frame is a 2D GUI, that is a common window.
-	 * A rectangle is a GUI element. Certain types of rectangles can contain other rectangles themself.
-	 * A controller is an instance the GUI commands are leaded to and executed.
-	 * A configuration configures a configurable element like a frame.
+	 * 1. Creates a frame.
+	 *    A frame is a 2D GUI, that is a common window.
+	 * 2. Sets a root widget to the frame.
+	 *    A widget is a GUI element. Certain types of widgets can contain other widgets.
+	 * 3. Sets a controller to the frame.
+	 *    A controller is an object that executes the GUI commands.
+	 * 4. Sets a configuration to the frame.
+	 *    A configuration can configure a configurable element like a frame.
 	 */
 	public static void main(String[] args) {
 		new Frame()
-		.setTitle("Tutorial")
+		.setTitle("Frame Tutorial")
 		.setRootWidget(
 			new VerticalStack()
 			.addWidget(
-				new Label()
-				.setText("Tutorial"),
 				new Button()
 				.setText("~ Quit ~")
-				.setLeftMouseButtonPressCommand("Quit"),
-				new TextBox().setText("test"),
-				new Console().writeLine("test", "test2")
+				.setLeftMouseButtonPressCommand("Quit")
 			)
 		)
 		.setController(
@@ -64,19 +58,16 @@ final class FrameTutorial {
 		)
 		.setConfiguration(
 			new StandardConfiguration()
-			.addAttachingAttribute("ContentOrientation(Center)")
+			.addAttachingAttribute("ContentPosition(Center)")
 			.addConfiguration(
 				new DeepConfiguration()
-				.setSelectorType("VerticalStack")
+				.setSelectorType(VerticalStack.TYPE_NAME)
 				.addAttachingAttribute(
-					"ContentOrientation(Center)",
+					"ContentPosition(Center)",
 					"ElementMargin(50)"
 				),
 				new DeepConfiguration()
-				.setSelectorType("Label")
-				.addAttachingAttribute("NormalTextSize(100)"),
-				new DeepConfiguration()
-				.setSelectorType("Button")
+				.setSelectorType(Button.TYPE_NAME)
 				.addAttachingAttribute(
 					"CursorIcon(Hand)",
 					"NormalPadding(10)",
