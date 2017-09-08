@@ -53,7 +53,7 @@ extends Entity {
 	private final Property<TextSize> textSize
 	= new Property<TextSize>(
 		TextSize.SIMPLE_CLASS_NAME,
-		new TextSize(),
+		new TextSize(20),
 		s -> new TextSize(StringHelper.toInt(s))
 	);
 	
@@ -81,6 +81,42 @@ extends Entity {
 	//method
 	public final int getActiveTextSize() {
 		return textSize.getActiveValue().getValue();
+	}
+	
+	//method
+	@SuppressWarnings("unchecked")
+	public final WS removeTextColor() {
+		
+		textColor.clear();
+		
+		return (WS)this;
+	}
+	
+	//method
+	@SuppressWarnings("unchecked")
+	public final WS removeTextSize() {
+		
+		textSize.clear();
+		
+		return (WS)this;
+	}
+	
+	//method
+	@SuppressWarnings("unchecked")
+	public final WS setTextColor(final Color textColor) {
+		
+		this.textColor.setValue(new TextColor(textColor.getValue()));
+		
+		return (WS)this;
+	}
+	
+	//method
+	@SuppressWarnings("unchecked")
+	public final WS setTextSize(final int textSize) {
+		
+		this.textSize.setValue(new TextSize(textSize));
+		
+		return (WS)this;
 	}
 	
 	//method

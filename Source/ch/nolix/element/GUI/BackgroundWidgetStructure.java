@@ -7,6 +7,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
+import ch.nolix.element.data.BackgroundColor;
 
 //abstract class
 /**
@@ -25,7 +26,7 @@ extends WidgetStructure<BWS> {
 	private final static String BACKGROUND_COLOR_HEADER = "BackgroundColor";
 	
 	//optional attribute
-	private Color backgroundColor;
+	private BackgroundColor backgroundColor;
 	
 	//method
 	/**
@@ -102,7 +103,7 @@ extends WidgetStructure<BWS> {
 		Validator.supposeThat(backgroundColor).thatIsNamed("background color").isNotNull();
 		
 		//Sets the background color of this background color widget structure.
-		this.backgroundColor = backgroundColor;
+		this.backgroundColor = new BackgroundColor(backgroundColor.getValue());
 		
 		return (BWS)this;
 	}
@@ -140,7 +141,7 @@ extends WidgetStructure<BWS> {
 		//Handles the option that this background widget structure has a background color.
 		if (hasBackgroundColor()) {
 			attributes
-			.addAtEnd(backgroundColor.getSpecificationAs(BACKGROUND_COLOR_HEADER));
+			.addAtEnd(backgroundColor.getSpecification());
 		}
 		
 		return attributes;

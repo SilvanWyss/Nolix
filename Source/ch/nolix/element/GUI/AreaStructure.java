@@ -5,8 +5,6 @@ package ch.nolix.element.GUI;
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 40
+ * @lines 10
  */
-public final class AreaStructure extends WidgetStructure<AreaStructure> {
-	
-}
+public final class AreaStructure extends WidgetStructure<AreaStructure> {}

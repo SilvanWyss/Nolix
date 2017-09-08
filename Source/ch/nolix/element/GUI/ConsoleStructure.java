@@ -4,11 +4,9 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.PositiveInteger;
 import ch.nolix.element.data.Height;
-import ch.nolix.element.data.TextSize;
 import ch.nolix.element.data.Width;
 
 //class
@@ -168,32 +166,6 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	
 	//method
 	/**
-	 * Removes the text color of this console structure.
-	 * 
-	 * @return this console structure.
-	 */
-	public ConsoleStructure removeTextColor() {
-		
-		textColor = null;
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Removes the text size of this console structure.
-	 * 
-	 * @return this console structure.
-	 */
-	public ConsoleStructure removeTextSize() {
-		
-		textSize = null;
-		
-		return this;
-	}
-	
-	//method
-	/**
 	 * Removes the width of this console structure.
 	 * 
 	 * @return this console structure.
@@ -216,39 +188,6 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	public ConsoleStructure setHeight(final int height) {
 		
 		this.height = new Height(height);
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Sets the text color of this console structure.
-	 * 
-	 * @param textColor
-	 * @return this console strucutre
-	 * @throws NullArgumentException if the given text color is null.
-	 */
-	public ConsoleStructure setTextColor(final Color textColor) {
-		
-		//Checks if the given text color is not null.
-		Validator.supposeThat(textColor).thatIsNamed("text color").isNotNull();
-		
-		this.textColor = textColor;
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Sets the text size of this console structure.
-	 * 
-	 * @param textSize
-	 * @return this console structure.
-	 * @throws NonPositiveArgumentException if the given text size is not positive.
-	 */
-	public ConsoleStructure setTextSize(final int textSize) {
-		
-		this.textSize = new TextSize(textSize);
 		
 		return this;
 	}
