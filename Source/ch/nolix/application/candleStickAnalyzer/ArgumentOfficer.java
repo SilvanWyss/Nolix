@@ -137,7 +137,10 @@ public final class ArgumentOfficer {
 		.thatIsNamed("max loss ratio per day")
 		.isNotNegative();
 		
-		//TODO: Check if the given max loss ratio is not bigger than 1.0.
+		Validator
+		.supposeThat(maxLossRatioPerDay)
+		.thatIsNamed("max loss ratio per day")
+		.isNotBiggerThan(1.0);
 		
 		this.maxLossRatioPerDay = maxLossRatioPerDay;
 		
