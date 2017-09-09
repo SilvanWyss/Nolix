@@ -99,10 +99,6 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 		internal_connect(ip, port, targetApplication);
 	}
 	
-	public void quit() {
-		((Frame)GUI).close();
-	}
-	
 	/**
 	 * /Creates new console front client with the given GUI.
 	 * 
@@ -129,6 +125,16 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 		)
 		.setConfiguration(new ConsoleDesign());
 	}
+	
+	public void quit() {
+		((Frame)GUI).close();
+	}
+	
+	//method
+	/**
+	 * Resets this client.
+	 */
+	public void reset() {}
 	
 	//method
 	/**

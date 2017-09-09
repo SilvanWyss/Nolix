@@ -110,6 +110,12 @@ public final class StandardClient extends Client<StandardClient> {
 	
 	//method
 	/**
+	 * Resets this client.
+	 */
+	public void reset() {}
+	
+	//method
+	/**
 	 * Runs a run method on the other side of this standard client.
 	 * 
 	 * @param runMethodCommand

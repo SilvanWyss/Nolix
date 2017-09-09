@@ -8,6 +8,7 @@ import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.duplexController.LocalDuplexController;
 import ch.nolix.core.duplexController.NetDuplexController;
 import ch.nolix.core.interfaces.Closable;
+import ch.nolix.core.interfaces.Resettable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -22,12 +23,12 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 660
- * @param <C> - The type of a client.
+ * @lines 630
+ * @param <C> The type of a client.
  */
 public abstract class Client<C extends Client<C>>
 extends OptionalSignableElement<C>
-implements Closable {
+implements Closable, Resettable {
 	
 	//commands
 	protected static final String INVOKE_RUN_METHOD_COMMAND = "InvokeRunMethod";
@@ -622,8 +623,7 @@ implements Closable {
 		session.setClient(this);
 		this.session = session;
 		
-		//TODO: Add reset method to client.
-		//reset();
+		reset();
 		
 		//Initializes the given session.
 		session.initialize();

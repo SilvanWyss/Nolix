@@ -23,16 +23,16 @@ public final class GUIFrontClient extends Client<GUIFrontClient> {
 	private GUI<?> dialog;
 	
 	public GUIFrontClient(Application<GUIBackClient> target) {
-		
 		dialog = new Frame();
 		dialog.setController(new GUIFrontClientController(this));
 		internal_connect(target);
 	}
 	
-
-	
-	
-
+	//method
+	/**
+	 * Resets this GUI front client.
+	 */
+	public void reset() {}
 	
 	//method
 	/**

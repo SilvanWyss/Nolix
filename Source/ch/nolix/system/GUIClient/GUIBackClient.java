@@ -94,6 +94,15 @@ public final class GUIBackClient extends Client<GUIBackClient> {
 	
 	//method
 	/**
+	 * Resets this GUI back client.
+	 */
+	public void reset() {
+		dialog.reset();
+		internal_getRefDuplexController().run(RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
+	}
+	
+	//method
+	/**
 	 * Sets the session of this dialog client.
 	 * 
 	 * @param session
