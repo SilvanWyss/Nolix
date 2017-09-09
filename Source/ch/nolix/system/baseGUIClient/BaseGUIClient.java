@@ -15,7 +15,7 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 120
+ * @lines 150
  */
 public abstract class BaseGUIClient<BGUIC extends BaseGUIClient<BGUIC>>
 extends Client<BGUIC> {
@@ -109,7 +109,7 @@ extends Client<BGUIC> {
 				
 				break;
 			case Protocol.OPEN_FILE_EXPLORER_COMMAND:
-				openFileExplorer();
+				internal_openFileExplorer();
 				break;
 			default:
 				
@@ -138,7 +138,7 @@ extends Client<BGUIC> {
 	 * Lets this base GUI client open a file explorer.
 	 */
 	protected final void internal_openFileExplorer() {
-		//TODO: Implement opening of a file explorer.
+		FileSystemAccessor.openFolderOfRunningJarInExplorer();
 	}
 	
 	//method
