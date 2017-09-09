@@ -127,6 +127,10 @@ public class Frame extends VisibleGUI<Frame> {
 	 * Closes this frame.
 	 */
 	public void close() {
+		
+		//Calls method of the base class.
+		super.close();
+		
 		frame.dispose();
 	}
 	

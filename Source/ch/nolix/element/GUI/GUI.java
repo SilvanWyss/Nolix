@@ -9,6 +9,7 @@ import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerInterfaces.ILevel1Controller;
 import ch.nolix.core.interfaces.Clearable;
+import ch.nolix.core.interfaces.Closable;
 import ch.nolix.core.interfaces.IRequestableContainer;
 import ch.nolix.core.interfaces.Refreshable;
 import ch.nolix.core.invalidArgumentException.Argument;
@@ -34,7 +35,7 @@ import ch.nolix.element.data.Title;
  */
 public abstract class GUI<G extends GUI<G>>
 extends ConfigurationElement<G>
-implements Clearable, IRequestableContainer, Refreshable {
+implements Clearable, Closable, IRequestableContainer, Refreshable {
 	
 	//type name
 	public static final String TYPE_NAME = "GUI";
@@ -54,6 +55,7 @@ implements Clearable, IRequestableContainer, Refreshable {
 	private Title title = new Title(DEFAULT_TITLE);
 	private BackgroundColor backgroundColor = new BackgroundColor();
 	private ContentPosition contentPosition = DEFAULT_CONTENT_POSITION;
+	private boolean closed = false;
 				
 	//optional attributes
 	private Widget<?, ?> rootWidget;
@@ -196,7 +198,9 @@ implements Clearable, IRequestableContainer, Refreshable {
 	/**
 	 * Closes this GUI.
 	 */
-	public abstract void close();
+	public void close() {
+		closed = true;
+	};
 	
 	//method
 	/**
@@ -345,6 +349,14 @@ implements Clearable, IRequestableContainer, Refreshable {
 	 */
 	public final boolean hasRootWidget() {
 		return (rootWidget != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this GUI is closed.
+	 */
+	public final boolean isClosed() {
+		return closed;
 	}
 	
 	//method
