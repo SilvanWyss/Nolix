@@ -98,7 +98,7 @@ public class Frame extends VisibleGUI<Frame> {
 			panel.requestFocus(); 
 		
 		resetConfiguration();		
-		repaint();
+		refresh();
 	}
 	
 	//method
@@ -236,48 +236,9 @@ public class Frame extends VisibleGUI<Frame> {
 	
 	//method
 	/**
-	 * Removes the close command of this frame.
+	 * Refreshes this frame.
 	 */
-	public void removeCloseCommand() {
-		closeCommand = null;
-	}
-	
-	//method
-	/**
-	 * Resets this frame.
-	 */
-	public void reset() {
-		
-		//Calls method of the base class.
-		super.reset();
-		
-		removeCloseCommand();
-	}
-	
-	//method
-	/**
-	 * Sets the close command of this frame.
-	 * 
-	 * @param closeCommand
-	 * @throws InvalidArgumentException if the given close command is not valid.
-	 */
-	public void setCloseCommand(final String closeCommand) {
-		this.closeCommand = new Statement(closeCommand);
-	}
-	
-	//method
-	/**
-	 * Lets this frame note a resizing.
-	 */
-	protected final void noteResizing() {
-		repaint();
-	}
-	
-	//method
-	/**
-	 * Repaints this frame.
-	 */
-	protected void repaint() {
+	public void refresh() {
 		
 		frame.setTitle(getTitle());	
 		panel.setBackground(getBackgroundColor().getJavaColor());
@@ -364,5 +325,44 @@ public class Frame extends VisibleGUI<Frame> {
 		}
 		
 		frame.repaint();
+	}
+	
+	//method
+	/**
+	 * Removes the close command of this frame.
+	 */
+	public void removeCloseCommand() {
+		closeCommand = null;
+	}
+	
+	//method
+	/**
+	 * Resets this frame.
+	 */
+	public void reset() {
+		
+		//Calls method of the base class.
+		super.reset();
+		
+		removeCloseCommand();
+	}
+	
+	//method
+	/**
+	 * Sets the close command of this frame.
+	 * 
+	 * @param closeCommand
+	 * @throws InvalidArgumentException if the given close command is not valid.
+	 */
+	public void setCloseCommand(final String closeCommand) {
+		this.closeCommand = new Statement(closeCommand);
+	}
+	
+	//method
+	/**
+	 * Lets this frame note a resizing.
+	 */
+	protected final void noteResizing() {
+		refresh();
 	}
 }

@@ -24,7 +24,7 @@ public abstract class VisibleGUI<VGUI extends VisibleGUI<VGUI>> extends GUI<VGUI
 		//Calls method of the base class.
 		super.noteLeftMouseButtonPress();
 		
-		repaint();
+		//repaint();
 	}
 	
 	//method
@@ -36,7 +36,7 @@ public abstract class VisibleGUI<VGUI extends VisibleGUI<VGUI>> extends GUI<VGUI
 		//Calls method of the base class.
 		super.noteLeftMouseButtonRelease();
 		
-		repaint();
+		//repaint();
 	}
 	
 	//method
@@ -48,7 +48,7 @@ public abstract class VisibleGUI<VGUI extends VisibleGUI<VGUI>> extends GUI<VGUI
 		//Calls method of the base class.
 		super.noteMouseMove();
 		
-		repaint();
+		//repaint();
 	}
 	
 	//method
@@ -60,7 +60,7 @@ public abstract class VisibleGUI<VGUI extends VisibleGUI<VGUI>> extends GUI<VGUI
 		//Calls method of the base class.
 		super.noteRightMouseButtonPress();
 		
-		repaint();
+		//repaint();
 	}
 	
 	//method
@@ -72,7 +72,7 @@ public abstract class VisibleGUI<VGUI extends VisibleGUI<VGUI>> extends GUI<VGUI
 		//Calls method of the base class.
 		super.noteRightMouseButtonRelease();
 		
-		repaint();
+		//repaint();
 	}
 	
 	//method
@@ -86,12 +86,6 @@ public abstract class VisibleGUI<VGUI extends VisibleGUI<VGUI>> extends GUI<VGUI
 		//Calls method of the base class.
 		super.noteKeyTyping(keyEvent);
 		
-		repaint();
+		//repaint();
 	}
-	
-	//abstract method
-	/**
-	 * Repaints this visible GUI.
-	 */
-	protected abstract void repaint();
 }

@@ -7,7 +7,7 @@ package ch.nolix.element.GUI;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 40
+ * @lines 60
  */
 public final class InvisibleGUI extends GUI<InvisibleGUI> {
 
@@ -51,4 +51,10 @@ public final class InvisibleGUI extends GUI<InvisibleGUI> {
 	 * Closes this invisible GUI.
 	 */
 	public void close() {}
+
+	//method
+	/**
+	 * Refreshes this invisible GUI.
+	 */
+	public final void refresh() {}
 }

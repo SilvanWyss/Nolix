@@ -193,15 +193,15 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 			//Handles console commands.
 			case Protocol.CLEAR_CONSOLE_COMMAND:
 				console.clear();
-				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
+				GUI.refresh();
 				break;
 			case Protocol.WRITE_EMPTY_LINE_TO_CONSOLE_COMMAND:
 				console.writeEmptyLine();
-				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
+				GUI.refresh();
 				break;
 			case Protocol.WRITE_LINE_TO_CONSOLE_COMMAND:
 				console.writeLine(command.getOneAttributeToString());
-				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
+				GUI.refresh();
 				break;
 			case Protocol.WRITE_LINES_TO_CONSOLE_COMMAND:
 				console.writeLines(command.getAttributesToStrings());
@@ -210,19 +210,19 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 			//Handles info panel commands.
 			case Protocol.CLEAR_INFO_PANEL_COMMAND:
 				infoPanel.clear();
-				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
+				GUI.refresh();
 				break;
 			case Protocol.WRITE_EMPTY_LINE_TO_INFO_PANEL_COMMAND:
 				infoPanel.writeEmptyLine();
-				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
+				GUI.refresh();
 				break;
 			case Protocol.WRITE_LINE_TO_INFO_PANEL_COMMAND:
 				infoPanel.writeLine(command.getOneAttributeToString());
-				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
+				GUI.refresh();
 				break;
 			case Protocol.WRITE_LINES_TO_INFO_PANEL_COMMAND:
 				infoPanel.writeLines(command.getAttributesToStrings());
-				GUI.noteMouseMove(); //TODO: Add refresh method to GUI.
+				GUI.refresh();
 				break;
 				
 			default:

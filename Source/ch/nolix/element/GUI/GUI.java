@@ -10,6 +10,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.controllerInterfaces.ILevel1Controller;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.interfaces.IRequestableContainer;
+import ch.nolix.core.interfaces.Refreshable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
@@ -28,12 +29,12 @@ import ch.nolix.element.data.Title;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 610
+ * @lines 680
  * @param <G> The type of a GUI.
  */
 public abstract class GUI<G extends GUI<G>>
 extends ConfigurationElement<G>
-implements Clearable, IRequestableContainer {
+implements Clearable, IRequestableContainer, Refreshable {
 	
 	//type name
 	public static final String TYPE_NAME = "GUI";
@@ -361,9 +362,12 @@ implements Clearable, IRequestableContainer {
 	 * @param keyEvent
 	 */
 	public void noteKeyTyping(final KeyEvent keyEvent) {
+		
 		getRefWidgets()
 		.getRefSelected(w -> w.isFocused())
 		.forEach(w -> w.noteKeyTyping(keyEvent));
+		
+		refresh();
 	}
 	
 	//method
@@ -371,6 +375,7 @@ implements Clearable, IRequestableContainer {
 	 * Lets this GUI note a left mouse button press.
 	 */
 	public void noteLeftMouseButtonPress() {
+		
 		getRefWidgets()
 		.getRefSelected(w -> w.isEnabled())
 		.forEach(
@@ -391,6 +396,8 @@ implements Clearable, IRequestableContainer {
 				}
 			}
 		);
+		
+		refresh();
 	}
 	
 	//method
@@ -398,9 +405,12 @@ implements Clearable, IRequestableContainer {
 	 * Lets this GUI note a left mouse button release.
 	 */
 	public void noteLeftMouseButtonRelease() {
+		
 		getRefWidgets()
 		.getRefSelected(w -> w.isEnabled() && w.isUnderCursor())
 		.forEach(w -> w.noteLeftMouseButtonRelease());
+		
+		refresh();
 	}
 	
 	//method
@@ -434,6 +444,8 @@ implements Clearable, IRequestableContainer {
 				}
 			}				
 		);
+		
+		refresh();
 	}
 	
 	//method
@@ -441,9 +453,12 @@ implements Clearable, IRequestableContainer {
 	 * Lets this GUI note a right mouse button press.
 	 */
 	public void noteRightMouseButtonPress() {
+		
 		getRefWidgets()
 		.getRefSelected(w -> w.isEnabled() && w.isUnderCursor())
 		.forEach(w -> w.noteRightMouseButtonPress());
+		
+		refresh();
 	}
 	
 	//method
@@ -451,9 +466,12 @@ implements Clearable, IRequestableContainer {
 	 * Lets this GUI note a right mouse button release.
 	 */
 	public void noteRightMouseButtonRelease() {
+		
 		getRefWidgets()
 		.getRefSelected(w -> w.isEnabled() && w.isUnderCursor())
 		.forEach(w -> w.noteRightMouseButtonRelease());
+		
+		refresh();
 	}
 	
 	//method
