@@ -2,9 +2,7 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
 //own imports
-import ch.nolix.core.controllerInterfaces.ILevel1Controller;
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.specification.Statement;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.HorizontalStack;
 import ch.nolix.element.GUI.Label;
@@ -18,11 +16,12 @@ import ch.nolix.element.basic.Time;
  *
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 60
+ * @lines 70
  */
 public final class FrameTutorial2 {
 
 	//main method
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 	
 		//Creates clock caption label.
@@ -30,11 +29,13 @@ public final class FrameTutorial2 {
 		
 		//Creates clock label.
 		final Label clockLabel = new Label();
+		
+		//Sets a yellow background color to the clock label.
 		clockLabel
 		.getRefNormalStructure()
 		.setBackgroundColor(new Color(Color.YELLOW));
 	
-		//Creates frame.
+		//Creates a frame that contains the clock caption label and the clock label.
 		final Frame frame
 		= new Frame()
 		.setRootWidget(
@@ -42,17 +43,11 @@ public final class FrameTutorial2 {
 				clockCaptionLabel,
 				clockLabel
 			)
-		)
-		.setController(new ILevel1Controller() {			
-			public void run(Statement command) {
-				System.exit(0);				
-			}
-		})
-		.setCloseCommand("Quit")
-		.setBackgroundColor(new Color(Color.VERY_LIGHT_BLUE));
+		);
 		
 		//Defines and starts the background job that updates the text of the clock label.
 		Sequencer
+		.asLongAs(() -> frame.isAlive())
 		.afterAllMilliseconds(100)
 		.runInBackground(
 			() -> {
@@ -62,12 +57,13 @@ public final class FrameTutorial2 {
 				
 				final String text
 				= String.format(
-					"%02d : %02d : %02d",
+					"%02d:%02d:%02d",
 					currentTime.getHourOfDay(),
 					currentTime.getMinuteOfHour(),
 					currentTime.getSecondOfMinute()
 				);
 				
+				//Sets the new text to the clock label.
 				clockLabel.setText(text);
 				
 				frame.refresh();
