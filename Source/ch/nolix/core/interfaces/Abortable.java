@@ -9,7 +9,7 @@ package ch.nolix.core.interfaces;
  * @month 2015-12
  * @lines 40
  */
-public interface Abortable {
+public interface Abortable extends AutoCloseable {
 	
 	//abstract method
 	/**
@@ -24,6 +24,14 @@ public interface Abortable {
 	 * @param abortReason
 	 */
 	public abstract void abort(String abortReason);
+	
+	//default method
+	/**
+	 * Aborts this abortable object.
+	 */
+	public default void close() {
+		abort();
+	}
 	
 	//abstract method
 	/**
