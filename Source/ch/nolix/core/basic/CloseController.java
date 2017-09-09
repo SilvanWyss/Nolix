@@ -70,11 +70,14 @@ final class CloseController implements Closable {
 	 */
 	public void close() {
 		
-		//Sets this close controller as closed.
-		closed = true;
-		
-		//Lets note all element of this clsoe controller the closing.
-		elements.forEach(e -> e.noteClosing());
+		if (isAlive()) {	
+			
+			//Sets this close controller as closed.
+			closed = true;
+			
+			//Lets note all element of this clsoe controller the closing.
+			elements.forEach(e -> e.noteClosing());
+		}
 	}
 	
 	//method

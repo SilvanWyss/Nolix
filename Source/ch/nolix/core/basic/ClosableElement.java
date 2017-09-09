@@ -23,7 +23,9 @@ public abstract class ClosableElement implements Closable {
 	 * Closes this closable element.
 	 */
 	public final void close() {
-		closeController.close();
+		if (isAlive()) {
+			closeController.close();
+		}
 	}
 	
 	//method
