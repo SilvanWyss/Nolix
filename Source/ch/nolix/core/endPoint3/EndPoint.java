@@ -2,7 +2,7 @@
 package ch.nolix.core.endPoint3;
 
 //own imports
-import ch.nolix.core.basic.AbortableElement;
+import ch.nolix.core.basic.ClosableElement;
 import ch.nolix.core.communicationInterfaces.IReplier;
 import ch.nolix.core.communicationInterfaces.ISender2;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
@@ -18,7 +18,7 @@ import ch.nolix.core.validator2.Validator;
  * @lines 100
  */
 public abstract class EndPoint
-extends AbortableElement
+extends ClosableElement
 implements ISender2 {
 	
 	//constant
@@ -65,7 +65,7 @@ implements ISender2 {
 	/**
 	 * Lets this end point note an abort.
 	 */
-	protected final void noteAbort() {}
+	protected final void noteClosing() {}
 	
 	//method
 	/**

@@ -120,7 +120,7 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 	 * @return the clients of this application.
 	 */
 	public final IContainer<C> getRefClients() {
-		return clients.removeAll(c -> c.isAborted());
+		return clients.removeAll(c -> c.isClosed());
 	}
 	
 	//abstract method

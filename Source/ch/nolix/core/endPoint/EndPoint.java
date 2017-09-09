@@ -2,7 +2,7 @@
 package ch.nolix.core.endPoint;
 
 //own imports
-import ch.nolix.core.basic.AbortableElement;
+import ch.nolix.core.basic.ClosableElement;
 import ch.nolix.core.communicationInterfaces.IReceiver;
 import ch.nolix.core.communicationInterfaces.ISender;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
@@ -17,7 +17,7 @@ import ch.nolix.core.validator2.Validator;
  * @lines 100
  */
 public abstract class EndPoint
-extends AbortableElement
+extends ClosableElement
 implements ISender {
 	
 	//attribute
@@ -66,7 +66,7 @@ implements ISender {
 		Validator.supposeThat(receiver).thatIsInstanceOf(IReceiver.class).isNotNull();
 		
 		//Checks if this end point is not aborted.
-		throwExceptionIfAborted();
+		supposeBeingAlive();
 		
 		//Sets the receiver of this end point.
 		this.receiver = receiver;
@@ -83,7 +83,7 @@ implements ISender {
 	protected final void receive(final String message) {
 		
 		//Checks if this end point is not aborted.
-		throwExceptionIfAborted();
+		supposeBeingAlive();
 		
 		getRefReceiver().receive(message);
 	}

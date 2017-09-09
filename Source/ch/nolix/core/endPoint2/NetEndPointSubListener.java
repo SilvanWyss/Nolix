@@ -50,14 +50,14 @@ final class NetEndPointSubListener extends Thread {
 			final BufferedReader bufferedReader
 			= new BufferedReader(new InputStreamReader(netEndPoint.getRefSocket().getInputStream()))
 		) {
-			while (netEndPoint.isRunning()) {
+			while (netEndPoint.isAlive()) {
 				final String line = bufferedReader.readLine();
 				Sequencer.runInBackground(() -> netEndPoint.receive(line));
 			}
 		}
 		catch (final IOException exception) {
-			if (netEndPoint.isRunning()) {
-				netEndPoint.abort(exception.getMessage());
+			if (netEndPoint.isAlive()) {
+				netEndPoint.close();
 			}
 		}
 	}

@@ -81,7 +81,7 @@ public final class NetServer extends Server {
 	/**
 	 * Lets this net server note an abort.
 	 */
-	protected void noteAbort() {
+	protected void noteClosing() {
 		try {
 			serverSocket.close();
 		}

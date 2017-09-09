@@ -143,7 +143,7 @@ public final class LocalEndPoint extends EndPoint {
 	public String sendAndWaitToReply(final String message) {
 		
 		//Checks if this local end point is not aborted.
-		throwExceptionIfAborted();
+		supposeBeingAlive();
 		
 		return getRefCounterpart().receiveAndGetReply(message);
 	}

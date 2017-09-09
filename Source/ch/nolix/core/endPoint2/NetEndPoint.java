@@ -174,7 +174,7 @@ public class NetEndPoint extends EndPoint {
 	protected void receive(final String message) {
 		
 		//Checks if this net end point is not stopped.
-		throwExceptionIfAborted();
+		supposeBeingAlive();
 		
 		if (!hasTarget()) {
 			setTarget(message);
@@ -192,7 +192,7 @@ public class NetEndPoint extends EndPoint {
 		Validator.supposeThat(message).thatIsNamed("message").isNotNull();
 		
 		//Checks if this net end point is not stopped.
-		throwExceptionIfAborted();
+		supposeBeingAlive();
 		
 		printWriter.println(message);
 		printWriter.flush();
@@ -202,7 +202,7 @@ public class NetEndPoint extends EndPoint {
 	/**
 	 * Lets this net end point note an abort.
 	 */
-	protected void noteAbort() {
+	protected void noteClosing() {
 		try {
 			socket.close();
 		} catch (final IOException exception) {}
@@ -218,7 +218,7 @@ public class NetEndPoint extends EndPoint {
 	private void waitToTarget() {
 		
 		//Checks if this net end point is not stopped.
-		throwExceptionIfAborted();
+		supposeBeingAlive();
 		
 		final long startTimeInMilliseconds = System.currentTimeMillis();
 		

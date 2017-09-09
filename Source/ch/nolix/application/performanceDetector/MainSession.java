@@ -54,7 +54,7 @@ final class MainSession extends Session<GUIBackClient> {
 		
 		//Starts the updateGUI method in background.	
 		Sequencer
-		.asLongAs(() -> getRefClient().isRunning())
+		.asLongAs(() -> getRefClient().isAlive())
 		.afterAllMilliseconds(UPDATE_INTERVAL_IN_MILLISECONDS)
 		.runInBackground(()->getRefClient().runLocally("UpdateGUI"));
 	}

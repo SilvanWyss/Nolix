@@ -51,7 +51,7 @@ public final class NetEndPointTest extends Test {
 		expectThat(receiverMock.getLastReceivedMessage()).equals(message);
 		
 		//cleanup
-		netServer.abort();
-		netEndPoint.abort();
+		netServer.close();
+		netEndPoint.close();
 	}
 }

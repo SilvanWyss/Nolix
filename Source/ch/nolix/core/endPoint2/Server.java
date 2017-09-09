@@ -2,7 +2,7 @@
 package ch.nolix.core.endPoint2;
 
 //own imports
-import ch.nolix.core.basic.AbortableElement;
+import ch.nolix.core.basic.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 
@@ -15,7 +15,7 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
  * @month 2017-05
  * @lines 80
  */
-public class Server extends AbortableElement {
+public class Server extends ClosableElement {
 	
 	//multiple attribute
 	private final List<IEndPointTaker> endPointTaker = new List<IEndPointTaker>();
@@ -79,5 +79,5 @@ public class Server extends AbortableElement {
 	/**
 	 * Lets this server note an abort.
 	 */
-	protected void noteAbort() {}
+	protected void noteClosing() {}
 }

@@ -177,7 +177,7 @@ public final class LocalDuplexController extends DuplexController {
 	public void run(final Statement command) {
 		
 		//Checks if this local duplex controller is not aborted.
-		throwExceptionIfAborted();
+		supposeBeingAlive();
 		
 		counterpart.getRefReceiverController().run(command);
 	}
@@ -193,7 +193,7 @@ public final class LocalDuplexController extends DuplexController {
 	protected void run(final List<String> commands) {
 		
 		//Checks if this local duplex controller is not aborted.
-		throwExceptionIfAborted();
+		supposeBeingAlive();
 		
 		final ILevel2Controller counterpartReceiverController
 		= counterpart.getRefReceiverController();

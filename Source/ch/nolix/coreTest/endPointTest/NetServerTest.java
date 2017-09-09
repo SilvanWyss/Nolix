@@ -35,7 +35,7 @@ public final class NetServerTest extends Test {
 				Thread.sleep(500);
 			}
 			catch (InterruptedException e) {}
-			netServer.abort();
+			netServer.close();
 			
 			final NetServer netServer2
 			= new NetServer(
@@ -46,10 +46,10 @@ public final class NetServerTest extends Test {
 				Thread.sleep(500);
 			}
 			catch (InterruptedException e) {}
-			netServer2.abort();
+			netServer2.close();
 				
 		//verification
-		expectThat(netServer.isAborted());
-		expectThat(netServer2.isAborted());
+		expectThat(netServer.isClosed());
+		expectThat(netServer2.isClosed());
 	}
 }

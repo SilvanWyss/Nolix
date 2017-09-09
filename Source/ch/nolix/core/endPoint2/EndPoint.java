@@ -2,7 +2,7 @@
 package ch.nolix.core.endPoint2;
 
 //own imports
-import ch.nolix.core.basic.AbortableElement;
+import ch.nolix.core.basic.ClosableElement;
 import ch.nolix.core.communicationInterfaces.IReceiver;
 import ch.nolix.core.communicationInterfaces.ISender;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -19,7 +19,7 @@ import ch.nolix.core.validator2.Validator;
  * @lines 140
  */
 public abstract class EndPoint
-extends AbortableElement
+extends ClosableElement
 implements ISender {
 	
 	//default target
@@ -106,7 +106,7 @@ implements ISender {
 	public final void setReceiver(final IReceiver receiver) {
 		
 		//Checks if this end point is aborted.
-		throwExceptionIfAborted();
+		supposeBeingAlive();
 		
 		//Checks if the given receiver is not null.
 		Validator.supposeThat(receiver).thatIsInstanceOf(IReceiver.class).isNotNull();
@@ -134,7 +134,7 @@ implements ISender {
 		Validator.supposeThat(target).thatIsNamed("target").isNotEmpty();
 		
 		//Checks if this net end point is not stopped.
-		throwExceptionIfAborted();
+		supposeBeingAlive();
 		
 		//Sets the target of this end point.
 		this.target = target;

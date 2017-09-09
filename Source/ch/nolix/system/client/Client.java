@@ -7,7 +7,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.duplexController.LocalDuplexController;
 import ch.nolix.core.duplexController.NetDuplexController;
-import ch.nolix.core.interfaces.Abortable;
+import ch.nolix.core.interfaces.Closable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -27,7 +27,7 @@ import ch.nolix.core.validator2.Validator;
  */
 public abstract class Client<C extends Client<C>>
 extends OptionalSignableElement<C>
-implements Abortable {
+implements Closable {
 	
 	//commands
 	protected static final String INVOKE_RUN_METHOD_COMMAND = "InvokeRunMethod";
@@ -434,30 +434,8 @@ implements Abortable {
 	 * 
 	 * @throws RuntimeException if this client is already aborted.
 	 */
-	public final void abort() {
-		duplexController.abort();
-	}
-	
-	//method
-	/**
-	 * Aborts this client because of the given abort reason.
-	 * 
-	 * @param abortReason
-	 * @throws RuntimeException if this client is already aborted.
-	 * @throws NullArgumentException if the given abort reason is null.
-	 * @throws EmptyArgumentException if the given abort reason is empty.
-	 */
-	public final void abort(final String abortReason) {
-		internal_getRefDuplexController().abort(abortReason);
-	}
-	
-	//method
-	/**
-	 * @return the abort reason of this client.
-	 * @throws UnexistingPropertyException if this client has no abort reason.
-	 */
-	public final String getAbortReason() {
-		return internal_getRefDuplexController().getAbortReason();
+	public final void close() {
+		duplexController.close();
 	}
 	
 	//method
@@ -472,8 +450,8 @@ implements Abortable {
 	/**
 	 * @return true if this client is aborted.
 	 */
-	public final boolean isAborted() {
-		return internal_getRefDuplexController().isAborted();
+	public final boolean isClosed() {
+		return internal_getRefDuplexController().isClosed();
 	}
 
 	//method

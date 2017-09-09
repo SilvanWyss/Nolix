@@ -2,7 +2,7 @@
 package ch.nolix.core.endPoint4;
 
 //own imports
-import ch.nolix.core.basic.AbortableElement;
+import ch.nolix.core.basic.ClosableElement;
 import ch.nolix.core.communicationInterfaces.IGenericReplier;
 import ch.nolix.core.communicationInterfaces.IGenericSender2;
 import ch.nolix.core.communicationInterfaces.IReplier;
@@ -19,7 +19,7 @@ import ch.nolix.core.validator2.Validator;
  * @lines 100
  */
 public abstract class EndPoint<M, R>
-extends AbortableElement
+extends ClosableElement
 implements IGenericSender2<M, R> {
 	
 	//constant
@@ -62,7 +62,7 @@ implements IGenericSender2<M, R> {
 		this.replier = replier;
 	}
 	
-	protected final void noteAbort() {}
+	protected final void noteClosing() {}
 	
 	//method
 	/**

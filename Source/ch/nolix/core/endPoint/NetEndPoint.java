@@ -117,7 +117,7 @@ public final class NetEndPoint extends EndPoint {
 		Validator.supposeThat(message).thatIsNamed("message").isNotNull();
 		
 		//Checks if this net end point is not aborted.
-		throwExceptionIfAborted();
+		supposeBeingAlive();
 		
 		printWriter.println(message);
 		printWriter.flush();
@@ -135,7 +135,7 @@ public final class NetEndPoint extends EndPoint {
 	/**
 	 * Lets this net end point note an abort.
 	 */
-	protected void noteAbort() {
+	protected void noteClosing() {
 		try {
 			socket.close();
 		}

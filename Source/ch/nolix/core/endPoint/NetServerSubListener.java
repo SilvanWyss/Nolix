@@ -61,11 +61,7 @@ final class NetServerSubListener extends Thread {
 			}
 		}
 		catch (final IOException exception) {
-			
-			//If the net server is not aborted, the exception indicates an error.
-			if (!netServer.isAborted()) {
-				netServer.abort(exception.getMessage());
-			}
+			netServer.close();
 		}
 	}
 	

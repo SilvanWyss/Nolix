@@ -72,7 +72,7 @@ public final class LocalEndPoint extends EndPoint {
 		Validator.supposeThat(message).thatIsNamed("message").isNotNull();
 		
 		//Checks if this local end point is not aborted.
-		throwExceptionIfAborted();
+		supposeBeingAlive();
 		
 		counterPart.receive(message);
 	}
@@ -81,7 +81,7 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * Lets this local end point note an abort.
 	 */
-	protected void noteAbort() {}
+	protected void noteClosing() {}
 	
 	//method
 	/**

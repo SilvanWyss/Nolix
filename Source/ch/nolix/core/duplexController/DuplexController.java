@@ -2,7 +2,7 @@
 package ch.nolix.core.duplexController;
 
 //own imports
-import ch.nolix.core.basic.AbortableElement;
+import ch.nolix.core.basic.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerInterfaces.ILevel2Controller;
 import ch.nolix.core.invalidStateException.InvalidStateException;
@@ -19,7 +19,7 @@ import ch.nolix.core.validator2.Validator;
  * @lines 200
  */
 public abstract class DuplexController
-extends AbortableElement
+extends ClosableElement
 implements ILevel2Controller {	
 	
 	//optional attribute
@@ -51,7 +51,7 @@ implements ILevel2Controller {
 	public final void appendCommand(final Statement... commands) {
 		
 		//Checks if this duplex controller is not aborted.
-		throwExceptionIfAborted();
+		supposeBeingAlive();
 		
 		appendedCommands.using(c -> c.toString()).addAtEnd(commands);
 	}
@@ -67,7 +67,7 @@ implements ILevel2Controller {
 	public final void appendCommand(final String command) {
 
 		//Checks if this duplex controller is not aborted.
-		throwExceptionIfAborted();
+		supposeBeingAlive();
 		
 		appendedCommands.addAtEnd(command);
 	}
@@ -83,7 +83,7 @@ implements ILevel2Controller {
 	public final void appendCommand(String... commands) {
 		
 		//Checks if this duplex controller is not aborted.
-		throwExceptionIfAborted();
+		supposeBeingAlive();
 		
 		appendedCommands.addAtEnd(commands);
 	}
@@ -155,7 +155,7 @@ implements ILevel2Controller {
 	public final void runAppendedCommands()
 	{
 		//Checks if this local duplex controller is not aborted.
-		throwExceptionIfAborted();
+		supposeBeingAlive();
 		
 		final List<String> appendedCommands = this.appendedCommands.getCopy();
 		this.appendedCommands.clear();
@@ -197,7 +197,7 @@ implements ILevel2Controller {
 	/**
 	 * Lets this duplex controller note an abort.
 	 */
-	protected final void noteAbort() {}
+	protected final void noteClosing() {}
 	
 	//abstract method
 	/**

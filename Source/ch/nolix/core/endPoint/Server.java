@@ -2,7 +2,7 @@
 package ch.nolix.core.endPoint;
 
 //own imports
-import ch.nolix.core.basic.AbortableElement;
+import ch.nolix.core.basic.ClosableElement;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -15,7 +15,7 @@ import ch.nolix.core.validator2.Validator;
  * @lines 50
  */
 public class Server
-extends AbortableElement
+extends ClosableElement
 implements IEndPointTaker {
 
 	//attribute
@@ -46,7 +46,7 @@ implements IEndPointTaker {
 	public final void takeEndPoint(final EndPoint endPoint) {
 		
 		//Checks if this server is not aborted.
-		throwExceptionIfAborted();
+		supposeBeingAlive();
 		
 		endPointTaker.takeEndPoint(endPoint);
 	}
@@ -55,5 +55,5 @@ implements IEndPointTaker {
 	/**
 	 * Lets this server note an abort.
 	 */
-	protected void noteAbort() {}
+	protected void noteClosing() {}
 }

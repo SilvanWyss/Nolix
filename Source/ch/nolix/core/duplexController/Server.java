@@ -2,7 +2,7 @@
 package ch.nolix.core.duplexController;
 
 //own imports
-import ch.nolix.core.basic.AbortableElement;
+import ch.nolix.core.basic.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 
@@ -15,7 +15,7 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
  * @month 2017-06
  * @lines 80
  */
-public class Server extends AbortableElement {
+public class Server extends ClosableElement {
 	
 	//multiple attribute
 	private final List<IDuplexControllerTaker> duplexControllerTaker
@@ -81,5 +81,5 @@ public class Server extends AbortableElement {
 	/**
 	 * Lets this server note an abort.
 	 */
-	protected final void noteAbort() {}
+	protected final void noteClosing() {}
 }
