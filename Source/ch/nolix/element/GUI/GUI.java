@@ -105,7 +105,7 @@ implements Clearable, Closable, IRequestableContainer, Refreshable {
 		//Handles the case if the given attribute specificies no widget.
 			//Enumerates the header of the given attribute.
 			switch (attribute.getHeader()) {
-				case Title.SIMPLE_CLASS_NAME:
+				case Title.TYPE_NAME:
 					setTitle(attribute.getOneAttributeToString());
 					break;
 				case BackgroundColor.TYPE_NAME:
