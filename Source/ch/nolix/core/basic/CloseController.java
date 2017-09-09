@@ -68,8 +68,7 @@ final class CloseController implements Closable {
 	/**
 	 * Closes this close controller.
 	 */
-	public void close() {
-		
+	public void close() {	
 		if (isAlive()) {	
 			
 			//Sets this close controller as closed.
