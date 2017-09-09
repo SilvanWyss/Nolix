@@ -354,8 +354,11 @@ public class Frame extends VisibleGUI<Frame> {
 	 * @param closeCommand
 	 * @throws InvalidArgumentException if the given close command is not valid.
 	 */
-	public void setCloseCommand(final String closeCommand) {
+	public Frame setCloseCommand(final String closeCommand) {
+		
 		this.closeCommand = new Statement(closeCommand);
+		
+		return this;
 	}
 	
 	//method

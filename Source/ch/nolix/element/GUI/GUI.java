@@ -543,16 +543,16 @@ implements Clearable, IRequestableContainer, Refreshable {
 	 * @throws NullArgumentException if the given background color is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public final G setBackgroundColor(final BackgroundColor backgroundColor) {
+	public final G setBackgroundColor(final Color backgroundColor) {
 		
 		//Checks if the given background color is not null.
 		Validator
 		.supposeThat(backgroundColor)
-		.thatIsInstanceOf(BackgroundColor.class)
+		.thatIsInstanceOf(Color.class)
 		.isNotNull();
 		
 		//Sets the background color of this GUI.
-		this.backgroundColor = backgroundColor;
+		this.backgroundColor = new BackgroundColor(backgroundColor.getValue());
 		
 		return (G)this;
 	}

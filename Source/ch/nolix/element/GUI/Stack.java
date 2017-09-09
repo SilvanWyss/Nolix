@@ -91,7 +91,6 @@ implements Clearable {
 	 * 
 	 * @param widgets
 	 * @return this stack.
-	 * @throws N
 	 * @throws NullArgumentException if one of the given widgets is null.
 	 * @throws InvalidArgumentException
 	 * if one of the given widgets belongs to another GUI than this stack.
