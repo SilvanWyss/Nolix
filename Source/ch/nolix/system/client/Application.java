@@ -106,7 +106,7 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 			C client = (C)constructor.newInstance(duplexController);
 			
 			clients.addAtEnd(client);
-			Sequencer.runInBackground(() -> client.internal_setSessionAndInitializeSession(initialSession));
+			Sequencer.runInBackground(() -> client.setSession(initialSession));
 		}
 		catch (final Exception exception) {
 			throw new RuntimeException(exception);

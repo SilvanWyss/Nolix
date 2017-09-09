@@ -123,10 +123,6 @@ public final class StandardClient extends Client<StandardClient> {
 	public void run(final String runMethodCommand) {
 		internal_getRefDuplexController().run(Client.INVOKE_RUN_METHOD_COMMAND + "(" + runMethodCommand + ")");
 	}
-	
-	public void setSession(Session<StandardClient> session) {
-		internal_setSessionAndInitializeSession(session);
-	}
 
 	//method
 	/**

@@ -471,6 +471,30 @@ implements Closable, Resettable {
 		return internal_getRefDuplexController().isNetDuplexController();
 	}
 	
+	//method
+	/**
+	 * Sets the session of this client.
+	 * 
+	 * @param session
+	 * @throws NullArgumentException if the given session is null.
+	 * @throws InvalidStateException if the given session has already a client.
+	 */
+	public void setSession(final Session<C> session) {
+		
+		//Checks if the given session is not null.
+		Validator.supposeThat(session).thatIsInstanceOf(Session.class).isNotNull();
+		
+		//Sets the given session to this client.
+		session.setClient(this);
+		this.session = session;
+		
+		reset();
+		
+		//Initializes the given session.
+		session.initialize();
+		internal_finishSessionInitialization();
+	}
+	
 	//abstract method
 	/**
 	 * Finishes the initialization of the session of this client.
@@ -604,29 +628,5 @@ implements Closable, Resettable {
 			default:
 				throw new InvalidArgumentException(new ArgumentName("command"), new Argument(command));
 		}
-	}
-	
-	//method
-	/**
-	 * Sets the session of this client.
-	 * 
-	 * @param session
-	 * @throws NullArgumentException if the given session is null.
-	 * @throws RuntimeException if the given session has already a client.
-	 */
-	protected final void internal_setSessionAndInitializeSession(final Session<C> session) {
-		
-		//Checks if the given session is not null.
-		Validator.supposeThat(session).thatIsInstanceOf(Session.class).isNotNull();
-		
-		//Sets the given session to this client.
-		session.setClient(this);
-		this.session = session;
-		
-		reset();
-		
-		//Initializes the given session.
-		session.initialize();
-		internal_finishSessionInitialization();
 	}
 }

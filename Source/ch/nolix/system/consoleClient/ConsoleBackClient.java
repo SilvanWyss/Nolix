@@ -136,7 +136,6 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	 * Resets this console back client.
 	 */
 	public void reset() {	
-		setTitle("Console");
 		clearConsole();
 		clearInfoPanel();
 	}

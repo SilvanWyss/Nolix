@@ -8,7 +8,6 @@ import ch.nolix.core.specification.Statement;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleGUI;
 import ch.nolix.system.client.Client;
-import ch.nolix.system.client.Session;
 
 //class
 /**
@@ -99,18 +98,6 @@ public final class GUIBackClient extends Client<GUIBackClient> {
 	public void reset() {
 		dialog.reset();
 		internal_getRefDuplexController().run(RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
-	}
-	
-	//method
-	/**
-	 * Sets the session of this dialog client.
-	 * 
-	 * @param session
-	 * @throws NullArgumentException if the given session is null.
-	 * @throws RuntimeException if the given session has already a client.
-	 */
-	public void setSession(final Session<GUIBackClient> session) {
-		internal_setSessionAndInitializeSession(session);
 	}
 	
 	//method

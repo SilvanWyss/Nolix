@@ -12,6 +12,7 @@ import java.lang.reflect.Method;
 
 import ch.nolix.core.container.List;
 import ch.nolix.core.helper.MethodHelper;
+import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 
@@ -132,7 +133,7 @@ public abstract class Session<C extends Client<?>> {
 	 * 
 	 * @param client
 	 * @throws NullArgumentException if the given client is null.
-	 * @throws RuntimeException if this session has already a client.
+	 * @throws InvalidStateException if this session has already a client.
 	 */
 	@SuppressWarnings("unchecked")
 	final void setClient(Client<?> client) {
@@ -142,7 +143,7 @@ public abstract class Session<C extends Client<?>> {
 		
 		//Checks if this session has not already a client.
 		if (hasClient()) {
-			throw new RuntimeException("Session has already a client.");
+			throw new InvalidStateException(this, "has already a client");
 		}
 		
 		//Sets the client of this session.
