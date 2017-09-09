@@ -31,6 +31,6 @@ public class CandleStickAnalyzer extends StandardApplication<ConsoleBackClient> 
 	public CandleStickAnalyzer() {
 		
 		//Calls constructor of the base class.
-		super(NAME, MainSession.class);
+		super(NAME, LoginSession.class);
 	}
 }

@@ -15,7 +15,7 @@ import ch.nolix.system.consoleClient.ConsoleBackClient;
 /**
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 210
+ * @lines 180
  */
 public final class MainSession extends Session<ConsoleBackClient> {
 	
@@ -28,24 +28,7 @@ public final class MainSession extends Session<ConsoleBackClient> {
 	 */
 	public void initialize() {
 			
-		//Sets the title of the console.
-		getRefClient().setTitle(CandleStickAnalyzer.getTitle());
-		
-		//Asks for the password.
-		getRefClient().writeLineToConsole("Enter the password.");
-		while (true) {
-			
-			final String password = getRefClient().readLineFromConsole();
-			
-			if (password.equals("justin")) {
-				break;
-			}
-			
-			getRefClient().writeLineToConsole("Wrong password. Try again.");
-		}
-		
 		refreshInfoPanel();
-		getRefClient().clearConsole();
 		
 		//Processes until the user quits the program.
 		while (true) {
