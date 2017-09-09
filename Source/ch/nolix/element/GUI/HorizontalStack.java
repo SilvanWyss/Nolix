@@ -8,10 +8,6 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.container.List;
-import ch.nolix.core.specification.StandardSpecification;
-
 //class
 public final class HorizontalStack extends Stack<HorizontalStack> {
 	
@@ -26,13 +22,15 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	
 	//constructor
 	/**
-	 * Creates new horizontal stack with the given attributes.
+	 * Creates new horizontal stack with the given widgets.
 	 * 
-	 * @param attributes
-	 * @throws Exception if the given attributes are not valid
+	 * @param widgets
+	 * @throws NullArgumentException if one of the given widgets is null.
+	 * @throws InvalidArgumentException
+	 * if one of the given widgets belongs to another GUI than this horizontal stack.
 	 */
-	public HorizontalStack(List<StandardSpecification> attributes) {	
-		addOrChangeAttributes(attributes);
+	public HorizontalStack(final Widget<?, ?>... widgets) {
+		addWidget(widgets);
 	}
 
 	//method
