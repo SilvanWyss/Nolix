@@ -1,26 +1,25 @@
-/*
- * file:	Name.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	30
- */
-
 //package declaration
 package ch.nolix.element.data;
 
+//own import
 import ch.nolix.element.basic.NonEmptyText;
 
 //class
 /**
- * A name is a non-empty text.
+ * A name is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 30
  */
 public final class Name extends NonEmptyText {
 	
-	public static final String SIMPLE_CLASS_NAME = "Name";
+	//type name
+	public static final String TYPE_NAME = "Name";
 
 	//constructor
 	/**
-	 * Creates new name with default values.
+	 * Creates new name with a default value.
 	 */
 	public Name() {}
 	
@@ -29,11 +28,12 @@ public final class Name extends NonEmptyText {
 	 * Creates new name with the given value.
 	 * 
 	 * @param value
-	 * @throws Exception if the given value is null
+	 * @throws NullArgumentException if the given value is null.
+	 * @throws EmptyArgumentException if the given value is empty.
 	 */
-	public Name(String value) {
+	public Name(final String value) {
 		
-		//Calls consturctor of the base class.
+		//Calls constructor of the base class.
 		super(value);
 	}
 }

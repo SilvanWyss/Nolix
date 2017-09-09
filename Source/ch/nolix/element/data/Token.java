@@ -1,37 +1,39 @@
-/*
- * file:	Class.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	30
- */
-
 //package declaration
 package ch.nolix.element.data;
 
+//own import
 import ch.nolix.element.basic.NonEmptyText;
 
 //class
 /**
- * A class is a non-empty text.
+ * A token is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 30
  */
 public final class Token extends NonEmptyText {
+	
+	//type name
+	public static final String TYPE_NAME = "Token";
 
 	//constructor
 	/**
-	 * Creates new class with default values.
+	 * Creates new token with a default value.
 	 */
 	public Token() {}
 	
 	//constructor
 	/**
-	 * Creates new class with the given value.
+	 * Creates new token with the given value.
 	 * 
 	 * @param value
-	 * @throws Exception if the given value is null
+	 * @throws NullArgumentException if the given value is null.
+	 * @throws EmptyArgumentException if the given value is empty.
 	 */
-	public Token(String value) {
+	public Token(final String value) {
 		
-		//Calls consturctor of the base class.
+		//Calls constructor of the base class.
 		super(value);
 	}
 }

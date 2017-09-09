@@ -9,33 +9,17 @@
 package ch.nolix.element.GUI;
 
 //Java imports
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
-import javax.swing.JFrame;
-
-
-
-
-
-
-
-
-
-
-
-
 //own imports
-
-
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
-import ch.nolix.element.data.GraphicText;
 import ch.nolix.element.data.Width;
+import ch.nolix.element.font.Font;
 
 //class
 public final class TextBox extends TextLineWidget<TextBox> {
@@ -102,11 +86,10 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		
 		if (contentIsUnderMouse())	{
 			int textCursorDistanceFromTextBegin = getMouseXPosition() - getContentXPosition();
-			JFrame frame = new JFrame();
 			boolean found = false;
 			for (int i = 0; i < getText().length(); i++) {
-				int subTextWidth = frame.getFontMetrics(new Font("Sans-Serif", Font.PLAIN, getRefCurrentStructure().getActiveTextSize())).stringWidth(getText().substring(0, i));
-				int nextSubTextWidth = frame.getFontMetrics(new Font("Sans-Serif", Font.PLAIN, getRefCurrentStructure().getActiveTextSize())).stringWidth(getText().substring(0, i + 1));
+				int subTextWidth = new Font(getRefCurrentStructure().getActiveTextSize()).getTextWidth(getText().substring(0, i));
+				int nextSubTextWidth = new Font(getRefCurrentStructure().getActiveTextSize()).getTextWidth(getText().substring(0, i + 1));
 				int halfDistance = (nextSubTextWidth - subTextWidth) / 2;
 				if (
 					textCursorDistanceFromTextBegin > subTextWidth - halfDistance &&
@@ -236,14 +219,13 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 */
 	protected final void paintContent(TextLineWidgetStructure rectangleStructure, Graphics graphics) {
 		
-		int textCursorDistanceFromTextBegin = new JFrame().getFontMetrics(new Font("Sans-Serif", Font.PLAIN, getRefCurrentStructure().getActiveTextSize())).stringWidth(getTextBeforeTextCursor());
+		int textCursorDistanceFromTextBegin = new Font(rectangleStructure.getActiveTextSize()).getTextWidth(getTextBeforeTextCursor());
 		graphics.setColor(textCursor.getRefColor().getJavaColor());
 		graphics.setColor(new Color(Color.ANTHRAZIT).getJavaColor());
 		
-		new GraphicText()
-		.setText(getText())
-		.setSize(rectangleStructure.getActiveTextSize())
-		.paint(graphics);
+		new Font(
+		rectangleStructure.getActiveTextSize())
+		.paintText(getText(), graphics);
 		
 		graphics.fillRect(
 			getContentXPosition() + textCursorDistanceFromTextBegin,

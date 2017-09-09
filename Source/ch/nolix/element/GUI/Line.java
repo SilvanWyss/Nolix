@@ -60,13 +60,13 @@ extends Widget<L, LineStructure> {
 		
 		//Enumerates the given attribute.
 		switch (attribute.getHeader()) {
-			case Length.SIMPLE_CLASS_NAME:
+			case Length.TYPE_NAME:
 				setLength(attribute.getOneAttributeToInteger());
 				break;
-			case Thickness.SIMPLE_CLASS_NAME:
+			case Thickness.TYPE_NAME:
 				setThickness(attribute.getOneAttributeToInteger());
 				break;	
-			case Color.SIMPLE_CLASS_NAME:
+			case Color.TYPE_NAME:
 				setColor(attribute.getOneAttributeToString());
 				break;
 			default:

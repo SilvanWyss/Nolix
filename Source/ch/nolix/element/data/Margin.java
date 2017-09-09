@@ -1,10 +1,3 @@
-/*
- * file:	Margin.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	30
- */
-
 //package declaration
 package ch.nolix.element.data;
 
@@ -12,26 +5,38 @@ package ch.nolix.element.data;
 import ch.nolix.element.basic.PositiveInteger;
 
 /**
- * A margin is a positive integer.
+ * A margin is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 40
  */
 public final class Margin extends PositiveInteger {
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "Margin";
+	//type name
+	public static final String TYPE_NAME = "Margin";
+	
+	//default value
+	public static final int DEFAULT_VALUE = 20;
 
 	//constructor
 	/**
-	 * Creates new margin with default values.
+	 * Creates new margin with a default value.
 	 */
-	public Margin() {}
+	public Margin() {
+		
+		//Calls constructor of the base class.
+		super(DEFAULT_VALUE);
+	}
 	
 	//constructor
 	/**
 	 * Creates new margin with the given value.
 	 * 
 	 * @param value
+	 * @throws NonPositiveArgumentException if the given value is not positive.
 	 */
-	public Margin(int value) {
+	public Margin(final int value) {
 		
 		//Calls constructor of the base class.
 		super(value);

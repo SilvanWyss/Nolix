@@ -23,7 +23,7 @@ import ch.nolix.core.validator2.Validator;
 public class Color extends Element {
 	
 	//constant
-	public static final String SIMPLE_CLASS_NAME = "Color";
+	public static final String TYPE_NAME = "Color";
 
 	//very light colors
 	public static final String VERY_LIGHT_BLUE_STRING = "VeryLightBlue";

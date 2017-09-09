@@ -1,27 +1,25 @@
-/*
- * file:	Title.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	30
- */
-
 //package declaration
 package ch.nolix.element.data;
 
+//own import
 import ch.nolix.element.basic.NonEmptyText;
 
 //class
 /**
- * A title is a non-empty text.
+ * A title is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 30
  */
 public final class Title extends NonEmptyText {
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "Title";
+	//type name
+	public static final String TYPE_NAME = "Title";
 
 	//constructor
 	/**
-	 * Creates new title with default values.
+	 * Creates new title with a default value.
 	 */
 	public Title() {}
 	
@@ -30,11 +28,12 @@ public final class Title extends NonEmptyText {
 	 * Creates new title with the given value.
 	 * 
 	 * @param value
-	 * @throws Exception if the given value is null
+	 * @throws NullArgumentException if the given value is null.
+	 * @throws EmptyArgumentException if the given value is empty.
 	 */
-	public Title(String value) {
+	public Title(final String value) {
 		
-		//Calls consturctor of the base class.
+		//Calls constructor of the base class.
 		super(value);
 	}
 }

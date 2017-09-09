@@ -20,10 +20,7 @@ public abstract class BackgroundWidgetStructure<BWS extends BackgroundWidgetStru
 extends WidgetStructure<BWS> {
 
 	//default value
-	private static final Color DEFAULT_ACTIVE_BACKGROUND_COLOR = new Color(Color.WHITE);
-	
-	//attribute header
-	private final static String BACKGROUND_COLOR_HEADER = "BackgroundColor";
+	private static final BackgroundColor DEFAULT_ACTIVE_BACKGROUND_COLOR = new BackgroundColor(Color.WHITE);
 	
 	//optional attribute
 	private BackgroundColor backgroundColor;
@@ -119,7 +116,7 @@ extends WidgetStructure<BWS> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case BACKGROUND_COLOR_HEADER:
+			case BackgroundColor.TYPE_NAME:
 				setBackgroundColor(new Color(attribute.getOneAttributeToString()));
 				break;
 			default:

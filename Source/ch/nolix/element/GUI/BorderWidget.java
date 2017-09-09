@@ -59,10 +59,10 @@ extends BackgroundWidget<BW, BWS> {
 					ContentPosition.valueOf(attribute.getOneAttributeToString())
 				);
 				break;
-			case MinWidth.SIMPLE_CLASS_NAME:
+			case MinWidth.TYPE_NAME:
 				setMinWidth(attribute.getOneAttributeToInteger());
 				break;
-			case MinHeight.SIMPLE_CLASS_NAME:
+			case MinHeight.TYPE_NAME:
 				setMinHeight(attribute.getOneAttributeToInteger());
 				break;	
 			default:

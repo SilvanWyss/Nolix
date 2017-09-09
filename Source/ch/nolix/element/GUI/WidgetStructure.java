@@ -52,7 +52,7 @@ extends Entity {
 	//attribute
 	private final Property<TextSize> textSize
 	= new Property<TextSize>(
-		TextSize.SIMPLE_CLASS_NAME,
+		TextSize.TYPE_NAME,
 		new TextSize(20),
 		s -> new TextSize(StringHelper.toInt(s))
 	);

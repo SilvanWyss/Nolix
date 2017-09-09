@@ -10,21 +10,24 @@ import ch.nolix.element.basic.Color;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 60
+ * @lines 50
  */
 public final class TextColor extends Color {
 
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "TextColor";
+	//type name
+	public static final String TYPE_NAME = "TextColor";
+	
+	//default value
+	public static final int DEFAULT_VALUE = Color.BLACK;
 	
 	//constructor
 	/**
-	 * Creates new text color with default values.
+	 * Creates new text color with a default value.
 	 */
 	public TextColor() {
 		
 		//Calls constructor of the base class.
-		super(BLACK);
+		super(DEFAULT_VALUE);
 	}
 	
 	//constructor
@@ -32,7 +35,7 @@ public final class TextColor extends Color {
 	 * Creates new text color with the given value.
 	 * 
 	 * @param value
-	 * @throws OutOfRangeArgumentException if the given value is no true color value (in [0, 16'777'215]).
+	 * @throws OutOfRangeArgumentException if the given value is no true color value).
 	 */
 	public TextColor(final int value) {
 		
@@ -42,7 +45,7 @@ public final class TextColor extends Color {
 	
 	//constructor
 	/**
-	 * Creates new background color with the given value.
+	 * Creates new text color with the given value.
 	 * 
 	 * @param value
 	 * @throws InvalidArgumentException if the given value is no color name or no true color value.
@@ -51,13 +54,5 @@ public final class TextColor extends Color {
 		
 		//Calls constructor of the base class.
 		super(value);
-	}
-	
-	//method
-	/**
-	 * @return a copy of this text color.
-	 */
-	public final TextColor getCopy() {
-		return new TextColor(getValue());
 	}
 }

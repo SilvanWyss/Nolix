@@ -380,13 +380,13 @@ public final class TabContainerMenuItemStructure {
 			case BOTTOM_PADDING:
 				setBottomPadding(attribute.getOneAttributeToInteger());
 				break;
-			case BackgroundColor.SIMPLE_CLASS_NAME:
+			case BackgroundColor.TYPE_NAME:
 				setBackgroundColor(new BackgroundColor(attribute.getOneAttributeToString()));
 				break;
 			case TextSize.SIMPLE_CLASS_NAME:
 				setTextSize(attribute.getOneAttributeToInteger());
 				break;
-			case TextColor.SIMPLE_CLASS_NAME:
+			case TextColor.TYPE_NAME:
 				setTextColor(new TextColor(attribute.getOneAttributeToString()));
 				break;
 			default:

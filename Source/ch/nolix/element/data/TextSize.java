@@ -1,36 +1,42 @@
-/*
- * file:	TextSize.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	10
- */
-
 //package declaration
 package ch.nolix.element.data;
 
+//own import
 import ch.nolix.element.basic.PositiveInteger;
 
 /**
- * A size is a positive integer.
+ * A text size is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 40
  */
 public final class TextSize extends PositiveInteger {
 	
-	//constant
-		public static final String SIMPLE_CLASS_NAME = "TextSize";
+	//type name
+	public static final String TYPE_NAME = "TextSize";
+	
+	//default value
+	public static final int DEFAULT_VALUE = 20;
 
 	//constructor
 	/**
-	 * Creates new size with default values.
+	 * Creates new text size with a default value.
 	 */
-	public TextSize() {}
+	public TextSize() {
+		
+		//Calls constructor of the base class.
+		super(DEFAULT_VALUE);
+	}
 	
 	//constructor
 	/**
-	 * Creates new size with the given value.
+	 * Creates new text size with the given value.
 	 * 
 	 * @param value
+	 * @throws NonPositiveArgumentException if the given value is not positive.
 	 */
-	public TextSize(int value) {
+	public TextSize(final int value) {
 		
 		//Calls constructor of the base class.
 		super(value);

@@ -14,12 +14,11 @@ import java.awt.Graphics;
 import ch.nolix.core.container.AccessorContainer;
 
 //own imports
-
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.Text;
-import ch.nolix.element.data.GraphicText;
+import ch.nolix.element.font.Font;
 
 //class
 /**
@@ -114,10 +113,8 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 	 */
 	protected final int getContentHeight() {
 		return
-			new GraphicText()
-			.setText(getText())
-			.setSize(getRefCurrentStructure().getActiveTextSize())
-			.getHeight();
+		new Font(getRefCurrentStructure().getActiveTextSize())
+		.getTextHeight();
 	}
 	
 	//method
@@ -126,10 +123,9 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 	 */
 	protected int getContentWidth() {	
 		return
-			new GraphicText()
-			.setText(getText())
-			.setSize(getRefCurrentStructure().getActiveTextSize())
-			.getWidth();
+		new Font(getRefCurrentStructure()
+		.getActiveTextSize())
+		.getTextWidth(getText());
 	}
 	
 	//method
@@ -143,11 +139,10 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 		final TextLineWidgetStructure rectangleStructure,
 		final Graphics graphics
 	) {
-		new GraphicText()
-		.setText(getText())
-		.setSize(rectangleStructure.getActiveTextSize())
-		.setColor(rectangleStructure.getActiveTextColor().getValue())
-		.paint(graphics);	
+		new Font(
+		rectangleStructure.getActiveTextSize(),
+		rectangleStructure.getActiveTextColor())
+		.paintText(getText(), graphics);	
 	}
 	
 	protected TextLineWidgetStructure createWidgetStructure() {

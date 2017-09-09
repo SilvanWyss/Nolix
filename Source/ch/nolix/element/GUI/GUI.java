@@ -105,7 +105,7 @@ implements Clearable, IRequestableContainer {
 				case Title.SIMPLE_CLASS_NAME:
 					setTitle(attribute.getOneAttributeToString());
 					break;
-				case BackgroundColor.SIMPLE_CLASS_NAME:
+				case BackgroundColor.TYPE_NAME:
 					setBackgroundColor(
 						new BackgroundColor(attribute.getOneAttributeToString())
 					);

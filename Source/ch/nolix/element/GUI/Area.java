@@ -64,13 +64,13 @@ public class Area extends Widget<Area, AreaStructure> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case Width.SIMPLE_CLASS_NAME:
+			case Width.TYPE_NAME:
 				setWidth(attribute.getOneAttributeToInteger());
 				break;
-			case Height.SIMPLE_CLASS_NAME:
+			case Height.TYPE_NAME:
 				setHeight(attribute.getOneAttributeToInteger());
 				break;
-			case BackgroundColor.SIMPLE_CLASS_NAME:
+			case BackgroundColor.TYPE_NAME:
 				setBackgroundColor(
 					new BackgroundColor(attribute.getOneAttributeToString())
 				);

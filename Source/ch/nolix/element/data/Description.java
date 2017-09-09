@@ -6,14 +6,16 @@ import ch.nolix.element.basic.NonEmptyText;
 
 //class
 /**
+ * A description is not mutable.
+ * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 40
+ * @lines 30
  */
 public final class Description extends NonEmptyText {
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "Description";
+	//type name
+	public static final String TYPE_NAME = "Description";
 
 	//constructor
 	/**

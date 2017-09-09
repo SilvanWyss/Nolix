@@ -1,10 +1,3 @@
-/*
- * file:	MinHeight.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	30
- */
-
 //package declaration
 package ch.nolix.element.data;
 
@@ -12,25 +5,36 @@ package ch.nolix.element.data;
 import ch.nolix.element.basic.PositiveInteger;
 
 /**
- * A max width is a positive integer.
+ * A min height is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 40
  */
 public final class MinHeight extends PositiveInteger {
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "MinHeight";
+	//type name
+	public static final String TYPE_NAME = "MinHeight";
+	
+	//default value
+	public static final int DEFAULT_VALUE = 100;
 
 	//constructor
 	/**
-	 * Creates new min height with default values.
+	 * Creates new min height with a default value.
 	 */
-	public MinHeight() {}
+	public MinHeight() {
+		
+		//Calls constructor of the base class.
+		super(DEFAULT_VALUE);
+	}
 	
 	//constructor
 	/**
-	 * Creates new margin with the given value.
+	 * Creates new min height the given value.
 	 * 
 	 * @param value
-	 * @throws Exception if the given value is not positive
+	 * @throws NonPositiveArgumentException if the given value is not positive.
 	 */
 	public MinHeight(final int value) {
 		

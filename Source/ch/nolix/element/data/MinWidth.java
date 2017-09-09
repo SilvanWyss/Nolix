@@ -1,10 +1,3 @@
-/*
- * file:	MinWidth.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	30
- */
-
 //package declaration
 package ch.nolix.element.data;
 
@@ -12,25 +5,36 @@ package ch.nolix.element.data;
 import ch.nolix.element.basic.PositiveInteger;
 
 /**
- * A min width is a positive integer.
+ * A min width is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 40
  */
 public final class MinWidth extends PositiveInteger {
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "MinWidth";
+	//type name
+	public static final String TYPE_NAME = "MinWidth";
+	
+	//default value
+	public static final int DEFAULT_VALUE = 100;
 
 	//constructor
 	/**
-	 * Creates new min width with default values.
+	 * Creates new min width with a default value.
 	 */
-	public MinWidth() {}
+	public MinWidth() {
+		
+		//Calls constructor of the base class.
+		super(DEFAULT_VALUE);
+	}
 	
 	//constructor
 	/**
-	 * Creates new margin with the given value.
+	 * Creates new min width the given value.
 	 * 
 	 * @param value
-	 * @throws Exception if the given value is not positve
+	 * @throws NonPositiveArgumentException if the given value is not positive.
 	 */
 	public MinWidth(final int value) {
 		

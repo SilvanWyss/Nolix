@@ -1,36 +1,42 @@
-/*
- * file:	Width.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	30
- */
-
 //package declaration
 package ch.nolix.element.data;
 
+//own import
 import ch.nolix.element.basic.PositiveInteger;
 
 /**
- * A width is a positive integer.
+ * A width is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 40
  */
 public final class Width extends PositiveInteger {
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "Width";
+	//type name
+	public static final String TYPE_NAME = "Width";
+	
+	//default value
+	public static final int DEFAULT_VALUE = 100;
 
 	//constructor
 	/**
-	 * Creates new width with default values.
+	 * Creates new width with a default value.
 	 */
-	public Width() {}
+	public Width() {
+		
+		//Calls constructor of the base class.
+		super(DEFAULT_VALUE);
+	}
 	
 	//constructor
 	/**
 	 * Creates new width with the given value.
 	 * 
 	 * @param value
+	 * @throws NonPositiveArgumentException if the given value is not positive.
 	 */
-	public Width(int value) {
+	public Width(final int value) {
 		
 		//Calls constructor of the base class.
 		super(value);
