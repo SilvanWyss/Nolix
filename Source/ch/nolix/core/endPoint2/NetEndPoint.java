@@ -26,6 +26,7 @@ import ch.nolix.core.validator2.Validator;
 public class NetEndPoint extends EndPoint {
 	
 	//attributes
+	private boolean receivedTargetInfo = false;
 	private final Socket socket;
 	private final PrintWriter printWriter;
 		
@@ -68,8 +69,30 @@ public class NetEndPoint extends EndPoint {
 		final String ip,
 		final int port) {
 		
-		//Calls other constructor.
-		this(ip, port, DEFAULT_TARGET);
+		//Calls constructor of the base class.
+		super(true);
+		
+		//Checks if the given port is in [0, 65535]. 
+		Validator
+		.supposeThat(port)
+		.thatIsNamed("port")
+		.isBetween(PortManager.MIN_PORT, PortManager.MAX_PORT);
+		
+		try {
+			
+			//Creates the socket of this net end point.
+			socket = new Socket(ip, port);
+			
+			printWriter = new PrintWriter(socket.getOutputStream());
+		} 
+		catch (final IOException exception) {
+			throw new RuntimeException(exception);
+		}
+		
+		//Creates and starts the listener of this net end point.
+		new NetEndPointSubListener(this);
+		
+		send("N");
 	}
 	
 	//constructor
@@ -112,9 +135,9 @@ public class NetEndPoint extends EndPoint {
 		//Creates and starts the listener of this net end point.
 		new NetEndPointSubListener(this);
 		
-		send(target);
+		send("T" + target);
 	}
-
+	
 	//package-visible constructor
 	/**
 	 * Creates new end point with the given socket.
@@ -176,8 +199,17 @@ public class NetEndPoint extends EndPoint {
 		//Checks if this net end point is not stopped.
 		supposeBeingAlive();
 		
-		if (!hasTarget()) {
-			setTarget(message);
+		if (!receivedTargetInfo()) {
+			
+			switch (message.charAt(0)) {
+				case 'N':
+					break;
+				case 'T':
+					setTarget(message);
+					break;
+				default:
+					throw new RuntimeException();
+			}
 		}
 		else {
 			
@@ -207,6 +239,10 @@ public class NetEndPoint extends EndPoint {
 			socket.close();
 		} catch (final IOException exception) {}
 	}
+	
+	private boolean receivedTargetInfo() {
+		return receivedTargetInfo;
+	}
 
 	//method
 	/**
@@ -223,7 +259,7 @@ public class NetEndPoint extends EndPoint {
 		final long startTimeInMilliseconds = System.currentTimeMillis();
 		
 		//This loop suffers from being optimized away by the compiler or the JVM.
-		while (!hasTarget()) {
+		while (!receivedTargetInfo()) {
 			
 			//This statement that is actually unnecessary makes that the loop is not optimized away.
 			System.out.flush();

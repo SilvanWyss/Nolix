@@ -17,8 +17,24 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
  */
 public class Server extends ClosableElement {
 	
+	//optional attribute
+	private IEndPointTaker defaultEndPointTaker;
+	
 	//multiple attribute
 	private final List<IEndPointTaker> endPointTaker = new List<IEndPointTaker>();
+	
+	//method
+	/**
+	 * Adds the default end point taker to this server.
+	 * 
+	 * @param endPointTaker
+	 * @throws InvalidStateException if this server contains an end point taker
+	 * with the same name the given end point taker has.
+	 */
+	public final void addDefaultEndPointTaker(final IEndPointTaker endPointTaker) {
+		addEndPointTaker(endPointTaker);
+		defaultEndPointTaker = endPointTaker;
+	}
 	
 	//method
 	/**
@@ -53,13 +69,27 @@ public class Server extends ClosableElement {
 	
 	//method
 	/**
+	 * @return true if this server has a default end point taker.
+	 */
+	public final boolean hasDefaultEndPointTaker() {
+		return (defaultEndPointTaker != null);
+	}
+	
+	//method
+	/**
 	 * Removes the end point taker with the given name of this server.
 	 * 
 	 * @param name
 	 * @throws InvalidArgumentException if this server contains no end point taker with the given name.
 	 */
 	public final void removeEndPointTaker(final String name) {
+		
 		endPointTaker.removeFirst(ept -> ept.hasName(name));
+		
+		//Handles the option that the end point taker to remove is the default end point taker.
+		if (hasDefaultEndPointTaker() && defaultEndPointTaker.hasName(name)) {
+			defaultEndPointTaker = null;
+		}
 	}
 	
 	//method
