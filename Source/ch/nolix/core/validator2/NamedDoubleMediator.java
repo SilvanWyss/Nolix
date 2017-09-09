@@ -2,6 +2,7 @@
 package ch.nolix.core.validator2;
 
 //own imports
+import ch.nolix.core.invalidArgumentException.BiggerArgumentException;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
 import ch.nolix.core.invalidArgumentException.NonBiggerArgumentException;
@@ -14,7 +15,7 @@ import ch.nolix.core.invalidArgumentException.ZeroArgumentException;
 /**
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 100
+ * @lines 110
  */
 public final class NamedDoubleMediator extends NamedMediator {
 	
@@ -61,6 +62,19 @@ public final class NamedDoubleMediator extends NamedMediator {
 		//Checks if the argument of this named double mediator is bigger than or equals the given value.
 		if (argument < value) {
 			throw new SmallerArgumentException(value, value);
+		}
+	}
+	
+	//method
+	/**
+	 * @param value
+	 * @throws BiggerArgumentException if the argument of this named double mediator is bigger than the given value.
+	 */
+	public void isNotBiggerThan(final double value) {
+		
+		//Checks if the argument of this named long mediator is not bigger than the given value.
+		if (argument > value) {
+			throw new BiggerArgumentException(getArgumentName(), argument, value);
 		}
 	}
 
