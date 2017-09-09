@@ -5,6 +5,7 @@ package ch.nolix.core.endPoint3;
 import ch.nolix.core.basic.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 
 //abstract class
 /**
@@ -18,9 +19,26 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
 public class Server
 extends ClosableElement {
 	
+	//optional attribute
+	private IEndPointTaker defaultEndPointTaker;
+	
 	//multiple attribute
 	private final List<IEndPointTaker> endPointTaker = new List<IEndPointTaker>();
 	
+	//method
+	public final void addDefaultEndPointTaker(final IEndPointTaker defaultEndPointTaker) {
+		
+		if (hasDefaultEndPointTaker()) {
+			throw new InvalidStateException(
+				this,
+				"has already a default end point taker"
+			);
+		}
+		
+		addEndPointTaker(defaultEndPointTaker);
+		this.defaultEndPointTaker = defaultEndPointTaker;
+	}
+
 	//method
 	/**
 	 * Adds the given end point taker to this server.
@@ -51,6 +69,11 @@ extends ClosableElement {
 	}
 	
 	//method
+	public final boolean hasDefaultEndPointTaker() {
+		return (defaultEndPointTaker != null);
+	}
+	
+	//method
 	/**
 	 * Removes the end point taker with the given name from this server.
 	 * 
@@ -58,19 +81,31 @@ extends ClosableElement {
 	 * @throws InvalidArgumentException if this server contains no end point taker with the given name.
 	 */
 	public void removeEndPointTaker(final String name) {
+		
 		endPointTaker.removeFirst(ept -> ept.hasName(name));
+		
+		if (hasDefaultEndPointTaker() && getDefaultEndPointTaker().hasName(name)) {
+			
+		}
 	}
-	
+
 	//method
 	/**
 	 * Lets this server take the given end point.
 	 * 
 	 * @param endPoint
 	 */
-	public final void takeEndPoint(final EndPoint endPoint, final String target) {
-		endPointTaker
-		.getRefFirst(ept -> ept.hasName(endPoint.getTarget()))
-		.takeEndPoint(endPoint);
+	public final void takeEndPoint(final EndPoint endPoint) {
+		
+		if (!endPoint.hasTarget()) {
+			getDefaultEndPointTaker().takeEndPoint(endPoint);
+		}
+		
+		else {
+			endPointTaker
+			.getRefFirst(ept -> ept.hasName(endPoint.getTarget()))
+			.takeEndPoint(endPoint);
+		}
 	}
 
 	//method
@@ -78,4 +113,14 @@ extends ClosableElement {
 	 * Lets this server note an abort.
 	 */
 	protected final void noteClosing() {}
+	
+	//method
+	private IEndPointTaker getDefaultEndPointTaker() {
+		
+		if (!hasDefaultEndPointTaker()) {
+			throw new UnexistingAttributeException(this, "default end point taker");
+		}
+		
+		return defaultEndPointTaker;
+	}
 }

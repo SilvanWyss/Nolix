@@ -21,9 +21,6 @@ import ch.nolix.core.validator2.Validator;
 public abstract class EndPoint
 extends ClosableElement
 implements ISender {
-	
-	//default target
-	protected static final String DEFAULT_TARGET = IEndPointTaker.DEFAULT_NAME;
 
 	//attribute
 	private final boolean hasRequestedConnection;

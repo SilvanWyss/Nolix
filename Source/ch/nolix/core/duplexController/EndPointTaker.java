@@ -6,7 +6,6 @@ import ch.nolix.core.endPoint3.EndPoint;
 import ch.nolix.core.endPoint3.IEndPointTaker;
 import ch.nolix.core.endPoint3.NetEndPoint;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
@@ -17,7 +16,7 @@ import ch.nolix.core.validator2.Validator;
 final class EndPointTaker implements IEndPointTaker {
 
 	//attribute
-	private final IDuplexControllerTaker duplexControllerTaker;
+	private final NetServer netServer;
 	
 	//constructor
 	/**
@@ -26,16 +25,8 @@ final class EndPointTaker implements IEndPointTaker {
 	 * @param duplexControllerTaker
 	 * @throws NullArgumentException if the given duplex controller taker is null.
 	 */
-	public EndPointTaker(final IDuplexControllerTaker duplexControllerTaker) {
-		
-		//Checks if the given net duplex controller taker is not null.
-		Validator
-		.supposeThat(duplexControllerTaker)
-		.thatIsInstanceOf(IDuplexControllerTaker.class)
-		.isNotNull();
-		
-		//Sets the duplex controller taker of this end point taker.
-		this.duplexControllerTaker = duplexControllerTaker;
+	public EndPointTaker(NetServer netServer) {
+		this.netServer = netServer;
 	}
 	
 	//method
@@ -43,7 +34,8 @@ final class EndPointTaker implements IEndPointTaker {
 	 * @return the name of this end point taker.
 	 */
 	public String getName() {
-		return duplexControllerTaker.getName();
+		//TODO
+		return null;
 	}
 	
 	//method
@@ -54,16 +46,7 @@ final class EndPointTaker implements IEndPointTaker {
 	 * @throws NullArgumentException if the given end point is null.
 	 * @throws InvalidArgumentException if the given end point is no NetEndPoint.
 	 */
-	public void takeEndPoint(final EndPoint endPoint) {
-		
-		//Checks if the given end point is a NetEndPoint.
-		Validator
-		.supposeThat(endPoint)
-		.thatIsInstanceOf(EndPoint.class)
-		.isOfType(NetEndPoint.class);
-		
-		duplexControllerTaker.takeDuplexController(
-			new NetDuplexController((NetEndPoint)endPoint)
-		);
+	public void takeEndPoint(final EndPoint endPoint) {		
+		netServer.takeDuplexController(new NetDuplexController((NetEndPoint)endPoint));
 	}
 }

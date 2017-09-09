@@ -5,6 +5,7 @@ package ch.nolix.core.endPoint2;
 import ch.nolix.core.basic.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 
 //abstract class
 /**
@@ -100,9 +101,17 @@ public class Server extends ClosableElement {
 	 * @throws UnexistingAttributeException if this server contains no end point taker
 	 * with the same name as the target of the given end point taker. 
 	 */
-	public final void takeEndPoint(final EndPoint endPoint, final String target) {
-		endPointTaker.getRefFirst(ept -> ept.hasName(target))
-		.takeEndPoint(endPoint);
+	public final void takeEndPoint(final EndPoint endPoint) {
+		
+		if (!endPoint.hasTarget()) {
+			getDefaultEndPointTaker().takeEndPoint(endPoint);
+		}
+		
+		else {
+			endPointTaker
+			.getRefFirst(ept -> ept.hasName(endPoint.getTarget()))
+			.takeEndPoint(endPoint);
+		}
 	}
 	
 	//method
@@ -110,4 +119,13 @@ public class Server extends ClosableElement {
 	 * Lets this server note an abort.
 	 */
 	protected void noteClosing() {}
+	
+	private IEndPointTaker getDefaultEndPointTaker() {
+		
+		if (hasDefaultEndPointTaker()) {
+			throw new UnexistingAttributeException(this, "default end point taker");
+		}
+		
+		return defaultEndPointTaker;
+	}
 }

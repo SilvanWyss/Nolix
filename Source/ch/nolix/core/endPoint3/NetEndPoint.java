@@ -14,8 +14,6 @@ import ch.nolix.core.container.List;
  */
 public class NetEndPoint extends EndPoint {
 	
-	static final String DEFAULT_TARGET = "DefaultTarget";
-	
 	//default value
 	private int nextSentPackageIndex = 1;
 	

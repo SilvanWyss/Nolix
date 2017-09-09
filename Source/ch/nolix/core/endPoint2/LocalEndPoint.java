@@ -73,7 +73,7 @@ public final class LocalEndPoint extends EndPoint {
 		getRefCounterPart().setTarget(target);
 		
 		//Lets the given server take the counterpart of this local end point.
-		server.takeEndPoint(getRefCounterPart(), getRefCounterPart().getTarget());
+		server.takeEndPoint(getRefCounterPart());
 	}
 	
 	//constructor

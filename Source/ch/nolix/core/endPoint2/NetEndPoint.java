@@ -43,8 +43,7 @@ public class NetEndPoint extends EndPoint {
 		//Calls other constructor.
 		this(
 			IPv6Manager.LOOP_BACK_ADDRESS,
-			port,
-			DEFAULT_TARGET
+			port
 		);
 	}
 	

@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.core.endPoint3;
 
-import ch.nolix.core.invalidStateException.InvalidStateException;
-
 //class
 /**
 * A net server is a server that listens to net end points on a specific port.
@@ -29,24 +27,9 @@ public final class NetServer extends Server {
 		internalNetServer =	new ch.nolix.core.endPoint2.NetServer(port);
 		
 		createAbortDependency(internalNetServer);
-	}
-	
-	//method
-	/**
-	 * Adds the given end point taker to this net server.
-	 * 
-	 * @param endPointTaker
-	 * @throws InvalidStateException
-	 * if this net server contains an end point taker with the same name as the given end point taker.
-	 */
-	public void addEndPointTaker(final IEndPointTaker endPointTaker) {
 		
-		//Calls method of the base class.
-		super.addEndPointTaker(endPointTaker);
-		
-		internalNetServer.addEndPointTaker(new EndPointTaker(endPointTaker));
+		internalNetServer.addDefaultEndPointTaker(new EndPointTaker(this));
 	}
-	
 	
 	//method
 	/**
@@ -54,20 +37,5 @@ public final class NetServer extends Server {
 	 */
 	public final int getPort() {
 		return internalNetServer.getPort();
-	}
-	
-	//method
-	/**
-	 * Removes the end point taker with the given name from this net server.
-	 * 
-	 * @param name
-	 * @throws InvalidArgumentException if this net server contains no end point taker with the given name.
-	 */
-	public void removeEndPointTaker(final String name) {
-		
-		//Calls method of the base class.
-		super.removeEndPointTaker(name);
-		
-		internalNetServer.removeEndPointTaker(name);
 	}
 }

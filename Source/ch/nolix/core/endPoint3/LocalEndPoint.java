@@ -75,11 +75,10 @@ public final class LocalEndPoint extends EndPoint {
 		//Creates the counterpart of this local end point.
 		counterpart = new LocalEndPoint(this, target);
 		
-		//Clears the target of this local end point.
-		this.target = null;
+		this.target = target;
 		
 		//Lets the given server take the counterpart of this lcoal end point.
-		server.takeEndPoint(getRefCounterpart(), getRefCounterpart().getTarget());
+		server.takeEndPoint(getRefCounterpart());
 	}
 	
 	//constructor

@@ -5,6 +5,7 @@ package ch.nolix.core.duplexController;
 import ch.nolix.core.basic.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 
 //class
 /**
@@ -17,9 +18,17 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
  */
 public class Server extends ClosableElement {
 	
+	//optional attribute
+	IDuplexControllerTaker defaultDuplexControllerTaker;
+	
 	//multiple attribute
 	private final List<IDuplexControllerTaker> duplexControllerTaker
 	= new List<IDuplexControllerTaker>();
+	
+	public void addDefaultDuplexControllerTaker(final IDuplexControllerTaker defaultDuplexControllerTaker) {
+		addDuplexControllerTaker(defaultDuplexControllerTaker);
+		this.defaultDuplexControllerTaker = defaultDuplexControllerTaker;
+	}
 	
 	//method
 	/**
@@ -61,7 +70,12 @@ public class Server extends ClosableElement {
 	 * if this server contains no duplex controller taker with the given name.
 	 */
 	public void removeDuplexControllerTaker(final String name) {
+		
 		duplexControllerTaker.removeFirst(dct -> dct.hasName(name));
+		
+		if (defaultDuplexControllerTaker != null && defaultDuplexControllerTaker.hasName(name)) {
+			defaultDuplexControllerTaker = null;
+		}
 	}
 	
 	//method
@@ -72,11 +86,32 @@ public class Server extends ClosableElement {
 	 * @throws UnexistingAttributeException if this server contains no duplex controller taker
 	 * with the same name as the target of the given duplex controller.
 	 */
-	public final void takeDuplexController(final DuplexController duplexController, final String target) {
-		duplexControllerTaker.getRefFirst(dct -> dct.hasName(target))
-		.takeDuplexController(duplexController);
+	public final void takeDuplexController(final DuplexController duplexController) {
+		
+		if (!duplexController.hasTarget()) {
+			getDefaultDuplexControllerTaker().takeDuplexController(duplexController);
+		}
+		
+		else {
+			duplexControllerTaker
+			.getRefFirst(dct -> dct.hasName(duplexController.getTarget()))
+			.takeDuplexController(duplexController);
+		}
 	}
 	
+	private IDuplexControllerTaker getDefaultDuplexControllerTaker() {
+
+		if (!hasDefaultDuplexControllerTaker()) {
+			throw new UnexistingAttributeException(this, "default duplex controller taker");
+		}
+		
+		return defaultDuplexControllerTaker;
+	}
+
+	public boolean hasDefaultDuplexControllerTaker() {
+		return (defaultDuplexControllerTaker != null);
+	}
+
 	//method
 	/**
 	 * Lets this server note an abort.
