@@ -19,9 +19,33 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 270
+ * @lines 300
  */
 public final class FileSystemAccessor {
+	
+	//static method
+	/**
+	 * @return a new folder accessor to the folder of the running jar.
+	 */
+	public static FolderAccessor accessFolderOfRunningJar() {
+		return new FolderAccessor(getFolderPathOfRunningJar());
+	}
+	
+	//static method
+	/**
+	 * @return the folder path of the running jar file.
+	 */
+	public static String getFolderPathOfRunningJar() {
+		return new File(ClassLoader.getSystemClassLoader().getResource(".").getPath()).getAbsolutePath();
+	}
+	
+	//static method
+	/**
+	 * Opens the folder of the running jar in a new file explorer.
+	 */
+	public static void openFolderOfRunningJarInExplorer() {
+		accessFolderOfRunningJar().openInFileExplorer();
+	}
 
 	//optional attribute
 	private final String rootFolder;
@@ -145,6 +169,7 @@ public final class FileSystemAccessor {
 				= relativeFilePathParts[0]
 				+ "_"
 				+ i
+				+ "."
 				+ relativeFilePathParts[relativeFilePathParts.length - 1];
 				
 				i++;

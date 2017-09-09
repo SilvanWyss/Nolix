@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.fileSystem;
 
+//Java import
+import java.io.IOException;
+
 //own imports
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
@@ -13,7 +16,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 80
+ * @lines 90
  */
 public final class FolderAccessor extends FileSystemItemAccessor {
 
@@ -69,8 +72,21 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	
 	//method
 	/**
+	 * Opens the folder of this folder accessor in a new file explorer.
+	 */
+	public final void openInFileExplorer() {
+		try {
+			new ProcessBuilder(("explorer.exe " + getPath()).split(" ")).start();
+		}
+		catch (final IOException exception) {
+			throw new RuntimeException(exception);
+		}
+	}
+	
+	//method
+	/**
 	 * Deletes the file system item with the given relative path
-	 * from the from the folder of this folder accessor if it exists.
+	 * from the folder of this folder accessor if it exists.
 	 * 
 	 * @param relativePath
 	 */
