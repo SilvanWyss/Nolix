@@ -63,7 +63,7 @@ public final class AfterAllMediator {
 		.thatIsNamed("time interval in milliseconds")
 		.isNotNegative();
 		
-		maxRunCount = 1;
+		maxRunCount = null;
 		condition = null;
 		this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
 	}

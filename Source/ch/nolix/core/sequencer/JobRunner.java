@@ -286,12 +286,12 @@ final class JobRunner extends Thread {
 	 * Lets this runner run.
 	 */
 	public void run() {
-				
+		
 		//main loop
 		while (true) {
-					
+			
 			//Handles the case if this job runner has no max run count.
-			if (!hasMaxRunCount()) {		
+			if (!hasMaxRunCount()) {			
 				if (hasCondition() && !condition.getOutput()) {
 					break;
 				}
