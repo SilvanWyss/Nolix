@@ -201,6 +201,9 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 				console.clear();
 				GUI.refresh();
 				break;
+			case Protocol.READ_ENTER_FROM_CONSOLE_COMMAND:
+				console.readEnter();
+				break;
 			case Protocol.WRITE_EMPTY_LINE_TO_CONSOLE_COMMAND:
 				console.writeEmptyLine();
 				GUI.refresh();
