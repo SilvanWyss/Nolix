@@ -19,6 +19,7 @@ public final class NetServer extends Server {
 	 * Creates new net server with the given port.
 	 * 
 	 * @param port
+	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
 	 */
 	public NetServer(final int port) {
 		
