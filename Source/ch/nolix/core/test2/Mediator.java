@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.test2;
 
-//own imports
-import ch.nolix.core.testBase.Accessor;
+import ch.nolix.core.baseTest.BaseTestAccessor;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -36,7 +35,7 @@ abstract class Mediator {
 	 * Adds the given current test method error to the test this mediator belongs to.
 	 */
 	protected final void addCurrentTestMethodError(final String error) {
-		new Accessor(zetaTestest).addCurrentTestMethodError(error);
+		new BaseTestAccessor(zetaTestest).addCurrentTestMethodError(error);
 	}
 	
 	protected final Test getZetaTest() {

@@ -1,20 +1,15 @@
 //package declaration
-package ch.nolix.core.testBase;
+package ch.nolix.core.baseTest;
 
 //Java import
 import java.util.Vector;
-
-
-
-
-
 
 //own imports
 import ch.nolix.core.interfaces.Executable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //class
 /**
@@ -22,12 +17,12 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-01
- * @lines 150
+ * @lines 140
  */
 public abstract class TestPool implements Executable {
 
 	//multiple attribute
-	private final Vector<Test> tests = new Vector<Test>();
+	private final Vector<BaseTest> tests = new Vector<BaseTest>();
 	private final Vector<TestPool> testPools = new Vector<TestPool>();
 	
 	//method
@@ -51,9 +46,9 @@ public abstract class TestPool implements Executable {
 	 * @param test
 	 * @return true if this test pool contains the given test recursively.
 	 */
-	public final boolean containsTestRecursively(final Test test) {
+	public final boolean containsTestRecursively(final BaseTest test) {
 		
-		for (final Test t : tests) {
+		for (final BaseTest t : tests) {
 			if (t == test) {
 				return true;
 			}
@@ -84,10 +79,12 @@ public abstract class TestPool implements Executable {
 	 * @param test
 	 * @throws NullArgumentException if the given test is null.
 	 */
-	protected final void addTest(final Test test) {
+	protected final void addTest(final BaseTest test) {
 		
 		//Checks if the given test is not null.
-		Validator.supposeThat(test).thatIsNamed("test").isNotNull();
+		if (test == null) {
+			throw new NullArgumentException("test");
+		}
 		
 		tests.add(test);
 	}
@@ -99,10 +96,10 @@ public abstract class TestPool implements Executable {
 	 * @param tests
 	 * @throws NullArgumentException if one of the given test is null.
 	 */
-	protected final void addTest(Test... tests) {
+	protected final void addTest(BaseTest... tests) {
 		
 		//Iterates the given tests.
-		for (Test t: tests) {
+		for (BaseTest t: tests) {
 			addTest(t);
 		}
 	}
@@ -118,7 +115,9 @@ public abstract class TestPool implements Executable {
 	protected final void addTestPool(final TestPool testPool) {
 		
 		//Checks if the given test pool is not null.
-		Validator.supposeThat(testPool).thatIsNamed("test pool").isNotNull();
+		if (testPool == null) {
+			throw new NullArgumentException("test pool");
+		}
 		
 		//Checks if the given test pool does not contain this test pool recursively.
 		if (testPool.containsTestPoolRecursively(this)) {

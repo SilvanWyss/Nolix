@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreTest.endPoint3Test;
 
-//own import
-import ch.nolix.core.testBase.TestPool;
+import ch.nolix.core.baseTest.TestPool;
 
 //class
 /**

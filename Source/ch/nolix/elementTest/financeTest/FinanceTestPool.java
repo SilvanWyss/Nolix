@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.financeTest;
 
-//own import
-import ch.nolix.core.testBase.TestPool;
+import ch.nolix.core.baseTest.TestPool;
 
 //class
 /**

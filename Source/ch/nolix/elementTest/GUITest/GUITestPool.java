@@ -8,8 +8,7 @@
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
-//own import
-import ch.nolix.core.testBase.TestPool;
+import ch.nolix.core.baseTest.TestPool;
 
 //class
 public final class GUITestPool extends TestPool {

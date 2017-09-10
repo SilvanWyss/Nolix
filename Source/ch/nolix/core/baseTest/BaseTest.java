@@ -1,30 +1,26 @@
-/*
- * file:	Test.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	100
- */
-
 //package declaration
-package ch.nolix.core.testBase;
+package ch.nolix.core.baseTest;
 
 //Java imports
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Vector;
 
-import javax.swing.CellEditor;
-
-//class
-public abstract class Test {
+//abstract class
+/**
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 130
+ */
+public abstract class BaseTest {
 	
-	//mulitple attributes
+	//multiple attributes
 	private final Vector<String> lastErrors = new Vector<String>();
 	private final Vector<AutoCloseable> closableElements = new Vector<AutoCloseable>();
 
 	//method
 	/**
-	 * Executes this test and prints out the test result to the console.
+	 * Runs this base test and prints out the test results to the console.
 	 */
 	public final void run() {
 		
@@ -101,7 +97,7 @@ public abstract class Test {
 	
 	//method
 	/**
-	 * Registers the given element to close after running a test.
+	 * Lets this base test register the given element to close.
 	 * 
 	 * @param element
 	 */
@@ -113,7 +109,7 @@ public abstract class Test {
 	
 	//package-visible method
 	/**
-	 * Adds the given current test method error to this test.
+	 * Adds the given current test method error to this base test.
 	 * 
 	 * @param currentTestMethodError
 	 */
