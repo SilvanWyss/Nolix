@@ -2,53 +2,58 @@
 package ch.nolix.system.client;
 
 //own imports
+import ch.nolix.core.basic.ClosableElement;
 import ch.nolix.core.container.List;
-import ch.nolix.core.duplexController.NetServer;
+import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //class
 /**
  * A server contains applications and listens to clients on a specific port.
+ * A server is clearable and closable.
  * 
  * @author Silvan Wyss
  * @month 2016-10
  * @lines 100
  */
-public final class Server {
+public class Server extends ClosableElement implements Clearable {
+	
+	//optional attribute
+	private Application<?> arbitraryApplication;
 	
 	//multiple attribute
 	private final List<Application<?>> applications = new List<Application<?>>();
 	
-	//constructor
-	/**
-	 * Creates new server that listens to clients on the given port.
-	 * 
-	 * @param port
-	 */
-	public Server(final int port) {	
-		new NetServer(port).addDefaultDuplexControllerTaker(new ServerDuplexControllerTaker(this));
-	}
+	public Server() {}
 	
 	//constructor
 	/**
-	 * Creates new server that:
-	 * -Listens to clients on the given port.
-	 * -Contains the given applications.
+	 * Creates new server with the given applications.
 	 * 
-	 * @param port
 	 * @param applications
 	 * @throws NullArgumentException if one of the given applications is null.
 	 * @throws InvalidArgumentException if the given applications contains several applications with the same name.
 	 */
-	public Server(final int port, final Application<?>... applications) {
-		
-		//Calls other constructor.
-		this(port);
-		
+	public Server(final Application<?>... applications) {
 		addApplication(applications);
+	}
+	
+	//method
+	public final void addArbitraryApplication(final Application<?> arbitraryApplication) {
+		
+		//Checks if this server contains no applications.
+		if (containsAny()) {
+			throw new InvalidStateException(this, "contains applications");
+		}
+		
+		addApplication(arbitraryApplication);
+		
+		this.arbitraryApplication = arbitraryApplication;
 	}
 	
 	//method
@@ -90,11 +95,74 @@ public final class Server {
 	
 	//method
 	/**
+	 * Removes all applications from this server.
+	 */
+	public void clear() {
+		applications.clear();
+		arbitraryApplication = null;
+	}
+	
+	//method
+	/**
 	 * @param name
 	 * @return true if this server contains an application with the given name.
 	 */
 	public final boolean containsApplication(final String name) {
 		return applications.contains(a -> a.hasName(name));
+	}
+	
+
+	
+	//method
+	/**
+	 * @return true if this server has an arbitrary application.
+	 */
+	public final boolean hasArbitraryApplication() {
+		return (arbitraryApplication != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this server contains no applications.
+	 */
+	public final boolean isEmpty() {
+		return applications.isEmpty();
+	}
+	
+	//method
+	/**
+	 * Lets this server take the given client.
+	 * 
+	 * @param client
+	 */
+	public void takeClient(final Client<?> client) {
+		
+		//Handles the case if this server has no arbitrary application.
+		if (!hasArbitraryApplication()) {
+			applications
+			.getRefFirst(a -> a.hasName(client.internal_getTarget()))
+			.takeClient(client);			
+		}
+		
+		//Handles the case if this server has an arbitrary application.
+		else {
+			getRefArbitraryApplication().takeClient(client);
+		}
+	}
+	
+	//method
+	/**
+	 * @return the arbitrary application of this server.
+	 * @throws UnexistingAttributeException if this server has no arbitrary application.
+	 */
+	protected Application<?> getRefArbitraryApplication() {
+		
+		//Checks if this server has an arbitrary application.
+		if (!hasArbitraryApplication()) {
+			throw new UnexistingAttributeException(this, "arbitrary application");
+		}
+		
+		return arbitraryApplication;
 	}
 	
 	//method
@@ -103,7 +171,13 @@ public final class Server {
 	 * @return the application with the given name from this server.
 	 * @throws RuntimeException if this server contains no application with the given name.
 	 */
-	public final Application<?> getRefApplicationByName(String name) {
+	protected final Application<?> getRefApplicationByName(String name) {
 		return applications.getRefFirst(a -> a.hasName(name));
 	}
+	
+	//method
+	/**
+	 * Lets this server note a closing.
+	 */
+	protected final void noteClosing() {}
 }

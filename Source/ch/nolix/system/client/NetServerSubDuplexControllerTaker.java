@@ -8,54 +8,52 @@ import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
- * A server duplex controller taker is the duplex controller taker of the duplex controller listener of a server.
- * 
  * @author Silvan Wyss
  * @month 2016-10
  * @lines 50
  */
-final class ServerDuplexControllerTaker implements IDuplexControllerTaker {
+final class NetServerSubDuplexControllerTaker implements IDuplexControllerTaker {
+	
+	//name
+	private static final String NAME = "InternalDuplexControllerTaker";
 	
 	//attribute
-	private final Server server;
+	private final NetServer netServer;
 	
 	//constructor
 	/**
-	 * Creates new server duplex controller taker with the given server.
+	 * Creates new net server sub duplex controller taker with the given net server.
 	 * 
-	 * @param server
-	 * @throws NullArgumentException if the given server is null.
+	 * @param netServer
+	 * @throws NullArgumentException if the given net server is null.
 	 */
-	public ServerDuplexControllerTaker(final Server server) {
+	public NetServerSubDuplexControllerTaker(final NetServer netServer) {
 		
 		//Checks if the given server is not null.
-		Validator.supposeThat(server).thatIsInstanceOf(Server.class).isNotNull();
+		Validator
+		.supposeThat(netServer)
+		.thatIsInstanceOf(NetServer.class)
+		.isNotNull();
 		
-		//Sets the server of this server duplex controller taker.
-		this.server = server;
+		//Sets the net server of this snet server sub duplex controller taker.
+		this.netServer = netServer;
 	}
 
 	//method
 	/**
-	 * Lets this server duplex controller taker take the given duplex controller.
+	 * @return the name of this net server sub duplex controller taker.
+	 */
+	public String getName() {
+		return NAME;
+	}
+	
+	//method
+	/**
+	 * Lets this net server sub duplex controller taker take the given duplex controller.
 	 * 
 	 * @param duplexController
 	 */
-	public void takeDuplexController(final DuplexController duplexController) {
-		
-		//Extracts the name of the target application.
-		final String targetApplicaitonName = duplexController.getData(Client.TARGET_REQUEST).toString();
-		
-		//Extracts the target application.
-		final Application<?> targetApplication = server.getRefApplicationByName(targetApplicaitonName);
-		
-		//Creates client that belongs to the target application.
-		targetApplication.createClient(duplexController);
-	}
-
-	@Override
-	public String getName() {
-		//TODO
-		return null;
+	public void takeDuplexController(final DuplexController duplexController) {	
+		netServer.takeDuplexController(duplexController);
 	}
 }

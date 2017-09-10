@@ -63,6 +63,7 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws NullArgumentException if the given initial session class is null.
 	 */
+	@SuppressWarnings("resource")
 	public Application(
 		final String name,
 		final Class<?> initialSessionClass,
@@ -73,20 +74,33 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 		this(name, initialSessionClass);
 		
 		//Creates server for this application.
-		new Server(port, this);
+		new NetServer(port, this);
 	}
 	
-	//package-visible method
+	//method
 	/**
-	 * Creates a new client that has the given duplex controller and belongs to this application.
+	 * This method uses the change to remove all aborted clients of this application.
 	 * 
-	 * @param duplexController
+	 * @return the clients of this application.
 	 */
+	public final IContainer<C> getRefClients() {
+		return clients.removeAll(c -> c.isClosed());
+	}
+	
 	@SuppressWarnings("unchecked")
-	public final void createClient(DuplexController duplexController) {
-		try {		
-			//Creates initial session.
-			final Session<C> initialSession = createInitialSession();	
+	public final void takeClient(final Client<?> client) {
+		
+		C c = ((C)client);
+		
+		final Session<C> initialSession = createInitialSession();	
+		
+		clients.addAtEnd(c);
+		Sequencer.runInBackground(() -> c.setSession(initialSession));
+	}
+	
+	@SuppressWarnings("unchecked")
+	public final void takeDuplexController(final DuplexController duplexController) {
+		try {
 			
 			//Extracts the direct sub class of the initial session class of this application.
 			Class<?> initialSessionDirectSubClass = initialSessionClass;
@@ -105,22 +119,11 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 			//Creates client.
 			C client = (C)constructor.newInstance(duplexController);
 			
-			clients.addAtEnd(client);
-			Sequencer.runInBackground(() -> client.setSession(initialSession));
+			takeClient(client);
 		}
 		catch (final Exception exception) {
 			throw new RuntimeException(exception);
 		}
-	}
-	
-	//method
-	/**
-	 * This method uses the change to remove all aborted clients of this application.
-	 * 
-	 * @return the clients of this application.
-	 */
-	public final IContainer<C> getRefClients() {
-		return clients.removeAll(c -> c.isClosed());
 	}
 	
 	//abstract method
