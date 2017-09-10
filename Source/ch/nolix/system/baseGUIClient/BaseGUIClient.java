@@ -35,7 +35,7 @@ extends Client<BGUIC> {
 		final String content
 	) {
 		
-		internal_getRefDuplexController().run(
+		internal_runOnCounterpart(
 			Protocol.CREATE_FILE_COMMAND
 			+ "("
 			+ StandardSpecification.createEscapeString(relativeFilePath)
@@ -56,8 +56,7 @@ extends Client<BGUIC> {
 	@SuppressWarnings("unchecked")
 	public BGUIC openFileExplorer() {
 		
-		internal_getRefDuplexController()
-		.run(Protocol.OPEN_FILE_EXPLORER_COMMAND);
+		internal_runOnCounterpart(Protocol.OPEN_FILE_EXPLORER_COMMAND);
 		
 		return (BGUIC)this;
 	}
@@ -73,7 +72,7 @@ extends Client<BGUIC> {
 	@SuppressWarnings("unchecked")
 	public final BGUIC showErrorMessage(final String errorMessage) {
 		
-		internal_getRefDuplexController().run(
+		internal_runOnCounterpart(
 			Protocol.SHOW_ERROR_MESSAGE
 			+ "("
 			+ StandardSpecification.createEscapeString(errorMessage)

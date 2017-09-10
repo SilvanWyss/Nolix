@@ -40,7 +40,7 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 		
 		this(new Frame());
 		
-		internal_connect(port);
+		internal_connectTo(port);
 	}
 		
 	//constructor

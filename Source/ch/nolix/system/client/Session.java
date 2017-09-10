@@ -4,12 +4,7 @@ package ch.nolix.system.client;
 //Java import
 import java.lang.reflect.Method;
 
-
 //own imports
-
-
-
-
 import ch.nolix.core.container.List;
 import ch.nolix.core.helper.MethodHelper;
 import ch.nolix.core.invalidStateException.InvalidStateException;
@@ -23,7 +18,7 @@ import ch.nolix.core.validator2.Validator;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 150
- * @param <C> - The type of the client of a session.
+ * @param <C> The type of the client of a session.
  */
 public abstract class Session<C extends Client<?>> {
 	
@@ -125,6 +120,14 @@ public abstract class Session<C extends Client<?>> {
 		catch (Exception e) {
 			throw new RuntimeException(e);
 		}
+	}
+	
+	//method
+	/**
+	 * Removes the client of this session.
+	 */
+	final void removeClient() {
+		client = null;
 	}
 		
 	//method

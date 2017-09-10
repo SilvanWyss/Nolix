@@ -19,23 +19,21 @@ import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
- * A client is an a connection end point.
+ * A client is like an end point with comfortable functionalities.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 630
+ * @lines 300
  * @param <C> The type of a client.
  */
 public abstract class Client<C extends Client<C>>
 extends OptionalSignableElement<C>
 implements Closable, Resettable {
 	
-	//commands
+	//command
 	protected static final String INVOKE_RUN_METHOD_COMMAND = "InvokeRunMethod";
 	
-	//requests
-	protected static final String TYPE_REQUEST = "Type";
-	protected static final String TARGET_REQUEST = "TargetRequest";
+	//request
 	protected static final String DATA_METHOD_REQUEST = "Data";
 		
 	//attributes
@@ -44,37 +42,6 @@ implements Closable, Resettable {
 	
 	//optional attributes
 	private Session<C> session;
-	
-	protected void internal_connect(final Application<?> target) {
-		requestedConnectionFlag = true;
-		duplexController = new LocalDuplexController();
-		duplexController.setReceiverController(new ClientReceiverController(this));
-		target.takeDuplexController(((LocalDuplexController)duplexController).getRefCounterpart());
-	}
-	
-	protected void internal_connect(final DuplexController duplexController) {		
-		requestedConnectionFlag = false;
-		this.duplexController = duplexController;	
-		duplexController.setReceiverController(new ClientReceiverController(this));	
-	}
-	
-	protected void internal_connect(int port) {
-		requestedConnectionFlag = true;
-		duplexController = new NetDuplexController(port);
-		duplexController.setReceiverController(new ClientReceiverController(this));	
-	}
-	
-	protected void internal_connect(String ip, int port) {
-		requestedConnectionFlag = true;
-		duplexController = new NetDuplexController(ip, port);
-		duplexController.setReceiverController(new ClientReceiverController(this));	
-	}
-	
-	protected void internal_connect(String ip, int port, String target) {
-		requestedConnectionFlag = true;
-		duplexController = new NetDuplexController(ip, port, target);
-		duplexController.setReceiverController(new ClientReceiverController(this));	
-	}
 	
 	//method
 	/**
@@ -99,7 +66,7 @@ implements Closable, Resettable {
 	 * @return true if this client is aborted.
 	 */
 	public final boolean isClosed() {
-		return internal_getRefDuplexController().isClosed();
+		return duplexController.isClosed();
 	}
 
 	//method
@@ -107,7 +74,7 @@ implements Closable, Resettable {
 	 * @return true if this client is a local client.
 	 */
 	public final boolean isLocalClient() {
-		return internal_getRefDuplexController().isLocalDuplexController();
+		return duplexController.isLocalDuplexController();
 	}
 	
 	//method
@@ -115,7 +82,7 @@ implements Closable, Resettable {
 	 * @return true if this client is a net client.
 	 */
 	public final boolean isNetClient() {
-		return internal_getRefDuplexController().isNetDuplexController();
+		return duplexController.isNetDuplexController();
 	}
 	
 	//method
@@ -131,10 +98,16 @@ implements Closable, Resettable {
 		//Checks if the given session is not null.
 		Validator.supposeThat(session).thatIsInstanceOf(Session.class).isNotNull();
 		
+		//Handles the option that this client has already a session.
+		if (internal_hasSession()) {
+			internal_getSession().removeClient();
+		}
+		
 		//Sets the given session to this client.
 		session.setClient(this);
 		this.session = session;
 		
+		//Resets this client.
 		reset();
 		
 		//Initializes the given session.
@@ -157,10 +130,6 @@ implements Closable, Resettable {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
-			case TYPE_REQUEST:
-				return new StandardSpecification(getType());
-			case TARGET_REQUEST:
-				return new StandardSpecification(internal_getTarget());
 			case DATA_METHOD_REQUEST:
 				return new StandardSpecification(internal_invokeDataMethod(request.getRefOneAttribute()).toString());
 			default:
@@ -168,28 +137,83 @@ implements Closable, Resettable {
 		}
 	}
 	
-	//method
-	/**
-	 * @return the duplex controller of this client.
-	 */
-	protected final DuplexController internal_getRefDuplexController() {
-		return duplexController;
+	protected void internal_connect(final Application<?> target) {
+		requestedConnectionFlag = true;
+		duplexController = new LocalDuplexController();
+		duplexController.setReceiverController(new ClientSubReceiverController(this));
+		target.takeDuplexController(((LocalDuplexController)duplexController).getRefCounterpart());
+	}
+	
+	protected void internal_connectWith(final DuplexController duplexController) {		
+		requestedConnectionFlag = false;
+		this.duplexController = duplexController;	
+		duplexController.setReceiverController(new ClientSubReceiverController(this));	
 	}
 	
 	//method
 	/**
-	 * @return the target application of this client.
-	 * @throws UnexistingAttributeException if this client has no target application.
+	 * Connects this client to the given port on the local machine.
+	 * 
+	 * @param port
+	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 */
+	protected void internal_connectTo(final int port) {
+		
+		requestedConnectionFlag = true;
+		
+		duplexController = new NetDuplexController(port);
+		
+		getRefDuplexController()
+		.setReceiverController(new ClientSubReceiverController(this));	
+	}
+	
+	//method
+	/**
+	 * Connects this client to the given port on the machine with the given ip.
+	 * 
+	 * @param ip
+	 * @param port
+	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 */
+	protected void internal_connectTo(final String ip, final int port) {
+		
+		requestedConnectionFlag = true;
+		
+		duplexController = new NetDuplexController(ip, port);
+		
+		getRefDuplexController()
+		.setReceiverController(new ClientSubReceiverController(this));	
+	}
+	
+	protected void internal_connect(String ip, int port, String target) {
+		requestedConnectionFlag = true;
+		duplexController = new NetDuplexController(ip, port, target);
+		duplexController.setReceiverController(new ClientSubReceiverController(this));	
+	}
+	
+	protected StandardSpecification internal_getDataFromCounterpart(final String request) {
+		return duplexController.getData(request);
+	}
+	
+	//method
+	/**
+	 * @return the session of this client
+	 * @throws UnexistingAttributeException if this client has no session.
+	 */
+	protected final Session<C> internal_getSession() {
+		
+		//Checks if this client has a session.
+		internal_supposeHasSession();
+		
+		return session;
+	}
+	
+	//method
+	/**
+	 * @return the target of this client.
+	 * @throws UnexistingAttributeException if this client has no target.
 	 */
 	protected final String internal_getTarget() {
-		
-		//Checks if this client has a target application.
-		/*
-		if !internal_hasTarget()) {
-			throw new UnexistingAttributeException(this, "target application");
-		}
-		*/
-		
 		return duplexController.getTarget();
 	}
 	
@@ -220,9 +244,7 @@ implements Closable, Resettable {
 	protected final Object internal_invokeDataMethod(final StandardSpecification dataMethodRequest) {
 		
 		//Checks if this client has a session.
-		if (!internal_hasSession()) {
-			throw new UnexistingAttributeException(this, Session.class);
-		}
+		internal_supposeHasSession();
 		
 		//Extracts the name of the data method.
 		final String dataMethod = dataMethodRequest.getHeader();
@@ -244,9 +266,7 @@ implements Closable, Resettable {
 	protected final void internal_invokeRunMethod(final StandardSpecification runMethodCommand) {
 		
 		//Checks if this client has a session.
-		if (!internal_hasSession()) {
-			throw new UnexistingAttributeException(this, Session.class);
-		}
+		internal_supposeHasSession();
 		
 		//Extracts the name of the command method.
 		final String runMethod = runMethodCommand.getHeader();
@@ -273,7 +293,49 @@ implements Closable, Resettable {
 				internal_invokeRunMethod(command.getRefOneAttribute());
 				break;			
 			default:
-				throw new InvalidArgumentException(new ArgumentName("command"), new Argument(command));
+				throw new InvalidArgumentException(
+					new ArgumentName("command"),
+					new Argument(command)
+				);
 		}
+	}
+	
+	//method
+	/**
+	 * Runs the given command on the counterpart of this client.
+	 * 
+	 * @param command
+	 */
+	protected void internal_runOnCounterpart(final String command) {
+		duplexController.run(command);
+	}
+	
+	//method
+	/**
+	 * Runs the given commands on the counterpart of this clients.
+	 * 
+	 * @param commands
+	 */
+	protected void internal_runOnCounterpart(final String... commands) {
+		duplexController.appendCommand(commands);
+		duplexController.runAppendedCommands();
+	}
+	
+	//method
+	/**
+	 * @throws UnexistingAttributeException if this client has no session.
+	 */
+	protected void internal_supposeHasSession() {
+		if (!internal_hasSession()) {
+			throw new UnexistingAttributeException(this, "session");
+		}
+	}
+	
+	//method
+	/**
+	 * @return the duplex controller of this Client.
+	 */
+	private DuplexController getRefDuplexController() {
+		return duplexController;
 	}
 }

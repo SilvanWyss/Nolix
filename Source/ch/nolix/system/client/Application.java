@@ -10,7 +10,6 @@ import ch.nolix.core.basic.NamedElement;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.duplexController.DuplexController;
-import ch.nolix.core.duplexController.NetDuplexController;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.validator2.Validator;
 
@@ -122,8 +121,7 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 			//Creates client.
 			C client = (C)constructor.newInstance(duplexController);
 			
-			takeClient(client);
-			
+			takeClient(client);			
 		}
 		catch (final Exception exception) {
 			System.out.println(exception.getMessage());

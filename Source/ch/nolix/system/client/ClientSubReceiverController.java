@@ -15,7 +15,7 @@ import ch.nolix.core.validator2.Validator;
  * @month 2015-12
  * @lines 50
  */
-final class ClientReceiverController implements ILevel2Controller {
+final class ClientSubReceiverController implements ILevel2Controller {
 
 	//attribute
 	private final Client<?> client;
@@ -27,7 +27,7 @@ final class ClientReceiverController implements ILevel2Controller {
 	 * @param client
 	 * @throws NullArgumentException if the given client is null.
 	 */
-	public ClientReceiverController(final Client<?> client) {
+	public ClientSubReceiverController(final Client<?> client) {
 		
 		//Checks if the given client is not null.
 		Validator.supposeThat(client).thatIsInstanceOf(Client.class).isNotNull();

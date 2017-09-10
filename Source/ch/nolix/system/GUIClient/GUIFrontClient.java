@@ -41,10 +41,11 @@ public final class GUIFrontClient extends Client<GUIFrontClient> {
 	 * @param runMethodCommand
 	 */
 	public void run(final Statement runMethodCommand) {
-		internal_getRefDuplexController().appendCommand(GUIBackClient.RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
-		internal_getRefDuplexController().appendCommand(INVOKE_RUN_METHOD_COMMAND + "(" + runMethodCommand + ")");
-		internal_getRefDuplexController().appendCommand(GUIBackClient.RESET_OTHER_SIDE_DIALOG_COMMAND);
-		internal_getRefDuplexController().runAppendedCommands();
+		internal_runOnCounterpart(
+			GUIBackClient.RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")",
+			INVOKE_RUN_METHOD_COMMAND + "(" + runMethodCommand + ")",
+			GUIBackClient.RESET_OTHER_SIDE_DIALOG_COMMAND
+		);
 	}
 	
 	//method
@@ -101,7 +102,7 @@ public final class GUIFrontClient extends Client<GUIFrontClient> {
 	 * @param attributes
 	 */
 	private void resetOtherSideDialog(final Iterable<StandardSpecification> attributes) {
-		internal_getRefDuplexController().run(GUIBackClient.RESET_DIALOG_COMMAND + "(" + getGUI().getAttributes() + ")");
+		internal_runOnCounterpart(GUIBackClient.RESET_DIALOG_COMMAND + "(" + getGUI().getAttributes() + ")");
 	}
 	
 	//method

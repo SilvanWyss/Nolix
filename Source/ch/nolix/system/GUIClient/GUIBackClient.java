@@ -29,7 +29,7 @@ public final class GUIBackClient extends Client<GUIBackClient> {
 	public GUIBackClient(final DuplexController duplexController) {
 			
 		//Calls constructor of the base class.
-		internal_connect(duplexController);
+		internal_connectWith(duplexController);
 		
 		this.dialog = new InvisibleGUI();
 	}
@@ -88,7 +88,7 @@ public final class GUIBackClient extends Client<GUIBackClient> {
 	 */
 	public void runLocally(final String runMethodCommand) {
 		internal_invokeRunMethod(new StandardSpecification(runMethodCommand));
-		internal_getRefDuplexController().run(RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
+		internal_runOnCounterpart(RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
 	}
 	
 	//method
@@ -97,7 +97,7 @@ public final class GUIBackClient extends Client<GUIBackClient> {
 	 */
 	public void reset() {
 		dialog.reset();
-		internal_getRefDuplexController().run(RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
+		internal_runOnCounterpart(RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
 	}
 	
 	//method
@@ -105,7 +105,7 @@ public final class GUIBackClient extends Client<GUIBackClient> {
 	 * Finishes the initialization of the session of this dialog client.
 	 */
 	protected void internal_finishSessionInitialization() {
-		internal_getRefDuplexController().run(RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
+		internal_runOnCounterpart(RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
 	}
 	
 	//method
@@ -149,7 +149,7 @@ public final class GUIBackClient extends Client<GUIBackClient> {
 	 * @param attributes
 	 */
 	private void resetOtherSideDialog(final Iterable<StandardSpecification> attributes) {
-		internal_getRefDuplexController().run(GUIBackClient.RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
+		internal_runOnCounterpart(GUIBackClient.RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
 	}
 
 	//method

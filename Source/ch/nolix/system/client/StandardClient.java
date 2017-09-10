@@ -37,7 +37,7 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @param port
 	 */
 	public StandardClient(String ip, int port) {
-		internal_connect(ip, port);
+		internal_connectTo(ip, port);
 	}
 	
 	//constructor
@@ -93,7 +93,7 @@ public final class StandardClient extends Client<StandardClient> {
 	public StandardClient(final DuplexController duplexController) {
 		
 		//Calls constructor of the base class.
-		internal_connect(duplexController);
+		internal_connectWith(duplexController);
 	}
 
 	//constructor
@@ -117,7 +117,8 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @return the data the given data method request requests from a data method of the other side of this standard client.
 	 */
 	public StandardSpecification getData(final String dataMethodRequest) {
-		return internal_getRefDuplexController().getData(DATA_METHOD_REQUEST + "(" + dataMethodRequest + ")");
+		return
+		internal_getDataFromCounterpart(DATA_METHOD_REQUEST + "(" + dataMethodRequest + ")");
 	}
 	
 	//method
@@ -133,7 +134,7 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @param runMethodCommand
 	 */
 	public void run(final String runMethodCommand) {
-		internal_getRefDuplexController().run(Client.INVOKE_RUN_METHOD_COMMAND + "(" + runMethodCommand + ")");
+		internal_runOnCounterpart(Client.INVOKE_RUN_METHOD_COMMAND + "(" + runMethodCommand + ")");
 	}
 
 	//method
