@@ -13,11 +13,14 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Vector;
 
+import javax.swing.CellEditor;
+
 //class
 public abstract class Test {
 	
-	//attribute
+	//mulitple attributes
 	private final Vector<String> lastErrors = new Vector<String>();
+	private final Vector<AutoCloseable> closableElements = new Vector<AutoCloseable>();
 
 	//method
 	/**
@@ -78,6 +81,15 @@ public abstract class Test {
 					}
 					System.err.flush();
 				}
+				finally {
+					for (final AutoCloseable ce : closableElements) {
+						try {
+							ce.close();
+						} catch (final Exception exception) {
+							System.err.println("   An error occured by the try to close an element.");
+						}
+					}
+				}
 			}
 		}
 		
@@ -85,6 +97,18 @@ public abstract class Test {
 		System.out.println("  =" + getClass().getSimpleName() + ": " + passedTestMethodsCount + "/" + testMethodsCount + " passed test methods (" + timeInMiliseconds + "ms)");
 		System.out.println();
 		System.out.flush();
+	}
+	
+	//method
+	/**
+	 * Registers the given element to close after running a test.
+	 * 
+	 * @param element
+	 */
+	protected void registerToClose(final AutoCloseable element) {
+		if (element != null) {
+			closableElements.addElement(element);
+		}
 	}
 	
 	//package-visible method
