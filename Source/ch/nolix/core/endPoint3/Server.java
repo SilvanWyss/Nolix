@@ -4,39 +4,45 @@ package ch.nolix.core.endPoint3;
 //own imports
 import ch.nolix.core.basic.ClosableElement;
 import ch.nolix.core.container.List;
+import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 
 //abstract class
 /**
  * A server manages end point taker.
- * A server is abortable.
+ * A server is clearable and closable.
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 70
+ * @lines 160
  */
-public class Server
-extends ClosableElement {
+public class Server extends ClosableElement implements Clearable {
 	
 	//optional attribute
-	private IEndPointTaker defaultEndPointTaker;
+	private IEndPointTaker arbitraryEndPointTaker;
 	
 	//multiple attribute
 	private final List<IEndPointTaker> endPointTaker = new List<IEndPointTaker>();
 	
 	//method
-	public final void addDefaultEndPointTaker(final IEndPointTaker defaultEndPointTaker) {
+	/**
+	 * Adds the given arbitrary end point taker to this server.
+	 * An arbitrary end point taker takes all end points without or with any target.
+	 * 
+	 * @param arbitraryEndPointTaker
+	 * @throws InvalidStateException if this server contains end point taker.
+	 */
+	public final void addArbitraryEndPointTaker(final IEndPointTaker arbitraryEndPointTaker) {
 		
-		if (hasDefaultEndPointTaker()) {
-			throw new InvalidStateException(
-				this,
-				"has already a default end point taker"
-			);
+		//Checks if this server contains no end point taker.
+		if (!isEmpty()) {
+			throw new InvalidStateException(this, "contains already end point taker");
 		}
 		
-		addEndPointTaker(defaultEndPointTaker);
-		this.defaultEndPointTaker = defaultEndPointTaker;
+		addEndPointTaker(arbitraryEndPointTaker);
+		
+		this.arbitraryEndPointTaker = arbitraryEndPointTaker;
 	}
 
 	//method
@@ -61,6 +67,15 @@ extends ClosableElement {
 	
 	//method
 	/**
+	 * Removes all end point taker from this server.
+	 */
+	public final void clear() {
+		endPointTaker.clear();
+		arbitraryEndPointTaker = null;
+	}
+	
+	//method
+	/**
 	 * @param name
 	 * @return true if this server contains an end point taker with the given name.
 	 */
@@ -69,8 +84,19 @@ extends ClosableElement {
 	}
 	
 	//method
-	public final boolean hasDefaultEndPointTaker() {
-		return (defaultEndPointTaker != null);
+	/**
+	 * @return true if this server has an arbitrary end point taker.
+	 */
+	public final boolean hasArbitraryEndPointTaker() {
+		return (arbitraryEndPointTaker != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this server contains no end point taker.
+	 */
+	public final boolean isEmpty() {
+		return endPointTaker.isEmpty();
 	}
 	
 	//method
@@ -78,49 +104,64 @@ extends ClosableElement {
 	 * Removes the end point taker with the given name from this server.
 	 * 
 	 * @param name
-	 * @throws InvalidArgumentException if this server contains no end point taker with the given name.
+	 * @throws InvalidArgumentException
+	 * if this server contains no end point taker with the given name.
 	 */
-	public void removeEndPointTaker(final String name) {
+	public final void removeEndPointTaker(final String name) {
 		
 		endPointTaker.removeFirst(ept -> ept.hasName(name));
 		
-		if (hasDefaultEndPointTaker() && getDefaultEndPointTaker().hasName(name)) {
-			
+		//Handles the option that the concerning end point taker
+		//is the arbitrary end point taker of this server.
+		if (hasArbitraryEndPointTaker() && getArbitraryEndPointTaker().hasName(name)) {
+			arbitraryEndPointTaker = null;
 		}
 	}
-
+	
 	//method
 	/**
 	 * Lets this server take the given end point.
 	 * 
 	 * @param endPoint
+	 * @throws UnexistingAttributeException if
+	 * this server has no arbitrary end point taker
+	 * or contains no end point taker
+	 * with the same name as the target of the given end point taker. 
 	 */
 	public final void takeEndPoint(final EndPoint endPoint) {
 		
-		if (!endPoint.hasTarget()) {
-			getDefaultEndPointTaker().takeEndPoint(endPoint);
-		}
-		
-		else {
+		//Handles the case if this server has no arbitrary end point taker.
+		if (!hasArbitraryEndPointTaker()) {
 			endPointTaker
 			.getRefFirst(ept -> ept.hasName(endPoint.getTarget()))
-			.takeEndPoint(endPoint);
+			.takeEndPoint(endPoint);			
+		}
+		
+		//Handles the case if this server has an arbitrary end point taker.
+		else {
+			getArbitraryEndPointTaker().takeEndPoint(endPoint);
 		}
 	}
-
-	//method
-	/**
-	 * Lets this server note an abort.
-	 */
-	protected final void noteClosing() {}
 	
 	//method
-	private IEndPointTaker getDefaultEndPointTaker() {
+	/**
+	 * Lets this server note a closing.
+	 */
+	protected void noteClosing() {}
+	
+	//method
+	/**
+	 * @return the arbitrary end point taker of this server.
+	 * @throws UnexistingAttribtueException
+	 * if this server has no arbitrary end point taker.
+	 */
+	private IEndPointTaker getArbitraryEndPointTaker() {
 		
-		if (!hasDefaultEndPointTaker()) {
-			throw new UnexistingAttributeException(this, "default end point taker");
+		//Checks if this server has an arbitrary end point taker.
+		if (!hasArbitraryEndPointTaker()) {
+			throw new UnexistingAttributeException(	this,"arbitrary end point taker");
 		}
 		
-		return defaultEndPointTaker;
+		return arbitraryEndPointTaker;
 	}
 }

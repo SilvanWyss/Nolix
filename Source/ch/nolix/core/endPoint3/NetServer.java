@@ -7,7 +7,7 @@ package ch.nolix.core.endPoint3;
 * 
 * @author Silvan Wyss
 * @month 2016-05
-* @lines 30
+* @lines 40
 */
 public final class NetServer extends Server {
 	
@@ -19,16 +19,16 @@ public final class NetServer extends Server {
 	 * Creates new net server that will listen to net end points on the given port.
 	 * 
 	 * @param port
-	 * @throws OutOfRangeArgumentException if the given port is not in [0, 65535].
+	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
 	 */
 	public NetServer(final int port) {
 		
 		//Creates the internal net server of this net server.
 		internalNetServer =	new ch.nolix.core.endPoint2.NetServer(port);
 		
-		createAbortDependency(internalNetServer);
+		createCloseDependency(internalNetServer);
 		
-		internalNetServer.addDefaultEndPointTaker(new EndPointTaker(this));
+		internalNetServer.addArbitraryEndPointTaker(new NetServerSubEndPointTaker(this));
 	}
 	
 	//method
@@ -37,5 +37,9 @@ public final class NetServer extends Server {
 	 */
 	public final int getPort() {
 		return internalNetServer.getPort();
+	}
+	
+	public void takeEndPoint(final ch.nolix.core.endPoint2.EndPoint endPoint) {
+		
 	}
 }

@@ -107,7 +107,7 @@ public class NetDuplexController extends DuplexController {
 		netEndPoint.setReplier(new Replier(this));
 		
 		//Creates an abort dependency from this net duplex controller to its net end point.
-		createAbortDependency(netEndPoint);
+		createCloseDependency(netEndPoint);
 	}
 	
 	//method

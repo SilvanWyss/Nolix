@@ -56,7 +56,7 @@ public abstract class ClosableElement implements Closable {
 	 * @throws InvalidStateException
 	 * if this closable element has already the given close dependency.
 	 */
-	protected final synchronized void createAbortDependency(final ClosableElement element) {
+	protected final synchronized void createCloseDependency(final ClosableElement element) {
 		
 		//Checks if this closable element is alive.
 		supposeBeingAlive();

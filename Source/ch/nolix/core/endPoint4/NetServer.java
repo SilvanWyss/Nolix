@@ -31,7 +31,7 @@ public final class NetServer<M, R> extends Server<M, R> {
 		
 		//Creates the internal net server of this net server.
 		internalNetServer =	new ch.nolix.core.endPoint2.NetServer(port);
-		createAbortDependency(internalNetServer);
+		createCloseDependency(internalNetServer);
 		
 		this.messageTransformer = messageTransformer;
 		this.replyTransformer = replyTransformer;

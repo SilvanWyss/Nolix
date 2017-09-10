@@ -89,7 +89,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 		this.replyTransformer = replyTransformer;
 		
 		internalEndPoint.setReceiver(new Receiver<M, R>(this));
-		createAbortDependency(internalEndPoint);
+		createCloseDependency(internalEndPoint);
 	}
 
 	public NetEndPoint(int port, String target,

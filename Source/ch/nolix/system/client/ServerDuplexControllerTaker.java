@@ -55,7 +55,7 @@ final class ServerDuplexControllerTaker implements IDuplexControllerTaker {
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
+		//TODO
 		return null;
 	}
 }

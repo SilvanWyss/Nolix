@@ -33,7 +33,7 @@ public final class LocalEndPoint extends EndPoint {
 		counterPart = new LocalEndPoint(this);
 		
 		//Creates an abort dependency between this local end point and its counterpart.
-		createAbortDependency(getCounterPart());
+		createCloseDependency(getCounterPart());
 		
 		//Lets the given target take the counterpart of this local end point.
 		target.takeEndPoint(getCounterPart());

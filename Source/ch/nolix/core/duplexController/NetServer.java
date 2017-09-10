@@ -7,7 +7,7 @@ package ch.nolix.core.duplexController;
  * 
  * @author Silvan Wyss
  * @month 2016-10
- * @lines 80
+ * @lines 40
  */
 public final class NetServer extends Server {
 	
@@ -22,15 +22,19 @@ public final class NetServer extends Server {
 	 */
 	public NetServer(final int port) {
 		
-		//Creates the internal server of this net server.
+		//Creates the internal net server of this net server.
 		internalNetServer = new ch.nolix.core.endPoint3.NetServer(port);
 		
-		//Creates an abort dependency between this net server and its internal net server.
-		createAbortDependency(internalNetServer);
+		//Creates a close dependency between this net server and its internal net server.
+		createCloseDependency(internalNetServer);
 		
-		internalNetServer.addDefaultEndPointTaker(new EndPointTaker(this));
+		internalNetServer.addArbitraryEndPointTaker(new NetServerSubEndPointTaker(this));
 	}
 	
+	//method
+	/**
+	 * @return the port of this net server.
+	 */
 	public int getPort() {
 		return internalNetServer.getPort();
 	}

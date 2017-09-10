@@ -28,15 +28,11 @@ public class NetServer extends Server {
 	 * Creates new net server that will listen to net end points on the given port.
 	 * 
 	 * @param port
-	 * @param endPointTaker
-	 * @throws NullArgumentException if the given end point taker is null.
-	 * @throws OutOfRangeArgumentException if the given port is not in [0, 65535].
+	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
 	 */
-	public NetServer(
-		final int port
-	) {
+	public NetServer(final int port) {
 			
-		//Checks if the given port is in [0, 65535]. 
+		//Checks if the given port is in [0,65535]. 
 		Validator.supposeThat(port).isBetween(PortManager.MIN_PORT, PortManager.MAX_PORT);
 		
 		//Sets the port of this net server.
@@ -44,10 +40,11 @@ public class NetServer extends Server {
 		
 		try {
 			
-			//Creates the server socket of this net server sub listener.
+			//Creates the server socket of this net server.
 			serverSocket = new ServerSocket(getPort());
 			
-			//This is important that the address can be reused immediately when this net server sub listener is aborted.
+			//This is important that the address can be reused immediately
+			//when this net server is closed.
 			serverSocket.setReuseAddress(true);
 		}
 		catch (final IOException exception) {
@@ -66,22 +63,24 @@ public class NetServer extends Server {
 		return port;
 	}
 	
+	//method
+	/**
+	 * Lets this net server note a closing.
+	 */
+	protected void noteClosing() {
+		try {
+			serverSocket.close();
+		}
+		catch (final IOException exception) {
+			throw new RuntimeException(exception);
+		}
+	}
+	
 	//package-visible method
 	/**
 	 * @return the server socket of this net server.
 	 */
 	ServerSocket getRefServerSocket() {
 		return serverSocket;
-	}
-	
-	//method
-	/**
-	 * Lets this net server note an abort.
-	 */
-	protected void noteClosing() {
-		try {
-			serverSocket.close();
-		}
-		catch (final IOException exception) {}
 	}
 }

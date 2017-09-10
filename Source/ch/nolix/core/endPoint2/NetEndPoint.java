@@ -51,7 +51,6 @@ public class NetEndPoint extends EndPoint {
 		int port,
 		String target
 	) {
-		
 		this(IPv6Manager.LOOP_BACK_ADDRESS, port, target);
 	}
 	
@@ -91,7 +90,7 @@ public class NetEndPoint extends EndPoint {
 		//Creates and starts the listener of this net end point.
 		new NetEndPointSubListener(this);
 		
-		send("N");
+		send_internal("N");
 	}
 	
 	//constructor
@@ -114,6 +113,8 @@ public class NetEndPoint extends EndPoint {
 		//Calls constructor of the base class.
 		super(true);
 		
+		setTarget(target);
+		
 		//Checks if the given port is in [0, 65535]. 
 		Validator
 		.supposeThat(port)
@@ -134,7 +135,7 @@ public class NetEndPoint extends EndPoint {
 		//Creates and starts the listener of this net end point.
 		new NetEndPointSubListener(this);
 		
-		send("T" + target);
+		send_internal("T" + target);
 	}
 	
 	//package-visible constructor
@@ -198,26 +199,26 @@ public class NetEndPoint extends EndPoint {
 		//Checks if this net end point is not stopped.
 		supposeBeingAlive();
 		
-		if (!receivedTargetInfo()) {
-			
-			switch (message.charAt(0)) {
-				case 'N':
-					break;
-				case 'T':
-					setTarget(message);
-					break;
-				default:
-					throw new RuntimeException();
-			}
-		}
-		else {
-			
-			//Calls method of the base class.
-			super.receive(message);
+		switch (message.charAt(0)) {
+			case 'N':
+				receivedTargetInfo = true;
+				break;
+			case 'T':
+				receivedTargetInfo = true;
+				setTarget(message.substring(1));
+				break;
+			case 'M':
+				
+				//Calls method of the base class.
+				super.receive(message.substring(1));
 		}
 	}
 	
 	public void send(final String message) {
+		send_internal("M" + message);
+	}
+	
+	private void send_internal(final String message) {
 		
 		//Checks if the given message is not null.
 		Validator.supposeThat(message).thatIsNamed("message").isNotNull();

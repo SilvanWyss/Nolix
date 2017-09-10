@@ -69,7 +69,7 @@ public class NetEndPoint extends EndPoint {
 		
 		internalEndPoint.setReceiver(new Receiver(this));
 		
-		createAbortDependency(internalEndPoint);
+		createCloseDependency(internalEndPoint);
 	}
 
 	public NetEndPoint(int port, String target) {
@@ -247,7 +247,7 @@ public class NetEndPoint extends EndPoint {
 	private String sendAndWaitToReply(
 		final String message
 	) {
-		//Sends message nd receives reply.
+		//Sends message and receives reply.
 		final int index = getNextSentPackageIndex();
 		send(new Package(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message.toString()));		
 		final Package response = waitToAndGetAndRemoveReceivedPackage(index);
