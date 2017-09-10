@@ -30,6 +30,18 @@ public final class StandardClient extends Client<StandardClient> {
 	
 	//constructor
 	/**
+	 * Creates new standard client that will connect to the arbitrary application
+	 * on the given port on the machine with the given ip.
+	 * 
+	 * @param ip
+	 * @param port
+	 */
+	public StandardClient(String ip, int port) {
+		internal_connect(ip, port);
+	}
+	
+	//constructor
+	/**
 	 * Creates new standard client that will connect to the given target application on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
@@ -79,11 +91,11 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @throws NullArgumentException if the given duplex controller is null.
 	 */
 	public StandardClient(final DuplexController duplexController) {
-				
+		
 		//Calls constructor of the base class.
 		internal_connect(duplexController);
 	}
-	
+
 	//constructor
 	/**
 	 * Creates new standard client with the given duplex controller and initial session.

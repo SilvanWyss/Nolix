@@ -10,6 +10,7 @@ import ch.nolix.core.basic.NamedElement;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.duplexController.DuplexController;
+import ch.nolix.core.duplexController.NetDuplexController;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.validator2.Validator;
 
@@ -74,7 +75,7 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 		this(name, initialSessionClass);
 		
 		//Creates server for this application.
-		new NetServer(port, this);
+		new NetServer(port).addArbitraryApplication(this);
 	}
 	
 	//method
@@ -116,12 +117,16 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 			final Constructor<?> constructor = Class.forName(className).getConstructor(DuplexController.class);	
 			constructor.setAccessible(true);
 			
+			constructor.newInstance(duplexController);
+			
 			//Creates client.
 			C client = (C)constructor.newInstance(duplexController);
 			
 			takeClient(client);
+			
 		}
 		catch (final Exception exception) {
+			System.out.println(exception.getMessage());
 			throw new RuntimeException(exception);
 		}
 	}

@@ -36,6 +36,13 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 		.setDisabled()
 		.removeGreyOutWhenDisabled();
 		
+	public ConsoleFrontClient(final int port) {
+		
+		this(new Frame());
+		
+		internal_connect(port);
+	}
+		
 	//constructor
 	/**
 	 * Creates new front console client that connects to the given application.

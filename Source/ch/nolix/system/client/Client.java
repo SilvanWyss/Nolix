@@ -43,28 +43,37 @@ implements Closable, Resettable {
 	private boolean requestedConnectionFlag;
 	
 	//optional attributes
-	private String target;
 	private Session<C> session;
 	
 	protected void internal_connect(final Application<?> target) {
 		requestedConnectionFlag = true;
-		this.target = target.getName();
 		duplexController = new LocalDuplexController();
 		duplexController.setReceiverController(new ClientReceiverController(this));
 		target.takeDuplexController(((LocalDuplexController)duplexController).getRefCounterpart());
 	}
 	
-	protected void internal_connect(final DuplexController duplexController) {
+	protected void internal_connect(final DuplexController duplexController) {		
 		requestedConnectionFlag = false;
-		this.duplexController = duplexController;
-		duplexController.setReceiverController(new ClientReceiverController(this));
-		target = duplexController.getData(TARGET_REQUEST).toString();
+		this.duplexController = duplexController;	
+		duplexController.setReceiverController(new ClientReceiverController(this));	
+	}
+	
+	protected void internal_connect(int port) {
+		requestedConnectionFlag = true;
+		duplexController = new NetDuplexController(port);
+		duplexController.setReceiverController(new ClientReceiverController(this));	
+	}
+	
+	protected void internal_connect(String ip, int port) {
+		requestedConnectionFlag = true;
+		duplexController = new NetDuplexController(ip, port);
+		duplexController.setReceiverController(new ClientReceiverController(this));	
 	}
 	
 	protected void internal_connect(String ip, int port, String target) {
 		requestedConnectionFlag = true;
-		this.target = target;
-		duplexController = new NetDuplexController(ip, port);
+		duplexController = new NetDuplexController(ip, port, target);
+		duplexController.setReceiverController(new ClientReceiverController(this));	
 	}
 	
 	//method
@@ -181,7 +190,7 @@ implements Closable, Resettable {
 		}
 		*/
 		
-		return target;
+		return duplexController.getTarget();
 	}
 	
 	//method

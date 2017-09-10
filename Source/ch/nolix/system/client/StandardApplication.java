@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
+//Java import
 import java.lang.reflect.Constructor;
 
 //class
@@ -52,7 +53,7 @@ extends Application<C> {
 		//Calls constructor of the base class.
 		super(name, initialSessionClass, port);
 	}
-
+	
 	//method
 	/**
 	 * @return a new initial session for a client of this standard application.
