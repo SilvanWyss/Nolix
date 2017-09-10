@@ -2,8 +2,8 @@
 package ch.nolix.core.helper;
 
 //own imports
-import ch.nolix.core.constants.CharacterManager;
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.CharacterCatalogue;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -31,10 +31,10 @@ public final class StringHelper {
 		//Checks if the given count is not negative.
 		Validator.supposeThat(tabulatorCount).thatIsNamed("count").isNotNegative();
 		
-		String tabulators = StringManager.EMPTY_STRING;
+		String tabulators = StringCatalogue.EMPTY_STRING;
 		
 		for (int i = 1; i <= tabulatorCount; i++) {
-			tabulators += CharacterManager.TABULATOR;
+			tabulators += CharacterCatalogue.TABULATOR;
 		}
 		
 		return tabulators;
@@ -103,7 +103,7 @@ public final class StringHelper {
 		
 		boolean negative = false;
 		
-		if (string.charAt(0) == CharacterManager.MINUS) {
+		if (string.charAt(0) == CharacterCatalogue.MINUS) {
 			startIndex++;
 			negative = true;
 		}

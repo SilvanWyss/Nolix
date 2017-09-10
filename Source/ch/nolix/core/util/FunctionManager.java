@@ -2,7 +2,7 @@
 package ch.nolix.core.util;
 
 //own imports
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerDoubleGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
@@ -54,7 +54,7 @@ public final class FunctionManager {
 		
 		//Handles the case if the given object is null.
 		if (o == null) {
-			return StringManager.NULL_NAME;
+			return StringCatalogue.NULL_NAME;
 		}
 		
 		//Handles the case if the given object is not null.

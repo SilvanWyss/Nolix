@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.netNeuron;
 
-import ch.nolix.core.constants.IPv6Manager;
+import ch.nolix.core.constants.IPv6Catalogue;
 //own imports
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.interfaces.Closable;
@@ -48,7 +48,7 @@ implements Closable {
 	) {
 		
 		//Calls other constructor.
-		this(IPv6Manager.LOOP_BACK_ADDRESS, port, transformer);
+		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port, transformer);
 	}	
 	
 	//constructor

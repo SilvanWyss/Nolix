@@ -14,7 +14,7 @@ import java.util.Random;
 //own imports
 
 
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.helper.DoubleHelper;
 import ch.nolix.core.interfaces.ApproximativeEqualing;
@@ -993,7 +993,7 @@ public final class Matrix implements ApproximativeEqualing {
 		
 		for (int i = 0; i < getRowCount(); i++) {	
 			
-			String line = StringManager.EMPTY_STRING;
+			String line = StringCatalogue.EMPTY_STRING;
 			
 			for (int j = 0; j < getColumnCount(); j++) {
 				

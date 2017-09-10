@@ -2,8 +2,8 @@
 package ch.nolix.application.candleStickAnalyzer;
 
 //own imports
-import ch.nolix.core.constants.CharacterManager;
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.CharacterCatalogue;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.element.basic.Time;
 import ch.nolix.element.finance.QuandlDataProvider;
@@ -131,9 +131,9 @@ public final class MainSession extends Session<ConsoleBackClient> {
 			argumentOfficer.getEndTime()
 		);
 		
-		String data = StringManager.EMPTY_STRING;
+		String data = StringCatalogue.EMPTY_STRING;
 		for (final VolumeCandleStick vcs : candleSticks) {
-			data += vcs.getSpecification().toString() + CharacterManager.NEW_LINE;
+			data += vcs.getSpecification().toString() + CharacterCatalogue.NEW_LINE;
 		}
 		
 		getRefClient().createFile("data.txt", data);
@@ -149,10 +149,10 @@ public final class MainSession extends Session<ConsoleBackClient> {
 		getRefClient().writeLineToConsole(
 			"-The product is bougth at the opening",
 			" of the next day after the confirmation.",
-			StringManager.EMPTY_STRING,
+			StringCatalogue.EMPTY_STRING,
 			"-The product is sold at the opening of the next day",
 			" if the loss ratio of the current day is too big.",
-			StringManager.EMPTY_STRING,
+			StringCatalogue.EMPTY_STRING,
 			"-The product is sold at the opening of the last day otherwise."
 		);
 	}

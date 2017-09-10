@@ -9,7 +9,7 @@ package ch.nolix.core.constants;
 * @month 2017-06
 * @lines 30
 */
-public final class CharacterManager {
+public final class CharacterCatalogue {
 
 	//characters
 	public static final char APOSTROPH = '\'';
@@ -35,5 +35,5 @@ public final class CharacterManager {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private CharacterManager() {}
+	private CharacterCatalogue() {}
 }

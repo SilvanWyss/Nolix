@@ -6,8 +6,8 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
 //own imports
-import ch.nolix.core.constants.CharacterManager;
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.CharacterCatalogue;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
@@ -40,7 +40,7 @@ implements Clearable {
 	
 	//attribute
 	//The edit line is the line of this console that can be edited.
-	private String editLine = StringManager.EMPTY_STRING;
+	private String editLine = StringCatalogue.EMPTY_STRING;
 	
 	//attribute
 	//The text cursor position is the position of the text cursor in the edit line of this console.
@@ -93,7 +93,7 @@ implements Clearable {
 	 * Clears the edit line of this console.
 	 */
 	public void clearEditLine() {		
-		editLine = StringManager.EMPTY_STRING;
+		editLine = StringCatalogue.EMPTY_STRING;
 		textCursorPosition = 0;
 	}
 	
@@ -255,7 +255,7 @@ implements Clearable {
 		//Enumerates the key code of the given key event.
 		switch (keyEvent.getKeyCode()) {
 			case KeyEvent.VK_SPACE:
-				insertCharacterAfterCursor(CharacterManager.SPACE);
+				insertCharacterAfterCursor(CharacterCatalogue.SPACE);
 				break;
 			case KeyEvent.VK_ENTER:
 				writeEditLine();
@@ -405,7 +405,7 @@ implements Clearable {
 	 * @return this console.
 	 */
 	public Console writeEmptyLine() {
-		return writeLine(StringManager.EMPTY_STRING);
+		return writeLine(StringCatalogue.EMPTY_STRING);
 	}
 	
 	//method

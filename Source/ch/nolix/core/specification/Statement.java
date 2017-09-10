@@ -2,7 +2,7 @@
 package ch.nolix.core.specification;
 
 //own imports
-import ch.nolix.core.constants.CharacterManager;
+import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
@@ -174,7 +174,7 @@ public final class Statement {
 		String string = specification.toReproducingString();
 		
 		if (hasNextStatement()) {
-			string += CharacterManager.DOT + getRefNextStatement().toReproducingString();
+			string += CharacterCatalogue.DOT + getRefNextStatement().toReproducingString();
 		}
 		
 		return string;
@@ -189,7 +189,7 @@ public final class Statement {
 		String string = specification.toReproducingString();
 		
 		if (hasNextStatement()) {
-			string += CharacterManager.DOT + getRefNextStatement().toString();
+			string += CharacterCatalogue.DOT + getRefNextStatement().toString();
 		}
 				
 		return string;
@@ -210,13 +210,13 @@ public final class Statement {
 			
 			final char character = value.charAt(i);
 			
-			if (character == CharacterManager.OPENING_BRACKET) {
+			if (character == CharacterCatalogue.OPENING_BRACKET) {
 				openBrackets++;
 			}
-			else if (character == CharacterManager.CLOSING_BRACKET) {
+			else if (character == CharacterCatalogue.CLOSING_BRACKET) {
 				openBrackets--;
 			}
-			else if (character == CharacterManager.DOT && openBrackets == 0) {
+			else if (character == CharacterCatalogue.DOT && openBrackets == 0) {
 				setValue(value.substring(0, i));
 				nextStatement = new Statement(value.substring(i + 1, value.length()));
 				return;

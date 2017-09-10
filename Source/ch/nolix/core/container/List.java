@@ -2,8 +2,8 @@
 package ch.nolix.core.container;
 
 //own imports
-import ch.nolix.core.constants.CharacterManager;
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.CharacterCatalogue;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerComparableGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
@@ -874,7 +874,7 @@ public final class List<E> implements Clearable, IContainer<E> {
 	 */
 	public String toString() {
 		
-		String string = StringManager.EMPTY_STRING;
+		String string = StringCatalogue.EMPTY_STRING;
 		
 		//Iterates this list.
 		boolean atBegin = true;
@@ -883,7 +883,7 @@ public final class List<E> implements Clearable, IContainer<E> {
 				atBegin = false;
 			}
 			else {
-				string += CharacterManager.COMMA;
+				string += CharacterCatalogue.COMMA;
 			}		
 			string += e.toString();
 		}

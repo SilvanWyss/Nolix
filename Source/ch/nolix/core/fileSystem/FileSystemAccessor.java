@@ -6,8 +6,8 @@ import java.io.File;
 import java.io.IOException;
 
 //own imports
-import ch.nolix.core.constants.CharacterManager;
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.CharacterCatalogue;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
@@ -272,10 +272,10 @@ public final class FileSystemAccessor {
 	private String getEntryPath() {
 		
 		if (!hasRootFolder()) {
-			return StringManager.EMPTY_STRING;
+			return StringCatalogue.EMPTY_STRING;
 		}
 		
-		return (getRootPathOrEmptyString() + CharacterManager.SLASH);
+		return (getRootPathOrEmptyString() + CharacterCatalogue.SLASH);
 	}
 	
 	//method
@@ -286,7 +286,7 @@ public final class FileSystemAccessor {
 		
 		//Handles the case if this file system accessor has no root folder.
 		if (!hasRootFolder()) {
-			return StringManager.EMPTY_STRING;
+			return StringCatalogue.EMPTY_STRING;
 		}
 		
 		//Handles the case if this file system accessor has a root folder.

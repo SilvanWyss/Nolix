@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 
 //own imports
-import ch.nolix.core.constants.PortManager;
+import ch.nolix.core.constants.PortCatalogue;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -33,7 +33,7 @@ public class NetServer extends Server {
 	public NetServer(final int port) {
 			
 		//Checks if the given port is in [0,65535]. 
-		Validator.supposeThat(port).isBetween(PortManager.MIN_PORT, PortManager.MAX_PORT);
+		Validator.supposeThat(port).isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
 		//Sets the port of this net server.
 		this.port = port;

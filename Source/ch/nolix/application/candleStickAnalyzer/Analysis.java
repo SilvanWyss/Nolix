@@ -2,8 +2,8 @@
 package ch.nolix.application.candleStickAnalyzer;
 
 //own imports
-import ch.nolix.core.constants.CharacterManager;
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.CharacterCatalogue;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.SequencePattern;
 import ch.nolix.core.mathematics.Calculator;
@@ -118,23 +118,23 @@ public final class Analysis {
 	//method
 	public String getData() {
 			
-		String data = StringManager.EMPTY_STRING;
+		String data = StringCatalogue.EMPTY_STRING;
 		for (final String s : toStrings()) {
-			data += s + CharacterManager.NEW_LINE;
+			data += s + CharacterCatalogue.NEW_LINE;
 		}
-		data += CharacterManager.NEW_LINE;
+		data += CharacterCatalogue.NEW_LINE;
 		
 		data += "potential sequences:";
-		data += CharacterManager.NEW_LINE;
-		data += CharacterManager.NEW_LINE;		
+		data += CharacterCatalogue.NEW_LINE;
+		data += CharacterCatalogue.NEW_LINE;		
 		for (final List<VolumeCandleStick> ps : potentialSequences) {
 			
 			for (final VolumeCandleStick vcs : ps) {
 				data += vcs.getSpecification().toString();
-			    data += CharacterManager.NEW_LINE;
+			    data += CharacterCatalogue.NEW_LINE;
 			}
 			
-			data += CharacterManager.NEW_LINE;
+			data += CharacterCatalogue.NEW_LINE;
 		}
 		
 		return data;
@@ -149,7 +149,7 @@ public final class Analysis {
 	public List<String> toStrings() {
 		return
 		argumentOfficer.toStrings().addAtEnd(
-			StringManager.EMPTY_STRING,
+			StringCatalogue.EMPTY_STRING,
 			"potential sequences:            " + getPotentialSequenceCount(),
 			"win sequences:                  " + getWinSequenceCount(),
 			"average output to input ratio:  " + getAverageOutputToInputRatio()

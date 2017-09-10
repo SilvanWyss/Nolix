@@ -2,7 +2,7 @@
 package ch.nolix.core.container;
 
 //own imports
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
@@ -325,12 +325,12 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	 */
 	public String toString() {
 		
-		String string = StringManager.EMPTY_STRING;
+		String string = StringCatalogue.EMPTY_STRING;
 		
 		//Iterates the rows of this matrix.
 		for (int i = 0; i < getRowCount(); i++) {
 			
-			String rowString = StringManager.EMPTY_STRING;
+			String rowString = StringCatalogue.EMPTY_STRING;
 			
 			//Iterates the columns of the current row.
 			for (int j = 0; j < getColumnCount(); j++) {

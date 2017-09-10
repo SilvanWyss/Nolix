@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 
 //own imports
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
@@ -52,7 +52,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 	 * Deletes the content of the file of this file accessor, but not the file itself.
 	 */
 	public void clearFile() {
-		overwriteFile(StringManager.EMPTY_STRING);
+		overwriteFile(StringCatalogue.EMPTY_STRING);
 	}
 	
 	//method

@@ -9,7 +9,7 @@ package ch.nolix.core.constants;
  * @month 2017-02
  * @lines 40
  */
-public final class TimeUnitManager {
+public final class TimeUnitCatalogue {
 	
 	//constants for milliseconds
 	public static final int MICROSECONDS_PER_MILLISECOND = 1000;
@@ -40,5 +40,5 @@ public final class TimeUnitManager {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private TimeUnitManager() {}
+	private TimeUnitCatalogue() {}
 }

@@ -2,7 +2,7 @@
 package ch.nolix.elementTest.dataTest;
 
 //own imports
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.test2.Test;
@@ -72,7 +72,7 @@ public final class TitleTest extends Test {
 		final Title title = new Title();
 		
 		//execution and verification
-		expectThat(() -> title.setValue(StringManager.EMPTY_STRING))
+		expectThat(() -> title.setValue(StringCatalogue.EMPTY_STRING))
 		.throwsExceptionOfType(EmptyArgumentException.class);
 	}
 }

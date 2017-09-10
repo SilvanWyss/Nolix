@@ -2,7 +2,7 @@
 package ch.nolix.element.basic;
 
 //own imports
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
@@ -329,7 +329,7 @@ public class Color extends Element {
 			
 			//Handles other colors.
 			default:
-				String value = StringManager.HEXADECIMAL_PREFIX;
+				String value = StringCatalogue.HEXADECIMAL_PREFIX;
 				int base = 16777216;
 				for (int i = 1; i <= 6; i++) {
 					switch ((getValue() / base) % 16) {
@@ -609,7 +609,7 @@ public class Color extends Element {
 				
 			//Handles other colors.	
 			default:
-				if (value.length() != 8 && !value.substring(2).equals(StringManager.HEXADECIMAL_PREFIX)) {
+				if (value.length() != 8 && !value.substring(2).equals(StringCatalogue.HEXADECIMAL_PREFIX)) {
 					throw new InvalidArgumentException(
 						new Argument(value),
 						new ErrorPredicate("is no color name or true color value")

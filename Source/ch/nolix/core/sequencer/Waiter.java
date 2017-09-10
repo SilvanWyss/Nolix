@@ -2,7 +2,7 @@
 package ch.nolix.core.sequencer;
 
 //own imports
-import ch.nolix.core.constants.TimeUnitManager;
+import ch.nolix.core.constants.TimeUnitCatalogue;
 import ch.nolix.core.validator2.Validator;
 
 //package-visibel class
@@ -28,7 +28,7 @@ final class Waiter {
 		//Checks if the given seconds is not negative.
 		Validator.supposeThat(seconds).thatIsNamed("seconds").isNotNegative();
 		
-		waitForMilliseconds(TimeUnitManager.MILLISECONDS_PER_SECOND * seconds);
+		waitForMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_SECOND * seconds);
 	}
 	
 	//static method

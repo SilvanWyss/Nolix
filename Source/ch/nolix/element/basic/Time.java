@@ -5,7 +5,7 @@ package ch.nolix.element.basic;
 import java.util.GregorianCalendar;
 
 //own imports
-import ch.nolix.core.constants.TimeUnitManager;
+import ch.nolix.core.constants.TimeUnitCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -260,7 +260,7 @@ public final class Time extends Element {
 	 * @return the number of days from this time to the given time.
 	 */
 	public int getDaysTo(final Time time) {
-		return (int)(getMillisecondsTo(time) / TimeUnitManager.MILLISECONDS_PER_DAY);
+		return (int)(getMillisecondsTo(time) / TimeUnitCatalogue.MILLISECONDS_PER_DAY);
 	}
 
 	//method
@@ -418,7 +418,7 @@ public final class Time extends Element {
 	 * @param days
 	 */
 	private void addDays(final int days) {
-		addMilliseconds(TimeUnitManager.MILLISECONDS_PER_DAY * days);
+		addMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_DAY * days);
 	}
 	
 	//method
@@ -428,7 +428,7 @@ public final class Time extends Element {
 	 * @param hours
 	 */
 	private void addHours(final int hours) {
-		addMilliseconds(TimeUnitManager.MILLISECONDS_PER_HOUR * hours);
+		addMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_HOUR * hours);
 	}
 	
 	//method
@@ -448,7 +448,7 @@ public final class Time extends Element {
 	 * @param minutes
 	 */
 	private void addMinutes(final int minutes) {
-		addMilliseconds(TimeUnitManager.MILLISECONDS_PER_MINUTE * minutes);
+		addMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_MINUTE * minutes);
 	}
 	
 	//method
@@ -458,7 +458,7 @@ public final class Time extends Element {
 	 * @param seconds
 	 */
 	private void addSeconds(final int seconds) {
-		addMilliseconds(TimeUnitManager.MILLISECONDS_PER_SECOND * seconds);
+		addMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_SECOND * seconds);
 	}
 	
 	//method

@@ -2,7 +2,7 @@
 package ch.nolix.core.invalidArgumentException;
 
 //own import
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.StringCatalogue;
 
 //class
 /**
@@ -59,7 +59,7 @@ public final class Argument {
 		
 		//Handles the case if the value of this argument is null.
 		if (value == null) {
-			return StringManager.NULL_NAME;
+			return StringCatalogue.NULL_NAME;
 		}
 		
 		//Handles the case if the value of this argument is not null.

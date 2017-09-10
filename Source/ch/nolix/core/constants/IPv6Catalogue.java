@@ -9,7 +9,7 @@ package ch.nolix.core.constants;
  * @month 2017-02
  * @lines 20
  */
-public final class IPv6Manager {
+public final class IPv6Catalogue {
 	
 	//loop back address
 	public static final String LOOP_BACK_ADDRESS = "::1";
@@ -18,5 +18,5 @@ public final class IPv6Manager {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private IPv6Manager() {}
+	private IPv6Catalogue() {}
 }

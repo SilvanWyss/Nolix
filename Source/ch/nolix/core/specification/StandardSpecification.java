@@ -7,8 +7,8 @@ import java.nio.file.Paths;
 import java.util.Iterator;
 
 //own imports
-import ch.nolix.core.constants.CharacterManager;
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.CharacterCatalogue;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.Argument;
@@ -49,7 +49,7 @@ public final class StandardSpecification extends Specification {
 		
 		//Handles the case if the given string is empty.
 		if (string.isEmpty()) {
-			return StringManager.EMPTY_STRING;
+			return StringCatalogue.EMPTY_STRING;
 		}
 		
 		//Handles the case if the given string is not empty.
@@ -514,7 +514,7 @@ public final class StandardSpecification extends Specification {
 	 * @return a string representation of this standard specification
 	 */
 	public String toReproducingString() {
-		String string = StringManager.EMPTY_STRING;
+		String string = StringCatalogue.EMPTY_STRING;
 		
 		//Handles header if this specification has a header.
 		if (hasHeader()) {
@@ -523,18 +523,18 @@ public final class StandardSpecification extends Specification {
 		
 		//Handles attributes.
 		if (containsAttributes()) {
-			string += CharacterManager.OPENING_BRACKET;
+			string += CharacterCatalogue.OPENING_BRACKET;
 			boolean begin = true;
 			for (StandardSpecification a: attributes) {
 				if (begin) {
 					begin = false;
 				}
 				else {
-					string += CharacterManager.COMMA;
+					string += CharacterCatalogue.COMMA;
 				}
 				string += a.toReproducingString();
 			}
-			string += CharacterManager.CLOSING_BRACKET;
+			string += CharacterCatalogue.CLOSING_BRACKET;
 		}
 		return string;
 	}
@@ -581,7 +581,7 @@ public final class StandardSpecification extends Specification {
 			final Character character = value.charAt(i);
 			
 			//Checks if the current character is a closing bracket before an opening bracket.
-			if (character == CharacterManager.CLOSING_BRACKET) {
+			if (character == CharacterCatalogue.CLOSING_BRACKET) {
 				throw new InvalidArgumentException(
 					new ArgumentName("content"),
 					new Argument(value)
@@ -589,7 +589,7 @@ public final class StandardSpecification extends Specification {
 			}
 			
 			//Checks if the current character is a comma before an opening bracket.
-			if (character == CharacterManager.COMMA) {
+			if (character == CharacterCatalogue.COMMA) {
 				throw new InvalidArgumentException(
 					new ArgumentName("content"),
 					new Argument(value)
@@ -597,7 +597,7 @@ public final class StandardSpecification extends Specification {
 			}
 			
 			//Handles the case if the current character is an opening bracket.
-			if (character == CharacterManager.OPENING_BRACKET) {
+			if (character == CharacterCatalogue.OPENING_BRACKET) {
 				
 				hasAttributes = true;
 				
@@ -626,20 +626,20 @@ public final class StandardSpecification extends Specification {
 			}
 			
 			int level = 0;
-			String attributeString = StringManager.EMPTY_STRING;
+			String attributeString = StringCatalogue.EMPTY_STRING;
 			for (int i = attributestartIndex; i < value.length() - 1; i++)
 			{
 				final char character = value.charAt(i);
 				
-				if (character == CharacterManager.OPENING_BRACKET) {
+				if (character == CharacterCatalogue.OPENING_BRACKET) {
 					level++;
 				}
-				else if (character == CharacterManager.CLOSING_BRACKET) {
+				else if (character == CharacterCatalogue.CLOSING_BRACKET) {
 					level--;
 				}
-				if (character == CharacterManager.COMMA && level == 0) {
+				if (character == CharacterCatalogue.COMMA && level == 0) {
 					attributes.addAtEnd(new StandardSpecification(attributeString));
-					attributeString = StringManager.EMPTY_STRING;
+					attributeString = StringCatalogue.EMPTY_STRING;
 				}
 				else {
 					attributeString += character;
@@ -656,7 +656,7 @@ public final class StandardSpecification extends Specification {
 			}
 			
 			//Checks if the last character of the given value is a closing bracket.
-			if (value.charAt(value.length() - 1) != CharacterManager.CLOSING_BRACKET) {
+			if (value.charAt(value.length() - 1) != CharacterCatalogue.CLOSING_BRACKET) {
 				throw new InvalidArgumentException(
 					new ArgumentName("content"),
 					new Argument(value)

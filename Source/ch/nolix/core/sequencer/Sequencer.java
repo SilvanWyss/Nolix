@@ -2,7 +2,7 @@
 package ch.nolix.core.sequencer;
 
 //own imports
-import ch.nolix.core.constants.TimeUnitManager;
+import ch.nolix.core.constants.TimeUnitCatalogue;
 import ch.nolix.core.functionInterfaces.IBooleanGetter;
 import ch.nolix.core.functionInterfaces.IRunner;
 
@@ -32,7 +32,7 @@ public final class Sequencer {
 	 * @return a new after all mediator with 1 second as time interval.
 	 */
 	public static AfterAllMediator afterAllSeconds() {
-		return new AfterAllMediator(TimeUnitManager.MILLISECONDS_PER_SECOND);
+		return new AfterAllMediator(TimeUnitCatalogue.MILLISECONDS_PER_SECOND);
 	}
 	
 	//static method
@@ -42,7 +42,7 @@ public final class Sequencer {
 	 * @throws NegativeArgumentException if the given time interval in milliseconds is negative.
 	 */
 	public static AfterAllMediator afterAllSeconds(final int timeIntervalInSeconds) {
-		return new AfterAllMediator(TimeUnitManager.MILLISECONDS_PER_HOUR * timeIntervalInSeconds);
+		return new AfterAllMediator(TimeUnitCatalogue.MILLISECONDS_PER_HOUR * timeIntervalInSeconds);
 	}
 	
 	//static method

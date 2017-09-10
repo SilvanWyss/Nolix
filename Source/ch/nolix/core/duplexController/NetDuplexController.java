@@ -2,7 +2,7 @@
 package ch.nolix.core.duplexController;
 
 //own imports
-import ch.nolix.core.constants.IPv6Manager;
+import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerInterfaces.ILevel2Controller;
 import ch.nolix.core.endPoint3.NetEndPoint;
@@ -37,7 +37,7 @@ public class NetDuplexController extends DuplexController {
 	public NetDuplexController(final int port) {
 		
 		//Calls other constructor.
-		this(IPv6Manager.LOOP_BACK_ADDRESS, port);
+		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port);
 	}
 	
 	//constructor
@@ -52,7 +52,7 @@ public class NetDuplexController extends DuplexController {
 	public NetDuplexController(final int port, final String target) {
 		
 		//Calls other constructor.
-		this(IPv6Manager.LOOP_BACK_ADDRESS, port, target);
+		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port, target);
 	}
 
 	//constructor

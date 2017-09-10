@@ -7,8 +7,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 //own imports
-import ch.nolix.core.constants.IPv6Manager;
-import ch.nolix.core.constants.PortManager;
+import ch.nolix.core.constants.IPv6Catalogue;
+import ch.nolix.core.constants.PortCatalogue;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -35,7 +35,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @param port
 	 */
 	public NetEndPoint(final int port) {
-		this(IPv6Manager.LOOP_BACK_ADDRESS, port);
+		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port);
 	}
 	
 	//constructor
@@ -55,7 +55,7 @@ public final class NetEndPoint extends EndPoint {
 		Validator
 		.supposeThat(port)
 		.thatIsNamed("port")
-		.isBetween(PortManager.MIN_PORT, PortManager.MAX_PORT);
+		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
 		try {
 			

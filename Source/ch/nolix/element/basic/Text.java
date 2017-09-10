@@ -2,7 +2,7 @@
 package ch.nolix.element.basic;
 
 //own import
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.StringCatalogue;
 
 //class
 /**
@@ -16,7 +16,7 @@ public final class Text extends Textoid {
 	public static final String SIMPLE_CLASS_NAME = "Text";
 	
 	//default value
-	public static final String DEFAULT_VALUE = StringManager.EMPTY_STRING;
+	public static final String DEFAULT_VALUE = StringCatalogue.EMPTY_STRING;
 	
 	//constructor
 	/**

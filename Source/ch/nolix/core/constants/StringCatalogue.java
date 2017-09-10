@@ -9,7 +9,7 @@ package ch.nolix.core.constants;
  * @month 2016-09
  * @lines 20
  */
-public final class StringManager {
+public final class StringCatalogue {
 	
 	//strings
 	public static final String EMPTY_STRING = "";
@@ -22,5 +22,5 @@ public final class StringManager {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private StringManager() {}
+	private StringCatalogue() {}
 }

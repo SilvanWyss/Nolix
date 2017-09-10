@@ -9,7 +9,7 @@ package ch.nolix.core.constants;
  * @month 2015-12
  * @lines 20
  */
-public final class PortManager {
+public final class PortCatalogue {
 	
 	//ports
 	public static final int MIN_PORT = 0;
@@ -23,5 +23,5 @@ public final class PortManager {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private PortManager() {}
+	private PortCatalogue() {}
 }

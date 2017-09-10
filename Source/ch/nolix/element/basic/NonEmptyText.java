@@ -2,7 +2,7 @@
 package ch.nolix.element.basic;
 
 //own imports
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -17,7 +17,7 @@ public class NonEmptyText extends Textoid {
 	public static final String SIMPLE_CLASS_NAME = "NonEmptyText";
 	
 	//default value
-	public static final String DEFAULT_VALUE = StringManager.DEFAULT_STRING;
+	public static final String DEFAULT_VALUE = StringCatalogue.DEFAULT_STRING;
 	
 	//constructor
 	/**

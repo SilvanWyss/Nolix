@@ -2,8 +2,8 @@
 package ch.nolix.core.specification;
 
 //own imports
-import ch.nolix.core.constants.CharacterManager;
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.CharacterCatalogue;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
@@ -98,9 +98,9 @@ public abstract class Specification {
 	 */
 	public final String getHeaderInQuotes() {
 		return (
-			CharacterManager.APOSTROPH
+			CharacterCatalogue.APOSTROPH
 			+ getHeader()
-			+ CharacterManager.APOSTROPH
+			+ CharacterCatalogue.APOSTROPH
 		);
 	}
 	
@@ -218,7 +218,7 @@ public abstract class Specification {
 	 */
 	public final String toString() {
 		
-		String string = StringManager.EMPTY_STRING;
+		String string = StringCatalogue.EMPTY_STRING;
 		
 		//Handles the header if this specification has a header.
 		if (hasHeader()) {
@@ -230,18 +230,18 @@ public abstract class Specification {
 			
 			final IContainer<Specification> attributes = getRefAttributes();
 			
-			string += CharacterManager.OPENING_BRACKET;
+			string += CharacterCatalogue.OPENING_BRACKET;
 			boolean begin = true;
 			for (final Specification a : attributes) {
 				if (begin) {
 					begin = false;
 				}
 				else {
-					string += CharacterManager.COMMA;
+					string += CharacterCatalogue.COMMA;
 				}
 				string += a.toString();
 			}
-			string += CharacterManager.CLOSING_BRACKET;
+			string += CharacterCatalogue.CLOSING_BRACKET;
 		}
 		
 		return string;
@@ -268,9 +268,9 @@ public abstract class Specification {
 				return (
 					StringHelper.createTabulators(leadingTabulatorCount)
 					+ getHeader()
-					+ CharacterManager.OPENING_BRACKET
+					+ CharacterCatalogue.OPENING_BRACKET
 					+ getRefAttributes().toString()
-					+ CharacterManager.CLOSING_BRACKET
+					+ CharacterCatalogue.CLOSING_BRACKET
 				);
 			}
 			
@@ -280,8 +280,8 @@ public abstract class Specification {
 				String formatedString =
 				StringHelper.createTabulators(leadingTabulatorCount)
 				+ getHeader()
-				+ CharacterManager.OPENING_BRACKET
-				+ CharacterManager.NEW_LINE;
+				+ CharacterCatalogue.OPENING_BRACKET
+				+ CharacterCatalogue.NEW_LINE;
 				
 				//Iterates the attributes of this specification.
 				int currentAttributeIndex = 1;
@@ -290,10 +290,10 @@ public abstract class Specification {
 					formatedString += attribute.toFormatedReproducingString(leadingTabulatorCount + 1);
 					
 					if (currentAttributeIndex != getRefAttributes().getElementCount()) {
-						formatedString += CharacterManager.COMMA;
+						formatedString += CharacterCatalogue.COMMA;
 					}
 					
-					formatedString += CharacterManager.NEW_LINE;
+					formatedString += CharacterCatalogue.NEW_LINE;
 					
 					currentAttributeIndex++;
 				}
@@ -301,7 +301,7 @@ public abstract class Specification {
 				return (
 					formatedString
 					+ StringHelper.createTabulators(leadingTabulatorCount)
-					+ CharacterManager.CLOSING_BRACKET
+					+ CharacterCatalogue.CLOSING_BRACKET
 				);
 			}
 		}

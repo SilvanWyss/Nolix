@@ -9,7 +9,7 @@
 package ch.nolix.element.basic;
 
 //own imports
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator.Validator;
@@ -18,7 +18,7 @@ import ch.nolix.core.validator.Validator;
 public abstract class Textoid extends Element {
 
 	//attribute
-	private String value = StringManager.EMPTY_STRING;
+	private String value = StringCatalogue.EMPTY_STRING;
 	
 	//constructor
 	/**

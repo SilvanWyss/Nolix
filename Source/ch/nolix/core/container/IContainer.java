@@ -6,8 +6,8 @@ import java.util.Iterator;
 import java.util.Random;
 
 //own imports
-import ch.nolix.core.constants.CharacterManager;
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.CharacterCatalogue;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerComparableGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerDoubleGetter;
@@ -1229,7 +1229,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default String toTablulatorSeparatedString() {
 		
-		String string = StringManager.EMPTY_STRING;
+		String string = StringCatalogue.EMPTY_STRING;
 		
 		//Iterates this container.
 		boolean begin = true;
@@ -1239,7 +1239,7 @@ public interface IContainer<E> extends Iterable<E> {
 				begin = false;
 			}
 			else {
-				string += CharacterManager.TABULATOR;
+				string += CharacterCatalogue.TABULATOR;
 			}
 			
 			string += e.toString();

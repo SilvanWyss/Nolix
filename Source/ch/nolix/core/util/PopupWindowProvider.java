@@ -5,8 +5,8 @@ package ch.nolix.core.util;
 import javax.swing.JOptionPane;
 
 //own imports
-import ch.nolix.core.constants.CharacterManager;
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.CharacterCatalogue;
+import ch.nolix.core.constants.StringCatalogue;
 
 //class
 /**
@@ -62,11 +62,11 @@ public final class PopupWindowProvider {
 			title = exception.getClass().getSimpleName();
 			
 			//Sets the text.
-				text = StringManager.EMPTY_STRING;
+				text = StringCatalogue.EMPTY_STRING;
 				
 				//Handles the option that the given exception has a message.
 				if (exception.getMessage() != null && !exception.getMessage().isEmpty()) {
-					text += exception.getMessage() + CharacterManager.NEW_LINE + CharacterManager.NEW_LINE;
+					text += exception.getMessage() + CharacterCatalogue.NEW_LINE + CharacterCatalogue.NEW_LINE;
 				}
 				
 				//Iterates the stack trace of the given exception.
@@ -79,7 +79,7 @@ public final class PopupWindowProvider {
 						text += " (line " + ste.getLineNumber() + ")";
 					}
 					
-					text += CharacterManager.NEW_LINE;
+					text += CharacterCatalogue.NEW_LINE;
 				}
 		}
 		

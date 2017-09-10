@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.application.candleStickAnalyzer;
 
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.StringCatalogue;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.validator2.Validator;
@@ -187,7 +187,7 @@ public final class ArgumentOfficer {
 			"product symbol:  " + getProductSymbol(),
 			"start time:      " + getStartTime(),
 			"end time:        " + getEndTime(),
-			StringManager.EMPTY_STRING,
+			StringCatalogue.EMPTY_STRING,
 			"minimal number of red candle sticks before hammer:   " + getRedCandleStickCountBeforeHammer(),
 			"minimal number of green candle sticks after hammer:  " + getGreenCandleStickCountAfterHammer(),
 			"hammer minimal lower wick to length ratio:           " + getHammerMinLowerWickLengthRation(),

@@ -6,8 +6,8 @@ import java.awt.Canvas;
 import java.awt.Graphics;
 
 //own imports
-import ch.nolix.core.constants.CharacterManager;
-import ch.nolix.core.constants.StringManager;
+import ch.nolix.core.constants.CharacterCatalogue;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
@@ -203,10 +203,10 @@ public final class Font extends Element {
 		Validator.supposeThat(maxWidth).thatIsNamed("max width").isNotNegative();
 		
 		if (text == null) {
-			text = StringManager.NULL_NAME;
+			text = StringCatalogue.NULL_NAME;
 		}
 		
-		String firstPart = StringManager.EMPTY_STRING;
+		String firstPart = StringCatalogue.EMPTY_STRING;
 				
 		while (firstPart.length() < text.length() && getTextWidth(firstPart) < maxWidth) {
 			firstPart = text.substring(0, firstPart.length() + 1);
@@ -216,11 +216,11 @@ public final class Font extends Element {
 		if (attachEllipsis) {
 			if (firstPart.length() < text.length()) {		
 				
-				while (getTextWidth(firstPart + CharacterManager.ELLIPSIS) > maxWidth) {
+				while (getTextWidth(firstPart + CharacterCatalogue.ELLIPSIS) > maxWidth) {
 					firstPart = firstPart.substring(0, firstPart.length() - 1);
 				}
 			
-				firstPart += CharacterManager.ELLIPSIS;
+				firstPart += CharacterCatalogue.ELLIPSIS;
 			}
 		}
 		
