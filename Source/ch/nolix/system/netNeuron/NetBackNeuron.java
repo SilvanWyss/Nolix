@@ -12,52 +12,55 @@ import ch.nolix.system.neuron.TriggerQueue;
 
 //class
 /**
- * A net neuron is a neuron that can be connected from front net neurons on other processes or machines.
+ * A net back neuron is a neuron that can be connected
+ * from net front neurons on other processes or machines.
  * 
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 80
- * @param <I> - The type of the input of a net neuron.
+ * @lines 90
+ * @param <I> The type of the input of a net back neuron.
  */
-public final class NetNeuron<I>
-extends Neuron<I, Object, NetNeuron<I>> {
-	
+public final class NetBackNeuron<I>
+extends Neuron<I, Object, NetBackNeuron<I>> {
+		
 	//constant
-	static final String DEFAULT_NET_NEURON_APPLICATION_NAME = "FrontNetNeuronApplication";
+	private static final String APPLICATION_NAME = "NetBackNeuron";
 	
-	//attribute
+	//attributes
 	private final IElementTakerElementGetter<I, StandardSpecification> transformer;
 	private final StandardApplication<StandardClient> application;
 	
 	//constructor
 	/**
-	 * Creates new net neuron with the given port.
+	 * Creates new net back neuron with the given port and transformer.
 	 * 
 	 * @param port
+	 * @param transformer
+	 * @throws OutOfRangeArgumentException if the given port is not in [0,65'535].
 	 * @throws NullArgumentException if the given transfromer is null.
 	 */
-	public NetNeuron(
+	public NetBackNeuron(
 		final int port,
 		final IElementTakerElementGetter<I, StandardSpecification> transformer)
 	{
-		//Checks if the given transform function is not null.
+		//Checks if the given transform is not null.
 		Validator.supposeThat(transformer).thatIsNamed("transformer").isNotNull();
 		
-		//Sets the transformer of this net neuron.
+		//Sets the transformer of this net back neuron.
 		this.transformer = transformer;
 		
-		//Creates application of this net neuron.
+		//Creates the application of this net back neuron.
 		application =
 		new StandardApplication<StandardClient>(
-			DEFAULT_NET_NEURON_APPLICATION_NAME,
-			NetNeuronSession.class,
+			APPLICATION_NAME,
+			NetBackNeuronSession.class,
 			port
 		);
 	}
 
 	//method
 	/**
-	 * @return the maximum number of input neurons of this net neuron.
+	 * @return the maximum number of input neurons of this net back neuron.
 	 */
 	protected int getMaxInputNeuronCount() {
 		return 1;
@@ -65,7 +68,7 @@ extends Neuron<I, Object, NetNeuron<I>> {
 
 	//method
 	/**
-	 * @return the minimum number of input neurons of this net neuron.
+	 * @return the minimum number of input neurons of this net back neuron.
 	 */
 	protected int getMinInputNeuronCount() {
 		return 0;
@@ -73,7 +76,7 @@ extends Neuron<I, Object, NetNeuron<I>> {
 	
 	//method
 	/**
-	 * Triggers this net neuron using the given processor.
+	 * Triggers this net back neuron using the given processor.
 	 */
 	protected void trigger(final TriggerQueue processor) {
 		
@@ -83,6 +86,7 @@ extends Neuron<I, Object, NetNeuron<I>> {
 		else {
 			setOutput(transformer.getOutput(getRefOneInput()));
 			application.getRefClients().forEach(
+					
 				c -> {
 					c.run("SetOutput(" + getRefOutput() + ")");
 					c.run("Trigger");
