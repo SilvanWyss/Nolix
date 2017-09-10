@@ -32,20 +32,17 @@ public final class NetEndPointTest extends Test {
 		final EndPointTakerMock endPointTakerMock
 		= new EndPointTakerMock(new ReplierMock(reply));
 		netServer.addEndPointTaker(endPointTakerMock);
+		registerToClose(netServer);
 		
 		//execution
 		final NetEndPoint netEndPoint
-		= new NetEndPoint(port, endPointTakerMock.getName());
+		= new NetEndPoint(port, endPointTakerMock.getName());	
+		registerToClose(netEndPoint);	
 		Thread.sleep(200);
 		
 		//verification
 		expectThat(endPointTakerMock.hasLastEndPoint());
-		expectThat(endPointTakerMock.getLastEndPoint().isAlive());
-		
-		//TODO: Let test do cleanup.
-		//cleanup
-		netServer.close();
-		netEndPoint.close();
+		expectThat(endPointTakerMock.getLastEndPoint().isAlive());	
 	}
 	
 	//test method
@@ -57,11 +54,13 @@ public final class NetEndPointTest extends Test {
 		
 		//setup
 		final NetServer netServer = new NetServer(port);
+		registerToClose(netServer);
 		final EndPointTakerMock endPointTakerMock = new EndPointTakerMock(new ReplierMock(reply));
 		netServer.addEndPointTaker(endPointTakerMock);
 		
 		//execution
 		final NetEndPoint netEndPoint = new NetEndPoint(port, endPointTakerMock.getName());
+		registerToClose(netEndPoint);
 		final String received_reply = netEndPoint.sendAndGetReply("test");
 		Thread.sleep(200);
 		
@@ -69,11 +68,6 @@ public final class NetEndPointTest extends Test {
 		expectThat(endPointTakerMock.hasLastEndPoint());
 		expectThat(endPointTakerMock.getLastEndPoint().isAlive());
 		expectThat(received_reply).equals(reply);
-		
-		//TODO: Let test do cleanup.
-		//cleanup
-		netServer.close();
-		netEndPoint.close();
 	}
 	
 	//mock class
