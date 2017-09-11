@@ -42,7 +42,7 @@ extends Widget<L, LineStructure> {
 	//default values
 	public static final int DEFAULT_LENGTH = 100;
 	public static final int DEFAULT_THICKNESS = 1;
-	public static final int DEFAULT_COLOR = Color.BLACK;
+	public static final Color DEFAULT_COLOR = Color.BLACK;
 	
 	//attributes
 	private final Length length = new Length();
@@ -93,7 +93,7 @@ extends Widget<L, LineStructure> {
 			attributes.addAtEnd(thickness.getSpecification());
 		}
 		
-		if (getColor() != DEFAULT_COLOR) {
+		if (getColor().equals(DEFAULT_COLOR)) {
 			attributes.addAtEnd(color.getSpecification());
 		}
 		
@@ -104,8 +104,8 @@ extends Widget<L, LineStructure> {
 	/**
 	 * @return the color of this line
 	 */
-	public final int getColor() {
-		return color.getValue();
+	public final Color getColor() {
+		return color;
 	}
 	
 	//method
@@ -156,9 +156,9 @@ extends Widget<L, LineStructure> {
 	 * @throws Exception if the given color is no true color
 	 */
 	@SuppressWarnings("unchecked")
-	public final L setColor(final int color) {
+	public final L setColor(final Color color) {
 		
-		this.color = new Color(color);
+		this.color = color;
 		
 		return (L)this;
 	}

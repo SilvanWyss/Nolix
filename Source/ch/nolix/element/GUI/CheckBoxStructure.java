@@ -20,7 +20,7 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 	//default values
 	public static final int DEFAULT_SIZE = 10;
 	public static final int DEFAULT_LINE_THICKNESS = 1;
-	public static final Color DEFAULT_LINE_COLOR = new Color(Color.BLACK);
+	public static final Color DEFAULT_LINE_COLOR = Color.BLACK;
 	
 	//attribute headers
 	private static final String SIZE_HEADER = "Size";

@@ -18,7 +18,7 @@ public final class TextColor extends Color {
 	public static final String TYPE_NAME = "TextColor";
 	
 	//default value
-	public static final int DEFAULT_VALUE = Color.BLACK;
+	public static final Color DEFAULT_VALUE = Color.BLACK;
 	
 	//constructor
 	/**
@@ -27,7 +27,7 @@ public final class TextColor extends Color {
 	public TextColor() {
 		
 		//Calls constructor of the base class.
-		super(DEFAULT_VALUE);
+		super(DEFAULT_VALUE.getValue());
 	}
 	
 	//constructor

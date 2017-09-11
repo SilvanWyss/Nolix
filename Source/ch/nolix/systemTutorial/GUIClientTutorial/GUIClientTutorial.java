@@ -6,7 +6,6 @@ import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.ContentPosition;
 import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.basic.Color;
-import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.system.GUIClient.GUIBackClient;
 import ch.nolix.system.GUIClient.GUIFrontClient;
 import ch.nolix.system.client.Session;
@@ -46,7 +45,7 @@ public final class GUIClientTutorial {
 	private static final class MainSession extends Session<GUIBackClient> {
 
 		//attribute
-		private int backgroundColor = Color.BLUE;
+		private Color backgroundColor = Color.BLUE;
 		
 		//method
 		/**
@@ -58,7 +57,7 @@ public final class GUIClientTutorial {
 			.setTitle("Dialog Client Tutorial")
 			.removeConfiguration()
 			.setContentPosition(ContentPosition.Center)
-			.setBackgroundColor(new BackgroundColor(backgroundColor));
+			.setBackgroundColor(backgroundColor);
 			
 			final Button changeColorbutton
 			= new Button()
@@ -68,7 +67,7 @@ public final class GUIClientTutorial {
 						
 			changeColorbutton.getRefNormalStructure()
 			.setPaddings(10)
-			.setBackgroundColor(new BackgroundColor(Color.LIGHT_GREY));
+			.setBackgroundColor(Color.AQUA);
 			changeColorbutton.getRefHoverStructure().setTextSize(30);
 			
 			getRefClient().getRefGUI().setRootWidget(changeColorbutton);	
@@ -82,13 +81,13 @@ public final class GUIClientTutorial {
 		public void ChangeColor() {
 			
 			if (backgroundColor == Color.BLUE) {
-				backgroundColor = Color.RED;
+				backgroundColor = Color.FOREST_GREEN;
 			}
 			else {
 				backgroundColor = Color.BLUE;
 			}
 			
-			getRefClient().getRefGUI().setBackgroundColor(new BackgroundColor(backgroundColor));
+			getRefClient().getRefGUI().setBackgroundColor(backgroundColor);
 		}
 	}
 

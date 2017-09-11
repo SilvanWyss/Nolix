@@ -11,6 +11,7 @@ package ch.nolix.elementTest.GUITest;
 //own imports
 import ch.nolix.core.test2.Test;
 import ch.nolix.element.GUI.Area;
+import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.BackgroundColor;
 
 //test class
@@ -44,7 +45,7 @@ public final class AreaTest extends Test {
 		
 		//setup
 		final Area area = new Area();
-		area.setBackgroundColor(new BackgroundColor(BackgroundColor.BLUE));
+		area.setBackgroundColor(Color.BLUE);
 		
 		//execution
 		area.removeBackgroundColor();

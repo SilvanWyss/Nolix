@@ -21,7 +21,7 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//default values
 	private static final int DEFAULT_ACTIVE_BORDER_SIZE = 0;
-	private static final Color DEFAULT_ACTIVE_BORDER_COLOR = new Color(Color.BLACK);
+	private static final Color DEFAULT_ACTIVE_BORDER_COLOR = Color.BLACK;
 	private static final int DEFAULT_ACTIVE_PADDING = 0;
 	
 	//attribute headers

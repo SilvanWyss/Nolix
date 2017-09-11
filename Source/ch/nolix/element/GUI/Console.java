@@ -33,7 +33,7 @@ implements Clearable {
 	public static final String TYPE_NAME = "Console";
 	
 	//default value
-	public static final Color DEFAULT_BACKGROUND_COLOR = new Color(Color.BLACK);
+	public static final Color DEFAULT_BACKGROUND_COLOR = Color.BLACK;
 	
 	//attribute headers
 	private final static String LINES_HEADER = "Lines";

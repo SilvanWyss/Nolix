@@ -29,7 +29,7 @@ public final class Font extends Element {
 	//default values
 	public static final FontFamily DEFAULT_FONT_FAMILY = FontFamily.Verdana;
 	public static final int DEFAULT_TEXT_SIZE = 20;
-	public static final Color DEFAULT_TEXT_COLOR = new Color(Color.BLACK);
+	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 
 	//attribute headers
 	private static final String TEXT_SIZE_HEADER = "TextSize";

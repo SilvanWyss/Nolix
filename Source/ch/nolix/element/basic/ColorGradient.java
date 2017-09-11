@@ -23,8 +23,8 @@ public final class ColorGradient extends Element {
 	
 	//default values
 	public static final ColorGradientPattern DEFAULT_PATTERN = ColorGradientPattern.TopToBottom;
-	public static final int DEFAULT_COLOR_1 = Color.BLACK;
-	public static final int DEFAULT_COLOR_2 = Color.WHITE;
+	public static final Color DEFAULT_COLOR_1 = Color.BLACK;
+	public static final Color DEFAULT_COLOR_2 = new Color(Color.WHITE);
 	
 	//attribute headers
 	private static final String PATTERN = "Pattern";
@@ -76,10 +76,10 @@ public final class ColorGradient extends Element {
 				setPattern(ColorGradientPattern.valueOf(attribute.getOneAttributeToString()));
 				break;
 			case COLOR_1:
-				setColor1(attribute.getOneAttributeToInteger());
+				setColor1(new Color(attribute.getOneAttributeToString()));
 				break;
 			case COLOR_2:
-				setColor2(attribute.getOneAttributeToInteger());
+				setColor2(new Color(attribute.getOneAttributeToString()));
 				break;
 			default:
 				throw new InvalidArgumentException(
@@ -96,8 +96,8 @@ public final class ColorGradient extends Element {
 	 * @param color
 	 * @throws Exception if the given color is no true color value (negative or bigger than 16777215)
 	 */
-	public final void setColor1(int color) {
-		this.color1 = new Color(color);
+	public final void setColor1(Color color) {
+		this.color1 = color;
 	}
 	
 	//method
@@ -107,8 +107,8 @@ public final class ColorGradient extends Element {
 	 * @param color
 	 * @throws Exception if the given color is no true color value (negative or bigger than 16777215)
 	 */
-	public final void setColor2(int color) {
-		this.color2 = new Color(color);
+	public final void setColor2(Color color) {
+		this.color2 = color;
 	}
 	
 	//method
