@@ -13,6 +13,7 @@ final class Protocol {
 	
 	//general commands
 	public static final String QUIT_COMMAND = "Quit";
+	public static final String SET_DESIGN_COMMAND = "SetDesign";
 	public static final String SET_TITLE_COMMAND = "SetTitle";
 	
 	//console commands

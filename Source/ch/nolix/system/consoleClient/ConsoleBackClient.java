@@ -6,6 +6,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
+import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.system.baseGUIClient.BaseGUIClient;
 
 //class
@@ -15,7 +16,7 @@ import ch.nolix.system.baseGUIClient.BaseGUIClient;
  * 
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 320
+ * @lines 340
  */
 public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 		
@@ -131,6 +132,25 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	public void reset() {	
 		clearConsole();
 		clearInfoPanel();
+	}
+	
+	//method
+	/**
+	 * Sets the given design to the counterpart of this console back client.
+	 * 
+	 * @param design
+	 * @return this console back client.
+	 */
+	public ConsoleBackClient setDesign(final StandardConfiguration design) {
+		
+		internal_runOnCounterpart(
+			Protocol.SET_DESIGN_COMMAND
+			+ "("
+			+ StandardSpecification.createEscapeString(design.toString())
+			+ ")"
+		);
+		
+		return this;
 	}
 	
 	//method

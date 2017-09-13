@@ -11,6 +11,7 @@ import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.VerticalStack;
+import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.system.baseGUIClient.BaseGUIClient;
 import ch.nolix.system.client.StandardApplication;
 
@@ -199,6 +200,9 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 			case Protocol.QUIT_COMMAND:
 				GUI.close();
 				break;
+			case Protocol.SET_DESIGN_COMMAND:				
+				setDesign(new StandardConfiguration(command.getRefOneAttribute().getRefAttributes()));
+				break;
 			case Protocol.SET_TITLE_COMMAND:
 				GUI.setTitle(command.getOneAttributeToString());
 				break;			
@@ -246,5 +250,15 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 				//Calls method of the base class.
 				super.internal_run(command);
 		}
+	}
+	
+	//method
+	/**
+	 * Sets the given design to the GUI of this cosole front client.
+	 * 
+	 * @param design
+	 */
+	private void setDesign(final StandardConfiguration design) {
+		GUI.setConfiguration(design);
 	}
 }
