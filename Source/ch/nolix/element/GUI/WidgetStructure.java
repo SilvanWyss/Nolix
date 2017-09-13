@@ -102,6 +102,15 @@ extends Entity {
 	}
 	
 	//method
+		@SuppressWarnings("unchecked")
+	public final WS setFontFamily(final FontFamily fontFamily) {
+		
+		this.fontFamily.setValue(fontFamily);
+		
+		return (WS)this;
+	}
+	
+	//method
 	@SuppressWarnings("unchecked")
 	public final WS setTextColor(final Color textColor) {
 		

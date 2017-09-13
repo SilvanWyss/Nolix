@@ -23,6 +23,7 @@ import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.basic.ConfigurationElement;
+import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.Title;
 
@@ -30,7 +31,7 @@ import ch.nolix.element.data.Title;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 680
+ * @lines 710
  * @param <G> The type of a GUI.
  */
 public abstract class GUI<G extends GUI<G>>
@@ -565,6 +566,25 @@ implements Clearable, Closable, IRequestableContainer, Refreshable {
 		
 		//Sets the background color of this GUI.
 		this.backgroundColor = new BackgroundColor(backgroundColor.getValue());
+		
+		return (G)this;
+	}
+	
+	//method
+	/**
+	 * Sets the configuration of this GUI.
+	 * Will refresh this GUI.
+	 * 
+	 * @param configuration
+	 * @return this GUI.
+	 */
+	@SuppressWarnings("unchecked")
+	public final G setConfiguration(final StandardConfiguration configuration) {
+		
+		//Calls method of the base class.
+		super.setConfiguration(configuration);
+		
+		refresh();
 		
 		return (G)this;
 	}
