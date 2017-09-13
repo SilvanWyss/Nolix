@@ -32,7 +32,7 @@ extends ConfigurableElement<CE> {
 		List<StandardSpecification> attributes = new List<StandardSpecification>();
 		
 		if (hasConfiguration()) {
-			attributes.addAtEnd(configuration.getSpecificationAs(StandardConfiguration.SIMPLE_CLASS_NAME));
+			attributes.addAtEnd(configuration.getSpecificationAs(StandardConfiguration.TYPE_NAME));
 		}
 		
 		return attributes;
@@ -71,7 +71,7 @@ extends ConfigurableElement<CE> {
 	 */
 	public void addOrChangeAttribute(StandardSpecification attribute) {
 		switch (attribute.getHeader()) {
-			case StandardConfiguration.SIMPLE_CLASS_NAME:
+			case StandardConfiguration.TYPE_NAME:
 				setConfiguration(new StandardConfiguration(attribute.getRefAttributes()));
 				break;
 			default:

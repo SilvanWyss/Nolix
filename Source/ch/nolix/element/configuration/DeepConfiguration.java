@@ -17,8 +17,8 @@ import ch.nolix.element.basic.PositiveInteger;
  */
 public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 
-	//simple class name
-	public static final String SIMPLE_CLASS_NAME = "DeepConfiguration";
+	//type name
+	public static final String TYPE_NAME = "DeepConfiguration";
 	
 	//attribute name
 	private static final String MAX_SELECTOR_LEVEL_HEADER = "MaxSelectorLevel";

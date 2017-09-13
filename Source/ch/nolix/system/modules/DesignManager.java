@@ -65,7 +65,7 @@ public final class DesignManager extends Module {
 			throw new RuntimeException("Design manager contains already a design with the name '" + name + "'.");
 		}
 		
-		design.saveAsTo(StandardConfiguration.SIMPLE_CLASS_NAME, getDirectory() + "/" + name + ".spec");
+		design.saveAsTo(StandardConfiguration.TYPE_NAME, getDirectory() + "/" + name + ".spec");
 		
 		return this;
 	}
@@ -76,7 +76,7 @@ public final class DesignManager extends Module {
 		final String name = design.getName();
 		
 		if (!containsDesign(name)) {
-			design.saveAsTo(StandardConfiguration.SIMPLE_CLASS_NAME, getDirectory() + "/" + name + ".spec");
+			design.saveAsTo(StandardConfiguration.TYPE_NAME, getDirectory() + "/" + name + ".spec");
 		}
 		
 		return this;

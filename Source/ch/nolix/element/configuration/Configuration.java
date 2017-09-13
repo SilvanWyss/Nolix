@@ -23,8 +23,8 @@ public abstract class Configuration<C extends Configuration<C>>
 extends OptionalNamableElement<C>
 implements Freezable {
 
-	//simple class name
-	public static final String SIMPLE_CLASS_NAME = "Configuration";
+	//type name
+	public static final String TYPE_NAME = "Configuration";
 	
 	//attribute headers
 	private static final String SELECTOR_TYPE_HEADER = "SelectorType";
@@ -176,10 +176,10 @@ implements Freezable {
 			case SELECTOR_NAME_HEADER:
 				setSelectorName(attribute.getOneAttributeToString());
 				break;
-			case StandardConfiguration.SIMPLE_CLASS_NAME:
+			case StandardConfiguration.TYPE_NAME:
 				addConfiguration(new StandardConfiguration(attribute.getRefAttributes()));
 				break;
-			case DeepConfiguration.SIMPLE_CLASS_NAME:
+			case DeepConfiguration.TYPE_NAME:
 				addConfiguration(new DeepConfiguration(attribute.getRefAttributes()));
 				break;
 			default:

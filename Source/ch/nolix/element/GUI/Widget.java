@@ -36,8 +36,8 @@ import ch.nolix.element.basic.ConfigurableElement;
 public abstract class Widget<W extends Widget<W, WS>, WS extends WidgetStructure<WS>>
 extends ConfigurableElement<W> {
 	
-	//simple class name
-	public static final String SIMPLE_CLASS_NAME = "Widget";
+	//type name
+	public static final String TYPE_NAME = "Widget";
 	
 	//attribute headers
 	private static final String STATE ="State";

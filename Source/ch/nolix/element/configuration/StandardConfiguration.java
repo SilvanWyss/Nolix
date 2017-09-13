@@ -14,8 +14,8 @@ import ch.nolix.core.specificationInterfaces.Configurable;
  */
 public class StandardConfiguration extends Configuration<StandardConfiguration> {
 
-	//simple class name
-	public static final String SIMPLE_CLASS_NAME = "StandardConfiguration";
+	//type name
+	public static final String TYPE_NAME = "StandardConfiguration";
 	
 	//constructor
 	/**
