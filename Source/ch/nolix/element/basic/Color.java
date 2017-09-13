@@ -329,7 +329,7 @@ public class Color extends Element {
 		public static final Color LIGHT_SLATE_GREY = new Color(LIGHT_SLATE_GREY_INT);
 		
 		public static final int LIGHT_STEEL_BLUE_INT = 0xB0C4DE;
-		public static final String LIGHT_STEEL_BLUE_STRING = "LightStealBlue";
+		public static final String LIGHT_STEEL_BLUE_STRING = "LightSteelBlue";
 		public static final Color LIGHT_STEEL_BLUE = new Color(LIGHT_STEEL_BLUE_INT);
 		
 		public static final int LIGHT_YELLOW_INT = 0xFFFFE0;
