@@ -86,7 +86,7 @@ extends ConfigurableElement<CE> {
 	 * @param configuration
 	 */
 	@SuppressWarnings("unchecked")
-	public final CE setConfiguration(StandardConfiguration configuration) {
+	public CE setConfiguration(StandardConfiguration configuration) {
 		this.configuration = configuration;
 		updateFromConfiguration();
 		return (CE)this;
