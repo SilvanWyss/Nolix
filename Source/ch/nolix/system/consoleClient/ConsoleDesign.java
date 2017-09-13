@@ -20,13 +20,13 @@ public final class ConsoleDesign extends StandardConfiguration {
 	 */
 	public ConsoleDesign() {
 		
-		addAttachingAttribute("BackgroundColor(LightBlue)");
+		addAttachingAttribute("BackgroundColor(LightSteelBlue)");
 		
 		addConfiguration(
 			new DeepConfiguration()
 			.setSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute(
-				"NormalBackgroundColor(VeryLightGrey)",
+				"NormalBackgroundColor(White)",
 				"NormalPadding(10)",
 				"ElementMargin(10)"
 			),
@@ -35,7 +35,7 @@ public final class ConsoleDesign extends StandardConfiguration {
 			.addAttachingAttribute(
 				"NormalWidth(800)",
 				"NormalHeight(300)",
-				"NormalBackgroundColor(VeryLightBlue)",
+				"NormalBackgroundColor(Lavender)",
 				"NormalPadding(10)",
 				"NormalTextColor(DarkBlue)"
 			),
@@ -44,7 +44,7 @@ public final class ConsoleDesign extends StandardConfiguration {
 			.addAttachingAttribute(
 				"NormalWidth(800)",
 				"NormalHeight(400)",
-				"NormalBackgroundColor(LightGrey)",
+				"NormalBackgroundColor(WhiteSmoke)",
 				"NormalPadding(10)",
 				"NormalTextColor(DarkBlue)"		
 			)
