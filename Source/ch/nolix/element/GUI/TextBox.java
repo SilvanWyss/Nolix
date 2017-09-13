@@ -17,7 +17,6 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.basic.Color;
-import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.Width;
 import ch.nolix.element.font.Font;
 
@@ -29,7 +28,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	
 	//default values
 	public static final int DEFAULT_WIDTH = 200;
-	public static final int DEFAULT_BACKGROUND_COLOR = Color.WHITE;
+	public static final Color DEFAULT_BACKGROUND_COLOR = Color.BEIGE;
 	public static final String DEFAULT_CURSOR_COLOR = Color.BLACK_STRING;
 	
 	//limit value
@@ -193,7 +192,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		
 		setWidth(DEFAULT_WIDTH);
 		getRefNormalStructure().setBorderSizes(1);
-		getRefNormalStructure().setBackgroundColor(new BackgroundColor(DEFAULT_BACKGROUND_COLOR));
+		getRefNormalStructure().setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		setCursorColor(DEFAULT_CURSOR_COLOR);
 		setCursorIcon(CursorIcon.Edit);
 	}
@@ -221,7 +220,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		
 		int textCursorDistanceFromTextBegin = new Font(rectangleStructure.getActiveTextSize()).getTextWidth(getTextBeforeTextCursor());
 		graphics.setColor(textCursor.getRefColor().getJavaColor());
-		graphics.setColor(new Color(Color.ANTHRAZIT).getJavaColor());
+		graphics.setColor(Color.BLACK.getJavaColor());
 		
 		new Font(
 		rectangleStructure.getActiveTextSize())

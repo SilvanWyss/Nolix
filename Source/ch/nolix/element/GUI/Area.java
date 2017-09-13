@@ -33,7 +33,7 @@ public class Area extends Widget<Area, AreaStructure> {
 	//default values
 	public static final int DEFAULT_WIDTH = 200;
 	public static final int DEFAULT_HEIGHT = 100;
-	public static final Color DEFAULT_BACKGROUND_COLOR = new Color(Color.LIGHT_GREY);
+	public static final Color DEFAULT_BACKGROUND_COLOR = Color.GREY;
 
 	//attribute header
 	private static final String BACKGROUND_COLOR_HEADER = "BackgroundColor";

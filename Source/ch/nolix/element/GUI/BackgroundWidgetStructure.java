@@ -20,7 +20,7 @@ public abstract class BackgroundWidgetStructure<BWS extends BackgroundWidgetStru
 extends WidgetStructure<BWS> {
 
 	//default value
-	private static final BackgroundColor DEFAULT_ACTIVE_BACKGROUND_COLOR = new BackgroundColor(Color.WHITE);
+	private static final BackgroundColor DEFAULT_ACTIVE_BACKGROUND_COLOR = new BackgroundColor(Color.BEIGE_INT);
 	
 	//optional attribute
 	private BackgroundColor backgroundColor;

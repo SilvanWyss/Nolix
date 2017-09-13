@@ -18,7 +18,7 @@ public final class BackgroundColor extends Color {
 	public static final String TYPE_NAME = "BackgroundColor";
 	
 	//default value
-	public static final int DEFAULT_VALUE = Color.WHITE;
+	public static final int DEFAULT_VALUE = Color.BEIGE_INT;
 	
 	//constructor
 	/**

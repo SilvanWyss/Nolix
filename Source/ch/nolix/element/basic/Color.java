@@ -1,9 +1,15 @@
 //package declaration
 package ch.nolix.element.basic;
 
+//Java imports
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
+import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.container.Pair;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -18,7 +24,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 680
+ * @lines 1000
  */
 public class Color extends Element {
 	
@@ -294,122 +300,369 @@ public class Color extends Element {
 		public static final String LIGHT_GOLDEN_ROD_YELLOW_STRING = "LightGoldenRodYellow";
 		public static final Color LIGHT_GOLDEN_ROD_YELLOW = new Color(LIGHT_GOLDEN_ROD_YELLOW_INT);
 		
-		/*
-		public static final int _INT = 0x;
-		public static final String _STRING = "";
-		public static final Color  = new Color(_INT);
-		*/
-
-	//very light colors
-	public static final String VERY_LIGHT_BLUE_STRING = "VeryLightBlue";
-	public static final int VERY_LIGHT_BLUE = 0xBFBFFF;
-	public static final String VERY_LIGHT_CYAN_STRING = "VeryLightCyan";
-	public static final int VERY_LIGHT_CYAN = 0xBFFFFF;
-	public static final String VERY_LIGHT_GREEN_STRING = "VeryLightGreen";
-	public static final int VERY_LIGHT_GREEN = 0x3FFF3F;
-	public static final String VERY_LIGHT_GREY_STRING = "VeryLightGrey";
-	public static final int VERY_LIGHT_GREY = 0xEFEFEF;
-	public static final String VERY_LIGHT_ORANGE_STRING = "VeryLightOrange";
-	public static final int VERY_LIGHT_ORANGE = 0x000003;
-	public static final String VERY_LIGHT_PURPLE_STRING = "VeryLightPurple";
-	public static final int VERY_LIGHT_PURPLE = 0x000002;	
-	public static final String VERY_LIGHT_RED_STRING = "VeryLightRed";
-	public static final int VERY_LIGHT_RED = 0xF8E0E0;
-	
-	//light colors
-	/*
-	public static final String LIGHT_BLUE_STRING = "LightBlue";
-	public static final int LIGHT_BLUE = 0x7F7FFF;
-	public static final String LIGHT_CYAN_STRING = "LightCyan";
-	public static final int LIGHT_CYAN = 0x7FFFFF;
-	*/
-	public static final String LIGHT_GREEN_STRING = "LightGreen";
-	public static final int LIGHT_GREEN = 0x7FFF7F;
-	public static final String LIGHT_GREY_STRING = "LightGrey";
-	public static final int LIGHT_GREY = 0xDFDFDF;
-	public static final String LIGHT_ORANGE_STRING = "LightOrange";
-	public static final int LIGHT_ORANGE = 0xFFBF3F;
-	public static final String LIGHT_PURPLE_STRING = "LightPurple";
-	public static final int LIGHT_PURPLE = 0xE2A9F3;
-	public static final String LIGHT_RED_STRING = "LightRed";
-	public static final int LIGHT_RED = 0xFF7F7F;
-	
-	//normal colors
-	public static final String ANTHRAZIT_STRING  = "Anthrazit";
-	public static final int ANTHRAZIT = 0x101010;
-	/*
-	public static final String BLACK_STRING = "Black";
-	public static final int BLACK = 0x000000;
-	public static final String BLUE_STRING = "Blue";
-	public static final int BLUE = 0x0000FF;
-	public static final String BROWN_STRING = "Brown";
-	public static final int BROWN = 0x7F3F00;
-	public static final String CYAN_STRING = "Cyan";
-	public static final int CYAN = 0x00FFFF;
-	public static final String GREEN_STRING = "Green";
-	public static final int GREEN = 0x00FF00;
-	public static final String GREY_STRING = "Grey";
-	public static final int GREY = 0x7F7F7F;
-	*/
-	public static final String ORANGE_STRING = "Orange";
-	public static final int ORANGE = 0xFF7F00;
-	public static final String PURPLE_STRING = "Purple";
-	public static final int PURPLE = 0xBF00FF;
-	public static final String RED_STRING = "Red";
-	public static final int RED = 0xFF0000;
-	public static final String WHITE_STRING = "White";
-	public static final int WHITE = 0xFFFFFF;
-	public static final String YELLOW_STRING = "Yellow";
-	public static final int YELLOW = 0xFFFF00;
-	
-	//dark colors
-	/*
-	public static final String DARK_BLUE_STRING = "DarkBlue";
-	public static final int DARK_BLUE = 0x00007F;
-	public static final String DARK_CYAN_STRING = "DarkCyan";
-	public static final int DARK_CYAN = 0x00BFBF;
-	public static final String DARK_GREEN_STRING = "DarkGreen";
-	public static final int DARK_GREEN = 0x007F00;
-	public static final String DARK_GREY_STRING = "DarkGrey";
-	public static final int DARK_GREY = 0x3F3F3F;
-	public static final String DARK_ORANGE_STRING = "DarkOrange";
-	public static final int DARK_ORANGE = 0xFF7F3F;
-	public static final String DARK_PURPLE_STRING = "DarkPurple";
-	public static final int DARK_PURPLE = 0x7F007F;
-	public static final String DARK_RED_STRING = "DarkRed";
-	public static final int DARK_RED = 0x7F0000;
-	*/
-	
-	//very dark colors
-	public static final String VERY_DARK_BLUE_STRING = "VeryDarkBlue";
-	public static final int VERY_DARK_BLUE = 0x00003F;
-	public static final String VERY_DARK_CYAN_STRING = "VeryDarkCyan";
-	public static final int VERY_DARK_CYAN = 0x7F7F;
-	public static final String VERY_DARK_GREEN_STRING = "VeryDarkGreen";
-	public static final int VERY_DARK_GREEN = 0x003F00;
-	public static final String VERY_DARK_GREY_STRING = "VeryDarkGrey";
-	public static final int VERY_DARK_GREY = 0x1F1F1F;
-	public static final String VERY_DARK_ORANGE_STRING = "VeryDarkOrange";
-	public static final int VERY_DARK_ORANGE = 0x000001;
-	public static final String VERY_DARK_PURPLE_STRING = "VeryDarkPurple";
-	public static final int VERY_DARK_PURPLE = 0x3F003F;
-	public static final String VERY_DARK_RED_STRING = "VeryDarkRed";
-	public static final int VERY_DARK_RED = 0x3F0000;
-	
-	//true colors
+		public static final int LIGHT_GREY_INT = 0xD3D3D3;
+		public static final String LIGHT_GREY_STRING = "LightGrey";
+		public static final Color LIGHT_GREY = new Color(LIGHT_GREY_INT);
+		
+		public static final int LIGHT_GREEN_INT = 0x90EE90;
+		public static final String LIGHT_GREEN_STRING = "LightGreen";
+		public static final Color LIGHT_GREEN = new Color(LIGHT_GREEN_INT);
+		
+		public static final int LIGHT_PINK_INT = 0xFFB6C1;
+		public static final String LIGHT_PINK_STRING = "LightPink";
+		public static final Color LIGHT_PINK = new Color(LIGHT_PINK_INT);
+		
+		public static final int LIHGT_SALMON_INT = 0xFFA07A;
+		public static final String LIHGT_SALMON_STRING = "LightSalmon";
+		public static final Color LIHGT_SALMON = new Color(LIHGT_SALMON_INT);
+		
+		public static final int LIGHT_SEA_GREEN_INT = 0x20B2AA;
+		public static final String LIGHT_SEA_GREEN_STRING = "LightSeaGreen";
+		public static final Color LIGHT_SEA_GREEN = new Color(LIGHT_SEA_GREEN_INT);
+		
+		public static final int LIGHT_SKY_BLUE_INT = 0x87CEFA;
+		public static final String LIGHT_SKY_BLUE_STRING = "LightSkyBlue";
+		public static final Color LIGHT_SKY_BLUE = new Color(LIGHT_SKY_BLUE_INT);
+		
+		public static final int LIGHT_SLATE_GREY_INT = 0x778899;
+		public static final String LIGHT_SLATE_GREY_STRING = "LightSlateGrey";
+		public static final Color LIGHT_SLATE_GREY = new Color(LIGHT_SLATE_GREY_INT);
+		
+		public static final int LIGHT_STEEL_BLUE_INT = 0xB0C4DE;
+		public static final String LIGHT_STEEL_BLUE_STRING = "LightStealBlue";
+		public static final Color LIGHT_STEEL_BLUE = new Color(LIGHT_STEEL_BLUE_INT);
+		
+		public static final int LIGHT_YELLOW_INT = 0xFFFFE0;
+		public static final String LIGHT_YELLOW_STRING = "LightYellow";
+		public static final Color LIGHT_YELLOW = new Color(LIGHT_YELLOW_INT);
+		
+		public static final int LIME_INT = 0x00FF00;
+		public static final String LIME_STRING = "Lime";
+		public static final Color LIME = new Color(LIME_INT);
+		
+		public static final int LIME_GREEN_INT = 0x32CD32;
+		public static final String LIME_GREEN_STRING = "LimeGreen";
+		public static final Color LIME_GREEN = new Color(LIME_GREEN_INT);
+		
+		public static final int LINEN_INT = 0xFAF0E6;
+		public static final String LINEN_STRING = "Linen";
+		public static final Color LINEN = new Color(LINEN_INT);
+		
+		public static final int MAGENTA_INT = 0xFF00FF;
+		public static final String MAGENTA_STRING = "Magenta";
+		public static final Color MAGENTA = new Color(MAGENTA_INT);
+		
+		public static final int MAROON_INT = 0x800000;
+		public static final String MAROON_STRING = "Maroon";
+		public static final Color MAROON = new Color(MAROON_INT);
+		
+		public static final int MEDIUM_AQUA_MARINE_INT = 0x66CDAA;
+		public static final String MEDIUM_AQUA_MARINE_STRING = "MediumAquaMarine";
+		public static final Color MEDIUM_AQUA_MARINE = new Color(MEDIUM_AQUA_MARINE_INT);
+		
+		public static final int MEDIUM_BLUE_INT = 0x0000CD;
+		public static final String MEDIUM_BLUE_STRING = "MediumBlue";
+		public static final Color MEDIUM_BLUE = new Color(MEDIUM_BLUE_INT);
+		
+		public static final int MEDIUM_ORCHID_INT = 0xBA55D3;
+		public static final String MEDIUM_ORCHID_STRING = "";
+		public static final Color MEDIUM_ORCHID = new Color(MEDIUM_ORCHID_INT);
+		
+		public static final int MEDIUM_PURPLE_INT = 0x9370DB;
+		public static final String MEDIUM_PURPLE_STRING = "MediumPurple";
+		public static final Color MEDIUM_PURPLE = new Color(MEDIUM_PURPLE_INT);
+		
+		public static final int MEDIUM_SEA_GREEN_INT = 0x3CB371;
+		public static final String MEDIUM_SEA_GREEN_STRING = "";
+		public static final Color MEDIUM_SEA_GREEN = new Color(MEDIUM_SEA_GREEN_INT);
+		
+		public static final int MEDIUM_SLATE_BLUE_INT = 0x7B68EE;
+		public static final String MEDIUM_SLATE_BLUE_STRING = "MediumSlateBlue";
+		public static final Color MEDIUM_SLATE_BLUE = new Color(MEDIUM_SLATE_BLUE_INT);
+		
+		public static final int MEDIUM_SPRING_GREEN_INT = 0x00FA9A;
+		public static final String MEDIUM_SPRING_GREEN_STRING = "";
+		public static final Color MEDIUM_SPRING_GREEN = new Color(MEDIUM_SPRING_GREEN_INT);
+		
+		public static final int MEDIUM_TURQUOISE_INT = 0x48D1CC;
+		public static final String MEDIUM_TURQUOISE_STRING = "MediumTurquoise";
+		public static final Color MEDIUM_TURQUOISE = new Color(MEDIUM_TURQUOISE_INT);
+		
+		public static final int MEDIUM_VIOLET_RED_INT = 0xC71585;
+		public static final String MEDIUM_VIOLET_RED_STRING = "MediumVioletRed";
+		public static final Color MEDIUM_VIOLET_RED = new Color(MEDIUM_VIOLET_RED_INT);
+		
+		public static final int MIDNIGHT_BLUE_INT = 0x191970;
+		public static final String MIDNIGHT_BLUE_STRING = "MidnightBlue";
+		public static final Color MIDNIGHT_BLUE = new Color(MIDNIGHT_BLUE_INT);
+		
+		public static final int MINT_CREAM_INT = 0xF5FFFA;
+		public static final String MINT_CREAM_STRING = "MintCream";
+		public static final Color MINT_CREAM = new Color(MINT_CREAM_INT);
+		
+		public static final int MISTY_ROSE_INT = 0xFFE4E1;
+		public static final String MISTY_ROSE_STRING = "MistyRose";
+		public static final Color MISTY_ROSE = new Color(MISTY_ROSE_INT);
+		
+		public static final int MOCCASIN_INT = 0xFFE4B5;
+		public static final String MOCCASIN_STRING = "Moccasin";
+		public static final Color MOCCASIN = new Color(MOCCASIN_INT);
+		
+		public static final int NAVAJO_WHITE_INT = 0xFFDEAD;
+		public static final String NAVAJO_WHITE_STRING = "NavajoWhite";
+		public static final Color NAVAJO_WHITE = new Color(NAVAJO_WHITE_INT);
+		
+		public static final int NAVY_INT = 0x000080;
+		public static final String NAVY_STRING = "Navy";
+		public static final Color NAVY = new Color(NAVY_INT);
+		
+		public static final int OLD_LACE_INT = 0xFDF5E6;
+		public static final String OLD_LACE_STRING = "OldLace";
+		public static final Color OLD_LACE = new Color(OLD_LACE_INT);
+		
+		public static final int OLIVE_INT = 0x808000;
+		public static final String OLIVE_STRING = "Olive";
+		public static final Color OLIVE = new Color(OLIVE_INT);
+		
+		public static final int OLIVE_DRAB_INT = 0x6B8E23;
+		public static final String OLIVE_DRAB_STRING = "OliveDrab";
+		public static final Color OLIVE_DRAB = new Color(OLIVE_DRAB_INT);
+		
+		public static final int ORANGE_INT = 0xFFA500;
+		public static final String ORANGE_STRING = "Orange";
+		public static final Color ORANGE = new Color(ORANGE_INT);
+		
+		public static final int ORANGE_RED_INT = 0xFF4500;
+		public static final String ORANGE_RED_STRING = "OrangeRed";
+		public static final Color ORANGE_RED = new Color(ORANGE_RED_INT);
+		
+		public static final int ORCHID_INT = 0xDA70D6;
+		public static final String ORCHID_STRING = "Orchid";
+		public static final Color ORCHID = new Color(ORCHID_INT);
+		
+		public static final int PALE_GOLDEN_ROD_INT = 0xEEE8AA;
+		public static final String PALE_GOLDEN_ROD_STRING = "PaleGoldenRod";
+		public static final Color PALE_GOLDEN_ROD = new Color(PALE_GOLDEN_ROD_INT);
+		
+		public static final int PALE_GREEN_INT = 0x98FB98;
+		public static final String PALE_GREEN_STRING = "PaleGreen";
+		public static final Color PALE_GREEN = new Color(PALE_GREEN_INT);
+		
+		public static final int PALE_TURQUOISE_INT = 0xAFEEEE;
+		public static final String PALE_TURQUOISE_STRING = "PaleTurquoise";
+		public static final Color PALE_TURQUOISE = new Color(PALE_TURQUOISE_INT);
+		
+		public static final int PALE_VIOLET_RED_INT = 0xDB7093;
+		public static final String PALE_VIOLET_RED_STRING = "PaleVioletRed";
+		public static final Color PALE_VIOLET_RED = new Color(PALE_VIOLET_RED_INT);
+		
+		public static final int PAPAYA_WHIP_INT = 0xFFEFD5;
+		public static final String PAPAYA_WHIP_STRING = "PapayaWhip";
+		public static final Color PAPAYA_WHIP = new Color(PAPAYA_WHIP_INT);
+		
+		public static final int PEACH_PUFF_INT = 0xFFDAB9;
+		public static final String PEACH_PUFF_STRING = "PeachPuff";
+		public static final Color PEACH_PUFF = new Color(PEACH_PUFF_INT);
+		
+		public static final int PERU_INT = 0xCD853F;
+		public static final String PERU_STRING = "Peru";
+		public static final Color PERU = new Color(PERU_INT);
+		
+		public static final int PINK_INT = 0xFFC0CB;
+		public static final String PINK_STRING = "Pink";
+		public static final Color PINK = new Color(PINK_INT);
+		
+		public static final int PLUM_INT = 0xDDA0DD;
+		public static final String PLUM_STRING = "Plum";
+		public static final Color PLUM = new Color(PLUM_INT);
+		
+		public static final int POWDER_BLUE_INT = 0xB0E0E6;
+		public static final String POWDER_BLUE_STRING = "PowderBlue";
+		public static final Color POWDER_BLUE = new Color(POWDER_BLUE_INT);
+		
+		public static final int PURPLE_INT = 0x800080;
+		public static final String PURPLE_STRING = "Purple";
+		public static final Color PURPLE = new Color(PURPLE_INT);
+		
+		public static final int REBECCA_PURPLE_INT = 0x663399;
+		public static final String REBECCA_PURPLE_STRING = "RebeccaPurple";
+		public static final Color REBECCA_PURPLE = new Color(REBECCA_PURPLE_INT);
+		
+		public static final int RED_INT = 0xFF0000;
+		public static final String RED_STRING = "Red";
+		public static final Color RED = new Color(RED_INT);
+		
+		public static final int ROSY_BROWN_INT = 0xBC8F8F;
+		public static final String ROSY_BROWN_STRING = "RosyBrown";
+		public static final Color ROSY_BROWN = new Color(ROSY_BROWN_INT);
+		
+		public static final int ROYAL_BLUE_INT = 0x4169E1;
+		public static final String ROYAL_BLUE_STRING = "RoyalBlue";
+		public static final Color ROYAL_BLUE = new Color(ROYAL_BLUE_INT);
+		
+		public static final int SADDLE_BROWN_INT = 0x8B4513;
+		public static final String SADDLE_BROWN_STRING = "SaddleBrown";
+		public static final Color SADDLE_BROWN = new Color(SADDLE_BROWN_INT);
+		
+		public static final int SALMON_INT = 0xFA8072;
+		public static final String SALMON_STRING = "Salmon";
+		public static final Color SALMON = new Color(SALMON_INT);
+		
+		public static final int SANDY_BROWN_INT = 0xF4A460;
+		public static final String SANDY_BROWN_STRING = "SandyBrown";
+		public static final Color SANDY_BROWN = new Color(SANDY_BROWN_INT);
+		
+		public static final int SEA_GREEN_INT = 0x2E8B57;
+		public static final String SEA_GREEN_STRING = "SeaGreen";
+		public static final Color SEA_GREEN = new Color(SEA_GREEN_INT);
+		
+		public static final int SEA_SHELL_INT = 0xFFF5EE;
+		public static final String SEA_SHELL_STRING = "SeaShell";
+		public static final Color SEA_SHELL = new Color(SEA_SHELL_INT);
+		
+		public static final int SIENNA_INT = 0xA0522D;
+		public static final String SIENNA_STRING = "Sienna";
+		public static final Color SIENNA = new Color(SIENNA_INT);
+		
+		public static final int SILVER_INT = 0xC0C0C0;
+		public static final String SILVER_STRING = "Silver";
+		public static final Color SILVER = new Color(SILVER_INT);
+		
+		public static final int SKY_BLUE_INT = 0x87CEEB;
+		public static final String SKY_BLUE_STRING = "SkyBlue";
+		public static final Color SKY_BLUE = new Color(SKY_BLUE_INT);
+		
+		public static final int SLATE_BLUE_INT = 0x6A5ACD;
+		public static final String SLATE_BLUE_STRING = "SlateBlue";
+		public static final Color SLATE_BLUE = new Color(SLATE_BLUE_INT);
+		
+		public static final int SLATE_GREY_INT = 0x708090;
+		public static final String SLATE_GREY_STRING = "SlateGrey";
+		public static final Color SLATE_GREY = new Color(SLATE_GREY_INT);
+		
+		public static final int SNOW_INT = 0xFFFAFA;
+		public static final String SNOW_STRING = "Snow";
+		public static final Color SNOW = new Color(SNOW_INT);
+		
+		public static final int SPRING_GREEN_INT = 0x00FF7F;
+		public static final String SPRING_GREEN_STRING = "SpringGreen";
+		public static final Color SPRING_GREEN = new Color(SPRING_GREEN_INT);
+		
+		public static final int STEEL_BLUE_INT = 0x4682B4;
+		public static final String STEEL_BLUE_STRING = "SteelBlue";
+		public static final Color STEEL_BLUE = new Color(STEEL_BLUE_INT);
+		
+		public static final int TAN_INT = 0xD2B48C;
+		public static final String TAN_STRING = "Tan";
+		public static final Color TAN = new Color(TAN_INT);
+		
+		public static final int TEAL_INT = 0x008080;
+		public static final String TEAL_STRING = "Teal";
+		public static final Color TEAL = new Color(TEAL_INT);
+		
+		public static final int THISTLE_INT = 0xD8BFD8;
+		public static final String THISTLE_STRING = "Thistle";
+		public static final Color THISTLE = new Color(THISTLE_INT);
+		
+		public static final int TOMATO_INT = 0xFF6347;
+		public static final String TOMATO_STRING = "Tomato";
+		public static final Color TOMATO = new Color(TOMATO_INT);
+		
+		public static final int TURQUOISE_INT = 0x40E0D0;
+		public static final String TURQUOISE_STRING = "Turquoise";
+		public static final Color TURQUOISE = new Color(TURQUOISE_INT);
+		
+		public static final int VIOLET_INT = 0xEE82EE;
+		public static final String VIOLET_STRING = "VIOLET";
+		public static final Color VIOLET = new Color(VIOLET_INT);
+		
+		public static final int WHEAT_INT = 0xF5DEB3;
+		public static final String WHEAT_STRING = "Wheat";
+		public static final Color WHEAT = new Color(WHEAT_INT);
+		
+		public static final int WHITE_INT = 0xFFFFFF;
+		public static final String WHITE_STRING = "White";
+		public static final Color WHITE = new Color(WHITE_INT);
+		
+		public static final int WHITE_SMOKE_INT = 0xF5F5F5;
+		public static final String WHITE_SMOKE_STRING = "WhiteSmoke";
+		public static final Color WHITE_SMOKE = new Color(WHITE_SMOKE_INT);
+		
+		public static final int YELLOW_INT = 0xFFFF00;
+		public static final String YELLOW_STRING = "Yellow";
+		public static final Color YELLOW = new Color(YELLOW_INT);
+		
+		public static final int YELLOW_GREEN_INT = 0x9ACD32;
+		public static final String YELLOW_GREEN_STRING = "YellowGreen";
+		public static final Color YELLOW_GREEN = new Color(YELLOW_GREEN_INT);
+		
+		
+	//default value
+	private static final int DEFAULT_VALUE = WHITE_INT;
+		
+	//true colors limits
 	private static final int MIN_TRUE_COLOR = 0;
 	private static final int MAX_TRUE_COLOR = 16777215;
 	
-	//true color components
+	//true color components limits
 	private static final int MIN_TRUE_COLOR_COMPONENT = 0;
 	private static final int MAX_TRUE_COLOR_COMPONENT = 255;
 	
+	//web colors
+		private static final List<Pair<String, java.lang.Integer>> webColors
+		= new List<Pair<String, java.lang.Integer>>();
+		
+		private static final AccessorContainer<Pair<String, java.lang.Integer>> webColors2
+		= new AccessorContainer<Pair<String, java.lang.Integer>>(webColors);
+	
+	private static final AccessorContainer<Pair<String, java.lang.Integer>> getWebColors() {
+		
+		if (!filledUpWebColors()) {
+			fillUpWebColors();
+		}
+		
+		return webColors2;
+	}
+	
+	private static final boolean filledUpWebColors() {
+		return webColors.containsAny();
+	}
+	
+	private static final void fillUpWebColors() {		
+		try {
+		
+			for (final Field f : Color.class.getDeclaredFields()) {
+				if (
+					Modifier.isStatic(f.getModifiers())
+					&& f.getName().endsWith("STRING")
+				) {
+					
+					final String colorName = f.get(null).toString();
+					int colorValue = 0;
+					
+					for (final Field f2 : Color.class.getDeclaredFields()) {
+						
+						if (
+							Modifier.isStatic(f2.getModifiers())
+							&& f2.getName().replace("_INT", "_STRING").equals(f.getName())
+						) {
+							colorValue = (int)f2.get(null);
+							break;
+						}
+					}
+					webColors.addAtEnd(new Pair<String, java.lang.Integer>(colorName, colorValue));
+				}
+			}
+		}
+		catch (final IllegalAccessException exception) {}
+	}
+	
 	//attribute
-	private int value = RED;
+	private int value = DEFAULT_VALUE;
 	
 	//constructor
 	/**
-	 * Creates new color with default values.
+	 * Creates new color with a default values.
 	 */
 	public Color() {}
 	
@@ -451,18 +704,6 @@ public class Color extends Element {
 	
 	//method
 	/**
-	 * @return a new color that is the inverted color of this color.
-	 */
-	public final Color createInvertedColor() {
-		return new Color(
-			MAX_TRUE_COLOR_COMPONENT - getRedValue(),
-			MAX_TRUE_COLOR_COMPONENT - getGreenValue(),
-			MAX_TRUE_COLOR_COMPONENT - getBlueValue()
-		);
-	}
-	
-	//method
-	/**
 	 * @return the attributes of this color.
 	 */
 	public final List<StandardSpecification> getAttributes() {		
@@ -495,6 +736,18 @@ public class Color extends Element {
 	
 	//method
 	/**
+	 * @return a new color that is the inverted color of this color.
+	 */
+	public final Color getInvertedColor() {
+		return new Color(
+			MAX_TRUE_COLOR_COMPONENT - getRedValue(),
+			MAX_TRUE_COLOR_COMPONENT - getGreenValue(),
+			MAX_TRUE_COLOR_COMPONENT - getBlueValue()
+		);
+	}
+	
+	//method
+	/**
 	 * @return the java color of this color.
 	 */
 	public final java.awt.Color getJavaColor() {
@@ -516,103 +769,7 @@ public class Color extends Element {
 	public final String getStringValue() {
 		
 		//Enumerates the value of this color.
-		switch (getValue()) {			
-			
-			//Handles very light colors.
-			case VERY_LIGHT_BLUE:
-				return VERY_LIGHT_BLUE_STRING;
-			case VERY_LIGHT_CYAN:
-				return VERY_LIGHT_CYAN_STRING;
-			case VERY_LIGHT_GREEN:
-				return VERY_LIGHT_GREEN_STRING;
-			case VERY_LIGHT_GREY:
-				return VERY_LIGHT_GREY_STRING;
-			case VERY_LIGHT_ORANGE:
-				return VERY_LIGHT_ORANGE_STRING;
-			case VERY_LIGHT_PURPLE:
-				return VERY_LIGHT_PURPLE_STRING;
-			case VERY_LIGHT_RED:
-				return VERY_LIGHT_RED_STRING;
-			
-			//Handles light colors.
-			/*
-			case LIGHT_BLUE:
-				return LIGHT_BLUE_STRING;
-			case LIGHT_CYAN:
-				return LIGHT_CYAN_STRING;
-			*/
-			case LIGHT_GREEN:
-				return LIGHT_GREEN_STRING;
-			case LIGHT_GREY:
-				return LIGHT_GREY_STRING;
-			case LIGHT_ORANGE:
-				return LIGHT_ORANGE_STRING;
-			case LIGHT_PURPLE:
-				return LIGHT_PURPLE_STRING;
-			case LIGHT_RED:
-				return LIGHT_RED_STRING;
-			
-			//Handles normal colors.
-			case ANTHRAZIT:
-				return ANTHRAZIT_STRING;
-			/*
-			case BLACK:
-				return BLACK_STRING;
-			case BLUE:
-				return BLUE_STRING;
-			case BROWN:
-				return BROWN_STRING;
-			case CYAN:
-				return CYAN_STRING;
-			case GREEN:
-				return GREEN_STRING;
-			case GREY:
-				return GREY_STRING;
-			*/
-			case ORANGE:
-				return ORANGE_STRING;
-			case PURPLE:
-				return PURPLE_STRING;
-			case RED:
-				return RED_STRING;
-			case WHITE:
-				return WHITE_STRING;
-			case YELLOW:
-				return YELLOW_STRING;
-				
-			//Handles dark colors.
-			/*
-			case DARK_BLUE:
-				return DARK_BLUE_STRING;
-			case DARK_CYAN:
-				return DARK_CYAN_STRING;
-			case DARK_GREEN:
-				return DARK_GREEN_STRING;
-			case DARK_GREY:
-				return DARK_GREY_STRING;
-			case DARK_ORANGE:
-				return DARK_ORANGE_STRING;
-			case DARK_PURPLE:
-				return DARK_PURPLE_STRING;
-			case DARK_RED:
-				return DARK_RED_STRING;
-			*/
-				
-			//Handles very dark colors.
-			case VERY_DARK_BLUE:
-				return VERY_DARK_BLUE_STRING;
-			case VERY_DARK_CYAN:
-				return VERY_DARK_CYAN_STRING;
-			case VERY_DARK_GREEN:
-				return VERY_DARK_GREEN_STRING;
-			case VERY_DARK_GREY:
-				return VERY_DARK_GREY_STRING;
-			case VERY_DARK_ORANGE:
-				return VERY_DARK_ORANGE_STRING;
-			case VERY_DARK_PURPLE:
-				return VERY_DARK_PURPLE_STRING;
-			case VERY_DARK_RED:
-				return VERY_DARK_RED_STRING;
+		switch (getValue()) {
 			
 			//Handles other colors.
 			default:
@@ -742,11 +899,12 @@ public class Color extends Element {
 	 * Sets the value of this color.
 	 * 
 	 * @param value
-	 * @throws OutOfRangeException if the given value is no true color (in [0, 16'777'215]).
+	 * @throws OutOfRangeException if the given value is no true color value.
+	 * A true color value is in [0,16'777'215].
 	 */
 	private void setValue(final int value) {
 		
-		//Checks if the given value is between 0 and 16777215.
+		//Checks if the given value is a true color value.
 		Validator.supposeThat(value).isBetween(MIN_TRUE_COLOR, MAX_TRUE_COLOR);
 		
 		this.value = value;
@@ -761,166 +919,24 @@ public class Color extends Element {
 	 */
 	private void setValue(final String value) {
 		
-		//Enumerates the given value.
-		switch (value) {
+		final Pair<String, java.lang.Integer> pair
+		= getWebColors().getRefFirstOrNull(p -> p.getRefElement1().equals(value));
 		
-			//TODO: Handle all web colors.
-			case ALICE_BLUE_STRING:
-				this.value = ALICE_BLUE_INT;
-				break;
-			case ANTIQUE_WHITE_STRING:
-				this.value = ANTIQUE_WHITE_INT;
-				break;
+		//Handles the case if the given color is no web color.
+		if (pair == null) {
 			
-			//Handles very light colors.
-			case VERY_LIGHT_BLUE_STRING:
-				this.value = VERY_LIGHT_BLUE;
-				break;
-			case VERY_LIGHT_CYAN_STRING:
-				this.value = VERY_LIGHT_CYAN;
-				break;
-			case VERY_LIGHT_GREEN_STRING:
-				this.value = VERY_LIGHT_GREEN;
-				break;
-			case VERY_LIGHT_GREY_STRING:
-				this.value = VERY_LIGHT_GREY;
-				break;
-			case VERY_LIGHT_ORANGE_STRING:
-				this.value = VERY_LIGHT_ORANGE;
-				break;
-			case VERY_LIGHT_PURPLE_STRING:
-				this.value = VERY_LIGHT_PURPLE;
-				break;
-			case VERY_LIGHT_RED_STRING:
-				this.value = VERY_LIGHT_RED;
-				break;
-				
-			//Handles light colors.
-			/*
-			case LIGHT_BLUE_STRING:
-				this.value = LIGHT_BLUE;
-				break;
-			case LIGHT_CYAN_STRING:
-				this.value = LIGHT_CYAN;
-				break;
-			*/
-			case LIGHT_GREEN_STRING:
-				this.value = LIGHT_GREEN;
-				break;
-			case LIGHT_GREY_STRING:
-				this.value = LIGHT_GREY;
-				break;
-			case LIGHT_ORANGE_STRING:
-				this.value = LIGHT_ORANGE;
-				break;
-			case LIGHT_PURPLE_STRING:
-				this.value = LIGHT_PURPLE;
-				break;
-			case LIGHT_RED_STRING:
-				this.value = LIGHT_RED;
-				break;
-				
-			//Handles normal colors.
-			case ANTHRAZIT_STRING:
-				this.value = ANTHRAZIT;
-				break;
-			/*
-			case BLACK_STRING:
-				this.value = BLACK;
-				break;
-			case BLUE_STRING:
-				this.value = BLUE;
-				break;
-			case BROWN_STRING:
-				this.value = BROWN;
-				break;
-			case CYAN_STRING:
-				this.value = CYAN;
-				break;
-			case GREEN_STRING:
-				this.value = GREEN;
-				break;
-			case GREY_STRING:
-				this.value = GREY;
-				break;
-			*/
-			case ORANGE_STRING:
-				this.value = ORANGE;
-				break;
-			case PURPLE_STRING:
-				this.value = PURPLE;
-				break;
-			case RED_STRING:
-				this.value = RED;
-				break;
-			case WHITE_STRING:
-				this.value = WHITE;
-				break;
-			case YELLOW_STRING:
-				this.value = YELLOW;
-				break;
+			if (value.length() != 8 && !value.substring(2).equals(StringCatalogue.HEXADECIMAL_PREFIX)) {
+				throw new InvalidArgumentException(
+					new Argument(value),
+					new ErrorPredicate("is no color name or true color value")
+				);	
+			}
 			
-			//Handles dark colors.
-			/*
-			case DARK_BLUE_STRING:
-				this.value = DARK_BLUE;
-				break;
-			case DARK_CYAN_STRING:
-				this.value = DARK_CYAN;
-				break;
-			case DARK_GREEN_STRING:
-				this.value = DARK_GREEN;
-				break;
-			case DARK_GREY_STRING:
-				this.value = DARK_GREY;
-				break;
-			case DARK_ORANGE_STRING:
-				this.value = DARK_ORANGE;
-				break;
-			case DARK_PURPLE_STRING:
-				this.value = DARK_PURPLE;
-				break;
-			case DARK_RED_STRING:
-				this.value = DARK_RED;
-				break;
-			*/
-			
-			//Handles very dark colors.
-			case VERY_DARK_BLUE_STRING:
-				this.value = VERY_DARK_BLUE;
-				break;
-			case VERY_DARK_CYAN_STRING:
-				this.value = VERY_DARK_CYAN;
-				break;
-			case VERY_DARK_GREEN_STRING:
-				this.value = VERY_DARK_GREEN;
-				break;
-			case VERY_DARK_GREY_STRING:
-				this.value = VERY_DARK_GREY;
-				break;
-			case VERY_DARK_ORANGE_STRING:
-				this.value = VERY_DARK_ORANGE;
-				break;
-			case VERY_DARK_PURPLE_STRING:
-				this.value = VERY_DARK_PURPLE;
-				break;
-			case VERY_DARK_RED_STRING:
-				this.value = VERY_DARK_RED;
-				break;
-				
-			//Handles other colors.	
-			default:
-				if (value.length() != 8 && !value.substring(2).equals(StringCatalogue.HEXADECIMAL_PREFIX)) {
-					throw new InvalidArgumentException(
-						new Argument(value),
-						new ErrorPredicate("is no color name or true color value")
-					);	
-				}
-				this.value = 0;
-				int base = 1;
-				for (int i = 7; i >= 2; i--) {
-					int tempValue;
-					switch (value.charAt(i)) {
+			this.value = 0;
+			int base = 1;
+			for (int i = 7; i >= 2; i--) {
+				int tempValue;
+				switch (value.charAt(i)) {
 					case '0':
 						tempValue = 0;
 						break;
@@ -973,11 +989,17 @@ public class Color extends Element {
 						throw new InvalidArgumentException(
 							new Argument(value),
 							new ErrorPredicate("is no color name or true color value")
-						);	
+						);
 				}
+			
 				this.value += tempValue * base;
 				base *= 16;
 			}
+		}
+		
+		//Handles the case if the given color is a web color.
+		else {
+			setValue(pair.getRefElement2());
 		}
 	}
 }

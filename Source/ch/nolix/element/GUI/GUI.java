@@ -42,7 +42,7 @@ implements Clearable, Closable, IRequestableContainer, Refreshable {
 	
 	//default values
 	public static final String DEFAULT_TITLE = "GUI";
-	public static final Color DEFAULT_BACKGROUND_COLOR = new Color(Color.WHITE);
+	public static final Color DEFAULT_BACKGROUND_COLOR = Color.BEIGE;
 	public static final ContentPosition DEFAULT_CONTENT_POSITION = ContentPosition.Top;
 	
 	//attribute header

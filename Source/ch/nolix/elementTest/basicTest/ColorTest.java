@@ -18,6 +18,12 @@ import ch.nolix.element.basic.Color;
  */
 public final class ColorTest extends Test {
 	
+	public void test_createConstructor() {
+		
+		//exection
+		final Color color = new Color(Color.ALICE_BLUE_INT);
+	}
+	
 	//test method
 	public void test_createInvertedColor_1() {
 		
@@ -25,7 +31,7 @@ public final class ColorTest extends Test {
 		final Color color = new Color(0x000000);
 		
 		//execution
-		final Color invertedColor = color.createInvertedColor();
+		final Color invertedColor = color.getInvertedColor();
 
 		//verification
 		expectThat(color.getValue()).equals(0x000000);
@@ -39,7 +45,7 @@ public final class ColorTest extends Test {
 		final Color color = new Color(0xFFFFFF);
 		
 		//execution
-		final Color invertedColor = color.createInvertedColor();
+		final Color invertedColor = color.getInvertedColor();
 
 		//verification
 		expectThat(color.getValue()).equals(0xFFFFFF);
