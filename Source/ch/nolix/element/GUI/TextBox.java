@@ -28,7 +28,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	
 	//default values
 	public static final int DEFAULT_WIDTH = 200;
-	public static final Color DEFAULT_BACKGROUND_COLOR = Color.BEIGE;
+	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	public static final String DEFAULT_CURSOR_COLOR = Color.BLACK_STRING;
 	
 	//limit value

@@ -43,7 +43,7 @@ implements Clearable, Closable, IRequestableContainer, Refreshable {
 	
 	//default values
 	public static final String DEFAULT_TITLE = "GUI";
-	public static final Color DEFAULT_BACKGROUND_COLOR = Color.BEIGE;
+	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	public static final ContentPosition DEFAULT_CONTENT_POSITION = ContentPosition.Top;
 	
 	//attribute header
@@ -515,7 +515,7 @@ implements Clearable, Closable, IRequestableContainer, Refreshable {
 	 */
 	public void resetConfiguration() {
 		
-		setBackgroundColor(new BackgroundColor());
+		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		setContentPosition(DEFAULT_CONTENT_POSITION);
 		
 		if (hasRootWidget()) {

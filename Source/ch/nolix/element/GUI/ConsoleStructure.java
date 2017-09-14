@@ -21,7 +21,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	public static final int DEFAULT_WIDTH = 400;
 	public static final int DEFAULT_HEIGHT = 400;
 	public static final int DEFAULT_TEXT_SIZE = ValueCatalog.MEDIUM_TEXT_SIZE;
-	public static final Color DEFAULT_TEXT_COLOR = Color.BEIGE;
+	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 	
 	//attribute headers
 	private static final String WIDTH_HEADER = "Width";
