@@ -131,7 +131,7 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 			)
 			.setRole(ContainerRole.MainContainer)
 		)
-		.setConfiguration(new ConsoleDesign());
+		.setConfiguration(new GreyBlueConsoleDesign());
 	}
 	
 	public void quit() {

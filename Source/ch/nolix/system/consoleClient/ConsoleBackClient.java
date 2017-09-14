@@ -146,7 +146,7 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 		internal_runOnCounterpart(
 			Protocol.SET_DESIGN_COMMAND
 			+ "("
-			+ StandardSpecification.createEscapeString(design.toString())
+			+ design.toString()
 			+ ")"
 		);
 		

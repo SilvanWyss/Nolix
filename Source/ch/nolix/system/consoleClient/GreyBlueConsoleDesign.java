@@ -12,13 +12,13 @@ import ch.nolix.element.configuration.StandardConfiguration;
  * @month 2017-08
  * @lines 50
  */
-public final class ConsoleDesign extends StandardConfiguration {
+public final class GreyBlueConsoleDesign extends StandardConfiguration {
 
 	//constructor
 	/**
 	 * Creates new console client.
 	 */
-	public ConsoleDesign() {
+	public GreyBlueConsoleDesign() {
 		
 		addAttachingAttribute("BackgroundColor(LightSteelBlue)");
 		
@@ -27,13 +27,15 @@ public final class ConsoleDesign extends StandardConfiguration {
 			.setSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute(
 				"NormalBackgroundColor(White)",
-				"NormalPadding(10)",
-				"ElementMargin(10)"
+				"NormalLeftPadding(20)",
+				"NormalRightPadding(20)",
+				"NormalBottomPadding(20)",
+				"ElementMargin(20)"
 			),
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameManager.INFO_PANEL_NAME)
 			.addAttachingAttribute(
-				"NormalWidth(800)",
+				"NormalWidth(1000)",
 				"NormalHeight(300)",
 				"NormalBackgroundColor(Lavender)",
 				"NormalPadding(10)",
@@ -42,7 +44,7 @@ public final class ConsoleDesign extends StandardConfiguration {
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameManager.CONSOLE_NAME)
 			.addAttachingAttribute(
-				"NormalWidth(800)",
+				"NormalWidth(1000)",
 				"NormalHeight(400)",
 				"NormalBackgroundColor(WhiteSmoke)",
 				"NormalPadding(10)",
