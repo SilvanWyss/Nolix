@@ -17,7 +17,7 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.font.Font;
-import ch.nolix.element.font.FontFamily;
+import ch.nolix.element.font.TextFont;
 
 //class
 /**
@@ -363,7 +363,7 @@ implements Clearable {
 		setCursorIcon(CursorIcon.Edit);
 		getRefNormalStructure()
 		.setBackgroundColor(DEFAULT_BACKGROUND_COLOR)
-		.setFontFamily(FontFamily.Console);
+		.setTextFont(TextFont.Console);
 	}
 	
 	//method
@@ -531,7 +531,7 @@ implements Clearable {
 		final int contentWidth = getContentWidth();
 		final int contentHeight = getContentHeight();
 		final int textSize = widgetStructure.getActiveTextSize();	
-		final Font font = new Font(widgetStructure.getActiveFontFamily(), textSize, widgetStructure.getActiveTextColor());
+		final Font font = new Font(widgetStructure.getActiveTextFont(), textSize, widgetStructure.getActiveTextColor());
 		final int lineCount = getLines().getElementCount();
 		final int shownLineCount = contentHeight / textSize;
 		

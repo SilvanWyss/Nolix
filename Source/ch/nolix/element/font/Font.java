@@ -17,7 +17,7 @@ import ch.nolix.element.basic.PositiveInteger;
 
 //class
 /**
- * A font can paint texts with a specific font-family, text size and text color.
+ * A font can paint texts with a specific text font, text size and text color.
  * A font is not mutable.
  * 
  * @author Silvan Wyss
@@ -27,7 +27,7 @@ import ch.nolix.element.basic.PositiveInteger;
 public final class Font extends Element {
 	
 	//default values
-	public static final FontFamily DEFAULT_FONT_FAMILY = FontFamily.Verdana;
+	public static final TextFont DEFAULT_TEXT_FONT = TextFont.Verdana;
 	public static final int DEFAULT_TEXT_SIZE = 20;
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 
@@ -36,7 +36,7 @@ public final class Font extends Element {
 	private static final String TEXT_COLOR_HEADER = "TextColor";
 	
 	//attributes
-	private final FontFamily fontFamily;
+	private final TextFont textFont;
 	private final PositiveInteger textSize;
 	private final Color textColor;
 	private final java.awt.Font javaFont;
@@ -49,7 +49,7 @@ public final class Font extends Element {
 	public Font() {
 		
 		//Calls other constructor.
-		this(DEFAULT_FONT_FAMILY, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
+		this(DEFAULT_TEXT_FONT, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
 	}
 	
 	//constructor
@@ -62,66 +62,66 @@ public final class Font extends Element {
 	public Font(final Color text_color) {
 		
 		//Calls other constructor.
-		this(DEFAULT_FONT_FAMILY, DEFAULT_TEXT_SIZE, text_color);
+		this(DEFAULT_TEXT_FONT, DEFAULT_TEXT_SIZE, text_color);
 	}
 	
 	//constructor
 	/**
-	 * Creates new font with the given font-family.
+	 * Creates new font with the given text font.
 	 * 
-	 * @param fontFamily
-	 * @throws NullArgumentException if the given font family is null.
+	 * @param textFont
+	 * @throws NullArgumentException if the given text font is null.
 	 */
-	public Font(final FontFamily fontFamily) {
+	public Font(final TextFont textFont) {
 		
 		//Calls other constructor.
-		this(fontFamily, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
+		this(textFont, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
 	}
 	
 	//constructor
 	/**
-	 * Creates new font with the given font-family and text size.
+	 * Creates new font with the given text font and text size.
 	 * 
-	 * @param fontFamily
+	 * @param textFont
 	 * @param textSize
-	 * @throws NullArgumentException if the given font family is null.
+	 * @throws NullArgumentException if the given text font is null.
 	 * @throws NonPositiveArgumentException if the given text size is not positive.
 	 */
-	public Font(final FontFamily fontFamily, final int textSize) {
+	public Font(final TextFont textFont, final int textSize) {
 		
 		//Calls other constructor.
-		this(fontFamily, textSize, DEFAULT_TEXT_COLOR);
+		this(textFont, textSize, DEFAULT_TEXT_COLOR);
 	}
 	
 	//constructor
 	/**
-	 * Creates new font with the given font family, text size and text color.
+	 * Creates new font with the given text font, text size and text color.
 	 * 
-	 * @param fontFamily
+	 * @param textFont
 	 * @param textSize
 	 * @param textColor
-	 * @throws NullArgumentException if the given font family is null.
+	 * @throws NullArgumentException if the given text font is null.
 	 * @throws NonPositiveArgumentException if the given text size is not positive.
 	 * @throws NullArgumentException if the given text color is null.
 	 */
 	public Font(
-		final FontFamily fontFamily,
+		final TextFont textFont,
 		final int textSize,
 		final Color textColor) {
 		
-		//Checks if the given font family is not null.
-		Validator.supposeThat(fontFamily).thatIsInstanceOf(FontFamily.class).isNotNull();
+		//Checks if the given text font is not null.
+		Validator.supposeThat(textFont).thatIsInstanceOf(TextFont.class).isNotNull();
 		
 		//Checks if the given text color is not null.
 		Validator.supposeThat(textColor).thatIsNamed(TEXT_COLOR_HEADER).isNotNull();
 		
-		this.fontFamily = fontFamily;
+		this.textFont = textFont;
 		this.textSize = new PositiveInteger(textSize);
 		this.textColor = textColor;
 		
 		this.javaFont
 		= new java.awt.Font(
-			getFontFamily().getJavaFontFamily(),
+			getTextFont().getJavaFontFamily(),
 			java.awt.Font.PLAIN,
 			getTextSize()
 		);
@@ -137,7 +137,7 @@ public final class Font extends Element {
 	public Font(final int textSize) {
 		
 		//Calls other constructor.
-		this(DEFAULT_FONT_FAMILY, textSize, DEFAULT_TEXT_COLOR);
+		this(DEFAULT_TEXT_FONT, textSize, DEFAULT_TEXT_COLOR);
 	}
 	
 	//constructor
@@ -154,7 +154,7 @@ public final class Font extends Element {
 		final Color textColor) {
 		
 		//Calls other constructor
-		this(DEFAULT_FONT_FAMILY, textSize, textColor);
+		this(DEFAULT_TEXT_FONT, textSize, textColor);
 	}
 	
 
@@ -168,7 +168,7 @@ public final class Font extends Element {
 		final List<StandardSpecification> attributes = new List<StandardSpecification>();
 		
 		attributes.addAtEnd(
-			fontFamily.getSpecification(),
+			textFont.getSpecification(),
 			textSize.getSpecificationAs(TEXT_SIZE_HEADER),
 			textColor.getSpecificationAs(TEXT_COLOR_HEADER)
 		);
@@ -242,10 +242,10 @@ public final class Font extends Element {
 	
 	//method
 	/**
-	 * @return the font family of this font.
+	 * @return the text font of this font.
 	 */
-	public FontFamily getFontFamily() {
-		return fontFamily;
+	public TextFont getTextFont() {
+		return textFont;
 	}
 	
 	//method
@@ -259,7 +259,7 @@ public final class Font extends Element {
 	//method
 	/**
 	 * The text size is normative.
-	 * The text height depends on the font family and can differ.
+	 * The text height depends on the text font and can differ.
 	 * 
 	 * @return the text height of this font.
 	 */

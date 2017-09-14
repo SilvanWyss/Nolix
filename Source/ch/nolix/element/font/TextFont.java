@@ -10,11 +10,14 @@ import ch.nolix.core.specification.StandardSpecification;
  * @month 2017-08
  * @lines 40
  */
-public enum FontFamily {
+public enum TextFont {
 	Arial,
 	Console,
 	Papyrus,
 	Verdana;
+	
+	//type name
+	public static final String TYPE_NAME = "TextFont";
 
 	//method
 	/**
@@ -30,7 +33,7 @@ public enum FontFamily {
 	 */
 	public String getJavaFontFamily() {
 		
-		//Enumerates this font family.
+		//Enumerates this text font.
 		switch (this) {
 			case Console:
 				return java.awt.Font.MONOSPACED;

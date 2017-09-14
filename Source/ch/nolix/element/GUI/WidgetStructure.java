@@ -10,7 +10,7 @@ import ch.nolix.element.data.TextColor;
 import ch.nolix.element.data.TextSize;
 import ch.nolix.element.entity.Entity;
 import ch.nolix.element.entity.Property;
-import ch.nolix.element.font.FontFamily;
+import ch.nolix.element.font.TextFont;
 
 //abstract class
 /**
@@ -42,11 +42,11 @@ public abstract class WidgetStructure<WS extends WidgetStructure<WS>>
 extends Entity {
 	
 	//attribute
-	private final Property<FontFamily> fontFamily
-	= new Property<FontFamily>(
-		"FontFamily",
-		FontFamily.Verdana,
-		s -> FontFamily.valueOf(s)
+	private final Property<TextFont> textFont
+	= new Property<TextFont>(
+		TextFont.TYPE_NAME,
+		TextFont.Verdana,
+		s -> TextFont.valueOf(s)
 	);
 	
 	//attribute
@@ -69,8 +69,8 @@ extends Entity {
 	private WS normalStructure;
 	
 	//method
-	public FontFamily getActiveFontFamily() {
-		return fontFamily.getActiveValue();
+	public TextFont getActiveTextFont() {
+		return textFont.getActiveValue();
 	}
 	
 	//method
@@ -103,9 +103,9 @@ extends Entity {
 	
 	//method
 		@SuppressWarnings("unchecked")
-	public final WS setFontFamily(final FontFamily fontFamily) {
+	public final WS setTextFont(final TextFont textFont) {
 		
-		this.fontFamily.setValue(fontFamily);
+		this.textFont.setValue(textFont);
 		
 		return (WS)this;
 	}
