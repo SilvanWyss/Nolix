@@ -24,7 +24,7 @@ public final class ColorGradient extends Element {
 	//default values
 	public static final ColorGradientPattern DEFAULT_PATTERN = ColorGradientPattern.TopToBottom;
 	public static final Color DEFAULT_COLOR_1 = Color.BLACK;
-	public static final Color DEFAULT_COLOR_2 = Color.BEIGE;
+	public static final Color DEFAULT_COLOR_2 = Color.WHITE;
 	
 	//attribute headers
 	private static final String PATTERN = "Pattern";
