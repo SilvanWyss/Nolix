@@ -5,6 +5,7 @@ package ch.nolix.systemTutorial.consoleClientTutorial;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.system.client.Session;
 import ch.nolix.system.client.StandardApplication;
+import ch.nolix.system.consoleClient.BlackRedConsoleDesign;
 import ch.nolix.system.consoleClient.ConsoleBackClient;
 import ch.nolix.system.consoleClient.ConsoleFrontClient;
 
@@ -28,14 +29,14 @@ public final class ConsoleClientTutorial {
 	@SuppressWarnings("resource")
 	public static void main(final String[] arguments) {
 		
-		//Creates application.
+		//Creates an application.
 		final StandardApplication<ConsoleBackClient> application
 		= new StandardApplication<ConsoleBackClient>(
 			"MyApplication",
 			MainSession.class
 		);
 		
-		//Creates console front client that connects to the application.
+		//Creates a console front client that connects to the application.
 		new ConsoleFrontClient(application);
 	}
 	
@@ -48,29 +49,25 @@ public final class ConsoleClientTutorial {
 		 */
 		public void initialize() {
 			
+			getRefClient().setDesign(new BlackRedConsoleDesign());
+			
 			getRefClient().writeLineToInfoPanel(
 				"This is the info panel of the console.",
 				"On the info panel informatiosn can be displayed.",
 				"The info panel cannot be edited."
 			);
 			
-			Sequencer.waitForMilliseconds(100);
 			getRefClient().writeLineToConsole("Enter your name.");
 			final String name = getRefClient().readLineFromConsole();
 			
-			Sequencer.waitForMilliseconds(100);
 			getRefClient().writeLineToConsole("Hello " + name + ".");
 						
 			boolean answerIsValid = false;
 			do {
 				
-				Sequencer.waitForMilliseconds(100);
-				getRefClient().writeLineToConsole("Are you fine? (Press y for yes, press n for no.)");
+				getRefClient().writeLineToConsole("Are you fine? Press y for yes, press n for no.");
 				
-				final char answer = getRefClient().readCharacterFromConsole();
-				
-				//Enumerates the received answer.
-				switch (answer) {
+				switch (getRefClient().readCharacterFromConsole()) {
 					case 'y':
 						answerIsValid = true;
 						getRefClient().writeLineToConsole("Oh good!");
@@ -81,6 +78,15 @@ public final class ConsoleClientTutorial {
 						break;
 				}
 			} while (!answerIsValid);
+			
+			Sequencer.waitForMilliseconds(1000);
+			
+			getRefClient()
+			.writeEmptyLineToConsole()
+			.writeLineToConsole("Press enter to quit the program.")
+			.readEnterFromConsole();
+			
+			getRefClient().quit();
 		}
 	}
 	
