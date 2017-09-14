@@ -2,8 +2,10 @@
 package ch.nolix.element.GUI;
 
 //own imports
+import ch.nolix.core.container.List;
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.basic.Color;
 import ch.nolix.element.data.TextColor;
@@ -14,20 +16,20 @@ import ch.nolix.element.font.TextFont;
 
 //abstract class
 /**
- * A widget structure stores state-dependent attributes of a widget.
- * All attributes a widget structure can have are optional.
+ * A widget structure stores the state-dependent attributes of a widget.
+ * All attributes of a widget structure are optional.
  * 
  * For each attribute A, a widget structure has a method hasRecursiveA().
  * A method hasRecursiveA() must have the following scheme.
- * Step 1: If the widget structure has a value, the hasRecursiveA() must return true.
- * Step 2: If the widget structure has a normal structure, hasRecursiveA()
- *         must return hasRecursiveA() of the normal structure.
+ * Step 1: If the widget structure has a value, hasRecursiveA() must return true.
+ * Step 2: If the widget structure has a base structure, hasRecursiveA()
+ *         must return hasRecursiveA() of the base structure.
  * Step 3: hasRecursiveA() must return false.
  * 
  * For each attribute A, a widget structure has a method getActiveA().
- * Step 1: If the widget structure has a value, getActiveA must return that value.
- * Step 2: If the widget structure has a normal structure, getActiveA()
- *         must return getActiveA() of the normal structure.
+ * Step 1: If the widget structure has a value, getActiveA() must return that value.
+ * Step 2: If the widget structure has a base structure, getActiveA()
+ *         must return getActiveA() of the base structure.
  * Step 3: If the widget structure has a condition for a smart default value
  *         and the condition is fulfilled,
  *         getActiveA() must return the smart default value.
@@ -35,17 +37,22 @@ import ch.nolix.element.font.TextFont;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 90
+ * @lines 240
  * @param <WS> The type of a widget structure.
  */
 public abstract class WidgetStructure<WS extends WidgetStructure<WS>>
 extends Entity {
 	
+	//default values
+	public static final TextFont DEFAULT_TEXT_FONT = TextFont.Verdana;
+	public static final int DEFAULT_TEXT_SIZE = 20;
+	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
+	
 	//attribute
 	private final Property<TextFont> textFont
 	= new Property<TextFont>(
 		TextFont.TYPE_NAME,
-		TextFont.Verdana,
+		DEFAULT_TEXT_FONT,
 		s -> TextFont.valueOf(s)
 	);
 	
@@ -53,7 +60,7 @@ extends Entity {
 	private final Property<TextSize> textSize
 	= new Property<TextSize>(
 		TextSize.TYPE_NAME,
-		new TextSize(20),
+		new TextSize(DEFAULT_TEXT_SIZE),
 		s -> new TextSize(StringHelper.toInt(s))
 	);
 	
@@ -61,29 +68,43 @@ extends Entity {
 	private final Property<TextColor> textColor
 	= new Property<TextColor>(
 		"TextColor",
-		new TextColor(),
+		new TextColor(DEFAULT_TEXT_COLOR.getValue()),
 		s -> new TextColor(s)
 	);
 	
 	//optional attribute
-	private WS normalStructure;
+	private WS baseStructure;
 	
 	//method
-	public TextFont getActiveTextFont() {
-		return textFont.getActiveValue();
-	}
-	
-	//method
+	/**
+	 * @return the active text color of this widget structure.
+	 */
 	public final Color getActiveTextColor() {
 		return textColor.getActiveValue();
 	}
 	
 	//method
+	/**
+	 * @return the active text font of this widget structure.
+	 */
+	public TextFont getActiveTextFont() {
+		return textFont.getActiveValue();
+	}
+		
+	//method
+	/**
+	 * @return the active text size of this widget structure.
+	 */
 	public final int getActiveTextSize() {
 		return textSize.getActiveValue().getValue();
 	}
 	
 	//method
+	/**
+	 * Removes the text color of this widget structure.
+	 * 
+	 * @return this widget structure.
+	 */
 	@SuppressWarnings("unchecked")
 	public final WS removeTextColor() {
 		
@@ -93,6 +114,25 @@ extends Entity {
 	}
 	
 	//method
+	/**
+	 * Removes the text font of this widget structure.
+	 * 
+	 * @return this widget structure.
+	 */
+	@SuppressWarnings("unchecked")
+	public final WS removeTextFont() {
+		
+		textFont.clear();
+		
+		return (WS)this;
+	}
+	
+	//method
+	/**
+	 * Removes the text size of this widget structure.
+	 * 
+	 * @return this widget structure.
+	 */
 	@SuppressWarnings("unchecked")
 	public final WS removeTextSize() {
 		
@@ -102,15 +142,12 @@ extends Entity {
 	}
 	
 	//method
-		@SuppressWarnings("unchecked")
-	public final WS setTextFont(final TextFont textFont) {
-		
-		this.textFont.setValue(textFont);
-		
-		return (WS)this;
-	}
-	
-	//method
+	/**
+	 * Sets the text color of this widget structure.
+	 * 
+	 * @param textColor
+	 * @return this widget structure.
+	 */
 	@SuppressWarnings("unchecked")
 	public final WS setTextColor(final Color textColor) {
 		
@@ -120,6 +157,27 @@ extends Entity {
 	}
 	
 	//method
+	/**
+	 * Sets the text font of this widget structure.
+	 * 
+	 * @param textFont
+	 * @return this widget structure.
+	 */
+	@SuppressWarnings("unchecked")
+	public final WS setTextFont(final TextFont textFont) {
+		
+		this.textFont.setValue(textFont);
+		
+		return (WS)this;
+	}
+		
+	//method
+	/**
+	 * Sets the text size of this widget structure.
+	 * 
+	 * @param textSize
+	 * @return this widget structure.
+	 */
 	@SuppressWarnings("unchecked")
 	public final WS setTextSize(final int textSize) {
 		
@@ -128,44 +186,77 @@ extends Entity {
 		return (WS)this;
 	}
 	
-	//method
-	/**
-	 * @return the normal structure of this widget structure.
-	 * @throws UnexistingAttributeException if this widget structure has no normal structure.
-	 */
-	protected final WS getRefNormalStructure() {
-		
-		//Checks if this widget structure has a normal structure.
-		if (!hasNormalStructure()) {
-			throw new UnexistingAttributeException(this, "normal structure");
-		}
-		
-		return normalStructure;
+	protected void addOrChangeAttributeFully(final StandardSpecification attribute) {
+		addOrChangeAttribute(attribute);
 	}
 	
 	//method
 	/**
-	 * @return true if this widget structure has a normal structure.
+	 * Clears the properties of this widget structure fully.
+	 */
+	protected void clearPropertiesFully() {
+		clearProperties();
+	}
+	
+	//method
+	/**
+	 * @return the attributes of this widget structure fully.
+	 */
+	protected List<StandardSpecification> getAttributesFully() {
+		return getAttributes();
+	}
+	
+	//method
+	/**
+	 * @return the base structure of this widget structure.
+	 * @throws UnexistingAttributeException
+	 * if this widget structure has no base structure.
+	 */
+	protected final WS getRefNormalStructure() {
+		
+		//Checks if this widget structure has a base structure.
+		supposeHasBaseStructure();
+		
+		return baseStructure;
+	}
+	
+	//method
+	/**
+	 * @return true if this widget structure has a base structure.
 	 */
 	protected final boolean hasNormalStructure() {
-		return (normalStructure != null);
+		return (baseStructure != null);
 	}
 	
 	//package-visible method
 	/**
-	 * Sets the normal structure of this widget structure.
+	 * Sets the base structure of this widget structure.
 	 * 
-	 * @param normalStructure
-	 * @throws NullArgumentException if the given normal structure is null.
+	 * @param baseStructure
+	 * @throws NullArgumentException if the given base structure is null.
 	 */
-	final void setNormalStructure(final WS normalStructure) {
+	final void setBaseStructure(final WS baseStructure) {
 		
-		//Checks if the given normal structure is not null.
-		Validator.supposeThat(normalStructure).thatIsNamed("normal structure").isNotNull();
+		//Checks if the given base structure is not null.
+		Validator
+		.supposeThat(baseStructure)
+		.thatIsNamed("base structure")
+		.isNotNull();
 		
-		//Sets the normal structure of this widget structure.
-		this.normalStructure = normalStructure;
+		//Sets the base structure of this widget structure.
+		this.baseStructure = baseStructure;
 		
-		setBaseEntity(normalStructure);
+		setBaseEntity(getRefNormalStructure());
+	}
+	
+	//method
+	/**
+	 * @throws UnexistingAttributeException
+	 * if this widget structure has no base structure.
+	 */
+	private void supposeHasBaseStructure() {
+		if (!hasNormalStructure()) {
+			throw new UnexistingAttributeException(this, "base structure");
+		}
 	}
 }

@@ -86,8 +86,8 @@ extends ConfigurableElement<W> {
 		hoverStructure = createWidgetStructure();
 		focusStructure = createWidgetStructure();
 		
-		getRefHoverStructure().setNormalStructure(getRefNormalStructure());
-		getRefFocusStructure().setNormalStructure(getRefNormalStructure());
+		getRefHoverStructure().setBaseStructure(getRefNormalStructure());
+		getRefFocusStructure().setBaseStructure(getRefNormalStructure());
 	}
 	
 	//method
@@ -126,17 +126,17 @@ extends ConfigurableElement<W> {
 				if (attribute.getHeader().startsWith(NORMAL)) {
 					StandardSpecification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring(NORMAL.length()));
-					getRefNormalStructure().addOrChangeAttribute(temp);
+					getRefNormalStructure().addOrChangeAttributeFully(temp);
 				}
 				else if (attribute.getHeader().startsWith(HOVER)) {
 					StandardSpecification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring(HOVER.length()));
-					getRefHoverStructure().addOrChangeAttribute(temp);
+					getRefHoverStructure().addOrChangeAttributeFully(temp);
 				}
 				else if (attribute.getHeader().startsWith(FOCUS)) {
 					StandardSpecification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring(FOCUS.length()));
-					getRefFocusStructure().addOrChangeAttribute(temp);
+					getRefFocusStructure().addOrChangeAttributeFully(temp);
 				}
 				else {
 				
@@ -231,17 +231,17 @@ extends ConfigurableElement<W> {
 		}
 	
 		//Extracts the normal state attributes of this widget.
-		final List<StandardSpecification> normalStateAttributes = getRefNormalStructure().getAttributes();
+		final List<StandardSpecification> normalStateAttributes = getRefNormalStructure().getAttributesFully();
 		normalStateAttributes.forEach(a -> a.addPrefixToHeader(NORMAL));
 		attributes.addAtEnd(normalStateAttributes);
 		
 		//Extracts the hover state attributes of this widget.
-		final List<StandardSpecification> hoverStateAttributes = getRefHoverStructure().getAttributes();
+		final List<StandardSpecification> hoverStateAttributes = getRefHoverStructure().getAttributesFully();
 		hoverStateAttributes.forEach(a -> a.addPrefixToHeader(HOVER));
 		attributes.addAtEnd(hoverStateAttributes);
 		
 		//Extracts focus state attributes of this widget.
-		final List<StandardSpecification> focusStateAttributes = getRefFocusStructure().getAttributes();
+		final List<StandardSpecification> focusStateAttributes = getRefFocusStructure().getAttributesFully();
 		focusStateAttributes.forEach(a -> a.addPrefixToHeader(FOCUS));
 		attributes.addAtEnd(focusStateAttributes);
 		

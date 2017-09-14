@@ -5,8 +5,6 @@ package ch.nolix.element.GUI;
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 40
+ * @lines 10
  */
-public final class LineStructure extends WidgetStructure<LineStructure> {
-	
-}
+public final class LineStructure extends WidgetStructure<LineStructure> {}

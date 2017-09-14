@@ -20,10 +20,43 @@ public abstract class BackgroundWidgetStructure<BWS extends BackgroundWidgetStru
 extends WidgetStructure<BWS> {
 
 	//default value
-	private static final BackgroundColor DEFAULT_ACTIVE_BACKGROUND_COLOR = new BackgroundColor(Color.BEIGE_INT);
+	private static final BackgroundColor DEFAULT_BACKGROUND_COLOR = new BackgroundColor(Color.WHITE_INT);
 	
 	//optional attribute
 	private BackgroundColor backgroundColor;
+	
+	//method
+	/**
+	 * Adds or changes the given attribute to this background widget structure.
+	 * 
+	 * @param attribute
+	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 */
+	public void addOrChangeAttributeFully(final StandardSpecification attribute) {
+		
+		//Enumerates the header of the given attribute.
+		switch (attribute.getHeader()) {
+			case BackgroundColor.TYPE_NAME:
+				setBackgroundColor(new Color(attribute.getOneAttributeToString()));
+				break;
+			default:
+				
+				//Calls method of the base class.
+				super.addOrChangeAttributeFully(attribute);
+		}
+	}
+	
+	//method
+	/**
+	 * Removes the properties of this background widget structure fully.
+	 */
+	public void clearPropertiesFully() {
+		
+		//Calls method of the base class.
+		super.clearPropertiesFully();
+		
+		removeBackgroundColor();
+	}
 	
 	//method
 	/**
@@ -37,14 +70,32 @@ extends WidgetStructure<BWS> {
 		}
 		
 		//Handles the case if this background widget structure
-		//has no background color but a normal structure.
+		//has no background color but a base structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getActiveBackgroundColor();
 		}
 		
 		//Handles the case if this background widget structure
-		//has no background color and no normal structure.
-		return DEFAULT_ACTIVE_BACKGROUND_COLOR;
+		//has no background color and no base structure.
+		return DEFAULT_BACKGROUND_COLOR;
+	}
+	
+	//method
+	/**
+	 * @return the attributes of this background widget structure fully.
+	 */
+	public List<StandardSpecification> getAttributesFully() {
+		
+		//Calls method of the base class.
+		final List<StandardSpecification> attributes = super.getAttributesFully();
+		
+		//Handles the option that this background widget structure has a background color.
+		if (hasBackgroundColor()) {
+			attributes
+			.addAtEnd(backgroundColor.getSpecification());
+		}
+		
+		return attributes;
 	}
 	
 	//method
@@ -67,13 +118,13 @@ extends WidgetStructure<BWS> {
 		}
 		
 		//Handles the case if this background widget structure
-		//has no background color but a normal structure.
+		//has no background color but a base structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().hasRecursiveBackgroundColor();
 		}
 		
 		//Handles the case if this background widget structure
-		//has no background color and no normal structure.
+		//has no background color and no base structure.
 		return false;
 	}
 	
@@ -103,52 +154,5 @@ extends WidgetStructure<BWS> {
 		this.backgroundColor = new BackgroundColor(backgroundColor.getValue());
 		
 		return (BWS)this;
-	}
-	
-	//method
-	/**
-	 * Adds or changes the given attribute to this background widget structure.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
-	 */
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case BackgroundColor.TYPE_NAME:
-				setBackgroundColor(new Color(attribute.getOneAttributeToString()));
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-	
-	//method
-	/**
-	 * @return the attributes of this background widget structure.
-	 */
-	public List<StandardSpecification> getAttributes() {
-		
-		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
-		
-		//Handles the option that this background widget structure has a background color.
-		if (hasBackgroundColor()) {
-			attributes
-			.addAtEnd(backgroundColor.getSpecification());
-		}
-		
-		return attributes;
-	}
-	
-	//method
-	/**
-	 * Removes all attributes of this background widget structure.
-	 */
-	protected void removeAttributes() {
-		removeBackgroundColor();
 	}
 }

@@ -207,7 +207,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 		return this;
 	}
 	
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttributeFully(final StandardSpecification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -229,7 +229,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 			default:
 				
 				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
+				super.addOrChangeAttributeFully(attribute);
 		}
 	}
 	
@@ -237,10 +237,10 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	/**
 	 * @return the attributes of this console structure.
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<StandardSpecification> getAttributesFully() {
 		
 		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
+		final List<StandardSpecification> attributes = super.getAttributesFully();
 		
 		//Handles the option that this console structure has a width.
 		if (hasWidth()) {
@@ -269,10 +269,10 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	/**
 	 * Removes all attributes of this console structure.
 	 */
-	protected void removeAttributes() {
+	public void clearPropertiesFully() {
 		
 		//Calls method of the base class.
-		super.removeAttributes();
+		super.clearPropertiesFully();
 		
 		removeWidth();
 		removeHeight();
