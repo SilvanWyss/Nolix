@@ -1,6 +1,10 @@
 //package declaration
 package ch.nolix.core.enums;
 
+//own imports
+import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.specificationInterfaces.SpecifiedByClassNameAndOneAttribute;
+
 //enum
 /**
  * A direction defines the way
@@ -10,9 +14,9 @@ package ch.nolix.core.enums;
  * 
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 20
+ * @lines 40
  */
-public enum Direction {
+public enum Direction implements SpecifiedByClassNameAndOneAttribute {
 	LeftToRight,
 	RightToLeft,
 	TopToBottom,
@@ -20,5 +24,22 @@ public enum Direction {
 	TopLeftToBottomRight,
 	BottomRightToTopLeft,
 	TopRightToBottomLeft,
-	BottomLeftToTopRight
+	BottomLeftToTopRight;
+	
+	//method
+	/**
+	 * @return the attribute of this direction.
+	 */
+	public final StandardSpecification getAttribute() {
+		return
+		StandardSpecification.createSpecificationWithHeaderOnly(super.toString());
+	}
+	
+	//method
+	/**
+	 * @return a string representation of this direction.
+	 */
+	public final String toString() {
+		return getSpecification().toString();
+	}
 }
