@@ -63,22 +63,22 @@ public final class Analysis {
 			
 			final double buyPrice = ps.getRefAt(buyIndex).getOpeningPrice();
 			
-			int sellIndex = -1;
+			int sellIndex = sequencePattern.getSize();
 						
 			//Iterates the volume candle sticks of the current potential sequence.
 			int i = 1;
 			for (final VolumeCandleStick vcs : ps) {
 				
 				if (i > buyIndex) {
-					if (1 - vcs.getChangeRatio() > this.argumentOfficer.getMaxLossRatioPerDay()) {
-						sellIndex = i + 1;
+					if (1.0 - (vcs.getClosingPrice() / vcs.getOpeningPrice()) > this.argumentOfficer.getMaxLossRatioPerDay()) {
+						sellIndex = Calculator.getMin(i + 1, sequencePattern.getSize());
+						break;
 					}
 				}
 				
 				i++;
 			}
 			
-			sellIndex = Calculator.getMin(sellIndex, sequencePattern.getSize());
 			final double sellPrice = ps.getRefAt(sellIndex).getOpeningPrice();
 			
 			final double outputToInputRatio = sellPrice / buyPrice;
