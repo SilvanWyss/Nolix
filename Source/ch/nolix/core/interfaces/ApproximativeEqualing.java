@@ -11,7 +11,7 @@ package ch.nolix.core.interfaces;
  */
 public interface ApproximativeEqualing {
 	
-	//constant
+	//default max deviation
 	public static final double DEFAULT_DEVIATION = 0.000000001; //10^-9
 	
 	//default method
