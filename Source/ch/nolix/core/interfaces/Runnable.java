@@ -3,17 +3,17 @@ package ch.nolix.core.interfaces;
 
 //interface
 /**
- * An executable object can execute something.
+ * A runnable object can run something.
  * 
  * @author Silvan Wyss
  * @month 2016-08
  * @lines 10
  */
-public interface Executable {
+public interface Runnable {
 
 	//abstract method
 	/**
-	 * Lets this executable object execute something.
+	 * Lets this runnable object run.
 	 */
 	public abstract void run();
 }

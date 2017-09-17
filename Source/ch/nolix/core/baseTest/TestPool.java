@@ -5,7 +5,7 @@ package ch.nolix.core.baseTest;
 import java.util.Vector;
 
 //own imports
-import ch.nolix.core.interfaces.Executable;
+import ch.nolix.core.interfaces.Runnable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -19,7 +19,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * @month 2016-01
  * @lines 140
  */
-public abstract class TestPool implements Executable {
+public abstract class TestPool implements Runnable {
 
 	//multiple attribute
 	private final Vector<BaseTest> tests = new Vector<BaseTest>();
