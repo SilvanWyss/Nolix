@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.test2;
 
-import ch.nolix.core.baseTest.BaseTestAccessor;
+import ch.nolix.core.baseTest.TestAccessor;
 //own imports
 import ch.nolix.core.interfaces.ApproximativeEqualing;
 import ch.nolix.core.validator2.Validator;
@@ -67,15 +67,15 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 	public final void equals(ApproximativeEqualing value) {
 		
 		if (this.value != null && value == null) {
-			new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("'" + value + "'±" + maxDeviation + " was expected, but null was received.");
+			new TestAccessor(getZetaTest()).addCurrentTestMethodError("'" + value + "'±" + maxDeviation + " was expected, but null was received.");
 		}
 		
 		if (this.value == null && value != null) {
-			new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("Null was expected, but '" + this.value + "' was received.");
+			new TestAccessor(getZetaTest()).addCurrentTestMethodError("Null was expected, but '" + this.value + "' was received.");
 		}
 		
 		if (!this.value.equalsApproximatively(value, maxDeviation)) {
-			new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("'" + value + "'±" + maxDeviation + " was expected, but " + this.value + " was received.");
+			new TestAccessor(getZetaTest()).addCurrentTestMethodError("'" + value + "'±" + maxDeviation + " was expected, but " + this.value + " was received.");
 		}
 	}
 }

@@ -8,7 +8,7 @@
 //package declaration
 package ch.nolix.core.test;
 
-import ch.nolix.core.baseTest.BaseTestAccessor;
+import ch.nolix.core.baseTest.TestAccessor;
 //own import
 import ch.nolix.core.interfaces.ApproximativeEqualing;
 
@@ -29,13 +29,13 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectApproximativeEquality(final ApproximativeEqualing expectedValue, final ApproximativeEqualing actualValue) { 
 		if (expectedValue != null && actualValue == null) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Expected value is an object, but actual value is null.");
+			new TestAccessor(this).addCurrentTestMethodError("Expected value is an object, but actual value is null.");
 		}
 		if (expectedValue == null && actualValue != null) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Expected value is null, but actual value is an object.");
+			new TestAccessor(this).addCurrentTestMethodError("Expected value is null, but actual value is an object.");
 		}
 		if (expectedValue != null && actualValue != null && !expectedValue.equalsApproximatively(actualValue)) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("'" + expectedValue.toString() + "' was expected, but '" + actualValue.toString() + "' was received, what does not equal.");
+			new TestAccessor(this).addCurrentTestMethodError("'" + expectedValue.toString() + "' was expected, but '" + actualValue.toString() + "' was received, what does not equal.");
 		}
 	}
 	
@@ -47,7 +47,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectApproximativeEquality(double expectedValue, double actualValue) {
 		if (Math.abs(expectedValue - actualValue) > EPSILON) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Approximatively '" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
+			new TestAccessor(this).addCurrentTestMethodError("Approximatively '" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
 		}
 	}
 	
@@ -59,7 +59,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectApproximativeEquality(double expectedValue, double actualValue, final double epsilon) {
 		if (Math.abs(expectedValue - actualValue) > epsilon) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Approximatively '" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
+			new TestAccessor(this).addCurrentTestMethodError("Approximatively '" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
 		}
 	}
 	
@@ -71,7 +71,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectBiggerValue(double min, double value) {
 		if (value <= min) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("A value bigger than " + min + " was expected, but " + value + " was received.");
+			new TestAccessor(this).addCurrentTestMethodError("A value bigger than " + min + " was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -83,7 +83,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectBiggerValue(int min, int value) {
 		if (value <= min) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("A value bigger than " + min + " was expected, but " + value + " was received.");
+			new TestAccessor(this).addCurrentTestMethodError("A value bigger than " + min + " was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -95,7 +95,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectBiggerValue(long min, long value) {
 		if (value <= min) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("A value bigger than " + min + " was expected, but " + value + " was received.");
+			new TestAccessor(this).addCurrentTestMethodError("A value bigger than " + min + " was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -106,10 +106,10 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectEmptyString(String string) {
 		if (string == null) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Empty string was expected, but null was received.");
+			new TestAccessor(this).addCurrentTestMethodError("Empty string was expected, but null was received.");
 		}
 		if (string.length() > 0) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Empty string was expected, but '" + string + "' was received.");
+			new TestAccessor(this).addCurrentTestMethodError("Empty string was expected, but '" + string + "' was received.");
 		}
 	}
 	
@@ -121,7 +121,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectEquality(double expectedValue, double actualValue) {
 		if (expectedValue != actualValue) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("'" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
+			new TestAccessor(this).addCurrentTestMethodError("'" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
 		}
 	}
 	
@@ -133,7 +133,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectEquality(int expectedValue, int actualValue) {
 		if (expectedValue != actualValue) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("'" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
+			new TestAccessor(this).addCurrentTestMethodError("'" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
 		}
 	}
 	
@@ -145,7 +145,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectEquality(long expectedValue, long actualValue) {
 		if (expectedValue != actualValue) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("'" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
+			new TestAccessor(this).addCurrentTestMethodError("'" + expectedValue + "' was expected, but '" + actualValue + "' was received.");
 		}
 	}
 	
@@ -158,15 +158,15 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	protected final void expectEquality(Object expectedValue, Object actualValue) {
 		
 		if (expectedValue != null && actualValue == null) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("An object was expected, but null was received.");
+			new TestAccessor(this).addCurrentTestMethodError("An object was expected, but null was received.");
 		}
 		
 		if (expectedValue == null && actualValue != null) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Null was expected, but " + actualValue + " was received.");
+			new TestAccessor(this).addCurrentTestMethodError("Null was expected, but " + actualValue + " was received.");
 		}
 		
 		if (expectedValue != null && actualValue != null && !expectedValue.equals(actualValue)) {
-			new BaseTestAccessor(this).addCurrentTestMethodError(expectedValue + " was expected, but " + actualValue + " was received.");
+			new TestAccessor(this).addCurrentTestMethodError(expectedValue + " was expected, but " + actualValue + " was received.");
 		}
 	}
 	
@@ -177,7 +177,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectFalse(boolean boolean_) {
 		if (boolean_ == true) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("False boolean was expected, but true was received.");
+			new TestAccessor(this).addCurrentTestMethodError("False boolean was expected, but true was received.");
 		}
 	}
 	
@@ -188,7 +188,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectNegativeValue(double value) {
 		if (value >= 0) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Negative value was expected, but " + value + " was received.");
+			new TestAccessor(this).addCurrentTestMethodError("Negative value was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -199,7 +199,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectNegativeValue(int value) {
 		if (value >= 0) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Negative value was expected, but " + value + " was received.");
+			new TestAccessor(this).addCurrentTestMethodError("Negative value was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -210,7 +210,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectNegativeValue(long value) {
 		if (value >= 0) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Negative value was expected, but " + value + " was received.");
+			new TestAccessor(this).addCurrentTestMethodError("Negative value was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -222,7 +222,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectNoEquality(Object value1, Object value2) {
 		if ((value1 == null && value2 == null) || (value1 != null && value2 != null && value1.equals(value2))) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Two unequal values were expected, but two equal values were received");
+			new TestAccessor(this).addCurrentTestMethodError("Two unequal values were expected, but two equal values were received");
 		}
 	}
 	
@@ -235,12 +235,12 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 		
 		//Handles the case if the given string is null.
 		if (string == null) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Non-empty string was expected, but null was received.");
+			new TestAccessor(this).addCurrentTestMethodError("Non-empty string was expected, but null was received.");
 		}
 		
 		//Handles the case if the given string is empty.
 		if (string.length() == 0) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Non-empty string was expected, but empty string was received.");
+			new TestAccessor(this).addCurrentTestMethodError("Non-empty string was expected, but empty string was received.");
 		}
 	}
 	
@@ -251,7 +251,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectNotZero(double value) {
 		if (value == 0) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Non zero value was expected, but 0 was received.");
+			new TestAccessor(this).addCurrentTestMethodError("Non zero value was expected, but 0 was received.");
 		}
 	}
 	
@@ -262,7 +262,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectNotZero(int value) {
 		if (value == 0) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Non zero value was expected, but 0 was received.");
+			new TestAccessor(this).addCurrentTestMethodError("Non zero value was expected, but 0 was received.");
 		}
 	}
 	
@@ -273,7 +273,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectNotZero(long value) {
 		if (value == 0) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Non zero value was expected, but 0 was received.");
+			new TestAccessor(this).addCurrentTestMethodError("Non zero value was expected, but 0 was received.");
 		}
 	}
 	
@@ -284,7 +284,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectNull(Object object_) {
 		if (object_ != null) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Null was expected, but a " + object_.getClass().getSimpleName() + " was received");
+			new TestAccessor(this).addCurrentTestMethodError("Null was expected, but a " + object_.getClass().getSimpleName() + " was received");
 		}
 	}
 	
@@ -295,7 +295,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectObject(Object reference) {
 		if (reference == null) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Object was expected, but null was received.");
+			new TestAccessor(this).addCurrentTestMethodError("Object was expected, but null was received.");
 		}
 	}
 	
@@ -333,7 +333,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectPositiveValue(double value) {
 		if (value <= 0) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Positive value was expected, but " + value + " was received");
+			new TestAccessor(this).addCurrentTestMethodError("Positive value was expected, but " + value + " was received");
 		}
 	}	
 	
@@ -344,7 +344,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectPositiveValue(int value) {
 		if (value <= 0) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Positive value was expected, but " + value + " was received");
+			new TestAccessor(this).addCurrentTestMethodError("Positive value was expected, but " + value + " was received");
 		}
 	}	
 	
@@ -355,7 +355,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectPositiveValue(long value) {
 		if (value <= 0) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("Positive value was expected, but " + value + " was received");
+			new TestAccessor(this).addCurrentTestMethodError("Positive value was expected, but " + value + " was received");
 		}
 	}
 	
@@ -367,7 +367,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectSmallerValue(double max, double value) {
 		if (value >= max) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("A value smaller than " + max + " was expected, but " + value + " was received.");
+			new TestAccessor(this).addCurrentTestMethodError("A value smaller than " + max + " was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -379,7 +379,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectSmallerValue(int max, int value) {
 		if (value >= max) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("A value smaller than " + max + " was expected, but " + value + " was received.");
+			new TestAccessor(this).addCurrentTestMethodError("A value smaller than " + max + " was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -391,7 +391,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectSmallerValue(long max, long value) {
 		if (value >= max) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("A value smaller than " + max + " was expected, but " + value + " was received.");
+			new TestAccessor(this).addCurrentTestMethodError("A value smaller than " + max + " was expected, but " + value + " was received.");
 		}
 	}
 
@@ -402,7 +402,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectTrue(boolean boolean_) {
 		if (boolean_ == false) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("True boolean was expected, but false was received.");
+			new TestAccessor(this).addCurrentTestMethodError("True boolean was expected, but false was received.");
 		}
 	}
 	

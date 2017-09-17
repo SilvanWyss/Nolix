@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.test2;
 
-import ch.nolix.core.baseTest.BaseTestAccessor;
+import ch.nolix.core.baseTest.TestAccessor;
 //own imports
 import ch.nolix.core.interfaces.ApproximativeEqualing;
 import ch.nolix.core.validator2.Validator;
@@ -67,7 +67,7 @@ public final class DoubleDeviationMediator extends Mediator {
 		
 		//Checks if the value of this double deviation mediator equals the given value with a devation that is not bigger than the max deviation of this double deviation mediator.
 		if (Math.abs(this.value - value) > maxDeviation) {
-			new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError(this.value + "±" + maxDeviation + " was expected, but " + value + " was received.");
+			new TestAccessor(getZetaTest()).addCurrentTestMethodError(this.value + "±" + maxDeviation + " was expected, but " + value + " was received.");
 		}
 	}
 	

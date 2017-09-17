@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.test2;
 
-import ch.nolix.core.baseTest.BaseTestAccessor;
+import ch.nolix.core.baseTest.TestAccessor;
 //own imports
 import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.validator2.Validator;
@@ -43,15 +43,15 @@ abstract class ElementMediator<E> extends Mediator {
 	public final boolean equals(final Object value) {
 		
 		if (getValue() == null && value != null) {
-			new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("Null was expected, but '" + getValue() + "' was received.");
+			new TestAccessor(getZetaTest()).addCurrentTestMethodError("Null was expected, but '" + getValue() + "' was received.");
 		}
 		
 		if (getValue() != null && value == null) {
-			new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("A value that is equal to '" + value + "' was expected, but null was received.");
+			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that is equal to '" + value + "' was expected, but null was received.");
 		}
 		
 		if (!getValue().equals(value)) {
-			new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("A value that is equal to '" + value + "' was expected, but '" + getValue() + "' was received.");
+			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that is equal to '" + value + "' was expected, but '" + getValue() + "' was received.");
 		}
 		
 		return (
@@ -69,11 +69,11 @@ abstract class ElementMediator<E> extends Mediator {
 	public final void equalsNot(final Object value) {
 
 		if (getValue() == null && value == null) {
-			new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("A value was expected, but null was received.");
+			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value was expected, but null was received.");
 		}
 		
 		if (getValue() != null && getValue().equals(value)) {
-			new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("An other value than" + value + " was expected, but " +getValue() + " was received.");
+			new TestAccessor(getZetaTest()).addCurrentTestMethodError("An other value than" + value + " was expected, but " +getValue() + " was received.");
 		}
 	}
 	
@@ -91,10 +91,10 @@ abstract class ElementMediator<E> extends Mediator {
 		
 		if (!condition.getOutput(getValue())) {
 			if (getValue() == null) {
-				new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("A value that fulfils the given condition was expected, but null was received.");
+				new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that fulfils the given condition was expected, but null was received.");
 			}
 			else {
-				new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("A value that fulfils the given condition was expected, but '" + getValue() + "' was received.");
+				new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that fulfils the given condition was expected, but '" + getValue() + "' was received.");
 			}
 		}
 	}
@@ -113,10 +113,10 @@ abstract class ElementMediator<E> extends Mediator {
 		
 		if (condition.getOutput(getValue())) {
 			if (getValue() == null) {
-				new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("A value that does not fulfil the given condition was expected, but null was received.");
+				new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that does not fulfil the given condition was expected, but null was received.");
 			}
 			else {
-				new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("A value that does not fulfil the given condition was expected, but '" + getValue() + "' was received.");
+				new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that does not fulfil the given condition was expected, but '" + getValue() + "' was received.");
 			}
 		}
 	}
@@ -132,7 +132,7 @@ abstract class ElementMediator<E> extends Mediator {
 			
 			//Handles the case if the value of this element mediator is null.
 			if (getValue() == null) { //->The given value is not null.
-				new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("'" + value + "' was expected, but null was received.");
+				new TestAccessor(getZetaTest()).addCurrentTestMethodError("'" + value + "' was expected, but null was received.");
 			}
 			
 			//Handles the case if the value of this element mediator is not null.
@@ -140,12 +140,12 @@ abstract class ElementMediator<E> extends Mediator {
 				
 				//Handles the case if the given value is null.
 				if (value == null) {
-					new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("Null was expected, but '" + getValue() + "' was received.");
+					new TestAccessor(getZetaTest()).addCurrentTestMethodError("Null was expected, but '" + getValue() + "' was received.");
 				}
 				
 				//Handles the case if the given value is not null.
 				else {
-					new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("'" + value + "' was expected, but '" + getValue() + "' was received.");
+					new TestAccessor(getZetaTest()).addCurrentTestMethodError("'" + value + "' was expected, but '" + getValue() + "' was received.");
 				}
 			}
 		}
@@ -162,12 +162,12 @@ abstract class ElementMediator<E> extends Mediator {
 			
 			//Handles the case if the value of this element mediator is null.
 			if (getValue() == null) { //->The given value is null.
-				new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("Not null was expected, but null was received.");
+				new TestAccessor(getZetaTest()).addCurrentTestMethodError("Not null was expected, but null was received.");
 			}
 			
 			//Handles the case if the value of this element mediator is not null.
 			else { //->The given value is not null.
-				new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("An other value than " + getValue() + " was expected, but the same value was received.");
+				new TestAccessor(getZetaTest()).addCurrentTestMethodError("An other value than " + getValue() + " was expected, but the same value was received.");
 			}
 		}
 	}
@@ -178,7 +178,7 @@ abstract class ElementMediator<E> extends Mediator {
 	 */
 	public final void isNotNull() {
 		if (getValue() != null) {
-			new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("An object was expected, but null was received.");
+			new TestAccessor(getZetaTest()).addCurrentTestMethodError("An object was expected, but null was received.");
 		}
 	}
 	
@@ -188,7 +188,7 @@ abstract class ElementMediator<E> extends Mediator {
 	 */
 	public final void isNull() {
 		if (getValue() != null) {
-			new BaseTestAccessor(getZetaTest()).addCurrentTestMethodError("Null was expected, but '" + value + "' was received.");
+			new TestAccessor(getZetaTest()).addCurrentTestMethodError("Null was expected, but '" + value + "' was received.");
 		}
 	}
 	

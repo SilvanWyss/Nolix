@@ -4,7 +4,7 @@ package ch.nolix.core.test2;
 //Java import
 import java.util.Vector;
 
-import ch.nolix.core.baseTest.BaseTestAccessor;
+import ch.nolix.core.baseTest.TestAccessor;
 //own imports
 import ch.nolix.core.functionInterfaces.IRunner;
 import ch.nolix.core.interfaces.ApproximativeEqualing;
@@ -27,7 +27,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectThat(final boolean value) {
 		if (!value) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("True was expected, but false was received.");
+			new TestAccessor(this).addCurrentTestMethodError("True was expected, but false was received.");
 		}
 	}
 	
@@ -51,7 +51,7 @@ public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
 	 */
 	protected final void expectThatNot(final boolean value) {
 		if (value) {
-			new BaseTestAccessor(this).addCurrentTestMethodError("False was expected, but true was received.");
+			new TestAccessor(this).addCurrentTestMethodError("False was expected, but true was received.");
 		}
 	}
 	
