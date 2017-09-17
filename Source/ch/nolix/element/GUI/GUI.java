@@ -36,7 +36,7 @@ import ch.nolix.element.data.Title;
  */
 public abstract class GUI<G extends GUI<G>>
 extends ConfigurationElement<G>
-implements Clearable, Closable, IRequestableContainer, Refreshable {
+implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	
 	//type name
 	public static final String TYPE_NAME = "GUI";
@@ -190,9 +190,15 @@ implements Clearable, Closable, IRequestableContainer, Refreshable {
 	//method
 	/**
 	 * Removes the root widget of this GUI.
+	 * 
+	 * @return this GUI.
 	 */
-	public final void clear() {
+	@SuppressWarnings("unchecked")
+	public final G clear() {
+		
 		removeRootWidget();
+		
+		return (G)this;
 	}
 	
 	//abstract method

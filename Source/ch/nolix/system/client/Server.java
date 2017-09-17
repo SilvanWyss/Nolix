@@ -20,7 +20,7 @@ import ch.nolix.core.validator2.Validator;
  * @month 2016-10
  * @lines 100
  */
-public class Server extends ClosableElement implements Clearable {
+public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//optional attribute
 	private Application<?> arbitraryApplication;
@@ -95,10 +95,15 @@ public class Server extends ClosableElement implements Clearable {
 	//method
 	/**
 	 * Removes all applications from this server.
+	 * 
+	 * @return this server.
 	 */
-	public void clear() {
+	public Server clear() {
+		
 		applications.clear();
 		arbitraryApplication = null;
+		
+		return this;
 	}
 	
 	//method

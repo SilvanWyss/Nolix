@@ -11,13 +11,15 @@ package ch.nolix.core.interfaces;
  * @lines 30
  * @param <C> The type of a clearable object.
  */
-public interface Clearable {
+public interface Clearable<C extends Clearable<C>> {
 
 	//abstract method
 	/**
 	 * Removes the elements of this clearable object from itself.
+	 * 
+	 * @return this clearable object.
 	 */
-	public abstract void clear();
+	public abstract C clear();
 	
 	//abstract method
 	/**

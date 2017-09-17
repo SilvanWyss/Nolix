@@ -16,7 +16,7 @@ import ch.nolix.core.invalidStateException.UnexistingAttributeException;
  * @month 2017-05
  * @lines 160
  */
-public class Server extends ClosableElement implements Clearable {
+public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//optional attribute
 	private IEndPointTaker arbitraryEndPointTaker;
@@ -67,10 +67,15 @@ public class Server extends ClosableElement implements Clearable {
 	//method
 	/**
 	 * Removes all end point taker from this server.
+	 * 
+	 * @return this server.
 	 */
-	public final void clear() {
+	public final Server clear() {
+		
 		endPointTaker.clear();
 		arbitraryEndPointTaker = null;
+		
+		return this;
 	}
 	
 	//method

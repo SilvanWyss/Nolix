@@ -27,7 +27,7 @@ import ch.nolix.element.font.TextFont;
  */
 public final class Console
 extends BorderWidget<Console, ConsoleStructure>
-implements Clearable {
+implements Clearable<Console> {
 	
 	//type name
 	public static final String TYPE_NAME = "Console";
@@ -82,10 +82,15 @@ implements Clearable {
 	//method
 	/**
 	 * Removes all lines of this console and clears the edit line of this console.
+	 * 
+	 * @return this console.
 	 */
-	public void clear() {
+	public Console clear() {
+		
 		lines.clear();
 		clearEditLine();
+		
+		return this;
 	}
 	
 	//method

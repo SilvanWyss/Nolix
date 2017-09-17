@@ -26,7 +26,7 @@ import ch.nolix.core.validator2.Validator;
  * @lines 1000
  * @param <E> - The type of the elements of a list.
  */
-public final class List<E> implements Clearable, IContainer<E> {
+public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//attributes
 	private ListNode<E> firstNode;
@@ -307,10 +307,13 @@ public final class List<E> implements Clearable, IContainer<E> {
 	/**
 	 * Removes all elements of this list.
 	 * The complexity of this method is O(n) when this list contains n elements.
+	 * 
+	 * @return this list.
 	 */
-	public void clear() {
+	public List<E> clear() {
 		
-		if (!isEmpty()) {
+		//Handles the option that this list contains one or several elements.
+		if (containsAny()) {
 			
 			ListNode<E> iterator = firstNode;		
 			while (iterator.hasNextNode()) {
@@ -325,6 +328,8 @@ public final class List<E> implements Clearable, IContainer<E> {
 			
 			System.gc();
 		}
+		
+		return this;
 	}
 	
 	//method

@@ -16,7 +16,7 @@ import ch.nolix.core.invalidStateException.UnexistingAttributeException;
  * @month 2017-06
  * @lines 160
  */
-public class Server extends ClosableElement implements Clearable {
+public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//optional attribute
 	IDuplexControllerTaker arbitraryDuplexControllerTaker;
@@ -72,10 +72,15 @@ public class Server extends ClosableElement implements Clearable {
 	//method
 	/**
 	 * Removes all duplex controller from this server.
+	 * 
+	 * @return this server.
 	 */
-	public final void clear() {
+	public final Server clear() {
+		
 		duplexControllerTaker.clear();
 		arbitraryDuplexControllerTaker = null;
+		
+		return this;
 	}
 	
 	//method

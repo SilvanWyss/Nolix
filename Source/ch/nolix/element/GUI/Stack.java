@@ -19,7 +19,7 @@ import ch.nolix.element.data.Margin;
  */
 public abstract class Stack<S extends Stack<S>> 
 extends Container<S, StackStructure>
-implements Clearable {
+implements Clearable<S> {
 	
 	//type name
 	public static final String TYPE_NAME = "Stack";
@@ -117,9 +117,15 @@ implements Clearable {
 	//method
 	/**
 	 * Removes the widgets of this stack.
+	 * 
+	 * @return this server.
 	 */
-	public final void clear() {
+	@SuppressWarnings("unchecked")
+	public final S clear() {
+		
 		widgets.clear();
+		
+		return (S)this;
 	}
 	
 	//method

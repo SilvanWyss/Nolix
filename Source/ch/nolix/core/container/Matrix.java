@@ -21,7 +21,7 @@ import ch.nolix.core.validator2.Validator;
  * @lines 370
  * @param <E> - The type of the elements of a matrix.
  */
-public final class Matrix<E> implements IContainer<E>, Clearable {
+public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 
 	//multiple attribute
 	private Object[][] elements;
@@ -151,12 +151,16 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	//method
 	/**
 	 * The complexity of this method is O(1).
+	 * Removes all elements of this matrix from itself.
 	 * 
-	 * Removes all elements of this matrix.
+	 * @return this matrix.
 	 */
-	public void clear() {
+	public Matrix<E> clear() {
+		
 		elements = null;
 		System.gc();
+		
+		return this;
 	}
 	
 	//method
