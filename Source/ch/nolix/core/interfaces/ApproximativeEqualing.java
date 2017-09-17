@@ -3,7 +3,7 @@ package ch.nolix.core.interfaces;
 
 //interface
 /**
- * An approximative equaling object can be checked if it equals approximatively an other object.
+ * An approximative equaling object can be checked if it equals approximatively another object.
  * 
  * @author Silvan Wyss
  * @month 2016-07
