@@ -198,9 +198,15 @@ implements Freezable {
 	//method
 	/**
 	 * Freezes this configuration.
+	 * 
+	 * @return this configuration.
 	 */
-	public final void freeze() {	
+	@SuppressWarnings("unchecked")
+	public final C freeze() {
+		
 		mutable = false;
+		
+		return (C)this;
 	}
 	
 	//method

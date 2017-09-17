@@ -10,14 +10,17 @@ package ch.nolix.core.interfaces;
  * @author Silvan Wyss
  * @month 2016-08
  * @lines 30
+ * @param <F> The type of a freezable object.
  */
-public interface Freezable {
+public interface Freezable<F extends Freezable<F>> {
 	
 	//abstract method
 	/**
 	 * Freezes this freezable object.
+	 * 
+	 * @return this freezable object.
 	 */
-	public abstract void freeze();
+	public abstract F freeze();
 	
 	//default method
 	/**
