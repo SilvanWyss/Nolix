@@ -33,7 +33,7 @@ implements Freezable {
 	private static final String SELECTOR_NAME_HEADER = "SelectorName";
 	
 	//attribute
-	private boolean frozen = false;
+	private boolean mutable = true;
 	
 	//multiple attributes
 	private final List<StandardSpecification> attachingAttributes
@@ -200,7 +200,7 @@ implements Freezable {
 	 * Freezes this configuration.
 	 */
 	public final void freeze() {	
-		frozen = true;
+		mutable = false;
 	}
 	
 	//method
@@ -404,10 +404,10 @@ implements Freezable {
 	
 	//method
 	/**
-	 * @return true if this configuration is frozen.
+	 * @return true if this configuration is mutable.
 	 */
-	public final boolean isFrozen() {
-		return frozen;
+	public final boolean isMutable() {
+		return mutable;
 	}
 	
 	//method
