@@ -21,7 +21,7 @@ import ch.nolix.element.data.Name;
  */
 public abstract class Configuration<C extends Configuration<C>>
 extends OptionalNamableElement<C>
-implements Freezable<C> {
+implements Freezable {
 
 	//type name
 	public static final String TYPE_NAME = "Configuration";
