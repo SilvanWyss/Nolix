@@ -17,7 +17,7 @@ import ch.nolix.core.validator2.Validator;
 final class CloseController implements Closable {
 
 	//attribute
-	private boolean closed = false;
+	private boolean alive = true;
 	
 	//multiple attribute
 	private final List<ClosableElement> elements = new List<ClosableElement>();
@@ -72,7 +72,7 @@ final class CloseController implements Closable {
 		if (isAlive()) {	
 			
 			//Sets this close controller as closed.
-			closed = true;
+			alive = false;
 			
 			//Lets note all element of this clsoe controller the closing.
 			elements.forEach(e -> e.noteClosing());
@@ -98,10 +98,10 @@ final class CloseController implements Closable {
 	
 	//method
 	/**
-	 * @return true if the elements of this close controller are closed.
+	 * @return true if this close controller is alive.
 	 */
-	public boolean isClosed() {
-		return closed;
+	public boolean isAlive() {
+		return alive;
 	}
 	
 	//method
