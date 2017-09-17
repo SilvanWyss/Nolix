@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint3;
 
-//own imports
-import ch.nolix.core.basic.ClosableElement;
+import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.communicationInterfaces.IReplier;
 import ch.nolix.core.communicationInterfaces.ISender2;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;

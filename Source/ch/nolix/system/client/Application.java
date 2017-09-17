@@ -5,8 +5,7 @@ package ch.nolix.system.client;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.ParameterizedType;
 
-//own imports
-import ch.nolix.core.basic.NamedElement;
+import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.duplexController.DuplexController;

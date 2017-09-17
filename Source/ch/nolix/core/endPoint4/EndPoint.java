@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint4;
 
-//own imports
-import ch.nolix.core.basic.ClosableElement;
+import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.communicationInterfaces.IGenericReplier;
 import ch.nolix.core.communicationInterfaces.IGenericSender2;
 import ch.nolix.core.communicationInterfaces.IReplier;

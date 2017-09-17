@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.basic;
+package ch.nolix.core.bases;
 
 //own imports
 import ch.nolix.core.interfaces.Namable;

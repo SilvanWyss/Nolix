@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.entity;
 
-//own imports
-import ch.nolix.core.basic.NamedElement;
+import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.functionInterfaces.IBooleanGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;

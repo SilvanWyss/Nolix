@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
-//own imports
-import ch.nolix.core.basic.OptionalSignableElement;
+import ch.nolix.core.bases.OptionalSignableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.duplexController.LocalDuplexController;
