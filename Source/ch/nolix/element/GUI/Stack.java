@@ -108,6 +108,14 @@ implements Clearable {
 	
 	//method
 	/**
+	 * @return true if this stack contains one or several widgets.
+	 */
+	public final boolean containsAny() {
+		return widgets.containsAny();
+	}
+	
+	//method
+	/**
 	 * Removes the widgets of this stack.
 	 */
 	public final void clear() {
@@ -172,14 +180,6 @@ implements Clearable {
 	 */
 	public final boolean hasElementMargin() {
 		return (elementMargin != null);
-	}
-	
-	//method
-	/**
-	 * @return if this stack contains no widgets.
-	 */
-	public final boolean isEmpty() {
-		return getRefWidgets().isEmpty();
 	}
 	
 	//method

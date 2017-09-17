@@ -99,9 +99,9 @@ implements Clearable {
 	
 	//method
 	/**
-	 * @return true if this console contains any lines.
+	 * @return true if this console contains one or several lines.
 	 */
-	public boolean containsLines() {
+	public boolean containsAny() {
 		return lines.containsAny();
 	}
 	
@@ -141,8 +141,8 @@ implements Clearable {
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
-		//Handles the option that this console contains lines.
-		if (containsLines()) {
+		//Handles the option that this console contains one or several lines.
+		if (containsAny()) {
 			attributes.addAtEnd(new StandardSpecification(LINES_HEADER, lines));
 		}
 		
@@ -216,14 +216,6 @@ implements Clearable {
 		);
 		
 		textCursorPosition = originalTextCursorPosition + 1;
-	}
-	
-	//method
-	/**
-	 * @return true if this console contains no line.
-	 */
-	public boolean isEmpty() {
-		return getLines().isEmpty();
 	}
 	
 	//method

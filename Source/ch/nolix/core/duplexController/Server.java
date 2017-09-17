@@ -80,6 +80,14 @@ public class Server extends ClosableElement implements Clearable {
 	
 	//method
 	/**
+	 * @return true if this server contains one or several duplex controller taker.
+	 */
+	public final boolean containsAny() {
+		return duplexControllerTaker.containsAny();
+	}
+	
+	//method
+	/**
 	 * @param name
 	 * @return true if this server contains a duplex controller taker with the given name.
 	 */
@@ -93,14 +101,6 @@ public class Server extends ClosableElement implements Clearable {
 	 */
 	public boolean hasArbitraryDuplexControllerTaker() {
 		return (arbitraryDuplexControllerTaker != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this server contains no duplex controller taker.
-	 */
-	public final boolean isEmpty() {
-		return duplexControllerTaker.isEmpty();
 	}
 	
 	//method

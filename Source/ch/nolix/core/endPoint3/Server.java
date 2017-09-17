@@ -75,6 +75,14 @@ public class Server extends ClosableElement implements Clearable {
 	
 	//method
 	/**
+	 * @return true if this server contains one or several end point taker.
+	 */
+	public final boolean containsAny() {
+		return endPointTaker.containsAny();
+	}
+	
+	//method
+	/**
 	 * @param name
 	 * @return true if this server contains an end point taker with the given name.
 	 */
@@ -88,14 +96,6 @@ public class Server extends ClosableElement implements Clearable {
 	 */
 	public final boolean hasArbitraryEndPointTaker() {
 		return (arbitraryEndPointTaker != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this server contains no end point taker.
-	 */
-	public final boolean isEmpty() {
-		return endPointTaker.isEmpty();
 	}
 	
 	//method
