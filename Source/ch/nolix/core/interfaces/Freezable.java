@@ -24,7 +24,7 @@ public interface Freezable {
 	 * @return true if this freezable object is frozen.
 	 */
 	public default boolean isFrozen() {
-		return isMutable();
+		return !isMutable();
 	}
 	
 	//abstract method
