@@ -31,7 +31,7 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 		final ApproximativeEqualing value
 	) {
 		//Calls other constructor.
-		this(test, value, ApproximativeEqualing.DEFAULT_DEVIATION);
+		this(test, value, ApproximativeEqualing.DEFAULT_MAX_DEVIATION);
 	}
 	
 	//package-visible constructor

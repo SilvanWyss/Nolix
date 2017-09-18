@@ -44,7 +44,7 @@ public final class ApproximativeEqualingMediator {
 		return new ApproximativeEqualingDeviationMediator(
 			test,
 			value,
-			ApproximativeEqualing.DEFAULT_DEVIATION
+			ApproximativeEqualing.DEFAULT_MAX_DEVIATION
 		);
 	}
 	

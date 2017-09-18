@@ -29,7 +29,7 @@ public final class DoubleDeviationMediator extends Mediator {
 	DoubleDeviationMediator(final Test test, final double value) {
 		
 		//Calls other constructor.
-		this(test, value, ApproximativeEqualing.DEFAULT_DEVIATION);
+		this(test, value, ApproximativeEqualing.DEFAULT_MAX_DEVIATION);
 	}
 	
 	//package-visible constructor
