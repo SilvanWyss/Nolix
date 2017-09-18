@@ -62,10 +62,10 @@ implements Closable, Resettable {
 	
 	//method
 	/**
-	 * @return true if this client is not closed.
+	 * @return true if this client is closed.
 	 */
-	public final boolean isAlive() {
-		return duplexController.isAlive();
+	public final boolean isClosed() {
+		return duplexController.isClosed();
 	}
 
 	//method

@@ -39,10 +39,10 @@ public abstract class ClosableElement implements Closable {
 	
 	//method
 	/**
-	 * @return true if this closable element is not closed.
+	 * @return true if this closable element isclosed.
 	 */
-	public final boolean isAlive() {
-		return closeController.isAlive();
+	public final boolean isClosed() {
+		return closeController.isClosed();
 	}
 	
 	//method

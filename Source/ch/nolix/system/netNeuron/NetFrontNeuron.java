@@ -90,10 +90,10 @@ implements Closable {
 
 	//method
 	/**
-	 * @return true if this net front neuron is not closed.
+	 * @return true if this net front neuron is closed.
 	 */
-	public boolean isAlive() {
-		return client.isAlive();
+	public boolean isClosed() {
+		return client.isClosed();
 	}
 
 	//method

@@ -56,7 +56,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	private Title title = new Title(DEFAULT_TITLE);
 	private BackgroundColor backgroundColor = new BackgroundColor();
 	private ContentPosition contentPosition = DEFAULT_CONTENT_POSITION;
-	private boolean alive = true;
+	private boolean closed = false;
 				
 	//optional attributes
 	private Widget<?, ?> rootWidget;
@@ -206,7 +206,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * Closes this GUI.
 	 */
 	public void close() {
-		alive = false;
+		closed = true;
 	};
 	
 	//method
@@ -360,10 +360,10 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	
 	//method
 	/**
-	 * @return true if this GUI is not closed.
+	 * @return true if this GUI isclosed.
 	 */
-	public final boolean isAlive() {
-		return alive;
+	public final boolean isClosed() {
+		return closed;
 	}
 	
 	//method

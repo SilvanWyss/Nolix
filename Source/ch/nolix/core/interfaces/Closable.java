@@ -9,17 +9,17 @@ package ch.nolix.core.interfaces;
  */
 public interface Closable extends AutoCloseable {
 
-	//abstract method
+	//default method
 	/**
 	 * @return true if this abortable object is not closed.
 	 */
-	public abstract boolean isAlive();
+	public default boolean isAlive() {
+		return !isClosed();
+	}
 	
-	//default method
+	//abstract method
 	/**
 	 * @return true if this closable object is closed.
 	 */
-	public default boolean isClosed() {
-		return !isAlive();
-	}
+	public abstract boolean isClosed();
 }
