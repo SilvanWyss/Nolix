@@ -3,19 +3,20 @@ package ch.nolix.core.interfaces;
 
 //interface
 /**
- * An optional namable object is a namable object wose name can be removed dynamically.
+ * An optional namable object is a namable object
+ * whose name can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 40
- * @param <ON> - The concrete type of an optional namable object.
+ * @param <ON> The type of an optional namable object.
  */
 public interface OptionalNamable<ON extends OptionalNamable<ON>>
 extends Namable<ON>{
 
 	//abstract method
 	/**
-	 * @return true if this namable object has a name.
+	 * @return true if this optional namable object has a name.
 	 */
 	public abstract boolean hasName();
 	
