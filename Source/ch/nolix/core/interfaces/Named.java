@@ -25,7 +25,7 @@ public interface Named {
 		return ("'" + getName() + "'");
 	}
 	
-	//abstract method
+	//default method
 	/**
 	 * @param name
 	 * @return true if this named object has the given name.
