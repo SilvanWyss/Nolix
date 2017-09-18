@@ -3,12 +3,13 @@ package ch.nolix.core.interfaces;
 
 //interface
 /**
- * A namable object is a named object whose name can be set dynamically.
+ * A namable object is a named object
+ * whose name can be set programmatically.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 30
- * @param <N> - The concrete type of the namable object.
+ * @param <N> The type of a namable object.
  */
 public interface Namable<N extends Namable<N>>
 extends Named {
