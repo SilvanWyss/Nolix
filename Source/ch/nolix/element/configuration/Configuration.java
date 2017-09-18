@@ -33,7 +33,7 @@ implements Freezable<C> {
 	private static final String SELECTOR_NAME_HEADER = "SelectorName";
 	
 	//attribute
-	private boolean mutable = true;
+	private boolean frozen = false;
 	
 	//multiple attributes
 	private final List<StandardSpecification> attachingAttributes
@@ -204,7 +204,7 @@ implements Freezable<C> {
 	@SuppressWarnings("unchecked")
 	public final C freeze() {
 		
-		mutable = false;
+		frozen = true;
 		
 		return (C)this;
 	}
@@ -410,10 +410,10 @@ implements Freezable<C> {
 	
 	//method
 	/**
-	 * @return true if this configuration is mutable.
+	 * @return true if this configuration is frozen.
 	 */
-	public final boolean isMutable() {
-		return mutable;
+	public final boolean isFrozen() {
+		return frozen;
 	}
 	
 	//method

@@ -22,17 +22,17 @@ public interface Freezable<F extends Freezable<F>> {
 	 */
 	public abstract F freeze();
 	
-	//default method
+	//abstract method
 	/**
 	 * @return true if this freezable object is frozen.
 	 */
-	public default boolean isFrozen() {
-		return !isMutable();
-	}
+	public abstract boolean isFrozen();
 	
-	//abstract method
+	//default method
 	/**
-	 * @return true if this freezable object is mutable.
+	 * @return true if this freezable object is not frozen.
 	 */
-	public abstract boolean isMutable();
+	public default boolean isMutable() {
+		return !isFrozen();
+	}
 }
