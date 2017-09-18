@@ -108,14 +108,6 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//method
 	/**
-	 * @return true if this server contains one or several applications.
-	 */
-	public final boolean containsAny() {
-		return applications.containsAny();
-	}
-	
-	//method
-	/**
 	 * @param name
 	 * @return true if this server contains an application with the given name.
 	 */
@@ -129,6 +121,14 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 */
 	public final boolean hasArbitraryApplication() {
 		return (arbitraryApplication != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this server contains no application.
+	 */
+	public final boolean isEmpty() {
+		return applications.isEmpty();
 	}
 	
 	//method

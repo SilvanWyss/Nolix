@@ -21,17 +21,17 @@ public interface Clearable<C extends Clearable<C>> {
 	 */
 	public abstract C clear();
 	
-	//abstract method
+	//default method
 	/**
 	 * @return true if this clearable object contains one or several elements.
 	 */
-	public abstract boolean containsAny();
+	public default boolean containsAny() {
+		return !isEmpty();
+	}
 	
-	//default method
+	//abstract method
 	/**
 	 * @return true if this clearable object contains no element.
 	 */
-	public default boolean isEmpty() {
-		return !containsAny();
-	}
+	public abstract boolean isEmpty();
 }

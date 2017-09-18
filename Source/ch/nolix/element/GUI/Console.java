@@ -104,14 +104,6 @@ implements Clearable<Console> {
 	
 	//method
 	/**
-	 * @return true if this console contains one or several lines.
-	 */
-	public boolean containsAny() {
-		return lines.containsAny();
-	}
-	
-	//method
-	/**
 	 * Deletes the character after the text cursor
 	 * in the edit line of this console if there is one.
 	 */
@@ -194,6 +186,14 @@ implements Clearable<Console> {
 	 */
 	public AccessorContainer<String> getLines() {
 		return new AccessorContainer<String>(lines);
+	}
+	
+	//method
+	/**
+	 * @return true if this console contains no line.
+	 */
+	public final boolean isEmpty() {
+		return getLines().isEmpty();
 	}
 	
 	//method

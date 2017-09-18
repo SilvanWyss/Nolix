@@ -211,14 +211,6 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	
 	//method
 	/**
-	 * @return true if this GUI contains one or several widgets.
-	 */
-	public final boolean containsAny() {
-		return hasRootWidget();
-	}
-	
-	//method
-	/**
 	 * @return true if this GUI contains an element with the given name.
 	 * @param name
 	 */
@@ -372,6 +364,14 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 */
 	public final boolean isAlive() {
 		return alive;
+	}
+	
+	//method
+	/**
+	 * @return true if this GUI contains no widget.
+	 */
+	public final boolean isEmpty() {
+		return !hasRootWidget();
 	}
 	
 	//method

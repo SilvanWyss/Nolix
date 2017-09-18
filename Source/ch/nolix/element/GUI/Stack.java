@@ -108,14 +108,6 @@ implements Clearable<S> {
 	
 	//method
 	/**
-	 * @return true if this stack contains one or several widgets.
-	 */
-	public final boolean containsAny() {
-		return widgets.containsAny();
-	}
-	
-	//method
-	/**
 	 * Removes the widgets of this stack.
 	 * 
 	 * @return this server.
@@ -186,6 +178,14 @@ implements Clearable<S> {
 	 */
 	public final boolean hasElementMargin() {
 		return (elementMargin != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this stack contains no widget.
+	 */
+	public final boolean isEmpty() {
+		return widgets.isEmpty();
 	}
 	
 	//method
