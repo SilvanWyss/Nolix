@@ -16,7 +16,8 @@ public interface IRequestableContainer {
 	//abstract method
 	/**
 	 * @param name
-	 * @return true if this requestable container contains an element with the given name.
+	 * @return true if this requestable container
+	 * contains an element with the given name.
 	 */
 	public abstract boolean containsElement(String name);
 }
