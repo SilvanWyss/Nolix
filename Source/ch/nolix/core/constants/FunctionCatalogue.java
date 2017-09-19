@@ -1,22 +1,20 @@
 //package declaration
-package ch.nolix.core.util;
+package ch.nolix.core.constants;
 
 //own imports
-import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerDoubleGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 
 //class
 /**
- * This class provides general functions.
  * Of this class no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2016-12
  * @lines 80
  */
-public final class FunctionManager {
+public final class FunctionCatalogue {
 	
 	//function
 	/**
@@ -83,5 +81,5 @@ public final class FunctionManager {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private FunctionManager() {}
+	private FunctionCatalogue() {}
 }
