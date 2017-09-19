@@ -3,12 +3,13 @@ package ch.nolix.core.interfaces;
 
 //interface
 /**
- * An optional signable object is a signable object whose info string can be removed dynamically.
+ * An optional signable object is a signable object
+ * whose info string can be removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 30
- * @param <OS> - The concrete type of an optional signable object.
+ * @param <OS> The type of an optional signable object.
  */
 public interface OptionalSignable<OS extends OptionalSignable<OS>>
 extends Signable<OS> {
