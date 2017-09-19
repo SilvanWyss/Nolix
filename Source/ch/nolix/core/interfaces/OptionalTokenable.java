@@ -3,12 +3,13 @@ package ch.nolix.core.interfaces;
 
 //interface
 /**
- * An optional tokenable object is a tokenable object whose token can be removed dynamically.
+ * An optional tokenable object is a tokenable object
+ * whose token can be removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 30
- * @param <OT> - The concrete type of an optional tokenable object.
+ * @param <OT> The type of an optional tokenable object.
  */
 public interface OptionalTokenable<OT extends OptionalTokenable<OT>>
 extends Tokenable<OT> {
