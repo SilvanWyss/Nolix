@@ -55,8 +55,8 @@ public final class StandardSpecificationTest extends Test {
 		final StandardSpecification standardSpecification = new StandardSpecification("a(b.)");
 				
 		//verification
-		expectThat(standardSpecification.getHeader()).equals("a");
-		expectThat(standardSpecification.getRefOneAttribute()).equals("b.");
+		expectThat(standardSpecification.hasHeader());
+		expectThat(standardSpecification.containsAttributes());
 	}
 	
 	//test method
