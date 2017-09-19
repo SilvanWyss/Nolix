@@ -2,10 +2,8 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.core.container.List;
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.data.TextColor;
@@ -184,26 +182,6 @@ extends Entity {
 		this.textSize.setValue(new TextSize(textSize));
 		
 		return (WS)this;
-	}
-	
-	protected void addOrChangeAttributeFully(final StandardSpecification attribute) {
-		addOrChangeAttribute(attribute);
-	}
-	
-	//method
-	/**
-	 * Clears the properties of this widget structure fully.
-	 */
-	protected void clearPropertiesFully() {
-		clearProperties();
-	}
-	
-	//method
-	/**
-	 * @return the attributes of this widget structure fully.
-	 */
-	protected List<StandardSpecification> getAttributesFully() {
-		return getAttributes();
 	}
 	
 	//method

@@ -903,7 +903,7 @@ extends BackgroundWidgetStructure<BWS> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttributeFully(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -955,7 +955,7 @@ extends BackgroundWidgetStructure<BWS> {
 			default:
 				
 				//Calls method of the base class.
-				super.addOrChangeAttributeFully(attribute);
+				super.addOrChangeAttribute(attribute);
 		}
 	}
 	
@@ -963,10 +963,10 @@ extends BackgroundWidgetStructure<BWS> {
 	/**
 	 * @return the attributes of this border widget structure
 	 */
-	public List<StandardSpecification> getAttributesFully() {
+	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributesFully();
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
 		if (hasABorderSize() && hasSameBorderSizeAtEachSide()) {
 			attributes.addAtEnd(leftBorderSize.getSpecificationAs(BORDER_SIZE_HEADER));
@@ -1041,10 +1041,10 @@ extends BackgroundWidgetStructure<BWS> {
 	/**
 	 * Removes all attributes of this border widget structure.
 	 */
-	public void clearPropertiesFully() {
+	public void clearProperties() {
 		
 		//Calls method of the base class.
-		super.clearPropertiesFully();
+		super.clearProperties();
 		
 		removeBorderSizes();
 		removeBorderColors();

@@ -32,7 +32,7 @@ extends WidgetStructure<BWS> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttributeFully(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -42,7 +42,7 @@ extends WidgetStructure<BWS> {
 			default:
 				
 				//Calls method of the base class.
-				super.addOrChangeAttributeFully(attribute);
+				super.addOrChangeAttribute(attribute);
 		}
 	}
 	
@@ -50,10 +50,10 @@ extends WidgetStructure<BWS> {
 	/**
 	 * Removes the properties of this background widget structure fully.
 	 */
-	public void clearPropertiesFully() {
+	public void clearProperties() {
 		
 		//Calls method of the base class.
-		super.clearPropertiesFully();
+		super.clearProperties();
 		
 		removeBackgroundColor();
 	}
@@ -84,10 +84,10 @@ extends WidgetStructure<BWS> {
 	/**
 	 * @return the attributes of this background widget structure fully.
 	 */
-	public List<StandardSpecification> getAttributesFully() {
+	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributesFully();
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
 		//Handles the option that this background widget structure has a background color.
 		if (hasBackgroundColor()) {

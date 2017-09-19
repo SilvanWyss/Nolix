@@ -126,17 +126,17 @@ extends ConfigurableElement<W> {
 				if (attribute.getHeader().startsWith(NORMAL)) {
 					StandardSpecification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring(NORMAL.length()));
-					getRefNormalStructure().addOrChangeAttributeFully(temp);
+					getRefNormalStructure().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(HOVER)) {
 					StandardSpecification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring(HOVER.length()));
-					getRefHoverStructure().addOrChangeAttributeFully(temp);
+					getRefHoverStructure().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(FOCUS)) {
 					StandardSpecification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring(FOCUS.length()));
-					getRefFocusStructure().addOrChangeAttributeFully(temp);
+					getRefFocusStructure().addOrChangeAttribute(temp);
 				}
 				else {
 				
@@ -231,17 +231,17 @@ extends ConfigurableElement<W> {
 		}
 	
 		//Extracts the normal state attributes of this widget.
-		final List<StandardSpecification> normalStateAttributes = getRefNormalStructure().getAttributesFully();
+		final List<StandardSpecification> normalStateAttributes = getRefNormalStructure().getAttributes();
 		normalStateAttributes.forEach(a -> a.addPrefixToHeader(NORMAL));
 		attributes.addAtEnd(normalStateAttributes);
 		
 		//Extracts the hover state attributes of this widget.
-		final List<StandardSpecification> hoverStateAttributes = getRefHoverStructure().getAttributesFully();
+		final List<StandardSpecification> hoverStateAttributes = getRefHoverStructure().getAttributes();
 		hoverStateAttributes.forEach(a -> a.addPrefixToHeader(HOVER));
 		attributes.addAtEnd(hoverStateAttributes);
 		
 		//Extracts focus state attributes of this widget.
-		final List<StandardSpecification> focusStateAttributes = getRefFocusStructure().getAttributesFully();
+		final List<StandardSpecification> focusStateAttributes = getRefFocusStructure().getAttributes();
 		focusStateAttributes.forEach(a -> a.addPrefixToHeader(FOCUS));
 		attributes.addAtEnd(focusStateAttributes);
 		

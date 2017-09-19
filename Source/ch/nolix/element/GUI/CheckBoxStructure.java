@@ -126,10 +126,10 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 	/**
 	 * Removes all attributes of this check box structure.
 	 */
-	public void clearPropertiesFully() {
+	public void clearProperties() {
 		
 		//Calls method of the base class.
-		super.clearPropertiesFully();
+		super.clearProperties();
 		
 		removeSize();
 		removeLineThickness();
@@ -218,7 +218,7 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttributeFully(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -234,7 +234,7 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 			default:
 				
 				//Calls method of the base class.
-				super.addOrChangeAttributeFully(attribute);
+				super.addOrChangeAttribute(attribute);
 		}
 	}
 	
@@ -242,10 +242,10 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 	/**
 	 * @return the attributes of this check box structure.
 	 */
-	public List<StandardSpecification> getAttributesFully() {
+	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributesFully();
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
 		//Handles the option that this check box structure has a size.
 		if (hasSize()) {

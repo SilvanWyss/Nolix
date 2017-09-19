@@ -30,7 +30,7 @@ public abstract class Entity extends Element {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valud.
 	 */
-	public final void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		getRefProperties()
 		.getRefFirst(p -> p.hasName(attribute.getHeader()))
 		.setValueFromString(attribute.getOneAttributeToString());
@@ -40,7 +40,7 @@ public abstract class Entity extends Element {
 	/**
 	 * Clears the properties of this entity.
 	 */
-	public final void clearProperties() {
+	public void clearProperties() {
 		getRefProperties().forEach(p -> p.clear());
 	}
 	
@@ -48,7 +48,7 @@ public abstract class Entity extends Element {
 	/**
 	 * @return the attributes of this entity.
 	 */
-	public final List<StandardSpecification> getAttributes() {
+	public List<StandardSpecification> getAttributes() {
 		
 		final List<StandardSpecification> attributes
 		= new List<StandardSpecification>();
