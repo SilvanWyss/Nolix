@@ -11,11 +11,11 @@ public final class Launcher {
 	
 	//main method
 	/**
-	 * Creates new common test pool and executes it.
+	 * Creates new core test pool and runs it.
 	 * 
-	 * @param arguments
+	 * @param args
 	 */
-	public static void main(final String[] arguments) {
+	public static void main(String[] args) {
 		new CoreTestPool().run();
 	}
 	
