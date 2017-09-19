@@ -1,10 +1,3 @@
-/*
- * file:	ColorTest.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	70
- */
-
 //package declaration
 package ch.nolix.elementTest.colorTest;
 
@@ -15,17 +8,15 @@ import ch.nolix.element.color.Color;
 //test class
 /**
  * This class is a test class for the color class.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 70
  */
 public final class ColorTest extends Test {
 	
-	public void test_createConstructor() {
-		
-		//exection
-		final Color color = new Color(Color.ALICE_BLUE_INT);
-	}
-	
 	//test method
-	public void test_createInvertedColor_1() {
+	public void test_getInvertedColor() {
 		
 		//setup
 		final Color color = new Color(0x000000);
@@ -34,12 +25,11 @@ public final class ColorTest extends Test {
 		final Color invertedColor = color.getInvertedColor();
 
 		//verification
-		expectThat(color.getValue()).equals(0x000000);
 		expectThat(invertedColor.getValue()).equals(0xFFFFFF);
 	}
 	
 	//test method
-	public void test_createInvertedColor_2() {
+	public void test_getInvertedColor_2() {
 		
 		//setup
 		final Color color = new Color(0xFFFFFF);
@@ -48,7 +38,6 @@ public final class ColorTest extends Test {
 		final Color invertedColor = color.getInvertedColor();
 
 		//verification
-		expectThat(color.getValue()).equals(0xFFFFFF);
 		expectThat(invertedColor.getValue()).equals(0x000000);
 	}
 	
@@ -73,7 +62,7 @@ public final class ColorTest extends Test {
 	}
 	
 	//test method
-	public void testGetValues() {
+	public void testGetValue() {
 		
 		//setup
 		final Color color = new Color("0x102030");
