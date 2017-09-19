@@ -1,9 +1,9 @@
 //package declaration
-package ch.nolix.coreTest.utilTest;
+package ch.nolix.elementTest.coreTest;
 
 //own imports
 import ch.nolix.core.test2.Test;
-import ch.nolix.element.basic.Time;
+import ch.nolix.element.core.Time;
 
 //test class
 /**

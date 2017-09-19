@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.basic;
+package ch.nolix.element.color;
 
 //Java imports
 import java.awt.GradientPaint;
@@ -12,6 +12,7 @@ import ch.nolix.core.enums.UniDirection;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
+import ch.nolix.element.core.Element;
 
 //class
 /**

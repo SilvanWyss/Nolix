@@ -11,9 +11,9 @@ import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
-import ch.nolix.element.basic.Color;
-import ch.nolix.element.basic.Element;
-import ch.nolix.element.basic.PositiveInteger;
+import ch.nolix.element.color.Color;
+import ch.nolix.element.core.Element;
+import ch.nolix.element.core.PositiveInteger;
 
 //class
 /**

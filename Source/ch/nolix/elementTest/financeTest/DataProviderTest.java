@@ -4,7 +4,7 @@ package ch.nolix.elementTest.financeTest;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.test2.Test;
-import ch.nolix.element.basic.Time;
+import ch.nolix.element.core.Time;
 import ch.nolix.element.finance.DataProvider;
 import ch.nolix.element.finance.NASDAQProductSymbolManager;
 import ch.nolix.element.finance.VolumeCandleStick;

@@ -18,8 +18,8 @@ import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.element.basic.Color;
-import ch.nolix.element.basic.PositiveInteger;
+import ch.nolix.element.color.Color;
+import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.data.Margin;
 import ch.nolix.element.data.TextColor;
 

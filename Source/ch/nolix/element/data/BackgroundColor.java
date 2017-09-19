@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.data;
 
-//own import
-import ch.nolix.element.basic.Color;
+import ch.nolix.element.color.Color;
 
 //class
 /**

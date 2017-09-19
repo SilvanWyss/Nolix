@@ -5,7 +5,7 @@ import ch.nolix.core.constants.StringCatalogue;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.validator2.Validator;
-import ch.nolix.element.basic.Time;
+import ch.nolix.element.core.Time;
 import ch.nolix.element.finance.NYSEProductSymbolManager;
 
 //class

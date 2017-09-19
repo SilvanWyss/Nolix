@@ -16,8 +16,8 @@ import ch.nolix.core.container.AccessorContainer;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.element.basic.Color;
-import ch.nolix.element.basic.Text;
+import ch.nolix.element.color.Color;
+import ch.nolix.element.core.Text;
 import ch.nolix.element.font.Font;
 
 //class

@@ -10,7 +10,7 @@ import java.net.URL;
 //own imports
 
 import ch.nolix.core.container.List;
-import ch.nolix.element.basic.Time;
+import ch.nolix.element.core.Time;
 
 //class
 /**

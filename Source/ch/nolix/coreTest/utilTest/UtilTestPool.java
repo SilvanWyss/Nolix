@@ -2,6 +2,7 @@
 package ch.nolix.coreTest.utilTest;
 
 import ch.nolix.core.baseTest.TestPool;
+import ch.nolix.elementTest.coreTest.TimeTest;
 
 //class
 /**

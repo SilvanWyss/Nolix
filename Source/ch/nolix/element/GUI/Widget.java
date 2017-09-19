@@ -16,7 +16,7 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.core.validator2.Validator;
-import ch.nolix.element.basic.ConfigurableElement;
+import ch.nolix.element.bases.ConfigurableElement;
 
 //abstract class
 /**

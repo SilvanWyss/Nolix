@@ -10,7 +10,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
-import ch.nolix.element.basic.Element;
+import ch.nolix.element.core.Element;
 
 //abstract class
 /**

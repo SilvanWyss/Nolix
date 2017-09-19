@@ -6,11 +6,11 @@
  */
 
 //package declaration
-package ch.nolix.elementTest.basicTest;
+package ch.nolix.elementTest.colorTest;
 
 //own imports
 import ch.nolix.core.test2.Test;
-import ch.nolix.element.basic.Color;
+import ch.nolix.element.color.Color;
 
 //test class
 /**

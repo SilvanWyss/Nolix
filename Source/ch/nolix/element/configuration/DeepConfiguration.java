@@ -7,7 +7,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
-import ch.nolix.element.basic.PositiveInteger;
+import ch.nolix.element.core.PositiveInteger;
 
 //class
 /**

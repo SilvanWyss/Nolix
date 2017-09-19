@@ -13,7 +13,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.basic.NamableElement;
+import ch.nolix.element.bases.NamableElement;
 
 //class
 public final class TabContainerTab extends NamableElement<TabContainerTab> {

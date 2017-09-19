@@ -21,7 +21,7 @@ import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.element.basic.Color;
+import ch.nolix.element.color.Color;
 import ch.nolix.element.data.Length;
 import ch.nolix.element.data.Thickness;
 

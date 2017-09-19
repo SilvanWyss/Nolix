@@ -6,8 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.element.basic;
-
+package ch.nolix.element.core;
 
 //class
 public final class Integer extends Integeroid {

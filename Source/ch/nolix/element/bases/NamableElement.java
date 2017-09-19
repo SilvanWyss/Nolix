@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.element.basic;
+package ch.nolix.element.bases;
 
 //own imports
 import ch.nolix.core.container.List;
@@ -17,6 +17,8 @@ import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.core.MutableElement;
+import ch.nolix.element.core.NonEmptyText;
 
 //class
 /**

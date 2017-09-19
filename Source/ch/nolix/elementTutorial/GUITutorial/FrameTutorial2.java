@@ -6,8 +6,8 @@ import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.HorizontalStack;
 import ch.nolix.element.GUI.Label;
-import ch.nolix.element.basic.Color;
-import ch.nolix.element.basic.Time;
+import ch.nolix.element.color.Color;
+import ch.nolix.element.core.Time;
 
 //class
 /**

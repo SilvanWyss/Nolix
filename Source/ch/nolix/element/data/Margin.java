@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.data;
 
-//own import
-import ch.nolix.element.basic.PositiveInteger;
+import ch.nolix.element.core.PositiveInteger;
 
 /**
  * A margin is not mutable.

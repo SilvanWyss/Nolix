@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.basic;
+package ch.nolix.element.core;
 
 //own imports
 import ch.nolix.core.controllerInterfaces.ILevel2Controller;

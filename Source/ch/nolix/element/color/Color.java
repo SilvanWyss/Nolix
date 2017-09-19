@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.basic;
+package ch.nolix.element.color;
 
 //Java imports
 import java.lang.reflect.Field;
@@ -15,6 +15,7 @@ import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
+import ch.nolix.element.core.Element;
 
 //class
 /**

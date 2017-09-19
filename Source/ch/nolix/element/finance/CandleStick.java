@@ -8,9 +8,9 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
-import ch.nolix.element.basic.Element;
-import ch.nolix.element.basic.FloatingPointNumber;
-import ch.nolix.element.basic.Time;
+import ch.nolix.element.core.Element;
+import ch.nolix.element.core.FloatingPointNumber;
+import ch.nolix.element.core.Time;
 
 //class
 /**

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.basic;
+package ch.nolix.element.core;
 
 //Java import
 import java.util.GregorianCalendar;

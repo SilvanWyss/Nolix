@@ -4,8 +4,8 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.element.basic.Color;
-import ch.nolix.element.basic.PositiveInteger;
+import ch.nolix.element.color.Color;
+import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.data.Height;
 import ch.nolix.element.data.Width;
 

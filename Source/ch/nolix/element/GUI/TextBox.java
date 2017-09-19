@@ -16,7 +16,7 @@ import java.awt.event.KeyEvent;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.basic.Color;
+import ch.nolix.element.color.Color;
 import ch.nolix.element.data.Width;
 import ch.nolix.element.font.Font;
 

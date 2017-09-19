@@ -5,7 +5,7 @@ package ch.nolix.systemTutorial.GUIClientTutorial;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.ContentPosition;
 import ch.nolix.element.GUI.CursorIcon;
-import ch.nolix.element.basic.Color;
+import ch.nolix.element.color.Color;
 import ch.nolix.system.GUIClient.GUIBackClient;
 import ch.nolix.system.GUIClient.GUIFrontClient;
 import ch.nolix.system.client.Session;

@@ -11,7 +11,7 @@ package ch.nolix.elementTest.GUITest;
 //own imports
 import ch.nolix.core.test2.Test;
 import ch.nolix.element.GUI.TextBox;
-import ch.nolix.element.basic.Color;
+import ch.nolix.element.color.Color;
 
 //test class
 /**

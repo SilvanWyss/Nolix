@@ -5,7 +5,7 @@ package ch.nolix.application.candleStickAnalyzer;
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.element.basic.Time;
+import ch.nolix.element.core.Time;
 import ch.nolix.element.finance.QuandlDataProvider;
 import ch.nolix.element.finance.VolumeCandleStick;
 import ch.nolix.system.client.Session;
