@@ -8,7 +8,7 @@ package ch.nolix.core.interfaces;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 30
+ * @lines 40
  * @param <OS> The type of an optional signable object.
  */
 public interface OptionalSignable<OS extends OptionalSignable<OS>>
@@ -25,7 +25,7 @@ extends Signable<OS> {
 	 * @param infoString
 	 * @return true if this optional signable object has the given info string.
 	 */
-	public default boolean hasInfo(final String infoString) {
+	public default boolean hasInfoString(final String infoString) {
 		
 		//Handles the case if this optional signable object has no info string.
 		if (!hasInfoString()) {
@@ -35,4 +35,12 @@ extends Signable<OS> {
 		//Handles the case if this optional signable object has an info string.
 		return getInfoString().equals(infoString);
 	}
+	
+	//abstract method
+	/**
+	 * Removes the info string of this optional signable object.
+	 * 
+	 * @return this optional signable object.
+	 */
+	public abstract OS removeInfoString();
 }

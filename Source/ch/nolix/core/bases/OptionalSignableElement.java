@@ -12,7 +12,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 60
+ * @lines 80
  * @param <OSE> - The type of an optional signable element.
  */
 public abstract class OptionalSignableElement<OSE extends OptionalSignableElement<OSE>>
@@ -42,6 +42,20 @@ implements OptionalSignable<OSE> {
 	 */
 	public final boolean hasInfoString() {
 		return (infoString != null);
+	}
+	
+	//method
+	/**
+	 * Removes the info string of this optional signable element.
+	 * 
+	 * @return this optioanl signable element.
+	 */
+	@SuppressWarnings("unchecked")
+	public final OSE removeInfoString() {
+		
+		infoString = null;
+		
+		return (OSE)this;
 	}
 	
 	//method
