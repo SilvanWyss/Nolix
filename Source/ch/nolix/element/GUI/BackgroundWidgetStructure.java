@@ -2,108 +2,62 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.core.container.List;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.enums.UniDirection;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.data.BackgroundColor;
+import ch.nolix.element.data.BackgroundColorGradient;
+import ch.nolix.element.entity.Property;
 
 //abstract class
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 150
+ * @lines 140
  * @param <BWS> The type of a background widget structure.
  */
 public abstract class BackgroundWidgetStructure<BWS extends BackgroundWidgetStructure<BWS>>
 extends WidgetStructure<BWS> {
 
-	//default value
-	private static final BackgroundColor DEFAULT_BACKGROUND_COLOR = new BackgroundColor(Color.WHITE_INT);
+	//default values
+	public static final BackgroundColor DEFAULT_BACKGROUND_COLOR = new BackgroundColor(Color.WHITE_INT);
+	public static final BackgroundColorGradient DEFAULT_BACKGROUND_COLOR_GRADIENT = new BackgroundColorGradient();
 	
-	//optional attribute
-	private BackgroundColor backgroundColor;
-	
-	//method
-	/**
-	 * Adds or changes the given attribute to this background widget structure.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
-	 */
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case BackgroundColor.TYPE_NAME:
-				setBackgroundColor(new Color(attribute.getOneAttributeToString()));
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-	
-	//method
-	/**
-	 * Removes the properties of this background widget structure fully.
-	 */
-	public void clearProperties() {
-		
-		//Calls method of the base class.
-		super.clearProperties();
-		
-		removeBackgroundColor();
-	}
+	//optional attributes
+		private final Property<BackgroundColor> backgroundColor
+		= new Property<BackgroundColor>(
+			BackgroundColor.TYPE_NAME,
+			DEFAULT_BACKGROUND_COLOR,
+			s -> new BackgroundColor(s.getRefOne().toString())
+		);
+
+		private final Property<BackgroundColorGradient> backgroundColorGradient
+		= new Property<BackgroundColorGradient>(
+			BackgroundColorGradient.TYPE_NAME,
+			DEFAULT_BACKGROUND_COLOR_GRADIENT,
+			s -> {
+				return new BackgroundColorGradient(
+					UniDirection.valueOf(s.getRefAt(1).toString()),
+					new Color(s.getRefAt(2).toString()),
+					new Color(s.getRefAt(3).toString())
+				);
+			}
+		);
 	
 	//method
 	/**
 	 * @return the active background color of this background widget structure.
 	 */
 	public final Color getActiveBackgroundColor() {
-		
-		//Handles the case if this  background widget structure has a background color.
-		if (hasBackgroundColor()) {
-			return backgroundColor.getCopy();
-		}
-		
-		//Handles the case if this background widget structure
-		//has no background color but a base structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveBackgroundColor();
-		}
-		
-		//Handles the case if this background widget structure
-		//has no background color and no base structure.
-		return DEFAULT_BACKGROUND_COLOR;
+		return backgroundColor.getActiveValue();
 	}
 	
 	//method
 	/**
-	 * @return the attributes of this background widget structure fully.
+	 * @return the active background color gradient of this background widget structure.
 	 */
-	public List<StandardSpecification> getAttributes() {
-		
-		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
-		
-		//Handles the option that this background widget structure has a background color.
-		if (hasBackgroundColor()) {
-			attributes
-			.addAtEnd(backgroundColor.getSpecification());
-		}
-		
-		return attributes;
-	}
-	
-	//method
-	/**
-	 * @return true if this background widget structure has a background color.
-	 */
-	public final boolean hasBackgroundColor() {
-		return (backgroundColor != null);
+	public final BackgroundColorGradient getActiveBackgroundColorGradient() {
+		return backgroundColorGradient.getActiveValue();
 	}
 	
 	//method
@@ -111,34 +65,49 @@ extends WidgetStructure<BWS> {
 	 * @return true if this background widget structure has a recursive background color.
 	 */
 	public final boolean hasRecursiveBackgroundColor() {
-		
-		//Handles the case if this background widget structure has a background color.
-		if (hasBackgroundColor()) {
-			return true;
-		}
-		
-		//Handles the case if this background widget structure
-		//has no background color but a base structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().hasRecursiveBackgroundColor();
-		}
-		
-		//Handles the case if this background widget structure
-		//has no background color and no base structure.
-		return false;
+		return backgroundColor.hasRecursiveValue();
+	}
+	
+	//method
+	/**
+	 * @return true if this background widget structure has a recursive background color gradient.
+	 */
+	public final boolean hasRecursiveBackgroundColorGradient() {
+		return backgroundColorGradient.hasRecursiveValue();
 	}
 	
 	//method
 	/**
 	 * Removes the background color of this background widget structure.
+	 * 
+	 * @return this background color widget structure.
 	 */
-	public final void removeBackgroundColor() {
-		backgroundColor = null;
+	@SuppressWarnings("unchecked")
+	public final BWS removeBackgroundColor() {
+		
+		backgroundColor.clear();
+		
+		return (BWS)this;
 	}
 	
 	//method
 	/**
-	 * Sets the background color of this background color widget structure.
+	 * Removes the background color gradient of this background widget structure.
+	 * 
+	 * @return this background color widget structure.
+	 */
+	@SuppressWarnings("unchecked")
+	public final BWS removeBackgroundColorGradient() {
+		
+		backgroundColorGradient.clear();
+		
+		return (BWS)this;
+	}
+	
+	//method
+	/**
+	 * Sets the background color of this background widget structure.
+	 * Removes the background color gradient of this background widget structure.
 	 * 
 	 * @param backgroundColor
 	 * @return this background color widget structure.
@@ -147,11 +116,33 @@ extends WidgetStructure<BWS> {
 	@SuppressWarnings("unchecked")
 	public final BWS setBackgroundColor(final Color backgroundColor) {
 		
-		//Checks if the given background color is not null.
-		Validator.supposeThat(backgroundColor).thatIsNamed("background color").isNotNull();
+		this.backgroundColor.setValue(new BackgroundColor(backgroundColor.getValue()));
+		removeBackgroundColorGradient();
 		
-		//Sets the background color of this background color widget structure.
-		this.backgroundColor = new BackgroundColor(backgroundColor.getValue());
+		return (BWS)this;
+	}
+	
+	//method
+	/**
+	 * Sets the background color gradient of this background widget structure.
+	 * Removes the background color of this background widget structure.
+	 * 
+	 * @param backgroundColorGradient
+	 * @return this background color widget structure.
+	 * @throws NullArgumentException if the given background color gradient is null.
+	 */
+	@SuppressWarnings("unchecked")
+	public final BWS setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
+		
+		this.backgroundColorGradient.setValue(
+			new BackgroundColorGradient(
+				backgroundColorGradient.getDirection(),
+				backgroundColorGradient.getColor1(),
+				backgroundColorGradient.getColor2()
+			)
+		);
+		
+		removeBackgroundColorGradient();
 		
 		return (BWS)this;
 	}

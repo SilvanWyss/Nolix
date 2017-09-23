@@ -32,5 +32,16 @@ extends Widget<BW, BWS> {
 			graphics.setColor(widgetStructure.getActiveBackgroundColor().getJavaColor());
 			graphics.fillRect(0, 0, getWidth(), getHeight());
 		}
+		
+		//Handles the option that the given widget structure has a background color gradient.
+		if (widgetStructure.hasRecursiveBackgroundColorGradient()) {
+			widgetStructure.getActiveBackgroundColorGradient().paintRectangle(
+				0,
+				0,
+				getWidth(),
+				getHeight(),
+				graphics
+			);
+		}
 	}
 }
