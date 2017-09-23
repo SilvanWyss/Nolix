@@ -20,13 +20,12 @@ public final class BlackRedConsoleDesign extends StandardConfiguration {
 	 */
 	public BlackRedConsoleDesign() {
 		
-		addAttachingAttribute("BackgroundColor(0x200000)");
+		addAttachingAttribute("BackgroundColor(Black)");
 		
 		addConfiguration(
 			new DeepConfiguration()
 			.setSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute(
-				"NormalBackgroundColor(Black)",
 				"ElementMargin(20)"
 			),
 			new DeepConfiguration()
