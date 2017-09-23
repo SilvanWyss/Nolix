@@ -51,7 +51,7 @@ extends Entity {
 	= new Property<TextFont>(
 		TextFont.TYPE_NAME,
 		DEFAULT_TEXT_FONT,
-		s -> TextFont.valueOf(s)
+		s -> TextFont.valueOf(s.getRefOne().toString())
 	);
 	
 	//attribute
@@ -59,7 +59,7 @@ extends Entity {
 	= new Property<TextSize>(
 		TextSize.TYPE_NAME,
 		new TextSize(DEFAULT_TEXT_SIZE),
-		s -> new TextSize(StringHelper.toInt(s))
+		s -> new TextSize(StringHelper.toInt(s.getRefOne().toString()))
 	);
 	
 	//attribute
@@ -67,7 +67,7 @@ extends Entity {
 	= new Property<TextColor>(
 		"TextColor",
 		new TextColor(DEFAULT_TEXT_COLOR.getValue()),
-		s -> new TextColor(s)
+		s -> new TextColor(s.getRefOne().toString())
 	);
 	
 	//optional attribute
