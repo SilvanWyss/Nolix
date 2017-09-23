@@ -154,7 +154,9 @@ public class NetEndPoint extends EndPoint {
 		final int index
 	) {
 		
-		while (!receivedPackage(index));
+		while (!receivedPackage(index)) {
+			supposeBeingAlive();
+		}
 
 		return getAndRemoveReceivedPackage(index);
 	}
