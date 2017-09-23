@@ -210,10 +210,10 @@ public class ColorGradient extends Element {
 				new GradientPaint(
 					xPosition,
 					yPosition,
-					getColor2().getJavaColor(),
-					xPosition + width,
-					yPosition,
-					getColor1().getJavaColor()
+					getColor1().getJavaColor(),
+					xPosition,
+					yPosition + height,
+					getColor2().getJavaColor()
 				);
 			case DiagonalUp:
 				return
@@ -221,7 +221,7 @@ public class ColorGradient extends Element {
 					xPosition,
 					yPosition,
 					getColor1().getJavaColor(),
-					xPosition,
+					xPosition + width,
 					yPosition + height,
 					getColor2().getJavaColor()
 				);
@@ -231,7 +231,7 @@ public class ColorGradient extends Element {
 					xPosition,
 					yPosition,
 					getColor2().getJavaColor(),
-					xPosition,
+					xPosition + width,
 					yPosition + height,
 					getColor1().getJavaColor()
 				);
