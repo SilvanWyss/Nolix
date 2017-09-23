@@ -322,7 +322,7 @@ implements Clearable<Console> {
 		
 		final int lineCount = lines.getElementCount();	
 		while (getLines().getElementCount() == lineCount) {
-			Sequencer.waitForMilliseconds(100);
+			supposeGUIIsAlive();
 		}
 		
 		return lines.getRefLast();
