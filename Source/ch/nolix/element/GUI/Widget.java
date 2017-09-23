@@ -672,7 +672,12 @@ extends ConfigurableElement<W> {
 	/**
 	 * Resets the configuration of this widget.
 	 */
-	public void resetConfiguration() {		
+	public void resetConfiguration() {
+		
+		getRefNormalStructure().clearProperties();
+		getRefHoverStructure().clearProperties();
+		getRefFocusStructure().clearProperties();
+		
 		setCursorIcon(CursorIcon.Arrow);
 	}
 	
