@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 //own imports
 import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.invalidStateException.ClosedStateException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
@@ -1125,6 +1126,16 @@ extends ConfigurableElement<W> {
 	protected void setPositionOnContainer(int xPositionOnParentContainer, int yPositionOnParentContainer) {
 		this.xPositionOnContainer = xPositionOnParentContainer;
 		this.yPositionOnContainer = yPositionOnParentContainer;
+	}
+	
+	//method
+	/**
+	 * @throws ClosedStateException if this widget belongs to a GUI that is closed.
+	 */
+	protected void supposeGUIIsAlive() {
+		if (belongsToGUI() && getRefGUI().isClosed()) {
+			throw new ClosedStateException(getRefGUI());
+		}
 	}
 	
 	//method
