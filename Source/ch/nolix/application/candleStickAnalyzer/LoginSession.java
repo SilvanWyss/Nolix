@@ -24,15 +24,11 @@ public final class LoginSession extends Session<ConsoleBackClient> {
 		
 		//Asks for the password.
 		getRefClient().writeLineToConsole("Enter the password.");
-		while (true) {
-			
-			final String password = getRefClient().readLineFromConsole();
-			
-			if (password.equals("justin")) {
-				getRefClient().setSession(new MainSession());
-			}
-			
+		
+		while (!getRefClient().readLineFromConsole().equals("justin")) {
 			getRefClient().writeLineToConsole("Wrong password. Try again.");
 		}
+		
+		getRefClient().setSession(new MainSession());
 	}
 }

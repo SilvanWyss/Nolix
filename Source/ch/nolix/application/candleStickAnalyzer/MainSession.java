@@ -5,6 +5,7 @@ package ch.nolix.application.candleStickAnalyzer;
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.invalidStateException.ClosedStateException;
 import ch.nolix.element.core.Time;
 import ch.nolix.element.finance.QuandlDataProvider;
 import ch.nolix.element.finance.VolumeCandleStick;
@@ -91,6 +92,9 @@ public final class MainSession extends Session<ConsoleBackClient> {
 				
 				refreshInfoPanel();
 				getRefClient().writeLineToConsole(Character.toString((char)0x2714));
+			}
+			catch (final ClosedStateException exception) {
+				break;
 			}
 			catch (final Exception exception) {
 				getRefClient().writeLineToConsole(Character.toString((char)0x2716));
