@@ -1,10 +1,13 @@
 //package declaration
 package ch.nolix.element.entity;
 
+//own imports
 import ch.nolix.core.bases.NamedElement;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.functionInterfaces.IBooleanGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -20,7 +23,7 @@ public final class Property<V> extends NamedElement {
 	private final V defaultValue;
 	private final IBooleanGetter secondaryDefaultValueCondition;
 	private final V secondaryDefaultValue;
-	private final IElementTakerElementGetter<String, V> valueCreator;
+	private final IElementTakerElementGetter<IContainer<Specification>, V> valueCreator;
 	
 	//optional attributes
 	private V value;
@@ -30,7 +33,7 @@ public final class Property<V> extends NamedElement {
 	public Property(
 		final String name,		
 		final V defaultValue,
-		final IElementTakerElementGetter<String, V> valueCreator
+		final IElementTakerElementGetter<IContainer<Specification>, V> valueCreator
 	) {
 		//Calls constructor of the base class.
 		super(name);
@@ -51,7 +54,7 @@ public final class Property<V> extends NamedElement {
 		final V defaultValue,
 		final IBooleanGetter secondaryDefaultValueCondition,
 		final V secondaryDefaultValue,
-		final IElementTakerElementGetter<String, V> valueCreator
+		final IElementTakerElementGetter<IContainer<Specification>, V> valueCreator
 	) {
 		//Calls constructor of the base class.
 		super(name);
@@ -156,8 +159,10 @@ public final class Property<V> extends NamedElement {
 	}
 	
 	//method
-	public void setValueFromString(final String string) {
-		setValue(valueCreator.getOutput(string));
+	@SuppressWarnings("unchecked")
+	public <S extends Specification> void setValue(final IContainer<S> specifications) {
+		final IContainer<Specification> inputs = (IContainer<Specification>)specifications;
+		setValue(valueCreator.getOutput(inputs));
 	}
 	
 	//package-visible method

@@ -33,7 +33,7 @@ public abstract class Entity extends Element {
 	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		getRefProperties()
 		.getRefFirst(p -> p.hasName(attribute.getHeader()))
-		.setValueFromString(attribute.getOneAttributeToString());
+		.setValue(attribute.getRefAttributes());
 	}
 
 	//method
