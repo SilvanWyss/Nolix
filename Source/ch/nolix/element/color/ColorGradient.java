@@ -23,7 +23,7 @@ import ch.nolix.element.core.Element;
  * @month 2016-07
  * @lines 240
  */
-public final class ColorGradient extends Element {
+public class ColorGradient extends Element {
 	
 	//default values
 	public static final UniDirection DEFAULT_DIRECTION = UniDirection.Vertical;
