@@ -6,11 +6,12 @@
  */
 
 //package declaration
-package ch.nolix.element.bases;
+package ch.nolix.element.configurationElement;
 
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.element.bases.ConfigurableElement;
 import ch.nolix.element.configuration.StandardConfiguration;
 
 //class

@@ -21,9 +21,9 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.core.validator2.Validator;
-import ch.nolix.element.bases.ConfigurationElement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.StandardConfiguration;
+import ch.nolix.element.configurationElement.ConfigurationElement;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.Title;
 
