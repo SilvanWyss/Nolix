@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
+//own imports
 import ch.nolix.core.bases.OptionalSignableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.duplexController.DuplexController;
@@ -11,6 +12,7 @@ import ch.nolix.core.interfaces.Resettable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidStateException.ClosedStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
@@ -109,9 +111,14 @@ implements Closable, Resettable {
 		//Resets this client.
 		reset();
 		
-		//Initializes the given session.
-		session.initialize();
-		internal_finishSessionInitialization();
+		try {
+			//Initializes the given session.
+			session.initialize();
+			internal_finishSessionInitialization();
+		}
+		
+		//A client swallows always a closed state exception.
+		catch (final ClosedStateException closedStateException) {}
 	}
 	
 	//abstract method
