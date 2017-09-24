@@ -8,6 +8,7 @@
 //package declaration
 package ch.nolix.application.performanceDetector;
 
+import ch.nolix.core.functionInterfaces.IBooleanGetter;
 //own import
 import ch.nolix.core.mathematics.Calculator;
 
@@ -15,6 +16,7 @@ import ch.nolix.core.mathematics.Calculator;
 final class Worker extends Thread {
 
 	//attributes
+	private final IBooleanGetter condition;
 	private final int n = 100;
 	private final double[] xValues = new double[n];
 	private final double[] yValues = new double[n];
@@ -24,7 +26,9 @@ final class Worker extends Thread {
 	/**
 	 * Creates new worker.
 	 */
-	public Worker() {
+	public Worker(IBooleanGetter condition) {
+		
+		this.condition = condition;
 		
 		//Initializes the x-values and y-values.
 		for (int i = 0; i < n; i++) {
@@ -38,7 +42,7 @@ final class Worker extends Thread {
 	 * Runs this worker.
 	 */
 	public final void run() {
-		while (true) {
+		while (condition.getOutput()) {
 			Calculator.getFittingPolynom(3, xValues, yValues);
 			polynomFitsCount++;
 		}

@@ -4,7 +4,7 @@ package ch.nolix.application.performanceDetector;
 //own import
 import ch.nolix.system.GUIClient.GUIFrontClient;
 
-//package-visible class
+//class
 /**
  * This class provides a main method to launch a performance detector.
  * Of this class no instance can be created.
@@ -13,22 +13,18 @@ import ch.nolix.system.GUIClient.GUIFrontClient;
  * @month 2016-07
  * @lines 30
  */
-final class Launcher {
+public final class Launcher {
 
 	//main method
 	/**
-	 * Creates a new performance detector
-	 * and a new front GUI client that will connect to the performance detector.
+	 * Creates a performance detector
+	 * and a GUI front client that connects to the performance detector.
 	 * 
 	 * @param args
 	 */
+	@SuppressWarnings("resource")
 	public static final void main(String[] args) {
-		
-		//Creates performance detector.
-		final PerformanceDetector performanceDetector = new PerformanceDetector();
-		
-		//Creates front GUI client.
-		new GUIFrontClient(performanceDetector);
+		new GUIFrontClient(new PerformanceDetector());
 	}
 	
 	//private constructor

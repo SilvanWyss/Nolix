@@ -23,7 +23,7 @@ final class MainSession extends Session<GUIBackClient> {
 	private static final int UPDATE_INTERVAL_IN_MILLISECONDS = 500;
 	
 	//attributes
-	private final Worker worker = new Worker();
+	private final Worker worker = new Worker(() -> getRefClient().isAlive());
 	private final Timer timer = new Timer();
 
 	//method
