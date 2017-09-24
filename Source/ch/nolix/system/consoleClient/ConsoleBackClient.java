@@ -16,7 +16,7 @@ import ch.nolix.system.baseGUIClient.BaseGUIClient;
  * 
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 340
+ * @lines 350
  */
 public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 		
@@ -122,6 +122,17 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	public String readNonEmptyLineFromConsole() {
 		return
 		internal_getDataFromCounterpart(Protocol.READ_NON_EMPTY_LINE_FROM_CONSOLE_REQUEST)
+		.toString();
+	}
+	
+	//method
+	/**
+	 * @return the next line as secret line from the console
+	 * of the counterpart of this console back client.
+	 */
+	public String readSecretLineFromConsole() {
+		return
+		internal_getDataFromCounterpart(Protocol.READ_SECRET_LINE_FROM_CONSOLE_REQUEST)
 		.toString();
 	}
 	

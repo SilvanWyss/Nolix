@@ -34,6 +34,7 @@ final class Protocol {
 	public static final String READ_CHARACTER_FROM_CONSOLE_REQUEST = "ReadtCharacterFromConsole";
 	public static final String READ_LINE_FROM_CONSOLE_REQUEST = "ReadLineFromConsole";
 	public static final String READ_NON_EMPTY_LINE_FROM_CONSOLE_REQUEST = "NonEmptyLineFromConsole";
+	public static final String READ_SECRET_LINE_FROM_CONSOLE_REQUEST = "ReadSecretLineFromConsole";
 	
 	//info panel requests
 	public static final String LINES_OF_INFO_PANEL_REQUEST = "LinesOfInfoPanel";
