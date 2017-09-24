@@ -122,7 +122,7 @@ public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<
 	 */
 	public void addOrChangeAttribute(StandardSpecification attribute) {
 		switch (attribute.getHeader()) {
-			case Name.SIMPLE_CLASS_NAME:
+			case Name.TYPE_NAME:
 				setName(attribute.getOneAttributeToString());
 				break;
 			default:
