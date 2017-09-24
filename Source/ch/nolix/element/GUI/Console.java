@@ -12,6 +12,7 @@ import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Clearable;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
@@ -23,7 +24,7 @@ import ch.nolix.element.font.TextFont;
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 580
+ * @lines 680
  */
 public final class Console
 extends BorderWidget<Console, ConsoleStructure>
@@ -31,6 +32,10 @@ implements Clearable<Console> {
 	
 	//type name
 	public static final String TYPE_NAME = "Console";
+	
+	//mask character
+	//The mask character is the character that is displayed in a secret line.
+	public static final char MASK_CHARACTER = CharacterCatalogue.BULLET;
 	
 	//default value
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.BLACK;
@@ -46,6 +51,10 @@ implements Clearable<Console> {
 	//The text cursor position is the position of the text cursor in the edit line of this console.
 	//The text cursor position is measured by the number of characters.
 	private int textCursorPosition = 0;
+	
+	//optional attribute
+	//The secret line exists if this conole is reading a secret line.
+	private String secretEditLine;
 	
 	//multiple attribute
 	private final List<String> lines = new List<String>();
@@ -212,14 +221,25 @@ implements Clearable<Console> {
 	 */
 	public final void insertCharacterAfterCursor(final char character) {
 		
+		//Handles the option that this console is reading a secret line.		
+		if (isReadingSecretLine()) {
+			setSecretEditLine(
+				getSecretEditLineBeforeTextCursor()
+				+ character
+				+ getSecretEditLineAfterTextCursor()
+			);
+		}
+		
 		final int originalTextCursorPosition = textCursorPosition;
+		
+		final char displayedCharacter = !isReadingSecretLine() ? character : MASK_CHARACTER;
 		
 		setEditLine(
 			getEditLineBeforeTextCursor()
-			+ character
+			+ displayedCharacter
 			+ getEditLineAfterTextCursor()
 		);
-		
+			
 		textCursorPosition = originalTextCursorPosition + 1;
 	}
 	
@@ -245,6 +265,14 @@ implements Clearable<Console> {
 	
 	//method
 	/**
+	 * Lets this console note an enter.
+	 */
+	public void noteEnter() {
+		writeEditLine();
+	}
+	
+	//method
+	/**
 	 * Lets this console note a key typing.
 	 */
 	public void noteKeyTyping(final KeyEvent keyEvent) {
@@ -255,7 +283,7 @@ implements Clearable<Console> {
 				insertCharacterAfterCursor(CharacterCatalogue.SPACE);
 				break;
 			case KeyEvent.VK_ENTER:
-				writeEditLine();
+				noteEnter();
 				break;
 			case KeyEvent.VK_LEFT:
 				moveTextCursorPositionToLeft();
@@ -334,7 +362,7 @@ implements Clearable<Console> {
 	 * Attention: Clears the edit line of this console.
 	 * Attention: Lasts until this console receives a non-empty line.
 	 * 
-	 * @return the next line, that is not empty, that is written to this console.
+	 * @return the next line of this console that is not empty.
 	 * 
 	 */
 	public String readNonEmptyLine() {		
@@ -346,6 +374,22 @@ implements Clearable<Console> {
 				return nextLine;
 			}
 		}
+	}
+	
+	//method
+	/**
+	 * Reads the next line as secret line from this console.
+	 * Attention: Clears the edit line of this console.
+	 * Attention: Lasts until this console receives line.
+	 * 
+	 * @return the next line that is written to this console as secret line.
+	 */
+	public String readSecretLine() {	
+		this.secretEditLine = StringCatalogue.EMPTY_STRING;	
+		readLine();
+		final String secretLine = this.secretEditLine;
+		this.secretEditLine = null;
+		return secretLine;
 	}
 	
 	//method
@@ -577,5 +621,66 @@ implements Clearable<Console> {
 	 */
 	private String getLinePrefix() {
 		return "> ";
+	}
+	
+	//method
+	/**
+	 * A console has a secret edit line when it is reading a secret line.
+	 * 
+	 * @return the secret edit line of this console.
+	 * @throws UnexistingAttribute exception if this console has no secret edit line.
+	 */
+	private String getSecretEditLine() {
+		
+		//Checks if this console has a secret edit line.
+		if (!isReadingSecretLine()) {
+			throw new UnexistingAttributeException(this, "secret edit line");
+		}
+		
+		return secretEditLine;
+	}
+	
+	//method
+	/**
+	 * @return the text of the secret edit line of this console after the text cursor.
+	 * @throws UnexistingAttribute exception if this console has no secret edit line.
+	 */
+	private String getSecretEditLineAfterTextCursor() {
+		return getSecretEditLine().substring(textCursorPosition);
+	}
+	
+	//method
+	/**
+	 * @return the text of the secret edit line of this console before the text cursor.
+	 * @throws UnexistingAttribute exception if this console has no secret edit line.
+	 */
+	private String getSecretEditLineBeforeTextCursor() {
+		return getSecretEditLine().substring(0, textCursorPosition);
+	}
+	
+	//method
+	/**
+	 * @return true if this consoel is reading a secret line.
+	 */
+	private boolean isReadingSecretLine() {
+		return (secretEditLine != null);
+	}
+	
+	//method
+	/**
+	 * Sets the secret edit line of this console.
+	 * 
+	 * @param secretEditLine
+	 * @throws NullArgumentException if the given secret edit line is null.
+	 */
+	private void setSecretEditLine(final String secretEditLine) {
+		
+		//Checks if the given secret edit line is not null.
+		Validator
+		.supposeThat(secretEditLine)
+		.thatIsNamed("secret edit line")
+		.isNotNull();
+		
+		this.secretEditLine = secretEditLine;
 	}
 }
