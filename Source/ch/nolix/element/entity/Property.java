@@ -8,6 +8,7 @@ import ch.nolix.core.functionInterfaces.IBooleanGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -17,7 +18,7 @@ import ch.nolix.core.validator2.Validator;
  * @lines 170
  * @param <V> The type of the value of a property.
  */
-public final class Property<V> extends NamedElement {
+public final class Property<V extends Specified> extends NamedElement {
 
 	//attributes
 	private final V defaultValue;

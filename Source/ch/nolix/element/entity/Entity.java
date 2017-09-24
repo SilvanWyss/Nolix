@@ -59,7 +59,7 @@ public abstract class Entity extends Element {
 				attributes.addAtEnd(
 					new StandardSpecification(
 						p.getName(),
-						p.getValue().toString()
+						p.getActiveValue().getAttributes()
 					)
 				);
 			}
