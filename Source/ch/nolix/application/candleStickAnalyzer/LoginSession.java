@@ -20,12 +20,12 @@ public final class LoginSession extends Session<ConsoleBackClient> {
 	public void initialize() {
 		
 		//Sets the title of the console.
-		getRefClient().setTitle(CandleStickAnalyzer.getTitle());
+		getRefClient().setTitle(CandleStickAnalyzer.TITLE);
 		
 		//Asks for the password.
 		getRefClient().writeLineToConsole("Enter the password.");
 		
-		while (!getRefClient().readLineFromConsole().equals("justin")) {
+		while (!getRefClient().readSecretLineFromConsole().equals("justin")) {
 			getRefClient().writeLineToConsole("Wrong password. Try again.");
 		}
 		

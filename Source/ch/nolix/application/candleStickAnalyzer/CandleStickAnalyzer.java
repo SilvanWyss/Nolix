@@ -9,20 +9,16 @@ import ch.nolix.system.consoleClient.ConsoleBackClient;
 /**
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 40
+ * @lines 30
  */
-public class CandleStickAnalyzer extends StandardApplication<ConsoleBackClient> {
+public class CandleStickAnalyzer
+extends StandardApplication<ConsoleBackClient> {
 
 	//name
 	public static final String NAME = "Candlestick Analyzer";
 	
-	//static method
-	/**
-	 * @return the title of a candle stick analyzer.
-	 */
-	public static String getTitle() {
-		return (NAME + " 2017-9-2");
-	}
+	//title
+	public static final String TITLE = NAME + " 2017-9-24";
 	
 	//constructor
 	/**

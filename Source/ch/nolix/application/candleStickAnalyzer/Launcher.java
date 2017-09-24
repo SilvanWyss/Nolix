@@ -17,17 +17,13 @@ public final class Launcher {
 
 	//main method
 	/**
-	 * Creates a candle stick analyzer and a console front client that connects to it.
+	 * Creates a console front client that connects to a candle stick analyzer.
 	 * 
 	 * @param args
 	 */
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-		
-		//Creates a candle stick analyzer.
-		final CandleStickAnalyzer candleStickAnalyzer = new CandleStickAnalyzer();
-		
-		//Creates a console front client that connects to the candle stick analyzer.
-		new ConsoleFrontClient(candleStickAnalyzer);
+		new ConsoleFrontClient(new CandleStickAnalyzer());
 	}
 	
 	//private constructor
