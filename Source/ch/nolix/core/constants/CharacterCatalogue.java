@@ -7,13 +7,14 @@ package ch.nolix.core.constants;
 * 
 * @author Silvan Wyss
 * @month 2017-06
-* @lines 30
+* @lines 40
 */
 public final class CharacterCatalogue {
 
 	//characters
 	public static final char APOSTROPH = '\'';
 	public static final char BACK_SLASH = '\\';
+	public static final char BULLET = '•';
 	public static final char CLOSING_BRACKET = ')';
 	public static final char CLOSING_CROCODILE_BRACKET = '>';
 	public static final char CLOSING_SQUARE_BRACKET = ']';
