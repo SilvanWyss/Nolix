@@ -21,7 +21,7 @@ import ch.nolix.system.client.StandardApplication;
 * 
 * @author Silvan Wyss
 * @month 2017-03
-* @lines 220
+* @lines 260
 */
 public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> {
 
