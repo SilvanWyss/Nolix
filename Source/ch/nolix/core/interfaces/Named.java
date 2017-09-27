@@ -7,7 +7,7 @@ package ch.nolix.core.interfaces;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 30
+ * @lines 40
  */
 public interface Named {
 	
@@ -32,5 +32,14 @@ public interface Named {
 	 */
 	public default boolean hasName(final String name) {
 		return getName().equals(name);
+	}
+	
+	//default method
+	/**
+	 * @param object
+	 * @return true if this named object has the same name as the given object.
+	 */
+	public default boolean hasSameNameAs(final Named object) {
+		return hasName(object.getName());
 	}
 }

@@ -8,7 +8,7 @@ package ch.nolix.core.interfaces;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 40
+ * @lines 60
  * @param <ON> The type of an optional namable object.
  */
 public interface OptionalNamable<ON extends OptionalNamable<ON>>
@@ -34,6 +34,22 @@ extends Namable<ON>{
 		
 		//Handles the case if this optional namable object has a name.
 		return getName().equals(name);
+	}
+	
+	//default method
+	/**
+	 * @param object
+	 * @return true if this optional namable object has the same name as the given object.
+	 */
+	public default boolean hasSameNameAs(final OptionalNamable<?> object) {
+		
+		//Handles the case if the given object has no name.
+		if (!object.hasName()) {
+			return false;
+		}
+		
+		//Handles the case if the given object has a name.
+		return hasName(object.getName());
 	}
 	
 	//abstract method
