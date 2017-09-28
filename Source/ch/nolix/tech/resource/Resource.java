@@ -5,6 +5,7 @@ package ch.nolix.tech.resource;
 import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.container.Pair;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
@@ -21,7 +22,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 150
+ * @lines 170
  */
 public class Resource extends NamedElement {
 	
@@ -50,13 +51,15 @@ public class Resource extends NamedElement {
 	 * Creates new resource with the given name and resources.
 	 * 
 	 * @param name
-	 * @param superAssets
+	 * @param superResources
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidArgumentException if the given name
 	 * equals the name of one of the given super resources.
+	 * @throws InvalidArgumentException if one of the given super resources
+	 * is a sub resource of another of the given super resources.
 	 */
-	public Resource(final String name, final Resource... superAssets) {
+	public Resource(final String name, final Resource... superResources) {
 		
 		//Calls constructor of the base class.
 		super(name);
@@ -64,20 +67,34 @@ public class Resource extends NamedElement {
 		final List<Resource> internalSuperResources = new List<Resource>();
 		
 		//Iterates the given resources.
-		for (final Resource sa : superAssets) {
+		for (final Resource sr : superResources) {
 			
 			//Checks if the given name equals the name of the current resource.
-			if (hasSameNameAs(sa)) {
+			if (hasSameNameAs(sr)) {
 				throw new InvalidArgumentException(
 					new ArgumentName("name"),
 					new Argument(name),
 					new ErrorPredicate(
-						"equals the name of the given super resource " + sa.getName()
+						"equals the name of the given super resource " + sr.getName()
 					)
 				);
 			}
 			
-			internalSuperResources.addAtEnd(sa);
+			internalSuperResources.addAtEnd(sr);
+		}
+		
+		//Checks if no of the given super resources
+		//is a sub resource of another of the given super resources.
+		if (internalSuperResources.contains((sr1, sr2) -> sr1.isSubResourceOf(sr2))) {
+			
+			final Pair<Resource, Resource> pair
+			= internalSuperResources.getRefFirst((sr1, sr2) -> sr1.isSubResourceOf(sr2));
+			
+			throw new InvalidArgumentException(
+				new ArgumentName("resource"),
+				new Argument(pair.getRefElement1()),
+				new ErrorPredicate("is a sub resource of " + pair.getRefElement2())
+			);
 		}
 		
 		this.superResources = new AccessorContainer<Resource>(internalSuperResources);
@@ -131,10 +148,10 @@ public class Resource extends NamedElement {
 		
 		//Handles the case if this resource is no direct sub resource of the given resource.
 			//Iterates the super resources of this resource.
-			for (final Resource sa : getSuperResources()) {
+			for (final Resource sr : getSuperResources()) {
 				
 				//Checks if the current super resource is a sub resource of the given resource.
-				if (sa.isSubResourceOf(resource)) {
+				if (sr.isSubResourceOf(resource)) {
 					return true;
 				}
 			}
