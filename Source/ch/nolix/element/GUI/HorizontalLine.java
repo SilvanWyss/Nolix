@@ -1,49 +1,28 @@
-/*
- * file:	HorizontalLine.java
- * author:	Silvan Wyss
- * month:	2015
- * lines:	70 
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.container.List;
-import ch.nolix.core.specification.StandardSpecification;
-
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 30
+ */
 public final class HorizontalLine extends Line<HorizontalLine> {
 
-	//constants
-	public static final String SIMPLE_CLASS_NAME = "HorizontalLine";
-	public static final String NONE = "NoHorizontalLine";
+	//type name
+	public static final String TYPE_NAME = "HorizontalLine";
 	
 	//constructor
 	/**
-	 * Creates new horizontal line that has default attributes.
+	 * Creates new horizontal line.
 	 */
 	public HorizontalLine() {		
 		resetConfiguration();
 	}
 	
-	//constructor
-	/**
-	 * Creates new horizontal line that has the given attributes.
-	 * @param attributes
-	 * @throws Exception if the given attributes are not valid
-	 */
-	public HorizontalLine(List<StandardSpecification> attributes) {
-		
-		//Calls other constructor.
-		this();
-		
-		addOrChangeAttributes(attributes);
-	}
-	
 	//method
 	/**
-	 * @return the current height of this rectangle if it is not collapsed
+	 * @return the height of this line when it is not collapsed.
 	 */
 	public final int getHeightWhenNotCollapsed() {
 		return getThickness();
@@ -51,7 +30,7 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 	
 	//method
 	/**
-	 * @return the current width of this rectangle if it is not collapsed
+	 * @return the width of this line when it is not collapsed.
 	 */
 	public final int getWidthWhenNotCollapsed() {
 		return getLength();
