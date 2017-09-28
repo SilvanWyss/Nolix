@@ -14,6 +14,7 @@ import ch.nolix.core.functionInterfaces.IElementTakerDoubleGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerIntGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerLongGetter;
+import ch.nolix.core.functionInterfaces.ITwoElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -31,7 +32,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1250
+ * @lines 1300
  * @param <E> The type of the elements of a container.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -53,6 +54,17 @@ public interface IContainer<E> extends Iterable<E> {
 		}
 		
 		return false;
+	}	
+	
+	//default method
+	/**
+	 * The complexity of this method is O(n^2) if this container contains n elements.
+	 *
+	 * @param selector
+	 * @return true if this container contains at least 2 elements the given selector selects together.
+	 */
+	public default boolean contains(final ITwoElementTakerBooleanGetter<E> selector) {
+		return contains(e -> contains(e2 -> selector.getOutput(e, e2)));
 	}
 	
 	//default method
@@ -731,6 +743,30 @@ public interface IContainer<E> extends Iterable<E> {
 		throw new UnexistingAttributeException(this, "element the given selector selects");
 	}
 	
+	//default method
+	/**
+	 * The complexity of this method is O(n^2) if this container contains n elements.
+	 *
+	 * @param selector
+	 * @return the first 2 elements of this container the given selector selects together.
+	 * @throws InvalidStateException if this container
+	 * contains no 2 elements the given selector selects together.
+	 */
+	public default Pair<E, E> getRefFirst(final ITwoElementTakerBooleanGetter<E> selector) {
+
+		//Iterates this container.
+		for (final E e : this) {
+		
+			final E element = getRefFirstOrNull(e2 -> selector.getOutput(e, e2));
+			
+			if (element != null) {
+				return new Pair<E, E>(e, element);
+			}
+		}
+		
+		throw new InvalidStateException(this, "contains no elements the given selector selects together");
+	}
+	
 	//method
 	/**
 	 * @return the first element of this container or null.
@@ -759,6 +795,28 @@ public interface IContainer<E> extends Iterable<E> {
 			//Checks if the given selector selects the current element.
 			if (selector.getOutput(e)) {
 				return e;
+			}
+		}
+		
+		return null;
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(n^2) if this container contains n elements.
+	 *
+	 * @param selector
+	 * @return the first 2 elements of this container the given selector selects together or null.
+	 */
+	public default Pair<E, E> getRefFirstOrNull(final ITwoElementTakerBooleanGetter<E> selector) {
+
+		//Iterates this container.
+		for (final E e : this) {
+		
+			final E element = getRefFirstOrNull(e2 -> selector.getOutput(e, e2));
+			
+			if (element != null) {
+				return new Pair<E, E>(e, element);
 			}
 		}
 		
