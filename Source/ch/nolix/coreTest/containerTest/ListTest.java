@@ -6,6 +6,7 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.container.Pair;
 import ch.nolix.core.container.SequencePattern;
 import ch.nolix.core.container.SubContainer;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
@@ -18,7 +19,7 @@ import ch.nolix.core.test2.Test;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 580
+ * @lines 620
  */
 public final class ListTest extends Test {
 		
@@ -73,6 +74,29 @@ public final class ListTest extends Test {
 				list.contains(s -> s.equals("xxxxxxxxxxx")),
 				list.contains(s -> s.equals("xxxxxxxxxxxx"))
 			);
+	}
+	
+	//test method
+	public void test_contains_2() {
+		
+		//setup
+		final List<String> list = new List<String>(
+			"x",
+			"xx",
+			"xxx",
+			"xxxx",
+			"xxxxx",
+			"xxxxxx"
+		);
+		
+		//execution and verification
+		expectThat(list.contains((s1, s2) -> s1.length() == s2.length()));
+		expectThat(list.contains((s1, s2) -> s1.length() + 1 == s2.length()));
+		expectThat(list.contains((s1, s2) -> s1.length() + 2 == s2.length()));
+		expectThat(list.contains((s1, s2) -> s1.length() + 3 == s2.length()));
+		expectThat(list.contains((s1, s2) -> s1.length() + 4 == s2.length()));
+		expectThat(list.contains((s1, s2) -> s1.length() + 5 == s2.length()));
+		expectThatNot(list.contains((s1, s2) -> s1.length() + 6 == s2.length()));
 	}
 	
 	//test method
@@ -243,6 +267,27 @@ public final class ListTest extends Test {
 		
 		//execution and verification
 		expectThat(list.getRefByMinInt(s -> s.length())).equals("x");
+	}
+	
+	//method
+	public void test_getRefFirst() {
+		
+		//setup
+		final List<String> list = new List<String>(
+			"x",
+			"xx",
+			"xxx",
+			"xxxx",
+			"xxxxx",
+			"xxxxxx"
+		);
+		
+		//execution
+		final Pair<String, String> pair = list.getRefFirst((s1, s2) -> s1.length() + 5 == s2.length());
+		
+		//verification
+		expectThat(pair.getRefElement1()).equals("x");
+		expectThat(pair.getRefElement2()).equals("xxxxxx");
 	}
 	
 	//test method
