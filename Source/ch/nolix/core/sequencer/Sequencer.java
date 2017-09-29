@@ -14,7 +14,7 @@ import ch.nolix.core.functionInterfaces.IRunner;
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 120
+ * @lines 150
  */
 public final class Sequencer {
 
@@ -93,6 +93,26 @@ public final class Sequencer {
 	
 	//static method
 	/**
+	 * Waits as long as the given condition is fulfilled.
+	 * 
+	 * @param condition
+	 */
+	public static void waitAsLongAs(final IBooleanGetter condition) {
+		int i = 1;
+		while (condition.getOutput()) {
+			
+			if (i < 100) {
+				waitForMilliseconds(10);
+				i++;
+			}
+			else {
+				waitForMilliseconds(100);
+			}
+		}
+	}
+	
+	//static method
+	/**
 	 * Waits for the given number of milliseconds.
 	 * 
 	 * @param milliseconds
@@ -109,8 +129,18 @@ public final class Sequencer {
 	 * @param seconds
 	 * @throws NegativeArgumentException if the given seconds is negative.
 	 */
-	public void waitForSeconds(final int seconds) {
+	public static void waitForSeconds(final int seconds) {
 		Waiter.waitForSeconds(seconds);
+	}
+	
+	//static method
+	/**
+	 * Waits until the given condition is fulfilled.
+	 * 
+	 * @param condition
+	 */
+	public static void waitUntil(final IBooleanGetter condition) {
+		waitAsLongAs(() -> !condition.getOutput());
 	}
 
 	//private constructor
