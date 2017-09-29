@@ -8,7 +8,7 @@ import ch.nolix.core.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 60
+ * @lines 70
  */
 public final class Future {
 
@@ -25,7 +25,10 @@ public final class Future {
 	Future(final JobRunner jobRunner) {
 		
 		//Checks if the given job runner is not null.
-		Validator.supposeThat(jobRunner).thatIsInstanceOf(JobRunner.class).isNotNull();
+		Validator
+		.supposeThat(jobRunner)
+		.thatIsInstanceOf(JobRunner.class)
+		.isNotNull();
 		
 		//Sets the job runner of this future.
 		this.jobRunner = jobRunner;
@@ -33,7 +36,7 @@ public final class Future {
 	
 	//method
 	/**
-	 * @return true if this future has caught an error while running the jobs.
+	 * @return true if this future caught an error.
 	 */
 	public boolean caughtError() {
 		return jobRunner.caughtError();
@@ -41,33 +44,33 @@ public final class Future {
 	
 	//method
 	/**
-	 * @return the number of finished job runs of this future.
+	 * @return the number of finished jobs of this future.
 	 */
-	public int getFinishedJobRunCount() {
-		return jobRunner.getFinishedJobRunCount();
+	public int getFinishedJobCount() {
+		return jobRunner.getFinishedJobCount();
 	}
 	
 	//method
 	/**
-	 * @return true if this future has finished the jobs.
+	 * @return true if this future is finished.
 	 */
-	public boolean hasFinishedJobs() {
-		return jobRunner.hasFinishedJobs();
+	public boolean isFinished() {
+		return jobRunner.isFinished();
 	}
 	
 	//method
 	/**
-	 * @return true if this future has finished the jobs successfully.
+	 * @return true if this future is finished successfully.
 	 */
-	public boolean hasFinishedJobsSuccessfully() {
-		return (hasFinishedJobs() && !caughtError());
+	public boolean isFinishedSuccessfully() {
+		return jobRunner.isFinishedSuccessfully();
 	}
 	
 	//method
 	/**
-	 * @return true if this future is running the jobs.
+	 * @return true if this future is running.
 	 */
-	public boolean isRunningJobs() {
-		return jobRunner.isRunningJobs();
+	public boolean isRunning() {
+		return jobRunner.isRunning();
 	}
 }
