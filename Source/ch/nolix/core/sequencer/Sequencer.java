@@ -4,6 +4,7 @@ package ch.nolix.core.sequencer;
 //own imports
 import ch.nolix.core.constants.TimeUnitCatalogue;
 import ch.nolix.core.functionInterfaces.IBooleanGetter;
+import ch.nolix.core.functionInterfaces.IElementGetter;
 import ch.nolix.core.functionInterfaces.IRunner;
 
 //class
@@ -13,7 +14,7 @@ import ch.nolix.core.functionInterfaces.IRunner;
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 100
+ * @lines 120
  */
 public final class Sequencer {
 
@@ -75,6 +76,19 @@ public final class Sequencer {
 	 */
 	public static Future runInBackground(final IRunner job) {
 		return new Future(new JobRunner(job, 1));
+	}
+	
+	//static method
+	/**
+	 * Runs the given result job in background.
+	 * A result job is a job that returns a result.
+	 * 
+	 * @param resultJob
+	 * @return a new result future.
+	 * @throws NullArgumentException if the given result job is null.
+	 */
+	public static <R> ResultFuture<R> runInBackground(final IElementGetter<R> resultJob) {
+		return new ResultFuture<R>(new ResultJobRunner<R>(resultJob));
 	}
 	
 	//static method
