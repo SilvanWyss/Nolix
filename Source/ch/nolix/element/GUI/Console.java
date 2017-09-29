@@ -316,8 +316,13 @@ implements Clearable<Console> {
 		
 		clearEditLine();
 		
+		//This loop suffers from being optimized away from the JVM.
 		while (getEditLine().isEmpty()) {
-			Sequencer.waitForMilliseconds(100);
+	
+			//pseudo statement
+			getRefNormalStructure().getActiveWidth();
+			
+			supposeGUIIsAlive();
 		}
 		
 		final char nextCharacter = getEditLine().charAt(0);	
