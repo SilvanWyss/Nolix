@@ -62,7 +62,7 @@ public class NonEmptyText extends Textoid {
 	public final void setValue(String value) {	
 		
 		//Checks if the given value is not null.
-		Validator.supposeThat(value).isNotEmpty();
+		Validator.suppose(value).isNotEmpty();
 		
 		//Calls method of the base class.
 		super.setValue(value);

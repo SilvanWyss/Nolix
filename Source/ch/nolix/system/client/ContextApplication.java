@@ -49,7 +49,7 @@ extends Application<CL> {
 		super(name, initialSessionClass);
 		
 		//Checks if the given context is not null.
-		Validator.supposeThat(context).thatIsNamed("context").isNotNull();
+		Validator.suppose(context).thatIsNamed("context").isNotNull();
 		
 		//Sets the context of this context application.
 		this.context = context;
@@ -80,7 +80,7 @@ extends Application<CL> {
 		super(name, initialSessionClass, port);
 		
 		//Checks the given context.
-		Validator.supposeThat(context).thatIsNamed("context").isNotNull();
+		Validator.suppose(context).thatIsNamed("context").isNotNull();
 		
 		//Sets the context of this context application.
 		this.context = context;

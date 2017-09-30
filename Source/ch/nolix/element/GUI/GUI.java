@@ -140,7 +140,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	public final G addWidgetClass(final Class<?> widgetClass) {
 		
 		//Checks if the given widget class is not null.
-		Validator.supposeThat(widgetClass).thatIsNamed("widget class").isNotNull();
+		Validator.suppose(widgetClass).thatIsNamed("widget class").isNotNull();
 
 		//Checks if this GUI can already create a widget of the same type as the given widget class.
 		if (canCreateWidget(widgetClass.getSimpleName())) {
@@ -566,7 +566,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		
 		//Checks if the given background color is not null.
 		Validator
-		.supposeThat(backgroundColor)
+		.suppose(backgroundColor)
 		.thatIsInstanceOf(Color.class)
 		.isNotNull();
 		
@@ -608,7 +608,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		
 		//Checks if the given content position is not null.
 		Validator
-		.supposeThat(contentPosition)
+		.suppose(contentPosition)
 		.thatIsInstanceOf(ContentPosition.class)
 		.isNotNull();
 		
@@ -630,7 +630,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	public final G setController(ILevel1Controller controller) {
 		
 		//Checks if the given controller is not null.
-		Validator.supposeThat(controller).thatIsNamed("controller").isNotNull();
+		Validator.suppose(controller).thatIsNamed("controller").isNotNull();
 		
 		//Sets the controller of this GUI.
 		this.controller = controller;
@@ -650,7 +650,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	public final G setRootWidget(final Widget<?, ?> rootWidget) {
 		
 		//Checks if the given root widget is not null.
-		Validator.supposeThat(rootWidget).thatIsNamed("root widget").isNotNull();
+		Validator.suppose(rootWidget).thatIsNamed("root widget").isNotNull();
 		
 		//Sets the root widget of this GUI.
 		rootWidget.setGUI(this);

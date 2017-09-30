@@ -59,7 +59,7 @@ public class Pair<E1, E2> {
 	public void setElement1(final E1 element1) {
 		
 		//Checks if the given element 1 is not null.
-		Validator.supposeThat(element1).thatIsNamed("element 1").isNotNull();
+		Validator.suppose(element1).thatIsNamed("element 1").isNotNull();
 		
 		//Sets the element 1 of this pair.
 		this.element1 = element1;
@@ -75,7 +75,7 @@ public class Pair<E1, E2> {
 	public void setElement2(final E2 element2) {
 		
 		//Checks if the given element 21 is not null.
-		Validator.supposeThat(element2).thatIsNamed("element2").isNotNull();
+		Validator.suppose(element2).thatIsNamed("element2").isNotNull();
 		
 		//Sets the element 2 of this pair.
 		this.element2 = element2;

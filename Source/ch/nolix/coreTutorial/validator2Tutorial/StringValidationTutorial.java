@@ -21,10 +21,10 @@ public final class StringValidationTutorial {
 	public static void main(String[] args) {
 		
 		//Supposes that the string 'Hello World!' is not null and not empty, what makes that the zeta validator does not complain.
-		Validator.supposeThat("Hello World!").isNotEmpty();
+		Validator.suppose("Hello World!").isNotEmpty();
 		
 		//Supposes that the string 'Hello World' has the max length 10, what makes that the zeta validator throws an InvalidArgumentException.
-		Validator.supposeThat("Hello World!").hasMaxLength(10);
+		Validator.suppose("Hello World!").hasMaxLength(10);
 	}
 	
 	//private constructor

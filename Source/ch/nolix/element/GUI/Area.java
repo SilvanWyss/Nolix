@@ -195,7 +195,7 @@ public class Area extends Widget<Area, AreaStructure> {
 		
 		//Checks if the given background color is not null.
 		Validator
-		.supposeThat(backgroundColor)
+		.suppose(backgroundColor)
 		.thatIsInstanceOf(BackgroundColor.class)
 		.isNotNull();
 		

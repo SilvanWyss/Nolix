@@ -29,7 +29,7 @@ public final class StringHelper {
 	public static String createTabulators(final int tabulatorCount) {
 		
 		//Checks if the given count is not negative.
-		Validator.supposeThat(tabulatorCount).thatIsNamed("count").isNotNegative();
+		Validator.suppose(tabulatorCount).thatIsNamed("count").isNotNegative();
 		
 		String tabulators = StringCatalogue.EMPTY_STRING;
 		
@@ -97,7 +97,7 @@ public final class StringHelper {
 	public static int toInt(final String string) {
 		
 		//Checks if the given string is not null or empty.
-		Validator.supposeThat(string).isNotEmpty();
+		Validator.suppose(string).isNotEmpty();
 		
 		int startIndex = 0;
 		

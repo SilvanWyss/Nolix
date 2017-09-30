@@ -13,7 +13,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * @month 2017-01
  * @lines 40
  */
-public final class LongContainerMediator extends ArgumentContainerMediator<Long> {
+public final class MultiLongMediator extends MultiArgumentMediator<Long> {
 
 	//package-visible constructor
 	/**
@@ -22,12 +22,18 @@ public final class LongContainerMediator extends ArgumentContainerMediator<Long>
 	 * @param arguments
 	 * @throws NullArgumentException if the given argument container is null.
 	 */
-	LongContainerMediator(final Iterable<Long> arguments) {
+	MultiLongMediator(final Iterable<Long> arguments) {
 		
 		//Calls constructor of the base class.
 		super(arguments);
 	}
 	
+	public MultiLongMediator(final long[] arguments) {
+		
+		//Calls constructor if the base class.
+		super(ArrayHelper.createIterable(arguments));
+	}
+
 	//method
 	/**
 	 * @throws NullArgumentException if one of the arguments of this long container mediator is null.

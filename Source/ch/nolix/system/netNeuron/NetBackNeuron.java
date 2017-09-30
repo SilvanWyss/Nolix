@@ -51,7 +51,7 @@ implements Closable {
 		final IElementTakerElementGetter<I, StandardSpecification> transformer)
 	{
 		//Checks if the given transform is not null.
-		Validator.supposeThat(transformer).thatIsNamed("transformer").isNotNull();
+		Validator.suppose(transformer).thatIsNamed("transformer").isNotNull();
 		
 		//Sets the transformer of this net back neuron.
 		this.transformer = transformer;

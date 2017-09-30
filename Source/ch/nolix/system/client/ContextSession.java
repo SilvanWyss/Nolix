@@ -29,7 +29,7 @@ extends Session<CL> {
 	public ContextSession(CO context) {
 		
 		//Checks if the given context is not null.
-		Validator.supposeThat(context).thatIsNamed("context").isNotNull();
+		Validator.suppose(context).thatIsNamed("context").isNotNull();
 
 		//Sets the context of this context session.
 		this.context = context;

@@ -31,7 +31,7 @@ final class NetServerSubDuplexControllerTaker implements IDuplexControllerTaker 
 		
 		//Checks if the given server is not null.
 		Validator
-		.supposeThat(netServer)
+		.suppose(netServer)
 		.thatIsInstanceOf(NetServer.class)
 		.isNotNull();
 		

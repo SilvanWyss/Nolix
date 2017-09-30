@@ -25,7 +25,7 @@ abstract class Mediator {
 	public Mediator(final Test test) {
 		
 		//Checks if the given test is not null.
-		Validator.supposeThat(test).thatIsNamed("test").isNotNull();
+		Validator.suppose(test).thatIsNamed("test").isNotNull();
 		
 		this.zetaTestest = test;
 	}

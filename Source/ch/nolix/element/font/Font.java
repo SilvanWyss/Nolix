@@ -110,10 +110,10 @@ public final class Font extends Element {
 		final Color textColor) {
 		
 		//Checks if the given text font is not null.
-		Validator.supposeThat(textFont).thatIsInstanceOf(TextFont.class).isNotNull();
+		Validator.suppose(textFont).thatIsInstanceOf(TextFont.class).isNotNull();
 		
 		//Checks if the given text color is not null.
-		Validator.supposeThat(textColor).thatIsNamed(TEXT_COLOR_HEADER).isNotNull();
+		Validator.suppose(textColor).thatIsNamed(TEXT_COLOR_HEADER).isNotNull();
 		
 		this.textFont = textFont;
 		this.textSize = new PositiveInteger(textSize);
@@ -200,7 +200,7 @@ public final class Font extends Element {
 	public String getFirstPart(String text, final int maxWidth, final boolean attachEllipsis) {
 		
 		//Checks if the given max width is not negative.
-		Validator.supposeThat(maxWidth).thatIsNamed("max width").isNotNegative();
+		Validator.suppose(maxWidth).thatIsNamed("max width").isNotNegative();
 		
 		if (text == null) {
 			text = StringCatalogue.NULL_NAME;

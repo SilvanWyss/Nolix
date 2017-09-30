@@ -34,10 +34,10 @@ public final class ValidatorTutorial {
 	public static void printAmount(final String productName, final int amount) {
 		
 		//Checks if the given product name is not null or empty.
-		Validator.supposeThat(productName).thatIsNamed("product name").isNotEmpty();
+		Validator.suppose(productName).thatIsNamed("product name").isNotEmpty();
 		
 		//Checks if the given amount is not negative.
-		Validator.supposeThat(amount).thatIsNamed("amount").isNotNegative();
+		Validator.suppose(amount).thatIsNamed("amount").isNotNegative();
 		
 		System.out.println(productName + ": " + amount + " pieces");
 	}

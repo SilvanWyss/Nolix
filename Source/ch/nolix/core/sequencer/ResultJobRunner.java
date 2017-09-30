@@ -33,7 +33,7 @@ final class ResultJobRunner<R> extends Thread {
 	public ResultJobRunner(final IElementGetter<R> resultJob) {
 		
 		//Checks if the given result job is not null.
-		Validator.supposeThat(resultJob).thatIsNamed("result job").isNotNull();
+		Validator.suppose(resultJob).thatIsNamed("result job").isNotNull();
 		
 		//Sets the result job of this result job runner.
 		this.resultJob = resultJob;

@@ -87,7 +87,7 @@ abstract class ElementMediator<E> extends Mediator {
 	public final void fulfils(final IElementTakerBooleanGetter<E> condition) {
 		
 		//Checks if the given condition is not null.
-		Validator.supposeThat(condition).thatIsNamed("condition").isNotNull();
+		Validator.suppose(condition).thatIsNamed("condition").isNotNull();
 		
 		if (!condition.getOutput(getValue())) {
 			if (getValue() == null) {
@@ -109,7 +109,7 @@ abstract class ElementMediator<E> extends Mediator {
 	public final void fulfilsNot(final IElementTakerBooleanGetter<E> condition) {
 	
 		//Checks if the given condition is not null.
-		Validator.supposeThat(condition).thatIsNamed("condition").isNotNull();
+		Validator.suppose(condition).thatIsNamed("condition").isNotNull();
 		
 		if (condition.getOutput(getValue())) {
 			if (getValue() == null) {

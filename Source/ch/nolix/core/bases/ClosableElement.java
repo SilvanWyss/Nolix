@@ -110,7 +110,7 @@ public abstract class ClosableElement implements Closable {
 		
 		//Checks if the given close controller is not null.
 		Validator
-		.supposeThat(closeController)
+		.suppose(closeController)
 		.thatIsInstanceOf(CloseController.class)
 		.isNotNull();
 		

@@ -33,7 +33,7 @@ public class NetServer extends Server {
 	public NetServer(final int port) {
 			
 		//Checks if the given port is in [0,65535]. 
-		Validator.supposeThat(port).isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
+		Validator.suppose(port).isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
 		//Sets the port of this net server.
 		this.port = port;

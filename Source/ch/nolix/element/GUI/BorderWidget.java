@@ -243,7 +243,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		//Checks if the given content position is not null.
 		Validator
-		.supposeThat(contentPosition)
+		.suppose(contentPosition)
 		.thatIsInstanceOf(ContentPosition.class)
 		.isNotNull();
 

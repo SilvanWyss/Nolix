@@ -32,7 +32,7 @@ public class QuadraticFunction {
 	public QuadraticFunction(final double a, final double b, final double c) {
 		
 		//Checks if the given coefficient of the quadratic term is not 0.0.
-		Validator.supposeThat(a).thatIsNamed("coefficient of the quadratic term").isNotZero();
+		Validator.suppose(a).thatIsNamed("coefficient of the quadratic term").isNotZero();
 		
 		this.a = a;
 		this.b = b;

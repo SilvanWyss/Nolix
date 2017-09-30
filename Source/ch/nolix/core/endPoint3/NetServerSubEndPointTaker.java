@@ -30,7 +30,7 @@ implements ch.nolix.core.endPoint2.IEndPointTaker {
 		
 		//Checks if hte given net server is not null.
 		Validator
-		.supposeThat(netServer)
+		.suppose(netServer)
 		.thatIsInstanceOf(NetServer.class)
 		.isNotNull();
 		

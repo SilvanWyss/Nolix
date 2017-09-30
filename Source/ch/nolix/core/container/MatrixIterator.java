@@ -31,7 +31,7 @@ final class MatrixIterator<E> implements Iterator<E> {
 	public MatrixIterator(final Matrix<E> matrix) {
 		
 		//Checks if the given matrix is not null.
-		Validator.supposeThat(matrix).thatIsInstanceOf(Matrix.class).isNotNull();
+		Validator.suppose(matrix).thatIsInstanceOf(Matrix.class).isNotNull();
 		
 		//Sets the matrix of this matrix iterator.
 		this.matrix = matrix;

@@ -33,7 +33,7 @@ final class NetEndPointSubListener extends Thread {
 	public NetEndPointSubListener(final NetEndPoint netEndPoint) {
 		
 		//Checks if the given net end point is not null.
-		Validator.supposeThat(netEndPoint).thatIsInstanceOf(NetEndPoint.class).isNotNull();
+		Validator.suppose(netEndPoint).thatIsInstanceOf(NetEndPoint.class).isNotNull();
 		
 		//Sets the net end point of this net end point sub listener.
 		this.netEndPoint = netEndPoint;

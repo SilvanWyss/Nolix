@@ -422,7 +422,7 @@ implements Clearable<Console> {
 	public Console setEditLine(final String editLine) {
 		
 		//Checks if the given edit line is not null.
-		Validator.supposeThat(editLine).thatIsNamed("edit line").isNotNull();
+		Validator.suppose(editLine).thatIsNamed("edit line").isNotNull();
 		
 		//Sets the edit line of this console.
 		this.editLine = editLine;
@@ -681,7 +681,7 @@ implements Clearable<Console> {
 		
 		//Checks if the given secret edit line is not null.
 		Validator
-		.supposeThat(secretEditLine)
+		.suppose(secretEditLine)
 		.thatIsNamed("secret edit line")
 		.isNotNull();
 		

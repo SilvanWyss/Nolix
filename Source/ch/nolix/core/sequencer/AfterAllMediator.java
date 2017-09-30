@@ -35,11 +35,11 @@ public final class AfterAllMediator {
 	AfterAllMediator(final IBooleanGetter condition, final int timeIntervalInMilliseconds) {
 		
 		//Checks if the given condition is not null.
-		Validator.supposeThat(condition).thatIsNamed("condition").isNotNull();
+		Validator.suppose(condition).thatIsNamed("condition").isNotNull();
 		
 		//Checks if the given time interval in milliseconds is not negative.
 		Validator
-		.supposeThat(timeIntervalInMilliseconds)
+		.suppose(timeIntervalInMilliseconds)
 		.thatIsNamed("time interval in milliseconds")
 		.isNotNegative();
 		
@@ -59,7 +59,7 @@ public final class AfterAllMediator {
 	
 		//Checks if the given time interval in milliseconds is not negative.
 		Validator
-		.supposeThat(timeIntervalInMilliseconds)
+		.suppose(timeIntervalInMilliseconds)
 		.thatIsNamed("time interval in milliseconds")
 		.isNotNegative();
 		
@@ -85,14 +85,14 @@ public final class AfterAllMediator {
 		final int timeIntervalInMilliseconds
 	) {
 		//Checks if the given max run count is not negative.
-		Validator.supposeThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
+		Validator.suppose(maxRunCount).thatIsNamed("max run count").isNotNegative();
 		
 		//Checks if the given condition is not null.
-		Validator.supposeThat(condition).thatIsNamed("condition").isNotNull();
+		Validator.suppose(condition).thatIsNamed("condition").isNotNull();
 		
 		//Checks if the given time interval in milliseconds is not negative.
 		Validator
-		.supposeThat(timeIntervalInMilliseconds)
+		.suppose(timeIntervalInMilliseconds)
 		.thatIsNamed("time interval in milliseconds")
 		.isNotNegative();
 		

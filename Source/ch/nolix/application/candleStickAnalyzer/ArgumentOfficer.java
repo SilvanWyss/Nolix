@@ -83,7 +83,7 @@ public final class ArgumentOfficer {
 	//method
 	public ArgumentOfficer setEndTime(final Time endTime) {
 		
-		Validator.supposeThat(endTime).thatIsNamed("end time").isNotNull();
+		Validator.suppose(endTime).thatIsNamed("end time").isNotNull();
 		
 		this.endTime = endTime;
 		
@@ -94,7 +94,7 @@ public final class ArgumentOfficer {
 	public ArgumentOfficer setGreenCandleStickCountAfterHammer(final int greenCandleStickCountAfterHammer) {
 		
 		Validator
-		.supposeThat(greenCandleStickCountAfterHammer)
+		.suppose(greenCandleStickCountAfterHammer)
 		.thatIsNamed("green candle stick count after hammer")
 		.isNotNegative();
 		
@@ -107,7 +107,7 @@ public final class ArgumentOfficer {
 	public ArgumentOfficer setHammerMinLowerWickLengthRation(final double hammerMinLowerWickLengthRatio) {
 		
 		Validator
-		.supposeThat(hammerMinLowerWickLengthRatio)
+		.suppose(hammerMinLowerWickLengthRatio)
 		.thatIsNamed("hammer minimal lower wick Length ratio")
 		.isNotNegative();
 		
@@ -120,7 +120,7 @@ public final class ArgumentOfficer {
 	public ArgumentOfficer setMaxKeepingDayCount(final int maxKeepingDayCount) {
 		
 		Validator
-		.supposeThat(maxKeepingDayCount)
+		.suppose(maxKeepingDayCount)
 		.thatIsNamed("maximal keeping day count")
 		.isPositive();
 		
@@ -133,12 +133,12 @@ public final class ArgumentOfficer {
 	public ArgumentOfficer setMaxLossRatioPerDay(final double maxLossRatioPerDay) {
 		
 		Validator
-		.supposeThat(maxLossRatioPerDay)
+		.suppose(maxLossRatioPerDay)
 		.thatIsNamed("max loss ratio per day")
 		.isNotNegative();
 		
 		Validator
-		.supposeThat(maxLossRatioPerDay)
+		.suppose(maxLossRatioPerDay)
 		.thatIsNamed("max loss ratio per day")
 		.isNotBiggerThan(1.0);
 		
@@ -150,7 +150,7 @@ public final class ArgumentOfficer {
 	//method
 	public ArgumentOfficer setProductSymbol(final String productSymbol) {
 		
-		Validator.supposeThat(productSymbol).isNotEmpty();
+		Validator.suppose(productSymbol).isNotEmpty();
 		
 		this.productSymbol = productSymbol;
 		
@@ -161,7 +161,7 @@ public final class ArgumentOfficer {
 	public ArgumentOfficer setRedCandleStickCountBeforeHammer(final int redCandleStickCountBeforeHammer) {
 		
 		Validator
-		.supposeThat(redCandleStickCountBeforeHammer)
+		.suppose(redCandleStickCountBeforeHammer)
 		.thatIsNamed("red candle stick count before hammer")
 		.isNotNegative();
 		
@@ -173,7 +173,7 @@ public final class ArgumentOfficer {
 	//method
 	public ArgumentOfficer setStartTime(final Time startTime) {
 		
-		Validator.supposeThat(startTime).thatIsNamed("start time").isNotNull();
+		Validator.suppose(startTime).thatIsNamed("start time").isNotNull();
 		
 		this.startTime = startTime;
 		

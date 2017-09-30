@@ -71,7 +71,7 @@ implements OptionalSignable<OSE> {
 	public final OSE setInfoString(final String infoString) {
 		
 		//Checks if the given info string is not null or empty.
-		Validator.supposeThat(infoString).thatIsNamed("info string").isNotEmpty();
+		Validator.suppose(infoString).thatIsNamed("info string").isNotEmpty();
 		
 		//Sets the info string of this optional signable element.
 		this.infoString = infoString;

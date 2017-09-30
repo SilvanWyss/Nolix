@@ -42,7 +42,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		
 		//Checks if the given element container is not null
 		//and if the given elements are not null.
-		Validator.supposeThatTheObjects(elements).areNotNull();
+		Validator.supposeTheElements(elements).areNotNull();
 		
 		//Checks if the given element container is not empty.
 		if (elements.length == 0) {
@@ -65,7 +65,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			
 			//Checks if as many elements are given as the number of rows of this matrix.
 			Validator
-			.supposeThat(elements.length)
+			.suppose(elements.length)
 			.thatIsNamed("number of given elements")
 			.equals(getRowCount());
 			
@@ -104,7 +104,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		
 		//Checks if the given element container is not null
 		//and if the given elements are not null.
-		Validator.supposeThatTheObjects(elements).areNotNull();
+		Validator.supposeTheElements(elements).areNotNull();
 		
 		//Checks if the given element container is not empty.
 		if (elements.length == 0) {
@@ -127,7 +127,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			
 			//Checks if as many elements are given as the number of columns of this matrix.
 			Validator
-			.supposeThat(elements.length)
+			.suppose(elements.length)
 			.thatIsNamed("number of given elements")
 			.equals(getColumnCount());
 			
@@ -279,11 +279,11 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		final E element
 	) {
 		//Checks the given parameters.
-		Validator.supposeThat(rowIndex).thatIsNamed("row index").isPositive();
-		Validator.supposeThat(columnIndex).thatIsNamed("column index").isPositive();
+		Validator.suppose(rowIndex).thatIsNamed("row index").isPositive();
+		Validator.suppose(columnIndex).thatIsNamed("column index").isPositive();
 		throwExceptionIfDoesNotContainRow(rowIndex);
 		throwExceptionIfDoesNotContainColumn(columnIndex);
-		Validator.supposeThat(element).thatIsNamed("element").isNotNull();
+		Validator.suppose(element).thatIsNamed("element").isNotNull();
 		
 		elements[rowIndex - 1][columnIndex - 1] = element;
 		

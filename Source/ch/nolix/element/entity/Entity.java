@@ -130,7 +130,7 @@ public abstract class Entity extends Element {
 						final Property<?> property = (Property<?>)(f.get(this));
 						
 						//Checks if the current property is not null.
-						Validator.supposeThat(property)
+						Validator.suppose(property)
 						.thatIsInstanceOf(Property.class)
 						.isNotNull();
 						

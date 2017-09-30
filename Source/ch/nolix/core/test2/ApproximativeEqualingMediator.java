@@ -30,7 +30,7 @@ public final class ApproximativeEqualingMediator {
 		final ApproximativeEqualing value
 	) {
 		//Checks if the given zeta test is not null.
-		Validator.supposeThat(test).thatIsNamed("zeta test").isNotNull();
+		Validator.suppose(test).thatIsNamed("zeta test").isNotNull();
 		
 		this.test = test;
 		this.value = value;

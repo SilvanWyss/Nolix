@@ -51,7 +51,7 @@ public final class ReceiverMock implements IReceiver {
 	public void receive(final String message) {
 		
 		//Checks if the given message is not null or empty.
-		Validator.supposeThat(message).thatIsNamed("message").isNotEmpty();
+		Validator.suppose(message).thatIsNamed("message").isNotEmpty();
 		
 		//Sets the last received message of this receiver mock.
 		lastReceivedMessage = message;

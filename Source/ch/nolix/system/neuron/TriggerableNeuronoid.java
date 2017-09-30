@@ -27,7 +27,7 @@ public final class TriggerableNeuronoid {
 	public TriggerableNeuronoid(Neuron<?, ?, ?> neuron) {
 		
 		//Checks if the given neuron is not null.
-		Validator.supposeThat(neuron).thatIsInstanceOf(Neuron.class).isNotNull();
+		Validator.suppose(neuron).thatIsInstanceOf(Neuron.class).isNotNull();
 		
 		this.neuron = neuron;
 	}

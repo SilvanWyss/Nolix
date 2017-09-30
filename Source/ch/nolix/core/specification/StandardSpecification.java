@@ -45,7 +45,7 @@ public final class StandardSpecification extends Specification {
 	public static String createEscapeString(final String string) {
 		
 		//Checks if the given string is not null.
-		Validator.supposeThat(string).thatIsInstanceOf(String.class).isNotNull();
+		Validator.suppose(string).thatIsInstanceOf(String.class).isNotNull();
 		
 		//Handles the case if the given string is empty.
 		if (string.isEmpty()) {
@@ -239,7 +239,7 @@ public final class StandardSpecification extends Specification {
 	public void addPrefixToHeader(final String prefix) {
 		
 		//Checks if the given prefix is not null or empty.
-		Validator.supposeThat(prefix).thatIsNamed("prefix").isNotEmpty();
+		Validator.suppose(prefix).thatIsNamed("prefix").isNotEmpty();
 		
 		//Handles the case if this standard specification has no header.
 		if (!hasHeader()) {
@@ -264,7 +264,7 @@ public final class StandardSpecification extends Specification {
 	public void addPostfixToHeader(String postfix) {
 		
 		//Checks if the given postfix is not null or empty.
-		Validator.supposeThat(postfix).thatIsNamed("postfix").isNotEmpty();
+		Validator.suppose(postfix).thatIsNamed("postfix").isNotEmpty();
 		
 		//Handles the case if this standard specification has no header.
 		if (hasHeader()) {
@@ -500,7 +500,7 @@ public final class StandardSpecification extends Specification {
 	public void setHeader(final String header) {
 		
 		//Checks if the given header is not null or empty.
-		Validator.supposeThat(header).thatIsNamed(header).isNotEmpty();
+		Validator.suppose(header).thatIsNamed(header).isNotEmpty();
 		
 		this.header
 		= header

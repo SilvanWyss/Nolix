@@ -30,7 +30,7 @@ public class Package<C> {
 	public Package(final int index, final C context) {
 		
 		//Checks if the given context is not null.
-		Validator.supposeThat(context).thatIsNamed("context").isNotNull();
+		Validator.suppose(context).thatIsNamed("context").isNotNull();
 		
 		//Sets the index of this package.
 		this.index = index;

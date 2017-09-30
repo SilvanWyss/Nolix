@@ -36,7 +36,7 @@ implements Named {
 	public Module(final CentralController centralController) {
 		
 		//Checks if the given central controller is not null.
-		Validator.supposeThat(centralController).thatIsInstanceOf(CentralController.class).isNotNull();
+		Validator.suppose(centralController).thatIsInstanceOf(CentralController.class).isNotNull();
 		
 		//Sets the central controller this module belongs to.
 		this.centralController = centralController;
@@ -53,7 +53,7 @@ implements Named {
 		
 		final String directory = centralController.getDirectory() + "/" + getName();
 		
-		Validator.supposeThat(directory).specifiesProbableDirectoryOnLocalMachine(directory);
+		Validator.suppose(directory).specifiesProbableDirectoryOnLocalMachine(directory);
 		
 		final File file = new File(directory);
 		if (!file.exists()) {

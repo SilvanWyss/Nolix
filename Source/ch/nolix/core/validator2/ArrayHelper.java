@@ -9,12 +9,14 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //package-visible class
 /**
- * This class provides methods to create iterable objects from arrays.
+ * The array helper provides functions to create iterable objects from arrays.
+ * Methods are called on an object, functions are not.
+ * The array helper is no common array helper because it does not use dependencies.
  * Of this class no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 70
+ * @lines 100
  */
 final class ArrayHelper {
 	
@@ -24,13 +26,13 @@ final class ArrayHelper {
 	 * 
 	 * @param values
 	 * @return a new iterable object with the given values.
-	 * @throws NullArgumentExcetpion if the given value container is null.
+	 * @throws NullArgumentExcetpion if the given values is null.
 	 */
-	public static Iterable<?> createIterable(double[] values) {
+	public static Iterable<Double> createIterable(double[] values) {
 		
-		//Checks if the given value container is not null.
+		//Checks if the given values is not null.
 		if (values == null) {
-			throw new NullArgumentException("value container");
+			throw new NullArgumentException("values");
 		}
 		
 		final Vector<Double> valueVector = new Vector<Double>();
@@ -49,11 +51,11 @@ final class ArrayHelper {
 	 * 
 	 * @param elements
 	 * @return a new iterable object with the given elements.
-	 * @throws NullArgumentExcetpion if the given element container is null.
+	 * @throws NullArgumentExcetpion if the given elements is null.
 	 */
 	public static <E> Iterable<E> createIterable(final E[] elements) {
 		
-		//Checks if the given element container is not null.
+		//Checks if the given elements is not null.
 		if (elements == null) {
 			throw new NullArgumentException("elements");
 		}
@@ -66,6 +68,31 @@ final class ArrayHelper {
 		}
 		
 		return elementVector;
+	}
+	
+	//static method
+	/**
+	 * Creates a new iterable object with the given values.
+	 * 
+	 * @param values
+	 * @return a new iterable object with the given values.
+	 * @throws NullArgumentExcetpion if the given values is null.
+	 */
+	public static Iterable<Long> createIterable(long[] values) {
+		
+		//Checks if the given values is not null.
+		if (values == null) {
+			throw new NullArgumentException("values");
+		}
+		
+		final Vector<Long> valueVector = new Vector<Long>();
+		
+		//Iterates the given elements.
+		for (final long v : values) {
+			valueVector.add(v);
+		}
+		
+		return valueVector;
 	}
 	
 	//private constructor

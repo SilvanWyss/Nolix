@@ -63,7 +63,7 @@ implements OptionalNamable<ONE> {
 	public final ONE setName(final String name) {
 		
 		//Checks if the given name is not null or empty.
-		Validator.supposeThat(name).thatIsNamed("name").isNotNull();
+		Validator.suppose(name).thatIsNamed("name").isNotNull();
 		
 		//Sets the name of this optional namable element.
 		this.name = name;

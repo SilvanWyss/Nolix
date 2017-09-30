@@ -11,40 +11,43 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //package-visible abstract class
 /**
+ * A named argument mediator is a mediator for an argument with a name.
+ * 
  * @author Silvan Wyss
  * @month 2016-12
  * @lines 80
- * @param <E> - The type of the element of a namd element mediator.
+ * @param <A> The type of the argument of a named argument mediator.
  */
-public class NamedArgumentMediator<E> extends NamedMediator {
+public class NamedArgumentMediator<A> extends NamedMediator {
 
 	//attribute
-	private final E argument;
+	private final A argument;
 	
 	//constructor
 	/**
-	 * Creates new named element mediator with the given argument name and the given argument.
+	 * Creates new named argument mediator for the given argument with the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument
 	 * @throws NullArgumentException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
-	public NamedArgumentMediator(final String argumentName, final E argument) {
+	public NamedArgumentMediator(final String argumentName, final A argument) {
 		
 		//Calls constructor of the base class.
 		super(argumentName);
 		
+		//Sets the argument of this named argument mediator.
 		this.argument = argument;
 	}
 	
 	//method
 	/**
-	 * @throws NullArgumentException if the argument of this named element mediator is null.
+	 * @throws NullArgumentException if the argument of this named argument mediator is null.
 	 */
 	public void isNotNull() {
 		
-		//Checks if the argument of this named element mediator is null.
+		//Checks if the argument of this named argument mediator is null.
 		if (argument == null) {
 			throw new NullArgumentException(getArgumentName());
 		}
@@ -73,9 +76,9 @@ public class NamedArgumentMediator<E> extends NamedMediator {
 	
 	//method
 	/**
-	 * @return the argument of this named element mediator.
+	 * @return the argument of this named argument mediator.
 	 */
-	protected E getRefArgument() {
+	protected A getRefArgument() {
 		return argument;
 	}
 }

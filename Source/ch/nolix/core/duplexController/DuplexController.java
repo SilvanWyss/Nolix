@@ -171,7 +171,7 @@ implements ILevel2Controller {
 	public final void setReceiverController(final ILevel2Controller receiverController) {
 		
 		//Checks if the given receiver controller is not null.
-		Validator.supposeThat(receiverController).thatIsNamed("receiver controller").isNotNull();
+		Validator.suppose(receiverController).thatIsNamed("receiver controller").isNotNull();
 		
 		//Sets the receiver controller of this duplex controller.
 		this.receiverController = receiverController;

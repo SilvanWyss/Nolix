@@ -171,7 +171,7 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 	public CheckBoxStructure setLineColor(final Color lineColor) {
 		
 		//Checks if the given line color is not null.
-		Validator.supposeThat(lineColor).thatIsNamed("line color").isNotNull();
+		Validator.suppose(lineColor).thatIsNamed("line color").isNotNull();
 		
 		//Sets the line color of this check box structure.
 		this.lineColor = lineColor;

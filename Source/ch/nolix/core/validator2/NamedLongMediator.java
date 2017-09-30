@@ -20,11 +20,12 @@ import ch.nolix.core.invalidArgumentException.UnequalArgumentException;
 
 //class
 /**
+ * A named long mediator is a mediator for a long with a name.
  * A named long mediator is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 200
+ * @lines 210
  */
 public final class NamedLongMediator extends NamedMediator {
 	
@@ -33,7 +34,7 @@ public final class NamedLongMediator extends NamedMediator {
 
 	//package-visible constructor
 	/**
-	 * Creates new named long mediator with the given argument name and argument.
+	 * Creates new named long mediator for the given argument with the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument

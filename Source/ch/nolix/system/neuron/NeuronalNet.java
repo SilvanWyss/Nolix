@@ -42,11 +42,11 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 		final M triggerableStartNeuron
 	) {
 		//Checks if the given input layer neuron container and output layer neuron container is not null.
-		Validator.supposeThat(inputLayerNeurons).thatIsNamed("input layer neuron container").isNotNull();
-		Validator.supposeThat(outputLayerNeurons).thatIsNamed("output layer neuron container").isNotNull();
+		Validator.suppose(inputLayerNeurons).thatIsNamed("input layer neuron container").isNotNull();
+		Validator.suppose(outputLayerNeurons).thatIsNamed("output layer neuron container").isNotNull();
 		
 		//Checks if the given triggerable start neuron is not null.
-		Validator.supposeThat(triggerableStartNeuron).thatIsNamed("triggerable start neuron").isNotNull();
+		Validator.suppose(triggerableStartNeuron).thatIsNamed("triggerable start neuron").isNotNull();
 		
 		//Connects the input fanout neuron of this neuronal net to the given input layer neurons.
 		int i = 1;

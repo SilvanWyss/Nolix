@@ -51,7 +51,7 @@ public class StringMediator extends ElementMediator<String> {
 	public void hasLength(final int length) {
 		
 		//Checks the given length.
-		Validator.supposeThat(length).thatIsNamed("length").isPositive();
+		Validator.suppose(length).thatIsNamed("length").isPositive();
 		
 		if (getValue() == null || getValue().length() != length) {
 			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A string with the length " + length + " was expected, but the string '" + getValue() + "', that has the length " + getValue().length() + " was received.");
@@ -69,7 +69,7 @@ public class StringMediator extends ElementMediator<String> {
 	public StringConjunctionMediator hasMaxLength(final int maxLength) {
 		
 		//Checks the given max length.
-		Validator.supposeThat(maxLength).thatIsNamed("max length").isPositive();
+		Validator.suppose(maxLength).thatIsNamed("max length").isPositive();
 		
 		if (getValue() == null || getValue().length() > maxLength) {
 			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A string with the max length " + maxLength + " was expected, but the string '" + getValue() + "', that has the length " + getValue().length() + " was received.");

@@ -164,7 +164,7 @@ extends ConfigurableElement<W> {
 	public final boolean belongsToGUI(final GUI<?> GUI) {
 		
 		//Checks if the given GUI is not null.
-		Validator.supposeThat(GUI).isNotNull();
+		Validator.suppose(GUI).isNotNull();
 		
 		return (this.GUI != GUI);
 	}
@@ -707,7 +707,7 @@ extends ConfigurableElement<W> {
 	public final W setCursorIcon(final CursorIcon cursorIcon) {
 		
 		//Checks if the given cursor icon is not null.
-		Validator.supposeThat(cursorIcon).thatIsInstanceOf(CursorIcon.class).isNotNull();
+		Validator.suppose(cursorIcon).thatIsInstanceOf(CursorIcon.class).isNotNull();
 		
 		//Sets the cursor icon of this widget.
 		this.cursorIcon = cursorIcon;
@@ -784,7 +784,7 @@ extends ConfigurableElement<W> {
 		
 		//Checks if the given left mouse button press command is not null.
 		Validator
-		.supposeThat(leftMouseButtonPressCommand)
+		.suppose(leftMouseButtonPressCommand)
 		.thatIsNamed("left mouse button press command")
 		.isNotNull();
 		
@@ -834,7 +834,7 @@ extends ConfigurableElement<W> {
 		
 		//Checks if the given left mouse button release command is not null.
 		Validator
-		.supposeThat(leftMouseButtonReleaseCommand)
+		.suppose(leftMouseButtonReleaseCommand)
 		.thatIsNamed("left mouse button release command")
 		.isNotNull();
 		this.leftMouseButtonReleaseCommand = leftMouseButtonReleaseCommand.getCopy();
@@ -914,7 +914,7 @@ extends ConfigurableElement<W> {
 		
 		//Checks if the given right mouse button press command is not null.
 		Validator
-		.supposeThat(rightMouseButtonPressCommand)
+		.suppose(rightMouseButtonPressCommand)
 		.thatIsNamed("right mouse button press command")
 		.isNotNull();
 		
@@ -965,7 +965,7 @@ extends ConfigurableElement<W> {
 		
 		//Checks if the given right mouse button release command is not null.
 		Validator
-		.supposeThat(rightMouseButtonReleaseCommand)
+		.suppose(rightMouseButtonReleaseCommand)
 		.thatIsNamed("right mouse button release command")
 		.isNotNull();
 		
@@ -1014,7 +1014,7 @@ extends ConfigurableElement<W> {
 	public final W setState(final WidgetState state) {
 		
 		//Checks if the given state is not null.
-		Validator.supposeThat(state).thatIsNamed("state").isNotNull();
+		Validator.suppose(state).thatIsNamed("state").isNotNull();
 
 		//Sets the state of this widget.
 		this.state = state;

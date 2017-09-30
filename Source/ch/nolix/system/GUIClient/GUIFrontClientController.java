@@ -26,7 +26,7 @@ final class GUIFrontClientController implements ILevel1Controller {
 	public GUIFrontClientController(final GUIFrontClient frontDialogClient) {
 		
 		//Checks if the given front dialog client is not null.
-		Validator.supposeThat(frontDialogClient).thatIsInstanceOf(GUIFrontClient.class).isNotNull();
+		Validator.suppose(frontDialogClient).thatIsInstanceOf(GUIFrontClient.class).isNotNull();
 		
 		//Sets the front dialog client of this front dialog client controller.
 		this.frontDialogClient = frontDialogClient;

@@ -86,7 +86,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 		
 		//Checks if the given counter part is not null.
 		Validator
-		.supposeThat(counterPart)
+		.suppose(counterPart)
 		.thatIsNamed("counterpart")
 		.isNotNull();
 		
@@ -117,7 +117,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 		
 		//Checks if the given counter part is not null.
 		Validator
-		.supposeThat(counterpart)
+		.suppose(counterpart)
 		.thatIsNamed("counterpart")
 		.isNotNull();
 		
@@ -126,7 +126,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 		
 		//Checks if the given target is not null or empty.
 		Validator
-		.supposeThat(target)
+		.suppose(target)
 		.thatIsNamed("target")
 		.isNotEmpty();
 		

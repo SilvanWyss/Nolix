@@ -21,10 +21,10 @@ public final class IntegerValidationTutorial1 {
 	public static void main(String[] args) {
 		
 		//Supposes that 5 is positive, what makes that the zeta validator does not complain.
-		Validator.supposeThat(5).isPositive();
+		Validator.suppose(5).isPositive();
 		
 		//Supposes that 5 is negative, what makes that the zeta validator throws a NegativeArgumentException.
-		Validator.supposeThat(5).isNegative();
+		Validator.suppose(5).isNegative();
 	}
 	
 	//private constructor

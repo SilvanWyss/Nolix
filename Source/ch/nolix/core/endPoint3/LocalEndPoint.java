@@ -94,7 +94,7 @@ public final class LocalEndPoint extends EndPoint {
 		requestedConnection = false;
 		
 		//Checks if the given counter part is not null.
-		Validator.supposeThat(counterPart).thatIsNamed("counterpart").isNotNull();
+		Validator.suppose(counterPart).thatIsNamed("counterpart").isNotNull();
 		
 		//Sets the counter part of this local end point.
 		this.counterpart = counterPart;
@@ -119,13 +119,13 @@ public final class LocalEndPoint extends EndPoint {
 		requestedConnection = false;
 		
 		//Checks if the given counter part is not null.
-		Validator.supposeThat(counterpart).thatIsNamed("counterpart").isNotNull();
+		Validator.suppose(counterpart).thatIsNamed("counterpart").isNotNull();
 		
 		//Sets the counter part of this local end point.
 		this.counterpart = counterpart;
 		
 		//Checks if the given target is not null or empty.
-		Validator.supposeThat(target).thatIsNamed("target").isNotEmpty();
+		Validator.suppose(target).thatIsNamed("target").isNotEmpty();
 		
 		//Sets the target of this local end point.
 		this.target = target;

@@ -35,7 +35,7 @@ extends Neuron<IO, IO, StandardNeuron<IO>> {
 	) {
 		
 		//Checks if the given output function is not null.
-		Validator.supposeThat(outputFunction).thatIsNamed("output function").isNotNull();
+		Validator.suppose(outputFunction).thatIsNamed("output function").isNotNull();
 		
 		//Sets the output function of this standard neuron.
 		this.outputFunction
@@ -81,7 +81,7 @@ extends Neuron<IO, IO, StandardNeuron<IO>> {
 	) {
 		
 		//Checks if the given output function is not null.
-		Validator.supposeThat(weightOutputFunction).thatIsNamed("weight output function").isNotNull();
+		Validator.suppose(weightOutputFunction).thatIsNamed("weight output function").isNotNull();
 		
 		outputFunction = weightOutputFunction;
 		

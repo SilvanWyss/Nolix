@@ -852,7 +852,7 @@ public class Color extends Element {
 		
 		//Checks if the given blue value is between 0 and 255.
 		Validator
-		.supposeThat(blueValue)
+		.suppose(blueValue)
 		.thatIsNamed("blue value")
 		.isBetween(MIN_TRUE_COLOR_COMPONENT, MAX_TRUE_COLOR_COMPONENT);
 		
@@ -870,7 +870,7 @@ public class Color extends Element {
 		
 		//Checks if the given blue value is between 0 and 255.
 		Validator
-		.supposeThat(greenValue)
+		.suppose(greenValue)
 		.thatIsNamed("green value")
 		.isBetween(MIN_TRUE_COLOR_COMPONENT, MAX_TRUE_COLOR_COMPONENT);
 		
@@ -888,7 +888,7 @@ public class Color extends Element {
 		
 		//Checks if the given blue value is between 0 and 255.
 		Validator
-		.supposeThat(redValue)
+		.suppose(redValue)
 		.thatIsNamed("red value")
 		.isBetween(MIN_TRUE_COLOR_COMPONENT, MAX_TRUE_COLOR_COMPONENT);
 		
@@ -906,7 +906,7 @@ public class Color extends Element {
 	private void setValue(final int value) {
 		
 		//Checks if the given value is a true color value.
-		Validator.supposeThat(value).isBetween(MIN_TRUE_COLOR, MAX_TRUE_COLOR);
+		Validator.suppose(value).isBetween(MIN_TRUE_COLOR, MAX_TRUE_COLOR);
 		
 		this.value = value;
 	}

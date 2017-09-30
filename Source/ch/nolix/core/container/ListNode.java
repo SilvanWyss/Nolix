@@ -102,7 +102,7 @@ final class ListNode<E> {
 	public void setElement(final E element) {
 		
 		//Checks if the given element is not null.
-		Validator.supposeThat(element).thatIsNamed("element").isNotNull();
+		Validator.suppose(element).thatIsNamed("element").isNotNull();
 		
 		//Sets the element of this list node.
 		this.element = element;
@@ -118,7 +118,7 @@ final class ListNode<E> {
 	public  void setNextNode(final ListNode<E> nextNode) {
 		
 		//Checks if the given next node is not null.
-		Validator.supposeThat(nextNode).thatIsNamed("next node").isNotNull();
+		Validator.suppose(nextNode).thatIsNamed("next node").isNotNull();
 		
 		//Sets the next node of this list node.
 		this.nextNode = nextNode;

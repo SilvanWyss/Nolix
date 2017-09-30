@@ -53,7 +53,7 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 		super(test);
 		
 		//Checks if the given max deviation is not negative.
-		Validator.supposeThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
+		Validator.suppose(maxDeviation).thatIsNamed("max deviation").isNotNegative();
 		
 		this.value = value;
 		this.maxDeviation = maxDeviation;

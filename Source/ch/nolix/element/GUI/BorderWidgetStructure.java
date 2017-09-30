@@ -670,7 +670,7 @@ extends BackgroundWidgetStructure<BWS> {
 		
 		//Checks if the given bottom border color is not null.
 		Validator
-		.supposeThat(bottomBorderColor)
+		.suppose(bottomBorderColor)
 		.thatIsNamed("bottom border color")
 		.isNotNull();
 		
@@ -725,7 +725,7 @@ extends BackgroundWidgetStructure<BWS> {
 		
 		//Checks if the given left border color is not null.
 		Validator
-		.supposeThat(leftBorderColor)
+		.suppose(leftBorderColor)
 		.thatIsNamed("left border color")
 		.isNotNull();
 		
@@ -799,7 +799,7 @@ extends BackgroundWidgetStructure<BWS> {
 		
 		//Checks if the given right border color is not null.
 		Validator
-		.supposeThat(rightBorderColor)
+		.suppose(rightBorderColor)
 		.thatIsNamed("right border color")
 		.isNotNull();
 		
@@ -854,7 +854,7 @@ extends BackgroundWidgetStructure<BWS> {
 		
 		//Checks if the given top border color is not null.
 		Validator
-		.supposeThat(topBorderColor)
+		.suppose(topBorderColor)
 		.thatIsNamed("top border color")
 		.isNotNull();
 		

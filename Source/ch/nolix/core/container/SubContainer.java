@@ -46,22 +46,22 @@ public final class SubContainer<E> implements Iterable<E> {
 		final int endIndex) {
 		
 		Validator
-		.supposeThat(container)
+		.suppose(container)
 		.thatIsNamed("container")
 		.isNotNull();
 		
 		Validator
-		.supposeThat(startIndex)
+		.suppose(startIndex)
 		.thatIsNamed("start index")
 		.isPositive();
 		
 		Validator
-		.supposeThat(endIndex)
+		.suppose(endIndex)
 		.thatIsNamed("end index")
 		.isPositive();
 		
 		Validator
-		.supposeThat(endIndex)
+		.suppose(endIndex)
 		.thatIsNamed("end index")
 		.isNotSmallerThan(startIndex);
 		

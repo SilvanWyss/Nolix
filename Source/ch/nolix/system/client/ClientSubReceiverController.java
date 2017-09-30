@@ -30,7 +30,7 @@ final class ClientSubReceiverController implements ILevel2Controller {
 	public ClientSubReceiverController(final Client<?> client) {
 		
 		//Checks if the given client is not null.
-		Validator.supposeThat(client).thatIsInstanceOf(Client.class).isNotNull();
+		Validator.suppose(client).thatIsInstanceOf(Client.class).isNotNull();
 		
 		//Sets the client of this client receiver controller.
 		this.client = client;

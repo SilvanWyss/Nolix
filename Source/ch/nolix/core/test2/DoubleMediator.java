@@ -43,7 +43,7 @@ public final class DoubleMediator extends Mediator {
 	public final DoubleConjunctionMediator fulfils(final IElementTakerBooleanGetter<Double> condition) {
 		
 		//Checks if the given condition is not null.
-		Validator.supposeThat(condition).thatIsNamed("condition").isNotNull();
+		Validator.suppose(condition).thatIsNamed("condition").isNotNull();
 		
 		if (!condition.getOutput(value)) {
 			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that fulfils the given condition was expected, but " + value + " was received.");
@@ -63,7 +63,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public final DoubleConjunctionMediator isBetween(final double min, final double max) {
 		
-		Validator.supposeThat(max).thatIsNamed("max").isBiggerThanOrEquals(min);
+		Validator.suppose(max).thatIsNamed("max").isBiggerThanOrEquals(min);
 		if (min > max) {
 			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value cannot not be between " + min + " and " + max + ".");
 		}

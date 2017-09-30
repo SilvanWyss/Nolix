@@ -16,7 +16,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * @month 2016-12
  * @lines 110
  */
-public final class DoubleContainerMediator extends ArgumentContainerMediator<Double> {
+public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	
 	//package-visible constructor
 	/**
@@ -25,12 +25,16 @@ public final class DoubleContainerMediator extends ArgumentContainerMediator<Dou
 	 * @param arguments
 	 * @throws NullArgumentException if the given argument container is null.
 	 */
-	DoubleContainerMediator(final Iterable<Double> arguments) {
+	MultiDoubleMediator(final Iterable<Double> arguments) {
 		
 		//Calls constructor of the base class.
 		super(arguments);
 	}
 	
+	public MultiDoubleMediator(double[] arguments) {
+		this(ArrayHelper.createIterable(arguments));
+	}
+
 	//method
 	/**
 	 * @param value

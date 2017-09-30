@@ -11,6 +11,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //class
 /**
+ * An argument mediator is a mediator for an argument of a specific type.
  * An argument mediator is not mutable.
  * 
  * @author Silvan Wyss
@@ -25,7 +26,7 @@ public class ArgumentMediator<A> {
 	
 	//package-visible constructor
 	/**
-	 * Creates new argument mediator with the given argument.
+	 * Creates new argument mediator for the given argument.
 	 * 
 	 * @param argument
 	 */
@@ -38,15 +39,15 @@ public class ArgumentMediator<A> {
 	//method
 	/**
 	 * @param condition
-	 * @throws InvalidArgumentException if the argument of this argument mediator does not fulfil the given condition.
+	 * @throws InvalidArgumentException if the argument of this argument mediator does not fulfill the given condition.
 	 */
-	public final void fulfils(final IElementTakerBooleanGetter<A> condition) {
+	public final void fulfills(final IElementTakerBooleanGetter<A> condition) {
 		
 		//Checks if the argument of this argument mediator fulfils the given condition.
 		if (!condition.getOutput(getRefArgument())) {
 			throw new InvalidArgumentException(
 				new Argument(getRefArgument()),
-				new ErrorPredicate("does not fulfil the given condition")
+				new ErrorPredicate("does not fulfill the given condition")
 			);
 		}
 	}
@@ -98,8 +99,7 @@ public class ArgumentMediator<A> {
 	//method
 	/**
 	 * @param type
-	 * @return a new named argument mediator
-	 * with the argument name of the given class and the argument of this argument mediator.
+	 * @return a new named argument mediator for the argument of this argument mediator.
 	 */
 	public final NamedArgumentMediator<A> thatIsInstanceOf(final Class<?> type) {
 		return new NamedArgumentMediator<A>(type.getSimpleName(), getRefArgument());
@@ -108,8 +108,7 @@ public class ArgumentMediator<A> {
 	//method
 	/**
 	 * @param argumentName
-	 * @return a new named argument mediator
-	 * with the given argument name and the argument of this argument mediator.
+	 * @return a new named argument mediator with the given argument name and for the argument of this argument mediator.
 	 * @throws NullArgumentException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */

@@ -70,7 +70,7 @@ implements Closable {
 	) {
 		
 		//Checks if the given transformer is not null.
-		Validator.supposeThat(transformer).thatIsNamed("transformer").isNotNull();
+		Validator.suppose(transformer).thatIsNamed("transformer").isNotNull();
 				
 		//Sets the transformer of this net neuron.
 		this.transformer = transformer;

@@ -26,7 +26,7 @@ public final class ResultFuture<R> {
 	ResultFuture(final ResultJobRunner<R> resultJobRunner) {
 		
 		//Checks if the given result job runner is not null.
-		Validator.supposeThat(resultJobRunner).thatIsInstanceOf(ResultJobRunner.class).isNotNull();
+		Validator.suppose(resultJobRunner).thatIsInstanceOf(ResultJobRunner.class).isNotNull();
 		
 		//Sets the result job runner of this result future.
 		this.resultJobRunner = resultJobRunner;

@@ -29,7 +29,7 @@ public abstract class NamedElement implements Named {
 	public NamedElement(final String name) {
 		
 		//Checks if the given name is not null or empty.
-		Validator.supposeThat(name).thatIsNamed("name").isNotEmpty();
+		Validator.suppose(name).thatIsNamed("name").isNotEmpty();
 		
 		//Sets the name of this named element.
 		this.name = name;

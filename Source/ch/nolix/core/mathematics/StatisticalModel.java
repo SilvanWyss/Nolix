@@ -28,8 +28,8 @@ public abstract class StatisticalModel {
 	 */
 	public StatisticalModel( final int backStepsCount, final double[] inputValues) {
 		
-		Validator.supposeThat(inputValues).thatIsNamed("input values").isNotEmpty();		
-		Validator.supposeThat(backStepsCount).thatIsNamed("back step count").isBetween(1, inputValues.length);
+		Validator.suppose(inputValues).thatIsNamed("input values").isNotEmpty();		
+		Validator.suppose(backStepsCount).thatIsNamed("back step count").isBetween(1, inputValues.length);
 		
 		//Sets the back steps count of this statistical model.
 		this.backStepCount = backStepsCount;
@@ -52,8 +52,8 @@ public abstract class StatisticalModel {
 	//method
 	public final double getValueFromBack(final int index) {
 		
-		Validator.supposeThat(index).thatIsNamed("index").isPositive();
-		Validator.supposeThat(index).thatIsNamed("index").isNotBiggerThan(inputValues.length + forecasts.getElementCount());
+		Validator.suppose(index).thatIsNamed("index").isPositive();
+		Validator.suppose(index).thatIsNamed("index").isNotBiggerThan(inputValues.length + forecasts.getElementCount());
 		
 		if (index > forecasts.getElementCount()) {
 			return inputValues[getInputValuesCount() + forecasts.getElementCount() - index];
@@ -65,7 +65,7 @@ public abstract class StatisticalModel {
 	//method
 	public final double getForecast(final int index) {
 		
-		Validator.supposeThat(index).thatIsNamed("index").isPositive();
+		Validator.suppose(index).thatIsNamed("index").isPositive();
 		
 		while (forecasts.getElementCount() < index) {
 			forecasts.addAtEnd(getNextValue());

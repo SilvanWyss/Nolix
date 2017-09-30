@@ -9,46 +9,47 @@ import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
-//abstract class
+//class
 /**
- * An argument container mediator is not mutable.
+ * A multi argument mediator is an mediator for several arguments of the same type.
+ * A multi argument mediator is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2017-01
  * @lines 110
- * @param <A> The type of the arguments of an argument container mediator.
+ * @param <A> The type of the arguments of a multi argument mediator.
  */
-public class ArgumentContainerMediator<A> {
+public class MultiArgumentMediator<A> {
 
 	//attribute
 	private final Iterable<A> arguments;
 	
 	//package-visible constructor
 	/**
-	 * Creates new argument container mediator with the given arguments.
+	 * Creates new multi argument mediator with the given arguments.
 	 * 
 	 * @param arguments
-	 * @throws NullArgumentException if the given argument container is null.
+	 * @throws NullArgumentException if the given arguments is null..
 	 */
-	ArgumentContainerMediator(final Iterable<A> arguments) {
+	MultiArgumentMediator(final Iterable<A> arguments) {
 
-		//Checks if the given argument container is not null.
+		//Checks if the given arguments is not null.
 		if (arguments == null) {
-			throw new NullArgumentException("argument container");
+			throw new NullArgumentException("arguments");
 		}
 		
-		//Sets the arguments of this argument container mediator.
+		//Sets the arguments of this multi argument mediator.
 		this.arguments = arguments;
 	}
 	
 	//package-visible constructor
 	/**
-	 * Creates new argument container mediator with the given arguments.
+	 * Creates new multi argument mediator with the given arguments.
 	 * 
 	 * @param arguments
-	 * @throws NullArgumentException if the given argument container is null.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	ArgumentContainerMediator(final A[] arguments) {
+	MultiArgumentMediator(final A[] arguments) {
 
 		//Calls other constructor.
 		this(ArrayHelper.createIterable(arguments));		
@@ -56,11 +57,11 @@ public class ArgumentContainerMediator<A> {
 	
 	//method
 	/**
-	 * @throws NullArgumentException if one of the arguments of this argument container mediator is null.
+	 * @throws NullArgumentException if one of the arguments of this multi argument mediator is null.
 	 */
 	public final void areNotNull() {
 		
-		//Iterates the arguments of this argument container mediator.
+		//Iterates the arguments of this multi argument mediator.
 		int index = 1;
 		for (final A a : getRefArguments()) {
 			
@@ -78,15 +79,15 @@ public class ArgumentContainerMediator<A> {
 	/**
 	 * @param condition
 	 * @throws NullArgumentException if the given condition is null.
-	 * @throws InvalidArgumentException if an argument of this argument container does not fulfil the given condition.
+	 * @throws InvalidArgumentException if an argument of this argument container does not fulfill the given condition.
 	 */
-	public final void fulfil(final IElementTakerBooleanGetter<A> condition) {
+	public final void fulfill(final IElementTakerBooleanGetter<A> condition) {
 		
-		//Iterates the arguments of this argument container mediator.
+		//Iterates the arguments of this multi argument mediator.
 		int index = 1;
 		for (final A a : getRefArguments()) {
 			
-			//Checks if the current argument fulfils the given condition.
+			//Checks if the current argument fulfills the given condition.
 			if (!condition.getOutput(a)) {
 				throw new InvalidArgumentException(
 					new ArgumentName(index + "th argument"),
@@ -102,7 +103,7 @@ public class ArgumentContainerMediator<A> {
 	
 	//method
 	/**
-	 * @return the arguments of this argument container mediator.
+	 * @return the arguments of this multi argument mediator.
 	 */
 	protected final Iterable<A> getRefArguments() {
 		return arguments;

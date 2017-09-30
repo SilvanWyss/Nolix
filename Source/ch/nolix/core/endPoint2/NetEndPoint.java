@@ -72,7 +72,7 @@ public class NetEndPoint extends EndPoint {
 		
 		//Checks if the given port is in [0, 65535]. 
 		Validator
-		.supposeThat(port)
+		.suppose(port)
 		.thatIsNamed("port")
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
@@ -117,7 +117,7 @@ public class NetEndPoint extends EndPoint {
 		
 		//Checks if the given port is in [0, 65535]. 
 		Validator
-		.supposeThat(port)
+		.suppose(port)
 		.thatIsNamed("port")
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
@@ -153,7 +153,7 @@ public class NetEndPoint extends EndPoint {
 		super(false);
 		
 		//Checks if the given socket is not null.
-		Validator.supposeThat(socket).thatIsInstanceOf(Socket.class).isNotNull();
+		Validator.suppose(socket).thatIsInstanceOf(Socket.class).isNotNull();
 		
 		//Sets the socket of this net end point.
 		this.socket = socket;
@@ -221,7 +221,7 @@ public class NetEndPoint extends EndPoint {
 	private void send_internal(final String message) {
 		
 		//Checks if the given message is not null.
-		Validator.supposeThat(message).thatIsNamed("message").isNotNull();
+		Validator.suppose(message).thatIsNamed("message").isNotNull();
 		
 		//Checks if this net end point is not stopped.
 		supposeBeingAlive();

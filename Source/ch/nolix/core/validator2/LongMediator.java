@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.validator2;
 
+import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 //own imports
 import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
 import ch.nolix.core.invalidArgumentException.NonNegativeArgumentException;
@@ -13,6 +14,9 @@ import ch.nolix.core.invalidArgumentException.ZeroArgumentException;
 
 //class
 /**
+ * A long mediator is a mediator for a long.
+ * A long mediator is not mutable.
+ * 
  * @author Silvan Wyss
  * @month 2016-11
  * @lines 140
@@ -24,7 +28,7 @@ public final class LongMediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new long mediator with the given argument.
+	 * Creates new long mediator for the given argument.
 	 * 
 	 * @param argument
 	 */
@@ -136,7 +140,9 @@ public final class LongMediator {
 	//method
 	/**
 	 * @param argumentName
-	 * @return a new named long mediator with the given argument name and the argument of this long mediator.
+	 * @return a new named long mediator with the given argument name and for the argument of this long mediator.
+	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	public NamedLongMediator thatIsNamed(final String argumentName) {
 		return new NamedLongMediator(argumentName, argument);

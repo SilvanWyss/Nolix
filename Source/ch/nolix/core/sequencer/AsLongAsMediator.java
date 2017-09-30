@@ -32,7 +32,7 @@ public final class AsLongAsMediator {
 	AsLongAsMediator(final IBooleanGetter condition) {
 		
 		//Checks if the given condition is not null.
-		Validator.supposeThat(condition).thatIsNamed("condition").isNotNull();
+		Validator.suppose(condition).thatIsNamed("condition").isNotNull();
 		
 		maxRunCount = null;
 		this.condition = condition;

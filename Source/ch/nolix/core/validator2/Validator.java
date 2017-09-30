@@ -6,18 +6,108 @@ import java.util.Vector;
 
 //own imports
 import ch.nolix.core.invalidArgumentException.FalseArgumentException;
+import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.invalidArgumentException.TrueArgumentException;
 
 //class
 /**
- * This class provides some functions to validate arguments.
+ * The validator provides functions to validate arguments.
+ * Methods are called on an object, functions are not.
  * Of this class no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 220
+ * @lines 270
  */
 public final class Validator {
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new argument mediator for given argument.
+	 */
+	public static <A> ArgumentMediator<A> suppose(final A argument) {
+		return new ArgumentMediator<A>(argument);
+	}	
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new container mediator for the given argument.
+	 */
+	public static <A> ContainerMediator<A> suppose(final A[] argument) {
+		return new ContainerMediator<A>(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new double mediator for the given argument.
+	 */
+	public static DoubleMediator suppose(final double argument) {
+		return new DoubleMediator(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new container mediator for the given argument.
+	 */
+	public static ContainerMediator<Double> suppose(final double[] argument) {
+		
+		//Handles the case if the given argument is null.
+		if (argument == null) {
+			final Vector<Double> argumentVector = null;
+			return new ContainerMediator<Double>(argumentVector);
+		}
+		
+		//Handles the case if the given argument is not null.
+		return new ContainerMediator<Double>(ArrayHelper.createIterable(argument));
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new long mediator for the given argument.
+	 */
+	public static LongMediator suppose(final long argument) {
+		return new LongMediator(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new container mediator for the given argument.
+	 */
+	public static ContainerMediator<Long> suppose(final long[] argument) {
+		
+		//Handles the case if the given argument is null.
+		if (argument == null) {
+			final Vector<Long> argumentVector = null;
+			return new ContainerMediator<Long>(argumentVector);
+		}
+		
+		//Handles the case if the given argument is not null.
+		return new ContainerMediator<Long>(ArrayHelper.createIterable(argument));
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new string mediator for the given argument.
+	 */
+	public static StringMediator suppose(final String argument) {
+		return new StringMediator(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new container mediator for the given argument.
+	 */
+	public static ContainerMediator<String> suppose(final String[] argument) {
+		return new ContainerMediator<String>(argument);
+	}
 	
 	//static method
 	/**
@@ -35,13 +125,19 @@ public final class Validator {
 	//static method
 	/** 
 	 * @param arguments
+	 * @throws NullArgumentException if the given arguments is null.
 	 * @throws FalseArgumentException if one of the given arguments is false.
 	 */
 	public static void supposeThat(final boolean... arguments) {
 		
+		//Checks if the given arguments is not null.
+		if (arguments == null) {
+			throw new NullArgumentException("arguments");
+		}
+		
 		//Iterates the given arguments.
 		int i = 1;
-		for (boolean a: arguments) {
+		for (final boolean a: arguments) {
 				
 			//Checks if the current argument is true.
 			if (!a) {
@@ -50,87 +146,6 @@ public final class Validator {
 			
 			i++;
 		}
-	}
-	
-	//static method
-	/**
-	 * @param argument
-	 * @return a new double mediator with the given argument.
-	 */
-	public static DoubleMediator supposeThat(final double argument) {
-		return new DoubleMediator(argument);
-	}
-	
-	//static method
-	/**
-	 * @param argument
-	 * @return a new container mediator with the given argument.
-	 */
-	public static ContainerMediator supposeThat(final double[] argument) {
-		return new ContainerMediator(argument);
-	}
-
-	//static method
-	/**
-	 * @param argument
-	 * @return a new long mediator with the given argument.
-	 */
-	public static LongMediator supposeThat(final int argument) {
-		return new LongMediator(argument);
-	}
-	
-	//static method
-	/**
-	 * @param arguments
-	 * @return a new long container mediator with the given arguments.
-	 */
-	public static LongContainerMediator supposeThatTheInts(final int... arguments) {
-		
-		//Creates argument vector.
-		final Vector<Long> argumentVector = new Vector<Long>();
-		for (int a: arguments) {
-			argumentVector.add(Long.valueOf(a));
-		}
-		
-		return new LongContainerMediator(argumentVector);
-	}
-	
-	//static method
-	/**
-	 * @param argument
-	 * @return a new long mediator with the given argument.
-	 */
-	public static LongMediator supposeThat(final long argument) {
-		return new LongMediator(argument);
-	}
-	
-	//static method
-	/**
-	 * @param argument
-	 * @return a new string mediator with the given argument.
-	 */
-	public static StringMediator supposeThat(final String argument) {
-		return new StringMediator(argument);
-	}
-	
-
-	
-	//static method
-	/**
-	 * @param argument
-	 * @return a new object mediator with the given argument.
-	 */
-	public static ArgumentMediator<Object> supposeThat(final Object argument) {
-		return new ArgumentMediator<Object>(argument);
-	}
-	
-	//static method
-	/**
-	 * @param argument
-	 * @return a new container mediator with the given argument.
-	 */
-	public static ContainerMediator supposeThat(final Object[] argument) {
-		return new ContainerMediator(argument);
 	}
 	
 	//static method
@@ -149,9 +164,15 @@ public final class Validator {
 	//static method
 	/** 
 	 * @param arguments
+	 * @throws NullArgumentException if the given arguments is null.
 	 * @throws TrueArgumentException if one of the given arguments is true.
 	 */
 	public static void supposeThatNot(final boolean... arguments) {
+		
+		//Checks if the given arguments is not null.
+		if (arguments == null) {
+			throw new NullArgumentException("arguments");
+		}
 		
 		//Iterates the given arguments.
 		int i = 1;
@@ -169,83 +190,81 @@ public final class Validator {
 	//static method
 	/**
 	 * @param arguments
-	 * @return a new double container mediator with the given arguments.
+	 * @return a new multi double mediator for the given arguments.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static DoubleContainerMediator supposeThatTheDoubles(final double... arguments) {
-		
-		//Creates argument vector.
-		final Vector<Double> argumentVector = new Vector<Double>();
-		for (double a: arguments) {
-			argumentVector.add(a);
-		}
-		
-		return new DoubleContainerMediator(argumentVector);
+	public static MultiDoubleMediator supposeTheDoubles(final double... arguments) {		
+		return new MultiDoubleMediator(arguments);
 	}
 	
 	//static method
 	/**
 	 * @param arguments
-	 * @return a new double container mediator with the given arguments.
+	 * @return a new multi double mediator for the given arguments.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static DoubleContainerMediator supposeThatTheDoubles(final Iterable<Double> arguments) {
-		return new DoubleContainerMediator(arguments);
+	public static MultiDoubleMediator supposeTheDoubles(final Iterable<Double> arguments) {
+		return new MultiDoubleMediator(arguments);
 	}
 	
 	//static method
 	/**
 	 * @param arguments
-	 * @return a new long container mediator with the given arguments.
+	 * @return a new multi long mediator for the given arguments.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static LongContainerMediator supposeThatTheLongs(final Iterable<Long> arguments) {
-		return new LongContainerMediator(arguments);
+	public static MultiLongMediator supposeTheLongs(final Iterable<Long> arguments) {
+		return new MultiLongMediator(arguments);
 	}
 	
 	//static method
 	/**
 	 * @param arguments
-	 * @return a new object container mediator with the given arguments.
-	 * @throws NullArgumentException if the given argument container is null.
+	 * @return a new multi long mediator for the given arguments.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static ArgumentContainerMediator<Object> supposeThatTheObjects(final Iterable<Object> arguments) {
-		return new ArgumentContainerMediator<Object>(arguments);
+	public static MultiLongMediator supposeTheLongs(final long... arguments) {		
+		return new MultiLongMediator(arguments);
 	}
 	
 	//static method
 	/**
 	 * @param arguments
-	 * @return a new object container mediator with the given arguments.
-	 * @throws NullArgumentException if the given argument container is null.
+	 * @return a new multi argument mediator for the given arguments.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static ArgumentContainerMediator<Object> supposeThatTheObjects(final Object[] arguments) {
-		return new ArgumentContainerMediator<Object>(arguments);
+	public static <E> MultiArgumentMediator<E> supposeTheElements(final Iterable<E> arguments) {
+		return new MultiArgumentMediator<E>(arguments);
 	}
 	
-
+	//static method
+	/**
+	 * @param arguments
+	 * @return a new multi argument mediator for the given arguments.
+	 * @throws NullArgumentException if the given arguments is null.
+	 */
+	public static <E> MultiArgumentMediator<E> supposeTheElements(final E[] arguments) {
+		return new MultiArgumentMediator<E>(arguments);
+	}
 	
 	//static method
 	/**s
 	 * @param arguments
-	 * @return a new string container mediator with the given arguments.
-	 * @throws NullArgumentException if the given argument container is null.
+	 * @return a new string container mediator for the given arguments.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static StringContainerMediator supposeThatTheStrings(final Iterable<String> arguments) {
-		return new StringContainerMediator(arguments);
+	public static MultiStringMediator supposeTheStrings(final Iterable<String> arguments) {
+		return new MultiStringMediator(arguments);
 	}
 	
 	//static method
 	/**
 	 * @param arguments
-	 * @return a new string container mediator with the given arguments.
+	 * @return a new multi string mediator for the given arguments.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static StringContainerMediator supposeThatTheStrings(final String... arguments) {
-		
-		//Creates argument vector.
-		final Vector<String> argumentVector = new Vector<String>();
-		for (String a: arguments) {
-			argumentVector.add(a);
-		}
-		
-		return new StringContainerMediator(argumentVector);
+	public static MultiStringMediator supposeTheStrings(final String... arguments) {		
+		return new MultiStringMediator(arguments);
 	}
 	
 	//private constructor

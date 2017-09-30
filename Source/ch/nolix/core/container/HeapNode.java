@@ -109,7 +109,7 @@ final class HeapNode<E> {
 	public void setElement(final E element) {
 		
 		//Checks if the given element is not null.
-		Validator.supposeThat(element).thatIsNamed("element").isNotNull();
+		Validator.suppose(element).thatIsNamed("element").isNotNull();
 		
 		this.element = element;
 	}

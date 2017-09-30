@@ -39,7 +39,7 @@ extends Neuron<I, O, TransformNeuron<I, O>> {
 		final IElementTakerElementGetter<I, O> transformer
 	) {
 		//Checks if the given transform function is not null.
-		Validator.supposeThat(transformer).thatIsNamed("transformern").isNotNull();
+		Validator.suppose(transformer).thatIsNamed("transformern").isNotNull();
 		
 		this.transformer = transformer;
 		

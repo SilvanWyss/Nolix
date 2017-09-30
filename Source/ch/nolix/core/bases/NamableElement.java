@@ -52,7 +52,7 @@ implements Namable<NE> {
 	public final NE setName(final String name) {
 		
 		//Checks if the given name is not null or empty.
-		Validator.supposeThat(name).thatIsNamed("name").isNotEmpty();
+		Validator.suppose(name).thatIsNamed("name").isNotEmpty();
 		
 		//Sets the name of this namable element.
 		this.name = name;

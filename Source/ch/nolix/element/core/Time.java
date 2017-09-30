@@ -199,13 +199,13 @@ public final class Time extends Element {
 		this();
 		
 		//Checks if the given string is not null.
-		Validator.supposeThat(string).thatIsNamed("string").isNotNull();
+		Validator.suppose(string).thatIsNamed("string").isNotNull();
 		
 		//Creates array of values of the given string.
 		final String[] array = string.split("-");
 		
 		Validator
-		.supposeThat(array.length)
+		.suppose(array.length)
 		.thatIsNamed("numer of values of '" + string + "'")
 		.equalsAny(3, 5, 6, 7);
 		

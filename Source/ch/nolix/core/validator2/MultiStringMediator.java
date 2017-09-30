@@ -14,7 +14,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * @month 2016-12
  * @lines 50
  */
-public final class StringContainerMediator extends ArgumentContainerMediator<String> {
+public final class MultiStringMediator extends MultiArgumentMediator<String> {
 
 	//package-visible constructor
 	/**
@@ -23,7 +23,7 @@ public final class StringContainerMediator extends ArgumentContainerMediator<Str
 	 * @param arguments
 	 * @throws NullArgumentException if the given argument container is null.
 	 */
-	StringContainerMediator(final Iterable<String> arguments) {
+	MultiStringMediator(final Iterable<String> arguments) {
 		
 		//Calls constructor of the base class.
 		super(arguments);
@@ -36,7 +36,7 @@ public final class StringContainerMediator extends ArgumentContainerMediator<Str
 	 * @param arguments
 	 * @throws NullArgumentException if the given argument container is null.
 	 */
-	StringContainerMediator(final String[] arguments) {
+	MultiStringMediator(final String[] arguments) {
 		
 		//Calls method of the base class.
 		super(arguments);

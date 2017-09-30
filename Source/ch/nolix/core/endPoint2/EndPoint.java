@@ -105,7 +105,7 @@ implements ISender {
 		supposeBeingAlive();
 		
 		//Checks if the given receiver is not null.
-		Validator.supposeThat(receiver).thatIsInstanceOf(IReceiver.class).isNotNull();
+		Validator.suppose(receiver).thatIsInstanceOf(IReceiver.class).isNotNull();
 		
 		//Sets the receiver of this end point.
 		this.receiver = receiver;
@@ -127,7 +127,7 @@ implements ISender {
 	protected void setTarget(final String target) {
 		
 		//Checks if the given target is not empty.
-		Validator.supposeThat(target).thatIsNamed("target").isNotEmpty();
+		Validator.suppose(target).thatIsNamed("target").isNotEmpty();
 		
 		//Checks if this net end point is not stopped.
 		supposeBeingAlive();

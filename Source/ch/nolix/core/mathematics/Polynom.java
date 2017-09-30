@@ -31,7 +31,7 @@ public class Polynom {
 	public Polynom(final int degree) {
 		
 		//Checks if the given degree is not negative.
-		Validator.supposeThat(degree).thatIsNamed("degree").isNotNegative();
+		Validator.suppose(degree).thatIsNamed("degree").isNotNegative();
 		
 		//Allocates the coefficients of this polynom.
 		coefficients = new double[degree + 1];
@@ -61,7 +61,7 @@ public class Polynom {
 	public Polynom derive(final int deriveCount) {
 		
 		//Checks if the given dervice count is not negative.
-		Validator.supposeThat(deriveCount).thatIsNamed("derive count").isNotNegative();
+		Validator.suppose(deriveCount).thatIsNamed("derive count").isNotNegative();
 		
 		for (int i = 1; i <= deriveCount; i++) {
 			
@@ -176,7 +176,7 @@ public class Polynom {
 	public Polynom integrate(int integrationCount) {
 		
 		//Checks if the given integration count is not negative.
-		Validator.supposeThat(integrationCount).isNotNegative();
+		Validator.suppose(integrationCount).isNotNegative();
 		
 		//Allocates new coefficients.
 		final double[] coefficients = new double[getDegree() + 1 + integrationCount];
@@ -217,7 +217,7 @@ public class Polynom {
 	public Polynom multiplyCoefficientsWith(final double factor) {
 		
 		//Checks if the given factor is not 0.0.
-		Validator.supposeThat(factor).thatIsNamed("factor").isNotZero();
+		Validator.suppose(factor).thatIsNamed("factor").isNotZero();
 		
 		for (int i = 0; i < coefficients.length; i++) {
 			coefficients[i] *= factor;
@@ -253,7 +253,7 @@ public class Polynom {
 	public Polynom setAllCoefficients(double value) {
 		
 		//Checks if the given value is not 0.0.
-		Validator.supposeThat(value).isNotZero();
+		Validator.suppose(value).isNotZero();
 		
 		for (int i = 0; i < coefficients.length; i++) {
 			coefficients[i] = value;
@@ -280,7 +280,7 @@ public class Polynom {
 		
 		//Checks if the given highest coefficient is not 0.0.
 		if (coefficients.length > 0) {
-			Validator.supposeThat(coefficients[0]).thatIsNamed("highest coefficient").isNotZero();
+			Validator.suppose(coefficients[0]).thatIsNamed("highest coefficient").isNotZero();
 		}
 		
 		if (coefficients.length <= getDegree() + 1) {

@@ -39,10 +39,10 @@ public final class Order {
 		final String productSymbol,
 		final int volume
 	) {
-		Validator.supposeThat(type).thatIsNamed("type").isNotNull();
-		Validator.supposeThat(time).thatIsInstanceOf(Time.class).isNotNull();
-		Validator.supposeThat(productSymbol).thatIsNamed("prodcut symbol").isNotEmpty();
-		Validator.supposeThat(volume).thatIsNamed("volume").isPositive();
+		Validator.suppose(type).thatIsNamed("type").isNotNull();
+		Validator.suppose(time).thatIsInstanceOf(Time.class).isNotNull();
+		Validator.suppose(productSymbol).thatIsNamed("prodcut symbol").isNotEmpty();
+		Validator.suppose(volume).thatIsNamed("volume").isPositive();
 		
 		this.type = type;
 		this.time = time;

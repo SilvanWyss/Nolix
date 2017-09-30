@@ -67,7 +67,7 @@ public final class ClosureMediator extends Mediator {
 	public void throwsExceptionOfType(final Class<?> type) {
 		
 		//Checks if the given type is not null.
-		Validator.supposeThat(type).thatIsNamed("type").isNotNull();
+		Validator.suppose(type).thatIsNamed("type").isNotNull();
 		
 		//Handles the case if the closure of this closure mediator is null.
 		if (closure == null) {

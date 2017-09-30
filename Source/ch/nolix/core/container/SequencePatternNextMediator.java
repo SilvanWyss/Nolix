@@ -32,10 +32,10 @@ public final class SequencePatternNextMediator<E> {
 	SequencePatternNextMediator(final SequencePattern<E> sequencePattern, final int count) {
 		
 		//Checks if the given sequence pattern is not null.
-		Validator.supposeThat(sequencePattern).thatIsInstanceOf(SequencePattern.class).isNotNull();
+		Validator.suppose(sequencePattern).thatIsInstanceOf(SequencePattern.class).isNotNull();
 		
 		//Checks if the given count is not negative.
-		Validator.supposeThat(count).thatIsNamed("count").isNotNegative();
+		Validator.suppose(count).thatIsNamed("count").isNotNegative();
 		
 		//Sets the sequence pattern and the count of this sequence pattern next mediator.
 		this.sequencePattern = sequencePattern;

@@ -43,7 +43,7 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 		super(name);
 		
 		//Checks if the given initial session class is not null.
-		Validator.supposeThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
+		Validator.suppose(initialSessionClass).thatIsNamed("initial session class").isNotNull();
 
 		//Sets the initial session class of this application.
 		this.initialSessionClass = initialSessionClass;

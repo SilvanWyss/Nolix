@@ -217,7 +217,7 @@ extends Entity {
 		
 		//Checks if the given base structure is not null.
 		Validator
-		.supposeThat(baseStructure)
+		.suppose(baseStructure)
 		.thatIsNamed("base structure")
 		.isNotNull();
 		

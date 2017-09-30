@@ -505,7 +505,7 @@ public interface IContainer<E> extends Iterable<E> {
 	public default E getRefAt(final int index) {
 		
 		//Checks if the given index is positive.
-		Validator.supposeThat(index).thatIsNamed("index").isPositive();
+		Validator.suppose(index).thatIsNamed("index").isPositive();
 		
 		//Iterates this container.
 		int i = 1;

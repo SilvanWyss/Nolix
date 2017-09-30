@@ -269,7 +269,7 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	public ConsoleBackClient writeLineToConsole(final String line) {
 		
 		//Checks if the given line is not null.
-		Validator.supposeThat(line).thatIsNamed("line").isNotNull();
+		Validator.suppose(line).thatIsNamed("line").isNotNull();
 	
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINE_TO_CONSOLE_COMMAND

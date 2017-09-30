@@ -36,7 +36,7 @@ public class CentralController {
 	public CentralController(final String directory) {
 		
 		//Checks if the given directory specifies a directory.
-		Validator.supposeThat(directory).specifiesProbableDirectoryOnLocalMachine(directory);
+		Validator.suppose(directory).specifiesProbableDirectoryOnLocalMachine(directory);
 			
 		//Sets the directory of this central controller.
 		this.directory = directory;

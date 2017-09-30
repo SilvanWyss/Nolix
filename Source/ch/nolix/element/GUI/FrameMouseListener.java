@@ -30,7 +30,7 @@ final class FrameMouseListener implements MouseListener {
 	public FrameMouseListener(final Frame frame) {
 		
 		//Checks if the given frame is not null.
-		Validator.supposeThat(frame).thatIsInstanceOf(Frame.class).isNotNull();
+		Validator.suppose(frame).thatIsInstanceOf(Frame.class).isNotNull();
 		
 		//Sets the frame of this frame mouse listener.
 		this.frame = frame;

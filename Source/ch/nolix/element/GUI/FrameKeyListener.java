@@ -30,7 +30,7 @@ final class FrameKeyListener implements KeyListener {
 	public FrameKeyListener(final Frame frame) {
 		
 		//Checks if the given frame is not null.
-		Validator.supposeThat(frame).thatIsInstanceOf(Frame.class).isNotNull();
+		Validator.suppose(frame).thatIsInstanceOf(Frame.class).isNotNull();
 		
 		//Sets the frame of this frame key listener.
 		this.frame = frame;

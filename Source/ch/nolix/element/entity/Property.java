@@ -39,9 +39,9 @@ public final class Property<V extends Specified> extends NamedElement {
 		//Calls constructor of the base class.
 		super(name);
 		
-		Validator.supposeThat(name).thatIsNamed("name").isNotEmpty();
-		Validator.supposeThat(defaultValue).thatIsNamed("default value").isNotNull();
-		Validator.supposeThat(valueCreator).thatIsNamed("value creator").isNotNull();
+		Validator.suppose(name).thatIsNamed("name").isNotEmpty();
+		Validator.suppose(defaultValue).thatIsNamed("default value").isNotNull();
+		Validator.suppose(valueCreator).thatIsNamed("value creator").isNotNull();
 		
 		this.valueCreator = valueCreator;
 		this.defaultValue = defaultValue;
@@ -61,21 +61,21 @@ public final class Property<V extends Specified> extends NamedElement {
 		super(name);
 		
 		Validator
-		.supposeThat(defaultValue)
+		.suppose(defaultValue)
 		.thatIsNamed("default value")
 		.isNotNull();
 		
 		Validator
-		.supposeThat(secondaryDefaultValueCondition)
+		.suppose(secondaryDefaultValueCondition)
 		.thatIsNamed("secondary default value condition")
 		.isNotNull();
 		
 		Validator
-		.supposeThat(secondaryDefaultValue)
+		.suppose(secondaryDefaultValue)
 		.thatIsNamed("secondary default value")
 		.isNotNull();
 		
-		Validator.supposeThat(valueCreator).thatIsNamed("value creator").isNotNull();
+		Validator.suppose(valueCreator).thatIsNamed("value creator").isNotNull();
 		
 		this.defaultValue = defaultValue;
 		this.secondaryDefaultValueCondition = secondaryDefaultValueCondition;
@@ -154,7 +154,7 @@ public final class Property<V extends Specified> extends NamedElement {
 	//method
 	public void setValue(final V value) {
 		
-		Validator.supposeThat(value).thatIsNamed("value").isNotNull();
+		Validator.suppose(value).thatIsNamed("value").isNotNull();
 		
 		this.value = value;
 	}
@@ -171,7 +171,7 @@ public final class Property<V extends Specified> extends NamedElement {
 	void setBaseProperty(final Property<?> baseProperty) {
 		
 		Validator
-		.supposeThat(baseProperty)
+		.suppose(baseProperty)
 		.thatIsNamed("base property")
 		.isNotNull();
 		

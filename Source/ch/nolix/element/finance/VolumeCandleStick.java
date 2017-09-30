@@ -43,7 +43,7 @@ public class VolumeCandleStick extends CandleStick {
 		super(time, openingPrice, closingPrice, lowestPrice, highestPrice);
 		
 		//Checks the given volume.
-		Validator.supposeThat(volume).thatIsNamed("volume").isNotNegative();
+		Validator.suppose(volume).thatIsNamed("volume").isNotNegative();
 		
 		//Sets the volume of this candle stick.
 		this.volume = volume;
