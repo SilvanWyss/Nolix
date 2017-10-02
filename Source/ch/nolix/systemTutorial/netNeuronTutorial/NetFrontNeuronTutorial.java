@@ -44,7 +44,7 @@ public final class NetFrontNeuronTutorial {
 		= new NetFrontNeuron<String>(port, s -> s.toString());
 		
 		//Triggers the net back neuron and prints out to the console the output of the front neurons 
-		netBackNeuron.trigger();
+		netBackNeuron.fire();
 		Sequencer.waitForMilliseconds(500);
 		System.out.println("net front neuron 1, output: " + netFrontNeuron1.getRefOutput());
 		System.out.println("net front neuron 2, output: " + netFronNeuron2.getRefOutput());

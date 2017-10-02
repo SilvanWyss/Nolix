@@ -86,8 +86,7 @@ extends Neuron<Iterable<O>, Iterable<O>, FanoutNeuron<O>> {
 	 * 
 	 * @param processor
 	 */
-	protected void trigger(final TriggerQueue processor) {
+	protected void internal_fire() {
 		setOutput(getRefOneInput());
-		outputNeurons.forEach(on -> on.trigger());
 	}	
 }

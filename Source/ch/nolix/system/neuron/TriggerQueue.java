@@ -29,7 +29,7 @@ public final class TriggerQueue {
 		queue.addAtBegin(neuron);
 		
 		while (queue.containsAny()) {
-			queue.removeAndGetRefLast().trigger(this);
+			//queue.removeAndGetRefLast().trigger(this);
 		}
 	}
 	

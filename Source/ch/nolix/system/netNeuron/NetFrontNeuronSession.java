@@ -47,6 +47,6 @@ extends ContextSession<StandardClient, NetFrontNeuron<O>> {
 	
 	//run method
 	public void Trigger() {
-		getRefContext().trigger();
+		getRefContext().fire();
 	}
 }

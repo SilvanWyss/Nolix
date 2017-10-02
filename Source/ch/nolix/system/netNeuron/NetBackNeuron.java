@@ -120,4 +120,20 @@ implements Closable {
 		
 		getRefTriggerableNeurons().forEach(tn -> processor.addNeuron(tn));
 	}
+	
+	public void internal_fire() {
+		if (getRefInputs().isEmpty()) {
+			setOutput(null);
+		}
+		else {
+			setOutput(transformer.getOutput(getRefOneInput()));
+			application.getRefClients().forEach(
+					
+				c -> {
+					c.run("SetOutput(" + getRefOutput() + ")");
+					c.run("Trigger");
+				}
+			);
+		}
+	}
 }

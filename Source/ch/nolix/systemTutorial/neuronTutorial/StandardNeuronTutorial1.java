@@ -50,7 +50,7 @@ public final class StandardNeuronTutorial1 {
 		.setOutputFunction(Calculator.DOUBLE_AVERAGE);
 
 		//Triggers the standard neuron.
-		standardNeuron.trigger();
+		standardNeuron.fire();
 		
 		//Prints the output of the standard neuron out to the console.
 		System.out.println("neuron output: " + standardNeuron.getRefOutput());

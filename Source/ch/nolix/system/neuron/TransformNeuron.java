@@ -68,7 +68,7 @@ extends Neuron<I, O, TransformNeuron<I, O>> {
 	 * 
 	 * @param processor
 	 */
-	protected void trigger(final TriggerQueue processor) {
+	protected void internal_fire() {
 		setOutput(transformer.getOutput(getRefOneInput()));
 	}
 }

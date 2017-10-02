@@ -9,7 +9,6 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.system.client.StandardClient;
 import ch.nolix.system.neuron.Neuron;
-import ch.nolix.system.neuron.TriggerQueue;
 
 //class
 /**
@@ -118,8 +117,8 @@ implements Closable {
 	 * 
 	 * @param processor
 	 */
-	protected void trigger(TriggerQueue processor) {
-		getRefTriggerableNeurons().forEach(tn -> processor.addNeuron(tn));
+	protected void internal_fire() {
+		//getRefTriggerableNeurons().forEach(tn -> processor.addNeuron(tn));
 	}
 	
 	//package-visible method

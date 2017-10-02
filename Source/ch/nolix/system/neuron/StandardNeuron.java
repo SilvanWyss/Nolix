@@ -114,4 +114,8 @@ extends Neuron<IO, IO, StandardNeuron<IO>> {
 		setOutput(outputFunction.getOutput(getRefInputConnections()));
 		getRefTriggerableNeurons().forEach(tn -> processor.addNeuron(tn));
 	}
+	
+	public void internal_fire() {
+		setOutput(outputFunction.getOutput(getRefInputConnections()));
+	}
 }

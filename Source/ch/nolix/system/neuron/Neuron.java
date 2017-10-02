@@ -32,6 +32,7 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	//multiple attributes
 	private final List<InputConnection<I>> inputConnections = new List<InputConnection<I>>();
 	private final List<TriggerableNeuronoid> triggerableNeurons = new List<TriggerableNeuronoid>();
+	private final List<Neuron<O, ?, ?>> outputNeurons = new List<Neuron<O, ?, ?>>();
 	
 	//method
 	/**
@@ -148,17 +149,32 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	/**
 	 * Starts triggering this neuron in background.
 	 */
-	public final void startTriggering() {
-		Sequencer.runInBackground(() -> trigger());
+	public final void startFiring() {
+		Sequencer.runInBackground(() -> fire());
 	}
 	
 	//method
 	/**
-	 * Triggers this neuron.
+	 * Lets this neuron fire.
 	 */
-	public final void trigger() {
-		new TriggerQueue(this);
+	public void fire() {
+		final List<Neuron<?, ?, ?>> nextNeurons = new List<Neuron<?, ?, ?>>(this);
+		final List<Neuron<?, ?, ?>> visitedNeurons = new List<Neuron<?, ?, ?>>();
+		while (nextNeurons.containsAny()) {
+			nextNeurons.removeAndGetRefFirst().fire(nextNeurons, visitedNeurons);
+		}
 	}
+	
+	private void fire(List<Neuron<?, ?, ?>> nextNeurons, List<Neuron<?, ?, ?>> visitedNeurons) {
+		if (!visitedNeurons.contains(this)) {
+			internal_fire();
+			visitedNeurons.addAtEnd(this);
+			final List<Neuron<O, ?, ?>> x = outputNeurons.getRefSelected(n -> !visitedNeurons.contains(n));
+			x.forEach(n -> nextNeurons.addAtEnd(n));
+		}
+	}
+	
+	protected abstract void internal_fire();
 	
 	//method
 	/**
@@ -240,7 +256,7 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	 * 
 	 * @param processor
 	 */
-	protected abstract void trigger(final TriggerQueue processor);
+	//protected abstract void trigger(final TriggerQueue processor);
 	
 	//package-visible method
 	/**
@@ -287,6 +303,8 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 		}
 		
 		inputConnections.addAtEnd(inputConnection);
+		
+		inputConnection.getRefInputNeuron().outputNeurons.addAtEnd(this);
 		
 		return (N)this;
 	}

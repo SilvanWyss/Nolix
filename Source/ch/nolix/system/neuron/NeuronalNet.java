@@ -20,7 +20,7 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 	//attributes
 	private final FanoutNeuron<IO> inputFanoutNeuron = new FanoutNeuron<IO>();
 	private final BundleNeuron<IO> outputBundleNeuron = new BundleNeuron<IO>();
-	private final Neuron<IO, IO, ?> triggerableStartNeuron;
+	//private final Neuron<IO, IO, ?> triggerableStartNeuron;
 	
 	private final Iterable<Neuron<IO, IO, ?>> internalOutputNeurons;
 	
@@ -63,7 +63,7 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 		outputLayerNeurons.forEach(oln -> outputBundleNeuron.addInputNeuron(oln));
 		
 		//Sets the triggerable start neuron of this neuronal net.
-		this.triggerableStartNeuron = triggerableStartNeuron;
+		//this.triggerableStartNeuron = triggerableStartNeuron;
 		
 		this.internalOutputNeurons = (Iterable<Neuron<IO, IO, ?>>)outputLayerNeurons;
 	}
@@ -121,8 +121,16 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 	 * 
 	 * @param processor
 	 */
-	protected void trigger(final TriggerQueue processor) {
+	protected void internal_fire() {
 		
+		inputFanoutNeuron.clearInputNeurons();
+		inputFanoutNeuron.addInputNeuron(getRefOneInputNeuron());
+		inputFanoutNeuron.fire();
+		//triggerableStartNeuron.fire();
+		outputBundleNeuron.fire();
+		setOutput(outputBundleNeuron.getRefOutput());
+		
+		/*
 		inputFanoutNeuron.clearInputNeurons();
 		inputFanoutNeuron.addInputNeuron(getRefOneInputNeuron());
 		inputFanoutNeuron.trigger();
@@ -131,6 +139,7 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 		setOutput(outputBundleNeuron.getRefOutput());
 		
 		getRefTriggerableNeurons().forEach(tn -> processor.addNeuron(tn));
+		*/
 	}
 	
 	//method

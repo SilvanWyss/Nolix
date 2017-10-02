@@ -49,7 +49,7 @@ public final class ForwardMultiLayerNetCreatorTutorial {
 		neuronalNet.addInputNeuron(new SourceNeuron<Iterable<Double>>(inputs));
 		
 		//Triggers the neuronal net.
-		neuronalNet.trigger();
+		neuronalNet.fire();
 		
 		//Prints the output of the neuronal net out to the console.
 		System.out.println("output values:");

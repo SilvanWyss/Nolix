@@ -50,7 +50,7 @@ public final class StandardNeuronTutorial2 {
 		.addTriggeringNeuron(neuron3);
 		
 		//Triggers neuron 1.
-		neuron1.trigger();
+		neuron1.fire();
 		
 		//Prints the output of the neurons out to the console.
 		System.out.println("neuron 1 output: " + neuron1.getRefOutput());
