@@ -32,22 +32,19 @@ public final class StandardNeuronTutorial2 {
 		final StandardNeuron<Double> neuron2 =
 		new StandardNeuron<Double>()
 		.setOutputFunction(v -> 2.0 * v.iterator().next())
-		.addInputNeuron(neuron1)
-		.addTriggeringNeuron(neuron1);
+		.addInputNeuron(neuron1);
 		
 		//Creates neuron 3.
 		final StandardNeuron<Double> neuron3 =
 		new StandardNeuron<Double>()
 		.setOutputFunction(v -> 2.0 * v.iterator().next())
-		.addInputNeuron(neuron2)
-		.addTriggeringNeuron(neuron2);
+		.addInputNeuron(neuron2);
 		
 		//Creates neuron 4.
 		final StandardNeuron<Double> neuron4 =
 		new StandardNeuron<Double>()
 		.setOutputFunction(v -> 2.0 * v.iterator().next())
-		.addInputNeuron(neuron3)
-		.addTriggeringNeuron(neuron3);
+		.addInputNeuron(neuron3);
 		
 		//Triggers neuron 1.
 		neuron1.fire();

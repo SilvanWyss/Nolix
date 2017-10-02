@@ -104,17 +104,6 @@ extends Neuron<IO, IO, StandardNeuron<IO>> {
 		return 0;
 	}
 	
-	//method
-	/**
-	 * Triggers this standard neuron using the given processor.
-	 * 
-	 * @param processor
-	 */
-	protected void trigger(final TriggerQueue processor) {
-		setOutput(outputFunction.getOutput(getRefInputConnections()));
-		getRefTriggerableNeurons().forEach(tn -> processor.addNeuron(tn));
-	}
-	
 	public void internal_fire() {
 		setOutput(outputFunction.getOutput(getRefInputConnections()));
 	}

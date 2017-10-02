@@ -35,7 +35,6 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 		final List<StandardNeuron<IO>> inputNeurons = new List<StandardNeuron<IO>>();
 		
 		List<StandardNeuron<IO>> previousLayer = new List<StandardNeuron<IO>>();
-		Neuron<?, ?, ?> triggeringNeuron = null;
 		for (int i = 1; i <= getLayerCount(); i++) {
 			
 			List<StandardNeuron<IO>> currentLayer = new List<StandardNeuron<IO>>();
@@ -51,12 +50,8 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 					previousLayer.forEach(n -> neuron.addInputNeuron(n));
 				}		
 				neuron.setWeightOutputFunction(outputFunction);
-				if (triggeringNeuron != null) {
-					neuron.addTriggeringNeuron(triggeringNeuron);
-				}
 				
 				currentLayer.addAtEnd(neuron);
-				triggeringNeuron = neuron;
 			}
 			
 			previousLayer = currentLayer;

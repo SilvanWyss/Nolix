@@ -31,7 +31,6 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	
 	//multiple attributes
 	private final List<InputConnection<I>> inputConnections = new List<InputConnection<I>>();
-	private final List<TriggerableNeuronoid> triggerableNeurons = new List<TriggerableNeuronoid>();
 	private final List<Neuron<O, ?, ?>> outputNeurons = new List<Neuron<O, ?, ?>>();
 	
 	//method
@@ -63,24 +62,6 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	 */
 	public final N addInputNeuron(final double weight, final Neuron<?, I, ?> inputNeuron) {
 		return addInputConnection(new InputConnection<I>(weight, inputNeuron));
-	}
-	
-	//method
-	/**
-	 * Adds the given triggering neuron to this neuron.
-	 * A triggering neuron is a neuron that can trigger this neuron.
-	 * 
-	 * @param triggeringNeuron
-	 * @return this neuron.
-	 * @throws NullArgumentException if the given triggering neuron is null.
-	 * @throws RuntimeException if this neuron contains already the given triggering neuron.
-	 */
-	@SuppressWarnings("unchecked")
-	public final N addTriggeringNeuron(final Neuron<?, ?, ?> triggeringNeuron) {	
-		
-		triggeringNeuron.addTriggerableNeuron(this);
-		
-		return (N)this;
 	}
 	
 	//method
@@ -125,22 +106,6 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 		Validator.suppose(getInputNeuronCount()).isSmallerThan(getMinInputNeuronCount());
 		
 		inputConnections.removeFirst(in -> in.hasInputNeuron(inputNeuron));
-		
-		return (N)this;
-	}
-	
-	//method
-	/**
-	 * Removes the given triggering neuron from this neuron.
-	 * 
-	 * @param triggeringNeuron
-	 * @return this neuron.
-	 * @throws InvalidArgumentException if this neuron does not contain the given triggering neuron.
-	 */
-	@SuppressWarnings("unchecked")
-	public final N removeTriggeringNeuron(final Neuron<?, ?, ?> triggeringNeuron) {
-		
-		triggeringNeuron.removeTriggerableNeuron(this);
 		
 		return (N)this;
 	}
@@ -232,16 +197,6 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	
 	//method
 	/**
-	 * The triggerable neurons of a neuron are the neurons the neuron can trigger.
-	 * 
-	 * @return the triggerable neurons of this neuron.
-	 */
-	protected final IContainer<TriggerableNeuronoid> getRefTriggerableNeurons() {
-		return triggerableNeurons;
-	}
-	
-	//method
-	/**
 	 * Sets the output of this neuron.
 	 * 
 	 * @param output
@@ -307,40 +262,5 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 		inputConnection.getRefInputNeuron().outputNeurons.addAtEnd(this);
 		
 		return (N)this;
-	}
-	
-	//method
-	/**
-	 * Adds the given triggerable neuron to this neuron.
-	 * A triggerable neuron of a origin neuron is a neuron that can trigger the origin neuron.
-	 * 
-	 * @param triggerableNeuron
-	 * @throws NullArgumentException if the given triggerable neuron is null.
-	 * @throws InvalidArgumentException if this neuron contains already the given triggerable neuron.
-	 */
-	private void addTriggerableNeuron(Neuron<?, ?, ?> triggerableNeuron) {
-		
-		//Checks if the given triggerable neuron is not null.
-		Validator.suppose(triggerableNeuron).thatIsNamed("triggerable neuron").isNotNull();
-		
-		//Checks if this neuron does not contain the given triggerable neuron.
-		if (triggerableNeurons.contains(in -> in.hasNeuron(triggerableNeuron))) {
-			throw new InvalidArgumentException(
-				new Argument(triggerableNeuron),
-				new ErrorPredicate("is already contained in the neuron")
-			);
-		}
-		
-		triggerableNeurons.addAtEnd(new TriggerableNeuronoid(triggerableNeuron));
-	}
-	
-	//method
-	/**
-	 * Removes the given triggerable neuron from this neuron.
-	 * 
-	 * @param triggerableNeuron
-	 */
-	private void removeTriggerableNeuron(final Neuron<?, ?, ?> triggerableNeuron) {
-		triggerableNeurons.removeFirst(tn -> tn.hasNeuron(triggerableNeuron));
 	}
 }

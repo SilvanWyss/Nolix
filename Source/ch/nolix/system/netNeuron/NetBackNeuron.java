@@ -11,7 +11,6 @@ import ch.nolix.system.client.NetServer;
 import ch.nolix.system.client.StandardApplication;
 import ch.nolix.system.client.StandardClient;
 import ch.nolix.system.neuron.Neuron;
-import ch.nolix.system.neuron.TriggerQueue;
 
 //class
 /**
@@ -96,29 +95,6 @@ implements Closable {
 	 */
 	protected int getMinInputNeuronCount() {
 		return 0;
-	}
-	
-	//method
-	/**
-	 * Triggers this net back neuron using the given processor.
-	 */
-	protected void trigger(final TriggerQueue processor) {
-		
-		if (getRefInputs().isEmpty()) {
-			setOutput(null);
-		}
-		else {
-			setOutput(transformer.getOutput(getRefOneInput()));
-			application.getRefClients().forEach(
-					
-				c -> {
-					c.run("SetOutput(" + getRefOutput() + ")");
-					c.run("Trigger");
-				}
-			);
-		}
-		
-		getRefTriggerableNeurons().forEach(tn -> processor.addNeuron(tn));
 	}
 	
 	public void internal_fire() {
