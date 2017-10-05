@@ -8,7 +8,7 @@ import ch.nolix.core.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 70
+ * @lines 80
  * @param <R> The type of the result of a result future.
  */
 public final class ResultFuture<R> {
@@ -71,5 +71,13 @@ public final class ResultFuture<R> {
 	 */
 	public boolean isRunning() {
 		return resultJobRunner.isRunning();
+	}
+	
+	//method
+	/**
+	 * Lets this result future wait until it is finished.
+	 */
+	public void waitUntilFinished() {
+		Sequencer.waitUntil(() -> isFinished());
 	}
 }
