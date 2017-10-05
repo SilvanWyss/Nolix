@@ -1,64 +1,52 @@
-/*
- * file:	VerticalStack.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	110
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.container.List;
-import ch.nolix.core.specification.StandardSpecification;
-
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 120
+ */
 public final class VerticalStack extends Stack<VerticalStack> {
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "VerticalStack";
-	
-	//attribute header
-	public static final String LAYOUT = "Layout";
+	//type name
+	public static final String TYPE_NAME = "VerticalStack";
 
 	//constructor
 	/**
-	 * Creates new vertical stack with default values.
+	 * Creates a new vertical stack with default values.
 	 */
-	public VerticalStack() {}
+	public VerticalStack() {
+		resetConfiguration();
+	}
 	
 	//constructor
 	/**
-	 * Creates new vertical stack with the given attributes.
+	 * Creates a new vertical stack with the given widgets
 	 * 
-	 * @param attributes
-	 * @throws Exception if the given attributes are not valid
+	 * @param widgets
+	 * @throws NullArgumentException if one of the given widgets is null.
 	 */
-	public VerticalStack(List<StandardSpecification> attributes) {
-		addOrChangeAttributes(attributes);
-	}
-	
-	public VerticalStack(final Widget<?, ?>... rectangles) {
+	public VerticalStack(final Widget<?, ?>... widgets) {
 		
-		for (final Widget<?, ?> r: rectangles) {
-			addWidget(r);
-		}
+		//Calls other constructor.
+		this();
+		
+		addWidget(widgets);
 	}
 		
 	//method
 	/**
-	 * @return the current height of the content of this vertical stack
+	 * @return the height of the content of this vertical stack.
 	 */
-	protected final int getContentHeight() {
+	protected int getContentHeight() {
 		
-		int contentHeight = 0;
-		
-		for (Widget<?, ?> r: getRefWidgets()) {
-			contentHeight += r.getHeightWhenNotCollapsed();
-		}
+		int contentHeight = getRefWidgets().getSumByInt(w -> w.getHeight());
 				
+		//Handles the option that this vertical stack contains any widget.
 		if (containsAny()) {
-			contentHeight += (getRefWidgets().getElementCount() - 1) * getActiveElementMargin();
+			contentHeight
+			+= (getRefWidgets().getElementCount() - 1) * getActiveElementMargin();
 		}
 		
 		return contentHeight;
@@ -66,15 +54,17 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	
 	//method
 	/**
-	 * @return the current width of the content of this vertical stack
+	 * @return the width of the content of this vertical stack.
 	 */
-	protected final int getContentWidth() {
+	protected int getContentWidth() {
 		
+		//Handles the case if this vertical stack contains no widget.
 		if (isEmpty()) {
 			return 0;
 		}
 		
-		return getRefWidgets().getMaxInt(r -> r.getWidth());
+		//Handles the case if this vertical stack contains at least 1 widget.
+		return getRefWidgets().getMaxInt(w -> w.getWidth());
 	}
 	
 	//method
@@ -84,20 +74,24 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 * @param relativeXPosition
 	 * @param relativeYPosition
 	 */
-	protected final void setPositionOnContainer(final int relativeXPosition, final int relativeYPosition) {
+	protected void setPositionOnContainer(
+		final int relativeXPosition,
+		final int relativeYPosition
+	) {
 		
 		//Calls method of the base class.
 		super.setPositionOnContainer(relativeXPosition, relativeYPosition);
 		
+		//Enumerates the content position of this vertical stack.
 		switch (getContentOrientation()) {
 			case LeftTop:
 			case LeftBottom:
 			case Left:	
 				final int x = getContentXPosition();
 				int y = getContentYPosition();
-				for (Widget<?, ?> r: getRefShownWidgets()) {
-					r.setPositionOnContainer(x, y);
-					y += r.getHeight() + getActiveElementMargin();
+				for (Widget<?, ?> w: getRefShownWidgets()) {
+					w.setPositionOnContainer(x, y);
+					y += w.getHeight() + getActiveElementMargin();
 				}
 				break;
 			case Top:
@@ -106,9 +100,9 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				final int maxRectangleWidth2 = getRefShownWidgets().getMaxInt(r -> r.getWidth());
 				final int x2 = getContentXPosition();
 				int y2 = getContentYPosition();
-				for (Widget<?, ?> r: getRefShownWidgets()) {			
-					r.setPositionOnContainer((int)(x2 + 0.5 * (maxRectangleWidth2 - r.getWidth())), y2);
-					y2 += r.getHeight() + getActiveElementMargin();
+				for (Widget<?, ?> w: getRefShownWidgets()) {			
+					w.setPositionOnContainer((int)(x2 + 0.5 * (maxRectangleWidth2 - w.getWidth())), y2);
+					y2 += w.getHeight() + getActiveElementMargin();
 				}
 				break;
 			case RightTop:
@@ -117,9 +111,9 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				final int maxRectangleWidth3 = getRefShownWidgets().getMaxInt(r -> r.getWidth());
 				final int x3 = getContentXPosition();
 				int y3 = getContentYPosition();
-				for (Widget<?, ?> r: getRefShownWidgets()) {
-					r.setPositionOnContainer(x3 + maxRectangleWidth3 - r.getWidth(), y3);
-					y3 += r.getHeight() + getActiveElementMargin();
+				for (Widget<?, ?> w: getRefShownWidgets()) {
+					w.setPositionOnContainer(x3 + maxRectangleWidth3 - w.getWidth(), y3);
+					y3 += w.getHeight() + getActiveElementMargin();
 				}
 		}
 	}
