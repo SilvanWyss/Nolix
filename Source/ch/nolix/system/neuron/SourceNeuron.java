@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.system.neuron;
 
-//own import
-import ch.nolix.core.invalidStateException.UnsupportedMethodException;
-
 //class
 /**
  * A source neuron is a neuron that just serves as source.
@@ -33,11 +30,9 @@ extends Neuron<Object, O, SourceNeuron<O>> {
 	
 	//method
 	/**
-	 * @throws UnsupportedMethodException
+	 * Lets this source neuron fire.
 	 */
-	public void internal_fire() {
-		throw new UnsupportedMethodException(this, "trigger");
-	}
+	public void internal_fire() {}
 	
 	//method
 	/**
