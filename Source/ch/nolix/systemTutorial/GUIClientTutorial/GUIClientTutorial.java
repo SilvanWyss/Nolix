@@ -28,6 +28,7 @@ public final class GUIClientTutorial {
 	 * 
 	 * @param arguments
 	 */
+	@SuppressWarnings("resource")
 	public static void main(final String[] arguments) {
 		
 		//Creates application.

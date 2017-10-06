@@ -21,13 +21,9 @@ final class Launcher {
 	 * 
 	 * @param args
 	 */
+	@SuppressWarnings("resource")
 	public static final void main(String[] args) {
-		
-		//Creates timer.
-		final Timer timer = new Timer();
-		
-		//Creates front GUI client.
-		new GUIFrontClient(timer);
+		new GUIFrontClient(new Timer());
 	}
 	
 	//private constructor

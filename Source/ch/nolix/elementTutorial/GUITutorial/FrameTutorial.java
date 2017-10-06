@@ -32,6 +32,7 @@ public final class FrameTutorial {
 	 * 4. Sets a configuration to the frame.
 	 *    A configuration can configure a configurable element like a frame.
 	 */
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		new Frame()
 		.setTitle("Frame Tutorial")
