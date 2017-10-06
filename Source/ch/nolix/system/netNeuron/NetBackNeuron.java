@@ -10,7 +10,7 @@ import ch.nolix.system.client.Application;
 import ch.nolix.system.client.NetServer;
 import ch.nolix.system.client.StandardApplication;
 import ch.nolix.system.client.StandardClient;
-import ch.nolix.system.neuron.Neuronoid;
+import ch.nolix.system.neuronoid.Neuronoid;
 
 //class
 /**

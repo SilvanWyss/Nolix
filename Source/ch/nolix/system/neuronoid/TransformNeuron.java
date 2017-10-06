@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.neuron;
+package ch.nolix.system.neuronoid;
 
 //own imports
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;

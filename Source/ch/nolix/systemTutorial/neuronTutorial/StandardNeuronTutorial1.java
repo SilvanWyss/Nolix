@@ -3,8 +3,8 @@ package ch.nolix.systemTutorial.neuronTutorial;
 
 //own imports
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.system.neuron.SourceNeuron;
-import ch.nolix.system.neuron.StandardNeuron;
+import ch.nolix.system.neuronoid.SourceNeuron;
+import ch.nolix.system.neuronoid.StandardNeuron;
 
 //class
 /**

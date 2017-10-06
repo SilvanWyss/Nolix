@@ -5,8 +5,8 @@ package ch.nolix.systemTutorial.netNeuronTutorial;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.system.netNeuron.NetFrontNeuron;
+import ch.nolix.system.neuronoid.SourceNeuron;
 import ch.nolix.system.netNeuron.NetBackNeuron;
-import ch.nolix.system.neuron.SourceNeuron;
 
 //class
 /**

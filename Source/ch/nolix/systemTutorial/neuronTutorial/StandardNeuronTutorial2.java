@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemTutorial.neuronTutorial;
 
-//own import
-import ch.nolix.system.neuron.StandardNeuron;
+import ch.nolix.system.neuronoid.StandardNeuron;
 
 //class
 /**

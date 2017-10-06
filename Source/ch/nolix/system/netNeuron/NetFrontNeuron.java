@@ -8,7 +8,7 @@ import ch.nolix.core.interfaces.Closable;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.system.client.StandardClient;
-import ch.nolix.system.neuron.Neuronoid;
+import ch.nolix.system.neuronoid.Neuronoid;
 
 //class
 /**
