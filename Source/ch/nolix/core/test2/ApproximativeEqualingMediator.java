@@ -38,6 +38,16 @@ public final class ApproximativeEqualingMediator {
 	
 	//method
 	/**
+	 * Generates an error if the vlaue of this approximateive equaling mediator does not equal the given value.
+	 * 
+	 * @param value
+	 */
+	public void eualsTo(final Object value) {
+		new ObjectMediator(test, this.value).equalsTo(value);
+	}
+	
+	//method
+	/**
 	 * @return a new approximate equaling deviation mediator with the zeta test and the value of this approximative equaling mediator.
 	 */
 	public ApproximativeEqualingDeviationMediator withDefaultMaxDeviation() {

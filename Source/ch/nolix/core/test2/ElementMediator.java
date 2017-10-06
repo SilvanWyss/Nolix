@@ -40,7 +40,7 @@ abstract class ElementMediator<E> extends Mediator {
 	 * 
 	 * @param value
 	 */
-	public final boolean equals(final Object value) {
+	public final void equalsTo(final Object value) {
 		
 		if (getValue() == null && value != null) {
 			new TestAccessor(getZetaTest()).addCurrentTestMethodError("Null was expected, but '" + getValue() + "' was received.");
@@ -53,11 +53,6 @@ abstract class ElementMediator<E> extends Mediator {
 		if (!getValue().equals(value)) {
 			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that is equal to '" + value + "' was expected, but '" + getValue() + "' was received.");
 		}
-		
-		return (
-			(getValue() == null && value == null)
-			|| getValue().equals(value)
-		);
 	}
 	
 	//method

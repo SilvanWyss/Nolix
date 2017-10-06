@@ -39,9 +39,9 @@ public class TextBoxTest extends Test {
 		textBox.getRefNormalStructure().setTextColor(Color.BLUE);
 		
 		//verification
-		expectThat(textBox.getRefNormalStructure().getActiveTextColor()).equals(Color.BLUE);
-		expectThat(textBox.getRefHoverStructure().getActiveTextColor()).equals(Color.BLUE);
-		expectThat(textBox.getRefFocusStructure().getActiveTextColor()).equals(Color.BLUE);
+		expectThat(textBox.getRefNormalStructure().getActiveTextColor()).equalsTo(Color.BLUE);
+		expectThat(textBox.getRefHoverStructure().getActiveTextColor()).equalsTo(Color.BLUE);
+		expectThat(textBox.getRefFocusStructure().getActiveTextColor()).equalsTo(Color.BLUE);
 	}
 	
 	//test method

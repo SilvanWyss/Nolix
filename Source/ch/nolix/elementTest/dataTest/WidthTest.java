@@ -35,7 +35,7 @@ public class WidthTest extends Test {
 		width.reset();
 		
 		//verification
-		expectThat(width.getValue()).equals(Width.DEFAULT_VALUE);;
+		expectThat(width.getValue()).isEqualTo(Width.DEFAULT_VALUE);;
 	}		
 
 	//test method
@@ -48,6 +48,6 @@ public class WidthTest extends Test {
 		width.setValue(250);
 		
 		//verification
-		expectThat(width.getValue()).equals(250);
+		expectThat(width.getValue()).isEqualTo(250);
 	}
 }

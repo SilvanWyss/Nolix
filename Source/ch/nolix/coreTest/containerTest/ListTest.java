@@ -160,7 +160,7 @@ public final class ListTest extends Test {
 		list1.forEach(s -> list2.addAtEnd(s));
 		
 		//verification
-			expectThat(list2.getElementCount()).equals(list1.getElementCount());
+			expectThat(list2.getElementCount()).isEqualTo(list1.getElementCount());
 			
 			//Iterates list1.
 			for (int i = 1; i <= list1.getElementCount(); i++) {
@@ -175,7 +175,7 @@ public final class ListTest extends Test {
 		final List<String> list = new List<String>("x", "x", "x", "x", "x", "x");
 		
 		//execution and verification
-		expectThat(list.getElementCount()).equals(6);
+		expectThat(list.getElementCount()).isEqualTo(6);
 	}
 	
 	//test method
@@ -192,8 +192,8 @@ public final class ListTest extends Test {
 		);
 		
 		//execution and verification
-		expectThat(list.getElementCount(e -> e.length() > 0)).equals(6);
-		expectThat(list.getElementCount(e -> e.length() > 3)).equals(3);
+		expectThat(list.getElementCount(e -> e.length() > 0)).isEqualTo(6);
+		expectThat(list.getElementCount(e -> e.length() > 3)).isEqualTo(3);
 		expectThat(list.getElementCount(e -> e.length() > 6)).isZero();
 	}
 	
@@ -312,12 +312,12 @@ public final class ListTest extends Test {
 		final List<List<String>> sequences = list.getSequences(sequencePattern);
 		
 		//verification
-			expectThat(sequences.getElementCount()).equals(3);
+			expectThat(sequences.getElementCount()).isEqualTo(3);
 			
 			//Iterates the sequences.
 			for (final List<String> s : sequences) {
-				expectThat(s.getElementCount()).equals(2);
-				expectThat(s.getRefAt(1)).equals("x");
+				expectThat(s.getElementCount()).isEqualTo(2);
+				expectThat(s.getRefAt(1)).equalsTo("x");
 			}
 	}
 	
@@ -349,13 +349,13 @@ public final class ListTest extends Test {
 		final List<List<String>> sequences = list.getSequences(sequencePattern);
 		
 		//verification
-			expectThat(sequences.getElementCount()).equals(4);
+			expectThat(sequences.getElementCount()).isEqualTo(4);
 			
 			//Iterates the sequences.
 			for (final List<String> s : sequences) {
-				expectThat(s.getElementCount()).equals(2);
-				expectThat(s.getRefAt(1)).equals("x");
-				expectThat(s.getRefAt(2)).equals("xxxx");
+				expectThat(s.getElementCount()).isEqualTo(2);
+				expectThat(s.getRefAt(1)).equalsTo("x");
+				expectThat(s.getRefAt(2)).equalsTo("xxxx");
 			}
 	}
 	
@@ -372,7 +372,7 @@ public final class ListTest extends Test {
 		);
 		
 		//execution and verification
-		expectThat(list.getVarianceByDouble(e -> e.doubleValue())).equals(0.2);
+		expectThat(list.getVarianceByDouble(e -> e.doubleValue())).isEqualTo(0.2);
 	}
 	
 	//test method
@@ -472,7 +472,7 @@ public final class ListTest extends Test {
 		final SubContainer<String> subList = list.skipFirstElements(3);
 		
 		//verification
-			expectThat(subList.getElementCount()).equals(3);
+			expectThat(subList.getElementCount()).isEqualTo(3);
 			
 			final Iterator<String> iterator = subList.iterator();
 			
@@ -559,14 +559,14 @@ public final class ListTest extends Test {
 		final Object[] array = list.toArray();
 		
 		//verification
-			expectThat(array.length).equals(6);
+			expectThat(array.length).isEqualTo(6);
 			
-			expectThat(array[0]).equals("x");
-			expectThat(array[1]).equals("xx");
-			expectThat(array[2]).equals("xxx");
-			expectThat(array[3]).equals("xxxx");
-			expectThat(array[4]).equals("xxxxx");
-			expectThat(array[5]).equals("xxxxxx");
+			expectThat(array[0]).equalsTo("x");
+			expectThat(array[1]).equalsTo("xx");
+			expectThat(array[2]).equalsTo("xxx");
+			expectThat(array[3]).equalsTo("xxxx");
+			expectThat(array[4]).equalsTo("xxxxx");
+			expectThat(array[5]).equalsTo("xxxxxx");
 	}
 	
 	//test method
@@ -586,14 +586,14 @@ public final class ListTest extends Test {
 		final int[] array = list.toIntArray(s -> s.length());
 		
 		//verification
-			expectThat(array.length).equals(6);
+			expectThat(array.length).isEqualTo(6);
 			
-			expectThat(array[0]).equals(1);
-			expectThat(array[1]).equals(2);
-			expectThat(array[2]).equals(3);
-			expectThat(array[3]).equals(4);
-			expectThat(array[4]).equals(5);
-			expectThat(array[5]).equals(6);
+			expectThat(array[0]).isEqualTo(1);
+			expectThat(array[1]).isEqualTo(2);
+			expectThat(array[2]).isEqualTo(3);
+			expectThat(array[3]).isEqualTo(4);
+			expectThat(array[4]).isEqualTo(5);
+			expectThat(array[5]).isEqualTo(6);
 	}
 	
 	//test method

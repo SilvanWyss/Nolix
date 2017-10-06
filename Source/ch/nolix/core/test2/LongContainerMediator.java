@@ -217,7 +217,7 @@ public final class LongContainerMediator extends Mediator {
 		//Handles the case if the given values are not null.
 		else {
 			for (Long v: values) {
-				new LongMediator(getZetaTest(), v).equals(value);
+				new LongMediator(getZetaTest(), v).isEqualTo(value);
 			}
 		}
 	}

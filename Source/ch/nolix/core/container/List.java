@@ -421,14 +421,16 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 			
 			final E2 categoryRepresentator = norm.getOutput(e);
 			
-			final List<E> list
-			= groups.getRefFirstOrNull(l -> l.contains(e2 -> e2.equals(categoryRepresentator)));
+			final List<E> group
+			= groups.getRefFirstOrNull(
+				l -> l.contains(e2 -> norm.getOutput(e).equals(categoryRepresentator))
+			);
 			
-			if (list== null) {
+			if (group == null) {
 				groups.addAtEnd(new List<E>(e));
 			}
 			else {
-				list.addAtEnd(e);
+				group.addAtEnd(e);
 			}
 		}
 		

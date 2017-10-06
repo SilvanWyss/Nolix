@@ -102,7 +102,7 @@ public final class DoubleMediator extends Mediator {
 	 * @param value
 	 * @throws Error if the value of this double mediator is not equal to the given value
 	 */
-	public final void equals(final double value) {
+	public final void isEqualTo(final double value) {
 		if (this.value != value) {
 			new TestAccessor(getZetaTest()).addCurrentTestMethodError(value + " was expected, but " + this.value + " was received.");
 		}
@@ -188,7 +188,7 @@ public final class DoubleMediator extends Mediator {
 	 * @throws Error if the value of this double mediator is not 1.0
 	 */
 	public final void isOne() {
-		equals(1.0);
+		isEqualTo(1.0);
 	}
 
 	//method
@@ -228,7 +228,7 @@ public final class DoubleMediator extends Mediator {
 	 * @throws Error if the value of this double mediator is not zero
 	 */
 	public final void isZero() {
-		equals(0.0);
+		isEqualTo(0.0);
 	}
 	
 	//method

@@ -115,7 +115,7 @@ public class LongMediator extends Mediator {
 	 * @param value
 	 * @throws Error if the value of this long mediator is not equal to the given value
 	 */
-	public void equals(final int value) {		
+	public void isEqualTo(final long value) {		
 		if (this.value != value) {
 			new TestAccessor(getZetaTest()).addCurrentTestMethodError(value + " was expected, but " + this.value + " was received.");
 		}
@@ -272,7 +272,7 @@ public class LongMediator extends Mediator {
 	 */
 	public LongConjunctionMediator isOne() {
 		
-		equals(1);
+		isEqualTo(1);
 		
 		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}
@@ -327,7 +327,7 @@ public class LongMediator extends Mediator {
 	 */
 	public LongConjunctionMediator isZero() {
 		
-		equals(0);
+		isEqualTo(0);
 		
 		return new LongConjunctionMediator(getZetaTest(), this.value);
 	}

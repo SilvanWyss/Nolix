@@ -28,8 +28,8 @@ public final class MatrixTest extends Test {
 			final Matrix matrix = Matrix.createIdendityMatrix(i);
 			
 			//verification
-			expectThat(matrix.getRowCount()).equals(i);
-			expectThat(matrix.getColumnCount()).equals(i);
+			expectThat(matrix.getRowCount()).isEqualTo(i);
+			expectThat(matrix.getColumnCount()).isEqualTo(i);
 		}
 	}
 	
@@ -46,7 +46,7 @@ public final class MatrixTest extends Test {
 			final Matrix matrix = Matrix.createIdendityMatrix(i);
 			
 			//execution and verification
-			expectThat(matrix.getRank()).equals(i);
+			expectThat(matrix.getRank()).isEqualTo(i);
 		}
 	}
 	
@@ -63,7 +63,7 @@ public final class MatrixTest extends Test {
 			final Matrix matrix = Matrix.createIdendityMatrix(i);
 			
 			//execution and verification
-			expectThat(matrix.getTrace()).equals(i);
+			expectThat(matrix.getTrace()).isEqualTo(i);
 		}
 	}
 
@@ -79,7 +79,7 @@ public final class MatrixTest extends Test {
 		
 		//verification
 		final Matrix expectedMatrix = new Matrix(2, 3).setValues(6.0, 6.0, 6.0, 8.0, 8.0, 8.0);
-		expectThat(sum).equals(expectedMatrix);
+		expectThat(sum).eualsTo(expectedMatrix);
 	}
 	
 	//test method
@@ -94,7 +94,7 @@ public final class MatrixTest extends Test {
 		
 		//verification
 		final Matrix expectedMatrix = new Matrix(2, 4).setValues(1.0, 1.0, 5.0, 5.0, 2.0, 2.0, 6.0, 6.0);
-		expectThat(matrix1).equals(expectedMatrix);
+		expectThat(matrix1).eualsTo(expectedMatrix);
 	}
 	
 	//test method
@@ -107,7 +107,7 @@ public final class MatrixTest extends Test {
 		final Matrix inverse = matrix.getInverse();
 		
 		//verification
-		expectThat(matrix.getProduct(inverse)).equals(Matrix.createIdendityMatrix(2));
+		expectThat(matrix.getProduct(inverse)).eualsTo(Matrix.createIdendityMatrix(2));
 	}
 	
 	//test method
@@ -148,7 +148,7 @@ public final class MatrixTest extends Test {
 		
 		//verification
 		final Matrix expectedProduct = new Matrix(2, 2).setValues(6, 6, 12, 12);
-		expectThat(product).equals(expectedProduct);
+		expectThat(product).eualsTo(expectedProduct);
 	}
 	
 	//test method
@@ -161,9 +161,9 @@ public final class MatrixTest extends Test {
 		final double[] solution = matrix.getSolutionAsExtendedMatrix();
 		
 		//verification
-		expectThat(solution.length).equals(2);;
-		expectThat(solution[0]).equals(2.5);
-		expectThat(solution[1]).equals(5.0);
+		expectThat(solution.length).isEqualTo(2);;
+		expectThat(solution[0]).isEqualTo(2.5);
+		expectThat(solution[1]).isEqualTo(5.0);
 	}
 	
 	//test method
@@ -176,10 +176,10 @@ public final class MatrixTest extends Test {
 		final double[] solution = matrix.getSolutionAsExtendedMatrix();
 		
 		//verification
-		expectThat(solution.length).equals(3);;
-		expectThat(solution[0]).equals(1.0);
-		expectThat(solution[1]).equals(1.0);
-		expectThat(solution[2]).equals(1.0);
+		expectThat(solution.length).isEqualTo(3);;
+		expectThat(solution[0]).isEqualTo(1.0);
+		expectThat(solution[1]).isEqualTo(1.0);
+		expectThat(solution[2]).isEqualTo(1.0);
 	}
 	
 	//test method
@@ -193,7 +193,7 @@ public final class MatrixTest extends Test {
 		
 		//verification
 		Matrix expectedTransposed = new Matrix(3, 4).setValues(20.0, 10.0, 20.0, 10.0, 10.0, 20.0, 10.0, 20.0, 1.0, 1.0, 1.0, 1.0);
-		expectThat(transposed).equals(expectedTransposed);
+		expectThat(transposed).eualsTo(expectedTransposed);
 	}
 	
 	//test method
