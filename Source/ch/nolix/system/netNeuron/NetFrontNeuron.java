@@ -8,7 +8,7 @@ import ch.nolix.core.interfaces.Closable;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.system.client.StandardClient;
-import ch.nolix.system.neuron.Neuron;
+import ch.nolix.system.neuron.Neuronoid;
 
 //class
 /**
@@ -23,7 +23,7 @@ import ch.nolix.system.neuron.Neuron;
  * @param <O> The type of the output of a net front neuron.
  */
 public final class NetFrontNeuron<O>
-extends Neuron<Object, O, NetFrontNeuron<O>>
+extends Neuronoid<Object, O, NetFrontNeuron<O>>
 implements Closable {
 
 	//attributes

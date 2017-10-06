@@ -15,14 +15,14 @@ import ch.nolix.core.validator2.Validator;
  * @param <IO> - The type of the input and output of the neurons of this neuronal net.
  */
 public final class NeuronalNet<IO>
-extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
+extends Neuronoid<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 
 	//attributes
 	private final FanoutNeuron<IO> inputFanoutNeuron = new FanoutNeuron<IO>();
 	private final BundleNeuron<IO> outputBundleNeuron = new BundleNeuron<IO>();
 	//private final Neuron<IO, IO, ?> triggerableStartNeuron;
 	
-	private final Iterable<Neuron<IO, IO, ?>> internalOutputNeurons;
+	private final Iterable<Neuronoid<IO, IO, ?>> internalOutputNeurons;
 	
 	//constructor
 	/**
@@ -36,7 +36,7 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 	 * @throws NullArgumentException if the given triggerable start neuron is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public <M extends Neuron<IO, IO, M>> NeuronalNet(
+	public <M extends Neuronoid<IO, IO, M>> NeuronalNet(
 		final Iterable<M> inputLayerNeurons,
 		final Iterable<M> outputLayerNeurons,
 		final M triggerableStartNeuron
@@ -65,15 +65,15 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 		//Sets the triggerable start neuron of this neuronal net.
 		//this.triggerableStartNeuron = triggerableStartNeuron;
 		
-		this.internalOutputNeurons = (Iterable<Neuron<IO, IO, ?>>)outputLayerNeurons;
+		this.internalOutputNeurons = (Iterable<Neuronoid<IO, IO, ?>>)outputLayerNeurons;
 	}
 	
 	//method
 	/**
 	 * @return the neurons of this neuronal net.
 	 */
-	public List<Neuron<?, ?, ?>> getRefNeurons() {
-		final List<Neuron<?, ?, ?>> neurons = new List<Neuron<?, ?, ?>>();
+	public List<Neuronoid<?, ?, ?>> getRefNeurons() {
+		final List<Neuronoid<?, ?, ?>> neurons = new List<Neuronoid<?, ?, ?>>();
 		internalOutputNeurons.forEach(on -> fillUpInputNeuronsRecursively(on, neurons));
 		return neurons;
 	}
@@ -83,12 +83,12 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 	 * @return the neurons of this neuronal net.
 	 */
 	@SuppressWarnings("unchecked")
-	public <N extends Neuron<IO, IO, N>> List<N> getRefNeuronsOfInputOutputType() {
+	public <N extends Neuronoid<IO, IO, N>> List<N> getRefNeuronsOfInputOutputType() {
 		
 		final List<N> neurons = new List<N>();
 		
 		//Adds the suitable internal output neurons of this neuronal net.
-		for (Neuron<IO, IO, ?> on : internalOutputNeurons) {
+		for (Neuronoid<IO, IO, ?> on : internalOutputNeurons) {
 			try {
 				final N outputNeuron = (N)on;
 				fillUpInputNeuronsOfInputOutputTypeRecursively(outputNeuron, neurons);
@@ -150,8 +150,8 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 	 * @param neurons
 	 */
 	private void fillUpInputNeuronsRecursively(
-		final Neuron<?, ?, ?> neuron,
-		final List<Neuron<?, ?, ?>> neurons
+		final Neuronoid<?, ?, ?> neuron,
+		final List<Neuronoid<?, ?, ?>> neurons
 	) {
 		if (!neurons.contains(neuron) && !isInternalInputNeuron(neuron)) {
 			neurons.addAtEnd(neuron);
@@ -167,7 +167,7 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 	 * @param neurons
 	 */
 	@SuppressWarnings("unchecked")
-	private <N extends Neuron<IO, IO, N>> void fillUpInputNeuronsOfInputOutputTypeRecursively(
+	private <N extends Neuronoid<IO, IO, N>> void fillUpInputNeuronsOfInputOutputTypeRecursively(
 		final N neuron,
 		final List<N> neurons
 	) {
@@ -175,7 +175,7 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 			neurons.addAtEnd(neuron);
 			
 			//Iterates the input neurons of the given neuron.
-			for (Neuron<?, IO, ?> in: neuron.getRefInputNeurons()) {
+			for (Neuronoid<?, IO, ?> in: neuron.getRefInputNeurons()) {
 				
 				//Adds the suitable input neurons of the given neuron to the given neuron container.
 				try {
@@ -192,7 +192,7 @@ extends Neuron<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 	 * @param neuron
 	 * @return true if the given neuron is an internal input neuron.
 	 */
-	private boolean isInternalInputNeuron(final Neuron<?, ?, ?> neuron) {	
+	private boolean isInternalInputNeuron(final Neuronoid<?, ?, ?> neuron) {	
 		return inputFanoutNeuron.containsOutputNeuron(neuron);
 	}
 }

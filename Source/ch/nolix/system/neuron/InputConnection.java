@@ -20,7 +20,7 @@ public final class InputConnection<O> {
 	public static final double DEFAULT_WEIGHT = 1.0;
 	
 	//attributes
-	private final Neuron<?, O, ?> inputNeuron;
+	private final Neuronoid<?, O, ?> inputNeuron;
 	private double weight = DEFAULT_WEIGHT;
 	
 	//constructor
@@ -30,7 +30,7 @@ public final class InputConnection<O> {
 	 * @param inputNeuron
 	 * @throws NullArgumentException if the given input neuron is null.
 	 */
-	public InputConnection(final Neuron<?, O, ?> inputNeuron) {
+	public InputConnection(final Neuronoid<?, O, ?> inputNeuron) {
 		
 		//Checks if the given input neuron is not null.
 		Validator.suppose(inputNeuron).thatIsNamed("input neuron").isNotNull();
@@ -46,7 +46,7 @@ public final class InputConnection<O> {
 	 * @param inputNeuron
 	 * @throws NullArgumentException if the given input neuron is null.
 	 */
-	public InputConnection(final double weight, final Neuron<?, O, ?> inputNeuron) {
+	public InputConnection(final double weight, final Neuronoid<?, O, ?> inputNeuron) {
 
 		//Calls other constructor.
 		this(inputNeuron);
@@ -75,7 +75,7 @@ public final class InputConnection<O> {
 	 * @param inputNeuron
 	 * @return true if this input connection has the given input neuron.
 	 */
-	public boolean hasInputNeuron(final Neuron<?, ?, ?> inputNeuron) {	
+	public boolean hasInputNeuron(final Neuronoid<?, ?, ?> inputNeuron) {	
 		return (this.inputNeuron == inputNeuron);
 	}
 	
@@ -93,7 +93,7 @@ public final class InputConnection<O> {
 	/**
 	 * @return the input neuron of this input connection.
 	 */
-	final Neuron<?, O, ?> getRefInputNeuron() {
+	final Neuronoid<?, O, ?> getRefInputNeuron() {
 		return inputNeuron;
 	}
 }

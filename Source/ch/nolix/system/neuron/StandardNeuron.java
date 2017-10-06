@@ -16,7 +16,7 @@ import ch.nolix.core.validator2.Validator;
  * @param <IO> - The type of the input and output of a standard neuron.
  */
 public final class StandardNeuron<IO>
-extends Neuron<IO, IO, StandardNeuron<IO>> {
+extends Neuronoid<IO, IO, StandardNeuron<IO>> {
 	
 	//attribute
 	private IElementTakerElementGetter<Iterable<InputConnection<IO>>, IO> outputFunction;

@@ -10,7 +10,7 @@ import ch.nolix.system.client.Application;
 import ch.nolix.system.client.NetServer;
 import ch.nolix.system.client.StandardApplication;
 import ch.nolix.system.client.StandardClient;
-import ch.nolix.system.neuron.Neuron;
+import ch.nolix.system.neuron.Neuronoid;
 
 //class
 /**
@@ -25,7 +25,7 @@ import ch.nolix.system.neuron.Neuron;
  * @param <I> The type of the input of a net back neuron.
  */
 public final class NetBackNeuron<I>
-extends Neuron<I, Object, NetBackNeuron<I>>
+extends Neuronoid<I, Object, NetBackNeuron<I>>
 implements Closable {
 		
 	//application name

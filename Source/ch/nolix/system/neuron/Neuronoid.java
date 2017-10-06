@@ -24,14 +24,14 @@ import ch.nolix.core.validator2.Validator;
  * @param <O> - The type of the output of a neuron.
  * @param <N> - The type of a neuron.
  */
-public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
+public abstract class Neuronoid<I, O, N extends Neuronoid<I, O, N>> {
 	
 	//attribute
 	private O output;
 	
 	//multiple attributes
 	private final List<InputConnection<I>> inputConnections = new List<InputConnection<I>>();
-	private final List<Neuron<O, ?, ?>> outputNeurons = new List<Neuron<O, ?, ?>>();
+	private final List<Neuronoid<O, ?, ?>> outputNeurons = new List<Neuronoid<O, ?, ?>>();
 	
 	//method
 	/**
@@ -44,7 +44,7 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	 * @throws NonSmallerArgumentException if this neuron has reached its maximal number of input neurons.
 	 * @throws RuntimeException if this neuron contains already the given input neuron.
 	 */
-	public final N addInputNeuron(final Neuron<?, I, ?> inputNeuron) {
+	public final N addInputNeuron(final Neuronoid<?, I, ?> inputNeuron) {
 		return addInputConnection(new InputConnection<I>(inputNeuron));
 	}
 	
@@ -60,7 +60,7 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	 * @throws NonSmallerArgumentException if this neuron has reached its maximal number of input neurons.
 	 * @throws RuntimeException if this neuron contains already the given input neuron.
 	 */
-	public final N addInputNeuron(final double weight, final Neuron<?, I, ?> inputNeuron) {
+	public final N addInputNeuron(final double weight, final Neuronoid<?, I, ?> inputNeuron) {
 		return addInputConnection(new InputConnection<I>(weight, inputNeuron));
 	}
 	
@@ -100,7 +100,7 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	 * @throws InvalidArgumentException if this neuron does not contain the given input neuron.
 	 */
 	@SuppressWarnings("unchecked")
-	public final N removeInputNeuron(final Neuron<?, ?, ?> inputNeuron) {
+	public final N removeInputNeuron(final Neuronoid<?, ?, ?> inputNeuron) {
 		
 		//Checks if this neuron has not reached its minimal number of input neurons.
 		Validator.suppose(getInputNeuronCount()).isSmallerThan(getMinInputNeuronCount());
@@ -123,18 +123,18 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	 * Lets this neuron fire.
 	 */
 	public void fire() {
-		final List<Neuron<?, ?, ?>> nextNeurons = new List<Neuron<?, ?, ?>>(this);
-		final List<Neuron<?, ?, ?>> visitedNeurons = new List<Neuron<?, ?, ?>>();
+		final List<Neuronoid<?, ?, ?>> nextNeurons = new List<Neuronoid<?, ?, ?>>(this);
+		final List<Neuronoid<?, ?, ?>> visitedNeurons = new List<Neuronoid<?, ?, ?>>();
 		while (nextNeurons.containsAny()) {
 			nextNeurons.removeAndGetRefFirst().fire(nextNeurons, visitedNeurons);
 		}
 	}
 	
-	private void fire(List<Neuron<?, ?, ?>> nextNeurons, List<Neuron<?, ?, ?>> visitedNeurons) {
+	private void fire(List<Neuronoid<?, ?, ?>> nextNeurons, List<Neuronoid<?, ?, ?>> visitedNeurons) {
 		if (!visitedNeurons.contains(this)) {
 			internal_fire();
 			visitedNeurons.addAtEnd(this);
-			final List<Neuron<O, ?, ?>> x = outputNeurons.getRefSelected(n -> !visitedNeurons.contains(n));
+			final List<Neuronoid<O, ?, ?>> x = outputNeurons.getRefSelected(n -> !visitedNeurons.contains(n));
 			x.forEach(n -> nextNeurons.addAtEnd(n));
 		}
 	}
@@ -217,7 +217,7 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	/**
 	 * @return the input neurons of this neuron.
 	 */
-	final IContainer<Neuron<?, I, ?>> getRefInputNeurons() {
+	final IContainer<Neuronoid<?, I, ?>> getRefInputNeurons() {
 		return inputConnections.to(ic -> ic.getRefInputNeuron());
 	}
 	
@@ -226,7 +226,7 @@ public abstract class Neuron<I, O, N extends Neuron<I, O, N>> {
 	 * @return the one input neuron of this neuron.
 	 * @throws InvalidArgumentException if this neuron contains no or several input neurons.
 	 */
-	final Neuron<?, I, ?> getRefOneInputNeuron(){
+	final Neuronoid<?, I, ?> getRefOneInputNeuron(){
 		return inputConnections.getRefOne().getRefInputNeuron();
 	}
 	

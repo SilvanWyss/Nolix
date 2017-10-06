@@ -16,7 +16,7 @@ import ch.nolix.core.validator2.Validator;
  * @param <O> - The type of the output of a transform neuron.
  */
 public final class TransformNeuron<I, O>
-extends Neuron<I, O, TransformNeuron<I, O>> {
+extends Neuronoid<I, O, TransformNeuron<I, O>> {
 	
 	//constants
 	private static final int MIN_INPUT_NEURON_COUNT = 1;
@@ -35,7 +35,7 @@ extends Neuron<I, O, TransformNeuron<I, O>> {
 	 * @throws NullArgumentException if the given transform function is null.
 	 */
 	public TransformNeuron(
-		final Neuron<?, I, ?> inputNeuron,
+		final Neuronoid<?, I, ?> inputNeuron,
 		final IElementTakerElementGetter<I, O> transformer
 	) {
 		//Checks if the given transform function is not null.

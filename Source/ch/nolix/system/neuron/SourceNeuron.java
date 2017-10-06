@@ -10,7 +10,7 @@ package ch.nolix.system.neuron;
  * @lines 50
  */
 public final class SourceNeuron<O>
-extends Neuron<Object, O, SourceNeuron<O>> {
+extends Neuronoid<Object, O, SourceNeuron<O>> {
 
 	//constructor
 	/**

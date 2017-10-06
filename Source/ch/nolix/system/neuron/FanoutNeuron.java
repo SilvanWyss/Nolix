@@ -23,7 +23,7 @@ import ch.nolix.core.sequencer.Sequencer;
  * @param <O> - The type of the elements of the input container and output container of a fanout neuron.
  */
 public final class  FanoutNeuron<O>
-extends Neuron<Iterable<O>, Iterable<O>, FanoutNeuron<O>> {
+extends Neuronoid<Iterable<O>, Iterable<O>, FanoutNeuron<O>> {
 
 	//attribute
 	private final List<TransformNeuron<Iterable<O>, O>> outputNeurons = new List<TransformNeuron<Iterable<O>, O>>();
@@ -60,7 +60,7 @@ extends Neuron<Iterable<O>, Iterable<O>, FanoutNeuron<O>> {
 	 * @param neuron
 	 * @return true if this fanout neurons contains the given output neuron.
 	 */
-	public boolean containsOutputNeuron(final Neuron<?, ?, ?> neuron) {
+	public boolean containsOutputNeuron(final Neuronoid<?, ?, ?> neuron) {
 		return outputNeurons.contains(neuron);
 	}
 	

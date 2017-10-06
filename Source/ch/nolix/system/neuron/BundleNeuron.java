@@ -12,7 +12,7 @@ package ch.nolix.system.neuron;
  * @param <O> - The type of the elements of the input container of a bundle neuron.
  */
 public final class BundleNeuron<O>
-extends Neuron<O, Iterable<O>, BundleNeuron<O>> {
+extends Neuronoid<O, Iterable<O>, BundleNeuron<O>> {
 	
 	//method
 	/**
