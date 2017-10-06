@@ -8,7 +8,7 @@
 //package declaration
 package ch.nolix.elementTest;
 
-import ch.nolix.core.baseTest.TestPool;
+import ch.nolix.core.testoid.TestPool;
 import ch.nolix.elementTest.GUITest.GUITestPool;
 import ch.nolix.elementTest.dataTest.DataTestPool;
 

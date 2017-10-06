@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.baseTest;
+package ch.nolix.core.testoid;
 
 //Java imports
 import java.lang.reflect.Method;
@@ -12,7 +12,7 @@ import java.util.Vector;
  * @month 2016-08
  * @lines 130
  */
-public abstract class BaseTest {
+public abstract class Testoid {
 	
 	//multiple attributes
 	private final Vector<String> lastErrors = new Vector<String>();
@@ -20,7 +20,7 @@ public abstract class BaseTest {
 
 	//method
 	/**
-	 * Runs this base test and prints out the test results to the console.
+	 * Runs this test and prints out the test results to the console.
 	 */
 	public final void run() {
 		
@@ -97,7 +97,7 @@ public abstract class BaseTest {
 	
 	//method
 	/**
-	 * Lets this base test register the given element to close.
+	 * Lets this test register the given element to close.
 	 * 
 	 * @param element
 	 */
@@ -109,7 +109,7 @@ public abstract class BaseTest {
 	
 	//package-visible method
 	/**
-	 * Adds the given current test method error to this base test.
+	 * Adds the given current test method error to this test.
 	 * 
 	 * @param currentTestMethodError
 	 */

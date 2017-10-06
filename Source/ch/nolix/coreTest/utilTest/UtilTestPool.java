@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coreTest.utilTest;
 
-import ch.nolix.core.baseTest.TestPool;
+import ch.nolix.core.testoid.TestPool;
 import ch.nolix.elementTest.coreTest.TimeTest;
 
 //class

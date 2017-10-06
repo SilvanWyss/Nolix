@@ -8,9 +8,9 @@
 //package declaration
 package ch.nolix.core.test2;
 
-import ch.nolix.core.baseTest.TestAccessor;
 //own import
 import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
+import ch.nolix.core.testoid.TestAccessor;
 
 //class
 public class LongMediator extends Mediator {

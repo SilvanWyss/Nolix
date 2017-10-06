@@ -4,10 +4,10 @@ package ch.nolix.core.test2;
 //Java import
 import java.util.Vector;
 
-import ch.nolix.core.baseTest.TestAccessor;
 //own imports
 import ch.nolix.core.functionInterfaces.IRunner;
 import ch.nolix.core.interfaces.ApproximativeEqualing;
+import ch.nolix.core.testoid.TestAccessor;
 
 //abstract class
 /**
@@ -17,7 +17,7 @@ import ch.nolix.core.interfaces.ApproximativeEqualing;
  * @month 2016-08
  * @lines 150
  */
-public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
+public abstract class Test extends ch.nolix.core.testoid.Testoid {
 		
 	//method
 	/**

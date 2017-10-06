@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.baseTest;
+package ch.nolix.core.testoid;
 
 //own import
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
@@ -18,7 +18,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
 public final class TestAccessor {
 
 	//attribute
-	private final BaseTest test;
+	private final Testoid test;
 	
 	//constructor
 	/**
@@ -27,7 +27,7 @@ public final class TestAccessor {
 	 * @param test
 	 * @throws NullArgumentException if the given test is null.
 	 */
-	public TestAccessor(final BaseTest test) {
+	public TestAccessor(final Testoid test) {
 		
 		//Checks if the given test is not null.
 		if (test == null) {

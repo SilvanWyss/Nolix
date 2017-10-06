@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.baseTest;
+package ch.nolix.core.testoid;
 
 //Java import
 import java.util.Vector;
@@ -22,7 +22,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
 public abstract class TestPool implements Runnable {
 
 	//multiple attribute
-	private final Vector<BaseTest> tests = new Vector<BaseTest>();
+	private final Vector<Testoid> tests = new Vector<Testoid>();
 	private final Vector<TestPool> testPools = new Vector<TestPool>();
 	
 	//method
@@ -46,9 +46,9 @@ public abstract class TestPool implements Runnable {
 	 * @param test
 	 * @return true if this test pool contains the given test recursively.
 	 */
-	public final boolean containsTestRecursively(final BaseTest test) {
+	public final boolean containsTestRecursively(final Testoid test) {
 		
-		for (final BaseTest t : tests) {
+		for (final Testoid t : tests) {
 			if (t == test) {
 				return true;
 			}
@@ -79,7 +79,7 @@ public abstract class TestPool implements Runnable {
 	 * @param test
 	 * @throws NullArgumentException if the given test is null.
 	 */
-	protected final void addTest(final BaseTest test) {
+	protected final void addTest(final Testoid test) {
 		
 		//Checks if the given test is not null.
 		if (test == null) {
@@ -96,10 +96,10 @@ public abstract class TestPool implements Runnable {
 	 * @param tests
 	 * @throws NullArgumentException if one of the given test is null.
 	 */
-	protected final void addTest(BaseTest... tests) {
+	protected final void addTest(Testoid... tests) {
 		
 		//Iterates the given tests.
-		for (BaseTest t: tests) {
+		for (Testoid t: tests) {
 			addTest(t);
 		}
 	}

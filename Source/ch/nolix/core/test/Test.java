@@ -8,15 +8,15 @@
 //package declaration
 package ch.nolix.core.test;
 
-import ch.nolix.core.baseTest.TestAccessor;
 //own import
 import ch.nolix.core.interfaces.ApproximativeEqualing;
+import ch.nolix.core.testoid.TestAccessor;
 
 //abstract class
 /**
  * A test contains test methods and can execute them.
  */
-public abstract class Test extends ch.nolix.core.baseTest.BaseTest {
+public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	
 	//constant
 	private static final double EPSILON = 0.000000001;
