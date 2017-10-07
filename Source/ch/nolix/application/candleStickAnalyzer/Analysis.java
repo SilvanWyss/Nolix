@@ -8,7 +8,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.container.SequencePattern;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.element.finance.QuandlDataProvider;
-import ch.nolix.element.finance.VolumeCandleStick;
+import ch.nolix.element.finance.VolumeCandlestick;
 
 //class
 /**
@@ -20,7 +20,7 @@ public final class Analysis {
 
 	//attributes
 	private final ArgumentOfficer argumentOfficer;
-	private final List<List<VolumeCandleStick>> potentialSequences;
+	private final List<List<VolumeCandlestick>> potentialSequences;
 	private final int winSequenceCount;
 	private final double averageOutputToInputRatio;
 	
@@ -31,15 +31,15 @@ public final class Analysis {
 		this.argumentOfficer = argumentOfficer.getCopy();
 		
 		//Creates sequence pattern.
-		final SequencePattern<VolumeCandleStick> sequencePattern
-		= new SequencePattern<VolumeCandleStick>()
+		final SequencePattern<VolumeCandlestick> sequencePattern
+		= new SequencePattern<VolumeCandlestick>()
 		.forNext(this.argumentOfficer.getRedCandleStickCountBeforeHammer()).addCondition(vcs -> vcs.isBearish())
 		.addConditionForNext(vcs -> vcs.isHammer(this.argumentOfficer.getHammerMinLowerWickLengthRation()))
 		.forNext(this.argumentOfficer.getGreenCandleStickCountAfterHammer()).addCondition(vcs -> vcs.isBullish())
 		.forNext(this.argumentOfficer.getMaxKeepingDayCount()).addBlank();
 		
 		//Fetches the candle sticks.
-		final List<VolumeCandleStick> candleSticks
+		final List<VolumeCandlestick> candleSticks
 		= new QuandlDataProvider().getCandleSticksPerDay(
 			this.argumentOfficer.getProductSymbol(),
 			this.argumentOfficer.getStartTime(),
@@ -59,7 +59,7 @@ public final class Analysis {
 		//Iterates the potential sequences.
 		int winSequenceCount = 0;
 		double outputToInputRatioSum = 0.0;
-		for (final List<VolumeCandleStick> ps : potentialSequences) {
+		for (final List<VolumeCandlestick> ps : potentialSequences) {
 			
 			final double buyPrice = ps.getRefAt(buyIndex).getOpeningPrice();
 			
@@ -67,7 +67,7 @@ public final class Analysis {
 						
 			//Iterates the volume candle sticks of the current potential sequence.
 			int i = 1;
-			for (final VolumeCandleStick vcs : ps) {
+			for (final VolumeCandlestick vcs : ps) {
 				
 				if (i > buyIndex) {
 					if (1.0 - (vcs.getClosingPrice() / vcs.getOpeningPrice()) > this.argumentOfficer.getMaxLossRatioPerDay()) {
@@ -127,9 +127,9 @@ public final class Analysis {
 		data += "potential sequences:";
 		data += CharacterCatalogue.NEW_LINE;
 		data += CharacterCatalogue.NEW_LINE;		
-		for (final List<VolumeCandleStick> ps : potentialSequences) {
+		for (final List<VolumeCandlestick> ps : potentialSequences) {
 			
-			for (final VolumeCandleStick vcs : ps) {
+			for (final VolumeCandlestick vcs : ps) {
 				data += vcs.getSpecification().toString();
 			    data += CharacterCatalogue.NEW_LINE;
 			}

@@ -7,7 +7,7 @@ import ch.nolix.core.test2.Test;
 import ch.nolix.element.core.Time;
 import ch.nolix.element.finance.DataProvider;
 import ch.nolix.element.finance.NASDAQProductSymbolManager;
-import ch.nolix.element.finance.VolumeCandleStick;
+import ch.nolix.element.finance.VolumeCandlestick;
 
 //test class
 /**
@@ -23,7 +23,7 @@ public final class DataProviderTest extends Test {
 	public void test_getCandleSticksPerDay2() {
 		
 		//execution
-		final List<VolumeCandleStick> candleSticksPerDay 
+		final List<VolumeCandlestick> candleSticksPerDay 
 		= DataProvider.getCandleSticksPerDay2(
 			NASDAQProductSymbolManager.MICROSOFT_CORPORATION,
 			new Time(2015, 1, 1, 0, 0),
@@ -31,7 +31,7 @@ public final class DataProviderTest extends Test {
 		);
 		
 		//verification
-		for (final VolumeCandleStick cspd: candleSticksPerDay) {
+		for (final VolumeCandlestick cspd: candleSticksPerDay) {
 
 			expectThat(cspd.getLowestPrice()).isSmallerThanOrEqualTo(cspd.getOpeningPrice());
 			expectThat(cspd.getLowestPrice()).isSmallerThanOrEqualTo(cspd.getClosingPrice());
@@ -47,7 +47,7 @@ public final class DataProviderTest extends Test {
 	public void test_getCandleSticksPerHour() {
 		
 		//execution
-		final List<VolumeCandleStick> candleStricksPerHour 
+		final List<VolumeCandlestick> candleStricksPerHour 
 		= DataProvider.getCandleSticksPerHour(
 			NASDAQProductSymbolManager.MICROSOFT_CORPORATION,
 			new Time(2017, 1, 1, 0, 0),
@@ -55,7 +55,7 @@ public final class DataProviderTest extends Test {
 		);
 				
 		//verification
-		for (final VolumeCandleStick csph: candleStricksPerHour) {
+		for (final VolumeCandlestick csph: candleStricksPerHour) {
 
 			expectThat(csph.getLowestPrice()).isSmallerThanOrEqualTo(csph.getOpeningPrice());
 			expectThat(csph.getLowestPrice()).isSmallerThanOrEqualTo(csph.getClosingPrice());
@@ -71,7 +71,7 @@ public final class DataProviderTest extends Test {
 	public void test_getCandleSticksPerMinute() {
 		
 		//execution
-		final List<VolumeCandleStick> candleStricksPerMinute 
+		final List<VolumeCandlestick> candleStricksPerMinute 
 		= DataProvider.getCandleSticksPerHour(
 			NASDAQProductSymbolManager.MICROSOFT_CORPORATION,
 			new Time(2017, 1, 1, 0, 0),
@@ -79,7 +79,7 @@ public final class DataProviderTest extends Test {
 		);
 				
 		//verification
-		for (final VolumeCandleStick cspm: candleStricksPerMinute) {
+		for (final VolumeCandlestick cspm: candleStricksPerMinute) {
 
 			expectThat(cspm.getLowestPrice()).isSmallerThanOrEqualTo(cspm.getOpeningPrice());
 			expectThat(cspm.getLowestPrice()).isSmallerThanOrEqualTo(cspm.getClosingPrice());

@@ -14,7 +14,7 @@ import ch.nolix.core.container.SequencePattern;
 import ch.nolix.element.core.Time;
 import ch.nolix.element.finance.DataProvider;
 import ch.nolix.element.finance.NYSEProductSymbolManager;
-import ch.nolix.element.finance.VolumeCandleStick;
+import ch.nolix.element.finance.VolumeCandlestick;
 
 //class
 /**
@@ -35,7 +35,7 @@ public final class CandleStickTutorial {
 	public static void main(String[] args) {
 		
 		//Loads the candle sticks.
-		final List<VolumeCandleStick> candleSticks
+		final List<VolumeCandlestick> candleSticks
 		= DataProvider.getCandleSticksPerDay2(
 			NYSEProductSymbolManager.BOEING,
 			new Time(2015, 1, 1),
@@ -45,7 +45,7 @@ public final class CandleStickTutorial {
 		//Calculates the percentage.	
 		final double percentage
 		= candleSticks.getSequences(
-			new SequencePattern<VolumeCandleStick>()
+			new SequencePattern<VolumeCandlestick>()
 			.addConditionForNext(cs -> cs.isHammer())
 			.addBlankForNext()
 		)

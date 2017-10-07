@@ -19,14 +19,14 @@ import ch.nolix.element.core.Time;
 public final class QuandlDataProvider {
 
 	//method
-	public List<VolumeCandleStick> getCandleSticksPerDay(
+	public List<VolumeCandlestick> getCandleSticksPerDay(
 		final String productSymbol,
 		final Time startDate,
 		final Time endDate
 	) {
 		try {
 			
-			final List<VolumeCandleStick> dailyCandleSticks = new List<VolumeCandleStick>();
+			final List<VolumeCandlestick> dailyCandleSticks = new List<VolumeCandlestick>();
 			
 			final String URLString = "https://www.quandl.com/api/v3/datasets/WIKI/"
 				+ productSymbol
@@ -46,7 +46,7 @@ public final class QuandlDataProvider {
 				}
 				
 				dailyCandleSticks.addAtBegin(
-					new VolumeCandleStick(
+					new VolumeCandlestick(
 						time,
 						Integer.valueOf(stringArray[5].substring(0, stringArray[5].length() - 3)),
 						Double.valueOf(stringArray[1]),

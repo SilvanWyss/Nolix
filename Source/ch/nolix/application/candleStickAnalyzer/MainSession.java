@@ -8,7 +8,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.ClosedStateException;
 import ch.nolix.element.core.Time;
 import ch.nolix.element.finance.QuandlDataProvider;
-import ch.nolix.element.finance.VolumeCandleStick;
+import ch.nolix.element.finance.VolumeCandlestick;
 import ch.nolix.system.client.Session;
 import ch.nolix.system.consoleClient.ConsoleBackClient;
 
@@ -130,7 +130,7 @@ public final class MainSession extends Session<ConsoleBackClient> {
 	//method
 	private void saveDataToFile() {
 		
-		final List<VolumeCandleStick> candleSticks
+		final List<VolumeCandlestick> candleSticks
 		= new QuandlDataProvider().getCandleSticksPerDay(
 			argumentOfficer.getProductSymbol(),
 			argumentOfficer.getStartTime(),
@@ -138,7 +138,7 @@ public final class MainSession extends Session<ConsoleBackClient> {
 		);
 		
 		String data = StringCatalogue.EMPTY_STRING;
-		for (final VolumeCandleStick vcs : candleSticks) {
+		for (final VolumeCandlestick vcs : candleSticks) {
 			data += vcs.getSpecification().toString() + CharacterCatalogue.NEW_LINE;
 		}
 		

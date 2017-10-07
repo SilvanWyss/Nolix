@@ -31,7 +31,7 @@ public final class DataProvider {
 	 * @param endDate
 	 * @return the candle sticks per day of the product with the given product symbol from the given start date to the given end date.
 	 */
-	public static List<VolumeCandleStick> getCandleSticksPerDay(
+	public static List<VolumeCandlestick> getCandleSticksPerDay(
 		final String productSymbol,
 		final Time startDate,
 		final Time endDate
@@ -49,14 +49,14 @@ public final class DataProvider {
 	 * @return the candle sticks per day from the given start date to the given end date of the product with the given product symbol.
 	 * @throws Exception if an error occurs
 	 */
-	public static final List<VolumeCandleStick> getCandleSticksPerDay2(
+	public static final List<VolumeCandlestick> getCandleSticksPerDay2(
 		final String productSymbol,
 		final Time startDate,
 		final Time endDate
 	) {
 		try {
 			
-			final List<VolumeCandleStick> dailyCandleSticks = new List<VolumeCandleStick>();
+			final List<VolumeCandlestick> dailyCandleSticks = new List<VolumeCandlestick>();
 			
 			final String URLString = "http://finance.yahoo.com/table.csv"
 				+ "?s=" + productSymbol
@@ -77,7 +77,7 @@ public final class DataProvider {
 				final String[] stringArray = line.split(",");
 				
 				dailyCandleSticks.addAtBegin(
-					new VolumeCandleStick(
+					new VolumeCandlestick(
 						new Time(stringArray[0]),
 						Integer.valueOf(stringArray[5]),
 						Double.valueOf(stringArray[1]),
@@ -104,7 +104,7 @@ public final class DataProvider {
 	 * @param endTime
 	 * @return the candle sticks per hour of the product with the given product symbol from the given start time to the given end time.
 	 */
-	public static List<VolumeCandleStick> getCandleSticksPerHour(
+	public static List<VolumeCandlestick> getCandleSticksPerHour(
 		final String productSymbol,
 		final Time startTime,
 		final Time endTime
@@ -121,7 +121,7 @@ public final class DataProvider {
 	 * @param endTime
 	 * @return the candle sticks per minute of the product with the given product symbol from the given start time to the given end time.
 	 */
-	public static List<VolumeCandleStick> getCandleSticksPerMinute(
+	public static List<VolumeCandlestick> getCandleSticksPerMinute(
 		final String productSymbol,
 		final Time startTime,
 		final Time endTime
@@ -145,14 +145,14 @@ public final class DataProvider {
 	 * @param intervalInSeconds
 	 * @return the candle sticks per the given interval in seconds of the product with the given product symbol from the given start time to the given end time.
 	 */
-	private static List<VolumeCandleStick> getCandleSticks(
+	private static List<VolumeCandlestick> getCandleSticks(
 		final String productSymbol,
 		final Time startTime,
 		final Time endTime,
 		final int intervalInSeconds
 	) {
 		
-		final List<VolumeCandleStick> intraDayCandleSticks = new List<VolumeCandleStick>();
+		final List<VolumeCandlestick> intraDayCandleSticks = new List<VolumeCandlestick>();
 		
 		final int dayCount = startTime.getDaysTo(Time.createCurrentTime());
 		
@@ -187,7 +187,7 @@ public final class DataProvider {
 					//System.out.println(currentTime);
 					
 					intraDayCandleSticks.addAtEnd(
-						new VolumeCandleStick(
+						new VolumeCandlestick(
 							currentTime,
 							new Integer(array[5]),
 							new Double(array[4]),

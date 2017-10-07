@@ -14,13 +14,13 @@ import ch.nolix.element.core.Time;
 
 //class
 /**
- * A candle stick is not mutable.
+ * A candlestick is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2016-08
  * @lines 420
  */
-public class CandleStick extends Element {
+public class Candlestick extends Element {
 	
 	//constants
 	public static final double DEFAULT_HAMMER_MIN_LOWER_WICK_LENGTH_RATIO = 0.5;
@@ -32,7 +32,7 @@ public class CandleStick extends Element {
 	private static final String LOWEST_PRICE_NAME = "LowestPrice";
 	private static final String HIGHEST_PRICE_NAME = "HighestPrice";
 	
-	public static CandleStick createCandleStick(final Iterable<StandardSpecification> attributes) {
+	public static Candlestick createCandleStick(final Iterable<StandardSpecification> attributes) {
 		
 		Time time = null;
 		double openingPrice = 0.0;
@@ -62,7 +62,7 @@ public class CandleStick extends Element {
 			}
 		}
 		
-		return new CandleStick(time, openingPrice, closingPrice, lowestPrice, highestPrice);
+		return new Candlestick(time, openingPrice, closingPrice, lowestPrice, highestPrice);
 	}
 	
 	//attributes
@@ -74,7 +74,7 @@ public class CandleStick extends Element {
 	
 	//constructor
 	/**
-	 * Creates new candle stick with the given time, opening price, closing price, lowest price and highest price.
+	 * Creates new candlestick with the given time, opening price, closing price, lowest price and highest price.
 	 * 
 	 * @param time
 	 * @param openingPrice
@@ -87,7 +87,7 @@ public class CandleStick extends Element {
 	 * @throws NegativeArgumentException if the given lowest price is negative.
 	 * @throws NegativeArgumentException if the given highest price is negative.
 	 */
-	public CandleStick(
+	public Candlestick(
 		final Time time,
 		final double openingPrice,
 		final double closingPrice,
@@ -101,7 +101,7 @@ public class CandleStick extends Element {
 		Validator.suppose(lowestPrice).thatIsNamed("lowest price").isNotNegative();
 		Validator.suppose(highestPrice).thatIsNamed("highest price").isNotNegative();
 		
-		//Sets the values of this candle stick.
+		//Sets the values of this candlestick.
 		this.time = time;
 		this.openingPrice = openingPrice;
 		this.closingPrice = closingPrice;
@@ -111,12 +111,12 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * The body of a candle stick is the area between its opening price and its closing price.
+	 * The body of a candlestick is the area between its opening price and its closing price.
 	 * 
 	 * @param candleStick
-	 * @return true if the body of this candle stick is above the body of the given candle stick.
+	 * @return true if the body of this candlestick is above the body of the given candlestick.
 	 */
-	public final boolean bodyIsAboveBodyOf(final CandleStick candleStick) {
+	public final boolean bodyIsAboveBodyOf(final Candlestick candleStick) {
 		return (
 			Calculator.getMin(getOpeningPrice(), getClosingPrice())
 			> Calculator.getMax(candleStick.getOpeningPrice(), candleStick.getClosingPrice())
@@ -125,12 +125,12 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * The body of a candle stick is the area between its opening price and its closing price.
+	 * The body of a candlestick is the area between its opening price and its closing price.
 	 * 
 	 * @param candleStick
-	 * @return true if the body of this candle stick is below the body of the given candle stick.
+	 * @return true if the body of this candlestick is below the body of the given candlestick.
 	 */
-	public final boolean bodyIsBelowBodyOf(final CandleStick candleStick) {
+	public final boolean bodyIsBelowBodyOf(final Candlestick candleStick) {
 		return (
 			Calculator.getMax(getOpeningPrice(), getClosingPrice())
 			< Calculator.getMin(candleStick.getOpeningPrice(), candleStick.getClosingPrice())
@@ -139,7 +139,7 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * @return the attributes of this candle stick.
+	 * @return the attributes of this candlestick.
 	 */
 	public List<StandardSpecification> getAttributes() {
 		return
@@ -154,9 +154,9 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * The body of a candle stick is the area between its opening price and its closing price.
+	 * The body of a candlestick is the area between its opening price and its closing price.
 	 * 
-	 * @return the length of the body of this candle stick.
+	 * @return the length of the body of this candlestick.
 	 */
 	public final double getBodyLength() {
 		return (Math.abs(getClosingPrice() - getOpeningPrice()));
@@ -164,7 +164,7 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * @return the difference of the closing price and the opening price of this candle stick.
+	 * @return the difference of the closing price and the opening price of this candlestick.
 	 */
 	public final double getChange() {
 		return (getClosingPrice() - getOpeningPrice());
@@ -172,7 +172,7 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * @return the ratio of the change to the opening price of this candle stick.
+	 * @return the ratio of the change to the opening price of this candlestick.
 	 */
 	public final double getChangeRatio() {
 		return (getChange() / getOpeningPrice());
@@ -180,7 +180,7 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * @return the closing price of this candle stick.
+	 * @return the closing price of this candlestick.
 	 */
 	public final double getClosingPrice() {
 		return closingPrice;
@@ -188,10 +188,10 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * @return a copy of this candle stick.
+	 * @return a copy of this candlestick.
 	 */
-	public CandleStick getCopy() {
-		return new CandleStick(
+	public Candlestick getCopy() {
+		return new Candlestick(
 			getRefTime(),
 			getOpeningPrice(),
 			getClosingPrice(),
@@ -202,7 +202,7 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * @return the highest price of this candle stick.
+	 * @return the highest price of this candlestick.
 	 */	
 	public final double getHighestPrice() {
 		return highestPrice;
@@ -210,7 +210,7 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * @return the length of this candle stick.
+	 * @return the length of this candlestick.
 	 */
 	public final double getLength() {
 		return (getHighestPrice() - getLowestPrice());
@@ -218,7 +218,7 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * @return the lowest price of this candle stick.
+	 * @return the lowest price of this candlestick.
 	 */	
 	public final double getLowestPrice() {
 		return lowestPrice;
@@ -226,22 +226,22 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * @return the length of the lower wick of this candle stick.
+	 * @return the length of the lower wick of this candlestick.
 	 */
 	public final double getLowerWick() {
 		
-		//Handles the case if this candle stick is bullish.
+		//Handles the case if this candlestick is bullish.
 		if (isBullish()) {
 			return (getOpeningPrice() - getLowestPrice());
 		}
 		
-		//Handles the case if this candle stick is not bullish.
+		//Handles the case if this candlestick is not bullish.
 		return (getClosingPrice() - getLowestPrice());
 	}
 	
 	//method
 	/**
-	 * @return the opening price of this candle stick.
+	 * @return the opening price of this candlestick.
 	 */	
 	public final double getOpeningPrice() {
 		return openingPrice;
@@ -249,7 +249,7 @@ public class CandleStick extends Element {
 
 	//method
 	/**
-	 * @return the time of this candle stick.
+	 * @return the time of this candlestick.
 	 */	
 	public final Time getRefTime() {
 		return time;
@@ -257,13 +257,13 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * This method returns a norm n that indicates the trend of this candle stick.
+	 * This method returns a norm n that indicates the trend of this candlestick.
 	 * nϵ[-1,-1]
 	 * n=-1 ↔ perfect fall
 	 * n=0 ↔ perfect immobility
 	 * n=1 ↔ perfect raise
 	 * 
-	 * @return a norm that indicates the trend of this candle stick.
+	 * @return a norm that indicates the trend of this candlestick.
 	 */
 	public final double getTrend() {
 		return (getChange() / getLength());
@@ -271,24 +271,24 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * @return the length of the upper wick of this candle stick.
+	 * @return the length of the upper wick of this candlestick.
 	 */
 	public final double getUpperWick() {
 		
-		//Handles the case if this candle stick is bullish.
+		//Handles the case if this candlestick is bullish.
 		if (isBullish()) {
 			return (getHighestPrice() - getClosingPrice());
 		}
 		
-		//Handles the case if this candle stick is not bullish.
+		//Handles the case if this candlestick is not bullish.
 		return (getHighestPrice() - getOpeningPrice());
 	}
 	
 	//method
 	/**
-	 * A bearish candle stick is bearish if its closing price is smaller than its opening price.
+	 * A bearish candlestick is bearish if its closing price is smaller than its opening price.
 	 * 
-	 * @return true if this candle stick is bearish.
+	 * @return true if this candlestick is bearish.
 	 */
 	public final boolean isBearish() {
 		return (getClosingPrice() - getOpeningPrice() < 0);
@@ -296,9 +296,9 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * A candle stick is bullish if its closing price is higher than its opening price.
+	 * A candlestick is bullish if its closing price is higher than its opening price.
 	 * 
-	 * @return true if this candle stick is bullish.
+	 * @return true if this candlestick is bullish.
 	 */
 	public final boolean isBullish() {
 		return (getClosingPrice() - getOpeningPrice() > 0);
@@ -306,9 +306,9 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * A candle stick is a doji when its opening price and closing price are the same.
+	 * A candlestick is a doji when its opening price and closing price are the same.
 	 * 
-	 * @return true if this candle stick is a doji.
+	 * @return true if this candlestick is a doji.
 	 */
 	public final boolean isDoji() {
 		return Calculator.equalsApproximatively(getOpeningPrice(), getClosingPrice());
@@ -316,12 +316,12 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * A candle stick is a hammer if:
-	 * -The length of the candle stick is positive. That means the highest price is bigger than the lowest price.
-	 * -The lower wick of the candle stick is bigger than its upper wick.
-	 * -The lower wick to length ratio of the candle stick is bigger than or equal to a default value.
+	 * A candlestick is a hammer if:
+	 * -The length of the candlestick is positive. That means the highest price is bigger than the lowest price.
+	 * -The lower wick of the candlestick is bigger than its upper wick.
+	 * -The lower wick to length ratio of the candlestick is bigger than or equal to a default value.
 	 * 
-	 * @return true if this candle stick is a hammer.
+	 * @return true if this candlestick is a hammer.
 	 */
 	public final boolean isHammer() {
 		return isHammer(DEFAULT_HAMMER_MIN_LOWER_WICK_LENGTH_RATIO);
@@ -329,13 +329,13 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * A candle stick is a hammer if:
-	 * -The length of the candle stick is positive. (That means the highest price is bigger than the lowest price.)
-	 * -The lower wick of the candle stick is bigger than its upper wick.
-	 * -The lower wick to length ratio of the candle stick is bigger than a given value.
+	 * A candlestick is a hammer if:
+	 * -The length of the candlestick is positive. (That means the highest price is bigger than the lowest price.)
+	 * -The lower wick of the candlestick is bigger than its upper wick.
+	 * -The lower wick to length ratio of the candlestick is bigger than a given value.
 	 * 
 	 * @param minLowerWickLengthRatio
-	 * @return true if this candle stick is a hammer whose lower wick to length ratio is bigger than or equal to the given min lower wick length ratio.
+	 * @return true if this candlestick is a hammer whose lower wick to length ratio is bigger than or equal to the given min lower wick length ratio.
 	 * @throws NegativeArgumentException if the given min lower wick length ratio is negative.
 	 */
 	public final boolean isHammer(final double minLowerWickLengthRatio) {
@@ -348,12 +348,12 @@ public class CandleStick extends Element {
 		final double lowerWick = getLowerWick();
 		final double upperWick = getUpperWick();
 		
-		//Handles the case if the length of this candle stick is 0.
+		//Handles the case if the length of this candlestick is 0.
 		if (length == 0) {
 			return false;
 		}
 		
-		//Handles the case if the length of this candle stick is positive.
+		//Handles the case if the length of this candlestick is positive.
 		return (
 			lowerWick > upperWick
 			&& lowerWick / length >= minLowerWickLengthRatio
@@ -362,12 +362,12 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * A candle stick is an inverted hammer if:
-	 * -The length of the candle stick is positive. That means the highest price is bigger than the lowest price.
-	 * -The upper wick of the candle stick is bigger than its lower wick.
-	 * -The upper wick to length ratio of the candle stick is bigger than or equal to a default value.
+	 * A candlestick is an inverted hammer if:
+	 * -The length of the candlestick is positive. That means the highest price is bigger than the lowest price.
+	 * -The upper wick of the candlestick is bigger than its lower wick.
+	 * -The upper wick to length ratio of the candlestick is bigger than or equal to a default value.
 	 * 
-	 * @return true if this candle stick is an inverted a hammer.
+	 * @return true if this candlestick is an inverted a hammer.
 	 */
 	public final boolean isInvertedHammer() {
 		return isInvertedHammer(DEFAULT_INVERTED_HAMMER_MIN_UPPER_WICK_LENGT_RATIO);
@@ -375,15 +375,15 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * A candle stick is an inverted hammer if:
-	 * -The length of the candle stick is positive. That means the highest price is bigger than the lowest price.
-	 * -The upper wick of the candle stick is bigger than its lower wick.
-	 * -The upper wick to length ratio of the candle stick is bigger than a given value.
+	 * A candlestick is an inverted hammer if:
+	 * -The length of the candlestick is positive. That means the highest price is bigger than the lowest price.
+	 * -The upper wick of the candlestick is bigger than its lower wick.
+	 * -The upper wick to length ratio of the candlestick is bigger than a given value.
 	 * 
 	 * An inverted hammer is also called a shooting star.
 	 * 
 	 * @param minUpperWickLengthRatio
-	 * @return true if this candle stick is a hammer whose upper wick to length ratio is bigger than or equal to the given min upper wick length ratio. 
+	 * @return true if this candlestick is a hammer whose upper wick to length ratio is bigger than or equal to the given min upper wick length ratio. 
 	 * @throws NegativeArgumentException if the given min upper wick length ratio is negative.
 	 */
 	public final boolean isInvertedHammer(final double minUpperWickLengthRatio) {
@@ -396,12 +396,12 @@ public class CandleStick extends Element {
 		final double lowerWick = getLowerWick();
 		final double upperWick = getUpperWick();
 		
-		//Handles the case if the length of this candle stick is 0.
+		//Handles the case if the length of this candlestick is 0.
 		if (length == 0) {
 			return false;
 		}
 		
-		//Handles the case if the length of this candle stick is positive.
+		//Handles the case if the length of this candlestick is positive.
 		return (
 			upperWick > lowerWick
 			&& upperWick / length >= minUpperWickLengthRatio
@@ -410,9 +410,9 @@ public class CandleStick extends Element {
 	
 	//method
 	/**
-	 * A candle stick is a marubozu if its body is as long as its whole length.
+	 * A candlestick is a marubozu if its body is as long as its whole length.
 	 * 
-	 * @return true if this candle stick is a marubozu.
+	 * @return true if this candlestick is a marubozu.
 	 */
 	public final boolean isMarubozu() {
 		return Calculator.equalsApproximatively(getBodyLength(), getLength());
