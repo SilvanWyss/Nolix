@@ -383,7 +383,7 @@ public final class TabContainerMenuItemStructure {
 			case BackgroundColor.TYPE_NAME:
 				setBackgroundColor(new BackgroundColor(attribute.getOneAttributeToString()));
 				break;
-			case TextSize.SIMPLE_CLASS_NAME:
+			case TextSize.TYPE_NAME:
 				setTextSize(attribute.getOneAttributeToInteger());
 				break;
 			case TextColor.TYPE_NAME:

@@ -42,7 +42,7 @@ public class CandleStick extends Element {
 		
 		for (StandardSpecification a : attributes) {
 			switch (a.getHeader()) {
-				case Time.SIMPLE_CLASS_NAME:
+				case Time.TYPE_NAME:
 					time = Time.createTime(a.getRefAttributes());
 					break;
 				case OPENING_PRICE_NAME:

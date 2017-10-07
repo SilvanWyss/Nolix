@@ -23,8 +23,8 @@ import ch.nolix.element.font.Font;
 //class
 public final class TextBox extends TextLineWidget<TextBox> {
 
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "TextBox";
+	//type name
+	public static final String TYPE_NAME = "TextBox";
 	
 	//default values
 	public static final int DEFAULT_WIDTH = 200;
@@ -159,7 +159,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 */
 	public final void addOrChangeAttribute(StandardSpecification attribute) {
 		switch (attribute.getHeader()) {
-			case Width.SIMPLE_CLASS_NAME:
+			case Width.TYPE_NAME:
 				setWidth(attribute.getOneAttributeToInteger());
 				break;
 			case CURSOR_COLOR:

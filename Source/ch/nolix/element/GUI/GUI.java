@@ -38,9 +38,6 @@ public abstract class GUI<G extends GUI<G>>
 extends ConfigurationElement<G>
 implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	
-	//type name
-	public static final String TYPE_NAME = "GUI";
-	
 	//default values
 	public static final String DEFAULT_TITLE = "GUI";
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
@@ -114,7 +111,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 						new BackgroundColor(attribute.getOneAttributeToString())
 					);
 					break;
-				case ContentPosition.SIMPLE_CLASS_NAME:
+				case ContentPosition.TYPE_NAME:
 					setContentPosition(
 						ContentPosition.valueOf(attribute.getOneAttributeToString())
 					);

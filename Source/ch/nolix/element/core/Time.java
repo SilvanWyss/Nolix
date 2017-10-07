@@ -27,8 +27,8 @@ import ch.nolix.core.validator2.Validator;
  */
 public final class Time extends Element {
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "Time";
+	//type name
+	public static final String TYPE_NAME = "Time";
 	
 	//default values
 	public static final int DEFAULT_YEAR = 2000;

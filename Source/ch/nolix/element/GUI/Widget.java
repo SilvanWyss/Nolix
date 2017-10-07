@@ -37,9 +37,6 @@ import ch.nolix.element.bases.ConfigurableElement;
 public abstract class Widget<W extends Widget<W, WS>, WS extends WidgetStructure<WS>>
 extends ConfigurableElement<W> {
 	
-	//type name
-	public static final String TYPE_NAME = "Widget";
-	
 	//attribute headers
 	private static final String STATE ="State";
 	private static final String LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER = "LeftMouseButtonPressCommand";
@@ -105,7 +102,7 @@ extends ConfigurableElement<W> {
 			case STATE:
 				setState(WidgetState.valueOf(attribute.getOneAttributeToString()));
 				break;
-			case CursorIcon.SIMPLE_CLASS_NAME:
+			case CursorIcon.TYPE_NAME:
 				setCursorIcon(CursorIcon.valueOf(attribute.getOneAttributeToString()));
 				break;
 			case LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER:

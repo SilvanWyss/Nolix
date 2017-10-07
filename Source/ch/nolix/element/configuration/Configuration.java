@@ -22,9 +22,6 @@ import ch.nolix.element.data.Name;
 public abstract class Configuration<C extends Configuration<C>>
 extends OptionalNamableElement<C>
 implements Freezable<C> {
-
-	//type name
-	public static final String TYPE_NAME = "Configuration";
 	
 	//attribute headers
 	private static final String SELECTOR_TYPE_HEADER = "SelectorType";
@@ -161,7 +158,7 @@ implements Freezable<C> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case Name.SIMPLE_CLASS_NAME:
+			case Name.TYPE_NAME:
 				setName(attribute.getOneAttributeToString());
 				break;
 			case SELECTOR_TYPE_HEADER:

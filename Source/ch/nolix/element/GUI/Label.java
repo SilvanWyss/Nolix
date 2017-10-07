@@ -25,8 +25,8 @@ import ch.nolix.core.validator.Validator;
  */
 public final class Label extends TextLineWidget<Label> {
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "Label";
+	//type name
+	public static final String TYPE_NAME = "Label";
 	
 	//attribute header
 	private static final String ROLE_HEADER = "Role";

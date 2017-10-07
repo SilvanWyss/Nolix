@@ -11,10 +11,8 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.Graphics;
 
-import ch.nolix.core.container.AccessorContainer;
-
 //own imports
-
+import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.StandardSpecification;
@@ -27,8 +25,8 @@ import ch.nolix.element.data.TextColor;
 public class TabContainer
 extends Container<TabContainer, TabContainerStructure> {
 
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "TabContainer";
+	//type name
+	public static final String TYPE_NAME = "TabContainer";
 	
 	//attribute headers
 	private static final String MENU_ITEM_MARGIN = "MenuItemMargin";

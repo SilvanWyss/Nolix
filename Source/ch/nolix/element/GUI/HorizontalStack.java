@@ -11,8 +11,8 @@ package ch.nolix.element.GUI;
 //class
 public final class HorizontalStack extends Stack<HorizontalStack> {
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "HorizontalStack";		
+	//type name
+	public static final String TYPE_NAME = "HorizontalStack";		
 	
 	//constructor
 	/**

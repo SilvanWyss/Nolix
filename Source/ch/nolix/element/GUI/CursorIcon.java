@@ -24,8 +24,8 @@ public enum CursorIcon {
 	Move,
 	Wait;
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "CursorIcon";
+	//type name
+	public static final String TYPE_NAME = "CursorIcon";
 	
 	//method
 	/**
@@ -55,6 +55,6 @@ public enum CursorIcon {
 	 * @return the specification of this cursor icon
 	 */
 	public final StandardSpecification getSpecification() {
-		return new StandardSpecification(SIMPLE_CLASS_NAME, toString());
+		return new StandardSpecification(TYPE_NAME, toString());
 	}
 }

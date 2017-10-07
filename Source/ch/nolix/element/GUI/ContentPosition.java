@@ -21,14 +21,14 @@ public enum ContentPosition {
 	Right,
 	RightBottom;
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "ContentPosition";
+	//type name
+	public static final String TYPE_NAME = "ContentPosition";
 	
 	//method
 	/**
 	 * @return the specification of this content position.
 	 */
 	public final StandardSpecification getSpecification() {
-		return new StandardSpecification(SIMPLE_CLASS_NAME, toString());
+		return new StandardSpecification(TYPE_NAME, toString());
 	}
 }

@@ -54,7 +54,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case ContentPosition.SIMPLE_CLASS_NAME:
+			case ContentPosition.TYPE_NAME:
 				setContentOrientation(
 					ContentPosition.valueOf(attribute.getOneAttributeToString())
 				);

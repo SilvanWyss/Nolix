@@ -12,8 +12,8 @@ import ch.nolix.core.constants.StringCatalogue;
  */
 public final class Text extends Textoid {
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "Text";
+	//type name
+	public static final String TYPE_NAME = "Text";
 	
 	//default value
 	public static final String DEFAULT_VALUE = StringCatalogue.EMPTY_STRING;

@@ -19,9 +19,8 @@ import ch.nolix.core.specification.StandardSpecification;
 public final class SingleContainer
 extends Container<SingleContainer, SingleContainerStructure> {
 	
-	//constants
-	public static final String SIMPLE_CLASS_NAME = "SingleContainer";
-	public static final String NONE = "NoSingleContainer";
+	//type name
+	public static final String TYPE_NAME = "SingleContainer";
 	
 	//attribute
 	private Widget<?, ?> widget;

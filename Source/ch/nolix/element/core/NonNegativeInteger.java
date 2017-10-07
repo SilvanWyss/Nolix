@@ -14,8 +14,8 @@ import ch.nolix.core.validator.Validator;
 //class
 public class NonNegativeInteger extends Integeroid {
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "NonNegativeInteger";
+	//type name
+	public static final String TYPE_NAME = "NonNegativeInteger";
 	
 	//default value
 	public static final int DEFAULT_VALUE = 0;

@@ -18,8 +18,8 @@ import ch.nolix.core.specification.StandardSpecification;
 //class
 public final class Boolean extends Element {
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "Boolean";
+	//type name
+	public static final String TYPE_NAME = "Boolean";
 	
 	//value names
 	private static final String FALSE = "False";

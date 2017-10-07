@@ -17,8 +17,8 @@ import ch.nolix.core.specification.StandardSpecification;
  */
 public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxStructure> {
 
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "CheckBox";
+	//type name
+	public static final String TYPE_NAME = "CheckBox";
 	
 	//attribute headers
 	private final String CHECKED_HEADER = "Checked";

@@ -13,8 +13,8 @@ import ch.nolix.core.validator2.Validator;
  */
 public class NonEmptyText extends Textoid {
 
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "NonEmptyText";
+	//type name
+	public static final String TYPE_NAME = "NonEmptyText";
 	
 	//default value
 	public static final String DEFAULT_VALUE = StringCatalogue.DEFAULT_STRING;

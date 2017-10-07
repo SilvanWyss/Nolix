@@ -21,9 +21,6 @@ public abstract class Stack<S extends Stack<S>>
 extends Container<S, StackStructure>
 implements Clearable<S> {
 	
-	//type name
-	public static final String TYPE_NAME = "Stack";
-	
 	//attribute header
 	private static final String ELEMENT_MARGIN_HEADER = "ElementMargin";
 	

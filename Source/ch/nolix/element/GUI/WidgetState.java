@@ -19,14 +19,14 @@ public enum WidgetState {
 	Disabled,
 	Collapsed;
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "WidgetState";
+	//type name
+	public static final String TYPE_NAME = "WidgetState";
 	
 	//method
 	/**
 	 * @return the specification of this widget state.
 	 */
 	public StandardSpecification getSpecification() {
-		return new StandardSpecification(SIMPLE_CLASS_NAME, toString());
+		return new StandardSpecification(TYPE_NAME, toString());
 	}
 }

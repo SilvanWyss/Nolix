@@ -11,8 +11,8 @@ package ch.nolix.element.core;
 //class
 public final class Integer extends Integeroid {
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "Integer";
+	//type name
+	public static final String TYPE_NAME = "Integer";
 	
 	//default value
 	public static final int DEFAULT_VALUE = 0;

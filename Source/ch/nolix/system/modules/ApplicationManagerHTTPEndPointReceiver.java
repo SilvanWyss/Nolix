@@ -13,12 +13,12 @@ public class ApplicationManagerHTTPEndPointReceiver implements IReceiver {
 	
 	public void receive(String message) {
 		try {
-			String javaScript = "<script SIMPLE_CLASS_NAME=\"text/javascript\">function initialize(){if(\"WebSocket\" in window){}</script>";
+			String javaScript = "<script type=\"text/javascript\">function initialize(){if(\"WebSocket\" in window){}</script>";
 			String content = "<!DOCSIMPLE_CLASS_NAME html><html><head>" + javaScript +"</head><body onload=\"initialize();\"><p>Loading...</p></body></html>\r\n\r\n";
 			
 			String s = "HTTP/1.1 200 OK\r\n";
 			s += "Server: Silvan Server\r\n";
-			s += "Content-SIMPLE_CLASS_NAME: text/html; charset=utf-8\r\n";
+			s += "Content-Type: text/html; charset=utf-8\r\n";
 			s += "Content-Length: " + content.length() + "\r\n";
 			s += "Connection: Closed\r\n";
 			s += "\r\n";

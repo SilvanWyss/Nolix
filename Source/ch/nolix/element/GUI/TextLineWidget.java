@@ -11,9 +11,8 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.Graphics;
 
-import ch.nolix.core.container.AccessorContainer;
-
 //own imports
+import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
@@ -29,9 +28,6 @@ import ch.nolix.element.font.Font;
  */
 public abstract class TextLineWidget<TLW extends TextLineWidget<TLW>>
 extends BorderWidget<TLW, TextLineWidgetStructure> {
-	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "TextLineRectangle";
 
 	//attribute
 	private final Text text = new Text();
@@ -46,7 +42,7 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 		
 		//Enumerates the given attribute.
 		switch (attribute.getHeader()) {
-			case Text.SIMPLE_CLASS_NAME:
+			case Text.TYPE_NAME:
 				setText(attribute.getOneAttributeToString());
 				break;
 			default:

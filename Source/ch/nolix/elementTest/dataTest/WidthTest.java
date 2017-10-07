@@ -22,7 +22,7 @@ public class WidthTest extends Test {
 		final Width width = new Width();
 		
 		//verification
-		expectThat(width.getType()).equals(Width.SIMPLE_CLASS_NAME);		
+		expectThat(width.getType()).equals(Width.TYPE_NAME);		
 	}
 	
 	//test method

@@ -22,10 +22,7 @@ import ch.nolix.element.data.Token;
  */
 public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>>
 extends OptionalNamableElement<CE>
-implements Configurable, OptionalTokenable<CE> {
-
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "ClassableNamableElement";	
+implements Configurable, OptionalTokenable<CE> {	
 	
 	//optional attribute
 	private Token token;
@@ -52,7 +49,7 @@ implements Configurable, OptionalTokenable<CE> {
 	 */
 	public final String getToken() {
 		if (!hasToken()) {
-			throw new UnexistingAttributeException(getType(), Token.SIMPLE_CLASS_NAME);
+			throw new UnexistingAttributeException(getType(), Token.TYPE_NAME);
 		}
 		return token.getValue();
 	}
