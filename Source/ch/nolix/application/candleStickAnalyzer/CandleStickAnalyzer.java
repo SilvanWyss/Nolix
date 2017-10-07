@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.application.candleStickAnalyzer;
+package ch.nolix.application.candlestickAnalyzer;
 
 //own imports
 import ch.nolix.system.client.StandardApplication;
@@ -11,20 +11,20 @@ import ch.nolix.system.consoleClient.ConsoleBackClient;
  * @month 2017-08
  * @lines 30
  */
-public class CandleStickAnalyzer
+public class CandlestickAnalyzer
 extends StandardApplication<ConsoleBackClient> {
 
 	//name
 	public static final String NAME = "Candlestick Analyzer";
 	
 	//title
-	public static final String TITLE = NAME + " 2017-9-24";
+	public static final String TITLE = NAME + " 2017-10-7";
 	
 	//constructor
 	/**
 	 * Creates new candle stick analyzer.
 	 */
-	public CandleStickAnalyzer() {
+	public CandlestickAnalyzer() {
 		
 		//Calls constructor of the base class.
 		super(NAME, LoginSession.class);

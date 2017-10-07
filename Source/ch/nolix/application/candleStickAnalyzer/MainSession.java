@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.application.candleStickAnalyzer;
+package ch.nolix.application.candlestickAnalyzer;
 
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
@@ -41,50 +41,50 @@ public final class MainSession extends Session<ConsoleBackClient> {
 				switch (inputs[0]) {	
 					
 					//Handles input commands.										
-					case CommandManager.SELECT_RPODUCT_SYMBOL_COMMAND:
+					case CommandCatalogue.SELECT_RPODUCT_SYMBOL_COMMAND:
 						argumentOfficer.setProductSymbol(inputs[1]);
 						break;
-					case CommandManager.SELECT_START_TIME_COMMAND:
+					case CommandCatalogue.SELECT_START_TIME_COMMAND:
 						argumentOfficer.setStartTime(new Time(inputs[1]));
 						break;
-					case CommandManager.SELECT_END_TIME_COMMAND:
+					case CommandCatalogue.SELECT_END_TIME_COMMAND:
 						argumentOfficer.setEndTime(new Time(inputs[1]));							
 						break;	
-					case CommandManager.SELECT_RED_CANDLE_STICKS_BEFORE_HAMMER_COMMAND:
-						argumentOfficer.setRedCandleStickCountBeforeHammer(Integer.valueOf(inputs[1]));
+					case CommandCatalogue.SELECT_RED_CANDLE_STICKS_BEFORE_HAMMER_COMMAND:
+						argumentOfficer.setRedCandlestickCountBeforeHammer(Integer.valueOf(inputs[1]));
 						break;
-					case CommandManager.SELECT_GREEN_CANDLE_STICKS_AFTER_HAMMER_COMMAND:
-						argumentOfficer.setGreenCandleStickCountAfterHammer(Integer.valueOf(inputs[1]));
+					case CommandCatalogue.SELECT_GREEN_CANDLE_STICKS_AFTER_HAMMER_COMMAND:
+						argumentOfficer.setGreenCandlestickCountAfterHammer(Integer.valueOf(inputs[1]));
 						break;
-					case CommandManager.SELECT_HAMMER_MINIMAL_LOWER_WICK_LENGTH_RATIO_COMMAND:
+					case CommandCatalogue.SELECT_HAMMER_MINIMAL_LOWER_WICK_LENGTH_RATIO_COMMAND:
 						argumentOfficer.setHammerMinLowerWickLengthRation(Double.valueOf(inputs[1]));
 						break;
-					case CommandManager.SELECT_MAX_LOSS_RATIO_PER_DAY_COMMAND:
+					case CommandCatalogue.SELECT_MAX_LOSS_RATIO_PER_DAY_COMMAND:
 						argumentOfficer.setMaxLossRatioPerDay(Double.valueOf(inputs[1]));
 						break;
-					case CommandManager.SELECT_MAX_KEEPING_DAYS_COMMAND:
+					case CommandCatalogue.SELECT_MAX_KEEPING_DAYS_COMMAND:
 						argumentOfficer.setMaxKeepingDayCount(Integer.valueOf(inputs[1]));
 						break;
 							
 					//Handles output commands.
-					case CommandManager.SHOW_ANALYSIS_COMMAND:							
+					case CommandCatalogue.SHOW_ANALYSIS_COMMAND:							
 						getRefClient().writeLinesToConsole(new Analysis(argumentOfficer).toStrings());
 						break;
-					case CommandManager.SAVE_PRODUCT_DATA_TO_FILE_COMMAND:
+					case CommandCatalogue.SAVE_PRODUCT_DATA_TO_FILE_COMMAND:
 						saveDataToFile();														
 						break;
-					case CommandManager.SAVE_ANALYSIS_TO_FILE_COMMAND:
+					case CommandCatalogue.SAVE_ANALYSIS_TO_FILE_COMMAND:
 						saveAnalysisToFile();
 						break;
-					case CommandManager.SHOW_ALGORITHM_FACTS_COMMAND:
+					case CommandCatalogue.SHOW_ALGORITHM_FACTS_COMMAND:
 						showAlgorithmFacts();
 						break;
 						
 					//Handles system commands.
-					case CommandManager.SHOW_COMMANDS_COMMAND:
+					case CommandCatalogue.SHOW_COMMANDS_COMMAND:
 						showCommands();
 						break;
-					case CommandManager.QUIT_COMMAND:
+					case CommandCatalogue.QUIT_COMMAND:
 						getRefClient().quit();
 						break;
 					
@@ -93,13 +93,13 @@ public final class MainSession extends Session<ConsoleBackClient> {
 				}
 				
 				refreshInfoPanel();
-				getRefClient().writeLineToConsole(Character.toString((char)0x2714));
+				getRefClient().writeLineToConsole(CharacterCatalogue.FAT_CHECK_MARK);
 			}
 			catch (final ClosedStateException exception) {
 				break;
 			}
 			catch (final Exception exception) {
-				getRefClient().writeLineToConsole(Character.toString((char)0x2716));
+				getRefClient().writeLineToConsole(CharacterCatalogue.FAT_CROSS);
 			}
 		}
 	}
@@ -128,6 +128,10 @@ public final class MainSession extends Session<ConsoleBackClient> {
 	}
 	
 	//method
+	/**
+	 * Lets the counterpart of  the client of this main session
+	 * save the data to a file.
+	 */
 	private void saveDataToFile() {
 		
 		final List<VolumeCandlestick> candleSticks
@@ -148,7 +152,7 @@ public final class MainSession extends Session<ConsoleBackClient> {
 	
 	//method
 	/**
-	 * Writes algorithm facts to the console
+	 * Writes the algorithm facts to the console
 	 * of the counterpart of the client of this main session.
 	 */
 	private void showAlgorithmFacts() {
@@ -172,23 +176,23 @@ public final class MainSession extends Session<ConsoleBackClient> {
 		getRefClient().writeLineToConsole(	
 				
 			//input commands
-			"sps x      select product symbol x",
-			"sst x      select start time x in format YYYY-MM-DD",
-			"set x      select end time x in format YYYY-MM-DD",
-			"srcsbh x   select x red candle sticks before hammer",
-			"sgcsah x   select x green candle sticks after hammer",
-			"shmlwlr x  select x as hammer min. lower wick length ratio",
-			"smlrpd x   select x as max. loss ratio per day in format {d}.{d}",
-			"smkd x     select x as max. keeping days",
+			"s x    select product symbol x",
+			"ss x   select start time x in format YYYY-MM-DD",
+			"se x   select end time x in format YYYY-MM-DD",
+			"sr x   select x red candle sticks before hammer",
+			"sg x   select x green candle sticks after hammer",
+			"sh x   select x as hammer min. lower wick length ratio",
+			"sm x   select x as max. loss ratio per day in format {d}.{d}",
+			"smk x  select x as max. keeping days",
 					
 			//output commands
-			"sa         show analysis",
-			"spdtf      save product data to file",
-			"satf       save analysis to file",
-			"saf        show algorithm facts",
+			"sa     show analysis",
+			"sp     save product data to file",
+			"sat    save analysis to file",
+			"saf    show algorithm facts",
 		
 			//system commands
-			"q          quit program"
+			"q      quit program"
 		);
 	}
 }

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.application.candleStickAnalyzer;
+package ch.nolix.application.candlestickAnalyzer;
 
 //own imports
 import ch.nolix.system.client.Session;
@@ -20,7 +20,7 @@ public final class LoginSession extends Session<ConsoleBackClient> {
 	public void initialize() {
 		
 		//Sets the title of the console.
-		getRefClient().setTitle(CandleStickAnalyzer.TITLE);
+		getRefClient().setTitle(CandlestickAnalyzer.TITLE);
 		
 		//Asks for the password.
 		getRefClient().writeLineToConsole("Enter the password.");

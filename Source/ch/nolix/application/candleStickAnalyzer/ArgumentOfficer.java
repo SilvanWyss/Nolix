@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.application.candleStickAnalyzer;
+package ch.nolix.application.candlestickAnalyzer;
 
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
@@ -20,8 +20,8 @@ public final class ArgumentOfficer {
 	private String productSymbol = NYSEProductSymbolManager.BLACK_ROCK_INC;
 	private Time startTime = new Time(2016, 1, 1);
 	private Time endTime = new Time(2016, 12, 31);
-	private int minRedCandleStickCountBeforeHammer = 1;
-	private int minGreenCandleStickCountAfterHammer = 1;
+	private int redCandlestickCountBeforeHammer = 1;
+	private int greenCandlestickCountAfterHammer = 1;
 	private double hammerMinLowerWickLengthRatio = 0.5;
 	private int maxKeepingDayCount = 30;
 	private double maxLossRatioPerDay = 0.05;
@@ -33,8 +33,8 @@ public final class ArgumentOfficer {
 			.setProductSymbol(getProductSymbol())
 			.setStartTime(getStartTime())
 			.setEndTime(getEndTime())
-			.setRedCandleStickCountBeforeHammer(getRedCandleStickCountBeforeHammer())
-			.setGreenCandleStickCountAfterHammer(getGreenCandleStickCountAfterHammer())
+			.setRedCandlestickCountBeforeHammer(getRedCandlestickCountBeforeHammer())
+			.setGreenCandlestickCountAfterHammer(getGreenCandlestickCountAfterHammer())
 			.setHammerMinLowerWickLengthRation(getHammerMinLowerWickLengthRation())
 			.setMaxLossRatioPerDay(getMaxLossRatioPerDay())
 			.setMaxKeepingDayCount(getMaxKeepingDayCount());
@@ -46,8 +46,8 @@ public final class ArgumentOfficer {
 	}
 	
 	//method
-	public int getGreenCandleStickCountAfterHammer() {
-		return minGreenCandleStickCountAfterHammer;
+	public int getGreenCandlestickCountAfterHammer() {
+		return greenCandlestickCountAfterHammer;
 	}
 	
 	//method
@@ -71,8 +71,8 @@ public final class ArgumentOfficer {
 	}
 	
 	//method
-	public int getRedCandleStickCountBeforeHammer() {
-		return minRedCandleStickCountBeforeHammer;
+	public int getRedCandlestickCountBeforeHammer() {
+		return redCandlestickCountBeforeHammer;
 	}
 	
 	//method
@@ -91,14 +91,14 @@ public final class ArgumentOfficer {
 	}
 	
 	//method
-	public ArgumentOfficer setGreenCandleStickCountAfterHammer(final int greenCandleStickCountAfterHammer) {
+	public ArgumentOfficer setGreenCandlestickCountAfterHammer(final int greenCandlestickCountAfterHammer) {
 		
 		Validator
-		.suppose(greenCandleStickCountAfterHammer)
-		.thatIsNamed("green candle stick count after hammer")
+		.suppose(greenCandlestickCountAfterHammer)
+		.thatIsNamed("green candlestick count after hammer")
 		.isNotNegative();
 		
-		this.minRedCandleStickCountBeforeHammer = greenCandleStickCountAfterHammer;
+		this.greenCandlestickCountAfterHammer = greenCandlestickCountAfterHammer;
 		
 		return this;
 	}
@@ -158,14 +158,14 @@ public final class ArgumentOfficer {
 	}
 	
 	//method
-	public ArgumentOfficer setRedCandleStickCountBeforeHammer(final int redCandleStickCountBeforeHammer) {
+	public ArgumentOfficer setRedCandlestickCountBeforeHammer(final int redCandlestickCountBeforeHammer) {
 		
 		Validator
-		.suppose(redCandleStickCountBeforeHammer)
-		.thatIsNamed("red candle stick count before hammer")
+		.suppose(redCandlestickCountBeforeHammer)
+		.thatIsNamed("red candlestick count before hammer")
 		.isNotNegative();
 		
-		this.minRedCandleStickCountBeforeHammer = redCandleStickCountBeforeHammer;
+		this.redCandlestickCountBeforeHammer = redCandlestickCountBeforeHammer;
 		
 		return this;
 	}
@@ -188,11 +188,11 @@ public final class ArgumentOfficer {
 			"start time:      " + getStartTime(),
 			"end time:        " + getEndTime(),
 			StringCatalogue.EMPTY_STRING,
-			"minimal number of red candle sticks before hammer:   " + getRedCandleStickCountBeforeHammer(),
-			"minimal number of green candle sticks after hammer:  " + getGreenCandleStickCountAfterHammer(),
-			"hammer minimal lower wick to length ratio:           " + getHammerMinLowerWickLengthRation(),
-			"maximal number of keeping days:                      " + getMaxKeepingDayCount(),
-			"maximal loss ratio per day:                          " + getMaxLossRatioPerDay()
+			"number of red candle sticks before hammer:   " + getRedCandlestickCountBeforeHammer(),
+			"number of green candle sticks after hammer:  " + getGreenCandlestickCountAfterHammer(),
+			"hammer minimal lower wick to length ratio:   " + getHammerMinLowerWickLengthRation(),
+			"maximal number of keeping days:              " + getMaxKeepingDayCount(),
+			"maximal loss ratio per day:                  " + getMaxLossRatioPerDay()
 			
 		);
 	}

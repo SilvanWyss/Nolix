@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.application.candleStickAnalyzer;
+package ch.nolix.application.candlestickAnalyzer;
 
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
@@ -33,9 +33,9 @@ public final class Analysis {
 		//Creates sequence pattern.
 		final SequencePattern<VolumeCandlestick> sequencePattern
 		= new SequencePattern<VolumeCandlestick>()
-		.forNext(this.argumentOfficer.getRedCandleStickCountBeforeHammer()).addCondition(vcs -> vcs.isBearish())
+		.forNext(this.argumentOfficer.getRedCandlestickCountBeforeHammer()).addCondition(vcs -> vcs.isBearish())
 		.addConditionForNext(vcs -> vcs.isHammer(this.argumentOfficer.getHammerMinLowerWickLengthRation()))
-		.forNext(this.argumentOfficer.getGreenCandleStickCountAfterHammer()).addCondition(vcs -> vcs.isBullish())
+		.forNext(this.argumentOfficer.getGreenCandlestickCountAfterHammer()).addCondition(vcs -> vcs.isBullish())
 		.forNext(this.argumentOfficer.getMaxKeepingDayCount()).addBlank();
 		
 		//Fetches the candle sticks.
@@ -50,10 +50,11 @@ public final class Analysis {
 		potentialSequences
 		= candleSticks.getSequences(sequencePattern);
 		
+		//Calculates the buy index.
 		final int buyIndex
-		= this.argumentOfficer.getRedCandleStickCountBeforeHammer()
+		= this.argumentOfficer.getRedCandlestickCountBeforeHammer()
 		+ 1
-		+ this.argumentOfficer.getGreenCandleStickCountAfterHammer()
+		+ this.argumentOfficer.getGreenCandlestickCountAfterHammer()
 		+ 1;
 				
 		//Iterates the potential sequences.
