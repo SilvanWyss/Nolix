@@ -26,8 +26,8 @@ import ch.nolix.element.core.NonEmptyText;
  */
 public abstract class NamableElement<NE extends NamableElement<NE>> extends MutableElement implements Namable<NE> {
 	
-	//constant
-	public static final String SIMPLE_CLASS_NAME = "NamedElement";
+	//type name
+	public static final String TYPE_NAME = "NamableElement";
 	
 	//attribute name
 	private static final String NAME = "Name";
