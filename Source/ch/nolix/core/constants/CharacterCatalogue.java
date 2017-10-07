@@ -21,6 +21,8 @@ public final class CharacterCatalogue {
 	public static final char COMMA = ',';
 	public static final char DOT = '.';
 	public static final char ELLIPSIS = '…';
+	public static final char FAT_CHECK_MARK = 0x2714;
+	public static final char FAT_CROSS = 0x2716;
 	public static final char MINUS = '-';
 	public static final char NEW_LINE = '\n';
 	public static final char OPENING_BRACKET = '(';
