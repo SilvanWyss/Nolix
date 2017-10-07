@@ -16,7 +16,7 @@ import ch.nolix.system.baseGUIClient.BaseGUIClient;
  * 
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 350
+ * @lines 360
  */
 public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 		
@@ -255,6 +255,18 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 		);
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * Writes a line, that consists of the given character, to the console
+	 * of the counterpart of this console back client.
+	 * 
+	 * @param character
+	 * @return this console back client.
+	 */
+	public ConsoleBackClient writeLineToConsole(final char character) {
+		return writeLineToConsole(String.valueOf(character));
 	}
 	
 	//method
