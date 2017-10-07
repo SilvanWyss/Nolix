@@ -5,8 +5,10 @@ package ch.nolix.core.helper;
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -16,9 +18,44 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 270
+ * @lines 310
  */
 public final class StringHelper {
+	
+	//static method
+	/**
+	 * @param string
+	 * @param length
+	 * @return a new string that is the given string extended to the given length with spaces.
+	 * @throws NullArgumentException if the given string is null.
+	 * @throws NegativeArgumentException if the given length is negative.
+	 * @throws InvalidArgumentException if the given string is longer than the given length.
+	 */
+	public static String createStringWithLength(final String string, final int length) {
+		
+		//Checks if the given string is not null.
+		Validator.suppose(string).thatIsInstanceOf(String.class).isNotNull();
+		
+		//Checks if the given length is not negative.
+		Validator.suppose(length).thatIsNamed("length").isNotNegative();
+		
+		//Checks if the given string is not longer than the given length.
+		if (string.length() > length) {
+			throw new InvalidArgumentException(
+				new ArgumentName("string"),
+				new Argument(string),
+				new ErrorPredicate("is longer than " + length + " with a length of " + string.length())
+			);
+		}
+		
+		final StringBuilder stringBuilder = new StringBuilder(string);
+		
+		Sequencer
+		.forCount(length - string.length())
+		.run(() -> stringBuilder.append(CharacterCatalogue.SPACE));
+		
+		return stringBuilder.toString();
+	}
 	
 	//static method
 	/**
