@@ -23,7 +23,7 @@ import ch.nolix.core.sequencer.Sequencer;
  * @param <O> - The type of the elements of the input container and output container of a fanout neuron.
  */
 public final class  FanoutNeuron<O>
-extends Neuronoid<Iterable<O>, Iterable<O>, FanoutNeuron<O>> {
+extends Neuronoid<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 
 	//attribute
 	private final List<TransformNeuron<Iterable<O>, O>> outputNeurons = new List<TransformNeuron<Iterable<O>, O>>();
@@ -68,7 +68,7 @@ extends Neuronoid<Iterable<O>, Iterable<O>, FanoutNeuron<O>> {
 	/**
 	 * @return the maximum number of input neurons of this fanout neuron.
 	 */
-	protected int getMaxInputNeuronCount() {
+	public int getMaxInputNeuronCount() {
 		return 1;
 	}
 
@@ -76,7 +76,7 @@ extends Neuronoid<Iterable<O>, Iterable<O>, FanoutNeuron<O>> {
 	/**
 	 * @return the minimum number of input neurons of this fanout neuron.
 	 */
-	protected int getMinInputNeuronCount() {
+	public int getMinInputNeuronCount() {
 		return 0;
 	}
 

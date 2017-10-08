@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemTutorial.neuronTutorial;
 
-import ch.nolix.system.neuronoid.StandardNeuron;
+import ch.nolix.system.neuron.Neuron;
 
 //class
 /**
@@ -24,24 +24,24 @@ public final class StandardNeuronTutorial2 {
 	public static void main(String[] args) {
 		
 		//Creates neuron 1.
-		final StandardNeuron<Double> neuron1 =
-		new StandardNeuron<Double>().setOutputFunction(1.0);
+		final Neuron<Double> neuron1 =
+		new Neuron<Double>().setOutputFunction(1.0);
 		
 		//Creates neuron 2.
-		final StandardNeuron<Double> neuron2 =
-		new StandardNeuron<Double>()
+		final Neuron<Double> neuron2 =
+		new Neuron<Double>()
 		.setOutputFunction(v -> 2.0 * v.iterator().next())
 		.addInputNeuron(neuron1);
 		
 		//Creates neuron 3.
-		final StandardNeuron<Double> neuron3 =
-		new StandardNeuron<Double>()
+		final Neuron<Double> neuron3 =
+		new Neuron<Double>()
 		.setOutputFunction(v -> 2.0 * v.iterator().next())
 		.addInputNeuron(neuron2);
 		
 		//Creates neuron 4.
-		final StandardNeuron<Double> neuron4 =
-		new StandardNeuron<Double>()
+		final Neuron<Double> neuron4 =
+		new Neuron<Double>()
 		.setOutputFunction(v -> 2.0 * v.iterator().next())
 		.addInputNeuron(neuron3);
 		

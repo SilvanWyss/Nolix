@@ -1,9 +1,12 @@
 //package declaration
-package ch.nolix.system.neuronoid;
+package ch.nolix.system.neuronalNet;
 
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.validator2.Validator;
+import ch.nolix.system.neuronoid.BundleNeuron;
+import ch.nolix.system.neuronoid.FanoutNeuron;
+import ch.nolix.system.neuronoid.Neuronoid;
 
 //abstract class
 /**
@@ -15,14 +18,14 @@ import ch.nolix.core.validator2.Validator;
  * @param <IO> - The type of the input and output of the neurons of this neuronal net.
  */
 public final class NeuronalNet<IO>
-extends Neuronoid<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
+extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 
 	//attributes
 	private final FanoutNeuron<IO> inputFanoutNeuron = new FanoutNeuron<IO>();
 	private final BundleNeuron<IO> outputBundleNeuron = new BundleNeuron<IO>();
 	//private final Neuron<IO, IO, ?> triggerableStartNeuron;
 	
-	private final Iterable<Neuronoid<IO, IO, ?>> internalOutputNeurons;
+	private final Iterable<Neuronoid<?, IO, IO>> internalOutputNeurons;
 	
 	//constructor
 	/**
@@ -36,7 +39,7 @@ extends Neuronoid<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 	 * @throws NullArgumentException if the given triggerable start neuron is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public <M extends Neuronoid<IO, IO, M>> NeuronalNet(
+	public <M extends Neuronoid<M, IO, IO>> NeuronalNet(
 		final Iterable<M> inputLayerNeurons,
 		final Iterable<M> outputLayerNeurons,
 		final M triggerableStartNeuron
@@ -65,7 +68,7 @@ extends Neuronoid<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 		//Sets the triggerable start neuron of this neuronal net.
 		//this.triggerableStartNeuron = triggerableStartNeuron;
 		
-		this.internalOutputNeurons = (Iterable<Neuronoid<IO, IO, ?>>)outputLayerNeurons;
+		this.internalOutputNeurons = (Iterable<Neuronoid<?, IO, IO>>)outputLayerNeurons;
 	}
 	
 	//method
@@ -83,12 +86,12 @@ extends Neuronoid<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 	 * @return the neurons of this neuronal net.
 	 */
 	@SuppressWarnings("unchecked")
-	public <N extends Neuronoid<IO, IO, N>> List<N> getRefNeuronsOfInputOutputType() {
+	public <N extends Neuronoid<N, IO, IO>> List<N> getRefNeuronsOfInputOutputType() {
 		
 		final List<N> neurons = new List<N>();
 		
 		//Adds the suitable internal output neurons of this neuronal net.
-		for (Neuronoid<IO, IO, ?> on : internalOutputNeurons) {
+		for (Neuronoid<?, IO, IO> on : internalOutputNeurons) {
 			try {
 				final N outputNeuron = (N)on;
 				fillUpInputNeuronsOfInputOutputTypeRecursively(outputNeuron, neurons);
@@ -103,7 +106,7 @@ extends Neuronoid<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 	/**
 	 * @return the maximum number of input neurons of this neuronal net.
 	 */
-	protected int getMaxInputNeuronCount() {
+	public int getMaxInputNeuronCount() {
 		return 1;
 	}
 
@@ -111,7 +114,7 @@ extends Neuronoid<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 	/**
 	 * @return the minimal number of input neurons of this neuronal net.
 	 */
-	protected int getMinInputNeuronCount() {
+	public int getMinInputNeuronCount() {
 		return 1;
 	}
 	
@@ -167,7 +170,7 @@ extends Neuronoid<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 	 * @param neurons
 	 */
 	@SuppressWarnings("unchecked")
-	private <N extends Neuronoid<IO, IO, N>> void fillUpInputNeuronsOfInputOutputTypeRecursively(
+	private <N extends Neuronoid<N, IO, IO>> void fillUpInputNeuronsOfInputOutputTypeRecursively(
 		final N neuron,
 		final List<N> neurons
 	) {
@@ -175,7 +178,7 @@ extends Neuronoid<Iterable<IO>, Iterable<IO>, NeuronalNet<IO>> {
 			neurons.addAtEnd(neuron);
 			
 			//Iterates the input neurons of the given neuron.
-			for (Neuronoid<?, IO, ?> in: neuron.getRefInputNeurons()) {
+			for (Neuronoid<?, ?, IO> in: neuron.getRefInputNeurons()) {
 				
 				//Adds the suitable input neurons of the given neuron to the given neuron container.
 				try {

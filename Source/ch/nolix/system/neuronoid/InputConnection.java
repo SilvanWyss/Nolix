@@ -6,34 +6,38 @@ import ch.nolix.core.validator2.Validator;
 
 //class
 /**
- * An input connection provides an input neuron and its weight.
+ * An input connection provides a neuron as input neuron and its weight.
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 90
- * 
- * @param <O> - The type of the output of the input neuron of an input connection.
+ * @lines 100
+ * @param <O> The type of the output
+ * of the input neuron of an input connection.
  */
 public final class InputConnection<O> {
 
-	//default value
+	//default weight
 	public static final double DEFAULT_WEIGHT = 1.0;
 	
 	//attributes
-	private final Neuronoid<?, O, ?> inputNeuron;
 	private double weight = DEFAULT_WEIGHT;
+	private final Neuronoid<?, ?, O> inputNeuron;
 	
 	//constructor
 	/**
-	 * Creates new input connection with a default weight and the given input neuron.
+	 * Creates a new input connection
+	 * with a default weight and the given input neuron.
 	 * 
 	 * @param inputNeuron
 	 * @throws NullArgumentException if the given input neuron is null.
 	 */
-	public InputConnection(final Neuronoid<?, O, ?> inputNeuron) {
+	public InputConnection(final Neuronoid<?, ?, O> inputNeuron) {
 		
 		//Checks if the given input neuron is not null.
-		Validator.suppose(inputNeuron).thatIsNamed("input neuron").isNotNull();
+		Validator
+		.suppose(inputNeuron)
+		.thatIsNamed("input neuron")
+		.isNotNull();
 		
 		this.inputNeuron = inputNeuron;
 	}
@@ -46,7 +50,10 @@ public final class InputConnection<O> {
 	 * @param inputNeuron
 	 * @throws NullArgumentException if the given input neuron is null.
 	 */
-	public InputConnection(final double weight, final Neuronoid<?, O, ?> inputNeuron) {
+	public InputConnection(
+		final double weight,
+		final Neuronoid<?, ?, O> inputNeuron
+	) {
 
 		//Calls other constructor.
 		this(inputNeuron);
@@ -58,7 +65,7 @@ public final class InputConnection<O> {
 	/**
 	 * @return the output of the input neuron of this input connection.
 	 */
-	public O getRefInput() {
+	public O getRefOutput() {
 		return inputNeuron.getRefOutput();
 	}
 	
@@ -93,7 +100,7 @@ public final class InputConnection<O> {
 	/**
 	 * @return the input neuron of this input connection.
 	 */
-	final Neuronoid<?, O, ?> getRefInputNeuron() {
+	final Neuronoid<?, ?, O> getRefInputNeuron() {
 		return inputNeuron;
 	}
 }

@@ -3,8 +3,8 @@ package ch.nolix.systemTutorial.neuronTutorial;
 
 //own imports
 import ch.nolix.core.mathematics.Calculator;
+import ch.nolix.system.neuron.Neuron;
 import ch.nolix.system.neuronoid.SourceNeuron;
-import ch.nolix.system.neuronoid.StandardNeuron;
 
 //class
 /**
@@ -42,8 +42,8 @@ public final class StandardNeuronTutorial1 {
 		new SourceNeuron<Double>(16.0);
 		
 		//Creates standard neuron.
-		final StandardNeuron<Double> standardNeuron =
-		new StandardNeuron<Double>()
+		final Neuron<Double> standardNeuron =
+		new Neuron<Double>()
 		.addInputNeuron(sourceNeuron1)
 		.addInputNeuron(sourceNeuron2)
 		.addInputNeuron(sourceNeuron3)

@@ -1,6 +1,5 @@
 //package declaration
-package ch.nolix.system.neuronoid;
-
+package ch.nolix.system.neuronalNet;
 
 //interface
 /**

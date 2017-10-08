@@ -5,8 +5,8 @@ package ch.nolix.systemTutorial.neuronTutorial;
 import ch.nolix.core.container.List;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.system.neuronoid.ForwardMultiLayerNetCreator;
-import ch.nolix.system.neuronoid.NeuronalNet;
+import ch.nolix.system.neuronalNet.ForwardMultiLayerNetCreator;
+import ch.nolix.system.neuronalNet.NeuronalNet;
 import ch.nolix.system.neuronoid.SourceNeuron;
 
 //class

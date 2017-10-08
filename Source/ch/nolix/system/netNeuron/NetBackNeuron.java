@@ -25,7 +25,7 @@ import ch.nolix.system.neuronoid.Neuronoid;
  * @param <I> The type of the input of a net back neuron.
  */
 public final class NetBackNeuron<I>
-extends Neuronoid<I, Object, NetBackNeuron<I>>
+extends Neuronoid<NetBackNeuron<I>, I, Object>
 implements Closable {
 		
 	//application name
@@ -85,7 +85,7 @@ implements Closable {
 	/**
 	 * @return the maximum number of input neurons of this net back neuron.
 	 */
-	protected int getMaxInputNeuronCount() {
+	public int getMaxInputNeuronCount() {
 		return 1;
 	}
 
@@ -93,7 +93,7 @@ implements Closable {
 	/**
 	 * @return the minimum number of input neurons of this net back neuron.
 	 */
-	protected int getMinInputNeuronCount() {
+	public int getMinInputNeuronCount() {
 		return 0;
 	}
 	

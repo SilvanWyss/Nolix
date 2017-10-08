@@ -23,7 +23,7 @@ import ch.nolix.system.neuronoid.Neuronoid;
  * @param <O> The type of the output of a net front neuron.
  */
 public final class NetFrontNeuron<O>
-extends Neuronoid<Object, O, NetFrontNeuron<O>>
+extends Neuronoid<NetFrontNeuron<O>, Object, O>
 implements Closable {
 
 	//attributes
@@ -99,7 +99,7 @@ implements Closable {
 	/**
 	 * @return the maximum number of input neurons of this net front neuron.
 	 */
-	protected int getMaxInputNeuronCount() {
+	public int getMaxInputNeuronCount() {
 		return 0;
 	}
 
@@ -107,7 +107,7 @@ implements Closable {
 	/**
 	 * @return the minimum number of input neurons of this net front neuron.
 	 */
-	protected int getMinInputNeuronCount() {
+	public int getMinInputNeuronCount() {
 		return 0;
 	}
 	

@@ -1,10 +1,12 @@
 //package declaration
-package ch.nolix.system.neuronoid;
+package ch.nolix.system.neuronalNet;
 
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.validator2.Validator;
+import ch.nolix.system.neuron.Neuron;
+import ch.nolix.system.neuronoid.InputConnection;
 
 //class
 /**
@@ -32,17 +34,17 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	 */
 	public NeuronalNet<IO> createNeuronalNet() {
 			
-		final List<StandardNeuron<IO>> inputNeurons = new List<StandardNeuron<IO>>();
+		final List<Neuron<IO>> inputNeurons = new List<Neuron<IO>>();
 		
-		List<StandardNeuron<IO>> previousLayer = new List<StandardNeuron<IO>>();
+		List<Neuron<IO>> previousLayer = new List<Neuron<IO>>();
 		for (int i = 1; i <= getLayerCount(); i++) {
 			
-			List<StandardNeuron<IO>> currentLayer = new List<StandardNeuron<IO>>();
+			List<Neuron<IO>> currentLayer = new List<Neuron<IO>>();
 			
 			for (int j = 1; j <= getNeuronsPerLayer(); j++) {
 				
 				//Creates the j-th neuron of the i-th layer.
-				final StandardNeuron<IO> neuron = new StandardNeuron<IO>();
+				final Neuron<IO> neuron = new Neuron<IO>();
 				if (i == 1) {
 					inputNeurons.addAtEnd(neuron);
 				}	
@@ -132,7 +134,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 			//Creates input list.
 			final List<IO> inputs = new List<IO>();
 			for (InputConnection<IO> n: in) {
-				inputs.addAtEnd(n.getRefInput());
+				inputs.addAtEnd(n.getRefOutput());
 			}
 			
 			return outputFunction.getOutput(inputs);

@@ -3,24 +3,23 @@ package ch.nolix.system.neuronoid;
 
 //class
 /**
- * A source neuron is a neuron that just serves as source.
+ * A source neuron is a neuron that serves as source.
  * 
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 50
+ * @lines 60
+ * @param <O> The type of the output of a source neuron.
  */
 public final class SourceNeuron<O>
-extends Neuronoid<Object, O, SourceNeuron<O>> {
-
-	//constructor
-	/**
-	 * Creates new source neuron with default values.
-	 */
-	public SourceNeuron() {}
+extends Neuronoid<SourceNeuron<O>, Object, O> {
+	
+	//limits
+	public static final int MIN_INPUT_NEURON_COUNT = 0;
+	public static final int MAX_INPUT_NEURON_COUNT = 0;
 	
 	//constructor
 	/**
-	 * Creates new source neuron with the given output.
+	 * Creates a new source neuron with the given output.
 	 * 
 	 * @param output
 	 */
@@ -30,23 +29,33 @@ extends Neuronoid<Object, O, SourceNeuron<O>> {
 	
 	//method
 	/**
-	 * Lets this source neuron fire.
-	 */
-	public void internal_fire() {}
-	
-	//method
-	/**
 	 * @return the maximal number of input neurons of this source neuron.
 	 */
-	protected int getMaxInputNeuronCount() {
-		return 0;
+	public int getMaxInputNeuronCount() {
+		return MAX_INPUT_NEURON_COUNT;
 	}
 
 	//method
 	/**
 	 * @return the minimal number of input neurons of this source neuron.
 	 */
-	protected int getMinInputNeuronCount() {
-		return 0;
+	public int getMinInputNeuronCount() {
+		return MIN_INPUT_NEURON_COUNT;
 	}
+	
+	//method
+	/**
+	 * Sets the output of this source neuron.
+	 */
+	public void setOutput(final O output) {
+		
+		//Calls method of the base class.
+		super.setOutput(output);
+	}
+	
+	//method
+	/**
+	 * Lets this source neuron fire.
+	 */
+	protected void internal_fire() {}
 }

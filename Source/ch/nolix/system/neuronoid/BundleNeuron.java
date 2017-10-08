@@ -12,13 +12,13 @@ package ch.nolix.system.neuronoid;
  * @param <O> - The type of the elements of the input container of a bundle neuron.
  */
 public final class BundleNeuron<O>
-extends Neuronoid<O, Iterable<O>, BundleNeuron<O>> {
+extends Neuronoid<BundleNeuron<O>, O, Iterable<O>> {
 	
 	//method
 	/**
 	 * @return the maximum number of input neurons of this bundle neuron.
 	 */
-	protected int getMaxInputNeuronCount() {
+	public int getMaxInputNeuronCount() {
 		return Integer.MAX_VALUE;
 	}
 
@@ -26,7 +26,7 @@ extends Neuronoid<O, Iterable<O>, BundleNeuron<O>> {
 	/**
 	 * @return the minimum number of input neurons of this bundle neuron.
 	 */
-	protected int getMinInputNeuronCount() {
+	public int getMinInputNeuronCount() {
 		return 0;
 	}
 

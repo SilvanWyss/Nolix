@@ -7,18 +7,18 @@ import ch.nolix.core.validator2.Validator;
 
 //class
 /**
- * A transform neuron is a neuron that transform a single input to an output.
+ * A transform neuron is a neuron that transform an input to an output.
  * 
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 80
- * @param <I> - The type of the input of a transform neuron.
- * @param <O> - The type of the output of a transform neuron.
+ * @lines 70
+ * @param <I> The type of the input of a transform neuron.
+ * @param <O> The type of the output of a transform neuron.
  */
 public final class TransformNeuron<I, O>
-extends Neuronoid<I, O, TransformNeuron<I, O>> {
+extends Neuronoid<TransformNeuron<I, O>, I, O> {
 	
-	//constants
+	//limits
 	private static final int MIN_INPUT_NEURON_COUNT = 1;
 	private static final int MAX_INPUT_NEURON_COUNT = 1;
 	
@@ -35,22 +35,22 @@ extends Neuronoid<I, O, TransformNeuron<I, O>> {
 	 * @throws NullArgumentException if the given transform function is null.
 	 */
 	public TransformNeuron(
-		final Neuronoid<?, I, ?> inputNeuron,
+		final Neuronoid<?, ?, I> inputNeuron,
 		final IElementTakerElementGetter<I, O> transformer
 	) {
 		//Checks if the given transform function is not null.
 		Validator.suppose(transformer).thatIsNamed("transformern").isNotNull();
+						
+		addInputNeuron(inputNeuron);
 		
 		this.transformer = transformer;
-		
-		addInputNeuron(inputNeuron);
 	}
 	
 	//method
 	/**
 	 * @return the maximum number of input neurons of this transform neuron.
 	 */
-	protected int getMaxInputNeuronCount() {
+	public int getMaxInputNeuronCount() {
 		return MAX_INPUT_NEURON_COUNT;
 	}
 
@@ -58,15 +58,13 @@ extends Neuronoid<I, O, TransformNeuron<I, O>> {
 	/**
 	 * @return the minimal number of input neurons of this transform neuron.
 	 */
-	protected int getMinInputNeuronCount() {
+	public int getMinInputNeuronCount() {
 		return MIN_INPUT_NEURON_COUNT;
 	}
 	
 	//method
 	/**
-	 * Triggers this transform neuron using the given processor.
-	 * 
-	 * @param processor
+	 * Lets this transform neuron fire.
 	 */
 	protected void internal_fire() {
 		setOutput(transformer.getOutput(getRefOneInput()));
