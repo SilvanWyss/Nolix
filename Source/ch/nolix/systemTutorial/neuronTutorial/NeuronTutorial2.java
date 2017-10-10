@@ -1,23 +1,25 @@
 //package declaration
 package ch.nolix.systemTutorial.neuronTutorial;
 
+//own import
 import ch.nolix.system.neuron.Neuron;
 
 //class
 /**
- * This class provides a tutorial for the standard neuron class.
+ * The neuron tutorial 2 is a tutorial for the neuron class.
  * Of this class no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2016-11
  * @lines 60
  */
-public final class StandardNeuronTutorial2 {
+public final class NeuronTutorial2 {
 
 	//main method
 	/**
-	 * 1. Creates 4 standard neurons that are connected in 1 line.
-	 * 2. Triggers the first neuron and prints the output of all neurons out to the console.
+	 * 1. Creates 4 neurons that are connected linearly.
+	 * 2. Lets the first neuron fire.
+	 * 3. Prints out the output of all neurons to the console.
 	 * 
 	 * @param args
 	 */
@@ -45,10 +47,10 @@ public final class StandardNeuronTutorial2 {
 		.setOutputFunction(v -> 2.0 * v.iterator().next())
 		.addInputNeuron(neuron3);
 		
-		//Triggers neuron 1.
+		//Lets fire neuron1.
 		neuron1.fire();
 		
-		//Prints the output of the neurons out to the console.
+		//Prints out the output of the neurons to the console.
 		System.out.println("neuron 1 output: " + neuron1.getRefOutput());
 		System.out.println("neuron 2 output: " + neuron2.getRefOutput());
 		System.out.println("neuron 3 output: " + neuron3.getRefOutput());
@@ -59,5 +61,5 @@ public final class StandardNeuronTutorial2 {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private StandardNeuronTutorial2() {}
+	private NeuronTutorial2() {}
 }

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemTutorial.neuronTutorial;
+package ch.nolix.system.neuronalNetTutorial;
 
 //own imports
 import ch.nolix.core.container.List;
