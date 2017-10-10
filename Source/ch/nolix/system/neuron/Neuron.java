@@ -9,23 +9,46 @@ import ch.nolix.system.neuronoid.Neuronoid;
 
 //class
 /**
- * A neuron is a neuron with an output or an output function that can be set dynamically.
+ * A neuron is a neuronoid with an output function
+ * that can be set programmatically.
  * 
  * @author Silvan Wyss
  * @month 2016-11
  * @lines 110
- * @param <IO> - The type of the input and output of a neuron.
+ * @param <IO> The type of the input and output of a neuron.
  */
 public final class Neuron<IO>
 extends Neuronoid<Neuron<IO>, IO, IO> {
+	
+	//limits
+	public static final int MIN_INPUT_NEURON_COUNT = 0;
+	public static final int MAX_INPUT_NEURON_COUNT = Integer.MAX_VALUE;
 	
 	//attribute
 	private IElementTakerElementGetter<Neuronoid<?, IO, IO>, IO> outputFunction;
 	
 	//method
 	/**
+	 * @return the maximal number of input neurons of this neuron.
+	 */
+	public int getMaxInputNeuronCount() {
+		return MAX_INPUT_NEURON_COUNT;
+	}
+
+	//method
+	/**
+	 * @return the minimal number of input neurons of this neuron.
+	 */
+	public int getMinInputNeuronCount() {
+		return MIN_INPUT_NEURON_COUNT;
+	}
+	
+	//method
+	/**
 	 * Sets the output function of this neuron.
-	 * This method overrides any previous output that was set to this neuron.
+	 * 
+	 * Replaces the output function of this neuron
+	 * if this neuron has already an output function.
 	 * 
 	 * @param outputFunction
 	 * @return this neuron.
@@ -38,6 +61,7 @@ extends Neuronoid<Neuron<IO>, IO, IO> {
 		//Checks if the given output function is not null.
 		Validator.suppose(outputFunction).thatIsNamed("output function").isNotNull();
 		
+		//Sets the output function of this neuron.
 		this.outputFunction = n -> outputFunction.getOutput(n.getRefInputs());
 
 		return this;
@@ -45,15 +69,18 @@ extends Neuronoid<Neuron<IO>, IO, IO> {
 	
 	//method
 	/**
-	 * Sets the output of this neuron.
-	 * This method overrided any previous output function that was set to this neuron.
+	 * Sets the output function of this neuron.
+	 * 
+	 * Replaces the output function of this neuron
+	 * if this neuron has already an output function.
 	 * 
 	 * @param output
 	 * @return this neuron.
 	 */
 	public Neuron<IO> setOutputFunction(final IO output) {
 		
-		setOutputFunction(c -> output);
+		//Sets the output function of this neuron.
+		outputFunction = n -> output;
 		
 		return this;
 	}
@@ -62,43 +89,28 @@ extends Neuronoid<Neuron<IO>, IO, IO> {
 	/**
 	 * Sets the output function of this neuron.
 	 * 
-	 * @param weightOutputFunction
+	 * @param outputFunction
 	 * @return this neuron.
 	 * @throws NullArgumentException if the given weight output function is null.
 	 */
-	public Neuron<IO> setWeightOutputFunction(
-		final IElementTakerElementGetter<Iterable<InputConnection<IO>>, IO> weightOutputFunction
+	public Neuron<IO> setOutputFunction2(
+		final IElementTakerElementGetter<Iterable<InputConnection<IO>>, IO> outputFunction
 	) {
 		
 		//Checks if the given output function is not null.
-		Validator.suppose(weightOutputFunction).thatIsNamed("weight output function").isNotNull();
+		Validator.suppose(outputFunction).thatIsNamed("weight output function").isNotNull();
 		
-		//outputFunction = weightOutputFunction;
-		outputFunction =
-		n -> {
-			return weightOutputFunction.getOutput(n.getRefInputConnections());
-		};
-		
+		//Sets the output function of this neuron.
+		this.outputFunction = n -> outputFunction.getOutput(n.getRefInputConnections());
+				
 		return this;
 	}
-
-	//method
-	/**
-	 * @return the maximal number of input neurons of this neuron.
-	 */
-	public int getMaxInputNeuronCount() {
-		return Integer.MAX_VALUE;
-	}
-
-	//method
-	/**
-	 * @return the minimal number of input neurons of this neuron.
-	 */
-	public int getMinInputNeuronCount() {
-		return 0;
-	}
 	
-	public void internal_fire() {
+	//method
+	/**
+	 * Lets this neuron fire.
+	 */
+	protected void internal_fire() {
 		setOutput(outputFunction.getOutput(this));
 	}
 }
