@@ -174,13 +174,6 @@ public abstract class Neuronoid<N extends Neuronoid<N, I, O>, I, O> {
 		return new AccessorContainer<InputConnection<I>>(inputConnections);
 	}
 	
-	/**
-	 * @return the input neurons of this neuron.
-	 */
-	public final IContainer<Neuronoid<?, ?, I>> getRefInputNeurons() {
-		return inputConnections.to(ic -> ic.getRefInputNeuron());
-	}
-	
 	//method
 	/**
 	 * @return the inputs of this neuron.
@@ -209,13 +202,7 @@ public abstract class Neuronoid<N extends Neuronoid<N, I, O>, I, O> {
 		return inputConnections.getRefOne();
 	}
 	
-	/**
-	 * @return the one input neuron of this neuron.
-	 * @throws InvalidArgumentException if this neuron contains no or several input neurons.
-	 */
-	public final Neuronoid<?, ?, I> getRefOneInputNeuron(){
-		return inputConnections.getRefOne().getRefInputNeuron();
-	}
+
 	
 	//method
 	/**
@@ -225,11 +212,28 @@ public abstract class Neuronoid<N extends Neuronoid<N, I, O>, I, O> {
 		return new AccessorContainer<OutputConnection<O>>(outputConnections);
 	}
 	
-	//method
+	//package-visible method
+	/**
+	 * @return the input neurons of this neuron.
+	 */
+	final IContainer<Neuronoid<?, ?, I>> getRefInputNeurons() {
+		return inputConnections.to(ic -> ic.getRefInputNeuron());
+	}
+	
+	//package-visible method
+	/**
+	 * @return the one input neuron of this neuron.
+	 * @throws InvalidArgumentException if this neuron contains no or several input neurons.
+	 */
+	final Neuronoid<?, ?, I> getRefOneInputNeuron(){
+		return inputConnections.getRefOne().getRefInputNeuron();
+	}
+	
+	//package-visible method
 	/**
 	 * @return the output neurons of this neuron.
 	 */
-	public final AccessorContainer<Neuronoid<?, O, ?>> getRefOutputNeurons() {
+	final AccessorContainer<Neuronoid<?, O, ?>> getRefOutputNeurons() {
 		return
 		new AccessorContainer<Neuronoid<?, O, ?>>(
 			outputConnections.to(oc -> oc.getRefOutputNeuron())

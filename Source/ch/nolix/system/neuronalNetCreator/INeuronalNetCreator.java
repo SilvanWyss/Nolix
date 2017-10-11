@@ -1,5 +1,7 @@
 //package declaration
-package ch.nolix.system.neuronalNet;
+package ch.nolix.system.neuronalNetCreator;
+
+import ch.nolix.system.neuronoid.NeuronalNet;
 
 //interface
 /**

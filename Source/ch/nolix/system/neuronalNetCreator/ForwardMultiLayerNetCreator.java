@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.neuronalNet;
+package ch.nolix.system.neuronalNetCreator;
 
 //own imports
 import ch.nolix.core.container.List;
@@ -7,6 +7,7 @@ import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.system.neuron.Neuron;
 import ch.nolix.system.neuronoid.InputConnection;
+import ch.nolix.system.neuronoid.NeuronalNet;
 
 //class
 /**
