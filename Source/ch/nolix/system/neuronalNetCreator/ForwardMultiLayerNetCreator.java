@@ -60,7 +60,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 			previousLayer = currentLayer;
 		}
 		
-		return new NeuronalNet<IO>(inputNeurons, previousLayer, inputNeurons.getRefFirst());
+		return new NeuronalNet<IO>(inputNeurons, previousLayer);
 	}
 	
 	//method

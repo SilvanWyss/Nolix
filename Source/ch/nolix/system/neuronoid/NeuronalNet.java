@@ -26,27 +26,21 @@ extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	
 	//constructor
 	/**
-	 * Creates new neuronal net with the given input layer neurons, output layer neurons and triggerable start neuron.
+	 * Creates new neuronal net with the given input layer neurons and output layer neurons.
 	 * 
 	 * @param inputLayerNeurons
 	 * @param internalOutputNeurons
-	 * @param triggerableStartNeuron
 	 * @throws NullArgumentException if the given input layer neuron container is null.
 	 * @throws NullArgumentException if the given output layer neuron container is null.
-	 * @throws NullArgumentException if the given triggerable start neuron is null.
 	 */
 	@SuppressWarnings("unchecked")
 	public <M extends Neuronoid<M, IO, IO>> NeuronalNet(
 		final Iterable<M> inputLayerNeurons,
-		final Iterable<M> outputLayerNeurons,
-		final M triggerableStartNeuron
+		final Iterable<M> outputLayerNeurons
 	) {
 		//Checks if the given input layer neuron container and output layer neuron container is not null.
 		Validator.suppose(inputLayerNeurons).thatIsNamed("input layer neuron container").isNotNull();
 		Validator.suppose(outputLayerNeurons).thatIsNamed("output layer neuron container").isNotNull();
-		
-		//Checks if the given triggerable start neuron is not null.
-		Validator.suppose(triggerableStartNeuron).thatIsNamed("triggerable start neuron").isNotNull();
 		
 		//Connects the input fanout neuron of this neuronal net to the given input layer neurons.
 		int i = 1;
