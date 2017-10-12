@@ -2,77 +2,53 @@
 package ch.nolix.elementTest.dataTest;
 
 //own imports
-import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.test2.Test;
 import ch.nolix.element.data.Title;
 
 //test class
 /**
- * This class is a text class for the title class.
+ * A title test is a test for the title class.
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 70
+ * @lines 50
  */
 public final class TitleTest extends Test {
 	
 	//test method
-	public void testGetType() {
+	public void test_getType() {
 		
 		//setup
 		final Title title = new Title();
 		
-		//verification
+		//execution and verification
 		expectThat(title.getType()).equals("Title");
 	}
-
-	//test method
-	public void testReset() {
-		
-		//setup
-		final Title title = new Title("Encyclopedia");
-		
-		//execution
-		title.reset();
-		
-		//verification
-		expectThat(title.hasValue(Title.DEFAULT_VALUE));
-	}
 	
 	//test method
-	public void testSetValue1() {
+	public void test_getValue() {
+		
+		//test parameters
+		final String value = "My World";
 		
 		//setup
-		final Title title = new Title();
-		
-		//execution
-		title.setValue("Encyclopedia");
-		
-		//verification
-		expectThat(title.hasValue("Encyclopedia"));
-	}
-	
-	//test method
-	public void testSetValue2() {
-		
-		//setup
-		final Title title = new Title();
+		final Title title = new Title(value);
 		
 		//execution and verification
-		expectThat(() -> title.setValue(null))
-		.throwsExceptionOfType(NullArgumentException.class);
+		expectThat(title.getValue()).equals(value);
 	}
 	
 	//test method
-	public void testSetValue3() {
+	public void test_getValueInQuotes() {
+		
+		//test parameters
+		final String value = "My World";
+		final String valueInQuotes = "'My World'";
 		
 		//setup
-		final Title title = new Title();
+		final Title title = new Title(value);
 		
 		//execution and verification
-		expectThat(() -> title.setValue(StringCatalogue.EMPTY_STRING))
-		.throwsExceptionOfType(EmptyArgumentException.class);
+		expectThat(title.getValueInQuotes()).equals(valueInQuotes);
 	}
 }

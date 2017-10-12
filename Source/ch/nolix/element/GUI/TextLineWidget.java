@@ -30,7 +30,7 @@ public abstract class TextLineWidget<TLW extends TextLineWidget<TLW>>
 extends BorderWidget<TLW, TextLineWidgetStructure> {
 
 	//attribute
-	private final Text text = new Text();
+	private Text text = new Text();
 	
 	//method
 	/**
@@ -98,7 +98,7 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 	@SuppressWarnings("unchecked")
 	public TLW setText(String text) {
 		
-		this.text.setValue(text);
+		this.text = new Text(text);
 		
 		return (TLW)this;
 	}

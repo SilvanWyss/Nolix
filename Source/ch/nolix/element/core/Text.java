@@ -6,21 +6,23 @@ import ch.nolix.core.constants.StringCatalogue;
 
 //class
 /**
+ * A text is not mutable.
+ * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 60
+ * @lines 40
  */
-public final class Text extends Textoid {
-	
-	//type name
-	public static final String TYPE_NAME = "Text";
+public class Text extends Textoid {
 	
 	//default value
 	public static final String DEFAULT_VALUE = StringCatalogue.EMPTY_STRING;
 	
+	//type name
+	public static final String TYPE_NAME = "Text";	
+	
 	//constructor
 	/**
-	 * Creates new text with a default value.
+	 * Creates a new text with a default value.
 	 */
 	public Text() {
 		
@@ -30,7 +32,7 @@ public final class Text extends Textoid {
 		
 	//constructor
 	/**
-	 * Creates new text with the given value.
+	 * Creates a new text with the given value.
 	 * 
 	 * @param value
 	 * @throws NullArgumentException if the given value is null.
@@ -39,13 +41,5 @@ public final class Text extends Textoid {
 		
 		//Calls constructor of the base class.
 		super(value);
-	}
-
-	//method
-	/**
-	 * Resets this text.
-	 */
-	public final void reset() {
-		setValue(DEFAULT_VALUE);
 	}
 }

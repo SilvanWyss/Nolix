@@ -19,6 +19,7 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.core.NonEmptyText;
+import ch.nolix.element.data.Name;
 
 //class
 /**
@@ -33,7 +34,7 @@ public abstract class NamableElement<NE extends NamableElement<NE>> extends Muta
 	private IRequestableContainer containerOfNameds;
 	
 	//attribute
-	private final NonEmptyText name = new NonEmptyText();
+	private NonEmptyText name = new NonEmptyText();
 	
 	//method
 	/**
@@ -72,7 +73,7 @@ public abstract class NamableElement<NE extends NamableElement<NE>> extends Muta
 	 * Resets this named element.
 	 */
 	public void reset() {
-		name.reset();
+		name = new Name();
 	}
 	
 	//method
@@ -133,7 +134,7 @@ public abstract class NamableElement<NE extends NamableElement<NE>> extends Muta
 				throw new RuntimeException("Named element " + getNameInQuotes() + " belongs to a container that contains an other element with the name '" + name + "'.");
 			}
 			
-			this.name.setValue(name);
+			this.name = new Name(name);
 		}
 		
 		return (NE)this;

@@ -7,9 +7,11 @@ import ch.nolix.core.validator2.Validator;
 
 //class
 /**
+ * A non-empty text is not mutable.
+ * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 70
+ * @lines 50
  */
 public class NonEmptyText extends Textoid {
 
@@ -41,30 +43,8 @@ public class NonEmptyText extends Textoid {
 		
 		//Calls constructor of the base class.
 		super(value);
-	}
-	
-	//method
-	/**
-	 * Resets this non empty text.
-	 */
-	public final void reset() {
-		setValue(DEFAULT_VALUE);
-	}
-	
-	//method
-	/**
-	 * Sets the value of this non empty text.
-	 * 
-	 * @param value
-	 * @throws NullArgumentException if the given value is null.
-	 * @throws EmptyArgumentException if the given value is an empty string.
-	 */
-	public final void setValue(String value) {	
 		
-		//Checks if the given value is not null.
-		Validator.suppose(value).isNotEmpty();
-		
-		//Calls method of the base class.
-		super.setValue(value);
+		//Checks if the given value is not empty.
+		Validator.suppose(value).thatIsNamed("value").isNotEmpty();
 	}
 }

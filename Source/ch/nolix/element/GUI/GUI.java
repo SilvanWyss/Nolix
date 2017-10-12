@@ -668,7 +668,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	@SuppressWarnings("unchecked")
 	public final G setTitle(final String title) {
 		
-		this.title.setValue(title);
+		this.title = new Title(title);
 		
 		return (G)this;
 	}
