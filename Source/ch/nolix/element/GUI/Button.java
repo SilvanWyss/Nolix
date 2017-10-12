@@ -3,12 +3,12 @@ package ch.nolix.element.GUI;
 
 //class
 /**
- * A button is a text line rectangle
+ * A button is a text line widget
  * that is supposed to be used for left mouse button presses.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 40
+ * @lines 50
  */
 public final class Button extends TextLineWidget<Button> {
 		
@@ -35,6 +35,7 @@ public final class Button extends TextLineWidget<Button> {
 		//Calls other constructor.
 		this();
 		
+		//Sets the text of this button.
 		setText(text);
 	}
 	
