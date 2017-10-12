@@ -38,7 +38,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	private static final String CURSOR_COLOR = "CursorColor";
 	
 	//attributes
-	private final Width width = new Width();
+	private Width width = new Width();
 	private int textCursorPosition = 0;
 	private final TextCursor textCursor = new TextCursor();
 	
@@ -207,7 +207,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		
 		Validator.throwExceptionIfValueIsSmaller("width", MIN_WIDTH, width);
 				
-		getRefWidth().setValue(width);
+		this.width = new Width(width);
 	}
 	
 	//method

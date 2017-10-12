@@ -197,7 +197,7 @@ extends Widget<L, LineStructure> {
 			);
 		}
 		
-		this.length.setValue(length);
+		this.length = new Length(length);
 		
 		return (L)this;
 	}
@@ -229,7 +229,7 @@ extends Widget<L, LineStructure> {
 			);
 		}
 		
-		this.thickness.setValue(thickness);
+		this.thickness = new Thickness(thickness);
 		
 		return (L)this;
 	}

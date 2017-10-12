@@ -1,17 +1,12 @@
-/*
- * file:	PositiveInteger.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	60
- */
-
 //package declaration
 package ch.nolix.element.core;
 
-//own imports
-import ch.nolix.core.validator.Validator;
-
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 30
+ */
 public class PositiveInteger extends Integeroid {
 	
 	//type name
@@ -39,28 +34,5 @@ public class PositiveInteger extends Integeroid {
 	 */
 	public PositiveInteger(int value) {
 		super(value);
-	}
-	
-	//method
-	/**
-	 * Resets this positive integer.
-	 */
-	public final void reset() {
-		setValue(DEFAULT_VALUE);
-	}
-	
-	//method
-	/**
-	 * Sets the value of this positive integer.
-	 * 
-	 * @param value
-	 * @throws Exception if the given value is not positive
-	 */
-	public final void setValue(int value) {
-		
-		Validator.throwExceptionIfValueIsNotPositive("value", value);
-		
-		//Calls method of the base class.
-		super.setValue(value);
 	}
 }

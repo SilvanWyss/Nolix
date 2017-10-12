@@ -1,17 +1,17 @@
-/*
- * file:	NonNegativeInteger.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	60
- */
-
 //package declaration
 package ch.nolix.element.core;
 
 //own import
-import ch.nolix.core.validator.Validator;
+import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
 
 //class
+/**
+ * A non-negative integer is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 40
+ */
 public class NonNegativeInteger extends Integeroid {
 	
 	//type name
@@ -26,8 +26,8 @@ public class NonNegativeInteger extends Integeroid {
 	 */
 	public NonNegativeInteger() {
 		
-		//Calls constructor of the base class.
-		super(DEFAULT_VALUE);
+		//Calls other constructor.
+		this(DEFAULT_VALUE);
 	}
 	
 	//constructor
@@ -35,33 +35,16 @@ public class NonNegativeInteger extends Integeroid {
 	 * Creates new non-negative integer with the given value.
 	 * 
 	 * @param value
+	 * @throws NegativeArgumentException if the given value is negative.
 	 */
 	public NonNegativeInteger(int value) {
 		
 		//Calls constructor of the base class.
 		super(value);
-	}
-	
-	//method
-	/**
-	 * Resets this non-negative integer.
-	 */
-	public final void reset() {
-		setValue(DEFAULT_VALUE);
-	}
-	
-	//method
-	/**
-	 * Sets the value of this non-negative integer.
-	 * 
-	 * @param value
-	 * @throws Exception if the given value is not positive
-	 */
-	public final void setValue(int value) {
-
-		Validator.throwExceptionIfValueIsNegative("value", value);
 		
-		//Calls method of the base class.
-		super.setValue(value);
+		//Checks if the given value is not negative.
+		if (value < 0) {
+			throw new NegativeArgumentException(value);
+		}
 	}
 }

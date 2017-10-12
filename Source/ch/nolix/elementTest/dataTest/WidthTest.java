@@ -7,47 +7,34 @@ import ch.nolix.element.data.Width;
 
 //class
 /**
- * This class is a test class for the width class.
+ * A width test is a test for the width class.
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 50
+ * @lines 40
  */
 public class WidthTest extends Test {
 	
 	//test method
-	public void testGetValue() {
+	public void test_constructor() {
 		
-		//setup
-		final Width width = new Width();
+		//test parameter
+		final int value = 250;
+		
+		//execution
+		final Width width = new Width(value);
 		
 		//verification
-		expectThat(width.getType()).equals(Width.TYPE_NAME);		
+		expectThat(width.getValue()).equals(value);
 	}
 	
 	//test method
-	public void testReset() {
-		
-		//setup
-		final Width width = new Width(250);
-		
-		//execution
-		width.reset();
-		
-		//verification
-		expectThat(width.getValue()).isEqualTo(Width.DEFAULT_VALUE);;
-	}		
-
-	//test method
-	public void testSetValue() {
+	public void test_getType() {
 		
 		//setup
 		final Width width = new Width();
 		
-		//execution
-		width.setValue(250);
-		
-		//verification
-		expectThat(width.getValue()).isEqualTo(250);
+		//execution and verification
+		expectThat(width.getType()).equals(Width.TYPE_NAME);		
 	}
 }

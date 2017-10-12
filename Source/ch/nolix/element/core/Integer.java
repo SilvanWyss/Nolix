@@ -1,14 +1,12 @@
-/*
- * file:	Integer.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	40
- */
-
 //package declaration
 package ch.nolix.element.core;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 30
+ */
 public final class Integer extends Integeroid {
 	
 	//type name
@@ -19,7 +17,7 @@ public final class Integer extends Integeroid {
 	
 	//constructor
 	/**
-	 * Creates new integer with default attributes.
+	 * Creates a new integer with a default value.
 	 */
 	public Integer() {
 		
@@ -29,21 +27,13 @@ public final class Integer extends Integeroid {
 		
 	//constructor
 	/**
-	 * Creates new integer with the given value.
+	 * Creates a new integer with the given value.
 	 * 
 	 * @param value
 	 */
-	public Integer(int value) {
+	public Integer(final int value) {
 		
 		//Calls constructor of the base class.
 		super(value);
-	}
-		
-	//method
-	/**
-	 * Resets this integer.
-	 */
-	public final void reset() {
-		setValue(DEFAULT_VALUE);
 	}
 }
