@@ -25,7 +25,7 @@ public class WidthTest extends Test {
 		final Width width = new Width(value);
 		
 		//verification
-		expectThat(width.getValue()).equals(value);
+		expectThat(width.getValue()).isEqualTo(value);
 	}
 	
 	//test method
