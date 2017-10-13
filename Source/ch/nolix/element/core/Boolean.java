@@ -1,62 +1,71 @@
-/*
- * file:	Boolean.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	130
- */
-
 //package declaration
 package ch.nolix.element.core;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.StandardSpecification;
 
 //class
+/**
+ * A boolean is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 100
+ */
 public final class Boolean extends Element {
 	
 	//type name
 	public static final String TYPE_NAME = "Boolean";
 	
-	//value names
+	//default value
+	public static final boolean DEFAULT_VALUE = false;
+	
+	//constants
 	private static final String FALSE = "False";
 	private static final String TRUE = "True";
 	
 	//attribute
-	private boolean value = false;
+	private final boolean value;
 	
 	//constructor
 	/**
-	 * Creates new boolean with default attributes.
+	 * Creates a new boolean that is false.
 	 */
-	public Boolean() {}
+	public Boolean() {
+		
+		//Calls other constructor.
+		this(DEFAULT_VALUE);
+	}
 	
 	//constructor
 	/**
-	 * Creates new boolean with the given value.
+	 * Creates a new boolean with the given value.
 	 * 
 	 * @param value
 	 */
-	public Boolean(boolean value) {
+	public Boolean(final boolean value) {
+		
+		//Sets the value of this boolean.
 		this.value = value;
 	}
 	
 	//method
 	/**
-	 * @return the attributes of this boolean
+	 * @return the attributes of this boolean.
 	 */
 	public final List<StandardSpecification> getAttributes() {
 		
-		List<StandardSpecification> attributes = new List<StandardSpecification>();
+		final List<StandardSpecification> attributes = new List<StandardSpecification>();
 		
-		if (isTrue()) {
-			attributes.addAtEnd(new StandardSpecification(TRUE));
-		}
-		else {
+		//Handles the case if this boolean is false.
+		if (isFalse()) {
 			attributes.addAtEnd(new StandardSpecification(FALSE));
+		}
+		
+		//Handles the case if this boolean ist true.
+		else {
+			attributes.addAtEnd(new StandardSpecification(TRUE));
 		}
 
 		return attributes;
@@ -64,15 +73,15 @@ public final class Boolean extends Element {
 	
 	//method
 	/**
-	 * @return a clone of this boolean
+	 * @return a new copy of this boolean.
 	 */
-	public final Boolean getClone() {
+	public final Boolean getCopy() {
 		return new Boolean(getValue());
 	}
 	
 	//method
 	/**
-	 * @return the value of this boolean
+	 * @return the value of this boolean.
 	 */
 	public final boolean getValue() {
 		return value;
@@ -80,7 +89,7 @@ public final class Boolean extends Element {
 	
 	//method
 	/**
-	 * @return true if this boolean is false
+	 * @return true if this boolean is false.
 	 */
 	public final boolean isFalse() {
 		return (value == false);
@@ -88,56 +97,9 @@ public final class Boolean extends Element {
 	
 	//method
 	/**
-	 * @return true if this boolean is true
+	 * @return true if this boolean is true.
 	 */
 	public final boolean isTrue() {
 		return (value == true);
-	}
-	
-	//method
-	/**
-	 * Resets this boolean.
-	 */
-	public final void reset() {
-		value = false;
-	}
-	
-	//method
-	/**
-	 * Sets the given attribute to this boolean.
-	 * 
-	 * @param attribute
-	 * @throws Exception if the given attribute is not valid
-	 */
-	public final void addOrChangeAttribute(StandardSpecification attribute) {
-		switch (attribute.toString()) {
-			case FALSE:
-				setFalse();
-				break;
-			case TRUE:
-				setTrue();
-				break;
-			default:
-				throw new InvalidArgumentException(
-					new ArgumentName("attribute"),
-					new Argument(attribute)
-				);
-		}
-	}
-	
-	//method
-	/**
-	 * Sets this boolean as false.
-	 */
-	public final void setFalse() {
-		value = false;
-	}
-	
-	//method
-	/**
-	 * Sets this boolean as true.
-	 */
-	public final void setTrue() {
-		value = true;
 	}
 }
