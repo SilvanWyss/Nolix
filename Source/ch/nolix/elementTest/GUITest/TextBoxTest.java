@@ -26,7 +26,7 @@ public class TextBoxTest extends Test {
 		final TextBox textBox = new TextBox();
 		
 		//verification
-		expectThat(textBox.getText()).isEmpty();
+		expect(textBox.getText()).isEmpty();
 	}
 	
 	//test method
@@ -39,9 +39,9 @@ public class TextBoxTest extends Test {
 		textBox.getRefNormalStructure().setTextColor(Color.BLUE);
 		
 		//verification
-		expectThat(textBox.getRefNormalStructure().getActiveTextColor()).equalsTo(Color.BLUE);
-		expectThat(textBox.getRefHoverStructure().getActiveTextColor()).equalsTo(Color.BLUE);
-		expectThat(textBox.getRefFocusStructure().getActiveTextColor()).equalsTo(Color.BLUE);
+		expect(textBox.getRefNormalStructure().getActiveTextColor()).equalsTo(Color.BLUE);
+		expect(textBox.getRefHoverStructure().getActiveTextColor()).equalsTo(Color.BLUE);
+		expect(textBox.getRefFocusStructure().getActiveTextColor()).equalsTo(Color.BLUE);
 	}
 	
 	//test method
@@ -54,6 +54,6 @@ public class TextBoxTest extends Test {
 		textBox.setText("Test");
 		
 		//verification
-		expectThat(textBox.getText()).equals("Test");
+		expect(textBox.getText()).equals("Test");
 	}
 }

@@ -160,11 +160,11 @@ public final class ListTest extends Test {
 		list1.forEach(s -> list2.addAtEnd(s));
 		
 		//verification
-			expectThat(list2.getElementCount()).isEqualTo(list1.getElementCount());
+			expect(list2.getElementCount()).isEqualTo(list1.getElementCount());
 			
 			//Iterates list1.
 			for (int i = 1; i <= list1.getElementCount(); i++) {
-				expectThat(list2.getRefAt(i)).equals(list1.getRefAt(i));
+				expect(list2.getRefAt(i)).equals(list1.getRefAt(i));
 			}
 	}
 	
@@ -175,7 +175,7 @@ public final class ListTest extends Test {
 		final List<String> list = new List<String>("x", "x", "x", "x", "x", "x");
 		
 		//execution and verification
-		expectThat(list.getElementCount()).isEqualTo(6);
+		expect(list.getElementCount()).isEqualTo(6);
 	}
 	
 	//test method
@@ -192,9 +192,9 @@ public final class ListTest extends Test {
 		);
 		
 		//execution and verification
-		expectThat(list.getElementCount(e -> e.length() > 0)).isEqualTo(6);
-		expectThat(list.getElementCount(e -> e.length() > 3)).isEqualTo(3);
-		expectThat(list.getElementCount(e -> e.length() > 6)).isZero();
+		expect(list.getElementCount(e -> e.length() > 0)).isEqualTo(6);
+		expect(list.getElementCount(e -> e.length() > 3)).isEqualTo(3);
+		expect(list.getElementCount(e -> e.length() > 6)).isZero();
 	}
 	
 	//test method
@@ -213,7 +213,7 @@ public final class ListTest extends Test {
 		);
 		
 		//execution and verification
-		expectThat(list.getRefByMax(s -> s)).equals("toast");
+		expect(list.getRefByMax(s -> s)).equals("toast");
 	}
 	
 	//test method
@@ -230,7 +230,7 @@ public final class ListTest extends Test {
 		);
 		
 		//execution and verification
-		expectThat(list.getRefByMaxInt(s -> s.length())).equals("xxxxxx");
+		expect(list.getRefByMaxInt(s -> s.length())).equals("xxxxxx");
 	}
 	
 	//test method
@@ -249,7 +249,7 @@ public final class ListTest extends Test {
 		);
 		
 		//execution and verification
-		expectThat(list.getRefByMin(s -> s)).equals("cake");
+		expect(list.getRefByMin(s -> s)).equals("cake");
 	}
 	
 	//test method
@@ -266,7 +266,7 @@ public final class ListTest extends Test {
 		);
 		
 		//execution and verification
-		expectThat(list.getRefByMinInt(s -> s.length())).equals("x");
+		expect(list.getRefByMinInt(s -> s.length())).equals("x");
 	}
 	
 	//method
@@ -286,8 +286,8 @@ public final class ListTest extends Test {
 		final Pair<String, String> pair = list.getRefFirst((s1, s2) -> s1.length() + 5 == s2.length());
 		
 		//verification
-		expectThat(pair.getRefElement1()).equals("x");
-		expectThat(pair.getRefElement2()).equals("xxxxxx");
+		expect(pair.getRefElement1()).equals("x");
+		expect(pair.getRefElement2()).equals("xxxxxx");
 	}
 	
 	//test method
@@ -312,12 +312,12 @@ public final class ListTest extends Test {
 		final List<List<String>> sequences = list.getSequences(sequencePattern);
 		
 		//verification
-			expectThat(sequences.getElementCount()).isEqualTo(3);
+			expect(sequences.getElementCount()).isEqualTo(3);
 			
 			//Iterates the sequences.
 			for (final List<String> s : sequences) {
-				expectThat(s.getElementCount()).isEqualTo(2);
-				expectThat(s.getRefAt(1)).equalsTo("x");
+				expect(s.getElementCount()).isEqualTo(2);
+				expect(s.getRefAt(1)).equalsTo("x");
 			}
 	}
 	
@@ -349,13 +349,13 @@ public final class ListTest extends Test {
 		final List<List<String>> sequences = list.getSequences(sequencePattern);
 		
 		//verification
-			expectThat(sequences.getElementCount()).isEqualTo(4);
+			expect(sequences.getElementCount()).isEqualTo(4);
 			
 			//Iterates the sequences.
 			for (final List<String> s : sequences) {
-				expectThat(s.getElementCount()).isEqualTo(2);
-				expectThat(s.getRefAt(1)).equalsTo("x");
-				expectThat(s.getRefAt(2)).equalsTo("xxxx");
+				expect(s.getElementCount()).isEqualTo(2);
+				expect(s.getRefAt(1)).equalsTo("x");
+				expect(s.getRefAt(2)).equalsTo("xxxx");
 			}
 	}
 	
@@ -372,7 +372,7 @@ public final class ListTest extends Test {
 		);
 		
 		//execution and verification
-		expectThat(list.getVarianceByDouble(e -> e.doubleValue())).isEqualTo(0.2);
+		expect(list.getVarianceByDouble(e -> e.doubleValue())).isEqualTo(0.2);
 	}
 	
 	//test method
@@ -472,19 +472,19 @@ public final class ListTest extends Test {
 		final SubContainer<String> subList = list.skipFirstElements(3);
 		
 		//verification
-			expectThat(subList.getElementCount()).isEqualTo(3);
+			expect(subList.getElementCount()).isEqualTo(3);
 			
 			final Iterator<String> iterator = subList.iterator();
 			
 			expectThat(iterator.hasNext());
-			expectThat(iterator.next()).equals("xxxx");
+			expect(iterator.next()).equals("xxxx");
 			expectThat(iterator.hasNext());
-			expectThat(iterator.next()).equals("xxxxx");
+			expect(iterator.next()).equals("xxxxx");
 			expectThat(iterator.hasNext());
-			expectThat(iterator.next()).equals("xxxxxx");
+			expect(iterator.next()).equals("xxxxxx");
 			expectThatNot(iterator.hasNext());
 			
-			expectThat(() -> iterator.next()).
+			expect(() -> iterator.next()).
 			throwsExceptionOfType(UnexistingAttributeException.class);
 	}
 	
@@ -505,14 +505,14 @@ public final class ListTest extends Test {
 		list.sort(s -> s.length());
 		
 		//verification
-			expectThat(list.getElementCount(), 6);
+			expect(list.getElementCount(), 6);
 			
-			expectThat(list.getRefAt(1)).equals("x");
-			expectThat(list.getRefAt(2)).equals("xx");
-			expectThat(list.getRefAt(3)).equals("xxx");
-			expectThat(list.getRefAt(4)).equals("xxxx");
-			expectThat(list.getRefAt(5)).equals("xxxxx");
-			expectThat(list.getRefAt(6)).equals("xxxxxx");
+			expect(list.getRefAt(1)).equals("x");
+			expect(list.getRefAt(2)).equals("xx");
+			expect(list.getRefAt(3)).equals("xxx");
+			expect(list.getRefAt(4)).equals("xxxx");
+			expect(list.getRefAt(5)).equals("xxxxx");
+			expect(list.getRefAt(6)).equals("xxxxxx");
 	}
 	
 	//test method
@@ -532,14 +532,14 @@ public final class ListTest extends Test {
 		list.sort(s -> s);
 		
 		//verification
-			expectThat(list.getElementCount(), 6);
+			expect(list.getElementCount(), 6);
 			
-			expectThat(list.getRefAt(1)).equals("elephant");
-			expectThat(list.getRefAt(2)).equals("jaguar");
-			expectThat(list.getRefAt(3)).equals("lion");
-			expectThat(list.getRefAt(4)).equals("python");
-			expectThat(list.getRefAt(5)).equals("shark");
-			expectThat(list.getRefAt(6)).equals("zebra");
+			expect(list.getRefAt(1)).equals("elephant");
+			expect(list.getRefAt(2)).equals("jaguar");
+			expect(list.getRefAt(3)).equals("lion");
+			expect(list.getRefAt(4)).equals("python");
+			expect(list.getRefAt(5)).equals("shark");
+			expect(list.getRefAt(6)).equals("zebra");
 	}
 	
 	//test method
@@ -559,14 +559,14 @@ public final class ListTest extends Test {
 		final Object[] array = list.toArray();
 		
 		//verification
-			expectThat(array.length).isEqualTo(6);
+			expect(array.length).isEqualTo(6);
 			
-			expectThat(array[0]).equalsTo("x");
-			expectThat(array[1]).equalsTo("xx");
-			expectThat(array[2]).equalsTo("xxx");
-			expectThat(array[3]).equalsTo("xxxx");
-			expectThat(array[4]).equalsTo("xxxxx");
-			expectThat(array[5]).equalsTo("xxxxxx");
+			expect(array[0]).equalsTo("x");
+			expect(array[1]).equalsTo("xx");
+			expect(array[2]).equalsTo("xxx");
+			expect(array[3]).equalsTo("xxxx");
+			expect(array[4]).equalsTo("xxxxx");
+			expect(array[5]).equalsTo("xxxxxx");
 	}
 	
 	//test method
@@ -586,14 +586,14 @@ public final class ListTest extends Test {
 		final int[] array = list.toIntArray(s -> s.length());
 		
 		//verification
-			expectThat(array.length).isEqualTo(6);
+			expect(array.length).isEqualTo(6);
 			
-			expectThat(array[0]).isEqualTo(1);
-			expectThat(array[1]).isEqualTo(2);
-			expectThat(array[2]).isEqualTo(3);
-			expectThat(array[3]).isEqualTo(4);
-			expectThat(array[4]).isEqualTo(5);
-			expectThat(array[5]).isEqualTo(6);
+			expect(array[0]).isEqualTo(1);
+			expect(array[1]).isEqualTo(2);
+			expect(array[2]).isEqualTo(3);
+			expect(array[3]).isEqualTo(4);
+			expect(array[4]).isEqualTo(5);
+			expect(array[5]).isEqualTo(6);
 	}
 	
 	//test method
@@ -603,7 +603,7 @@ public final class ListTest extends Test {
 		final List<String> list = new List<String>();
 		
 		//execution and verification
-		expectThat(list.toString()).isEmpty();
+		expect(list.toString()).isEmpty();
 	}
 	
 	//test method
@@ -620,6 +620,6 @@ public final class ListTest extends Test {
 		);
 		
 		//execution and verification
-		expectThat(list.toString()).equals("elephant,jaguar,lion,python,shark,zebra");
+		expect(list.toString()).equals("elephant,jaguar,lion,python,shark,zebra");
 	}
 }

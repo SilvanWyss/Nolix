@@ -22,7 +22,7 @@ public final class PolynomTest extends Test {
 		final Polynom polynom = new Polynom(10);
 		
 		//verification
-		expectThat(polynom.getDegree()).isEqualTo(10);
+		expect(polynom.getDegree()).isEqualTo(10);
 	}
 	
 	//test method
@@ -35,8 +35,8 @@ public final class PolynomTest extends Test {
 		polynom.integrate();
 		
 		//verification
-		expectThat(polynom.getDegree()).isEqualTo(3);
-		expectThat(polynom.toString()).equalsTo("x->2x^3");
+		expect(polynom.getDegree()).isEqualTo(3);
+		expect(polynom.toString()).equalsTo("x->2x^3");
 	}
 	
 	//test method
@@ -49,11 +49,11 @@ public final class PolynomTest extends Test {
 		polynom.integrate();
 		
 		//verification
-		expectThat(polynom.getDegree()).isEqualTo(11);
+		expect(polynom.getDegree()).isEqualTo(11);
 		final double[] coefficients = polynom.toArray();
-		expectThat(coefficients.length).isEqualTo(12);
-		expectThat(coefficients[0]).isEqualTo(6.0);
-		expectThat(coefficients[1]).isEqualTo(6.0);
+		expect(coefficients.length).isEqualTo(12);
+		expect(coefficients[0]).isEqualTo(6.0);
+		expect(coefficients[1]).isEqualTo(6.0);
 	}
 	
 	//test method
@@ -63,7 +63,7 @@ public final class PolynomTest extends Test {
 		final Polynom polynom = new Polynom(2).setCoefficients(1.0, 2.0, 3.0);
 			
 		//execution and verification
-		expectThat(polynom.toString()).equals("x->x^2+2x+3");
+		expect(polynom.toString()).equals("x->x^2+2x+3");
 	}
 	
 	//test method
@@ -73,6 +73,6 @@ public final class PolynomTest extends Test {
 		final Polynom polynom = new Polynom(5).setCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
 		
 		//execution and verification
-		expectThat(polynom.toString()).equals("x->x^5+2x^4+3x^3+4x^2+5x+6");
+		expect(polynom.toString()).equals("x->x^5+2x^4+3x^3+4x^2+5x+6");
 	}
 }

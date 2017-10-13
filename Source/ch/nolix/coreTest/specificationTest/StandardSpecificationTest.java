@@ -66,7 +66,7 @@ public final class StandardSpecificationTest extends Test {
 		final StandardSpecification standardSpecification = new StandardSpecification();
 		
 		//verification
-		expectThat(standardSpecification.toString()).isEmpty();
+		expect(standardSpecification.toString()).isEmpty();
 	}
 	
 	//test method
@@ -76,7 +76,7 @@ public final class StandardSpecificationTest extends Test {
 		final StandardSpecification standardSpecification = new StandardSpecification("a");
 		
 		//verification
-		expectThat(standardSpecification.toString()).equals("a");
+		expect(standardSpecification.toString()).equals("a");
 	}
 	
 	//test method
@@ -86,6 +86,6 @@ public final class StandardSpecificationTest extends Test {
 		final StandardSpecification standardSpecification = new StandardSpecification("a(b)");
 		
 		//verification
-		expectThat(standardSpecification.toString()).equals("a(b)");
+		expect(standardSpecification.toString()).equals("a(b)");
 	}
 }

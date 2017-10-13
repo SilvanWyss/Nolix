@@ -25,9 +25,9 @@ public final class MatrixTest extends Test {
 		.addRow("apple", "banana", "cerish");
 		
 		//verification
-		expectThat(matrix.getElementCount()).isEqualTo(3);
-		expectThat(matrix.getRowCount()).isEqualTo(1);
-		expectThat(matrix.getColumnCount()).isEqualTo(3);
-		expectThat(matrix.toString()).equalsTo("apple,banana,cerish");
+		expect(matrix.getElementCount()).isEqualTo(3);
+		expect(matrix.getRowCount()).isEqualTo(1);
+		expect(matrix.getColumnCount()).isEqualTo(3);
+		expect(matrix.toString()).equalsTo("apple,banana,cerish");
 	}
 }

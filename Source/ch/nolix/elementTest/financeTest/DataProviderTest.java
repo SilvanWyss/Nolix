@@ -33,13 +33,13 @@ public final class DataProviderTest extends Test {
 		//verification
 		for (final VolumeCandlestick cspd: candleSticksPerDay) {
 
-			expectThat(cspd.getLowestPrice()).isSmallerThanOrEqualTo(cspd.getOpeningPrice());
-			expectThat(cspd.getLowestPrice()).isSmallerThanOrEqualTo(cspd.getClosingPrice());
-			expectThat(cspd.getLowestPrice()).isSmallerThanOrEqualTo(cspd.getHighestPrice());
+			expect(cspd.getLowestPrice()).isSmallerThanOrEqualTo(cspd.getOpeningPrice());
+			expect(cspd.getLowestPrice()).isSmallerThanOrEqualTo(cspd.getClosingPrice());
+			expect(cspd.getLowestPrice()).isSmallerThanOrEqualTo(cspd.getHighestPrice());
 			
-			expectThat(cspd.getHighestPrice()).isBiggerThanOrEqual(cspd.getOpeningPrice());
-			expectThat(cspd.getHighestPrice()).isBiggerThanOrEqual(cspd.getClosingPrice());
-			expectThat(cspd.getHighestPrice()).isBiggerThanOrEqual(cspd.getLowestPrice());
+			expect(cspd.getHighestPrice()).isBiggerThanOrEqual(cspd.getOpeningPrice());
+			expect(cspd.getHighestPrice()).isBiggerThanOrEqual(cspd.getClosingPrice());
+			expect(cspd.getHighestPrice()).isBiggerThanOrEqual(cspd.getLowestPrice());
 		}
 	}
 	
@@ -57,13 +57,13 @@ public final class DataProviderTest extends Test {
 		//verification
 		for (final VolumeCandlestick csph: candleStricksPerHour) {
 
-			expectThat(csph.getLowestPrice()).isSmallerThanOrEqualTo(csph.getOpeningPrice());
-			expectThat(csph.getLowestPrice()).isSmallerThanOrEqualTo(csph.getClosingPrice());
-			expectThat(csph.getLowestPrice()).isSmallerThanOrEqualTo(csph.getHighestPrice());
+			expect(csph.getLowestPrice()).isSmallerThanOrEqualTo(csph.getOpeningPrice());
+			expect(csph.getLowestPrice()).isSmallerThanOrEqualTo(csph.getClosingPrice());
+			expect(csph.getLowestPrice()).isSmallerThanOrEqualTo(csph.getHighestPrice());
 			
-			expectThat(csph.getHighestPrice()).isBiggerThanOrEqual(csph.getOpeningPrice());
-			expectThat(csph.getHighestPrice()).isBiggerThanOrEqual(csph.getClosingPrice());
-			expectThat(csph.getHighestPrice()).isBiggerThanOrEqual(csph.getLowestPrice());
+			expect(csph.getHighestPrice()).isBiggerThanOrEqual(csph.getOpeningPrice());
+			expect(csph.getHighestPrice()).isBiggerThanOrEqual(csph.getClosingPrice());
+			expect(csph.getHighestPrice()).isBiggerThanOrEqual(csph.getLowestPrice());
 		}
 	}
 	
@@ -81,13 +81,13 @@ public final class DataProviderTest extends Test {
 		//verification
 		for (final VolumeCandlestick cspm: candleStricksPerMinute) {
 
-			expectThat(cspm.getLowestPrice()).isSmallerThanOrEqualTo(cspm.getOpeningPrice());
-			expectThat(cspm.getLowestPrice()).isSmallerThanOrEqualTo(cspm.getClosingPrice());
-			expectThat(cspm.getLowestPrice()).isSmallerThanOrEqualTo(cspm.getHighestPrice());
+			expect(cspm.getLowestPrice()).isSmallerThanOrEqualTo(cspm.getOpeningPrice());
+			expect(cspm.getLowestPrice()).isSmallerThanOrEqualTo(cspm.getClosingPrice());
+			expect(cspm.getLowestPrice()).isSmallerThanOrEqualTo(cspm.getHighestPrice());
 			
-			expectThat(cspm.getHighestPrice()).isBiggerThanOrEqual(cspm.getOpeningPrice());
-			expectThat(cspm.getHighestPrice()).isBiggerThanOrEqual(cspm.getClosingPrice());
-			expectThat(cspm.getHighestPrice()).isBiggerThanOrEqual(cspm.getLowestPrice());
+			expect(cspm.getHighestPrice()).isBiggerThanOrEqual(cspm.getOpeningPrice());
+			expect(cspm.getHighestPrice()).isBiggerThanOrEqual(cspm.getClosingPrice());
+			expect(cspm.getHighestPrice()).isBiggerThanOrEqual(cspm.getLowestPrice());
 		}
 	}
 }

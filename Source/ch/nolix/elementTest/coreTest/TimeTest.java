@@ -28,9 +28,9 @@ public final class TimeTest extends Test {
 					final Time time = new Time(y, m, d);
 					
 					//verification
-					expectThat(time.getYear()).isEqualTo(y);
-					expectThat(time.getMonthOfYear()).isEqualTo(m);
-					expectThat(time.getDayOfMonth()).isEqualTo(d);
+					expect(time.getYear()).isEqualTo(y);
+					expect(time.getMonthOfYear()).isEqualTo(m);
+					expect(time.getDayOfMonth()).isEqualTo(d);
 				}
 			}
 		}
@@ -47,13 +47,13 @@ public final class TimeTest extends Test {
 				final Time time	= new Time(2000, 1,	1,	h,	m);
 				
 				//verification
-				expectThat(time.getYear()).isEqualTo(2000);
-				expectThat(time.getMonthOfYear()).isEqualTo(1);
-				expectThat(time.getDayOfMonth()).isEqualTo(1);
-				expectThat(time.getHourOfDay()).isEqualTo(h);
-				expectThat(time.getMinuteOfHour()).isEqualTo(m);
-				expectThat(time.getSecondOfMinute()).isEqualTo(0);
-				expectThat(time.getMillisecondOfSecond()).isEqualTo(0);
+				expect(time.getYear()).isEqualTo(2000);
+				expect(time.getMonthOfYear()).isEqualTo(1);
+				expect(time.getDayOfMonth()).isEqualTo(1);
+				expect(time.getHourOfDay()).isEqualTo(h);
+				expect(time.getMinuteOfHour()).isEqualTo(m);
+				expect(time.getSecondOfMinute()).isEqualTo(0);
+				expect(time.getMillisecondOfSecond()).isEqualTo(0);
 			}
 		}
 	}
@@ -65,12 +65,12 @@ public final class TimeTest extends Test {
 		final Time time = new Time();
 			
 		//verification
-		expectThat(time.getYear()).isEqualTo(Time.DEFAULT_YEAR);
-		expectThat(time.getMonthOfYear()).isEqualTo(Time.DEFAULT_MONTH_OF_YEAR);
-		expectThat(time.getDayOfMonth()).isEqualTo(Time.DEFAULT_DAY_OF_MONTH);
-		expectThat(time.getHourOfDay()).isEqualTo(Time.DEFAULT_HOUR_OF_DAY);
-		expectThat(time.getMinuteOfHour()).isEqualTo(Time.DEFAULT_MINUTE_OF_HOUR);
-		expectThat(time.getSecondOfMinute()).isEqualTo(Time.DEFAULT_SECOND_OF_MINUTE);
-		expectThat(time.getMillisecondOfSecond()).isEqualTo(Time.DEFAULT_MILLISECOND_OF_SECOND);
+		expect(time.getYear()).isEqualTo(Time.DEFAULT_YEAR);
+		expect(time.getMonthOfYear()).isEqualTo(Time.DEFAULT_MONTH_OF_YEAR);
+		expect(time.getDayOfMonth()).isEqualTo(Time.DEFAULT_DAY_OF_MONTH);
+		expect(time.getHourOfDay()).isEqualTo(Time.DEFAULT_HOUR_OF_DAY);
+		expect(time.getMinuteOfHour()).isEqualTo(Time.DEFAULT_MINUTE_OF_HOUR);
+		expect(time.getSecondOfMinute()).isEqualTo(Time.DEFAULT_SECOND_OF_MINUTE);
+		expect(time.getMillisecondOfSecond()).isEqualTo(Time.DEFAULT_MILLISECOND_OF_SECOND);
 	}
 }

@@ -31,7 +31,7 @@ public final class LabelTest extends Test {
 		label.getRefNormalStructure().setTextSize(textSize);
 		
 		//verification
-		expectThat(label.getRefNormalStructure().getActiveTextSize()).isEqualTo(textSize);
+		expect(label.getRefNormalStructure().getActiveTextSize()).isEqualTo(textSize);
 	}
 	
 	//test method
@@ -47,6 +47,6 @@ public final class LabelTest extends Test {
 		label.setText(text);
 		
 		//verification
-		expectThat(label.getText()).equals(text);
+		expect(label.getText()).equals(text);
 	}
 }
