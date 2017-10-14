@@ -9,14 +9,14 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //package-visible class
 /**
- * The array helper provides functions to create iterable objects from arrays.
+ * The array helper provides functions to handle arrays.
  * Methods are called on an object, functions are not.
- * The array helper is no common array helper because it does not use dependencies.
+ * The array helper is no common array helper because it has no dependencies.
  * Of this class no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 100
+ * @lines 140
  */
 final class ArrayHelper {
 	
@@ -93,6 +93,50 @@ final class ArrayHelper {
 		}
 		
 		return valueVector;
+	}
+	
+	//method
+	/**
+	 * @param values
+	 * @return a string representation of the given values.
+	 */
+	public static String createString(final double[] values) {
+		
+		final StringBuilder stringBuilder = new StringBuilder();
+		
+		//Iterates the given values.
+		for (int i = 0; i < values.length; i++) {			
+			if (i < values.length - 1) {
+				stringBuilder.append(values[i] + ", ");
+			}
+			else {
+				stringBuilder.append(values[i]);
+			}			
+		}
+		
+		return stringBuilder.toString();
+	}
+	
+	//method
+	/**
+	 * @param values
+	 * @return a string representation of the given values.
+	 */
+	public static String createString(final long[] values) {
+		
+		final StringBuilder stringBuilder = new StringBuilder();
+		
+		//Iterates the given values.
+		for (int i = 0; i < values.length; i++) {			
+			if (i < values.length - 1) {
+				stringBuilder.append(values[i] + ", ");
+			}
+			else {
+				stringBuilder.append(values[i]);
+			}			
+		}
+		
+		return stringBuilder.toString();
 	}
 	
 	//private constructor

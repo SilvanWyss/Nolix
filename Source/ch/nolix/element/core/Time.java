@@ -207,7 +207,7 @@ public final class Time extends Element {
 		Validator
 		.suppose(array.length)
 		.thatIsNamed("numer of values of '" + string + "'")
-		.equalsAny(3, 5, 6, 7);
+		.isEqualToAny(3, 5, 6, 7);
 		
 		if (array.length >= 3) {
 			setYear(StringHelper.toInt(array[0]));

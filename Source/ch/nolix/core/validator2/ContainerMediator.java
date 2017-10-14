@@ -5,19 +5,32 @@ package ch.nolix.core.validator2;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.NonEmptyArgumentException;
+import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //class
 /**
- * A container mediator is an argument mediator for an an iterable object.
- * A container mediator is not mutable.
+ * A named container mediator is an argument mediator for an iterable object with a name.
+ * A named container mediator is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 80
+ * @lines 120
  * @param <E> The type of the elements of the argument of a container mediator.
  */
-public final class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
+public final class ContainerMediator<E> extends GenericArgumentMediator<Iterable<E>> {
 
+	//package-visible constructor
+	/**
+	 * Creates new container mediator for the given argument.
+	 * 
+	 * @param argument
+	 */
+	ContainerMediator(final E[] argument) {
+		
+		//Calls constructor of the base class.
+		super(ArrayHelper.createIterable(argument));
+	}
+	
 	//package-visible constructor
 	/**
 	 * Creates new container mediator for the given argument.
@@ -32,14 +45,38 @@ public final class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	
 	//package-visible constructor
 	/**
-	 * Creates new container mediator for the given argument.
+	 * Creates new container mediator
+	 * for the given argument with the given argument name.
 	 * 
+	 * @param argumentName
 	 * @param argument
+	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws EmptyArgumentException if the given argument is empty.
 	 */
-	ContainerMediator(final E[] argument) {
+	ContainerMediator(
+		final String argumentName,
+		final E[] argument) {
 		
 		//Calls constructor of the base class.
-		super(ArrayHelper.createIterable(argument));
+		super(argumentName, ArrayHelper.createIterable(argument));
+	}
+	
+	//package-visible constructor
+	/**
+	 * Creates new container mediator
+	 * for the given argument with the given argument name.
+	 * 
+	 * @param argumentName
+	 * @param argument
+	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws EmptyArgumentException if the given argument is empty.
+	 */
+	ContainerMediator(
+		final String argumentName,
+		final Iterable<E> argument) {
+		
+		//Calls constructor of the base class.
+		super(argumentName, argument);
 	}
 	
 	//method
@@ -77,11 +114,11 @@ public final class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	//method
 	/**
 	 * @param argumentName
-	 * @return a new named container mediator with the given argument name and for the argument of this container mediator.
+	 * @return a new container mediator with the given argument name and for the argument of this container mediator.
 	 * @throws NullArgumentException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
-	public NamedContainerMediator<E> thatIsNamed(final String argumentName) {
-		return new NamedContainerMediator<E>(argumentName, getRefArgument());
+	public ContainerMediator<E> thatIsNamed(final String argumentName) {
+		return new ContainerMediator<E>(argumentName, getRefArgument());
 	}
 }

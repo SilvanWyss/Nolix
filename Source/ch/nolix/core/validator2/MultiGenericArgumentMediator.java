@@ -19,7 +19,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * @lines 110
  * @param <A> The type of the arguments of a multi argument mediator.
  */
-public class MultiArgumentMediator<A> {
+public class MultiGenericArgumentMediator<A> {
 
 	//attribute
 	private final Iterable<A> arguments;
@@ -31,7 +31,7 @@ public class MultiArgumentMediator<A> {
 	 * @param arguments
 	 * @throws NullArgumentException if the given arguments is null..
 	 */
-	MultiArgumentMediator(final Iterable<A> arguments) {
+	MultiGenericArgumentMediator(final Iterable<A> arguments) {
 
 		//Checks if the given arguments is not null.
 		if (arguments == null) {
@@ -49,7 +49,7 @@ public class MultiArgumentMediator<A> {
 	 * @param arguments
 	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	MultiArgumentMediator(final A[] arguments) {
+	MultiGenericArgumentMediator(final A[] arguments) {
 
 		//Calls other constructor.
 		this(ArrayHelper.createIterable(arguments));		

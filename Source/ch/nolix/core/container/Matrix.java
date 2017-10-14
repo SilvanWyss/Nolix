@@ -67,7 +67,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			Validator
 			.suppose(elements.length)
 			.thatIsNamed("number of given elements")
-			.equals(getRowCount());
+			.isEqualTo(getRowCount());
 			
 			//Iterates the rows of this matrix.
 			for (int i = 0; i < getRowCount(); i++) {
@@ -129,7 +129,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			Validator
 			.suppose(elements.length)
 			.thatIsNamed("number of given elements")
-			.equals(getColumnCount());
+			.isEqualTo(getColumnCount());
 			
 			final Object[][] newElements = new Object[getRowCount() + 1][getColumnCount()];
 			

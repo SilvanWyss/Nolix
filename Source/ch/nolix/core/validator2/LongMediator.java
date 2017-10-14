@@ -2,14 +2,20 @@
 package ch.nolix.core.validator2;
 
 //own imports
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.BiggerArgumentException;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.EqualArgumentException;
+import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InRangeArgumentException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
+import ch.nolix.core.invalidArgumentException.NonBiggerArgumentException;
 import ch.nolix.core.invalidArgumentException.NonNegativeArgumentException;
 import ch.nolix.core.invalidArgumentException.NonPositiveArgumentException;
 import ch.nolix.core.invalidArgumentException.NonSmallerArgumentException;
+import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.invalidArgumentException.OutOfRangeArgumentException;
 import ch.nolix.core.invalidArgumentException.PositiveArgumentException;
 import ch.nolix.core.invalidArgumentException.SmallerArgumentException;
@@ -17,57 +23,46 @@ import ch.nolix.core.invalidArgumentException.UnequalArgumentException;
 
 //class
 /**
- * A long mediator is a mediator for a long.
+ * A long mediator is a mediator for a long with a name.
  * A long mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-11
- * @lines 240
+ * @month 2016-12
+ * @lines 300
  */
-public final class LongMediator {
+public final class LongMediator extends Mediator {
 	
 	//attribute
 	private final long argument;
 	
-	//package-visible constructor
+	//constructor
 	/**
-	 * Creates a new long mediator for the given argument.
+	 * Creates new long mediator for the given argument.
 	 * 
 	 * @param argument
 	 */
-	LongMediator(final long argument) {
+	public LongMediator(final long argument) {
 		
 		//Sets the argument of this long mediator.
 		this.argument = argument;
 	}
-	
-	//method
+
+	//package-visible constructor
 	/**
-	 * @param min
-	 * @param max
-	 * @throws OutOfRangeArgumentException
-	 * if the argument of this long mediator is not between the given min and max.
+	 * Creates new long mediator for the given argument with the given argument name.
+	 * 
+	 * @param argumentName
+	 * @param argument
+	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws EmptyArgumentException if the given argument name is an empty string.
 	 */
-	public void isBetween(final long min, final long max) {
+	LongMediator(final String argumentName, final long argument) {
 		
-		//Checks if the argument of this long mediator is between the given min and max.
-		if (argument < min || argument > max) {
-			throw new OutOfRangeArgumentException(argument, min, max);
-		}
-	}
-	
-	//method
-	/**
-	 * @param value
-	 * @throws SmallerArgumentException
-	 * if the argument of this long mediator is smaller than the given value.
-	 */
-	public void isBiggerThanOrEquals(final long value) {
+		//Calls constructor of the base class.
+		super(argumentName);
 		
-		//Checks if the argument of this long mediator is bigger than or equals the given value.
-		if (argument <= value) {
-			throw new SmallerArgumentException(argument, value);
-		}
+		//Sets the argument of this long mediator.
+		this.argument = argument;
 	}
 	
 	//method
@@ -80,7 +75,84 @@ public final class LongMediator {
 		
 		//Checks if the argument of this long mediator equals the given value.
 		if (argument != value) {
-			throw new UnequalArgumentException(argument, value);
+			throw new UnequalArgumentException(getArgumentName(), argument, value);
+		}
+	}
+	
+	//method
+	/**
+	 * @param values
+	 * @throws InvalidArgumentException
+	 * if the argument of this long mediator does not equal one of the given values.
+	 */
+	public void isEqualToAny(final long... values) {
+		
+		//Iterates the given values.
+		for (final long v : values) {
+			
+			//Checks if the argument of this long mediator equals the current value.
+			if (argument == v) {
+				return;
+			}
+		}
+		
+		throw new InvalidArgumentException(
+			new ArgumentName(getArgumentName()),
+			new Argument(argument),
+			new ErrorPredicate(
+				"does not equal one of {" + ArrayHelper.createString(values) + "}"
+			)
+		);
+	}
+	
+	//method
+	/**
+	 * @param min
+	 * @param max
+	 * @throws OutOfRangeArgumentException
+	 * if the argument of this long mediator is not between the given min and max.
+	 */
+	public void isBetween(final int min, final int max) {
+		
+		//Checks if the argument of this long mediator
+		//is between the given min and max.
+		if (argument < min || argument > max) {
+			throw new OutOfRangeArgumentException(
+				getArgumentName(),
+				argument,
+				min,
+				max
+			);
+		}
+	}
+	
+	//method
+	/**
+	 * @param value
+	 * @throws NonBiggerArgumentException
+	 * if the argument of this long mediator is not bigger than the given value.
+	 */
+	public void isBiggerThan(final long value) {
+		
+		//Checks if the argument of this long mediator is bigger than the given value.
+		if (argument <= value) {
+			throw new NonBiggerArgumentException(getArgumentName(), argument, value);
+		}
+	}
+	
+	//method
+	/**
+	 * @param value
+	 * @throws SmallerArgumentException
+	 * if the argument of this long mediator
+	 * is not bigger than or does not equal the given value.
+	 */
+	public void isBiggerThanOrEquals(final long value) {
+		
+		//Checks if the argument of this long mediator
+		//is bigger than or equals the given value.
+		if (argument < value) {
+			throw new SmallerArgumentException(getArgumentName(), argument, value);
 		}
 	}
 	
@@ -92,8 +164,8 @@ public final class LongMediator {
 	public void isNegative() {
 		
 		//Checks if the argument of this long mediator is negative.
-		if (argument > 0) {
-			throw new NonNegativeArgumentException(argument);
+		if (argument >= 0) {
+			throw new NonNegativeArgumentException(getArgumentName(), argument);
 		}
 	}
 	
@@ -104,11 +176,31 @@ public final class LongMediator {
 	 * @throws InRangeArgumentException
 	 * if the argument of this long mediator is between the given min and max.
 	 */
-	public void isNotBetween(final long min, final long max) {
+	public void isNotBetween(final int min, final int max) {
 		
-		//Checks if the argument of this long mediator is not between the given min and max.
+		//Checks if the argument of this long mediator
+		//is not between the given min and max.
 		if (argument >= min && argument <= max) {
-			throw new InRangeArgumentException(argument, min, max);
+			throw new InRangeArgumentException(
+				getArgumentName(),
+				argument,
+				min,
+				max
+			);
+		}
+	}
+	
+	//method
+	/**
+	 * @param value
+	 * @throws EqualArgumentExcetpion
+	 * if the argument of this long mediator equals the given value.
+	 */
+	public void isNotEqualTo(final long value) {
+		
+		//Checks if the argument of this long mediator does not equals the given value.
+		if (argument == value) {
+			throw new EqualArgumentException(getArgumentName(), argument, value);
 		}
 	}
 	
@@ -122,34 +214,20 @@ public final class LongMediator {
 		
 		//Checks if the argument of this long mediator is not bigger than the given value.
 		if (argument > value) {
-			throw new BiggerArgumentException(argument, value);
+			throw new BiggerArgumentException(getArgumentName(), argument, value);
 		}
 	}
 	
 	//method
 	/**
-	 * @param value
-	 * @throws EqualArgumentException
-	 * if the argument of this long mediator equals the given value.
-	 */
-	public void isNotEqualTo(final long value) {
-		
-		//Checks if the argument of this long mediator equals not the given value.
-		if (argument == value) {
-			throw new EqualArgumentException(argument, value);
-		}
-	}
-	
-	//method
-	/**
-	 * @throws NegativeArgumentsException
-	 * if the argument of this long mediator is negative.
+	 * @throws NegativeArgumentException
+	 * if the argument of htis long mediator is negative.
 	 */
 	public void isNotNegative() {
 		
 		//Checks if the argument of this long mediator is not negative.
-		if (argument < 0) {
-			throw new NegativeArgumentException(argument);
+		if (argument < 0.0) {
+			throw new NegativeArgumentException(getArgumentName(), argument);
 		}
 	}
 	
@@ -162,51 +240,39 @@ public final class LongMediator {
 		
 		//Checks if the argument of this long mediator is not positive.
 		if (argument > 0) {
-			throw new PositiveArgumentException(argument);
+			throw new PositiveArgumentException(getArgumentName(), argument);
+		}
+	}
+	
+	//method
+	/**
+	 * @param SmallerArgumentException
+	 * if the argument of this long mediator is smaller than the given value.
+	 */
+	public void isNotSmallerThan(final long value) {
+	
+		//Checks if the argument of this long mediator is not smaller than the given value.
+		if (argument < value) {
+			throw new SmallerArgumentException(getArgumentName(), argument, value);
+		}
+	}
+	
+	//method
+	/**
+	 * @throws NonPositiveArgumentException
+	 * if the argument of this long mediator is not positive.
+	 */
+	public void isPositive() {
+		
+		//Checks if the argument of this long mediator is positive.
+		if (argument < 1) {
+			throw new NonPositiveArgumentException(getArgumentName(), argument);
 		}
 	}
 	
 	//method
 	/**
 	 * @param value
-	 * @throws SmallerArgumentException
-	 * if the argument of this long mediator is smaller than the given value.
-	 */
-	public void isNotSmallerThan(final long value) {
-		
-		//Checks if the argument of this long mediator is not smaller than the given value.
-		if (argument < value) {
-			throw new SmallerArgumentException(argument, value);
-		}
-	}
-	
-	//method
-	/**
-	 * @throws EqualArgumentException
-	 * if the argument of this long mediator is 0.
-	 */
-	public void isNotZero() {
-		
-		//Checks if the argument of this long mediator is not 0.
-		isNotEqualTo(0);
-	}
-	
-	//method
-	/**
-	 * @throws NonPositiveArgumentsException
-	 * if the argument of this long mediator is not positive.
-	 */
-	public void isPositive() {
-		
-		//Checks if the argument of this long mediator is positive.
-		if (argument <= 0) {
-			throw new NonPositiveArgumentException(argument);
-		}
-	}
-	
-	//method
-	/**
-	 * @param value	
 	 * @throws NonSmallerArgumentException
 	 * if the argument of this long mediator is not smaller than the given value.
 	 */
@@ -214,7 +280,7 @@ public final class LongMediator {
 		
 		//Checks if the argument of this long mediator is smaller than the given value.
 		if (argument >= value) {
-			throw new NonSmallerArgumentException(argument, value);
+			throw new NonSmallerArgumentException(getArgumentName(), argument, value);
 		}
 	}
 	
@@ -224,20 +290,17 @@ public final class LongMediator {
 	 * if the argument of this long mediator is not 0.
 	 */
 	public void isZero() {
-		
-		//Checks if the argument of this long mediator is 0.
 		isEqualTo(0);
 	}
 	
 	//method
 	/**
 	 * @param argumentName
-	 * @return a new named long mediator
-	 * with the given argument name and for the argument of this long mediator.
+	 * @return a new long mediator with the givne argument name for the argument of this long mediator.
 	 * @throws NullArgumentException if the given argument name is null.
-	 * @throws EmptyArgumentException if the given argument name is empty.
+	 * @throws EmptyArgumentException if the given argument name is an empty string.
 	 */
-	public NamedLongMediator thatIsNamed(final String argumentName) {
-		return new NamedLongMediator(argumentName, argument);
+	public LongMediator thatIsNamed(final String argumentName) {
+		return new LongMediator(argumentName, argument);
 	}
 }

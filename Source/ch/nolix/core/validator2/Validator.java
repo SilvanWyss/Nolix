@@ -26,8 +26,8 @@ public final class Validator {
 	 * @param argument
 	 * @return a new argument mediator for given argument.
 	 */
-	public static <A> ArgumentMediator<A> suppose(final A argument) {
-		return new ArgumentMediator<A>(argument);
+	public static <A> GenericArgumentMediator<A> suppose(final A argument) {
+		return new GenericArgumentMediator<A>(argument);
 	}	
 	
 	//static method
@@ -233,8 +233,8 @@ public final class Validator {
 	 * @return a new multi argument mediator for the given arguments.
 	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static <E> MultiArgumentMediator<E> supposeTheElements(final Iterable<E> arguments) {
-		return new MultiArgumentMediator<E>(arguments);
+	public static <E> MultiGenericArgumentMediator<E> supposeTheElements(final Iterable<E> arguments) {
+		return new MultiGenericArgumentMediator<E>(arguments);
 	}
 	
 	//static method
@@ -243,8 +243,8 @@ public final class Validator {
 	 * @return a new multi argument mediator for the given arguments.
 	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static <E> MultiArgumentMediator<E> supposeTheElements(final E[] arguments) {
-		return new MultiArgumentMediator<E>(arguments);
+	public static <E> MultiGenericArgumentMediator<E> supposeTheElements(final E[] arguments) {
+		return new MultiGenericArgumentMediator<E>(arguments);
 	}
 	
 	//static method

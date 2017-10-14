@@ -13,7 +13,7 @@ import ch.nolix.core.invalidArgumentException.UnequalArgumentException;
  * @month 2016-12
  * @lines 70
  */
-public final class NamedDoubleDeviationMediator extends NamedMediator {
+public final class DoubleDeviationMediator extends Mediator {
 
 	//attributes
 	private final double argument;
@@ -30,7 +30,7 @@ public final class NamedDoubleDeviationMediator extends NamedMediator {
 	 * @throws EmptyArgumentException if the given argument name is an empty string.
 	 * @throws NegativeArgumentException if the given max deviation is negative.
 	 */
-	NamedDoubleDeviationMediator(
+	DoubleDeviationMediator(
 		final String argumentName,
 		final Double argument, 
 		final double maxDeviation) {
