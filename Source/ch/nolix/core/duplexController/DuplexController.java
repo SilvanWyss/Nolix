@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.core.duplexController;
 
+//own imports
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
-import ch.nolix.core.controllerInterfaces.ILevel2Controller;
+import ch.nolix.core.controllerInterfaces.IMultiController;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Statement;
@@ -19,10 +20,10 @@ import ch.nolix.core.validator2.Validator;
  */
 public abstract class DuplexController
 extends ClosableElement
-implements ILevel2Controller {	
+implements IMultiController {	
 	
 	//optional attribute
-	private ILevel2Controller receiverController;
+	private IMultiController receiverController;
 	
 	//multiple attribute
 	private final List<String> appendedCommands = new List<String>();
@@ -168,7 +169,7 @@ implements ILevel2Controller {
 	 * @param receiverController
 	 * @throws NullArgumentException if the given receiver controller is null.
 	 */
-	public final void setReceiverController(final ILevel2Controller receiverController) {
+	public final void setReceiverController(final IMultiController receiverController) {
 		
 		//Checks if the given receiver controller is not null.
 		Validator.suppose(receiverController).thatIsNamed("receiver controller").isNotNull();
@@ -182,7 +183,7 @@ implements ILevel2Controller {
 	 * @return the receiver controller of this duplex controller.
 	 * @throws UnexistingAttributeException if this duplex controller has no receiver controller.
 	 */
-	protected ILevel2Controller getRefReceiverController() {
+	protected IMultiController getRefReceiverController() {
 		
 		//Checks if this duplex controller has a receiver controller.
 		if (!hasReceiverController()) {

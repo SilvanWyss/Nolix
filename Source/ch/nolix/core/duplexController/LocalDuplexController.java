@@ -3,7 +3,7 @@ package ch.nolix.core.duplexController;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.controllerInterfaces.ILevel2Controller;
+import ch.nolix.core.controllerInterfaces.IMultiController;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
@@ -195,7 +195,7 @@ public final class LocalDuplexController extends DuplexController {
 		//Checks if this local duplex controller is not aborted.
 		supposeBeingAlive();
 		
-		final ILevel2Controller counterpartReceiverController
+		final IMultiController counterpartReceiverController
 		= counterpart.getRefReceiverController();
 		
 		commands.forEach(c -> counterpartReceiverController.run(c));
