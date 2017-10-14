@@ -63,7 +63,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public final DoubleConjunctionMediator isBetween(final double min, final double max) {
 		
-		Validator.suppose(max).thatIsNamed("max").isBiggerThanOrEquals(min);
+		Validator.suppose(max).thatIsNamed("max").isNotSmallerThan(min);
 		if (min > max) {
 			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value cannot not be between " + min + " and " + max + ".");
 		}
