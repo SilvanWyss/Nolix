@@ -13,7 +13,7 @@ import ch.nolix.core.validator2.Validator;
  * @month 2015-12
  * @lines 50
  */
-public class NonEmptyText extends Textoid {
+public class NonEmptyText extends Text {
 
 	//type name
 	public static final String TYPE_NAME = "NonEmptyText";
