@@ -1,19 +1,25 @@
 //package declaration
 package ch.nolix.element.core;
 
+//own imports
+import ch.nolix.core.container.List;
+import ch.nolix.core.specification.StandardSpecification;
+
 //class
 /**
+ * An integer is not mutable.
+ * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 30
+ * @lines 80
  */
-public final class Integer extends Integeroid {
-	
-	//type name
-	public static final String TYPE_NAME = "Integer";
+public class Integer extends Element {
 	
 	//default value
-	public static final int DEFAULT_VALUE = 0;
+	private static final int DEFAULT_VALUE = 0;
+	
+	//attribute
+	private final int value;
 	
 	//constructor
 	/**
@@ -21,10 +27,10 @@ public final class Integer extends Integeroid {
 	 */
 	public Integer() {
 		
-		//Calls constructor of the base class.
-		super(DEFAULT_VALUE);
+		//Calls other constructor.
+		this(DEFAULT_VALUE);
 	}
-		
+	
 	//constructor
 	/**
 	 * Creates a new integer with the given value.
@@ -33,7 +39,51 @@ public final class Integer extends Integeroid {
 	 */
 	public Integer(final int value) {
 		
-		//Calls constructor of the base class.
-		super(value);
+		//Sets the value of this integer.
+		this.value = value;
+	}
+	
+	//method
+	/**
+	 * @return the attributes of this integer.
+	 */
+	public final List<StandardSpecification> getAttributes() {
+		return
+		new List<StandardSpecification>(
+			new StandardSpecification(java.lang.Integer.toString(getValue()))
+		);
+	}
+	
+	//method
+	/**
+	 * @return the value of this integer.
+	 */
+	public final int getValue() {
+		return value;
+	}
+	
+	//method
+	/**
+	 * @param value
+	 * @return true if this integer has the given value.
+	 */
+	public final boolean hasValue(final int value) {
+		return (getValue() == value);
+	}
+	
+	//method
+	/**
+	 * @return true if the value of this integer is negative.
+	 */
+	public final boolean isNegative() {
+		return (getValue() < 0);
+	}
+	
+	//method
+	/**
+	 * @return true if the value of this integer is positive.
+	 */
+	public final boolean isPositive() {
+		return (getValue() > 0);
 	}
 }

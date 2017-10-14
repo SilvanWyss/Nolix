@@ -12,7 +12,7 @@ import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
  * @month 2015-12
  * @lines 40
  */
-public class NonNegativeInteger extends Integeroid {
+public class NonNegativeInteger extends Integer {
 	
 	//type name
 	public static final String TYPE_NAME = "NonNegativeInteger";

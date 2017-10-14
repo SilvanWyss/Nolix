@@ -7,7 +7,7 @@ package ch.nolix.element.core;
  * @month 2015-12
  * @lines 30
  */
-public class PositiveInteger extends Integeroid {
+public class PositiveInteger extends Integer {
 	
 	//type name
 	public static final String TYPE_NAME = "PositiveInteger";
