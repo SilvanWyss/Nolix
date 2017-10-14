@@ -2,7 +2,7 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
 //own imports
-import ch.nolix.core.controllerInterfaces.ILevel1Controller;
+import ch.nolix.core.controllerInterfaces.IController;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.Frame;
@@ -47,7 +47,7 @@ public final class FrameTutorial {
 		.setController(
 				
 			//anonymous class
-			new ILevel1Controller() {
+			new IController() {
 			
 				//method
 				public void run(Statement command) {

@@ -2,7 +2,7 @@
 package ch.nolix.element.core;
 
 //own imports
-import ch.nolix.core.controllerInterfaces.ILevel2Controller;
+import ch.nolix.core.controllerInterfaces.IController;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -13,7 +13,7 @@ import ch.nolix.core.specificationInterfaces.Specifiable;
 //class
 public abstract class MutableElement
 extends Element
-implements ILevel2Controller, Specifiable {
+implements IController, Specifiable {
 	
 	//command
 	private static final String RESET = "Reset";

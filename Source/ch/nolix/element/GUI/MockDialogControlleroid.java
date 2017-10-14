@@ -9,11 +9,11 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.core.controllerInterfaces.ILevel1Controller;
+import ch.nolix.core.controllerInterfaces.IController;
 import ch.nolix.core.specification.Statement;
 
 //class
-final class MockDialogControlleroid implements ILevel1Controller {
+final class MockDialogControlleroid implements IController {
 
 	//error messages
 	private static final String MOCK_DIALOG_CONTROLLEROID_PROVIDES_NO_CALLS = "Mock dialog controlleroid provides no calls.";

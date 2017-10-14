@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 //own imports
 import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.controllerInterfaces.ILevel1Controller;
+import ch.nolix.core.controllerInterfaces.IController;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.interfaces.Closable;
 import ch.nolix.core.interfaces.IRequestableContainer;
@@ -57,7 +57,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 				
 	//optional attributes
 	private Widget<?, ?> rootWidget;
-	private ILevel1Controller controller;
+	private IController controller;
 	
 	//multiple attribute
 	private final List<Class<?>> widgetClasses = new List<Class<?>>();
@@ -624,7 +624,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @throws NullArgumentException if the given controller is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public final G setController(ILevel1Controller controller) {
+	public final G setController(IController controller) {
 		
 		//Checks if the given controller is not null.
 		Validator.suppose(controller).thatIsNamed("controller").isNotNull();
@@ -694,7 +694,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	/**
 	 * @return the controller of this GUI.
 	 */
-	protected final ILevel1Controller getRefController() {
+	protected final IController getRefController() {
 		return controller;
 	}
 	

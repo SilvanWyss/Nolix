@@ -1,15 +1,9 @@
-/*
- * file:	Element.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	180
- */
-
 //package declaration
 package ch.nolix.element.core;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.controllerInterfaces.IDataController;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -17,41 +11,42 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.specificationInterfaces.Specified;
 
-//class
+//abstract class
 /**
- * An element is a specifiable object and a level 2 controller.
+ * An element is specified.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 140
  */
-public abstract class Element implements Specified {
-		
+public abstract class Element implements IDataController, Specified {
+	
 	//requests
 	public static final String TYPE_REQUEST = "Type";
 	public static final String TYPES_REQUEST = "Types";
-	
+
 	//method
 	/**
 	 * @param object
-	 * @return true if this element equals the given object
+	 * @return true if this element equals the given object.
 	 */
-	public final boolean equals(Object object) {
+	public final boolean equals(final Object object) {
 	
-		//Returns false if the given object is null.
+		//Handles the option that the given object is null.
 		if (object == null) {
 			return false;
 		}
 		
-		if (!object.getClass().equals(object.getClass())) {
+		//Handles the option that this element is not of the same class as the given object.		
+		if (getClass() != object.getClass()) {
 			return false;
 		}
 		
 		//Casts the given object to an element.
-		Element element = (Element)object;
+		final Element element = (Element)object;
 		
-		//Return false if the given element has not the same type as this element.
-		if (!element.hasType(getType())) {
-			return false;
-		}
-		
-		//Returns false if the specification of the given element does not equal to the specification of this element.
+		//Handles the option that the specification of this element
+		//does not equal the specification of the given element.
 		if (!element.getSpecification().equals(getSpecification())) {
 			return false;
 		}
@@ -62,11 +57,13 @@ public abstract class Element implements Specified {
 	//method
 	/**
 	 * @param request
-	 * @return the data the given request requests
-	 * @throws Exception if the given request is not valid
+	 * @return the data the given request requests from this element.
+	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	public StandardSpecification getData(Statement request) {
-		switch (request.toString()) {
+	public StandardSpecification getData(final Statement request) {
+		
+		//Enumerates the header of the given request.
+		switch (request.getHeader()) {
 			case TYPE_REQUEST:
 				return new StandardSpecification(getType());
 			case TYPES_REQUEST:
@@ -81,7 +78,7 @@ public abstract class Element implements Specified {
 	
 	//method
 	/**
-	 * @return the type of this element
+	 * @return the type of this element.
 	 */
 	public final String getType() {
 		return getClass().getSimpleName();
@@ -89,41 +86,46 @@ public abstract class Element implements Specified {
 	
 	//method
 	/**
-	 * @return the types of this element ordered from deepest to highest
+	 * @return the types of this element ordered from deepest to highest.
 	 */	
 	public final List<String> getTypes() {
-		List<String> types = new List<String>();
+		
+		final List<String> types = new List<String>();
+		
 		Class<?> class_ = getClass();
 		while (class_.getSuperclass() != null) {
 			types.addAtEnd(class_.getSimpleName());
 			class_ = class_.getSuperclass();
 		}
+		
 		return types;
 	}
 	
 	//method
 	/**
 	 * @param type
-	 * @return true if this element has the given type as own type or super type
+	 * @return true if this element has the given type or super type
 	 */
-	public final boolean hasTypeOrSuperType(String type) {
+	public final boolean hasTypeOrSuperType(final String type) {
+		
 		Class<?> class_ = getClass();
+		
 		while (class_.getSuperclass() != null) {
+			
+			//Handles the case if this element has the current class as type or super type.
 			if (class_.getSimpleName().equals(type)) {
 				return true;
 			}
+			
 			class_ = class_.getSuperclass();
 		}
+		
 		return false;
 	}
-		
-
-		
-
-			
+				
 	//method
 	/**
-	 * @return a string representation of this element
+	 * @return a string representation of this element.
 	 */
 	public final String toString() {
 		return getSpecification().toReproducingString();
@@ -131,7 +133,7 @@ public abstract class Element implements Specified {
 	
 	//default method
 	/**
-	 * @return a formated string representation of this element
+	 * @return a formated string representation of this element.
 	 */
 	public final String toFormatedString() {
 		return getSpecification().toFormatedReproducingString();
