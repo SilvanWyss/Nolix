@@ -6,6 +6,7 @@ import java.io.File;
 
 //own imports
 import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -14,15 +15,19 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //class
 /**
+ * A string mediator is a mediator for a string.
+ * A string mediator is not mutable.
+ * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 120
+ * @lines 160
  */
 public final class StringMediator extends GenericArgumentMediator<String> {
 
 	//package-visible constructor
 	/**
 	 * Creates new string mediator for the given argument.
+	 * 
 	 * @param argument
 	 */
 	StringMediator(final String argument) {
@@ -38,7 +43,7 @@ public final class StringMediator extends GenericArgumentMediator<String> {
 	 * @param argumentName
 	 * @param argument
 	 * @throws NullArgumentException if the given argument name is null.
-	 * @throws EmptyArgumentException if the given argument name is an empty string.
+	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	StringMediator(final String argumentName, final String argument) {
 		
@@ -49,8 +54,9 @@ public final class StringMediator extends GenericArgumentMediator<String> {
 	//method
 	/**
 	 * @param maxLength
-	 * @throws NullArgumentException if the argument of this string mediator is null
-	 * @throws InvalidArgumentException if the argument of this string mediator has a bigger length than the given max length.
+	 * @throws NullArgumentException if the argument of this string mediator is null.
+	 * @throws InvalidArgumentException
+	 * if the argument of this string mediator has a bigger length than the given max length.
 	 */
 	public void hasMaxLength(final int maxLength) {
 		
@@ -60,17 +66,26 @@ public final class StringMediator extends GenericArgumentMediator<String> {
 		//Checks if the argument of this string mediator has a bigger length than the given max length.
 		if (getRefArgument().length() > maxLength) {
 			throw new InvalidArgumentException(
+				new ArgumentName(getArgumentName()),
 				new Argument(getRefArgument()),
-				new ErrorPredicate("has the length " + getRefArgument().length() + " what is bigger than " + maxLength)
+				new ErrorPredicate(
+					"has the length " + getRefArgument().length() + " what is bigger than " + maxLength
+				)
 			);
 		}
 	}
 	
+	//method
+	/**
+	 * @throws NullArgumentException if the argument of this string mediator is null.
+	 * @throws NonEmptyArgumentException if the argument of this string mediator is not empty.
+	 */
 	public void isEmpty() {
 		
 		//Checks if the argument of this string mediator is not null.
 		isNotNull();
 		
+		//Checks if the argument of this string mediator is not empty.
 		if (!getRefArgument().isEmpty()) {
 			throw new NonEmptyArgumentException(getArgumentName(), getRefArgument());
 		}
@@ -95,13 +110,16 @@ public final class StringMediator extends GenericArgumentMediator<String> {
 	//method
 	/**
 	 * @param directory
+	 * @throws NullArgumentException if the argument of this string mediator is null.
 	 * @throws InvalidArgumentException
 	 * if the given directory does not exist on the local machine or cannot be created on the local machine.
 	 */
 	public void specifiesProbableDirectoryOnLocalMachine(final String directory) {	
 		
+		//Checks if the argument of this string mediator is not null.
+		isNotNull();
+				
 		boolean specifiesProbableDirectoryOnLocalMachine = true;
-		
 		try {
 			
 			final File file = new File(directory);
@@ -133,7 +151,14 @@ public final class StringMediator extends GenericArgumentMediator<String> {
 		}
 	}
 	
-	public StringMediator thatIsNamed(final String name) {
-		return new StringMediator(name, getRefArgument());
+	//method
+	/**
+	 * @param argumentName
+	 * @return a new string mediator for the argument of this string mediator with the given argument name.
+	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws EmptyArgumentException if the given argument name is empty.
+	 */
+	public StringMediator thatIsNamed(final String argumentName) {
+		return new StringMediator(argumentName, getRefArgument());
 	}
 }
