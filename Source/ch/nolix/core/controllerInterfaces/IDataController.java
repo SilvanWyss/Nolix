@@ -11,19 +11,19 @@ import ch.nolix.core.specification.Statement;
  * @month 2017-06
  * @lines 30
  */
-public interface ILevel2Controller extends ILevel1Controller {
+public interface IDataController {
 
 	//abstract method
 	/**
 	 * @param request
-	 * @return the data the given request requests from this level 2 controller.
+	 * @return the data the given request requests from this data controller.
 	 */
 	public abstract StandardSpecification getData(Statement request);
 	
 	//default method
 	/**
 	 * @param request
-	 * @return the data the given request requests from this level 2 controller.
+	 * @return the data the given request requests from this data controller.
 	 */
 	public default StandardSpecification getData(final String request) {
 		return getData(new Statement(request));

@@ -10,11 +10,11 @@ import ch.nolix.core.specification.Statement;
  * @month 2017-06
  * @lines 30
  */
-public interface ILevel1Controller {
+public interface IController {
 
 	//abstract method
 	/**
-	 * Lets this level 1 controller run the given command.
+	 * Lets this controller run the given command.
 	 * 
 	 * @param command
 	 */
@@ -22,7 +22,7 @@ public interface ILevel1Controller {
 	
 	//default method
 	/**
-	 * Lets this level 1 controller run the given command.
+	 * Lets this controller run the given command.
 	 * 
 	 * @param command
 	 */
