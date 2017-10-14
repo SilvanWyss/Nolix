@@ -2,7 +2,7 @@
 package ch.nolix.system.GUIClient;
 
 //own imports
-import ch.nolix.core.controllerInterfaces.ILevel1Controller;
+import ch.nolix.core.controllerInterfaces.IController;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.validator2.Validator;
 
@@ -12,7 +12,7 @@ import ch.nolix.core.validator2.Validator;
 * @month 2016-11
 * @lines 40
 */
-final class GUIFrontClientController implements ILevel1Controller {
+final class GUIFrontClientController implements IController {
 	
 	//attribute
 	private final GUIFrontClient frontDialogClient;

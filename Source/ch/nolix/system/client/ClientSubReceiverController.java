@@ -2,7 +2,7 @@
 package ch.nolix.system.client;
 
 //own imports
-import ch.nolix.core.controllerInterfaces.ILevel2Controller;
+import ch.nolix.core.controllerInterfaces.IMultiController;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.validator2.Validator;
@@ -15,7 +15,7 @@ import ch.nolix.core.validator2.Validator;
  * @month 2015-12
  * @lines 50
  */
-final class ClientSubReceiverController implements ILevel2Controller {
+final class ClientSubReceiverController implements IMultiController {
 
 	//attribute
 	private final Client<?> client;
