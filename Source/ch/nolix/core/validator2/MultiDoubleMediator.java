@@ -10,20 +10,20 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //class
 /**
- * A double container mediator is not mutable.
+ * A multi double mediator is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 110
+ * @lines 150
  */
 public final class MultiDoubleMediator extends MultiGenericArgumentMediator<Double> {
 	
 	//package-visible constructor
 	/**
-	 * Creates new double container mediator with the given arguments.
+	 * Creates new multi double mediator for the given arguments.
 	 * 
 	 * @param arguments
-	 * @throws NullArgumentException if the given argument container is null.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
 	MultiDoubleMediator(final Iterable<Double> arguments) {
 		
@@ -31,19 +31,33 @@ public final class MultiDoubleMediator extends MultiGenericArgumentMediator<Doub
 		super(arguments);
 	}
 	
-	public MultiDoubleMediator(double[] arguments) {
-		this(ArrayHelper.createIterable(arguments));
+	//package-visible constructor
+	/**
+	 * Creates new multi double mediator for the given arguments.
+	 * 
+	 * @param arguments
+	 * @throws NullArgumentException if the given arguments is null.
+	 */
+	MultiDoubleMediator(final double[] arguments) {
+		
+		//Calls constructor of the base class.
+		super(ArrayHelper.createIterable(arguments));
 	}
 
 	//method
 	/**
 	 * @param value
+	 * @throws NullArgumentException
+	 * if one of the arguments of this multi double mediator is null.
 	 * @throws NonNBiggerArgumentExceotion
-	 * if one of the arguments of this double container mediator is not bigger than the given value.
+	 * if one of the arguments of this multi double mediator is not bigger than the given value.
 	 */
 	public void areBiggerThan(final double value) {
 		
-		//Iterates the arguments of this double container mediator.
+		//Checks if the arguments of this multi double mediator are not null.
+		areNotNull();
+		
+		//Iterates the arguments of this multi double mediator.
 		int i = 1;
 		for (final double a : getRefArguments()) {
 			
@@ -59,12 +73,17 @@ public final class MultiDoubleMediator extends MultiGenericArgumentMediator<Doub
 	
 	//method
 	/**
+	 * @throws NullArgumentException
+	 * if one of the arguments of this multi double mediator is null.
 	 * @throws NonNegativeArgumentExceotion
-	 * if one of the arguments of this double container mediator is not positive.
+	 * if one of the arguments of this multi double mediator is not positive.
 	 */
 	public void areNegative() {
+		
+		//Checks if the arguments of this multi double mediator are not null.
+		areNotNull();
 	
-		//Iterates the arguments of this double container mediator.
+		//Iterates the arguments of this multi double mediator.
 		int i = 1;
 		for (final double a : getRefArguments()) {
 			
@@ -80,12 +99,17 @@ public final class MultiDoubleMediator extends MultiGenericArgumentMediator<Doub
 
 	//method
 	/**
+	 * @throws NullArgumentException
+	 * if one of the arguments of this multi double mediator is null.
 	 * @throws NonPositiveArgumentExceotion
-	 * if one of the arguments of this double container mediator is not positive.
+	 * if one of the arguments of this multi double mediator is not positive.
 	 */
 	public void arePositive() {
 		
-		//Iterates the arguments of this double container mediator.
+		//Checks if the arguments of this multi double mediator are not null.
+		areNotNull();
+		
+		//Iterates the arguments of this multi double mediator.
 		int i = 1;
 		for (final double a : getRefArguments()) {
 			
@@ -101,13 +125,18 @@ public final class MultiDoubleMediator extends MultiGenericArgumentMediator<Doub
 	
 	//method
 	/**
+	 * @throws NullArgumentException
+	 * if one of the arguments of this multi double mediator is null.
 	 * @param value
 	 * @throws NonSmallerArgumentException
-	 * if one of the argument of this double container mediator is not smaller than the given value.
+	 * if one of the argument of this multi double mediator is not smaller than the given value.
 	 */
 	public void areSmallerThan(final double value) {
 		
-		//Iterates the arguments of this double container mediator.
+		//Checks if the arguments of this multi double mediator are not null.
+		areNotNull();
+		
+		//Iterates the arguments of this multi double mediator.
 		int i = 1;
 		for (final double a : getRefArguments()) {
 			
