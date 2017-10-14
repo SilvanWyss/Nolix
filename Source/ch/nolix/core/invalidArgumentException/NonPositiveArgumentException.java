@@ -3,11 +3,14 @@ package ch.nolix.core.invalidArgumentException;
 
 //class
 /**
- * A non positive argument exception is an argument exception that is intended to be thrown when a value is undesired not positive.
+ * A non-positive argument exception is an argument exception
+ * that is supposed to be thrown when a value is undesired not positive.
+ * 
+ * A non-positive argument exception is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2016-02
- * @lines 70
+ * @lines 80
  */
 @SuppressWarnings("serial")
 public final class NonPositiveArgumentException extends InvalidArgumentException {
@@ -17,7 +20,7 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	
 	//constructor
 	/**
-	 * Creates new non positive argument exception for the given argument.
+	 * Creates new non-positive argument exception for the given argument.
 	 * 
 	 * @param argument
 	 */
@@ -29,7 +32,7 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	
 	//constructor
 	/**
-	 * Creates new non positive argument exception for the given argument.
+	 * Creates new non-positive argument exception for the given argument.
 	 * 
 	 * @param argument
 	 */
@@ -41,15 +44,18 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	
 	//constructor
 	/**
-	 * Creates new non positive argument exception for the given argument that has the given argument name.
+	 * Creates new non-positive argument exception
+	 * for the given argument that has the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
-	public NonPositiveArgumentException(String argumentName, double argument) {
-		
+	public NonPositiveArgumentException(
+		final String argumentName,
+		final double argument
+	) {		
 		//Calls constructor of the base class.
 		super(
 			new ArgumentName(argumentName),
@@ -60,15 +66,18 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	
 	//constructor
 	/**
-	 * Creates new non positive argument exception for the given argument that has the given argument name.
+	 * Creates new non-positive argument exception
+	 * for the given argument that has the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
-	public NonPositiveArgumentException(String argumentName, long argument) {
-		
+	public NonPositiveArgumentException(
+		final String argumentName,
+		final long argument
+	) {		
 		//Calls constructor of the base class.
 		super(
 			new ArgumentName(argumentName),
