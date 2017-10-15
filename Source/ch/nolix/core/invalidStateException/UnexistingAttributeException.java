@@ -1,10 +1,15 @@
 //package declaration
 package ch.nolix.core.invalidStateException;
 
+//own import
+import ch.nolix.core.validator2.Validator;
+
 //class
 /**
  * An unexisting attribute exception is an invalid state exception
- * that is intended to be thrown when an object has not an a desired attribute.
+ * that is supposed to be thrown when an object has not an a desired attribute.
+ * 
+ * An unexisting attribute exception is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2016-02
@@ -19,8 +24,8 @@ public final class UnexistingAttributeException extends InvalidStateException {
 	 * for the given object that has not the desired attribute of the given attribute type.
 	 * 
 	 * @param object
-	 * @param argumentType
-	 * @throws RuntimeException if the given argument is null.
+	 * @param attributeType
+	 * @throws NullArgumentException if the given object is null.
 	 */
 	public UnexistingAttributeException(final Object object, final Class<?> attributeType) {
 		
@@ -31,26 +36,20 @@ public final class UnexistingAttributeException extends InvalidStateException {
 	//constructor
 	/**
 	 * Creates new unexisting attribute exception
-	 * for the given object that has not the desired attribute with the given attribute name.
+	 * for the given object that has not the desired attribute that has the given attribute name.
 	 * 
 	 * @param object
 	 * @param attributeName
-	 * @throws RuntimeException if the given attribute name is null.
-	 * @throws RuntimeException if the given attribute name is empty.
+	 * @throws NullArgumentException if the given object is null.
+	 * @throws NullArgumentException if the given attribute name is null.
+	 * @throws EmptyArgumentException if the given attribute name is empty.
 	 */
 	public UnexistingAttributeException(final Object object, final String attributeName) {
 		
 		//Calls constructor of the base class.
 		super(object, "has no " + attributeName);
 		
-		//Checks if the given attribute name is not null.
-		if (attributeName == null) {
-			throw new RuntimeException("The given argument name is null.");
-		}
-		
-		//Checks if the given attribute name is not empty.
-		if (attributeName.isEmpty()) {
-			throw new RuntimeException("The given attribtue name is empty.");
-		}
+		//Checks if the given attribute name is not null or empty.
+		Validator.suppose(attributeName).isNotEmpty();
 	}
 }
