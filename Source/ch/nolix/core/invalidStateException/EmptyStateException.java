@@ -4,7 +4,7 @@ package ch.nolix.core.invalidStateException;
 //class
 /**
  * An empty state exception is an invalid state exception
- * that intended to be thrown when an object is undesired empty.
+ * that is supposed to be thrown when an object is undesired empty.
  * 
  * @author Silvan Wyss
  * @month 2017-05
