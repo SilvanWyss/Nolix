@@ -3,14 +3,15 @@ package ch.nolix.core.invalidArgumentException;
 
 //class
 /**
- * A true argument exception is an argument exception that is intended to be thrown when an argument is undesired true.
+ * A true argument exception is an invalid argument exception
+ * that is supposed to be thrown when an argument is undesired true.
  * 
  * @author Silvan Wyss
  * @month 2017-01
  * @lines 40
  */
 @SuppressWarnings("serial")
-public class TrueArgumentException extends InvalidArgumentException {
+public final class TrueArgumentException extends InvalidArgumentException {
 
 	//constant
 	private static final String ERROR_PREDICATE = "is true";
@@ -27,7 +28,8 @@ public class TrueArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new true argument exception for an argument with the given argument name.
+	 * Creates new true argument exception
+	 * for an argument that has the given argument name.
 	 * 
 	 * @param argumentName
 	 * @throws RuntimeException if the given argument name is null.
@@ -36,6 +38,9 @@ public class TrueArgumentException extends InvalidArgumentException {
 	public TrueArgumentException(final String argumentName) {
 		
 		//Calls constructor of the base class.
-		super(new ArgumentName(argumentName), new ErrorPredicate(ERROR_PREDICATE));
+		super(
+			new ArgumentName(argumentName),
+			new ErrorPredicate(ERROR_PREDICATE)
+		);
 	}
 }
