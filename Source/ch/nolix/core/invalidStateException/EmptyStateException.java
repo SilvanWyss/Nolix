@@ -3,8 +3,8 @@ package ch.nolix.core.invalidStateException;
 
 //class
 /**
- * An empty state exception is an invalid state exception that intended to be thrown
- * when an object is undesired empty.
+ * An empty state exception is an invalid state exception
+ * that intended to be thrown when an object is undesired empty.
  * 
  * @author Silvan Wyss
  * @month 2017-05
@@ -21,6 +21,7 @@ public final class EmptyStateException extends InvalidStateException {
 	 * Creates new empty state exception for the given object.
 	 * 
 	 * @param object
+	 * @throws NullArgumentException if the given object is null.
 	 */
 	public EmptyStateException(final Object object) {
 		
