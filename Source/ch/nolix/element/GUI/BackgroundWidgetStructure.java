@@ -142,7 +142,7 @@ extends WidgetStructure<BWS> {
 			)
 		);
 		
-		removeBackgroundColorGradient();
+		removeBackgroundColor();
 		
 		return (BWS)this;
 	}
