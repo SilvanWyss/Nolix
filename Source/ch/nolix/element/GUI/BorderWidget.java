@@ -10,6 +10,7 @@ import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
+import ch.nolix.element.color.Color;
 import ch.nolix.element.data.MinHeight;
 import ch.nolix.element.data.MinWidth;
 
@@ -23,7 +24,7 @@ import ch.nolix.element.data.MinWidth;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 640
+ * @lines 670
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -64,7 +65,7 @@ extends BackgroundWidget<BW, BWS> {
 				break;
 			case MinHeight.TYPE_NAME:
 				setMinHeight(attribute.getOneAttributeToInteger());
-				break;	
+				break;
 			default:
 				
 				//Calls method of the base class.
@@ -83,12 +84,12 @@ extends BackgroundWidget<BW, BWS> {
 		
 		attributes.addAtEnd(contentOrientation.getSpecification());
 		
-		//Handles the case that this border widget has a min width.
+		//Handles the option that this border widget has a min width.
 		if (hasMinWidth()) {
 			attributes.addAtEnd(minWidth.getSpecification());
 		}
 		
-		//Handles the case that this border widget has a min height.
+		//Handles the option that this border widget has a min height.
 		if (hasMinHeight()) {
 			attributes.addAtEnd(minHeight.getSpecification());
 		}
@@ -112,12 +113,18 @@ extends BackgroundWidget<BW, BWS> {
 		
 		final BWS currentStructure = getRefCurrentStructure();
 		
-		final int baseHeight
-		= currentStructure.getActiveTopBorderSize()
-		+ currentStructure.getActiveTopPadding()
-		+ getContentHeight()
-		+ currentStructure.getActiveBottomPadding()
-		+ currentStructure.getActiveBottomBorderSize();
+		final int baseHeight;
+		if (!currentStructure.hasRecursiveScrollHeight()) {
+			baseHeight =
+			currentStructure.getActiveTopBorderSize()
+			+ currentStructure.getActiveTopPadding()
+			+ getContentHeight()
+			+ currentStructure.getActiveBottomPadding()
+			+ currentStructure.getActiveBottomBorderSize();
+		}
+		else {
+			baseHeight = currentStructure.getActiveScrollHeight();
+		}
 		
 		//final calculations
 			//Handles the case if this border widget has no min height.
@@ -631,10 +638,28 @@ extends BackgroundWidget<BW, BWS> {
 				widgetStructure.getActiveBottomBorderSize()
 			);
 		}
+		
+		//Paints the vertical scroll bar if the given widget structure has a recursive scroll height.
+		if (widgetStructure.hasRecursiveScrollHeight()) {
+			
+			graphics.setColor(Color.LIGHT_GREY.getJavaColor());
+			graphics.fillRect(getWidth() - 10, 0, 10, getHeight());
+			
+			final int scrollCursorHeight = (int)(getHeight() * (1.0 * widgetStructure.getActiveScrollHeight() / getContentHeight()));
+			
+			graphics.setColor(Color.BLACK.getJavaColor());
+			graphics.fillRect(getWidth() - 10, 0, 10, scrollCursorHeight);
+		}
 
-		graphics.translate(getContentXPosition(), getContentYPosition());
-		paintContent(widgetStructure, graphics);
-		graphics.translate(-getContentXPosition(), -getContentYPosition());
+		paintContent(
+			widgetStructure,
+			graphics.create(
+				getContentXPosition(),
+				getContentYPosition(),
+				getContentWidth(),
+				getContentHeight()
+			)
+		);
 	}
 	
 	//abstract method
