@@ -4,7 +4,6 @@ package ch.nolix.element.GUI;
 //Java imports
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 
 //own imports
@@ -1083,16 +1082,13 @@ extends ConfigurableElement<W> {
 	 * @param graphics
 	 */
 	protected final void paintUsingPositionOnContainer(final Graphics graphics) {
-		
-		final Rectangle originalClip = graphics.getClipBounds();
-		
-		graphics.translate(getXPositionOnContainer(), getYPositionOnContainer());
-		paint(graphics);
-		
-		final Rectangle actualClip = graphics.getClipBounds();
-		graphics.translate(
-				(int)(actualClip.getX() - originalClip.getX()),
-				(int)(actualClip.getY() - originalClip.getY())
+		paint(
+			graphics.create(
+				getXPositionOnContainer(),
+				getYPositionOnContainer(),
+				getWidth(),
+				getHeight()
+			)
 		);
 	}
 	
