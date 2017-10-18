@@ -18,7 +18,7 @@ public final class TextColor extends Color {
 	public static final String TYPE_NAME = "TextColor";
 	
 	//default value
-	public static final Color DEFAULT_VALUE = Color.BLACK;
+	public static final int DEFAULT_VALUE = Color.BLACK_INT;
 	
 	//constructor
 	/**
@@ -27,7 +27,7 @@ public final class TextColor extends Color {
 	public TextColor() {
 		
 		//Calls constructor of the base class.
-		super(DEFAULT_VALUE.getValue());
+		super(DEFAULT_VALUE);
 	}
 	
 	//constructor
@@ -35,7 +35,7 @@ public final class TextColor extends Color {
 	 * Creates new text color with the given value.
 	 * 
 	 * @param value
-	 * @throws OutOfRangeArgumentException if the given value is no true color value).
+	 * @throws OutOfRangeArgumentException if the given value is no true color value.
 	 */
 	public TextColor(final int value) {
 		
