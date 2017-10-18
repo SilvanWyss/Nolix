@@ -8,6 +8,8 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
+import ch.nolix.element.data.ScrollHeight;
+import ch.nolix.element.entity.Property;
 
 //class
 /**
@@ -40,6 +42,14 @@ extends BackgroundWidgetStructure<BWS> {
 	private static final String RIGHT_PADDING_HEADER = "RightPadding";
 	private static final String TOP_PADDING_HEADER = "TopPadding";
 	private static final String BOTTOM_PADDING_HEADER = "BottomPadding";
+	
+	//attribute
+	private final Property<ScrollHeight> scrollHeight =
+	new Property<ScrollHeight>(
+		ScrollHeight.TYPE_NAME,
+		new ScrollHeight(),
+		a -> new ScrollHeight(a.getRefOne().toInt())
+	);
 	
 	//optional attributes
 	private PositiveInteger leftBorderSize;
@@ -255,6 +265,14 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
+	 * @return the active scroll height of this border widget structure.
+	 */
+	public final int getActiveScrollHeight() {
+		return scrollHeight.getActiveValue().getValue();
+	}
+	
+	//method
+	/**
 	 * @return the active top border color of this border widget structure.
 	 */
 	public final Color getActiveTopBorderColor() {
@@ -365,6 +383,14 @@ extends BackgroundWidgetStructure<BWS> {
 	 */
 	public final boolean hasLeftPadding() {
 		return (bottomPadding != null);
+	}
+	
+	//method
+	/**
+	 * @return true if this border widget structure has a recursive scroll height.
+	 */
+	public final boolean hasRecursiveScrollHeight() {
+		return scrollHeight.hasRecursiveValue();
 	}
 	
 	//method
@@ -837,6 +863,22 @@ extends BackgroundWidgetStructure<BWS> {
 	public final BWS setRightPadding(final int rightPadding) {
 		
 		this.rightPadding = new PositiveInteger(rightPadding);
+		
+		return (BWS)this;
+	}
+	
+	//method
+	/**
+	 * Sets the scroll height of this border widget structure.
+	 * 
+	 * @param scrollHeight
+	 * @return this border widget structure
+	 * @throws SmallerArgumentException if the given scroll height is smaller than the minimal scroll height.
+	 */
+	@SuppressWarnings("unchecked")
+	public final BWS setScrollHeight(final int scrollHeight) {
+		
+		this.scrollHeight.setValue(new ScrollHeight(scrollHeight));
 		
 		return (BWS)this;
 	}
