@@ -5,5 +5,6 @@
 *.css
 *.html
 *.js
-package-list
-/bin/
+
+#binaries
+*.dll
