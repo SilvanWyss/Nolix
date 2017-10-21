@@ -8,3 +8,4 @@
 
 #binaries
 *.dll
+/bin/
