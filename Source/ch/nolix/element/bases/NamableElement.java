@@ -1,10 +1,3 @@
-/*
- * file:	NamedElement.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	120
- */
-
 //package declaration
 package ch.nolix.element.bases;
 
@@ -15,46 +8,73 @@ import ch.nolix.core.interfaces.Namable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.core.MutableElement;
-import ch.nolix.element.core.NonEmptyText;
 import ch.nolix.element.data.Name;
 
-//class
+//abstract class
 /**
- * A named element is an element that has a name.
+ * A namable element is an element that has a name.
+ * A namable element can belong to a requestable container.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 140
+ * @param <NE> The type of a namable element.
  */
-public abstract class NamableElement<NE extends NamableElement<NE>> extends MutableElement implements Namable<NE> {
-	
-	//attribute name
-	private static final String NAME = "Name";
+public abstract class NamableElement<NE extends NamableElement<NE>>
+extends MutableElement<NE>
+implements Namable<NE> {
 	
 	//optional attribute
-	private IRequestableContainer containerOfNameds;
+	private IRequestableContainer requestableContainer;
 	
 	//attribute
-	private NonEmptyText name = new NonEmptyText();
+	private Name name = new Name();
 	
 	//method
 	/**
-	 * @return true if this named object belongs to a container of nameds
+	 * Adds or changes the given attribute to this namabel element.
+	 * 
+	 * @param attribute
+	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public final boolean belongsToContainerOfNameds() {
-		return (containerOfNameds != null);
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
+		
+		//Enumerates the header of the given attribute.
+		switch (attribute.getHeader()) {
+			case Name.TYPE_NAME:
+				setName(attribute.getOneAttributeToString());
+				break;
+			default:
+				throw new InvalidArgumentException(
+					new ArgumentName("attribute"),
+					new Argument(attribute)
+				);		
+		}
+	}
+	
+	//method
+	/**
+	 * @return true if this namable object belongs to a requestable container.
+	 */
+	public final boolean belongsToReuqestableContainer() {
+		return (requestableContainer != null);
 	}
 		
 	//method
 	/**
-	 * @return the attributes of this named element
+	 * @return the attributes of this namable element.
 	 */
 	public List<StandardSpecification> getAttributes() {
-		return new List<StandardSpecification>().addAtEnd(name.getSpecificationAs(NAME));
+		return new List<StandardSpecification>(name.getSpecification());
 	}
 	
 	//method
 	/**
-	 * @return the name of this named element
+	 * @return the name of this namable element.
 	 */
 	public final String getName() {
 		return name.getValue();
@@ -62,15 +82,7 @@ public abstract class NamableElement<NE extends NamableElement<NE>> extends Muta
 	
 	//method
 	/**
-	 * @return true if this named element has the given name
-	 */
-	public final boolean hasName(String name) {
-		return this.name.hasValue(name);
-	}
-	
-	//method
-	/**
-	 * Resets this named element.
+	 * Resets this namable element.
 	 */
 	public void reset() {
 		name = new Name();
@@ -78,65 +90,58 @@ public abstract class NamableElement<NE extends NamableElement<NE>> extends Muta
 	
 	//method
 	/**
-	 * Sets the given attribute to this named element.
-	 * 
-	 * @param attribute
-	 * @throws Exception if the given attribute is not valid
-	 */
-	public void addOrChangeAttribute(StandardSpecification attribute) {
-		switch (attribute.getHeader()) {
-			case NAME:
-				setName(attribute.getOneAttributeToString());
-				break;
-			default:
-				throw new InvalidArgumentException(
-					new ArgumentName("attribute"),
-					new Argument(attribute)
-				);
-				
-		}
-	}
-	
-	//method
-	/**
-	 * Sets the container of nameds of this named element.
-	 * 
-	 * @param containerOfNameds
-	 * @throws Exception if:
-	 *  -the given container of named is null
-	 *  -this named element already belongs to an other container of nameds
-	 */
-	public final void setSearchContainer(IRequestableContainer containerOfNameds) {
-		
-		Validator.throwExceptionIfValueIsNull("container of nameds", containerOfNameds);
-		
-		if (belongsToContainerOfNameds() && this.containerOfNameds != containerOfNameds) {
-			throw new RuntimeException("Namable element " + getNameInQuotes() + " already belongs to an other container of nameds.");
-		}
-		
-		this.containerOfNameds = containerOfNameds;
-	}
-	
-	//method
-	/**
-	 * Sets the name of this named element.
+	 * Sets the name of this namable element.
 	 * 
 	 * @param name
-	 * @throws Exception if:
-	 *  -the given name is null or an empty string
-	 *  -this named element belongs to a container of nameds that already contains an other named element with the given name
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws EmptyArgumentException if the given name is empty.
+	 * @throws InvalidStateException if this namable element belongs to a requestable container
+	 * that contains another element with the given name.
 	 */
-	@SuppressWarnings("unchecked")
 	public NE setName(String name) {
+		
+		//Handles the option that this namable element has not already the given name.
 		if (!hasName(name)) {
 			
-			if (belongsToContainerOfNameds() && containerOfNameds.containsElement(name)) {
-				throw new RuntimeException("Named element " + getNameInQuotes() + " belongs to a container that contains an other element with the name '" + name + "'.");
+			//Checks if this namable element does not belong to a requestable container
+			//that contains another element with the givne name.
+			if (belongsToReuqestableContainer()	&& requestableContainer.containsElement(name)
+			) {
+				throw new InvalidStateException(
+					this,
+					"belongs to a requestable container that contains another element with the name '"
+					+ name
+					+ "'"
+				);
 			}
 			
+			//Sets the name of this namable element.
 			this.name = new Name(name);
 		}
+
+		return getInstance();
+	}
+
+	//method
+	/**
+	 * Sets the requestable container this namable element will belong to.
+	 * 
+	 * @param requestableContainer
+	 * @throws NullArgumentExcetpion if the given requestable container is null.
+	 * @throws new InvalidStateException
+	 * if this namable element belongs already to another requestable container.
+	 */
+	public final void setRequestableContainer(IRequestableContainer requestableContainer) {
 		
-		return (NE)this;
+		//Checks if the given requestable container is not null.
+		Validator.suppose(requestableContainer).thatIsInstanceOf(IRequestableContainer.class).isNotNull();
+		
+		//Checks if this requestable container does not belong to another requestable container.
+		if (belongsToReuqestableContainer() && this.requestableContainer != requestableContainer) {
+			throw new InvalidStateException(this, "belongs already to another requestable container");
+		}
+		
+		//Sets the requestable container this namable element will belong to.
+		this.requestableContainer = requestableContainer;
 	}
 }
