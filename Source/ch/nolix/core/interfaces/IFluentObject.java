@@ -4,7 +4,7 @@ package ch.nolix.core.interfaces;
 //interface
 /**
  * A fluent object is an object that
- * can returns itself casted to its concrete type.
+ * can return itself casted to its concrete type.
  * 
  * @author Silvan Wyss
  * @month 2017-10
