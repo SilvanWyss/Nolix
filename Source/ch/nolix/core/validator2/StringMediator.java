@@ -20,7 +20,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 160
+ * @lines 180
  */
 public final class StringMediator extends GenericArgumentMediator<String> {
 
@@ -63,13 +63,37 @@ public final class StringMediator extends GenericArgumentMediator<String> {
 		//Checks if the argument of this string mediator is not null.
 		isNotNull();
 		
-		//Checks if the argument of this string mediator has a bigger length than the given max length.
+		//Checks if the argument of this string mediator has not a bigger length than the given max length.
 		if (getRefArgument().length() > maxLength) {
 			throw new InvalidArgumentException(
 				new ArgumentName(getArgumentName()),
 				new Argument(getRefArgument()),
 				new ErrorPredicate(
-					"has the length " + getRefArgument().length() + " what is bigger than " + maxLength
+					"has a length of " + getRefArgument().length() + " what is bigger than " + maxLength
+				)
+			);
+		}
+	}
+	
+	//method
+	/**
+	 * @param minLength
+	 * @throws NullArgumentException if the argument of this string mediator is null.
+	 * @throws InvalidArgumentException
+	 * if the argument of this string mediator has a smaller length than the given min length.
+	 */
+	public void hasMinLength(final int minLength) {
+		
+		//Checks if the argument of this string mediator is not null.
+		isNotNull();
+		
+		//Checks if the argument of this string mediator has not a smaller length than the given min length.
+		if (getRefArgument().length() < minLength) {
+			throw new InvalidArgumentException(
+				new ArgumentName(getArgumentName()),
+				new Argument(getRefArgument()),
+				new ErrorPredicate(
+					"has a length of " + getRefArgument().length() + " what is smaller than " + minLength
 				)
 			);
 		}
