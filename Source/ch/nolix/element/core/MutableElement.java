@@ -3,65 +3,66 @@ package ch.nolix.element.core;
 
 //own imports
 import ch.nolix.core.controllerInterfaces.IController;
+import ch.nolix.core.interfaces.IFluentObject;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.specificationInterfaces.Specifiable;
+import ch.nolix.core.validator2.Validator;
 
-//class
-public abstract class MutableElement
+//abstract class
+/**
+ * A mutable element is an element that is mutable.
+ * 
+ * @author Silvan Wyss
+ * @month 2017-02
+ * @lines 70
+ * @param <MU> The type of a mutable element.
+ */
+public abstract class MutableElement<MU extends MutableElement<MU>>
 extends Element
-implements IController, Specifiable {
+implements IController, IFluentObject<MU>, Specifiable {
 	
 	//command
 	private static final String RESET = "Reset";
 	
-	//command prefix
-	private static final String SET_COMMAND_PREFIX = "Set";
+	//constant
+	private static final String SET_ATTRIBUTE_COMMAND_PREFIX = "Set";
 
 	//element
 	/**
-	 * Runs the given command.
+	 * Lets this mutable element run the given command.
 	 * 
 	 * @param command
-	 * @throws Exception if the given command is not valid
+	 * @throws InvalidArgumentException if the given command is not valid.
 	 */
-	public void run(Statement command) {
+	public void run(final Statement command) {
 		
 		//Extracts the header of the given command.
-		String header = command.getHeader();
+		final String header = command.getHeader();
 		
-		//Handles the case when the given command is a set attribute command.
-		if (header.startsWith(SET_COMMAND_PREFIX)) {
+		//Handles the case if the given command is a set attribute command.
+		if (header.startsWith(SET_ATTRIBUTE_COMMAND_PREFIX)) {
+		
+			//Checks if the header of the given command has a length that is bigger than 4.
+			Validator.suppose(header).thatIsNamed("command").hasMinLength(4);
 			
-			if (header.length() < 4) {
-				throw new InvalidArgumentException(
-					new ArgumentName("command"),
-					new Argument(command)
-				);
-			}
+			addOrChangeAttribute(
+				new StandardSpecification(header.substring(3), command.getRefAttributes())
+			);
 			
-			addOrChangeAttribute(new StandardSpecification(header.substring(3), command.getRefAttributes()));
 			return;
 		}
 		
-		//Handels the case when the given command is a reset command.
+		//Handles the case if the given command is a reset command.
 		if (header.equals(RESET)) {
-			
-			if (!command.containsAttributes()) {
-				reset();
-			}
-			else {
-				reset();
-				addOrChangeAttributes(command.getRefAttributes());
-			}
-			
+			reset(command.getRefAttributes());			
 			return;
 		}
 		
-		//Handles the case when the given command is not valid.
+		//Handles the case if the given command is not valid.
 		throw new InvalidArgumentException(
 			new ArgumentName("command"),
 			new Argument(command)
