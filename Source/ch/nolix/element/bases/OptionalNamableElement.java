@@ -1,10 +1,3 @@
-/*
- * file:	NamableElement.java
- * author:	Silvan Wyss
- * month:	2015
- * lines:	160
- */
-
 //package declaration
 package ch.nolix.element.bases;
 
@@ -15,109 +8,39 @@ import ch.nolix.core.interfaces.OptionalNamable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.data.Name;
 
-//class
+//abstract class
 /**
- * A namable element is an element that can have a name.
+ * An optional namable element is an element that can have a name.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 170
+ * @param <ONE> The type of an optional namable element.
  */
-public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<ONE>> extends MutableElement implements OptionalNamable<ONE>  {
+public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<ONE>>
+extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	
 	//optional attributes
-	private IRequestableContainer searchContainer;
 	private Name name;
+	private IRequestableContainer requestableContainer;
 	
 	//method
 	/**
-	 * @return true if this namable element belongs to a search container
-	 */
-	public final boolean belongsToSearchContainer() {
-		return (searchContainer != null);
-	}
-	
-	//method
-	/**
-	 * @return the attributes of this namable elment
-	 */
-	public List<StandardSpecification> getAttributes() {
-		
-		List<StandardSpecification> attributes = new List<StandardSpecification>();
-		
-		if (hasName()) {
-			attributes.addAtEnd(name.getSpecification());
-		}
-		
-		return attributes;
-	}
-	
-	//method
-	/**
-	 * @return the name of this namable element
-	 * @throws UnexistingAttributeException if this namable element has no name
-	 */
-	public final String getName() {
-		
-		if (!hasName()) {
-			throw new UnexistingAttributeException(this, "name");
-		}
-		
-		return name.getValue();
-	}
-	
-	//method
-	/**
-	 * @return true if this namable element has a name
-	 */
-	public final boolean hasName() {
-		return (name != null);
-	}
-	
-	//method
-	/**
-	 * @parma name
-	 * @return true if this namable element has the given name
-	 */
-	public final boolean hasName(String name) {
-		
-		if (hasName()) {
-			return this.name.hasValue(name);
-		}
-		
-		return false;
-	}
-	
-	//method
-	/**
-	 * Removes the name of this namable element.
-	 */
-	@SuppressWarnings("unchecked")
-	public final ONE removeName() {
-		
-		name = null;
-		
-		return (ONE)this;
-	}
-	
-	//method
-	/**
-	 * Resets this namable element.
-	 */
-	public void reset() {
-		removeName();
-	}
-	
-	//method
-	/**
-	 * Sets the given attribute to this namable element.
+	 * Adds or changes the given attribute to this optional namable element.
 	 * 
 	 * @param attribute
-	 * @throws Exception if the given attribute is not valid
+	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(StandardSpecification attribute) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
+		
+		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case Name.TYPE_NAME:
 				setName(attribute.getOneAttributeToString());
@@ -128,6 +51,81 @@ public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<
 					new Argument(attribute)
 				);
 		}
+	}
+	
+	//method
+	/**
+	 * @return true if this namable element belongs to a reqestable container.
+	 */
+	public final boolean belongsToRequestableContainer() {
+		return (requestableContainer != null);
+	}
+	
+	//method
+	/**
+	 * @return the attributes of this optional namable element.
+	 */
+	public List<StandardSpecification> getAttributes() {
+		
+		final List<StandardSpecification> attributes = new List<StandardSpecification>();
+		
+		//Handles the option that this optional namable element has a name.
+		if (hasName()) {
+			attributes.addAtEnd(name.getSpecification());
+		}
+		
+		return attributes;
+	}
+	
+	//method
+	/**
+	 * @return the name of this optional namable element.
+	 * @throws UnexistingAttributeException if this optional namable element has no name.
+	 */
+	public final String getName() {
+		
+		//Checks if this optional namable element has a name.
+		if (!hasName()) {
+			throw new UnexistingAttributeException(this, Name.class);
+		}
+		
+		return name.getValue();
+	}
+	
+	//method
+	/**
+	 * @return true if this optional namable element has a name.
+	 */
+	public final boolean hasName() {
+		return (name != null);
+	}
+	
+	//method
+	/**
+	 * @parma name
+	 * @return true if this optional namable element has the given name.
+	 */
+	public final boolean hasName(String name) {	
+		return OptionalNamable.super.hasName(name);
+	}
+	
+	//method
+	/**
+	 * Removes the name of this optional namable element.
+	 */
+	public final ONE removeName() {
+		
+		name = null;
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Resets this optional namable element.
+	 */
+	public void reset() {
+		removeName();
 	}
 	
 	//method
@@ -143,7 +141,7 @@ public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<
 	public ONE setName(String name) {
 		if (!hasName(name)) {
 			
-			if (belongsToSearchContainer() && searchContainer.containsElement(name)) {
+			if (belongsToRequestableContainer() && requestableContainer.containsElement(name)) {
 				//throw new RuntimeException("Namable element " + getNameInQuotes() + " belongs to a search container that contains an other element with the name '" + name + "'.");
 			}
 			
@@ -155,21 +153,24 @@ public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<
 	
 	//method
 	/**
-	 * Sets the search container of this namable element.
+	 * Sets the requestable container this optional namable element will belong to.
 	 * 
-	 * @param searchContainer
-	 * @throws Exception if:
-	 *  -the given search container is null
-	 *  -this namable element already belongs to an other search container
+	 * @param requestableContainer
+	 * @throws NullArgumentExcetpion if the given requestable container is null.
+	 * @throws new InvalidStateException
+	 * if this optional namable element belongs already to another requestable container.
 	 */
-	public final void setParentContainer(IRequestableContainer searchContainer) {
+	public final void setRequestableContainer(IRequestableContainer requestableContainer) {
 		
-		Validator.throwExceptionIfValueIsNull("search container", searchContainer);
+		//Checks if the given requestable container is not null.
+		Validator.suppose(requestableContainer).thatIsInstanceOf(IRequestableContainer.class).isNotNull();
 		
-		if (belongsToSearchContainer() && this.searchContainer != searchContainer) {
-			throw new RuntimeException("Namable element already belongs to an other search container.");
+		//Checks if this optional namable elmeent does not belong to another requestable container.
+		if (belongsToRequestableContainer() && this.requestableContainer != requestableContainer) {
+			throw new InvalidStateException(this, "belongs already to another requestable container");
 		}
 		
-		this.searchContainer = searchContainer;
+		//Sets the requestable container this namable element will belong to.
+		this.requestableContainer = requestableContainer;
 	}
 }
