@@ -60,7 +60,7 @@ implements Namable<NE> {
 	/**
 	 * @return true if this namable object belongs to a requestable container.
 	 */
-	public final boolean belongsToReuqestableContainer() {
+	public final boolean belongsToRequestableContainer() {
 		return (requestableContainer != null);
 	}
 		
@@ -105,7 +105,7 @@ implements Namable<NE> {
 			
 			//Checks if this namable element does not belong to a requestable container
 			//that contains another element with the givne name.
-			if (belongsToReuqestableContainer()	&& requestableContainer.containsElement(name)
+			if (belongsToRequestableContainer()	&& requestableContainer.containsElement(name)
 			) {
 				throw new InvalidStateException(
 					this,
@@ -136,8 +136,8 @@ implements Namable<NE> {
 		//Checks if the given requestable container is not null.
 		Validator.suppose(requestableContainer).thatIsInstanceOf(IRequestableContainer.class).isNotNull();
 		
-		//Checks if this requestable container does not belong to another requestable container.
-		if (belongsToReuqestableContainer() && this.requestableContainer != requestableContainer) {
+		//Checks if this namable element does not belong to another requestable container.
+		if (belongsToRequestableContainer() && this.requestableContainer != requestableContainer) {
 			throw new InvalidStateException(this, "belongs already to another requestable container");
 		}
 		
