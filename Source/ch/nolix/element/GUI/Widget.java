@@ -1103,7 +1103,7 @@ extends ConfigurableElement<W> {
 	protected void setGUI(final GUI<?> GUI) {
 		
 		//Calls method of the base class.
-		setParentContainer(GUI);
+		setRequestableContainer(GUI);
 		
 		//Sets the GUI of this widget.
 		this.GUI = GUI;
