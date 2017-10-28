@@ -3,13 +3,13 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.entity2.Property;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.data.ScrollHeight;
-import ch.nolix.element.entity.Property;
 
 //class
 /**

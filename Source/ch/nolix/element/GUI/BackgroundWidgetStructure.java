@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+import ch.nolix.core.entity2.Property;
 //own imports
 import ch.nolix.core.enums.UniDirection;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.BackgroundColorGradient;
-import ch.nolix.element.entity.Property;
 
 //abstract class
 /**

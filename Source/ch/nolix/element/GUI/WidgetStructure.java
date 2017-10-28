@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+import ch.nolix.core.entity2.Entity;
+import ch.nolix.core.entity2.Property;
 //own imports
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
@@ -8,8 +10,6 @@ import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.data.TextColor;
 import ch.nolix.element.data.TextSize;
-import ch.nolix.element.entity.Entity;
-import ch.nolix.element.entity.Property;
 import ch.nolix.element.font.TextFont;
 
 //abstract class

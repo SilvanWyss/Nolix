@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.entity;
+package ch.nolix.core.entity2;
 
 //own imports
 import ch.nolix.core.bases.NamedElement;

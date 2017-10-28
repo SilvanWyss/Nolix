@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.entity;
+package ch.nolix.core.entity2;
 
 //Java import
 import java.lang.reflect.Field;
@@ -10,7 +10,6 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
-import ch.nolix.element.core.Element;
 
 //abstract class
 /**
@@ -18,7 +17,7 @@ import ch.nolix.element.core.Element;
  * @month 2017-09
  * @lines 150
  */
-public abstract class Entity extends Element {
+public abstract class Entity {
 	
 	//attribute
 	private List<Property<?>> properties;
