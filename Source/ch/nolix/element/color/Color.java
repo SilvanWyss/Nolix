@@ -25,7 +25,7 @@ import ch.nolix.element.core.Element;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1000
+ * @lines 1030
  */
 public class Color extends Element {
 	
@@ -608,6 +608,7 @@ public class Color extends Element {
 	//true color components limits
 	private static final int MIN_TRUE_COLOR_COMPONENT = 0;
 	private static final int MAX_TRUE_COLOR_COMPONENT = 255;
+	private static final int TRUE_COLOR_COMPONENT_RANGE = 256;
 	
 	//web colors
 		private static final List<Pair<String, java.lang.Integer>> webColors
@@ -749,10 +750,58 @@ public class Color extends Element {
 	
 	//method
 	/**
+	 * @return the inverted normalized blue value of this color.
+	 */
+	public final double getInvertedNormalizedBlueValue() {
+		return (1.0 - getNormalizedBlueValue());
+	}
+	
+	//method
+	/**
+	 * @return the inverted normalized green value of this color.
+	 */
+	public final double getInvertedNormalizedGreenValue() {
+		return (1.0 - getNormalizedGreenValue());
+	}
+	
+	//method
+	/**
+	 * @return the inverted normalized red value of this color.
+	 */
+	public final double getInvertedNormalizedRedValue() {
+		return (1.0 - getNormalizedRedValue());
+	}
+	
+	//method
+	/**
 	 * @return the java color of this color.
 	 */
 	public final java.awt.Color getJavaColor() {
 		return new java.awt.Color(getValue());
+	}
+	
+	//method
+	/**
+	 * @return the normalized blue value of this color.
+	 */
+	public final double getNormalizedBlueValue() {
+		return (getBlueValue() / TRUE_COLOR_COMPONENT_RANGE);
+	}
+	
+	//method
+	/**
+	 * @return the normalized green value of this color.
+	 */
+	public final double getNormalizedGreenValue() {
+		return (getGreenValue() / TRUE_COLOR_COMPONENT_RANGE);
+	}
+	
+	//method
+	/**
+	 * @return the normalized red value of this color.
+	 */
+	public final double getNormalizedRedValue() {
+		return (getRedValue() / TRUE_COLOR_COMPONENT_RANGE);
 	}
 	
 	//method
