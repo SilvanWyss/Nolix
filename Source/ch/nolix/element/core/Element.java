@@ -2,14 +2,11 @@
 package ch.nolix.element.core;
 
 //own imports
-import ch.nolix.core.container.List;
-import ch.nolix.core.controllerInterfaces.IDataController;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.specificationInterfaces.Specified;
 
 //abstract class
 /**
@@ -19,7 +16,7 @@ import ch.nolix.core.specificationInterfaces.Specified;
  * @month 2015-12
  * @lines 140
  */
-public abstract class Element implements IDataController, Specified {
+public abstract class Element implements IElement {
 	
 	//requests
 	public static final String TYPE_REQUEST = "Type";
@@ -74,53 +71,6 @@ public abstract class Element implements IDataController, Specified {
 					new Argument(request)
 				);
 		}	
-	}
-	
-	//method
-	/**
-	 * @return the type of this element.
-	 */
-	public final String getType() {
-		return getClass().getSimpleName();
-	}
-	
-	//method
-	/**
-	 * @return the types of this element ordered from deepest to highest.
-	 */	
-	public final List<String> getTypes() {
-		
-		final List<String> types = new List<String>();
-		
-		Class<?> class_ = getClass();
-		while (class_.getSuperclass() != null) {
-			types.addAtEnd(class_.getSimpleName());
-			class_ = class_.getSuperclass();
-		}
-		
-		return types;
-	}
-	
-	//method
-	/**
-	 * @param type
-	 * @return true if this element has the given type or super type
-	 */
-	public final boolean hasTypeOrSuperType(final String type) {
-		
-		Class<?> class_ = getClass();
-		
-		while (class_.getSuperclass() != null) {
-			
-			//Handles the case if this element has the current class as type or super type.
-			if (class_.getSimpleName().equals(type)) {
-				return true;
-			}
-			
-			class_ = class_.getSuperclass();
-		}
-		
-		return false;
 	}
 				
 	//method

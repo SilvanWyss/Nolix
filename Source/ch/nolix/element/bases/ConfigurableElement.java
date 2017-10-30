@@ -76,6 +76,16 @@ implements Configurable, OptionalTokenable<CE> {
 	
 	//method
 	/**
+	 * @return true if this configurable element has the given type or super type.
+	 */
+	public final boolean hasTypeOrSuperType(final String type) {
+		
+		//Calls method of the base class.
+		return super.hasTypeOrSuperType(type);
+	}
+	
+	//method
+	/**
 	 * Removes the class of this configurable element.
 	 */
 	@SuppressWarnings("unchecked")

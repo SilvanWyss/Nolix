@@ -3,6 +3,7 @@ package ch.nolix.element.core;
 
 //own imports
 import ch.nolix.core.controllerInterfaces.IController;
+import ch.nolix.core.entity.Entity;
 import ch.nolix.core.interfaces.IFluentObject;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
@@ -22,8 +23,8 @@ import ch.nolix.core.validator2.Validator;
  * @param <MU> The type of a mutable element.
  */
 public abstract class MutableElement<MU extends MutableElement<MU>>
-extends Element
-implements IController, IFluentObject<MU>, Specifiable {
+extends Entity
+implements IController, IElement, IFluentObject<MU>, Specifiable {
 	
 	//command
 	private static final String RESET = "Reset";
