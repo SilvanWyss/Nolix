@@ -18,8 +18,8 @@ import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
-import ch.nolix.element.data.Margin;
 import ch.nolix.element.data.TextColor;
+import ch.nolix.element.intData.Margin;
 
 //class
 public class TabContainer

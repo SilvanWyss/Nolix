@@ -1,29 +1,29 @@
 //package declaration
-package ch.nolix.element.data;
+package ch.nolix.element.intData;
 
 //own import
 import ch.nolix.element.core.PositiveInteger;
 
 /**
- * A height is not mutable.
+ * A width is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 40
  */
-public final class Height extends PositiveInteger {
+public final class Width extends PositiveInteger {
 	
 	//type name
-	public static final String TYPE_NAME = "Height";
+	public static final String TYPE_NAME = "Width";
 	
 	//default value
 	public static final int DEFAULT_VALUE = 100;
 
 	//constructor
 	/**
-	 * Creates new height with a default value.
+	 * Creates new width with a default value.
 	 */
-	public Height() {
+	public Width() {
 		
 		//Calls constructor of the base class.
 		super(DEFAULT_VALUE);
@@ -31,12 +31,12 @@ public final class Height extends PositiveInteger {
 	
 	//constructor
 	/**
-	 * Creates new height with the given value.
+	 * Creates new width with the given value.
 	 * 
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value is not positive.
 	 */
-	public Height(final int value) {
+	public Width(final int value) {
 		
 		//Calls constructor of the base class.
 		super(value);

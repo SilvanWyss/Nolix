@@ -21,7 +21,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.TextColor;
-import ch.nolix.element.data.TextSize;
+import ch.nolix.element.intData.TextSize;
 
 //class
 /**

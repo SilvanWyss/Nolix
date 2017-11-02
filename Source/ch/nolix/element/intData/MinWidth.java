@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.data;
+package ch.nolix.element.intData;
 
 //own import
 import ch.nolix.element.core.PositiveInteger;

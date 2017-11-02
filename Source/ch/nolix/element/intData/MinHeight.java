@@ -1,29 +1,29 @@
 //package declaration
-package ch.nolix.element.data;
+package ch.nolix.element.intData;
 
 //own import
 import ch.nolix.element.core.PositiveInteger;
 
 /**
- * A size is not mutable.
+ * A min height is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2015-12
+ * @month 2016-08
  * @lines 40
  */
-public final class Size extends PositiveInteger {
+public final class MinHeight extends PositiveInteger {
 	
 	//type name
-	public static final String TYPE_NAME = "Size";
+	public static final String TYPE_NAME = "MinHeight";
 	
 	//default value
-	public static final int DEFAULT_VALUE = 20;
+	public static final int DEFAULT_VALUE = 100;
 
 	//constructor
 	/**
-	 * Creates new size with a default value.
+	 * Creates new min height with a default value.
 	 */
-	public Size() {
+	public MinHeight() {
 		
 		//Calls constructor of the base class.
 		super(DEFAULT_VALUE);
@@ -31,12 +31,12 @@ public final class Size extends PositiveInteger {
 	
 	//constructor
 	/**
-	 * Creates new size with the given value.
+	 * Creates new min height the given value.
 	 * 
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value is not positive.
 	 */
-	public Size(final int value) {
+	public MinHeight(final int value) {
 		
 		//Calls constructor of the base class.
 		super(value);

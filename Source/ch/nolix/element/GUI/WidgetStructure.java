@@ -9,8 +9,8 @@ import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.data.TextColor;
-import ch.nolix.element.data.TextSize;
 import ch.nolix.element.font.TextFont;
+import ch.nolix.element.intData.TextSize;
 
 //abstract class
 /**

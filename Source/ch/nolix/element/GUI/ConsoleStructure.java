@@ -6,8 +6,8 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
-import ch.nolix.element.data.Height;
-import ch.nolix.element.data.Width;
+import ch.nolix.element.intData.Height;
+import ch.nolix.element.intData.Width;
 
 //class
 /**

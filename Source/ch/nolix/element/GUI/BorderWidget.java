@@ -11,8 +11,8 @@ import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.data.MinHeight;
-import ch.nolix.element.data.MinWidth;
+import ch.nolix.element.intData.MinHeight;
+import ch.nolix.element.intData.MinWidth;
 
 //abstract class
 /**

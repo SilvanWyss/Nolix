@@ -1,29 +1,29 @@
 //package declaration
-package ch.nolix.element.data;
+package ch.nolix.element.intData;
 
 //own import
 import ch.nolix.element.core.PositiveInteger;
 
 /**
- * A min height is not mutable.
+ * A thickness is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-08
+ * @month 2016-12
  * @lines 40
  */
-public final class MinHeight extends PositiveInteger {
+public final class Thickness extends PositiveInteger {
 	
 	//type name
-	public static final String TYPE_NAME = "MinHeight";
+	public static final String TYPE_NAME = "Thickness";
 	
 	//default value
-	public static final int DEFAULT_VALUE = 100;
+	public static final int DEFAULT_VALUE = 20;
 
 	//constructor
 	/**
-	 * Creates new min height with a default value.
+	 * Creates new thickness with a default value.
 	 */
-	public MinHeight() {
+	public Thickness() {
 		
 		//Calls constructor of the base class.
 		super(DEFAULT_VALUE);
@@ -31,12 +31,12 @@ public final class MinHeight extends PositiveInteger {
 	
 	//constructor
 	/**
-	 * Creates new min height the given value.
+	 * Creates new thickness with the given value.
 	 * 
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value is not positive.
 	 */
-	public MinHeight(final int value) {
+	public Thickness(final int value) {
 		
 		//Calls constructor of the base class.
 		super(value);

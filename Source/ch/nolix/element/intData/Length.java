@@ -1,29 +1,29 @@
 //package declaration
-package ch.nolix.element.data;
+package ch.nolix.element.intData;
 
 //own import
 import ch.nolix.element.core.PositiveInteger;
 
 /**
- * A width is not mutable.
+ * A length is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 40
  */
-public final class Width extends PositiveInteger {
+public final class Length extends PositiveInteger {
 	
 	//type name
-	public static final String TYPE_NAME = "Width";
-	
+	public static final String TYPE_NAME = "Length";
+
 	//default value
 	public static final int DEFAULT_VALUE = 100;
-
+	
 	//constructor
 	/**
-	 * Creates new width with a default value.
+	 * Creates new length with a default value.
 	 */
-	public Width() {
+	public Length() {
 		
 		//Calls constructor of the base class.
 		super(DEFAULT_VALUE);
@@ -31,12 +31,12 @@ public final class Width extends PositiveInteger {
 	
 	//constructor
 	/**
-	 * Creates new width with the given value.
+	 * Creates new length with the given value.
 	 * 
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value is not positive.
 	 */
-	public Width(final int value) {
+	public Length(final int value) {
 		
 		//Calls constructor of the base class.
 		super(value);

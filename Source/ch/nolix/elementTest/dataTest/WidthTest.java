@@ -3,7 +3,7 @@ package ch.nolix.elementTest.dataTest;
 
 //own imports
 import ch.nolix.core.test2.Test;
-import ch.nolix.element.data.Width;
+import ch.nolix.element.intData.Width;
 
 //class
 /**

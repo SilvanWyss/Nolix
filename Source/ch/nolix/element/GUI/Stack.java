@@ -6,7 +6,7 @@ import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.element.data.Margin;
+import ch.nolix.element.intData.Margin;
 
 //abstract class
 /**

@@ -1,29 +1,29 @@
 //package declaration
-package ch.nolix.element.data;
+package ch.nolix.element.intData;
 
 //own import
 import ch.nolix.element.core.PositiveInteger;
 
 /**
- * A thickness is not mutable.
+ * A height is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-12
+ * @month 2015-12
  * @lines 40
  */
-public final class Thickness extends PositiveInteger {
+public final class Height extends PositiveInteger {
 	
 	//type name
-	public static final String TYPE_NAME = "Thickness";
+	public static final String TYPE_NAME = "Height";
 	
 	//default value
-	public static final int DEFAULT_VALUE = 20;
+	public static final int DEFAULT_VALUE = 100;
 
 	//constructor
 	/**
-	 * Creates new thickness with a default value.
+	 * Creates new height with a default value.
 	 */
-	public Thickness() {
+	public Height() {
 		
 		//Calls constructor of the base class.
 		super(DEFAULT_VALUE);
@@ -31,12 +31,12 @@ public final class Thickness extends PositiveInteger {
 	
 	//constructor
 	/**
-	 * Creates new thickness with the given value.
+	 * Creates new height with the given value.
 	 * 
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value is not positive.
 	 */
-	public Thickness(final int value) {
+	public Height(final int value) {
 		
 		//Calls constructor of the base class.
 		super(value);

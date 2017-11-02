@@ -1,29 +1,29 @@
 //package declaration
-package ch.nolix.element.data;
+package ch.nolix.element.intData;
 
 //own import
 import ch.nolix.element.core.PositiveInteger;
 
 /**
- * A margin is not mutable.
+ * A size is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 40
  */
-public final class Margin extends PositiveInteger {
+public final class Size extends PositiveInteger {
 	
 	//type name
-	public static final String TYPE_NAME = "Margin";
+	public static final String TYPE_NAME = "Size";
 	
 	//default value
 	public static final int DEFAULT_VALUE = 20;
 
 	//constructor
 	/**
-	 * Creates new margin with a default value.
+	 * Creates new size with a default value.
 	 */
-	public Margin() {
+	public Size() {
 		
 		//Calls constructor of the base class.
 		super(DEFAULT_VALUE);
@@ -31,12 +31,12 @@ public final class Margin extends PositiveInteger {
 	
 	//constructor
 	/**
-	 * Creates new margin with the given value.
+	 * Creates new size with the given value.
 	 * 
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value is not positive.
 	 */
-	public Margin(final int value) {
+	public Size(final int value) {
 		
 		//Calls constructor of the base class.
 		super(value);

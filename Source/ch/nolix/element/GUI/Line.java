@@ -14,8 +14,8 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.data.Length;
-import ch.nolix.element.data.Thickness;
+import ch.nolix.element.intData.Length;
+import ch.nolix.element.intData.Thickness;
 
 //abstract class
 /**
