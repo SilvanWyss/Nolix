@@ -15,11 +15,11 @@ import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
- * A mutable element is an element that is mutable.
+ * A mutable element is an element that can be mutated.
  * 
  * @author Silvan Wyss
  * @month 2017-02
- * @lines 70
+ * @lines 80
  * @param <MU> The type of a mutable element.
  */
 public abstract class MutableElement<MU extends MutableElement<MU>>
@@ -68,5 +68,21 @@ implements IController, IElement, IFluentObject<MU>, Specifiable {
 			new ArgumentName("command"),
 			new Argument(command)
 		);
+	}
+	
+	//method
+	/**
+	 * @return a string representation of this mutable element.
+	 */
+	public final String toString() {
+		return getSpecification().toReproducingString();
+	}
+	
+	//default method
+	/**
+	 * @return a formated string representation of this mutable element.
+	 */
+	public final String toFormatedString() {
+		return getSpecification().toFormatedReproducingString();
 	}
 }
