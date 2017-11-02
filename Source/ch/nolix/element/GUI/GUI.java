@@ -31,7 +31,7 @@ import ch.nolix.element.data.Title;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 710
+ * @lines 730
  * @param <G> The type of a GUI.
  */
 public abstract class GUI<G extends GUI<G>>
@@ -218,7 +218,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	public CursorIcon getActiveCursorIcon() {
 		
 		final Widget<?, ?> widget
-		= getRefWidgets().getRefSelected(w -> w.isEnabled() && w.isUnderCursor()).getRefLastOrNull();
+		= getRefWidgetsRecursively().getRefSelected(w -> w.isEnabled() && w.isUnderCursor()).getRefLastOrNull();
 		
 		if (widget == null) {
 			return CursorIcon.Arrow;
@@ -285,25 +285,6 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		return new AccessorContainer<>(getRefWidgets().to(w -> w));		
 	}
 	
-	public final AccessorContainer<Widget<?, ?>> getRefWidgets() {
-		
-		final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>();
-		
-		//Handles the option that this GUI has a root widget.
-		if (hasRootWidget()) {
-			final Widget<?, ?> rootWidget = getRefRootWidget();
-			widgets.addAtEnd(rootWidget).addAtEnd(getRefRootWidget().getRefWidgets());
-		}
-		
-		return new AccessorContainer<Widget<?, ?>>(widgets);
-	}
-	
-	//abstract method
-	/**
-	 * @return the frame context of this GUI.
-	 */
-	//public abstract FrameContext getRefFrameContext();
-	
 	//method
 	/**
 	 * @return the root widget of this GUI.
@@ -329,6 +310,33 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	@SuppressWarnings("unchecked")
 	public final <W extends Widget<?, ?>> W getRefWidgetByNameRecursively(final String name) {
 		return (W)getRefRootWidget().getRefConfigurablesRecursively().getRefFirst(c -> c.hasName(name));
+	}
+	
+	//method
+	/**
+	 * @return the widgets of this GUI.
+	 */
+	public final AccessorContainer<Widget<?, ?>> getRefWidgets() {
+		
+		final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>();
+		
+		//Handles the option that this GUI has a root widget.
+		if (hasRootWidget()) {
+			final Widget<?, ?> rootWidget = getRefRootWidget();
+			widgets.addAtEnd(rootWidget);//.addAtEnd(getRefRootWidget().getRefWidgets());
+		}
+		
+		return new AccessorContainer<Widget<?, ?>>(widgets);
+	}
+	
+	//method
+	/**
+	 * @return the widgets of this GUI recursively.
+	 */
+	public final List<Widget<?, ?>> getRefWidgetsRecursively() {
+		final List<Widget<?, ?>> widgets = getRefWidgets().getCopy();
+		getRefWidgets().forEach(w -> widgets.addAtEnd(w.getRefWidgets()));
+		return widgets;
 	}
 	
 	//method
@@ -379,20 +387,20 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 */
 	public void noteKeyTyping(final KeyEvent keyEvent) {
 		
-		getRefWidgets()
+		getRefWidgetsRecursively()
 		.getRefSelected(w -> w.isFocused())
 		.forEach(w -> w.noteKeyTyping(keyEvent));
 		
 		refresh();
 	}
-	
+
 	//method
 	/**
 	 * Lets this GUI note a left mouse button press.
 	 */
 	public void noteLeftMouseButtonPress() {
 		
-		getRefWidgets()
+		getRefWidgetsRecursively()
 		.getRefSelected(w -> w.isEnabled())
 		.forEach(
 			w -> {
@@ -422,7 +430,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 */
 	public void noteLeftMouseButtonRelease() {
 		
-		getRefWidgets()
+		getRefWidgetsRecursively()
 		.getRefSelected(w -> w.isEnabled() && w.isUnderCursor())
 		.forEach(w -> w.noteLeftMouseButtonRelease());
 		
@@ -442,7 +450,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 			);
 		}
 		
-		getRefWidgets().getRefSelected(w -> w.isEnabled()).forEach(
+		getRefWidgetsRecursively().getRefSelected(w -> w.isEnabled()).forEach(
 			w -> {
 				
 				if (!w.isUnderCursor()) {				
@@ -470,7 +478,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 */
 	public void noteRightMouseButtonPress() {
 		
-		getRefWidgets()
+		getRefWidgetsRecursively()
 		.getRefSelected(w -> w.isEnabled() && w.isUnderCursor())
 		.forEach(w -> w.noteRightMouseButtonPress());
 		
@@ -483,7 +491,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 */
 	public void noteRightMouseButtonRelease() {
 		
-		getRefWidgets()
+		getRefWidgetsRecursively()
 		.getRefSelected(w -> w.isEnabled() && w.isUnderCursor())
 		.forEach(w -> w.noteRightMouseButtonRelease());
 		
