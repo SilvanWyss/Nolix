@@ -785,7 +785,7 @@ public class Color extends Element {
 	 * @return the normalized blue value of this color.
 	 */
 	public final double getNormalizedBlueValue() {
-		return (getBlueValue() / TRUE_COLOR_COMPONENT_RANGE);
+		return ((double)getBlueValue() / TRUE_COLOR_COMPONENT_RANGE);
 	}
 	
 	//method
@@ -793,7 +793,7 @@ public class Color extends Element {
 	 * @return the normalized green value of this color.
 	 */
 	public final double getNormalizedGreenValue() {
-		return (getGreenValue() / TRUE_COLOR_COMPONENT_RANGE);
+		return ((double)getGreenValue() / TRUE_COLOR_COMPONENT_RANGE);
 	}
 	
 	//method
@@ -801,7 +801,7 @@ public class Color extends Element {
 	 * @return the normalized red value of this color.
 	 */
 	public final double getNormalizedRedValue() {
-		return (getRedValue() / TRUE_COLOR_COMPONENT_RANGE);
+		return ((double)getRedValue() / TRUE_COLOR_COMPONENT_RANGE);
 	}
 	
 	//method
