@@ -17,9 +17,9 @@ import ch.nolix.element.core.Element;
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 120
+ * @lines 140
  */
-public class _2DPoint extends Element {
+public final class _2DPoint extends Element {
 
 	//default values.
 	public static final double DEFAULT_X = 0.0;
@@ -108,10 +108,26 @@ public class _2DPoint extends Element {
 	
 	//method
 	/**
+	 * @return the x-coordinate of this 2D point as float.
+	 */
+	public float getXAsFloat() {
+		return (float)getX();
+	}
+	
+	//method
+	/**
 	 * @return the y-coordinate of this 2D point.
 	 */
 	public double getY() {
 		return y;
+	}
+	
+	//method
+	/**
+	 * @return the y-coordinate of this 3D point as float.
+	 */
+	public float getYAsFloat() {
+		return (float)getY();
 	}
 	
 	//method

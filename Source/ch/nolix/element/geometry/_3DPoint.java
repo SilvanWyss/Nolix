@@ -17,7 +17,7 @@ import ch.nolix.element.core.Element;
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 130
+ * @lines 150
  */
 public class _3DPoint  extends Element {
 	
@@ -82,7 +82,7 @@ public class _3DPoint  extends Element {
 	 * @param point
 	 * @return the distance of this 3D point to the given point.
 	 */
-	public final double getDistanceTo(final _3DPoint point) {
+	public double getDistanceTo(final _3DPoint point) {
 		return Math.sqrt(
 			Math.pow(getX() - point.getX(), 2) +
 			Math.pow(getY() - point.getY(), 2) +
@@ -102,7 +102,7 @@ public class _3DPoint  extends Element {
 	/**
 	 * @return the position vector of this 3D point.
 	 */
-	public final Vector getPositionVector() {
+	public Vector getPositionVector() {
 		return new Vector(3).setValues(getX(), getY(), getZ());
 	}
 	
@@ -110,23 +110,47 @@ public class _3DPoint  extends Element {
 	/**
 	 * @return the x-coordinate of this 3D point.
 	 */
-	public final double getX() {
+	public double getX() {
 		return x;
+	}
+	
+	//method
+	/**
+	 * @return the x-coordinate of this 3D point as float.
+	 */
+	public float getXAsFloat() {
+		return (float)getX();
 	}
 	
 	//method
 	/**
 	 * @return the y-coordinate of this 3D point.
 	 */
-	public final double getY() {
+	public double getY() {
 		return y;
+	}
+	
+	//method
+	/**
+	 * @return the y-coordinate of this 3D point as float.
+	 */
+	public float getYAsFloat() {
+		return (float)getY();
 	}
 	
 	//method
 	/**
 	 * @return the z-coordinate of this 3D point.
 	 */
-	public final double getZ() {
+	public double getZ() {
 		return z;
+	}
+	
+	//method
+	/**
+	 * @return the z-coordinate of this 3D point as float.
+	 */
+	public float getZAsFloat() {
+		return (float)getZ();
 	}
 }
