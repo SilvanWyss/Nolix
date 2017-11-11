@@ -24,8 +24,7 @@ public final class LoginSession extends Session<ConsoleBackClient> {
 		
 		//Asks for the password.
 		getRefClient().writeLineToConsole("Enter the password.");
-		
-		while (!getRefClient().readSecretLineFromConsole().equals("justin")) {
+		while (getRefClient().readSecretLineFromConsole().hashCode() != -1148684527) {
 			getRefClient().writeLineToConsole("Wrong password. Try again.");
 		}
 		
