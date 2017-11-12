@@ -45,7 +45,7 @@ public final class StandardSpecification extends Specification {
 	public static String createEscapeString(final String string) {
 		
 		//Checks if the given string is not null.
-		Validator.suppose(string).thatIsInstanceOf(String.class).isNotNull();
+		Validator.suppose(string).isNotNull();
 		
 		//Handles the case if the given string is empty.
 		if (string.isEmpty()) {

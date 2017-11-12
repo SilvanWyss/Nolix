@@ -34,7 +34,7 @@ public final class StringHelper {
 	public static String createStringWithLength(final String string, final int length) {
 		
 		//Checks if the given string is not null.
-		Validator.suppose(string).thatIsInstanceOf(String.class).isNotNull();
+		Validator.suppose(string).isNotNull();
 		
 		//Checks if the given length is not negative.
 		Validator.suppose(length).thatIsNamed("length").isNotNegative();

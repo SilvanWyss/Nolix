@@ -9,52 +9,61 @@ import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
-//package-visible abstract class
+//class
 /**
- * A named argument mediator is a mediator for an argument with a name.
+ * A generic argument mediator is a mediator for an argument with a name.
+ * A generic argument mediator is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 80
- * @param <A> The type of the argument of a named argument mediator.
+ * @lines 100
+ * @param <A> The type of the argument of a generic argument mediator.
  */
 public class GenericArgumentMediator<A> extends Mediator {
 
+	//constant
 	public static final String DEFAULT_ARGUMENT_NAME = "Argument";
 	
 	//attribute
 	private final A argument;
 	
-	public GenericArgumentMediator(final A argument) {
+	//package-visible constructor
+	/**
+	 * Creates new generic argument mediator for the given argument.
+	 * 
+	 * @param argument
+	 */
+	GenericArgumentMediator(final A argument) {
 		
+		//Calls other constructor.
 		this(DEFAULT_ARGUMENT_NAME, argument);
 	}
 	
-	//constructor
+	//package-visible constructor
 	/**
-	 * Creates new named argument mediator for the given argument with the given argument name.
+	 * Creates new generic argument mediator for the given argument with the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument
 	 * @throws NullArgumentException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
-	public GenericArgumentMediator(final String argumentName, final A argument) {
+	GenericArgumentMediator(final String argumentName, final A argument) {
 		
 		//Calls constructor of the base class.
 		super(argumentName);
 		
-		//Sets the argument of this named argument mediator.
+		//Sets the argument of this generic argument mediator.
 		this.argument = argument;
 	}
 	
 	//method
 	/**
-	 * @throws NullArgumentException if the argument of this named argument mediator is null.
+	 * @throws NullArgumentException if the argument of this generic argument mediator is null.
 	 */
 	public void isNotNull() {
 		
-		//Checks if the argument of this named argument mediator is null.
+		//Checks if the argument of this generic argument mediator is null.
 		if (argument == null) {
 			throw new NullArgumentException(getArgumentName());
 		}
@@ -63,8 +72,8 @@ public class GenericArgumentMediator<A> extends Mediator {
 	//method
 	/**
 	 * @param type
-	 * @throws NullArgumentException if the argument of this named argument mediator is null.
-	 * @throws InvalidArgumentException if the argument of this named argument mediator is not of the given type.
+	 * @throws NullArgumentException if the argument of this generic argument mediator is null.
+	 * @throws InvalidArgumentException if the argument of this generic argument mediator is not of the given type.
 	 */
 	public final void isOfType(final Class<?> type) {
 		
@@ -83,27 +92,7 @@ public class GenericArgumentMediator<A> extends Mediator {
 	
 	//method
 	/**
-	 * @param type
-	 * @return a new named argument mediator for the argument of this argument mediator.
-	 */
-	public final GenericArgumentMediator<A> thatIsInstanceOf(final Class<?> type) {
-		return new GenericArgumentMediator<A>(type.getSimpleName(), getRefArgument());
-	}
-	
-	//method
-	/**
-	 * @param argumentName
-	 * @return a new named argument mediator with the given argument name and for the argument of this argument mediator.
-	 * @throws NullArgumentException if the given argument name is null.
-	 * @throws EmptyArgumentException if the given argument name is empty.
-	 */
-	public GenericArgumentMediator<A> thatIsNamed(final String argumentName) {
-		return new GenericArgumentMediator<A>(argumentName, getRefArgument());
-	}
-	
-	//method
-	/**
-	 * @return the argument of this named argument mediator.
+	 * @return the argument of this generic argument mediator.
 	 */
 	protected A getRefArgument() {
 		return argument;

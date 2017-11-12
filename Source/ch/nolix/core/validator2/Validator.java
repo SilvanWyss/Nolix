@@ -26,17 +26,17 @@ public final class Validator {
 	 * @param argument
 	 * @return a new argument mediator for given argument.
 	 */
-	public static <A> GenericArgumentMediator<A> suppose(final A argument) {
-		return new GenericArgumentMediator<A>(argument);
+	public static <A> ExtendedGenericArgumentMediator<A> suppose(final A argument) {
+		return new ExtendedGenericArgumentMediator<A>(argument);
 	}	
 	
 	//static method
 	/**
 	 * @param argument
-	 * @return a new container mediator for the given argument.
+	 * @return a new extended container mediator for the given argument.
 	 */
-	public static <A> ContainerMediator<A> suppose(final A[] argument) {
-		return new ContainerMediator<A>(argument);
+	public static <A> ExtendedContainerMediator<A> suppose(final A[] argument) {
+		return new ExtendedContainerMediator<A>(argument);
 	}
 	
 	//static method
