@@ -30,7 +30,7 @@ import ch.nolix.core.invalidArgumentException.UnequalArgumentException;
  * @month 2016-12
  * @lines 300
  */
-public final class LongMediator extends Mediator {
+public class LongMediator extends Mediator {
 	
 	//attribute
 	private final long argument;
@@ -63,6 +63,14 @@ public final class LongMediator extends Mediator {
 		
 		//Sets the argument of this long mediator.
 		this.argument = argument;
+	}
+	
+	//method
+	/**
+	 * @return the argument of this long mediator.
+	 */
+	public long getArgument() {
+		return argument;
 	}
 	
 	//method
@@ -291,16 +299,5 @@ public final class LongMediator extends Mediator {
 	 */
 	public void isZero() {
 		isEqualTo(0);
-	}
-	
-	//method
-	/**
-	 * @param argumentName
-	 * @return a new long mediator with the givne argument name for the argument of this long mediator.
-	 * @throws NullArgumentException if the given argument name is null.
-	 * @throws EmptyArgumentException if the given argument name is an empty string.
-	 */
-	public LongMediator thatIsNamed(final String argumentName) {
-		return new LongMediator(argumentName, argument);
 	}
 }

@@ -68,10 +68,10 @@ public final class Validator {
 	//static method
 	/**
 	 * @param argument
-	 * @return a new long mediator for the given argument.
+	 * @return a new extended long mediator for the given argument.
 	 */
-	public static LongMediator suppose(final long argument) {
-		return new LongMediator(argument);
+	public static ExtendedLongMediator suppose(final long argument) {
+		return new ExtendedLongMediator(argument);
 	}
 	
 	//static method
