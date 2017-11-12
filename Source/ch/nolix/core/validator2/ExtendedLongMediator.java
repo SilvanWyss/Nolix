@@ -15,13 +15,13 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
 */
 public class ExtendedLongMediator extends LongMediator {
 
-	//constructor
+	//package-visible constructor
 	/**
 	 * Creates new extended long mediator for the given argument.
 	 * 
 	 * @param argument
 	 */
-	public ExtendedLongMediator(final long argument) {
+	ExtendedLongMediator(final long argument) {
 		
 		//Calls constructor of the base class.
 		super(argument);
