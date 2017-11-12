@@ -15,13 +15,13 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
 */
 public class ExtendedDoubleMediator extends DoubleMediator {
 
-	//constructor
+	//package-visibel constructor
 	/**
 	 * Creates new extended double mediator for the given argument.
 	 * 
 	 * @param argument
 	 */
-	public ExtendedDoubleMediator(final double argument) {
+	ExtendedDoubleMediator(final double argument) {
 		
 		//Calls constructor of the base class.
 		super(argument);
