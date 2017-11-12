@@ -54,7 +54,7 @@ public class LongMediator extends Mediator {
 	 * @param argumentName
 	 * @param argument
 	 * @throws NullArgumentException if the given argument name is null.
-	 * @throws EmptyArgumentException if the given argument name is an empty string.
+	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	LongMediator(final String argumentName, final long argument) {
 		

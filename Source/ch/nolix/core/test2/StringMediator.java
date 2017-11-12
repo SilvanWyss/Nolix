@@ -156,7 +156,7 @@ public class StringMediator extends ElementMediator<String> {
 			throw new RuntimeException("The given sequence is null.");
 		}
 		if (sequence.length() == 0) {
-			throw new RuntimeException("The given sequence is an empty string.");
+			throw new RuntimeException("The given sequence is empty.");
 		}
 		
 		if (getValue() == null || !getValue().startsWith(sequence)) {

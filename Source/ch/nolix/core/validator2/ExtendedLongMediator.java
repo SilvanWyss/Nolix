@@ -32,7 +32,7 @@ public class ExtendedLongMediator extends LongMediator {
 	 * @param argumentName
 	 * @return a new long mediator with the given argument name for the argument of this extended long mediator.
 	 * @throws NullArgumentException if the given argument name is null.
-	 * @throws EmptyArgumentException if the given argument name is an empty string.
+	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	public LongMediator thatIsNamed(final String argumentName) {
 		return new LongMediator(argumentName, getArgument());
