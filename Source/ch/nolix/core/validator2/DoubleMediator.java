@@ -11,6 +11,7 @@ import ch.nolix.core.invalidArgumentException.NonNegativeArgumentException;
 import ch.nolix.core.invalidArgumentException.NonPositiveArgumentException;
 import ch.nolix.core.invalidArgumentException.NonSmallerArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
+import ch.nolix.core.invalidArgumentException.OutOfRangeArgumentException;
 import ch.nolix.core.invalidArgumentException.SmallerArgumentException;
 import ch.nolix.core.invalidArgumentException.UnequalArgumentException;
 import ch.nolix.core.invalidArgumentException.ZeroArgumentException;
@@ -22,7 +23,7 @@ import ch.nolix.core.invalidArgumentException.ZeroArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 220
+ * @lines 240
  */
 public class DoubleMediator extends Mediator {
 	
@@ -57,6 +58,27 @@ public class DoubleMediator extends Mediator {
 		
 		//Sets the argument of this double mediator.
 		this.argument = argument;
+	}
+	
+	//method
+	/**
+	 * @param min
+	 * @param max
+	 * @throws OutOfRangeArgumentException
+	 * if the argument of this double mediator is not between the given min and max.
+	 */
+	public void isBetween(final double min, final double max) {
+		
+		//Checks if the argument of this double mediator
+		//is between the given min and max.
+		if (argument < min || argument > max) {
+			throw new OutOfRangeArgumentException(
+				getArgumentName(),
+				argument,
+				min,
+				max
+			);
+		}
 	}
 
 	//method
