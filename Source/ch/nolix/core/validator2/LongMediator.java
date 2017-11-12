@@ -67,14 +67,6 @@ public class LongMediator extends Mediator {
 	
 	//method
 	/**
-	 * @return the argument of this long mediator.
-	 */
-	public long getArgument() {
-		return argument;
-	}
-	
-	//method
-	/**
 	 * @param value
 	 * @throws UnequalArgumentException
 	 * if the argument of this long mediator does not equal the given value.
@@ -299,5 +291,13 @@ public class LongMediator extends Mediator {
 	 */
 	public void isZero() {
 		isEqualTo(0);
+	}
+	
+	//method
+	/**
+	 * @return the argument of this long mediator.
+	 */
+	protected long getArgument() {
+		return argument;
 	}
 }
