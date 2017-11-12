@@ -24,7 +24,7 @@ import ch.nolix.core.invalidArgumentException.ZeroArgumentException;
  * @month 2016-12
  * @lines 220
  */
-public final class DoubleMediator extends Mediator {
+public class DoubleMediator extends Mediator {
 	
 	//attribute
 	private final double argument;
@@ -218,12 +218,9 @@ public final class DoubleMediator extends Mediator {
 	
 	//method
 	/**
-	 * @param argumentName
-	 * @return new double mediator for the argument of this double mediator with the givne argument name.
-	 * @throws NullArgumentException if the given argument name is null.
-	 * @throws EmptyArgumentException if the given argument name is an empty string.
+	 * @return the argument of htis double mediator.
 	 */
-	public DoubleMediator thatIsNamed(final String argumentName) {
-		return new DoubleMediator(argumentName, argument);
+	protected double getArgument() {
+		return argument;
 	}
 }

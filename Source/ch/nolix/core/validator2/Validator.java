@@ -42,10 +42,10 @@ public final class Validator {
 	//static method
 	/**
 	 * @param argument
-	 * @return a new double mediator for the given argument.
+	 * @return a new extended double mediator for the given argument.
 	 */
-	public static DoubleMediator suppose(final double argument) {
-		return new DoubleMediator(argument);
+	public static ExtendedDoubleMediator suppose(final double argument) {
+		return new ExtendedDoubleMediator(argument);
 	}
 	
 	//static method
