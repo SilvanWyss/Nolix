@@ -51,18 +51,18 @@ public final class Validator {
 	//static method
 	/**
 	 * @param argument
-	 * @return a new container mediator for the given argument.
+	 * @return a new extended container mediator for the given argument.
 	 */
-	public static ContainerMediator<Double> suppose(final double[] argument) {
+	public static ExtendedContainerMediator<Double> suppose(final double[] argument) {
 		
 		//Handles the case if the given argument is null.
 		if (argument == null) {
 			final Vector<Double> argumentVector = null;
-			return new ContainerMediator<Double>(argumentVector);
+			return new ExtendedContainerMediator<Double>(argumentVector);
 		}
 		
 		//Handles the case if the given argument is not null.
-		return new ContainerMediator<Double>(ArrayHelper.createIterable(argument));
+		return new ExtendedContainerMediator<Double>(ArrayHelper.createIterable(argument));
 	}
 	
 	//static method

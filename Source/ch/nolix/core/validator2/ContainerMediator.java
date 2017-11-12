@@ -14,10 +14,10 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 120
+ * @lines 110
  * @param <E> The type of the elements of the argument of a container mediator.
  */
-public final class ContainerMediator<E> extends GenericArgumentMediator<Iterable<E>> {
+public class ContainerMediator<E> extends GenericArgumentMediator<Iterable<E>> {
 
 	//package-visible constructor
 	/**
@@ -109,16 +109,5 @@ public final class ContainerMediator<E> extends GenericArgumentMediator<Iterable
 		if (IterableHelper.isEmpty(getRefArgument())) {
 			throw new EmptyArgumentException(new Argument(getRefArgument()));
 		}
-	}
-	
-	//method
-	/**
-	 * @param argumentName
-	 * @return a new container mediator with the given argument name and for the argument of this container mediator.
-	 * @throws NullArgumentException if the given argument name is null.
-	 * @throws EmptyArgumentException if the given argument name is empty.
-	 */
-	public ContainerMediator<E> thatIsNamed(final String argumentName) {
-		return new ContainerMediator<E>(argumentName, getRefArgument());
 	}
 }
