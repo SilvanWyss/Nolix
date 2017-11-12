@@ -20,9 +20,9 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 180
+ * @lines 170
  */
-public final class StringMediator extends GenericArgumentMediator<String> {
+public class StringMediator extends GenericArgumentMediator<String> {
 
 	//package-visible constructor
 	/**
@@ -173,16 +173,5 @@ public final class StringMediator extends GenericArgumentMediator<String> {
 				new ErrorPredicate("is no probable directory on the local machine")
 			);
 		}
-	}
-	
-	//method
-	/**
-	 * @param argumentName
-	 * @return a new string mediator for the argument of this string mediator with the given argument name.
-	 * @throws NullArgumentException if the given argument name is null.
-	 * @throws EmptyArgumentException if the given argument name is empty.
-	 */
-	public StringMediator thatIsNamed(final String argumentName) {
-		return new StringMediator(argumentName, getRefArgument());
 	}
 }

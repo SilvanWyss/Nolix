@@ -94,10 +94,10 @@ public final class Validator {
 	//static method
 	/**
 	 * @param argument
-	 * @return a new string mediator for the given argument.
+	 * @return a new extended string mediator for the given argument.
 	 */
-	public static StringMediator suppose(final String argument) {
-		return new StringMediator(argument);
+	public static ExtendedStringMediator suppose(final String argument) {
+		return new ExtendedStringMediator(argument);
 	}
 	
 	//static method
