@@ -15,11 +15,9 @@ import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
- * A mutable element is an element that can be mutated.
- * 
  * @author Silvan Wyss
  * @month 2017-02
- * @lines 80
+ * @lines 110
  * @param <MU> The type of a mutable element.
  */
 public abstract class MutableElement<MU extends MutableElement<MU>>
@@ -31,6 +29,35 @@ implements IController, IElement, IFluentObject<MU>, Specifiable {
 	
 	//constant
 	private static final String SET_ATTRIBUTE_COMMAND_PREFIX = "Set";
+	
+	//method
+	/**
+	 * @param object
+	 * @return true if this mutable element equals the given object.
+	 */
+	public final boolean equals(final Object object) {
+		
+		//Handles the option that the given object is null.
+		if (object == null) {
+			return false;
+		}
+		
+		//Handles the option that this element is not of the same class as the given object.		
+		if (getClass() != object.getClass()) {
+			return false;
+		}
+		
+		//Casts the given object to a mutable element.
+		final MutableElement<?> element = (MutableElement<?>)object;
+		
+		//Handles the option that the specification of this element
+		//does not equal the specification of the given mutable element.
+		if (!element.getSpecification().equals(getSpecification())) {
+			return false;
+		}
+		
+		return true;
+	}
 
 	//element
 	/**
