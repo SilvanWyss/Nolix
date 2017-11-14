@@ -1,10 +1,3 @@
-/*
- * file:	AreaTest.java
- * author:	Silvan Wyss
- * month:	2016-06
- * lines:	50
- */
-
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
@@ -16,24 +9,28 @@ import ch.nolix.element.data.BackgroundColor;
 
 //test class
 /**
- * This class is a test class for the area class.
+ * An area test is a test for the area class.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-06
+ * @lines 50
  */
 public final class AreaTest extends Test {
 	
 	//test method
-	public void testEquals() {
+	public void test_equals() {
 		
 		//setup part 1
 		final Area area1 = new Area()
 		.setWidth(800)
 		.setHeight(600)
-		.setBackgroundColor(new BackgroundColor(BackgroundColor.GREEN_STRING));
+		.setBackgroundColor(new BackgroundColor(BackgroundColor.GREEN_INT));
 		
 		//setup part 2
 		final Area area2 = new Area()
 		.setWidth(800)
 		.setHeight(600)
-		.setBackgroundColor(new BackgroundColor(BackgroundColor.GREEN_STRING));
+		.setBackgroundColor(new BackgroundColor(BackgroundColor.GREEN_INT));
 		
 		//verification
 		expect(area1).equalsTo(area2);
@@ -41,7 +38,7 @@ public final class AreaTest extends Test {
 	}
 	
 	//test method
-	public void testRemoveBackgroundColor() {
+	public void test_removeBackgroundColor() {
 		
 		//setup
 		final Area area = new Area();
