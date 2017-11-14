@@ -1,18 +1,20 @@
-/*
- * file:	ElementTestPool.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	20
- */
-
 //package declaration
 package ch.nolix.elementTest;
 
+//own imports
 import ch.nolix.core.testoid.TestPool;
+import ch.nolix.coreTest.CoreTestPool;
 import ch.nolix.elementTest.GUITest.GUITestPool;
+import ch.nolix.elementTest.colorTest.ColorTestPool;
 import ch.nolix.elementTest.dataTest.DataTestPool;
+import ch.nolix.elementTest.financeTest.FinanceTestPool;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 30
+ */
 public final class ElementTestPool extends TestPool {
 
 	//constructor
@@ -21,7 +23,10 @@ public final class ElementTestPool extends TestPool {
 	 */
 	public ElementTestPool() {
 		addTestPool(
+			new ColorTestPool(),
+			new CoreTestPool(),
 			new DataTestPool(),
+			new FinanceTestPool(),
 			new GUITestPool()
 		);
 	}
