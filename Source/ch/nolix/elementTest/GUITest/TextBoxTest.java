@@ -1,10 +1,3 @@
-/*
- * file:	TextBoxTest.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	60
- */
-
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
@@ -15,12 +8,16 @@ import ch.nolix.element.color.Color;
 
 //test class
 /**
- * This class is a test class for the text box class.
+ * A text box test is a test for the text box class.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 60
  */
 public class TextBoxTest extends Test {
 
 	//test method
-	public final void testDefaultConstructor() {
+	public final void test_constructor() {
 		
 		//execution
 		final TextBox textBox = new TextBox();
@@ -30,7 +27,7 @@ public class TextBoxTest extends Test {
 	}
 	
 	//test method
-	public final void testSetNormalTextColor() {
+	public final void test_setNormalTextColor() {
 		
 		//setup
 		final TextBox textBox = new TextBox();
@@ -39,13 +36,18 @@ public class TextBoxTest extends Test {
 		textBox.getRefNormalStructure().setTextColor(Color.BLUE);
 		
 		//verification
-		expect(textBox.getRefNormalStructure().getActiveTextColor()).equalsTo(Color.BLUE);
-		expect(textBox.getRefHoverStructure().getActiveTextColor()).equalsTo(Color.BLUE);
-		expect(textBox.getRefFocusStructure().getActiveTextColor()).equalsTo(Color.BLUE);
+			expect(textBox.getRefNormalStructure().getActiveTextColor().getValue())
+			.isEqualTo(Color.BLUE_INT);
+			
+			expect(textBox.getRefHoverStructure().getActiveTextColor().getValue())
+			.isEqualTo(Color.BLUE_INT);
+			
+			expect(textBox.getRefFocusStructure().getActiveTextColor().getValue())
+			.isEqualTo(Color.BLUE_INT);
 	}
 	
 	//test method
-	public final void testSetText() {
+	public final void test_setText() {
 				
 		//setup
 		final TextBox textBox = new TextBox();
