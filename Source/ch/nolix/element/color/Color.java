@@ -13,6 +13,7 @@ import ch.nolix.core.container.Pair;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.core.Element;
@@ -25,7 +26,7 @@ import ch.nolix.element.core.Element;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1030
+ * @lines 1080
  */
 public class Color extends Element {
 	
@@ -596,8 +597,7 @@ public class Color extends Element {
 		public static final int YELLOW_GREEN_INT = 0x9ACD32;
 		public static final String YELLOW_GREEN_STRING = "YellowGreen";
 		public static final Color YELLOW_GREEN = new Color(YELLOW_GREEN_INT);
-		
-		
+				
 	//default value
 	private static final int DEFAULT_VALUE = WHITE_INT;
 		
@@ -605,38 +605,37 @@ public class Color extends Element {
 	private static final int MIN_TRUE_COLOR = 0;
 	private static final int MAX_TRUE_COLOR = 16777215;
 	
-	//true color components limits
+	//true color component limits
 	private static final int MIN_TRUE_COLOR_COMPONENT = 0;
 	private static final int MAX_TRUE_COLOR_COMPONENT = 255;
-	private static final int TRUE_COLOR_COMPONENT_RANGE = 256;
 	
 	//web colors
-		private static final List<Pair<String, java.lang.Integer>> webColors
+		private static final List<Pair<String, java.lang.Integer>> webColorMap
 		= new List<Pair<String, java.lang.Integer>>();
-		
-		private static final AccessorContainer<Pair<String, java.lang.Integer>> webColors2
-		= new AccessorContainer<Pair<String, java.lang.Integer>>(webColors);
+			
+		private static final AccessorContainer<Pair<String, java.lang.Integer>> webColorMap2
+		= new AccessorContainer<Pair<String, java.lang.Integer>>(webColorMap);
 	
-	private static final AccessorContainer<Pair<String, java.lang.Integer>> getWebColors() {
+	//static method
+	/**
+	 * Extracts the web color map.
+	 * 
+	 * @throws InvalidStateException if the web color map is extracted.
+	 */
+	private static final void extractWebColorMap() {
 		
-		if (!filledUpWebColors()) {
-			fillUpWebColors();
+		//Checks if the web color map is not extracted.
+		if (webColorMapIsExtracted()) {
+			throw new InvalidStateException(Color.class, "has extracted the web color map");
 		}
 		
-		return webColors2;
-	}
-	
-	private static final boolean filledUpWebColors() {
-		return webColors.containsAny();
-	}
-	
-	private static final void fillUpWebColors() {		
 		try {
 		
+			//Iterates the declared fields of the color class.
 			for (final Field f : Color.class.getDeclaredFields()) {
 				if (
 					Modifier.isStatic(f.getModifiers())
-					&& f.getName().endsWith("STRING")
+					&& f.getName().endsWith("_STRING")
 				) {
 					
 					final String colorName = f.get(null).toString();
@@ -652,12 +651,37 @@ public class Color extends Element {
 							break;
 						}
 					}
-					webColors.addAtEnd(new Pair<String, java.lang.Integer>(colorName, colorValue));
+					
+					webColorMap.addAtEnd(new Pair<String, java.lang.Integer>(colorName, colorValue));
 				}
 			}
 		}
-		catch (final IllegalAccessException exception) {}
+		catch (final IllegalAccessException illegalAccessException) {
+			throw new RuntimeException(illegalAccessException);
+		}
+	}	
+		
+	//static method
+	/**
+	 * @return a web color map.
+	 */
+	private static final AccessorContainer<Pair<String, java.lang.Integer>> getWebColorMap() {
+		
+		//Handles the option that the web color map is not extracted.
+		if (!webColorMapIsExtracted()) {
+			extractWebColorMap();
+		}
+		
+		return webColorMap2;
 	}
+	
+	//static method
+	/**
+	 * @return true if the web color map is extracted.
+	 */
+	private static final boolean webColorMapIsExtracted() {
+		return webColorMap.containsAny();
+	}	
 	
 	//attribute
 	private int value = DEFAULT_VALUE;
@@ -722,14 +746,6 @@ public class Color extends Element {
 	
 	//method
 	/**
-	 * @return a copy of this color.
-	 */
-	public Color getCopy() {
-		return new Color(getValue());
-	}
-	
-	//method
-	/**
 	 * @return the green value of this color.
 	 */
 	public final int getGreenValue() {
@@ -785,7 +801,7 @@ public class Color extends Element {
 	 * @return the normalized blue value of this color.
 	 */
 	public final double getNormalizedBlueValue() {
-		return ((double)getBlueValue() / TRUE_COLOR_COMPONENT_RANGE);
+		return ((double)getBlueValue() / 256);
 	}
 	
 	//method
@@ -793,7 +809,7 @@ public class Color extends Element {
 	 * @return the normalized green value of this color.
 	 */
 	public final double getNormalizedGreenValue() {
-		return ((double)getGreenValue() / TRUE_COLOR_COMPONENT_RANGE);
+		return ((double)getGreenValue() / 256);
 	}
 	
 	//method
@@ -801,7 +817,7 @@ public class Color extends Element {
 	 * @return the normalized red value of this color.
 	 */
 	public final double getNormalizedRedValue() {
-		return ((double)getRedValue() / TRUE_COLOR_COMPONENT_RANGE);
+		return ((double)getRedValue() / 256);
 	}
 	
 	//method
@@ -817,6 +833,13 @@ public class Color extends Element {
 	 * @return the string value of this color.
 	 */
 	public final String getStringValue() {
+		
+		final Pair<String, Integer> pair =
+		getWebColorMap().getRefFirstOrNull(wc -> wc.getRefElement2().equals(getValue()));
+		
+		if (pair != null) {
+			return pair.getRefElement1();
+		}
 		
 		//Enumerates the value of this color.
 		switch (getValue()) {
@@ -970,7 +993,7 @@ public class Color extends Element {
 	private void setValue(final String value) {
 		
 		final Pair<String, java.lang.Integer> pair
-		= getWebColors().getRefFirstOrNull(p -> p.getRefElement1().equals(value));
+		= getWebColorMap().getRefFirstOrNull(p -> p.getRefElement1().equals(value));
 		
 		//Handles the case if the given color is no web color.
 		if (pair == null) {
@@ -985,7 +1008,10 @@ public class Color extends Element {
 			this.value = 0;
 			int base = 1;
 			for (int i = 7; i >= 2; i--) {
+				
 				int tempValue;
+				
+				//Enumerates the character at the current index.
 				switch (value.charAt(i)) {
 					case '0':
 						tempValue = 0;
