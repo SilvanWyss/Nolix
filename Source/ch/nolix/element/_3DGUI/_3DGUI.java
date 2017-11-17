@@ -1,17 +1,29 @@
 //package declaration
 package ch.nolix.element._3DGUI;
 
+import java.lang.reflect.InvocationTargetException;
+
 //own imports
 import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
+import ch.nolix.core.entity.Property;
+import ch.nolix.core.interfaces.Clearable;
+import ch.nolix.core.interfaces.Closable;
+import ch.nolix.core.interfaces.Refreshable;
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
+import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.core.validator2.Validator;
-import ch.nolix.element.GUIoid.GUIoid;
+import ch.nolix.element.color.Color;
+import ch.nolix.element.configurationElement.ConfigurationElement;
+import ch.nolix.element.data.BackgroundColor;
+import ch.nolix.element.data.Title;
 
 //abstract class
 /**
@@ -20,8 +32,29 @@ import ch.nolix.element.GUIoid.GUIoid;
  * @lines 240
  * @param <G> The type of a 3D GUI.
  */
-public abstract class _3DGUI<G extends _3DGUI<G>> extends GUIoid<G> {
+public abstract class _3DGUI<G extends _3DGUI<G>>
+extends ConfigurationElement<G>
+implements Clearable<G>, Closable, Refreshable {
+	
+	//constant
+	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 
+	//attribute
+	private final Property<Title> title =
+	new Property<Title>(
+		Title.TYPE_NAME,
+		a -> new Title(a.getRefOne().toString()),
+		new Title()
+	);
+	
+	//attribute
+	private final Property<Color> backgroundColor =
+	new Property<Color>(
+		BackgroundColor.TYPE_NAME,
+		a -> new Color(a.getRefOne().toString()),
+		new Color()
+	);
+	
 	//optional element
 	private Shape<?> rootShape;
 	
@@ -117,6 +150,14 @@ public abstract class _3DGUI<G extends _3DGUI<G>> extends GUIoid<G> {
 	
 	//method
 	/**
+	 * @return the background color of this 3D GUI.
+	 */
+	public final Color getBackgroundColor() {
+		return backgroundColor.getValue();
+	}
+	
+	//method
+	/**
 	 * @return the shapes of this 3D GUI.
 	 */
 	public final AccessorContainer<Configurable> getRefConfigurables() {
@@ -135,6 +176,22 @@ public abstract class _3DGUI<G extends _3DGUI<G>> extends GUIoid<G> {
 		}
 		
 		return rootShape;
+	}
+	
+	//method
+	/**
+	 * @return the title of this 3D GUI.
+	 */
+	public final String getTitle() {
+		return title.getValue().getValue();
+	}
+	
+	//method
+	/**
+	 * @return true if this 3D GUI has the given role.
+	 */
+	public final boolean hasRole(final String role) {
+		return false;
 	}
 	
 	//method
@@ -180,10 +237,33 @@ public abstract class _3DGUI<G extends _3DGUI<G>> extends GUIoid<G> {
 	
 	//method
 	/**
+	 * Resets the configuration of this GUI.
+	 */
+	public void resetConfiguration() {		
+		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+	}
+	
+	//method
+	/**
+	 * Sets the background color of this 3D GUI.
+	 * 
+	 * @param backgroundColor
+	 * @return this 3D GUI.
+	 * @throws NullArgumentException if the given background color is null.
+	 */
+	public final G setBackgroundColor(final Color backgroundColor) {
+				
+		this.backgroundColor.setValue(new BackgroundColor(backgroundColor.getValue()));
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
 	 * Sets the root shape of this 3D GUI.
 	 * 
 	 * @param rootShape
-	 * @return this main frame.
+	 * @return this 3D GUI.
 	 * @throws NullArgumentException if the given root shape is null.
 	 */
 	public G setRootShape(final Shape<?> rootShape) {
@@ -193,6 +273,22 @@ public abstract class _3DGUI<G extends _3DGUI<G>> extends GUIoid<G> {
 		
 		//Sets the root shape of this 3D GUI.
 		this.rootShape = rootShape;
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Sets the title of this 3D GUI.
+	 * 
+	 * @param title
+	 * @return this 3D GUI.
+	 * @throws NullArgumentException if the given title is null.
+	 * @throws EmptyArgumentException if the given title is empty.
+	 */
+	public final G setTitle(final String title) {
+		
+		this.title.setValue(new Title(title));
 		
 		return getInstance();
 	}
@@ -220,10 +316,25 @@ public abstract class _3DGUI<G extends _3DGUI<G>> extends GUIoid<G> {
 			(Shape<?>)
 			shapeClasses
 			.getRefFirst(sc -> sc.getRefElement1().getSimpleName().equals(type))
-			.getRefElement1().newInstance();
+			.getRefElement1().getDeclaredConstructor().newInstance();
 		}
-		catch (final InstantiationException | IllegalAccessException exception) {
-			throw new RuntimeException(exception);
+		catch (
+			final 
+			InstantiationException
+			| IllegalAccessException
+			| IllegalArgumentException
+			| InvocationTargetException
+			| NoSuchMethodException
+			| SecurityException
+			exception
+		) {
+			throw new InvalidArgumentException(
+				new ArgumentName("type"),
+				new Argument(type),
+				new ErrorPredicate(
+					"is invalid because the " + getType() + " cannot create a widget of " + type
+				)
+			);
 		}
 	}
 	
