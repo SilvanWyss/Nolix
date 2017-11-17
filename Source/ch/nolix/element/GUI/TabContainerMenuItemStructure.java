@@ -144,7 +144,7 @@ public final class TabContainerMenuItemStructure {
 		
 		//Handles the case if this tab container menu item structure has a text color itself.
 		if (hasTextColor()) {
-			return textColor.getCopy();
+			return textColor;
 		}
 		
 		//Handles the case if this tab container menu item structure has a text color from its normal structure.

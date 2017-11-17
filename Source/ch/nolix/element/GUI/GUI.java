@@ -3,11 +3,13 @@ package ch.nolix.element.GUI;
 
 //Java import
 import java.awt.event.KeyEvent;
+import java.lang.reflect.InvocationTargetException;
 
 //own imports
 import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerInterfaces.IController;
+import ch.nolix.core.entity.Property;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.interfaces.Closable;
 import ch.nolix.core.interfaces.IRequestableContainer;
@@ -29,9 +31,14 @@ import ch.nolix.element.data.Title;
 
 //class
 /**
+ * A GUI is clearable.
+ * A GUI is closable.
+ * A GUI is configurable.
+ * A GUI is refreshable.
+ * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 730
+ * @lines 740
  * @param <G> The type of a GUI.
  */
 public abstract class GUI<G extends GUI<G>>
@@ -49,9 +56,23 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	//command
 	private static final String REMOVE_ROOT_WIDGET_COMMAND = "RemoveRootWidget";
 	
+	//attribute
+	private final Property<Title> title =
+	new Property<Title>(
+		Title.TYPE_NAME,
+		a -> new Title(a.getRefOne().toString()),
+		new Title()
+	);
+	
+	//attribute
+	private final Property<Color> backgroundColor =
+	new Property<Color>(
+		BackgroundColor.TYPE_NAME,
+		a -> new Color(a.getRefOne().toString()),
+		new Color()
+	);
+	
 	//attributes
-	private Title title = new Title(DEFAULT_TITLE);
-	private BackgroundColor backgroundColor = new BackgroundColor();
 	private ContentPosition contentPosition = DEFAULT_CONTENT_POSITION;
 	private boolean closed = false;
 				
@@ -64,7 +85,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	
 	//constructor
 	/**
-	 * Creates new GUI with default values.
+	 * Creates new GUI.
 	 */
 	public GUI() {
 		
@@ -96,7 +117,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		
 		//Handles the case if the given attribute specifies a widget.
 		if (canCreateWidget(attribute.getHeader())) {
-			setRootWidget(createAndAddWidget(attribute));
+			setRootWidget(createWidget(attribute));
 			return;
 		}
 		
@@ -133,7 +154,6 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @throws InvalidArgumentException
 	 * if this GUI can already create a widget of the same type as the given widget class.
 	 */
-	@SuppressWarnings("unchecked")
 	public final G addWidgetClass(final Class<?> widgetClass) {
 		
 		//Checks if the given widget class is not null.
@@ -152,7 +172,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		//Adds the given widget class to this GUI.
 		widgetClasses.addAtEnd(widgetClass);
 		
-		return (G)this;
+		return getInstance();
 	}
 	
 	//method
@@ -164,7 +184,6 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @throws NullArgumentException if one of the given widget classes is null.
 	 * @throws InvalidArgumentException if this GUI already can already create a widget of the same type as one of the given widget classes.
 	 */
-	@SuppressWarnings("unchecked")
 	public final G addWidgetClass(final Class<?>... widgetClasses) {
 		
 		//Iterates the given widget classes.
@@ -172,7 +191,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 			addWidgetClass(wc);
 		}
 		
-		return (G)this;
+		return getInstance();
 	}
 	
 	//method
@@ -190,12 +209,11 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * 
 	 * @return this GUI.
 	 */
-	@SuppressWarnings("unchecked")
 	public final G clear() {
 		
 		removeRootWidget();
 		
-		return (G)this;
+		return getInstance();
 	}
 	
 	//abstract method
@@ -215,10 +233,16 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		return getRefConfigurablesRecursively().contains(c -> c.hasName(name));
 	}
 	
+	//method
+	/**
+	 * @return the active cursor icon of this GUI.
+	 */
 	public CursorIcon getActiveCursorIcon() {
 		
 		final Widget<?, ?> widget
-		= getRefWidgetsRecursively().getRefSelected(w -> w.isEnabled() && w.isUnderCursor()).getRefLastOrNull();
+		= getRefWidgetsRecursively()
+		.getRefSelected(w -> w.isEnabled() && w.isUnderCursor())
+		.getRefLastOrNull();
 		
 		if (widget == null) {
 			return CursorIcon.Arrow;
@@ -236,8 +260,6 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
-		attributes.addAtEnd(title.getSpecification(), backgroundColor.getSpecification());
-		
 		if (contentPosition != DEFAULT_CONTENT_POSITION) {
 			attributes.addAtEnd(contentPosition.getSpecification());
 		}
@@ -253,8 +275,8 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	/**
 	 * @return the background color of this GUI.
 	 */
-	public final BackgroundColor getBackgroundColor() {
-		return backgroundColor;
+	public final Color getBackgroundColor() {
+		return backgroundColor.getValue();
 	}
 	
 	//method
@@ -344,10 +366,10 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @return the title of this GUI.
 	 */
 	public final String getTitle() {
-		return title.getValue();
+		return title.getValue().getValue();
 	}
 	
-	//method	
+	//method
 	/**
 	 * @return true if this GUI has the given role.
 	 */
@@ -517,7 +539,6 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		
 		setTitle(DEFAULT_TITLE);
 		removeRootWidget();
-		resetConfiguration();
 	}
 	
 	//method
@@ -529,6 +550,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		setContentPosition(DEFAULT_CONTENT_POSITION);
 		
+		//Handles the option that this GUI has a root widget.
 		if (hasRootWidget()) {
 			getRefRootWidget().resetConfiguration();
 		}
@@ -566,19 +588,11 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @return this GUI.
 	 * @throws NullArgumentException if the given background color is null.
 	 */
-	@SuppressWarnings("unchecked")
 	public final G setBackgroundColor(final Color backgroundColor) {
+				
+		this.backgroundColor.setValue(backgroundColor);
 		
-		//Checks if the given background color is not null.
-		Validator
-		.suppose(backgroundColor)
-		.thatIsInstanceOf(Color.class)
-		.isNotNull();
-		
-		//Sets the background color of this GUI.
-		this.backgroundColor = new BackgroundColor(backgroundColor.getValue());
-		
-		return (G)this;
+		return getInstance();
 	}
 	
 	//method
@@ -589,7 +603,6 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @param configuration
 	 * @return this GUI.
 	 */
-	@SuppressWarnings("unchecked")
 	public final G setConfiguration(final StandardConfiguration configuration) {
 		
 		//Calls method of the base class.
@@ -597,7 +610,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		
 		refresh();
 		
-		return (G)this;
+		return getInstance();
 	}
 
 	//method
@@ -608,7 +621,6 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @return this GUI.
 	 * @throws NullArgumentException if the given content position is null.
 	 */
-	@SuppressWarnings("unchecked")
 	public final G setContentPosition(final ContentPosition contentPosition) {
 		
 		//Checks if the given content position is not null.
@@ -620,7 +632,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		//Sets the content position of this GUI.
 		this.contentPosition = contentPosition;
 		
-		return (G)this;
+		return getInstance();
 	}
 	
 	//method
@@ -631,7 +643,6 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @return this GUI.
 	 * @throws NullArgumentException if the given controller is null.
 	 */
-	@SuppressWarnings("unchecked")
 	public final G setController(IController controller) {
 		
 		//Checks if the given controller is not null.
@@ -640,7 +651,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		//Sets the controller of this GUI.
 		this.controller = controller;
 		
-		return (G)this;
+		return getInstance();
 	}
 	
 	//method
@@ -651,7 +662,6 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @throws NullArgumentException if the given root widget is null.
 	 * @throws InvalidArgumentException if the given root widget belongs already to an other GUI. 
 	 */
-	@SuppressWarnings("unchecked")
 	public final G setRootWidget(final Widget<?, ?> rootWidget) {
 		
 		//Checks if the given root widget is not null.
@@ -661,7 +671,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		rootWidget.setGUI(this);
 		this.rootWidget = rootWidget;
 		
-		return (G)this;
+		return getInstance();
 	}
 	
 	//method
@@ -673,29 +683,11 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @throws NullArgumentException if the given title is null.
 	 * @throws EmptyArgumentException if the given title is empty.
 	 */
-	@SuppressWarnings("unchecked")
 	public final G setTitle(final String title) {
 		
-		this.title = new Title(title);
+		this.title.setValue(new Title(title));
 		
-		return (G)this;
-	}
-	
-	//method
-	/**
-	 * Creates a widget the given specification specifies and adds it to this GUI.
-	 * 
-	 * @param specification
-	 * @return the created widget.
-	 * @throws InvalidArgumentException if the given specification is not valid.
-	 */
-	protected final Widget<?, ?> createAndAddWidget(final StandardSpecification specification) {
-		
-		final Widget<?, ?> widget = createWidget(specification.getHeader());
-		widget.setGUI(this);
-		widget.addOrChangeAttributes(specification.getRefAttributes());
-		
-		return widget;		
+		return getInstance();
 	}
 	
 	//method
@@ -708,16 +700,42 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	
 	//method
 	/**
+	 * Creates a new widget the given specification specifies.
+	 * 
+	 * @param specification
+	 * @return the created widget.
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	protected final Widget<?, ?> createWidget(final StandardSpecification specification) {
+		
+		final Widget<?, ?> widget = createWidget(specification.getHeader());
+		widget.addOrChangeAttributes(specification.getRefAttributes());
+		
+		return widget;		
+	}
+	
+	//method
+	/**
 	 * @param type
 	 * @return a new widget of the given type with default values.
 	 * @throws InvalidArgumentException if this GUI cannot create a widget of the given type.
 	 */
-	private Widget<?, ?> createWidget(final String type) {
+	protected Widget<?, ?> createWidget(final String type) {
 		try {
-			return 
+			return
 				(Widget<?, ?>)
-				(widgetClasses.getRefFirst(rc -> rc.getSimpleName().equals(type)).newInstance());
-		} catch (final InstantiationException | IllegalAccessException exception) {
+				(widgetClasses.getRefFirst(wc -> wc.getSimpleName().equals(type)).getDeclaredConstructor().newInstance());	
+		}
+		catch (
+			final
+			InstantiationException
+			| IllegalAccessException
+			| IllegalArgumentException
+			| InvocationTargetException
+			| NoSuchMethodException
+			| SecurityException
+			exception
+		) {
 			throw new InvalidArgumentException(
 				new ArgumentName("type"),
 				new Argument(type),
