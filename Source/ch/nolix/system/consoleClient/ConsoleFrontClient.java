@@ -162,13 +162,13 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case Protocol.READ_LINE_FROM_CONSOLE_REQUEST:
-				return new StandardSpecification(console.readLine());
+				return StandardSpecification.createSpecificationWithHeaderOnly(console.readLine());
 			case Protocol.READ_NON_EMPTY_LINE_FROM_CONSOLE_REQUEST:
 				return StandardSpecification.createSpecificationWithHeaderOnly(console.readNonEmptyLine());
 			case Protocol.READ_SECRET_LINE_FROM_CONSOLE_REQUEST:
 				return StandardSpecification.createSpecificationWithHeaderOnly(console.readSecretLine());
 			case Protocol.READ_CHARACTER_FROM_CONSOLE_REQUEST:
-				return new StandardSpecification(console.readCharacter());
+				return StandardSpecification.createSpecificationWithHeaderOnly(String.valueOf(console.readCharacter()));
 			case Protocol.LINES_OF_CONSOLE_REQUEST:
 				
 				final StandardSpecification data = new StandardSpecification();
