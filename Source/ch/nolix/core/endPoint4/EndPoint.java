@@ -72,10 +72,11 @@ implements IGenericSender2<M, R> {
 		
 		final long startTimeInMilliseconds = System.currentTimeMillis();
 		
-		//This loop suffers from being optimized away by the compiler of the JVM.
+		//This loop suffers from being optimized away by the compiler or the JVM.
 		while (!hasReplier()) {
 			
-			//The following statement that is actually unnecessary makes that the loop is not optimized away.
+			//The following statement, that is actually unnecessary,
+			//makes that the current loop is not optimized away.
 			System.out.flush();
 			
 			if (System.currentTimeMillis() - startTimeInMilliseconds > REPLIER_GETTING_DELAY_IN_MILLISECONDS) {

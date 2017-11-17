@@ -315,11 +315,12 @@ implements Clearable<Console> {
 		
 		clearEditLine();
 		
-		//This loop suffers from being optimized away from the JVM.
+		//This loop suffers from being optimized away by the compiler of the JVM.
 		while (getEditLine().isEmpty()) {
 	
-			//pseudo statement
-			getRefNormalStructure().getActiveWidth();
+			//The following statement, that is actually unnecessary,
+			//makes that the current loop is not optimized away.
+			System.out.flush();			
 			
 			supposeGUIIsAlive();
 		}
@@ -352,9 +353,15 @@ implements Clearable<Console> {
 		
 		clearEditLine();
 		
-		final int lineCount = lines.getElementCount();	
+		final int lineCount = lines.getElementCount();
+		
+		//This loop suffers from being optimized away by the compiler or the JVM.
 		while (getLines().getElementCount() == lineCount) {
 			supposeGUIIsAlive();
+			
+			//The following statement, that is actually unnecessary,
+			//makes that the current loop is not optimized away.
+			System.out.flush();
 		}
 		
 		return lines.getRefLast();

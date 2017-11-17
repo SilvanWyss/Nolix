@@ -261,7 +261,8 @@ public class NetEndPoint extends EndPoint {
 		//This loop suffers from being optimized away by the compiler or the JVM.
 		while (!receivedTargetInfo()) {
 			
-			//This statement that is actually unnecessary makes that the loop is not optimized away.
+			//This statement, that is actually unnecessary,
+			//makes that the current loop is not optimized away.
 			System.out.flush();
 			
 			if (System.currentTimeMillis() - startTimeInMilliseconds > 5000) {
