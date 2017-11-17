@@ -6,12 +6,11 @@ import java.util.concurrent.Callable;
 
 //JMonkey import
 import com.jme3.app.SimpleApplication;
-import com.jme3.input.KeyInput;
-import com.jme3.input.controls.ActionListener;
-import com.jme3.input.controls.KeyTrigger;
+import com.jme3.input.event.KeyInputEvent;
 import com.jme3.light.DirectionalLight;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
+import com.jme3.system.AppSettings;
 
 //own imports
 import ch.nolix.core.functionInterfaces.IRunner;
@@ -21,13 +20,12 @@ import ch.nolix.element._3DGUI.MainFrame;
 import ch.nolix.element._3DGUI.MultiShape;
 import ch.nolix.element._3DGUI.Shape;
 import ch.nolix.element._3DGUI.Sphere;
-import ch.nolix.element.color.Color;
 
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-10
- * @lines 10
+ * @month 2017-11
+ * @lines 210
  */
 public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 
@@ -37,28 +35,20 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	//attribute
 	private final SimpleApplication simpleApplication = new SimpleApplication() {
 	
-			//method
-			/**
-			 * Initializes this simple application.
-			 */
-			public void simpleInitApp() {
-				setDisplayStatView(false);
-				setDisplayFps(false);
-				flyCam.setEnabled(false);
-				
-				
-				inputManager.addMapping("Pause",  new KeyTrigger(KeyInput.KEY_P));
-				inputManager.addListener(actionListener, "Pause");
-			}
-		};
+		//method
+		/**
+		 * Initializes this simple application.
+		 */
+		public void simpleInitApp() {
+			setDisplayStatView(false);
+			setDisplayFps(false);
+			flyCam.setEnabled(false);
+			
+			inputManager.addRawInputListener(new JMonkeyMainFrameRawInputListener(getInstance()));
+		}
+	};
 		
-		private ActionListener actionListener = new ActionListener() {
-		    public void onAction(String name, boolean keyPressed, float tpf) {
-		    	testAction();}
-		    };
-		    
-    public void testAction() {  
-    }
+	AppSettings appSettings = new AppSettings(true);
 		  
     //constructor
     /**
@@ -71,17 +61,18 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		addShapeClass(Sphere.class, new JMonkeySphereRenderer());
 		addShapeClass(MultiShape.class, new JMonkeyMultiShapeRenderer());
 		
-		final DirectionalLight directionalLight = new DirectionalLight();
+		resetConfiguration();
 		
+		final DirectionalLight directionalLight = new DirectionalLight();		
 		directionalLight.setColor(new ColorRGBA(1.0f, 1.0f, 1.0f, 1.0f));
 		directionalLight.setDirection(new Vector3f(1, 0.5f, -0.5f));
-		simpleApplication.getRootNode().addLight(directionalLight);
+		simpleApplication.getRootNode().addLight(directionalLight);		
 		
+		appSettings.setTitle(getTitle());
+		simpleApplication.setSettings(appSettings);
 		
 		simpleApplication.setShowSettings(false);
 		simpleApplication.start();
-		
-		enqueue(() -> testAction());
 	}
 	
 	//method
@@ -127,21 +118,45 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		closed = true;
 		simpleApplication.destroy();
 	}
+	
+	//method
+	/**
+	 * Lets this JMonkey main frame note a key press.
+	 * 
+	 * @param keyInputEvent
+	 */
+	public void noteKeyPress(final KeyInputEvent keyInputEvent) {}
+	
+	//method
+	/**
+	 * Lets this JMonkey main frame note a left mouse button press.
+	 */
+	public void noteLeftMouseButtonPress() {}
+	
+	//method
+	/**
+	 * Lets this JMonkey main frame note 
+	 */
+	public void noteLeftMouseButtonRelease() {}
+	
+	//method
+	/**
+	 * Lets this JMonkey main frame note a right mouse button press.
+	 */
+	public void noteRightMouseButtonPress() {}
+	
+	//method
+	/**
+	 * Lets this JMonkey main frame note a right mouse button release.
+	 */
+	public void noteRightMouseButtonRelease() {}
 
-	@Override
-	public void resetConfiguration() {
-		// TODO Auto-generated method stub
-	}
-	
+	//method
+	/**
+	 * Refreshes this JMonkey main frmae.
+	 */
 	public void refresh() {
-		enqueue(() -> internal_refresh());
-	}
-	
-	private void internal_refresh() {
-		
-		super.refresh();
-		
-		simpleApplication.getRenderer().setBackgroundColor(JMonkeyColorHelper.createColorRGBA(Color.BEIGE));
+		enqueue(() -> direct_refresh());
 	}
 	
 	//method
@@ -153,17 +168,46 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 * @throws NullArgumentException if the given root shape is null.
 	 */
 	public JMonkeyMainFrame setRootShape(final Shape<?> rootShape) {
-						
-		enqueue(() -> {
-			
-			super.setRootShape(rootShape);
-			
-			simpleApplication
-			.getRootNode()
-			.attachChild(
-			rootShape.getRefRenderObject());
-		});
+		
+		//Calls method of the base class.
+		super.setRootShape(rootShape);
+		
+		enqueue(() -> direct_attachRootShape(rootShape));
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * Refreshes this JMonkey main frmae.
+	 */
+	private void direct_refresh() {		
+		
+		if (!appSettings.getTitle().equals(getTitle())) {
+			appSettings.setTitle(getTitle());
+			simpleApplication.setSettings(appSettings);
+			simpleApplication.restart();
+		}
+		
+		//Paints the background color of this JMonkey main frame.
+		simpleApplication
+		.getViewPort()
+		.setBackgroundColor(JMonkeyColorHelper.createColorRGBA(getBackgroundColor()));
+				
+		//Calls method of the base class.
+		super.refresh();
+	}
+	
+	//method
+	/**
+	 * Sets the root shape of this 3D GUI.
+	 * 
+	 * @param rootShape
+	 * @throws NullArgumentException if the given root shape is null.
+	 */
+	private void direct_attachRootShape(final Shape<?> rootShape) {
+		simpleApplication
+		.getRootNode()
+		.attachChild(rootShape.getRefRenderObject());
 	}
 }
