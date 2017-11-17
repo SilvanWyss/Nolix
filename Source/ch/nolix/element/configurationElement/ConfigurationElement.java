@@ -61,6 +61,7 @@ extends ConfigurableElement<CE> {
 	
 	public void reset() {
 		removeConfiguration();
+		resetConfiguration();
 	}
 	
 	//method
