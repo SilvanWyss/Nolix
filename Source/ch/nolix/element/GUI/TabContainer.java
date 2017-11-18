@@ -234,12 +234,12 @@ extends Container<TabContainer, TabContainerStructure> {
 	 */
 	public int getMenuItemBottomPadding() {
 		
-		//Handles the case if this tab container has a menu item bottom padding.
+		//Handles the case that this tab container has a menu item bottom padding.
 		if (hasMenuItemBottomPadding()) {
 			return menuItemBottomPadding.getValue();
 		}
 		
-		//Handles the case if this tab container has no menu item bottom padding.
+		//Handles the case that this tab container has no menu item bottom padding.
 		return 0;
 	}
 	
@@ -249,12 +249,12 @@ extends Container<TabContainer, TabContainerStructure> {
 	 */
 	public int getMenuItemLeftPadding() {
 		
-		//Handles the case if this tab container has a menu item left padding.
+		//Handles the case that this tab container has a menu item left padding.
 		if (hasMenuItemLeftPadding()) {
 			return menuItemLeftPadding.getValue();
 		}
 		
-		//Handles the case if this tab container has no menu item left padding.
+		//Handles the case that this tab container has no menu item left padding.
 		return 0;
 	}
 	
@@ -264,12 +264,12 @@ extends Container<TabContainer, TabContainerStructure> {
 	 */
 	public int getMenuItemRightPadding() {
 		
-		//Handles the case if this tab container has a menu item right padding.
+		//Handles the case that this tab container has a menu item right padding.
 		if (hasMenuItemRightPadding()) {
 			return menuItemRightPadding.getValue();
 		}
 		
-		//Handles the case if this tab container has no menu item right padding.
+		//Handles the case that this tab container has no menu item right padding.
 		return 0;
 	}
 	
@@ -279,12 +279,12 @@ extends Container<TabContainer, TabContainerStructure> {
 	 */
 	public int getMenuItemTopPadding() {
 		
-		//Handles the case if this tab container has a menu item top padding.
+		//Handles the case that this tab container has a menu item top padding.
 		if (hasMenuItemTopPadding()) {
 			return menuItemTopPadding.getValue();
 		}
 		
-		//Handles the case if this tab container has no menu item top padding.
+		//Handles the case that this tab container has no menu item top padding.
 		return 0;
 	}
 	

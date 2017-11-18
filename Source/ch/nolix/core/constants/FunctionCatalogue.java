@@ -50,12 +50,12 @@ public final class FunctionCatalogue {
 	public static final IElementTakerElementGetter<Object, String> TO_STRING_FUNCTION
 	= (o) -> {
 		
-		//Handles the case if the given object is null.
+		//Handles the case that the given object is null.
 		if (o == null) {
 			return StringCatalogue.NULL_NAME;
 		}
 		
-		//Handles the case if the given object is not null.
+		//Handles the case that the given object is not null.
 		return o.toString();
 	};
 	

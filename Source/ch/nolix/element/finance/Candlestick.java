@@ -230,12 +230,12 @@ public class Candlestick extends Element {
 	 */
 	public final double getLowerWick() {
 		
-		//Handles the case if this candlestick is bullish.
+		//Handles the case that this candlestick is bullish.
 		if (isBullish()) {
 			return (getOpeningPrice() - getLowestPrice());
 		}
 		
-		//Handles the case if this candlestick is not bullish.
+		//Handles the case that this candlestick is not bullish.
 		return (getClosingPrice() - getLowestPrice());
 	}
 	
@@ -275,12 +275,12 @@ public class Candlestick extends Element {
 	 */
 	public final double getUpperWick() {
 		
-		//Handles the case if this candlestick is bullish.
+		//Handles the case that this candlestick is bullish.
 		if (isBullish()) {
 			return (getHighestPrice() - getClosingPrice());
 		}
 		
-		//Handles the case if this candlestick is not bullish.
+		//Handles the case that this candlestick is not bullish.
 		return (getHighestPrice() - getOpeningPrice());
 	}
 	
@@ -348,12 +348,12 @@ public class Candlestick extends Element {
 		final double lowerWick = getLowerWick();
 		final double upperWick = getUpperWick();
 		
-		//Handles the case if the length of this candlestick is 0.
+		//Handles the case that the length of this candlestick is 0.
 		if (length == 0) {
 			return false;
 		}
 		
-		//Handles the case if the length of this candlestick is positive.
+		//Handles the case that the length of this candlestick is positive.
 		return (
 			lowerWick > upperWick
 			&& lowerWick / length >= minLowerWickLengthRatio
@@ -396,12 +396,12 @@ public class Candlestick extends Element {
 		final double lowerWick = getLowerWick();
 		final double upperWick = getUpperWick();
 		
-		//Handles the case if the length of this candlestick is 0.
+		//Handles the case that the length of this candlestick is 0.
 		if (length == 0) {
 			return false;
 		}
 		
-		//Handles the case if the length of this candlestick is positive.
+		//Handles the case that the length of this candlestick is positive.
 		return (
 			upperWick > lowerWick
 			&& upperWick / length >= minUpperWickLengthRatio

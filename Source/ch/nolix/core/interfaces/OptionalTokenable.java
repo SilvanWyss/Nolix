@@ -27,12 +27,12 @@ extends Tokenable<OT> {
 	 */
 	public default boolean hasToken(final String token) {
 		
-		//Handles the case if this optional tokenable object has no token.
+		//Handles the case that this optional tokenable object has no token.
 		if (!hasToken()) {
 			return false;
 		}
 		
-		//Handles the case if this optional tokenable object has a token.
+		//Handles the case that this optional tokenable object has a token.
 		return getToken().equals(token);
 	}
 	

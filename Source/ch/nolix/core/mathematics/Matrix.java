@@ -834,12 +834,12 @@ public final class Matrix implements ApproximativeEqualing {
 			throw new RuntimeException("Matrix represents no polynom because its upper left element is 0.");
 		}
 		
-		//Handles the case if this matrix consists of 1 row.
+		//Handles the case that this matrix consists of 1 row.
 		if (getRowCount() == 1) {
 			return new Polynom(getColumnCount() - 1).setCoefficients(values[0]);
 		}
 		
-		//Handles the case if this matrix consists of 1 column.
+		//Handles the case that this matrix consists of 1 column.
 		if (getColumnCount() == 1) {
 			
 			final double[] values = new double[getRowCount()];
@@ -851,7 +851,7 @@ public final class Matrix implements ApproximativeEqualing {
 			return new Polynom(getRowCount() - 1).setCoefficients(values);
 		}
 		
-		//Handles the case if this matrix does not consist of 1 row nor of 1 column.
+		//Handles the case that this matrix does not consist of 1 row nor of 1 column.
 		throw new RuntimeException("Matrix contains not exactly 1 row or exactly 1 column");
 	}
 	
@@ -862,12 +862,12 @@ public final class Matrix implements ApproximativeEqualing {
 	 */
 	public final Vector toVector() {
 				
-		//Handles the case if this matrix contains 1 row.
+		//Handles the case that this matrix contains 1 row.
 		if (getRowCount() == 1) {
 			return new Vector(getColumnCount()).setValues(values[0]);
 		}
 		
-		//Handles the case if this matrix contains 1 column.
+		//Handles the case that this matrix contains 1 column.
 		if (getColumnCount() == 1) {
 			
 			final double[] values = new double[getRowCount()];
@@ -879,7 +879,7 @@ public final class Matrix implements ApproximativeEqualing {
 			return new Vector(getRowCount()).setValues(values);
 		}
 		
-		//Handles the case if this matrix does not either contain 1 row nor 1 column.
+		//Handles the case that this matrix does not either contain 1 row nor 1 column.
 		throw new RuntimeException("Matrix does not either contain 1 row nor 1 column.");
 	}
 	

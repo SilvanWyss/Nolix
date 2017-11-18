@@ -148,7 +148,7 @@ public class StringMediator extends GenericArgumentMediator<String> {
 			
 			final File file = new File(directory);
 			
-			//Handles the case if the given directory does not exist.
+			//Handles the case that the given directory does not exist.
 			if (!file.exists()) {
 				if (file.mkdirs()) {
 					file.delete();
@@ -158,7 +158,7 @@ public class StringMediator extends GenericArgumentMediator<String> {
 				}
 			}
 			
-			//Handles the case if the given directory exists.
+			//Handles the case that the given directory exists.
 			else if (file.isFile()) {
 				specifiesProbableDirectoryOnLocalMachine = false;
 			}

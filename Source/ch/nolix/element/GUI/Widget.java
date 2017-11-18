@@ -251,12 +251,12 @@ extends ConfigurableElement<W> {
 	 */
 	public final int getHeight() {
 		
-		//Handles the case if this widget is collapsed.
+		//Handles the case that this widget is collapsed.
 		if (isCollapsed()) {
 			return 0;
 		}
 		
-		//Handles the case if this widget is not collapsed.
+		//Handles the case that this widget is not collapsed.
 		return getHeightWhenNotCollapsed();
 	}
 	
@@ -418,12 +418,12 @@ extends ConfigurableElement<W> {
 	 */
 	public final int getWidth() {
 		
-		//Handles the case if this widget is collapsed.
+		//Handles the case that this widget is collapsed.
 		if (isCollapsed()) {
 			return 0;
 		}
 		
-		//Handles the case if this widget is not collapsed.
+		//Handles the case that this widget is not collapsed.
 		return getWidthWhenNotCollapsed();
 	}
 	

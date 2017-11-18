@@ -117,12 +117,12 @@ public final class Label extends TextLineWidget<Label> {
 	 */
 	public boolean hasRole(final String role) {
 		
-		//Handles the case if this label has no role.
+		//Handles the case that this label has no role.
 		if (!hasRole()) {
 			return false;
 		}
 		
-		//Handles the case if this label has a role.
+		//Handles the case that this label has a role.
 		return getRole().equals(LabelRole.valueOf(role));
 	}
 	

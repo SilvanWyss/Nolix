@@ -71,7 +71,7 @@ implements IController, IElement, IFluentObject<MU>, Specifiable {
 		//Extracts the header of the given command.
 		final String header = command.getHeader();
 		
-		//Handles the case if the given command is a set attribute command.
+		//Handles the case that the given command is a set attribute command.
 		if (header.startsWith(SET_ATTRIBUTE_COMMAND_PREFIX)) {
 		
 			//Checks if the header of the given command has a length that is bigger than 4.
@@ -84,13 +84,13 @@ implements IController, IElement, IFluentObject<MU>, Specifiable {
 			return;
 		}
 		
-		//Handles the case if the given command is a reset command.
+		//Handles the case that the given command is a reset command.
 		if (header.equals(RESET)) {
 			reset(command.getRefAttributes());			
 			return;
 		}
 		
-		//Handles the case if the given command is not valid.
+		//Handles the case that the given command is not valid.
 		throw new InvalidArgumentException(
 			new ArgumentName("command"),
 			new Argument(command)

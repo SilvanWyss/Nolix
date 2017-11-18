@@ -324,12 +324,12 @@ implements Freezable<C> {
 	 */
 	public final boolean hasSelectorName(final String selectorName) {
 		
-		//Handles the case if this configuration has no selector name.
+		//Handles the case that this configuration has no selector name.
 		if (!hasSelectorName()) {
 			return false;
 		}
 		
-		//Handles the case if this configuration has a selector name.
+		//Handles the case that this configuration has a selector name.
 		return getSelectorName().equals(selectorName);
 	}
 	
@@ -348,12 +348,12 @@ implements Freezable<C> {
 	 */
 	public final boolean hasSelectorRole(final String selectorRole) {
 		
-		//Handles the case if this configuration has no selector role.
+		//Handles the case that this configuration has no selector role.
 		if (!hasSelectorRole()) {
 			return false;
 		}
 		
-		//Handles the case if this configuration has a selector role.
+		//Handles the case that this configuration has a selector role.
 		return getSelectorRole().equals(selectorRole);
 	}
 	
@@ -372,12 +372,12 @@ implements Freezable<C> {
 	 */
 	public final boolean hasSelectorToken(final String selectorToken) {
 		
-		//Handles the case if this configuration has no selector token.
+		//Handles the case that this configuration has no selector token.
 		if (!hasSelectorToken()) {
 			return false;
 		}
 		
-		//Handles the case if this configuration as a selector token.
+		//Handles the case that this configuration as a selector token.
 		return getSelectorToken().equals(selectorToken);
 	}
 	
@@ -396,12 +396,12 @@ implements Freezable<C> {
 	 */
 	public final boolean hasSelectorType(final String selectorType) {
 		
-		//Handles the case if this configuration has no selector type.
+		//Handles the case that this configuration has no selector type.
 		if (!hasSelectorType()) {
 			return false;
 		}
 		
-		//Handles the case if htis configuration has a selector type.
+		//Handles the case that htis configuration has a selector type.
 		return getSelectorType().equals(selectorType);
 	}
 	

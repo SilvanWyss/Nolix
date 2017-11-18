@@ -151,13 +151,13 @@ public final class FileSystemAccessor {
 		final String relativeFilePath
 	) {
 		
-		//Handles the case if no file system item with the given relative file path exists
+		//Handles the case that no file system item with the given relative file path exists
 		//in the file system on the local machine.
 		if (!fileSystemItemExists(relativeFilePath)) {
 			return createFile(relativeFilePath);
 		}
 		
-		//Handles the case if a file system item with the given relative file path exists
+		//Handles the case that a file system item with the given relative file path exists
 		//in the file system on the local machine.		
 			final String[] relativeFilePathParts = relativeFilePath.split("\\.");
 			
@@ -284,12 +284,12 @@ public final class FileSystemAccessor {
 	 */
 	private String getRootPathOrEmptyString() {
 		
-		//Handles the case if this file system accessor has no root folder.
+		//Handles the case that this file system accessor has no root folder.
 		if (!hasRootFolder()) {
 			return StringCatalogue.EMPTY_STRING;
 		}
 		
-		//Handles the case if this file system accessor has a root folder.
+		//Handles the case that this file system accessor has a root folder.
 		return rootFolder;
 	}
 	

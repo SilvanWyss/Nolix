@@ -995,7 +995,7 @@ public class Color extends Element {
 		final Pair<String, java.lang.Integer> pair
 		= getWebColorMap().getRefFirstOrNull(p -> p.getRefElement1().equals(value));
 		
-		//Handles the case if the given color is no web color.
+		//Handles the case that the given color is no web color.
 		if (pair == null) {
 			
 			if (value.length() != 8 && !value.substring(2).equals(StringCatalogue.HEXADECIMAL_PREFIX)) {
@@ -1073,7 +1073,7 @@ public class Color extends Element {
 			}
 		}
 		
-		//Handles the case if the given color is a web color.
+		//Handles the case that the given color is a web color.
 		else {
 			setValue(pair.getRefElement2());
 		}

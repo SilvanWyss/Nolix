@@ -29,7 +29,7 @@ public final class CharacterHelper {
 	 */
 	public static String getArticle(final char letter) {
 		
-		//Handles the case if the given letter is not valid.
+		//Handles the case that the given letter is not valid.
 		if (
 			letter < 65
 			|| (letter > 90 && letter < 97)
@@ -41,7 +41,7 @@ public final class CharacterHelper {
 			);
 		}
 		
-		//Handles the case if the given letter is a vowel.
+		//Handles the case that the given letter is a vowel.
 		switch (letter) {
 			case 'A':
 				return ARTICLE_AN;
@@ -65,7 +65,7 @@ public final class CharacterHelper {
 				return ARTICLE_AN;
 		}
 		
-		//Handles the case if the given letter is a consonant.
+		//Handles the case that the given letter is a consonant.
 		return ARTICLE_A;
 	}
 

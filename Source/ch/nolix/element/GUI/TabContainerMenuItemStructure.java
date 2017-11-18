@@ -121,17 +121,17 @@ public final class TabContainerMenuItemStructure {
 	 */
 	public final BackgroundColor getRefRecBackgroundColor() {
 		
-		//Handles the case if this tab container menu item structure has a background color itself.
+		//Handles the case that this tab container menu item structure has a background color itself.
 		if (hasBackgroundColor()) {
 			return backgroundColor;
 		}
 		
-		//Handles the case if this tab container menu item structure has a background from its normal structure.
+		//Handles the case that this tab container menu item structure has a background from its normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getRefRecBackgroundColor();
 		}
 		
-		//Handles the case if this tab container menu item structure has a background color neither from itself nor from its normal structure.
+		//Handles the case that this tab container menu item structure has a background color neither from itself nor from its normal structure.
 		throw new UnexistingAttributeException(this, "background color");
 	}
 	
@@ -142,17 +142,17 @@ public final class TabContainerMenuItemStructure {
 	 */
 	public final Color getRefRecTextColor() {
 		
-		//Handles the case if this tab container menu item structure has a text color itself.
+		//Handles the case that this tab container menu item structure has a text color itself.
 		if (hasTextColor()) {
 			return textColor;
 		}
 		
-		//Handles the case if this tab container menu item structure has a text color from its normal structure.
+		//Handles the case that this tab container menu item structure has a text color from its normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getRefRecTextColor();
 		}
 		
-		//Handles the case if this tab container menu item structure has a text color neither itself nor from its normal structure.
+		//Handles the case that this tab container menu item structure has a text color neither itself nor from its normal structure.
 		throw new UnexistingAttributeException(this, "text color");
 	}
 	
@@ -163,17 +163,17 @@ public final class TabContainerMenuItemStructure {
 	 */
 	public final int getRefRecTextSize() {
 		
-		//Handles the case if this tab container menu item structure has a text size itself.
+		//Handles the case that this tab container menu item structure has a text size itself.
 		if (hasTextSize()) {
 			return textSize.getValue();
 		}
 		
-		//Handles the case if this tab container menu item structure has a text size from its normal structure.
+		//Handles the case that this tab container menu item structure has a text size from its normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getRefRecTextSize();
 		}
 		
-		//Handles the case if this tab container menu item structure has a text size neither itself nor from its normal structure.
+		//Handles the case that this tab container menu item structure has a text size neither itself nor from its normal structure.
 		throw new UnexistingAttributeException(this, "text size");
 	}
 	

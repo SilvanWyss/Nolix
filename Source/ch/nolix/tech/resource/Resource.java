@@ -141,12 +141,12 @@ public class Resource extends NamedElement {
 	 */
 	public final boolean isSubResourceOf(final Resource resource) {
 		
-		//Handles the case if this resource is a direct sub resource of the given resource.
+		//Handles the case that this resource is a direct sub resource of the given resource.
 		if (isDirectSubResourceOf(resource)) {
 			return true;
 		}
 		
-		//Handles the case if this resource is no direct sub resource of the given resource.
+		//Handles the case that this resource is no direct sub resource of the given resource.
 			//Iterates the super resources of this resource.
 			for (final Resource sr : getSuperResources()) {
 				

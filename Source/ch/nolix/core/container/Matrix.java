@@ -49,7 +49,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			throw new EmptyArgumentException(new ArgumentName("elements"));
 		}
 		
-		//Handles the case if this matrix is empty.
+		//Handles the case that this matrix is empty.
 		if (isEmpty()) {
 			
 			this.elements = new Object[elements.length][];
@@ -60,7 +60,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			}
 		}
 		
-		//Handles the case if this matrix is not empty.
+		//Handles the case that this matrix is not empty.
 		else {
 			
 			//Checks if as many elements are given as the number of rows of this matrix.
@@ -111,7 +111,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			throw new EmptyArgumentException(new ArgumentName("elements"));
 		}
 		
-		//Handles the case if this matrix is empty.
+		//Handles the case that this matrix is empty.
 		if (isEmpty()) {
 			
 			this.elements = new Object[1][elements.length];
@@ -122,7 +122,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			}
 		}
 		
-		//Handles the case if this matrix is not empty.
+		//Handles the case that this matrix is not empty.
 		else {
 			
 			//Checks if as many elements are given as the number of columns of this matrix.
@@ -183,12 +183,12 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 */
 	public int getColumnCount() {
 		
-		//Handles the case if this matrix is empty.
+		//Handles the case that this matrix is empty.
 		if (isEmpty()) {
 			return 0;
 		}
 		
-		//Handles the case if this matrix is not empty.
+		//Handles the case that this matrix is not empty.
 		return elements[0].length;
 	}
 	
@@ -229,12 +229,12 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 */
 	public int getRowCount() {
 		
-		//Handles the case if this matrix is empty.
+		//Handles the case that this matrix is empty.
 		if (isEmpty()) {
 			return 0;
 		}
 		
-		//Handles the case if this matrix is not empty.
+		//Handles the case that this matrix is not empty.
 		return elements.length;
 	}
 		

@@ -139,7 +139,7 @@ public class Polynom {
 	 */
 	public double getValueAt(final double x) {
 		
-		//Handles the case if this polynom is a zero polynom.
+		//Handles the case that this polynom is a zero polynom.
 		if (isZeroPolynom()) {
 			return 0;
 		}

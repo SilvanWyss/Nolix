@@ -32,12 +32,12 @@ public final class SimplePersistentSpecification extends Specification {
 		
 		final FileSystemAccessor fileSystemAccessor = new FileSystemAccessor();
 		
-		//Handles the case if there exists no file with the given file path.
+		//Handles the case that there exists no file with the given file path.
 		if (!fileSystemAccessor.fileSystemItemIsFile(filePath)) {
 			fileAccessor = fileSystemAccessor.createFile(filePath);
 		}
 		
-		//Handles the case if there exists a file with the given file path.
+		//Handles the case that there exists a file with the given file path.
 		else {
 			fileAccessor = new FileAccessor(filePath);
 		}

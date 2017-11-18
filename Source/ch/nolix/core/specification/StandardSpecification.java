@@ -47,12 +47,12 @@ public final class StandardSpecification extends Specification {
 		//Checks if the given string is not null.
 		Validator.suppose(string).isNotNull();
 		
-		//Handles the case if the given string is empty.
+		//Handles the case that the given string is empty.
 		if (string.isEmpty()) {
 			return StringCatalogue.EMPTY_STRING;
 		}
 		
-		//Handles the case if the given string is not empty.
+		//Handles the case that the given string is not empty.
 		return
 		StandardSpecification
 		.createSpecificationWithHeaderOnly(string)
@@ -241,12 +241,12 @@ public final class StandardSpecification extends Specification {
 		//Checks if the given prefix is not null or empty.
 		Validator.suppose(prefix).thatIsNamed("prefix").isNotEmpty();
 		
-		//Handles the case if this standard specification has no header.
+		//Handles the case that this standard specification has no header.
 		if (!hasHeader()) {
 			setHeader(prefix);
 		}
 		
-		//Handles the case if this standard specification has a header.
+		//Handles the case that this standard specification has a header.
 		else {			
 			setHeader(prefix + getHeader());
 		}
@@ -266,12 +266,12 @@ public final class StandardSpecification extends Specification {
 		//Checks if the given postfix is not null or empty.
 		Validator.suppose(postfix).thatIsNamed("postfix").isNotEmpty();
 		
-		//Handles the case if this standard specification has no header.
+		//Handles the case that this standard specification has no header.
 		if (hasHeader()) {
 			setHeader(postfix);			
 		}
 		
-		//Handles the case if this standard specification has a header.
+		//Handles the case that this standard specification has a header.
 		else {
 			setHeader(getHeader() + postfix);
 		}
@@ -299,12 +299,12 @@ public final class StandardSpecification extends Specification {
 	 */
 	public boolean equals(final Object object) {
 		
-		//Handles the case if the given object is no standard specification.
+		//Handles the case that the given object is no standard specification.
 		if (!(object instanceof StandardSpecification)) {
 			return false;
 		}
 		
-		//Handles the case if the given object is a standard specification.
+		//Handles the case that the given object is a standard specification.
 		
 			final StandardSpecification standardSpecification = (StandardSpecification)object;
 			
@@ -596,7 +596,7 @@ public final class StandardSpecification extends Specification {
 				);
 			}
 			
-			//Handles the case if the current character is an opening bracket.
+			//Handles the case that the current character is an opening bracket.
 			if (character == CharacterCatalogue.OPENING_BRACKET) {
 				
 				hasAttributes = true;

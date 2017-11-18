@@ -27,12 +27,12 @@ extends Signable<OS> {
 	 */
 	public default boolean hasInfoString(final String infoString) {
 		
-		//Handles the case if this optional signable object has no info string.
+		//Handles the case that this optional signable object has no info string.
 		if (!hasInfoString()) {
 			return false;
 		}
 		
-		//Handles the case if this optional signable object has an info string.
+		//Handles the case that this optional signable object has an info string.
 		return getInfoString().equals(infoString);
 	}
 	

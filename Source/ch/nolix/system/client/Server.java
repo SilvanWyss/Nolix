@@ -139,14 +139,14 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 */
 	public void takeClient(final Client<?> client) {
 		
-		//Handles the case if this server has no arbitrary application.
+		//Handles the case that this server has no arbitrary application.
 		if (!hasArbitraryApplication()) {
 			applications
 			.getRefFirst(a -> a.hasName(client.internal_getTarget()))
 			.takeClient(client);			
 		}
 		
-		//Handles the case if this server has an arbitrary application.
+		//Handles the case that this server has an arbitrary application.
 		else {
 			getRefArbitraryApplication().takeClient(client);
 		}

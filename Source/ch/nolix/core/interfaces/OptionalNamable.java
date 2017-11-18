@@ -27,12 +27,12 @@ extends Namable<ON>{
 	 */
 	public default boolean hasName(final String name) {
 		
-		//Handles the case if this optional namable object has no name.
+		//Handles the case that this optional namable object has no name.
 		if (!hasName()) {
 			return false;
 		}
 		
-		//Handles the case if this optional namable object has a name.
+		//Handles the case that this optional namable object has a name.
 		return getName().equals(name);
 	}
 	
@@ -43,12 +43,12 @@ extends Namable<ON>{
 	 */
 	public default boolean hasSameNameAs(final OptionalNamable<?> object) {
 		
-		//Handles the case if the given object has no name.
+		//Handles the case that the given object has no name.
 		if (!object.hasName()) {
 			return false;
 		}
 		
-		//Handles the case if the given object has a name.
+		//Handles the case that the given object has a name.
 		return hasName(object.getName());
 	}
 	

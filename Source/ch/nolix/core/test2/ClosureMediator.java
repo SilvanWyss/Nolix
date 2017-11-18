@@ -41,12 +41,12 @@ public final class ClosureMediator extends Mediator {
 	 */
 	public void throwsException() {
 		
-		//Handles the case if the closure of this closure mediator is null.
+		//Handles the case that the closure of this closure mediator is null.
 		if (closure == null) {
 			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A closure that throws an exception was expected, but null was received.");
 		}
 		
-		//Handles the case if the closure of this closure mediator is not null.
+		//Handles the case that the closure of this closure mediator is not null.
 		else {
 			try {
 				closure.run();
@@ -69,12 +69,12 @@ public final class ClosureMediator extends Mediator {
 		//Checks if the given type is not null.
 		Validator.suppose(type).thatIsNamed("type").isNotNull();
 		
-		//Handles the case if the closure of this closure mediator is null.
+		//Handles the case that the closure of this closure mediator is null.
 		if (closure == null) {
 			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A closure that throws an exception of the type " + type.getName() + " was expected, but null was received.");
 		}
 		
-		//Handles the case if the closure of this closure mediator is not null.
+		//Handles the case that the closure of this closure mediator is not null.
 		else {
 			try {
 				closure.run();
@@ -96,12 +96,12 @@ public final class ClosureMediator extends Mediator {
 	 */
 	public void throwsNoException() {
 		
-		//Handles the case if the closure of this closure mediator is null.
+		//Handles the case that the closure of this closure mediator is null.
 		if (closure == null) {
 			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A closure that throws no exception was expected, but null was received.");
 		}
 		
-		//Handles the case if the closure of this closure mediator is not null.
+		//Handles the case that the closure of this closure mediator is not null.
 		else {
 			try {
 				closure.run();

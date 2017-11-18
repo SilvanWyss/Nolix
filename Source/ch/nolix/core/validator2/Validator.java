@@ -55,13 +55,13 @@ public final class Validator {
 	 */
 	public static ExtendedContainerMediator<Double> suppose(final double[] argument) {
 		
-		//Handles the case if the given argument is null.
+		//Handles the case that the given argument is null.
 		if (argument == null) {
 			final Vector<Double> argumentVector = null;
 			return new ExtendedContainerMediator<Double>(argumentVector);
 		}
 		
-		//Handles the case if the given argument is not null.
+		//Handles the case that the given argument is not null.
 		return new ExtendedContainerMediator<Double>(ArrayHelper.createIterable(argument));
 	}
 	
@@ -81,13 +81,13 @@ public final class Validator {
 	 */
 	public static ContainerMediator<Long> suppose(final long[] argument) {
 		
-		//Handles the case if the given argument is null.
+		//Handles the case that the given argument is null.
 		if (argument == null) {
 			final Vector<Long> argumentVector = null;
 			return new ContainerMediator<Long>(argumentVector);
 		}
 		
-		//Handles the case if the given argument is not null.
+		//Handles the case that the given argument is not null.
 		return new ContainerMediator<Long>(ArrayHelper.createIterable(argument));
 	}
 	

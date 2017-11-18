@@ -115,13 +115,13 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 */
 	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
-		//Handles the case if the given attribute specifies a widget.
+		//Handles the case that the given attribute specifies a widget.
 		if (canCreateWidget(attribute.getHeader())) {
 			setRootWidget(createWidget(attribute));
 			return;
 		}
 		
-		//Handles the case if the given attribute specificies no widget.
+		//Handles the case that the given attribute specificies no widget.
 			//Enumerates the header of the given attribute.
 			switch (attribute.getHeader()) {
 				case Title.TYPE_NAME:

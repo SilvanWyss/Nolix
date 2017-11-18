@@ -125,20 +125,20 @@ abstract class ElementMediator<E> extends Mediator {
 	public final void isSameAs(final Object value) {		
 		if (getValue() != value) {
 			
-			//Handles the case if the value of this element mediator is null.
+			//Handles the case that the value of this element mediator is null.
 			if (getValue() == null) { //->The given value is not null.
 				new TestAccessor(getZetaTest()).addCurrentTestMethodError("'" + value + "' was expected, but null was received.");
 			}
 			
-			//Handles the case if the value of this element mediator is not null.
+			//Handles the case that the value of this element mediator is not null.
 			else {
 				
-				//Handles the case if the given value is null.
+				//Handles the case that the given value is null.
 				if (value == null) {
 					new TestAccessor(getZetaTest()).addCurrentTestMethodError("Null was expected, but '" + getValue() + "' was received.");
 				}
 				
-				//Handles the case if the given value is not null.
+				//Handles the case that the given value is not null.
 				else {
 					new TestAccessor(getZetaTest()).addCurrentTestMethodError("'" + value + "' was expected, but '" + getValue() + "' was received.");
 				}
@@ -155,12 +155,12 @@ abstract class ElementMediator<E> extends Mediator {
 	public final void isNotSameAs(final Object value) {
 		if (getValue() == value) {
 			
-			//Handles the case if the value of this element mediator is null.
+			//Handles the case that the value of this element mediator is null.
 			if (getValue() == null) { //->The given value is null.
 				new TestAccessor(getZetaTest()).addCurrentTestMethodError("Not null was expected, but null was received.");
 			}
 			
-			//Handles the case if the value of this element mediator is not null.
+			//Handles the case that the value of this element mediator is not null.
 			else { //->The given value is not null.
 				new TestAccessor(getZetaTest()).addCurrentTestMethodError("An other value than " + getValue() + " was expected, but the same value was received.");
 			}

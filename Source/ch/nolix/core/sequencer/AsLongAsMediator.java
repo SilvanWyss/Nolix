@@ -46,12 +46,12 @@ public final class AsLongAsMediator {
 	 */
 	public AfterAllMediator afterAllMilliseconds(final int timeIntervalInMilliseconds) {
 		
-		//Handles the case if this as long as mediator has no max run count.
+		//Handles the case that this as long as mediator has no max run count.
 		if (!hasMaxRunCount()) {
 			return new AfterAllMediator(condition, timeIntervalInMilliseconds);
 		}
 		
-		//Handles the case if this as long as mediator has a max run count.
+		//Handles the case that this as long as mediator has a max run count.
 		return new AfterAllMediator(maxRunCount, condition, timeIntervalInMilliseconds);
 	}
 	
@@ -63,14 +63,14 @@ public final class AsLongAsMediator {
 	 */
 	public final void run(final IRunner job) {
 		
-		//Handles the case if this as long as mediator has no max run count.
+		//Handles the case that this as long as mediator has no max run count.
 		if (!hasMaxRunCount()) {
 			while (condition.getOutput()) {
 				job.run();
 			}
 		}
 		
-		//Handles the case if this as long as mediator has a max run count.
+		//Handles the case that this as long as mediator has a max run count.
 		else {
 			for (int i = 1; i <= maxRunCount; i++) {
 				
@@ -92,12 +92,12 @@ public final class AsLongAsMediator {
 	 */
 	public Future runInBackground(final IRunner job) {
 		
-		//Handles the case if this as long as mediator has no max run count.
+		//Handles the case that this as long as mediator has no max run count.
 		if (!hasMaxRunCount()) {
 			return new Future(new JobRunner(job, condition));
 		}
 		
-		//Handles the case if this as long as mediator has a max run count.
+		//Handles the case that this as long as mediator has a max run count.
 		return new Future(new JobRunner(job, maxRunCount, condition));
 	}
 	

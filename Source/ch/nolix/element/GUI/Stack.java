@@ -123,12 +123,12 @@ implements Clearable<S> {
 	 */
 	public final int getActiveElementMargin() {
 		
-		//Handles the case if this stack has no element margin.
+		//Handles the case that this stack has no element margin.
 		if (!hasElementMargin()) {
 			return 0;
 		}
 		
-		//Handles the case if this stack has an element margin.
+		//Handles the case that this stack has an element margin.
 		return elementMargin.getValue();
 	}
 	

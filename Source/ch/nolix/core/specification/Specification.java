@@ -129,12 +129,12 @@ public abstract class Specification {
 	 */
 	public final boolean hasHeader(final String header) {
 		
-		//Handles the case if this specification has no header.
+		//Handles the case that this specification has no header.
 		if (!hasHeader()) {
 			return false;
 		}
 		
-		//Handles the case if this specification has a header.
+		//Handles the case that this specification has a header.
 		return getHeader().equals(header);
 	}
 	
@@ -255,15 +255,15 @@ public abstract class Specification {
 	 */
 	private final String toFormatedReproducingString(int leadingTabulatorCount) {
 		
-		//Handles the case if this specification contains no attributes.
+		//Handles the case that this specification contains no attributes.
 		if (!containsAttributes()) {
 			return StringHelper.createTabulators(leadingTabulatorCount) + getHeader();
 		}
 		
-		//Handles the case if this specification contains attributes.
+		//Handles the case that this specification contains attributes.
 		else {
 			
-			//Handles the case if all attributes have no attributes.
+			//Handles the case that all attributes have no attributes.
 			if (allAttributesHaveNoAttributes()) {
 				return (
 					StringHelper.createTabulators(leadingTabulatorCount)
@@ -274,7 +274,7 @@ public abstract class Specification {
 				);
 			}
 			
-			//Handles the case if an attribute have attributes.
+			//Handles the case that an attribute have attributes.
 			else {
 				
 				String formatedString =

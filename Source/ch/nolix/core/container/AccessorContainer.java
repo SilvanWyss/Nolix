@@ -58,12 +58,12 @@ public final class AccessorContainer<E> implements IContainer<E> {
 	 */
 	public boolean equals(final Object object) {
 		
-		//Handles the case if the given object is no accessor container.
+		//Handles the case that the given object is no accessor container.
 		if (!(object instanceof AccessorContainer<?>)) {
 			return false;
 		}
 		
-		//Handles the case if the given object is an accessor container.		
+		//Handles the case that the given object is an accessor container.		
 			final AccessorContainer<?> accessorContainer = (AccessorContainer<?>)object;
 			
 			if (getElementCount() != accessorContainer.getElementCount()) {

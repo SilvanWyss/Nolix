@@ -109,10 +109,10 @@ public final class AfterAllMediator {
 	 */
 	public void run(final IRunner job) {
 		
-		//Handles the case if this after all mediator has no max run count.
+		//Handles the case that this after all mediator has no max run count.
 		if (!hasMaxRunCount()) {
 			
-			//Handles the case if this after all mediator has no condition.
+			//Handles the case that this after all mediator has no condition.
 			if (!hasCondition()) {
 				while (true) {
 					job.run();				
@@ -129,10 +129,10 @@ public final class AfterAllMediator {
 			}
 		}
 		
-		//Handles the case if this after all mediator has a max run count.
+		//Handles the case that this after all mediator has a max run count.
 		else {
 			
-			//Handles the case if this after all mediator has no condition.
+			//Handles the case that this after all mediator has no condition.
 			if (!hasCondition()) {
 				for (int i = 1; i <= maxRunCount; i++) {
 					job.run();
@@ -140,7 +140,7 @@ public final class AfterAllMediator {
 				}
 			}
 			
-			//Handles the case if this after all mediator has a condition.
+			//Handles the case that this after all mediator has a condition.
 			else {
 				for (int i = 1; i <= maxRunCount; i++) {
 					
@@ -164,26 +164,26 @@ public final class AfterAllMediator {
 	 */
 	public final Future runInBackground(final IRunner job) {
 		
-		//Handles the case if this after all mediator has no max count.
+		//Handles the case that this after all mediator has no max count.
 		if (!hasMaxRunCount()) {
 			
-			//Handles the case if this after all mediator has no condition.
+			//Handles the case that this after all mediator has no condition.
 			if (!hasCondition()) {
 				return new Future(new JobRunner(job, timeIntervalInMilliseconds, false /*pseudo value*/));
 			}
 			
-			//Handles the case if this after all mediator has a condition.
+			//Handles the case that this after all mediator has a condition.
 			return new Future(new JobRunner(job, condition, timeIntervalInMilliseconds));
 		}
 		
-		//Handles the case if this after all mediator has a max count.
+		//Handles the case that this after all mediator has a max count.
 
-			//Handles the case if this after all mediator has no condition.
+			//Handles the case that this after all mediator has no condition.
 			if (!hasCondition()) {
 				return new Future(new JobRunner(job, maxRunCount, timeIntervalInMilliseconds));
 			}
 			
-			//Handles the case if this after all mediator has a condition.
+			//Handles the case that this after all mediator has a condition.
 			return new Future(new JobRunner(job, maxRunCount, condition, timeIntervalInMilliseconds));
 	}
 	

@@ -127,12 +127,12 @@ extends BackgroundWidget<BW, BWS> {
 		}
 		
 		//final calculations
-			//Handles the case if this border widget has no min height.
+			//Handles the case that this border widget has no min height.
 			if (!hasMinHeight()) {
 				return baseHeight;
 			}
 			
-			//Handles the case if this border widge has a min height.
+			//Handles the case that this border widge has a min height.
 			return Calculator.getMax(getMinHeight(), baseHeight);
 	}
 	
@@ -182,12 +182,12 @@ extends BackgroundWidget<BW, BWS> {
 		+ currentStructure.getActiveRightBorderSize();
 		
 		//final calculations
-			//Handles the case if this border widget has no min width.
+			//Handles the case that this border widget has no min width.
 			if (!hasMinWidth()) {
 				return baseWidth;
 			}
 			
-			//Handles the case if this border widget has a min width.
+			//Handles the case that this border widget has a min width.
 			return Calculator.getMax(getMinWidth(), baseWidth);
 	}
 	

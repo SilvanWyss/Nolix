@@ -38,18 +38,18 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 	 */
 	public Color getActiveLineColor() {
 		
-		//Handles the case if this check box structure has a line color.
+		//Handles the case that this check box structure has a line color.
 		if (hasLineColor()) {
 			return lineColor;
 		}
 		
-		//Handles the case if this check box structure
+		//Handles the case that this check box structure
 		//has no line color but a normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getActiveLineColor();
 		}
 		
-		//Handles the case if this check box structure
+		//Handles the case that this check box structure
 		//has no line color and no normal structure.
 		return DEFAULT_LINE_COLOR;
 	}
@@ -60,18 +60,18 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 	 */
 	public int getActiveLineThickness() {
 		
-		//Handles the case if this check box structure has a line thickness.
+		//Handles the case that this check box structure has a line thickness.
 		if (hasLineThickness()) {
 			return lineThickness.getValue();
 		}
 		
-		//Handles the case if this check box structure
+		//Handles the case that this check box structure
 		//has no line thickness but a normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getActiveLineThickness();
 		}
 		
-		//Handles the case if this check box structure
+		//Handles the case that this check box structure
 		//has no line thickness and no normal structure.
 		return DEFAULT_LINE_THICKNESS;
 	}
@@ -82,18 +82,18 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 	 */
 	public int getActiveSize() {
 		
-		//Handles the case if this check box structure has a size.
+		//Handles the case that this check box structure has a size.
 		if (hasSize()) {
 			return size.getValue();
 		}
 		
-		//Handles the case if this check box structure
+		//Handles the case that this check box structure
 		//has no size but a normal structure.
 		if (hasNormalStructure()) {
 			getRefNormalStructure().getActiveSize();
 		}
 		
-		//Handles the case if this check box structure
+		//Handles the case that this check box structure
 		//has no size and no normal structure.
 		return DEFAULT_SIZE;
 	}

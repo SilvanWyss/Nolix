@@ -41,17 +41,17 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	 */
 	public int getActiveHeight() {
 		
-		//Handles the case if this console structure has a height.
+		//Handles the case that this console structure has a height.
 		if (hasHeight()) {
 			return height.getValue();
 		}
 		
-		//Handles the case if this console has no height but a normal structure.
+		//Handles the case that this console has no height but a normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getActiveHeight();
 		}
 		
-		//Handles the case if this console has no height and no normal structure.
+		//Handles the case that this console has no height and no normal structure.
 		return DEFAULT_HEIGHT;
 	}
 	
@@ -62,17 +62,17 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	/*
 	public Color getActiveTextColor() {
 		
-		//Handles the case if this console structure has a text color.
+		//Handles the case that this console structure has a text color.
 		if (hasTextColor()) {
 			return textColor;
 		}
 		
-		//Handles the case if this console structure has no text color but a normal structure.
+		//Handles the case that this console structure has no text color but a normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getActiveTextColor();
 		}
 		
-		//Handles the case if this console structure has no text color and no normal structure.
+		//Handles the case that this console structure has no text color and no normal structure.
 		return DEFAULT_TEXT_COLOR;
 	}
 	*/
@@ -84,17 +84,17 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	/*
 	public int getActiveTextSize() {
 		
-		//Handles the case if this console structure has a text size.
+		//Handles the case that this console structure has a text size.
 		if (hasTextSize()) {
 			return textSize.getValue();
 		}
 		
-		//Handles the case if this console structure has no text size but a normal structure.
+		//Handles the case that this console structure has no text size but a normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getActiveTextSize();
 		}
 		
-		//Handles the case if this console structure has no text size and no normal structure.
+		//Handles the case that this console structure has no text size and no normal structure.
 		return DEFAULT_TEXT_SIZE;
 	}
 	*/
@@ -105,17 +105,17 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	 */
 	public int getActiveWidth() {
 		
-		//Handles the case if this console structure has a width.
+		//Handles the case that this console structure has a width.
 		if (hasWidth()) {
 			return width.getValue();
 		}
 		
-		//Handles the case if this console has no width but a normal structure.
+		//Handles the case that this console has no width but a normal structure.
 		if (hasNormalStructure()) {
 			return getRefNormalStructure().getActiveWidth();
 		}
 		
-		//Handles the case if this console has no width and no normal structure.
+		//Handles the case that this console has no width and no normal structure.
 		return DEFAULT_WIDTH;
 	}
 	

@@ -42,12 +42,12 @@ public final class FPNPair {
 	 */
 	public boolean equals(final Object object) {
 				
-		//Handles the case if the given object is no FPN pair.
+		//Handles the case that the given object is no FPN pair.
 		if (!(object instanceof FPNPair)) {
 			return false;
 		}
 		
-		//Handles the case if the given object is an FPN pair.
+		//Handles the case that the given object is an FPN pair.
 		final FPNPair fpnPair = (FPNPair)object;
 		return (fpnPair.getValue1() == getValue1() && fpnPair.getValue2() == getValue2());
 	}

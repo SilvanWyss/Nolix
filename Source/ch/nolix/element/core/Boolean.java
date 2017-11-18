@@ -58,12 +58,12 @@ public final class Boolean extends Element {
 		
 		final List<StandardSpecification> attributes = new List<StandardSpecification>();
 		
-		//Handles the case if this boolean is false.
+		//Handles the case that this boolean is false.
 		if (isFalse()) {
 			attributes.addAtEnd(new StandardSpecification(FALSE));
 		}
 		
-		//Handles the case if this boolean ist true.
+		//Handles the case that this boolean ist true.
 		else {
 			attributes.addAtEnd(new StandardSpecification(TRUE));
 		}

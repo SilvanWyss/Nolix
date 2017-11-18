@@ -74,12 +74,12 @@ implements RawInputListener {
 		switch (mouseButtonEvent.getButtonIndex()) {
 			case MouseInput.BUTTON_LEFT:
 				
-				//Handles the case if the given mouse button event is a left mouse button press.
+				//Handles the case that the given mouse button event is a left mouse button press.
 				if (mouseButtonEvent.isPressed()) {
 					JMonkeyMainFrame_.noteLeftMouseButtonPress();
 				}
 				
-				//Handles the case if the given mouse button event is a right mouse button release.
+				//Handles the case that the given mouse button event is a right mouse button release.
 				if (mouseButtonEvent.isReleased()) {
 					JMonkeyMainFrame_.noteLeftMouseButtonRelease();
 				}

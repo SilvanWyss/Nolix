@@ -49,13 +49,13 @@ public final class PopupWindowProvider {
 		String title;
 		String text;
 		
-		//Handles the case if the given exception is null.
+		//Handles the case that the given exception is null.
 		if (exception == null) {
 			title = "Exception";
 			text = "An exception, that is null, occured.";
 		}
 		
-		//Handles the case if the given exception is not null.
+		//Handles the case that the given exception is not null.
 		else {
 			
 			//Sets the title.

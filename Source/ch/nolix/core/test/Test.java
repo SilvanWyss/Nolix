@@ -233,12 +233,12 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	 */
 	protected final void expectNonEmptyString(String string) {
 		
-		//Handles the case if the given string is null.
+		//Handles the case that the given string is null.
 		if (string == null) {
 			new TestAccessor(this).addCurrentTestMethodError("Non-empty string was expected, but null was received.");
 		}
 		
-		//Handles the case if the given string is empty.
+		//Handles the case that the given string is empty.
 		if (string.length() == 0) {
 			new TestAccessor(this).addCurrentTestMethodError("Non-empty string was expected, but empty string was received.");
 		}

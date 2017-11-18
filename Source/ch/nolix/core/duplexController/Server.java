@@ -137,14 +137,14 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 */
 	public final void takeDuplexController(final DuplexController duplexController) {
 		
-		//Handles the case if this server has no arbitrary duplex controller taker.
+		//Handles the case that this server has no arbitrary duplex controller taker.
 		if (!hasArbitraryDuplexControllerTaker()) {
 			duplexControllerTaker
 			.getRefFirst(dct -> dct.hasName(duplexController.getTarget()))
 			.takeDuplexController(duplexController);
 		}
 		
-		//Handles the case if this server has an arbitrary duplex controller taker.
+		//Handles the case that this server has an arbitrary duplex controller taker.
 		else {
 			getArbitraryDuplexControllerTaker().takeDuplexController(duplexController);
 		}

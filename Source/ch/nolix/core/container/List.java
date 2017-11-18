@@ -350,12 +350,12 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 */
 	public boolean equals(Object object) {
 		
-		//Handles the case if the given object is no list.
+		//Handles the case that the given object is no list.
 		if (!(object instanceof List<?>)) {
 			return false;
 		}
 		
-		//Handles the case if the given object is a list.
+		//Handles the case that the given object is a list.
 		
 			final List<?> list = (List<?>)object;
 			
@@ -493,12 +493,12 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 */
 	public E getRefLastOrNull() {
 		
-		//Handles the case if this list is empty.
+		//Handles the case that this list is empty.
 		if (isEmpty()) {
 			return null;
 		}
 		
-		//Handles the case if this list is not empty.
+		//Handles the case that this list is not empty.
 		return getRefLast();
 	}
 	
@@ -539,12 +539,12 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 */
 	public <E2> List<E> getSortedList(final IElementTakerComparableGetter<E, E2> norm) {
 		
-		//Handles the case if this list is empty.
+		//Handles the case that this list is empty.
 		if (isEmpty()) {
 			return new List<E>();
 		}
 		
-		//Handles the case if this list is not empty.
+		//Handles the case that this list is not empty.
 		return getSortedSubList(1, getElementCount(), norm);
 	}
 	
@@ -654,12 +654,12 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 			throw new EmptyStateException(this);
 		}
 		
-		//Handles the case if this list contains 1 element.
+		//Handles the case that this list contains 1 element.
 		if (containsOne()) {
 			clear();
 		}
 		
-		//Handles the case if this list contains several elements.
+		//Handles the case that this list contains several elements.
 		else {
 			firstNode = firstNode.getNextNode();
 			count--;
@@ -767,12 +767,12 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 			throw new EmptyStateException(this);
 		}
 		
-		//Handles the case if this list contains 1 element.
+		//Handles the case that this list contains 1 element.
 		if (containsOne()) {
 			clear();
 		}
 		
-		//Handles the case if this list contains several elements.
+		//Handles the case that this list contains several elements.
 		else {
 			
 			ListNode<E> iterator = firstNode;

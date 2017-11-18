@@ -58,12 +58,12 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 */
 	protected int getContentWidth() {
 		
-		//Handles the case if this vertical stack contains no widget.
+		//Handles the case that this vertical stack contains no widget.
 		if (isEmpty()) {
 			return 0;
 		}
 		
-		//Handles the case if this vertical stack contains at least 1 widget.
+		//Handles the case that this vertical stack contains at least 1 widget.
 		return getRefWidgets().getMaxInt(w -> w.getWidth());
 	}
 	

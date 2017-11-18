@@ -121,12 +121,12 @@ implements IMultiController {
 	 */
 	public final boolean hasTarget(final String target) {
 		
-		//Handles the case if this duplex controller has no target.
+		//Handles the case that this duplex controller has no target.
 		if (!hasTarget()) {
 			return false;
 		}
 		
-		//Handles the case if this duplex controller has a target.
+		//Handles the case that this duplex controller has a target.
 		return getTarget().equals(target);
 	}
 	

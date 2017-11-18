@@ -227,12 +227,12 @@ public class Frame extends VisibleGUI<Frame> {
 	 */
 	public void noteCloseButtonClick() {
 		
-		//Handles the case if this frame has no close command.
+		//Handles the case that this frame has no close command.
 		if (!hasCloseCommand()) {
 			close();
 		}
 		
-		//Handles the case if this frame has a close command.
+		//Handles the case that this frame has a close command.
 		else {
 			getRefController().run(closeCommand);			
 		}

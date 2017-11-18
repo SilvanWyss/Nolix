@@ -773,12 +773,12 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default E getRefFirstOrNull() {
 		
-		//Handles the case if this list is empty.
+		//Handles the case that this list is empty.
 		if (isEmpty()) {
 			return null;
 		}
 		
-		//Handles the case if this list is not empty.
+		//Handles the case that this list is not empty.
 		return getRefFirst();
 	}
 	

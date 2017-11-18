@@ -35,12 +35,12 @@ extends Neuronoid<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	 */
 	public TransformNeuron<Iterable<O>, O> getRefOutputNeuron(final int index) {
 		
-		//Handles the case if the output neuron for the element at the given index exists already.
+		//Handles the case that the output neuron for the element at the given index exists already.
 		if (outputNeurons.getElementCount() >= index) {
 			return outputNeurons.getRefAt(index);
 		}
 		
-		//Handles the case if the output neuron for the element at the given index does not exist yet.
+		//Handles the case that the output neuron for the element at the given index does not exist yet.
 		outputNeurons.addAtEnd(
 			new TransformNeuron<Iterable<O>, O>(
 				this,
