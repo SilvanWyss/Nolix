@@ -24,7 +24,7 @@ public final class DataProviderTest extends Test {
 		
 		//execution
 		final List<VolumeCandlestick> candleSticksPerDay 
-		= DataProvider.getCandleSticksPerDay2(
+		= new DataProvider().getCandleSticksPerDay2(
 			NASDAQProductSymbolManager.MICROSOFT_CORPORATION,
 			new Time(2015, 1, 1, 0, 0),
 			new Time(2015, 12, 31, 23, 59)
@@ -48,7 +48,7 @@ public final class DataProviderTest extends Test {
 		
 		//execution
 		final List<VolumeCandlestick> candleStricksPerHour 
-		= DataProvider.getCandleSticksPerHour(
+		= new DataProvider().getCandleSticksPerHour(
 			NASDAQProductSymbolManager.MICROSOFT_CORPORATION,
 			new Time(2017, 1, 1, 0, 0),
 			new Time(2017, 1, 31, 23, 59)
@@ -72,7 +72,7 @@ public final class DataProviderTest extends Test {
 		
 		//execution
 		final List<VolumeCandlestick> candleStricksPerMinute 
-		= DataProvider.getCandleSticksPerHour(
+		= new DataProvider().getCandleSticksPerHour(
 			NASDAQProductSymbolManager.MICROSOFT_CORPORATION,
 			new Time(2017, 1, 1, 0, 0),
 			new Time(2017, 1, 31, 23, 59)

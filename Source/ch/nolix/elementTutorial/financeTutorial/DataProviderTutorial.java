@@ -22,7 +22,7 @@ public final class DataProviderTutorial {
 	 * @param arguments
 	 */
 	public static void main(final String[] arguments) {
-		DataProvider.getCandleSticksPerHour(
+		new DataProvider().getCandleSticksPerHour(
 			NYSEProductSymbolManager.BP,
 			new Time(2017, 2, 1, 16, 0),
 			new Time(2017, 2, 3, 22, 0)

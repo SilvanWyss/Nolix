@@ -31,7 +31,7 @@ public final class DataProvider {
 	 * @param endDate
 	 * @return the candle sticks per day of the product with the given product symbol from the given start date to the given end date.
 	 */
-	public static List<VolumeCandlestick> getCandleSticksPerDay(
+	public List<VolumeCandlestick> getCandleSticksPerDay(
 		final String productSymbol,
 		final Time startDate,
 		final Time endDate
@@ -49,7 +49,7 @@ public final class DataProvider {
 	 * @return the candle sticks per day from the given start date to the given end date of the product with the given product symbol.
 	 * @throws Exception if an error occurs
 	 */
-	public static final List<VolumeCandlestick> getCandleSticksPerDay2(
+	public List<VolumeCandlestick> getCandleSticksPerDay2(
 		final String productSymbol,
 		final Time startDate,
 		final Time endDate
@@ -104,7 +104,7 @@ public final class DataProvider {
 	 * @param endTime
 	 * @return the candle sticks per hour of the product with the given product symbol from the given start time to the given end time.
 	 */
-	public static List<VolumeCandlestick> getCandleSticksPerHour(
+	public List<VolumeCandlestick> getCandleSticksPerHour(
 		final String productSymbol,
 		final Time startTime,
 		final Time endTime
@@ -121,19 +121,13 @@ public final class DataProvider {
 	 * @param endTime
 	 * @return the candle sticks per minute of the product with the given product symbol from the given start time to the given end time.
 	 */
-	public static List<VolumeCandlestick> getCandleSticksPerMinute(
+	public List<VolumeCandlestick> getCandleSticksPerMinute(
 		final String productSymbol,
 		final Time startTime,
 		final Time endTime
 	) {
 		return getCandleSticks(productSymbol, startTime, endTime, 60);
 	}
-	
-	//private constructor
-	/**
-	 * Avoids that an instance of this class can be created.
-	 */
-	private DataProvider() {}
 	
 	//static method
 	/**
@@ -145,7 +139,7 @@ public final class DataProvider {
 	 * @param intervalInSeconds
 	 * @return the candle sticks per the given interval in seconds of the product with the given product symbol from the given start time to the given end time.
 	 */
-	private static List<VolumeCandlestick> getCandleSticks(
+	private List<VolumeCandlestick> getCandleSticks(
 		final String productSymbol,
 		final Time startTime,
 		final Time endTime,
@@ -184,16 +178,14 @@ public final class DataProvider {
 						currentTime = timeStamp.getTimeWithAddedSeconds(Integer.valueOf(array[0]) * intervalInSeconds);
 					}
 					
-					//System.out.println(currentTime);
-					
 					intraDayCandleSticks.addAtEnd(
 						new VolumeCandlestick(
 							currentTime,
-							new Integer(array[5]),
-							new Double(array[4]),
-							new Double(array[1]),
-							new Double(array[3]),
-							new Double(array[2])
+							Integer.valueOf(array[5]),
+							Double.valueOf(array[4]),
+							Double.valueOf(array[1]),
+							Double.valueOf(array[3]),
+							Double.valueOf(array[2])
 						)
 					);
 				}
