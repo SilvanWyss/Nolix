@@ -27,13 +27,13 @@ extends Widget<BW, BWS> {
 	 */
 	protected void paint(final BWS widgetStructure, final Graphics graphics) {
 		
-		//Handles the option that the given widget structure has a background color.
+		//Handles the case that the given widget structure has a background color.
 		if (widgetStructure.hasRecursiveBackgroundColor()) {
 			graphics.setColor(widgetStructure.getActiveBackgroundColor().getJavaColor());
 			graphics.fillRect(0, 0, getWidth(), getHeight());
 		}
 		
-		//Handles the option that the given widget structure has a background color gradient.
+		//Handles the case that the given widget structure has a background color gradient.
 		if (widgetStructure.hasRecursiveBackgroundColorGradient()) {
 			widgetStructure.getActiveBackgroundColorGradient().paintRectangle(
 				0,

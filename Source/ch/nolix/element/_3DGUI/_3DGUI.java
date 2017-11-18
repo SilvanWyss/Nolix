@@ -70,7 +70,7 @@ implements Clearable<G>, Closable, Refreshable {
 	 */
 	public final void addOrChangeAttribute(final StandardSpecification attribute) {
 		
-		//Handles the option that the given attribute specifies a shape.
+		//Handles the case that the given attribute specifies a shape.
 		if (canCreateShape(attribute.getHeader())) {
 			setRootShape(createShape(attribute.getHeader()));
 			return;
@@ -140,7 +140,7 @@ implements Clearable<G>, Closable, Refreshable {
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
-		//Handles the option that this 3D GUI has a root shape.
+		//Handles the case that this 3D GUI has a root shape.
 		if (hasRootShape()) {
 			attributes.addAtEnd(getRefRootShape().getSpecification());
 		}
@@ -229,7 +229,7 @@ implements Clearable<G>, Closable, Refreshable {
 	 */
 	public void refresh() {
 		
-		//Handles the option that this 3D GUI has a root shape.
+		//Handles the case that this 3D GUI has a root shape.
 		if (hasRootShape()) {
 			getRefRootShape().renderRecursively();
 		}
@@ -346,7 +346,7 @@ implements Clearable<G>, Closable, Refreshable {
 		
 		final List<Shape<?>> shapes = new List<>();
 		
-		//Handles the option that this 3D GUI has a root shape.
+		//Handles the case that this 3D GUI has a root shape.
 		if (hasRootShape()) {
 			shapes.addAtEnd(getRefRootShape());
 		}

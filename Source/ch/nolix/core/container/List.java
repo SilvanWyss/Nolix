@@ -312,7 +312,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 */
 	public List<E> clear() {
 		
-		//Handles the option that this list contains one or several elements.
+		//Handles the case that this list contains one or several elements.
 		if (containsAny()) {
 			
 			ListNode<E> iterator = firstNode;		

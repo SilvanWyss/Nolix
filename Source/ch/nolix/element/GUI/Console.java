@@ -146,7 +146,7 @@ implements Clearable<Console> {
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
-		//Handles the option that this console contains one or several lines.
+		//Handles the case that this console contains one or several lines.
 		if (containsAny()) {
 			attributes.addAtEnd(new StandardSpecification(LINES_HEADER, lines));
 		}
@@ -220,7 +220,7 @@ implements Clearable<Console> {
 	 */
 	public final void insertCharacterAfterCursor(final char character) {
 		
-		//Handles the option that this console is reading a secret line.		
+		//Handles the case that this console is reading a secret line.		
 		if (isReadingSecretLine()) {
 			setSecretEditLine(
 				getSecretEditLineBeforeTextCursor()

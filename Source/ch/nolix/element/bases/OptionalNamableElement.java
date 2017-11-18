@@ -69,7 +69,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 		
 		final List<StandardSpecification> attributes = new List<StandardSpecification>();
 		
-		//Handles the option that this optional namable element has a name.
+		//Handles the case that this optional namable element has a name.
 		if (hasName()) {
 			attributes.addAtEnd(name.getSpecification());
 		}

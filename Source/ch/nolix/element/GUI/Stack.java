@@ -72,7 +72,7 @@ implements Clearable<S> {
 	@SuppressWarnings("unchecked")
 	public final S addWidget(final Widget<?, ?> widget) {
 		
-		//Handles the option that this stack belongs to a GUI.
+		//Handles the case that this stack belongs to a GUI.
 		if (belongsToGUI()) {
 			widget.setGUI(getRefGUI());
 		}
@@ -141,7 +141,7 @@ implements Clearable<S> {
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
-		//Handles the option that this stack has an element margin.
+		//Handles the case that this stack has an element margin.
 		if (hasElementMargin()) {
 			attributes.addAtEnd(new StandardSpecification(ELEMENT_MARGIN_HEADER, elementMargin.getAttributes()));
 		}

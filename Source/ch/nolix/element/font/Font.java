@@ -212,7 +212,7 @@ public final class Font extends Element {
 			firstPart = text.substring(0, firstPart.length() + 1);
 		}
 		
-		//Handles the option that an ellipsis has to be attached to the first part.
+		//Handles the case that an ellipsis has to be attached to the first part.
 		if (attachEllipsis) {
 			if (firstPart.length() < text.length()) {		
 				

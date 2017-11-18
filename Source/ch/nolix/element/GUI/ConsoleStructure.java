@@ -242,22 +242,22 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
-		//Handles the option that this console structure has a width.
+		//Handles the case that this console structure has a width.
 		if (hasWidth()) {
 			attributes.addAtEnd(width.getSpecificationAs(WIDTH_HEADER));
 		}
 		
-		//Handles the option that this console structure has a height.
+		//Handles the case that this console structure has a height.
 		if (hasHeight()) {
 			attributes.addAtEnd(height.getSpecificationAs(HEIGHT_HEADER));
 		}
 		
-		//Handles the option that this console structure has a text size.
+		//Handles the case that this console structure has a text size.
 		if (hasTextSize()) {
 			attributes.addAtEnd(textSize.getSpecificationAs(TEXT_SIZE_HEADER));
 		}
 		
-		//Handles the option that this console structure has a text color.
+		//Handles the case that this console structure has a text color.
 		if (hasTextColor()) {
 			attributes.addAtEnd(textColor.getSpecificationAs(TEXT_COLOR_HEADER));
 		}

@@ -215,22 +215,22 @@ implements Freezable<C> {
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
-		//Handles the option that this configuration has a selector type.
+		//Handles the case that this configuration has a selector type.
 		if (hasSelectorType()) {
 			attributes.addAtEnd(selectorType.getSpecificationAs(SELECTOR_TYPE_HEADER));
 		}
 		
-		//Handles the option that this configuration has a selector role.
+		//Handles the case that this configuration has a selector role.
 		if (hasSelectorRole()) {
 			attributes.addAtEnd(selectorRole.getSpecificationAs(SELECTOR_ROLE_HEADER));
 		}
 		
-		//Handles the option that this configuration has a selector token.
+		//Handles the case that this configuration has a selector token.
 		if (hasSelectorToken()) {
 			attributes.addAtEnd(selectorToken.getSpecificationAs(SELECTOR_TOKEN_HEADER));
 		}
 		
-		//Handles the option that this configuration has a selector name.
+		//Handles the case that this configuration has a selector name.
 		if (hasSelectorName()) {
 			attributes.addAtEnd(selectorName.getSpecificationAs(SELECTOR_NAME_HEADER));
 		}
@@ -493,22 +493,22 @@ implements Freezable<C> {
 	 */
 	public final boolean selects(Configurable element) {		
 		
-		//Handles the option that this configuration has a selector type.
+		//Handles the case that this configuration has a selector type.
 		if (hasSelectorType() && !element.hasTypeOrSuperType(getSelectorType())) {
 			return false;
 		}
 		
-		//Handles the option that this configuration has a selector role.
+		//Handles the case that this configuration has a selector role.
 		if (hasSelectorRole() && !element.hasRole(getSelectorRole())) {
 			return false;
 		}
 		
-		//Handles the option that this configuration has a selector token.
+		//Handles the case that this configuration has a selector token.
 		if (hasSelectorToken() && !element.hasToken(getSelectorToken())) {
 			return false;
 		}
 		
-		//Handles the option that this configuration has a selector type.
+		//Handles the case that this configuration has a selector type.
 		if (hasSelectorName() && !element.hasName(getSelectorName())) {
 			return false;
 		}

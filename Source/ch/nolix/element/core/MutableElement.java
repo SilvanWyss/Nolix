@@ -37,12 +37,12 @@ implements IController, IElement, IFluentObject<MU>, Specifiable {
 	 */
 	public final boolean equals(final Object object) {
 		
-		//Handles the option that the given object is null.
+		//Handles the case that the given object is null.
 		if (object == null) {
 			return false;
 		}
 		
-		//Handles the option that this element is not of the same class as the given object.		
+		//Handles the case that this element is not of the same class as the given object.		
 		if (getClass() != object.getClass()) {
 			return false;
 		}
@@ -50,7 +50,7 @@ implements IController, IElement, IFluentObject<MU>, Specifiable {
 		//Casts the given object to a mutable element.
 		final MutableElement<?> element = (MutableElement<?>)object;
 		
-		//Handles the option that the specification of this element
+		//Handles the case that the specification of this element
 		//does not equal the specification of the given mutable element.
 		if (!element.getSpecification().equals(getSpecification())) {
 			return false;

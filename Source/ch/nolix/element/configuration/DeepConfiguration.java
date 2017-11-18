@@ -99,7 +99,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
-		//Handles the option that this deep configuration has a max selector level.
+		//Handles the case that this deep configuration has a max selector level.
 		if (hasMaxSelectorLevel()) {
 			attributes.addAtEnd(maxSelectorLevel.getSpecificationAs(MAX_SELECTOR_LEVEL_HEADER));
 		}

@@ -95,7 +95,7 @@ public class Area extends Widget<Area, AreaStructure> {
 		.addAtEnd(width.getSpecification())
 		.addAtEnd(height.getSpecification());
 		
-		//Handles the option that this area has a background color.
+		//Handles the case that this area has a background color.
 		if (hasBackgroundColor()) {
 			attributes.addAtEnd(
 				getBackgroundColor().getSpecificationAs(BACKGROUND_COLOR_HEADER)
@@ -254,7 +254,7 @@ public class Area extends Widget<Area, AreaStructure> {
 		final AreaStructure widgetStructure,
 		final Graphics graphics
 	) {
-		//Handles the option that this area has a background color.
+		//Handles the case that this area has a background color.
 		if (hasBackgroundColor()) {
 			graphics.setColor(backgroundColor.getJavaColor());
 			graphics.fillRect(0, 0, getWidth(), getHeight());

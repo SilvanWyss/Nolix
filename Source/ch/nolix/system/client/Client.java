@@ -99,7 +99,7 @@ implements Closable, Resettable {
 		//Checks if the given session is not null.
 		Validator.suppose(session).thatIsInstanceOf(Session.class).isNotNull();
 		
-		//Handles the option that this client has already a session.
+		//Handles the case that this client has already a session.
 		if (internal_hasSession()) {
 			internal_getSession().removeClient();
 		}

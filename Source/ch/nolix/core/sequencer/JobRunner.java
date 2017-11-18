@@ -316,7 +316,7 @@ final class JobRunner extends Thread {
 			//Handles the case that this job runner has no max run count.
 			if (!hasMaxRunCount()) {
 				
-				//Handles the option that this job runner has a condition that is fulfilled.
+				//Handles the case that this job runner has a condition that is fulfilled.
 				if (hasCondition() && !condition.getOutput()) {
 					break;
 				}
@@ -325,12 +325,12 @@ final class JobRunner extends Thread {
 			//Handles the case that this job runner has a max run count.
 			else {
 				
-				//Handles the option that this job runner has reached its max run count.
+				//Handles the case that this job runner has reached its max run count.
 				if (finishedJobCount >= maxRunCount) {
 					break;
 				}
 				
-				//Handles the option that this job runner has a condition that is fulfilled.
+				//Handles the case that this job runner has a condition that is fulfilled.
 				if (hasCondition() && !condition.getOutput()) {
 					break;
 				}
@@ -340,7 +340,7 @@ final class JobRunner extends Thread {
 				finishedJobCount++;
 				job.run();				
 				
-				//Handles the option that this job runner has a time interval.
+				//Handles the case that this job runner has a time interval.
 				if (hasTimeInterval()) {
 					Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
 				}

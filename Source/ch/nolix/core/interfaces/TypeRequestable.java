@@ -51,7 +51,7 @@ public interface TypeRequestable {
 		Class<?> class_ = getClass();
 		while (class_.getSuperclass() != null) {
 			
-			// Handles the option that the current class is the given type.
+			// Handles the case that the current class is the given type.
 			if (class_.getSimpleName().equals(type)) {
 				return true;
 			}

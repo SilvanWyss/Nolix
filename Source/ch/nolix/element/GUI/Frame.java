@@ -143,7 +143,7 @@ public class Frame extends VisibleGUI<Frame> {
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
-		//Handles the option that this frame has a close command.
+		//Handles the case that this frame has a close command.
 		if (hasCloseCommand()) {
 			attributes.addAtEnd(
 				new StandardSpecification(CLOSE_COMMAND_HEADER, closeCommand.toString())
@@ -248,7 +248,7 @@ public class Frame extends VisibleGUI<Frame> {
 		panel.setBackground(getBackgroundColor().getJavaColor());
 		frame.setCursor(getActiveCursorIcon().getJavaCursor());
 		
-		//Handles the option that this frame has a root widget.
+		//Handles the case that this frame has a root widget.
 		if (hasRootWidget()) {
 			
 			//Enumerates the content position of this frame.

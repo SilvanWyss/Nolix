@@ -29,12 +29,12 @@ public abstract class Element implements IElement {
 	 */
 	public final boolean equals(final Object object) {
 	
-		//Handles the option that the given object is null.
+		//Handles the case that the given object is null.
 		if (object == null) {
 			return false;
 		}
 		
-		//Handles the option that this element is not of the same class as the given object.		
+		//Handles the case that this element is not of the same class as the given object.		
 		if (getClass() != object.getClass()) {
 			return false;
 		}
@@ -42,7 +42,7 @@ public abstract class Element implements IElement {
 		//Casts the given object to an element.
 		final Element element = (Element)object;
 		
-		//Handles the option that the specification of this element
+		//Handles the case that the specification of this element
 		//does not equal the specification of the given element.
 		if (!element.getSpecification().equals(getSpecification())) {
 			return false;

@@ -330,7 +330,7 @@ public abstract class Neuronoid<N extends Neuronoid<N, I, O>, I, O> {
 		final List<Neuronoid<?, ?, ?>> visitedNeurons
 	) {
 		
-		//Handles the option that the given visited neurons does not contain this neuron.
+		//Handles the case that the given visited neurons does not contain this neuron.
 		if (!visitedNeurons.contains(this)) {
 			visitedNeurons.addAtEnd(this);
 			internal_fire();			

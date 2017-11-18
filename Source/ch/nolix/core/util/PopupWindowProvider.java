@@ -64,7 +64,7 @@ public final class PopupWindowProvider {
 			//Sets the text.
 				text = StringCatalogue.EMPTY_STRING;
 				
-				//Handles the option that the given exception has a message.
+				//Handles the case that the given exception has a message.
 				if (exception.getMessage() != null && !exception.getMessage().isEmpty()) {
 					text += exception.getMessage() + CharacterCatalogue.NEW_LINE + CharacterCatalogue.NEW_LINE;
 				}

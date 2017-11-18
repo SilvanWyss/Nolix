@@ -73,7 +73,7 @@ public abstract class Entity {
 	 */
 	public final AccessorContainer<Property<?>> getRefProperties() {
 		
-		//Handles the option that the properties of this entity are not extracted yet.
+		//Handles the case that the properties of this entity are not extracted yet.
 		if (!propertiesAreExtracted()) {
 			extractProperties();
 		}
@@ -119,7 +119,7 @@ public abstract class Entity {
 			//Iterates the fields of the current type.
 			for (final Field f : cl.getDeclaredFields()) {
 				
-				//Handles the option that the current field is a property.
+				//Handles the case that the current field is a property.
 				if (f.getType().isAssignableFrom(Property.class)) {
 					
 					try {

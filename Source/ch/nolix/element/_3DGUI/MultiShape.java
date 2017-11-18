@@ -68,7 +68,7 @@ public final class MultiShape extends Shape<MultiShape> {
 			);
 		}
 		
-		//Handles the option that this multi shape belongs to a GUI.
+		//Handles the case that this multi shape belongs to a GUI.
 		if (belongsToAGUI()) {
 			shape.setGUI(getRefGUI());
 			getRefShapeRenderManager().addSubRenderObject(shape);
@@ -165,7 +165,7 @@ public final class MultiShape extends Shape<MultiShape> {
 		
 		shapes.removeFirst(shape);
 		
-		//Handles the option that this multi shape belongs to a GUI.
+		//Handles the case that this multi shape belongs to a GUI.
 		if (belongsToAGUI()) {
 			getRefShapeRenderManager().removeSubRenderObject(shape);
 		}

@@ -182,7 +182,7 @@ extends ConfigurableElement<W> {
 			attributes.addAtEnd(cursorIcon.getSpecification());
 		}
 		
-		//Handles the option that this widget has a left mouse button press command.
+		//Handles the case that this widget has a left mouse button press command.
 		if (hasLeftMouseButtonPressCommand()) {
 			attributes.addAtEnd(
 				new StandardSpecification(
@@ -192,7 +192,7 @@ extends ConfigurableElement<W> {
 			);
 		}
 		
-		//Handles the option that this widget has a left mouse button release command.
+		//Handles the case that this widget has a left mouse button release command.
 		if (hasLeftMouseButtonReleaseCommand()) {
 			attributes.addAtEnd(
 				new StandardSpecification(
@@ -202,7 +202,7 @@ extends ConfigurableElement<W> {
 			);
 		}
 		
-		//Handles the option that this widget has a right mouse button press command.
+		//Handles the case that this widget has a right mouse button press command.
 		if (hasRightMouseButtonPressCommand()) {
 			attributes.addAtEnd(
 				new StandardSpecification(
@@ -212,7 +212,7 @@ extends ConfigurableElement<W> {
 			);	
 		}
 		
-		//Handles the option that this widget has a right mouse button release command.
+		//Handles the case that this widget has a right mouse button release command.
 		if (hasRightMouseButtonReleaseCommand()) {
 			attributes.addAtEnd(
 				new StandardSpecification(
@@ -222,7 +222,7 @@ extends ConfigurableElement<W> {
 			);
 		}
 		
-		//Handles the option that this widget does not grey out when it is disabled.
+		//Handles the case that this widget does not grey out when it is disabled.
 		if (!greysOutWhenDisabled()) {
 			attributes.addAtEnd(new StandardSpecification(NO_GREY_OUT_WHEN_DISABLED_HEADER));
 		}
@@ -564,7 +564,7 @@ extends ConfigurableElement<W> {
 	 */
 	public void noteLeftMouseButtonPress() {
 		
-		//Handles the option that this widget has a left mouse button press command.
+		//Handles the case that this widget has a left mouse button press command.
 		if (hasLeftMouseButtonPressCommand()) {
 			getRefGUI().getRefController().run(getLeftMouseButtonPressCommand());
 		}
@@ -576,7 +576,7 @@ extends ConfigurableElement<W> {
 	 */
 	public void noteLeftMouseButtonRelease() {
 		
-		//Handles the option that this widget has a left mouse button release command.
+		//Handles the case that this widget has a left mouse button release command.
 		if (hasLeftMouseButtonReleaseCommand()) {
 			getRefGUI().getRefController().run(getLeftMouseButtonReleaseCommand());
 		}
@@ -1141,7 +1141,7 @@ extends ConfigurableElement<W> {
 		
 		paint(getRefCurrentStructure(), graphics);
 		
-		//Handles the option that this widget is disabled and would grey out.
+		//Handles the case that this widget is disabled and would grey out.
 		if (isDisabled() && greysOutWhenDisabled()) {
 			graphics.setColor(new Color(127, 127, 127, 127));
 			graphics.fillRect(0, 0, getWidth(), getHeight());

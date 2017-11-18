@@ -667,7 +667,7 @@ public class Color extends Element {
 	 */
 	private static final AccessorContainer<Pair<String, java.lang.Integer>> getWebColorMap() {
 		
-		//Handles the option that the web color map is not extracted.
+		//Handles the case that the web color map is not extracted.
 		if (!webColorMapIsExtracted()) {
 			extractWebColorMap();
 		}

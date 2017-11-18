@@ -84,12 +84,12 @@ extends BackgroundWidget<BW, BWS> {
 		
 		attributes.addAtEnd(contentOrientation.getSpecification());
 		
-		//Handles the option that this border widget has a min width.
+		//Handles the case that this border widget has a min width.
 		if (hasMinWidth()) {
 			attributes.addAtEnd(minWidth.getSpecification());
 		}
 		
-		//Handles the option that this border widget has a min height.
+		//Handles the case that this border widget has a min height.
 		if (hasMinHeight()) {
 			attributes.addAtEnd(minHeight.getSpecification());
 		}

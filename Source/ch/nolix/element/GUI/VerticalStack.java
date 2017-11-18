@@ -43,7 +43,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 		
 		int contentHeight = getRefWidgets().getSumByInt(w -> w.getHeight());
 				
-		//Handles the option that this vertical stack contains any widget.
+		//Handles the case that this vertical stack contains any widget.
 		if (containsAny()) {
 			contentHeight
 			+= (getRefWidgets().getElementCount() - 1) * getActiveElementMargin();

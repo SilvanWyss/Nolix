@@ -115,7 +115,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 		
 		endPointTaker.removeFirst(ept -> ept.hasName(name));
 		
-		//Handles the option that the concerning end point taker
+		//Handles the case that the concerning end point taker
 		//is the arbitrary end point taker of this server.
 		if (hasArbitraryEndPointTaker() && getArbitraryEndPointTaker().hasName(name)) {
 			arbitraryEndPointTaker = null;

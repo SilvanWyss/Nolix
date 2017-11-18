@@ -100,7 +100,7 @@ implements Namable<NE> {
 	 */
 	public NE setName(String name) {
 		
-		//Handles the option that this namable element has not already the given name.
+		//Handles the case that this namable element has not already the given name.
 		if (!hasName(name)) {
 			
 			//Checks if this namable element does not belong to a requestable container

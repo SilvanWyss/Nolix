@@ -247,17 +247,17 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
-		//Handles the option that this check box structure has a size.
+		//Handles the case that this check box structure has a size.
 		if (hasSize()) {
 			attributes.addAtEnd(size.getSpecificationAs(SIZE_HEADER));
 		}
 		
-		//Handles the option that this check box structure has a line thickness.
+		//Handles the case that this check box structure has a line thickness.
 		if (hasLineThickness()) {
 			attributes.addAtEnd(lineThickness.getSpecificationAs(LINE_THICKNESS_HEADER));
 		}
 		
-		//Handles the option that this check box structure has a line color.
+		//Handles the case that this check box structure has a line color.
 		if (hasLineColor()) {
 			attributes.addAtEnd(lineColor.getSpecificationAs(LINE_COLOR_HEADER));
 		}

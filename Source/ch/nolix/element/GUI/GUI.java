@@ -342,7 +342,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		
 		final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>();
 		
-		//Handles the option that this GUI has a root widget.
+		//Handles the case that this GUI has a root widget.
 		if (hasRootWidget()) {
 			final Widget<?, ?> rootWidget = getRefRootWidget();
 			widgets.addAtEnd(rootWidget);//.addAtEnd(getRefRootWidget().getRefWidgets());
@@ -550,7 +550,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		setContentPosition(DEFAULT_CONTENT_POSITION);
 		
-		//Handles the option that this GUI has a root widget.
+		//Handles the case that this GUI has a root widget.
 		if (hasRootWidget()) {
 			getRefRootWidget().resetConfiguration();
 		}

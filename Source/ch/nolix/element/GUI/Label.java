@@ -81,7 +81,7 @@ public final class Label extends TextLineWidget<Label> {
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
-		//Handles the option that this label has a role.
+		//Handles the case that this label has a role.
 		if (hasRole()) {
 			attributes.addAtEnd(role.getSpecificationAs(ROLE_HEADER));
 		}

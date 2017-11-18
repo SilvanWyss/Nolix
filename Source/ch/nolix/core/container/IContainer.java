@@ -929,7 +929,7 @@ public interface IContainer<E> extends Iterable<E> {
 				}
 			}
 			
-			//Handles the option that the current element is selected.
+			//Handles the case that the current element is selected.
 			if (selected) {
 				list.addAtEnd(e);
 			}
@@ -978,7 +978,7 @@ public interface IContainer<E> extends Iterable<E> {
 				}
 			}
 			
-			//Handles the option that the current element is not selected.
+			//Handles the case that the current element is not selected.
 			if (!selected) {
 				list.addAtEnd(e);
 			}
