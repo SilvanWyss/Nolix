@@ -40,7 +40,7 @@ public final class ListTest extends Test {
 		list.clear();
 		
 		//verification
-		expectThat(list.isEmpty());
+		expect(list.isEmpty());
 	}
 	
 	//test method
@@ -57,7 +57,7 @@ public final class ListTest extends Test {
 		);
 		
 		//execution and verification
-			expectThat(
+			expect(
 				list.contains(s -> s.equals("x")),
 				list.contains(s -> s.equals("xx")),
 				list.contains(s -> s.equals("xxx")),
@@ -66,7 +66,7 @@ public final class ListTest extends Test {
 				list.contains(s -> s.equals("xxxxxx"))
 			);
 			
-			expectThatNot(
+			expectNot(
 				list.contains(s -> s.equals("xxxxxxx")),
 				list.contains(s -> s.equals("xxxxxxxx")),
 				list.contains(s -> s.equals("xxxxxxxxx")),
@@ -90,13 +90,13 @@ public final class ListTest extends Test {
 		);
 		
 		//execution and verification
-		expectThat(list.contains((s1, s2) -> s1.length() == s2.length()));
-		expectThat(list.contains((s1, s2) -> s1.length() + 1 == s2.length()));
-		expectThat(list.contains((s1, s2) -> s1.length() + 2 == s2.length()));
-		expectThat(list.contains((s1, s2) -> s1.length() + 3 == s2.length()));
-		expectThat(list.contains((s1, s2) -> s1.length() + 4 == s2.length()));
-		expectThat(list.contains((s1, s2) -> s1.length() + 5 == s2.length()));
-		expectThatNot(list.contains((s1, s2) -> s1.length() + 6 == s2.length()));
+		expect(list.contains((s1, s2) -> s1.length() == s2.length()));
+		expect(list.contains((s1, s2) -> s1.length() + 1 == s2.length()));
+		expect(list.contains((s1, s2) -> s1.length() + 2 == s2.length()));
+		expect(list.contains((s1, s2) -> s1.length() + 3 == s2.length()));
+		expect(list.contains((s1, s2) -> s1.length() + 4 == s2.length()));
+		expect(list.contains((s1, s2) -> s1.length() + 5 == s2.length()));
+		expectNot(list.contains((s1, s2) -> s1.length() + 6 == s2.length()));
 	}
 	
 	//test method
@@ -106,7 +106,7 @@ public final class ListTest extends Test {
 		final List<String> list = new List<String>();
 		
 		//execution and verification
-		expectThatNot(list.containsOne());
+		expectNot(list.containsOne());
 	}
 	
 	//test method
@@ -116,7 +116,7 @@ public final class ListTest extends Test {
 		final List<String> list = new List<String>("x");
 		
 		//execution and verification
-		expectThat(list.containsOne());
+		expect(list.containsOne());
 	}
 	
 	//test method
@@ -126,7 +126,7 @@ public final class ListTest extends Test {
 		final List<String> list = new List<String>("x", "x");
 		
 		//executation and verification
-		expectThatNot(list.containsOne());
+		expectNot(list.containsOne());
 	}
 	
 	//test method
@@ -137,8 +137,8 @@ public final class ListTest extends Test {
 		= new List<String>("x",  "xx", "xx", "xx", "xx", "xx");
 		
 		//execution and verification
-		expectThat(list.containsOne(s -> s.length() == 1));
-		expectThatNot(list.containsOne(s -> s.length() == 2));
+		expect(list.containsOne(s -> s.length() == 1));
+		expectNot(list.containsOne(s -> s.length() == 2));
 	}
 	
 	//test method
@@ -382,7 +382,7 @@ public final class ListTest extends Test {
 		final List<String> list = new List<String>();
 		
 		//execution and verification
-		expectThat(list.isEmpty());
+		expect(list.isEmpty());
 	}
 	
 	//test method
@@ -392,7 +392,7 @@ public final class ListTest extends Test {
 		List<String> list = new List<String>("x");
 		
 		//execution and verification
-		expectThatNot(list.isEmpty());
+		expectNot(list.isEmpty());
 	}
 	
 	//test method
@@ -414,7 +414,7 @@ public final class ListTest extends Test {
 			.addConditionForNext(s -> s.length() == 4);
 		
 		//execution and verification
-		expectThat(list.matches(sequencePattern));
+		expect(list.matches(sequencePattern));
 	}
 	
 	//test method
@@ -437,7 +437,7 @@ public final class ListTest extends Test {
 			.addBlankForNext();
 		
 		//execution and verification
-		expectThat(list.matches(sequencePattern));
+			expect(list.matches(sequencePattern));
 	}
 	
 	//test method
@@ -452,7 +452,7 @@ public final class ListTest extends Test {
 			.forNext(10).addBlank();
 		
 		//execution and verification
-		expectThat(list.matches(sequencePattern));
+			expect(list.matches(sequencePattern));
 	}
 	
 	//test methods
@@ -476,13 +476,13 @@ public final class ListTest extends Test {
 			
 			final Iterator<String> iterator = subList.iterator();
 			
-			expectThat(iterator.hasNext());
+			expect(iterator.hasNext());
 			expect(iterator.next()).equals("xxxx");
-			expectThat(iterator.hasNext());
+			expect(iterator.hasNext());
 			expect(iterator.next()).equals("xxxxx");
-			expectThat(iterator.hasNext());
+			expect(iterator.hasNext());
 			expect(iterator.next()).equals("xxxxxx");
-			expectThatNot(iterator.hasNext());
+			expectNot(iterator.hasNext());
 			
 			expect(() -> iterator.next()).
 			throwsExceptionOfType(UnexistingAttributeException.class);

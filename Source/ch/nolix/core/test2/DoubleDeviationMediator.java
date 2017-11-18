@@ -67,7 +67,7 @@ public final class DoubleDeviationMediator extends Mediator {
 		
 		//Checks if the value of this double deviation mediator equals the given value with a devation that is not bigger than the max deviation of this double deviation mediator.
 		if (Math.abs(this.value - value) > maxDeviation) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError(this.value + "±" + maxDeviation + " was expected, but " + value + " was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError(this.value + "±" + maxDeviation + " was expected, but " + value + " was received.");
 		}
 	}
 	

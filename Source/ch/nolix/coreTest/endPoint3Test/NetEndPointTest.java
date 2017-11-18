@@ -41,8 +41,8 @@ public final class NetEndPointTest extends Test {
 		Thread.sleep(200);
 		
 		//verification
-		expectThat(endPointTakerMock.hasLastEndPoint());
-		expectThat(endPointTakerMock.getLastEndPoint().isAlive());	
+		expect(endPointTakerMock.hasLastEndPoint());
+		expect(endPointTakerMock.getLastEndPoint().isAlive());	
 	}
 	
 	//test method
@@ -65,8 +65,8 @@ public final class NetEndPointTest extends Test {
 		Thread.sleep(200);
 		
 		//verification
-		expectThat(endPointTakerMock.hasLastEndPoint());
-		expectThat(endPointTakerMock.getLastEndPoint().isAlive());
+		expect(endPointTakerMock.hasLastEndPoint());
+		expect(endPointTakerMock.getLastEndPoint().isAlive());
 		expect(received_reply).equals(reply);
 	}
 	

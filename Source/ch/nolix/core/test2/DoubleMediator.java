@@ -40,16 +40,16 @@ public final class DoubleMediator extends Mediator {
 	 * @return a new double conjunction mediator that belongs to the zeta test this double mediator belongs to and that has the value of this double mediator.
 	 * @throws NullArgumentException if the given condition is null.
 	 */
-	public final DoubleConjunctionMediator fulfils(final IElementTakerBooleanGetter<Double> condition) {
+	public final DoubleMediator fulfils(final IElementTakerBooleanGetter<Double> condition) {
 		
 		//Checks if the given condition is not null.
 		Validator.suppose(condition).thatIsNamed("condition").isNotNull();
 		
 		if (!condition.getOutput(value)) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that fulfils the given condition was expected, but " + value + " was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("A value that fulfils the given condition was expected, but " + value + " was received.");
 		}
 		
-		return new DoubleConjunctionMediator(getZetaTest(), value);
+		return this;
 	}
 	
 	//method
@@ -61,18 +61,18 @@ public final class DoubleMediator extends Mediator {
 	 * @return a new double conjunction mediator that belongs to the zeta test this double mediator belongs to and that has the value of this double mediator.
 	 * @throws RuntimeException if the given min is bigger than the given max.
 	 */
-	public final DoubleConjunctionMediator isBetween(final double min, final double max) {
+	public final DoubleMediator isBetween(final double min, final double max) {
 		
 		Validator.suppose(max).thatIsNamed("max").isNotSmallerThan(min);
 		if (min > max) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value cannot not be between " + min + " and " + max + ".");
+			new TestAccessor(getTest()).addCurrentTestMethodError("A value cannot not be between " + min + " and " + max + ".");
 		}
 		
 		if (value < min || value > max) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that is between " + min + " and " + max + " was expected, but " + value + " was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("A value that is between " + min + " and " + max + " was expected, but " + value + " was received.");
 		}
 		
-		return new DoubleConjunctionMediator(getZetaTest(), value);
+		return this;
 	}
 	
 	//method
@@ -82,7 +82,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public final void isBiggerThan(final double value) {
 		if (this.value <= value) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that is bigger than " + value + " was expected, but " + this.value + " was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("A value that is bigger than " + value + " was expected, but " + this.value + " was received.");
 		}
 	}
 	
@@ -93,7 +93,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public final void isBiggerThanOrEqual(final double value) {
 		if (this.value < value) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that is bigger than or equal to " + value + " was expected, but " + this.value + " was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("A value that is bigger than or equal to " + value + " was expected, but " + this.value + " was received.");
 		}
 	}
 	
@@ -104,7 +104,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public final void isEqualTo(final double value) {
 		if (this.value != value) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError(value + " was expected, but " + this.value + " was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError(value + " was expected, but " + this.value + " was received.");
 		}
 	}
 	
@@ -114,7 +114,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public final void isNegative() {
 		if (value >= 0.0) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A negative value was expected, but " + value + " was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("A negative value was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -132,7 +132,7 @@ public final class DoubleMediator extends Mediator {
 		}
 		
 		if (value >= min && value <= max) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that is not between " + min + " and " + max + " was expected, but " + value + " was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("A value that is not between " + min + " and " + max + " was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -143,7 +143,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public final void equalsNot(final double value) {
 		if (this.value == value) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that is not " + value + " was expected, but " + this.value + " was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("A value that is not " + value + " was expected, but " + this.value + " was received.");
 		}
 	}
 	
@@ -153,7 +153,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public final void isNotNegative() {
 		if (value < 0.0) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that is not negative was expected, but " + value + " was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("A value that is not negative was expected, but " + value + " was received.");
 		}
 	}
 
@@ -171,7 +171,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public final void isNotPositive() {
 		if (value > 0.0) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that is not positive was expected, but " + value + " was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("A value that is not positive was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -197,7 +197,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public final void isPositive() {
 		if (value <= 0.0) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A positive value was expected, but " + value + " was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("A positive value was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -208,7 +208,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public final void isSmallerThan(final double value) {
 		if (this.value >= value) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that is smaller than " + value + " was expected, but " + this.value + " was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("A value that is smaller than " + value + " was expected, but " + this.value + " was received.");
 		}
 	}
 	
@@ -219,7 +219,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public final void isSmallerThanOrEqualTo(final double value) {
 		if (this.value > value) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("A value that is smaller than or equal to  " + value + " was expected, but " + this.value + " was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("A value that is smaller than or equal to  " + value + " was expected, but " + this.value + " was received.");
 		}
 	}
 	
@@ -236,7 +236,7 @@ public final class DoubleMediator extends Mediator {
 	 * @return new deviation mediator that belongs to this nolix test with a default max deviation
 	 */
 	public final DoubleDeviationMediator withDefaultMaxDeviation() {
-		return new DoubleDeviationMediator(getZetaTest(), value);
+		return new DoubleDeviationMediator(getTest(), value);
 	}
 	
 	//method
@@ -246,6 +246,6 @@ public final class DoubleMediator extends Mediator {
 	 * @throws Exception if the given max deviation is negative
 	 */
 	public final DoubleDeviationMediator withMaxDeviation(final double maxDeviation) {
-		return new DoubleDeviationMediator(getZetaTest(), value, maxDeviation);
+		return new DoubleDeviationMediator(getTest(), value, maxDeviation);
 	}
 }

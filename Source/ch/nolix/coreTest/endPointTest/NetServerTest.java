@@ -49,7 +49,7 @@ public final class NetServerTest extends Test {
 			netServer2.close();
 				
 		//verification
-		expectThat(netServer.isClosed());
-		expectThat(netServer2.isClosed());
+		expect(netServer.isClosed());
+		expect(netServer2.isClosed());
 	}
 }

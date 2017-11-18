@@ -1,19 +1,20 @@
 //package declaration
 package ch.nolix.core.test2;
 
+//own imports
 import ch.nolix.core.testoid.TestAccessor;
 import ch.nolix.core.validator2.Validator;
 
-//class
+//package-visible abstract class
 /**
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 10
+ * @lines 50
  */
 abstract class Mediator {
 
 	//attribute
-	private final Test zetaTestest;
+	private final Test test;
 	
 	//constructor
 	/**
@@ -25,9 +26,10 @@ abstract class Mediator {
 	public Mediator(final Test test) {
 		
 		//Checks if the given test is not null.
-		Validator.suppose(test).thatIsNamed("test").isNotNull();
+		Validator.suppose(test).thatIsInstanceOf(Test.class).isNotNull();
 		
-		this.zetaTestest = test;
+		//Sets the test of this mediator.
+		this.test = test;
 	}
 	
 	//method
@@ -35,10 +37,14 @@ abstract class Mediator {
 	 * Adds the given current test method error to the test this mediator belongs to.
 	 */
 	protected final void addCurrentTestMethodError(final String error) {
-		new TestAccessor(zetaTestest).addCurrentTestMethodError(error);
+		new TestAccessor(test).addCurrentTestMethodError(error);
 	}
 	
-	protected final Test getZetaTest() {
-		return zetaTestest;
+	//method
+	/**
+	 * @return the test this mediator belongs to.
+	 */
+	protected final Test getTest() {
+		return test;
 	}
 }

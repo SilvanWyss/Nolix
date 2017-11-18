@@ -28,6 +28,6 @@ public final class SequencerTest extends Test {
 		
 		//verification
 		expect(resultFuture.isFinishedSuccessfully());
-		expect(resultFuture.getResult()).equals(120);		
+		expect(resultFuture.getResult()).isEqualTo(120);		
 	}
 }

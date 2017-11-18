@@ -43,7 +43,7 @@ public final class ApproximativeEqualingMediator {
 	 * @param value
 	 */
 	public void eualsTo(final Object value) {
-		new ObjectMediator(test, this.value).equalsTo(value);
+		new ValueMediator<Object>(test, this.value).equalsTo(value);
 	}
 	
 	//method

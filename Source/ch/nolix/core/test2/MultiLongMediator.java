@@ -13,7 +13,7 @@ import ch.nolix.core.testoid.TestAccessor;
 //own import
 
 //class
-public final class LongContainerMediator extends Mediator {
+public final class MultiLongMediator extends Mediator {
 
 	//attribute
 	private final Iterable<Long> values;
@@ -26,7 +26,7 @@ public final class LongContainerMediator extends Mediator {
 	 * @param values
 	 * @throws Excepion if the given test is null
 	 */
-	protected LongContainerMediator(
+	protected MultiLongMediator(
 		final Test test,
 		final Iterable<Long> values) {
 		
@@ -53,13 +53,13 @@ public final class LongContainerMediator extends Mediator {
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
 			for (Long v: values) {
-				new LongMediator(getZetaTest(), v).isBetween(min, max);
+				new LongMediator(getTest(), v).isBetween(min, max);
 			}
 		}
 	}
@@ -74,13 +74,13 @@ public final class LongContainerMediator extends Mediator {
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
 			for (Long v: values) {
-				new LongMediator(getZetaTest(), v).isBiggerThan(value);
+				new LongMediator(getTest(), v).isBiggerThan(value);
 			}
 		}
 	}
@@ -95,13 +95,13 @@ public final class LongContainerMediator extends Mediator {
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
 			for (Long v: values) {
-				new LongMediator(getZetaTest(), v).isDividableBy(value);
+				new LongMediator(getTest(), v).isDividableBy(value);
 			}
 		}
 	}
@@ -114,13 +114,13 @@ public final class LongContainerMediator extends Mediator {
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
 			for (Long v: values) {
-				new LongMediator(getZetaTest(), v).isEven();
+				new LongMediator(getTest(), v).isEven();
 			}
 		}
 	}
@@ -133,13 +133,13 @@ public final class LongContainerMediator extends Mediator {
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
 			for (Long v: values) {
-				new LongMediator(getZetaTest(), v).isNegative();
+				new LongMediator(getTest(), v).isNegative();
 			}
 		}
 	}
@@ -152,13 +152,13 @@ public final class LongContainerMediator extends Mediator {
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
 			for (Long v: values) {
-				new LongMediator(getZetaTest(), v).isOdd();
+				new LongMediator(getTest(), v).isOdd();
 			}
 		}
 	}
@@ -171,13 +171,13 @@ public final class LongContainerMediator extends Mediator {
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
 			for (Long v: values) {
-				new LongMediator(getZetaTest(), v).isPositive();
+				new LongMediator(getTest(), v).isPositive();
 			}
 		}
 	}
@@ -192,13 +192,13 @@ public final class LongContainerMediator extends Mediator {
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
 			for (Long v: values) {
-				new LongMediator(getZetaTest(), v).isSmallerThan(value);
+				new LongMediator(getTest(), v).isSmallerThan(value);
 			}
 		}
 	}
@@ -211,13 +211,13 @@ public final class LongContainerMediator extends Mediator {
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
 			for (Long v: values) {
-				new LongMediator(getZetaTest(), v).isEqualTo(value);
+				new LongMediator(getTest(), v).isEqualTo(value);
 			}
 		}
 	}
@@ -230,13 +230,13 @@ public final class LongContainerMediator extends Mediator {
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
 			for (Long v: values) {
-				new LongMediator(getZetaTest(), v).equalsNot(value);
+				new LongMediator(getTest(), v).equalsNot(value);
 			}
 		}
 	}

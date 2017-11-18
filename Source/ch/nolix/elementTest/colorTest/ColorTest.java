@@ -25,7 +25,7 @@ public final class ColorTest extends Test {
 		final boolean equals = color.equals(color);
 		
 		//verification
-		expectThat(equals);
+		expect(equals);
 	}
 	
 	//test method

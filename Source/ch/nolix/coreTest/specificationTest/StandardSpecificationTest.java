@@ -22,8 +22,8 @@ public final class StandardSpecificationTest extends Test {
 		final StandardSpecification standardSpecification = new StandardSpecification();
 				
 		//verification
-		expectThatNot(standardSpecification.hasHeader());
-		expectThatNot(standardSpecification.containsAttributes());
+		expectNot(standardSpecification.hasHeader());
+		expectNot(standardSpecification.containsAttributes());
 	}
 	
 	//test method
@@ -33,8 +33,8 @@ public final class StandardSpecificationTest extends Test {
 		final StandardSpecification standardSpecification = new StandardSpecification("a");
 				
 		//verification
-		expectThat(standardSpecification.hasHeader());
-		expectThatNot(standardSpecification.containsAttributes());
+		expect(standardSpecification.hasHeader());
+		expectNot(standardSpecification.containsAttributes());
 	}
 	
 	//test method
@@ -44,8 +44,8 @@ public final class StandardSpecificationTest extends Test {
 		final StandardSpecification standardSpecification = new StandardSpecification("a(b)");
 				
 		//verification
-		expectThat(standardSpecification.hasHeader());
-		expectThat(standardSpecification.containsAttributes());
+		expect(standardSpecification.hasHeader());
+		expect(standardSpecification.containsAttributes());
 	}
 	
 	//test method
@@ -55,8 +55,8 @@ public final class StandardSpecificationTest extends Test {
 		final StandardSpecification standardSpecification = new StandardSpecification("a(b.)");
 				
 		//verification
-		expectThat(standardSpecification.hasHeader());
-		expectThat(standardSpecification.containsAttributes());
+		expect(standardSpecification.hasHeader());
+		expect(standardSpecification.containsAttributes());
 	}
 	
 	//test method

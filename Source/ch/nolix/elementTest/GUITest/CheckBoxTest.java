@@ -22,7 +22,7 @@ public final class CheckBoxTest extends Test {
 		final CheckBox checkBox = new CheckBox();
 		
 		//verification
-		expectThatNot(checkBox.isChecked());
+		expectNot(checkBox.isChecked());
 	}
 	
 	//test method
@@ -35,7 +35,7 @@ public final class CheckBoxTest extends Test {
 		checkBox.check();
 		
 		//verification
-		expectThat(checkBox.isChecked());
+		expect(checkBox.isChecked());
 	}
 	
 	//test method
@@ -49,6 +49,6 @@ public final class CheckBoxTest extends Test {
 		checkBox.uncheck();
 		
 		//verification
-		expectThatNot(checkBox.isChecked());
+		expectNot(checkBox.isChecked());
 	}
 }

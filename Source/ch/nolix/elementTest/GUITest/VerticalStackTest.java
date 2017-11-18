@@ -30,8 +30,8 @@ public final class VerticalStackTest extends Test {
 		
 		//verification
 		expect(verticalStack.getState()).equalsTo(WidgetState.Normal);
-		expectThat(verticalStack.isEmpty());
-		expectThatNot(verticalStack.belongsToGUI());
+		expect(verticalStack.isEmpty());
+		expectNot(verticalStack.belongsToGUI());
 	}
 	
 	//test method
@@ -49,6 +49,6 @@ public final class VerticalStackTest extends Test {
 		verticalStack.clear();
 		
 		//verification
-		expectThat(verticalStack.isEmpty());
+		expect(verticalStack.isEmpty());
 	}
 }

@@ -67,15 +67,15 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 	public final void equals(ApproximativeEqualing value) {
 		
 		if (this.value != null && value == null) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("'" + value + "'±" + maxDeviation + " was expected, but null was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("'" + value + "'±" + maxDeviation + " was expected, but null was received.");
 		}
 		
 		if (this.value == null && value != null) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("Null was expected, but '" + this.value + "' was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("Null was expected, but '" + this.value + "' was received.");
 		}
 		
 		if (!this.value.equalsApproximatively(value, maxDeviation)) {
-			new TestAccessor(getZetaTest()).addCurrentTestMethodError("'" + value + "'±" + maxDeviation + " was expected, but " + this.value + " was received.");
+			new TestAccessor(getTest()).addCurrentTestMethodError("'" + value + "'±" + maxDeviation + " was expected, but " + this.value + " was received.");
 		}
 	}
 }

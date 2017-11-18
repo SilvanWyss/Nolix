@@ -32,7 +32,7 @@ public final class QuadraticFunctionTest extends Test {
 		new QuadraticFunction(1.0, 0.0, 0.0);
 		
 		//execution and verification
-		expectThat(quadraticFunction.hasMin());
+		expect(quadraticFunction.hasMin());
 	}
 	
 	//test method
@@ -43,6 +43,6 @@ public final class QuadraticFunctionTest extends Test {
 		new QuadraticFunction(-1.0, 0.0, 0.0);
 		
 		//execution and verification
-		expectThatNot(quadraticFunction.hasMin());
+		expectNot(quadraticFunction.hasMin());
 	}
 }

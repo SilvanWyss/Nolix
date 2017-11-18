@@ -22,9 +22,9 @@ public final class StatementTest extends Test {
 		final Statement statement = new Statement();
 		
 		//verification
-		expectThatNot(statement.hasHeader());
-		expectThatNot(statement.containsAttributes());
-		expectThatNot(statement.hasNextStatement());
+		expectNot(statement.hasHeader());
+		expectNot(statement.containsAttributes());
+		expectNot(statement.hasNextStatement());
 	}
 
 	//text method
@@ -34,9 +34,9 @@ public final class StatementTest extends Test {
 		final Statement statement = new Statement("a");
 		
 		//verification
-		expectThat(statement.hasHeader());
-		expectThatNot(statement.containsAttributes());
-		expectThatNot(statement.hasNextStatement());
+		expect(statement.hasHeader());
+		expectNot(statement.containsAttributes());
+		expectNot(statement.hasNextStatement());
 	}
 	
 	//text method
@@ -46,9 +46,9 @@ public final class StatementTest extends Test {
 		final Statement statement = new Statement("a(b)");
 		
 		//verification
-		expectThat(statement.hasHeader());
-		expectThat(statement.containsAttributes());
-		expectThatNot(statement.hasNextStatement());
+		expect(statement.hasHeader());
+		expect(statement.containsAttributes());
+		expectNot(statement.hasNextStatement());
 	}
 	
 	//text method
@@ -58,8 +58,8 @@ public final class StatementTest extends Test {
 		final Statement statement = new Statement("a(b).c");
 		
 		//verification
-		expectThat(statement.hasHeader());
-		expectThat(statement.containsAttributes());
-		expectThat(statement.hasNextStatement());
+		expect(statement.hasHeader());
+		expect(statement.containsAttributes());
+		expect(statement.hasNextStatement());
 	}
 }

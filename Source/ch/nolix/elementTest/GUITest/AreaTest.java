@@ -48,6 +48,6 @@ public final class AreaTest extends Test {
 		area.removeBackgroundColor();
 		
 		//verification
-		expectThatNot(area.hasBackgroundColor());
+		expectNot(area.hasBackgroundColor());
 	}
 }
