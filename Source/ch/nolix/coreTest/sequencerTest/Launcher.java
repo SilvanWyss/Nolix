@@ -1,0 +1,30 @@
+//package declaration
+package ch.nolix.coreTest.sequencerTest;
+
+//class
+/**
+ * The Launcher provides a main method to run a sequencer test pool.
+ * Of this class no instance can be created.
+ * 
+ * @author Silvan Wyss
+ * @month 2017-11
+ * @lines 30
+ */
+public final class Launcher {
+	
+	//main method
+	/**
+	 * Creates a new sequencer test pool and runs it.
+	 * li
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		new SequencerTestPool().run();
+	}
+
+	//private constructor
+	/**
+	 * Avoids that an instance of this class can be instantiated.
+	 */
+	private Launcher() {}
+}
