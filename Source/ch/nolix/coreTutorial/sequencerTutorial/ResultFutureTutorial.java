@@ -34,7 +34,7 @@ public final class ResultFutureTutorial {
 		
 		future.waitUntilFinished();
 		
-		System.out.println("rank: " + future.getResulg());
+		System.out.println("rank: " + future.getResult());
 	}
 
 	//private constructor

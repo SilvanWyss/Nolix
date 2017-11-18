@@ -45,7 +45,7 @@ public final class ResultFuture<R> {
 	 * @return the result of this result future.
 	 * @throws InvalidStateException if this result future is not finished successfully.
 	 */
-	public R getResulg() {
+	public R getResult() {
 		return resultJobRunner.getResult();
 	}
 	
