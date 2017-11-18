@@ -11,15 +11,15 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //class
 /**
- * A generic argument mediator is a mediator for an argument with a name.
- * A generic argument mediator is not mutable.
+ * A argument mediator is a mediator for an argument with a name.
+ * A argument mediator is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2016-12
  * @lines 100
- * @param <A> The type of the argument of a generic argument mediator.
+ * @param <A> The type of the argument of a argument mediator.
  */
-public class GenericArgumentMediator<A> extends Mediator {
+public class ArgumentMediator<A> extends Mediator {
 
 	//constant
 	public static final String DEFAULT_ARGUMENT_NAME = "Argument";
@@ -29,11 +29,11 @@ public class GenericArgumentMediator<A> extends Mediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new generic argument mediator for the given argument.
+	 * Creates new argument mediator for the given argument.
 	 * 
 	 * @param argument
 	 */
-	GenericArgumentMediator(final A argument) {
+	ArgumentMediator(final A argument) {
 		
 		//Calls other constructor.
 		this(DEFAULT_ARGUMENT_NAME, argument);
@@ -41,29 +41,29 @@ public class GenericArgumentMediator<A> extends Mediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new generic argument mediator for the given argument with the given argument name.
+	 * Creates new argument mediator for the given argument with the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument
 	 * @throws NullArgumentException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
-	GenericArgumentMediator(final String argumentName, final A argument) {
+	ArgumentMediator(final String argumentName, final A argument) {
 		
 		//Calls constructor of the base class.
 		super(argumentName);
 		
-		//Sets the argument of this generic argument mediator.
+		//Sets the argument of this argument mediator.
 		this.argument = argument;
 	}
 	
 	//method
 	/**
-	 * @throws NullArgumentException if the argument of this generic argument mediator is null.
+	 * @throws NullArgumentException if the argument of this argument mediator is null.
 	 */
 	public void isNotNull() {
 		
-		//Checks if the argument of this generic argument mediator is null.
+		//Checks if the argument of this argument mediator is null.
 		if (argument == null) {
 			throw new NullArgumentException(getArgumentName());
 		}
@@ -72,8 +72,8 @@ public class GenericArgumentMediator<A> extends Mediator {
 	//method
 	/**
 	 * @param type
-	 * @throws NullArgumentException if the argument of this generic argument mediator is null.
-	 * @throws InvalidArgumentException if the argument of this generic argument mediator is not of the given type.
+	 * @throws NullArgumentException if the argument of this argument mediator is null.
+	 * @throws InvalidArgumentException if the argument of this argument mediator is not of the given type.
 	 */
 	public final void isOfType(final Class<?> type) {
 		
@@ -92,7 +92,7 @@ public class GenericArgumentMediator<A> extends Mediator {
 	
 	//method
 	/**
-	 * @return the argument of this generic argument mediator.
+	 * @return the argument of this argument mediator.
 	 */
 	protected A getRefArgument() {
 		return argument;

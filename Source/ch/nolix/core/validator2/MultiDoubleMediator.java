@@ -16,7 +16,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * @month 2016-12
  * @lines 150
  */
-public final class MultiDoubleMediator extends MultiGenericArgumentMediator<Double> {
+public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	
 	//package-visible constructor
 	/**

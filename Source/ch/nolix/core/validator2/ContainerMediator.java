@@ -17,7 +17,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * @lines 110
  * @param <E> The type of the elements of the argument of a container mediator.
  */
-public class ContainerMediator<E> extends GenericArgumentMediator<Iterable<E>> {
+public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 
 	//package-visible constructor
 	/**

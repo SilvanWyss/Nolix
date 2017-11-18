@@ -14,7 +14,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
 * @lines 50
 * @param <A> The type of the argument of an extended generic argument mediator.
 */
-public class ExtendedGenericArgumentMediator<A> extends GenericArgumentMediator<A> {
+public class ExtendedArgumentMediator<A> extends ArgumentMediator<A> {
 
 	//package-visible constructor
 	/**
@@ -22,7 +22,7 @@ public class ExtendedGenericArgumentMediator<A> extends GenericArgumentMediator<
 	 * 
 	 * @param argument
 	 */
-	ExtendedGenericArgumentMediator(final A argument) {
+	ExtendedArgumentMediator(final A argument) {
 		
 		//Calls constructor of the base class.
 		super(argument);
@@ -33,8 +33,8 @@ public class ExtendedGenericArgumentMediator<A> extends GenericArgumentMediator<
 	 * @param type
 	 * @return a new generic argument mediator for the argument of this extended generic argument mediator.
 	 */
-	public final GenericArgumentMediator<A> thatIsInstanceOf(final Class<?> type) {
-		return new GenericArgumentMediator<A>(type.getSimpleName(), getRefArgument());
+	public final ArgumentMediator<A> thatIsInstanceOf(final Class<?> type) {
+		return new ArgumentMediator<A>(type.getSimpleName(), getRefArgument());
 	}
 	
 	//method
@@ -45,7 +45,7 @@ public class ExtendedGenericArgumentMediator<A> extends GenericArgumentMediator<
 	 * @throws NullArgumentException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
-	public GenericArgumentMediator<A> thatIsNamed(final String argumentName) {
-		return new GenericArgumentMediator<A>(argumentName, getRefArgument());
+	public ArgumentMediator<A> thatIsNamed(final String argumentName) {
+		return new ArgumentMediator<A>(argumentName, getRefArgument());
 	}
 }

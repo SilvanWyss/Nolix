@@ -13,7 +13,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * @month 2017-01
  * @lines 40
  */
-public final class MultiLongMediator extends MultiGenericArgumentMediator<Long> {
+public final class MultiLongMediator extends MultiArgumentMediator<Long> {
 
 	//package-visible constructor
 	/**

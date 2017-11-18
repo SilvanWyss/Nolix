@@ -42,6 +42,16 @@ public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
 	
 	//method
 	/**
+	 * @param type
+	 * @return a new container mediator
+	 * for the argument of this extended container mediator.
+	 */
+	public final ContainerMediator<E> thatIsInstanceOf(final Class<?> type) {
+		return new ContainerMediator<E>(type.getSimpleName(), getRefArgument());
+	}
+	
+	//method
+	/**
 	 * @param argumentName
 	 * @return a new container mediator
 	 * with the given argument name for the argument of this extended container mediator.

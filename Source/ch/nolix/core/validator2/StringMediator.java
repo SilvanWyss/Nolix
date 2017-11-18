@@ -22,7 +22,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * @month 2016-08
  * @lines 170
  */
-public class StringMediator extends GenericArgumentMediator<String> {
+public class StringMediator extends ArgumentMediator<String> {
 
 	//package-visible constructor
 	/**
