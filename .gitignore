@@ -1,11 +1,7 @@
-#Java binaries
-*.class
+#Build
+/bin/
+lwjgl64.dll
+OpenAL64.dll
 
 #Javadoc
-*.css
-*.html
-*.js
-
-#binaries
-*.dll
-/bin/
+/Javadoc/
