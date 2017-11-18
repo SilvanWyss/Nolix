@@ -3,8 +3,8 @@ package ch.nolixTest;
 
 //own imports
 import ch.nolix.core.testoid.TestPool;
+import ch.nolix.coreTest.CoreTestPool;
 import ch.nolix.elementTest.ElementTestPool;
-import ch.nolix.elementTest.coreTest.CoreTestPool;
 
 //class
 /**
