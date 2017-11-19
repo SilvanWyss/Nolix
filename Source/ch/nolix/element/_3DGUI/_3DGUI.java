@@ -1,9 +1,11 @@
 //package declaration
 package ch.nolix.element._3DGUI;
 
+//Java import
 import java.lang.reflect.InvocationTargetException;
 
 //own imports
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
@@ -27,16 +29,21 @@ import ch.nolix.element.data.Title;
 
 //abstract class
 /**
+ * A 3D GUI is clearable.
+ * A 3D GUI is closable.
+ * A 3D GUI is refreshable.
+ * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 240
+ * @lines 390
  * @param <G> The type of a 3D GUI.
  */
 public abstract class _3DGUI<G extends _3DGUI<G>>
 extends ConfigurationElement<G>
 implements Clearable<G>, Closable, Refreshable {
 	
-	//constant
+	//default values
+	public static final String DEFAULT_TITLE = StringCatalogue.DEFAULT_STRING;
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 
 	//attribute
@@ -76,32 +83,32 @@ implements Clearable<G>, Closable, Refreshable {
 			return;
 		}
 		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
+		//Handles the case that the given attribute specifies no shape.
+		super.addOrChangeAttribute(attribute);			
 	}
 	
 	//method
 	/**
-	 * Adds the given shape class with the givne shape renderer to this 3D GUI.
+	 * Adds the given shape class with the given shape renderer to this 3D GUI.
 	 * 
 	 * @param shapeClass
 	 * @param shapeRenderer
 	 * @return this 3D GUI.
 	 * @throws NullArgumentException if the given shape class is null.
 	 * @throws NullArgumentException if the given shape renderer is null.
-	 * 
+	 * @throws InvalidStateException if this 3D GUI contains already
+	 * a shape class with the same name as the given shape class.
 	 */
 	public G addShapeClass(final Class<?> shapeClass, IShapeRenderer<?, ?, ?> shapeRenderer) {
 		
 		//Checks if the given shape class is not null.
-		Validator.suppose(shapeClass).isOfType(Shape.class);
+		Validator.suppose(shapeClass).thatIsNamed("shape class").isNotNull();
 		
-		//Checks if this
+		//Checks if the given shape renderer is not null.
+		Validator.suppose(shapeRenderer).thatIsNamed("shape renderer").isNotNull();
+		
+		//Checks if this 3D GUI does not contain already
+		//a shape class with the same name as the given shape class.
 		if (canCreateShape(shapeClass.getSimpleName())) {
 			throw new InvalidStateException(this, "contains already a shape class '" + shapeClass + "'");
 		}
@@ -122,7 +129,7 @@ implements Clearable<G>, Closable, Refreshable {
 	
 	//method
 	/**
-	 * Removes the root sahpe of this 3D GUI.
+	 * Removes the root shape of this 3D GUI.
 	 */
 	public final G clear() {
 		
@@ -158,15 +165,16 @@ implements Clearable<G>, Closable, Refreshable {
 	
 	//method
 	/**
-	 * @return the shapes of this 3D GUI.
+	 * @return the configurable objects of this 3D GUI.
 	 */
 	public final AccessorContainer<Configurable> getRefConfigurables() {
-		return new AccessorContainer<>(getRefShapes().to(s -> s));
+		return new AccessorContainer<>(getRefShapes());
 	}
 
 	//method
 	/**
 	 * @return the root shape of this 3D GUI.
+	 * @throws UnexistingAttributeException if this 3D GUI has no root shape.
 	 */
 	public final Shape<?> getRefRootShape() {
 		
@@ -209,6 +217,30 @@ implements Clearable<G>, Closable, Refreshable {
 	public final boolean isEmpty() {
 		return hasRootShape();
 	}
+	
+	//abstract method
+	/**
+	 * Lets this 3D GUI note a left mouse button press.
+	 */
+	public abstract void noteLeftMouseButtonPress();
+	
+	//abstract method
+	/**
+	 * Lets this 3D GUI note a left mouse button release.
+	 */
+	public abstract void noteLeftMouseButtonRelease();
+	
+	//abstract method
+	/**
+	 * Lets this 3D GUI note a right mouse button press.
+	 */
+	public abstract void noteRightMouseButtonPress();
+	
+	//abstract method
+	/**
+	 * Lets this 3D GUI note a right mouse button release.
+	 */
+	public abstract void noteRightMouseButtonRelease();
 	
 	//method
 	/**
@@ -268,10 +300,10 @@ implements Clearable<G>, Closable, Refreshable {
 	 */
 	public G setRootShape(final Shape<?> rootShape) {
 		
-		//Adds the given root shape to this 3D GUI.
+		//Sets this GUI to the given root shape.
 		rootShape.setGUI(this);
 		
-		//Sets the root shape of this 3D GUI.
+		//Sets the given root shape to this 3D GUI.
 		this.rootShape = rootShape;
 		
 		return getInstance();
@@ -296,6 +328,8 @@ implements Clearable<G>, Closable, Refreshable {
 	/**
 	 * @param shape
 	 * @return a new shape renderer for the given shape from this 3D GUI.
+	 * @throws UnexistingAttributeException
+	 * if this 3D GUI contains no shape renderer for the given shape.
 	 */
 	protected final IShapeRenderer<?, ?, ?> getShapeRendererFor(final Shape<?> shape) {
 		return
@@ -307,7 +341,7 @@ implements Clearable<G>, Closable, Refreshable {
 	//method
 	/**
 	 * @param type
-	 * @return a new shape of the given type with default values.
+	 * @return a new shape of the given type.
 	 * @throws InvalidArgumentException if this 3D GUI cannot create a shape of the given type.
 	 */
 	private Shape<?> createShape(final String type) {
@@ -332,7 +366,7 @@ implements Clearable<G>, Closable, Refreshable {
 				new ArgumentName("type"),
 				new Argument(type),
 				new ErrorPredicate(
-					"is invalid because the " + getType() + " cannot create a widget of " + type
+					"is not valid because the " + getType() + " cannot create a '" + type + "' shape"
 				)
 			);
 		}
