@@ -59,7 +59,6 @@ public final class DirectionTest extends Test {
 	public void test_toString() {
 		
 		//execution and verification
-		expect(Direction.LeftToRight.toString())
-		.equals("Direction(LeftToRight)");
+		expect(Direction.LeftToRight.toString()).equals("LeftToRight");
 	}
 }

@@ -59,7 +59,6 @@ public final class UniDirectionTest extends Test {
 	public void test_toString() {
 		
 		//execution and verification
-		expect(UniDirection.Horizontal.toString())
-		.equals("UniDirection(Horizontal)");
+		expect(UniDirection.Horizontal.toString()).equals("Horizontal");
 	}
 }

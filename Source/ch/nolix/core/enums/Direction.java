@@ -14,7 +14,7 @@ import ch.nolix.core.specificationInterfaces.SpecifiedByClassNameAndOneAttribute
  * 
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 40
+ * @lines 30
  */
 public enum Direction implements SpecifiedByClassNameAndOneAttribute {
 	LeftToRight,
@@ -31,15 +31,6 @@ public enum Direction implements SpecifiedByClassNameAndOneAttribute {
 	 * @return the attribute of this direction.
 	 */
 	public final StandardSpecification getAttribute() {
-		return
-		StandardSpecification.createSpecificationWithHeaderOnly(super.toString());
-	}
-	
-	//method
-	/**
-	 * @return a string representation of this direction.
-	 */
-	public final String toString() {
-		return getSpecification().toString();
+		return StandardSpecification.createSpecificationWithHeaderOnly(toString());
 	}
 }

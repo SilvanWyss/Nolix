@@ -15,7 +15,7 @@ import ch.nolix.core.specificationInterfaces.SpecifiedByClassNameAndOneAttribute
  * 
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 40
+ * @lines 30
  */
 public enum UniDirection implements SpecifiedByClassNameAndOneAttribute {
 	Horizontal,
@@ -28,15 +28,6 @@ public enum UniDirection implements SpecifiedByClassNameAndOneAttribute {
 	 * @return the attribute of this uni direction.
 	 */
 	public final StandardSpecification getAttribute() {
-		return
-		StandardSpecification.createSpecificationWithHeaderOnly(super.toString());
-	}
-	
-	//method
-	/**
-	 * @return a string representation of this uni direction.
-	 */
-	public final String toString() {
-		return getSpecification().toString();
+		return StandardSpecification.createSpecificationWithHeaderOnly(toString());
 	}
 }
