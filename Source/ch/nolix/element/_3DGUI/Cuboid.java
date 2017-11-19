@@ -60,14 +60,6 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * @return the x-bound-length of this cuboid.
-	 */
-	public double getXBoundLength() {
-		return getXLength();
-	}
-	
-	//method
-	/**
 	 * @return the x-length of this cuboid.
 	 */
 	public double getXLength() {
@@ -84,14 +76,6 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * @return the y-bound-length of this cuboid.
-	 */
-	public double getYBoundLength() {
-		return getYLength();
-	}
-	
-	//method
-	/**
 	 * @return the y-length of this cuboid.
 	 */
 	public double getYLength() {
@@ -104,14 +88,6 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	 */
 	public float getYLengthAsFloat() {
 		return (float)getYLength();
-	}
-
-	//method
-	/**
-	 * @return the z-bound-length of this cuboid.
-	 */
-	public double getZBoundLength() {
-		return getZLength();
 	}
 	
 	//method

@@ -88,12 +88,6 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 */
 	public abstract AccessorContainer<Shape<?>> getRefShapes();
 	
-	//abstract method
-	/**
-	 * @return the x-bound-length of this shape.
-	 */
-	public abstract double getXBoundLength();
-	
 	//method
 	/**
 	 * @return the x-position of this shape.
@@ -110,20 +104,6 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 		return position.getXAsFloat();
 	}
 	
-	//abstract method
-	/**
-	 * @return the y-bound-length of this shape.
-	 */
-	public abstract double getYBoundLength();
-	
-	//method
-	/**
-	 * @return the y-bound-length of this shape as float.
-	 */
-	public final float getYBoundLengthAsFloat() {
-		return (float)getYBoundLength();
-	}
-	
 	//method
 	/**
 	 * @return the y-position of this shape.
@@ -138,20 +118,6 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 */
 	public final float getYPositionAsFloat() {
 		return position.getYAsFloat();
-	}
-	
-	//abstract method
-	/**
-	 * @return the z-bound-length of this shape.
-	 */
-	public abstract double getZBoundLength();
-	
-	//method
-	/**
-	 * @return the z-bound-length of this shape as float.
-	 */
-	public final float getZBoundLengthAsFloat() {
-		return (float)getZBoundLength();
 	}
 	
 	//method

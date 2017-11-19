@@ -77,30 +77,6 @@ public final class Sphere extends BaseShape<Sphere> {
 	
 	//method
 	/**
-	 * @return the x-bound-length of this sphere.
-	 */
-	public double getXBoundLength() {
-		return getDiameter();
-	}
-
-	//method
-	/**
-	 * @return the y-bound-length of this sphere.
-	 */
-	public double getYBoundLength() {
-		return getDiameter();
-	}
-
-	//method
-	/**
-	 * @return the z-bound-length of this sphere.
-	 */
-	public double getZBoundLength() {
-		return getDiameter();
-	}
-	
-	//method
-	/**
 	 * Resets this sphere.
 	 */
 	public void reset() {
