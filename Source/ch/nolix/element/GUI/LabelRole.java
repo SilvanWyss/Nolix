@@ -1,17 +1,17 @@
-/*
- * file:	LabelRole.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	20
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
+//own imports
 import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.specificationInterfaces.SpecifiedByClassNameAndOneAttribute;
 
 //enum
-public enum LabelRole {
+/**
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 30
+ */
+public enum LabelRole implements SpecifiedByClassNameAndOneAttribute {
 	Title,
 	SubTitle,
 	Level1Header,
@@ -20,8 +20,12 @@ public enum LabelRole {
 	Level4Header,
 	ParagraphHeader,
 	DynamicInfoLabel;
-	
-	public StandardSpecification getSpecificationAs(final String type) {
-		return new StandardSpecification(type, toString());
+
+	//method
+	/**
+	 * @return the attribute of this label role.
+	 */
+	public StandardSpecification getAttribute() {
+		return StandardSpecification.createSpecificationWithHeaderOnly(toString());
 	}
 }

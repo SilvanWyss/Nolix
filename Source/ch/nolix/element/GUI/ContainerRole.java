@@ -1,22 +1,25 @@
-/*
- * file:	ContainerRole.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	10
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
-//own import
+//own imports
 import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.specificationInterfaces.SpecifiedByClassNameAndOneAttribute;
 
 //enum
-public enum ContainerRole {
+/**
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 20
+ */
+public enum ContainerRole implements SpecifiedByClassNameAndOneAttribute {
 	OverallContainer,
 	MainContainer;
-	
-	public StandardSpecification getSpecificationAs(final String type) {
-		return new StandardSpecification(type, toString());
+
+	//method
+	/**
+	 * @return the attribute of this container role.
+	 */
+	public StandardSpecification getAttribute() {
+		return StandardSpecification.createSpecificationWithHeaderOnly(toString());
 	}
 }

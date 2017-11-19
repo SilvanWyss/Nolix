@@ -1,22 +1,20 @@
-/*
- * file:	CursorIcon.java
- * author:	Silvan Wyss
- * month:	2016-05
- * lines:	50
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
-//java import
+//Java import
 import java.awt.Cursor;
 
-//own import
-
+//own imports
 import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.specificationInterfaces.SpecifiedByClassNameAndOneAttribute;
 
 //enum
-public enum CursorIcon {
+/**
+ * @author Silvan Wyss
+ * @month 2016-05
+ * @lines 50
+ */
+public enum CursorIcon implements SpecifiedByClassNameAndOneAttribute {
 	Arrow,
 	Cross,
 	Edit,
@@ -49,12 +47,12 @@ public enum CursorIcon {
 				return new Cursor(java.awt.Cursor.DEFAULT_CURSOR);
 		}
 	}
-	
+
 	//method
 	/**
-	 * @return the specification of this cursor icon
+	 * @return the attribute of this cursor icon.
 	 */
-	public final StandardSpecification getSpecification() {
-		return new StandardSpecification(TYPE_NAME, toString());
+	public StandardSpecification getAttribute() {
+		return StandardSpecification.createSpecificationWithHeaderOnly(toString());
 	}
 }
