@@ -505,7 +505,7 @@ public final class ListTest extends Test {
 		list.sort(s -> s.length());
 		
 		//verification
-			expect(list.getElementCount(), 6);
+			expect(list.getElementCount()).isEqualTo(6);
 			
 			expect(list.getRefAt(1)).equals("x");
 			expect(list.getRefAt(2)).equals("xx");
@@ -532,7 +532,7 @@ public final class ListTest extends Test {
 		list.sort(s -> s);
 		
 		//verification
-			expect(list.getElementCount(), 6);
+			expect(list.getElementCount()).isEqualTo(6);
 			
 			expect(list.getRefAt(1)).equals("elephant");
 			expect(list.getRefAt(2)).equals("jaguar");
