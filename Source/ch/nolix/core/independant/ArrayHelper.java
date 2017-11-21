@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.validator2;
+package ch.nolix.core.independant;
 
 //Java import
 import java.util.Vector;
@@ -7,18 +7,22 @@ import java.util.Vector;
 //own import
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
-//package-visible class
+//class
 /**
- * The array helper provides functions to handle arrays.
- * Methods are called on an object, functions are not.
- * The array helper is no common array helper because it has no dependencies.
+ * This class provides functions to handle arrays.
+ * Methods are called on objects, functions are called independently.
+ * 
+ * The array helper has no dependencies except invalid argument exceptions.
+ * -Advantage: The array helper does not import any bugs.
+ * -Disadvantage: The array helper cannot use helpful functionalities.
+ * 
  * Of this class no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 140
+ * @lines 150
  */
-final class ArrayHelper {
+public final class ArrayHelper {
 	
 	//static method
 	/**
@@ -28,7 +32,7 @@ final class ArrayHelper {
 	 * @return a new iterable object with the given values.
 	 * @throws NullArgumentExcetpion if the given values is null.
 	 */
-	public static Iterable<Double> createIterable(double[] values) {
+	public static Iterable<Double> createIterable(final double[] values) {
 		
 		//Checks if the given values is not null.
 		if (values == null) {

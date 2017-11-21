@@ -2,6 +2,7 @@
 package ch.nolix.core.validator2;
 
 //own imports
+import ch.nolix.core.independant.ArrayHelper;
 import ch.nolix.core.invalidArgumentException.NonBiggerArgumentException;
 import ch.nolix.core.invalidArgumentException.NonNegativeArgumentException;
 import ch.nolix.core.invalidArgumentException.NonPositiveArgumentException;

@@ -5,6 +5,7 @@ package ch.nolix.core.validator2;
 import java.util.Vector;
 
 //own imports
+import ch.nolix.core.independant.ArrayHelper;
 import ch.nolix.core.invalidArgumentException.FalseArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.invalidArgumentException.TrueArgumentException;
