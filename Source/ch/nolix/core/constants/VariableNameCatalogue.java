@@ -16,6 +16,7 @@ public class VariableNameCatalogue {
 	public static final String AMOUNT = "amount";
 	public static final String CAPACITY = "capacity";
 	public static final String CAPTION = "caption";
+	public static final String CONDITION = "condition";
 	public static final String CREATION_DATE = "date";
 	public static final String CREATOR = "creator";
 	public static final String DATE = "date";
@@ -34,6 +35,7 @@ public class VariableNameCatalogue {
 	public static final String ID = "id";
 	public static final String INDEX = "index";
 	public static final String LAST_NAME = "last name";
+	public static final String LENGTH = "length";
 	public static final String MAXIMUM = "maximum";
 	public static final String MINIMUM = "minimum";
 	public static final String NAME = "name";
@@ -43,6 +45,7 @@ public class VariableNameCatalogue {
 	public static final String REASON = "reason";
 	public static final String ROOT = "root";
 	public static final String ROOT_NODE = "root node";
+	public static final String SEQUENCE ="sequence";
 	public static final String START_DATE = "start date";
 	public static final String START_INDEX = "start index";
 	public static final String STATE = "state";
@@ -50,6 +53,8 @@ public class VariableNameCatalogue {
 	public static final String SURNAME = "surname";
 	public static final String TEXT = "text";
 	public static final String TIMEOUT = "timeout";
+	public static final String VALUE = "value";
+	public static final String VALUES = "values";
 	public static final String WEIGHT = "weight";
 	public static final String YEAR = "year";
 
