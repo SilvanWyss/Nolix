@@ -20,7 +20,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 150
+ * @lines 170
  */
 public final class ArrayHelper {
 	
@@ -82,7 +82,32 @@ public final class ArrayHelper {
 	 * @return a new iterable object with the given values.
 	 * @throws NullArgumentExcetpion if the given values is null.
 	 */
-	public static Iterable<Long> createIterable(long[] values) {
+	public static Iterable<Long> createIterable(final int[] values) {
+		
+		//Checks if the given values is not null.
+		if (values == null) {
+			throw new NullArgumentException("values");
+		}
+		
+		final Vector<Long> valueVector = new Vector<Long>();
+		
+		//Iterates the given elements.
+		for (final long v : values) {
+			valueVector.add(v);
+		}
+		
+		return valueVector;
+	}
+	
+	//static method
+	/**
+	 * Creates a new iterable object with the given values.
+	 * 
+	 * @param values
+	 * @return a new iterable object with the given values.
+	 * @throws NullArgumentExcetpion if the given values is null.
+	 */
+	public static Iterable<Long> createIterable(final long[] values) {
 		
 		//Checks if the given values is not null.
 		if (values == null) {
