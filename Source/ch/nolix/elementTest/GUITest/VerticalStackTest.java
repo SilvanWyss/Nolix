@@ -29,7 +29,7 @@ public final class VerticalStackTest extends Test {
 		final VerticalStack verticalStack = new VerticalStack();
 		
 		//verification
-		expect(verticalStack.getState()).equalsTo(WidgetState.Normal);
+		expect(verticalStack.getState()).isEqualTo(WidgetState.Normal);
 		expect(verticalStack.isEmpty());
 		expectNot(verticalStack.belongsToGUI());
 	}

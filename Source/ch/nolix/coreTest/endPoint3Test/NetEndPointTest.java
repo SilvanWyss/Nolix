@@ -67,7 +67,7 @@ public final class NetEndPointTest extends Test {
 		//verification
 		expect(endPointTakerMock.hasLastEndPoint());
 		expect(endPointTakerMock.getLastEndPoint().isAlive());
-		expect(received_reply).equals(reply);
+		expect(received_reply).isEqualTo(reply);
 	}
 	
 	//mock class

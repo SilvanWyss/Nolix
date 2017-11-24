@@ -2,34 +2,46 @@
 package ch.nolix.core.test2;
 
 //own imports
+import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.testoid.TestAccessor;
-import ch.nolix.core.validator2.Validator;
 
-//package-visible abstract class
+//abstract class
 /**
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 50
+ * @lines 60
  */
-abstract class Mediator {
+public abstract class Mediator {
 
 	//attribute
 	private final Test test;
 	
-	//constructor
+	//package-visible constructor
 	/**
 	 * Creates new mediator that belongs to the given test.
 	 * 
 	 * @param test
 	 * @throws NullArgumentException if the given test is null.
 	 */
-	public Mediator(final Test test) {
+	Mediator(final Test test) {
 		
 		//Checks if the given test is not null.
-		Validator.suppose(test).thatIsInstanceOf(Test.class).isNotNull();
+		if (test == null) {
+			throw new NullArgumentException("test");
+		}
 		
 		//Sets the test of this mediator.
 		this.test = test;
+	}
+	
+	//method
+	/**
+	 * @throws RuntimeException.
+	 */
+	public final boolean equals(final Object object) {
+		throw new RuntimeException(
+			"Do not use the equals method of a mediator. For expecting equality, use the 'isEqualTo' method."
+		);
 	}
 	
 	//method
@@ -44,7 +56,7 @@ abstract class Mediator {
 	/**
 	 * @return the test this mediator belongs to.
 	 */
-	protected final Test getTest() {
+	protected final Test getRefTest() {
 		return test;
 	}
 }

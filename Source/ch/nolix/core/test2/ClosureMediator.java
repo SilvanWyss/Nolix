@@ -3,14 +3,15 @@ package ch.nolix.core.test2;
 
 //own imports
 import ch.nolix.core.functionInterfaces.IRunner;
-import ch.nolix.core.testoid.TestAccessor;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //class
 /**
+ * A closure mediator is not mutable.
+ * 
  * @author Silvan Wyss
  * @month 2016-09
- * @lines 110
+ * @lines 120
  */
 public final class ClosureMediator extends Mediator {
 
@@ -19,17 +20,18 @@ public final class ClosureMediator extends Mediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new closure mediator that belongs to the given zeta test and has the given closure.
+	 * Creates new closure mediator that belongs to the given test and is for the given closure.
 	 * 
 	 * @param test
 	 * @param closure
-	 * @throws NullArgumentException if the given zeta test is null.
+	 * @throws NullArgumentException if the given test is null.
 	 */
 	ClosureMediator(final Test test, final IRunner closure) {
 		
 		//Calls constructor of the base class.
 		super(test);
 		
+		//Sets the closure of this closure mediator.
 		this.closure = closure;
 	}
 	
@@ -43,16 +45,16 @@ public final class ClosureMediator extends Mediator {
 		
 		//Handles the case that the closure of this closure mediator is null.
 		if (closure == null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A closure that throws an exception was expected, but null was received.");
+			addCurrentTestMethodError("A closure that throws an exception was expected, but null was received.");
 		}
 		
 		//Handles the case that the closure of this closure mediator is not null.
 		else {
 			try {
 				closure.run();
-				new TestAccessor(getTest()).addCurrentTestMethodError("An exception was expected, but no exception was received.");
+				addCurrentTestMethodError("An exception was expected, but no exception was thrown.");
 			}
-			catch (Exception e) {}
+			catch (final Exception exception) {}
 		}
 	}
 	
@@ -60,29 +62,35 @@ public final class ClosureMediator extends Mediator {
 	/**
 	 * Generates an error if:
 	 * -The closure of this closure mediator is null.
-	 * -The closure of this closure mediator throws no exception whose type is the given type or a sub type of the given type.
+	 * -The closure of this closure mediator throws no exception
+	 *  whose type is of the given type or is a sub type of the given type.
 	 * 
 	 * @param type
+	 * @throws NullArgumentException if the given type is null.
 	 */
 	public void throwsExceptionOfType(final Class<?> type) {
 		
 		//Checks if the given type is not null.
-		Validator.suppose(type).thatIsNamed("type").isNotNull();
+		if (type == null) {
+			throw new NullArgumentException("type");
+		}
 		
 		//Handles the case that the closure of this closure mediator is null.
 		if (closure == null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A closure that throws an exception of the type " + type.getName() + " was expected, but null was received.");
+			addCurrentTestMethodError("A closure that throws an exception of the type " + type.getName() + " was expected, but null was received.");
 		}
 		
 		//Handles the case that the closure of this closure mediator is not null.
 		else {
 			try {
 				closure.run();
-				new TestAccessor(getTest()).addCurrentTestMethodError("An exception of the type " + type.getName() + " was expected, but no exception was received.");
+				addCurrentTestMethodError("An exception of the type " + type.getName() + " was expected, but no exception was thrown.");
 			}
-			catch (Exception e) {
-				if (!e.getClass().isAssignableFrom(type)) {
-					new TestAccessor(getTest()).addCurrentTestMethodError("An exception of the type " + type.getName() + " was expected, but an exception of the type " + e.getClass().getName() + " was received.");
+			catch (final Exception exception) {
+				if (!exception.getClass().isAssignableFrom(type)) {
+					addCurrentTestMethodError(
+						"An exception of the type " + type.getName() + " was expected, but an exception of the type " + exception.getClass().getName() + " was thrown."
+					);
 				}
 			}
 		}
@@ -98,7 +106,7 @@ public final class ClosureMediator extends Mediator {
 		
 		//Handles the case that the closure of this closure mediator is null.
 		if (closure == null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A closure that throws no exception was expected, but null was received.");
+			addCurrentTestMethodError("A closure that throws no exception was expected, but null was received.");
 		}
 		
 		//Handles the case that the closure of this closure mediator is not null.
@@ -106,8 +114,8 @@ public final class ClosureMediator extends Mediator {
 			try {
 				closure.run();
 			}
-			catch (Exception e) {
-				new TestAccessor(getTest()).addCurrentTestMethodError("No exception was expected, but a " + e.getClass().getName() + " was received.");
+			catch (final Exception exception) {
+				addCurrentTestMethodError("No exception was expected, but a " + exception.getClass().getName() + " was thrown.");
 			}
 		}
 	}

@@ -3,14 +3,15 @@ package ch.nolix.core.test2;
 
 //own imports
 import ch.nolix.core.interfaces.ApproximativeEqualing;
-import ch.nolix.core.testoid.TestAccessor;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
 
 //class
 /**
+ * A double deviation mediator is not mutable.
+ * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 80
+ * @lines 120
  */
 public final class DoubleDeviationMediator extends Mediator {
 
@@ -20,11 +21,14 @@ public final class DoubleDeviationMediator extends Mediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new double deviation mediator that belongs to the given zeta test and has the given value and a default max deviation.
+	 * Creates new double deviation mediator
+	 * that belongs to the given test
+	 * and is for the given value
+	 * and has a default max deviation.
 	 * 
 	 * @param test
 	 * @param value
-	 * @throws NullArgumentException if the given zeta test is null.
+	 * @throws NullArgumentException if the given test is null.
 	 */
 	DoubleDeviationMediator(final Test test, final double value) {
 		
@@ -34,12 +38,14 @@ public final class DoubleDeviationMediator extends Mediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new double deviation mediator that belongs to the given zeta test and has the given value and max deviation.
+	 * Creates new double deviation mediator
+	 * that belongs to the given test
+	 * and is for the given value
+	 * and has the given default max deviation.
 	 * 
 	 * @param test
 	 * @param value
-	 * @param maxDeviation
-	 * @throws NullArgumentException if the given zeta test is null.
+	 * @throws NullArgumentException if the given test is null.
 	 * @throws NegativeArgumentException if the given max deviation is negative.
 	 */
 	DoubleDeviationMediator(
@@ -51,33 +57,66 @@ public final class DoubleDeviationMediator extends Mediator {
 		super(test);
 		
 		//Checks if the given max deviation is not negative.
-		Validator.suppose(maxDeviation).thatIsNamed("max deviation").isNotNegative();
+		if (maxDeviation < 0) {
+			throw new NegativeArgumentException("max deviation", maxDeviation);
+		}
 		
+		//Sets the value of this double deviation mediator.
 		this.value = value;
+		
+		//Sets the max deviatio nof this double deviation mediator.
 		this.maxDeviation = maxDeviation;
 	}
 	
 	//method
 	/**
-	 * Generates an error if the value of this double deviation mediator equals the given value with a deviation that is not bigger than the max deviation of this double deviation mediator.
+	 * Generates an error if the value of this double deviation mediator
+	 * does not equal the given value with a deviation that is not bigger than the max deviation of this double deviation mediator.
 	 *
 	 * @param value
 	 */
-	public final void equals(final double value) {
+	public void isEqualTo(final double value) {
 		
 		//Checks if the value of this double deviation mediator equals the given value with a devation that is not bigger than the max deviation of this double deviation mediator.
 		if (Math.abs(this.value - value) > maxDeviation) {
-			new TestAccessor(getTest()).addCurrentTestMethodError(this.value + "±" + maxDeviation + " was expected, but " + value + " was received.");
+			addCurrentTestMethodError(this.value + "±" + maxDeviation + " was expected, but " + value + " was received.");
 		}
 	}
 	
 	//method
 	/**
-	 * Generates an error if the value of this double deviation mediator is not 0.0 with a deviation that is not bigger than the max deviation of this double deviation mediator.
+	 * Generates an error if the value of this double deviation mediator
+	 * equals the given value with a deviation that is not bigger than the max deviation of this double deviation mediator.
+	 *
+	 * @param value
 	 */
-	public final void isZero() {
+	public void isNotEqualTo(final double value) {
 		
-		//Checks if the value of this double deviation mediator is 0.0 with a devation that is not bigger than the max deviation of this double deviation mediator.
-		equals(0.0);
+		//Checks if the value of this double deviation mediator equals the given value with a devation that is not bigger than the max deviation of this double deviation mediator.
+		if (Math.abs(this.value - value) <= maxDeviation) {
+			addCurrentTestMethodError("A value that does not equal " + value + "±" + maxDeviation + " was expected, but " + this.value + " was received.");
+		}
+	}
+	
+	//method
+	/**
+	 * Generates an error if the value of this double deviation mediator
+	 * equals 0.0 with a deviation that is not bigger than the max deviation of this double deviation mediator.
+	 */
+	public void isNotZero() {
+		
+		//Checks if the value of this double deviation mediator does not equal 0.0 with a deviation that is not bigger than the max deviation of this double deviation mediator.
+		isNotEqualTo(0.0);
+	}
+	
+	//method
+	/**
+	 * Generates an error if the value of this double deviation mediator
+	 * does not equal 0.0 with a deviation that is not bigger than the max deviation of this double deviation mediator.
+	 */
+	public void isZero() {
+		
+		//Checks if the value of this double deviation mediator equals 0.0 with a deviation that is not bigger than the max deviation of this double deviation mediator.
+		isEqualTo(0.0);
 	}
 }

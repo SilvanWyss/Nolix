@@ -35,6 +35,6 @@ public class WidthTest extends Test {
 		final Width width = new Width();
 		
 		//execution and verification
-		expect(width.getType()).equals(Width.TYPE_NAME);		
+		expect(width.getType()).isEqualTo(Width.TYPE_NAME);		
 	}
 }

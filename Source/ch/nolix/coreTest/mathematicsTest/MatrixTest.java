@@ -79,7 +79,7 @@ public final class MatrixTest extends Test {
 		
 		//verification
 		final Matrix expectedMatrix = new Matrix(2, 3).setValues(6.0, 6.0, 6.0, 8.0, 8.0, 8.0);
-		expect(sum).eualsTo(expectedMatrix);
+		expect(sum).isEqualTo(expectedMatrix);
 	}
 	
 	//test method
@@ -94,7 +94,7 @@ public final class MatrixTest extends Test {
 		
 		//verification
 		final Matrix expectedMatrix = new Matrix(2, 4).setValues(1.0, 1.0, 5.0, 5.0, 2.0, 2.0, 6.0, 6.0);
-		expect(matrix1).eualsTo(expectedMatrix);
+		expect(matrix1).isEqualTo(expectedMatrix);
 	}
 	
 	//test method
@@ -107,7 +107,7 @@ public final class MatrixTest extends Test {
 		final Matrix inverse = matrix.getInverse();
 		
 		//verification
-		expect(matrix.getProduct(inverse)).eualsTo(Matrix.createIdendityMatrix(2));
+		expect(matrix.getProduct(inverse)).isEqualTo(Matrix.createIdendityMatrix(2));
 	}
 	
 	//test method
@@ -120,7 +120,7 @@ public final class MatrixTest extends Test {
 		final Matrix inverse = matrix.getInverse();
 
 		//verification
-		expect(matrix.getProduct(inverse)).withDefaultMaxDeviation().equals(Matrix.createIdendityMatrix(3));
+		expect(matrix.getProduct(inverse)).withDefaultMaxDeviation().isEqualTo(Matrix.createIdendityMatrix(3));
 	}
 	
 	//test method
@@ -133,7 +133,7 @@ public final class MatrixTest extends Test {
 		final Matrix inverse = matrix.getInverse();
 
 		//verification
-		expect(matrix.getProduct(inverse)).withDefaultMaxDeviation().equals(Matrix.createIdendityMatrix(4));
+		expect(matrix.getProduct(inverse)).withDefaultMaxDeviation().isEqualTo(Matrix.createIdendityMatrix(4));
 	}
 	
 	//test method
@@ -148,7 +148,7 @@ public final class MatrixTest extends Test {
 		
 		//verification
 		final Matrix expectedProduct = new Matrix(2, 2).setValues(6, 6, 12, 12);
-		expect(product).eualsTo(expectedProduct);
+		expect(product).isEqualTo(expectedProduct);
 	}
 	
 	//test method
@@ -193,7 +193,7 @@ public final class MatrixTest extends Test {
 		
 		//verification
 		Matrix expectedTransposed = new Matrix(3, 4).setValues(20.0, 10.0, 20.0, 10.0, 10.0, 20.0, 10.0, 20.0, 1.0, 1.0, 1.0, 1.0);
-		expect(transposed).eualsTo(expectedTransposed);
+		expect(transposed).isEqualTo(expectedTransposed);
 	}
 	
 	//test method
@@ -203,7 +203,7 @@ public final class MatrixTest extends Test {
 		final Matrix matrix = new Matrix(1);
 
 		//execution and verification
-		expect(matrix.toString()).equals("[0]");
+		expect(matrix.toString()).isEqualTo("[0]");
 	}
 	
 	//test method
@@ -213,7 +213,7 @@ public final class MatrixTest extends Test {
 		final Matrix matrix = new Matrix(2);
 
 		//execution and verification
-		expect(matrix.toString()).equals("[0,0;0,0]");
+		expect(matrix.toString()).isEqualTo("[0,0;0,0]");
 	}
 	
 	//test method
@@ -223,7 +223,7 @@ public final class MatrixTest extends Test {
 		final Matrix matrix = new Matrix(3);
 
 		//execution and verification
-		expect(matrix.toString()).equals("[0,0,0;0,0,0;0,0,0]");
+		expect(matrix.toString()).isEqualTo("[0,0,0;0,0,0;0,0,0]");
 	}
 	
 	//test method
@@ -233,7 +233,7 @@ public final class MatrixTest extends Test {
 		final Matrix matrix = new Matrix(4);
 		
 		//execution and verification
-		expect(matrix.toString()).equals("[0,0,0,0;0,0,0,0;0,0,0,0;0,0,0,0]");
+		expect(matrix.toString()).isEqualTo("[0,0,0,0;0,0,0,0;0,0,0,0;0,0,0,0]");
 	}
 	
 	//test method
@@ -243,7 +243,7 @@ public final class MatrixTest extends Test {
 		final Matrix matrix = Matrix.createIdendityMatrix(1);
 		
 		//execution and verification
-		expect(matrix.toString()).equals("[1]");
+		expect(matrix.toString()).isEqualTo("[1]");
 	}
 	
 	//test method
@@ -253,7 +253,7 @@ public final class MatrixTest extends Test {
 		final Matrix matrix = Matrix.createIdendityMatrix(2);
 		
 		//execution and verification
-		expect(matrix.toString()).equals("[1,0;0,1]");
+		expect(matrix.toString()).isEqualTo("[1,0;0,1]");
 	}
 	
 	//test method
@@ -263,7 +263,7 @@ public final class MatrixTest extends Test {
 		final Matrix matrix = Matrix.createIdendityMatrix(3);
 				
 		//execution and verification
-		expect(matrix.toString()).equals("[1,0,0;0,1,0;0,0,1]");
+		expect(matrix.toString()).isEqualTo("[1,0,0;0,1,0;0,0,1]");
 	}
 	
 	//test method
@@ -273,6 +273,6 @@ public final class MatrixTest extends Test {
 		final Matrix matrix = Matrix.createIdendityMatrix(4);
 				
 		//execution and verification
-		expect(matrix.toString()).equals("[1,0,0,0;0,1,0,0;0,0,1,0;0,0,0,1]");
+		expect(matrix.toString()).isEqualTo("[1,0,0,0;0,1,0,0;0,0,1,0;0,0,0,1]");
 	}
 }

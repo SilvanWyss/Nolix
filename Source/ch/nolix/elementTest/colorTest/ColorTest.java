@@ -103,7 +103,7 @@ public final class ColorTest extends Test {
 		final String type = color.getType();
 		
 		//verification
-		expect(type).equals("Color");
+		expect(type).isEqualTo("Color");
 	}
 	
 	//test method
@@ -136,7 +136,7 @@ public final class ColorTest extends Test {
 		final String string = color.toString();
 		
 		//verification
-		expect(string).equals("Color(AliceBlue)");
+		expect(string).isEqualTo("Color(AliceBlue)");
 	}
 	
 	//test method
@@ -149,6 +149,6 @@ public final class ColorTest extends Test {
 		final String string = color.toString();
 		
 		//verification
-		expect(string).equals("Color(YellowGreen)");
+		expect(string).isEqualTo("Color(YellowGreen)");
 	}
 }

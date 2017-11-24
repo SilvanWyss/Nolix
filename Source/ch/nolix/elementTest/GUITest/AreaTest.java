@@ -33,8 +33,8 @@ public final class AreaTest extends Test {
 		.setBackgroundColor(new BackgroundColor(BackgroundColor.GREEN_INT));
 		
 		//verification
-		expect(area1).equalsTo(area2);
-		expect(area2).equalsTo(area1);
+		expect(area1).isEqualTo(area2);
+		expect(area2).isEqualTo(area1);
 	}
 	
 	//test method

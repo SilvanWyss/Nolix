@@ -22,7 +22,7 @@ public final class DirectionTest extends Test {
 		
 		//execution and verification
 		expect(Direction.LeftToRight.getAttribute())
-		.equalsTo(new StandardSpecification("LeftToRight"));
+		.isEqualTo(new StandardSpecification("LeftToRight"));
 	}
 	
 	//test method
@@ -36,7 +36,7 @@ public final class DirectionTest extends Test {
 			expect(attributes.getElementCount()).isEqualTo(1);
 			
 			expect(attributes.getRefOne())
-			.equalsTo(new StandardSpecification("LeftToRight"));
+			.isEqualTo(new StandardSpecification("LeftToRight"));
 	}
 
 	//test method
@@ -44,21 +44,20 @@ public final class DirectionTest extends Test {
 		
 		//execution and verification
 		expect(Direction.LeftToRight.getSpecification())
-		.equalsTo(new StandardSpecification("Direction(LeftToRight)"));
+		.isEqualTo(new StandardSpecification("Direction(LeftToRight)"));
 	}
 	
 	//test method
 	public void test_getType() {
 		
 		//execution and verification
-		expect(Direction.LeftToRight.getType())
-		.equals("Direction");
+		expect(Direction.LeftToRight.getType()).isEqualTo("Direction");
 	}
 	
 	//test method
 	public void test_toString() {
 		
 		//execution and verification
-		expect(Direction.LeftToRight.toString()).equals("LeftToRight");
+		expect(Direction.LeftToRight.toString()).isEqualTo("LeftToRight");
 	}
 }

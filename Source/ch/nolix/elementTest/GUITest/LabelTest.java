@@ -47,6 +47,6 @@ public final class LabelTest extends Test {
 		label.setText(text);
 		
 		//verification
-		expect(label.getText()).equals(text);
+		expect(label.getText()).isEqualTo(text);
 	}
 }

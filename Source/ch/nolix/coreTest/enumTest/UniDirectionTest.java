@@ -22,7 +22,7 @@ public final class UniDirectionTest extends Test {
 		
 		//execution and verification
 		expect(UniDirection.Horizontal.getAttribute())
-		.equalsTo(new StandardSpecification("Horizontal"));
+		.isEqualTo(new StandardSpecification("Horizontal"));
 	}
 	
 	//test method
@@ -36,7 +36,7 @@ public final class UniDirectionTest extends Test {
 			expect(attributes.getElementCount()).isEqualTo(1);
 			
 			expect(attributes.getRefOne())
-			.equalsTo(new StandardSpecification("Horizontal"));
+			.isEqualTo(new StandardSpecification("Horizontal"));
 	}
 
 	//test method
@@ -44,21 +44,20 @@ public final class UniDirectionTest extends Test {
 		
 		//execution and verification
 		expect(UniDirection.Horizontal.getSpecification())
-		.equalsTo(new StandardSpecification("UniDirection(Horizontal)"));
+		.isEqualTo(new StandardSpecification("UniDirection(Horizontal)"));
 	}
 	
 	//test method
 	public void test_getType() {
 		
 		//execution and verification
-		expect(UniDirection.Horizontal.getType())
-		.equals("UniDirection");
+		expect(UniDirection.Horizontal.getType()).isEqualTo("UniDirection");
 	}
 	
 	//test method
 	public void test_toString() {
 		
 		//execution and verification
-		expect(UniDirection.Horizontal.toString()).equals("Horizontal");
+		expect(UniDirection.Horizontal.toString()).isEqualTo("Horizontal");
 	}
 }

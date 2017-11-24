@@ -1,72 +1,133 @@
-/*
- * file:	LongContainerMediator.java
- * author:	Silvan Wyss
- * month:	2016-11
- * lines:	240
- */
-
 //package declaration
 package ch.nolix.core.test2;
 
-import ch.nolix.core.testoid.TestAccessor;
-
-//own import
+//own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.independant.ArrayHelper;
+import ch.nolix.core.invalidArgumentException.NonBiggerArgumentException;
+import ch.nolix.core.invalidArgumentException.NonPositiveArgumentException;
 
 //class
+/**
+ * A multi long mediator is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-11
+ * @lines 370
+ */
 public final class MultiLongMediator extends Mediator {
 
 	//attribute
 	private final Iterable<Long> values;
 	
-	//constructor
+	//package-visible constructor
 	/**
-	 * Creates new long container mediator that belongs to the given test and has the given values.
+	 * Creates new multi long mediator that belongs to the given test and is for the given values.
 	 * 
-	 * @param test - the test this long container mediator belongs to
+	 * @param test
 	 * @param values
-	 * @throws Excepion if the given test is null
+	 * @throws NullArgumentException if the given test is null.
 	 */
-	protected MultiLongMediator(
-		final Test test,
-		final Iterable<Long> values) {
+	MultiLongMediator(final Test test, final int[] values) {
+		
+		//Calls constructor of the base class.
+		super(test);
+		
+		//Handles the case that the given values is null.
+		if (values == null) {
+			this.values = null;
+		}
+		
+		//Handles the case that the given values is not null.
+		else {
+			this.values = ArrayHelper.createIterable(values);
+		}
+	}
+
+	//package-visible constructor
+	/**
+	 * Creates new multi long mediator that belongs to the given test and is for the given values.
+	 * 
+	 * @param test
+	 * @param values
+	 * @throws NullArgumentException if the given test is null.
+	 */
+	MultiLongMediator(final Test test, final Iterable<Long> values) {
 		
 		//Calls constructor of the base class.
 		super(test);
 
+		//Sets the values of this multi long mediator.
 		this.values = values;
 	}
-	
+
+	//package-visible constructor
+	/**
+	 * Creates new multi long mediator that belongs to the given test and is for the given values.
+	 * 
+	 * @param test
+	 * @param values
+	 * @throws NullArgumentException if the given test is null.
+	 */
+	MultiLongMediator(final Test test, final long[] values) {
+		
+		//Calls constructor of the base class.
+		super(test);
+		
+		//Handles the case that the given values is null.
+		if (values == null) {
+			this.values = null;
+		}
+		
+		//Handles the case that the given values is not null.
+		else {
+			this.values = ArrayHelper.createIterable(values);
+		}
+	}
+
 	//method
 	/**
-	 * Generates an error for all values of this long container mediator that are not between the given min and max.
+	 * Generates an error for all values of this multi long mediator that are not between the given min and max.
 	 * 
 	 * @param min
 	 * @param max
-	 * @throws Exception if the given min is bigger than the given max
+	 * @throws NonBiggerArgumentException if the given max is not bigger than the given min.
 	 */
 	public void areBetween(final int min, final int max) {
 		
-		//Checks the given min and max.
-		if (min > max) {
-			throw new RuntimeException("A value cannot not be between " + min + " and " + max + ".");
+		//Checks if the given max is bigger than the given min.
+		if (max <= min) {
+			throw new NonBiggerArgumentException("max", max, min);
 		}
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			addNullValuesError();
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
-			for (Long v: values) {
-				new LongMediator(getTest(), v).isBetween(min, max);
+			
+			//Iterates the values of this multi long mediator.
+			int i = 1;
+			for (final long v: values) {
+				
+				//Checks if the current value is between the given min and max.
+				if (v < min || v > max) {
+					addCurrentTestMethodError(
+						"Values that are between " + min + " and " + max + " were expected, but the " + i + "th value is not."
+					);
+				}
+				
+				//Increments the index.
+				i++;
 			}
 		}
 	}
 	
 	//method
 	/**
-	 * Generates an error for all values of this long container mediator that are not bigger than the given value.
+	 * Generates an error for all values of this multi long mediator that are not bigger than the given value.
 	 * 
 	 * @param value
 	 */
@@ -74,117 +135,218 @@ public final class MultiLongMediator extends Mediator {
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			addNullValuesError();
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
-			for (Long v: values) {
-				new LongMediator(getTest(), v).isBiggerThan(value);
+			
+			//Iterates the values of this multi long mediator.
+			int i = 1;
+			for (final long v: values) {
+				
+				//Checks if the current value is bigger than the given value.
+				if (v <= value) {
+					addCurrentTestMethodError(
+						"Values that are bigger than " + value + " were expected, but the " + i + "th value is not."
+					);
+				}
+				
+				//Increments the index.
+				i++;
 			}
 		}
 	}
 	
 	//method
 	/**
-	 * Generates an error for all values of this long container mediator that are not dividable by the given value.
+	 * Generates an error for all values of this multi long mediator that are not dividable by the given value.
 	 * 
 	 * @param value
+	 * @throws NonPositiveArgumentException if the given value is not positive.
 	 */
-	public void areDividableThan(final long value) {
+	public void areDividableBy(final long value) {
+		
+		//Checks if the given value is positive.
+		if (value < 1) {
+			throw new NonPositiveArgumentException(VariableNameCatalogue.VALUE, value);
+		}
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			addNullValuesError();
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
-			for (Long v: values) {
-				new LongMediator(getTest(), v).isDividableBy(value);
+			
+			//Iterates the values of this multi long mediator.
+			int i = 1;
+			for (final long v: values) {
+				
+				//Checks if the current value is dividable by the given value.
+				if (v % value != 0) {
+					addCurrentTestMethodError(
+						"Values that are dividable by " + value + " were expected, but the " + i + "th value is not."
+					);
+				}
+				
+				//Increments the index.
+				i++;
 			}
 		}
 	}
 	
 	//method
 	/**
-	 * Generates an error for all values of this long container mediator that are not even.
+	 * Generates an error for all values of this multi long mediator that do not equal the given value.
+	 */
+	public void areEqualTo(final long value) {
+		
+		//Handles the case that the given values are null.
+		if (values == null) {
+			addNullValuesError();
+		}
+		
+		//Handles the case that the given values are not null.
+		else {
+			
+			//Iterates the values of this multi long mediator.
+			int i = 1;
+			for (final long v: values) {
+				
+				//Checks if the current value equals the given value.
+				if (v != value) {
+					addCurrentTestMethodError(
+						"Values that equal " + value + " were expected, but the " + i + "th value does not."
+					);
+				}
+				
+				//Increments the index.
+				i++;
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * Generates an error for all values of this multi long mediator that are not even.
 	 */
 	public void areEven() {
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			addNullValuesError();
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
-			for (Long v: values) {
-				new LongMediator(getTest(), v).isEven();
+			
+			//Iterates the values of this multi long mediator.
+			int i = 1;
+			for (final long v: values) {
+				
+				//Checks if the current value is even.
+				if (v % 2 != 0) {
+					addCurrentTestMethodError("Even values were expected, but the " + i + "th value is not.");
+				}
+				
+				//Increments the index.
+				i++;
 			}
 		}
 	}
 	
 	//method
 	/**
-	 * Generates an error for all values of this long container mediator that are not negative.
+	 * Generates an error for all values of this multi long mediator that are not negative.
 	 */
 	public void areNegative() {
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			addNullValuesError();
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
-			for (Long v: values) {
-				new LongMediator(getTest(), v).isNegative();
+			
+			//Iterates the values of this multi long mediator.
+			int i = 1;
+			for (final long v: values) {
+				
+				//Checks if the current value is negative.
+				if (v >= 0) {
+					addCurrentTestMethodError("Negative values were expected, but the " + i + "th value is not.");
+				}
+				
+				//Increments the index.
+				i++;
 			}
 		}
 	}
 	
 	//method
 	/**
-	 * Generates an error for all values of this long container mediator that are not odd.
+	 * Generates an error for all values of this multi long mediator that are not odd.
 	 */
 	public void areOdd() {
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			addNullValuesError();
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
-			for (Long v: values) {
-				new LongMediator(getTest(), v).isOdd();
+			
+			//Iterates the values of this multi long mediator.
+			int i = 1;
+			for (final long v: values) {
+				
+				//Checks if the current value is odd.
+				if (v % 2 == 0) {
+					addCurrentTestMethodError("Odd values were expected, but the " + i + "th value is not.");
+				}
+				
+				//Increments the index.
+				i++;
 			}
 		}
 	}
 	
 	//method
 	/**
-	 * Generates an error for all values of this long container mediator that are not positive.
+	 * Generates an error for all values of this multi long mediator that are not positive.
 	 */
 	public void arePositive() {
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			addNullValuesError();
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
-			for (Long v: values) {
-				new LongMediator(getTest(), v).isPositive();
+			
+			//Iterates the values of this multi long mediator.
+			int i = 1;
+			for (final long v: values) {
+				
+				//Checks if the current value is positive.
+				if (v <= 0) {
+					addCurrentTestMethodError("Positive values were expected, but the " + i + "th value is not.");
+				}
+				
+				//Increments the index.
+				i++;
 			}
 		}
 	}
 	
 	//method
 	/**
-	 * Generates an error for all values of this long container mediator that are not smaller than the given value.
+	 * Generates an error for all values of this multi long mediator that are not smaller than the given value.
 	 * 
 	 * @param value
 	 */
@@ -192,52 +354,65 @@ public final class MultiLongMediator extends Mediator {
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			addNullValuesError();
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
-			for (Long v: values) {
-				new LongMediator(getTest(), v).isSmallerThan(value);
+			
+			//Iterates the values of this multi long mediator.
+			int i = 1;
+			for (final long v: values) {
+				
+				//Checks if the current value is smaller than the given value.
+				if (v >= value) {
+					addCurrentTestMethodError(
+						"Values that are smaller than " + value + " were expected, but the " + i + "th value is not."
+					);
+				}
+				
+				//Increments the index.
+				i++;
 			}
 		}
 	}
 	
 	//method
 	/**
-	 * Generates an error for all values of this long container mediator that are not equal to the given value.
+	 * Generates an error for all values of this multi long mediator that equal the given value.
 	 */
-	public void equalsNot(final long value) {
+	public void areNotEqualTo(final long value) {
 		
 		//Handles the case that the given values are null.
 		if (values == null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
+			addNullValuesError();
 		}
 		
 		//Handles the case that the given values are not null.
 		else {
-			for (Long v: values) {
-				new LongMediator(getTest(), v).isEqualTo(value);
+			
+			//Iterates the values of this multi long mediator.
+			int i = 1;
+			for (final long v: values) {
+				
+				//Checks if the current value does not equal the given value.
+				if (v == value) {
+					addCurrentTestMethodError(
+						"Values that do not equal " + value + " were expected, but the " + i + "th value does."
+					);
+				}
+				
+				//Increments the index.
+				i++;
 			}
 		}
 	}
 	
 	//method
 	/**
-	 * Generates an error for all values of this long container mediator that are equal to the given value.
+	 * Adds a null values error to the test this mediator belongs to.
 	 */
-	public void equalNot(final int value) {
-		
-		//Handles the case that the given values are null.
-		if (values == null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("Values were expected, but null was received.");
-		}
-		
-		//Handles the case that the given values are not null.
-		else {
-			for (Long v: values) {
-				new LongMediator(getTest(), v).equalsNot(value);
-			}
-		}
+	private void addNullValuesError() {
+		this.addCurrentTestMethodError("Values were expected, but null was received.");
 	}
 }

@@ -15,9 +15,18 @@ import ch.nolix.core.testoid.TestAccessor;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 190
+ * @lines 250
  */
 public abstract class Test extends ch.nolix.core.testoid.Testoid {
+	
+	//method
+	/**
+	 * @param value
+	 * @return a new approximative equaling mediator that belongs to this test and has the given value.
+	 */
+	protected final ApproximativeEqualingMediator expect(final ApproximativeEqualing value) {
+		return new ApproximativeEqualingMediator(this, value);
+	}
 	
 	//method
 	/**
@@ -54,20 +63,29 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 				
 				//Handles the case that the current value is false.
 				if (!b) {
-					new TestAccessor(this).addCurrentTestMethodError("True values were expected, but the " + index + "th value is false.");
+					new TestAccessor(this)
+					.addCurrentTestMethodError("True values were expected, but the " + index + "th value is false.");
 				}
+				
+				//Increments index.
+				index++;
 			}
 	}
 	
 	//method
 	/**
 	 * @param value
-	 * @return a new double mediator that belongs to this test and has the given value.
+	 * @return a new double mediator that belongs to this test and is for the given value.
 	 */
 	protected final DoubleMediator expect(final double value) {
 		return new DoubleMediator(this, value);
 	}
-	
+		
+	//method
+	/**
+	 * @param value
+	 * @return a new double mediator that belongs to this test and is for the given value.
+	 */
 	protected final DoubleMediator expect(final Double value) {
 		return new DoubleMediator(this, value);
 	}
@@ -75,7 +93,7 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	//method
 	/**
 	 * @param value
-	 * @return a new long mediator that belongs to this test and has the given value.
+	 * @return a new long mediator that belongs to this test and is for the given value.
 	 */
 	protected final LongMediator expect(final int value) {
 		return new LongMediator(this, value);
@@ -84,16 +102,25 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	//method
 	/**
 	 * @param value
-	 * @return a new long mediator for the givne value that belongs to this test.
+	 * @return a new long mediator that belongs to this test and is for the given value.
 	 */
 	protected final LongMediator expect(final Integer value) {
 		return new LongMediator(this, value);
 	}
 	
+	//test method
+	/**
+	 * @param closure
+	 * @return a new closure mediator that belongs to this test and is for the given closure.
+	 */
+	protected final ClosureMediator expect(final IRunner closure) {
+		return new ClosureMediator(this, closure);
+	}
+	
 	//method
 	/**
 	 * @param value
-	 * @return a new long mediator that belongs to this test and has the given value.
+	 * @return a new long mediator that belongs to this test and is for the given value.
 	 */
 	protected final LongMediator expect(final long value) {
 		return new LongMediator(this, value);
@@ -102,53 +129,10 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	//method
 	/**
 	 * @param value
-	 * @return a new long mediator for the givne value that belongs to this test.
+	 * @return a new long mediator that belongs to this test and is for the given value.
 	 */
 	protected final LongMediator expect(final Long value) {
 		return new LongMediator(this, value);
-	}
-	
-	//method
-	/**
-	 * @param values
-	 * @return a new long container mediator that belongs to this test and has the given values.
-	 */
-	protected final MultiLongMediator expect(final long... values) {
-		
-		//Creates long vector.
-		final Vector<Long> longVectors = new Vector<Long>();
-		for (long v: values) {
-			longVectors.add(v);
-		}
-		
-		return expectTheLongs(longVectors);
-	}
-	
-	//method
-	/**
-	 * @param value
-	 * @return a new approximative equaling mediator that belongs to this test and has the given value.
-	 */
-	protected final ApproximativeEqualingMediator expect(final ApproximativeEqualing value) {
-		return new ApproximativeEqualingMediator(this, value);
-	}
-	
-	//test method
-	/**
-	 * @param closure
-	 * @return a new closure mediator that belongs to this test and has the given closure.
-	 */
-	protected final ClosureMediator expect(final IRunner closure) {
-		return new ClosureMediator(this, closure);
-	}
-	
-	//method
-	/**
-	 * @param values
-	 * @return a new long container mediator that belongs to this test and has the given values.
-	 */
-	protected final MultiLongMediator expectTheLongs(final Iterable<Long> values) {
-		return new MultiLongMediator(this, values);
 	}
 	
 	//method
@@ -176,6 +160,8 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	 * @param value
 	 */
 	protected final void expectNot(final boolean value) {
+		
+		//Handles the case that the given value is true.
 		if (value) {
 			new TestAccessor(this).addCurrentTestMethodError("False was expected, but true was received.");
 		}
@@ -188,8 +174,78 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	 * @param values
 	 */
 	protected final void expectNot(final boolean... values) {
-		for (boolean v: values) {
-			expectNot(v);
+		
+		//Handles the case that the given values is null.
+		if (values == null) {
+			new TestAccessor(this).addCurrentTestMethodError("False values were expected, but null was received.");
 		}
+		
+		//Handles the case that the given values is not null.
+		
+			//Iterates the given values.
+			int index = 1;
+			for (final boolean v: values) {
+				
+				//Handles the case that the current value is false.
+				if (v) {
+					new TestAccessor(this)
+					.addCurrentTestMethodError("False values were expected, but the " + index + "th value is true.");
+				}
+				
+				//Increments index.
+				index++;
+			}
+	}
+	
+	//method
+	/**
+	 * @param values
+	 * @return a new multi double mediator that belongs to this test and is for the given values.
+	 */
+	protected final MultiDoubleMediator expectTheDoubles(final double... values) {
+		return new MultiDoubleMediator(this, values);
+	}
+	
+	//method
+	/**
+	 * @param values
+	 * @return a new multi double mediator that belongs to this test and is for the given values.
+	 */
+	protected final MultiDoubleMediator expectTheDoubles(Iterable<Double> values) {
+		return new MultiDoubleMediator(this, values);
+	}
+	
+	//method
+	/**
+	 * @param values
+	 * @return a new multi long mediator that belongs to this test and is for the given values.
+	 */
+	protected final MultiLongMediator expectTheInts(final int... values) {
+		return new MultiLongMediator(this, values);		
+	}
+	
+	//method
+	/**
+	 * @param values
+	 * @return a new long container mediator that belongs to this test and has the given values.
+	 */
+	protected final MultiLongMediator expectTheLongs(final Iterable<Long> values) {
+		return new MultiLongMediator(this, values);
+	}
+	
+	//method
+	/**
+	 * @param values
+	 * @return a new long container mediator that belongs to this test and has the given values.
+	 */
+	protected final MultiLongMediator expectTheLongs(final long... values) {
+		
+		//Creates long vector.
+		final Vector<Long> longVectors = new Vector<Long>();
+		for (long v: values) {
+			longVectors.add(v);
+		}
+		
+		return expectTheLongs(longVectors);
 	}
 }

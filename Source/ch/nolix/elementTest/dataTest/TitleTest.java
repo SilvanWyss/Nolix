@@ -22,7 +22,7 @@ public final class TitleTest extends Test {
 		final Title title = new Title();
 		
 		//execution and verification
-		expect(title.getType()).equals("Title");
+		expect(title.getType()).isEqualTo("Title");
 	}
 	
 	//test method
@@ -35,7 +35,7 @@ public final class TitleTest extends Test {
 		final Title title = new Title(value);
 		
 		//execution and verification
-		expect(title.getValue()).equals(value);
+		expect(title.getValue()).isEqualTo(value);
 	}
 	
 	//test method
@@ -49,6 +49,6 @@ public final class TitleTest extends Test {
 		final Title title = new Title(value);
 		
 		//execution and verification
-		expect(title.getValueInQuotes()).equals(valueInQuotes);
+		expect(title.getValueInQuotes()).isEqualTo(valueInQuotes);
 	}
 }

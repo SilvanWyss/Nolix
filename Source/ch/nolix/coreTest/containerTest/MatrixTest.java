@@ -28,6 +28,6 @@ public final class MatrixTest extends Test {
 		expect(matrix.getElementCount()).isEqualTo(3);
 		expect(matrix.getRowCount()).isEqualTo(1);
 		expect(matrix.getColumnCount()).isEqualTo(3);
-		expect(matrix.toString()).equalsTo("apple,banana,cerish");
+		expect(matrix.toString()).isEqualTo("apple,banana,cerish");
 	}
 }

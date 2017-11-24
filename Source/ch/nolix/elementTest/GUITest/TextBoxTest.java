@@ -56,6 +56,6 @@ public class TextBoxTest extends Test {
 		textBox.setText("Test");
 		
 		//verification
-		expect(textBox.getText()).equals("Test");
+		expect(textBox.getText()).isEqualTo("Test");
 	}
 }

@@ -23,10 +23,10 @@ public final class ARModelTest extends Test {
 		final ARModel ARModel_ = new ARModel(1, inputValues);
 		
 		//verification
-		expect(ARModel_.getForecast(1)).withMaxDeviation(0.01).equals(11.0);
-		expect(ARModel_.getForecast(2)).withMaxDeviation(0.01).equals(12.0);
-		expect(ARModel_.getForecast(3)).withMaxDeviation(0.01).equals(13.0);
-		expect(ARModel_.getForecast(4)).withMaxDeviation(0.01).equals(14.0);
+		expect(ARModel_.getForecast(1)).withMaxDeviation(0.01).isEqualTo(11.0);
+		expect(ARModel_.getForecast(2)).withMaxDeviation(0.01).isEqualTo(12.0);
+		expect(ARModel_.getForecast(3)).withMaxDeviation(0.01).isEqualTo(13.0);
+		expect(ARModel_.getForecast(4)).withMaxDeviation(0.01).isEqualTo(14.0);
 	}
 	
 	//test method
@@ -37,10 +37,10 @@ public final class ARModelTest extends Test {
 		final ARModel ARModel_ = new ARModel(2, inputValues);
 		
 		//verification
-		expect(ARModel_.getForecast(1)).withMaxDeviation(0.01).equals(11.0);
-		expect(ARModel_.getForecast(2)).withMaxDeviation(0.01).equals(12.0);
-		expect(ARModel_.getForecast(3)).withMaxDeviation(0.01).equals(13.0);
-		expect(ARModel_.getForecast(4)).withMaxDeviation(0.01).equals(14.0);
+		expect(ARModel_.getForecast(1)).withMaxDeviation(0.01).isEqualTo(11.0);
+		expect(ARModel_.getForecast(2)).withMaxDeviation(0.01).isEqualTo(12.0);
+		expect(ARModel_.getForecast(3)).withMaxDeviation(0.01).isEqualTo(13.0);
+		expect(ARModel_.getForecast(4)).withMaxDeviation(0.01).isEqualTo(14.0);
 	}
 	
 	//test method
@@ -51,10 +51,10 @@ public final class ARModelTest extends Test {
 		final ARModel ARModel_ = new ARModel(2, inputValues);
 
 		//verification
-		expect(ARModel_.getForecast(1)).withMaxDeviation(0.01).equals(1.0);
-		expect(ARModel_.getForecast(2)).withMaxDeviation(0.01).equals(2.0);
-		expect(ARModel_.getForecast(3)).withMaxDeviation(0.01).equals(1.0);
-		expect(ARModel_.getForecast(4)).withMaxDeviation(0.01).equals(2.0);
+		expect(ARModel_.getForecast(1)).withMaxDeviation(0.01).isEqualTo(1.0);
+		expect(ARModel_.getForecast(2)).withMaxDeviation(0.01).isEqualTo(2.0);
+		expect(ARModel_.getForecast(3)).withMaxDeviation(0.01).isEqualTo(1.0);
+		expect(ARModel_.getForecast(4)).withMaxDeviation(0.01).isEqualTo(2.0);
 	}
 	
 	//test method
@@ -65,10 +65,10 @@ public final class ARModelTest extends Test {
 		final ARModel ARModel_ = new ARModel(3, inputValues);
 	
 		//verification
-		expect(ARModel_.getForecast(1)).withMaxDeviation(0.01).equals(1.0);
-		expect(ARModel_.getForecast(2)).withMaxDeviation(0.01).equals(2.0);
-		expect(ARModel_.getForecast(3)).withMaxDeviation(0.01).equals(1.0);
-		expect(ARModel_.getForecast(4)).withMaxDeviation(0.01).equals(2.0);
+		expect(ARModel_.getForecast(1)).withMaxDeviation(0.01).isEqualTo(1.0);
+		expect(ARModel_.getForecast(2)).withMaxDeviation(0.01).isEqualTo(2.0);
+		expect(ARModel_.getForecast(3)).withMaxDeviation(0.01).isEqualTo(1.0);
+		expect(ARModel_.getForecast(4)).withMaxDeviation(0.01).isEqualTo(2.0);
 	}
 	
 	//test method
@@ -79,12 +79,12 @@ public final class ARModelTest extends Test {
 		final ARModel ARModel_ = new ARModel(3, inputValues);
 		
 		//verification
-		expect(ARModel_.getForecast(1)).withMaxDeviation(0.01).equals(1.0);
-		expect(ARModel_.getForecast(2)).withMaxDeviation(0.01).equals(2.0);
-		expect(ARModel_.getForecast(3)).withMaxDeviation(0.01).equals(3.0);
-		expect(ARModel_.getForecast(4)).withMaxDeviation(0.01).equals(1.0);
-		expect(ARModel_.getForecast(5)).withMaxDeviation(0.01).equals(2.0);
-		expect(ARModel_.getForecast(6)).withMaxDeviation(0.01).equals(3.0);
+		expect(ARModel_.getForecast(1)).withMaxDeviation(0.01).isEqualTo(1.0);
+		expect(ARModel_.getForecast(2)).withMaxDeviation(0.01).isEqualTo(2.0);
+		expect(ARModel_.getForecast(3)).withMaxDeviation(0.01).isEqualTo(3.0);
+		expect(ARModel_.getForecast(4)).withMaxDeviation(0.01).isEqualTo(1.0);
+		expect(ARModel_.getForecast(5)).withMaxDeviation(0.01).isEqualTo(2.0);
+		expect(ARModel_.getForecast(6)).withMaxDeviation(0.01).isEqualTo(3.0);
 	}
 	
 	//test method
@@ -95,11 +95,11 @@ public final class ARModelTest extends Test {
 		final ARModel ARModel_ = new ARModel(4, inputValues);
 		
 		//verification
-		expect(ARModel_.getForecast(1)).withMaxDeviation(0.01).equals(1.0);
-		expect(ARModel_.getForecast(2)).withMaxDeviation(0.01).equals(2.0);
-		expect(ARModel_.getForecast(3)).withMaxDeviation(0.01).equals(3.0);
-		expect(ARModel_.getForecast(4)).withMaxDeviation(0.01).equals(1.0);
-		expect(ARModel_.getForecast(5)).withMaxDeviation(0.01).equals(2.0);
-		expect(ARModel_.getForecast(6)).withMaxDeviation(0.01).equals(3.0);
+		expect(ARModel_.getForecast(1)).withMaxDeviation(0.01).isEqualTo(1.0);
+		expect(ARModel_.getForecast(2)).withMaxDeviation(0.01).isEqualTo(2.0);
+		expect(ARModel_.getForecast(3)).withMaxDeviation(0.01).isEqualTo(3.0);
+		expect(ARModel_.getForecast(4)).withMaxDeviation(0.01).isEqualTo(1.0);
+		expect(ARModel_.getForecast(5)).withMaxDeviation(0.01).isEqualTo(2.0);
+		expect(ARModel_.getForecast(6)).withMaxDeviation(0.01).isEqualTo(3.0);
 	}
 }

@@ -1,26 +1,29 @@
-/*
- * file:	LongMediator.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	340
- */
-
 //package declaration
 package ch.nolix.core.test2;
 
-//own import
+//own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
-import ch.nolix.core.testoid.TestAccessor;
+import ch.nolix.core.invalidArgumentException.NonBiggerArgumentException;
+import ch.nolix.core.invalidArgumentException.NonPositiveArgumentException;
+import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //class
-public class LongMediator extends Mediator {
+/**
+ * A long mediator is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 260
+ */
+public final class LongMediator extends Mediator {
 
 	//attribute
 	private final long value;
 	
 	//package-visible constructor
 	/**
-	 * Creates new long mediator with the given value.
+	 * Creates new long mediator that belongs to the given test and is for the given value.
 	 * 
 	 * @param value
 	 */
@@ -29,63 +32,71 @@ public class LongMediator extends Mediator {
 		//Calls constructor of the base class.
 		super(test);
 		
+		//Sets the value of this long mediator.
 		this.value = value;
 	}
 	
 	//method
 	/**
+	 * Generates an error if the value of this long mediator does not fulfil the given condition.
+	 * 
 	 * @param condition
-	 * @return new long conjunction mediator with the value of this long mediator
-	 * @throws Exception if the given condition is null
-	 * @throws Error if the value of this long mediator does not fulfill the given condition
+	 * @throws NullArgumentException if the given condition is null.
 	 */
-	public LongMediator fulfils(IElementTakerBooleanGetter<Long> condition) {
+	public void fulfils(final IElementTakerBooleanGetter<Long> condition) {
 		
+		//Checks if the given condition is not null.
 		if (condition == null) {
-			throw new RuntimeException("The given condition is null.");
+			throw new NullArgumentException(VariableNameCatalogue.CONDITION);
 		}
 		
 		if (!condition.getOutput(value)) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A value that fulfils the given condition was expected, but " + value + " was received.");
+			addCurrentTestMethodError("A value that fulfils the given condition was expected, but " + value + " was received.");
 		}
-		
-		return this;
 	}
 	
 	//method
 	/**
+	 * Generates an error if the value of this long mediator is not between the given min and max.
+	 * 
 	 * @param min
 	 * @param max
-	 * @return new long conjunction mediator with the value of this long mediator
-	 * @throws Exception if the given min is bigger than the given max
-	 * @throws Error if the value of this long mediator is not between the given min and max
+	 * @throws NonBiggerArgumentException if the given max is not bigger than the given min.
 	 */
-	public LongMediator isBetween(long min, long max) {
+	public void isBetween(final long min, final long max) {
 		
-		if (min > max) {
-			throw new RuntimeException("A value cannot not be between " + min + " and " + max + ".");
+		//Checks if the given max is bigger than the given min.
+		if (max <= min) {
+			throw new NonBiggerArgumentException("max", max, min);
 		}
 		
 		if (value < min || value > max) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A value that is between " + min + " and " + max + " was expected, but " + value + " was received.");
+			addCurrentTestMethodError("A value that is between " + min + " and " + max + " was expected, but " + value + " was received.");
 		}
-		
-		return new LongMediator(getTest(), value);
 	}
 	
 	//method
 	/**
+	 * Generates an error if the value of this long mediator is not bigger than the given value.
+	 * 
 	 * @param value
-	 * @return new long conjunction mediator with the value of this long mediator
-	 * @throws Error if the value of this long mediator is not bigger than the given value
 	 */
-	public LongMediator isBiggerThan(final long value) {
-		
+	public void isBiggerThan(final long value) {
 		if (this.value <= value) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A value bigger than " + value + " was expected, but " + this.value + " was received.");
+			addCurrentTestMethodError("A value that is bigger than " + value + " was expected, but " + this.value + " was received.");
 		}
-		
-		return this;
+	}
+	
+	//method
+	/**
+	 * Generates an error if the value of this long mediator is not bigger or does not equal the given value.
+	 * 
+	 * @param value
+	 */
+	public void isBiggerThanOrEquals(final long value) {
+		if (this.value < value) {
+			addCurrentTestMethodError("A value that is bigger than or equals " + value + " was expected, but " + this.value + " was received.");
+		}
 	}
 	
 	//method
@@ -93,261 +104,159 @@ public class LongMediator extends Mediator {
 	 * Generates an error if the value of this long mediator is not dividable by the given value.
 	 * 
 	 * @param value
-	 * @return new long conjunction mediator with the value of this long mediator
-	 * @throws Error if the given value is not positive
+	 * @throws NonPositiveArgumentException if the given value is not positive.
 	 */
-	public LongMediator isDividableBy(final long value) {
+	public void isDividableBy(final long value) {
 		
-		//Checks the given value.
+		//Checks if the given value is positive.
 		if (value < 1) {
-			throw new RuntimeException("The given value is not positive.");
+			throw new NonPositiveArgumentException(VariableNameCatalogue.VALUE, value);
 		}
 		
 		if (this.value % value != 0) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A value that is dividable by " + value + " was expected, but " + this.value + " was received.");
+			addCurrentTestMethodError("A value that is dividable by " + value + " was expected, but " + this.value + " was received.");
 		}
-		
-		return this;
 	}
 	
 	//method
 	/**
+	 * Generates an error if the value of this long mediator does not equal the given value.
+	 * 
 	 * @param value
-	 * @throws Error if the value of this long mediator is not equal to the given value
 	 */
-	public void isEqualTo(final long value) {		
+	public void isEqualTo(final double value) {
 		if (this.value != value) {
-			new TestAccessor(getTest()).addCurrentTestMethodError(value + " was expected, but " + this.value + " was received.");
+			addCurrentTestMethodError(value + " was expected, but " + this.value + " was received.");
 		}
 	}
 	
 	//method
 	/**
-	 * @return new long conjunction mediator with the value of this long mediator
-	 * @throws Error if the value of this long mediator is not even
+	 * Generates an error if the value of this long mediator is not even.
 	 */
-	public LongMediator isEven() {
-		
+	public void isEven() {		
 		if (value % 2 != 0) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("An even value was expected, but " + value + " was received.");
+			addCurrentTestMethodError("An even value was expected, but " + value + " was received.");
 		}
-		
-		return this;
 	}
 	
 	//method
 	/**
-	 * @return new long conjunction mediator with the value of this long mediator
-	 * @throws Error if the value of this long mediator is not negative
-	 */	
-	public LongMediator isNegative() {
-		
-		if (value > -1) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A negative value was expected, but " + value + " was received.");
+	 * Generates an error if the value of this long mediator is not negative.
+	 */
+	public void isNegative() {
+		if (value >= 0) {
+			addCurrentTestMethodError("A negative value was expected, but " + value + " was received.");
 		}
-		
-		return this;
 	}
 	
 	//method
 	/**
+	 * Generates an error if the value of this long mediator is between the given min and max.
+	 * 
 	 * @param min
 	 * @param max
-	 * @return new long conjunction mediator with the value of this long mediator
-	 * @throws Exception if the given min is bigger than the given max
-	 * @throws Error if the value of this long mediator is between the given min and max
+	 * @throws NonBiggerArgumentException if the given max is not bigger than the given min.
 	 */
-	public LongMediator isNotBetween(final long min, final long max) {
+	public void isNotBetween(final long min, final long max) {
 		
-		if (min > max) {
-			throw new RuntimeException("A value cannot not be between " + min + " and " + max + ".");
+		//Checks if the given max is bigger than the given min.
+		if (max <= min) {
+			throw new NonBiggerArgumentException("max", max, min);
 		}
 		
 		if (value >= min && value <= max) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A value that is not between " + min + " and " + max + " was expected, but " + value + " was received.");
+			addCurrentTestMethodError("A value that is not between " + min + " and " + max + " was expected, but " + value + " was received.");
 		}
-		
-		return this;
 	}
 	
 	//method
 	/**
+	 * Generates an error if the value of this long mediator equals the given value.
+	 * 
 	 * @param value
-	 * @return new long conjunction mediator with the value of this long mediator
-	 * @throws Error if the value of this long mediator is equal to the given value
 	 */
-	public LongMediator equalsNot(final int value) {
-		
+	public void isNotEqualTo(final long value) {
 		if (this.value == value) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A value that is not " + value + " was expected, but " + this.value + " was received.");
+			addCurrentTestMethodError("A value that does not equal " + value + " was expected, but " + this.value + " was received.");
 		}
-		
-		return this;
 	}
 	
 	//method
 	/**
-	 * @return new long conjunction mediator with the value of this long mediator
-	 * @throws Error if the value of this long mediator is negative
+	 * Generates an error if the value of this long mediator is negative.
 	 */
-	public LongMediator isNotNegative() {
-		
+	public void isNotNegative() {
 		if (value < 0) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A value that is not negative was expected, but " + value + " was received.");
+			addCurrentTestMethodError("A value that is not negative was expected, but " + value + " was received.");
 		}
-		
-		return this;
 	}
 	
 	//method
 	/**
-	 * @return new long conjunction mediator with the value of this long mediator
-	 * @throws Error if the value of this long mediator is not 1
+	 * Generates an error if the value of this long mediator is positive.
 	 */
-	public LongMediator isNotOne() {
-		
-		equalsNot(1);
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * @return new long conjunction mediator with the value of this long mediator
-	 * @throws Error if the value of this long mediator is positive
-	 */
-	public LongMediator isNotPositive() {
-		
+	public void isNotPositive() {
 		if (value > 0) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A value that is not positive was expected, but " + value + " was received.");
+			addCurrentTestMethodError("A value that is not positive was expected, but " + value + " was received.");
 		}
-		
-		return this;
 	}
 	
 	//method
 	/**
-	 * @return new long conjunction mediator with the value of this long mediator
-	 * @throws Error if the value of this long mediator is prime
+	 * Generates an error if the value of this long mediator is 0.0.
 	 */
-	public LongMediator isNotPrime() {
-		
-		if (valueIsPrime()) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A value that is not prime was expected, but " + value + " was received.");
-		}
-		
-		return this;
+	public void isNotZero() {
+		isNotEqualTo(0);
 	}
 	
 	//method
 	/**
-	 * @returns new long conjunction mediator with the value of this long mediator
-	 * @throws Error if the value of this long mediator is not 0
+	 * Generates an error if the value of this long mediator is not odd.
 	 */
-	public LongMediator isNotZero() {
-		
-		equalsNot(0);
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * @returns new long conjunction mediator with the value of this long mediator
-	 * @throws Error if the value of this long mediator is not odd
-	 */
-	public LongMediator isOdd() {
-		
+	public void isOdd() {		
 		if (value % 2 == 0) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("An odd value was expected, but " + value + " was received.");
+			addCurrentTestMethodError("An odd value was expected, but " + value + " was received.");
 		}
-		
-		return this;
 	}
 	
 	//method
 	/**
-	 * @returns new long conjunction mediator with the value of this long mediator
-	 * @throws Error if hte value of this expect that in mediator is not 1
+	 * Generates an error if the value of this long mediator is not positive.
 	 */
-	public LongMediator isOne() {
-		
-		isEqualTo(1);
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * @returns new long conjunction mediator with the value of this long mediator
-	 * @throws Error if the value of this long mediator is not positive
-	 */
-	public LongMediator isPositive() {
-		
-		if (value < 1) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A positive value was expected, but " + value + " was received.");
+	public void isPositive() {
+		if (value <= 0) {
+			addCurrentTestMethodError("A positive value was expected, but " + value + " was received.");
 		}
-		
-		return this;
 	}
 	
 	//method
 	/**
-	 * @returns new long conjunction mediator with the value of this long mediator
-	 * @throws Error of the value of this long mediator is not prime
+	 * Generates an error if the value of this long mediator is not smaller than the given value.
 	 */
-	public LongMediator isPrime() {
-		
-		if (!valueIsPrime()) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A prime value was expected, but " + value + " was received.");
-		}
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * @param value
-	 * @returns new long conjunction mediator with the value of this long mediator
-	 * @throws Error if the value of this long mediator is not smaller than the given value
-	 */
-	public LongMediator isSmallerThan(final long value) {
-		
+	public void isSmallerThan(final long value) {
 		if (this.value >= value) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A value smaller than " + value + " was expected, but " + this.value + " was received.");
+			addCurrentTestMethodError("A value that is smaller than " + value + " was expected, but " + this.value + " was received.");
 		}
-		
-		return this;
 	}
 	
 	//method
 	/**
-	 * @returns new long conjunction mediator with the value of this long mediator
-	 * @throws Error if the value of this long mediator is not 0
+	 * Generates an error if the value of this long mediator is not smaller than or does not equal the given value.
+	 * 
+	 * @param value
 	 */
-	public LongMediator isZero() {
-		
+	public void isSmallerThanOrEquals(final long value) {
+		if (this.value > value) {
+			addCurrentTestMethodError("A value that is smaller than or equals " + value + " was expected, but " + this.value + " was received.");
+		}
+	}
+	
+	//method
+	/**
+	 * Generates an error if the value of this long mediator is not zero.
+	 */
+	public void isZero() {
 		isEqualTo(0);
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * @return true if the value of this long mediator is prime
-	 */
-	private final boolean valueIsPrime() {
-		
-		if (value < 2) {
-			return false;
-		}
-		
-		for (int d = 3; d < value / 2; d += 2) {
-			if (value % d == 0) {
-				return true;
-			}
-		}
-		
-		return false;
 	}
 }

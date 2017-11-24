@@ -48,7 +48,7 @@ public final class NetEndPointTest extends Test {
 			catch (InterruptedException exception) {}
 		
 		//verification
-		expect(receiverMock.getLastReceivedMessage()).equals(message);
+		expect(receiverMock.getLastReceivedMessage()).isEqualTo(message);
 		
 		//cleanup
 		netServer.close();

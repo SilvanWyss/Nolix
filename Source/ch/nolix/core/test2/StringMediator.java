@@ -1,24 +1,28 @@
 //package declaration
 package ch.nolix.core.test2;
 
-import ch.nolix.core.testoid.TestAccessor;
-import ch.nolix.core.validator2.Validator;
+//own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
+import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //class
 /**
+ * A string mediator is not mutable.
+ * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 190
+ * @lines 150
  */
 public class StringMediator extends ValueMediator<String> {
 
 	//package-visible constructor
 	/**
-	 * Creates new string mediator that belongs to the given zeta test and has the given value.
+	 * Creates new string mediator that belongs to the given test and is for the given value.
 	 * 
 	 * @param test
 	 * @param value
-	 * @throws NullArgumentException if the given zeta test is null.
+	 * @throws NullArgumentException if the given test is null.
 	 */
 	StringMediator(final Test test, final String value) {
 		
@@ -32,175 +36,119 @@ public class StringMediator extends ValueMediator<String> {
 	 * 
 	 * @param character
 	 */
-	public StringMediator contains(final char character) {	
-		
-		if (getValue() == null || !getValue().contains(String.valueOf(character))) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A string that contains the character '" + character + "' was expected, but '" + getValue() + "' was received.");
+	public void contains(final char character) {		
+		if (getRefValue() == null || !getRefValue().contains(String.valueOf(character))) {
+			addCurrentTestMethodError(
+				"A string that contains the character '" + character + "' was expected, but '" + getRefValue() + "' was received."
+			);
 		}
-		
-		return this;
 	}
 	
 	//method
 	/**
-	 * Generates an error if the getValue() of this string mediator has not the given length.
+	 * Generates an error if the value of this string mediator has not the given length.
 	 * 
 	 * @param length
-	 * @throws Exception if the given length is not positive
+	 * @throws NegativeArgumentException if the given length is negative.
 	 */
 	public void hasLength(final int length) {
 		
-		//Checks the given length.
-		Validator.suppose(length).thatIsNamed("length").isPositive();
+		//Checks if the given length is not negative.
+		if (length < 0) {
+			throw new NegativeArgumentException(VariableNameCatalogue.LENGTH, length);
+		}
 		
-		if (getValue() == null || getValue().length() != length) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A string with the length " + length + " was expected, but the string '" + getValue() + "', that has the length " + getValue().length() + " was received.");
+		if (getRefValue() == null || getRefValue().length() != length) {
+			addCurrentTestMethodError(
+				"A string with the length " + length + " was expected, but '" + getRefValue() + "', that has the length " + getRefValue().length() + " was received."
+			);
 		}
 	}
 	
 	//method
 	/**
-	 * Generates an error if the getValue() of this string mediator has not the given max length.
+	 * Generates an error if the value of this string mediator is not empty.
+	 */
+	public void isEmpty() {		
+		if (getRefValue() == null || !getRefValue().isEmpty()) {
+			addCurrentTestMethodError(
+				"An empty string was expected, but '" + getRefValue() + "' was received."
+			);
+		}
+	}
+	
+	//method
+	/**
+	 * Generates an error if the value of this string mediator is empty.
+	 */
+	public void isNotEmpty() {		
+		if (getRefValue() == null || getRefValue().isEmpty()) {
+			addCurrentTestMethodError(
+				"An empty string was expected, but '" + getRefValue() + "' was received."
+			);
+		}
+	}
+	
+	//method
+	/**
+	 * Generates an error if the value of this string mediator does not start with the given sequence.
 	 * 
-	 * @param maxLength
-	 * @return new string conjunction mediator that belongs 
-	 * @throws Exception if the given max length is not positive
-	 */
-	public StringMediator hasMaxLength(final int maxLength) {
-		
-		//Checks the given max length.
-		Validator.suppose(maxLength).thatIsNamed("max length").isPositive();
-		
-		if (getValue() == null || getValue().length() > maxLength) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A string with the max length " + maxLength + " was expected, but the string '" + getValue() + "', that has the length " + getValue().length() + " was received.");
-		}
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * @throws Error if the getValue() of this string mediator is no empty string
-	 */
-	public void isEmpty() {
-		
-		if (getValue() == null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("An empty string was expected, but null was received.");
-		}
-		
-		if (getValue().length() > 0) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("An empty string was expected, but '" + getValue() + "' was received.");
-		}
-	}
-	
-	//method
-	/**
-	 * @param value
-	 * @throws Error if the getValue() of this string mediator is not equal to the given getValue()
-	 */
-	public void equals(String value) {
-		
-		if (this.getValue() != null && value == null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("'" + value + "' was expected, but null was received.");
-		}
-		
-		if (this.getValue() == null && value != null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("Null was expected, but '" + getValue() + "' was received.");
-		}
-		
-		if (!this.getValue().equals(value)) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("'" + value + "' was expected, but '" + getValue() + "' was received.");
-		}
-	}
-	
-	//method
-	/**
-	 * @throws Error if the getValue() of this string mediator is null or an empty string
-	 */
-	public void isNotEmpty() {
-		
-		if (getValue() == null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A non-empty string was expected, but null was received.");
-		}
-		
-		if (getValue().length() == 0) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A non-empty string was expected, but an empty string was received.");
-		}
-	}
-	
-	//method
-	/** 
-	 * @param getValue()
-	 * @throws Error if the getValue() of this string mediator is equal to the given getValue()
-	 */
-	public void isNotEqualTo(Object value) {
-		
-		if (this.getValue() == null && getValue() == null) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A string was expected, but null was received.");
-		}
-		
-		if (this.getValue() != null && getValue() != null && this.getValue().equals(getValue())) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("An other string than '" + getValue() + "' was expected, but '" + this.getValue() + "' was received.");
-		}
-	}
-	
-	//method
-	/**
 	 * @param sequence
-	 * @throws Error if the getValue() of this string mediator does not start with the given sequence
+	 * @throws NullArgumentException if the given sequence is null.
 	 */
 	public void startsWith(final String sequence) {
 		
-		//Checks the given sequence
+		//Checks if the given sequence is not null.
 		if (sequence == null) {
-			throw new RuntimeException("The given sequence is null.");
-		}
-		if (sequence.length() == 0) {
-			throw new RuntimeException("The given sequence is empty.");
+			throw new NullArgumentException(VariableNameCatalogue.SEQUENCE);
 		}
 		
-		if (getValue() == null || !getValue().startsWith(sequence)) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A string that starts with '" + sequence + "' was expected, but '" + getValue() + "' was received.");
+		if (getRefValue() == null || !getRefValue().startsWith(sequence)) {
+			addCurrentTestMethodError(
+				"A string that starts with '" + sequence + "' was expected, but '" + getRefValue() + "' was received."
+			);
 		}
 	}
 	
 	//method
 	/**
-	 * @throws Error if the getValue() of this string mediator does not start with a digit
+	 * Generates an error if the value of this string mediator does not start with a digit.
 	 */
-	public void startsWithADigit() {
-		if (getValue() == null || getValue().length() < 1 || !Character.isDigit(getValue().charAt(0))) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A string that starts with a digit was expected, but '" + getValue() + "' was received.");
+	public void startsWithDigit() {
+		if (getRefValue() == null || getRefValue().isEmpty() || !Character.isDigit(getRefValue().charAt(0))) {
+			addCurrentTestMethodError(
+				"A string that starts with a digit was expected, but '" + getRefValue() + "' was received."
+			);
 		}
 	}
 	
 	//method
 	/**
-	 * @throws Error if the getValue() of this string mediator does not start with a letter
+	 * Generates an error if the value of this string mediator does not start with a letter.
 	 */
-	public void startsWithALetter() {
-		if (getValue() == null || getValue().length() < 1 || !Character.isLetter(getValue().charAt(0))) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A string that starts with a letter was expected, but '" + getValue() + "' was received.");
+	public void startsWithLetter() {
+		if (getRefValue() == null || getRefValue().isEmpty() || !Character.isLetter(getRefValue().charAt(0))) {
+			addCurrentTestMethodError("A string that starts with a letter was expected, but '" + getRefValue() + "' was received.");
 		}
 	}
 	
 	//method
 	/**
-	 * @throws Error if the getValue() of this string mediator does not start with a lower case letter
+	 * Generates an error if the value of this string mediator does not start with a lower case letter.
 	 */
 	public void startsWithLowerCaseLetter() {
-		if (getValue() == null || getValue().length() < 1 || !Character.isLowerCase(getValue().charAt(0))) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A string that starts with a lower case letter was expected, but '" + getValue() + "' was received.");
+		if (getRefValue() == null || getRefValue().isEmpty() || !Character.isLowerCase(getRefValue().charAt(0))) {
+			addCurrentTestMethodError("A string that starts with a lower case letter was expected, but '" + getRefValue() + "' was received.");
 		}
 	}
 	
 	//method
 	/**
-	 * @throws Error if the getValue() of this string mediator does not start with an upper case letter
+	 * Generates an error if the value of this string mediator does not start with an upper case letter.
 	 */
 	public void startsWithUpperCaseLetter() {
-		if (getValue() == null || getValue().length() < 1 || !Character.isUpperCase(getValue().charAt(0))) {
-			new TestAccessor(getTest()).addCurrentTestMethodError("A string that starts with an upper case letter was expected, but '" + getValue() + "' was received.");
+		if (getRefValue() == null || getRefValue().isEmpty() || !Character.isUpperCase(getRefValue().charAt(0))) {
+			addCurrentTestMethodError("A string that starts with an upper case letter was expected, but '" + getRefValue() + "' was received.");
 		}
 	}
 }
