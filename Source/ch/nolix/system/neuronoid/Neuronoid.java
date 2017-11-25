@@ -252,7 +252,7 @@ public abstract class Neuronoid<N extends Neuronoid<N, I, O>, I, O> {
 	public final N removeInputNeuron(final Neuronoid<?, ?, ?> inputNeuron) {
 		
 		//Checks if this neuron has not reached its minimal number of input neurons.
-		Validator.suppose(getInputNeuronCount()).isSmallerThan(getMinInputNeuronCount());
+		Validator.suppose(getMinInputNeuronCount()).isSmallerThan(getInputNeuronCount());
 		
 		inputConnections.removeFirst(in -> in.hasInputNeuron(inputNeuron));
 		inputNeuron.outputConnections.removeFirst(oc -> oc.hasOutputNeuron(this));
