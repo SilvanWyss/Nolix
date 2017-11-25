@@ -11,7 +11,7 @@ import ch.nolix.system.consoleClient.ConsoleFrontClient;
 
 //class
 /**
- * This class provides a tutorial for the ConsoleClient class.
+ * This class provides a tutorial for the console client class.
  * 
  * @author Silvan Wyss
  * @month 2017-08
@@ -22,7 +22,7 @@ public final class ConsoleClientTutorial {
 	//main method
 	/**
 	 * 1. Creates an application for console back clients.
-	 * 2. Creates a console front client that connects to the application.
+	 * 2. Creates a console front client that will connect to the application.
 	 * 
 	 * @param arguments
 	 */
@@ -36,7 +36,7 @@ public final class ConsoleClientTutorial {
 			MainSession.class
 		);
 		
-		//Creates a console front client that connects to the application.
+		//Creates a console front client that will connect to the application.
 		new ConsoleFrontClient(application);
 	}
 	
@@ -58,8 +58,7 @@ public final class ConsoleClientTutorial {
 			);
 			
 			getRefClient().writeLineToConsole("Enter your name.");
-			final String name = getRefClient().readLineFromConsole();
-			
+			final String name = getRefClient().readLineFromConsole();			
 			getRefClient().writeLineToConsole("Hello " + name + ".");
 						
 			boolean answerIsValid = false;
@@ -79,7 +78,7 @@ public final class ConsoleClientTutorial {
 				}
 			} while (!answerIsValid);
 			
-			Sequencer.waitForMilliseconds(1000);
+			Sequencer.waitForASecond();
 			
 			getRefClient()
 			.writeEmptyLineToConsole()
