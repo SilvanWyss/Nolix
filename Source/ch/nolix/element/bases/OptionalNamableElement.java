@@ -5,8 +5,6 @@ package ch.nolix.element.bases;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.IRequestableContainer;
 import ch.nolix.core.interfaces.OptionalNamable;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
@@ -46,10 +44,9 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 				setName(attribute.getOneAttributeToString());
 				break;
 			default:
-				throw new InvalidArgumentException(
-					new ArgumentName("attribute"),
-					new Argument(attribute)
-				);
+				
+				//Calls method of the base class.
+				super.addOrChangeAttribute(attribute);
 		}
 	}
 	
@@ -67,7 +64,8 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	 */
 	public List<StandardSpecification> getAttributes() {
 		
-		final List<StandardSpecification> attributes = new List<StandardSpecification>();
+		//Calls method of the base class.
+		final List<StandardSpecification> attributes = super.getAttributes();
 		
 		//Handles the case that this optional namable element has a name.
 		if (hasName()) {
