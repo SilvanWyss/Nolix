@@ -1,22 +1,21 @@
-/*
- * file:	ConfigurableElement.java
- * author:	Silvan Wyss
- * month:	2016-04
- * lines:	90
- */
-
 //package declaration
 package ch.nolix.element.configurationElement;
 
 //own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.bases.ConfigurableElement;
 import ch.nolix.element.configuration.StandardConfiguration;
 
-//class
+//abstract class
 /**
- * A configurable elemenet is an element that can have a configuration.
+ * A configuration elemenet is a configuration element that can have a configuration.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-04
+ * @lines 120
  */
 public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>>
 extends ConfigurableElement<CE> {
@@ -26,14 +25,37 @@ extends ConfigurableElement<CE> {
 	
 	//method
 	/**
-	 * @return the attributes of this configurable element
+	 * Adds or changes the given attribute to this configuration element.
+	 * 
+	 * @param attribute
+	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 */
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
+		
+		//Enumerates the header of the given attribute.
+		switch (attribute.getHeader()) {
+			case VariableNameCatalogue.CONFIGURATION:
+				setConfiguration(new StandardConfiguration(attribute.getRefAttributes()));
+				break;
+			default:
+				
+				//Calls method of the base class.
+				super.addOrChangeAttribute(attribute);
+		}
+	}
+	
+	//method
+	/**
+	 * @return the attributes of this configuration element.
 	 */
 	public List<StandardSpecification> getAttributes() {
 		
-		List<StandardSpecification> attributes = new List<StandardSpecification>();
+		//Calls method of the base class.
+		List<StandardSpecification> attributes = super.getAttributes();
 		
+		//Handles the case that this configuration element has a configuration.
 		if (hasConfiguration()) {
-			attributes.addAtEnd(configuration.getSpecificationAs(StandardConfiguration.TYPE_NAME));
+			attributes.addAtEnd(configuration.getSpecificationAs(VariableNameCatalogue.CONFIGURATION));
 		}
 		
 		return attributes;
@@ -41,7 +63,7 @@ extends ConfigurableElement<CE> {
 	
 	//method
 	/**
-	 * @return true if this configurable element has a configuration
+	 * @return true if this configuration element has a configuration.
 	 */
 	public final boolean hasConfiguration() {
 		return (configuration != null);
@@ -49,16 +71,22 @@ extends ConfigurableElement<CE> {
 	
 	//method
 	/**
-	 * Removes the configuration of this configurable element.
+	 * Removes the configuration of this configuration element.
+	 * 
+	 * @return this configuration element.
 	 */
-	@SuppressWarnings("unchecked")
 	public CE removeConfiguration() {
+		
 		configuration = null;
 		resetConfiguration();
 		
-		return (CE)this;
+		return getInstance();
 	}
 	
+	//method
+	/**
+	 * Resets this configuration element.
+	 */
 	public void reset() {
 		removeConfiguration();
 		resetConfiguration();
@@ -66,32 +94,24 @@ extends ConfigurableElement<CE> {
 	
 	//method
 	/**
-	 * Sets the given attribute to this configurable element.
-	 * 
-	 * @param attribute
-	 * @throws Exception if the given attribute is not valid
-	 */
-	public void addOrChangeAttribute(StandardSpecification attribute) {
-		switch (attribute.getHeader()) {
-			case StandardConfiguration.TYPE_NAME:
-				setConfiguration(new StandardConfiguration(attribute.getRefAttributes()));
-				break;
-			default:
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-	
-	//method
-	/**
-	 * Sets the configuration of this configurable element.
+	 * Sets the configuration of this configuration element.
 	 * 
 	 * @param configuration
+	 * @return this configuration element.
+	 * @throws NullArgumentException if the given configuration is null.
 	 */
-	@SuppressWarnings("unchecked")
 	public CE setConfiguration(StandardConfiguration configuration) {
+		
+		//Checks if the given configuration is not null.
+		Validator
+		.suppose(configuration)
+		.thatIsNamed(VariableNameCatalogue.CONFIGURATION)
+		.isNotNull();
+		
 		this.configuration = configuration;
 		updateFromConfiguration();
-		return (CE)this;
+		
+		return getInstance();
 	}
 	
 	//method
@@ -99,6 +119,8 @@ extends ConfigurableElement<CE> {
 	 * Updates this element from its configuration.
 	 */
 	public final void updateFromConfiguration() {
+		
+		//Handles the case that this configuraiton element has a configuration.
 		if (hasConfiguration()) {
 			resetConfiguration();
 			configuration.configure(this);
