@@ -7,7 +7,7 @@ package ch.nolix.core.constants;
  * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 60
+ * @lines 70
  */
 public class VariableNameCatalogue {
 	
@@ -43,6 +43,7 @@ public class VariableNameCatalogue {
 	public static final String PRICE = "price";
 	public static final String RADIUS = "radius";
 	public static final String REASON = "reason";
+	public static final String RESOURCE = "resource";
 	public static final String ROOT = "root";
 	public static final String ROOT_NODE = "root node";
 	public static final String SEQUENCE ="sequence";
@@ -51,8 +52,13 @@ public class VariableNameCatalogue {
 	public static final String STATE = "state";
 	public static final String SUMMARY = "summary";
 	public static final String SURNAME = "surname";
+	public static final String TEST = "test";
 	public static final String TEXT = "text";
 	public static final String TIMEOUT = "timeout";
+	public static final String TIMEOUT_IN_MICROSECONDS = "timeout in microseconds";
+	public static final String TIMEOUT_IN_MILLISECONDS = "timeout in milliseconds";
+	public static final String TIMEOUT_IN_NANOSECONDS = "timeout in nanoseconds";
+	public static final String TIMEOUT_IN_SECONDS = "timeout in seconds";
 	public static final String VALUE = "value";
 	public static final String VALUES = "values";
 	public static final String WEIGHT = "weight";
