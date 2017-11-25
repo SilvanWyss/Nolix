@@ -20,7 +20,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	//default values
 	public static final int DEFAULT_WIDTH = 400;
 	public static final int DEFAULT_HEIGHT = 400;
-	public static final int DEFAULT_TEXT_SIZE = ValueCatalog.MEDIUM_TEXT_SIZE;
+	public static final int DEFAULT_TEXT_SIZE = AttributeCatalogue.MEDIUM_TEXT_SIZE;
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 	
 	//attribute headers

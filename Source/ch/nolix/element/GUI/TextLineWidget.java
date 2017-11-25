@@ -77,7 +77,7 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 		//Calls method of the base class.
 		super.resetConfiguration();
 		
-		getRefNormalStructure().setTextSize(ValueCatalog.MEDIUM_TEXT_SIZE);
+		getRefNormalStructure().setTextSize(AttributeCatalogue.MEDIUM_TEXT_SIZE);
 		getRefNormalStructure().setTextColor(Color.BLACK);
 		
 		getRefHoverStructure().removeTextSize();

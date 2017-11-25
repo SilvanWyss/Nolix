@@ -1,15 +1,15 @@
-/*
- * file:	ValueManager.java
- * author:	Silvna Wyss
- * month:	2016-06
- * lines:	20
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
 //class
-public final class ValueCatalog {
+/**
+ * This class provides attributes for GUIs and widgets.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-06
+ * @lines 20
+ */
+public final class AttributeCatalogue {
 
 	//text sizes
 	public static final int SMALL_TEXT_SIZE = 10;
@@ -20,5 +20,5 @@ public final class ValueCatalog {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private ValueCatalog() {}
+	private AttributeCatalogue() {}
 }

@@ -493,7 +493,7 @@ extends Container<TabContainer, TabContainerStructure> {
 		removeMenuItemPadding();
 		
 		getRefNormalMenuItemStructure().removeBackgroundColor();
-		getRefNormalMenuItemStructure().setTextSize(ValueCatalog.MEDIUM_TEXT_SIZE);
+		getRefNormalMenuItemStructure().setTextSize(AttributeCatalogue.MEDIUM_TEXT_SIZE);
 		getRefNormalMenuItemStructure().setTextColor(new TextColor(Color.BLACK_STRING));
 		
 		getRefHoverMenuItemStructure().removeBackgroundColor();
