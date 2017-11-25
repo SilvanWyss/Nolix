@@ -122,16 +122,9 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		}
 		
 		//Handles the case that the given attribute specificies no widget.
+		
 			//Enumerates the header of the given attribute.
 			switch (attribute.getHeader()) {
-				case Title.TYPE_NAME:
-					setTitle(attribute.getOneAttributeToString());
-					break;
-				case BackgroundColor.TYPE_NAME:
-					setBackgroundColor(
-						new BackgroundColor(attribute.getOneAttributeToString())
-					);
-					break;
 				case ContentPosition.TYPE_NAME:
 					setContentPosition(
 						ContentPosition.valueOf(attribute.getOneAttributeToString())
@@ -260,10 +253,12 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
+		//Handles the case that the content position of this GUI is not its default content position.
 		if (contentPosition != DEFAULT_CONTENT_POSITION) {
 			attributes.addAtEnd(contentPosition.getSpecification());
 		}
 		
+		//Handles the case that this GUI has a root widget.
 		if (hasRootWidget()) {
 			attributes.addAtEnd(getRefRootWidget().getSpecification());
 		}
@@ -589,7 +584,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @throws NullArgumentException if the given background color is null.
 	 */
 	public final G setBackgroundColor(final Color backgroundColor) {
-				
+		
 		this.backgroundColor.setValue(backgroundColor);
 		
 		return getInstance();
