@@ -8,7 +8,7 @@ import ch.nolix.system.neuronoid.SourceNeuron;
 
 //class
 /**
- * The neuron tutorial is a tutorial for the neuron class.
+ * This class provides a tutorial for the neuron class.
  * Of this class no instance can be created.
  * 
  * @author Silvan Wyss
@@ -23,7 +23,7 @@ public final class NeuronTutorial {
 	 * 2. Adds the source neurons as input neurons to the result neuron.
 	 * 3. Sets the output function of the result neuron.
 	 * 4. Let the result neuron fire that it calculates its output.
-	 * 5. Prints out the output of the neuron to the console.
+	 * 5. Prints out the output of the result neuron to the console.
 	 * 
 	 * @param args
 	 */

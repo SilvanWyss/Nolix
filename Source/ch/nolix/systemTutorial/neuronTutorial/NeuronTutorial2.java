@@ -6,7 +6,7 @@ import ch.nolix.system.neuron.Neuron;
 
 //class
 /**
- * The neuron tutorial 2 is a tutorial for the neuron class.
+ * This class provides a tutorial for the neuron class.
  * Of this class no instance can be created.
  * 
  * @author Silvan Wyss
