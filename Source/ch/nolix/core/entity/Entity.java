@@ -80,6 +80,8 @@ public abstract class Entity implements Specifiable {
 	 */
 	private void extractProperties() {
 		
+		properties = new List<Propertyoid<?>>();
+		
 		//Iterates the types of this entity.
 		Class<?> cl = getClass();
 		while (cl != null) {
