@@ -113,6 +113,14 @@ public final class Sequencer {
 	
 	//static method
 	/**
+	 * Waits for a second.
+	 */
+	public static void waitForASecond() {
+		Waiter.waitForSeconds(1);
+	}
+	
+	//static method
+	/**
 	 * Waits for the given number of milliseconds.
 	 * 
 	 * @param milliseconds
