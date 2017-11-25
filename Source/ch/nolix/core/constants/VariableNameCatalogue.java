@@ -17,6 +17,7 @@ public class VariableNameCatalogue {
 	public static final String CAPACITY = "capacity";
 	public static final String CAPTION = "caption";
 	public static final String CONDITION = "condition";
+	public static final String CONFIGURATION = "configuration";
 	public static final String CREATION_DATE = "date";
 	public static final String CREATOR = "creator";
 	public static final String DATE = "date";
