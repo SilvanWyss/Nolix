@@ -3,7 +3,7 @@ package ch.nolix.tech.resource;
 
 //class
 /**
- * A resource set is a set of resources that depends on each other.
+ * A resource set is a set of resources that depend on each other.
  * Of this class no instance can be created.
  * 
  * @author Silvan Wyss

@@ -3,6 +3,7 @@ package ch.nolix.tech.resource;
 
 //own imports
 import ch.nolix.core.bases.NamedElement;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
@@ -13,22 +14,21 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //class
 /**
- * An resource is a piece of something that has a value.
- * Of an resource, a certain amount can be possessed.
- * An resource has a determined name.
- * An resource can have super resources.
- * An resource serves as any of its super resources.
- * An resource is not mutable. 
+ * Of a resource, a certain amount can be possessed.
+ * A resource has a determined name.
+ * A resource can have base resources.
+ * A resource can serve as any of its base resources.
+ * A resource is not mutable. 
  * 
  * @author Silvan Wyss
  * @month 2017-09
  * @lines 170
  */
-public class Resource extends NamedElement {
+public final class Resource extends NamedElement {
 	
 	//multiple attribute
-	//The super resources are the resources this resource can serve as.
-	public final AccessorContainer<Resource> superResources;
+	//The base resources are the resources this resource can serve as.
+	public final AccessorContainer<Resource> baseResources;
 
 	//constructor
 	/**
@@ -43,77 +43,96 @@ public class Resource extends NamedElement {
 		//Calls constructor of the base class.
 		super(name);
 		
-		superResources = new AccessorContainer<Resource>();
+		//Sets the base resources of this recource.
+		baseResources = new AccessorContainer<Resource>();
 	}
 	
 	//constructor
 	/**
-	 * Creates new resource with the given name and resources.
+	 * Creates new resource with the given name and base resources.
 	 * 
 	 * @param name
-	 * @param superResources
+	 * @param baseResources
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidArgumentException if the given name
-	 * equals the name of one of the given super resources.
-	 * @throws InvalidArgumentException if one of the given super resources
-	 * is a sub resource of another of the given super resources.
+	 * equals the name of one of the given base resources.
+	 * @throws InvalidArgumentException if one of the given base resources
+	 * is a sub resource of another of the given base resources.
 	 */
-	public Resource(final String name, final Resource... superResources) {
+	public Resource(final String name, final Resource... baseResources) {
 		
 		//Calls constructor of the base class.
 		super(name);
 		
-		final List<Resource> internalSuperResources = new List<Resource>();
+		final List<Resource> internalBaseResources = new List<Resource>();
 		
-		//Iterates the given resources.
-		for (final Resource sr : superResources) {
+		//Iterates the given base resources.
+		for (final Resource br : baseResources) {
 			
-			//Checks if the given name equals the name of the current resource.
-			if (hasSameNameAs(sr)) {
+			//Checks if the given name does not equal the name of the current base resource.
+			if (hasSameNameAs(br)) {
 				throw new InvalidArgumentException(
-					new ArgumentName("name"),
+					new ArgumentName(VariableNameCatalogue.NAME),
 					new Argument(name),
 					new ErrorPredicate(
-						"equals the name of the given super resource " + sr.getName()
+						"equals the name of the given base resource " + br.getName()
 					)
 				);
 			}
 			
-			internalSuperResources.addAtEnd(sr);
+			internalBaseResources.addAtEnd(br);
 		}
 		
-		//Checks if no of the given super resources
-		//is a sub resource of another of the given super resources.
-		if (internalSuperResources.contains((sr1, sr2) -> sr1.isSubResourceOf(sr2))) {
+		//Checks if none of the given base resources
+		//is a sub resource of another of the given base resources.
+		if (internalBaseResources.contains((sr1, sr2) -> sr1.isSubResourceOf(sr2))) {
 			
 			final Pair<Resource, Resource> pair
-			= internalSuperResources.getRefFirst((sr1, sr2) -> sr1.isSubResourceOf(sr2));
+			= internalBaseResources.getRefFirst((sr1, sr2) -> sr1.isSubResourceOf(sr2));
 			
 			throw new InvalidArgumentException(
-				new ArgumentName("resource"),
+				new ArgumentName(VariableNameCatalogue.RESOURCE),
 				new Argument(pair.getRefElement1()),
 				new ErrorPredicate("is a sub resource of " + pair.getRefElement2())
 			);
 		}
 		
-		this.superResources = new AccessorContainer<Resource>(internalSuperResources);
+		this.baseResources = new AccessorContainer<Resource>(internalBaseResources);
 	}
 	
 	//method
 	/**
-	 * @return the number of super resources of this resource.
+	 * @return the number of base resources of this resource.
 	 */
-	public final int getSuperResourceCount() {
-		return getSuperResources().getElementCount();
+	public final int getBaseResourceCount() {
+		return getBaseResources().getElementCount();
 	}
 	
 	//method
 	/**
-	 * @return the super resources of this resource.
+	 * @return the base resources of this resource.
 	 */
-	public final AccessorContainer<Resource> getSuperResources() {
-		return superResources;
+	public final AccessorContainer<Resource> getBaseResources() {
+		return baseResources;
+	}
+	
+	//method
+	/**
+	 * @param resource
+	 * @return true if this resource is a base resource of the given resource.
+	 */
+	public final boolean isBaseResourceOf(final Resource resource) {
+		return resource.isSubResourceOf(this);
+	}
+	
+	//method
+	/**
+	 * @param resource
+	 * @return true if this resource is a direct base resource of the given resource.
+	 */
+	public final boolean isDirectBaseResourceOf(final Resource resource) {
+		return resource.isDirectSubResourceOf(this);
 	}
 	
 	//method
@@ -122,16 +141,7 @@ public class Resource extends NamedElement {
 	 * @return true if this resource is a direct sub resource of the given resource.
 	 */
 	public final boolean isDirectSubResourceOf(final Resource resource) {
-		return getSuperResources().contains(resource);
-	}
-	
-	//method
-	/**
-	 * @param resource
-	 * @return true if this resource is a direct super resource of the given resource.
-	 */
-	public final boolean isDirectSuperResourceOf(final Resource resource) {
-		return resource.isDirectSubResourceOf(this);
+		return getBaseResources().contains(resource);
 	}
 	
 	//method
@@ -147,24 +157,16 @@ public class Resource extends NamedElement {
 		}
 		
 		//Handles the case that this resource is no direct sub resource of the given resource.
-			//Iterates the super resources of this resource.
-			for (final Resource sr : getSuperResources()) {
+		
+			//Iterates the base resources of this resource.
+			for (final Resource br : getBaseResources()) {
 				
-				//Checks if the current super resource is a sub resource of the given resource.
-				if (sr.isSubResourceOf(resource)) {
+				//Checks if the current base resource is a sub resource of the given resource.
+				if (br.isSubResourceOf(resource)) {
 					return true;
 				}
 			}
 		
 		return false;
-	}
-	
-	//method
-	/**
-	 * @param resource
-	 * @return true if this resource is a super resource of the given resource.
-	 */
-	public final boolean isSuperResourceOf(final Resource resource) {
-		return resource.isSubResourceOf(this);
 	}
 }
