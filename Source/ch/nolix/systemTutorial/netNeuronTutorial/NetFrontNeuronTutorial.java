@@ -10,46 +10,49 @@ import ch.nolix.system.netNeuron.NetBackNeuron;
 
 //class
 /**
-* This class provides a tutorial for the net back neuron class.
+* This class provides a tutorial for the net front neuron class.
 * 
 * @author Silvan Wyss
 * @month 2017-01
-* @lines 50
+* @lines 60
 */
 public final class NetFrontNeuronTutorial {
 
 	//main method
 	/**
-	 * 1. Creates net back neuron and adds an input neuron to it.
-	 * 2. Creates net front neurons that are connected to the net back neuron.
-	 * 3. Triggers the net back neuron.
-	 * 4. Prints out to the console the outputs of the net front neurons.
+	 * 1. Creates a net back neuron and adds a source neuron as input neuron to it.
+	 * 3. Creates net front neurons that will connect to the net back neuron.
+	 * 4. Triggers the net back neuron.
+	 * 5. Prints out to the console the outputs of the net front neurons.
+	 * 6. Closes the net back neuron and the net front neurons.
 	 * 
 	 * @param arguments
 	 */
 	public static final void main(String[] arguments) {
 		
-		//Defines port of net back neuron.
+		//Defines the port of the net back neuron.
 		final int port = 20000;
 		
 		//Creates net back neuron and adds a source neuron as input neuron to it.
-		final NetBackNeuron<String> netBackNeuron
-		= new NetBackNeuron<String>(port, s -> new StandardSpecification(s));
+		final NetBackNeuron<String> netBackNeuron =
+		new NetBackNeuron<String>(port, s -> new StandardSpecification(s));
 		netBackNeuron.addInputNeuron(new SourceNeuron<String>("Hello_World!"));
 		
-		//Creates net front neurons that are connected to the net back neuron.
+		//Creates net front neurons that will connect to the net back neuron.
 		final NetFrontNeuron<String> netFrontNeuron1
 		= new NetFrontNeuron<String>(port, s -> s.toString());
 		final NetFrontNeuron<String> netFronNeuron2
 		= new NetFrontNeuron<String>(port, s -> s.toString());
 		
-		//Triggers the net back neuron and prints out to the console the output of the front neurons 
+		//Triggers the net back neuron. 
 		netBackNeuron.fire();
 		Sequencer.waitForMilliseconds(500);
-		System.out.println("net front neuron 1, output: " + netFrontNeuron1.getRefOutput());
-		System.out.println("net front neuron 2, output: " + netFronNeuron2.getRefOutput());
 		
-		//Quits program.
+		//Prints out to the console the output of the front neurons.
+		System.out.println("net front neuron 1 output: " + netFrontNeuron1.getRefOutput());
+		System.out.println("net front neuron 2 output: " + netFronNeuron2.getRefOutput());
+		
+		//Closes the net back neuron and the net front neurons.
 		netBackNeuron.close();
 		netFrontNeuron1.close();
 		netFronNeuron2.close();
