@@ -3,7 +3,7 @@ package ch.nolixTest;
 
 //class
 /**
- * The Launcher provides a main method to run a Nolix test pool.
+ * This class provides a main method to run a Nolix test pool.
  * Of this class no instance can be created.
  * 
  * @author Silvan Wyss
@@ -24,7 +24,7 @@ public final class Launcher {
 
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be instantiated.
+	 * Avoids that an instance of this class can be created.
 	 */
 	private Launcher() {}
 }
