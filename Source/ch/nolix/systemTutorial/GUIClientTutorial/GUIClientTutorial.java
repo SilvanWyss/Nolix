@@ -5,6 +5,7 @@ package ch.nolix.systemTutorial.GUIClientTutorial;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.ContentPosition;
 import ch.nolix.element.GUI.CursorIcon;
+import ch.nolix.element.GUI.ValueCatalog;
 import ch.nolix.element.color.Color;
 import ch.nolix.system.GUIClient.GUIBackClient;
 import ch.nolix.system.GUIClient.GUIFrontClient;
@@ -13,32 +14,32 @@ import ch.nolix.system.client.StandardApplication;
 
 //class
 /**
- * This class provides a tutorial for the dialog client class.
+ * This class provides a tutorial for the GUI client class.
  * 
  * @author Silvan Wyss
  * @month 2017-02
- * @lines 90
+ * @lines 100
  */
 public final class GUIClientTutorial {
 
 	//main method
 	/**
 	 * 1. Creates an application for dialog clients.
-	 * 2. Creates a front dialog client that connects to the application.
+	 * 2. Creates a front dialog client that will connect to the application.
 	 * 
 	 * @param arguments
 	 */
 	@SuppressWarnings("resource")
 	public static void main(final String[] arguments) {
 		
-		//Creates application.
+		//Creates an application.
 		final StandardApplication<GUIBackClient> application
 		= new StandardApplication<GUIBackClient>(
 			"Application",
 			MainSession.class
 		);
 		
-		//Creates front dialog client that connects to the application.
+		//Creates a front dialog client that will to the application.
 		new GUIFrontClient(application);
 	}
 	
@@ -46,49 +47,54 @@ public final class GUIClientTutorial {
 	private static final class MainSession extends Session<GUIBackClient> {
 
 		//attribute
-		private Color backgroundColor = Color.BLUE;
+		private int counter = 1;
 		
 		//method
 		/**
 		 * Initializes this main session.
 		 */
-		public void initialize() {
+		public void initialize() {			
 			
-			getRefClient().getRefGUI()
-			.setTitle("Dialog Client Tutorial")
-			.removeConfiguration()
-			.setContentPosition(ContentPosition.Center)
-			.setBackgroundColor(backgroundColor);
-			
-			final Button changeColorbutton
-			= new Button()
+			final Button button =
+			new Button()
 			.setText("Change color")
 			.setLeftMouseButtonPressCommand("ChangeColor")
 			.setCursorIcon(CursorIcon.Hand);			
 						
-			changeColorbutton.getRefNormalStructure()
+			button
+			.getRefNormalStructure()
+			.setBackgroundColor(Color.LIGHT_GREY)
 			.setPaddings(10)
-			.setBackgroundColor(Color.AQUA);
-			changeColorbutton.getRefHoverStructure().setTextSize(30);
+			.setTextSize(ValueCatalog.MEDIUM_TEXT_SIZE);
 			
-			getRefClient().getRefGUI().setRootWidget(changeColorbutton);	
+			button
+			.getRefHoverStructure()
+			.setTextSize(ValueCatalog.LARGE_TEXT_SIZE);
+			
+			getRefClient()
+			.getRefGUI()
+			.setTitle("Dialog Client Tutorial")
+			.removeConfiguration()
+			.setBackgroundColor(Color.GREEN)
+			.setContentPosition(ContentPosition.Center)
+			.setRootWidget(button);	
 		}
 		
 		//method
 		/**
-		 * Changes the color of the dialog of the client of this main session.
+		 * Changes the color of the GUI of the client of this main session.
 		 */
 		@SuppressWarnings("unused")
 		public void ChangeColor() {
 			
-			if (backgroundColor == Color.BLUE) {
-				backgroundColor = Color.FOREST_GREEN;
+			if (counter % 2 == 0) {
+				getRefClient().getRefGUI().setBackgroundColor(Color.GREEN);
 			}
 			else {
-				backgroundColor = Color.BLUE;
+				getRefClient().getRefGUI().setBackgroundColor(Color.BLUE);
 			}
 			
-			getRefClient().getRefGUI().setBackgroundColor(backgroundColor);
+			counter++;
 		}
 	}
 
