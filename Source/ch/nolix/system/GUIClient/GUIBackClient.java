@@ -97,7 +97,7 @@ public final class GUIBackClient extends Client<GUIBackClient> {
 	 */
 	public void reset() {
 		dialog.reset();
-		internal_runOnCounterpart(RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
+		internal_runOnCounterpart(RESET_DIALOG_COMMAND);
 	}
 	
 	//method
