@@ -22,7 +22,7 @@ public final class NetFrontNeuronTutorial {
 	/**
 	 * 1. Creates a net back neuron and adds a source neuron as input neuron to it.
 	 * 3. Creates net front neurons that will connect to the net back neuron.
-	 * 4. Triggers the net back neuron.
+	 * 4. Lets the net back neuron fire.
 	 * 5. Prints out to the console the outputs of the net front neurons.
 	 * 6. Closes the net back neuron and the net front neurons.
 	 * 
@@ -44,7 +44,7 @@ public final class NetFrontNeuronTutorial {
 		final NetFrontNeuron<String> netFronNeuron2
 		= new NetFrontNeuron<String>(port, s -> s.toString());
 		
-		//Triggers the net back neuron. 
+		//Lets the net back neuron fire. 
 		netBackNeuron.fire();
 		Sequencer.waitForMilliseconds(500);
 		
