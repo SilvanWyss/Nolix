@@ -14,6 +14,7 @@ public class VariableNameCatalogue {
 	//constants
 	public static final String AGE = "age";
 	public static final String AMOUNT = "amount";
+	public static final String ARRAY = "array";
 	public static final String CAPACITY = "capacity";
 	public static final String CAPTION = "caption";
 	public static final String CONDITION = "condition";
@@ -60,6 +61,7 @@ public class VariableNameCatalogue {
 	public static final String TIMEOUT_IN_MILLISECONDS = "timeout in milliseconds";
 	public static final String TIMEOUT_IN_NANOSECONDS = "timeout in nanoseconds";
 	public static final String TIMEOUT_IN_SECONDS = "timeout in seconds";
+	public static final String TRANSFORMATOR = "transformator";
 	public static final String VALUE = "value";
 	public static final String VALUES = "values";
 	public static final String WEIGHT = "weight";
