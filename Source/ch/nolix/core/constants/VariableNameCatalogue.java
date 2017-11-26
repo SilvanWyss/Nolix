@@ -19,6 +19,7 @@ public class VariableNameCatalogue {
 	public static final String CAPTION = "caption";
 	public static final String CONDITION = "condition";
 	public static final String CONFIGURATION = "configuration";
+	public static final String CONTAINER = "container";
 	public static final String CREATION_DATE = "date";
 	public static final String CREATOR = "creator";
 	public static final String DATE = "date";
@@ -41,6 +42,7 @@ public class VariableNameCatalogue {
 	public static final String MAXIMUM = "maximum";
 	public static final String MINIMUM = "minimum";
 	public static final String NAME = "name";
+	public static final String NEXT_ELEMENT = "next element";
 	public static final String NODE = "node";
 	public static final String PRICE = "price";
 	public static final String RADIUS = "radius";
