@@ -111,6 +111,6 @@ extends Neuronoid<Neuron<IO>, IO, IO> {
 	 * Lets this neuron fire.
 	 */
 	protected void internal_fire() {
-		setOutput(outputFunction.getOutput(this));
+		internal_setOutput(outputFunction.getOutput(this));
 	}
 }

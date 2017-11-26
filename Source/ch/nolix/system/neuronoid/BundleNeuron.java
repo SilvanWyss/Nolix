@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.system.neuronoid;
 
-
 //class
 /**
  * A bundle neuron is a neuron whose output is a container of its inputs.
@@ -9,17 +8,21 @@ package ch.nolix.system.neuronoid;
  * @author Silvan Wyss
  * @month 2017-01
  * @lines 40
- * @param <O> - The type of the elements of the input container of a bundle neuron.
+ * @param <O> The type of the inputs of a bundle neuron.
  */
 public final class BundleNeuron<O>
 extends Neuronoid<BundleNeuron<O>, O, Iterable<O>> {
+	
+	//limits
+	public static final int MIN_INPUT_NEURON_COUNT = 0;
+	public static final int MAX_INPUT_NEURON_COUNT = Integer.MAX_VALUE;
 	
 	//method
 	/**
 	 * @return the maximum number of input neurons of this bundle neuron.
 	 */
 	public int getMaxInputNeuronCount() {
-		return Integer.MAX_VALUE;
+		return MAX_INPUT_NEURON_COUNT;
 	}
 
 	//method
@@ -27,16 +30,16 @@ extends Neuronoid<BundleNeuron<O>, O, Iterable<O>> {
 	 * @return the minimum number of input neurons of this bundle neuron.
 	 */
 	public int getMinInputNeuronCount() {
-		return 0;
+		return MIN_INPUT_NEURON_COUNT;
 	}
 
 	//method
 	/**
-	 * Triggers this bundle neuron using the given processor.
+	 * Lets this bundle neuron fire.
 	 * 
 	 * @param processor
 	 */
 	protected void internal_fire() {
-		setOutput(getRefInputs());
+		internal_setOutput(getRefInputs());
 	}
 }

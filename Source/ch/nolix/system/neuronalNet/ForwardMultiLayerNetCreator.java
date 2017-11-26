@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.neuronalNetCreator;
+package ch.nolix.system.neuronalNet;
 
 //own imports
 import ch.nolix.core.container.List;
@@ -7,7 +7,6 @@ import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.system.neuron.Neuron;
 import ch.nolix.system.neuronoid.InputConnection;
-import ch.nolix.system.neuronoid.NeuronalNet;
 
 //class
 /**
@@ -135,7 +134,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 			//Creates input list.
 			final List<IO> inputs = new List<IO>();
 			for (InputConnection<IO> n: in) {
-				inputs.addAtEnd(n.getRefOutput());
+				inputs.addAtEnd(n.getRefInputNeuronOutput());
 			}
 			
 			return outputFunction.getOutput(inputs);

@@ -99,10 +99,10 @@ implements Closable {
 	
 	public void internal_fire() {
 		if (getRefInputs().isEmpty()) {
-			setOutput(null);
+			internal_setOutput(null);
 		}
 		else {
-			setOutput(transformer.getOutput(getRefOneInput()));
+			internal_setOutput(transformer.getOutput(getRefOneInput()));
 			application.getRefClients().forEach(
 					
 				c -> {

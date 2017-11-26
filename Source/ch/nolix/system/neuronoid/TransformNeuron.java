@@ -2,6 +2,7 @@
 package ch.nolix.system.neuronoid;
 
 //own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.validator2.Validator;
 
@@ -23,27 +24,31 @@ extends Neuronoid<TransformNeuron<I, O>, I, O> {
 	private static final int MAX_INPUT_NEURON_COUNT = 1;
 	
 	//attribute
-	private final IElementTakerElementGetter<I, O> transformer;
+	private final IElementTakerElementGetter<I, O> transformator;
 	
 	//constructor
 	/**
-	 * Creates new transform neuron with the given input neuron and transformer.
+	 * Creates new transform neuron with the given input neuron and transformator.
 	 * 
 	 * @param inputNeuron
-	 * @param transformer
+	 * @param transformator
 	 * @throws NullArgumentException if the given input neuron is null.
-	 * @throws NullArgumentException if the given transform function is null.
+	 * @throws NullArgumentException if the given transformator is null.
 	 */
 	public TransformNeuron(
 		final Neuronoid<?, ?, I> inputNeuron,
-		final IElementTakerElementGetter<I, O> transformer
+		final IElementTakerElementGetter<I, O> transformator
 	) {
-		//Checks if the given transform function is not null.
-		Validator.suppose(transformer).thatIsNamed("transformern").isNotNull();
+		//Checks if the given transformator is not null.
+		Validator
+		.suppose(transformator).
+		thatIsNamed(VariableNameCatalogue.TRANSFORMATOR).
+		isNotNull();
 						
 		addInputNeuron(inputNeuron);
 		
-		this.transformer = transformer;
+		//Sets the transformator of this transform neuron.
+		this.transformator = transformator;
 	}
 	
 	//method
@@ -67,6 +72,6 @@ extends Neuronoid<TransformNeuron<I, O>, I, O> {
 	 * Lets this transform neuron fire.
 	 */
 	protected void internal_fire() {
-		setOutput(transformer.getOutput(getRefOneInput()));
+		internal_setOutput(transformator.getOutput(getRefOneInput()));
 	}
 }

@@ -1,67 +1,64 @@
 //package declaration
 package ch.nolix.system.neuronoid;
 
-//Java import
-import java.util.Iterator;
-
-
-
 //own imports
-
+import ch.nolix.core.container.AccessorContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.sequencer.Sequencer;
+import ch.nolix.core.helper.IterableHelper;
 
 //class
 /**
  * A fanout neuron is a neuron that:
  * -Has a container of elements as input.
- * -Can create output neurons that have a single element of this container as output.
+ * -Can create fan neurons that have a single element as output.
  * 
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 80
- * @param <O> - The type of the elements of the input container and output container of a fanout neuron.
+ * @lines 90
+ * @param <O> The type of the elements of the input and of the elements of the output of a fanout neuron.
  */
 public final class  FanoutNeuron<O>
 extends Neuronoid<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
+	
+	//limits
+	public static final int MIN_INPUT_NEURON_COUNT = 0;
+	public static final int MAX_INPUT_NEURON_COUNT = 1;
 
-	//attribute
-	private final List<TransformNeuron<Iterable<O>, O>> outputNeurons = new List<TransformNeuron<Iterable<O>, O>>();
+	//multiple attribute
+	private final List<TransformNeuron<Iterable<O>, O>> fanNeurons =
+	new List<TransformNeuron<Iterable<O>, O>>();
 	
 	//method
 	/**
 	 * @param index
-	 * @return the output neuron of this fanout neuron that returns the element at the given index from the input container of this fanout neuron.
+	 * @return the fan neurons of this fanout neuron
+	 * that returns the element at the given index from the input of this fanout neuron.
 	 */
-	public TransformNeuron<Iterable<O>, O> getRefOutputNeuron(final int index) {
+	public TransformNeuron<Iterable<O>, O> getRefFanNeuron(final int index) {
 		
-		//Handles the case that the output neuron for the element at the given index exists already.
-		if (outputNeurons.getElementCount() >= index) {
-			return outputNeurons.getRefAt(index);
+		//Handles the case that the fan neuron for the element at the given index exists already.
+		if (fanNeurons.getElementCount() >= index) {
+			return fanNeurons.getRefAt(index);
 		}
 		
-		//Handles the case that the output neuron for the element at the given index does not exist yet.
-		outputNeurons.addAtEnd(
-			new TransformNeuron<Iterable<O>, O>(
-				this,
-				n -> {
-					final Iterator<O> iterator = n.iterator();
-					Sequencer.forCount(index - 1).run(() -> iterator.next());	
-					return iterator.next();
-				}
-			)
-		);
-		
-		return outputNeurons.getRefLast();
+		//Handles the case that the fan neuron for the element at the given index does not exist yet.		
+			fanNeurons.addAtEnd(
+				new TransformNeuron<Iterable<O>, O>(
+					this,
+					n -> IterableHelper.getElementAt(n, index)
+				)
+			);
+			
+			return fanNeurons.getRefLast();
 	}
 	
 	//method
 	/**
-	 * @param neuron
-	 * @return true if this fanout neurons contains the given output neuron.
+	 * @param fanNeuron
+	 * @return true if this fanout neurons contains the given fan neuron.
 	 */
-	public boolean containsOutputNeuron(final Neuronoid<?, ?, ?> neuron) {
-		return outputNeurons.contains(neuron);
+	public boolean containsFanNeuron(final Neuronoid<?, ?, ?> fanNeuron) {
+		return fanNeurons.contains(fanNeuron);
 	}
 	
 	//method
@@ -69,7 +66,7 @@ extends Neuronoid<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	 * @return the maximum number of input neurons of this fanout neuron.
 	 */
 	public int getMaxInputNeuronCount() {
-		return 1;
+		return MAX_INPUT_NEURON_COUNT;
 	}
 
 	//method
@@ -77,16 +74,22 @@ extends Neuronoid<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	 * @return the minimum number of input neurons of this fanout neuron.
 	 */
 	public int getMinInputNeuronCount() {
-		return 0;
+		return MIN_INPUT_NEURON_COUNT;
+	}
+	
+	//method
+	/**
+	 * @return the fan neurons of this fanout neuron.
+	 */
+	public AccessorContainer<Neuronoid<?, ?, O>> getRefFanNeurons() {
+		return new AccessorContainer<>(fanNeurons);
 	}
 
 	//method
 	/**
-	 * Triggers this fanout neuron using the given processor.
-	 * 
-	 * @param processor
+	 * Lets this neuron fire.
 	 */
 	protected void internal_fire() {
-		setOutput(getRefOneInput());
+		internal_setOutput(getRefOneInput());
 	}	
 }

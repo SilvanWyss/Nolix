@@ -128,7 +128,7 @@ implements Closable {
 	 * @param output
 	 */
 	void setOutput(final StandardSpecification output) {
-		setOutput(transformer.getOutput(output));
+		internal_setOutput(transformer.getOutput(output));
 	}
 	
 	//package-visible method
@@ -138,6 +138,6 @@ implements Closable {
 	 * @param output
 	 */
 	void setOutput(final String output) {
-		setOutput(transformer.getOutput(new StandardSpecification(output)));
+		internal_setOutput(transformer.getOutput(new StandardSpecification(output)));
 	}
 }

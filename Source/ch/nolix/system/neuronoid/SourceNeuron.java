@@ -3,7 +3,7 @@ package ch.nolix.system.neuronoid;
 
 //class
 /**
- * A source neuron is a neuron that serves as source.
+ * A source neuron is a neuron that provides a source.
  * 
  * @author Silvan Wyss
  * @month 2017-01
@@ -19,12 +19,12 @@ extends Neuronoid<SourceNeuron<O>, Object, O> {
 	
 	//constructor
 	/**
-	 * Creates a new source neuron with the given output.
+	 * Creates new source neuron with the given output.
 	 * 
 	 * @param output
 	 */
 	public SourceNeuron(final O output) {
-		setOutput(output);
+		internal_setOutput(output);
 	}
 	
 	//method
@@ -41,16 +41,6 @@ extends Neuronoid<SourceNeuron<O>, Object, O> {
 	 */
 	public int getMinInputNeuronCount() {
 		return MIN_INPUT_NEURON_COUNT;
-	}
-	
-	//method
-	/**
-	 * Sets the output of this source neuron.
-	 */
-	public void setOutput(final O output) {
-		
-		//Calls method of the base class.
-		super.setOutput(output);
 	}
 	
 	//method
