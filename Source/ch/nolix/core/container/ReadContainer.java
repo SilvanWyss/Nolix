@@ -18,7 +18,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-06
- * @lines 110
+ * @lines 140
  * @param <E> The type of the elements of a read container.
  */
 public final class ReadContainer<E> implements IContainer<E> {
@@ -31,7 +31,22 @@ public final class ReadContainer<E> implements IContainer<E> {
 	 * Creates new read container for a new empty container.
 	 */
 	public ReadContainer() {
-		container = new List<E>();
+		
+		//Calls other constructor.
+		this(new List<E>());
+	}
+	
+	//constructor
+	/**
+	 * Creates new read container for the given array.
+	 * 
+	 * @param array
+	 * @throws NullArgumentException if the given array is null.
+	 */
+	public <E2 extends E> ReadContainer(final E2[] array) {
+		
+		//Calls other constructor.
+		this(new ReadArrayContainer<E2>(array));
 	}
 	
 	//constructor
@@ -49,6 +64,19 @@ public final class ReadContainer<E> implements IContainer<E> {
 		
 		//Sets the container of this read container.
 		this.container = (IContainer<E>)container;
+	}
+	
+	//method
+	/**
+	 * Creates new read container for the given container.
+	 * 
+	 * @param container
+	 * @throws NullArgumentException if the given container is null.
+	 */
+	public <E2 extends E> ReadContainer(final Iterable<E2> container) {
+		
+		//Calls other constructor.
+		this(new ReadIterableContainer<E2>(container));
 	}
 	
 	//method
@@ -74,14 +102,6 @@ public final class ReadContainer<E> implements IContainer<E> {
 			
 			return containsAll(accessorContainer);
 	}
-	
-	//method
-	/**
-	 * @return a new list with the elements of this read container.
-	 */
-	public List<E> getCopy() {
-		return new List<E>(this);
-	}
 
 	//method
 	/**
@@ -99,6 +119,10 @@ public final class ReadContainer<E> implements IContainer<E> {
 		return container.iterator();
 	}
 	
+	//method
+	/**
+	 * @return a string representation of this read container.
+	 */
 	public String toString() {
 		
 		String string = StringCatalogue.EMPTY_STRING;

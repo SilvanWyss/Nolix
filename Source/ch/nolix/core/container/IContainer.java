@@ -320,12 +320,6 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//abstract method
 	/**
-	 * @return a new container with the elements of this container.
-	 */
-	public abstract IContainer<E> getCopy();
-	
-	//abstract method
-	/**
 	 * @return the number of elements of this container.
 	 */
 	public abstract int getElementCount();

@@ -63,7 +63,7 @@ public interface Configurable extends Specifiable {
 	 * @return the configurable objects of this configurable object recursively
 	 */
 	public default ReadContainer<Configurable> getRefConfigurablesRecursively() {
-		final List<Configurable> elements = getRefConfigurables().getCopy();
+		final List<Configurable> elements = new List<>(getRefConfigurables());
 		getRefConfigurables().forEach(r -> elements.addAtEnd(r.getRefConfigurablesRecursively()));
 		return new ReadContainer<Configurable>(elements);
 	}

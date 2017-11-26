@@ -8,7 +8,6 @@ import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerComparableGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerRunner;
-import ch.nolix.core.helper.IterableHelper;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
@@ -145,7 +144,8 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		//Checks if the given element container is not null.
 		Validator.suppose(elements).thatIsNamed("element container").isNotNull();
 		
-		if (!IterableHelper.isEmpty(elements)) {
+		//Handles the case that the given elements is not empty.
+		if (new ReadContainer<E>(elements).isEmpty()) {
 			
 			ListNode<E> preNode = new ListNode<E>(null);
 			

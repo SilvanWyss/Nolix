@@ -351,7 +351,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @return the widgets of this GUI recursively.
 	 */
 	public final List<Widget<?, ?>> getRefWidgetsRecursively() {
-		final List<Widget<?, ?>> widgets = getRefWidgets().getCopy();
+		final List<Widget<?, ?>> widgets = new List<>(getRefWidgets());
 		getRefWidgets().forEach(w -> widgets.addAtEnd(w.getRefWidgets()));
 		return widgets;
 	}

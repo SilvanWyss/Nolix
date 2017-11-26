@@ -4,7 +4,6 @@ package ch.nolix.system.neuronoid;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.helper.IterableHelper;
 
 //class
 /**
@@ -45,7 +44,7 @@ extends Neuronoid<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 			fanNeurons.addAtEnd(
 				new TransformNeuron<Iterable<O>, O>(
 					this,
-					n -> IterableHelper.getElementAt(n, index)
+					n -> new ReadContainer<O>(n).getRefAt(index)
 				)
 			);
 			
