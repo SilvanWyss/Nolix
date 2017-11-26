@@ -35,15 +35,6 @@ final class ListNode<E> {
 		setElement(element);
 	}
 	
-	// method
-	/**
-	 * @param element
-	 * @return true if this list node contains the given element.
-	 */
-	public boolean contains(final E element) {
-		return (getElement() == element);
-	}
-	
 	//method
 	/**
 	 * @param selector
@@ -51,6 +42,15 @@ final class ListNode<E> {
 	 */
 	public boolean contains(final IElementTakerBooleanGetter<E> selector) {
 		return selector.getOutput(getElement());
+	}
+	
+	// method
+	/**
+	 * @param element
+	 * @return true if this list node contains the given element.
+	 */
+	public boolean contains(final Object element) {
+		return (getElement() == element);
 	}
 	
 	//method
