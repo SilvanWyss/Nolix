@@ -51,7 +51,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 				else {
 					previousLayer.forEach(n -> neuron.addInputNeuron(n));
 				}		
-				neuron.setOutputFunction2(outputFunction);
+				neuron.setOutputFunction3(outputFunction);
 				
 				currentLayer.addAtEnd(neuron);
 			}

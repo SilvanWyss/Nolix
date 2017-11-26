@@ -27,7 +27,7 @@ public final class NeuronTutorial2 {
 		
 		//Creates neuron 1.
 		final Neuron<Double> neuron1 =
-		new Neuron<Double>().setOutputFunction(1.0);
+		new Neuron<Double>().setOutput(1.0);
 		
 		//Creates neuron 2.
 		final Neuron<Double> neuron2 =
