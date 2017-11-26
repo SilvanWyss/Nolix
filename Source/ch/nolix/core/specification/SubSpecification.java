@@ -2,7 +2,7 @@
 package ch.nolix.core.specification;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -82,8 +82,8 @@ public final class SubSpecification extends Specification {
 	 * @return the attributes of this sub specification
 	 */
 	@SuppressWarnings("unchecked")
-	public AccessorContainer<SubSpecification> getRefAttributes() {
-		return new AccessorContainer<SubSpecification>(
+	public ReadContainer<SubSpecification> getRefAttributes() {
+		return new ReadContainer<SubSpecification>(
 			internalSpecification.getRefAttributes().to(
 				a -> new SubSpecification(simplePersistentSpecification, a)
 			)

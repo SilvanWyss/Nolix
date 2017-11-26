@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
 import ch.nolix.core.entity.Property;
@@ -167,8 +167,8 @@ implements Clearable<G>, Closable, Refreshable {
 	/**
 	 * @return the configurable objects of this 3D GUI.
 	 */
-	public final AccessorContainer<Configurable> getRefConfigurables() {
-		return new AccessorContainer<>(getRefShapes());
+	public final ReadContainer<Configurable> getRefConfigurables() {
+		return new ReadContainer<>(getRefShapes());
 	}
 
 	//method
@@ -376,7 +376,7 @@ implements Clearable<G>, Closable, Refreshable {
 	/**
 	 * @return the shapes of this 3D GUI.
 	 */
-	private final AccessorContainer<Shape<?>> getRefShapes() {
+	private final ReadContainer<Shape<?>> getRefShapes() {
 		
 		final List<Shape<?>> shapes = new List<>();
 		
@@ -385,6 +385,6 @@ implements Clearable<G>, Closable, Refreshable {
 			shapes.addAtEnd(getRefRootShape());
 		}
 		
-		return new AccessorContainer<>(shapes);
+		return new ReadContainer<>(shapes);
 	}
 }

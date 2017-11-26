@@ -4,7 +4,7 @@ package ch.nolix.tech.resource;
 //own imports
 import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
 import ch.nolix.core.invalidArgumentException.Argument;
@@ -28,7 +28,7 @@ public final class Resource extends NamedElement {
 	
 	//multiple attribute
 	//The base resources are the resources this resource can serve as.
-	public final AccessorContainer<Resource> baseResources;
+	public final ReadContainer<Resource> baseResources;
 
 	//constructor
 	/**
@@ -44,7 +44,7 @@ public final class Resource extends NamedElement {
 		super(name);
 		
 		//Sets the base resources of this recource.
-		baseResources = new AccessorContainer<Resource>();
+		baseResources = new ReadContainer<Resource>();
 	}
 	
 	//constructor
@@ -98,7 +98,7 @@ public final class Resource extends NamedElement {
 			);
 		}
 		
-		this.baseResources = new AccessorContainer<Resource>(internalBaseResources);
+		this.baseResources = new ReadContainer<Resource>(internalBaseResources);
 	}
 	
 	//method
@@ -113,7 +113,7 @@ public final class Resource extends NamedElement {
 	/**
 	 * @return the base resources of this resource.
 	 */
-	public final AccessorContainer<Resource> getBaseResources() {
+	public final ReadContainer<Resource> getBaseResources() {
 		return baseResources;
 	}
 	

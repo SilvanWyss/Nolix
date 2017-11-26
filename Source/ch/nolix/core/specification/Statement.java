@@ -3,7 +3,7 @@ package ch.nolix.core.specification;
 
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 
@@ -121,7 +121,7 @@ public final class Statement {
 	/**
 	 * @return the attributes of this statement.
 	 */
-	public AccessorContainer<StandardSpecification> getRefAttributes() {
+	public ReadContainer<StandardSpecification> getRefAttributes() {
 		return specification.getRefAttributes();
 	}
 	

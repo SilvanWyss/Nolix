@@ -2,7 +2,7 @@
 package ch.nolix.system.baseGUIClient;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.Specification;
@@ -98,7 +98,7 @@ extends Client<BGUIC> {
 				break;
 			case Protocol.CREATE_FILE_COMMAND:
 				
-				final AccessorContainer<StandardSpecification> parameters
+				final ReadContainer<StandardSpecification> parameters
 				= command.getRefAttributes();
 				
 				internal_createFile(

@@ -5,7 +5,7 @@ package ch.nolix.core.entity;
 import java.lang.reflect.Field;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Specifiable;
@@ -64,14 +64,14 @@ public abstract class Entity implements Specifiable {
 	/**
 	 * @return the properties of this entity.
 	 */
-	public final AccessorContainer<Propertyoid<?>> getRefProperties() {
+	public final ReadContainer<Propertyoid<?>> getRefProperties() {
 		
 		//Handles the case that the properties of this entity are not extracted yet.
 		if (!propertiesAreExtracted()) {
 			extractProperties();
 		}
 		
-		return new AccessorContainer<>(properties);
+		return new ReadContainer<>(properties);
 	}
 
 	//method

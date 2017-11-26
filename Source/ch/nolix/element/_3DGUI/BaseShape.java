@@ -2,7 +2,7 @@
 package ch.nolix.element._3DGUI;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.entity.Property;
 import ch.nolix.core.specification.StandardSpecification;
@@ -77,8 +77,8 @@ extends Shape<BS> {
 	/**
 	 * @return the shapes of this base shape.
 	 */
-	public final AccessorContainer<Shape<?>> getRefShapes() {
-		return new AccessorContainer<>();
+	public final ReadContainer<Shape<?>> getRefShapes() {
+		return new ReadContainer<>();
 	}
 	
 	//method

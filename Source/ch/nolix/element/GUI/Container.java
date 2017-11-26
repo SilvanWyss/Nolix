@@ -11,7 +11,7 @@ package ch.nolix.element.GUI;
 //java import
 import java.awt.Graphics;
 
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
@@ -48,7 +48,7 @@ extends BorderWidget<C, BWS> {
 	/**
 	 * @return the widgets of this container that are shown.
 	 */
-	public abstract AccessorContainer<Widget<?, ?>> getRefShownWidgets();
+	public abstract ReadContainer<Widget<?, ?>> getRefShownWidgets();
 	
 	public final boolean hasRole() {
 		return (role != null);

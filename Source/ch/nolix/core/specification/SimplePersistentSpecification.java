@@ -2,7 +2,7 @@
 package ch.nolix.core.specification;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
 
@@ -80,8 +80,8 @@ public final class SimplePersistentSpecification extends Specification {
 	 * @return the attributes of this simple persistent specification.
 	 */
 	@SuppressWarnings("unchecked")
-	public AccessorContainer<SubSpecification> getRefAttributes() {
-		return new AccessorContainer<SubSpecification>(
+	public ReadContainer<SubSpecification> getRefAttributes() {
+		return new ReadContainer<SubSpecification>(
 			internalSpecification.getRefAttributes().to(
 				a -> new SubSpecification(this, a)
 			)

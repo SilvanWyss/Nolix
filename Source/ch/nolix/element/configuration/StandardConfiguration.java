@@ -2,7 +2,7 @@
 package ch.nolix.element.configuration;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
 
@@ -45,7 +45,7 @@ public class StandardConfiguration extends Configuration<StandardConfiguration> 
 			
 			setAttachingAttributesTo(element);
 						
-			final AccessorContainer<Configurable> elements = element.getRefConfigurables();
+			final ReadContainer<Configurable> elements = element.getRefConfigurables();
 			elements.forEach(e -> configurations.forEach(c -> c.configure(e)));
 		}
 	}

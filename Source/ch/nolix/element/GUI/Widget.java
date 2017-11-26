@@ -7,7 +7,7 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.ClosedStateException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
@@ -316,8 +316,8 @@ extends ConfigurableElement<W> {
 	/**
 	 * @return the configurable elements of this widget.
 	 */
-	public final AccessorContainer<Configurable> getRefConfigurables() {
-		return new AccessorContainer<Configurable>(getRefWidgets());
+	public final ReadContainer<Configurable> getRefConfigurables() {
+		return new ReadContainer<Configurable>(getRefWidgets());
 	}
 	
 	//method
@@ -333,7 +333,7 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @return the elements of this widget.
 	 */
-	public abstract AccessorContainer<Widget<?, ?>> getRefWidgets();
+	public abstract ReadContainer<Widget<?, ?>> getRefWidgets();
 	
 	//method
 	/**

@@ -8,7 +8,7 @@
 //package declaration
 package ch.nolix.core.specificationInterfaces;
 
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 //own import
 import ch.nolix.core.container.List;
 
@@ -56,16 +56,16 @@ public interface Configurable extends Specifiable {
 	/**
 	 * @return the configurable objects of this configurable objects
 	 */
-	public abstract AccessorContainer<Configurable> getRefConfigurables();
+	public abstract ReadContainer<Configurable> getRefConfigurables();
 	
 	//default method
 	/**
 	 * @return the configurable objects of this configurable object recursively
 	 */
-	public default AccessorContainer<Configurable> getRefConfigurablesRecursively() {
+	public default ReadContainer<Configurable> getRefConfigurablesRecursively() {
 		final List<Configurable> elements = getRefConfigurables().getCopy();
 		getRefConfigurables().forEach(r -> elements.addAtEnd(r.getRefConfigurablesRecursively()));
-		return new AccessorContainer<Configurable>(elements);
+		return new ReadContainer<Configurable>(elements);
 	}
 	
 	//abstract method

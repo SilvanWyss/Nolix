@@ -2,7 +2,7 @@
 package ch.nolix.system.neuronoid;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.helper.IterableHelper;
 
@@ -81,8 +81,8 @@ extends Neuronoid<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	/**
 	 * @return the fan neurons of this fanout neuron.
 	 */
-	public AccessorContainer<Neuronoid<?, ?, O>> getRefFanNeurons() {
-		return new AccessorContainer<>(fanNeurons);
+	public ReadContainer<Neuronoid<?, ?, O>> getRefFanNeurons() {
+		return new ReadContainer<>(fanNeurons);
 	}
 
 	//method

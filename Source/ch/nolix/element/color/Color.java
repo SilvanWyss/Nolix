@@ -7,7 +7,7 @@ import java.lang.reflect.Modifier;
 
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
 import ch.nolix.core.invalidArgumentException.Argument;
@@ -613,8 +613,8 @@ public class Color extends Element {
 		private static final List<Pair<String, java.lang.Integer>> webColorMap
 		= new List<Pair<String, java.lang.Integer>>();
 			
-		private static final AccessorContainer<Pair<String, java.lang.Integer>> webColorMap2
-		= new AccessorContainer<Pair<String, java.lang.Integer>>(webColorMap);
+		private static final ReadContainer<Pair<String, java.lang.Integer>> webColorMap2
+		= new ReadContainer<Pair<String, java.lang.Integer>>(webColorMap);
 	
 	//static method
 	/**
@@ -665,7 +665,7 @@ public class Color extends Element {
 	/**
 	 * @return a web color map.
 	 */
-	private static final AccessorContainer<Pair<String, java.lang.Integer>> getWebColorMap() {
+	private static final ReadContainer<Pair<String, java.lang.Integer>> getWebColorMap() {
 		
 		//Handles the case that the web color map is not extracted.
 		if (!webColorMapIsExtracted()) {

@@ -12,7 +12,7 @@ package ch.nolix.element.GUI;
 import java.awt.Graphics;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.StandardSpecification;
@@ -361,7 +361,7 @@ extends Container<TabContainer, TabContainerStructure> {
 	/**
 	 * @return the rectangles of this tab container
 	 */
-	public AccessorContainer<Widget<?, ?>> getRefWidgets() {
+	public ReadContainer<Widget<?, ?>> getRefWidgets() {
 		
 		final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>();
 		
@@ -371,14 +371,14 @@ extends Container<TabContainer, TabContainerStructure> {
 			}
 		}
 		
-		return new AccessorContainer<>(widgets);
+		return new ReadContainer<>(widgets);
 	}
 	
 	//method
 	/**
 	 * @return the rectangleso of this tab container that are shown
 	 */
-	public AccessorContainer<Widget<?, ?>> getRefShownWidgets() {
+	public ReadContainer<Widget<?, ?>> getRefShownWidgets() {
 		
 		final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>();
 		
@@ -386,7 +386,7 @@ extends Container<TabContainer, TabContainerStructure> {
 			widgets.addAtEnd(currentTab.getRefRectangle());
 		}
 		
-		return new AccessorContainer<>(widgets);
+		return new ReadContainer<>(widgets);
 	}
 	
 	//method

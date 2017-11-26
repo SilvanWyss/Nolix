@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 import java.awt.Graphics;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
@@ -116,8 +116,8 @@ extends Widget<L, LineStructure> {
 	/**
 	 * @return the widgets of this line.
 	 */
-	public final AccessorContainer<Widget<?, ?>> getRefWidgets() {
-		return new AccessorContainer<>();
+	public final ReadContainer<Widget<?, ?>> getRefWidgets() {
+		return new ReadContainer<>();
 	}
 	
 	//method

@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 import java.awt.Graphics;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
 
@@ -183,7 +183,7 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxStructure
 	}
 
 	@Override
-	public AccessorContainer<Widget<?, ?>> getRefWidgets() {
-		return new AccessorContainer<>();
+	public ReadContainer<Widget<?, ?>> getRefWidgets() {
+		return new ReadContainer<>();
 	}
 }

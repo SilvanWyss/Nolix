@@ -12,7 +12,7 @@ package ch.nolix.element.GUI;
 import java.awt.Graphics;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
@@ -146,7 +146,7 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 	}
 	
 	@Override
-	public AccessorContainer<Widget<?, ?>> getRefWidgets() {
-		return new AccessorContainer<>();
+	public ReadContainer<Widget<?, ?>> getRefWidgets() {
+		return new ReadContainer<>();
 	}
 }

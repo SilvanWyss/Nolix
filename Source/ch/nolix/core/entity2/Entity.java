@@ -5,7 +5,7 @@ package ch.nolix.core.entity2;
 import java.lang.reflect.Field;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.specification.StandardSpecification;
@@ -71,14 +71,14 @@ public abstract class Entity {
 	/**
 	 * @return the properties of this entity.
 	 */
-	public final AccessorContainer<Property<?>> getRefProperties() {
+	public final ReadContainer<Property<?>> getRefProperties() {
 		
 		//Handles the case that the properties of this entity are not extracted yet.
 		if (!propertiesAreExtracted()) {
 			extractProperties();
 		}
 		
-		return new AccessorContainer<Property<?>>(properties);
+		return new ReadContainer<Property<?>>(properties);
 	}
 	
 	//method

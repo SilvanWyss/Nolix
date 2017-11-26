@@ -2,7 +2,7 @@
 package ch.nolix.element._3DGUI;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
@@ -121,8 +121,8 @@ public final class MultiShape extends Shape<MultiShape> {
 	/**
 	 * @return the shapes of this multi shape.
 	 */
-	public AccessorContainer<Shape<?>> getRefShapes() {
-		return new AccessorContainer<>(shapes);
+	public ReadContainer<Shape<?>> getRefShapes() {
+		return new ReadContainer<>(shapes);
 	}
 	
 	//method

@@ -11,7 +11,7 @@ package ch.nolix.element.GUI;
 //own imports
 import java.awt.Graphics;
 
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
 
@@ -74,7 +74,7 @@ extends Container<SingleContainer, SingleContainerStructure> {
 	/**
 	 * @return the rectangles of this single container that are shown
 	 */
-	public AccessorContainer<Widget<?, ?>> getRefShownWidgets() {
+	public ReadContainer<Widget<?, ?>> getRefShownWidgets() {
 		return getRefWidgets();
 	}
 	
@@ -144,7 +144,7 @@ extends Container<SingleContainer, SingleContainerStructure> {
 	protected SingleContainerStructure createWidgetStructure() {
 		return new SingleContainerStructure();
 	}
-	public AccessorContainer<Widget<?, ?>> getRefWidgets() {
-		return new AccessorContainer<Widget<?, ?>>();
+	public ReadContainer<Widget<?, ?>> getRefWidgets() {
+		return new ReadContainer<Widget<?, ?>>();
 	}
 }

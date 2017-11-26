@@ -2,7 +2,7 @@
 package ch.nolix.core.bases;
 
 //own import
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Closable;
 import ch.nolix.core.invalidStateException.InvalidStateException;
@@ -92,8 +92,8 @@ final class CloseController implements Closable {
 	/**
 	 * @return the elements of this close controller.
 	 */
-	public AccessorContainer<ClosableElement> getRefElements() {
-		return new AccessorContainer<ClosableElement>(elements);
+	public ReadContainer<ClosableElement> getRefElements() {
+		return new ReadContainer<ClosableElement>(elements);
 	}
 	
 	//method

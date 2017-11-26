@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.configuration;
 
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
@@ -76,7 +76,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 
 		if (!hasMaxSelectorLevel()) {
 
-			final AccessorContainer<Configurable> elements = element.getRefConfigurables();
+			final ReadContainer<Configurable> elements = element.getRefConfigurables();
 			
 			if (selects(element)) {
 				setAttachingAttributesTo(element);		
@@ -187,7 +187,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	private void configure(Configurable element, int level) {
 		if (level > 0) {
 			
-			final AccessorContainer<Configurable> elements = element.getRefConfigurables();
+			final ReadContainer<Configurable> elements = element.getRefConfigurables();
 			
 			if (selects(element)) {
 				setAttachingAttributesTo(element);

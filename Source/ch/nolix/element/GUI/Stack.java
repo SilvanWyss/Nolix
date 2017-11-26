@@ -2,7 +2,7 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.specification.StandardSpecification;
@@ -155,8 +155,8 @@ implements Clearable<S> {
 	/**
 	 * @return the widgets of this stack that are shown.
 	 */
-	public final AccessorContainer<Widget<?, ?>> getRefShownWidgets() {
-		return new AccessorContainer<Widget<?, ?>>(
+	public final ReadContainer<Widget<?, ?>> getRefShownWidgets() {
+		return new ReadContainer<Widget<?, ?>>(
 			getRefWidgets().getRefSelected(w -> !w.isCollapsed())
 		);
 	}
@@ -165,8 +165,8 @@ implements Clearable<S> {
 	/**
 	 * @return the widgets of this stack.
 	 */
-	public AccessorContainer<Widget<?, ?>> getRefWidgets() {
-		return new AccessorContainer<Widget<?, ?>>(widgets);
+	public ReadContainer<Widget<?, ?>> getRefWidgets() {
+		return new ReadContainer<Widget<?, ?>>(widgets);
 	}
 	
 	//method

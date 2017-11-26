@@ -2,7 +2,7 @@
 package ch.nolix.system.neuronoid;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.IFluentObject;
 import ch.nolix.core.invalidArgumentException.Argument;
@@ -156,24 +156,24 @@ implements IFluentObject<N> {
 	/**
 	 * @return the input connections of this neuron.
 	 */
-	public final AccessorContainer<InputConnection<I>> getRefInputConnections() {
-		return new AccessorContainer<InputConnection<I>>(inputConnections);
+	public final ReadContainer<InputConnection<I>> getRefInputConnections() {
+		return new ReadContainer<InputConnection<I>>(inputConnections);
 	}
 	
 	//package-visible method
 	/**
 	 * @return the input neurons of this neuron.
 	 */
-	public final AccessorContainer<Neuronoid<?, ?, I>> getRefInputNeurons() {
-		return new AccessorContainer<>(inputConnections.to(ic -> ic.getRefInputNeuron()));
+	public final ReadContainer<Neuronoid<?, ?, I>> getRefInputNeurons() {
+		return new ReadContainer<>(inputConnections.to(ic -> ic.getRefInputNeuron()));
 	}
 	
 	//method
 	/**
 	 * @return the inputs of this neuron.
 	 */
-	public final AccessorContainer<I> getRefInputs() {
-		return new AccessorContainer<I>(inputConnections.to(ic -> ic.getRefInputNeuronOutput()));
+	public final ReadContainer<I> getRefInputs() {
+		return new ReadContainer<I>(inputConnections.to(ic -> ic.getRefInputNeuronOutput()));
 	}
 	
 	//method
@@ -217,8 +217,8 @@ implements IFluentObject<N> {
 	/**
 	 * @return the output neurons of this neuron.
 	 */
-	public final AccessorContainer<Neuronoid<?, O, ?>> getRefOutputNeurons() {
-		return new AccessorContainer<>(outputNeurons);
+	public final ReadContainer<Neuronoid<?, O, ?>> getRefOutputNeurons() {
+		return new ReadContainer<>(outputNeurons);
 	}
 	
 	//method

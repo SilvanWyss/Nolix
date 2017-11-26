@@ -2,7 +2,7 @@
 package ch.nolix.element._3DGUI;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
@@ -68,8 +68,8 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	/**
 	 * @return the configurable elements of this shape.
 	 */
-	public final AccessorContainer<Configurable> getRefConfigurables() {
-		return new AccessorContainer<Configurable>(getRefShapes());
+	public final ReadContainer<Configurable> getRefConfigurables() {
+		return new ReadContainer<Configurable>(getRefShapes());
 	}
 	
 	//method
@@ -86,7 +86,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	/**
 	 * @return the shapes of this shapes.
 	 */
-	public abstract AccessorContainer<Shape<?>> getRefShapes();
+	public abstract ReadContainer<Shape<?>> getRefShapes();
 	
 	//method
 	/**

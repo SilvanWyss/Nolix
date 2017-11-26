@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 import java.awt.Graphics;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
@@ -132,8 +132,8 @@ public class Area extends Widget<Area, AreaStructure> {
 	/**
 	 * @return the element of this area.
 	 */
-	public AccessorContainer<Widget<?, ?>> getRefWidgets() {
-		return new AccessorContainer<>();
+	public ReadContainer<Widget<?, ?>> getRefWidgets() {
+		return new ReadContainer<>();
 	}
 	
 	//method

@@ -8,7 +8,7 @@ import java.awt.event.KeyEvent;
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Clearable;
@@ -184,16 +184,16 @@ implements Clearable<Console> {
 	/**
 	 * @return the widgets of this console.
 	 */
-	public AccessorContainer<Widget<?, ?>> getRefWidgets() {
-		return new AccessorContainer<>();
+	public ReadContainer<Widget<?, ?>> getRefWidgets() {
+		return new ReadContainer<>();
 	}
 	
 	//method
 	/**
 	 * @return the lines of this console.
 	 */
-	public AccessorContainer<String> getLines() {
-		return new AccessorContainer<String>(lines);
+	public ReadContainer<String> getLines() {
+		return new ReadContainer<String>(lines);
 	}
 	
 	//method

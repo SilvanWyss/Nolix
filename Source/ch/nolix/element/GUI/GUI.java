@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 import java.lang.reflect.InvocationTargetException;
 
 //own imports
-import ch.nolix.core.container.AccessorContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerInterfaces.IController;
 import ch.nolix.core.entity.Property;
@@ -298,8 +298,8 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	/**
 	 * @return the configurable elements of this GUI.
 	 */
-	public final AccessorContainer<Configurable> getRefConfigurables() {
-		return new AccessorContainer<>(getRefWidgets().to(w -> w));		
+	public final ReadContainer<Configurable> getRefConfigurables() {
+		return new ReadContainer<>(getRefWidgets().to(w -> w));		
 	}
 	
 	//method
@@ -333,7 +333,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	/**
 	 * @return the widgets of this GUI.
 	 */
-	public final AccessorContainer<Widget<?, ?>> getRefWidgets() {
+	public final ReadContainer<Widget<?, ?>> getRefWidgets() {
 		
 		final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>();
 		
@@ -343,7 +343,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 			widgets.addAtEnd(rootWidget);//.addAtEnd(getRefRootWidget().getRefWidgets());
 		}
 		
-		return new AccessorContainer<Widget<?, ?>>(widgets);
+		return new ReadContainer<Widget<?, ?>>(widgets);
 	}
 	
 	//method
