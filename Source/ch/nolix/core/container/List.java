@@ -670,48 +670,6 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * Removes the first appearance of the given element from this list.
-	 * The complexity of this method is O(n) if this list contains n elements.
-	 * 
-	 * @param element
-	 * @return this list.
-	 * @throws InvalidArgumentException if this list does not contain the given element.
-	 */
-	public List<E> removeFirst(final E element) {
-		
-		//Checks if this list is not empty.
-		if (isEmpty()) {
-			throw new InvalidArgumentException(
-				new Argument(this),
-				new ErrorPredicate("contains not '" + element + "'")
-			);
-		}
-		
-		if (firstNode.contains(element)) {
-			return removeFirst();
-		}
-
-		ListNode<E> iterator = firstNode;
-		while (iterator.hasNextNode()) {
-			
-			final ListNode<E> nextNode = iterator.getNextNode();
-			
-			if (nextNode.contains(element)) {
-				removeNextNode(iterator);
-				return this;
-			}
-			
-			iterator = nextNode;
-		}
-		
-		throw new InvalidArgumentException(
-			new Argument(this),
-			new ErrorPredicate("contains not '" + element + "'")
-		);
-	}
-	
-	//method
-	/**
 	 * Removes the first element the given selector selects from this list.
 	 * The complexity of this method is O(n) if this list contains n elements.
 	 * 
@@ -749,6 +707,48 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		throw new InvalidArgumentException(
 			new Argument(this),
 			new ErrorPredicate("contains no such element")
+		);
+	}
+	
+	//method
+	/**
+	 * Removes the first appearance of the given element from this list.
+	 * The complexity of this method is O(n) if this list contains n elements.
+	 * 
+	 * @param element
+	 * @return this list.
+	 * @throws InvalidArgumentException if this list does not contain the given element.
+	 */
+	public List<E> removeFirst(final Object element) {
+		
+		//Checks if this list is not empty.
+		if (isEmpty()) {
+			throw new InvalidArgumentException(
+				new Argument(this),
+				new ErrorPredicate("contains not '" + element + "'")
+			);
+		}
+		
+		if (firstNode.contains(element)) {
+			return removeFirst();
+		}
+
+		ListNode<E> iterator = firstNode;
+		while (iterator.hasNextNode()) {
+			
+			final ListNode<E> nextNode = iterator.getNextNode();
+			
+			if (nextNode.contains(element)) {
+				removeNextNode(iterator);
+				return this;
+			}
+			
+			iterator = nextNode;
+		}
+		
+		throw new InvalidArgumentException(
+			new Argument(this),
+			new ErrorPredicate("does not contain '" + element + "'")
 		);
 	}
 	
