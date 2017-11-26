@@ -23,7 +23,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1000
+ * @lines 1030
  * @param <E> - The type of the elements of a list.
  */
 public final class List<E> implements Clearable<List<E>>, IContainer<E> {
@@ -75,7 +75,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * @throws NullArgumentException if the given element container is null.
 	 * @throws NullArgumentException if one of the given elements is null.
 	 */
-	public List(final Iterable<E> elements) {
+	public <E2 extends E> List(final Iterable<E2> elements) {
 		addAtEnd(elements);
 	}
 	
@@ -140,7 +140,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * @throws NullArgumentException if the given element container is null.
 	 * @throws NullArgumentException if one of the given elements is null.
 	 */
-	public List<E> addAtBegin(final Iterable<E> elements) {
+	public <E2 extends E> List<E> addAtBegin(final Iterable<E2> elements) {
 		
 		//Checks if the given element container is not null.
 		Validator.suppose(elements).thatIsNamed("element container").isNotNull();
@@ -251,7 +251,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * @throws NullArgumentException if the given element container is null.
 	 * @throws NullArgumentException if one of the given elements is null.
 	 */
-	public List<E> addAtEnd(final Iterable<E> elements) {
+	public <E2 extends E> List<E> addAtEnd(final Iterable<E2> elements) {
 		
 		//Checks if the given element container is not null.
 		Validator.suppose(elements).thatIsNamed("element container").isNotNull();
@@ -750,6 +750,25 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 			new Argument(this),
 			new ErrorPredicate("does not contain '" + element + "'")
 		);
+	}
+	
+	//method
+	/**
+	 * Removes the first appearance of all of the given elements from this list.
+	 * 
+	 * The complexity of this method is O(m * n) if:
+	 * -m elements are given.
+	 * -This list contains n elements.
+	 * 
+	 * @param elements
+	 * @return this list.
+	 * @throws InvalidArgumentException if this list does not contain one of the given elements.
+	 */
+	public <E2> List<E> removeFirst(final Iterable<E2> elements) {
+		
+		elements.forEach(e -> removeFirst(e));
+		
+		return this;
 	}
 	
 	//method
