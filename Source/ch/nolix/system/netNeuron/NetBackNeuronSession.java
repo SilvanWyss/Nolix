@@ -15,7 +15,7 @@ final class NetBackNeuronSession extends Session<StandardClient> {
 
 	//method
 	/**
-	 * Initializes this net neuron session.
+	 * Initializes this net back neuron session.
 	 */
 	public void initialize() {}
 }

@@ -9,7 +9,7 @@ import ch.nolix.system.client.StandardClient;
 /**
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 40
+ * @lines 50
  * @param <O> The type of the output
  * of the net front neuron of a net front neuron session.
  */
@@ -22,7 +22,7 @@ extends ContextSession<StandardClient, NetFrontNeuron<O>> {
 	 * with the given netFrontNeuron.
 	 * 
 	 * @param netFrontNeuron
-	 * @throws NullArgumentException if the given netFrontNeuron is null.
+	 * @throws NullArgumentException if the given net front neuron is null.
 	 */
 	public NetFrontNeuronSession(final NetFrontNeuron<O> netFrontNeuron) {
 		
@@ -36,17 +36,21 @@ extends ContextSession<StandardClient, NetFrontNeuron<O>> {
 	 */
 	public void initialize() {}
 	
-	//run method
+	//method
 	/**
-	 * Sets the output of the 
+	 *  Runs the net front neuron of this net front neuron session.
+	 */
+	public void Fire() {
+		getRefContext().fire();
+	}
+	
+	//method
+	/**
+	 * Sets the output of the net front neuron of this net front neuron session.
+	 * 
 	 * @param output
 	 */
 	public void SetOutput(final String output) {
 		getRefContext().setOutput(output);
-	}
-	
-	//run method
-	public void Trigger() {
-		getRefContext().fire();
 	}
 }
