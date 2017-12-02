@@ -1,36 +1,27 @@
-/*
- * file:	DesignManager
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	10
- */
-
 //package declaration
 package ch.nolix.system.modules;
 
 //Java import
 import java.io.File;
 
-
-
-
-
-
 //own imports
-
-
 import ch.nolix.core.centralController.CentralController;
 import ch.nolix.core.centralController.Module;
 import ch.nolix.core.container.List;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
+import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.invalidStateException.UnsupportedMethodException;
-import ch.nolix.core.specification.Statement;
 import ch.nolix.element.configuration.StandardConfiguration;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 150
+ */
 public final class DesignManager extends Module {
 	
 	//request
@@ -41,7 +32,7 @@ public final class DesignManager extends Module {
 	 * Creates new design manager with the given central controller.
 	 * 
 	 * @param centralController
-	 * @throws Exception if the given central controller is null
+	 * @throws NullArgumentException if the given central controller is null.
 	 */
 	public DesignManager(final CentralController centralController) {
 		
@@ -54,15 +45,27 @@ public final class DesignManager extends Module {
 	 * Adds the given design to this design manager.
 	 * 
 	 * @param design
-	 * @return this design manager
-	 * @throws Exception if this design manager contains already a design with the same name the given design has
+	 * @return this design manager.
+	 * @throws UnexistingAttributeException if the given design has no name.
+	 * @throws InvalidArgumentException
+	 * if this design manager contains already a design with the same name the given design.
 	 */
 	public final DesignManager addDesign(final StandardConfiguration design) {
 		
+		//Extracts the name of the given design.
 		final String name = design.getName();
 		
+		//Checks if this design manager does not contain a design with the name of the given name.
 		if (containsDesign(name)) {
-			throw new RuntimeException("Design manager contains already a design with the name '" + name + "'.");
+			throw new InvalidArgumentException(
+				new ArgumentName(name),
+				new Argument(design),
+				new ErrorPredicate(
+					"is invalid because the design manager contains already a design with the name '"
+					+ name
+					+ "'."
+				)
+			);
 		}
 		
 		design.saveAsTo(StandardConfiguration.TYPE_NAME, getDirectory() + "/" + name + ".spec");
@@ -71,21 +74,23 @@ public final class DesignManager extends Module {
 	}
 	
 	//method
+	/**
+	 * Adds the given design to this design manager
+	 * if this design manager does not contain a design with the name of the given design.
+	 * 
+	 * @param design
+	 * @return this design manager.
+	 * @throws UnexistingAttributeException if the given design has no name.
+	 */
 	public final DesignManager addDesignIfPossible(final StandardConfiguration design) {
 		
+		//Extracts the name of the given design.
 		final String name = design.getName();
 		
+		//Handles the case that this design manager
+		//does not contain a design with the name of the given design.
 		if (!containsDesign(name)) {
-			design.saveAsTo(StandardConfiguration.TYPE_NAME, getDirectory() + "/" + name + ".spec");
-		}
-		
-		return this;
-	}
-	
-	public final DesignManager addDesignIfNeeded(final StandardConfiguration... designs) {
-		
-		for (StandardConfiguration d: designs) {
-			addDesignIfPossible(d);
+			addDesign(design);
 		}
 		
 		return this;
@@ -94,88 +99,58 @@ public final class DesignManager extends Module {
 	//method
 	/**
 	 * @param name
-	 * @return true if this design manager contains a design with the given name
+	 * @return true if this design manager contains a design with the given name.
 	 */
 	public boolean containsDesign(final String name) {
-		
-		//Iterates the files with the designs of this design manager.
-		for (File f: new File(getDirectory()).listFiles()) {
-			if (f.getName().split("\\.")[0].equals(name)) {
-				return true;
-			}
+		try {
+			getDesignByName(name);
+			return true;
 		}
-		
-		return false;
+		catch (final Exception e) {
+			return false;
+		}
 	}
 	
 	//method
 	/**
 	 * @param name
 	 * @return the design with the given name from this design manager
-	 * @throws UnexistingAttributeException if this design manager contains no design with the given name
+	 * @throws UnexistingAttributeException
+	 * if this design manager contains no design with the given name.
 	 */
 	public StandardConfiguration getDesignByName(final String name) {
 		
 		//Iterates the files with the designs of this design manager.
-		for (File f: new File(getDirectory()).listFiles()) {
-			if (f.getName().split("\\.")[0].equals(name)) {
-				StandardConfiguration design = new StandardConfiguration();
-				design.loadFrom(f.getAbsolutePath());
-				design.setName(f.getName().split("\\.")[0]);
+		for (final File f: new File(getDirectory()).listFiles()) {
+						
+			StandardConfiguration design =
+			StandardConfiguration.createConfigurationFromFile(f.getAbsolutePath());
+			
+			//Handles the case that the current design has the given name.
+			if (design.hasName(name)) {
 				return design;
-			}			
+			}				
 		}
 		
-		throw new UnexistingAttributeException(this, "design with name '" + name + "'.");
+		throw new UnexistingAttributeException(this, "design with the name '" + name + "'.");
 	}
 	
 	//method
 	/**
 	 * @return the names of the designs of this design manager
 	 */
-	public final List<String> getDesignNames() {
+	public final ReadContainer<String> getDesignNames() {
 		
-		final List<String> designNames = new List<String>();
+		final List<String> designNames = new List<>();
 		
 		//Iterates the files with the designs of this design manager.
-		for (File f: new File(getDirectory()).listFiles()) {
-			designNames.addAtEnd(f.getName().split("\\.")[0]);
-		}		
+		for (final File f: new File(getDirectory()).listFiles()) {
+			StandardConfiguration design =
+			StandardConfiguration.createConfigurationFromFile(f.getAbsolutePath());
+			designNames.addAtEnd(design.getName());
+						
+		}	
 		
-		return designNames;
-	}
-	
-	//method
-	/**
-	 * @param request
-	 * @return the data the given request requests
-	 * @throws Exception if the given request is not valid
-	 */
-	public Object getRawData(final Statement request) {
-		switch (request.getHeader()) {
-			case DESIGN_NAMES_REQUEST:
-				return getDesignNames();
-			default:
-				throw new InvalidArgumentException(
-					new ArgumentName("request"),
-					new Argument(request)
-				);
-		}
-	}
-
-	//method
-	/**
-	 * @throws UnsupportedMethodException
-	 */
-	public Object getRawReference(final Statement request) {
-		throw new UnsupportedMethodException(this, "getRawReference");
-	}
-
-	//method
-	/**
-	 * @throws UnsupportedMethodException
-	 */
-	public void run(final Statement command) {
-		throw new UnsupportedMethodException(this, "run");
+		return new ReadContainer<>(designNames);
 	}
 }
