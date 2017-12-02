@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="Source"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-9"/>
 	<classpathentry kind="lib" path="C:/Bitbucket-Projects/Nolix/JMonkey/core.jar"/>
 	<classpathentry kind="lib" path="C:/Bitbucket-Projects/Nolix/JMonkey/dense64.jar"/>
 	<classpathentry kind="lib" path="C:/Bitbucket-Projects/Nolix/JMonkey/denseC64.jar"/>
@@ -77,5 +76,6 @@
 	<classpathentry kind="lib" path="C:/Bitbucket-Projects/Nolix/JMonkey/simple.jar"/>
 	<classpathentry kind="lib" path="C:/Bitbucket-Projects/Nolix/JMonkey/vecmath.jar"/>
 	<classpathentry kind="lib" path="C:/Bitbucket-Projects/Nolix/JMonkey/xpp3.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
