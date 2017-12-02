@@ -3,6 +3,7 @@ package ch.nolix.element.configuration;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
 
@@ -10,12 +11,26 @@ import ch.nolix.core.specificationInterfaces.Configurable;
 /**
  * @author Silvan Wyss
  * @month 2016-01
- * @lines 50
+ * @lines 60
  */
 public class StandardConfiguration extends Configuration<StandardConfiguration> {
 
 	//type name
 	public static final String TYPE_NAME = "StandardConfiguration";
+	
+	//static method
+	/**
+	 * @param filePath
+	 * @return a new standard specification from the file with the given file path.
+	 * @throws InvalidArgumentException if the given file path is not valid.
+	 * @throws InvalidArgumentException
+	 * if the file with the given file path represents no standard configuration.
+	 */
+	public static StandardConfiguration createConfigurationFromFile(final String filePath) {
+		StandardConfiguration standardConfiguration = new StandardConfiguration();
+		standardConfiguration.loadFrom(filePath);
+		return standardConfiguration;
+	}
 	
 	//constructor
 	/**
