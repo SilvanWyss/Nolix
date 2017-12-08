@@ -33,6 +33,7 @@ public class VariableNameCatalogue {
 	public static final String DURATION_IN_SECONDS = "duration in seconds";
 	public static final String END_DATE = "end date";
 	public static final String END_INDEX = "end index";
+	public static final String FUNCTION = "function";
 	public static final String HASH_CODE = "hash code";
 	public static final String HEIGHT = "height";
 	public static final String ID = "id";
