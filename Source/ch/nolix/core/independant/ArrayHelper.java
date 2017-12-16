@@ -76,6 +76,34 @@ public final class ArrayHelper {
 	
 	//static method
 	/**
+	 * Creates a new iterable object with the given elements.
+	 * 
+	 * @param elements
+	 * @param additionalElement
+	 * @return a new iterable object with the given elements and additional element.
+	 * @throws NullArgumentExcetpion if the given elements is null.
+	 */
+	public static <E> Iterable<E> createIterable(final Iterable<E> elements, final E additionalElement) {
+		
+		//Checks if the given elements is not null.
+		if (elements == null) {
+			throw new NullArgumentException("elements");
+		}
+		
+		final Vector<E> elementVector = new Vector<E>();
+		
+		//Iterates the given elements.
+		for (final E e : elements) {
+			elementVector.add(e);
+		}
+		
+		elementVector.add(additionalElement);
+		
+		return elementVector;
+	}
+	
+	//static method
+	/**
 	 * Creates a new iterable object with the given values.
 	 * 
 	 * @param values
