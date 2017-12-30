@@ -7,7 +7,7 @@ package ch.nolix.core.constants;
  * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 70
+ * @lines 80
  */
 public class VariableNameCatalogue {
 	
@@ -17,6 +17,8 @@ public class VariableNameCatalogue {
 	public static final String ARRAY = "array";
 	public static final String CAPACITY = "capacity";
 	public static final String CAPTION = "caption";
+	public static final String COLUMN_COUNT = "column count";
+	public static final String COLUMN_INDEX = "row index";
 	public static final String CONDITION = "condition";
 	public static final String CONFIGURATION = "configuration";
 	public static final String CONTAINER = "container";
@@ -26,11 +28,13 @@ public class VariableNameCatalogue {
 	public static final String DATE_OF_BIRTH = "date of birth";
 	public static final String DEFAULT_CAPACITY = "default capacity";
 	public static final String DEFAULT_NAME = "default name";
+	public static final String DEFAULT_SIZE = "default size";
 	public static final String DESCRIPTION = "description";
 	public static final String DISTANCE = "distance";
 	public static final String DURATION = "duration";
 	public static final String DURACTION_IN_MILLISECONDS = "duration in milliseconds";
 	public static final String DURATION_IN_SECONDS = "duration in seconds";
+	public static final String ELEMENT_COUNT = "element count";
 	public static final String END_DATE = "end date";
 	public static final String END_INDEX = "end index";
 	public static final String FUNCTION = "function";
@@ -52,7 +56,10 @@ public class VariableNameCatalogue {
 	public static final String RESOURCE = "resource";
 	public static final String ROOT = "root";
 	public static final String ROOT_NODE = "root node";
+	public static final String ROW_COUNT = "row count";
+	public static final String ROW_INDEX = "row index";
 	public static final String SEQUENCE ="sequence";
+	public static final String SIZE = "size";
 	public static final String START_DATE = "start date";
 	public static final String START_INDEX = "start index";
 	public static final String STATE = "state";
