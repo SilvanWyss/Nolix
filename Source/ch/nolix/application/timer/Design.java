@@ -24,7 +24,7 @@ final class Design extends StandardConfiguration {
 		
 		addAttachingAttribute(
 			"BackgroundColor(DarkBlue)",
-			"ContentOrientation(Top)"
+			"ContentPosition(Top)"
 		);
 		
 		addConfiguration(
@@ -32,7 +32,7 @@ final class Design extends StandardConfiguration {
 			.setSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute(
 				"NormalTopPadding(50)",
-				"ContentOrientation(Center)",
+				"ContentPosition(Center)",
 				"ElementMargin(50)"
 			),
 			new StandardConfiguration()

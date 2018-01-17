@@ -18,7 +18,7 @@ extends StandardApplication<ConsoleBackClient> {
 	public static final String NAME = "Candlestick Analyzer";
 	
 	//title
-	public static final String TITLE = NAME + " 2017-10-7";
+	public static final String TITLE = NAME + " 2018-1-12";
 	
 	//constructor
 	/**

@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.ClosedStateException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
@@ -27,7 +28,7 @@ import ch.nolix.element.bases.ConfigurableElement;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1140
+ * @lines 1170
  * @param <W> The type of a widget.
  * @param <WS> The type of the widget structures of a widget.
  */
@@ -1016,6 +1017,28 @@ extends ConfigurableElement<W> {
 		this.state = state;
 		
 		return (W)this;
+	}
+	
+	//method
+	/**
+	 * @param type
+	 * @return true if this widget can create a widget of the given type.
+	 */
+	protected final boolean canCreateWidget(final String type) {
+		return (belongsToGUI() && getRefGUI().canCreateWidget(type));
+	}
+	
+	//method
+	/**
+	 * Creates a new widget the given specification specifies.
+	 * The widget and all of its widgets will belong to the GUI this widget belongs to.
+	 * 
+	 * @param specification
+	 * @return the created widget.
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	protected final Widget<?, ?> createWidget(final StandardSpecification specification) {
+		return getRefGUI().createWidget(specification);
 	}
 	
 	//abstract method

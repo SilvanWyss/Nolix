@@ -696,6 +696,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	//method
 	/**
 	 * Creates a new widget the given specification specifies.
+	 * The widget and all of its widgets will belong to this GUI.
 	 * 
 	 * @param specification
 	 * @return the created widget.
@@ -704,6 +705,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	protected final Widget<?, ?> createWidget(final StandardSpecification specification) {
 		
 		final Widget<?, ?> widget = createWidget(specification.getHeader());
+		widget.setGUI(this);
 		widget.addOrChangeAttributes(specification.getRefAttributes());
 		
 		return widget;		
@@ -715,11 +717,11 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @return a new widget of the given type with default values.
 	 * @throws InvalidArgumentException if this GUI cannot create a widget of the given type.
 	 */
-	protected Widget<?, ?> createWidget(final String type) {
+	protected final Widget<?, ?> createWidget(final String type) {
 		try {
 			return
-				(Widget<?, ?>)
-				(widgetClasses.getRefFirst(wc -> wc.getSimpleName().equals(type)).getDeclaredConstructor().newInstance());	
+			(Widget<?, ?>)
+			(widgetClasses.getRefFirst(wc -> wc.getSimpleName().equals(type)).getDeclaredConstructor().newInstance());	
 		}
 		catch (
 			final
