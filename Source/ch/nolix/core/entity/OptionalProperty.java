@@ -4,6 +4,7 @@ package ch.nolix.core.entity;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
+import ch.nolix.core.functionInterfaces.IElementTakerRunner;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Specification;
@@ -16,7 +17,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 100
+ * @lines 130
  * @param <V> The value of an optional property.
  */
 public final class OptionalProperty<V extends Specified>
@@ -28,9 +29,10 @@ implements Clearable<OptionalProperty<V>> {
 	
 	//constructor
 	/**
-	 * Creates new property with the given name and value creator.
+	 * Creates new optional property with the given name and value creator.
 	 * 
 	 * @param name
+	 * @param valueCreator
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws NullArgumentException if the given value creator is null.
@@ -42,6 +44,28 @@ implements Clearable<OptionalProperty<V>> {
 		
 		//Calls constructor of the base class.
 		super(name, valueCreator);
+	}
+	
+	//constructor
+	/**
+	 * Creates new optional property with the given name, setter method and value creator.
+	 * 
+	 * @param name
+	 * @param setterMethod
+	 * @param valueCreator
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws EmptyArgumentException if the given name is empty.
+	 * @throws NullArgumentException if the given setter method is null.
+	 * @throws NullArgumentException if the given value creator is null.
+	 */
+	public OptionalProperty(
+		final String name,
+		final IElementTakerRunner<V> setterMethod,
+		final IElementTakerElementGetter<IContainer<Specification>, V> valueCreator
+	) {
+		
+		//Calls constructor of the base class.
+		super(name, setterMethod, valueCreator);
 	}
 	
 	//method
