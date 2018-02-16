@@ -5,6 +5,7 @@ package ch.nolix.core.entity;
 import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
+import ch.nolix.core.functionInterfaces.IElementTakerRunner;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.core.validator2.Validator;
@@ -13,23 +14,30 @@ import ch.nolix.core.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 60
+ * @lines 130
  */
 public abstract class Propertyoid<V extends Specified> extends NamedElement {
 	
 	//attribute
 	private final IElementTakerElementGetter<IContainer<Specification>, V> valueCreator;
 	
+	//optional attribute
+	private final IElementTakerRunner<V> setterMethod;
+	
 	//package-visible constructor
 	/**
-	 * Creates new property with the given name.
+	 * Creates new property with the given name and value creator.
 	 * 
 	 * @param name
+	 * @param valueCreator
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws NullArgumentException if the given value creator is null.
 	 */
-	Propertyoid(final String name, final IElementTakerElementGetter<IContainer<Specification>, V> valueCreator) {
+	Propertyoid(
+		final String name,
+		final IElementTakerElementGetter<IContainer<Specification>, V> valueCreator
+	) {
 		
 		//Calls constructor of the base class.
 		super(name);
@@ -37,9 +45,47 @@ public abstract class Propertyoid<V extends Specified> extends NamedElement {
 		//Checks if the given value creator is not null.
 		Validator.suppose(valueCreator).thatIsNamed("value creator").isNotNull();
 		
+		//Clears the setter method of this property.
+		setterMethod = null;
+		
+		//Sets the value creator of this property.
 		this.valueCreator = valueCreator;
 	}
 
+	//package-visible constructor
+	/**
+	 * Creates new property with the given name and value creator.
+	 * 
+	 * @param name
+	 * @param setterMethod
+	 * @param valueCreator
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws EmptyArgumentException if the given name is empty.
+	 * @throws NullArgumentException if the given setter method is null.
+	 * @throws NullArgumentException if the given value creator is null.
+	 */
+	Propertyoid(
+		final String name,
+		final IElementTakerRunner<V> setterMethod,
+		final IElementTakerElementGetter<IContainer<Specification>, V> valueCreator
+	) {
+		
+		//Calls constructor of the base class.
+		super(name);
+		
+		//Checks if the gvein setter method is not null.
+		Validator.suppose(setterMethod).thatIsNamed("setter method").isNotNull();
+		
+		//Checks if the given value creator is not null.
+		Validator.suppose(valueCreator).thatIsNamed("value creator").isNotNull();
+		
+		//Sets the setter method of this property.
+		this.setterMethod = setterMethod;
+		
+		//Sets the value creator of this property.
+		this.valueCreator = valueCreator;
+	}
+	
 	//abstract method
 	/**
 	 * @return the value of this property.
@@ -48,9 +94,29 @@ public abstract class Propertyoid<V extends Specified> extends NamedElement {
 
 	//method
 	@SuppressWarnings("unchecked")
-	public <S extends Specification> void setValue(final IContainer<S> specifications) {
+	public <S extends Specification>
+	void setValueUsingPossibleSetterMethod(final IContainer<S> specifications) {
+		
 		final IContainer<Specification> inputs = (IContainer<Specification>)specifications;
-		setValue(valueCreator.getOutput(inputs));
+		final V value = valueCreator.getOutput(inputs);
+		
+		//Handles the case that this propertyoid has no setter method.
+		if (!hasSetterMethod()) {
+			setValue(value);
+		}
+		
+		//Handles the case that this propertyoid has a setter method.
+		else {
+			setterMethod.run(value);
+		}
+	}
+	
+	//method
+	/**
+	 * @return true if this property has a setter method.
+	 */
+	public final boolean hasSetterMethod() {
+		return (setterMethod != null);
 	}
 	
 	//abstract method

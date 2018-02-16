@@ -4,6 +4,7 @@ package ch.nolix.core.entity;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
+import ch.nolix.core.functionInterfaces.IElementTakerRunner;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.core.validator2.Validator;
@@ -14,13 +15,16 @@ import ch.nolix.core.validator2.Validator;
  * @lines 70
  * @param <V> The value of a property.
  */
-public final class Property<V extends Specified> extends Propertyoid<V> {
+public final class Property<V extends Specified>
+extends Propertyoid<V> {
 	
 	//constructor
 	/**
 	 * Creates new property with the given name, value creator and value.
 	 * 
 	 * @param name
+	 * @param valueCreator
+	 * @param value
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws NullArgumentException if the given value creator is null.
@@ -34,6 +38,35 @@ public final class Property<V extends Specified> extends Propertyoid<V> {
 		
 		//Calls constructor of the base class.
 		super(name, valueCreator);
+		
+		//Sets the value of this property.
+		setValue(value);
+	}
+	
+	//constructor
+	/**
+	 * Creates new property with the given name, setter method, value creator and value.
+	 * 
+	 * @param name
+	 * @param setterMethod
+	 * @param valueCreator
+	 * @param value
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws EmptyArgumentException if the given name is empty.
+	 * @throws NullArgumentException if the given setter method is null.
+	 * @throws NullArgumentException if the given value creator is null.
+	 * @throws NullArgumentException if the given value is null.
+	 */
+	public Property(
+		final String name,
+		final IElementTakerRunner<V> setterMethod,
+		final IElementTakerElementGetter<IContainer<Specification>, V> valueCreator,
+		final V value
+		
+	) {
+		
+		//Calls constructor of the base class.
+		super(name, setterMethod, valueCreator);
 		
 		//Sets the value of this property.
 		setValue(value);

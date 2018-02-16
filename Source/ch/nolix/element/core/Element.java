@@ -2,6 +2,8 @@
 package ch.nolix.element.core;
 
 //own imports
+import ch.nolix.core.entity.SilentlyMutableEntity;
+import ch.nolix.core.interfaces.TypeRequestable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -14,9 +16,9 @@ import ch.nolix.core.specification.Statement;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 140
+ * @lines 100
  */
-public abstract class Element implements IElement {
+public abstract class Element extends SilentlyMutableEntity implements TypeRequestable {
 	
 	//requests
 	public static final String TYPE_REQUEST = "Type";
@@ -71,6 +73,14 @@ public abstract class Element implements IElement {
 					new Argument(request)
 				);
 		}	
+	}
+	
+	//method
+	/**
+	 * @return the type of this type element.
+	 */
+	public final String getType() {
+		return TypeRequestable.super.getType();
 	}
 				
 	//method

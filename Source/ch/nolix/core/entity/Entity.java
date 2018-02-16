@@ -7,33 +7,21 @@ import java.lang.reflect.Field;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.Specifiable;
+import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.core.validator2.Validator;
 
-//abstract class
+//package-visible abstract class
 /**
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 110
+ * @lines 120
  */
-public abstract class Entity implements Specifiable {
+abstract class Entity implements Specified {
 	
 	//multiple attribute
 	private List<Propertyoid<?>> properties;
-	
-	//method
-	/**
-	 * Adds or changes the given attribute to this entity.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
-	 */
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
-		getRefProperties()
-		.getRefFirst(p -> p.hasName(attribute.getHeader()))
-		.setValue(attribute.getRefAttributes());
-	}
 	
 	//method
 	/**
@@ -60,18 +48,17 @@ public abstract class Entity implements Specifiable {
 		return attributes;
 	}
 	
-	//method
+	//package-visible method
 	/**
-	 * @return the properties of this entity.
+	 * Adds or changes the given attribute to this entity.
+	 * 
+	 * @param attribute
+	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public final ReadContainer<Propertyoid<?>> getRefProperties() {
-		
-		//Handles the case that the properties of this entity are not extracted yet.
-		if (!propertiesAreExtracted()) {
-			extractProperties();
-		}
-		
-		return new ReadContainer<>(properties);
+	void addOrChangeAttribute(final Specification attribute) {
+		getRefProperties()
+		.getRefFirst(p -> p.hasName(attribute.getHeader()))
+		.setValueUsingPossibleSetterMethod(attribute.getRefAttributes());
 	}
 
 	//method
@@ -113,6 +100,20 @@ public abstract class Entity implements Specifiable {
 			
 			cl = cl.getSuperclass();
 		}
+	}
+	
+	//method
+	/**
+	 * @return the properties of this entity.
+	 */
+	private ReadContainer<Propertyoid<?>> getRefProperties() {
+		
+		//Handles the case that the properties of this entity are not extracted yet.
+		if (!propertiesAreExtracted()) {
+			extractProperties();
+		}
+		
+		return new ReadContainer<>(properties);
 	}
 	
 	//method

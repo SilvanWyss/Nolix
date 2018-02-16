@@ -1,24 +1,27 @@
 //package declaration
 package ch.nolix.core.entity;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
-//own imports
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.core.validator2.Validator;
 
+//class
 /**
  * An optional property is a clearable property.
  * 
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 80
+ * @lines 100
  * @param <V> The value of an optional property.
  */
-public class OptionalProperty<V extends Specified> extends Propertyoid<V> implements Clearable<OptionalProperty<V>> {
+public final class OptionalProperty<V extends Specified>
+extends Propertyoid<V>
+implements Clearable<OptionalProperty<V>> {
 	
 	//optional attribute
 	private V value;
@@ -49,6 +52,7 @@ public class OptionalProperty<V extends Specified> extends Propertyoid<V> implem
 	 */
 	public OptionalProperty<V> clear() {
 		
+		//Clears the value of this optional property.
 		value = null;
 		
 		return this;
@@ -93,7 +97,7 @@ public class OptionalProperty<V extends Specified> extends Propertyoid<V> implem
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if htis optional property has no value.
+	 * @throws UnexistingAttributeException if this optional property has no value.
 	 */
 	private void supposeHasValue() {
 		if (isEmpty()) {

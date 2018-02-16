@@ -3,7 +3,6 @@ package ch.nolix.element.core;
 
 //own imports
 import ch.nolix.core.controllerInterfaces.IController;
-import ch.nolix.core.entity.Entity;
 import ch.nolix.core.interfaces.IFluentObject;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
@@ -21,8 +20,8 @@ import ch.nolix.core.validator2.Validator;
  * @param <MU> The type of a mutable element.
  */
 public abstract class MutableElement<MU extends MutableElement<MU>>
-extends Entity
-implements IController, IElement, IFluentObject<MU>, Specifiable {
+extends Element
+implements IController, IFluentObject<MU>, Specifiable {
 	
 	//command
 	private static final String RESET = "Reset";
@@ -32,31 +31,15 @@ implements IController, IElement, IFluentObject<MU>, Specifiable {
 	
 	//method
 	/**
-	 * @param object
-	 * @return true if this mutable element equals the given object.
+	 * Adds or changes the given attribute to this entity.
+	 * 
+	 * @param attribute
+	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public final boolean equals(final Object object) {
+	public void addOrChangeAttribute(final StandardSpecification attribute) {
 		
-		//Handles the case that the given object is null.
-		if (object == null) {
-			return false;
-		}
-		
-		//Handles the case that this element is not of the same class as the given object.		
-		if (getClass() != object.getClass()) {
-			return false;
-		}
-		
-		//Casts the given object to a mutable element.
-		final MutableElement<?> element = (MutableElement<?>)object;
-		
-		//Handles the case that the specification of this element
-		//does not equal the specification of the given mutable element.
-		if (!element.getSpecification().equals(getSpecification())) {
-			return false;
-		}
-		
-		return true;
+		//Calls method of the base class.
+		super.addOrChangeAttribute(attribute);
 	}
 
 	//element
@@ -95,21 +78,5 @@ implements IController, IElement, IFluentObject<MU>, Specifiable {
 			new ArgumentName("command"),
 			new Argument(command)
 		);
-	}
-	
-	//method
-	/**
-	 * @return a string representation of this mutable element.
-	 */
-	public final String toString() {
-		return getSpecification().toReproducingString();
-	}
-	
-	//default method
-	/**
-	 * @return a formated string representation of this mutable element.
-	 */
-	public final String toFormatedString() {
-		return getSpecification().toFormatedReproducingString();
 	}
 }
