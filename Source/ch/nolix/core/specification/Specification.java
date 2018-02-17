@@ -104,6 +104,34 @@ public abstract class Specification {
 		);
 	}
 	
+	//method
+	/**
+	 * @return the double the one attribute of this specification specifies.
+	 * @throws InvalidArgumentException
+	 * if the one attribute of this specification specifies no double.
+	 */
+	public final double getOneAttributeAsDouble() {
+		return getRefOneAttribute().toDouble();
+	}
+	
+	//method
+	/**
+	 * @return the integer the one attribute of this specification specifies.
+	 * @throws InvalidArgumentException
+	 * if the one attribute of this specification specifies no int.
+	 */
+	public final int getOneAttributeAsInt() {
+		return getRefOneAttribute().toInt();
+	}
+	
+	//method
+	/**
+	 * @return a string representation of the one attribute of this specification.
+	 */
+	public final String getOneAttributeAsString() {
+		return getRefOneAttribute().toString();
+	}
+	
 	//abstract method
 	/**
 	 * @return the attributes of this specification.
