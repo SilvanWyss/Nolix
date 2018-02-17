@@ -22,7 +22,7 @@ public final class Sphere extends BaseShape<Sphere> {
 	private final Property<Radius> radius =
 	new Property<Radius>(
 		Radius.TYPE_NAME,
-		a -> new Radius(a.getRefOne().toDouble()),
+		s -> Radius.createFromSpecification(s),
 		new Radius()
 	);
 	

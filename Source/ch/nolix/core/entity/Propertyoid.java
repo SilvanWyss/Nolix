@@ -3,7 +3,6 @@ package ch.nolix.core.entity;
 
 //own imports
 import ch.nolix.core.bases.NamedElement;
-import ch.nolix.core.container.IContainer;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerRunner;
 import ch.nolix.core.specification.Specification;
@@ -19,7 +18,7 @@ import ch.nolix.core.validator2.Validator;
 public abstract class Propertyoid<V extends Specified> extends NamedElement {
 	
 	//attribute
-	private final IElementTakerElementGetter<IContainer<Specification>, V> valueCreator;
+	private final IElementTakerElementGetter<Specification, V> valueCreator;
 	
 	//optional attribute
 	private final IElementTakerRunner<V> setterMethod;
@@ -36,7 +35,7 @@ public abstract class Propertyoid<V extends Specified> extends NamedElement {
 	 */
 	Propertyoid(
 		final String name,
-		final IElementTakerElementGetter<IContainer<Specification>, V> valueCreator
+		final IElementTakerElementGetter<Specification, V> valueCreator
 	) {
 		
 		//Calls constructor of the base class.
@@ -67,7 +66,7 @@ public abstract class Propertyoid<V extends Specified> extends NamedElement {
 	Propertyoid(
 		final String name,
 		final IElementTakerRunner<V> setterMethod,
-		final IElementTakerElementGetter<IContainer<Specification>, V> valueCreator
+		final IElementTakerElementGetter<Specification, V> valueCreator
 	) {
 		
 		//Calls constructor of the base class.
@@ -93,19 +92,23 @@ public abstract class Propertyoid<V extends Specified> extends NamedElement {
 	public abstract V getValue();
 
 	//method
-	@SuppressWarnings("unchecked")
-	public <S extends Specification>
-	void setValueUsingPossibleSetterMethod(final IContainer<S> specifications) {
+	/**
+	 * Sets teh value of this property.
+	 * This method uses the setter method of this property
+	 * if this property has a setter method.
+	 * 
+	 * @param specification
+	 */
+	void setValueUsingPossibleSetterMethod(final Specification specification) {
 		
-		final IContainer<Specification> inputs = (IContainer<Specification>)specifications;
-		final V value = valueCreator.getOutput(inputs);
+		final V value = valueCreator.getOutput(specification);
 		
-		//Handles the case that this propertyoid has no setter method.
+		//Handles the case that this property has no setter method.
 		if (!hasSetterMethod()) {
 			setValue(value);
 		}
 		
-		//Handles the case that this propertyoid has a setter method.
+		//Handles the case that this property has a setter method.
 		else {
 			setterMethod.run(value);
 		}

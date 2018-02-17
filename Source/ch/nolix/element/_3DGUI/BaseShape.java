@@ -27,7 +27,7 @@ extends Shape<BS> {
 	private Property<Color> color
 	= new Property<>(
 		Color.TYPE_NAME,
-		a -> new Color(a.getRefOne().toString()),
+		s -> Color.createFromSpecification(s),
 		DEFAULT_COLOR
 	);
 	

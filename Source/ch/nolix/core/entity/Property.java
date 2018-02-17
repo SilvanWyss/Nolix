@@ -2,7 +2,6 @@
 package ch.nolix.core.entity;
 
 //own imports
-import ch.nolix.core.container.IContainer;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerRunner;
 import ch.nolix.core.specification.Specification;
@@ -32,7 +31,7 @@ extends Propertyoid<V> {
 	 */
 	public Property(
 		final String name,
-		final IElementTakerElementGetter<IContainer<Specification>, V> valueCreator,
+		final IElementTakerElementGetter<Specification, V> valueCreator,
 		final V value
 	) {
 		
@@ -60,7 +59,7 @@ extends Propertyoid<V> {
 	public Property(
 		final String name,
 		final IElementTakerRunner<V> setterMethod,
-		final IElementTakerElementGetter<IContainer<Specification>, V> valueCreator,
+		final IElementTakerElementGetter<Specification, V> valueCreator,
 		final V value
 		
 	) {

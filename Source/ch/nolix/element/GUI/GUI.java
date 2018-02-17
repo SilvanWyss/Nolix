@@ -60,7 +60,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	private final Property<Title> title =
 	new Property<Title>(
 		Title.TYPE_NAME,
-		a -> new Title(a.getRefOne().toString()),
+		s -> Title.createFromSpecification(s),
 		new Title()
 	);
 	
@@ -68,7 +68,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	private final Property<Color> backgroundColor =
 	new Property<Color>(
 		BackgroundColor.TYPE_NAME,
-		a -> new Color(a.getRefOne().toString()),
+		s -> Color.createFromSpecification(s),
 		new Color()
 	);
 	

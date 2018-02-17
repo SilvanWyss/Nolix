@@ -58,7 +58,7 @@ abstract class Entity implements Specified {
 	void addOrChangeAttribute(final Specification attribute) {
 		getRefProperties()
 		.getRefFirst(p -> p.hasName(attribute.getHeader()))
-		.setValueUsingPossibleSetterMethod(attribute.getRefAttributes());
+		.setValueUsingPossibleSetterMethod(attribute);
 	}
 
 	//method

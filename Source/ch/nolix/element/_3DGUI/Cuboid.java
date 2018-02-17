@@ -27,18 +27,18 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	private static final String Z_LENGTH_HEADER = "ZLength";
 	
 	//attribute
-	private final Property<Length> xLength =
+	private final Property<PositiveFloatingPointNumber> xLength =
 	new Property<>(
 		X_LENGTH_HEADER,
-		a -> new Length(a.getRefOne().toInt()),
+		s -> PositiveFloatingPointNumber.createFromSpecification(s),
 		new Length()
 	);
 	
 	//attribute
-	private final Property<Width> yLength =
+	private final Property<PositiveFloatingPointNumber> yLength =
 	new Property<>(
 		Y_LENGTH_HEADER,
-		a -> new Width(a.getRefOne().toInt()),
+		s -> PositiveFloatingPointNumber.createFromSpecification(s),
 		new Width()
 	);
 	
@@ -46,7 +46,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	private final Property<PositiveFloatingPointNumber> zLength =
 	new Property<>(
 		Z_LENGTH_HEADER,
-		a -> new PositiveFloatingPointNumber(a.getRefOne().toInt()),
+		s -> PositiveFloatingPointNumber.createFromSpecification(s),
 		new PositiveFloatingPointNumber()
 	);
 	

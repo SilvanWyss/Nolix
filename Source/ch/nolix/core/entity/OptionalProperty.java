@@ -2,7 +2,6 @@
 package ch.nolix.core.entity;
 
 //own imports
-import ch.nolix.core.container.IContainer;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerRunner;
 import ch.nolix.core.interfaces.Clearable;
@@ -39,7 +38,7 @@ implements Clearable<OptionalProperty<V>> {
 	 */
 	public OptionalProperty(
 		final String name,
-		final IElementTakerElementGetter<IContainer<Specification>, V> valueCreator
+		final IElementTakerElementGetter<Specification, V> valueCreator
 	) {
 		
 		//Calls constructor of the base class.
@@ -61,7 +60,7 @@ implements Clearable<OptionalProperty<V>> {
 	public OptionalProperty(
 		final String name,
 		final IElementTakerRunner<V> setterMethod,
-		final IElementTakerElementGetter<IContainer<Specification>, V> valueCreator
+		final IElementTakerElementGetter<Specification, V> valueCreator
 	) {
 		
 		//Calls constructor of the base class.
