@@ -2,6 +2,8 @@
 package ch.nolix.core.validator2;
 
 //own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
@@ -16,7 +18,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 100
+ * @lines 120
  * @param <A> The type of the argument of a argument mediator.
  */
 public class ArgumentMediator<A> extends Mediator {
@@ -59,9 +61,33 @@ public class ArgumentMediator<A> extends Mediator {
 	
 	//method
 	/**
+	 * @param condition
+	 * @throws NullArgumentException if the given condition is null.
+	 * @throws InvalidArgumentException if the argument of this argument mediator is null.
+	 */
+	public final void fulfils(IElementTakerBooleanGetter<A> condition) {
+		
+		//Checks if the given condition is not null.
+		if (condition == null) {
+			throw new NullArgumentException(VariableNameCatalogue.CONDITION);
+		}
+		
+		//Checks if the argument of this argument mediator is not null.
+		isNotNull();
+		
+		if (!condition.getOutput(getRefArgument())) {
+			throw new InvalidArgumentException(
+				new ArgumentName(getArgumentName()),
+				new Argument(getRefArgument()),
+				new ErrorPredicate("does not fulfil the given condition"));
+		}
+	}
+	
+	//method
+	/**
 	 * @throws NullArgumentException if the argument of this argument mediator is null.
 	 */
-	public void isNotNull() {
+	public final void isNotNull() {
 		
 		//Checks if the argument of this argument mediator is null.
 		if (argument == null) {
