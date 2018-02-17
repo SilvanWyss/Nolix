@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.element.FPNData;
 
-//own import
+//own imports
+import ch.nolix.core.specification.Specification;
 import ch.nolix.element.core.PositiveFloatingPointNumber;
 
 //class
@@ -16,6 +17,16 @@ public final class Radius extends PositiveFloatingPointNumber {
 
 	//constant
 	public static final String TYPE_NAME = "Radius";
+	
+	//static method
+	/**
+	 * @param specification
+	 * @return a new positive floating point number from the given specification.
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	public static Radius createFromSpecification(final Specification specification) {
+		return new Radius(specification.getOneAttributeAsDouble());
+	}
 	
 	//constructor
 	/**

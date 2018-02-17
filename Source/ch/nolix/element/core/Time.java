@@ -9,6 +9,7 @@ import ch.nolix.core.constants.TimeUnitCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 
@@ -54,15 +55,12 @@ public final class Time extends Element {
 	
 	//static method
 	/**
-	 * @param attributes
-	 * @return a new time with the given attributes.
+	 * @param specification
+	 * @return a new time from the given specification.
+	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Time createTime(final Iterable<StandardSpecification> attributes) {
-
-		//Extracts the values.
-		final String attribute = attributes.iterator().next().toString();
-		
-		return new Time(attribute);
+	public static Time createFromSpecification(final Specification specification) {
+		return new Time(specification.getOneAttributeAsString());
 	}
 	
 	//static method
@@ -70,7 +68,7 @@ public final class Time extends Element {
 	 * @param unixTimeStamp
 	 * @return a new time from the given unix time stamp.
 	 */
-	public static Time createTimeFromUnixTimeStamp(final long unixTimeStamp) {
+	public static Time createFromUnixTimeStamp(final long unixTimeStamp) {
 		final Time time = new Time();
 		time.time.setTimeInMillis(1000 * unixTimeStamp);
 		return time;

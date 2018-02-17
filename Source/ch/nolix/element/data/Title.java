@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.data;
 
+import ch.nolix.core.specification.Specification;
 //own import
 import ch.nolix.element.core.NonEmptyText;
 
@@ -17,6 +18,16 @@ public final class Title extends NonEmptyText {
 	//type name
 	public static final String TYPE_NAME = "Title";
 
+	//static method
+	/**
+	 * @param specification
+	 * @return a new title from the given specification.
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	public static Title createFromSpecification(final Specification specification) {
+		return new Title(specification.getOneAttributeAsString());
+	}
+	
 	//constructor
 	/**
 	 * Creates new title with a default value.

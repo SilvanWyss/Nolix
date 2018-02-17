@@ -5,6 +5,7 @@ package ch.nolix.element.core;
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 
@@ -23,6 +24,16 @@ public class Text extends Element {
 	
 	//default value
 	public static final String DEFAULT_VALUE = StringCatalogue.EMPTY_STRING;
+	
+	//static method
+	/**
+	 * @param specification
+	 * @return a new text from the given specification.
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	public static Text createFromSpecification(final Specification specification) {
+		return new Text(specification.getOneAttributeAsString());
+	}
 	
 	//attribute
 	private final String value;

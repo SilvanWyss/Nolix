@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.element.FPNData;
 
-//own import
+//own imports
+import ch.nolix.core.specification.Specification;
 import ch.nolix.element.core.PositiveFloatingPointNumber;
 
 //class
@@ -10,12 +11,21 @@ import ch.nolix.element.core.PositiveFloatingPointNumber;
  * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 30
+ * @lines 40
  */
 public final class Length extends PositiveFloatingPointNumber {
 	
 	//constant
 	public static final String TYPE_NAME = "Length";
+	
+	//method
+	/**
+	 * @param specification
+	 * @return a new length from the given specification.
+	 */
+	public static Length createFromSpecification(final Specification specification) {
+		return new Length(specification.getOneAttributeAsInt());
+	}
 
 	//constructor
 	/**

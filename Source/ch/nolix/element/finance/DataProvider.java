@@ -171,7 +171,7 @@ public final class DataProvider {
 					final String[] array = line.split(",");
 					
 					if (array[0].startsWith("a")) {
-						timeStamp = Time.createTimeFromUnixTimeStamp(Long.valueOf(array[0].substring(1)));
+						timeStamp = Time.createFromUnixTimeStamp(Long.valueOf(array[0].substring(1)));
 						currentTime = timeStamp;
 					}
 					else {

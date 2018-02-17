@@ -14,6 +14,7 @@ import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.core.Element;
@@ -597,7 +598,18 @@ public class Color extends Element {
 		public static final int YELLOW_GREEN_INT = 0x9ACD32;
 		public static final String YELLOW_GREEN_STRING = "YellowGreen";
 		public static final Color YELLOW_GREEN = new Color(YELLOW_GREEN_INT);
-				
+	
+	//static method
+	/**
+	 * 
+	 * @param specification
+	 * @return a new color from the given specification
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	public static Color createFromSpecification(final Specification specification) {
+		return new Color(specification.getOneAttributeAsString());
+	}
+		
 	//default value
 	private static final int DEFAULT_VALUE = WHITE_INT;
 		

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.core;
 
+import ch.nolix.core.specification.Specification;
 //own import
 import ch.nolix.core.validator2.Validator;
 
@@ -20,6 +21,16 @@ public class PositiveFloatingPointNumber extends FloatingPointNumber {
 	//default value
 	public static final double DEFAULT_VALUE = 1.0;
 
+	//static method
+	/**
+	 * @param specification
+	 * @return a new positive floating point number from the given specification.
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	public static PositiveFloatingPointNumber createFromSpecification(final Specification specification) {
+		return new PositiveFloatingPointNumber(specification.getOneAttributeAsDouble());
+	}
+	
 	//constructor
 	/**
 	 * Creates new positive floating point number with a default value.

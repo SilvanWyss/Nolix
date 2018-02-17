@@ -43,7 +43,7 @@ public class Candlestick extends Element {
 		for (StandardSpecification a : attributes) {
 			switch (a.getHeader()) {
 				case Time.TYPE_NAME:
-					time = Time.createTime(a.getRefAttributes());
+					time = Time.createFromSpecification(a);
 					break;
 				case OPENING_PRICE_NAME:
 					openingPrice = a.getOneAttributeToDouble();
