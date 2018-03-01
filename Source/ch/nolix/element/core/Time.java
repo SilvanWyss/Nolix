@@ -24,7 +24,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 580
+ * @lines 620
  */
 public final class Time extends Element {
 	
@@ -82,6 +82,39 @@ public final class Time extends Element {
 		time.setLenient(true);
 		reset();
 	}
+	
+	//constructor
+	/**
+	 * Creates new time with the given year.
+	 * 
+	 * @param year
+	 */
+	public Time(final int year) {
+		
+		//Calls other constructor.
+		this();
+		
+		setYear(year);
+	}
+	
+	//constructor
+	/**
+	 * Creates new time with the given year and month of year.
+	 * 
+	 * @param year
+	 * @param monthOfYear
+	 * @param dayOfMonth
+	 */
+	public Time(
+		final int year,
+		final int monthOfYear
+	) {
+		
+		//Calls other constructor.
+		this(year);
+		
+		setMonthOfYear(monthOfYear);
+	}
 
 	//constructor
 	/**
@@ -98,9 +131,8 @@ public final class Time extends Element {
 	) {
 		
 		//Calls other constructor.
-		this();
+		this(year);
 		
-		setYear(year);
 		setMonthOfYear(monthOfYear);
 		setDayOfMonth(dayOfMonth);
 	}
