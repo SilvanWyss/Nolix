@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationTargetException;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerInterfaces.IController;
-import ch.nolix.core.entity.Property;
+import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.interfaces.Closable;
 import ch.nolix.core.interfaces.IRequestableContainer;
@@ -57,19 +57,19 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	private static final String REMOVE_ROOT_WIDGET_COMMAND = "RemoveRootWidget";
 	
 	//attribute
-	private final Property<Title> title =
-	new Property<Title>(
+	private final MutableProperty<Title> title =
+	new MutableProperty<Title>(
 		Title.TYPE_NAME,
-		s -> Title.createFromSpecification(s),
-		new Title()
+		t -> setTitle(t.getValue()),
+		s -> Title.createFromSpecification(s)
 	);
 	
 	//attribute
-	private final Property<Color> backgroundColor =
-	new Property<Color>(
+	private final MutableProperty<Color> backgroundColor =
+	new MutableProperty<Color>(
 		BackgroundColor.TYPE_NAME,
-		s -> Color.createFromSpecification(s),
-		new Color()
+		bc -> setBackgroundColor(bc),
+		s -> Color.createFromSpecification(s)
 	);
 	
 	//attributes

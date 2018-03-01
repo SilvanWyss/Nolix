@@ -3,8 +3,11 @@ package ch.nolix.core.entity;
 
 //own imports
 import ch.nolix.core.bases.NamedElement;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerRunner;
+import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.core.validator2.Validator;
@@ -13,47 +16,24 @@ import ch.nolix.core.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 130
+ * @lines 210
+ * @param <V> The type of the value of a property.
  */
-public abstract class Propertyoid<V extends Specified> extends NamedElement {
+public abstract class Propertyoid<V extends Specified>
+extends NamedElement {
 	
-	//attribute
+	//attributes
+	private final IElementTakerRunner<V> setterMethod;
 	private final IElementTakerElementGetter<Specification, V> valueCreator;
+	private boolean approved = false;
 	
 	//optional attribute
-	private final IElementTakerRunner<V> setterMethod;
-	
-	//package-visible constructor
-	/**
-	 * Creates new property with the given name and value creator.
-	 * 
-	 * @param name
-	 * @param valueCreator
-	 * @throws NullArgumentException if the given name is null.
-	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given value creator is null.
-	 */
-	Propertyoid(
-		final String name,
-		final IElementTakerElementGetter<Specification, V> valueCreator
-	) {
-		
-		//Calls constructor of the base class.
-		super(name);
-		
-		//Checks if the given value creator is not null.
-		Validator.suppose(valueCreator).thatIsNamed("value creator").isNotNull();
-		
-		//Clears the setter method of this property.
-		setterMethod = null;
-		
-		//Sets the value creator of this property.
-		this.valueCreator = valueCreator;
-	}
+	private V value;
 
 	//package-visible constructor
 	/**
-	 * Creates new property with the given name and value creator.
+	 * Creates new property
+	 * with the given name, setter method and value creator.
 	 * 
 	 * @param name
 	 * @param setterMethod
@@ -72,11 +52,17 @@ public abstract class Propertyoid<V extends Specified> extends NamedElement {
 		//Calls constructor of the base class.
 		super(name);
 		
-		//Checks if the gvein setter method is not null.
-		Validator.suppose(setterMethod).thatIsNamed("setter method").isNotNull();
+		//Checks if the given setter method is not null.
+		Validator
+		.suppose(setterMethod)
+		.thatIsNamed("setter method")
+		.isNotNull();
 		
 		//Checks if the given value creator is not null.
-		Validator.suppose(valueCreator).thatIsNamed("value creator").isNotNull();
+		Validator
+		.suppose(valueCreator)
+		.thatIsNamed("value creator")
+		.isNotNull();
 		
 		//Sets the setter method of this property.
 		this.setterMethod = setterMethod;
@@ -85,54 +71,142 @@ public abstract class Propertyoid<V extends Specified> extends NamedElement {
 		this.valueCreator = valueCreator;
 	}
 	
-	//abstract method
+	//method
 	/**
 	 * @return the value of this property.
+	 * @throws UnexistingAttributeException
+	 * if this property has no value.
 	 */
-	public abstract V getValue();
-
-	//method
-	/**
-	 * Sets teh value of this property.
-	 * This method uses the setter method of this property
-	 * if this property has a setter method.
-	 * 
-	 * @param specification
-	 */
-	void setValueUsingPossibleSetterMethod(final Specification specification) {
+	public final V getValue() {
 		
-		final V value = valueCreator.getOutput(specification);
+		//Checks if this property has a value.
+		supposeHasValue();
 		
-		//Handles the case that this property has no setter method.
-		if (!hasSetterMethod()) {
-			setValue(value);
-		}
-		
-		//Handles the case that this property has a setter method.
-		else {
-			setterMethod.run(value);
-		}
+		return value;
 	}
 	
 	//method
 	/**
-	 * @return true if this property has a setter method.
+	 * @return true if this property is approved.
 	 */
-	public final boolean hasSetterMethod() {
-		return (setterMethod != null);
+	public final boolean isApproved() {
+		return approved;
+	}
+	
+	//method
+	/**
+	 * @return true if this property has no value.
+	 */
+	public boolean isEmpty() {
+		return (value == null);
 	}
 	
 	//abstract method
+	/**
+	 * @return true if this property is mutable.
+	 */
+	public abstract boolean isMutable();
+	
+	//abstract method
+	/**
+	 * @return true if this property is optional.
+	 */
+	public abstract boolean isOptional();
+	
+	//method
 	/**
 	 * Sets the value of this property.
 	 * 
 	 * @param value
+	 * @throws NullArgumentException if the given value is null.
+	 * @throws InvalidStateException
+	 * if this property is not approved when it is not mutable.
 	 */
-	public abstract void setValue(V value);
+	public Propertyoid<V> setValue(final V value) {
+		
+		//Checks if the given value is not null.
+		Validator.suppose(value).thatIsNamed("value").isNotNull();
+		
+		//Checks if this property is not approved when it is not mutable.
+		if (!isMutable()) {
+			supposeIsNotApproved();
+		}
+		
+		//Sets the value of this property.
+		this.value = value;
+		
+		return this;
+	}
 	
-	//package-visible abstract method
+	//package-visible method
 	/**
-	 * @return true if this property has no value.
+	 * Approves this property.
+	 * 
+	 * @throws InvalidStateException
+	 * if this property is not optional, but empty.
 	 */
-	abstract boolean isEmpty();
+	final void approve() {
+		
+		//Checks if this property is not empty when it is optional.
+		if (!isOptional() && isEmpty()) {
+			throw new InvalidStateException(
+				this,
+				"is not optional, but empty");
+		}
+		
+		approved = true;
+	}
+	
+	//package-visible method
+	/**
+	 * Removes the value of this property.
+	 * 
+	 * @return this  property.
+	 */
+	Propertyoid<V> clear() {
+		
+		//Clears the value of this optional property.
+		value = null;
+		
+		return this;
+	}
+	
+	//package-visible method
+	/**
+	 * Sets the value of this property from the given specification.
+	 * This method uses the setter method of this property.
+	 * 
+	 * @param specification
+	 */
+	final void setValueFromSpecification(final Specification specification) {
+		setterMethod.run(valueCreator.getOutput(specification));
+	}
+	
+	//method
+	/**
+	 * @throws UnexistingAttributeException
+	 * if this optional property has no value.
+	 */
+	private void supposeHasValue() {
+		
+		//Checks if this property has a value.
+		if (isEmpty()) {
+			throw new UnexistingAttributeException(
+				this,
+				VariableNameCatalogue.VALUE
+			);
+		}
+	}
+	
+	//method
+	/**
+	 * @throws InvalidStateException if this property is approved.
+	 */
+	private void supposeIsNotApproved() {
+		
+		//Checks if this property is not approved.
+		if (isApproved()) {
+			throw new InvalidStateException(this, "is approved");
+		}
+	}
 }

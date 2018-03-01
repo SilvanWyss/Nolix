@@ -2,7 +2,7 @@
 package ch.nolix.element.core;
 
 //own imports
-import ch.nolix.core.entity.SilentlyMutableEntity;
+import ch.nolix.core.entity.Entity;
 import ch.nolix.core.interfaces.TypeRequestable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
@@ -18,7 +18,7 @@ import ch.nolix.core.specification.Statement;
  * @month 2015-12
  * @lines 100
  */
-public abstract class Element extends SilentlyMutableEntity implements TypeRequestable {
+public abstract class Element extends Entity implements TypeRequestable {
 	
 	//requests
 	public static final String TYPE_REQUEST = "Type";

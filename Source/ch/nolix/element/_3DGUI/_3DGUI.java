@@ -9,7 +9,7 @@ import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
-import ch.nolix.core.entity.Property;
+import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.interfaces.Closable;
 import ch.nolix.core.interfaces.Refreshable;
@@ -47,19 +47,19 @@ implements Clearable<G>, Closable, Refreshable {
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 
 	//attribute
-	private final Property<Title> title =
-	new Property<Title>(
+	private final MutableProperty<Title> title =
+	new MutableProperty<Title>(
 		Title.TYPE_NAME,
-		s -> Title.createFromSpecification(s),
-		new Title()
+		s -> setTitle(s.toString()),
+		s -> Title.createFromSpecification(s)
 	);
 	
 	//attribute
-	private final Property<Color> backgroundColor =
-	new Property<Color>(
+	private final MutableProperty<Color> backgroundColor =
+	new MutableProperty<Color>(
 		BackgroundColor.TYPE_NAME,
-		s -> Color.createFromSpecification(s),
-		new Color()
+		bc -> setBackgroundColor(bc),
+		s -> Color.createFromSpecification(s)
 	);
 	
 	//optional element
@@ -265,6 +265,13 @@ implements Clearable<G>, Closable, Refreshable {
 		if (hasRootShape()) {
 			getRefRootShape().renderRecursively();
 		}
+	}
+	
+	public void reset() {
+		
+		super.reset();
+		
+		setTitle(DEFAULT_TITLE);
 	}
 	
 	//method

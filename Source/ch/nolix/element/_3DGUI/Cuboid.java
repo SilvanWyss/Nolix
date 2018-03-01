@@ -2,7 +2,7 @@
 package ch.nolix.element._3DGUI;
 
 //own imports
-import ch.nolix.core.entity.Property;
+import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.element.FPNData.Height;
 import ch.nolix.element.FPNData.Length;
 import ch.nolix.element.FPNData.Width;
@@ -27,27 +27,27 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	private static final String Z_LENGTH_HEADER = "ZLength";
 	
 	//attribute
-	private final Property<PositiveFloatingPointNumber> xLength =
-	new Property<>(
+	private final MutableProperty<PositiveFloatingPointNumber> xLength =
+	new MutableProperty<>(
 		X_LENGTH_HEADER,
-		s -> PositiveFloatingPointNumber.createFromSpecification(s),
-		new Length()
+		xl -> setXLength(xl.getValue()),
+		s -> PositiveFloatingPointNumber.createFromSpecification(s)
 	);
 	
 	//attribute
-	private final Property<PositiveFloatingPointNumber> yLength =
-	new Property<>(
+	private final MutableProperty<PositiveFloatingPointNumber> yLength =
+	new MutableProperty<>(
 		Y_LENGTH_HEADER,
-		s -> PositiveFloatingPointNumber.createFromSpecification(s),
-		new Width()
+		yl -> setYLength(yl.getValue()),
+		s -> PositiveFloatingPointNumber.createFromSpecification(s)
 	);
 	
 	//attribute
-	private final Property<PositiveFloatingPointNumber> zLength =
-	new Property<>(
+	private final MutableProperty<PositiveFloatingPointNumber> zLength =
+	new MutableProperty<>(
 		Z_LENGTH_HEADER,
-		s -> PositiveFloatingPointNumber.createFromSpecification(s),
-		new PositiveFloatingPointNumber()
+		zl -> setZLength(zl.getValue()),
+		s -> PositiveFloatingPointNumber.createFromSpecification(s)
 	);
 	
 	//constructor
@@ -115,7 +115,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 		//Calls method of the base class.
 		super.reset();
 		
-		setXLenght(DEFAULT_X_LENGTH);
+		setXLength(DEFAULT_X_LENGTH);
 		setZLength(DEFAULT_Y_LENGTH);
 		setYLength(DEFAULT_Z_LENGTH);
 	}
@@ -129,7 +129,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	 * @throws NonPositiveArgumentException
 	 * if the given x-length is not positive.
 	 */
-	public Cuboid setXLenght(final double xLength) {
+	public Cuboid setXLength(final double xLength) {
 		
 		this.xLength.setValue(new Length(xLength));
 		

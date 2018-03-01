@@ -6,103 +6,54 @@ import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerRunner;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.Specified;
-import ch.nolix.core.validator2.Validator;
 
+//class
 /**
- * @author Silvan Wyss
- * @month 2017-10
- * @lines 70
- * @param <V> The value of a property.
- */
+ * An immutable property is a property that can be set only once.
+ * 
+* @author Silvan Wyss
+* @month 2018-02
+* @lines 90
+* @param <V> The type of the value of an immutable property.
+*/
 public final class Property<V extends Specified>
 extends Propertyoid<V> {
 	
 	//constructor
 	/**
-	 * Creates new property with the given name, value creator and value.
-	 * 
-	 * @param name
-	 * @param valueCreator
-	 * @param value
-	 * @throws NullArgumentException if the given name is null.
-	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given value creator is null.
-	 * @throws NullArgumentException if the given value is null.
-	 */
-	public Property(
-		final String name,
-		final IElementTakerElementGetter<Specification, V> valueCreator,
-		final V value
-	) {
-		
-		//Calls constructor of the base class.
-		super(name, valueCreator);
-		
-		//Sets the value of this property.
-		setValue(value);
-	}
-	
-	//constructor
-	/**
-	 * Creates new property with the given name, setter method, value creator and value.
+	 * Creates new property
+	 * with the given name, setter method and value generator.
 	 * 
 	 * @param name
 	 * @param setterMethod
 	 * @param valueCreator
-	 * @param value
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given setter method is null.
 	 * @throws NullArgumentException if the given value creator is null.
-	 * @throws NullArgumentException if the given value is null.
 	 */
 	public Property(
 		final String name,
 		final IElementTakerRunner<V> setterMethod,
-		final IElementTakerElementGetter<Specification, V> valueCreator,
-		final V value
-		
+		final IElementTakerElementGetter<Specification, V> valueCreator
 	) {
 		
 		//Calls constructor of the base class.
 		super(name, setterMethod, valueCreator);
-		
-		//Sets the value of this property.
-		setValue(value);
 	}
-
-	//attribute
-	private V value;	
 	
 	//method
 	/**
-	 * @return the value of this property.
+	 * @return true if this property is mutable.
 	 */
-	public V getValue() {
-		return value;
-	}
-
-	//method
-	/**
-	 * Sets the value of this property.
-	 * 
-	 * @param value
-	 * @throws NullArgumentException if the given value is null.
-	 */
-	public void setValue(final V value) {
-		
-		//Checks if the given value is not null.
-		Validator.suppose(value).thatIsNamed("value").isNotNull();
-		
-		//Sets the value of this property.
-		this.value = value;
+	public boolean isMutable() {
+		return false;
 	}
 	
-	//package-visible method
+	//method
 	/**
-	 * @return true if this property has no value.
+	 * @return true if this property is optional.
 	 */
-	boolean isEmpty() {
+	public boolean isOptional() {
 		return false;
 	}
 }

@@ -61,7 +61,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		addShapeClass(Sphere.class, new JMonkeySphereRenderer());
 		addShapeClass(MultiShape.class, new JMonkeyMultiShapeRenderer());
 		
-		resetConfiguration();
+		reset();
 		
 		final DirectionalLight directionalLight = new DirectionalLight();		
 		directionalLight.setColor(new ColorRGBA(1.0f, 1.0f, 1.0f, 1.0f));

@@ -1,23 +1,37 @@
 //package declaration
 package ch.nolix.core.entity;
 
-//own import
+//own imports
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Specifiable;
+import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
  * 
- * A mutable entity is an entity that is mutable.
+ * A specifiable entity is an entity that is specifiable..
  * 
  * @author Silvan Wyss
  * @month 2018-02
- * @lines 30
+ * @lines 40
  */
-public abstract class MutableEntity
+public abstract class SpecifiableEntity
 extends Entity
 implements Specifiable {
 
+	//class
+	/**
+	 * Creates new entity with mutables.
+	 * 
+	 * @throws InvalidArgumentException
+	 * if this entity with mutable contains no property that is mutable.
+	 */
+	public SpecifiableEntity() {
+		
+		//Checks if this entity with mutables contains no property that is mutable.
+		Validator.suppose(getRefProperties()).contains(p -> p.isMutable());
+	}
+	
 	//method
 	/**
 	 * Adds or changes the given attribute to this specifiable object.

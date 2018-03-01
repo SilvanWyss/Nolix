@@ -2,7 +2,7 @@
 package ch.nolix.element._3DGUI;
 
 //own imports
-import ch.nolix.core.entity.Property;
+import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.FPNData.Radius;
 
@@ -19,11 +19,11 @@ public final class Sphere extends BaseShape<Sphere> {
 	public static final double DEFAULT_DIAMETER = 2.0 * DEFAULT_RADIUS;
 	
 	//attribute	
-	private final Property<Radius> radius =
-	new Property<Radius>(
+	private final MutableProperty<Radius> radius =
+	new MutableProperty<Radius>(
 		Radius.TYPE_NAME,
-		s -> Radius.createFromSpecification(s),
-		new Radius()
+		r -> setRadius(r.getValue()),
+		s -> Radius.createFromSpecification(s)
 	);
 	
 	//constructor

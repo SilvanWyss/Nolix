@@ -7,32 +7,32 @@ import ch.nolix.core.functionInterfaces.IElementTakerRunner;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.Specified;
 
-//class
 /**
-* @author Silvan Wyss
-* @month 2018-02
-* @lines 90
-* @param <V> The type of the value of an immutable optional property.
-*/
-public final class OptionalProperty<V extends Specified>
+ * @author Silvan Wyss
+ * @month 2017-10
+ * @lines 50
+ * @param <V> The value of a property.
+ */
+public final class MutableProperty<V extends Specified>
 extends Propertyoid<V> {
 	
 	//constructor
 	/**
-	 * Creates new immutable optional property
-	 * with the given name, setter method and value generator.
+	 * Creates new property
+	 * with the given name, setter method and value creator.
 	 * 
 	 * @param name
 	 * @param setterMethod
 	 * @param valueCreator
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
+	 * @throws NullArgumentException if the given setter method is null.
 	 * @throws NullArgumentException if the given value creator is null.
 	 */
-	public OptionalProperty(
+	public MutableProperty(
 		final String name,
 		final IElementTakerRunner<V> setterMethod,
-		final IElementTakerElementGetter<Specification, V> valueCreator
+		final IElementTakerElementGetter<Specification, V> valueCreator		
 	) {
 		
 		//Calls constructor of the base class.
@@ -41,17 +41,17 @@ extends Propertyoid<V> {
 	
 	//method
 	/**
-	 * @return true if this immutable optional property is mutable.
+	 * @return true if this mutable property is mutable.
 	 */
 	public boolean isMutable() {
-		return false;
+		return true;
 	}
 	
 	//method
 	/**
-	 * @return true if this optional property is optional.
+	 * @return true if this mutable property is optional.
 	 */
 	public boolean isOptional() {
-		return true;
+		return false;
 	}
 }

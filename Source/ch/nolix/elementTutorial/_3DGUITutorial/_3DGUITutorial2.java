@@ -33,7 +33,7 @@ public final class _3DGUITutorial2 {
 			new MultiShape(
 				new Cuboid()
 					.setPosition(0.0, -2.0, 0.0)
-					.setXLenght(2.0)
+					.setXLength(2.0)
 					.setYLength(1.0)
 					.setZLength(0.5)
 					.setColor(Color.BLUE),

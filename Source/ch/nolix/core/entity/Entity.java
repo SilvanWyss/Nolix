@@ -6,19 +6,25 @@ import java.lang.reflect.Field;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.core.validator2.Validator;
 
-//package-visible abstract class
+//abstract class
 /**
+ * An entity is specified.
+ * 
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 120
+ * @lines 180
  */
-abstract class Entity implements Specified {
+public abstract class Entity implements Specified {
+	
+	//attribute
+	private boolean propertiesAreApproved = false;
 	
 	//multiple attribute
 	private List<Propertyoid<?>> properties;
@@ -26,8 +32,13 @@ abstract class Entity implements Specified {
 	//method
 	/**
 	 * @return the attributes of this entity.
+	 * @throws InvalidStateException
+	 * if the properties of this entity are not approved.
 	 */
 	public List<StandardSpecification> getAttributes() {
+		
+		//Checks if the properties of this entity are approved.
+		supposePropertiesAreApproved();
 		
 		final List<StandardSpecification> attributes = new List<>();
 		
@@ -53,14 +64,53 @@ abstract class Entity implements Specified {
 	 * Adds or changes the given attribute to this entity.
 	 * 
 	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 * @throws InvalidArgumentException
+	 * if the given attribute is not valid.
 	 */
-	void addOrChangeAttribute(final Specification attribute) {
+	protected void addOrChangeAttribute(final Specification attribute) {
 		getRefProperties()
 		.getRefFirst(p -> p.hasName(attribute.getHeader()))
-		.setValueUsingPossibleSetterMethod(attribute);
+		.setValueFromSpecification(attribute);
 	}
-
+	
+	//method
+	/**
+	 * Approves the properties of this entity.
+	 * 
+	 * @throws InvalidStateException
+	 * if this entity has a non-optional property that is empty.
+	 */
+	protected final void approveProperties() {
+		
+		//Iterates the properties of this entity.
+		for (final Propertyoid<?> p : getRefProperties()) {
+			
+			//Handles the case that the current property is not optional, but empty.
+			if (!p.isOptional() && p.isEmpty()) {
+				throw new InvalidStateException(
+					this,
+					"has a non-optional property '" + p.getName() + "' that is empty");
+			}
+			
+			//Approves the current property.
+			p.approve();
+		}
+	}
+	
+	//package-visible method
+	/**
+	 * @return the properties of this entity.
+	 */
+	ReadContainer<Propertyoid<?>> getRefProperties() {
+		
+		//Handles the case that the properties of this entity are not extracted yet.
+		if (!propertiesAreExtracted()) {
+			extractProperties();
+		}
+		
+		return new ReadContainer<>(properties);
+	}
+	
 	//method
 	/**
 	 * Extracts the properties of this entity.
@@ -77,17 +127,17 @@ abstract class Entity implements Specified {
 			for (final Field f : cl.getDeclaredFields()) {
 				
 				//Handles the case that the current field is a property.
-				if (f.getType().isAssignableFrom(Property.class)) {
+				if (f.getType().isAssignableFrom(MutableProperty.class)) {
 					
 					try {
 						
 						f.setAccessible(true);
 						
-						final Property<?> property = (Property<?>)(f.get(this));
+						final MutableProperty<?> property = (MutableProperty<?>)(f.get(this));
 						
 						//Checks if the current property is not null.
 						Validator.suppose(property)
-						.thatIsInstanceOf(Property.class)
+						.thatIsInstanceOf(MutableProperty.class)
 						.isNotNull();
 						
 						properties.addAtEnd(property);		
@@ -104,16 +154,10 @@ abstract class Entity implements Specified {
 	
 	//method
 	/**
-	 * @return the properties of this entity.
+	 * @return true if the properties of this entity are approved.
 	 */
-	private ReadContainer<Propertyoid<?>> getRefProperties() {
-		
-		//Handles the case that the properties of this entity are not extracted yet.
-		if (!propertiesAreExtracted()) {
-			extractProperties();
-		}
-		
-		return new ReadContainer<>(properties);
+	private boolean propertiesAreApproved() {
+		return propertiesAreApproved;
 	}
 	
 	//method
@@ -122,5 +166,17 @@ abstract class Entity implements Specified {
 	 */
 	private boolean propertiesAreExtracted() {
 		return (properties != null);
+	}
+	
+	//method
+	/**
+	 * @throws InvalidStateException if the properties of this entity are not approved.
+	 */
+	private void supposePropertiesAreApproved() {
+
+		//Checks if the properties of this entity are approved.
+		if (!propertiesAreApproved()) {
+			throw new InvalidStateException(this, "has properties that are not approved");
+		}
 	}
 }

@@ -4,7 +4,7 @@ package ch.nolix.element._3DGUI;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.entity.Property;
+import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 
@@ -24,11 +24,11 @@ extends Shape<BS> {
 	public static final Color DEFAULT_COLOR = Color.WHITE;
 	
 	//attribute
-	private Property<Color> color
-	= new Property<>(
+	private MutableProperty<Color> color
+	= new MutableProperty<>(
 		Color.TYPE_NAME,
-		s -> Color.createFromSpecification(s),
-		DEFAULT_COLOR
+		c -> setColor(c),
+		s -> Color.createFromSpecification(s)
 	);
 	
 	//method

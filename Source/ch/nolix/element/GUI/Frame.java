@@ -75,6 +75,8 @@ public class Frame extends VisibleGUI<Frame> {
 	 */
 	public Frame() {
 			
+		reset();
+		
 		frame.setLocationByPlatform(true);
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.addWindowListener(new FrameCloseListener(this));
@@ -96,8 +98,7 @@ public class Frame extends VisibleGUI<Frame> {
 			
 			//This is important that key events are handled.
 			panel.requestFocus(); 
-		
-		resetConfiguration();		
+						
 		refresh();
 	}
 	
