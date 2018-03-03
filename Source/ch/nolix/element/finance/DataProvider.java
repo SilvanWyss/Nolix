@@ -175,7 +175,7 @@ public final class DataProvider {
 						currentTime = timeStamp;
 					}
 					else {
-						currentTime = timeStamp.getTimeWithAddedSeconds(Integer.valueOf(array[0]) * intervalInSeconds);
+						currentTime = timeStamp.getWithAddedOrSubtractedSeconds(Integer.valueOf(array[0]) * intervalInSeconds);
 					}
 					
 					intraDayCandleSticks.addAtEnd(

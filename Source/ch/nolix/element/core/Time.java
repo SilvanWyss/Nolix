@@ -24,7 +24,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 620
+ * @lines 740
  */
 public final class Time extends Element {
 	
@@ -131,9 +131,8 @@ public final class Time extends Element {
 	) {
 		
 		//Calls other constructor.
-		this(year);
+		this(year, monthOfYear);
 		
-		setMonthOfYear(monthOfYear);
 		setDayOfMonth(dayOfMonth);
 	}
 	
@@ -297,6 +296,19 @@ public final class Time extends Element {
 	
 	//method
 	/**
+	 * @return the day of this time.
+	 */
+	public Time getDay() {
+		return
+		new Time(
+			getYearAsInt(),			
+			getMonthOfYear(),
+			getDayOfMonth()
+		);
+	}
+	
+	//method
+	/**
 	 * @return the day of the month of this time.
 	 */
 	public int getDayOfMonth() {
@@ -313,6 +325,20 @@ public final class Time extends Element {
 	public int getDaysTo(final Time time) {
 		return (int)(getMillisecondsTo(time) / TimeUnitCatalogue.MILLISECONDS_PER_DAY);
 	}
+	
+	//method
+	/**
+	 * @return the hour of this time.
+	 */
+	public Time getHour() {
+		return
+		new Time(
+			getYearAsInt(),			
+			getMonthOfYear(),
+			getDayOfMonth(),
+			getHourOfDay()
+		);
+	}
 
 	//method
 	/**
@@ -324,18 +350,18 @@ public final class Time extends Element {
 	
 	//method
 	/**
-	 * @return the millisecond of the second of this time.
-	 */
-	public int getMillisecondOfSecond() {
-		return time.get(GregorianCalendar.MILLISECOND);
-	}
-	
-	//method
-	/**
 	 * @return the milliseconds of this time.
 	 */
 	public long getMilliseconds() {
 		return time.getTimeInMillis();
+	}
+	
+	//method
+	/**
+	 * @return the millisecond of the second of this time.
+	 */
+	public int getMillisecondOfSecond() {
+		return time.get(GregorianCalendar.MILLISECOND);
 	}
 	
 	//method
@@ -351,6 +377,21 @@ public final class Time extends Element {
 	
 	//method
 	/**
+	 * @return the minute of this time.
+	 */
+	public Time getMinute() {
+		return
+		new Time(
+			getYearAsInt(),
+			getMonthOfYear(),
+			getDayOfMonth(),
+			getHourOfDay(),
+			getMinuteOfHour()
+		);
+	}
+	
+	//method
+	/**
 	 * @return the minute of the hour of this time.
 	 */
 	public int getMinuteOfHour() {
@@ -359,10 +400,89 @@ public final class Time extends Element {
 	
 	//method
 	/**
+	 * @return the month of this time.
+	 */
+	public Time getMonth() {
+		return new Time(getYearAsInt(), getMonthOfYear());
+	}
+	
+	//method
+	/**
 	 * @return the month of the year of this time.
 	 */
 	public int getMonthOfYear() {
 		return (time.get(GregorianCalendar.MONTH) + 1);
+	}
+		
+	//method
+	/**
+	 * @return the next day of this time.
+	 */
+	public Time getNextDay() {
+		return getWithAddedOrSubtractedDays(1).getDay();
+	}
+	
+	//method
+	/**
+	 * @return the next hour of this time.
+	 */
+	public Time getNextHour() {
+		return getWithAddedOrSubtractedHours(1).getHour();
+	}
+	
+	//method
+	/**
+	 * @return the next minute of this time.
+	 */
+	public Time getNextMinute() {
+		return getWithAddedOrSubtractedMinutes(1).getMinute();
+	}
+	
+	//method
+	/**
+	 * @return the next month of this time.
+	 */
+	public Time getNextMonth() {
+		
+		//Handles the case that the month of the year of this time is not December.
+		if (getMonthOfYear() < 12) {
+			return new Time(getYearAsInt(), getMonthOfYear() + 1);
+		}
+		
+		//Handles the case that the month of the year of this time is December.
+		return new Time(getYearAsInt() + 1, 1);
+	}
+	
+	//method
+	/**
+	 * @return the next second of this time.
+	 */
+	public Time getNextSecond() {
+		return getWithAddedOrSubtractedSeconds(1).getSecond();
+	}
+	
+	//method
+	/**
+	 * @return the next year of this time.
+	 */
+	public Time getNextYear() {
+		return new Time(getYearAsInt() + 1);
+	}
+	
+	//method
+	/**
+	 * @return the second of this time.
+	 */
+	public Time getSecond() {
+		return
+		new Time(
+			getYearAsInt(),
+			getMonthOfYear(),
+			getDayOfMonth(),
+			getHourOfDay(),
+			getMinuteOfHour(),
+			getSecondOfMinute()
+		);
 	}
 	
 	//method
@@ -376,9 +496,9 @@ public final class Time extends Element {
 	//method
 	/**
 	 * @param days
-	 * @return a new time with the given days added to this time.
+	 * @return a new time with the given days added or subtracted to this time.
 	 */
-	public Time getTimeWithAddedDays(final int days) {
+	public Time getWithAddedOrSubtractedDays(final int days) {
 		final Time time = getCopy();
 		time.addDays(days);
 		return time;
@@ -387,9 +507,9 @@ public final class Time extends Element {
 	//method
 	/**
 	 * @param hours
-	 * @return a new time with the given hours added to this time.
+	 * @return a new time with the given hours added or subtracted to this time.
 	 */
-	public Time getTimeWithAddedHours(final int hours) {
+	public Time getWithAddedOrSubtractedHours(final int hours) {
 		final Time time = getCopy();
 		time.addHours(hours);
 		return time;
@@ -398,9 +518,9 @@ public final class Time extends Element {
 	//method
 	/**
 	 * @param milliseconds
-	 * @return a new time with the given milliseconds added to this time.
+	 * @return a new time with the given milliseconds added or subtracted to this time.
 	 */
-	public Time getTimeWithAddedMilliseconds(final int milliseconds) {
+	public Time getWithAddedOrSubtractedMilliseconds(final int milliseconds) {
 		final Time time = getCopy();
 		time.addMilliseconds(milliseconds);
 		return time;
@@ -409,9 +529,9 @@ public final class Time extends Element {
 	//method
 	/**
 	 * @param minutes
-	 * @return a new time with the given minutes added to this time.
+	 * @return a new time with the given minutes added or subtracted to this time.
 	 */
-	public Time getTimeWithAddedMinutes(final int minutes) {
+	public Time getWithAddedOrSubtractedMinutes(final int minutes) {
 		final Time time = getCopy();
 		time.addMinutes(minutes);
 		return time;
@@ -420,19 +540,23 @@ public final class Time extends Element {
 	//method
 	/**
 	 * @param seconds
-	 * @return a new time with the given seconds added to this time.
+	 * @return a new time with the given seconds added or subtracted to this time.
 	 */
-	public Time getTimeWithAddedSeconds(final int seconds) {
+	public Time getWithAddedOrSubtractedSeconds(final int seconds) {
 		final Time time = getCopy();
 		time.addSeconds(seconds);
 		return time;
+	}
+	
+	public Time getYear() {
+		return new Time(getYearAsInt());
 	}
 	
 	//method
 	/**
 	 * @return the year of this time.
 	 */
-	public int getYear() {
+	public int getYearAsInt() {
 		return time.get(GregorianCalendar.YEAR);
 	}
 	
@@ -459,7 +583,7 @@ public final class Time extends Element {
 	 * @return true if this time is in a leap year.
 	 */
 	public boolean isInLeapYear() {
-		return time.isLeapYear(getYear());
+		return time.isLeapYear(getYearAsInt());
 	}
 	
 	//method
