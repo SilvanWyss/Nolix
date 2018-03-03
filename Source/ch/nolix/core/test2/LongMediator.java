@@ -124,7 +124,7 @@ public final class LongMediator extends Mediator {
 	 * 
 	 * @param value
 	 */
-	public void isEqualTo(final double value) {
+	public void isEqualTo(final long value) {
 		if (this.value != value) {
 			addCurrentTestMethodError(value + " was expected, but " + this.value + " was received.");
 		}
