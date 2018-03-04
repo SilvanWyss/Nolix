@@ -14,7 +14,7 @@ import ch.nolix.core.specificationInterfaces.Specified;
  * @param <V> The value of a property.
  */
 public final class MutableProperty<V extends Specified>
-extends Propertyoid<V> {
+extends SingleProperty<V> {
 	
 	//constructor
 	/**

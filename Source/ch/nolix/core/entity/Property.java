@@ -9,15 +9,13 @@ import ch.nolix.core.specificationInterfaces.Specified;
 
 //class
 /**
- * An immutable property is a property that can be set only once.
- * 
 * @author Silvan Wyss
 * @month 2018-02
 * @lines 90
 * @param <V> The type of the value of an immutable property.
 */
 public final class Property<V extends Specified>
-extends Propertyoid<V> {
+extends SingleProperty<V> {
 	
 	//constructor
 	/**

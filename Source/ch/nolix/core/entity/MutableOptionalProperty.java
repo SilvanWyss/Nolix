@@ -16,7 +16,7 @@ import ch.nolix.core.specificationInterfaces.Specified;
  * @param <V> The value of an optional property.
  */
 public final class MutableOptionalProperty<V extends Specified>
-extends Propertyoid<V>
+extends SingleProperty<V>
 implements Clearable<MutableOptionalProperty<V>> {
 		
 	//constructor

@@ -19,7 +19,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 180
+ * @lines 170
  */
 public abstract class Entity implements Specified {
 	
@@ -27,7 +27,7 @@ public abstract class Entity implements Specified {
 	private boolean propertiesAreApproved = false;
 	
 	//multiple attribute
-	private List<Propertyoid<?>> properties;
+	private List<Propertyoid<Specified>> properties;
 	
 	//method
 	/**
@@ -45,12 +45,12 @@ public abstract class Entity implements Specified {
 		//Iterates the properties of this entity.
 		for (final Propertyoid<?> p : getRefProperties()) {
 			
-			//Handles the case that the current property is not empty.
-			if (!p.isEmpty()) {
+			//Iterates the values of the current property.
+			for (final Specified v : p.getRefValues()) {
 				attributes.addAtEnd(
 					new StandardSpecification(
 						p.getName(),
-						p.getValue().getAttributes()
+						v.getAttributes()
 					)
 				);
 			}
@@ -59,7 +59,7 @@ public abstract class Entity implements Specified {
 		return attributes;
 	}
 	
-	//package-visible method
+	//method
 	/**
 	 * Adds or changes the given attribute to this entity.
 	 * 
@@ -70,7 +70,7 @@ public abstract class Entity implements Specified {
 	protected void addOrChangeAttribute(final Specification attribute) {
 		getRefProperties()
 		.getRefFirst(p -> p.hasName(attribute.getHeader()))
-		.setValueFromSpecification(attribute);
+		.addOrChangeValueFromSpecification(attribute);
 	}
 	
 	//method
@@ -82,19 +82,7 @@ public abstract class Entity implements Specified {
 	 */
 	protected final void approveProperties() {
 		
-		//Iterates the properties of this entity.
-		for (final Propertyoid<?> p : getRefProperties()) {
-			
-			//Handles the case that the current property is not optional, but empty.
-			if (!p.isOptional() && p.isEmpty()) {
-				throw new InvalidStateException(
-					this,
-					"has a non-optional property '" + p.getName() + "' that is empty");
-			}
-			
-			//Approves the current property.
-			p.approve();
-		}
+		getRefProperties().forEach(p -> p.approve());
 		
 		propertiesAreApproved = true;
 	}
@@ -117,9 +105,10 @@ public abstract class Entity implements Specified {
 	/**
 	 * Extracts the properties of this entity.
 	 */
+	@SuppressWarnings("unchecked")
 	private void extractProperties() {
 		
-		properties = new List<Propertyoid<?>>();
+		properties = new List<Propertyoid<Specified>>();
 		
 		//Iterates the types of this entity.
 		Class<?> cl = getClass();
@@ -135,7 +124,7 @@ public abstract class Entity implements Specified {
 						
 						f.setAccessible(true);
 						
-						final MutableProperty<?> property = (MutableProperty<?>)(f.get(this));
+						final MutableProperty<Specified> property = (MutableProperty<Specified>)(f.get(this));
 						
 						//Checks if the current property is not null.
 						Validator.suppose(property)

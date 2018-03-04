@@ -15,7 +15,7 @@ import ch.nolix.core.specificationInterfaces.Specified;
 * @param <V> The type of the value of an immutable optional property.
 */
 public final class OptionalProperty<V extends Specified>
-extends Propertyoid<V> {
+extends SingleProperty<V> {
 	
 	//constructor
 	/**
