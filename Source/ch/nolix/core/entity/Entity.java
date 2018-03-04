@@ -95,6 +95,8 @@ public abstract class Entity implements Specified {
 			//Approves the current property.
 			p.approve();
 		}
+		
+		propertiesAreApproved = true;
 	}
 	
 	//package-visible method
