@@ -38,6 +38,16 @@ public final class ReadContainer<E> implements IContainer<E> {
 	
 	//constructor
 	/**
+	 * Creates new read container for a new container that will contain the given element.
+	 * 
+	 * @throws NullArgumentException if the given element is null.
+	 */
+	public <E2 extends E> ReadContainer(final E2 element) {
+		this(new List<E>(element));
+	}
+	
+	//constructor
+	/**
 	 * Creates new read container for the given array.
 	 * 
 	 * @param array
