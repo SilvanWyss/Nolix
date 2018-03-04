@@ -3,6 +3,7 @@ package ch.nolix.system.GUIClient;
 
 //own imports
 import ch.nolix.core.duplexController.DuplexController;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.element.GUI.GUI;
@@ -138,7 +139,7 @@ public final class GUIBackClient extends Client<GUIBackClient> {
 	 * 
 	 * @param attributes
 	 */
-	private void resetDialog(final Iterable<StandardSpecification> attributes) {
+	private void resetDialog(final Iterable<? extends Specification> attributes) {
 		dialog.reset(attributes);
 	}
 	

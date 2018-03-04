@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.GUIClient;
 
+import ch.nolix.core.specification.Specification;
 //own imports
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
@@ -84,7 +85,7 @@ public final class GUIFrontClient extends Client<GUIFrontClient> {
 	 * 
 	 * @param attributes
 	 */
-	private void resetDialog(final Iterable<StandardSpecification> attributes) {
+	private void resetDialog(final Iterable<? extends Specification> attributes) {
 		//dialog = new Frame();
 		getGUI().reset(attributes);
 		getGUI().updateFromConfiguration();

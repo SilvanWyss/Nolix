@@ -12,6 +12,7 @@ package ch.nolix.element.bases;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.OptionalTokenable;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.element.data.Token;
@@ -102,10 +103,10 @@ implements Configurable, OptionalTokenable<CE> {
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public void addOrChangeAttribute(StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		switch (attribute.getHeader()) {
 			case "Token":
-				setToken(attribute.getOneAttributeToString());
+				setToken(attribute.getOneAttributeAsString());
 				break;
 			default:
 				

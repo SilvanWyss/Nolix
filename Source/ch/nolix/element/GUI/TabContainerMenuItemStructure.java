@@ -15,6 +15,7 @@ import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.invalidStateException.UnremovableAttributeException;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
@@ -366,28 +367,28 @@ public final class TabContainerMenuItemStructure {
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	protected final void setAttribute(StandardSpecification attribute) {
+	protected final void setAttribute(Specification attribute) {
 		switch (attribute.getHeader()) {
 			case LEFT_PADDING:
-				setLeftPadding(attribute.getOneAttributeToInteger());
+				setLeftPadding(attribute.getOneAttributeAsInt());
 				break;
 			case RIGHT_PADDING:
-				setRightPadding(attribute.getOneAttributeToInteger());
+				setRightPadding(attribute.getOneAttributeAsInt());
 				break;
 			case TOP_PADDING:
-				setTopPadding(attribute.getOneAttributeToInteger());
+				setTopPadding(attribute.getOneAttributeAsInt());
 				break;
 			case BOTTOM_PADDING:
-				setBottomPadding(attribute.getOneAttributeToInteger());
+				setBottomPadding(attribute.getOneAttributeAsInt());
 				break;
 			case BackgroundColor.TYPE_NAME:
-				setBackgroundColor(new BackgroundColor(attribute.getOneAttributeToString()));
+				setBackgroundColor(new BackgroundColor(attribute.getOneAttributeAsString()));
 				break;
 			case TextSize.TYPE_NAME:
-				setTextSize(attribute.getOneAttributeToInteger());
+				setTextSize(attribute.getOneAttributeAsInt());
 				break;
 			case TextColor.TYPE_NAME:
-				setTextColor(new TextColor(attribute.getOneAttributeToString()));
+				setTextColor(new TextColor(attribute.getOneAttributeAsString()));
 				break;
 			default:
 				throw new InvalidArgumentException(

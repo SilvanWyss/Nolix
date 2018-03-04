@@ -15,6 +15,7 @@ import java.awt.Graphics;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.mathematics.Calculator;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
@@ -74,31 +75,31 @@ extends Container<TabContainer, TabContainerStructure> {
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public void addOrChangeAttribute(StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		switch (attribute.getHeader()) {
 			case MENU_ITEM_PADDING:
-				setMenuItemPadding(attribute.getOneAttributeToInteger());
+				setMenuItemPadding(attribute.getOneAttributeAsInt());
 				break;
 			case MENU_ITEM_LEFT_PADDING:
-				setMenuItemLeftPadding(attribute.getOneAttributeToInteger());
+				setMenuItemLeftPadding(attribute.getOneAttributeAsInt());
 				break;
 			case MENU_ITEM_RIGHT_PADDING:
-				setMenuItemRightPadding(attribute.getOneAttributeToInteger());
+				setMenuItemRightPadding(attribute.getOneAttributeAsInt());
 				break;
 			case MENU_ITEM_BOTTOM_PADDING:
-				setMenuItemBottomPadding(attribute.getOneAttributeToInteger());			
+				setMenuItemBottomPadding(attribute.getOneAttributeAsInt());			
 				break;
 			case MENU_ITEM_TOP_PADDING:
-				setMenuItemTopPadding(attribute.getOneAttributeToInteger());
+				setMenuItemTopPadding(attribute.getOneAttributeAsInt());
 				break;
 			case MENU_MARGIN:
-				setMenuMargin(attribute.getOneAttributeToInteger());
+				setMenuMargin(attribute.getOneAttributeAsInt());
 				break;
 			case MENU_ITEM_MARGIN:
-				setMenuItemMargin(attribute.getOneAttributeToInteger());
+				setMenuItemMargin(attribute.getOneAttributeAsInt());
 				break;
 			case CURRENT_TAB:
-				selectTab(attribute.getOneAttributeToString());
+				selectTab(attribute.getOneAttributeAsString());
 				break;
 			case TAB:
 				TabContainerTab tab = new TabContainerTab();
@@ -109,17 +110,17 @@ extends Container<TabContainer, TabContainerStructure> {
 				break;
 			default:	
 				if (attribute.getHeader().startsWith("NormalMenuItem")) {
-					StandardSpecification temp = attribute.getCopy();
+					final Specification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring("NormalMenuItem".length()));
 					getRefNormalMenuItemStructure().setAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith("HoverMenuItem")) {
-					StandardSpecification temp = attribute.getCopy();
+					final Specification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring("HoverMenuItem".length()));
 					getRefHoverMenuItemStructure().setAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith("FocusMenuItem")) {
-					StandardSpecification temp = attribute.getCopy();
+					final Specification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring("FocusMenuItem".length()));
 					getRefFocusMenuItemStructure().setAttribute(temp);
 				}

@@ -4,7 +4,7 @@ package ch.nolix.element.configuration;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.Configurable;
 
 //class
@@ -45,7 +45,7 @@ public class StandardConfiguration extends Configuration<StandardConfiguration> 
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public StandardConfiguration(final Iterable<StandardSpecification> attributes) {
+	public <S extends Specification> StandardConfiguration(final Iterable<? extends Specification> attributes) {
 		addOrChangeAttributes(attributes);
 	}
 	

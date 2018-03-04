@@ -3,6 +3,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
@@ -207,15 +208,15 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 		return this;
 	}
 	
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case WIDTH_HEADER:
-				setWidth(attribute.getOneAttributeToInteger());
+				setWidth(attribute.getOneAttributeAsInt());
 				break;
 			case HEIGHT_HEADER:
-				setHeight(attribute.getOneAttributeToInteger());
+				setHeight(attribute.getOneAttributeAsInt());
 				break;
 				/*
 			case TEXT_SIZE_HEADER:

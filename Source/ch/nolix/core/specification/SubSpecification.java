@@ -66,6 +66,11 @@ public final class SubSpecification extends Specification {
 	public boolean containsAttributes() {
 		return internalSpecification.containsAttributes();
 	}
+	
+	public Specification getCopy() {
+		//TODO
+		return null;
+	}
 
 	//method
 	/**

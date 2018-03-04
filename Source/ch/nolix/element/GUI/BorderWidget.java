@@ -8,6 +8,7 @@ import java.awt.Graphics;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.mathematics.Calculator;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
@@ -51,20 +52,20 @@ extends BackgroundWidget<BW, BWS> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case ContentPosition.TYPE_NAME:
 				setContentOrientation(
-					ContentPosition.valueOf(attribute.getOneAttributeToString())
+					ContentPosition.valueOf(attribute.getOneAttributeAsString())
 				);
 				break;
 			case MinWidth.TYPE_NAME:
-				setMinWidth(attribute.getOneAttributeToInteger());
+				setMinWidth(attribute.getOneAttributeAsInt());
 				break;
 			case MinHeight.TYPE_NAME:
-				setMinHeight(attribute.getOneAttributeToInteger());
+				setMinHeight(attribute.getOneAttributeAsInt());
 				break;
 			default:
 				

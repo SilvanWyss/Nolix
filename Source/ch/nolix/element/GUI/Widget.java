@@ -13,6 +13,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.ClosedStateException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.specificationInterfaces.Configurable;
@@ -95,44 +96,44 @@ extends ConfigurableElement<W> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case STATE:
-				setState(WidgetState.valueOf(attribute.getOneAttributeToString()));
+				setState(WidgetState.valueOf(attribute.getOneAttributeAsString()));
 				break;
 			case CursorIcon.TYPE_NAME:
-				setCursorIcon(CursorIcon.valueOf(attribute.getOneAttributeToString()));
+				setCursorIcon(CursorIcon.valueOf(attribute.getOneAttributeAsString()));
 				break;
 			case LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER:
-				setLeftMouseButtonPressCommand(attribute.getOneAttributeToString());
+				setLeftMouseButtonPressCommand(attribute.getOneAttributeAsString());
 				break;
 			case LEFT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER:
-				setLeftMouseButtonReleaseCommand(attribute.getOneAttributeToString());
+				setLeftMouseButtonReleaseCommand(attribute.getOneAttributeAsString());
 				break;
 			case RIGHT_MOUSE_BUTTON_PRESS_COMMAND_HEADER:
-				setRightMouseButtonPressCommand(attribute.getOneAttributeToString());
+				setRightMouseButtonPressCommand(attribute.getOneAttributeAsString());
 				break;
 			case RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER:
-				setRightMouseButtonReleaseCommand(attribute.getOneAttributeToString());
+				setRightMouseButtonReleaseCommand(attribute.getOneAttributeAsString());
 				break;
 			case NO_GREY_OUT_WHEN_DISABLED_HEADER:
 				removeGreyOutWhenDisabled();
 				break;
 			default:
 				if (attribute.getHeader().startsWith(NORMAL)) {
-					StandardSpecification temp = attribute.getCopy();
+					final Specification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring(NORMAL.length()));
 					getRefNormalStructure().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(HOVER)) {
-					StandardSpecification temp = attribute.getCopy();
+					final Specification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring(HOVER.length()));
 					getRefHoverStructure().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(FOCUS)) {
-					StandardSpecification temp = attribute.getCopy();
+					final Specification temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring(FOCUS.length()));
 					getRefFocusStructure().addOrChangeAttribute(temp);
 				}
@@ -1037,7 +1038,7 @@ extends ConfigurableElement<W> {
 	 * @return the created widget.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	protected final Widget<?, ?> createWidget(final StandardSpecification specification) {
+	protected final Widget<?, ?> createWidget(final Specification specification) {
 		return getRefGUI().createWidget(specification);
 	}
 	

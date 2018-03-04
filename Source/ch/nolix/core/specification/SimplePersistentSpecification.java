@@ -64,6 +64,11 @@ public final class SimplePersistentSpecification extends Specification {
 	public boolean containsAttributes() {
 		return internalSpecification.containsAttributes();
 	}
+	
+	public Specification getCopy() {
+		//TODO
+		return null;
+	}
 
 	//method
 	/**

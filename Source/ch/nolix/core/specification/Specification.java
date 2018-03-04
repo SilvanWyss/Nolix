@@ -86,6 +86,8 @@ public abstract class Specification {
 		return getRefAttributes().to(a -> a.toString());
 	}
 	
+	public abstract Specification getCopy();
+	
 	//abstract method
 	/**
 	 * @return the header of this specification.

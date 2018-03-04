@@ -8,6 +8,7 @@ import java.awt.Graphics;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
@@ -61,19 +62,19 @@ public class Area extends Widget<Area, AreaStructure> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case Width.TYPE_NAME:
-				setWidth(attribute.getOneAttributeToInteger());
+				setWidth(attribute.getOneAttributeAsInt());
 				break;
 			case Height.TYPE_NAME:
-				setHeight(attribute.getOneAttributeToInteger());
+				setHeight(attribute.getOneAttributeAsInt());
 				break;
 			case BackgroundColor.TYPE_NAME:
 				setBackgroundColor(
-					new BackgroundColor(attribute.getOneAttributeToString())
+					new BackgroundColor(attribute.getOneAttributeAsString())
 				);
 				break;
 			default:

@@ -19,6 +19,7 @@ import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.specificationInterfaces.Configurable;
@@ -113,7 +114,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		
 		//Handles the case that the given attribute specifies a widget.
 		if (canCreateWidget(attribute.getHeader())) {
@@ -127,7 +128,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 			switch (attribute.getHeader()) {
 				case ContentPosition.TYPE_NAME:
 					setContentPosition(
-						ContentPosition.valueOf(attribute.getOneAttributeToString())
+						ContentPosition.valueOf(attribute.getOneAttributeAsString())
 					);
 					break;
 				default:
@@ -702,7 +703,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @return the created widget.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	protected final Widget<?, ?> createWidget(final StandardSpecification specification) {
+	protected final Widget<?, ?> createWidget(final Specification specification) {
 		
 		final Widget<?, ?> widget = createWidget(specification.getHeader());
 		widget.setGUI(this);

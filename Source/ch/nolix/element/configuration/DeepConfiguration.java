@@ -5,6 +5,7 @@ import ch.nolix.core.container.ReadContainer;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.element.core.PositiveInteger;
@@ -39,7 +40,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public DeepConfiguration(final Iterable<StandardSpecification> attributes) {
+	public DeepConfiguration(final Iterable<Specification> attributes) {
 		addOrChangeAttributes(attributes);
 	}
 	

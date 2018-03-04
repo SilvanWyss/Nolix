@@ -5,6 +5,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.core.container.List;
 import ch.nolix.core.entity2.Property;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
@@ -60,7 +61,7 @@ extends BackgroundWidgetStructure<BWS> {
 	private Color rightBorderColor;
 	private Color topBorderColor;
 	private Color bottomBorderColor;
-	private PositiveInteger leftPadding;	
+	private PositiveInteger leftPadding;
 	private PositiveInteger rightPadding;	
 	private PositiveInteger topPadding;	
 	private PositiveInteger bottomPadding;
@@ -945,54 +946,54 @@ extends BackgroundWidgetStructure<BWS> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case BORDER_SIZE_HEADER:
-				setBorderSizes(attribute.getOneAttributeToInteger());
+				setBorderSizes(attribute.getOneAttributeAsInt());
 				break;
 			case LEFT_BORDER_SIZE_HEADER:
-				setLeftBorderSize(attribute.getOneAttributeToInteger());
+				setLeftBorderSize(attribute.getOneAttributeAsInt());
 				break;
 			case RIGHT_BORDER_SIZE_HEADER:
-				setRightBorderSize(attribute.getOneAttributeToInteger());
+				setRightBorderSize(attribute.getOneAttributeAsInt());
 				break;
 			case TOP_BORDER_SIZE_HEADER:
-				setTopBorderSize(attribute.getOneAttributeToInteger());
+				setTopBorderSize(attribute.getOneAttributeAsInt());
 				break;
 			case BOTTOM_BORDER_SIZE_HEADER:
-				setBottomBorderSize(attribute.getOneAttributeToInteger());
+				setBottomBorderSize(attribute.getOneAttributeAsInt());
 				break;
 			case BORDER_COLOR_HEADER:
-				setBorderColors(new Color(attribute.getOneAttributeToString()));
+				setBorderColors(new Color(attribute.getOneAttributeAsString()));
 				break;
 			case LEFT_BORDER_COLOR_HEADER:
-				setLeftBorderColor(new Color(attribute.getOneAttributeToString()));
+				setLeftBorderColor(new Color(attribute.getOneAttributeAsString()));
 				break;
 			case RIGHT_BORDER_COLOR_HEADER:
-				setRightBorderColor(new Color(attribute.getOneAttributeToString()));
+				setRightBorderColor(new Color(attribute.getOneAttributeAsString()));
 				break;
 			case BOTTOM_BORDER_COLOR_HEADER:
-				setBottomBorderColor(new Color(attribute.getOneAttributeToString()));
+				setBottomBorderColor(new Color(attribute.getOneAttributeAsString()));
 				break;
 			case TOP_BORDER_COLOR_HEADER:
-				setTopBorderColor(new Color(attribute.getOneAttributeToString()));
+				setTopBorderColor(new Color(attribute.getOneAttributeAsString()));
 				break;
 			case PADDING_HEADER:
-				setPaddings(attribute.getOneAttributeToInteger());
+				setPaddings(attribute.getOneAttributeAsInt());
 				break;
 			case LEFT_PADDING_HEADER:
-				setLeftPadding(attribute.getOneAttributeToInteger());
+				setLeftPadding(attribute.getOneAttributeAsInt());
 				break;
 			case RIGHT_PADDING_HEADER:
-				setRightPadding(attribute.getOneAttributeToInteger());
+				setRightPadding(attribute.getOneAttributeAsInt());
 				break;
 			case TOP_PADDING_HEADER:
-				setTopPadding(attribute.getOneAttributeToInteger());
+				setTopPadding(attribute.getOneAttributeAsInt());
 				break;
 			case BOTTOM_PADDING_HEADER:
-				setBottomPadding(attribute.getOneAttributeToInteger());
+				setBottomPadding(attribute.getOneAttributeAsInt());
 				break;
 			default:
 				

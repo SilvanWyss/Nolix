@@ -6,6 +6,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Freezable;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.element.bases.OptionalNamableElement;
@@ -54,12 +55,16 @@ implements Freezable<C> {
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
 	@SuppressWarnings("unchecked")
-	public final C addAttachingAttribute(final StandardSpecification attachingAttribute) {
+	public final C addAttachingAttribute(final Specification attachingAttribute) {
 		
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();
 				
-		attachingAttributes.addAtEnd(attachingAttribute);
+		attachingAttributes.addAtEnd(
+			new StandardSpecification(
+				attachingAttribute.getHeader(),
+				attachingAttribute.getRefAttributes())
+		);
 		
 		return (C)this;
 	}
@@ -154,24 +159,24 @@ implements Freezable<C> {
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case Name.TYPE_NAME:
-				setName(attribute.getOneAttributeToString());
+				setName(attribute.getOneAttributeAsString());
 				break;
 			case SELECTOR_TYPE_HEADER:
-				setSelectorType(attribute.getOneAttributeToString());
+				setSelectorType(attribute.getOneAttributeAsString());
 				break;
 			case SELECTOR_ROLE_HEADER:
-				setSelectorRole(attribute.getOneAttributeToString());
+				setSelectorRole(attribute.getOneAttributeAsString());
 				break;
 			case SELECTOR_TOKEN_HEADER:
-				setSelectorToken(attribute.getOneAttributeToString());
+				setSelectorToken(attribute.getOneAttributeAsString());
 				break;
 			case SELECTOR_NAME_HEADER:
-				setSelectorName(attribute.getOneAttributeToString());
+				setSelectorName(attribute.getOneAttributeAsString());
 				break;
 			case StandardConfiguration.TYPE_NAME:
 				addConfiguration(new StandardConfiguration(attribute.getRefAttributes()));

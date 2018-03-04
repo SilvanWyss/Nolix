@@ -13,6 +13,7 @@ import java.awt.Graphics;
 
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 
 //class
@@ -41,7 +42,7 @@ extends Container<SingleContainer, SingleContainerStructure> {
 	 * @param attributes
 	 * @throws Exception if the given attributes are not valid
 	 */
-	public SingleContainer(List<StandardSpecification> attributes) {
+	public SingleContainer(List<Specification> attributes) {
 		
 		//Calls other constructor.
 		this();

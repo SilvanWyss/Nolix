@@ -6,6 +6,7 @@ import ch.nolix.core.interfaces.Resettable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 
 //interface
@@ -26,7 +27,7 @@ public interface Specifiable extends Resettable, Specified {
 	 * 
 	 * @param attribute
 	 */
-	public abstract void addOrChangeAttribute(final StandardSpecification attribute);
+	public abstract void addOrChangeAttribute(final Specification attribute);
 	
 	//default method
 	/**
@@ -35,10 +36,10 @@ public interface Specifiable extends Resettable, Specified {
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public default void addOrChangeAttribute(final StandardSpecification... attributes) {
+	public default void addOrChangeAttribute(final Specification... attributes) {
 		
 		//Iterates the given attributes.
-		for (final StandardSpecification a : attributes) {
+		for (final Specification a : attributes) {
 			addOrChangeAttribute(a);
 		}
 	}
@@ -76,10 +77,10 @@ public interface Specifiable extends Resettable, Specified {
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public default void addOrChangeAttributes(final Iterable<StandardSpecification> attributes) {
+	public default void addOrChangeAttributes(final Iterable<? extends Specification> attributes) {
 		
 		//Iterates the given attributes.
-		for (final StandardSpecification a : attributes) {
+		for (final Specification a : attributes) {
 			addOrChangeAttribute(a);
 		}
 	}
@@ -101,7 +102,7 @@ public interface Specifiable extends Resettable, Specified {
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public default void reset(final Iterable<StandardSpecification> attributes) {
+	public default void reset(final Iterable<? extends Specification> attributes) {
 		reset();
 		addOrChangeAttributes(attributes);
 	}
@@ -113,7 +114,7 @@ public interface Specifiable extends Resettable, Specified {
 	 * @param standardSpecification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public default void reset(final StandardSpecification standardSpecification) {
+	public default void reset(final Specification standardSpecification) {
 		
 		//Checks if the given specification is a specification for this specifiable object.
 		if (!standardSpecification.hasHeader(getType())) {

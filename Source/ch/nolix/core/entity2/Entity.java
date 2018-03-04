@@ -8,6 +8,7 @@ import java.lang.reflect.Field;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.validator2.Validator;
 
@@ -29,7 +30,7 @@ public abstract class Entity {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valud.
 	 */
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		getRefProperties()
 		.getRefFirst(p -> p.hasName(attribute.getHeader()))
 		.setValue(attribute.getRefAttributes());

@@ -2,7 +2,7 @@
 package ch.nolix.core.entity;
 
 //own imports
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.Specifiable;
 import ch.nolix.core.validator2.Validator;
 
@@ -39,7 +39,7 @@ implements Specifiable {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		
 		//Calls method of the base class.
 		super.addOrChangeAttribute(attribute);
