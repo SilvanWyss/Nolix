@@ -3,7 +3,7 @@ package ch.nolix.core.entity;
 
 //own imports
 import ch.nolix.core.bases.NamedElement;
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.Specified;
@@ -86,5 +86,5 @@ extends NamedElement {
 	/**
 	 * @return the values of this property.
 	 */
-	abstract IContainer<V> getRefValues();
+	abstract ReadContainer<V> getRefValues();
 }

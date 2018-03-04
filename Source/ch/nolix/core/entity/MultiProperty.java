@@ -2,7 +2,6 @@
 package ch.nolix.core.entity;
 
 //own imports
-import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
@@ -90,7 +89,7 @@ implements Clearable<MultiProperty<V>> {
 	/**
 	 * @return the values of this multi property.
 	 */
-	public IContainer<V> getRefValues() {
+	public ReadContainer<V> getRefValues() {
 		return new ReadContainer<V>(values);
 	}
 	

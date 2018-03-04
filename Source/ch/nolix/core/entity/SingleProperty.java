@@ -3,8 +3,7 @@ package ch.nolix.core.entity;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerRunner;
 import ch.nolix.core.invalidStateException.InvalidStateException;
@@ -166,15 +165,15 @@ extends Propertyoid<V> {
 	/**
 	 * @return the values of this single property.
 	 */
-	final IContainer<V> getRefValues() {
+	final ReadContainer<V> getRefValues() {
 		
 		//Handles the case that this single property is empty.
 		if (isEmpty()) {
-			return new List<>();
+			return new ReadContainer<V>();
 		}
 		
 		//Handles  the case that this single property is not empty.
-		return new List<>(getValue());
+		return new ReadContainer<V>(getValue());
 	}
 	
 	//method
