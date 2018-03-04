@@ -50,6 +50,7 @@ public class Area extends Widget<Area, AreaStructure> {
 	 * Creates new area with default values.
 	 */
 	public Area() {
+		approveProperties();
 		resetConfiguration();
 	}
 	

@@ -8,6 +8,7 @@ import ch.nolix.elementTest.colorTest.ColorTestPool;
 import ch.nolix.elementTest.coreTest.CoreTestPool;
 import ch.nolix.elementTest.dataTest.DataTestPool;
 import ch.nolix.elementTest.financeTest.FinanceTestPool;
+import ch.nolix.elementTest.taskTest.TaskTestPool;
 
 //class
 /**
@@ -27,7 +28,8 @@ public final class ElementTestPool extends TestPool {
 			new CoreTestPool(),
 			new DataTestPool(),
 			new FinanceTestPool(),
-			new GUITestPool()
+			new GUITestPool(),
+			new TaskTestPool()
 		);
 	}
 }
