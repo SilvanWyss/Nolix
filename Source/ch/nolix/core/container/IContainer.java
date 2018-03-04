@@ -32,7 +32,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1300
+ * @lines 1310
  * @param <E> The type of the elements of a container.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -1166,9 +1166,21 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if this container contains n elements.
 	 * 
 	 * @param extractor
-	 * @return a new list with the elements the given extractor extract from the elements of this container.
+	 * @return a new list with the elements the given extractor extracts from the elements of this container.
 	 */
 	public default <O> List<O> to(final IElementTakerElementGetter<E, O> extractor) {
+		final List<O> list = new List<O>();
+		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
+		return list;
+	}
+	
+	//default method
+	/**
+	 * @param extractor
+	 * @return a new list with the elements of the containers
+	 * the given extractor extracts from the elements of this container.
+	 */
+	public default <O> List<O> toFromMany(final IElementTakerElementGetter<E, IContainer<O>> extractor) {
 		final List<O> list = new List<O>();
 		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
 		return list;
