@@ -20,7 +20,7 @@ import ch.nolix.element.core.Time;
 /**
  * @author Silvan Wyss
  * @month 2018-01
- * @lines 260
+ * @lines 360
  */
 public final class Task extends MutableElement<Task> {
 
@@ -31,6 +31,7 @@ public final class Task extends MutableElement<Task> {
 	private static final String TITLE_HEADER = "Title";
 	private static final String CREATION_DATE_HEADER = "CreationDate";
 	private static final String SOLVE_DATE_HEADER = "SolveDate";
+	private static final String SIZE_HEADER = "Size";
 	
 	//static method
 	/**
@@ -66,7 +67,15 @@ public final class Task extends MutableElement<Task> {
 		s -> Time.createFromSpecification(s)
 	);
 	
-	//method
+	//optional attribute
+	private final MutableOptionalProperty<TaskSize> size =
+	new MutableOptionalProperty<>(
+		SIZE_HEADER,
+		s -> setSize(s),
+		s -> TaskSize.createFromSpecification(s)
+	);
+	
+	//constructor
 	/**
 	 * Creates new task with the given title.
 	 * The task will have the current time as creation date.
@@ -80,7 +89,23 @@ public final class Task extends MutableElement<Task> {
 		approveProperties();
 	}
 	
-	//method
+	//constructor
+	/**
+	 * Creates new task with the given title and size.
+	 * 
+	 * @param title
+	 * @param creationDate
+	 * @param solveDate
+	 * @throws NullArgumentException if the given title is null.
+	 * @throws NullArgumentException if the given size is null.
+	 */
+	public Task(final String title,	final TaskSize size) {
+		setTitle(title);
+		setSize(size);
+		approveProperties();
+	}
+	
+	//constructor
 	/**
 	 * Creates new task with the given title and creation date.
 	 * 
@@ -95,7 +120,7 @@ public final class Task extends MutableElement<Task> {
 		approveProperties();
 	}
 	
-	//method
+	//constructor
 	/**
 	 * Creates new task with the given title, creation date and solve date.
 	 * 
@@ -105,10 +130,43 @@ public final class Task extends MutableElement<Task> {
 	 * @throws NullArgumentException if the given title is null.
 	 * @throws NullArgumentException if the given creation date is null.
 	 * @throws NullArgumentException if the given solve date is null.
-	 * @throws InvalidArgumentException if the given solve date is before the given creation date.
+	 * @throws InvalidArgumentException
+	 * if the given solve date is before the given creation date.
 	 */
-	public Task(final String title, final Time creationDate, final Time solveDate) {
+	public Task(
+		final String title,
+		final Time creationDate,
+		final Time solveDate
+	) {
 		setTitle(title);
+		setCreationDate(creationDate);
+		setAsSolved(solveDate);
+		approveProperties();
+	}
+	
+	//constructor
+	/**
+	 * Creates new task with the given title, size, creation date and solve date.
+	 * 
+	 * @param title
+	 * @param size
+	 * @param creationDate
+	 * @param solveDate
+	 * @throws NullArgumentException if the given title is null.
+	 * @throws NullArgumentException if the given size is null.
+	 * @throws NullArgumentException if the given creation date is null.
+	 * @throws NullArgumentException if the given solve date is null.
+	 * @throws InvalidArgumentException
+	 * if the given solve date is before the given creation date.
+	 */
+	public Task(
+		final String title,
+		final TaskSize size,
+		final Time creationDate,
+		final Time solveDate
+	) {
+		setTitle(title);
+		setSize(size);
 		setCreationDate(creationDate);
 		setAsSolved(solveDate);
 		approveProperties();
@@ -136,6 +194,15 @@ public final class Task extends MutableElement<Task> {
 	
 	//method
 	/**
+	 * @return the size of this task.
+	 * @throws UnexistingAttributeException if this task is not assigned a size.
+	 */
+	public TaskSize getSize() {
+		return size.getValue();
+	}
+	
+	//method
+	/**
 	 * @return the solve date of this task.
 	 * @throws InvalidStateException if this task is not solved.
 	 */
@@ -145,6 +212,22 @@ public final class Task extends MutableElement<Task> {
 		supposeIsSolved();
 		
 		return solveTime.getValue();
+	}
+	
+	//method
+	/**
+	 * @return the title of this task.
+	 */
+	public String getTitle() {
+		return title.getValue().getValue();
+	}
+	
+	//method
+	/**
+	 * @return true if this task is assigned a size.
+	 */
+	public boolean isAssignedSize() {
+		return size.containsAny();
 	}
 	
 	//method
@@ -191,7 +274,10 @@ public final class Task extends MutableElement<Task> {
 			throw new InvalidArgumentException(
 				new ArgumentName("solve time"),
 				new Argument(solveTime),
-				new ErrorPredicate("is not after the creation time '" + getCreationDate().toString() + "' of the task")
+				new ErrorPredicate(
+					"is not after the creation time '"
+					+ getCreationDate().toString()
+					+ "' of the task")
 			);
 		}
 		
@@ -212,6 +298,21 @@ public final class Task extends MutableElement<Task> {
 	public Task setAsUnsolved() {
 		
 		solveTime.clear();
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the size of this task.
+	 * 
+	 * @param size
+	 * @return this task.
+	 * @throws NullArgumentException if the given size is null.
+	 */
+	public Task setSize(final TaskSize size) {
+		
+		this.size.setValue(size);
 		
 		return this;
 	}
