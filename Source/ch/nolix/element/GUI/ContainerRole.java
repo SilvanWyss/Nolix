@@ -1,25 +1,16 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.SpecifiedByClassNameAndOneAttribute;
+//own import
+import ch.nolix.core.specificationInterfaces.ISpecifiedEnum;
 
 //enum
 /**
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 20
+ * @lines 10
  */
-public enum ContainerRole implements SpecifiedByClassNameAndOneAttribute {
+public enum ContainerRole implements ISpecifiedEnum {
 	OverallContainer,
-	MainContainer;
-
-	//method
-	/**
-	 * @return the attribute of this container role.
-	 */
-	public StandardSpecification getAttribute() {
-		return StandardSpecification.createSpecificationWithHeaderOnly(toString());
-	}
+	MainContainer
 }

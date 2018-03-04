@@ -4,17 +4,16 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.Cursor;
 
-//own imports
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.SpecifiedByClassNameAndOneAttribute;
+//own import
+import ch.nolix.core.specificationInterfaces.ISpecifiedEnum;
 
 //enum
 /**
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 50
+ * @lines 40
  */
-public enum CursorIcon implements SpecifiedByClassNameAndOneAttribute {
+public enum CursorIcon implements ISpecifiedEnum {
 	Arrow,
 	Cross,
 	Edit,
@@ -46,13 +45,5 @@ public enum CursorIcon implements SpecifiedByClassNameAndOneAttribute {
 			default:
 				return new Cursor(java.awt.Cursor.DEFAULT_CURSOR);
 		}
-	}
-
-	//method
-	/**
-	 * @return the attribute of this cursor icon.
-	 */
-	public StandardSpecification getAttribute() {
-		return StandardSpecification.createSpecificationWithHeaderOnly(toString());
 	}
 }

@@ -13,17 +13,9 @@ import ch.nolix.core.test2.Test;
  * 
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 60
+ * @lines 50
  */
 public final class DirectionTest extends Test {
-	
-	//test method
-	public void test_getAttribtue() {
-		
-		//execution and verification
-		expect(Direction.LeftToRight.getAttribute())
-		.isEqualTo(new StandardSpecification("LeftToRight"));
-	}
 	
 	//test method
 	public void test_getAttributes() {

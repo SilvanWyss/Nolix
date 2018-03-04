@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.core.enums;
 
-//own imports
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.SpecifiedByClassNameAndOneAttribute;
+//own import
+import ch.nolix.core.specificationInterfaces.ISpecifiedEnum;
 
 //enum
 /**
@@ -15,19 +14,11 @@ import ch.nolix.core.specificationInterfaces.SpecifiedByClassNameAndOneAttribute
  * 
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 30
+ * @lines 20
  */
-public enum UniDirection implements SpecifiedByClassNameAndOneAttribute {
+public enum UniDirection implements ISpecifiedEnum {
 	Horizontal,
 	Vertical,
 	DiagonalUp,
-	DiagonalDown;
-
-	//method
-	/**
-	 * @return the attribute of this uni direction.
-	 */
-	public final StandardSpecification getAttribute() {
-		return StandardSpecification.createSpecificationWithHeaderOnly(toString());
-	}
+	DiagonalDown
 }

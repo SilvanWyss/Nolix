@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.SpecifiedByClassNameAndOneAttribute;
+//own import
+import ch.nolix.core.specificationInterfaces.ISpecifiedEnum;
 
 //enum
 /**
@@ -11,7 +10,7 @@ import ch.nolix.core.specificationInterfaces.SpecifiedByClassNameAndOneAttribute
  * @month 2016-04
  * @lines 30
  */
-public enum CaptionPosition implements SpecifiedByClassNameAndOneAttribute {
+public enum CaptionPosition implements ISpecifiedEnum {
 	LeftTop,
 	Left,
 	LeftBottom,
@@ -23,13 +22,5 @@ public enum CaptionPosition implements SpecifiedByClassNameAndOneAttribute {
 	TopRight,
 	BottomLeft,
 	Bottom,
-	BottomRight;
-
-	//method
-	/**
-	 * @return the attribute of this caption position.
-	 */
-	public final StandardSpecification getAttribute() {
-		return StandardSpecification.createSpecificationWithHeaderOnly(toString());
-	}
+	BottomRight
 }

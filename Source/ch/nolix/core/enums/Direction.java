@@ -2,8 +2,7 @@
 package ch.nolix.core.enums;
 
 //own imports
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.SpecifiedByClassNameAndOneAttribute;
+import ch.nolix.core.specificationInterfaces.ISpecifiedEnum;
 
 //enum
 /**
@@ -14,9 +13,9 @@ import ch.nolix.core.specificationInterfaces.SpecifiedByClassNameAndOneAttribute
  * 
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 30
+ * @lines 20
  */
-public enum Direction implements SpecifiedByClassNameAndOneAttribute {
+public enum Direction implements ISpecifiedEnum {
 	LeftToRight,
 	RightToLeft,
 	TopToBottom,
@@ -24,13 +23,5 @@ public enum Direction implements SpecifiedByClassNameAndOneAttribute {
 	TopLeftToBottomRight,
 	BottomRightToTopLeft,
 	TopRightToBottomLeft,
-	BottomLeftToTopRight;
-	
-	//method
-	/**
-	 * @return the attribute of this direction.
-	 */
-	public final StandardSpecification getAttribute() {
-		return StandardSpecification.createSpecificationWithHeaderOnly(toString());
-	}
+	BottomLeftToTopRight
 }

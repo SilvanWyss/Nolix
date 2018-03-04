@@ -283,7 +283,7 @@ public final class Time extends Element {
 		return new List<StandardSpecification>(
 			new StandardSpecification(String.format(
 				"%04d-%02d-%02d-%02d-%02d-%02d-%03d",
-				getYear(),
+				getYearAsInt(),
 				getMonthOfYear(),
 				getDayOfMonth(),
 				getHourOfDay(),

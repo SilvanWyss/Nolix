@@ -87,7 +87,7 @@ public final class ClosureMediator extends Mediator {
 				addCurrentTestMethodError("An exception of the type " + type.getName() + " was expected, but no exception was thrown.");
 			}
 			catch (final Exception exception) {
-				if (!exception.getClass().isAssignableFrom(type)) {
+				if (!type.isAssignableFrom(exception.getClass())) {
 					addCurrentTestMethodError(
 						"An exception of the type " + type.getName() + " was expected, but an exception of the type " + exception.getClass().getName() + " was thrown."
 					);

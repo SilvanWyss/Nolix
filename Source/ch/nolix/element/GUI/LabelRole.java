@@ -1,17 +1,16 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.SpecifiedByClassNameAndOneAttribute;
+//own import
+import ch.nolix.core.specificationInterfaces.ISpecifiedEnum;
 
 //enum
 /**
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 30
+ * @lines 20
  */
-public enum LabelRole implements SpecifiedByClassNameAndOneAttribute {
+public enum LabelRole implements ISpecifiedEnum {
 	Title,
 	SubTitle,
 	Level1Header,
@@ -19,13 +18,5 @@ public enum LabelRole implements SpecifiedByClassNameAndOneAttribute {
 	Level3Header,
 	Level4Header,
 	ParagraphHeader,
-	DynamicInfoLabel;
-
-	//method
-	/**
-	 * @return the attribute of this label role.
-	 */
-	public StandardSpecification getAttribute() {
-		return StandardSpecification.createSpecificationWithHeaderOnly(toString());
-	}
+	DynamicInfoLabel
 }

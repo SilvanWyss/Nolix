@@ -2,16 +2,15 @@
 package ch.nolix.element.font;
 
 //own import
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.SpecifiedByClassNameAndOneAttribute;
+import ch.nolix.core.specificationInterfaces.ISpecifiedEnum;
 
 //enum
 /**
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 50
+ * @lines 30
  */
-public enum TextFont implements SpecifiedByClassNameAndOneAttribute {
+public enum TextFont implements ISpecifiedEnum {
 	Arial,
 	Console,
 	Papyrus,
@@ -33,22 +32,5 @@ public enum TextFont implements SpecifiedByClassNameAndOneAttribute {
 			default:
 				return toString();
 		}
-	}
-	
-	//method
-	/**
-	 * @return the attribute of this text font.
-	 */
-	public final StandardSpecification getAttribute() {
-		return
-		StandardSpecification.createSpecificationWithHeaderOnly(super.toString());
-	}
-	
-	//method
-	/**
-	 * @return a string representation of this text font.
-	 */
-	public final String toString() {
-		return getSpecification().toString();
 	}
 }
