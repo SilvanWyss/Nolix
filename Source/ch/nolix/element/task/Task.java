@@ -11,7 +11,7 @@ import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.core.Text;
 import ch.nolix.element.core.Time;
@@ -24,6 +24,9 @@ import ch.nolix.element.core.Time;
  */
 public final class Task extends MutableElement<Task> {
 
+	//constant
+	public static final String TYPE_NAME = "Task";
+	
 	//default value
 	private static final String DEFAULT_TITLE = StringCatalogue.EMPTY_STRING;
 	
@@ -39,13 +42,13 @@ public final class Task extends MutableElement<Task> {
 	 * @return a new task from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public Task createFromSpecification(final StandardSpecification specification) {
+	public static Task createFromSpecification(final Specification specification) {
 		return new Task(specification);
 	}
 	
 	//attribute
 	private final MutableProperty<Text> title =
-	new MutableProperty<>(
+	new MutableProperty<Text>(
 		TITLE_HEADER,
 		t -> setTitle(t.getValue()),
 		s -> Text.createFromSpecification(s)
@@ -53,7 +56,7 @@ public final class Task extends MutableElement<Task> {
 	
 	//attribute
 	private final Property<Time> creationDate =
-	new Property<>(
+	new Property<Time>(
 		CREATION_DATE_HEADER,
 		ct -> setCreationDate(ct),
 		s -> Time.createFromSpecification(s)
@@ -69,7 +72,7 @@ public final class Task extends MutableElement<Task> {
 	
 	//optional attribute
 	private final MutableOptionalProperty<TaskSize> size =
-	new MutableOptionalProperty<>(
+	new MutableOptionalProperty<TaskSize>(
 		SIZE_HEADER,
 		s -> setSize(s),
 		s -> TaskSize.createFromSpecification(s)
@@ -179,8 +182,11 @@ public final class Task extends MutableElement<Task> {
 	 * @param specification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	private Task(final StandardSpecification specification) {		
-		reset(specification);
+	private Task(final Specification specification) {	
+		
+		//TODO
+		//reset(specification);
+		
 		approveProperties();
 	}
 	
