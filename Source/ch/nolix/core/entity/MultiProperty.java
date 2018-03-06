@@ -17,7 +17,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 130
+ * @lines 150
  * @param <V> The type of the values of a multi property.
  */
 public final class MultiProperty<V extends Specified>
@@ -66,10 +66,13 @@ implements Clearable<MultiProperty<V>> {
 	 * Adds the given value to this multi property.
 	 * 
 	 * @param value
-	 * @throws NullArgumentException if the given value is null.
+	 * @throws NullArgumentException
+	 * if the given value is null.
+	 * @throws InvalidArgumentException
+	 * if this multi property contains already the given value.
 	 */
 	public void addValue(final V value) {
-		values.addAtEnd(value);
+		values.addAtEndRegardingSingularity(value);
 	}
 	
 	//method
@@ -115,6 +118,18 @@ implements Clearable<MultiProperty<V>> {
 	 */
 	public boolean isMutable() {
 		return true;
+	}
+	
+	//method
+	/**
+	 * Removes the given value of this multi property.
+	 * 
+	 * @param value
+	 * @throws InvalidArgumentException
+	 * if this multi property does not contain the given value.
+	 */
+	public void removeValue(final V value) {		
+		values.removeFirst(value);
 	}
 	
 	//package-visible method
