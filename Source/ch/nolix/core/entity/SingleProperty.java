@@ -5,7 +5,7 @@ package ch.nolix.core.entity;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
-import ch.nolix.core.functionInterfaces.IElementTakerRunner;
+import ch.nolix.core.functionInterfaces.IElementTaker;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Specification;
@@ -23,7 +23,7 @@ public abstract class SingleProperty<V extends Specified>
 extends Propertyoid<V> {
 	
 	//attributes
-	private final IElementTakerRunner<V> setterMethod;
+	private final IElementTaker<V> setterMethod;
 	private boolean approved = false;
 	
 	//optional attribute
@@ -44,7 +44,7 @@ extends Propertyoid<V> {
 	 */
 	SingleProperty(
 		final String name,
-		final IElementTakerRunner<V> setterMethod,
+		final IElementTaker<V> setterMethod,
 		final IElementTakerElementGetter<Specification, V> valueCreator
 	) {
 		

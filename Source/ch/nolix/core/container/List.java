@@ -7,7 +7,7 @@ import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerComparableGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
-import ch.nolix.core.functionInterfaces.IElementTakerRunner;
+import ch.nolix.core.functionInterfaces.IElementTaker;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
@@ -374,7 +374,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * @param runner
 	 * @return this list.
 	 */
-	public List<E> forEachAndGetList(final IElementTakerRunner<E> runner) {
+	public List<E> forEachAndGetList(final IElementTaker<E> runner) {
 		
 		//Iterates this list.
 		for (final E e: this) {

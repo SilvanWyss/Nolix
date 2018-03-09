@@ -3,7 +3,7 @@ package ch.nolix.core.entity;
 
 //own imports
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
-import ch.nolix.core.functionInterfaces.IElementTakerRunner;
+import ch.nolix.core.functionInterfaces.IElementTaker;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.Specified;
@@ -34,7 +34,7 @@ implements Clearable<MutableOptionalProperty<V>> {
 	 */
 	public MutableOptionalProperty(
 		final String name,
-		final IElementTakerRunner<V> setterMethod,
+		final IElementTaker<V> setterMethod,
 		final IElementTakerElementGetter<Specification, V> valueCreator
 	) {
 		

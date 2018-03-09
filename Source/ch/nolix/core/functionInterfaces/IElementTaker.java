@@ -10,7 +10,7 @@ package ch.nolix.core.functionInterfaces;
  * @lines 20
  * @param <E> - The type of the elements an element taker runner takes.
  */
-public interface IElementTakerRunner<E> {
+public interface IElementTaker<E> {
 
 	//abstract method
 	/**

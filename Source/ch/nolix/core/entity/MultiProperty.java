@@ -5,7 +5,7 @@ package ch.nolix.core.entity;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
-import ch.nolix.core.functionInterfaces.IElementTakerRunner;
+import ch.nolix.core.functionInterfaces.IElementTaker;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.Specified;
@@ -25,7 +25,7 @@ extends Propertyoid<V>
 implements Clearable<MultiProperty<V>> {
 
 	//attributes
-	private final IElementTakerRunner<V> adderMethod;
+	private final IElementTaker<V> adderMethod;
 	private boolean approved = false;
 	
 	//multi attribute
@@ -45,7 +45,7 @@ implements Clearable<MultiProperty<V>> {
 	 */
 	public MultiProperty(
 		final String name,
-		final IElementTakerRunner<V> adderMethod,
+		final IElementTaker<V> adderMethod,
 		final IElementTakerElementGetter<Specification, V> valueCreator) {
 		
 		//Calls constructor of the base class
