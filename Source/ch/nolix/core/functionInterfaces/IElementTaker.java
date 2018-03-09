@@ -3,18 +3,18 @@ package ch.nolix.core.functionInterfaces;
 
 //functional interface
 /**
- * An element taker runner has a method that takes an element and does something.
+ * An element taker has a method that takes an element.
  * 
  * @author Silvan Wyss
  * @month 2016-09
  * @lines 20
- * @param <E> - The type of the elements an element taker runner takes.
+ * @param <E> The type of the elements an element taker takes.
  */
 public interface IElementTaker<E> {
 
 	//abstract method
 	/**
-	 * Does something for the given element.
+	 * Takes the given element.
 	 * 
 	 * @param element
 	 */
