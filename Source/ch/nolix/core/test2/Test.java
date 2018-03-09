@@ -5,7 +5,7 @@ package ch.nolix.core.test2;
 import java.util.Vector;
 
 //own imports
-import ch.nolix.core.functionInterfaces.IRunner;
+import ch.nolix.core.functionInterfaces.IFunction;
 import ch.nolix.core.interfaces.ApproximativeEqualing;
 import ch.nolix.core.testoid.TestAccessor;
 
@@ -113,7 +113,7 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	 * @param closure
 	 * @return a new closure mediator that belongs to this test and is for the given closure.
 	 */
-	protected final ClosureMediator expect(final IRunner closure) {
+	protected final ClosureMediator expect(final IFunction closure) {
 		return new ClosureMediator(this, closure);
 	}
 	

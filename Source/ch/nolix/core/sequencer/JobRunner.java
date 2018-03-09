@@ -3,7 +3,7 @@ package ch.nolix.core.sequencer;
 
 //own imports
 import ch.nolix.core.functionInterfaces.IBooleanGetter;
-import ch.nolix.core.functionInterfaces.IRunner;
+import ch.nolix.core.functionInterfaces.IFunction;
 import ch.nolix.core.util.PopupWindowProvider;
 import ch.nolix.core.validator2.Validator;
 
@@ -16,7 +16,7 @@ import ch.nolix.core.validator2.Validator;
 final class JobRunner extends Thread {
 
 	//attribute
-	private final IRunner job;
+	private final IFunction job;
 	private int finishedJobCount = 0;
 	private boolean running = true;
 	private boolean caughtError = true;
@@ -34,7 +34,7 @@ final class JobRunner extends Thread {
 	 * @param job
 	 * @throws NullArgumentException if the given job is null.
 	 */
-	public JobRunner(final IRunner job) {
+	public JobRunner(final IFunction job) {
 		
 		//Checks if the given job is not null.
 		Validator.suppose(job).thatIsNamed("job").isNotNull();
@@ -57,7 +57,7 @@ final class JobRunner extends Thread {
 	 * @throws NullArgumentException if the given job is null.
 	 * @throws NullArgumentException if the given condition is null.
 	 */
-	public JobRunner(final IRunner job, final IBooleanGetter condition) {
+	public JobRunner(final IFunction job, final IBooleanGetter condition) {
 		
 		//Checks if the given job is not null.
 		Validator.suppose(job).thatIsNamed("job").isNotNull();
@@ -74,7 +74,7 @@ final class JobRunner extends Thread {
 	}
 	
 	public JobRunner(
-		final IRunner job,
+		final IFunction job,
 		final IBooleanGetter condition,
 		final int timeIntervalInMilliseconds
 	) {
@@ -107,7 +107,7 @@ final class JobRunner extends Thread {
 	 * @throws NegativeArgumentException if the given max run count is negative.
 	 */
 	public JobRunner(
-		final IRunner job,
+		final IFunction job,
 		final int maxRunCount
 	) {
 		
@@ -136,7 +136,7 @@ final class JobRunner extends Thread {
 	 * @throws NegativeArgumenteException if the given time interval in milliseconds is negative.
 	 */
 	public JobRunner(
-		final IRunner job,
+		final IFunction job,
 		final int timeIntervalInMilliseconds,
 		final boolean pseudoValue
 	) {
@@ -168,7 +168,7 @@ final class JobRunner extends Thread {
 	 * @throws NullArgumentException if the given condition is null.
 	 */
 	public JobRunner(
-		final IRunner job,
+		final IFunction job,
 		final int maxRunCount,
 		final IBooleanGetter condition
 	) {
@@ -205,7 +205,7 @@ final class JobRunner extends Thread {
 	 * @throws NegativeArgumenteException if the given time interval in milliseconds is negative.
 	 */
 	public JobRunner(
-		final IRunner job,
+		final IFunction job,
 		final int maxRunCount,
 		final IBooleanGetter condition,
 		final int timeIntervalInMilliseconds
@@ -242,7 +242,7 @@ final class JobRunner extends Thread {
 	 * @throws NegativeArgumentException if the given max run count is negative.
 	 */
 	public JobRunner(
-		final IRunner job,
+		final IFunction job,
 		final int maxRunCount,
 		final int timeIntervalInMilliseconds
 	) {

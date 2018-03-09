@@ -3,7 +3,7 @@ package ch.nolix.core.sequencer;
 
 //own imports
 import ch.nolix.core.functionInterfaces.IBooleanGetter;
-import ch.nolix.core.functionInterfaces.IRunner;
+import ch.nolix.core.functionInterfaces.IFunction;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -61,7 +61,7 @@ public final class AsLongAsMediator {
 	 * 
 	 * @param job
 	 */
-	public final void run(final IRunner job) {
+	public final void run(final IFunction job) {
 		
 		//Handles the case that this as long as mediator has no max run count.
 		if (!hasMaxRunCount()) {
@@ -90,7 +90,7 @@ public final class AsLongAsMediator {
 	 * @return a new future.
 	 * @throws NullArgumentException if the given job is null.
 	 */
-	public Future runInBackground(final IRunner job) {
+	public Future runInBackground(final IFunction job) {
 		
 		//Handles the case that this as long as mediator has no max run count.
 		if (!hasMaxRunCount()) {

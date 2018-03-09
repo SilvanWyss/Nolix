@@ -3,7 +3,7 @@ package ch.nolix.core.sequencer;
 
 //own imports
 import ch.nolix.core.functionInterfaces.IBooleanGetter;
-import ch.nolix.core.functionInterfaces.IRunner;
+import ch.nolix.core.functionInterfaces.IFunction;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -107,7 +107,7 @@ public final class AfterAllMediator {
 	 * 
 	 * @param job
 	 */
-	public void run(final IRunner job) {
+	public void run(final IFunction job) {
 		
 		//Handles the case that this after all mediator has no max run count.
 		if (!hasMaxRunCount()) {
@@ -162,7 +162,7 @@ public final class AfterAllMediator {
 	 * @return a new future.
 	 * @throws NullArgumentException if the given job is null.
 	 */
-	public final Future runInBackground(final IRunner job) {
+	public final Future runInBackground(final IFunction job) {
 		
 		//Handles the case that this after all mediator has no max count.
 		if (!hasMaxRunCount()) {

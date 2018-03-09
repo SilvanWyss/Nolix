@@ -2,7 +2,7 @@
 package ch.nolix.core.sequencer;
 
 //own imports
-import ch.nolix.core.functionInterfaces.IRunner;
+import ch.nolix.core.functionInterfaces.IFunction;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -40,7 +40,7 @@ public final class ForCountMediator {
 	 * 
 	 * @param job
 	 */
-	public void run(final IRunner job) {
+	public void run(final IFunction job) {
 		for (int i = 1; i <= maxRunCount; i++) {
 			job.run();
 		}
@@ -53,7 +53,7 @@ public final class ForCountMediator {
 	 * @param job
 	 * @return a new future.
 	 */
-	public Future runInBackground(final IRunner job) {
+	public Future runInBackground(final IFunction job) {
 		return new Future(new JobRunner(job, maxRunCount));
 	}
 }

@@ -5,7 +5,7 @@ package ch.nolix.core.sequencer;
 import ch.nolix.core.constants.TimeUnitCatalogue;
 import ch.nolix.core.functionInterfaces.IBooleanGetter;
 import ch.nolix.core.functionInterfaces.IElementGetter;
-import ch.nolix.core.functionInterfaces.IRunner;
+import ch.nolix.core.functionInterfaces.IFunction;
 
 //class
 /**
@@ -74,7 +74,7 @@ public final class Sequencer {
 	 * @return a new future.
 	 * @throws NullArgumentException if the given job is null.
 	 */
-	public static Future runInBackground(final IRunner job) {
+	public static Future runInBackground(final IFunction job) {
 		return new Future(new JobRunner(job, 1));
 	}
 	
