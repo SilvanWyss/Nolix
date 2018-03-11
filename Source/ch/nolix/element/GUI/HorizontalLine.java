@@ -14,7 +14,7 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 	
 	//constructor
 	/**
-	 * Creates new horizontal line.
+	 * Creates a new horizontal line.
 	 */
 	public HorizontalLine() {		
 		resetConfiguration();

@@ -16,7 +16,7 @@ public final class Future {
 	
 	//package-visible constructor
 	/**
-	 * Creates new future with the given job runner.
+	 * Creates a new future with the given job runner.
 	 * 
 	 * @param jobRunner
 	 * @throws NullArgumentException if the given job runner is null.

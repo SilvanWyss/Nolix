@@ -80,7 +80,7 @@ public final class Task extends MutableElement<Task> {
 	
 	//constructor
 	/**
-	 * Creates new task with the given title.
+	 * Creates a new task with the given title.
 	 * The task will have the current time as creation date.
 	 * 
 	 * @param title
@@ -94,7 +94,7 @@ public final class Task extends MutableElement<Task> {
 	
 	//constructor
 	/**
-	 * Creates new task with the given title and size.
+	 * Creates a new task with the given title and size.
 	 * 
 	 * @param title
 	 * @param creationDate
@@ -110,7 +110,7 @@ public final class Task extends MutableElement<Task> {
 	
 	//constructor
 	/**
-	 * Creates new task with the given title and creation date.
+	 * Creates a new task with the given title and creation date.
 	 * 
 	 * @param title
 	 * @param creationDate
@@ -125,7 +125,7 @@ public final class Task extends MutableElement<Task> {
 	
 	//constructor
 	/**
-	 * Creates new task with the given title, creation date and solve date.
+	 * Creates a new task with the given title, creation date and solve date.
 	 * 
 	 * @param title
 	 * @param creationDate
@@ -149,7 +149,7 @@ public final class Task extends MutableElement<Task> {
 	
 	//constructor
 	/**
-	 * Creates new task with the given title, size, creation date and solve date.
+	 * Creates a new task with the given title, size, creation date and solve date.
 	 * 
 	 * @param title
 	 * @param size

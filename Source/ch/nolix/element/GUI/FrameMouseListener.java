@@ -21,7 +21,7 @@ final class FrameMouseListener implements MouseListener {
 	
 	//constructor
 	/**
-	 * Creates new frame mouse listener that belongs to the given frame.
+	 * Creates a new frame mouse listener that belongs to the given frame.
 	 * 
 	 * @param frame
 	 * @throws NullArgumentException if the given frame is null.

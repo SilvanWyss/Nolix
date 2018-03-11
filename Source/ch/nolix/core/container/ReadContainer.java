@@ -28,7 +28,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	
 	//constructor
 	/**
-	 * Creates new read container for a new empty container.
+	 * Creates a new read container for a new empty container.
 	 */
 	public ReadContainer() {
 		
@@ -38,7 +38,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	
 	//constructor
 	/**
-	 * Creates new read container for a new container that will contain the given element.
+	 * Creates a new read container for a new container that will contain the given element.
 	 * 
 	 * @throws NullArgumentException if the given element is null.
 	 */
@@ -48,7 +48,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	
 	//constructor
 	/**
-	 * Creates new read container for the given array.
+	 * Creates a new read container for the given array.
 	 * 
 	 * @param array
 	 * @throws NullArgumentException if the given array is null.
@@ -61,7 +61,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	
 	//constructor
 	/**
-	 * Creates new read container for the given container.
+	 * Creates a new read container for the given container.
 	 * 
 	 * @param container
 	 * @throws NullArgumentException if the given container is null.
@@ -78,7 +78,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * Creates new read container for the given container.
+	 * Creates a new read container for the given container.
 	 * 
 	 * @param container
 	 * @throws NullArgumentException if the given container is null.

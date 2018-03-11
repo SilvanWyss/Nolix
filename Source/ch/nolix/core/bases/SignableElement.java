@@ -22,7 +22,7 @@ implements Signable<SE> {
 	
 	//constructor
 	/**
-	 * Creates new signable element with the given info stirng.
+	 * Creates a new signable element with the given info stirng.
 	 * 
 	 * @param infoString
 	 * @throws NullArgumentException if the given info string is null.

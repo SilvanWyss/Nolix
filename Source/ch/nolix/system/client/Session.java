@@ -31,7 +31,7 @@ public abstract class Session<C extends Client<?>> {
 	
 	//constructor
 	/**
-	 * Creates new session.
+	 * Creates a new session.
 	 */
 	public Session() {
 		

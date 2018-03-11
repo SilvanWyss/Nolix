@@ -13,7 +13,7 @@ public final class EnumTestPool extends TestPool {
 
 	//constructor
 	/**
-	 * Creates new enum test pool.
+	 * Creates a new enum test pool.
 	 */
 	public EnumTestPool() {
 		addTest(

@@ -71,7 +71,7 @@ public class Frame extends VisibleGUI<Frame> {
 	
 	//constructor
 	/**
-	 * Creates new frame.
+	 * Creates a new frame.
 	 */
 	public Frame() {
 			

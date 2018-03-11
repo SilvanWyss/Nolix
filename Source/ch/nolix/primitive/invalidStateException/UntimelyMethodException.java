@@ -15,7 +15,7 @@ public final class UntimelyMethodException extends InvalidStateException {
 
 	//constructor
 	/**
-	 * Creates new untimely method exception
+	 * Creates a new untimely method exception
 	 * for the given object that is not in a state for the called method with the given method name.
 	 * 
 	 * @param object

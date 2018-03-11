@@ -20,7 +20,7 @@ public final class ForCountMediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new for count mediator with the given max run count.
+	 * Creates a new for count mediator with the given max run count.
 	 * 
 	 * @param maxRunCount
 	 * @throws NegativeArgumentException if the given max run count is negative.

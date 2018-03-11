@@ -20,7 +20,7 @@ public class Package<C> {
 	
 	//constructor
 	/**
-	 * Creates new package with the given index and context.
+	 * Creates a new package with the given index and context.
 	 * 
 	 * @param index
 	 * @param context

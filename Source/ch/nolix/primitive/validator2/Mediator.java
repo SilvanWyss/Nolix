@@ -23,7 +23,7 @@ abstract class Mediator {
 	
 	//constructor
 	/**
-	 * Creates new mediator with a default argument name.
+	 * Creates a new mediator with a default argument name.
 	 */
 	Mediator() {
 		
@@ -33,7 +33,7 @@ abstract class Mediator {
 	
 	//constructor
 	/**
-	 * Creates new argument mediator with the given argument name.
+	 * Creates a new argument mediator with the given argument name.
 	 * 
 	 * @param argumentName
 	 * @throws NullArgumentException if the given argument name is null.

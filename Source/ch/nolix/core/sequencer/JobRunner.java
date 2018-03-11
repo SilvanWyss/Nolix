@@ -28,7 +28,7 @@ final class JobRunner extends Thread {
 	
 	//constructor
 	/**
-	 * Creates new job runner with the given job.
+	 * Creates a new job runner with the given job.
 	 * The job runner will start automatically.
 	 * 
 	 * @param job
@@ -49,7 +49,7 @@ final class JobRunner extends Thread {
 	
 	//constructor
 	/**
-	 * Creates new job runner with the given job and condition.
+	 * Creates a new job runner with the given job and condition.
 	 * The job runner will start automatically.
 	 * 
 	 * @param job
@@ -98,7 +98,7 @@ final class JobRunner extends Thread {
 	
 	//constructor
 	/**
-	 * Creates new job runner with the given job and max count.
+	 * Creates a new job runner with the given job and max count.
 	 * The job runner will start automatically.
 	 * 
 	 * @param job
@@ -127,7 +127,7 @@ final class JobRunner extends Thread {
 	
 	//constructor
 	/**
-	 * Creates new job runner with the given job and time interval in milliseconds.
+	 * Creates a new job runner with the given job and time interval in milliseconds.
 	 * The job runner will start automatically.
 	 * 
 	 * @param job
@@ -157,7 +157,7 @@ final class JobRunner extends Thread {
 	
 	//constructor
 	/**
-	 * Creates new job runner with the given job, max run count and condition.
+	 * Creates a new job runner with the given job, max run count and condition.
 	 * The job runner will start automatically.
 	 * 
 	 * @param job
@@ -192,7 +192,7 @@ final class JobRunner extends Thread {
 	
 	//constructor
 	/**
-	 * Creates new job runner with the given job, max run count, condition and time interval in milliseconds.
+	 * Creates a new job runner with the given job, max run count, condition and time interval in milliseconds.
 	 * The job runner will start automatically.
 	 * 
 	 * @param job
@@ -232,7 +232,7 @@ final class JobRunner extends Thread {
 	
 	//constructor
 	/**
-	 * Creates new job runner with the given job and max count.
+	 * Creates a new job runner with the given job and max count.
 	 * The job runner will start automatically.
 	 * 
 	 * @param job

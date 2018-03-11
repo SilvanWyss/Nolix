@@ -23,7 +23,7 @@ public final class LongMediator extends Mediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new long mediator that belongs to the given test and is for the given value.
+	 * Creates a new long mediator that belongs to the given test and is for the given value.
 	 * 
 	 * @param value
 	 */

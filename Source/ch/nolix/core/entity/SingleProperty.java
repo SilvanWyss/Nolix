@@ -31,7 +31,7 @@ extends Propertyoid<V> {
 
 	//package-visible constructor
 	/**
-	 * Creates new single property
+	 * Creates a new single property
 	 * with the given name, setter method and value creator.
 	 * 
 	 * @param name

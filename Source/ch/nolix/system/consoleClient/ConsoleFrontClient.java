@@ -45,7 +45,7 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 		
 	//constructor
 	/**
-	 * Creates new front console client that connects to the given application.
+	 * Creates a new front console client that connects to the given application.
 	 * 
 	 * @param application
 	 * @throws NullArgumentException if the given target application is null.
@@ -60,7 +60,7 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 
 	//constructor
 	/**
-	 * Creates new front console client that
+	 * Creates a new front console client that
 	 * connects to the given target application on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
@@ -81,7 +81,7 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 	
 	//constructor
 	/**
-	 * Creates new front console client that:
+	 * Creates a new front console client that:
 	 * -Connects to the given target application on the given port on the machine with the given ip.
 	 * -Has the given GUI.
 	 * 

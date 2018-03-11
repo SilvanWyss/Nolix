@@ -18,7 +18,7 @@ extends SingleProperty<V> {
 	
 	//constructor
 	/**
-	 * Creates new property
+	 * Creates a new property
 	 * with the given name, setter method and value creator.
 	 * 
 	 * @param name

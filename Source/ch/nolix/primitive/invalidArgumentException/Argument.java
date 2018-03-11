@@ -20,7 +20,7 @@ public final class Argument {
 	
 	//constructor
 	/**
-	 * Creates new argument with the given value.
+	 * Creates a new argument with the given value.
 	 * 
 	 * @param value
 	 */

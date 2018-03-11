@@ -76,7 +76,7 @@ public final class Time extends Element {
 	
 	//constructor
 	/**
-	 * Creates new time with default values.
+	 * Creates a new time with default values.
 	 */
 	public Time() {
 		time.setLenient(true);
@@ -85,7 +85,7 @@ public final class Time extends Element {
 	
 	//constructor
 	/**
-	 * Creates new time with the given year.
+	 * Creates a new time with the given year.
 	 * 
 	 * @param year
 	 */
@@ -99,7 +99,7 @@ public final class Time extends Element {
 	
 	//constructor
 	/**
-	 * Creates new time with the given year and month of year.
+	 * Creates a new time with the given year and month of year.
 	 * 
 	 * @param year
 	 * @param monthOfYear
@@ -118,7 +118,7 @@ public final class Time extends Element {
 
 	//constructor
 	/**
-	 * Creates new time with the given year, month of year and day of month.
+	 * Creates a new time with the given year, month of year and day of month.
 	 * 
 	 * @param year
 	 * @param monthOfYear
@@ -138,7 +138,7 @@ public final class Time extends Element {
 	
 	//constructor
 	/**
-	 * Creates new time with the given year, month of year, day of month and hour of day.
+	 * Creates a new time with the given year, month of year, day of month and hour of day.
 	 * 
 	 * @param year
 	 * @param monthOfYear
@@ -160,7 +160,7 @@ public final class Time extends Element {
 	
 	//constructor
 	/**
-	 * Creates new time with the given year, month of year, day of month, hour of day and minute of hour.
+	 * Creates a new time with the given year, month of year, day of month, hour of day and minute of hour.
 	 * 
 	 * @param year
 	 * @param monthOfYear
@@ -184,7 +184,7 @@ public final class Time extends Element {
 	
 	//constructor
 	/**
-	 * Creates new time with the given year, month of year, day of month, hour of day, minute of hour and second and of minute.
+	 * Creates a new time with the given year, month of year, day of month, hour of day, minute of hour and second and of minute.
 	 * 
 	 * @param year
 	 * @param monthOfYear
@@ -210,7 +210,7 @@ public final class Time extends Element {
 	
 	//constructor
 	/**
-	 * Creates new time with the given year, month of year, day of month, hour of day, minute of hour, second and of minute and millisecond of second.
+	 * Creates a new time with the given year, month of year, day of month, hour of day, minute of hour, second and of minute and millisecond of second.
 	 * 
 	 * @param year
 	 * @param monthOfYear
@@ -238,7 +238,7 @@ public final class Time extends Element {
 	
 	//constructor
 	/**
-	 * Creates new time the given string represents.
+	 * Creates a new time the given string represents.
 	 * 
 	 * @param string
 	 * @throws NullArgumentException if the given string is null.

@@ -21,7 +21,7 @@ public class Pair<E1, E2> {
 	
 	//constructor
 	/**
-	 * Creates new pair with the given elements.
+	 * Creates a new pair with the given elements.
 	 * 
 	 * @param element1
 	 * @param element2

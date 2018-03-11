@@ -20,7 +20,7 @@ public final class ListUsingMediator<E> {
 	
 	//package-visible constructor
 	/**
-	 * Creates new list using mediator with the given list and extractor.
+	 * Creates a new list using mediator with the given list and extractor.
 	 * 
 	 * @param list
 	 * @param extractor

@@ -21,7 +21,7 @@ public abstract class StatisticalModel {
 	
 	//constructor
 	/**
-	 * Creates new statistical model with the given back step count and input values.
+	 * Creates a new statistical model with the given back step count and input values.
 	 * 
 	 * @param backStepsCount
 	 * @param inputValues

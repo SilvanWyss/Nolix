@@ -23,7 +23,7 @@ extends Application<CL> {
 	
 	//constructor
 	/**
-	 * Creates new context application with the given name, context and initial session class.
+	 * Creates a new context application with the given name, context and initial session class.
 	 * 
 	 * @param name
 	 * @param context
@@ -50,7 +50,7 @@ extends Application<CL> {
 	
 	//constructor
 	/**
-	 * Creates new context application that:
+	 * Creates a new context application that:
 	 * -Has the given name, context and initial session class.
 	 * -Creates a server for itself, and for itself only, that listens to clients on the given port.
 	 * 

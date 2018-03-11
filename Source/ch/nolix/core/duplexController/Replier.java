@@ -18,7 +18,7 @@ final class Replier implements IReplier {
 	
 	//constructor
 	/**
-	 * Creates new receiver that belongs to the given net duplex controller.
+	 * Creates a new receiver that belongs to the given net duplex controller.
 	 * 
 	 * @param netDuplexController
 	 * @throws NullArgumentException if the given net duplex controller is null.

@@ -25,7 +25,7 @@ public class StringMediator extends ArgumentMediator<String> {
 
 	//package-visible constructor
 	/**
-	 * Creates new string mediator for the given argument.
+	 * Creates a new string mediator for the given argument.
 	 * 
 	 * @param argument
 	 */
@@ -37,7 +37,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	
 	//package-visible constructor
 	/**
-	 * Creates new string mediator for the given argument with the given argument name.
+	 * Creates a new string mediator for the given argument with the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument

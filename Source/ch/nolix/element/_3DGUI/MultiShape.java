@@ -22,13 +22,13 @@ public final class MultiShape extends Shape<MultiShape> {
 	
 	//constructor
 	/**
-	 * Creates new multi shape.
+	 * Creates a new multi shape.
 	 */
 	public MultiShape() {}
 	
 	//constructor
 	/**
-	 * Creates new multi shape with the given shapes.
+	 * Creates a new multi shape with the given shapes.
 	 * 
 	 * @param shapes
 	 */
@@ -38,7 +38,7 @@ public final class MultiShape extends Shape<MultiShape> {
 	
 	//constructor
 	/**
-	 * Creates new mutli shape with the given shapes.
+	 * Creates a new mutli shape with the given shapes.
 	 * 
 	 * @param shapes
 	 */

@@ -19,13 +19,13 @@ public final class Name extends NonEmptyText {
 
 	//constructor
 	/**
-	 * Creates new name with a default value.
+	 * Creates a new name with a default value.
 	 */
 	public Name() {}
 	
 	//constructor
 	/**
-	 * Creates new name with the given value.
+	 * Creates a new name with the given value.
 	 * 
 	 * @param value
 	 * @throws NullArgumentException if the given value is null.

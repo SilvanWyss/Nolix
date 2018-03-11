@@ -22,7 +22,7 @@ final class ClientSubReceiverController implements IMultiController {
 	
 	//constructor
 	/**
-	 * Creates new receiver controller with the given client.
+	 * Creates a new receiver controller with the given client.
 	 * 
 	 * @param client
 	 * @throws NullArgumentException if the given client is null.

@@ -20,7 +20,7 @@ public final class PositiveArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new positive argument exception for the given argument.
+	 * Creates a new positive argument exception for the given argument.
 	 * 
 	 * @param argument
 	 */
@@ -32,7 +32,7 @@ public final class PositiveArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new positive argument exception for the given argument.
+	 * Creates a new positive argument exception for the given argument.
 	 * 
 	 * @param argument
 	 */
@@ -44,7 +44,7 @@ public final class PositiveArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new positive argument exception
+	 * Creates a new positive argument exception
 	 * for the given argument that has the given argument name.
 	 * 
 	 * @param argumentName
@@ -66,7 +66,7 @@ public final class PositiveArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new positive argument exception
+	 * Creates a new positive argument exception
 	 * for the given argument that has the given argument name.
 	 * 
 	 * @param argumentName

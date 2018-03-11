@@ -52,7 +52,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//constructor
 	/**
-	 * Creates new cuboid.
+	 * Creates a new cuboid.
 	 */
 	public Cuboid() {
 		resetConfiguration();

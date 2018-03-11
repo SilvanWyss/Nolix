@@ -33,7 +33,7 @@ public class _3DPoint  extends Element {
 	
 	//constructor
 	/**
-	 * Creates new 3D point with default coordinates.
+	 * Creates a new 3D point with default coordinates.
 	 */
 	public _3DPoint() {
 		
@@ -43,7 +43,7 @@ public class _3DPoint  extends Element {
 	
 	//method
 	/**
-	 * Creates new 3D point with the given coordinates.
+	 * Creates a new 3D point with the given coordinates.
 	 * 
 	 * @param x
 	 * @param y

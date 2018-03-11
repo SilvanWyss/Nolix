@@ -22,7 +22,7 @@ final class ReadIterableContainer<E> implements IContainer<E> {
 	
 	//constructor
 	/**
-	 * Creates new read iterable container for a new empty array.
+	 * Creates a new read iterable container for a new empty array.
 	 */
 	public ReadIterableContainer() {
 		
@@ -32,7 +32,7 @@ final class ReadIterableContainer<E> implements IContainer<E> {
 	
 	//constructor
 	/**
-	 * Creates new read iterable container for the given container.
+	 * Creates a new read iterable container for the given container.
 	 * 
 	 * @param container
 	 * @throws NullArgumentException if the given container is null.

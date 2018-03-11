@@ -21,7 +21,7 @@ public final class Thickness extends PositiveInteger {
 
 	//constructor
 	/**
-	 * Creates new thickness with a default value.
+	 * Creates a new thickness with a default value.
 	 */
 	public Thickness() {
 		
@@ -31,7 +31,7 @@ public final class Thickness extends PositiveInteger {
 	
 	//constructor
 	/**
-	 * Creates new thickness with the given value.
+	 * Creates a new thickness with the given value.
 	 * 
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value is not positive.

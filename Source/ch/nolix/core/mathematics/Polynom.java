@@ -22,7 +22,7 @@ public class Polynom {
 	
 	//constructor
 	/**
-	 * Creates new polynom with the given degree.
+	 * Creates a new polynom with the given degree.
 	 * The highest coefficient of the polynom will be 1.0, the resting coefficients will be 0.0.
 	 *  
 	 * @param degree

@@ -17,7 +17,7 @@ public class ExtendedArgumentMediator<A> extends ArgumentMediator<A> {
 
 	//package-visible constructor
 	/**
-	 * Creates new extended generic argument mediator for the given argument.
+	 * Creates a new extended generic argument mediator for the given argument.
 	 * 
 	 * @param argument
 	 */

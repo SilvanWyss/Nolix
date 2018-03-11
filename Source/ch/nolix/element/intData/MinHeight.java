@@ -21,7 +21,7 @@ public final class MinHeight extends PositiveInteger {
 
 	//constructor
 	/**
-	 * Creates new min height with a default value.
+	 * Creates a new min height with a default value.
 	 */
 	public MinHeight() {
 		
@@ -31,7 +31,7 @@ public final class MinHeight extends PositiveInteger {
 	
 	//constructor
 	/**
-	 * Creates new min height the given value.
+	 * Creates a new min height the given value.
 	 * 
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value is not positive.

@@ -28,7 +28,7 @@ extends Neuronoid<TransformNeuron<I, O>, I, O> {
 	
 	//constructor
 	/**
-	 * Creates new transform neuron with the given input neuron and transformator.
+	 * Creates a new transform neuron with the given input neuron and transformator.
 	 * 
 	 * @param inputNeuron
 	 * @param transformator

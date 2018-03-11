@@ -108,7 +108,7 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//constructor
 	/**
-	 * Creates new zero matrix with the given size.
+	 * Creates a new zero matrix with the given size.
 	 * 
 	 * @param size
 	 * @throws NonPositiveArgumentException if the given size is not positive.
@@ -123,7 +123,7 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//constructor
 	/**
-	 * Creates new matrix with the given number of rows and the given number of columns.
+	 * Creates a new matrix with the given number of rows and the given number of columns.
 	 * 
 	 * @param rowCount
 	 * @param columnCount
@@ -143,7 +143,7 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//constructor
 	/**
-	 * Creates new matrix with the given number of rows and columns.
+	 * Creates a new matrix with the given number of rows and columns.
 	 * The values of the matrix are all set to the given value.
 	 * 
 	 * @param rowCount

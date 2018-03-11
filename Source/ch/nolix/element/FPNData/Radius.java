@@ -30,13 +30,13 @@ public final class Radius extends PositiveFloatingPointNumber {
 	
 	//constructor
 	/**
-	 * Creates new radius with a default value.
+	 * Creates a new radius with a default value.
 	 */
 	public Radius() {}
 	
 	//constructor
 	/**
-	 * Creates new radius with the given value.
+	 * Creates a new radius with the given value.
 	 * 
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value is not positive.

@@ -23,7 +23,7 @@ final class NetServerSubEndPointTaker implements IEndPointTaker {
 	
 	//constructor
 	/**
-	 * Creates new net server sub end point taker with the given duplex contorller taker.
+	 * Creates a new net server sub end point taker with the given duplex contorller taker.
 	 * 
 	 * @param duplexControllerTaker
 	 * @throws NullArgumentException

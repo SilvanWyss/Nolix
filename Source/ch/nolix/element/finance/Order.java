@@ -20,7 +20,7 @@ public final class Order {
 	
 	//constructor
 	/**
-	 * Creates new order of the given type that has the given time, the product with the given product symbol and the given volume.
+	 * Creates a new order of the given type that has the given time, the product with the given product symbol and the given volume.
 	 * 
 	 * @param type
 	 * @param time

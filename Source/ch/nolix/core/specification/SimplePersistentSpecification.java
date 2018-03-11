@@ -22,8 +22,8 @@ public final class SimplePersistentSpecification extends Specification {
 	
 	//constructor
 	/**
-	 * Creates new simple persistent specification with the given file path.
-	 * Creates new file if there exists no file with the given file path.
+	 * Creates a new simple persistent specification with the given file path.
+	 * Creates a new file if there exists no file with the given file path.
 	 * Access and changes the file if there exists a file with the given file path.
 	 * 
 	 * @param filePath

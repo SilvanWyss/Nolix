@@ -21,7 +21,7 @@ public final class TestAccessor {
 	
 	//constructor
 	/**
-	 * Creates new test accessor for the given test.
+	 * Creates a new test accessor for the given test.
 	 * 
 	 * @param test
 	 * @throws NullArgumentException if the given test is null.

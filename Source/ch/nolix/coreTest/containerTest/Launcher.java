@@ -13,7 +13,7 @@ public final class Launcher {
 
 	//main method
 	/**
-	 * Creates new container test pool and runs it.
+	 * Creates a new container test pool and runs it.
 	 * 
 	 * @param args
 	 */

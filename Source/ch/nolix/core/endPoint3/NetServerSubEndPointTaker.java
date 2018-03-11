@@ -20,7 +20,7 @@ implements ch.nolix.core.endPoint2.IEndPointTaker {
 	
 	//constructor
 	/**
-	 * Creates new net server sub end point taker with the given net server.
+	 * Creates a new net server sub end point taker with the given net server.
 	 * 
 	 * @param netServer
 	 * @throws NullArgumentException if the given net server is null.

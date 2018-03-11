@@ -20,7 +20,7 @@ final class ListIterator<E> implements Iterator<E> {
 	
 	//constructor
 	/**
-	 * Creates new list iterator with the given first node.
+	 * Creates a new list iterator with the given first node.
 	 * 
 	 * @param firstNode
 	 */

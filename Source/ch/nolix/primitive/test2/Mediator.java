@@ -17,7 +17,7 @@ public abstract class Mediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new mediator that belongs to the given test.
+	 * Creates a new mediator that belongs to the given test.
 	 * 
 	 * @param test
 	 * @throws NullArgumentException if the given test is null.

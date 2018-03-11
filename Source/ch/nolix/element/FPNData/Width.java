@@ -19,13 +19,13 @@ public final class Width extends PositiveFloatingPointNumber {
 
 	//constructor
 	/**
-	 * Creates new width with a default value.
+	 * Creates a new width with a default value.
 	 */
 	public Width() {}
 	
 	//constructor
 	/**
-	 * Creates new width with the given value.
+	 * Creates a new width with the given value.
 	 * 
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value is not positive.

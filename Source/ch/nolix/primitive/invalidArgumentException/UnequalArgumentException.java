@@ -14,7 +14,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 
 	//constructor
 	/**
-	 * Creates new unequal argument exception for the given argument and the given expected value.
+	 * Creates a new unequal argument exception for the given argument and the given expected value.
 	 * 
 	 * @param argument
 	 * @param expectedValue
@@ -27,7 +27,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new unequal argument exception for the given argument and the given expected value.
+	 * Creates a new unequal argument exception for the given argument and the given expected value.
 	 * 
 	 * @param argument
 	 * @param expectedValue
@@ -40,7 +40,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new unequal argument exception for the given argument, that has the given argument name, and for the given expected value.
+	 * Creates a new unequal argument exception for the given argument, that has the given argument name, and for the given expected value.
 	 * 
 	 * @param argumentName
 	 * @param argument
@@ -63,7 +63,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new unequal argument exception for the given argument, that has the given argument name, and for the given expected value.
+	 * Creates a new unequal argument exception for the given argument, that has the given argument name, and for the given expected value.
 	 * 
 	 * @param argumentName
 	 * @param argument

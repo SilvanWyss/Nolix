@@ -19,7 +19,7 @@ public final class UnexistingAttributeException extends InvalidStateException {
 	
 	//constructor
 	/**
-	 * Creates new unexisting attribute exception
+	 * Creates a new unexisting attribute exception
 	 * for the given object that has not the desired attribute of the given attribute type.
 	 * 
 	 * @param object
@@ -34,7 +34,7 @@ public final class UnexistingAttributeException extends InvalidStateException {
 	
 	//constructor
 	/**
-	 * Creates new unexisting attribute exception
+	 * Creates a new unexisting attribute exception
 	 * for the given object that has not the desired attribute that has the given attribute name.
 	 * 
 	 * @param object

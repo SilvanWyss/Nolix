@@ -22,7 +22,7 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 		
 	//constructor
 	/**
-	 * Creates new console client with the given duplex controller.
+	 * Creates a new console client with the given duplex controller.
 	 * 
 	 * @param duplexController
 	 * @throws NullArgumentException if the given duplex controller is null.

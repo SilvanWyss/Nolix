@@ -22,7 +22,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	
 	//constructor
 	/**
-	 * Creates new local end point
+	 * Creates a new local end point
 	 * that will connect to another new local end point.
 	 */
 	public LocalEndPoint() {
@@ -39,7 +39,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	
 	//constructor
 	/**
-	 * Creates new local end point that will connect to the given target.
+	 * Creates a new local end point that will connect to the given target.
 	 * 
 	 * @param target
 	 */
@@ -60,7 +60,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	
 	//constructor
 	/**
-	 * Creates new local end point
+	 * Creates a new local end point
 	 * that will connect to the given target on the given server.
 	 * 
 	 * @param server
@@ -98,7 +98,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	
 	//constructor
 	/**
-	 * Creates new local end point with the given counterpart and target.
+	 * Creates a new local end point with the given counterpart and target.
 	 * 
 	 * @param counterpart
 	 * @param target

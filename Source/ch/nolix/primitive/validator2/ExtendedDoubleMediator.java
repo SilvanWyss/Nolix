@@ -16,7 +16,7 @@ public class ExtendedDoubleMediator extends DoubleMediator {
 
 	//package-visibel constructor
 	/**
-	 * Creates new extended double mediator for the given argument.
+	 * Creates a new extended double mediator for the given argument.
 	 * 
 	 * @param argument
 	 */

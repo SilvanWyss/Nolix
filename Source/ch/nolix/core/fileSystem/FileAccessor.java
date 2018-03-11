@@ -25,7 +25,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 	
 	//constructor
 	/**
-	 * Creates new file accessor for a file with the given file path.
+	 * Creates a new file accessor for a file with the given file path.
 	 * 
 	 * @param filePath
 	 * @throws InvalidArgumentException if there exists no file with the given file path

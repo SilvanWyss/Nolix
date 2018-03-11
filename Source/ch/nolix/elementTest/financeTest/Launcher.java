@@ -11,7 +11,7 @@ public final class Launcher {
 
 	//main method
 	/**
-	 * Creates new finance test pool and executes it.
+	 * Creates a new finance test pool and executes it.
 	 * 
 	 * @param arguments
 	 */

@@ -26,7 +26,7 @@ public final class NetServer extends Server {
 	
 	//constructor
 	/**
-	 * Creates new net server with the given port and end point taker.
+	 * Creates a new net server with the given port and end point taker.
 	 * 
 	 * @param port
 	 * @param endPointTaker

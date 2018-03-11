@@ -21,7 +21,7 @@ final class FrameKeyListener implements KeyListener {
 	
 	//constructor
 	/**
-	 * Creates new frame key listener that belongs to the given frame.
+	 * Creates a new frame key listener that belongs to the given frame.
 	 * 
 	 * @param frame
 	 * @throws NullArgumentException if the given frame is null.

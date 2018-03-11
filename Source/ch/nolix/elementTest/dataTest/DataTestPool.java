@@ -13,7 +13,7 @@ public final class DataTestPool extends TestPool {
 
 	//constructor
 	/**
-	 * Creates new data test pool.
+	 * Creates a new data test pool.
 	 */
 	public DataTestPool() {
 		addTest(

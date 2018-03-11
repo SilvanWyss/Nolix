@@ -25,7 +25,7 @@ public class NetServer extends Server {
 
 	//constructor
 	/**
-	 * Creates new net server that will listen to net end points on the given port.
+	 * Creates a new net server that will listen to net end points on the given port.
 	 * 
 	 * @param port
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].

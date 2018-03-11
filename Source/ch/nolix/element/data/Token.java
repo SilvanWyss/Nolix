@@ -19,13 +19,13 @@ public final class Token extends NonEmptyText {
 
 	//constructor
 	/**
-	 * Creates new token with a default value.
+	 * Creates a new token with a default value.
 	 */
 	public Token() {}
 	
 	//constructor
 	/**
-	 * Creates new token with the given value.
+	 * Creates a new token with the given value.
 	 * 
 	 * @param value
 	 * @throws NullArgumentException if the given value is null.

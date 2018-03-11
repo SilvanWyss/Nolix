@@ -30,13 +30,13 @@ public final class Title extends NonEmptyText {
 	
 	//constructor
 	/**
-	 * Creates new title with a default value.
+	 * Creates a new title with a default value.
 	 */
 	public Title() {}
 	
 	//constructor
 	/**
-	 * Creates new title with the given value.
+	 * Creates a new title with the given value.
 	 * 
 	 * @param value
 	 * @throws NullArgumentException if the given value is null.

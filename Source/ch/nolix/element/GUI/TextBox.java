@@ -44,7 +44,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	
 	//constructor
 	/**
-	 * Creates new text box that has default attributes.
+	 * Creates a new text box that has default attributes.
 	 */
 	public TextBox() {	
 		resetConfiguration();

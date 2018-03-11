@@ -29,13 +29,13 @@ public final class Length extends PositiveFloatingPointNumber {
 
 	//constructor
 	/**
-	 * Creates new length with a default value.
+	 * Creates a new length with a default value.
 	 */
 	public Length() {}
 	
 	//constructor
 	/**
-	 * Creates new length with the given value.
+	 * Creates a new length with the given value.
 	 * 
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value is not positive.

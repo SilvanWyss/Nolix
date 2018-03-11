@@ -16,13 +16,13 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	
 	//constructor
 	/**
-	 * Creates new horizontal stack with default attributes.
+	 * Creates a new horizontal stack with default attributes.
 	 */
 	public HorizontalStack() {}
 	
 	//constructor
 	/**
-	 * Creates new horizontal stack with the given widgets.
+	 * Creates a new horizontal stack with the given widgets.
 	 * 
 	 * @param widgets
 	 * @throws NullArgumentException if one of the given widgets is null.

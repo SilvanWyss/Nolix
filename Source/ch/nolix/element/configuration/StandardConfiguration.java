@@ -34,13 +34,13 @@ public class StandardConfiguration extends Configuration<StandardConfiguration> 
 	
 	//constructor
 	/**
-	 * Creates new configuration with default attributes.
+	 * Creates a new configuration with default attributes.
 	 */
 	public StandardConfiguration() {}
 	
 	//constructor
 	/**
-	 * Creates new configuration with the given attributes.
+	 * Creates a new configuration with the given attributes.
 	 * 
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.

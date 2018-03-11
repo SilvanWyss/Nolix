@@ -22,7 +22,7 @@ final class MatrixIterator<E> implements Iterator<E> {
 	
 	//constructor
 	/**
-	 * Creates new matrix iterator for the given matrix.
+	 * Creates a new matrix iterator for the given matrix.
 	 * 
 	 * @param matrix
 	 * @throws NullArgumentException if the given matrix is null,

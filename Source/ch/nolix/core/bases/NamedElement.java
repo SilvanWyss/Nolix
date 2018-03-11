@@ -20,7 +20,7 @@ public abstract class NamedElement implements Named {
 	
 	//constructor
 	/**
-	 * Creates new named element with the given name.
+	 * Creates a new named element with the given name.
 	 * 
 	 * @param name
 	 * @throws NullArgumentException if the given name is null.

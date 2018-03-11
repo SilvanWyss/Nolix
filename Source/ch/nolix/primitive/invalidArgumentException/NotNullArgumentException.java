@@ -17,7 +17,7 @@ public class NotNullArgumentException extends InvalidArgumentException {
 
 	//constructor
 	/**
-	 * Creates new not null argument exception for the given argument.
+	 * Creates a new not null argument exception for the given argument.
 	 * 
 	 * @param argument
 	 * @throws RuntimeException if the given argument is null.
@@ -30,7 +30,7 @@ public class NotNullArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new not null argument exception for the given argument that has the given argument name.
+	 * Creates a new not null argument exception for the given argument that has the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument

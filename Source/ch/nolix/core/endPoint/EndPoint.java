@@ -27,7 +27,7 @@ implements ISender {
 	
 	//package-visible constructor
 	/**
-	 * Creates new end point.
+	 * Creates a new end point.
 	 * 
 	 * @param hasRequestedConnection
 	 */

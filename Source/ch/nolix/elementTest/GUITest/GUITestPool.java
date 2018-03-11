@@ -15,7 +15,7 @@ public final class GUITestPool extends TestPool {
 
 	//constructor
 	/**
-	 * Creates new dialog test pool.
+	 * Creates a new dialog test pool.
 	 */
 	public GUITestPool() {
 		addTest(

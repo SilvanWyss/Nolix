@@ -21,7 +21,7 @@ public class FloatingPointNumber extends Element {
 	
 	//constructor
 	/**
-	 * Creates new floating point number with the given value.
+	 * Creates a new floating point number with the given value.
 	 * 
 	 * @param value
 	 */

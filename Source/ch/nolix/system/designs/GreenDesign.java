@@ -19,7 +19,7 @@ public final class GreenDesign extends StandardConfiguration {
 
 	//constructor
 	/**
-	 * Creates new green design.
+	 * Creates a new green design.
 	 */
 	public GreenDesign() {
 		

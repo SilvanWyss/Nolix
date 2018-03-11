@@ -33,7 +33,7 @@ implements Clearable<MultiProperty<V>> {
 	
 	//constructor
 	/**
-	 * Creates new multi property with the given name, value created and adder method.
+	 * Creates a new multi property with the given name, value created and adder method.
 	 * 
 	 * @param name
 	 * @param valueCreator

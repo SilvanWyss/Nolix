@@ -34,7 +34,7 @@ final class ReadArrayContainerIterator<E> implements Iterator<E> {
 	
 	//constructor
 	/**
-	 * Creates new read array container iterator
+	 * Creates a new read array container iterator
 	 * that belongs to the read array container
 	 * the given array belongs to.
 	 * 

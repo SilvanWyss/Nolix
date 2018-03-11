@@ -19,7 +19,7 @@ extends SingleProperty<V> {
 	
 	//constructor
 	/**
-	 * Creates new immutable optional property
+	 * Creates a new immutable optional property
 	 * with the given name, setter method and value generator.
 	 * 
 	 * @param name

@@ -34,14 +34,14 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//constructor
 	/**
-	 * Creates new empty list.
+	 * Creates a new empty list.
 	 * The complexity of this method is O(1).
 	 */
 	public List() {}
 	
 	//constructor
 	/**
-	 * Creates new list with the given element.
+	 * Creates a new list with the given element.
 	 * The complexity of this method is O(1).
 	 * 
 	 * @param element
@@ -53,7 +53,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//constructor
 	/**
-	 * Creates new list with the given elements.
+	 * Creates a new list with the given elements.
 	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
@@ -67,7 +67,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//constructor
 	/**
-	 * Creates new list with the given elements.
+	 * Creates a new list with the given elements.
 	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements

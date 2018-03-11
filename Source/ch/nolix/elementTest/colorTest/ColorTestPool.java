@@ -13,7 +13,7 @@ public final class ColorTestPool extends TestPool {
 
 	//constructor
 	/**
-	 * Creates new color test pool.
+	 * Creates a new color test pool.
 	 */
 	public ColorTestPool() {
 		addTest(new ColorTest());

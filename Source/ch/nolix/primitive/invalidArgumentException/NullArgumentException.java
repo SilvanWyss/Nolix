@@ -17,7 +17,7 @@ public final class NullArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new null argument exception.
+	 * Creates a new null argument exception.
 	 */
 	public NullArgumentException() {
 		
@@ -27,7 +27,7 @@ public final class NullArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new null argument name exception for an argument with the given argument name.
+	 * Creates a new null argument name exception for an argument with the given argument name.
 	 * 
 	 * @param argumentName
 	 * @throws RuntimeException if the given argument name is null.

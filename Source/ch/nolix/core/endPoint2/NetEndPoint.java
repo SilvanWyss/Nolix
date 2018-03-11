@@ -32,7 +32,7 @@ public class NetEndPoint extends EndPoint {
 		
 	//constructor
 	/**
-	 * Creates new net end point that will connect to 
+	 * Creates a new net end point that will connect to 
 	 * the default target on the given port on the local machine.
 	 * 
 	 * @param port
@@ -56,7 +56,7 @@ public class NetEndPoint extends EndPoint {
 	
 	//constructor
 	/**
-	 * Creates new net end point that connects to
+	 * Creates a new net end point that connects to
 	 * the default target on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
@@ -95,7 +95,7 @@ public class NetEndPoint extends EndPoint {
 	
 	//constructor
 	/**
-	 * Creates new net end point that will connect to
+	 * Creates a new net end point that will connect to
 	 * the given target on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
@@ -140,7 +140,7 @@ public class NetEndPoint extends EndPoint {
 	
 	//package-visible constructor
 	/**
-	 * Creates new end point with the given socket.
+	 * Creates a new end point with the given socket.
 	 * 
 	 * @param socket
 	 * @throws NullArgumentException if the given socket is null.

@@ -21,7 +21,7 @@ public final class Size extends PositiveInteger {
 
 	//constructor
 	/**
-	 * Creates new size with a default value.
+	 * Creates a new size with a default value.
 	 */
 	public Size() {
 		
@@ -31,7 +31,7 @@ public final class Size extends PositiveInteger {
 	
 	//constructor
 	/**
-	 * Creates new size with the given value.
+	 * Creates a new size with the given value.
 	 * 
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value is not positive.

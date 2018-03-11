@@ -13,7 +13,7 @@ public final class TaskTestPool extends TestPool {
 
 	//constructor
 	/**
-	 * Creates new task test pool.
+	 * Creates a new task test pool.
 	 */
 	public TaskTestPool() {
 		addTest(

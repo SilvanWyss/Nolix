@@ -61,7 +61,7 @@ public final class StandardSpecification extends Specification {
 	
 	//static method
 	/**
-	 * Creates new standard specification from the file with the given file path.
+	 * Creates a new standard specification from the file with the given file path.
 	 * 
 	 * @param filePath
 	 * @return a new standard specification from the file with the given file path.
@@ -76,7 +76,7 @@ public final class StandardSpecification extends Specification {
 	
 	//static method
 	/**
-	 * Creates new standard specification that consists of the given header.
+	 * Creates a new standard specification that consists of the given header.
 	 * 
 	 * @param header
 	 * @return a new standard specification that consists of the given header.
@@ -96,13 +96,13 @@ public final class StandardSpecification extends Specification {
 	
 	//constructor
 	/**
-	 * Creates new standard specification without header and without attributes.
+	 * Creates a new standard specification without header and without attributes.
 	 */
 	public StandardSpecification() {}
 	
 	//constructor
 	/**
-	 * Creates new standard specification with a header that consists of the given character.
+	 * Creates a new standard specification with a header that consists of the given character.
 	 * 
 	 * @param character
 	 */
@@ -112,7 +112,7 @@ public final class StandardSpecification extends Specification {
 		
 	//constructor
 	/**
-	 * Creates new standard specification the given string represents.
+	 * Creates a new standard specification the given string represents.
 	 * 
 	 * @param string
 	 * @throws InvalidArgumentException if the given string represents no standard specification.
@@ -123,7 +123,7 @@ public final class StandardSpecification extends Specification {
 	
 	//constructor
 	/**
-	 * Creates new specification with the given header and attributes.
+	 * Creates a new specification with the given header and attributes.
 	 * 
 	 * @param header
 	 * @param attributes
@@ -138,7 +138,7 @@ public final class StandardSpecification extends Specification {
 	
 	//constructor
 	/**
-	 * Creates new standard specification with the given header and attributes.
+	 * Creates a new standard specification with the given header and attributes.
 	 * 
 	 * @param header
 	 * @param attributes
@@ -161,7 +161,7 @@ public final class StandardSpecification extends Specification {
 	
 	//constructor
 	/**
-	 * Creates new standard specificatio nwith the given header and attributes.
+	 * Creates a new standard specificatio nwith the given header and attributes.
 	 * 
 	 * @param header
 	 * @param attributes
@@ -176,7 +176,7 @@ public final class StandardSpecification extends Specification {
 	
 	//constructor
 	/**
-	 * Creates new standard specification with the given header and attributes.
+	 * Creates a new standard specification with the given header and attributes.
 	 * 
 	 * @param header
 	 * @param attributes

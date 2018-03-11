@@ -16,7 +16,7 @@ public class ExtendedStringMediator extends StringMediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new extended string mediator for the given argument.
+	 * Creates a new extended string mediator for the given argument.
 	 * 
 	 * @param argument
 	 */

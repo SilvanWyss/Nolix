@@ -17,7 +17,7 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
 	
 	//constructor
 	/**
-	 * Creates new non negative argument exception for the given argument.
+	 * Creates a new non negative argument exception for the given argument.
 	 * 
 	 * @param argument
 	 */
@@ -29,7 +29,7 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
 	
 	//constructor
 	/**
-	 * Creates new non negative argument exception for the given argument.
+	 * Creates a new non negative argument exception for the given argument.
 	 * 
 	 * @param argument
 	 */
@@ -41,7 +41,7 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
 	
 	//constructor
 	/**
-	 * Creates new non negative argument exception for the given argument that has the given argument name.
+	 * Creates a new non negative argument exception for the given argument that has the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument
@@ -60,7 +60,7 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
 	
 	//constructor
 	/**
-	 * Creates new non negative argument exception for the given argument that has the given argument name.
+	 * Creates a new non negative argument exception for the given argument that has the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument

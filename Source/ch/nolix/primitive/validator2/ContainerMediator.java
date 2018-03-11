@@ -31,7 +31,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 
 	//package-visible constructor
 	/**
-	 * Creates new container mediator for the given argument.
+	 * Creates a new container mediator for the given argument.
 	 * 
 	 * @param argument
 	 */
@@ -43,7 +43,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	
 	//package-visible constructor
 	/**
-	 * Creates new container mediator for the given argument.
+	 * Creates a new container mediator for the given argument.
 	 * 
 	 * @param argument
 	 */
@@ -55,7 +55,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	
 	//package-visible constructor
 	/**
-	 * Creates new container mediator
+	 * Creates a new container mediator
 	 * for the given argument with the given argument name.
 	 * 
 	 * @param argumentName
@@ -73,7 +73,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	
 	//package-visible constructor
 	/**
-	 * Creates new container mediator
+	 * Creates a new container mediator
 	 * for the given argument with the given argument name.
 	 * 
 	 * @param argumentName

@@ -26,7 +26,7 @@ public class InvalidArgumentException extends RuntimeException {
 	
 	//constructor
 	/**
-	 * Creates new invalid argument exception.
+	 * Creates a new invalid argument exception.
 	 */
 	public InvalidArgumentException() {
 		
@@ -40,7 +40,7 @@ public class InvalidArgumentException extends RuntimeException {
 	
 	//constructor
 	/**
-	 * Creates new invalid argument exception for the given argument.
+	 * Creates a new invalid argument exception for the given argument.
 	 * 
 	 * @param argument
 	 * @throws RuntimeException if the given argument is null.
@@ -61,7 +61,7 @@ public class InvalidArgumentException extends RuntimeException {
 	}
 
 	/**
-	 * Creates new invalid argument exception for an argument with a default argument name and for the given error predicate.
+	 * Creates a new invalid argument exception for an argument with a default argument name and for the given error predicate.
 	 * 
 	 * @param errorPredicate
 	 * @throws RuntimeException if the given error predicate is null.
@@ -83,7 +83,7 @@ public class InvalidArgumentException extends RuntimeException {
 	
 	//constructor
 	/**
-	 * Creates new invalid argument exception for the given argument and the given error predicate.
+	 * Creates a new invalid argument exception for the given argument and the given error predicate.
 	 * 
 	 * @param argument
 	 * @param errorPredicate
@@ -107,7 +107,7 @@ public class InvalidArgumentException extends RuntimeException {
 	
 	//constructor
 	/**
-	 * Creates new invalid argument exception for the given argument that has the given argument name.
+	 * Creates a new invalid argument exception for the given argument that has the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument
@@ -136,7 +136,7 @@ public class InvalidArgumentException extends RuntimeException {
 	
 	//constructor
 	/**
-	 * Creates new invalid argument exception for an argument with the given argument name and the given error predicate.
+	 * Creates a new invalid argument exception for an argument with the given argument name and the given error predicate.
 	 * 
 	 * @param argumentName
 	 * @param errorPredicate
@@ -167,7 +167,7 @@ public class InvalidArgumentException extends RuntimeException {
 	
 	//constructor
 	/**
-	 * Creates new invalid argument exception for the given argument with the given argument name and the given error predicate.
+	 * Creates a new invalid argument exception for the given argument with the given argument name and the given error predicate.
 	 * 
 	 * @param argumentName
 	 * @param argument

@@ -17,7 +17,7 @@ public final class ResultFuture<R> {
 	
 	//package-visible constructor
 	/**
-	 * Creates new result future with the given result job runner.
+	 * Creates a new result future with the given result job runner.
 	 * 
 	 * @param resultJobRunner
 	 * @throws NullArgumentException if the given result job runner is null.

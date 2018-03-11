@@ -32,7 +32,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//constructor
 	/**
-	 * Creates new server with the given applications.
+	 * Creates a new server with the given applications.
 	 * 
 	 * @param applications
 	 * @throws NullArgumentException if one of the given applications is null.

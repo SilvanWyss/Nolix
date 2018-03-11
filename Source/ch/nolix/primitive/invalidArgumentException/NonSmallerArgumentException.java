@@ -14,7 +14,7 @@ public final class NonSmallerArgumentException extends InvalidArgumentException 
 	
 	//constructor
 	/**
-	 * Creates new non smaller argument exception for the given argument and limit
+	 * Creates a new non smaller argument exception for the given argument and limit
 	 * 
 	 * @param argument
 	 * @param limi
@@ -27,7 +27,7 @@ public final class NonSmallerArgumentException extends InvalidArgumentException 
 
 	//constructor
 	/**
-	 * Creates new non smaller argument exception for the given argument and limit
+	 * Creates a new non smaller argument exception for the given argument and limit
 	 * 
 	 * @param argument
 	 * @param limit
@@ -40,7 +40,7 @@ public final class NonSmallerArgumentException extends InvalidArgumentException 
 
 	//constructor
 	/**
-	 * Creates new non smaller argument exception for the given argument
+	 * Creates a new non smaller argument exception for the given argument
 	 * that has the given argument name and that is not smaller than the given limit.
 	 * 
 	 * @param argumentName

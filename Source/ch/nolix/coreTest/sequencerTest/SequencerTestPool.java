@@ -15,7 +15,7 @@ public final class SequencerTestPool extends TestPool {
 
 	//constructor
 	/**
-	 * Creates new sequencerx test pool.
+	 * Creates a new sequencerx test pool.
 	 */
 	public SequencerTestPool() {
 		addTest(new SequencerTest());

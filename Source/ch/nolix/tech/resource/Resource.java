@@ -32,7 +32,7 @@ public final class Resource extends NamedElement {
 
 	//constructor
 	/**
-	 * Creates new resource with the given name.
+	 * Creates a new resource with the given name.
 	 * 
 	 * @param name
 	 * @throws NullArgumentException if the given name is null.
@@ -49,7 +49,7 @@ public final class Resource extends NamedElement {
 	
 	//constructor
 	/**
-	 * Creates new resource with the given name and base resources.
+	 * Creates a new resource with the given name and base resources.
 	 * 
 	 * @param name
 	 * @param baseResources

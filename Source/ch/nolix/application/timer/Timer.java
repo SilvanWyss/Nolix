@@ -18,7 +18,7 @@ public final class Timer extends StandardApplication<GUIBackClient> {
 
 	//constructor
 	/**
-	 * Creates new timer.
+	 * Creates a new timer.
 	 */
 	public Timer() {
 		

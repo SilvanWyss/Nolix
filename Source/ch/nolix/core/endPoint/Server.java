@@ -21,7 +21,7 @@ implements IEndPointTaker {
 	private final IEndPointTaker endPointTaker;
 	
 	/**
-	 * Creates new server with the given end point taker.
+	 * Creates a new server with the given end point taker.
 	 * 
 	 * @param endPointTaker
 	 * @throws NullArgumentException if the given end point taker is null.

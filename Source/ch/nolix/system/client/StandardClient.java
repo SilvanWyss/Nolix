@@ -17,7 +17,7 @@ public final class StandardClient extends Client<StandardClient> {
 	
 	//constructor
 	/**
-	 * Creates new standard client that will connect to the given target application.
+	 * Creates a new standard client that will connect to the given target application.
 	 * 
 	 * @param targetApplication
 	 * @throws NullArgumentException if the given target application is null.
@@ -30,7 +30,7 @@ public final class StandardClient extends Client<StandardClient> {
 	
 	//constructor
 	/**
-	 * Creates new standard client that will connect to the arbitrary application
+	 * Creates a new standard client that will connect to the arbitrary application
 	 * on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
@@ -42,7 +42,7 @@ public final class StandardClient extends Client<StandardClient> {
 	
 	//constructor
 	/**
-	 * Creates new standard client that will connect to the given target application on the given port on the machine with the given ip.
+	 * Creates a new standard client that will connect to the given target application on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
 	 * @param port
@@ -62,7 +62,7 @@ public final class StandardClient extends Client<StandardClient> {
 	
 	//constructor
 	/**
-	 * Creates new standard client that:
+	 * Creates a new standard client that:
 	 * -Connects to the given target application on the given port on the machine with the given ip.
 	 * -Has the given initial session.
 	 * 
@@ -85,7 +85,7 @@ public final class StandardClient extends Client<StandardClient> {
 	
 	//constructor
 	/**
-	 * Creates new standard client with the given duplex controller.
+	 * Creates a new standard client with the given duplex controller.
 	 * 
 	 * @param controller
 	 * @throws NullArgumentException if the given duplex controller is null.
@@ -98,7 +98,7 @@ public final class StandardClient extends Client<StandardClient> {
 
 	//constructor
 	/**
-	 * Creates new standard client with the given duplex controller and initial session.
+	 * Creates a new standard client with the given duplex controller and initial session.
 	 * 
 	 * @param controller
 	 * @param initialSession

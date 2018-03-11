@@ -21,7 +21,7 @@ public class QuadraticFunction {
 	
 	//constructor
 	/**
-	 * Creates new quadratic function with the given coefficients.
+	 * Creates a new quadratic function with the given coefficients.
 	 * 
 	 * @param a
 	 * @param b

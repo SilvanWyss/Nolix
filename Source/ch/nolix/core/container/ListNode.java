@@ -26,7 +26,7 @@ final class ListNode<E> {
 	
 	//constructor
 	/**
-	 * Creates new list node with the given element.
+	 * Creates a new list node with the given element.
 	 * 
 	 * @param element
 	 * @throws NullArgumentException if the given element is null.

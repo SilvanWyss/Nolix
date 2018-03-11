@@ -17,7 +17,7 @@ public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
 
 	//package-visible constructor
 	/**
-	 * Creates new extended container mediator for the given argument.
+	 * Creates a new extended container mediator for the given argument.
 	 * 
 	 * @param argument
 	 */
@@ -29,7 +29,7 @@ public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
 	
 	//package-visible constructor
 	/**
-	 * Creates new extended container mediator for the given argument.
+	 * Creates a new extended container mediator for the given argument.
 	 * 
 	 * @param argument
 	 */

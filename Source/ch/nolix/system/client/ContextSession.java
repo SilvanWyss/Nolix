@@ -20,7 +20,7 @@ extends Session<CL> {
 	
 	//constructor
 	/**
-	 * Creates new context session with the given context.
+	 * Creates a new context session with the given context.
 	 * 
 	 * @param context
 	 * @throws NullArgumentException if the given context is null.

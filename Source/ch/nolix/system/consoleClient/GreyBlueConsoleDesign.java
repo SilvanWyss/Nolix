@@ -16,7 +16,7 @@ public final class GreyBlueConsoleDesign extends StandardConfiguration {
 
 	//constructor
 	/**
-	 * Creates new console client.
+	 * Creates a new console client.
 	 */
 	public GreyBlueConsoleDesign() {
 		

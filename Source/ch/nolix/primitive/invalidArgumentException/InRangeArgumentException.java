@@ -17,7 +17,7 @@ public final class InRangeArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new in range argument exception
+	 * Creates a new in range argument exception
 	 * for the given argument and for the range defined by the given min and max.
 	 * 
 	 * @param argument
@@ -38,7 +38,7 @@ public final class InRangeArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new in range argument exception
+	 * Creates a new in range argument exception
 	 * for the given argument, that has the given argument name,
 	 * and for the range defined by the given min and max.
 	 * 
@@ -65,7 +65,7 @@ public final class InRangeArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new in range argument exception
+	 * Creates a new in range argument exception
 	 * for the given argument and for the range defined by the given min and max.
 	 * 
 	 * @param argument
@@ -86,7 +86,7 @@ public final class InRangeArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new in range argument exception
+	 * Creates a new in range argument exception
 	 * for the given argument, that has the given argument name,
 	 * and for the range defined by the given min and max.
 	 * 

@@ -19,7 +19,7 @@ public final class MultiDoubleMediator extends Mediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new multi double mediator
+	 * Creates a new multi double mediator
 	 * that belongs to the given test and is for the given values.
 	 * 
 	 * @param test
@@ -33,7 +33,7 @@ public final class MultiDoubleMediator extends Mediator {
 
 	//package-visible constructor
 	/**
-	 * Creates new multi double mediator
+	 * Creates a new multi double mediator
 	 * that belongs to the given test and is for the given values.
 	 * 
 	 * @param test

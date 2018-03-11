@@ -17,7 +17,7 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
 
 	//package-visible constructor
 	/**
-	 * Creates new string container mediator with the given arguments.
+	 * Creates a new string container mediator with the given arguments.
 	 * 
 	 * @param arguments
 	 * @throws NullArgumentException if the given argument container is null.
@@ -30,7 +30,7 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
 	
 	//package-visible constructor
 	/**
-	 * Creates new string container mediator with the given arguments.
+	 * Creates a new string container mediator with the given arguments.
 	 * 
 	 * @param arguments
 	 * @throws NullArgumentException if the given argument container is null.

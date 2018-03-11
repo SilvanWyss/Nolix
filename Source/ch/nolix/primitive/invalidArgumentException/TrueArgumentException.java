@@ -18,7 +18,7 @@ public final class TrueArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new true argument exception.
+	 * Creates a new true argument exception.
 	 */
 	public TrueArgumentException() {
 		
@@ -28,7 +28,7 @@ public final class TrueArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new true argument exception
+	 * Creates a new true argument exception
 	 * for an argument that has the given argument name.
 	 * 
 	 * @param argumentName

@@ -20,13 +20,13 @@ public final class FPNPair {
 	
 	//constructor
 	/**
-	 * Creates new FPN pair with default values.
+	 * Creates a new FPN pair with default values.
 	 */
 	public FPNPair() {}
 	
 	//constructor
 	/**
-	 * Creates new FPN pair with the given values.
+	 * Creates a new FPN pair with the given values.
 	 * 
 	 * @param value1
 	 * @param value2

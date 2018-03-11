@@ -31,7 +31,7 @@ final class Package extends ch.nolix.core.util.Package<String> {
 	
 	//constructor
 	/**
-	 * Creates new zeta package with the given index and message and the role the given message has.
+	 * Creates a new zeta package with the given index and message and the role the given message has.
 	 * 
 	 * @param index
 	 * @param messageRole

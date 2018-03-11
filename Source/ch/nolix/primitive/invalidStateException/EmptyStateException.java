@@ -18,7 +18,7 @@ public final class EmptyStateException extends InvalidStateException {
 
 	//constructor
 	/**
-	 * Creates new empty state exception for the given object.
+	 * Creates a new empty state exception for the given object.
 	 * 
 	 * @param object
 	 * @throws NullArgumentException if the given object is null.

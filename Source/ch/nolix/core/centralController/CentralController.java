@@ -27,7 +27,7 @@ public class CentralController {
 	
 	//constructor
 	/**
-	 * Creates new central controller with the given directory.
+	 * Creates a new central controller with the given directory.
 	 * The central controller will created the directoy if it does not exist.
 	 * 
 	 * @param directory

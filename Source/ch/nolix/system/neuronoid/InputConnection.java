@@ -23,7 +23,7 @@ public final class InputConnection<O> {
 	
 	//constructor
 	/**
-	 * Creates new input connection with a default weight and the given input neuron.
+	 * Creates a new input connection with a default weight and the given input neuron.
 	 * 
 	 * @param inputNeuron
 	 * @throws NullArgumentException if the given input neuron is null.
@@ -42,7 +42,7 @@ public final class InputConnection<O> {
 	
 	//constructor
 	/**
-	 * Creates new input connection with the given weight and input neuron.
+	 * Creates a new input connection with the given weight and input neuron.
 	 * 
 	 * @param weight
 	 * @param inputNeuron

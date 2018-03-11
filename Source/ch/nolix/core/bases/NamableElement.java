@@ -22,7 +22,7 @@ implements Namable<NE> {
 	
 	//constructor
 	/**
-	 * Creates new namable element with the given name.
+	 * Creates a new namable element with the given name.
 	 * 
 	 * @param name
 	 * @throws NullArgumentException if the given name is null.

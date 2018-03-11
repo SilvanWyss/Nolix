@@ -11,7 +11,7 @@ public final class Launcher {
 
 	//main method
 	/**
-	 * Creates new task test pool and runs it.
+	 * Creates a new task test pool and runs it.
 	 * 
 	 * @param args
 	 */

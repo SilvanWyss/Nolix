@@ -14,7 +14,7 @@ public final class VerticalLine extends Line<VerticalLine> {
 
 	//constructor
 	/**
-	 * Creates new vertical line.
+	 * Creates a new vertical line.
 	 */
 	public VerticalLine() {		
 		resetConfiguration();

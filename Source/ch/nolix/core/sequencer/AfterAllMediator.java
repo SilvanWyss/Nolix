@@ -25,7 +25,7 @@ public final class AfterAllMediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new after all mediator with the given condition and time interval in milliseconds.
+	 * Creates a new after all mediator with the given condition and time interval in milliseconds.
 	 * 
 	 * @param condition
 	 * @param timeIntervalInMilliseconds
@@ -50,7 +50,7 @@ public final class AfterAllMediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new after all mediator with the given time interval in milliseconds.
+	 * Creates a new after all mediator with the given time interval in milliseconds.
 	 * 
 	 * @param timeIntervalInMilliseconds
 	 * @throws NegativeArgumentException if the given time interval in milliseconds is negative.
@@ -70,7 +70,7 @@ public final class AfterAllMediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new after all mediator with the given max run count, condition and time interval in milliseconds.
+	 * Creates a new after all mediator with the given max run count, condition and time interval in milliseconds.
 	 * 
 	 * @param maxRunCount
 	 * @param condition

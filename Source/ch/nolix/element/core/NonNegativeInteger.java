@@ -21,7 +21,7 @@ public class NonNegativeInteger extends Integer {
 	
 	//constructor
 	/**
-	 * Creates new non-negative integer with default attributes.
+	 * Creates a new non-negative integer with default attributes.
 	 */
 	public NonNegativeInteger() {
 		
@@ -31,7 +31,7 @@ public class NonNegativeInteger extends Integer {
 	
 	//constructor
 	/**
-	 * Creates new non-negative integer with the given value.
+	 * Creates a new non-negative integer with the given value.
 	 * 
 	 * @param value
 	 * @throws NegativeArgumentException if the given value is negative.

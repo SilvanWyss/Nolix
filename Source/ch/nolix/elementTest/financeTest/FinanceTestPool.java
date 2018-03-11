@@ -13,7 +13,7 @@ public final class FinanceTestPool extends TestPool {
 
 	//constructor
 	/**
-	 * Creates new finance test pool.
+	 * Creates a new finance test pool.
 	 */
 	public FinanceTestPool() {
 		addTest(

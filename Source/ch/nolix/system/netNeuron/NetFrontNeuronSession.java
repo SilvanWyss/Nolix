@@ -18,7 +18,7 @@ extends ContextSession<StandardClient, NetFrontNeuron<O>> {
 
 	//constructor
 	/**
-	 * Creates new net front neuron session
+	 * Creates a new net front neuron session
 	 * with the given netFrontNeuron.
 	 * 
 	 * @param netFrontNeuron

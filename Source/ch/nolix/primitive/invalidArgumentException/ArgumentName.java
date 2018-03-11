@@ -14,7 +14,7 @@ public final class ArgumentName {
 	
 	//constructor
 	/**
-	 * Creates new argument name with the given value.
+	 * Creates a new argument name with the given value.
 	 * 
 	 * @param value
 	 * @throws RuntimeException if the given value is null.

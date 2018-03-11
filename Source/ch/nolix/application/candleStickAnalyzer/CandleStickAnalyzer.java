@@ -22,7 +22,7 @@ extends StandardApplication<ConsoleBackClient> {
 	
 	//constructor
 	/**
-	 * Creates new candle stick analyzer.
+	 * Creates a new candle stick analyzer.
 	 */
 	public CandlestickAnalyzer() {
 		

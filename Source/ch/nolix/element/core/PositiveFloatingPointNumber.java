@@ -32,7 +32,7 @@ public class PositiveFloatingPointNumber extends FloatingPointNumber {
 	
 	//constructor
 	/**
-	 * Creates new positive floating point number with a default value.
+	 * Creates a new positive floating point number with a default value.
 	 */
 	public PositiveFloatingPointNumber() {
 		
@@ -42,7 +42,7 @@ public class PositiveFloatingPointNumber extends FloatingPointNumber {
 
 	//constructor
 	/**
-	 * Creates new positive floating point number with the given value.
+	 * Creates a new positive floating point number with the given value.
 	 * 
 	 * @param value
 	 * @throws NonPositiveArgumentException

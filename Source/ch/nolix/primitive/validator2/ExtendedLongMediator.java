@@ -16,7 +16,7 @@ public class ExtendedLongMediator extends LongMediator {
 
 	//package-visible constructor
 	/**
-	 * Creates new extended long mediator for the given argument.
+	 * Creates a new extended long mediator for the given argument.
 	 * 
 	 * @param argument
 	 */

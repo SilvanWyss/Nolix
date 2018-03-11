@@ -18,7 +18,7 @@ public final class PerformanceDetector extends StandardApplication<GUIBackClient
 	
 	//constructor
 	/**
-	 * Creates new performance detector.
+	 * Creates a new performance detector.
 	 */
 	public PerformanceDetector() {
 		

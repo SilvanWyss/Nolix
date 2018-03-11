@@ -22,7 +22,7 @@ public class ValueMediator<V> extends Mediator {
 	
 	//constructor
 	/**
-	 * Creates new value mediator that belongs to the given test and is for the given value.
+	 * Creates a new value mediator that belongs to the given test and is for the given value.
 	 * 
 	 * @param test
 	 * @param value

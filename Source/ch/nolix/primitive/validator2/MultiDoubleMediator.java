@@ -20,7 +20,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	
 	//package-visible constructor
 	/**
-	 * Creates new multi double mediator for the given arguments.
+	 * Creates a new multi double mediator for the given arguments.
 	 * 
 	 * @param arguments
 	 * @throws NullArgumentException if the given arguments is null.
@@ -33,7 +33,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	
 	//package-visible constructor
 	/**
-	 * Creates new multi double mediator for the given arguments.
+	 * Creates a new multi double mediator for the given arguments.
 	 * 
 	 * @param arguments
 	 * @throws NullArgumentException if the given arguments is null.

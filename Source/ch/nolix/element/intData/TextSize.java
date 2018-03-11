@@ -21,7 +21,7 @@ public final class TextSize extends PositiveInteger {
 
 	//constructor
 	/**
-	 * Creates new text size with a default value.
+	 * Creates a new text size with a default value.
 	 */
 	public TextSize() {
 		
@@ -31,7 +31,7 @@ public final class TextSize extends PositiveInteger {
 	
 	//constructor
 	/**
-	 * Creates new text size with the given value.
+	 * Creates a new text size with the given value.
 	 * 
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value is not positive.

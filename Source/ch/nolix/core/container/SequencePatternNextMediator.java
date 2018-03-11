@@ -22,7 +22,7 @@ public final class SequencePatternNextMediator<E> {
 	
 	//package-visible constructor
 	/**
-	 * Creates new sequence pattern next mediator for the given sequence pattern that has the given count.
+	 * Creates a new sequence pattern next mediator for the given sequence pattern that has the given count.
 	 * 
 	 * @param sequencePattern
 	 * @param count

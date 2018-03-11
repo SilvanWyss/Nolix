@@ -21,7 +21,7 @@ final class FrameCloseListener implements WindowListener {
 	
 	//constructor
 	/**
-	 * Creates new frame close listener that belongs to the given frame.
+	 * Creates a new frame close listener that belongs to the given frame.
 	 * 
 	 * @param frame
 	 * @throws NullArgumentException if the given frame is null.

@@ -19,7 +19,7 @@ public final class NetServer extends Server {
 	
 	//constructor
 	/**
-	 * Creates new net server with the given port.
+	 * Creates a new net server with the given port.
 	 * 
 	 * @param port
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
@@ -38,7 +38,7 @@ public final class NetServer extends Server {
 	
 	//constructor
 	/**
-	 * Creates new net server with the given port and applications.
+	 * Creates a new net server with the given port and applications.
 	 * 
 	 * @param port
 	 * @param applications

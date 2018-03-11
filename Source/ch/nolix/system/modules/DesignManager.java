@@ -29,7 +29,7 @@ public final class DesignManager extends Module {
 	
 	//constructor
 	/**
-	 * Creates new design manager with the given central controller.
+	 * Creates a new design manager with the given central controller.
 	 * 
 	 * @param centralController
 	 * @throws NullArgumentException if the given central controller is null.

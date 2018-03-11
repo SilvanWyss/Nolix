@@ -29,7 +29,7 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 	
 	//constructor
 	/**
-	 * Creates new application with the given name and initial session class.
+	 * Creates a new application with the given name and initial session class.
 	 * 
 	 * @param name
 	 * @param initialSessionClass
@@ -51,7 +51,7 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 	
 	//constructor
 	/**
-	 * Creates new application that:
+	 * Creates a new application that:
 	 * -Has the given name and initial session class.
 	 * -Creates a server for itself, and for itself only, that listens to clients on the given port.
 	 * 

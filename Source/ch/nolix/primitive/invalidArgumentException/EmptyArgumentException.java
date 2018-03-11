@@ -17,7 +17,7 @@ public final class EmptyArgumentException extends InvalidArgumentException {
 
 	//constructor
 	/**
-	 * Creates new empty argument exception.
+	 * Creates a new empty argument exception.
 	 */
 	public EmptyArgumentException() {
 		
@@ -27,7 +27,7 @@ public final class EmptyArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new empty argument exception for the given argument.
+	 * Creates a new empty argument exception for the given argument.
 	 * 
 	 * @param argument
 	 * @throws RuntimeException if the given argument is null.
@@ -40,7 +40,7 @@ public final class EmptyArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new empty argument exception for an argument that has given argument name.
+	 * Creates a new empty argument exception for an argument that has given argument name.
 	 * 
 	 * @param argumentName
 	 * @throws RuntimeException if the given argument name is null.

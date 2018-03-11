@@ -37,7 +37,7 @@ public class LongMediator extends Mediator {
 	
 	//constructor
 	/**
-	 * Creates new long mediator for the given argument.
+	 * Creates a new long mediator for the given argument.
 	 * 
 	 * @param argument
 	 */
@@ -49,7 +49,7 @@ public class LongMediator extends Mediator {
 
 	//package-visible constructor
 	/**
-	 * Creates new long mediator for the given argument with the given argument name.
+	 * Creates a new long mediator for the given argument with the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument

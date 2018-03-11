@@ -27,7 +27,7 @@ implements RawInputListener {
 	
 	//constructor
 	/**
-	 * Creates new JMonkey main frame raw input listener
+	 * Creates a new JMonkey main frame raw input listener
 	 * for the given JMonkey main frame.
 	 * 
 	 * @param JMonkeyMainFrame_

@@ -52,7 +52,7 @@ public final class FileSystemAccessor {
 	
 	//constructor
 	/**
-	 * Creates new file system accessor.
+	 * Creates a new file system accessor.
 	 */
 	public FileSystemAccessor() {
 		
@@ -62,7 +62,7 @@ public final class FileSystemAccessor {
 	
 	//constructor
 	/**
-	 * Creates new file system accessor with the root folder with the given root folder path.
+	 * Creates a new file system accessor with the root folder with the given root folder path.
 	 * 
 	 * @param rootFolderPath
 	 * @throws InvalidArgumentException if there exists no folder
@@ -200,7 +200,7 @@ public final class FileSystemAccessor {
 	
 	//method
 	/**
-	 * Creates new empty folder with the given relative folder path in the file system on the local machine.
+	 * Creates a new empty folder with the given relative folder path in the file system on the local machine.
 	 * 
 	 * @param relativeFolderPath
 	 * @return new folder accessor to the created folder.

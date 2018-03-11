@@ -19,7 +19,7 @@ extends Neuronoid<SourceNeuron<O>, Object, O> {
 	
 	//constructor
 	/**
-	 * Creates new source neuron with the given output.
+	 * Creates a new source neuron with the given output.
 	 * 
 	 * @param output
 	 */

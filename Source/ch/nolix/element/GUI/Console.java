@@ -60,7 +60,7 @@ implements Clearable<Console> {
 	
 	//constructor
 	/**
-	 * Creates new console.
+	 * Creates a new console.
 	 */
 	public Console() {
 		resetConfiguration();
@@ -531,7 +531,7 @@ implements Clearable<Console> {
 	
 	//method
 	/**
-	 * Creates new widget structure for this console.
+	 * Creates a new widget structure for this console.
 	 */
 	protected ConsoleStructure createWidgetStructure() {
 		return new ConsoleStructure();

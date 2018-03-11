@@ -17,7 +17,7 @@ final class Design extends StandardConfiguration {
 
 	//constructor
 	/**
-	 * Creates new design.
+	 * Creates a new design.
 	 * The design will be frozen.
 	 */
 	public Design() {

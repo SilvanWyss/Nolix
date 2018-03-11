@@ -29,13 +29,13 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	
 	//constructor
 	/**
-	 * Creates new deep configuration with default attributes.
+	 * Creates a new deep configuration with default attributes.
 	 */
 	public DeepConfiguration() {}
 	
 	//constructor
 	/**
-	 * Creates new deep configuration with the given attributes.
+	 * Creates a new deep configuration with the given attributes.
 	 * 
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.

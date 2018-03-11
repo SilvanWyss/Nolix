@@ -14,7 +14,7 @@ public final class ErrorPredicate {
 	
 	//constructor
 	/**
-	 * Creates new error pedicate with the given value.
+	 * Creates a new error pedicate with the given value.
 	 *
 	 * @param value
 	 * @throws RuntimeException if the given value is null.

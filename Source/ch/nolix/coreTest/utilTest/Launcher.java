@@ -11,7 +11,7 @@ public final class Launcher {
 
 	//main method
 	/**
-	 * Creates new util test pool and executes it.
+	 * Creates a new util test pool and executes it.
 	 * 
 	 * @param arguments
 	 */

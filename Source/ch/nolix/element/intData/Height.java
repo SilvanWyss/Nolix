@@ -21,7 +21,7 @@ public final class Height extends PositiveInteger {
 
 	//constructor
 	/**
-	 * Creates new height with a default value.
+	 * Creates a new height with a default value.
 	 */
 	public Height() {
 		
@@ -31,7 +31,7 @@ public final class Height extends PositiveInteger {
 	
 	//constructor
 	/**
-	 * Creates new height with the given value.
+	 * Creates a new height with the given value.
 	 * 
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value is not positive.

@@ -700,13 +700,13 @@ public class Color extends Element {
 	
 	//constructor
 	/**
-	 * Creates new color with a default values.
+	 * Creates a new color with a default values.
 	 */
 	public Color() {}
 	
 	//constructor
 	/**
-	 * Creates new color with the given value.
+	 * Creates a new color with the given value.
 	 * 
 	 * @param value
 	 * @throws OutOfRangeArgumentException if the given value is no true color value (in [0, 16'777'215]).
@@ -717,7 +717,7 @@ public class Color extends Element {
 	
 	//constructor
 	/**
-	 * Creates new color with the given red value, green value and blue value.
+	 * Creates a new color with the given red value, green value and blue value.
 	 * 
 	 * @param redValue
 	 * @param greenValue
@@ -731,7 +731,7 @@ public class Color extends Element {
 	
 	//constructor
 	/**
-	 * Creates new color with the given value.
+	 * Creates a new color with the given value.
 	 * 
 	 * @param value
 	 * @throws InvalidArgumentException if the given value is no color name or no true color value

@@ -19,7 +19,7 @@ public final class ElementTestPool extends TestPool {
 
 	//constructor
 	/**
-	 * Creates new element test pool.
+	 * Creates a new element test pool.
 	 */
 	public ElementTestPool() {
 		addTestPool(

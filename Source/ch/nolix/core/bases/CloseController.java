@@ -24,7 +24,7 @@ final class CloseController implements Closable {
 	
 	//constructor
 	/**
-	 * Creates new close controller with the given element.
+	 * Creates a new close controller with the given element.
 	 * 
 	 * @param element
 	 * @throws NullArgumentException if the given element is null.

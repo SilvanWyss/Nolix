@@ -14,7 +14,7 @@ public final class UtilTestPool extends TestPool {
 
 	//constructor
 	/**
-	 * Creates new util test pool.
+	 * Creates a new util test pool.
 	 */
 	public UtilTestPool() {
 		addTest(new TimeTest());

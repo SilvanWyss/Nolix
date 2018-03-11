@@ -29,7 +29,7 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxStructure
 	
 	//constructor
 	/**
-	 * Creates new check box with default values.
+	 * Creates a new check box with default values.
 	 */
 	public CheckBox() {
 		resetConfiguration();

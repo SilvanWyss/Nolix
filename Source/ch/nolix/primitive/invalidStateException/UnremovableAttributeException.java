@@ -15,7 +15,7 @@ public final class UnremovableAttributeException extends InvalidStateException {
 
 	//constructor
 	/**
-	 * Creates new unremovable attribute exception
+	 * Creates a new unremovable attribute exception
 	 * for the given object that cannot remove the attribute with the given attribute name.
 	 * 
 	 * @param object

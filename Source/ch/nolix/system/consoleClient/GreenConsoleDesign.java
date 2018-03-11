@@ -16,7 +16,7 @@ public final class GreenConsoleDesign extends StandardConfiguration {
 
 	//constructor
 	/**
-	 * Creates new green console design.
+	 * Creates a new green console design.
 	 */
 	public GreenConsoleDesign() {
 		

@@ -26,7 +26,7 @@ final class HeapNode<E> {
 	
 	//constructor
 	/**
-	 * Creates new heap node with the given element.
+	 * Creates a new heap node with the given element.
 	 * 
 	 * @param element
 	 * @throws NullArgumentException if the given element is null.

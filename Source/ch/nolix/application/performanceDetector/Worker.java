@@ -24,7 +24,7 @@ final class Worker extends Thread {
 	
 	//constructor
 	/**
-	 * Creates new worker.
+	 * Creates a new worker.
 	 */
 	public Worker(IBooleanGetter condition) {
 		

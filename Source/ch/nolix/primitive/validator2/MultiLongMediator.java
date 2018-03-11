@@ -17,7 +17,7 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
 
 	//package-visible constructor
 	/**
-	 * Creates new long container mediator with the given arguments.
+	 * Creates a new long container mediator with the given arguments.
 	 * 
 	 * @param arguments
 	 * @throws NullArgumentException if the given argument container is null.

@@ -22,7 +22,7 @@ public final class TextColor extends Color {
 	
 	//constructor
 	/**
-	 * Creates new text color with a default value.
+	 * Creates a new text color with a default value.
 	 */
 	public TextColor() {
 		
@@ -32,7 +32,7 @@ public final class TextColor extends Color {
 	
 	//constructor
 	/**
-	 * Creates new text color with the given value.
+	 * Creates a new text color with the given value.
 	 * 
 	 * @param value
 	 * @throws OutOfRangeArgumentException if the given value is no true color value.
@@ -45,7 +45,7 @@ public final class TextColor extends Color {
 	
 	//constructor
 	/**
-	 * Creates new text color with the given value.
+	 * Creates a new text color with the given value.
 	 * 
 	 * @param value
 	 * @throws InvalidArgumentException if the given value is no color name or no true color value.

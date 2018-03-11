@@ -60,7 +60,7 @@ extends Container<TabContainer, TabContainerStructure> {
 	
 	//constructor
 	/**
-	 * Creates new empty tab container with default values.
+	 * Creates a new empty tab container with default values.
 	 */
 	public TabContainer() {
 		

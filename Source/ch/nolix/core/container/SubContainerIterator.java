@@ -23,7 +23,7 @@ final class SubContainerIterator<E> implements Iterator<E> {
 
 	//constructor
 	/**
-	 * Creates new sub container
+	 * Creates a new sub container
 	 * with the given container, start index and end index.
 	 * 
 	 * @param container

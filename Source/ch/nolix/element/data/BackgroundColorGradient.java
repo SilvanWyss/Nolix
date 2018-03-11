@@ -19,13 +19,13 @@ public final class BackgroundColorGradient extends ColorGradient {
 	
 	//constructor
 	/**
-	 * Creates new background color gradient.
+	 * Creates a new background color gradient.
 	 */
 	public BackgroundColorGradient() {}
 	
 	//constructor
 	/**
-	 * Creates new background color gradient with the given color 1 and color 2.
+	 * Creates a new background color gradient with the given color 1 and color 2.
 	 * 
 	 * @param direction
 	 * @param color1
@@ -45,7 +45,7 @@ public final class BackgroundColorGradient extends ColorGradient {
 	
 	//constructor
 	/**
-	 * Creates new background color gradient with the given direction.
+	 * Creates a new background color gradient with the given direction.
 	 * 
 	 * @param direction
 	 * @throws NullArgumentException if the given direction is null.
@@ -58,7 +58,7 @@ public final class BackgroundColorGradient extends ColorGradient {
 	
 	//constructor
 	/**
-	 * Creates new background color gradient with the given direction, color 1 and color 2.
+	 * Creates a new background color gradient with the given direction, color 1 and color 2.
 	 * 
 	 * @param direction
 	 * @param color1

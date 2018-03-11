@@ -21,7 +21,7 @@ implements Specifiable {
 
 	//class
 	/**
-	 * Creates new entity with mutables.
+	 * Creates a new entity with mutables.
 	 * 
 	 * @throws InvalidArgumentException
 	 * if this entity with mutable contains no property that is mutable.

@@ -29,7 +29,7 @@ public final class LocalDuplexController extends DuplexController {
 	
 	//constructor
 	/**
-	 * Creates new local duplex controller
+	 * Creates a new local duplex controller
 	 * that will connect to another new local duplex controller.
 	 */
 	public LocalDuplexController() {
@@ -46,7 +46,7 @@ public final class LocalDuplexController extends DuplexController {
 	
 	//constructor
 	/**
-	 * Creates new local duplex controller that will connect to the given target.
+	 * Creates a new local duplex controller that will connect to the given target.
 	 * 
 	 * @param target
 	 */
@@ -67,7 +67,7 @@ public final class LocalDuplexController extends DuplexController {
 	
 	//constructor
 	/**
-	 * Creates new local duplex controller with the given counterpart.
+	 * Creates a new local duplex controller with the given counterpart.
 	 * 
 	 * @param counterpart
 	 * @throws NullArgumentException if the given counterpart is null.
@@ -89,7 +89,7 @@ public final class LocalDuplexController extends DuplexController {
 	
 	//constructor
 	/**
-	 * Creates new local duplex controller with the given counterpart and target.
+	 * Creates a new local duplex controller with the given counterpart and target.
 	 * 
 	 * @param counterpart
 	 * @param target

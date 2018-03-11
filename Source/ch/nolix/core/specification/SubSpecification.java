@@ -19,7 +19,7 @@ public final class SubSpecification extends Specification {
 	
 	//package-visible constructor
 	/**
-	 * Creates new sub specification that:
+	 * Creates a new sub specification that:
 	 * -Belongs to the given simple persistent specification.
 	 * -Has the given internal specification.
 	 * 

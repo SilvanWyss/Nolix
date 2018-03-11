@@ -24,7 +24,7 @@ public final class AsLongAsMediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new as long as mediator with the given condition.
+	 * Creates a new as long as mediator with the given condition.
 	 * 
 	 * @param condition
 	 * @throws NullArgumentException if the given condition is null.

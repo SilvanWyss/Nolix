@@ -20,7 +20,7 @@ public final class DoubleDeviationMediator extends Mediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new named double deviation mediator with the givne argument name, argument and max deviation.
+	 * Creates a new named double deviation mediator with the givne argument name, argument and max deviation.
 	 * 
 	 * @param argumentName
 	 * @param argument

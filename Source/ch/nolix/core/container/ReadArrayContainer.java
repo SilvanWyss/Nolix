@@ -22,7 +22,7 @@ final class ReadArrayContainer<E> implements IContainer<E> {
 	
 	//constructor
 	/**
-	 * Creates new read array container for a new empty array.
+	 * Creates a new read array container for a new empty array.
 	 */
 	@SuppressWarnings("unchecked")
 	public ReadArrayContainer() {
@@ -33,7 +33,7 @@ final class ReadArrayContainer<E> implements IContainer<E> {
 	
 	//constructor
 	/**
-	 * Creates new read array container for the given array.
+	 * Creates a new read array container for the given array.
 	 * 
 	 * @param array
 	 * @throws NullArgumentException if the given array is null.

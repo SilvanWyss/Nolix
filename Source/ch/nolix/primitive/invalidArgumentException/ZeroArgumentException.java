@@ -17,7 +17,7 @@ public final class ZeroArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new zero argument exception.
+	 * Creates a new zero argument exception.
 	 */
 	public ZeroArgumentException() {
 		
@@ -27,7 +27,7 @@ public final class ZeroArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new zero argument exception for an argument that has the given argument name.
+	 * Creates a new zero argument exception for an argument that has the given argument name.
 	 * 
 	 * @param argumentName
 	 * @throws RuntimeException if the given argument name is null.

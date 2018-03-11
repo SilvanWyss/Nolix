@@ -31,7 +31,7 @@ public final class _2DPoint extends Element {
 	
 	//constructor
 	/**
-	 * Creates new 2D point with default coordinates.
+	 * Creates a new 2D point with default coordinates.
 	 */
 	public _2DPoint() {
 		
@@ -41,7 +41,7 @@ public final class _2DPoint extends Element {
 	
 	//method
 	/**
-	 * Creates new 2D point with the given coordinates.
+	 * Creates a new 2D point with the given coordinates.
 	 * 
 	 * @param x
 	 * @param y

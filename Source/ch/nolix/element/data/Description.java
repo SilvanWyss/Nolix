@@ -19,13 +19,13 @@ public final class Description extends NonEmptyText {
 
 	//constructor
 	/**
-	 * Creates new description with a default value.
+	 * Creates a new description with a default value.
 	 */
 	public Description() {}
 	
 	//constructor
 	/**
-	 * Creates new description with the given value.
+	 * Creates a new description with the given value.
 	 * 
 	 * @param value
 	 * @throws NullArgumentException if the given value is null.

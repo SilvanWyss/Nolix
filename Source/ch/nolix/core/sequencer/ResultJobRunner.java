@@ -24,7 +24,7 @@ final class ResultJobRunner<R> extends Thread {
 	
 	//constructor
 	/**
-	 * Creates new result job runner with the given result job.
+	 * Creates a new result job runner with the given result job.
 	 * The result job runner will start automatically.
 	 * 
 	 * @param resultJob

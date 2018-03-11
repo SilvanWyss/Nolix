@@ -37,7 +37,7 @@ implements Closable {
 	
 	//constructor
 	/**
-	 * Creates new net front neuron
+	 * Creates a new net front neuron
 	 * that will connect to the net back neuron
 	 * on the given port on the local machine.
 	 * 
@@ -57,7 +57,7 @@ implements Closable {
 	
 	//constructor
 	/**
-	 * Creates new net front neuron
+	 * Creates a new net front neuron
 	 * that will connect to the net back neuron
 	 * on the given port on the machine with the given ip.
 	 * 

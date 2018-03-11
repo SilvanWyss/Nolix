@@ -27,7 +27,7 @@ final class NetServerSubListener extends Thread {
 	
 	//constructor
 	/**
-	 * Creates new net server sub listener that belongs to the given net server.
+	 * Creates a new net server sub listener that belongs to the given net server.
 	 * The net server sub listener will start automatically.
 	 * 
 	 * @param netServer

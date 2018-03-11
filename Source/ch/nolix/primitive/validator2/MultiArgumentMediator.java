@@ -27,7 +27,7 @@ public class MultiArgumentMediator<A> {
 	
 	//package-visible constructor
 	/**
-	 * Creates new multi argument mediator with the given arguments.
+	 * Creates a new multi argument mediator with the given arguments.
 	 * 
 	 * @param arguments
 	 * @throws NullArgumentException if the given arguments is null..
@@ -45,7 +45,7 @@ public class MultiArgumentMediator<A> {
 	
 	//package-visible constructor
 	/**
-	 * Creates new multi argument mediator with the given arguments.
+	 * Creates a new multi argument mediator with the given arguments.
 	 * 
 	 * @param arguments
 	 * @throws NullArgumentException if the given arguments is null.

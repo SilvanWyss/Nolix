@@ -23,7 +23,7 @@ public class NonEmptyText extends Text {
 	
 	//constructor
 	/**
-	 * Creates new non empty text with a default value.
+	 * Creates a new non empty text with a default value.
 	 */
 	public NonEmptyText() {
 		
@@ -33,7 +33,7 @@ public class NonEmptyText extends Text {
 	
 	//constructor
 	/**
-	 * Creates new non empty text with the given value.
+	 * Creates a new non empty text with the given value.
 	 * 
 	 * @param value
 	 * @throws NullArgumentException if the given value is null.

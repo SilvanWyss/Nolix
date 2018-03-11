@@ -14,7 +14,7 @@ public final class NonRepresentingArgumentException extends InvalidArgumentExcep
 
 	//constructor
 	/**
-	 * Creates new non representing argument exception for the given argument and the given type.
+	 * Creates a new non representing argument exception for the given argument and the given type.
 	 * 
 	 * @param argument
 	 * @param type

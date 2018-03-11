@@ -28,7 +28,7 @@ public final class Sphere extends BaseShape<Sphere> {
 	
 	//constructor
 	/**
-	 * Creates new sphere with a default radius.
+	 * Creates a new sphere with a default radius.
 	 */
 	public Sphere() {}
 	

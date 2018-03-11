@@ -86,7 +86,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	
 	//constructor
 	/**
-	 * Creates new GUI.
+	 * Creates a new GUI.
 	 */
 	public GUI() {
 		

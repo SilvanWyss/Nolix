@@ -52,7 +52,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		  
     //constructor
     /**
-     * Creates new JMonkey main frame.
+     * Creates a new JMonkey main frame.
      */
 	public JMonkeyMainFrame() {
 		

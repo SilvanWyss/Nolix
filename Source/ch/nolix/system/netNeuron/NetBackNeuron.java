@@ -46,7 +46,7 @@ implements Closable {
 	
 	//constructor
 	/**
-	 * Creates new net back neuron
+	 * Creates a new net back neuron
 	 * that will listen to net front neurons on the given port
 	 * and has the given transformer.
 	 * 

@@ -19,7 +19,7 @@ public final class ARModel extends StatisticalModel {
 	
 	//constructor
 	/**
-	 * Creates new AR model with the given p-order and the given input values.
+	 * Creates a new AR model with the given p-order and the given input values.
 	 * 
 	 * @param pOrder
 	 * @param inputValues

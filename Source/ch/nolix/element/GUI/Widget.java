@@ -77,7 +77,7 @@ extends ConfigurableElement<W> {
 	
 	//constructor
 	/**
-	 * Creates new widget.
+	 * Creates a new widget.
 	 */
 	public Widget() {	
 		

@@ -22,7 +22,7 @@ public final class DoubleMediator extends Mediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new double mediator that belongs to the given test and is for the given value.
+	 * Creates a new double mediator that belongs to the given test and is for the given value.
 	 * 
 	 * @param value
 	 * @throws NullArgumentException if the given test is null.

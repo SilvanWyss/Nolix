@@ -21,7 +21,7 @@ public final class MinWidth extends PositiveInteger {
 
 	//constructor
 	/**
-	 * Creates new min width with a default value.
+	 * Creates a new min width with a default value.
 	 */
 	public MinWidth() {
 		
@@ -31,7 +31,7 @@ public final class MinWidth extends PositiveInteger {
 	
 	//constructor
 	/**
-	 * Creates new min width the given value.
+	 * Creates a new min width the given value.
 	 * 
 	 * @param value
 	 * @throws NonPositiveArgumentException if the given value is not positive.

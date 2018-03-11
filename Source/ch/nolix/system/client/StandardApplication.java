@@ -18,7 +18,7 @@ extends Application<C> {
 
 	//constructor
 	/**
-	 * Creates new standard application with the given name and initial session class.
+	 * Creates a new standard application with the given name and initial session class.
 	 * 
 	 * @param name
 	 * @param initialSessionClas
@@ -34,7 +34,7 @@ extends Application<C> {
 	
 	//constructor
 	/**
-	 * Creates new standard application that:
+	 * Creates a new standard application that:
 	 * -Has the given name and initial session class.
 	 * -Creates a server for itself, and for itself only, that listens to clients on the given port.
 	 * 

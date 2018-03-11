@@ -22,7 +22,7 @@ final class NetServerSubDuplexControllerTaker implements IDuplexControllerTaker 
 	
 	//constructor
 	/**
-	 * Creates new net server sub duplex controller taker with the given net server.
+	 * Creates a new net server sub duplex controller taker with the given net server.
 	 * 
 	 * @param netServer
 	 * @throws NullArgumentException if the given net server is null.

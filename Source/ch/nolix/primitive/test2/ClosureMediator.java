@@ -20,7 +20,7 @@ public final class ClosureMediator extends Mediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new closure mediator that belongs to the given test and is for the given closure.
+	 * Creates a new closure mediator that belongs to the given test and is for the given closure.
 	 * 
 	 * @param test
 	 * @param closure

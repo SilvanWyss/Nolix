@@ -17,7 +17,7 @@ public class PositiveInteger extends Integer {
 	
 	//constructor
 	/**
-	 * Creates new positive integer with default attributes.
+	 * Creates a new positive integer with default attributes.
 	 */
 	public PositiveInteger() {
 		
@@ -27,7 +27,7 @@ public class PositiveInteger extends Integer {
 	
 	//constructor
 	/**
-	 * Creates new positive integer with the given value.
+	 * Creates a new positive integer with the given value.
 	 * 
 	 * @param value
 	 * @throws Exception if the given value is not positive

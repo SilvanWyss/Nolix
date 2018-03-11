@@ -13,7 +13,7 @@ public final class MathematicsTestPool extends TestPool {
 
 	//constructor
 	/**
-	 * Creates new mathematics test pool.
+	 * Creates a new mathematics test pool.
 	 */
 	public MathematicsTestPool() {
 		addTest(

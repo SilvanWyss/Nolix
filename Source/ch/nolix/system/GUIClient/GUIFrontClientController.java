@@ -18,7 +18,7 @@ final class GUIFrontClientController implements IController {
 	private final GUIFrontClient frontDialogClient;
 	
 	/**
-	 * Creates new front dialog client controller that belongs to the given front dialog client.
+	 * Creates a new front dialog client controller that belongs to the given front dialog client.
 	 * 
 	 * @param dialogFrontEndClient
 	 * @throws NullArgumentException if the given front dialog client is null.

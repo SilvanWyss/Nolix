@@ -30,7 +30,7 @@ extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	
 	//constructor
 	/**
-	 * Creates new neuronal net with the given input layer neurons and output layer neurons.
+	 * Creates a new neuronal net with the given input layer neurons and output layer neurons.
 	 * 
 	 * @param inputLayerNeurons
 	 * @param internalOutputNeurons

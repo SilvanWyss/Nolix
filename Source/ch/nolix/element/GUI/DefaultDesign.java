@@ -17,7 +17,7 @@ public final class DefaultDesign extends StandardConfiguration {
 
 	//constructor
 	/**
-	 * Creates new default design that is frozen.
+	 * Creates a new default design that is frozen.
 	 */
 	public DefaultDesign() {
 		

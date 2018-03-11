@@ -26,7 +26,7 @@ implements Named {
 	
 	//constructor
 	/**
-	 * Creates new module that belongs to the given central controller.
+	 * Creates a new module that belongs to the given central controller.
 	 * 
 	 * @param centralController
 	 * @throws NullArgumentException if the given central controller is null.

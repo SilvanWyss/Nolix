@@ -15,7 +15,7 @@ public final class EqualArgumentException extends InvalidArgumentException {
 
 	//constructor
 	/**
-	 * Creates new equal argument exception for the given argument and unwanted value.
+	 * Creates a new equal argument exception for the given argument and unwanted value.
 	 * 
 	 * @param argument
 	 * @param unwantedValue
@@ -28,7 +28,7 @@ public final class EqualArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new equal argument exception for the given argument and unwanted value.
+	 * Creates a new equal argument exception for the given argument and unwanted value.
 	 * 
 	 * @param argument
 	 * @param unwantedValue
@@ -41,7 +41,7 @@ public final class EqualArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new equal argument exception for the given argument and unwanted value.
+	 * Creates a new equal argument exception for the given argument and unwanted value.
 	 * 
 	 * @param argument
 	 * @param unwantedValue
@@ -54,7 +54,7 @@ public final class EqualArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new equal argument exception
+	 * Creates a new equal argument exception
 	 * for the given argument, that has the given argument name, and for the given unwanted value.
 	 * 
 	 * @param argumentName
@@ -78,7 +78,7 @@ public final class EqualArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new equal argument exception
+	 * Creates a new equal argument exception
 	 * for the given argument, that has the given argument name, and for the given unwanted value.
 	 * 
 	 * @param argumentName
@@ -102,7 +102,7 @@ public final class EqualArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new equal argument exception
+	 * Creates a new equal argument exception
 	 * for the given argument, that has the given argument name, and for the given unwanted value.
 	 * 
 	 * @param argumentName

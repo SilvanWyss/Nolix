@@ -18,7 +18,7 @@ public class StringMediator extends ValueMediator<String> {
 
 	//package-visible constructor
 	/**
-	 * Creates new string mediator that belongs to the given test and is for the given value.
+	 * Creates a new string mediator that belongs to the given test and is for the given value.
 	 * 
 	 * @param test
 	 * @param value

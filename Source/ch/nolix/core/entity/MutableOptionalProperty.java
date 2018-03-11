@@ -21,7 +21,7 @@ implements Clearable<MutableOptionalProperty<V>> {
 		
 	//constructor
 	/**
-	 * Creates new optional property
+	 * Creates a new optional property
 	 * with the given name, setter method and value creator.
 	 * 
 	 * @param name

@@ -18,7 +18,7 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new non empty argument exception for the given argument.
+	 * Creates a new non empty argument exception for the given argument.
 	 * 
 	 * @param argument
 	 * @throws RuntimeException if the given argument is null.
@@ -31,7 +31,7 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new non empty argument exception for an argument that has the given argument name.
+	 * Creates a new non empty argument exception for an argument that has the given argument name.
 	 * 
 	 * @param argumentName
 	 * @throws RuntimeException if the given argument name is null.
@@ -45,7 +45,7 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new non empty argument exception for the given argument with the given argumet name.
+	 * Creates a new non empty argument exception for the given argument with the given argumet name.
 	 * @param argumentName
 	 * @param argument
 	 * @throws RuntimeException if the given argument name is null.

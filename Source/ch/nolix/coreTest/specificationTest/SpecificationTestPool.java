@@ -13,7 +13,7 @@ public class SpecificationTestPool extends TestPool {
 
 	//constructor
 	/**
-	 * Creates new specification test pool.
+	 * Creates a new specification test pool.
 	 */
 	public SpecificationTestPool() {
 		addTest(

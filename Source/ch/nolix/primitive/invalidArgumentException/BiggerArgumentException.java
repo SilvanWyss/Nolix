@@ -14,7 +14,7 @@ public final class BiggerArgumentException extends InvalidArgumentException {
 
 	//constructor
 	/**
-	 * Creates new bigger argument exception for the given argument and limit.
+	 * Creates a new bigger argument exception for the given argument and limit.
 	 * 
 	 * @param argument
 	 * @param limit
@@ -27,7 +27,7 @@ public final class BiggerArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new bigger argument exception for the given argument and limit.
+	 * Creates a new bigger argument exception for the given argument and limit.
 	 * 
 	 * @param argument
 	 * @param limit
@@ -40,7 +40,7 @@ public final class BiggerArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new bigger argument exception for the given argument, that has the given argument name, and the given limit.
+	 * Creates a new bigger argument exception for the given argument, that has the given argument name, and the given limit.
 	 * 
 	 * @param argumentName
 	 * @param argument
@@ -63,7 +63,7 @@ public final class BiggerArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates new bigger argument exception for the given argument, that has the given argument name, and the given limit.
+	 * Creates a new bigger argument exception for the given argument, that has the given argument name, and the given limit.
 	 * 
 	 * @param argumentName
 	 * @param argument

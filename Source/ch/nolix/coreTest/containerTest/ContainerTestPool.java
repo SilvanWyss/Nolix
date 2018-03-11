@@ -13,7 +13,7 @@ public final class ContainerTestPool extends TestPool {
 
 	//constructor
 	/**
-	 * Creates new container test pool.
+	 * Creates a new container test pool.
 	 */
 	public ContainerTestPool() {
 		addTest(

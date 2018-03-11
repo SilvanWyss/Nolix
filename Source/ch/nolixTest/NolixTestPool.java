@@ -17,7 +17,7 @@ public final class NolixTestPool extends TestPool {
 
 	//constructor
 	/**
-	 * Creates new nolix test pool.
+	 * Creates a new nolix test pool.
 	 */
 	public NolixTestPool() {
 		addTestPool(

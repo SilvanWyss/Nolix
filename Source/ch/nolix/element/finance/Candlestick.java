@@ -74,7 +74,7 @@ public class Candlestick extends Element {
 	
 	//constructor
 	/**
-	 * Creates new candlestick with the given time, opening price, closing price, lowest price and highest price.
+	 * Creates a new candlestick with the given time, opening price, closing price, lowest price and highest price.
 	 * 
 	 * @param time
 	 * @param openingPrice

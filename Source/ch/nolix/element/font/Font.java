@@ -44,7 +44,7 @@ public final class Font extends Element {
 	
 	//constructor
 	/**
-	 * Creates new font.
+	 * Creates a new font.
 	 */
 	public Font() {
 		
@@ -54,7 +54,7 @@ public final class Font extends Element {
 	
 	//constructor
 	/**
-	 * Creates new font with the given text color.
+	 * Creates a new font with the given text color.
 	 * 
 	 * @param textColor
 	 * @throws NullArgumentException if the given text color is null.
@@ -67,7 +67,7 @@ public final class Font extends Element {
 	
 	//constructor
 	/**
-	 * Creates new font with the given text font.
+	 * Creates a new font with the given text font.
 	 * 
 	 * @param textFont
 	 * @throws NullArgumentException if the given text font is null.
@@ -80,7 +80,7 @@ public final class Font extends Element {
 	
 	//constructor
 	/**
-	 * Creates new font with the given text font and text size.
+	 * Creates a new font with the given text font and text size.
 	 * 
 	 * @param textFont
 	 * @param textSize
@@ -95,7 +95,7 @@ public final class Font extends Element {
 	
 	//constructor
 	/**
-	 * Creates new font with the given text font, text size and text color.
+	 * Creates a new font with the given text font, text size and text color.
 	 * 
 	 * @param textFont
 	 * @param textSize
@@ -129,7 +129,7 @@ public final class Font extends Element {
 	
 	//constructor
 	/**
-	 * Creates new font with the given text size.
+	 * Creates a new font with the given text size.
 	 * 
 	 * @param textSize
 	 * @throws NonPositiveArgumentException if the given text size is not positive.
@@ -142,7 +142,7 @@ public final class Font extends Element {
 	
 	//constructor
 	/**
-	 * Creates new font with the given text size and text color.
+	 * Creates a new font with the given text size and text color.
 	 * 
 	 * @param textSize
 	 * @param textColor

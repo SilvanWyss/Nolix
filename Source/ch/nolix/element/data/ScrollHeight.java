@@ -25,7 +25,7 @@ public final class ScrollHeight extends PositiveInteger {
 		
 	//constructor
 	/**
-	 * Creates new scroll height with a default value.
+	 * Creates a new scroll height with a default value.
 	 */
 	public ScrollHeight() {
 		
@@ -35,7 +35,7 @@ public final class ScrollHeight extends PositiveInteger {
 	
 	//constructor
 	/**
-	 * Creates new scroll height with the given value.
+	 * Creates a new scroll height with the given value.
 	 * 
 	 * @param value
 	 * @throws SmallerArgumentException

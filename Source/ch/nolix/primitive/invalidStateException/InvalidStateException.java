@@ -22,7 +22,7 @@ public class InvalidStateException extends RuntimeException {
 	
 	//constructor
 	/**
-	 * Creates new invalid state exception for the given object.
+	 * Creates a new invalid state exception for the given object.
 	 * 
 	 * @param object
 	 */
@@ -34,7 +34,7 @@ public class InvalidStateException extends RuntimeException {
 	
 	//constructor
 	/**
-	 * Creates new invalid state exception for the given object and the given error predicate.
+	 * Creates a new invalid state exception for the given object and the given error predicate.
 	 * 
 	 * @param object
 	 * @param errorPredicate

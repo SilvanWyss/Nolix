@@ -21,7 +21,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 
 	//constructor
 	/**
-	 * Creates new folder accessor for the folder with the given folder path.
+	 * Creates a new folder accessor for the folder with the given folder path.
 	 * 
 	 * @param folderPath
 	 * @throws InvalidArgumentException if there exists no folder with the given folder path
@@ -44,7 +44,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	
 	//method
 	/**
-	 * Creates new empty file with the given relative path in the folder of this folder accessor.
+	 * Creates a new empty file with the given relative path in the folder of this folder accessor.
 	 * 
 	 * @param relativeFilePath
 	 * @return new file accessor to the created file.
@@ -58,7 +58,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	
 	//method
 	/**
-	 * Creates new empty folder with the given relative path in the folder of this folder accessor.
+	 * Creates a new empty folder with the given relative path in the folder of this folder accessor.
 	 * 
 	 * @param relativeFolderPath
 	 * @return new folder accessor to the created folder.

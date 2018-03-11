@@ -13,7 +13,7 @@ final class Launcher {
 
 	//main method
 	/**
-	 * Creates new dialog test pool and lets it execute its tests.
+	 * Creates a new dialog test pool and lets it execute its tests.
 	 * 
 	 * @param args
 	 */

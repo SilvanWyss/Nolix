@@ -28,7 +28,7 @@ extends Container<SingleContainer, SingleContainerStructure> {
 	
 	//constructor
 	/**
-	 * Creates new single container that has default attributes.
+	 * Creates a new single container that has default attributes.
 	 */
 	public SingleContainer() {
 		
@@ -38,7 +38,7 @@ extends Container<SingleContainer, SingleContainerStructure> {
 	
 	//constructor
 	/**
-	 * Creates new single container that has the given attributes.
+	 * Creates a new single container that has the given attributes.
 	 * @param attributes
 	 * @throws Exception if the given attributes are not valid
 	 */

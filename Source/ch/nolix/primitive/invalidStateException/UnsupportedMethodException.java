@@ -15,7 +15,7 @@ public final class UnsupportedMethodException extends InvalidStateException {
 	
 	//constructor
 	/**
-	 * Creates new unsupported method exception
+	 * Creates a new unsupported method exception
 	 * for the given object that does not support the method with the given method name.
 	 * 
 	 * @param object

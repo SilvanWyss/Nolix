@@ -21,7 +21,7 @@ public final class DoubleDeviationMediator extends Mediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new double deviation mediator
+	 * Creates a new double deviation mediator
 	 * that belongs to the given test
 	 * and is for the given value
 	 * and has a default max deviation.
@@ -38,7 +38,7 @@ public final class DoubleDeviationMediator extends Mediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new double deviation mediator
+	 * Creates a new double deviation mediator
 	 * that belongs to the given test
 	 * and is for the given value
 	 * and has the given default max deviation.

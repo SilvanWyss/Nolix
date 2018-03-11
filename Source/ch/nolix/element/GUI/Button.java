@@ -17,7 +17,7 @@ public final class Button extends TextLineWidget<Button> {
 	
 	//constructor
 	/**
-	 * Creates new button with default values.
+	 * Creates a new button with default values.
 	 */
 	public Button() {	
 		resetConfiguration();
@@ -25,7 +25,7 @@ public final class Button extends TextLineWidget<Button> {
 	
 	//constructor
 	/**
-	 * Creates new button with the given text.
+	 * Creates a new button with the given text.
 	 * 
 	 * @param text
 	 * @throws NullArgumentException if the given text is null.

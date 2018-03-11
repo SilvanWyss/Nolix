@@ -13,7 +13,7 @@ public final class CoreTestPool extends TestPool {
 
 	//constructor
 	/**
-	 * Creates new core test pool.
+	 * Creates a new core test pool.
 	 */
 	public CoreTestPool() {
 		addTest(new TimeTest());

@@ -25,13 +25,13 @@ public final class Statement {
 	
 	//constructor
 	/**
-	 * Creates new statement.
+	 * Creates a new statement.
 	 */
 	public Statement() {}
 	
 	//constructor
 	/**
-	 * Creates new statement the given string represents
+	 * Creates a new statement the given string represents
 	 * 
 	 * @param string
 	 * @throws InvalidArgumentException if the given string is not valid.

@@ -37,7 +37,7 @@ public final class GUIBackClient extends Client<GUIBackClient> {
 	
 	//constructor
 	/**
-	 * Creates new dialog client that:
+	 * Creates a new dialog client that:
 	 * -Will connect to the given target application.
 	 * -Has the given dialog.
 	 * 
@@ -59,7 +59,7 @@ public final class GUIBackClient extends Client<GUIBackClient> {
 	
 	//constructor
 	/**
-	 * Creates new dialog client with the given duplex controller and the given initial session.
+	 * Creates a new dialog client with the given duplex controller and the given initial session.
 	 * 
 	 * @param controller
 	 * @param initialSession

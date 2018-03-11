@@ -31,7 +31,7 @@ public class ArgumentMediator<A> extends Mediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new argument mediator for the given argument.
+	 * Creates a new argument mediator for the given argument.
 	 * 
 	 * @param argument
 	 */
@@ -43,7 +43,7 @@ public class ArgumentMediator<A> extends Mediator {
 	
 	//package-visible constructor
 	/**
-	 * Creates new argument mediator for the given argument with the given argument name.
+	 * Creates a new argument mediator for the given argument with the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument

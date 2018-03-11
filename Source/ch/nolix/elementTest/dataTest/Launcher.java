@@ -13,7 +13,7 @@ final class Launcher {
 
 	//main method
 	/**
-	 * Creates new data test pool and executes it.
+	 * Creates a new data test pool and executes it.
 	 * 
 	 * @param arguments
 	 */

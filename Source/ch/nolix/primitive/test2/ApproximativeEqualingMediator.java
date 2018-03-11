@@ -16,7 +16,7 @@ public final class ApproximativeEqualingMediator extends ValueMediator<Approxima
 	
 	//package-visible constructor
 	/**
-	 * Creates new approximative equaling mediator
+	 * Creates a new approximative equaling mediator
 	 * that belongs to the given test and is for the given value.
 	 * 
 	 * @param test

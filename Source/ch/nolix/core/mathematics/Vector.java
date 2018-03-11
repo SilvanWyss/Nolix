@@ -25,7 +25,7 @@ public final class Vector {
 	
 	//constructor
 	/**
-	 * Creates new zero vector with the default length.
+	 * Creates a new zero vector with the default length.
 	 */
 	public Vector() {
 		
@@ -35,7 +35,7 @@ public final class Vector {
 	
 	//constructor
 	/**
-	 * Creates new zero vector with the given length.
+	 * Creates a new zero vector with the given length.
 	 * 
 	 * @param length
 	 * @throws Exception if the given length is not positive.
@@ -49,7 +49,7 @@ public final class Vector {
 	
 	//constructor
 	/**
-	 * Creates new vector with the given length and whose values are set to the given value.
+	 * Creates a new vector with the given length and whose values are set to the given value.
 	 * 
 	 * @param length
 	 * @param value

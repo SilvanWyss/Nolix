@@ -48,7 +48,7 @@ public class Area extends Widget<Area, AreaStructure> {
 	
 	//constructor
 	/**
-	 * Creates new area with default values.
+	 * Creates a new area with default values.
 	 */
 	public Area() {
 		approveProperties();
@@ -239,7 +239,7 @@ public class Area extends Widget<Area, AreaStructure> {
 	
 	//method
 	/**
-	 * Creates new widget structure for this area.
+	 * Creates a new widget structure for this area.
 	 */
 	protected AreaStructure createWidgetStructure() {
 		return new AreaStructure();

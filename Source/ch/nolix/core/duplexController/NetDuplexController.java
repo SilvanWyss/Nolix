@@ -28,7 +28,7 @@ public class NetDuplexController extends DuplexController {
 		
 	//constructor
 	/**
-	 * Creates new net duplex controller
+	 * Creates a new net duplex controller
 	 * that will connect to the default target on the given port on the local machine.
 	 * 
 	 * @param port
@@ -42,7 +42,7 @@ public class NetDuplexController extends DuplexController {
 	
 	//constructor
 	/**
-	 * Creates new net duplex controller
+	 * Creates a new net duplex controller
 	 * that will connect to the given target on the given port on the local machine.
 	 * 
 	 * @param port
@@ -57,7 +57,7 @@ public class NetDuplexController extends DuplexController {
 
 	//constructor
 	/**
-	 * Creates new net duplex controller
+	 * Creates a new net duplex controller
 	 * that will connect to the default target on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
@@ -72,7 +72,7 @@ public class NetDuplexController extends DuplexController {
 	
 	//constructor
 	/**
-	 * Creates new net duplex controller
+	 * Creates a new net duplex controller
 	 * that will connect to the given target on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
@@ -90,7 +90,7 @@ public class NetDuplexController extends DuplexController {
 	
 	//package-visible constructor
 	/**
-	 * Creates new net duplex controller with the given net end point.
+	 * Creates a new net duplex controller with the given net end point.
 	 * 
 	 * @param netEndPoint
 	 * @throws NullArgumentException if the given net end point is null.
