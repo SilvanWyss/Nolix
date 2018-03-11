@@ -5,12 +5,12 @@ import ch.nolix.core.entity2.Entity;
 import ch.nolix.core.entity2.Property;
 //own imports
 import ch.nolix.core.helper.StringHelper;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.data.TextColor;
 import ch.nolix.element.font.TextFont;
 import ch.nolix.element.intData.TextSize;
+import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
+import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**

@@ -5,11 +5,11 @@ package ch.nolix.core.container;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.interfaces.Clearable;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
-import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.core.invalidArgumentException.NullArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.invalidArgumentException.ArgumentName;
+import ch.nolix.primitive.invalidArgumentException.EmptyArgumentException;
+import ch.nolix.primitive.invalidArgumentException.NullArgumentException;
+import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

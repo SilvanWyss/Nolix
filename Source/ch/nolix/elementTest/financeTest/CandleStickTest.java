@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.elementTest.financeTest;
 
-//own imports
-import ch.nolix.core.test2.Test;
 import ch.nolix.element.core.Time;
 import ch.nolix.element.finance.Candlestick;
+import ch.nolix.primitive.test2.Test;
 
 //test class
 /**

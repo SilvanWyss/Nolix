@@ -1,17 +1,16 @@
 //package declaration
 package ch.nolix.system.consoleClient;
 
-//own imports
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.GUI.Console;
 import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.element.configuration.StandardConfiguration;
+import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.primitive.validator2.Validator;
 import ch.nolix.system.baseGUIClient.BaseGUIClient;
 import ch.nolix.system.client.StandardApplication;
 

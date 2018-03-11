@@ -6,12 +6,12 @@ import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerInterfaces.IMultiController;
 import ch.nolix.core.endPoint3.NetEndPoint;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.invalidArgumentException.Argument;
+import ch.nolix.primitive.invalidArgumentException.ArgumentName;
+import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

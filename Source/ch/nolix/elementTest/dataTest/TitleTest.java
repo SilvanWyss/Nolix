@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.elementTest.dataTest;
 
-//own imports
-import ch.nolix.core.test2.Test;
 import ch.nolix.element.data.Title;
+import ch.nolix.primitive.test2.Test;
 
 //test class
 /**

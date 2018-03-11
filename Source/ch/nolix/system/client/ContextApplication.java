@@ -3,14 +3,7 @@ package ch.nolix.system.client;
 
 import java.lang.reflect.Constructor;
 
-
-
-//own import
-
-
-
-
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

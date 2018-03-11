@@ -6,14 +6,14 @@ import java.awt.Graphics;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.intData.MinHeight;
 import ch.nolix.element.intData.MinWidth;
+import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
+import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**

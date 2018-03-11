@@ -3,7 +3,7 @@ package ch.nolix.core.endPoint4;
 
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.primitive.invalidStateException.InvalidStateException;
 
 //abstract class
 /**

@@ -10,7 +10,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**

@@ -2,7 +2,7 @@
 package ch.nolix.core.endPoint4;
 
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.primitive.invalidStateException.InvalidStateException;
 
 //class
 /**

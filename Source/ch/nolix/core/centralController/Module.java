@@ -6,7 +6,7 @@ import java.io.File;
 
 //own imports
 import ch.nolix.core.interfaces.Named;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**

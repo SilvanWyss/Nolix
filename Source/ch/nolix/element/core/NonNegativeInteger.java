@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.core;
 
-//own import
-import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
+import ch.nolix.primitive.invalidArgumentException.NegativeArgumentException;
 
 //class
 /**

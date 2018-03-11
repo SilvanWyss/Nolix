@@ -9,8 +9,8 @@ import java.net.Socket;
 //own imports
 import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.constants.PortCatalogue;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

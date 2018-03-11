@@ -10,19 +10,19 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.invalidStateException.UnremovableAttributeException;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.TextColor;
 import ch.nolix.element.intData.TextSize;
+import ch.nolix.primitive.invalidArgumentException.Argument;
+import ch.nolix.primitive.invalidArgumentException.ArgumentName;
+import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
+import ch.nolix.primitive.invalidStateException.UnremovableAttributeException;
+import ch.nolix.primitive.validator.Validator;
 
 //class
 /**

@@ -4,7 +4,7 @@ package ch.nolix.coreTest.sequencerTest;
 //own imports
 import ch.nolix.core.sequencer.ResultFuture;
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.test2.Test;
+import ch.nolix.primitive.test2.Test;
 
 //test class
 /** 

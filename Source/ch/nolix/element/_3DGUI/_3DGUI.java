@@ -13,19 +13,19 @@ import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.interfaces.Closable;
 import ch.nolix.core.interfaces.Refreshable;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
-import ch.nolix.core.invalidArgumentException.ErrorPredicate;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.InvalidStateException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
-import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configurationElement.ConfigurationElement;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.Title;
+import ch.nolix.primitive.invalidArgumentException.Argument;
+import ch.nolix.primitive.invalidArgumentException.ArgumentName;
+import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
+import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.primitive.invalidStateException.InvalidStateException;
+import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
+import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**

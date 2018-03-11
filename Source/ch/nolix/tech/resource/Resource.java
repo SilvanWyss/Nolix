@@ -5,12 +5,12 @@ package ch.nolix.tech.resource;
 import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.primitive.invalidArgumentException.Argument;
+import ch.nolix.primitive.invalidArgumentException.ArgumentName;
+import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
+import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
-import ch.nolix.core.invalidArgumentException.ErrorPredicate;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //class
 /**

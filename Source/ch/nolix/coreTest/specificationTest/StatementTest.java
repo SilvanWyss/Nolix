@@ -3,7 +3,7 @@ package ch.nolix.coreTest.specificationTest;
 
 //own imports
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.test2.Test;
+import ch.nolix.primitive.test2.Test;
 
 //test class
 /**

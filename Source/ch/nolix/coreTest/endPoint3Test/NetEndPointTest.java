@@ -7,8 +7,8 @@ import ch.nolix.core.endPoint3.EndPoint;
 import ch.nolix.core.endPoint3.NetEndPoint;
 import ch.nolix.core.endPoint3.IEndPointTaker;
 import ch.nolix.core.endPoint3.NetServer;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.test2.Test;
+import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
+import ch.nolix.primitive.test2.Test;
 
 //test class
 /**

@@ -4,7 +4,7 @@ package ch.nolix.system.GUIClient;
 //own imports
 import ch.nolix.core.controllerInterfaces.IController;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.validator2.Validator;
 
 //package-visible class
 /**

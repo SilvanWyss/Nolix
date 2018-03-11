@@ -4,9 +4,9 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

@@ -6,7 +6,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.interfaces.Closable;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.validator2.Validator;
 import ch.nolix.system.client.Application;
 import ch.nolix.system.client.NetServer;
 import ch.nolix.system.client.StandardApplication;

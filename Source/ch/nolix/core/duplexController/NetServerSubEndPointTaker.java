@@ -5,7 +5,7 @@ package ch.nolix.core.duplexController;
 import ch.nolix.core.endPoint3.EndPoint;
 import ch.nolix.core.endPoint3.IEndPointTaker;
 import ch.nolix.core.endPoint3.NetEndPoint;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.validator2.Validator;
 
 //package-visible class
 /**

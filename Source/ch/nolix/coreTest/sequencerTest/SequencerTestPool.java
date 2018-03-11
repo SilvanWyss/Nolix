@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreTest.sequencerTest;
 
-//own imports
-import ch.nolix.core.testoid.TestPool;
+import ch.nolix.primitive.testoid.TestPool;
 
 //class
 /**

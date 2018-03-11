@@ -4,8 +4,8 @@ package ch.nolix.core.endPoint;
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.communicationInterfaces.IReceiver;
 import ch.nolix.core.communicationInterfaces.ISender;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
+import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**

@@ -4,8 +4,7 @@ package ch.nolix.core.container;
 //Java import
 import java.util.Iterator;
 
-//own import
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

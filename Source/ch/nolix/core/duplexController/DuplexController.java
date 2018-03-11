@@ -5,10 +5,10 @@ package ch.nolix.core.duplexController;
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerInterfaces.IMultiController;
-import ch.nolix.core.invalidStateException.InvalidStateException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.invalidStateException.InvalidStateException;
+import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

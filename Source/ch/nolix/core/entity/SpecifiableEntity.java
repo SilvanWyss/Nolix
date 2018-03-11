@@ -4,7 +4,7 @@ package ch.nolix.core.entity;
 //own imports
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.Specifiable;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**

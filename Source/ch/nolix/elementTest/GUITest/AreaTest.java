@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
-//own imports
-import ch.nolix.core.test2.Test;
 import ch.nolix.element.GUI.Area;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.data.BackgroundColor;
+import ch.nolix.primitive.test2.Test;
 
 //test class
 /**

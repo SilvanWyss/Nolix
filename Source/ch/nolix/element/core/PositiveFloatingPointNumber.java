@@ -2,8 +2,7 @@
 package ch.nolix.element.core;
 
 import ch.nolix.core.specification.Specification;
-//own import
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

@@ -8,10 +8,10 @@ import java.io.IOException;
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
-import ch.nolix.core.invalidArgumentException.ErrorPredicate;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.primitive.invalidArgumentException.Argument;
+import ch.nolix.primitive.invalidArgumentException.ArgumentName;
+import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
+import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 
 //class
 /**

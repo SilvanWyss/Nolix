@@ -5,8 +5,8 @@ package ch.nolix.system.consoleClient;
 import ch.nolix.core.container.List;
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.configuration.StandardConfiguration;
+import ch.nolix.primitive.validator2.Validator;
 import ch.nolix.system.baseGUIClient.BaseGUIClient;
 
 //class

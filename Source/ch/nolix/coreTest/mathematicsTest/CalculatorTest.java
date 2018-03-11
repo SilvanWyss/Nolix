@@ -8,7 +8,7 @@ import java.util.Vector;
 
 
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.test2.Test;
+import ch.nolix.primitive.test2.Test;
 
 /**
  * This class is a test class for the calculator class.

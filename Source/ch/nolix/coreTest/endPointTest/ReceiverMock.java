@@ -3,8 +3,8 @@ package ch.nolix.coreTest.endPointTest;
 
 //own imports
 import ch.nolix.core.communicationInterfaces.IReceiver;
-import ch.nolix.core.invalidStateException.InvalidStateException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.invalidStateException.InvalidStateException;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

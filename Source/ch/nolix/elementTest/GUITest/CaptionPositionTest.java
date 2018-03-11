@@ -1,6 +1,6 @@
 package ch.nolix.elementTest.GUITest;
 
-import ch.nolix.core.test2.Test;
+import ch.nolix.primitive.test2.Test;
 
 public class CaptionPositionTest extends Test {
 

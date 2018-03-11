@@ -3,7 +3,7 @@ package ch.nolix.element.core;
 
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

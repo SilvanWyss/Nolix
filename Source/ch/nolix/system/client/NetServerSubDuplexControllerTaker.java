@@ -4,7 +4,7 @@ package ch.nolix.system.client;
 //own imports
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.duplexController.IDuplexControllerTaker;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.validator2.Validator;
 
 //package-visible class
 /**

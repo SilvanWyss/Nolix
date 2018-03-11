@@ -15,7 +15,7 @@ import ch.nolix.core.container.ReadContainer;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.primitive.validator.Validator;
 
 //class
 /**

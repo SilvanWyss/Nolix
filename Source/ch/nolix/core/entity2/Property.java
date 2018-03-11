@@ -6,10 +6,10 @@ import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.functionInterfaces.IBooleanGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.Specified;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

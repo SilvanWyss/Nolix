@@ -10,7 +10,7 @@ package ch.nolix.coreTest.helperTest;
 
 //own imports
 import ch.nolix.core.helper.CharacterHelper;
-import ch.nolix.core.test.Test;
+import ch.nolix.primitive.test.Test;
 
 //test class
 /**

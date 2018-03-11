@@ -8,8 +8,7 @@
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
-//own imports
-import ch.nolix.core.test2.Test;
+import ch.nolix.primitive.test2.Test;
 
 //test class
 /**

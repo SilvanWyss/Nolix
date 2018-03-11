@@ -9,11 +9,11 @@ import ch.nolix.core.functionInterfaces.IElementTakerComparableGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.functionInterfaces.IElementTaker;
 import ch.nolix.core.interfaces.Clearable;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ErrorPredicate;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.EmptyStateException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.invalidArgumentException.Argument;
+import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
+import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.primitive.invalidStateException.EmptyStateException;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

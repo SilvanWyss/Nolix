@@ -4,9 +4,9 @@ package ch.nolix.core.bases;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.interfaces.Closable;
-import ch.nolix.core.invalidStateException.ClosedStateException;
-import ch.nolix.core.invalidStateException.InvalidStateException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.invalidStateException.ClosedStateException;
+import ch.nolix.primitive.invalidStateException.InvalidStateException;
+import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**

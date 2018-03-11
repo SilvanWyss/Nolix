@@ -4,8 +4,8 @@ package ch.nolix.core.endPoint3;
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Clearable;
-import ch.nolix.core.invalidStateException.InvalidStateException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.primitive.invalidStateException.InvalidStateException;
+import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 
 //abstract class
 /**

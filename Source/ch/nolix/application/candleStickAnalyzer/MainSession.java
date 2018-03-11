@@ -5,10 +5,10 @@ package ch.nolix.application.candlestickAnalyzer;
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidStateException.ClosedStateException;
 import ch.nolix.element.core.Time;
 import ch.nolix.element.finance.QuandlDataProvider;
 import ch.nolix.element.finance.VolumeCandlestick;
+import ch.nolix.primitive.invalidStateException.ClosedStateException;
 import ch.nolix.system.client.Session;
 import ch.nolix.system.consoleClient.ConsoleBackClient;
 

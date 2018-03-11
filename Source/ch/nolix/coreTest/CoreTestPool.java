@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.coreTest;
 
-import ch.nolix.core.testoid.TestPool;
 import ch.nolix.coreTest.containerTest.ContainerTestPool;
 import ch.nolix.coreTest.enumTest.EnumTestPool;
 import ch.nolix.coreTest.mathematicsTest.MathematicsTestPool;
 import ch.nolix.coreTest.specificationTest.SpecificationTestPool;
+import ch.nolix.primitive.testoid.TestPool;
 
 //class
 /**

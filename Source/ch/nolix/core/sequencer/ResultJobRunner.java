@@ -3,9 +3,9 @@ package ch.nolix.core.sequencer;
 
 //own imports
 import ch.nolix.core.functionInterfaces.IElementGetter;
-import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.util.PopupWindowProvider;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.invalidStateException.InvalidStateException;
+import ch.nolix.primitive.validator2.Validator;
 
 //package-visible class
 /**

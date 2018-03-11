@@ -15,10 +15,10 @@ import java.awt.event.KeyEvent;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.font.Font;
 import ch.nolix.element.intData.Width;
+import ch.nolix.primitive.validator.Validator;
 
 //class
 public final class TextBox extends TextLineWidget<TextBox> {

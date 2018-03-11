@@ -14,12 +14,12 @@ import com.jme3.system.AppSettings;
 
 //own imports
 import ch.nolix.core.functionInterfaces.IFunction;
-import ch.nolix.core.validator2.Validator;
 import ch.nolix.element._3DGUI.Cuboid;
 import ch.nolix.element._3DGUI.MainFrame;
 import ch.nolix.element._3DGUI.MultiShape;
 import ch.nolix.element._3DGUI.Shape;
 import ch.nolix.element._3DGUI.Sphere;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

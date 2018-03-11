@@ -4,8 +4,8 @@ package ch.nolix.core.specification;
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 
 //class
 /**

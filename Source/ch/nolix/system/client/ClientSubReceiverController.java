@@ -5,7 +5,7 @@ package ch.nolix.system.client;
 import ch.nolix.core.controllerInterfaces.IMultiController;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.validator2.Validator;
 
 //package-visible class
 /**

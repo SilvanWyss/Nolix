@@ -5,13 +5,13 @@ package ch.nolix.element.bases;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.IRequestableContainer;
 import ch.nolix.core.interfaces.OptionalNamable;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.InvalidStateException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.data.Name;
+import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.primitive.invalidStateException.InvalidStateException;
+import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
+import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**

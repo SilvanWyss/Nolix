@@ -11,11 +11,11 @@ package ch.nolix.element.bases;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.OptionalTokenable;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.element.data.Token;
+import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 
 //class
 /**

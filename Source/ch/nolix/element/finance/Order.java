@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.finance;
 
-//own import
-import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.core.Time;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

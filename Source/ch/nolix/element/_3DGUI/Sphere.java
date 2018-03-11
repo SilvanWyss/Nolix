@@ -3,8 +3,8 @@ package ch.nolix.element._3DGUI;
 
 //own imports
 import ch.nolix.core.entity.MutableProperty;
-import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.FPNData.Radius;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

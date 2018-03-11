@@ -4,14 +4,14 @@ package ch.nolix.element.core;
 //own imports
 import ch.nolix.core.controllerInterfaces.IController;
 import ch.nolix.core.interfaces.IFluentObject;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
-import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.specificationInterfaces.Specifiable;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.primitive.invalidArgumentException.Argument;
+import ch.nolix.primitive.invalidArgumentException.ArgumentName;
+import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**
