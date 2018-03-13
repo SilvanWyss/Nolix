@@ -6,6 +6,7 @@ import java.awt.Graphics;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
@@ -26,7 +27,7 @@ import ch.nolix.primitive.validator2.Validator;
  * @month 2015-12
  * @lines 260
  */
-public class Area extends Widget<Area, AreaStructure> {
+public final class Area extends Widget<Area, AreaStructure> {
 
 	//type name
 	public static final String TYPE_NAME = "Area";
@@ -51,8 +52,33 @@ public class Area extends Widget<Area, AreaStructure> {
 	 * Creates a new area with default values.
 	 */
 	public Area() {
+		reset();
 		approveProperties();
-		resetConfiguration();
+	}
+	
+	//constructor
+	/**
+	 * Creates new area with the given with, height and background color.
+	 * 
+	 * @param width
+	 * @param height
+	 * @param backgroundColor
+	 * @throws NonPositiveArgumentException if the given width is not positive.
+	 * @throws NonPositiveArgumentException if the given height is not positive.
+	 * @throws NullArgumentException if the given background color is null.
+	 */
+	public Area(
+		final int width,
+		final int height,
+		final Color backgroundColor
+	) {
+		
+		//Calls other constructor
+		this();
+		
+		setWidth(width);
+		setHeight(height);
+		setBackgroundColor(backgroundColor);
 	}
 	
 	//method
@@ -115,16 +141,14 @@ public class Area extends Widget<Area, AreaStructure> {
 	public Color getBackgroundColor() {
 		
 		//Checks if this area has a background color.
-		if (!hasBackgroundColor()) {
-			throw new UnexistingAttributeException(this, "background color");
-		}
+		supposeHasBackgroundColor();
 		
 		return backgroundColor;
 	}
 	
 	//method
 	/**
-	 * @return the height of this widget when it is not collapsed.
+	 * @return the height of this area when it is not collapsed.
 	 */
 	public int getHeightWhenNotCollapsed() {
 		return height.getValue();
@@ -132,7 +156,7 @@ public class Area extends Widget<Area, AreaStructure> {
 	
 	//method
 	/**
-	 * @return the element of this area.
+	 * @return the widgetes of this area.
 	 */
 	public ReadContainer<Widget<?, ?>> getRefWidgets() {
 		return new ReadContainer<>();
@@ -140,7 +164,7 @@ public class Area extends Widget<Area, AreaStructure> {
 	
 	//method
 	/**
-	 * @return the width of this widget when it is not collapsed.
+	 * @return the width of this area when it is not collapsed.
 	 */
 	public int getWidthWhenNotCollapsed() {
 		return width.getValue();
@@ -198,7 +222,7 @@ public class Area extends Widget<Area, AreaStructure> {
 		//Checks if the given background color is not null.
 		Validator
 		.suppose(backgroundColor)
-		.thatIsInstanceOf(BackgroundColor.class)
+		.thatIsNamed(VariableNameCatalogue.BACKGROUND_COLOR)
 		.isNotNull();
 		
 		//Sets the background color of this area.
@@ -260,6 +284,18 @@ public class Area extends Widget<Area, AreaStructure> {
 		if (hasBackgroundColor()) {
 			graphics.setColor(backgroundColor.getJavaColor());
 			graphics.fillRect(0, 0, getWidth(), getHeight());
+		}
+	}
+	
+	//method
+	/**
+	 * @throws UnexistingAttributeException if this area has no background color.
+	 */
+	private void supposeHasBackgroundColor() {
+		
+		//Checks if this area has a background color.
+		if (!hasBackgroundColor()) {
+			throw new UnexistingAttributeException(this, "background color");
 		}
 	}
 }
