@@ -15,8 +15,10 @@ public class VariableNameCatalogue {
 	public static final String AGE = "age";
 	public static final String AMOUNT = "amount";
 	public static final String ARRAY = "array";
+	public static final String BACKGROUND_COLOR = "background color";
 	public static final String CAPACITY = "capacity";
 	public static final String CAPTION = "caption";
+	public static final String COLOR = "color";
 	public static final String COLUMN_COUNT = "column count";
 	public static final String COLUMN_INDEX = "row index";
 	public static final String CONDITION = "condition";
