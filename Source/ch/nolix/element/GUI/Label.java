@@ -2,19 +2,21 @@
 package ch.nolix.element.GUI;
 
 //own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**
- * A label is a text line rectangle
- * that is supposed to show texts a user cannot change.
+ * A label is a text line widget
+ * that is supposed to show texts a user cannot edit.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 150
+ * @lines 160
  */
 public final class Label extends TextLineWidget<Label> {
 	
@@ -32,7 +34,8 @@ public final class Label extends TextLineWidget<Label> {
 	 * Creates a new label with default values.
 	 */
 	public Label() {	
-		resetConfiguration();
+		reset();
+		approveProperties();
 	}
 	
 	//constructor
@@ -58,12 +61,12 @@ public final class Label extends TextLineWidget<Label> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case ROLE_HEADER:
-				setRole(LabelRole.valueOf(attribute.getOneAttributeToString()));
+				setRole(LabelRole.valueOf(attribute.getOneAttributeAsString()));
 				break;
 			default:
 				
@@ -137,7 +140,10 @@ public final class Label extends TextLineWidget<Label> {
 	public final Label setRole(final LabelRole role) {
 		
 		//Checks if the given role is not null.
-		Validator.suppose(role).thatIsNamed("role").isNotNull();
+		Validator
+		.suppose(role)
+		.thatIsNamed(VariableNameCatalogue.ROLE)
+		.isNotNull();
 
 		//Sets the role of this label.
 		this.role = role;
@@ -150,8 +156,10 @@ public final class Label extends TextLineWidget<Label> {
 	 * @throws UnexistingAttributeException if this label has no role.
 	 */
 	private void supposeHasRole() {
+		
+		//Checks if this label has a role.
 		if (!hasRole()) {
-			throw new UnexistingAttributeException(this, ROLE_HEADER);
+			throw new UnexistingAttributeException(this, VariableNameCatalogue.ROLE);
 		}
 	}
 }
