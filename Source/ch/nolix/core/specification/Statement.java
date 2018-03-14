@@ -114,7 +114,7 @@ public final class Statement {
 	 * @throws InvalidStateException if this statement contains no or several attributes.
 	 */
 	public String getOneAttributeToString() {
-		return specification.getOneAttributeToString();
+		return specification.getOneAttributeAsString();
 	}
 	
 	//method

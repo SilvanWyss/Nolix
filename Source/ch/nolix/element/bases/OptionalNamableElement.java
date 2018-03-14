@@ -41,7 +41,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case Name.TYPE_NAME:
-				setName(attribute.getOneAttributeToString());
+				setName(attribute.getOneAttributeAsString());
 				break;
 			default:
 				

@@ -223,13 +223,13 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case SIZE_HEADER:
-				setSize(attribute.getOneAttributeToInteger());
+				setSize(attribute.getOneAttributeAsInt());
 				break;
 			case LINE_THICKNESS_HEADER:
-				setLineThickness(attribute.getOneAttributeToInteger());
+				setLineThickness(attribute.getOneAttributeAsInt());
 				break;
 			case LINE_COLOR_HEADER:
-				setLineColor(new Color(attribute.getOneAttributeToString()));
+				setLineColor(new Color(attribute.getOneAttributeAsString()));
 				break;
 			default:
 				

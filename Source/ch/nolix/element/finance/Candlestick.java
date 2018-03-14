@@ -46,16 +46,16 @@ public class Candlestick extends Element {
 					time = Time.createFromSpecification(a);
 					break;
 				case OPENING_PRICE_NAME:
-					openingPrice = a.getOneAttributeToDouble();
+					openingPrice = a.getOneAttributeAsDouble();
 					break;
 				case CLOSING_PRICE_NAME:
-					closingPrice = a.getOneAttributeToDouble();
+					closingPrice = a.getOneAttributeAsDouble();
 					break;
 				case LOWEST_PRICE_NAME:
-					lowestPrice = a.getOneAttributeToDouble();
+					lowestPrice = a.getOneAttributeAsDouble();
 					break;
 				case HIGHEST_PRICE_NAME:
-					highestPrice = a.getOneAttributeToDouble();
+					highestPrice = a.getOneAttributeAsDouble();
 					break;
 				default:
 					throw new InvalidArgumentException(new Argument(a));

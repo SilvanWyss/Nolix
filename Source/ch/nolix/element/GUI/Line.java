@@ -57,13 +57,13 @@ extends Widget<L, LineStructure> {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case Length.TYPE_NAME:
-				setLength(attribute.getOneAttributeToInteger());
+				setLength(attribute.getOneAttributeAsInt());
 				break;
 			case Thickness.TYPE_NAME:
-				setThickness(attribute.getOneAttributeToInteger());
+				setThickness(attribute.getOneAttributeAsInt());
 				break;	
 			case Color.TYPE_NAME:
-				setColor(new Color(attribute.getOneAttributeToString()));
+				setColor(new Color(attribute.getOneAttributeAsString()));
 				break;
 			default:
 				

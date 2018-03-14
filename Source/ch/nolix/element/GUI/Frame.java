@@ -114,7 +114,7 @@ public class Frame extends VisibleGUI<Frame> {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case CLOSE_COMMAND_HEADER:
-				setCloseCommand(attribute.getOneAttributeToString());
+				setCloseCommand(attribute.getOneAttributeAsString());
 				break;
 			default:
 				

@@ -9,6 +9,7 @@ import java.util.Iterator;
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.primitive.invalidArgumentException.Argument;
@@ -19,12 +20,12 @@ import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**
- * A standard specification is a specification that is completely stored in the memory
- * like as normal objects, but probably not like as other specifications.
+ * A standard specification is a specification
+ * that is completely stored in the memory like a common object.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 660
+ * @lines 620
  */
 public final class StandardSpecification extends Specification {
 	
@@ -32,7 +33,7 @@ public final class StandardSpecification extends Specification {
 	public static final String OPEN_BRACKET_CODE = "$O";
 	public static final String CLOSED_BRACKET_CODE = "$C";
 	public static final String COMMA_CODE = "$M";
-	public static final String DOLLAR_SIGN_CODE = "$L";
+	public static final String DOLLAR_SIGN_CODE = "$D";
 	
 	//static method
 	/**
@@ -365,51 +366,9 @@ public final class StandardSpecification extends Specification {
 	public String getHeader() {
 		
 		//Checks if this standard specification has a header.
-		if (!hasHeader()) {
-			throw new UnexistingAttributeException(this, "header");
-		}
+		supposeHasHeader();
 		
 		return header;
-	}
-	
-	//method
-	/**
-	 * @return the boolean the one attribute of this standard specification represents
-	 * @throws Exception if:
-	 *  -this standard specification contains no or several attributes
-	 *  -the one attribute of this standard specification does not represent a boolean
-	 */
-	public boolean getOneAttributeToBoolean() {
-		return getRefOneAttribute().toBoolean();
-	}
-	
-	//method
-	/**
-	 * @return the double the one attribute of this standard specification represents.
-	 * @throws 
-	 */
-	public double getOneAttributeToDouble() {
-		return getRefOneAttribute().toDouble();
-	}
-	
-	//method
-	/**
-	 * @return the integer the one attribute of this standard specification represents
-	 * @throws Exception if:
-	 *  -this standard specification contains no or several attributes
-	 *  -the one attribute of this standard specification does not represent an integer
-	 */
-	public int getOneAttributeToInteger() {
-		return getRefOneAttribute().toInt();
-	}
-	
-	//method
-	/**
-	 * @return a string representation of the one attribute of this standard specification
-	 * @throws Exception if this standard specification contains no or several attributes
-	 */
-	public String getOneAttributeToString() {
-		return getRefOneAttribute().toString();
 	}
 	
 	//method
@@ -536,6 +495,7 @@ public final class StandardSpecification extends Specification {
 			}
 			string += CharacterCatalogue.CLOSING_BRACKET;
 		}
+		
 		return string;
 	}
 	
@@ -662,6 +622,18 @@ public final class StandardSpecification extends Specification {
 					new Argument(value)
 				);
 			}
+		}
+	}
+	
+	//method
+	/**
+	 * @throws UnexistingAttributeException if this standard specification has no header.
+	 */
+	private void supposeHasHeader() {
+		
+		//Checks if this standard specification has a header.
+		if (!hasHeader()) {
+			throw new UnexistingAttributeException(this, VariableNameCatalogue.HEADER);
 		}
 	}
 }

@@ -160,7 +160,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	public final void addOrChangeAttribute(StandardSpecification attribute) {
 		switch (attribute.getHeader()) {
 			case Width.TYPE_NAME:
-				setWidth(attribute.getOneAttributeToInteger());
+				setWidth(attribute.getOneAttributeAsInt());
 				break;
 			case CURSOR_COLOR:
 				break;

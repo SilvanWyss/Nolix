@@ -79,7 +79,7 @@ extends BorderWidget<C, BWS> {
 	public void addOrChangeAttribute(StandardSpecification attribute) {
 		switch (attribute.getHeader()) {
 		case "Role":
-			setRole(ContainerRole.valueOf(attribute.getOneAttributeToString()));
+			setRole(ContainerRole.valueOf(attribute.getOneAttributeAsString()));
 			break;
 		default:
 			

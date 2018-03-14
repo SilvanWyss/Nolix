@@ -46,7 +46,7 @@ implements Namable<NE> {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case Name.TYPE_NAME:
-				setName(attribute.getOneAttributeToString());
+				setName(attribute.getOneAttributeAsString());
 				break;
 			default:
 				throw new InvalidArgumentException(

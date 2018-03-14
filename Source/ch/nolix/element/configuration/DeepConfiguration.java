@@ -57,7 +57,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case MAX_SELECTOR_LEVEL_HEADER:
-				setMaxSelectorLevel(attribute.getOneAttributeToInteger());
+				setMaxSelectorLevel(attribute.getOneAttributeAsInt());
 				break;
 			default:
 				

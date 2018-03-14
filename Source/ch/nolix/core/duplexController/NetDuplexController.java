@@ -129,7 +129,7 @@ public class NetDuplexController extends DuplexController {
 			case Protocol.DATA:
 				return reply.getRefOneAttribute();
 			case Protocol.ERROR:
-				throw new RuntimeException(reply.getOneAttributeToString());
+				throw new RuntimeException(reply.getOneAttributeAsString());
 			default:
 				throw new RuntimeException("Error occured.");
 		}
@@ -201,7 +201,7 @@ public class NetDuplexController extends DuplexController {
 			case Protocol.DONE:
 				break;
 			case Protocol.ERROR:
-				throw new RuntimeException(reply.getOneAttributeToString());
+				throw new RuntimeException(reply.getOneAttributeAsString());
 			default:
 				throw new RuntimeException("Error occured by running the commands '" + commands + "'." );
 		}
@@ -246,7 +246,7 @@ public class NetDuplexController extends DuplexController {
 				return (
 					Protocol.DATA
 					+ '('
-					+ receiverController.getData(message.getOneAttributeToString()).toString()
+					+ receiverController.getData(message.getOneAttributeAsString()).toString()
 					+ ')'
 				);
 			default:
