@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.element.data;
 
+//own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -10,18 +13,31 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 50
+ * @lines 70
  */
 public final class ScrollHeight extends PositiveInteger {
 	
 	//constant
 	public static final String TYPE_NAME = "ScrollHeight";
 	
-	//limit
+	//limit value
 	public static final int MIN_VALUE = 10;
 	
 	//default value
 	public static final int DEFAULT_VALUE = 100;
+	
+	//static method
+	/**
+	 * @param specificaiton
+	 * @return a new scroll height from the given specification.
+	 * @throws InvalidArgumentException
+	 * if the given specification is not valid.
+	 */
+	public static ScrollHeight createFromSpecification(
+		final Specification specification
+	) {
+		return new ScrollHeight(specification.getOneAttributeAsInt());
+	}
 		
 	//constructor
 	/**
@@ -47,6 +63,9 @@ public final class ScrollHeight extends PositiveInteger {
 		super(value);
 		
 		//Checks if the given value is not smaller than the minimal value.
-		Validator.suppose(value).thatIsNamed("value").isNotSmallerThan(MIN_VALUE);
+		Validator
+		.suppose(value)
+		.thatIsNamed(VariableNameCatalogue.VALUE)
+		.isNotSmallerThan(MIN_VALUE);
 	}
 }
