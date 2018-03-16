@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-import ch.nolix.core.entity2.Property;
 //own imports
-import ch.nolix.core.enums.UniDirection;
+import ch.nolix.core.entity2.Property;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.data.BackgroundColor;
@@ -23,26 +22,25 @@ extends WidgetStructure<BWS> {
 	public static final BackgroundColor DEFAULT_BACKGROUND_COLOR = new BackgroundColor(Color.WHITE_INT);
 	public static final BackgroundColorGradient DEFAULT_BACKGROUND_COLOR_GRADIENT = new BackgroundColorGradient();
 	
-	//optional attributes
-		private final Property<BackgroundColor> backgroundColor
-		= new Property<BackgroundColor>(
-			BackgroundColor.TYPE_NAME,
-			DEFAULT_BACKGROUND_COLOR,
-			s -> new BackgroundColor(s.getRefOne().toString())
-		);
+	//constants
+	private static final String BACKGROUND_COLOR_HEADER = "BackgroundColor";
+	private static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
+	
+	//optional attribute
+	private final Property<Color> backgroundColor =
+	new Property<Color>(
+		BACKGROUND_COLOR_HEADER,
+		DEFAULT_BACKGROUND_COLOR,
+		s -> Color.createFromSpecification(s)
+	);
 
-		private final Property<BackgroundColorGradient> backgroundColorGradient
-		= new Property<BackgroundColorGradient>(
-			BackgroundColorGradient.TYPE_NAME,
-			DEFAULT_BACKGROUND_COLOR_GRADIENT,
-			s -> {
-				return new BackgroundColorGradient(
-					UniDirection.valueOf(s.getRefAt(1).toString()),
-					new Color(s.getRefAt(2).toString()),
-					new Color(s.getRefAt(3).toString())
-				);
-			}
-		);
+	//optional attribute
+	private final Property<ColorGradient> backgroundColorGradient =
+	new Property<ColorGradient>(
+		BACKGROUND_COLOR_GRADIENT_HEADER,
+		DEFAULT_BACKGROUND_COLOR_GRADIENT,
+		s -> ColorGradient.createFromSpecification(s)
+	);
 	
 	//method
 	/**
@@ -56,7 +54,7 @@ extends WidgetStructure<BWS> {
 	/**
 	 * @return the active background color gradient of this background widget structure.
 	 */
-	public final BackgroundColorGradient getActiveBackgroundColorGradient() {
+	public final ColorGradient getActiveBackgroundColorGradient() {
 		return backgroundColorGradient.getActiveValue();
 	}
 	
@@ -85,7 +83,7 @@ extends WidgetStructure<BWS> {
 	@SuppressWarnings("unchecked")
 	public final BWS removeBackgroundColor() {
 		
-		backgroundColor.clear();
+		backgroundColor.removeValue();
 		
 		return (BWS)this;
 	}
@@ -99,7 +97,7 @@ extends WidgetStructure<BWS> {
 	@SuppressWarnings("unchecked")
 	public final BWS removeBackgroundColorGradient() {
 		
-		backgroundColorGradient.clear();
+		backgroundColorGradient.removeValue();
 		
 		return (BWS)this;
 	}

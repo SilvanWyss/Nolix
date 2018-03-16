@@ -126,10 +126,10 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 	/**
 	 * Removes all attributes of this check box structure.
 	 */
-	public void clearProperties() {
+	public void removeValues() {
 		
 		//Calls method of the base class.
-		super.clearProperties();
+		super.removeValues();
 		
 		removeSize();
 		removeLineThickness();

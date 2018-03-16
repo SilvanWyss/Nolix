@@ -26,6 +26,7 @@ extends BackgroundWidgetStructure<BWS> {
 	private static final int DEFAULT_ACTIVE_BORDER_SIZE = 0;
 	private static final Color DEFAULT_ACTIVE_BORDER_COLOR = Color.BLACK;
 	private static final int DEFAULT_ACTIVE_PADDING = 0;
+	private static final int DEFAULT_SCROLL_HEIGHT = 100;
 	
 	//attribute headers
 	private static final String BORDER_SIZE_HEADER = "BorderSize";
@@ -43,13 +44,14 @@ extends BackgroundWidgetStructure<BWS> {
 	private static final String RIGHT_PADDING_HEADER = "RightPadding";
 	private static final String TOP_PADDING_HEADER = "TopPadding";
 	private static final String BOTTOM_PADDING_HEADER = "BottomPadding";
+	private static final String SCROLL_HEIGHT_HEADER = "ScrollHeight";
 	
 	//attribute
-	private final Property<ScrollHeight> scrollHeight =
-	new Property<ScrollHeight>(
-		ScrollHeight.TYPE_NAME,
-		new ScrollHeight(),
-		a -> new ScrollHeight(a.getRefOne().toInt())
+	private final Property<PositiveInteger> scrollHeight =
+	new Property<PositiveInteger>(
+		SCROLL_HEIGHT_HEADER,
+		new PositiveInteger(DEFAULT_SCROLL_HEIGHT),
+		s -> PositiveInteger.createFromSpecification(s)
 	);
 	
 	//optional attributes
@@ -1084,10 +1086,10 @@ extends BackgroundWidgetStructure<BWS> {
 	/**
 	 * Removes all attributes of this border widget structure.
 	 */
-	public void clearProperties() {
+	public void removeValues() {
 		
 		//Calls method of the base class.
-		super.clearProperties();
+		super.removeValues();
 		
 		removeBorderSizes();
 		removeBorderColors();

@@ -273,7 +273,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	public void clearProperties() {
 		
 		//Calls method of the base class.
-		super.clearProperties();
+		super.removeValues();
 		
 		removeWidth();
 		removeHeight();
