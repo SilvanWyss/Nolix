@@ -7,8 +7,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 //own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.enums.UniDirection;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.core.Element;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
@@ -21,7 +23,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-07
- * @lines 240
+ * @lines 260
  */
 public class ColorGradient extends Element {
 	
@@ -30,11 +32,33 @@ public class ColorGradient extends Element {
 	public static final Color DEFAULT_COLOR1 = Color.BLACK;
 	public static final Color DEFAULT_COLOR2 = Color.WHITE;
 	
-	//attribute headers
+	//constants
 	private static final String DIRECTION_HEADER = "Direction";
 	private static final String COLOR_1_HEADER = "Color1";
 	private static final String COLOR_2_HEADER = "Color2";
 
+	//static method
+	/**
+	 * Creates new color gradient from the given specification.
+	 * 
+	 * @param specification
+	 * @return a new color gradient from the given specification.
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	public static ColorGradient createFromSpecification(
+		final Specification specification
+	) {
+		
+		final IContainer<Specification> attributes =
+		specification.getRefAttributes();
+		
+		return new ColorGradient(
+			UniDirection.valueOf(attributes.getRefAt(1).toString()),
+			Color.createFromSpecification(attributes.getRefAt(2)),
+			Color.createFromSpecification(attributes.getRefAt(3))
+		);
+	}
+	
 	//attributes
 	private final UniDirection direction;
 	private final Color color1;
@@ -118,15 +142,14 @@ public class ColorGradient extends Element {
 	 */
 	public List<StandardSpecification> getAttributes() {
 		return 
-		new List<StandardSpecification>()
-		.addAtEnd(
+		new List<StandardSpecification>(
 			new StandardSpecification(
 				DIRECTION_HEADER,
 				getDirection().toString()
-			)
-		)
-		.addAtEnd(getColor1().getSpecificationAs(COLOR_1_HEADER))
-		.addAtEnd(getColor2().getSpecificationAs(COLOR_2_HEADER));
+			),		
+			getColor1().getSpecificationAs(COLOR_1_HEADER),
+			getColor2().getSpecificationAs(COLOR_2_HEADER)
+		);
 	}
 	
 	//method
