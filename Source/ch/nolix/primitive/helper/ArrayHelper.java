@@ -1,25 +1,19 @@
 //package declaration
 package ch.nolix.primitive.helper;
 
-//Java import
-import java.util.Vector;
-
-import ch.nolix.primitive.invalidArgumentException.NullArgumentException;
+//own import
+import ch.nolix.primitive.container.List;
 
 //class
 /**
  * This class provides functions to handle arrays.
- * Methods are called on objects, functions are called independently.
- * 
- * The array helper has no dependencies except invalid argument exceptions.
- * -Advantage: The array helper does not import any bugs.
- * -Disadvantage: The array helper cannot use helpful functionalities.
+ * Methods are called on objects, functions are not.
  * 
  * Of this class no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 170
+ * @lines 200
  */
 public final class ArrayHelper {
 	
@@ -35,17 +29,17 @@ public final class ArrayHelper {
 		
 		//Checks if the given values is not null.
 		if (values == null) {
-			throw new NullArgumentException("values");
+			throw new RuntimeException("The given values is null.");
 		}
 		
-		final Vector<Double> valueVector = new Vector<Double>();
+		final List<Double> valueList = new List<Double>();
 		
-		//Iterates the given elements.
+		//Iterates the given values.
 		for (final double v : values) {
-			valueVector.add(v);
+			valueList.addAtEnd(v);
 		}
 		
-		return valueVector;
+		return valueList;
 	}
 
 	//static method
@@ -60,17 +54,17 @@ public final class ArrayHelper {
 		
 		//Checks if the given elements is not null.
 		if (elements == null) {
-			throw new NullArgumentException("elements");
+			throw new RuntimeException("The given elements is null.");
 		}
 		
-		final Vector<E> elementVector = new Vector<E>();
+		final List<E> elementList = new List<E>();
 		
 		//Iterates the given elements.
 		for (final E e : elements) {
-			elementVector.add(e);
+			elementList.addAtEnd(e);
 		}
 		
-		return elementVector;
+		return elementList;
 	}
 	
 	//static method
@@ -86,19 +80,19 @@ public final class ArrayHelper {
 		
 		//Checks if the given elements is not null.
 		if (elements == null) {
-			throw new NullArgumentException("elements");
+			throw new RuntimeException("The given elements is null.");
 		}
 		
-		final Vector<E> elementVector = new Vector<E>();
+		final List<E> elementList = new List<E>();
 		
 		//Iterates the given elements.
 		for (final E e : elements) {
-			elementVector.add(e);
+			elementList.addAtEnd(e);
 		}
 		
-		elementVector.add(additionalElement);
+		elementList.addAtEnd(additionalElement);
 		
-		return elementVector;
+		return elementList;
 	}
 	
 	//static method
@@ -113,17 +107,17 @@ public final class ArrayHelper {
 		
 		//Checks if the given values is not null.
 		if (values == null) {
-			throw new NullArgumentException("values");
+			throw new RuntimeException("The given values is null.");
 		}
 		
-		final Vector<Long> valueVector = new Vector<Long>();
+		final List<Long> valueList = new List<Long>();
 		
 		//Iterates the given elements.
 		for (final long v : values) {
-			valueVector.add(v);
+			valueList.addAtEnd(v);
 		}
 		
-		return valueVector;
+		return valueList;
 	}
 	
 	//static method
@@ -138,25 +132,31 @@ public final class ArrayHelper {
 		
 		//Checks if the given values is not null.
 		if (values == null) {
-			throw new NullArgumentException("values");
+			throw new RuntimeException("The given values is null.");
 		}
 		
-		final Vector<Long> valueVector = new Vector<Long>();
+		final List<Long> valueList = new List<Long>();
 		
 		//Iterates the given elements.
 		for (final long v : values) {
-			valueVector.add(v);
+			valueList.addAtEnd(v);
 		}
 		
-		return valueVector;
+		return valueList;
 	}
 	
 	//method
 	/**
 	 * @param values
 	 * @return a string representation of the given values.
+	 * @throws NullArgumentExcetpion if the given values is null.
 	 */
 	public static String createString(final double[] values) {
+		
+		//Checks if the given values is not null.
+		if (values == null) {
+			throw new RuntimeException("The given values is null.");
+		}
 		
 		final StringBuilder stringBuilder = new StringBuilder();
 		
@@ -177,8 +177,14 @@ public final class ArrayHelper {
 	/**
 	 * @param values
 	 * @return a string representation of the given values.
+	 * @throws NullArgumentExcetpion if the given values is null.
 	 */
 	public static String createString(final long[] values) {
+		
+		//Checks if the given values is not null.
+		if (values == null) {
+			throw new RuntimeException("The given values is null.");
+		}
 		
 		final StringBuilder stringBuilder = new StringBuilder();
 		
