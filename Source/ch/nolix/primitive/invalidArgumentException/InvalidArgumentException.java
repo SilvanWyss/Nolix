@@ -1,14 +1,22 @@
 //package declaration
 package ch.nolix.primitive.invalidArgumentException;
 
+//own import
+import ch.nolix.primitive.logger.Logger;
+
 /**
- * An invalid invalid argument exception is a runtime exception that is intended to be thrown when an argument is not valid or has a undesired property.
- * An invalid invalid argument exception stores always the argument name of the argument it is created for.
- * An invalid invalid argument exception can store optionally the argument it is created for.
+ * An invalid invalid argument exception is a runtime exception
+ * that is intended to be thrown when an argument is not valid or has a undesired property.
+ * 
+ * An invalid invalid argument exception
+ * stores always the argument name of the argument it is created for.
+ * 
+ * An invalid invalid argument exception
+ * can store optionally the argument it is created for.
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 230
+ * @lines 250
  */
 @SuppressWarnings("serial")
 public class InvalidArgumentException extends RuntimeException {
@@ -36,6 +44,8 @@ public class InvalidArgumentException extends RuntimeException {
 		argumentName = DEFAULT_ARGUMENT_NAME;
 		hasArgumentFlag = false;
 		argument = null;
+		
+		Logger.logError(getMessage());
 	}
 	
 	//constructor
@@ -58,6 +68,8 @@ public class InvalidArgumentException extends RuntimeException {
 		argumentName = DEFAULT_ARGUMENT_NAME;
 		hasArgumentFlag = true;
 		this.argument = argument.getValue();
+		
+		Logger.logError(getMessage());
 	}
 
 	/**
@@ -79,6 +91,8 @@ public class InvalidArgumentException extends RuntimeException {
 		argumentName = DEFAULT_ARGUMENT_NAME;
 		hasArgumentFlag = false;
 		argument = null;
+		
+		Logger.logError(getMessage());
 	}
 	
 	//constructor
@@ -103,6 +117,8 @@ public class InvalidArgumentException extends RuntimeException {
 		argumentName = argument.createArgumentName();
 		hasArgumentFlag = true;
 		this.argument = argument.getValue();
+		
+		Logger.logError(getMessage());
 	}
 	
 	//constructor
@@ -132,6 +148,8 @@ public class InvalidArgumentException extends RuntimeException {
 		this.argumentName = argumentName.toString();
 		hasArgumentFlag = true;
 		this.argument = argument.getValue();
+		
+		Logger.logError(getMessage());
 	}
 	
 	//constructor
@@ -163,6 +181,8 @@ public class InvalidArgumentException extends RuntimeException {
 		this.argumentName = argumentName.toString();
 		hasArgumentFlag = false;
 		argument = null;
+		
+		Logger.logError(getMessage());
 	}
 	
 	//constructor
@@ -202,6 +222,8 @@ public class InvalidArgumentException extends RuntimeException {
 		this.argumentName = argumentName.toString();
 		hasArgumentFlag = true;
 		this.argument = argument.getValue();
+		
+		Logger.logError(getMessage());
 	}
 	
 	//method
