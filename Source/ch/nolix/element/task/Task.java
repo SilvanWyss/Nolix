@@ -20,17 +20,15 @@ import ch.nolix.primitive.invalidStateException.InvalidStateException;
 /**
  * @author Silvan Wyss
  * @month 2018-01
- * @lines 360
+ * @lines 370
  */
 public final class Task extends MutableElement<Task> {
-
-	//constant
-	public static final String TYPE_NAME = "Task";
 	
 	//default value
 	private static final String DEFAULT_TITLE = StringCatalogue.EMPTY_STRING;
 	
 	//constants
+	public static final String TYPE_NAME = "Task";
 	private static final String TITLE_HEADER = "Title";
 	private static final String CREATION_DATE_HEADER = "CreationDate";
 	private static final String SOLVE_DATE_HEADER = "SolveDate";
@@ -62,7 +60,7 @@ public final class Task extends MutableElement<Task> {
 		s -> Time.createFromSpecification(s)
 	);
 	
-	//optional attribute
+	//attribute
 	private final MutableOptionalProperty<Time> solveTime =
 	new MutableOptionalProperty<>(
 		SOLVE_DATE_HEADER,
@@ -70,7 +68,7 @@ public final class Task extends MutableElement<Task> {
 		s -> Time.createFromSpecification(s)
 	);
 	
-	//optional attribute
+	//attribute
 	private final MutableOptionalProperty<TaskSize> size =
 	new MutableOptionalProperty<TaskSize>(
 		SIZE_HEADER,
@@ -182,11 +180,8 @@ public final class Task extends MutableElement<Task> {
 	 * @param specification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	private Task(final Specification specification) {	
-		
-		//TODO
-		//reset(specification);
-		
+	private Task(final Specification specification) {
+		reset(specification);
 		approveProperties();
 	}
 	
