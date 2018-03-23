@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.primitive.invalidStateException;
 
+//own import
+import ch.nolix.primitive.logger.Logger;
+
 //class
 /**
  * An invalid state exception is an exception that intended to be thrown
@@ -8,7 +11,7 @@ package ch.nolix.primitive.invalidStateException;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 70
+ * @lines 80
  */
 @SuppressWarnings("serial")
 public class InvalidStateException extends RuntimeException {
@@ -30,6 +33,8 @@ public class InvalidStateException extends RuntimeException {
 		
 		//Calls other constructor.
 		this(object, DEFAULT_ERROR_PREDICATE);
+		
+		Logger.logError(getMessage());
 	}
 	
 	//constructor
@@ -61,6 +66,8 @@ public class InvalidStateException extends RuntimeException {
 		
 		//Sets the error predicate of this invalid state exception.
 		this.errorPredicate = errorPredicate;
+		
+		Logger.logError(getMessage());
 	}
 	
 	//method
