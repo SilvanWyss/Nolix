@@ -86,7 +86,7 @@ public final class NetEndPoint extends EndPoint {
 		super(false);
 		
 		//Checks if the given socket is not null.
-		Validator.suppose(socket).thatIsInstanceOf(Socket.class).isNotNull();
+		Validator.suppose(socket).thatIsOfType(Socket.class).isNotNull();
 		
 		//Sets the socket of this net end point.
 		this.socket = socket;

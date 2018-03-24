@@ -41,7 +41,7 @@ implements RawInputListener {
 		//Checks if the given JMonkey main frame is not null.
 		Validator
 		.suppose(JMonkeyMainFrame_)
-		.thatIsInstanceOf(JMonkeyMainFrame.class)
+		.thatIsOfType(JMonkeyMainFrame.class)
 		.isNotNull();
 		
 		//Sets the JMonkey main frame

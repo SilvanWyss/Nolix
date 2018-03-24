@@ -163,7 +163,7 @@ extends Widget<L, LineStructure> {
 	public final L setColor(final Color color) {
 		
 		//Checks if the given color is not null.
-		Validator.suppose(color).thatIsInstanceOf(Color.class).isNotNull();
+		Validator.suppose(color).thatIsOfType(Color.class).isNotNull();
 		
 		//Sets the color of this line.
 		this.color = color;

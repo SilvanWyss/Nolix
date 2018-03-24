@@ -622,7 +622,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		//Checks if the given content position is not null.
 		Validator
 		.suppose(contentPosition)
-		.thatIsInstanceOf(ContentPosition.class)
+		.thatIsOfType(ContentPosition.class)
 		.isNotNull();
 		
 		//Sets the content position of this GUI.

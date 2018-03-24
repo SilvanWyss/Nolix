@@ -705,7 +705,7 @@ extends ConfigurableElement<W> {
 	public final W setCursorIcon(final CursorIcon cursorIcon) {
 		
 		//Checks if the given cursor icon is not null.
-		Validator.suppose(cursorIcon).thatIsInstanceOf(CursorIcon.class).isNotNull();
+		Validator.suppose(cursorIcon).thatIsOfType(CursorIcon.class).isNotNull();
 		
 		//Sets the cursor icon of this widget.
 		this.cursorIcon = cursorIcon;

@@ -20,7 +20,7 @@ public final class SwingPainter implements IPainter {
 		
 		Validator
 		.suppose(graphics)
-		.thatIsInstanceOf(Graphics.class)
+		.thatIsOfType(Graphics.class)
 		.isNotNull();
 		
 		this.graphics = graphics;

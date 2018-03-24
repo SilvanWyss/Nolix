@@ -26,7 +26,7 @@ public final class Future {
 		//Checks if the given job runner is not null.
 		Validator
 		.suppose(jobRunner)
-		.thatIsInstanceOf(JobRunner.class)
+		.thatIsOfType(JobRunner.class)
 		.isNotNull();
 		
 		//Sets the job runner of this future.

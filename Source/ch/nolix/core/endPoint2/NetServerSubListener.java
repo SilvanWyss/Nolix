@@ -37,7 +37,7 @@ final class NetServerSubListener extends Thread {
 	public NetServerSubListener(final NetServer netServer) {
 		
 		//Checks if the given net server is not null.
-		Validator.suppose(netServer).thatIsInstanceOf(NetServer.class).isNotNull();
+		Validator.suppose(netServer).thatIsOfType(NetServer.class).isNotNull();
 		
 		//Sets the net server of htis net server sub listener.
 		this.netServer = netServer;

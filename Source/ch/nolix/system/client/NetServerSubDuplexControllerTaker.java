@@ -32,7 +32,7 @@ final class NetServerSubDuplexControllerTaker implements IDuplexControllerTaker 
 		//Checks if the given server is not null.
 		Validator
 		.suppose(netServer)
-		.thatIsInstanceOf(NetServer.class)
+		.thatIsOfType(NetServer.class)
 		.isNotNull();
 		
 		//Sets the net server of this snet server sub duplex controller taker.

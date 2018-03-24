@@ -142,7 +142,7 @@ public abstract class Session<C extends Client<?>> {
 	final void setClient(Client<?> client) {
 		
 		//Checks if the given client is not null.
-		Validator.suppose(client).thatIsInstanceOf(Client.class).isNotNull();
+		Validator.suppose(client).thatIsOfType(Client.class).isNotNull();
 		
 		//Checks if this session has not already a client.
 		if (hasClient()) {

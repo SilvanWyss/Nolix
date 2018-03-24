@@ -176,7 +176,7 @@ public abstract class Entity<E extends Entity<E>> {
 						//Checks if the current property is not null.
 						Validator
 						.suppose(property)
-						.thatIsInstanceOf(Property.class)
+						.thatIsOfType(Property.class)
 						.isNotNull();
 						
 						properties.addAtEnd(property);		

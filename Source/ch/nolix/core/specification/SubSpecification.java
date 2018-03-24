@@ -33,7 +33,7 @@ public final class SubSpecification extends Specification {
 		//Checks if the given simple persistent specification is not null.
 		Validator
 		.suppose(simplePersistentSpecification)
-		.thatIsInstanceOf(SimplePersistentSpecification.class)
+		.thatIsOfType(SimplePersistentSpecification.class)
 		.isNotNull();
 		
 		//Checks if the given internal specification is not null.

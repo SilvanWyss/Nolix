@@ -128,7 +128,7 @@ public abstract class Entity implements Specified {
 						
 						//Checks if the current property is not null.
 						Validator.suppose(property)
-						.thatIsInstanceOf(MutableProperty.class)
+						.thatIsOfType(MutableProperty.class)
 						.isNotNull();
 						
 						properties.addAtEnd(property);		

@@ -34,7 +34,7 @@ final class NetServerSubEndPointTaker implements IEndPointTaker {
 		//Checks if the given net server is not null.
 		Validator
 		.suppose(netServer)
-		.thatIsInstanceOf(NetServer.class)
+		.thatIsOfType(NetServer.class)
 		.isNotNull();
 		
 		//Sets the net server of htis net server sub end point taker.
