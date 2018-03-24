@@ -4,7 +4,9 @@ package ch.nolix.primitive.testoid;
 //Java imports
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.Vector;
+
+//own import
+import ch.nolix.primitive.container.List;
 
 //abstract class
 /**
@@ -15,8 +17,8 @@ import java.util.Vector;
 public abstract class Testoid {
 	
 	//multiple attributes
-	private final Vector<String> lastErrors = new Vector<String>();
-	private final Vector<AutoCloseable> closableElements = new Vector<AutoCloseable>();
+	private final List<String> lastErrors = new List<String>();
+	private final List<AutoCloseable> closableElements = new List<AutoCloseable>();
 
 	//method
 	/**
@@ -42,7 +44,7 @@ public abstract class Testoid {
 		}
 		
 		long timeInMiliseconds = System.currentTimeMillis();
-		for (Method m: testMethods) {				
+		for (final Method m : testMethods) {				
 			if (!Modifier.isStatic(m.getModifiers())) {
 				testMethodsCount++;
 				long methodTimeInMiliseconds = System.currentTimeMillis();
@@ -85,12 +87,23 @@ public abstract class Testoid {
 							System.err.println("   An error occured by the try to close an element.");
 						}
 					}
+					
+					closableElements.clear();
 				}
 			}
 		}
 		
 		timeInMiliseconds = System.currentTimeMillis() - timeInMiliseconds;
-		System.out.println("  =" + getClass().getSimpleName() + ": " + passedTestMethodsCount + "/" + testMethodsCount + " passed test methods (" + timeInMiliseconds + "ms)");
+		System.out.println(
+			" = "
+			+ getClass().getSimpleName()
+			+ ": "
+			+ passedTestMethodsCount
+			+ "/"
+			+ testMethodsCount
+			+ " passed test methods ("
+			+ timeInMiliseconds
+			+ "ms)");
 		System.out.println();
 		System.out.flush();
 	}
@@ -103,7 +116,7 @@ public abstract class Testoid {
 	 */
 	protected void registerToClose(final AutoCloseable element) {
 		if (element != null) {
-			closableElements.addElement(element);
+			closableElements.addAtEnd(element);
 		}
 	}
 	
@@ -128,6 +141,6 @@ public abstract class Testoid {
 			throw new RuntimeException("Class was not found.");
 		}
 		
-		lastErrors.addElement(currentTestMethodError + " (" + className + ".java:" + lineNumber + ")");
+		lastErrors.addAtEnd(currentTestMethodError + " (" + className + ".java:" + lineNumber + ")");
 	}
 }
