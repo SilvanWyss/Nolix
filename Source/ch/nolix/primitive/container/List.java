@@ -50,6 +50,12 @@ public final class List<E> implements Iterable<E> {
 	}
 	
 	//method
+	public void clear() {
+		beginNode = null;
+		endNode = null;
+	}
+	
+	//method
 	public E getRefFirst() {
 		
 		supposeIsNotEmpty();
@@ -60,6 +66,14 @@ public final class List<E> implements Iterable<E> {
 	//method
 	public boolean isEmpty() {
 		return (beginNode == null);
+	}
+	
+	//method
+	/**
+	 * @return a new {@link Iterator} for the current {@link List}.
+	 */
+	public Iterator<E> iterator() {
+		return new ListIterator<E>(beginNode);
 	}
 	
 	//method
@@ -74,14 +88,6 @@ public final class List<E> implements Iterable<E> {
 		else {
 			beginNode = beginNode.getRefNextNodeOrNull();
 		}
-	}
-
-	//method
-	/**
-	 * @return a new {@link Iterator} for the current {@link List}.
-	 */
-	public Iterator<E> iterator() {
-		return new ListIterator<E>(beginNode);
 	}
 	
 	//method
