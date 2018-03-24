@@ -3,7 +3,7 @@ package ch.nolix.element.GUI;
 
 //class
 /**
- * An invisble GUI is a GUI that is not visible.
+ * A {@link InvisibleGUI} is a {@link GUI} that is not visible.
  * 
  * @author Silvan Wyss
  * @month 2015-12
@@ -15,9 +15,17 @@ public final class InvisibleGUI extends GUI<InvisibleGUI> {
 	private int cursorXPosition;
 	private int cursorYPosition;
 	
+	//constructor
+	/**
+	 * Creates a new {@link InvisibleGUI}.
+	 */
+	public InvisibleGUI() {
+		approveProperties();
+	}
+	
 	//method
 	/**
-	 * Sets the position of the cursor on this invisible GUI.
+	 * Sets the position of the cursor on the current {@link InvisibleGUI}.
 	 * 
 	 * @param cursorXPosition
 	 * @param cursorYPosition
@@ -32,7 +40,7 @@ public final class InvisibleGUI extends GUI<InvisibleGUI> {
 
 	//method
 	/**
-	 * @return the x-position of the cursor on this invisible GUI.
+	 * @return the x-position of the cursor on the current {@link InvisibleGUI}.
 	 */
 	public int getCursorXPosition() {
 		return cursorYPosition;
@@ -48,13 +56,13 @@ public final class InvisibleGUI extends GUI<InvisibleGUI> {
 
 	//method
 	/**
-	 * Closes this invisible GUI.
+	 * Closes the current {@link InvisibleGUI}.
 	 */
 	public void close() {}
 
 	//method
 	/**
-	 * Refreshes this invisible GUI.
+	 * Refreshes the current {@link InvisibleGUI}.
 	 */
 	public final void refresh() {}
 }
