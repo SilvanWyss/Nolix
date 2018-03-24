@@ -6,6 +6,7 @@ import java.awt.Graphics;
 
 //own imports
 import ch.nolix.element.color.Color;
+import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.font.Font;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -14,6 +15,9 @@ public final class SwingPainter implements IPainter {
 	
 	//attribute
 	private final Graphics graphics;
+	
+	//optional attribute
+	private ColorGradient colorGradient;
 	
 	//constructor
 	public SwingPainter(final Graphics graphics) {
@@ -48,6 +52,10 @@ public final class SwingPainter implements IPainter {
 		final int width,
 		final int	height
 	) {
+		if (hasColorGradient()) {
+			
+		}
+		
 		graphics.fillRect(xPosition, yPosition, width, height);
 	}
 
@@ -55,9 +63,43 @@ public final class SwingPainter implements IPainter {
 	public void paintText(final String text, final Font font) {
 		font.paintText(text, graphics);
 	}
+	
+	//method
+	public void paintText(
+		String text,
+		Font font,
+		int maxTextWidth
+	) {
+		font.paintText(text, maxTextWidth, graphics);
+	}
 
 	//method
 	public void setColor(final Color color) {
 		graphics.setColor(color.getJavaColor());
+		colorGradient = null;
+	}
+
+	//method
+	public void setColorGradient(ColorGradient colorGradient) {
+		
+		Validator
+		.suppose(colorGradient)
+		.thatIsOfType(ColorGradient.class)
+		.isNotNull();
+		
+		this.colorGradient = colorGradient;
+	}
+	
+	//method
+	public void translate(
+		final int xTranslation,
+		final int yTranslation
+	) {
+		graphics.translate(xTranslation, yTranslation);	
+	}
+	
+	//method
+	private boolean hasColorGradient() {
+		return (colorGradient != null);
 	}
 }

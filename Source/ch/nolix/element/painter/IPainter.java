@@ -3,13 +3,14 @@ package ch.nolix.element.painter;
 
 //own imports
 import ch.nolix.element.color.Color;
+import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.font.Font;
 
 //interface
 /**
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 90
+ * @lines 120
  */
 public interface IPainter {
 
@@ -83,9 +84,47 @@ public interface IPainter {
 	
 	//abstract method
 	/**
+	 * Lets the current {@link IPainter} paint the given text using the given font.
+	 * 
+	 * Only the first part of the given text
+	 * that is not longer than the given max width will be painted.
+	 * 
+	 * @param text
+	 * @param font
+	 * @param maxTextWidth
+	 */
+	public abstract void paintText(
+		String text,
+		Font font,
+		int maxTextWidth
+	);
+	
+	//abstract method
+	/**
 	 * Sets the color of the current {@link IPainter}.
 	 * 
 	 * @param color
 	 */
 	public abstract void setColor(Color color);
+	
+	//abstract method
+	/**
+	 * Sets the color gradient of the current {@link IPainter}.
+	 * 
+	 * @param colorGradient
+	 */
+	public abstract void setColorGradient(ColorGradient colorGradient);
+	
+	//abstract method
+	/**
+	 * Translates the current {@link IPainter}.
+	 * 
+	 * @param xTranslation
+	 * @param yTranslation
+	 */
+	public abstract void translate(
+		int xTranslation,
+		int yTranslation
+	);
 }
+	
