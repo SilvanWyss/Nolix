@@ -11,6 +11,7 @@ import ch.nolix.core.specificationInterfaces.ISpecifiedEnum;
  * @lines 10
  */
 public enum TextStyle implements ISpecifiedEnum {
+	Default,
 	Bold,
 	BoldAndItalic,
 	Italic
