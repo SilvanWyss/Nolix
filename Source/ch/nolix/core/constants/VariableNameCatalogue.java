@@ -48,6 +48,7 @@ public class VariableNameCatalogue {
 	public static final String LAST_NAME = "last name";
 	public static final String LENGTH = "length";
 	public static final String MAXIMUM = "maximum";
+	public static final String MESSAGE = "message";
 	public static final String MINIMUM = "minimum";
 	public static final String NAME = "name";
 	public static final String NEXT_ELEMENT = "next element";
