@@ -8,7 +8,7 @@ import ch.nolix.primitive.container.List;
 public final class Logger {
 	
 	//static attributes
-	private static boolean active = false;
+	private static boolean active = true;
 	private static LogWorker logWorker;
 	
 	//static attribute
@@ -33,7 +33,6 @@ public final class Logger {
 	public static synchronized void enable() {
 		if (!active) {
 			active = true;
-			logWorker = new LogWorker();
 		}
 	}
 	
@@ -45,6 +44,11 @@ public final class Logger {
 	//static method
 	public static void logError(final String error) {
 		if (active) {
+			
+			if (logWorker == null) {
+				logWorker = new LogWorker();
+			}
+			
 			logWorker.takeLogEntry(
 				new LogEntry(
 					HarmLevel.ERROR,
@@ -53,7 +57,7 @@ public final class Logger {
 			);
 		}
 	}
-	
+
 	//static method
 	public static void logError(
 		final String valueName,
@@ -61,6 +65,11 @@ public final class Logger {
 		final String errorPredicate
 	) {
 		if (active) {
+			
+			if (logWorker == null) {
+				logWorker = new LogWorker();
+			}
+			
 			logWorker.takeLogEntry(
 				new LogEntry(
 					HarmLevel.ERROR,
@@ -77,6 +86,11 @@ public final class Logger {
 		final String errorPredicate
 	) {
 		if (active) {
+			
+			if (logWorker == null) {
+				logWorker = new LogWorker();
+			}
+			
 			logWorker.takeLogEntry(
 				new LogEntry(
 					HarmLevel.ERROR,
@@ -89,6 +103,11 @@ public final class Logger {
 	//static method
 	public static void logFatalError(final String fatalError) {
 		if (active) {
+			
+			if (logWorker == null) {
+				logWorker = new LogWorker();
+			}
+			
 			logWorker.takeLogEntry(
 				new LogEntry(
 					HarmLevel.FATAL_ERROR,
@@ -101,6 +120,11 @@ public final class Logger {
 	//static method
 	public static void logInfo(final String info) {
 		if (active) {
+			
+			if (logWorker == null) {
+				logWorker = new LogWorker();
+			}
+			
 			logWorker.takeLogEntry(
 				new LogEntry(
 					HarmLevel.INFO,
@@ -113,6 +137,11 @@ public final class Logger {
 	//static method
 	public static void logInfo(final String valueName, final double value) {
 		if (active) {
+			
+			if (logWorker == null) {
+				logWorker = new LogWorker();
+			}
+			
 			logWorker.takeLogEntry(
 				new LogEntry(
 					HarmLevel.INFO,
@@ -125,6 +154,11 @@ public final class Logger {
 	//static method
 	public static void logInfo(final String valueName, final long value) {
 		if (active) {
+			
+			if (logWorker == null) {
+				logWorker = new LogWorker();
+			}
+			
 			logWorker.takeLogEntry(
 				new LogEntry(
 					HarmLevel.INFO,
@@ -137,6 +171,11 @@ public final class Logger {
 	//static method
 	public static void logWarning(final String warning) {
 		if (active) {
+			
+			if (logWorker == null) {
+				logWorker = new LogWorker();
+			}
+			
 			logWorker.takeLogEntry(
 				new LogEntry(
 					HarmLevel.WARNING,
@@ -146,11 +185,16 @@ public final class Logger {
 		}
 	}
 	
-	//static method
+	//package-visible static method
 	static void takeLogEntry(final LogEntry logEntry) {
-		for (final LogHandler lh : logHandlers) {		
+		for (final LogHandler lh : logHandlers) {
 			lh.takeLogEntry(logEntry);
 		}
+	}
+	
+	//package-visible static method
+	static synchronized void removeLogWorker() {
+		logWorker = null;
 	}
 	
 	//private constructor

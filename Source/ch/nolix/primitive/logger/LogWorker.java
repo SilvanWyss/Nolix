@@ -20,11 +20,29 @@ final class LogWorker extends Thread {
 	
 	//method
 	public void run() {
+		
+		boolean idle = false;
+		long startTimeOfLastIdleInMilliseconds = -1;
+		
 		while (active) {
 			if (containsLogEntries()) {
+				idle = false;
 				Logger.takeLogEntry(getAndRemoveNextLogEntry());
 			}
+			else {
+				
+				if (!idle) {
+					idle = true;
+					startTimeOfLastIdleInMilliseconds = System.currentTimeMillis();
+				}
+				
+				if (System.currentTimeMillis() > startTimeOfLastIdleInMilliseconds + 1000) {
+					active = false;
+				}
+			}
 		}
+		
+		Logger.removeLogWorker();
 	}
 	
 	//method
