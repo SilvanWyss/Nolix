@@ -20,23 +20,15 @@ public final class InvisibleGUI extends GUI<InvisibleGUI> {
 	 * Creates a new {@link InvisibleGUI}.
 	 */
 	public InvisibleGUI() {
+		reset();
 		approveProperties();
 	}
 	
 	//method
 	/**
-	 * Sets the position of the cursor on the current {@link InvisibleGUI}.
-	 * 
-	 * @param cursorXPosition
-	 * @param cursorYPosition
+	 * Closes the current {@link InvisibleGUI}.
 	 */
-	public void setCursorPosition(
-		final int cursorXPosition,
-		final int cursorYPosition
-	) {
-		this.cursorXPosition = cursorXPosition;
-		this.cursorYPosition = cursorYPosition;
-	}
+	public void close() {}
 
 	//method
 	/**
@@ -56,13 +48,22 @@ public final class InvisibleGUI extends GUI<InvisibleGUI> {
 
 	//method
 	/**
-	 * Closes the current {@link InvisibleGUI}.
-	 */
-	public void close() {}
-
-	//method
-	/**
 	 * Refreshes the current {@link InvisibleGUI}.
 	 */
 	public final void refresh() {}
+	
+	//method
+	/**
+	 * Sets the position of the cursor on the current {@link InvisibleGUI}.
+	 * 
+	 * @param cursorXPosition
+	 * @param cursorYPosition
+	 */
+	public void setCursorPosition(
+		final int cursorXPosition,
+		final int cursorYPosition
+	) {
+		this.cursorXPosition = cursorXPosition;
+		this.cursorYPosition = cursorYPosition;
+	}
 }
