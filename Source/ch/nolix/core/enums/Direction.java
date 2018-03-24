@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.enums;
 
-//own imports
+//own import
 import ch.nolix.core.specificationInterfaces.ISpecifiedEnum;
 
 //enum
