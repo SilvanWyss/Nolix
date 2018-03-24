@@ -8,7 +8,7 @@ import ch.nolix.primitive.container.List;
 public final class Logger {
 	
 	//static attributes
-	private static boolean active = true;
+	private static boolean active = false;
 	private static LogWorker logWorker = new LogWorker();
 	
 	//static attribute
@@ -18,6 +18,23 @@ public final class Logger {
 	//static method
 	public static void addLogHandler(final LogHandler logHandler) {
 		logHandlers.addAtEnd(logHandler);
+	}
+	
+	//static method
+	public static synchronized void disable() {
+		if (active) {
+			active = false;
+			logWorker.stop_();
+			logWorker = null;
+		}
+	}
+	
+	//static method
+	public static synchronized void enable() {
+		if (!active) {
+			active = true;
+			logWorker = new LogWorker();
+		}
 	}
 	
 	//static method
@@ -126,23 +143,6 @@ public final class Logger {
 					warning
 				)
 			);
-		}
-	}
-	
-	//static method
-	public static synchronized void start() {
-		if (!active) {
-			active = true;
-			logWorker = new LogWorker();
-		}
-	}
-	
-	//static method
-	public static synchronized void stop() {
-		if (active) {
-			active = false;
-			logWorker.stop_();
-			logWorker = null;
 		}
 	}
 	
