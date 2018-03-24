@@ -1,14 +1,15 @@
 //package declaration
 package ch.nolix.element.painter;
 
-//own import
+//own imports
 import ch.nolix.element.color.Color;
+import ch.nolix.element.font.Font;
 
 //interface
 /**
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 50
+ * @lines 70
  */
 public interface IPainter {
 
@@ -16,7 +17,7 @@ public interface IPainter {
 	/**
 	 * @param xTranslation
 	 * @param yTranslation
-	 * @return a new painter from this painter with the given translation.
+	 * @return a new {@link IPainter} from the current {@link IPainter} with the given translation.
 	 */
 	public abstract IPainter createTranslatedPainter(
 		int xTranslation,
@@ -25,7 +26,18 @@ public interface IPainter {
 	
 	//abstract method
 	/**
-	 * Lets this painter paint a filled rectangle
+	 * @param text
+	 * @param font
+	 * @return the width of the given text from the current {@link IPainter} using the given font.
+	 */
+	public abstract int getTextWith(
+		String text,
+		Font font
+	);
+	
+	//abstract method
+	/**
+	 * Lets the current {@link IPainter} paint a filled rectangle
 	 * at the given x-position and y-Position with the given width and height.
 	 * 
 	 * @param xPosition
@@ -42,7 +54,19 @@ public interface IPainter {
 	
 	//abstract method
 	/**
-	 * Sets the color of this painter.
+	 * Lets the current {@link IPainter} paint the given text using the given font.
+	 * 
+	 * @param text
+	 * @param font
+	 */
+	public abstract void paintText(
+		String text,
+		Font font
+	);
+	
+	//abstract method
+	/**
+	 * Sets the color of the current {@link IPainter}.
 	 * 
 	 * @param color
 	 */
