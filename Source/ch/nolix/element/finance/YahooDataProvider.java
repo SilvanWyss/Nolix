@@ -1,25 +1,23 @@
 //package declaration
 package ch.nolix.element.finance;
 
-//Java imports
+//own import
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
-
-//own imports
 import ch.nolix.core.container.List;
 import ch.nolix.element.core.Time;
 
 //class
 /**
  * Provides methods to get finance data.
- * To get the data a web service from Quandl is used.
+ * To get the data a web service from Yahoo! Inc. is used.
  * 
  * @author Silvan Wyss
- * @month 2017-08
+ * @month 2018-03
  * @lines 70
  */
-public final class QuandlDataProvider {
+public final class YahooDataProvider {
 
 	//method
 	/**
@@ -41,9 +39,16 @@ public final class QuandlDataProvider {
 			
 			final List<VolumeCandlestick> dailyCandleSticks = new List<VolumeCandlestick>();
 			
-			final String URLString = "https://www.quandl.com/api/v3/datasets/WIKI/"
-				+ productSymbol
-				+ "/data.csv";
+			final String URLString = "http://finance.yahoo.com/table.csv"
+				+ "?s=" + productSymbol
+				+ "&amp;a=" + (startDate.getMonthOfYear() - 1)
+				+ "&amp;b=" + startDate.getDayOfMonth()
+				+ "&amp;c=" + startDate.getYear()
+				+ "&amp;d=" + (endDate.getMonthOfYear() - 1)
+				+ "&amp;e=" + endDate.getDayOfMonth()
+				+ "&amp;f=" + endDate.getYear()
+				+ "&amp;g=d"
+				+ "&amp;ignore=.csv";
 			
 			final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new URL(URLString).openStream()));
 			String line;
@@ -52,16 +57,10 @@ public final class QuandlDataProvider {
 
 				final String[] stringArray = line.split(",");
 				
-				final Time time = new Time(stringArray[0]);
-				
-				if (time.isBefore(startDate)) {
-					break;
-				}
-				
 				dailyCandleSticks.addAtBegin(
 					new VolumeCandlestick(
-						time,
-						Integer.valueOf(stringArray[5].substring(0, stringArray[5].length() - 3)),
+						new Time(stringArray[0]),
+						Integer.valueOf(stringArray[5]),
 						Double.valueOf(stringArray[1]),
 						Double.valueOf(stringArray[4]),
 						Double.valueOf(stringArray[3]),
@@ -71,8 +70,8 @@ public final class QuandlDataProvider {
 			}
 			
 			return dailyCandleSticks;
-			
-		} catch (final Exception e) {
+		}
+		catch (final Exception e) {
 			throw new RuntimeException(e);
 		}
 	}

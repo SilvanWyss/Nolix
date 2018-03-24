@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.elementTutorial.financeTutorial;
 
+//own imports
 import ch.nolix.element.core.Time;
-import ch.nolix.element.finance.DataProvider;
+import ch.nolix.element.finance.GoogleDataProvider;
 import ch.nolix.element.finance.NYSEProductSymbolManager;
 
 //class
@@ -22,7 +23,7 @@ public final class DataProviderTutorial {
 	 * @param arguments
 	 */
 	public static void main(final String[] arguments) {
-		new DataProvider().getCandleSticksPerHour(
+		new GoogleDataProvider().getCandleSticksPerHour(
 			NYSEProductSymbolManager.BP,
 			new Time(2017, 2, 1, 16, 0),
 			new Time(2017, 2, 3, 22, 0)

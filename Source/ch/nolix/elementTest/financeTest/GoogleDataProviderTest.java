@@ -4,27 +4,27 @@ package ch.nolix.elementTest.financeTest;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.element.core.Time;
-import ch.nolix.element.finance.DataProvider;
+import ch.nolix.element.finance.GoogleDataProvider;
 import ch.nolix.element.finance.NASDAQProductSymbolManager;
 import ch.nolix.element.finance.VolumeCandlestick;
 import ch.nolix.primitive.test2.Test;
 
 //test class
 /**
- * This class is a test class for the finance data provider class.
+ * This class is a test class for the {@link GoogleDataProvider} class.
  * 
  * @author Silvan Wyss
  * @month 2016-08
  * @lines 90
  */
-public final class DataProviderTest extends Test {
+public final class GoogleDataProviderTest extends Test {
 
 	//test method
-	public void test_getCandleSticksPerDay2() {
+	public void test_getCandleSticksPerDay() {
 		
 		//execution
 		final List<VolumeCandlestick> candleSticksPerDay 
-		= new DataProvider().getCandleSticksPerDay2(
+		= new GoogleDataProvider().getCandleSticksPerDay(
 			NASDAQProductSymbolManager.MICROSOFT_CORPORATION,
 			new Time(2015, 1, 1, 0, 0),
 			new Time(2015, 12, 31, 23, 59)
@@ -48,7 +48,7 @@ public final class DataProviderTest extends Test {
 		
 		//execution
 		final List<VolumeCandlestick> candleStricksPerHour 
-		= new DataProvider().getCandleSticksPerHour(
+		= new GoogleDataProvider().getCandleSticksPerHour(
 			NASDAQProductSymbolManager.MICROSOFT_CORPORATION,
 			new Time(2017, 1, 1, 0, 0),
 			new Time(2017, 1, 31, 23, 59)
@@ -72,7 +72,7 @@ public final class DataProviderTest extends Test {
 		
 		//execution
 		final List<VolumeCandlestick> candleStricksPerMinute 
-		= new DataProvider().getCandleSticksPerHour(
+		= new GoogleDataProvider().getCandleSticksPerHour(
 			NASDAQProductSymbolManager.MICROSOFT_CORPORATION,
 			new Time(2017, 1, 1, 0, 0),
 			new Time(2017, 1, 31, 23, 59)
