@@ -9,7 +9,7 @@ public final class Logger {
 	
 	//static attributes
 	private static boolean active = false;
-	private static LogWorker logWorker = new LogWorker();
+	private static LogWorker logWorker;
 	
 	//static attribute
 	private static final List<LogHandler> logHandlers =
