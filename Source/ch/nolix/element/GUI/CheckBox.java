@@ -1,13 +1,11 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//Java import
-import java.awt.Graphics;
-
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.element.painter.IPainter;
 
 //class
 /**
@@ -140,7 +138,7 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxStructure
 	 * @param widgetStructure
 	 * @param graphics
 	 */
-	protected void paint(final CheckBoxStructure widgetStructure, final Graphics graphics) {
+	protected void paint(final CheckBoxStructure widgetStructure, final IPainter graphics) {
 		
 		//Calls method of the base class.
 		super.paint(widgetStructure, graphics);
@@ -148,19 +146,19 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxStructure
 		final int s = widgetStructure.getActiveSize();
 		final int t = widgetStructure.getActiveLineThickness();
 		
-		graphics.setColor(widgetStructure.getActiveLineColor().getJavaColor());
+		graphics.setColor(widgetStructure.getActiveLineColor());
 		
 		//Paints the left line of this check box.
-		graphics.fillRect(0, 0, t, s);
+		graphics.paintFilledRectangle(0, 0, t, s);
 		
 		//Paints the right line of this check box.
-		graphics.fillRect(s - t, 0, t, s);
+		graphics.paintFilledRectangle(s - t, 0, t, s);
 		
 		//Paints the top line of this check box.
-		graphics.fillRect(0, 0, s, t);
+		graphics.paintFilledRectangle(0, 0, s, t);
 		
 		//Paints the bottom line of this check box.
-		graphics.fillRect(s - t, 0, s, t);
+		graphics.paintFilledRectangle(s - t, 0, s, t);
 		
 		//Paints the icon of this check box if it is checked.
 		if (isChecked()) {
@@ -173,7 +171,8 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxStructure
 			x[2] = s;		y[2] = s - t;
 			x[3] = s - t;	y[3] = s;
 			
-			graphics.fillPolygon(x, y, 4);
+			//TODO
+			//graphics.fillPolygon(x, y, 4);
 		}
 	}
 

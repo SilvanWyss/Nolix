@@ -8,13 +8,11 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//java import
-import java.awt.Graphics;
-
-import ch.nolix.core.container.ReadContainer;
 //own imports
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.validator.Validator;
 
 //class
@@ -108,19 +106,17 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
-	 * Paints this container using the given rectangle structure and graphics.
+	 * Paints this container using the given rectangle structure and painter.
 	 * 
 	 * @param rectangleStructure
-	 * @param graphics
+	 * @param painter
 	 */
-	protected void paintContent(BWS rectangleStructure, Graphics graphics) {
-		
-		graphics.translate(-getContentXPosition(), -getContentYPosition());
-		
+	protected void paintContent(
+		final BWS rectangleStructure,
+		final IPainter painter
+	) {
 		//Paints the rectangles of this container that are shown.
-		getRefShownWidgets().forEach(r -> r.paintUsingPositionOnContainer(graphics));
-		
-		graphics.translate(getContentXPosition(), getContentYPosition());
+		getRefShownWidgets().forEach(r -> r.paintUsingPositionOnContainer(painter));
 	}
 	
 	//method

@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//Java import
-import java.awt.Graphics;
-
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.mathematics.Calculator;
@@ -12,6 +9,7 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.intData.MinHeight;
 import ch.nolix.element.intData.MinWidth;
+import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -578,22 +576,22 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Paints this border widget using the given widget structure and graphics.
+	 * Paints this border widget using the given widget structure and painter.
 	 * 
 	 * @param widgetStructure
-	 * @param graphics
+	 * @param painter
 	 */
-	protected final void paint(final BWS widgetStructure, final Graphics graphics) {
+	protected final void paint(final BWS widgetStructure, final IPainter painter) {
 				
 		//Calls method of the base class.
-		super.paint(widgetStructure, graphics);
+		super.paint(widgetStructure, painter);
 		
 		//Paints the left border if the given widget structure has a left border.
 		if (widgetStructure.getActiveLeftBorderSize() > 0) {
 			
-			graphics.setColor(widgetStructure.getActiveLeftBorderColor().getJavaColor());
+			painter.setColor(widgetStructure.getActiveLeftBorderColor());
 			
-			graphics.fillRect(
+			painter.paintFilledRectangle(
 				0,
 				0,
 				widgetStructure.getActiveLeftBorderSize(),
@@ -604,9 +602,9 @@ extends BackgroundWidget<BW, BWS> {
 		//Paints the right border if the given widget structure has a right border.
 		if (widgetStructure.getActiveRightBorderSize() > 0) {
 			
-			graphics.setColor(widgetStructure.getActiveRightBorderColor().getJavaColor());
+			painter.setColor(widgetStructure.getActiveRightBorderColor());
 			
-			graphics.fillRect(
+			painter.paintFilledRectangle(
 				getWidth() - widgetStructure.getActiveLeftBorderSize(),
 				0,
 				widgetStructure.getActiveLeftBorderSize(),
@@ -617,9 +615,9 @@ extends BackgroundWidget<BW, BWS> {
 		//Paints the top border if the given widget structure has a top border.
 		if (widgetStructure.getActiveTopBorderSize() > 0) {
 			
-			graphics.setColor(widgetStructure.getActiveTopBorderColor().getJavaColor());
+			painter.setColor(widgetStructure.getActiveTopBorderColor());
 			
-			graphics.fillRect(
+			painter.paintFilledRectangle(
 				0,
 				0,
 				getWidth(),
@@ -630,9 +628,9 @@ extends BackgroundWidget<BW, BWS> {
 		//Paints the bottom border if the given widget structure has a bottom border.
 		if (widgetStructure.getActiveBottomBorderSize() > 0) {
 			
-			graphics.setColor(widgetStructure.getActiveBottomBorderColor().getJavaColor());
+			painter.setColor(widgetStructure.getActiveBottomBorderColor());
 			
-			graphics.fillRect(
+			painter.paintFilledRectangle(
 				0,
 				getHeightWhenNotCollapsed() - widgetStructure.getActiveBottomBorderSize(),
 				getWidth(),
@@ -643,32 +641,30 @@ extends BackgroundWidget<BW, BWS> {
 		//Paints the vertical scroll bar if the given widget structure has a recursive scroll height.
 		if (widgetStructure.hasRecursiveScrollHeight()) {
 			
-			graphics.setColor(Color.LIGHT_GREY.getJavaColor());
-			graphics.fillRect(getWidth() - 10, 0, 10, getHeight());
+			painter.setColor(Color.LIGHT_GREY);
+			painter.paintFilledRectangle(getWidth() - 10, 0, 10, getHeight());
 			
 			final int scrollCursorHeight = (int)(getHeight() * (1.0 * widgetStructure.getActiveScrollHeight() / getContentHeight()));
 			
-			graphics.setColor(Color.BLACK.getJavaColor());
-			graphics.fillRect(getWidth() - 10, 0, 10, scrollCursorHeight);
+			painter.setColor(Color.BLACK);
+			painter.paintFilledRectangle(getWidth() - 10, 0, 10, scrollCursorHeight);
 		}
 
 		paintContent(
 			widgetStructure,
-			graphics.create(
+			painter.createTranslatedPainter(
 				getContentXPosition(),
-				getContentYPosition(),
-				getContentWidth(),
-				getContentHeight()
+				getContentYPosition()
 			)
 		);
 	}
 	
 	//abstract method
 	/**
-	 * Paints the content of this border widget using the given widget structure and graphics.
+	 * Paints the content of this border widget using the given widget structure and painter.
 	 * 
 	 * @param widgetStructure
-	 * @param graphics
+	 * @param painter
 	 */
-	protected abstract void paintContent(BWS widgetStructure, Graphics graphics);
+	protected abstract void paintContent(BWS widgetStructure, IPainter painter);
 }

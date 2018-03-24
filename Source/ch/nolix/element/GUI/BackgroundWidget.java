@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//Java import
-import java.awt.Graphics;
+//own import
+import ch.nolix.element.painter.IPainter;
 
 //abstract class
 /**
@@ -20,27 +20,27 @@ extends Widget<BW, BWS> {
 	
 	//method
 	/**
-	 * Paints this background widget using the given widget structure and graphics.
+	 * Paints this background widget using the given widget structure and painter.
 	 * 
 	 * @param widgetStructure
-	 * @param graphics
+	 * @param painter
 	 */
-	protected void paint(final BWS widgetStructure, final Graphics graphics) {
+	protected void paint(final BWS widgetStructure, final IPainter painter) {
 		
 		//Handles the case that the given widget structure has a background color.
 		if (widgetStructure.hasRecursiveBackgroundColor()) {
-			graphics.setColor(widgetStructure.getActiveBackgroundColor().getJavaColor());
-			graphics.fillRect(0, 0, getWidth(), getHeight());
+			painter.setColor(widgetStructure.getActiveBackgroundColor());
+			painter.paintFilledRectangle(0, 0, getWidth(), getHeight());
 		}
 		
 		//Handles the case that the given widget structure has a background color gradient.
 		if (widgetStructure.hasRecursiveBackgroundColorGradient()) {
-			widgetStructure.getActiveBackgroundColorGradient().paintRectangle(
-				0,
-				0,
+			
+			painter.setColorGradient(widgetStructure.getActiveBackgroundColorGradient());
+			
+			painter.paintFilledRectangle(
 				getWidth(),
-				getHeight(),
-				graphics
+				getHeight()
 			);
 		}
 	}

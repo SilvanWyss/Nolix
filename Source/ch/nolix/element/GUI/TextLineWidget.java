@@ -8,9 +8,6 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//Java import
-import java.awt.Graphics;
-
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
@@ -18,6 +15,7 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Text;
 import ch.nolix.element.font.Font;
+import ch.nolix.element.painter.IPainter;
 
 //class
 /**
@@ -126,19 +124,22 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 	
 	//method
 	/**
-	 * Paints the content of this text line rectangle using the given rectangle structure and graphics.
+	 * Paints the content of this text line rectangle using the given rectangle structure and painter.
 	 * 
 	 * @param rectangleStructure
-	 * @param graphics
+	 * @param painter
 	 */
 	protected void paintContent(
 		final TextLineWidgetStructure rectangleStructure,
-		final Graphics graphics
+		final IPainter painter
 	) {
-		new Font(
-		rectangleStructure.getActiveTextSize(),
-		rectangleStructure.getActiveTextColor())
-		.paintText(getText(), graphics);	
+		painter.paintText(
+			getText(),
+			new Font(
+				rectangleStructure.getActiveTextSize(),
+				rectangleStructure.getActiveTextColor()
+			)
+		);	
 	}
 	
 	protected TextLineWidgetStructure createWidgetStructure() {

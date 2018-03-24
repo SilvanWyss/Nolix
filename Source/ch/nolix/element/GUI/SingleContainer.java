@@ -9,12 +9,11 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import java.awt.Graphics;
-
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.element.painter.IPainter;
 
 //class
 public final class SingleContainer
@@ -137,9 +136,9 @@ extends Container<SingleContainer, SingleContainerStructure> {
 	
 	protected void paintContent(
 		SingleContainerStructure rectangleStructure,
-		Graphics graphics) {
+		IPainter painter) {
 		
-		widget.paintUsingPositionOnContainer(graphics);
+		widget.paintUsingPositionOnContainer(painter);
 	}
 
 	protected SingleContainerStructure createWidgetStructure() {

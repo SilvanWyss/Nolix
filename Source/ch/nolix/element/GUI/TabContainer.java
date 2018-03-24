@@ -8,9 +8,6 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//Java import
-import java.awt.Graphics;
-
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
@@ -21,6 +18,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.data.TextColor;
 import ch.nolix.element.intData.Margin;
+import ch.nolix.element.painter.IPainter;
 
 //class
 public class TabContainer
@@ -703,14 +701,18 @@ extends Container<TabContainer, TabContainerStructure> {
 	}
 
 	/**
-	 * Paints this tab container using the given rectangle structure and given graphics.
+	 * Paints this tab container using the given rectangle structure and given painter.
 	 * 
 	 * @param rectangleStructure
-	 * @param graphics
+	 * @param painter
 	 */
-	protected void paintContent(TabContainerStructure rectangleStructure, Graphics graphics) {
+	protected void paintContent(
+		final TabContainerStructure rectangleStructure,
+		final IPainter painter
+	) {
 		
-		super.paintContent(rectangleStructure, graphics);
+		//Calls method of the base class.
+		super.paintContent(rectangleStructure, painter);
 		
 		//Update problem, when does the menu take the data from the structures?
 		//Answer: not when it is painted, but on events: tab container must lead events though!
@@ -762,12 +764,15 @@ extends Container<TabContainer, TabContainerStructure> {
 			label.getRefFocusStructure().setTextSize(getRefFocusMenuItemStructure().getRefRecTextSize());
 			label.getRefFocusStructure().setTextColor(getRefFocusMenuItemStructure().getRefRecTextColor());
 			
-			label.paintUsingPositionOnContainer(graphics);
+			label.paintUsingPositionOnContainer(painter);
 		}
 		
-		graphics.translate(-getContentXPosition(), -getContentYPosition());
-		menu.paintUsingPositionOnContainer(graphics);
-		graphics.translate(getContentXPosition(), getContentYPosition());
+		menu.paintUsingPositionOnContainer(
+			painter.createTranslatedPainter(
+				-getContentXPosition(),
+				-getContentYPosition()
+			)
+		);
 	}
 	
 	//method

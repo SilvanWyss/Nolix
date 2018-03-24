@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//Java import
-import java.awt.Graphics;
-
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -14,6 +11,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.intData.Height;
 import ch.nolix.element.intData.Width;
+import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -278,12 +276,12 @@ public final class Area extends Widget<Area, AreaStructure> {
 	 */
 	protected final void paint(
 		final AreaStructure widgetStructure,
-		final Graphics graphics
+		final IPainter graphics
 	) {
 		//Handles the case that this area has a background color.
 		if (hasBackgroundColor()) {
-			graphics.setColor(backgroundColor.getJavaColor());
-			graphics.fillRect(0, 0, getWidth(), getHeight());
+			graphics.setColor(backgroundColor);
+			graphics.paintFilledRectangle(getWidth(), getHeight());
 		}
 	}
 	

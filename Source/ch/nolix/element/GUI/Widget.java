@@ -1,9 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//Java imports
-import java.awt.Color;
-import java.awt.Graphics;
+//Java import
 import java.awt.event.KeyEvent;
 
 //own imports
@@ -14,6 +12,8 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.element.bases.ConfigurableElement;
+import ch.nolix.element.color.Color;
+import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.primitive.invalidStateException.ClosedStateException;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
@@ -1090,28 +1090,26 @@ extends ConfigurableElement<W> {
 	
 	//abstract method
 	/**
-	 * Paints this widget using the given widget structure and graphics.
+	 * Paints this widget using the given widget structure and painter.
 	 * 
 	 * @param widgetStructure
-	 * @param graphics
+	 * @param painter
 	 */
-	protected abstract void paint(final WS widgetStructure, final Graphics graphics);
+	protected abstract void paint(final WS widgetStructure, final IPainter painter);
 	
 	//method
 	/**
-	 * Paints this widget using the position on its parent container using the given graphics.
-	 * This method promises that the given graphics
+	 * Paints this widget using the position on its parent container using the given painter.
+	 * This method promises that the given painter
 	 * has the same position at the end as at the beginning.
 	 * 
-	 * @param graphics
+	 * @param painter
 	 */
-	protected final void paintUsingPositionOnContainer(final Graphics graphics) {
+	protected final void paintUsingPositionOnContainer(final IPainter painter) {
 		paint(
-			graphics.create(
+			painter.createTranslatedPainter(
 				getXPositionOnContainer(),
-				getYPositionOnContainer(),
-				getWidth(),
-				getHeight()
+				getYPositionOnContainer()
 			)
 		);
 	}
@@ -1157,18 +1155,18 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Paints this widget using the given graphics.
+	 * Paints this widget using the given painter.
 	 * 
-	 * @param graphics
+	 * @param painter
 	 */
-	private void paint(final Graphics graphics) {
+	private void paint(final IPainter painter) {
 		
-		paint(getRefCurrentStructure(), graphics);
+		paint(getRefCurrentStructure(), painter);
 		
 		//Handles the case that this widget is disabled and would grey out.
 		if (isDisabled() && greysOutWhenDisabled()) {
-			graphics.setColor(new Color(127, 127, 127, 127));
-			graphics.fillRect(0, 0, getWidth(), getHeight());
+			painter.setColor(Color.GREY);
+			painter.paintFilledRectangle(getWidth(), getHeight());
 		}
 	}
 }

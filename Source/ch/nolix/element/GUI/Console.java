@@ -2,7 +2,6 @@
 package ch.nolix.element.GUI;
 
 //Java import
-import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
 //own imports
@@ -16,6 +15,7 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.font.Font;
 import ch.nolix.element.font.TextFont;
+import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -578,7 +578,7 @@ implements Clearable<Console> {
 	 * @param widgetStructure
 	 * @param graphics
 	 */
-	protected void paintContent(final ConsoleStructure widgetStructure, final Graphics graphics) {
+	protected void paintContent(final ConsoleStructure widgetStructure, final IPainter graphics) {
 		
 		final int contentWidth = getContentWidth();
 		final int contentHeight = getContentHeight();
@@ -594,7 +594,7 @@ implements Clearable<Console> {
 			int offsetLineCount = isEnabled() ? 2 : 1;
 			
 			if (lineNumber > lineCount - shownLineCount + offsetLineCount) {
-				font.paintText(getLinePrefix() + l, getContentWidth(), graphics);
+				graphics.paintText(getLinePrefix() + l, font, getContentWidth());
 				graphics.translate(0, textSize);
 			}
 			
@@ -603,24 +603,24 @@ implements Clearable<Console> {
 		
 		if (isEnabled()) {
 		
-			//Paints the edit line of this console.
-			font.paintText(getLinePrefix() + getEditLine(), contentWidth, graphics);
+			//Paints the edit line of this console.;
+			graphics.paintText(getLinePrefix() + getEditLine(), font, contentWidth);
 				
 			//Paints the text cursor of this console.
-			final int textCursorXPosition
-			= font.getTextWidth(getLinePrefix()
-			+ getEditLineBeforeTextCursor())
-			- 1;
-			
-			if (textCursorXPosition < contentWidth) {
-				graphics.setColor(java.awt.Color.GRAY);
-				graphics.fillRect(
-					textCursorXPosition,
-					0,
-					2,
-					font.getTextSize()
-				);
-			}
+				final int textCursorXPosition
+				= font.getTextWidth(getLinePrefix()
+				+ getEditLineBeforeTextCursor())
+				- 1;
+				
+				if (textCursorXPosition < contentWidth) {
+					graphics.setColor(widgetStructure.getActiveTextColor());
+					graphics.paintFilledRectangle(
+						textCursorXPosition,
+						0,
+						2,
+						font.getTextSize()
+					);
+				}
 		}
 	}
 

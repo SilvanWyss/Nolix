@@ -12,6 +12,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
+import ch.nolix.element.painter.SwingPainter;
 
 //class
 /**
@@ -61,7 +62,7 @@ public class Frame extends VisibleGUI<Frame> {
 			
 			//Lets the root rectangle of this frame paint on this panel.
 			if (hasRootWidget()) {
-				getRefRootWidget().paintUsingPositionOnContainer(graphics);
+				getRefRootWidget().paintUsingPositionOnContainer(new SwingPainter(graphics));
 			}
 		}
 	};

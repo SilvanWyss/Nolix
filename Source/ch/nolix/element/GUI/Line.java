@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//Java import
-import java.awt.Graphics;
-
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
@@ -11,6 +8,7 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.intData.Length;
 import ch.nolix.element.intData.Thickness;
+import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;
 import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
@@ -247,14 +245,14 @@ extends Widget<L, LineStructure> {
 	 * Paints this line using the given widget structure and graphics.
 	 * 
 	 * @param widgetStructure
-	 * @param graphics
+	 * @param painter
 	 */
 	protected final void paint(
 		final LineStructure widgetStructure,
-		final Graphics graphics
+		final IPainter painter
 	) {
-		graphics.setColor(color.getJavaColor());
-		graphics.fillRect(
+		painter.setColor(color);
+		painter.paintFilledRectangle(
 			getXPositionOnContainer(),
 			getYPositionOnContainer(),
 			getWidth(),
