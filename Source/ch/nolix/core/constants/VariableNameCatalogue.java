@@ -78,8 +78,8 @@ public class VariableNameCatalogue {
 	public static final String TIMEOUT_IN_SECONDS = "timeout in seconds";
 	public static final String TRANSFORMATOR = "transformator";
 	public static final String VALUE = "value";
-	public static final String VALUES = "values";
 	public static final String WEIGHT = "weight";
+	public static final String WIDTH = "width";
 	public static final String YEAR = "year";
 
 	//private constructor
