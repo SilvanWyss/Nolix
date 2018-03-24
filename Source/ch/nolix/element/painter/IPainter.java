@@ -9,7 +9,7 @@ import ch.nolix.element.font.Font;
 /**
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 70
+ * @lines 90
  */
 public interface IPainter {
 
@@ -34,6 +34,23 @@ public interface IPainter {
 		String text,
 		Font font
 	);
+	
+	//default method
+	/**
+	 * Lets the current {@link IPainter} paint a filled rectangle
+	 * at its origin position with the given width and height.
+	 * 
+	 * @param xPosition
+	 * @param yPosition
+	 * @param width
+	 * @param height
+	 */
+	public default void paintFilledRectangle(
+		final int width,
+		final int height
+	) {
+		paintFilledRectangle(0, 0, width, height);
+	}
 	
 	//abstract method
 	/**
