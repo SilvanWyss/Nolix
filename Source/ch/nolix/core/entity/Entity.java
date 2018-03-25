@@ -19,7 +19,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 170
+ * @lines 180
  */
 public abstract class Entity implements Specified {
 	
@@ -103,6 +103,14 @@ public abstract class Entity implements Specified {
 	
 	//method
 	/**
+	 * @return true if this entity contains properties.
+	 */
+	private boolean containsProperties() {
+		return getRefProperties().containsAny();
+	}
+	
+	//method
+	/**
 	 * Extracts the properties of this entity.
 	 */
 	@SuppressWarnings("unchecked")
@@ -166,7 +174,7 @@ public abstract class Entity implements Specified {
 	private void supposePropertiesAreApproved() {
 
 		//Checks if the properties of this entity are approved.
-		if (!propertiesAreApproved()) {
+		if (this.containsProperties() && !propertiesAreApproved()) {
 			throw new InvalidStateException(this, "has properties that are not approved");
 		}
 	}
