@@ -54,6 +54,7 @@ public class VariableNameCatalogue {
 	public static final String NEXT_ELEMENT = "next element";
 	public static final String NODE = "node";
 	public static final String OUTPUT_FUNCTION = "output function";
+	public static final String PERCENTAGE = "percentage";
 	public static final String PRICE = "price";
 	public static final String RADIUS = "radius";
 	public static final String REASON = "reason";
