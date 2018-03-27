@@ -13,6 +13,7 @@ import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.interfaces.Closable;
 import ch.nolix.core.interfaces.Refreshable;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.element.color.Color;
@@ -75,7 +76,7 @@ implements Clearable<G>, Closable, Refreshable {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public final void addOrChangeAttribute(final StandardSpecification attribute) {
+	public final void addOrChangeAttribute(final Specification attribute) {
 		
 		//Handles the case that the given attribute specifies a shape.
 		if (canCreateShape(attribute.getHeader())) {

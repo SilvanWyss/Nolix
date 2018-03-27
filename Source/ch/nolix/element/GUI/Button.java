@@ -20,7 +20,8 @@ public final class Button extends TextLineWidget<Button> {
 	 * Creates a new button with default values.
 	 */
 	public Button() {	
-		resetConfiguration();
+		reset();
+		approveProperties();
 	}
 	
 	//constructor

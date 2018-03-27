@@ -11,6 +11,7 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Text;
@@ -36,7 +37,7 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 	 * 
 	 * @param attribute		The attribute to add or change to this text line rectangle.
 	 */
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		
 		//Enumerates the given attribute.
 		switch (attribute.getHeader()) {

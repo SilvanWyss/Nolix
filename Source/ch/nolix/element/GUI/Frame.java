@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.mathematics.Calculator;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.element.painter.SwingPainter;
@@ -20,7 +21,7 @@ import ch.nolix.element.painter.SwingPainter;
  * @month 2015-12
  * @lines 360
  */
-public class Frame extends VisibleGUI<Frame> {
+public final class Frame extends VisibleGUI<Frame> {
 	
 	//constant
 	public static final String TYPE_NAME = "Frame";
@@ -77,6 +78,7 @@ public class Frame extends VisibleGUI<Frame> {
 	public Frame() {
 			
 		reset();
+		approveProperties();
 		
 		frame.setLocationByPlatform(true);
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -110,7 +112,7 @@ public class Frame extends VisibleGUI<Frame> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {

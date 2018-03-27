@@ -69,10 +69,17 @@ public class Text extends Element {
 	 * @return the attributes of this text.
 	 */
 	public final List<StandardSpecification> getAttributes() {
-		return
-		new List<StandardSpecification>(
-			StandardSpecification.createSpecificationWithHeaderOnly(getValue())
-		);
+		
+		final var attributes = new List<StandardSpecification>();
+		
+		if (getValue().isEmpty()) {
+			attributes.addAtEnd(new StandardSpecification());
+		}
+		else {
+			attributes.addAtEnd(StandardSpecification.createSpecificationWithHeaderOnly(getValue()));
+		}
+		
+		return attributes;
 	}
 	
 	//method

@@ -5,6 +5,7 @@ package ch.nolix.element.bases;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.IRequestableContainer;
 import ch.nolix.core.interfaces.Namable;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.data.Name;
@@ -41,7 +42,7 @@ implements Namable<NE> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {

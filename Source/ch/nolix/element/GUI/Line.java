@@ -4,6 +4,7 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.intData.Length;
@@ -50,7 +51,7 @@ extends Widget<L, LineStructure> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public final void addOrChangeAttribute(final StandardSpecification attribute) {
+	public final void addOrChangeAttribute(final Specification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {

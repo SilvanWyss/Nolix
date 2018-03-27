@@ -52,7 +52,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 * @throws InvalidStateException if this deep configuration is frozen.
 	 */
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {

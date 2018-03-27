@@ -4,6 +4,7 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.painter.IPainter;
 
@@ -40,7 +41,7 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxStructure
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {

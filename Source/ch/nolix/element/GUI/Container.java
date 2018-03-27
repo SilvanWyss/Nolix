@@ -11,6 +11,7 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.validator.Validator;
@@ -74,7 +75,7 @@ extends BorderWidget<C, BWS> {
 		getRefWidgets().forEach(r -> r.resetConfiguration());
 	}
 	
-	public void addOrChangeAttribute(StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		switch (attribute.getHeader()) {
 		case "Role":
 			setRole(ContainerRole.valueOf(attribute.getOneAttributeAsString()));
