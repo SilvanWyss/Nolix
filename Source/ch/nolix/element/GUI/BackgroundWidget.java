@@ -30,7 +30,7 @@ extends Widget<BW, BWS> {
 		//Handles the case that the given widget structure has a background color.
 		if (widgetStructure.hasRecursiveBackgroundColor()) {
 			painter.setColor(widgetStructure.getActiveBackgroundColor());
-			painter.paintFilledRectangle(0, 0, getWidth(), getHeight());
+			painter.paintFilledRectangle(getWidth(), getHeight());
 		}
 		
 		//Handles the case that the given widget structure has a background color gradient.

@@ -119,7 +119,7 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 		return
 		new Font(getRefCurrentStructure()
 		.getActiveTextSize())
-		.getTextWidth(getText());
+		.getSwingTextWidth(getText());
 	}
 	
 	//method
@@ -136,6 +136,8 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 		painter.paintText(
 			getText(),
 			new Font(
+				rectangleStructure.getActiveTextFont(),
+				rectangleStructure.getActiveTextStyle(),
 				rectangleStructure.getActiveTextSize(),
 				rectangleStructure.getActiveTextColor()
 			)

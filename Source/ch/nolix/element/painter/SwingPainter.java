@@ -42,7 +42,7 @@ public final class SwingPainter implements IPainter {
 
 	//method
 	public int getTextWith(final String text, final Font font) {
-		return font.getTextWidth(text);
+		return font.getSwingTextWidth(text);
 	}
 
 	//method
@@ -61,7 +61,7 @@ public final class SwingPainter implements IPainter {
 
 	//method
 	public void paintText(final String text, final Font font) {
-		font.paintText(text, graphics);
+		font.paintSwingText(text, graphics);
 	}
 	
 	//method
@@ -70,7 +70,7 @@ public final class SwingPainter implements IPainter {
 		Font font,
 		int maxTextWidth
 	) {
-		font.paintText(text, maxTextWidth, graphics);
+		font.paintSwingText(text, maxTextWidth, graphics);
 	}
 
 	//method

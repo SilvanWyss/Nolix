@@ -4,6 +4,7 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.entity2.Entity;
 import ch.nolix.core.entity2.Property;
+import ch.nolix.core.enums.TextStyle;
 import ch.nolix.core.interfaces.IFluentObject;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
@@ -33,6 +34,7 @@ implements IFluentObject<WS> {
 	
 	//default values
 	public static final TextFont DEFAULT_TEXT_FONT = TextFont.Verdana;
+	public static final TextStyle DEFAULT_TEXT_STYLE = TextStyle.Default;
 	public static final int DEFAULT_TEXT_SIZE = 20;
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 	
@@ -41,24 +43,32 @@ implements IFluentObject<WS> {
 	private static final String TEXT_COLOR_HEADER = "TextColor";
 	
 	//attribute
-	private final Property<TextFont> textFont
-	= new Property<TextFont>(
+	private final Property<TextFont> textFont =
+	new Property<TextFont>(
 		TextFont.TYPE_NAME,
 		DEFAULT_TEXT_FONT,
-		s -> TextFont.valueOf(s.getOneAttributeAsString())
+		s -> TextFont.createFromSpecification(s)
+	);
+			
+	//attribute
+	private final Property<TextStyle> textStyle =
+	new Property<TextStyle>(
+		TextStyle.TYPE_NAME,
+		DEFAULT_TEXT_STYLE,
+		s -> TextStyle.createFromSpecification(s)
 	);
 	
 	//attribute
-	private final Property<PositiveInteger> textSize
-	= new Property<PositiveInteger>(
+	private final Property<PositiveInteger> textSize =
+	new Property<PositiveInteger>(
 		TEXT_SIZE_HEADER,
 		new TextSize(DEFAULT_TEXT_SIZE),
 		s -> PositiveInteger.createFromSpecification(s)
 	);
 	
 	//attribute
-	private final Property<Color> textColor
-	= new Property<Color>(
+	private final Property<Color> textColor =
+	new Property<Color>(
 		TEXT_COLOR_HEADER,
 		DEFAULT_TEXT_COLOR,
 		s -> Color.createFromSpecification(s)
@@ -89,6 +99,14 @@ implements IFluentObject<WS> {
 	 */
 	public final int getActiveTextSize() {
 		return textSize.getActiveValue().getValue();
+	}
+	
+	//method
+	/**
+	 * @return the active text style of this widget structure.
+	 */
+	public final TextStyle getActiveTextStyle() {
+		return textStyle.getActiveValue();
 	}
 	
 	//method

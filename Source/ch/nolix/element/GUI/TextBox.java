@@ -87,8 +87,8 @@ public final class TextBox extends TextLineWidget<TextBox> {
 			int textCursorDistanceFromTextBegin = getMouseXPosition() - getContentXPosition();
 			boolean found = false;
 			for (int i = 0; i < getText().length(); i++) {
-				int subTextWidth = new Font(getRefCurrentStructure().getActiveTextSize()).getTextWidth(getText().substring(0, i));
-				int nextSubTextWidth = new Font(getRefCurrentStructure().getActiveTextSize()).getTextWidth(getText().substring(0, i + 1));
+				int subTextWidth = new Font(getRefCurrentStructure().getActiveTextSize()).getSwingTextWidth(getText().substring(0, i));
+				int nextSubTextWidth = new Font(getRefCurrentStructure().getActiveTextSize()).getSwingTextWidth(getText().substring(0, i + 1));
 				int halfDistance = (nextSubTextWidth - subTextWidth) / 2;
 				if (
 					textCursorDistanceFromTextBegin > subTextWidth - halfDistance &&
@@ -218,13 +218,13 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 */
 	protected final void paintContent(TextLineWidgetStructure rectangleStructure, Graphics graphics) {
 		
-		int textCursorDistanceFromTextBegin = new Font(rectangleStructure.getActiveTextSize()).getTextWidth(getTextBeforeTextCursor());
+		int textCursorDistanceFromTextBegin = new Font(rectangleStructure.getActiveTextSize()).getSwingTextWidth(getTextBeforeTextCursor());
 		graphics.setColor(textCursor.getRefColor().getJavaColor());
 		graphics.setColor(Color.BLACK.getJavaColor());
 		
 		new Font(
 		rectangleStructure.getActiveTextSize())
-		.paintText(getText(), graphics);
+		.paintSwingText(getText(), graphics);
 		
 		graphics.fillRect(
 			getContentXPosition() + textCursorDistanceFromTextBegin,

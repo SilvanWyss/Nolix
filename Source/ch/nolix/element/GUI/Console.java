@@ -583,7 +583,15 @@ implements Clearable<Console> {
 		final int contentWidth = getContentWidth();
 		final int contentHeight = getContentHeight();
 		final int textSize = widgetStructure.getActiveTextSize();	
-		final Font font = new Font(widgetStructure.getActiveTextFont(), textSize, widgetStructure.getActiveTextColor());
+		
+		final Font font =
+		new Font(
+			widgetStructure.getActiveTextFont(),
+			widgetStructure.getActiveTextStyle(),
+			textSize,
+			widgetStructure.getActiveTextColor()
+		);
+		
 		final int lineCount = getLines().getElementCount();
 		final int shownLineCount = contentHeight / textSize;
 		
@@ -608,7 +616,7 @@ implements Clearable<Console> {
 				
 			//Paints the text cursor of this console.
 				final int textCursorXPosition
-				= font.getTextWidth(getLinePrefix()
+				= font.getSwingTextWidth(getLinePrefix()
 				+ getEditLineBeforeTextCursor())
 				- 1;
 				

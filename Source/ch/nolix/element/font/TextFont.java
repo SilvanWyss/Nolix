@@ -40,7 +40,7 @@ public enum TextFont implements ISpecifiedEnum {
 	/**
 	 * @return the Java font family of this {@link TextFont}.
 	 */
-	public String getJavaFontFamily() {
+	public String getSwingFontFamily() {
 		
 		//Enumerates this text font.
 		switch (this) {
