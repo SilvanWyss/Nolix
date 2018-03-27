@@ -116,8 +116,10 @@ extends BorderWidget<C, BWS> {
 		final BWS rectangleStructure,
 		final IPainter painter
 	) {
+		var painter2 = painter.createTranslatedPainter(-getContentXPosition(), -getContentYPosition());
+		
 		//Paints the rectangles of this container that are shown.
-		getRefShownWidgets().forEach(r -> r.paintUsingPositionOnContainer(painter));
+		getRefShownWidgets().forEach(r -> r.paintUsingPositionOnContainer(painter2));
 	}
 	
 	//method
