@@ -6,8 +6,8 @@ import java.util.Iterator;
 import java.util.Random;
 
 //own imports
-import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerComparableGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerDoubleGetter;
@@ -32,7 +32,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1310
+ * @lines 1330
  * @param <E> The type of the elements of a container.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -1176,18 +1176,6 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @param extractor
-	 * @return a new list with the elements of the containers
-	 * the given extractor extracts from the elements of this container.
-	 */
-	public default <O> List<O> toFromMany(final IElementTakerElementGetter<E, IContainer<O>> extractor) {
-		final List<O> list = new List<O>();
-		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
-		return list;
-	}
-	
-	//default method
-	/**
 	 * @return a new array with the elements of this container.
 	 */
 	@SuppressWarnings("unchecked")
@@ -1245,7 +1233,19 @@ public interface IContainer<E> extends Iterable<E> {
 		}
 		
 		return array;
-	}	
+	}
+	
+	//default method
+	/**
+	 * @param extractor
+	 * @return a new list with the elements of the containers
+	 * the given extractor extracts from the elements of this container.
+	 */
+	public default <O> List<O> toFromMany(final IElementTakerElementGetter<E, IContainer<O>> extractor) {
+		final List<O> list = new List<O>();
+		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
+		return list;
+	}
 	
 	//default method
 	/**
@@ -1289,26 +1289,45 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @return a tabulator separated string representation of this container.
+	 * @param separator
+	 * @return a string representation this container.
 	 */
-	public default String toTablulatorSeparatedString() {
+	public default String toString(final char separator) {
+		return toString(String.valueOf(separator));
+	}
+	
+	//default method
+	/**
+	 * @param separator
+	 * @return a string representation this container with the given separator.
+	 * @throws NullArgumentException if the given separator is null.
+	 */
+	public default String toString(final String separator)
+	{
+		//Checks if the given separator is not null.
+		Validator
+		.suppose(separator)
+		.thatIsNamed(VariableNameCatalogue.SEPARATOR)
+		.isNotNull();
 		
-		String string = StringCatalogue.EMPTY_STRING;
-		
-		//Iterates this container.
-		boolean begin = true;
-		for (final E e : this) {
-			
-			if (begin) {
-				begin = false;
-			}
-			else {
-				string += CharacterCatalogue.TABULATOR;
-			}
-			
-			string += e.toString();
+		//Enumerates the element count of this container.
+		switch (getElementCount()) {
+			case 0:
+				return StringCatalogue.EMPTY_STRING;
+			case 1:
+				return getRefFirst().toString();
+			default:
+				
+				final var stringBuilder = new StringBuilder(separator);	
+				
+				stringBuilder.append(getRefFirst());
+				
+				//Iterates the elements of this container from the second element.
+				for (final var e : skipFirstElements(1)) {
+					stringBuilder.append(separator + e);
+				}
+				
+				return stringBuilder.toString();
 		}
-		
-		return string;
 	}
 }

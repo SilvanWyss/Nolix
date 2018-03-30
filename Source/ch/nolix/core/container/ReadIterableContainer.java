@@ -5,6 +5,7 @@ package ch.nolix.core.container;
 import java.util.Iterator;
 
 //own imports
+import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -12,7 +13,7 @@ import ch.nolix.primitive.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 70
+ * @lines 80
  * @param <E> The type of the elements of a read iterable container.
  */
 final class ReadIterableContainer<E> implements IContainer<E> {
@@ -74,5 +75,15 @@ final class ReadIterableContainer<E> implements IContainer<E> {
 		}
 		
 		return elementCount;
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(n) if this read iterable container contains n elements.
+	 * 
+	 * @return a string representation of this read iterable container.
+	 */
+	public String toString() {
+		return toString(CharacterCatalogue.COMMA);
 	}
 }

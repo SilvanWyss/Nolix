@@ -6,7 +6,6 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
-import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
@@ -131,24 +130,11 @@ public final class ReadContainer<E> implements IContainer<E> {
 	
 	//method
 	/**
+	 * The complexity of this method is O(n) if this read container contains n elements.
+	 * 
 	 * @return a string representation of this read container.
 	 */
 	public String toString() {
-		
-		String string = StringCatalogue.EMPTY_STRING;
-		
-		//Iterates this read container.
-		boolean begin = true;
-		for (final E e : this) {
-			if (begin) {
-				begin = false;
-				string += e.toString();
-			}
-			else {
-				string += e.toString() + CharacterCatalogue.COMMA;
-			}
-		}
-		
-		return string;
+		return toString(CharacterCatalogue.COMMA);
 	}
 }

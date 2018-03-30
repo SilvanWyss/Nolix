@@ -3,7 +3,6 @@ package ch.nolix.core.container;
 
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
-import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerComparableGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
@@ -22,7 +21,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1030
+ * @lines 1010
  * @param <E> - The type of the elements of a list.
  */
 public final class List<E> implements Clearable<List<E>>, IContainer<E> {
@@ -899,22 +898,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * @return a string representation of this list.
 	 */
 	public String toString() {
-		
-		String string = StringCatalogue.EMPTY_STRING;
-		
-		//Iterates this list.
-		boolean atBegin = true;
-		for (final E e: this) {
-			if (atBegin) {
-				atBegin = false;
-			}
-			else {
-				string += CharacterCatalogue.COMMA;
-			}		
-			string += e.toString();
-		}
-		
-		return string;
+		return toString(CharacterCatalogue.COMMA);
 	}
 	
 	//method
