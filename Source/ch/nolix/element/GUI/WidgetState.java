@@ -1,32 +1,35 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own import
-import ch.nolix.core.specification.StandardSpecification;
+//own imports
+import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specificationInterfaces.ISpecifiedEnum;
 
 //enum
 /**
- * A widget state defines the state of a widget.
+ * A {@link WidgetState} specifies the state of a {@link Widget}.
+ * A {@link WidgetState} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2016-04
  * @lines 30
  */
-public enum WidgetState {
+public enum WidgetState implements ISpecifiedEnum {
 	Normal,
 	Hovered,
 	Focused,
 	Disabled,
 	Collapsed;
 	
-	//type name
+	//constant
 	public static final String TYPE_NAME = "WidgetState";
 	
-	//method
+	//static method
 	/**
-	 * @return the specification of this widget state.
+	 * @param specification
+	 * @return a new {@link WidgetState} from the given specification.
 	 */
-	public StandardSpecification getSpecification() {
-		return new StandardSpecification(TYPE_NAME, toString());
+	public static WidgetState createFromSpecification(final Specification specification) {
+		return valueOf(specification.getOneAttributeAsString());
 	}
 }
