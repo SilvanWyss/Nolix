@@ -25,6 +25,7 @@ final class MainSession extends Session<GUIBackClient> {
 	//attributes
 	private final Worker worker = new Worker(() -> getRefClient().isAlive());
 	private final Timer timer = new Timer();
+	private final Label benchmarkLabel = new Label().setName(WidgetNameManager.BENCHMARK_LABEL_NAME);
 
 	//method
 	/**
@@ -39,8 +40,7 @@ final class MainSession extends Session<GUIBackClient> {
 			new VerticalStack()
 			.setRole(ContainerRole.MainContainer)
 			.addWidget(
-				new Label()
-				.setName(WidgetNameManager.BENCHMARK_LABEL_NAME),
+				benchmarkLabel,
 				new Label()
 				.setName(WidgetNameManager.BENCHMARK_INFO_LABEL_NAME)
 				.setText("polynom fits per second (n = 100 / degree = 3)")
@@ -67,12 +67,8 @@ final class MainSession extends Session<GUIBackClient> {
 		if (timer.getRunMilliseconds() > 0) {
 			
 			//Calculates the number of polynom fits per second.
-			final long polynomFitsPerSecond 
-			= (long)(1000.0 * worker.getPolynomFitsCount()) / (timer.getRunMilliseconds());
-			
-			//Fetches the benchmark label.
-			final Label benchmarkLabel
-			= getRefClient().getRefGUI().getRefWidgetByNameRecursively(WidgetNameManager.BENCHMARK_LABEL_NAME);
+			final long polynomFitsPerSecond =
+			(long)(1000.0 * worker.getPolynomFitsCount()) / (timer.getRunMilliseconds());
 			
 			//Sets the text of the benchmark label.
 			benchmarkLabel.setText(Long.toString(polynomFitsPerSecond));			
