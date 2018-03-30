@@ -4,7 +4,6 @@ package ch.nolix.core.specification;
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
@@ -138,7 +137,7 @@ public abstract class Specification {
 	/**
 	 * @return the attributes of this specification.
 	 */
-	public abstract <S extends Specification> ReadContainer<S> getRefAttributes();
+	public abstract <S extends Specification> IContainer<S> getRefAttributes();
 	
 	//abstract method
 	/**

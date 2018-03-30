@@ -11,6 +11,7 @@ import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;
@@ -411,7 +412,7 @@ public final class StandardSpecification extends Specification {
 	 * @return the attributes of this standard specification
 	 */
 	@SuppressWarnings("unchecked")
-	public ReadContainer<StandardSpecification> getRefAttributes() {
+	public IContainer<StandardSpecification> getRefAttributes() {
 		return new ReadContainer<StandardSpecification>(attributes);
 	}
 	
@@ -421,7 +422,7 @@ public final class StandardSpecification extends Specification {
 	 * @return the attributes of the first attribute with the given header
 	 * @throws Exception if this standard specification contains no attribute with the given header
 	 */
-	public ReadContainer<StandardSpecification> getRefAttributesOfFirstAttribute(String header) {
+	public IContainer<StandardSpecification> getRefAttributesOfFirstAttribute(String header) {
 		return attributes.getRefFirst(a -> a.hasHeader(header)).getRefAttributes();
 	}
 	
