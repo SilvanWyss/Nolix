@@ -32,7 +32,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1330
+ * @lines 1430
  * @param <E> The type of the elements of a container.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -316,6 +316,118 @@ public interface IContainer<E> extends Iterable<E> {
 		}
 		
 		return (getSumByLong(longNorm) / getElementCount());
+	}
+	
+	//default method
+	/**
+	 * @param startIndex
+	 * @return a new sub container of this container from the given start index.
+	 * @throws NonPositiveArgumentException
+	 * if the given start index is not positive.
+	 * @throws SmallerArgumentException
+	 * if this container contains less element than the value of the given start index.
+	 */
+	public default IContainer<E> getContainerFrom(final int startIndex) {
+		return new SubContainer<E>(this, startIndex, getElementCount());
+	}
+	
+	//default method
+	/**
+	 * @param startIndex
+	 * @param endIndex
+	 * @return a new sub container of this container from the given start index to the given end index.
+	 * @throws NonPositiveArgumentException
+	 * if the given start index is not positive.
+	 * @throws SmallerArgumentException
+	 * if the given end index is smaller than the given start index.
+	 * @throws BiggerThanExceptio
+	 * if the given end index is bigger than the number of elements of this container.
+	 */
+	public default IContainer<E> getContainerFromTo(
+		final int startIndex,
+		final int endIndex
+	) {
+		return new SubContainer<E>(this, startIndex, endIndex);
+	}
+	
+	//default method
+	/**
+	 * @param endIndex
+	 * @return a new sub container of this container with the elements to the given end index.
+	 * @throws NonPositiveArgumentException if the given end index is not positive.
+	 */
+	public default IContainer<E> getContainerTo(final int endIndex) {
+		return new SubContainer<>(this, 1, endIndex);
+	}
+	
+	//default method
+	/**
+	 * @return a new sub container of this container without the first element.
+	 * @throws SmallerArgumentException if this container is empty.
+	 */
+	public default IContainer<E> getContainerWithoutFirst() {
+		return getContainerWithoutFirst(1);
+	}
+	
+	//default method
+	/**
+	 * @param n
+	 * @return a new sub container of this container without the first n elements.
+	 * @throws NonPositiveArgumentException if the given n is not positive.
+	 * @throws SmallerArgumentException if this container contains more than n elements.
+	 */
+	public default IContainer<E> getContainerWithoutFirst(final int n) {
+		
+		final var elementCount = getElementCount();
+		
+		//Checks if the given n is positive.
+		Validator.suppose(n).thatIsNamed("n").isPositive();
+		
+		//Checks if the given n is not bigger than the element count of this container.
+		Validator.suppose(n).thatIsNamed("n").isNotBiggerThan(elementCount);
+		
+		//Handles the case that this container contains less than n elements.
+		if (n < elementCount) {
+			return new SubContainer<E>(this, n + 1, elementCount);
+		}		
+		
+		//Handles the case that this container contains n elements.
+		return new ReadContainer<E>();
+	}
+	
+	//default method
+	/**
+	 * @return a new sub container of this container without the last element.
+	 * @throws SmallerArgumentException if this container is empty.
+	 */
+	public default IContainer<E> getContainerWithoutLast() {
+		return getContainerWithoutLast(1);
+	}
+	
+	//default method
+	/**
+	 * @param n
+	 * @return a new sub container of this container without the last n elements of this container.
+	 * @throws NonPositiveArgumentException if the given n is not positive.
+	 * @throws BiggerArgumentException if this container contains more than n elements.
+	 */
+	public default IContainer<E> getContainerWithoutLast(final int n) {
+		
+		final var elementCount = getElementCount();
+		
+		//Checks if the given n is positive.
+		Validator.suppose(n).thatIsNamed("n").isPositive();
+		
+		//Checks if the given n is not bigger than the element count of this container.
+		Validator.suppose(n).thatIsNamed("n").isNotBiggerThan(elementCount);
+		
+		//Handles the case that this container contains less than n elements.
+		if (n < elementCount) {
+			return new SubContainer<E>(this, 0, elementCount - n);
+		}
+		
+		//Handles the case that this container contains n elements.
+		return new ReadContainer<E>();
 	}
 	
 	//abstract method
@@ -1152,17 +1264,6 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
-	 * The complexity of this method is O(1).
-	 * 
-	 * @param n
-	 * @return a sub container of this container that skips the first n elements.
-	 */
-	public default SubContainer<E> skipFirstElements(final int n) {
-		return new SubContainer<E>(this, n + 1, getElementCount());
-	}
-	
-	//default method
-	/**
 	 * The complexity of this method is O(n) if this container contains n elements.
 	 * 
 	 * @param extractor
@@ -1318,12 +1419,10 @@ public interface IContainer<E> extends Iterable<E> {
 				return getRefFirst().toString();
 			default:
 				
-				final var stringBuilder = new StringBuilder(separator);	
-				
+				final var stringBuilder = new StringBuilder();
 				stringBuilder.append(getRefFirst());
 				
-				//Iterates the elements of this container from the second element.
-				for (final var e : skipFirstElements(1)) {
+				for (final var e : getContainerWithoutFirst()) {
 					stringBuilder.append(separator + e);
 				}
 				

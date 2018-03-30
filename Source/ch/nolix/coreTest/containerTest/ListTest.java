@@ -8,9 +8,9 @@ import java.util.Iterator;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
 import ch.nolix.core.container.SequencePattern;
-import ch.nolix.core.container.SubContainer;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
+import ch.nolix.primitive.logger.Logger;
 import ch.nolix.primitive.test2.Test;
 
 //test class
@@ -19,10 +19,15 @@ import ch.nolix.primitive.test2.Test;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 620
+ * @lines 650
  */
 public final class ListTest extends Test {
-		
+	
+	//constructor
+	public ListTest() {
+		Logger.disable();
+	}
+	
 	//test method
 	public void test_clear() {
 		
@@ -166,6 +171,60 @@ public final class ListTest extends Test {
 			for (int i = 1; i <= list1.getElementCount(); i++) {
 				expect(list2.getRefAt(i)).isEqualTo(list1.getRefAt(i));
 			}
+	}
+	
+	//test methods
+	public void test_getContainerFrom() {
+		
+		//setup
+		final var list = new List<String>(
+			"x",
+			"xx",
+			"xxx",
+			"xxxx",
+			"xxxxx",
+			"xxxxxx"
+		);
+		
+		//execution
+		final var subList = list.getContainerFrom(4);
+		
+		//verification
+			expect(subList.getElementCount()).isEqualTo(3);
+			
+			final Iterator<String> iterator = subList.iterator();
+			
+			expect(iterator.hasNext());
+			expect(iterator.next()).isEqualTo("xxxx");
+			expect(iterator.hasNext());
+			expect(iterator.next()).isEqualTo("xxxxx");
+			expect(iterator.hasNext());
+			expect(iterator.next()).isEqualTo("xxxxxx");
+			expectNot(iterator.hasNext());
+			
+			expect(() -> iterator.next()).
+			throwsExceptionOfType(UnexistingAttributeException.class);
+	}
+	
+	//test method
+	public void test_getContainerWithoutFirst() {
+	
+		//setup
+		final var list = new List<String>(
+			"x",
+			"xx",
+			"xxx",
+			"xxxx",
+			"xxxxx",
+			"xxxxxx"
+		);
+		
+		//execution
+		final var subList = list.getContainerWithoutFirst();
+		
+		//verification
+		expect(subList.getElementCount()).isEqualTo(5);
+		expect(!subList.contains("x"));
 	}
 	
 	//test method
@@ -453,39 +512,6 @@ public final class ListTest extends Test {
 		
 		//execution and verification
 			expect(list.matches(sequencePattern));
-	}
-	
-	//test methods
-	public void test_skipFirstElements() {
-		
-		//setup
-		final List<String> list = new List<String>(
-			"x",
-			"xx",
-			"xxx",
-			"xxxx",
-			"xxxxx",
-			"xxxxxx"
-		);
-		
-		//execution
-		final SubContainer<String> subList = list.skipFirstElements(3);
-		
-		//verification
-			expect(subList.getElementCount()).isEqualTo(3);
-			
-			final Iterator<String> iterator = subList.iterator();
-			
-			expect(iterator.hasNext());
-			expect(iterator.next()).isEqualTo("xxxx");
-			expect(iterator.hasNext());
-			expect(iterator.next()).isEqualTo("xxxxx");
-			expect(iterator.hasNext());
-			expect(iterator.next()).isEqualTo("xxxxxx");
-			expectNot(iterator.hasNext());
-			
-			expect(() -> iterator.next()).
-			throwsExceptionOfType(UnexistingAttributeException.class);
 	}
 	
 	//test method

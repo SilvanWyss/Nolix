@@ -4,26 +4,28 @@ package ch.nolix.core.container;
 //Java import
 import java.util.Iterator;
 
+//own imports
+import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**
  * A sub container can iterate over a part of another container.
  * 
- * A sub container must not use methods of the accessed container
+ * A sub container must not use the methods of the accessed container
  * except the iterator method.
  * The reason is that the accessed container can be a specialized container
  * that does not use its iterator in any of its declared or overwritten method.
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 90
+ * @lines 100
  * @param <E> The type of the elements of a sub container.
  */
-public final class SubContainer<E> implements Iterable<E> {
+public final class SubContainer<E> implements IContainer<E> {
 
 	//attributes
-	private final Iterable<E> container;
+	private final IContainer<E> container;
 	private final int startIndex;
 	private final int endIndex;
 	
@@ -38,9 +40,10 @@ public final class SubContainer<E> implements Iterable<E> {
 	 * @throws NullArgumentException if the given container is null.
 	 * @throws NonPositiveArgumentexception if the given start index is not positive.
 	 * @throws NonPositiveArgumentexception if the given end index is not positive.
+	 * @throws SmallerArgumentException if the given end index is smaller than the given start index.
 	 */
 	public SubContainer(
-		final Iterable<E> container,
+		final IContainer<E> container,
 		final int startIndex,
 		final int endIndex) {
 		
@@ -63,6 +66,11 @@ public final class SubContainer<E> implements Iterable<E> {
 		.suppose(endIndex)
 		.thatIsNamed("end index")
 		.isNotSmallerThan(startIndex);
+		
+		Validator
+		.suppose(endIndex)
+		.thatIsNamed("end index")
+		.isNotBiggerThan(container.getElementCount());
 		
 		this.container = container;
 		this.startIndex = startIndex;
@@ -88,5 +96,15 @@ public final class SubContainer<E> implements Iterable<E> {
 			startIndex,
 			endIndex
 		);
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(n) if this sub container contains n elements.
+	 * 
+	 * @return a string representation of this sub container.
+	 */
+	public String toString() {
+		return toString(CharacterCatalogue.COMMA);
 	}
 }
