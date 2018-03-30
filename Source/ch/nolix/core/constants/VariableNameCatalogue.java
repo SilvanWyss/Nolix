@@ -64,6 +64,7 @@ public class VariableNameCatalogue {
 	public static final String ROOT_NODE = "root node";
 	public static final String ROW_COUNT = "row count";
 	public static final String ROW_INDEX = "row index";
+	public static final String SEPARATOR = "separator";
 	public static final String SEQUENCE ="sequence";
 	public static final String SIZE = "size";
 	public static final String START_DATE = "start date";
