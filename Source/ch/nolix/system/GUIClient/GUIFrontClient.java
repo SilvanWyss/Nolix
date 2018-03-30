@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.GUIClient;
 
-import ch.nolix.core.specification.Specification;
 //own imports
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.element.GUI.Frame;
@@ -42,9 +42,19 @@ public final class GUIFrontClient extends Client<GUIFrontClient> {
 	 * @param runMethodCommand
 	 */
 	public void run(final Statement runMethodCommand) {
+		
 		internal_runOnCounterpart(
-			GUIBackClient.RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")",
-			INVOKE_RUN_METHOD_COMMAND + "(" + runMethodCommand + ")",
+				
+			GUIBackClient.ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI
+			+ '('
+			+ dialog.getInteractionAttributesOfWidgets().to(ia -> '(' + ia.toString() + ')')
+			+ ')',
+			
+			INVOKE_RUN_METHOD_COMMAND
+			+ '('
+			+ runMethodCommand
+			+ ')',
+			
 			GUIBackClient.RESET_OTHER_SIDE_DIALOG_COMMAND
 		);
 	}

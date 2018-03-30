@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.GUIClient;
 
+import ch.nolix.core.container.IContainer;
 //own imports
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.specification.Specification;
@@ -16,12 +17,13 @@ import ch.nolix.system.client.Client;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 200
+ * @lines 190
  */
 public final class GUIBackClient extends Client<GUIBackClient> {
 	
 	//commands
 	static final String RESET_DIALOG_COMMAND = "ResetDialog";
+	static final String ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI = "AddOrChangeInteractionAttributesOfWidgetsOfGUI";
 	static final String RESET_OTHER_SIDE_DIALOG_COMMAND = "ResetOtherSideDialog";
 	
 	//attribute
@@ -120,6 +122,11 @@ public final class GUIBackClient extends Client<GUIBackClient> {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
+		case ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI:
+				addOrChangeInteractionAttributesToWidgetsOfGUI(
+					command.getRefAttributes().to(a -> a.getRefAttributes())
+				);
+				break;
 			case RESET_DIALOG_COMMAND:
 				resetDialog(command.getRefAttributes());
 				break;
@@ -131,6 +138,19 @@ public final class GUIBackClient extends Client<GUIBackClient> {
 				//Calls method of the base class.
 				super.internal_run(command);
 		}
+	}
+	
+	//method
+	/**
+	 * Adds or changes the given interaction attributes to the widgets of this {@link GUIBackClient}.
+	 * 
+	 * @param interactionAttributesOfWidgetsOfGUI
+	 * @throws InvalidArgumentException if the given interaction attributes are not valid.
+	 */
+	private <S extends Specification> void addOrChangeInteractionAttributesToWidgetsOfGUI(
+		final IContainer<IContainer<S>> interactionAttributesOfWidgetsOfGUI	
+	) {
+		getRefGUI().addOrChangeInteractionAttributesOfWidgets(interactionAttributesOfWidgetsOfGUI);
 	}
 	
 	//method
