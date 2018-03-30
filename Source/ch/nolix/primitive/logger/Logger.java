@@ -23,9 +23,13 @@ public final class Logger {
 	//static method
 	public static synchronized void disable() {
 		if (active) {
+			
 			active = false;
-			logWorker.stop_();
-			logWorker = null;
+			
+			if (logWorker != null) {
+				logWorker.stop_();
+				logWorker = null;
+			}
 		}
 	}
 	
