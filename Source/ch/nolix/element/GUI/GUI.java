@@ -7,6 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerInterfaces.IController;
 import ch.nolix.core.entity.MutableProperty;
@@ -39,7 +40,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 740
+ * @lines 790
  * @param <G> The type of a GUI.
  */
 public abstract class GUI<G extends GUI<G>>
@@ -136,6 +137,32 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 					//Calls method of the base class.
 					super.addOrChangeAttribute(attribute);
 			}
+	}
+	
+	//method
+	/**
+	 * Adds or changes the given interaction attributes to the widgets of the current {@link GUI}.
+	 * 
+	 * @param interactionAttributesOfWidgets
+	 * @return the current {@link GUI}.
+	 * @throws InvalidArgumentException if the given interaction attributes of widgets is not valid.
+	 */
+	public <S extends Specification> G addOrChangeInteractionAttributesOfWidgets(
+		final IContainer<IContainer<S>> interactionAttributesOfWidgets
+	) {
+		final var iterator = interactionAttributesOfWidgets.iterator();
+		
+		getRefWidgets().forEach(w -> w.addOrChangeAttributes(iterator.next()));
+		
+		if (iterator.hasNext()) {
+			throw new InvalidArgumentException(
+				new ArgumentName("interaction attributes per widget"),
+				new Argument(interactionAttributesOfWidgets),
+				new ErrorPredicate("contains more elements than this GUI contains widgets")
+			);
+		}
+		
+		return getInstance();
 	}
 	
 	//method
@@ -294,6 +321,24 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @return the y-position of the cursor on this GUI.
 	 */
 	public abstract int getCursorYPosition();
+	
+	//method
+	/**
+	 * The interaction attributes of a {@link GUI} are those a user can change.
+	 * 
+	 * @return the interaction attributes of the current {@link GUI}.
+	 */
+	public List<StandardSpecification> getInteractionAttributes() {
+		return new List<StandardSpecification> ();
+	}
+	
+	//method
+	/**
+	 * @return the interaction attributes of all {@link Widget} of the current {@link GUI}.
+	 */
+	public IContainer<IContainer<StandardSpecification>> getInteractionAttributesOfWidgets() {
+		return getRefWidgets().to(w -> w.getInteractionAttributes());
+	}
 	
 	//method
 	/**

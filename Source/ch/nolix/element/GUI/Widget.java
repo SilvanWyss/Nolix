@@ -39,7 +39,7 @@ public abstract class Widget<W extends Widget<W, WS>, WS extends WidgetStructure
 extends ConfigurableElement<W> {
 	
 	//attribute headers
-	private static final String STATE ="State";
+	private static final String STATE_HEADER ="State";
 	private static final String LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER = "LeftMouseButtonPressCommand";
 	private static final String LEFT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER = "LeftMouseButtonReleaseCommand";
 	private static final String RIGHT_MOUSE_BUTTON_PRESS_COMMAND_HEADER = "RightMouseButtonPressCommand";
@@ -100,8 +100,8 @@ extends ConfigurableElement<W> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case STATE:
-				setState(WidgetState.valueOf(attribute.getOneAttributeAsString()));
+			case STATE_HEADER:
+				setState(WidgetState.createFromSpecification(attribute));
 				break;
 			case CursorIcon.TYPE_NAME:
 				setCursorIcon(CursorIcon.valueOf(attribute.getOneAttributeAsString()));
@@ -177,7 +177,7 @@ extends ConfigurableElement<W> {
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
 		if (!isNormal()) {
-			attributes.addAtEnd(new StandardSpecification(STATE, state.toString()));
+			attributes.addAtEnd(getState().getSpecificationAs(STATE_HEADER));
 		}
 		
 		if (cursorIcon != CursorIcon.Arrow) {
@@ -267,6 +267,19 @@ extends ConfigurableElement<W> {
 	 * @return the height of this widget when it is s not collapsed.
 	 */
 	public abstract int getHeightWhenNotCollapsed();
+	
+	//method
+	/**
+	 * The interaction attributes of a {@link Widget} are those a user can change.
+	 * 
+	 * @return the interaction attributes of the current {@link Widget}.
+	 */
+	public List<StandardSpecification> getInteractionAttributes() {
+		return
+		new List<StandardSpecification> (
+			getState().getSpecificationAs(STATE_HEADER)
+		);
+	}
 	
 	//method
 	/**
