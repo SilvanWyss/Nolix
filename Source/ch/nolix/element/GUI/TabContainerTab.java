@@ -104,7 +104,7 @@ public final class TabContainerTab extends NamableElement<TabContainerTab> {
 	public final void addOrChangeAttribute(final Specification attribute) {
 		
 		//Handles the case when the given attribute specifies a rectangle.
-		if (tabContainer.getRefGUI().canCreateWidget(attribute.getHeader())) {
+		if (GUI.canCreateWidget(attribute.getHeader())) {
 			rectangle = tabContainer.getRefGUI().createWidget(attribute);
 			rectangle.setGUI(tabContainer.getRefGUI());
 			return;

@@ -124,22 +124,6 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
-	 * Sets the dialog this rectangle belongs to.
-	 * 
-	 * @param dialog
-	 * @throws Exception if this rectangle or a rectangle of this container already belongs to an other dialog
-	 */
-	protected void setGUI(GUI<?> dialog) {
-		
-		//Calls method of the base class.
-		super.setGUI(dialog);
-		
-		//Sets the dialog of the rectangles of this container.
-		getRefWidgets().forEach(r -> r.setGUI(dialog));
-	}
-	
-	//method
-	/**
 	 * Sets the relative mouse position of this container.
 	 * 
 	 * @param relativeMouseXPosition

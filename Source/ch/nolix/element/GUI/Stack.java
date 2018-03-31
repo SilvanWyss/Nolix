@@ -43,7 +43,7 @@ implements Clearable<S> {
 	 */
 	public void addOrChangeAttribute(final Specification attribute) {
 		
-		if (canCreateWidget(attribute.getHeader())) {
+		if (GUI.canCreateWidget(attribute.getHeader())) {
 			addWidget(createWidget(attribute));
 			return;
 		}
