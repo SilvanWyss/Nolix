@@ -10,7 +10,7 @@ import ch.nolix.element.font.Font;
 /**
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 120
+ * @lines 140
  */
 public interface IPainter {
 
@@ -18,11 +18,28 @@ public interface IPainter {
 	/**
 	 * @param xTranslation
 	 * @param yTranslation
-	 * @return a new {@link IPainter} from the current {@link IPainter} with the given translation.
+	 * @return a new {@link IPainter} from the current {@link IPainter}
+	 * with the given translation.
 	 */
 	public abstract IPainter createTranslatedPainter(
 		int xTranslation,
 		int yTranslation
+	);
+	
+	/**
+	 * 
+	 * @param xTranslation
+	 * @param yTranslation
+	 * @param paintAreaWidth
+	 * @param paintAreaHeight
+	 * @return a new {@link IPainter} from the current {@link IPainter}
+	 * with the given translation and paint area.
+	 */
+	public abstract IPainter createTranslatedPainter(
+		int xTranslation,
+		int yTranslation,
+		int paintAreaWidth,
+		int paintAreaHeight
 	);
 	
 	//abstract method
@@ -127,4 +144,3 @@ public interface IPainter {
 		int yTranslation
 	);
 }
-	

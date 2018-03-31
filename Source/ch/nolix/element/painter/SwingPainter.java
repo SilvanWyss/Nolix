@@ -39,6 +39,23 @@ public final class SwingPainter implements IPainter {
 		graphics.translate(xTranslation, yTranslation);
 		return new SwingPainter(graphics);
 	}
+	
+	//method
+	public IPainter createTranslatedPainter(
+			final int xTranslation,
+			final int yTranslation,
+			final int paintAreaWidth,
+			final int paintAreaHeight
+	) {
+		return new SwingPainter(
+			graphics.create(
+				xTranslation,
+				yTranslation,
+				paintAreaWidth,
+				paintAreaHeight
+			)
+		);
+	}
 
 	//method
 	public int getTextWith(final String text, final Font font) {
