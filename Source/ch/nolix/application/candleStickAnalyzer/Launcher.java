@@ -2,7 +2,7 @@
 package ch.nolix.application.candlestickAnalyzer;
 
 //own import
-import ch.nolix.system.consoleClient.ConsoleFrontClient;
+import ch.nolix.system.consoleClient.FrontConsoleClient;
 
 //class
 /**
@@ -23,7 +23,7 @@ public final class Launcher {
 	 */
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-		new ConsoleFrontClient(new CandlestickAnalyzer());
+		new FrontConsoleClient(new CandlestickAnalyzer());
 	}
 	
 	//private constructor

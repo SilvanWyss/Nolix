@@ -7,8 +7,8 @@ import ch.nolix.element.GUI.ContentPosition;
 import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.GUI.AttributeCatalogue;
 import ch.nolix.element.color.Color;
-import ch.nolix.system.GUIClient.GUIBackClient;
-import ch.nolix.system.GUIClient.GUIFrontClient;
+import ch.nolix.system.GUIClient.BackGUIClient;
+import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.client.Session;
 import ch.nolix.system.client.StandardApplication;
 
@@ -20,7 +20,7 @@ import ch.nolix.system.client.StandardApplication;
  * @month 2017-02
  * @lines 100
  */
-public final class GUIClientTutorial {
+public final class BackGUIClientTutorial {
 
 	//main method
 	/**
@@ -33,18 +33,18 @@ public final class GUIClientTutorial {
 	public static void main(final String[] arguments) {
 		
 		//Creates an application.
-		final StandardApplication<GUIBackClient> application
-		= new StandardApplication<GUIBackClient>(
+		final StandardApplication<BackGUIClient> application
+		= new StandardApplication<BackGUIClient>(
 			"Application",
 			MainSession.class
 		);
 		
 		//Creates a front dialog client that will to the application.
-		new GUIFrontClient(application);
+		new FrontGUIClient(application);
 	}
 	
 	//inner class
-	private static final class MainSession extends Session<GUIBackClient> {
+	private static final class MainSession extends Session<BackGUIClient> {
 
 		//attribute
 		private int counter = 1;
@@ -103,5 +103,5 @@ public final class GUIClientTutorial {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private GUIClientTutorial() {}
+	private BackGUIClientTutorial() {}
 }

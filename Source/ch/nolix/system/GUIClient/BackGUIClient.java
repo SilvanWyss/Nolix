@@ -19,7 +19,7 @@ import ch.nolix.system.client.Client;
  * @month 2015-12
  * @lines 190
  */
-public final class GUIBackClient extends Client<GUIBackClient> {
+public final class BackGUIClient extends Client<BackGUIClient> {
 	
 	//commands
 	static final String RESET_DIALOG_COMMAND = "ResetDialog";
@@ -29,7 +29,7 @@ public final class GUIBackClient extends Client<GUIBackClient> {
 	//attribute
 	private final GUI<?> dialog;
 
-	public GUIBackClient(final DuplexController duplexController) {
+	public BackGUIClient(final DuplexController duplexController) {
 			
 		//Calls constructor of the base class.
 		internal_connectWith(duplexController);
@@ -142,7 +142,7 @@ public final class GUIBackClient extends Client<GUIBackClient> {
 	
 	//method
 	/**
-	 * Adds or changes the given interaction attributes to the widgets of this {@link GUIBackClient}.
+	 * Adds or changes the given interaction attributes to the widgets of this {@link BackGUIClient}.
 	 * 
 	 * @param interactionAttributesOfWidgetsOfGUI
 	 * @throws InvalidArgumentException if the given interaction attributes are not valid.
@@ -170,7 +170,7 @@ public final class GUIBackClient extends Client<GUIBackClient> {
 	 * @param attributes
 	 */
 	private void resetOtherSideDialog(final Iterable<StandardSpecification> attributes) {
-		internal_runOnCounterpart(GUIBackClient.RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
+		internal_runOnCounterpart(BackGUIClient.RESET_DIALOG_COMMAND + "(" + dialog.getAttributes() + ")");
 	}
 
 	//method

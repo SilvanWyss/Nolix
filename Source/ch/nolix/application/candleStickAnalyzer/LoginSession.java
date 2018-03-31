@@ -3,7 +3,7 @@ package ch.nolix.application.candlestickAnalyzer;
 
 //own imports
 import ch.nolix.system.client.Session;
-import ch.nolix.system.consoleClient.ConsoleBackClient;
+import ch.nolix.system.consoleClient.BackConsoleClient;
 
 //class
 /**
@@ -11,7 +11,7 @@ import ch.nolix.system.consoleClient.ConsoleBackClient;
 * @month 2017-09
 * @lines 30
 */
-public final class LoginSession extends Session<ConsoleBackClient> {
+public final class LoginSession extends Session<BackConsoleClient> {
 
 	//method
 	/**

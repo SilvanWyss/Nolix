@@ -18,14 +18,14 @@ import ch.nolix.system.client.Client;
  * @month 2016-11
  * @lines 150
  */
-public final class GUIFrontClient extends Client<GUIFrontClient> {
+public final class FrontGUIClient extends Client<FrontGUIClient> {
 	
 	//attribute
 	private GUI<?> dialog;
 	
-	public GUIFrontClient(Application<GUIBackClient> target) {
+	public FrontGUIClient(Application<BackGUIClient> target) {
 		dialog = new Frame();
-		dialog.setController(new GUIFrontClientController(this));
+		dialog.setController(new FrontGUIClientController(this));
 		internal_connect(target);
 	}
 	
@@ -45,7 +45,7 @@ public final class GUIFrontClient extends Client<GUIFrontClient> {
 		
 		internal_runOnCounterpart(
 				
-			GUIBackClient.ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI
+			BackGUIClient.ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI
 			+ '('
 			+ dialog.getInteractionAttributesOfWidgets().to(ia -> '(' + ia.toString() + ')')
 			+ ')',
@@ -55,7 +55,7 @@ public final class GUIFrontClient extends Client<GUIFrontClient> {
 			+ runMethodCommand
 			+ ')',
 			
-			GUIBackClient.RESET_OTHER_SIDE_DIALOG_COMMAND
+			BackGUIClient.RESET_OTHER_SIDE_DIALOG_COMMAND
 		);
 	}
 	
@@ -75,10 +75,10 @@ public final class GUIFrontClient extends Client<GUIFrontClient> {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
-			case GUIBackClient.RESET_DIALOG_COMMAND:
+			case BackGUIClient.RESET_DIALOG_COMMAND:
 				resetDialog(command.getRefAttributes());
 				break;
-			case GUIBackClient.RESET_OTHER_SIDE_DIALOG_COMMAND:
+			case BackGUIClient.RESET_OTHER_SIDE_DIALOG_COMMAND:
 				resetOtherSideDialog(command.getRefAttributes());
 				break;
 			default:
@@ -113,7 +113,7 @@ public final class GUIFrontClient extends Client<GUIFrontClient> {
 	 * @param attributes
 	 */
 	private void resetOtherSideDialog(final Iterable<StandardSpecification> attributes) {
-		internal_runOnCounterpart(GUIBackClient.RESET_DIALOG_COMMAND + "(" + getGUI().getAttributes() + ")");
+		internal_runOnCounterpart(BackGUIClient.RESET_DIALOG_COMMAND + "(" + getGUI().getAttributes() + ")");
 	}
 	
 	//method

@@ -11,7 +11,7 @@ import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.primitive.validator2.Validator;
-import ch.nolix.system.baseGUIClient.BaseGUIClient;
+import ch.nolix.system.GUIClientoid.GUIClientoid;
 import ch.nolix.system.client.StandardApplication;
 
 //class
@@ -22,21 +22,21 @@ import ch.nolix.system.client.StandardApplication;
 * @month 2017-03
 * @lines 260
 */
-public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> {
+public final class FrontConsoleClient extends GUIClientoid<FrontConsoleClient> {
 
 	//attributes
 		private final GUI<?> GUI;
 		
 		private final Console console
-		= new Console().setName(WidgetNameManager.CONSOLE_NAME).setFocused();
+		= new Console().setName(WidgetNameCatalogue.CONSOLE_NAME).setFocused();
 		
 		private final Console infoPanel =
 		new Console()
-		.setName(WidgetNameManager.INFO_PANEL_NAME)
+		.setName(WidgetNameCatalogue.INFO_PANEL_NAME)
 		.setDisabled()
 		.removeGreyOutWhenDisabled();
 		
-	public ConsoleFrontClient(final int port) {
+	public FrontConsoleClient(final int port) {
 		
 		this(new Frame());
 		
@@ -50,7 +50,7 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 	 * @param application
 	 * @throws NullArgumentException if the given target application is null.
 	 */
-	public ConsoleFrontClient(final StandardApplication<ConsoleBackClient> application) {
+	public FrontConsoleClient(final StandardApplication<BackConsoleClient> application) {
 		
 		//Calls other constructor.
 		this(new Frame());
@@ -70,7 +70,7 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 	 * @throws EmptyArgumentException if the given target application is empty.
 	 * @throws NullArgumentException if the given GUI is null.
 	 */
-	public ConsoleFrontClient(
+	public FrontConsoleClient(
 		final String ip,
 		final int port,
 		final String targetApplication
@@ -93,7 +93,7 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 	 * @throws EmptyArgumentException if the given target application is empty.
 	 * @throws NullArgumentException if the given GUI is null.
 	 */
-	public ConsoleFrontClient(
+	public FrontConsoleClient(
 		final String ip,
 		final int port,
 		final String targetApplication,
@@ -112,7 +112,7 @@ public final class ConsoleFrontClient extends BaseGUIClient<ConsoleFrontClient> 
 	 * @param GUI
 	 * @throws NullArgumentException if the given GUI is null.
 	 */
-	private ConsoleFrontClient(final GUI<?> GUI) {
+	private FrontConsoleClient(final GUI<?> GUI) {
 		
 		//Checks if the given GUI is not null.
 		Validator.suppose(GUI).thatIsOfType(GUI.class).isNotNull();

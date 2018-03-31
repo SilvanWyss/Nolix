@@ -7,7 +7,7 @@ import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.primitive.validator2.Validator;
-import ch.nolix.system.baseGUIClient.BaseGUIClient;
+import ch.nolix.system.GUIClientoid.GUIClientoid;
 
 //class
 /**
@@ -18,7 +18,7 @@ import ch.nolix.system.baseGUIClient.BaseGUIClient;
  * @month 2017-03
  * @lines 360
  */
-public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
+public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 		
 	//constructor
 	/**
@@ -27,7 +27,7 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	 * @param duplexController
 	 * @throws NullArgumentException if the given duplex controller is null.
 	 */
-	public ConsoleBackClient(final DuplexController duplexController) {
+	public BackConsoleClient(final DuplexController duplexController) {
 		
 		//Calls constructor of the base class.
 		internal_connectWith(duplexController);
@@ -40,7 +40,7 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	 * 
 	 * @return this console back client.
 	 */
-	public ConsoleBackClient clearConsole() {
+	public BackConsoleClient clearConsole() {
 		
 		internal_runOnCounterpart(Protocol.CLEAR_CONSOLE_COMMAND);
 		
@@ -54,7 +54,7 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	 * 
 	 * @return this console back client.
 	 */
-	public ConsoleBackClient clearInfoPanel() {
+	public BackConsoleClient clearInfoPanel() {
 		
 		internal_runOnCounterpart(Protocol.CLEAR_INFO_PANEL_COMMAND);
 		
@@ -152,7 +152,7 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	 * @param design
 	 * @return this console back client.
 	 */
-	public ConsoleBackClient setDesign(final StandardConfiguration design) {
+	public BackConsoleClient setDesign(final StandardConfiguration design) {
 		
 		internal_runOnCounterpart(
 			Protocol.SET_DESIGN_COMMAND
@@ -173,7 +173,7 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	 * @return this console back client.
 	 * @throws NullArgumentException if the given title is null.
 	 */
-	public ConsoleBackClient setTitle(final String title) {
+	public BackConsoleClient setTitle(final String title) {
 		
 		internal_runOnCounterpart(
 			Protocol.SET_TITLE_COMMAND
@@ -192,7 +192,7 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	 * 
 	 * @return this console back client.
 	 */
-	public ConsoleBackClient writeEmptyLineToConsole() {
+	public BackConsoleClient writeEmptyLineToConsole() {
 		
 		internal_runOnCounterpart(Protocol.WRITE_EMPTY_LINE_TO_CONSOLE_COMMAND);
 		
@@ -206,7 +206,7 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	 * 
 	 * @return this console back client.
 	 */
-	public ConsoleBackClient writeEmptyTextLineToInfoPanel() {
+	public BackConsoleClient writeEmptyTextLineToInfoPanel() {
 		
 		internal_runOnCounterpart(Protocol.WRITE_EMPTY_LINE_TO_INFO_PANEL_COMMAND);
 		
@@ -223,7 +223,7 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	 * @throws NullArgumentException if the given line container is null.
 	 * @throws NullArgumentException if one of the given line is null.
 	 */
-	public ConsoleBackClient writeLinesToConsole(final Iterable<String> lines) {
+	public BackConsoleClient writeLinesToConsole(final Iterable<String> lines) {
 		
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINES_TO_CONSOLE_COMMAND
@@ -245,7 +245,7 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	 * @throws NullArgumentException if the given line container is null.
 	 * @throws NullArgumentException if one of the given line is null.
 	 */
-	public ConsoleBackClient writeLinesToInfoPanel(final Iterable<String> lines) {
+	public BackConsoleClient writeLinesToInfoPanel(final Iterable<String> lines) {
 		
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINES_TO_INFO_PANEL_COMMAND
@@ -265,7 +265,7 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	 * @param character
 	 * @return this console back client.
 	 */
-	public ConsoleBackClient writeLineToConsole(final char character) {
+	public BackConsoleClient writeLineToConsole(final char character) {
 		return writeLineToConsole(String.valueOf(character));
 	}
 	
@@ -278,7 +278,7 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	 * @return this console back client.
 	 * @throws NullArgumentException if the given line is null.
 	 */
-	public ConsoleBackClient writeLineToConsole(final String line) {
+	public BackConsoleClient writeLineToConsole(final String line) {
 		
 		//Checks if the given line is not null.
 		Validator.suppose(line).thatIsNamed("line").isNotNull();
@@ -302,7 +302,7 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	 * @return this console back client.
      * @throws NullArgumentException if one of the given line is null.
 	 */
-	public ConsoleBackClient writeLineToConsole(final String... lines) {
+	public BackConsoleClient writeLineToConsole(final String... lines) {
 				
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINES_TO_CONSOLE_COMMAND
@@ -323,7 +323,7 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	 * @return this console back client.
 	 * @throws NullArgumentException if the given line is null.
 	 */
-	public ConsoleBackClient writeLineToInfoPanel(final String line) {
+	public BackConsoleClient writeLineToInfoPanel(final String line) {
 		
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINE_TO_INFO_PANEL_COMMAND
@@ -343,7 +343,7 @@ public final class ConsoleBackClient extends BaseGUIClient<ConsoleBackClient> {
 	 * @param lines
      * @throws NullArgumentException if one of the given line is null.
 	 */
-	public ConsoleBackClient writeLineToInfoPanel(final String... lines) { 
+	public BackConsoleClient writeLineToInfoPanel(final String... lines) { 
 				
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINES_TO_INFO_PANEL_COMMAND

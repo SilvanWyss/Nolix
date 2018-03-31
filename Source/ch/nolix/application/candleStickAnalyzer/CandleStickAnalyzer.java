@@ -3,7 +3,7 @@ package ch.nolix.application.candlestickAnalyzer;
 
 //own imports
 import ch.nolix.system.client.StandardApplication;
-import ch.nolix.system.consoleClient.ConsoleBackClient;
+import ch.nolix.system.consoleClient.BackConsoleClient;
 
 //class
 /**
@@ -12,7 +12,7 @@ import ch.nolix.system.consoleClient.ConsoleBackClient;
  * @lines 30
  */
 public class CandlestickAnalyzer
-extends StandardApplication<ConsoleBackClient> {
+extends StandardApplication<BackConsoleClient> {
 
 	//name
 	public static final String NAME = "Candlestick Analyzer";

@@ -12,10 +12,10 @@ import ch.nolix.primitive.validator2.Validator;
 * @month 2016-11
 * @lines 40
 */
-final class GUIFrontClientController implements IController {
+final class FrontGUIClientController implements IController {
 	
 	//attribute
-	private final GUIFrontClient frontDialogClient;
+	private final FrontGUIClient frontDialogClient;
 	
 	/**
 	 * Creates a new front dialog client controller that belongs to the given front dialog client.
@@ -23,10 +23,10 @@ final class GUIFrontClientController implements IController {
 	 * @param dialogFrontEndClient
 	 * @throws NullArgumentException if the given front dialog client is null.
 	 */
-	public GUIFrontClientController(final GUIFrontClient frontDialogClient) {
+	public FrontGUIClientController(final FrontGUIClient frontDialogClient) {
 		
 		//Checks if the given front dialog client is not null.
-		Validator.suppose(frontDialogClient).thatIsOfType(GUIFrontClient.class).isNotNull();
+		Validator.suppose(frontDialogClient).thatIsOfType(FrontGUIClient.class).isNotNull();
 		
 		//Sets the front dialog client of this front dialog client controller.
 		this.frontDialogClient = frontDialogClient;

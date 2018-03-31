@@ -6,8 +6,8 @@ import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.system.client.Session;
 import ch.nolix.system.client.StandardApplication;
 import ch.nolix.system.consoleClient.BlackRedConsoleDesign;
-import ch.nolix.system.consoleClient.ConsoleBackClient;
-import ch.nolix.system.consoleClient.ConsoleFrontClient;
+import ch.nolix.system.consoleClient.BackConsoleClient;
+import ch.nolix.system.consoleClient.FrontConsoleClient;
 
 //class
 /**
@@ -17,7 +17,7 @@ import ch.nolix.system.consoleClient.ConsoleFrontClient;
  * @month 2017-08
  * @lines 90
  */
-public final class ConsoleClientTutorial {
+public final class BackConsoleClientTutorial {
 
 	//main method
 	/**
@@ -30,18 +30,18 @@ public final class ConsoleClientTutorial {
 	public static void main(final String[] arguments) {
 		
 		//Creates an application.
-		final StandardApplication<ConsoleBackClient> application
-		= new StandardApplication<ConsoleBackClient>(
+		final StandardApplication<BackConsoleClient> application
+		= new StandardApplication<BackConsoleClient>(
 			"MyApplication",
 			MainSession.class
 		);
 		
 		//Creates a console front client that will connect to the application.
-		new ConsoleFrontClient(application);
+		new FrontConsoleClient(application);
 	}
 	
 	//inner class
-	private static final class MainSession extends Session<ConsoleBackClient> {
+	private static final class MainSession extends Session<BackConsoleClient> {
 		
 		//method
 		/**
@@ -93,5 +93,5 @@ public final class ConsoleClientTutorial {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private ConsoleClientTutorial() {}
+	private BackConsoleClientTutorial() {}
 }

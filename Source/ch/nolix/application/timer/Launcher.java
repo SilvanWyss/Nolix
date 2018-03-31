@@ -2,7 +2,7 @@
 package ch.nolix.application.timer;
 
 //own import
-import ch.nolix.system.GUIClient.GUIFrontClient;
+import ch.nolix.system.GUIClient.FrontGUIClient;
 
 //package-visible class
 /**
@@ -23,7 +23,7 @@ final class Launcher {
 	 */
 	@SuppressWarnings("resource")
 	public static final void main(String[] args) {
-		new GUIFrontClient(new Timer());
+		new FrontGUIClient(new Timer());
 	}
 	
 	//private constructor

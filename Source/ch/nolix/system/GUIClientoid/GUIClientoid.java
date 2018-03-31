@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.baseGUIClient;
+package ch.nolix.system.GUIClientoid;
 
 //own imports
 import ch.nolix.core.fileSystem.FileSystemAccessor;
@@ -16,7 +16,7 @@ import ch.nolix.system.client.Client;
  * @month 2017-09
  * @lines 150
  */
-public abstract class BaseGUIClient<BGUIC extends BaseGUIClient<BGUIC>>
+public abstract class GUIClientoid<BGUIC extends GUIClientoid<BGUIC>>
 extends Client<BGUIC> {
 
 	//method

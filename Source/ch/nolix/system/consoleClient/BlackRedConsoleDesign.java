@@ -29,7 +29,7 @@ public final class BlackRedConsoleDesign extends StandardConfiguration {
 				"ElementMargin(20)"
 			),
 			new DeepConfiguration()
-			.setSelectorName(WidgetNameManager.INFO_PANEL_NAME)
+			.setSelectorName(WidgetNameCatalogue.INFO_PANEL_NAME)
 			.addAttachingAttribute(
 				"NormalWidth(1000)",
 				"NormalHeight(300)",
@@ -38,7 +38,7 @@ public final class BlackRedConsoleDesign extends StandardConfiguration {
 				"NormalTextColor(OrangeRed)"
 			),
 			new DeepConfiguration()
-			.setSelectorName(WidgetNameManager.CONSOLE_NAME)
+			.setSelectorName(WidgetNameCatalogue.CONSOLE_NAME)
 			.addAttachingAttribute(
 				"NormalWidth(1000)",
 				"NormalHeight(400)",

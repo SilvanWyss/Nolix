@@ -10,7 +10,7 @@ import ch.nolix.element.finance.QuandlDataProvider;
 import ch.nolix.element.finance.VolumeCandlestick;
 import ch.nolix.primitive.invalidStateException.ClosedStateException;
 import ch.nolix.system.client.Session;
-import ch.nolix.system.consoleClient.ConsoleBackClient;
+import ch.nolix.system.consoleClient.BackConsoleClient;
 
 //class
 /**
@@ -18,7 +18,7 @@ import ch.nolix.system.consoleClient.ConsoleBackClient;
  * @month 2017-08
  * @lines 190
  */
-public final class MainSession extends Session<ConsoleBackClient> {
+public final class MainSession extends Session<BackConsoleClient> {
 	
 	//attribute
 	private final ArgumentOfficer argumentOfficer = new ArgumentOfficer();

@@ -9,7 +9,7 @@ package ch.nolix.system.consoleClient;
  * @month 2017-08
  * @lines 20
  */
-public final class WidgetNameManager {
+public final class WidgetNameCatalogue {
 
 	//widget names
 	public static final String CONSOLE_NAME = "Console";
@@ -19,5 +19,5 @@ public final class WidgetNameManager {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private WidgetNameManager() {}
+	private WidgetNameCatalogue() {}
 }

@@ -2,7 +2,7 @@
 package ch.nolix.application.performanceDetector;
 
 //own imports
-import ch.nolix.system.GUIClient.GUIBackClient;
+import ch.nolix.system.GUIClient.BackGUIClient;
 import ch.nolix.system.client.StandardApplication;
 
 //class
@@ -11,7 +11,7 @@ import ch.nolix.system.client.StandardApplication;
  * @month 2017-06
  * @lines 20
  */
-public final class PerformanceDetector extends StandardApplication<GUIBackClient> {
+public final class PerformanceDetector extends StandardApplication<BackGUIClient> {
 
 	//name
 	public static final String NAME = "Performace Detector";

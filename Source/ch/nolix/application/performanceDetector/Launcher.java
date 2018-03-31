@@ -2,7 +2,7 @@
 package ch.nolix.application.performanceDetector;
 
 //own import
-import ch.nolix.system.GUIClient.GUIFrontClient;
+import ch.nolix.system.GUIClient.FrontGUIClient;
 
 //class
 /**
@@ -24,7 +24,7 @@ public final class Launcher {
 	 */
 	@SuppressWarnings("resource")
 	public static final void main(String[] args) {
-		new GUIFrontClient(new PerformanceDetector());
+		new FrontGUIClient(new PerformanceDetector());
 	}
 	
 	//private constructor

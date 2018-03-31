@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.baseGUIClient;
+package ch.nolix.system.GUIClientoid;
 
 //package-visible class
 /**

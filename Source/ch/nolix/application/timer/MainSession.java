@@ -8,7 +8,7 @@ import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.GUI.HorizontalStack;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.VerticalStack;
-import ch.nolix.system.GUIClient.GUIBackClient;
+import ch.nolix.system.GUIClient.BackGUIClient;
 import ch.nolix.system.client.Session;
 
 //package-visible class
@@ -17,7 +17,7 @@ import ch.nolix.system.client.Session;
  * @month 2016-06
  * @lines 110
  */
-final class MainSession extends Session<GUIBackClient> {
+final class MainSession extends Session<BackGUIClient> {
 
 	//constants
 	private static final String TITLE = "Timer";
