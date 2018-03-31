@@ -1,16 +1,19 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own import
-import ch.nolix.core.specification.StandardSpecification;
+//own imports
+import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specificationInterfaces.ISpecifiedEnum;
 
 //enum
 /**
+ * A {@link ContentPosition} is not mutable.
+ * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 30
+ * @lines 40
  */
-public enum ContentPosition {
+public enum ContentPosition implements ISpecifiedEnum {
 	LeftTop,
 	Left,
 	LeftBottom,
@@ -21,14 +24,19 @@ public enum ContentPosition {
 	Right,
 	RightBottom;
 	
-	//type name
+	//constant
 	public static final String TYPE_NAME = "ContentPosition";
-	
-	//method
+
+	//static method
 	/**
-	 * @return the specification of this content position.
+	 * @param specification
+	 * @return a new {@link ContentPosition} from the given specification.
+	 * @throws InvalidArgumentException
+	 * if the given specification is not valid.
 	 */
-	public final StandardSpecification getSpecification() {
-		return new StandardSpecification(TYPE_NAME, toString());
+	public static ContentPosition createFromSpecification(
+		final Specification specification
+	) {
+		return valueOf(specification.getOneAttributeAsString());
 	}
 }
