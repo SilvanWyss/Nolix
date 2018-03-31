@@ -86,7 +86,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @return a new {@link Widget} from the given specificatio.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public Widget<?, ?> createWidget(final Specification specification) {
+	public static Widget<?, ?> createWidget(final Specification specification) {
 		return widgetCreator.createWidget(specification);
 	}
 	
@@ -97,7 +97,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @throws InvalidArgumentException
 	 * if a {@link Widget} of the given type cannot be created.
 	 */
-	public Widget<?, ?> createWidget(final String type) {
+	public static Widget<?, ?> createWidget(final String type) {
 		return widgetCreator.createWidget(type);
 	}
 	

@@ -1033,19 +1033,6 @@ extends ConfigurableElement<W> {
 		return (W)this;
 	}
 	
-	//method
-	/**
-	 * Creates a new widget the given specification specifies.
-	 * The widget and all of its widgets will belong to the GUI this widget belongs to.
-	 * 
-	 * @param specification
-	 * @return the created widget.
-	 * @throws InvalidArgumentException if the given specification is not valid.
-	 */
-	protected final Widget<?, ?> createWidget(final Specification specification) {
-		return getRefGUI().createWidget(specification);
-	}
-	
 	//abstract method
 	/**
 	 * Creates a new widget structure for this widget.

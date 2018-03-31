@@ -81,7 +81,7 @@ extends Container<SingleContainer, SingleContainerStructure> {
 	public final void addOrChangeAttribute(StandardSpecification attribute) {
 		
 		if (attribute.hasHeader() && GUI.canCreateWidget(attribute.getHeader())) {
-			setRectangle(getRefGUI().createWidget(attribute));
+			setRectangle(GUI.createWidget(attribute));
 			return;
 		}
 		
