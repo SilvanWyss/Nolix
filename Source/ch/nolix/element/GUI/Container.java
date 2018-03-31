@@ -135,6 +135,6 @@ extends BorderWidget<C, BWS> {
 		super.setCursorPositionFromParentContainer(relativeMouseXPosition, relativeMouseYPosition);
 		
 		//Sets the relative mouse position of the rectangles of this container that are shown.
-		getRefShownWidgets().forEach(r -> r.setCursorPositionFromParentContainer(getMouseXPosition(), getMouseYPosition()));
+		getRefShownWidgets().forEach(r -> r.setCursorPositionFromParentContainer(getCursorXPosition(), getCursorYPosition()));
 	}
 }

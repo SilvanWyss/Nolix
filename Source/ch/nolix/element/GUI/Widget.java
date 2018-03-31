@@ -315,7 +315,7 @@ extends ConfigurableElement<W> {
 	/**
 	 * @return the x-position of the mouse of this widget.
 	 */
-	public final int getMouseXPosition() {
+	public final int getCursorXPosition() {
 		return mouseXPosition;
 	}
 	
@@ -323,7 +323,7 @@ extends ConfigurableElement<W> {
 	/**
 	 * @return the y-position of the mouse of this widget.
 	 */
-	public final int getMouseYPosition() {
+	public final int getCursorYPosition() {
 		return mouseYPosition;
 	}
 	

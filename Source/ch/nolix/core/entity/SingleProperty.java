@@ -77,6 +77,14 @@ extends Propertyoid<V> {
 	
 	//method
 	/**
+	 * @return true if this single property has a value.
+	 */
+	public final boolean hasValue() {
+		return (value != null);
+	}
+	
+	//method
+	/**
 	 * @return true if this single property is approved.
 	 */
 	public final boolean isApproved() {

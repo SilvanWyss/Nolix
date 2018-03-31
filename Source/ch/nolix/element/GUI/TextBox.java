@@ -83,8 +83,8 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		//Calls method of the base class.
 		super.noteLeftMouseButtonPress();
 		
-		if (contentIsUnderMouse())	{
-			int textCursorDistanceFromTextBegin = getMouseXPosition() - getContentXPosition();
+		if (contentIsUnderCursor())	{
+			int textCursorDistanceFromTextBegin = getCursorXPosition() - getContentXPosition();
 			boolean found = false;
 			for (int i = 0; i < getText().length(); i++) {
 				int subTextWidth = new Font(getRefCurrentStructure().getActiveTextSize()).getSwingTextWidth(getText().substring(0, i));

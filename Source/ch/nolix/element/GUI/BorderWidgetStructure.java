@@ -3,12 +3,10 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.entity2.Property;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
-import ch.nolix.element.data.ScrollHeight;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -26,7 +24,6 @@ extends BackgroundWidgetStructure<BWS> {
 	private static final int DEFAULT_ACTIVE_BORDER_SIZE = 0;
 	private static final Color DEFAULT_ACTIVE_BORDER_COLOR = Color.BLACK;
 	private static final int DEFAULT_ACTIVE_PADDING = 0;
-	private static final int DEFAULT_SCROLL_HEIGHT = 100;
 	
 	//attribute headers
 	private static final String BORDER_SIZE_HEADER = "BorderSize";
@@ -44,15 +41,6 @@ extends BackgroundWidgetStructure<BWS> {
 	private static final String RIGHT_PADDING_HEADER = "RightPadding";
 	private static final String TOP_PADDING_HEADER = "TopPadding";
 	private static final String BOTTOM_PADDING_HEADER = "BottomPadding";
-	private static final String SCROLL_HEIGHT_HEADER = "ScrollHeight";
-	
-	//attribute
-	private final Property<PositiveInteger> scrollHeight =
-	new Property<PositiveInteger>(
-		SCROLL_HEIGHT_HEADER,
-		new PositiveInteger(DEFAULT_SCROLL_HEIGHT),
-		s -> PositiveInteger.createFromSpecification(s)
-	);
 	
 	//optional attributes
 	private PositiveInteger leftBorderSize;
@@ -268,14 +256,6 @@ extends BackgroundWidgetStructure<BWS> {
 	
 	//method
 	/**
-	 * @return the active scroll height of this border widget structure.
-	 */
-	public final int getActiveScrollHeight() {
-		return scrollHeight.getActiveValue().getValue();
-	}
-	
-	//method
-	/**
 	 * @return the active top border color of this border widget structure.
 	 */
 	public final Color getActiveTopBorderColor() {
@@ -386,14 +366,6 @@ extends BackgroundWidgetStructure<BWS> {
 	 */
 	public final boolean hasLeftPadding() {
 		return (bottomPadding != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this border widget structure has a recursive scroll height.
-	 */
-	public final boolean hasRecursiveScrollHeight() {
-		return scrollHeight.hasRecursiveValue();
 	}
 	
 	//method
@@ -866,22 +838,6 @@ extends BackgroundWidgetStructure<BWS> {
 	public final BWS setRightPadding(final int rightPadding) {
 		
 		this.rightPadding = new PositiveInteger(rightPadding);
-		
-		return (BWS)this;
-	}
-	
-	//method
-	/**
-	 * Sets the scroll height of this border widget structure.
-	 * 
-	 * @param scrollHeight
-	 * @return this border widget structure
-	 * @throws SmallerArgumentException if the given scroll height is smaller than the minimal scroll height.
-	 */
-	@SuppressWarnings("unchecked")
-	public final BWS setScrollHeight(final int scrollHeight) {
-		
-		this.scrollHeight.setValue(new ScrollHeight(scrollHeight));
 		
 		return (BWS)this;
 	}

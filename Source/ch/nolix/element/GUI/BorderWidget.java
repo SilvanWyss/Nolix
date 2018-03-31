@@ -3,27 +3,32 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.intData.MinHeight;
-import ch.nolix.element.intData.MinWidth;
+import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.painter.IPainter;
+import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**
- * A border widget is a background widget
- * that can have individual borders at each of its 4 sides.
+ * A border widget is a background widget that:
+ * -Can have an individual border at each of its 4 sides.
+ * -Can have a min size
+ *  that has the effect that the content of the border widget is moved inside its borders.
+ * -Can have a max size
+ *  that has the effect that the border widget becomes scrollable.
  * 
  * The content of a border widget is the border widget without borders and paddings.
  * The methods concerning the content of a border widget are not public.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 670
+ * @lines 770
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -33,15 +38,47 @@ public abstract class BorderWidget<
 >
 extends BackgroundWidget<BW, BWS> {
 	
-	//type name
+	//constants
 	public static final String TYPE_NAME = "Borderablewidget";
+	private static final String MIN_WIDTH_HEADER = "MinWidth";
+	private static final String MIN_HEIGHT_HEADER = "MinHeight";
+	private static final String MAX_WIDTH_HEADER = "MaxWidth";
+	private static final String MAX_HEIGHT_HEADER = "MaxHeight";
 	
 	//attribute
-	private ContentPosition contentOrientation = ContentPosition.Center;
+	private ContentPosition contentPosition;
 	
-	//optional attributes
-	private MinWidth minWidth;
-	private MinHeight minHeight;
+	//attribute
+	private final MutableOptionalProperty<PositiveInteger> minWidth =
+	new MutableOptionalProperty<PositiveInteger>(
+		MIN_WIDTH_HEADER,
+		mw -> setMinHeight(mw.getValue()),
+		s -> PositiveInteger.createFromSpecification(s)
+	);
+	
+	//attribute
+	private final MutableOptionalProperty<PositiveInteger> minHeight =
+	new MutableOptionalProperty<PositiveInteger>(
+		MIN_HEIGHT_HEADER,
+		mh -> setMinHeight(mh.getValue()),
+		s -> PositiveInteger.createFromSpecification(s)
+	);
+	
+	//attribute
+	private final MutableOptionalProperty<PositiveInteger> maxWidth =
+	new MutableOptionalProperty<PositiveInteger>(
+		MAX_WIDTH_HEADER,
+		mw -> setMaxWidth(mw.getValue()),
+		s -> PositiveInteger.createFromSpecification(s)
+	);
+	
+	//attribute
+	private final MutableOptionalProperty<PositiveInteger> maxHeight =
+	new MutableOptionalProperty<PositiveInteger>(
+		MAX_HEIGHT_HEADER,
+		mh -> setMaxHeight(mh.getValue()),
+		s -> PositiveInteger.createFromSpecification(s)
+	);
 	
 	//method
 	/**
@@ -55,15 +92,11 @@ extends BackgroundWidget<BW, BWS> {
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
 			case ContentPosition.TYPE_NAME:
-				setContentOrientation(
-					ContentPosition.valueOf(attribute.getOneAttributeAsString())
+				
+				setContentPosition(
+					ContentPosition.createFromSpecification(attribute)
 				);
-				break;
-			case MinWidth.TYPE_NAME:
-				setMinWidth(attribute.getOneAttributeAsInt());
-				break;
-			case MinHeight.TYPE_NAME:
-				setMinHeight(attribute.getOneAttributeAsInt());
+				
 				break;
 			default:
 				
@@ -81,17 +114,7 @@ extends BackgroundWidget<BW, BWS> {
 		//Calls method of the base class
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
-		attributes.addAtEnd(contentOrientation.getSpecification());
-		
-		//Handles the case that this border widget has a min width.
-		if (hasMinWidth()) {
-			attributes.addAtEnd(minWidth.getSpecification());
-		}
-		
-		//Handles the case that this border widget has a min height.
-		if (hasMinHeight()) {
-			attributes.addAtEnd(minHeight.getSpecification());
-		}
+		attributes.addAtEnd(contentPosition.getSpecification());
 
 		return attributes;
 	}
@@ -100,8 +123,8 @@ extends BackgroundWidget<BW, BWS> {
 	/**
 	 * @return the content orientation of this border widget.
 	 */
-	public final ContentPosition getContentOrientation() {
-		return contentOrientation;
+	public final ContentPosition getContentPosition() {
+		return contentPosition;
 	}
 	
 	//method
@@ -110,29 +133,53 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final int getHeightWhenNotCollapsed() {
 		
-		final BWS currentStructure = getRefCurrentStructure();
+		var baseHeight = getBaseHeight();
 		
-		final int baseHeight;
-		if (!currentStructure.hasRecursiveScrollHeight()) {
-			baseHeight =
-			currentStructure.getActiveTopBorderSize()
-			+ currentStructure.getActiveTopPadding()
-			+ getContentHeight()
-			+ currentStructure.getActiveBottomPadding()
-			+ currentStructure.getActiveBottomBorderSize();
-		}
-		else {
-			baseHeight = currentStructure.getActiveScrollHeight();
+		//Handles the case that this border widget has a min height.
+		if (hasMinHeight()) {
+			baseHeight = Calculator.getMax(baseHeight, getMinHeight());
 		}
 		
-		//final calculations
-			//Handles the case that this border widget has no min height.
-			if (!hasMinHeight()) {
-				return baseHeight;
-			}
-			
-			//Handles the case that this border widge has a min height.
-			return Calculator.getMax(getMinHeight(), baseHeight);
+		//Handles the case that this border widget has a max height.
+		if (hasMaxHeight()) {
+			baseHeight = Calculator.getMin(baseHeight, getMaxHeight());
+		}
+		
+		return baseHeight;
+	}
+	
+	//method
+	/**
+	 * @return the thickness of the horizontal scrollbar of this border widget.
+	 */
+	public final int getHorizontalScrollbarThickness() {
+		
+		//Handles the case that this border widget has no max width.
+		if (!hasMaxWidth()) {
+			return 0;
+		}
+		
+		//Handles the case that this border widget has a max width.
+		//TODO
+		return 10;
+	}
+	
+	//method
+	/**
+	 * @return the max height of this border widget.
+	 * @throws UnexistingAttributeException if this border widget has no max height.
+	 */
+	public final int getMaxHeight() {
+		return maxHeight.getValue().getValue();
+	}
+	
+	//method
+	/**
+	 * @return the max width of this border widget.
+	 * @throws UnexistingAttributeException if this border widget has no max widt.
+	 */
+	public final int getMaxWidth() {
+		return maxWidth.getValue().getValue();
 	}
 	
 	//method
@@ -141,13 +188,7 @@ extends BackgroundWidget<BW, BWS> {
 	 * @throws UnexistingAttributeException if this border widget has no min height.
 	 */
 	public final int getMinHeight() {
-		
-		//Checks if this border widget has a min height.
-		if (!hasMinHeight()) {
-			throw new UnexistingAttributeException(this, "min height");
-		}
-		
-		return minHeight.getValue();
+		return minHeight.getValue().getValue();
 	}
 	
 	//method
@@ -156,13 +197,23 @@ extends BackgroundWidget<BW, BWS> {
 	 * @throws UnexistingAttributeException if this border widget has no min width.
 	 */
 	public final int getMinWidth() {
+		return minWidth.getValue().getValue();
+	}
+	
+	//method
+	/**
+	 * @return the thickness of the vertical scrollbar of this border widget.
+	 */
+	public final int getVerticalScrollbarThickness() {
 		
-		//Checks if this border widget has a min width.
-		if (!hasMinWidth()) {
-			throw new UnexistingAttributeException(this, "min width");
+		//Handles the case that this border widget has no max width.
+		if (!hasMaxHeight()) {
+			return 0;
 		}
 		
-		return minWidth.getValue();
+		//Handles the case that this border widget has a max width.
+		//TODO
+		return 10;
 	}
 	
 	//method
@@ -171,23 +222,35 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final int getWidthWhenNotCollapsed() {
 		
-		final BWS currentStructure = getRefCurrentStructure();
+		var baseWidth = getBaseWidth();
 		
-		final int baseWidth
-		= currentStructure.getActiveLeftBorderSize()
-		+ currentStructure.getActiveLeftPadding()
-		+ getContentWidth()
-		+ currentStructure.getActiveRightPadding()
-		+ currentStructure.getActiveRightBorderSize();
+		//Handles the case that this border widget has a min width.
+		if (hasMinWidth()) {
+			baseWidth = Calculator.getMax(baseWidth, getMinWidth());
+		}
 		
-		//final calculations
-			//Handles the case that this border widget has no min width.
-			if (!hasMinWidth()) {
-				return baseWidth;
-			}
-			
-			//Handles the case that this border widget has a min width.
-			return Calculator.getMax(getMinWidth(), baseWidth);
+		//Handles the case that this border widget has a max width.
+		if (hasMaxWidth()) {
+			baseWidth = Calculator.getMin(baseWidth, getMaxWidth());
+		}
+		
+		return baseWidth;
+	}
+	
+	//method
+	/**
+	 * @return true if this border widget has a max height.
+	 */
+	public final boolean hasMaxHeight() {
+		return maxHeight.hasValue();
+	}
+	
+	//method
+	/**
+	 * @return true if this border widget has a max width.
+	 */
+	public final boolean hasMaxWidth() {
+		return maxWidth.hasValue();
 	}
 	
 	//method
@@ -195,7 +258,7 @@ extends BackgroundWidget<BW, BWS> {
 	 * @return true if this border widget has a min height.
 	 */	
 	public final boolean hasMinHeight() {
-		return (minHeight != null);
+		return minHeight.hasValue();
 	}
 	
 	//method
@@ -203,23 +266,59 @@ extends BackgroundWidget<BW, BWS> {
 	 * @return true if this border widget has a min width.
 	 */
 	public final boolean hasMinWidth() {
-		return (minWidth != null);
+		return minWidth.hasValue();
+	}
+	
+	//method
+	/**
+	 * Removes the max height of this border widget.
+	 * 
+	 * @return this border widget.
+	 */
+	public final BW removeMaxHeight() {
+		
+		maxHeight.clear();
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Removes the max width of this border widget.
+	 * 
+	 * @return this border widget.
+	 */
+	public final BW removeMaxWidtht() {
+		
+		maxWidth.clear();
+		
+		return getInstance();
 	}
 	
 	//method
 	/**
 	 * Removes the min height of this border widget.
+	 * 
+	 * @return this border widget.
 	 */
-	public final void removeMinHeight() {
-		minHeight = null;
+	public final BW removeMinHeight() {
+		
+		minHeight.clear();
+		
+		return getInstance();
 	}
 	
 	//method
 	/**
 	 * Removes the min width of this border widget.
+	 * 
+	 * @return this border widget.
 	 */
-	public final void removeMinWidth() {
-		minWidth = null;
+	public final BW removeMinWidth() {
+		
+		minWidth.clear();
+		
+		return getInstance();
 	}
 	
 	//method
@@ -231,9 +330,11 @@ extends BackgroundWidget<BW, BWS> {
 		//Calls method of the base class
 		super.resetConfiguration();
 		
-		setContentOrientation(ContentPosition.LeftTop);
+		setContentPosition(ContentPosition.LeftTop);
 		removeMinWidth();
 		removeMinHeight();
+		removeMaxWidtht();
+		removeMaxHeight();
 	}
 	
 	//method
@@ -244,8 +345,7 @@ extends BackgroundWidget<BW, BWS> {
 	 * @return this border widget.
 	 * @throws NullArgumentException if the given content position is null.
 	 */
-	@SuppressWarnings("unchecked")
-	public final BW setContentOrientation(final ContentPosition contentPosition) {
+	public final BW setContentPosition(final ContentPosition contentPosition) {
 		
 		//Checks if the given content position is not null.
 		Validator
@@ -254,9 +354,41 @@ extends BackgroundWidget<BW, BWS> {
 		.isNotNull();
 
 		//Sets the content position of this border widget.
-		this.contentOrientation = contentPosition;
+		this.contentPosition = contentPosition;
 		
-		return (BW)this;
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Sets the max height of this border widget.
+	 * 
+	 * @param maxHeight
+	 * @return this border widget.
+	 * @throws NonPositiveArgumentException if the given max height is not positive.
+	 */
+	public final BW setMaxHeight(final int maxHeight) {
+		
+		//TODO: Check conditions.
+		this.maxHeight.setValue(new PositiveInteger(maxHeight));
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Sets the max width of this border widget.
+	 * 
+	 * @param maxWidth
+	 * @return this border widget.
+	 * @throws NonPositiveArgumentException if the given max width is not positive.
+	 */
+	public final BW setMaxWidth(final int maxWidth) {
+		
+		//TODO: Check conditions.
+		this.maxWidth.setValue(new PositiveInteger(maxWidth));
+		
+		return getInstance();
 	}
 	
 	//method
@@ -267,12 +399,12 @@ extends BackgroundWidget<BW, BWS> {
 	 * @return this border widget.
 	 * @throws NonPositiveArgumentException if the given min height is not positive.
 	 */
-	@SuppressWarnings("unchecked")
 	public final BW setMinHeight(final int minHeight) {
 		
-		this.minHeight = new MinHeight(minHeight);
+		//TODO: Check conditions.
+		this.minHeight.setValue(new PositiveInteger(minHeight));
 		
-		return (BW)this;
+		return getInstance();
 	}
 	
 	//method
@@ -283,25 +415,25 @@ extends BackgroundWidget<BW, BWS> {
 	 * @return this border widget.
 	 * @throws NonPositiveArgumentException if the given min width is not positive.
 	 */
-	@SuppressWarnings("unchecked")
 	public final BW setMinWidth(final int minWidth) {
 		
-		this.minWidth = new MinWidth(minWidth);
+		//TODO: Check conditions.
+		this.minWidth.setValue(new PositiveInteger(minWidth));
 		
-		return (BW)this;
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * @return true if the content of this border widget is under mouse.
+	 * @return true if the content of this border widget is under the cursor.
 	 */
-	protected final boolean contentIsUnderMouse() {
+	protected final boolean contentIsUnderCursor() {
 		return(
-			getContentXPosition() <= getMouseXPosition()
-			&& getContentXPosition() + getContentWidth() > getMouseXPosition()
-			&& getContentYPosition() <= getMouseYPosition()
-			&& getContentYPosition() + getContentHeight() < getMouseYPosition()
-		);	
+			getContentXPosition() <= getCursorXPosition()
+			&& getContentXPosition() + getContentWidth() > getCursorXPosition()
+			&& getContentYPosition() <= getCursorYPosition()
+			&& getContentYPosition() + getContentHeight() < getCursorYPosition()
+		);
 	}
 	
 	//method
@@ -322,127 +454,42 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	protected final int getContentXPosition() {
 		
-		final BWS currentStructure = getRefCurrentStructure();
+		final var currentStructure = getRefCurrentStructure();
 		
 		//Enumerates the content orientation of this border widget.
-		switch (getContentOrientation()) {
+		switch (getContentPosition()) {
 			case LeftTop:
-				return (
-					currentStructure.getActiveLeftBorderSize()
-					+ currentStructure.getActiveLeftPadding()
-				);
 			case Left:
-				return (
-					currentStructure .getActiveLeftBorderSize()
-					+ currentStructure.getActiveLeftPadding()
-				);
 			case LeftBottom:
-				return (
-					currentStructure .getActiveLeftBorderSize()
-					+ currentStructure.getActiveLeftPadding()
-				);	
+				return
+				currentStructure.getActiveLeftBorderSize()
+				+ currentStructure.getActiveLeftPadding();	
 			case Top:
-				
-				if (!hasMinWidth()) {
-					return (
-						currentStructure .getActiveLeftBorderSize()
-						+ currentStructure.getActiveLeftPadding()
-					);
-				}
-				
-				final int contentXPosition1
-				= getMinWidth()
-				- getContentWidth()
-				+ currentStructure .getActiveLeftBorderSize()
-				+ currentStructure.getActiveLeftPadding()
-				- currentStructure.getActiveRightBorderSize()
-				- currentStructure.getActiveRightPadding();
-				
-				return (contentXPosition1 / 2);
 			case Center:
-				
-				if (!hasMinWidth()) {
-					return (
-						getRefCurrentStructure().getActiveLeftBorderSize()
-						+ currentStructure.getActiveLeftPadding()
-					);
-				}
-				
-				final int contentXPosition2
-				= getMinWidth()
-				- getContentWidth()
-				+ currentStructure.getActiveLeftBorderSize()
-				+ currentStructure.getActiveLeftPadding()
-				- currentStructure.getActiveRightBorderSize()
-				- currentStructure.getActiveRightPadding();
-				
-				return (contentXPosition2 / 2);
 			case Bottom:
 				
+				//Handles the case that this border widget has no min width.				
 				if (!hasMinWidth()) {
-					return (
-						currentStructure.getActiveLeftBorderSize()
-						+ currentStructure.getActiveLeftPadding()
-					);
+					return
+					currentStructure.getActiveLeftBorderSize()
+					+ currentStructure.getActiveLeftPadding();
 				}
 				
-				final int contentXPosition3
-				= getMinWidth()
-				- getContentWidth()
-				+ currentStructure.getActiveLeftBorderSize()
-				+ currentStructure.getActiveLeftPadding()
-				- currentStructure.getActiveRightBorderSize()
-				- currentStructure.getActiveRightPadding();
-				
-				return (contentXPosition3 / 2);
+				//Handles the case that this border widget has a min width.
+				return
+				(getMinWidth() - getContentWidth()) / 2;
 			case RightTop:
-				
-				if (!hasMinWidth()) {
-					return (
-						currentStructure.getActiveLeftBorderSize()
-						+ currentStructure.getActiveLeftPadding()
-					);
-				}
-				
-				return (
-					getMinWidth()
-					- getContentWidth()
-					- currentStructure.getActiveRightBorderSize()
-					- currentStructure.getActiveRightPadding()
-				);
 			case Right:
-			
-				if (!hasMinWidth()) {
-					return (
-						currentStructure.getActiveLeftBorderSize()
-						+ currentStructure.getActiveLeftPadding()
-					);
-				}
-				
-				return (
-					getMinWidth()
-					- getContentWidth()
-					- currentStructure.getActiveRightBorderSize()
-					- currentStructure.getActiveRightPadding()
-				);
 			case RightBottom:
 				
-				if (!hasMinWidth()) {
-					return (
-						currentStructure.getActiveLeftBorderSize()
-						+ currentStructure.getActiveLeftPadding()
-					);
-				}
-				
-				return (
-					getMinWidth()
-					- getContentWidth()
-					- currentStructure.getActiveRightBorderSize()
-					- currentStructure.getActiveRightPadding()
-				);
+				return
+				getWidth()
+				- currentStructure.getActiveRightBorderSize()
+				- currentStructure.getActiveRightPadding()
+				- getContentWidth();
 		}
 		
-		throw new RuntimeException();
+		throw new InvalidStateException(this);
 	}
 	
 	//method
@@ -451,127 +498,42 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	protected final int getContentYPosition() {
 		
-		final BWS currentStructure = getRefCurrentStructure();
+		final var currentStructure = getRefCurrentStructure();
 		
 		//Enumerates the content orientation of this border widget.
-		switch (getContentOrientation()) {
+		switch (getContentPosition()) {
 			case LeftTop:
-				return (
-					currentStructure.getActiveTopBorderSize()
-					+ currentStructure.getActiveTopPadding()
-				);
-			case Left:
-				
-				if (!hasMinHeight()) {
-					return (
-						currentStructure.getActiveTopBorderSize()
-						+ currentStructure.getActiveTopPadding()
-					);
-				}
-				
-				final int contentYPosition1
-				= getMinHeight()
-				- getContentHeight()
-				+ currentStructure.getActiveTopBorderSize()
-				+ currentStructure.getActiveTopPadding()
-				- currentStructure.getActiveBottomBorderSize()
-				- currentStructure.getActiveBottomPadding();
-				
-				return (contentYPosition1 / 2);	
-			case LeftBottom:
-				
-				if (!hasMinHeight()) {
-					return (
-						currentStructure.getActiveTopBorderSize()
-						+ currentStructure.getActiveTopPadding()
-					);
-				}
-				
-				return (
-					getMinHeight()
-					- getContentHeight()
-					- currentStructure.getActiveBottomBorderSize()
-					- currentStructure.getActiveBottomPadding()
-				);	
 			case Top:
-				return (
-					currentStructure.getActiveTopBorderSize()
-					+ currentStructure.getActiveTopPadding()
-				);
-			case Center:
-				
-				if (!hasMinHeight()) {
-					return (
-						currentStructure.getActiveTopBorderSize()
-						+ currentStructure.getActiveTopPadding()
-					);
-				}
-				
-				final int contentYPosition2
-				= getMinHeight()
-				- getContentHeight()
-				+ currentStructure.getActiveTopBorderSize()
-				+ currentStructure.getActiveTopPadding()
-				- currentStructure.getActiveBottomBorderSize()
-				- currentStructure.getActiveBottomPadding();
-				
-				return (contentYPosition2 / 2);
-			case Bottom:
-				
-				if (!hasMinHeight()) {
-					return (
-						currentStructure.getActiveTopBorderSize()
-						+ currentStructure.getActiveTopPadding()
-					);
-				}
-				
-				return (
-					getMinHeight()
-					- getContentHeight()
-					- currentStructure.getActiveBottomBorderSize()
-					- currentStructure.getActiveBottomPadding()
-				);
 			case RightTop:
-				return (
-					currentStructure.getActiveTopBorderSize()
-					+ currentStructure.getActiveTopPadding()
-				);
+				return
+				currentStructure.getActiveTopBorderSize()
+				+ currentStructure.getActiveTopPadding();				
+			case Left:
+			case Center:
 			case Right:
 				
+				//Handles the case that this border widget has no min height.				
 				if (!hasMinHeight()) {
-					return (
-						currentStructure.getActiveTopBorderSize()
-						+ currentStructure.getActiveTopPadding()
-					);
+					return
+					currentStructure.getActiveTopBorderSize()
+					+ currentStructure.getActiveTopPadding();
 				}
 				
-				final int contentYPosition3
-				= getMinHeight()
-				- getContentHeight()
-				+ currentStructure.getActiveTopBorderSize()
-				+ currentStructure.getActiveTopPadding()
-				- currentStructure.getActiveBottomBorderSize()
-				- currentStructure.getActiveBottomPadding();
+				//Handles the case that this border widget has a min height.
+				return (getMinHeight() - getContentHeight()) / 2;
 				
-				return (contentYPosition3 / 2);
+			case LeftBottom:
+			case Bottom:
 			case RightBottom:
 				
-				if (!hasMinHeight()) {
-					return (
-						currentStructure.getActiveTopBorderSize()
-						+ currentStructure.getActiveTopPadding()
-					);
-				}
-				
-				return (
-					getMinHeight()
-					- getContentHeight()
-					- currentStructure.getActiveBottomBorderSize()
-					- currentStructure.getActiveBottomPadding()
-				);
+				return
+				getHeight()
+				- currentStructure.getActiveBottomBorderSize()
+				- currentStructure.getActiveBottomPadding()
+				- getContentHeight();
 		}
 		
-		throw new RuntimeException();
+		throw new InvalidStateException(this);
 	}
 	
 	//method
@@ -581,25 +543,26 @@ extends BackgroundWidget<BW, BWS> {
 	 * @param widgetStructure
 	 * @param painter
 	 */
-	protected final void paint(final BWS widgetStructure, final IPainter painter) {
+	protected final void paint(
+		final BWS widgetStructure,
+		final IPainter painter
+	) {
 				
 		//Calls method of the base class.
 		super.paint(widgetStructure, painter);
 		
-		//Paints the left border if the given widget structure has a left border.
+		//Paints the left border if the given widget structure has an active left border thickness.
 		if (widgetStructure.getActiveLeftBorderSize() > 0) {
 			
 			painter.setColor(widgetStructure.getActiveLeftBorderColor());
 			
 			painter.paintFilledRectangle(
-				0,
-				0,
 				widgetStructure.getActiveLeftBorderSize(),
 				getHeightWhenNotCollapsed()
 			);
 		}
 		
-		//Paints the right border if the given widget structure has a right border.
+		//Paints the right border if the given widget structure has an active right border thickness.
 		if (widgetStructure.getActiveRightBorderSize() > 0) {
 			
 			painter.setColor(widgetStructure.getActiveRightBorderColor());
@@ -612,20 +575,18 @@ extends BackgroundWidget<BW, BWS> {
 			);
 		}
 		
-		//Paints the top border if the given widget structure has a top border.
+		//Paints the top border if the given widget structure has an active top border thickness.
 		if (widgetStructure.getActiveTopBorderSize() > 0) {
 			
 			painter.setColor(widgetStructure.getActiveTopBorderColor());
 			
 			painter.paintFilledRectangle(
-				0,
-				0,
 				getWidth(),
 				widgetStructure.getActiveTopBorderSize()
 			);
 		}
 		
-		//Paints the bottom border if the given widget structure has a bottom border.
+		//Paints the bottom border if the given widget structure has an active bottom border thickness.
 		if (widgetStructure.getActiveBottomBorderSize() > 0) {
 			
 			painter.setColor(widgetStructure.getActiveBottomBorderColor());
@@ -638,18 +599,41 @@ extends BackgroundWidget<BW, BWS> {
 			);
 		}
 		
-		//Paints the vertical scroll bar if the given widget structure has a recursive scroll height.
-		if (widgetStructure.hasRecursiveScrollHeight()) {
+		//Paints the vertical scroll bar if this border widget has a max width.
+		if (hasMaxWidth()) {
 			
-			painter.setColor(Color.LIGHT_GREY);
-			painter.paintFilledRectangle(getWidth() - 10, 0, 10, getHeight());
+			//Paints the vertical scrollbar.
+				//TODO: Add scrollbar color to border widget structure.
+				painter.setColor(Color.GREY);
+				
+				painter.paintFilledRectangle(
+					getVerticalScrollbarXPosition(),
+					getVerticalScrollbarYPosition(),
+					getVerticalScrollbarThickness(),
+					getVerticalScrollbarLength()
+				);
 			
-			final int scrollCursorHeight = (int)(getHeight() * (1.0 * widgetStructure.getActiveScrollHeight() / getContentHeight()));
+			//TODO: Paint the vertical scrollbar cursor.
+		}
+		
+		//Paints the horizontal scrollbar if this border widget has a max height.
+		if (hasMaxHeight()) {
 			
-			painter.setColor(Color.BLACK);
-			painter.paintFilledRectangle(getWidth() - 10, 0, 10, scrollCursorHeight);
+			//Paints the horizontal scrollbar.
+				//TODO: Add scrollbar color to border widget structure.
+				painter.setColor(Color.GREY);
+				
+				painter.paintFilledRectangle(
+					getHorizontalScrollbarXPosition(),
+					getHorizontalScrollbarYPosition(),
+					getHorizontalScrollbarLength(),
+					getHorizontalScrollbarThickness()
+				);
+			
+			//TODO: Paint the horizontal scrollbar cursor.
 		}
 
+		//Paints the content of this border widget.
 		paintContent(
 			widgetStructure,
 			painter.createTranslatedPainter(
@@ -667,4 +651,128 @@ extends BackgroundWidget<BW, BWS> {
 	 * @param painter
 	 */
 	protected abstract void paintContent(BWS widgetStructure, IPainter painter);
+	
+	//method
+	/**
+	 * The base height of a border widget is its height when the border widget:
+	 * -Is not collapsed.
+	 * -Has no min height.
+	 * -Has no max height.
+	 * 
+	 * @return the base height of this border widget.
+	 */
+	private int getBaseHeight() {
+		
+		final var currentStructure = getRefCurrentStructure();
+		
+		return
+		currentStructure.getActiveTopBorderSize()
+		+ currentStructure.getActiveTopPadding()
+		+ getContentHeight()
+		+ currentStructure.getActiveBottomPadding()
+		+ getHorizontalScrollbarThickness()
+		+ currentStructure.getActiveBottomBorderSize();
+	}
+	
+	//method
+	/**
+	 * The base width of a border widget is its width when the border widget:
+	 * -Is not collapsed.
+	 * -Has no min width.
+	 * -Has no max width.
+	 * 
+	 * @return the base width of this border widget.
+	 */
+	private int getBaseWidth() {
+		
+		final var currentStructure = getRefCurrentStructure();
+		
+		return
+		currentStructure.getActiveLeftBorderSize()
+		+ currentStructure.getActiveLeftPadding()
+		+ getContentWidth()
+		+ currentStructure.getActiveRightPadding()
+		+ getVerticalScrollbarThickness()
+		+ currentStructure.getActiveRightBorderSize();
+	}
+	
+	//method
+	/**
+	 * @return the length of the horizontal scrollbar of this border widget.
+	 */
+	private int getHorizontalScrollbarLength() {
+
+		final var currentStructure = getRefCurrentStructure();
+		
+		return
+		getWidth()
+		- currentStructure.getActiveLeftBorderSize()
+		- currentStructure.getActiveRightBorderSize()
+		- getVerticalScrollbarThickness();
+	}
+		
+	//method
+	/**
+	 * @return the x-position of the horizontal scrollbar of this border widget.
+	 */
+	private int getHorizontalScrollbarXPosition() {
+		
+		final var currentStructure = getRefCurrentStructure();
+		
+		return currentStructure.getActiveLeftBorderSize();
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the horizontal scrollbar of this border widget.
+	 */
+	private int getHorizontalScrollbarYPosition() {
+		
+		final var currentStructure = getRefCurrentStructure();
+		
+		return
+		getHeight()
+		- currentStructure.getActiveBottomBorderSize()
+		- getVerticalScrollbarThickness();
+	}
+	
+	//method
+	/**
+	 * @return the length of the vertical scrollbar of this border widget.
+	 */
+	private int getVerticalScrollbarLength() {
+
+		final var currentStructure = getRefCurrentStructure();
+		
+		return
+		getHeight()
+		- currentStructure.getActiveTopBorderSize()
+		- currentStructure.getActiveBottomBorderSize()
+		- getHorizontalScrollbarThickness();
+	}
+	
+	//method
+	/**
+	 * @return the x-position of the vertical scrollbar of this border widget.
+	 */
+	private int getVerticalScrollbarXPosition() {
+		
+		final var currentStructure = getRefCurrentStructure();
+		
+		return
+		getWidth()
+		- currentStructure.getActiveRightBorderSize()
+		- getVerticalScrollbarThickness();
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the vertical scrollbar of this border widget.
+	 */
+	private int getVerticalScrollbarYPosition() {
+		
+		final var currentStructure = getRefCurrentStructure();
+		
+		return currentStructure.getActiveTopBorderSize();
+	}
 }

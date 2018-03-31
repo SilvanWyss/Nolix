@@ -787,7 +787,7 @@ extends Container<TabContainer, TabContainerStructure> {
 		//Calls method of the base class.
 		super.setCursorPositionFromParentContainer(relativeMouseXPosition, relativeMouseYPosition);
 		
-		menu.setCursorPositionFromParentContainer(getMouseXPosition(), getMouseYPosition());
+		menu.setCursorPositionFromParentContainer(getCursorXPosition(), getCursorYPosition());
 	}
 	
 	//method

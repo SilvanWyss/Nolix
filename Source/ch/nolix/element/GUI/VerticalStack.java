@@ -83,7 +83,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 		super.setPositionOnContainer(relativeXPosition, relativeYPosition);
 		
 		//Enumerates the content position of this vertical stack.
-		switch (getContentOrientation()) {
+		switch (getContentPosition()) {
 			case LeftTop:
 			case LeftBottom:
 			case Left:	

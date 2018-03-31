@@ -78,7 +78,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 		super.setPositionOnContainer(relativeXPosition, relativeYPosition);
 		
 		//Enumerates the probable content orientations.
-		switch (getContentOrientation()) {
+		switch (getContentPosition()) {
 			case LeftTop:
 			case Top:
 			case RightTop:
