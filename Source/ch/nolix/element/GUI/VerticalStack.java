@@ -17,7 +17,8 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 * Creates a new vertical stack with default values.
 	 */
 	public VerticalStack() {
-		resetConfiguration();
+		reset();
+		approveProperties();
 	}
 	
 	//constructor
