@@ -64,7 +64,8 @@ implements Clearable<Console> {
 	 * Creates a new console.
 	 */
 	public Console() {
-		resetConfiguration();
+		reset();
+		approveProperties();
 	}
 	
 	//method
