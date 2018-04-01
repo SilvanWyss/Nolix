@@ -32,7 +32,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1250
+ * @lines 1270
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -547,6 +547,12 @@ extends BackgroundWidget<BW, BWS> {
 	}
 	
 	//method
+	/**
+	 * Sets the x-position of the view area on the scroll area of this border widget.
+	 * 
+	 * @param viewAreaXPositionOnScrollArea
+	 * @return this border widget.
+	 */
 	public final BW setViewAreaXPositionOnScrollArea(int viewAreaXPositionOnScrollArea) {
 		
 		viewAreaXPositionOnScrollArea = Calculator.getMax(viewAreaXPositionOnScrollArea, 0);
@@ -556,15 +562,32 @@ extends BackgroundWidget<BW, BWS> {
 			getScrollAreaWidth() - getViewAreaWidth()
 		);
 		
-		this.viewAreaXPositionOnScrollArea.setValue(new NonNegativeInteger(viewAreaXPositionOnScrollArea));
+		this
+		.viewAreaXPositionOnScrollArea
+		.setValue(new NonNegativeInteger(viewAreaXPositionOnScrollArea));
 		
 		return getInstance();
 	}
 	
 	//method
-	public final BW setViewAreaYPositionOnScrollArea(final int viewAreaYPositionOnScrollArea) {
+	/**
+	 * Sets the y-position of the view area on the scroll area of this border widget.
+	 * 
+	 * @param viewAreaYPositionOnScrollArea
+	 * @return this border widget.
+	 */
+	public final BW setViewAreaYPositionOnScrollArea(int viewAreaYPositionOnScrollArea) {
 		
-		this.viewAreaYPositionOnScrollArea.setValue(new NonNegativeInteger(viewAreaYPositionOnScrollArea));
+		viewAreaYPositionOnScrollArea = Calculator.getMax(viewAreaYPositionOnScrollArea, 0);
+		
+		viewAreaYPositionOnScrollArea = Calculator.getMin(
+			viewAreaYPositionOnScrollArea,
+			getScrollAreaHeight() - getViewAreaHeight()
+		);
+		
+		this
+		.viewAreaYPositionOnScrollArea
+		.setValue(new NonNegativeInteger(viewAreaYPositionOnScrollArea));
 		
 		return getInstance();
 	}
