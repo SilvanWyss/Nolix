@@ -25,12 +25,14 @@ import ch.nolix.primitive.validator2.Validator;
  * -Can have a max size
  *  that has the effect that the border widget becomes scrollable.
  * 
- * The content of a border widget is the border widget without borders and paddings.
- * The methods concerning the content of a border widget are not public.
+ * A border widget consists of the following areas from outer to inner.
+ * 1. background area
+ * 2. bordered area
+ * 3. view area
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1060
+ * @lines 1250
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -99,6 +101,16 @@ extends BackgroundWidget<BW, BWS> {
 		y -> setViewAreaYPositionOnScrollArea(y.getValue()),
 		s -> NonNegativeInteger.createFromSpecification(s)
 	);
+	
+	//attributes
+	private boolean isMovingVerticalScrollbarCursor = false;
+	private boolean isMovingHorizontalScrollbarCursor = false;
+	
+	//optional attributes
+	private int verticalScrollingScrollbarCursorStartYPosition;
+	private int verticalScrollingCursorStartYPosition;
+	private int horizontalScrollingScrollBarCursorStartXPosition;
+	private int horizontalScrollingCursorStartXPosition;
 	
 	//method
 	/**
@@ -301,6 +313,85 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
+	 * Lets this border widget note a left mouse button press.
+	 */
+	public void noteLeftMouseButtonPress() {
+		
+		//Calls method of the base class.
+		super.noteLeftMouseButtonPress();
+		
+		//Handles the case that the cursor is over the vertical scrollbar cursor.
+		if (cursorIsOverVerticalScrollbarCursor()) {
+			isMovingVerticalScrollbarCursor = true;
+			verticalScrollingScrollbarCursorStartYPosition = getVerticalScrollbarCursorYPosition();
+			verticalScrollingCursorStartYPosition = getCursorYPosition();
+		}
+		
+		//Handles the case that the cursor is over the horizontal scrollbar cursor.
+		else if (cursorIsOverHorizontalScrollbarCursor()) {
+			isMovingHorizontalScrollbarCursor = true;
+			horizontalScrollingScrollBarCursorStartXPosition = getHorizontalScrollbarCursorXPosition();
+			horizontalScrollingCursorStartXPosition = getCursorXPosition();
+		}
+	}
+	
+	//method
+	/**
+	 * Lets this border widget note a left mouse button release.
+	 */
+	public void noteLeftMouseButtonRelease() {
+		
+		//Calls method of the base class.
+		super.noteLeftMouseButtonRelease();
+		
+		isMovingHorizontalScrollbarCursor = false;
+		isMovingVerticalScrollbarCursor = false;
+	}
+	
+	//method
+	/**
+	 * Lets this border widget note a mouse move
+	 */
+	public void noteMouseMove() {
+		
+		//Calls method of the base class.
+		super.noteMouseMove();
+		
+		if (isMovingVerticalScrollbarCursor) {
+			
+			final var verticalScrollbarCursorYDelta =
+			getCursorYPosition() - verticalScrollingCursorStartYPosition;
+			
+			final var verticalScrollbarCursorYPosition =
+			verticalScrollingScrollbarCursorStartYPosition
+			+ verticalScrollbarCursorYDelta;
+			
+			final var viewAreaYDelta =
+			(verticalScrollbarCursorYPosition * getScrollAreaHeight())
+			/ getViewAreaHeight();
+			
+			setViewAreaYPositionOnScrollArea(viewAreaYDelta);
+		}
+		
+		if (isMovingHorizontalScrollbarCursor) {
+			
+			final var horizontalScrollbarCursorXDelta =
+			getCursorXPosition() - horizontalScrollingCursorStartXPosition;
+			
+			final var horizontalScrollbarCursorYPosition =
+			horizontalScrollingScrollBarCursorStartXPosition
+			+ horizontalScrollbarCursorXDelta;
+			
+			final var viewAreaXDelta =
+			(horizontalScrollbarCursorYPosition * getScrollAreaWidth())
+			/ getViewAreaWidth();
+			
+			setViewAreaXPositionOnScrollArea(viewAreaXDelta);
+		}
+	}
+
+	//method
+	/**
 	 * Removes the max height of this border widget.
 	 * 
 	 * @return this border widget.
@@ -456,7 +547,14 @@ extends BackgroundWidget<BW, BWS> {
 	}
 	
 	//method
-	public final BW setViewAreaXPositionOnScrollArea(final int viewAreaXPositionOnScrollArea) {
+	public final BW setViewAreaXPositionOnScrollArea(int viewAreaXPositionOnScrollArea) {
+		
+		viewAreaXPositionOnScrollArea = Calculator.getMax(viewAreaXPositionOnScrollArea, 0);
+		
+		viewAreaXPositionOnScrollArea = Calculator.getMin(
+			viewAreaXPositionOnScrollArea,
+			getScrollAreaWidth() - getViewAreaWidth()
+		);
 		
 		this.viewAreaXPositionOnScrollArea.setValue(new NonNegativeInteger(viewAreaXPositionOnScrollArea));
 		
@@ -668,6 +766,54 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
+	 * @return true if the cursor is over the horizontal scrollbar cursor of this border widget.
+	 */
+	private boolean cursorIsOverHorizontalScrollbarCursor() {
+		
+		//Handles the case that this border widget has no max width.
+		if (!hasMaxWidth()) {
+			return false;
+		}
+		
+		//Handles the case that this border widget has a max width.
+			final var cursorXPosition = getCursorXPosition();
+			final var cursorYPosition = getCursorYPosition();
+			final var horizontalScrollbarCursorXPosition = getHorizontalScrollbarCursorXPosition();
+			final var horizontalScrollbarCursorYPosition = getHorizontalScrollbarCursorYPosition();
+			
+			return
+			cursorXPosition >= horizontalScrollbarCursorXPosition
+			&& cursorXPosition < horizontalScrollbarCursorXPosition + getHorizontalScrollbarCursorWidth()
+			&& cursorYPosition >= horizontalScrollbarCursorYPosition
+			&& cursorYPosition < horizontalScrollbarCursorYPosition + getHorizontalScrollbarThickness();
+	}
+	
+	//method
+	/**
+	 * @return true if the cursor is over the vertical scrollbar cursor of this border widget.
+	 */
+	private boolean cursorIsOverVerticalScrollbarCursor() {
+		
+		//Handles the case that this border widget has no max height.
+		if (!hasMaxHeight()) {
+			return false;
+		}
+		
+		//Handles the case that this border widget has a max height.
+			final var cursorXPosition = getCursorXPosition();
+			final var cursorYPosition = getCursorYPosition();		
+			final var verticalScrollbarCursorXPosition = getVerticalScrollbarCursorXPosition();
+			final var verticalScrollbarCursorYPosition = getVerticalScrollbarCursorYPosition();
+			
+			return
+			cursorXPosition >= verticalScrollbarCursorXPosition
+			&& cursorXPosition < verticalScrollbarCursorXPosition + getVerticalScrollbarThickness()
+			&& cursorYPosition >= verticalScrollbarCursorYPosition
+			&& cursorYPosition < verticalScrollbarCursorYPosition + getVerticalScrollbarCursorHeight();
+	}
+
+	//method
+	/**
 	 * @return the height of the bordered area of this border widget.
 	 */
 	private int getBorderedAreaHeight() {
@@ -804,14 +950,33 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
+	 * @return the x-position of the horizontal scrollbar cursor.
+	 */
+	private int getHorizontalScrollbarCursorXPosition() {
+		return
+		getBorderedAreaXPosition()
+		+ getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar();
+	}
+	
+	//method
+	/**
 	 * @return the x-position of the horizontal scrollbar cursor
 	 * on the horizontal scrollbar of this broder widget.
 	 */
 	private int getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar() {
-		
 		return
 		(getViewAreaXPositionOnScrollArea() * getViewAreaWidth())
 		/ getScrollAreaWidth();
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the horizontal scrollbar cursor of this border widget
+	 */
+	private int getHorizontalScrollbarCursorYPosition() {
+		return
+		getBorderedAreaYPosition()
+		+ getHorizontalScrollbarYPositionOnBorderedArea();
 	}
 	
 	//method
@@ -899,6 +1064,26 @@ extends BackgroundWidget<BW, BWS> {
 		return
 		(int)
 		(Math.pow(getViewAreaHeight(), 2) / getScrollAreaHeight());
+	}
+	
+	//method
+	/**
+	 * @return the x-position of the vertical scroll bar cursor of this border widget.
+	 */
+	private int getVerticalScrollbarCursorXPosition() {
+		return
+		getBorderedAreaXPosition()
+		+ getVerticalScrollbarXPositionOnBorderedArea();
+	}
+	
+	//method
+	/**
+	 * @return the y-position of th vertical scroll bar cursor of this border widget.
+	 */
+	private int getVerticalScrollbarCursorYPosition() {
+		return
+		getBorderedAreaYPosition()
+		+ getVerticalScrollbarCursorYPositionOnVerticalScrollbar();
 	}
 	
 	//method
@@ -1035,8 +1220,8 @@ extends BackgroundWidget<BW, BWS> {
 			painter.createTranslatedPainter(
 				-getViewAreaXPositionOnScrollArea(),
 				-getViewAreaYPositionOnScrollArea(),
-				getViewAreaWidth(),
-				getViewAreaHeight()
+				getScrollAreaWidth(),
+				getScrollAreaHeight()
 			)
 		);
 	}
