@@ -1,19 +1,24 @@
 //package declaration
 package ch.nolix.element.core;
 
+//own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.primitive.invalidArgumentException.NegativeArgumentException;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**
- * A non-negative integer is not mutable.
+ * A {@link NonNegativeInteger} is an {@link Integer} that is not mutable.
+ * A {@link NonNegativeInteger} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 40
+ * @lines 60
  */
 public class NonNegativeInteger extends Integer {
 	
-	//type name
+	//constant
 	public static final String TYPE_NAME = "NonNegativeInteger";
 	
 	//default value
@@ -21,7 +26,8 @@ public class NonNegativeInteger extends Integer {
 	
 	//constructor
 	/**
-	 * Creates a new non-negative integer with default attributes.
+	 * Creates a new {@link NonNegativeInteger}
+	 * with the {@link NonNegativeInteger#DEFAULT_VALUE}.
 	 */
 	public NonNegativeInteger() {
 		
@@ -31,19 +37,32 @@ public class NonNegativeInteger extends Integer {
 	
 	//constructor
 	/**
-	 * Creates a new non-negative integer with the given value.
+	 * Creates a new {@link NonNegativeInteger} with the given value.
 	 * 
 	 * @param value
 	 * @throws NegativeArgumentException if the given value is negative.
 	 */
-	public NonNegativeInteger(int value) {
+	public NonNegativeInteger(final int value) {
 		
 		//Calls constructor of the base class.
 		super(value);
 		
 		//Checks if the given value is not negative.
-		if (value < 0) {
-			throw new NegativeArgumentException(value);
-		}
+		Validator
+		.suppose(value)
+		.thatIsNamed(VariableNameCatalogue.VALUE)
+		.isNotNegative();
+	}
+
+	//static method
+	/**
+	 * @param specification
+	 * @return a new {@link NonNegativeInteger} from the given specification.
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	public static NonNegativeInteger createFromSpecification(
+		final Specification specification
+	) {
+		return new NonNegativeInteger(specification.getOneAttributeAsInt());
 	}
 }
