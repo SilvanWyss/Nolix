@@ -4,10 +4,12 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.entity.MutableOptionalProperty;
+import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
@@ -28,7 +30,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 770
+ * @lines 1060
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -44,6 +46,8 @@ extends BackgroundWidget<BW, BWS> {
 	private static final String MIN_HEIGHT_HEADER = "MinHeight";
 	private static final String MAX_WIDTH_HEADER = "MaxWidth";
 	private static final String MAX_HEIGHT_HEADER = "MaxHeight";
+	private static final String VIEW_AREA_X_POSITION_ON_SCROLL_AREA_HEADER = "ViewAreaXPositionOnScrollArea";
+	private static final String VIEW_AREA_Y_POSITION_ON_SCROLL_AREA_HEADER = "ViewAreaYPositionOnScrollArea";
 	
 	//attribute
 	private ContentPosition contentPosition;
@@ -78,6 +82,22 @@ extends BackgroundWidget<BW, BWS> {
 		MAX_HEIGHT_HEADER,
 		mh -> setMaxHeight(mh.getValue()),
 		s -> PositiveInteger.createFromSpecification(s)
+	);
+	
+	//attribute
+	private final MutableProperty<NonNegativeInteger> viewAreaXPositionOnScrollArea =
+	new MutableProperty<NonNegativeInteger>(
+		VIEW_AREA_X_POSITION_ON_SCROLL_AREA_HEADER,
+		x -> setViewAreaXPositionOnScrollArea(x.getValue()),
+		s -> NonNegativeInteger.createFromSpecification(s)
+	);
+	
+	//attribute
+	private final MutableProperty<NonNegativeInteger> viewAreaYPositionOnScrollArea =
+	new MutableProperty<NonNegativeInteger>(
+		VIEW_AREA_Y_POSITION_ON_SCROLL_AREA_HEADER,
+		y -> setViewAreaYPositionOnScrollArea(y.getValue()),
+		s -> NonNegativeInteger.createFromSpecification(s)
 	);
 	
 	//method
@@ -133,19 +153,19 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final int getHeightWhenNotCollapsed() {
 		
-		var baseHeight = getBaseHeight();
+		var originHeight = getOriginHeight();
 		
 		//Handles the case that this border widget has a min height.
 		if (hasMinHeight()) {
-			baseHeight = Calculator.getMax(baseHeight, getMinHeight());
+			originHeight = Calculator.getMax(originHeight, getMinHeight());
 		}
 		
 		//Handles the case that this border widget has a max height.
 		if (hasMaxHeight()) {
-			baseHeight = Calculator.getMin(baseHeight, getMaxHeight());
+			originHeight = Calculator.getMin(originHeight, getMaxHeight());
 		}
 		
-		return baseHeight;
+		return originHeight;
 	}
 	
 	//method
@@ -154,14 +174,14 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final int getHorizontalScrollbarThickness() {
 		
-		//Handles the case that this border widget has no max width.
-		if (!hasMaxWidth()) {
+		//Handles the case that this border widget has no max height.
+		if (!hasMaxHeight()) {
 			return 0;
 		}
 		
 		//Handles the case that this border widget has a max width.
-		//TODO
-		return 10;
+		//TODO: Add scrollbar thickness to border widget structure.
+		return 20;
 	}
 	
 	//method
@@ -207,13 +227,23 @@ extends BackgroundWidget<BW, BWS> {
 	public final int getVerticalScrollbarThickness() {
 		
 		//Handles the case that this border widget has no max width.
-		if (!hasMaxHeight()) {
+		if (!hasMaxWidth()) {
 			return 0;
 		}
 		
 		//Handles the case that this border widget has a max width.
-		//TODO
-		return 10;
+		//TODO: Add scrollbar thickness to border widget structure.
+		return 20;
+	}
+	
+	//method
+	public final int getViewAreaXPositionOnScrollArea() {
+		return viewAreaXPositionOnScrollArea.getValue().getValue();
+	}
+	
+	//method
+	public final int getViewAreaYPositionOnScrollArea() {
+		return viewAreaYPositionOnScrollArea.getValue().getValue();
 	}
 	
 	//method
@@ -222,19 +252,19 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final int getWidthWhenNotCollapsed() {
 		
-		var baseWidth = getBaseWidth();
+		var originWidth = getOriginWidth();
 		
 		//Handles the case that this border widget has a min width.
 		if (hasMinWidth()) {
-			baseWidth = Calculator.getMax(baseWidth, getMinWidth());
+			originWidth = Calculator.getMax(originWidth, getMinWidth());
 		}
 		
 		//Handles the case that this border widget has a max width.
 		if (hasMaxWidth()) {
-			baseWidth = Calculator.getMin(baseWidth, getMaxWidth());
+			originWidth = Calculator.getMin(originWidth, getMaxWidth());
 		}
 		
-		return baseWidth;
+		return originWidth;
 	}
 	
 	//method
@@ -335,6 +365,8 @@ extends BackgroundWidget<BW, BWS> {
 		removeMinHeight();
 		removeMaxWidtht();
 		removeMaxHeight();
+		setViewAreaXPositionOnScrollArea(0);
+		setViewAreaYPositionOnScrollArea(0);
 	}
 	
 	//method
@@ -424,6 +456,22 @@ extends BackgroundWidget<BW, BWS> {
 	}
 	
 	//method
+	public final BW setViewAreaXPositionOnScrollArea(final int viewAreaXPositionOnScrollArea) {
+		
+		this.viewAreaXPositionOnScrollArea.setValue(new NonNegativeInteger(viewAreaXPositionOnScrollArea));
+		
+		return getInstance();
+	}
+	
+	//method
+	public final BW setViewAreaYPositionOnScrollArea(final int viewAreaYPositionOnScrollArea) {
+		
+		this.viewAreaYPositionOnScrollArea.setValue(new NonNegativeInteger(viewAreaYPositionOnScrollArea));
+		
+		return getInstance();
+	}
+	
+	//method
 	/**
 	 * @return true if the content of this border widget is under the cursor.
 	 */
@@ -456,7 +504,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		final var currentStructure = getRefCurrentStructure();
 		
-		//Enumerates the content orientation of this border widget.
+		//Enumerates the content position of this border widget.
 		switch (getContentPosition()) {
 			case LeftTop:
 			case Left:
@@ -599,46 +647,12 @@ extends BackgroundWidget<BW, BWS> {
 			);
 		}
 		
-		//Paints the vertical scroll bar if this border widget has a max width.
-		if (hasMaxWidth()) {
-			
-			//Paints the vertical scrollbar.
-				//TODO: Add scrollbar color to border widget structure.
-				painter.setColor(Color.GREY);
-				
-				painter.paintFilledRectangle(
-					getVerticalScrollbarXPosition(),
-					getVerticalScrollbarYPosition(),
-					getVerticalScrollbarThickness(),
-					getVerticalScrollbarLength()
-				);
-			
-			//TODO: Paint the vertical scrollbar cursor.
-		}
-		
-		//Paints the horizontal scrollbar if this border widget has a max height.
-		if (hasMaxHeight()) {
-			
-			//Paints the horizontal scrollbar.
-				//TODO: Add scrollbar color to border widget structure.
-				painter.setColor(Color.GREY);
-				
-				painter.paintFilledRectangle(
-					getHorizontalScrollbarXPosition(),
-					getHorizontalScrollbarYPosition(),
-					getHorizontalScrollbarLength(),
-					getHorizontalScrollbarThickness()
-				);
-			
-			//TODO: Paint the horizontal scrollbar cursor.
-		}
-
-		//Paints the content of this border widget.
-		paintContent(
+		//Paints the bordered area of this border widget.
+		paintBorderedArea(
 			widgetStructure,
 			painter.createTranslatedPainter(
-				getContentXPosition(),
-				getContentYPosition()
+				getBorderedAreaXPosition(),
+				getBorderedAreaYPosition()
 			)
 		);
 	}
@@ -654,68 +668,37 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * The base height of a border widget is its height when the border widget:
-	 * -Is not collapsed.
-	 * -Has no min height.
-	 * -Has no max height.
-	 * 
-	 * @return the base height of this border widget.
+	 * @return the height of the bordered area of this border widget.
 	 */
-	private int getBaseHeight() {
+	private int getBorderedAreaHeight() {
 		
 		final var currentStructure = getRefCurrentStructure();
 		
 		return
-		currentStructure.getActiveTopBorderSize()
-		+ currentStructure.getActiveTopPadding()
-		+ getContentHeight()
-		+ currentStructure.getActiveBottomPadding()
-		+ getHorizontalScrollbarThickness()
-		+ currentStructure.getActiveBottomBorderSize();
+		getHeight()
+		- currentStructure.getActiveTopBorderSize()
+		- currentStructure.getActiveBottomBorderSize();
 	}
 	
 	//method
 	/**
-	 * The base width of a border widget is its width when the border widget:
-	 * -Is not collapsed.
-	 * -Has no min width.
-	 * -Has no max width.
-	 * 
-	 * @return the base width of this border widget.
+	 * @return the width of the bordered area of this border widget.
 	 */
-	private int getBaseWidth() {
+	private int getBorderedAreaWidth() {
 		
-		final var currentStructure = getRefCurrentStructure();
-		
-		return
-		currentStructure.getActiveLeftBorderSize()
-		+ currentStructure.getActiveLeftPadding()
-		+ getContentWidth()
-		+ currentStructure.getActiveRightPadding()
-		+ getVerticalScrollbarThickness()
-		+ currentStructure.getActiveRightBorderSize();
-	}
-	
-	//method
-	/**
-	 * @return the length of the horizontal scrollbar of this border widget.
-	 */
-	private int getHorizontalScrollbarLength() {
-
 		final var currentStructure = getRefCurrentStructure();
 		
 		return
 		getWidth()
 		- currentStructure.getActiveLeftBorderSize()
-		- currentStructure.getActiveRightBorderSize()
-		- getVerticalScrollbarThickness();
+		- currentStructure.getActiveRightBorderSize();
 	}
-		
+	
 	//method
 	/**
-	 * @return the x-position of the horizontal scrollbar of this border widget.
+	 * @return the x-position of the bordered area of this border widget.
 	 */
-	private int getHorizontalScrollbarXPosition() {
+	private int getBorderedAreaXPosition() {
 		
 		final var currentStructure = getRefCurrentStructure();
 		
@@ -724,55 +707,360 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the y-position of the horizontal scrollbar of this border widget.
+	 * @return the y-position of the bordered area of this border widget.
 	 */
-	private int getHorizontalScrollbarYPosition() {
-		
-		final var currentStructure = getRefCurrentStructure();
-		
-		return
-		getHeight()
-		- currentStructure.getActiveBottomBorderSize()
-		- getVerticalScrollbarThickness();
-	}
-	
-	//method
-	/**
-	 * @return the length of the vertical scrollbar of this border widget.
-	 */
-	private int getVerticalScrollbarLength() {
-
-		final var currentStructure = getRefCurrentStructure();
-		
-		return
-		getHeight()
-		- currentStructure.getActiveTopBorderSize()
-		- currentStructure.getActiveBottomBorderSize()
-		- getHorizontalScrollbarThickness();
-	}
-	
-	//method
-	/**
-	 * @return the x-position of the vertical scrollbar of this border widget.
-	 */
-	private int getVerticalScrollbarXPosition() {
-		
-		final var currentStructure = getRefCurrentStructure();
-		
-		return
-		getWidth()
-		- currentStructure.getActiveRightBorderSize()
-		- getVerticalScrollbarThickness();
-	}
-	
-	//method
-	/**
-	 * @return the y-position of the vertical scrollbar of this border widget.
-	 */
-	private int getVerticalScrollbarYPosition() {
+	private int getBorderedAreaYPosition() {
 		
 		final var currentStructure = getRefCurrentStructure();
 		
 		return currentStructure.getActiveTopBorderSize();
+	}
+	
+	//method
+	/**
+	 * @return the x-position of the content of this border widget
+	 * on the scroll area of this border widget.
+	 */
+	private int getContentXPositionOnScrollArea() {
+		
+		final var currentStructure = getRefCurrentStructure();
+		
+		//Enumerates the content position of this border widget.
+		switch (getContentPosition()) {
+			case LeftTop:
+			case Left:
+			case LeftBottom:
+				return currentStructure.getActiveLeftPadding();	
+			case Top:
+			case Center:
+			case Bottom:
+				
+				//Handles the case that this border widget has no min width.				
+				if (!hasMinWidth()) {
+					return currentStructure.getActiveLeftBorderSize();
+				}
+				
+				//Handles the case that this border widget has a min width.
+				return (getScrollAreaWidth() - getContentWidth()) / 2;
+			case RightTop:
+			case Right:
+			case RightBottom:
+				
+				return
+				getScrollAreaWidth()
+				- getContentWidth()
+				- currentStructure.getActiveRightPadding();
+		}
+		
+		throw new InvalidStateException(this);
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the content of this border widget
+	 * on the scroll area of this border widget.
+	 */
+	private int getContentYPositionOnScrollArea() {
+		
+		final var currentStructure = getRefCurrentStructure();
+		
+		//Enumerates the content orientation of this border widget.
+		switch (getContentPosition()) {
+			case LeftTop:
+			case Top:
+			case RightTop:
+				return currentStructure.getActiveTopPadding();				
+			case Left:
+			case Center:
+			case Right:
+				
+				//Handles the case that this border widget has no min height.				
+				if (!hasMinHeight()) {
+					return currentStructure.getActiveTopPadding();
+				}
+				
+				//Handles the case that this border widget has a min height.
+				return (getScrollAreaHeight() - getContentHeight()) / 2;
+				
+			case LeftBottom:
+			case Bottom:
+			case RightBottom:
+				
+				return
+				getScrollAreaHeight()
+				- getContentHeight()
+				- currentStructure.getActiveBottomPadding();
+		}
+		
+		throw new InvalidStateException(this);
+	}
+	
+	//method
+	private int getHorizontalScrollbarCursorWidth() {
+		return
+		(int)
+		(Math.pow(getViewAreaWidth(), 2) / getScrollAreaWidth());
+	}
+	
+	//method
+	/**
+	 * @return the x-position of the horizontal scrollbar cursor
+	 * on the horizontal scrollbar of this broder widget.
+	 */
+	private int getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar() {
+		
+		return
+		(getViewAreaXPositionOnScrollArea() * getViewAreaWidth())
+		/ getScrollAreaWidth();
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the horizontal scrollbar
+	 * on the bordered area of this border widget.
+	 */
+	private int getHorizontalScrollbarYPositionOnBorderedArea() {
+		return (getBorderedAreaHeight()	- getHorizontalScrollbarThickness());
+	}
+	
+	//method
+	/**
+	 * The origin height of a border widget is its height when the border widget:
+	 * -Is not collapsed.
+	 * -Has no min height.
+	 * -Has no max height.
+	 * 
+	 * @return the origin height of this border widget.
+	 */
+	private int getOriginHeight() {
+		
+		final var currentStructure = getRefCurrentStructure();
+		
+		return
+		currentStructure.getActiveTopBorderSize()
+		+ getScrollAreaHeight()
+		+ getHorizontalScrollbarThickness()
+		+ currentStructure.getActiveBottomBorderSize();
+	}
+	
+	//method
+	/**
+	 * The origin width of a border widget is its width when the border widget:
+	 * -Is not collapsed.
+	 * -Has no min width.
+	 * -Has no max width.
+	 * 
+	 * @return the origin width of this border widget.
+	 */
+	private int getOriginWidth() {
+		
+		final var currentStructure = getRefCurrentStructure();
+		
+		return
+		currentStructure.getActiveLeftBorderSize()
+		+ getScrollAreaWidth()
+		+ getVerticalScrollbarThickness()
+		+ currentStructure.getActiveRightBorderSize();
+	}
+	
+	//method
+	/**
+	 * @return the height of the scroll area of this border widget.
+	 */
+	private int getScrollAreaHeight() {
+		
+		final var currentStructure = getRefCurrentStructure();
+		
+		return
+		getContentHeight()
+		+ currentStructure.getActiveTopPadding()
+		+ currentStructure.getActiveBottomPadding();
+	}
+	
+	//method
+	/**
+	 * @return the width of the scroll area of this border widget.
+	 */
+	private int getScrollAreaWidth() {
+		
+		final var currentStructure = getRefCurrentStructure();
+		
+		return
+		getContentWidth()
+		+ currentStructure.getActiveLeftPadding()
+		+ currentStructure.getActiveRightPadding();
+	}
+	
+	//method
+	/**
+	 * @return the height of the vertical scrollbar cursor of this border widget.
+	 */
+	private int getVerticalScrollbarCursorHeight() {
+		return
+		(int)
+		(Math.pow(getViewAreaHeight(), 2) / getScrollAreaHeight());
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the vertical scrollbar cursor
+	 * on the vertical scrollbar of this border widget.
+	 */
+	private int getVerticalScrollbarCursorYPositionOnVerticalScrollbar() {
+		return
+		(getViewAreaYPositionOnScrollArea() * getViewAreaHeight())
+		/ getScrollAreaHeight();
+	}
+	
+	//method
+	/**
+	 * @return the x-position of the vertical scrollbar
+	 * on the bordered area of this border widget.
+	 */
+	private int getVerticalScrollbarXPositionOnBorderedArea() {
+		return (getBorderedAreaWidth() - getVerticalScrollbarThickness());
+	}
+	
+	//method
+	/**
+	 * @return the height of the view area of this border widget.
+	 */
+	private int getViewAreaHeight() {
+		return (getBorderedAreaHeight()	- getHorizontalScrollbarThickness());
+	}
+	
+	//method
+	/**
+	 * @return the width of the view area of this border widget.
+	 */
+	private int getViewAreaWidth() {
+		return (getBorderedAreaWidth() - getVerticalScrollbarThickness());
+	}
+	
+	//method
+	/**
+	 * Paints the bordered area of this border widget
+	 * using the given widget structure and painter.
+	 * 
+	 * @param widgetStructure
+	 * @param painter
+	 */
+	private void paintBorderedArea(
+		final BWS widgetStructure,
+		final IPainter painter
+	) {
+		
+		//Paints the vertical scroll bar if this border widget has a max width.
+		if (hasMaxHeight()) {
+			
+			//Paints the vertical scrollbar.
+				
+				//TODO: Add scrollbar color to border widget structure.
+				painter.setColor(Color.LIGHT_GREY);
+				
+				painter.paintFilledRectangle(
+					getVerticalScrollbarXPositionOnBorderedArea(),
+					0,
+					getVerticalScrollbarThickness(),
+					getViewAreaHeight()
+				);
+			
+			//Paints the vertical scrollbar cursor.
+				
+				//TODO: Add scrollbar cursor color to border widget structure.
+				painter.setColor(Color.DARK_GREY);
+				
+				painter.paintFilledRectangle(
+					getVerticalScrollbarXPositionOnBorderedArea(),
+					getVerticalScrollbarCursorYPositionOnVerticalScrollbar(),
+					getVerticalScrollbarThickness(),
+					getVerticalScrollbarCursorHeight()
+				);
+		}
+		
+		//Paints the horizontal scrollbar if this border widget has a max height.
+		if (hasMaxWidth()) {
+			
+			//Paints the horizontal scrollbar.
+				
+				//TODO: Add scrollbar color to border widget structure.
+				painter.setColor(Color.LIGHT_GREY);
+				
+				painter.paintFilledRectangle(
+					0,
+					getHorizontalScrollbarYPositionOnBorderedArea(),
+					getViewAreaWidth(),
+					getHorizontalScrollbarThickness()
+				);
+			
+			//Paints the horizontal scrollbar cursor.
+				
+				//TODO: Add scrollbar cursor color to border widget structure.
+				painter.setColor(Color.DARK_GREY);
+				
+				painter.paintFilledRectangle(
+					getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar(),
+					getHorizontalScrollbarYPositionOnBorderedArea(),
+					getHorizontalScrollbarCursorWidth(),
+					getHorizontalScrollbarThickness()
+				);
+		}
+		
+		//Paints the view area of this border widget.
+		paintViewArea(
+			widgetStructure,
+			painter.createTranslatedPainter(
+				0,
+				0,
+				getViewAreaWidth(),				
+				getViewAreaHeight()
+			)
+		);
+	}
+	
+	//method
+	/**
+	 * Paints the view area of this border widget
+	 * using the given widget structure and painter.
+	 * 
+	 * @param widgetStructure
+	 * @param painter
+	 */
+	private void paintViewArea(
+		final BWS widgetStructure,
+		final IPainter painter
+	) {
+		paintScrollArea(
+			widgetStructure,
+			painter.createTranslatedPainter(
+				-getViewAreaXPositionOnScrollArea(),
+				-getViewAreaYPositionOnScrollArea(),
+				getViewAreaWidth(),
+				getViewAreaHeight()
+			)
+		);
+	}
+	
+	//method
+	/**
+	 * Lets this border widget paint its scroll area
+	 * using the given widget structure and painter.
+	 * 
+	 * @param widgetStructure
+	 * @param painter
+	 */
+	private void paintScrollArea(
+		final BWS widgetStructure,
+		final IPainter painter
+	) {
+		paintContent(
+			widgetStructure,
+			painter.createTranslatedPainter(
+				getContentXPositionOnScrollArea(),
+				getContentYPositionOnScrollArea(),
+				getScrollAreaWidth(),
+				getScrollAreaHeight()
+			)
+		);
 	}
 }
