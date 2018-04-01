@@ -18,7 +18,10 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	/**
 	 * Creates a new horizontal stack with default attributes.
 	 */
-	public HorizontalStack() {}
+	public HorizontalStack() {
+		reset();
+		approveProperties();
+	}
 	
 	//constructor
 	/**
@@ -30,6 +33,10 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	 * if one of the given widgets belongs to another GUI than this horizontal stack.
 	 */
 	public HorizontalStack(final Widget<?, ?>... widgets) {
+		
+		//Calls other constructor.
+		this();
+		
 		addWidget(widgets);
 	}
 
