@@ -175,7 +175,7 @@ extends BackgroundWidget<BW, BWS> {
 	public final int getHorizontalScrollbarThickness() {
 		
 		//Handles the case that this border widget has no max height.
-		if (!hasMaxHeight()) {
+		if (!hasMaxWidth()) {
 			return 0;
 		}
 		
@@ -227,7 +227,7 @@ extends BackgroundWidget<BW, BWS> {
 	public final int getVerticalScrollbarThickness() {
 		
 		//Handles the case that this border widget has no max width.
-		if (!hasMaxWidth()) {
+		if (!hasMaxHeight()) {
 			return 0;
 		}
 		
