@@ -1,10 +1,3 @@
-/*
- * file:	FrameMouseMoitionListener
- * author:	Silvan Wyss
- * month:	2015
- * lines:	30
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
@@ -12,23 +5,34 @@ package ch.nolix.element.GUI;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
-//realizing class
-public final class FrameMouseMotionListener implements MouseMotionListener {
+//own import
+import ch.nolix.primitive.validator2.Validator;
+
+//class
+public final class FrameMouseMotionListener
+implements MouseMotionListener {
 	
-	//attributes
-	private Frame frame;
+	//attribute
+	private final Frame frame;
 	
 	//constructor
-	public FrameMouseMotionListener(Frame frame) {
+	public FrameMouseMotionListener(final Frame frame) {
+		
+		Validator
+		.suppose(frame)
+		.thatIsOfType(Frame.class)
+		.isNotNull();
+		
 		this.frame = frame;
 	}
 
 	//method
-	public void mouseMoved(MouseEvent mouseEvent) {
-		//frame.setMousePosition(mouseEvent.getX(), mouseEvent.getY());
-		frame.noteMouseMove();
+	public void mouseMoved(final MouseEvent mouseEvent) {
+		frame.noteMouseMove();	
 	}
 
 	//method
-	public void mouseDragged(MouseEvent mouseEvent) {}
+	public void mouseDragged(final MouseEvent mouseEvent) {
+		frame.noteMouseMove();
+	}
 }
