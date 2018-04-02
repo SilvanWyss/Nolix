@@ -27,7 +27,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1080
+ * @lines 1090
  */
 public class Color extends Element {
 	
@@ -742,6 +742,14 @@ public class Color extends Element {
 	
 	//method
 	/**
+	 * @return a new Swing color from this color.
+	 */
+	public final java.awt.Color createSwingColor() {
+		return new java.awt.Color(getValue());
+	}
+	
+	//method
+	/**
 	 * @return the attributes of this color.
 	 */
 	public final List<StandardSpecification> getAttributes() {		
@@ -798,14 +806,6 @@ public class Color extends Element {
 	 */
 	public final double getInvertedNormalizedRedValue() {
 		return (1.0 - getNormalizedRedValue());
-	}
-	
-	//method
-	/**
-	 * @return the java color of this color.
-	 */
-	public final java.awt.Color getJavaColor() {
-		return new java.awt.Color(getValue());
 	}
 	
 	//method

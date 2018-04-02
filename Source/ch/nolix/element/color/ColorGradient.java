@@ -1,10 +1,8 @@
 //package declaration
 package ch.nolix.element.color;
 
-//Java imports
+//Java import
 import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 
 //own imports
 import ch.nolix.core.container.IContainer;
@@ -23,7 +21,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-07
- * @lines 260
+ * @lines 240
  */
 public class ColorGradient extends Element {
 	
@@ -136,6 +134,70 @@ public class ColorGradient extends Element {
 		this.color2 = color2;
 	}
 	
+	
+	//method
+	/**
+	 * @param xPosition
+	 * @param yPosition
+	 * @param width
+	 * @param height
+	 * @return a new Swing gradient paint of this color gradient
+	 * for the given position and size.
+	 */
+	public GradientPaint createSwingGradientPaint(
+		final int xPosition,
+		final int yPosition,
+		final int width,
+		final int height
+	) {
+		//Enumerates the direction of this color gradient.
+		switch (getDirection()) {
+			case Horizontal:
+				return
+				new GradientPaint(
+					xPosition,
+					yPosition,
+					getColor1().createSwingColor(),
+					xPosition + width,
+					yPosition,
+					getColor2().createSwingColor()
+				);
+			case Vertical:
+				return
+				new GradientPaint(
+					xPosition,
+					yPosition,
+					getColor1().createSwingColor(),
+					xPosition,
+					yPosition + height,
+					getColor2().createSwingColor()
+				);
+			case DiagonalUp:
+				return
+				new GradientPaint(
+					xPosition,
+					yPosition,
+					getColor1().createSwingColor(),
+					xPosition + width,
+					yPosition + height,
+					getColor2().createSwingColor()
+				);
+			case DiagonalDown:
+				return
+				new GradientPaint(
+					xPosition,
+					yPosition,
+					getColor2().createSwingColor(),
+					xPosition + width,
+					yPosition + height,
+					getColor1().createSwingColor()
+				);
+			default:
+				
+				throw new InvalidStateException(this);
+		}
+	}
+			
 	//method
 	/**
 	 * @return the attributes of this color gradient.
@@ -174,93 +236,5 @@ public class ColorGradient extends Element {
 	 */
 	public UniDirection getDirection() {
 		return direction;
-	}
-	
-	//method
-	/**
-	 * Lets this color gradient paint a rectangle with the given width and height
-	 * at the given position using the given graphics.
-	 * 
-	 * @param xPosition
-	 * @param yPosition
-	 * @param width
-	 * @param height
-	 * @param graphics
-	 */
-	public void paintRectangle(
-		final int xPosition,
-		final int yPosition,
-		final int width,
-		final int height,
-		final Graphics graphics
-	) {
-		((Graphics2D)graphics).setPaint(
-			getJavaGradientPaint(xPosition, yPosition, width, height)
-		);
-		
-		graphics.fillRect(xPosition, yPosition, width, height);
-	}
-	
-	//method
-	/**
-	 * @param xPosition
-	 * @param yPosition
-	 * @param width
-	 * @param height
-	 * @return a new Java gradient paint of this color gradient
-	 * for the given position, width and height.
-	 */
-	private GradientPaint getJavaGradientPaint(
-		final int xPosition,
-		final int yPosition,
-		final int width,
-		final int height
-	) {
-		//Enumerates the direction of this color gradient.
-		switch (getDirection()) {
-			case Horizontal:
-				return
-				new GradientPaint(
-					xPosition,
-					yPosition,
-					getColor1().getJavaColor(),
-					xPosition + width,
-					yPosition,
-					getColor2().getJavaColor()
-				);
-			case Vertical:
-				return
-				new GradientPaint(
-					xPosition,
-					yPosition,
-					getColor1().getJavaColor(),
-					xPosition,
-					yPosition + height,
-					getColor2().getJavaColor()
-				);
-			case DiagonalUp:
-				return
-				new GradientPaint(
-					xPosition,
-					yPosition,
-					getColor1().getJavaColor(),
-					xPosition + width,
-					yPosition + height,
-					getColor2().getJavaColor()
-				);
-			case DiagonalDown:
-				return
-				new GradientPaint(
-					xPosition,
-					yPosition,
-					getColor2().getJavaColor(),
-					xPosition + width,
-					yPosition + height,
-					getColor1().getJavaColor()
-				);
-			default:
-				
-				throw new InvalidStateException(this);
-		}
 	}
 }

@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.element.painter;
 
-//Java import
+//Java imports
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 //own imports
 import ch.nolix.element.color.Color;
@@ -69,11 +70,24 @@ public final class SwingPainter implements IPainter {
 		final int width,
 		final int	height
 	) {
-		if (hasColorGradient()) {
-			
+		if (!hasColorGradient()) {			
+			graphics.fillRect(xPosition, yPosition, width, height);
 		}
-		
-		graphics.fillRect(xPosition, yPosition, width, height);
+		else {
+			
+			final var graphics2D = (Graphics2D)this.graphics;
+			
+			graphics2D.setPaint(
+				colorGradient.createSwingGradientPaint(
+					xPosition,
+					yPosition,
+					width,
+					height
+				)
+			);
+			
+			graphics2D.fillRect(xPosition, yPosition, width, height);
+		}
 	}
 
 	//method
@@ -92,7 +106,7 @@ public final class SwingPainter implements IPainter {
 
 	//method
 	public void setColor(final Color color) {
-		graphics.setColor(color.getJavaColor());
+		graphics.setColor(color.createSwingColor());
 		colorGradient = null;
 	}
 

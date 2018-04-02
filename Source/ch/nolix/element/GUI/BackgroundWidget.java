@@ -34,7 +34,7 @@ extends Widget<BW, BWS> {
 		}
 		
 		//Handles the case that the given widget structure has a background color gradient.
-		if (widgetStructure.hasRecursiveBackgroundColorGradient()) {
+		else if (widgetStructure.hasRecursiveBackgroundColorGradient()) {
 			
 			painter.setColorGradient(widgetStructure.getActiveBackgroundColorGradient());
 			

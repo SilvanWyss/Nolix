@@ -308,7 +308,7 @@ public final class Font extends Element {
 		final int yPosition
 	) {
 		graphics.setFont(javaFont);
-		graphics.setColor(getTextColor().getJavaColor());
+		graphics.setColor(getTextColor().createSwingColor());
 		graphics.drawString(text, xPosition, yPosition + getTextSize());		
 	}
 	
@@ -352,7 +352,7 @@ public final class Font extends Element {
 		final String firstPart = getFirstPart(text, maxWidth);
 		
 		graphics.setFont(javaFont);
-		graphics.setColor(getTextColor().getJavaColor());
+		graphics.setColor(getTextColor().createSwingColor());
 		graphics.drawString(firstPart, xPosition, yPosition + getTextSize());		
 	}
 }

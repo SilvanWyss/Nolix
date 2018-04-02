@@ -219,8 +219,8 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	protected final void paintContent(TextLineWidgetStructure rectangleStructure, Graphics graphics) {
 		
 		int textCursorDistanceFromTextBegin = new Font(rectangleStructure.getActiveTextSize()).getSwingTextWidth(getTextBeforeTextCursor());
-		graphics.setColor(textCursor.getRefColor().getJavaColor());
-		graphics.setColor(Color.BLACK.getJavaColor());
+		graphics.setColor(textCursor.getRefColor().createSwingColor());
+		graphics.setColor(Color.BLACK.createSwingColor());
 		
 		new Font(
 		rectangleStructure.getActiveTextSize())

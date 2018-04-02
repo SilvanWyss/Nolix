@@ -250,7 +250,7 @@ public final class Frame extends VisibleGUI<Frame> {
 	public void refresh() {
 		
 		frame.setTitle(getTitle());	
-		panel.setBackground(getBackgroundColor().getJavaColor());
+		panel.setBackground(getBackgroundColor().createSwingColor());
 		frame.setCursor(getActiveCursorIcon().getJavaCursor());
 		
 		//Handles the case that this frame has a root widget.
