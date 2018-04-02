@@ -71,6 +71,10 @@ public final class BackGUIClientTutorial {
 			.getRefHoverStructure()
 			.setTextSize(AttributeCatalogue.LARGE_TEXT_SIZE);
 			
+			button
+			.getRefHoverFocusStructure()
+			.setTextSize(AttributeCatalogue.LARGE_TEXT_SIZE);
+			
 			getRefClient()
 			.getRefGUI()
 			.setTitle("Dialog Client Tutorial")

@@ -32,7 +32,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1270
+ * @lines 1290
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */

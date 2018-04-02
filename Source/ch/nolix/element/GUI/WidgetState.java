@@ -18,6 +18,7 @@ public enum WidgetState implements ISpecifiedEnum {
 	Normal,
 	Hovered,
 	Focused,
+	HoverFocused,
 	Disabled,
 	Collapsed;
 	

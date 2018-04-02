@@ -458,9 +458,8 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 				}
 				else {
 					
-					if (!w.isFocused()) {
-						w.setFocused();
-						
+					if (w.isNormal()) {
+						w.setHoverFocused();
 					}
 					
 					w.noteLeftMouseButtonPress();
@@ -504,11 +503,17 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 					if (w.isHovered()) {
 						w.setNormal();
 					}
+					else if (w.isHoverFocused()) {
+						w.setFocused();
+					}
 				}
 				else {
 					
 					if (w.isNormal()) {
 						w.setHovered();
+					}
+					else if (w.isHoverFocused()) {
+						w.setFocused();
 					}
 					
 					w.noteMouseMove();

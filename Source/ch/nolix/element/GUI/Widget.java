@@ -23,33 +23,30 @@ import ch.nolix.primitive.validator2.Validator;
 //abstract class
 /**
  * A widget is an element on a GUI.
- * A widget has a width and height.
+ * A widget determines its width and height.
  * A widget is a configurable element.
  * The methods concerning the position of a widget are not public.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1170
+ * @lines 1200
  * @param <W> The type of a widget.
  * @param <WS> The type of the widget structures of a widget.
  */
-//public abstract class Widget<WS extends WidgetStructure<WS>, W extends Widget<WS, W>>
-//extends ConfigurableElement<W> {
 public abstract class Widget<W extends Widget<W, WS>, WS extends WidgetStructure<WS>>
 extends ConfigurableElement<W> {
 	
-	//attribute headers
+	//constants
 	private static final String STATE_HEADER ="State";
 	private static final String LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER = "LeftMouseButtonPressCommand";
 	private static final String LEFT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER = "LeftMouseButtonReleaseCommand";
 	private static final String RIGHT_MOUSE_BUTTON_PRESS_COMMAND_HEADER = "RightMouseButtonPressCommand";
 	private static final String RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER = "RightMouseButtonReleaseCommand";
 	private static final String NO_GREY_OUT_WHEN_DISABLED_HEADER = "NoGreyOutWhenDisabled";
-	
-	//attribute header prefixes
-	private static final String NORMAL = "Normal";
-	private static final String FOCUS = "Focus";
-	private static final String HOVER = "Hover";
+	private static final String NORMAL_PREFIX = "Normal";
+	private static final String FOCUS_PREFIX = "Focus";
+	private static final String HOVER_PREFIX = "Hover";
+	private static final String HOVER_FOCUS_PREFIX = "HoverFocus";
 		
 	//attribute
 	/**
@@ -63,9 +60,10 @@ extends ConfigurableElement<W> {
 	private WidgetState state = WidgetState.Normal;
 	private boolean greyOutWhenDisabled = true;
 	private CursorIcon cursorIcon = CursorIcon.Arrow;
-	private final WS normalStructure;
-	private final WS hoverStructure;
-	private final WS focusStructure;
+	private final WS normalStructure = createWidgetStructure();
+	private final WS hoverStructure = createWidgetStructure();
+	private final WS focusStructure = createWidgetStructure();
+	private final WS hoverFocusStructure = createWidgetStructure();
 	private int mouseXPosition;
 	private int mouseYPosition;
 	
@@ -79,14 +77,10 @@ extends ConfigurableElement<W> {
 	/**
 	 * Creates a new widget.
 	 */
-	public Widget() {	
-		
-		normalStructure = createWidgetStructure();
-		hoverStructure = createWidgetStructure();
-		focusStructure = createWidgetStructure();
-		
+	public Widget() {			
 		getRefHoverStructure().setBaseStructure(getRefNormalStructure());
 		getRefFocusStructure().setBaseStructure(getRefNormalStructure());
+		getRefHoverFocusStructure().setBaseStructure(getRefFocusStructure());
 	}
 	
 	//method
@@ -122,19 +116,24 @@ extends ConfigurableElement<W> {
 				removeGreyOutWhenDisabled();
 				break;
 			default:
-				if (attribute.getHeader().startsWith(NORMAL)) {
+				if (attribute.getHeader().startsWith(NORMAL_PREFIX)) {
 					final Specification temp = attribute.getCopy();
-					temp.setHeader(attribute.getHeader().substring(NORMAL.length()));
+					temp.setHeader(attribute.getHeader().substring(NORMAL_PREFIX.length()));
 					getRefNormalStructure().addOrChangeAttribute(temp);
 				}
-				else if (attribute.getHeader().startsWith(HOVER)) {
+				else if (attribute.getHeader().startsWith(HOVER_PREFIX)) {
 					final Specification temp = attribute.getCopy();
-					temp.setHeader(attribute.getHeader().substring(HOVER.length()));
+					temp.setHeader(attribute.getHeader().substring(HOVER_PREFIX.length()));
 					getRefHoverStructure().addOrChangeAttribute(temp);
 				}
-				else if (attribute.getHeader().startsWith(FOCUS)) {
+				else if (attribute.getHeader().startsWith(FOCUS_PREFIX)) {
 					final Specification temp = attribute.getCopy();
-					temp.setHeader(attribute.getHeader().substring(FOCUS.length()));
+					temp.setHeader(attribute.getHeader().substring(FOCUS_PREFIX.length()));
+					getRefFocusStructure().addOrChangeAttribute(temp);
+				}
+				else if (attribute.getHeader().startsWith(HOVER_FOCUS_PREFIX)) {
+					final Specification temp = attribute.getCopy();
+					temp.setHeader(attribute.getHeader().substring(HOVER_FOCUS_PREFIX.length()));
 					getRefFocusStructure().addOrChangeAttribute(temp);
 				}
 				else {
@@ -231,17 +230,17 @@ extends ConfigurableElement<W> {
 	
 		//Extracts the normal state attributes of this widget.
 		final List<StandardSpecification> normalStateAttributes = getRefNormalStructure().getAttributes();
-		normalStateAttributes.forEach(a -> a.addPrefixToHeader(NORMAL));
+		normalStateAttributes.forEach(a -> a.addPrefixToHeader(NORMAL_PREFIX));
 		attributes.addAtEnd(normalStateAttributes);
 		
 		//Extracts the hover state attributes of this widget.
 		final List<StandardSpecification> hoverStateAttributes = getRefHoverStructure().getAttributes();
-		hoverStateAttributes.forEach(a -> a.addPrefixToHeader(HOVER));
+		hoverStateAttributes.forEach(a -> a.addPrefixToHeader(HOVER_PREFIX));
 		attributes.addAtEnd(hoverStateAttributes);
 		
 		//Extracts focus state attributes of this widget.
 		final List<StandardSpecification> focusStateAttributes = getRefFocusStructure().getAttributes();
-		focusStateAttributes.forEach(a -> a.addPrefixToHeader(FOCUS));
+		focusStateAttributes.forEach(a -> a.addPrefixToHeader(FOCUS_PREFIX));
 		attributes.addAtEnd(focusStateAttributes);
 		
 		return attributes;
@@ -371,6 +370,14 @@ extends ConfigurableElement<W> {
 		}
 		
 		return GUI;
+	}
+	
+	//method
+	/**
+	 * @return the hover focus structure of this widget.
+	 */
+	public final WS getRefHoverFocusStructure() {
+		return hoverFocusStructure;
 	}
 	
 	//method
@@ -506,12 +513,12 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * A widget is enables when it is normal, hovered or focused.
+	 * A widget is enables when it is normal, hovered, focused or hover focused.
 	 * 
 	 * @return true if this widget is enabled.
 	 */
 	public final boolean isEnabled() {
-		return (isNormal() || isHovered() || isFocused());
+		return (isNormal() || isHovered() || isFocused() || isHoverFocused());
 	}
 	
 	//method
@@ -524,10 +531,18 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return true if this widget is hovered
+	 * @return true if this widget is hovered.
 	 */
 	public final boolean isHovered() {
 		return (getState() == WidgetState.Hovered);
+	}
+	
+	//method
+	/**
+	 * @return true if this widget is hover-focused.
+	 */
+	public final boolean isHoverFocused() {
+		return (getState() == WidgetState.HoverFocused);
 	}
 	
 	//method
@@ -774,7 +789,7 @@ extends ConfigurableElement<W> {
 		
 		return (W)this;
 	}
-		
+	
 	//method
 	/**
 	 * Sets this widget hovered.
@@ -785,6 +800,20 @@ extends ConfigurableElement<W> {
 	public final W setHovered() {
 		
 		state = WidgetState.Hovered;
+		
+		return (W)this;
+	}
+	
+	//method
+	/**
+	 * Sets this widget hover-focused.
+	 * 
+	 * @return this widget.
+	 */
+	@SuppressWarnings("unchecked")
+	public final W  setHoverFocused() {
+		
+		state = WidgetState.HoverFocused;
 		
 		return (W)this;
 	}
