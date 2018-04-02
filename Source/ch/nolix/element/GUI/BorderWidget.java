@@ -44,6 +44,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//constants
 	public static final String TYPE_NAME = "Borderablewidget";
+	private static final int VIEW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP = 50;
 	private static final String MIN_WIDTH_HEADER = "MinWidth";
 	private static final String MIN_HEIGHT_HEADER = "MinHeight";
 	private static final String MAX_WIDTH_HEADER = "MaxWidth";
@@ -388,6 +389,25 @@ extends BackgroundWidget<BW, BWS> {
 			
 			setViewAreaXPositionOnScrollArea(viewAreaXDelta);
 		}
+	}
+	
+	//method
+	/**
+	 * Lets this widget note the given mouse wheel rotation steps.
+	 * The given number of mouse wheel rotation steps is positive if the mouse wheel was rotated forward.
+	 * The given number mouse wheel rotation steps is negative if the mouse wheel was rotated backward.
+	 * 
+	 * @param rotationSteps
+	 */
+	public void noteMouseWheelRotationSteps(final int mouseWheelRotationSteps) {
+		
+		//Calls method of the base class.
+		super.noteMouseWheelRotationSteps(mouseWheelRotationSteps);
+		
+		setViewAreaYPositionOnScrollArea(
+			getViewAreaYPositionOnScrollArea()
+			+ VIEW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP * mouseWheelRotationSteps
+		);
 	}
 
 	//method

@@ -95,6 +95,7 @@ public final class Frame extends VisibleGUI<Frame> {
 			panel.addKeyListener(new FrameKeyListener(this));
 			panel.addMouseListener(new FrameMouseListener(this));
 			panel.addMouseMotionListener(new FrameMouseMotionListener(this));
+			panel.addMouseWheelListener(new FrameMouseWheelListener(this));
 			
 			//This is important that key events are handled.
 			panel.setFocusable(true);

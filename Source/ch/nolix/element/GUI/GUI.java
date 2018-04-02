@@ -521,6 +521,23 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	
 	//method
 	/**
+	 * Lets this GUI note the given mouse wheel rotation steps.
+	 * The given number of mouse wheel rotation steps is positive if the mouse wheel was rotated forward.
+	 * The given number mouse wheel rotation steps is negative if the mouse wheel was rotated backward.
+	 * 
+	 * @param rotationSteps
+	 */
+	public final void noteMouseWheelRotationSteps(final int mouseWheelRotationSteps) {
+		
+		getRefWidgetsRecursively()
+		.getRefSelected(w -> w.isEnabled() && w.isUnderCursor())
+		.forEach(w -> w.noteMouseWheelRotationSteps(mouseWheelRotationSteps));
+		
+		refresh();
+	}
+	
+	//method
+	/**
 	 * Lets this GUI note a right mouse button press.
 	 */
 	public void noteRightMouseButtonPress() {

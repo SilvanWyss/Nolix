@@ -601,10 +601,17 @@ extends ConfigurableElement<W> {
 	/**
 	 * Lets this widget note a mouse move.
 	 */
-	public void noteMouseMove() {
-		
-
-	}
+	public void noteMouseMove() {}
+	
+	//method
+	/**
+	 * Lets this GUI note the given mouse wheel rotation steps.
+	 * The given number of mouse wheel rotation steps is positive if the mouse wheel was rotated forward.
+	 * The given number mouse wheel rotation steps is negative if the mouse wheel was rotated backward.
+	 * 
+	 * @param rotationSteps
+	 */
+	public void noteMouseWheelRotationSteps(final int mouseWheelRotationSteps) {}
 	
 	//method
 	/**
