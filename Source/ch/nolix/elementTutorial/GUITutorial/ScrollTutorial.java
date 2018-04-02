@@ -2,10 +2,12 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
 //own imports
+import ch.nolix.core.enums.UniDirection;
 import ch.nolix.element.GUI.ContentPosition;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.color.ColorGradient;
 
 //class
 /**
@@ -37,6 +39,7 @@ public final class ScrollTutorial {
 		label.getRefNormalStructure()
 		.setBorderSizes(5)
 		.setBorderColors(Color.DARK_BLUE)
+		.setBackgroundColorGradient(new ColorGradient(UniDirection.Vertical, Color.CORAL, Color.WHITE))
 		.setTextSize(500);
 		
 		//Creates frame.
