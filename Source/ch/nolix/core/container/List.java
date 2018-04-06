@@ -12,6 +12,7 @@ import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.primitive.invalidStateException.EmptyStateException;
+import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
@@ -21,7 +22,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1010
+ * @lines 1040
  * @param <E> - The type of the elements of a list.
  */
 public final class List<E> implements Clearable<List<E>>, IContainer<E> {
@@ -805,6 +806,27 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		}
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * Removes the given element from this list.
+	 * 
+	 * @param element
+	 * @return this list.
+	 * @throws InvalidStateException if this list does not contain the given element once.
+	 */
+	public List<E> removeRegardingSingularity(final E element) {
+		
+		//Enumerates the element count of the given element.
+		switch (getElementCount(element)) {
+			case 0:
+				throw new InvalidStateException(this, "does not contain the given elemen");
+			case 1:
+				return removeFirst(element);
+			default:
+				throw new InvalidStateException(this, "contains the given element several times");
+		}
 	}
 	
 	//method
