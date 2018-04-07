@@ -3,7 +3,7 @@ package ch.nolix.core.constants;
 
 //class
 /**
- * Of this class no instance can be created.
+ * Of the {@link VariableNameCatalogue} no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2017-11
@@ -20,12 +20,13 @@ public class VariableNameCatalogue {
 	public static final String CAPTION = "caption";
 	public static final String COLOR = "color";
 	public static final String COLUMN_COUNT = "column count";
-	public static final String COLUMN_INDEX = "row index";
+	public static final String COLUMN_INDEX = "column index";
 	public static final String CONDITION = "condition";
 	public static final String CONFIGURATION = "configuration";
 	public static final String CONTAINER = "container";
-	public static final String CREATION_DATE = "date";
+	public static final String CREATION_DATE = "creation date";
 	public static final String CREATOR = "creator";
+	public static final String DATABASE = "database";
 	public static final String DATE = "date";
 	public static final String DATE_OF_BIRTH = "date of birth";
 	public static final String DEFAULT_CAPACITY = "default capacity";
@@ -39,13 +40,13 @@ public class VariableNameCatalogue {
 	public static final String ELEMENT_COUNT = "element count";
 	public static final String END_DATE = "end date";
 	public static final String END_INDEX = "end index";
+	public static final String ENTITY = "entity";
 	public static final String FUNCTION = "function";
 	public static final String HASH_CODE = "hash code";
 	public static final String HEADER = "header";
 	public static final String HEIGHT = "height";
 	public static final String ID = "id";
 	public static final String INDEX = "index";
-	public static final String LAST_NAME = "last name";
 	public static final String LENGTH = "length";
 	public static final String MAXIMUM = "maximum";
 	public static final String MESSAGE = "message";
