@@ -8,11 +8,11 @@ import ch.nolix.core.specification.StandardSpecification;
 
 //interface
 /**
- * A specified object is a typed object all official attributes can be got from together.
+ * A specified object is a typed object whose official attributes can be got together.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 60
+ * @lines 70
  */
 public interface Specified extends Typed {
 
@@ -39,6 +39,14 @@ public interface Specified extends Typed {
 	 */
 	public default StandardSpecification getSpecificationAs(final String type) {
 		return new StandardSpecification(type, getAttributes());
+	}
+	
+	//default method
+	/**
+	 * @return the specification of this specified object without header.
+	 */
+	public default StandardSpecification getSpecificationWithoutHeader() {
+		return new StandardSpecification(getAttributes());
 	}
 	
 	//default method
