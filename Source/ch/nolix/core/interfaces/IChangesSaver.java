@@ -9,7 +9,7 @@ package ch.nolix.core.interfaces;
  * @month 2018-04
  * @lines 20
  */
-public interface IChangesSaver {
+public interface IChangesSaver extends Resettable {
 	
 	//abstract method
 	/**
