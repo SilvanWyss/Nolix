@@ -27,6 +27,7 @@ public class VariableNameCatalogue {
 	public static final String CREATION_DATE = "creation date";
 	public static final String CREATOR = "creator";
 	public static final String DATABASE = "database";
+	public static final String DATA_TYPE = "data type";
 	public static final String DATE = "date";
 	public static final String DATE_OF_BIRTH = "date of birth";
 	public static final String DEFAULT_CAPACITY = "default capacity";
@@ -41,6 +42,7 @@ public class VariableNameCatalogue {
 	public static final String END_DATE = "end date";
 	public static final String END_INDEX = "end index";
 	public static final String ENTITY = "entity";
+	public static final String ENTITY_TYPE = "entity type";
 	public static final String FUNCTION = "function";
 	public static final String HASH_CODE = "hash code";
 	public static final String HEADER = "header";
@@ -83,6 +85,7 @@ public class VariableNameCatalogue {
 	public static final String TRANSFORMATOR = "transformator";
 	public static final String TYPE = "type";
 	public static final String VALUE = "value";
+	public static final String VALUE_TYPE = "value type";
 	public static final String WEIGHT = "weight";
 	public static final String WIDTH = "width";
 	public static final String YEAR = "year";
