@@ -37,9 +37,9 @@ extends Client<BGUIC> {
 		internal_runOnCounterpart(
 			Protocol.CREATE_FILE_COMMAND
 			+ "("
-			+ StandardSpecification.createEscapeString(relativeFilePath)
+			+ StandardSpecification.createReproducingString(relativeFilePath)
 			+ ","
-			+ StandardSpecification.createEscapeString(content)
+			+ StandardSpecification.createReproducingString(content)
 			+ ")"
 		);
 		
@@ -74,7 +74,7 @@ extends Client<BGUIC> {
 		internal_runOnCounterpart(
 			Protocol.SHOW_ERROR_MESSAGE
 			+ "("
-			+ StandardSpecification.createEscapeString(errorMessage)
+			+ StandardSpecification.createReproducingString(errorMessage)
 			+ ")"
 		);
 		

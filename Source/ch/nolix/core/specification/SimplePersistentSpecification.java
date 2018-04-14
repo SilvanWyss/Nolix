@@ -2,9 +2,12 @@
 package ch.nolix.core.specification;
 
 //own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
+import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
+import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 
 //class
 /**
@@ -43,7 +46,7 @@ public final class SimplePersistentSpecification extends Specification {
 		}
 		
 		internalSpecification
-		= StandardSpecification.createSpecificationFromFile(filePath);
+		= StandardSpecification.createFromFile(filePath);
 	}
 	
 	//method
@@ -64,11 +67,6 @@ public final class SimplePersistentSpecification extends Specification {
 	public boolean containsAttributes() {
 		return internalSpecification.containsAttributes();
 	}
-	
-	public Specification getCopy() {
-		//TODO
-		return null;
-	}
 
 	//method
 	/**
@@ -85,21 +83,20 @@ public final class SimplePersistentSpecification extends Specification {
 	 * @return the attributes of this simple persistent specification.
 	 */
 	@SuppressWarnings("unchecked")
-	public ReadContainer<SubSpecification> getRefAttributes() {
+	public IContainer<SubSpecification> getRefAttributes() {
 		return new ReadContainer<SubSpecification>(
 			internalSpecification.getRefAttributes().to(
 				a -> new SubSpecification(this, a)
 			)
 		);
 	}
-
+	
 	//method
 	/**
 	 * @return the one attribute of this simple persistent specification.
 	 * @throws RuntimeException if this simple persistent specification
 	 * has no or several attributes.
 	 */
-	@SuppressWarnings("unchecked")
 	public SubSpecification getRefOneAttribute() {
 		return new SubSpecification(
 			this,
@@ -115,6 +112,33 @@ public final class SimplePersistentSpecification extends Specification {
 		return internalSpecification.hasHeader();
 	}
 
+	//method
+	/**
+	 * Removes the first attribute the given selector selects from this simple persistent specification.
+	 * 
+	 * @param selector
+	 * @throws InvalidArgumentException
+	 * if this simple persistent specification contains no attribute the given selector selects.
+	 */
+	public void removeFirstAttribute(final IElementTakerBooleanGetter<Specification> selector) {
+		internalSpecification.removeFirstAttribute(a -> selector.getOutput(a));
+		save();
+	}
+	
+	//method
+	/**
+	 * Removes the attributes of this simple persisten specification.
+	 */
+	public void removeAttributes() {
+		internalSpecification.removeAttributes();
+		save();
+	}
+	
+	public void removeHeader() {
+		internalSpecification.removeHeader();
+		save();
+	}
+	
 	//method
 	/**
 	 * Sets the header of this simple persistent specification.
@@ -136,8 +160,6 @@ public final class SimplePersistentSpecification extends Specification {
 	 * @throws RuntimeException if an error occurs.
 	 */
 	void save() {
-		fileAccessor.overwriteFile(
-			internalSpecification.toFormatedReproducingString()
-		);
+		fileAccessor.overwriteFile(internalSpecification.toFormatedString());
 	}
 }

@@ -174,7 +174,7 @@ public final class FrontConsoleClient extends GUIClientoid<FrontConsoleClient> {
 				
 				//Iterates the text lines of the main console of this console front client.
 				for (final String tl : console.getLines()) {
-					data.addAttribute(StandardSpecification.createEscapeString(tl));
+					data.addAttribute(StandardSpecification.createReproducingString(tl));
 				}
 				
 				return data;

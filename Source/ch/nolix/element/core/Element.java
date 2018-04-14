@@ -88,7 +88,7 @@ public abstract class Element extends Entity implements TypeRequestable {
 	 * @return a string representation of this element.
 	 */
 	public final String toString() {
-		return getSpecification().toReproducingString();
+		return getSpecification().toString();
 	}
 	
 	//default method
@@ -96,6 +96,6 @@ public abstract class Element extends Entity implements TypeRequestable {
 	 * @return a formated string representation of this element.
 	 */
 	public final String toFormatedString() {
-		return getSpecification().toFormatedReproducingString();
+		return getSpecification().toFormatedString();
 	}
 }

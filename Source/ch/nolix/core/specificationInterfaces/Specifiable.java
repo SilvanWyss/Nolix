@@ -92,7 +92,7 @@ public interface Specifiable extends Resettable, Specified {
 	 * @param path
 	 */
 	public default void loadFrom(final String path) {
-		reset(StandardSpecification.createSpecificationFromFile(path));
+		reset(StandardSpecification.createFromFile(path));
 	}
 	
 	//default method

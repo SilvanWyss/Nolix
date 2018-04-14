@@ -178,7 +178,7 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 		internal_runOnCounterpart(
 			Protocol.SET_TITLE_COMMAND
 			+ "("
-			+ StandardSpecification.createEscapeString(title)
+			+ StandardSpecification.createReproducingString(title)
 			+")"
 		);
 		
@@ -228,7 +228,7 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINES_TO_CONSOLE_COMMAND
 			+ '('
-			+ new List<String>(lines).to(s -> StandardSpecification.createEscapeString(s))
+			+ new List<String>(lines).to(s -> StandardSpecification.createReproducingString(s))
 			+ ')'
 		);
 		
@@ -250,7 +250,7 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINES_TO_INFO_PANEL_COMMAND
 			+ '('
-			+ new List<String>(lines).to(s -> StandardSpecification.createEscapeString(s))
+			+ new List<String>(lines).to(s -> StandardSpecification.createReproducingString(s))
 			+ ')'
 		);
 		
@@ -286,7 +286,7 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINE_TO_CONSOLE_COMMAND
 			+ "("
-			+ StandardSpecification.createEscapeString(line)
+			+ StandardSpecification.createReproducingString(line)
 			+ ")"
 		);
 		
@@ -307,7 +307,7 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINES_TO_CONSOLE_COMMAND
 			+ '('
-			+ new List<String>(lines).to(s -> StandardSpecification.createEscapeString(s))
+			+ new List<String>(lines).to(s -> StandardSpecification.createReproducingString(s))
 			+ ')'
 		);
 		
@@ -328,7 +328,7 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINE_TO_INFO_PANEL_COMMAND
 			+ "("
-			+ StandardSpecification.createEscapeString(line)
+			+ StandardSpecification.createReproducingString(line)
 			+ ")"
 		);
 		
@@ -348,7 +348,7 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINES_TO_INFO_PANEL_COMMAND
 			+ '('
-			+ new List<String>(lines).to(s -> StandardSpecification.createEscapeString(s))
+			+ new List<String>(lines).to(s -> StandardSpecification.createReproducingString(s))
 			+ ')'
 		);
 		

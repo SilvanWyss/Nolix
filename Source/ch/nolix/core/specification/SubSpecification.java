@@ -3,13 +3,16 @@ package ch.nolix.core.specification;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
+import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 120
+ * @lines 180
  */
 public final class SubSpecification extends Specification {
 
@@ -67,11 +70,6 @@ public final class SubSpecification extends Specification {
 		return internalSpecification.containsAttributes();
 	}
 	
-	public Specification getCopy() {
-		//TODO
-		return null;
-	}
-
 	//method
 	/**
 	 * @return the header of this sub specification.
@@ -81,7 +79,7 @@ public final class SubSpecification extends Specification {
 	public String getHeader() {
 		return internalSpecification.getHeader();
 	}
-
+	
 	//method
 	/**
 	 * @return the attributes of this sub specification
@@ -101,7 +99,6 @@ public final class SubSpecification extends Specification {
 	 * @throws EmptyStateException if this sub specification contains no attributes.
 	 * @throws InvalidStateException if this sub specification contains several attributes.
 	 */
-	@SuppressWarnings("unchecked")
 	public SubSpecification getRefOneAttribute() {
 		return new SubSpecification(
 			simplePersistentSpecification, internalSpecification.getRefOneAttribute()
@@ -115,6 +112,19 @@ public final class SubSpecification extends Specification {
 	public boolean hasHeader() {
 		return internalSpecification.hasHeader();
 	}
+	
+	//method
+	/**
+	 * Removes the first attribute the given selector selects from this sub specification.
+	 * 
+	 * @param selector
+	 * @throws InvalidArgumentException
+	 * if this sub specification contains no attribute the given selector selects.
+	 */
+	public void removeFirstAttribute(final IElementTakerBooleanGetter<Specification> selector) {
+		internalSpecification.removeFirstAttribute(a -> selector.getOutput(a));
+		simplePersistentSpecification.save();
+	}
 
 	//method
 	/**
@@ -126,6 +136,21 @@ public final class SubSpecification extends Specification {
 	 */
 	public void setHeader(final String header) {
 		internalSpecification.setHeader(header);
+		simplePersistentSpecification.save();
+	}
+
+	@Override
+	public void removeAttributes() {
+		internalSpecification.removeAttributes();
+		simplePersistentSpecification.save();
+	}
+
+	//method
+	/**
+	 * Removes the header of the current {@link SubSpecification}
+	 */
+	public void removeHeader() {
+		internalSpecification.removeHeader();
 		simplePersistentSpecification.save();
 	}
 }

@@ -6,50 +6,85 @@ import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
+import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.helper.StringHelper;
+import ch.nolix.primitive.invalidArgumentException.Argument;
+import ch.nolix.primitive.invalidArgumentException.ArgumentName;
+import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**
- * A specification can have:
+ * A {@link Specification} can have:
  * -1 header
- * -an arbitrary number of attributes that are specifications themselves
+ * -several attributes that are a {@link Specification} themselves
+ * 
+ * The methods of a {@link Specification} are not final
+ * that they can be overwritten by an implementation with a higher performance.
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 300
+ * @lines 630
  */
 public abstract class Specification {
+	
+	//constants
+	public static final String OPEN_BRACKET_CODE = "$O";
+	public static final String CLOSED_BRACKET_CODE = "$C";
+	public static final String COMMA_CODE = "$M";
+	public static final String DOLLAR_SYMBOL_CODE = "$D";
+	
+	//static method
+	/**
+	 * @param string
+	 * @return a reproducing string for the given string on the specification context.
+	 * @throws NullArgumentException if the given string is null.
+	 */
+	public static String createReproducingString(final String string) {
+		
+		//Checks if the given string is not null.
+		Validator
+		.suppose(string)
+		.isNotNull();
+		
+		return
+		string
+		.replace(String.valueOf(CharacterCatalogue.COMMA), COMMA_CODE)
+		.replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
+		.replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE)
+		.replace(String.valueOf(CharacterCatalogue.DOLLAR_SYMBOL), DOLLAR_SYMBOL_CODE);
+	}
 
 	//abstract method
 	/**
-	 * Adds the given attribute to this specification.
+	 * Adds the given attribute to the current {@link Specification}.
 	 * 
 	 * @param attribute
 	 */
-	public abstract void addAttribute(final Specification attribute);
+	public abstract void addAttribute(Specification attribute);
 	
 	//method
 	/**
-	 * Adds the given attributes to this specification.
+	 * Adds the given attributes to the current {@link Specification}.
 	 * 
 	 * @param attributes
 	 */
-	public final void addAttribute(final Specification... attributes) {
+	public void addAttribute(final Specification... attributes) {
 		
-		//Iterates the given attributes.
-		for (final Specification a : attributes) {
-			addAttribute(a);
-		}
+		//Calls other method.
+		addAttributes(new ReadContainer<Specification>(attributes));
 	}
 	
 	//method
 	/**
-	 * Adds the given attributes to this specification.
+	 * Adds the given attributes to the current {@link Specification}.
 	 * 
 	 * @param attributes
 	 */
-	public final void addAttributes(final Iterable<Specification> attributes) {
+	public <S extends Specification> void addAttributes(final Iterable<S> attributes) {
 		
 		//Iterates the given attributes.
 		attributes.forEach(a -> addAttribute(a));
@@ -65,125 +100,417 @@ public abstract class Specification {
 	
 	//abstract method
 	/**
-	 * @return true if this specification contains attributes.
+	 * @return true if the current {@link Specification} contains attributes.
 	 */
-	public abstract boolean containsAttributes();
+	public boolean containsAttributes() {
+		return getRefAttributes().containsAny();
+	}
 	
 	//method
 	/**
-	 * @return the number of attributes of this specification.
+	 * @return a new copy of the current {@link Specification}.
 	 */
-	public final int getAttributeCount() {
+	public StandardSpecification createCopy() {
+		
+		final StandardSpecification specification = new StandardSpecification();
+		
+		//Handles the case that the current specification has a header.
+		if (hasHeader()) {
+			specification.setHeader(getHeader());
+		}
+		
+		getRefAttributes().forEach(a -> specification.addAttribute(a.createCopy()));
+		
+		return specification;
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Specification} equals the given object.
+	 */
+	public boolean equals(final Object object) {
+		
+		//Handles the case that the given object is no standard specification.
+		if (!(object instanceof StandardSpecification)) {
+			return false;
+		}
+		
+		//Handles the case that the given object is a standard specification.
+		
+			final var specification = (Specification)object;
+			
+			if (!hasHeader()) {
+				if (specification.hasHeader()) {
+					return false;
+				}
+			}
+			else {
+				if (!specification.hasHeader(getHeader())) {
+					return false;
+				}
+			}
+			
+			if (getAttributeCount() != specification.getAttributeCount()) {
+				return false;
+			}
+									
+			//Iterates the attributes of the current {@link Specification}.
+			final var iterator = specification.getRefAttributes().iterator();
+			for (final var a : getRefAttributes()) {
+				if (!a.equals(iterator.next())) {
+					return false;
+				}
+			}
+			
+			return true;
+	}
+	
+	//method
+	/**
+	 * @return the number of attributes of the current {@link Specification}.
+	 */
+	public int getAttributeCount() {
 		return getRefAttributes().getElementCount();
 	}
 	
 	//method
 	/**
-	 * @return the string representations of the attributes of this specification.
+	 * @return the string representations of the attributes of the current {@link Specification}.
 	 */
-	public final List<String> getAttributesToStrings() {
+	public List<String> getAttributesToStrings() {
 		return getRefAttributes().to(a -> a.toString());
 	}
 	
-	public abstract Specification getCopy();
-	
 	//abstract method
 	/**
-	 * @return the header of this specification.
+	 * @return the header of the current {@link Specification}.
 	 */
 	public abstract String getHeader();
 	
 	//method
 	/**
-	 * @return the header of this specification in quotes.
+	 * @return the header of the current {@link Specification} in quotes.
 	 */
-	public final String getHeaderInQuotes() {
-		return (
-			CharacterCatalogue.APOSTROPH
-			+ getHeader()
-			+ CharacterCatalogue.APOSTROPH
-		);
+	public String getHeaderInQuotes() {
+		return
+		CharacterCatalogue.APOSTROPH
+		+ getHeader()
+		+ CharacterCatalogue.APOSTROPH;
 	}
 	
 	//method
 	/**
-	 * @return the double the one attribute of this specification specifies.
+	 * @return the double the one attribute of the current {@link Specification} specifies.
 	 * @throws InvalidArgumentException
-	 * if the one attribute of this specification specifies no double.
+	 * if the one attribute of the current {@link Specification} specifies no double.
 	 */
-	public final double getOneAttributeAsDouble() {
+	public double getOneAttributeAsDouble() {
 		return getRefOneAttribute().toDouble();
 	}
 	
 	//method
 	/**
-	 * @return the integer the one attribute of this specification specifies.
+	 * @return the integer the one attribute of the current {@link Specification} specifies.
 	 * @throws InvalidArgumentException
-	 * if the one attribute of this specification specifies no int.
+	 * if the one attribute of the current {@link Specification} specifies no int.
 	 */
-	public final int getOneAttributeAsInt() {
+	public int getOneAttributeAsInt() {
 		return getRefOneAttribute().toInt();
 	}
 	
 	//method
 	/**
-	 * @return a string representation of the one attribute of this specification.
+	 * @return a string representation of the one attribute of the current {@link Specification}.
 	 */
-	public final String getOneAttributeAsString() {
+	public String getOneAttributeAsString() {
 		return getRefOneAttribute().toString();
+	}
+	
+	//method
+	/**
+	 * @return a reproducing string representation of the header of the current {@link Specification}.
+	 */
+	public String getReproducingHeader() {
+		return createReproducingString(getHeader());
 	}
 	
 	//abstract method
 	/**
-	 * @return the attributes of this specification.
+	 * @param index
+	 * @return the attribute at the given index from the current {@link Specification}.
+	 * @throws NonPositiveArgumentException if the given index is not positive.
+	 * @throws UnexistingAttributeException if the current {@link Specification} contains no attribute at the given index.
+	 */
+	@SuppressWarnings("unchecked")
+	public <S extends Specification> S getRefAttributeAt(final int index) {
+		return (S)getRefAttributes().getRefAt(index);
+	}
+	
+	//abstract method
+	/**
+	 * @return the attributes of the current {@link Specification}.
 	 */
 	public abstract <S extends Specification> IContainer<S> getRefAttributes();
 	
 	//abstract method
 	/**
-	 * @return the one attribute of this specification.
+	 * 
+	 * @param header
+	 * @return the attributes of the current {@link Specification} that have the given header.
 	 */
-	public abstract <S extends Specification> S getRefOneAttribute();
+	public IContainer<Specification> getRefAttributes(final String header) {
+		return getRefAttributes(a -> a.hasHeader(header));
+	}
 	
 	//abstract method
 	/**
-	 * @return true if this specification has a header.
+	 * @param selector
+	 * @return the attributes the given selector selects from the current {@link Specification}.
+	 */
+	public IContainer<Specification> getRefAttributes(
+		final IElementTakerBooleanGetter<Specification> selector
+	) {
+		return getRefAttributes().getRefSelected(a -> selector.getOutput(a));
+	}
+	
+	//method
+	/**
+	 * @param selector
+	 * @return the first attribute the given selector selects from the current {@link Specification}.
+	 * @throws UnexistingAttributeException if the current {@link Specification} contains no attribtue the given selector selects.
+	 */
+	@SuppressWarnings("unchecked")
+	public <S extends Specification> S getRefFirstAttribute(
+		IElementTakerBooleanGetter<Specification> selector
+	) {
+		return (S)getRefAttributes().getRefFirst(a -> selector.getOutput(a));
+	}
+	
+	//method
+	/**
+	 * @param header
+	 * @return the first attribute of the current {@link Specification} with the given header.
+	 */
+	public <S extends Specification> S getRefFirstAttribute(final String header) {
+		return getRefFirstAttribute(a -> a.hasHeader(header));
+	}
+	
+	//abstract method
+	/**
+	 * @return the one attribute of the current {@link Specification}.
+	 * @throws EmptyStateException if the current {@link Specification} contains no attributes.
+	 * @throws InvalidStateException if the current {@link Specification} contains several attributes.
+	 */
+	public Specification getRefOneAttribute() {
+		return getRefAttributes().getRefOne();
+	}
+	
+	//abstract method
+	/**
+	 * @return true if the current {@link Specification} has a header.
 	 */
 	public abstract boolean hasHeader();
 	
 	//method
 	/**
 	 * @param header
-	 * @return true if this specification has the given header.
+	 * @return true if the current {@link Specification} has the given header.
 	 */
-	public final boolean hasHeader(final String header) {
+	public boolean hasHeader(final String header) {
 		
-		//Handles the case that this specification has no header.
+		//Handles the case that the current specification has no header.
 		if (!hasHeader()) {
 			return false;
 		}
 		
-		//Handles the case that this specification has a header.
+		//Handles the case that the current specification has a header.
 		return getHeader().equals(header);
+	}
+	
+	//abstract method
+	/**
+	 * Removes the attributes of the current {@link Specification}.
+	 */
+	public abstract void removeAttributes();
+	
+	//abstract method
+	/**
+	 * Removes the first attribute the given selector selects from the current {@link Specification}.
+	 * 
+	 * @param selector
+	 */
+	public abstract void removeFirstAttribute(IElementTakerBooleanGetter<Specification> selector);
+	
+	//method
+	/**
+	 * Removes the first attribute with the given header from the current {@link Specification}.
+	 * 
+	 * @param header
+	 */
+	public void removeFirstAttribute(final String header) {
+		removeFirstAttribute(a -> a.hasHeader(header));
+	}
+	
+	//abstract method
+	/**
+	 * Removes the header of the current {@link Specification}.
+	 */
+	public abstract void removeHeader();
+	
+	//method
+	/**
+	 * Removes the header and the attributes of the current {@link Specification}.
+	 */
+	public void reset() {
+		removeHeader();
+		removeAttributes();
 	}
 	
 	//method
 	/**
-	 * Saves this specification to the file with the given path.
+	 * Resets the current {@link Specification} from the given string.
+	 * 
+	 * @param string
+	 * @throws InvalidValueException if the given string is not valid.
+	 */
+	public void reset(final String string) {
+		
+		reset();
+		
+		boolean hasAttributes = false;
+		int attributestartIndex = 0;
+		for (int i = 0; i < string.length(); i++) {
+			
+			final Character character = string.charAt(i);
+			
+			//Checks if the current character is a closing bracket before an opening bracket.
+			if (character == CharacterCatalogue.CLOSED_BRACKET) {
+				throw new InvalidArgumentException(
+					new ArgumentName("content"),
+					new Argument(string)
+				);
+			}
+			
+			//Checks if the current character is a comma before an opening bracket.
+			if (character == CharacterCatalogue.COMMA) {
+				throw new InvalidArgumentException(
+					new ArgumentName("content"),
+					new Argument(string)
+				);
+			}
+			
+			//Handles the case that the current character is an opening bracket.
+			if (character == CharacterCatalogue.OPEN_BRACKET) {
+				
+				hasAttributes = true;
+				
+				if (i > 0) {
+					setHeader(string.substring(0, i));
+				}
+				
+				attributestartIndex = i + 1;
+				break;
+			}
+		}
+		
+		if (!hasAttributes && string.length() > 0) {
+			setHeader(string);
+		}
+		
+		//Extract the attributes of the given value.
+		if (hasAttributes) {
+
+			//Checks if the start index is not too big.
+			if (attributestartIndex > string.length() - 1) {
+				throw new InvalidArgumentException(
+					new ArgumentName("content"),
+					new Argument(string)
+				);
+			}
+			
+			int level = 0;
+			String attributeString = StringCatalogue.EMPTY_STRING;
+			for (int i = attributestartIndex; i < string.length() - 1; i++)
+			{
+				final char character = string.charAt(i);
+				
+				if (character == CharacterCatalogue.OPEN_BRACKET) {
+					level++;
+				}
+				else if (character == CharacterCatalogue.CLOSED_BRACKET) {
+					level--;
+				}
+				if (character == CharacterCatalogue.COMMA && level == 0) {
+					addAttribute(new StandardSpecification(attributeString));
+					attributeString = StringCatalogue.EMPTY_STRING;
+				}
+				else {
+					attributeString += character;
+				}
+			}
+			addAttribute(new StandardSpecification(attributeString));
+			
+			//Checks if the given value has as many opening brackets as closing brackets.
+			if (level != 0) {
+				throw new InvalidArgumentException(
+					new ArgumentName("content"),
+					new Argument(string)
+				);
+			}
+			
+			//Checks if the last character of the given value is a closing bracket.
+			if (string.charAt(string.length() - 1) != CharacterCatalogue.CLOSED_BRACKET) {
+				throw new InvalidArgumentException(
+					new ArgumentName("content"),
+					new Argument(string)
+				);
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * Resets the attributes of the current {@link Specification} to the given attributes.
+	 * 
+	 * @param attributes
+	 */
+	public <S extends Specification> void resetAttributes(final Iterable<S> attributes) {
+		removeAttributes();
+		addAttributes(attributes);
+	}
+	
+	//method
+	/**
+	 * Resets the current {@link Specification} from the file with the given file path.
+	 * 
+	 * @param filePath
+	 */
+	public void resetFromFile(final String filePath) {
+		reset(
+			new FileAccessor(filePath)
+			.readFile()
+			.replace(String.valueOf(CharacterCatalogue.TABULATOR), StringCatalogue.EMPTY_STRING)
+			.replace(String.valueOf(CharacterCatalogue.NEW_LINE), StringCatalogue.EMPTY_STRING)
+		);
+	}
+	
+	//method
+	/**
+	 * Saves the current {@link Specification} to the file with the given path.
 	 * 
 	 * @param filePath
 	 * @throws InvalidArgumentException if the given file path is not valid.
 	 */
-	public final void saveToFile(final String filePath) {
+	public void saveToFile(final String filePath) {
 		new FileSystemAccessor().createFile(
 			filePath,
-			toFormatedReproducingString()
+			toFormatedString()
 		);
 	}
 	
 	//abstract method
 	/**
-	 * Sets the header of this specification.
+	 * Sets the header of the current {@link Specification}.
 	 * 
 	 * @param header
 	 */
@@ -191,148 +518,119 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return the boolean this specification represents.
-	 * @throws InvalidArgumenException if this specification represents no boolean.
+	 * @return the boolean the current {@link Specification} represents.
+	 * @throws InvalidArgumenException if the current {@link Specification} represents no boolean.
 	 */
-	public final boolean toBoolean() {
+	public boolean toBoolean() {
 		return StringHelper.toBoolean(toString());
 	}
 	
 	//method
 	/**
-	 * @return the double this specification represents.
-	 * @throws InvalidArgumentException if this specification represents no double.
+	 * @return the double the current {@link Specification} represents.
+	 * @throws InvalidArgumentException if the current {@link Specification} represents no double.
 	 */
-	public final double toDouble() {
+	public double toDouble() {
 		return StringHelper.toDouble(toString());
 	}
 	
 	//method
 	/**
-	 * @return a formated reproducing string representation of this specification.
+	 * @return a formated string representation of the current {@link Specification}.
 	 */
-	public String toFormatedReproducingString() {
-		return toFormatedReproducingString(0);
+	public String toFormatedString() {
+		return toFormatedString(0);
 	}
 	
 	//method
 	/**
-	 * @return the integer this specification represents.
-	 * @throws InvalidArgumentException if this specification represents no int.
+	 * @return the integer the current {@link Specification} represents.
+	 * @throws InvalidArgumentException if the current {@link Specification} represents no int.
 	 */
-	public final int toInt() {
+	public int toInt() {
 		return StringHelper.toInt(toString());		
 	}
 	
 	//method
 	/**
-	 * @return a new standard specification representing this specification.
+	 * @return a string representation of the current {@link Specification}.
 	 */
-	public final StandardSpecification toStandardSpecification() {
+	public String toString() {
 		
-		final StandardSpecification standardSpecification = new StandardSpecification();
+		final var stringBuilder = new StringBuilder();
 		
+		//Handles the case that the current specification has a header.
 		if (hasHeader()) {
-			standardSpecification.setHeader(getHeader());
+			stringBuilder.append(getReproducingHeader());
 		}
 		
-		getRefAttributes().forEach(a -> a.addAttribute(a));
-		
-		return standardSpecification;
-	}
-	
-	//method
-	/**
-	 * @return a string representation of this specification.
-	 */
-	public final String toString() {
-		
-		String string = StringCatalogue.EMPTY_STRING;
-		
-		//Handles the header if this specification has a header.
-		if (hasHeader()) {
-			string += getHeader();
-		}
-		
-		//Handles the attributes if this specification contains attributes.
+		//Handles the case that the current specification contains attributes.
 		if (containsAttributes()) {
-			
-			final IContainer<Specification> attributes = getRefAttributes();
-			
-			string += CharacterCatalogue.OPENING_BRACKET;
-			boolean begin = true;
-			for (final Specification a : attributes) {
-				if (begin) {
-					begin = false;
-				}
-				else {
-					string += CharacterCatalogue.COMMA;
-				}
-				string += a.toString();
-			}
-			string += CharacterCatalogue.CLOSING_BRACKET;
+			stringBuilder
+			.append(CharacterCatalogue.OPEN_BRACKET)
+			.append(getRefAttributes().toString())
+			.append(CharacterCatalogue.CLOSED_BRACKET);
 		}
 		
-		return string;
+		return stringBuilder.toString();
 	}
 	
 	//method
 	/**
-	 * @param leadingTabulatorCount
-	 * @return a formated string representation of this specification
+	 * @param leadingTabulators
+	 * @return a formated string representation of the current {@link Specification}
 	 * with as many leading tabulators as the given leading tabulator count says.
 	 */
-	private final String toFormatedReproducingString(int leadingTabulatorCount) {
+	protected String toFormatedString(final int leadingTabulators) {
 		
-		//Handles the case that this specification contains no attributes.
-		if (!containsAttributes()) {
-			return StringHelper.createTabulators(leadingTabulatorCount) + getHeader();
+		final var stringBuilder = new StringBuilder();
+		
+		//Handles the case that the current specification has a header.
+		if (hasHeader()) {
+			stringBuilder
+			.append(StringHelper.createTabulators(leadingTabulators))
+			.append(getReproducingHeader());
 		}
 		
-		//Handles the case that this specification contains attributes.
-		else {
+		//Handles the case that the current specification contains attributes.
+		if (containsAttributes()) {
 			
-			//Handles the case that all attributes have no attributes.
+			//Handles the case that all attributes of the current specification contain no attributes.
 			if (allAttributesHaveNoAttributes()) {
-				return (
-					StringHelper.createTabulators(leadingTabulatorCount)
-					+ getHeader()
-					+ CharacterCatalogue.OPENING_BRACKET
-					+ getRefAttributes().toString()
-					+ CharacterCatalogue.CLOSING_BRACKET
-				);
+				stringBuilder
+				.append(CharacterCatalogue.OPEN_BRACKET)
+				.append(getRefAttributes().toString())
+				.append(CharacterCatalogue.CLOSED_BRACKET);
 			}
 			
-			//Handles the case that an attribute have attributes.
+			//Handles the case that the current specification contains attributes with attributes.
 			else {
+				stringBuilder
+				.append(CharacterCatalogue.OPEN_BRACKET)
+				.append(CharacterCatalogue.NEW_LINE);
 				
-				String formatedString =
-				StringHelper.createTabulators(leadingTabulatorCount)
-				+ getHeader()
-				+ CharacterCatalogue.OPENING_BRACKET
-				+ CharacterCatalogue.NEW_LINE;
-				
-				//Iterates the attributes of this specification.
-				int currentAttributeIndex = 1;
-				for (final Specification attribute: getRefAttributes()) {
+				//Iterates the attributes of the current specification.
+				var atBegin = true;
+				for (final Specification a : getRefAttributes()) {
 					
-					formatedString += attribute.toFormatedReproducingString(leadingTabulatorCount + 1);
-					
-					if (currentAttributeIndex != getRefAttributes().getElementCount()) {
-						formatedString += CharacterCatalogue.COMMA;
+					if (!atBegin) {
+						stringBuilder.append(CharacterCatalogue.COMMA);
 					}
 					
-					formatedString += CharacterCatalogue.NEW_LINE;
+					stringBuilder
+					.append(a.toFormatedString(leadingTabulators + 1))					
+					.append(CharacterCatalogue.COMMA)
+					.append(CharacterCatalogue.NEW_LINE);
 					
-					currentAttributeIndex++;
+					atBegin = false;
 				}
 				
-				return (
-					formatedString
-					+ StringHelper.createTabulators(leadingTabulatorCount)
-					+ CharacterCatalogue.CLOSING_BRACKET
-				);
+				stringBuilder
+				.append(StringHelper.createTabulators(leadingTabulators))
+				.append(CharacterCatalogue.CLOSED_BRACKET);
 			}
 		}
+		
+		return stringBuilder.toString();
 	}
 }

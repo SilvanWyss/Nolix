@@ -117,22 +117,22 @@ extends ConfigurableElement<W> {
 				break;
 			default:
 				if (attribute.getHeader().startsWith(NORMAL_PREFIX)) {
-					final Specification temp = attribute.getCopy();
+					final Specification temp = attribute.createCopy();
 					temp.setHeader(attribute.getHeader().substring(NORMAL_PREFIX.length()));
 					getRefNormalStructure().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(HOVER_PREFIX)) {
-					final Specification temp = attribute.getCopy();
+					final Specification temp = attribute.createCopy();
 					temp.setHeader(attribute.getHeader().substring(HOVER_PREFIX.length()));
 					getRefHoverStructure().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(FOCUS_PREFIX)) {
-					final Specification temp = attribute.getCopy();
+					final Specification temp = attribute.createCopy();
 					temp.setHeader(attribute.getHeader().substring(FOCUS_PREFIX.length()));
 					getRefFocusStructure().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(HOVER_FOCUS_PREFIX)) {
-					final Specification temp = attribute.getCopy();
+					final Specification temp = attribute.createCopy();
 					temp.setHeader(attribute.getHeader().substring(HOVER_FOCUS_PREFIX.length()));
 					getRefFocusStructure().addOrChangeAttribute(temp);
 				}

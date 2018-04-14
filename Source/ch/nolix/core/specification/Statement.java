@@ -167,27 +167,13 @@ public final class Statement {
 	
 	//method
 	/**
-	 * @return a reproducing string representation of this statement.
-	 */
-	public String toReproducingString() {
-		
-		String string = specification.toReproducingString();
-		
-		if (hasNextStatement()) {
-			string += CharacterCatalogue.DOT + getRefNextStatement().toReproducingString();
-		}
-		
-		return string;
-	}
-	
-	//method
-	/**
 	 * @return a string representation of this statement.
 	 */
 	public String toString() {
 		
-		String string = specification.toReproducingString();
+		String string = specification.toString();
 		
+		//Handles the case that the current statement has a next statement.
 		if (hasNextStatement()) {
 			string += CharacterCatalogue.DOT + getRefNextStatement().toString();
 		}
@@ -210,10 +196,10 @@ public final class Statement {
 			
 			final char character = value.charAt(i);
 			
-			if (character == CharacterCatalogue.OPENING_BRACKET) {
+			if (character == CharacterCatalogue.OPEN_BRACKET) {
 				openBrackets++;
 			}
-			else if (character == CharacterCatalogue.CLOSING_BRACKET) {
+			else if (character == CharacterCatalogue.CLOSED_BRACKET) {
 				openBrackets--;
 			}
 			else if (character == CharacterCatalogue.DOT && openBrackets == 0) {
