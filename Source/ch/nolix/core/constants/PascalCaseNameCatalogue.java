@@ -26,6 +26,7 @@ public class PascalCaseNameCatalogue {
 	public static final String CREATION_DATE = "CreationDate";
 	public static final String CREATOR = "Creator";
 	public static final String DATABASE = "Database";
+	public static final String DATA_TYPE = "DataType";
 	public static final String DATE = "Date";
 	public static final String DATE_OF_BIRTH = "DateOfBirth";
 	public static final String DESCRIPTION = "Description";
