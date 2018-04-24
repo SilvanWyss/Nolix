@@ -7,7 +7,7 @@ package ch.nolix.core.interfaces;
  * 
  * @author Silvan Wyss
  * @month 2018-04
- * @lines 20
+ * @lines 30
  */
 public interface Headered {
 	
@@ -20,9 +20,20 @@ public interface Headered {
 	//default method
 	/**
 	 * @param header
-	 * @return true if the current {@link Headered} has the given header.
+	 * @return true if the current {@link Headered}
+	 * has the given header.
 	 */
 	public default boolean hasHeader(final String header) {
 		return getHeader().equals(header);
+	}
+	
+	//default method
+	/**
+	 * @param object
+	 * @return true if the current {@link Headered}
+	 * has the same header as the given object.
+	 */
+	public default boolean hasSameHeaderAs(final Headered object) {
+		return getHeader().equals(object.getHeader());
 	}
 }
