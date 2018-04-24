@@ -7,7 +7,7 @@ package ch.nolix.core.interfaces;
  * 
  * @author Silvan Wyss
  * @month 2018-04
- * @lines 20
+ * @lines 30
  */
 public interface Identifiable {
 
@@ -19,10 +19,20 @@ public interface Identifiable {
 	
 	//default method
 	/**
-	 * @return true if the id of the current {@link Identifiable}
+	 * @return true if the current {@link Identifiable}
 	 * has the given id.
 	 */
 	public default boolean hasId(final int id) {
 		return (getId() == id);
+	}
+	
+	//default method
+	/**
+	 * @param object
+	 * @return true if the current {@link Identifiable}
+	 * has the same id as the given object.
+	 */
+	public default boolean hasId(final Identifiable object) {
+		return hasId(object.getId());
 	}
 }
