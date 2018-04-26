@@ -74,6 +74,14 @@ public final class DatabaseSchemaAdapter implements IChangesSaver {
 	}
 
 	//method
+	public DatabaseSchemaAdapter initialize() {
+		
+		internalDatabaseSchemaAdapter.noteInitialize();
+		
+		return this;
+	}
+	
+	//method
 	public boolean hasChanges() {
 		return internalDatabaseSchemaAdapter.hasChanges();
 	}

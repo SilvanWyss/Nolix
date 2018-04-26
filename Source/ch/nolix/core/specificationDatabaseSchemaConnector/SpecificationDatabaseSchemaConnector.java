@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.core.specificationDatabaseSchemaConnector;
 
-import ch.nolix.core.constants.MultiPascalCaseNameCatalogue;
 //own imports
+import ch.nolix.core.constants.MultiPascalCaseNameCatalogue;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
@@ -73,6 +73,11 @@ implements IDatabaseSchemaConnector<IFunction> {
 	}
 
 	//method
+	public IFunction createCommandForInitialize() {
+		return () -> initialize();
+	}
+	
+	//method
 	public IFunction createCommandForRename(String name) {
 		
 		//TODO
@@ -100,5 +105,10 @@ implements IDatabaseSchemaConnector<IFunction> {
 	//method
 	public void run(final Iterable<IFunction> commands) {
 		commands.forEach(c -> c.run());
+	}
+	
+	//method
+	private void initialize() {
+		databaseSpecification.setHeader(PascalCaseNameCatalogue.DATABASE);
 	}
 }

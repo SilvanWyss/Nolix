@@ -65,6 +65,13 @@ final class DatabaseSchemaConnectorWrapper<C> {
 			databaseSchemaConnector.createCommandForDelete(entitySet)
 		);
 	}
+	
+	//method
+	public void noteInitialize() {
+		commandsForChanges.addAtEnd(
+			databaseSchemaConnector.createCommandForInitialize()
+		);
+	}
 
 	//method
 	public void noteRenameColumn(

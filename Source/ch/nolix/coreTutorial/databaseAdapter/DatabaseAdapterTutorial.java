@@ -27,6 +27,7 @@ public final class DatabaseAdapterTutorial {
 			);
 			
 			petDatabaseSchemaAdapter
+			.initialize()
 			.addSchema(new PetDatabaseSchema())
 			.saveChanges();
 		
@@ -44,13 +45,21 @@ public final class DatabaseAdapterTutorial {
 			wallace.Name.setValue("Wallace");
 			wallace.WeightInGram.setValue(4500);
 			
-			petDatabaseAdapter.getRefEntitySet(Cat.class).addEntity(garfield, wallace);
+			petDatabaseAdapter
+			.getRefEntitySet(Cat.class)
+			.addEntity(garfield, wallace);
 			
-			final var rubberChicken = new PetToy();
-			rubberChicken.Name.setValue("Rubber chicken");
-			rubberChicken.Material.setValue("Plastic");
+			final var plasticChicken = new PetToy();
+			plasticChicken.Name.setValue("Rubber chicken");
+			plasticChicken.Material.setValue("Plastic");
 			
-			petDatabaseAdapter.getRefEntitySet(PetToy.class).addEntity(rubberChicken);
+			final var plasticBone = new PetToy();
+			plasticBone.Name.setValue("Rubber bone");
+			plasticBone.Material.setValue("Plastic");
+			
+			petDatabaseAdapter
+			.getRefEntitySet(PetToy.class)
+			.addEntity(plasticChicken, plasticBone);
 			
 			petDatabaseAdapter.saveChanges();
 		

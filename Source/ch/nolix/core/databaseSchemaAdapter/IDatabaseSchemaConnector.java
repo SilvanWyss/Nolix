@@ -15,6 +15,9 @@ public interface IDatabaseSchemaConnector<C> {
 	public abstract C createCommandForDelete(EntitySet entitySet);
 	
 	//abstract method
+	public abstract C createCommandForInitialize();
+	
+	//abstract method
 	public IEntitySetConnector<C> getEntitySetConnector(final EntitySet entitySet);
 	
 	//abstract method
