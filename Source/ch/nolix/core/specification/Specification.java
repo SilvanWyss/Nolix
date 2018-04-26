@@ -27,7 +27,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 630
+ * @lines 640
  */
 public abstract class Specification {
 	
@@ -181,6 +181,16 @@ public abstract class Specification {
 		return getRefAttributes().to(a -> a.toString());
 	}
 	
+	//method
+	/**
+	 * @return the integer the first attribute of the current {@link Specification} represents.
+	 * @throws InvalidArgumentException
+	 * if the first attribute of the current {@link Specification} does not represent an integer.
+	 */
+	public final int getFirstAttributeAsInt() {
+		return getRefFirstAttribute().toInt();
+	}
+	
 	//abstract method
 	/**
 	 * @return the header of the current {@link Specification}.
@@ -275,9 +285,19 @@ public abstract class Specification {
 	
 	//method
 	/**
+	 * @return the first attribute of the current {@link Specification}.
+	 * @throws EmptyStateException if the current {@link Specification} contains no attributes.
+	 */
+	@SuppressWarnings("unchecked")
+	public <S extends Specification> S getRefFirstAttribute() {
+		return (S)getRefAttributes().getRefFirst();
+	}
+	
+	//method
+	/**
 	 * @param selector
 	 * @return the first attribute the given selector selects from the current {@link Specification}.
-	 * @throws UnexistingAttributeException if the current {@link Specification} contains no attribtue the given selector selects.
+	 * @throws UnexistingAttributeException if the current {@link Specification} contains no attribute the given selector selects.
 	 */
 	@SuppressWarnings("unchecked")
 	public <S extends Specification> S getRefFirstAttribute(
@@ -610,19 +630,19 @@ public abstract class Specification {
 				.append(CharacterCatalogue.NEW_LINE);
 				
 				//Iterates the attributes of the current specification.
-				var atBegin = true;
+				var index = 1;
+				final var attributeCount = getAttributeCount();
 				for (final Specification a : getRefAttributes()) {
 					
-					if (!atBegin) {
+					stringBuilder.append(a.toFormatedString(leadingTabulators + 1));
+					
+					if (index < attributeCount) {
 						stringBuilder.append(CharacterCatalogue.COMMA);
 					}
 					
-					stringBuilder
-					.append(a.toFormatedString(leadingTabulators + 1))					
-					.append(CharacterCatalogue.COMMA)
-					.append(CharacterCatalogue.NEW_LINE);
+					stringBuilder.append(CharacterCatalogue.NEW_LINE);
 					
-					atBegin = false;
+					index++;
 				}
 				
 				stringBuilder
