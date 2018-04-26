@@ -2,40 +2,24 @@
 package ch.nolix.core.databaseSchemaAdapter;
 
 //own imports
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
+import ch.nolix.core.databaseAdapter.Entity;
+import ch.nolix.core.databaseAdapter.EntityType;
 
 //interface
 public interface IDatabaseSchemaConnector<C> {
-		
-	//abstract method
-	public abstract C createCommandForAddColumn(Column column);
 	
 	//abstract method
-	public abstract C createCommandForAddEntitySet(EntitySet entitySet);
-
-	//abstract method
-	public abstract C createCommandForDeleteColumn(Column column);
+	public abstract C createCommandForAdd(EntityType<Entity> entityType);
 	
 	//abstract method
-	public abstract C createCommandForDeleteEntitySet(EntitySet entitySet);
+	public abstract C createCommandForDelete(EntitySet entitySet);
 	
 	//abstract method
-	public abstract C createCommandForRenameColumn(
-		EntitySet entitySet,
-		String columnHeader,
-		String newColumnHeader
-	);
+	public IEntitySetConnector<C> getEntitySetConnector(final EntitySet entitySet);
 	
 	//abstract method
-	public abstract C createCommandForRenameEntitySet(
-		String entitySetName,
-		String newEntitySetName
-	);
+	//public abstract List<EntitySet> getEntitySets();
 	
 	//abstract method
-	public abstract List<EntitySet> getRefEntitySets();
-	
-	//abstract method
-	public abstract void run(IContainer<C> commands);
+	public abstract void run(Iterable<C> commands);
 }

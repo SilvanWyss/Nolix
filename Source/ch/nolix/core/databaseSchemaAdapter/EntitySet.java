@@ -123,7 +123,7 @@ public final class EntitySet implements Namable<EntitySet> {
 			
 			databaseSchemaAdapter
 			.getRefInternalDatabaseSchemaAdapter()
-			.noteRenameEntitySet(getName(), name);
+			.noteRenameEntitySet(this, name);
 		
 			this.name = name;
 		}
@@ -132,10 +132,10 @@ public final class EntitySet implements Namable<EntitySet> {
 	}
 	
 	//package-visible method
-	void noteRenameColumn(final String header, final String newHeader) {
+	void noteRenameColumn(final Column column, final String header) {
 		databaseSchemaAdapter
 		.getRefInternalDatabaseSchemaAdapter()
-		.noteRenameColumn(this, header, newHeader);
+		.noteRenameColumn(column, header);
 	}
 	
 	//method

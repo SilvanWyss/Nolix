@@ -3,7 +3,6 @@ package ch.nolix.core.databaseSchemaAdapter;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntityType;
 import ch.nolix.core.databaseAdapter.Schema;
@@ -16,7 +15,7 @@ import ch.nolix.primitive.invalidStateException.InvalidStateException;
 public final class DatabaseSchemaAdapter implements IChangesSaver {
 
 	//attribute
-	private final InternalDatabaseSchemaAdapter<?> internalDatabaseSchemaAdapter;
+	private final DatabaseSchemaConnectorWrapper<?> internalDatabaseSchemaAdapter;
 	
 	//multi-attribute
 	private final List<EntitySet> entitySets = new List<EntitySet>();
@@ -24,7 +23,7 @@ public final class DatabaseSchemaAdapter implements IChangesSaver {
 	//constructor
 	public DatabaseSchemaAdapter(final IDatabaseSchemaConnector<?> databaseSchemaConnector) {
 		
-		internalDatabaseSchemaAdapter = new InternalDatabaseSchemaAdapter<>(databaseSchemaConnector);
+		internalDatabaseSchemaAdapter = new DatabaseSchemaConnectorWrapper<>(databaseSchemaConnector);
 		
 		reset();
 	}
@@ -32,43 +31,24 @@ public final class DatabaseSchemaAdapter implements IChangesSaver {
 	//method
 	public DatabaseSchemaAdapter addEntitySet(final Class<Entity> entityClass) {
 		
-		final var entitySet = new EntitySet(this, entityClass);
+		final var entityType = new EntityType<Entity>(entityClass);
 		
-		if (containsEntitySet(entitySet.getName())) {
+		if (containsEntitySet(entityType.getName())) {
 			throw new InvalidStateException(
 				this,
-				"contains already an entity set with the name '" + entitySet.getName() + "'"
+				"contains already an entity set with the name '" + entityType.getName() + "'"
 			);
 		}
-		
-		entitySets.addAtEnd(entitySet);		
-		internalDatabaseSchemaAdapter.noteAddEntitySet(entitySet);
-		
-		return this;
-	}
-	
-	//method
-	@SuppressWarnings("unchecked")
-	public DatabaseSchemaAdapter addEntitySet(
-		final EntityType<Entity>... entityTypes
-	) {
-		return addEntitySets(new ReadContainer<EntityType<Entity>>(entityTypes));
-	}
-	
-	//method
-	@SuppressWarnings("unchecked")
-	public DatabaseSchemaAdapter addEntitySets(final Iterable<EntityType<Entity>> entityTypes) {
-		
-		entityTypes.forEach(et -> addEntitySet(et));
+			
+		internalDatabaseSchemaAdapter.noteAddEntitySet(entityType);
 		
 		return this;
 	}
 
 	//method
-	@SuppressWarnings("unchecked")
 	public DatabaseSchemaAdapter addSchema(final Schema schema) {
 		
-		schema.getRefEntityTypes().forEach(et -> addEntitySet(et));
+		schema.getRefEntityTypes().forEach(et -> addEntitySet(et.getEntityClass()));
 		
 		return this;
 	}
@@ -99,12 +79,8 @@ public final class DatabaseSchemaAdapter implements IChangesSaver {
 	}
 	
 	//method
-	public final void reset() {
-		
+	public final void reset() {	
 		internalDatabaseSchemaAdapter.reset();
-		entitySets.clear();
-		
-		entitySets.addAtEnd(internalDatabaseSchemaAdapter.getEntitySets());
 	}
 
 	//method
@@ -116,7 +92,7 @@ public final class DatabaseSchemaAdapter implements IChangesSaver {
 	}
 
 	//package-visible method
-	InternalDatabaseSchemaAdapter<?> getRefInternalDatabaseSchemaAdapter() {
+	DatabaseSchemaConnectorWrapper<?> getRefInternalDatabaseSchemaAdapter() {
 		return internalDatabaseSchemaAdapter;
 	}
 }

@@ -3,10 +3,12 @@ package ch.nolix.core.databaseSchemaAdapter;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.databaseAdapter.Entity;
+import ch.nolix.core.databaseAdapter.EntityType;
 import ch.nolix.primitive.validator2.Validator;
 
 //package-visible class
-final class InternalDatabaseSchemaAdapter<C> {
+final class DatabaseSchemaConnectorWrapper<C> {
 
 	//attributes
 	private final IDatabaseSchemaConnector<C> databaseSchemaConnector;
@@ -15,7 +17,7 @@ final class InternalDatabaseSchemaAdapter<C> {
 	private final List<C> commandsForChanges = new List<C>();
 	
 	//constructor
-	public InternalDatabaseSchemaAdapter(
+	public DatabaseSchemaConnectorWrapper(
 		final IDatabaseSchemaConnector<C> databaseSchemaConnector
 	) {
 		Validator
@@ -27,60 +29,64 @@ final class InternalDatabaseSchemaAdapter<C> {
 	}
 	
 	//method
-	public List<EntitySet> getEntitySets() {
-		return databaseSchemaConnector.getRefEntitySets();
-	}
-	
-	//method
 	public boolean hasChanges() {
 		return commandsForChanges.containsAny();
 	}
 	
 	//method
 	public void noteAddColumn(final Column column) {
-		commandsForChanges.addAtEnd(databaseSchemaConnector.createCommandForAddColumn(column));
+		commandsForChanges.addAtEnd(
+			databaseSchemaConnector
+			.getEntitySetConnector(column.getRefEntitySet())
+			.createCommandForAdd(column)
+		);
 	}
 	
 	//method
-	public void noteAddEntitySet(final EntitySet entitySet) {
-		commandsForChanges.addAtEnd(databaseSchemaConnector.createCommandForAddEntitySet(entitySet));
+	public void noteAddEntitySet(final EntityType<Entity> entityType) {
+		commandsForChanges.addAtEnd(
+			databaseSchemaConnector
+			.createCommandForAdd(entityType)
+		);
 	}
 	
 	//method
 	public void noteDeleteColumn(final Column column) {
-		commandsForChanges.addAtEnd(databaseSchemaConnector.createCommandForDeleteColumn(column));
+		commandsForChanges.addAtEnd(
+			databaseSchemaConnector
+			.getEntitySetConnector(column.getRefEntitySet())
+			.createCommandForDelete(column)
+		);
 	}
 	
 	//method
 	public void noteDeleteEntitySet(final EntitySet entitySet) {
-		commandsForChanges.addAtEnd(databaseSchemaConnector.createCommandForDeleteEntitySet(entitySet));
+		commandsForChanges.addAtEnd(
+			databaseSchemaConnector.createCommandForDelete(entitySet)
+		);
 	}
 
 	//method
 	public void noteRenameColumn(
-		final EntitySet entitySet,
-		final String columnHeader,
-		final String newColumnHeader
+		final Column column,
+		final String header
 	) {
 		commandsForChanges.addAtEnd(
-			databaseSchemaConnector.createCommandForRenameColumn(
-				entitySet,
-				columnHeader,
-				newColumnHeader
-			)
+			databaseSchemaConnector
+			.getEntitySetConnector(column.getRefEntitySet())
+			.createCommandForRename(header)
 		);
 	}
 	
 	//method
 	public void noteRenameEntitySet(
-		final String entitySetName,
-		final String newEntitySetName
+		final EntitySet entitySet,
+		final String name
 	) {
 		commandsForChanges.addAtEnd(
-			databaseSchemaConnector.createCommandForRenameEntitySet(
-				entitySetName,
-				newEntitySetName
-			)
+			databaseSchemaConnector
+			.getEntitySetConnector(entitySet)
+			.createCommandForRename(name)
 		);
 	}
 	

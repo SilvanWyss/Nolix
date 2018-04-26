@@ -2,15 +2,19 @@
 package ch.nolix.core.databaseSchemaAdapter;
 
 //own imports
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.PropertyKind;
 import ch.nolix.core.databaseAdapter.PropertyoidType;
 import ch.nolix.core.interfaces.Headerable;
+import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
-public final class Column implements Headerable<Column> {
+public final class Column implements Headerable<Column>, Specified {
 	
 	//attribute
 	private final EntitySet entitySet;
@@ -45,6 +49,15 @@ public final class Column implements Headerable<Column> {
 	}
 	
 	//method
+	public List<StandardSpecification> getAttributes() {
+		return 
+		new List<StandardSpecification>(
+			new StandardSpecification(PascalCaseNameCatalogue.HEADER, getHeader()),
+			valueType.getSpecification()
+		);
+	}
+	
+	//method
 	public String getHeader() {
 		return header;
 	}
@@ -52,6 +65,16 @@ public final class Column implements Headerable<Column> {
 	//method
 	public PropertyKind getPropertyKind() {
 		return valueType.getPropertyKind();
+	}
+	
+	//method
+	public EntitySet getRefEntitySet() {
+		return entitySet;
+	}
+	
+	//method
+	public String getType() {
+		return PascalCaseNameCatalogue.COLUMN;
 	}
 	
 	//method
@@ -79,7 +102,7 @@ public final class Column implements Headerable<Column> {
 			);
 		}
 					
-		entitySet.noteRenameColumn(this.header, header);
+		entitySet.noteRenameColumn(this, header);
 		
 		this.header = header;
 		
