@@ -4,12 +4,14 @@ package ch.nolix.core.databaseAdapter;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.IChangesSaver;
+import ch.nolix.primitive.validator2.Validator;
 
 //package-visible abstract class
 public class DatabaseAdapter implements IChangesSaver {
 
 	//attribute
-	private final InternalDatabaseAdapter<?> internalDatabaseAdapter;
+	private final Schema schema;
+	private final DatabaseConnectorWrapper<?> databaseConnectorWrapper;
 	
 	//multi-attribute
 	private final List<EntitySet<Entity>> entitySets = new List<EntitySet<Entity>>();
@@ -19,11 +21,14 @@ public class DatabaseAdapter implements IChangesSaver {
 		final IDatabaseConnector<?> databaseConnector,
 		final Schema schema
 	) {
-		internalDatabaseAdapter = new InternalDatabaseAdapter<>(databaseConnector);
 		
-		for (final var et : schema.getRefEntityTypes()) {
-			entitySets.addAtEnd(EntitySet.createEntitySet(this, et));
-		}
+		Validator
+		.suppose(schema)
+		.thatIsOfType(Schema.class)
+		.isNotNull();
+		
+		this.schema = schema;
+		databaseConnectorWrapper = new DatabaseConnectorWrapper<>(databaseConnector);
 		
 		reset();
 	}
@@ -43,18 +48,17 @@ public class DatabaseAdapter implements IChangesSaver {
 	//method
 	public void reset() {	
 		
-		internalDatabaseAdapter.reset();
+		databaseConnectorWrapper.reset();
+		
+		for (final var et : schema.getRefEntityTypes()) {
+			entitySets.addAtEnd(EntitySet.createEntitySet(databaseConnectorWrapper, et));
+		}
 		
 		entitySets.forEach(es -> es.reset());
 	}
 	
 	//method
 	public void saveChanges() {	
-		internalDatabaseAdapter.saveChanges(entitySets);
-	}
-	
-	//package-visible method
-	InternalDatabaseAdapter<?> getRefInternalDatabaseAdapter() {
-		return internalDatabaseAdapter;
+		databaseConnectorWrapper.saveChanges(entitySets);
 	}
 }

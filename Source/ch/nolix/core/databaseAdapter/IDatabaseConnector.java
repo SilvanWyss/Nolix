@@ -1,36 +1,17 @@
 //package declaration
 package ch.nolix.core.databaseAdapter;
 
-//own import
+//own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
+import ch.nolix.core.interfaces.Named;
 
 //interface
-public interface IDatabaseConnector<C> {
+public interface IDatabaseConnector<C> extends Named {
 	
 	//abstract method
-	public abstract <E extends Entity> C createCommandForAddEntity(
-		EntitySet<E> entitySet,
-		E entity
+	public abstract <E extends Entity> IEntitySetConnector<E, C> getEntitySetConnector(
+		EntitySet<E> entitySet
 	);
-	
-	//abstract method
-	public abstract <E extends Entity> C createCommandForDeleteEntity(
-		EntitySet<E> entitySet,
-		E entity
-	);
-	
-	//abstract method
-	public abstract <E extends Entity> C createCommandForEditEntity(
-		EntitySet<E> entitySet,
-		E entity
-	);
-	
-	//abstract method
-	public abstract <E extends Entity> List<E> getRefEntities(EntitySet<E> entitySet);
-	
-	//abstract method
-	public abstract <E extends Entity> E getRefEntity(EntitySet<E> entitySet, int id);
 	
 	//abstract method
 	public abstract void run(IContainer<C> commands);

@@ -13,7 +13,7 @@ public final class ValueType<V> extends NamedElement {
 	//constructor
 	public ValueType(final Class<V> valueClass) {
 		
-		super(valueClass.getName());
+		super(valueClass.getSimpleName());
 		
 		this.valueClass = valueClass;
 	}

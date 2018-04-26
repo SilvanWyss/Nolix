@@ -3,6 +3,10 @@ package ch.nolix.core.databaseAdapter;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.List;
+import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
@@ -18,6 +22,22 @@ extends DataPropertyoid<V> {
 	@SuppressWarnings("unchecked")
 	public Class<V> getDataType() {
 		return (Class<V>)getClass().getDeclaredFields()[0].getType();
+	}
+	
+	//method
+	public final List<StandardSpecification> getAttributes() {
+		
+		final var attributes = new List<StandardSpecification>();
+		
+		if (hasValue()) {
+			attributes.addAtEnd(
+				new StandardSpecification(
+					getValue().toString()
+				)
+			);
+		}
+		
+		return attributes;
 	}
 	
 	//method
@@ -51,7 +71,24 @@ extends DataPropertyoid<V> {
 		
 		this.value = value;
 		
-		noteChange();
+		noteUpdate();
+	}
+	
+	final IContainer<Object> inernal_getValues() {
+		
+		final var values = new List<Object>();
+		
+		if (hasValue()) {
+			values.addAtEnd(getValue());
+		}
+		
+		return values;
+	}
+	
+	//package-visible method
+	@SuppressWarnings("unchecked")
+	final void setValues(final List<Object> values) {
+		setValue((V)(new ReadContainer<>(values).getRefOne()));
 	}
 	
 	//package-visible method

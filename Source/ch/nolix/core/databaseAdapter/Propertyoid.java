@@ -1,21 +1,21 @@
 //package declaration
 package ch.nolix.core.databaseAdapter;
 
+//Java import
+import java.lang.reflect.ParameterizedType;
+
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.List;
 //own imports
+import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
-public abstract class Propertyoid<V> {
+public abstract class Propertyoid<V> implements Specified {
 	
 	//attribute
-	private Entity entity;
-	
-	//method
-	@SuppressWarnings("unchecked")
-	public final Class<V> getValueClass() {
-		return (Class<V>)getClass().getGenericInterfaces()[0];
-	}
+	private Entity parentEntity;
 	
 	//method
 	public final PropertyKind getPropertyKind() {
@@ -24,6 +24,22 @@ public abstract class Propertyoid<V> {
 	
 	//abstract method
 	public abstract PropertyoidType<V> getPropertyType() ;
+	
+	//method
+	public final String getType() {
+		return getRefEntity().getFieldName(this);
+	}
+	
+	//method
+	@SuppressWarnings("unchecked")
+	public final Class<V> getValueClass() {
+		
+		final var realClass = getRefEntity().getField(this).getGenericType();
+		final var valueType = ((ParameterizedType)realClass).getActualTypeArguments()[0];
+		
+		return (Class<V>)(valueType);
+	}
+	
 	
 	//method
 	public final boolean isDataProperty() {
@@ -35,29 +51,53 @@ public abstract class Propertyoid<V> {
 		return getPropertyType().isReferenceType();
 	}
 	
+	//package-visible abstract method
+	abstract IContainer<Object> inernal_getValues();
+	
+	//package-visible abstract method
+	abstract void setValues(final List<Object> values);
+	
 	//method
-	protected void noteChange() {
+	protected void noteUpdate() {
 		if (belongsToEntity()) {
-			entity.setEdited();
+			parentEntity.setUpdated();
 		}
 	}
 	
 	//method
-	protected void setEntity(final Entity entity) {
+	protected void setParentEntity(final Entity parentEntity) {
 		
 		Validator
-		.suppose(entity)
+		.suppose(parentEntity)
 		.thatIsOfType(Entity.class)
 		.isNotNull();
 		
 		supposeBelongsToNoEntity();
 		
-		this.entity = entity;
+		this.parentEntity = parentEntity;
 	}
 	
 	//method
 	private boolean belongsToEntity() {
-		return (entity != null);
+		return (parentEntity != null);
+	}
+	
+	//method
+	private Entity getRefEntity() {
+		
+		supposeBelongsToEntity();
+		
+		return parentEntity;
+	}
+	
+	//method
+	private void supposeBelongsToEntity() {
+		if (!belongsToEntity()) {
+			throw new InvalidStateException(
+				this,
+				"belongs to no entity"
+			);
+		}
 	}
 	
 	//method
@@ -65,7 +105,7 @@ public abstract class Propertyoid<V> {
 		if (belongsToEntity()) {
 			throw new InvalidStateException(
 				this,
-				"belongs already to an entity"
+				"belongs to an entity"
 			);
 		}
 	}

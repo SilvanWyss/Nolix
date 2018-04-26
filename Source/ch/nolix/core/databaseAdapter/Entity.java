@@ -1,10 +1,16 @@
 //package declaration
 package ch.nolix.core.databaseAdapter;
 
+//Java import
+import java.lang.reflect.Field;
+import java.util.Iterator;
+
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Identifiable;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
@@ -20,56 +26,35 @@ implements Identifiable, Specified {
 	private EntityState state = EntityState.CREATED;
 
 	//multi-attribute
-	private final List<Propertyoid<?>> properties = new List<Propertyoid<?>>();
-	
-	//constructor
-	public Entity() {
+	private List<Propertyoid<?>> properties;
 		
-		Class<?> cl = getClass();
-		while (cl != null) {
-			
-			for (final var f : cl.getDeclaredFields()) {
-				
-				if (f.getType().isAssignableFrom(Propertyoid.class)) {
-					
-					try {
-						
-						f.setAccessible(true);
-						
-						final Propertyoid<?> property = (Propertyoid<?>)(f.get(this));
-						
-						Validator.suppose(property)
-						.thatIsOfType(Propertyoid.class)
-						.isNotNull();
-						
-						properties.addAtEnd(property);		
-					}
-					catch (
-						final IllegalArgumentException
-						| IllegalAccessException exception
-					) {
-						throw new RuntimeException(exception);
-					}
-				}
-			}
-			
-			cl = cl.getSuperclass();
-		}
-	}
-	
 	//method
 	public final boolean canReferenceOtherEntities() {
-		return properties.contains(p -> p.isReferenceProperty());
+		return getRefProperties().contains(p -> p.isReferenceProperty());
 	}
 	
 	//method
 	public final List<StandardSpecification> getAttributes() {
-		return properties.to(p -> new StandardSpecification(p.toString()));
+		
+		final var attributes = new List<StandardSpecification>();
+		
+		if (hasId()) {
+			attributes.addAtEnd(StandardSpecification.createFromInt(getId()));
+		}
+		
+		for (final var p : getRefProperties()) {
+			attributes.addAtEnd(p.getSpecification());
+		}
+		
+		return attributes;
 	}
 	
 	//method
 	public List<Column<?>> getColumns() {
 		
+		//TODO
+		extractProperties();
+				
 		final var columns = new List<Column<?>>();
 		
 		Class<?> cl = getClass();
@@ -77,7 +62,7 @@ implements Identifiable, Specified {
 			
 			for (final var f : cl.getDeclaredFields()) {
 				
-				if (f.getType().isAssignableFrom(Propertyoid.class)) {
+				if (f.getType().isAssignableFrom(Property.class)) {
 					
 					try {
 						
@@ -119,6 +104,19 @@ implements Identifiable, Specified {
 		return id;
 	}
 	
+	public final StandardSpecification getRowSpecification() {
+		
+		final var rowSpecification = new StandardSpecification();
+		
+		rowSpecification.addAttribute(StandardSpecification.createFromInt(getId()));
+		
+		for (final var p : getRefProperties()) {
+			rowSpecification.addAttribute(new StandardSpecification(p.inernal_getValues().toString()));
+		}
+		
+		return rowSpecification;
+	}
+	
 	//method
 	public final EntityState getState() {
 		return state;
@@ -145,11 +143,6 @@ implements Identifiable, Specified {
 	}
 	
 	//method
-	public final boolean isEdited() {
-		return (getState() == EntityState.EDITED);
-	}
-	
-	//method
 	public final boolean isPersisted() {
 		return (getState() == EntityState.PERSISTED);
 	}
@@ -167,6 +160,73 @@ implements Identifiable, Specified {
 	}
 	
 	//method
+	public final boolean isUpdated() {
+		return (getState() == EntityState.UPDATED);
+	}
+	
+	//method
+	public final void setId(final int id) {
+		
+		Validator
+		.suppose(id)
+		.thatIsNamed(VariableNameCatalogue.ID)
+		.isPositive();
+		
+		supposeHasNoId();
+		
+		this.id = id;
+	}
+	
+	
+	final Field getField(final Propertyoid<?> property) {
+		
+		for (final Field f : getClass().getFields()) {
+			try {
+				
+				f.setAccessible(true);
+				
+				if (f.get(this) == property) {
+					return f;
+				}
+			}
+			catch (
+				final
+				IllegalArgumentException
+				| IllegalAccessException exception
+			) {
+				throw new RuntimeException(exception);
+			}
+		}
+		
+		throw new InvalidStateException(this, "has no such property");
+	}
+	
+	//package-visible method
+	final String getFieldName(final Propertyoid<?> property) {
+		return getField(property).getName();
+	}
+	
+	final void set(final Iterable<Specification> allPropertiesInOrder) {
+		
+		final Iterator<Propertyoid<?>> iterator = getRefProperties().iterator();
+		for (final var p : allPropertiesInOrder) {
+			
+			final var property = iterator.next();
+			
+			switch (property.getValueClass().getSimpleName()) {
+				case "String":
+					property.setValues(new List<Object>(p.toString()));
+					break;
+				case "Integer":
+					property.setValues(new List<Object>(p.toInt()));
+					break;
+				default:
+					throw new RuntimeException("Invalid case");
+			}
+		}
+	}
+
+	//package-visible method
 	final void setDeleted() {
 		switch (getState()) {
 			case PERSISTED:
@@ -174,7 +234,7 @@ implements Identifiable, Specified {
 				break;
 			case CREATED:
 				throw new InvalidStateException(this, "is created");
-			case EDITED:
+			case UPDATED:
 				state = EntityState.DELETED;
 				break;
 			case DELETED:
@@ -184,16 +244,16 @@ implements Identifiable, Specified {
 		}
 	}
 	
-	//method
-	final void setEdited() {
+	//package-visible method
+	final void setPersisted() {
 		switch (getState()) {
 			case PERSISTED:
-				state = EntityState.EDITED;
 				break;
 			case CREATED:
+				state = EntityState.PERSISTED;
 				break;
-			case EDITED:
-				break;
+			case UPDATED:
+				throw new InvalidStateException(this, "is updated");
 			case DELETED:
 				throw new InvalidStateException(this, "is deleted");
 			case REJECTED:
@@ -206,12 +266,92 @@ implements Identifiable, Specified {
 		state = EntityState.REJECTED;
 	}
 	
+	//package-visible method
+	final void setUpdated() {
+		switch (getState()) {
+			case PERSISTED:
+				state = EntityState.UPDATED;
+				break;
+			case CREATED:
+				break;
+			case UPDATED:
+				break;
+			case DELETED:
+				throw new InvalidStateException(this, "is deleted");
+			case REJECTED:
+				throw new InvalidStateException(this, "is rejected");
+		}
+	}
+	
+	//method
+	private void extractProperties() {
+		
+		properties = new List<Propertyoid<?>>();
+		
+		Class<?> cl = getClass();
+		while (cl != null) {
+			
+			for (final Field f : cl.getDeclaredFields()) {
+				
+				if (f.getType().isAssignableFrom(Property.class)) {
+					
+					try {
+						
+						f.setAccessible(true);
+						
+						final Propertyoid<?> property = (Propertyoid<?>)(f.get(this));
+						
+						Validator.suppose(property)
+						.thatIsOfType(Propertyoid.class)
+						.isNotNull();
+						
+						property.setParentEntity(this);
+						properties.addAtEnd(property);	
+					}
+					catch (
+						final IllegalArgumentException
+						| IllegalAccessException exception
+					) {
+						throw new RuntimeException(exception);
+					}
+				}
+			}
+			
+			cl = cl.getSuperclass();
+		}
+	}
+	
+	//method
+	private IContainer<Propertyoid<?>> getRefProperties() {
+		
+		if (!propertiesAreExtracted()) {
+			extractProperties();
+		}
+		
+		return properties;
+	}
+	
+	//method
+	private boolean propertiesAreExtracted() {
+		return (properties != null);
+	}
+	
 	//method
 	private void supposeHasId() {
 		if (!hasId()) {
 			throw new UnexistingAttributeException(
 				this,
 				VariableNameCatalogue.ID
+			);
+		}
+	}
+	
+	//method
+	private void supposeHasNoId() {		
+		if (hasId()) {
+			throw new InvalidStateException(
+				this,
+				"has an id"
 			);
 		}
 	}

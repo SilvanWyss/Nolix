@@ -18,32 +18,32 @@ public final class EntitySet<E extends Entity>
 extends NamedElement {
 
 	//attributes
-	private final DatabaseAdapter databaseAdapter;
+	private final DatabaseConnectorWrapper<?> databaseConnectorWrapper;
 	private final EntityType<E> entityType;
 	
 	//multi-attributes
 	private final List<Column<?>> columns = new List<Column<?>>();
-	private final List<E> loadedOrCreatedEntities = new List<E>();
+	private final List<E> loadedAndCreatedEntities = new List<E>();
 	
 	//static method
 	static EntitySet<Entity> createEntitySet(
-		final DatabaseAdapter databaseAdapter,
+		final DatabaseConnectorWrapper<?> databaseConnectorWrapper,
 		final EntityType<Entity> entityType
 	) {
-		return new EntitySet<Entity>(databaseAdapter, entityType);
+		return new EntitySet<Entity>(databaseConnectorWrapper, entityType);
 	}
 	
 	//package-visible constructor
 	EntitySet(
-		final DatabaseAdapter databaseAdapter,
+		final DatabaseConnectorWrapper<?> databaseConnectorWrapper,
 		final EntityType<E> entityType
 	) {
 		
 		super(entityType.getName());
 		
 		Validator
-		.suppose(databaseAdapter)
-		.thatIsOfType(DatabaseAdapter.class)
+		.suppose(databaseConnectorWrapper)
+		.thatIsOfType(DatabaseConnectorWrapper.class)
 		.isNotNull();
 		
 		Validator
@@ -51,7 +51,7 @@ extends NamedElement {
 		.thatIsOfType(EntityType.class)
 		.isNotNull();
 		
-		this.databaseAdapter = databaseAdapter;
+		this.databaseConnectorWrapper = databaseConnectorWrapper;
 		this.entityType = entityType;
 				
 		columns
@@ -77,8 +77,9 @@ extends NamedElement {
 			);
 		}
 		
-		loadedOrCreatedEntities.addAtEndRegardingSingularity(entity);
-		databaseAdapter.getRefInternalDatabaseAdapter().noteAddEntity(this, entity);
+		loadedAndCreatedEntities.addAtEndRegardingSingularity(entity);
+		
+		databaseConnectorWrapper.noteAddEntity(this, entity);
 		
 		return this;
 	}
@@ -94,8 +95,9 @@ extends NamedElement {
 				
 		entity.setDeleted();
 		
-		loadedOrCreatedEntities.removeFirst(entity);
-		databaseAdapter.getRefInternalDatabaseAdapter().noteDeleteEntity(this, entity);
+		loadedAndCreatedEntities.removeFirst(entity);
+		
+		databaseConnectorWrapper.noteDeleteEntity(this, entity);
 		
 		return this;
 	}
@@ -113,12 +115,12 @@ extends NamedElement {
 	//method
 	public IContainer<E> getRefEntities() {
 		
-		final var entities =  databaseAdapter.getRefInternalDatabaseAdapter().getRefEntities(this);
+		final var entities =  databaseConnectorWrapper.getEntities(this);
 		final var newlyLoadedEntities = new List<E>();
 		
 		for (final var e : entities) {
 			
-			if (!loadedOrCreatedEntities.contains(e2 -> e2.getId() == e.getId())) {
+			if (!loadedAndCreatedEntities.contains(e2 -> e2.getId() == e.getId())) {
 			
 				if (!e.isPersisted()) {
 					throw new InvalidArgumentException(
@@ -131,40 +133,40 @@ extends NamedElement {
 			}
 		}
 		
-		loadedOrCreatedEntities.addAtEnd(newlyLoadedEntities);
+		loadedAndCreatedEntities.addAtEnd(newlyLoadedEntities);
 		
-		return loadedOrCreatedEntities;
+		return loadedAndCreatedEntities;
 	}
 	
 	//method
 	public E getRefEntityById(final int id) {
 		
-		final var loadedEntity = loadedOrCreatedEntities.getRefFirstOrNull(e -> e.getId() == id);
+		final var loadedEntity = loadedAndCreatedEntities.getRefFirstOrNull(e -> e.getId() == id);
 		if (loadedEntity != null) {
 			return loadedEntity;
 		}
 		
-		final var entity = databaseAdapter.getRefInternalDatabaseAdapter().getRefEntity(this, id);
+		final var entity = databaseConnectorWrapper.getEntity(id, this);
 		if (!entity.isPersisted()) {
 			throw new InvalidStateException(entity, "is not persisted");
 		}
-		loadedOrCreatedEntities.addAtEnd(entity);
+		loadedAndCreatedEntities.addAtEnd(entity);
 		return entity;
 	}
 	
 	//method
-	public IContainer<E> getRefEditedEntities() {
-		return loadedOrCreatedEntities.getRefSelected(e -> e.isEdited());
+	public List<E> getRefUpdatedEntities() {
+		return loadedAndCreatedEntities.getRefSelected(e -> e.isUpdated());
 	}
 	
 	//method
 	public boolean hasChanges() {
-		return loadedOrCreatedEntities.containsAny();
+		return loadedAndCreatedEntities.containsAny();
 	}
 	
 	//package-visible method
 	void reset() {
-		loadedOrCreatedEntities.forEach(e -> e.setRejected());
-		loadedOrCreatedEntities.clear();
+		loadedAndCreatedEntities.forEach(e -> e.setRejected());
+		loadedAndCreatedEntities.clear();
 	}
 }

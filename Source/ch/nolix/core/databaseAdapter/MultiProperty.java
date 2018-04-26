@@ -1,9 +1,11 @@
 //package declaration
 package ch.nolix.core.databaseAdapter;
 
-//own import
+//own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.interfaces.Clearable;
+import ch.nolix.core.specification.StandardSpecification;
 
 //class
 public final class MultiProperty<V>
@@ -18,7 +20,7 @@ implements Clearable<MultiProperty<V>> {
 		
 		values.addAtEnd(value);
 		
-		noteChange();
+		noteUpdate();
 	}
 	
 	//method
@@ -27,7 +29,7 @@ implements Clearable<MultiProperty<V>> {
 		
 		this.values.addAtEnd(values);
 		
-		noteChange();
+		noteUpdate();
 	}
 	
 	//method
@@ -35,7 +37,7 @@ implements Clearable<MultiProperty<V>> {
 		
 		this.values.addAtEnd(values);
 		
-		noteChange();
+		noteUpdate();
 	}
 	
 	//method
@@ -46,9 +48,19 @@ implements Clearable<MultiProperty<V>> {
 		return this;
 	}
 	
-	@Override
+	//method
+	public List<StandardSpecification> getAttributes() {
+		return getValues().to(v -> new StandardSpecification(v.toString()));
+	}
+	
+	//method
 	public PropertyoidType<V> getPropertyType() {
 		return new MultiPropertyType<V>(getValueClass());
+	}
+	
+	//method
+	public ReadContainer<V> getValues() {
+		return new ReadContainer<V>(values);
 	}
 
 	//method
