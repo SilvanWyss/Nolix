@@ -27,7 +27,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 640
+ * @lines 650
  */
 public abstract class Specification {
 	
@@ -605,11 +605,11 @@ public abstract class Specification {
 		
 		final var stringBuilder = new StringBuilder();
 		
+		stringBuilder.append(StringHelper.createTabulators(leadingTabulators));
+		
 		//Handles the case that the current specification has a header.
 		if (hasHeader()) {
-			stringBuilder
-			.append(StringHelper.createTabulators(leadingTabulators))
-			.append(getReproducingHeader());
+			stringBuilder.append(getReproducingHeader());
 		}
 		
 		//Handles the case that the current specification contains attributes.
