@@ -18,7 +18,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 440
+ * @lines 410
  */
 public final class StandardSpecification extends Specification {
 	
@@ -39,8 +39,15 @@ public final class StandardSpecification extends Specification {
 	
 	//static method
 	/**
-	 * Creates a new {@link StandardSpecification} that consists of the given header.
-	 * 
+	 * @param value
+	 * @return a new {@link StandardSpecification} from the given value.
+	 */
+	public static StandardSpecification createFromInt(final int value) {
+		return new StandardSpecification(String.valueOf(value));
+	}
+	
+	//static method
+	/**
 	 * @param header
 	 * @return a new {@link StandardSpecification} that consists of the given header.
 	 * @throws NullArgumentException if the given header is null.
