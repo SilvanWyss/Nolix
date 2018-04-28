@@ -87,10 +87,16 @@ extends ConfigurableElement<CE> {
 	//method
 	/**
 	 * Resets this configuration element.
+	 * 
+	 * @return this configuration element.
 	 */
-	public void reset() {
+	public CE reset() {
+		
 		removeConfiguration();
 		resetConfiguration();
+		
+		//Calls method of the base class.
+		return super.reset();
 	}
 	
 	//method

@@ -96,11 +96,16 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 	
 	//method
 	/**
-	 * Resets this GUI back client.
+	 * Resets this back GUI client.
+	 * 
+	 * @return this back GUI client.
 	 */
-	public void reset() {
+	public BackGUIClient reset() {
+		
 		dialog.reset();
 		internal_runOnCounterpart(RESET_DIALOG_COMMAND);
+		
+		return this;
 	}
 	
 	//method

@@ -124,8 +124,12 @@ public final class StandardClient extends Client<StandardClient> {
 	//method
 	/**
 	 * Resets this client.
+	 * 
+	 * @return this standard client.
 	 */
-	public void reset() {}
+	public StandardClient reset() {
+		return this;
+	}
 	
 	//method
 	/**

@@ -31,9 +31,13 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	
 	//method
 	/**
-	 * Resets this GUI front client.
+	 * Resets this front GUI client.
+	 * 
+	 * @return this front GUI client.
 	 */
-	public void reset() {}
+	public FrontGUIClient reset() {
+		return this;
+	}
 	
 	//method
 	/**

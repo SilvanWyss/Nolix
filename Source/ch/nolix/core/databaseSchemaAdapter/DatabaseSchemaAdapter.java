@@ -87,8 +87,11 @@ public final class DatabaseSchemaAdapter implements IChangesSaver {
 	}
 	
 	//method
-	public final void reset() {	
+	public final DatabaseSchemaAdapter reset() {
+		
 		internalDatabaseSchemaAdapter.reset();
+		
+		return this;
 	}
 
 	//method

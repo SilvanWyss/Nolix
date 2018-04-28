@@ -110,14 +110,14 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	/**
 	 * Resets this cuboid.
 	 */
-	public void reset() {
-		
-		//Calls method of the base class.
-		super.reset();
+	public Cuboid reset() {
 		
 		setXLength(DEFAULT_X_LENGTH);
 		setZLength(DEFAULT_Y_LENGTH);
 		setYLength(DEFAULT_Z_LENGTH);
+		
+		//Calls method of the base class.
+		return super.reset();
 	}
 	
 	//method

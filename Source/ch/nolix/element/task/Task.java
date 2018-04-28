@@ -242,10 +242,15 @@ public final class Task extends MutableElement<Task> {
 	//method
 	/**
 	 * Resets this task.
+	 * 
+	 * @return this task.
 	 */
-	public void reset() {
+	public Task reset() {
+		
 		setTitle(DEFAULT_TITLE);
 		setAsUnsolved();
+		
+		return this;
 	}
 	
 	//method

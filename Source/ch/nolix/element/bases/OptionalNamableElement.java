@@ -122,9 +122,14 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	//method
 	/**
 	 * Resets this optional namable element.
+	 * 
+	 * @return this optional namable element.
 	 */
-	public void reset() {
+	public ONE reset() {
+		
 		removeName();
+		
+		return getInstance();
 	}
 	
 	//method

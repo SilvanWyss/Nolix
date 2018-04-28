@@ -268,11 +268,18 @@ implements Clearable<G>, Closable, Refreshable {
 		}
 	}
 	
-	public void reset() {
-		
-		super.reset();
+	//method
+	/**
+	 * Resets this 3D GUI.
+	 * 
+	 * @return this 3D GUI.
+	 */
+	public G reset() {
 		
 		setTitle(DEFAULT_TITLE);
+		
+		//Calls method of the base class.
+		return super.reset();
 	}
 	
 	//method

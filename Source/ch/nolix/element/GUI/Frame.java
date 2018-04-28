@@ -347,13 +347,15 @@ public final class Frame extends VisibleGUI<Frame> {
 	//method
 	/**
 	 * Resets this frame.
+	 * 
+	 * @return this frame.
 	 */
-	public void reset() {
+	public Frame reset() {
+				
+		removeCloseCommand();
 		
 		//Calls method of the base class.
-		super.reset();
-		
-		removeCloseCommand();
+		return super.reset();
 	}
 	
 	//method

@@ -152,14 +152,15 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	/**
 	 * Resets this deep configuration.
 	 * 
+	 * @return this deep configuration.
 	 * @throws InvalidStateException if this deep configuration is frozen.
 	 */
-	public void reset() {
+	public DeepConfiguration reset() {
 				
-		//Calls the method of the base class.
-		super.reset();
-		
 		removeMaxSelectorLevel();
+		
+		//Calls the method of the base class.
+		return super.reset();
 	}
 		
 	//method

@@ -84,9 +84,14 @@ implements Namable<NE> {
 	//method
 	/**
 	 * Resets this namable element.
+	 * 
+	 * @return this namable element.
 	 */
-	public void reset() {
+	public NE reset() {
+		
 		name = new Name();
+		
+		return getInstance();
 	}
 	
 	//method

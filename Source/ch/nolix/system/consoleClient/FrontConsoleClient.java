@@ -139,9 +139,13 @@ public final class FrontConsoleClient extends GUIClientoid<FrontConsoleClient> {
 	
 	//method
 	/**
-	 * Resets this client.
+	 * Resets this front console client client.
+	 * 
+	 * @return this front console client.
 	 */
-	public void reset() {}
+	public FrontConsoleClient reset() {
+		return this;
+	}
 	
 	//method
 	/**

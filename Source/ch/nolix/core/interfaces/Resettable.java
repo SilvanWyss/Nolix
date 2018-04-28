@@ -3,17 +3,20 @@ package ch.nolix.core.interfaces;
 
 //interface
 /**
- * A resettable object can be reset.
+ * A {@link Resettable} can be reset.
  * 
  * @author Silvan Wyss
  * @month 2016-01
- * @lines 10
+ * @lines 20
+ * @param <R> The type of a {@link Resettable}. 
  */
-public interface Resettable {
+public interface Resettable<R extends Resettable<R>> {
 
 	//abstract method
 	/**
-	 * Resets this resettable object.
+	 * Resets the current {@link Resettable}.
+	 * 
+	 * @return the current {@link Resettable}.
 	 */
-	public abstract void reset();
+	public abstract R reset();
 }

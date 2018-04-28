@@ -164,9 +164,15 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	//method
 	/**
 	 * Resets this shape.
+	 * 
+	 * @return this shape.
 	 */
-	public void reset() {
+	public S reset() {
+		
 		setPosition(DEFAULT_POSITION);
+		
+		//Calls method of the base class.
+		return super.reset();
 	}
 	
 	//method

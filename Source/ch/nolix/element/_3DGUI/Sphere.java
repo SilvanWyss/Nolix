@@ -78,13 +78,15 @@ public final class Sphere extends BaseShape<Sphere> {
 	//method
 	/**
 	 * Resets this sphere.
+	 * 
+	 * @return this sphere.
 	 */
-	public void reset() {
+	public Sphere reset() {		
+	
+		setRadius(DEFAULT_RADIUS);
 		
 		//Calls method of the base class.
-		super.reset();
-		
-		setRadius(DEFAULT_RADIUS);
+		return super.reset();
 	}
 	
 	//method

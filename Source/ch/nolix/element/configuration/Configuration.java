@@ -478,9 +478,10 @@ implements Freezable<C> {
 	/**
 	 * Resets this configuration.
 	 * 
+	 * @return this configuration.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
-	public void reset() {
+	public C reset() {
 
 		removeSelectorType();
 		removeSelectorRole();
@@ -489,6 +490,9 @@ implements Freezable<C> {
 		
 		attachingAttributes.clear();
 		configurations.clear();
+		
+		//Calls method of the base class.
+		return super.reset();
 	}
 	
 	//method

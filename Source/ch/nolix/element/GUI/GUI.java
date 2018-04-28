@@ -587,14 +587,16 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	//method
 	/**
 	 * Resets this GUI.
+	 * 
+	 * @return this GUI.
 	 */
-	public void reset() {
-
-		//Calls method of the base class.
-		super.reset();
-		
+	public G reset() {
+				
 		setTitle(DEFAULT_TITLE);
 		removeRootWidget();
+		
+		//Calls method of the base class.
+		return super.reset();
 	}
 	
 	//method

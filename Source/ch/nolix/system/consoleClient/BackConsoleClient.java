@@ -139,10 +139,15 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 	//method
 	/**
 	 * Resets this console back client.
+	 * 
+	 * @return this back console client.
 	 */
-	public void reset() {	
+	public BackConsoleClient reset() {
+		
 		clearConsole();
 		clearInfoPanel();
+		
+		return this;
 	}
 	
 	//method

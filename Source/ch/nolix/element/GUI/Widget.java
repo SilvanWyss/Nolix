@@ -689,8 +689,10 @@ extends ConfigurableElement<W> {
 	//method
 	/**
 	 * Resets this widget.
+	 * 
+	 * @return this widget.
 	 */
-	public void reset() {
+	public W reset() {
 		
 		setNormal();
 		
@@ -700,6 +702,9 @@ extends ConfigurableElement<W> {
 		removeRightMouseButtonReleaseCommand();
 		
 		resetConfiguration();
+		
+		//Calls method of the base class.
+		return super.reset();
 	}
 	
 	//method

@@ -46,7 +46,7 @@ public class DatabaseAdapter implements IChangesSaver {
 	}
 	
 	//method
-	public void reset() {	
+	public DatabaseAdapter reset() {	
 		
 		databaseConnectorWrapper.reset();
 		
@@ -55,6 +55,8 @@ public class DatabaseAdapter implements IChangesSaver {
 		}
 		
 		entitySets.forEach(es -> es.reset());
+		
+		return this;
 	}
 	
 	//method

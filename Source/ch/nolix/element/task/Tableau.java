@@ -106,12 +106,14 @@ implements Clearable<Tableau> {
 	//method
 	/**
 	 * Resets this tableau.
+	 * 
+	 * @return this tableau.
 	 */
-	public void reset() {
+	public Tableau reset() {
+				
+		clear();
 		
 		//Calls method of the base class.
-		super.reset();
-		
-		clear();
+		return super.reset();
 	}
 }
