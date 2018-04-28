@@ -2,80 +2,76 @@
 package ch.nolix.core.container;
 
 //own imports
-import ch.nolix.core.constants.StringCatalogue;
+import ch.nolix.core.constants.CharacterCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.interfaces.Clearable;
-import ch.nolix.primitive.invalidArgumentException.ArgumentName;
-import ch.nolix.primitive.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.primitive.invalidArgumentException.NullArgumentException;
-import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**
- * A matrix is a container that stores elements in rows and columns.
- * A matrix is clearable.
+ * A {@link Matrix} is a {@link IContainer}}
+ * that stores elements in rows and columns.
+ * 
+ * A {@link Matrix} is clearable.
  * 
  * @author Silvan Wyss
  * @month 2016-07
- * @lines 370
- * @param <E> - The type of the elements of a matrix.
+ * @lines 460
+ * @param <E> The type of the elements of a {@link Matrix}.
  */
 public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 
-	//multiple attribute
+	//multi-attribute
 	private Object[][] elements;
 	
 	//method
 	/**
-	 * Adds a new column to this matrix with the given elements.
-	 * The complexity of this method is O(n) if this matrix contains n rows.
+	 * Adds a new column to the current {@link Matrix} with the given elements.
+	 * The complexity of this method is O(n) if the current {@link Matrix} contains n rows.
 	 * 
 	 * @param elements
-	 * @return this matrix.
-	 * @throws EmptyArgumentException if the given element container is empty.
-	 * @throws UnequalArgumentException if not as many elements are given as the number of rows of this matrix.
+	 * @return the current {@link Matrix}.
+	 * @throws NullArgumentException if the given elements is null.
 	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws UnequalArgumentException
+	 * if the current {@link Matrix} is not empty
+	 * and if not as many elements are given as the number of rows of the current {@link Matrix}.
 	 */
 	@SuppressWarnings("unchecked")
 	public Matrix<E> addColumn(final E... elements) {
 		
-		//Checks if the given element container is not null
-		//and if the given elements are not null.
+		//Checks if the given elements are not null.
 		Validator.supposeTheElements(elements).areNotNull();
 		
-		//Checks if the given element container is not empty.
-		if (elements.length == 0) {
-			throw new EmptyArgumentException(new ArgumentName("elements"));
-		}
-		
-		//Handles the case that this matrix is empty.
+		//Handles the case that the current {@link Matrix} is empty.
 		if (isEmpty()) {
 			
 			this.elements = new Object[elements.length][];
 			
 			//Iterates the given elements.
-			for (int i = 0; i < getColumnCount(); i++) {			
+			for (var i = 0; i < getColumnCount(); i++) {			
 				this.elements[i][0] = elements[i];
 			}
 		}
 		
-		//Handles the case that this matrix is not empty.
+		//Handles the case that the current matrix is not empty.
 		else {
 			
-			//Checks if as many elements are given as the number of rows of this matrix.
+			//Checks if as many elements are given as the number of rows of the current matrix.
 			Validator
 			.suppose(elements.length)
-			.thatIsNamed("number of given elements")
+			.thatIsNamed("number of the given elements")
 			.isEqualTo(getRowCount());
 			
-			//Iterates the rows of this matrix.
-			for (int i = 0; i < getRowCount(); i++) {
+			//Iterates the rows of the current matrix.
+			for (var i = 0; i < getRowCount(); i++) {
 				
-				final Object[] row = new Object[getColumnCount() + 1];
+				final var row = new Object[getColumnCount() + 1];
 				
 				//Iterates the current row.
-				for (int j = 0; j < getColumnCount(); j++) {
+				for (var j = 0; j < getColumnCount(); j++) {
 					row[j] = this.elements[i][j];
 				}
 				
@@ -90,55 +86,51 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	
 	//method
 	/**
-	 * Adds a new row to this matrix with the given elements.
-	 * The complexity of this method is O(n) if this matrix contains n columns.
+	 * Adds a new row to the current {@link Matrix} with the given elements.
+	 * The complexity of this method is O(n) if the current {@link Matrix} contains n columns.
 	 * 
 	 * @param elements
-	 * @return this matrix.
-	 * @throws EmptyArgumentException if the given element container is empty.
-	 * @throws UnequalArgumentException if not as many elements are given as the number of columns of this matrix.
+	 * @return the current {@link Matrix}.
+	 * @throws NullArgumentException if the given elements is null.
 	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws UnequalArgumentException
+	 * if not as many elements are given as the number of columns of the current {@link Matrix}.
 	 */
 	@SuppressWarnings("unchecked")
 	public Matrix<E> addRow(final E... elements) {
 		
-		//Checks if the given element container is not null
-		//and if the given elements are not null.
+		//Checks if the given elements are not null.
 		Validator.supposeTheElements(elements).areNotNull();
 		
-		//Checks if the given element container is not empty.
-		if (elements.length == 0) {
-			throw new EmptyArgumentException(new ArgumentName("elements"));
-		}
-		
-		//Handles the case that this matrix is empty.
+		//Handles the case that the current matrix is empty.
 		if (isEmpty()) {
 			
 			this.elements = new Object[1][elements.length];
 			
 			//Iterates the given elements.
-			for (int i = 0; i < getColumnCount(); i++) {
+			for (var i = 0; i < getColumnCount(); i++) {
 				this.elements[0][i] = elements[i];
 			}
 		}
 		
-		//Handles the case that this matrix is not empty.
+		//Handles the case that the current matrix is not empty.
 		else {
 			
-			//Checks if as many elements are given as the number of columns of this matrix.
+			//Checks if as many elements are given as the number of columns of the current matrix.
 			Validator
 			.suppose(elements.length)
-			.thatIsNamed("number of given elements")
+			.thatIsNamed("number of the given elements")
 			.isEqualTo(getColumnCount());
 			
-			final Object[][] newElements = new Object[getRowCount() + 1][getColumnCount()];
+			final var newElements = new Object[getRowCount() + 1][getColumnCount()];
 			
-			for (int i = 0; i < getRowCount(); i++) {
+			//Iterates the rows of the current matrix.
+			for (var i = 0; i < getRowCount(); i++) {
 				newElements[i] = this.elements[i];
 			}
 			
 			//Iterates the given elements.
-			for (int i = 0; i < getColumnCount(); i++) {				
+			for (var i = 0; i < getColumnCount(); i++) {				
 				newElements[getRowCount()][i] = elements[i];
 			}
 			
@@ -150,10 +142,10 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	
 	//method
 	/**
+	 * Removes all elements of the current {@link Matrix}.
 	 * The complexity of this method is O(1).
-	 * Removes all elements of this matrix from itself.
 	 * 
-	 * @return this matrix.
+	 * @return the current {@link Matrix}.
 	 */
 	public Matrix<E> clear() {
 		
@@ -167,28 +159,56 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	/**
 	 * The complexity of this method is O(1).
 	 * 
-	 * @return true if this matrix contains any element.
+	 * @return true if the current {@link Matrix} contains any element.
 	 */
 	public boolean containsAny() {
 		
-		//Calls the default method of the required interface.
+		//Calls the default method of the suitable interface.
 		return IContainer.super.containsAny();
+	}
+	
+	//method
+	/**
+	 * @param columnIndex
+	 * @return the column of the current {@link Matrix} with the given column index.
+	 * @throws NonPositiveArgumentException if the given column index is not positive.
+	 * @throws BiggerArgumentException
+	 * if the given column index is bigger than the number of columns of the current {@link Matrix}.
+	 */
+	public MatrixColumn<E> getColumn(final int columnIndex) {
+		return new MatrixColumn<E>(this, columnIndex);
+	}
+	
+	//method
+	/**
+	 * @return the columns of the {@link Matrix}.
+	 */
+	public List<MatrixColumn<E>> getColumns() {
+		
+		final var columns = new List<MatrixColumn<E>>();
+		
+		//Iterates the columns of the current matrix.
+		for (var i = 1; i <= getColumnCount(); i++) {
+			columns.addAtEnd(new MatrixColumn<E>(this, i));
+		}
+		
+		return columns;
 	}
 	
 	//method
 	/**
 	 * The complexity of this method is O(1).
 	 * 
-	 * @return the number of columns of this matrix.
+	 * @return the number of columns of the current {@link Matrix}.
 	 */
 	public int getColumnCount() {
 		
-		//Handles the case that this matrix is empty.
+		//Handles the case that the current {@link Matrix} is empty.
 		if (isEmpty()) {
 			return 0;
 		}
 		
-		//Handles the case that this matrix is not empty.
+		//Handles the case that the current {@link Matrix} is not empty.
 		return elements[0].length;
 	}
 	
@@ -198,13 +218,14 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * -This matrix contains m rows.
 	 * -This matrix contains n columns.
 	 * 
-	 * @return a new matrix with the elements of this matrix.
+	 * @return a new matrix with the elements of the current {@link Matrix}.
 	 */
 	public Matrix<E> getCopy() {
 		
-		final Matrix<E> matrix = new Matrix<E>();
+		final var matrix = new Matrix<E>();
 		
-		if (!isEmpty()) {
+		//Handles the case that the current matrix is not empty.
+		if (containsAny()) {
 			matrix.elements = elements.clone();
 		}
 		
@@ -215,7 +236,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	/**
 	 * The complexity of this method is O(1).
 	 * 
-	 * @return the number of elements of this matrix.
+	 * @return the number of elements of the current {@link Matrix}.
 	 */
 	public int getElementCount() {
 		return (getRowCount() * getColumnCount());
@@ -225,16 +246,67 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	/**
 	 * The complexity of this method is O(1).
 	 * 
-	 * @return the number of rows of this matrix.
+	 * @param rowIndex
+	 * @param columnIndex
+	 * @return the element at the given row index and column index from the current {@link Matrix}.
+	 * @throws NonPositiveArgumentException if the given row index is not positive.
+	 * @throws BiggerArgumentException
+	 * if the given row index is bigger than the number of rows of the current {@link Matrix}.
+	 * @throws NonPositiveArgumentException if the given column index is not positive.
+	 * @throws BiggerArgumentException
+	 * if the given column index is bigger than the number of columns of the current {@link Matrix}.
+	 */
+	@SuppressWarnings("unchecked")
+	public E getRefAt(final int rowIndex, final int columnIndex) {
+		
+		//Checks if the current matrix contains an element at the given row index and column index.
+		supposeContainsElementAt(rowIndex, columnIndex);
+		
+		return (E)elements[rowIndex - 1][columnIndex - 1];
+	}
+	
+	//method
+	/**
+	 * @param rowIndex
+	 * @return the row of the current {@link Matrix} with the given row index.
+	 * @throws NonPositiveArgumentException if the given row index is not positive.
+	 * @throws BiggerArgumentException
+	 * if the given row index is bigger than the number of rows of the current {@link Matrix}.
+	 */
+	public MatrixRow<E> getRow(final int rowIndex) {
+		return new MatrixRow<E>(this, rowIndex);
+	}
+	
+	//method
+	/**
+	 * @return the rows of the current {@link Matrix}.
+	 */
+	public List<MatrixRow<E>> getRows() {
+		
+		final var rows = new List<MatrixRow<E>>();
+		
+		//Iterates the rows of the current matrix.
+		for (var i = 1; i <= getRowCount(); i++) {
+			rows.addAtEnd(new MatrixRow<E>(this, i));
+		}
+		
+		return rows;
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @return the number of rows of the current {@link Matrix}.
 	 */
 	public int getRowCount() {
 		
-		//Handles the case that this matrix is empty.
+		//Handles the case that the current {@link Matrix} is empty.
 		if (isEmpty()) {
 			return 0;
 		}
 		
-		//Handles the case that this matrix is not empty.
+		//Handles the case that the current {@link Matrix} is not empty.
 		return elements.length;
 	}
 		
@@ -242,7 +314,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	/**
 	 * The complexity of this method is O(1).
 	 * 
-	 * @return true if this matrix is empty.
+	 * @return true if the current {@link Matrix} is empty.
 	 */
 	public boolean isEmpty() {
 		return (elements == null);
@@ -252,7 +324,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	/**
 	 * The complexity of this method is O(1).
 	 * 
-	 * @return a new iterator of this matrix.
+	 * @return a new iterator for the current {@link Matrix}.
 	 */
 	public MatrixIterator<E> iterator() {
 		return new MatrixIterator<E>(this);
@@ -260,30 +332,35 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	
 	//method
 	/**
-	 * Sets the given element to this matrix at the row with the given row index and the column with the given column index.
+	 * Sets the given element to the current {@link Matrix}
+	 * to the row with the given row index and the column with the given column index.
+	 * 
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param rowIndex
 	 * @param columnIndex
 	 * @param element
-	 * @return this matrix.
+	 * @return the current {@link Matrix}.
 	 * @throws NonPositiveArgumentException if the given row index is not positive.
+	 * @throws BiggerArgumentException
+	 * if the given row index is bigger than the number of rows of the current {@link Matrix}.
 	 * @throws NonPositiveArgumentException if the given column index is not positive.
-	 * @throws UnexistingPropertyException if this matrix contains no row with the given row index.
-	 * @throws UnexistingPropertyException if this matrix contains no column with the given column index.
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws BiggerArgumentException
+	 * if the given column index is bigger than the number of columns of the current {@link Matrix}.
 	 */
 	public Matrix<E> set(
 		final int rowIndex,
 		final int columnIndex,
 		final E element
 	) {
-		//Checks the given parameters.
-		Validator.suppose(rowIndex).thatIsNamed("row index").isPositive();
-		Validator.suppose(columnIndex).thatIsNamed("column index").isPositive();
-		throwExceptionIfDoesNotContainRow(rowIndex);
-		throwExceptionIfDoesNotContainColumn(columnIndex);
-		Validator.suppose(element).thatIsNamed("element").isNotNull();
+		
+		//Checks if the current matrix contains an element at the given row index and column index.
+		supposeContainsElementAt(rowIndex, columnIndex);
+		
+		Validator
+		.suppose(element)
+		.thatIsNamed(VariableNameCatalogue.ELEMENT)
+		.isNotNull();
 		
 		elements[rowIndex - 1][columnIndex - 1] = element;
 		
@@ -296,24 +373,25 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * -This matrix contains n elements.
 	 * -The given transformer has a complexity of O(1).
 	 * 
-	 * @return a new matrix with the elements the given transformer transforms from the elements of this matrix.
+	 * @return a new matrix with the elements
+	 * the given transformer transforms from the elements of the current {@link Matrix}.
 	 * @param transformer
 	 */
 	@SuppressWarnings("unchecked")
-	public <O> Matrix<O> toContainer(final IElementTakerElementGetter<E, O> transformer) {
+	public <O> Matrix<O> toMatrix(final IElementTakerElementGetter<E, O> transformer) {
 		
 		//Creates matrix.
-		final Matrix<O> matrix = new Matrix<O>();
+		final var matrix = new Matrix<O>();
 		
 		//Fills up the elements of the matrix.
 			
 			matrix.elements = new Object[getRowCount()][getColumnCount()];
 			
-			//Iterates the rows of this matrix.
-			for (int i = 0; i < getRowCount(); i++) {
+			//Iterates the rows of the current {@link Matrix}.
+			for (var i = 0; i < getRowCount(); i++) {
 				
 				//Iterates the columns of the current row.
-				for (int j = 0; j < getColumnCount(); j++) {
+				for (var j = 0; j < getColumnCount(); j++) {
 					matrix.elements[i][j] = transformer.getOutput((E)elements[i][j]);
 				}
 			}
@@ -323,56 +401,69 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if this matrix contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Matrix} contains n elements.
 	 * 
-	 * @return a string that represents this matrix
+	 * @return a string representation of the current {@link Matrix}.
 	 */
 	public String toString() {
 		
-		String string = StringCatalogue.EMPTY_STRING;
+		final var stringBuilder = new StringBuilder();
 		
-		//Iterates the rows of this matrix.
-		for (int i = 0; i < getRowCount(); i++) {
-			
-			String rowString = StringCatalogue.EMPTY_STRING;
-			
-			//Iterates the columns of the current row.
-			for (int j = 0; j < getColumnCount(); j++) {
-				rowString += elements[i][j].toString();
-				if (j < getColumnCount() - 1) {
-					rowString += ',';
-				}
-			}
-			
-			if (i < getRowCount() - 1) {
-				rowString += ';';
-			}
-			
-			string += rowString;
-		}
-		
-		return string;
-	}
-	
-	//method
-	/**
-	 * @param columnIndex
-	 * @throws UnexistingAttributeException if this matrix contains no column with the given column index.
-	 */
-	private void throwExceptionIfDoesNotContainColumn(final int columnIndex) {
-		if (columnIndex < 1 || columnIndex > getColumnCount()) {
-			throw new UnexistingAttributeException(this, "column with the column index " + columnIndex);
-		}
+        //Iterates the rows of the current matrix.
+        for (var i = 0; i < getRowCount(); i++) {
+            
+        	if (i > 0) {
+        		stringBuilder.append(CharacterCatalogue.SEMICOLON);
+        	}
+        	
+            //Iterates the columns of the current row.
+            for (int j = 0; j < getColumnCount(); j++) {
+            	
+            	if (j > 0) {
+            		stringBuilder.append(CharacterCatalogue.COMMA);
+            	}
+            	
+                stringBuilder.append(elements[i][j].toString());
+            }
+        }
+        
+        return stringBuilder.toString();
 	}
 	
 	//method
 	/**
 	 * @param rowIndex
-	 * @throws UnexistingPropertyException if this matrix contains no row with the given row index.
+	 * @param columnIndex
+	 * @throws NonPositiveArgumentException if the given row index is not positive.
+	 * @throws BiggerArgumentException
+	 * if the given row index is bigger than the number of rows of the current {@link Matrix}.
+	 * @throws NonPositiveArgumentException if the given column index is not positive.
+	 * @throws BiggerArgumentException
+	 * if the given column index is bigger than the number of columns of the current {@link Matrix}.
 	 */
-	private  void throwExceptionIfDoesNotContainRow(final int rowIndex) {
-		if (rowIndex < 1 || rowIndex > getRowCount()) {
-			throw new UnexistingAttributeException(this, "row with the row index " + rowIndex);
-		}
+	private void supposeContainsElementAt(final int rowIndex, final int columnIndex) {
+		
+		Validator
+		.suppose(rowIndex)
+		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
+		.isPositive();
+		
+		Validator
+		.suppose(rowIndex)
+		.thatIsNamed(VariableNameCatalogue.ROW_INDEX)
+		.isNotBiggerThan(getRowCount());
+		
+		Validator
+		.suppose(columnIndex)
+		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
+		.isPositive();
+		
+		Validator
+		.suppose(columnIndex)
+		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
+		.isNotBiggerThan(getColumnCount());
+		
+		//TODO: Add add-mediator to validator mediators.
+		//TODO: Add naming of of limits to validator. Validator.suppose(rowIndex).isNotBiggerThan("number of rows", getNumberOfRows())
 	}
 }
