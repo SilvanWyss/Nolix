@@ -11,7 +11,7 @@ package ch.nolix.core.constants;
 */
 public final class CharacterCatalogue {
 
-	//characters
+	//constants
 	public static final char APOSTROPH = '\'';
 	public static final char BACK_SLASH = '\\';
 	public static final char BULLET = '•';
@@ -30,6 +30,7 @@ public final class CharacterCatalogue {
 	public static final char OPEN_CROCODILE_BRACKET = '<';
 	public static final char OPEN_SQUARE_BRACKET = '[';
 	public static final char QUOTE = '\"';
+	public static final char SEMICOLON = ';';
 	public static final char SLASH = '/';
 	public static final char SPACE = ' ';
 	public static final char TABULATOR = '\t';
