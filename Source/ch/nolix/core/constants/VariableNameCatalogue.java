@@ -38,6 +38,7 @@ public class VariableNameCatalogue {
 	public static final String DURATION = "duration";
 	public static final String DURACTION_IN_MILLISECONDS = "duration in milliseconds";
 	public static final String DURATION_IN_SECONDS = "duration in seconds";
+	public static final String ELEMENT = "element";
 	public static final String ELEMENT_COUNT = "element count";
 	public static final String END_DATE = "end date";
 	public static final String END_INDEX = "end index";
