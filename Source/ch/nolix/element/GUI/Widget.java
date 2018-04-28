@@ -330,8 +330,8 @@ extends ConfigurableElement<W> {
 	/**
 	 * @return the configurable elements of this widget.
 	 */
-	public final ReadContainer<Configurable> getRefConfigurables() {
-		return new ReadContainer<Configurable>(getRefWidgets());
+	public final ReadContainer<Configurable<?>> getRefConfigurables() {
+		return new ReadContainer<Configurable<?>>(getRefWidgets());
 	}
 	
 	//method
@@ -710,14 +710,18 @@ extends ConfigurableElement<W> {
 	//method
 	/**
 	 * Resets the configuration of this widget.
+	 * 
+	 * @return this widget.
 	 */
-	public void resetConfiguration() {
+	public W resetConfiguration() {
 		
 		getRefNormalStructure().removeValues();
 		getRefHoverStructure().removeValues();
 		getRefFocusStructure().removeValues();
 		
 		setCursorIcon(CursorIcon.Arrow);
+		
+		return getInstance();
 	}
 	
 	//method

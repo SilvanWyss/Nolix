@@ -55,12 +55,12 @@ public class StandardConfiguration extends Configuration<StandardConfiguration> 
 	 * 
 	 * @param element
 	 */
-	public final void configure(final Configurable element) {	
+	public final void configure(final Configurable<?> element) {	
 		if (selects(element)) {
 			
 			setAttachingAttributesTo(element);
 						
-			final ReadContainer<Configurable> elements = element.getRefConfigurables();
+			final ReadContainer<Configurable<?>> elements = element.getRefConfigurables();
 			elements.forEach(e -> configurations.forEach(c -> c.configure(e)));
 		}
 	}

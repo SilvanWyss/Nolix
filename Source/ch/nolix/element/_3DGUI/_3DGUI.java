@@ -168,7 +168,7 @@ implements Clearable<G>, Closable, Refreshable {
 	/**
 	 * @return the configurable objects of this 3D GUI.
 	 */
-	public final ReadContainer<Configurable> getRefConfigurables() {
+	public final ReadContainer<Configurable<?>> getRefConfigurables() {
 		return new ReadContainer<>(getRefShapes());
 	}
 
@@ -285,9 +285,14 @@ implements Clearable<G>, Closable, Refreshable {
 	//method
 	/**
 	 * Resets the configuration of this GUI.
+	 * 
+	 * @return this 3D GUI.
 	 */
-	public void resetConfiguration() {		
+	public G resetConfiguration() {
+		
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+		
+		return getInstance();
 	}
 	
 	//method

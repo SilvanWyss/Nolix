@@ -482,8 +482,10 @@ extends Container<TabContainer, TabContainerStructure> {
 	//method
 	/**
 	 * Sets the default configuration of this tab container.
+	 * 
+	 * @return this tab container.
 	 */
-	public void resetConfiguration() {
+	public TabContainer resetConfiguration() {
 		
 		//Calls method of the base class.
 		super.resetConfiguration();
@@ -502,6 +504,8 @@ extends Container<TabContainer, TabContainerStructure> {
 		getRefFocusMenuItemStructure().removeBackgroundColor();
 		getRefFocusMenuItemStructure().removeTextColor();
 		getRefFocusMenuItemStructure().removeTextSize();
+		
+		return this;
 	}
 	
 	public void selectTab(String name) {

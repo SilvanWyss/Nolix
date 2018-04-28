@@ -408,8 +408,10 @@ implements Clearable<Console> {
 	//method
 	/**
 	 * Resets the configuration of this console.
+	 * 
+	 * @return this console.
 	 */
-	public void resetConfiguration() {
+	public Console resetConfiguration() {
 		
 		//Calls method of the base class.
 		super.resetConfiguration();
@@ -418,6 +420,8 @@ implements Clearable<Console> {
 		getRefNormalStructure()
 		.setBackgroundColor(DEFAULT_BACKGROUND_COLOR)
 		.setTextFont(TextFont.Console);
+		
+		return this;
 	}
 	
 	//method

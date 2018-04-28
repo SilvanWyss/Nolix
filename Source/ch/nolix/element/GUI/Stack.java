@@ -199,12 +199,12 @@ implements Clearable<S> {
 	/**
 	 * Resets the configuration of this stack.
 	 */
-	public final void resetConfiguration() {
+	public final S resetConfiguration() {
+				
+		removeElementMargin();
 		
 		//Calls method of the base class.
-		super.resetConfiguration();
-		
-		removeElementMargin();
+		return super.resetConfiguration();
 	}
 	
 	//method

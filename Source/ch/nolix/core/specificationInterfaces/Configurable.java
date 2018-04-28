@@ -8,8 +8,8 @@
 //package declaration
 package ch.nolix.core.specificationInterfaces;
 
+//own imports
 import ch.nolix.core.container.ReadContainer;
-//own import
 import ch.nolix.core.container.List;
 
 //interface
@@ -22,7 +22,7 @@ import ch.nolix.core.container.List;
  *   
  * The default methods of this interface need not to be overwritten.
  */
-public interface Configurable extends Specifiable {
+public interface Configurable<C extends Configurable<C>> extends Specifiable {
 	
 	//abstract method
 	/**
@@ -56,21 +56,23 @@ public interface Configurable extends Specifiable {
 	/**
 	 * @return the configurable objects of this configurable objects
 	 */
-	public abstract ReadContainer<Configurable> getRefConfigurables();
+	public abstract ReadContainer<Configurable<?>> getRefConfigurables();
 	
 	//default method
 	/**
 	 * @return the configurable objects of this configurable object recursively
 	 */
-	public default ReadContainer<Configurable> getRefConfigurablesRecursively() {
-		final List<Configurable> elements = new List<>(getRefConfigurables());
+	public default ReadContainer<Configurable<?>> getRefConfigurablesRecursively() {
+		final List<Configurable<?>> elements = new List<Configurable<?>>(getRefConfigurables());
 		getRefConfigurables().forEach(r -> elements.addAtEnd(r.getRefConfigurablesRecursively()));
-		return new ReadContainer<Configurable>(elements);
+		return new ReadContainer<Configurable<?>>(elements);
 	}
 	
 	//abstract method
 	/**
 	 * Resets the configuration of this configurable object.
+	 * 
+	 * @return this configurable object.
 	 */
-	public abstract void resetConfiguration();
+	public abstract C resetConfiguration();
 }

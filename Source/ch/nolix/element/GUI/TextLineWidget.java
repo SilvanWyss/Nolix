@@ -70,12 +70,11 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 	//method
 	/**
 	 * Resets the configuration of this text line rectangle.
+	 * 
+	 * @return this text line widget.
 	 */
-	public void resetConfiguration() {
-		
-		//Calls method of the base class.
-		super.resetConfiguration();
-		
+	public TLW resetConfiguration() {
+				
 		getRefNormalStructure().setTextSize(AttributeCatalogue.MEDIUM_TEXT_SIZE);
 		getRefNormalStructure().setTextColor(Color.BLACK);
 		
@@ -84,6 +83,9 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 		
 		getRefFocusStructure().removeTextSize();
 		getRefFocusStructure().removeTextColor();
+		
+		//Calls method of the base class.
+		return super.resetConfiguration();
 	}
 	
 	//method

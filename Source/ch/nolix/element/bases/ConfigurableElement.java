@@ -23,7 +23,7 @@ import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
  */
 public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>>
 extends OptionalNamableElement<CE>
-implements Configurable, OptionalTokenable<CE> {	
+implements Configurable<CE>, OptionalTokenable<CE> {	
 	
 	//optional attribute
 	private Token token;

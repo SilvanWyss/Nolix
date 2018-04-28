@@ -465,8 +465,10 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	/**
 	 * Resets the configuration of this border widget.
+	 * 
+	 * @return this border widget.
 	 */
-	public void resetConfiguration() {
+	public BW resetConfiguration() {
 		
 		//Calls method of the base class
 		super.resetConfiguration();
@@ -478,6 +480,8 @@ extends BackgroundWidget<BW, BWS> {
 		removeMaxHeight();
 		setViewAreaXPositionOnScrollArea(0);
 		setViewAreaYPositionOnScrollArea(0);
+		
+		return getInstance();
 	}
 	
 	//method

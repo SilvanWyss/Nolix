@@ -68,8 +68,8 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	/**
 	 * @return the configurable elements of this shape.
 	 */
-	public final ReadContainer<Configurable> getRefConfigurables() {
-		return new ReadContainer<Configurable>(getRefShapes());
+	public final ReadContainer<Configurable<?>> getRefConfigurables() {
+		return new ReadContainer<Configurable<?>>(getRefShapes());
 	}
 	
 	//method

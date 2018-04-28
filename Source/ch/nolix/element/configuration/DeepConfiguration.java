@@ -73,11 +73,11 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * 
 	 * @param element
 	 */
-	public void configure(Configurable element) {
+	public void configure(Configurable<?> element) {
 
 		if (!hasMaxSelectorLevel()) {
 
-			final ReadContainer<Configurable> elements = element.getRefConfigurables();
+			final ReadContainer<Configurable<?>> elements = element.getRefConfigurables();
 			
 			if (selects(element)) {
 				setAttachingAttributesTo(element);		
@@ -186,10 +186,10 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * @param element
 	 * @param level
 	 */
-	private void configure(Configurable element, int level) {
+	private void configure(Configurable<?> element, int level) {
 		if (level > 0) {
 			
-			final ReadContainer<Configurable> elements = element.getRefConfigurables();
+			final ReadContainer<Configurable<?>> elements = element.getRefConfigurables();
 			
 			if (selects(element)) {
 				setAttachingAttributesTo(element);

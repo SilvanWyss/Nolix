@@ -196,15 +196,17 @@ public final class Area extends Widget<Area, AreaStructure> {
 	//method
 	/**
 	 * Resets the configuration of this area.
+	 * 
+	 * @return this area.
 	 */
-	public void resetConfiguration() {
-		
-		//Calls method of the base class.
-		super.resetConfiguration();
-		
+	public Area resetConfiguration() {
+						
 		setWidth(DEFAULT_WIDTH);
 		setHeight(DEFAULT_HEIGHT);
-		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);			
+		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+		
+		//Calls method of the base class.
+		return super.resetConfiguration();
 	}
 	
 	//method

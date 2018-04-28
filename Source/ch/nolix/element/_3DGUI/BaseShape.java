@@ -85,9 +85,14 @@ extends Shape<BS> {
 	//method
 	/**
 	 * Resets the configuration of this base shape.
+	 * 
+	 * @return this base shape.
 	 */
-	public final void resetConfiguration() {
+	public final BS resetConfiguration() {
+		
 		setColor(DEFAULT_COLOR);
+		
+		return getInstance();
 	}
 
 	//method

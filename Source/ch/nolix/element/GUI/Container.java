@@ -105,14 +105,18 @@ extends BorderWidget<C, BWS> {
 	//method
 	/**
 	 * Resets the configuration of the current {@link Container}.
+	 * 
+	 * @return the current {@link Container}.
 	 */
-	public void resetConfiguration() {
+	public C resetConfiguration() {
 		
 		//Calls method of the base class.
 		super.resetConfiguration();
-		
+				
 		//Resets the configuration of the widgets of the current container.
 		getRefWidgets().forEach(r -> r.resetConfiguration());
+		
+		return getInstance();
 	}
 	
 	//method

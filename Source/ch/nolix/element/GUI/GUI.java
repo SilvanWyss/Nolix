@@ -337,7 +337,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	/**
 	 * @return the configurable elements of this GUI.
 	 */
-	public final ReadContainer<Configurable> getRefConfigurables() {
+	public final ReadContainer<Configurable<?>> getRefConfigurables() {
 		return new ReadContainer<>(getRefWidgets().to(w -> w));		
 	}
 	
@@ -602,8 +602,10 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	//method
 	/**
 	 * Resets the configuration of this GUI.
+	 * 
+	 * @return this GUI.
 	 */
-	public void resetConfiguration() {
+	public G resetConfiguration() {
 		
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		setContentPosition(DEFAULT_CONTENT_POSITION);
@@ -612,6 +614,8 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		if (hasRootWidget()) {
 			getRefRootWidget().resetConfiguration();
 		}
+		
+		return getInstance();
 	}
 	
 	//method

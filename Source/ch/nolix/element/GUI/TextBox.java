@@ -184,8 +184,10 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	//method
 	/**
 	 * Sets the default configuration of this sub configurable object.
+	 * 
+	 * @return this text box.
 	 */
-	public final void resetConfiguration() {
+	public TextBox resetConfiguration() {
 		
 		//Calls method of the base class.
 		super.resetConfiguration();
@@ -195,6 +197,8 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		getRefNormalStructure().setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		setCursorColor(DEFAULT_CURSOR_COLOR);
 		setCursorIcon(CursorIcon.Edit);
+		
+		return this;
 	}
 	
 	//method

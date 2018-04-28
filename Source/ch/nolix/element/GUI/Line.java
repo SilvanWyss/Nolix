@@ -139,15 +139,17 @@ extends Widget<L, LineStructure> {
 	//method
 	/**
 	 * Resets the configuration of this line.
+	 * 
+	 * @return this line.
 	 */
-	public final void resetConfiguration() {
-		
-		//Calls method of the base class.
-		super.resetConfiguration();
-		
+	public final L resetConfiguration() {
+				
 		setLength(DEFAULT_LENGTH);
 		setThickness(DEFAULT_THICKNESS);
 		setColor(DEFAULT_COLOR);
+		
+		//Calls method of the base class.
+		return super.resetConfiguration();
 	}
 	
 	//method

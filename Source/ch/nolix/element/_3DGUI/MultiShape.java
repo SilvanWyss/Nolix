@@ -176,6 +176,10 @@ public final class MultiShape extends Shape<MultiShape> {
 	//method
 	/**
 	 * Resets the configuration of this multi shape.
+	 * 
+	 * @return this multi shape.
 	 */
-	public void resetConfiguration() {}
+	public MultiShape resetConfiguration() {
+		return this;
+	}
 }

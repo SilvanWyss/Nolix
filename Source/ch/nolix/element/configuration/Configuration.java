@@ -195,7 +195,7 @@ implements Freezable<C> {
 	 * 
 	 * @param element
 	 */
-	public abstract void configure(Configurable element);
+	public abstract void configure(Configurable<?> element);
 	
 	//method
 	/**
@@ -500,7 +500,7 @@ implements Freezable<C> {
 	 * @param element
 	 * @return true if this configuration selects the given element.
 	 */
-	public final boolean selects(Configurable element) {		
+	public final boolean selects(Configurable<?> element) {		
 		
 		//Handles the case that this configuration has a selector type.
 		if (hasSelectorType() && !element.hasTypeOrSuperType(getSelectorType())) {
@@ -628,7 +628,7 @@ implements Freezable<C> {
 	 * @throws InvalidArgumentException if an attaching attribute of this configuration
 	 * is not valid for the given element.
 	 */
-	protected final void setAttachingAttributesTo(Configurable element) {
+	protected final void setAttachingAttributesTo(Configurable<?> element) {
 		attachingAttributes.forEach(aa -> element.addOrChangeAttribute(aa));
 	}
 	
