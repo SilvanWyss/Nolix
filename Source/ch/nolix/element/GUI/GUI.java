@@ -39,7 +39,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 790
+ * @lines 750
  * @param <G> The type of a GUI.
  */
 public abstract class GUI<G extends GUI<G>>
@@ -70,6 +70,15 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		VerticalLine.class,
 		VerticalStack.class
 	);
+	
+	//static method
+	/**
+	 * @param specification
+	 * @return true if a widget from the given specification can be created.
+	 */
+	public static boolean canCreateWidget(final Specification specification) {
+		return canCreateWidget(specification.getHeader());
+	}
 	
 	//static method
 	/**
