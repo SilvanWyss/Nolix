@@ -12,7 +12,7 @@ import ch.nolix.primitive.invalidStateException.InvalidStateException;
 //TODO: Let a DatabaseSchemaAdapter use a general database schema adapter.
 
 // class
-public final class DatabaseSchemaAdapter implements IChangesSaver {
+public final class DatabaseSchemaAdapter implements IChangesSaver<DatabaseSchemaAdapter> {
 
 	//attribute
 	private final DatabaseSchemaConnectorWrapper<?> internalDatabaseSchemaAdapter;
@@ -87,7 +87,7 @@ public final class DatabaseSchemaAdapter implements IChangesSaver {
 	}
 	
 	//method
-	public final DatabaseSchemaAdapter reset() {
+	public DatabaseSchemaAdapter reset() {
 		
 		internalDatabaseSchemaAdapter.reset();
 		

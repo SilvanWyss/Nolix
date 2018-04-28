@@ -7,7 +7,7 @@ import ch.nolix.core.interfaces.IChangesSaver;
 import ch.nolix.primitive.validator2.Validator;
 
 //package-visible abstract class
-public class DatabaseAdapter implements IChangesSaver {
+public class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 
 	//attribute
 	private final Schema schema;

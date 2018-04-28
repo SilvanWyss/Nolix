@@ -8,8 +8,10 @@ package ch.nolix.core.interfaces;
  * @author Silvan Wyss
  * @month 2018-04
  * @lines 20
+ * @param <CS> The type of a {@link IChangeSaver}.
  */
-public interface IChangesSaver extends Resettable {
+public interface IChangesSaver<CS extends IChangesSaver<CS>>
+extends Resettable<CS> {
 	
 	//abstract method
 	/**
