@@ -29,7 +29,7 @@ import ch.nolix.primitive.validator2.Validator;
  */
 public abstract class Client<C extends Client<C>>
 extends OptionalSignableElement<C>
-implements Closable, Resettable {
+implements Closable, Resettable<C> {
 	
 	//command
 	protected static final String INVOKE_RUN_METHOD_COMMAND = "InvokeRunMethod";
