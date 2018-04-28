@@ -710,9 +710,7 @@ extends Container<TabContainer, TabContainerStructure> {
 		final TabContainerStructure rectangleStructure,
 		final IPainter painter
 	) {
-		
-		//Calls method of the base class.
-		super.paintContent(rectangleStructure, painter);
+		getRefShownWidgets().forEach(w -> w.paintUsingPositionOnContainer(painter));
 		
 		//Update problem, when does the menu take the data from the structures?
 		//Answer: not when it is painted, but on events: tab container must lead events though!

@@ -8,6 +8,7 @@ import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.intData.Margin;
+import ch.nolix.element.painter.IPainter;
 
 //abstract class
 /**
@@ -228,5 +229,22 @@ implements Clearable<S> {
 	 */
 	protected final StackStructure createWidgetStructure() {
 		return new StackStructure();
+	}
+	
+	//method
+	/**
+	 * Paints the content of this stack using the given stack structure and painter.
+	 * 
+	 * @param stackStructure
+	 * @param painter
+	 */
+	protected void paintContent(
+		final StackStructure stackStructure,
+		final IPainter painter
+	) {
+		final var contentPainer = painter.createTranslatedPainter(-getContentXPosition(), -getContentYPosition());
+		
+		//Paints the widgets of this container.
+		getRefShownWidgets().forEach(r -> r.paintUsingPositionOnContainer(contentPainer));
 	}
 }
