@@ -631,12 +631,11 @@ public abstract class Specification {
 				
 				//Iterates the attributes of the current specification.
 				var index = 1;
-				final var attributeCount = getAttributeCount();
 				for (final Specification a : getRefAttributes()) {
 					
 					stringBuilder.append(a.toFormatedString(leadingTabulators + 1));
 					
-					if (index < attributeCount) {
+					if (index > 1) {
 						stringBuilder.append(CharacterCatalogue.COMMA);
 					}
 					
