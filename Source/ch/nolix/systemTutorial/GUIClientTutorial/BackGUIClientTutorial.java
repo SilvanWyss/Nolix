@@ -69,11 +69,11 @@ public final class BackGUIClientTutorial {
 			
 			button
 			.getRefHoverStructure()
-			.setTextSize(ValueCatalogue.LARGE_TEXT_SIZE);
+			.setTextSize(ValueCatalogue.BIG_TEXT_SIZE);
 			
 			button
 			.getRefHoverFocusStructure()
-			.setTextSize(ValueCatalogue.LARGE_TEXT_SIZE);
+			.setTextSize(ValueCatalogue.BIG_TEXT_SIZE);
 			
 			getRefClient()
 			.getRefGUI()
