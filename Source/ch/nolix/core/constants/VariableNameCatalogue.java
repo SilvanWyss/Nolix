@@ -33,6 +33,7 @@ public class VariableNameCatalogue {
 	public static final String DEFAULT_CAPACITY = "default capacity";
 	public static final String DEFAULT_NAME = "default name";
 	public static final String DEFAULT_SIZE = "default size";
+	public static final String DEFAULT_VALUE = "default value";
 	public static final String DESCRIPTION = "description";
 	public static final String DISTANCE = "distance";
 	public static final String DURATION = "duration";
