@@ -39,7 +39,7 @@ public final class ScrollTutorial {
 		label.getRefNormalStructure()
 		.setBorderSizes(5)
 		.setBorderColors(Color.DARK_BLUE)
-		.setBackgroundColorGradient(new ColorGradient(UniDirection.Vertical, Color.CORAL, Color.WHITE))
+		.setBackgroundColorGradient(new ColorGradient(UniDirection.Vertical, Color.BLUE, Color.WHITE))
 		.setTextSize(500);
 		
 		//Creates frame.
@@ -51,7 +51,7 @@ public final class ScrollTutorial {
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link ScrollTutorial} can be created.
 	 */
 	private ScrollTutorial() {}
 }
