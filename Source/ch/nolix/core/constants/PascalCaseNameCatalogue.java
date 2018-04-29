@@ -18,6 +18,7 @@ public class PascalCaseNameCatalogue {
 	public static final String BORDER_COLOR = "BorderColor";
 	public static final String CAPACITY = "Capacity";
 	public static final String CAPTION = "Caption";
+	public static final String CELL = "cell";
 	public static final String COLOR = "Color";
 	public static final String COLUMN = "Column";
 	public static final String CONDITION = "Condition";
@@ -34,12 +35,14 @@ public class PascalCaseNameCatalogue {
 	public static final String DURATION = "Duration";
 	public static final String DURACTION_IN_MILLISECONDS = "DurationInMilliseconds";
 	public static final String DURATION_IN_SECONDS = "DurationInSeconds";
+	public static final String ELEMENT_MARGIN = "ElementMargin";
 	public static final String END_DATE = "EndDate";
 	public static final String ENTITY = "Entity";
 	public static final String HEADER = "Header";
 	public static final String HEIGHT = "Height";
 	public static final String ID = "Id";
 	public static final String LENGTH = "Length";
+	public static final String LINE_THICKNESS = "LineThickness";
 	public static final String MESSAGE = "Message";
 	public static final String NAME = "Name";
 	public static final String PRICE = "Price";
@@ -68,7 +71,7 @@ public class PascalCaseNameCatalogue {
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link PascalCaseNameCatalogue} can be created.
 	 */
 	private PascalCaseNameCatalogue() {}
 }
