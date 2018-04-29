@@ -9,7 +9,7 @@ package ch.nolix.element.GUI;
  * @month 2016-06
  * @lines 20
  */
-public final class AttributeCatalogue {
+public final class ValueCatalogue {
 
 	//text sizes
 	public static final int SMALL_TEXT_SIZE = 10;
@@ -20,5 +20,5 @@ public final class AttributeCatalogue {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private AttributeCatalogue() {}
+	private ValueCatalogue() {}
 }

@@ -5,7 +5,7 @@ package ch.nolix.systemTutorial.GUIClientTutorial;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.ContentPosition;
 import ch.nolix.element.GUI.CursorIcon;
-import ch.nolix.element.GUI.AttributeCatalogue;
+import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.color.Color;
 import ch.nolix.system.GUIClient.BackGUIClient;
 import ch.nolix.system.GUIClient.FrontGUIClient;
@@ -65,15 +65,15 @@ public final class BackGUIClientTutorial {
 			.getRefNormalStructure()
 			.setBackgroundColor(Color.LIGHT_GREY)
 			.setPaddings(10)
-			.setTextSize(AttributeCatalogue.MEDIUM_TEXT_SIZE);
+			.setTextSize(ValueCatalogue.MEDIUM_TEXT_SIZE);
 			
 			button
 			.getRefHoverStructure()
-			.setTextSize(AttributeCatalogue.LARGE_TEXT_SIZE);
+			.setTextSize(ValueCatalogue.LARGE_TEXT_SIZE);
 			
 			button
 			.getRefHoverFocusStructure()
-			.setTextSize(AttributeCatalogue.LARGE_TEXT_SIZE);
+			.setTextSize(ValueCatalogue.LARGE_TEXT_SIZE);
 			
 			getRefClient()
 			.getRefGUI()
