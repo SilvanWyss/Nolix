@@ -36,10 +36,15 @@ public final class MatrixRow<E> implements IContainer<E> {
 	}
 	
 	//method
-	public E getRefAt(final int columnIndex) {
-		return parentMatrix.getRefAt(rowIndex, columnIndex);
+	public int getRowIndex() {
+		return rowIndex;
 	}
-
+	
+	//method
+	public E getRefAt(final int columnIndex) {
+		return parentMatrix.getRefAt(getRowIndex(), columnIndex);
+	}
+	
 	//method
 	public MatrixRowIterator<E> iterator() {
 		return new MatrixRowIterator<E>(this);

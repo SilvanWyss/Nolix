@@ -36,8 +36,13 @@ public final class MatrixColumn<E> implements IContainer<E> {
 	}
 	
 	//method
+	public int getColumnIndex() {
+		return columnIndex;
+	}
+	
+	//method
 	public E getRefAt(final int rowIndex) {
-		return parentMatrix.getRefAt(rowIndex, columnIndex);
+		return parentMatrix.getRefAt(rowIndex, getColumnIndex());
 	}
 
 	//method

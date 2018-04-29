@@ -18,7 +18,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-07
- * @lines 460
+ * @lines 500
  * @param <E> The type of the elements of a {@link Matrix}.
  */
 public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
@@ -244,6 +244,24 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	
 	//method
 	/**
+	 * @return the element at the given index from the current {@link Matrix}.
+	 * @throws NonPositiveArgumentException if the given index is not positive.
+	 * @throws BiggerArgumentException
+	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
+	 */
+	public E getRefAt(final int index) {
+		
+		//Checks if the current matrix contains an element at the given index.
+		supposeContainsElementAt(index);
+		
+		return getRefAt(
+			(index - 1) / getColumnCount() + 1,
+			index % getColumnCount() + 1
+		);
+	}
+
+	//method
+	/**
 	 * The complexity of this method is O(1).
 	 * 
 	 * @param rowIndex
@@ -428,6 +446,25 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
         }
         
         return stringBuilder.toString();
+	}
+	
+	//method
+	/**
+	 * @throws NonPositiveArgumentException if the given index is not positive.
+	 * @throws BiggerArgumentException
+	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
+	 */
+	private void supposeContainsElementAt(final int index) {
+		
+		Validator
+		.suppose(index)
+		.thatIsNamed(VariableNameCatalogue.INDEX)
+		.isPositive();
+		
+		Validator
+		.suppose(index)
+		.thatIsNamed(VariableNameCatalogue.INDEX)
+		.isNotBiggerThan(getElementCount());
 	}
 	
 	//method
