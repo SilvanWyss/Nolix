@@ -7,6 +7,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.Specified;
+import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -14,11 +15,11 @@ import ch.nolix.primitive.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 200
+ * @lines 230
  * @param <V> The type of the value of a property.
  */
 public final class Property<V extends Specified> extends NamedElement {
-
+	
 	//attributes
 	private final V defaultValue;
 	private final IElementTakerElementGetter<Specification, V> valueCreator;
@@ -29,13 +30,14 @@ public final class Property<V extends Specified> extends NamedElement {
 	
 	//constructor
 	/**
-	 * Creates new property with the given name, default value and value creator.
+	 * Creates a new property with the given name, default value and value creator.
 	 * 
 	 * @param name
 	 * @param defaultValue
 	 * @param valueCreator
 	 * @throws NullArgumentException if the given name is null.
-	 * @throws EmptyArgumentException if hte given name is empty.
+	 * @throws EmptyArgumentException if the given name is empty.
+	 * @throws NullArgumentException if the given default value is null.
 	 * @throws NullArgumentException if the given value creator is null.
 	 */
 	public Property(
@@ -47,20 +49,30 @@ public final class Property<V extends Specified> extends NamedElement {
 		//Calls constructor of the base class.
 		super(name);
 		
-		Validator.suppose(defaultValue).thatIsNamed("default value").isNotNull();
-		Validator.suppose(valueCreator).thatIsNamed("value creator").isNotNull();
+		//Checks if the given default is not null.
+		Validator
+		.suppose(defaultValue)
+		.thatIsNamed(VariableNameCatalogue.DEFAULT_VALUE)
+		.isNotNull();
+				
+		//Checks if the given value creator is not null.
+		Validator
+		.suppose(valueCreator)
+		.thatIsNamed("value creator")
+		.isNotNull();
 		
-		this.valueCreator = valueCreator;
+		//Sets the default value of this property.
 		this.defaultValue = defaultValue;
+		
+		//Sets the value creator of this property.
+		this.valueCreator = valueCreator;
 	}
-	
-
 	
 	//method
 	/**
-	 * @return the active value of this property.
+	 * @return the recursive value of this property or the default value of this property.
 	 */
-	public V getActiveValue() {
+	public V getRecursiveValueOrDefault() {
 	
 		//Handles the case that this property has a value.
 		if (hasValue()) {
@@ -69,7 +81,7 @@ public final class Property<V extends Specified> extends NamedElement {
 		
 		//Handles the case that this property has no value, but a base property.
 		if (hasBaseProperty()) {
-			return baseProperty.getActiveValue();
+			return baseProperty.getRecursiveValueOrDefault();
 		}
 		
 		//Handles the case that this property has no value and no base property.
@@ -99,14 +111,6 @@ public final class Property<V extends Specified> extends NamedElement {
 	
 	//method
 	/**
-	 * @return true if this property has a value.
-	 */
-	public boolean hasValue() {
-		return (value != null);
-	}
-	
-	//method
-	/**
 	 * @return true if this property has a value or a base property with a value.
 	 */
 	public boolean hasRecursiveValue() {
@@ -123,6 +127,14 @@ public final class Property<V extends Specified> extends NamedElement {
 	
 		//Handles the case that this property has no value and no base property.
 		return false;
+	}
+	
+	//method
+	/**
+	 * @return true if this property has a value.
+	 */
+	public boolean hasValue() {
+		return (value != null);
 	}
 	
 	//method
@@ -169,6 +181,7 @@ public final class Property<V extends Specified> extends NamedElement {
 	 * 
 	 * @param baseProperty
 	 * @throws NullArgumentException if the given base property is null.
+	 * @throws InvalidStateException if this property has a base property.
 	 */
 	@SuppressWarnings("unchecked")
 	void setBaseProperty(final Property<?> baseProperty) {
@@ -179,10 +192,28 @@ public final class Property<V extends Specified> extends NamedElement {
 		.thatIsNamed("base property")
 		.isNotNull();
 		
+		supposeHasNoBaseProperty();
+		
 		//Sets the base property of this property.
 		this.baseProperty = (Property<V>)baseProperty;
 	}
 	
+	//method
+	/**
+	 * @throws InvalidStateException if this property has a base property.
+	 */
+	private void supposeHasNoBaseProperty() {
+		
+		//Checks if this property has no base property.
+		if (hasBaseProperty()) {
+			throw new InvalidStateException(
+				this,
+				"has a base property"
+			);
+		}
+		
+	}
+
 	//method
 	/**
 	 * @throws UnexistingAttributeException if this property has no value.

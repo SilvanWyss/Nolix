@@ -59,7 +59,7 @@ public abstract class Entity<E extends Entity<E>> {
 				attributes.addAtEnd(
 					new StandardSpecification(
 						p.getName(),
-						p.getActiveValue().getAttributes()
+						p.getRecursiveValueOrDefault().getAttributes()
 					)
 				);
 			}

@@ -82,7 +82,7 @@ implements IFluentObject<WS> {
 	 * @return the active text color of this widget structure.
 	 */
 	public final Color getActiveTextColor() {
-		return textColor.getActiveValue();
+		return textColor.getRecursiveValueOrDefault();
 	}
 	
 	//method
@@ -90,7 +90,7 @@ implements IFluentObject<WS> {
 	 * @return the active text font of this widget structure.
 	 */
 	public TextFont getActiveTextFont() {
-		return textFont.getActiveValue();
+		return textFont.getRecursiveValueOrDefault();
 	}
 		
 	//method
@@ -98,7 +98,7 @@ implements IFluentObject<WS> {
 	 * @return the active text size of this widget structure.
 	 */
 	public final int getActiveTextSize() {
-		return textSize.getActiveValue().getValue();
+		return textSize.getRecursiveValueOrDefault().getValue();
 	}
 	
 	//method
@@ -106,7 +106,7 @@ implements IFluentObject<WS> {
 	 * @return the active text style of this widget structure.
 	 */
 	public final TextStyle getActiveTextStyle() {
-		return textStyle.getActiveValue();
+		return textStyle.getRecursiveValueOrDefault();
 	}
 	
 	//method

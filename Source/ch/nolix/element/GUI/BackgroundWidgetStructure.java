@@ -47,7 +47,7 @@ extends WidgetStructure<BWS> {
 	 * @return the active background color of this background widget structure.
 	 */
 	public final Color getActiveBackgroundColor() {
-		return backgroundColor.getActiveValue();
+		return backgroundColor.getRecursiveValueOrDefault();
 	}
 	
 	//method
@@ -55,7 +55,7 @@ extends WidgetStructure<BWS> {
 	 * @return the active background color gradient of this background widget structure.
 	 */
 	public final ColorGradient getActiveBackgroundColorGradient() {
-		return backgroundColorGradient.getActiveValue();
+		return backgroundColorGradient.getRecursiveValueOrDefault();
 	}
 	
 	//method
