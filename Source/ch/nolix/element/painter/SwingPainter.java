@@ -4,6 +4,7 @@ package ch.nolix.element.painter;
 //Java imports
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 
 //own imports
 import ch.nolix.element.color.Color;
@@ -29,6 +30,11 @@ public final class SwingPainter implements IPainter {
 		.isNotNull();
 		
 		this.graphics = graphics;
+		
+		((Graphics2D)graphics).setRenderingHint(
+			RenderingHints.KEY_ANTIALIASING,
+            RenderingHints.VALUE_ANTIALIAS_ON
+		);
 	}
 	
 	//method
