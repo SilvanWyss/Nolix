@@ -3,12 +3,12 @@ package ch.nolix.core.specificationDatabaseConnector;
 
 //own imports
 import ch.nolix.core.databaseAdapter.Entity;
-import ch.nolix.core.interfaces.Identifiable;
+import ch.nolix.core.interfaces.Identified;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
-public final class EntityConnector<E extends Entity> implements Identifiable {
+public final class EntityConnector<E extends Entity> implements Identified {
 
 	//attribute
 	private final Specification entitySpecification;

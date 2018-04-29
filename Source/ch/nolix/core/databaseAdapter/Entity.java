@@ -9,7 +9,7 @@ import java.util.Iterator;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.interfaces.Identifiable;
+import ch.nolix.core.interfaces.Identified;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Specified;
@@ -19,7 +19,7 @@ import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 public abstract class Entity
-implements Identifiable, Specified {
+implements Identified, Specified {
 	
 	//attributes
 	private int id = -1;

@@ -3,23 +3,23 @@ package ch.nolix.core.interfaces;
 
 //interface
 /**
- * A {@link Identifiable} has an id.
+ * A {@link Identified} has an id.
  * 
  * @author Silvan Wyss
  * @month 2018-04
  * @lines 30
  */
-public interface Identifiable {
+public interface Identified {
 
 	//abstract method
 	/**
-	 * @return the id of the current {@link Identifiable}.
+	 * @return the id of the current {@link Identified}.
 	 */
 	public abstract int getId();
 	
 	//default method
 	/**
-	 * @return true if the current {@link Identifiable}
+	 * @return true if the current {@link Identified}
 	 * has the given id.
 	 */
 	public default boolean hasId(final int id) {
@@ -29,10 +29,10 @@ public interface Identifiable {
 	//default method
 	/**
 	 * @param object
-	 * @return true if the current {@link Identifiable}
+	 * @return true if the current {@link Identified}
 	 * has the same id as the given object.
 	 */
-	public default boolean hasId(final Identifiable object) {
+	public default boolean hasId(final Identified object) {
 		return hasId(object.getId());
 	}
 }
