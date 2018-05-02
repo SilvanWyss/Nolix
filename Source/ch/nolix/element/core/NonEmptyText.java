@@ -3,6 +3,7 @@ package ch.nolix.element.core;
 
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
@@ -11,7 +12,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 50
+ * @lines 60
  */
 public class NonEmptyText extends Text {
 
@@ -20,6 +21,18 @@ public class NonEmptyText extends Text {
 	
 	//default value
 	public static final String DEFAULT_VALUE = StringCatalogue.DEFAULT_STRING;
+	
+	//static method
+	/**
+	 * @param specification
+	 * @return a new non-empty text from the given specification.
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	public static NonEmptyText createFromSpecification(
+		final Specification specification
+	) {
+		return new NonEmptyText(specification.getOneAttributeAsString());
+	}
 	
 	//constructor
 	/**
