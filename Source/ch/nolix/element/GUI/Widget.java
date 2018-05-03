@@ -715,9 +715,9 @@ extends ConfigurableElement<W> {
 	 */
 	public W resetConfiguration() {
 		
-		getRefNormalStructure().removeValues();
-		getRefHoverStructure().removeValues();
-		getRefFocusStructure().removeValues();
+		getRefNormalStructure().reset();
+		getRefHoverStructure().reset();
+		getRefFocusStructure().reset();
 		
 		setCursorIcon(CursorIcon.Arrow);
 		

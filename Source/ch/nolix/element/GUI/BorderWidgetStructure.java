@@ -1045,7 +1045,7 @@ extends BackgroundWidgetStructure<BWS> {
 	public void removeValues() {
 		
 		//Calls method of the base class.
-		super.removeValues();
+		super.reset();
 		
 		removeBorderSizes();
 		removeBorderColors();

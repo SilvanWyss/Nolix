@@ -6,6 +6,7 @@ import ch.nolix.core.entity2.Entity;
 import ch.nolix.core.entity2.Property;
 import ch.nolix.core.enums.TextStyle;
 import ch.nolix.core.interfaces.IFluentObject;
+import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.font.TextFont;
@@ -30,7 +31,7 @@ import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
  */
 public abstract class WidgetStructure<WS extends WidgetStructure<WS>>
 extends Entity<WS>
-implements IFluentObject<WS> {
+implements IFluentObject<WS>, Specified {
 	
 	//default values
 	public static final TextFont DEFAULT_TEXT_FONT = TextFont.Verdana;
@@ -107,6 +108,14 @@ implements IFluentObject<WS> {
 	 */
 	public final TextStyle getActiveTextStyle() {
 		return textStyle.getRecursiveValueOrDefault();
+	}
+	
+	//method
+	/**
+	 * @return the type of this widget structure.
+	 */
+	public final String getType() {
+		return getClass().getSimpleName();
 	}
 	
 	//method

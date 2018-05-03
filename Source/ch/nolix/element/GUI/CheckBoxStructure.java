@@ -130,7 +130,7 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 	public void removeValues() {
 		
 		//Calls method of the base class.
-		super.removeValues();
+		super.reset();
 		
 		removeSize();
 		removeLineThickness();

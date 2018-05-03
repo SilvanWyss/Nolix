@@ -6,10 +6,12 @@ import java.lang.reflect.Field;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.interfaces.IFluentObject;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.specificationInterfaces.Specifiable;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
@@ -21,7 +23,8 @@ import ch.nolix.primitive.validator2.Validator;
  * @lines 210
  * @param <E> The type of an entity.
  */
-public abstract class Entity<E extends Entity<E>> {
+public abstract class Entity<E extends Entity<E>>
+implements IFluentObject<E>, Specifiable {
 	
 	//attribute
 	private List<Property<?>> properties;
@@ -86,8 +89,11 @@ public abstract class Entity<E extends Entity<E>> {
 	/**
 	 * Removes the values of the properties of this entity.
 	 */
-	public void removeValues() {
+	public E reset() {
+		
 		getRefProperties().forEach(p -> p.removeValue());
+		
+		return getInstance();
 	}
 		
 	//method
