@@ -20,7 +20,7 @@ import ch.nolix.element.painter.IPainter;
  * @param <S> The type of a stack.
  */
 public abstract class Stack<S extends Stack<S>> 
-extends Container<S, StackStructure>
+extends Container<S, StackLook>
 implements Clearable<S> {
 	
 	//attribute header
@@ -227,8 +227,8 @@ implements Clearable<S> {
 	/**
 	 * Lets this stack create a new widget structure.
 	 */
-	protected final StackStructure createWidgetStructure() {
-		return new StackStructure();
+	protected final StackLook createWidgetStructure() {
+		return new StackLook();
 	}
 	
 	//method
@@ -239,7 +239,7 @@ implements Clearable<S> {
 	 * @param painter
 	 */
 	protected void paintContent(
-		final StackStructure stackStructure,
+		final StackLook stackStructure,
 		final IPainter painter
 	) {
 		final var contentPainer = painter.createTranslatedPainter(-getContentXPosition(), -getContentYPosition());

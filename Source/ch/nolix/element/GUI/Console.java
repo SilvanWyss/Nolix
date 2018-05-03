@@ -27,7 +27,7 @@ import ch.nolix.primitive.validator2.Validator;
  * @lines 680
  */
 public final class Console
-extends BorderWidget<Console, ConsoleStructure>
+extends BorderWidget<Console, ConsoleLook>
 implements Clearable<Console> {
 	
 	//type name
@@ -539,8 +539,8 @@ implements Clearable<Console> {
 	/**
 	 * Creates a new widget structure for this console.
 	 */
-	protected ConsoleStructure createWidgetStructure() {
-		return new ConsoleStructure();
+	protected ConsoleLook createWidgetStructure() {
+		return new ConsoleLook();
 	}
 
 	//method
@@ -549,7 +549,7 @@ implements Clearable<Console> {
 	 */
 	protected int getContentHeight() {
 		
-		final ConsoleStructure currentStructure = getRefCurrentStructure();
+		final ConsoleLook currentStructure = getRefCurrentStructure();
 		
 		return (
 			currentStructure.getActiveHeight()
@@ -566,7 +566,7 @@ implements Clearable<Console> {
 	 */
 	protected int getContentWidth() {
 		
-		final ConsoleStructure currentStructure = getRefCurrentStructure();
+		final ConsoleLook currentStructure = getRefCurrentStructure();
 		
 		return (
 			currentStructure.getActiveWidth()
@@ -584,7 +584,7 @@ implements Clearable<Console> {
 	 * @param widgetStructure
 	 * @param graphics
 	 */
-	protected void paintContent(final ConsoleStructure widgetStructure, final IPainter graphics) {
+	protected void paintContent(final ConsoleLook widgetStructure, final IPainter graphics) {
 		
 		final int contentWidth = getContentWidth();
 		final int contentHeight = getContentHeight();

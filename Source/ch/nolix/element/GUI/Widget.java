@@ -33,7 +33,7 @@ import ch.nolix.primitive.validator2.Validator;
  * @param <W> The type of a widget.
  * @param <WS> The type of the widget structures of a widget.
  */
-public abstract class Widget<W extends Widget<W, WS>, WS extends WidgetStructure<WS>>
+public abstract class Widget<W extends Widget<W, WS>, WS extends WidgetLook<WS>>
 extends ConfigurableElement<W> {
 	
 	//constants

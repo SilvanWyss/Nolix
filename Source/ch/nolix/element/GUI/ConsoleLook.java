@@ -16,7 +16,7 @@ import ch.nolix.element.intData.Width;
  * @month 2017-03
  * @lines 330
  */
-public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructure> {
+public final class ConsoleLook extends BorderWidgetLook<ConsoleLook> {
 		
 	//default values
 	public static final int DEFAULT_WIDTH = 400;
@@ -158,7 +158,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	 * 
 	 * @return this console structure.
 	 */
-	public ConsoleStructure removeHeight() {
+	public ConsoleLook removeHeight() {
 		
 		height = null;
 		
@@ -171,7 +171,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	 * 
 	 * @return this console structure.
 	 */
-	public ConsoleStructure removeWidth() {
+	public ConsoleLook removeWidth() {
 		
 		width = null;
 		
@@ -186,7 +186,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	 * @return this console structure.
 	 * @throws NonPositiveArgumentException if the given height is not positive.
 	 */
-	public ConsoleStructure setHeight(final int height) {
+	public ConsoleLook setHeight(final int height) {
 		
 		this.height = new Height(height);
 		
@@ -201,7 +201,7 @@ public final class ConsoleStructure extends BorderWidgetStructure<ConsoleStructu
 	 * @return this console structure.
 	 * @throws NonPositiveArgumentException if the given width is not positive.
 	 */
-	public ConsoleStructure setWidth(final int width) {
+	public ConsoleLook setWidth(final int width) {
 		
 		this.width = new Width(width);
 		

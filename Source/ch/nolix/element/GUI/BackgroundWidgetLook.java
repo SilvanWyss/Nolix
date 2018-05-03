@@ -15,8 +15,8 @@ import ch.nolix.element.data.BackgroundColorGradient;
  * @lines 140
  * @param <BWS> The type of a background widget structure.
  */
-public abstract class BackgroundWidgetStructure<BWS extends BackgroundWidgetStructure<BWS>>
-extends WidgetStructure<BWS> {
+public abstract class BackgroundWidgetLook<BWS extends BackgroundWidgetLook<BWS>>
+extends WidgetLook<BWS> {
 
 	//default values
 	public static final BackgroundColor DEFAULT_BACKGROUND_COLOR = new BackgroundColor(Color.WHITE_INT);

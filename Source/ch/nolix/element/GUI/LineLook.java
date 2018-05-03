@@ -7,4 +7,4 @@ package ch.nolix.element.GUI;
  * @month 2017-03
  * @lines 10
  */
-public final class SingleContainerStructure extends BorderWidgetStructure<SingleContainerStructure> {}
+public final class LineLook extends WidgetLook<LineLook> {}

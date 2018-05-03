@@ -15,7 +15,7 @@ import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
-public final class Grid extends Container<Grid, GridStructure> {
+public final class Grid extends Container<Grid, GridLook> {
 		
 	//multi-attribute
 	private Matrix<GridCell> cells = new Matrix<GridCell>();
@@ -190,13 +190,13 @@ public final class Grid extends Container<Grid, GridStructure> {
 	}
 	
 	//method
-	protected GridStructure createWidgetStructure() {
-		return new GridStructure();
+	protected GridLook createWidgetStructure() {
+		return new GridLook();
 	}
 
 	//method
 	protected void paintContent(
-		final GridStructure gridStructure,
+		final GridLook gridStructure,
 		final IPainter painter
 	) {
 		if (gridStructure.hasRecursiveLineType()) {

@@ -14,7 +14,7 @@ import ch.nolix.element.painter.IPainter;
  */
 public abstract class BackgroundWidget<
 	BW extends BackgroundWidget<BW, BWS>,
-	BWS extends BackgroundWidgetStructure<BWS>
+	BWS extends BackgroundWidgetLook<BWS>
 >
 extends Widget<BW, BWS> {
 	

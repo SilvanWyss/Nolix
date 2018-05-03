@@ -17,11 +17,11 @@ import ch.nolix.primitive.validator2.Validator;
  * @month 2015-12
  * @lines 160
  * @param <C> The type of a {@link Container}.
- * @param <BWS> The type of the {@link BorderWidgetStructure} of a {@link Container}.
+ * @param <BWS> The type of the {@link BorderWidgetLook} of a {@link Container}.
  */
 public abstract class Container<
 	C extends Container<C, BWS>,
-	BWS extends BorderWidgetStructure<BWS>
+	BWS extends BorderWidgetLook<BWS>
 >
 extends BorderWidget<C, BWS> {
 	

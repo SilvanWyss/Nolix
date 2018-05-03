@@ -17,7 +17,7 @@ import ch.nolix.element.painter.IPainter;
 
 //class
 public final class SingleContainer
-extends Container<SingleContainer, SingleContainerStructure> {
+extends Container<SingleContainer, SingleContainerLook> {
 	
 	//type name
 	public static final String TYPE_NAME = "SingleContainer";
@@ -135,14 +135,14 @@ extends Container<SingleContainer, SingleContainerStructure> {
 	}
 	
 	protected void paintContent(
-		SingleContainerStructure rectangleStructure,
+		SingleContainerLook rectangleStructure,
 		IPainter painter) {
 		
 		widget.paintUsingPositionOnContainer(painter);
 	}
 
-	protected SingleContainerStructure createWidgetStructure() {
-		return new SingleContainerStructure();
+	protected SingleContainerLook createWidgetStructure() {
+		return new SingleContainerLook();
 	}
 	public ReadContainer<Widget<?, ?>> getRefWidgets() {
 		return new ReadContainer<Widget<?, ?>>();

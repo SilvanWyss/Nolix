@@ -8,7 +8,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
 
 //class
-public final class GridStructure extends BorderWidgetStructure<GridStructure> {
+public final class GridLook extends BorderWidgetLook<GridLook> {
 	
 	//default values
 	public static final GridLineType DEFAULT_LINE_TYPE = GridLineType.InnerLines;
@@ -92,7 +92,7 @@ public final class GridStructure extends BorderWidgetStructure<GridStructure> {
 	}
 	
 	//method
-	public GridStructure setElementMargin(final int elementMargin) {
+	public GridLook setElementMargin(final int elementMargin) {
 		
 		this.elementMargin.setValue(new PositiveInteger(elementMargin));
 		
@@ -100,7 +100,7 @@ public final class GridStructure extends BorderWidgetStructure<GridStructure> {
 	}
 	
 	//method
-	public GridStructure setLineColor(final Color lineColor) {
+	public GridLook setLineColor(final Color lineColor) {
 		
 		this.lineColor.setValue(lineColor);
 		
@@ -108,7 +108,7 @@ public final class GridStructure extends BorderWidgetStructure<GridStructure> {
 	}
 	
 	//method
-	public GridStructure setLineThickness(final int lineThickness) {
+	public GridLook setLineThickness(final int lineThickness) {
 		
 		this.lineThickness.setValue(new PositiveInteger(lineThickness));
 		
@@ -116,7 +116,7 @@ public final class GridStructure extends BorderWidgetStructure<GridStructure> {
 	}
 	
 	//method
-	public GridStructure setLineType(final GridLineType lineType) {
+	public GridLook setLineType(final GridLineType lineType) {
 		
 		this.lineType.setValue(lineType);
 		

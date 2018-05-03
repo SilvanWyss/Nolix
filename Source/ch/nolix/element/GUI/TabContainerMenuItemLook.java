@@ -28,7 +28,7 @@ import ch.nolix.primitive.validator.Validator;
 /**
  * A tab container menu item structure stores the state-depended attributes of the menu items of a tab container.
  */
-public final class TabContainerMenuItemStructure {
+public final class TabContainerMenuItemLook {
 	
 	private static final String LEFT_PADDING = "LeftPadding";
 	private static final String RIGHT_PADDING = "RightPadding";
@@ -36,7 +36,7 @@ public final class TabContainerMenuItemStructure {
 	private static final String BOTTOM_PADDING = "BottomPadding";
 	
 	//optional attributes
-	private TabContainerMenuItemStructure normalStructure;
+	private TabContainerMenuItemLook normalStructure;
 	private BackgroundColor backgroundColor;
 	
 	//conditionally optional attributes
@@ -208,7 +208,7 @@ public final class TabContainerMenuItemStructure {
 	 * 
 	 * @return this tab container menu item structure
 	 */
-	public final TabContainerMenuItemStructure removeBackgroundColor() {
+	public final TabContainerMenuItemLook removeBackgroundColor() {
 		
 		backgroundColor = null;
 		
@@ -222,7 +222,7 @@ public final class TabContainerMenuItemStructure {
 	 * @return this tab container menu item structure
 	 * @throws Exception if this tab container menu item structure cannot remove its text color
 	 */
-	public final TabContainerMenuItemStructure removeTextColor() {
+	public final TabContainerMenuItemLook removeTextColor() {
 		
 		if (!hasNormalStructure()) {
 			throw new UnremovableAttributeException(this, "text color");
@@ -240,7 +240,7 @@ public final class TabContainerMenuItemStructure {
 	 * @return this tab container menu item structure
 	 * @throws Exception if this tab container menu item structure cannot remove its text size
 	 */
-	public final TabContainerMenuItemStructure removeTextSize() {
+	public final TabContainerMenuItemLook removeTextSize() {
 		
 		if (!hasNormalStructure()) {
 			throw new UnremovableAttributeException(this, "text size");
@@ -259,7 +259,7 @@ public final class TabContainerMenuItemStructure {
 	 * @return this tab container menu item structure
 	 * @throws Exception if the given background color is null
 	 */
-	public final TabContainerMenuItemStructure setBackgroundColor(final BackgroundColor backgroundColor) {
+	public final TabContainerMenuItemLook setBackgroundColor(final BackgroundColor backgroundColor) {
 		
 		//Checks the given background color.
 		Validator.throwExceptionIfValueIsNull("background color", backgroundColor);
@@ -277,7 +277,7 @@ public final class TabContainerMenuItemStructure {
 	 * @return this tab container menu item structure
 	 * @throws Exception if the given text color is null
 	 */
-	public final TabContainerMenuItemStructure setTextColor(final TextColor textColor) {
+	public final TabContainerMenuItemLook setTextColor(final TextColor textColor) {
 		
 		//Checks the given text color.
 		Validator.throwExceptionIfValueIsNull("text color", textColor);
@@ -295,7 +295,7 @@ public final class TabContainerMenuItemStructure {
 	 * @return this tab container menu item structure
 	 * @throws Exception if the given text size is not positive
 	 */
-	public final TabContainerMenuItemStructure setTextSize(final int textSize) {
+	public final TabContainerMenuItemLook setTextSize(final int textSize) {
 		
 		this.textSize = new TextSize(textSize);
 		
@@ -343,7 +343,7 @@ public final class TabContainerMenuItemStructure {
 	 * @return the normal structure of this tab container menu item structure
 	 * @throws UnexistingAttributeException if this tab container menu item structure has no normal structure
 	 */
-	protected final TabContainerMenuItemStructure getRefNormalStructure() {
+	protected final TabContainerMenuItemLook getRefNormalStructure() {
 		
 		if (!hasNormalStructure()) {
 			throw new UnexistingAttributeException(this, "normal structure");
@@ -422,7 +422,7 @@ public final class TabContainerMenuItemStructure {
 	 * @param normalStructure
 	 * @throws Exception if the given normal structure is null
 	 */
-	protected void setNormalStructure(TabContainerMenuItemStructure normalStructure) {
+	protected void setNormalStructure(TabContainerMenuItemLook normalStructure) {
 		
 		//Checks the given normal structure.
 		Validator.throwExceptionIfValueIsNull("normal structure", normalStructure);
@@ -430,7 +430,7 @@ public final class TabContainerMenuItemStructure {
 		this.normalStructure = normalStructure;
 	}
 	
-	void applyTo(TextLineWidgetStructure textLineRectangleStructure) {
+	void applyTo(TextLineWidgetLook textLineRectangleStructure) {
 		if (hasBackgroundColor()) {
 			//textLineRectangleStructure.setBackgroundColor(get);
 		}

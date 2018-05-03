@@ -26,7 +26,7 @@ import ch.nolix.primitive.validator2.Validator;
  * @param <L> The type of a line.
  */
 public abstract class Line<L extends Line<L>>
-extends Widget<L, LineStructure> {
+extends Widget<L, LineLook> {
 	
 	//type name
 	public static final String TYPE_NAME = "Line";
@@ -239,8 +239,8 @@ extends Widget<L, LineStructure> {
 	/**
 	 * @return a new widget structure for this line.
 	 */
-	protected final LineStructure createWidgetStructure() {
-		return new LineStructure();
+	protected final LineLook createWidgetStructure() {
+		return new LineLook();
 	}
 	
 	//method
@@ -251,7 +251,7 @@ extends Widget<L, LineStructure> {
 	 * @param painter
 	 */
 	protected final void paint(
-		final LineStructure widgetStructure,
+		final LineLook widgetStructure,
 		final IPainter painter
 	) {
 		painter.setColor(color);

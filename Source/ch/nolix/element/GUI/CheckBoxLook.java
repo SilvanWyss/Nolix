@@ -15,8 +15,8 @@ import ch.nolix.primitive.validator2.Validator;
  * @month 2016-05
  * @lines 260
  */
-public final class CheckBoxStructure
-extends BackgroundWidgetStructure<CheckBoxStructure> {
+public final class CheckBoxLook
+extends BackgroundWidgetLook<CheckBoxLook> {
 	
 	//default values
 	public static final int DEFAULT_SIZE = 10;
@@ -169,7 +169,7 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 	 * @return this check box structure.
 	 * @throws NullArgumentException if the given line color is null.
 	 */
-	public CheckBoxStructure setLineColor(final Color lineColor) {
+	public CheckBoxLook setLineColor(final Color lineColor) {
 		
 		//Checks if the given line color is not null.
 		Validator.suppose(lineColor).thatIsNamed("line color").isNotNull();
@@ -188,7 +188,7 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 	 * @return this check box structure.
 	 * @throws NonPositiveArgumentException if the given line thickness is not positive.
 	 */
-	public CheckBoxStructure setLineThickness(final int lineThickness) {
+	public CheckBoxLook setLineThickness(final int lineThickness) {
 		
 		//Sets the line thickness of this check box structure.
 		this.lineThickness = new PositiveInteger(lineThickness);
@@ -204,7 +204,7 @@ extends BackgroundWidgetStructure<CheckBoxStructure> {
 	 * @return this check box structure.
 	 * @throws NonPositiveArgumentException if the given size is not positive.
 	 */
-	public CheckBoxStructure setSize(final int size) {
+	public CheckBoxLook setSize(final int size) {
 		
 		//Sets the size of this check box structure.
 		this.size = new PositiveInteger(size);

@@ -26,7 +26,7 @@ import ch.nolix.element.painter.IPainter;
  * @param <TLW> The type of a text line widget.
  */
 public abstract class TextLineWidget<TLW extends TextLineWidget<TLW>>
-extends BorderWidget<TLW, TextLineWidgetStructure> {
+extends BorderWidget<TLW, TextLineWidgetLook> {
 
 	//attribute
 	private Text text = new Text();
@@ -133,7 +133,7 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 	 * @param painter
 	 */
 	protected void paintContent(
-		final TextLineWidgetStructure rectangleStructure,
+		final TextLineWidgetLook rectangleStructure,
 		final IPainter painter
 	) {
 		painter.paintText(
@@ -147,8 +147,8 @@ extends BorderWidget<TLW, TextLineWidgetStructure> {
 		);	
 	}
 	
-	protected TextLineWidgetStructure createWidgetStructure() {
-		return new TextLineWidgetStructure();
+	protected TextLineWidgetLook createWidgetStructure() {
+		return new TextLineWidgetLook();
 	}
 	
 	@Override

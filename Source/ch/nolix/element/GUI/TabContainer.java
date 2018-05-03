@@ -22,7 +22,7 @@ import ch.nolix.element.painter.IPainter;
 
 //class
 public class TabContainer
-extends Container<TabContainer, TabContainerStructure> {
+extends Container<TabContainer, TabContainerLook> {
 
 	//type name
 	public static final String TYPE_NAME = "TabContainer";
@@ -39,9 +39,9 @@ extends Container<TabContainer, TabContainerStructure> {
 	private static final String CURRENT_TAB = "CurrentTab";
 
 	//attributes
-	private final TabContainerMenuItemStructure normalMenuItemStructure = new TabContainerMenuItemStructure();
-	private final TabContainerMenuItemStructure hoverMenuItemStructure = new TabContainerMenuItemStructure();
-	private final TabContainerMenuItemStructure focusMenuItemStructure = new TabContainerMenuItemStructure();
+	private final TabContainerMenuItemLook normalMenuItemStructure = new TabContainerMenuItemLook();
+	private final TabContainerMenuItemLook hoverMenuItemStructure = new TabContainerMenuItemLook();
+	private final TabContainerMenuItemLook focusMenuItemStructure = new TabContainerMenuItemLook();
 	private final HorizontalStack menu = new HorizontalStack();
 	
 	//optional attributes
@@ -336,7 +336,7 @@ extends Container<TabContainer, TabContainerStructure> {
 	/**
 	 * @return the focus structure of the items of the menu of this tab container
 	 */
-	public TabContainerMenuItemStructure getRefFocusMenuItemStructure() {
+	public TabContainerMenuItemLook getRefFocusMenuItemStructure() {
 		return focusMenuItemStructure;
 	}
 	
@@ -344,7 +344,7 @@ extends Container<TabContainer, TabContainerStructure> {
 	/**
 	 * @return the hover structure of the items of the menu of this tab container
 	 */
-	public TabContainerMenuItemStructure getRefHoverMenuItemStructure() {
+	public TabContainerMenuItemLook getRefHoverMenuItemStructure() {
 		return hoverMenuItemStructure;
 	}
 	
@@ -352,7 +352,7 @@ extends Container<TabContainer, TabContainerStructure> {
 	/**
 	 * @return the normal structure of the items of the menu of this tab container
 	 */
-	public TabContainerMenuItemStructure getRefNormalMenuItemStructure() {
+	public TabContainerMenuItemLook getRefNormalMenuItemStructure() {
 		return normalMenuItemStructure;
 	}
 	
@@ -711,7 +711,7 @@ extends Container<TabContainer, TabContainerStructure> {
 	 * @param painter
 	 */
 	protected void paintContent(
-		final TabContainerStructure rectangleStructure,
+		final TabContainerLook rectangleStructure,
 		final IPainter painter
 	) {
 		getRefShownWidgets().forEach(w -> w.paintUsingPositionOnContainer(painter));
@@ -821,7 +821,7 @@ extends Container<TabContainer, TabContainerStructure> {
 	}
 
 	@Override
-	protected TabContainerStructure createWidgetStructure() {
-		return new TabContainerStructure();
+	protected TabContainerLook createWidgetStructure() {
+		return new TabContainerLook();
 	}
 }

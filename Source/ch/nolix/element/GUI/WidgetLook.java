@@ -29,7 +29,7 @@ import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
  * @lines 240
  * @param <WS> The type of a widget structure.
  */
-public abstract class WidgetStructure<WS extends WidgetStructure<WS>>
+public abstract class WidgetLook<WS extends WidgetLook<WS>>
 extends Entity<WS>
 implements IFluentObject<WS>, Specified {
 	

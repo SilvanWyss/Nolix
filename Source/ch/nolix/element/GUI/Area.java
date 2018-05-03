@@ -25,7 +25,7 @@ import ch.nolix.primitive.validator2.Validator;
  * @month 2015-12
  * @lines 260
  */
-public final class Area extends Widget<Area, AreaStructure> {
+public final class Area extends Widget<Area, AreaLook> {
 
 	//type name
 	public static final String TYPE_NAME = "Area";
@@ -265,8 +265,8 @@ public final class Area extends Widget<Area, AreaStructure> {
 	/**
 	 * Creates a new widget structure for this area.
 	 */
-	protected AreaStructure createWidgetStructure() {
-		return new AreaStructure();
+	protected AreaLook createWidgetStructure() {
+		return new AreaLook();
 	}
 	
 	//method
@@ -277,7 +277,7 @@ public final class Area extends Widget<Area, AreaStructure> {
 	 * @param graphics
 	 */
 	protected final void paint(
-		final AreaStructure widgetStructure,
+		final AreaLook widgetStructure,
 		final IPainter graphics
 	) {
 		//Handles the case that this area has a background color.

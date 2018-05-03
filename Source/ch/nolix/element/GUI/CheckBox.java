@@ -14,7 +14,7 @@ import ch.nolix.element.painter.IPainter;
  * @month 2016-05
  * @lines 180
  */
-public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxStructure> {
+public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 
 	//type name
 	public static final String TYPE_NAME = "CheckBox";
@@ -139,7 +139,7 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxStructure
 	 * @param widgetStructure
 	 * @param graphics
 	 */
-	protected void paint(final CheckBoxStructure widgetStructure, final IPainter graphics) {
+	protected void paint(final CheckBoxLook widgetStructure, final IPainter graphics) {
 		
 		//Calls method of the base class.
 		super.paint(widgetStructure, graphics);
@@ -178,8 +178,8 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxStructure
 	}
 
 	@Override
-	protected CheckBoxStructure createWidgetStructure() {
-		return new CheckBoxStructure();
+	protected CheckBoxLook createWidgetStructure() {
+		return new CheckBoxLook();
 	}
 
 	@Override

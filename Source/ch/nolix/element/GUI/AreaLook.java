@@ -7,4 +7,4 @@ package ch.nolix.element.GUI;
  * @month 2017-03
  * @lines 10
  */
-public final class TabContainerStructure extends BorderWidgetStructure<TabContainerStructure> {}
+public final class AreaLook extends WidgetLook<AreaLook> {}

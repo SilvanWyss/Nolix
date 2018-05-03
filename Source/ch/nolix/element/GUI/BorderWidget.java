@@ -38,7 +38,7 @@ import ch.nolix.primitive.validator2.Validator;
  */
 public abstract class BorderWidget<
 	BW extends BorderWidget<BW, BWS>,
-	BWS extends BorderWidgetStructure<BWS>
+	BWS extends BorderWidgetLook<BWS>
 >
 extends BackgroundWidget<BW, BWS> {
 	

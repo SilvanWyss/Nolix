@@ -17,8 +17,8 @@ import ch.nolix.primitive.validator2.Validator;
  * @lines 1090
  * @param <BWS> The type of a border widget structure.
  */
-public abstract class BorderWidgetStructure<BWS extends BorderWidgetStructure<BWS>>
-extends BackgroundWidgetStructure<BWS> {
+public abstract class BorderWidgetLook<BWS extends BorderWidgetLook<BWS>>
+extends BackgroundWidgetLook<BWS> {
 	
 	//default values
 	private static final int DEFAULT_ACTIVE_BORDER_SIZE = 0;

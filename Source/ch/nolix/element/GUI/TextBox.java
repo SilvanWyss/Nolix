@@ -220,7 +220,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 * @param rectangleStructure
 	 * @param graphics
 	 */
-	protected final void paintContent(TextLineWidgetStructure rectangleStructure, Graphics graphics) {
+	protected final void paintContent(TextLineWidgetLook rectangleStructure, Graphics graphics) {
 		
 		int textCursorDistanceFromTextBegin = new Font(rectangleStructure.getActiveTextSize()).getSwingTextWidth(getTextBeforeTextCursor());
 		graphics.setColor(textCursor.getRefColor().createSwingColor());
@@ -261,7 +261,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 */
 	protected final int getContentWidth() {	
 		
-		final TextLineWidgetStructure currentStructure = getRefCurrentStructure();
+		final TextLineWidgetLook currentStructure = getRefCurrentStructure();
 		
 		return (
 			getRefWidth().getValue() -
