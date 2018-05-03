@@ -41,6 +41,7 @@ public class PascalCaseNameCatalogue {
 	public static final String HEADER = "Header";
 	public static final String HEIGHT = "Height";
 	public static final String ID = "Id";
+	public static final String ITEM = "item";
 	public static final String LENGTH = "Length";
 	public static final String LINE_THICKNESS = "LineThickness";
 	public static final String MESSAGE = "Message";
