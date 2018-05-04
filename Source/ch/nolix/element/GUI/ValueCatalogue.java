@@ -17,6 +17,11 @@ public final class ValueCatalogue {
 	public static final int BIG_ELEMENT_MARGIN = 30;
 	
 	//constants
+	public static final int SMALL_PADDING = 10;
+	public static final int MEDIUM_PADDING = 20;
+	public static final int BIG_PADDING = 30;
+	
+	//constants
 	public static final int SMALL_LINE_THICKNESS = 1;
 	public static final int MEDIUM_LINE_THICKNESS = 2;
 	public static final int BIG_LINE_THICKNESS = 3;
