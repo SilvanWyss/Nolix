@@ -7,7 +7,7 @@ package ch.nolix.core.constants;
  * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 90
+ * @lines 100
  */
 public class VariableNameCatalogue {
 	
@@ -51,6 +51,7 @@ public class VariableNameCatalogue {
 	public static final String HEIGHT = "height";
 	public static final String ID = "id";
 	public static final String INDEX = "index";
+	public static final String ITEM = "item";
 	public static final String LENGTH = "length";
 	public static final String MAXIMUM = "maximum";
 	public static final String MESSAGE = "message";
