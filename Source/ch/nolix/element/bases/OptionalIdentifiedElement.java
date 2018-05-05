@@ -8,8 +8,7 @@ import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
-public abstract class OptionalIdentifiedElement
-extends Element {
+public abstract class OptionalIdentifiedElement extends Element {
 
 	//optional attribute
 	private final int id;
@@ -41,6 +40,16 @@ extends Element {
 	//method
 	public final boolean hasId() {
 		return (id > 0);
+	}
+	
+	//method
+	public final boolean hasId(final int id) {
+		
+		if (!hasId()) {
+			return false;
+		}
+		
+		return (getId() == id);
 	}
 	
 	//method
