@@ -61,6 +61,7 @@ public class PascalCaseNameCatalogue {
 	public static final String SURNAME = "Surname";
 	public static final String TEXT = "Text";
 	public static final String TEXT_COLOR = "TextColor";
+	public static final String TEXT_SIZE = "TextSize";
 	public static final String TIMEOUT = "Timeout";
 	public static final String TIMEOUT_IN_MICROSECONDS = "TimeoutMicroseconds";
 	public static final String TIMEOUT_IN_MILLISECONDS = "TimeoutMilliseconds";
