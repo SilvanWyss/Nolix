@@ -14,7 +14,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	public static final GridLineType DEFAULT_LINE_TYPE = GridLineType.InnerLines;
 	public static final int DEFAULT_LINE_THICKNESS = ValueCatalogue.SMALL_LINE_THICKNESS;
 	public static final Color DEFAULT_LINE_COLOR = Color.BLACK;
-	public static final int DEFAULT_ELEMENT_MARGIN = ValueCatalogue.SMALL_ELEMENT_MARGIN;
+	public static final int DEFAULT_ELEMENT_MARGIN = ValueCatalogue.SMALL_WIDGET_MARGIN;
 	
 	//constant
 	private static final String LINE_TYPE_HEADER = "LineType";
