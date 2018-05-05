@@ -553,7 +553,7 @@ implements Clearable<Console> {
 		final ConsoleLook currentStructure = getRefCurrentStructure();
 		
 		return (
-			currentStructure.getActiveHeight()
+			currentStructure.getRecursiveOrDefaultHeight()
 			- currentStructure.getActiveTopBorderSize()
 			- currentStructure.getActiveTopPadding()
 			- currentStructure.getActiveBottomBorderSize()
@@ -570,7 +570,7 @@ implements Clearable<Console> {
 		final ConsoleLook currentStructure = getRefCurrentStructure();
 		
 		return (
-			currentStructure.getActiveWidth()
+			currentStructure.getRecursiveOrDefaultWidth()
 			- currentStructure.getActiveLeftBorderSize()
 			- currentStructure.getActiveLeftPadding()
 			- currentStructure.getActiveRightBorderSize()
