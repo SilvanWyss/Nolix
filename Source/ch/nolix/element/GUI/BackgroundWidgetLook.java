@@ -2,146 +2,141 @@
 package ch.nolix.element.GUI;
 
 //own imports
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.entity2.Property;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
-import ch.nolix.element.data.BackgroundColor;
-import ch.nolix.element.data.BackgroundColorGradient;
 
 //abstract class
 /**
  * @author Silvan Wyss
  * @month 2017-03
  * @lines 140
- * @param <BWS> The type of a background widget structure.
+ * @param <BWS> The type of a {@link BackgroundWidgetLook}.
  */
 public abstract class BackgroundWidgetLook<BWS extends BackgroundWidgetLook<BWS>>
 extends WidgetLook<BWS> {
 
-	//default values
-	public static final BackgroundColor DEFAULT_BACKGROUND_COLOR = new BackgroundColor(Color.WHITE_INT);
-	public static final BackgroundColorGradient DEFAULT_BACKGROUND_COLOR_GRADIENT = new BackgroundColorGradient();
+	//default value
+	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	
-	//constants
-	private static final String BACKGROUND_COLOR_HEADER = "BackgroundColor";
+	//default value
+	public static final ColorGradient DEFAULT_BACKGROUND_COLOR_GRADIENT
+	= ColorGradient.VERTICAL_BLACK_WHITE_COLOR_GRADIENT;
+	
+	//constant
 	private static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
 	
-	//optional attribute
-	private final Property<Color> backgroundColor =
+	//attribute
+	private final Property<Color> backgroundColorProperty =
 	new Property<Color>(
-		BACKGROUND_COLOR_HEADER,
+		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		DEFAULT_BACKGROUND_COLOR,
 		s -> Color.createFromSpecification(s)
 	);
 
-	//optional attribute
-	private final Property<ColorGradient> backgroundColorGradient =
+	//attribute
+	private final Property<ColorGradient> backgroundColorGradientProperty =
 	new Property<ColorGradient>(
 		BACKGROUND_COLOR_GRADIENT_HEADER,
 		DEFAULT_BACKGROUND_COLOR_GRADIENT,
 		s -> ColorGradient.createFromSpecification(s)
 	);
 	
-	//method
-	/**
-	 * @return the active background color of this background widget structure.
-	 */
-	public final Color getActiveBackgroundColor() {
-		return backgroundColor.getRecursiveValueOrDefault();
-	}
-	
-	//method
-	/**
-	 * @return the active background color gradient of this background widget structure.
-	 */
-	public final ColorGradient getActiveBackgroundColorGradient() {
-		return backgroundColorGradient.getRecursiveValueOrDefault();
-	}
-	
-	//method
-	/**
-	 * @return true if this background widget structure has a recursive background color.
-	 */
-	public final boolean hasRecursiveBackgroundColor() {
-		return backgroundColor.hasRecursiveValue();
-	}
-	
-	//method
-	/**
-	 * @return true if this background widget structure has a recursive background color gradient.
-	 */
-	public final boolean hasRecursiveBackgroundColorGradient() {
-		return backgroundColorGradient.hasRecursiveValue();
-	}
-	
-	//method
-	/**
-	 * Removes the background color of this background widget structure.
-	 * 
-	 * @return this background color widget structure.
-	 */
-	@SuppressWarnings("unchecked")
-	public final BWS removeBackgroundColor() {
-		
-		backgroundColor.removeValue();
-		
-		return (BWS)this;
-	}
-	
-	//method
-	/**
-	 * Removes the background color gradient of this background widget structure.
-	 * 
-	 * @return this background color widget structure.
-	 */
-	@SuppressWarnings("unchecked")
-	public final BWS removeBackgroundColorGradient() {
-		
-		backgroundColorGradient.removeValue();
-		
-		return (BWS)this;
-	}
-	
-	//method
-	/**
-	 * Sets the background color of this background widget structure.
-	 * Removes the background color gradient of this background widget structure.
-	 * 
-	 * @param backgroundColor
-	 * @return this background color widget structure.
-	 * @throws NullArgumentException if the given background color is null.
-	 */
-	@SuppressWarnings("unchecked")
-	public final BWS setBackgroundColor(final Color backgroundColor) {
-		
-		this.backgroundColor.setValue(new BackgroundColor(backgroundColor.getValue()));
-		removeBackgroundColorGradient();
-		
-		return (BWS)this;
-	}
-	
-	//method
-	/**
-	 * Sets the background color gradient of this background widget structure.
-	 * Removes the background color of this background widget structure.
-	 * 
-	 * @param backgroundColorGradient
-	 * @return this background color widget structure.
-	 * @throws NullArgumentException if the given background color gradient is null.
-	 */
-	@SuppressWarnings("unchecked")
-	public final BWS setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
-		
-		this.backgroundColorGradient.setValue(
-			new BackgroundColorGradient(
-				backgroundColorGradient.getDirection(),
-				backgroundColorGradient.getColor1(),
-				backgroundColorGradient.getColor2()
-			)
-		);
-		
-		removeBackgroundColor();
-		
-		return (BWS)this;
-	}
+    //method
+    /**
+     * @return the recursive background color or the default background color
+     * of the current {@link BackgroundWidgetLook}.
+     */
+    public final Color getRecursiveOrDefaultBackgroundColor() {
+        return backgroundColorProperty.getRecursiveValueOrDefault();
+    }
+    
+    //method
+    /**
+     * @return the recursive background color gradient
+     * or the default background color gradient
+     * of the current {@link BackgroundWidgetLook}.
+     */
+    public final ColorGradient getRecursiveOrDefaultBackgroundColorGradient() {
+        return backgroundColorGradientProperty.getRecursiveValueOrDefault();
+    }
+    
+    //method
+    /**
+     * @return true if the current {@link BackgroundWidgetLook}
+     * has a recursive background color.
+     */
+    public final boolean hasRecursiveBackgroundColor() {
+        return backgroundColorProperty.hasRecursiveValue();
+    }
+    
+    //method
+    /**
+     * @return true if the current {@link BackgroundWidgetLook}
+     * has a recursive background color gradient.
+     */
+    public final boolean hasRecursiveBackgroundColorGradient() {
+        return backgroundColorGradientProperty.hasRecursiveValue();
+    }
+    
+    //method
+    /**
+     * Removes the background color of the current {@link BackgroundWidgetLook}.
+     * 
+     * @return the current {@link BackgroundWidgetLook}.
+     */
+    public final BWS removeBackgroundColor() {
+        
+        backgroundColorProperty.removeValue();
+        
+        return getInstance();
+    }
+    
+    //method
+    /**
+     * Removes the background color gradient of the current {@link BackgroundWidgetLook}.
+     * 
+     * @return the current {@link BackgroundWidgetLook}.
+     */
+    public final BWS removeBackgroundColorGradient() {
+        
+        backgroundColorGradientProperty.removeValue();
+        
+        return getInstance();
+    }
+    
+    //method
+    /**
+     * Sets the background color of the current {@link BackgroundWidgetLook}.
+     * Removes the background color gradient of the current {@link BackgroundWidgetLook}.
+     * 
+     * @param backgroundColor
+     * @return the current {@link BackgroundWidgetLook}.
+     * @throws NullArgumentException if the given background color is null.
+     */
+    public final BWS setBackgroundColor(final Color backgroundColor) {
+    	
+    	backgroundColorProperty.setValue(backgroundColor);
+    	removeBackgroundColorGradient();
+    	
+    	return getInstance();
+    }
+    
+    //method
+    /**
+     * Sets the background color gradient of the current {@link BackgroundWidgetLook}.
+     * Removes the background color of the current {@link BackgroundWidgetLook}.
+     * 
+     * @param backgroundColorGradient
+     * @return the current {@link BackgroundWidgetLook}.
+     * @throws NullArgumentException if the given background color is null.
+     */
+    public final BWS setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
+    	
+    	backgroundColorGradientProperty.setValue(backgroundColorGradient);
+    	removeBackgroundColor();
+    	
+    	return getInstance();
+    }
 }

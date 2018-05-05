@@ -8,9 +8,9 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 30
- * @param <BW> The type of a background widget.
- * @param <BWS> The type of the widget structures of a background widget.
+ * @lines 50
+ * @param <BW> The type of a {@link BackgroundWidget}.
+ * @param <BWS> The type of the {@link BackgroundWidgetLook} of a {@link BackgroundWidget}.
  */
 public abstract class BackgroundWidget<
 	BW extends BackgroundWidget<BW, BWS>,
@@ -20,28 +20,34 @@ extends Widget<BW, BWS> {
 	
 	//method
 	/**
-	 * Paints this background widget using the given widget structure and painter.
+	 * Paints the current {@link BackgroundWidget}
+	 * using the given background widget look and painter.
 	 * 
-	 * @param widgetStructure
+	 * @param backgroundWidgetLook
 	 * @param painter
 	 */
-	protected void paint(final BWS widgetStructure, final IPainter painter) {
+	protected void paint(final BWS backgroundWidgetLook, final IPainter painter) {
 		
-		//Handles the case that the given widget structure has a background color.
-		if (widgetStructure.hasRecursiveBackgroundColor()) {
-			painter.setColor(widgetStructure.getActiveBackgroundColor());
+		//Handles the case that the given background widget look
+		//has a recursive background color.
+		if (backgroundWidgetLook.hasRecursiveBackgroundColor()) {
+			
+			painter.setColor(
+				backgroundWidgetLook.getRecursiveOrDefaultBackgroundColor()
+			);
+			
 			painter.paintFilledRectangle(getWidth(), getHeight());
 		}
 		
-		//Handles the case that the given widget structure has a background color gradient.
-		else if (widgetStructure.hasRecursiveBackgroundColorGradient()) {
+		//Handles the case that the given background widget look
+		//has a recursive background color gradient.
+		else if (backgroundWidgetLook.hasRecursiveBackgroundColorGradient()) {
 			
-			painter.setColorGradient(widgetStructure.getActiveBackgroundColorGradient());
-			
-			painter.paintFilledRectangle(
-				getWidth(),
-				getHeight()
+			painter.setColorGradient(
+				backgroundWidgetLook.getRecursiveOrDefaultBackgroundColorGradient()
 			);
+			
+			painter.paintFilledRectangle(getWidth(), getHeight());
 		}
 	}
 }
