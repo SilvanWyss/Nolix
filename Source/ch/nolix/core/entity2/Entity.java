@@ -62,7 +62,7 @@ implements IFluentObject<E>, Specifiable {
 				attributes.addAtEnd(
 					new StandardSpecification(
 						p.getName(),
-						p.getRecursiveValueOrDefault().getAttributes()
+						p.getRecursiveOrDefaultValue().getAttributes()
 					)
 				);
 			}

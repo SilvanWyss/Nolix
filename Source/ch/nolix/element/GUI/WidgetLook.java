@@ -68,7 +68,7 @@ implements IFluentObject<WL>, Specified {
 	 * of the current {@link WidgetLook}.
 	 */
 	public final Color getRecursiveOrDefaultTextColor() {
-		return textColorProperty.getRecursiveValueOrDefault();
+		return textColorProperty.getRecursiveOrDefaultValue();
 	}
 	
 	//method
@@ -77,7 +77,7 @@ implements IFluentObject<WL>, Specified {
 	 * of the current {@link WidgetLook}.
 	 */
 	public TextFont getRecursiveOrDefaultTextFont() {
-		return textFontProperty.getRecursiveValueOrDefault();
+		return textFontProperty.getRecursiveOrDefaultValue();
 	}
 		
 	//method
@@ -86,7 +86,7 @@ implements IFluentObject<WL>, Specified {
 	 * of the current {@link WidgetLook}.
 	 */
 	public final int getRecursiveOrDefaultTextSize() {
-		return textSizeProperty.getRecursiveValueOrDefault().getValue();
+		return textSizeProperty.getRecursiveOrDefaultValue().getValue();
 	}
 	
 	//method

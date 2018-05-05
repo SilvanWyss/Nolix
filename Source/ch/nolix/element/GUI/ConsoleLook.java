@@ -39,7 +39,7 @@ public final class ConsoleLook extends BorderWidgetLook<ConsoleLook> {
 	 * @return the recursive or default height of the current {@link ConsoleLook}.
 	 */
 	public int getRecursiveOrDefaultHeight() {
-		return heightProperty.getRecursiveValueOrDefault().getValue();
+		return heightProperty.getRecursiveOrDefaultValue().getValue();
 	}
 	
 	//method
@@ -47,7 +47,7 @@ public final class ConsoleLook extends BorderWidgetLook<ConsoleLook> {
 	 * @return the recursive or default width of the current {@link ConsoleLook}.
 	 */
 	public int getRecursiveOrDefaultWidth() {
-		return widthProperty.getRecursiveValueOrDefault().getValue();
+		return widthProperty.getRecursiveOrDefaultValue().getValue();
 	}
 	
 	//method

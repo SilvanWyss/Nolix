@@ -49,7 +49,7 @@ extends WidgetLook<BWL> {
      * of the current {@link BackgroundWidgetLook}.
      */
     public final Color getRecursiveOrDefaultBackgroundColor() {
-        return backgroundColorProperty.getRecursiveValueOrDefault();
+        return backgroundColorProperty.getRecursiveOrDefaultValue();
     }
     
     //method
@@ -58,7 +58,7 @@ extends WidgetLook<BWL> {
      * of the current {@link BackgroundWidgetLook}.
      */
     public final ColorGradient getRecursiveOrDefaultBackgroundColorGradient() {
-        return backgroundColorGradientProperty.getRecursiveValueOrDefault();
+        return backgroundColorGradientProperty.getRecursiveOrDefaultValue();
     }
     
     //method

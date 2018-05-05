@@ -53,22 +53,22 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	
 	//method
 	public int getRecursiveElementMarginOrDefault() {
-		return elementMargin.getRecursiveValueOrDefault().getValue();
+		return elementMargin.getRecursiveOrDefaultValue().getValue();
 	}
 	
 	//method
 	public Color getRecursiveLineColorOrDefault() {
-		return lineColor.getRecursiveValueOrDefault();
+		return lineColor.getRecursiveOrDefaultValue();
 	}
 	
 	//method
 	public int getRecursiveLineThicknessOrDefault() {
-		return lineThickness.getRecursiveValueOrDefault().getValue();
+		return lineThickness.getRecursiveOrDefaultValue().getValue();
 	}
 	
 	//method
 	public GridLineType getRecursiveLineTypeOrDefault() {
-		return lineType.getRecursiveValueOrDefault();
+		return lineType.getRecursiveOrDefaultValue();
 	}
 	
 	//method

@@ -70,9 +70,9 @@ public final class Property<V extends Specified> extends NamedElement {
 	
 	//method
 	/**
-	 * @return the recursive value of this property or the default value of this property.
+	 * @return the recursive or default value of this property.
 	 */
-	public V getRecursiveValueOrDefault() {
+	public V getRecursiveOrDefaultValue() {
 	
 		//Handles the case that this property has a value.
 		if (hasValue()) {
@@ -81,7 +81,7 @@ public final class Property<V extends Specified> extends NamedElement {
 		
 		//Handles the case that this property has no value, but a base property.
 		if (hasBaseProperty()) {
-			return baseProperty.getRecursiveValueOrDefault();
+			return baseProperty.getRecursiveOrDefaultValue();
 		}
 		
 		//Handles the case that this property has no value and no base property.
