@@ -25,6 +25,14 @@ import ch.nolix.primitive.validator2.Validator;
  */
 public class ColorGradient extends Element {
 	
+	//constant
+	public static final ColorGradient VERTICAL_BLACK_WHITE_COLOR_GRADIENT =
+	new ColorGradient(UniDirection.Vertical, Color.BLACK, Color.WHITE);
+	
+	//constant
+	public static final ColorGradient VERTICAL_RED_WHITE_COLOR_GRADIENT =
+	new ColorGradient(UniDirection.Vertical, Color.RED, Color.WHITE);
+	
 	//default values
 	public static final UniDirection DEFAULT_DIRECTION = UniDirection.Vertical;
 	public static final Color DEFAULT_COLOR1 = Color.BLACK;
