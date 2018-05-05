@@ -12,10 +12,10 @@ import ch.nolix.element.color.ColorGradient;
  * @author Silvan Wyss
  * @month 2017-03
  * @lines 140
- * @param <BWS> The type of a {@link BackgroundWidgetLook}.
+ * @param <BWL> The type of a {@link BackgroundWidgetLook}.
  */
-public abstract class BackgroundWidgetLook<BWS extends BackgroundWidgetLook<BWS>>
-extends WidgetLook<BWS> {
+public abstract class BackgroundWidgetLook<BWL extends BackgroundWidgetLook<BWL>>
+extends WidgetLook<BWL> {
 
 	//default value
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
@@ -86,7 +86,7 @@ extends WidgetLook<BWS> {
      * 
      * @return the current {@link BackgroundWidgetLook}.
      */
-    public final BWS removeBackgroundColor() {
+    public final BWL removeBackgroundColor() {
         
         backgroundColorProperty.removeValue();
         
@@ -99,7 +99,7 @@ extends WidgetLook<BWS> {
      * 
      * @return the current {@link BackgroundWidgetLook}.
      */
-    public final BWS removeBackgroundColorGradient() {
+    public final BWL removeBackgroundColorGradient() {
         
         backgroundColorGradientProperty.removeValue();
         
@@ -115,7 +115,7 @@ extends WidgetLook<BWS> {
      * @return the current {@link BackgroundWidgetLook}.
      * @throws NullArgumentException if the given background color is null.
      */
-    public final BWS setBackgroundColor(final Color backgroundColor) {
+    public final BWL setBackgroundColor(final Color backgroundColor) {
     	
     	backgroundColorProperty.setValue(backgroundColor);
     	removeBackgroundColorGradient();
@@ -132,7 +132,7 @@ extends WidgetLook<BWS> {
      * @return the current {@link BackgroundWidgetLook}.
      * @throws NullArgumentException if the given background color is null.
      */
-    public final BWS setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
+    public final BWL setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
     	
     	backgroundColorGradientProperty.setValue(backgroundColorGradient);
     	removeBackgroundColor();
