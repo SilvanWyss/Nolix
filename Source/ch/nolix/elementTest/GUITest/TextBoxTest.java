@@ -32,16 +32,16 @@ public class TextBoxTest extends Test {
 		final TextBox textBox = new TextBox();
 		
 		//execution
-		textBox.getRefNormalStructure().setTextColor(Color.BLUE);
+		textBox.getRefBaseLook().setTextColor(Color.BLUE);
 		
 		//verification
-			expect(textBox.getRefNormalStructure().getActiveTextColor().getValue())
+			expect(textBox.getRefBaseLook().getRecursiveOrDefaultTextColor().getValue())
 			.isEqualTo(Color.BLUE_INT);
 			
-			expect(textBox.getRefHoverStructure().getActiveTextColor().getValue())
+			expect(textBox.getRefHoverStructure().getRecursiveOrDefaultTextColor().getValue())
 			.isEqualTo(Color.BLUE_INT);
 			
-			expect(textBox.getRefFocusStructure().getActiveTextColor().getValue())
+			expect(textBox.getRefFocusStructure().getRecursiveOrDefaultTextColor().getValue())
 			.isEqualTo(Color.BLUE_INT);
 	}
 	

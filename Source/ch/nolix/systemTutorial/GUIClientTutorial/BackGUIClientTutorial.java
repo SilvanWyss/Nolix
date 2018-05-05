@@ -62,7 +62,7 @@ public final class BackGUIClientTutorial {
 			.setCursorIcon(CursorIcon.Hand);			
 						
 			button
-			.getRefNormalStructure()
+			.getRefBaseLook()
 			.setBackgroundColor(Color.LIGHT_GREY)
 			.setPaddings(10)
 			.setTextSize(ValueCatalogue.MEDIUM_TEXT_SIZE);

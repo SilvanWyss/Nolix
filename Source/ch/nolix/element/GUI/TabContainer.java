@@ -725,28 +725,28 @@ extends Container<TabContainer, TabContainerLook> {
 			
 			label.setCursorIcon(CursorIcon.Hand);
 			
-			label.getRefNormalStructure().removePaddings();
+			label.getRefBaseLook().removePaddings();
 			if (hasMenuItemLeftPadding()) {
-				label.getRefNormalStructure().setLeftPadding(getMenuItemLeftPadding());
+				label.getRefBaseLook().setLeftPadding(getMenuItemLeftPadding());
 			}
 			if (hasMenuItemRightPadding()) {
-				label.getRefNormalStructure().setRightPadding(getMenuItemRightPadding());
+				label.getRefBaseLook().setRightPadding(getMenuItemRightPadding());
 			}
 			if (hasMenuItemBottomPadding()) {
-				label.getRefNormalStructure().setBottomPadding(getMenuItemBottomPadding());
+				label.getRefBaseLook().setBottomPadding(getMenuItemBottomPadding());
 			}
 			if (hasMenuItemTopPadding()) {
 				//label.setTopPadding(getMenuItemTopPadding());
 			}
 			
 			if (getRefNormalMenuItemStructure().hasBackgroundColor()) {
-				label.getRefNormalStructure().setBackgroundColor(getRefNormalMenuItemStructure().getRefRecBackgroundColor());
+				label.getRefBaseLook().setBackgroundColor(getRefNormalMenuItemStructure().getRefRecBackgroundColor());
 			}
 			else {
-				label.getRefNormalStructure().removeBackgroundColor();
+				label.getRefBaseLook().removeBackgroundColor();
 			}
-			label.getRefNormalStructure().setTextSize(getRefNormalMenuItemStructure().getRefRecTextSize());
-			label.getRefNormalStructure().setTextColor(getRefNormalMenuItemStructure().getRefRecTextColor());
+			label.getRefBaseLook().setTextSize(getRefNormalMenuItemStructure().getRefRecTextSize());
+			label.getRefBaseLook().setTextColor(getRefNormalMenuItemStructure().getRefRecTextColor());
 			
 			if (getRefHoverMenuItemStructure().hasBackgroundColor()) {
 				label.getRefHoverStructure().setBackgroundColor(getRefHoverMenuItemStructure().getRefRecBackgroundColor());

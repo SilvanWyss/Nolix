@@ -10,6 +10,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.enums.TextStyle;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
@@ -75,8 +76,8 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	 */
 	public TLW resetConfiguration() {
 				
-		getRefNormalStructure().setTextSize(ValueCatalogue.MEDIUM_TEXT_SIZE);
-		getRefNormalStructure().setTextColor(Color.BLACK);
+		getRefBaseLook().setTextSize(ValueCatalogue.MEDIUM_TEXT_SIZE);
+		getRefBaseLook().setTextColor(Color.BLACK);
 		
 		getRefHoverStructure().removeTextSize();
 		getRefHoverStructure().removeTextColor();
@@ -110,7 +111,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	 */
 	protected final int getContentHeight() {
 		return
-		new Font(getRefCurrentStructure().getActiveTextSize())
+		new Font(getRefCurrentStructure().getRecursiveOrDefaultTextSize())
 		.getTextHeight();
 	}
 	
@@ -121,7 +122,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	protected int getContentWidth() {	
 		return
 		new Font(getRefCurrentStructure()
-		.getActiveTextSize())
+		.getRecursiveOrDefaultTextSize())
 		.getSwingTextWidth(getText());
 	}
 	
@@ -139,10 +140,10 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 		painter.paintText(
 			getText(),
 			new Font(
-				rectangleStructure.getActiveTextFont(),
-				rectangleStructure.getActiveTextStyle(),
-				rectangleStructure.getActiveTextSize(),
-				rectangleStructure.getActiveTextColor()
+				rectangleStructure.getRecursiveOrDefaultTextFont(),
+				TextStyle.Default,
+				rectangleStructure.getRecursiveOrDefaultTextSize(),
+				rectangleStructure.getRecursiveOrDefaultTextColor()
 			)
 		);	
 	}

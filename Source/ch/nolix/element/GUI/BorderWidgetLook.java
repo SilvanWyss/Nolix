@@ -69,8 +69,8 @@ extends BackgroundWidgetLook<BWS> {
 		
 		//Handles the case that this border widget structure
 		//has no bottom border color but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveBottomBorderColor();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveBottomBorderColor();
 		}
 		
 		//Handles the case that this border widget structure
@@ -91,8 +91,8 @@ extends BackgroundWidgetLook<BWS> {
 		
 		//Handles the case that this borderable rectagnle structure
 		//has no bottom border size but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveBottomBorderSize();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveBottomBorderSize();
 		}
 		
 		//Handles the case that this border widget structure
@@ -113,8 +113,8 @@ extends BackgroundWidgetLook<BWS> {
 		
 		//Handles the case that this border widget structure
 		//has no bottom padding but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveBottomPadding();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveBottomPadding();
 		}
 		
 		//Handles the case that this border widget structure
@@ -135,8 +135,8 @@ extends BackgroundWidgetLook<BWS> {
 		
 		//Handles the case that this border widget structure
 		//has no left border color but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveLeftBorderColor();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveLeftBorderColor();
 		}
 		
 		//Handles the case that this border widget structure
@@ -157,8 +157,8 @@ extends BackgroundWidgetLook<BWS> {
 		
 		//Handles the case that this border widget structure
 		//has no left border size but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveLeftBorderSize();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveLeftBorderSize();
 		}
 		
 		//Handles the case that this border widget structure
@@ -179,8 +179,8 @@ extends BackgroundWidgetLook<BWS> {
 		
 		//Handles the case that this border widget structure
 		//has no left padding but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveLeftPadding();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveLeftPadding();
 		}
 		
 		//Handles the case that this border widget structure
@@ -201,8 +201,8 @@ extends BackgroundWidgetLook<BWS> {
 		
 		//Handles the case that this border widget structure
 		//has no right border color but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveRightBorderColor();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveRightBorderColor();
 		}
 		
 		//Hadles the case if this border widget structure
@@ -223,8 +223,8 @@ extends BackgroundWidgetLook<BWS> {
 		
 		//Handles the case that this border widget structure
 		//has no right border size but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveRightBorderSize();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveRightBorderSize();
 		}
 		
 		//Handles the case that this border widget structure
@@ -245,8 +245,8 @@ extends BackgroundWidgetLook<BWS> {
 		
 		//Handles the case that this border widget structure
 		//has no right padding but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveRightPadding();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveRightPadding();
 		}
 		
 		//Handles the case that this border widget structure
@@ -267,8 +267,8 @@ extends BackgroundWidgetLook<BWS> {
 		
 		//Handles the case that this border widget structure
 		//has no top border color but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveTopBorderColor();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveTopBorderColor();
 		}
 		
 		//Handles the case that this border widget structure
@@ -289,8 +289,8 @@ extends BackgroundWidgetLook<BWS> {
 		
 		//Handles the case that this border widget structure
 		//has no top border size but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveTopBorderSize();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveTopBorderSize();
 		}
 		
 		//Handles the case that this border widget structure
@@ -311,8 +311,8 @@ extends BackgroundWidgetLook<BWS> {
 		
 		//Handles the case that this border widget structure
 		//has no top padding but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveTopPadding();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveTopPadding();
 		}
 		
 		//Handles the case that this border widget structure

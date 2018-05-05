@@ -27,10 +27,10 @@ public final class LabelTest extends Test {
 		Label label = new Label();
 		
 		//execution
-		label.getRefNormalStructure().setTextSize(textSize);
+		label.getRefBaseLook().setTextSize(textSize);
 		
 		//verification
-		expect(label.getRefNormalStructure().getActiveTextSize()).isEqualTo(textSize);
+		expect(label.getRefBaseLook().getRecursiveOrDefaultTextSize()).isEqualTo(textSize);
 	}
 	
 	//test method

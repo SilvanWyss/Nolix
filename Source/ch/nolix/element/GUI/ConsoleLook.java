@@ -48,8 +48,8 @@ public final class ConsoleLook extends BorderWidgetLook<ConsoleLook> {
 		}
 		
 		//Handles the case that this console has no height but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveHeight();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveHeight();
 		}
 		
 		//Handles the case that this console has no height and no normal structure.
@@ -69,8 +69,8 @@ public final class ConsoleLook extends BorderWidgetLook<ConsoleLook> {
 		}
 		
 		//Handles the case that this console structure has no text color but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveTextColor();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveTextColor();
 		}
 		
 		//Handles the case that this console structure has no text color and no normal structure.
@@ -91,8 +91,8 @@ public final class ConsoleLook extends BorderWidgetLook<ConsoleLook> {
 		}
 		
 		//Handles the case that this console structure has no text size but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveTextSize();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveTextSize();
 		}
 		
 		//Handles the case that this console structure has no text size and no normal structure.
@@ -112,8 +112,8 @@ public final class ConsoleLook extends BorderWidgetLook<ConsoleLook> {
 		}
 		
 		//Handles the case that this console has no width but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveWidth();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveWidth();
 		}
 		
 		//Handles the case that this console has no width and no normal structure.

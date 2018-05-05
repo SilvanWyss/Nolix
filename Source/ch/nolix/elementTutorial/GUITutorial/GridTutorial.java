@@ -41,7 +41,7 @@ public final class GridTutorial {
 		.setWidget(4, 3, new Area().setBackgroundColor(Color.LIGHT_BLUE))
 		.setWidget(3, 4, new Area().setBackgroundColor(Color.BLUE));
 		
-		grid.getRefNormalStructure()
+		grid.getRefBaseLook()
 		.setLineType(GridLineType.InnerLines)
 		.setElementMargin(10)
 		.setTextFont(TextFont.Console);

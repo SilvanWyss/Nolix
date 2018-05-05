@@ -36,7 +36,7 @@ public final class ScrollTutorial {
 		.setMaxWidth(600)
 		.setMaxHeight(400);
 		
-		label.getRefNormalStructure()
+		label.getRefBaseLook()
 		.setBorderSizes(5)
 		.setBorderColors(Color.DARK_BLUE)
 		.setBackgroundColorGradient(new ColorGradient(UniDirection.Vertical, Color.BLUE, Color.WHITE))

@@ -32,7 +32,7 @@ public final class FrameTutorial2 {
 		
 		//Sets a yellow background color to the clock label.
 		clockLabel
-		.getRefNormalStructure()
+		.getRefBaseLook()
 		.setBackgroundColor(Color.YELLOW);
 	
 		//Creates a frame that contains the clock caption label and the clock label.

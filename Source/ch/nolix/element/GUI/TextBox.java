@@ -87,8 +87,8 @@ public final class TextBox extends TextLineWidget<TextBox> {
 			int textCursorDistanceFromTextBegin = getCursorXPosition() - getContentXPosition();
 			boolean found = false;
 			for (int i = 0; i < getText().length(); i++) {
-				int subTextWidth = new Font(getRefCurrentStructure().getActiveTextSize()).getSwingTextWidth(getText().substring(0, i));
-				int nextSubTextWidth = new Font(getRefCurrentStructure().getActiveTextSize()).getSwingTextWidth(getText().substring(0, i + 1));
+				int subTextWidth = new Font(getRefCurrentStructure().getRecursiveOrDefaultTextSize()).getSwingTextWidth(getText().substring(0, i));
+				int nextSubTextWidth = new Font(getRefCurrentStructure().getRecursiveOrDefaultTextSize()).getSwingTextWidth(getText().substring(0, i + 1));
 				int halfDistance = (nextSubTextWidth - subTextWidth) / 2;
 				if (
 					textCursorDistanceFromTextBegin > subTextWidth - halfDistance &&
@@ -193,8 +193,8 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		super.resetConfiguration();
 		
 		setWidth(DEFAULT_WIDTH);
-		getRefNormalStructure().setBorderSizes(1);
-		getRefNormalStructure().setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+		getRefBaseLook().setBorderSizes(1);
+		getRefBaseLook().setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		setCursorColor(DEFAULT_CURSOR_COLOR);
 		setCursorIcon(CursorIcon.Edit);
 		
@@ -222,19 +222,19 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 */
 	protected final void paintContent(TextLineWidgetLook rectangleStructure, Graphics graphics) {
 		
-		int textCursorDistanceFromTextBegin = new Font(rectangleStructure.getActiveTextSize()).getSwingTextWidth(getTextBeforeTextCursor());
+		int textCursorDistanceFromTextBegin = new Font(rectangleStructure.getRecursiveOrDefaultTextSize()).getSwingTextWidth(getTextBeforeTextCursor());
 		graphics.setColor(textCursor.getRefColor().createSwingColor());
 		graphics.setColor(Color.BLACK.createSwingColor());
 		
 		new Font(
-		rectangleStructure.getActiveTextSize())
+		rectangleStructure.getRecursiveOrDefaultTextSize())
 		.paintSwingText(getText(), graphics);
 		
 		graphics.fillRect(
 			getContentXPosition() + textCursorDistanceFromTextBegin,
 			getContentYPosition(),
 			1,
-			getRefCurrentStructure().getActiveTextSize()
+			getRefCurrentStructure().getRecursiveOrDefaultTextSize()
 		);
 	}
 	

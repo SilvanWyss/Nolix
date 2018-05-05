@@ -78,8 +78,8 @@ extends ConfigurableElement<W> {
 	 * Creates a new widget.
 	 */
 	public Widget() {			
-		getRefHoverStructure().setBaseStructure(getRefNormalStructure());
-		getRefFocusStructure().setBaseStructure(getRefNormalStructure());
+		getRefHoverStructure().setBaseStructure(getRefBaseLook());
+		getRefFocusStructure().setBaseStructure(getRefBaseLook());
 		getRefHoverFocusStructure().setBaseStructure(getRefFocusStructure());
 	}
 	
@@ -119,7 +119,7 @@ extends ConfigurableElement<W> {
 				if (attribute.getHeader().startsWith(NORMAL_PREFIX)) {
 					final Specification temp = attribute.createCopy();
 					temp.setHeader(attribute.getHeader().substring(NORMAL_PREFIX.length()));
-					getRefNormalStructure().addOrChangeAttribute(temp);
+					getRefBaseLook().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(HOVER_PREFIX)) {
 					final Specification temp = attribute.createCopy();
@@ -229,7 +229,7 @@ extends ConfigurableElement<W> {
 		}
 	
 		//Extracts the normal state attributes of this widget.
-		final List<StandardSpecification> normalStateAttributes = getRefNormalStructure().getAttributes();
+		final List<StandardSpecification> normalStateAttributes = getRefBaseLook().getAttributes();
 		normalStateAttributes.forEach(a -> a.addPrefixToHeader(NORMAL_PREFIX));
 		attributes.addAtEnd(normalStateAttributes);
 		
@@ -392,7 +392,7 @@ extends ConfigurableElement<W> {
 	/**
 	 * @return the normal structure of this widget.
 	 */
-	public final WS getRefNormalStructure() {
+	public final WS getRefBaseLook() {
 		return normalStructure;
 	}
 	
@@ -715,7 +715,7 @@ extends ConfigurableElement<W> {
 	 */
 	public W resetConfiguration() {
 		
-		getRefNormalStructure().reset();
+		getRefBaseLook().reset();
 		getRefHoverStructure().reset();
 		getRefFocusStructure().reset();
 		
@@ -1096,13 +1096,13 @@ extends ConfigurableElement<W> {
 		//Enumerates the state of this widget.
 		switch (getState()) {
 			case Normal:
-				return getRefNormalStructure();
+				return getRefBaseLook();
 			case Hovered:
 				return getRefHoverStructure();
 			case Focused:
 				return getRefFocusStructure();
 			case Disabled:
-				return getRefNormalStructure();
+				return getRefBaseLook();
 			default:
 				throw new UnexistingAttributeException(this, "current structure");
 		}

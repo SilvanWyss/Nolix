@@ -2,9 +2,9 @@
 package ch.nolix.element.GUI;
 
 //own imports
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.entity2.Entity;
 import ch.nolix.core.entity2.Property;
-import ch.nolix.core.enums.TextStyle;
 import ch.nolix.core.interfaces.IFluentObject;
 import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.element.color.Color;
@@ -15,104 +15,83 @@ import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 
 //abstract class
 /**
- * A widget structure stores the state-dependent attributes of a widget.
- * All attributes of a widget structure are optional.
+ * A {@link WidgetLook} stores the state-dependent attributes of a {@link Widget}.
  * 
- * For each attribute A, a widget structure has a method getActiveA().
- * Step 1: If the widget structure has a value, getActiveA() must return that value.
- * Step 2: If the widget structure has a base structure, getActiveA()
- *         must return getActiveA() of the base structure.
- * Step 3: getActiveA() must return a default value.
+ * For each attribute A, a {@link WidgetLook} provides, a {@link WidgetLook} has a method getRecursiveOrDefaultA().
+ * Step 1: If the {@link WidgetLook} has a value for A,
+ * 			getRecursiveOrDefaultA() must return thevalue.
+ * Step 2: If the {@link WidgetLook} has a base look,
+ * 			getRecursiveOrDefaultA()  must return getRecursiveOrDefaultA() of the base structure.
+ * Step 3: getRecursiveOrDefaultA() must return the default value for A.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 240
- * @param <WS> The type of a widget structure.
+ * @lines 220
+ * @param <WL> The type of a {@link WidgetLook}.
  */
-public abstract class WidgetLook<WS extends WidgetLook<WS>>
-extends Entity<WS>
-implements IFluentObject<WS>, Specified {
+public abstract class WidgetLook<WL extends WidgetLook<WL>>
+extends Entity<WL>
+implements IFluentObject<WL>, Specified {
 	
 	//default values
 	public static final TextFont DEFAULT_TEXT_FONT = TextFont.Verdana;
-	public static final TextStyle DEFAULT_TEXT_STYLE = TextStyle.Default;
-	public static final int DEFAULT_TEXT_SIZE = 20;
+	public static final int DEFAULT_TEXT_SIZE = ValueCatalogue.MEDIUM_TEXT_SIZE;
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 	
-	//constants
-	private static final String TEXT_SIZE_HEADER = "TextSize";
-	private static final String TEXT_COLOR_HEADER = "TextColor";
-	
 	//attribute
-	private final Property<TextFont> textFont =
+	private final Property<TextFont> textFontProperty =
 	new Property<TextFont>(
 		TextFont.TYPE_NAME,
 		DEFAULT_TEXT_FONT,
 		s -> TextFont.createFromSpecification(s)
 	);
-			
-	//attribute
-	private final Property<TextStyle> textStyle =
-	new Property<TextStyle>(
-		TextStyle.TYPE_NAME,
-		DEFAULT_TEXT_STYLE,
-		s -> TextStyle.createFromSpecification(s)
-	);
 	
 	//attribute
-	private final Property<PositiveInteger> textSize =
+	private final Property<PositiveInteger> textSizeProperty =
 	new Property<PositiveInteger>(
-		TEXT_SIZE_HEADER,
+		PascalCaseNameCatalogue.TEXT_SIZE,
 		new TextSize(DEFAULT_TEXT_SIZE),
 		s -> PositiveInteger.createFromSpecification(s)
 	);
 	
 	//attribute
-	private final Property<Color> textColor =
+	private final Property<Color> textColorProperty =
 	new Property<Color>(
-		TEXT_COLOR_HEADER,
+		PascalCaseNameCatalogue.TEXT_COLOR,
 		DEFAULT_TEXT_COLOR,
 		s -> Color.createFromSpecification(s)
 	);
 	
-	//optional attribute
-	//private WS baseStructure;
-	
 	//method
 	/**
-	 * @return the active text color of this widget structure.
+	 * @return the recursive or default text color
+	 * of the current {@link WidgetLook}.
 	 */
-	public final Color getActiveTextColor() {
-		return textColor.getRecursiveValueOrDefault();
+	public final Color getRecursiveOrDefaultTextColor() {
+		return textColorProperty.getRecursiveValueOrDefault();
 	}
 	
 	//method
 	/**
-	 * @return the active text font of this widget structure.
+	 * @return the recursive or default text font
+	 * of the current {@link WidgetLook}.
 	 */
-	public TextFont getActiveTextFont() {
-		return textFont.getRecursiveValueOrDefault();
+	public TextFont getRecursiveOrDefaultTextFont() {
+		return textFontProperty.getRecursiveValueOrDefault();
 	}
 		
 	//method
 	/**
-	 * @return the active text size of this widget structure.
+	 * @return the recursive or default text size
+	 * of the current {@link WidgetLook}.
 	 */
-	public final int getActiveTextSize() {
-		return textSize.getRecursiveValueOrDefault().getValue();
+	public final int getRecursiveOrDefaultTextSize() {
+		return textSizeProperty.getRecursiveValueOrDefault().getValue();
 	}
 	
 	//method
 	/**
-	 * @return the active text style of this widget structure.
-	 */
-	public final TextStyle getActiveTextStyle() {
-		return textStyle.getRecursiveValueOrDefault();
-	}
-	
-	//method
-	/**
-	 * @return the type of this widget structure.
+	 * @return the type of the current {@link WidgetLook}.
 	 */
 	public final String getType() {
 		return getClass().getSimpleName();
@@ -120,128 +99,129 @@ implements IFluentObject<WS>, Specified {
 	
 	//method
 	/**
-	 * Removes the text color of this widget structure.
+	 * Removes the text color of the current {@link WidgetLook}.
 	 * 
-	 * @return this widget structure.
+	 * @return the current {@link WidgetLook}.
 	 */
-	public final WS removeTextColor() {
+	public final WL removeTextColor() {
 		
-		textColor.removeValue();
+		textColorProperty.removeValue();
 		
 		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Removes the text font of this widget structure.
+	 * Removes the text font of the current {@link WidgetLook}.
 	 * 
-	 * @return this widget structure.
+	 * @return the current {@link WidgetLook}.
 	 */
-	public final WS removeTextFont() {
+	public final WL removeTextFont() {
 		
-		textFont.removeValue();
+		textFontProperty.removeValue();
 		
 		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Removes the text size of this widget structure.
+	 * Removes the text size of the current {@link WidgetLook}.
 	 * 
-	 * @return this widget structure.
+	 * @return the current {@link WidgetLook}.
 	 */
-	public final WS removeTextSize() {
+	public final WL removeTextSize() {
 		
-		textSize.removeValue();
+		textSizeProperty.removeValue();
 		
 		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Sets the text color of this widget structure.
+	 * Sets the text color of the current {@link WidgetLook}.
 	 * 
 	 * @param textColor
-	 * @return this widget structure.
+	 * @return the current {@link WidgetLook}.
 	 * @throws NullArgumentException if the given text color is null.
 	 */
-	public final WS setTextColor(final Color textColor) {
+	public final WL setTextColor(final Color textColor) {
 		
-		this.textColor.setValue(textColor);
+		this.textColorProperty.setValue(textColor);
 		
 		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Sets the text font of this widget structure.
+	 * Sets the text font of the current {@link WidgetLook}.
 	 * 
 	 * @param textFont
-	 * @return this widget structure.
+	 * @return the current {@link WidgetLook}.
+	 * @throws NullArgumentException if the given text font is null
 	 */
-	public final WS setTextFont(final TextFont textFont) {
+	public final WL setTextFont(final TextFont textFont) {
 		
-		this.textFont.setValue(textFont);
+		this.textFontProperty.setValue(textFont);
 		
 		return getInstance();
 	}
 		
 	//method
 	/**
-	 * Sets the text size of this widget structure.
+	 * Sets the text size of the current {@link WidgetLook}.
 	 * 
 	 * @param textSize
-	 * @return this widget structure.
+	 * @return the current {@link WidgetLook}.
+	 * @throws NonPositiveArgumentException if the given text size is not positive.
 	 */
-	@SuppressWarnings("unchecked")
-	public final WS setTextSize(final int textSize) {
+	public final WL setTextSize(final int textSize) {
 		
-		this.textSize.setValue(new TextSize(textSize));
+		this.textSizeProperty.setValue(new TextSize(textSize));
 		
-		return (WS)this;
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * @return the base structure of this widget structure.
+	 * @return the base look of the current {@link WidgetLook}.
 	 * @throws UnexistingAttributeException
-	 * if this widget structure has no base structure.
+	 * if the current {@link WidgetLook} has no base look.
 	 */
-	protected final WS getRefNormalStructure() {
+	protected final WL getRefBaseLook() {
 		
-		//Checks if this widget structure has a base structure.
-		supposeHasBaseStructure();
+		//Checks if the current widget look has a base look.
+		supposeHasBaseLook();
 		
 		return getRefBaseEntity();
 	}
 	
 	//method
 	/**
-	 * @return true if this widget structure has a base structure.
+	 * @return true if the current {@link WidgetLook} has a base look.
 	 */
-	protected final boolean hasNormalStructure() {
+	protected final boolean hasBaseLook() {
 		return hasBaseEntity();
 	}
 	
 	//package-visible method
 	/**
-	 * Sets the base structure of this widget structure.
+	 * Sets the base look of the current {@link WidgetLook}.
 	 * 
-	 * @param baseStructure
-	 * @throws NullArgumentException if the given base structure is null.
+	 * @param baseLook
+	 * @throws NullArgumentException if the given base look is null.
 	 */
-	final void setBaseStructure(final WS baseStructure) {
-		setBaseEntity(baseStructure);		
+	final void setBaseStructure(final WL baseLook) {
+		setBaseEntity(baseLook);		
 	}
 	
 	//method
 	/**
 	 * @throws UnexistingAttributeException
-	 * if this widget structure has no base structure.
+	 * if the current {@link WidgetLook} has no base look.
 	 */
-	private void supposeHasBaseStructure() {
-		if (!hasNormalStructure()) {
-			throw new UnexistingAttributeException(this, "base structure");
+	private void supposeHasBaseLook() {
+		if (!hasBaseLook()) {
+			throw new UnexistingAttributeException(this, "base look");
 		}
 	}
 }

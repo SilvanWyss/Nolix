@@ -46,8 +46,8 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 		
 		//Handles the case that this check box structure
 		//has no line color but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveLineColor();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveLineColor();
 		}
 		
 		//Handles the case that this check box structure
@@ -68,8 +68,8 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 		
 		//Handles the case that this check box structure
 		//has no line thickness but a normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getActiveLineThickness();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getActiveLineThickness();
 		}
 		
 		//Handles the case that this check box structure
@@ -90,8 +90,8 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 		
 		//Handles the case that this check box structure
 		//has no size but a normal structure.
-		if (hasNormalStructure()) {
-			getRefNormalStructure().getActiveSize();
+		if (hasBaseLook()) {
+			getRefBaseLook().getActiveSize();
 		}
 		
 		//Handles the case that this check box structure

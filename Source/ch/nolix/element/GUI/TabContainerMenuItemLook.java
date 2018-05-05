@@ -53,8 +53,8 @@ public final class TabContainerMenuItemLook {
 			return leftPadding.getValue();
 		}
 		
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getRecLeftPadding();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getRecLeftPadding();
 		}
 		
 		return 0;
@@ -70,8 +70,8 @@ public final class TabContainerMenuItemLook {
 			return rightPadding.getValue();
 		}
 		
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getRecRightPadding();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getRecRightPadding();
 		}
 		
 		return 0;
@@ -87,8 +87,8 @@ public final class TabContainerMenuItemLook {
 			return bottomPadding.getValue();
 		}
 		
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getRecBottomPadding();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getRecBottomPadding();
 		}
 		
 		return 0;
@@ -104,8 +104,8 @@ public final class TabContainerMenuItemLook {
 			return topPadding.getValue();
 		}
 		
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getRecTopPadding();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getRecTopPadding();
 		}
 		
 		return 0;
@@ -128,8 +128,8 @@ public final class TabContainerMenuItemLook {
 		}
 		
 		//Handles the case that this tab container menu item structure has a background from its normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getRefRecBackgroundColor();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getRefRecBackgroundColor();
 		}
 		
 		//Handles the case that this tab container menu item structure has a background color neither from itself nor from its normal structure.
@@ -149,8 +149,8 @@ public final class TabContainerMenuItemLook {
 		}
 		
 		//Handles the case that this tab container menu item structure has a text color from its normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getRefRecTextColor();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getRefRecTextColor();
 		}
 		
 		//Handles the case that this tab container menu item structure has a text color neither itself nor from its normal structure.
@@ -170,8 +170,8 @@ public final class TabContainerMenuItemLook {
 		}
 		
 		//Handles the case that this tab container menu item structure has a text size from its normal structure.
-		if (hasNormalStructure()) {
-			return getRefNormalStructure().getRefRecTextSize();
+		if (hasBaseLook()) {
+			return getRefBaseLook().getRefRecTextSize();
 		}
 		
 		//Handles the case that this tab container menu item structure has a text size neither itself nor from its normal structure.
@@ -224,7 +224,7 @@ public final class TabContainerMenuItemLook {
 	 */
 	public final TabContainerMenuItemLook removeTextColor() {
 		
-		if (!hasNormalStructure()) {
+		if (!hasBaseLook()) {
 			throw new UnremovableAttributeException(this, "text color");
 		}
 		
@@ -242,7 +242,7 @@ public final class TabContainerMenuItemLook {
 	 */
 	public final TabContainerMenuItemLook removeTextSize() {
 		
-		if (!hasNormalStructure()) {
+		if (!hasBaseLook()) {
 			throw new UnremovableAttributeException(this, "text size");
 		}
 		
@@ -343,9 +343,9 @@ public final class TabContainerMenuItemLook {
 	 * @return the normal structure of this tab container menu item structure
 	 * @throws UnexistingAttributeException if this tab container menu item structure has no normal structure
 	 */
-	protected final TabContainerMenuItemLook getRefNormalStructure() {
+	protected final TabContainerMenuItemLook getRefBaseLook() {
 		
-		if (!hasNormalStructure()) {
+		if (!hasBaseLook()) {
 			throw new UnexistingAttributeException(this, "normal structure");
 		}
 		
@@ -356,7 +356,7 @@ public final class TabContainerMenuItemLook {
 	/**
 	 * @return true if this tab container menu item structure has a normal structure
 	 */
-	protected final boolean hasNormalStructure() {
+	protected final boolean hasBaseLook() {
 		return (normalStructure != null);
 	}
 	

@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.enums.TextStyle;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Clearable;
@@ -417,7 +418,7 @@ implements Clearable<Console> {
 		super.resetConfiguration();
 		
 		setCursorIcon(CursorIcon.Edit);
-		getRefNormalStructure()
+		getRefBaseLook()
 		.setBackgroundColor(DEFAULT_BACKGROUND_COLOR)
 		.setTextFont(TextFont.Console);
 		
@@ -588,14 +589,14 @@ implements Clearable<Console> {
 		
 		final int contentWidth = getContentWidth();
 		final int contentHeight = getContentHeight();
-		final int textSize = widgetStructure.getActiveTextSize();	
+		final int textSize = widgetStructure.getRecursiveOrDefaultTextSize();	
 		
 		final Font font =
 		new Font(
-			widgetStructure.getActiveTextFont(),
-			widgetStructure.getActiveTextStyle(),
+			widgetStructure.getRecursiveOrDefaultTextFont(),
+			TextStyle.Default,
 			textSize,
-			widgetStructure.getActiveTextColor()
+			widgetStructure.getRecursiveOrDefaultTextColor()
 		);
 		
 		final int lineCount = getLines().getElementCount();
@@ -627,7 +628,7 @@ implements Clearable<Console> {
 				- 1;
 				
 				if (textCursorXPosition < contentWidth) {
-					graphics.setColor(widgetStructure.getActiveTextColor());
+					graphics.setColor(widgetStructure.getRecursiveOrDefaultTextColor());
 					graphics.paintFilledRectangle(
 						textCursorXPosition,
 						0,
