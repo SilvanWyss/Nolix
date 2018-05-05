@@ -39,7 +39,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 750
+ * @lines 730
  * @param <G> The type of a GUI.
  */
 public abstract class GUI<G extends GUI<G>>
@@ -437,15 +437,28 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	
 	//method
 	/**
-	 * Lets this dialog note a key typing.
+	 * Lets this GUI note a key press.
+	 * 
+	 * @param keyEvent
+	 */
+	public void noteKeyPress(final KeyEvent keyEvent) {
+		
+		getRefWidgetsRecursively()
+		.forEach(w -> w.noteAnyKeyPress(keyEvent));
+		
+		refresh();
+	}
+	
+	//method
+	/**
+	 * Lets this GUI note a key typing.
 	 * 
 	 * @param keyEvent
 	 */
 	public void noteKeyTyping(final KeyEvent keyEvent) {
 		
 		getRefWidgetsRecursively()
-		.getRefSelected(w -> w.isFocused())
-		.forEach(w -> w.noteKeyTyping(keyEvent));
+		.forEach(w -> w.noteAnyKeyTyping(keyEvent));
 		
 		refresh();
 	}
@@ -457,24 +470,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	public void noteLeftMouseButtonPress() {
 		
 		getRefWidgetsRecursively()
-		.getRefSelected(w -> w.isEnabled())
-		.forEach(
-			w -> {
-				if (!w.isUnderCursor()) {
-					if (w.isFocused()) {				
-						w.setNormal();
-					}
-				}
-				else {
-					
-					if (w.isNormal()) {
-						w.setHoverFocused();
-					}
-					
-					w.noteLeftMouseButtonPress();
-				}
-			}
-		);
+		.forEach(w -> w.noteAnyLeftMouseButtonPress());
 		
 		refresh();
 	}
@@ -485,9 +481,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 */
 	public void noteLeftMouseButtonRelease() {
 		
-		getRefWidgetsRecursively()
-		.getRefSelected(w -> w.isEnabled() && w.isUnderCursor())
-		.forEach(w -> w.noteLeftMouseButtonRelease());
+		getRefWidgetsRecursively().forEach(w -> w.noteAnyLeftMouseButtonRelease());
 		
 		refresh();
 	}
@@ -505,30 +499,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 			);
 		}
 		
-		getRefWidgetsRecursively().getRefSelected(w -> w.isEnabled()).forEach(
-			w -> {
-				
-				if (!w.isUnderCursor()) {				
-					if (w.isHovered()) {
-						w.setNormal();
-					}
-					else if (w.isHoverFocused()) {
-						w.setFocused();
-					}
-				}
-				else {
-					
-					if (w.isNormal()) {
-						w.setHovered();
-					}
-					else if (w.isHoverFocused()) {
-						w.setFocused();
-					}
-					
-					w.noteMouseMove();
-				}
-			}				
-		);
+		getRefWidgetsRecursively().forEach(w -> w.noteAnyMouseMove());
 		
 		refresh();
 	}
@@ -544,8 +515,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	public final void noteMouseWheelRotationSteps(final int mouseWheelRotationSteps) {
 		
 		getRefWidgetsRecursively()
-		.getRefSelected(w -> w.isEnabled() && w.isUnderCursor())
-		.forEach(w -> w.noteMouseWheelRotationSteps(mouseWheelRotationSteps));
+		.forEach(w -> w.noteAnyMouseWheelRotationSteps(mouseWheelRotationSteps));
 		
 		refresh();
 	}
@@ -557,8 +527,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	public void noteRightMouseButtonPress() {
 		
 		getRefWidgetsRecursively()
-		.getRefSelected(w -> w.isEnabled() && w.isUnderCursor())
-		.forEach(w -> w.noteRightMouseButtonPress());
+		.forEach(w -> w.noteAnyRightMouseButtonPress());
 		
 		refresh();
 	}
@@ -570,8 +539,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	public void noteRightMouseButtonRelease() {
 		
 		getRefWidgetsRecursively()
-		.getRefSelected(w -> w.isEnabled() && w.isUnderCursor())
-		.forEach(w -> w.noteRightMouseButtonRelease());
+		.forEach(w -> w.noteAnyRightMouseButtonRelease());
 		
 		refresh();
 	}

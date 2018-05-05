@@ -29,7 +29,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1200
+ * @lines 1330
  * @param <W> The type of a widget.
  * @param <WS> The type of the widget structures of a widget.
  */
@@ -567,10 +567,135 @@ extends ConfigurableElement<W> {
 			&& mouseYPosition < getHeight()
 		);		
 	}
-
-	public void noteHoverEntry() {}
 	
-	public void noteHoverRelease() {}
+	//method
+	/**
+	 * Lets this widget note any key press.
+	 * 
+	 * @param keyEvent
+	 */
+	public final void noteAnyKeyPress(final KeyEvent keyEvent) {
+		if (isFocused()) {
+			noteKeyPress(keyEvent);
+		}
+	}
+	
+	//method
+	/**
+	 * Lets this widget note any key typing.
+	 * 
+	 * @param keyEvent
+	 */
+	public final void noteAnyKeyTyping(final KeyEvent keyEvent) {
+		if (isFocused()) {
+			noteKeyTyping(keyEvent);
+		}
+	}
+
+	//method
+	/**
+	 * Lets this widget note any mouse button press.
+	 */
+	public final void noteAnyLeftMouseButtonPress() {
+		if (isEnabled()) {
+			if (!isUnderCursor()) {
+				if (isFocused()) {				
+					setNormal();
+				}
+			}
+			else {
+				
+				if (isNormal()) {
+					setHoverFocused();
+				}
+				else if (isHovered()) {
+					setHoverFocused();
+				}
+				
+				noteLeftMouseButtonPress();
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * Lets this widget note any mouse button release.
+	 */
+	public final void noteAnyLeftMouseButtonRelease() {
+		if (isEnabled()) {
+			if (isUnderCursor()) {
+				noteLeftMouseButtonRelease();
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * Lets this widget note any mouse move.
+	 */
+	public final void noteAnyMouseMove() {
+		if (isEnabled()) {
+			if (!isUnderCursor()) {
+				
+				if (isHovered()) {
+					setNormal();
+				}
+				
+				else if (isHoverFocused()) {
+					setFocused();
+				}
+				
+				else if (isFocused()) {
+					noteMouseMove();
+				}
+			}
+			else {
+				
+				if (isNormal()) {
+					setHovered();
+				}
+				else if (isHoverFocused()) {
+					setFocused();
+				}
+				
+				noteMouseMove();
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * Lets this widget note the given mouse wheel rotation steps.
+	 * The given number of mouse wheel rotation steps is positive if the mouse wheel was rotated forward.
+	 * The given number mouse wheel rotation steps is negative if the mouse wheel was rotated backward.
+	 * 
+	 * @param rotationSteps
+	 */
+	public void noteAnyMouseWheelRotationSteps(final int mouseWheelRotationSteps) {
+		if (isEnabled() && isUnderCursor()) {
+			noteMouseWheelRotationSteps(mouseWheelRotationSteps);
+		}
+	}
+	
+	//method
+	/**
+	 * Lets this widget note any right mouse button press.
+	 */
+	public final void noteAnyRightMouseButtonPress() {
+		if (isEnabled() && isUnderCursor()) {
+			noteRightMouseButtonPress();
+		}
+	}
+	
+	//method
+	/**
+	 * Lets this widget note any right mouse button release.
+	 */
+	public final void noteAnyRightMouseButtonRelease() {
+		if (isEnabled() && isUnderCursor()) {
+			noteRightMouseButtonRelease();
+		}
+	}
 	
 	//method
 	/**
@@ -578,7 +703,7 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @param keyEvent
 	 */
-	public void noteKeyPress(KeyEvent keyEvent) {}
+	public void noteKeyPress(final KeyEvent keyEvent) {}
 	
 	//method
 	/**
@@ -586,7 +711,7 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @param keyEvent
 	 */
-	public void noteKeyTyping(KeyEvent keyEvent) {}
+	public void noteKeyTyping(final KeyEvent keyEvent) {}
 	
 	//method
 	/**
@@ -755,6 +880,22 @@ extends ConfigurableElement<W> {
 		this.cursorIcon = cursorIcon;
 		
 		return (W)this;
+	}
+	
+	//method
+	/**
+	 * Sets the position of the mouse on this widget
+	 * using the mouse position of the mouse on the parent container of this widget.
+	 * 
+	 * @param mouseXPositionOnParentContainer
+	 * @param mouseYPositionOnParentContainer
+	 */
+	public void setCursorPositionFromParentContainer(
+			final int mouseXPositionOnParentContainer,
+			final int mouseYPositionOnParentContainer
+	) {
+		this.mouseXPosition = mouseXPositionOnParentContainer - getXPositionOnContainer();
+		this.mouseYPosition = mouseYPositionOnParentContainer - getYPositionOnContainer();
 	}
 	
 	//method
@@ -929,22 +1070,6 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Sets the position of the mouse on this widget
-	 * using the mouse position of the mouse on the parent container of this widget.
-	 * 
-	 * @param mouseXPositionOnParentContainer
-	 * @param mouseYPositionOnParentContainer
-	 */
-	public void setCursorPositionFromParentContainer(
-			final int mouseXPositionOnParentContainer,
-			final int mouseYPositionOnParentContainer
-	) {
-		this.mouseXPosition = mouseXPositionOnParentContainer - getXPositionOnContainer();
-		this.mouseYPosition = mouseYPositionOnParentContainer - getYPositionOnContainer();
-	}
-	
-	//method
-	/**
 	 * Sets this widget normal.
 	 * 
 	 * @return this widget.
@@ -1101,6 +1226,8 @@ extends ConfigurableElement<W> {
 				return getRefHoverStructure();
 			case Focused:
 				return getRefFocusStructure();
+			case HoverFocused:
+				return getRefHoverFocusStructure();
 			case Disabled:
 				return getRefBaseLook();
 			default:
