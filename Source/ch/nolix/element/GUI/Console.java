@@ -554,10 +554,10 @@ implements Clearable<Console> {
 		
 		return (
 			currentStructure.getRecursiveOrDefaultHeight()
-			- currentStructure.getActiveTopBorderSize()
-			- currentStructure.getActiveTopPadding()
-			- currentStructure.getActiveBottomBorderSize()
-			- currentStructure.getActiveBottomPadding()
+			- currentStructure.getRecursiveOrDefaultTopBorderThickness()
+			- currentStructure.getRecursiveOrDefaultTopPadding()
+			- currentStructure.getRecursiveOrDefaultBottomBorderThickness()
+			- currentStructure.getRecursiveOrDefaultBottomPadding()
 		);
 	}
 
@@ -571,10 +571,10 @@ implements Clearable<Console> {
 		
 		return (
 			currentStructure.getRecursiveOrDefaultWidth()
-			- currentStructure.getActiveLeftBorderSize()
-			- currentStructure.getActiveLeftPadding()
-			- currentStructure.getActiveRightBorderSize()
-			- currentStructure.getActiveRightPadding()
+			- currentStructure.getRecursiveOrDefaultLeftBorderThickness()
+			- currentStructure.getRecursiveOrDefaultLeftPadding()
+			- currentStructure.getRecursiveOrDefaultRightBorderThickness()
+			- currentStructure.getRecursiveOrDefaultRightPadding()
 		);
 	}
 	

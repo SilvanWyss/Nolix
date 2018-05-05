@@ -193,7 +193,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		super.resetConfiguration();
 		
 		setWidth(DEFAULT_WIDTH);
-		getRefBaseLook().setBorderSizes(1);
+		getRefBaseLook().setBorderThicknesses(1);
 		getRefBaseLook().setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		setCursorColor(DEFAULT_CURSOR_COLOR);
 		setCursorIcon(CursorIcon.Edit);
@@ -265,10 +265,10 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		
 		return (
 			getRefWidth().getValue() -
-			currentStructure.getActiveLeftPadding() -
-			currentStructure.getActiveLeftBorderSize() -
-			currentStructure.getActiveRightBorderSize() -
-			currentStructure.getActiveRightPadding()
+			currentStructure.getRecursiveOrDefaultLeftPadding() -
+			currentStructure.getRecursiveOrDefaultLeftBorderThickness() -
+			currentStructure.getRecursiveOrDefaultRightBorderThickness() -
+			currentStructure.getRecursiveOrDefaultRightPadding()
 		);
 	}
 	

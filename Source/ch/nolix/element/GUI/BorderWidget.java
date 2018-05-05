@@ -655,8 +655,8 @@ extends BackgroundWidget<BW, BWS> {
 			case Left:
 			case LeftBottom:
 				return
-				currentStructure.getActiveLeftBorderSize()
-				+ currentStructure.getActiveLeftPadding();	
+				currentStructure.getRecursiveOrDefaultLeftBorderThickness()
+				+ currentStructure.getRecursiveOrDefaultLeftPadding();	
 			case Top:
 			case Center:
 			case Bottom:
@@ -664,8 +664,8 @@ extends BackgroundWidget<BW, BWS> {
 				//Handles the case that this border widget has no min width.				
 				if (!hasMinWidth()) {
 					return
-					currentStructure.getActiveLeftBorderSize()
-					+ currentStructure.getActiveLeftPadding();
+					currentStructure.getRecursiveOrDefaultLeftBorderThickness()
+					+ currentStructure.getRecursiveOrDefaultLeftPadding();
 				}
 				
 				//Handles the case that this border widget has a min width.
@@ -677,8 +677,8 @@ extends BackgroundWidget<BW, BWS> {
 				
 				return
 				getWidth()
-				- currentStructure.getActiveRightBorderSize()
-				- currentStructure.getActiveRightPadding()
+				- currentStructure.getRecursiveOrDefaultRightBorderThickness()
+				- currentStructure.getRecursiveOrDefaultRightPadding()
 				- getContentWidth();
 		}
 		
@@ -699,8 +699,8 @@ extends BackgroundWidget<BW, BWS> {
 			case Top:
 			case RightTop:
 				return
-				currentStructure.getActiveTopBorderSize()
-				+ currentStructure.getActiveTopPadding();				
+				currentStructure.getRecursiveOrDefaultTopBorderThickness()
+				+ currentStructure.getRecursiveOrDefaultTopPadding();				
 			case Left:
 			case Center:
 			case Right:
@@ -708,8 +708,8 @@ extends BackgroundWidget<BW, BWS> {
 				//Handles the case that this border widget has no min height.				
 				if (!hasMinHeight()) {
 					return
-					currentStructure.getActiveTopBorderSize()
-					+ currentStructure.getActiveTopPadding();
+					currentStructure.getRecursiveOrDefaultTopBorderThickness()
+					+ currentStructure.getRecursiveOrDefaultTopPadding();
 				}
 				
 				//Handles the case that this border widget has a min height.
@@ -721,8 +721,8 @@ extends BackgroundWidget<BW, BWS> {
 				
 				return
 				getHeight()
-				- currentStructure.getActiveBottomBorderSize()
-				- currentStructure.getActiveBottomPadding()
+				- currentStructure.getRecursiveOrDefaultBottomBorderThickness()
+				- currentStructure.getRecursiveOrDefaultBottomPadding()
 				- getContentHeight();
 		}
 		
@@ -745,50 +745,50 @@ extends BackgroundWidget<BW, BWS> {
 		super.paint(widgetStructure, painter);
 		
 		//Paints the left border if the given widget structure has an active left border thickness.
-		if (widgetStructure.getActiveLeftBorderSize() > 0) {
+		if (widgetStructure.getRecursiveOrDefaultLeftBorderThickness() > 0) {
 			
-			painter.setColor(widgetStructure.getActiveLeftBorderColor());
+			painter.setColor(widgetStructure.getRecursiveOrDefaultLeftBorderColor());
 			
 			painter.paintFilledRectangle(
-				widgetStructure.getActiveLeftBorderSize(),
+				widgetStructure.getRecursiveOrDefaultLeftBorderThickness(),
 				getHeightWhenNotCollapsed()
 			);
 		}
 		
 		//Paints the right border if the given widget structure has an active right border thickness.
-		if (widgetStructure.getActiveRightBorderSize() > 0) {
+		if (widgetStructure.getRecursiveOrDefaultRightBorderThickness() > 0) {
 			
-			painter.setColor(widgetStructure.getActiveRightBorderColor());
+			painter.setColor(widgetStructure.getRecursiveOrDefaultRightBorderColor());
 			
 			painter.paintFilledRectangle(
-				getWidth() - widgetStructure.getActiveLeftBorderSize(),
+				getWidth() - widgetStructure.getRecursiveOrDefaultLeftBorderThickness(),
 				0,
-				widgetStructure.getActiveLeftBorderSize(),
+				widgetStructure.getRecursiveOrDefaultLeftBorderThickness(),
 				getHeightWhenNotCollapsed()
 			);
 		}
 		
 		//Paints the top border if the given widget structure has an active top border thickness.
-		if (widgetStructure.getActiveTopBorderSize() > 0) {
+		if (widgetStructure.getRecursiveOrDefaultTopBorderThickness() > 0) {
 			
-			painter.setColor(widgetStructure.getActiveTopBorderColor());
+			painter.setColor(widgetStructure.getRecursiveOrDefaultTopBorderColor());
 			
 			painter.paintFilledRectangle(
 				getWidth(),
-				widgetStructure.getActiveTopBorderSize()
+				widgetStructure.getRecursiveOrDefaultTopBorderThickness()
 			);
 		}
 		
 		//Paints the bottom border if the given widget structure has an active bottom border thickness.
-		if (widgetStructure.getActiveBottomBorderSize() > 0) {
+		if (widgetStructure.getRecursiveOrDefaultBottomBorderThickness() > 0) {
 			
-			painter.setColor(widgetStructure.getActiveBottomBorderColor());
+			painter.setColor(widgetStructure.getRecursiveOrDefaultBottomBorderColor());
 			
 			painter.paintFilledRectangle(
 				0,
-				getHeightWhenNotCollapsed() - widgetStructure.getActiveBottomBorderSize(),
+				getHeightWhenNotCollapsed() - widgetStructure.getRecursiveOrDefaultBottomBorderThickness(),
 				getWidth(),
-				widgetStructure.getActiveBottomBorderSize()
+				widgetStructure.getRecursiveOrDefaultBottomBorderThickness()
 			);
 		}
 		
@@ -869,8 +869,8 @@ extends BackgroundWidget<BW, BWS> {
 		
 		return
 		getHeight()
-		- currentStructure.getActiveTopBorderSize()
-		- currentStructure.getActiveBottomBorderSize();
+		- currentStructure.getRecursiveOrDefaultTopBorderThickness()
+		- currentStructure.getRecursiveOrDefaultBottomBorderThickness();
 	}
 	
 	//method
@@ -883,8 +883,8 @@ extends BackgroundWidget<BW, BWS> {
 		
 		return
 		getWidth()
-		- currentStructure.getActiveLeftBorderSize()
-		- currentStructure.getActiveRightBorderSize();
+		- currentStructure.getRecursiveOrDefaultLeftBorderThickness()
+		- currentStructure.getRecursiveOrDefaultRightBorderThickness();
 	}
 	
 	//method
@@ -895,7 +895,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		final var currentStructure = getRefCurrentStructure();
 		
-		return currentStructure.getActiveLeftBorderSize();
+		return currentStructure.getRecursiveOrDefaultLeftBorderThickness();
 	}
 	
 	//method
@@ -906,7 +906,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		final var currentStructure = getRefCurrentStructure();
 		
-		return currentStructure.getActiveTopBorderSize();
+		return currentStructure.getRecursiveOrDefaultTopBorderThickness();
 	}
 	
 	//method
@@ -923,14 +923,14 @@ extends BackgroundWidget<BW, BWS> {
 			case LeftTop:
 			case Left:
 			case LeftBottom:
-				return currentStructure.getActiveLeftPadding();	
+				return currentStructure.getRecursiveOrDefaultLeftPadding();	
 			case Top:
 			case Center:
 			case Bottom:
 				
 				//Handles the case that this border widget has no min width.				
 				if (!hasMinWidth()) {
-					return currentStructure.getActiveLeftBorderSize();
+					return currentStructure.getRecursiveOrDefaultLeftBorderThickness();
 				}
 				
 				//Handles the case that this border widget has a min width.
@@ -942,7 +942,7 @@ extends BackgroundWidget<BW, BWS> {
 				return
 				getScrollAreaWidth()
 				- getContentWidth()
-				- currentStructure.getActiveRightPadding();
+				- currentStructure.getRecursiveOrDefaultRightPadding();
 		}
 		
 		throw new InvalidStateException(this);
@@ -962,14 +962,14 @@ extends BackgroundWidget<BW, BWS> {
 			case LeftTop:
 			case Top:
 			case RightTop:
-				return currentStructure.getActiveTopPadding();				
+				return currentStructure.getRecursiveOrDefaultTopPadding();				
 			case Left:
 			case Center:
 			case Right:
 				
 				//Handles the case that this border widget has no min height.				
 				if (!hasMinHeight()) {
-					return currentStructure.getActiveTopPadding();
+					return currentStructure.getRecursiveOrDefaultTopPadding();
 				}
 				
 				//Handles the case that this border widget has a min height.
@@ -982,7 +982,7 @@ extends BackgroundWidget<BW, BWS> {
 				return
 				getScrollAreaHeight()
 				- getContentHeight()
-				- currentStructure.getActiveBottomPadding();
+				- currentStructure.getRecursiveOrDefaultBottomPadding();
 		}
 		
 		throw new InvalidStateException(this);
@@ -1049,10 +1049,10 @@ extends BackgroundWidget<BW, BWS> {
 		final var currentStructure = getRefCurrentStructure();
 		
 		return
-		currentStructure.getActiveTopBorderSize()
+		currentStructure.getRecursiveOrDefaultTopBorderThickness()
 		+ getScrollAreaHeight()
 		+ getHorizontalScrollbarThickness()
-		+ currentStructure.getActiveBottomBorderSize();
+		+ currentStructure.getRecursiveOrDefaultBottomBorderThickness();
 	}
 	
 	//method
@@ -1069,10 +1069,10 @@ extends BackgroundWidget<BW, BWS> {
 		final var currentStructure = getRefCurrentStructure();
 		
 		return
-		currentStructure.getActiveLeftBorderSize()
+		currentStructure.getRecursiveOrDefaultLeftBorderThickness()
 		+ getScrollAreaWidth()
 		+ getVerticalScrollbarThickness()
-		+ currentStructure.getActiveRightBorderSize();
+		+ currentStructure.getRecursiveOrDefaultRightBorderThickness();
 	}
 	
 	//method
@@ -1085,8 +1085,8 @@ extends BackgroundWidget<BW, BWS> {
 		
 		return
 		getContentHeight()
-		+ currentStructure.getActiveTopPadding()
-		+ currentStructure.getActiveBottomPadding();
+		+ currentStructure.getRecursiveOrDefaultTopPadding()
+		+ currentStructure.getRecursiveOrDefaultBottomPadding();
 	}
 	
 	//method
@@ -1099,8 +1099,8 @@ extends BackgroundWidget<BW, BWS> {
 		
 		return
 		getContentWidth()
-		+ currentStructure.getActiveLeftPadding()
-		+ currentStructure.getActiveRightPadding();
+		+ currentStructure.getRecursiveOrDefaultLeftPadding()
+		+ currentStructure.getRecursiveOrDefaultRightPadding();
 	}
 	
 	//method
