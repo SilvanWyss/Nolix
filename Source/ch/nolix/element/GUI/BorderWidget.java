@@ -235,6 +235,46 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
+	 * The origin height of a border widget is its height when the border widget:
+	 * -Is not collapsed.
+	 * -Has no min height.
+	 * -Has no max height.
+	 * 
+	 * @return the origin height of this border widget.
+	 */
+	public final int getOriginHeight() {
+		
+		final var currentStructure = getRefCurrentStructure();
+		
+		return
+		currentStructure.getRecursiveOrDefaultTopBorderThickness()
+		+ getScrollAreaHeight()
+		+ getHorizontalScrollbarThickness()
+		+ currentStructure.getRecursiveOrDefaultBottomBorderThickness();
+	}
+	
+	//method
+	/**
+	 * The origin width of a border widget is its width when the border widget:
+	 * -Is not collapsed.
+	 * -Has no min width.
+	 * -Has no max width.
+	 * 
+	 * @return the origin width of this border widget.
+	 */
+	public final int getOriginWidth() {
+		
+		final var currentStructure = getRefCurrentStructure();
+		
+		return
+		currentStructure.getRecursiveOrDefaultLeftBorderThickness()
+		+ getScrollAreaWidth()
+		+ getVerticalScrollbarThickness()
+		+ currentStructure.getRecursiveOrDefaultRightBorderThickness();
+	}
+	
+	//method
+	/**
 	 * @return the thickness of the vertical scrollbar of this border widget.
 	 */
 	public final int getVerticalScrollbarThickness() {
@@ -1033,46 +1073,6 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private int getHorizontalScrollbarYPositionOnBorderedArea() {
 		return (getBorderedAreaHeight()	- getHorizontalScrollbarThickness());
-	}
-	
-	//method
-	/**
-	 * The origin height of a border widget is its height when the border widget:
-	 * -Is not collapsed.
-	 * -Has no min height.
-	 * -Has no max height.
-	 * 
-	 * @return the origin height of this border widget.
-	 */
-	private int getOriginHeight() {
-		
-		final var currentStructure = getRefCurrentStructure();
-		
-		return
-		currentStructure.getRecursiveOrDefaultTopBorderThickness()
-		+ getScrollAreaHeight()
-		+ getHorizontalScrollbarThickness()
-		+ currentStructure.getRecursiveOrDefaultBottomBorderThickness();
-	}
-	
-	//method
-	/**
-	 * The origin width of a border widget is its width when the border widget:
-	 * -Is not collapsed.
-	 * -Has no min width.
-	 * -Has no max width.
-	 * 
-	 * @return the origin width of this border widget.
-	 */
-	private int getOriginWidth() {
-		
-		final var currentStructure = getRefCurrentStructure();
-		
-		return
-		currentStructure.getRecursiveOrDefaultLeftBorderThickness()
-		+ getScrollAreaWidth()
-		+ getVerticalScrollbarThickness()
-		+ currentStructure.getRecursiveOrDefaultRightBorderThickness();
 	}
 	
 	//method
