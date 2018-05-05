@@ -45,7 +45,7 @@ extends WidgetLook<BWL> {
 	
     //method
     /**
-     * @return the recursive background color or the default background color
+     * @return the recursive or default background color
      * of the current {@link BackgroundWidgetLook}.
      */
     public final Color getRecursiveOrDefaultBackgroundColor() {
@@ -54,8 +54,7 @@ extends WidgetLook<BWL> {
     
     //method
     /**
-     * @return the recursive background color gradient
-     * or the default background color gradient
+     * @return the recursive or default background color gradient
      * of the current {@link BackgroundWidgetLook}.
      */
     public final ColorGradient getRecursiveOrDefaultBackgroundColorGradient() {
