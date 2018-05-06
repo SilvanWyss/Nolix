@@ -20,7 +20,7 @@ implements Clearable<MultiProperty<V>> {
 		
 		values.addAtEnd(value);
 		
-		noteUpdate();
+		internal_noteUpdate();
 	}
 	
 	//method
@@ -29,7 +29,7 @@ implements Clearable<MultiProperty<V>> {
 		
 		this.values.addAtEnd(values);
 		
-		noteUpdate();
+		internal_noteUpdate();
 	}
 	
 	//method
@@ -37,19 +37,19 @@ implements Clearable<MultiProperty<V>> {
 		
 		this.values.addAtEnd(values);
 		
-		noteUpdate();
+		internal_noteUpdate();
 	}
 	
 	//method
 	public MultiProperty<V> clear() {
 		
-		values.clear();
+		internal_clear();
 		
 		return this;
 	}
 	
 	//method
-	public List<StandardSpecification> getAttributes() {
+	public List<StandardSpecification> getAttributes0() {
 		return getValues().to(v -> new StandardSpecification(v.toString()));
 	}
 	
@@ -66,5 +66,21 @@ implements Clearable<MultiProperty<V>> {
 	//method
 	public boolean isEmpty() {
 		return values.isEmpty();
+	}
+	
+	//method
+	protected void internal_clear() {
+		values.clear();
+	}
+	
+	//method
+	protected List<Object> internal_getValues() {
+		return new List<Object>(values);
+	}
+
+	//method
+	@SuppressWarnings("unchecked")
+	protected void internal_setValues(final Iterable<Object> values) {
+		values.forEach(v -> addValue((V)v));
 	}
 }

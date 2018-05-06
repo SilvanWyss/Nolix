@@ -10,13 +10,16 @@ extends SingleProperty<V>
 implements Clearable<OptionalProperty<V>> {
 
 	//method
+	public OptionalProperty<V> clear() {
+		
+		internal_clear();
+		
+		return this;
+	}
+	
+	//method
 	public boolean isOptional() {
 		return true;
-	}
-
-	//method
-	public OptionalProperty<V> clear() {
-		return this;
 	}
 
 	//method

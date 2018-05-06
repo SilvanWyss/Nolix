@@ -3,7 +3,6 @@ package ch.nolix.core.databaseAdapter;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.specification.StandardSpecification;
@@ -25,7 +24,7 @@ extends DataPropertyoid<V> {
 	}
 	
 	//method
-	public final List<StandardSpecification> getAttributes() {
+	public final List<StandardSpecification> getAttributes0() {
 		
 		final var attributes = new List<StandardSpecification>();
 		
@@ -71,10 +70,21 @@ extends DataPropertyoid<V> {
 		
 		this.value = value;
 		
-		noteUpdate();
+		internal_noteUpdate();
 	}
 	
-	final IContainer<Object> inernal_getValues() {
+	//method
+	protected final void internal_clear() {
+		
+		supposeIsOptional();
+		
+		value = null;
+		
+		internal_noteUpdate();
+	}
+	
+	//method
+	protected final List<Object> internal_getValues() {
 		
 		final var values = new List<Object>();
 		
@@ -87,16 +97,8 @@ extends DataPropertyoid<V> {
 	
 	//package-visible method
 	@SuppressWarnings("unchecked")
-	final void setValues(final List<Object> values) {
+	protected final void internal_setValues(final Iterable<Object> values) {
 		setValue((V)(new ReadContainer<>(values).getRefOne()));
-	}
-	
-	//package-visible method
-	void internal_clear() {
-		
-		supposeIsOptional();
-		
-		value = null;
 	}
 	
 	//method

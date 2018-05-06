@@ -15,8 +15,8 @@ public final class Column<V> extends HeaderedElement implements Specified {
 	//attribute
 	private final PropertyoidType<V> propertyType;
 	
-	//package-visible constructor
-	Column(final String header, final PropertyoidType<V> propertyType) {
+	//constructor
+	public Column(final String header, final PropertyoidType<V> propertyType) {
 		
 		super(header);
 		
@@ -42,16 +42,12 @@ public final class Column<V> extends HeaderedElement implements Specified {
 	
 	//method
 	public PropertyKind getPropertyKind() {
-		return propertyType.getPropertyKind();
+		return getPropertyType().getPropertyKind();
 	}
 	
 	//method
 	public PropertyoidType<V> getPropertyType() {
 		return propertyType;
-	}
-	
-	public Class<V> getValueClass() {
-		return propertyType.getValueClass();
 	}
 	
 	//method
@@ -60,17 +56,22 @@ public final class Column<V> extends HeaderedElement implements Specified {
 	}
 	
 	//method
+	public Class<V> getValueClass() {
+		return getPropertyType().getValueClass();
+	}
+	
+	//method
 	public boolean isDataColumn() {
-		return propertyType.isDataType();
+		return getPropertyType().isDataType();
 	}
 	
 	//method
 	public boolean isIdColumn() {
-		return propertyType.isIdType();
+		return getPropertyType().isIdType();
 	}
 	
 	//method
 	public boolean isReferenceColumn() {
-		return propertyType.isReferenceType();
+		return getPropertyType().isReferenceType();
 	}
 }

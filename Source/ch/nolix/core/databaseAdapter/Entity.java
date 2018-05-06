@@ -3,7 +3,6 @@ package ch.nolix.core.databaseAdapter;
 
 //Java import
 import java.lang.reflect.Field;
-import java.util.Iterator;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -21,12 +20,20 @@ import ch.nolix.primitive.validator2.Validator;
 public abstract class Entity
 implements Identified, Specified {
 	
-	//attributes
-	private int id = -1;
+	//attribute
 	private EntityState state = EntityState.CREATED;
-
+	
+	//optional attributes
+	private int id = -1;
+	private EntitySet<Entity> parentEntitySet;
+	
 	//multi-attribute
 	private List<Propertyoid<?>> properties;
+	
+	//method
+	public final boolean belongsToEntitySet() {
+		return (parentEntitySet != null);
+	}
 		
 	//method
 	public final boolean canReferenceOtherEntities() {
@@ -50,10 +57,11 @@ implements Identified, Specified {
 	}
 	
 	//method
-	public List<Column<?>> getColumns() {
+	public final List<Column<?>> getColumns() {
 		
-		//TODO
-		extractProperties();
+		if (!propertiesAreExtracted()) {
+			extractProperties();
+		}
 				
 		final var columns = new List<Column<?>>();
 		
@@ -62,7 +70,7 @@ implements Identified, Specified {
 			
 			for (final var f : cl.getDeclaredFields()) {
 				
-				if (f.getType().isAssignableFrom(Property.class)) {
+				if (Propertyoid.class.isAssignableFrom(f.getType())) {
 					
 					try {
 						
@@ -97,13 +105,27 @@ implements Identified, Specified {
 	}
 	
 	//method
-	public int getId() {
+	public final int getId() {
 	
 		supposeHasId();
 		
 		return id;
 	}
 	
+	//method
+	public final DatabaseAdapter getParentDatabaseAdapter() {
+		return getParentEntitySet().getParentDatabaseAdapter();
+	}
+	
+	//method
+	public final EntitySet<Entity> getParentEntitySet() {
+		
+		supposeBelongsToEntitySet();
+		
+		return parentEntitySet;
+	}
+	
+	//method
 	public final StandardSpecification getRowSpecification() {
 		
 		final var rowSpecification = new StandardSpecification();
@@ -111,7 +133,7 @@ implements Identified, Specified {
 		rowSpecification.addAttribute(StandardSpecification.createFromInt(getId()));
 		
 		for (final var p : getRefProperties()) {
-			rowSpecification.addAttribute(new StandardSpecification(p.inernal_getValues().toString()));
+			rowSpecification.addAttribute(new StandardSpecification(p.internal_getValues().toString()));
 		}
 		
 		return rowSpecification;
@@ -177,10 +199,10 @@ implements Identified, Specified {
 		this.id = id;
 	}
 	
-	
+	//package-visible method
 	final Field getField(final Propertyoid<?> property) {
 		
-		for (final Field f : getClass().getFields()) {
+		for (final var f : getClass().getFields()) {
 			try {
 				
 				f.setAccessible(true);
@@ -192,7 +214,8 @@ implements Identified, Specified {
 			catch (
 				final
 				IllegalArgumentException
-				| IllegalAccessException exception
+				| IllegalAccessException
+				exception
 			) {
 				throw new RuntimeException(exception);
 			}
@@ -206,22 +229,34 @@ implements Identified, Specified {
 		return getField(property).getName();
 	}
 	
+	//TODO
 	final void set(final Iterable<Specification> allPropertiesInOrder) {
 		
-		final Iterator<Propertyoid<?>> iterator = getRefProperties().iterator();
+		final var iterator = getRefProperties().iterator();
 		for (final var p : allPropertiesInOrder) {
 			
-			final var property = iterator.next();
+			final var property = iterator.next();			
 			
-			switch (property.getValueClass().getSimpleName()) {
-				case "String":
-					property.setValues(new List<Object>(p.toString()));
-					break;
-				case "Integer":
-					property.setValues(new List<Object>(p.toInt()));
-					break;
-				default:
-					throw new RuntimeException("Invalid case");
+			if (property.isDataProperty()) {
+				switch (property.getValueClass().getSimpleName()) {
+					case "String":
+						property.internal_setValues(new List<Object>(p.toString()));
+						break;
+					case "Integer":
+						property.internal_setValues(new List<Object>(p.toInt()));
+						break;
+					default:
+						throw new RuntimeException("Invalid case");
+				}
+			}
+			
+			if (property.isReferenceProperty()) {
+				switch (property.getClass().getSimpleName()) {
+					case "ReferenceProperty":
+						property.internal_setValues(new List<Object>(p.toInt()));
+						break;
+				}
+				
 			}
 		}
 	}
@@ -244,6 +279,14 @@ implements Identified, Specified {
 		}
 	}
 	
+	//package-visible method
+	final void  setParentEntitySet(final EntitySet<Entity> parentEntitySet) {
+		
+		supposeDoesNotBelongToEntitySet();
+		
+		this.parentEntitySet = parentEntitySet;
+	}
+
 	//package-visible method
 	final void setPersisted() {
 		switch (getState()) {
@@ -293,7 +336,7 @@ implements Identified, Specified {
 			
 			for (final Field f : cl.getDeclaredFields()) {
 				
-				if (f.getType().isAssignableFrom(Property.class)) {
+				if (Propertyoid.class.isAssignableFrom(f.getType())) {
 					
 					try {
 						
@@ -305,7 +348,7 @@ implements Identified, Specified {
 						.thatIsOfType(Propertyoid.class)
 						.isNotNull();
 						
-						property.setParentEntity(this);
+						property.internal_setParentEntity(this);
 						properties.addAtEnd(property);	
 					}
 					catch (
@@ -334,6 +377,26 @@ implements Identified, Specified {
 	//method
 	private boolean propertiesAreExtracted() {
 		return (properties != null);
+	}
+	
+	//method
+	private void supposeBelongsToEntitySet() {		
+		if (!belongsToEntitySet()) {
+			throw new InvalidStateException(
+				this,
+				"belongs to no entity set"
+			);
+		}		
+	}
+	
+	//method
+	private void supposeDoesNotBelongToEntitySet() {
+		if (belongsToEntitySet()) {
+			throw new InvalidStateException(
+				this,
+				"belongs to entity"
+			);
+		}		
 	}
 	
 	//method

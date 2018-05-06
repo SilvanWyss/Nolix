@@ -18,6 +18,7 @@ public final class EntitySet<E extends Entity>
 extends NamedElement {
 
 	//attributes
+	private final DatabaseAdapter parentDatabaseAdapter;
 	private final DatabaseConnectorWrapper<?> databaseConnectorWrapper;
 	private final EntityType<E> entityType;
 	
@@ -27,14 +28,16 @@ extends NamedElement {
 	
 	//static method
 	static EntitySet<Entity> createEntitySet(
+		final DatabaseAdapter parentDatabaseAdapter,
 		final DatabaseConnectorWrapper<?> databaseConnectorWrapper,
 		final EntityType<Entity> entityType
 	) {
-		return new EntitySet<Entity>(databaseConnectorWrapper, entityType);
+		return new EntitySet<Entity>(parentDatabaseAdapter, databaseConnectorWrapper, entityType);
 	}
 	
 	//package-visible constructor
 	EntitySet(
+		final DatabaseAdapter parentDatabaseAdapter,
 		final DatabaseConnectorWrapper<?> databaseConnectorWrapper,
 		final EntityType<E> entityType
 	) {
@@ -51,6 +54,7 @@ extends NamedElement {
 		.thatIsOfType(EntityType.class)
 		.isNotNull();
 		
+		this.parentDatabaseAdapter = parentDatabaseAdapter;
 		this.databaseConnectorWrapper = databaseConnectorWrapper;
 		this.entityType = entityType;
 				
@@ -68,6 +72,7 @@ extends NamedElement {
 	}
 	
 	//method
+	@SuppressWarnings("unchecked")
 	public EntitySet<E> addEntity(final E entity) {
 		
 		if (!entity.isCreated()) {
@@ -76,6 +81,8 @@ extends NamedElement {
 				new ErrorPredicate("is not created")
 			);
 		}
+		
+		entity.setParentEntitySet((EntitySet<Entity>)this);
 		
 		loadedAndCreatedEntities.addAtEndRegardingSingularity(entity);
 		
@@ -113,6 +120,7 @@ extends NamedElement {
 	}
 	
 	//method
+	@SuppressWarnings("unchecked")
 	public IContainer<E> getRefEntities() {
 		
 		final var entities =  databaseConnectorWrapper.getEntities(this);
@@ -127,7 +135,9 @@ extends NamedElement {
 						new Argument(e),
 						new ErrorPredicate("is not persisted")
 					);
-				}						
+				}
+				
+				e.setParentEntitySet((EntitySet<Entity>)this);
 			
 				newlyLoadedEntities.addAtEnd(e);
 			}
@@ -162,6 +172,10 @@ extends NamedElement {
 	//method
 	public boolean hasChanges() {
 		return loadedAndCreatedEntities.containsAny();
+	}
+	
+	DatabaseAdapter getParentDatabaseAdapter() {
+		return parentDatabaseAdapter;
 	}
 	
 	//package-visible method

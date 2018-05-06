@@ -51,7 +51,7 @@ public class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 		databaseConnectorWrapper.reset();
 		
 		for (final var et : schema.getRefEntityTypes()) {
-			entitySets.addAtEnd(EntitySet.createEntitySet(databaseConnectorWrapper, et));
+			entitySets.addAtEnd(EntitySet.createEntitySet(this, databaseConnectorWrapper, et));
 		}
 		
 		entitySets.forEach(es -> es.reset());

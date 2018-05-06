@@ -4,9 +4,9 @@ package ch.nolix.core.databaseAdapter;
 //Java import
 import java.lang.reflect.ParameterizedType;
 
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
 //own imports
+import ch.nolix.core.container.List;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
@@ -14,8 +14,36 @@ import ch.nolix.primitive.validator2.Validator;
 //abstract class
 public abstract class Propertyoid<V> implements Specified {
 	
-	//attribute
+	//optional attribute
 	private Entity parentEntity;
+	
+	//method
+	public final boolean belongsToEntity() {
+		return (parentEntity != null);
+	}
+	
+	//method
+	public final List<StandardSpecification> getAttributes() {
+		return internal_getValues().to(v -> new StandardSpecification(v.toString()));
+	}
+	
+	//method
+	public final DatabaseAdapter getParentDatabaseAdapter() {
+		return getParentEntitySet().getParentDatabaseAdapter();
+	}
+	
+	//method
+	public final Entity getParentEntity() {
+		
+		supposeBelongsToEntity();
+		
+		return parentEntity;
+	}
+	
+	//method
+	public final EntitySet<Entity> getParentEntitySet() {
+		return getParentEntity().getParentEntitySet();
+	}
 	
 	//method
 	public final PropertyKind getPropertyKind() {
@@ -23,23 +51,24 @@ public abstract class Propertyoid<V> implements Specified {
 	}
 	
 	//abstract method
-	public abstract PropertyoidType<V> getPropertyType() ;
+	public abstract PropertyoidType<V> getPropertyType();
 	
 	//method
 	public final String getType() {
-		return getRefEntity().getFieldName(this);
+		return getParentEntity().getFieldName(this);
 	}
 	
 	//method
 	@SuppressWarnings("unchecked")
 	public final Class<V> getValueClass() {
 		
-		final var realClass = getRefEntity().getField(this).getGenericType();
-		final var valueType = ((ParameterizedType)realClass).getActualTypeArguments()[0];
+		final var actualClass = 
+		getParentEntity().getField(this).getGenericType();
 		
-		return (Class<V>)(valueType);
+		return
+		(Class<V>)
+		((ParameterizedType)actualClass).getActualTypeArguments()[0];
 	}
-	
 	
 	//method
 	public final boolean isDataProperty() {
@@ -51,43 +80,33 @@ public abstract class Propertyoid<V> implements Specified {
 		return getPropertyType().isReferenceType();
 	}
 	
-	//package-visible abstract method
-	abstract IContainer<Object> inernal_getValues();
+	//abstract method
+	protected abstract void internal_clear();
 	
-	//package-visible abstract method
-	abstract void setValues(final List<Object> values);
+	//abstract method
+	protected abstract List<Object> internal_getValues();
 	
 	//method
-	protected void noteUpdate() {
+	protected void internal_noteUpdate() {
 		if (belongsToEntity()) {
 			parentEntity.setUpdated();
 		}
 	}
 	
+	//abstract method
+	protected abstract void internal_setValues(Iterable<Object> values);
+	
 	//method
-	protected void setParentEntity(final Entity parentEntity) {
+	protected void internal_setParentEntity(final Entity parentEntity) {
 		
 		Validator
 		.suppose(parentEntity)
-		.thatIsOfType(Entity.class)
+		.thatIsNamed("parent entity")
 		.isNotNull();
 		
 		supposeBelongsToNoEntity();
 		
 		this.parentEntity = parentEntity;
-	}
-	
-	//method
-	private boolean belongsToEntity() {
-		return (parentEntity != null);
-	}
-	
-	//method
-	private Entity getRefEntity() {
-		
-		supposeBelongsToEntity();
-		
-		return parentEntity;
 	}
 	
 	//method

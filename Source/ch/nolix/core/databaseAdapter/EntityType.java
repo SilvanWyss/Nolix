@@ -32,7 +32,9 @@ extends NamedElement {
 			final var constructor = getEntityClass().getDeclaredConstructors()[0];
 			constructor.setAccessible(true);
 			
-			return (E)constructor.newInstance();
+			final var entity = (E)constructor.newInstance();
+			entity.getColumns();
+			return entity;
 		} catch (
 			final
 			InstantiationException

@@ -1,22 +1,37 @@
 //package declaration
 package ch.nolix.core.databaseAdapter;
 
-//own import
+//own imports
+import ch.nolix.core.container.List;
+import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
+import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 public abstract class SingleReferenceProperty<E extends Entity>
 extends ReferencePropertyoid<E> {
 	
-	//attribute
-	private EntitySet<E> entitySet;
-
 	//optional attribute
 	private int referencedEntityId = -1;
 	
 	//method
-	public final E getReferencedEntity() {
-		return entitySet.getRefEntityById(getReferencedEntityId());
+	public final List<StandardSpecification> getAttributes0() {
+
+		final var attributes = new List<StandardSpecification>();
+		
+		if (referencesEntity()) {
+			attributes.addAtEnd(StandardSpecification.createFromInt(getReferencedEntityId()));
+		}
+		
+		return attributes;
+	}
+	
+	//method
+	public final E getEntity() {
+		return
+		getReferencedEntitySet()
+		.getRefEntityById(getReferencedEntityId());
 	}
 	
 	//method
@@ -33,16 +48,38 @@ extends ReferencePropertyoid<E> {
 	}
 	
 	//method
-	public final void setReferenceTo(final E entity) {
-		referencedEntityId = entity.getId();
+	public final void set(final E entity) {
+		
+		setValue(entity.getId());
+		
+		internal_noteUpdate();
 	}
 	
-	//package-visible method
-	void internal_clear() {
+	//method
+	protected final void internal_clear() {
 		
 		supposeIsOptional();
 		
 		referencedEntityId = -1;
+		
+		internal_noteUpdate();
+	}
+	
+	//method
+	protected final List<Object> internal_getValues() {
+		
+		final var values = new List<Object>();
+		
+		if (referencesEntity()) {
+			values.addAtEnd(getReferencedEntityId());
+		}
+		
+		return values;
+	}
+	
+	//method
+	protected final void internal_setValues(final Iterable<Object> values) {
+		setValue((int)new ReadContainer<Object>(values).getRefOne());
 	}
 	
 	//method
@@ -51,6 +88,17 @@ extends ReferencePropertyoid<E> {
 		supposeReferencesEntity();
 		
 		return referencedEntityId;
+	}
+	
+	//method
+	private void setValue(int referencedEntityId) {
+		
+		Validator
+		.suppose(referencedEntityId)
+		.thatIsNamed("referenced entity id")
+		.isPositive();
+		
+		this.referencedEntityId = referencedEntityId;
 	}
 	
 	//method

@@ -9,4 +9,9 @@ extends SingleReferenceProperty<E> {
 	public boolean isOptional() {
 		return false;
 	}
+
+	//method
+	public ReferencePropertyType<E> getPropertyType() {
+		return new ReferencePropertyType<E>(getValueClass());
+	}
 }
