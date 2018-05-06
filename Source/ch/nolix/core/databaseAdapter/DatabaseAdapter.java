@@ -62,5 +62,6 @@ public class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 	//method
 	public void saveChanges() {	
 		databaseConnectorWrapper.saveChanges(entitySets);
+		reset();
 	}
 }
