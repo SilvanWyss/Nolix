@@ -55,7 +55,7 @@ public final class EntitiesConnector<E extends Entity> {
 	public E getEntity(final int id, final EntityType<E> entityType) {
 		
 		//TODO
-		return null;
+		return getEntities(entityType).getRefFirst(e -> e.hasId(id));
 	}
 	
 	//method
