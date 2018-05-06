@@ -7,7 +7,6 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.databaseAdapter.IDatabaseConnector;
-import ch.nolix.core.databaseAdapter.IEntitySetConnector;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntitySet;
 import ch.nolix.core.functionInterfaces.IFunction;
