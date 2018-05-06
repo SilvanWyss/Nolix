@@ -88,6 +88,8 @@ extends NamedElement {
 		
 		databaseConnectorWrapper.noteAddEntity(this, entity);
 		
+		getParentDatabaseAdapter().addChangedEntity(entity);
+		
 		return this;
 	}
 	
@@ -105,6 +107,8 @@ extends NamedElement {
 		loadedAndCreatedEntities.removeFirst(entity);
 		
 		databaseConnectorWrapper.noteDeleteEntity(this, entity);
+		
+		getParentDatabaseAdapter().addChangedEntity(entity);
 		
 		return this;
 	}

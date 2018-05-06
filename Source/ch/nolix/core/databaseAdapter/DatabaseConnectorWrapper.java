@@ -97,6 +97,11 @@ final class DatabaseConnectorWrapper<C> {
 	}
 	
 	//method
+	public void saveChanges(final Iterable<Entity> changedEntitiesInOrder) {
+		databaseConnector.saveChanges(changedEntitiesInOrder);
+	}
+	
+	//method
 	private IContainer<C> createCommandsForUpdateEntities(final IContainer<EntitySet<Entity>> entitySets) {
 		return
 		entitySets.toFromMany(

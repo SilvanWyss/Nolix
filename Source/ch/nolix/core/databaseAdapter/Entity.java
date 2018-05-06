@@ -313,7 +313,13 @@ implements Identified, Specified {
 	final void setUpdated() {
 		switch (getState()) {
 			case PERSISTED:
+				
 				state = EntityState.UPDATED;
+				
+				if (belongsToEntitySet()) {
+					getParentDatabaseAdapter().addChangedEntity(this);
+				}
+				
 				break;
 			case CREATED:
 				break;

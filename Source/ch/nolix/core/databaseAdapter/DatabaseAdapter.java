@@ -13,8 +13,9 @@ public class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 	private final Schema schema;
 	private final DatabaseConnectorWrapper<?> databaseConnectorWrapper;
 	
-	//multi-attribute
+	//multi-attributes
 	private final List<EntitySet<Entity>> entitySets = new List<EntitySet<Entity>>();
+	private final List<Entity> changedEntitiesInOrder = new List<Entity>();
 		
 	//constructor
 	public DatabaseAdapter(
@@ -61,7 +62,17 @@ public class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 	
 	//method
 	public void saveChanges() {	
-		databaseConnectorWrapper.saveChanges(entitySets);
+		//databaseConnectorWrapper.saveChanges(entitySets);
+		
+		databaseConnectorWrapper.saveChanges(changedEntitiesInOrder);
+		
 		reset();
+	}
+	
+	//method
+	void addChangedEntity(final Entity entity) {
+		if (!changedEntitiesInOrder.contains(entity)) {
+			changedEntitiesInOrder.addAtEnd(entity);
+		}
 	}
 }

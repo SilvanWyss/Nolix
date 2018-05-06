@@ -5,6 +5,7 @@ package ch.nolix.core.specificationDatabaseConnector;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.databaseAdapter.IDatabaseConnector;
 import ch.nolix.core.databaseAdapter.IEntitySetConnector;
 import ch.nolix.core.databaseAdapter.Entity;
@@ -38,11 +39,11 @@ implements IDatabaseConnector<IFunction>{
 
 	//method
 	@SuppressWarnings("unchecked")
-	public <E extends Entity> IEntitySetConnector<E, IFunction> getEntitySetConnector(
+	public <E extends Entity> EntitySetConnector<E> getEntitySetConnector(
 		final EntitySet<E> entitySet
 	) {
 		return
-		(IEntitySetConnector<E, IFunction>)
+		(EntitySetConnector<E>)
 		entitySetConnectors.getRefFirst(esc -> esc.hasSameNameAs(entitySet));
 	}
 	
@@ -57,5 +58,33 @@ implements IDatabaseConnector<IFunction>{
 	//method
 	public void run(IContainer<IFunction> commands) {
 		commands.forEach(c -> c.run());
+	}
+
+	//method
+	public void saveChanges(final Iterable<Entity> changedEntitiesInOrder) {
+		
+		final var createdEntities =
+		new ReadContainer<Entity>(changedEntitiesInOrder)
+		.getRefSelected(e -> e.isCreated());
+		
+		for (final var e : createdEntities) {
+			getEntitySetConnector(e.getParentEntitySet()).add(e);
+		}
+		
+		final var updatedEntities =
+		new ReadContainer<Entity>(changedEntitiesInOrder)
+		.getRefSelected(e -> e.isUpdated());
+		
+		for (final var e : updatedEntities) {
+			getEntitySetConnector(e.getParentEntitySet()).update(e);
+		}
+		
+		final var deletedEntities =
+		new ReadContainer<Entity>(changedEntitiesInOrder)
+		.getRefSelected(e -> e.isDeleted());
+		
+		for (final var e : deletedEntities) {
+			getEntitySetConnector(e.getParentEntitySet()).delete(e);
+		}
 	}
 }

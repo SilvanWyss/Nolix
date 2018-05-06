@@ -13,6 +13,10 @@ public interface IDatabaseConnector<C> extends Named {
 		EntitySet<E> entitySet
 	);
 	
+	//TODO: Remove the old change storing mechanism.
 	//abstract method
 	public abstract void run(IContainer<C> commands);
+	
+	//abstract method
+	public abstract void saveChanges(Iterable<Entity> changedEntitiesInOrder);
 }
