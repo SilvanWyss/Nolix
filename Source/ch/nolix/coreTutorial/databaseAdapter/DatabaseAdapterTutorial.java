@@ -18,25 +18,27 @@ public final class DatabaseAdapterTutorial {
 	//main method
 	public static void main(String[] args) {
 		
-		//Creates pet database.
-		final Specification petDatabase = new StandardSpecification();
+		//Creates the pet database.
+		final var petDatabase = new StandardSpecification();
+		
+		//Creates a database schema adapter for the pet database.
+		final var petDatabaseSchemaAdapter = new DatabaseSchemaAdapter(
+			new SpecificationDatabaseSchemaConnector(petDatabase)
+		);
 		
 		//Applies the schema to the pet database.
-			final var petDatabaseSchemaAdapter = new DatabaseSchemaAdapter(
-				new SpecificationDatabaseSchemaConnector(petDatabase)
-			);
+		petDatabaseSchemaAdapter
+		.initialize()
+		.addSchema(new PetDatabaseSchema())
+		.saveChanges();
 			
-			petDatabaseSchemaAdapter
-			.initialize()
-			.addSchema(new PetDatabaseSchema())
-			.saveChanges();
+		//Creates a database adapter for the pet database.
+		final var petDatabaseAdapter = new DatabaseAdapter(
+			new SpecificationDatabaseConnector(petDatabase),
+			new PetDatabaseSchema()
+		);
 		
 		//Fills up some data into the pet database.
-			final var petDatabaseAdapter = new DatabaseAdapter(
-				new SpecificationDatabaseConnector(petDatabase),
-				new PetDatabaseSchema()
-			);
-				
 			final var garfield = new Cat();
 			garfield.Name.setValue("Garfield");
 			garfield.WeightInGram.setValue(20000);
@@ -47,7 +49,10 @@ public final class DatabaseAdapterTutorial {
 			
 			petDatabaseAdapter
 			.getRefEntitySet(Cat.class)
-			.addEntity(garfield, wallace);
+			.addEntity(
+				garfield,
+				wallace
+			);
 			
 			final var plasticChicken = new PetToy();
 			plasticChicken.Name.setValue("Rubber chicken");
@@ -59,24 +64,25 @@ public final class DatabaseAdapterTutorial {
 			
 			petDatabaseAdapter
 			.getRefEntitySet(PetToy.class)
-			.addEntity(plasticChicken, plasticBone);
+			.addEntity(
+				plasticChicken,
+				plasticBone
+			);
 			
 			petDatabaseAdapter.saveChanges();
 		
-		//Changes some data from the pet database.
-			final var petDatabaseAdapter2 = new DatabaseAdapter(
-				new SpecificationDatabaseConnector(petDatabase),
-				new PetDatabaseSchema()
-			);
-			
-			petDatabaseAdapter2
+		//Changes some data of the pet database.
+			petDatabaseAdapter
 			.getRefEntitySet(Cat.class)
 			.getRefEntities()
 			.getRefFirst(c -> c.Name.getValue().equals("Garfield"))
 			.WeightInGram
 			.setValue(21000);
 			
-			petDatabaseAdapter2.saveChanges();
+			petDatabaseAdapter.saveChanges();
+			
+		//Prints the pet database out to the console.
+		System.out.println(petDatabase.toFormatedString());
 	}
 	
 	//inner class
@@ -90,6 +96,9 @@ public final class DatabaseAdapterTutorial {
 			);
 		}
 	}
+	
+	//private constructor
+	private DatabaseAdapterTutorial() {}
 	
 	//inner class
 	private static final class Cat extends Entity {
@@ -106,7 +115,4 @@ public final class DatabaseAdapterTutorial {
 		public final Property<String> Name = new Property<String>();
 		public final Property<String> Material = new Property<String>();
 	}
-	
-	//private constructor
-	private DatabaseAdapterTutorial() {}
 }
