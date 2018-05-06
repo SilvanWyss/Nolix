@@ -7,7 +7,6 @@ import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.Property;
 import ch.nolix.core.databaseAdapter.Schema;
 import ch.nolix.core.databaseSchemaAdapter.DatabaseSchemaAdapter;
-import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationDatabaseConnector.SpecificationDatabaseConnector;
 import ch.nolix.core.specificationDatabaseSchemaConnector.SpecificationDatabaseSchemaConnector;
