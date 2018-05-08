@@ -7,7 +7,7 @@ package ch.nolix.core.constants;
  * 
  * @author Silvan Wyss
  * @month 2018-04
- * @lines 70
+ * @lines 80
  */
 public class PascalCaseNameCatalogue {
 
@@ -30,6 +30,7 @@ public class PascalCaseNameCatalogue {
 	public static final String DATA_TYPE = "DataType";
 	public static final String DATE = "Date";
 	public static final String DATE_OF_BIRTH = "DateOfBirth";
+	public static final String DEFAULT = "Default";
 	public static final String DESCRIPTION = "Description";
 	public static final String DISTANCE = "Distance";
 	public static final String DURATION = "Duration";
@@ -59,6 +60,7 @@ public class PascalCaseNameCatalogue {
 	public static final String STATE = "State";
 	public static final String SUMMARY = "Summary";
 	public static final String SURNAME = "Surname";
+	public static final String TAB = "Tab";
 	public static final String TEXT = "Text";
 	public static final String TEXT_COLOR = "TextColor";
 	public static final String TEXT_SIZE = "TextSize";
