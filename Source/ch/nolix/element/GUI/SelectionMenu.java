@@ -197,7 +197,7 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
-	protected SelectionMenuLook createWidgetStructure() {
+	protected SelectionMenuLook createWidgetLook() {
 		return new SelectionMenuLook();
 	}
 	

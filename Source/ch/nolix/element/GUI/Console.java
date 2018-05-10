@@ -538,9 +538,9 @@ implements Clearable<Console> {
 	
 	//method
 	/**
-	 * Creates a new widget structure for this console.
+	 * @return a new widget look for this console.
 	 */
-	protected ConsoleLook createWidgetStructure() {
+	protected ConsoleLook createWidgetLook() {
 		return new ConsoleLook();
 	}
 

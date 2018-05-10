@@ -177,8 +177,11 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 		}
 	}
 
-	@Override
-	protected CheckBoxLook createWidgetStructure() {
+	//method
+	/**
+	 * @return a new widget look for this check box.
+	 */
+	protected CheckBoxLook createWidgetLook() {
 		return new CheckBoxLook();
 	}
 

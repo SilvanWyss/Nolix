@@ -263,9 +263,9 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * Creates a new widget structure for this area.
+	 * @return a new widget look for this area.
 	 */
-	protected AreaLook createWidgetStructure() {
+	protected AreaLook createWidgetLook() {
 		return new AreaLook();
 	}
 	

@@ -323,9 +323,9 @@ implements Clearable<TabContainer> {
 	
 	//method
 	/**
-	 * @return a new {@link TabContainerLook}.
+	 * @return a new widget look for the current {@link TabContainer}.
 	 */
-	protected TabContainerLook createWidgetStructure() {
+	protected TabContainerLook createWidgetLook() {
 		return new TabContainerLook();
 	}
 	

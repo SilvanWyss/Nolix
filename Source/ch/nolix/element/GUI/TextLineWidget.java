@@ -148,7 +148,8 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 		);	
 	}
 	
-	protected TextLineWidgetLook createWidgetStructure() {
+	//method
+	protected TextLineWidgetLook createWidgetLook() {
 		return new TextLineWidgetLook();
 	}
 	

@@ -190,7 +190,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
-	protected GridLook createWidgetStructure() {
+	protected GridLook createWidgetLook() {
 		return new GridLook();
 	}
 

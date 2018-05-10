@@ -141,7 +141,8 @@ extends Container<SingleContainer, SingleContainerLook> {
 		widget.paintUsingPositionOnContainer(painter);
 	}
 
-	protected SingleContainerLook createWidgetStructure() {
+	//method
+	protected SingleContainerLook createWidgetLook() {
 		return new SingleContainerLook();
 	}
 	public ReadContainer<Widget<?, ?>> getRefWidgets() {

@@ -225,9 +225,9 @@ implements Clearable<S> {
 	
 	//method
 	/**
-	 * Lets this stack create a new widget structure.
+	 * @return a new widget look for this stack.
 	 */
-	protected final StackLook createWidgetStructure() {
+	protected final StackLook createWidgetLook() {
 		return new StackLook();
 	}
 	

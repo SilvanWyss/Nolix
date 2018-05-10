@@ -29,7 +29,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1330
+ * @lines 1340
  * @param <W> The type of a widget.
  * @param <WS> The type of the widget structures of a widget.
  */
@@ -60,10 +60,10 @@ extends ConfigurableElement<W> {
 	private WidgetState state = WidgetState.Normal;
 	private boolean greyOutWhenDisabled = true;
 	private CursorIcon cursorIcon = CursorIcon.Arrow;
-	private final WS normalStructure = createWidgetStructure();
-	private final WS hoverStructure = createWidgetStructure();
-	private final WS focusStructure = createWidgetStructure();
-	private final WS hoverFocusStructure = createWidgetStructure();
+	private final WS normalStructure = createWidgetLook();
+	private final WS hoverStructure = createWidgetLook();
+	private final WS focusStructure = createWidgetLook();
+	private final WS hoverFocusStructure = createWidgetLook();
 	private int mouseXPosition;
 	private int mouseYPosition;
 	
@@ -1210,11 +1210,9 @@ extends ConfigurableElement<W> {
 	
 	//abstract method
 	/**
-	 * Creates a new widget structure for this widget.
-	 * 
-	 * @return a new widget structure.
+	 * @return a new widget look for this widget.
 	 */
-	protected abstract WS createWidgetStructure();
+	protected abstract WS createWidgetLook();
 	
 	//method
 	/**

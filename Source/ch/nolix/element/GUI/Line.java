@@ -237,9 +237,9 @@ extends Widget<L, LineLook> {
 	
 	//method
 	/**
-	 * @return a new widget structure for this line.
+	 * @return a new widget look for this line.
 	 */
-	protected final LineLook createWidgetStructure() {
+	protected final LineLook createWidgetLook() {
 		return new LineLook();
 	}
 	
