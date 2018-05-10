@@ -46,6 +46,14 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
+	/**
+	 * @return the active cursor icon of the current {@link Area}.
+	 */
+	public CursorIcon getActiveCursorIcon() {
+		return getCursorIcon();
+	}
+	
+	//method
 	public List<StandardSpecification> getAttributes() {
 		
 		final var attributes = super.getAttributes();

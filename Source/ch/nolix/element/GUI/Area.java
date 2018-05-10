@@ -110,6 +110,14 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
+	 * @return the active cursor icon of the current {@link Area}.
+	 */
+	public CursorIcon getActiveCursorIcon() {
+		return getCursorIcon();
+	}
+	
+	//method
+	/**
 	 * @return the attributes of this area.
 	 */
 	public List<StandardSpecification> getAttributes() {

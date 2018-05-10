@@ -73,6 +73,14 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//method
 	/**
+	 * @return the active cursor icon of the current {@link CheckBox}.
+	 */
+	public CursorIcon getActiveCursorIcon() {
+		return getCursorIcon();
+	}
+	
+	//method
+	/**
 	 * @return the attributes of this check box.
 	 */
 	public List<StandardSpecification> getAttributes() {

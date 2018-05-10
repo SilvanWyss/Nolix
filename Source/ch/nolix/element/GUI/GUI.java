@@ -262,7 +262,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 			return CursorIcon.Arrow;
 		}
 		
-		return widget.getCursorIcon();
+		return widget.getActiveCursorIcon();
  	}
 	
 	//method

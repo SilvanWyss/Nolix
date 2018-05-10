@@ -142,6 +142,14 @@ implements Clearable<Console> {
 	
 	//method
 	/**
+	 * @return the active cursor icon of the current {@link Console}.
+	 */
+	public CursorIcon getActiveCursorIcon() {
+		return getCursorIcon();
+	}
+	
+	//method
+	/**
 	 * @return the attributes of this console.
 	 */
 	public List<StandardSpecification> getAttributes() {

@@ -175,6 +175,12 @@ extends ConfigurableElement<W> {
 		return (this.parentGUI != GUI);
 	}
 	
+	//abstract method
+	/**
+	 * @return the active cursor icon of the current {@link Widget}.
+	 */
+	public abstract CursorIcon getActiveCursorIcon();
+	
 	//method
 	/**
 	 * @return the attributes of the current {@link Widget}.

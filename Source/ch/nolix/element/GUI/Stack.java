@@ -121,6 +121,14 @@ implements Clearable<S> {
 	
 	//method
 	/**
+	 * @return the active cursor icon of the current {@link Stack}.
+	 */
+	public CursorIcon getActiveCursorIcon() {
+		return getCursorIcon();
+	}
+	
+	//method
+	/**
 	 * @return the active element margin of this stack.
 	 */
 	public final int getActiveElementMargin() {

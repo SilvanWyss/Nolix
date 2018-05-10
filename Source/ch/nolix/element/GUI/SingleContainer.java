@@ -51,6 +51,14 @@ extends Container<SingleContainer, SingleContainerLook> {
 	
 	//method
 	/**
+	 * @return the active cursor icon of the current {@link Area}.
+	 */
+	public CursorIcon getActiveCursorIcon() {
+		return getCursorIcon();
+	}
+	
+	//method
+	/**
 	 * @return the attributes of this element
 	 */
 	public final List<StandardSpecification> getAttributes() {

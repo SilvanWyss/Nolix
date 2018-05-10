@@ -54,6 +54,14 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	
 	//method
 	/**
+	 * @return the active cursor icon of the current {@link TextLineWidget}.
+	 */
+	public final CursorIcon getActiveCursorIcon() {
+		return getCursorIcon();
+	}
+	
+	//method
+	/**
 	 * @return the attributes of this text line rectangle
 	 */
 	public List<StandardSpecification> getAttributes() {

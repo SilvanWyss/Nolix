@@ -176,23 +176,6 @@ implements Clearable<TabContainer> {
 	public boolean containsSelectedWidget() {
 		return (containsAny() && getRefSelectedTab().containsAny());
 	}
-		
-	//method
-	/**
-	 * @return the attributes of the current {@link TabContainer}.
-	 */
-	public List<StandardSpecification> getAttributes() {
-		
-		//Calls method of the base class.
-		final var attributes = super.getAttributes();
-		
-		//Iterates the tabs of the current tab container.
-		for (final var t : getRefTabs()) {
-			attributes.addAtEnd(t.getSpecificationAs(PascalCaseNameCatalogue.TAB));
-		}
-				
-		return attributes;
-	}
 	
 	//TODO: Add getActiveCursorIcon method to Widget.
 	//method
@@ -213,6 +196,23 @@ implements Clearable<TabContainer> {
 		//Handles the case that there is no menu item under the cursor.
 			//Calls method of the base class.
 			return super.getCursorIcon();
+	}
+		
+	//method
+	/**
+	 * @return the attributes of the current {@link TabContainer}.
+	 */
+	public List<StandardSpecification> getAttributes() {
+		
+		//Calls method of the base class.
+		final var attributes = super.getAttributes();
+		
+		//Iterates the tabs of the current tab container.
+		for (final var t : getRefTabs()) {
+			attributes.addAtEnd(t.getSpecificationAs(PascalCaseNameCatalogue.TAB));
+		}
+				
+		return attributes;
 	}
 	
 	//method
