@@ -264,8 +264,10 @@ extends BackgroundWidget<BW, BWS> {
 		
 		return
 		currentStructure.getRecursiveOrDefaultTopBorderThickness()
+		+ currentStructure.getRecursiveOrDefaultTopPadding()
 		+ getScrollAreaHeight()
 		+ getHorizontalScrollbarThickness()
+		+ currentStructure.getRecursiveOrDefaultBottomPadding()
 		+ currentStructure.getRecursiveOrDefaultBottomBorderThickness();
 	}
 	
@@ -284,8 +286,10 @@ extends BackgroundWidget<BW, BWS> {
 		
 		return
 		currentStructure.getRecursiveOrDefaultLeftBorderThickness()
+		+ currentStructure.getRecursiveOrDefaultLeftPadding()
 		+ getScrollAreaWidth()
 		+ getVerticalScrollbarThickness()
+		+ currentStructure.getRecursiveOrDefaultRightPadding()
 		+ currentStructure.getRecursiveOrDefaultRightBorderThickness();
 	}
 	
