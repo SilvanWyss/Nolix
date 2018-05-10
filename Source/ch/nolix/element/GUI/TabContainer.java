@@ -1,157 +1,124 @@
-/*
- * file:	TabContainer.java
- * author:	Silvan Wyss
- * month:	2016-04
- * lines:	800
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.interfaces.Clearable;
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.element.color.Color;
-import ch.nolix.element.core.PositiveInteger;
-import ch.nolix.element.data.TextColor;
-import ch.nolix.element.intData.Margin;
 import ch.nolix.element.painter.IPainter;
+import ch.nolix.primitive.invalidStateException.EmptyStateException;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
-public class TabContainer
-extends Container<TabContainer, TabContainerLook> {
+/**
+ * A {@link TabContainer} is clearable.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-04
+ * @lines 100
+ */
+public final class TabContainer
+extends Container<TabContainer, TabContainerLook>
+implements Clearable<TabContainer> {
 
-	//type name
+	//constant
 	public static final String TYPE_NAME = "TabContainer";
-	
-	//attribute headers
-	private static final String MENU_ITEM_MARGIN = "MenuItemMargin";
-	private static final String MENU_ITEM_PADDING = "MenuItemPadding";
-	private static final String MENU_ITEM_LEFT_PADDING = "MenuItemLeftPadding";
-	private static final String MENU_ITEM_RIGHT_PADDING = "MenuItemRightPadding";
-	private static final String MENU_ITEM_BOTTOM_PADDING = "MenuItemBottomPadding";
-	private static final String MENU_ITEM_TOP_PADDING = "MenuItemTopPadding";
-	private static final String MENU_MARGIN = "MenuMargin";
-	private static final String TAB = "Tab";
-	private static final String CURRENT_TAB = "CurrentTab";
 
-	//attributes
-	private final TabContainerMenuItemLook normalMenuItemStructure = new TabContainerMenuItemLook();
-	private final TabContainerMenuItemLook hoverMenuItemStructure = new TabContainerMenuItemLook();
-	private final TabContainerMenuItemLook focusMenuItemStructure = new TabContainerMenuItemLook();
+	//attribute
 	private final HorizontalStack menu = new HorizontalStack();
 	
-	//optional attributes
-	private PositiveInteger menuItemLeftPadding;
-	private PositiveInteger menuItemRightPadding;
-	private PositiveInteger menuItemBottomPadding;
-	private PositiveInteger menuItemTopPadding;
-	private Margin menuMargin;
-	private TabContainerTab currentTab;
-	private String nextCurrentTab;
-	
-	//multiple attribute
+	//multi-attribute
 	private final List<TabContainerTab> tabs = new List<TabContainerTab>();
 	
 	//constructor
 	/**
-	 * Creates a new empty tab container with default values.
+	 * Creates a new empty tab container.
 	 */
 	public TabContainer() {
+		reset();
+		approveProperties();
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link TabContainer} with the given tabs.
+	 * 
+	 * @param tabs
+	 * @throws NullArgumentException if the given tab container is null.
+	 * @throws NullArgumentException if one of the given tabs is null.
+	 */
+	public TabContainer(final Iterable<TabContainerTab> tabs) {
 		
-		hoverMenuItemStructure.setNormalStructure(normalMenuItemStructure);
-		focusMenuItemStructure.setNormalStructure(normalMenuItemStructure);
+		//Calls other constructor.
+		this();
+		
+		addTabs(tabs);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link TabContainer} with the given tabs.
+	 * 
+	 * @param tabs
+	 * @throws NullArgumentException if the given tab container is null.
+	 * @throws NullArgumentException if one of the given tabs is null.
+	 */
+	public TabContainer(final TabContainerTab... tabs) {
+		
+		//Calls other constructor.
+		this(new ReadContainer<TabContainerTab>(tabs));
 	}
 	
 	//method
 	/**
-	 * Sets the given attribute
+	 * Adds or changes the given attribute to the current {@link TabContainer}.
 	 * 
 	 * @param attribute
-	 * @throws Exception if the given attribute is not valid
+	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	public void addOrChangeAttribute(final Specification attribute) {
+		
+		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case MENU_ITEM_PADDING:
-				setMenuItemPadding(attribute.getOneAttributeAsInt());
+			case PascalCaseNameCatalogue.TAB:
+				addTab(TabContainerTab.createFromSpecification(attribute));
 				break;
-			case MENU_ITEM_LEFT_PADDING:
-				setMenuItemLeftPadding(attribute.getOneAttributeAsInt());
-				break;
-			case MENU_ITEM_RIGHT_PADDING:
-				setMenuItemRightPadding(attribute.getOneAttributeAsInt());
-				break;
-			case MENU_ITEM_BOTTOM_PADDING:
-				setMenuItemBottomPadding(attribute.getOneAttributeAsInt());			
-				break;
-			case MENU_ITEM_TOP_PADDING:
-				setMenuItemTopPadding(attribute.getOneAttributeAsInt());
-				break;
-			case MENU_MARGIN:
-				setMenuMargin(attribute.getOneAttributeAsInt());
-				break;
-			case MENU_ITEM_MARGIN:
-				setMenuItemMargin(attribute.getOneAttributeAsInt());
-				break;
-			case CURRENT_TAB:
-				selectTab(attribute.getOneAttributeAsString());
-				break;
-			case TAB:
-				TabContainerTab tab = new TabContainerTab();
-				//tab.setTabContainer(this);
+			default:		
 				
-				addTab(tab);
-				tab.addOrChangeAttributes(attribute.getRefAttributes());
-				break;
-			default:	
-				if (attribute.getHeader().startsWith("NormalMenuItem")) {
-					final Specification temp = attribute.createCopy();
-					temp.setHeader(attribute.getHeader().substring("NormalMenuItem".length()));
-					getRefNormalMenuItemStructure().setAttribute(temp);
-				}
-				else if (attribute.getHeader().startsWith("HoverMenuItem")) {
-					final Specification temp = attribute.createCopy();
-					temp.setHeader(attribute.getHeader().substring("HoverMenuItem".length()));
-					getRefHoverMenuItemStructure().setAttribute(temp);
-				}
-				else if (attribute.getHeader().startsWith("FocusMenuItem")) {
-					final Specification temp = attribute.createCopy();
-					temp.setHeader(attribute.getHeader().substring("FocusMenuItem".length()));
-					getRefFocusMenuItemStructure().setAttribute(temp);
-				}
-				else {
-				
-					//Calls method of the base class.
-					super.addOrChangeAttribute(attribute);
-				}
+				//Calls method of the base class.
+				super.addOrChangeAttribute(attribute);
 		}	
 	}
 	
 	//method
 	/**
-	 * Adds the given tab to this tab container.
+	 * Adds the given tab to the current {@link TabContainer}.
 	 * 
 	 * @param tab
+	 * @return the current {@link TabContainer}.
+	 * @throws NullArgumentException if the given tab is null.
 	 */
-	public TabContainer addTab(TabContainerTab tab) {
+	public TabContainer addTab(final TabContainerTab tab) {
 		
-		Label menuItemLabel = new Label();
-		menuItemLabel.setText(tab.getName());
+		Validator
+		.suppose(tab)
+		.thatIsNamed(PascalCaseNameCatalogue.TAB)
+		.isNotNull();
+		
+		final var menuItemLabel = new Label();
+		menuItemLabel.setText(tab.getHeader());
 		menuItemLabel.setCursorIcon(CursorIcon.Hand);
 		menu.addWidget(menuItemLabel);
 		
-		tab.setTabContainer(this, menuItemLabel);
+		tab.setParentTabContainer(this, menuItemLabel);
 		tabs.addAtEnd(tab);
 		
-		if (!hasCurrentTab()) {
-			selectTab(tab.getName());
-		}
-		
-		if (tab.hasName(nextCurrentTab)) {
-			selectTab(tab.getName());
+		if (getRefTabs().containsOne()) {
+			selectTab(tab.getHeader());
 		}
 		
 		return this;
@@ -159,214 +126,123 @@ extends Container<TabContainer, TabContainerLook> {
 	
 	//method
 	/**
-	 * Adds the given tabs to this tab container.
+	 * Adds the given tabs to the current {@link TabContainer}.
 	 * 
 	 * @param tabs
-	 * @return this tab container
+	 * @return the current {@link TabContainer}.
 	 */
 	public TabContainer addTab(TabContainerTab... tabs) {
+		return addTabs(new ReadContainer<TabContainerTab>(tabs));
+	}
+	
+	//method
+	/**
+	 * Adds the given tabs to the current {@link TabContainer}.
+	 * 
+	 * @param tabs
+	 * @return the current {@link TabContainer}.
+	 * @throws NullArgumentException if the given tab container is null.
+	 */
+	public TabContainer addTabs(final Iterable<TabContainerTab> tabs) {
 		
-		//Iterates the given tabs.
-		for (TabContainerTab t: tabs) {
-			addTab(t);
-		}
+		//Checks if the given tabs is not null.
+		Validator
+		.suppose(tabs)
+		.thatIsNamed("tabs container")
+		.isNotNull();
+		
+		tabs.forEach(t -> addTab(t));
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * Removes all tabs of the current {@link TabContainer}.
+	 * 
+	 * @return the current {@link TabContainer}.
+	 */
+	public TabContainer clear() {
+		
+		tabs.clear();
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link TabContainer} contains a selected widget.
+	 */
+	public boolean containsSelectedWidget() {
+		return (containsAny() && getRefSelectedTab().containsAny());
 	}
 		
 	//method
 	/**
-	 * @return the attributes of this tab container
+	 * @return the attributes of the current {@link TabContainer}.
 	 */
 	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
-				
-		if (hasMenuItemMargin()) {
-			attributes.addAtEnd(new StandardSpecification(MENU_ITEM_MARGIN + "(" + getMenuItemMargin() + ")"));
-		}
+		final var attributes = super.getAttributes();
 		
-		if (hasMenuItemLeftPadding()) {
-			attributes.addAtEnd(menuItemLeftPadding.getSpecificationAs(MENU_ITEM_LEFT_PADDING));
-		}		
-		if (hasMenuItemRightPadding()) {
-			attributes.addAtEnd(menuItemRightPadding.getSpecificationAs(MENU_ITEM_RIGHT_PADDING));
-		}		
-		if (hasMenuItemBottomPadding()) {
-			attributes.addAtEnd(menuItemBottomPadding.getSpecificationAs(MENU_ITEM_BOTTOM_PADDING));
+		//Iterates the tabs of the current tab container.
+		for (final var t : getRefTabs()) {
+			attributes.addAtEnd(t.getSpecificationAs(PascalCaseNameCatalogue.TAB));
 		}
-		
-		if (hasMenuMargin()) {
-			attributes.addAtEnd(new StandardSpecification(MENU_MARGIN, menuMargin.getAttributes()));
-		}
-				
-		attributes.addAtEnd(
-			getRefHoverMenuItemStructure().getAttributes().forEachAndGetList(a -> a.addPrefixToHeader("NormalMenuItem"))
-		);
-		attributes.addAtEnd(
-			getRefHoverMenuItemStructure().getAttributes().forEachAndGetList(a -> a.addPrefixToHeader("HoverMenuItem"))
-		);
-		attributes.addAtEnd(
-			getRefFocusMenuItemStructure().getAttributes().forEachAndGetList(a -> a.addPrefixToHeader("FocusMenuItem"))
-		);
-			
-		if (hasCurrentTab()) {
-			attributes.addAtEnd(new StandardSpecification("CurrentTab(" + currentTab.getName() + ")"));
-		}
-		attributes.addAtEnd(tabs.to(t -> t.getSpecificationAs(TAB)));
 				
 		return attributes;
 	}
 	
 	//method
 	/**
-	 * @return the margin of the items of the menu of this tab container
+	 * @return the cursor icon of the current {@link TabContainer}.
 	 */
-	public int getMenuItemMargin() {
-		return menu.getActiveElementMargin();
-	}
-	
-	//method
-	/**
-	 * @return the menu item bottom padding of this tab container
-	 */
-	public int getMenuItemBottomPadding() {
+	public CursorIcon getCursorIcon() {
 		
-		//Handles the case that this tab container has a menu item bottom padding.
-		if (hasMenuItemBottomPadding()) {
-			return menuItemBottomPadding.getValue();
+		//Extracts the menu item under the cursor if there exists one.
+		final var menuItemUnderCursor =
+		menu.getRefWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
+		
+		//Handles the case that there is a menu item under the cursor.
+		if (menuItemUnderCursor != null) {
+			return menuItemUnderCursor.getCursorIcon();
 		}
 		
-		//Handles the case that this tab container has no menu item bottom padding.
-		return 0;
+		//Handles the case that there is no menu item under the cursor.
+			//Calls method of the base class.
+			return super.getCursorIcon();
 	}
 	
 	//method
 	/**
-	 * @return the menu item left padding of this tab container
+	 * @return the selected tab of the current {@link TabContainer}.
+	 * @throws EmptyArgumentException if the current {@link TabContainer} contains no tab.
 	 */
-	public int getMenuItemLeftPadding() {
+	public TabContainerTab getRefSelectedTab() {
 		
-		//Handles the case that this tab container has a menu item left padding.
-		if (hasMenuItemLeftPadding()) {
-			return menuItemLeftPadding.getValue();
-		}
+		supposeIsNotEmpty();
 		
-		//Handles the case that this tab container has no menu item left padding.
-		return 0;
+		return getRefTabs().getRefFirst(t -> t.isSelected());
+	}
+	
+	//method
+	public Widget<?, ?> getRefSelectedWidget() {
+		return getRefSelectedTab().getRefWidget();
 	}
 	
 	//method
 	/**
-	 * @return the menu item right padding of this tab container
-	 */
-	public int getMenuItemRightPadding() {
-		
-		//Handles the case that this tab container has a menu item right padding.
-		if (hasMenuItemRightPadding()) {
-			return menuItemRightPadding.getValue();
-		}
-		
-		//Handles the case that this tab container has no menu item right padding.
-		return 0;
-	}
-	
-	//method
-	/**
-	 * @return the menu item top padding of this tab container
-	 */
-	public int getMenuItemTopPadding() {
-		
-		//Handles the case that this tab container has a menu item top padding.
-		if (hasMenuItemTopPadding()) {
-			return menuItemTopPadding.getValue();
-		}
-		
-		//Handles the case that this tab container has no menu item top padding.
-		return 0;
-	}
-	
-	//method
-	/**
-	 * @return true if this tab container has a menu item bottom padding
-	 */
-	public boolean hasMenuItemBottomPadding() {
-		return (menuItemBottomPadding != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this tab container has a menu item left padding
-	 */	
-	public boolean hasMenuItemLeftPadding() {
-		return (menuItemLeftPadding != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this tab container has a menu item right padding
-	 */
-	public boolean hasMenuItemRightPadding() {
-		return (menuItemRightPadding != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this tab container has a menu item top padding
-	 */
-	public boolean hasMenuItemTopPadding() {
-		return (menuItemTopPadding != null);
-	}
-
-	//method
-	/**
-	 * @return the margin of the menu of this tab container
-	 */
-	public int getMenuMargin() {
-		
-		if (hasMenuMargin()) {
-			return menuMargin.getValue();
-		}
-		
-		return 0;
-	}
-	
-	//method
-	/**
-	 * @return the focus structure of the items of the menu of this tab container
-	 */
-	public TabContainerMenuItemLook getRefFocusMenuItemStructure() {
-		return focusMenuItemStructure;
-	}
-	
-	//method
-	/**
-	 * @return the hover structure of the items of the menu of this tab container
-	 */
-	public TabContainerMenuItemLook getRefHoverMenuItemStructure() {
-		return hoverMenuItemStructure;
-	}
-	
-	//method
-	/**
-	 * @return the normal structure of the items of the menu of this tab container
-	 */
-	public TabContainerMenuItemLook getRefNormalMenuItemStructure() {
-		return normalMenuItemStructure;
-	}
-	
-	//method
-	/**
-	 * @return the rectangles of this tab container
+	 * @return the widgets of the current {@link TabContainer}.
 	 */
 	public ReadContainer<Widget<?, ?>> getRefWidgets() {
 		
-		final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>();
+		final var widgets = new List<Widget<?, ?>>();
 		
-		for (TabContainerTab t: tabs) {
-			if (t.hasRectangle()) {
-				widgets.addAtEnd(t.getRefRectangle());
+		//Iterates the tabs of the current tab container.
+		for (final var t: getRefTabs()) {
+			if (t.containsAny()) {
+				widgets.addAtEnd(t.getRefWidget());
 			}
 		}
 		
@@ -374,427 +250,140 @@ extends Container<TabContainer, TabContainerLook> {
 	}
 	
 	//method
-	/**
-	 * @return the rectangleso of this tab container that are shown
-	 */
-	public ReadContainer<Widget<?, ?>> getRefShownWidgets() {
-		
-		final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>();
-		
-		if (currentTab.hasRectangle()) {
-			widgets.addAtEnd(currentTab.getRefRectangle());
-		}
-		
-		return new ReadContainer<>(widgets);
+	public boolean isEmpty() {
+		return getRefTabs().isEmpty();
 	}
 	
 	//method
 	/**
-	 * @return true if the items of the menu of this tab container have a margin
-	 */
-	public boolean hasMenuItemMargin() {
-		return menu.hasElementMargin();
-	}
-	
-	//method
-	/**
-	 * @return true if the menu of this tab container has a margin
-	 */
-	public boolean hasMenuMargin() {
-		return (menuMargin != null);
-	}
-	
-	//method
-	/**
-	 * Removes the menu item bottom padding of this tab container.
-	 * 
-	 * @return this tab container
-	 */
-	public TabContainer removeMenuItemBottomPadding() {
-		
-		menuItemBottomPadding = null;
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Removes the menu item left padding of this tab container.
-	 * 
-	 * @return this tab container
-	 */
-	public TabContainer removeMenuItemLeftPadding() {
-		
-		menuItemLeftPadding = null;
-		
-		return this;
-	}
-	
-	public TabContainer removeMenuItemPadding() {
-		
-		removeMenuItemLeftPadding();
-		removeMenuItemRightPadding();
-		removeMenuItemBottomPadding();
-		removeMenuItemTopPadding();
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Removes the menu item right padding of this tab container.
-	 * 
-	 * @return this tab container
-	 */
-	public TabContainer removeMenuItemRightPadding() {
-		
-		menuItemRightPadding = null;
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Removes the menu item top padding of this tab container.
-	 * 
-	 * @return this tab container
-	 */
-	public TabContainer removeMenuItemTopPadding() {
-		
-		menuItemTopPadding = null;
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Removes the menu margin of this tab container.
-	 * 
-	 * @return this tab container
-	 */
-	public TabContainer removeMenuMargin() {
-		
-		menuMargin = null;
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Sets the default configuration of this tab container.
-	 * 
-	 * @return this tab container.
-	 */
-	public TabContainer resetConfiguration() {
-		
-		//Calls method of the base class.
-		super.resetConfiguration();
-		
-		removeMenuMargin();
-		removeMenuItemPadding();
-		
-		getRefNormalMenuItemStructure().removeBackgroundColor();
-		getRefNormalMenuItemStructure().setTextSize(ValueCatalogue.MEDIUM_TEXT_SIZE);
-		getRefNormalMenuItemStructure().setTextColor(new TextColor(Color.BLACK_STRING));
-		
-		getRefHoverMenuItemStructure().removeBackgroundColor();
-		getRefHoverMenuItemStructure().removeTextColor();
-		getRefHoverMenuItemStructure().removeTextSize();
-		
-		getRefFocusMenuItemStructure().removeBackgroundColor();
-		getRefFocusMenuItemStructure().removeTextColor();
-		getRefFocusMenuItemStructure().removeTextSize();
-		
-		return this;
-	}
-	
-	public void selectTab(String name) {
-		
-		if (tabs.contains(t -> t.hasName(name))) {
-			currentTab = tabs.getRefFirst(t -> t.hasName(name));
-			
-			for (Widget<?, ?> mi: menu.getRefWidgets()) {
-				Label menuItem = (Label)mi;
-				if (menuItem.getText().equals(name)) {
-					menuItem.setFocused();
-				}
-				else {
-					menuItem.setNormal();
-				}
-			}
-		}
-		else {
-			nextCurrentTab = name;
-		}
-	}
-		
-	//method
-	/**
-	 * Sets the dialog of this tab container.
-	 */
-	public void setGUI(GUI<?> dialog) {
-		
-		//Calls method of the base class.
-		super.setGUI(dialog);
-		
-		menu.setGUI(dialog);
-	}
-	
-	//method
-	/**
-	 * Sets the margin of the items of the menu of this tab container.
-	 * 
-	 * @param menuItemsMargin
-	 * @throws Exception if the given menu items margin is not positive
-	 */
-	public void setMenuItemMargin(int menuItemsMargin) {
-		menu.setElementMargin(menuItemsMargin);
-	}
-	
-	//method
-	/**
-	 * Sets the menu item bottom padding of this tab container.
-	 * 
-	 * @param menuItemBottomPadding
-	 * @throws Exception if the given menu item bottom padding is not positive
-	 * @return this tab container
-	 */
-	public TabContainer setMenuItemBottomPadding(final int menuItemBottomPadding) {
-		
-		this.menuItemBottomPadding = new PositiveInteger(menuItemBottomPadding);
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Sets the menu item left padding of this tab container.
-	 * 
-	 * @param menuItemLeftPadding
-	 * @throws Exception if the given menu item left padding is not positive
-	 * @return this tab container
-	 */
-	public TabContainer setMenuItemLeftPadding(final int menuItemLeftPadding) {
-		
-		this.menuItemLeftPadding = new PositiveInteger(menuItemLeftPadding);
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Sets the menu item padding of this tab container
-	 * 
-	 * @param menuItemPadding
-	 * @return this tab container
-	 * @throws Exception if the given menu itme padding is not positive
-	 */
-	public TabContainer setMenuItemPadding(final int menuItemPadding) {
-		
-		setMenuItemLeftPadding(menuItemPadding);
-		setMenuItemRightPadding(menuItemPadding);
-		setMenuItemBottomPadding(menuItemPadding);
-		setMenuItemTopPadding(menuItemPadding);
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Sets the menu item right padding of this tab container.
-	 * 
-	 * @param menuItemRightPadding
-	 * @throws Exception if the given menu item right padding is not positive
-	 * @return this tab container
-	 */
-	public TabContainer setMenuItemRightPadding(final int menuItemRightPadding) {
-		
-		this.menuItemRightPadding = new PositiveInteger(menuItemRightPadding);
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Sets the menu item top padding of this tab container.
-	 * 
-	 * @param menuItemTopPadding
-	 * @return this tab container
-	 * @throws Exception if the given menu item top padding is not positive
-	 */
-	public TabContainer setMenuItemTopPadding(final int menuItemTopPadding) {
-		
-		this.menuItemTopPadding = new PositiveInteger(menuItemTopPadding);
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Sets the margin of the menu of this tab container.
-	 * 
-	 * @param menuMargin
-	 * @throws Exception if the given menu margin is not positive
-	 */
-	public void setMenuMargin(int menuMargin) {
-		this.menuMargin = new Margin(menuMargin);
-	}
-
-	//method
-	/**
-	 * @return the current height of the content of this tab container
-	 */
-	protected final int getContentHeight() {
-		
-		if (currentTab.hasRectangle()) {
-			return menu.getHeight()
-					+ getMenuMargin()
-					+ currentTab.getRefRectangle().getHeight();
-		}
-		
-		return menu.getHeight() + getMenuMargin();
-	}
-
-	//method
-	/**
-	 * @return the current width of the content of this tab container
-	 */
-	protected final int getContentWidth() {
-		
-		if (currentTab.hasRectangle()) {
-			return Calculator.getMax(
-					menu.getWidth(),
-					currentTab.getRefRectangle().getWidth()
-			);
-		}
-		
-		return menu.getWidth();
-	}
-	
-	//method
-	/**
-	 * @return true if this tab container has a current structure
-	 */
-	protected final boolean hasCurrentTab() {
-		return currentTab != null;
-	}
-	
-	//method
-	/**
-	 * Lets this tab container note a left mouse button press.
+	 * Lets the current {@link TabContainer} note a left mouse button press.
 	 */
 	public void noteLeftMouseButtonPress() {
 		
 		//Calls method of the base class.
 		super.noteLeftMouseButtonPress();
 		
-		if (menu.isUnderCursor()) {
-			
-			menu.noteLeftMouseButtonPress();
-			
-			if (menu.getRefWidgets().contains(r -> r.isUnderCursor())) {
-				selectTab(((Label)menu.getRefWidgets().getRefFirst(r -> r.isUnderCursor())).getText());
-			}
+		final var selectedMenuItem = (Label)menu.getRefWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
+		
+		if (selectedMenuItem != null) {
+			selectTab(selectedMenuItem.getText());
 		}
 	}
 	
+	//method
+	/**
+	 * Lets the current {@link TabContainer} note a mouse move.
+	 */
 	public void noteMouseMove() {
 		
+		//Calls method of the base class.
 		super.noteMouseMove();
-		menu.noteMouseMove();
-	}
-
-	/**
-	 * Paints this tab container using the given rectangle structure and given painter.
-	 * 
-	 * @param rectangleStructure
-	 * @param painter
-	 */
-	protected void paintContent(
-		final TabContainerLook rectangleStructure,
-		final IPainter painter
-	) {
-		getRefShownWidgets().forEach(w -> w.paintUsingPositionOnContainer(painter));
 		
-		//Update problem, when does the menu take the data from the structures?
-		//Answer: not when it is painted, but on events: tab container must lead events though!
-		//Paints the menu of this tab container.
-		for (Widget<?, ?> mi: menu.getRefWidgets()) {
-			
-			Label label = (Label)mi;
-			
-			label.setCursorIcon(CursorIcon.Hand);
-			
-			label.getRefBaseLook().removePaddings();
-			if (hasMenuItemLeftPadding()) {
-				label.getRefBaseLook().setLeftPadding(getMenuItemLeftPadding());
-			}
-			if (hasMenuItemRightPadding()) {
-				label.getRefBaseLook().setRightPadding(getMenuItemRightPadding());
-			}
-			if (hasMenuItemBottomPadding()) {
-				label.getRefBaseLook().setBottomPadding(getMenuItemBottomPadding());
-			}
-			if (hasMenuItemTopPadding()) {
-				//label.setTopPadding(getMenuItemTopPadding());
-			}
-			
-			if (getRefNormalMenuItemStructure().hasBackgroundColor()) {
-				label.getRefBaseLook().setBackgroundColor(getRefNormalMenuItemStructure().getRefRecBackgroundColor());
-			}
-			else {
-				label.getRefBaseLook().removeBackgroundColor();
-			}
-			label.getRefBaseLook().setTextSize(getRefNormalMenuItemStructure().getRefRecTextSize());
-			label.getRefBaseLook().setTextColor(getRefNormalMenuItemStructure().getRefRecTextColor());
-			
-			if (getRefHoverMenuItemStructure().hasBackgroundColor()) {
-				label.getRefHoverStructure().setBackgroundColor(getRefHoverMenuItemStructure().getRefRecBackgroundColor());
-			}
-			else {
-				label.getRefHoverStructure().removeBackgroundColor();
-			}
-			label.getRefHoverStructure().setTextSize(getRefHoverMenuItemStructure().getRefRecTextSize());
-			label.getRefHoverStructure().setTextColor(getRefHoverMenuItemStructure().getRefRecTextColor());
-			
-			if (getRefFocusMenuItemStructure().hasBackgroundColor()) {
-				label.getRefFocusStructure().setBackgroundColor(getRefFocusMenuItemStructure().getRefRecBackgroundColor());
-			}
-			else {
-				label.getRefFocusStructure().removeBackgroundColor();
-			}
-			label.getRefFocusStructure().setTextSize(getRefFocusMenuItemStructure().getRefRecTextSize());
-			label.getRefFocusStructure().setTextColor(getRefFocusMenuItemStructure().getRefRecTextColor());
-			
-			label.paintUsingPositionOnContainer(painter);
+		menu.getRefWidgets().forEach(w -> w.noteAnyMouseMove());
+	}
+	
+	//method
+	/**
+	 * Selects the tab of the current {@link TabContainer} that has the given header.
+	 * 
+	 * @param header
+	 * @return the current {@link TabContainer}.
+	 * @throws UnexistingAttributeException
+	 * if the current {@link TabContainer} contains no tab with the given header.
+	 */
+	public TabContainer selectTab(final String header) {
+		
+		if (getRefTabs().contains(t -> t.isSelected())) {
+			getRefSelectedTab().unselect();
 		}
 		
-		menu.paintUsingPositionOnContainer(
-			painter.createTranslatedPainter(
-				-getContentXPosition(),
-				-getContentYPosition()
-			)
+		getRefTabs().getRefFirst(t -> t.hasHeader(header)).select();
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the cursor position of the current {@link TabContainer} from the parent container.
+	 * 
+	 * @param cursorXPositionOnParentContainer
+	 * @param cursorYPositionOnParentContainer
+	 */
+	public void setCursorPositionFromParentContainer(final int cursorXPositionOnParentContainer, final int relativeMouseYPosition) {
+		
+		//Calls method of the base class.
+		super.setCursorPositionFromParentContainer(cursorXPositionOnParentContainer, relativeMouseYPosition);
+		
+		//TODO: Correct cursor position.
+		menu.setCursorPositionFromParentContainer(
+			getCursorXPositionOnScrollArea(),
+			getCursorYPositionOnScrollArea()
 		);
 	}
 	
 	//method
 	/**
-	 * Sets the relative mouse position of this tab container.
-	 * 
-	 * @param relativeMouseXPosition
-	 * @param realtiveMouseYPosition
+	 * @return a new {@link TabContainerLook}.
 	 */
-	public void setCursorPositionFromParentContainer(final int relativeMouseXPosition, final int relativeMouseYPosition) {
-		
-		//Calls method of the base class.
-		super.setCursorPositionFromParentContainer(relativeMouseXPosition, relativeMouseYPosition);
-		
-		menu.setCursorPositionFromParentContainer(getCursorXPosition(), getCursorYPosition());
+	protected TabContainerLook createWidgetStructure() {
+		return new TabContainerLook();
 	}
 	
 	//method
 	/**
-	 * Sets the relative position of this tab container.
+	 * @return the current height of the content of the current {@link TabContainer}
+	 */
+	protected final int getContentHeight() {
+		
+		var height = menu.getHeight();
+		
+		height += getRefCurrentStructure().getRecursiveOrDefaultMenuMargin();
+		
+		if (containsAny()) {
+			height += getRefTabs().getMaxInt(t -> t.getHeight());
+		}
+		
+		return height;
+	}
+
+	//method
+	/**
+	 * @return the current width of the content of the current {@link TabContainer}
+	 */
+	protected final int getContentWidth() {
+		
+		if (containsAny()) {
+			return Calculator.getMax(
+				menu.getWidth(),
+				getRefTabs().getMaxInt(t -> t.getWidth())
+			);
+		}
+		
+		return menu.getWidth();
+	}
+	
+	/**
+	 * Paints the current {@link TabContainer} using the given rectangle structure and given painter.
+	 * 
+	 * @param rectangleStructure
+	 * @param painter
+	 */
+	protected void paintContent(
+		final TabContainerLook tabContainerLook,
+		final IPainter painter
+	) {
+		menu.setElementMargin(tabContainerLook.getRecursiveOrDefaultMenuItemMargin());
+		
+		menu.paintUsingPositionOnContainer(painter);
+		
+		if (containsAny() && getRefSelectedTab().containsAny()) {
+			getRefSelectedWidget().paintUsingPositionOnContainer(painter);
+		}
+	}
+	
+	//method
+	/**
+	 * Sets the relative position of the current {@link TabContainer}.
 	 * 
 	 * @param relativeXPosition
 	 * @param relativeYPosition
@@ -808,20 +397,39 @@ extends Container<TabContainer, TabContainerLook> {
 		super.setPositionOnContainer(relaitveXPosition, relativeYPosition);
 		
 		menu.setPositionOnContainer(
-			getContentXPosition(),
-			getContentYPosition()
+			getContentXPosition() - getViewAreaXPositionOnScrollArea(),
+			getContentYPosition() - getViewAreaYPositionOnScrollArea()
 		);
 		
-		if (currentTab.hasRectangle()) {
-			currentTab.getRefRectangle().setPositionOnContainer(
-				getContentXPosition(),
-				getContentYPosition() + menu.getHeight() + getMenuMargin()
+		if (containsSelectedWidget()) {
+			getRefSelectedWidget().setPositionOnContainer(
+				getContentXPosition()
+				- getViewAreaXPositionOnScrollArea(),
+				getContentYPosition()
+				+ menu.getHeight()
+				+ getRefCurrentStructure().getRecursiveOrDefaultMenuMargin()
+				- getViewAreaYPositionOnScrollArea()
 			);
 		}
 	}
-
-	@Override
-	protected TabContainerLook createWidgetStructure() {
-		return new TabContainerLook();
+	
+	//method
+	/**
+	 * @return the tabs of the current {@link TabContainer}.
+	 */
+	private ReadContainer<TabContainerTab> getRefTabs() {
+		return new ReadContainer<TabContainerTab>(tabs);
+	}
+	
+	//method
+	/**
+	 * @throws EmptyStateException if the current {@link TabContainer} contains no tab.
+	 */
+	private void supposeIsNotEmpty() {
+		
+		//Checks if the current tab container is not empty.
+		if (isEmpty()) {
+			throw new EmptyStateException(this);
+		}
 	}
 }

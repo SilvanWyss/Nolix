@@ -1,150 +1,347 @@
-/*
- * file:	TabContainerTab.java
- * author:	Silvan Wyss
- * month:	2016-04
- * lines:	130
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
 //own imports
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.element.bases.NamableElement;
+import ch.nolix.element.bases.HeaderableElement;
+import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
-import ch.nolix.primitive.validator.Validator;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
-public final class TabContainerTab extends NamableElement<TabContainerTab> {
+/**
+ * @author Silvan Wyss
+ * @month 2016-04
+ * @lines 100
+ */
+public class TabContainerTab
+extends HeaderableElement<TabContainerTab>
+implements Clearable<TabContainerTab> {
 
-	//attribute
-	private TabContainer tabContainer;
-	private Label menuItem;
-	
-	//optional attribute
-	private Widget<?, ?> rectangle;
+	//default value
+	public static final String DEFAULT_HEADER = PascalCaseNameCatalogue.DEFAULT;
 	
 	//method
 	/**
-	 * @return true if this tab container tab belongs to a tab container
+	 * @param specification
+	 * @return a new {@link TabContainerTab} from the given specification.
 	 */
-	public final boolean belongsToTabContainer() {
-		return (tabContainer != null);
+	public static TabContainerTab createFromSpecification(final Specification specification) {
+		
+		final var tab = new TabContainerTab();
+		tab.reset(specification);
+		
+		return tab;
+	}
+	
+	//optional attributes
+	private TabContainer parentTabContainer;
+	private Label menuItem;
+	private boolean selected = false;
+	private Widget<?, ?> widget;
+	
+	//constructor
+	/**
+	 * Creates a new {@link TabContainerTab}.
+	 */
+	public TabContainerTab() {
+		reset();
+		approveProperties();		
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link TabContainerTab} with the given header.
+	 * 
+	 * @param header
+	 * @param widget
+	 * @throws NullArgumentException if the given header is null.
+	 * @throws EmptyArgumentException if the given header is empty.
+	 */
+	public TabContainerTab(final String header) {
+		
+		//Calls other constructor.
+		this();
+		
+		setHeader(header);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link TabContainerTab} with the given header and widget.
+	 * 
+	 * @param header
+	 * @param widget
+	 * @throws NullArgumentException if the given header is null.
+	 * @throws EmptyArgumentException if the given header is empty.
+	 * @throws NullArgumentException if the given widget is null.
+	 * @throws InvalidArgumentException
+	 * if the given widget belongs to another {@link GUI}
+	 * than the current {@link TabContainerTab}.
+	 */
+	public TabContainerTab(final String header, final Widget<?,? > widget) {
+		
+		//Calls other constructor.
+		this(header);
+		
+		setWidget(widget);
 	}
 	
 	//method
 	/**
-	 * @return the attributes of this tab container tab
+	 * Sets the given attribute to the current {@link TabContainerTab}.
+	 * 
+	 * @param attribute
+	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public final List<StandardSpecification> getAttributes() {
+	public void addOrChangeAttribute(final Specification attribute) {
 		
-		List<StandardSpecification> attributes = super.getAttributes();
+		//Handles the case that the given attribute specifies a widget.
+		if (GUI.canCreateWidget(attribute.getHeader())) {
+			setWidget(GUI.createWidget(attribute));
+		}
 		
-		if (hasRectangle()) {
-			attributes.addAtEnd(getRefRectangle().getSpecification());
+		//Handles the case that the given attribute specifies no widget.
+			//Calls the method of the base class.
+			super.addOrChangeAttribute(attribute);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link TabContainerTab} belongs to a {@link TabContainer}.
+	 */
+	public boolean belongsToTabContainer() {
+		return (parentTabContainer != null);
+	}
+	
+	//method
+	/**
+	 * Removes the widget of the current {@link TabContainerTab}.
+	 * 
+	 * @return the current {@link TabContainerTab}.
+	 */
+	public TabContainerTab clear() {
+		
+		widget = null;
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * @return the attributes of the current {@link TabContainerTab}.
+	 */
+	public List<StandardSpecification> getAttributes() {
+		
+		//Calls method of the base class.
+		final var attributes = super.getAttributes();
+		
+		//Handles the case that the current tab container tab contains a widget.
+		if (containsAny()) {
+			attributes.addAtEnd(getRefWidget().getSpecification());
 		}
 		
 		return attributes;
 	}
 	
-	//method
-	/**
-	 * @return the rectangle of this tab container
-	 * @throws UnexistingAttributeException if this tab container has no rectangle
-	 */
-	public final Widget<?, ?> getRefRectangle() {
+	public int getHeight() {
 		
-		if (!hasRectangle()) {
-			throw new UnexistingAttributeException(this, "rectangle");
+		if (isEmpty()) {
+			return 0;
 		}
 		
-		return rectangle;
+		return getRefWidget().getHeight();
 	}
 	
 	//method
 	/**
-	 * @return true if this tab container tab has a rectangle
+	 * @return the widget of the current {@link TabContainerTab}
+	 * @throws UnexistingAttributeException if the current {@link TabContainerTab} contains no widget.
 	 */
-	public final boolean hasRectangle() {
-		return (rectangle != null);
-	}
+	public Widget<?, ?> getRefWidget() {
 		
+		supposeContainsWidget();
+		
+		return widget;
+	}
+	
+	public int getWidth() {
+		
+		if (isEmpty()) {
+			return 0;
+		}
+		
+		return getRefWidget().getWidth();
+	}
+	
 	//method
 	/**
-	 * Sets the rectangle of this tab container tab.
-	 * 
-	 * @param rectangle
-	 * @return this tab container tab
-	 * @throws Exception if:
-	 * -the given rectangle is null
-	 * -the given rectangle already belongs to an other dialog than the tab container of this tab container tab belongs to
+	 * @return true if the current {@link TabContainerTab} contains no widget.
 	 */
-	public final TabContainerTab setRectangle(Widget<?, ?> rectangle) {
+	public boolean isEmpty() {
+		return (widget == null);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link TabContainerTab} is selected.
+	 */
+	public boolean isSelected() {
+		return selected;		
+	}
+	
+	//method
+	/**
+	 * Resets the current {@link TabContainerTab}.
+	 * 
+	 * @return the current {@link TabContainerTab}.
+	 */
+	public TabContainerTab reset() {
 		
-		Validator.throwExceptionIfValueIsNull("rectangle", rectangle);
-		
-		this.rectangle = rectangle;
-		
-		if (belongsToTabContainer() && tabContainer.belongsToGUI()) {
-			rectangle.setGUI(tabContainer.getRefGUI());
-		}
+		setHeader(DEFAULT_HEADER);
+		clear();
 		
 		return this;
 	}
 	
 	//method
-	/**
-	 * Sets the given attribute to this tab container
-	 * 
-	 * @param attribute
-	 * @throws Exception if the given attribute is not valid
-	 */
-	public final void addOrChangeAttribute(final Specification attribute) {
+	public TabContainerTab select() {
 		
-		//Handles the case when the given attribute specifies a rectangle.
-		if (GUI.canCreateWidget(attribute.getHeader())) {
-			rectangle = GUI.createWidget(attribute);
-			rectangle.setGUI(tabContainer.getRefGUI());
-			return;
-		}
-		
-		//Calls the method of the base class.
-		super.addOrChangeAttribute(attribute);
-	}
-	
-	public TabContainerTab setName(String name) {
-		
-		super.setName(name);
+		selected = true;
 		
 		if (belongsToTabContainer()) {
-		menuItem.setText(name);
+			getRefMenuItem().setFocused();
+		}
+		
+		if (containsAny()) {
+			getRefWidget().setNormal();
+		}
+		
+		return this;
+	}
+		
+	//method
+	/**
+	 * Sets the widget of the current {@link TabContainerTab}.
+	 * 
+	 * @param widget
+	 * @return the current {@link TabContainerTab}.
+	 * @throws NullArgumentException if the given widget is null.
+	 * @throws InvalidArgumentException
+	 * if the given widget belongs to another {@link GUI}
+	 * than the current {@link TabContainerTab}.
+	 */
+	public TabContainerTab setWidget(Widget<?, ?> widget) {
+		
+		Validator
+		.suppose(widget)
+		.thatIsOfType(Widget.class)
+		.isNotNull();
+		
+		if (belongsToTabContainer() && getParentTabContainer().belongsToGUI()) {
+			widget.setGUI(getParentTabContainer().getRefGUI());
+		}
+		
+		this.widget = widget;
+		
+		if (!isSelected()) {
+			widget.setDisabled();
 		}
 		
 		return this;
 	}
 	
-	//method
+	public TabContainerTab unselect() {
+		
+		selected = false;
+		
+		if (belongsToTabContainer()) {
+			getRefMenuItem().setNormal();
+		}
+		
+		if (containsAny()) {
+			getRefWidget().setDisabled();
+		}
+		
+		return this;
+	}
+	
+	//package-visible method
 	/**
-	 * Sets the tab container this tab container tab belongs to.
+	 * Sets the tab container the current {@link TabContainerTab} belongs to.
 	 * 
 	 * @param tabContainer
 	 * @throws Exception if:
 	 * -the given tab container is null
-	 * -this tab container tab already belongs to an other tab container tab than the given tab container
+	 * -the current {@link TabContainerTab} already belongs to an other tab container tab than the given tab container
 	 */
-	protected final void setTabContainer(TabContainer tabContainer, Label menuItem) {
+	void setParentTabContainer(final TabContainer parentTabContainer, final Label menuItem) {
 		
-		//Checks the given parameters.
-		Validator.throwExceptionIfValueIsNull("tab container", tabContainer);
-		Validator.throwExceptionIfValueIsNull("menuItem", menuItem);
+		Validator
+		.suppose(parentTabContainer)
+		.thatIsNamed("parent tab container")
+		.isNotNull();
 		
-		if (belongsToTabContainer() && tabContainer != this.tabContainer) {
-			throw new RuntimeException("Tab container tab already belongs to an other tab container.");
+		Validator
+		.suppose(menuItem)
+		.thatIsNamed("menu item")
+		.isNotNull();
+		
+		if (
+			belongsToTabContainer()
+			&& getParentTabContainer() != parentTabContainer
+		) {
+			throw new InvalidStateException(
+				this,
+				"belongs already to an other tab container"
+			);
 		}
 		
-		this.tabContainer = tabContainer;
+		this.parentTabContainer = parentTabContainer;
 		this.menuItem = menuItem;
+	}
+	
+	//method
+	private TabContainer getParentTabContainer() {
+		
+		supposeBelongsToTabContainer();
+		
+		return parentTabContainer;
+	}
+	
+	//method
+	private Label getRefMenuItem() {
+		
+		supposeBelongsToTabContainer();
+		
+		return menuItem;
+	}
+	
+	//method
+	private void supposeBelongsToTabContainer() {
+		
+		//Checks if the current tab container tab belongs to a tab container.
+		if (!belongsToTabContainer()) {
+			throw new InvalidStateException(
+				this,
+				"does not belong to a tab container"
+			);
+		}
+	}
+	
+	//method
+	private void supposeContainsWidget() {
+		
+		//Checks if the current tab container tab contains a widget.
+		if (isEmpty()) {
+			throw new InvalidStateException(
+				this,
+				"contains no widget"
+			);
+		}
 	}
 }
