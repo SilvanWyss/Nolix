@@ -111,7 +111,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	 */
 	protected final int getContentHeight() {
 		return
-		new Font(getRefCurrentStructure().getRecursiveOrDefaultTextSize())
+		new Font(getRefCurrentLook().getRecursiveOrDefaultTextSize())
 		.getTextHeight();
 	}
 	
@@ -121,7 +121,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	 */
 	protected int getContentWidth() {	
 		return
-		new Font(getRefCurrentStructure()
+		new Font(getRefCurrentLook()
 		.getRecursiveOrDefaultTextSize())
 		.getSwingTextWidth(getText());
 	}

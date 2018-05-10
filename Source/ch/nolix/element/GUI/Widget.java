@@ -1218,10 +1218,10 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return the current structure of this widget.
-	 * @throws UnexistingAttributeException if this widget has no current structure.
+	 * @return the current look of this widget.
+	 * @throws UnexistingAttributeException if this widget has no current look.
 	 */
-	protected final WS getRefCurrentStructure() {
+	protected final WS getRefCurrentLook() {
 		
 		//Enumerates the state of this widget.
 		switch (getState()) {
@@ -1236,7 +1236,9 @@ extends ConfigurableElement<W> {
 			case Disabled:
 				return getRefBaseLook();
 			default:
-				throw new UnexistingAttributeException(this, "current structure");
+				throw new UnexistingAttributeException(
+					this,
+					"current look");
 		}
 	}
 	
@@ -1331,7 +1333,7 @@ extends ConfigurableElement<W> {
 	 */
 	private void paint(final IPainter painter) {
 		
-		paint(getRefCurrentStructure(), painter);
+		paint(getRefCurrentLook(), painter);
 		
 		//Handles the case that this widget is disabled and would grey out.
 		if (isDisabled() && greysOutWhenDisabled()) {

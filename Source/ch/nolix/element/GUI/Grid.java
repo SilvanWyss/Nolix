@@ -73,7 +73,7 @@ public final class Grid extends Container<Grid, GridLook> {
 		.getSumByInt(r -> r.getMaxInt(c -> c.getHeight()));
 
 		if (hasLines()) {
-			switch (getRefCurrentStructure().getRecursiveLineTypeOrDefault()) {
+			switch (getRefCurrentLook().getRecursiveLineTypeOrDefault()) {
 				case InnerLines:
 					contentHeight += (getRowCount() - 1) * getLineThickness();
 					break;
@@ -97,7 +97,7 @@ public final class Grid extends Container<Grid, GridLook> {
 		.getSumByInt(c -> c.getMaxInt(cell -> cell.getWidth()));
 		
 		if (hasLines()) {
-			switch (getRefCurrentStructure().getRecursiveLineTypeOrDefault()) {
+			switch (getRefCurrentLook().getRecursiveLineTypeOrDefault()) {
 				case InnerLines:
 					contentWidth += (getColumnCount() - 1) * getLineThickness();
 					break;
@@ -115,7 +115,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	//method
 	public int getElementMargin() {
 		
-		final var currentStructure = getRefCurrentStructure();
+		final var currentStructure = getRefCurrentLook();
 		
 		if (!currentStructure.hasRecursiveElementMargin()) {
 			return 0;
@@ -127,7 +127,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	//method
 	public int getLineThickness() {
 		
-		final var currentStructure = getRefCurrentStructure();
+		final var currentStructure = getRefCurrentLook();
 		
 		if (!hasLines()) {
 			return 0;
@@ -149,7 +149,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	//method
 	public boolean hasInnerAndOuterLines() {
 		
-		final var currentStructure = getRefCurrentStructure();
+		final var currentStructure = getRefCurrentLook();
 		
 		return (
 			currentStructure.hasRecursiveLineType()
@@ -159,7 +159,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	
 	//method
 	public boolean hasLines() {
-		return getRefCurrentStructure().hasRecursiveLineType();
+		return getRefCurrentLook().hasRecursiveLineType();
 	}
 	
 	//method

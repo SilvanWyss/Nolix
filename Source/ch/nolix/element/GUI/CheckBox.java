@@ -121,7 +121,7 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	 * @return the height of this check box when it is not collapsed. 
 	 */
 	public int getHeightWhenNotCollapsed() {
-		return getRefCurrentStructure().getActiveSize();
+		return getRefCurrentLook().getActiveSize();
 	}
 	
 	//method
@@ -129,7 +129,7 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	 * @return the width of this check box when it is not collapsed.
 	 */
 	public final int getWidthWhenNotCollapsed() {
-		return getRefCurrentStructure().getActiveSize();
+		return getRefCurrentLook().getActiveSize();
 	}
 	
 	//method

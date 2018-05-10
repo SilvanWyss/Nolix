@@ -550,7 +550,7 @@ implements Clearable<Console> {
 	 */
 	protected int getContentHeight() {
 		
-		final ConsoleLook currentStructure = getRefCurrentStructure();
+		final ConsoleLook currentStructure = getRefCurrentLook();
 		
 		return (
 			currentStructure.getRecursiveOrDefaultHeight()
@@ -567,7 +567,7 @@ implements Clearable<Console> {
 	 */
 	protected int getContentWidth() {
 		
-		final ConsoleLook currentStructure = getRefCurrentStructure();
+		final ConsoleLook currentStructure = getRefCurrentLook();
 		
 		return (
 			currentStructure.getRecursiveOrDefaultWidth()

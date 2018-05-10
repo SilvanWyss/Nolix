@@ -337,7 +337,7 @@ implements Clearable<TabContainer> {
 		
 		var height = menu.getHeight();
 		
-		height += getRefCurrentStructure().getRecursiveOrDefaultMenuMargin();
+		height += getRefCurrentLook().getRecursiveOrDefaultMenuMargin();
 		
 		if (containsAny()) {
 			height += getRefTabs().getMaxInt(t -> t.getHeight());
@@ -407,7 +407,7 @@ implements Clearable<TabContainer> {
 				- getViewAreaXPositionOnScrollArea(),
 				getContentYPosition()
 				+ menu.getHeight()
-				+ getRefCurrentStructure().getRecursiveOrDefaultMenuMargin()
+				+ getRefCurrentLook().getRecursiveOrDefaultMenuMargin()
 				- getViewAreaYPositionOnScrollArea()
 			);
 		}

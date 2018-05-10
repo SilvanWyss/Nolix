@@ -87,8 +87,8 @@ public final class TextBox extends TextLineWidget<TextBox> {
 			int textCursorDistanceFromTextBegin = getCursorXPosition() - getContentXPosition();
 			boolean found = false;
 			for (int i = 0; i < getText().length(); i++) {
-				int subTextWidth = new Font(getRefCurrentStructure().getRecursiveOrDefaultTextSize()).getSwingTextWidth(getText().substring(0, i));
-				int nextSubTextWidth = new Font(getRefCurrentStructure().getRecursiveOrDefaultTextSize()).getSwingTextWidth(getText().substring(0, i + 1));
+				int subTextWidth = new Font(getRefCurrentLook().getRecursiveOrDefaultTextSize()).getSwingTextWidth(getText().substring(0, i));
+				int nextSubTextWidth = new Font(getRefCurrentLook().getRecursiveOrDefaultTextSize()).getSwingTextWidth(getText().substring(0, i + 1));
 				int halfDistance = (nextSubTextWidth - subTextWidth) / 2;
 				if (
 					textCursorDistanceFromTextBegin > subTextWidth - halfDistance &&
@@ -234,7 +234,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 			getContentXPosition() + textCursorDistanceFromTextBegin,
 			getContentYPosition(),
 			1,
-			getRefCurrentStructure().getRecursiveOrDefaultTextSize()
+			getRefCurrentLook().getRecursiveOrDefaultTextSize()
 		);
 	}
 	
@@ -261,7 +261,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 */
 	protected final int getContentWidth() {	
 		
-		final TextLineWidgetLook currentStructure = getRefCurrentStructure();
+		final TextLineWidgetLook currentStructure = getRefCurrentLook();
 		
 		return (
 			getRefWidth().getValue() -

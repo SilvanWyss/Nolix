@@ -260,7 +260,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final int getOriginHeight() {
 		
-		final var currentStructure = getRefCurrentStructure();
+		final var currentStructure = getRefCurrentLook();
 		
 		return
 		currentStructure.getRecursiveOrDefaultTopBorderThickness()
@@ -282,7 +282,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final int getOriginWidth() {
 		
-		final var currentStructure = getRefCurrentStructure();
+		final var currentStructure = getRefCurrentLook();
 		
 		return
 		currentStructure.getRecursiveOrDefaultLeftBorderThickness()
@@ -707,7 +707,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	protected final int getContentXPosition() {
 		
-		final var currentStructure = getRefCurrentStructure();
+		final var currentStructure = getRefCurrentLook();
 		
 		//Enumerates the content position of this border widget.
 		switch (getContentPosition()) {
@@ -751,7 +751,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	protected final int getContentYPosition() {
 		
-		final var currentStructure = getRefCurrentStructure();
+		final var currentStructure = getRefCurrentLook();
 		
 		//Enumerates the content orientation of this border widget.
 		switch (getContentPosition()) {
@@ -925,7 +925,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private int getBorderedAreaHeight() {
 		
-		final var currentStructure = getRefCurrentStructure();
+		final var currentStructure = getRefCurrentLook();
 		
 		return
 		getHeight()
@@ -939,7 +939,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private int getBorderedAreaWidth() {
 		
-		final var currentStructure = getRefCurrentStructure();
+		final var currentStructure = getRefCurrentLook();
 		
 		return
 		getWidth()
@@ -953,7 +953,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private int getBorderedAreaXPosition() {
 		
-		final var currentStructure = getRefCurrentStructure();
+		final var currentStructure = getRefCurrentLook();
 		
 		return currentStructure.getRecursiveOrDefaultLeftBorderThickness();
 	}
@@ -964,7 +964,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private int getBorderedAreaYPosition() {
 		
-		final var currentStructure = getRefCurrentStructure();
+		final var currentStructure = getRefCurrentLook();
 		
 		return currentStructure.getRecursiveOrDefaultTopBorderThickness();
 	}
@@ -976,7 +976,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private int getContentXPositionOnScrollArea() {
 		
-		final var currentStructure = getRefCurrentStructure();
+		final var currentStructure = getRefCurrentLook();
 		
 		//Enumerates the content position of this border widget.
 		switch (getContentPosition()) {
@@ -1015,7 +1015,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private int getContentYPositionOnScrollArea() {
 		
-		final var currentStructure = getRefCurrentStructure();
+		final var currentStructure = getRefCurrentLook();
 		
 		//Enumerates the content orientation of this border widget.
 		switch (getContentPosition()) {
@@ -1101,7 +1101,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private int getScrollAreaHeight() {
 		
-		final var currentStructure = getRefCurrentStructure();
+		final var currentStructure = getRefCurrentLook();
 		
 		return
 		getContentHeight()
@@ -1115,7 +1115,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private int getScrollAreaWidth() {
 		
-		final var currentStructure = getRefCurrentStructure();
+		final var currentStructure = getRefCurrentLook();
 		
 		return
 		getContentWidth()
