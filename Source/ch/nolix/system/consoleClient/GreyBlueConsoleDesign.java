@@ -26,29 +26,29 @@ public final class GreyBlueConsoleDesign extends StandardConfiguration {
 			new DeepConfiguration()
 			.setSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute(
-				"NormalBackgroundColor(White)",
-				"NormalLeftPadding(20)",
-				"NormalRightPadding(20)",
-				"NormalBottomPadding(20)",
+				"BaseBackgroundColor(White)",
+				"BaseLeftPadding(20)",
+				"BaseRightPadding(20)",
+				"BaseBottomPadding(20)",
 				"ElementMargin(20)"
 			),
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameCatalogue.INFO_PANEL_NAME)
 			.addAttachingAttribute(
-				"NormalWidth(1000)",
-				"NormalHeight(300)",
-				"NormalBackgroundColor(Lavender)",
-				"NormalPadding(10)",
-				"NormalTextColor(DarkBlue)"
+				"BaseWidth(1000)",
+				"BaseHeight(300)",
+				"BaseBackgroundColor(Lavender)",
+				"BasePadding(10)",
+				"BaseTextColor(DarkBlue)"
 			),
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameCatalogue.CONSOLE_NAME)
 			.addAttachingAttribute(
-				"NormalWidth(1000)",
-				"NormalHeight(400)",
-				"NormalBackgroundColor(WhiteSmoke)",
-				"NormalPadding(10)",
-				"NormalTextColor(DarkBlue)"		
+				"BaseWidth(1000)",
+				"BaseHeight(400)",
+				"BaseBackgroundColor(WhiteSmoke)",
+				"BasePadding(10)",
+				"BaseTextColor(DarkBlue)"		
 			)
 		);
 	}
