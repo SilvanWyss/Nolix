@@ -39,7 +39,7 @@ implements Clearable<Console> {
 	public static final char MASK_CHARACTER = CharacterCatalogue.BULLET;
 	
 	//default value
-	public static final Color DEFAULT_BACKGROUND_COLOR = Color.BLACK;
+	public static final Color DEFAULT_BACKGROUND_COLOR = Color.LIGHT_GREY;
 	
 	//attribute headers
 	private final static String LINES_HEADER = "Lines";

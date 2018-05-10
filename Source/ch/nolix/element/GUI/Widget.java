@@ -338,7 +338,7 @@ extends ConfigurableElement<W> {
 	/**
 	 * @return the cursor icon of this widget.
 	 */
-	public final CursorIcon getCursorIcon() {
+	public CursorIcon getCursorIcon() {
 		return cursorIcon;
 	}
 	
@@ -599,7 +599,12 @@ extends ConfigurableElement<W> {
 	public final void noteAnyLeftMouseButtonPress() {
 		if (isEnabled()) {
 			if (!isUnderCursor()) {
+				
 				if (isFocused()) {				
+					setNormal();
+				}
+				
+				else if (isHoverFocused()) {
 					setNormal();
 				}
 			}

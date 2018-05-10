@@ -355,7 +355,7 @@ extends BackgroundWidgetLook<BWL> {
 			return getRefBaseLook().getRecursiveOrDefaultRightBorderColor();
 		}
 		
-		//Hadles the case if the current {@link BorderWidgetLook}
+		//Handles the case if the current {@link BorderWidgetLook}
 		//has no right border color and no base look.
 		return DEFAULT_BORDER_COLOR;
 	}
