@@ -254,7 +254,7 @@ public final class Grid extends Container<Grid, GridLook> {
 			}
 		}
 		
-		getRefWidgets().forEach(w -> w.paintUsingPositionOnContainer(painter));
+		getRefWidgets().forEach(w -> w.paintUsingPositionOnParent(painter));
 	}
 	
 	//method

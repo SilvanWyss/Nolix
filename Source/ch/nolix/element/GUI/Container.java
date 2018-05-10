@@ -121,18 +121,27 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
-	 * Sets the position of the cursor on the current {@link Container}.
+	 * Sets the cursor position of the parent of the current {@link Container}.
 	 * 
-	 * @param cursorXPosition
-	 * @param mouseYPosition
+	 * @param parentCursorXPosition
+	 * @param parentCursorYPosition
 	 */
-	public void setCursorPositionFromParentContainer(final int cursorXPosition, final int cursorYPosition) {
+	protected void setParentCursorPosition(
+		final int parentCursorXPosition,
+		final int parentCursorYPosition
+	) {
 		
 		//Calls method of the base class.
-		super.setCursorPositionFromParentContainer(cursorXPosition, cursorYPosition);
+		super.setParentCursorPosition(parentCursorXPosition, parentCursorYPosition);
 		
-		//Sets the position of the cursor to the widgets of the current container.
-		getRefWidgets().forEach(r -> r.setCursorPositionFromParentContainer(getCursorXPosition(), getCursorYPosition()));
+		//Sets the cursor position to the widgets of the current container.
+			//Iterates the widgets of the current container.
+			for (final var w : getRefWidgets()) {
+				w.setParentCursorPosition(
+					getCursorXPosition(),
+					getCursorYPosition()
+				);
+			}
 	}
 		
 	//method

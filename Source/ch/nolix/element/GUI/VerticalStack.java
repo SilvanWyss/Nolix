@@ -88,9 +88,9 @@ public final class VerticalStack extends Stack<VerticalStack> {
 			case LeftTop:
 			case LeftBottom:
 			case Left:	
-				final int x = getContentXPosition();
-				int y = getContentYPosition();
-				for (Widget<?, ?> w: getRefShownWidgets()) {
+				final int x = getContentXPosition() - getViewAreaXPositionOnScrollArea();
+				int y = getContentYPosition() - getViewAreaYPositionOnScrollArea();
+				for (final var w : getRefShownWidgets()) {
 					w.setPositionOnParent(x, y);
 					y += w.getHeight() + getActiveElementMargin();
 				}
@@ -99,8 +99,8 @@ public final class VerticalStack extends Stack<VerticalStack> {
 			case Center:
 			case Bottom:
 				final int maxRectangleWidth2 = getRefShownWidgets().getMaxInt(r -> r.getWidth());
-				final int x2 = getContentXPosition();
-				int y2 = getContentYPosition();
+				final int x2 = getContentXPosition() - getViewAreaXPositionOnScrollArea();
+				int y2 = getContentYPosition() - getViewAreaYPositionOnScrollArea();
 				for (Widget<?, ?> w: getRefShownWidgets()) {			
 					w.setPositionOnParent((int)(x2 + 0.5 * (maxRectangleWidth2 - w.getWidth())), y2);
 					y2 += w.getHeight() + getActiveElementMargin();
@@ -110,8 +110,8 @@ public final class VerticalStack extends Stack<VerticalStack> {
 			case Right:
 			case RightBottom:
 				final int maxRectangleWidth3 = getRefShownWidgets().getMaxInt(r -> r.getWidth());
-				final int x3 = getContentXPosition();
-				int y3 = getContentYPosition();
+				final int x3 = getContentXPosition() - getViewAreaXPositionOnScrollArea();
+				int y3 = getContentYPosition() - getViewAreaYPositionOnScrollArea();
 				for (Widget<?, ?> w: getRefShownWidgets()) {
 					w.setPositionOnParent(x3 + maxRectangleWidth3 - w.getWidth(), y3);
 					y3 += w.getHeight() + getActiveElementMargin();

@@ -305,21 +305,22 @@ implements Clearable<TabContainer> {
 	
 	//method
 	/**
-	 * Sets the cursor position of the current {@link TabContainer} from the parent container.
+	 * Sets the cursor position of the parent of the current {@link TabContainer}.
 	 * 
-	 * @param cursorXPositionOnParentContainer
-	 * @param cursorYPositionOnParentContainer
+	 * @param parentCursorXPosition
+	 * @param parentCursorYPosition
 	 */
-	public void setCursorPositionFromParentContainer(final int cursorXPositionOnParentContainer, final int relativeMouseYPosition) {
+	protected void setParentCursorPosition(
+		final int parentCursorXPosition,
+		final int parentCursorYPosition
+	) {
 		
 		//Calls method of the base class.
-		super.setCursorPositionFromParentContainer(cursorXPositionOnParentContainer, relativeMouseYPosition);
+		super.setParentCursorPosition(parentCursorXPosition, parentCursorYPosition);
 		
-		//TODO: Correct cursor position.
-		menu.setCursorPositionFromParentContainer(
-			getCursorXPositionOnScrollArea(),
-			getCursorYPositionOnScrollArea()
-		);
+		menu.setParentCursorPosition(getCursorXPosition(), getCursorYPosition());
+		
+		System.out.println(menu.getXPositionOnParent());
 	}
 	
 	//method
@@ -375,10 +376,10 @@ implements Clearable<TabContainer> {
 	) {
 		menu.setElementMargin(tabContainerLook.getRecursiveOrDefaultMenuItemMargin());
 		
-		menu.paintUsingPositionOnContainer(painter);
+		menu.paintUsingPositionOnParent(painter);
 		
 		if (containsAny() && getRefSelectedTab().containsAny()) {
-			getRefSelectedWidget().paintUsingPositionOnContainer(painter);
+			getRefSelectedWidget().paintUsingPositionOnParent(painter);
 		}
 	}
 	

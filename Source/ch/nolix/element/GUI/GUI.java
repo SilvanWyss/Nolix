@@ -493,7 +493,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	public void noteMouseMove() {
 				
 		if (hasRootWidget()) {
-			getRefRootWidget().setCursorPositionFromParentContainer(
+			getRefRootWidget().setParentCursorPosition(
 				getCursorXPosition(),
 				getCursorYPosition()
 			);

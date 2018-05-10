@@ -63,7 +63,7 @@ public final class Frame extends VisibleGUI<Frame> {
 			
 			//Lets the root rectangle of this frame paint on this panel.
 			if (hasRootWidget()) {
-				getRefRootWidget().paintUsingPositionOnContainer(new SwingPainter(graphics));
+				getRefRootWidget().paintUsingPositionOnParent(new SwingPainter(graphics));
 			}
 		}
 	};

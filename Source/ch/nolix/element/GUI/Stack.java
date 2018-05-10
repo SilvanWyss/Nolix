@@ -253,6 +253,6 @@ implements Clearable<S> {
 		final var contentPainer = painter.createTranslatedPainter(-getContentXPosition(), -getContentYPosition());
 		
 		//Paints the widgets of this container.
-		getRefShownWidgets().forEach(r -> r.paintUsingPositionOnContainer(contentPainer));
+		getRefShownWidgets().forEach(r -> r.paintUsingPositionOnParent(contentPainer));
 	}
 }

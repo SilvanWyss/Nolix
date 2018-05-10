@@ -264,8 +264,6 @@ extends Widget<L, LineLook> {
 	) {
 		painter.setColor(color);
 		painter.paintFilledRectangle(
-			getXPositionOnContainer(),
-			getYPositionOnContainer(),
 			getWidth(),
 			getHeight()
 		);

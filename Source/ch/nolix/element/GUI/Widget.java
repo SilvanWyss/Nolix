@@ -908,18 +908,17 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Sets the position of the mouse on the current {@link Widget}
-	 * using the mouse position of the mouse on the parent container of the current {@link Widget}.
+	 * Sets the cursor position of the parent of the current {@link Widget}.
 	 * 
-	 * @param mouseXPositionOnParentContainer
-	 * @param mouseYPositionOnParentContainer
+	 * @param parentCursorXPosition
+	 * @param parentCursorYPosition
 	 */
-	public void setCursorPositionFromParentContainer(
-			final int mouseXPositionOnParentContainer,
-			final int mouseYPositionOnParentContainer
-	) {
-		this.cursorXPosition = mouseXPositionOnParentContainer - getXPositionOnContainer();
-		this.cursorYPosition = mouseYPositionOnParentContainer - getYPositionOnContainer();
+	protected void setParentCursorPosition(
+			final int parentCursorXPosition,
+			final int parentCursorYPosition
+	) {				
+		this.cursorXPosition = parentCursorXPosition - getXPositionOnParent();
+		this.cursorYPosition = parentCursorYPosition - getYPositionOnParent();
 	}
 	
 	//method
@@ -1252,7 +1251,7 @@ extends ConfigurableElement<W> {
 	/**
 	 * @return the x-position of the current {@link Widget} on its parent container.
 	 */
-	protected final int getXPositionOnContainer() {
+	protected final int getXPositionOnParent() {
 		return xPositionOnParent;
 	}
 	
@@ -1260,7 +1259,7 @@ extends ConfigurableElement<W> {
 	/**
 	 * @return the relative y-position of the current {@link Widget} on its parent container.
 	 */
-	protected final int getYPositionOnContainer() {
+	protected final int getYPositionOnParent() {
 		return yPositionOnParent;
 	}
 	
@@ -1281,11 +1280,11 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @param painter
 	 */
-	protected final void paintUsingPositionOnContainer(final IPainter painter) {
+	protected final void paintUsingPositionOnParent(final IPainter painter) {
 		paint(
 			painter.createTranslatedPainter(
-				getXPositionOnContainer(),
-				getYPositionOnContainer()
+				getXPositionOnParent(),
+				getYPositionOnParent()
 			)
 		);
 	}

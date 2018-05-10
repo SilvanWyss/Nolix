@@ -146,7 +146,7 @@ extends Container<SingleContainer, SingleContainerLook> {
 		SingleContainerLook rectangleStructure,
 		IPainter painter) {
 		
-		widget.paintUsingPositionOnContainer(painter);
+		widget.paintUsingPositionOnParent(painter);
 	}
 
 	//method

@@ -176,22 +176,23 @@ implements Clearable<SelectionMenu> {
 		return this;
 	}
 	
-	public void setCursorPositionFromParentContainer(
-			final int mouseXPositionOnParentContainer,
-			final int mouseYPositionOnParentContainer
+	//method
+	protected void setParentCursorPosition(
+			final int parentCursorXPosition,
+			final int parentCursorYPosition
 	) {
-		super.setCursorPositionFromParentContainer(
-			mouseXPositionOnParentContainer,
-			mouseYPositionOnParentContainer
+		
+		super.setParentCursorPosition(
+			parentCursorXPosition,
+			parentCursorYPosition
 		);
 		
-		items.forEach(
-			i -> i.getRefLabel()
-			.setCursorPositionFromParentContainer(
-				getCursorXPosition() + getViewAreaXPositionOnScrollArea(),
-				getCursorYPosition() +getViewAreaYPositionOnScrollArea()
-			)
-		);
+		for (final var i : items) {
+			i.getRefLabel().setParentCursorPosition(
+				getCursorXPosition(),
+				getCursorYPosition()
+			);
+		}
 	}
 	
 	//method
@@ -242,7 +243,7 @@ implements Clearable<SelectionMenu> {
 			
 			i.getRefLabel().setPositionOnParent(x, y);
 			i.getRefLabel().setMinWidth(width);
-			i.getRefLabel().paintUsingPositionOnContainer(painter);
+			i.getRefLabel().paintUsingPositionOnParent(painter);
 			
 			y += i.getRefLabel().getHeight();
 			
