@@ -32,7 +32,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1290
+ * @lines 1310
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -158,6 +158,22 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final ContentPosition getContentPosition() {
 		return contentPosition;
+	}
+	
+	//method
+	/**
+	 * @return the x-position of the cursor on the scroll area of this border widget.
+	 */
+	public final int getCursorXPositionOnScrollArea() {
+		return (getCursorXPosition() - getViewAreaXPositionOnScrollArea());
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the cursor on the scroll area of this border widget.
+	 */
+	public final int getCursorYPositionOnScrollArea() {
+		return (getCursorYPosition() - getViewAreaYPositionOnScrollArea());
 	}
 	
 	//method
