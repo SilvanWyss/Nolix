@@ -38,10 +38,10 @@ public class TextBoxTest extends Test {
 			expect(textBox.getRefBaseLook().getRecursiveOrDefaultTextColor().getValue())
 			.isEqualTo(Color.BLUE_INT);
 			
-			expect(textBox.getRefHoverStructure().getRecursiveOrDefaultTextColor().getValue())
+			expect(textBox.getRefHoverLook().getRecursiveOrDefaultTextColor().getValue())
 			.isEqualTo(Color.BLUE_INT);
 			
-			expect(textBox.getRefFocusStructure().getRecursiveOrDefaultTextColor().getValue())
+			expect(textBox.getRefFocusLook().getRecursiveOrDefaultTextColor().getValue())
 			.isEqualTo(Color.BLUE_INT);
 	}
 	

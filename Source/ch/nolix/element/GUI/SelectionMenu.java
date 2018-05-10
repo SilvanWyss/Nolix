@@ -232,7 +232,7 @@ implements Clearable<SelectionMenu> {
 		
 		for (final SelectionMenuItem i : items) {
 			
-			i.getRefLabel().setPositionOnContainer(x, y);
+			i.getRefLabel().setPositionOnParent(x, y);
 			i.getRefLabel().setMinWidth(width);
 			i.getRefLabel().paintUsingPositionOnContainer(painter);
 			
@@ -250,7 +250,7 @@ implements Clearable<SelectionMenu> {
 								
 				i
 				.getRefLabel()
-				.getRefHoverStructure()
+				.getRefHoverLook()
 				.reset(
 					selectionMenuStructure
 					.getRefRecursiveOrDefaultHoverItemLook()
@@ -259,7 +259,7 @@ implements Clearable<SelectionMenu> {
 				
 				i
 				.getRefLabel()
-				.getRefFocusStructure()
+				.getRefFocusLook()
 				.reset(
 					selectionMenuStructure
 					.getRefRecursiveOrDefaultSelectionItemLook()

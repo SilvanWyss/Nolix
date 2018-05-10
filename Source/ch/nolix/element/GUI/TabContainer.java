@@ -194,11 +194,12 @@ implements Clearable<TabContainer> {
 		return attributes;
 	}
 	
+	//TODO: Add getActiveCursorIcon method to Widget.
 	//method
 	/**
 	 * @return the cursor icon of the current {@link TabContainer}.
 	 */
-	public CursorIcon getCursorIcon() {
+	public CursorIcon getActiveCursorIcon() {
 		
 		//Extracts the menu item under the cursor if there exists one.
 		final var menuItemUnderCursor =
@@ -388,21 +389,21 @@ implements Clearable<TabContainer> {
 	 * @param relativeXPosition
 	 * @param relativeYPosition
 	 */
-	protected void setPositionOnContainer(
+	protected void setPositionOnParent(
 		final int relaitveXPosition,
 		final int relativeYPosition
 	) {
 		
 		//Calls method of the base class.
-		super.setPositionOnContainer(relaitveXPosition, relativeYPosition);
+		super.setPositionOnParent(relaitveXPosition, relativeYPosition);
 		
-		menu.setPositionOnContainer(
+		menu.setPositionOnParent(
 			getContentXPosition() - getViewAreaXPositionOnScrollArea(),
 			getContentYPosition() - getViewAreaYPositionOnScrollArea()
 		);
 		
 		if (containsSelectedWidget()) {
-			getRefSelectedWidget().setPositionOnContainer(
+			getRefSelectedWidget().setPositionOnParent(
 				getContentXPosition()
 				- getViewAreaXPositionOnScrollArea(),
 				getContentYPosition()

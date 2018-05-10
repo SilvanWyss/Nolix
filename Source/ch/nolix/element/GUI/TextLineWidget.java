@@ -79,11 +79,11 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 		getRefBaseLook().setTextSize(ValueCatalogue.MEDIUM_TEXT_SIZE);
 		getRefBaseLook().setTextColor(Color.BLACK);
 		
-		getRefHoverStructure().removeTextSize();
-		getRefHoverStructure().removeTextColor();
+		getRefHoverLook().removeTextSize();
+		getRefHoverLook().removeTextColor();
 		
-		getRefFocusStructure().removeTextSize();
-		getRefFocusStructure().removeTextColor();
+		getRefFocusLook().removeTextSize();
+		getRefFocusLook().removeTextColor();
 		
 		//Calls method of the base class.
 		return super.resetConfiguration();

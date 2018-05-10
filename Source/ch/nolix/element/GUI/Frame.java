@@ -260,7 +260,7 @@ public final class Frame extends VisibleGUI<Frame> {
 			switch (getContentPosition()) {
 				case LeftTop:
 					
-					getRefRootWidget().setPositionOnContainer(
+					getRefRootWidget().setPositionOnParent(
 						0,
 						0
 					);
@@ -268,7 +268,7 @@ public final class Frame extends VisibleGUI<Frame> {
 					break;
 				case Left:
 					
-					getRefRootWidget().setPositionOnContainer(
+					getRefRootWidget().setPositionOnParent(
 						0,
 						Calculator.getMax(0, (getContentHeight() - getRefRootWidget().getHeight()) / 2)
 					);
@@ -276,7 +276,7 @@ public final class Frame extends VisibleGUI<Frame> {
 					break;					
 				case LeftBottom:
 					
-					getRefRootWidget().setPositionOnContainer(
+					getRefRootWidget().setPositionOnParent(
 						0,
 						Calculator.getMax(0, getContentHeight() - getRefRootWidget().getHeight())
 					);
@@ -284,7 +284,7 @@ public final class Frame extends VisibleGUI<Frame> {
 					break;
 				case Top:
 					
-					getRefRootWidget().setPositionOnContainer(
+					getRefRootWidget().setPositionOnParent(
 						Calculator.getMax(0, (getContentWidth() - getRefRootWidget().getWidth()) / 2),
 						0
 					);
@@ -292,7 +292,7 @@ public final class Frame extends VisibleGUI<Frame> {
 					break;
 				case Center:
 								
-					getRefRootWidget().setPositionOnContainer(
+					getRefRootWidget().setPositionOnParent(
 						Calculator.getMax(0, (getContentWidth() - getRefRootWidget().getWidth()) / 2),
 						Calculator.getMax(0, (getContentHeight() - getRefRootWidget().getHeight()) / 2)
 					);
@@ -300,7 +300,7 @@ public final class Frame extends VisibleGUI<Frame> {
 					break;
 				case Bottom:
 					
-					getRefRootWidget().setPositionOnContainer(
+					getRefRootWidget().setPositionOnParent(
 						Calculator.getMax(0, (getContentWidth() - getRefRootWidget().getWidth()) / 2),
 						Calculator.getMax(0, getContentHeight() - getRefRootWidget().getHeight())
 					);
@@ -308,7 +308,7 @@ public final class Frame extends VisibleGUI<Frame> {
 					break;
 				case RightTop:
 					
-					getRefRootWidget().setPositionOnContainer(
+					getRefRootWidget().setPositionOnParent(
 						Calculator.getMax(0, getContentWidth() - getRefRootWidget().getWidth()),
 						0
 					);
@@ -316,7 +316,7 @@ public final class Frame extends VisibleGUI<Frame> {
 					break;
 				case Right:
 				
-					getRefRootWidget().setPositionOnContainer(
+					getRefRootWidget().setPositionOnParent(
 						Calculator.getMax(0, getWidth() - getRefRootWidget().getWidth()),
 						Calculator.getMax(0, (frame.getComponent(0).getHeight() - getRefRootWidget().getHeight()) / 2)
 					);
@@ -324,7 +324,7 @@ public final class Frame extends VisibleGUI<Frame> {
 					break;
 				case RightBottom:
 					
-					getRefRootWidget().setPositionOnContainer(
+					getRefRootWidget().setPositionOnParent(
 						Calculator.getMax(0, getWidth() - getRefRootWidget().getWidth()),
 						Calculator.getMax(0, getHeight() - getRefRootWidget().getHeight())
 					);

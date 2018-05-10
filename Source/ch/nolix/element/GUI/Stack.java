@@ -76,7 +76,7 @@ implements Clearable<S> {
 		
 		//Handles the case that this stack belongs to a GUI.
 		if (belongsToGUI()) {
-			widget.setGUI(getRefGUI());
+			widget.setGUI(getParentGUI());
 		}
 		
 		widgets.addAtEnd(widget);

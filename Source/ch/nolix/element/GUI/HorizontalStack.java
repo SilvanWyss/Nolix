@@ -79,10 +79,10 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	 * @param relativeXPosition
 	 * @param relativeYPosition
 	 */
-	protected final void setPositionOnContainer(final int relativeXPosition, final int relativeYPosition) {
+	protected final void setPositionOnParent(final int relativeXPosition, final int relativeYPosition) {
 		
 		//Calls method of the base class.
-		super.setPositionOnContainer(relativeXPosition, relativeYPosition);
+		super.setPositionOnParent(relativeXPosition, relativeYPosition);
 		
 		//Enumerates the probable content orientations.
 		switch (getContentPosition()) {
@@ -93,7 +93,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 				int x1 = getContentXPosition();
 				final int y1 = getContentYPosition();
 				for (Widget<?, ?> r: getRefWidgets()) {
-					r.setPositionOnContainer(x1, y1);
+					r.setPositionOnParent(x1, y1);
 					x1 += r.getWidth() + getActiveElementMargin();
 				}
 				
@@ -106,7 +106,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 				int x2 = getContentXPosition();
 				final int y2 = getContentYPosition();
 				for (Widget<?, ?> r: getRefWidgets()) {
-					r.setPositionOnContainer(x2, y2 + (contentHeight2 - r.getHeight()) / 2);
+					r.setPositionOnParent(x2, y2 + (contentHeight2 - r.getHeight()) / 2);
 					x2 += r.getWidth() + getActiveElementMargin();
 				}
 				
@@ -119,7 +119,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 				int x3 = getContentXPosition();
 				final int y3 = getContentYPosition();
 				for (Widget<?, ?> r: getRefWidgets()) {
-					r.setPositionOnContainer(x3, y3 + contentHeight3 - r.getHeight());
+					r.setPositionOnParent(x3, y3 + contentHeight3 - r.getHeight());
 					x3 += r.getWidth() + getActiveElementMargin();
 				}
 				break;

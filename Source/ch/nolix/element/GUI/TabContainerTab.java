@@ -243,7 +243,7 @@ implements Clearable<TabContainerTab> {
 		.isNotNull();
 		
 		if (belongsToTabContainer() && getParentTabContainer().belongsToGUI()) {
-			widget.setGUI(getParentTabContainer().getRefGUI());
+			widget.setGUI(getParentTabContainer().getParentGUI());
 		}
 		
 		this.widget = widget;

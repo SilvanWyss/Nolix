@@ -75,13 +75,13 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 * @param relativeXPosition
 	 * @param relativeYPosition
 	 */
-	protected void setPositionOnContainer(
+	protected void setPositionOnParent(
 		final int relativeXPosition,
 		final int relativeYPosition
 	) {
 		
 		//Calls method of the base class.
-		super.setPositionOnContainer(relativeXPosition, relativeYPosition);
+		super.setPositionOnParent(relativeXPosition, relativeYPosition);
 		
 		//Enumerates the content position of this vertical stack.
 		switch (getContentPosition()) {
@@ -91,7 +91,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				final int x = getContentXPosition();
 				int y = getContentYPosition();
 				for (Widget<?, ?> w: getRefShownWidgets()) {
-					w.setPositionOnContainer(x, y);
+					w.setPositionOnParent(x, y);
 					y += w.getHeight() + getActiveElementMargin();
 				}
 				break;
@@ -102,7 +102,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				final int x2 = getContentXPosition();
 				int y2 = getContentYPosition();
 				for (Widget<?, ?> w: getRefShownWidgets()) {			
-					w.setPositionOnContainer((int)(x2 + 0.5 * (maxRectangleWidth2 - w.getWidth())), y2);
+					w.setPositionOnParent((int)(x2 + 0.5 * (maxRectangleWidth2 - w.getWidth())), y2);
 					y2 += w.getHeight() + getActiveElementMargin();
 				}
 				break;
@@ -113,7 +113,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				final int x3 = getContentXPosition();
 				int y3 = getContentYPosition();
 				for (Widget<?, ?> w: getRefShownWidgets()) {
-					w.setPositionOnContainer(x3 + maxRectangleWidth3 - w.getWidth(), y3);
+					w.setPositionOnParent(x3 + maxRectangleWidth3 - w.getWidth(), y3);
 					y3 += w.getHeight() + getActiveElementMargin();
 				}
 		}

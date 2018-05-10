@@ -96,7 +96,7 @@ extends Container<SingleContainer, SingleContainerLook> {
 	 * @throws Exception if the given rectangle does not belong to the dialog this single container belongs to
 	 */
 	public void setRectangle(Widget<?, ?> rectangle) {
-		rectangle.setGUI(getRefGUI());
+		rectangle.setGUI(getParentGUI());
 		this.widget = rectangle;
 	}
 	
@@ -123,12 +123,12 @@ extends Container<SingleContainer, SingleContainerLook> {
 	 * @param distanceFromTopPanelBorder
 	 * @throws Exception if the given distance from left panel border is negative or the given distance from top panel border is negative
 	 */
-	protected final void setPositionOnContainer(int distanceFromLeftPanelBorder, int distanceFromTopPanelBorder) {
+	protected final void setPositionOnParent(int distanceFromLeftPanelBorder, int distanceFromTopPanelBorder) {
 		
 		//Calls method of the base class.
-		super.setPositionOnContainer(distanceFromLeftPanelBorder, distanceFromTopPanelBorder);
+		super.setPositionOnParent(distanceFromLeftPanelBorder, distanceFromTopPanelBorder);
 		
-		getRefRectangle().setPositionOnContainer(
+		getRefRectangle().setPositionOnParent(
 				distanceFromLeftPanelBorder + getContentXPosition(),
 				distanceFromTopPanelBorder + getContentYPosition()
 		);

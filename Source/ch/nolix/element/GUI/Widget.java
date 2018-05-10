@@ -22,50 +22,58 @@ import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**
- * A widget is an element on a GUI.
- * A widget determines its width and height.
- * A widget is a configurable element.
- * The methods concerning the position of a widget are not public.
+ * A {@link Widget} is an element on a {@link GUI}.
+ * A {@link Widget} determines its width and height.
+ * A {@link Widget} is a {@link ConfigurableElement}.
+ * The methods concerning the position of a {@link Widget} are not public.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1340
- * @param <W> The type of a widget.
- * @param <WS> The type of the widget structures of a widget.
+ * @lines 1360
+ * @param <W> The type of a {@link Widget}.
+ * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
-public abstract class Widget<W extends Widget<W, WS>, WS extends WidgetLook<WS>>
+public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>>
 extends ConfigurableElement<W> {
 	
 	//constants
 	private static final String STATE_HEADER ="State";
+	private static final String NO_GREY_OUT_WHEN_DISABLED_HEADER = "NoGreyOutWhenDisabled";
+	
+	//constants
+	private static final String BASE_PREFIX = "Base";
+	private static final String FOCUS_PREFIX = "Focus";
+	private static final String HOVER_PREFIX = "Hover";
+	private static final String HOVER_FOCUS_PREFIX = "HoverFocus";
+	
+	//constants
 	private static final String LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER = "LeftMouseButtonPressCommand";
 	private static final String LEFT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER = "LeftMouseButtonReleaseCommand";
 	private static final String RIGHT_MOUSE_BUTTON_PRESS_COMMAND_HEADER = "RightMouseButtonPressCommand";
 	private static final String RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER = "RightMouseButtonReleaseCommand";
-	private static final String NO_GREY_OUT_WHEN_DISABLED_HEADER = "NoGreyOutWhenDisabled";
-	private static final String NORMAL_PREFIX = "Normal";
-	private static final String FOCUS_PREFIX = "Focus";
-	private static final String HOVER_PREFIX = "Hover";
-	private static final String HOVER_FOCUS_PREFIX = "HoverFocus";
-		
-	//attribute
-	/**
-	 * The GUI this widget belongs to.
-	 */
-	private GUI<?> GUI;
 	
 	//attributes
-	private int xPositionOnContainer = 0;
-	private int yPositionOnContainer = 0;
 	private WidgetState state = WidgetState.Normal;
-	private boolean greyOutWhenDisabled = true;
 	private CursorIcon cursorIcon = CursorIcon.Arrow;
-	private final WS normalStructure = createWidgetLook();
-	private final WS hoverStructure = createWidgetLook();
-	private final WS focusStructure = createWidgetLook();
-	private final WS hoverFocusStructure = createWidgetLook();
-	private int mouseXPosition;
-	private int mouseYPosition;
+	private boolean greyOutWhenDisabled = true;	
+	
+	//attributes
+	private final WL baseLook = createWidgetLook();
+	private final WL hoverLook = createWidgetLook();
+	private final WL focusLook = createWidgetLook();
+	private final WL hoverFocusLook = createWidgetLook();
+	
+	//attributes
+	private int xPositionOnParent = 0;
+	private int yPositionOnParent = 0;
+	private int cursorXPosition = 0;
+	private int cursorYPosition = 0;
+	
+	//optional attribute
+	/**
+	 * The {@link GUI} the current {@link Widget} belongs to.
+	 */
+	private GUI<?> parentGUI;
 	
 	//optional attributes
 	private Statement leftMouseButtonPressCommand;
@@ -75,17 +83,17 @@ extends ConfigurableElement<W> {
 	
 	//constructor
 	/**
-	 * Creates a new widget.
+	 * Creates a new {@link Widget}.
 	 */
 	public Widget() {			
-		getRefHoverStructure().setBaseStructure(getRefBaseLook());
-		getRefFocusStructure().setBaseStructure(getRefBaseLook());
-		getRefHoverFocusStructure().setBaseStructure(getRefFocusStructure());
+		getRefHoverLook().setBaseStructure(getRefBaseLook());
+		getRefFocusLook().setBaseStructure(getRefBaseLook());
+		getRefHoverFocusLook().setBaseStructure(getRefFocusLook());
 	}
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to this widget.
+	 * Adds or changes the given attribute to the current {@link Widget}.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -100,6 +108,9 @@ extends ConfigurableElement<W> {
 			case CursorIcon.TYPE_NAME:
 				setCursorIcon(CursorIcon.valueOf(attribute.getOneAttributeAsString()));
 				break;
+			case NO_GREY_OUT_WHEN_DISABLED_HEADER:
+				removeGreyOutWhenDisabled();
+				break;
 			case LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER:
 				setLeftMouseButtonPressCommand(attribute.getOneAttributeAsString());
 				break;
@@ -112,29 +123,27 @@ extends ConfigurableElement<W> {
 			case RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER:
 				setRightMouseButtonReleaseCommand(attribute.getOneAttributeAsString());
 				break;
-			case NO_GREY_OUT_WHEN_DISABLED_HEADER:
-				removeGreyOutWhenDisabled();
-				break;
+			
 			default:
-				if (attribute.getHeader().startsWith(NORMAL_PREFIX)) {
-					final Specification temp = attribute.createCopy();
-					temp.setHeader(attribute.getHeader().substring(NORMAL_PREFIX.length()));
+				if (attribute.getHeader().startsWith(BASE_PREFIX)) {
+					final var temp = attribute.createCopy();
+					temp.setHeader(attribute.getHeader().substring(BASE_PREFIX.length()));
 					getRefBaseLook().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(HOVER_PREFIX)) {
-					final Specification temp = attribute.createCopy();
+					final var temp = attribute.createCopy();
 					temp.setHeader(attribute.getHeader().substring(HOVER_PREFIX.length()));
-					getRefHoverStructure().addOrChangeAttribute(temp);
+					getRefHoverLook().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(FOCUS_PREFIX)) {
-					final Specification temp = attribute.createCopy();
+					final var temp = attribute.createCopy();
 					temp.setHeader(attribute.getHeader().substring(FOCUS_PREFIX.length()));
-					getRefFocusStructure().addOrChangeAttribute(temp);
+					getRefFocusLook().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(HOVER_FOCUS_PREFIX)) {
-					final Specification temp = attribute.createCopy();
+					final var temp = attribute.createCopy();
 					temp.setHeader(attribute.getHeader().substring(HOVER_FOCUS_PREFIX.length()));
-					getRefFocusStructure().addOrChangeAttribute(temp);
+					getRefFocusLook().addOrChangeAttribute(temp);
 				}
 				else {
 				
@@ -146,16 +155,16 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return true if this widget belongs to a GUI.
+	 * @return true if the current {@link Widget} belongs to a GUI.
 	 */
 	public final boolean belongsToGUI() {
-		return (GUI != null);
+		return (parentGUI != null);
 	}
 	
 	//method
 	/**
 	 * @param GUI
-	 * @return true if this widget belongs to the given GUI.
+	 * @return true if the current {@link Widget} belongs to the given GUI.
 	 * @throws NullArgumentException if the given GUI is null.
 	 */
 	public final boolean belongsToGUI(final GUI<?> GUI) {
@@ -163,12 +172,12 @@ extends ConfigurableElement<W> {
 		//Checks if the given GUI is not null.
 		Validator.suppose(GUI).isNotNull();
 		
-		return (this.GUI != GUI);
+		return (this.parentGUI != GUI);
 	}
-
+	
 	//method
 	/**
-	 * @return the attributes of this widget
+	 * @return the attributes of the current {@link Widget}.
 	 */
 	public List<StandardSpecification> getAttributes() {
 		
@@ -183,7 +192,7 @@ extends ConfigurableElement<W> {
 			attributes.addAtEnd(cursorIcon.getSpecification());
 		}
 		
-		//Handles the case that this widget has a left mouse button press command.
+		//Handles the case that the current widget has a left mouse button press command.
 		if (hasLeftMouseButtonPressCommand()) {
 			attributes.addAtEnd(
 				new StandardSpecification(
@@ -193,7 +202,7 @@ extends ConfigurableElement<W> {
 			);
 		}
 		
-		//Handles the case that this widget has a left mouse button release command.
+		//Handles the case that the current widget has a left mouse button release command.
 		if (hasLeftMouseButtonReleaseCommand()) {
 			attributes.addAtEnd(
 				new StandardSpecification(
@@ -203,7 +212,7 @@ extends ConfigurableElement<W> {
 			);
 		}
 		
-		//Handles the case that this widget has a right mouse button press command.
+		//Handles the case that the current widget has a right mouse button press command.
 		if (hasRightMouseButtonPressCommand()) {
 			attributes.addAtEnd(
 				new StandardSpecification(
@@ -213,7 +222,7 @@ extends ConfigurableElement<W> {
 			);	
 		}
 		
-		//Handles the case that this widget has a right mouse button release command.
+		//Handles the case that the current widget has a right mouse button release command.
 		if (hasRightMouseButtonReleaseCommand()) {
 			attributes.addAtEnd(
 				new StandardSpecification(
@@ -223,23 +232,23 @@ extends ConfigurableElement<W> {
 			);
 		}
 		
-		//Handles the case that this widget does not grey out when it is disabled.
+		//Handles the case that the current widget does not grey out when it is disabled.
 		if (!greysOutWhenDisabled()) {
 			attributes.addAtEnd(new StandardSpecification(NO_GREY_OUT_WHEN_DISABLED_HEADER));
 		}
 	
-		//Extracts the normal state attributes of this widget.
+		//Extracts the normal state attributes of the current widget.
 		final List<StandardSpecification> normalStateAttributes = getRefBaseLook().getAttributes();
-		normalStateAttributes.forEach(a -> a.addPrefixToHeader(NORMAL_PREFIX));
+		normalStateAttributes.forEach(a -> a.addPrefixToHeader(BASE_PREFIX));
 		attributes.addAtEnd(normalStateAttributes);
 		
-		//Extracts the hover state attributes of this widget.
-		final List<StandardSpecification> hoverStateAttributes = getRefHoverStructure().getAttributes();
+		//Extracts the hover state attributes of the current widget.
+		final List<StandardSpecification> hoverStateAttributes = getRefHoverLook().getAttributes();
 		hoverStateAttributes.forEach(a -> a.addPrefixToHeader(HOVER_PREFIX));
 		attributes.addAtEnd(hoverStateAttributes);
 		
-		//Extracts focus state attributes of this widget.
-		final List<StandardSpecification> focusStateAttributes = getRefFocusStructure().getAttributes();
+		//Extracts focus state attributes of the current widget.
+		final List<StandardSpecification> focusStateAttributes = getRefFocusLook().getAttributes();
 		focusStateAttributes.forEach(a -> a.addPrefixToHeader(FOCUS_PREFIX));
 		attributes.addAtEnd(focusStateAttributes);
 		
@@ -248,22 +257,48 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return the height of this widget.
+	 * @return the cursor icon of the current {@link Widget}.
+	 */
+	public final CursorIcon getCursorIcon() {
+		return cursorIcon;
+	}
+	
+	//method
+	/**
+	 * @return the x-position of the cursor on the current {@link Widget}.
+	 */
+	public final int getCursorXPosition() {
+		return cursorXPosition;
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the cursor on the current {@link Widget}.
+	 */
+	public final int getCursorYPosition() {
+		return cursorYPosition;
+	}
+
+	
+	
+	//method
+	/**
+	 * @return the height of the current {@link Widget}.
 	 */
 	public final int getHeight() {
 		
-		//Handles the case that this widget is collapsed.
+		//Handles the case that the current widget is collapsed.
 		if (isCollapsed()) {
 			return 0;
 		}
 		
-		//Handles the case that this widget is not collapsed.
+		//Handles the case that the current widget is not collapsed.
 		return getHeightWhenNotCollapsed();
 	}
 	
 	//abstract method
 	/**
-	 * @return the height of this widget when it is s not collapsed.
+	 * @return the height of the current {@link Widget} when it is s not collapsed.
 	 */
 	public abstract int getHeightWhenNotCollapsed();
 	
@@ -282,12 +317,12 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return the left mouse button press command of this widget.
-	 * @throws UnexistingAttibuteException if this widget has no left mouse button press command.
+	 * @return the left mouse button press command of the current {@link Widget}.
+	 * @throws UnexistingAttibuteException if the current {@link Widget} has no left mouse button press command.
 	 */
 	public final Statement getLeftMouseButtonPressCommand() {
 		
-		//Checks if this widget has a left mouse button press command.
+		//Checks if the current {@link Widget} has a left mouse button press command.
 		if (!hasLeftMouseButtonPressCommand()) {
 			throw new UnexistingAttributeException(this, "left mouse button press command");
 		}
@@ -297,12 +332,12 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return the left mouse button release command of this widget.
-	 * @throws UnexistingAttributeException if this widget has no left mouse button release command.
+	 * @return the left mouse button release command of the current {@link Widget}.
+	 * @throws UnexistingAttributeException if the current {@link Widget} has no left mouse button release command.
 	 */
 	public final Statement getLeftMouseButtonReleaseCommand() {
 		
-		//Checks if this widget has a left mouse button release command.
+		//Checks if the current {@link Widget} has a left mouse button release command.
 		if (!hasLeftMouseButtonReleaseCommand()) {
 			throw new UnexistingAttributeException(this, "right mouse button press command");
 		}
@@ -312,23 +347,28 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return the x-position of the mouse of this widget.
+	 * @return the GUI the current {@link Widget} belongs to.
+	 * @throws InvalidStateException if the current {@link Widget} belongs to no GUI.
 	 */
-	public final int getCursorXPosition() {
-		return mouseXPosition;
+	public final GUI<?> getParentGUI() {
+		
+		//Checks if the current widget belongs to a GUI.
+		supposeBelongsToGUI();
+		
+		return parentGUI;
 	}
 	
 	//method
 	/**
-	 * @return the y-position of the mouse of this widget.
+	 * @return the base look of the current {@link Widget}.
 	 */
-	public final int getCursorYPosition() {
-		return mouseYPosition;
+	public final WL getRefBaseLook() {
+		return baseLook;
 	}
 	
 	//method
 	/**
-	 * @return the configurable elements of this widget.
+	 * @return the configurable elements of the current {@link Widget}.
 	 */
 	public final ReadContainer<Configurable<?>> getRefConfigurables() {
 		return new ReadContainer<Configurable<?>>(getRefWidgets());
@@ -336,74 +376,43 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return the cursor icon of this widget.
+	 * @return the focus look of the current {@link Widget}.
 	 */
-	public CursorIcon getCursorIcon() {
-		return cursorIcon;
+	public final WL getRefFocusLook() {
+		return focusLook;
+	}
+
+	//method
+	/**
+	 * @return the hover focus structure of the current {@link Widget}.
+	 */
+	public final WL getRefHoverFocusLook() {
+		return hoverFocusLook;
+	}
+	
+	//method
+	/**
+	 * @return the hover look of the current {@link Widget}.
+	 */
+	public final WL getRefHoverLook() {
+		return hoverLook;
 	}
 	
 	//abstract method
 	/**
 	 * 
-	 * @return the elements of this widget.
+	 * @return the widgets of the current {@link Widget}.
 	 */
 	public abstract ReadContainer<Widget<?, ?>> getRefWidgets();
 	
 	//method
 	/**
-	 * @return the focus structure of this widget.
-	 */
-	public final WS getRefFocusStructure() {
-		return focusStructure;
-	}
-	
-	//method
-	/**
-	 * @return the GUI this widget belongs to.
-	 * @throws InvalidStateException if this widget belongs to no GUI.
-	 */
-	public final GUI<?> getRefGUI() {
-		
-		//Checks if this widget belongs to a GUI.
-		if (!belongsToGUI()) {
-			throw new InvalidStateException(this, "belongs to no GUI");
-		}
-		
-		return GUI;
-	}
-	
-	//method
-	/**
-	 * @return the hover focus structure of this widget.
-	 */
-	public final WS getRefHoverFocusStructure() {
-		return hoverFocusStructure;
-	}
-	
-	//method
-	/**
-	 * @return the hover structure of this widget.
-	 */
-	public final WS getRefHoverStructure() {
-		return hoverStructure;
-	}
-	
-	//method
-	/**
-	 * @return the normal structure of this widget.
-	 */
-	public final WS getRefBaseLook() {
-		return normalStructure;
-	}
-	
-	//method
-	/**
-	 * @return the right mouse button press command of this widget.
-	 * @throws UnexistingAttributeException if this widget has no right mouse button press command.
+	 * @return the right mouse button press command of the current {@link Widget}.
+	 * @throws UnexistingAttributeException if the current {@link Widget} has no right mouse button press command.
 	 */
 	public final Statement getRightMouseButtonPressCommand() {
 		
-		//Checks if this widget has a right mouse button press command.
+		//Checks if the current {@link Widget} has a right mouse button press command.
 		if (!hasRightMouseButtonPressCommand()) {
 			throw new UnexistingAttributeException(this, "right mouse button press command");
 		}
@@ -413,12 +422,12 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return the right mouse button release command of this widget.
-	 * @throws UnexistingAttributeException if this widget has no right mouse button release command.
+	 * @return the right mouse button release command of the current {@link Widget}.
+	 * @throws UnexistingAttributeException if the current {@link Widget} has no right mouse button release command.
 	 */
 	public final Statement getRightMouseButtonReleaseCommand() {
 		
-		//Checks if this widget has a right mouse button release command.
+		//Checks if the current {@link Widget} has a right mouse button release command.
 		if (!hasRightMouseButtonReleaseCommand()) {
 			throw new UnexistingAttributeException(this, "right mouse button release command");
 		}
@@ -428,7 +437,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return the state of this widget.
+	 * @return the state of the current {@link Widget}.
 	 */
 	public final WidgetState getState() {
 		return state;
@@ -436,28 +445,28 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return the width of this widget.
+	 * @return the width of the current {@link Widget}.
 	 */
 	public final int getWidth() {
 		
-		//Handles the case that this widget is collapsed.
+		//Handles the case that the current widget is collapsed.
 		if (isCollapsed()) {
 			return 0;
 		}
 		
-		//Handles the case that this widget is not collapsed.
+		//Handles the case that the current widget is not collapsed.
 		return getWidthWhenNotCollapsed();
 	}
 	
 	//abstract method
 	/**
-	 * @return the width of this widget when it is not collapsed.
+	 * @return the width of the current {@link Widget} when it is not collapsed.
 	 */
 	public abstract int getWidthWhenNotCollapsed();
 	
 	//method
 	/**
-	 * @return true if this widget greys out when it is disabled.
+	 * @return true if the current {@link Widget} greys out when it is disabled.
 	 */
 	public final boolean greysOutWhenDisabled() {
 		return greyOutWhenDisabled;
@@ -465,7 +474,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return true if this widget has a left mouse button press command.
+	 * @return true if the current {@link Widget} has a left mouse button press command.
 	 */
 	public final boolean hasLeftMouseButtonPressCommand() {
 		return (leftMouseButtonPressCommand != null);
@@ -473,7 +482,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return true if this widget has a left mouse button release command.
+	 * @return true if the current {@link Widget} has a left mouse button release command.
 	 */
 	public final boolean hasLeftMouseButtonReleaseCommand() {
 		return (leftMouseButtonReleaseCommand != null);
@@ -481,7 +490,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return true if this widget has a right mouse button press command.
+	 * @return true if the current {@link Widget} has a right mouse button press command.
 	 */
 	public final boolean hasRightMouseButtonPressCommand() {
 		return (rightMouseButtonPressCommand != null);
@@ -489,7 +498,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return true if this widget has a right mouse button release command.
+	 * @return true if the current {@link Widget} has a right mouse button release command.
 	 */
 	public final boolean hasRightMouseButtonReleaseCommand() {
 		return (rightMouseButtonReleaseCommand != null);
@@ -497,7 +506,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return true if this widget is collapsed.
+	 * @return true if the current {@link Widget} is collapsed.
 	 */
 	public final boolean isCollapsed() {
 		return (getState() == WidgetState.Collapsed);
@@ -505,7 +514,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return true if this widget is disabled.
+	 * @return true if the current {@link Widget} is disabled.
 	 */
 	public final boolean isDisabled() {
 		return (getState() == WidgetState.Disabled);
@@ -513,9 +522,9 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * A widget is enables when it is normal, hovered, focused or hover focused.
+	 * A {@link Widget} is enables when it is normal, hovered, focused or hover focused.
 	 * 
-	 * @return true if this widget is enabled.
+	 * @return true if the current {@link Widget} is enabled.
 	 */
 	public final boolean isEnabled() {
 		return (isNormal() || isHovered() || isFocused() || isHoverFocused());
@@ -523,7 +532,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return true if this widget is focused.
+	 * @return true if the current {@link Widget} is focused.
 	 */
 	public final boolean isFocused() {
 		return (getState() == WidgetState.Focused);
@@ -531,7 +540,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return true if this widget is hovered.
+	 * @return true if the current {@link Widget} is hovered.
 	 */
 	public final boolean isHovered() {
 		return (getState() == WidgetState.Hovered);
@@ -539,7 +548,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return true if this widget is hover-focused.
+	 * @return true if the current {@link Widget} is hover-focused.
 	 */
 	public final boolean isHoverFocused() {
 		return (getState() == WidgetState.HoverFocused);
@@ -547,7 +556,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return true if this widget is normal.
+	 * @return true if the current {@link Widget} is normal.
 	 */
 	public final boolean isNormal() {
 		return (getState() == WidgetState.Normal);
@@ -557,44 +566,48 @@ extends ConfigurableElement<W> {
 	/**
 	 * If a widget is under mouse it is not surely hovered, for example when it is disabled.
 	 * 
-	 * @return true if the mouse is on this widget.
+	 * @return true if the mouse is on the current {@link Widget}.
 	 */
 	public final boolean isUnderCursor() {
 		return (
-			mouseXPosition >= 0	//First, checks the conditions that can be calculated easily.
-			&& mouseYPosition >= 0
-			&& mouseXPosition < getWidth()
-			&& mouseYPosition < getHeight()
+			cursorXPosition >= 0	//First, checks the conditions that can be calculated easily.
+			&& cursorYPosition >= 0
+			&& cursorXPosition < getWidth()
+			&& cursorYPosition < getHeight()
 		);		
 	}
 	
 	//method
 	/**
-	 * Lets this widget note any key press.
+	 * Lets the current {@link Widget} note any key press.
 	 * 
 	 * @param keyEvent
 	 */
 	public final void noteAnyKeyPress(final KeyEvent keyEvent) {
-		if (isFocused()) {
+		
+		//Handles the case that the current widget is focused or hover focused.
+		if (isFocused() || isHoverFocused()) {
 			noteKeyPress(keyEvent);
 		}
 	}
 	
 	//method
 	/**
-	 * Lets this widget note any key typing.
+	 * Lets the current {@link Widget} note any key typing.
 	 * 
 	 * @param keyEvent
 	 */
 	public final void noteAnyKeyTyping(final KeyEvent keyEvent) {
-		if (isFocused()) {
+		
+		//Handles the case that the current widget is focused or hover focused.
+		if (isFocused() || isHoverFocused()) {
 			noteKeyTyping(keyEvent);
 		}
 	}
 
 	//method
 	/**
-	 * Lets this widget note any mouse button press.
+	 * Lets the current {@link Widget} note any mouse button press.
 	 */
 	public final void noteAnyLeftMouseButtonPress() {
 		if (isEnabled()) {
@@ -624,7 +637,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Lets this widget note any mouse button release.
+	 * Lets the current {@link Widget} note any mouse button release.
 	 */
 	public final void noteAnyLeftMouseButtonRelease() {
 		if (isEnabled()) {
@@ -636,7 +649,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Lets this widget note any mouse move.
+	 * Lets the current {@link Widget} note any mouse move.
 	 */
 	public final void noteAnyMouseMove() {
 		if (isEnabled()) {
@@ -670,7 +683,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Lets this widget note the given mouse wheel rotation steps.
+	 * Lets the current {@link Widget} note the given mouse wheel rotation steps.
 	 * The given number of mouse wheel rotation steps is positive if the mouse wheel was rotated forward.
 	 * The given number mouse wheel rotation steps is negative if the mouse wheel was rotated backward.
 	 * 
@@ -684,7 +697,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Lets this widget note any right mouse button press.
+	 * Lets the current {@link Widget} note any right mouse button press.
 	 */
 	public final void noteAnyRightMouseButtonPress() {
 		if (isEnabled() && isUnderCursor()) {
@@ -694,7 +707,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Lets this widget note any right mouse button release.
+	 * Lets the current {@link Widget} note any right mouse button release.
 	 */
 	public final void noteAnyRightMouseButtonRelease() {
 		if (isEnabled() && isUnderCursor()) {
@@ -704,7 +717,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Lets this widget note a key press.
+	 * Lets the current {@link Widget} note a key press.
 	 * 
 	 * @param keyEvent
 	 */
@@ -712,7 +725,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Lets this widget note a key typing.
+	 * Lets the current {@link Widget} note a key typing.
 	 * 
 	 * @param keyEvent
 	 */
@@ -720,31 +733,31 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Lets this widget note a left mouse button press.
+	 * Lets the current {@link Widget} note a left mouse button press.
 	 */
 	public void noteLeftMouseButtonPress() {
 		
-		//Handles the case that this widget has a left mouse button press command.
+		//Handles the case that the current widget has a left mouse button press command.
 		if (hasLeftMouseButtonPressCommand()) {
-			getRefGUI().getRefController().run(getLeftMouseButtonPressCommand());
+			getParentGUI().getRefController().run(getLeftMouseButtonPressCommand());
 		}
 	}
 	
 	//method
 	/**
-	 * Lets this widget note a left mouse button release.
+	 * Lets the current {@link Widget} note a left mouse button release.
 	 */
 	public void noteLeftMouseButtonRelease() {
 		
-		//Handles the case that this widget has a left mouse button release command.
+		//Handles the case that the current widget has a left mouse button release command.
 		if (hasLeftMouseButtonReleaseCommand()) {
-			getRefGUI().getRefController().run(getLeftMouseButtonReleaseCommand());
+			getParentGUI().getRefController().run(getLeftMouseButtonReleaseCommand());
 		}
 	}
 	
 	//method
 	/**
-	 * Lets this widget note a mouse move.
+	 * Lets the current {@link Widget} note a mouse move.
 	 */
 	public void noteMouseMove() {}
 	
@@ -760,33 +773,32 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Lets this widget note a right mouse button press.
+	 * Lets the current {@link Widget} note a right mouse button press.
 	 */
 	public void noteRightMouseButtonPress() {}
 	
 	//method
 	/**
-	 * Lets this widget note a right mouse button release.
+	 * Lets the current {@link Widget} note a right mouse button release.
 	 */
 	public void noteRightMouseButtonRelease() {}
 	
 	//method
 	/**
-	 * Avoids that this widget greys out when it is disabled.
+	 * Avoids that the current widget greys out when it is disabled.
 	 * 
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 */
-	@SuppressWarnings("unchecked")
 	public final W removeGreyOutWhenDisabled() {
 		
 		greyOutWhenDisabled = false;
 		
-		return (W)this;
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Removes the left mouse button press command of this widget.
+	 * Removes the left mouse button press command of the current {@link Widget}.
 	 */
 	public final void removeLeftMouseButtonPressCommand() {
 		leftMouseButtonPressCommand = null;
@@ -794,7 +806,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Removes the left mouse button release command of this widget.
+	 * Removes the left mouse button release command of the current {@link Widget}.
 	 */
 	public final void removeLeftMouseButtonReleaseCommand() {
 		leftMouseButtonReleaseCommand = null;
@@ -802,7 +814,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Removes the right mouse button press command of this widget.
+	 * Removes the right mouse button press command of the current {@link Widget}.
 	 */
 	public final void removeRightMouseButtonPressCommand() {
 		rightMouseButtonPressCommand = null;
@@ -810,7 +822,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Removes the right mouse button release command of this widget.
+	 * Removes the right mouse button release command of the current {@link Widget}.
 	 */
 	public final void removeRightMouseButtonReleaseCommand() {
 		rightMouseButtonReleaseCommand = null;
@@ -818,13 +830,17 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Resets this widget.
+	 * Resets the current {@link Widget}.
 	 * 
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 */
 	public W reset() {
 		
+		//Calls method of the base class.
+		super.reset();
+		
 		setNormal();
+		setGreyOutWhenDisabled();
 		
 		removeLeftMouseButtonPressCommand();
 		removeLeftMouseButtonReleaseCommand();
@@ -833,21 +849,20 @@ extends ConfigurableElement<W> {
 		
 		resetConfiguration();
 		
-		//Calls method of the base class.
-		return super.reset();
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Resets the configuration of this widget.
+	 * Resets the configuration of the current {@link Widget}.
 	 * 
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 */
 	public W resetConfiguration() {
 		
 		getRefBaseLook().reset();
-		getRefHoverStructure().reset();
-		getRefFocusStructure().reset();
+		getRefHoverLook().reset();
+		getRefFocusLook().reset();
 		
 		setCursorIcon(CursorIcon.Arrow);
 		
@@ -856,41 +871,39 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Sets this widget collapsed.
+	 * Sets the current {@link Widget} collapsed.
 	 * 
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 */
-	@SuppressWarnings("unchecked")
 	public final W setCollapsed() {
 		
 		state = WidgetState.Collapsed;
 		
-		return (W)this;
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Sets the cursor icon of this widget.
+	 * Sets the cursor icon of the current {@link Widget}.
 	 * 
 	 * @param cursorIcon
 	 * @throws NullArgumentException if the given cursor icon is null.
 	 */
-	@SuppressWarnings("unchecked")
 	public final W setCursorIcon(final CursorIcon cursorIcon) {
 		
 		//Checks if the given cursor icon is not null.
 		Validator.suppose(cursorIcon).thatIsOfType(CursorIcon.class).isNotNull();
 		
-		//Sets the cursor icon of this widget.
+		//Sets the cursor icon of the current {@link Widget}.
 		this.cursorIcon = cursorIcon;
 		
-		return (W)this;
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Sets the position of the mouse on this widget
-	 * using the mouse position of the mouse on the parent container of this widget.
+	 * Sets the position of the mouse on the current {@link Widget}
+	 * using the mouse position of the mouse on the parent container of the current {@link Widget}.
 	 * 
 	 * @param mouseXPositionOnParentContainer
 	 * @param mouseYPositionOnParentContainer
@@ -899,89 +912,83 @@ extends ConfigurableElement<W> {
 			final int mouseXPositionOnParentContainer,
 			final int mouseYPositionOnParentContainer
 	) {
-		this.mouseXPosition = mouseXPositionOnParentContainer - getXPositionOnContainer();
-		this.mouseYPosition = mouseYPositionOnParentContainer - getYPositionOnContainer();
+		this.cursorXPosition = mouseXPositionOnParentContainer - getXPositionOnContainer();
+		this.cursorYPosition = mouseYPositionOnParentContainer - getYPositionOnContainer();
 	}
 	
 	//method
 	/**
-	 * Sets this widget disabled.
+	 * Sets the current {@link Widget} disabled.
 	 * 
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 */
-	@SuppressWarnings("unchecked")
 	public final W setDisabled() {
 		
 		state = WidgetState.Disabled;
 		
-		return (W)this;
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Sets this widget focused.
+	 * Sets the current {@link Widget} focused.
 	 * 
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 */
-	@SuppressWarnings("unchecked")
 	public final W setFocused() {
 		
 		state = WidgetState.Focused;
 		
-		return (W)this;
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Lets this widget grey out when it is disabled.
+	 * Lets the current {@link Widget} grey out when it is disabled.
 	 * 
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 */
-	@SuppressWarnings("unchecked")
 	public final W setGreyOutWhenDisabled() {
 		
 		greyOutWhenDisabled = true;
 		
-		return (W)this;
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Sets this widget hovered.
+	 * Sets the current {@link Widget} hovered.
 	 * 
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 */
-	@SuppressWarnings("unchecked")
 	public final W setHovered() {
 		
 		state = WidgetState.Hovered;
 		
-		return (W)this;
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Sets this widget hover-focused.
+	 * Sets the current {@link Widget} hover-focused.
 	 * 
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 */
-	@SuppressWarnings("unchecked")
 	public final W  setHoverFocused() {
 		
 		state = WidgetState.HoverFocused;
 		
-		return (W)this;
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Sets the left mouse button press command of this widget.
+	 * Sets the left mouse button press command of the current {@link Widget}.
 	 * 
 	 * @param leftMouseButtonPressCommand
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 * @throws NullArgumentException if the given left mouse button press command is null.
 	 */
-	@SuppressWarnings("unchecked")
 	public final W setLeftMouseButtonPressCommand(final Statement leftMouseButtonPressCommand) {
 		
 		//Checks if the given left mouse button press command is not null.
@@ -992,15 +999,15 @@ extends ConfigurableElement<W> {
 		
 		this.leftMouseButtonPressCommand = leftMouseButtonPressCommand.getCopy();
 		
-		return (W)this;
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Sets the left mouse button press command of this widget.
+	 * Sets the left mouse button press command of the current {@link Widget}.
 	 * 
 	 * @param leftMouseButtonPressCommand
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 * @throws InvalidArgumentException if the given left mouse button press command is not valid.
 	 */
 	public final W setLeftMouseButtonPressCommand(final String leftMouseButtonPressCommand) {
@@ -1009,10 +1016,10 @@ extends ConfigurableElement<W> {
 
 	//method
 	/**
-	 * Sets the given left mouse button press command, that has the given arguments, to this widget.
+	 * Sets the given left mouse button press command, that has the given arguments, to the current {@link Widget}.
 	 * 
 	 * @param leftMouseButtonPressCommand
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 * @throws InvalidArgumentException if the given left mouse button press command is not valid.
 	 * @throws InvalidArgumentExcepiton if one of the given arguments is not valid.
 	 */
@@ -1025,13 +1032,12 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Sets the left mouse button release command of this widget.
+	 * Sets the left mouse button release command of the current {@link Widget}.
 	 * 
 	 * @param leftMouseButtonReleaseCommand
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 * @throws NullArgumentException if the given left mouse button release command is null.
 	 */
-	@SuppressWarnings("unchecked")
 	public final W setLeftMouseButtonReleaseCommand(final Statement leftMouseButtonReleaseCommand) {
 		
 		//Checks if the given left mouse button release command is not null.
@@ -1041,15 +1047,15 @@ extends ConfigurableElement<W> {
 		.isNotNull();
 		this.leftMouseButtonReleaseCommand = leftMouseButtonReleaseCommand.getCopy();
 		
-		return (W)this;
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Sets the left mouse button release command of this widget.
+	 * Sets the left mouse button release command of the current {@link Widget}.
 	 * 
 	 * @param leftMouseButtonReleaseCommand
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 * @throws InvalidArgumentException if the given left mouse button release command is not valid.
 	 */
 	public final W setLeftMouseButtonReleaseCommand(final String leftMouseButtonReleaseCommand) {
@@ -1058,11 +1064,11 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Sets the given left mouse release command, that has the given attributes, to this widget.
+	 * Sets the given left mouse release command, that has the given attributes, to the current {@link Widget}.
 	 * 
 	 * @param leftMouseButtonReleaseCommand
 	 * @param arguments
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 * @throws InvalidArgumentException if the given left mouse button release command is not valid.
 	 * @throws InvalidArgumentException if one of the given arguments are not valid.
 	 */
@@ -1075,27 +1081,25 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Sets this widget normal.
+	 * Sets the current {@link Widget} normal.
 	 * 
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 */
-	@SuppressWarnings("unchecked")
 	public final W setNormal() {
 		
 		state = WidgetState.Normal;
 		
-		return (W)this;
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Sets the right mouse button press command of this widget.
+	 * Sets the right mouse button press command of the current {@link Widget}.
 	 * 
 	 * @param rightMouseButtonPressCommand
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 * @throws NullArgumentException if the given right mouse button press command is null.
 	 */
-	@SuppressWarnings("unchecked")
 	public final W setRightMouseButtonPressCommand(final Statement rightMouseButtonPressCommand) {
 		
 		//Checks if the given right mouse button press command is not null.
@@ -1106,15 +1110,15 @@ extends ConfigurableElement<W> {
 		
 		this.rightMouseButtonPressCommand = rightMouseButtonPressCommand.getCopy();
 		
-		return (W)this;
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Sets the right mouse button press command of this widget.
+	 * Sets the right mouse button press command of the current {@link Widget}.
 	 * 
 	 * @param rightMouseButtonPressCommand
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 * @throws InvalidArgumentException if the givne right mouse button press command is not valid.
 	 */
 	public final W setRightMouseButtonPressCommand(final String rightMouseButtonPressCommand) {
@@ -1123,11 +1127,11 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Sets the given right mouse button press command, that has the given arguments, to this widget.
+	 * Sets the given right mouse button press command, that has the given arguments, to the current {@link Widget}.
 	 * 
 	 * @param rightMouseButtonPressCommand
 	 * @param arguments
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 * @throws InvalidArgumentException if the given right mouse button press command is not valid.
 	 * @throws InvalidArgumentException if one of the given arguments is not valid.
 	 */
@@ -1140,13 +1144,12 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Sets the right mouse button release command of this widget.
+	 * Sets the right mouse button release command of the current {@link Widget}.
 	 * 
 	 * @param rightMouseButtonReleaseCommand
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 * @throws NullArgumentException if the given right mouse button release command is null.
 	 */
-	@SuppressWarnings("unchecked")
 	public final W setRightMouseButtonReleaseCommand(final Statement rightMouseButtonReleaseCommand) {
 		
 		//Checks if the given right mouse button release command is not null.
@@ -1157,15 +1160,15 @@ extends ConfigurableElement<W> {
 		
 		this.rightMouseButtonReleaseCommand = rightMouseButtonReleaseCommand.getCopy();
 		
-		return (W)this;
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Sets the right mouse button release command of this widget.
+	 * Sets the right mouse button release command of the current {@link Widget}.
 	 * 
 	 * @param rightMouseButtonReleaseCommand
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 * @throws InvalidArgumentException if the given right mouse button release command is not valid.
 	 */
 	public final W setRightMouseButtonReleaseCommand(final String rightMouseButtonReleaseCommand) {
@@ -1174,11 +1177,11 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Sets the givne right mouse button release command, that has the given arguments, to this widget.
+	 * Sets the givne right mouse button release command, that has the given arguments, to the current {@link Widget}.
 	 * 
 	 * @param rightMouseButtonReleaseCommand
 	 * @param arguments
-	 * @return this widget.
+	 * @return the current {@link Widget}.
 	 * @throws InvalidArgumentException if the given right mouse button release command is not valid.
 	 * @throws InvalidArgumentException if one of the given argumnets is not valid.
 	 */
@@ -1191,46 +1194,45 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Sets the state of this widget.
+	 * Sets the state of the current {@link Widget}.
 	 * 
 	 * @param state
 	 * @throws NullArgumentException if the given state is null.
 	 */
-	@SuppressWarnings("unchecked")
 	public final W setState(final WidgetState state) {
 		
 		//Checks if the given state is not null.
 		Validator.suppose(state).thatIsNamed("state").isNotNull();
 
-		//Sets the state of this widget.
+		//Sets the state of the current {@link Widget}.
 		this.state = state;
 		
-		return (W)this;
+		return getInstance();
 	}
 	
 	//abstract method
 	/**
-	 * @return a new widget look for this widget.
+	 * @return a new widget look for the current {@link Widget}.
 	 */
-	protected abstract WS createWidgetLook();
+	protected abstract WL createWidgetLook();
 	
 	//method
 	/**
-	 * @return the current look of this widget.
-	 * @throws UnexistingAttributeException if this widget has no current look.
+	 * @return the current look of the current {@link Widget}.
+	 * @throws UnexistingAttributeException if the current {@link Widget} has no current look.
 	 */
-	protected final WS getRefCurrentLook() {
+	protected final WL getRefCurrentLook() {
 		
-		//Enumerates the state of this widget.
+		//Enumerates the state of the current {@link Widget}.
 		switch (getState()) {
 			case Normal:
 				return getRefBaseLook();
 			case Hovered:
-				return getRefHoverStructure();
+				return getRefHoverLook();
 			case Focused:
-				return getRefFocusStructure();
+				return getRefFocusLook();
 			case HoverFocused:
-				return getRefHoverFocusStructure();
+				return getRefHoverFocusLook();
 			case Disabled:
 				return getRefBaseLook();
 			default:
@@ -1242,32 +1244,32 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return the x-position of this widget on its parent container.
+	 * @return the x-position of the current {@link Widget} on its parent container.
 	 */
 	protected final int getXPositionOnContainer() {
-		return xPositionOnContainer;
+		return xPositionOnParent;
 	}
 	
 	//method
 	/**
-	 * @return the relative y-position of this widget on its parent container.
+	 * @return the relative y-position of the current {@link Widget} on its parent container.
 	 */
 	protected final int getYPositionOnContainer() {
-		return yPositionOnContainer;
+		return yPositionOnParent;
 	}
 	
 	//abstract method
 	/**
-	 * Paints this widget using the given widget structure and painter.
+	 * Paints the current {@link Widget} using the given widget structure and painter.
 	 * 
 	 * @param widgetStructure
 	 * @param painter
 	 */
-	protected abstract void paint(final WS widgetStructure, final IPainter painter);
+	protected abstract void paint(final WL widgetStructure, final IPainter painter);
 	
 	//method
 	/**
-	 * Paints this widget using the position on its parent container using the given painter.
+	 * Paints the current {@link Widget} using the position on its parent container using the given painter.
 	 * This method promises that the given painter
 	 * has the same position at the end as at the beginning.
 	 * 
@@ -1284,11 +1286,11 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Sets the GUI this widget will belong to.
+	 * Sets the GUI the current {@link Widget} will belong to.
 	 * 
 	 * @param GUI
 	 * @throws NullArgumentException if the given GUI is null.
-	 * @throws InvalidArgumentException if this widget belongs already to an other GUI.
+	 * @throws InvalidArgumentException if the current {@link Widget} belongs already to an other GUI.
 	 */
 	protected void setGUI(final GUI<?> GUI) {
 		
@@ -1297,35 +1299,38 @@ extends ConfigurableElement<W> {
 		
 		getRefWidgets().forEach(w -> w.setGUI(GUI));
 		
-		//Sets the GUI of this widget.
-		this.GUI = GUI;
+		//Sets the GUI of the current {@link Widget}.
+		this.parentGUI = GUI;
 	}
 	
 	//method
 	/**
-	 * Sets the position of this widget on its parent container
+	 * Sets the position of the current {@link Widget} on its parent.
 	 * 
-	 * @param xPositionOnParentContainer
-	 * @param yPositionOnParentContainer
+	 * @param xPositionOnParent
+	 * @param yPositionOnParent
 	 */
-	protected void setPositionOnContainer(int xPositionOnParentContainer, int yPositionOnParentContainer) {
-		this.xPositionOnContainer = xPositionOnParentContainer;
-		this.yPositionOnContainer = yPositionOnParentContainer;
+	protected void setPositionOnParent(
+		int xPositionOnParent,
+		int yPositionOnParent
+	) {
+		this.xPositionOnParent = xPositionOnParent;
+		this.yPositionOnParent = yPositionOnParent;
 	}
 	
 	//method
 	/**
-	 * @throws ClosedStateException if this widget belongs to a GUI that is closed.
+	 * @throws ClosedStateException if the current {@link Widget} belongs to a GUI that is closed.
 	 */
 	protected void supposeGUIIsAlive() {
-		if (belongsToGUI() && getRefGUI().isClosed()) {
-			throw new ClosedStateException(getRefGUI());
+		if (belongsToGUI() && getParentGUI().isClosed()) {
+			throw new ClosedStateException(getParentGUI());
 		}
 	}
 	
 	//method
 	/**
-	 * Paints this widget using the given painter.
+	 * Paints the current {@link Widget} using the given painter.
 	 * 
 	 * @param painter
 	 */
@@ -1333,10 +1338,25 @@ extends ConfigurableElement<W> {
 		
 		paint(getRefCurrentLook(), painter);
 		
-		//Handles the case that this widget is disabled and would grey out.
+		//Handles the case that the current widget is disabled and would grey out.
 		if (isDisabled() && greysOutWhenDisabled()) {
 			painter.setColor(Color.GREY);
 			painter.paintFilledRectangle(getWidth(), getHeight());
+		}
+	}
+	
+	//method
+	/**
+	 * @throws InvalidStateException if the current {@link Widget} belongs to no GUI.
+	 */
+	private void supposeBelongsToGUI() {
+		
+		//Checks if the current widget belongs to a GUI.
+		if (!belongsToGUI()) {
+			throw new InvalidStateException(
+				this,
+				"belongs to no GUI"
+			);
 		}
 	}
 }

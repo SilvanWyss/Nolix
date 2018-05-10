@@ -183,7 +183,7 @@ public final class Grid extends Container<Grid, GridLook> {
 		cells.set(rowIndex, columnIndex, new GridCell(rowIndex, columnIndex, widget));
 		
 		if (belongsToGUI()) {
-			widget.setGUI(getRefGUI());
+			widget.setGUI(getParentGUI());
 		}
 		
 		return this;
@@ -256,13 +256,13 @@ public final class Grid extends Container<Grid, GridLook> {
 	 * @param relativeXPosition
 	 * @param relativeYPosition
 	 */
-	protected void setPositionOnContainer(
+	protected void setPositionOnParent(
 		final int relativeXPosition,
 		final int relativeYPosition
 	) {
 		
 		//Calls method of the base class.
-		super.setPositionOnContainer(relativeXPosition, relativeYPosition);
+		super.setPositionOnParent(relativeXPosition, relativeYPosition);
 				
 		var y = getContentYPosition();
 		
@@ -285,7 +285,7 @@ public final class Grid extends Container<Grid, GridLook> {
 				x += getElementMargin();
 				
 				if (c.containsAny()) {
-					c.getRefWidget().setPositionOnContainer(x, y);
+					c.getRefWidget().setPositionOnParent(x, y);
 				}
 				
 				x += cells.getColumn(c.getColumnIndex()).getMaxInt(c2 -> c2.getWidth());
