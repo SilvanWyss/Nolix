@@ -109,9 +109,11 @@ implements Clearable<TabContainer> {
 		.thatIsNamed(PascalCaseNameCatalogue.TAB)
 		.isNotNull();
 		
-		final var menuItemLabel = new Label();
-		menuItemLabel.setText(tab.getHeader());
-		menuItemLabel.setCursorIcon(CursorIcon.Hand);
+		final var menuItemLabel =
+		new Label()
+		.setText(tab.getHeader())
+		.setCursorIcon(CursorIcon.Hand);
+		
 		menu.addWidget(menuItemLabel);
 		
 		tab.setParentTabContainer(this, menuItemLabel);
@@ -381,19 +383,65 @@ implements Clearable<TabContainer> {
 	protected void paintContentArea(
 		final TabContainerLook tabContainerLook,
 		final IPainter painter
-	) {		
+	) {
 		menu.setElementMargin(tabContainerLook.getRecursiveOrDefaultMenuItemMargin());
 		
-		//TODO: Important to regard: The sub elements know their position on their parent.
-		//But just paint the sub elements using their own position does not work
-		//because the paintContent method is already called with a translated painter.
-		//Solution 1: Translate back the given painter in the paintContent method.
-		//Solution 2: Give other values to the sub elements in the setPositionOnParent method and the setParentCursorPosition method.
-		//painter.translate(-getContentXPosition(), -getContentYPosition());
+		final var baseMenuItemLook = tabContainerLook.getRefRecursiveOrDefaultBaseMenuItemLook();
+		final var hoverMenuItemLook = tabContainerLook.getRefRecursiveOrDefaultHoverMenuItemLook();
+		final var selectedMenuItemLook = tabContainerLook.getRefRecursiveOrDefaultSelectionMenuItemLook();
+		
+		for (final Widget<?, ?> w : menu.getRefWidgets()) {
+			
+			final var label = (Label)w;
+			
+			//TODO: Make min width of widget state-dependent.
+			if (baseMenuItemLook.hasRecursiveMinWidth()) {
+				label.setMinWidth(baseMenuItemLook.getRecursiveOrDefaultMinWidth());
+			}
+
+			label
+			.getRefBaseLook()
+			.reset()
+			.setPaddings(baseMenuItemLook.getRecursiveOrDefaultPadding())
+			.setTextSize(baseMenuItemLook.getRecursiveOrDefaultTextSize())
+			.setTextColor(baseMenuItemLook.getRecursiveOrDefaultTextColor());
+			
+			if (baseMenuItemLook.hasRecursiveBackgroundColor()) {
+				label
+				.getRefBaseLook()
+				.setBackgroundColor(baseMenuItemLook.getRecursiveOrDefaultBackgroundColor());
+			}
+			
+			label
+			.getRefHoverLook()
+			.reset()
+			.setPaddings(hoverMenuItemLook.getRecursiveOrDefaultPadding())
+			.setTextSize(hoverMenuItemLook.getRecursiveOrDefaultTextSize())
+			.setTextColor(hoverMenuItemLook.getRecursiveOrDefaultTextColor());
+			
+			if (hoverMenuItemLook.hasRecursiveBackgroundColor()) {
+				label
+				.getRefHoverLook()
+				.setBackgroundColor(hoverMenuItemLook.getRecursiveOrDefaultBackgroundColor());
+			}
+			
+			label
+			.getRefFocusLook()
+			.reset()
+			.setPaddings(selectedMenuItemLook.getRecursiveOrDefaultPadding())
+			.setTextSize(selectedMenuItemLook.getRecursiveOrDefaultTextSize())
+			.setTextColor(selectedMenuItemLook.getRecursiveOrDefaultTextColor());
+			
+			if (selectedMenuItemLook.hasRecursiveBackgroundColor()) {
+				label
+				.getRefFocusLook()
+				.setBackgroundColor(selectedMenuItemLook.getRecursiveOrDefaultBackgroundColor());
+			}
+		}
 		
 		menu.paintUsingPositionOnParent(painter);
 		
-		if (containsAny() && getRefSelectedTab().containsAny()) {
+		if (containsSelectedWidget()) {
 			getRefSelectedWidget().paintUsingPositionOnParent(painter);
 		}
 	}
@@ -413,19 +461,7 @@ implements Clearable<TabContainer> {
 		//Calls method of the base class.
 		super.setPositionOnParent(relaitveXPosition, relativeYPosition);
 		
-		//menu.setPositionOnParentContent(0, 0);
-		//getRefSelectedWidget().setPositionOnParentContent(0, menuHeight + menuMargin);
-		//setPositionToSubWidget(
-		
-		//menu.setPosition(100, 0)
-		//menu.setCursorPositionUsingPosition(120, 0);
-		//menu.paintUsingPosition();
-		//TabContainer.setParentContextCursorPosition()
-		
-		menu.setPositionOnParent(
-			0,
-			0
-		);
+		menu.setPositionOnParent(0, 0);
 		
 		if (containsSelectedWidget()) {
 			getRefSelectedWidget().setPositionOnParent(

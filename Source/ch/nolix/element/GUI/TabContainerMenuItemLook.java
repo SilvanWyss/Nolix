@@ -1,388 +1,60 @@
-/*
- * file:	TabContainerMenuItemStructure.java
- * author:	Silvan Wyss
- * month:	2016-04
- * lines:	300
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
 //own imports
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.entity2.Entity;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.PositiveInteger;
+import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.data.TextColor;
 import ch.nolix.element.intData.TextSize;
-import ch.nolix.primitive.invalidArgumentException.Argument;
-import ch.nolix.primitive.invalidArgumentException.ArgumentName;
-import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
-import ch.nolix.primitive.invalidStateException.UnremovableAttributeException;
-import ch.nolix.primitive.validator.Validator;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
-/**
- * A tab container menu item structure stores the state-depended attributes of the menu items of a tab container.
- */
-public final class TabContainerMenuItemLook {
+public final class TabContainerMenuItemLook
+extends Entity<SelectionMenuItemLook> {
 	
-	private static final String LEFT_PADDING = "LeftPadding";
-	private static final String RIGHT_PADDING = "RightPadding";
-	private static final String TOP_PADDING = "TopPadding";
-	private static final String BOTTOM_PADDING = "BottomPadding";
+	//default values
+	public static final int DEFAULT_MIN_WIDTH = ValueCatalogue.MEDIUM_WIDGET_WIDTH;
+	public static final Color DEFAULT_BACKGROUND_COLOR = Color.LIGHT_GREY;
+	public static final int DEFAULT_TEXT_SIZE = ValueCatalogue.MEDIUM_TEXT_SIZE;
+	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
+	
+	//constant
+	private static final String MIN_WIDTH_HEADER = "MinWidth";
+	
+	//static method
+	public static TabContainerMenuItemLook createFromSpecification(
+		final Specification specification
+	) {
+		
+		final var tabContainerMenuItemLook = new TabContainerMenuItemLook();
+		tabContainerMenuItemLook.reset(specification);
+		
+		return tabContainerMenuItemLook;
+	}
 	
 	//optional attributes
-	private TabContainerMenuItemLook normalStructure;
-	private BackgroundColor backgroundColor;
-	
-	//conditionally optional attributes
-	private TextSize textSize = new TextSize();
-	private TextColor textColor = new TextColor();
-	private PositiveInteger leftPadding;
-	private PositiveInteger rightPadding;
-	private PositiveInteger bottomPadding;
-	private PositiveInteger topPadding;
-	
-	public int getRecLeftPadding() {
-		
-		if (hasLeftPadding()) {
-			return leftPadding.getValue();
-		}
-		
-		if (hasBaseLook()) {
-			return getRefBaseLook().getRecLeftPadding();
-		}
-		
-		return 0;
-	}
-	
-	private boolean hasLeftPadding() {
-		return (leftPadding != null);
-	}
-
-	public int getRecRightPadding() {
-		
-		if (hasRightPadding()) {
-			return rightPadding.getValue();
-		}
-		
-		if (hasBaseLook()) {
-			return getRefBaseLook().getRecRightPadding();
-		}
-		
-		return 0;
-	}
-	
-	private boolean hasRightPadding() {
-		return (rightPadding != null);
-	}
-
-	public int getRecBottomPadding() {
-		
-		if (hasBottomPadding()) {
-			return bottomPadding.getValue();
-		}
-		
-		if (hasBaseLook()) {
-			return getRefBaseLook().getRecBottomPadding();
-		}
-		
-		return 0;
-	}
-	
-	private boolean hasBottomPadding() {
-		return (bottomPadding != null);
-	}
-
-	public int getRecTopPadding() {
-		
-		if (hasTopPadding()) {
-			return topPadding.getValue();
-		}
-		
-		if (hasBaseLook()) {
-			return getRefBaseLook().getRecTopPadding();
-		}
-		
-		return 0;
-	}
-	
-	private boolean hasTopPadding() {
-		return (topPadding != null);
-	}
-
-	//method
-	/**
-	 * @return the recursive background color of this tab container menu item structure
-	 * @throws UnexistingAttributeException if this tab container menu item structure has no background color
-	 */
-	public final BackgroundColor getRefRecBackgroundColor() {
-		
-		//Handles the case that this tab container menu item structure has a background color itself.
-		if (hasBackgroundColor()) {
-			return backgroundColor;
-		}
-		
-		//Handles the case that this tab container menu item structure has a background from its normal structure.
-		if (hasBaseLook()) {
-			return getRefBaseLook().getRefRecBackgroundColor();
-		}
-		
-		//Handles the case that this tab container menu item structure has a background color neither from itself nor from its normal structure.
-		throw new UnexistingAttributeException(this, "background color");
-	}
+	private NonNegativeInteger minWidth;
+	private Color backgroundColor;
+	private NonNegativeInteger padding;
+	private NonNegativeInteger textSize;
+	private Color textColor = new TextColor();
 	
 	//method
-	/**
-	 * @return the recursive text color of this tab container menu item structure
-	 * @throws UnexistingAttributeException if this tab container menu item structure has no text color
-	 */
-	public final Color getRefRecTextColor() {
-		
-		//Handles the case that this tab container menu item structure has a text color itself.
-		if (hasTextColor()) {
-			return textColor;
-		}
-		
-		//Handles the case that this tab container menu item structure has a text color from its normal structure.
-		if (hasBaseLook()) {
-			return getRefBaseLook().getRefRecTextColor();
-		}
-		
-		//Handles the case that this tab container menu item structure has a text color neither itself nor from its normal structure.
-		throw new UnexistingAttributeException(this, "text color");
-	}
-	
-	//method
-	/**
-	 * @return the recursive text size of this tab container menu item structure.
-	 * @throws UnexistingAttributeException if this tab container menu item structure has no text size
-	 */
-	public final int getRefRecTextSize() {
-		
-		//Handles the case that this tab container menu item structure has a text size itself.
-		if (hasTextSize()) {
-			return textSize.getValue();
-		}
-		
-		//Handles the case that this tab container menu item structure has a text size from its normal structure.
-		if (hasBaseLook()) {
-			return getRefBaseLook().getRefRecTextSize();
-		}
-		
-		//Handles the case that this tab container menu item structure has a text size neither itself nor from its normal structure.
-		throw new UnexistingAttributeException(this, "text size");
-	}
-	
-	//method
-	/**
-	 * @return true if this tab container menu item structure has a background color
-	 */
-	public final boolean hasBackgroundColor() {
-		return (backgroundColor != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this tab container menu item structure has a text color
-	 */
-	public final boolean hasTextColor() {
-		return (textColor != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this tab container menu item structure has a text size
-	 */
-	public final boolean hasTextSize() {
-		return (textSize != null);
-	}
-	
-	//method
-	/**
-	 * Removes the background color of this tab container menu item structure.
-	 * 
-	 * @return this tab container menu item structure
-	 */
-	public final TabContainerMenuItemLook removeBackgroundColor() {
-		
-		backgroundColor = null;
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Removes the text color of this tab container menu item structure.
-	 * 
-	 * @return this tab container menu item structure
-	 * @throws Exception if this tab container menu item structure cannot remove its text color
-	 */
-	public final TabContainerMenuItemLook removeTextColor() {
-		
-		if (!hasBaseLook()) {
-			throw new UnremovableAttributeException(this, "text color");
-		}
-		
-		textColor = null;
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Removes the text size of this tab container menu item structure.
-	 * 
-	 * @return this tab container menu item structure
-	 * @throws Exception if this tab container menu item structure cannot remove its text size
-	 */
-	public final TabContainerMenuItemLook removeTextSize() {
-		
-		if (!hasBaseLook()) {
-			throw new UnremovableAttributeException(this, "text size");
-		}
-		
-		textSize = null;
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Sets the background color of this tab container menu item structure.
-	 * 
-	 * @param backgroundColor
-	 * @return this tab container menu item structure
-	 * @throws Exception if the given background color is null
-	 */
-	public final TabContainerMenuItemLook setBackgroundColor(final BackgroundColor backgroundColor) {
-		
-		//Checks the given background color.
-		Validator.throwExceptionIfValueIsNull("background color", backgroundColor);
-		
-		this.backgroundColor = backgroundColor;
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Sets the text color of this tab container menu item structure.
-	 * 
-	 * @param textColor
-	 * @return this tab container menu item structure
-	 * @throws Exception if the given text color is null
-	 */
-	public final TabContainerMenuItemLook setTextColor(final TextColor textColor) {
-		
-		//Checks the given text color.
-		Validator.throwExceptionIfValueIsNull("text color", textColor);
-		
-		this.textColor = textColor;
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Sets the text size of this tab container menu item structure.
-	 * 
-	 * @param textSize
-	 * @return this tab container menu item structure
-	 * @throws Exception if the given text size is not positive
-	 */
-	public final TabContainerMenuItemLook setTextSize(final int textSize) {
-		
-		this.textSize = new TextSize(textSize);
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * @return the attributes of this tab container menu item structure
-	 */
-	protected final List<StandardSpecification> getAttributes() {
-		
-		final List<StandardSpecification> attributes = new List<StandardSpecification>();
-		
-		if (hasLeftPadding()) {
-			attributes.addAtEnd(leftPadding.getSpecificationAs(LEFT_PADDING));
-		}
-		if (hasRightPadding()) {
-			attributes.addAtEnd(leftPadding.getSpecificationAs(RIGHT_PADDING));
-		}
-		if (hasTopPadding()) {
-			attributes.addAtEnd(leftPadding.getSpecificationAs(TOP_PADDING));
-		}
-		if (hasBottomPadding()) {
-			attributes.addAtEnd(leftPadding.getSpecificationAs(BOTTOM_PADDING));
-		}
-		
-		if (hasBackgroundColor()) {
-			attributes.addAtEnd(backgroundColor.getSpecification());
-		}
-		
-		if (hasTextSize()) {
-			attributes.addAtEnd(textSize.getSpecification());
-		}
-		
-		if (hasTextColor()) {
-			attributes.addAtEnd(textColor.getSpecification());
-		}
-		
-		return attributes;
-	}
-	
-	//method
-	/**
-	 * @return the normal structure of this tab container menu item structure
-	 * @throws UnexistingAttributeException if this tab container menu item structure has no normal structure
-	 */
-	protected final TabContainerMenuItemLook getRefBaseLook() {
-		
-		if (!hasBaseLook()) {
-			throw new UnexistingAttributeException(this, "normal structure");
-		}
-		
-		return normalStructure;
-	}
-	
-	//method
-	/**
-	 * @return true if this tab container menu item structure has a normal structure
-	 */
-	protected final boolean hasBaseLook() {
-		return (normalStructure != null);
-	}
-	
-	//method
-	/**
-	 * Sets the given attribute to this tab container menu item structure.
-	 * 
-	 * @param attribute
-	 * @throws Exception if the given attribute is not valid
-	 */
-	protected final void setAttribute(Specification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		switch (attribute.getHeader()) {
-			case LEFT_PADDING:
-				setLeftPadding(attribute.getOneAttributeAsInt());
-				break;
-			case RIGHT_PADDING:
-				setRightPadding(attribute.getOneAttributeAsInt());
-				break;
-			case TOP_PADDING:
-				setTopPadding(attribute.getOneAttributeAsInt());
-				break;
-			case BOTTOM_PADDING:
-				setBottomPadding(attribute.getOneAttributeAsInt());
+			case MIN_WIDTH_HEADER:
+				setMinWidth(attribute.getOneAttributeAsInt());
+			case PascalCaseNameCatalogue.PADDING:
+				setPadding(attribute.getOneAttributeAsInt());
 				break;
 			case BackgroundColor.TYPE_NAME:
-				setBackgroundColor(new BackgroundColor(attribute.getOneAttributeAsString()));
+				setBackgroundColor(Color.createFromSpecification(attribute));
 				break;
 			case TextSize.TYPE_NAME:
 				setTextSize(attribute.getOneAttributeAsInt());
@@ -391,48 +63,219 @@ public final class TabContainerMenuItemLook {
 				setTextColor(new TextColor(attribute.getOneAttributeAsString()));
 				break;
 			default:
-				throw new InvalidArgumentException(
-					new ArgumentName("attribute"),
-					new Argument(attribute)
-				);
+				
+				super.addOrChangeAttribute(attribute);
 		}
 	}
 	
-	private void setBottomPadding(int bottomPadding) {
-		this.bottomPadding = new PositiveInteger(bottomPadding);
-		
-	}
-
-	private void setTopPadding(int topPadding) {
-		this.topPadding = new PositiveInteger(topPadding);
-	}
-
-	private void setLeftPadding(int leftPadding) {
-		this.leftPadding = new PositiveInteger(leftPadding);
-	}
-
-	private void setRightPadding(int rightPadding) {
-		this.rightPadding = new PositiveInteger(rightPadding);
-	}
-
 	//method
 	/**
-	 * Sets the normal structure of this tab container menu item structure
-	 * 
-	 * @param normalStructure
-	 * @throws Exception if the given normal structure is null
+	 * @return the attributes of this tab container menu item structure
 	 */
-	protected void setNormalStructure(TabContainerMenuItemLook normalStructure) {
+	public List<StandardSpecification> getAttributes() {
 		
-		//Checks the given normal structure.
-		Validator.throwExceptionIfValueIsNull("normal structure", normalStructure);
+		final var attributes = new List<StandardSpecification>();
 		
-		this.normalStructure = normalStructure;
+		if (hasMinWidth()) {
+			attributes.addAtEnd(minWidth.getSpecificationAs(MIN_WIDTH_HEADER));
+		}
+		
+		if (hasBackgroundColor()) {
+			attributes.addAtEnd(backgroundColor.getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
+		}
+		
+		if (hasPadding()) {
+			attributes.addAtEnd(padding.getSpecificationAs(PascalCaseNameCatalogue.PADDING));
+		}
+		
+		if (hasTextSize()) {
+			attributes.addAtEnd(textSize.getSpecificationAs(PascalCaseNameCatalogue.TEXT_SIZE));
+		}
+		
+		if (hasTextColor()) {
+			attributes.addAtEnd(textColor.getSpecificationAs(PascalCaseNameCatalogue.TEXT_COLOR));
+		}
+		
+		return attributes;
 	}
 	
-	void applyTo(TextLineWidgetLook textLineRectangleStructure) {
+	//method
+	public Color getRecursiveOrDefaultBackgroundColor() {
+		
 		if (hasBackgroundColor()) {
-			//textLineRectangleStructure.setBackgroundColor(get);
+			return backgroundColor;
 		}
+		
+		return DEFAULT_BACKGROUND_COLOR;
+	}
+	
+	//method
+	public int getRecursiveOrDefaultMinWidth() {
+		
+		if (hasMinWidth()) {
+			return minWidth.getValue();
+		}
+		
+		return DEFAULT_MIN_WIDTH;
+	}
+	
+	//method
+	public int getRecursiveOrDefaultPadding() {
+		
+		if (hasPadding()) {
+			return padding.getValue();
+		}
+		
+		return 0;
+	}
+	
+	//method
+	public Color getRecursiveOrDefaultTextColor() {
+		
+		if (hasTextColor()) {
+			return textColor;
+		}
+		
+		return DEFAULT_TEXT_COLOR;
+	}
+	
+	//method
+	public int getRecursiveOrDefaultTextSize() {
+		
+		if (hasTextSize()) {
+			return textSize.getValue();
+		}
+		
+		return DEFAULT_TEXT_SIZE;
+	}
+	
+	//method
+	public String getType() {
+		return getClass().getSimpleName();
+	}
+	
+	//method
+	public boolean hasRecursiveBackgroundColor() {
+		return hasBackgroundColor();
+	}
+	
+	//method
+	public boolean hasRecursiveMinWidth() {
+		return hasMinWidth();
+	}
+	
+	//method
+	public TabContainerMenuItemLook removeBackgroundColor() {
+		
+		backgroundColor = null;
+		
+		return this;
+	}
+	
+	//method
+	public TabContainerMenuItemLook removeMinWidth() {
+		
+		minWidth = null;	
+		
+		return this;
+	}
+	
+	//method
+	public TabContainerMenuItemLook removePadding() {
+		
+		padding = null;	
+		
+		return this;
+	}
+	
+	//method
+	public TabContainerMenuItemLook removeTextColor() {
+		
+		textColor = null;
+		
+		return this;
+	}
+	
+	//method
+	public TabContainerMenuItemLook removeTextSize() {
+		
+		textSize = null;
+		
+		return this;
+	}
+	
+	//method
+	public TabContainerMenuItemLook setBackgroundColor(final Color backgroundColor) {
+		
+		Validator
+		.suppose(backgroundColor)
+		.thatIsNamed(PascalCaseNameCatalogue.BACKGROUND_COLOR)
+		.isNotNull();
+		
+		this.backgroundColor = backgroundColor;
+		
+		return this;
+	}
+	
+	//method
+	public TabContainerMenuItemLook setMinWidth(final int minWidth) {
+		
+		this.minWidth = new NonNegativeInteger(minWidth);
+		
+		return this;
+	}
+	
+	//method
+	public TabContainerMenuItemLook setPadding(final int padding) {
+		
+		this.padding = new NonNegativeInteger(padding);
+		
+		return this;
+	}
+	
+	//method
+	public TabContainerMenuItemLook setTextColor(final TextColor textColor) {
+		
+		Validator
+		.suppose(textColor)
+		.thatIsNamed(PascalCaseNameCatalogue.TEXT_COLOR)
+		.isNotNull();
+		
+		this.textColor = textColor;
+		
+		return this;
+	}
+	
+	//method
+	public TabContainerMenuItemLook setTextSize(final int textSize) {
+		
+		this.textSize = new NonNegativeInteger(textSize);
+		
+		return this;
+	}
+	
+	//method
+	private boolean hasBackgroundColor() {
+		return (backgroundColor != null);
+	}
+	
+	//method
+	private boolean hasMinWidth() {
+		return (minWidth != null);
+	}
+	
+	//method
+	private boolean hasPadding() {
+		return (padding != null);
+	}
+	
+	//method
+	private boolean hasTextColor() {
+		return (textColor != null);
+	}
+	
+	//method
+	private boolean hasTextSize() {
+		return (textSize != null);
 	}
 }
