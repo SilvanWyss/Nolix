@@ -162,4 +162,10 @@ public final class Label extends TextLineWidget<Label> {
 			throw new UnexistingAttributeException(this, VariableNameCatalogue.ROLE);
 		}
 	}
+
+	@Override
+	public void setCursorPositionOnContent(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
 }

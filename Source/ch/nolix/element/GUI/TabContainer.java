@@ -310,17 +310,25 @@ implements Clearable<TabContainer> {
 	 * @param parentCursorXPosition
 	 * @param parentCursorYPosition
 	 */
-	protected void setParentCursorPosition(
-		final int parentCursorXPosition,
-		final int parentCursorYPosition
+	public void setCursorPositionOnContent(
+		int parentCursorXPosition,
+		int parentCursorYPosition
 	) {
+
 		
 		//Calls method of the base class.
-		super.setParentCursorPosition(parentCursorXPosition, parentCursorYPosition);
+		//super.setParentCursorPosition(parentCursorXPosition, parentCursorYPosition);
+
+		menu.setCursorPositionOnContent(parentCursorXPosition, parentCursorYPosition);
 		
-		menu.setParentCursorPosition(getCursorXPosition(), getCursorYPosition());
 		
-		System.out.println(menu.getXPositionOnParent());
+		
+		/*
+		menu.setParentCursorPosition(
+			getCursorXPosition() - getContentXPosition(),
+			getCursorYPosition() - getContentYPosition()
+		);
+		*/
 	}
 	
 	//method
@@ -373,8 +381,15 @@ implements Clearable<TabContainer> {
 	protected void paintContent(
 		final TabContainerLook tabContainerLook,
 		final IPainter painter
-	) {
+	) {		
 		menu.setElementMargin(tabContainerLook.getRecursiveOrDefaultMenuItemMargin());
+		
+		//TODO: Important to regard: The sub elements know their position on their parent.
+		//But just paint the sub elements using their own position does not work
+		//because the paintContent method is already called with a translated painter.
+		//Solution 1: Translate back the given painter in the paintContent method.
+		//Solution 2: Give other values to the sub elements in the setPositionOnParent method and the setParentCursorPosition method.
+		//painter.translate(-getContentXPosition(), -getContentYPosition());
 		
 		menu.paintUsingPositionOnParent(painter);
 		
@@ -398,19 +413,25 @@ implements Clearable<TabContainer> {
 		//Calls method of the base class.
 		super.setPositionOnParent(relaitveXPosition, relativeYPosition);
 		
+		//menu.setPositionOnParentContent(0, 0);
+		//getRefSelectedWidget().setPositionOnParentContent(0, menuHeight + menuMargin);
+		//setPositionToSubWidget(
+		
+		//menu.setPosition(100, 0)
+		//menu.setCursorPositionUsingPosition(120, 0);
+		//menu.paintUsingPosition();
+		//TabContainer.setParentContextCursorPosition()
+		
 		menu.setPositionOnParent(
-			getContentXPosition() - getViewAreaXPositionOnScrollArea(),
-			getContentYPosition() - getViewAreaYPositionOnScrollArea()
+			0,
+			0
 		);
 		
 		if (containsSelectedWidget()) {
 			getRefSelectedWidget().setPositionOnParent(
-				getContentXPosition()
-				- getViewAreaXPositionOnScrollArea(),
-				getContentYPosition()
-				+ menu.getHeight()
+				0,				
+				menu.getHeight()
 				+ getRefCurrentLook().getRecursiveOrDefaultMenuMargin()
-				- getViewAreaYPositionOnScrollArea()
 			);
 		}
 	}

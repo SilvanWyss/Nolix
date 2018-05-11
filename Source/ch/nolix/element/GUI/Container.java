@@ -102,6 +102,7 @@ extends BorderWidget<C, BWS> {
 		return getRole().toString().equals(role);
 	}
 	
+	//TODO: Do this in Widget.
 	//method
 	/**
 	 * Resets the configuration of the current {@link Container}.
@@ -117,31 +118,6 @@ extends BorderWidget<C, BWS> {
 		getRefWidgets().forEach(r -> r.resetConfiguration());
 		
 		return getInstance();
-	}
-	
-	//method
-	/**
-	 * Sets the cursor position of the parent of the current {@link Container}.
-	 * 
-	 * @param parentCursorXPosition
-	 * @param parentCursorYPosition
-	 */
-	protected void setParentCursorPosition(
-		final int parentCursorXPosition,
-		final int parentCursorYPosition
-	) {
-		
-		//Calls method of the base class.
-		super.setParentCursorPosition(parentCursorXPosition, parentCursorYPosition);
-		
-		//Sets the cursor position to the widgets of the current container.
-			//Iterates the widgets of the current container.
-			for (final var w : getRefWidgets()) {
-				w.setParentCursorPosition(
-					getCursorXPosition(),
-					getCursorYPosition()
-				);
-			}
 	}
 		
 	//method

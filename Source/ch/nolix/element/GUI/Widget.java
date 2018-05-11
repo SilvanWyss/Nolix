@@ -284,8 +284,6 @@ extends ConfigurableElement<W> {
 	public final int getCursorYPosition() {
 		return cursorYPosition;
 	}
-
-	
 	
 	//method
 	/**
@@ -302,11 +300,7 @@ extends ConfigurableElement<W> {
 		return getHeightWhenNotCollapsed();
 	}
 	
-	//abstract method
-	/**
-	 * @return the height of the current {@link Widget} when it is s not collapsed.
-	 */
-	public abstract int getHeightWhenNotCollapsed();
+
 	
 	//method
 	/**
@@ -463,12 +457,6 @@ extends ConfigurableElement<W> {
 		//Handles the case that the current widget is not collapsed.
 		return getWidthWhenNotCollapsed();
 	}
-	
-	//abstract method
-	/**
-	 * @return the width of the current {@link Widget} when it is not collapsed.
-	 */
-	public abstract int getWidthWhenNotCollapsed();
 	
 	//method
 	/**
@@ -647,7 +635,7 @@ extends ConfigurableElement<W> {
 	 */
 	public final void noteAnyLeftMouseButtonRelease() {
 		if (isEnabled()) {
-			if (isUnderCursor()) {
+			if (isUnderCursor() || isFocused()) {
 				noteLeftMouseButtonRelease();
 			}
 		}
@@ -913,9 +901,9 @@ extends ConfigurableElement<W> {
 	 * @param parentCursorXPosition
 	 * @param parentCursorYPosition
 	 */
-	protected void setParentCursorPosition(
-			final int parentCursorXPosition,
-			final int parentCursorYPosition
+	public void setParentCursorPosition(
+		int parentCursorXPosition,
+		int parentCursorYPosition
 	) {				
 		this.cursorXPosition = parentCursorXPosition - getXPositionOnParent();
 		this.cursorYPosition = parentCursorYPosition - getYPositionOnParent();
@@ -1221,6 +1209,12 @@ extends ConfigurableElement<W> {
 	 */
 	protected abstract WL createWidgetLook();
 	
+	//abstract method
+	/**
+	 * @return the height of the current {@link Widget} when it is s not collapsed.
+	 */
+	protected abstract int getHeightWhenNotCollapsed();
+	
 	//method
 	/**
 	 * @return the current look of the current {@link Widget}.
@@ -1246,6 +1240,12 @@ extends ConfigurableElement<W> {
 					"current look");
 		}
 	}
+	
+	//abstract method
+	/**
+	 * @return the width of the current {@link Widget} when it is not collapsed.
+	 */
+	protected abstract int getWidthWhenNotCollapsed();
 	
 	//method
 	/**
@@ -1316,8 +1316,8 @@ extends ConfigurableElement<W> {
 	 * @param yPositionOnParent
 	 */
 	protected void setPositionOnParent(
-		int xPositionOnParent,
-		int yPositionOnParent
+		final int xPositionOnParent,
+		final int yPositionOnParent
 	) {
 		this.xPositionOnParent = xPositionOnParent;
 		this.yPositionOnParent = yPositionOnParent;
@@ -1339,7 +1339,7 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @param painter
 	 */
-	private void paint(final IPainter painter) {
+	protected void paint(final IPainter painter) {
 		
 		paint(getRefCurrentLook(), painter);
 		

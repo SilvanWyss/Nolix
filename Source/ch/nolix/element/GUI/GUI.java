@@ -253,16 +253,11 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 */
 	public CursorIcon getActiveCursorIcon() {
 		
-		final Widget<?, ?> widget
-		= getRefWidgetsRecursively()
-		.getRefSelected(w -> w.isEnabled() && w.isUnderCursor())
-		.getRefLastOrNull();
-		
-		if (widget == null) {
+		if (!hasRootWidget()) {
 			return CursorIcon.Arrow;
 		}
 		
-		return widget.getActiveCursorIcon();
+		return getRefRootWidget().getActiveCursorIcon();
  	}
 	
 	//method
@@ -493,9 +488,9 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	public void noteMouseMove() {
 				
 		if (hasRootWidget()) {
+			
 			getRefRootWidget().setParentCursorPosition(
-				getCursorXPosition(),
-				getCursorYPosition()
+					getCursorXPosition(), getCursorYPosition()
 			);
 		}
 		

@@ -177,20 +177,14 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
-	protected void setParentCursorPosition(
-			final int parentCursorXPosition,
-			final int parentCursorYPosition
+	protected void setParentCursorPositionOnContent(
+			final int parentCursorXPositionOnContent,
+			final int parentCursorYPositionOnContent
 	) {
-		
-		super.setParentCursorPosition(
-			parentCursorXPosition,
-			parentCursorYPosition
-		);
-		
 		for (final var i : items) {
 			i.getRefLabel().setParentCursorPosition(
-				getCursorXPosition(),
-				getCursorYPosition()
+				parentCursorXPositionOnContent,
+				parentCursorYPositionOnContent
 			);
 		}
 	}

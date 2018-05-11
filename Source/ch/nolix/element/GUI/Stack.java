@@ -233,6 +233,23 @@ implements Clearable<S> {
 	
 	//method
 	/**
+	 * Sets the cursor position of the parent of this stack.
+	 * 
+	 * @param parentCursorXPosition
+	 * @param parentCursorYPosition
+	 */
+	public void setCursorPositionOnContent(
+		int parentCursorXPosition,
+		int parentCursorYPosition
+	) {
+		 
+		//super.setParentCursorPosition(parentCursorXPosition, parentCursorYPosition);
+		
+		getRefWidgets().forEach(w -> w.setParentCursorPosition(parentCursorXPosition, parentCursorYPosition));
+	}
+	
+	//method
+	/**
 	 * @return a new widget look for this stack.
 	 */
 	protected final StackLook createWidgetLook() {

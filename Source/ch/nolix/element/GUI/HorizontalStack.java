@@ -90,8 +90,8 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 			case Top:
 			case RightTop:
 				
-				int x1 = getContentXPosition();
-				final int y1 = getContentYPosition();
+				int x1 = 0;
+				final int y1 = 0;
 				for (Widget<?, ?> r: getRefWidgets()) {
 					r.setPositionOnParent(x1, y1);
 					x1 += r.getWidth() + getActiveElementMargin();
@@ -103,8 +103,8 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 			case Right:
 				
 				final int contentHeight2 = getContentHeight();
-				int x2 = getContentXPosition();
-				final int y2 = getContentYPosition();
+				int x2 = 0;
+				final int y2 = 0;
 				for (Widget<?, ?> r: getRefWidgets()) {
 					r.setPositionOnParent(x2, y2 + (contentHeight2 - r.getHeight()) / 2);
 					x2 += r.getWidth() + getActiveElementMargin();
@@ -116,8 +116,8 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 			case RightBottom:
 				
 				final int contentHeight3 = getContentHeight();
-				int x3 = getContentXPosition();
-				final int y3 = getContentYPosition();
+				int x3 = 0;
+				final int y3 = 0;
 				for (Widget<?, ?> r: getRefWidgets()) {
 					r.setPositionOnParent(x3, y3 + contentHeight3 - r.getHeight());
 					x3 += r.getWidth() + getActiveElementMargin();

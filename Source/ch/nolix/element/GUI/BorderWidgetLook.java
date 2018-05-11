@@ -1036,7 +1036,7 @@ extends BackgroundWidgetLook<BWL> {
 	 * @return true if the current {@link BorderWidgetLook} has a left padding.
 	 */
 	private boolean hasLeftPadding() {
-		return (bottomPadding != null);
+		return (leftPadding != null);
 	}
 	
 	//method
