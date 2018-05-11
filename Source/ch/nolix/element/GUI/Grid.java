@@ -272,7 +272,7 @@ public final class Grid extends Container<Grid, GridLook> {
 		//Calls method of the base class.
 		super.setPositionOnParent(relativeXPosition, relativeYPosition);
 				
-		var y = getContentAreaYPosition();
+		var y = 0;
 		
 		if (hasInnerAndOuterLines()) {
 			y += getLineThickness();
@@ -282,7 +282,7 @@ public final class Grid extends Container<Grid, GridLook> {
 							
 			y += getElementMargin();
 			
-			var x = getContentAreaXPosition();	
+			var x = 0;	
 			
 			if (hasInnerAndOuterLines()) {
 				x += getLineThickness();
