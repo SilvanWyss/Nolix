@@ -47,6 +47,7 @@ public class PascalCaseNameCatalogue {
 	public static final String LINE_THICKNESS = "LineThickness";
 	public static final String MESSAGE = "Message";
 	public static final String NAME = "Name";
+	public static final String PADDING = "Padding";
 	public static final String PRICE = "Price";
 	public static final String RADIUS = "Radius";
 	public static final String REASON = "Reason";
