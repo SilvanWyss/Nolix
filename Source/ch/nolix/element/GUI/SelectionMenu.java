@@ -230,15 +230,48 @@ implements Clearable<SelectionMenu> {
 		final var hoverItemLook = selectionMenuLook.getRefRecursiveOrDefaultHoverItemLook();
 		final var selectedItemLook = selectionMenuLook.getRefRecursiveOrDefaultSelectionItemLook();
 		
-		for (final var w : menu.getRefWidgets()) {
+		for (final Widget<?, ?> w : menu.getRefWidgets()) {
 			
-			((Label)w).setMinWidth(contentWidth);
+			final var label = (Label)w;
 			
-			w.getRefBaseLook().reset(baseItemLook.getAttributes());
-			w.getRefHoverLook().reset(hoverItemLook.getAttributes());
-			w.getRefFocusLook().reset(selectedItemLook.getAttributes());
+			label.setMinWidth(contentWidth);
+
+			label
+			.getRefBaseLook()
+			.reset()						
+			.setTextColor(baseItemLook.getRecursiveOrDefaultTextColor())
+			.setPaddings(selectionMenuLook.getRecursiveOrDefaultItemPadding())
+			.setTextSize(selectionMenuLook.getRecursiveOrDefaultTextSize());
 			
-			w.getRefBaseLook().setTextSize(selectionMenuLook.getRecursiveOrDefaultTextSize());
+			if (baseItemLook.hasRecursiveBackgroundColor()) {
+				label
+				.getRefBaseLook()
+				.setBackgroundColor(baseItemLook.getRecursiveOrDefaultBackgroundColor());
+			}
+			
+			label
+			.getRefHoverLook()
+			.reset()
+			.setBackgroundColor(hoverItemLook.getRecursiveOrDefaultBackgroundColor())
+			.setTextColor(hoverItemLook.getRecursiveOrDefaultTextColor());
+			
+			if (hoverItemLook.hasRecursiveBackgroundColor()) {
+				label
+				.getRefHoverLook()
+				.setBackgroundColor(hoverItemLook.getRecursiveOrDefaultBackgroundColor());
+			}
+			
+			label
+			.getRefFocusLook()
+			.reset()
+			.setBackgroundColor(selectedItemLook.getRecursiveOrDefaultBackgroundColor())
+			.setTextColor(selectedItemLook.getRecursiveOrDefaultTextColor());
+			
+			if (selectedItemLook.hasRecursiveBackgroundColor()) {
+				label
+				.getRefFocusLook()
+				.setBackgroundColor(selectedItemLook.getRecursiveOrDefaultBackgroundColor());
+			}
 		}
 		
 		menu.setPositionOnParent(0, 0);

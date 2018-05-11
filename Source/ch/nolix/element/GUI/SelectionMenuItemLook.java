@@ -59,6 +59,16 @@ extends Entity<SelectionMenuItemLook> {
 	}
 	
 	//method
+	public boolean hasRecursiveBackgroundColor() {
+		return backgroundColorProperty.hasRecursiveValue();
+	}
+	
+	//method
+	public boolean hasRecursiveTextColor() {
+		return textColorProperty.hasRecursiveValue();
+	}
+	
+	//method
 	public SelectionMenuItemLook setBackgroundColor(final Color backgroundColor) {
 		
 		backgroundColorProperty.setValue(backgroundColor);

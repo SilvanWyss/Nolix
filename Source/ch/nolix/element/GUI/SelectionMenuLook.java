@@ -25,7 +25,7 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	//default value
 	public static final SelectionMenuItemLook DEFAULT_SELECTION_ITEM_LOOK =
 	new SelectionMenuItemLook()
-	.setBackgroundColor(Color.GREY);
+	.setBackgroundColor(Color.DARK_GREY);
 	
 	//constants
 	private static final String ITEM_PADDING_HEADER = "ItemPadding";
