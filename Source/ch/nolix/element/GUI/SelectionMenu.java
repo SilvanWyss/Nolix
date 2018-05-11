@@ -20,6 +20,9 @@ public final class SelectionMenu
 extends BorderWidget<SelectionMenu, SelectionMenuLook> 
 implements Clearable<SelectionMenu> {
 	
+	//attribute
+	private final VerticalStack menu = new VerticalStack();
+	
 	//multi-attribute
 	private final List<SelectionMenuItem> items = new List<SelectionMenuItem>();
 	
@@ -30,11 +33,20 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
+	public SelectionMenu addItems(final Iterable<String> texts) {
+		
+		texts.forEach(t -> addItem(new SelectionMenuItem(t)));
+		
+		return this;
+	}
+	
+	//method
 	public SelectionMenu addItem(final SelectionMenuItem selectionMenuItem) {
 		
 		supposeDoesNotContainItem(selectionMenuItem.getText());
 		
 		items.addAtEnd(selectionMenuItem);
+		menu.addWidget(selectionMenuItem.getRefLabel());
 		
 		return this;
 	}
@@ -51,20 +63,7 @@ implements Clearable<SelectionMenu> {
 	
 	//method
 	public SelectionMenu addItem(final int id, final String text) {
-		
-		supposeDoesNotContainItem(text);
-		
-		items.addAtEnd(new SelectionMenuItem(id, text));
-		
-		return this;
-	}
-	
-	//method
-	public SelectionMenu addItems(final Iterable<String> texts) {
-		
-		texts.forEach(t -> addItem(t));
-		
-		return this;
+		return addItem(new SelectionMenuItem(id, text));
 	}
 	
 	//method
@@ -81,10 +80,16 @@ implements Clearable<SelectionMenu> {
 	//method
 	public SelectionMenu clear() {
 		
-		items.clear();
 		unselect();
+		items.clear();
+		menu.clear();
 		
 		return this;
+	}
+	
+	//method
+	public boolean containsItem(final int id) {
+		return items.contains(i -> i.hasId(id));
 	}
 	
 	//method
@@ -98,10 +103,12 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
-	/**
-	 * @return the active cursor icon of the current {@link Area}.
-	 */
 	public CursorIcon getActiveCursorIcon() {
+		
+		if (menu.isUnderCursor()) {
+			return menu.getActiveCursorIcon();
+		}
+		
 		return getCursorIcon();
 	}
 	
@@ -147,8 +154,8 @@ implements Clearable<SelectionMenu> {
 		
 		super.noteLeftMouseButtonPress();
 		
-		if (getItems().contains(i -> i.getRefLabel().isUnderCursor())) {
-			getItems().forEach(i -> i.getRefLabel().noteAnyLeftMouseButtonPress());
+		if (menu.isUnderCursor()) {
+			menu.getRefWidgets().forEach(w -> w.noteAnyLeftMouseButtonPress());
 		}
 	}
 	
@@ -157,13 +164,13 @@ implements Clearable<SelectionMenu> {
 		
 		super.noteMouseMove();
 		
-		getItems().forEach(i -> i.getRefLabel().noteAnyMouseMove());
+		menu.getRefWidgets().forEach(w -> w.noteAnyMouseMove());
 	}
 	
 	//method
 	public SelectionMenu select(final int id) {
 		
-		items.getRefFirst(i -> i.hasId(id)).select();
+		select(items.getRefFirst(i -> i.hasId(id)));
 		
 		return this;
 	}
@@ -171,22 +178,9 @@ implements Clearable<SelectionMenu> {
 	//method
 	public SelectionMenu select(final String text) {
 		
-		items.getRefFirst(i -> i.hasText(text)).select();
+		select(items.getRefFirst(i -> i.hasText(text)));
 		
 		return this;
-	}
-	
-	//method
-	protected void setParentCursorPositionOnContent(
-			final int parentCursorXPositionOnContent,
-			final int parentCursorYPositionOnContent
-	) {
-		for (final var i : items) {
-			i.getRefLabel().setParentCursorPosition(
-				parentCursorXPositionOnContent,
-				parentCursorYPositionOnContent
-			);
-		}
 	}
 	
 	//method
@@ -226,54 +220,40 @@ implements Clearable<SelectionMenu> {
 	
 	//method
 	protected void paintContent(
-		final SelectionMenuLook selectionMenuStructure,
-		IPainter painter
+		final SelectionMenuLook selectionMenuLook,
+		final IPainter painter
 	) {
-		final var x = getContentXPosition();
-		var y = getContentYPosition();
-		final var width = getContentWidth();
 		
-		for (final SelectionMenuItem i : items) {
+		final var contentWidth = getContentWidth();
+		
+		final var baseItemLook = selectionMenuLook.getRefRecursiveOrDefaultBaseItemLook();
+		final var hoverItemLook = selectionMenuLook.getRefRecursiveOrDefaultHoverItemLook();
+		final var selectedItemLook = selectionMenuLook.getRefRecursiveOrDefaultSelectionItemLook();
+		
+		for (final var w : menu.getRefWidgets()) {
 			
-			i.getRefLabel().setPositionOnParent(x, y);
-			i.getRefLabel().setMinWidth(width);
-			i.getRefLabel().paintUsingPositionOnParent(painter);
+			((Label)w).setMinWidth(contentWidth);
 			
-			y += i.getRefLabel().getHeight();
+			w.getRefBaseLook().reset(baseItemLook.getAttributes());
+			w.getRefHoverLook().reset(hoverItemLook.getAttributes());
+			w.getRefFocusLook().reset(selectedItemLook.getAttributes());
 			
-			//TODO: Move that.
-				i
-				.getRefLabel()
-				.getRefBaseLook()
-				.reset(
-					selectionMenuStructure
-					.getRefRecursiveOrDefaultNormalItemLook()
-					.getAttributes()
-				);
-								
-				i
-				.getRefLabel()
-				.getRefHoverLook()
-				.reset(
-					selectionMenuStructure
-					.getRefRecursiveOrDefaultHoverItemLook()
-					.getAttributes()
-				);
-				
-				i
-				.getRefLabel()
-				.getRefFocusLook()
-				.reset(
-					selectionMenuStructure
-					.getRefRecursiveOrDefaultSelectionItemLook()
-					.getAttributes()
-				);
-				
-				i
-				.getRefLabel()
-				.getRefBaseLook()
-				.setPaddings(selectionMenuStructure.getRecursiveOrDefaultItemPadding());
+			w.getRefBaseLook().setTextSize(selectionMenuLook.getRecursiveOrDefaultTextSize());
 		}
+		
+		menu.setPositionOnParent(0, 0);
+		menu.paintUsingPositionOnParent(painter);
+	}
+	
+	//method
+	protected void setCursorPositionOnContent(
+		final int cursorXPositionOnContent,
+		final int cursorYPositionOnContent
+	) {
+		menu.setParentCursorPosition(
+			cursorXPositionOnContent,
+			cursorYPositionOnContent
+		);
 	}
 	
 	//method
@@ -287,6 +267,11 @@ implements Clearable<SelectionMenu> {
 		supposeContainsSelectedItem();
 		
 		return items.getRefFirst(i -> i.isSelected());
+	}
+	
+	//method
+	private void select(final SelectionMenuItem item) {
+		item.select();
 	}
 	
 	//method

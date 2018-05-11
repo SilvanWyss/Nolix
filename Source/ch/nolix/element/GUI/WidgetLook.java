@@ -176,7 +176,7 @@ implements IFluentObject<WL>, Specified {
 	 */
 	public final WL setTextSize(final int textSize) {
 		
-		this.textSizeProperty.setValue(new TextSize(textSize));
+		this.textSizeProperty.setValue(new PositiveInteger(textSize));
 		
 		return getInstance();
 	}

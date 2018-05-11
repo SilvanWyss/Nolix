@@ -14,7 +14,7 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	public static final int DEFAULT_ITEM_PADDING = ValueCatalogue.SMALL_WIDGET_PADDING;
 	
 	//default value
-	public static final SelectionMenuItemLook DEFAULT_NORMAL_ITEM_LOOK =
+	public static final SelectionMenuItemLook DEFAULT_BASE_ITEM_LOOK =
 	new SelectionMenuItemLook();
 	
 	//default value
@@ -42,10 +42,10 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	);
 	
 	//attribute
-	private final Property<SelectionMenuItemLook> normalItemLookProperty =
+	private final Property<SelectionMenuItemLook> baseItemLookProperty =
 	new Property<SelectionMenuItemLook>(
 		NORMAL_ITEM_LOOK_HEADER,
-		DEFAULT_NORMAL_ITEM_LOOK,
+		DEFAULT_BASE_ITEM_LOOK,
 		s -> SelectionMenuItemLook.createFromSpecification(s)
 	);
 	
@@ -71,18 +71,26 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	}
 	
 	//method
+	public SelectionMenuItemLook getRefRecursiveOrDefaultBaseItemLook() {
+		return baseItemLookProperty.getRecursiveOrDefaultValue();
+	}
+	
+	//method
 	public SelectionMenuItemLook getRefRecursiveOrDefaultHoverItemLook() {
 		return hoverItemLookProperty.getRecursiveOrDefaultValue();
 	}
 	
 	//method
-	public SelectionMenuItemLook getRefRecursiveOrDefaultNormalItemLook() {
-		return normalItemLookProperty.getRecursiveOrDefaultValue();
+	public SelectionMenuItemLook getRefRecursiveOrDefaultSelectionItemLook() {
+		return selectionItemLookProperty.getRecursiveOrDefaultValue();
 	}
 	
 	//method
-	public SelectionMenuItemLook getRefRecursiveOrDefaultSelectionItemLook() {
-		return selectionItemLookProperty.getRecursiveOrDefaultValue();
+	public SelectionMenuLook setBaseItemLook(final SelectionMenuItemLook selectionMenuItemLook) {
+		
+		baseItemLookProperty.setValue(selectionMenuItemLook);
+		
+		return this;
 	}
 	
 	//method
@@ -97,14 +105,6 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	public SelectionMenuLook setItemPadding(final int itemPadding) {
 		
 		itemPaddingProperty.setValue(new NonNegativeInteger(itemPadding));
-		
-		return this;
-	}
-	
-	//method
-	public SelectionMenuLook setNormalItemLook(final SelectionMenuItemLook selectionMenuItemLook) {
-		
-		normalItemLookProperty.setValue(selectionMenuItemLook);
 		
 		return this;
 	}
