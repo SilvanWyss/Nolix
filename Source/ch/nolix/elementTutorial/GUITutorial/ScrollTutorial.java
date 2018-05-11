@@ -2,20 +2,17 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
 //own imports
-import ch.nolix.core.enums.UniDirection;
-import ch.nolix.element.GUI.ContentPosition;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.color.ColorGradient;
 
 //class
 /**
- * The {@link ScrollTutorial} provides a tutorial for the scroll feature of a {@link Label}.
+ * The {@link ScrollTutorial} provides a tutorial for the scroll feature of the {@link Label}.
  * Of the {@link ScrollTutorial} no instance can be created.
  * 
  * @author Silvan Wyss
- * @month 2018-4
+ * @month 2018-04
  * @lines 50
  */
 public final class ScrollTutorial {
@@ -29,23 +26,24 @@ public final class ScrollTutorial {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		//Creates label.
+		//Creates a label.
 		final var label = 
 		new Label()
-		.setText("HNO3")
-		.setMaxWidth(600)
+		.setText("PLATON")
+		.setMaxWidth(800)
 		.setMaxHeight(400);
 		
-		label.getRefBaseLook()
+		//Configures the look of the label.
+		label
+		.getRefBaseLook()
 		.setBorderThicknesses(5)
 		.setBorderColors(Color.DARK_BLUE)
-		.setBackgroundColorGradient(new ColorGradient(UniDirection.Vertical, Color.BLUE, Color.WHITE))
-		.setTextSize(500);
+		.setBackgroundColor(Color.ALICE_BLUE)
+		.setTextSize(400);
 		
-		//Creates frame.
+		//Creates a frame with the label.
 		new Frame()
 		.setTitle("Scroll Tutorial")
-		.setContentPosition(ContentPosition.Center)
 		.setRootWidget(label);
 	}
 	

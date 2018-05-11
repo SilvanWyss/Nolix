@@ -10,7 +10,7 @@ import ch.nolix.element.color.Color;
 
 //class
 /**
- * The {@link TabContainerTutorial} provides a tutorial for the {@link TabContainer} class.
+ * The {@link TabContainerTutorial} provides a tutorial for the {@link TabContainer}.
  * Of the {@link TabContainerTutorial} no instance can be created.
  * 
  * @author Silvan Wyss
@@ -30,34 +30,45 @@ public final class TabContainerTutorial {
 		
 		//Creates a tab container.
 		final var tabContainer =
-		new TabContainer(
+		new TabContainer()
+		.addTab(
 			new TabContainerTab(
 				"Tab1",
 				new Area()
-				.setBackgroundColor(Color.LIGHT_GREEN)
+				.setBackgroundColor(Color.SLATE_BLUE)
+				.setWidth(500)
+				.setHeight(200)
 			),
 			new TabContainerTab(
 				"Tab2",
 				new Area()
-				.setBackgroundColor(Color.LIGHT_BLUE)
+				.setBackgroundColor(Color.SKY_BLUE)
+				.setWidth(500)
+				.setHeight(200)
 			),
 			new TabContainerTab(
 				"Tab3",
 				new Area()
-				.setBackgroundColor(Color.LIGHT_CORAL)
+				.setBackgroundColor(Color.ORANGE)
+				.setWidth(500)
+				.setHeight(200)
 			),
 			new TabContainerTab(
 				"Tab4",
 				new Area()
-				.setBackgroundColor(Color.LIGHT_PINK)
+				.setBackgroundColor(Color.MAGENTA)
+				.setWidth(500)
+				.setHeight(200)
 			)
 		);
 		
-		//Configures the tab container.
+		//Configures the look of the tab container.
 		tabContainer
 		.getRefBaseLook()
-		.setBorderThicknesses(1)
-		.setPaddings(10);
+		.setBorderThicknesses(5)
+		.setBorderColors(Color.DARK_BLUE)
+		.setBackgroundColor(Color.ALICE_BLUE)
+		.setPaddings(20);
 		
 		//Creates a frame with the tab container.
 		new Frame()

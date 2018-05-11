@@ -12,7 +12,7 @@ import ch.nolix.element.font.TextFont;
 
 //class
 /**
- * The {@link GridTutorial} provides a tutorial for the {@link Grid} class.
+ * The {@link GridTutorial} provides a tutorial for the {@link Grid}.
  * Of the {@link GridTutorial} no instance can be created.
  * 
  * @author Silvan Wyss
@@ -30,23 +30,31 @@ public final class GridTutorial {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
+		//Creates a grid
 		final var grid =
 		new Grid()
 		.setWidget(1, 1, new Label("Sokrates"))
 		.setWidget(1, 2, new Label("Platon"))
 		.setWidget(1, 3, new Label("Aristoteles"))
-		.setWidget(1, 4, new Label("Archimedes"))
-		.setWidget(4, 1, new Area().setBackgroundColor(Color.LIGHT_GREEN))
-		.setWidget(3, 2, new Area().setBackgroundColor(Color.GREEN))
-		.setWidget(4, 3, new Area().setBackgroundColor(Color.LIGHT_BLUE))
-		.setWidget(3, 4, new Area().setBackgroundColor(Color.BLUE));
+		.setWidget(1, 4, new Label("Demokrit"))
+		.setWidget(2, 1, new Area().setBackgroundColor(Color.SKY_BLUE))
+		.setWidget(2, 3, new Area().setBackgroundColor(Color.SKY_BLUE))
+		.setWidget(3, 2, new Area().setBackgroundColor(Color.SLATE_BLUE))
+		.setWidget(3, 4, new Area().setBackgroundColor(Color.SLATE_BLUE))
+		.setWidget(4, 1, new Area().setBackgroundColor(Color.SKY_BLUE))
+		.setWidget(4, 3, new Area().setBackgroundColor(Color.SKY_BLUE));;
 		
-		grid.getRefBaseLook()
+		//Configures the look of the grid.
+		grid
+		.getRefBaseLook()
+		.setBorderThicknesses(5)
+		.setBorderColors(Color.DARK_BLUE)
+		.setPaddings(20)
 		.setLineType(GridLineType.InnerLines)
 		.setElementMargin(10)
 		.setTextFont(TextFont.Console);
 		
-		//Creates frame.
+		//Creates a frame with the grid.
 		new Frame()
 		.setTitle("Grid Tutorial")
 		.setRootWidget(grid);

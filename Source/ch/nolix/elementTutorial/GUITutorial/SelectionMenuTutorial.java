@@ -3,13 +3,12 @@ package ch.nolix.elementTutorial.GUITutorial;
 
 //own imports
 import ch.nolix.element.GUI.Frame;
-import ch.nolix.element.GUI.Grid;
 import ch.nolix.element.GUI.SelectionMenu;
 import ch.nolix.element.color.Color;
 
 //class
 /**
- * The {@link SelectionMenuTutorial} provides a tutorial for the {@link SelectionMenu} class.
+ * The {@link SelectionMenuTutorial} provides a tutorial for the {@link SelectionMenu}.
  * Of the {@link SelectionMenuTutorial} no instance can be created.
  * 
  * @author Silvan Wyss
@@ -20,15 +19,16 @@ public final class SelectionMenuTutorial {
 
 	//main method
 	/**
-	 * Creates a {@link Frame} with a {@link Grid}.
+	 * Creates a {@link Frame} with a {@link SelectionMenu}.
 	 * 
 	 * @param args
 	 */
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		final var selectionMenu = new SelectionMenu();
-		selectionMenu.addItem(
+		//Creates a selection menu.
+		final var selectionMenu = new SelectionMenu()
+		.addItem(
 			"Gottfried Wilhelm Leibniz",
 			"Immanuel Kant",
 			"Johann Gottlieb Fichte",
@@ -42,13 +42,17 @@ public final class SelectionMenuTutorial {
 			"Jürgen Habermas",
 			"Richard David Precht"
 		)
-		.setMaxHeight(150);
+		.setMaxHeight(200);
 		
-		selectionMenu.getRefBaseLook()
+		//Configures the look of the selection menu.
+		selectionMenu
+		.getRefBaseLook()
+		.setBorderThicknesses(5)
+		.setBorderColors(Color.DARK_BLUE)
 		.setBackgroundColor(Color.ALICE_BLUE)
 		.setItemPadding(5);
 		
-		//Creates frame.
+		//Creates a frame with the selection menu.
 		new Frame()
 		.setTitle("Selection Menu Tutorial")
 		.setRootWidget(selectionMenu);
