@@ -7,7 +7,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.element.intData.Margin;
+import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.painter.IPainter;
 
 //abstract class
@@ -30,7 +30,7 @@ implements Clearable<S> {
 	public static final int DEFAULT_ELEMENT_MARGIN = 10;
 	
 	//optional attribute
-	private Margin elementMargin;
+	private NonNegativeInteger elementMargin;
 	
 	//multiple attribute
 	private final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>();
@@ -226,7 +226,7 @@ implements Clearable<S> {
 	@SuppressWarnings("unchecked")
 	public final S setElementMargin(final int elementMargin) {
 		
-		this.elementMargin = new Margin(elementMargin);
+		this.elementMargin = new NonNegativeInteger(elementMargin);
 		
 		return (S)this;
 	}
