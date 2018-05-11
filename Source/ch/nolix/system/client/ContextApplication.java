@@ -15,7 +15,7 @@ import ch.nolix.primitive.validator2.Validator;
  * @param <CL> - The type of the clients of a context application.
  * @param <CO> - The type of the context of a context application.
  */
-public final class ContextApplication<CL extends Client<CL>, CO>
+public class ContextApplication<CL extends Client<CL>, CO>
 extends Application<CL> {
 
 	//attribute
