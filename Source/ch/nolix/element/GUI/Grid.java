@@ -73,7 +73,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
-	public int getContentHeight() {
+	public int getContentAreaHeight() {
 		
 		var contentHeight =
 		cells
@@ -97,7 +97,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
-	public int getContentWidth() {
+	public int getContentAreaWidth() {
 		
 		var contentWidth =
 		cells
@@ -203,7 +203,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 
 	//method
-	protected void paintContent(
+	protected void paintContentArea(
 		final GridLook gridStructure,
 		final IPainter painter
 	) {
@@ -214,8 +214,8 @@ public final class Grid extends Container<Grid, GridLook> {
 			final var outerLinesDefined =
 			gridStructure.getRecursiveLineTypeOrDefault() == GridLineType.InnerAndOuterLines;
 			
-			final var contentWidth = getContentWidth();
-			final var contentHeight = getContentHeight();
+			final var contentWidth = getContentAreaWidth();
+			final var contentHeight = getContentAreaHeight();
 			final var lineThickness = getLineThickness();
 			final var elementMargin = getElementMargin();
 			
@@ -272,7 +272,7 @@ public final class Grid extends Container<Grid, GridLook> {
 		//Calls method of the base class.
 		super.setPositionOnParent(relativeXPosition, relativeYPosition);
 				
-		var y = getContentYPosition();
+		var y = getContentAreaYPosition();
 		
 		if (hasInnerAndOuterLines()) {
 			y += getLineThickness();
@@ -282,7 +282,7 @@ public final class Grid extends Container<Grid, GridLook> {
 							
 			y += getElementMargin();
 			
-			var x = getContentXPosition();	
+			var x = getContentAreaXPosition();	
 			
 			if (hasInnerAndOuterLines()) {
 				x += getLineThickness();

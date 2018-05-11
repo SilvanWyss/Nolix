@@ -117,7 +117,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	/**
 	 * @return the current height of the content of this text line rectangle
 	 */
-	protected final int getContentHeight() {
+	protected final int getContentAreaHeight() {
 		return
 		new Font(getRefCurrentLook().getRecursiveOrDefaultTextSize())
 		.getTextHeight();
@@ -127,7 +127,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	/**
 	 * @return the current width of the content of this text line rectangle
 	 */
-	protected int getContentWidth() {	
+	protected int getContentAreaWidth() {	
 		return
 		new Font(getRefCurrentLook()
 		.getRecursiveOrDefaultTextSize())
@@ -141,7 +141,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	 * @param rectangleStructure
 	 * @param painter
 	 */
-	protected void paintContent(
+	protected void paintContentArea(
 		final TextLineWidgetLook rectangleStructure,
 		final IPainter painter
 	) {

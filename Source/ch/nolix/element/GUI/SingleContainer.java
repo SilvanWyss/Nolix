@@ -112,7 +112,7 @@ extends Container<SingleContainer, SingleContainerLook> {
 	/**
 	 * @return the height of the content of this borderable rectangle
 	 */
-	protected final int getContentHeight() {
+	protected final int getContentAreaHeight() {
 		return getRefRectangle().getHeightWhenNotCollapsed();
 	}
 	
@@ -120,7 +120,7 @@ extends Container<SingleContainer, SingleContainerLook> {
 	/**
 	 * @return the width of the content of this borderable rectangle
 	 */
-	protected final int getContentWidth() {
+	protected final int getContentAreaWidth() {
 		return getRefRectangle().getWidth();
 	}
 	
@@ -137,12 +137,12 @@ extends Container<SingleContainer, SingleContainerLook> {
 		super.setPositionOnParent(distanceFromLeftPanelBorder, distanceFromTopPanelBorder);
 		
 		getRefRectangle().setPositionOnParent(
-				distanceFromLeftPanelBorder + getContentXPosition(),
-				distanceFromTopPanelBorder + getContentYPosition()
+				distanceFromLeftPanelBorder + getContentAreaXPosition(),
+				distanceFromTopPanelBorder + getContentAreaYPosition()
 		);
 	}
 	
-	protected void paintContent(
+	protected void paintContentArea(
 		SingleContainerLook rectangleStructure,
 		IPainter painter) {
 		

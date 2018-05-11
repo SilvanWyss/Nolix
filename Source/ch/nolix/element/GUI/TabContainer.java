@@ -310,7 +310,7 @@ implements Clearable<TabContainer> {
 	 * @param parentCursorXPosition
 	 * @param parentCursorYPosition
 	 */
-	public void setCursorPositionOnContent(
+	public void setCursorPositionOnContentArea(
 		int parentCursorXPosition,
 		int parentCursorYPosition
 	) {
@@ -319,7 +319,7 @@ implements Clearable<TabContainer> {
 		//Calls method of the base class.
 		//super.setParentCursorPosition(parentCursorXPosition, parentCursorYPosition);
 
-		menu.setCursorPositionOnContent(parentCursorXPosition, parentCursorYPosition);
+		menu.setCursorPositionOnContentArea(parentCursorXPosition, parentCursorYPosition);
 		
 		
 		
@@ -343,7 +343,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * @return the current height of the content of the current {@link TabContainer}
 	 */
-	protected final int getContentHeight() {
+	protected final int getContentAreaHeight() {
 		
 		var height = menu.getHeight();
 		
@@ -360,7 +360,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * @return the current width of the content of the current {@link TabContainer}
 	 */
-	protected final int getContentWidth() {
+	protected final int getContentAreaWidth() {
 		
 		if (containsAny()) {
 			return Calculator.getMax(
@@ -378,7 +378,7 @@ implements Clearable<TabContainer> {
 	 * @param rectangleStructure
 	 * @param painter
 	 */
-	protected void paintContent(
+	protected void paintContentArea(
 		final TabContainerLook tabContainerLook,
 		final IPainter painter
 	) {		

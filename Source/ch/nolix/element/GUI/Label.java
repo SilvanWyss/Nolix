@@ -164,7 +164,7 @@ public final class Label extends TextLineWidget<Label> {
 	}
 
 	@Override
-	public void setCursorPositionOnContent(int x, int y) {
+	public void setCursorPositionOnContentArea(int x, int y) {
 		// TODO Auto-generated method stub
 		
 	}

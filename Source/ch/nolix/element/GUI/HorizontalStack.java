@@ -44,7 +44,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	/**
 	 * @return the current height of the content of this horizontal stack
 	 */
-	protected final int getContentHeight() {
+	protected final int getContentAreaHeight() {
 		
 		if (isEmpty()) {
 			return 0;
@@ -57,7 +57,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	/**
 	 * @return the current width of the content of this horizontal stack
 	 */
-	protected final int getContentWidth() {
+	protected final int getContentAreaWidth() {
 		
 		int contentWidth = 0;
 		
@@ -102,7 +102,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 			case Center:
 			case Right:
 				
-				final int contentHeight2 = getContentHeight();
+				final int contentHeight2 = getContentAreaHeight();
 				int x2 = 0;
 				final int y2 = 0;
 				for (Widget<?, ?> r: getRefWidgets()) {
@@ -115,7 +115,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 			case Bottom:
 			case RightBottom:
 				
-				final int contentHeight3 = getContentHeight();
+				final int contentHeight3 = getContentAreaHeight();
 				int x3 = 0;
 				final int y3 = 0;
 				for (Widget<?, ?> r: getRefWidgets()) {

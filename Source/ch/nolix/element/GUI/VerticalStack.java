@@ -40,7 +40,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	/**
 	 * @return the height of the content of this vertical stack.
 	 */
-	protected int getContentHeight() {
+	protected int getContentAreaHeight() {
 		
 		int contentHeight = getRefWidgets().getSumByInt(w -> w.getHeight());
 				
@@ -57,7 +57,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	/**
 	 * @return the width of the content of this vertical stack.
 	 */
-	protected int getContentWidth() {
+	protected int getContentAreaWidth() {
 		
 		//Handles the case that this vertical stack contains no widget.
 		if (isEmpty()) {
@@ -88,8 +88,8 @@ public final class VerticalStack extends Stack<VerticalStack> {
 			case LeftTop:
 			case LeftBottom:
 			case Left:	
-				final int x = getContentXPosition() - getViewAreaXPositionOnScrollArea();
-				int y = getContentYPosition() - getViewAreaYPositionOnScrollArea();
+				final int x = getContentAreaXPosition() - getViewAreaXPositionOnScrollArea();
+				int y = getContentAreaYPosition() - getViewAreaYPositionOnScrollArea();
 				for (final var w : getRefShownWidgets()) {
 					w.setPositionOnParent(x, y);
 					y += w.getHeight() + getActiveElementMargin();
@@ -99,8 +99,8 @@ public final class VerticalStack extends Stack<VerticalStack> {
 			case Center:
 			case Bottom:
 				final int maxRectangleWidth2 = getRefShownWidgets().getMaxInt(r -> r.getWidth());
-				final int x2 = getContentXPosition() - getViewAreaXPositionOnScrollArea();
-				int y2 = getContentYPosition() - getViewAreaYPositionOnScrollArea();
+				final int x2 = getContentAreaXPosition() - getViewAreaXPositionOnScrollArea();
+				int y2 = getContentAreaYPosition() - getViewAreaYPositionOnScrollArea();
 				for (Widget<?, ?> w: getRefShownWidgets()) {			
 					w.setPositionOnParent((int)(x2 + 0.5 * (maxRectangleWidth2 - w.getWidth())), y2);
 					y2 += w.getHeight() + getActiveElementMargin();
@@ -110,8 +110,8 @@ public final class VerticalStack extends Stack<VerticalStack> {
 			case Right:
 			case RightBottom:
 				final int maxRectangleWidth3 = getRefShownWidgets().getMaxInt(r -> r.getWidth());
-				final int x3 = getContentXPosition() - getViewAreaXPositionOnScrollArea();
-				int y3 = getContentYPosition() - getViewAreaYPositionOnScrollArea();
+				final int x3 = getContentAreaXPosition() - getViewAreaXPositionOnScrollArea();
+				int y3 = getContentAreaYPosition() - getViewAreaYPositionOnScrollArea();
 				for (Widget<?, ?> w: getRefShownWidgets()) {
 					w.setPositionOnParent(x3 + maxRectangleWidth3 - w.getWidth(), y3);
 					y3 += w.getHeight() + getActiveElementMargin();

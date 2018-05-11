@@ -199,7 +199,7 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
-	protected int getContentHeight() {
+	protected int getContentAreaHeight() {
 		
 		if (isEmpty()) {
 			return 0;
@@ -209,7 +209,7 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
-	protected int getContentWidth() {
+	protected int getContentAreaWidth() {
 		
 		if (isEmpty()) {
 			return 0;
@@ -219,12 +219,12 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
-	protected void paintContent(
+	protected void paintContentArea(
 		final SelectionMenuLook selectionMenuLook,
 		final IPainter painter
 	) {
 		
-		final var contentWidth = getContentWidth();
+		final var contentWidth = getContentAreaWidth();
 		
 		final var baseItemLook = selectionMenuLook.getRefRecursiveOrDefaultBaseItemLook();
 		final var hoverItemLook = selectionMenuLook.getRefRecursiveOrDefaultHoverItemLook();
@@ -246,7 +246,7 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
-	protected void setCursorPositionOnContent(
+	protected void setCursorPositionOnContentArea(
 		final int cursorXPositionOnContent,
 		final int cursorYPositionOnContent
 	) {

@@ -556,7 +556,7 @@ implements Clearable<Console> {
 	/**
 	 * @return the height of the content of this console.
 	 */
-	protected int getContentHeight() {
+	protected int getContentAreaHeight() {
 		
 		final ConsoleLook currentStructure = getRefCurrentLook();
 		
@@ -573,7 +573,7 @@ implements Clearable<Console> {
 	/**
 	 * @return the width of the content of this console.
 	 */
-	protected int getContentWidth() {
+	protected int getContentAreaWidth() {
 		
 		final ConsoleLook currentStructure = getRefCurrentLook();
 		
@@ -593,10 +593,10 @@ implements Clearable<Console> {
 	 * @param widgetStructure
 	 * @param graphics
 	 */
-	protected void paintContent(final ConsoleLook widgetStructure, final IPainter graphics) {
+	protected void paintContentArea(final ConsoleLook widgetStructure, final IPainter graphics) {
 		
-		final int contentWidth = getContentWidth();
-		final int contentHeight = getContentHeight();
+		final int contentWidth = getContentAreaWidth();
+		final int contentHeight = getContentAreaHeight();
 		final int textSize = widgetStructure.getRecursiveOrDefaultTextSize();	
 		
 		final Font font =
@@ -617,7 +617,7 @@ implements Clearable<Console> {
 			int offsetLineCount = isEnabled() ? 2 : 1;
 			
 			if (lineNumber > lineCount - shownLineCount + offsetLineCount) {
-				graphics.paintText(getLinePrefix() + l, font, getContentWidth());
+				graphics.paintText(getLinePrefix() + l, font, getContentAreaWidth());
 				graphics.translate(0, textSize);
 			}
 			

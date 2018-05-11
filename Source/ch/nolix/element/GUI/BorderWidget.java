@@ -563,9 +563,9 @@ extends BackgroundWidget<BW, BWS> {
 		//Calls method of the base class.
 		super.setParentCursorPosition(parentCursorXPosition, parentCursorYPosition);
 		
-		setCursorPositionOnContent(
-			getCursorXPositionOnContent(),
-			getCursorYPositionOnContent()
+		setCursorPositionOnContentArea(
+			getCursorXPositionOnContentArea(),
+			getCursorYPositionOnContentArea()
 		);
 	}
 	
@@ -617,34 +617,34 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return true if the content of this border widget is under the cursor.
+	 * @return true if the content area of this border widget is under the cursor.
 	 */
-	protected final boolean contentIsUnderCursor() {
+	protected final boolean contentAreaIsUnderCursor() {
 		return(
-			getContentXPosition() <= getCursorXPosition()
-			&& getContentXPosition() + getContentWidth() > getCursorXPosition()
-			&& getContentYPosition() <= getCursorYPosition()
-			&& getContentYPosition() + getContentHeight() < getCursorYPosition()
+			getContentAreaXPosition() <= getCursorXPosition()
+			&& getContentAreaXPosition() + getContentAreaWidth() > getCursorXPosition()
+			&& getContentAreaYPosition() <= getCursorYPosition()
+			&& getContentAreaYPosition() + getContentAreaHeight() < getCursorYPosition()
 		);
 	}
 	
 	//method
 	/**
-	 * @return the height of the content of this border widget.
+	 * @return the height of the content area of this border widget.
 	 */
-	protected abstract int getContentHeight();
+	protected abstract int getContentAreaHeight();
 	
 	//method
 	/**
-	 * @return the width of the content of this border widget.
+	 * @return the width of the content area of this border widget.
 	 */
-	protected abstract int getContentWidth();
+	protected abstract int getContentAreaWidth();
 	
 	//method
 	/**
-	 * @return the x-position of the content of this border widget.
+	 * @return the x-position of the content area of this border widget.
 	 */
-	protected final int getContentXPosition() {
+	protected final int getContentAreaXPosition() {
 		
 		final var currentStructure = getRefCurrentLook();
 		
@@ -672,7 +672,7 @@ extends BackgroundWidget<BW, BWS> {
 				//Handles the case that this border widget has a min width.
 				return
 				- getViewAreaXPositionOnScrollArea()
-				+ (getMinWidth() - getContentWidth()) / 2;
+				+ (getMinWidth() - getContentAreaWidth()) / 2;
 			case RightTop:
 			case Right:
 			case RightBottom:
@@ -682,7 +682,7 @@ extends BackgroundWidget<BW, BWS> {
 				+ getWidth()
 				- currentStructure.getRecursiveOrDefaultRightBorderThickness()
 				- currentStructure.getRecursiveOrDefaultRightPadding()
-				- getContentWidth();
+				- getContentAreaWidth();
 		}
 		
 		throw new InvalidStateException(this);
@@ -690,9 +690,9 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the y-position of the content of this border widget.
+	 * @return the y-position of the content area of this border widget.
 	 */
-	protected final int getContentYPosition() {
+	protected final int getContentAreaYPosition() {
 		
 		final var currentStructure = getRefCurrentLook();
 		
@@ -717,7 +717,7 @@ extends BackgroundWidget<BW, BWS> {
 				}
 				
 				//Handles the case that this border widget has a min height.
-				return (getMinHeight() - getContentHeight()) / 2;
+				return (getMinHeight() - getContentAreaHeight()) / 2;
 				
 			case LeftBottom:
 			case Bottom:
@@ -727,7 +727,7 @@ extends BackgroundWidget<BW, BWS> {
 				getHeight()
 				- currentStructure.getRecursiveOrDefaultBottomBorderThickness()
 				- currentStructure.getRecursiveOrDefaultBottomPadding()
-				- getContentHeight();
+				- getContentAreaHeight();
 		}
 		
 		throw new InvalidStateException(this);
@@ -735,18 +735,18 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the x-position of the cursor on the content of this border widget.
+	 * @return the x-position of the cursor on the content area of this border widget.
 	 */
-	protected final int getCursorXPositionOnContent() {
-		return (getCursorXPosition() - getContentXPosition());
+	protected final int getCursorXPositionOnContentArea() {
+		return (getCursorXPosition() - getContentAreaXPosition());
 	}
 	
 	//method
 	/**
-	 * @return the y-position of the cursor on the content of this border widget.
+	 * @return the y-position of the cursor on the content area of this border widget.
 	 */
-	protected final int getCursorYPositionOnContent() {
-		return (getCursorYPosition() - getContentYPosition());
+	protected final int getCursorYPositionOnContentArea() {
+		return (getCursorYPosition() - getContentAreaYPosition());
 	}
 	
 	//method
@@ -906,21 +906,21 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//abstract method
 	/**
-	 * Paints the content of this border widget using the given widget structure and painter.
+	 * Paints the content area of this border widget using the given border widget look and painter.
 	 * 
-	 * @param widgetStructure
+	 * @param borderWidgetLook
 	 * @param painter
 	 */
-	protected abstract void paintContent(BWS widgetStructure, IPainter painter);
+	protected abstract void paintContentArea(BWS borderWidgetLook, IPainter painter);
 	
 	//method
 	/**
-	 * Sets the cursor position on the content of this border widget.
+	 * Sets the cursor position on the content area of this border widget.
 	 * 
 	 * @param cursorXPositionOnContent
 	 * @param cursorYPositionOnContent
 	 */
-	protected void setCursorPositionOnContent(
+	protected void setCursorPositionOnContentArea(
 		int cursorXPositionOnContent,
 		int cursorYPositionOnContent
 	)
@@ -1026,10 +1026,10 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the x-position of the content of this border widget
+	 * @return the x-position of the content area of this border widget
 	 * on the scroll area of this border widget.
 	 */
-	private int getContentXPositionOnScrollArea() {
+	private int getContentAreaXPositionOnScrollArea() {
 		
 		final var currentStructure = getRefCurrentLook();
 		
@@ -1049,14 +1049,14 @@ extends BackgroundWidget<BW, BWS> {
 				}
 				
 				//Handles the case that this border widget has a min width.
-				return (getScrollAreaWidth() - getContentWidth()) / 2;
+				return (getScrollAreaWidth() - getContentAreaWidth()) / 2;
 			case RightTop:
 			case Right:
 			case RightBottom:
 				
 				return
 				getScrollAreaWidth()
-				- getContentWidth()
+				- getContentAreaWidth()
 				- currentStructure.getRecursiveOrDefaultRightPadding();
 		}
 		
@@ -1065,10 +1065,10 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the y-position of the content of this border widget
+	 * @return the y-position of the content area of this border widget
 	 * on the scroll area of this border widget.
 	 */
-	private int getContentYPositionOnScrollArea() {
+	private int getContentAreaYPositionOnScrollArea() {
 		
 		final var currentStructure = getRefCurrentLook();
 		
@@ -1088,7 +1088,7 @@ extends BackgroundWidget<BW, BWS> {
 				}
 				
 				//Handles the case that this border widget has a min height.
-				return (getScrollAreaHeight() - getContentHeight()) / 2;
+				return (getScrollAreaHeight() - getContentAreaHeight()) / 2;
 				
 			case LeftBottom:
 			case Bottom:
@@ -1096,7 +1096,7 @@ extends BackgroundWidget<BW, BWS> {
 				
 				return
 				getScrollAreaHeight()
-				- getContentHeight()
+				- getContentAreaHeight()
 				- currentStructure.getRecursiveOrDefaultBottomPadding();
 		}
 		
@@ -1159,7 +1159,7 @@ extends BackgroundWidget<BW, BWS> {
 		final var currentStructure = getRefCurrentLook();
 		
 		return
-		getContentHeight()
+		getContentAreaHeight()
 		+ currentStructure.getRecursiveOrDefaultTopPadding()
 		+ currentStructure.getRecursiveOrDefaultBottomPadding();
 	}
@@ -1173,7 +1173,7 @@ extends BackgroundWidget<BW, BWS> {
 		final var currentStructure = getRefCurrentLook();
 		
 		return
-		getContentWidth()
+		getContentAreaWidth()
 		+ currentStructure.getRecursiveOrDefaultLeftPadding()
 		+ currentStructure.getRecursiveOrDefaultRightPadding();
 	}
@@ -1360,11 +1360,11 @@ extends BackgroundWidget<BW, BWS> {
 		final BWS widgetStructure,
 		final IPainter painter
 	) {
-		paintContent(
+		paintContentArea(
 			widgetStructure,
 			painter.createTranslatedPainter(
-				getContentXPositionOnScrollArea(),
-				getContentYPositionOnScrollArea(),
+				getContentAreaXPositionOnScrollArea(),
+				getContentAreaYPositionOnScrollArea(),
 				getScrollAreaWidth(),
 				getScrollAreaHeight()
 			)

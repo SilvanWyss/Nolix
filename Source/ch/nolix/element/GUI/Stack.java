@@ -238,7 +238,7 @@ implements Clearable<S> {
 	 * @param parentCursorXPosition
 	 * @param parentCursorYPosition
 	 */
-	public void setCursorPositionOnContent(
+	public void setCursorPositionOnContentArea(
 		int parentCursorXPosition,
 		int parentCursorYPosition
 	) {
@@ -263,11 +263,11 @@ implements Clearable<S> {
 	 * @param stackStructure
 	 * @param painter
 	 */
-	protected void paintContent(
+	protected void paintContentArea(
 		final StackLook stackStructure,
 		final IPainter painter
 	) {
-		final var contentPainer = painter.createTranslatedPainter(-getContentXPosition(), -getContentYPosition());
+		final var contentPainer = painter.createTranslatedPainter(-getContentAreaXPosition(), -getContentAreaYPosition());
 		
 		//Paints the widgets of this container.
 		getRefShownWidgets().forEach(r -> r.paintUsingPositionOnParent(contentPainer));
