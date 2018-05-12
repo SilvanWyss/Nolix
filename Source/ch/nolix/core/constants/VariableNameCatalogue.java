@@ -86,6 +86,7 @@ public class VariableNameCatalogue {
 	public static final String TIMEOUT_IN_MILLISECONDS = "timeout in milliseconds";
 	public static final String TIMEOUT_IN_NANOSECONDS = "timeout in nanoseconds";
 	public static final String TIMEOUT_IN_SECONDS = "timeout in seconds";
+	public static final String TITLE = "title";
 	public static final String TRANSFORMATOR = "transformator";
 	public static final String TYPE = "type";
 	public static final String VALUE = "value";
