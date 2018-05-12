@@ -42,6 +42,11 @@ public class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 	}
 	
 	//method
+	public List<EntitySet<Entity>> getRefEntitySets() {
+		return entitySets.getCopy();
+	}
+	
+	//method
 	public boolean hasChanges() {
 		return entitySets.contains(es -> es.hasChanges());
 	}
