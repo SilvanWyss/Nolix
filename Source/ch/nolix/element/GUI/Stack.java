@@ -208,11 +208,13 @@ implements Clearable<S> {
 	 * Resets the configuration of this stack.
 	 */
 	public final S resetConfiguration() {
-				
-		removeElementMargin();
 		
 		//Calls method of the base class.
-		return super.resetConfiguration();
+		super.resetConfiguration();
+	
+		setElementMargin(DEFAULT_ELEMENT_MARGIN);
+		
+		return getInstance();
 	}
 	
 	//method
