@@ -39,7 +39,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 730
+ * @lines 720
  * @param <G> The type of a GUI.
  */
 public abstract class GUI<G extends GUI<G>>
@@ -61,9 +61,11 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		Button.class,
 		CheckBox.class,
 		Console.class,
+		Grid.class,
 		HorizontalLine.class,
 		HorizontalStack.class,
 		Label.class,
+		SelectionMenu.class,
 		SingleContainer.class,
 		TabContainer.class,
 		TextBox.class,
