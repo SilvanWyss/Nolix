@@ -273,6 +273,14 @@ public final class Font extends Element {
 	
 	//method
 	/**
+	 * @return the width of the given character when the current {@link Font} would be applied to it.
+	 */
+	public final int getSwingTextWidth(final char character) {
+		return getSwingTextWidth(String.valueOf(character));
+	}
+	
+	//method
+	/**
 	 * @return the width of the given text when the current {@link Font} would be applied to it.
 	 */
 	public final int getSwingTextWidth(final String text) {
