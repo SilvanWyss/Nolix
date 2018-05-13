@@ -26,10 +26,10 @@ extends Application<C> {
 	 * @throws EmptyArgumentException if the given name is string.
 	 * @throws NullArgumentException if the given initial session class is null.
 	 */
-	public StandardApplication(final String name, final Class<?> initialSessionClass) {
+	public StandardApplication(final String name, final Class<C> clientClass, final Class<?> initialSessionClass) {
 		
 		//Calls constructor of the base class.
-		super(name, initialSessionClass);
+		super(name, clientClass, initialSessionClass);
 	}
 	
 	//constructor
@@ -47,11 +47,12 @@ extends Application<C> {
 	 */
 	public StandardApplication(
 		final String name,
+		final Class<C> clientClass,
 		final Class<?> initialSessionClass,
 		final int port
 	) {
 		//Calls constructor of the base class.
-		super(name, initialSessionClass, port);
+		super(name, clientClass, initialSessionClass, port);
 	}
 	
 	//method

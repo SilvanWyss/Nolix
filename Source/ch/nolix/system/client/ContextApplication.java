@@ -36,10 +36,11 @@ extends Application<CL> {
 	public ContextApplication(
 		final String name,
 		final CO context,
+		final Class<CL> clientClass,
 		final Class<?> initialSessionClass
 	) {
 		//Calls constructor of the base class.
-		super(name, initialSessionClass);
+		super(name, clientClass, initialSessionClass);
 		
 		//Checks if the given context is not null.
 		Validator.suppose(context).thatIsNamed("context").isNotNull();
@@ -66,11 +67,12 @@ extends Application<CL> {
 	public ContextApplication(
 		final String name,
 		final CO context,
-		final Class<?> initialSessionClass,
+		final Class<CL> clientClass,
+		final Class<?> initialSessionClass,		
 		final int port
 	) {
 		//Calls constructor of the base class.
-		super(name, initialSessionClass, port);
+		super(name, clientClass, initialSessionClass, port);
 		
 		//Checks the given context.
 		Validator.suppose(context).thatIsNamed("context").isNotNull();

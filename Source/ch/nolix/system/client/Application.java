@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.client;
 
-//Java imports
-import java.lang.reflect.Constructor;
-import java.lang.reflect.ParameterizedType;
+//Java import
+import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
@@ -21,7 +21,8 @@ import ch.nolix.primitive.validator2.Validator;
  */
 public abstract class Application<C extends Client<C>> extends NamedElement {
 
-	//attribute
+	//attributes
+	private final Class<C> clientClass;
 	private final Class<?> initialSessionClass;
 	
 	//multiple attribute
@@ -37,7 +38,7 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws NullArgumentException if the given initial session class is null.
 	 */
-	public Application(final String name, final Class<?> initialSessionClass) {
+	public Application(final String name, final Class<C> clientClass, final Class<?> initialSessionClass) {
 	
 		//Calls constructor of the base class.
 		super(name);
@@ -46,6 +47,7 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 		Validator.suppose(initialSessionClass).thatIsNamed("initial session class").isNotNull();
 
 		//Sets the initial session class of this application.
+		this.clientClass = clientClass;
 		this.initialSessionClass = initialSessionClass;
 	}
 	
@@ -65,15 +67,24 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 	@SuppressWarnings("resource")
 	public Application(
 		final String name,
+		final Class<C> clientClass,
 		final Class<?> initialSessionClass,
 		final int port
 	) {
 		
 		//Calls other constructor.
-		this(name, initialSessionClass);
+		this(name, clientClass, initialSessionClass);
 		
 		//Creates server for this application.
 		new NetServer(port).addArbitraryApplication(this);
+	}
+	
+	//abstract method
+	/**
+	 * @return the class of the client of this session.
+	 */
+	public final Class<C> getClientClass() {
+		return clientClass;
 	}
 	
 	//method
@@ -97,33 +108,21 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 		Sequencer.runInBackground(() -> c.setSession(initialSession));
 	}
 	
-	@SuppressWarnings("unchecked")
 	public final void takeDuplexController(final DuplexController duplexController) {
 		try {
-			
-			//Extracts the direct sub class of the initial session class of this application.
-			Class<?> initialSessionDirectSubClass = initialSessionClass;
-			while (!initialSessionDirectSubClass.getSuperclass().getSimpleName().equals(Session.class.getSimpleName())) {
-				initialSessionDirectSubClass = initialSessionDirectSubClass.getSuperclass();
-			}
-			
-			//Extracts the constructor of the client class of this application.
-			final String className
-			= ((ParameterizedType)initialSessionDirectSubClass
-			.getGenericSuperclass())
-			.getActualTypeArguments()[0].toString().split("\\s")[1];
-			final Constructor<?> constructor = Class.forName(className).getConstructor(DuplexController.class);	
+			final var constructor = getClientClass().getConstructor(DuplexController.class);
 			constructor.setAccessible(true);
-			
-			constructor.newInstance(duplexController);
-			
-			//Creates client.
 			C client = (C)constructor.newInstance(duplexController);
-			
-			takeClient(client);			
-		}
-		catch (final Exception exception) {
-			System.out.println(exception.getMessage());
+			takeClient(client);
+		} catch (final 
+			IllegalAccessException
+			| IllegalArgumentException
+			| InstantiationException
+			| InvocationTargetException
+			| NoSuchMethodException
+			| SecurityException
+			exception
+		) {
 			throw new RuntimeException(exception);
 		}
 	}

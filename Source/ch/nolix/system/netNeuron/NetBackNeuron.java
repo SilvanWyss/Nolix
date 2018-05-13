@@ -75,6 +75,7 @@ implements Closable {
 		application
 		= new StandardApplication<StandardClient>(
 			APPLICATION_NAME,
+			StandardClient.class,
 			NetBackNeuronSession.class
 		);
 		

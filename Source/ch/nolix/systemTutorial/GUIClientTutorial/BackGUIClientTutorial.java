@@ -36,6 +36,7 @@ public final class BackGUIClientTutorial {
 		final StandardApplication<BackGUIClient> application
 		= new StandardApplication<BackGUIClient>(
 			"Application",
+			BackGUIClient.class,
 			MainSession.class
 		);
 		

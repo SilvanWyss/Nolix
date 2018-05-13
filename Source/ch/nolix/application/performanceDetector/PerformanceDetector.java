@@ -23,6 +23,6 @@ public final class PerformanceDetector extends StandardApplication<BackGUIClient
 	public PerformanceDetector() {
 		
 		//Calls constructor of the base class.
-		super(NAME, MainSession.class);
+		super(NAME, BackGUIClient.class, MainSession.class);
 	}
 }

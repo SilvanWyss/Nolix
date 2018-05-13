@@ -33,6 +33,7 @@ public final class BackConsoleClientTutorial {
 		final StandardApplication<BackConsoleClient> application
 		= new StandardApplication<BackConsoleClient>(
 			"MyApplication",
+			BackConsoleClient.class,
 			MainSession.class
 		);
 		

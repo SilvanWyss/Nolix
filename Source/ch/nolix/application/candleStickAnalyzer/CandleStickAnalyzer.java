@@ -27,6 +27,6 @@ extends StandardApplication<BackConsoleClient> {
 	public CandlestickAnalyzer() {
 		
 		//Calls constructor of the base class.
-		super(NAME, LoginSession.class);
+		super(NAME, BackConsoleClient.class, LoginSession.class);
 	}
 }

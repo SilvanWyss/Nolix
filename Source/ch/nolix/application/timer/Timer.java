@@ -23,6 +23,6 @@ public final class Timer extends StandardApplication<BackGUIClient> {
 	public Timer() {
 		
 		//Calls constructor of the base class.
-		super(NAME, MainSession.class);
+		super(NAME, BackGUIClient.class, MainSession.class);
 	}
 }
