@@ -31,12 +31,12 @@ public final class Grid extends Container<Grid, GridLook> {
 		switch (attribute.getHeader()) {
 			case PascalCaseNameCatalogue.CELL:
 				
-				final var attributes = attribute.getRefAttributes().toArray();
+				final var attributes = attribute.getRefAttributes();
 				
 				setWidget(
-					attributes[0].toInt(),
-					attributes[1].toInt(),
-					GUI.createWidget(attributes[3])
+					attributes.getRefAt(1).toInt(),
+					attributes.getRefAt(2).toInt(),
+					GUI.createWidget(attributes.getRefAt(3))
 				);
 				
 				break;
