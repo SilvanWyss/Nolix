@@ -620,11 +620,11 @@ extends BackgroundWidget<BW, BWS> {
 	 * @return true if the content area of this border widget is under the cursor.
 	 */
 	protected final boolean contentAreaIsUnderCursor() {
-		return(
-			getContentAreaXPosition() <= getCursorXPosition()
-			&& getContentAreaXPosition() + getContentAreaWidth() > getCursorXPosition()
-			&& getContentAreaYPosition() <= getCursorYPosition()
-			&& getContentAreaYPosition() + getContentAreaHeight() < getCursorYPosition()
+		return (
+			getCursorXPositionOnContentArea() >= 0
+			&& getCursorXPositionOnContentArea() < getContentAreaWidth()
+			&& getCursorYPositionOnContentArea() >= 0
+			&& getCursorYPositionOnContentArea() < getContentAreaHeight()
 		);
 	}
 	
