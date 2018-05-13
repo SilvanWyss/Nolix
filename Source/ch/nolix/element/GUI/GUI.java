@@ -697,6 +697,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		//Sets the root widget of this GUI.
 		rootWidget.setGUI(this);
 		this.rootWidget = rootWidget;
+		rootWidget.setFocused();
 		
 		return getInstance();
 	}
