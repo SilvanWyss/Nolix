@@ -1,168 +1,75 @@
-/*
- * file:	TextBox.java
- * author:	Silvan Wyss
- * month:	2016-03
- * lines:	330
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
 //Java imports
-import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
 //own imports
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.element.color.Color;
-import ch.nolix.element.font.Font;
-import ch.nolix.element.intData.Width;
-import ch.nolix.primitive.validator.Validator;
+import ch.nolix.element.core.PositiveInteger;
+import ch.nolix.element.painter.IPainter;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2016-03
+ * @lines 370
+ */
 public final class TextBox extends TextLineWidget<TextBox> {
 
-	//type name
+	//constant
 	public static final String TYPE_NAME = "TextBox";
 	
-	//default values
+	//default value
 	public static final int DEFAULT_WIDTH = 200;
-	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
-	public static final String DEFAULT_CURSOR_COLOR = Color.BLACK_STRING;
+	public static final int DEFAULT_BORDER_THICKNESS = 1;
 	
 	//limit value
 	public static final int MIN_WIDTH = 10;
 	
-	//attribute header
-	private static final String CURSOR_COLOR = "CursorColor";
-	
 	//attributes
-	private Width width = new Width();
+	private PositiveInteger widthProperty = new PositiveInteger(DEFAULT_WIDTH);
 	private int textCursorPosition = 0;
-	private final TextCursor textCursor = new TextCursor();
 	
 	//constructor
 	/**
-	 * Creates a new text box that has default attributes.
+	 * Creates a new {@link TextBox}.
 	 */
 	public TextBox() {	
-		resetConfiguration();
+		reset();
+		approveProperties();
 	}
 	
-	//method
+	//constructor
 	/**
-	 * @return the attributes of this specifiable object
+	 * Creates a new {@link TextBox} with the given text.
+	 * 
+	 * @throws NullArgumentException if the given text is null.
 	 */
-	public final List<StandardSpecification> getAttributes() {
-		
-		//Calls method of the base class.
-		List<StandardSpecification> attributes = super.getAttributes();
-		
-		try {
-			attributes.addAtEnd(getRefWidth().getSpecification());
-			attributes.addAtEnd(new StandardSpecification(CURSOR_COLOR, getRefTextCursor().getRefColor().getAttributes()));
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-		return attributes;
-	}
-	
-	public final boolean hasRole(final String role) {
-		return false;
+	public TextBox(final String text) {	
+		reset();
+		approveProperties();
+		setText(text);
 	}
 	
 	//method
 	/**
-	 * Notes a click.
-	 * @throws Exception if an error occurs
-	 */
-	public final void noteLeftMouseButtonPress() {
-		
-		//Calls method of the base class.
-		super.noteLeftMouseButtonPress();
-		
-		if (contentAreaIsUnderCursor())	{
-			int textCursorDistanceFromTextBegin = getCursorXPosition() - getContentAreaXPosition();
-			boolean found = false;
-			for (int i = 0; i < getText().length(); i++) {
-				int subTextWidth = new Font(getRefCurrentLook().getRecursiveOrDefaultTextSize()).getSwingTextWidth(getText().substring(0, i));
-				int nextSubTextWidth = new Font(getRefCurrentLook().getRecursiveOrDefaultTextSize()).getSwingTextWidth(getText().substring(0, i + 1));
-				int halfDistance = (nextSubTextWidth - subTextWidth) / 2;
-				if (
-					textCursorDistanceFromTextBegin > subTextWidth - halfDistance &&
-					textCursorDistanceFromTextBegin < subTextWidth + halfDistance
-				) {
-					found = true;
-					setTextCursorPosition(i);					
-					break;
-				}
-			}
-			
-			if (!found) {
-				setTextCursorPosition(getText().length());
-			}
-		}
-	}
-	
-	//method
-	/**
-	 * Notes the given key event.
-	 * @param keyEvent
-	 * @throws Exception if an error occurs
-	 */
-	public final void noteTypedKeyWhenFocused(KeyEvent keyEvent) {
-		
-		if (isFocused()) {
-			if (Character.isLetter(keyEvent.getKeyChar()) || Character.isDigit(keyEvent.getKeyChar())) {
-				insertCharacterAfterCursor(keyEvent.getKeyChar());
-			}
-		}
-	}
-	
-	//method
-	/**
-	 * Notes a press of a key.
-	 */
-	public void noteKeyTyping(KeyEvent keyEvent) {
-		
-		switch (keyEvent.getKeyCode()) {
-			case KeyEvent.VK_LEFT:
-				if (getTextCursorPosition() > 0) {
-					textCursorPosition--;
-				}
-				break;
-			case KeyEvent.VK_RIGHT:
-				if (getTextCursorPosition() < getText().length()) {
-					textCursorPosition++;
-				}
-				break;
-			case KeyEvent.VK_BACK_SPACE:
-				deleteCharacterBeforeTextCursor();
-				break;
-			case KeyEvent.VK_DELETE:
-				deleteCharacterAfterTextCursor();
-				break;
-			default:
-				if (Character.isDefined(keyEvent.getKeyChar())) {
-					insertCharacterAfterCursor(keyEvent.getKeyChar());
-				}
-		}
-	}
-	
-	//method
-	/**
-	 * Sets the given attribute.
+	 * Adds or changes the given attribute to the current {@link TextBox}.
+	 * 
 	 * @param attribute
-	 * @throws Exception if the given attribute is not valid
+	 * @throws InvalidArgumentException if the given attribute is not valid
 	 */
-	public final void addOrChangeAttribute(StandardSpecification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
+		
+		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case Width.TYPE_NAME:
+			case PascalCaseNameCatalogue.WIDTH:
 				setWidth(attribute.getOneAttributeAsInt());
-				break;
-			case CURSOR_COLOR:
 				break;
 			default:
 				
@@ -173,19 +80,120 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	
 	//method
 	/**
-	 * Sets the cursor color of this text box.
-	 * @param cursorColor
-	 * @throws Exception if the given cursor color is no color name and no true color value
+	 * @return the attributes of the current {@link TextBox}.
 	 */
-	public final void setCursorColor(String cursorColor) {
-		getRefTextCursor().setColor(cursorColor);
+	public List<StandardSpecification> getAttributes() {
+		
+		//Calls method of the base class.
+		final var attributes = super.getAttributes();
+		
+		attributes.addAtEnd(getWidthProperty().getSpecificationAs(PascalCaseNameCatalogue.WIDTH));
+		
+		return attributes;
 	}
 	
 	//method
 	/**
-	 * Sets the default configuration of this sub configurable object.
+	 * @return if the current {@link TextBox} has the given role.
+	 */
+	public boolean hasRole(final String role) {
+		return false;
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link TextBox} note a key typing.
 	 * 
-	 * @return this text box.
+	 * @param keyEvent
+	 */
+	public void noteKeyTyping(final KeyEvent keyEvent) {
+		
+		//Enumerates the key code of the given key event.
+		switch (keyEvent.getKeyCode()) {
+			case KeyEvent.VK_LEFT:
+				
+				if (getTextCursorPosition() > 0) {
+					textCursorPosition--;
+				}
+				
+				break;
+			case KeyEvent.VK_RIGHT:
+				
+				if (getTextCursorPosition() < getText().length()) {
+					textCursorPosition++;
+				}
+				
+				break;
+			case KeyEvent.VK_BACK_SPACE:
+				
+				deleteCharacterBeforeTextCursor();
+				
+				break;
+			case KeyEvent.VK_DELETE:
+				
+				deleteCharacterAfterTextCursor();
+				
+				break;
+			default:
+				if (Character.isDefined(keyEvent.getKeyChar())) {
+					insertCharacterAfterCursor(keyEvent.getKeyChar());
+				}
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link TextBox} note a left mouse button press.
+	 */
+	public void noteLeftMouseButtonPress() {
+		
+		//Calls method of the base class.
+		super.noteLeftMouseButtonPress();
+		
+		//Updates the text cursor position.
+			final var text = getText();
+			
+			if (text.isEmpty()) {
+				setTextCursorPosition(0);
+			}
+			else {
+				
+				final var cursorXPositionOnContentArea = getCursorXPositionOnContentArea();			
+				final var font = createFont();
+				
+				if (cursorXPositionOnContentArea <= font.getSwingTextWidth(text.charAt(0)) / 2
+				) {
+					setTextCursorPosition(0);
+				}
+			
+				else if (cursorXPositionOnContentArea >= font.getSwingTextWidth(text) - font.getSwingTextWidth(text.charAt(text.length() - 1))) {
+					setTextCursorPosition(text.length());
+				}
+				
+				else {
+			
+					for (int i = 1; i < text.length(); i++) {
+						
+						final var subTextWidth = font.getSwingTextWidth(text.substring(0, i));
+						final var previousCharacterWidth = font.getSwingTextWidth(text.charAt(i - 1));
+						final var nextCharacterWidth = font.getSwingTextWidth(text.charAt(i));
+						
+						if (
+							subTextWidth - previousCharacterWidth / 2 <= cursorXPositionOnContentArea
+							&& subTextWidth + nextCharacterWidth / 2 >= cursorXPositionOnContentArea
+						) {
+							setTextCursorPosition(i);
+						}
+					}
+				}
+			}
+	}
+	
+	//method
+	/**
+	 * Resets the configuration of the current {@link TextBox}.
+	 * 
+	 * @return the current {@link TextBox}.
 	 */
 	public TextBox resetConfiguration() {
 		
@@ -193,51 +201,85 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		super.resetConfiguration();
 		
 		setWidth(DEFAULT_WIDTH);
-		getRefBaseLook().setBorderThicknesses(1);
-		getRefBaseLook().setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
-		setCursorColor(DEFAULT_CURSOR_COLOR);
 		setCursorIcon(CursorIcon.Edit);
+		
+		getRefBaseLook().setBorderThicknesses(DEFAULT_BORDER_THICKNESS);
 		
 		return this;
 	}
 	
 	//method
 	/**
-	 * Sets the width of this text box.
+	 * Sets the width of the current {@link TextBox}.
+	 * 
 	 * @param width
-	 * @throws Exception if the given width is smaller than the min width of a text box
+	 * @return the current {@link TextBox}.
+	 * @throws SmallerArgumentException
+	 * if the given width is smaller than the min width of a {@link TextBox}.
 	 */
-	public final void setWidth(int width) {
+	public TextBox setWidth(int width) {
 		
-		Validator.throwExceptionIfValueIsSmaller("width", MIN_WIDTH, width);
-				
-		this.width = new Width(width);
+		Validator
+		.suppose(width)
+		.thatIsNamed(VariableNameCatalogue.WIDTH)
+		.isNotSmallerThan(MIN_WIDTH);
+		
+		this.widthProperty = new PositiveInteger(width);
+		
+		return this;
 	}
 	
 	//method
 	/**
-	 * Paints this rectangle using the given rectangle structure and graphics.
-	 * @param rectangleStructure
-	 * @param graphics
+	 * @return the width of the content area of current {@link TextBox}.
 	 */
-	protected final void paintContent(TextLineWidgetLook rectangleStructure, Graphics graphics) {
+	protected final int getContentAreaWidth() {	
 		
-		int textCursorDistanceFromTextBegin = new Font(rectangleStructure.getRecursiveOrDefaultTextSize()).getSwingTextWidth(getTextBeforeTextCursor());
-		graphics.setColor(textCursor.getRefColor().createSwingColor());
-		graphics.setColor(Color.BLACK.createSwingColor());
+		final var currentLook = getRefCurrentLook();
 		
-		new Font(
-		rectangleStructure.getRecursiveOrDefaultTextSize())
-		.paintSwingText(getText(), graphics);
-		
-		graphics.fillRect(
-			getContentAreaXPosition() + textCursorDistanceFromTextBegin,
-			getContentAreaYPosition(),
-			1,
-			getRefCurrentLook().getRecursiveOrDefaultTextSize()
-		);
+		return
+		getWidthProperty().getValue()
+		- currentLook.getRecursiveOrDefaultLeftPadding()
+		- currentLook.getRecursiveOrDefaultLeftBorderThickness()
+		- currentLook.getRecursiveOrDefaultRightBorderThickness()
+		- currentLook.getRecursiveOrDefaultRightPadding();
 	}
 	
+	//method
+	/**
+	 * Paints the content area of the current {@link TextBox} using the given text line widget look and painter.
+	 * 
+	 * @param textLineWidgetLook
+	 * @param painter
+	 */
+	protected final void paintContentArea(
+		final TextLineWidgetLook textLineWidgetLook,
+		final IPainter painter
+	) {
+		
+		//Calls method of the base class.
+		super.paintContentArea(textLineWidgetLook, painter);
+		
+		//Paints the text cursor.
+			painter.setColor(textLineWidgetLook.getRecursiveOrDefaultTextColor());
+			
+			painter.paintFilledRectangle(
+				getTextCursorXPositionOnContentArea(),
+				0,
+				1,
+				(int)(1.2 * textLineWidgetLook.getRecursiveOrDefaultTextSize())
+			);
+	}
+	
+
+	
+
+	
+	//method
+	/**
+	 * Deletes the character after the text cursor from the text of the current text box
+	 * if there is a character after the text cursor.
+	 */
 	private final void deleteCharacterAfterTextCursor() {
 		if (getTextCursorPosition() < getText().length()) {
 			setText(getTextBeforeTextCursor() + getTextAfterTextCursor().substring(1));
@@ -246,7 +288,8 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	
 	//method
 	/**
-	 * Deletes the character before the cursor from the text of this text line rectangle if there is a character before the cursor.
+	 * Deletes the character before the text cursor from the text of the current text box
+	 * if there is a character before the text cursor.
 	 */
 	private final void deleteCharacterBeforeTextCursor() {
 		if (!getText().isEmpty() && getTextCursorPosition() > 0) {
@@ -257,40 +300,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	
 	//method
 	/**
-	 * @return the width of this text box
-	 */
-	protected final int getContentAreaWidth() {	
-		
-		final TextLineWidgetLook currentStructure = getRefCurrentLook();
-		
-		return (
-			getRefWidth().getValue() -
-			currentStructure.getRecursiveOrDefaultLeftPadding() -
-			currentStructure.getRecursiveOrDefaultLeftBorderThickness() -
-			currentStructure.getRecursiveOrDefaultRightBorderThickness() -
-			currentStructure.getRecursiveOrDefaultRightPadding()
-		);
-	}
-	
-	//method
-	/**
-	 * @return the cursor of this tex box
-	 */
-	private final TextCursor getRefTextCursor() {
-		return textCursor;
-	}
-	
-	//method
-	/**
-	 * @return the width of this text box
-	 */
-	private final Width getRefWidth() {
-		return width;
-	}
-	
-	//method
-	/**
-	 * @return the text after the text cursor of this text box
+	 * @return the text after the text cursor of the current {@link TextBox}.
 	 */
 	private final String getTextAfterTextCursor() {
 		return getText().substring(getTextCursorPosition());
@@ -298,7 +308,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	
 	//method
 	/**
-	 * @return the text before the text cursor of this text box
+	 * @return the text before the text cursor of the current {@link TextBox}.
 	 */
 	private final String getTextBeforeTextCursor() {
 		return getText().substring(0, getTextCursorPosition());
@@ -306,7 +316,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	
 	//method
 	/**
-	 * @return the position of the text cursor of this text box
+	 * @return the text cursor position of the current {@link TextBox}.
 	 */
 	private final int getTextCursorPosition() {
 		return textCursorPosition;
@@ -314,20 +324,47 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	
 	//method
 	/**
-	 * Inserts the given character after the cursor to the text of this text line rectangle.
+	 * @return the x-position of the text cursor of the current {@link TextBox} on the content area.
+	 */
+	private final int getTextCursorXPositionOnContentArea() {
+		return createFont().getSwingTextWidth(getTextBeforeTextCursor());
+	}
+	
+	//method
+	/**
+	 * @return the width property of the current {@link TextBox}.
+	 */
+	private PositiveInteger getWidthProperty() {
+		return widthProperty;
+	}
+	
+	//method
+	/**
+	 * Inserts the given character after the text cursor to the text of the current {@link TextBox}.
+	 * 
 	 * @param character
 	 */
-	private final void insertCharacterAfterCursor(char character) {
+	private final void insertCharacterAfterCursor(final char character) {
+		
 		setText(getTextBeforeTextCursor() + character + getTextAfterTextCursor());
+		
 		textCursorPosition++;
 	}
 	
 	//method
 	/**
-	 * Sets the position of the text cursor of this text box.
+	 * Sets the text cursor position of the current {@link TextBox}.
+	 * 
 	 * @param textCursorPosition
+	 * @throws NegativeArgumentException if the given text cursor position is negative.
 	 */
-	private final void setTextCursorPosition(int textCursorPosition) {
+	private final void setTextCursorPosition(final int textCursorPosition) {
+		
+		Validator
+		.suppose(textCursorPosition)
+		.thatIsNamed("text cursor position")
+		.isNotNegative();
+		
 		this.textCursorPosition = textCursorPosition;
 	}
 }

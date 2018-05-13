@@ -147,13 +147,22 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	) {
 		painter.paintText(
 			getText(),
-			new Font(
-				rectangleStructure.getRecursiveOrDefaultTextFont(),
-				TextStyle.Default,
-				rectangleStructure.getRecursiveOrDefaultTextSize(),
-				rectangleStructure.getRecursiveOrDefaultTextColor()
-			)
+			createFont()
 		);	
+	}
+	
+	//method
+	protected final Font createFont() {
+		
+		final var textLineWidgetLook = getRefCurrentLook();
+		
+		return
+		new Font(
+			textLineWidgetLook.getRecursiveOrDefaultTextFont(),
+			TextStyle.Default,
+			textLineWidgetLook.getRecursiveOrDefaultTextSize(),
+			textLineWidgetLook.getRecursiveOrDefaultTextColor()
+		);
 	}
 	
 	//method
