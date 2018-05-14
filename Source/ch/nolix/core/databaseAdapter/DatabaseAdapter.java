@@ -35,6 +35,11 @@ public class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 	}
 	
 	//method
+	public boolean containsEntitySet(final String name) {
+		return entitySets.contains(es -> es.hasName(name));
+	}
+	
+	//method
 	@SuppressWarnings("unchecked")
 	public <E extends Entity> EntitySet<E> getRefEntitySet(final Class<E> entityClass) {
 		return
