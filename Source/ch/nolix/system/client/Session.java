@@ -36,25 +36,30 @@ public abstract class Session<C extends Client<?>> {
 	public Session() {
 		
 		//Extracts the run methods and the data methods of this session by iterating the methods of this session.
-		for (Method m: getClass().getMethods()) {
-			if (Character.isUpperCase(m.getName().charAt(0)) && MethodHelper.allParametersOfMethodAreStrings(m)) {	
-				
-				if (m.getReturnType().equals(Void.TYPE)) {
+		Class<?> c = getClass();
+		while (c != null) {
+			for (Method m: c.getMethods()) {
+				if (Character.isUpperCase(m.getName().charAt(0)) && MethodHelper.allParametersOfMethodAreStrings(m)) {	
 					
-					//Setting the method accessible is needed that it can accessed from a package-visible sub class.
-					m.setAccessible(true); 
+					if (m.getReturnType().equals(Void.TYPE)) {
+						
+						//Setting the method accessible is needed that it can accessed from a package-visible sub class.
+						m.setAccessible(true);
+						
+						runMethods.addAtEnd(m);
+					}
 					
-					runMethods.addAtEnd(m);
-				}
-				
-				if (m.getReturnType().getSimpleName().equals(Object.class.getSimpleName())) {
-					
-					//Setting the method accessible is needed that it can accessed from a package-visible sub class.
-					m.setAccessible(true);
-					
-					dataMethods.addAtEnd(m);
+					if (m.getReturnType().getSimpleName().equals(Object.class.getSimpleName())) {
+						
+						//Setting the method accessible is needed that it can accessed from a package-visible sub class.
+						m.setAccessible(true);
+						
+						dataMethods.addAtEnd(m);
+					}
 				}
 			}
+			
+			c = c.getSuperclass();
 		}
 	}
 	
