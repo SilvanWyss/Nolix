@@ -27,7 +27,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 650
+ * @lines 680
  */
 public abstract class Specification {
 	
@@ -52,12 +52,38 @@ public abstract class Specification {
 		
 		return
 		string
+		
+		//It is important that the dollar symbol is replaced at first.
+		.replace(String.valueOf(CharacterCatalogue.DOLLAR_SYMBOL), DOLLAR_SYMBOL_CODE)
+		
 		.replace(String.valueOf(CharacterCatalogue.COMMA), COMMA_CODE)
 		.replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
-		.replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE)
-		.replace(String.valueOf(CharacterCatalogue.DOLLAR_SYMBOL), DOLLAR_SYMBOL_CODE);
+		.replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);		
 	}
-
+	
+	//static method
+	/**
+	 * @param reproducingString
+	 * @return an origin string from the given reproducing string on the specification context.
+	 * @throws NullArgumentException if the given reproducingString is null.
+	 */
+	public static String createOriginStringFromReproducingString(final String reproducingString) {
+		
+		Validator
+		.suppose(reproducingString)
+		.thatIsNamed("reproducing string")
+		.isNotNull();
+		
+		return		
+		reproducingString		
+		.replace(COMMA_CODE, String.valueOf(CharacterCatalogue.COMMA))
+		.replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalogue.OPEN_BRACKET))
+		.replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
+		
+		//It is important that the dollar symbol code is replaced at last.
+		.replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR_SYMBOL));
+	}
+	
 	//abstract method
 	/**
 	 * Adds the given attribute to the current {@link Specification}.
