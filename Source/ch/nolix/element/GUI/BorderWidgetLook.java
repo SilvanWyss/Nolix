@@ -190,15 +190,15 @@ extends BackgroundWidgetLook<BWL> {
 					attributes.addAtEnd(leftPadding.getSpecificationAs(LEFT_PADDING_HEADER));
 				}
 				
-				if (hasLeftPadding()) {
+				if (hasRightPadding()) {
 					attributes.addAtEnd(rightPadding.getSpecificationAs(RIGHT_PADDING_HEADER));
 				}
 				
-				if (hasLeftPadding()) {
+				if (hasTopPadding()) {
 					attributes.addAtEnd(topPadding.getSpecificationAs(TOP_PADDING_HEADER));
 				}
 				
-				if (hasLeftPadding()) {
+				if (hasBottomPadding()) {
 					attributes.addAtEnd(bottomPadding.getSpecificationAs(BOTTOM_PADDING_HEADER));
 				}
 			}
@@ -1132,9 +1132,9 @@ extends BackgroundWidgetLook<BWL> {
 		//Handles the case that the current {@link BorderWidgetLook} has a padding.
 		return (
 			hasLeftPadding()
-			&& rightPadding.equals(leftPadding)
-			&& topPadding.equals(leftPadding)
-			&& bottomPadding.equals(bottomPadding)
+			&& hasRightPadding() && rightPadding.equals(leftPadding)
+			&& hasTopPadding() && topPadding.equals(leftPadding)
+			&& hasBottomPadding() && bottomPadding.equals(bottomPadding)
 		);
 	}
 	
