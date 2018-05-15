@@ -29,7 +29,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1360
+ * @lines 1380
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -1239,6 +1239,20 @@ extends ConfigurableElement<W> {
 					this,
 					"current look");
 		}
+	}
+	
+	//method
+	/**
+	 * @return the widgets of the current {@link Widget} recursively.
+	 */
+	protected final List<Widget<?, ?>> getRefWidgetsRecursively() {
+		
+		//TODO: Let the getRefWidgets method return a list.
+		final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>(getRefWidgets());
+		
+		widgets.forEach(w -> widgets.addAtEnd(w.getRefWidgetsRecursively()));
+		
+		return widgets;
 	}
 	
 	//abstract method
