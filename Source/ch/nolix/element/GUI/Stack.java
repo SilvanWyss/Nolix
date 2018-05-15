@@ -124,6 +124,14 @@ implements Clearable<S> {
 	 * @return the active cursor icon of the current {@link Stack}.
 	 */
 	public CursorIcon getActiveCursorIcon() {
+		
+		final var widgetUnderCursor =
+		getRefWidgets().getRefFirstOrNull(w -> w.isUnderCursor());
+		
+		if (widgetUnderCursor != null) {
+			return widgetUnderCursor.getActiveCursorIcon();
+		}
+		
 		return getCursorIcon();
 	}
 	
