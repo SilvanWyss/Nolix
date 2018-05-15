@@ -9,6 +9,9 @@ public final class AirportManagerSchema extends Schema {
 
 	//constructor
 	public AirportManagerSchema() {
-		super(Airport.class);
+		super(
+			AirlineCompany.class,
+			Airport.class
+		);
 	}
 }
