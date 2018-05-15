@@ -73,7 +73,7 @@ public final class Statement {
 		
 		final Statement statement = new Statement();
 		
-		statement.specification = specification;
+		statement.specification = specification.createCopy();
 		
 		if (hasNextStatement()) {
 			statement.nextStatement = getRefNextStatement().getCopy();
