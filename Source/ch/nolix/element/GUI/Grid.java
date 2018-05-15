@@ -258,6 +258,19 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
+	protected void setCursorPositionOnContentArea(
+		int cursorXPositionOnContent,
+		int cursorYPositionOnContent
+	) {
+		for (final var w : getRefWidgets()) {
+			w.setParentCursorPosition(
+				cursorXPositionOnContent,
+				cursorYPositionOnContent
+			);
+		}
+	}
+	
+	//method
 	/**
 	 * Sets the relative position of the current {@link Grid}.
 	 * 
