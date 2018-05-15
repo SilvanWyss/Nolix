@@ -29,7 +29,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1380
+ * @lines 1400
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -112,18 +112,41 @@ extends ConfigurableElement<W> {
 				removeGreyOutWhenDisabled();
 				break;
 			case LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER:
-				setLeftMouseButtonPressCommand(attribute.getOneAttributeAsString());
+				
+				setLeftMouseButtonPressCommand(
+					Specification.createOriginStringFromReproducingString(
+						attribute.getOneAttributeAsString()
+					)
+				);
+				
 				break;
 			case LEFT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER:
-				setLeftMouseButtonReleaseCommand(attribute.getOneAttributeAsString());
+				
+				setLeftMouseButtonReleaseCommand(
+				Specification.createOriginStringFromReproducingString(
+						attribute.getOneAttributeAsString()
+					)
+				);
+				
 				break;
 			case RIGHT_MOUSE_BUTTON_PRESS_COMMAND_HEADER:
-				setRightMouseButtonPressCommand(attribute.getOneAttributeAsString());
+				
+				setRightMouseButtonPressCommand(
+				Specification.createOriginStringFromReproducingString(
+						attribute.getOneAttributeAsString()
+					)
+				);
+				
 				break;
 			case RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER:
-				setRightMouseButtonReleaseCommand(attribute.getOneAttributeAsString());
+				
+				setRightMouseButtonReleaseCommand(				
+				Specification.createOriginStringFromReproducingString(
+						attribute.getOneAttributeAsString()
+					)
+				);
+				
 				break;
-			
 			default:
 				if (attribute.getHeader().startsWith(BASE_PREFIX)) {
 					final var temp = attribute.createCopy();
