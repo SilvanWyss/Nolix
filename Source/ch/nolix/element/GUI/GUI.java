@@ -39,7 +39,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 720
+ * @lines 730
  * @param <G> The type of a GUI.
  */
 public abstract class GUI<G extends GUI<G>>
@@ -387,8 +387,14 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @return the widgets of this GUI recursively.
 	 */
 	public final List<Widget<?, ?>> getRefWidgetsRecursively() {
-		final List<Widget<?, ?>> widgets = new List<>(getRefWidgets());
-		getRefWidgets().forEach(w -> widgets.addAtEnd(w.getRefWidgets()));
+		
+		final var widgets = new List<Widget<?, ?>>();
+		
+		if (hasRootWidget()) {
+			widgets.addAtEnd((Widget<?, ?>)getRefRootWidget());
+			widgets.addAtEnd(getRefRootWidget().getRefWidgetsRecursively());
+		}
+		
 		return widgets;
 	}
 	
