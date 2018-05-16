@@ -1,14 +1,15 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own import
+//own imports
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.ISpecifiedEnum;
 
 //enum
 /**
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 20
+ * @lines 30
  */
 public enum LabelRole implements ISpecifiedEnum {
 	Title,
@@ -18,5 +19,16 @@ public enum LabelRole implements ISpecifiedEnum {
 	Level3Header,
 	Level4Header,
 	ParagraphHeader,
-	DynamicInfoLabel
+	DynamicInfoLabel;
+
+	//static method
+	/**
+	 * @param specification
+	 * @return a new {@link LabelRole} from the given specification.
+	 */
+	public static LabelRole createFromSpecification(
+		final Specification specification
+	) {
+		return valueOf(specification.getOneAttributeAsString());
+	}
 }
