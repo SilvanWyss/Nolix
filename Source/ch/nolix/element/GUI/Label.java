@@ -2,6 +2,7 @@
 package ch.nolix.element.GUI;
 
 //own imports
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
@@ -11,9 +12,6 @@ import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**
- * A label is a text line widget
- * that is supposed to show texts a user cannot edit.
- * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 160
@@ -23,15 +21,12 @@ public final class Label extends TextLineWidget<Label> {
 	//type name
 	public static final String TYPE_NAME = "Label";
 	
-	//attribute header
-	private static final String ROLE_HEADER = "Role";
-	
 	//optional attribute
 	private LabelRole role;
 	
 	//constructor
 	/**
-	 * Creates a new label with default values.
+	 * Creates a new {@link Label}.
 	 */
 	public Label() {	
 		reset();
@@ -40,7 +35,7 @@ public final class Label extends TextLineWidget<Label> {
 	
 	//constructor
 	/**
-	 * Creates a new label with the given text.
+	 * Creates a new {@link Label} with the given text.
 	 * 
 	 * @param text
 	 * @throws NullArgumentException if the given text is null.
@@ -50,13 +45,13 @@ public final class Label extends TextLineWidget<Label> {
 		//Calls other constructor.
 		this();
 		
-		//Sets the text of this label.
+		//Sets the text of the current label.
 		setText(text);
 	}
 	
 	//method
 	/**
-	 * Adds or change the given attribute to this label.
+	 * Adds or change the given attribute to the current {@link Label}.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -65,8 +60,8 @@ public final class Label extends TextLineWidget<Label> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case ROLE_HEADER:
-				setRole(LabelRole.valueOf(attribute.getOneAttributeAsString()));
+			case PascalCaseNameCatalogue.ROLE:
+				setRole(LabelRole.createFromSpecification(attribute));
 				break;
 			default:
 				
@@ -77,16 +72,18 @@ public final class Label extends TextLineWidget<Label> {
 	
 	//method
 	/**
-	 * @return the attributes of this label.
+	 * @return the attributes of the current {@link Label}.
 	 */
 	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
-		//Handles the case that this label has a role.
+		//Handles the case that the current label has a role.
 		if (hasRole()) {
-			attributes.addAtEnd(role.getSpecificationAs(ROLE_HEADER));
+			attributes.addAtEnd(
+				role.getSpecificationAs(PascalCaseNameCatalogue.ROLE)
+			);
 		}
 		
 		return attributes;
@@ -94,12 +91,12 @@ public final class Label extends TextLineWidget<Label> {
 	
 	//method
 	/**
-	 * @return the role of this label.
-	 * @throws UnexistingAttributeExcetpion if this label has no role.
+	 * @return the role of the current {@link Label}.
+	 * @throws UnexistingAttributeExcetpion if the current {@link Label} has no role.
 	 */
 	public LabelRole getRole() {
 		
-		//Checks if this label has a role.
+		//Checks if the current label has a role.
 		supposeHasRole();
 		
 		return role;
@@ -107,7 +104,7 @@ public final class Label extends TextLineWidget<Label> {
 	
 	//method
 	/**
-	 * @return true if this label has a role.
+	 * @return true if the current {@link Label} has a role.
 	 */
 	public boolean hasRole() {
 		return (role != null);
@@ -116,25 +113,25 @@ public final class Label extends TextLineWidget<Label> {
 	//method
 	/**
 	 * @param role
-	 * @return true of this label has the given role.
+	 * @return true if the current {@link Label} has the given role.
 	 */
 	public boolean hasRole(final String role) {
 		
-		//Handles the case that this label has no role.
+		//Handles the case that the current label has no role.
 		if (!hasRole()) {
 			return false;
 		}
 		
-		//Handles the case that this label has a role.
+		//Handles the case that the current label has a role.
 		return getRole().equals(LabelRole.valueOf(role));
 	}
 	
 	//method
 	/**
-	 * Sets the role of this label.
+	 * Sets the role of the current {@link Label}.
 	 * 
 	 * @param role
-	 * @return this label.
+	 * @return the current {@link Label}.
 	 * @throws NullArgumentException if the given role is null.
 	 */
 	public final Label setRole(final LabelRole role) {
@@ -145,7 +142,7 @@ public final class Label extends TextLineWidget<Label> {
 		.thatIsNamed(VariableNameCatalogue.ROLE)
 		.isNotNull();
 
-		//Sets the role of this label.
+		//Sets the role of the current label.
 		this.role = role;
 		
 		return this;
@@ -153,19 +150,13 @@ public final class Label extends TextLineWidget<Label> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if this label has no role.
+	 * @throws UnexistingAttributeException if the current {@link Label} has no role.
 	 */
 	private void supposeHasRole() {
 		
-		//Checks if this label has a role.
+		//Checks if the current {@link Label} has a role.
 		if (!hasRole()) {
 			throw new UnexistingAttributeException(this, VariableNameCatalogue.ROLE);
 		}
-	}
-
-	@Override
-	public void setCursorPositionOnContentArea(int x, int y) {
-		// TODO Auto-generated method stub
-		
 	}
 }
