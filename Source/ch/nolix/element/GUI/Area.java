@@ -3,12 +3,12 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.element.intData.Height;
 import ch.nolix.element.intData.Width;
 import ch.nolix.element.painter.IPainter;
@@ -17,26 +17,18 @@ import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**
- * An area is a widget that:
+ * An {@link Area} is a {@link Widget} that:
  * -Has a specific width and height.
  * -Can have a background color.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 260
+ * @lines 310
  */
 public final class Area extends Widget<Area, AreaLook> {
 
-	//type name
+	//constant
 	public static final String TYPE_NAME = "Area";
-	
-	//default values
-	public static final int DEFAULT_WIDTH = 200;
-	public static final int DEFAULT_HEIGHT = 100;
-	public static final Color DEFAULT_BACKGROUND_COLOR = Color.GREY;
-
-	//attribute header
-	private static final String BACKGROUND_COLOR_HEADER = "BackgroundColor";
 	
 	//attributes
 	private Width width = new Width();
@@ -47,7 +39,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//constructor
 	/**
-	 * Creates a new area with default values.
+	 * Creates a new {@link Area}.
 	 */
 	public Area() {
 		reset();
@@ -56,7 +48,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//constructor
 	/**
-	 * Creates new area with the given with, height and background color.
+	 * Creates a new {@link Area} with the given with, height and background color.
 	 * 
 	 * @param width
 	 * @param height
@@ -81,7 +73,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to this area.
+	 * Adds or changes the given attribute to the current {@link Area}.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -96,10 +88,8 @@ public final class Area extends Widget<Area, AreaLook> {
 			case Height.TYPE_NAME:
 				setHeight(attribute.getOneAttributeAsInt());
 				break;
-			case BackgroundColor.TYPE_NAME:
-				setBackgroundColor(
-					new BackgroundColor(attribute.getOneAttributeAsString())
-				);
+			case PascalCaseNameCatalogue.BACKGROUND_COLOR:
+				setBackgroundColor(Color.createFromSpecification(attribute));
 				break;
 			default:
 				
@@ -118,7 +108,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * @return the attributes of this area.
+	 * @return the attributes of the current {@link Area}.
 	 */
 	public List<StandardSpecification> getAttributes() {
 		
@@ -129,10 +119,12 @@ public final class Area extends Widget<Area, AreaLook> {
 		.addAtEnd(width.getSpecification())
 		.addAtEnd(height.getSpecification());
 		
-		//Handles the case that this area has a background color.
+		//Handles the case that the current area has a background color.
 		if (hasBackgroundColor()) {
 			attributes.addAtEnd(
-				getBackgroundColor().getSpecificationAs(BACKGROUND_COLOR_HEADER)
+				getBackgroundColor().getSpecificationAs(
+					PascalCaseNameCatalogue.BACKGROUND_COLOR
+				)
 			);
 		}
 		
@@ -141,12 +133,13 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * @return the background color of this area.
-	 * @throws UnexistingAttributeException if this area has no background color.
+	 * @return the background color of the current {@link Area}.
+	 * @throws UnexistingAttributeException
+	 * if the current {@link Area} has no background color.
 	 */
 	public Color getBackgroundColor() {
 		
-		//Checks if this area has a background color.
+		//Checks if the current area has a background color.
 		supposeHasBackgroundColor();
 		
 		return backgroundColor;
@@ -154,7 +147,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * @return the height of this area when it is not collapsed.
+	 * @return the height of the current {@link Area} when it is not collapsed.
 	 */
 	public int getHeightWhenNotCollapsed() {
 		return height.getValue();
@@ -162,15 +155,15 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * @return the widgetes of this area.
+	 * @return the widgetes of the current {@link Area}.
 	 */
 	public ReadContainer<Widget<?, ?>> getRefWidgets() {
-		return new ReadContainer<>();
+		return new ReadContainer<Widget<?, ?>>();
 	}
 	
 	//method
 	/**
-	 * @return the width of this area when it is not collapsed.
+	 * @return the width of the current {@link Area} when it is not collapsed.
 	 */
 	public int getWidthWhenNotCollapsed() {
 		return width.getValue();
@@ -178,7 +171,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * @return true if this area has a background color.
+	 * @return true if the current {@link Area} has a background color.
 	 */
 	public boolean hasBackgroundColor() {
 		return (backgroundColor != null);
@@ -187,7 +180,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	//method
 	/**
 	 * @param role
-	 * @return true if this area has the given role.
+	 * @return true if the current {@link Area} has the given role.
 	 */
 	public boolean hasRole(final String role) {
 		return false;
@@ -195,35 +188,43 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * Removes the background color of this area.
+	 * Removes the background color of the current {@link Area}.
+	 * 
+	 * @return the current {@link Area}.
 	 */
-	public void removeBackgroundColor() {
+	public Area removeBackgroundColor() {
+		
 		backgroundColor = null;
+		
+		return this;
 	}
 		
 	//method
 	/**
-	 * Resets the configuration of this area.
+	 * Resets the configuration of the current {@link Area}.
 	 * 
-	 * @return this area.
+	 * @return the current {@link Area}.
 	 */
 	public Area resetConfiguration() {
-						
-		setWidth(DEFAULT_WIDTH);
-		setHeight(DEFAULT_HEIGHT);
-		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		
 		//Calls method of the base class.
-		return super.resetConfiguration();
+		super.resetConfiguration();
+						
+		setWidth(500);
+		setHeight(200);
+		setBackgroundColor(Color.LIGHT_GREY);
+		
+		return this;
 	}
 	
 	//method
 	/**
-	 * Sets the background color of this area.
+	 * Sets the background color of the current {@link Area}.
 	 * 
 	 * @param backgroundColor
-	 * @return this area.
-	 * @throws NullArgumentException if the given background color is null.
+	 * @return the current {@link Area}.
+	 * @throws NullArgumentException
+	 * if the given background color is null.
 	 */
 	public Area setBackgroundColor(final Color backgroundColor) {
 		
@@ -233,7 +234,7 @@ public final class Area extends Widget<Area, AreaLook> {
 		.thatIsNamed(VariableNameCatalogue.BACKGROUND_COLOR)
 		.isNotNull();
 		
-		//Sets the background color of this area.
+		//Sets the background color of the current {@link Area}.
 		this.backgroundColor = backgroundColor;
 		
 		return this;
@@ -241,11 +242,12 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * Sets the height of this area.
+	 * Sets the height of the current {@link Area}.
 	 * 
 	 * @param height
-	 * @return this area.
-	 * @throws NonPositiveArgumentException if the given height is not positive.
+	 * @return the current {@link Area}.
+	 * @throws NonPositiveArgumentException
+	 * if the given height is not positive.
 	 */
 	public Area setHeight(final int height) {
 		
@@ -256,11 +258,12 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * Sets the with of this area.
+	 * Sets the with of the current {@link Area}.
 	 * 
 	 * @param width
-	 * @return this area.
-	 * @throws NonPositiveArgumentException if the given width is not positive.
+	 * @return the current {@link Area}.
+	 * @throws NonPositiveArgumentException
+	 * if the given width is not positive.
 	 */
 	public Area setWidth(final int width) {
 		
@@ -271,7 +274,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * @return a new widget look for this area.
+	 * @return a new widget look for the current {@link Area}.
 	 */
 	protected AreaLook createWidgetLook() {
 		return new AreaLook();
@@ -279,31 +282,35 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * Paints this area using the given widget structure and graphics.
+	 * Paints the current {@link Area} using the given area look and painter.
 	 * 
-	 * @param widgetStructure
-	 * @param graphics
+	 * @param areaLook
+	 * @param painter
 	 */
 	protected final void paint(
-		final AreaLook widgetStructure,
-		final IPainter graphics
+		final AreaLook areaLook,
+		final IPainter painter
 	) {
-		//Handles the case that this area has a background color.
+		//Handles the case that the current area has a background color.
 		if (hasBackgroundColor()) {
-			graphics.setColor(backgroundColor);
-			graphics.paintFilledRectangle(getWidth(), getHeight());
+			painter.setColor(getBackgroundColor());
+			painter.paintFilledRectangle(getWidth(), getHeight());
 		}
 	}
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if this area has no background color.
+	 * @throws UnexistingAttributeException
+	 * if the current {@link Area} has no background color.
 	 */
 	private void supposeHasBackgroundColor() {
 		
-		//Checks if this area has a background color.
+		//Checks if the current area has a background color.
 		if (!hasBackgroundColor()) {
-			throw new UnexistingAttributeException(this, "background color");
+			throw new UnexistingAttributeException(
+				this,
+				VariableNameCatalogue.BACKGROUND_COLOR
+			);
 		}
 	}
 }
