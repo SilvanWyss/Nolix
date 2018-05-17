@@ -755,7 +755,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	protected final int getHeightWhenNotCollapsed() {
 		
-		var originHeight = getOriginHeight();
+		var originHeight = getNaturalHeight();
 		
 		//Handles the case that this border widget has a min height.
 		if (hasMinHeight()) {
@@ -772,14 +772,14 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * The origin height of a border widget is its height when the border widget:
+	 * The natural height of a border widget is its height when the border widget:
 	 * -Is not collapsed.
 	 * -Has no min height.
 	 * -Has no max height.
 	 * 
-	 * @return the origin height of this border widget.
+	 * @return the natural height of this border widget.
 	 */
-	protected final int getOriginHeight() {
+	protected final int getNaturalHeight() {
 		
 		final var currentStructure = getRefCurrentLook();
 		
@@ -792,14 +792,14 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * The origin width of a border widget is its width when the border widget:
+	 * The natural width of a border widget is its width when the border widget:
 	 * -Is not collapsed.
 	 * -Has no min width.
 	 * -Has no max width.
 	 * 
-	 * @return the origin width of this border widget.
+	 * @return the natural width of this border widget.
 	 */
-	protected final int getOriginWidth() {
+	protected final int getNaturalWidth() {
 		
 		final var currentStructure = getRefCurrentLook();
 		
@@ -816,7 +816,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	protected final int getWidthWhenNotCollapsed() {
 		
-		var originWidth = getOriginWidth();
+		var originWidth = getNaturalWidth();
 		
 		//Handles the case that this border widget has a min width.
 		if (hasMinWidth()) {

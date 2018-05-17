@@ -237,7 +237,7 @@ implements Clearable<SelectionMenu> {
 			return 0;
 		}
 		
-		return items.getMaxInt(i -> i.getRefLabel().getOriginWidth());
+		return items.getMaxInt(i -> i.getRefLabel().getNaturalWidth());
 	}
 	
 	//method
