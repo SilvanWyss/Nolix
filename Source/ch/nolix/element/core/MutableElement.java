@@ -22,7 +22,7 @@ import ch.nolix.primitive.validator2.Validator;
  */
 public abstract class MutableElement<MU extends MutableElement<MU>>
 extends Element
-implements IController, IFluentObject<MU>, Specifiable {
+implements IController, IFluentObject<MU>, Specifiable<MU> {
 	
 	//command
 	private static final String RESET = "Reset";

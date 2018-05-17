@@ -15,9 +15,9 @@ import ch.nolix.primitive.validator2.Validator;
  * @month 2018-02
  * @lines 40
  */
-public abstract class SpecifiableEntity
+public abstract class SpecifiableEntity<SE extends SpecifiableEntity<SE>>
 extends Entity
-implements Specifiable {
+implements Specifiable<SE> {
 
 	//class
 	/**

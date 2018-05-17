@@ -22,7 +22,7 @@ import ch.nolix.core.container.List;
  *   
  * The default methods of this interface need not to be overwritten.
  */
-public interface Configurable<C extends Configurable<C>> extends Specifiable {
+public interface Configurable<C extends Configurable<C>> extends Specifiable<C> {
 	
 	//abstract method
 	/**

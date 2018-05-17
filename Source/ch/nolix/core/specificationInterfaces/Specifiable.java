@@ -19,7 +19,7 @@ import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
  * @month 2017-02
  * @lines 130
  */
-public interface Specifiable extends Resettable, Specified {
+public interface Specifiable<S extends Specifiable<S>> extends Resettable<S>, Specified {
 	
 	//abstract method
 	/**

@@ -24,7 +24,7 @@ import ch.nolix.primitive.validator2.Validator;
  * @param <E> The type of an entity.
  */
 public abstract class Entity<E extends Entity<E>>
-implements IFluentObject<E>, Specifiable {
+implements IFluentObject<E>, Specifiable<E> {
 	
 	//attribute
 	private List<Property<?>> properties;
