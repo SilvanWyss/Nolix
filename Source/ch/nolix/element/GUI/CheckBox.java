@@ -12,14 +12,14 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 180
+ * @lines 200
  */
 public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 
-	//type name
+	//constant
 	public static final String TYPE_NAME = "CheckBox";
 	
-	//attribute headers
+	//constants
 	private final String CHECKED_HEADER = "Checked";
 	private final String UNCHECKED_HEADER = "Unchecked";
 	
@@ -28,15 +28,17 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//constructor
 	/**
-	 * Creates a new check box with default values.
+	 * Creates a new {@link CheckBox}.
 	 */
 	public CheckBox() {
-		resetConfiguration();
+		reset();
+		approveProperties();
+		applyUsableConfiguration();
 	}
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to this check box.
+	 * Adds or changes the given attribute to the current {@link CheckBox}.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -60,9 +62,9 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//method
 	/**
-	 * Checks this check box.
+	 * Checks the current {@link CheckBox}.
 	 * 
-	 * @return this check box.
+	 * @return the current {@link CheckBox}.
 	 */
 	public CheckBox check() {
 		
@@ -81,13 +83,14 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return the attributes of this check box.
+	 * @return the attributes of the current {@link CheckBox}.
 	 */
 	public List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
+		final var attributes = super.getAttributes();
 		
+		//Handles the case that the current check box is checked.
 		if (isChecked()) {
 			attributes.addAtEnd(new StandardSpecification(CHECKED_HEADER));
 		}
@@ -97,7 +100,15 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return true if this check box has the given role.
+	 * @return the widgets of the current {@link CheckBox}.
+	 */
+	public ReadContainer<Widget<?, ?>> getRefWidgets() {
+		return new ReadContainer<>();
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link CheckBox} has the given role.
 	 */
 	public boolean hasRole(final String role) {
 		return false;
@@ -105,7 +116,7 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return true if this check box is checked.
+	 * @return true if the current {@link CheckBox} is checked.
 	 */
 	public boolean isChecked() {
 		return checked;
@@ -113,9 +124,9 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//method
 	/**
-	 * Unchecks this check box.
+	 * Unchecks the current {@link CheckBox}.
 	 * 
-	 * @return this check box.
+	 * @return the current {@link CheckBox}.
 	 */
 	public CheckBox uncheck() {
 		
@@ -126,50 +137,58 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return the height of this check box when it is not collapsed. 
+	 * @return a new widget look for the current {@link CheckBox}.
 	 */
-	public int getHeightWhenNotCollapsed() {
+	protected CheckBoxLook createWidgetLook() {
+		return new CheckBoxLook();
+	}
+	
+	//method
+	/**
+	 * @return the height of the current {@link CheckBox} when it is not collapsed. 
+	 */
+	protected int getHeightWhenNotCollapsed() {
 		return getRefCurrentLook().getActiveSize();
 	}
 	
 	//method
 	/**
-	 * @return the width of this check box when it is not collapsed.
+	 * @return the width of the current {@link CheckBox} when it is not collapsed.
 	 */
-	public final int getWidthWhenNotCollapsed() {
+	protected int getWidthWhenNotCollapsed() {
 		return getRefCurrentLook().getActiveSize();
 	}
 	
 	//method
 	/**
-	 * Paints this check box using the given widget structure and graphics.
+	 * Paints the current {@link CheckBox} using the given check box look and painter.
 	 * 
-	 * @param widgetStructure
-	 * @param graphics
+	 * @param checkBoxLook
+	 * @param painter
 	 */
-	protected void paint(final CheckBoxLook widgetStructure, final IPainter graphics) {
+	protected void paint(final CheckBoxLook checkBoxLook, final IPainter painter) {
 		
 		//Calls method of the base class.
-		super.paint(widgetStructure, graphics);
+		super.paint(checkBoxLook, painter);
 		
-		final int s = widgetStructure.getActiveSize();
-		final int t = widgetStructure.getActiveLineThickness();
+		final int s = checkBoxLook.getActiveSize();
+		final int t = checkBoxLook.getActiveLineThickness();
 		
-		graphics.setColor(widgetStructure.getActiveLineColor());
+		painter.setColor(checkBoxLook.getActiveLineColor());
 		
-		//Paints the left line of this check box.
-		graphics.paintFilledRectangle(0, 0, t, s);
+		//Paints the left border of the current check box.
+		painter.paintFilledRectangle(0, 0, t, s);
 		
-		//Paints the right line of this check box.
-		graphics.paintFilledRectangle(s - t, 0, t, s);
+		//Paints the right border of the current check box.
+		painter.paintFilledRectangle(s - t, 0, t, s);
 		
-		//Paints the top line of this check box.
-		graphics.paintFilledRectangle(0, 0, s, t);
+		//Paints the top border of the current check box.
+		painter.paintFilledRectangle(0, 0, s, t);
 		
-		//Paints the bottom line of this check box.
-		graphics.paintFilledRectangle(s - t, 0, s, t);
+		//Paints the bottom border of the current check box.
+		painter.paintFilledRectangle(s - t, 0, s, t);
 		
-		//Paints the icon of this check box if it is checked.
+		//Paints the icon of the current check box if it is checked.
 		if (isChecked()) {
 			
 			final int[] x = new int[4];
@@ -181,20 +200,7 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 			x[3] = s - t;	y[3] = s;
 			
 			//TODO
-			//graphics.fillPolygon(x, y, 4);
+			//painter.paintedFilledPolygon(x, y, 4);
 		}
-	}
-
-	//method
-	/**
-	 * @return a new widget look for this check box.
-	 */
-	protected CheckBoxLook createWidgetLook() {
-		return new CheckBoxLook();
-	}
-
-	@Override
-	public ReadContainer<Widget<?, ?>> getRefWidgets() {
-		return new ReadContainer<>();
 	}
 }
