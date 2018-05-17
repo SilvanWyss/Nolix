@@ -245,6 +245,14 @@ extends Widget<L, LineLook> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	protected final void applyUsableConfigurationWhenConfigurationIsReset() {
+		setThickness(1);
+	}
+	
+	//method
+	/**
 	 * @return a new widget look for this line.
 	 */
 	protected final LineLook createWidgetLook() {

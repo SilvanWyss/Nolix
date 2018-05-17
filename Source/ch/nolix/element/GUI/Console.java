@@ -427,7 +427,6 @@ implements Clearable<Console> {
 		
 		setCursorIcon(CursorIcon.Edit);
 		getRefBaseLook()
-		.setBackgroundColor(DEFAULT_BACKGROUND_COLOR)
 		.setTextFont(TextFont.Console);
 		
 		return this;
@@ -542,6 +541,14 @@ implements Clearable<Console> {
 		}
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}}
+	 */
+	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+		getRefBaseLook().setPaddings(10);
 	}
 	
 	//method

@@ -24,6 +24,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	public Grid() {
 		reset();
 		approveProperties();
+		applyUsableConfiguration();
 	}
 	
 	//method
@@ -195,6 +196,17 @@ public final class Grid extends Container<Grid, GridLook> {
 		}
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+		
+		getRefBaseLook()
+		.setLineType(GridLineType.InnerLines)
+		.setElementMargin(10);		
 	}
 	
 	//method

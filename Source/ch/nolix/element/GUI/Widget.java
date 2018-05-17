@@ -29,7 +29,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1400
+ * @lines 1420
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -176,6 +176,21 @@ extends ConfigurableElement<W> {
 		}				
 	}
 	
+	//method
+	/**
+	 * Resets the configuration of the current {@link Widget}
+	 * and applies a usable configuration to the current{@link Widget}.
+	 * 
+	 * @return the current {@link Widget}.
+	 */
+	public W applyUsableConfiguration() {
+		
+		resetConfiguration();		
+		applyUsableConfigurationWhenConfigurationIsReset();
+		
+		return getInstance();
+	}
+
 	//method
 	/**
 	 * @return true if the current {@link Widget} belongs to a GUI.
@@ -1325,6 +1340,13 @@ extends ConfigurableElement<W> {
 			)
 		);
 	}
+	
+	//abstract method
+	/**
+	 * Applies a usable configuration to the current {@link Widget}
+	 * when the configuration of the current {@link Widget} has been reset.
+	 */
+	protected abstract void applyUsableConfigurationWhenConfigurationIsReset();
 	
 	//method
 	/**

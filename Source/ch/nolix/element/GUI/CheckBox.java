@@ -6,6 +6,7 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
 
 //class
@@ -33,7 +34,6 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	public CheckBox() {
 		reset();
 		approveProperties();
-		applyUsableConfiguration();
 	}
 	
 	//method
@@ -133,6 +133,16 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 		checked = false;
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+		getRefBaseLook()
+		.setSize(20)
+		.setLineColor(Color.BLACK);
 	}
 	
 	//method

@@ -108,6 +108,16 @@ extends Container<SingleContainer, SingleContainerLook> {
 		this.widget = rectangle;
 	}
 	
+	public ReadContainer<Widget<?, ?>> getRefWidgets() {
+		return new ReadContainer<Widget<?, ?>>();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void applyUsableConfigurationWhenConfigurationIsReset() {}
+	
 	//method
 	/**
 	 * @return the height of the content of this borderable rectangle
@@ -152,8 +162,5 @@ extends Container<SingleContainer, SingleContainerLook> {
 	//method
 	protected SingleContainerLook createWidgetLook() {
 		return new SingleContainerLook();
-	}
-	public ReadContainer<Widget<?, ?>> getRefWidgets() {
-		return new ReadContainer<Widget<?, ?>>();
 	}
 }

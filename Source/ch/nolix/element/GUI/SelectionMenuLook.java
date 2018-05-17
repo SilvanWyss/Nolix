@@ -3,7 +3,6 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.entity2.Property;
-import ch.nolix.element.color.Color;
 import ch.nolix.element.core.NonNegativeInteger;
 
 //class
@@ -12,20 +11,6 @@ extends BorderWidgetLook<SelectionMenuLook> {
 
 	//default value
 	public static final int DEFAULT_ITEM_PADDING = ValueCatalogue.SMALL_WIDGET_PADDING;
-	
-	//default value
-	public static final SelectionMenuItemLook DEFAULT_BASE_ITEM_LOOK =
-	new SelectionMenuItemLook();
-	
-	//default value
-	public static final SelectionMenuItemLook DEFAULT_HOVER_ITEM_LOOK =
-	new SelectionMenuItemLook()
-	.setBackgroundColor(Color.LIGHT_GREY);
-	
-	//default value
-	public static final SelectionMenuItemLook DEFAULT_SELECTION_ITEM_LOOK =
-	new SelectionMenuItemLook()
-	.setBackgroundColor(Color.DARK_GREY);
 	
 	//constants
 	private static final String ITEM_PADDING_HEADER = "ItemPadding";
@@ -45,7 +30,7 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	private final Property<SelectionMenuItemLook> baseItemLookProperty =
 	new Property<SelectionMenuItemLook>(
 		NORMAL_ITEM_LOOK_HEADER,
-		DEFAULT_BASE_ITEM_LOOK,
+		new SelectionMenuItemLook(),
 		s -> SelectionMenuItemLook.createFromSpecification(s)
 	);
 	
@@ -53,7 +38,7 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	private final Property<SelectionMenuItemLook> hoverItemLookProperty =
 	new Property<SelectionMenuItemLook>(
 		HOVER_ITEM_LOOK_HEADER,
-		DEFAULT_HOVER_ITEM_LOOK,
+		new SelectionMenuItemLook(),
 		s -> SelectionMenuItemLook.createFromSpecification(s)
 	);
 	
@@ -61,7 +46,7 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	private final Property<SelectionMenuItemLook> selectionItemLookProperty =
 	new Property<SelectionMenuItemLook>(
 		SELECTION_ITEM_LOOK_HEADER,
-		DEFAULT_SELECTION_ITEM_LOOK,
+		new SelectionMenuItemLook(),
 		s -> SelectionMenuItemLook.createFromSpecification(s)
 	);
 	

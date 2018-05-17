@@ -26,9 +26,6 @@ implements Clearable<S> {
 	//attribute header
 	private static final String ELEMENT_MARGIN_HEADER = "ElementMargin";
 	
-	//default value
-	public static final int DEFAULT_ELEMENT_MARGIN = 10;
-	
 	//optional attribute
 	private NonNegativeInteger elementMargin;
 	
@@ -220,7 +217,7 @@ implements Clearable<S> {
 		//Calls method of the base class.
 		super.resetConfiguration();
 	
-		setElementMargin(DEFAULT_ELEMENT_MARGIN);
+		setElementMargin(0);
 		
 		return getInstance();
 	}
@@ -256,6 +253,14 @@ implements Clearable<S> {
 		//super.setParentCursorPosition(parentCursorXPosition, parentCursorYPosition);
 		
 		getRefWidgets().forEach(w -> w.setParentCursorPosition(parentCursorXPosition, parentCursorYPosition));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected final void applyUsableConfigurationWhenConfigurationIsReset() {
+		setElementMargin(10);
 	}
 	
 	//method

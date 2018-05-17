@@ -15,16 +15,14 @@ public final class Button extends TextLineWidget<Button> {
 	//constant
 	public static final String TYPE_NAME = "Button";
 	
-	//default value
-	public static final Color DEFAULT_BACKGROUND_COLOR = Color.LIGHT_GREY;
-	
 	//constructor
 	/**
 	 * Creates a new {@link Button}.
 	 */
-	public Button() {	
+	public Button() {
 		reset();
 		approveProperties();
+		applyUsableConfiguration();
 	}
 	
 	//constructor
@@ -50,18 +48,19 @@ public final class Button extends TextLineWidget<Button> {
 	public boolean hasRole(final String role) {
 		return false;
 	}
-	
+
 	//method
 	/**
-	 * Resets the configuration of the current {@link Button}.
+	 * {@inheritDoc}
 	 */
-	public Button resetConfiguration() {
+	protected void applyUsableConfigurationWhenConfigurationIsReset() {
 		
-		//Calls method of the base class.
-		super.resetConfiguration();
+		getRefBaseLook()
+		.setBackgroundColor(Color.LIGHT_GREY)
+		.setLeftPadding(10)
+		.setRightPadding(10);
 		
-		getRefBaseLook().setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
-		
-		return this;
+		getRefHoverLook()
+		.setBackgroundColor(Color.GREY);
 	}
 }

@@ -9,6 +9,7 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
@@ -30,6 +31,7 @@ implements Clearable<SelectionMenu> {
 	public SelectionMenu() {
 		reset();
 		approveProperties();
+		applyUsableConfiguration();
 	}
 	
 	//method
@@ -184,6 +186,7 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
+	
 	public SelectionMenu unselect() {
 		
 		if (containsSelectedItem()) {
@@ -191,6 +194,25 @@ implements Clearable<SelectionMenu> {
 		}
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+		
+		menu.setElementMargin(0);
+		
+		getRefBaseLook()
+		.setHoverItemLook(
+			new SelectionMenuItemLook()
+			.setBackgroundColor(Color.LIGHT_GREY)
+		)
+		.setSelectionItemLook(
+			new SelectionMenuItemLook()
+			.setBackgroundColor(Color.GREY)
+		);
 	}
 	
 	//method

@@ -335,6 +335,12 @@ implements Clearable<TabContainer> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	protected void applyUsableConfigurationWhenConfigurationIsReset() {}
+	
+	//method
+	/**
 	 * @return a new widget look for the current {@link TabContainer}.
 	 */
 	protected TabContainerLook createWidgetLook() {

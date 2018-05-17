@@ -23,7 +23,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 310
+ * @lines 320
  */
 public final class Area extends Widget<Area, AreaLook> {
 
@@ -44,6 +44,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	public Area() {
 		reset();
 		approveProperties();
+		applyUsableConfiguration();
 	}
 	
 	//constructor
@@ -212,7 +213,7 @@ public final class Area extends Widget<Area, AreaLook> {
 						
 		setWidth(500);
 		setHeight(200);
-		setBackgroundColor(Color.LIGHT_GREY);
+		removeBackgroundColor();
 		
 		return this;
 	}
@@ -270,6 +271,14 @@ public final class Area extends Widget<Area, AreaLook> {
 		this.width = new Width(width);
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+		setBackgroundColor(Color.LIGHT_GREY);
 	}
 	
 	//method

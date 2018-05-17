@@ -25,15 +25,11 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	//constant
 	public static final String TYPE_NAME = "TextBox";
 	
-	//default value
-	public static final int DEFAULT_WIDTH = 200;
-	public static final int DEFAULT_BORDER_THICKNESS = 1;
-	
 	//limit value
 	public static final int MIN_WIDTH = 10;
 	
 	//attributes
-	private PositiveInteger widthProperty = new PositiveInteger(DEFAULT_WIDTH);
+	private PositiveInteger widthProperty = new PositiveInteger(200);
 	private int textCursorPosition = 0;
 	
 	//constructor
@@ -43,6 +39,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	public TextBox() {	
 		reset();
 		approveProperties();
+		applyUsableConfiguration();
 	}
 	
 	//constructor
@@ -200,10 +197,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		//Calls method of the base class.
 		super.resetConfiguration();
 		
-		setWidth(DEFAULT_WIDTH);
-		setCursorIcon(CursorIcon.Edit);
-		
-		getRefBaseLook().setBorderThicknesses(DEFAULT_BORDER_THICKNESS);
+		setWidth(200);
 		
 		return this;
 	}
@@ -227,6 +221,15 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		this.widthProperty = new PositiveInteger(width);
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+		setCursorIcon(CursorIcon.Edit);
+		getRefBaseLook().setBorderThicknesses(1);
 	}
 	
 	//method

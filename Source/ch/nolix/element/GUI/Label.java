@@ -134,7 +134,7 @@ public final class Label extends TextLineWidget<Label> {
 	 * @return the current {@link Label}.
 	 * @throws NullArgumentException if the given role is null.
 	 */
-	public final Label setRole(final LabelRole role) {
+	public Label setRole(final LabelRole role) {
 		
 		//Checks if the given role is not null.
 		Validator
@@ -147,6 +147,12 @@ public final class Label extends TextLineWidget<Label> {
 		
 		return this;
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void applyUsableConfigurationWhenConfigurationIsReset() {}
 	
 	//method
 	/**
