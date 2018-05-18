@@ -17,13 +17,13 @@ import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**
- * An {@link Area} is a {@link Widget} that:
+ * A {@link Area} is a {@link Widget} that:
  * -Has a specific width and height.
  * -Can have a background color.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 320
+ * @lines 360
  */
 public final class Area extends Widget<Area, AreaLook> {
 
@@ -49,6 +49,38 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//constructor
 	/**
+	 * Creates a new {@link Area} with the given background color.
+	 * 
+	 * @param backgroundColor
+	 * @throws NullArgumentException if the given background color is null.
+	 */
+	public Area(final Color backgroundColor) {
+		
+		//Calls other constructor
+		this();
+		
+		setBackgroundColor(backgroundColor);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link Area} with the given with and height.
+	 * 
+	 * @param width
+	 * @param height
+	 * @throws NonPositiveArgumentException if the given width is not positive.
+	 * @throws NonPositiveArgumentException if the given height is not positive.
+	 */
+	public Area(final int width, final int height) {
+		
+		//Calls other constructor
+		this();
+		
+		setSize(width, height);
+	}
+	
+	//constructor
+	/**
 	 * Creates a new {@link Area} with the given with, height and background color.
 	 * 
 	 * @param width
@@ -67,17 +99,13 @@ public final class Area extends Widget<Area, AreaLook> {
 		//Calls other constructor
 		this();
 		
-		setWidth(width);
-		setHeight(height);
+		setSize(width, height);
 		setBackgroundColor(backgroundColor);
 	}
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to the current {@link Area}.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 * {@inheritDoc}}
 	 */
 	public void addOrChangeAttribute(final Specification attribute) {
 		
@@ -101,7 +129,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * @return the active cursor icon of the current {@link Area}.
+	 * {@inheritDoc}}
 	 */
 	public CursorIcon getActiveCursorIcon() {
 		return getCursorIcon();
@@ -109,7 +137,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link Area}.
+	 * {@inheritDoc}}
 	 */
 	public List<StandardSpecification> getAttributes() {
 		
@@ -148,26 +176,10 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * @return the height of the current {@link Area} when it is not collapsed.
-	 */
-	public int getHeightWhenNotCollapsed() {
-		return height.getValue();
-	}
-	
-	//method
-	/**
-	 * @return the widgetes of the current {@link Area}.
+	 * {@inheritDoc}}
 	 */
 	public ReadContainer<Widget<?, ?>> getRefWidgets() {
 		return new ReadContainer<Widget<?, ?>>();
-	}
-	
-	//method
-	/**
-	 * @return the width of the current {@link Area} when it is not collapsed.
-	 */
-	public int getWidthWhenNotCollapsed() {
-		return width.getValue();
 	}
 	
 	//method
@@ -202,15 +214,13 @@ public final class Area extends Widget<Area, AreaLook> {
 		
 	//method
 	/**
-	 * Resets the configuration of the current {@link Area}.
-	 * 
-	 * @return the current {@link Area}.
+	 * {@inheritDoc}}
 	 */
 	public Area resetConfiguration() {
 		
 		//Calls method of the base class.
 		super.resetConfiguration();
-						
+				
 		setWidth(500);
 		setHeight(200);
 		removeBackgroundColor();
@@ -259,6 +269,26 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
+	 * Sets the size of the current {@link Area}.
+	 * 
+	 * @param width
+	 * @param height
+	 * @return the current {@link Area}.
+	 * @throws NonPositiveArgumentException
+	 * if the given width is not positive.
+	 * @throws NonPositiveArgumentException
+	 * if the given height is not positive.
+	 */
+	public Area setSize(final int width, final int height) {
+		
+		setWidth(width);
+		setHeight(height);
+		
+		return this;
+	}
+	
+	//method
+	/**
 	 * Sets the with of the current {@link Area}.
 	 * 
 	 * @param width
@@ -283,7 +313,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * @return a new widget look for the current {@link Area}.
+	 * {@inheritDoc}
 	 */
 	protected AreaLook createWidgetLook() {
 		return new AreaLook();
@@ -291,10 +321,23 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * Paints the current {@link Area} using the given area look and painter.
-	 * 
-	 * @param areaLook
-	 * @param painter
+	 * {@inheritDoc}}
+	 */
+	protected int getHeightWhenNotCollapsed() {
+		return height.getValue();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}}
+	 */
+	protected int getWidthWhenNotCollapsed() {
+		return width.getValue();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
 	 */
 	protected final void paint(
 		final AreaLook areaLook,
