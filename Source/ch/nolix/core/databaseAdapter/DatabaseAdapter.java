@@ -47,6 +47,11 @@ public class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 	}
 	
 	//method
+	public EntitySet<Entity> getRefEntitySet(final String name) {
+		return entitySets.getRefFirst(es -> es.hasName(name));
+	}
+	
+	//method
 	public List<EntitySet<Entity>> getRefEntitySets() {
 		return entitySets.getCopy();
 	}
