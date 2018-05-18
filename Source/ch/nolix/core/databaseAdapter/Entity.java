@@ -126,6 +126,16 @@ implements Identified, Specified {
 	}
 	
 	//method
+	public IContainer<Propertyoid<?>> getRefProperties() {
+		
+		if (!propertiesAreExtracted()) {
+			extractProperties();
+		}
+		
+		return properties;
+	}
+	
+	//method
 	public final StandardSpecification getRowSpecification() {
 		
 		final var rowSpecification = new StandardSpecification();
@@ -368,16 +378,6 @@ implements Identified, Specified {
 			
 			cl = cl.getSuperclass();
 		}
-	}
-	
-	//method
-	private IContainer<Propertyoid<?>> getRefProperties() {
-		
-		if (!propertiesAreExtracted()) {
-			extractProperties();
-		}
-		
-		return properties;
 	}
 	
 	//method
