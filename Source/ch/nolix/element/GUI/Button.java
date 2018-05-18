@@ -55,6 +55,9 @@ public final class Button extends TextLineWidget<Button> {
 	 */
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {
 		
+		setMinWidth(100);
+		setContentPosition(ContentPosition.Center);
+		
 		getRefBaseLook()
 		.setBackgroundColor(Color.LIGHT_GREY)
 		.setLeftPadding(10)
