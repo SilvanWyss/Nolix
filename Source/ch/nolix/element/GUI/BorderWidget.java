@@ -36,7 +36,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1370
+ * @lines 1570
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -49,10 +49,14 @@ extends BackgroundWidget<BW, BWS> {
 	//constants
 	public static final String TYPE_NAME = "Borderablewidget";
 	private static final int VIEW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP = 50;
+	
+	//constants
 	private static final String MIN_WIDTH_HEADER = "MinWidth";
 	private static final String MIN_HEIGHT_HEADER = "MinHeight";
 	private static final String MAX_WIDTH_HEADER = "MaxWidth";
 	private static final String MAX_HEIGHT_HEADER = "MaxHeight";
+	private static final String PROPOSAL_WIDTH_HEADER = "ProposalWidth";
+	private static final String PROPOSAL_HEIGHT_HEADER = "ProposalHeight";
 	private static final String VIEW_AREA_X_POSITION_ON_SCROLL_AREA_HEADER = "ViewAreaXPositionOnScrollArea";
 	private static final String VIEW_AREA_Y_POSITION_ON_SCROLL_AREA_HEADER = "ViewAreaYPositionOnScrollArea";
 	
@@ -88,6 +92,22 @@ extends BackgroundWidget<BW, BWS> {
 	new MutableOptionalProperty<PositiveInteger>(
 		MAX_HEIGHT_HEADER,
 		mh -> setMaxHeight(mh.getValue()),
+		s -> PositiveInteger.createFromSpecification(s)
+	);
+	
+	//attribute
+	private final MutableOptionalProperty<PositiveInteger> proposalWidthProperty =
+	new MutableOptionalProperty<PositiveInteger>(
+		PROPOSAL_WIDTH_HEADER,
+		pw -> setProposalWidth(pw.getValue()),
+		s -> PositiveInteger.createFromSpecification(s)
+	);
+	
+	//attribute
+	private final MutableOptionalProperty<PositiveInteger> proposalHeightProperty =
+	new MutableOptionalProperty<PositiveInteger>(
+		PROPOSAL_HEIGHT_HEADER,
+		ph -> setProposalWidth(ph.getValue()),
 		s -> PositiveInteger.createFromSpecification(s)
 	);
 	
@@ -184,12 +204,12 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final int getHorizontalScrollbarThickness() {
 		
-		//Handles the case that this border widget has no max height.
-		if (!hasMaxWidth()) {
+		//Handles the case that this border widget has no horizontal scrollbar.
+		if (!hasHorizontalScrollbar()) {
 			return 0;
 		}
 		
-		//Handles the case that this border widget has a max width.
+		//Handles the case that this border widget has a horizontal scrollbar.
 		//TODO: Add scrollbar thickness to border widget structure.
 		return 20;
 	}
@@ -232,16 +252,74 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
+	 * The natural height of a border widget is its height when the border widget:
+	 * -Is not collapsed.
+	 * -Has no min height.
+	 * -Has no max height.
+	 * 
+	 * @return the natural height of this border widget.
+	 */
+	public final int getNaturalHeight() {
+		
+		final var currentStructure = getRefCurrentLook();
+		
+		return
+		currentStructure.getRecursiveOrDefaultTopBorderThickness()
+		+ getNaturalScrollAreaHeight()
+		+ getHorizontalScrollbarThickness()
+		+ currentStructure.getRecursiveOrDefaultBottomBorderThickness();
+	}
+	
+	//method
+	/**
+	 * The natural width of a border widget is its width when the border widget:
+	 * -Is not collapsed.
+	 * -Has no min width.
+	 * -Has no max width.
+	 * 
+	 * @return the natural width of this border widget.
+	 */
+	public final int getNaturalWidth() {
+		
+		final var currentStructure = getRefCurrentLook();
+		
+		return
+		currentStructure.getRecursiveOrDefaultLeftBorderThickness()
+		+ getNaturalScrollAreaWidth()
+		+ getVerticalScrollbarThickness()
+		+ currentStructure.getRecursiveOrDefaultRightBorderThickness();
+	}
+	
+	//method
+	/**
+	 * @return the proposal height of this border widget.
+	 * @throws UnexistingAttributeException if this border widget has no proposal height.
+	 */
+	public final int getProposalHeight() {
+		return proposalHeightProperty.getValue().getValue();
+	}
+	
+	//method
+	/**
+	 * @return the proposal width of this border widget.
+	 * @throws UnexistingAttributeException if this border widget has no proposal width.
+	 */
+	public final int getProposalWidth() {
+		return proposalWidthProperty.getValue().getValue();
+	}
+	
+	//method
+	/**
 	 * @return the thickness of the vertical scrollbar of this border widget.
 	 */
 	public final int getVerticalScrollbarThickness() {
 		
-		//Handles the case that this border widget has no max width.
-		if (!hasMaxHeight()) {
+		//Handles the case that this border widget has no vertical scrollbar.
+		if (!hasVerticalScrollbar()) {
 			return 0;
 		}
 		
-		//Handles the case that this border widget has a max width.
+		//Handles the case that this border widget has a vertical scroll bar.
 		//TODO: Add scrollbar thickness to border widget structure.
 		return 20;
 	}
@@ -260,6 +338,28 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final int getViewAreaYPositionOnScrollArea() {
 		return viewAreaYPositionOnScrollArea.getValue().getValue();
+	}
+	
+	//method
+	/**
+	 * This method determines if this border widget has a horizontal scroll bar.
+	 * 
+	 * There can be the following issues.
+	 * -The horizontal scrollbar is not there, but the user needs it.
+	 * -The horizontal scrollbar is there, but the user does not need it.
+	 * 
+	 * No matter what result this method returns, the program works technically.
+	 * This method makes a good but not absolute guess if the user needs a horizontal scrollbar.
+	 * 
+	 * @return true if this border widget has a horizontal scrollbar.
+	 */
+	public final boolean hasHorizontalScrollbar() {
+		
+		final var naturalScrollAreaWidth = getNaturalScrollAreaWidth();
+		
+		return
+		(hasMaxWidth() && getMaxWidth() < naturalScrollAreaWidth)
+		|| (hasProposalWidth() && getProposalWidth() < naturalScrollAreaWidth);
 	}
 	
 	//method
@@ -294,6 +394,34 @@ extends BackgroundWidget<BW, BWS> {
 		return minWidth.hasValue();
 	}
 	
+	/**
+	 * @return true if this border widget has a proposal height.
+	 */
+	public final boolean hasProposalHeight() {
+		return proposalHeightProperty.hasValue();
+	}
+	
+	//method
+	/**
+	 * @return true if this border widget has a proposal width.
+	 */
+	public final boolean hasProposalWidth() {
+		return proposalWidthProperty.hasValue();
+	}
+	
+	//method
+	/**
+	 * @return true if this border widget has a vertical scrollbar.
+	 */
+	public final boolean hasVerticalScrollbar() {
+		
+		final var naturalScrollAreaHeight = getNaturalScrollAreaHeight();
+		
+		return
+		(hasMaxHeight() && getMaxHeight() < naturalScrollAreaHeight)
+		|| (hasProposalHeight() && getProposalHeight() < naturalScrollAreaHeight);
+	}
+	
 	//method
 	/**
 	 * Lets this border widget note a left mouse button press.
@@ -303,14 +431,19 @@ extends BackgroundWidget<BW, BWS> {
 		//Calls method of the base class.
 		super.noteLeftMouseButtonPress();
 		
+		//Handles the case that the current widget has a left mouse button press command.
+		if (viewAreaIsUnderCursor() && hasLeftMouseButtonPressCommand()) {
+			getParentGUI().getRefController().run(getLeftMouseButtonPressCommand());
+		}		
+		
 		//Handles the case that the cursor is over the vertical scrollbar cursor.
-		if (cursorIsOverVerticalScrollbarCursor()) {
+		if (verticalScrollbarCursorIsUnderCursor()) {
 			isMovingVerticalScrollbarCursor = true;
 			verticalScrollingCursorStartYPosition = getCursorYPosition();
 		}
 		
 		//Handles the case that the cursor is over the horizontal scrollbar cursor.
-		else if (cursorIsOverHorizontalScrollbarCursor()) {
+		else if (horizontalScrollbarCursorIsUnderCursor()) {
 			isMovingHorizontalScrollbarCursor = true;
 			horizontalScrollingCursorStartXPosition = getCursorXPosition();
 		}
@@ -571,6 +704,36 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
+	 * Sets the proposal height of this border widget.
+	 * 
+	 * @param proposalHeight
+	 * @return this border widget.
+	 * @throws NonPositiveArgumentException if the given proposal height is not positive.
+	 */
+	public final BW setProposalHeight(final int proposalHeight) {
+		
+		proposalHeightProperty.setValue(new PositiveInteger(proposalHeight));
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Sets the proposal with of this border widget.
+	 * 
+	 * @param proposalWidth
+	 * @return this border widget.
+	 * @throws NonPositiveArgumentException if the given proposal width is not positive.
+	 */
+	public final BW setProposalWidth(final int proposalWidth) {
+		
+		proposalWidthProperty.setValue(new PositiveInteger(proposalWidth));
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
 	 * Sets the x-position of the view area on the scroll area of this border widget.
 	 * 
 	 * @param viewAreaXPositionOnScrollArea
@@ -648,44 +811,10 @@ extends BackgroundWidget<BW, BWS> {
 		
 		final var currentStructure = getRefCurrentLook();
 		
-		//Enumerates the content position of this border widget.
-		switch (getContentPosition()) {
-			case LeftTop:
-			case Left:
-			case LeftBottom:
-				return
-				+ currentStructure.getRecursiveOrDefaultLeftBorderThickness()
-				+ currentStructure.getRecursiveOrDefaultLeftPadding()
-				- getViewAreaXPositionOnScrollArea();	
-			case Top:
-			case Center:
-			case Bottom:
-				
-				//Handles the case that this border widget has no min width.				
-				if (!hasMinWidth()) {
-					return
-					- getViewAreaXPositionOnScrollArea()
-					+ currentStructure.getRecursiveOrDefaultLeftBorderThickness()
-					+ currentStructure.getRecursiveOrDefaultLeftPadding();
-				}
-				
-				//Handles the case that this border widget has a min width.
-				return
-				- getViewAreaXPositionOnScrollArea()
-				+ (getMinWidth() - getContentAreaWidth()) / 2;
-			case RightTop:
-			case Right:
-			case RightBottom:
-				
-				return
-				- getViewAreaXPositionOnScrollArea()
-				+ getWidth()
-				- currentStructure.getRecursiveOrDefaultRightBorderThickness()
-				- currentStructure.getRecursiveOrDefaultRightPadding()
-				- getContentAreaWidth();
-		}
-		
-		throw new InvalidStateException(this);
+		return
+		currentStructure.getRecursiveOrDefaultLeftBorderThickness()
+		- getViewAreaXPositionOnScrollArea()
+		+ getContentAreaXPositionOnScrollArea();
 	}
 	
 	//method
@@ -696,41 +825,10 @@ extends BackgroundWidget<BW, BWS> {
 		
 		final var currentStructure = getRefCurrentLook();
 		
-		//Enumerates the content orientation of this border widget.
-		switch (getContentPosition()) {
-			case LeftTop:
-			case Top:
-			case RightTop:
-				return
-				currentStructure.getRecursiveOrDefaultTopBorderThickness()
-				+ currentStructure.getRecursiveOrDefaultTopPadding()
-				- getViewAreaYPositionOnScrollArea();				
-			case Left:
-			case Center:
-			case Right:
-				
-				//Handles the case that this border widget has no min height.				
-				if (!hasMinHeight()) {
-					return
-					currentStructure.getRecursiveOrDefaultTopBorderThickness()
-					+ currentStructure.getRecursiveOrDefaultTopPadding();
-				}
-				
-				//Handles the case that this border widget has a min height.
-				return (getMinHeight() - getContentAreaHeight()) / 2;
-				
-			case LeftBottom:
-			case Bottom:
-			case RightBottom:
-				
-				return
-				getHeight()
-				- currentStructure.getRecursiveOrDefaultBottomBorderThickness()
-				- currentStructure.getRecursiveOrDefaultBottomPadding()
-				- getContentAreaHeight();
-		}
-		
-		throw new InvalidStateException(this);
+		return
+		currentStructure.getRecursiveOrDefaultTopBorderThickness()
+		- getViewAreaYPositionOnScrollArea()
+		+ getContentAreaYPositionOnScrollArea();
 	}
 	
 	//method
@@ -755,59 +853,12 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	protected final int getHeightWhenNotCollapsed() {
 		
-		var originHeight = getNaturalHeight();
-		
-		//Handles the case that this border widget has a min height.
-		if (hasMinHeight()) {
-			originHeight = Calculator.getMax(originHeight, getMinHeight());
-		}
-		
-		//Handles the case that this border widget has a max height.
-		if (hasMaxHeight()) {
-			originHeight = Calculator.getMin(originHeight, getMaxHeight());
-		}
-		
-		return originHeight;
-	}
-	
-	//method
-	/**
-	 * The natural height of a border widget is its height when the border widget:
-	 * -Is not collapsed.
-	 * -Has no min height.
-	 * -Has no max height.
-	 * 
-	 * @return the natural height of this border widget.
-	 */
-	protected final int getNaturalHeight() {
-		
-		final var currentStructure = getRefCurrentLook();
+		final var currentLook = getRefCurrentLook();
 		
 		return
-		currentStructure.getRecursiveOrDefaultTopBorderThickness()
-		+ getScrollAreaHeight()
-		+ getHorizontalScrollbarThickness()
-		+ currentStructure.getRecursiveOrDefaultBottomBorderThickness();
-	}
-	
-	//method
-	/**
-	 * The natural width of a border widget is its width when the border widget:
-	 * -Is not collapsed.
-	 * -Has no min width.
-	 * -Has no max width.
-	 * 
-	 * @return the natural width of this border widget.
-	 */
-	protected final int getNaturalWidth() {
-		
-		final var currentStructure = getRefCurrentLook();
-		
-		return
-		currentStructure.getRecursiveOrDefaultLeftBorderThickness()
-		+ getScrollAreaWidth()
-		+ getVerticalScrollbarThickness()
-		+ currentStructure.getRecursiveOrDefaultRightBorderThickness();
+		currentLook.getRecursiveOrDefaultTopBorderThickness()		
+		+ getBorderedAreaHeight()
+		+ currentLook.getRecursiveOrDefaultBottomBorderThickness();
 	}
 	
 	//method
@@ -816,19 +867,12 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	protected final int getWidthWhenNotCollapsed() {
 		
-		var originWidth = getNaturalWidth();
+		final var currentLook = getRefCurrentLook();
 		
-		//Handles the case that this border widget has a min width.
-		if (hasMinWidth()) {
-			originWidth = Calculator.getMax(originWidth, getMinWidth());
-		}
-		
-		//Handles the case that this border widget has a max width.
-		if (hasMaxWidth()) {
-			originWidth = Calculator.getMin(originWidth, getMaxWidth());
-		}
-		
-		return originWidth;
+		return
+		currentLook.getRecursiveOrDefaultLeftBorderThickness()		
+		+ getBorderedAreaWidth()
+		+ currentLook.getRecursiveOrDefaultRightBorderThickness();
 	}
 	
 	//method
@@ -923,21 +967,20 @@ extends BackgroundWidget<BW, BWS> {
 	protected void setCursorPositionOnContentArea(
 		int cursorXPositionOnContent,
 		int cursorYPositionOnContent
-	)
-	{}
+	) {}
 	
 	//method
 	/**
 	 * @return true if the cursor is over the horizontal scrollbar cursor of this border widget.
 	 */
-	private boolean cursorIsOverHorizontalScrollbarCursor() {
+	private boolean horizontalScrollbarCursorIsUnderCursor() {
 		
-		//Handles the case that this border widget has no max width.
-		if (!hasMaxWidth()) {
+		//Handles the case that this border widget has no horizontal scrollbar.
+		if (!hasHorizontalScrollbar()) {
 			return false;
 		}
 		
-		//Handles the case that this border widget has a max width.
+		//Handles the case that this border widget has a horizontal scrollbar.
 			final var cursorXPosition = getCursorXPosition();
 			final var cursorYPosition = getCursorYPosition();
 			final var horizontalScrollbarCursorXPosition = getHorizontalScrollbarCursorXPosition();
@@ -954,14 +997,14 @@ extends BackgroundWidget<BW, BWS> {
 	/**
 	 * @return true if the cursor is over the vertical scrollbar cursor of this border widget.
 	 */
-	private boolean cursorIsOverVerticalScrollbarCursor() {
+	private boolean verticalScrollbarCursorIsUnderCursor() {
 		
-		//Handles the case that this border widget has no max height.
-		if (!hasMaxHeight()) {
+		//Handles the case that this border widget has no vertical scrollbar.
+		if (!hasVerticalScrollbar()) {
 			return false;
 		}
 		
-		//Handles the case that this border widget has a max height.
+		//Handles the case that this border widget has a vertical scrollbar.
 			final var cursorXPosition = getCursorXPosition();
 			final var cursorYPosition = getCursorYPosition();		
 			final var verticalScrollbarCursorXPosition = getVerticalScrollbarCursorXPosition();
@@ -979,13 +1022,9 @@ extends BackgroundWidget<BW, BWS> {
 	 * @return the height of the bordered area of this border widget.
 	 */
 	private int getBorderedAreaHeight() {
-		
-		final var currentStructure = getRefCurrentLook();
-		
-		return
-		getHeight()
-		- currentStructure.getRecursiveOrDefaultTopBorderThickness()
-		- currentStructure.getRecursiveOrDefaultBottomBorderThickness();
+		return 
+		getViewAreaHeight()
+		+ getHorizontalScrollbarThickness();
 	}
 	
 	//method
@@ -993,13 +1032,9 @@ extends BackgroundWidget<BW, BWS> {
 	 * @return the width of the bordered area of this border widget.
 	 */
 	private int getBorderedAreaWidth() {
-		
-		final var currentStructure = getRefCurrentLook();
-		
-		return
-		getWidth()
-		- currentStructure.getRecursiveOrDefaultLeftBorderThickness()
-		- currentStructure.getRecursiveOrDefaultRightBorderThickness();
+		return 
+		getViewAreaWidth()
+		+ getVerticalScrollbarThickness();
 	}
 	
 	//method
@@ -1042,18 +1077,10 @@ extends BackgroundWidget<BW, BWS> {
 			case Top:
 			case Center:
 			case Bottom:
-				
-				//Handles the case that this border widget has no min width.				
-				if (!hasMinWidth()) {
-					return currentStructure.getRecursiveOrDefaultLeftBorderThickness();
-				}
-				
-				//Handles the case that this border widget has a min width.
 				return (getScrollAreaWidth() - getContentAreaWidth()) / 2;
 			case RightTop:
 			case Right:
-			case RightBottom:
-				
+			case RightBottom:				
 				return
 				getScrollAreaWidth()
 				- getContentAreaWidth()
@@ -1081,19 +1108,10 @@ extends BackgroundWidget<BW, BWS> {
 			case Left:
 			case Center:
 			case Right:
-				
-				//Handles the case that this border widget has no min height.				
-				if (!hasMinHeight()) {
-					return currentStructure.getRecursiveOrDefaultTopPadding();
-				}
-				
-				//Handles the case that this border widget has a min height.
-				return (getScrollAreaHeight() - getContentAreaHeight()) / 2;
-				
+				return (getScrollAreaHeight() - getContentAreaHeight()) / 2;			
 			case LeftBottom:
 			case Bottom:
 			case RightBottom:
-				
 				return
 				getScrollAreaHeight()
 				- getContentAreaHeight()
@@ -1151,17 +1169,152 @@ extends BackgroundWidget<BW, BWS> {
 	}
 	
 	//method
+	private int getMaxViewAreaHeight() {
+		
+		final var currentLook = getRefCurrentLook();
+		
+		return
+		getMaxHeight()
+		- currentLook.getRecursiveOrDefaultTopBorderThickness()
+		- currentLook.getRecursiveOrDefaultBottomBorderThickness()
+		- getHorizontalScrollbarThickness();
+	}
+
+	//method
+	private int getMaxViewAreaWidth() {
+		
+		final var currentLook = getRefCurrentLook();
+		
+		return
+		getMaxWidth()
+		- currentLook.getRecursiveOrDefaultLeftBorderThickness()
+		- currentLook.getRecursiveOrDefaultRightBorderThickness()
+		- getVerticalScrollbarThickness();
+	}
+	
+	//method
+	private int getMinScrollAreaHeight() {
+		
+		final var currentLook = getRefCurrentLook();
+		
+		return
+		getMinHeight()
+		- currentLook.getRecursiveOrDefaultTopBorderThickness()
+		- currentLook.getRecursiveOrDefaultBottomBorderThickness()
+		- getHorizontalScrollbarThickness();
+	}
+	
+	//method
+	private int getMinScrollAreaWidth() {
+		
+		final var currentLook = getRefCurrentLook();
+		
+		return
+		getMinWidth()
+		- currentLook.getRecursiveOrDefaultLeftBorderThickness()
+		- currentLook.getRecursiveOrDefaultRightBorderThickness()
+		- getVerticalScrollbarThickness();
+	}
+	
+	//method
+	private int getMinViewAreaHeight() {
+		return getMinScrollAreaHeight();
+	}
+	
+	//method
+	private int getMinViewAreaWidth() {
+		return getMinScrollAreaWidth();
+	}
+	
+
+	
+	//method
+	private int getNaturalScrollAreaHeight() {
+		
+		final var currentLook = getRefCurrentLook();
+		
+		return
+		currentLook.getRecursiveOrDefaultTopPadding()
+		+ getContentAreaHeight()
+		+ currentLook.getRecursiveOrDefaultBottomPadding();
+	}
+
+	//method
+	private int getNaturalScrollAreaWidth() {
+		
+		final var currentLook = getRefCurrentLook();
+		
+		return
+		currentLook.getRecursiveOrDefaultLeftPadding()
+		+ getContentAreaWidth()
+		+ currentLook.getRecursiveOrDefaultRightPadding();
+	}
+	
+	//method
+	private int getNaturalViewAreaHeight() {
+		return getNaturalScrollAreaHeight();
+	}
+	
+	//method
+	private int getNaturalViewAreaWidth() {
+		return getNaturalScrollAreaWidth();
+	}
+	
+	//method
+	private int getProposalScrollAreaHeight() {
+		
+		final var currentLook = getRefCurrentLook();
+		
+		return
+		getProposalHeight()
+		- currentLook.getRecursiveOrDefaultTopBorderThickness()
+		- currentLook.getRecursiveOrDefaultBottomBorderThickness()
+		- getHorizontalScrollbarThickness();
+	}
+	
+	//method
+	private int getProposalScrollAreaWith() {
+		
+		final var currentLook = getRefCurrentLook();
+		
+		return
+		getProposalWidth()
+		- currentLook.getRecursiveOrDefaultLeftBorderThickness()
+		- currentLook.getRecursiveOrDefaultRightBorderThickness()
+		- getVerticalScrollbarThickness();
+	}
+	
+	//method
+	private int getProposalViewAreaHeight() {
+		return getProposalScrollAreaHeight();
+	}
+
+	//method
+	private int getProposalViewAreaWidth() {
+		return getProposalScrollAreaWith();
+	}
+	
+	//method
 	/**
 	 * @return the height of the scroll area of this border widget.
 	 */
 	private int getScrollAreaHeight() {
 		
-		final var currentStructure = getRefCurrentLook();
+		var scrollAreaHeight = getNaturalScrollAreaHeight();
 		
-		return
-		getContentAreaHeight()
-		+ currentStructure.getRecursiveOrDefaultTopPadding()
-		+ currentStructure.getRecursiveOrDefaultBottomPadding();
+		if (hasProposalHeight()) {
+			scrollAreaHeight = Calculator.getMax(scrollAreaHeight, getProposalScrollAreaHeight());
+		}
+		
+		//Handles the case that this border widget has a min height.
+		if (hasMinHeight()) {
+			scrollAreaHeight = Calculator.getMax(
+				scrollAreaHeight,
+				getMinScrollAreaHeight()
+			);
+		}
+		
+		return scrollAreaHeight;
 	}
 	
 	//method
@@ -1169,13 +1322,22 @@ extends BackgroundWidget<BW, BWS> {
 	 * @return the width of the scroll area of this border widget.
 	 */
 	private int getScrollAreaWidth() {
+			
+		var scrollAreaWidth = getNaturalScrollAreaWidth();
 		
-		final var currentStructure = getRefCurrentLook();
+		if (hasProposalWidth()) {
+			scrollAreaWidth = Calculator.getMax(scrollAreaWidth, getProposalScrollAreaWith());
+		}
 		
-		return
-		getContentAreaWidth()
-		+ currentStructure.getRecursiveOrDefaultLeftPadding()
-		+ currentStructure.getRecursiveOrDefaultRightPadding();
+		//Handles the case that this border widget has a min width.
+		if (hasMinWidth()) {
+			scrollAreaWidth = Calculator.getMax(
+				scrollAreaWidth,
+				getMinScrollAreaWidth()
+			);
+		}
+		
+		return scrollAreaWidth;
 	}
 	
 	//method
@@ -1233,7 +1395,19 @@ extends BackgroundWidget<BW, BWS> {
 	 * @return the height of the view area of this border widget.
 	 */
 	private int getViewAreaHeight() {
-		return (getBorderedAreaHeight()	- getHorizontalScrollbarThickness());
+		
+		var viewAreaHeight =
+		hasProposalHeight() ? getProposalViewAreaHeight() : getNaturalViewAreaHeight();
+		
+		if (hasMinHeight()) {
+			viewAreaHeight = Calculator.getMax(viewAreaHeight, getMinViewAreaHeight());
+		}
+		
+		if (hasMaxHeight()) {
+			viewAreaHeight = Calculator.getMin(viewAreaHeight, getMaxViewAreaHeight());
+		}
+		
+		return viewAreaHeight;
 	}
 	
 	//method
@@ -1241,9 +1415,21 @@ extends BackgroundWidget<BW, BWS> {
 	 * @return the width of the view area of this border widget.
 	 */
 	private int getViewAreaWidth() {
-		return (getBorderedAreaWidth() - getVerticalScrollbarThickness());
+						
+		var viewAreaWidth =
+		hasProposalWidth() ? getProposalViewAreaWidth() : getNaturalViewAreaWidth();
+		
+		if (hasMinWidth()) {
+			viewAreaWidth = Calculator.getMax(viewAreaWidth, getMinViewAreaWidth());
+		}
+		
+		if (hasMaxWidth()) {
+			viewAreaWidth = Calculator.getMin(viewAreaWidth, getMaxViewAreaWidth());
+		}
+		
+		return viewAreaWidth;
 	}
-	
+
 	//method
 	/**
 	 * Paints the bordered area of this border widget
@@ -1257,11 +1443,12 @@ extends BackgroundWidget<BW, BWS> {
 		final IPainter painter
 	) {
 		
-		//Paints the vertical scroll bar if this border widget has a max width.
-		if (hasMaxHeight()) {
+		//Paints the vertical scroll bar if this border widget has a vertical scrollbar.
+		if (hasVerticalScrollbar()) {
 			
-			//Paints the vertical scrollbar.
-				
+			System.out.println(getViewAreaWidth() + " " + getVerticalScrollbarXPositionOnBorderedArea());
+			
+			//Paints the vertical scrollbar.				
 				//TODO: Add scrollbar color to border widget structure.
 				painter.setColor(Color.LIGHT_GREY);
 				
@@ -1272,8 +1459,7 @@ extends BackgroundWidget<BW, BWS> {
 					getViewAreaHeight()
 				);
 			
-			//Paints the vertical scrollbar cursor.
-				
+			//Paints the vertical scrollbar cursor.				
 				//TODO: Add scrollbar cursor color to border widget structure.
 				painter.setColor(Color.DARK_GREY);
 				
@@ -1285,11 +1471,10 @@ extends BackgroundWidget<BW, BWS> {
 				);
 		}
 		
-		//Paints the horizontal scrollbar if this border widget has a max height.
-		if (hasMaxWidth()) {
+		//Paints the horizontal scrollbar if this border widget has a horizontal scrollbar.
+		if (hasHorizontalScrollbar()) {
 			
-			//Paints the horizontal scrollbar.
-				
+			//Paints the horizontal scrollbar.	
 				//TODO: Add scrollbar color to border widget structure.
 				painter.setColor(Color.LIGHT_GREY);
 				
@@ -1300,8 +1485,7 @@ extends BackgroundWidget<BW, BWS> {
 					getHorizontalScrollbarThickness()
 				);
 			
-			//Paints the horizontal scrollbar cursor.
-				
+			//Paints the horizontal scrollbar cursor.			
 				//TODO: Add scrollbar cursor color to border widget structure.
 				painter.setColor(Color.DARK_GREY);
 				
@@ -1369,5 +1553,19 @@ extends BackgroundWidget<BW, BWS> {
 				getScrollAreaHeight()
 			)
 		);
+	}
+	
+	//method
+	/**
+	 * @return true if the view area of this border widget is under the cursor.
+	 */
+	private boolean viewAreaIsUnderCursor() {
+		
+		//TODO: Better ask if the cursor is under the view area directly.
+		return
+		getCursorXPositionOnScrollArea() > 0
+		&& getCursorXPositionOnScrollArea() < getScrollAreaWidth()
+		&& getCursorYPositionOnScrollArea() > 0
+		&& getCursorYPositionOnContentArea() < getScrollAreaHeight();
 	}
 }

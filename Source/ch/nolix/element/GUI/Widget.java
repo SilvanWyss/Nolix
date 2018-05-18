@@ -338,8 +338,6 @@ extends ConfigurableElement<W> {
 		return getHeightWhenNotCollapsed();
 	}
 	
-
-	
 	//method
 	/**
 	 * The interaction attributes of a {@link Widget} are those a user can change.
@@ -769,10 +767,6 @@ extends ConfigurableElement<W> {
 	 */
 	public void noteLeftMouseButtonPress() {
 		
-		//Handles the case that the current widget has a left mouse button press command.
-		if (hasLeftMouseButtonPressCommand()) {
-			getParentGUI().getRefController().run(getLeftMouseButtonPressCommand());
-		}
 	}
 	
 	//method
