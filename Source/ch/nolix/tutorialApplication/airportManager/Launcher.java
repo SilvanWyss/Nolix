@@ -23,6 +23,14 @@ public final class Launcher {
 		.addSchema(airportManagerSchema)
 		.saveChanges();		
 		
+		new DataGenerator()
+		.generateAndSaveSampleData(
+			new DatabaseAdapter(
+				new SpecificationDatabaseConnector(airportManagerDatabase),
+				airportManagerSchema
+			)
+		);
+		
 		final var airportManager =
 		new AirportManager(
 			() ->
