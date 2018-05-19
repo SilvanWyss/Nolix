@@ -50,6 +50,13 @@ public final class Grid extends Container<Grid, GridLook> {
 	 * @return the active cursor icon of the current {@link Area}.
 	 */
 	public CursorIcon getActiveCursorIcon() {
+		
+		final var widgetUnderCursor = getRefWidgets().getRefFirstOrNull(w -> w.isUnderCursor());
+		
+		if (widgetUnderCursor != null) {
+			return widgetUnderCursor.getActiveCursorIcon();
+		}
+		
 		return getCursorIcon();
 	}
 	
