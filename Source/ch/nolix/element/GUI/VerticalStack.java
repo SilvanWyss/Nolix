@@ -9,21 +9,22 @@ package ch.nolix.element.GUI;
  */
 public final class VerticalStack extends Stack<VerticalStack> {
 	
-	//type name
+	//constant
 	public static final String TYPE_NAME = "VerticalStack";
 
 	//constructor
 	/**
-	 * Creates a new vertical stack with default values.
+	 * Creates a new {@link VerticalStack}.
 	 */
 	public VerticalStack() {
 		reset();
 		approveProperties();
+		applyUsableConfiguration();
 	}
 	
 	//constructor
 	/**
-	 * Creates a new vertical stack with the given widgets
+	 * Creates a new  {@link VerticalStack} with the given widgets
 	 * 
 	 * @param widgets
 	 * @throws NullArgumentException if one of the given widgets is null.
@@ -38,16 +39,15 @@ public final class VerticalStack extends Stack<VerticalStack> {
 		
 	//method
 	/**
-	 * @return the height of the content of this vertical stack.
+	 * {@inheritDoc}}
 	 */
 	protected int getContentAreaHeight() {
 		
 		int contentHeight = getRefWidgets().getSumByInt(w -> w.getHeight());
 				
-		//Handles the case that this vertical stack contains any widget.
+		//Handles the case that the current vertical stack is not empty.
 		if (containsAny()) {
-			contentHeight
-			+= (getRefWidgets().getElementCount() - 1) * getActiveElementMargin();
+			contentHeight += (getRefWidgets().getElementCount() - 1) * getActiveElementMargin();
 		}
 		
 		return contentHeight;
@@ -55,67 +55,68 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	
 	//method
 	/**
-	 * @return the width of the content of this vertical stack.
+	 * {@inheritDoc}}
 	 */
 	protected int getContentAreaWidth() {
 		
-		//Handles the case that this vertical stack contains no widget.
+		//Handles the case that the current vertical stack is empty.
 		if (isEmpty()) {
 			return 0;
 		}
 		
-		//Handles the case that this vertical stack contains at least 1 widget.
+		//Handles the case that the current vertical stack is not empty.
 		return getRefWidgets().getMaxInt(w -> w.getWidth());
 	}
 	
 	//method
 	/**
-	 * Sets the relative position of this vertical stack.
-	 * 
-	 * @param relativeXPosition
-	 * @param relativeYPosition
+	 * {@inheritDoc}}
 	 */
 	protected void setPositionOnParent(
-		final int relativeXPosition,
-		final int relativeYPosition
+		final int xPositionOnParent,
+		final int yPositionOnParent
 	) {
 		
 		//Calls method of the base class.
-		super.setPositionOnParent(relativeXPosition, relativeYPosition);
+		super.setPositionOnParent(xPositionOnParent, yPositionOnParent);
 		
-		//Enumerates the content position of this vertical stack.
+		//Enumerates the content position of the current vertical stack.
 		switch (getContentPosition()) {
 			case LeftTop:
 			case LeftBottom:
-			case Left:	
-				final int x = getContentAreaXPosition() - getViewAreaXPositionOnScrollArea();
-				int y = getContentAreaYPosition() - getViewAreaYPositionOnScrollArea();
+			case Left:
+				
+				var y1 = 0;
 				for (final var w : getRefShownWidgets()) {
-					w.setPositionOnParent(x, y);
-					y += w.getHeight() + getActiveElementMargin();
+					w.setPositionOnParent(0, y1);
+					y1 += w.getHeight() + getActiveElementMargin();
 				}
+				
 				break;
 			case Top:
 			case Center:
 			case Bottom:
-				final int maxRectangleWidth2 = getRefShownWidgets().getMaxInt(r -> r.getWidth());
-				final int x2 = getContentAreaXPosition() - getViewAreaXPositionOnScrollArea();
-				int y2 = getContentAreaYPosition() - getViewAreaYPositionOnScrollArea();
-				for (Widget<?, ?> w: getRefShownWidgets()) {			
-					w.setPositionOnParent((int)(x2 + 0.5 * (maxRectangleWidth2 - w.getWidth())), y2);
+				
+				final var contentAreaWidth2 = getContentAreaWidth();
+				var y2 = 0;
+				for (final var w : getRefShownWidgets()) {			
+					w.setPositionOnParent((contentAreaWidth2 - w.getWidth()) / 2, y2);
 					y2 += w.getHeight() + getActiveElementMargin();
 				}
+				
 				break;
 			case RightTop:
 			case Right:
 			case RightBottom:
-				final int maxRectangleWidth3 = getRefShownWidgets().getMaxInt(r -> r.getWidth());
-				final int x3 = getContentAreaXPosition() - getViewAreaXPositionOnScrollArea();
-				int y3 = getContentAreaYPosition() - getViewAreaYPositionOnScrollArea();
-				for (Widget<?, ?> w: getRefShownWidgets()) {
-					w.setPositionOnParent(x3 + maxRectangleWidth3 - w.getWidth(), y3);
+				
+				final var contentAreaWidth3 = getContentAreaWidth();
+				var y3 = 0;
+				for (final var w : getRefShownWidgets()) {
+					w.setPositionOnParent(contentAreaWidth3 - w.getWidth(), y3);
 					y3 += w.getHeight() + getActiveElementMargin();
 				}
+				
+				break;
 		}
 	}
 }

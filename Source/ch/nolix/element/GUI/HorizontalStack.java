@@ -28,8 +28,6 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	 * 
 	 * @param widgets
 	 * @throws NullArgumentException if one of the given widgets is null.
-	 * @throws InvalidArgumentException
-	 * if one of the given widgets belongs to another GUI than the current {@link HorizontalStack}.
 	 */
 	public HorizontalStack(final Widget<?, ?>... widgets) {
 		
@@ -88,10 +86,9 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 			case Top:
 			case RightTop:
 				
-				int x1 = 0;
-				final int y1 = 0;
+				var x1 = 0;
 				for (final var w : getRefWidgets()) {
-					w.setPositionOnParent(x1, y1);
+					w.setPositionOnParent(x1, 0);
 					x1 += w.getWidth() + getActiveElementMargin();
 				}
 				
@@ -100,11 +97,10 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 			case Center:
 			case Right:
 				
-				final int contentAreaHeight2 = getContentAreaHeight();
-				int x2 = 0;
-				final int y2 = 0;
+				final var contentAreaHeight2 = getContentAreaHeight();
+				var x2 = 0;
 				for (final var w: getRefWidgets()) {
-					w.setPositionOnParent(x2, y2 + (contentAreaHeight2 - w.getHeight()) / 2);
+					w.setPositionOnParent(x2, (contentAreaHeight2 - w.getHeight()) / 2);
 					x2 += w.getWidth() + getActiveElementMargin();
 				}
 				
@@ -113,11 +109,10 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 			case Bottom:
 			case RightBottom:
 				
-				final int contentAreaHeight3 = getContentAreaHeight();
-				int x3 = 0;
-				final int y3 = 0;
+				final var contentAreaHeight3 = getContentAreaHeight();
+				var x3 = 0;
 				for (final var w : getRefWidgets()) {
-					w.setPositionOnParent(x3, y3 + contentAreaHeight3 - w.getHeight());
+					w.setPositionOnParent(x3, contentAreaHeight3 - w.getHeight());
 					x3 += w.getWidth() + getActiveElementMargin();
 				}
 				

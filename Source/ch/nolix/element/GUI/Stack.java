@@ -17,7 +17,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 220
+ * @lines 290
  * @param <S> The type of a {@link Stack}.
  */
 public abstract class Stack<S extends Stack<S>> 
@@ -66,7 +66,6 @@ implements Clearable<S> {
 	 * @throws InvalidArgumentException
 	 * if the given widget belongs to another GUI than the current {@link Stack}.
 	 */
-	@SuppressWarnings("unchecked")
 	public final S addWidget(final Widget<?, ?> widget) {
 		
 		//Checks if the given widget is not null.
@@ -82,7 +81,7 @@ implements Clearable<S> {
 		
 		widgets.addAtEnd(widget);
 		
-		return (S)this;
+		return getInstance();
 	}
 	
 	//method
@@ -169,7 +168,9 @@ implements Clearable<S> {
 		
 		//Handles the case that the current {@link Stack} has an element margin.
 		if (hasElementMargin()) {
-			attributes.addAtEnd(new StandardSpecification(ELEMENT_MARGIN_HEADER, elementMargin.getAttributes()));
+			attributes.addAtEnd(
+				elementMargin.getSpecificationAs(ELEMENT_MARGIN_HEADER)
+			);
 		}
 		
 		getRefWidgets().forEach(r -> attributes.addAtEnd(r.getSpecification()));	
@@ -214,9 +215,14 @@ implements Clearable<S> {
 	//method
 	/**
 	 * Removes the element margin of the current {@link Stack}.
+	 * 
+	 * @return the current {@link Stack}.
 	 */
-	public final void removeElementMargin() {
+	public final S removeElementMargin() {
+		
 		elementMargin = null;
+		
+		return getInstance();
 	}
 	
 	//method
@@ -228,7 +234,7 @@ implements Clearable<S> {
 		//Calls method of the base class.
 		super.resetConfiguration();
 	
-		setElementMargin(0);
+		removeElementMargin();
 		
 		return getInstance();
 	}
