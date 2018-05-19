@@ -27,7 +27,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 680
+ * @lines 690
  */
 public abstract class Specification {
 	
@@ -232,6 +232,16 @@ public abstract class Specification {
 		CharacterCatalogue.APOSTROPH
 		+ getHeader()
 		+ CharacterCatalogue.APOSTROPH;
+	}
+	
+	//method
+	/**
+	 * @return the boolean the one attribute of the current {@link Specification} specifies.
+	 * @throws InvalidArgumentException
+	 * if the one attribute of the current {@link Specification} specifies no boolean.
+	 */
+	public final boolean getOneAttributeAsBoolean() {
+		return getRefOneAttribute().toBoolean();
 	}
 	
 	//method
