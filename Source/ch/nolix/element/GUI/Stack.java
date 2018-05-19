@@ -9,35 +9,33 @@ import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.painter.IPainter;
+import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**
- * A stack is a container that orders its widgets in a line.
+ * A {@link Stack} is a {@link Container} that places its widgets linearly.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 220
- * @param <S> The type of a stack.
+ * @param <S> The type of a {@link Stack}.
  */
 public abstract class Stack<S extends Stack<S>> 
 extends Container<S, StackLook>
 implements Clearable<S> {
 	
-	//attribute header
+	//constant
 	private static final String ELEMENT_MARGIN_HEADER = "ElementMargin";
 	
 	//optional attribute
 	private NonNegativeInteger elementMargin;
 	
-	//multiple attribute
+	//multi-attribute
 	private final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>();
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to this stack.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 * {@inheritDoc}
 	 */
 	public void addOrChangeAttribute(final Specification attribute) {
 		
@@ -60,18 +58,24 @@ implements Clearable<S> {
 	
 	//method
 	/**
-	 * Adds the given widget to this stack.
+	 * Adds the given widget to the current {@link Stack}.
 	 * 
 	 * @param widget
-	 * @return this stack.
+	 * @return the current {@link Stack}.
 	 * @throws NullArgumentException if the given widget is null.
 	 * @throws InvalidArgumentException
-	 * if the given widget belongs to another GUI than this stack.
+	 * if the given widget belongs to another GUI than the current {@link Stack}.
 	 */
 	@SuppressWarnings("unchecked")
 	public final S addWidget(final Widget<?, ?> widget) {
 		
-		//Handles the case that this stack belongs to a GUI.
+		//Checks if the given widget is not null.
+		Validator
+		.suppose(widget)
+		.thatIsOfType(Widget.class)
+		.isNotNull();
+		
+		//Handles the case that the current {@link Stack} belongs to a GUI.
 		if (belongsToGUI()) {
 			widget.setGUI(getParentGUI());
 		}
@@ -83,44 +87,51 @@ implements Clearable<S> {
 	
 	//method
 	/**
-	 * Adds the given widgets to this stack.
+	 * Adds the given widgets to the current {@link Stack}.
 	 * 
 	 * @param widgets
-	 * @return this stack.
+	 * @return the current {@link Stack}.
 	 * @throws NullArgumentException if one of the given widgets is null.
 	 * @throws InvalidArgumentException
-	 * if one of the given widgets belongs to another GUI than this stack.
+	 * if one of the given widgets belongs to another GUI than the current {@link Stack}.
 	 */
-	@SuppressWarnings("unchecked")
 	public final S addWidget(final Widget<?, ?>... widgets) {
-		
-		//Iterates the given widgets.
-		for (Widget<?, ?> r: widgets) {
-			addWidget(r);
-		}
-		
-		return (S)this;
+		return addWidgets(new ReadContainer<Widget<?, ?>>(widgets));
 	}
 	
 	//method
 	/**
-	 * Removes the widgets of this stack.
+	 * Adds the given widgets to the current {@link Stack}.
 	 * 
-	 * @return this server.
+	 * @param widgets
+	 * @return the current {@link Stack}.
+	 * @throws NullArgumentException if one of the given widgets is null.
+	 * @throws InvalidArgumentException
+	 * if one of the given widgets belongs to another GUI than the current {@link Stack}.
 	 */
-	@SuppressWarnings("unchecked")
+	public final <W extends Widget<?, ?>> S addWidgets(final Iterable<W> widgets) {
+		
+		widgets.forEach(w -> addWidget(w));
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	public final S clear() {
 		
 		widgets.clear();
 		
-		return (S)this;
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * @return the active cursor icon of the current {@link Stack}.
+	 * {@inheritDoc}
 	 */
-	public CursorIcon getActiveCursorIcon() {
+	public final CursorIcon getActiveCursorIcon() {
 		
 		final var widgetUnderCursor =
 		getRefWidgets().getRefFirstOrNull(w -> w.isUnderCursor());
@@ -134,29 +145,29 @@ implements Clearable<S> {
 	
 	//method
 	/**
-	 * @return the active element margin of this stack.
+	 * @return the active element margin of the current {@link Stack}.
 	 */
 	public final int getActiveElementMargin() {
 		
-		//Handles the case that this stack has no element margin.
+		//Handles the case that the current {@link Stack} has no element margin.
 		if (!hasElementMargin()) {
 			return 0;
 		}
 		
-		//Handles the case that this stack has an element margin.
+		//Handles the case that the current {@link Stack} has an element margin.
 		return elementMargin.getValue();
 	}
 	
 	//method
 	/**
-	 * @return the attributes of this stack.
+	 * {@inheritDoc}
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public final List<StandardSpecification> getAttributes() {
 		
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
-		//Handles the case that this stack has an element margin.
+		//Handles the case that the current {@link Stack} has an element margin.
 		if (hasElementMargin()) {
 			attributes.addAtEnd(new StandardSpecification(ELEMENT_MARGIN_HEADER, elementMargin.getAttributes()));
 		}
@@ -168,7 +179,7 @@ implements Clearable<S> {
 	
 	//method
 	/**
-	 * @return the widgets of this stack that are shown.
+	 * @return the widgets of the current {@link Stack} that are shown.
 	 */
 	public final ReadContainer<Widget<?, ?>> getRefShownWidgets() {
 		return new ReadContainer<Widget<?, ?>>(
@@ -178,15 +189,15 @@ implements Clearable<S> {
 	
 	//method
 	/**
-	 * @return the widgets of this stack.
+	 * {@inheritDoc}
 	 */
-	public ReadContainer<Widget<?, ?>> getRefWidgets() {
+	public final ReadContainer<Widget<?, ?>> getRefWidgets() {
 		return new ReadContainer<Widget<?, ?>>(widgets);
 	}
 	
 	//method
 	/**
-	 * @return true if this stack container has an element margin.
+	 * @return true if the current {@link Stack} container has an element margin.
 	 */
 	public final boolean hasElementMargin() {
 		return (elementMargin != null);
@@ -194,7 +205,7 @@ implements Clearable<S> {
 	
 	//method
 	/**
-	 * @return true if this stack contains no widget.
+	 * @return true if the current {@link Stack} contains no widget.
 	 */
 	public final boolean isEmpty() {
 		return widgets.isEmpty();
@@ -202,7 +213,7 @@ implements Clearable<S> {
 	
 	//method
 	/**
-	 * Removes the element margin of this stack.
+	 * Removes the element margin of the current {@link Stack}.
 	 */
 	public final void removeElementMargin() {
 		elementMargin = null;
@@ -210,7 +221,7 @@ implements Clearable<S> {
 	
 	//method
 	/**
-	 * Resets the configuration of this stack.
+	 * {@inheritDoc}
 	 */
 	public final S resetConfiguration() {
 		
@@ -224,35 +235,17 @@ implements Clearable<S> {
 	
 	//method
 	/**
-	 * Sets the element margin of this stack.
+	 * Sets the element margin of the current {@link Stack}.
 	 * 
 	 * @param elementMargin
-	 * @return this stack.
+	 * @return the current {@link Stack}.
 	 * @throws NonPositiveArgumentException if the given element margin is not positive.
 	 */
-	@SuppressWarnings("unchecked")
 	public final S setElementMargin(final int elementMargin) {
 		
 		this.elementMargin = new NonNegativeInteger(elementMargin);
 		
-		return (S)this;
-	}
-	
-	//method
-	/**
-	 * Sets the cursor position of the parent of this stack.
-	 * 
-	 * @param parentCursorXPosition
-	 * @param parentCursorYPosition
-	 */
-	public void setCursorPositionOnContentArea(
-		int parentCursorXPosition,
-		int parentCursorYPosition
-	) {
-		 
-		//super.setParentCursorPosition(parentCursorXPosition, parentCursorYPosition);
-		
-		getRefWidgets().forEach(w -> w.setParentCursorPosition(parentCursorXPosition, parentCursorYPosition));
+		return getInstance();
 	}
 	
 	//method
@@ -265,7 +258,7 @@ implements Clearable<S> {
 	
 	//method
 	/**
-	 * @return a new widget look for this stack.
+	 * {@inheritDoc}
 	 */
 	protected final StackLook createWidgetLook() {
 		return new StackLook();
@@ -273,10 +266,7 @@ implements Clearable<S> {
 	
 	//method
 	/**
-	 * Paints the content of this stack using the given stack structure and painter.
-	 * 
-	 * @param stackStructure
-	 * @param painter
+	 * {@inheritDoc}
 	 */
 	protected void paintContentArea(
 		final StackLook stackStructure,
@@ -286,5 +276,16 @@ implements Clearable<S> {
 		
 		//Paints the widgets of this container.
 		getRefShownWidgets().forEach(r -> r.paintUsingPositionOnParent(contentPainer));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void setCursorPositionOnContentArea(
+		int parentCursorXPosition,
+		int parentCursorYPosition
+	) {
+		getRefWidgets().forEach(w -> w.setParentCursorPosition(parentCursorXPosition, parentCursorYPosition));
 	}
 }
