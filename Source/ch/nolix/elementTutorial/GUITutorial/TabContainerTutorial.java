@@ -35,28 +35,28 @@ public final class TabContainerTutorial {
 			new TabContainerTab(
 				"Tab1",
 				new Area()
-				.setBackgroundColor(Color.SLATE_BLUE)
+				.setBackgroundColor(Color.DARK_BLUE)
 				.setWidth(500)
 				.setHeight(200)
 			),
 			new TabContainerTab(
 				"Tab2",
 				new Area()
-				.setBackgroundColor(Color.SKY_BLUE)
+				.setBackgroundColor(Color.BLUE)
 				.setWidth(500)
 				.setHeight(200)
 			),
 			new TabContainerTab(
 				"Tab3",
 				new Area()
-				.setBackgroundColor(Color.ORANGE)
+				.setBackgroundColor(Color.DARK_BLUE)
 				.setWidth(500)
 				.setHeight(200)
 			),
 			new TabContainerTab(
 				"Tab4",
 				new Area()
-				.setBackgroundColor(Color.MAGENTA)
+				.setBackgroundColor(Color.BLUE)
 				.setWidth(500)
 				.setHeight(200)
 			)

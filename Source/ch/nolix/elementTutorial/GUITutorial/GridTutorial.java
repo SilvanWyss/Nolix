@@ -37,12 +37,12 @@ public final class GridTutorial {
 		.setWidget(1, 2, new Label("Platon"))
 		.setWidget(1, 3, new Label("Aristoteles"))
 		.setWidget(1, 4, new Label("Demokrit"))
-		.setWidget(2, 1, new Area().setBackgroundColor(Color.SKY_BLUE))
-		.setWidget(2, 3, new Area().setBackgroundColor(Color.SKY_BLUE))
-		.setWidget(3, 2, new Area().setBackgroundColor(Color.SLATE_BLUE))
-		.setWidget(3, 4, new Area().setBackgroundColor(Color.SLATE_BLUE))
-		.setWidget(4, 1, new Area().setBackgroundColor(Color.SKY_BLUE))
-		.setWidget(4, 3, new Area().setBackgroundColor(Color.SKY_BLUE));;
+		.setWidget(2, 1, new Area().setBackgroundColor(Color.DARK_BLUE).setWidth(200).setHeight(100))
+		.setWidget(2, 3, new Area().setBackgroundColor(Color.DARK_BLUE).setWidth(200).setHeight(100))
+		.setWidget(3, 2, new Area().setBackgroundColor(Color.DARK_BLUE).setWidth(200).setHeight(100))
+		.setWidget(3, 4, new Area().setBackgroundColor(Color.DARK_BLUE).setWidth(200).setHeight(100))
+		.setWidget(4, 1, new Area().setBackgroundColor(Color.DARK_BLUE).setWidth(200).setHeight(100))
+		.setWidget(4, 3, new Area().setBackgroundColor(Color.DARK_BLUE).setWidth(200).setHeight(100));
 		
 		//Configures the look of the grid.
 		grid
