@@ -67,7 +67,7 @@ extends BackgroundWidget<BW, BWS> {
 	private final MutableOptionalProperty<PositiveInteger> minWidth =
 	new MutableOptionalProperty<PositiveInteger>(
 		MIN_WIDTH_HEADER,
-		mw -> setMinHeight(mw.getValue()),
+		mw -> setMinWidth(mw.getValue()),
 		s -> PositiveInteger.createFromSpecification(s)
 	);
 	
