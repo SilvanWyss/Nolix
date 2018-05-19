@@ -32,7 +32,7 @@ public final class Boolean extends Element {
 	 * @return a new boolean from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Object createFromSpecification(final Specification specification) {
+	public static Boolean createFromSpecification(final Specification specification) {
 		return new Boolean(specification.getOneAttributeAsBoolean());
 	}
 	
