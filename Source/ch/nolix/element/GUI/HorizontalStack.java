@@ -1,36 +1,35 @@
-/*
- * file:	HorizontalStack.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	80
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 120
+ */
 public final class HorizontalStack extends Stack<HorizontalStack> {
 	
-	//type name
+	//constant
 	public static final String TYPE_NAME = "HorizontalStack";		
 	
 	//constructor
 	/**
-	 * Creates a new horizontal stack with default attributes.
+	 * Creates a new {@link HorizontalStack}.
 	 */
 	public HorizontalStack() {
 		reset();
 		approveProperties();
+		applyUsableConfiguration();
 	}
 	
 	//constructor
 	/**
-	 * Creates a new horizontal stack with the given widgets.
+	 * Creates a new {@link HorizontalStack} with the given widgets.
 	 * 
 	 * @param widgets
 	 * @throws NullArgumentException if one of the given widgets is null.
 	 * @throws InvalidArgumentException
-	 * if one of the given widgets belongs to another GUI than this horizontal stack.
+	 * if one of the given widgets belongs to another GUI than the current {@link HorizontalStack}.
 	 */
 	public HorizontalStack(final Widget<?, ?>... widgets) {
 		
@@ -42,29 +41,28 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 
 	//method
 	/**
-	 * @return the current height of the content of this horizontal stack
+	 * {@inheritDoc}
 	 */
 	protected final int getContentAreaHeight() {
 		
+		//Handles the case that the current horizontal stack is empty.
 		if (isEmpty()) {
 			return 0;
 		}
 		
+		//Handles the case that the current horizontal stack is not empty.
 		return getRefWidgets().getMaxInt(r -> r.getHeight());
 	}
 	
 	//method
 	/**
-	 * @return the current width of the content of this horizontal stack
+	 * {@inheritDoc}
 	 */
 	protected final int getContentAreaWidth() {
 		
-		int contentWidth = 0;
+		int contentWidth = getRefWidgets().getSumByInt(w -> w.getWidth());
 		
-		for (Widget<?, ?> r: getRefWidgets()) {
-			contentWidth += r.getWidth();
-		}
-			
+		//Handles the case that the current horizontal stack is not empty.
 		if (containsAny()) {
 			contentWidth += (getRefWidgets().getElementCount() - 1) * getActiveElementMargin();
 		}
@@ -74,17 +72,17 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	
 	//method
 	/**
-	 * Sets the relative position of this horizontal stack.
-	 * 
-	 * @param relativeXPosition
-	 * @param relativeYPosition
+	 * {@inheritDoc}
 	 */
-	protected final void setPositionOnParent(final int relativeXPosition, final int relativeYPosition) {
+	protected final void setPositionOnParent(
+		final int xPositionOnParent,
+		final int yPositionOnParent
+	) {
 		
 		//Calls method of the base class.
-		super.setPositionOnParent(relativeXPosition, relativeYPosition);
+		super.setPositionOnParent(xPositionOnParent, yPositionOnParent);
 		
-		//Enumerates the probable content orientations.
+		//Enumerates the content position of the current horizontal stack.
 		switch (getContentPosition()) {
 			case LeftTop:
 			case Top:
@@ -92,9 +90,9 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 				
 				int x1 = 0;
 				final int y1 = 0;
-				for (Widget<?, ?> r: getRefWidgets()) {
-					r.setPositionOnParent(x1, y1);
-					x1 += r.getWidth() + getActiveElementMargin();
+				for (final var w : getRefWidgets()) {
+					w.setPositionOnParent(x1, y1);
+					x1 += w.getWidth() + getActiveElementMargin();
 				}
 				
 				break;
@@ -102,12 +100,12 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 			case Center:
 			case Right:
 				
-				final int contentHeight2 = getContentAreaHeight();
+				final int contentAreaHeight2 = getContentAreaHeight();
 				int x2 = 0;
 				final int y2 = 0;
-				for (Widget<?, ?> r: getRefWidgets()) {
-					r.setPositionOnParent(x2, y2 + (contentHeight2 - r.getHeight()) / 2);
-					x2 += r.getWidth() + getActiveElementMargin();
+				for (final var w: getRefWidgets()) {
+					w.setPositionOnParent(x2, y2 + (contentAreaHeight2 - w.getHeight()) / 2);
+					x2 += w.getWidth() + getActiveElementMargin();
 				}
 				
 				break;
@@ -115,13 +113,14 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 			case Bottom:
 			case RightBottom:
 				
-				final int contentHeight3 = getContentAreaHeight();
+				final int contentAreaHeight3 = getContentAreaHeight();
 				int x3 = 0;
 				final int y3 = 0;
-				for (Widget<?, ?> r: getRefWidgets()) {
-					r.setPositionOnParent(x3, y3 + contentHeight3 - r.getHeight());
-					x3 += r.getWidth() + getActiveElementMargin();
+				for (final var w : getRefWidgets()) {
+					w.setPositionOnParent(x3, y3 + contentAreaHeight3 - w.getHeight());
+					x3 += w.getWidth() + getActiveElementMargin();
 				}
+				
 				break;
 		}
 	}
