@@ -8,6 +8,7 @@ import ch.nolix.core.entity2.Property;
 import ch.nolix.core.interfaces.IFluentObject;
 import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.font.TextFont;
 import ch.nolix.element.intData.TextSize;
@@ -26,7 +27,7 @@ import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 220
+ * @lines 280
  * @param <WL> The type of a {@link WidgetLook}.
  */
 public abstract class WidgetLook<WL extends WidgetLook<WL>>
@@ -38,12 +39,23 @@ implements IFluentObject<WL>, Specified {
 	public static final int DEFAULT_TEXT_SIZE = ValueCatalogue.MEDIUM_TEXT_SIZE;
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 	
+	//constant
+	private static final String BOLD_TEXT_FLAG_HEADER = "BoldTextFlag";
+	
 	//attribute
 	private final Property<TextFont> textFontProperty =
 	new Property<TextFont>(
 		TextFont.TYPE_NAME,
 		DEFAULT_TEXT_FONT,
 		s -> TextFont.createFromSpecification(s)
+	);
+	
+	//attribute
+	private final Property<Boolean> boldTextFlagProperty =
+	new Property<Boolean>(
+		BOLD_TEXT_FLAG_HEADER,
+		new Boolean(false),
+		s -> Boolean.createFromSpecification(s)
 	);
 	
 	//attribute
@@ -64,6 +76,15 @@ implements IFluentObject<WL>, Specified {
 	
 	//method
 	/**
+	 * @return the recursive or default bold text flag
+	 * of the current {@link WidgetLook}.
+	 */
+	public final boolean getRecursiveOrDefaultBoldTextFlag() {
+		return boldTextFlagProperty.getRecursiveOrDefaultValue().getValue();
+	}
+	
+	//method
+	/**
 	 * @return the recursive or default text color
 	 * of the current {@link WidgetLook}.
 	 */
@@ -76,7 +97,7 @@ implements IFluentObject<WL>, Specified {
 	 * @return the recursive or default text font
 	 * of the current {@link WidgetLook}.
 	 */
-	public TextFont getRecursiveOrDefaultTextFont() {
+	public final TextFont getRecursiveOrDefaultTextFont() {
 		return textFontProperty.getRecursiveOrDefaultValue();
 	}
 		
@@ -95,6 +116,14 @@ implements IFluentObject<WL>, Specified {
 	 */
 	public final String getType() {
 		return getClass().getSimpleName();
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link WidgetLook} has a bold text flag.
+	 */
+	public final boolean hasRecursiveBoldTextFlag() {
+		return boldTextFlagProperty.hasRecursiveValue();
 	}
 	
 	//method
@@ -132,6 +161,32 @@ implements IFluentObject<WL>, Specified {
 	public final WL removeTextSize() {
 		
 		textSizeProperty.removeValue();
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Removes the bold text flag of the current {@link WidgetLook}.
+	 * 
+	 * @return the current {@link WidgetLook}.
+	 */
+	public final WL removeBoldTextFlag() {
+		
+		boldTextFlagProperty.removeValue();
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Sets the bold text to the current {@link WidgetLook}.
+	 * 
+	 * @return the current {@link WidgetLook}.
+	 */
+	public final WL setBoldTextFlag(final boolean boldTextFlag) {
+		
+		boldTextFlagProperty.setValue(new Boolean(boldTextFlag));
 		
 		return getInstance();
 	}
