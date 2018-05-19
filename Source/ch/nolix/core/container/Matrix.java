@@ -18,13 +18,13 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-07
- * @lines 500
+ * @lines 510
  * @param <E> The type of the elements of a {@link Matrix}.
  */
 public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 
 	//multi-attribute
-	private Object[][] elements;
+	private Object[][] elements = new Object[0][0];
 	
 	//method
 	/**
@@ -46,13 +46,15 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		Validator.supposeTheElements(elements).areNotNull();
 		
 		//Handles the case that the current {@link Matrix} is empty.
-		if (isEmpty()) {
-			
-			this.elements = new Object[elements.length][];
-			
-			//Iterates the given elements.
-			for (var i = 0; i < getColumnCount(); i++) {			
-				this.elements[i][0] = elements[i];
+		if (isEmpty()) {		
+			if (elements.length > 0) {
+				
+				this.elements = new Object[elements.length][1];
+				
+				//Iterates the given elements.
+				for (var i = 0; i < getColumnCount(); i++) {			
+					this.elements[i][0] = elements[i];
+				}
 			}
 		}
 		
@@ -65,13 +67,15 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			.thatIsNamed("number of the given elements")
 			.isEqualTo(getRowCount());
 			
+			final var columnCount = getColumnCount();
+			
 			//Iterates the rows of the current matrix.
 			for (var i = 0; i < getRowCount(); i++) {
 				
 				final var row = new Object[getColumnCount() + 1];
 				
 				//Iterates the current row.
-				for (var j = 0; j < getColumnCount(); j++) {
+				for (var j = 0; j < columnCount; j++) {
 					row[j] = this.elements[i][j];
 				}
 				
@@ -104,12 +108,14 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		
 		//Handles the case that the current matrix is empty.
 		if (isEmpty()) {
-			
-			this.elements = new Object[1][elements.length];
-			
-			//Iterates the given elements.
-			for (var i = 0; i < getColumnCount(); i++) {
-				this.elements[0][i] = elements[i];
+			if (elements.length > 0) {
+				
+				this.elements = new Object[1][elements.length];
+				
+				//Iterates the given elements.
+				for (var i = 0; i < getColumnCount(); i++) {
+					this.elements[0][i] = elements[i];
+				}
 			}
 		}
 		
@@ -149,7 +155,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 */
 	public Matrix<E> clear() {
 		
-		elements = null;
+		elements = new Object[0][0];
 		System.gc();
 		
 		return this;
@@ -256,7 +262,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		
 		return getRefAt(
 			(index - 1) / getColumnCount() + 1,
-			index % getColumnCount() + 1
+			(index - 1) % getColumnCount() + 1
 		);
 	}
 
@@ -335,7 +341,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * @return true if the current {@link Matrix} is empty.
 	 */
 	public boolean isEmpty() {
-		return (elements == null);
+		return (elements.length == 0);
 	}
 	
 	//method
