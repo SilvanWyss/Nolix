@@ -255,11 +255,11 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 */
 	public CursorIcon getActiveCursorIcon() {
 		
-		if (!hasRootWidget()) {
-			return CursorIcon.Arrow;
+		if (hasRootWidget() && getRefRootWidget().isUnderCursor()) {
+			return getRefRootWidget().getActiveCursorIcon();
 		}
 		
-		return getRefRootWidget().getActiveCursorIcon();
+		return CursorIcon.Arrow;	
  	}
 	
 	//method
@@ -703,7 +703,6 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		//Sets the root widget of this GUI.
 		rootWidget.setGUI(this);
 		this.rootWidget = rootWidget;
-		rootWidget.setFocused();
 		
 		return getInstance();
 	}
