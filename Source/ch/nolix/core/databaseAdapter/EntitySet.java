@@ -59,7 +59,7 @@ extends NamedElement {
 		this.entityType = entityType;
 				
 		columns
-		.addAtEnd(new Column<>(PascalCaseNameCatalogue.ID, new PropertyType<Integer>(Integer.class)))	
+		.addAtEnd(new Column<>(PascalCaseNameCatalogue.ID, new IdPropertyType()))	
 		.addAtEnd(entityType.getColumns());
 	}
 	
