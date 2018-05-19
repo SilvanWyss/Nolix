@@ -3,7 +3,6 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.entity2.Property;
-import ch.nolix.element.color.Color;
 import ch.nolix.element.core.NonNegativeInteger;
 
 //class
@@ -13,23 +12,6 @@ extends BorderWidgetLook<TabContainerLook> {
 	//default values
 	public static final int DEFAULT_MENU_MARGIN = 0;
 	public static final int DEFAULT_MENU_ITEM_MARGIN = 0;
-	
-	//default value
-	private static final TabContainerMenuItemLook DEFAULT_BASE_MENU_ITEM_LOOK =
-	new TabContainerMenuItemLook()
-	.setPadding(5);
-	
-	//default value
-	private static final TabContainerMenuItemLook DEFAULT_HOVER_MENU_ITEM_LOOK =
-	new TabContainerMenuItemLook()
-	.setPadding(5)
-	.setBackgroundColor(Color.LIGHT_GREY);
-	
-	//default value
-	private static final TabContainerMenuItemLook DEFAULT_SELECTION__MENU_ITEM_LOOK =
-	new TabContainerMenuItemLook()
-	.setPadding(5)
-	.setBackgroundColor(Color.DARK_GREY);
 	
 	//constant
 	private static final String MENU_MARGIN_HEADER = "MenuMargin";
@@ -60,7 +42,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	private final Property<TabContainerMenuItemLook> baseMenuItemLookProperty =
 	new Property<TabContainerMenuItemLook>(
 		BASE_MENU_ITEM_LOOK_HEADER,
-		DEFAULT_BASE_MENU_ITEM_LOOK,
+		new TabContainerMenuItemLook(),
 		s -> TabContainerMenuItemLook.createFromSpecification(s)
 	);
 	
@@ -68,7 +50,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	private final Property<TabContainerMenuItemLook> hoverMenuItemLookProperty =
 	new Property<TabContainerMenuItemLook>(
 		HOVER_MENU_ITEM_LOOK_HEADER,
-		DEFAULT_HOVER_MENU_ITEM_LOOK,
+		new TabContainerMenuItemLook(),
 		s -> TabContainerMenuItemLook.createFromSpecification(s)
 	);
 	
@@ -76,7 +58,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	private final Property<TabContainerMenuItemLook> selectionMenuItemLookProperty =
 	new Property<TabContainerMenuItemLook>(
 		SELECTION_MENU_ITEM_LOOK_HEADER,
-		DEFAULT_SELECTION__MENU_ITEM_LOOK,
+		new TabContainerMenuItemLook(),
 		s -> TabContainerMenuItemLook.createFromSpecification(s)
 	);
 	

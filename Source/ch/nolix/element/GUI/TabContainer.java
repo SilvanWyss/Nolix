@@ -9,6 +9,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.invalidStateException.EmptyStateException;
 import ch.nolix.primitive.validator2.Validator;
@@ -19,7 +20,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-04
- * @lines 100
+ * @lines 500
  */
 public final class TabContainer
 extends Container<TabContainer, TabContainerLook>
@@ -41,6 +42,7 @@ implements Clearable<TabContainer> {
 	public TabContainer() {
 		reset();
 		approveProperties();
+		applyUsableConfiguration();
 	}
 	
 	//constructor
@@ -111,6 +113,7 @@ implements Clearable<TabContainer> {
 		
 		final var menuItemLabel =
 		new Label()
+		.setContentPosition(ContentPosition.Center)
 		.setText(tab.getHeader())
 		.setCursorIcon(CursorIcon.Hand);
 		
@@ -316,28 +319,31 @@ implements Clearable<TabContainer> {
 		int parentCursorXPosition,
 		int parentCursorYPosition
 	) {
-
-		
-		//Calls method of the base class.
-		//super.setParentCursorPosition(parentCursorXPosition, parentCursorYPosition);
-
 		menu.setCursorPositionOnContentArea(parentCursorXPosition, parentCursorYPosition);
-		
-		
-		
-		/*
-		menu.setParentCursorPosition(
-			getCursorXPosition() - getContentXPosition(),
-			getCursorYPosition() - getContentYPosition()
-		);
-		*/
 	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {}
+	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+		getRefBaseLook()
+		.setBaseMenuItemLook(
+			new TabContainerMenuItemLook()
+			.setMinWidth(100)
+			.setPadding(5)
+		)
+		.setHoverMenuItemLook(
+			new TabContainerMenuItemLook()
+			.setBackgroundColor(Color.LIGHT_GREY)
+			.setPadding(5)
+		)
+		.setSelectionMenuItemLook(
+			new TabContainerMenuItemLook()
+			.setBackgroundColor(Color.DARK_GREY)
+			.setPadding(5)
+		);
+	}
 	
 	//method
 	/**
