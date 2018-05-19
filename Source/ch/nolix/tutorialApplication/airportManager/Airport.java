@@ -8,6 +8,7 @@ import ch.nolix.core.databaseAdapter.Property;
 //class
 public final class Airport extends Entity {
 
-	//attribute
+	//attributes
 	public final Property<String> Name = new Property<String>();
+	public final Property<String> AirportCode = new Property<String>();
 }
