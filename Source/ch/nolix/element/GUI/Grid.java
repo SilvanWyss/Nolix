@@ -6,7 +6,6 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Matrix;
-import ch.nolix.core.container.MatrixColumn;
 import ch.nolix.core.container.MatrixRow;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.specification.Specification;
@@ -204,6 +203,9 @@ public final class Grid extends Container<Grid, GridLook> {
 	 */
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {
 		
+		setMaxWidth(1000);
+		setMaxHeight(500);
+		
 		getRefBaseLook()
 		.setLineType(GridLineType.InnerLines)
 		.setElementMargin(10);		
@@ -219,6 +221,7 @@ public final class Grid extends Container<Grid, GridLook> {
 		final GridLook gridStructure,
 		final IPainter painter
 	) {
+		//Paints the lines of the current grid.
 		if (gridStructure.hasRecursiveLineType()) {
 			
 			painter.setColor(gridStructure.getRecursiveLineColorOrDefault());
@@ -226,46 +229,49 @@ public final class Grid extends Container<Grid, GridLook> {
 			final var outerLinesDefined =
 			gridStructure.getRecursiveLineTypeOrDefault() == GridLineType.InnerAndOuterLines;
 			
-			final var contentWidth = getContentAreaWidth();
-			final var contentHeight = getContentAreaHeight();
+			final var contentAreaWidth = getContentAreaWidth();
+			final var contentAreaHeight = getContentAreaHeight();
 			final var lineThickness = getLineThickness();
 			final var elementMargin = getElementMargin();
 			
-			var y = 0;
-			
-			if (outerLinesDefined) {
-				painter.paintFilledRectangle(contentWidth, lineThickness);
-				y += lineThickness;
-			}
-			
-			for (final MatrixRow<GridCell> r : cells.getRows()) {
-				if (outerLinesDefined || r.getRowIndex() < r.getElementCount()) {
-					y += elementMargin;
-					y += r.getMaxInt(c -> c.getHeight());
-					y += elementMargin;
-					painter.paintFilledRectangle(0, y, contentWidth, lineThickness);
+			//Paints the horizontal lines of the current grid.
+				var y = 0;
+				
+				if (outerLinesDefined) {
+					painter.paintFilledRectangle(contentAreaWidth, lineThickness);
 					y += lineThickness;
+				}			
+				
+				for (final var r : cells.getRows()) {
+					if (r.getRowIndex() < cells.getRowCount()) {
+						y += elementMargin;
+						y += r.getMaxInt(c -> c.getHeight());
+						y += elementMargin;
+						painter.paintFilledRectangle(0, y, contentAreaWidth, lineThickness);
+						y += lineThickness;
+					}
 				}
-			}
 			
-			var x = 0;
-			
-			if (gridStructure.getRecursiveLineTypeOrDefault() == GridLineType.InnerAndOuterLines) {
-				painter.paintFilledRectangle(lineThickness, contentHeight);
-				x += lineThickness;
-			}
-			
-			for (final MatrixColumn<GridCell> c : cells.getColumns()) {
-				if (outerLinesDefined || c.getColumnIndex() < c.getElementCount()) {
-					x += elementMargin;
-					x += c.getMaxInt(c2 -> c2.getWidth());
-					x += elementMargin;
-					painter.paintFilledRectangle(x, 0, lineThickness, contentHeight);
+			//Paints the vertical lines of the current grid.
+				var x = 0;
+				
+				if (gridStructure.getRecursiveLineTypeOrDefault() == GridLineType.InnerAndOuterLines) {
+					painter.paintFilledRectangle(lineThickness, contentAreaHeight);
 					x += lineThickness;
 				}
-			}
+				
+				for (final var c : cells.getColumns()) {
+					if (c.getColumnIndex() < cells.getColumnCount()) {
+						x += elementMargin;
+						x += c.getMaxInt(c2 -> c2.getWidth());
+						x += elementMargin;
+						painter.paintFilledRectangle(x, 0, lineThickness, contentAreaHeight);
+						x += lineThickness;
+					}
+				}
 		}
 		
+		//Paints the widgets of the current grid.
 		getRefWidgets().forEach(w -> w.paintUsingPositionOnParent(painter));
 	}
 	
