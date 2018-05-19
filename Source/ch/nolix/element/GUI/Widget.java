@@ -29,7 +29,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1420
+ * @lines 1460
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -68,6 +68,12 @@ extends ConfigurableElement<W> {
 	private int yPositionOnParent = 0;
 	private int cursorXPosition = 0;
 	private int cursorYPosition = 0;
+	
+	//attributes
+	private boolean calculatedWidthIsUpToDate = false;
+	private boolean calculatedHeightIsUpToDate = false;
+	private int calculatedWidth;
+	private int calculatedHeight;
 	
 	//optional attribute
 	/**
@@ -329,15 +335,15 @@ extends ConfigurableElement<W> {
 	 */
 	public final int getHeight() {
 		
-		//Handles the case that the current widget is collapsed.
-		if (isCollapsed()) {
-			return 0;
+		//Handles the case that the calculated height of the current widget is not up to date.
+		if (!calculatedHeightIsUpToDate) {
+			calculatedHeight = getNewCalculatedHeight();
+			calculatedHeightIsUpToDate = true;
 		}
 		
-		//Handles the case that the current widget is not collapsed.
-		return getHeightWhenNotCollapsed();
+		return calculatedHeight;
 	}
-	
+
 	//method
 	/**
 	 * The interaction attributes of a {@link Widget} are those a user can change.
@@ -485,14 +491,16 @@ extends ConfigurableElement<W> {
 	 */
 	public final int getWidth() {
 		
-		//Handles the case that the current widget is collapsed.
-		if (isCollapsed()) {
-			return 0;
+		//Handles the case that the calculated width of the current widget is not up to date.
+		if (!calculatedWidthIsUpToDate) {
+			calculatedWidth = getNewCalculatedWidth();
+			calculatedWidthIsUpToDate = true;
 		}
 		
-		//Handles the case that the current widget is not collapsed.
-		return getWidthWhenNotCollapsed();
+		return calculatedWidth;
 	}
+	
+
 	
 	//method
 	/**
@@ -1374,6 +1382,9 @@ extends ConfigurableElement<W> {
 	) {
 		this.xPositionOnParent = xPositionOnParent;
 		this.yPositionOnParent = yPositionOnParent;
+		
+		calculatedWidthIsUpToDate = false;
+		calculatedHeightIsUpToDate = false;
 	}
 	
 	//method
@@ -1401,6 +1412,36 @@ extends ConfigurableElement<W> {
 			painter.setColor(Color.GREY);
 			painter.paintFilledRectangle(getWidth(), getHeight());
 		}
+	}
+	
+	//method
+	/**
+	 * @return the newly calculated height of the current {@link Widget}.
+	 */
+	private int getNewCalculatedHeight() {
+		
+		//Handles the case that the current widget is collapsed.
+		if (isCollapsed()) {
+			return 0;
+		}
+		
+		//Handles the case that the current widget is not collapsed.
+		return getHeightWhenNotCollapsed();
+	}
+	
+	//method
+	/**
+	 * @return the newly calculated width of the current {@link Widget}.
+	 */
+	private int getNewCalculatedWidth() {
+		
+		//Handles the case that the current widget is collapsed.
+		if (isCollapsed()) {
+			return 0;
+		}
+		
+		//Handles the case that the current widget is not collapsed.
+		return getWidthWhenNotCollapsed();
 	}
 	
 	//method
