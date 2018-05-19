@@ -3,6 +3,7 @@ package ch.nolix.element.core;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 
 //class
@@ -11,7 +12,7 @@ import ch.nolix.core.specification.StandardSpecification;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 100
+ * @lines 110
  */
 public final class Boolean extends Element {
 	
@@ -24,6 +25,16 @@ public final class Boolean extends Element {
 	//constants
 	private static final String FALSE = "False";
 	private static final String TRUE = "True";
+	
+	//method
+	/**
+	 * @param specification
+	 * @return a new boolean from the given specification.
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	public static Object createFromSpecification(final Specification specification) {
+		return new Boolean(specification.getOneAttributeAsBoolean());
+	}
 	
 	//attribute
 	private final boolean value;
