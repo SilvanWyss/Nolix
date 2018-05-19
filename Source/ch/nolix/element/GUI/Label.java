@@ -31,6 +31,7 @@ public final class Label extends TextLineWidget<Label> {
 	public Label() {	
 		reset();
 		approveProperties();
+		applyUsableConfiguration();
 	}
 	
 	//constructor
