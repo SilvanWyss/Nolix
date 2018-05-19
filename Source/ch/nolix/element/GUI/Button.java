@@ -174,9 +174,8 @@ public final class Button extends TextLineWidget<Button> {
 		.setRightPadding(10);
 		
 		getRefHoverLook()
-		.setBackgroundColor(Color.GREY);
+		.setBackgroundColor(Color.DARK_GREY);
 	}
-	
 	
 	//method
 	/**
