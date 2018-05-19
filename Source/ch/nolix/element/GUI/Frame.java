@@ -13,13 +13,15 @@ import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
+import ch.nolix.core.util.Timer;
 import ch.nolix.element.painter.SwingPainter;
+import ch.nolix.primitive.logger.Logger;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 360
+ * @lines 390
  */
 public final class Frame extends VisibleGUI<Frame> {
 	
@@ -58,6 +60,9 @@ public final class Frame extends VisibleGUI<Frame> {
 		 */
 		public void paintComponent(Graphics graphics) {
 			
+			final var timer = new Timer();
+			timer.start();
+			
 			//Calls method of the base class.
 			super.paintComponent(graphics);
 			
@@ -65,6 +70,8 @@ public final class Frame extends VisibleGUI<Frame> {
 			if (hasRootWidget()) {
 				getRefRootWidget().paintUsingPositionOnParent(new SwingPainter(graphics));
 			}
+			
+			Logger.logInfo("frame paint duration in milliseconds", timer.getRunMilliseconds());
 		}
 	};
 	
@@ -249,6 +256,9 @@ public final class Frame extends VisibleGUI<Frame> {
 	 */
 	public void refresh() {
 		
+		final var timer = new Timer();
+		timer.start();
+		
 		frame.setTitle(getTitle());	
 		panel.setBackground(getBackgroundColor().createSwingColor());
 		frame.setCursor(getActiveCursorIcon().getJavaCursor());
@@ -332,6 +342,8 @@ public final class Frame extends VisibleGUI<Frame> {
 					break;
 			}
 		}
+				
+		Logger.logInfo("frame set position duration in milliseconds", timer.getRunMilliseconds());
 		
 		frame.repaint();
 	}
