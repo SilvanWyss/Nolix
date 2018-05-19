@@ -272,10 +272,8 @@ implements Clearable<S> {
 		final StackLook stackStructure,
 		final IPainter painter
 	) {
-		final var contentPainer = painter.createTranslatedPainter(-getContentAreaXPosition(), -getContentAreaYPosition());
-		
-		//Paints the widgets of this container.
-		getRefShownWidgets().forEach(r -> r.paintUsingPositionOnParent(contentPainer));
+		//Paints the shown widgets of the current stack.
+		getRefShownWidgets().forEach(r -> r.paintUsingPositionOnParent(painter));
 	}
 	
 	//method
@@ -286,6 +284,8 @@ implements Clearable<S> {
 		int parentCursorXPosition,
 		int parentCursorYPosition
 	) {
-		getRefWidgets().forEach(w -> w.setParentCursorPosition(parentCursorXPosition, parentCursorYPosition));
+		for (final var w : getRefWidgets()) {
+			w.setParentCursorPosition(getCursorXPosition(), getCursorYPosition());
+		}
 	}
 }
