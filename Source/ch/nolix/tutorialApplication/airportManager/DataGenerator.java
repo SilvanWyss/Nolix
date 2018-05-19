@@ -12,7 +12,7 @@ public final class DataGenerator {
 		
 		airportManagerDatabaseAdapter.reset();
 		
-		//Create airports.
+		//Creates airports.
 		for (var i = 1; i <= 10; i++) {
 			
 			final var airport = new Airport();
@@ -24,7 +24,7 @@ public final class DataGenerator {
 			.addEntity(airport);
 		}
 		
-		//Create airline companies.
+		//Creates airline companies.
 		for (var i = 1; i <= 10; i++) {
 			
 			final var airlineCompany = new AirlineCompany();
