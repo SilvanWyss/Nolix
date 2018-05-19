@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.entity;
 
-//Java import
-import java.lang.reflect.Field;
-
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
@@ -123,16 +120,15 @@ public abstract class Entity implements Specified {
 		while (cl != null) {
 			
 			//Iterates the fields of the current type.
-			for (final Field f : cl.getDeclaredFields()) {
+			for (final var f : cl.getDeclaredFields()) {
 				
 				//Handles the case that the current field is a property.
-				if (f.getType().isAssignableFrom(MutableProperty.class)) {
-					
+				if (Propertyoid.class.isAssignableFrom(f.getType())) {
 					try {
 						
 						f.setAccessible(true);
 						
-						final MutableProperty<Specified> property = (MutableProperty<Specified>)(f.get(this));
+						final var property = (Propertyoid<Specified>)(f.get(this));
 						
 						//Checks if the current property is not null.
 						Validator.suppose(property)
