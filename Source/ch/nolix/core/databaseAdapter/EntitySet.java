@@ -100,6 +100,11 @@ extends NamedElement {
 	}
 	
 	//method
+	public E createEmptyEntity() {
+		return getEntityType().createDefaultEntity();
+	}
+	
+	//method
 	public EntitySet<E> deleteEntity(final E entity) {
 				
 		entity.setDeleted();
