@@ -80,6 +80,12 @@ public abstract class Propertyoid<V> implements Specified {
 		return getPropertyType().isReferenceType();
 	}
 	
+	//TODO: Use internal_setValues method directly.
+	//method
+	public void setGenericValue(final Object value) {
+		internal_setValues(new List<Object>(value));
+	}
+	
 	//abstract method
 	protected abstract void internal_clear();
 	
