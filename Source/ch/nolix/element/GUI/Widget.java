@@ -1287,10 +1287,8 @@ extends ConfigurableElement<W> {
 	 */
 	protected final List<Widget<?, ?>> getRefWidgetsRecursively() {
 		
-		//TODO: Let the getRefWidgets method return a list.
-		final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>(getRefWidgets());
-		
-		widgets.forEach(w -> widgets.addAtEnd(w.getRefWidgetsRecursively()));
+		final var widgets = new List<Widget<?, ?>>(getRefWidgets());
+		getRefWidgets().forEach(w -> widgets.addAtEnd(w.getRefWidgetsRecursively()));
 		
 		return widgets;
 	}

@@ -390,6 +390,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		
 		final var widgets = new List<Widget<?, ?>>();
 		
+		//Handles the case that this GUI has a root widget.
 		if (hasRootWidget()) {
 			widgets.addAtEnd((Widget<?, ?>)getRefRootWidget());
 			widgets.addAtEnd(getRefRootWidget().getRefWidgetsRecursively());
