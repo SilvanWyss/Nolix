@@ -8,7 +8,7 @@ import ch.nolix.primitive.container.List;
 public final class Logger {
 	
 	//static attributes
-	private static boolean active = true;
+	private static boolean active = false;
 	private static LogWorker logWorker;
 	
 	//static attribute
