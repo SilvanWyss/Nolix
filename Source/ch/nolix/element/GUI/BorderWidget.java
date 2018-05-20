@@ -36,7 +36,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1570
+ * @lines 1560
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -1445,8 +1445,6 @@ extends BackgroundWidget<BW, BWS> {
 		
 		//Paints the vertical scroll bar if this border widget has a vertical scrollbar.
 		if (hasVerticalScrollbar()) {
-			
-			System.out.println(getViewAreaWidth() + " " + getVerticalScrollbarXPositionOnBorderedArea());
 			
 			//Paints the vertical scrollbar.				
 				//TODO: Add scrollbar color to border widget structure.
