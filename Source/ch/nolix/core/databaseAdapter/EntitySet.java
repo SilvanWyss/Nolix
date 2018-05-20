@@ -100,6 +100,13 @@ extends NamedElement {
 	}
 	
 	//method
+	public boolean containsEntity(final int id) {
+		
+		//TODO: Delegate this function to the database connector.
+		return getRefEntities().contains(e -> e.hasId(id));
+	}
+	
+	//method
 	public E createEmptyEntity() {
 		return getEntityType().createDefaultEntity();
 	}
