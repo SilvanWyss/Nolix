@@ -18,7 +18,7 @@ import ch.nolix.primitive.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2016-03
- * @lines 370
+ * @lines 380
  */
 public final class TextBox extends TextLineWidget<TextBox> {
 
@@ -87,6 +87,20 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		attributes.addAtEnd(getWidthProperty().getSpecificationAs(PascalCaseNameCatalogue.WIDTH));
 		
 		return attributes;
+	}
+	
+	//method
+	/**
+	 * @return the interaction attributes of the current {@link TextBox}.
+	 */
+	public List<StandardSpecification> getInteractionAttributes() {
+		
+		//Calls method of the base class.
+		final var interactionAttributes = super.getInteractionAttributes();
+		
+		interactionAttributes.addAtEnd(getTextSpecification());
+		
+		return interactionAttributes;
 	}
 	
 	//method

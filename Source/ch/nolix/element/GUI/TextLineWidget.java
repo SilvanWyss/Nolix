@@ -24,6 +24,8 @@ import ch.nolix.element.painter.IPainter;
  * A text line rectangle is a rectangle that has a text in 1 line.
  * 
  * @author Silvan Wyss
+ * @month 2016-03
+ * @lines 180
  * @param <TLW> The type of a text line widget.
  */
 public abstract class TextLineWidget<TLW extends TextLineWidget<TLW>>
@@ -168,6 +170,14 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	//method
 	protected TextLineWidgetLook createWidgetLook() {
 		return new TextLineWidgetLook();
+	}
+	
+	//method
+	/**
+	 * @return the text specification of this text line widget.
+	 */
+	protected StandardSpecification getTextSpecification() {
+		return text.getSpecification();
 	}
 	
 	@Override
