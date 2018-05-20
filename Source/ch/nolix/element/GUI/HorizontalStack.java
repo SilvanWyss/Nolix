@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 120
+ * @lines 130
  */
 public final class HorizontalStack extends Stack<HorizontalStack> {
 	
@@ -20,6 +20,21 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 		reset();
 		approveProperties();
 		applyUsableConfiguration();
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link HorizontalStack} with the given widgets.
+	 * 
+	 * @param widgets
+	 * @throws NullArgumentException if one of the given widgets is null.
+	 */
+	public <W extends Widget<?, ?>> HorizontalStack(final Iterable<W> widgets) {
+		
+		//Calls other constructor.
+		this();
+		
+		addWidgets(widgets);
 	}
 	
 	//constructor
