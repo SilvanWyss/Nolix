@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.GUIClient;
 
-import ch.nolix.core.container.IContainer;
 //own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
@@ -127,8 +127,8 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
-		case ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI:
-				addOrChangeInteractionAttributesToWidgetsOfGUI(
+			case ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI:
+				addOrChangeInteractionAttributesToWidgetsOfGUI(						
 					command.getRefAttributes().to(a -> a.getRefAttributes())
 				);
 				break;
@@ -155,7 +155,7 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 	private <S extends Specification> void addOrChangeInteractionAttributesToWidgetsOfGUI(
 		final IContainer<IContainer<S>> interactionAttributesOfWidgetsOfGUI	
 	) {
-		getRefGUI().addOrChangeInteractionAttributesOfWidgets(interactionAttributesOfWidgetsOfGUI);
+		getRefGUI().addOrChangeInteractionAttributesOfWidgetsRecursively(interactionAttributesOfWidgetsOfGUI);
 	}
 	
 	//method

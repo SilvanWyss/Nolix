@@ -46,12 +46,11 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 * @param runMethodCommand
 	 */
 	public void run(final Statement runMethodCommand) {
-		
-		internal_runOnCounterpart(
-				
+		internal_runOnCounterpart(			
+						
 			BackGUIClient.ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI
 			+ '('
-			+ dialog.getInteractionAttributesOfWidgets().to(ia -> '(' + ia.toString() + ')')
+			+ dialog.getInteractionAttributesOfWidgetsRecursively().to(ia -> '(' + ia.toString() + ')')
 			+ ')',
 			
 			INVOKE_RUN_METHOD_COMMAND
