@@ -126,6 +126,11 @@ extends NamedElement {
 	}
 	
 	//method
+	public EntitySet<E> deleteEntity(int id) {
+		return deleteEntity(getRefEntityById(id));
+	}
+	
+	//method
 	public IContainer<Column<?>> getColumns() {
 		return columns;
 	}
