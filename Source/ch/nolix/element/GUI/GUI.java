@@ -201,12 +201,12 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @return the current {@link GUI}.
 	 * @throws InvalidArgumentException if the given interaction attributes of widgets is not valid.
 	 */
-	public <S extends Specification> G addOrChangeInteractionAttributesOfWidgets(
+	public <S extends Specification> G addOrChangeInteractionAttributesOfWidgetsRecursively(
 		final IContainer<IContainer<S>> interactionAttributesOfWidgets
 	) {
 		final var iterator = interactionAttributesOfWidgets.iterator();
 		
-		getRefWidgets().forEach(w -> w.addOrChangeAttributes(iterator.next()));
+		getRefWidgetsRecursively().forEach(w -> w.addOrChangeAttributes(iterator.next()));
 		
 		if (iterator.hasNext()) {
 			throw new InvalidArgumentException(
@@ -326,8 +326,8 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	/**
 	 * @return the interaction attributes of all {@link Widget} of the current {@link GUI}.
 	 */
-	public IContainer<IContainer<StandardSpecification>> getInteractionAttributesOfWidgets() {
-		return getRefWidgets().to(w -> w.getInteractionAttributes());
+	public IContainer<IContainer<StandardSpecification>> getInteractionAttributesOfWidgetsRecursively() {
+		return getRefWidgetsRecursively().to(w -> w.getInteractionAttributes());
 	}
 	
 	//method
