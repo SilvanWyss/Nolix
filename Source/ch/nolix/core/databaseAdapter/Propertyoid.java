@@ -28,6 +28,11 @@ public abstract class Propertyoid<V> implements Specified {
 	}
 	
 	//method
+	public final String getHeader() {
+		return getParentEntity().getFieldName(this);
+	}
+	
+	//method
 	public final DatabaseAdapter getParentDatabaseAdapter() {
 		return getParentEntitySet().getParentDatabaseAdapter();
 	}
