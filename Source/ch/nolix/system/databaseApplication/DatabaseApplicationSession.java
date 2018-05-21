@@ -28,6 +28,7 @@ extends ContextSession<BackGUIClient, DatabaseApplicationContext> {
 	public final void initialize() {
 		getRefClient()
 		.getRefGUI()
+		.setTitle(getRefContext().getTitle())
 		.setRootWidget(
 			new VerticalStack(
 				createTitleWidget(),
