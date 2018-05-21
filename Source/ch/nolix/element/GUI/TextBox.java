@@ -277,7 +277,8 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		//Calls method of the base class.
 		super.paintContentArea(textLineWidgetLook, painter);
 		
-		//Paints the text cursor.
+		//Paints the text cursor if the current text box is focused or hover focused.
+		if (isFocused() || isHoverFocused()) {
 			painter.setColor(textLineWidgetLook.getRecursiveOrDefaultTextColor());
 			
 			painter.paintFilledRectangle(
@@ -286,11 +287,8 @@ public final class TextBox extends TextLineWidget<TextBox> {
 				1,
 				(int)(1.2 * textLineWidgetLook.getRecursiveOrDefaultTextSize())
 			);
+		}
 	}
-	
-
-	
-
 	
 	//method
 	/**
