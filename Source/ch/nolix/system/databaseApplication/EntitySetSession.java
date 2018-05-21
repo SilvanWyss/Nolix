@@ -51,7 +51,13 @@ public final class EntitySetSession extends HeaderedSession {
 	
 	//method
 	public void OpenEntitySession(final String entityId) {
-		//TODO
+		getRefClient().setSession(
+			new EntitySession(
+				getRefContext(),
+				entitySetName,
+				Integer.valueOf(entityId)
+			)
+		);
 	}
 	
 	//method
