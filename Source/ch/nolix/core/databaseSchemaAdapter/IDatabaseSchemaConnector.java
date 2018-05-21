@@ -9,6 +9,9 @@ import ch.nolix.core.databaseAdapter.EntityType;
 public interface IDatabaseSchemaConnector<C> {
 	
 	//abstract method
+	public abstract boolean containsEntitySet();
+	
+	//abstract method
 	public abstract C createCommandForAdd(EntityType<Entity> entityType);
 	
 	//abstract method

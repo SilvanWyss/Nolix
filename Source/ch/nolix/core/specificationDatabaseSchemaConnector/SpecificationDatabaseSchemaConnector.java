@@ -31,8 +31,18 @@ implements IDatabaseSchemaConnector<IFunction> {
 		
 		this.databaseSpecification = databaseSpecification;
 	}
+	
+	//method
+	public boolean containsEntitySet() {
+		
+		//TODO: Add containsAttribute method with condition parameter to Specification.
+		return
+		databaseSpecification
+		.getRefAttributes(a -> a.hasHeader("EntitySet"))
+		.containsAny();
+	}
 
-	//mehtod
+	//method
 	public IFunction createCommandForAdd(
 		final EntityType<Entity> entityType
 	) {

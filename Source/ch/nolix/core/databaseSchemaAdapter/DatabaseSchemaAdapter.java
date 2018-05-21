@@ -54,6 +54,11 @@ public final class DatabaseSchemaAdapter implements IChangesSaver<DatabaseSchema
 	}
 	
 	//method
+	public boolean containsEntitySet() {
+		return getRefInternalDatabaseSchemaAdapter().containsEntitySet();
+	}
+	
+	//method
 	public boolean containsEntitySet(final String name) {
 		return entitySets.contains(es -> es.hasName(name));
 	}

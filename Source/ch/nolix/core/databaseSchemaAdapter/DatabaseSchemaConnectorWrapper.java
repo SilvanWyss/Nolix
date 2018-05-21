@@ -29,6 +29,11 @@ final class DatabaseSchemaConnectorWrapper<C> {
 	}
 	
 	//method
+	public boolean containsEntitySet() {
+		return databaseSchemaConnector.containsEntitySet();
+	}
+	
+	//method
 	public boolean hasChanges() {
 		return commandsForChanges.containsAny();
 	}
