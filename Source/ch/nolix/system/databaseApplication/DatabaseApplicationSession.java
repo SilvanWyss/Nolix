@@ -26,6 +26,7 @@ extends ContextSession<BackGUIClient, DatabaseApplicationContext> {
 	
 	//method
 	public final void initialize() {
+		
 		getRefClient()
 		.getRefGUI()
 		.setTitle(getRefContext().getTitle())
@@ -35,6 +36,12 @@ extends ContextSession<BackGUIClient, DatabaseApplicationContext> {
 				createContentWidget()
 			)
 		);
+		
+		if (getRefContext().hasGUILook()) {
+			getRefClient().getRefGUI().setConfiguration(
+				getRefContext().getGUILook()
+			);
+		}
 	}
 	
 	//abstract method
