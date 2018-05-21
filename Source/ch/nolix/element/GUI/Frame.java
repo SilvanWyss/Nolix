@@ -63,6 +63,8 @@ public final class Frame extends VisibleGUI<Frame> {
 			final var timer = new Timer();
 			timer.start();
 			
+			frame.setTitle(getTitle());	
+			
 			//Calls method of the base class.
 			super.paintComponent(graphics);
 			
@@ -259,7 +261,6 @@ public final class Frame extends VisibleGUI<Frame> {
 		final var timer = new Timer();
 		timer.start();
 		
-		frame.setTitle(getTitle());	
 		panel.setBackground(getBackgroundColor().createSwingColor());
 		frame.setCursor(getActiveCursorIcon().getJavaCursor());
 		

@@ -162,13 +162,6 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	private Widget<?, ?> rootWidget;
 	private IController controller;
 	
-	//constructor
-	public GUI() {
-		
-		//TODO
-		setTitle(DEFAULT_TITLE);
-	}
-	
 	//method
 	/**
 	 * Adds or changes the given attribute to this GUI.
@@ -570,8 +563,8 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @return this GUI.
 	 */
 	public G reset() {
-		//TODO	
-		//setTitle(DEFAULT_TITLE);
+		
+		setTitle(DEFAULT_TITLE);
 		removeRootWidget();
 		
 		//Calls method of the base class.
