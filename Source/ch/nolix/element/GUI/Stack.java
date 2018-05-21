@@ -287,11 +287,14 @@ implements Clearable<S> {
 	 * {@inheritDoc}
 	 */
 	protected void setCursorPositionOnContentArea(
-		int parentCursorXPosition,
-		int parentCursorYPosition
+		int cursorXPositionOnContent,
+		int cursorYPositionOnContent
 	) {
 		for (final var w : getRefWidgets()) {
-			w.setParentCursorPosition(getCursorXPosition(), getCursorYPosition());
+			w.setParentCursorPosition(
+				cursorXPositionOnContent,
+				cursorYPositionOnContent
+			);
 		}
 	}
 }
