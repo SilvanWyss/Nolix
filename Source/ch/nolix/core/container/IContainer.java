@@ -32,7 +32,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1430
+ * @lines 1440
  * @param <E> The type of the elements of a container.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -927,6 +927,18 @@ public interface IContainer<E> extends Iterable<E> {
 		}
 		
 		return null;
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(n) if this container contains n elements.
+	 * 
+	 * @param selector
+	 * @return a new list with the elements from this container that are of the given type.
+	 */
+	@SuppressWarnings("unchecked")
+	public default <E2 extends E> List<E2> getRefOfType(final Class<E2> type) {
+		return (List<E2>)getRefSelected(e -> type.isAssignableFrom(e.getClass()));
 	}
 	
 	//default method
