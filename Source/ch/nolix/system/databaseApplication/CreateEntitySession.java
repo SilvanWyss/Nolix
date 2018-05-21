@@ -44,13 +44,9 @@ public final class CreateEntitySession extends HeaderedSession {
 		
 		final var entity = getRefEntitySet().createEmptyEntity();
 		
-		int rowIndex = 1;
-		for (final var p : entity.getRefProperties().getRefSelected(p -> p.isDataProperty())) {
-			
-			final TextBox dataTextBox = getRefClient().getRefGUI().getRefWidgetByNameRecursively("dataTextBox" + rowIndex);
+		for (final var p : entity.getRefProperties().getRefSelected(p -> p.isDataProperty())) {		
+			final TextBox dataTextBox = getRefClient().getRefGUI().getRefWidgetByNameRecursively(p.getHeader());
 			p.setGenericValue(dataTextBox.getText());
-			
-			rowIndex++;
 		}
 		
 		getRefEntitySet().addEntity(entity);
@@ -98,7 +94,7 @@ public final class CreateEntitySession extends HeaderedSession {
 				rowIndex,
 				2,
 				new TextBox()
-				.setName("dataTextBox" + rowIndex)
+				.setName(c.getHeader())
 			);
 			
 			rowIndex++;
