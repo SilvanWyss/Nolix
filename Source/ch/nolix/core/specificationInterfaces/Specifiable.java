@@ -5,8 +5,6 @@ package ch.nolix.core.specificationInterfaces;
 import ch.nolix.core.interfaces.Resettable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.primitive.invalidArgumentException.Argument;
-import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 
 //interface
@@ -115,15 +113,6 @@ public interface Specifiable<S extends Specifiable<S>> extends Resettable<S>, Sp
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public default void reset(final Specification standardSpecification) {
-		
-		//Checks if the given specification is a specification for this specifiable object.
-		if (!standardSpecification.hasHeader(getType())) {
-			throw new InvalidArgumentException(
-				new Argument(standardSpecification),
-				new ErrorPredicate("is no " + getType() + " specification")
-			);
-		}
-		
 		reset();
 		addOrChangeAttributes(standardSpecification.getRefAttributes());
 	}
