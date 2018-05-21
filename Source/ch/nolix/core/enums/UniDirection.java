@@ -1,15 +1,16 @@
 //package declaration
 package ch.nolix.core.enums;
 
-//own import
+//own imports
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.ISpecifiedEnum;
 
 //enum
 /**
- * An uni direction defines the way
+ * A {@link UniDirection} defines the way
  * between two points of a square.
  * 
- * An uni direction does not (!) depend
+ * A {@link UniDirection} does not (!) depend
  * on the order of the start point and end point.
  * 
  * @author Silvan Wyss
@@ -20,5 +21,14 @@ public enum UniDirection implements ISpecifiedEnum {
 	Horizontal,
 	Vertical,
 	DiagonalUp,
-	DiagonalDown
+	DiagonalDown;
+
+	//method
+	/**
+	 * @param specification
+	 * @return a new {@link UniDirection} from the given specification.
+	 */
+	public static UniDirection createFromSpecification(final Specification specification) {
+		return valueOf(specification.getOneAttributeAsString());
+	}
 }
