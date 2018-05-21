@@ -124,7 +124,7 @@ public final class Label extends TextLineWidget<Label> {
 		}
 		
 		//Handles the case that the current label has a role.
-		return getRole().equals(LabelRole.valueOf(role));
+		return getRole().toString().equals(role);
 	}
 	
 	//method
