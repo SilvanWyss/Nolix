@@ -2,22 +2,35 @@
 package ch.nolix.system.databaseApplication;
 
 //own imports
+import ch.nolix.core.container.List;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.Grid;
-import ch.nolix.element.GUI.VerticalStack;
 
 //class
-public final class RootSession extends DatabaseApplicationSession {
+public final class HomeSession extends HeaderedSession {
 
 	//constructor
-	public RootSession(
+	public HomeSession(
 		final DatabaseApplicationContext databaseApplicationContext
 	) {
-		super(databaseApplicationContext);
+		super(databaseApplicationContext, "Home");
 	}
 	
 	//method
-	public void initialize() {
+	public void OpenEntitySetSession(final String entitySetName) {
+		getRefClient().setSession(
+			new EntitySetSession(getRefContext(),
+			entitySetName)
+		);
+	}
+	
+	//method
+	protected List<Button> createLinkButtons() {
+		return new List<Button>();
+	}
+	
+	//method
+	protected Grid createSubSubContentWidget() {
 		
 		final var entitySetsGrid = new Grid();
 		
@@ -42,18 +55,6 @@ public final class RootSession extends DatabaseApplicationSession {
 			}
 		}
 		
-		getRefClient()
-		.getRefGUI()
-		.setRootWidget(
-			new VerticalStack(
-				createTitleLabel(),
-				entitySetsGrid
-			)
-		);
-	}
-	
-	//method
-	public void OpenEntitySetSession(final String entitySetName) {
-		//TODO
+		return entitySetsGrid;
 	}
 }

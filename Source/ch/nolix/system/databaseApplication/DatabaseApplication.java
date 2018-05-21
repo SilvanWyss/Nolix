@@ -12,11 +12,11 @@ extends ContextApplication<BackGUIClient, DatabaseApplicationContext> {
 	//constructor
 	public DatabaseApplication(
 		final String name,
-		final DatabaseApplicationContext databaseApplicationContext
+		final DatabaseApplicationContext context
 	) {
 		super(
 			name,
-			databaseApplicationContext,
+			context,
 			BackGUIClient.class,
 			LoginSession.class
 		);

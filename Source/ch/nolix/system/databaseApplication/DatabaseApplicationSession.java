@@ -5,6 +5,8 @@ package ch.nolix.system.databaseApplication;
 import ch.nolix.core.databaseAdapter.DatabaseAdapter;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.LabelRole;
+import ch.nolix.element.GUI.VerticalStack;
+import ch.nolix.element.GUI.Widget;
 import ch.nolix.system.GUIClient.BackGUIClient;
 import ch.nolix.system.client.ContextSession;
 
@@ -23,11 +25,19 @@ extends ContextSession<BackGUIClient, DatabaseApplicationContext> {
 	}
 	
 	//method
-	protected final Label createTitleLabel() {
-		return
-		new Label(getRefContext().getTitle())
-		.setRole(LabelRole.Title);
+	public final void initialize() {
+		getRefClient()
+		.getRefGUI()
+		.setRootWidget(
+			new VerticalStack(
+				createTitleWidget(),
+				createContentWidget()
+			)
+		);
 	}
+	
+	//abstract method
+	protected abstract Widget<?, ?> createContentWidget();
 	
 	//method
 	protected final DatabaseAdapter getRefDatabaseAdapter() {
@@ -37,6 +47,14 @@ extends ContextSession<BackGUIClient, DatabaseApplicationContext> {
 		}
 		
 		return databaseAdapter;
+	}
+	
+	//method
+	private Label createTitleWidget() {
+		return
+		new Label()
+		.setText(getRefContext().getTitle())
+		.setRole(LabelRole.Title);
 	}
 	
 	//method

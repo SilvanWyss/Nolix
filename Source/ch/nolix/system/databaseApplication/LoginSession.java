@@ -14,23 +14,19 @@ public final class LoginSession extends DatabaseApplicationSession {
 	) {
 		super(databaseApplicationContext);
 	}
-
-	//method
-	public void initialize() {		
-		getRefClient()
-		.getRefGUI()
-		.setRootWidget(
-			new VerticalStack(
-				createTitleLabel(),
-				new Button("Login")
-				.setLeftMouseButtonPressCommand("Login")
-			)
-		);
-	}
 	
 	//method
 	public void Login() {
 		getRefClient()
-		.setSession(new RootSession(getRefContext()));
+		.setSession(new HomeSession(getRefContext()));
+	}
+	
+	//method
+	protected VerticalStack createContentWidget() {
+		return
+		new VerticalStack(
+			new Button("Login")
+			.setLeftMouseButtonPressCommand("Login")
+		);
 	}
 }
