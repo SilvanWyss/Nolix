@@ -3,6 +3,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
@@ -60,7 +61,9 @@ extends BorderWidget<C, BWS> {
 		
 		//Handles the case that the current container has a role.
 		if (hasRole()) {
-			attributes.addAtEnd(getRole().getSpecification());
+			attributes.addAtEnd(
+				getRole().getSpecificationAs(PascalCaseNameCatalogue.ROLE)
+			);
 		}
 		
 		return attributes;
@@ -133,7 +136,7 @@ extends BorderWidget<C, BWS> {
 		//Checks if the given role is not null.
 		Validator
 		.suppose(role)
-		.thatIsNamed(PascalCaseNameCatalogue.ROLE)
+		.thatIsNamed(VariableNameCatalogue.ROLE)
 		.isNotNull();
 		
 		//Sets the role of this container.
@@ -150,7 +153,7 @@ extends BorderWidget<C, BWS> {
 		
 		//Checks if the current container has a role.
 		if (!hasRole()) {
-			throw new UnexistingAttributeException(this, PascalCaseNameCatalogue.ROLE);
+			throw new UnexistingAttributeException(this, VariableNameCatalogue.ROLE);
 		}
 	}
 }
