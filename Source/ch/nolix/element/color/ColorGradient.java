@@ -59,7 +59,7 @@ public class ColorGradient extends Element {
 		specification.getRefAttributes();
 		
 		return new ColorGradient(
-			UniDirection.valueOf(attributes.getRefAt(1).toString()),
+			UniDirection.createFromSpecification(attributes.getRefAt(1)),
 			Color.createFromSpecification(attributes.getRefAt(2)),
 			Color.createFromSpecification(attributes.getRefAt(3))
 		);
