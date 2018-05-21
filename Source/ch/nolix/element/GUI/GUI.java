@@ -134,7 +134,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @throws InvalidArgumentException
 	 * if there can already be created a widget of the same type as one of the given widget classes.
 	 */
-	public final void registerWidgetClass(final Class<?>... widgetClasses) {
+	public static void registerWidgetClass(final Class<?>... widgetClasses) {
 		widgetCreator.addWidgetClass(widgetClasses);
 	}
 	
@@ -161,6 +161,13 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	//optional attributes
 	private Widget<?, ?> rootWidget;
 	private IController controller;
+	
+	//constructor
+	public GUI() {
+		
+		//TODO
+		setTitle(DEFAULT_TITLE);
+	}
 	
 	//method
 	/**
@@ -563,8 +570,8 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @return this GUI.
 	 */
 	public G reset() {
-				
-		setTitle(DEFAULT_TITLE);
+		//TODO	
+		//setTitle(DEFAULT_TITLE);
 		removeRootWidget();
 		
 		//Calls method of the base class.
