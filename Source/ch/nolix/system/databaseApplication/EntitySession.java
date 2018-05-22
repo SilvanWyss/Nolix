@@ -8,7 +8,6 @@ import ch.nolix.core.databaseAdapter.EntitySet;
 import ch.nolix.core.databaseAdapter.SingleProperty;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.ButtonRole;
-import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.GUI.Grid;
 import ch.nolix.element.GUI.HorizontalStack;
 import ch.nolix.element.GUI.Label;
