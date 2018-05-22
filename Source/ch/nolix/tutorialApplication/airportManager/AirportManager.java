@@ -4,6 +4,7 @@ package ch.nolix.tutorialApplication.airportManager;
 //own imports
 import ch.nolix.core.databaseAdapter.DatabaseAdapter;
 import ch.nolix.core.functionInterfaces.IElementGetter;
+import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.system.databaseApplication.DatabaseApplication;
 import ch.nolix.system.databaseApplication.DatabaseApplicationContext;
 
@@ -22,7 +23,25 @@ public final class AirportManager extends DatabaseApplication {
 	) {
 		super(
 			NAME,
-			new DatabaseApplicationContext(TITLE, databaseAdapterFactory)
+			new DatabaseApplicationContext(
+				TITLE,
+				databaseAdapterFactory
+			)
+		);
+	}
+	
+	//constructor	
+	public AirportManager(
+		final IElementGetter<DatabaseAdapter> databaseAdapterFactory,
+		final StandardConfiguration GUILook
+	) {
+		super(
+			NAME,
+			new DatabaseApplicationContext(
+				TITLE,
+				databaseAdapterFactory,
+				GUILook
+			)
 		);
 	}
 }
