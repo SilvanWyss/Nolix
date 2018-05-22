@@ -193,14 +193,6 @@ implements Clearable<Console> {
 	
 	//method
 	/**
-	 * @return the widgets of this console.
-	 */
-	public ReadContainer<Widget<?, ?>> getRefWidgets() {
-		return new ReadContainer<>();
-	}
-	
-	//method
-	/**
 	 * @return the lines of this console.
 	 */
 	public ReadContainer<String> getLines() {
@@ -558,6 +550,12 @@ implements Clearable<Console> {
 	protected ConsoleLook createWidgetLook() {
 		return new ConsoleLook();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void fillUpWidgets(final List<Widget<?, ?>> list) {}
 
 	//method
 	/**

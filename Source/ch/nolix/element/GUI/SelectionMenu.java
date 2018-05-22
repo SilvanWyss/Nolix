@@ -127,11 +127,6 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
-	public ReadContainer<Widget<?, ?>> getRefWidgets() {
-		return new ReadContainer<Widget<?, ?>>();
-	}
-	
-	//method
 	public int getSelectedItemId() {
 		return getSelectedItem().getId();
 	}
@@ -219,6 +214,9 @@ implements Clearable<SelectionMenu> {
 	protected SelectionMenuLook createWidgetLook() {
 		return new SelectionMenuLook();
 	}
+	
+	//method
+	protected void fillUpWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	protected int getContentAreaHeight() {

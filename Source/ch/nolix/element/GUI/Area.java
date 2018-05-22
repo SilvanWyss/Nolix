@@ -2,7 +2,6 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
@@ -176,14 +175,6 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * {@inheritDoc}}
-	 */
-	public ReadContainer<Widget<?, ?>> getRefWidgets() {
-		return new ReadContainer<Widget<?, ?>>();
-	}
-	
-	//method
-	/**
 	 * @return true if the current {@link Area} has a background color.
 	 */
 	public boolean hasBackgroundColor() {
@@ -321,7 +312,13 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * {@inheritDoc}}
+	 * {@inheritDoc}
+	 */
+	protected void fillUpWidgets(final List<Widget<?, ?>> list) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
 	 */
 	protected int getHeightWhenNotCollapsed() {
 		return height.getValue();
@@ -329,7 +326,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * {@inheritDoc}}
+	 * {@inheritDoc}
 	 */
 	protected int getWidthWhenNotCollapsed() {
 		return width.getValue();

@@ -7,7 +7,6 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Matrix;
 import ch.nolix.core.container.MatrixRow;
-import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.painter.IPainter;
@@ -152,11 +151,6 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
-	public ReadContainer<Widget<?, ?>> getRefWidgets() {
-		return new ReadContainer<Widget<?, ?>>(cells.getRefSelected(c -> c.containsAny()).to(c -> c.getRefWidget()));
-	}
-	
-	//method
 	public int getRowCount() {
 		return cells.getRowCount();
 	}
@@ -221,6 +215,15 @@ public final class Grid extends Container<Grid, GridLook> {
 	//method
 	protected GridLook createWidgetLook() {
 		return new GridLook();
+	}
+	
+	//method
+	protected void fillUpWidgets(final List<Widget<?, ?>> list) {
+		for (final var c : cells) {
+			if (c.containsAny()) {
+				list.addAtEnd(c.getRefWidget());
+			}
+		}
 	}
 
 	//method

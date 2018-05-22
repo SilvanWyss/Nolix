@@ -440,12 +440,18 @@ extends ConfigurableElement<W> {
 		return hoverLook;
 	}
 	
-	//abstract method
-	/**
-	 * 
+	//method
+	/** 
 	 * @return the widgets of the current {@link Widget}.
 	 */
-	public abstract ReadContainer<Widget<?, ?>> getRefWidgets();
+	public final List<Widget<?, ?>> getRefWidgets() {
+		
+		final var widgets = new List<Widget<?, ?>>();
+		
+		fillUpWidgets(widgets);
+		
+		return widgets;
+	}
 	
 	//method
 	/**
@@ -1251,6 +1257,18 @@ extends ConfigurableElement<W> {
 	
 	//abstract method
 	/**
+	 * Fills up the widgets of the current {@link Widget} into the given list.
+	 * 
+	 * For a better performance,
+	 * a {@link Widget} fills up its widget up into a list
+	 * and does not create a new list with its widgets.
+	 * 
+	 * @param list
+	 */
+	protected abstract void fillUpWidgets(List<Widget<?, ?>> list);
+	
+	//abstract method
+	/**
 	 * @return the height of the current {@link Widget} when it is s not collapsed.
 	 */
 	protected abstract int getHeightWhenNotCollapsed();
@@ -1288,7 +1306,8 @@ extends ConfigurableElement<W> {
 	protected final List<Widget<?, ?>> getRefWidgetsRecursively() {
 		
 		final var widgets = new List<Widget<?, ?>>(getRefWidgets());
-		getRefWidgets().forEach(w -> widgets.addAtEnd(w.getRefWidgetsRecursively()));
+		
+		fillUpWidgetsRecursively(widgets);
 		
 		return widgets;
 	}
@@ -1410,6 +1429,21 @@ extends ConfigurableElement<W> {
 			painter.setColor(Color.GREY);
 			painter.paintFilledRectangle(getWidth(), getHeight());
 		}
+	}
+	
+	//method
+	/**
+	 * Fills up recursively the widgets of the current {@link Widget} into the given list.
+	 * 
+	 * For a better performance,
+	 * a {@link Widget} fills up recursively its widget up into a list
+	 * and does not create a new list with its widgets.
+	 * 
+	 * @param list
+	 */
+	private void fillUpWidgetsRecursively(final List<Widget<?, ?>> list) {
+		fillUpWidgets(list);
+		getRefWidgets().forEach(w -> w.fillUpWidgetsRecursively(list));
 	}
 	
 	//method

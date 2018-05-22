@@ -2,7 +2,6 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
@@ -117,14 +116,6 @@ extends Widget<L, LineLook> {
 	 */
 	public final int getLength() {
 		return length.getValue();
-	}
-	
-	//method
-	/**
-	 * @return the widgets of this line.
-	 */
-	public final ReadContainer<Widget<?, ?>> getRefWidgets() {
-		return new ReadContainer<>();
 	}
 	
 	//method
@@ -258,6 +249,12 @@ extends Widget<L, LineLook> {
 	protected final LineLook createWidgetLook() {
 		return new LineLook();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void fillUpWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**

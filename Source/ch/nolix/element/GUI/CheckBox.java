@@ -2,7 +2,6 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
@@ -100,14 +99,6 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return the widgets of the current {@link CheckBox}.
-	 */
-	public ReadContainer<Widget<?, ?>> getRefWidgets() {
-		return new ReadContainer<>();
-	}
-	
-	//method
-	/**
 	 * @return true if the current {@link CheckBox} has the given role.
 	 */
 	public boolean hasRole(final String role) {
@@ -152,6 +143,12 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	protected CheckBoxLook createWidgetLook() {
 		return new CheckBoxLook();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void fillUpWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**

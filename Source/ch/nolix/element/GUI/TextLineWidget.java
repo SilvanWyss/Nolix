@@ -9,7 +9,6 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.enums.TextStyle;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
@@ -180,8 +179,9 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 		return text.getSpecification();
 	}
 	
-	@Override
-	public ReadContainer<Widget<?, ?>> getRefWidgets() {
-		return new ReadContainer<>();
-	}
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void fillUpWidgets(final List<Widget<?, ?>> list) {}
 }

@@ -9,7 +9,6 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
@@ -78,14 +77,6 @@ extends Container<SingleContainer, SingleContainerLook> {
 		return widget;
 	}
 	
-	//method
-	/**
-	 * @return the rectangles of this single container that are shown
-	 */
-	public ReadContainer<Widget<?, ?>> getRefShownWidgets() {
-		return getRefWidgets();
-	}
-	
 	public final void addOrChangeAttribute(StandardSpecification attribute) {
 		
 		if (attribute.hasHeader() && GUI.canCreateWidget(attribute.getHeader())) {
@@ -108,15 +99,17 @@ extends Container<SingleContainer, SingleContainerLook> {
 		this.widget = rectangle;
 	}
 	
-	public ReadContainer<Widget<?, ?>> getRefWidgets() {
-		return new ReadContainer<Widget<?, ?>>();
-	}
-	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void fillUpWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**

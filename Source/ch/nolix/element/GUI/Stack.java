@@ -190,14 +190,6 @@ implements Clearable<S> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	public final ReadContainer<Widget<?, ?>> getRefWidgets() {
-		return new ReadContainer<Widget<?, ?>>(widgets);
-	}
-	
-	//method
-	/**
 	 * @return true if the current {@link Stack} container has an element margin.
 	 */
 	public final boolean hasElementMargin() {
@@ -268,6 +260,14 @@ implements Clearable<S> {
 	 */
 	protected final StackLook createWidgetLook() {
 		return new StackLook();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void fillUpWidgets(final List<Widget<?, ?>> list) {
+		list.addAtEnd(widgets);
 	}
 	
 	//method

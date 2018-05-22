@@ -238,24 +238,6 @@ implements Clearable<TabContainer> {
 	}
 	
 	//method
-	/**
-	 * @return the widgets of the current {@link TabContainer}.
-	 */
-	public ReadContainer<Widget<?, ?>> getRefWidgets() {
-		
-		final var widgets = new List<Widget<?, ?>>();
-		
-		//Iterates the tabs of the current tab container.
-		for (final var t: getRefTabs()) {
-			if (t.containsAny()) {
-				widgets.addAtEnd(t.getRefWidget());
-			}
-		}
-		
-		return new ReadContainer<>(widgets);
-	}
-	
-	//method
 	public boolean isEmpty() {
 		return getRefTabs().isEmpty();
 	}
@@ -351,6 +333,20 @@ implements Clearable<TabContainer> {
 	 */
 	protected TabContainerLook createWidgetLook() {
 		return new TabContainerLook();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void fillUpWidgets(final List<Widget<?, ?>> list) {
+				
+		//Iterates the tabs of the current tab container.
+		for (final var t: getRefTabs()) {
+			if (t.containsAny()) {
+				list.addAtEnd(t.getRefWidget());
+			}
+		}
 	}
 	
 	//method
