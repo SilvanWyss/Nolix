@@ -211,7 +211,8 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		//Calls method of the base class.
 		super.resetConfiguration();
 		
-		setWidth(200);
+		setProposalWidth(200);
+		setCursorIcon(CursorIcon.Edit);
 		
 		return this;
 	}
