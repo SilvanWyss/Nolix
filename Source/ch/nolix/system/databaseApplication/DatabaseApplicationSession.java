@@ -3,6 +3,7 @@ package ch.nolix.system.databaseApplication;
 
 //own imports
 import ch.nolix.core.databaseAdapter.DatabaseAdapter;
+import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.LabelRole;
 import ch.nolix.element.GUI.VerticalStack;
@@ -35,6 +36,7 @@ extends ContextSession<BackGUIClient, DatabaseApplicationContext> {
 				createTitleWidget(),
 				createContentWidget()
 			)
+			.setRole(ContainerRole.OverallContainer)
 		);
 		
 		if (getRefContext().hasGUILook()) {

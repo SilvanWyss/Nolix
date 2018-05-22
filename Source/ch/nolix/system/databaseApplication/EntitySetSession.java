@@ -7,9 +7,11 @@ import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntitySet;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.ButtonRole;
+import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.GUI.Grid;
 import ch.nolix.element.GUI.HorizontalStack;
 import ch.nolix.element.GUI.Label;
+import ch.nolix.element.GUI.LabelRole;
 import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.primitive.validator2.Validator;
@@ -69,6 +71,7 @@ public final class EntitySetSession extends HeaderedSession {
 	protected List<Button> createLinkButtons() {
 		return new List<Button>(
 			new Button("Home")
+			.setRole(ButtonRole.LinkButton)
 			.setLeftMouseButtonPressCommand("OpenHomeSession")		
 		);
 	}
@@ -89,14 +92,19 @@ public final class EntitySetSession extends HeaderedSession {
 	//method
 	private Widget<?, ?> createEntitiesGrid() {
 		
-		final var entitiesGrid = new Grid();
+		final var entitiesGrid = new Grid().setRole(ContainerRole.MainContainer);
 		
 		//Sets the header of the entities grid.
 			int columnIndex = 2;
 			for (final var c : getRefEntitySet().getColumns()) {			
 				if (c.isDataColumn()) {
 					
-					entitiesGrid.setWidget(1, columnIndex, new Label(c.getHeader()));
+					entitiesGrid.setWidget(
+						1,
+						columnIndex,
+						new Label(c.getHeader())
+						.setRole(LabelRole.Level2Header)
+					);
 					
 					columnIndex++;
 				}
