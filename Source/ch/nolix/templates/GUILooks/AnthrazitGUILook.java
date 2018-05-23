@@ -70,7 +70,13 @@ public final class AnthrazitGUILook extends StandardConfiguration {
 			),
 			new DeepConfiguration()
 			.setSelectorType("TextBox")
-			.addAttachingAttribute("BaseBackgroundColor(0xE0E0E0)")
+			.addAttachingAttribute("BaseBackgroundColor(0xE0E0E0)"),
+			new DeepConfiguration()
+			.setSelectorType("SelectionMenu")
+			.addAttachingAttribute(
+				"MaxHeight(100)",
+				"BaseBackgroundColor(0xE0E0E0)"
+			)
 		);
 		
 		freeze();
