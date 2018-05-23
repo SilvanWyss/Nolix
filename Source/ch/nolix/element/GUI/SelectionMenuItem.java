@@ -3,18 +3,24 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.entity.Property;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.element.bases.OptionalIdentifiedElement;
+import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.core.NonEmptyText;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
-public final class SelectionMenuItem extends OptionalIdentifiedElement {
+public final class SelectionMenuItem extends MutableElement<SelectionMenuItem> {
 
 	//constant
 	private static final String SELECTED_FLAG_HEADER = "Selected";
+	
+	//TODO
+	private int id = -1;
+	private boolean selected = false;
 	
 	//static method
 	public static SelectionMenuItem createFromSpecification(final Specification specification) {
@@ -43,8 +49,12 @@ public final class SelectionMenuItem extends OptionalIdentifiedElement {
 	//constructor
 	public SelectionMenuItem(final int id, final String text) {
 		
-		super(id);
+		Validator
+		.suppose(id)
+		.thatIsNamed(VariableNameCatalogue.ID)
+		.isPositive();
 		
+		this.id = id;
 		label = new Label();		
 		setText(text);		
 		approveProperties();
@@ -67,7 +77,12 @@ public final class SelectionMenuItem extends OptionalIdentifiedElement {
 		final var attributes = super.getAttributes();
 		
 		if (isSelected()) {
-			attributes.addAtEnd(StandardSpecification.createSpecificationWithHeaderOnly(SELECTED_FLAG_HEADER));
+			//attributes.addAtEnd(StandardSpecification.createSpecificationWithHeaderOnly(SELECTED_FLAG_HEADER));
+		}
+		
+		//TODO
+		if (hasId()) {
+			attributes.addAtEnd(new StandardSpecification("Id", String.valueOf(getId())));
 		}
 		
 		return attributes;
@@ -95,25 +110,34 @@ public final class SelectionMenuItem extends OptionalIdentifiedElement {
 	
 	//method
 	public boolean isSelected() {
-		return (getRefLabel().isFocused() || getRefLabel().isHoverFocused());
+		return selected;
 	}
 	
 	//method
 	public void select() {
+		selected = true;
 		label.setFocused();
 	}
 	
 	//method
 	public void unselect() {
+		selected = false;
 		label.setNormal();
 	}
 	
 	//method
-	protected void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final Specification attribute) {
 		switch (attribute.getHeader()) {
 			case SELECTED_FLAG_HEADER:
 				select();
 				break;
+				
+				
+			//TODO
+			case "Id":
+				this.id = attribute.getOneAttributeAsInt();
+				break;
+				
 			default:				
 				super.addOrChangeAttribute(attribute);
 		}
@@ -128,5 +152,25 @@ public final class SelectionMenuItem extends OptionalIdentifiedElement {
 	private void setText(final String text) {	
 		this.text.setValue(new NonEmptyText(text));
 		label.setText(text);
+	}
+
+	//TODO
+	public SelectionMenuItem reset() {
+		return this;
+	}
+	
+	//TODO
+	public int getId() {
+		return id;
+	}
+	
+	//TODO
+	public boolean hasId() {
+		return (id > 0);
+	}
+	
+	//TODO
+	public boolean hasId(int id) {
+		return getId() == id;
 	}
 }

@@ -74,6 +74,12 @@ implements Clearable<SelectionMenu> {
 			case PascalCaseNameCatalogue.ITEM:
 				addItem(SelectionMenuItem.createFromSpecification(attribute));
 				break;
+			
+			//TODO
+			case "SelectedItemId":
+				select(attribute.getOneAttributeAsInt());
+				break;
+				
 			default:				
 				super.addOrChangeAttribute(attribute);
 		}
@@ -123,7 +129,31 @@ implements Clearable<SelectionMenu> {
 			i -> attributes.addAtEnd(i.getSpecificationAs(PascalCaseNameCatalogue.ITEM))
 		);
 		
+		if (containsSelectedItem()) {
+			
+			//TODO
+			attributes.addAtEnd(
+				new StandardSpecification("SelectedItemId", String.valueOf(getSelectedItemId()))
+			);
+		}
+		
 		return attributes;
+	}
+	
+	//method
+	public List<StandardSpecification> getInteractionAttributes() {
+		
+		final var interactionAttributes = super.getInteractionAttributes();
+		
+		if (containsSelectedItem()) {
+			
+			//TODO
+			interactionAttributes.addAtEnd(
+				new StandardSpecification("SelectedItemId", String.valueOf(getSelectedItemId()))
+			);
+		}
+		
+		return interactionAttributes;
 	}
 	
 	//method
@@ -160,7 +190,12 @@ implements Clearable<SelectionMenu> {
 		super.noteLeftMouseButtonPress();
 		
 		if (menu.isUnderCursor()) {
-			menu.getRefWidgets().forEach(w -> w.noteAnyLeftMouseButtonPress());
+			
+			var selectedItem = items.getRefFirstOrNull(i -> i.getRefLabel().isUnderCursor());
+			
+			if (selectedItem != null) {
+				select(selectedItem);
+			}
 		}
 	}
 	
@@ -324,6 +359,7 @@ implements Clearable<SelectionMenu> {
 	
 	//method
 	private void select(final SelectionMenuItem item) {
+		items.forEach(i -> i.unselect());
 		item.select();
 	}
 	
