@@ -5,6 +5,7 @@ package ch.nolix.system.databaseApplication;
 import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntitySet;
+import ch.nolix.core.databaseAdapter.ReferenceProperty;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.ButtonRole;
 import ch.nolix.element.GUI.ContainerRole;
@@ -52,7 +53,7 @@ public final class EntitySetSession extends HeaderedSession {
 	}
 	
 	//method
-	public void OpenEntitySession(final String entityId) {
+	public void OpenEntitySession(final String entitySetName, final String entityId) {
 		getRefClient().setSession(
 			new EntitySession(
 				getRefContext(),
@@ -108,6 +109,18 @@ public final class EntitySetSession extends HeaderedSession {
 					
 					columnIndex++;
 				}
+				
+				if (c.isReferenceColumn()) {
+					
+					entitiesGrid.setWidget(
+						1,
+						columnIndex,
+						new Label(c.getHeader())
+						.setRole(LabelRole.Level2Header)
+					);
+					
+					columnIndex++;
+				}
 			}
 			
 		//Fills up the entities into the entities grid.
@@ -119,7 +132,7 @@ public final class EntitySetSession extends HeaderedSession {
 					1,
 					new Button("Open")
 					.setRole(ButtonRole.LinkButton)
-					.setLeftMouseButtonPressCommand("OpenEntitySession(" + e.getId() +")")
+					.setLeftMouseButtonPressCommand("OpenEntitySession(" + entitySetName + "," + e.getId() +")")
 				);
 				
 				columnIndex = 2;
@@ -128,6 +141,27 @@ public final class EntitySetSession extends HeaderedSession {
 					if (p.isDataProperty()) {
 						
 						entitiesGrid.setWidget(rowIndex, columnIndex, new Label(p.toString()));
+						
+						columnIndex++;
+					}
+					
+					if (p.isReferenceProperty()) {
+						
+						final var referenceProperty = (ReferenceProperty<Entity>)p;
+						
+						entitiesGrid.setWidget(
+							rowIndex,
+							columnIndex,
+							new Button(String.valueOf(referenceProperty.getEntity().getId()))
+							.setRole(ButtonRole.LinkButton)
+							.setLeftMouseButtonPressCommand(
+								"OpenEntitySession("
+								+ referenceProperty.getReferencedEntitySet().getName()
+								+ ","
+								+ referenceProperty.getEntity().getId()
+								+ ")"
+							)
+						);
 						
 						columnIndex++;
 					}
