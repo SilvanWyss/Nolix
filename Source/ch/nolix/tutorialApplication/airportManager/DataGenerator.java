@@ -36,5 +36,25 @@ public final class DataGenerator {
 		}
 		
 		airportManagerDatabaseAdapter.saveChanges();
+		
+		//Creates flights.
+			final var departureAirport =
+			airportManagerDatabaseAdapter.getRefEntitySet(Airport.class).getRefEntityById(1);
+			
+			for (var i = 1; i <= 10; i++) {
+				
+				final var flight = new Flight();
+				flight.Code.setValue("F" + i);
+				flight.DepartureAirport.set(departureAirport);
+				flight.DestinationAirport.set(
+					airportManagerDatabaseAdapter.getRefEntitySet(Airport.class).getRefEntityById(i)
+				);
+				
+				airportManagerDatabaseAdapter
+				.getRefEntitySet(Flight.class)
+				.addEntity(flight);
+			}
+		
+		airportManagerDatabaseAdapter.saveChanges();
 	}
 }
