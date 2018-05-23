@@ -484,8 +484,8 @@ public abstract class Specification {
 				);
 			}
 			
-			int level = 0;
-			String attributeString = StringCatalogue.EMPTY_STRING;
+			int level = 0;			
+			var attributeStringBuilder = new StringBuilder();
 			for (int i = attributestartIndex; i < string.length() - 1; i++)
 			{
 				final char character = string.charAt(i);
@@ -497,14 +497,14 @@ public abstract class Specification {
 					level--;
 				}
 				if (character == CharacterCatalogue.COMMA && level == 0) {
-					addAttribute(new StandardSpecification(attributeString));
-					attributeString = StringCatalogue.EMPTY_STRING;
+					addAttribute(new StandardSpecification(attributeStringBuilder.toString()));
+					attributeStringBuilder = new StringBuilder();
 				}
 				else {
-					attributeString += character;
+					attributeStringBuilder.append(character);
 				}
 			}
-			addAttribute(new StandardSpecification(attributeString));
+			addAttribute(new StandardSpecification(attributeStringBuilder.toString()));
 			
 			//Checks if the given value has as many opening brackets as closing brackets.
 			if (level != 0) {
