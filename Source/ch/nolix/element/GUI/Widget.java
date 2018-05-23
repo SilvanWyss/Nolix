@@ -695,7 +695,7 @@ extends ConfigurableElement<W> {
 	/**
 	 * Lets the current {@link Widget} note any mouse move.
 	 */
-	public final void noteAnyMouseMove() {
+	public void noteAnyMouseMove() {
 		if (isEnabled()) {
 			if (!isUnderCursor()) {
 				

@@ -147,6 +147,14 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
+	public void noteAnyMouseMove() {
+		
+		super.noteAnyMouseMove();
+		
+		menu.getRefWidgets().forEach(w -> w.noteAnyMouseMove());
+	}
+	
+	//method
 	public void noteLeftMouseButtonPress() {
 		
 		super.noteLeftMouseButtonPress();
@@ -154,14 +162,6 @@ implements Clearable<SelectionMenu> {
 		if (menu.isUnderCursor()) {
 			menu.getRefWidgets().forEach(w -> w.noteAnyLeftMouseButtonPress());
 		}
-	}
-	
-	//method
-	public void noteMouseMove() {
-		
-		super.noteMouseMove();
-		
-		menu.getRefWidgets().forEach(w -> w.noteAnyMouseMove());
 	}
 	
 	//method
