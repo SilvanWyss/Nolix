@@ -81,6 +81,26 @@ public abstract class Propertyoid<V> implements Specified {
 	}
 	
 	//method
+	public final boolean isMultiDataProperty() {
+		return getPropertyType().isMultiDataType();
+	}
+	
+	//method
+	public final boolean isMultiReferenceProperty() {
+		return getPropertyType().isMultiReferenceType();
+	}
+	
+	//method
+	public final boolean isOptionalDataProperty() {
+		return getPropertyType().isOptionalDataType();
+	}
+	
+	//method
+	public final boolean isOptionalReferenceProperty() {
+		return getPropertyType().isOptionalReferenceType();
+	}
+	
+	//method
 	public final boolean isReferenceProperty() {
 		return getPropertyType().isReferenceType();
 	}

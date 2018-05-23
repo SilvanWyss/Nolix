@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.core.databaseAdapter;
 
+//own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
-//own import
 import ch.nolix.core.specificationInterfaces.Specified;
 
 //abstract class
@@ -58,6 +58,26 @@ public abstract class PropertyoidType<V> implements Specified {
 	//method
 	public final boolean isIdType() {
 		return (getPropertyKind() == PropertyKind.ID);
+	}
+	
+	//method
+	public final boolean isOptionalDataType() {
+		return (getPropertyKind() == PropertyKind.OPTIONAL_DATA);
+	}
+	
+	//method
+	public final boolean isOptionalReferenceType() {
+		return (getPropertyKind() == PropertyKind.OPTIONAL_REFERENCE);
+	}
+	
+	//method
+	public final boolean isMultiDataType() {
+		return (getPropertyKind() == PropertyKind.MULTI_DATA);
+	}
+	
+	//method
+	public final boolean isMultiReferenceType() {
+		return (getPropertyKind() == PropertyKind.MULTI_REFERENCE);
 	}
 	
 	//method

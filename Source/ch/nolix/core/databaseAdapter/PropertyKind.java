@@ -5,5 +5,9 @@ package ch.nolix.core.databaseAdapter;
 public enum PropertyKind {
 	ID,
 	DATA,
-	REFERENCE
+	OPTIONAL_DATA,
+	MULTI_DATA,
+	REFERENCE,
+	OPTIONAL_REFERENCE,
+	MULTI_REFERENCE
 }
