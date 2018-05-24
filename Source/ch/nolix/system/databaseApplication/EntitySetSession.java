@@ -91,6 +91,7 @@ public final class EntitySetSession extends HeaderedSession {
 	}
 
 	//method
+	@SuppressWarnings({ "incomplete-switch", "unchecked" })
 	private Widget<?, ?> createEntitiesGrid() {
 		
 		final var entitiesGrid = new Grid().setRole(ContainerRole.MainContainer);
@@ -138,32 +139,35 @@ public final class EntitySetSession extends HeaderedSession {
 				columnIndex = 2;
 				for (final var p : e.getRefProperties()) {
 					
-					if (p.isDataProperty()) {
-						
-						entitiesGrid.setWidget(rowIndex, columnIndex, new Label(p.toString()));
-						
-						columnIndex++;
-					}
-					
-					if (p.isReferenceProperty()) {
-						
-						final var referenceProperty = (ReferenceProperty<Entity>)p;
-						
-						entitiesGrid.setWidget(
-							rowIndex,
-							columnIndex,
-							new Button(String.valueOf(referenceProperty.getEntity().getId()))
-							.setRole(ButtonRole.LinkButton)
-							.setLeftMouseButtonPressCommand(
-								"OpenEntitySession("
-								+ referenceProperty.getReferencedEntitySet().getName()
-								+ ","
-								+ referenceProperty.getEntity().getId()
-								+ ")"
-							)
-						);
-						
-						columnIndex++;
+					switch (p.getPropertyKind()) {
+						case DATA:
+							
+							entitiesGrid.setWidget(rowIndex, columnIndex, new Label(p.toString()));
+							
+							columnIndex++;
+							
+							break;
+						case REFERENCE:						
+							
+							final var referenceProperty = (ReferenceProperty<Entity>)p;
+							
+							entitiesGrid.setWidget(
+								rowIndex,
+								columnIndex,
+								new Button(String.valueOf(referenceProperty.getEntity().getId()))
+								.setRole(ButtonRole.LinkButton)
+								.setLeftMouseButtonPressCommand(
+									"OpenEntitySession("
+									+ referenceProperty.getReferencedEntitySet().getName()
+									+ ","
+									+ referenceProperty.getEntity().getId()
+									+ ")"
+								)
+							);
+							
+							columnIndex++;
+							
+							break;
 					}
 				}
 				

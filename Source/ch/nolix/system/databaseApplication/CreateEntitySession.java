@@ -43,6 +43,7 @@ public final class CreateEntitySession extends HeaderedSession {
 	}
 	
 	//method
+	@SuppressWarnings({ "incomplete-switch", "unchecked" })
 	public void CreateEntity() {
 		
 		final var entity = getRefEntitySet().createEmptyEntity();
@@ -107,6 +108,7 @@ public final class CreateEntitySession extends HeaderedSession {
 	}
 
 	//method
+	@SuppressWarnings({ "incomplete-switch", "unchecked" })
 	private Grid createDataEntryGrid() {
 		
 		final var dataGrid = new Grid();
