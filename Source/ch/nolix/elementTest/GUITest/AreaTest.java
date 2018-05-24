@@ -1,18 +1,18 @@
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
+//own imports
 import ch.nolix.element.GUI.Area;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.data.BackgroundColor;
 import ch.nolix.primitive.test2.Test;
 
 //test class
 /**
- * An area test is a test for the area class.
+ * A {@link AreaTest} is a test for a {@link Area}.
  * 
  * @author Silvan Wyss
  * @month 2016-06
- * @lines 50
+ * @lines 60
  */
 public final class AreaTest extends Test {
 	
@@ -20,16 +20,18 @@ public final class AreaTest extends Test {
 	public void test_equals() {
 		
 		//setup part 1
-		final Area area1 = new Area()
-		.setWidth(800)
-		.setHeight(600)
-		.setBackgroundColor(new BackgroundColor(BackgroundColor.GREEN_INT));
+		final Area area1 =
+		new Area()
+		.setWidth(2000)
+		.setHeight(1000)
+		.setBackgroundColor(Color.GREEN);
 		
 		//setup part 2
-		final Area area2 = new Area()
-		.setWidth(800)
-		.setHeight(600)
-		.setBackgroundColor(new BackgroundColor(BackgroundColor.GREEN_INT));
+		final Area area2 =
+		new Area()
+		.setWidth(2000)
+		.setHeight(1000)
+		.setBackgroundColor(Color.GREEN);
 		
 		//verification
 		expect(area1).isEqualTo(area2);
@@ -40,13 +42,26 @@ public final class AreaTest extends Test {
 	public void test_removeBackgroundColor() {
 		
 		//setup
-		final Area area = new Area();
-		area.setBackgroundColor(Color.BLUE);
+		final Area area = new Area().setBackgroundColor(Color.GREEN);
 		
 		//execution
 		area.removeBackgroundColor();
 		
 		//verification
 		expectNot(area.hasBackgroundColor());
+	}
+	
+	//test method
+	public void test_setBackgroundColor() {
+		
+		//setup
+		final Area area = new Area().removeBackgroundColor();
+		
+		//execution
+		area.setBackgroundColor(Color.GREEN);
+		
+		//verification
+		expect(area.hasBackgroundColor());
+		expect(area.getBackgroundColor()).isEqualTo(Color.GREEN);
 	}
 }
