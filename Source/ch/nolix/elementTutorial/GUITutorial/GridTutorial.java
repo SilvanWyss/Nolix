@@ -16,7 +16,7 @@ import ch.nolix.element.font.TextFont;
  * Of the {@link GridTutorial} no instance can be created.
  * 
  * @author Silvan Wyss
- * @month 2018-4
+ * @month 2018-05
  * @lines 60
  */
 public final class GridTutorial {

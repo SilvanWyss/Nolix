@@ -14,7 +14,7 @@ import ch.nolix.element.color.Color;
  * Of the {@link TabContainerTutorial} no instance can be created.
  * 
  * @author Silvan Wyss
- * @month 2018-4
+ * @month 2018-05
  * @lines 70
  */
 public final class TabContainerTutorial {

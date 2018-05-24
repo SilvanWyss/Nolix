@@ -12,7 +12,7 @@ import ch.nolix.element.color.Color;
  * Of the {@link ScrollTutorial} no instance can be created.
  * 
  * @author Silvan Wyss
- * @month 2018-04
+ * @month 2018-05
  * @lines 50
  */
 public final class ScrollTutorial {
