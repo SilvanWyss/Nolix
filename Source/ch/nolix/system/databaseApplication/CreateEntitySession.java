@@ -157,6 +157,8 @@ public final class CreateEntitySession extends HeaderedSession {
 						referencesSelectionMenu.addItem(e.getId(), e.getParentEntitySet().getName() + e.getId());
 					}
 					
+					referencesSelectionMenu.selectFirstItem();
+					
 					dataGrid.setWidget(
 						rowIndex,
 						2,
