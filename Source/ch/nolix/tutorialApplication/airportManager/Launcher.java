@@ -17,7 +17,7 @@ public final class Launcher {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		final var airportManagerDatabasePath = "airportManagerDatabase";
+		final var airportManagerDatabasePath = "airportManagerDatabase.database";
 		final var airportManagerDatabase = new SimplePersistentSpecification(airportManagerDatabasePath);
 		final var airportManagerSchema = new AirportManagerSchema();
 		

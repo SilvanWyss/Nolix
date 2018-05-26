@@ -17,7 +17,7 @@ public final class Launcher {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		final var movieManagerDatabasePath = "movieManagerDatabase.spec";
+		final var movieManagerDatabasePath = "movieManagerDatabase.database";
 		final var movieManagerDatabase = new SimplePersistentSpecification(movieManagerDatabasePath);
 		final var movieManagerSchema = new MovieManagerSchema();
 		
