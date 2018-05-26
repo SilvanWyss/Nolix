@@ -9,8 +9,6 @@ import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.NonNegativeInteger;
-import ch.nolix.element.data.BackgroundColor;
-import ch.nolix.element.data.TextColor;
 import ch.nolix.element.intData.TextSize;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -43,7 +41,7 @@ extends Entity<SelectionMenuItemLook> {
 	private Color backgroundColor;
 	private NonNegativeInteger padding;
 	private NonNegativeInteger textSize;
-	private Color textColor = new TextColor();
+	private Color textColor = new Color();
 	
 	//method
 	public void addOrChangeAttribute(final Specification attribute) {
@@ -53,14 +51,14 @@ extends Entity<SelectionMenuItemLook> {
 			case PascalCaseNameCatalogue.PADDING:
 				setPadding(attribute.getOneAttributeAsInt());
 				break;
-			case BackgroundColor.TYPE_NAME:
+			case PascalCaseNameCatalogue.BACKGROUND_COLOR:
 				setBackgroundColor(Color.createFromSpecification(attribute));
 				break;
 			case TextSize.TYPE_NAME:
 				setTextSize(attribute.getOneAttributeAsInt());
 				break;
-			case TextColor.TYPE_NAME:
-				setTextColor(new TextColor(attribute.getOneAttributeAsString()));
+			case PascalCaseNameCatalogue.TEXT_COLOR:
+				setTextColor(new Color(attribute.getOneAttributeAsString()));
 				break;
 			default:
 				
@@ -234,7 +232,7 @@ extends Entity<SelectionMenuItemLook> {
 	}
 	
 	//method
-	public TabContainerMenuItemLook setTextColor(final TextColor textColor) {
+	public TabContainerMenuItemLook setTextColor(final Color textColor) {
 		
 		Validator
 		.suppose(textColor)

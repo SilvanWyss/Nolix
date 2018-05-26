@@ -2,13 +2,14 @@
 package ch.nolix.element.bases;
 
 //own imports
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.IRequestableContainer;
 import ch.nolix.core.interfaces.Namable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.core.MutableElement;
-import ch.nolix.element.data.Name;
+import ch.nolix.element.core.NonEmptyText;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
@@ -29,11 +30,14 @@ public abstract class NamableElement<NE extends NamableElement<NE>>
 extends MutableElement<NE>
 implements Namable<NE> {
 	
+	//default value
+	public static final String DEFAULT_NAME = "Default";
+	
 	//optional attribute
 	private IRequestableContainer requestableContainer;
 	
 	//attribute
-	private Name name = new Name();
+	private NonEmptyText name = new NonEmptyText();
 	
 	//method
 	/**
@@ -46,7 +50,7 @@ implements Namable<NE> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case Name.TYPE_NAME:
+			case PascalCaseNameCatalogue.NAME:
 				setName(attribute.getOneAttributeAsString());
 				break;
 			default:
@@ -70,7 +74,7 @@ implements Namable<NE> {
 	 * @return the attributes of this namable element.
 	 */
 	public List<StandardSpecification> getAttributes() {
-		return new List<StandardSpecification>(name.getSpecification());
+		return new List<StandardSpecification>(name.getSpecificationAs(PascalCaseNameCatalogue.NAME));
 	}
 	
 	//method
@@ -89,7 +93,7 @@ implements Namable<NE> {
 	 */
 	public NE reset() {
 		
-		name = new Name();
+		setName(DEFAULT_NAME);
 		
 		return getInstance();
 	}
@@ -122,7 +126,7 @@ implements Namable<NE> {
 			}
 			
 			//Sets the name of this namable element.
-			this.name = new Name(name);
+			this.name = new NonEmptyText(name);
 		}
 
 		return getInstance();

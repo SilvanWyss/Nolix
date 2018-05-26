@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.configuration;
 
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Freezable;
@@ -9,7 +10,6 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.element.bases.OptionalNamableElement;
 import ch.nolix.element.core.NonEmptyText;
-import ch.nolix.element.data.Name;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 
@@ -163,7 +163,7 @@ implements Freezable<C> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case Name.TYPE_NAME:
+			case PascalCaseNameCatalogue.NAME:
 				setName(attribute.getOneAttributeAsString());
 				break;
 			case SELECTOR_TYPE_HEADER:

@@ -9,12 +9,14 @@
 package ch.nolix.element.bases;
 
 //own imports
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.OptionalTokenable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
-import ch.nolix.element.data.Token;
+import ch.nolix.element.core.NonEmptyText;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 
 //class
@@ -26,7 +28,7 @@ extends OptionalNamableElement<CE>
 implements Configurable<CE>, OptionalTokenable<CE> {	
 	
 	//optional attribute
-	private Token token;
+	private NonEmptyText token;
 	
 	//method
 	/**
@@ -38,7 +40,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 		List<StandardSpecification> attributes = super.getAttributes();
 		
 		if (hasToken()) {
-			attributes.addAtEnd(token.getSpecification());
+			attributes.addAtEnd(token.getSpecificationAs(PascalCaseNameCatalogue.TOKEN));
 		}
 		return attributes;
 	}
@@ -50,7 +52,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	 */
 	public final String getToken() {
 		if (!hasToken()) {
-			throw new UnexistingAttributeException(getType(), Token.TYPE_NAME);
+			throw new UnexistingAttributeException(getType(), VariableNameCatalogue.TOKEN);
 		}
 		return token.getValue();
 	}
@@ -125,7 +127,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	@SuppressWarnings("unchecked")
 	public final CE setToken(final String token) {
 		
-		this.token = new Token(token);
+		this.token = new NonEmptyText(token);
 		
 		return (CE)this;
 	}

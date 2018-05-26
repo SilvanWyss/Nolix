@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.element.bases;
 
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.IRequestableContainer;
@@ -8,7 +10,7 @@ import ch.nolix.core.interfaces.OptionalNamable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.core.MutableElement;
-import ch.nolix.element.data.Name;
+import ch.nolix.element.core.NonEmptyText;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
@@ -27,7 +29,7 @@ public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<
 extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	
 	//optional attributes
-	private Name name;
+	private NonEmptyText name;
 	private IRequestableContainer requestableContainer;
 	
 	//method
@@ -41,7 +43,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case Name.TYPE_NAME:
+			case PascalCaseNameCatalogue.NAME:
 				setName(attribute.getOneAttributeAsString());
 				break;
 			default:
@@ -70,7 +72,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 		
 		//Handles the case that this optional namable element has a name.
 		if (hasName()) {
-			attributes.addAtEnd(name.getSpecification());
+			attributes.addAtEnd(name.getSpecificationAs(PascalCaseNameCatalogue.NAME));
 		}
 		
 		return attributes;
@@ -85,7 +87,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 		
 		//Checks if this optional namable element has a name.
 		if (!hasName()) {
-			throw new UnexistingAttributeException(this, Name.class);
+			throw new UnexistingAttributeException(this, VariableNameCatalogue.NAME);
 		}
 		
 		return name.getValue();
@@ -149,7 +151,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 				//throw new RuntimeException("Namable element " + getNameInQuotes() + " belongs to a search container that contains an other element with the name '" + name + "'.");
 			}
 			
-			this.name = new Name(name);
+			this.name = new NonEmptyText(name);
 		}
 		
 		return (ONE)this;

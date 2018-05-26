@@ -5,6 +5,7 @@ package ch.nolix.element._3DGUI;
 import java.lang.reflect.InvocationTargetException;
 
 //own imports
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
@@ -18,8 +19,7 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configurationElement.ConfigurationElement;
-import ch.nolix.element.data.BackgroundColor;
-import ch.nolix.element.data.Title;
+import ch.nolix.element.core.NonEmptyText;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;
 import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
@@ -48,17 +48,17 @@ implements Clearable<G>, Closable, Refreshable {
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 
 	//attribute
-	private final MutableProperty<Title> title =
-	new MutableProperty<Title>(
-		Title.TYPE_NAME,
+	private final MutableProperty<NonEmptyText> title =
+	new MutableProperty<NonEmptyText>(
+		PascalCaseNameCatalogue.TITLE,
 		s -> setTitle(s.toString()),
-		s -> Title.createFromSpecification(s)
+		s -> NonEmptyText.createFromSpecification(s)
 	);
 	
 	//attribute
 	private final MutableProperty<Color> backgroundColor =
 	new MutableProperty<Color>(
-		BackgroundColor.TYPE_NAME,
+		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		bc -> setBackgroundColor(bc),
 		s -> Color.createFromSpecification(s)
 	);
@@ -305,7 +305,7 @@ implements Clearable<G>, Closable, Refreshable {
 	 */
 	public final G setBackgroundColor(final Color backgroundColor) {
 				
-		this.backgroundColor.setValue(new BackgroundColor(backgroundColor.getValue()));
+		this.backgroundColor.setValue(backgroundColor);
 		
 		return getInstance();
 	}
@@ -340,7 +340,7 @@ implements Clearable<G>, Closable, Refreshable {
 	 */
 	public final G setTitle(final String title) {
 		
-		this.title.setValue(new Title(title));
+		this.title.setValue(new NonEmptyText(title));
 		
 		return getInstance();
 	}

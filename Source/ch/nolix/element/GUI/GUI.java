@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerInterfaces.IController;
@@ -21,8 +22,7 @@ import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.configurationElement.ConfigurationElement;
-import ch.nolix.element.data.BackgroundColor;
-import ch.nolix.element.data.Title;
+import ch.nolix.element.core.NonEmptyText;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;
 import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
@@ -139,17 +139,17 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	}
 	
 	//attribute
-	private final MutableProperty<Title> title =
-	new MutableProperty<Title>(
-		Title.TYPE_NAME,
+	private final MutableProperty<NonEmptyText> title =
+	new MutableProperty<NonEmptyText>(
+		PascalCaseNameCatalogue.TITLE,
 		t -> setTitle(t.getValue()),
-		s -> Title.createFromSpecification(s)
+		s -> NonEmptyText.createFromSpecification(s)
 	);
 	
 	//attribute
 	private final MutableProperty<Color> backgroundColor =
 	new MutableProperty<Color>(
-		BackgroundColor.TYPE_NAME,
+		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		bc -> setBackgroundColor(bc),
 		s -> Color.createFromSpecification(s)
 	);
@@ -719,7 +719,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 */
 	public final G setTitle(final String title) {
 		
-		this.title.setValue(new Title(title));
+		this.title.setValue(new NonEmptyText(title));
 		
 		return getInstance();
 	}

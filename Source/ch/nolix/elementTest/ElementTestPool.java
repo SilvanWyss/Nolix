@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.elementTest;
 
+//own imports
 import ch.nolix.elementTest.GUITest.GUITestPool;
 import ch.nolix.elementTest.colorTest.ColorTestPool;
 import ch.nolix.elementTest.coreTest.CoreTestPool;
-import ch.nolix.elementTest.dataTest.DataTestPool;
 import ch.nolix.elementTest.financeTest.FinanceTestPool;
 import ch.nolix.elementTest.taskTest.TaskTestPool;
 import ch.nolix.primitive.testoid.TestPool;
@@ -25,7 +25,6 @@ public final class ElementTestPool extends TestPool {
 		addTestPool(
 			new ColorTestPool(),
 			new CoreTestPool(),
-			new DataTestPool(),
 			new FinanceTestPool(),
 			new GUITestPool(),
 			new TaskTestPool()
