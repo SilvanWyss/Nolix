@@ -46,12 +46,22 @@ public interface IPainter {
 	/**
 	 * @param text
 	 * @param font
-	 * @return the width of the given text from the current {@link IPainter} using the given font.
+	 * @return the width of the given text
+	 * from the current {@link IPainter} using the given font.
 	 */
 	public abstract int getTextWith(
 		String text,
 		Font font
 	);
+	
+	//abstract method
+	/**
+	 * Lets the current {@link Painter} paint a polygon
+	 * with the vertices with the given x- and y-positions.
+	 * 
+	 * @param vertices
+	 */
+	public abstract void paintFilledPolygon(final int[] xs, final int[] ys);
 	
 	//default method
 	/**

@@ -68,6 +68,17 @@ public final class SwingPainter implements IPainter {
 	public int getTextWith(final String text, final Font font) {
 		return font.getSwingTextWidth(text);
 	}
+	
+	//method
+	public void paintFilledPolygon(final int[] xs, final int[] ys) {
+		
+		Validator
+		.suppose(ys)
+		.thatIsNamed("y-points")
+		.hasElementCount(xs.length);		
+		
+		graphics.fillPolygon(xs, ys, xs.length);
+	}
 
 	//method
 	public void paintFilledRectangle(
