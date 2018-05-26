@@ -171,13 +171,16 @@ public final class EntitySetSession extends HeaderedSession {
 					}
 				}
 				
-				entitiesGrid.setWidget(
-					rowIndex,
-					columnIndex,
-					new Button("Delete")
-					.setRole(ButtonRole.DeleteButton)
-					.setLeftMouseButtonPressCommand("OpenDeleteEntitySession(" + e.getId() + ")")
-				);
+				if (!e.isReferenced()) {
+				
+					entitiesGrid.setWidget(
+						rowIndex,
+						columnIndex,
+						new Button("Delete")
+						.setRole(ButtonRole.DeleteButton)
+						.setLeftMouseButtonPressCommand("OpenDeleteEntitySession(" + e.getId() + ")")
+					);
+				}
 				
 				rowIndex++;
 			}
