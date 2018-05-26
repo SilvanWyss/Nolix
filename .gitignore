@@ -8,3 +8,6 @@ OpenAL64.dll
 
 #Eclipse
 /.settings/
+
+#Data files
+*.database
