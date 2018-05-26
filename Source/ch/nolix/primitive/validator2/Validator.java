@@ -4,6 +4,7 @@ package ch.nolix.primitive.validator2;
 //Java import
 import java.util.Vector;
 
+//own imports
 import ch.nolix.primitive.helper.ArrayHelper;
 import ch.nolix.primitive.invalidArgumentException.FalseArgumentException;
 import ch.nolix.primitive.invalidArgumentException.NullArgumentException;
@@ -17,7 +18,7 @@ import ch.nolix.primitive.invalidArgumentException.TrueArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 280
+ * @lines 310
  */
 public final class Validator {
 	
@@ -111,6 +112,32 @@ public final class Validator {
 		
 		//Handles the case that the given argument is not null.
 		return new ExtendedContainerMediator<Double>(ArrayHelper.createIterable(argument));
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new extended long mediator for the given argument.
+	 */
+	public static ExtendedLongMediator suppose(final int argument) {
+		return new ExtendedLongMediator(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new extended container mediator for the given argument.
+	 */
+	public static ExtendedContainerMediator<Long> suppose(final int[] argument) {
+		
+		//Handles the case that the given argument is null.
+		if (argument == null) {
+			final Vector<Long> argumentVector = null;
+			return new ExtendedContainerMediator<Long>(argumentVector);
+		}
+		
+		//Handles the case that the given argument is not null.
+		return new ExtendedContainerMediator<Long>(ArrayHelper.createIterable(argument));
 	}
 	
 	//static method
