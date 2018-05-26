@@ -70,6 +70,8 @@ public class PascalCaseNameCatalogue {
 	public static final String TIMEOUT_IN_MILLISECONDS = "TimeoutMilliseconds";
 	public static final String TIMEOUT_IN_NANOSECONDS = "TimeoutNanoseconds";
 	public static final String TIMEOUT_IN_SECONDS = "TimeoutInSeconds";
+	public static final String TITLE = "Title";
+	public static final String TOKEN = "Token";
 	public static final String WEIGHT = "Weight";
 	public static final String WIDTH = "Width";
 	public static final String YEAR = "Year";
