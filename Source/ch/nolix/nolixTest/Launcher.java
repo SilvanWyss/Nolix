@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolixTest;
+package ch.nolix.nolixTest;
 
 //class
 /**

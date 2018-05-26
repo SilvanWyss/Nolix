@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolixTest;
+package ch.nolix.nolixTest;
 
 import ch.nolix.coreTest.CoreTestPool;
 import ch.nolix.elementTest.ElementTestPool;
