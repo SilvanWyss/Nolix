@@ -9,6 +9,11 @@ extends PropertyoidType<V> {
 	public DataPropertyoidType(final Class<V> valueClass) {
 		super(valueClass);
 	}
+	
+	//method
+	public final boolean captionsPropertyThatCanReference(final Entity entity) {
+		return false;
+	}
 
 	//method
 	public final PropertyKind getPropertyKind() {

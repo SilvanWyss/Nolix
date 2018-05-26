@@ -17,6 +17,9 @@ public abstract class PropertyoidType<V> implements Specified {
 		this.valueType = new ValueType<V>(valueClass);
 	}
 	
+	//abstract method
+	public abstract boolean captionsPropertyThatCanReference(Entity entity);
+	
 	//method
 	public List<StandardSpecification> getAttributes() {
 		return

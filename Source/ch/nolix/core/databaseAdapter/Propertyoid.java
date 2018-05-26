@@ -22,6 +22,9 @@ public abstract class Propertyoid<V> implements Specified {
 		return (parentEntity != null);
 	}
 	
+	//abstract method
+	public abstract boolean canReferenceEntity(Entity entity);
+	
 	//method
 	public final List<StandardSpecification> getAttributes() {
 		return internal_getValues().to(v -> new StandardSpecification(v.toString()));
@@ -104,6 +107,9 @@ public abstract class Propertyoid<V> implements Specified {
 	public final boolean isReferenceProperty() {
 		return getPropertyType().isReferenceType();
 	}
+	
+	//abstract method
+	public abstract boolean references(final Entity entity);
 	
 	//TODO: Use internal_setValues method directly.
 	//method

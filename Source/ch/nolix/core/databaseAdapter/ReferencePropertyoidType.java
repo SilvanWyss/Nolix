@@ -11,6 +11,11 @@ extends PropertyoidType<E> {
 	}
 	
 	//method
+	public final boolean captionsPropertyThatCanReference(final Entity entity) {
+		return getValueClass().isAssignableFrom(entity.getClass());
+	}
+	
+	//method
 	public final PropertyKind getPropertyKind() {
 		return PropertyKind.REFERENCE;
 	}

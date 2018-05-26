@@ -42,6 +42,22 @@ extends ReferencePropertyoid<E> {
 	public PropertyoidType<E> getPropertyType() {
 		return new MultiReferencePropertyType<>(getValueClass());
 	}
+	
+	//method
+	public final boolean references(final Entity entity) {
+		
+		for (final var e : getEntities()) {
+			
+			if (
+				e.getClass() == entity.getClass()
+				&& e.getId() == entity.getId()
+			) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
 
 	//method
 	protected void internal_clear() {

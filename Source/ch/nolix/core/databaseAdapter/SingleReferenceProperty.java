@@ -43,6 +43,18 @@ extends ReferencePropertyoid<E> {
 	public abstract boolean isOptional();
 	
 	//method
+	public final boolean references(final Entity entity) {
+		
+		if (isEmpty()) {
+			return false;
+		}
+		
+		return
+		getEntity().getClass() == entity.getClass()
+		&& getEntity().getId() == entity.getId();
+	}
+	
+	//method
 	public final boolean referencesEntity() {
 		return (referencedEntityId > -1);
 	}

@@ -100,6 +100,11 @@ extends NamedElement {
 	}
 	
 	//method
+	public boolean canReference(final Entity entity) {
+		return getColumns().contains(c -> c.canReference(entity));
+	}
+	
+	//method
 	public boolean containsEntity(final int id) {
 		
 		//TODO: Delegate this function to the database connector.
@@ -193,6 +198,16 @@ extends NamedElement {
 	//method
 	public boolean hasChanges() {
 		return loadedAndCreatedEntities.containsAny();
+	}
+	
+	//method
+	public boolean references(final Entity entity) {
+		
+		if (!canReference(entity)) {
+			return false;
+		}
+		
+		return getRefEntities().contains(e -> e.references(entity));
 	}
 	
 	DatabaseAdapter getParentDatabaseAdapter() {

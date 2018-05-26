@@ -36,6 +36,11 @@ implements Identified, Specified {
 	}
 		
 	//method
+	public final boolean canReferenceEntity(final Entity entity) {
+		return getRefProperties().contains(p -> p.canReferenceEntity(entity));
+	}
+	
+	//method
 	public final boolean canReferenceOtherEntities() {
 		return getRefProperties().contains(p -> p.isReferenceProperty());
 	}
@@ -175,15 +180,16 @@ implements Identified, Specified {
 	}
 	
 	//method
-	public final boolean isPersisted() {
-		return (getState() == EntityState.PERSISTED);
+	public final boolean isReferenced() {
+		return
+		getParentDatabaseAdapter()
+		.getRefEntitySets()
+		.contains(es -> es.references(this));
 	}
 	
 	//method
-	public final boolean isReferencedByOtherEntities() {
-		
-		//TODO
-		return false;
+	public final boolean isPersisted() {
+		return (getState() == EntityState.PERSISTED);
 	}
 	
 	//method
@@ -194,6 +200,11 @@ implements Identified, Specified {
 	//method
 	public final boolean isUpdated() {
 		return (getState() == EntityState.UPDATED);
+	}
+	
+	//method
+	public final boolean references(final Entity entity) {
+		return getRefProperties().contains(p -> p.references(entity));
 	}
 	
 	//method

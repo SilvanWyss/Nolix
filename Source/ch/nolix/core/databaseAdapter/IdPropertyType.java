@@ -9,6 +9,11 @@ extends PropertyoidType<Integer> {
 	public IdPropertyType() {
 		super(Integer.class);
 	}
+	
+	//method
+	public final boolean captionsPropertyThatCanReference(final Entity entity) {
+		return false;
+	}
 
 	//method
 	public PropertyKind getPropertyKind() {

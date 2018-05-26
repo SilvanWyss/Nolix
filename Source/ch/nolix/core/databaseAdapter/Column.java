@@ -29,6 +29,11 @@ public final class Column<V> extends HeaderedElement implements Specified {
 	}
 	
 	//method
+	public final boolean canReference(final Entity entity) {
+		return getPropertyType().captionsPropertyThatCanReference(entity);
+	}
+	
+	//method
 	public List<StandardSpecification> getAttributes() {
 		return
 		new List<StandardSpecification>(
