@@ -50,12 +50,11 @@ implements OptionalSignable<OSE> {
 	 * 
 	 * @return this optioanl signable element.
 	 */
-	@SuppressWarnings("unchecked")
 	public final OSE removeInfoString() {
 		
 		infoString = null;
 		
-		return (OSE)this;
+		return getInstance();
 	}
 	
 	//method
@@ -67,7 +66,6 @@ implements OptionalSignable<OSE> {
 	 * @throws NullArgumentException if the given info string is null.
 	 * @throws EmptyArgumentException if the given info string is empty.
 	 */
-	@SuppressWarnings("unchecked")
 	public final OSE setInfoString(final String infoString) {
 		
 		//Checks if the given info string is not null or empty.
@@ -76,6 +74,6 @@ implements OptionalSignable<OSE> {
 		//Sets the info string of this optional signable element.
 		this.infoString = infoString;
 		
-		return (OSE)this;
+		return getInstance();
 	}
 }

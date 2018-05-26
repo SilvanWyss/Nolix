@@ -28,7 +28,6 @@ extends Client<BGUIC> {
 	 * @param content
 	 * @return this base GUI client.
 	 */
-	@SuppressWarnings("unchecked")
 	public final BGUIC createFile(
 		final String relativeFilePath,
 		final String content
@@ -43,7 +42,7 @@ extends Client<BGUIC> {
 			+ ")"
 		);
 		
-		return (BGUIC)this;
+		return getInstance();
 	}
 	
 	//method
@@ -52,12 +51,11 @@ extends Client<BGUIC> {
 	 * 
 	 * @return this base GUI client.
 	 */
-	@SuppressWarnings("unchecked")
 	public BGUIC openFileExplorer() {
 		
 		internal_runOnCounterpart(Protocol.OPEN_FILE_EXPLORER_COMMAND);
 		
-		return (BGUIC)this;
+		return getInstance();
 	}
 	
 	//method
@@ -68,7 +66,6 @@ extends Client<BGUIC> {
 	 * @return this base GUI client.
 	 * @throws NullArgumentException if the given error message is null.
 	 */
-	@SuppressWarnings("unchecked")
 	public final BGUIC showErrorMessage(final String errorMessage) {
 		
 		internal_runOnCounterpart(
@@ -78,7 +75,7 @@ extends Client<BGUIC> {
 			+ ")"
 		);
 		
-		return (BGUIC)this;
+		return getInstance();
 	}
 	
 	//method

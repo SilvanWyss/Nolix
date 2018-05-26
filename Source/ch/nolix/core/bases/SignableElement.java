@@ -49,7 +49,6 @@ implements Signable<SE> {
 	 * @throws NullArgumentException if the given info string is null.
 	 * @throws EmptyArgumentException if the given info string is empty.
 	 */
-	@SuppressWarnings("unchecked")
 	public final SE setInfoString(final String infoString) {
 		
 		//Checks if the given info string is not null or empty.
@@ -58,6 +57,6 @@ implements Signable<SE> {
 		//Sets the info string of this optional signable element.
 		this.infoString = infoString;
 		
-		return (SE)this;
+		return getInstance();
 	}
 }

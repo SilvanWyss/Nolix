@@ -48,7 +48,6 @@ implements Namable<NE> {
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
-	@SuppressWarnings("unchecked")
 	public final NE setName(final String name) {
 		
 		//Checks if the given name is not null or empty.
@@ -57,6 +56,6 @@ implements Namable<NE> {
 		//Sets the name of this namable element.
 		this.name = name;
 		
-		return (NE)this;
+		return getInstance();
 	}
 }

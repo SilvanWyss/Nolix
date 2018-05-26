@@ -12,7 +12,7 @@ package ch.nolix.core.interfaces;
  * @param <S> The type of a signable object.
  */
 public interface Signable<S extends Signable<S>>
-extends Signed {
+extends IFluentObject<S>, Signed {
 		
 	//abstract method
 	/**

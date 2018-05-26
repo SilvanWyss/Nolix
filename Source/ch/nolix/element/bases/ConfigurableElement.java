@@ -91,12 +91,11 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	/**
 	 * Removes the class of this configurable element.
 	 */
-	@SuppressWarnings("unchecked")
 	public final CE removeToken() {
 		
 		token = null;
 		
-		return (CE)this;
+		return getInstance();
 	}
 	
 	//method
@@ -124,11 +123,10 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	 * @param token
 	 * @throws Exception if the given token is null or an empty string
 	 */
-	@SuppressWarnings("unchecked")
 	public final CE setToken(final String token) {
 		
 		this.token = new NonEmptyText(token);
 		
-		return (CE)this;
+		return getInstance();
 	}
 }

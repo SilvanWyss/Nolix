@@ -42,12 +42,11 @@ implements OptionalNamable<ONE> {
 	 * 
 	 * @return this optional namable element.
 	 */
-	@SuppressWarnings("unchecked")
 	public final ONE removeName() {
 		
 		name = null;
 		
-		return (ONE)this;
+		return getInstance();
 	}
 	
 	//method
@@ -59,7 +58,6 @@ implements OptionalNamable<ONE> {
 	 * @throws NullArgumentException if the given name is empty.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
-	@SuppressWarnings("unchecked")
 	public final ONE setName(final String name) {
 		
 		//Checks if the given name is not null or empty.
@@ -68,6 +66,6 @@ implements OptionalNamable<ONE> {
 		//Sets the name of this optional namable element.
 		this.name = name;
 		
-		return (ONE)this;
+		return getInstance();
 	}
 }

@@ -159,7 +159,6 @@ extends Widget<L, LineLook> {
 	 * @return this line.
 	 * @throws NullArgumentException if the given color is null.
 	 */
-	@SuppressWarnings("unchecked")
 	public final L setColor(final Color color) {
 		
 		//Checks if the given color is not null.
@@ -168,7 +167,7 @@ extends Widget<L, LineLook> {
 		//Sets the color of this line.
 		this.color = color;
 		
-		return (L)this;
+		return getInstance();
 	}
 	
 	//method
@@ -180,7 +179,6 @@ extends Widget<L, LineLook> {
 	 * @throws InvalidArgumentException if the given length
 	 * is smaller than 4 times the thickness of this line.
 	 */
-	@SuppressWarnings("unchecked")
 	public final L setLength(final int length) {
 		
 		//Checks if the given length is not smaller than 4 times the thickness of this line.
@@ -199,7 +197,7 @@ extends Widget<L, LineLook> {
 		
 		this.length = new Length(length);
 		
-		return (L)this;
+		return getInstance();
 	}
 	
 	//method
@@ -211,7 +209,6 @@ extends Widget<L, LineLook> {
 	 * @throws InvalidArgumentException if 4 times the given thickness
 	 * is bigger than the length of this line.
 	 */
-	@SuppressWarnings("unchecked")
 	public final L setThickness(final int thickness) {
 		
 		//Checks the given thickness.
@@ -231,7 +228,7 @@ extends Widget<L, LineLook> {
 		
 		this.thickness = new Thickness(thickness);
 		
-		return (L)this;
+		return getInstance();
 	}
 	
 	//method

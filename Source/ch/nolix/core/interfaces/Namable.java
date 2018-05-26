@@ -12,7 +12,7 @@ package ch.nolix.core.interfaces;
  * @param <N> The type of a namable object.
  */
 public interface Namable<N extends Namable<N>>
-extends Named {
+extends IFluentObject<N>, Named {
 	
 	//abstract method
 	/**

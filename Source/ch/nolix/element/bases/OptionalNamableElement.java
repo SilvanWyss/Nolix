@@ -143,7 +143,6 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	 *  -the given name is null or an empty string
 	 *  -this namable element belongs to a search container that contains an other element with the given name
 	 */
-	@SuppressWarnings("unchecked")
 	public ONE setName(String name) {
 		if (!hasName(name)) {
 			
@@ -154,7 +153,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 			this.name = new NonEmptyText(name);
 		}
 		
-		return (ONE)this;
+		return getInstance();
 	}
 	
 	//method

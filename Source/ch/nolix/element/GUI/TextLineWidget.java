@@ -106,12 +106,11 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	 * @return this text line rectangle
 	 * @throws Exception if the given text is null
 	 */
-	@SuppressWarnings("unchecked")
 	public TLW setText(String text) {
 		
 		this.text = new Text(text);
 		
-		return (TLW)this;
+		return getInstance();
 	}
 	
 	//method

@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.element.configuration;
 
-import ch.nolix.core.constants.PascalCaseNameCatalogue;
 //own imports
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Freezable;
 import ch.nolix.core.specification.Specification;
@@ -54,7 +54,6 @@ implements Freezable<C> {
 	 * @throws NullArgumentException if the given attaching attribute is null.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
-	@SuppressWarnings("unchecked")
 	public final C addAttachingAttribute(final Specification attachingAttribute) {
 		
 		//Checks if this configuration is not frozen.
@@ -66,7 +65,7 @@ implements Freezable<C> {
 				attachingAttribute.getRefAttributes())
 		);
 		
-		return (C)this;
+		return getInstance();
 	}
 	
 	//method
@@ -97,7 +96,6 @@ implements Freezable<C> {
 	 * if one of the given attaching attributes represents no standard specification.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
-	@SuppressWarnings("unchecked")
 	public final C addAttachingAttribute(final String... attachingAttributes) {
 
 		//Checks if this configuration is not frozen.
@@ -108,7 +106,7 @@ implements Freezable<C> {
 			addAttachingAttribute(aa);
 		}
 		
-		return (C)this;
+		return getInstance();
 	}
 	
 	//method
@@ -120,7 +118,6 @@ implements Freezable<C> {
 	 * @throws NullArgumentException if the given configuration is null.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
-	@SuppressWarnings("unchecked")
 	public final C addConfiguration(final Configuration<?> configuration) {
 		
 		//Checks if this configuration is not frozen.
@@ -128,7 +125,7 @@ implements Freezable<C> {
 		
 		configurations.addAtEnd(configuration);
 		
-		return (C)this;
+		return getInstance();
 	}
 	
 	//method
@@ -140,7 +137,6 @@ implements Freezable<C> {
 	 * @throws NullArgumentException if one of the given configurations is null.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
-	@SuppressWarnings("unchecked")
 	public final C addConfiguration(final Configuration<?>...configurations) {
 		
 		//Checks if this configuration is not frozen.
@@ -148,7 +144,7 @@ implements Freezable<C> {
 		
 		this.configurations.addAtEnd(configurations);
 		
-		return (C)this;
+		return getInstance();
 	}
 	
 	//method
@@ -203,12 +199,11 @@ implements Freezable<C> {
 	 * 
 	 * @return this configuration.
 	 */
-	@SuppressWarnings("unchecked")
 	public final C freeze() {
 		
 		frozen = true;
 		
-		return (C)this;
+		return getInstance();
 	}
 	
 	//method
@@ -534,7 +529,6 @@ implements Freezable<C> {
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
-	@SuppressWarnings("unchecked")
 	public final C setName(final String name) {
 		
 		//Checks if this configuration is not frozen.
@@ -543,7 +537,7 @@ implements Freezable<C> {
 		//Calls method of the base class.
 		super.setName(name);
 		
-		return (C)this;
+		return getInstance();
 	}
 	
 	//method
@@ -556,7 +550,6 @@ implements Freezable<C> {
 	 * @throws EmptyArgumentException if the given selector name is empty.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
-	@SuppressWarnings("unchecked")
 	public final C setSelectorName(final String selectorName) {
 		
 		//Checks if this configuration is not frozen.
@@ -564,7 +557,7 @@ implements Freezable<C> {
 		
 		this.selectorName = new NonEmptyText(selectorName);
 		
-		return (C)this;
+		return getInstance();
 	}
 	
 	//method
@@ -588,7 +581,6 @@ implements Freezable<C> {
 	 * @throws EmptyArgumentException if the given selector token is empty.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
-	@SuppressWarnings("unchecked")
 	public final C setSelectorToken(final String selectorToken) {
 		
 		//Checks if this configuration is not frozen.
@@ -596,7 +588,7 @@ implements Freezable<C> {
 		
 		this.selectorToken = new NonEmptyText(selectorToken);
 		
-		return (C)this;
+		return getInstance();
 	}
 	
 	//method
@@ -609,7 +601,6 @@ implements Freezable<C> {
 	 * @throws EmptyArgumentException if the given selector type is empty.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
-	@SuppressWarnings("unchecked")
 	public final C setSelectorType(final String selectorType) {
 		
 		//Checks if this configuration is not frozen.
@@ -617,7 +608,7 @@ implements Freezable<C> {
 		
 		this.selectorType = new NonEmptyText(selectorType);
 		
-		return (C)this;
+		return getInstance();
 	}
 	
 	//method
@@ -642,7 +633,6 @@ implements Freezable<C> {
 	 * @throws EmptyArgumentException if the given selector role is empty.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
-	@SuppressWarnings("unchecked")
 	private final C setSelectorRole(final String selectorRole) {
 		
 		//Checks if this configuration is not frozen.
@@ -650,7 +640,7 @@ implements Freezable<C> {
 		
 		this.selectorRole = new NonEmptyText(selectorRole);
 		
-		return (C)this;
+		return getInstance();
 	}
 	
 	//method
