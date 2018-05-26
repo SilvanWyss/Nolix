@@ -79,7 +79,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 					row[j] = this.elements[i][j];
 				}
 				
-				row[getColumnCount()] = elements[i];
+				row[columnCount] = elements[i];
 				
 				this.elements[i] = row;
 			}
