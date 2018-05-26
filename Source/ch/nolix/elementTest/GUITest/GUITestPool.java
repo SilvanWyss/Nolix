@@ -21,7 +21,7 @@ public final class GUITestPool extends TestPool {
 		addTest(
 			new AreaTest(),
 			new CaptionPositionTest(),
-			new CheckBoxTest(),
+			new CheckboxTest(),
 			new LabelTest(),
 			new SingleContainerTest(),
 			new TextBoxTest(),

@@ -15,10 +15,10 @@ import ch.nolix.element.painter.IPainter;
  * @month 2016-05
  * @lines 270
  */
-public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
+public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 
 	//constant
-	public static final String TYPE_NAME = "CheckBox";
+	public static final String TYPE_NAME = "Checkbox";
 	
 	//constants
 	private final String CHECK_FLAG_HEADER = "Checked";
@@ -28,20 +28,20 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link CheckBox}.
+	 * Creates a new {@link Checkbox}.
 	 */
-	public CheckBox() {
+	public Checkbox() {
 		reset();
 		approveProperties();
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link CheckBox}.
+	 * Creates a new {@link Checkbox}.
 	 * 
 	 * @param checked
 	 */
-	public CheckBox(final boolean checked) {
+	public Checkbox(final boolean checked) {
 		
 		//Calls other constructor.
 		this();
@@ -68,11 +68,11 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//method
 	/**
-	 * Checks the current {@link CheckBox}.
+	 * Checks the current {@link Checkbox}.
 	 * 
-	 * @return the current {@link CheckBox}.
+	 * @return the current {@link Checkbox}.
 	 */
-	public CheckBox check() {
+	public Checkbox check() {
 		
 		checked = true;
 		
@@ -113,7 +113,7 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return true if the current {@link CheckBox} is checked.
+	 * @return true if the current {@link Checkbox} is checked.
 	 */
 	public boolean isChecked() {
 		return checked;
@@ -131,7 +131,7 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public CheckBox reset() {
+	public Checkbox reset() {
 		
 		uncheck();
 		
@@ -140,12 +140,12 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//method
 	/**
-	 * Sets the check flag of the current {@link CheckBox}.
+	 * Sets the check flag of the current {@link Checkbox}.
 	 * 
 	 * @param checked
-	 * @return the current {@link CheckBox}.
+	 * @return the current {@link Checkbox}.
 	 */
-	public CheckBox setCheckFlag(boolean checked) {
+	public Checkbox setCheckFlag(boolean checked) {
 		
 		if (!checked) {
 			uncheck();
@@ -159,11 +159,11 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//method
 	/**
-	 * Unchecks the current {@link CheckBox}.
+	 * Unchecks the current {@link Checkbox}.
 	 * 
-	 * @return the current {@link CheckBox}.
+	 * @return the current {@link Checkbox}.
 	 */
-	public CheckBox uncheck() {
+	public Checkbox uncheck() {
 		
 		checked = false;
 		
@@ -182,10 +182,10 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return a new widget look for the current {@link CheckBox}.
+	 * @return a new widget look for the current {@link Checkbox}.
 	 */
-	protected CheckBoxLook createWidgetLook() {
-		return new CheckBoxLook();
+	protected CheckboxLook createWidgetLook() {
+		return new CheckboxLook();
 	}
 	
 	//method
@@ -214,7 +214,7 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void paint(final CheckBoxLook checkBoxLook, final IPainter painter) {
+	protected void paint(final CheckboxLook checkBoxLook, final IPainter painter) {
 		
 		//Calls method of the base class.
 		super.paint(checkBoxLook, painter);

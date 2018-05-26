@@ -59,7 +59,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	private static final WidgetCreator widgetCreator = new WidgetCreator(
 		Area.class,
 		Button.class,
-		CheckBox.class,
+		Checkbox.class,
 		Console.class,
 		Grid.class,
 		HorizontalLine.class,

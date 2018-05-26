@@ -16,8 +16,8 @@ import ch.nolix.primitive.validator2.Validator;
  * @month 2016-05
  * @lines 280
  */
-public final class CheckBoxLook
-extends BackgroundWidgetLook<CheckBoxLook> {
+public final class CheckboxLook
+extends BackgroundWidgetLook<CheckboxLook> {
 	
 	//default values
 	public static final int DEFAULT_SIZE = 20;
@@ -31,7 +31,7 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to the current {@link CheckBoxLook}.
+	 * Adds or changes the given attribute to the current {@link CheckboxLook}.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -58,7 +58,7 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link CheckBoxLook}.
+	 * @return the attributes of the current {@link CheckboxLook}.
 	 */
 	public List<StandardSpecification> getAttributes() {
 		
@@ -85,7 +85,7 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return the recursive or default line color of the current {@link CheckBoxLook}.
+	 * @return the recursive or default line color of the current {@link CheckboxLook}.
 	 */
 	public Color getRecursiveOrDefaultLineColor() {
 		
@@ -107,7 +107,7 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return the recursive or default line thickness of the current {@link CheckBoxLook}.
+	 * @return the recursive or default line thickness of the current {@link CheckboxLook}.
 	 */
 	public int getRecursiveOrDefaultLineThickness() {
 		
@@ -129,7 +129,7 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return the active size of the current {@link CheckBoxLook}.
+	 * @return the active size of the current {@link CheckboxLook}.
 	 */
 	public int getRecursiveOrDefaultSize() {
 		
@@ -151,7 +151,7 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return true if the current {@link CheckBoxLook} has a line color.
+	 * @return true if the current {@link CheckboxLook} has a line color.
 	 */
 	public boolean hasLineColor() {
 		return (lineColor != null);
@@ -159,7 +159,7 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return true if the current {@link CheckBoxLook} has a line thickness.
+	 * @return true if the current {@link CheckboxLook} has a line thickness.
 	 */
 	public boolean hasLineThickness() {
 		return (lineThickness != null);
@@ -167,7 +167,7 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return the size of the current {@link CheckBoxLook}.
+	 * @return the size of the current {@link CheckboxLook}.
 	 */
 	public boolean hasSize() {
 		return (size != null);
@@ -175,11 +175,11 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * Removes the line color of the current {@link CheckBoxLook}.
+	 * Removes the line color of the current {@link CheckboxLook}.
 	 * 
-	 * @return the current {@link CheckBoxLook}.
+	 * @return the current {@link CheckboxLook}.
 	 */
-	public CheckBoxLook removeLineColor() {
+	public CheckboxLook removeLineColor() {
 		
 		lineColor = null;
 		
@@ -188,11 +188,11 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * Removes the line thickness of the current {@link CheckBoxLook}.
+	 * Removes the line thickness of the current {@link CheckboxLook}.
 	 * 
-	 * @return the current {@link CheckBoxLook}.
+	 * @return the current {@link CheckboxLook}.
 	 */
-	public CheckBoxLook removeLineThickness() {
+	public CheckboxLook removeLineThickness() {
 		
 		lineThickness = null;
 		
@@ -201,11 +201,11 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * Removes the size of the current {@link CheckBoxLook}.
+	 * Removes the size of the current {@link CheckboxLook}.
 	 * 
-	 * @return the current {@link CheckBoxLook}.
+	 * @return the current {@link CheckboxLook}.
 	 */
-	public CheckBoxLook removeSize() {
+	public CheckboxLook removeSize() {
 		
 		size = null;
 		
@@ -214,11 +214,11 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * Removes all attributes of the current {@link CheckBoxLook}.
+	 * Removes all attributes of the current {@link CheckboxLook}.
 	 * 
-	 * @return the current {@link CheckBoxLook}.
+	 * @return the current {@link CheckboxLook}.
 	 */
-	public CheckBoxLook reset() {
+	public CheckboxLook reset() {
 		
 		//Calls method of the base class.
 		super.reset();
@@ -232,13 +232,13 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * Sets the line color of the current {@link CheckBoxLook}.
+	 * Sets the line color of the current {@link CheckboxLook}.
 	 * 
 	 * @param lineColor
-	 * @return the current {@link CheckBoxLook}.
+	 * @return the current {@link CheckboxLook}.
 	 * @throws NullArgumentException if the given line color is null.
 	 */
-	public CheckBoxLook setLineColor(final Color lineColor) {
+	public CheckboxLook setLineColor(final Color lineColor) {
 		
 		//Checks if the given line color is not null.
 		Validator.suppose(lineColor).thatIsNamed("line color").isNotNull();
@@ -251,13 +251,13 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * Sets the line thickness of the current {@link CheckBoxLook}.
+	 * Sets the line thickness of the current {@link CheckboxLook}.
 	 * 
 	 * @param lineThickness
-	 * @return the current {@link CheckBoxLook}.
+	 * @return the current {@link CheckboxLook}.
 	 * @throws NonPositiveArgumentException if the given line thickness is not positive.
 	 */
-	public CheckBoxLook setLineThickness(final int lineThickness) {
+	public CheckboxLook setLineThickness(final int lineThickness) {
 		
 		//Sets the line thickness of the current {@link CheckBoxLook}.
 		this.lineThickness = new PositiveInteger(lineThickness);
@@ -267,13 +267,13 @@ extends BackgroundWidgetLook<CheckBoxLook> {
 	
 	//method
 	/**
-	 * Sets the size of the current {@link CheckBoxLook}.
+	 * Sets the size of the current {@link CheckboxLook}.
 	 * 
 	 * @param size
-	 * @return the current {@link CheckBoxLook}.
+	 * @return the current {@link CheckboxLook}.
 	 * @throws NonPositiveArgumentException if the given size is not positive.
 	 */
-	public CheckBoxLook setSize(final int size) {
+	public CheckboxLook setSize(final int size) {
 		
 		//Sets the size of the current {@link CheckBoxLook}.
 		this.size = new PositiveInteger(size);
