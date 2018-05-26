@@ -3,32 +3,27 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.List;
 import ch.nolix.core.entity.Property;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.element.core.MutableElement;
+import ch.nolix.element.bases.OptionalIdentifiedElement;
+import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.NonEmptyText;
-import ch.nolix.primitive.validator2.Validator;
 
 //class
-public final class SelectionMenuItem extends MutableElement<SelectionMenuItem> {
-
-	//constant
-	private static final String SELECTED_FLAG_HEADER = "Selected";
+public final class SelectionMenuItem extends OptionalIdentifiedElement {
 	
-	//TODO
-	private int id = -1;
-	private boolean selected = false;
+	//constant
+	private static final String SELECTION_FLAG_HEADER = "Selected";
 	
 	//static method
-	public static SelectionMenuItem createFromSpecification(final Specification specification) {
+	public static SelectionMenuItem createFromSpecification(
+		final Specification specification
+	) {
 		return new SelectionMenuItem(specification);		
 	}
 	
 	//attribute
-	private final Property<NonEmptyText> text =
+	private final Property<NonEmptyText> textProperty =
 	new Property<NonEmptyText>(
 		PascalCaseNameCatalogue.TEXT,
 		t -> setText(t.getValue()),
@@ -36,56 +31,40 @@ public final class SelectionMenuItem extends MutableElement<SelectionMenuItem> {
 	);
 	
 	//attribute
-	private final Label label;
+	private final Property<Boolean> selectionFlagProperty =
+	new Property<>(
+		SELECTION_FLAG_HEADER,
+		sf -> setSelectionFlag(sf.getValue()),
+		s -> Boolean.createFromSpecification(s)
+	);
+	
+	//attribute
+	private final Label label = new Label();
 	
 	//constructor
 	public SelectionMenuItem(final String text) {
-
-		label = new Label();	
-		setText(text);		
+		setText(text);
+		unselect();
 		approveProperties();
+		
 	}
 	
 	//constructor
 	public SelectionMenuItem(final int id, final String text) {
 		
-		Validator
-		.suppose(id)
-		.thatIsNamed(VariableNameCatalogue.ID)
-		.isPositive();
+		super(id);
 		
-		this.id = id;
-		label = new Label();		
+		unselect();	
 		setText(text);		
 		approveProperties();
+		
 	}
 	
 	//constructor
 	private SelectionMenuItem(final Specification specification) {
-		
-		label = new Label();
-		
-		//TODO: Add init method to Entity.
-		specification.getRefAttributes().forEach(a -> addOrChangeAttribute(a));
-		
+		unselect();
+		initializeProperties(specification);		
 		approveProperties();
-	}
-	
-	//method
-	public List<StandardSpecification> getAttributes() {
-		
-		final var attributes = super.getAttributes();
-		
-		if (isSelected()) {
-			//attributes.addAtEnd(StandardSpecification.createSpecificationWithHeaderOnly(SELECTED_FLAG_HEADER));
-		}
-		
-		//TODO
-		if (hasId()) {
-			attributes.addAtEnd(new StandardSpecification("Id", String.valueOf(getId())));
-		}
-		
-		return attributes;
 	}
 	
 	//method
@@ -94,8 +73,13 @@ public final class SelectionMenuItem extends MutableElement<SelectionMenuItem> {
 	}
 	
 	//method
+	public Label getRefLabel() {
+		return label;
+	}
+	
+	//method
 	public String getText() {
-		return text.getValue().getValue();
+		return textProperty.getValue().getValue();
 	}
 	
 	//method
@@ -110,67 +94,34 @@ public final class SelectionMenuItem extends MutableElement<SelectionMenuItem> {
 	
 	//method
 	public boolean isSelected() {
-		return selected;
+		return selectionFlagProperty.getValue().getValue();
 	}
 	
 	//method
 	public void select() {
-		selected = true;
+		selectionFlagProperty.setValue(new Boolean(true));
 		label.setFocused();
 	}
 	
 	//method
 	public void unselect() {
-		selected = false;
+		selectionFlagProperty.setValue(new Boolean(false));
 		label.setNormal();
 	}
 	
 	//method
-	public void addOrChangeAttribute(final Specification attribute) {
-		switch (attribute.getHeader()) {
-			case SELECTED_FLAG_HEADER:
-				select();
-				break;
-				
-				
-			//TODO
-			case "Id":
-				this.id = attribute.getOneAttributeAsInt();
-				break;
-				
-			default:				
-				super.addOrChangeAttribute(attribute);
+	private void setSelectionFlag(final boolean selected) {		
+		if (!selected) {
+			select();
 		}
-	}
-	
-	//package-visible method
-	Label getRefLabel() {
-		return label;
+		else {
+			unselect();
+		}
 	}
 	
 	//method
 	private void setText(final String text) {	
-		this.text.setValue(new NonEmptyText(text));
+		textProperty.setValue(new NonEmptyText(text));
 		label.setText(text);
-	}
-
-	//TODO
-	public SelectionMenuItem reset() {
-		return this;
-	}
-	
-	//TODO
-	public int getId() {
-		return id;
-	}
-	
-	//TODO
-	public boolean hasId() {
-		return (id > 0);
-	}
-	
-	//TODO
-	public boolean hasId(int id) {
-		return getId() == id;
 	}
 }

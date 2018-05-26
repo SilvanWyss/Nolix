@@ -21,6 +21,9 @@ public final class SelectionMenu
 extends BorderWidget<SelectionMenu, SelectionMenuLook> 
 implements Clearable<SelectionMenu> {
 	
+	//constant
+	private static final String SELECTED_ITEM_HEADER = "SelectedItem";
+	
 	//attribute
 	private final VerticalStack menu = new VerticalStack();
 	
@@ -74,10 +77,8 @@ implements Clearable<SelectionMenu> {
 			case PascalCaseNameCatalogue.ITEM:
 				addItem(SelectionMenuItem.createFromSpecification(attribute));
 				break;
-			
-			//TODO
-			case "SelectedItemId":
-				select(attribute.getOneAttributeAsInt());
+			case SELECTED_ITEM_HEADER:
+				select(attribute.getOneAttributeAsString());
 				break;
 				
 			default:				
@@ -125,15 +126,16 @@ implements Clearable<SelectionMenu> {
 		
 		final var attributes = super.getAttributes();
 		
-		getItems().forEach(
-			i -> attributes.addAtEnd(i.getSpecificationAs(PascalCaseNameCatalogue.ITEM))
-		);
+		for (final var i : getItems()) {
+			attributes.addAtEnd(i.getSpecificationAs(PascalCaseNameCatalogue.ITEM));
+		}
 		
 		if (containsSelectedItem()) {
-			
-			//TODO
 			attributes.addAtEnd(
-				new StandardSpecification("SelectedItemId", String.valueOf(getSelectedItemId()))
+				new StandardSpecification(
+					SELECTED_ITEM_HEADER,
+					getSelectedItemText()
+				)
 			);
 		}
 		
@@ -146,10 +148,8 @@ implements Clearable<SelectionMenu> {
 		final var interactionAttributes = super.getInteractionAttributes();
 		
 		if (containsSelectedItem()) {
-			
-			//TODO
 			interactionAttributes.addAtEnd(
-				new StandardSpecification("SelectedItemId", String.valueOf(getSelectedItemId()))
+				new StandardSpecification(SELECTED_ITEM_HEADER, getSelectedItemText())
 			);
 		}
 		
@@ -366,7 +366,16 @@ implements Clearable<SelectionMenu> {
 	
 	//method
 	private void select(final SelectionMenuItem item) {
-		items.forEach(i -> i.unselect());
+		
+		//For better performance, not all comfortable methods are used.
+			final var selectedItem = items.getRefFirstOrNull(i -> i.isSelected());
+			
+			if (selectedItem != null) {
+				selectedItem.unselect();
+			}
+			
+			items.forEach(i -> i.unselect());
+		
 		item.select();
 	}
 	
