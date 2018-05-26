@@ -6,13 +6,14 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.core.Boolean;
 import ch.nolix.element.painter.IPainter;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 200
+ * @lines 270
  */
 public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 
@@ -20,8 +21,7 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	public static final String TYPE_NAME = "CheckBox";
 	
 	//constants
-	private final String CHECKED_HEADER = "Checked";
-	private final String UNCHECKED_HEADER = "Unchecked";
+	private final String CHECK_FLAG_HEADER = "Checked";
 	
 	//attribute
 	private boolean checked = false;
@@ -35,23 +35,30 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 		approveProperties();
 	}
 	
+	//constructor
+	/**
+	 * Creates a new {@link CheckBox}.
+	 * 
+	 * @param checked
+	 */
+	public CheckBox(final boolean checked) {
+		
+		//Calls other constructor.
+		this();
+		
+		setCheckFlag(checked);
+	}
+	
 	//method
 	/**
-	 * Adds or changes the given attribute to the current {@link CheckBox}.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 * {@inheritDoc}
 	 */
 	public void addOrChangeAttribute(final Specification attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case CHECKED_HEADER:
-				check();
-				break;
-			case UNCHECKED_HEADER:
-				uncheck();
-				break;
+			case CHECK_FLAG_HEADER:
+				setCheckFlag(attribute.getOneAttributeAsBoolean());
 			default:
 				
 				//Calls method of the base class.
@@ -74,7 +81,7 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return the active cursor icon of the current {@link CheckBox}.
+	 * {@inheritDoc}
 	 */
 	public CursorIcon getActiveCursorIcon() {
 		return getCursorIcon();
@@ -82,24 +89,23 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link CheckBox}.
+	 * {@inheritDoc}
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<StandardSpecification> getInteractionAttributes() {
 		
 		//Calls method of the base class.
-		final var attributes = super.getAttributes();
+		final var interactionAttributes = super.getInteractionAttributes();
 		
-		//Handles the case that the current check box is checked.
-		if (isChecked()) {
-			attributes.addAtEnd(new StandardSpecification(CHECKED_HEADER));
-		}
+		interactionAttributes.addAtEnd(
+			new Boolean(isChecked()).getSpecificationAs(CHECK_FLAG_HEADER)
+		);
 		
-		return attributes;
+		return interactionAttributes;
 	}
 	
 	//method
 	/**
-	 * @return true if the current {@link CheckBox} has the given role.
+	 * {@inheritDoc}
 	 */
 	public boolean hasRole(final String role) {
 		return false;
@@ -111,6 +117,44 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	 */
 	public boolean isChecked() {
 		return checked;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public void noteLeftMouseButtonPress() {
+		setCheckFlag(!isChecked());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public CheckBox reset() {
+		
+		uncheck();
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the check flag of the current {@link CheckBox}.
+	 * 
+	 * @param checked
+	 * @return the current {@link CheckBox}.
+	 */
+	public CheckBox setCheckFlag(boolean checked) {
+		
+		if (!checked) {
+			uncheck();
+		}
+		else {
+			check();
+		}
+		
+		return this;
 	}
 	
 	//method
@@ -152,36 +196,33 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 	
 	//method
 	/**
-	 * @return the height of the current {@link CheckBox} when it is not collapsed. 
+	 * {@inheritDoc}
 	 */
 	protected int getHeightWhenNotCollapsed() {
-		return getRefCurrentLook().getActiveSize();
+		return getRefCurrentLook().getRecursiveOrDefaultSize();
 	}
 	
 	//method
 	/**
-	 * @return the width of the current {@link CheckBox} when it is not collapsed.
+	 * {@inheritDoc}
 	 */
 	protected int getWidthWhenNotCollapsed() {
-		return getRefCurrentLook().getActiveSize();
+		return getRefCurrentLook().getRecursiveOrDefaultSize();
 	}
 	
 	//method
 	/**
-	 * Paints the current {@link CheckBox} using the given check box look and painter.
-	 * 
-	 * @param checkBoxLook
-	 * @param painter
+	 * {@inheritDoc}
 	 */
 	protected void paint(final CheckBoxLook checkBoxLook, final IPainter painter) {
 		
 		//Calls method of the base class.
 		super.paint(checkBoxLook, painter);
 		
-		final int s = checkBoxLook.getActiveSize();
-		final int t = checkBoxLook.getActiveLineThickness();
+		final var s = checkBoxLook.getRecursiveOrDefaultSize();
+		final var t = checkBoxLook.getRecursiveOrDefaultLineThickness();
 		
-		painter.setColor(checkBoxLook.getActiveLineColor());
+		painter.setColor(checkBoxLook.getRecursiveOrDefaultLineColor());
 		
 		//Paints the left border of the current check box.
 		painter.paintFilledRectangle(0, 0, t, s);
@@ -193,21 +234,38 @@ public final class CheckBox extends BackgroundWidget<CheckBox, CheckBoxLook> {
 		painter.paintFilledRectangle(0, 0, s, t);
 		
 		//Paints the bottom border of the current check box.
-		painter.paintFilledRectangle(s - t, 0, s, t);
+		painter.paintFilledRectangle(0, s - t, s, t);
 		
 		//Paints the icon of the current check box if it is checked.
 		if (isChecked()) {
 			
-			final int[] x = new int[4];
-			final int[] y = new int[4];
+			final var a = (int)(0.75 * t);
 			
-			x[0] = 0;		y[0] = t;
-			x[1] = t;		y[1] = 0;
-			x[2] = s;		y[2] = s - t;
-			x[3] = s - t;	y[3] = s;
+			//Paints the line from the bottom left corner to to the top right corner of the cross.
+			{
+				final int[] xs = new int[4];
+				final int[] ys = new int[4];
+				
+				xs[0] = a;		ys[0] = s;
+				xs[1] = s;		ys[1] = a;
+				xs[2] = s - a;	ys[2] = 0;
+				xs[3] = 0;		ys[3] = s - a;
+				
+				painter.paintFilledPolygon(xs, ys);
+			}
 			
-			//TODO
-			//painter.paintedFilledPolygon(x, y, 4);
+			//Paints the line from the bottom right corner to the top left corner of the cross.
+			{
+				final int[] xs = new int[4];
+				final int[] ys = new int[4];
+				
+				xs[0] = s;		ys[0] = s - a;
+				xs[1] = a;		ys[1] = 0;
+				xs[2] = 0;		ys[2] = a;
+				xs[3] = s - a;	ys[3] = s;
+				
+				painter.paintFilledPolygon(xs, ys);
+			}
 		}
 	}
 }

@@ -91,7 +91,7 @@ extends ConfigurableElement<W> {
 	/**
 	 * Creates a new {@link Widget}.
 	 */
-	public Widget() {			
+	public Widget() {	
 		getRefHoverLook().setBaseStructure(getRefBaseLook());
 		getRefFocusLook().setBaseStructure(getRefBaseLook());
 		getRefHoverFocusLook().setBaseStructure(getRefFocusLook());
