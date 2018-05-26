@@ -43,10 +43,9 @@ public final class SelectionMenuItem extends OptionalIdentifiedElement {
 	
 	//constructor
 	public SelectionMenuItem(final String text) {
-		setText(text);
 		unselect();
+		setText(text);
 		approveProperties();
-		
 	}
 	
 	//constructor
@@ -57,7 +56,6 @@ public final class SelectionMenuItem extends OptionalIdentifiedElement {
 		unselect();	
 		setText(text);		
 		approveProperties();
-		
 	}
 	
 	//constructor
@@ -112,10 +110,10 @@ public final class SelectionMenuItem extends OptionalIdentifiedElement {
 	//method
 	private void setSelectionFlag(final boolean selected) {		
 		if (!selected) {
-			select();
+			unselect();
 		}
 		else {
-			unselect();
+			select();
 		}
 	}
 	
