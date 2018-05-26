@@ -216,7 +216,14 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
+	public SelectionMenu selectFirstItem() {
+		
+		select(items.getRefFirst());
+		
+		return this;
+	}
 	
+	//method
 	public SelectionMenu unselect() {
 		
 		if (containsSelectedItem()) {
