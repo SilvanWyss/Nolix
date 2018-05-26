@@ -1,9 +1,7 @@
 //package declaration
 package ch.nolix.primitive.validator2;
 
-//Java import
-import java.util.Vector;
-
+import ch.nolix.primitive.container.List;
 //own imports
 import ch.nolix.primitive.helper.ArrayHelper;
 import ch.nolix.primitive.invalidArgumentException.FalseArgumentException;
@@ -18,7 +16,7 @@ import ch.nolix.primitive.invalidArgumentException.TrueArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 310
+ * @lines 300
  */
 public final class Validator {
 	
@@ -106,7 +104,7 @@ public final class Validator {
 		
 		//Handles the case that the given argument is null.
 		if (argument == null) {
-			final Vector<Double> argumentVector = null;
+			final List<Double> argumentVector = null;
 			return new ExtendedContainerMediator<Double>(argumentVector);
 		}
 		
@@ -132,7 +130,7 @@ public final class Validator {
 		
 		//Handles the case that the given argument is null.
 		if (argument == null) {
-			final Vector<Long> argumentVector = null;
+			final List<Long> argumentVector = null;
 			return new ExtendedContainerMediator<Long>(argumentVector);
 		}
 		
@@ -158,7 +156,7 @@ public final class Validator {
 		
 		//Handles the case that the given argument is null.
 		if (argument == null) {
-			final Vector<Long> argumentVector = null;
+			final List<Long> argumentVector = null;
 			return new ExtendedContainerMediator<Long>(argumentVector);
 		}
 		
