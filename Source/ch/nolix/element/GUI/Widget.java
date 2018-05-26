@@ -234,9 +234,7 @@ extends ConfigurableElement<W> {
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
-		if (!isNormal()) {
-			attributes.addAtEnd(getState().getSpecificationAs(STATE_HEADER));
-		}
+		attributes.addAtBegin(getInteractionAttributes());
 		
 		if (cursorIcon != CursorIcon.Arrow) {
 			attributes.addAtEnd(cursorIcon.getSpecification());

@@ -79,8 +79,7 @@ implements Clearable<SelectionMenu> {
 				break;
 			case SELECTED_ITEM_HEADER:
 				select(attribute.getOneAttributeAsString());
-				break;
-				
+				break;				
 			default:				
 				super.addOrChangeAttribute(attribute);
 		}
@@ -130,15 +129,6 @@ implements Clearable<SelectionMenu> {
 			attributes.addAtEnd(i.getSpecificationAs(PascalCaseNameCatalogue.ITEM));
 		}
 		
-		if (containsSelectedItem()) {
-			attributes.addAtEnd(
-				new StandardSpecification(
-					SELECTED_ITEM_HEADER,
-					getSelectedItemText()
-				)
-			);
-		}
-		
 		return attributes;
 	}
 	
@@ -149,7 +139,10 @@ implements Clearable<SelectionMenu> {
 		
 		if (containsSelectedItem()) {
 			interactionAttributes.addAtEnd(
-				new StandardSpecification(SELECTED_ITEM_HEADER, getSelectedItemText())
+				new StandardSpecification(
+					SELECTED_ITEM_HEADER,
+					getSelectedItemText()
+				)
 			);
 		}
 		
