@@ -16,7 +16,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 180
+ * @lines 200
  */
 public abstract class Entity implements Specified {
 	
@@ -84,6 +84,22 @@ public abstract class Entity implements Specified {
 		propertiesAreApproved = true;
 	}
 	
+	//method
+	/**
+	 * Initializes the properties of this entity from the given specification.
+	 * 
+	 * @param specification
+	 * @throws InvalidStateException if the properties of this entity are approved.
+	 * @throws InvalidArgumentException
+	 * if one of the attributes of the given specification is not valid.
+	 */
+	protected final void initializeProperties(final Specification specification) {
+		
+		supposePropertiesAreNotApproved();
+		
+		specification.getRefAttributes().forEach(a -> addOrChangeAttribute(a));
+	}
+
 	//package-visible method
 	/**
 	 * @return the properties of this entity.
@@ -171,7 +187,19 @@ public abstract class Entity implements Specified {
 
 		//Checks if the properties of this entity are approved.
 		if (this.containsProperties() && !propertiesAreApproved()) {
-			throw new InvalidStateException(this, "has properties that are not approved");
+			throw new InvalidStateException(this, "contains properties that are not approved");
+		}
+	}
+	
+	//method
+	/**
+	 * @throws InvalidStateException if the properties of this entity are approved.
+	 */
+	private void supposePropertiesAreNotApproved() {
+		
+		//Checks if the properties of this entity are not approved.
+		if (this.containsProperties() && propertiesAreApproved()) {
+			throw new InvalidStateException(this, "contains properties that are approved");
 		}
 	}
 }
