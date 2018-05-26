@@ -1,8 +1,12 @@
 //package declaration
 package ch.nolix.element.bases;
 
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.container.List;
+import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.core.Element;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
@@ -11,7 +15,7 @@ import ch.nolix.primitive.validator2.Validator;
 public abstract class OptionalIdentifiedElement extends Element {
 
 	//optional attribute
-	private final int id;
+	private int id;
 	
 	//constructor
 	public OptionalIdentifiedElement() {
@@ -20,13 +24,23 @@ public abstract class OptionalIdentifiedElement extends Element {
 	
 	//constructor
 	public OptionalIdentifiedElement(final int id) {
+		setId(id);
+	}
+	
+	//method
+	public List<StandardSpecification> getAttributes() {
 		
-		Validator
-		.suppose(id)
-		.thatIsNamed(VariableNameCatalogue.ID)
-		.isPositive();
+		final var attributes = super.getAttributes();
 		
-		this.id = id;
+		if (hasId()) {
+			attributes.addAtEnd(
+				new StandardSpecification(
+					PascalCaseNameCatalogue.ID,
+					String.valueOf(getId()))
+			);
+		}
+		
+		return attributes;
 	}
 	
 	//method
@@ -50,6 +64,29 @@ public abstract class OptionalIdentifiedElement extends Element {
 		}
 		
 		return (getId() == id);
+	}
+	
+	//method
+	protected void addOrChangeAttribute(final Specification attribute) {
+		switch (attribute.getHeader()) {
+			case PascalCaseNameCatalogue.ID:
+				setId(attribute.getOneAttributeAsInt());
+				break;
+			default:
+				
+				super.addOrChangeAttribute(attribute);
+		}
+	}
+	
+	//method
+	private void setId(final int id) {
+		
+		Validator
+		.suppose(id)
+		.thatIsNamed(VariableNameCatalogue.ID)
+		.isPositive();
+		
+		this.id = id;
 	}
 	
 	//method
