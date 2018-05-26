@@ -44,6 +44,7 @@ public class PascalCaseNameCatalogue {
 	public static final String ID = "Id";
 	public static final String ITEM = "item";
 	public static final String LENGTH = "Length";
+	public static final String LINE_COLOR = "LineColor";
 	public static final String LINE_THICKNESS = "LineThickness";
 	public static final String MESSAGE = "Message";
 	public static final String NAME = "Name";
@@ -56,6 +57,7 @@ public class PascalCaseNameCatalogue {
 	public static final String ROOT = "Root";
 	public static final String ROW = "Row";
 	public static final String SEPARATOR = "Separator";
+	public static final String SIZE = "Size";
 	public static final String START_DATE = "StartDate";
 	public static final String START_INDEX = "StartIndex";
 	public static final String STATE = "State";
