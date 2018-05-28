@@ -43,7 +43,7 @@ implements IFluentObject<WL>, Specified {
 	private static final String BOLD_TEXT_FLAG_HEADER = "BoldTextFlag";
 	
 	//attribute
-	private final Property<TextFont> textFontProperty =
+	private final Property<TextFont> textFont =
 	new Property<TextFont>(
 		TextFont.TYPE_NAME,
 		DEFAULT_TEXT_FONT,
@@ -51,7 +51,7 @@ implements IFluentObject<WL>, Specified {
 	);
 	
 	//attribute
-	private final Property<Boolean> boldTextFlagProperty =
+	private final Property<Boolean> boldTextFlag =
 	new Property<Boolean>(
 		BOLD_TEXT_FLAG_HEADER,
 		new Boolean(false),
@@ -59,7 +59,7 @@ implements IFluentObject<WL>, Specified {
 	);
 	
 	//attribute
-	private final Property<PositiveInteger> textSizeProperty =
+	private final Property<PositiveInteger> textSize =
 	new Property<PositiveInteger>(
 		PascalCaseNameCatalogue.TEXT_SIZE,
 		new TextSize(DEFAULT_TEXT_SIZE),
@@ -67,7 +67,7 @@ implements IFluentObject<WL>, Specified {
 	);
 	
 	//attribute
-	private final Property<Color> textColorProperty =
+	private final Property<Color> textColor =
 	new Property<Color>(
 		PascalCaseNameCatalogue.TEXT_COLOR,
 		DEFAULT_TEXT_COLOR,
@@ -80,7 +80,7 @@ implements IFluentObject<WL>, Specified {
 	 * of the current {@link WidgetLook}.
 	 */
 	public final boolean getRecursiveOrDefaultBoldTextFlag() {
-		return boldTextFlagProperty.getRecursiveOrDefaultValue().getValue();
+		return boldTextFlag.getRecursiveOrDefaultValue().getValue();
 	}
 	
 	//method
@@ -89,7 +89,7 @@ implements IFluentObject<WL>, Specified {
 	 * of the current {@link WidgetLook}.
 	 */
 	public final Color getRecursiveOrDefaultTextColor() {
-		return textColorProperty.getRecursiveOrDefaultValue();
+		return textColor.getRecursiveOrDefaultValue();
 	}
 	
 	//method
@@ -98,7 +98,7 @@ implements IFluentObject<WL>, Specified {
 	 * of the current {@link WidgetLook}.
 	 */
 	public final TextFont getRecursiveOrDefaultTextFont() {
-		return textFontProperty.getRecursiveOrDefaultValue();
+		return textFont.getRecursiveOrDefaultValue();
 	}
 		
 	//method
@@ -107,7 +107,7 @@ implements IFluentObject<WL>, Specified {
 	 * of the current {@link WidgetLook}.
 	 */
 	public final int getRecursiveOrDefaultTextSize() {
-		return textSizeProperty.getRecursiveOrDefaultValue().getValue();
+		return textSize.getRecursiveOrDefaultValue().getValue();
 	}
 	
 	//method
@@ -123,7 +123,7 @@ implements IFluentObject<WL>, Specified {
 	 * @return true if the current {@link WidgetLook} has a bold text flag.
 	 */
 	public final boolean hasRecursiveBoldTextFlag() {
-		return boldTextFlagProperty.hasRecursiveValue();
+		return boldTextFlag.hasRecursiveValue();
 	}
 	
 	//method
@@ -134,7 +134,7 @@ implements IFluentObject<WL>, Specified {
 	 */
 	public final WL removeTextColor() {
 		
-		textColorProperty.removeValue();
+		textColor.removeValue();
 		
 		return getInstance();
 	}
@@ -147,7 +147,7 @@ implements IFluentObject<WL>, Specified {
 	 */
 	public final WL removeTextFont() {
 		
-		textFontProperty.removeValue();
+		textFont.removeValue();
 		
 		return getInstance();
 	}
@@ -160,7 +160,7 @@ implements IFluentObject<WL>, Specified {
 	 */
 	public final WL removeTextSize() {
 		
-		textSizeProperty.removeValue();
+		textSize.removeValue();
 		
 		return getInstance();
 	}
@@ -173,7 +173,7 @@ implements IFluentObject<WL>, Specified {
 	 */
 	public final WL removeBoldTextFlag() {
 		
-		boldTextFlagProperty.removeValue();
+		boldTextFlag.removeValue();
 		
 		return getInstance();
 	}
@@ -186,7 +186,7 @@ implements IFluentObject<WL>, Specified {
 	 */
 	public final WL setBoldTextFlag(final boolean boldTextFlag) {
 		
-		boldTextFlagProperty.setValue(new Boolean(boldTextFlag));
+		this.boldTextFlag.setValue(new Boolean(boldTextFlag));
 		
 		return getInstance();
 	}
@@ -201,7 +201,7 @@ implements IFluentObject<WL>, Specified {
 	 */
 	public final WL setTextColor(final Color textColor) {
 		
-		this.textColorProperty.setValue(textColor);
+		this.textColor.setValue(textColor);
 		
 		return getInstance();
 	}
@@ -216,7 +216,7 @@ implements IFluentObject<WL>, Specified {
 	 */
 	public final WL setTextFont(final TextFont textFont) {
 		
-		this.textFontProperty.setValue(textFont);
+		this.textFont.setValue(textFont);
 		
 		return getInstance();
 	}
@@ -231,7 +231,7 @@ implements IFluentObject<WL>, Specified {
 	 */
 	public final WL setTextSize(final int textSize) {
 		
-		this.textSizeProperty.setValue(new PositiveInteger(textSize));
+		this.textSize.setValue(new PositiveInteger(textSize));
 		
 		return getInstance();
 	}

@@ -28,7 +28,7 @@ extends WidgetLook<BWL> {
 	private static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
 	
 	//attribute
-	private final Property<Color> backgroundColorProperty =
+	private final Property<Color> backgroundColor =
 	new Property<Color>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		DEFAULT_BACKGROUND_COLOR,
@@ -36,7 +36,7 @@ extends WidgetLook<BWL> {
 	);
 
 	//attribute
-	private final Property<ColorGradient> backgroundColorGradientProperty =
+	private final Property<ColorGradient> backgroundColorGradient =
 	new Property<ColorGradient>(
 		BACKGROUND_COLOR_GRADIENT_HEADER,
 		DEFAULT_BACKGROUND_COLOR_GRADIENT,
@@ -49,7 +49,7 @@ extends WidgetLook<BWL> {
      * of the current {@link BackgroundWidgetLook}.
      */
     public final Color getRecursiveOrDefaultBackgroundColor() {
-        return backgroundColorProperty.getRecursiveOrDefaultValue();
+        return backgroundColor.getRecursiveOrDefaultValue();
     }
     
     //method
@@ -58,7 +58,7 @@ extends WidgetLook<BWL> {
      * of the current {@link BackgroundWidgetLook}.
      */
     public final ColorGradient getRecursiveOrDefaultBackgroundColorGradient() {
-        return backgroundColorGradientProperty.getRecursiveOrDefaultValue();
+        return backgroundColorGradient.getRecursiveOrDefaultValue();
     }
     
     //method
@@ -67,7 +67,7 @@ extends WidgetLook<BWL> {
      * has a recursive background color.
      */
     public final boolean hasRecursiveBackgroundColor() {
-        return backgroundColorProperty.hasRecursiveValue();
+        return backgroundColor.hasRecursiveValue();
     }
     
     //method
@@ -76,7 +76,7 @@ extends WidgetLook<BWL> {
      * has a recursive background color gradient.
      */
     public final boolean hasRecursiveBackgroundColorGradient() {
-        return backgroundColorGradientProperty.hasRecursiveValue();
+        return backgroundColorGradient.hasRecursiveValue();
     }
     
     //method
@@ -87,7 +87,7 @@ extends WidgetLook<BWL> {
      */
     public final BWL removeBackgroundColor() {
         
-        backgroundColorProperty.removeValue();
+        backgroundColor.removeValue();
         
         return getInstance();
     }
@@ -100,7 +100,7 @@ extends WidgetLook<BWL> {
      */
     public final BWL removeBackgroundColorGradient() {
         
-        backgroundColorGradientProperty.removeValue();
+        backgroundColorGradient.removeValue();
         
         return getInstance();
     }
@@ -116,7 +116,7 @@ extends WidgetLook<BWL> {
      */
     public final BWL setBackgroundColor(final Color backgroundColor) {
     	
-    	backgroundColorProperty.setValue(backgroundColor);
+    	this.backgroundColor.setValue(backgroundColor);
     	removeBackgroundColorGradient();
     	
     	return getInstance();
@@ -133,7 +133,7 @@ extends WidgetLook<BWL> {
      */
     public final BWL setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
     	
-    	backgroundColorGradientProperty.setValue(backgroundColorGradient);
+    	this.backgroundColorGradient.setValue(backgroundColorGradient);
     	removeBackgroundColor();
     	
     	return getInstance();

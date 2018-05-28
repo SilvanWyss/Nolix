@@ -28,7 +28,7 @@ extends Entity<SelectionMenuItemLook> {
 	}
 
 	//attribute
-	private final Property<Color> backgroundColorProperty =
+	private final Property<Color> backgroundColor =
 	new Property<Color>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		DEFAULT_BACKGROUND_COLOR,
@@ -36,7 +36,7 @@ extends Entity<SelectionMenuItemLook> {
 	);
 	
 	//attribute
-	private final Property<Color> textColorProperty =
+	private final Property<Color> textColor =
 	new Property<Color>(
 		PascalCaseNameCatalogue.TEXT_COLOR,
 		DEFAULT_TEXT_COLOR,
@@ -45,12 +45,12 @@ extends Entity<SelectionMenuItemLook> {
 	
 	//method
 	public Color getRecursiveOrDefaultBackgroundColor() {
-		return backgroundColorProperty.getRecursiveOrDefaultValue();
+		return backgroundColor.getRecursiveOrDefaultValue();
 	}
 	
 	//method
 	public Color getRecursiveOrDefaultTextColor() {
-		return textColorProperty.getRecursiveOrDefaultValue();
+		return textColor.getRecursiveOrDefaultValue();
 	}
 	
 	//method
@@ -60,18 +60,18 @@ extends Entity<SelectionMenuItemLook> {
 	
 	//method
 	public boolean hasRecursiveBackgroundColor() {
-		return backgroundColorProperty.hasRecursiveValue();
+		return backgroundColor.hasRecursiveValue();
 	}
 	
 	//method
 	public boolean hasRecursiveTextColor() {
-		return textColorProperty.hasRecursiveValue();
+		return textColor.hasRecursiveValue();
 	}
 	
 	//method
 	public SelectionMenuItemLook setBackgroundColor(final Color backgroundColor) {
 		
-		backgroundColorProperty.setValue(backgroundColor);
+		this.backgroundColor.setValue(backgroundColor);
 		
 		return this;
 	}
@@ -79,7 +79,7 @@ extends Entity<SelectionMenuItemLook> {
 	//method
 	public SelectionMenuItemLook setTextColor(final Color textColor) {
 		
-		textColorProperty.setValue(textColor);
+		this.textColor.setValue(textColor);
 		
 		return this;
 	}

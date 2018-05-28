@@ -23,7 +23,7 @@ public final class SelectionMenuItem extends OptionalIdentifiedElement {
 	}
 	
 	//attribute
-	private final Property<NonEmptyText> textProperty =
+	private final Property<NonEmptyText> text =
 	new Property<NonEmptyText>(
 		PascalCaseNameCatalogue.TEXT,
 		t -> setText(t.getValue()),
@@ -77,7 +77,7 @@ public final class SelectionMenuItem extends OptionalIdentifiedElement {
 	
 	//method
 	public String getText() {
-		return textProperty.getValue().getValue();
+		return text.getValue().getValue();
 	}
 	
 	//method
@@ -119,7 +119,7 @@ public final class SelectionMenuItem extends OptionalIdentifiedElement {
 	
 	//method
 	private void setText(final String text) {	
-		textProperty.setValue(new NonEmptyText(text));
+		this.text.setValue(new NonEmptyText(text));
 		label.setText(text);
 	}
 }
