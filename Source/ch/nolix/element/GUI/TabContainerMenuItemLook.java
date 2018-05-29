@@ -16,6 +16,9 @@ import ch.nolix.primitive.validator2.Validator;
 public final class TabContainerMenuItemLook
 extends Entity<SelectionMenuItemLook> {
 	
+	//constant
+	public static final String TYPE_NAME = "MenuItemLook";
+	
 	//default values
 	public static final int DEFAULT_MIN_WIDTH = ValueCatalogue.MEDIUM_WIDGET_WIDTH;
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.LIGHT_GREY;
@@ -149,7 +152,7 @@ extends Entity<SelectionMenuItemLook> {
 	
 	//method
 	public String getType() {
-		return getClass().getSimpleName();
+		return TYPE_NAME;
 	}
 	
 	//method
