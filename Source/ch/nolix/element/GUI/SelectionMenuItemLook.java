@@ -12,6 +12,9 @@ import ch.nolix.element.color.Color;
 public final class SelectionMenuItemLook
 extends Entity<SelectionMenuItemLook> {
 	
+	//constant
+	public static final String TYPE_NAME = "ItemLook";
+	
 	//default values
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
@@ -55,7 +58,7 @@ extends Entity<SelectionMenuItemLook> {
 	
 	//method
 	public String getType() {
-		return getClass().getSimpleName();
+		return TYPE_NAME;
 	}
 	
 	//method
