@@ -21,6 +21,7 @@ public class VariableNameCatalogue {
 	public static final String COLOR = "color";
 	public static final String COLUMN_COUNT = "column count";
 	public static final String COLUMN_INDEX = "column index";
+	public static final String COMMAND = "command";
 	public static final String CONDITION = "condition";
 	public static final String CONFIGURATION = "configuration";
 	public static final String CONTAINER = "container";
@@ -64,6 +65,7 @@ public class VariableNameCatalogue {
 	public static final String PRICE = "price";
 	public static final String RADIUS = "radius";
 	public static final String REASON = "reason";
+	public static final String REQUEST = "reqest";
 	public static final String RESOURCE = "resource";
 	public static final String ROLE = "role";
 	public static final String ROOT = "root";
