@@ -6,13 +6,15 @@ import java.lang.reflect.ParameterizedType;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.interfaces.Headered;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
-public abstract class Propertyoid<V> implements Specified {
+public abstract class Propertyoid<V>
+implements Headered, Specified {
 	
 	//optional attribute
 	private Entity parentEntity;
@@ -27,7 +29,9 @@ public abstract class Propertyoid<V> implements Specified {
 	
 	//method
 	public final List<StandardSpecification> getAttributes() {
-		return internal_getValues().to(v -> new StandardSpecification(v.toString()));
+		return
+		internal_getValues()
+		.to(v -> new StandardSpecification(v.toString()));
 	}
 	
 	//method
