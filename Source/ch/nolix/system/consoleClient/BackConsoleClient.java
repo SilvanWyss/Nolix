@@ -30,7 +30,7 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 	public BackConsoleClient(final DuplexController duplexController) {
 		
 		//Calls constructor of the base class.
-		internal_connectWith(duplexController);
+		internal_setDuplexController(duplexController);
 	}
 	
 	//method

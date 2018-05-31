@@ -32,6 +32,7 @@ final class FrontGUIClientController implements IController {
 		this.frontDialogClient = frontDialogClient;
 	}
 
+	//TODO: Implement widget call mechanism.
 	//method
 	/**
 	 * Lets this front dialog client controller run the given comman.d

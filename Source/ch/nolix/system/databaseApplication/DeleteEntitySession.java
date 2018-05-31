@@ -83,7 +83,7 @@ public final class DeleteEntitySession extends HeaderedSession {
 	
 	//method
 	private void openEntitySetSession() {
-		getRefClient().setSession(
+		getParentClient().setSession(
 			new EntitySetSession(getRefContext(), entitySetName)
 		);
 	}

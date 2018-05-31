@@ -18,7 +18,7 @@ public final class HomeSession extends HeaderedSession {
 	
 	//method
 	public void OpenEntitySetSession(final String entitySetName) {
-		getRefClient().setSession(
+		getParentClient().setSession(
 			new EntitySetSession(getRefContext(),
 			entitySetName)
 		);

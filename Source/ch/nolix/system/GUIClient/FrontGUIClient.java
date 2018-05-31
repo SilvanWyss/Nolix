@@ -26,7 +26,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	public FrontGUIClient(Application<BackGUIClient> target) {
 		dialog = new Frame();
 		dialog.setController(new FrontGUIClientController(this));
-		internal_connect(target);
+		internal_connectTo(target);
 	}
 	
 	//method
@@ -53,7 +53,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 			+ dialog.getInteractionAttributesOfWidgetsRecursively().to(ia -> '(' + ia.toString() + ')')
 			+ ')',
 			
-			INVOKE_RUN_METHOD_COMMAND
+			SESSION_USER_RUN_METHOD_HEADER
 			+ '('
 			+ runMethodCommand
 			+ ')',

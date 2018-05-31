@@ -76,7 +76,7 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 		this(name, clientClass, initialSessionClass);
 		
 		//Creates server for this application.
-		new NetServer(port).addArbitraryApplication(this);
+		new NetServer(port).addDefaultApplication(this);
 	}
 	
 	//abstract method

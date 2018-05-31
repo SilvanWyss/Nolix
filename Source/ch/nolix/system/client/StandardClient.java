@@ -25,7 +25,7 @@ public final class StandardClient extends Client<StandardClient> {
 	public StandardClient(final Application<StandardClient> targetApplication) {
 
 		//Calls constructor of the base class.
-		internal_connect(targetApplication);
+		internal_connectTo(targetApplication);
 	}
 	
 	//constructor
@@ -57,7 +57,7 @@ public final class StandardClient extends Client<StandardClient> {
 	) {
 		
 		//Calls constructor of the base class.
-		internal_connect(ip, port, targetApplication);
+		internal_connectTo(ip, port, targetApplication);
 	}
 	
 	//constructor
@@ -93,7 +93,7 @@ public final class StandardClient extends Client<StandardClient> {
 	public StandardClient(final DuplexController duplexController) {
 		
 		//Calls constructor of the base class.
-		internal_connectWith(duplexController);
+		internal_setDuplexController(duplexController);
 	}
 
 	//constructor
@@ -118,7 +118,7 @@ public final class StandardClient extends Client<StandardClient> {
 	 */
 	public StandardSpecification getData(final String dataMethodRequest) {
 		return
-		internal_getDataFromCounterpart(DATA_METHOD_REQUEST + "(" + dataMethodRequest + ")");
+		internal_getDataFromCounterpart(SESSION_USER_DATA_METHOD_HEADER + "(" + dataMethodRequest + ")");
 	}
 	
 	//method
@@ -138,7 +138,7 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @param runMethodCommand
 	 */
 	public void run(final String runMethodCommand) {
-		internal_runOnCounterpart(Client.INVOKE_RUN_METHOD_COMMAND + "(" + runMethodCommand + ")");
+		internal_runOnCounterpart(Client.SESSION_USER_RUN_METHOD_HEADER + "(" + runMethodCommand + ")");
 	}
 
 	//method

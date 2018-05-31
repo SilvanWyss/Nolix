@@ -23,7 +23,7 @@ final class MainSession extends Session<BackGUIClient> {
 	private static final int UPDATE_INTERVAL_IN_MILLISECONDS = 500;
 	
 	//attributes
-	private final Worker worker = new Worker(() -> getRefClient().isAlive());
+	private final Worker worker = new Worker(() -> getParentClient().isAlive());
 	private final Timer timer = new Timer();
 	private final Label benchmarkLabel = new Label().setName(WidgetNameManager.BENCHMARK_LABEL_NAME);
 
@@ -34,7 +34,7 @@ final class MainSession extends Session<BackGUIClient> {
 	public void initialize() {
 		
 		//Setups the GUI.
-		getRefClient().getRefGUI()
+		getParentClient().getRefGUI()
 		.setTitle(TITLE)
 		.setRootWidget(
 			new VerticalStack()
@@ -54,9 +54,9 @@ final class MainSession extends Session<BackGUIClient> {
 		
 		//Starts the updateGUI method in background.	
 		Sequencer
-		.asLongAs(() -> getRefClient().isAlive())
+		.asLongAs(() -> getParentClient().isAlive())
 		.afterAllMilliseconds(UPDATE_INTERVAL_IN_MILLISECONDS)
-		.runInBackground(()->getRefClient().runLocally("UpdateGUI"));
+		.runInBackground(()->getParentClient().runLocally("UpdateGUI"));
 	}
 	
 	//method

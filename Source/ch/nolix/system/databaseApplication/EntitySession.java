@@ -49,13 +49,13 @@ public final class EntitySession extends HeaderedSession {
 	
 	//method
 	public void Cancel() {
-		getRefClient()
+		getParentClient()
 		.setSession(new EntitySession(getRefContext(), entitySetName, entityId));
 	}
 	
 	//method
 	public void OpenEntitySetSession() {
-		getRefClient().setSession(
+		getParentClient().setSession(
 			new EntitySetSession(getRefContext(), entitySetName)
 		);
 	}
@@ -79,7 +79,7 @@ public final class EntitySession extends HeaderedSession {
 					final var property = (Property<?>)p;
 			
 					final TextBox dataTextBox =
-					getRefClient().getRefGUI().getRefWidgetByNameRecursively(p.getHeader());
+					getParentClient().getRefGUI().getRefWidgetByNameRecursively(p.getHeader());
 					
 					property.setGenericValue(dataTextBox.getText());
 					
@@ -90,7 +90,7 @@ public final class EntitySession extends HeaderedSession {
 					final var referenceProperty = (ReferenceProperty<Entity>)p;
 					
 					final SelectionMenu referenceSelectionMenu =
-					getRefClient().getRefGUI().getRefWidgetByNameRecursively(referenceProperty.getHeader());
+					getParentClient().getRefGUI().getRefWidgetByNameRecursively(referenceProperty.getHeader());
 					
 					referenceProperty.set(
 						referenceProperty

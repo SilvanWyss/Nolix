@@ -3,52 +3,49 @@ package ch.nolix.system.client;
 
 //own imports
 import ch.nolix.core.bases.OptionalSignableElement;
-import ch.nolix.core.container.List;
+import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.container.Stack;
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.duplexController.LocalDuplexController;
 import ch.nolix.core.duplexController.NetDuplexController;
 import ch.nolix.core.interfaces.Closable;
 import ch.nolix.core.interfaces.Resettable;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.primitive.invalidStateException.ClosedStateException;
-import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
+import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**
- * A client is like an end point with comfortable functionalities.
+ * A {@link Client} is like and end point with comfortable functionalities.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 300
- * @param <C> The type of a client.
+ * @lines 560
+ * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
 extends OptionalSignableElement<C>
 implements Closable, Resettable<C> {
 	
-	//command
-	protected static final String INVOKE_RUN_METHOD_COMMAND = "InvokeRunMethod";
+	//constants
+	protected static final String SESSION_USER_RUN_METHOD_HEADER = "SessionUserRunMethod";
+	protected static final String SESSION_USER_DATA_METHOD_HEADER = "SessionUserDataMethod";
 	
-	//request
-	protected static final String DATA_METHOD_REQUEST = "Data";
-		
-	//attributes
+	//attribute
 	private DuplexController duplexController;
-	private boolean requestedConnectionFlag;
 	
-	//optional attributes
-	private Session<C> session;
+	//multi-attribute
+	private final Stack<Session<C>> sessions = new Stack<Session<C>>();
 	
 	//method
 	/**
-	 * Aborts this client.
-	 * 
-	 * @throws RuntimeException if this client is already aborted.
+	 * Aborts the current {@link Client}.
 	 */
 	public final void close() {
 		duplexController.close();
@@ -56,7 +53,23 @@ implements Closable, Resettable<C> {
 	
 	//method
 	/**
-	 * @return the type of this client.
+	 * @return true if the current {@link Client} contains a current session.
+	 */
+	public final boolean containsCurrentSession() {
+		return sessions.containsAny();
+	}
+	
+	//method
+	/**
+	 * @return the number of sessions on the session stack of the current {@link Client}.
+	 */
+	public final int getSessionStackSize() {
+		return sessions.getElementCount();
+	}
+	
+	//method
+	/**
+	 * @return the type of the current {@link Client}.
 	 */
 	public final String getType() {
 		return getClass().getSimpleName();
@@ -64,7 +77,7 @@ implements Closable, Resettable<C> {
 	
 	//method
 	/**
-	 * @return true if this client is closed.
+	 * @return true if the current {@link Client} is closed.
 	 */
 	public final boolean isClosed() {
 		return duplexController.isClosed();
@@ -72,7 +85,7 @@ implements Closable, Resettable<C> {
 
 	//method
 	/**
-	 * @return true if this client is a local client.
+	 * @return true if the current {@link Client} is a local client.
 	 */
 	public final boolean isLocalClient() {
 		return duplexController.isLocalDuplexController();
@@ -80,7 +93,7 @@ implements Closable, Resettable<C> {
 	
 	//method
 	/**
-	 * @return true if this client is a net client.
+	 * @return true if the current {@link Client} is a net client.
 	 */
 	public final boolean isNetClient() {
 		return duplexController.isNetDuplexController();
@@ -88,136 +101,266 @@ implements Closable, Resettable<C> {
 	
 	//method
 	/**
-	 * Sets the session of this client.
+	 * Pops the current session of the current {@link Client}.
+	 * 
+	 * @InvalidStateException if the current {@link Client} does not contain more than 1 session.
+	 */
+	public final void popCurrentSession() {
+		
+		//Checks if the current client contains more than 1 session.
+		if (sessions.getElementCount() < 2) {
+			throw new InvalidStateException(this, "does not contain more than 1 session");
+		}
+		
+		//Removes the last session of the current client.
+		final var lastSession = sessions.removeAndGetRefLast();
+		lastSession.removeParentClient();
+		
+		internal_finishSessionInitialization();
+	}
+	
+	//method
+	/**
+	 * Pushes the given session to the current {@link Client}.
 	 * 
 	 * @param session
 	 * @throws NullArgumentException if the given session is null.
-	 * @throws InvalidStateException if the given session has already a client.
 	 */
-	public void setSession(final Session<C> session) {
+	public final void pushSession(final Session<C> session) {
 		
 		//Checks if the given session is not null.
 		Validator.suppose(session).thatIsOfType(Session.class).isNotNull();
 		
-		//Handles the case that this client has already a session.
-		if (internal_hasSession()) {
-			internal_getSession().removeClient();
+		//Sets the given session to the current {@link Client}.
+		session.setParentClient(getInstance());
+		sessions.addAtEnd(session);
+		
+		//Initializes the given session.
+			try {				
+				session.initialize();
+				internal_finishSessionInitialization();
+			}
+			
+			//A client swallows always a closed state exception.
+			catch (final ClosedStateException closedStateException) {}
+	}
+	
+	//method
+	/**
+	 * Sets the given session to the current {@link Client}.
+	 * 
+	 * @param session
+	 * @throws NullArgumentException if the given session is null.
+	 */
+	public final void setSession(final Session<C> session) {
+		
+		//Checks if the given session is not null.
+		Validator.suppose(session).thatIsOfType(Session.class).isNotNull();
+		
+		//Removes the last session of the current client.
+		if (sessions.containsAny()) {
+			final var lastSession = sessions.removeAndGetRefLast();
+			lastSession.removeParentClient();
 		}
 		
-		//Sets the given session to this client.
-		session.setClient(this);
-		this.session = session;
+		//Sets the given session to the current {@link Client}.
+		session.setParentClient(getInstance());
+		sessions.addAtEnd(session);
 		
-		//Resets this client.
-		reset();
+		//Initializes the given session.
+			try {				
+				session.initialize();
+				internal_finishSessionInitialization();
+			}
+			
+			//A client swallows always a closed state exception.
+			catch (final ClosedStateException closedStateException) {}
+	}
+	
+	//method
+	/**
+	 * Connects the current {@link Client} to the given application.
+	 * 
+	 * @param application
+	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 * @throws InvalidStateException if the current {@link Client} is already connected.
+	 */
+	protected final void internal_connectTo(final Application<?> application) {
 		
-		try {
-			//Initializes the given session.
-			session.initialize();
-			internal_finishSessionInitialization();
-		}
+		//Creates the duplex controller of the current client.
+		internal_setDuplexController(new LocalDuplexController());
 		
-		//A client swallows always a closed state exception.
-		catch (final ClosedStateException closedStateException) {}
+		//Connects the current client to the given application.
+		application.takeDuplexController(
+			((LocalDuplexController)duplexController).getRefCounterpart()
+		);
+	}
+	
+	//method
+	/**
+	 * Connects the current {@link Client} to the default application
+	 * on the given port on the local machine.
+	 * 
+	 * @param port
+	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 * @throws InvalidStateException if the current {@link Client} is already connected.
+	 */
+	protected final void internal_connectTo(final int port) {
+		
+		//Creates the duplex controller of the current client.
+		internal_setDuplexController(new NetDuplexController(port));
+	}
+	
+	//method
+	/**
+	 * Connects the current {@link Client} to the application with the given name
+	 * on the given port on the local machine.
+	 * 
+	 * @param port
+	 * @param name
+	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws EmptyArgumentException if the given name is empty.
+	 * @throws InvalidStateException if the current {@link Client} is already connected.
+	 */
+	protected final void internal_connectTo(final int port, final String name) {
+		
+		//Creates the duplex controller of the current client.
+		internal_setDuplexController(new NetDuplexController(port, name));
+	}
+	
+	//method
+	/**
+	 * Connects the current {@link Client} to the default application
+	 * on the given server.
+	 * 
+	 * @param server
+	 * @throws InvalidStateException if the current {@link Client} is already connected.
+	 */
+	protected final void internal_connectTo(final Server server) {
+		
+		//Creates the duplex controller of the current client.
+		internal_setDuplexController(new LocalDuplexController());
+		
+		//Connects the current client to the default application on the given server.
+		server.getRefDefaultApplication().takeDuplexController(
+			((LocalDuplexController)duplexController).getRefCounterpart()
+		);
+	}
+	
+	//method
+	/**
+	 * Connects the current {@link Client} to the application with the given name
+	 * on the given server.
+	 * 
+	 * @param server
+	 * @param name
+	 * @throws InvalidStateException if the current {@link Client} is already connected.
+	 */
+	protected final void internal_connectTo(final Server server, final String name) {
+		
+		//Creates the duplex controller of the current client.
+		internal_setDuplexController(new LocalDuplexController());
+		
+		//Connects the current client to the application with the given name on the given server.
+		server.getRefApplicationByName(name).takeDuplexController(
+			((LocalDuplexController)duplexController).getRefCounterpart()
+		);
+	}
+	
+	//method
+	/**
+	 * Connects the current {@link Client} to the default application
+	 * on given port on the machine with the given ip.
+	 * 
+	 * @param ip
+	 * @param port
+	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 * @throws InvalidStateException if the current {@link Client} is already connected.
+	 */
+	protected final void internal_connectTo(final String ip, final int port) {
+		
+		//Creates the duplex controller of the current client.
+		duplexController = new NetDuplexController(ip, port);
+		
+		//Creates the receiver controller of the duplex controller of the current client.
+		duplexController.setReceiverController(new ClientReceiverController(this));	
+	}
+	
+	//method
+	/**
+	 * Connects the current {@link Client} to the application with the given name
+	 * on given port on the machine with the given ip.
+	 * 
+	 * @param ip
+	 * @param port
+	 * @param name
+	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws EmptyArgumentException if the given name is empty.
+	 * @throws InvalidStateException if the current {@link Client} is already connected.
+	 */
+	protected final void internal_connectTo(String ip, int port, String name) {
+		
+		//Creates the duplex controller of the current client.
+		duplexController = new NetDuplexController(ip, port, name);
+		
+		//Creates the receiver controller of the duplex controller of the current client.
+		duplexController.setReceiverController(new ClientReceiverController(this));	
 	}
 	
 	//abstract method
 	/**
-	 * Finishes the initialization of the session of this client.
+	 * Finishes the initialization of the session of the current {@link Client}.
 	 */
-	protected abstract void internal_finishSessionInitialization();	
+	protected abstract void internal_finishSessionInitialization();
 	
 	//method
 	/**
-	 * @return the data the given request requests from this client.
+	 * @return the data the given request requests from the current {@link Client}.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
 	protected StandardSpecification internal_getData(final Statement request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
-			case DATA_METHOD_REQUEST:
-				return new StandardSpecification(internal_invokeDataMethod(request.getRefOneAttribute()).toString());
+			case SESSION_USER_DATA_METHOD_HEADER:
+				return internal_invokeSessionUserDataMethod(request.getRefOneAttribute());
 			default:
-				throw new InvalidArgumentException(new ArgumentName("reqest"), new Argument(request));
+				throw
+				new InvalidArgumentException(
+					new ArgumentName(VariableNameCatalogue.REQUEST),
+					new Argument(request)
+				);
 		}
 	}
 	
-	protected void internal_connect(final Application<?> target) {
-		requestedConnectionFlag = true;
-		duplexController = new LocalDuplexController();
-		duplexController.setReceiverController(new ClientSubReceiverController(this));
-		target.takeDuplexController(((LocalDuplexController)duplexController).getRefCounterpart());
-	}
-	
-	protected void internal_connectWith(final DuplexController duplexController) {		
-		requestedConnectionFlag = false;
-		this.duplexController = duplexController;	
-		duplexController.setReceiverController(new ClientSubReceiverController(this));	
-	}
-	
 	//method
 	/**
-	 * Connects this client to the given port on the local machine.
-	 * 
-	 * @param port
-	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 * @return the data the given request
+	 * requests from the counterpart of the current {@link Client}.
+	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	protected void internal_connectTo(final int port) {
-		
-		requestedConnectionFlag = true;
-		
-		duplexController = new NetDuplexController(port);
-		
-		getRefDuplexController()
-		.setReceiverController(new ClientSubReceiverController(this));	
-	}
-	
-	//method
-	/**
-	 * Connects this client to the given port on the machine with the given ip.
-	 * 
-	 * @param ip
-	 * @param port
-	 * @throws OutOfRangeException if the given port is not in [0,65535].
-	 */
-	protected void internal_connectTo(final String ip, final int port) {
-		
-		requestedConnectionFlag = true;
-		
-		duplexController = new NetDuplexController(ip, port);
-		
-		getRefDuplexController()
-		.setReceiverController(new ClientSubReceiverController(this));	
-	}
-	
-	protected void internal_connect(String ip, int port, String target) {
-		requestedConnectionFlag = true;
-		duplexController = new NetDuplexController(ip, port, target);
-		duplexController.setReceiverController(new ClientSubReceiverController(this));	
-	}
-	
 	protected StandardSpecification internal_getDataFromCounterpart(final String request) {
 		return duplexController.getData(request);
 	}
 	
 	//method
 	/**
-	 * @return the session of this client
-	 * @throws UnexistingAttributeException if this client has no session.
+	 * @return the current session of the current {@link Client}.
+	 * @throws InvalidStateException if the current {@link Client} contains no current session.
 	 */
-	protected final Session<C> internal_getSession() {
+	protected final Session<C> internal_getRefCurrentSession() {
 		
-		//Checks if this client has a session.
-		internal_supposeHasSession();
+		//Checks if the current client contains a current session.
+		supposeContainsCurrentSession();
 		
-		return session;
+		return sessions.getRefLast();
 	}
 	
 	//method
 	/**
-	 * @return the target of this client.
-	 * @throws UnexistingAttributeException if this client has no target.
+	 * @return the name of the target application of the current {@link Client}.
 	 */
 	protected final String internal_getTarget() {
 		return duplexController.getTarget();
@@ -225,68 +368,103 @@ implements Closable, Resettable<C> {
 	
 	//method
 	/**
-	 * @return true if this client has requested the connection
+	 * @return true if the current {@link Client} has requested the connection.
 	 */
 	protected final boolean internal_hasRequestedConnection() {
-		return requestedConnectionFlag;
+		return duplexController.hasRequestedConnection();
 	}
 	
 	//method
 	/**
-	 * @return true if this client has a session.
+	 * @return true if the current {@link Client} is connected.
 	 */
-	protected boolean internal_hasSession() {
-		return (session != null);
+	protected final boolean isConnected() {
+		return (duplexController != null);
 	}
 	
 	//method
 	/**
-	 * Invokes a data method of the session of this client.
+	 * Invokes the user data method of the current session of the current {@link Client},
+	 * the given session user data method request requests.
 	 * 
-	 * @param dataMethodRequest
-	 * @return the data the given data method request requests
-	 * @throws UnexistingAttributeException if this client has no session.
+	 * @param sessionUserDataMethodRequest
+	 * @return the data the invoked user data method returns.
+	 * @throws InvalidStateException if the current {@link Client} contains no current session.
 	 */
-	protected final Object internal_invokeDataMethod(final StandardSpecification dataMethodRequest) {
+	protected final StandardSpecification internal_invokeSessionUserDataMethod(
+			final Specification sessionUserDataMethodRequest
+	) {
+		//Extracts the name of the session user data method.
+		final var sessionUserDataMethodName = sessionUserDataMethodRequest.getHeader();
 		
-		//Checks if this client has a session.
-		internal_supposeHasSession();
+		//Extracts the arguments of the given session user data method request.
+		final var arguments = sessionUserDataMethodRequest.getRefAttributes().toStringArray();
 		
-		//Extracts the name of the data method.
-		final String dataMethod = dataMethodRequest.getHeader();
-		
-		//Extracts the arguments of the given request.
-		final List<String> parameters = dataMethodRequest.getRefAttributes().to(a -> a.toString());
-		
-		//Invokes the data method with the arguments and returns the result.
-		return session.invokeDataMethod(dataMethod, parameters);
+		//Invokes the session user data method.
+		return (StandardSpecification)internal_getRefCurrentSession().invokeUserDataMethod(
+			sessionUserDataMethodName, arguments
+		);
 	}
 	
 	//method
 	/**
-	 * Invokes a run method of the session of this client.
+	 * Invokes the user data method of the current session of the current {@link Client},
+	 * that has the given name,
+	 * with the given arguments.
 	 * 
-	 * @param runMethodCommand
-	 * @throws UnexistingAttributeException if this client has no session.
+	 * @param name
+	 * @param arguments
+	 * @return the data the invoked user data method returns.
+	 * @throws InvalidStateException if the current {@link Client} contains no current session.
 	 */
-	protected final void internal_invokeRunMethod(final StandardSpecification runMethodCommand) {
-		
-		//Checks if this client has a session.
-		internal_supposeHasSession();
-		
-		//Extracts the name of the command method.
-		final String runMethod = runMethodCommand.getHeader();
-		
-		//Extracts the arguments of the given command.
-		final List<String> arguments = runMethodCommand.getRefAttributes().to(a -> a.toString());
-		
-		//Invokes the run method with the arguments.
-		session.invokeRunMethod(runMethod, arguments);
+	protected final StandardSpecification internal_invokeSessionUserDataMethod(
+		final String name,
+		final String... arguments
+	) {
+		return internal_getRefCurrentSession().invokeUserDataMethod(name, arguments);
+	}
+
+	//method
+	/**
+	 * Invokes the user run method of the current session of the current {@link Client},
+	 * that has the given name,
+	 * with the given arguments.
+	 * 
+	 * @param name
+	 * @param arguments
+	 * @throws InvalidStateException if the current {@link Client} contains no current session.
+	 */
+	protected final void internal_invokeSessionUserRunMethod(
+		final String name,
+		final String... arguments
+	) {
+		internal_getRefCurrentSession().invokeUserRunMethod(name, arguments);
 	}
 	
 	//method
 	/**
-	 * Lets this client run the given command.
+	 * Invokes the user run method of the current session of the current {@link Client}
+	 * the given session user run method request requests.
+	 * 
+	 * @param name
+	 * @param arguments
+	 * @throws InvalidStateException if the current {@link Client} contains no current session.
+	 */
+	protected final void internal_invokeSessionUserRunMethod(final Specification sessionUserRunMethodRequest) {
+		
+		//Extracts the name of the session user run method.
+		final String sessionUserRunMethodName = sessionUserRunMethodRequest.getHeader();
+		
+		//Extracts the arguments of the given session user run method request.
+		final var arguments = sessionUserRunMethodRequest.getRefAttributes().toStringArray();
+		
+		//Extracts the session user run method.
+		internal_invokeSessionUserRunMethod(sessionUserRunMethodName, arguments);
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Client} run the given command.
 	 * 
 	 * @param command
 	 * @throws InvalidArgumentException if the given command is not valid.
@@ -295,9 +473,9 @@ implements Closable, Resettable<C> {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
-			case INVOKE_RUN_METHOD_COMMAND:
-				internal_invokeRunMethod(command.getRefOneAttribute());
-				break;			
+			case SESSION_USER_RUN_METHOD_HEADER:
+				internal_invokeSessionUserRunMethod(command.getRefOneAttribute());
+				break;
 			default:
 				throw new InvalidArgumentException(
 					new ArgumentName("command"),
@@ -308,40 +486,81 @@ implements Closable, Resettable<C> {
 	
 	//method
 	/**
-	 * Runs the given command on the counterpart of this client.
+	 * Runs the given command on the counterpart of the current {@link Client}.
 	 * 
 	 * @param command
 	 */
-	protected void internal_runOnCounterpart(final String command) {
+	protected final void internal_runOnCounterpart(final Statement command) {
 		duplexController.run(command);
 	}
 	
 	//method
 	/**
-	 * Runs the given commands on the counterpart of this clients.
+	 * Runs the given command on the counterpart of the current {@link Client}.
+	 * 
+	 * @param command
+	 */
+	protected final void internal_runOnCounterpart(final String command) {
+		duplexController.run(command);
+	}
+	
+	//method
+	/**
+	 * Runs the given commands on the counterpart of the current {@link Client}.
 	 * 
 	 * @param commands
 	 */
-	protected void internal_runOnCounterpart(final String... commands) {
+	protected final void internal_runOnCounterpart(final String... commands) {
 		duplexController.appendCommand(commands);
 		duplexController.runAppendedCommands();
 	}
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if this client has no session.
+	 * * 
+	 * @param duplexController
+	 * @throws NullArgumentException if the given duplex controller is null.
+	 * @throws InvalidStateException if the current {@link Client} is connected.
 	 */
-	protected void internal_supposeHasSession() {
-		if (!internal_hasSession()) {
-			throw new UnexistingAttributeException(this, "session");
-		}
+	protected final void internal_setDuplexController(final DuplexController duplexController) {
+		
+		//Checks if the given duplex controller is not null.
+		Validator
+		.suppose(duplexController)
+		.thatIsOfType(DuplexController.class)
+		.isNotNull();
+		
+		//Checks if the current client is not connected.
+		supposeIsNotConnected();
+		
+		//Sets the duplex controller of the current client.
+		this.duplexController = duplexController;	
+		
+		//Sets the receiver controller of the duplex controller of the current client.
+		duplexController.setReceiverController(new ClientReceiverController(this));	
 	}
 	
 	//method
 	/**
-	 * @return the duplex controller of this Client.
+	 * @throws InvalidStateException if the current {@link Client} contains no current session.
+	 */	
+	private void supposeContainsCurrentSession() {
+
+		//Checks if the current client contains a current session.
+		if (!containsCurrentSession()) {
+			throw new InvalidStateException(this, "contains no current session");
+		}
+	}
+
+	//method
+	/**
+	 * @throws InvalidStateException if the current {@link Client} is connected.
 	 */
-	private DuplexController getRefDuplexController() {
-		return duplexController;
+	private void supposeIsNotConnected() {
+		
+		//Checks if the current client is not connected.
+		if (isConnected()) {
+			throw new InvalidStateException(this, "is connected");
+		}
 	}
 }

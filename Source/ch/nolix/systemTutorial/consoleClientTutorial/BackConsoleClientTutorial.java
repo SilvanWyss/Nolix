@@ -50,43 +50,43 @@ public final class BackConsoleClientTutorial {
 		 */
 		public void initialize() {
 			
-			getRefClient().setDesign(new BlackRedConsoleDesign());
+			getParentClient().setDesign(new BlackRedConsoleDesign());
 			
-			getRefClient().writeLineToInfoPanel(
+			getParentClient().writeLineToInfoPanel(
 				"This is the info panel of the console.",
 				"On the info panel informatiosn can be displayed.",
 				"The info panel cannot be edited."
 			);
 			
-			getRefClient().writeLineToConsole("Enter your name.");
-			final String name = getRefClient().readLineFromConsole();			
-			getRefClient().writeLineToConsole("Hello " + name + ".");
+			getParentClient().writeLineToConsole("Enter your name.");
+			final String name = getParentClient().readLineFromConsole();			
+			getParentClient().writeLineToConsole("Hello " + name + ".");
 						
 			boolean answerIsValid = false;
 			do {
 				
-				getRefClient().writeLineToConsole("Are you fine? Press y for yes, press n for no.");
+				getParentClient().writeLineToConsole("Are you fine? Press y for yes, press n for no.");
 				
-				switch (getRefClient().readCharacterFromConsole()) {
+				switch (getParentClient().readCharacterFromConsole()) {
 					case 'y':
 						answerIsValid = true;
-						getRefClient().writeLineToConsole("Oh good!");
+						getParentClient().writeLineToConsole("Oh good!");
 						break;
 					case 'n':
 						answerIsValid = true;
-						getRefClient().writeLineToConsole("Oh sad!");
+						getParentClient().writeLineToConsole("Oh sad!");
 						break;
 				}
 			} while (!answerIsValid);
 			
 			Sequencer.waitForASecond();
 			
-			getRefClient()
+			getParentClient()
 			.writeEmptyLineToConsole()
 			.writeLineToConsole("Press enter to quit the program.")
 			.readEnterFromConsole();
 			
-			getRefClient().quit();
+			getParentClient().quit();
 		}
 	}
 	

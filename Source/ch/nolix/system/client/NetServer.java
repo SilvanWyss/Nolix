@@ -62,13 +62,13 @@ public final class NetServer extends Server {
 	
 	void takeDuplexController(final DuplexController duplexController) {
 		
-		if (!hasArbitraryApplication()) {
+		if (!containsDefaultApplication()) {
 			getRefApplicationByName(duplexController.getTarget())
 			.takeDuplexController(duplexController);
 		}
 		
 		else {
-			getRefArbitraryApplication().takeDuplexController(duplexController);
+			getRefDefaultApplication().takeDuplexController(duplexController);
 		}
 	}
 }

@@ -57,7 +57,7 @@ public final class CreateEntitySession extends HeaderedSession {
 					final var property = (Property<?>)p;
 			
 					final TextBox dataTextBox =
-					getRefClient().getRefGUI().getRefWidgetByNameRecursively(p.getHeader());
+					getParentClient().getRefGUI().getRefWidgetByNameRecursively(p.getHeader());
 					
 					property.setGenericValue(dataTextBox.getText());
 					
@@ -68,7 +68,7 @@ public final class CreateEntitySession extends HeaderedSession {
 					final var referenceProperty = (ReferenceProperty<Entity>)p;
 					
 					final SelectionMenu referenceSelectionMenu =
-					getRefClient().getRefGUI().getRefWidgetByNameRecursively(referenceProperty.getHeader());
+					getParentClient().getRefGUI().getRefWidgetByNameRecursively(referenceProperty.getHeader());
 					
 					referenceProperty.set(
 						referenceProperty
@@ -183,7 +183,7 @@ public final class CreateEntitySession extends HeaderedSession {
 	
 	//method
 	private void openEntitySetSession() {
-		getRefClient().setSession(
+		getParentClient().setSession(
 			new EntitySetSession(getRefContext(), entitySetName)
 		);
 	}

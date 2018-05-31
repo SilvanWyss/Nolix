@@ -15,7 +15,7 @@ import ch.nolix.primitive.validator2.Validator;
  * @month 2015-12
  * @lines 50
  */
-final class ClientSubReceiverController implements IMultiController {
+final class ClientReceiverController implements IMultiController {
 
 	//attribute
 	private final Client<?> client;
@@ -27,7 +27,7 @@ final class ClientSubReceiverController implements IMultiController {
 	 * @param client
 	 * @throws NullArgumentException if the given client is null.
 	 */
-	public ClientSubReceiverController(final Client<?> client) {
+	public ClientReceiverController(final Client<?> client) {
 		
 		//Checks if the given client is not null.
 		Validator.suppose(client).thatIsOfType(Client.class).isNotNull();

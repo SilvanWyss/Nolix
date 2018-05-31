@@ -76,7 +76,7 @@ public final class BackGUIClientTutorial {
 			.getRefHoverFocusLook()
 			.setTextSize(ValueCatalogue.BIG_TEXT_SIZE);
 			
-			getRefClient()
+			getParentClient()
 			.getRefGUI()
 			.setTitle("Dialog Client Tutorial")
 			.removeConfiguration()
@@ -93,10 +93,10 @@ public final class BackGUIClientTutorial {
 		public void ChangeColor() {
 			
 			if (counter % 2 == 0) {
-				getRefClient().getRefGUI().setBackgroundColor(Color.GREEN);
+				getParentClient().getRefGUI().setBackgroundColor(Color.GREEN);
 			}
 			else {
-				getRefClient().getRefGUI().setBackgroundColor(Color.BLUE);
+				getParentClient().getRefGUI().setBackgroundColor(Color.BLUE);
 			}
 			
 			counter++;

@@ -23,7 +23,7 @@ import ch.nolix.primitive.validator2.Validator;
 public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//optional attribute
-	private Application<?> arbitraryApplication;
+	private Application<?> defaultApplication;
 	
 	//multiple attribute
 	private final List<Application<?>> applications = new List<Application<?>>();
@@ -43,7 +43,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	}
 	
 	//method
-	public final void addArbitraryApplication(final Application<?> arbitraryApplication) {
+	public final void addDefaultApplication(final Application<?> arbitraryApplication) {
 		
 		//Checks if this server contains no applications.
 		if (containsAny()) {
@@ -52,7 +52,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 		
 		addApplication(arbitraryApplication);
 		
-		this.arbitraryApplication = arbitraryApplication;
+		this.defaultApplication = arbitraryApplication;
 	}
 	
 	//method
@@ -101,7 +101,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	public Server clear() {
 		
 		applications.clear();
-		arbitraryApplication = null;
+		defaultApplication = null;
 		
 		return this;
 	}
@@ -119,8 +119,8 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	/**
 	 * @return true if this server has an arbitrary application.
 	 */
-	public final boolean hasArbitraryApplication() {
-		return (arbitraryApplication != null);
+	public final boolean containsDefaultApplication() {
+		return (defaultApplication != null);
 	}
 	
 	//method
@@ -140,7 +140,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	public void takeClient(final Client<?> client) {
 		
 		//Handles the case that this server has no arbitrary application.
-		if (!hasArbitraryApplication()) {
+		if (!containsDefaultApplication()) {
 			applications
 			.getRefFirst(a -> a.hasName(client.internal_getTarget()))
 			.takeClient(client);			
@@ -148,7 +148,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 		
 		//Handles the case that this server has an arbitrary application.
 		else {
-			getRefArbitraryApplication().takeClient(client);
+			getRefDefaultApplication().takeClient(client);
 		}
 	}
 	
@@ -157,14 +157,14 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * @return the arbitrary application of this server.
 	 * @throws UnexistingAttributeException if this server has no arbitrary application.
 	 */
-	protected Application<?> getRefArbitraryApplication() {
+	protected Application<?> getRefDefaultApplication() {
 		
 		//Checks if this server has an arbitrary application.
-		if (!hasArbitraryApplication()) {
+		if (!containsDefaultApplication()) {
 			throw new UnexistingAttributeException(this, "arbitrary application");
 		}
 		
-		return arbitraryApplication;
+		return defaultApplication;
 	}
 	
 	//method

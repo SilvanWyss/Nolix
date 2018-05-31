@@ -33,7 +33,7 @@ final class MainSession extends Session<BackGUIClient> {
 	public void initialize() {
 		
 		//Setups the GUI.
-		getRefClient().getRefGUI()
+		getParentClient().getRefGUI()
 		.setTitle(TITLE)
 		.setRootWidget(
 			new VerticalStack()
@@ -60,9 +60,9 @@ final class MainSession extends Session<BackGUIClient> {
 
 		//Starts the update GUI method in background.
 		Sequencer
-		.asLongAs(() -> getRefClient().isAlive())
+		.asLongAs(() -> getParentClient().isAlive())
 		.afterAllMilliseconds(UPDATE_INTERVAL_IN_MILLISECONDS)
-		.runInBackground(() -> getRefClient().runLocally("UpdateDialog"));
+		.runInBackground(() -> getParentClient().runLocally("UpdateDialog"));
 	}
 	
 	//method
@@ -103,7 +103,7 @@ final class MainSession extends Session<BackGUIClient> {
 		
 		//Fetches the time label.
 		final Label timeLabel
-		= getRefClient().getRefGUI().getRefWidgetByNameRecursively(WidgetNameManager.TIME_LABEL_NAME);
+		= getParentClient().getRefGUI().getRefWidgetByNameRecursively(WidgetNameManager.TIME_LABEL_NAME);
 		
 		//Sets the text of the time label.
 		timeLabel.setText(String.format("%02d : %02d : %02d : %d", hours, minutes, seconds, deciseconds));

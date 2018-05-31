@@ -19,7 +19,7 @@ extends Session<BackConsoleClient> {
 	 * of the counterpart of the client of this console back client session.
 	 */
 	public final void clearConsole() {		
-		getRefClient().clearConsole();
+		getParentClient().clearConsole();
 	}
 	
 	//method
@@ -28,7 +28,7 @@ extends Session<BackConsoleClient> {
 	 * of the counterpart of the client of this console back client session.
 	 */
 	public final void clearInfoPanel() {	
-		getRefClient().clearInfoPanel();
+		getParentClient().clearInfoPanel();
 	}
 	
 	//method
@@ -37,7 +37,7 @@ extends Session<BackConsoleClient> {
 	 * open a file explorer.
 	 */
 	public final void openFileExplorer() {	
-		getRefClient().openFileExplorer();
+		getParentClient().openFileExplorer();
 	}
 	
 	//method
@@ -46,7 +46,7 @@ extends Session<BackConsoleClient> {
 	 * of the counterpart of the client of this console back client session.
 	 */
 	public final char readCharacterFromConsole() {
-		return getRefClient().readCharacterFromConsole();
+		return getParentClient().readCharacterFromConsole();
 	}
 	
 	//method
@@ -55,7 +55,7 @@ extends Session<BackConsoleClient> {
 	 * of the counterpart of the client of this console back client session.
 	 */
 	public void readEnterFromConsole() {
-		getRefClient().readEnterFromConsole();
+		getParentClient().readEnterFromConsole();
 	}
 	
 	//method
@@ -64,7 +64,7 @@ extends Session<BackConsoleClient> {
 	 * of the counterpart of the client of this console back client session.
 	 */
 	public final String readTextLineFromConsole() {
-		return getRefClient().readLineFromConsole();
+		return getParentClient().readLineFromConsole();
 	}
 	
 	//method
@@ -73,7 +73,7 @@ extends Session<BackConsoleClient> {
 	 * of the counterpart of the client of this console back client session.
 	 */
 	public final String readNonEmptyTextLineFromConsole() {
-		return getRefClient().readNonEmptyLineFromConsole();
+		return getParentClient().readNonEmptyLineFromConsole();
 	}
 	
 	//method
@@ -84,7 +84,7 @@ extends Session<BackConsoleClient> {
 	 * @param title
 	 */
 	public final void setTitle(final String title) {	
-		getRefClient().setTitle(title);
+		getParentClient().setTitle(title);
 	}
 	
 	//method
@@ -95,7 +95,7 @@ extends Session<BackConsoleClient> {
 	 * @param line
 	 */
 	public final void writeTextLineToConsole(final String line) {		
-		getRefClient().writeLineToConsole(line);
+		getParentClient().writeLineToConsole(line);
 	}
 	
 	//method
@@ -106,7 +106,7 @@ extends Session<BackConsoleClient> {
 	 * @param lines
 	 */
 	public final void writeTextLineToConsole(final String... lines) {		
-		getRefClient().writeLineToConsole(lines);
+		getParentClient().writeLineToConsole(lines);
 	}
 	
 	//method
@@ -118,7 +118,7 @@ extends Session<BackConsoleClient> {
 	 * @return this console back client session.
 	 */
 	public final void writeTextLineToInfoPanel(final String line) {	
-		getRefClient().writeLineToInfoPanel(line);
+		getParentClient().writeLineToInfoPanel(line);
 	}
 	
 	//method
@@ -129,6 +129,6 @@ extends Session<BackConsoleClient> {
 	 * @param lines
 	 */
 	public final void writeNextLineToInfoPanel(final String... lines) {		
-		getRefClient().writeLineToInfoPanel(lines);
+		getParentClient().writeLineToInfoPanel(lines);
 	}
 }

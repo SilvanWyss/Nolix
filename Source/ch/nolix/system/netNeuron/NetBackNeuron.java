@@ -79,7 +79,7 @@ implements Closable {
 			NetBackNeuronSession.class
 		);
 		
-		netServer.addArbitraryApplication(application);
+		netServer.addDefaultApplication(application);
 	}
 	
 	//method

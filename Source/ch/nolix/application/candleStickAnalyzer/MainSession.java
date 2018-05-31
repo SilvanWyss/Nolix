@@ -35,7 +35,7 @@ public final class MainSession extends Session<BackConsoleClient> {
 		while (true) {
 			try {
 				
-				final String[]inputs = getRefClient().readNonEmptyLineFromConsole().split(" ");
+				final String[]inputs = getParentClient().readNonEmptyLineFromConsole().split(" ");
 							
 				//Enumerates the entered command.
 				switch (inputs[0]) {	
@@ -68,7 +68,7 @@ public final class MainSession extends Session<BackConsoleClient> {
 							
 					//Handles output commands.
 					case CommandCatalogue.SHOW_ANALYSIS_COMMAND:							
-						getRefClient().writeLinesToConsole(new Analysis(argumentOfficer).toStrings());
+						getParentClient().writeLinesToConsole(new Analysis(argumentOfficer).toStrings());
 						break;
 					case CommandCatalogue.SAVE_PRODUCT_DATA_TO_FILE_COMMAND:
 						saveDataToFile();														
@@ -85,7 +85,7 @@ public final class MainSession extends Session<BackConsoleClient> {
 						showCommands();
 						break;
 					case CommandCatalogue.QUIT_COMMAND:
-						getRefClient().quit();
+						getParentClient().quit();
 						break;
 					
 					default:
@@ -93,13 +93,13 @@ public final class MainSession extends Session<BackConsoleClient> {
 				}
 				
 				refreshInfoPanel();
-				getRefClient().writeLineToConsole(CharacterCatalogue.FAT_CHECK_MARK);
+				getParentClient().writeLineToConsole(CharacterCatalogue.FAT_CHECK_MARK);
 			}
 			catch (final ClosedStateException exception) {
 				break;
 			}
 			catch (final Exception exception) {
-				getRefClient().writeLineToConsole(CharacterCatalogue.FAT_CROSS);
+				getParentClient().writeLineToConsole(CharacterCatalogue.FAT_CROSS);
 			}
 		}
 	}
@@ -110,7 +110,7 @@ public final class MainSession extends Session<BackConsoleClient> {
 	 * of the counterpart of the client of this main session.
 	 */
 	private void refreshInfoPanel() {		
-		getRefClient()
+		getParentClient()
 		.clearInfoPanel()
 		.writeLinesToInfoPanel(argumentOfficer.toStrings())
 		.writeEmptyTextLineToInfoPanel()
@@ -123,8 +123,8 @@ public final class MainSession extends Session<BackConsoleClient> {
 	 * save the analysis to a file.
 	 */
 	private void saveAnalysisToFile() {
-		getRefClient().createFile("analysis.txt", new Analysis(argumentOfficer).getData());
-		getRefClient().openFileExplorer();
+		getParentClient().createFile("analysis.txt", new Analysis(argumentOfficer).getData());
+		getParentClient().openFileExplorer();
 	}
 	
 	//method
@@ -146,8 +146,8 @@ public final class MainSession extends Session<BackConsoleClient> {
 			data += vcs.getSpecification().toString() + CharacterCatalogue.NEW_LINE;
 		}
 		
-		getRefClient().createFile("data.txt", data);
-		getRefClient().openFileExplorer();
+		getParentClient().createFile("data.txt", data);
+		getParentClient().openFileExplorer();
 	}
 	
 	//method
@@ -156,7 +156,7 @@ public final class MainSession extends Session<BackConsoleClient> {
 	 * of the counterpart of the client of this main session.
 	 */
 	private void showAlgorithmFacts() {
-		getRefClient().writeLineToConsole(
+		getParentClient().writeLineToConsole(
 			"-The product is bougth at the opening",
 			" of the next day after the confirmation.",
 			StringCatalogue.EMPTY_STRING,
@@ -173,7 +173,7 @@ public final class MainSession extends Session<BackConsoleClient> {
 	 * of the counterpart of the client of this main session.
 	 */
 	private void showCommands() {
-		getRefClient().writeLineToConsole(	
+		getParentClient().writeLineToConsole(	
 				
 			//input commands
 			"s x    select product symbol x",

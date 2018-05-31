@@ -7,162 +7,209 @@ import java.lang.reflect.Method;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.helper.MethodHelper;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**
- * A session handles the run method commands and data method requests a client receives.
+ * A {@link Session} manages user run methods and user data methods.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 150
- * @param <C> The type of the client of a session.
+ * @lines 210
+ * @param <C> The type of the client of a {@link Session}.
  */
-public abstract class Session<C extends Client<?>> {
+public abstract class Session<C extends Client<C>> {
 	
 	//attribute
-	private C client;
+	private C parentClient;
 
-	//multiple attributes	
-	private final List<Method> runMethods = new List<Method>();
-	private final List<Method> dataMethods = new List<Method>();
+	//multi-attribute
+	private final List<Method> userRunMethods = new List<Method>();
+	private final List<Method> userDataMethods = new List<Method>();
 	
 	//constructor
 	/**
-	 * Creates a new session.
+	 * Creates a new {@link Session}.
 	 */
 	public Session() {
 		
-		//Extracts the run methods and the data methods of this session by iterating the methods of this session.
-		Class<?> c = getClass();
-		while (c != null) {
-			for (Method m: c.getMethods()) {
-				if (Character.isUpperCase(m.getName().charAt(0)) && MethodHelper.allParametersOfMethodAreStrings(m)) {	
-					
-					if (m.getReturnType().equals(Void.TYPE)) {
+		//Extracts the user run methods and the user data methods of the current session.
+			//Iterates the methods of the current session.
+			Class<?> c = getClass();
+			while (c != null) {
+				for (final var m : c.getMethods()) {
+					if (
+						Character.isUpperCase(m.getName().charAt(0))
+						&& MethodHelper.allParametersOfMethodAreStrings(m)
+					) {	
 						
-						//Setting the method accessible is needed that it can accessed from a package-visible sub class.
-						m.setAccessible(true);
+						if (m.getReturnType().equals(Void.TYPE)) {
+							
+							//Setting the method accessible is needed that it can be accessed.
+							m.setAccessible(true);
+							
+							userRunMethods.addAtEnd(m);
+						}
 						
-						runMethods.addAtEnd(m);
-					}
-					
-					if (m.getReturnType().getSimpleName().equals(Object.class.getSimpleName())) {
-						
-						//Setting the method accessible is needed that it can accessed from a package-visible sub class.
-						m.setAccessible(true);
-						
-						dataMethods.addAtEnd(m);
+						else if (m.getReturnType().equals(StandardSpecification.class)) {
+							
+							//Setting the method accessible is needed that it can be accessed.
+							m.setAccessible(true);
+							
+							userDataMethods.addAtEnd(m);
+						}
 					}
 				}
+				
+				c = c.getSuperclass();
 			}
-			
-			c = c.getSuperclass();
-		}
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Session} belongs to a client.
+	 */
+	public final boolean belongsToClient() {
+		return (parentClient != null);
+	}
+	
+	//method
+	/**
+	 * @return the parent client of the current {@link Session}.
+	 * @throws InvalidStateException if the current {@link Session} belongs to no client.
+	 */
+	public final C getParentClient() {
+		
+		//Checks if the current {@link Session} belonts to a client.
+		supposeBelongsToClient();
+		
+		return parentClient;
 	}
 	
 	//abstract method
 	/**
-	 * Initializes this session.
+	 * Initializes the current {@link Session}.
 	 */
 	public abstract void initialize();
 	
-	//method
-	/**
-	 * @return the client of this session.
-	 * @throws UnexistingAttributeException if this session has no client.
-	 */
-	protected final C getRefClient() {
-		
-		//Checks if this session has a client.
-		if (!hasClient()) {
-			throw new UnexistingAttributeException(this, Client.class);
-		}
-		
-		return client;
-	}
-	
 	//package-visible method
 	/**
-	 * Invokes the given data method with the given parameters.
+	 * Invokes the user data method of the current {@link Session},
+	 * that has the given name,
+	 * with the given arguments.
 	 * 
-	 * @param dataMethod
-	 * @param parameters
+	 * @param name
+	 * @param arguments
 	 * @return the data the given data method returns for the given parameters.
 	 * @throws RuntimeException if an error occurs.
 	 */
-	final Object invokeDataMethod(String dataMethod, List<String> parameters) {
-		
-		//Creates parameter array.
-		final Object[] parameterArray = parameters.toArray();
-		
+	final StandardSpecification invokeUserDataMethod(String name, String... arguments) {
 		try {
-			return dataMethods.getRefFirst(m -> m.getName().equals(dataMethod)).invoke(this, parameterArray);
+			return
+			(StandardSpecification)
+			getUserDataMethod(name).invoke(this, (Object[])arguments);
 		}
-		catch (Exception e) {
-			throw new RuntimeException(e);
+		catch (final Exception exception) {
+			throw new RuntimeException(exception);
 		}
 	}
 	
 	//package-visible method
 	/**
-	 * Invokes the given run method with the given parameters.
+	 * Invokes the user run method of the current {@link Session},
+	 * that has the given name,
+	 * with the given arguments.
 	 * 
-	 * @param runMethod
-	 * @param parameters
+	 * @param name
+	 * @param arguments
 	 * @throws RuntimeException if an error occurs.
 	 */
-	final void invokeRunMethod(final String runMethod, final List<String> parameters) {
-		
-		//Creates parameter array.
-		final Object[] parameterArray = parameters.toArray();
-		
+	final void invokeUserRunMethod(final String name, final String... arguments) {
 		try {
-			runMethods.getRefFirst(m -> m.getName().equals(runMethod)).invoke(this, parameterArray);
+			getUserRunMethod(name).invoke(this, (Object[])arguments);
 		}
-		catch (Exception e) {
-			throw new RuntimeException(e);
+		catch (final Exception exception) {
+			throw new RuntimeException(exception);
 		}
 	}
 	
 	//method
 	/**
-	 * Removes the client of this session.
+	 * Removes the parent client of the current {@link Session}.
 	 */
-	final void removeClient() {
-		client = null;
+	final void removeParentClient() {
+		parentClient = null;
 	}
 		
 	//method
 	/**
-	 * Sets the client of this session.
+	 * Sets the parent client of the current {@link Session}.
 	 * 
-	 * @param client
-	 * @throws NullArgumentException if the given client is null.
-	 * @throws InvalidStateException if this session has already a client.
+	 * @param parentClient
+	 * @throws NullArgumentException if the given parent client is null.
+	 * @throws InvalidStateException if the current {@link Session} belongs to a client.
 	 */
-	@SuppressWarnings("unchecked")
-	final void setClient(Client<?> client) {
+	final void setParentClient(C parentClient) {
 		
 		//Checks if the given client is not null.
-		Validator.suppose(client).thatIsOfType(Client.class).isNotNull();
+		Validator
+		.suppose(parentClient)
+		.thatIsNamed("parent client")
+		.isNotNull();
 		
-		//Checks if this session has not already a client.
-		if (hasClient()) {
-			throw new InvalidStateException(this, "has already a client");
-		}
+		//Checks if the current session does not belong to a client.
+		suppoeDoesNotBelongToClient();
 		
-		//Sets the client of this session.
-		this.client = (C)client;
+		//Sets the parent client of the current session.
+		this.parentClient = parentClient;
 	}
 	
 	//method
 	/**
-	 * @return true if this session has a client.
+	 * @param name
+	 * @return the user data method with the given name from the current {@link Session}.
+	 * @throws UnexistingAttributeException
+	 * if the current {@link Session} contains no user data method with the given name.
 	 */
-	private boolean hasClient() {
-		return (client != null);
+	private Method getUserDataMethod(final String name) {
+		return userDataMethods.getRefFirst(m -> m.getName().equals(name));
+	}
+	
+	//method
+	/**
+	 * @param name
+	 * @return the user run method with the given name from the current {@link Session}.
+	 * @throws UnexistingAttributeException
+	 * if the current {@link Session} contains no user run method with the given name.
+	 */
+	private Method getUserRunMethod(final String name) {
+		return userRunMethods.getRefFirst(m -> m.getName().equals(name));
+	}
+	
+	//method
+	/**
+	 * @throws InvalidStateException if the current {@link Session} does not belong to a client.
+	 */
+	private void supposeBelongsToClient() {
+		
+		//Checks if the current {@link Session} belongs to a client.
+		if (!belongsToClient()) {
+			throw new InvalidStateException(this, "does not belong to a client");
+		}	
+	}
+	
+	//method
+	/**
+	 * @throws InvalidStateException if the current {@link Session} belongs to a client.
+	 */
+	private void suppoeDoesNotBelongToClient() {
+		
+		//Checks if the current {@link Session} does not belong to a client.
+		if (belongsToClient()) {
+			throw new InvalidStateException(this, "belongs to a client");
+		}	
 	}
 }

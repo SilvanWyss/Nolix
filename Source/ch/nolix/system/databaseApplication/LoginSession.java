@@ -17,7 +17,7 @@ public final class LoginSession extends DatabaseApplicationSession {
 	
 	//method
 	public void Login() {
-		getRefClient()
+		getParentClient()
 		.setSession(new HomeSession(getRefContext()));
 	}
 	

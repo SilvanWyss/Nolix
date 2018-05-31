@@ -55,7 +55,7 @@ public final class FrontConsoleClient extends GUIClientoid<FrontConsoleClient> {
 		//Calls other constructor.
 		this(new Frame());
 		
-		internal_connect(application);
+		internal_connectTo(application);
 	}
 
 	//constructor
@@ -103,7 +103,7 @@ public final class FrontConsoleClient extends GUIClientoid<FrontConsoleClient> {
 		this(GUI);
 		
 		//Connects this console front client.
-		internal_connect(ip, port, targetApplication);
+		internal_connectTo(ip, port, targetApplication);
 	}
 	
 	/**

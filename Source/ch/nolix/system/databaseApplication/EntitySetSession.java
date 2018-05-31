@@ -40,21 +40,21 @@ public final class EntitySetSession extends HeaderedSession {
 	
 	//method
 	public void OpenCreateEntity() {
-		getRefClient().setSession(
+		getParentClient().setSession(
 			new CreateEntitySession(getRefContext(), entitySetName)
 		);
 	}
 	
 	//method
 	public void OpenDeleteEntitySession(final String entityId) {
-		getRefClient().setSession(
+		getParentClient().setSession(
 			new DeleteEntitySession(getRefContext(), entitySetName, Integer.valueOf(entityId))	
 		);
 	}
 	
 	//method
 	public void OpenEntitySession(final String entitySetName, final String entityId) {
-		getRefClient().setSession(
+		getParentClient().setSession(
 			new EntitySession(
 				getRefContext(),
 				entitySetName,
@@ -65,7 +65,7 @@ public final class EntitySetSession extends HeaderedSession {
 	
 	//method
 	public void OpenHomeSession() {
-		getRefClient().setSession(new HomeSession(getRefContext()));
+		getParentClient().setSession(new HomeSession(getRefContext()));
 	}
 	
 	//method

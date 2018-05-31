@@ -8,12 +8,11 @@ import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.LabelRole;
 import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.element.GUI.Widget;
-import ch.nolix.system.GUIClient.BackGUIClient;
-import ch.nolix.system.client.ContextSession;
+import ch.nolix.system.GUIClient.BackGUISession;
 
 //abstract class
 public abstract class DatabaseApplicationSession
-extends ContextSession<BackGUIClient, DatabaseApplicationContext> {
+extends BackGUISession<DatabaseApplicationContext> {
 	
 	//attribute
 	private DatabaseAdapter databaseAdapter;
@@ -28,8 +27,7 @@ extends ContextSession<BackGUIClient, DatabaseApplicationContext> {
 	//method
 	public final void initialize() {
 		
-		getRefClient()
-		.getRefGUI()
+		getRefGUI()
 		.setTitle(getRefContext().getTitle())
 		.setRootWidget(
 			new VerticalStack(
@@ -40,7 +38,7 @@ extends ContextSession<BackGUIClient, DatabaseApplicationContext> {
 		);
 		
 		if (getRefContext().hasGUILook()) {
-			getRefClient().getRefGUI().setConfiguration(
+			getRefGUI().setConfiguration(
 				getRefContext().getGUILook()
 			);
 		}
