@@ -22,7 +22,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1040
+ * @lines 1030
  * @param <E> - The type of the elements of a list.
  */
 public final class List<E> implements Clearable<List<E>>, IContainer<E> {
@@ -530,14 +530,9 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	
 	//method
 	/**
-	 * This method uses the merge sort algorithm.
-	 * The complexity of this method is O(n*log(n)) if this list contains n elements.
-	 * 
-	 * @param comparator
-	 * @return a new list with the elements of this list
-	 * sorted from smallest to biggest according to the given norm.
+	 * {@inheritDoc}
 	 */
-	public <E2> List<E> getSortedList(final IElementTakerComparableGetter<E, E2> norm) {
+	public List<E> getRefSorted(final IElementTakerComparableGetter<E, ?> norm) {
 		
 		//Handles the case that this list is empty.
 		if (isEmpty()) {
@@ -904,11 +899,11 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * @param norm
 	 * @return this list.
 	 */
-	public <E2> List<E> sort(IElementTakerComparableGetter<E, E2> norm) {
+	public <E2> List<E> sort(final IElementTakerComparableGetter<E, E2> norm) {
 		
-		final List<E> sorted = getSortedList(norm);
+		final var sortedList = getRefSorted(norm);
 		clear();
-		addAtEnd(sorted);
+		addAtEnd(sortedList);
 		
 		return this;
 	}
@@ -940,10 +935,10 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * @return a new list with the elements from the given start index to the given end index sorted according to the given norm.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private <E2> List<E> getSortedSubList(
+	private List<E> getSortedSubList(
 		final int startIndex,
 		final int endIndex,
-		final IElementTakerComparableGetter<E, E2> norm
+		final IElementTakerComparableGetter<E, ?> norm
 	) {
 		
 		//Searches for the start node.

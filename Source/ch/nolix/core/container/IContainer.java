@@ -2,7 +2,6 @@
 package ch.nolix.core.container;
 
 //Java imports
-import java.util.Iterator;
 import java.util.Random;
 
 //own imports
@@ -32,7 +31,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1460
+ * @lines 1490
  * @param <E> The type of the elements of a container.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -45,7 +44,7 @@ public interface IContainer<E> extends Iterable<E> {
 	public default boolean contains(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			
 			//Checks if the given selector selects the current element.
 			if (selector.getOutput(e)) {
@@ -75,7 +74,7 @@ public interface IContainer<E> extends Iterable<E> {
 	public default boolean contains(final Object element) {
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			
 			//Checks if the current element is the given element.
 			if (e == element) {
@@ -198,7 +197,7 @@ public interface IContainer<E> extends Iterable<E> {
 		boolean found = false;
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			if (e == element) {
 				
 				if (found) {
@@ -227,7 +226,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default boolean containsOne() {
 		
-		final Iterator<E> iterator = iterator();
+		final var iterator = iterator();
 		
 		if (!iterator.hasNext()) {
 			return false;
@@ -244,10 +243,10 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default boolean containsOne(final IElementTakerBooleanGetter<E> selector) {
 		
-		boolean found = false;
+		var found = false;
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			if (selector.getOutput(e)) {
 				
 				if (found) {
@@ -446,7 +445,7 @@ public interface IContainer<E> extends Iterable<E> {
 		int count = 0;
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			
 			//Checks if the given selector selects the current element.
 			if (selector.getOutput(e)) {
@@ -467,7 +466,7 @@ public interface IContainer<E> extends Iterable<E> {
 		int count = 0;
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			
 			//Checks if the current element is the given element.
 			if (e == element) {
@@ -615,7 +614,7 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		//Iterates this container.
 		int i = 1;
-		for (final E e : this) {
+		for (final var e : this) {
 			
 			//Checks if the current index is the given index.
 			if (i == index) {
@@ -641,7 +640,7 @@ public interface IContainer<E> extends Iterable<E> {
 		Comparable max = norm.getValue(element);
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			final Comparable value = norm.getValue(e);
 			if (value.compareTo(max) > 0) {
 				element = e;
@@ -664,7 +663,7 @@ public interface IContainer<E> extends Iterable<E> {
 		double max = doubleNorm.getOutput(element);
 		
 		//Iterates this container.
-		for (final E e : this) {			
+		for (final var e : this) {			
 			final double value = doubleNorm.getOutput(e);
 			if (value > max) {
 				element = e;
@@ -687,7 +686,7 @@ public interface IContainer<E> extends Iterable<E> {
 		int max = intNorm.getOutput(element);
 		
 		//Iterates this container.
-		for (final E e : this) {			
+		for (final var e : this) {			
 			final int value = intNorm.getOutput(e);
 			if (value > max) {
 				element = e;
@@ -710,7 +709,7 @@ public interface IContainer<E> extends Iterable<E> {
 		long max = longNorm.getOutput(element);
 		
 		//Iterates this container.
-		for (final E e : this) {			
+		for (final var e : this) {			
 			final long value = longNorm.getOutput(e);
 			if (value > max) {
 				element = e;
@@ -734,7 +733,7 @@ public interface IContainer<E> extends Iterable<E> {
 		Comparable min = norm.getValue(element);
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			final Comparable value = norm.getValue(e);
 			if (value.compareTo(min) < 0) {
 				element = e;
@@ -757,7 +756,7 @@ public interface IContainer<E> extends Iterable<E> {
 		double min = doubleNorm.getOutput(element);
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			final double value = doubleNorm.getOutput(e);
 			if (value < min) {
 				element = e;
@@ -780,7 +779,7 @@ public interface IContainer<E> extends Iterable<E> {
 		int min = intNorm.getOutput(element);
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			final int value = intNorm.getOutput(e);
 			if (value < min) {
 				element = e;
@@ -803,7 +802,7 @@ public interface IContainer<E> extends Iterable<E> {
 		long min = longNorm.getOutput(element);
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			final long value = longNorm.getOutput(e);
 			if (value < min) {
 				element = e;
@@ -838,7 +837,7 @@ public interface IContainer<E> extends Iterable<E> {
 	public default E getRefFirst(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			
 			//Checks if the given selector selects the current element.
 			if (selector.getOutput(e)) {
@@ -861,7 +860,7 @@ public interface IContainer<E> extends Iterable<E> {
 	public default Pair<E, E> getRefFirst(final ITwoElementTakerBooleanGetter<E> selector) {
 
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 		
 			final E element = getRefFirstOrNull(e2 -> selector.getOutput(e, e2));
 			
@@ -896,7 +895,7 @@ public interface IContainer<E> extends Iterable<E> {
 	public default E getRefFirstOrNull(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			
 			//Checks if the given selector selects the current element.
 			if (selector.getOutput(e)) {
@@ -917,7 +916,7 @@ public interface IContainer<E> extends Iterable<E> {
 	public default Pair<E, E> getRefFirstOrNull(final ITwoElementTakerBooleanGetter<E> selector) {
 
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 		
 			final E element = getRefFirstOrNull(e2 -> selector.getOutput(e, e2));
 			
@@ -971,7 +970,7 @@ public interface IContainer<E> extends Iterable<E> {
 		E element = null;
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			if (selector.getOutput(e)) {
 				
 				if (element != null) {
@@ -1008,7 +1007,7 @@ public interface IContainer<E> extends Iterable<E> {
 		final List<E> list = new List<E>();
 		
 		//Fills up the list with the elements the given selector selects from this list.
-		for (final E e : this) {
+		for (final var e : this) {
 			if (selector.getOutput(e)) {
 				list.addAtEnd(e);
 			}
@@ -1033,7 +1032,7 @@ public interface IContainer<E> extends Iterable<E> {
 		final List<E> list = new List<E>();
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			
 			boolean selected = true;
 			
@@ -1056,6 +1055,20 @@ public interface IContainer<E> extends Iterable<E> {
 		return list;
 	}
 	
+	//default method
+	/**
+	 * This method uses the merge sort algorithm.
+	 * The complexity of this method is O(n*log(n)) if this container contains n elements.
+	 * 
+	 * @param norm
+	 * @return a new list with the elements of this container
+	 * sorted from the smallest to the biggest element according to the given norm.
+	 */
+	public default List<E> getRefSorted(final IElementTakerComparableGetter<E, ?> norm) {
+		return toList().sort(norm);
+	}
+	
+	//default method
 	/**
 	 * The complexity of this method is O(n) if this container contains n elements.
 	 * 
@@ -1082,7 +1095,7 @@ public interface IContainer<E> extends Iterable<E> {
 		final List<E> list = new List<E>();
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			
 			boolean selected = false;
 			
@@ -1145,7 +1158,7 @@ public interface IContainer<E> extends Iterable<E> {
 		double sum = 0;
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			sum += doubleNorm.getOutput(e);
 		}
 		
@@ -1162,7 +1175,7 @@ public interface IContainer<E> extends Iterable<E> {
 		int sum = 0;
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			sum += intNorm.getOutput(e);
 		}
 		
@@ -1179,7 +1192,7 @@ public interface IContainer<E> extends Iterable<E> {
 		long sum = 0;
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			sum += longNorm.getOutput(e);
 		}
 		
@@ -1198,7 +1211,7 @@ public interface IContainer<E> extends Iterable<E> {
 		final double average = getAverageByDouble(doubleNorm);
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			sum += Math.pow(doubleNorm.getOutput(e) - average, 2);
 		}
 		
@@ -1217,7 +1230,7 @@ public interface IContainer<E> extends Iterable<E> {
 		final double average = getAverageByInt(intNorm);
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			sum += Math.pow(intNorm.getOutput(e) - average, 2);
 		}
 		
@@ -1236,7 +1249,7 @@ public interface IContainer<E> extends Iterable<E> {
 		final double average = getAverageByLong(longNorm);
 		
 		//Iterates this container.
-		for (final E e : this) {
+		for (final var e : this) {
 			sum += Math.pow(longNorm.getOutput(e) - average, 2);
 		}
 		
@@ -1261,7 +1274,7 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		//Iterates this container.
 		E previous = null;
-		for (final E e : this) {
+		for (final var e : this) {
 			if (previous != null) {
 				Comparable value = norm.getValue(e);
 				if (value.compareTo(norm.getValue(previous)) < 0) {
@@ -1281,8 +1294,8 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param extractor
 	 * @return a new list with the elements the given extractor extracts from the elements of this container.
 	 */
-	public default <O> List<O> to(final IElementTakerElementGetter<E, O> extractor) {
-		final List<O> list = new List<O>();
+	public default <E2> List<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
+		final var list = new List<E2>();
 		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
 		return list;
 	}
@@ -1295,13 +1308,13 @@ public interface IContainer<E> extends Iterable<E> {
 	public default E[] toArray() {	
 
 		//Creates array.
-		final E[] array = (E[])new Object[getElementCount()];
+		final var array = (E[])new Object[getElementCount()];
 		
 		//Fills up the array.
-		int counter = 0;
-		for (final E e : this) {
-			array[counter] = e;
-			counter++;
+		int index = 0;
+		for (final var e : this) {
+			array[index] = e;
+			index++;
 		}
 		
 		return array;
@@ -1316,11 +1329,11 @@ public interface IContainer<E> extends Iterable<E> {
 	public default <E2> E2[] toArray(final IElementTakerElementGetter<E, E2> extractor) {
 		
 		//Creates array.
-		final E2[] array = (E2[])(new Object[getElementCount()]);
+		final var array = (E2[])(new Object[getElementCount()]);
 		
 		//Fills up the array.
 		int index = 0;
-		for (final E e : this) {
+		for (final var e : this) {
 			array[index] = extractor.getOutput(e);
 			index++;
 		}
@@ -1340,7 +1353,7 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		//Fills up the array.
 		int index = 0;
-		for (final E e : this) {
+		for (final var e : this) {
 			array[index] = doubleNorm.getOutput(e);
 			index++;
 		}
@@ -1372,7 +1385,7 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		//Fills up the array.
 		int index = 0;
-		for (final E e : this) {
+		for (final var e : this) {
 			array[index] = intNorm.getOutput(e);
 			index++;
 		}
@@ -1382,17 +1395,27 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if this container contains n elements.
+	 * 
+	 * @return a new list with the elements from this container.
+	 */
+	public default List<E> toList() {
+		return to(e -> e);
+	}
+	
+	//default method
+	/**
 	 * @param longNorm
 	 * @return a new array with the values the given long norm returns from the elements of this container.
 	 */
 	public default long[] toLongArray(final IElementTakerLongGetter<E> longNorm) {
 
-		//Creates array.
+		//Creates the array.
 		final long[] array = new long[getElementCount()];
 		
 		//Fills up the array.
-		int index = 0;
-		for (final E e : this) {
+		var index = 0;
+		for (final var e : this) {
 			array[index] = longNorm.getOutput(e);
 			index++;
 		}
