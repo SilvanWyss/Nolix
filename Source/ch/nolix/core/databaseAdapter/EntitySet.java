@@ -149,10 +149,9 @@ extends NamedElement {
 	@SuppressWarnings("unchecked")
 	public IContainer<E> getRefEntities() {
 		
-		final var entities =  databaseConnectorWrapper.getEntities(this);
 		final var newlyLoadedEntities = new List<E>();
 		
-		for (final var e : entities) {
+		for (final var e : databaseConnectorWrapper.getEntities(this)) {
 			
 			if (!loadedAndCreatedEntities.contains(e2 -> e2.getId() == e.getId())) {
 			
