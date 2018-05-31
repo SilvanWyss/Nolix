@@ -532,7 +532,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public List<E> getRefSorted(final IElementTakerComparableGetter<E, ?> norm) {
+	public <E2> List<E> getRefSorted(final IElementTakerComparableGetter<E, E2> norm) {
 		
 		//Handles the case that this list is empty.
 		if (isEmpty()) {
@@ -935,10 +935,10 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * @return a new list with the elements from the given start index to the given end index sorted according to the given norm.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private List<E> getSortedSubList(
+	private <E2> List<E> getSortedSubList(
 		final int startIndex,
 		final int endIndex,
-		final IElementTakerComparableGetter<E, ?> norm
+		final IElementTakerComparableGetter<E, E2> norm
 	) {
 		
 		//Searches for the start node.

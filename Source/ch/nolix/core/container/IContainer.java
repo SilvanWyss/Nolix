@@ -1064,7 +1064,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new list with the elements of this container
 	 * sorted from the smallest to the biggest element according to the given norm.
 	 */
-	public default List<E> getRefSorted(final IElementTakerComparableGetter<E, ?> norm) {
+	public default <E2> List<E> getRefSorted(final IElementTakerComparableGetter<E, E2> norm) {
 		return toList().sort(norm);
 	}
 	
