@@ -1447,7 +1447,17 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new array with the strings that represent the elements of this container.
 	 */
 	public default String[] toStringArray() {
-		return toArray(e -> e.toString());
+		
+		final var stringArray = new String[getElementCount()];
+		
+		//Iterates the elements of this container.
+		var i = 0;
+		for (final var e : this) {
+			stringArray[i] = e.toString();
+			i++;
+		}
+		
+		return stringArray;
 	}
 	
 	//default method
