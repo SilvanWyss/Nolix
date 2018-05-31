@@ -32,7 +32,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1440
+ * @lines 1450
  * @param <E> The type of the elements of a container.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -1440,5 +1440,13 @@ public interface IContainer<E> extends Iterable<E> {
 				
 				return stringBuilder.toString();
 		}
+	}
+	
+	//default method
+	/**
+	 * @return a new list with the strings that represent the elements of this container.
+	 */
+	public default List<String> toStrings() {
+		return to(e -> e.toString());
 	}
 }
