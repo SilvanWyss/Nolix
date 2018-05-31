@@ -3,19 +3,21 @@ package ch.nolix.core.functionInterfaces;
 
 //function interface
 /**
- * An element taker comparable getter has a method that takes an element and returns a comparable object.
+ * A {@link IElementTakerComparableGetter} takes an element and returns a {@link Comparable}.
  * 
  * @author Silvan Wyss
  * @month 2016-03
  * @lines 20
- * @param <E> - The type of the elements an element taker comparable getter takes.
+ * @param <E> The type of the element a {@link IElementTakerComparableGetter} takes.
+ * @param <E2> The type of the element of the {@link Comparable}
+ * a {@link IElementTakerComparableGetter} returns.
  */
-public interface IElementTakerComparableGetter<E, T> {
+public interface IElementTakerComparableGetter<E, E2> {
 
 	//abstract method
 	/**
 	 * @param element
-	 * @return a comparable object for the given element.
+	 * @return a new {@link IElementTakerComparableGetter} for the given element.
 	 */
-	public abstract Comparable<T> getValue(E element);
+	public abstract Comparable<E2> getValue(E element);
 }
