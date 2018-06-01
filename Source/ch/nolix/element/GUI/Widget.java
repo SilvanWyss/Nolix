@@ -1303,7 +1303,7 @@ extends ConfigurableElement<W> {
 	 */
 	protected final List<Widget<?, ?>> getRefWidgetsRecursively() {
 		
-		final var widgets = new List<Widget<?, ?>>(getRefWidgets());
+		final var widgets = new List<Widget<?, ?>>();
 		
 		fillUpWidgetsRecursively(widgets);
 		
