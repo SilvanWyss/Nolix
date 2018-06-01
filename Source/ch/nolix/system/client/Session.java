@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.functionInterfaces.IFunction;
 import ch.nolix.core.helper.MethodHelper;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
@@ -18,13 +19,16 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 210
+ * @lines 250
  * @param <C> The type of the client of a {@link Session}.
  */
 public abstract class Session<C extends Client<C>> {
 	
 	//attribute
 	private C parentClient;
+	
+	//optional attribute
+	private IFunction popFunction;
 
 	//multi-attribute
 	private final List<Method> userRunMethods = new List<Method>();
@@ -136,7 +140,7 @@ public abstract class Session<C extends Client<C>> {
 		}
 	}
 	
-	//method
+	//package-visible method
 	/**
 	 * Removes the parent client of the current {@link Session}.
 	 */
@@ -144,7 +148,7 @@ public abstract class Session<C extends Client<C>> {
 		parentClient = null;
 	}
 		
-	//method
+	//package-visible method
 	/**
 	 * Sets the parent client of the current {@link Session}.
 	 * 
@@ -167,6 +171,34 @@ public abstract class Session<C extends Client<C>> {
 		this.parentClient = parentClient;
 	}
 	
+	//package-visible method
+	/**
+	 * Runs the pop function of the current {@link Session}
+	 * if the current {@link Session} has a pop function.
+	 */
+	final void runProbabalePopFunction() {
+		if (hasPopFunction()) {
+			popFunction.run();
+		}
+	}
+	
+	//package-visible method
+	/**
+	 * Sets the pop function of the current {@link Session}.
+	 * 
+	 * @param popFunction
+	 * @throws NullArgumentException if the given pop function is null.
+	 */
+	final void setPopFunction(final IFunction popFunction) {
+		
+		Validator
+		.suppose(popFunction)
+		.thatIsNamed("pop function")
+		.isNotNull();
+		
+		this.popFunction = popFunction;
+	}
+	
 	//method
 	/**
 	 * @param name
@@ -187,6 +219,14 @@ public abstract class Session<C extends Client<C>> {
 	 */
 	private Method getUserRunMethod(final String name) {
 		return userRunMethods.getRefFirst(m -> m.getName().equals(name));
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Session} has a pop function.
+	 */
+	private boolean hasPopFunction() {
+		return (popFunction != null);
 	}
 	
 	//method

@@ -8,6 +8,7 @@ import ch.nolix.core.container.Stack;
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.duplexController.LocalDuplexController;
 import ch.nolix.core.duplexController.NetDuplexController;
+import ch.nolix.core.functionInterfaces.IFunction;
 import ch.nolix.core.interfaces.Closable;
 import ch.nolix.core.interfaces.Resettable;
 import ch.nolix.core.specification.Specification;
@@ -26,7 +27,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 560
+ * @lines 580
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -113,8 +114,9 @@ implements Closable, Resettable<C> {
 		}
 		
 		//Removes the last session of the current client.
-		final var lastSession = sessions.removeAndGetRefLast();
-		lastSession.removeParentClient();
+			final var lastSession = sessions.removeAndGetRefLast();
+			lastSession.runProbabalePopFunction();
+			lastSession.removeParentClient();
 		
 		internal_finishSessionInitialization();
 	}
@@ -143,6 +145,23 @@ implements Closable, Resettable<C> {
 			
 			//A client swallows always a closed state exception.
 			catch (final ClosedStateException closedStateException) {}
+	}
+	
+	//method
+	/**
+	 * Pushes the given session to the current {@link Client} with the given pop function.
+	 * 
+	 * @param session
+	 * @param popFunction
+	 * @throws NullArgumentException if the given session is null.
+	 * @throws NullArgumentException if the given pop function is null.
+	 */
+	public final void pushSession(
+		final Session<C> session,
+		final IFunction popFunction
+	) {
+		session.setPopFunction(popFunction);
+		pushSession(session);
 	}
 	
 	//method
