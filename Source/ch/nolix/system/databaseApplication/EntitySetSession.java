@@ -40,8 +40,9 @@ public final class EntitySetSession extends HeaderedSession {
 	
 	//method
 	public void OpenCreateEntity() {
-		getParentClient().setSession(
-			new CreateEntitySession(getRefContext(), entitySetName)
+		getParentClient().pushSession(
+			new CreateEntitySession(getRefContext(), entitySetName),
+			() -> initialize()
 		);
 	}
 	

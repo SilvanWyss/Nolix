@@ -13,7 +13,6 @@ import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.GUI.Grid;
 import ch.nolix.element.GUI.HorizontalStack;
 import ch.nolix.element.GUI.Label;
-import ch.nolix.element.GUI.SelectionMenu;
 import ch.nolix.element.GUI.TabContainer;
 import ch.nolix.element.GUI.TextBox;
 import ch.nolix.element.GUI.VerticalStack;
@@ -61,12 +60,39 @@ public final class EntitySession extends HeaderedSession {
 	}
 	
 	//method
-	public void OpenReferencePropertySession(final String referencePropertyHeader) {
-		
+	public void OpenEntitySession(final String entitySetName, final String entityId) {
+		getParentClient().setSession(
+			new EntitySession(
+				getRefContext(),
+				entitySetName,
+				Integer.valueOf(entityId)
+			)	
+		);
 	}
 	
 	//method
-	@SuppressWarnings({ "incomplete-switch", "unchecked" })
+	@SuppressWarnings("unchecked")
+	public void OpenReferencePropertySession(final String referencePropertyHeader) {
+		
+		final var referenceProperty = 
+		(ReferenceProperty<Entity>)getRefEntity()
+		.getRefProperties()
+		.getRefFirst(p -> p.hasHeader(referencePropertyHeader));
+		
+		getParentClient().pushSession(
+			new ReferencePropertySession(
+				getRefContext(),
+				referenceProperty
+			),
+			() -> {
+				final Button label = getRefGUI().getRefWidgetByNameRecursively(referencePropertyHeader + "LinkButton");
+				label.setText(String.valueOf(referenceProperty.getEntity().getId()));
+			}
+		);
+	}
+	
+	//method
+	@SuppressWarnings("incomplete-switch")
 	public void Save() {
 		
 		final var entity = getRefEntity();
@@ -82,21 +108,6 @@ public final class EntitySession extends HeaderedSession {
 					getParentClient().getRefGUI().getRefWidgetByNameRecursively(p.getHeader());
 					
 					property.setGenericValue(dataTextBox.getText());
-					
-					break;
-					
-				case REFERENCE:
-					
-					final var referenceProperty = (ReferenceProperty<Entity>)p;
-					
-					final SelectionMenu referenceSelectionMenu =
-					getParentClient().getRefGUI().getRefWidgetByNameRecursively(referenceProperty.getHeader());
-					
-					referenceProperty.set(
-						referenceProperty
-						.getReferencedEntitySet()
-						.getRefEntityById(referenceSelectionMenu.getSelectedItemId())
-					);
 					
 					break;
 			}
@@ -175,20 +186,29 @@ public final class EntitySession extends HeaderedSession {
 						rowIndex,
 						1,
 						new Label(p.getHeader())
+						.setName(referenceProperty.getHeader())
 					);
-					
-					final var referencesSelectionMenu = new SelectionMenu().setName(referenceProperty.getHeader());
-					
-					for (final var e : referenceProperty.getReferencedEntitySet().getRefEntities()) {
-						referencesSelectionMenu.addItem(e.getId(), e.getParentEntitySet().getName() + e.getId());
-					}
-					
-					referencesSelectionMenu.select(referenceProperty.getEntity().getId());
 					
 					dataGrid.setWidget(
 						rowIndex,
 						2,
-						referencesSelectionMenu
+						new HorizontalStack(
+							new Button(String.valueOf(referenceProperty.getEntity().getId()))
+							.setRole(ButtonRole.LinkButton)
+							.setName(referenceProperty.getHeader() + "LinkButton")
+							.setLeftMouseButtonPressCommand(
+								"OpenEntitySession("
+								+ referenceProperty.getReferencedEntitySet().getName()
+								+ ","
+								+ referenceProperty.getEntity().getId()
+								+ ")"),
+							new Button("Select")
+							.setLeftMouseButtonPressCommand(
+								"OpenReferencePropertySession("
+								+ referenceProperty.getHeader()
+								+ ")"
+							)
+						)
 					);
 					
 					rowIndex++;
