@@ -50,6 +50,9 @@ extends BackgroundWidget<BW, BWS> {
 	public static final String TYPE_NAME = "Borderablewidget";
 	private static final int VIEW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP = 50;
 	
+	//limit
+	private static final int MIN_SCROLL_CURSOR_LENGTH = 20;
+	
 	//constants
 	private static final String MIN_WIDTH_HEADER = "MinWidth";
 	private static final String MIN_HEIGHT_HEADER = "MinHeight";
@@ -438,14 +441,19 @@ extends BackgroundWidget<BW, BWS> {
 		
 		//Handles the case that the cursor is over the vertical scrollbar cursor.
 		if (verticalScrollbarCursorIsUnderCursor()) {
+			
 			isMovingVerticalScrollbarCursor = true;
-			verticalScrollingCursorStartYPosition = getCursorYPosition();
+			verticalScrollingCursorStartYPosition =
+			getCursorYPosition() - getVerticalScrollbarCursorYPositionOnVerticalScrollbar();
 		}
 		
 		//Handles the case that the cursor is over the horizontal scrollbar cursor.
 		else if (horizontalScrollbarCursorIsUnderCursor()) {
+			
 			isMovingHorizontalScrollbarCursor = true;
-			horizontalScrollingCursorStartXPosition = getCursorXPosition();
+			
+			horizontalScrollingCursorStartXPosition =
+			getCursorXPosition() - getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar();
 		}
 	}
 	
@@ -477,12 +485,11 @@ extends BackgroundWidget<BW, BWS> {
 			getCursorYPosition() - verticalScrollingCursorStartYPosition;
 			
 			final var viewAreaYDelta =
-			(verticalScrollbarCursorYDelta * getScrollAreaHeight()) / getViewAreaHeight();
+			(verticalScrollbarCursorYDelta * (getScrollAreaHeight() - getViewAreaHeight()))
+			/ (getViewAreaHeight() - getVerticalScrollbarCursorHeight());
 			
-			final var viewAreaYPositionOnScrollArea =
-			getViewAreaYPositionOnScrollArea() + viewAreaYDelta;
+			final var viewAreaYPositionOnScrollArea = viewAreaYDelta;
 			
-			verticalScrollingCursorStartYPosition = getCursorYPosition();
 			setViewAreaYPositionOnScrollArea(viewAreaYPositionOnScrollArea);
 		}
 		
@@ -492,12 +499,11 @@ extends BackgroundWidget<BW, BWS> {
 			getCursorXPosition() - horizontalScrollingCursorStartXPosition;
 			
 			final var viewAreaXDelta =
-			(horizontalScrollbarCursorXDelta * getScrollAreaWidth()) / getViewAreaWidth();
+			(horizontalScrollbarCursorXDelta * (getScrollAreaWidth() - getViewAreaWidth()))
+			/ (getViewAreaWidth() - getHorizontalScrollbarCursorWidth());
 			
-			final var viewAreaXPositionOnScrollArea =
-			getViewAreaXPositionOnScrollArea() + viewAreaXDelta;
+			final var viewAreaXPositionOnScrollArea = viewAreaXDelta;
 			
-			horizontalScrollingCursorStartXPosition = getCursorXPosition();
 			setViewAreaXPositionOnScrollArea(viewAreaXPositionOnScrollArea);
 		}
 	}
@@ -1076,8 +1082,10 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	private int getHorizontalScrollbarCursorWidth() {
 		return
-		(int)
-		(Math.pow(getViewAreaWidth(), 2) / getScrollAreaWidth());
+		Calculator.getMax(
+			(int)(Math.pow(getViewAreaWidth(), 2) / getScrollAreaWidth()),
+			MIN_SCROLL_CURSOR_LENGTH
+		);
 	}
 	
 	//method
@@ -1096,9 +1104,13 @@ extends BackgroundWidget<BW, BWS> {
 	 * on the horizontal scrollbar of this broder widget.
 	 */
 	private int getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar() {
+				
+		final var viewAreaWidth = getViewAreaWidth();
+		
 		return
-		(getViewAreaXPositionOnScrollArea() * getViewAreaWidth())
-		/ getScrollAreaWidth();
+		(viewAreaWidth - getHorizontalScrollbarCursorWidth())
+		* getViewAreaXPositionOnScrollArea()
+		/ (getScrollAreaWidth() - viewAreaWidth);
 	}
 	
 	//method
@@ -1298,8 +1310,10 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private int getVerticalScrollbarCursorHeight() {
 		return
-		(int)
-		(Math.pow(getViewAreaHeight(), 2) / getScrollAreaHeight());
+		Calculator.getMax(
+			(int)(Math.pow(getViewAreaHeight(), 2) / getScrollAreaHeight()),
+			MIN_SCROLL_CURSOR_LENGTH
+		);
 	}
 	
 	//method
@@ -1328,9 +1342,13 @@ extends BackgroundWidget<BW, BWS> {
 	 * on the vertical scrollbar of this border widget.
 	 */
 	private int getVerticalScrollbarCursorYPositionOnVerticalScrollbar() {
+		
+		final var viewAreaHeight = getViewAreaHeight();
+		
 		return
-		(getViewAreaYPositionOnScrollArea() * getViewAreaHeight())
-		/ getScrollAreaHeight();
+		(viewAreaHeight - getVerticalScrollbarCursorHeight())
+		* getViewAreaYPositionOnScrollArea()
+		/ (getScrollAreaHeight() - viewAreaHeight);
 	}
 	
 	//method
