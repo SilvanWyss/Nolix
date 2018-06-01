@@ -968,54 +968,6 @@ extends BackgroundWidget<BW, BWS> {
 		int cursorXPositionOnContent,
 		int cursorYPositionOnContent
 	) {}
-	
-	//method
-	/**
-	 * @return true if the cursor is over the horizontal scrollbar cursor of this border widget.
-	 */
-	private boolean horizontalScrollbarCursorIsUnderCursor() {
-		
-		//Handles the case that this border widget has no horizontal scrollbar.
-		if (!hasHorizontalScrollbar()) {
-			return false;
-		}
-		
-		//Handles the case that this border widget has a horizontal scrollbar.
-			final var cursorXPosition = getCursorXPosition();
-			final var cursorYPosition = getCursorYPosition();
-			final var horizontalScrollbarCursorXPosition = getHorizontalScrollbarCursorXPosition();
-			final var horizontalScrollbarCursorYPosition = getHorizontalScrollbarCursorYPosition();
-			
-			return
-			cursorXPosition >= horizontalScrollbarCursorXPosition
-			&& cursorXPosition < horizontalScrollbarCursorXPosition + getHorizontalScrollbarCursorWidth()
-			&& cursorYPosition >= horizontalScrollbarCursorYPosition
-			&& cursorYPosition < horizontalScrollbarCursorYPosition + getHorizontalScrollbarThickness();
-	}
-	
-	//method
-	/**
-	 * @return true if the cursor is over the vertical scrollbar cursor of this border widget.
-	 */
-	private boolean verticalScrollbarCursorIsUnderCursor() {
-		
-		//Handles the case that this border widget has no vertical scrollbar.
-		if (!hasVerticalScrollbar()) {
-			return false;
-		}
-		
-		//Handles the case that this border widget has a vertical scrollbar.
-			final var cursorXPosition = getCursorXPosition();
-			final var cursorYPosition = getCursorYPosition();		
-			final var verticalScrollbarCursorXPosition = getVerticalScrollbarCursorXPosition();
-			final var verticalScrollbarCursorYPosition = getVerticalScrollbarCursorYPosition();
-			
-			return
-			cursorXPosition >= verticalScrollbarCursorXPosition
-			&& cursorXPosition < verticalScrollbarCursorXPosition + getVerticalScrollbarThickness()
-			&& cursorYPosition >= verticalScrollbarCursorYPosition
-			&& cursorYPosition < verticalScrollbarCursorYPosition + getVerticalScrollbarCursorHeight();
-	}
 
 	//method
 	/**
@@ -1429,6 +1381,30 @@ extends BackgroundWidget<BW, BWS> {
 		
 		return viewAreaWidth;
 	}
+	
+	//method
+	/**
+	 * @return true if the cursor is over the horizontal scrollbar cursor of this border widget.
+	 */
+	private boolean horizontalScrollbarCursorIsUnderCursor() {
+		
+		//Handles the case that this border widget has no horizontal scrollbar.
+		if (!hasHorizontalScrollbar()) {
+			return false;
+		}
+		
+		//Handles the case that this border widget has a horizontal scrollbar.
+			final var cursorXPosition = getCursorXPosition();
+			final var cursorYPosition = getCursorYPosition();
+			final var horizontalScrollbarCursorXPosition = getHorizontalScrollbarCursorXPosition();
+			final var horizontalScrollbarCursorYPosition = getHorizontalScrollbarCursorYPosition();
+			
+			return
+			cursorXPosition >= horizontalScrollbarCursorXPosition
+			&& cursorXPosition < horizontalScrollbarCursorXPosition + getHorizontalScrollbarCursorWidth()
+			&& cursorYPosition >= horizontalScrollbarCursorYPosition
+			&& cursorYPosition < horizontalScrollbarCursorYPosition + getHorizontalScrollbarThickness();
+	}
 
 	//method
 	/**
@@ -1551,6 +1527,30 @@ extends BackgroundWidget<BW, BWS> {
 				getScrollAreaHeight()
 			)
 		);
+	}
+	
+	//method
+	/**
+	 * @return true if the cursor is over the vertical scrollbar cursor of this border widget.
+	 */
+	private boolean verticalScrollbarCursorIsUnderCursor() {
+		
+		//Handles the case that this border widget has no vertical scrollbar.
+		if (!hasVerticalScrollbar()) {
+			return false;
+		}
+		
+		//Handles the case that this border widget has a vertical scrollbar.
+			final var cursorXPosition = getCursorXPosition();
+			final var cursorYPosition = getCursorYPosition();		
+			final var verticalScrollbarCursorXPosition = getVerticalScrollbarCursorXPosition();
+			final var verticalScrollbarCursorYPosition = getVerticalScrollbarCursorYPosition();
+			
+			return
+			cursorXPosition >= verticalScrollbarCursorXPosition
+			&& cursorXPosition < verticalScrollbarCursorXPosition + getVerticalScrollbarThickness()
+			&& cursorYPosition >= verticalScrollbarCursorYPosition
+			&& cursorYPosition < verticalScrollbarCursorYPosition + getVerticalScrollbarCursorHeight();
 	}
 	
 	//method
