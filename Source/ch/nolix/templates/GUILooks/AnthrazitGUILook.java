@@ -74,7 +74,8 @@ public final class AnthrazitGUILook extends StandardConfiguration {
 			new DeepConfiguration()
 			.setSelectorType("SelectionMenu")
 			.addAttachingAttribute(
-				"MaxHeight(100)",
+				"MinWidth(100)",
+				"MaxHeight(200)",
 				"BaseBackgroundColor(0xE0E0E0)"
 			)
 		);
