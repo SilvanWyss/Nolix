@@ -21,9 +21,9 @@ import ch.nolix.system.client.Client;
 public final class BackGUIClient extends Client<BackGUIClient> {
 	
 	//commands
-	static final String RESET_DIALOG_COMMAND = "ResetDialog";
-	static final String ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI = "AddOrChangeInteractionAttributesOfWidgetsOfGUI";
-	static final String RESET_OTHER_SIDE_DIALOG_COMMAND = "ResetOtherSideDialog";
+	static final String RESET_GUI_HEADER = "ResetGUI";
+	static final String ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI_HEADER = "AddOrChangeInteractionAttributesOfWidgetsOfGUI";
+	static final String RESET_COUNTERPART_GUI_HEADER = "ResetCounterpartGUI";
 
 	public BackGUIClient(final DuplexController duplexController) {
 			
@@ -50,7 +50,7 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 		final BackGUISession<BackGUIClient> session = (BackGUISession<BackGUIClient>)internal_getRefCurrentSession();
 		
 		internal_invokeSessionUserRunMethod(new StandardSpecification(runMethodCommand));
-		internal_runOnCounterpart(RESET_DIALOG_COMMAND + "(" + session.getRefGUI().getAttributes() + ")");
+		internal_runOnCounterpart(RESET_GUI_HEADER + "(" + session.getRefGUI().getAttributes() + ")");
 	}
 	
 	//method
@@ -64,7 +64,7 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 		final var session = (BackGUISession<?>)internal_getRefCurrentSession();
 		
 		session.getRefGUI().reset();
-		internal_runOnCounterpart(RESET_DIALOG_COMMAND);
+		internal_runOnCounterpart(RESET_GUI_HEADER);
 		
 		return this;
 	}
@@ -75,7 +75,7 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 	 */
 	protected void internal_finishSessionInitialization() {
 		final var session = (BackGUISession<?>)internal_getRefCurrentSession();
-		internal_runOnCounterpart(RESET_DIALOG_COMMAND + "(" + session.getRefGUI().getAttributes() + ")");
+		internal_runOnCounterpart(RESET_GUI_HEADER + "(" + session.getRefGUI().getAttributes() + ")");
 	}
 	
 	//method
@@ -89,15 +89,15 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
-			case ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI:
+			case ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI_HEADER:
 				addOrChangeInteractionAttributesToWidgetsOfGUI(						
 					command.getRefAttributes().to(a -> a.getRefAttributes())
 				);
 				break;
-			case RESET_DIALOG_COMMAND:
+			case RESET_GUI_HEADER:
 				resetDialog(command.getRefAttributes());
 				break;
-			case RESET_OTHER_SIDE_DIALOG_COMMAND:
+			case RESET_COUNTERPART_GUI_HEADER:
 				resetOtherSideDialog(command.getRefAttributes());
 				break;
 			default:
@@ -143,6 +143,6 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 		
 		final var session = (BackGUISession<?>)internal_getRefCurrentSession();
 		
-		internal_runOnCounterpart(BackGUIClient.RESET_DIALOG_COMMAND + "(" + session.getRefGUI().getAttributes() + ")");
+		internal_runOnCounterpart(BackGUIClient.RESET_GUI_HEADER + "(" + session.getRefGUI().getAttributes() + ")");
 	}
 }

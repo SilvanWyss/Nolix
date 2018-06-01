@@ -10,7 +10,6 @@ import ch.nolix.core.duplexController.LocalDuplexController;
 import ch.nolix.core.duplexController.NetDuplexController;
 import ch.nolix.core.functionInterfaces.IFunction;
 import ch.nolix.core.interfaces.Closable;
-import ch.nolix.core.interfaces.Resettable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
@@ -32,7 +31,7 @@ import ch.nolix.primitive.validator2.Validator;
  */
 public abstract class Client<C extends Client<C>>
 extends OptionalSignableElement<C>
-implements Closable, Resettable<C> {
+implements Closable {
 	
 	//constants
 	protected static final String SESSION_USER_RUN_METHOD_HEADER = "SessionUserRunMethod";
