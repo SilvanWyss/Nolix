@@ -36,7 +36,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1560
+ * @lines 1590
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -484,9 +484,11 @@ extends BackgroundWidget<BW, BWS> {
 			final var verticalScrollbarCursorYDelta =
 			getCursorYPosition() - verticalScrollingCursorStartYPosition;
 			
+			final var viewAreaHeight = getViewAreaHeight();
+			
 			final var viewAreaYDelta =
-			(verticalScrollbarCursorYDelta * (getScrollAreaHeight() - getViewAreaHeight()))
-			/ (getViewAreaHeight() - getVerticalScrollbarCursorHeight());
+			(verticalScrollbarCursorYDelta * (getScrollAreaHeight() - viewAreaHeight))
+			/ (viewAreaHeight - getVerticalScrollbarCursorHeight());
 			
 			final var viewAreaYPositionOnScrollArea = viewAreaYDelta;
 			
@@ -498,9 +500,11 @@ extends BackgroundWidget<BW, BWS> {
 			final var horizontalScrollbarCursorXDelta =
 			getCursorXPosition() - horizontalScrollingCursorStartXPosition;
 			
+			final var viewAreaWidth = getViewAreaWidth();
+			
 			final var viewAreaXDelta =
-			(horizontalScrollbarCursorXDelta * (getScrollAreaWidth() - getViewAreaWidth()))
-			/ (getViewAreaWidth() - getHorizontalScrollbarCursorWidth());
+			(horizontalScrollbarCursorXDelta * (getScrollAreaWidth() - viewAreaWidth))
+			/ (viewAreaWidth - getHorizontalScrollbarCursorWidth());
 			
 			final var viewAreaXPositionOnScrollArea = viewAreaXDelta;
 			
