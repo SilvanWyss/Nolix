@@ -36,7 +36,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1590
+ * @lines 1630
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -603,6 +603,46 @@ extends BackgroundWidget<BW, BWS> {
 		setViewAreaYPositionOnScrollArea(0);
 		
 		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Lets this border widget scroll to bottom.
+	 * 
+	 * @return this border widget.
+	 */
+	public final BW scrollToBottom() {
+		return setViewAreaYPositionOnScrollArea(getScrollAreaHeight());
+	}
+	
+	//method
+	/**
+	 * Lets this border widget scroll to left.
+	 * 
+	 * @return this border widget.
+	 */
+	public final BW scrollToLeft() {
+		return setViewAreaXPositionOnScrollArea(0);
+	}
+	
+	//method
+	/**
+	 * Lets this border widget scroll to right.
+	 * 
+	 * @return this border widget.
+	 */
+	public final BW scrollToRight() {
+		return setViewAreaXPositionOnScrollArea(getScrollAreaWidth());
+	}
+	
+	//method
+	/**
+	 * Lets this border widget scroll to top.
+	 * 
+	 * @return this border widget.
+	 */
+	public final BW scrollToTop() {
+		return setViewAreaYPositionOnScrollArea(0);
 	}
 	
 	//method
