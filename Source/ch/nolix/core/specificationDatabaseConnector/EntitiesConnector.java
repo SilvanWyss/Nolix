@@ -34,6 +34,13 @@ public final class EntitiesConnector<E extends Entity> {
 	}
 	
 	//method
+	public boolean containsEntity(final int id) {
+		return
+		entitiesSpecification
+		.containsAttribute(a -> new EntityConnector<E>(a).hasId(id));
+	}
+	
+	//method
 	public void delete(final E entity) {
 		entitiesSpecification
 		.removeFirstAttribute(a -> new EntityConnector<E>(a).hasId(entity.getId()));
@@ -45,7 +52,7 @@ public final class EntitiesConnector<E extends Entity> {
 		final var entities = new List<E>();
 		
 		for (final Specification a : entitiesSpecification.getRefAttributes()) {
-			entities.addAtEnd(entityType.createEntity(a.getFirstAttributeAsInt(), a.getRefAttributes().getContainerWithoutFirst()));
+			entities.addAtEnd(entityType.createPersistedEntity(a.getFirstAttributeAsInt(), a.getRefAttributes().getContainerWithoutFirst()));
 		}
 		
 		return entities;

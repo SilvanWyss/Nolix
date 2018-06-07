@@ -7,13 +7,12 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntityType;
 import ch.nolix.core.databaseAdapter.IEntitySetConnector;
-import ch.nolix.core.functionInterfaces.IFunction;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
 public final class EntitySetConnector<E extends Entity>
-implements IEntitySetConnector<E, IFunction> {
+implements IEntitySetConnector<E> {
 
 	//attribute
 	private final Specification entitySetSpecification;
@@ -34,18 +33,8 @@ implements IEntitySetConnector<E, IFunction> {
 	}
 	
 	//method
-	public IFunction createCommandForAdd(final E entity) {
-		return () -> add(entity);
-	}
-
-	//method
-	public IFunction createCommandForDelete(final E entity) {
-		return () -> delete(entity);
-	}
-
-	//method
-	public IFunction createCommandForUpdate(final E entity) {
-		return () -> update(entity);
+	public boolean containsEntity(final int id) {
+		return getEntitiesConnector().containsEntity(id);
 	}
 	
 	//method

@@ -35,7 +35,7 @@ public final class CreateEntitySession extends HeaderedSession {
 		);
 			
 		this.entitySetName = entitySetName;
-		newEntity = getRefEntitySet().createEmptyEntity();
+		newEntity = getRefEntitySet().createDefaultEntity();
 		getRefEntitySet().addEntity(newEntity);
 	}
 	

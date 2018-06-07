@@ -250,8 +250,8 @@ implements Identified, Specified {
 		return getField(property).getName();
 	}
 	
-	//TODO
-	final void set(final Iterable<Specification> allPropertiesInOrder) {
+	//package-visible method
+	final void setAllValues(final Iterable<Specification> allPropertiesInOrder) {
 		
 		final var iterator = getRefProperties().iterator();
 		for (final var p : allPropertiesInOrder) {
@@ -301,7 +301,7 @@ implements Identified, Specified {
 	}
 	
 	//package-visible method
-	final void  setParentEntitySet(final EntitySet<Entity> parentEntitySet) {
+	final void setParentEntitySet(final EntitySet<Entity> parentEntitySet) {
 		
 		supposeDoesNotBelongToEntitySet();
 		
@@ -338,7 +338,7 @@ implements Identified, Specified {
 				state = EntityState.UPDATED;
 				
 				if (belongsToEntitySet()) {
-					getParentDatabaseAdapter().addChangedEntity(this);
+					getParentDatabaseAdapter().noteChangedEntity(this);
 				}
 				
 				break;

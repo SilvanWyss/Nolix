@@ -6,17 +6,11 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Named;
 
 //interface
-public interface IEntitySetConnector<E extends Entity, C>
+public interface IEntitySetConnector<E extends Entity>
 extends Named {
-
-	//abstract method
-	public abstract C createCommandForAdd(E entity);
 	
 	//abstract method
-	public abstract C createCommandForDelete(E entity);
-	
-	//abstract method
-	public abstract C createCommandForUpdate(E entity);
+	public abstract boolean containsEntity(int id);
 	
 	//abstract method
 	public abstract List<E> getEntities(EntityType<E> entityType);

@@ -15,7 +15,7 @@ import ch.nolix.primitive.validator2.Validator;
 
 //class
 public final class SpecificationDatabaseConnector
-implements IDatabaseConnector<IFunction>{
+implements IDatabaseConnector{
 	
 	//attribute
 	private final Specification databaseSpecification;

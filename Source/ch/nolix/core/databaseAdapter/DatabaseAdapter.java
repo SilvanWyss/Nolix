@@ -2,16 +2,17 @@
 package ch.nolix.core.databaseAdapter;
 
 //own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.IChangesSaver;
 import ch.nolix.primitive.validator2.Validator;
 
-//package-visible abstract class
-public class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
+//class
+public final class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 
-	//attribute
+	//attributes
 	private final Schema schema;
-	private final DatabaseConnectorWrapper<?> databaseConnectorWrapper;
+	private final IDatabaseConnector databaseConnector;
 	
 	//multi-attributes
 	private final List<EntitySet<Entity>> entitySets = new List<EntitySet<Entity>>();
@@ -19,7 +20,7 @@ public class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 		
 	//constructor
 	public DatabaseAdapter(
-		final IDatabaseConnector<?> databaseConnector,
+		final IDatabaseConnector databaseConnector,
 		final Schema schema
 	) {
 		
@@ -28,8 +29,13 @@ public class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 		.thatIsOfType(Schema.class)
 		.isNotNull();
 		
+		Validator
+		.suppose(databaseConnector)
+		.thatIsOfType(IDatabaseConnector.class)
+		.isNotNull();
+		
 		this.schema = schema;
-		databaseConnectorWrapper = new DatabaseConnectorWrapper<>(databaseConnector);
+		this.databaseConnector = databaseConnector;
 		
 		reset();
 	}
@@ -52,40 +58,42 @@ public class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 	}
 	
 	//method
-	public List<EntitySet<Entity>> getRefEntitySets() {
-		return entitySets.getCopy();
+	public IContainer<EntitySet<Entity>> getRefEntitySets() {
+		return entitySets;
 	}
 	
 	//method
 	public boolean hasChanges() {
-		return entitySets.contains(es -> es.hasChanges());
+		return changedEntitiesInOrder.containsAny();
 	}
 	
 	//method
 	public DatabaseAdapter reset() {	
 		
-		databaseConnectorWrapper.reset();
+		entitySets.clear();
 		
 		for (final var et : schema.getRefEntityTypes()) {
-			entitySets.addAtEnd(EntitySet.createEntitySet(this, databaseConnectorWrapper, et));
+			entitySets.addAtEnd(EntitySet.createEntitySet(this, et));
 		}
-		
-		entitySets.forEach(es -> es.reset());
 		
 		return this;
 	}
 	
 	//method
-	public void saveChanges() {	
-		//databaseConnectorWrapper.saveChanges(entitySets);
+	public void saveChanges() {
 		
-		databaseConnectorWrapper.saveChanges(changedEntitiesInOrder);
+		databaseConnector.saveChanges(changedEntitiesInOrder);
 		
 		reset();
 	}
 	
+	//package-visible constructor
+	IDatabaseConnector getRefDatabaseConnector() {
+		return databaseConnector;
+	}
+	
 	//method
-	void addChangedEntity(final Entity entity) {
+	void noteChangedEntity(final Entity entity) {
 		if (!changedEntitiesInOrder.contains(entity)) {
 			changedEntitiesInOrder.addAtEnd(entity);
 		}

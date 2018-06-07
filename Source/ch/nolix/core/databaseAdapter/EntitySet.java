@@ -14,39 +14,34 @@ import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
-public final class EntitySet<E extends Entity>
-extends NamedElement {
+public final class EntitySet<E extends Entity> extends NamedElement {
 
 	//attributes
 	private final DatabaseAdapter parentDatabaseAdapter;
-	private final DatabaseConnectorWrapper<?> databaseConnectorWrapper;
 	private final EntityType<E> entityType;
 	
 	//multi-attributes
 	private final List<Column<?>> columns = new List<Column<?>>();
 	private final List<E> loadedAndCreatedEntities = new List<E>();
 	
-	//static method
+	//package-visible static method
 	static EntitySet<Entity> createEntitySet(
 		final DatabaseAdapter parentDatabaseAdapter,
-		final DatabaseConnectorWrapper<?> databaseConnectorWrapper,
 		final EntityType<Entity> entityType
 	) {
-		return new EntitySet<Entity>(parentDatabaseAdapter, databaseConnectorWrapper, entityType);
+		return new EntitySet<Entity>(parentDatabaseAdapter, entityType);
 	}
 	
 	//package-visible constructor
 	EntitySet(
 		final DatabaseAdapter parentDatabaseAdapter,
-		final DatabaseConnectorWrapper<?> databaseConnectorWrapper,
 		final EntityType<E> entityType
 	) {
-		
 		super(entityType.getName());
 		
 		Validator
-		.suppose(databaseConnectorWrapper)
-		.thatIsOfType(DatabaseConnectorWrapper.class)
+		.suppose(parentDatabaseAdapter)
+		.thatIsNamed("parent database adapter")
 		.isNotNull();
 		
 		Validator
@@ -55,11 +50,12 @@ extends NamedElement {
 		.isNotNull();
 		
 		this.parentDatabaseAdapter = parentDatabaseAdapter;
-		this.databaseConnectorWrapper = databaseConnectorWrapper;
 		this.entityType = entityType;
 				
 		columns
-		.addAtEnd(new Column<>(PascalCaseNameCatalogue.ID, new IdPropertyType()))	
+		.addAtEnd(
+			new Column<>(PascalCaseNameCatalogue.ID, new IdPropertyType())
+		)	
 		.addAtEnd(entityType.getColumns());
 	}
 	
@@ -85,10 +81,7 @@ extends NamedElement {
 		entity.setParentEntitySet((EntitySet<Entity>)this);
 		
 		loadedAndCreatedEntities.addAtEndRegardingSingularity(entity);
-		
-		databaseConnectorWrapper.noteAddEntity(this, entity);
-		
-		getParentDatabaseAdapter().addChangedEntity(entity);
+		getParentDatabaseAdapter().noteChangedEntity(entity);
 		
 		return this;
 	}
@@ -106,32 +99,30 @@ extends NamedElement {
 	
 	//method
 	public boolean containsEntity(final int id) {
-		
-		//TODO: Delegate this function to the database connector.
-		return getRefEntities().contains(e -> e.hasId(id));
+		return
+		getParentDatabaseAdapter()
+		.getRefDatabaseConnector()
+		.getEntitySetConnector(this)
+		.containsEntity(id);
 	}
 	
 	//method
-	public E createEmptyEntity() {
+	public E createDefaultEntity() {
 		return getEntityType().createDefaultEntity();
 	}
 	
 	//method
 	public EntitySet<E> deleteEntity(final E entity) {
 				
-		entity.setDeleted();
-		
-		loadedAndCreatedEntities.removeFirst(entity);
-		
-		databaseConnectorWrapper.noteDeleteEntity(this, entity);
-		
-		getParentDatabaseAdapter().addChangedEntity(entity);
+		entity.setDeleted();		
+		loadedAndCreatedEntities.removeFirst(entity);		
+		getParentDatabaseAdapter().noteChangedEntity(entity);
 		
 		return this;
 	}
 	
 	//method
-	public EntitySet<E> deleteEntity(int id) {
+	public EntitySet<E> deleteEntity(final int id) {
 		return deleteEntity(getRefEntityById(id));
 	}
 	
@@ -146,12 +137,17 @@ extends NamedElement {
 	}
 	
 	//method
+	public DatabaseAdapter getParentDatabaseAdapter() {
+		return parentDatabaseAdapter;
+	}
+	
+	//method
 	@SuppressWarnings("unchecked")
 	public IContainer<E> getRefEntities() {
 		
 		final var newlyLoadedEntities = new List<E>();
 		
-		for (final var e : databaseConnectorWrapper.getEntities(this)) {
+		for (final var e : parentDatabaseAdapter.getRefDatabaseConnector().getEntitySetConnector(this).getEntities(getEntityType())) {
 			
 			if (!loadedAndCreatedEntities.contains(e2 -> e2.getId() == e.getId())) {
 			
@@ -181,11 +177,18 @@ extends NamedElement {
 			return loadedEntity;
 		}
 		
-		final var entity = databaseConnectorWrapper.getEntity(id, this);
+		final var entity
+		= parentDatabaseAdapter
+		.getRefDatabaseConnector()
+		.getEntitySetConnector(this)
+		.getEntity(id, getEntityType());
+		
 		if (!entity.isPersisted()) {
 			throw new InvalidStateException(entity, "is not persisted");
 		}
+		
 		loadedAndCreatedEntities.addAtEnd(entity);
+		
 		return entity;
 	}
 	
@@ -207,15 +210,5 @@ extends NamedElement {
 		}
 		
 		return getRefEntities().contains(e -> e.references(entity));
-	}
-	
-	DatabaseAdapter getParentDatabaseAdapter() {
-		return parentDatabaseAdapter;
-	}
-	
-	//package-visible method
-	void reset() {
-		loadedAndCreatedEntities.forEach(e -> e.setRejected());
-		loadedAndCreatedEntities.clear();
 	}
 }
