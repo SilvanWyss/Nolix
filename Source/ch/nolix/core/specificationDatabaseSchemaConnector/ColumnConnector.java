@@ -4,13 +4,11 @@ package ch.nolix.core.specificationDatabaseSchemaConnector;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.databaseSchemaAdapter.IColumnConnector;
-import ch.nolix.core.functionInterfaces.IFunction;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
-public final class ColumnConnector
-implements IColumnConnector<IFunction> {
+public final class ColumnConnector implements IColumnConnector {
 
 	//attribute
 	private final Specification columnSpecification;
@@ -27,20 +25,18 @@ implements IColumnConnector<IFunction> {
 	}
 	
 	//method
-	public IFunction createCommandForRename(final String header) {
-		return
-		() -> 
-		columnSpecification
-		.getRefFirstAttribute(PascalCaseNameCatalogue.HEADER)
-		.getRefOneAttribute()
-		.setHeader(header);
-	}
-	
-	//method
 	public String getHeader() {
 		return
 		columnSpecification
 		.getRefFirstAttribute(PascalCaseNameCatalogue.HEADER)
 		.getOneAttributeAsString();
+	}
+	
+	//method
+	public void setHeader(final String header) {
+		columnSpecification
+		.getRefFirstAttribute(PascalCaseNameCatalogue.HEADER)
+		.getRefOneAttribute()
+		.setHeader(header);
 	}
 }

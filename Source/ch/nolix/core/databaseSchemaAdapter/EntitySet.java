@@ -2,9 +2,11 @@
 package ch.nolix.core.databaseSchemaAdapter;
 
 //own imports
-import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.bases.NamedElement;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
+import ch.nolix.core.databaseAdapter.EntityType;
 import ch.nolix.core.databaseAdapter.MultiPropertyType;
 import ch.nolix.core.databaseAdapter.MultiReferencePropertyType;
 import ch.nolix.core.databaseAdapter.OptionalPropertyType;
@@ -12,25 +14,30 @@ import ch.nolix.core.databaseAdapter.OptionalReferencePropertyType;
 import ch.nolix.core.databaseAdapter.PropertyType;
 import ch.nolix.core.databaseAdapter.PropertyoidType;
 import ch.nolix.core.databaseAdapter.ReferencePropertyType;
-import ch.nolix.core.interfaces.Namable;
+import ch.nolix.core.databaseAdapter.State;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
-import ch.nolix.primitive.validator2.Validator;
 
 //class
-public final class EntitySet implements Namable<EntitySet> {
+public final class EntitySet extends NamedElement {
 	
 	//attributes
-	private String name;
-	private DatabaseSchemaAdapter databaseSchemaAdapter;
+	private final DatabaseSchemaAdapter parentDatabaseSchemaAdapter;
+	private State state = State.CREATED;
+	
+	//multi-attribute
 	private final List<Column> columns = new List<Column>();
 	
 	//package-visible constructor
 	EntitySet(
-		final DatabaseSchemaAdapter databaseSchemaAdapter,
+		final DatabaseSchemaAdapter parentDatabaseSchemaAdapter,
 		final Class<Entity> entityClass
 	) {
+		super(new EntityType<Entity>(entityClass).getName());
+		
 		final var entityType =
-		new ch.nolix.core.databaseAdapter.EntityType<Entity>(entityClass);
+		new EntityType<Entity>(entityClass);
+		
+		this.parentDatabaseSchemaAdapter = parentDatabaseSchemaAdapter;
 		
 		columns.addAtEnd(
 			entityType
@@ -92,9 +99,38 @@ public final class EntitySet implements Namable<EntitySet> {
 		return columns.contains(c -> c.hasHeader(header));
 	}
 	
+	public IContainer<Column> getRefColumns() {
+		return columns;
+	}
+	
 	//method
-	public String getName() {
-		return name;
+	public State getState() {
+		return state;
+	}
+	
+	//method
+	public final boolean isCreated() {
+		return (getState() == State.CREATED);
+	}
+	
+	//method
+	public final boolean isDeleted() {
+		return (getState() == State.DELETED);
+	}
+	
+	//method
+	public final boolean isPersisted() {
+		return (getState() == State.PERSISTED);
+	}
+	
+	//method
+	public final boolean isRejected() {
+		return (getState() == State.REJECTED);
+	}
+	
+	//method
+	public final boolean isUpdated() {
+		return (getState() == State.UPDATED);
 	}
 	
 	//method
@@ -102,40 +138,6 @@ public final class EntitySet implements Namable<EntitySet> {
 		
 		//TODO
 		return false;
-	}
-	
-	//method
-	public EntitySet setName(final String name) {
-		
-		Validator
-		.suppose(name)
-		.thatIsNamed(VariableNameCatalogue.NAME)
-		.isNotEmpty();
-		
-		if (!hasName(name)) {
-		
-			if (databaseSchemaAdapter.containsEntitySet(name)) {
-				throw new InvalidStateException(
-					databaseSchemaAdapter,
-					"contains already an other entity set with the name '" + name + "'"
-				);
-			}			
-			
-			databaseSchemaAdapter
-			.getRefInternalDatabaseSchemaAdapter()
-			.noteRenameEntitySet(this, name);
-		
-			this.name = name;
-		}
-		
-		return this;
-	}
-	
-	//package-visible method
-	void noteRenameColumn(final Column column, final String header) {
-		databaseSchemaAdapter
-		.getRefInternalDatabaseSchemaAdapter()
-		.noteRenameColumn(column, header);
 	}
 	
 	//method
@@ -151,8 +153,64 @@ public final class EntitySet implements Namable<EntitySet> {
 		addColumn(new Column(this, header, propertyoidType));
 	}
 	
+	//package-visible method
+	final void setDeleted() {
+		switch (getState()) {
+			case PERSISTED:
+				state = State.DELETED;
+				break;
+			case CREATED:
+				throw new InvalidStateException(this, "is created");
+			case UPDATED:
+				state = State.DELETED;
+				break;
+			case DELETED:
+				break;
+			case REJECTED:
+				throw new InvalidStateException(this, "is rejected");
+		}
+	}
+	
+	//package-visible method
+	final void setPersisted() {
+		switch (getState()) {
+			case PERSISTED:
+				break;
+			case CREATED:
+				state = State.PERSISTED;
+				break;
+			case UPDATED:
+				throw new InvalidStateException(this, "is updated");
+			case DELETED:
+				throw new InvalidStateException(this, "is deleted");
+			case REJECTED:
+				throw new InvalidStateException(this, "is rejected");
+		}
+	}
+	
+	//package-visible method
+	final void setUpdated() {
+		switch (getState()) {
+			case PERSISTED:
+				
+				state = State.UPDATED;
+				
+				parentDatabaseSchemaAdapter.noteChangedEntitySet(this);
+				
+				break;
+			case CREATED:
+				break;
+			case UPDATED:
+				break;
+			case DELETED:
+				throw new InvalidStateException(this, "is deleted");
+			case REJECTED:
+				throw new InvalidStateException(this, "is rejected");
+		}
+	}
+	
 	//method
-	private void supposeDoesNotContainColumn(String header) {
+	private void supposeDoesNotContainColumn(final String header) {
 		if (containsColumn(header)) {
 			throw new InvalidStateException(
 				this,

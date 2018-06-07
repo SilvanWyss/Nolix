@@ -4,19 +4,19 @@ package ch.nolix.core.specificationDatabaseSchemaConnector;
 //own imports
 import ch.nolix.core.constants.MultiPascalCaseNameCatalogue;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.databaseAdapter.Entity;
-import ch.nolix.core.databaseAdapter.EntityType;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.databaseSchemaAdapter.EntitySet;
 import ch.nolix.core.databaseSchemaAdapter.IDatabaseSchemaConnector;
-import ch.nolix.core.functionInterfaces.IFunction;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
 public final class SpecificationDatabaseSchemaConnector
-implements IDatabaseSchemaConnector<IFunction> {
+implements IDatabaseSchemaConnector {
 	
 	//attribute
 	private final Specification databaseSpecification;
@@ -33,6 +33,36 @@ implements IDatabaseSchemaConnector<IFunction> {
 	}
 	
 	//method
+	public void addEntitySet(final EntitySet entitySet) {
+		
+		if (containsEntitySet(entitySet.getName())) {
+			throw
+			new InvalidStateException(
+				this,
+				"contains already an entity set with the name " + entitySet.getNameInQuotes()
+			);
+		}
+		
+		final var entitySetSpecification = new StandardSpecification("EntitySet");
+		
+		entitySetSpecification.addAttribute(
+			new StandardSpecification(
+				PascalCaseNameCatalogue.NAME,
+				entitySet.getName()
+			)
+		);
+		
+		for (final var c : entitySet.getRefColumns()) {
+			entitySetSpecification.addAttribute(c.getSpecification());
+		}
+		
+		entitySetSpecification
+		.addAttribute(new StandardSpecification(MultiPascalCaseNameCatalogue.ENTITIES));
+		
+		databaseSpecification.addAttribute(entitySetSpecification);
+	}
+	
+	//method
 	public boolean containsEntitySet() {
 		
 		//TODO: Add containsAttribute method with condition parameter to Specification.
@@ -41,57 +71,24 @@ implements IDatabaseSchemaConnector<IFunction> {
 		.getRefAttributes(a -> a.hasHeader("EntitySet"))
 		.containsAny();
 	}
-
+	
 	//method
-	public IFunction createCommandForAdd(
-		final EntityType<Entity> entityType
-	) {
-		return
-		() -> {
-		
-			final var entitySetSpecification = new StandardSpecification("EntitySet");
-			
-			entitySetSpecification.addAttribute(
-				new StandardSpecification(
-					PascalCaseNameCatalogue.NAME,
-					entityType.getName()
-				)
-			);
-			
-			for (final var c : entityType.getColumns()) {
-				entitySetSpecification.addAttribute(c.getSpecification());
-			}
-			
-			entitySetSpecification
-			.addAttribute(new StandardSpecification(MultiPascalCaseNameCatalogue.ENTITIES));
-			
-			databaseSpecification.addAttribute(entitySetSpecification);
-		};
-	}
-
-	//method
-	public IFunction createCommandForDelete(final EntitySet entitySet) {
-		return createCommandForDelete(entitySet.getName());
+	public boolean containsEntitySet(final String name) {
+		return 
+		databaseSpecification.containsAttribute(
+			a ->
+				a.hasHeader("EntitySet")
+				&& new EntitySetConnector(a).hasName(name)
+		);
 	}
 	
 	//method
-	public IFunction createCommandForDelete(final String name) {
-		return
-		() -> 
-		databaseSpecification
-		.removeFirstAttribute(a -> a.hasHeader("EntitySet") && new EntitySetConnector(a).hasName(name));
-	}
-
-	//method
-	public IFunction createCommandForInitialize() {
-		return () -> initialize();
-	}
-	
-	//method
-	public IFunction createCommandForRename(String name) {
-		
-		//TODO
-		return null;
+	public void deleteEntitySet(final EntitySet es) {
+		databaseSpecification.removeFirstAttribute(
+			a ->
+				a.hasHeader("EntitySet")
+				&& new EntitySetConnector(a).hasName(es.getName())
+		);
 	}
 	
 	//method
@@ -113,12 +110,50 @@ implements IDatabaseSchemaConnector<IFunction> {
 	}
 	
 	//method
-	public void run(final Iterable<IFunction> commands) {
-		commands.forEach(c -> c.run());
+	public void initialize() {
+		databaseSpecification.setHeader(PascalCaseNameCatalogue.DATABASE);
 	}
 	
 	//method
-	private void initialize() {
-		databaseSpecification.setHeader(PascalCaseNameCatalogue.DATABASE);
+	public boolean isInitialized() {
+		return databaseSpecification.hasHeader("Database");
+	}
+
+	//method
+	public void saveChanges(final IContainer<EntitySet> changedEntitySetsInOrder) {
+		
+		//Handles the created entity sets.
+			final var createdEntitySets =
+			changedEntitySetsInOrder.getRefSelected(es -> es.isCreated());
+			
+			for (final var es : createdEntitySets) {
+				addEntitySet(es);
+			}
+		
+		//Handles the updated entity sets.
+			final var updatedEntitySets =
+			changedEntitySetsInOrder.getRefSelected(e -> e.isUpdated());
+			
+			for (final var es : updatedEntitySets) {
+				updatedEntitySet(es);
+			}
+		
+		//Handles the deleted entity sets.
+			final var deletedEntitySets =
+			changedEntitySetsInOrder.getRefSelected(es -> es.isDeleted());
+			
+			for (final var es : deletedEntitySets) {
+				deleteEntitySet(es);
+			}
+	}
+	
+	//method
+	public void saveChanges(final Iterable<EntitySet> changedEntitySetsInOrder) {
+		saveChanges(new ReadContainer<EntitySet>(changedEntitySetsInOrder));
+	}
+
+	//method
+	public void updatedEntitySet(final EntitySet entitySet) {
+		//TODO
 	}
 }

@@ -7,13 +7,12 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.databaseSchemaAdapter.Column;
 import ch.nolix.core.databaseSchemaAdapter.IColumnConnector;
 import ch.nolix.core.databaseSchemaAdapter.IEntitySetConnector;
-import ch.nolix.core.functionInterfaces.IFunction;
 import ch.nolix.core.specification.Specification;
+import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
-public final class EntitySetConnector
-implements IEntitySetConnector<IFunction> {
+public final class EntitySetConnector implements IEntitySetConnector {
 	
 	//constant
 	private static final String ENTITY_SET_SPECIFICATION_VARIABLE_NAME = "entity set specification";
@@ -31,17 +30,33 @@ implements IEntitySetConnector<IFunction> {
 		
 		this.entitySetSpecification = entitySetSpecification;
 	}
-
+	
 	//method
-	public IFunction createCommandForAdd(final Column column) {
+	public void addColumn(final Column column) {
+		
+		if (containsColumn(column.getHeader())) {
+			throw
+			new InvalidStateException(
+				"entity set specification",
+				"contains already a column with the header" + column.getHeaderInQuotes()
+			);
+		}
+		
+		entitySetSpecification.addAttribute(column.getSpecification());
+	}
+	
+	//method
+	public boolean containsColumn(final String header) {
 		return
-		() -> entitySetSpecification.addAttribute(column.getSpecification());
+		entitySetSpecification.containsAttribute(
+			a ->
+				a.hasHeader(PascalCaseNameCatalogue.COLUMN)
+				&& new ColumnConnector(a).hasHeader(header)
+		);
 	}
 
 	//method
-	public IFunction createCommandForDelete(final Column column) {
-		return
-		() ->
+	public void deleteColumn(final Column column) {
 		entitySetSpecification
 		.removeFirstAttribute(
 			a ->
@@ -51,17 +66,7 @@ implements IEntitySetConnector<IFunction> {
 	}
 
 	//method
-	public IFunction createCommandForRename(final String name) {
-		return
-		() ->
-		entitySetSpecification
-		.getRefFirstAttribute(PascalCaseNameCatalogue.NAME)
-		.getRefOneAttribute()
-		.setHeader(name);
-	}
-
-	//method
-	public IColumnConnector<IFunction> getColumnConnector(final Column column) {
+	public IColumnConnector getColumnConnector(final Column column) {
 		return getColumnConnectors().getRefFirst(cc -> cc.hasSameHeaderAs(column));
 	}
 	

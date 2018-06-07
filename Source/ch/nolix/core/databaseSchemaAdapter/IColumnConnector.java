@@ -5,8 +5,4 @@ package ch.nolix.core.databaseSchemaAdapter;
 import ch.nolix.core.interfaces.Headered;
 
 //interface
-public interface IColumnConnector<C> extends Headered {
-
-	//abstract method
-	public abstract C createCommandForRename(String header);
-}
+public interface IColumnConnector extends Headered {}

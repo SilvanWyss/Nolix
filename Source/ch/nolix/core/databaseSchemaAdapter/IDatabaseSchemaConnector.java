@@ -1,31 +1,21 @@
 //package declaration
 package ch.nolix.core.databaseSchemaAdapter;
 
-//own imports
-import ch.nolix.core.databaseAdapter.Entity;
-import ch.nolix.core.databaseAdapter.EntityType;
-
 //interface
-public interface IDatabaseSchemaConnector<C> {
+public interface IDatabaseSchemaConnector {
 	
 	//abstract method
 	public abstract boolean containsEntitySet();
 	
 	//abstract method
-	public abstract C createCommandForAdd(EntityType<Entity> entityType);
+	public IEntitySetConnector getEntitySetConnector(EntitySet entitySet);
 	
 	//abstract method
-	public abstract C createCommandForDelete(EntitySet entitySet);
+	public abstract void initialize();
 	
 	//abstract method
-	public abstract C createCommandForInitialize();
+	public abstract boolean isInitialized();
 	
 	//abstract method
-	public IEntitySetConnector<C> getEntitySetConnector(final EntitySet entitySet);
-	
-	//abstract method
-	//public abstract List<EntitySet> getEntitySets();
-	
-	//abstract method
-	public abstract void run(Iterable<C> commands);
+	public abstract void saveChanges(Iterable<EntitySet> changedEntitySetsInOrder);
 }

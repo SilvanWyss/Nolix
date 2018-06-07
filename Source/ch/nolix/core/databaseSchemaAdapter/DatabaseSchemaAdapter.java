@@ -4,26 +4,30 @@ package ch.nolix.core.databaseSchemaAdapter;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
-import ch.nolix.core.databaseAdapter.EntityType;
 import ch.nolix.core.databaseAdapter.Schema;
 import ch.nolix.core.interfaces.IChangesSaver;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
-
-//TODO: Let a DatabaseSchemaAdapter use a general database schema adapter.
+import ch.nolix.primitive.validator2.Validator;
 
 // class
 public final class DatabaseSchemaAdapter implements IChangesSaver<DatabaseSchemaAdapter> {
 
 	//attribute
-	private final DatabaseSchemaConnectorWrapper<?> internalDatabaseSchemaAdapter;
+	private final IDatabaseSchemaConnector databaseSchemaConnector;
 	
-	//multi-attribute
-	private final List<EntitySet> entitySets = new List<EntitySet>();
+	//multi-attributes
+	private final List<EntitySet> loadedOrCreatedEntitySets = new List<EntitySet>();
+	private final List<EntitySet> changedEntitySetsInOrder = new List<EntitySet>();
 	
 	//constructor
-	public DatabaseSchemaAdapter(final IDatabaseSchemaConnector<?> databaseSchemaConnector) {
+	public DatabaseSchemaAdapter(final IDatabaseSchemaConnector databaseSchemaConnector) {
 		
-		internalDatabaseSchemaAdapter = new DatabaseSchemaConnectorWrapper<>(databaseSchemaConnector);
+		Validator
+		.suppose(databaseSchemaConnector)
+		.thatIsOfType(IDatabaseSchemaConnector.class)
+		.isNotNull();
+		
+		this.databaseSchemaConnector = databaseSchemaConnector;
 		
 		reset();
 	}
@@ -31,16 +35,17 @@ public final class DatabaseSchemaAdapter implements IChangesSaver<DatabaseSchema
 	//method
 	public DatabaseSchemaAdapter addEntitySet(final Class<Entity> entityClass) {
 		
-		final var entityType = new EntityType<Entity>(entityClass);
+		final var entitySet = new EntitySet(this, entityClass);
 		
-		if (containsEntitySet(entityType.getName())) {
+		if (containsEntitySet(entitySet.getName())) {
 			throw new InvalidStateException(
 				this,
-				"contains already an entity set with the name '" + entityType.getName() + "'"
+				"contains already an entity set with the name " + entitySet.getNameInQuotes()
 			);
 		}
-			
-		internalDatabaseSchemaAdapter.noteAddEntitySet(entityType);
+				
+		loadedOrCreatedEntitySets.addAtEnd(entitySet);
+		noteChangedEntitySet(entitySet);
 		
 		return this;
 	}
@@ -55,25 +60,27 @@ public final class DatabaseSchemaAdapter implements IChangesSaver<DatabaseSchema
 	
 	//method
 	public boolean containsEntitySet() {
-		return getRefInternalDatabaseSchemaAdapter().containsEntitySet();
+		return databaseSchemaConnector.containsEntitySet();
 	}
 	
 	//method
 	public boolean containsEntitySet(final String name) {
-		return entitySets.contains(es -> es.hasName(name));
+		return loadedOrCreatedEntitySets.contains(es -> es.hasName(name));
 	}
 	
 	//method
 	public DatabaseSchemaAdapter deleteEntitySet(final EntitySet entitySet) {
 		
-		if (entitySets.contains(es -> es.references(entitySet))) {
+		if (loadedOrCreatedEntitySets.contains(es -> es.references(entitySet))) {
 			throw new InvalidStateException(
 				entitySet,
-				"cannot be deleted because it is referenced by " + entitySets.getRefSelected(es -> es.references(entitySet)).to(es -> es.getName())  +"."
+				"cannot be deleted because it is referenced by " + loadedOrCreatedEntitySets.getRefSelected(es -> es.references(entitySet)).to(es -> es.getName())  +"."
 			);
 		}
 		
-		internalDatabaseSchemaAdapter.noteDeleteEntitySet(entitySet);
+		entitySet.setDeleted();
+		loadedOrCreatedEntitySets.removeFirst(entitySet);
+		noteChangedEntitySet(entitySet);
 		
 		return this;
 	}
@@ -81,20 +88,26 @@ public final class DatabaseSchemaAdapter implements IChangesSaver<DatabaseSchema
 	//method
 	public DatabaseSchemaAdapter initialize() {
 		
-		internalDatabaseSchemaAdapter.noteInitialize();
+		databaseSchemaConnector.initialize();
 		
 		return this;
 	}
 	
 	//method
+	public boolean isInitialized() {
+		return databaseSchemaConnector.isInitialized();
+	}
+	
+	//method
 	public boolean hasChanges() {
-		return internalDatabaseSchemaAdapter.hasChanges();
+		return changedEntitySetsInOrder.containsAny();
 	}
 	
 	//method
 	public DatabaseSchemaAdapter reset() {
 		
-		internalDatabaseSchemaAdapter.reset();
+		loadedOrCreatedEntitySets.clear();
+		changedEntitySetsInOrder.clear();
 		
 		return this;
 	}
@@ -102,13 +115,15 @@ public final class DatabaseSchemaAdapter implements IChangesSaver<DatabaseSchema
 	//method
 	public void saveChanges() {
 		
-		internalDatabaseSchemaAdapter.saveChanges();
+		databaseSchemaConnector.saveChanges(changedEntitySetsInOrder);
 		
 		reset();
 	}
 
 	//package-visible method
-	DatabaseSchemaConnectorWrapper<?> getRefInternalDatabaseSchemaAdapter() {
-		return internalDatabaseSchemaAdapter;
+	void noteChangedEntitySet(final EntitySet entitySet) {
+		if (!changedEntitySetsInOrder.contains(entitySet)) {
+			changedEntitySetsInOrder.addAtEnd(entitySet);
+		}
 	}
 }
