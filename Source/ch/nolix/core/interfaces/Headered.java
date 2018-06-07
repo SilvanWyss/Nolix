@@ -7,7 +7,7 @@ package ch.nolix.core.interfaces;
  * 
  * @author Silvan Wyss
  * @month 2018-04
- * @lines 30
+ * @lines 40
  */
 public interface Headered {
 	
@@ -16,6 +16,14 @@ public interface Headered {
 	 * @return the header of the current {@link Headered}.
 	 */
 	public abstract String getHeader();
+	
+	//default method
+	/**
+	 * @return the header of the current {@link Headered} in quotes.
+	 */
+	public default String getHeaderInQuotes() {
+		return ("'" + getHeader() + "'");
+	}
 	
 	//default method
 	/**
