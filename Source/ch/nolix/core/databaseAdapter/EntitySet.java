@@ -147,19 +147,20 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 		
 		final var newlyLoadedEntities = new List<E>();
 		
-		for (final var e : parentDatabaseAdapter.getRefDatabaseConnector().getEntitySetConnector(this).getEntities(getEntityType())) {
-			
+		for (
+			final var e :
+			parentDatabaseAdapter
+			.getRefDatabaseConnector()
+			.getEntitySetConnector(this)
+			.getEntities(getEntityType())
+		) {
 			if (!loadedAndCreatedEntities.contains(e2 -> e2.getId() == e.getId())) {
 			
 				if (!e.isPersisted()) {
-					throw new InvalidArgumentException(
-						new Argument(e),
-						new ErrorPredicate("is not persisted")
-					);
+					throw new InvalidStateException(e, "is not persisted");
 				}
 				
-				e.setParentEntitySet((EntitySet<Entity>)this);
-			
+				e.setParentEntitySet((EntitySet<Entity>)this);			
 				newlyLoadedEntities.addAtEnd(e);
 			}
 		}
@@ -170,6 +171,7 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 	}
 	
 	//method
+	@SuppressWarnings("unchecked")
 	public E getRefEntityById(final int id) {
 		
 		final var loadedEntity = loadedAndCreatedEntities.getRefFirstOrNull(e -> e.getId() == id);
@@ -187,6 +189,7 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 			throw new InvalidStateException(entity, "is not persisted");
 		}
 		
+		entity.setParentEntitySet((EntitySet<Entity>)this);
 		loadedAndCreatedEntities.addAtEnd(entity);
 		
 		return entity;

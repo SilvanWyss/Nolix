@@ -71,6 +71,7 @@ public final class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 	public DatabaseAdapter reset() {	
 		
 		entitySets.clear();
+		changedEntitiesInOrder.clear();
 		
 		for (final var et : schema.getRefEntityTypes()) {
 			entitySets.addAtEnd(EntitySet.createEntitySet(this, et));
