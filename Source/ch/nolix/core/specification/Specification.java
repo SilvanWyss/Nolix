@@ -27,7 +27,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 690
+ * @lines 700
  */
 public abstract class Specification {
 	
@@ -122,6 +122,15 @@ public abstract class Specification {
 	 */
 	public boolean allAttributesHaveNoAttributes() {
 		return getRefAttributes().containsNone(s -> s.containsAttributes());
+	}
+	
+	//method
+	/**
+	 * @param selector
+	 * @return true if the current {@link Specification} contains an attribute the given selector selects.
+	 */
+	public boolean containsAttribute(final IElementTakerBooleanGetter<Specification> selector) {
+		return getRefAttributes().contains(a -> selector.getOutput(a));
 	}
 	
 	//abstract method
