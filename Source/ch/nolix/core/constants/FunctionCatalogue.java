@@ -5,6 +5,7 @@ package ch.nolix.core.constants;
 import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerDoubleGetter;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
+import ch.nolix.core.functionInterfaces.IFunction;
 
 //class
 /**
@@ -12,9 +13,16 @@ import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 80
+ * @lines 90
  */
 public final class FunctionCatalogue {
+	
+	//function
+	/**
+	 * This function does not do anything.
+	 */
+	public static final IFunction EMPTY_FUNCTION =
+	() -> {};
 	
 	//function
 	/**
