@@ -2,8 +2,6 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
 //own imports
-import ch.nolix.core.controllerInterfaces.IController;
-import ch.nolix.core.specification.Statement;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.VerticalStack;
@@ -20,6 +18,9 @@ import ch.nolix.element.configuration.StandardConfiguration;
  * @lines 90
  */
 public final class FrameTutorial {
+	
+	//static attribute
+	private static Frame frame;
 
 	//main method
 	/**
@@ -34,6 +35,7 @@ public final class FrameTutorial {
 	 */
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
+		frame =
 		new Frame()
 		.setTitle("Frame Tutorial")
 		.setRootWidget(
@@ -41,21 +43,8 @@ public final class FrameTutorial {
 			.addWidget(
 				new Button()
 				.setText("~ Quit ~")
-				.setLeftMouseButtonPressCommand("Quit")
+				.setLeftMouseButtonPressCommand(() -> quit())
 			)
-		)
-		.setController(
-				
-			//anonymous class
-			new IController() {
-			
-				//method
-				public void run(Statement command) {
-					if (command.toString().equals("Quit")) {
-						System.exit(0);
-					}
-				}
-			}
 		)
 		.setConfiguration(
 			new StandardConfiguration()
@@ -78,6 +67,11 @@ public final class FrameTutorial {
 				)
 			)
 		);
+	}
+	
+	//static method
+	public static void quit() {
+		frame.close();
 	}
 	
 	//private constructor

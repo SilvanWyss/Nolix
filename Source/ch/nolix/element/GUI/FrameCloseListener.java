@@ -43,7 +43,7 @@ final class FrameCloseListener implements WindowListener {
 		
 	//method
 	public void windowClosing(final WindowEvent windowEvent) {
-		frame.noteCloseButtonClick();
+		frame.close();
 	}			
 
 	//method

@@ -20,11 +20,20 @@ import ch.nolix.system.client.Client;
  */
 public final class BackGUIClient extends Client<BackGUIClient> {
 	
-	//commands
+	//constants
 	static final String RESET_GUI_HEADER = "ResetGUI";
-	static final String ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI_HEADER = "AddOrChangeInteractionAttributesOfWidgetsOfGUI";
 	static final String RESET_COUNTERPART_GUI_HEADER = "ResetCounterpartGUI";
+	
+	//constant
+	static final String ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI_HEADER =
+	"AddOrChangeInteractionAttributesOfWidgetsOfGUI";
 
+	//constants
+	static final String LEFT_MOUSE_BUTTON_PRESS_HEADER = "LeftMouseButtonPress";
+	static final String LEFT_MOUSE_BUTTON_RELEASE_HEADER = "LeftMouseButtonRelease";
+	static final String RIGHT_MOUSE_BUTTON_PRESS_HEADER = "RightMouseButtonPress";
+	static final String RIGHT_MOUSE_BUTTON_RELEASE_HEADER = "RightMouseButtonRelease";
+	
 	public BackGUIClient(final DuplexController duplexController) {
 			
 		//Calls constructor of the base class.
@@ -89,16 +98,36 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
-			case ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI_HEADER:
-				addOrChangeInteractionAttributesToWidgetsOfGUI(						
-					command.getRefAttributes().to(a -> a.getRefAttributes())
-				);
-				break;
 			case RESET_GUI_HEADER:
 				resetDialog(command.getRefAttributes());
 				break;
 			case RESET_COUNTERPART_GUI_HEADER:
 				resetOtherSideDialog(command.getRefAttributes());
+				break;
+			case ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI_HEADER:
+				addOrChangeInteractionAttributesToWidgetsOfGUI(						
+					command.getRefAttributes().to(a -> a.getRefAttributes())
+				);
+				break;
+			case LEFT_MOUSE_BUTTON_PRESS_HEADER:
+				getRefGUI()
+				.getRefWidgetByIndexRecursively(command.getOneAttributeAsInt())
+				.runLeftMouseButtonPressCommand();
+				break;
+			case LEFT_MOUSE_BUTTON_RELEASE_HEADER:
+				getRefGUI()
+				.getRefWidgetByIndexRecursively(command.getOneAttributeAsInt())
+				.runLeftMouseButtonReleaseCommand();
+				break;
+			case RIGHT_MOUSE_BUTTON_PRESS_HEADER:
+				getRefGUI()
+				.getRefWidgetByIndexRecursively(command.getOneAttributeAsInt())
+				.runRightMouseButtonPressCommand();
+				break;
+			case RIGHT_MOUSE_BUTTON_RELEASE_HEADER:
+				getRefGUI()
+				.getRefWidgetByIndexRecursively(command.getOneAttributeAsInt())
+				.runRightMouseButtonReleaseCommand();
 				break;
 			default:
 				

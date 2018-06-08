@@ -36,7 +36,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1630
+ * @lines 1620
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -434,17 +434,14 @@ extends BackgroundWidget<BW, BWS> {
 		//Calls method of the base class.
 		super.noteLeftMouseButtonPress();
 		
-		//Handles the case that the current widget has a left mouse button press command.
-		if (viewAreaIsUnderCursor() && hasLeftMouseButtonPressCommand()) {
-			getParentGUI().getRefController().run(getLeftMouseButtonPressCommand());
-		}		
-		
 		//Handles the case that the cursor is over the vertical scrollbar cursor.
 		if (verticalScrollbarCursorIsUnderCursor()) {
 			
 			isMovingVerticalScrollbarCursor = true;
+			
 			verticalScrollingCursorStartYPosition =
-			getCursorYPosition() - getVerticalScrollbarCursorYPositionOnVerticalScrollbar();
+			getCursorYPosition()
+			- getVerticalScrollbarCursorYPositionOnVerticalScrollbar();
 		}
 		
 		//Handles the case that the cursor is over the horizontal scrollbar cursor.
@@ -453,7 +450,8 @@ extends BackgroundWidget<BW, BWS> {
 			isMovingHorizontalScrollbarCursor = true;
 			
 			horizontalScrollingCursorStartXPosition =
-			getCursorXPosition() - getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar();
+			getCursorXPosition()
+			- getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar();
 		}
 	}
 	
@@ -1018,6 +1016,20 @@ extends BackgroundWidget<BW, BWS> {
 		int cursorXPositionOnContent,
 		int cursorYPositionOnContent
 	) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected final boolean viewAreaIsUnderCursor() {
+		
+		//TODO: Better ask if the cursor is under the view area directly.
+		return
+		getCursorXPositionOnScrollArea() > 0
+		&& getCursorXPositionOnScrollArea() < getScrollAreaWidth()
+		&& getCursorYPositionOnScrollArea() > 0
+		&& getCursorYPositionOnContentArea() < getScrollAreaHeight();
+	}
 
 	//method
 	/**
@@ -1613,19 +1625,5 @@ extends BackgroundWidget<BW, BWS> {
 			&& cursorXPosition < verticalScrollbarCursorXPosition + getVerticalScrollbarThickness()
 			&& cursorYPosition >= verticalScrollbarCursorYPosition
 			&& cursorYPosition < verticalScrollbarCursorYPosition + getVerticalScrollbarCursorHeight();
-	}
-	
-	//method
-	/**
-	 * @return true if the view area of this border widget is under the cursor.
-	 */
-	private boolean viewAreaIsUnderCursor() {
-		
-		//TODO: Better ask if the cursor is under the view area directly.
-		return
-		getCursorXPositionOnScrollArea() > 0
-		&& getCursorXPositionOnScrollArea() < getScrollAreaWidth()
-		&& getCursorYPositionOnScrollArea() > 0
-		&& getCursorYPositionOnContentArea() < getScrollAreaHeight();
 	}
 }

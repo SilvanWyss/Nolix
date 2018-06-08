@@ -268,4 +268,12 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 			}
 		}
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected boolean viewAreaIsUnderCursor() {
+		return isUnderCursor();
+	}
 }

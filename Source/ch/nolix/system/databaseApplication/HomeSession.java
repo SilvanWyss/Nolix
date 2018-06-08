@@ -43,7 +43,7 @@ public final class HomeSession extends HeaderedSession {
 				column,
 				new Button(es.getName())
 				.setLeftMouseButtonPressCommand(
-					"OpenEntitySetSession(" + es.getName() + ")"
+					() -> OpenEntitySetSession(es.getName())
 				)
 			);
 			

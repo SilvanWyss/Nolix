@@ -8,11 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 //own imports
-import ch.nolix.core.container.List;
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specification.Statement;
 import ch.nolix.core.util.Timer;
 import ch.nolix.element.painter.SwingPainter;
 import ch.nolix.primitive.logger.Logger;
@@ -41,9 +37,6 @@ public final class Frame extends VisibleGUI<Frame> {
 	
 	//default y-position of a frame on the screen
 	private static final int DEFAULT_Y_POSITION = 100;
-	
-	//attribute header
-	private static final String CLOSE_COMMAND_HEADER = "CloseCommand";
 	
 	//attribute
 	private JFrame frame = new JFrame();
@@ -76,9 +69,6 @@ public final class Frame extends VisibleGUI<Frame> {
 			Logger.logInfo("frame paint duration in milliseconds", timer.getRunMilliseconds());
 		}
 	};
-	
-	//optional attribute
-	private Statement closeCommand;
 	
 	//constructor
 	/**
@@ -117,27 +107,6 @@ public final class Frame extends VisibleGUI<Frame> {
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to this frame.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
-	 */
-	public void addOrChangeAttribute(final Specification attribute) {
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case CLOSE_COMMAND_HEADER:
-				setCloseCommand(attribute.getOneAttributeAsString());
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-	
-	//method
-	/**
 	 * Closes this frame.
 	 */
 	public void close() {
@@ -146,25 +115,6 @@ public final class Frame extends VisibleGUI<Frame> {
 		super.close();
 		
 		frame.dispose();
-	}
-	
-	//method
-	/**
-	 * @return the attributes of this frame.
-	 */
-	public List<StandardSpecification> getAttributes() {
-		
-		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
-		
-		//Handles the case that this frame has a close command.
-		if (hasCloseCommand()) {
-			attributes.addAtEnd(
-				new StandardSpecification(CLOSE_COMMAND_HEADER, closeCommand.toString())
-			);
-		}
-		
-		return attributes;
 	}
 	
 	//method
@@ -222,34 +172,6 @@ public final class Frame extends VisibleGUI<Frame> {
 	 */
 	public int getWidth() {
 		return frame.getWidth();
-	}
-	
-	//method
-	/**
-	 * @return true if this frame has a close command.
-	 */
-	public boolean hasCloseCommand() {
-		return (closeCommand != null);
-	}
-	
-	//method
-	/**
-	 * Lets this frame not a close button click.
-	 * That means:
-	 * -Run the close command of this main frame if it has a close command.
-	 * -Exits the program otherwise.
-	 */
-	public void noteCloseButtonClick() {
-		
-		//Handles the case that this frame has no close command.
-		if (!hasCloseCommand()) {
-			close();
-		}
-		
-		//Handles the case that this frame has a close command.
-		else {
-			getRefController().run(closeCommand);			
-		}
 	}
 	
 	//method
@@ -347,42 +269,6 @@ public final class Frame extends VisibleGUI<Frame> {
 		Logger.logInfo("frame set position duration in milliseconds", timer.getRunMilliseconds());
 		
 		frame.repaint();
-	}
-	
-	//method
-	/**
-	 * Removes the close command of this frame.
-	 */
-	public void removeCloseCommand() {
-		closeCommand = null;
-	}
-	
-	//method
-	/**
-	 * Resets this frame.
-	 * 
-	 * @return this frame.
-	 */
-	public Frame reset() {
-				
-		removeCloseCommand();
-		
-		//Calls method of the base class.
-		return super.reset();
-	}
-	
-	//method
-	/**
-	 * Sets the close command of this frame.
-	 * 
-	 * @param closeCommand
-	 * @throws InvalidArgumentException if the given close command is not valid.
-	 */
-	public Frame setCloseCommand(final String closeCommand) {
-		
-		this.closeCommand = new Statement(closeCommand);
-		
-		return this;
 	}
 	
 	//method

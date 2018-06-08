@@ -69,9 +69,9 @@ public final class DeleteEntitySession extends HeaderedSession {
 			new Label("Do you want to delete the entity " + entityId + "?"),
 			new HorizontalStack(
 				new Button("Yes")
-				.setLeftMouseButtonPressCommand("DeleteEntity"),
+				.setLeftMouseButtonPressCommand(() -> DeleteEntity()),
 				new Button("No")
-				.setLeftMouseButtonPressCommand("Cancel")
+				.setLeftMouseButtonPressCommand(() -> Cancel())
 			)
 		);
 	}

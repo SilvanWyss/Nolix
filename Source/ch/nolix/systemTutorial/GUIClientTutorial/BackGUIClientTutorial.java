@@ -59,7 +59,7 @@ public final class BackGUIClientTutorial {
 			final Button button =
 			new Button()
 			.setText("Change color")
-			.setLeftMouseButtonPressCommand("ChangeColor")
+			.setLeftMouseButtonPressCommand(() -> changeColor())
 			.setCursorIcon(CursorIcon.Hand);			
 						
 			button
@@ -90,7 +90,7 @@ public final class BackGUIClientTutorial {
 		 * Changes the color of the GUI of the client of this main session.
 		 */
 		@SuppressWarnings("unused")
-		public void ChangeColor() {
+		public void changeColor() {
 			
 			if (counter % 2 == 0) {
 				getParentClient().getRefGUI().setBackgroundColor(Color.GREEN);
@@ -102,7 +102,6 @@ public final class BackGUIClientTutorial {
 			counter++;
 		}
 	}
-
 	
 	//private constructor
 	/**

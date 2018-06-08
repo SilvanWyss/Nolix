@@ -6,10 +6,11 @@ import java.awt.event.KeyEvent;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.functionInterfaces.IFunction;
+import ch.nolix.core.constants.FunctionCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specification.Statement;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.element.bases.ConfigurableElement;
 import ch.nolix.element.color.Color;
@@ -29,7 +30,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1500
+ * @lines 1510
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -82,10 +83,10 @@ extends ConfigurableElement<W> {
 	private GUI<?> parentGUI;
 	
 	//optional attributes
-	private Statement leftMouseButtonPressCommand;
-	private Statement leftMouseButtonReleaseCommand;
-	private Statement rightMouseButtonPressCommand;
-	private Statement rightMouseButtonReleaseCommand;
+	private IFunction leftMouseButtonPressCommand;
+	private IFunction leftMouseButtonReleaseCommand;
+	private IFunction rightMouseButtonPressCommand;
+	private IFunction rightMouseButtonReleaseCommand;
 	
 	//constructor
 	/**
@@ -118,40 +119,16 @@ extends ConfigurableElement<W> {
 				removeGreyOutWhenDisabled();
 				break;
 			case LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER:
-				
-				setLeftMouseButtonPressCommand(
-					Specification.createOriginStringFromReproducingString(
-						attribute.getOneAttributeAsString()
-					)
-				);
-				
+				setLeftMouseButtonPressCommand(FunctionCatalogue.EMPTY_FUNCTION);
 				break;
 			case LEFT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER:
-				
-				setLeftMouseButtonReleaseCommand(
-				Specification.createOriginStringFromReproducingString(
-						attribute.getOneAttributeAsString()
-					)
-				);
-				
+				setLeftMouseButtonReleaseCommand(FunctionCatalogue.EMPTY_FUNCTION);
 				break;
 			case RIGHT_MOUSE_BUTTON_PRESS_COMMAND_HEADER:
-				
-				setRightMouseButtonPressCommand(
-				Specification.createOriginStringFromReproducingString(
-						attribute.getOneAttributeAsString()
-					)
-				);
-				
+				setRightMouseButtonPressCommand(FunctionCatalogue.EMPTY_FUNCTION);
 				break;
-			case RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER:
-				
-				setRightMouseButtonReleaseCommand(				
-				Specification.createOriginStringFromReproducingString(
-						attribute.getOneAttributeAsString()
-					)
-				);
-				
+			case RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER:				
+				setRightMouseButtonReleaseCommand(FunctionCatalogue.EMPTY_FUNCTION);
 				break;
 			default:
 				if (attribute.getHeader().startsWith(BASE_PREFIX)) {
@@ -196,6 +173,13 @@ extends ConfigurableElement<W> {
 		
 		return getInstance();
 	}
+	
+	//abstract method
+	/**
+	 * Applies a usable configuration to the current {@link Widget}
+	 * when the configuration of the current {@link Widget} has been reset.
+	 */
+	protected abstract void applyUsableConfigurationWhenConfigurationIsReset();
 
 	//method
 	/**
@@ -366,36 +350,6 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return the left mouse button press command of the current {@link Widget}.
-	 * @throws UnexistingAttibuteException if the current {@link Widget} has no left mouse button press command.
-	 */
-	public final Statement getLeftMouseButtonPressCommand() {
-		
-		//Checks if the current {@link Widget} has a left mouse button press command.
-		if (!hasLeftMouseButtonPressCommand()) {
-			throw new UnexistingAttributeException(this, "left mouse button press command");
-		}
-		
-		return leftMouseButtonPressCommand.getCopy();
-	}
-	
-	//method
-	/**
-	 * @return the left mouse button release command of the current {@link Widget}.
-	 * @throws UnexistingAttributeException if the current {@link Widget} has no left mouse button release command.
-	 */
-	public final Statement getLeftMouseButtonReleaseCommand() {
-		
-		//Checks if the current {@link Widget} has a left mouse button release command.
-		if (!hasLeftMouseButtonReleaseCommand()) {
-			throw new UnexistingAttributeException(this, "right mouse button press command");
-		}
-		
-		return rightMouseButtonPressCommand.getCopy();
-	}
-	
-	//method
-	/**
 	 * @return the GUI the current {@link Widget} belongs to.
 	 * @throws InvalidStateException if the current {@link Widget} does not belong to a GUI.
 	 */
@@ -458,36 +412,6 @@ extends ConfigurableElement<W> {
 		fillUpWidgets(widgets);
 		
 		return widgets;
-	}
-	
-	//method
-	/**
-	 * @return the right mouse button press command of the current {@link Widget}.
-	 * @throws UnexistingAttributeException if the current {@link Widget} has no right mouse button press command.
-	 */
-	public final Statement getRightMouseButtonPressCommand() {
-		
-		//Checks if the current {@link Widget} has a right mouse button press command.
-		if (!hasRightMouseButtonPressCommand()) {
-			throw new UnexistingAttributeException(this, "right mouse button press command");
-		}
-		
-		return rightMouseButtonPressCommand;
-	}
-	
-	//method
-	/**
-	 * @return the right mouse button release command of the current {@link Widget}.
-	 * @throws UnexistingAttributeException if the current {@link Widget} has no right mouse button release command.
-	 */
-	public final Statement getRightMouseButtonReleaseCommand() {
-		
-		//Checks if the current {@link Widget} has a right mouse button release command.
-		if (!hasRightMouseButtonReleaseCommand()) {
-			throw new UnexistingAttributeException(this, "right mouse button release command");
-		}
-		
-		return rightMouseButtonReleaseCommand;
 	}
 	
 	//method
@@ -788,6 +712,20 @@ extends ConfigurableElement<W> {
 	 */
 	public void noteLeftMouseButtonPress() {
 		
+		//Handles the case that the cursor is under the view area of the current widget.
+		if (viewAreaIsUnderCursor()) {
+			
+			//Handles the case that the current widget has a left mouse button release command.
+			if (hasLeftMouseButtonPressCommand()) {
+				
+				leftMouseButtonPressCommand.run();
+				
+				//Handles the case that the GUI the current widget belongs to has a controller.
+				if (getParentGUI().hasController()) {
+					getParentGUI().getRefController().noteLeftMouseButtonPressCommand(this);
+				}
+			}
+		}
 	}
 	
 	//method
@@ -796,9 +734,19 @@ extends ConfigurableElement<W> {
 	 */
 	public void noteLeftMouseButtonRelease() {
 		
-		//Handles the case that the current widget has a left mouse button release command.
-		if (hasLeftMouseButtonReleaseCommand()) {
-			getParentGUI().getRefController().run(getLeftMouseButtonReleaseCommand());
+		//Handles the case that the cursor is under the view area of the current widget.
+		if (viewAreaIsUnderCursor()) {
+			
+			//Handles the case that the current widget has a left mouse button release command.
+			if (hasLeftMouseButtonReleaseCommand()) {
+				
+				leftMouseButtonReleaseCommand.run();
+				
+				//Handles the case that the GUI the current widget belongs to has a controller.
+				if (getParentGUI().hasController()) {
+					getParentGUI().getRefController().noteLeftMouseButtonReleaseCommand(this);
+				}
+			}
 		}
 	}
 	
@@ -918,6 +866,66 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
+	 * Runs the left mouse button press command of the current {@link Widget}.
+	 * 
+	 * @return the current {@link Widget}.
+	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * has no left mouse button press command.
+	 */
+	public final W runLeftMouseButtonPressCommand() {
+		
+		getLeftMouseButtonPressCommand().run();
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Runs the left mouse button release command of the current {@link Widget}.
+	 * 
+	 * @return the current {@link Widget}.
+	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * has no left mouse button release command.
+	 */
+	public final W runLeftMouseButtonReleaseCommand() {
+		
+		getLeftMouseButtonReleaseCommand().run();
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Runs the right mouse button press command of the current {@link Widget}.
+	 * 
+	 * @return the current {@link Widget}.
+	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * has no right mouse button press command.
+	 */
+	public final W runRightMouseButtonPressCommand() {
+		
+		getRightMouseButtonPressCommand().run();
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Runs the right mouse button release command of the current {@link Widget}.
+	 * 
+	 * @return the current {@link Widget}.
+	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * has no right mouse button release command.
+	 */
+	public final W runRightMouseButtonReleaseCommand() {
+		
+		getRightMouseButtonReleaseCommand().run();
+		
+		return getInstance();
+	}
+
+	//method
+	/**
 	 * Sets the current {@link Widget} collapsed.
 	 * 
 	 * @return the current {@link Widget}.
@@ -1035,7 +1043,7 @@ extends ConfigurableElement<W> {
 	 * @return the current {@link Widget}.
 	 * @throws NullArgumentException if the given left mouse button press command is null.
 	 */
-	public final W setLeftMouseButtonPressCommand(final Statement leftMouseButtonPressCommand) {
+	public final W setLeftMouseButtonPressCommand(final IFunction leftMouseButtonPressCommand) {
 		
 		//Checks if the given left mouse button press command is not null.
 		Validator
@@ -1043,37 +1051,9 @@ extends ConfigurableElement<W> {
 		.thatIsNamed("left mouse button press command")
 		.isNotNull();
 		
-		this.leftMouseButtonPressCommand = leftMouseButtonPressCommand.getCopy();
+		this.leftMouseButtonPressCommand = leftMouseButtonPressCommand;
 		
 		return getInstance();
-	}
-	
-	//method
-	/**
-	 * Sets the left mouse button press command of the current {@link Widget}.
-	 * 
-	 * @param leftMouseButtonPressCommand
-	 * @return the current {@link Widget}.
-	 * @throws InvalidArgumentException if the given left mouse button press command is not valid.
-	 */
-	public final W setLeftMouseButtonPressCommand(final String leftMouseButtonPressCommand) {
-		return setLeftMouseButtonPressCommand(new Statement(leftMouseButtonPressCommand));
-	}
-
-	//method
-	/**
-	 * Sets the given left mouse button press command, that has the given arguments, to the current {@link Widget}.
-	 * 
-	 * @param leftMouseButtonPressCommand
-	 * @return the current {@link Widget}.
-	 * @throws InvalidArgumentException if the given left mouse button press command is not valid.
-	 * @throws InvalidArgumentExcepiton if one of the given arguments is not valid.
-	 */
-	public final W setLeftMouseButtonPressCommand(
-		final String leftMouseButtonPressCommand,
-		final String... arguments
-	) {
-		return setLeftMouseButtonPressCommand(new Statement(leftMouseButtonPressCommand, arguments));
 	}
 	
 	//method
@@ -1084,45 +1064,59 @@ extends ConfigurableElement<W> {
 	 * @return the current {@link Widget}.
 	 * @throws NullArgumentException if the given left mouse button release command is null.
 	 */
-	public final W setLeftMouseButtonReleaseCommand(final Statement leftMouseButtonReleaseCommand) {
+	public final W setLeftMouseButtonReleaseCommand(final IFunction leftMouseButtonReleaseCommand) {
 		
 		//Checks if the given left mouse button release command is not null.
 		Validator
 		.suppose(leftMouseButtonReleaseCommand)
 		.thatIsNamed("left mouse button release command")
 		.isNotNull();
-		this.leftMouseButtonReleaseCommand = leftMouseButtonReleaseCommand.getCopy();
+		
+		this.leftMouseButtonReleaseCommand = leftMouseButtonReleaseCommand;
 		
 		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Sets the left mouse button release command of the current {@link Widget}.
+	 * Sets the right mouse button press command of the current {@link Widget}.
 	 * 
-	 * @param leftMouseButtonReleaseCommand
+	 * @param rightMouseButtonPressCommand
 	 * @return the current {@link Widget}.
-	 * @throws InvalidArgumentException if the given left mouse button release command is not valid.
+	 * @throws NullArgumentException if the given right mouse button press command is null.
 	 */
-	public final W setLeftMouseButtonReleaseCommand(final String leftMouseButtonReleaseCommand) {
-		return setLeftMouseButtonReleaseCommand(new Statement(leftMouseButtonReleaseCommand));
+	public final W setRightMouseButtonPressCommand(final IFunction rightMouseButtonPressCommand) {
+		
+		//Checks if the given right mouse button press command is not null.
+		Validator
+		.suppose(rightMouseButtonPressCommand)
+		.thatIsNamed("right mouse button press command")
+		.isNotNull();
+		
+		this.rightMouseButtonPressCommand = rightMouseButtonPressCommand;
+		
+		return getInstance();
 	}
 	
 	//method
 	/**
-	 * Sets the given left mouse release command, that has the given attributes, to the current {@link Widget}.
+	 * Sets the right mouse button release command of the current {@link Widget}.
 	 * 
-	 * @param leftMouseButtonReleaseCommand
-	 * @param arguments
+	 * @param rightMouseButtonReleaseCommand
 	 * @return the current {@link Widget}.
-	 * @throws InvalidArgumentException if the given left mouse button release command is not valid.
-	 * @throws InvalidArgumentException if one of the given arguments are not valid.
+	 * @throws NullArgumentException if the given right mouse button release command is null.
 	 */
-	public final W setLeftMouseButtonReleaseCommand(
-		final String leftMouseButtonReleaseCommand,
-		final String... arguments
-	) {
-		return setLeftMouseButtonReleaseCommand(new Statement(leftMouseButtonReleaseCommand, arguments));
+	public final W setRightMouseButtonReleaseCommand(final IFunction rightMouseButtonReleaseCommand) {
+		
+		//Checks if the given right mouse button release command is not null.
+		Validator
+		.suppose(rightMouseButtonReleaseCommand)
+		.thatIsNamed("right mouse button release command")
+		.isNotNull();
+		
+		this.rightMouseButtonReleaseCommand = rightMouseButtonReleaseCommand;
+		
+		return getInstance();
 	}
 	
 	//method
@@ -1136,106 +1130,6 @@ extends ConfigurableElement<W> {
 		state = WidgetState.Normal;
 		
 		return getInstance();
-	}
-	
-	//method
-	/**
-	 * Sets the right mouse button press command of the current {@link Widget}.
-	 * 
-	 * @param rightMouseButtonPressCommand
-	 * @return the current {@link Widget}.
-	 * @throws NullArgumentException if the given right mouse button press command is null.
-	 */
-	public final W setRightMouseButtonPressCommand(final Statement rightMouseButtonPressCommand) {
-		
-		//Checks if the given right mouse button press command is not null.
-		Validator
-		.suppose(rightMouseButtonPressCommand)
-		.thatIsNamed("right mouse button press command")
-		.isNotNull();
-		
-		this.rightMouseButtonPressCommand = rightMouseButtonPressCommand.getCopy();
-		
-		return getInstance();
-	}
-	
-	//method
-	/**
-	 * Sets the right mouse button press command of the current {@link Widget}.
-	 * 
-	 * @param rightMouseButtonPressCommand
-	 * @return the current {@link Widget}.
-	 * @throws InvalidArgumentException if the givne right mouse button press command is not valid.
-	 */
-	public final W setRightMouseButtonPressCommand(final String rightMouseButtonPressCommand) {
-		return setRightMouseButtonPressCommand(new Statement(rightMouseButtonPressCommand));
-	}
-	
-	//method
-	/**
-	 * Sets the given right mouse button press command, that has the given arguments, to the current {@link Widget}.
-	 * 
-	 * @param rightMouseButtonPressCommand
-	 * @param arguments
-	 * @return the current {@link Widget}.
-	 * @throws InvalidArgumentException if the given right mouse button press command is not valid.
-	 * @throws InvalidArgumentException if one of the given arguments is not valid.
-	 */
-	public final W setRightMouseButtonPressCommand(
-		final String rightMouseButtonPressCommand,
-		final String... arguments
-	) {
-		return setRightMouseButtonPressCommand(new Statement(rightMouseButtonPressCommand, arguments));
-	}
-	
-	//method
-	/**
-	 * Sets the right mouse button release command of the current {@link Widget}.
-	 * 
-	 * @param rightMouseButtonReleaseCommand
-	 * @return the current {@link Widget}.
-	 * @throws NullArgumentException if the given right mouse button release command is null.
-	 */
-	public final W setRightMouseButtonReleaseCommand(final Statement rightMouseButtonReleaseCommand) {
-		
-		//Checks if the given right mouse button release command is not null.
-		Validator
-		.suppose(rightMouseButtonReleaseCommand)
-		.thatIsNamed("right mouse button release command")
-		.isNotNull();
-		
-		this.rightMouseButtonReleaseCommand = rightMouseButtonReleaseCommand.getCopy();
-		
-		return getInstance();
-	}
-	
-	//method
-	/**
-	 * Sets the right mouse button release command of the current {@link Widget}.
-	 * 
-	 * @param rightMouseButtonReleaseCommand
-	 * @return the current {@link Widget}.
-	 * @throws InvalidArgumentException if the given right mouse button release command is not valid.
-	 */
-	public final W setRightMouseButtonReleaseCommand(final String rightMouseButtonReleaseCommand) {
-		return setRightMouseButtonReleaseCommand(new Statement(rightMouseButtonReleaseCommand));
-	}
-	
-	//method
-	/**
-	 * Sets the givne right mouse button release command, that has the given arguments, to the current {@link Widget}.
-	 * 
-	 * @param rightMouseButtonReleaseCommand
-	 * @param arguments
-	 * @return the current {@link Widget}.
-	 * @throws InvalidArgumentException if the given right mouse button release command is not valid.
-	 * @throws InvalidArgumentException if one of the given argumnets is not valid.
-	 */
-	public final W setRightMouseButtonReleaseCommand(
-		final String rightMouseButtonReleaseCommand,
-		final String... arguments
-	) {
-		return setRightMouseButtonReleaseCommand(new Statement(rightMouseButtonReleaseCommand, arguments));
 	}
 	
 	//method
@@ -1341,6 +1235,23 @@ extends ConfigurableElement<W> {
 		return yPositionOnParent;
 	}
 	
+	//method
+	/**
+	 * Paints the current {@link Widget} using the given painter.
+	 * 
+	 * @param painter
+	 */
+	protected void paint(final IPainter painter) {
+		
+		paint(getRefCurrentLook(), painter);
+		
+		//Handles the case that the current widget is disabled and would grey out.
+		if (isDisabled() && greysOutWhenDisabled()) {
+			painter.setColor(Color.GREY);
+			painter.paintFilledRectangle(getWidth(), getHeight());
+		}
+	}
+	
 	//abstract method
 	/**
 	 * Paints the current {@link Widget} using the given widget structure and painter.
@@ -1367,12 +1278,7 @@ extends ConfigurableElement<W> {
 		);
 	}
 	
-	//abstract method
-	/**
-	 * Applies a usable configuration to the current {@link Widget}
-	 * when the configuration of the current {@link Widget} has been reset.
-	 */
-	protected abstract void applyUsableConfigurationWhenConfigurationIsReset();
+
 	
 	//method
 	/**
@@ -1421,22 +1327,7 @@ extends ConfigurableElement<W> {
 		}
 	}
 	
-	//method
-	/**
-	 * Paints the current {@link Widget} using the given painter.
-	 * 
-	 * @param painter
-	 */
-	protected void paint(final IPainter painter) {
-		
-		paint(getRefCurrentLook(), painter);
-		
-		//Handles the case that the current widget is disabled and would grey out.
-		if (isDisabled() && greysOutWhenDisabled()) {
-			painter.setColor(Color.GREY);
-			painter.paintFilledRectangle(getWidth(), getHeight());
-		}
-	}
+	protected abstract boolean viewAreaIsUnderCursor();
 	
 	//method
 	/**
@@ -1453,6 +1344,32 @@ extends ConfigurableElement<W> {
 		getRefWidgets().forEach(w -> w.fillUpWidgetsRecursively(list));
 	}
 	
+	//method
+	/**
+	 * @return the left mouse button press command of the current {@link Widget}.
+	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * has no left mouse button press command.
+	 */
+	private IFunction getLeftMouseButtonPressCommand() {
+
+		supposeHasLeftMouseButtonPressCommad();
+		
+		return leftMouseButtonPressCommand;
+	}
+	
+	//method
+	/**
+	 * @return the left mouse button release command of the current {@link Widget}.
+	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * has no left mouse button release command.
+	 */
+	private IFunction getLeftMouseButtonReleaseCommand() {
+
+		supposeHasLeftMouseButtonReleaseCommad();
+		
+		return leftMouseButtonReleaseCommand;
+	}	
+
 	//method
 	/**
 	 * @return the newly calculated height of the current {@link Widget}.
@@ -1485,6 +1402,32 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
+	 * @return the right mouse button press command of the current {@link Widget}.
+	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * has no right mouse button press command.
+	 */
+	private IFunction getRightMouseButtonPressCommand() {
+
+		supposeHasRightMouseButtonPressCommad();
+		
+		return rightMouseButtonPressCommand;
+	}
+	
+	//method
+	/**
+	 * @return the right mouse button release command of the current {@link Widget}.
+	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * has no right mouse button release command.
+	 */
+	private IFunction getRightMouseButtonReleaseCommand() {
+
+		supposeHasRightMouseButtonReleaseCommad();
+		
+		return rightMouseButtonReleaseCommand;
+	}
+	
+	//method
+	/**
 	 * @throws InvalidStateException if the current {@link Widget} belongs to no GUI.
 	 */
 	private void supposeBelongsToGUI() {
@@ -1494,6 +1437,74 @@ extends ConfigurableElement<W> {
 			throw new InvalidStateException(
 				this,
 				"belongs to no GUI"
+			);
+		}
+	}
+	
+	//method
+	/**
+	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * has no left mouse button press command.
+	 */
+	private void supposeHasLeftMouseButtonPressCommad() {
+		
+		//Checks if the current widget has a left mouse button press command.
+		if (!hasLeftMouseButtonPressCommand()) {
+			throw 
+			new UnexistingAttributeException(
+				this,
+				"left mouse button press command"
+			);
+		}
+	}
+	
+	//method
+	/**
+	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * has no left mouse button release command.
+	 */
+	private void supposeHasLeftMouseButtonReleaseCommad() {
+		
+		//Checks if the current widget has a left mouse button release command.
+		if (!hasLeftMouseButtonReleaseCommand()) {
+			throw 
+			new UnexistingAttributeException(
+				this,
+				"left mouse button release command"
+			);
+		}
+	}
+	
+	//method
+	/**
+	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * has no right mouse button press command.
+	 */
+	private void supposeHasRightMouseButtonPressCommad() {
+		
+		//Checks if the current widget has a right mouse button press command.
+		if (!hasRightMouseButtonPressCommand()) {
+			throw 
+			new UnexistingAttributeException(
+				this,
+				"right mouse button press command"
+			);
+		}
+	}
+	
+	//method
+	/**
+	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * has no right mouse button release command.
+	 */
+	private void supposeHasRightMouseButtonReleaseCommad() {
+		
+		//Checks if the current widget has a right mouse button release command.
+		if (!hasRightMouseButtonReleaseCommand()) {
+			throw 
+			new UnexistingAttributeException(
+				this,
+				"right mouse button release command"
 			);
 		}
 	}

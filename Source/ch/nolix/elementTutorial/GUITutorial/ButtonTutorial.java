@@ -2,8 +2,6 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
 //own imports
-import ch.nolix.core.controllerInterfaces.IController;
-import ch.nolix.core.specification.Statement;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.GUI.Frame;
@@ -19,6 +17,9 @@ import ch.nolix.element.color.Color;
  * @lines 70
  */
 public final class ButtonTutorial {
+	
+	//static attribute
+	private static Frame frame;
 
 	//main method
 	/**
@@ -34,7 +35,7 @@ public final class ButtonTutorial {
 		new Button("Quit")
 		.setMinWidth(200)
 		.setCursorIcon(CursorIcon.Hand)
-		.setLeftMouseButtonPressCommand("Quit");
+		.setLeftMouseButtonPressCommand(() -> quit());
 		
 		//Configures the look of the button.
 		button
@@ -45,21 +46,15 @@ public final class ButtonTutorial {
 		.setPaddings(5);
 		
 		//Creates a frame with the button.
-		final var frame = new Frame()
+		frame =
+		new Frame()
 		.setTitle("Button Tutorial")
 		.setRootWidget(button);
-		
-		frame.setController(
-			new IController() {
-			
-				//method
-				public void run(final Statement command) {
-					if (command.toString().equals("Quit")) {
-						frame.close();
-					}
-				}
-			}
-		);
+	}
+	
+	//static method
+	private static void quit() {
+		frame.close();
 	}
 	
 	//private constructor

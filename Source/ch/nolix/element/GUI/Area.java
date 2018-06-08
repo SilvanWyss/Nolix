@@ -349,6 +349,14 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	protected boolean viewAreaIsUnderCursor() {
+		return isUnderCursor();
+	}
+	
+	//method
+	/**
 	 * @throws UnexistingAttributeException
 	 * if the current {@link Area} has no background color.
 	 */

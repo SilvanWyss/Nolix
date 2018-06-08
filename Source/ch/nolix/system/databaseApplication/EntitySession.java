@@ -60,12 +60,12 @@ public final class EntitySession extends HeaderedSession {
 	}
 	
 	//method
-	public void OpenEntitySession(final String entitySetName, final String entityId) {
+	public void OpenEntitySession(final String entitySetName, final int entityId) {
 		getParentClient().setSession(
 			new EntitySession(
 				getRefContext(),
 				entitySetName,
-				Integer.valueOf(entityId)
+				entityId
 			)	
 		);
 	}
@@ -126,7 +126,7 @@ public final class EntitySession extends HeaderedSession {
 			new Button()
 			.setText(entitySetName)
 			.setRole(ButtonRole.LinkButton)
-			.setLeftMouseButtonPressCommand("OpenEntitySetSession")
+			.setLeftMouseButtonPressCommand(() -> OpenEntitySetSession())
 		);
 	}
 	
@@ -199,16 +199,11 @@ public final class EntitySession extends HeaderedSession {
 							.setRole(ButtonRole.LinkButton)
 							.setName(referenceProperty.getHeader() + "LinkButton")
 							.setLeftMouseButtonPressCommand(
-								"OpenEntitySession("
-								+ referenceProperty.getReferencedEntitySet().getName()
-								+ ","
-								+ referenceProperty.getEntity().getId()
-								+ ")"),
+								() -> OpenEntitySession(referenceProperty.getReferencedEntitySet().getName(), referenceProperty.getEntity().getId())
+							),
 							new Button("Select")
 							.setLeftMouseButtonPressCommand(
-								"OpenReferencePropertySession("
-								+ referenceProperty.getHeader()
-								+ ")"
+								() -> OpenReferencePropertySession(referenceProperty.getHeader())
 							)
 						)
 					);
@@ -229,10 +224,10 @@ public final class EntitySession extends HeaderedSession {
 			new HorizontalStack(
 				new Button("Save")
 				.setRole(ButtonRole.SaveButton)
-				.setLeftMouseButtonPressCommand("Save"),
+				.setLeftMouseButtonPressCommand(() -> Save()),
 				new Button("Reset changes")
 				.setRole(ButtonRole.CancelButton)
-				.setLeftMouseButtonPressCommand("Cancel")
+				.setLeftMouseButtonPressCommand(() -> Cancel())
 			)
 		)
 		.setRole(ContainerRole.MainContainer);

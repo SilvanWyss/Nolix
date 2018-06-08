@@ -270,4 +270,12 @@ extends Widget<L, LineLook> {
 			getHeight()
 		);
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected boolean viewAreaIsUnderCursor() {
+		return isUnderCursor();
+	}
 }

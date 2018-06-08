@@ -7,9 +7,9 @@ import java.awt.event.KeyEvent;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.controllerInterfaces.IController;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.interfaces.Closable;
@@ -160,7 +160,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 				
 	//optional attributes
 	private Widget<?, ?> rootWidget;
-	private IController controller;
+	private IGUIController controller;
 	
 	//method
 	/**
@@ -356,13 +356,24 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	
 	//method
 	/**
+	 * @param index
+	 * @return the widget with the given index recursively from this GUI.
+	 * @throws NonPositiveArgumentException if the given index is not positive.
+	 * @throws UnexistingAttributeException if this GUI contains no widget with the given index.
+	 */
+	public final Widget<?, ?> getRefWidgetByIndexRecursively(final int index) {
+		return getRefWidgetsRecursively().getRefAt(index);
+	}
+	
+	//method
+	/**
 	 * @param name
 	 * @return the widget that has the given name recursively from this GUI.
 	 * @throws InvalidArgumentException if this GUI contains no widget with the given name.
 	 */
 	@SuppressWarnings("unchecked")
 	public final <W extends Widget<?, ?>> W getRefWidgetByNameRecursively(final String name) {
-		return (W)getRefRootWidget().getRefConfigurablesRecursively().getRefFirst(c -> c.hasName(name));
+		return (W)getRefWidgetsRecursively().getRefFirst(c -> c.hasName(name));
 	}
 	
 	//method
@@ -677,12 +688,13 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @return this GUI.
 	 * @throws NullArgumentException if the given controller is null.
 	 */
-	public final G setController(IController controller) {
+	public final G setController(final IGUIController controller) {
 		
-		//Checks if the given controller is not null.
-		Validator.suppose(controller).thatIsNamed("controller").isNotNull();
+		Validator
+		.suppose(controller)
+		.thatIsNamed(VariableNameCatalogue.CONTROLLER)
+		.isNotNull();
 		
-		//Sets the controller of this GUI.
 		this.controller = controller;
 		
 		return getInstance();
@@ -724,11 +736,34 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		return getInstance();
 	}
 	
-	//method
+	//package-visible method
 	/**
 	 * @return the controller of this GUI.
+	 * @throws UnexistingAttributeException if this GUI has no controller.
 	 */
-	protected final IController getRefController() {
+	final IGUIController getRefController() {
+		
+		supposeHasController();
+		
 		return controller;
+	}
+	
+	//package-visible method
+	/**
+	 * @return true if this GUI has a controller.
+	 */
+	final boolean hasController() {
+		return (controller != null);
+	}
+
+	//method
+	/**
+	 * @throws UnexistingAttributeException if this GUI has no controller.
+	 */
+	private void supposeHasController() {
+		if (!hasController()) {
+			throw
+			new UnexistingAttributeException(this, VariableNameCatalogue.CONTROLLER);
+		}
 	}
 }

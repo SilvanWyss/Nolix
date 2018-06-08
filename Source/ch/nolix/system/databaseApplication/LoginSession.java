@@ -26,7 +26,7 @@ public final class LoginSession extends DatabaseApplicationSession {
 		return
 		new VerticalStack(
 			new Button("Login")
-			.setLeftMouseButtonPressCommand("Login")
+			.setLeftMouseButtonPressCommand(() -> Login())
 		);
 	}
 }

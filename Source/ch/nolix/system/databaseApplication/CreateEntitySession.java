@@ -110,10 +110,10 @@ public final class CreateEntitySession extends HeaderedSession {
 			new HorizontalStack(
 				new Button("Create")
 				.setRole(ButtonRole.CreateButton)
-				.setLeftMouseButtonPressCommand("CreateEntity"),
+				.setLeftMouseButtonPressCommand(() -> CreateEntity()),
 				new Button("Cancel")
 				.setRole(ButtonRole.CancelButton)
-				.setLeftMouseButtonPressCommand("Cancel")
+				.setLeftMouseButtonPressCommand(() -> Cancel())
 			)
 		);
 	}
@@ -166,17 +166,10 @@ public final class CreateEntitySession extends HeaderedSession {
 						new HorizontalStack(
 							new Button()
 							.setRole(ButtonRole.LinkButton)
-							.setName(referenceProperty.getHeader() + "LinkButton")
-							.setLeftMouseButtonPressCommand(
-								"OpenEntitySession("
-								+ referenceProperty.getReferencedEntitySet().getName()
-								+ ","
-								+ ")"),
+							.setName(referenceProperty.getHeader() + "LinkButton"),
 							new Button("Select")
 							.setLeftMouseButtonPressCommand(
-								"OpenReferencePropertySession("
-								+ referenceProperty.getHeader()
-								+ ")"
+							   () -> OpenReferencePropertySession(referenceProperty.getHeader())
 							)
 						)
 					);
