@@ -29,7 +29,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1460
+ * @lines 1500
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -341,6 +341,15 @@ extends ConfigurableElement<W> {
 		
 		return calculatedHeight;
 	}
+	
+	//method
+	/**
+	 * @return the index of the current {@link Widget} on its GUI.
+	 * @throws InvalidStateException if the current {@link Widget} does not belong to a GUI.
+	 */
+	public final int getIndexOnGUI() {
+		return getParentGUI().getRefWidgetsRecursively().getIndexOf(this);
+	}
 
 	//method
 	/**
@@ -388,7 +397,7 @@ extends ConfigurableElement<W> {
 	//method
 	/**
 	 * @return the GUI the current {@link Widget} belongs to.
-	 * @throws InvalidStateException if the current {@link Widget} belongs to no GUI.
+	 * @throws InvalidStateException if the current {@link Widget} does not belong to a GUI.
 	 */
 	public final GUI<?> getParentGUI() {
 		
