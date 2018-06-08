@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.container;
 
-//Java imports
+//Java import
 import java.util.Random;
 
 //own imports
@@ -31,7 +31,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1490
+ * @lines 1510
  * @param <E> The type of the elements of a container.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -475,6 +475,29 @@ public interface IContainer<E> extends Iterable<E> {
 		}
 		
 		return count;
+	}
+	
+	//default method
+	/**
+	 * @param element
+	 * @return the index of the given element from this container.
+	 * @throws InvalidStateException if this container does not contain the given element.
+	 */
+	public default int getIndexOf(final E element) {
+		
+		//Iterates this container.
+		int i = 1;
+		for (final var e : this) {
+			
+			//Handles the case that the current element is the given element.
+			if (e == element) {
+				return i;
+			}
+			
+			i++;
+		}
+		
+		throw new InvalidStateException(this, "does not contain the given element");
 	}
 	
 	//default method
