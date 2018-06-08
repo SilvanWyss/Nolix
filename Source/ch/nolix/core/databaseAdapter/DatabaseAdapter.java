@@ -4,12 +4,43 @@ package ch.nolix.core.databaseAdapter;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.factory.Factory;
+import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
 import ch.nolix.core.interfaces.IChangesSaver;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
 public final class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 
+	//static attribute
+	private static final Factory<Specification, Object> valueFactory =
+	new Factory<Specification, Object>()
+	.addInstanceCreator(Boolean.class.getSimpleName(), s -> s.toBoolean())
+	.addInstanceCreator(Integer.class.getSimpleName(), s -> s.toInt())
+	.addInstanceCreator(String.class.getSimpleName(), s -> s.toString());
+	
+	//static method
+	public static void addValueCreator(
+		final String type,
+		final IElementTakerElementGetter<Specification, Object> valueCreator
+	) {
+		valueFactory.addInstanceCreator(type, valueCreator);
+	}
+	
+	//static method
+	public static boolean canCreateValue(final String type) {
+		return valueFactory.canCreateInstanceOf(type);
+	}
+	
+	//static method
+	public static Object createValue(
+		final String type,
+		final Specification input
+	) {
+		return valueFactory.createInstance(type, input);
+	}
+	
 	//attributes
 	private final Schema schema;
 	private final IDatabaseConnector databaseConnector;

@@ -53,11 +53,11 @@ extends NamedElement {
 	}
 	
 	//method
-	public E createPersistedEntity(final int id, final Iterable<Specification> allValuesInOrder) {
+	public E createPersistedEntity(final int id, final Iterable<Specification> valuesInOrder) {
 		
 		final var entity = createDefaultEntity();
 		entity.setId(id);
-		entity.setAllValues(allValuesInOrder);
+		entity.setValues(valuesInOrder);
 		entity.setPersisted();
 		
 		return entity;

@@ -251,38 +251,6 @@ implements Identified, Specified {
 	}
 	
 	//package-visible method
-	final void setAllValues(final Iterable<Specification> allPropertiesInOrder) {
-		
-		final var iterator = getRefProperties().iterator();
-		for (final var p : allPropertiesInOrder) {
-			
-			final var property = iterator.next();			
-			
-			if (property.isDataProperty()) {
-				switch (property.getValueClass().getSimpleName()) {
-					case "String":
-						property.internal_setValues(new List<Object>(p.toString()));
-						break;
-					case "Integer":
-						property.internal_setValues(new List<Object>(p.toInt()));
-						break;
-					default:
-						throw new RuntimeException("Invalid case");
-				}
-			}
-			
-			if (property.isReferenceProperty()) {
-				switch (property.getClass().getSimpleName()) {
-					case "ReferenceProperty":
-						property.internal_setValues(new List<Object>(p.toInt()));
-						break;
-				}
-				
-			}
-		}
-	}
-
-	//package-visible method
 	final void setDeleted() {
 		switch (getState()) {
 			case PERSISTED:
@@ -328,6 +296,82 @@ implements Identified, Specified {
 	//package-visible method
 	final void setRejected() {
 		state = State.REJECTED;
+	}
+	
+	//package-visible method
+	@SuppressWarnings("incomplete-switch")
+	final void setValues(final Iterable<Specification> valuesInOrder) {
+		
+		//Iterates the properties of the current entity and the given values in order synchronously.
+		final var propertiesIterator = getRefProperties().iterator();
+		for (final var v : valuesInOrder) {
+			
+			final var property = propertiesIterator.next();			
+			
+			//Enumerates the kind of the current property.
+			switch (property.getPropertyKind()) {
+				case DATA:
+					
+					property.internal_setValues(
+						new List<Object>(
+							DatabaseAdapter.createValue(property.getValueType(), v)
+						)
+					);
+					
+					break;					
+				case OPTIONAL_DATA:
+					
+					if (v.containsAttributes()) {
+						property.internal_setValues(
+							new List<Object>(
+								DatabaseAdapter.createValue(property.getValueType(), v)
+							)
+						);
+					}
+					
+					break;
+				case MULTI_DATA:
+					
+					final var valueType = property.getValueType();
+					
+					property.internal_setValues(
+						v.getRefAttributes().to(
+							a -> DatabaseAdapter.createValue(valueType, a)
+						)						
+					);
+					
+					break;
+				case REFERENCE:
+					
+					property.internal_setValues(
+						new List<Object>(
+							v.toInt()
+						)
+					);
+					
+					break;
+				case OPTIONAL_REFERENCE:
+					
+					if (v.containsAttributes()) {
+						property.internal_setValues(
+							new List<Object>(
+								v.toInt()
+							)
+						);
+					}
+					
+					break;
+				case MULTI_REFERENCE:
+					
+					property.internal_setValues(
+						v.getRefAttributes().to(
+							a -> a.toInt()
+						)
+					);
+					
+					break;
+			}
+		}
 	}
 	
 	//package-visible method

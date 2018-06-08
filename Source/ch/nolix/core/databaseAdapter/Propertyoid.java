@@ -83,6 +83,11 @@ implements Headered, Specified {
 	}
 	
 	//method
+	public final String getValueType() {
+		return getValueClass().getSimpleName();
+	}
+	
+	//method
 	public final boolean isDataProperty() {
 		return getPropertyType().isDataType();
 	}
