@@ -110,6 +110,16 @@ public final class Statement {
 	
 	//method
 	/**
+	 * @return the integer the one attribute of this statement represents.
+	 * @throws InvalidStateException if this statement contains no or several attributes.
+	 * @throws InvalidArgumentException if the one attribute of this statement represents no integer.
+	 */
+	public int getOneAttributeAsInt() {
+		return specification.getOneAttributeAsInt();
+	}
+	
+	//method
+	/**
 	 * @return a string representation of the one attribute of this statement.
 	 * @throws InvalidStateException if this statement contains no or several attributes.
 	 */
