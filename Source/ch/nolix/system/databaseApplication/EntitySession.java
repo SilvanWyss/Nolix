@@ -115,7 +115,9 @@ public final class EntitySession extends HeaderedSession {
 		
 		getRefDatabaseAdapter().saveChanges();
 		
-		//TODO: Show confirmation message.
+		getParentClient().pushSession(
+			new MessageSession(getRefContext(), "The changes have been changed.")	
+		);
 	}
 
 	//method
