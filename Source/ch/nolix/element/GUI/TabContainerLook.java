@@ -13,7 +13,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	public static final int DEFAULT_MENU_MARGIN = 0;
 	public static final int DEFAULT_MENU_ITEM_MARGIN = 0;
 	
-	//constant
+	//constants
 	private static final String MENU_MARGIN_HEADER = "MenuMargin";
 	private static final String MENU_ITEM_MARGIN_HEADER = "MenuItemMargin";
 	
@@ -23,7 +23,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	private static final String SELECTION_MENU_ITEM_LOOK_HEADER = "SelectionMenuItemLook";
 	
 	//attribute
-	private final Property<NonNegativeInteger> menuItemMarginProperty =
+	private final Property<NonNegativeInteger> menuItemMargin =
 	new Property<NonNegativeInteger>(
 		MENU_ITEM_MARGIN_HEADER,
 		new NonNegativeInteger(DEFAULT_MENU_ITEM_MARGIN),
@@ -31,7 +31,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	);
 	
 	//attribute
-	private final Property<NonNegativeInteger> menuMarginProperty =
+	private final Property<NonNegativeInteger> menuMargin =
 	new Property<NonNegativeInteger>(
 		MENU_MARGIN_HEADER,
 		new NonNegativeInteger(DEFAULT_MENU_MARGIN),
@@ -39,7 +39,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	);
 	
 	//attribute
-	private final Property<TabContainerMenuItemLook> baseMenuItemLookProperty =
+	private final Property<TabContainerMenuItemLook> baseMenuItemLook =
 	new Property<TabContainerMenuItemLook>(
 		BASE_MENU_ITEM_LOOK_HEADER,
 		new TabContainerMenuItemLook(),
@@ -47,7 +47,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	);
 	
 	//attribute
-	private final Property<TabContainerMenuItemLook> hoverMenuItemLookProperty =
+	private final Property<TabContainerMenuItemLook> hoverMenuItemLook =
 	new Property<TabContainerMenuItemLook>(
 		HOVER_MENU_ITEM_LOOK_HEADER,
 		new TabContainerMenuItemLook(),
@@ -55,7 +55,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	);
 	
 	//attribute
-	private final Property<TabContainerMenuItemLook> selectionMenuItemLookProperty =
+	private final Property<TabContainerMenuItemLook> selectionMenuItemLook =
 	new Property<TabContainerMenuItemLook>(
 		SELECTION_MENU_ITEM_LOOK_HEADER,
 		new TabContainerMenuItemLook(),
@@ -64,33 +64,33 @@ extends BorderWidgetLook<TabContainerLook> {
 	
 	//method
 	public TabContainerMenuItemLook getRefRecursiveOrDefaultBaseMenuItemLook() {
-		return baseMenuItemLookProperty.getRecursiveOrDefaultValue();
+		return baseMenuItemLook.getRecursiveOrDefaultValue();
 	}
 	
 	//method
 	public TabContainerMenuItemLook getRefRecursiveOrDefaultHoverMenuItemLook() {
-		return hoverMenuItemLookProperty.getRecursiveOrDefaultValue();
+		return hoverMenuItemLook.getRecursiveOrDefaultValue();
 	}
 	
 	//method
 	public int getRecursiveOrDefaultMenuItemMargin() {
-		return menuItemMarginProperty.getRecursiveOrDefaultValue().getValue();
+		return menuItemMargin.getRecursiveOrDefaultValue().getValue();
 	}
 	
 	//method
 	public int getRecursiveOrDefaultMenuMargin() {
-		return menuMarginProperty.getRecursiveOrDefaultValue().getValue();
+		return menuMargin.getRecursiveOrDefaultValue().getValue();
 	}
 	
 	//method
 	public TabContainerMenuItemLook getRefRecursiveOrDefaultSelectionMenuItemLook() {
-		return selectionMenuItemLookProperty.getRecursiveOrDefaultValue();
+		return selectionMenuItemLook.getRecursiveOrDefaultValue();
 	}
 	
 	//method
 	public TabContainerLook removeBaseMenuItemLook() {
 		
-		baseMenuItemLookProperty.removeValue();
+		baseMenuItemLook.removeValue();
 		
 		return this;
 	}
@@ -98,7 +98,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	//method
 	public TabContainerLook removeHoverMenuItemLook() {
 		
-		hoverMenuItemLookProperty.removeValue();
+		hoverMenuItemLook.removeValue();
 		
 		return this;
 	}
@@ -106,7 +106,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	//method
 	public TabContainerLook removeMenuItemMargin() {
 		
-		menuItemMarginProperty.removeValue();
+		menuItemMargin.removeValue();
 		
 		return this;		
 	}
@@ -114,7 +114,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	//method
 	public TabContainerLook removeMenuMargin() {
 		
-		menuMarginProperty.removeValue();
+		menuMargin.removeValue();
 		
 		return this;		
 	}
@@ -122,7 +122,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	//method
 	public TabContainerLook removeSelectionMenuItemLook() {
 		
-		selectionMenuItemLookProperty.removeValue();
+		selectionMenuItemLook.removeValue();
 		
 		return this;
 	}
@@ -130,7 +130,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	//method
 	public TabContainerLook setBaseMenuItemLook(final TabContainerMenuItemLook baseMenuItemLook) {
 		
-		baseMenuItemLookProperty.setValue(baseMenuItemLook);
+		this.baseMenuItemLook.setValue(baseMenuItemLook);
 		
 		return this;
 	}
@@ -138,7 +138,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	//method
 	public TabContainerLook setHoverMenuItemLook(final TabContainerMenuItemLook hoverMenuItemLook) {
 		
-		hoverMenuItemLookProperty.setValue(hoverMenuItemLook);
+		this.hoverMenuItemLook.setValue(hoverMenuItemLook);
 		
 		return this;
 	}
@@ -146,7 +146,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	//method
 	public TabContainerLook setMenuItemMargin(final int menuItemMargin) {
 		
-		menuItemMarginProperty.setValue(new NonNegativeInteger(menuItemMargin));
+		this.menuItemMargin.setValue(new NonNegativeInteger(menuItemMargin));
 		
 		return this;
 	}
@@ -154,7 +154,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	//method
 	public TabContainerLook setMenuMargin(final int menuMargin) {
 		
-		menuMarginProperty.setValue(new NonNegativeInteger(menuMargin));
+		this.menuMargin.setValue(new NonNegativeInteger(menuMargin));
 		
 		return this;
 	}
@@ -162,7 +162,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	//method
 	public TabContainerLook setSelectionMenuItemLook(final TabContainerMenuItemLook selectionMenuItemLook) {
 		
-		selectionMenuItemLookProperty.setValue(selectionMenuItemLook);
+		this.selectionMenuItemLook.setValue(selectionMenuItemLook);
 		
 		return this;
 	}

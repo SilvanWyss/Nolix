@@ -11,7 +11,6 @@ import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.primitive.invalidStateException.EmptyStateException;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
@@ -20,7 +19,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-04
- * @lines 500
+ * @lines 540
  */
 public final class TabContainer
 extends Container<TabContainer, TabContainerLook>
@@ -37,7 +36,7 @@ implements Clearable<TabContainer> {
 	
 	//constructor
 	/**
-	 * Creates a new empty tab container.
+	 * Creates a new {@link TabContainer}.
 	 */
 	public TabContainer() {
 		reset();
@@ -50,7 +49,7 @@ implements Clearable<TabContainer> {
 	 * Creates a new {@link TabContainer} with the given tabs.
 	 * 
 	 * @param tabs
-	 * @throws NullArgumentException if the given tab container is null.
+	 * @throws NullArgumentException if the given tabs is null.
 	 * @throws NullArgumentException if one of the given tabs is null.
 	 */
 	public TabContainer(final Iterable<TabContainerTab> tabs) {
@@ -66,7 +65,7 @@ implements Clearable<TabContainer> {
 	 * Creates a new {@link TabContainer} with the given tabs.
 	 * 
 	 * @param tabs
-	 * @throws NullArgumentException if the given tab container is null.
+	 * @throws NullArgumentException if the given tabs is null.
 	 * @throws NullArgumentException if one of the given tabs is null.
 	 */
 	public TabContainer(final TabContainerTab... tabs) {
@@ -77,10 +76,7 @@ implements Clearable<TabContainer> {
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to the current {@link TabContainer}.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 * {@inheritDoc}
 	 */
 	public void addOrChangeAttribute(final Specification attribute) {
 		
@@ -98,32 +94,53 @@ implements Clearable<TabContainer> {
 	
 	//method
 	/**
+	 * Adds the given tabs to the current {@link TabContainer}.
+	 * 
+	 * @param tabs
+	 * @return the current {@link TabContainer}.
+	 * @throws NullArgumentException if the given tabs is null.
+	 * @throws NullArgumentException if one of the given tabs is null.
+	 */
+	public TabContainer addTabs(final Iterable<TabContainerTab> tabs) {
+		
+		//Checks if the given tabs is not null.
+		Validator
+		.suppose(tabs)
+		.thatIsNamed("tabs")
+		.isNotNull();
+		
+		//Iterates the given tabs.
+		tabs.forEach(t -> addTab(t));
+		
+		return this;
+	}
+	
+	//method
+	/**
 	 * Adds the given tab to the current {@link TabContainer}.
 	 * 
 	 * @param tab
 	 * @return the current {@link TabContainer}.
 	 * @throws NullArgumentException if the given tab is null.
+	 * @throws InvalidStateException if the given tab belongs already to a {@link TabContainer}.
 	 */
 	public TabContainer addTab(final TabContainerTab tab) {
 		
+		//Checks if the given tab is not null.
 		Validator
 		.suppose(tab)
 		.thatIsNamed(PascalCaseNameCatalogue.TAB)
 		.isNotNull();
 		
-		final var menuItemLabel =
-		new Label()
-		.setContentPosition(ContentPosition.Center)
-		.setText(tab.getHeader())
-		.setCursorIcon(CursorIcon.Hand);
-		
-		menu.addWidget(menuItemLabel);
-		
-		tab.setParentTabContainer(this, menuItemLabel);
+		//Adds the given tab to the current tab container.
+		tab.setParentTabContainer(this);
 		tabs.addAtEnd(tab);
+		menu.addWidget(tab.getRefMenuItem());
 		
+		//Selects the one tab of the current tab container
+		//if the current tab container contains 1 tab.
 		if (getRefTabs().containsOne()) {
-			selectTab(tab.getHeader());
+			selectTab(tab);
 		}
 		
 		return this;
@@ -135,6 +152,8 @@ implements Clearable<TabContainer> {
 	 * 
 	 * @param tabs
 	 * @return the current {@link TabContainer}.
+	 * @throws NullArgumentException if the given tabs is null.
+	 * @throws NullArgumentException if one of the given tabs is null.
 	 */
 	public TabContainer addTab(TabContainerTab... tabs) {
 		return addTabs(new ReadContainer<TabContainerTab>(tabs));
@@ -142,30 +161,7 @@ implements Clearable<TabContainer> {
 	
 	//method
 	/**
-	 * Adds the given tabs to the current {@link TabContainer}.
-	 * 
-	 * @param tabs
-	 * @return the current {@link TabContainer}.
-	 * @throws NullArgumentException if the given tab container is null.
-	 */
-	public TabContainer addTabs(final Iterable<TabContainerTab> tabs) {
-		
-		//Checks if the given tabs is not null.
-		Validator
-		.suppose(tabs)
-		.thatIsNamed("tabs container")
-		.isNotNull();
-		
-		tabs.forEach(t -> addTab(t));
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * Removes all tabs of the current {@link TabContainer}.
-	 * 
-	 * @return the current {@link TabContainer}.
+	 * {@inheritDoc}
 	 */
 	public TabContainer clear() {
 		
@@ -176,16 +172,25 @@ implements Clearable<TabContainer> {
 	
 	//method
 	/**
-	 * @return true if the current {@link TabContainer} contains a selected widget.
+	 * @return true if the current {@link TabContainer}
+	 * contains a selected tab.
 	 */
-	public boolean containsSelectedWidget() {
-		return (containsAny() && getRefSelectedTab().containsAny());
+	public boolean containsSelectedTab() {
+		return getRefTabs().contains(t -> t.isSelected());
 	}
 	
-	//TODO: Add getActiveCursorIcon method to Widget.
 	//method
 	/**
-	 * @return the cursor icon of the current {@link TabContainer}.
+	 * @return true if the current {@link TabContainer}
+	 * contains a selected tab with a widget.
+	 */
+	public boolean containsSelectedTabWithWidget() {
+		return (containsSelectedTab() && getRefSelectedTab().containsAny());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
 	 */
 	public CursorIcon getActiveCursorIcon() {
 		
@@ -193,7 +198,7 @@ implements Clearable<TabContainer> {
 		final var menuItemUnderCursor =
 		menu.getRefWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
 		
-		//Handles the case that there is a menu item under the cursor.
+		//Handles the case that there exists a menu item under the cursor.
 		if (menuItemUnderCursor != null) {
 			return menuItemUnderCursor.getCursorIcon();
 		}
@@ -205,7 +210,7 @@ implements Clearable<TabContainer> {
 		
 	//method
 	/**
-	 * @return the attributes of the current {@link TabContainer}.
+	 * {@inheritDoc}
 	 */
 	public List<StandardSpecification> getAttributes() {
 		
@@ -223,44 +228,76 @@ implements Clearable<TabContainer> {
 	//method
 	/**
 	 * @return the selected tab of the current {@link TabContainer}.
-	 * @throws EmptyArgumentException if the current {@link TabContainer} contains no tab.
+	 * @throws UnexistingAttributeException
+	 * if the current {@link TabContainer} contains no selected tab.
 	 */
 	public TabContainerTab getRefSelectedTab() {
-		
-		supposeIsNotEmpty();
-		
 		return getRefTabs().getRefFirst(t -> t.isSelected());
 	}
 	
 	//method
+	/**
+	 * @return the selected widget of the current {@link TabContainer}.
+	 * @throws UnexistingAttributeException if the current {@link TabContainer}
+	 * contains no selected widget.
+	 */
 	public Widget<?, ?> getRefSelectedWidget() {
 		return getRefSelectedTab().getRefWidget();
 	}
 	
 	//method
+	/**
+	 * @param header
+	 * @return the tab with the given header from the current {@link TabContainer}.
+	 * @throws UnexistingAttributeException if the current {@link TabContainer}
+	 * contains no tab with the given header.
+	 */
+	public TabContainerTab getRefTabByHeader(final String header) {
+		return getRefTabs().getRefFirst(t -> t.hasHeader(header));
+	}
+	
+	//method
+	/**
+	 * @return the tabs of the current {@link TabContainer}.
+	 */
+	public ReadContainer<TabContainerTab> getRefTabs() {
+		return new ReadContainer<TabContainerTab>(tabs);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	public boolean isEmpty() {
 		return getRefTabs().isEmpty();
 	}
 	
 	//method
 	/**
-	 * Lets the current {@link TabContainer} note a left mouse button press.
+	 * {@inheritDoc}
 	 */
 	public void noteLeftMouseButtonPress() {
 		
 		//Calls method of the base class.
 		super.noteLeftMouseButtonPress();
 		
-		final var selectedMenuItem = (Label)menu.getRefWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
+		//Extracts the menu item under the cursor if there exists one.
+		final var menuItemUnderCursor =
+		menu.getRefWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
 		
-		if (selectedMenuItem != null) {
-			selectTab(selectedMenuItem.getText());
+		//Handles the case that there exists a menu item under the cursor.
+		if (menuItemUnderCursor != null) {
+			selectTab(
+				getRefTabs().getRefFirst(
+					t -> t.getRefMenuItem() == menuItemUnderCursor
+				)
+			);
 		}
 	}
 	
 	//method
 	/**
-	 * Lets the current {@link TabContainer} note a mouse move.
+	 * {@inheritDoc}
 	 */
 	public void noteMouseMove() {
 		
@@ -281,27 +318,47 @@ implements Clearable<TabContainer> {
 	 */
 	public TabContainer selectTab(final String header) {
 		
-		if (getRefTabs().contains(t -> t.isSelected())) {
-			getRefSelectedTab().unselect();
-		}
-		
-		getRefTabs().getRefFirst(t -> t.hasHeader(header)).select();
+		selectTab(getRefTabByHeader(header));
 		
 		return this;
 	}
 	
 	//method
 	/**
-	 * Sets the cursor position of the parent of the current {@link TabContainer}.
+	 * Lets the current {@link TabContainer} select the given tab.
 	 * 
-	 * @param parentCursorXPosition
-	 * @param parentCursorYPosition
+	 * @param tab
+	 * @return the {@link TabContainer}.
+	 */
+	public TabContainer selectTab(final TabContainerTab tab) {
+		
+		//Handles the case that the given tab is not already selected.
+		if (!tab.isSelected()) {
+			
+			//Handles the case that the current tab container contains a selected tab.
+			if (containsSelectedTab()) {
+				getRefSelectedTab().unselect();
+			}			
+			
+			//Selects the given tab.
+			tab.select();
+		}
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
 	 */
 	public void setCursorPositionOnContentArea(
-		int parentCursorXPosition,
-		int parentCursorYPosition
+		final int cursorXPositionOnContent,
+		final int cursorYPositionOnContent
 	) {
-		menu.setCursorPositionOnContentArea(parentCursorXPosition, parentCursorYPosition);
+		menu.setCursorPositionOnContentArea(
+			cursorXPositionOnContent,
+			cursorYPositionOnContent
+		);
 	}
 	
 	//method
@@ -329,7 +386,7 @@ implements Clearable<TabContainer> {
 	
 	//method
 	/**
-	 * @return a new widget look for the current {@link TabContainer}.
+	 * {@inheritDoc}
 	 */
 	protected TabContainerLook createWidgetLook() {
 		return new TabContainerLook();
@@ -341,17 +398,20 @@ implements Clearable<TabContainer> {
 	 */
 	protected void fillUpWidgets(final List<Widget<?, ?>> list) {
 				
-		//Iterates the tabs of the current tab container.
-		for (final var t: getRefTabs()) {
-			if (t.containsAny()) {
-				list.addAtEnd(t.getRefWidget());
+		//For a better performance, this implementation does not use all comfortable methods.
+			//Iterates the tabs of the current tab container.
+			for (final var t: tabs) {
+				
+				//Handles the case that the current tab contains a widget.
+				if (t.containsAny()) {
+					list.addAtEnd(t.getRefWidget());
+				}
 			}
-		}
 	}
 	
 	//method
 	/**
-	 * @return the current height of the content of the current {@link TabContainer}
+	 * {@inheritDoc}
 	 */
 	protected final int getContentAreaHeight() {
 		
@@ -359,6 +419,7 @@ implements Clearable<TabContainer> {
 		
 		height += getRefCurrentLook().getRecursiveOrDefaultMenuMargin();
 		
+		//Handles the case that the current tab container contains tabs.
 		if (containsAny()) {
 			height += getRefTabs().getMaxInt(t -> t.getHeight());
 		}
@@ -368,135 +429,118 @@ implements Clearable<TabContainer> {
 
 	//method
 	/**
-	 * @return the current width of the content of the current {@link TabContainer}
+	 * {@inheritDoc}
 	 */
 	protected final int getContentAreaWidth() {
 		
-		if (containsAny()) {
-			return Calculator.getMax(
+		//Handles the case that the current tab container contains no tabs.
+		if (isEmpty()) {
+			return menu.getWidth();
+		}
+		
+		//Handles the case that the current tab container contains tabs.
+		else {
+			return
+			Calculator.getMax(
 				menu.getWidth(),
 				getRefTabs().getMaxInt(t -> t.getWidth())
 			);
 		}
-		
-		return menu.getWidth();
 	}
 	
+	//method
 	/**
-	 * Paints the current {@link TabContainer} using the given rectangle structure and given painter.
-	 * 
-	 * @param rectangleStructure
-	 * @param painter
+	 * {@inheritDoc}
 	 */
 	protected void paintContentArea(
 		final TabContainerLook tabContainerLook,
 		final IPainter painter
 	) {
+		
 		menu.setElementMargin(tabContainerLook.getRecursiveOrDefaultMenuItemMargin());
 		
 		final var baseMenuItemLook = tabContainerLook.getRefRecursiveOrDefaultBaseMenuItemLook();
 		final var hoverMenuItemLook = tabContainerLook.getRefRecursiveOrDefaultHoverMenuItemLook();
 		final var selectedMenuItemLook = tabContainerLook.getRefRecursiveOrDefaultSelectionMenuItemLook();
 		
-		for (final Widget<?, ?> w : menu.getRefWidgets()) {
+		for (final var t : getRefTabs()) {
 			
-			final var label = (Label)w;
+			final var label = t.getRefMenuItem();
+			label.setText(t.getHeader());
 			
-			//TODO: Make min width of widget state-dependent.
-			if (baseMenuItemLook.hasRecursiveMinWidth()) {
-				label.setMinWidth(baseMenuItemLook.getRecursiveOrDefaultMinWidth());
+			//TODO: Make min width of Widget state-dependent.
+			if (baseMenuItemLook.hasMinWidth()) {
+				label.setMinWidth(baseMenuItemLook.getOwnOrDefaultMinWidth());
 			}
 
 			label
 			.getRefBaseLook()
 			.reset()
-			.setPaddings(baseMenuItemLook.getRecursiveOrDefaultPadding())
-			.setTextSize(baseMenuItemLook.getRecursiveOrDefaultTextSize())
-			.setTextColor(baseMenuItemLook.getRecursiveOrDefaultTextColor());
+			.setPaddings(baseMenuItemLook.getOwnOrDefaultPadding())
+			.setTextSize(baseMenuItemLook.getOwnOrDefaultTextSize())
+			.setTextColor(baseMenuItemLook.getOwnOrDefaultTextColor());
 			
-			if (baseMenuItemLook.hasRecursiveBackgroundColor()) {
+			if (baseMenuItemLook.hasBackgroundColor()) {
 				label
 				.getRefBaseLook()
-				.setBackgroundColor(baseMenuItemLook.getRecursiveOrDefaultBackgroundColor());
+				.setBackgroundColor(baseMenuItemLook.getOwnOrDefaultBackgroundColor());
 			}
 			
 			label
 			.getRefHoverLook()
 			.reset()
-			.setPaddings(hoverMenuItemLook.getRecursiveOrDefaultPadding())
-			.setTextSize(hoverMenuItemLook.getRecursiveOrDefaultTextSize())
-			.setTextColor(hoverMenuItemLook.getRecursiveOrDefaultTextColor());
+			.setPaddings(hoverMenuItemLook.getOwnOrDefaultPadding())
+			.setTextSize(hoverMenuItemLook.getOwnOrDefaultTextSize())
+			.setTextColor(hoverMenuItemLook.getOwnOrDefaultTextColor());
 			
-			if (hoverMenuItemLook.hasRecursiveBackgroundColor()) {
+			if (hoverMenuItemLook.hasBackgroundColor()) {
 				label
 				.getRefHoverLook()
-				.setBackgroundColor(hoverMenuItemLook.getRecursiveOrDefaultBackgroundColor());
+				.setBackgroundColor(hoverMenuItemLook.getOwnOrDefaultBackgroundColor());
 			}
 			
 			label
 			.getRefFocusLook()
 			.reset()
-			.setPaddings(selectedMenuItemLook.getRecursiveOrDefaultPadding())
-			.setTextSize(selectedMenuItemLook.getRecursiveOrDefaultTextSize())
-			.setTextColor(selectedMenuItemLook.getRecursiveOrDefaultTextColor());
+			.setPaddings(selectedMenuItemLook.getOwnOrDefaultPadding())
+			.setTextSize(selectedMenuItemLook.getOwnOrDefaultTextSize())
+			.setTextColor(selectedMenuItemLook.getOwnOrDefaultTextColor());
 			
-			if (selectedMenuItemLook.hasRecursiveBackgroundColor()) {
+			if (selectedMenuItemLook.hasBackgroundColor()) {
 				label
 				.getRefFocusLook()
-				.setBackgroundColor(selectedMenuItemLook.getRecursiveOrDefaultBackgroundColor());
+				.setBackgroundColor(selectedMenuItemLook.getOwnOrDefaultBackgroundColor());
 			}
 		}
 		
 		menu.paintUsingPositionOnParent(painter);
 		
-		if (containsSelectedWidget()) {
+		if (containsSelectedTabWithWidget()) {
 			getRefSelectedWidget().paintUsingPositionOnParent(painter);
 		}
 	}
 	
 	//method
 	/**
-	 * Sets the relative position of the current {@link TabContainer}.
-	 * 
-	 * @param relativeXPosition
-	 * @param relativeYPosition
+	 * {@inheritDoc}}
 	 */
 	protected void setPositionOnParent(
-		final int relaitveXPosition,
-		final int relativeYPosition
+		final int xPositionOnParent,
+		final int yPositionOnParent
 	) {
 		
 		//Calls method of the base class.
-		super.setPositionOnParent(relaitveXPosition, relativeYPosition);
+		super.setPositionOnParent(xPositionOnParent, yPositionOnParent);
 		
 		menu.setPositionOnParent(0, 0);
 		
-		if (containsSelectedWidget()) {
+		//Handles the case that the current tab container contains a selected widget.
+		if (containsSelectedTabWithWidget()) {
 			getRefSelectedWidget().setPositionOnParent(
 				0,				
 				menu.getHeight()
 				+ getRefCurrentLook().getRecursiveOrDefaultMenuMargin()
 			);
-		}
-	}
-	
-	//method
-	/**
-	 * @return the tabs of the current {@link TabContainer}.
-	 */
-	private ReadContainer<TabContainerTab> getRefTabs() {
-		return new ReadContainer<TabContainerTab>(tabs);
-	}
-	
-	//method
-	/**
-	 * @throws EmptyStateException if the current {@link TabContainer} contains no tab.
-	 */
-	private void supposeIsNotEmpty() {
-		
-		//Checks if the current tab container is not empty.
-		if (isEmpty()) {
-			throw new EmptyStateException(this);
 		}
 	}
 }

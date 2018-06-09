@@ -22,6 +22,7 @@ extends Entity<SelectionMenuItemLook> {
 	//default values
 	public static final int DEFAULT_MIN_WIDTH = ValueCatalogue.MEDIUM_WIDGET_WIDTH;
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.LIGHT_GREY;
+	public static final int DEFAULT_PADDING = 0;
 	public static final int DEFAULT_TEXT_SIZE = ValueCatalogue.MEDIUM_TEXT_SIZE;
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 	
@@ -44,13 +45,14 @@ extends Entity<SelectionMenuItemLook> {
 	private Color backgroundColor;
 	private NonNegativeInteger padding;
 	private NonNegativeInteger textSize;
-	private Color textColor = new Color();
+	private Color textColor;
 	
 	//method
 	public void addOrChangeAttribute(final Specification attribute) {
 		switch (attribute.getHeader()) {
 			case MIN_WIDTH_HEADER:
 				setMinWidth(attribute.getOneAttributeAsInt());
+				break;
 			case PascalCaseNameCatalogue.PADDING:
 				setPadding(attribute.getOneAttributeAsInt());
 				break;
@@ -70,38 +72,45 @@ extends Entity<SelectionMenuItemLook> {
 	}
 	
 	//method
-	/**
-	 * @return the attributes of this tab container menu item structure
-	 */
 	public List<StandardSpecification> getAttributes() {
 		
 		final var attributes = new List<StandardSpecification>();
 		
 		if (hasMinWidth()) {
-			attributes.addAtEnd(minWidth.getSpecificationAs(MIN_WIDTH_HEADER));
+			attributes.addAtEnd(
+				minWidth.getSpecificationAs(MIN_WIDTH_HEADER)
+			);
 		}
 		
 		if (hasBackgroundColor()) {
-			attributes.addAtEnd(backgroundColor.getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
+			attributes.addAtEnd(
+				backgroundColor.getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR)
+			);
 		}
 		
 		if (hasPadding()) {
-			attributes.addAtEnd(padding.getSpecificationAs(PascalCaseNameCatalogue.PADDING));
+			attributes.addAtEnd(
+				padding.getSpecificationAs(PascalCaseNameCatalogue.PADDING)
+			);
 		}
 		
 		if (hasTextSize()) {
-			attributes.addAtEnd(textSize.getSpecificationAs(PascalCaseNameCatalogue.TEXT_SIZE));
+			attributes.addAtEnd(
+				textSize.getSpecificationAs(PascalCaseNameCatalogue.TEXT_SIZE)
+			);
 		}
 		
 		if (hasTextColor()) {
-			attributes.addAtEnd(textColor.getSpecificationAs(PascalCaseNameCatalogue.TEXT_COLOR));
+			attributes.addAtEnd(
+				textColor.getSpecificationAs(PascalCaseNameCatalogue.TEXT_COLOR)
+			);
 		}
 		
 		return attributes;
 	}
 	
 	//method
-	public Color getRecursiveOrDefaultBackgroundColor() {
+	public Color getOwnOrDefaultBackgroundColor() {
 		
 		if (hasBackgroundColor()) {
 			return backgroundColor;
@@ -111,7 +120,7 @@ extends Entity<SelectionMenuItemLook> {
 	}
 	
 	//method
-	public int getRecursiveOrDefaultMinWidth() {
+	public int getOwnOrDefaultMinWidth() {
 		
 		if (hasMinWidth()) {
 			return minWidth.getValue();
@@ -121,17 +130,17 @@ extends Entity<SelectionMenuItemLook> {
 	}
 	
 	//method
-	public int getRecursiveOrDefaultPadding() {
+	public int getOwnOrDefaultPadding() {
 		
 		if (hasPadding()) {
 			return padding.getValue();
 		}
 		
-		return 0;
+		return DEFAULT_PADDING;
 	}
 	
 	//method
-	public Color getRecursiveOrDefaultTextColor() {
+	public Color getOwnOrDefaultTextColor() {
 		
 		if (hasTextColor()) {
 			return textColor;
@@ -141,7 +150,7 @@ extends Entity<SelectionMenuItemLook> {
 	}
 	
 	//method
-	public int getRecursiveOrDefaultTextSize() {
+	public int getOwnOrDefaultTextSize() {
 		
 		if (hasTextSize()) {
 			return textSize.getValue();
@@ -156,13 +165,28 @@ extends Entity<SelectionMenuItemLook> {
 	}
 	
 	//method
-	public boolean hasRecursiveBackgroundColor() {
-		return hasBackgroundColor();
+	public boolean hasBackgroundColor() {
+		return (backgroundColor != null);
 	}
 	
 	//method
-	public boolean hasRecursiveMinWidth() {
-		return hasMinWidth();
+	public boolean hasMinWidth() {
+		return (minWidth != null);
+	}
+	
+	//method
+	public boolean hasPadding() {
+		return (padding != null);
+	}
+	
+	//method
+	private boolean hasTextColor() {
+		return (textColor != null);
+	}
+	
+	//method
+	public boolean hasTextSize() {
+		return (textSize != null);
 	}
 	
 	//method
@@ -253,30 +277,5 @@ extends Entity<SelectionMenuItemLook> {
 		this.textSize = new NonNegativeInteger(textSize);
 		
 		return this;
-	}
-	
-	//method
-	private boolean hasBackgroundColor() {
-		return (backgroundColor != null);
-	}
-	
-	//method
-	private boolean hasMinWidth() {
-		return (minWidth != null);
-	}
-	
-	//method
-	private boolean hasPadding() {
-		return (padding != null);
-	}
-	
-	//method
-	private boolean hasTextColor() {
-		return (textColor != null);
-	}
-	
-	//method
-	private boolean hasTextSize() {
-		return (textSize != null);
 	}
 }

@@ -8,15 +8,15 @@ import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.bases.HeaderableElement;
+import ch.nolix.primitive.invalidStateException.EmptyStateException;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
-import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2016-04
- * @lines 100
+ * @lines 350
  */
 public class TabContainerTab
 extends HeaderableElement<TabContainerTab>
@@ -38,10 +38,17 @@ implements Clearable<TabContainerTab> {
 		return tab;
 	}
 	
+	//attribute
+	private boolean selected = false;
+	
+	//attribute
+	private final Label menuItem =
+	new Label()
+	.setContentPosition(ContentPosition.Center)
+	.setCursorIcon(CursorIcon.Hand);
+	
 	//optional attributes
 	private TabContainer parentTabContainer;
-	private Label menuItem;
-	private boolean selected = false;
 	private Widget<?, ?> widget;
 	
 	//constructor
@@ -58,7 +65,6 @@ implements Clearable<TabContainerTab> {
 	 * Creates a new {@link TabContainerTab} with the given header.
 	 * 
 	 * @param header
-	 * @param widget
 	 * @throws NullArgumentException if the given header is null.
 	 * @throws EmptyArgumentException if the given header is empty.
 	 */
@@ -67,6 +73,7 @@ implements Clearable<TabContainerTab> {
 		//Calls other constructor.
 		this();
 		
+		//Sets the header of the current tab container tab.
 		setHeader(header);
 	}
 	
@@ -79,24 +86,19 @@ implements Clearable<TabContainerTab> {
 	 * @throws NullArgumentException if the given header is null.
 	 * @throws EmptyArgumentException if the given header is empty.
 	 * @throws NullArgumentException if the given widget is null.
-	 * @throws InvalidArgumentException
-	 * if the given widget belongs to another {@link GUI}
-	 * than the current {@link TabContainerTab}.
 	 */
 	public TabContainerTab(final String header, final Widget<?,? > widget) {
 		
 		//Calls other constructor.
 		this(header);
 		
+		//Sets the widget of the current tab container tab.
 		setWidget(widget);
 	}
 	
 	//method
 	/**
-	 * Sets the given attribute to the current {@link TabContainerTab}.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 * {@inheritDoc}
 	 */
 	public void addOrChangeAttribute(final Specification attribute) {
 		
@@ -106,8 +108,11 @@ implements Clearable<TabContainerTab> {
 		}
 		
 		//Handles the case that the given attribute specifies no widget.
-			//Calls the method of the base class.
+		else {
+			
+			//Calls method of the base class.
 			super.addOrChangeAttribute(attribute);
+		}
 	}
 	
 	//method
@@ -133,7 +138,7 @@ implements Clearable<TabContainerTab> {
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link TabContainerTab}.
+	 * {@inheritDoc}
 	 */
 	public List<StandardSpecification> getAttributes() {
 		
@@ -148,39 +153,53 @@ implements Clearable<TabContainerTab> {
 		return attributes;
 	}
 	
+	//method
+	/**
+	 * @return the height of the current {@link TabContainerTab}.
+	 */
 	public int getHeight() {
 		
+		//Handles the case that the current tab container tab contains no widget.
 		if (isEmpty()) {
 			return 0;
 		}
 		
+		//Handles the case that the current tab container tab contains a widget.
 		return getRefWidget().getHeight();
 	}
 	
 	//method
 	/**
 	 * @return the widget of the current {@link TabContainerTab}
-	 * @throws UnexistingAttributeException if the current {@link TabContainerTab} contains no widget.
+	 * @throws InvalidStateException
+	 * if the current {@link TabContainerTab} is empty.
 	 */
 	public Widget<?, ?> getRefWidget() {
 		
-		supposeContainsWidget();
+		//Checks if the current tab container tab contains a widget.
+		supposeIsNotEmpty();
 		
 		return widget;
 	}
 	
+	//method
+	/**
+	 * @return the width of the current tab container tab.
+	 */
 	public int getWidth() {
 		
+		//Handles the case that the current tab container tab contains no widget.
 		if (isEmpty()) {
 			return 0;
 		}
 		
+		//Handles the case that the current tab container tab contains a widget.
 		return getRefWidget().getWidth();
 	}
 	
 	//method
 	/**
-	 * @return true if the current {@link TabContainerTab} contains no widget.
+	 * {@inheritDoc}
 	 */
 	public boolean isEmpty() {
 		return (widget == null);
@@ -196,9 +215,7 @@ implements Clearable<TabContainerTab> {
 	
 	//method
 	/**
-	 * Resets the current {@link TabContainerTab}.
-	 * 
-	 * @return the current {@link TabContainerTab}.
+	 * {@inheritDoc}
 	 */
 	public TabContainerTab reset() {
 		
@@ -209,17 +226,16 @@ implements Clearable<TabContainerTab> {
 	}
 	
 	//method
+	/**
+	 * Selects the current {@link TabContainerTab}.
+	 * 
+	 * @return the current {@link TabContainerTab}.
+	 */
 	public TabContainerTab select() {
 		
 		selected = true;
 		
-		if (belongsToTabContainer()) {
-			getRefMenuItem().setFocused();
-		}
-		
-		if (containsAny()) {
-			getRefWidget().setNormal();
-		}
+		getRefMenuItem().setFocused();
 		
 		return this;
 	}
@@ -235,8 +251,9 @@ implements Clearable<TabContainerTab> {
 	 * if the given widget belongs to another {@link GUI}
 	 * than the current {@link TabContainerTab}.
 	 */
-	public TabContainerTab setWidget(Widget<?, ?> widget) {
+	public TabContainerTab setWidget(final Widget<?, ?> widget) {
 		
+		//Checks if the given widget is not null.
 		Validator
 		.suppose(widget)
 		.thatIsOfType(Widget.class)
@@ -246,82 +263,72 @@ implements Clearable<TabContainerTab> {
 			widget.setGUI(getParentTabContainer().getParentGUI());
 		}
 		
+		//Sets the widget of the current tab container tab.
 		this.widget = widget;
-		
-		if (!isSelected()) {
-			widget.setDisabled();
-		}
 		
 		return this;
 	}
 	
+	//method
+	/**
+	 * Unselects the current {@link TabContainerTab}.
+	 * 
+	 * @return the current {@link TabContainerTab}.
+	 */
 	public TabContainerTab unselect() {
 		
-		selected = false;
-		
-		if (belongsToTabContainer()) {
-			getRefMenuItem().setNormal();
-		}
-		
-		if (containsAny()) {
-			getRefWidget().setDisabled();
-		}
+		selected = false;		
+		getRefMenuItem().setNormal();
 		
 		return this;
 	}
 	
 	//package-visible method
 	/**
-	 * Sets the tab container the current {@link TabContainerTab} belongs to.
-	 * 
-	 * @param tabContainer
-	 * @throws Exception if:
-	 * -the given tab container is null
-	 * -the current {@link TabContainerTab} already belongs to an other tab container tab than the given tab container
+	 * @return the menu item of the current {@link TabContainerTab}.
 	 */
-	void setParentTabContainer(final TabContainer parentTabContainer, final Label menuItem) {
+	Label getRefMenuItem() {
+		return menuItem;
+	}
+	
+	//package-visible method
+	/**
+	 * Sets the tab container the current {@link TabContainerTab} will belong to.
+	 * 
+	 * @param parentTabContainer
+	 * @throws NullArgumentException if the given parent tab container is null.
+	 */
+	void setParentTabContainer(final TabContainer parentTabContainer) {
 		
+		//Checks if the given parent tab container is not null.
 		Validator
 		.suppose(parentTabContainer)
 		.thatIsNamed("parent tab container")
 		.isNotNull();
 		
-		Validator
-		.suppose(menuItem)
-		.thatIsNamed("menu item")
-		.isNotNull();
-		
-		if (
-			belongsToTabContainer()
-			&& getParentTabContainer() != parentTabContainer
-		) {
-			throw new InvalidStateException(
-				this,
-				"belongs already to an other tab container"
-			);
-		}
-		
+		//Sets the parent tab container of this tab container tab.
 		this.parentTabContainer = parentTabContainer;
-		this.menuItem = menuItem;
 	}
 	
 	//method
+	/**
+	 * @return the {@link TabContainer} the current {@link TabContainerTab} belongs.
+	 * @throws InvalidStateException if the current {@link TabContainerTab}
+	 * does not belong to a {@link TabContainer}.
+	 */
 	private TabContainer getParentTabContainer() {
 		
+		//Checks if the current tab container tab belongs to a tab container.
 		supposeBelongsToTabContainer();
 		
 		return parentTabContainer;
 	}
 	
 	//method
-	private Label getRefMenuItem() {
-		
-		supposeBelongsToTabContainer();
-		
-		return menuItem;
-	}
-	
-	//method
+	/**
+	 * @throws InvalidStateException if the current {@link TabContainerTab}
+	 * does not belong to a {@link TabContainer}.
+	 */
 	private void supposeBelongsToTabContainer() {
 		
 		//Checks if the current tab container tab belongs to a tab container.
@@ -334,14 +341,15 @@ implements Clearable<TabContainerTab> {
 	}
 	
 	//method
-	private void supposeContainsWidget() {
+	/**
+	 * @throws InvalidStateExpceiton
+	 * if the current {@link TabContainerTab} is empty.
+	 */
+	private void supposeIsNotEmpty() {
 		
-		//Checks if the current tab container tab contains a widget.
+		//Checks if the current tab container tab is not empty.
 		if (isEmpty()) {
-			throw new InvalidStateException(
-				this,
-				"contains no widget"
-			);
+			throw new EmptyStateException(this);
 		}
 	}
 }
