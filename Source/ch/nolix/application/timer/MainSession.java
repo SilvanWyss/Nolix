@@ -46,13 +46,13 @@ final class MainSession extends Session<BackGUIClient> {
 				.addWidget(
 					new Button()
 					.setText("Start")
-					.setLeftMouseButtonPressCommand("StartTimer"),
+					.setLeftMouseButtonPressCommand(() -> StartTimer()),
 					new Button()
 					.setText("Stop")
-					.setLeftMouseButtonPressCommand("StopTimer"),
+					.setLeftMouseButtonPressCommand(() -> StopTimer()),
 					new Button()
 					.setText("Reset")
-					.setLeftMouseButtonPressCommand("ResetTimer")
+					.setLeftMouseButtonPressCommand(() -> ResetTimer())
 				)
 			)
 		)
