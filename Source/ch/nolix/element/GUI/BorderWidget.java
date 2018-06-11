@@ -36,7 +36,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1620
+ * @lines 1730
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -203,6 +203,54 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
+	 * @return color of the horizontal scrollbar of this border widget.
+	 */
+	public final Color getHorizontalScrollbarColor() {
+		
+		final var currentLook = getRefCurrentLook();
+		
+		if (!isMovingHorizontalScrollbarCursor()) {
+			if (!horizontalScrollbarCursorIsUnderCursor()) {
+				return
+				currentLook.getRecursiveOrDefaultBaseScrollbarLook().getScrollbarColor();
+			}
+			else {
+				return
+				currentLook.getRecursiveOrDefaultHoverScrollbarLook().getScrollbarColor();
+			}
+		}
+		else {
+			return
+			currentLook.getRecursiveOrDefaultSelectionScrollbarLook().getScrollbarColor();
+		}
+	}
+	
+	//method
+	/**
+	 * @return color of the horizontal scrollbar cursor of this border widget.
+	 */
+	public final Color getHorizontalScrollbarCursorColor() {
+		
+		final var currentLook = getRefCurrentLook();
+		
+		if (!isMovingHorizontalScrollbarCursor()) {
+			if (!horizontalScrollbarCursorIsUnderCursor()) {
+				return
+				currentLook.getRecursiveOrDefaultBaseScrollbarLook().getScrollbarCursorColor();
+			}
+			else {
+				return
+				currentLook.getRecursiveOrDefaultHoverScrollbarLook().getScrollbarCursorColor();
+			}
+		}
+		else {
+			return
+			currentLook.getRecursiveOrDefaultSelectionScrollbarLook().getScrollbarCursorColor();
+		}
+	}
+	
+	//method
+	/**
 	 * @return the thickness of the horizontal scrollbar of this border widget.
 	 */
 	public final int getHorizontalScrollbarThickness() {
@@ -309,6 +357,54 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final int getProposalWidth() {
 		return proposalWidthProperty.getValue().getValue();
+	}
+	
+	//method
+	/**
+	 * @return color of the vertical scrollbar of this border widget.
+	 */
+	public final Color getVerticalScrollbarColor() {
+		
+		final var currentLook = getRefCurrentLook();
+		
+		if (!isMovingVerticalScrollbarCursor()) {
+			if (!verticalScrollbarCursorIsUnderCursor()) {
+				return
+				currentLook.getRecursiveOrDefaultBaseScrollbarLook().getScrollbarColor();
+			}
+			else {
+				return
+				currentLook.getRecursiveOrDefaultHoverScrollbarLook().getScrollbarColor();
+			}
+		}
+		else {
+			return
+			currentLook.getRecursiveOrDefaultSelectionScrollbarLook().getScrollbarColor();
+		}
+	}
+	
+	//method
+	/**
+	 * @return color of the vertical scrollbar cursor of this border widget.
+	 */
+	public final Color getVerticalScrollbarCursorColor() {
+		
+		final var currentLook = getRefCurrentLook();
+		
+		if (!isMovingVerticalScrollbarCursor()) {
+			if (!verticalScrollbarCursorIsUnderCursor()) {
+				return
+				currentLook.getRecursiveOrDefaultBaseScrollbarLook().getScrollbarCursorColor();
+			}
+			else {
+				return
+				currentLook.getRecursiveOrDefaultHoverScrollbarLook().getScrollbarCursorColor();
+			}
+		}
+		else {
+			return
+			currentLook.getRecursiveOrDefaultSelectionScrollbarLook().getScrollbarCursorColor();
+		}
 	}
 	
 	//method
@@ -423,6 +519,22 @@ extends BackgroundWidget<BW, BWS> {
 		return
 		(hasMaxHeight() && getMaxHeight() < naturalScrollAreaHeight)
 		|| (hasProposalHeight() && getProposalHeight() < naturalScrollAreaHeight);
+	}
+	
+	//method
+	/**
+	 * @return true if the user is moving the horizontal scrollbar cursor of this border widget.
+	 */
+	public final boolean isMovingHorizontalScrollbarCursor() {
+		return isMovingHorizontalScrollbarCursor;
+	}
+	
+	//method
+	/**
+	 * @return true if the user is moving the vertical scrollbar cursor of this border widget.
+	 */
+	public final boolean isMovingVerticalScrollbarCursor() {
+		return isMovingVerticalScrollbarCursor;
 	}
 	
 	//method
@@ -1483,13 +1595,13 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	/**
 	 * Paints the bordered area of this border widget
-	 * using the given widget structure and painter.
+	 * using the given border widget structure and painter.
 	 * 
-	 * @param widgetStructure
+	 * @param borderWidgetStructure
 	 * @param painter
 	 */
 	private void paintBorderedArea(
-		final BWS widgetStructure,
+		final BWS borderWidgetStructure,
 		final IPainter painter
 	) {
 		
@@ -1497,8 +1609,7 @@ extends BackgroundWidget<BW, BWS> {
 		if (hasVerticalScrollbar()) {
 			
 			//Paints the vertical scrollbar.				
-				//TODO: Add scrollbar color to border widget structure.
-				painter.setColor(Color.LIGHT_GREY);
+				painter.setColor(getVerticalScrollbarColor());
 				
 				painter.paintFilledRectangle(
 					getVerticalScrollbarXPositionOnBorderedArea(),
@@ -1508,8 +1619,7 @@ extends BackgroundWidget<BW, BWS> {
 				);
 			
 			//Paints the vertical scrollbar cursor.				
-				//TODO: Add scrollbar cursor color to border widget structure.
-				painter.setColor(Color.DARK_GREY);
+				painter.setColor(getVerticalScrollbarCursorColor());
 				
 				painter.paintFilledRectangle(
 					getVerticalScrollbarXPositionOnBorderedArea(),
@@ -1523,8 +1633,7 @@ extends BackgroundWidget<BW, BWS> {
 		if (hasHorizontalScrollbar()) {
 			
 			//Paints the horizontal scrollbar.	
-				//TODO: Add scrollbar color to border widget structure.
-				painter.setColor(Color.LIGHT_GREY);
+				painter.setColor(getHorizontalScrollbarColor());
 				
 				painter.paintFilledRectangle(
 					0,
@@ -1534,8 +1643,7 @@ extends BackgroundWidget<BW, BWS> {
 				);
 			
 			//Paints the horizontal scrollbar cursor.			
-				//TODO: Add scrollbar cursor color to border widget structure.
-				painter.setColor(Color.DARK_GREY);
+				painter.setColor(getHorizontalScrollbarCursorColor());
 				
 				painter.paintFilledRectangle(
 					getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar(),
@@ -1547,7 +1655,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		//Paints the view area of this border widget.
 		paintViewArea(
-			widgetStructure,
+			borderWidgetStructure,
 			painter.createTranslatedPainter(
 				0,
 				0,
