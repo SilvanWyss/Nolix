@@ -18,6 +18,7 @@ import ch.nolix.primitive.invalidArgumentException.ArgumentName;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.primitive.invalidStateException.ClosedStateException;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
+import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
@@ -26,7 +27,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 650
+ * @lines 660
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -67,6 +68,18 @@ implements Closable {
 		return sessions.containsAny();
 	}
 
+	//method
+	/**
+	 * @return the context of the {@link Application} the {@link Client} belongs to.
+	 * @throws InvalidStateException if the current {@link Client}
+	 * does not reference the {@link Application} it belongs to.
+	 * @throws UnexistingAttributeException if the {@link Application},
+	 * the current {@link Client} belongs to, has no context.
+	 */
+	public final Object getRefApplicationContext() {
+		return internal_getParentApplication().getRefContext();
+	}
+	
 	//method
 	/**
 	 * @return the number of sessions on the session stack of the current {@link Client}.
