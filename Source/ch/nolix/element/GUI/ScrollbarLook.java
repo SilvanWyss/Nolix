@@ -2,12 +2,13 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.core.entity.Entity;
 import ch.nolix.core.entity.MutableProperty;
+import ch.nolix.core.specification.Specification;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.core.MutableElement;
 
 //class
-public final class ScrollbarLook extends Entity {
+public final class ScrollbarLook extends MutableElement<ScrollbarLook> {
 	
 	//default values
 	public static final Color DEFAULT_SCROLLBAR_COLOR = Color.LIGHT_GREY;
@@ -19,6 +20,17 @@ public final class ScrollbarLook extends Entity {
 	//constants
 	private static final String SCROLLBAR_COLOR_HEADER = "ScrollbarColor";
 	private static final String SCROLLBAR_CURSOR_COLOR_HEADER = "ScrollbarCursorColor";
+	
+	//static method
+	public static ScrollbarLook createFromSpecification(
+		final Specification specification
+	) {
+		
+		final var scrollbarLook = new ScrollbarLook();
+		scrollbarLook.reset(specification);
+		
+		return scrollbarLook;
+	}
 	
 	//attribute
 	private final MutableProperty<Color> scrollbarColor =
@@ -50,11 +62,6 @@ public final class ScrollbarLook extends Entity {
 	//method
 	public Color getScrollbarCursorColor() {
 		return scrollbarCursorColor.getValue();
-	}
-	
-	//method
-	public String getType() {
-		return TYPE_NAME;
 	}
 	
 	//method
