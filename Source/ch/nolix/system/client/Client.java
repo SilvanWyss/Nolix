@@ -26,7 +26,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 580
+ * @lines 650
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -39,6 +39,14 @@ implements Closable {
 	
 	//attribute
 	private DuplexController duplexController;
+	
+	//optional attribute
+	/**
+	 * The {@link Application} the current {@link Client} belongs to
+	 * if the current {@link Client} is on the same machine
+	 * as the {@link Application} it belongs to.
+	 */
+	private Application<C> parentApplication;
 	
 	//multi-attribute
 	private final Stack<Session<C>> sessions = new Stack<Session<C>>();
@@ -59,6 +67,20 @@ implements Closable {
 		return sessions.containsAny();
 	}
 	
+	//method
+	/**
+	 * @return the {@link Application} the current {@link Client} belongs to.
+	 * @throws InvalidStateException if the current {@link Client}
+	 * does not reference the {@link Application} it belongs to.
+	 */
+	public final Application<C> getParentApplication() {
+		
+		//Checks if the current client references the application it belongs to.
+		supposeReferencesParentApplication();
+		
+		return parentApplication;
+	}
+
 	//method
 	/**
 	 * @return the number of sessions on the session stack of the current {@link Client}.
@@ -161,6 +183,14 @@ implements Closable {
 	) {
 		session.setPopFunction(popFunction);
 		pushSession(session);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Client} references a parent application.
+	 */
+	public final boolean referencesParentApplication() {
+		return (parentApplication != null);
 	}
 	
 	//method
@@ -299,10 +329,7 @@ implements Closable {
 	protected final void internal_connectTo(final String ip, final int port) {
 		
 		//Creates the duplex controller of the current client.
-		duplexController = new NetDuplexController(ip, port);
-		
-		//Creates the receiver controller of the duplex controller of the current client.
-		duplexController.setReceiverController(new ClientReceiverController(this));	
+		internal_setDuplexController(new NetDuplexController(ip, port));
 	}
 	
 	//method
@@ -321,10 +348,7 @@ implements Closable {
 	protected final void internal_connectTo(String ip, int port, String name) {
 		
 		//Creates the duplex controller of the current client.
-		duplexController = new NetDuplexController(ip, port, name);
-		
-		//Creates the receiver controller of the duplex controller of the current client.
-		duplexController.setReceiverController(new ClientReceiverController(this));	
+		internal_setDuplexController(new NetDuplexController(ip, port, name));
 	}
 	
 	//abstract method
@@ -390,14 +414,6 @@ implements Closable {
 	 */
 	protected final boolean internal_hasRequestedConnection() {
 		return duplexController.hasRequestedConnection();
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link Client} is connected.
-	 */
-	protected final boolean isConnected() {
-		return (duplexController != null);
 	}
 	
 	//method
@@ -482,6 +498,14 @@ implements Closable {
 	
 	//method
 	/**
+	 * @return true if the current {@link Client} is connected.
+	 */
+	protected final boolean internal_isConnected() {
+		return (duplexController != null);
+	}
+	
+	//method
+	/**
 	 * Lets the current {@link Client} run the given command.
 	 * 
 	 * @param command
@@ -558,6 +582,36 @@ implements Closable {
 		duplexController.setReceiverController(new ClientReceiverController(this));	
 	}
 	
+	//package-visible method
+	/**
+	 * Sets the {@link Application} the current {@link Client} will belong to.
+	 * 
+	 * @param parentApplication
+	 * @throws NullArgumentException if the given parent application is null.
+	 * @throws InvalidStateException if the current {@link Client}
+	 * references already a parent application.
+	 */
+	final void setParentApplication(final Application<C> parentApplication) {
+		
+		//Checks if the given parent application is not null.
+		Validator
+		.suppose(parentApplication)
+		.thatIsNamed("parent application")
+		.isNotNull();
+		
+		//Checks if the current client does not reference already a parent application.
+		if (referencesParentApplication()) {
+			throw
+			new InvalidStateException(
+				this,
+				"references already a parent application"
+			);
+		}
+		
+		//Sets the parent application of the current client.
+		this.parentApplication = parentApplication;
+	}
+
 	//method
 	/**
 	 * @throws InvalidStateException if the current {@link Client} contains no current session.
@@ -577,8 +631,26 @@ implements Closable {
 	private void supposeIsNotConnected() {
 		
 		//Checks if the current client is not connected.
-		if (isConnected()) {
+		if (internal_isConnected()) {
 			throw new InvalidStateException(this, "is connected");
 		}
+	}
+	
+	//method
+	/**
+	 * @throws InvalidStateException if the current {@link Client}
+	 * does not reference the {@link Application} it belongs to.
+	 */
+	private void supposeReferencesParentApplication() {
+		
+		//Checks if the current client references the application it belongs to.
+		if (!referencesParentApplication()) {
+			throw
+			new InvalidStateException(
+				this,
+				"does not reference a parent application"
+			);
+		}
+		
 	}
 }

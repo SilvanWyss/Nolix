@@ -100,12 +100,12 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 	@SuppressWarnings("unchecked")
 	public final void takeClient(final Client<?> client) {
 		
-		C c = ((C)client);
+		final var client_ = ((C)client);
 		
-		final Session<C> initialSession = createInitialSession();	
-		
-		clients.addAtEnd(c);
-		Sequencer.runInBackground(() -> c.setSession(initialSession));
+		client_.setParentApplication(this);
+		final Session<C> initialSession = createInitialSession();		
+		clients.addAtEnd(client_);
+		Sequencer.runInBackground(() -> client_.setSession(initialSession));
 	}
 	
 	public final void takeDuplexController(final DuplexController duplexController) {
