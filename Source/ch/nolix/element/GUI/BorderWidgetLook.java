@@ -14,7 +14,7 @@ import ch.nolix.primitive.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1350
+ * @lines 1360
  * @param <BWL> The type of a {@link BorderWidgetLook}.
  */
 public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>>
@@ -25,10 +25,19 @@ extends BackgroundWidgetLook<BWL> {
 	public static final Color DEFAULT_BORDER_COLOR = Color.BLACK;
 	public static final int DEFAULT_PADDING = 0;
 	
-	//default values
-	public static final ScrollbarLook DEFAULT_BASE_SCROLLBAR_LOOK = new ScrollbarLook();
-	public static final ScrollbarLook DEFAULT_HOVER_SCROLLBAR_LOOK = new ScrollbarLook();
-	public static final ScrollbarLook DEFAULT_SELECTION_SCROLLBAR_LOOK = new ScrollbarLook();
+	//default value
+	public static final ScrollbarLook DEFAULT_BASE_SCROLLBAR_LOOK =
+	new ScrollbarLook();
+	
+	//default value
+	public static final ScrollbarLook DEFAULT_HOVER_SCROLLBAR_LOOK =
+	new ScrollbarLook()
+	.setScrollbarCursorColor(Color.DIM_GREY);
+	
+	//default value
+	public static final ScrollbarLook DEFAULT_SELECTION_SCROLLBAR_LOOK =
+	new ScrollbarLook()
+	.setScrollbarCursorColor(Color.DIM_GREY);
 	
 	//constants
 	private static final String BORDER_THICKNESS_HEADER = "BorderThickness";
