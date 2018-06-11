@@ -19,11 +19,9 @@ public final class ReferencePropertySession extends HeaderedSession {
 	
 	//constructor
 	public ReferencePropertySession(
-		final DatabaseApplicationContext databaseApplicationContext,
 		final ReferenceProperty<Entity> referenceProperty
 	) {
 		super(
-			databaseApplicationContext,
 			referenceProperty.getReferencedEntitySet().getName()
 		);
 		

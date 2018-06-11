@@ -2,7 +2,8 @@
 package ch.nolix.system.netNeuron;
 
 //own imports
-import ch.nolix.system.client.ContextSession;
+import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.system.client.Session;
 import ch.nolix.system.client.StandardClient;
 
 //package-visible class
@@ -14,7 +15,10 @@ import ch.nolix.system.client.StandardClient;
  * of the net front neuron of a net front neuron session.
  */
 final class NetFrontNeuronSession<O>
-extends ContextSession<StandardClient, NetFrontNeuron<O>> {
+extends Session<StandardClient> {
+	
+	//attribute
+	private final NetFrontNeuron<O> netFrontNeuron;
 
 	//constructor
 	/**
@@ -26,8 +30,12 @@ extends ContextSession<StandardClient, NetFrontNeuron<O>> {
 	 */
 	public NetFrontNeuronSession(final NetFrontNeuron<O> netFrontNeuron) {
 		
-		//Calls constructor the base class.
-		super(netFrontNeuron);
+		Validator
+		.suppose(netFrontNeuron)
+		.thatIsOfType(NetFrontNeuronSession.class)
+		.isNotNull();
+		
+		this.netFrontNeuron = netFrontNeuron;
 	}
 	
 	//method
@@ -41,7 +49,7 @@ extends ContextSession<StandardClient, NetFrontNeuron<O>> {
 	 *  Runs the net front neuron of this net front neuron session.
 	 */
 	public void Fire() {
-		getRefContext().fire();
+		netFrontNeuron.fire();
 	}
 	
 	//method
@@ -51,6 +59,6 @@ extends ContextSession<StandardClient, NetFrontNeuron<O>> {
 	 * @param output
 	 */
 	public void SetOutput(final String output) {
-		getRefContext().setOutput(output);
+		netFrontNeuron.setOutput(output);
 	}
 }

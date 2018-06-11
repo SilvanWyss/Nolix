@@ -3,11 +3,11 @@ package ch.nolix.system.databaseApplication;
 
 //own imports
 import ch.nolix.system.GUIClient.BackGUIClient;
-import ch.nolix.system.client.ContextApplication;
+import ch.nolix.system.client.Application;
 
 //abstract class
 public abstract class DatabaseApplication
-extends ContextApplication<BackGUIClient, DatabaseApplicationContext> {
+extends Application<BackGUIClient> {
 
 	//constructor
 	public DatabaseApplication(
@@ -16,9 +16,9 @@ extends ContextApplication<BackGUIClient, DatabaseApplicationContext> {
 	) {
 		super(
 			name,
-			context,
 			BackGUIClient.class,
-			LoginSession.class
+			LoginSession.class,
+			context
 		);
 	}
 }

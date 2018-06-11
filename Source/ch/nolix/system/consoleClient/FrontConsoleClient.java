@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.consoleClient;
 
+//own imports
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.element.GUI.Console;
@@ -12,7 +13,7 @@ import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.primitive.validator2.Validator;
 import ch.nolix.system.GUIClientoid.GUIClientoid;
-import ch.nolix.system.client.StandardApplication;
+import ch.nolix.system.client.Application;
 
 //class
 /**
@@ -50,7 +51,7 @@ public final class FrontConsoleClient extends GUIClientoid<FrontConsoleClient> {
 	 * @param application
 	 * @throws NullArgumentException if the given target application is null.
 	 */
-	public FrontConsoleClient(final StandardApplication<BackConsoleClient> application) {
+	public FrontConsoleClient(final Application<BackConsoleClient> application) {
 		
 		//Calls other constructor.
 		this(new Frame());

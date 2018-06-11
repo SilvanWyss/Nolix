@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
+import java.lang.reflect.Constructor;
 //Java import
 import java.lang.reflect.InvocationTargetException;
 
@@ -14,14 +15,14 @@ import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
 
-//abstract class
+//class
 /**
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 260
  * @param <C> The type of the clients of an application.
  */
-public abstract class Application<C extends Client<C>> extends NamedElement {
+public class Application<C extends Client<C>> extends NamedElement {
 
 	//attributes
 	private final Class<C> clientClass;
@@ -233,7 +234,20 @@ public abstract class Application<C extends Client<C>> extends NamedElement {
 	/**
 	 * @return a new initial session for a client of this application.
 	 */
-	protected abstract Session<C> createInitialSession();
+	@SuppressWarnings("unchecked")
+	protected Session<C> createInitialSession() {
+		
+		//Extract the constructor of the initial session class of this standard application.
+		final Constructor<?> constructor = getRefInitialSessionClass().getDeclaredConstructors()[0];
+		constructor.setAccessible(true);
+		
+		try {	
+			return (Session<C>)constructor.newInstance();
+		}
+		catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 	
 	//method
 	/**

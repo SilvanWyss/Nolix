@@ -12,23 +12,16 @@ import ch.nolix.system.GUIClient.BackGUISession;
 
 //abstract class
 public abstract class DatabaseApplicationSession
-extends BackGUISession<DatabaseApplicationContext> {
+extends BackGUISession {
 	
 	//attribute
 	private DatabaseAdapter databaseAdapter;
-	
-	//constructor
-	public DatabaseApplicationSession(
-		final DatabaseApplicationContext databaseApplicationContext
-	) {
-		super(databaseApplicationContext);
-	}
 	
 	//method
 	public final void initialize() {
 		
 		getRefGUI()
-		.setTitle(getRefContext().getTitle())
+		.setTitle(((DatabaseApplicationContext)getRefApplicationContext()).getTitle())
 		.setRootWidget(
 			new VerticalStack(
 				createTitleWidget(),
@@ -37,9 +30,9 @@ extends BackGUISession<DatabaseApplicationContext> {
 			.setRole(ContainerRole.OverallContainer)
 		);
 		
-		if (getRefContext().hasGUILook()) {
+		if (((DatabaseApplicationContext)getRefApplicationContext()).hasGUILook()) {
 			getRefGUI().setConfiguration(
-				getRefContext().getGUILook()
+				((DatabaseApplicationContext)getRefApplicationContext()).getGUILook()
 			);
 		}
 	}
@@ -51,7 +44,8 @@ extends BackGUISession<DatabaseApplicationContext> {
 	protected final DatabaseAdapter getRefDatabaseAdapter() {
 		
 		if (!hasDatabaseAdapter()) {
-			databaseAdapter = getRefContext().createDatabaseAdapter();
+			databaseAdapter = 
+			((DatabaseApplicationContext)getRefApplicationContext()).createDatabaseAdapter();
 		}
 		
 		return databaseAdapter;
@@ -61,7 +55,7 @@ extends BackGUISession<DatabaseApplicationContext> {
 	private Label createTitleWidget() {
 		return
 		new Label()
-		.setText(getRefContext().getTitle())
+		.setText(((DatabaseApplicationContext)getRefApplicationContext()).getTitle())
 		.setRole(LabelRole.Title);
 	}
 	

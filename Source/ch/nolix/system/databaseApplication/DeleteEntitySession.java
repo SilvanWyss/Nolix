@@ -9,7 +9,6 @@ import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.HorizontalStack;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.VerticalStack;
-import ch.nolix.primitive.validator2.Validator;
 
 //class
 public final class DeleteEntitySession extends HeaderedSession {
@@ -20,22 +19,13 @@ public final class DeleteEntitySession extends HeaderedSession {
 	
 	//constructor
 	public DeleteEntitySession(
-		final DatabaseApplicationContext databaseApplicationContext,
 		final String entitySetName,
 		final int entityId
 	) {
-		super(databaseApplicationContext, "Delete " + entitySetName + " " + entityId);
 		
-		Validator.suppose(
-			getRefDatabaseAdapter().containsEntitySet(entitySetName)
-		);
+		super("Delete " + entitySetName + " " + entityId);
 		
-		this.entitySetName = entitySetName;
-		
-		Validator.suppose(
-			getRefEntitySet().containsEntity(entityId)
-		);			
-		
+		this.entitySetName = entitySetName;		
 		this.entityId = entityId;
 	}
 
@@ -84,7 +74,7 @@ public final class DeleteEntitySession extends HeaderedSession {
 	//method
 	private void openEntitySetSession() {
 		getParentClient().setSession(
-			new EntitySetSession(getRefContext(), entitySetName)
+			new EntitySetSession(entitySetName)
 		);
 	}
 }

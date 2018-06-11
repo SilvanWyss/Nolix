@@ -14,29 +14,20 @@ import ch.nolix.element.GUI.HorizontalStack;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.TextBox;
 import ch.nolix.element.GUI.VerticalStack;
-import ch.nolix.primitive.validator2.Validator;
 
 //class
 public final class CreateEntitySession extends HeaderedSession {
 
 	//attribute
 	private final String entitySetName;
-	private final Entity newEntity;
+	private Entity newEntity;
 	
 	//constructor
-	public CreateEntitySession(
-		final DatabaseApplicationContext databaseApplicationContext,
-		final String entitySetName
-	) {
-		super(databaseApplicationContext, "Create " + entitySetName);
+	public CreateEntitySession(final String entitySetName) {
 		
-		Validator.suppose(
-			getRefDatabaseAdapter().containsEntitySet(entitySetName)
-		);
+		super("Create " + entitySetName);
 			
 		this.entitySetName = entitySetName;
-		newEntity = getRefEntitySet().createDefaultEntity();
-		getRefEntitySet().addEntity(newEntity);
 	}
 	
 	//method
@@ -83,10 +74,7 @@ public final class CreateEntitySession extends HeaderedSession {
 		.getRefFirst(p -> p.hasHeader(referencePropertyHeader));
 		
 		getParentClient().pushSession(
-			new ReferencePropertySession(
-				getRefContext(),
-				referenceProperty
-			),
+			new ReferencePropertySession(referenceProperty),
 			() -> {
 				final Button label = getRefGUI().getRefWidgetByNameRecursively(referencePropertyHeader + "LinkButton");
 				
@@ -104,6 +92,10 @@ public final class CreateEntitySession extends HeaderedSession {
 	
 	//method
 	protected VerticalStack createSubSubContentWidget() {
+		
+		newEntity = getRefEntitySet().createDefaultEntity();
+		getRefEntitySet().addEntity(newEntity);
+		
 		return
 		new VerticalStack(
 			createDataEntryGrid(),

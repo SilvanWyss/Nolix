@@ -10,13 +10,6 @@ import ch.nolix.element.GUI.Widget;
 
 //abstract class
 public abstract class UserSession extends DatabaseApplicationSession {
-
-	//constructor
-	public UserSession(
-		final DatabaseApplicationContext databaseApplicationContext
-	) {
-		super(databaseApplicationContext);
-	}
 	
 	//method
 	protected final VerticalStack createContentWidget() {	

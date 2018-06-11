@@ -15,7 +15,6 @@ import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.LabelRole;
 import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.element.GUI.Widget;
-import ch.nolix.primitive.validator2.Validator;
 
 //class
 public final class EntitySetSession extends HeaderedSession {
@@ -24,16 +23,9 @@ public final class EntitySetSession extends HeaderedSession {
 	private final String entitySetName;
 	
 	//constructor
-	public EntitySetSession(
-		final DatabaseApplicationContext databaseApplicationContext,
-		final String entitySetName
-	) {
+	public EntitySetSession(final String entitySetName) {
 		
-		super(databaseApplicationContext, entitySetName);
-		
-		Validator.suppose(
-			getRefDatabaseAdapter().containsEntitySet(entitySetName)
-		);
+		super(entitySetName);
 		
 		this.entitySetName = entitySetName;
 	}
@@ -41,7 +33,7 @@ public final class EntitySetSession extends HeaderedSession {
 	//method
 	public void OpenCreateEntitySession() {
 		getParentClient().pushSession(
-			new CreateEntitySession(getRefContext(), entitySetName),
+			new CreateEntitySession(entitySetName),
 			() -> initialize()
 		);
 	}
@@ -49,7 +41,7 @@ public final class EntitySetSession extends HeaderedSession {
 	//method
 	public void OpenDeleteEntitySession(final int entityId) {
 		getParentClient().setSession(
-			new DeleteEntitySession(getRefContext(), entitySetName, entityId)	
+			new DeleteEntitySession(entitySetName, entityId)	
 		);
 	}
 	
@@ -57,7 +49,6 @@ public final class EntitySetSession extends HeaderedSession {
 	public void OpenEntitySession(final String entitySetName, final int entityId) {
 		getParentClient().setSession(
 			new EntitySession(
-				getRefContext(),
 				entitySetName,
 				entityId
 			)
@@ -66,7 +57,7 @@ public final class EntitySetSession extends HeaderedSession {
 	
 	//method
 	public void OpenHomeSession() {
-		getParentClient().setSession(new HomeSession(getRefContext()));
+		getParentClient().setSession(new HomeSession());
 	}
 	
 	//method

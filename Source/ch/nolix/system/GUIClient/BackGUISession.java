@@ -4,18 +4,13 @@ package ch.nolix.system.GUIClient;
 //own imports
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.InvisibleGUI;
-import ch.nolix.system.client.ContextSession;
+import ch.nolix.system.client.Session;
 
 //TODO
 //abstract class
-public abstract class BackGUISession<C>
-extends ContextSession<BackGUIClient, C> {
+public abstract class BackGUISession
+extends Session<BackGUIClient> {
 	
-	//TODO
-	public BackGUISession(C context) {
-		super(context);
-	}
-
 	//attribute
 	private final InvisibleGUI GUI = new InvisibleGUI();
 	

@@ -9,8 +9,8 @@ import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.color.Color;
 import ch.nolix.system.GUIClient.BackGUIClient;
 import ch.nolix.system.GUIClient.FrontGUIClient;
+import ch.nolix.system.client.Application;
 import ch.nolix.system.client.Session;
-import ch.nolix.system.client.StandardApplication;
 
 //class
 /**
@@ -33,8 +33,8 @@ public final class BackGUIClientTutorial {
 	public static void main(final String[] arguments) {
 		
 		//Creates an application.
-		final StandardApplication<BackGUIClient> application
-		= new StandardApplication<BackGUIClient>(
+		final var application
+		= new Application<BackGUIClient>(
 			"Application",
 			BackGUIClient.class,
 			MainSession.class

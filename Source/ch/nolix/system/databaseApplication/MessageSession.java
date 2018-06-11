@@ -15,12 +15,7 @@ public final class MessageSession extends DatabaseApplicationSession {
 	private final String message;
 	
 	//constructor
-	public MessageSession(
-		final DatabaseApplicationContext databaseApplicationContext,
-		final String message
-	) {
-		
-		super(databaseApplicationContext);
+	public MessageSession(final String message) {
 	
 		Validator
 		.suppose(message)

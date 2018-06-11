@@ -43,7 +43,7 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 	//TODO
 	public GUI<?> getRefGUI() {
 		
-		final var session = (BackGUISession<?>)internal_getRefCurrentSession();
+		final var session = (BackGUISession)internal_getRefCurrentSession();
 		
 		return session.getRefGUI();
 	}
@@ -56,7 +56,7 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 	 */
 	public void runLocally(final String runMethodCommand) {
 		
-		final BackGUISession<BackGUIClient> session = (BackGUISession<BackGUIClient>)internal_getRefCurrentSession();
+		final var session = (BackGUISession)internal_getRefCurrentSession();
 		
 		internal_invokeSessionUserRunMethod(new StandardSpecification(runMethodCommand));
 		internal_runOnCounterpart(RESET_GUI_HEADER + "(" + session.getRefGUI().getAttributes() + ")");
@@ -70,7 +70,7 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 	 */
 	public BackGUIClient reset() {
 		
-		final var session = (BackGUISession<?>)internal_getRefCurrentSession();
+		final var session = (BackGUISession)internal_getRefCurrentSession();
 		
 		session.getRefGUI().reset();
 		internal_runOnCounterpart(RESET_GUI_HEADER);
@@ -83,7 +83,7 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 	 * Finishes the initialization of the session of this dialog client.
 	 */
 	protected void internal_finishSessionInitialization() {
-		final var session = (BackGUISession<?>)internal_getRefCurrentSession();
+		final var session = (BackGUISession)internal_getRefCurrentSession();
 		internal_runOnCounterpart(RESET_GUI_HEADER + "(" + session.getRefGUI().getAttributes() + ")");
 	}
 	
@@ -157,7 +157,7 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 	 */
 	private void resetDialog(final Iterable<? extends Specification> attributes) {
 		
-		final BackGUISession<?> session = (BackGUISession<?>)internal_getRefCurrentSession();
+		final var session = (BackGUISession)internal_getRefCurrentSession();
 		
 		session.getRefGUI().reset(attributes);
 	}
@@ -170,7 +170,7 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 	 */
 	private void resetOtherSideDialog(final Iterable<StandardSpecification> attributes) {
 		
-		final var session = (BackGUISession<?>)internal_getRefCurrentSession();
+		final var session = (BackGUISession)internal_getRefCurrentSession();
 		
 		internal_runOnCounterpart(BackGUIClient.RESET_GUI_HEADER + "(" + session.getRefGUI().getAttributes() + ")");
 	}

@@ -9,7 +9,6 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.primitive.validator2.Validator;
 import ch.nolix.system.client.Application;
 import ch.nolix.system.client.NetServer;
-import ch.nolix.system.client.StandardApplication;
 import ch.nolix.system.client.StandardClient;
 import ch.nolix.system.neuronoid.Neuronoid;
 
@@ -73,7 +72,7 @@ implements Closable {
 		
 		//Creates the application of this net back neuron.
 		application
-		= new StandardApplication<StandardClient>(
+		= new Application<StandardClient>(
 			APPLICATION_NAME,
 			StandardClient.class,
 			NetBackNeuronSession.class

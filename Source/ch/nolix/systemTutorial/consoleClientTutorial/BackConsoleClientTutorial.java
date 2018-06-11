@@ -3,8 +3,8 @@ package ch.nolix.systemTutorial.consoleClientTutorial;
 
 //own imports
 import ch.nolix.core.sequencer.Sequencer;
+import ch.nolix.system.client.Application;
 import ch.nolix.system.client.Session;
-import ch.nolix.system.client.StandardApplication;
 import ch.nolix.system.consoleClient.BlackRedConsoleDesign;
 import ch.nolix.system.consoleClient.BackConsoleClient;
 import ch.nolix.system.consoleClient.FrontConsoleClient;
@@ -30,8 +30,8 @@ public final class BackConsoleClientTutorial {
 	public static void main(final String[] arguments) {
 		
 		//Creates an application.
-		final StandardApplication<BackConsoleClient> application
-		= new StandardApplication<BackConsoleClient>(
+		final var application
+		= new Application<BackConsoleClient>(
 			"MyApplication",
 			BackConsoleClient.class,
 			MainSession.class

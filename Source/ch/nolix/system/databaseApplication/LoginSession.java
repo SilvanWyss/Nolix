@@ -7,18 +7,11 @@ import ch.nolix.element.GUI.VerticalStack;
 
 //class
 public final class LoginSession extends DatabaseApplicationSession {
-
-	//constructor
-	public LoginSession(
-		final DatabaseApplicationContext databaseApplicationContext
-	) {
-		super(databaseApplicationContext);
-	}
 	
 	//method
 	public void Login() {
 		getParentClient()
-		.setSession(new HomeSession(getRefContext()));
+		.setSession(new HomeSession());
 	}
 	
 	//method

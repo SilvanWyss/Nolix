@@ -10,17 +10,14 @@ import ch.nolix.element.GUI.Grid;
 public final class HomeSession extends HeaderedSession {
 
 	//constructor
-	public HomeSession(
-		final DatabaseApplicationContext databaseApplicationContext
-	) {
-		super(databaseApplicationContext, "Home");
+	public HomeSession() {
+		super("Home");
 	}
 	
 	//method
 	public void OpenEntitySetSession(final String entitySetName) {
 		getParentClient().setSession(
-			new EntitySetSession(getRefContext(),
-			entitySetName)
+			new EntitySetSession(entitySetName)
 		);
 	}
 	

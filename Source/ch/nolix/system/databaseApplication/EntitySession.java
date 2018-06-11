@@ -16,7 +16,6 @@ import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.TabContainer;
 import ch.nolix.element.GUI.TextBox;
 import ch.nolix.element.GUI.VerticalStack;
-import ch.nolix.primitive.validator2.Validator;
 
 //class
 public final class EntitySession extends HeaderedSession {
@@ -27,35 +26,26 @@ public final class EntitySession extends HeaderedSession {
 	
 	//constructor
 	public EntitySession(
-		final DatabaseApplicationContext databaseApplicationContext,
 		final String entitySetName,
 		final int entityId
 	) {
-		super(databaseApplicationContext, entitySetName);
 		
-		Validator.suppose(
-			getRefDatabaseAdapter().containsEntitySet(entitySetName)
-		);
+		super(entitySetName);
 		
-		this.entitySetName = entitySetName;
-		
-		Validator.suppose(
-			getRefEntitySet().containsEntity(entityId)
-		);			
-		
+		this.entitySetName = entitySetName;			
 		this.entityId = entityId;
 	}
 	
 	//method
 	public void Cancel() {
 		getParentClient()
-		.setSession(new EntitySession(getRefContext(), entitySetName, entityId));
+		.setSession(new EntitySession(entitySetName, entityId));
 	}
 	
 	//method
 	public void OpenEntitySetSession() {
 		getParentClient().setSession(
-			new EntitySetSession(getRefContext(), entitySetName)
+			new EntitySetSession(entitySetName)
 		);
 	}
 	
@@ -63,7 +53,6 @@ public final class EntitySession extends HeaderedSession {
 	public void OpenEntitySession(final String entitySetName, final int entityId) {
 		getParentClient().setSession(
 			new EntitySession(
-				getRefContext(),
 				entitySetName,
 				entityId
 			)	
@@ -80,10 +69,7 @@ public final class EntitySession extends HeaderedSession {
 		.getRefFirst(p -> p.hasHeader(referencePropertyHeader));
 		
 		getParentClient().pushSession(
-			new ReferencePropertySession(
-				getRefContext(),
-				referenceProperty
-			),
+			new ReferencePropertySession(referenceProperty),
 			() -> {
 				final Button label = getRefGUI().getRefWidgetByNameRecursively(referencePropertyHeader + "LinkButton");
 				label.setText(String.valueOf(referenceProperty.getEntity().getId()));
@@ -116,7 +102,7 @@ public final class EntitySession extends HeaderedSession {
 		getRefDatabaseAdapter().saveChanges();
 		
 		getParentClient().pushSession(
-			new MessageSession(getRefContext(), "The changes have been changed.")	
+			new MessageSession("The changes have been changed.")	
 		);
 	}
 

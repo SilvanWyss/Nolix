@@ -16,11 +16,7 @@ public abstract class HeaderedSession extends UserSession {
 	private final String header;
 	
 	//constructor
-	public HeaderedSession(
-		final DatabaseApplicationContext databaseApplicationContext,
-		final String header
-	) {
-		super(databaseApplicationContext);
+	public HeaderedSession(final String header) {
 		
 		Validator
 		.suppose(header)
