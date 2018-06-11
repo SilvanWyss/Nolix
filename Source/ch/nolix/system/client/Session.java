@@ -19,7 +19,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 250
+ * @lines 260
  * @param <C> The type of the client of a {@link Session}.
  */
 public abstract class Session<C extends Client<C>> {
@@ -91,6 +91,20 @@ public abstract class Session<C extends Client<C>> {
 		supposeBelongsToClient();
 		
 		return parentClient;
+	}
+	
+	//method
+	/**
+	 * @return the context of the {@link Application}
+	 * the {@link Client} of the current {@link Session} belongs to.
+	 * @throws InvalidStateException if the current {@link Session} belongs to no {@link Client}.
+	 * @throws InvalidStateException if the {@link Client} of the current {@link Session}
+	 * does not reference the {@link Application} it belongs to.
+	 * @throws UnexistingAttributeException if the {@link Application},
+	 * the {@link Client} of the current {@link Session} belongs to, has no context.
+	 */
+	public final Object getRefApplicationContext() {
+		return getParentClient().getRefApplicationContext();
 	}
 	
 	//abstract method
