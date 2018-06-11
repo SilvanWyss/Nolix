@@ -14,7 +14,7 @@ import ch.nolix.primitive.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1160
+ * @lines 1350
  * @param <BWL> The type of a {@link BorderWidgetLook}.
  */
 public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>>
@@ -25,26 +25,36 @@ extends BackgroundWidgetLook<BWL> {
 	public static final Color DEFAULT_BORDER_COLOR = Color.BLACK;
 	public static final int DEFAULT_PADDING = 0;
 	
-	//attribute headers
+	//default values
+	public static final ScrollbarLook DEFAULT_BASE_SCROLLBAR_LOOK = new ScrollbarLook();
+	public static final ScrollbarLook DEFAULT_HOVER_SCROLLBAR_LOOK = new ScrollbarLook();
+	public static final ScrollbarLook DEFAULT_SELECTION_SCROLLBAR_LOOK = new ScrollbarLook();
+	
+	//constants
 	private static final String BORDER_THICKNESS_HEADER = "BorderThickness";
 	private static final String LEFT_BORDER_THICKNESS_HEADER = "LeftBorderThickness";
 	private static final String RIGHT_BORDER_THICKNESS_HEADER = "RightBorderThickness";
 	private static final String TOP_BORDER_THICKNESS_HEADER = "TopBorderThickness";
 	private static final String BOTTOM_BORDER_THICKNESS_HEADER = "BottomBorderThickness";
 	
-	//attribute headers
+	//constants
 	private static final String BORDER_COLOR_HEADER = "BorderColor";
 	private static final String LEFT_BORDER_COLOR_HEADER = "LeftBorderColor";
 	private static final String RIGHT_BORDER_COLOR_HEADER = "RightBorderColor";
 	private static final String TOP_BORDER_COLOR_HEADER = "TopBorderColor";
 	private static final String BOTTOM_BORDER_COLOR_HEADER = "BottomBorderColor";
 	
-	//attribute headers
+	//constants
 	private static final String PADDING_HEADER = "Padding";
 	private static final String LEFT_PADDING_HEADER = "LeftPadding";
 	private static final String RIGHT_PADDING_HEADER = "RightPadding";
 	private static final String TOP_PADDING_HEADER = "TopPadding";
 	private static final String BOTTOM_PADDING_HEADER = "BottomPadding";
+	
+	//constants
+	private static final String BASE_SCROLLBAR_LOOK_HEADER = "NormalScrollbarLook";
+	private static final String HOVER_SCROLLBAR_LOOK_HEADER = "HoverScrollbarLook";
+	private static final String SELECTION_SCROLLBAR_LOOK_HEADER = "SelectionScrollbarLook";
 	
 	//optional attributes
 	private NonNegativeInteger leftBorderThickness;
@@ -63,6 +73,11 @@ extends BackgroundWidgetLook<BWL> {
 	private NonNegativeInteger rightPadding;	
 	private NonNegativeInteger topPadding;	
 	private NonNegativeInteger bottomPadding;
+	
+	//optional attributes
+	private ScrollbarLook baseScrollbarLook;	
+	private ScrollbarLook hoverScrollbarLook;
+	private ScrollbarLook selectionScrollbarLook;
 	
 	//method
 	/**
@@ -120,6 +135,15 @@ extends BackgroundWidgetLook<BWL> {
 			case BOTTOM_PADDING_HEADER:
 				setBottomPadding(attribute.getOneAttributeAsInt());
 				break;
+			case BASE_SCROLLBAR_LOOK_HEADER:
+				setBaseScrollbarLook(ScrollbarLook.createFromSpecification(attribute));
+				break;
+			case HOVER_SCROLLBAR_LOOK_HEADER:
+				setHoverScrollbarLook(ScrollbarLook.createFromSpecification(attribute));
+				break;
+			case SELECTION_SCROLLBAR_LOOK_HEADER:
+				setSelectionScrollbarLook(ScrollbarLook.createFromSpecification(attribute));
+				break;
 			default:
 				
 				//Calls method of the base class.
@@ -128,83 +152,116 @@ extends BackgroundWidgetLook<BWL> {
 	}
 	
 	//method
-		/**
-		 * @return the attributes of the current {@link BorderWidgetLook}
-		 */
-		public List<StandardSpecification> getAttributes() {
-			
-			//Calls method of the base class.
-			final List<StandardSpecification> attributes = super.getAttributes();
-			
-			//Handles the border thicknesses of the current border widget look.
-			if (hasABorderThickness() && hasSameBorderThicknessAtEachSide()) {
-				attributes.addAtEnd(leftBorderThickness.getSpecificationAs(BORDER_THICKNESS_HEADER));
-			}
-			else {
-				
-				if (hasLeftBorderThickness()) {
-					attributes.addAtEnd(leftBorderThickness.getSpecificationAs(LEFT_BORDER_THICKNESS_HEADER));
-				}
-				
-				if (hasRightBorderThickness()) {
-					attributes.addAtEnd(rightBorderThickness.getSpecificationAs(RIGHT_BORDER_THICKNESS_HEADER));
-				}
-				
-				if (hasTopBorderThickness()) {
-					attributes.addAtEnd(topBorderThickness.getSpecificationAs(TOP_BORDER_THICKNESS_HEADER));
-				}
-				
-				if (hasBottomBorderThickness()) {
-					attributes.addAtEnd(bottomBorderThickness.getSpecificationAs(BOTTOM_BORDER_THICKNESS_HEADER));
-				}
-			}
-			
-			if (hasABorderColor() && hasSameBorderColorAtEachSide()) {
-				attributes.addAtEnd(leftBorderColor.getSpecificationAs(BORDER_COLOR_HEADER));
-			}
-			else {
-				
-				if (hasLeftBorderColor()) {
-					attributes.addAtEnd(leftBorderColor.getSpecificationAs(LEFT_BORDER_COLOR_HEADER));
-				}
-				
-				if (hasRightBorderColor()) {
-					attributes.addAtEnd(rightBorderColor.getSpecificationAs(RIGHT_BORDER_COLOR_HEADER));
-				}
-				
-				if (hasTopBorderColor()) {
-					attributes.addAtEnd(topBorderColor.getSpecificationAs(TOP_BORDER_COLOR_HEADER));
-				}
-				
-				if (hasBottomBorderColor()) {
-					attributes.addAtEnd(bottomBorderColor.getSpecificationAs(BOTTOM_BORDER_COLOR_HEADER));
-				}
-			}
-			
-			if (hasAPadding() && hasSamePaddingAtEachSide()) {
-				attributes.addAtEnd(leftPadding.getSpecificationAs(PADDING_HEADER));
-			}
-			else {
-				
-				if (hasLeftPadding()) {
-					attributes.addAtEnd(leftPadding.getSpecificationAs(LEFT_PADDING_HEADER));
-				}
-				
-				if (hasRightPadding()) {
-					attributes.addAtEnd(rightPadding.getSpecificationAs(RIGHT_PADDING_HEADER));
-				}
-				
-				if (hasTopPadding()) {
-					attributes.addAtEnd(topPadding.getSpecificationAs(TOP_PADDING_HEADER));
-				}
-				
-				if (hasBottomPadding()) {
-					attributes.addAtEnd(bottomPadding.getSpecificationAs(BOTTOM_PADDING_HEADER));
-				}
-			}
-			
-			return attributes;
+	/**
+	 * @return the attributes of the current {@link BorderWidgetLook}
+	 */
+	public List<StandardSpecification> getAttributes() {
+		
+		//Calls method of the base class.
+		final List<StandardSpecification> attributes = super.getAttributes();
+		
+		if (hasABorderThickness() && hasSameBorderThicknessAtEachSide()) {
+			attributes.addAtEnd(leftBorderThickness.getSpecificationAs(BORDER_THICKNESS_HEADER));
 		}
+		else {
+			
+			if (hasLeftBorderThickness()) {
+				attributes.addAtEnd(leftBorderThickness.getSpecificationAs(LEFT_BORDER_THICKNESS_HEADER));
+			}
+			
+			if (hasRightBorderThickness()) {
+				attributes.addAtEnd(rightBorderThickness.getSpecificationAs(RIGHT_BORDER_THICKNESS_HEADER));
+			}
+			
+			if (hasTopBorderThickness()) {
+				attributes.addAtEnd(topBorderThickness.getSpecificationAs(TOP_BORDER_THICKNESS_HEADER));
+			}
+			
+			if (hasBottomBorderThickness()) {
+				attributes.addAtEnd(bottomBorderThickness.getSpecificationAs(BOTTOM_BORDER_THICKNESS_HEADER));
+			}
+		}
+		
+		if (hasABorderColor() && hasSameBorderColorAtEachSide()) {
+			attributes.addAtEnd(leftBorderColor.getSpecificationAs(BORDER_COLOR_HEADER));
+		}
+		else {
+			
+			if (hasLeftBorderColor()) {
+				attributes.addAtEnd(leftBorderColor.getSpecificationAs(LEFT_BORDER_COLOR_HEADER));
+			}
+			
+			if (hasRightBorderColor()) {
+				attributes.addAtEnd(rightBorderColor.getSpecificationAs(RIGHT_BORDER_COLOR_HEADER));
+			}
+			
+			if (hasTopBorderColor()) {
+				attributes.addAtEnd(topBorderColor.getSpecificationAs(TOP_BORDER_COLOR_HEADER));
+			}
+			
+			if (hasBottomBorderColor()) {
+				attributes.addAtEnd(bottomBorderColor.getSpecificationAs(BOTTOM_BORDER_COLOR_HEADER));
+			}
+		}
+		
+		if (hasAPadding() && hasSamePaddingAtEachSide()) {
+			attributes.addAtEnd(leftPadding.getSpecificationAs(PADDING_HEADER));
+		}
+		else {
+			
+			if (hasLeftPadding()) {
+				attributes.addAtEnd(leftPadding.getSpecificationAs(LEFT_PADDING_HEADER));
+			}
+			
+			if (hasRightPadding()) {
+				attributes.addAtEnd(rightPadding.getSpecificationAs(RIGHT_PADDING_HEADER));
+			}
+			
+			if (hasTopPadding()) {
+				attributes.addAtEnd(topPadding.getSpecificationAs(TOP_PADDING_HEADER));
+			}
+			
+			if (hasBottomPadding()) {
+				attributes.addAtEnd(bottomPadding.getSpecificationAs(BOTTOM_PADDING_HEADER));
+			}
+		}
+		
+		if (hasBaseScrollbarLook()) {
+			attributes.addAtEnd(baseScrollbarLook.getSpecificationAs(BASE_SCROLLBAR_LOOK_HEADER));
+		}
+		
+		if (hasHoverScrollbarLook()) {
+			attributes.addAtEnd(hoverScrollbarLook.getSpecificationAs(HOVER_SCROLLBAR_LOOK_HEADER));
+		}
+		
+		if (hasSelectionScrollbarLook()) {
+			attributes.addAtEnd(selectionScrollbarLook.getSpecificationAs(SELECTION_SCROLLBAR_LOOK_HEADER));
+		}
+		
+		return attributes;
+	}
+	
+	//method
+	/**
+	 * @return the recursive or default base scrollbar look of the current {@link BorderWidgetLook}.
+	 */
+	public final ScrollbarLook getRecursiveOrDefaultBaseScrollbarLook() {
+		
+		//Handles the case that the current border widget look has a base scrollbar look.
+		if (hasBaseScrollbarLook()) {
+			return baseScrollbarLook;
+		}
+		
+		//Handles the case that the current border widget look
+		//has no base scrollbar look but a base look.
+		if (hasBaseLook()) {
+			return getRefBaseLook().getRecursiveOrDefaultBaseScrollbarLook();
+		}
+		
+		//Handles the case that the current border widget look
+		//has no base scrollbar look and no base look.
+		return DEFAULT_BASE_SCROLLBAR_LOOK;
+	}
 	
 	//method
 	/**
@@ -270,6 +327,28 @@ extends BackgroundWidgetLook<BWL> {
 		//Handles the case that the current border widget look
 		//has no bottom padding and no base look.
 		return DEFAULT_PADDING;
+	}
+	
+	//method
+	/**
+	 * @return the recursive or default hover scrollbar look of the current {@link BorderWidgetLook}.
+	 */
+	public final ScrollbarLook getRecursiveOrDefaultHoverScrollbarLook() {
+		
+		//Handles the case that the current border widget look has a hover scrollbar look.
+		if (hasHoverScrollbarLook()) {
+			return hoverScrollbarLook;
+		}
+		
+		//Handles the case that the current border widget look
+		//has no hover scrollbar look but a base look.
+		if (hasBaseLook()) {
+			return getRefBaseLook().getRecursiveOrDefaultHoverScrollbarLook();
+		}
+		
+		//Handles the case that the current border widget look
+		//has no hover scrollbar look and no base look.
+		return DEFAULT_HOVER_SCROLLBAR_LOOK;
 	}
 	
 	//method
@@ -402,6 +481,28 @@ extends BackgroundWidgetLook<BWL> {
 		//Handles the case that the current border widget look
 		//has no right padding and no base look.
 		return DEFAULT_PADDING;
+	}
+	
+	//method
+	/**
+	 * @return the recursive or default selection scrollbar look of the current {@link BorderWidgetLook}.
+	 */
+	public final ScrollbarLook getRecursiveOrDefaultSelectionScrollbarLook() {
+		
+		//Handles the case that the current border widget look has a selection scrollbar look.
+		if (hasSelectionScrollbarLook()) {
+			return selectionScrollbarLook;
+		}
+		
+		//Handles the case that the current border widget look
+		//has no selection scrollbar look but a base look.
+		if (hasBaseLook()) {
+			return getRefBaseLook().getRecursiveOrDefaultSelectionScrollbarLook();
+		}
+		
+		//Handles the case that the current border widget look
+		//has no selection scrollbar look and no base look.
+		return DEFAULT_SELECTION_SCROLLBAR_LOOK;
 	}
 	
 	//method
@@ -690,6 +791,28 @@ extends BackgroundWidgetLook<BWL> {
 	
 	//method
 	/**
+	 * Sets the base scrollbar look of the current {@link BorderWidgetLook}.
+	 * 
+	 * @param baseScrollbarLook
+	 * @return the current {@link BorderWidgetLook}.
+	 * @throws NullArgumentException if the given base scrollbar look is null.
+	 */
+	public final BWL setBaseScrollbarLook(final ScrollbarLook baseScrollbarLook) {
+		
+		//Checks if the given base scrollbar look is not null.
+		Validator
+		.suppose(baseScrollbarLook)
+		.thatIsNamed("base scrollbar look")
+		.isNotNull();
+		
+		//Sets the base scrollbar look of the current border widget look.
+		this.baseScrollbarLook = baseScrollbarLook;
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
 	 * Sets the border colors of the current {@link BorderWidgetLook}.
 	 * 
 	 * @param borderColor
@@ -772,6 +895,28 @@ extends BackgroundWidgetLook<BWL> {
 	public final BWL setBottomPadding(final int bottomPadding) {
 		
 		this.bottomPadding = new NonNegativeInteger(bottomPadding);
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Sets the hover scrollbar look of the current {@link BorderWidgetLook}.
+	 * 
+	 * @param hoverScrollbarLook
+	 * @return the current {@link BorderWidgetLook}.
+	 * @throws NullArgumentException if the given hover scrollbar look is null.
+	 */
+	public final BWL setHoverScrollbarLook(final ScrollbarLook hoverScrollbarLook) {
+		
+		//Checks if the given hover scrollbar look is not null.
+		Validator
+		.suppose(hoverScrollbarLook)
+		.thatIsNamed("hover scrollbar look")
+		.isNotNull();
+		
+		//Sets the hover scrollbar look of the current border widget look.
+		this.hoverScrollbarLook = hoverScrollbarLook;
 		
 		return getInstance();
 	}
@@ -900,6 +1045,28 @@ extends BackgroundWidgetLook<BWL> {
 	
 	//method
 	/**
+	 * Sets the selection scrollbar look of the current {@link BorderWidgetLook}.
+	 * 
+	 * @param selectionScrollbarLook
+	 * @return the current {@link BorderWidgetLook}.
+	 * @throws NullArgumentException if the given selection scrollbar look is null.
+	 */
+	public final BWL setSelectionScrollbarLook(final ScrollbarLook selectionScrollbarLook) {
+		
+		//Checks if the given selection scrollbar look is not null.
+		Validator
+		.suppose(selectionScrollbarLook)
+		.thatIsNamed("selection scrollbar look")
+		.isNotNull();
+		
+		//Sets the selection scrollbar look of the current border widget look.
+		this.selectionScrollbarLook = selectionScrollbarLook;
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
 	 * Sets the top border color of the current {@link BorderWidgetLook}.
 	 * 
 	 * @param topBorderColor
@@ -993,6 +1160,14 @@ extends BackgroundWidgetLook<BWL> {
 	
 	//method
 	/**
+	 * @return true if the current {@link BorderWidgetLook} has a base scrollbar look.
+	 */
+	private boolean hasBaseScrollbarLook() {
+		return (baseScrollbarLook != null);
+	}
+	
+	//method
+	/**
 	 * @return true if the current {@link BorderWidgetLook} has a bottom border color.
 	 */
 	private boolean hasBottomBorderColor() {
@@ -1013,6 +1188,14 @@ extends BackgroundWidgetLook<BWL> {
 	 */
 	private boolean hasBottomPadding() {
 		return (bottomPadding != null);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link BorderWidgetLook} has a hover scrollbar look.
+	 */
+	private boolean hasHoverScrollbarLook() {
+		return (hoverScrollbarLook != null);
 	}
 	
 	//method
@@ -1136,6 +1319,14 @@ extends BackgroundWidgetLook<BWL> {
 			&& hasTopPadding() && topPadding.equals(leftPadding)
 			&& hasBottomPadding() && bottomPadding.equals(bottomPadding)
 		);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link BorderWidgetLook} has a selection scrollbar look.
+	 */
+	private boolean hasSelectionScrollbarLook() {
+		return (selectionScrollbarLook != null);
 	}
 	
 	//method
