@@ -66,20 +66,6 @@ implements Closable {
 	public final boolean containsCurrentSession() {
 		return sessions.containsAny();
 	}
-	
-	//method
-	/**
-	 * @return the {@link Application} the current {@link Client} belongs to.
-	 * @throws InvalidStateException if the current {@link Client}
-	 * does not reference the {@link Application} it belongs to.
-	 */
-	public final Application<C> getParentApplication() {
-		
-		//Checks if the current client references the application it belongs to.
-		supposeReferencesParentApplication();
-		
-		return parentApplication;
-	}
 
 	//method
 	/**
@@ -385,6 +371,20 @@ implements Closable {
 	 */
 	protected StandardSpecification internal_getDataFromCounterpart(final String request) {
 		return duplexController.getData(request);
+	}
+	
+	//method
+	/**
+	 * @return the {@link Application} the current {@link Client} belongs to.
+	 * @throws InvalidStateException if the current {@link Client}
+	 * does not reference the {@link Application} it belongs to.
+	 */
+	protected final Application<C> internal_getParentApplication() {
+		
+		//Checks if the current client references the application it belongs to.
+		supposeReferencesParentApplication();
+		
+		return parentApplication;
 	}
 	
 	//method
