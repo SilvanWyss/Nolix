@@ -2,7 +2,6 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.entity.Entity;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.element.color.Color;
@@ -11,28 +10,29 @@ import ch.nolix.element.color.Color;
 public final class ScrollbarLook extends Entity {
 	
 	//default values
-	public static final Color DEFAULT_COLOR = Color.LIGHT_GREY;
-	public static final Color DEFAULT_CURSOR_COLOR = Color.DARK_GREY;
+	public static final Color DEFAULT_SCROLLBAR_COLOR = Color.LIGHT_GREY;
+	public static final Color DEFAULT_SCROLLBAR_CURSOR_COLOR = Color.DARK_GREY;
 	
 	//constant
 	public static final String TYPE_NAME = "ScrollbarLook";
 	
-	//constant
-	private static final String CURSOR_COLOR_HEADER = "CursorColor";
+	//constants
+	private static final String SCROLLBAR_COLOR_HEADER = "ScrollbarColor";
+	private static final String SCROLLBAR_CURSOR_COLOR_HEADER = "ScrollbarCursorColor";
 	
 	//attribute
-	private final MutableProperty<Color> color =
+	private final MutableProperty<Color> scrollbarColor =
 	new MutableProperty<Color>(
-		PascalCaseNameCatalogue.COLOR,
-		c -> setColor(c),
+			SCROLLBAR_COLOR_HEADER,
+		c -> setScrollbarColor(c),
 		s -> Color.createFromSpecification(s)
 	);
 	
 	//attribute
-	private final MutableProperty<Color> cursorColor =
+	private final MutableProperty<Color> scrollbarCursorColor =
 	new MutableProperty<Color>(
-		CURSOR_COLOR_HEADER,
-		c -> setColor(c),
+		SCROLLBAR_CURSOR_COLOR_HEADER,
+		c -> setScrollbarCursorColor(c),
 		s -> Color.createFromSpecification(s)
 	);
 	
@@ -43,13 +43,13 @@ public final class ScrollbarLook extends Entity {
 	}
 	
 	//method
-	public Color getColor() {
-		return color.getValue();
+	public Color getScrollbarColor() {
+		return scrollbarColor.getValue();
 	}
 	
 	//method
-	public Color getCursorColor() {
-		return cursorColor.getValue();
+	public Color getScrollbarCursorColor() {
+		return scrollbarCursorColor.getValue();
 	}
 	
 	//method
@@ -60,24 +60,24 @@ public final class ScrollbarLook extends Entity {
 	//method
 	public ScrollbarLook reset() {
 		
-		setColor(DEFAULT_COLOR);
-		setCursorColor(DEFAULT_CURSOR_COLOR);
+		setScrollbarColor(DEFAULT_SCROLLBAR_COLOR);
+		setScrollbarCursorColor(DEFAULT_SCROLLBAR_CURSOR_COLOR);
 		
 		return this;
 	}
 	
 	//method
-	public ScrollbarLook setColor(final Color color) {
+	public ScrollbarLook setScrollbarColor(final Color scrollbarColor) {
 		
-		this.color.setValue(color);
+		this.scrollbarColor.setValue(scrollbarColor);
 		
 		return this;
 	}
 	
 	//method
-	public ScrollbarLook setCursorColor(final Color scrollbarCursorColor) {
+	public ScrollbarLook setScrollbarCursorColor(final Color scrollbarCursorColor) {
 		
-		this.cursorColor.setValue(scrollbarCursorColor);
+		this.scrollbarCursorColor.setValue(scrollbarCursorColor);
 		
 		return this;
 	}
