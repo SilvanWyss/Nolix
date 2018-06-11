@@ -70,7 +70,7 @@ implements Closable {
 
 	//method
 	/**
-	 * @return the context of the {@link Application} the {@link Client} belongs to.
+	 * @return the context of the {@link Application} the current {@link Client} belongs to.
 	 * @throws InvalidStateException if the current {@link Client}
 	 * does not reference the {@link Application} it belongs to.
 	 * @throws UnexistingAttributeException if the {@link Application},
