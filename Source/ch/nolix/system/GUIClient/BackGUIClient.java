@@ -40,13 +40,7 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 		internal_setDuplexController(duplexController);
 	}
 	
-	//TODO
-	public GUI<?> getRefGUI() {
-		
-		final var session = (BackGUISession)internal_getRefCurrentSession();
-		
-		return session.getRefGUI();
-	}
+
 	
 	//method
 	/**
@@ -147,6 +141,17 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 		final IContainer<IContainer<S>> interactionAttributesOfWidgetsOfGUI	
 	) {
 		getRefGUI().addOrChangeInteractionAttributesOfWidgetsRecursively(interactionAttributesOfWidgetsOfGUI);
+	}
+	
+	//method
+	/**
+	 * @return the GUI of the current session of this back GUI client.
+	 */
+	private GUI<?> getRefGUI() {
+		
+		final var session = (BackGUISession)internal_getRefCurrentSession();
+		
+		return session.getRefGUI();
 	}
 	
 	//method
