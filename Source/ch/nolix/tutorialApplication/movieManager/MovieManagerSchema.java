@@ -1,8 +1,11 @@
+//package declaration
 package ch.nolix.tutorialApplication.movieManager;
 
+//own import
 import ch.nolix.core.databaseAdapter.Schema;
 
-public class MovieManagerSchema extends Schema {
+//class
+public final class MovieManagerSchema extends Schema {
 
 	public MovieManagerSchema() {
 		
