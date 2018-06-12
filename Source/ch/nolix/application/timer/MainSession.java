@@ -8,8 +8,7 @@ import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.GUI.HorizontalStack;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.VerticalStack;
-import ch.nolix.system.GUIClient.BackGUIClient;
-import ch.nolix.system.client.Session;
+import ch.nolix.system.GUIClient.BackGUISession;
 
 //package-visible class
 /**
@@ -17,7 +16,7 @@ import ch.nolix.system.client.Session;
  * @month 2016-06
  * @lines 110
  */
-final class MainSession extends Session<BackGUIClient> {
+final class MainSession extends BackGUISession {
 
 	//constants
 	private static final String TITLE = "Timer";
@@ -33,7 +32,7 @@ final class MainSession extends Session<BackGUIClient> {
 	public void initialize() {
 		
 		//Setups the GUI.
-		getParentClient().getRefGUI()
+		getRefGUI()
 		.setTitle(TITLE)
 		.setRootWidget(
 			new VerticalStack()
@@ -102,8 +101,8 @@ final class MainSession extends Session<BackGUIClient> {
 		final int deciseconds = (timer.getRunMilliseconds() / 100) % 10;
 		
 		//Fetches the time label.
-		final Label timeLabel
-		= getParentClient().getRefGUI().getRefWidgetByNameRecursively(WidgetNameManager.TIME_LABEL_NAME);
+		final Label timeLabel =
+		getRefGUI().getRefWidgetByNameRecursively(WidgetNameManager.TIME_LABEL_NAME);
 		
 		//Sets the text of the time label.
 		timeLabel.setText(String.format("%02d : %02d : %02d : %d", hours, minutes, seconds, deciseconds));

@@ -85,10 +85,10 @@ public final class BackGUIClientTutorial {
 		public void changeColor() {
 						
 			if (counter % 2 == 0) {
-				getParentClient().getRefGUI().setBackgroundColor(Color.GREEN);
+				getRefGUI().setBackgroundColor(Color.GREEN);
 			}
 			else {
-				getParentClient().getRefGUI().setBackgroundColor(Color.BLUE);
+				getRefGUI().setBackgroundColor(Color.BLUE);
 			}
 			
 			counter++;

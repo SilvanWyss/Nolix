@@ -7,8 +7,7 @@ import ch.nolix.core.util.Timer;
 import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.VerticalStack;
-import ch.nolix.system.GUIClient.BackGUIClient;
-import ch.nolix.system.client.Session;
+import ch.nolix.system.GUIClient.BackGUISession;
 
 //package-visible class
 /**
@@ -16,7 +15,7 @@ import ch.nolix.system.client.Session;
  * @month 2016-07
  * @lines 80
  */
-final class MainSession extends Session<BackGUIClient> {
+final class MainSession extends BackGUISession {
 	
 	//constants
 	private static final String TITLE = "Performance Detector";
@@ -34,7 +33,7 @@ final class MainSession extends Session<BackGUIClient> {
 	public void initialize() {
 		
 		//Setups the GUI.
-		getParentClient().getRefGUI()
+		getRefGUI()
 		.setTitle(TITLE)
 		.setRootWidget(
 			new VerticalStack()

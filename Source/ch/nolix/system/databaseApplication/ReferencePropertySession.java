@@ -37,9 +37,7 @@ public final class ReferencePropertySession extends HeaderedSession {
 	public void Select() {
 		
 		final SelectionMenu referencesSelectionMenu =
-		getParentClient()
-		.getRefGUI()
-		.getRefWidgetByNameRecursively("ReferencesSelectionMenu");
+		getRefGUI().getRefWidgetByNameRecursively("ReferencesSelectionMenu");
 		
 		referenceProperty.set(
 			referenceProperty

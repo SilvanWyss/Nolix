@@ -91,7 +91,7 @@ public final class EntitySession extends HeaderedSession {
 					final var property = (Property<?>)p;
 			
 					final TextBox dataTextBox =
-					getParentClient().getRefGUI().getRefWidgetByNameRecursively(p.getHeader());
+					getRefGUI().getRefWidgetByNameRecursively(p.getHeader());
 					
 					property.setGenericValue(dataTextBox.getText());
 					
