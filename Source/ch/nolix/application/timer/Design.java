@@ -31,21 +31,21 @@ final class Design extends StandardConfiguration {
 			new DeepConfiguration()
 			.setSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute(
-				"NormalTopPadding(50)",
+				"BaseTopPadding(50)",
 				"ContentPosition(Center)",
 				"ElementMargin(50)"
 			),
 			new StandardConfiguration()
 			.setSelectorName(WidgetNameManager.TIME_LABEL_NAME)
 			.addAttachingAttribute(
-				"NormalTextSize(60)",
-				"NormalTextColor(White)"
+				"BaseTextSize(60)",
+				"BaseTextColor(White)"
 			),	
 			new StandardConfiguration()
 			.setSelectorType(Button.TYPE_NAME)
 			.addAttachingAttribute(
 				"CursorIcon(Hand)",
-				"NormalTextSize(30)",
+				"BaseTextSize(30)",
 				"HoverTextColor(White)"
 			)
 		);
