@@ -585,6 +585,7 @@ extends ConfigurableElement<W> {
 	 * Lets the current {@link Widget} note any mouse button press.
 	 */
 	public final void noteAnyLeftMouseButtonPress() {
+				
 		if (isEnabled()) {
 			if (!isUnderCursor()) {
 				
@@ -601,7 +602,12 @@ extends ConfigurableElement<W> {
 				if (isNormal()) {
 					setHoverFocused();
 				}
+				
 				else if (isHovered()) {
+					setHoverFocused();
+				}
+				
+				else if (isFocused()) {
 					setHoverFocused();
 				}
 				
@@ -634,12 +640,12 @@ extends ConfigurableElement<W> {
 					setNormal();
 				}
 				
-				else if (isHoverFocused()) {
-					setFocused();
-				}
-				
 				else if (isFocused()) {
 					noteMouseMove();
+				}
+				
+				else if (isHoverFocused()) {
+					setFocused();
 				}
 			}
 			else {
@@ -647,8 +653,9 @@ extends ConfigurableElement<W> {
 				if (isNormal()) {
 					setHovered();
 				}
-				else if (isHoverFocused()) {
-					setFocused();
+				
+				else if (isFocused()) {
+					setHoverFocused();
 				}
 				
 				noteMouseMove();
