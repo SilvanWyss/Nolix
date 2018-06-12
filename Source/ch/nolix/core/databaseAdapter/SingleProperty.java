@@ -48,6 +48,16 @@ extends DataPropertyoid<V> {
 	}
 	
 	//method
+	public final boolean hasEqualValue(final V value) {
+		
+		if (!hasValue()) {
+			return false;
+		}
+		
+		return getValue().equals(value);
+	}
+	
+	//method
 	public final boolean hasValue() {
 		return (value != null);
 	}
