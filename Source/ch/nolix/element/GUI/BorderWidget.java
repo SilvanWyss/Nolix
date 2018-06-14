@@ -36,7 +36,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1730
+ * @lines 1770
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -1133,16 +1133,20 @@ extends BackgroundWidget<BW, BWS> {
 	/**
 	 * {@inheritDoc}
 	 */
-	protected final boolean viewAreaIsUnderCursor() {
+	protected final boolean viewAreaIsUnderCursor() {		
 		
-		//TODO: Better ask if the cursor is under the view area directly.
-		return
-		getCursorXPositionOnScrollArea() > 0
-		&& getCursorXPositionOnScrollArea() < getScrollAreaWidth()
-		&& getCursorYPositionOnScrollArea() > 0
-		&& getCursorYPositionOnContentArea() < getScrollAreaHeight();
+		//For a better performance, this implementation differs from the standard approach.	
+			final var cursorXPositionOnViewArea = getCursorXPositionOnViewArea();
+			final var cursorYPositionOnViewArea = getCursorYPositionOnViewArea();
+			
+			return
+			cursorXPositionOnViewArea > 0
+			&& cursorYPositionOnViewArea > 0
+			&& cursorXPositionOnViewArea < getViewAreaWidth()
+			&& cursorYPositionOnViewArea < getViewAreaHeight();
+		
 	}
-
+	
 	//method
 	/**
 	 * @return the height of the bordered area of this border widget.
@@ -1245,6 +1249,22 @@ extends BackgroundWidget<BW, BWS> {
 		}
 		
 		throw new InvalidStateException(this);
+	}
+	
+	//method
+	/**
+	 * @return the x-position of the cursor on the view area of this border widget.
+	 */
+	private int getCursorXPositionOnViewArea() {
+		return (getCursorXPosition() - getViewAreaXPosition());
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the cursor on the view area of this border widget.
+	 */
+	private int getCursorYPositionOnViewArea() {
+		return (getCursorYPosition() - getViewAreaYPosition());
 	}
 	
 	//method
@@ -1566,6 +1586,22 @@ extends BackgroundWidget<BW, BWS> {
 		}
 		
 		return viewAreaWidth;
+	}
+	
+	//method
+	/**
+	 * @return the x-position of the view area of this border widget.
+	 */
+	private int getViewAreaXPosition() {
+		return getBorderedAreaXPosition();
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the view area of this border widget.
+	 */
+	private int getViewAreaYPosition() {
+		return getBorderedAreaYPosition();
 	}
 	
 	//method
