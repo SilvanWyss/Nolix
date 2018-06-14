@@ -51,8 +51,10 @@ public final class EntitiesConnector<E extends Entity> {
 		
 		final var entities = new List<E>();
 		
-		for (final Specification a : entitiesSpecification.getRefAttributes()) {
-			entities.addAtEnd(entityType.createPersistedEntity(a.getFirstAttributeAsInt(), a.getRefAttributes().getContainerWithoutFirst()));
+		for (final var a : entitiesSpecification.getRefAttributes()) {
+			entities.addAtEnd(
+				new EntityConnector<E>(a).createPersistedEntity(entityType)
+			);
 		}
 		
 		return entities;
@@ -60,9 +62,7 @@ public final class EntitiesConnector<E extends Entity> {
 	
 	//method
 	public E getEntity(final int id, final EntityType<E> entityType) {
-		
-		//TODO
-		return getEntities(entityType).getRefFirst(e -> e.hasId(id));
+		return getEntityConnector(id).createPersistedEntity(entityType);
 	}
 	
 	//method
