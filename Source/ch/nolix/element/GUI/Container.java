@@ -16,7 +16,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 160
+ * @lines 140
  * @param <C> The type of a {@link Container}.
  * @param <BWS> The type of the {@link BorderWidgetLook} of a {@link Container}.
  */
@@ -103,24 +103,6 @@ extends BorderWidget<C, BWS> {
 		
 		//Handles the case that the current container has a role.
 		return getRole().toString().equals(role);
-	}
-	
-	//TODO: Do this in Widget.
-	//method
-	/**
-	 * Resets the configuration of the current {@link Container}.
-	 * 
-	 * @return the current {@link Container}.
-	 */
-	public C resetConfiguration() {
-		
-		//Calls method of the base class.
-		super.resetConfiguration();
-				
-		//Resets the configuration of the widgets of the current container.
-		getRefWidgets().forEach(r -> r.resetConfiguration());
-		
-		return getInstance();
 	}
 		
 	//method

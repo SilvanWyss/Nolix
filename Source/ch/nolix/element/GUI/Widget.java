@@ -30,7 +30,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1510
+ * @lines 1520
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -867,6 +867,9 @@ extends ConfigurableElement<W> {
 		getRefFocusLook().reset();
 		
 		setCursorIcon(CursorIcon.Arrow);
+		
+		//Resets the configuration of the widgets of the current widget.
+		getRefWidgets().forEach(r -> r.resetConfiguration());
 		
 		return getInstance();
 	}
