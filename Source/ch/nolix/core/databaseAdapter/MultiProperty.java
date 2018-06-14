@@ -16,6 +16,11 @@ implements Clearable<MultiProperty<V>> {
 	private final List<V> values = new List<V>();
 	
 	//method
+	public void addUntypedValue(final V value) {
+		addValue((V)value);
+	}
+	
+	//method
 	public void addValue(final V value) {
 		
 		values.addAtEnd(value);
