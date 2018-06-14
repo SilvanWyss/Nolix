@@ -362,13 +362,12 @@ public final class Grid extends Container<Grid, GridLook> {
 		
 		for (var ci = getColumnCount() + 1; ci <= columnIndex; ci++) {
 			
-			final var column = new GridCell[getRowCount()];
+			final var column = new List<GridCell>();
 			
 			for (var ri = 1; ri <= getRowCount(); ri++) {
-				column[ri - 1] = (new GridCell(ri, ci));
+				column.addAtEnd(new GridCell(ri, ci));
 			}
 			
-			//TODO: Extend addColumn method of Matrix.
 			cells.addColumn(column);
 		}
 	}
@@ -387,13 +386,12 @@ public final class Grid extends Container<Grid, GridLook> {
 		
 		for (var ri = getRowCount() + 1; ri <= rowIndex; ri++) {
 			
-			final var row = new GridCell[getColumnCount()];
+			final var row = new List<GridCell>();
 			
 			for (var ci = 1; ci <= getColumnCount(); ci++) {
-				row[ci - 1] = new GridCell(ri, ci);
+				row.addAtEnd(new GridCell(ri, ci));
 			}
 			
-			//TODO: Extend addRow method of Matrix.
 			cells.addRow(row);
 		}
 	}
