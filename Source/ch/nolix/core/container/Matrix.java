@@ -18,7 +18,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-07
- * @lines 510
+ * @lines 570
  * @param <E> The type of the elements of a {@link Matrix}.
  */
 public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
@@ -29,7 +29,9 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	//method
 	/**
 	 * Adds a new column to the current {@link Matrix} with the given elements.
-	 * The complexity of this method is O(n) if the current {@link Matrix} contains n rows.
+	 * The complexity of this method is O(m + n) if:
+	 * -The current {@link Matrix} contains m elements.
+	 * -n elements are given.
 	 * 
 	 * @param elements
 	 * @return the current {@link Matrix}.
@@ -42,18 +44,45 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	@SuppressWarnings("unchecked")
 	public Matrix<E> addColumn(final E... elements) {
 		
+		//Calls other method.
+		return addColumn(new ReadContainer<E>(elements));
+	}
+	
+	//method
+	/**
+	 * Adds a new column to the current {@link Matrix} with the given elements.
+	 * The complexity of this method is O(m + n) if:
+	 * -The current {@link Matrix} contains m elements.
+	 * -n elements are given.
+	 * 
+	 * @param elements
+	 * @return the current {@link Matrix}.
+	 * @throws NullArgumentException if the given elements is null.
+	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws UnequalArgumentException
+	 * if the current {@link Matrix} is not empty
+	 * and if not as many elements are given as the number of rows of the current {@link Matrix}.
+	 */
+	public Matrix<E> addColumn(final Iterable<E> elements) {
+		
 		//Checks if the given elements are not null.
-		Validator.supposeTheElements(elements).areNotNull();
+		Validator.supposeTheElements(elements).areNotNull();		
+		
+		final var elements_ = new ReadContainer<E>(elements);
 		
 		//Handles the case that the current {@link Matrix} is empty.
-		if (isEmpty()) {		
-			if (elements.length > 0) {
+		if (isEmpty()) {
+			if (elements_.containsAny()) {
 				
-				this.elements = new Object[elements.length][1];
+				this.elements = new Object[elements_.getElementCount()][1];
 				
 				//Iterates the given elements.
-				for (var i = 0; i < getColumnCount(); i++) {			
-					this.elements[i][0] = elements[i];
+				var i = 0;
+				for (final var e : elements_) {
+					
+					this.elements[i][0] = e;
+					
+					i++;
 				}
 			}
 		}
@@ -63,25 +92,27 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			
 			//Checks if as many elements are given as the number of rows of the current matrix.
 			Validator
-			.suppose(elements.length)
+			.suppose(elements_.getElementCount())
 			.thatIsNamed("number of the given elements")
 			.isEqualTo(getRowCount());
 			
 			final var columnCount = getColumnCount();
 			
-			//Iterates the rows of the current matrix.
-			for (var i = 0; i < getRowCount(); i++) {
+			//Iterates the given elements.
+			var i = 0;
+			for (final var e : elements_) {
 				
-				final var row = new Object[getColumnCount() + 1];
+				final var row = new Object[columnCount + 1];
 				
 				//Iterates the current row.
+				row[columnCount] = e;
 				for (var j = 0; j < columnCount; j++) {
 					row[j] = this.elements[i][j];
 				}
 				
-				row[columnCount] = elements[i];
-				
 				this.elements[i] = row;
+				
+				i++;
 			}
 		}
 		
@@ -91,30 +122,60 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	//method
 	/**
 	 * Adds a new row to the current {@link Matrix} with the given elements.
-	 * The complexity of this method is O(n) if the current {@link Matrix} contains n columns.
+	 * The complexity of this method is O(m + n) if:
+	 * -The current {@link Matrix} contains m rows.
+	 * -n elements are given.
 	 * 
 	 * @param elements
 	 * @return the current {@link Matrix}.
 	 * @throws NullArgumentException if the given elements is null.
 	 * @throws NullArgumentException if one of the given elements is null.
 	 * @throws UnequalArgumentException
-	 * if not as many elements are given as the number of columns of the current {@link Matrix}.
+	 * the current {@link Matrix} is not empty
+	 * and if not as many elements are given as the number of columns of the current {@link Matrix}.
 	 */
 	@SuppressWarnings("unchecked")
 	public Matrix<E> addRow(final E... elements) {
 		
+		//Calls other method.
+		return addRow(new ReadContainer<E>(elements));
+	}
+	
+	//method
+	/**
+	 * Adds a new row to the current {@link Matrix} with the given elements.
+	 * The complexity of this method is O(m + n) if:
+	 * -The current {@link Matrix} contains m rows.
+	 * -n elements are given.
+	 * 
+	 * @param elements
+	 * @return the current {@link Matrix}.
+	 * @throws NullArgumentException if the given elements is null.
+	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws UnequalArgumentException
+	 * the current {@link Matrix} is not empty
+	 * and if not as many elements are given as the number of columns of the current {@link Matrix}.
+	 */
+	public Matrix<E> addRow(final Iterable<E> elements) {
+		
 		//Checks if the given elements are not null.
 		Validator.supposeTheElements(elements).areNotNull();
 		
+		final var elements_ = new ReadContainer<E>(elements);
+		
 		//Handles the case that the current matrix is empty.
 		if (isEmpty()) {
-			if (elements.length > 0) {
+			if (elements_.containsAny()) {
 				
-				this.elements = new Object[1][elements.length];
+				this.elements = new Object[1][elements_.getElementCount()];
 				
 				//Iterates the given elements.
-				for (var i = 0; i < getColumnCount(); i++) {
-					this.elements[0][i] = elements[i];
+				var i = 0;
+				for (final var e : elements_) {
+					
+					this.elements[0][i] = e;
+					
+					i++;
 				}
 			}
 		}
@@ -124,20 +185,26 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			
 			//Checks if as many elements are given as the number of columns of the current matrix.
 			Validator
-			.suppose(elements.length)
+			.suppose(elements_.getElementCount())
 			.thatIsNamed("number of the given elements")
 			.isEqualTo(getColumnCount());
 			
-			final var newElements = new Object[getRowCount() + 1][getColumnCount()];
+			final var rowCount = getRowCount();
+			final var columnCount = getColumnCount();			
+			final var newElements = new Object[rowCount + 1][columnCount];
 			
 			//Iterates the rows of the current matrix.
-			for (var i = 0; i < getRowCount(); i++) {
+			for (var i = 0; i < rowCount; i++) {
 				newElements[i] = this.elements[i];
 			}
 			
 			//Iterates the given elements.
-			for (var i = 0; i < getColumnCount(); i++) {				
-				newElements[getRowCount()][i] = elements[i];
+			var i = 0;
+			for (final var e : elements_) {
+				
+				newElements[rowCount][i] = e;
+				
+				i++;
 			}
 			
 			this.elements = newElements;
