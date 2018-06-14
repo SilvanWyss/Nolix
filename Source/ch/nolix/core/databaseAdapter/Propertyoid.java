@@ -120,12 +120,6 @@ implements Headered, Specified {
 	//abstract method
 	public abstract boolean references(final Entity entity);
 	
-	//TODO: Use internal_setValues method directly.
-	//method
-	public void setGenericValue(final Object value) {
-		internal_setValues(new List<Object>(value));
-	}
-	
 	//abstract method
 	protected abstract void internal_clear();
 	
