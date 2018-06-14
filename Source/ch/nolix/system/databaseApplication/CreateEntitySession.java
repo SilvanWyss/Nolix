@@ -49,7 +49,7 @@ public final class CreateEntitySession extends HeaderedSession {
 					final TextBox dataTextBox =
 					getRefGUI().getRefWidgetByNameRecursively(p.getHeader());
 					
-					property.setGenericValue(dataTextBox.getText());
+					property.setUntypedValue(dataTextBox.getText());
 					
 					break;
 					
