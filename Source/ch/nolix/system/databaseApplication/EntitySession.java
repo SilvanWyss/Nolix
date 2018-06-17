@@ -130,7 +130,7 @@ public final class EntitySession extends HeaderedSession {
 		
 		final var backReferenceDataTabContainer = new TabContainer();
 		
-		//TODO
+		//TODO: Fill up back reference data tab container.
 		
 		return backReferenceDataTabContainer;
 	}
@@ -224,7 +224,7 @@ public final class EntitySession extends HeaderedSession {
 		
 		final var referenceDataTabContainer = new TabContainer();
 		
-		//TODO
+		//TODO: Fill up reference data tab container.
 		
 		return referenceDataTabContainer;
 	}
