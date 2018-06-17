@@ -135,9 +135,7 @@ public final class EntitySet extends NamedElement {
 	
 	//method
 	public boolean references(final EntitySet entitySet) {
-		
-		//TODO
-		return false;
+		return columns.contains(c -> c.references(entitySet));
 	}
 	
 	//method

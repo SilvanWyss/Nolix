@@ -87,4 +87,7 @@ public abstract class PropertyoidType<V> implements Specified {
 	public final boolean isReferenceType() {
 		return (getPropertyKind() == PropertyKind.REFERENCE);
 	}
+	
+	//method
+	public abstract boolean referencesEntitySet(final String name);
 }

@@ -19,4 +19,9 @@ extends PropertyoidType<V> {
 	public final PropertyKind getPropertyKind() {
 		return PropertyKind.DATA;
 	}
+	
+	//method
+	public boolean referencesEntitySet(final String name) {
+		return false;
+	}
 }

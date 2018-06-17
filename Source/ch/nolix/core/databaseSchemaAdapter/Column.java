@@ -76,4 +76,9 @@ implements Specified {
 	public boolean isReferenceColumn() {
 		return valueType.isReferenceType();
 	}
+	
+	//method
+	public boolean references(final EntitySet entitySet) {
+		return valueType.referencesEntitySet(entitySet.getName());
+	}
 }

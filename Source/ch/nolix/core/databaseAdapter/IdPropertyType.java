@@ -19,4 +19,9 @@ extends PropertyoidType<Integer> {
 	public PropertyKind getPropertyKind() {
 		return PropertyKind.ID;
 	}
+
+	//method
+	public boolean referencesEntitySet(final String name) {
+		return false;
+	}
 }

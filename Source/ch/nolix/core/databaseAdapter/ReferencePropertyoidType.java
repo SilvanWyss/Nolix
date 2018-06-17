@@ -19,4 +19,9 @@ extends PropertyoidType<E> {
 	public final PropertyKind getPropertyKind() {
 		return PropertyKind.REFERENCE;
 	}
+	
+	//method
+	public boolean referencesEntitySet(final String name) {
+		return getValueClass().getSimpleName().equals(name);
+	}
 }
