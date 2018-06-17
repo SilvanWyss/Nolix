@@ -83,8 +83,6 @@ public final class FileAccessor extends FileSystemItemAccessor {
 		try {
 			return
 			new String(Files.readAllBytes(getInternalAccessor().toPath()))
-					
-			//TODO
 			.replace("\r", StringCatalogue.EMPTY_STRING);
 		}
 		catch (final IOException exception) {
