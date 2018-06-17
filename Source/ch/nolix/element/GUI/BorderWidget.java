@@ -36,7 +36,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1770
+ * @lines 1760
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -261,7 +261,6 @@ extends BackgroundWidget<BW, BWS> {
 		}
 		
 		//Handles the case that this border widget has a horizontal scrollbar.
-		//TODO: Add scrollbar thickness to border widget structure.
 		return 20;
 	}
 	
@@ -419,7 +418,6 @@ extends BackgroundWidget<BW, BWS> {
 		}
 		
 		//Handles the case that this border widget has a vertical scroll bar.
-		//TODO: Add scrollbar thickness to border widget structure.
 		return 20;
 	}
 	
@@ -787,7 +785,6 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final BW setMaxHeight(final int maxHeight) {
 		
-		//TODO: Check conditions.
 		this.maxHeight.setValue(new PositiveInteger(maxHeight));
 		
 		return getInstance();
@@ -803,7 +800,6 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final BW setMaxWidth(final int maxWidth) {
 		
-		//TODO: Check conditions.
 		this.maxWidth.setValue(new PositiveInteger(maxWidth));
 		
 		return getInstance();
@@ -819,7 +815,6 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final BW setMinHeight(final int minHeight) {
 		
-		//TODO: Check conditions.
 		this.minHeight.setValue(new PositiveInteger(minHeight));
 		
 		return getInstance();
@@ -835,7 +830,6 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final BW setMinWidth(final int minWidth) {
 		
-		//TODO: Check conditions.
 		this.minWidth.setValue(new PositiveInteger(minWidth));
 		
 		return getInstance();
