@@ -12,7 +12,7 @@ import ch.nolix.primitive.validator2.Validator;
 //class
 /**
  * A {@link Matrix} is a {@link IContainer}}
- * that stores elements in rows and columns.
+ * that stores its elements in rows and columns.
  * 
  * A {@link Matrix} is clearable.
  * 
@@ -572,8 +572,5 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		.suppose(columnIndex)
 		.thatIsNamed(VariableNameCatalogue.COLUMN_INDEX)
 		.isNotBiggerThan(getColumnCount());
-		
-		//TODO: Add add-mediator to validator mediators.
-		//TODO: Add naming of of limits to validator. Validator.suppose(rowIndex).isNotBiggerThan("number of rows", getNumberOfRows())
 	}
 }
