@@ -127,33 +127,6 @@ public final class MultiShape extends Shape<MultiShape> {
 	
 	//method
 	/**
-	 * @return the x-bound-length of this multi shape.
-	 */
-	public double getXBoundLength() {
-		//TODO
-		return 0;
-	}
-
-	//method
-	/**
-	 * @return the y-bound-length of this multi shape.
-	 */
-	public double getYBoundLength() {
-		//TODO
-		return 0;
-	}
-
-	//method
-	/**
-	 * @return the z-bound-length of this multi shape.
-	 */
-	public double getZBoundLength() {
-		//TODO
-		return 0;
-	}
-	
-	//method
-	/**
 	 * Removes the given shape from this multi shape.
 	 * 
 	 * @param shape
