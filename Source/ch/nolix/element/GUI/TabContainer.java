@@ -468,7 +468,6 @@ implements Clearable<TabContainer> {
 			final var label = t.getRefMenuItem();
 			label.setText(t.getHeader());
 			
-			//TODO: Make min width of Widget state-dependent.
 			if (baseMenuItemLook.hasMinWidth()) {
 				label.setMinWidth(baseMenuItemLook.getOwnOrDefaultMinWidth());
 			}
