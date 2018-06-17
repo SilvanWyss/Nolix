@@ -64,12 +64,7 @@ implements IDatabaseSchemaConnector {
 	
 	//method
 	public boolean containsEntitySet() {
-		
-		//TODO: Add containsAttribute method with condition parameter to Specification.
-		return
-		databaseSpecification
-		.getRefAttributes(a -> a.hasHeader("EntitySet"))
-		.containsAny();
+		return databaseSpecification.containsAttribute(a -> a.hasHeader("EntitySet"));
 	}
 	
 	//method
@@ -154,6 +149,6 @@ implements IDatabaseSchemaConnector {
 
 	//method
 	public void updatedEntitySet(final EntitySet entitySet) {
-		//TODO
+		//TODO: Implement.
 	}
 }
