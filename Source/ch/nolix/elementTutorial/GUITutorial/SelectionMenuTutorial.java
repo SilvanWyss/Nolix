@@ -41,16 +41,17 @@ public final class SelectionMenuTutorial {
 			"Theodor W. Adorno",
 			"Jürgen Habermas",
 			"Richard David Precht"
-		)
-		.setMaxHeight(200);
+		);
 		
 		//Configures the look of the selection menu.
-		selectionMenu
-		.getRefBaseLook()
-		.setBorderThicknesses(5)
-		.setBorderColors(Color.DARK_BLUE)
-		.setBackgroundColor(Color.ALICE_BLUE)
-		.setItemPadding(5);
+			selectionMenu.setMaxHeight(200);
+		
+			selectionMenu
+			.getRefBaseLook()
+			.setBorderThicknesses(5)
+			.setBorderColors(Color.DARK_BLUE)
+			.setBackgroundColor(Color.ALICE_BLUE)
+			.setItemPadding(5);
 		
 		//Creates a frame with the selection menu.
 		new Frame()
