@@ -30,7 +30,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1590
+ * @lines 1610
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -1258,10 +1258,36 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
+	 * @return the x-position of the current {@link Widget} on the {@link GUI} it belongs to.
+	 */
+	protected final int getXPositionOnGUI() {
+		
+		if (!belongsToWidget()) {
+			return getXPositionOnParent();
+		}
+		
+		return (getParentWidget().getXPositionOnGUI() + getXPositionOnParent());
+	}
+	
+	//method
+	/**
 	 * @return the x-position of the current {@link Widget} on its parent container.
 	 */
 	protected final int getXPositionOnParent() {
 		return xPositionOnParent;
+	}
+	
+	//method
+	/**
+	 * @return the y-position of the current {@link Widget} on the {@link GUI} it belongs to.
+	 */
+	protected final int getYPositionOnGUI() {
+		
+		if (!belongsToWidget()) {
+			return getYPositionOnParent();
+		}
+		
+		return (getParentWidget().getYPositionOnGUI() + getYPositionOnParent());
 	}
 	
 	//method
