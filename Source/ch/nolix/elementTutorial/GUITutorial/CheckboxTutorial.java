@@ -26,10 +26,10 @@ public final class CheckboxTutorial {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		//Creates a check box
+		//Creates a checkbox
 		final var checkBox = new Checkbox();
 		
-		//Configures the look of the check box.
+		//Configures the look of the checkbox.
 		checkBox
 		.getRefBaseLook()
 		.setSize(50)
@@ -37,7 +37,7 @@ public final class CheckboxTutorial {
 		.setLineThickness(5)
 		.setLineColor(Color.DARK_BLUE);
 		
-		//Creates a frame with the check box.
+		//Creates a frame with the checkbox.
 		new Frame()
 		.setTitle("Checkbox Tutorial")
 		.setRootWidget(checkBox);
