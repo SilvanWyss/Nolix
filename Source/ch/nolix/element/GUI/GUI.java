@@ -714,7 +714,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		Validator.suppose(rootWidget).thatIsNamed("root widget").isNotNull();
 		
 		//Sets the root widget of this GUI.
-		rootWidget.setGUI(this);
+		rootWidget.setParentGUI(this);
 		this.rootWidget = rootWidget;
 		
 		return getInstance();

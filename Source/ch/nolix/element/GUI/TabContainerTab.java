@@ -259,8 +259,8 @@ implements Clearable<TabContainerTab> {
 		.thatIsOfType(Widget.class)
 		.isNotNull();
 		
-		if (belongsToTabContainer() && getParentTabContainer().belongsToGUI()) {
-			widget.setGUI(getParentTabContainer().getParentGUI());
+		if (belongsToTabContainer()) {
+			widget.setParentWidget(getParentTabContainer());
 		}
 		
 		//Sets the widget of the current tab container tab.

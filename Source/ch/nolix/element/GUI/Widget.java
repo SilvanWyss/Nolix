@@ -30,7 +30,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1520
+ * @lines 1590
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -75,6 +75,12 @@ extends ConfigurableElement<W> {
 	private boolean calculatedHeightIsUpToDate = false;
 	private int calculatedWidth;
 	private int calculatedHeight;
+	
+	//optional attribute
+	/**
+	 * The {@link Widget} the current {@link Widget} belongs to.
+	 */
+	private Widget<?, ?> parentWidget;
 	
 	//optional attribute
 	/**
@@ -187,6 +193,14 @@ extends ConfigurableElement<W> {
 	 */
 	public final boolean belongsToGUI() {
 		return (parentGUI != null);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Widget} belongs to a {@link Widget}.
+	 */
+	public final boolean belongsToWidget() {
+		return (parentWidget != null);
 	}
 	
 	//method
@@ -359,6 +373,19 @@ extends ConfigurableElement<W> {
 		supposeBelongsToGUI();
 		
 		return parentGUI;
+	}
+	
+	//method
+	/**
+	 * @return the {@link Widget} the current {@link Widget} belongs to.
+	 * @throws InvalidStateException if the current {@link Widget} does not belong to a {@link Widget}.
+	 */
+	public final Widget<?, ?> getParentWidget() {
+		
+		//Checks if the current widget belongs to a Widget.
+		supposeBelongsToWidget();
+		
+		return parentWidget;
 	}
 	
 	//method
@@ -1288,25 +1315,27 @@ extends ConfigurableElement<W> {
 		);
 	}
 	
-
-	
 	//method
 	/**
-	 * Sets the GUI the current {@link Widget} will belong to.
+	 * Sets the {@link Widget} the current {@link Widget} will belong to.
 	 * 
-	 * @param GUI
-	 * @throws NullArgumentException if the given GUI is null.
-	 * @throws InvalidArgumentException if the current {@link Widget} belongs already to an other GUI.
+	 * @param parentWidget
+	 * @throws NullArgumentException if the given parent widget is null.
 	 */
-	protected void setGUI(final GUI<?> GUI) {
+	protected final void setParentWidget(final Widget<?, ?> parentWidget) {
 		
-		//Calls method of the base class.
-		setRequestableContainer(GUI);
+		//Checks if the given parent widget is not null.
+		Validator
+		.suppose(parentWidget)
+		.thatIsNamed("parent widget")
+		.isNotNull();
 		
-		getRefWidgets().forEach(w -> w.setGUI(GUI));
+		//Sets the parent widget of the current widget.
+		this.parentWidget = parentWidget;
 		
-		//Sets the GUI of the current {@link Widget}.
-		this.parentGUI = GUI;
+		if (getParentWidget().belongsToGUI()) {
+			setParentGUI(getParentWidget().getParentGUI());
+		}
 	}
 	
 	//method
@@ -1337,7 +1366,32 @@ extends ConfigurableElement<W> {
 		}
 	}
 	
+	//abstract method
+	/**
+	 * @return true if the view are of the current {@link Widget} is under the cursor.
+	 */
 	protected abstract boolean viewAreaIsUnderCursor();
+	
+	//package-visible method
+	/**
+	 * Sets the GUI the current {@link Widget} will belong to.
+	 * 
+	 * @param GUI
+	 * @throws NullArgumentException if the given GUI is null.
+	 */
+	void setParentGUI(final GUI<?> parentGUI) {
+		
+		Validator
+		.suppose(parentGUI)
+		.thatIsNamed("parent GUI")
+		.isNotNull();
+		
+		setRequestableContainer(parentGUI);
+		
+		this.parentGUI = parentGUI;
+		
+		getRefWidgets().forEach(w -> w.setParentGUI(getParentGUI()));
+	}
 	
 	//method
 	/**
@@ -1438,7 +1492,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @throws InvalidStateException if the current {@link Widget} belongs to no GUI.
+	 * @throws InvalidStateException if the current {@link Widget} does not belong to a {@link GUI}.
 	 */
 	private void supposeBelongsToGUI() {
 		
@@ -1446,7 +1500,22 @@ extends ConfigurableElement<W> {
 		if (!belongsToGUI()) {
 			throw new InvalidStateException(
 				this,
-				"belongs to no GUI"
+				"does not belong to a GUI"
+			);
+		}
+	}
+	
+	//method
+	/**
+	 * @throws InvalidStateException if the current {@link Widget} does not belong to a {@link Widget}.
+	 */
+	private void supposeBelongsToWidget() {
+		
+		//Checks if the current widget belongs to a widget.
+		if (!belongsToWidget()) {
+			throw new InvalidStateException(
+				this,
+				"does not belong to a widget"
 			);
 		}
 	}

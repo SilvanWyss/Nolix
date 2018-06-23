@@ -187,13 +187,9 @@ public final class Grid extends Container<Grid, GridLook> {
 		final int columnIndex,
 		final Widget<?, ?> widget
 	) {
-		
 		expandTo(rowIndex, columnIndex);
-		cells.set(rowIndex, columnIndex, new GridCell(rowIndex, columnIndex, widget));
-		
-		if (belongsToGUI()) {
-			widget.setGUI(getParentGUI());
-		}
+		cells.set(rowIndex, columnIndex, new GridCell(rowIndex, columnIndex, widget));	
+		widget.setParentWidget(this);
 		
 		return this;
 	}

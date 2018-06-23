@@ -95,7 +95,7 @@ extends Container<SingleContainer, SingleContainerLook> {
 	 * @throws Exception if the given rectangle does not belong to the dialog this single container belongs to
 	 */
 	public void setRectangle(Widget<?, ?> rectangle) {
-		rectangle.setGUI(getParentGUI());
+		setParentWidget(rectangle);
 		this.widget = rectangle;
 	}
 	

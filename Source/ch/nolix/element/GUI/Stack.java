@@ -74,11 +74,7 @@ implements Clearable<S> {
 		.thatIsOfType(Widget.class)
 		.isNotNull();
 		
-		//Handles the case that the current {@link Stack} belongs to a GUI.
-		if (belongsToGUI()) {
-			widget.setGUI(getParentGUI());
-		}
-		
+		widget.setParentWidget(this);		
 		widgets.addAtEnd(widget);
 		
 		return getInstance();
