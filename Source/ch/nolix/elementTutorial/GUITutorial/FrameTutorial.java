@@ -2,81 +2,34 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
 //own imports
-import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.Frame;
-import ch.nolix.element.GUI.VerticalStack;
-import ch.nolix.element.configuration.DeepConfiguration;
-import ch.nolix.element.configuration.StandardConfiguration;
+import ch.nolix.element.color.Color;
 
 //class
 /**
- * This class provides a tutorial for the frame class.
- * Of this class no instance can be created.
+ * The {@link FrameTutorial} is a tutorial for a {@link Frame}.
+ * Of the {@link FrameTutorial} no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 90
+ * @lines 30
  */
 public final class FrameTutorial {
-	
-	//static attribute
-	private static Frame frame;
 
 	//main method
 	/**
-	 * 1. Creates a frame.
-	 *    A frame is a 2D GUI, that is a common window.
-	 * 2. Sets a root widget to the frame.
-	 *    A widget is a GUI element. Certain types of widgets can contain other widgets.
-	 * 3. Sets a controller to the frame.
-	 *    A controller is an object that executes the GUI commands.
-	 * 4. Sets a configuration to the frame.
-	 *    A configuration can configure a configurable element like a frame.
+	 * Creates a {@link Frame} with an alice blue background.
 	 */
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-		frame =
 		new Frame()
 		.setTitle("Frame Tutorial")
-		.setRootWidget(
-			new VerticalStack()
-			.addWidget(
-				new Button()
-				.setText("~ Quit ~")
-				.setLeftMouseButtonPressCommand(() -> quit())
-			)
-		)
-		.setConfiguration(
-			new StandardConfiguration()
-			.addAttachingAttribute("ContentPosition(Center)")
-			.addConfiguration(
-				new DeepConfiguration()
-				.setSelectorType(VerticalStack.TYPE_NAME)
-				.addAttachingAttribute(
-					"ContentPosition(Center)",
-					"ElementMargin(50)"
-				),
-				new DeepConfiguration()
-				.setSelectorType(Button.TYPE_NAME)
-				.addAttachingAttribute(
-					"CursorIcon(Hand)",
-					"NormalPadding(10)",
-					"NormalTextSize(50)",
-					"NormalBackgroundColor(LightGrey)",
-					"HoverBackgroundColor(Grey)"	
-				)
-			)
-		);
-	}
-	
-	//static method
-	public static void quit() {
-		frame.close();
+		.setBackgroundColor(Color.ALICE_BLUE);
 	}
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link FrameTutorial} can be created.
 	 */
 	private FrameTutorial() {}
 }
