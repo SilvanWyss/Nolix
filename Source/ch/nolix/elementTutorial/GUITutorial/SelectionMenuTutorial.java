@@ -27,7 +27,8 @@ public final class SelectionMenuTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a selection menu.
-		final var selectionMenu = new SelectionMenu()
+		final var selectionMenu =
+		new SelectionMenu()
 		.addItem(
 			"Gottfried Wilhelm Leibniz",
 			"Immanuel Kant",
