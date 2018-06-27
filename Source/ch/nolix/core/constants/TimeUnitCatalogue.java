@@ -3,7 +3,7 @@ package ch.nolix.core.constants;
 
 //class
 /**
- * Of this class no instance can be created.
+ * Of the {@link TimeUnitCatalogue} no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2017-02
@@ -38,7 +38,7 @@ public final class TimeUnitCatalogue {
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link TimeUnitCatalogue} can be created.
 	 */
 	private TimeUnitCatalogue() {}
 }
