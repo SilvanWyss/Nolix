@@ -10,7 +10,7 @@ package ch.nolix.core.constants;
  * @lines 80
  */
 public final class PascalCaseNameCatalogue {
-
+	
 	//constants
 	public static final String AGE = "Age";
 	public static final String AMOUNT = "Amount";
