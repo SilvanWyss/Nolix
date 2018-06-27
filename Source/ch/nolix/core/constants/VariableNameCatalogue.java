@@ -9,7 +9,7 @@ package ch.nolix.core.constants;
  * @month 2017-11
  * @lines 100
  */
-public class VariableNameCatalogue {
+public final class VariableNameCatalogue {
 	
 	//constants
 	public static final String AGE = "age";
@@ -99,10 +99,10 @@ public class VariableNameCatalogue {
 	public static final String WEIGHT = "weight";
 	public static final String WIDTH = "width";
 	public static final String YEAR = "year";
-
+	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link VariableNameCatalogue} can be created.
 	 */
 	private VariableNameCatalogue() {}
 }
