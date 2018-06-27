@@ -9,9 +9,9 @@ package ch.nolix.core.constants;
  * @month 2018-04
  * @lines 20
  */
-public class MultiPascalCaseNameCatalogue {
+public final class MultiPascalCaseNameCatalogue {
 	
-	//constants
+	//constant
 	public static final String ENTITIES = "Entities";
 
 	//private constructor
