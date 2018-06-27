@@ -12,7 +12,7 @@ import ch.nolix.element.font.TextFont;
 
 //class
 /**
- * The {@link GridTutorial} provides a tutorial for the {@link Grid}.
+ * The {@link GridTutorial} provides a tutorial for a {@link Grid}.
  * Of the {@link GridTutorial} no instance can be created.
  * 
  * @author Silvan Wyss

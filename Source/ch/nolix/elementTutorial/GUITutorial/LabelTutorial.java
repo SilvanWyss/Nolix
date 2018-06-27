@@ -11,7 +11,7 @@ import ch.nolix.element.core.Time;
 
 //class
 /**
- * The {@link LabelTutorial} is a tutorial for a {@link Label}.
+ * The {@link LabelTutorial} provides a tutorial for a {@link Label}.
  * Of the {@link LabelTutorial} no instance can be created.
  *
  * @author Silvan Wyss

@@ -8,7 +8,7 @@ import ch.nolix.element.color.Color;
 
 //class
 /**
- * The {@link ScrollTutorial} provides a tutorial for the scroll feature of the {@link Label}.
+ * The {@link ScrollTutorial} provides a tutorial for the scroll feature of a {@link Label}.
  * Of the {@link ScrollTutorial} no instance can be created.
  * 
  * @author Silvan Wyss

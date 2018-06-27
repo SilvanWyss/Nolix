@@ -7,7 +7,7 @@ import ch.nolix.element.color.Color;
 
 //class
 /**
- * The {@link FrameTutorial} is a tutorial for a {@link Frame}.
+ * The {@link FrameTutorial} provides a tutorial for a {@link Frame}.
  * Of the {@link FrameTutorial} no instance can be created.
  * 
  * @author Silvan Wyss
