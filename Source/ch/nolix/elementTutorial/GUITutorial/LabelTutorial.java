@@ -18,7 +18,7 @@ import ch.nolix.element.core.Time;
  * @month 2017-09
  * @lines 70
  */
-public final class FrameTutorial2 {
+public final class LabelTutorial {
 
 	//main method
 	@SuppressWarnings("resource")
