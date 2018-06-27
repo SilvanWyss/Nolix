@@ -3,7 +3,7 @@ package ch.nolix.core.constants;
 
 //class
 /**
- * Of this class no instance can be created.
+ * Of the {@link StringCatalogue} no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2016-09
@@ -11,16 +11,16 @@ package ch.nolix.core.constants;
  */
 public final class StringCatalogue {
 	
-	//strings
+	//constants
 	public static final String EMPTY_STRING = "";
 	public static final String DEFAULT_STRING = "Default";
 	public static final String ELLIPSIS = "...";
 	public static final String HEXADECIMAL_PREFIX = "0x";
 	public static final String NULL_NAME = "null";
-
+	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link StringCatalogue} can be created.
 	 */
 	private StringCatalogue() {}
 }
