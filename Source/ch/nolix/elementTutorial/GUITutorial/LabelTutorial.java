@@ -11,12 +11,12 @@ import ch.nolix.element.core.Time;
 
 //class
 /**
- * This class provides a tutorial for the frame class.
- * Of this class no instance can be created.
+ * The {@link LabelTutorial} is a tutorial for a {@link Label}.
+ * Of the {@link LabelTutorial} no instance can be created.
  *
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 70
+ * @lines 80
  */
 public final class LabelTutorial {
 
@@ -25,19 +25,26 @@ public final class LabelTutorial {
 	public static void main(String[] args) {
 	
 		//Creates clock caption label.
-		final Label clockCaptionLabel = new Label("Time:");		
+		final var clockCaptionLabel = new Label("Time:");	
+		
+		//Sets the look of the clock caption label.
+		clockCaptionLabel
+		.getRefBaseLook()
+		.setTextSize(50);
 		
 		//Creates clock label.
-		final Label clockLabel = new Label();
+		final var clockLabel = new Label();
 		
-		//Sets a yellow background color to the clock label.
+		//Sets the look of the clock label.
 		clockLabel
 		.getRefBaseLook()
-		.setBackgroundColor(Color.YELLOW);
+		.setBackgroundColor(Color.YELLOW)
+		.setTextSize(50);
 	
-		//Creates a frame that contains the clock caption label and the clock label.
-		final Frame frame
-		= new Frame()
+		//Creates a frame that will contain the clock caption label and the clock label.
+		final var frame =
+		new Frame()
+		.setTitle("Label Tutorial")
 		.setRootWidget(
 			new HorizontalStack(
 				clockCaptionLabel,
@@ -45,7 +52,7 @@ public final class LabelTutorial {
 			)
 		);
 		
-		//Defines and starts the background job that updates the text of the clock label.
+		//Starts the background job that updates the text of the clock label.
 		Sequencer
 		.asLongAs(() -> frame.isAlive())
 		.afterAllMilliseconds(100)
@@ -53,21 +60,28 @@ public final class LabelTutorial {
 			() -> {
 				
 				//Gets the current time.
-				final Time currentTime = Time.createCurrentTime();
+				final var currentTime = Time.createCurrentTime();
 				
-				final String text
-				= String.format(
+				//Creates text.
+				final var text =
+				String.format(
 					"%02d:%02d:%02d",
 					currentTime.getHourOfDay(),
 					currentTime.getMinuteOfHour(),
 					currentTime.getSecondOfMinute()
 				);
 				
-				//Sets the new text to the clock label.
+				//Sets the text to the clock label.
 				clockLabel.setText(text);
 				
 				frame.refresh();
 			}
 		);
 	}
+	
+	//private constructor
+	/**
+	 * Avoids that an instance of the {@link LabelTutorial} can be created.
+	 */
+	private LabelTutorial() {}
 }
