@@ -9,7 +9,7 @@ package ch.nolix.core.constants;
  * @month 2018-04
  * @lines 80
  */
-public class PascalCaseNameCatalogue {
+public final class PascalCaseNameCatalogue {
 
 	//constants
 	public static final String AGE = "Age";
