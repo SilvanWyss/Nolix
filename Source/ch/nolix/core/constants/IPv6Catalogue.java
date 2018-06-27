@@ -3,7 +3,7 @@ package ch.nolix.core.constants;
 
 //class
 /**
- * Of this class no instance can be created.
+ * Of the {@link IPv6Catalogue} no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2017-02
@@ -16,7 +16,7 @@ public final class IPv6Catalogue {
 
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link IPv6Catalogue} can be created.
 	 */
 	private IPv6Catalogue() {}
 }
