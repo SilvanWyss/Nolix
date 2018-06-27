@@ -3,7 +3,8 @@ package ch.nolix.core.constants;
 
 //class
 /**
- * The environment variable catalogue provides environment variables for Microsoft Windows.
+ * The {@link EnvironmentVariableCatalogue} provides environment variables for Microsoft Windows.
+ * Of the {@link EnvironmentVariableCatalogue} no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2016-09
@@ -11,12 +12,12 @@ package ch.nolix.core.constants;
  */
 public final class EnvironmentVariableCatalogue {
 
-	//environment variable
+	//constant
 	public static final String APP_DATA = "APPDATA";
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link EnvironmentVariableCatalogue} can be created.
 	 */
 	private EnvironmentVariableCatalogue() {}
 }
