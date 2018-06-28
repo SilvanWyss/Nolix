@@ -537,7 +537,7 @@ implements Clearable<Console> {
 	
 	//method
 	/**
-	 * {@inheritDoc}}
+	 * {@inheritDoc}
 	 */
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {
 		getRefBaseLook().setPaddings(10);

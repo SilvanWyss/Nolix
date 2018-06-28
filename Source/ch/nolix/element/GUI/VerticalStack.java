@@ -39,7 +39,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 		
 	//method
 	/**
-	 * {@inheritDoc}}
+	 * {@inheritDoc}
 	 */
 	protected int getContentAreaHeight() {
 		
@@ -55,7 +55,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	
 	//method
 	/**
-	 * {@inheritDoc}}
+	 * {@inheritDoc}
 	 */
 	protected int getContentAreaWidth() {
 		
@@ -70,7 +70,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	
 	//method
 	/**
-	 * {@inheritDoc}}
+	 * {@inheritDoc}
 	 */
 	protected void setPositionOnParent(
 		final int xPositionOnParent,

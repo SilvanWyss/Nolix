@@ -521,7 +521,7 @@ implements Clearable<TabContainer> {
 	
 	//method
 	/**
-	 * {@inheritDoc}}
+	 * {@inheritDoc}
 	 */
 	protected void setPositionOnParent(
 		final int xPositionOnParent,

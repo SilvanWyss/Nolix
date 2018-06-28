@@ -104,7 +104,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * {@inheritDoc}}
+	 * {@inheritDoc}
 	 */
 	public void addOrChangeAttribute(final Specification attribute) {
 		
@@ -128,7 +128,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * {@inheritDoc}}
+	 * {@inheritDoc}
 	 */
 	public CursorIcon getActiveCursorIcon() {
 		return getCursorIcon();
@@ -136,7 +136,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * {@inheritDoc}}
+	 * {@inheritDoc}
 	 */
 	public List<StandardSpecification> getAttributes() {
 		
@@ -205,7 +205,7 @@ public final class Area extends Widget<Area, AreaLook> {
 		
 	//method
 	/**
-	 * {@inheritDoc}}
+	 * {@inheritDoc}
 	 */
 	public Area resetConfiguration() {
 		

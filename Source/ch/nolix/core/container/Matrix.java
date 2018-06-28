@@ -11,7 +11,7 @@ import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**
- * A {@link Matrix} is a {@link IContainer}}
+ * A {@link Matrix} is a {@link IContainer}
  * that stores its elements in rows and columns.
  * 
  * A {@link Matrix} is clearable.
