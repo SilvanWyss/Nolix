@@ -14,7 +14,7 @@ import ch.nolix.element.color.Color;
  * 
  * @author Silvan Wyss
  * @month 2018-05
- * @lines 70
+ * @lines 60
  */
 public final class ButtonTutorial {
 	
