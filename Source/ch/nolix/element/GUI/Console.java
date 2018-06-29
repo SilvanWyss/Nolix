@@ -25,7 +25,7 @@ import ch.nolix.primitive.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 760
+ * @lines 770
  */
 public final class Console
 extends BorderWidget<Console, ConsoleLook>
@@ -540,6 +540,7 @@ implements Clearable<Console> {
 		
 		lines.addAtEnd(line);
 		clearEditLine();
+		scrollToBottom();
 		
 		return this;
 	}
@@ -619,6 +620,8 @@ implements Clearable<Console> {
 			contentAreaHeight += currentLook.getRecursiveOrDefaultTextSize();
 		}
 		
+		contentAreaHeight += 0.5 * currentLook.getRecursiveOrDefaultTextSize();
+		
 		return contentAreaHeight;
 	}
 
@@ -627,14 +630,16 @@ implements Clearable<Console> {
 	 * @return the width of the content of this console.
 	 */
 	protected int getContentAreaWidth() {
-			
-		if (isEmpty()) {
-			return 0;
-		}	
-			
+		
 		final var font = getFont();
 		
-		return getLines().getMax(l -> font.getSwingTextWidth(l));
+		if (isEmpty()) {
+			return font.getSwingTextWidth(getLinePrefix());
+		}		
+		
+		return
+		font.getSwingTextWidth(getLinePrefix())
+		+ getLines().getMax(l -> font.getSwingTextWidth(l));
 	}
 	
 	//method
