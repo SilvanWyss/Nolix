@@ -5,12 +5,9 @@ package ch.nolix.element.GUI;
 import java.awt.event.KeyEvent;
 
 //own imports
-import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -18,7 +15,7 @@ import ch.nolix.primitive.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2016-03
- * @lines 380
+ * @lines 310
  */
 public final class TextBox extends TextLineWidget<TextBox> {
 
@@ -28,8 +25,10 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	//limit value
 	public static final int MIN_WIDTH = 10;
 	
-	//attributes
-	private PositiveInteger widthProperty = new PositiveInteger(200);
+	//constant
+	private static final int MIN_CONTENT_AREA_WIDTH = 200;
+	
+	//attribute
 	private int textCursorPosition = 0;
 	
 	//constructor
@@ -52,41 +51,6 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		reset();
 		approveProperties();
 		setText(text);
-	}
-	
-	//method
-	/**
-	 * Adds or changes the given attribute to the current {@link TextBox}.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid
-	 */
-	public void addOrChangeAttribute(final Specification attribute) {
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case PascalCaseNameCatalogue.WIDTH:
-				setWidth(attribute.getOneAttributeAsInt());
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-	
-	//method
-	/**
-	 * @return the attributes of the current {@link TextBox}.
-	 */
-	public List<StandardSpecification> getAttributes() {
-		
-		//Calls method of the base class.
-		final var attributes = super.getAttributes();
-		
-		attributes.addAtEnd(getWidthProperty().getSpecificationAs(PascalCaseNameCatalogue.WIDTH));
-		
-		return attributes;
 	}
 	
 	//method
@@ -219,27 +183,6 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	
 	//method
 	/**
-	 * Sets the width of the current {@link TextBox}.
-	 * 
-	 * @param width
-	 * @return the current {@link TextBox}.
-	 * @throws SmallerArgumentException
-	 * if the given width is smaller than the min width of a {@link TextBox}.
-	 */
-	public TextBox setWidth(int width) {
-		
-		Validator
-		.suppose(width)
-		.thatIsNamed(VariableNameCatalogue.WIDTH)
-		.isNotSmallerThan(MIN_WIDTH);
-		
-		this.widthProperty = new PositiveInteger(width);
-		
-		return this;
-	}
-	
-	//method
-	/**
 	 * {@inheritDoc}
 	 */
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {
@@ -251,16 +194,12 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	/**
 	 * @return the width of the content area of current {@link TextBox}.
 	 */
-	protected final int getContentAreaWidth() {	
-		
-		final var currentLook = getRefCurrentLook();
-		
+	protected final int getContentAreaWidth() {
 		return
-		getWidthProperty().getValue()
-		- currentLook.getRecursiveOrDefaultLeftPadding()
-		- currentLook.getRecursiveOrDefaultLeftBorderThickness()
-		- currentLook.getRecursiveOrDefaultRightBorderThickness()
-		- currentLook.getRecursiveOrDefaultRightPadding();
+		Calculator.getMin(
+			MIN_CONTENT_AREA_WIDTH,
+			createFont().getSwingTextWidth(getText())
+		);
 	}
 	
 	//method
@@ -344,14 +283,6 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 */
 	private final int getTextCursorXPositionOnContentArea() {
 		return createFont().getSwingTextWidth(getTextBeforeTextCursor());
-	}
-	
-	//method
-	/**
-	 * @return the width property of the current {@link TextBox}.
-	 */
-	private PositiveInteger getWidthProperty() {
-		return widthProperty;
 	}
 	
 	//method

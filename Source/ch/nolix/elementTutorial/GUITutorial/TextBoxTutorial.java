@@ -29,7 +29,7 @@ public final class TextBoxTutorial {
 		//Creates a text box.
 		final var textBox =
 		new TextBox()		
-		.setWidth(500);
+		.setProposalWidth(500);
 		
 		//Configures the look of the text box.
 		textBox
