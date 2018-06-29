@@ -124,22 +124,6 @@ implements Clearable<S> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	public final CursorIcon getActiveCursorIcon() {
-		
-		final var widgetUnderCursor =
-		getRefWidgets().getRefFirstOrNull(w -> w.isUnderCursor());
-		
-		if (widgetUnderCursor != null) {
-			return widgetUnderCursor.getActiveCursorIcon();
-		}
-		
-		return getCursorIcon();
-	}
-	
-	//method
-	/**
 	 * @return the active element margin of the current {@link Stack}.
 	 */
 	public final int getActiveElementMargin() {
@@ -172,6 +156,22 @@ implements Clearable<S> {
 		getRefWidgets().forEach(r -> attributes.addAtEnd(r.getSpecification()));	
 		
 		return attributes;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public final CursorIcon getContentAreaCursorIcon() {
+		
+		final var widgetUnderCursor =
+		getRefWidgets().getRefFirstOrNull(w -> w.isUnderCursor());
+		
+		if (widgetUnderCursor != null) {
+			return widgetUnderCursor.getActiveCursorIcon();
+		}
+		
+		return getCursorIcon();
 	}
 	
 	//method

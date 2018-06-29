@@ -111,16 +111,6 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
-	public CursorIcon getActiveCursorIcon() {
-		
-		if (menu.isUnderCursor()) {
-			return menu.getActiveCursorIcon();
-		}
-		
-		return getCursorIcon();
-	}
-	
-	//method
 	public List<StandardSpecification> getAttributes() {
 		
 		final var attributes = super.getAttributes();
@@ -130,6 +120,16 @@ implements Clearable<SelectionMenu> {
 		}
 		
 		return attributes;
+	}
+	
+	//method
+	public CursorIcon getContentAreaCursorIcon() {
+		
+		if (menu.isUnderCursor()) {
+			return menu.getActiveCursorIcon();
+		}
+		
+		return getCursorIcon();
 	}
 	
 	//method

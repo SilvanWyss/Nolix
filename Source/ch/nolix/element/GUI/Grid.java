@@ -45,21 +45,6 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
-	/**
-	 * @return the active cursor icon of the current {@link Area}.
-	 */
-	public CursorIcon getActiveCursorIcon() {
-		
-		final var widgetUnderCursor = getRefWidgets().getRefFirstOrNull(w -> w.isUnderCursor());
-		
-		if (widgetUnderCursor != null) {
-			return widgetUnderCursor.getActiveCursorIcon();
-		}
-		
-		return getCursorIcon();
-	}
-	
-	//method
 	public List<StandardSpecification> getAttributes() {
 		
 		final var attributes = super.getAttributes();
@@ -76,6 +61,18 @@ public final class Grid extends Container<Grid, GridLook> {
 	//method
 	public int getColumnCount() {
 		return cells.getColumnCount();
+	}
+	
+	//method
+	public CursorIcon getContentAreaCursorIcon() {
+		
+		final var widgetUnderCursor = getRefWidgets().getRefFirstOrNull(w -> w.isUnderCursor());
+		
+		if (widgetUnderCursor != null) {
+			return widgetUnderCursor.getActiveCursorIcon();
+		}
+		
+		return getCursorIcon();
 	}
 	
 	//method

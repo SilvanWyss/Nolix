@@ -36,7 +36,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1760
+ * @lines 1830
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -165,7 +165,20 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the attributes of this border widget.
+	 * {@inheritDoc}
+	 */
+	public final CursorIcon getActiveCursorIcon() {
+		
+		if (horizontalScrollbarIsUnderCursor() || verticalScrollbarIsUnderCursor()) {
+			return CursorIcon.Arrow;
+		}
+		
+		return getContentAreaCursorIcon();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
 	 */
 	public List<StandardSpecification> getAttributes() {
 		
@@ -176,6 +189,12 @@ extends BackgroundWidget<BW, BWS> {
 
 		return attributes;
 	}
+	
+	//abstract method
+	/**
+	 * @return the cursor icon of the content area of this border widget.
+	 */
+	public abstract CursorIcon getContentAreaCursorIcon();
 	
 	//method
 	/**
@@ -945,13 +964,13 @@ extends BackgroundWidget<BW, BWS> {
 		);
 	}
 	
-	//method
+	//abstract method
 	/**
 	 * @return the height of the content area of this border widget.
 	 */
 	protected abstract int getContentAreaHeight();
 	
-	//method
+	//abstract method
 	/**
 	 * @return the width of the content area of this border widget.
 	 */
@@ -1621,6 +1640,30 @@ extends BackgroundWidget<BW, BWS> {
 			&& cursorYPosition >= horizontalScrollbarCursorYPosition
 			&& cursorYPosition < horizontalScrollbarCursorYPosition + getHorizontalScrollbarThickness();
 	}
+	
+	//method
+	/**
+	 * @return true if the cursor is over the horizontal scrollbar of this border widget.
+	 */
+	private boolean horizontalScrollbarIsUnderCursor() {
+		
+		//Handles the case that this border widget has no horizontal scrollbar.
+		if (!hasHorizontalScrollbar()) {
+			return false;
+		}
+		
+		//Handles the case that this border widget has a horizontal scrollbar.
+			final var cursorXPosition = getCursorXPosition();
+			final var cursorYPosition = getCursorYPosition();
+			final var horizontalScrollbarCursorXPosition = getHorizontalScrollbarCursorXPosition();
+			final var horizontalScrollbarCursorYPosition = getHorizontalScrollbarCursorYPosition();
+			
+			return
+			cursorXPosition >= horizontalScrollbarCursorXPosition
+			&& cursorXPosition < horizontalScrollbarCursorXPosition + getViewAreaWidth()
+			&& cursorYPosition >= horizontalScrollbarCursorYPosition
+			&& cursorYPosition < horizontalScrollbarCursorYPosition + getHorizontalScrollbarThickness();
+	}
 
 	//method
 	/**
@@ -1763,5 +1806,29 @@ extends BackgroundWidget<BW, BWS> {
 			&& cursorXPosition < verticalScrollbarCursorXPosition + getVerticalScrollbarThickness()
 			&& cursorYPosition >= verticalScrollbarCursorYPosition
 			&& cursorYPosition < verticalScrollbarCursorYPosition + getVerticalScrollbarCursorHeight();
+	}
+	
+	//method
+	/**
+	 * @return true if the cursor is over the vertical scrollbar of this border widget.
+	 */
+	private boolean verticalScrollbarIsUnderCursor() {
+		
+		//Handles the case that this border widget has no vertical scrollbar.
+		if (!hasVerticalScrollbar()) {
+			return false;
+		}
+		
+		//Handles the case that this border widget has a vertical scrollbar.
+			final var cursorXPosition = getCursorXPosition();
+			final var cursorYPosition = getCursorYPosition();		
+			final var verticalScrollbarCursorXPosition = getVerticalScrollbarCursorXPosition();
+			final var verticalScrollbarCursorYPosition = getVerticalScrollbarCursorYPosition();
+						
+			return
+			cursorXPosition >= verticalScrollbarCursorXPosition
+			&& cursorXPosition < verticalScrollbarCursorXPosition + getVerticalScrollbarThickness()
+			&& cursorYPosition >= verticalScrollbarCursorYPosition
+			&& cursorYPosition < verticalScrollbarCursorYPosition + getViewAreaHeight();
 	}
 }

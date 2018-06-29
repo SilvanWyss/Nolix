@@ -50,15 +50,7 @@ extends Container<SingleContainer, SingleContainerLook> {
 	
 	//method
 	/**
-	 * @return the active cursor icon of the current {@link Area}.
-	 */
-	public CursorIcon getActiveCursorIcon() {
-		return getCursorIcon();
-	}
-	
-	//method
-	/**
-	 * @return the attributes of this element
+	 * {@inheritDoc}
 	 */
 	public final List<StandardSpecification> getAttributes() {
 		
@@ -67,6 +59,14 @@ extends Container<SingleContainer, SingleContainerLook> {
 		
 		attributes.addAtEnd(getRefRectangle().getSpecification());
 		return attributes;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public CursorIcon getContentAreaCursorIcon() {
+		return getCursorIcon();
 	}
 	
 	//method

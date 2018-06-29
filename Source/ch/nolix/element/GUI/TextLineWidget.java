@@ -55,18 +55,18 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	
 	//method
 	/**
-	 * @return the active cursor icon of the current {@link TextLineWidget}.
+	 * {@inheritDoc}
 	 */
-	public final CursorIcon getActiveCursorIcon() {
-		return getCursorIcon();
+	public List<StandardSpecification> getAttributes() {
+		return super.getAttributes().addAtEnd(text.getSpecification());
 	}
 	
 	//method
 	/**
-	 * @return the attributes of this text line rectangle
+	 * {@inheritDoc}
 	 */
-	public List<StandardSpecification> getAttributes() {
-		return super.getAttributes().addAtEnd(text.getSpecification());
+	public final CursorIcon getContentAreaCursorIcon() {
+		return getCursorIcon();
 	}
 	
 	//method

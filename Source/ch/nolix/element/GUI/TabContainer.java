@@ -187,26 +187,6 @@ implements Clearable<TabContainer> {
 	public boolean containsSelectedTabWithWidget() {
 		return (containsSelectedTab() && getRefSelectedTab().containsAny());
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public CursorIcon getActiveCursorIcon() {
-		
-		//Extracts the menu item under the cursor if there exists one.
-		final var menuItemUnderCursor =
-		menu.getRefWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
-		
-		//Handles the case that there exists a menu item under the cursor.
-		if (menuItemUnderCursor != null) {
-			return menuItemUnderCursor.getCursorIcon();
-		}
-		
-		//Handles the case that there is no menu item under the cursor.
-			//Calls method of the base class.
-			return super.getCursorIcon();
-	}
 		
 	//method
 	/**
@@ -223,6 +203,26 @@ implements Clearable<TabContainer> {
 		}
 				
 		return attributes;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public CursorIcon getContentAreaCursorIcon() {
+		
+		//Extracts the menu item under the cursor if there exists one.
+		final var menuItemUnderCursor =
+		menu.getRefWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
+		
+		//Handles the case that there exists a menu item under the cursor.
+		if (menuItemUnderCursor != null) {
+			return menuItemUnderCursor.getCursorIcon();
+		}
+		
+		//Handles the case that there is no menu item under the cursor.
+			//Calls method of the base class.
+			return super.getCursorIcon();
 	}
 	
 	//method
