@@ -110,7 +110,7 @@ extends BackgroundWidget<BW, BWS> {
 	private final MutableOptionalProperty<PositiveInteger> proposalHeightProperty =
 	new MutableOptionalProperty<PositiveInteger>(
 		PROPOSAL_HEIGHT_HEADER,
-		ph -> setProposalWidth(ph.getValue()),
+		ph -> setProposalHeight(ph.getValue()),
 		s -> PositiveInteger.createFromSpecification(s)
 	);
 	
