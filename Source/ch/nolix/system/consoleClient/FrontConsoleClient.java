@@ -28,15 +28,16 @@ public final class FrontConsoleClient extends GUIClientoid<FrontConsoleClient> {
 	//attributes
 		private final GUI<?> GUI;
 		
-		private final Console console
-		= new Console().setName(WidgetNameCatalogue.CONSOLE_NAME).setFocused();
-		
 		private final Console infoPanel =
 		new Console()
 		.setName(WidgetNameCatalogue.INFO_PANEL_NAME)
-		.setDisabled()
-		.removeGreyOutWhenDisabled();
+		.setUneditable();
 		
+		private final Console console =
+		new Console()
+		.setName(WidgetNameCatalogue.CONSOLE_NAME)
+		.setFocused();
+	
 	public FrontConsoleClient(final int port) {
 		
 		this(new Frame());

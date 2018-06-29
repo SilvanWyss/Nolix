@@ -35,8 +35,8 @@ public final class GreyBlueConsoleDesign extends StandardConfiguration {
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameCatalogue.INFO_PANEL_NAME)
 			.addAttachingAttribute(
-				"BaseWidth(1000)",
-				"BaseHeight(300)",
+				"ProposalWidth(1000)",
+				"ProposalHeight(200)",
 				"BaseBackgroundColor(Lavender)",
 				"BasePadding(10)",
 				"BaseTextColor(DarkBlue)"
@@ -44,8 +44,8 @@ public final class GreyBlueConsoleDesign extends StandardConfiguration {
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameCatalogue.CONSOLE_NAME)
 			.addAttachingAttribute(
-				"BaseWidth(1000)",
-				"BaseHeight(400)",
+				"ProposalWidth(1000)",
+				"ProposalHeight(300)",
 				"BaseBackgroundColor(WhiteSmoke)",
 				"BasePadding(10)",
 				"BaseTextColor(DarkBlue)"		

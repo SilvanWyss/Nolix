@@ -25,39 +25,50 @@ import ch.nolix.primitive.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 680
+ * @lines 760
  */
 public final class Console
 extends BorderWidget<Console, ConsoleLook>
 implements Clearable<Console> {
 	
-	//type name
+	//constant
 	public static final String TYPE_NAME = "Console";
 	
-	//mask character
-	//The mask character is the character that is displayed in a secret line.
+	//constant
+	/**
+	 * The mask character is the character that is displayed in a secret line.
+	 */
 	public static final char MASK_CHARACTER = CharacterCatalogue.BULLET;
 	
 	//default value
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.LIGHT_GREY;
 	
-	//attribute headers
+	//constant
 	private final static String LINES_HEADER = "Lines";
 	
 	//attribute
-	//The edit line is the line of this console that can be edited.
+	private boolean editable = true;
+	
+	//attribute
+	/**
+	 * The edit line is the line of this console that can be edited.
+	 */
 	private String editLine = StringCatalogue.EMPTY_STRING;
 	
 	//attribute
-	//The text cursor position is the position of the text cursor in the edit line of this console.
-	//The text cursor position is measured by the number of characters.
+	/**
+	 * The text cursor position is the position of the text cursor in the edit line of this console.
+	 * The text cursor position is measured by the number of characters.
+	 */
 	private int textCursorPosition = 0;
 	
 	//optional attribute
-	//The secret line exists if this conole is reading a secret line.
+	/**
+	 * The secret line exists if this conole is reading a secret line.
+	 */
 	private String secretEditLine;
 	
-	//multiple attribute
+	//multi-attribute
 	private final List<String> lines = new List<String>();
 	
 	//constructor
@@ -118,7 +129,7 @@ implements Clearable<Console> {
 	 * Deletes the character after the text cursor
 	 * in the edit line of this console if there is one.
 	 */
-	public final void deleteCharacterAfterTextCursor() {
+	public void deleteCharacterAfterTextCursor() {
 		if (textCursorPosition < editLine.length()) {
 			editLine
 			= getEditLineBeforeTextCursor() + getEditLineAfterTextCursor().substring(1);
@@ -130,7 +141,7 @@ implements Clearable<Console> {
 	 * Deletes the character before the text cursor
 	 * in the edit line of this console if there is one.
 	 */
-	public final void deleteCharacterBeforeTextCursor() {
+	public void deleteCharacterBeforeTextCursor() {
 		if (!editLine.isEmpty() && textCursorPosition > 0) {
 			
 			editLine
@@ -201,9 +212,17 @@ implements Clearable<Console> {
 	
 	//method
 	/**
+	 * @return true if this console is editable.
+	 */
+	public boolean isEditable() {
+		return editable;
+	}
+	
+	//method
+	/**
 	 * @return true if this console contains no line.
 	 */
-	public final boolean isEmpty() {
+	public boolean isEmpty() {
 		return getLines().isEmpty();
 	}
 	
@@ -221,7 +240,7 @@ implements Clearable<Console> {
 	 * 
 	 * @param character
 	 */
-	public final void insertCharacterAfterCursor(final char character) {
+	public void insertCharacterAfterCursor(final char character) {
 		
 		//Handles the case that this console is reading a secret line.		
 		if (isReadingSecretLine()) {
@@ -244,6 +263,8 @@ implements Clearable<Console> {
 			
 		textCursorPosition = originalTextCursorPosition + 1;
 	}
+	
+	
 	
 	//method
 	/**
@@ -418,8 +439,21 @@ implements Clearable<Console> {
 		super.resetConfiguration();
 		
 		setCursorIcon(CursorIcon.Edit);
-		getRefBaseLook()
-		.setTextFont(TextFont.Console);
+		
+		getRefBaseLook().setTextFont(TextFont.Console);
+		
+		return this;
+	}
+	
+	//methods
+	/**
+	 * Sets this console editable.
+	 * 
+	 * @return this console.
+	 */
+	public Console setEditable() {
+		
+		editable = true;
 		
 		return this;
 	}
@@ -442,6 +476,19 @@ implements Clearable<Console> {
 		
 		//Sets the text cursor position at the end of the edit line.
 		textCursorPosition = getEditLine().length();
+		
+		return this;
+	}
+	
+	//methods
+	/**
+	 * Sets this console uneditable.
+	 * 
+	 * @return this console.
+	 */
+	public Console setUneditable() {
+		
+		editable = false;
 		
 		return this;
 	}
@@ -563,15 +610,16 @@ implements Clearable<Console> {
 	 */
 	protected int getContentAreaHeight() {
 		
-		final ConsoleLook currentStructure = getRefCurrentLook();
+		final var currentLook = getRefCurrentLook();
 		
-		return (
-			currentStructure.getRecursiveOrDefaultHeight()
-			- currentStructure.getRecursiveOrDefaultTopBorderThickness()
-			- currentStructure.getRecursiveOrDefaultTopPadding()
-			- currentStructure.getRecursiveOrDefaultBottomBorderThickness()
-			- currentStructure.getRecursiveOrDefaultBottomPadding()
-		);
+		var contentAreaHeight =
+		getLines().getElementCount() * currentLook.getRecursiveOrDefaultTextSize();
+		
+		if (isEditable()) {
+			contentAreaHeight += currentLook.getRecursiveOrDefaultTextSize();
+		}
+		
+		return contentAreaHeight;
 	}
 
 	//method
@@ -579,16 +627,14 @@ implements Clearable<Console> {
 	 * @return the width of the content of this console.
 	 */
 	protected int getContentAreaWidth() {
+			
+		if (isEmpty()) {
+			return 0;
+		}	
+			
+		final var font = getFont();
 		
-		final ConsoleLook currentStructure = getRefCurrentLook();
-		
-		return (
-			currentStructure.getRecursiveOrDefaultWidth()
-			- currentStructure.getRecursiveOrDefaultLeftBorderThickness()
-			- currentStructure.getRecursiveOrDefaultLeftPadding()
-			- currentStructure.getRecursiveOrDefaultRightBorderThickness()
-			- currentStructure.getRecursiveOrDefaultRightPadding()
-		);
+		return getLines().getMax(l -> font.getSwingTextWidth(l));
 	}
 	
 	//method
@@ -596,60 +642,54 @@ implements Clearable<Console> {
 	 * Paints the content of this console using the given widget structure and graphics.
 	 * 
 	 * @param widgetStructure
-	 * @param graphics
+	 * @param painter
 	 */
-	protected void paintContentArea(final ConsoleLook widgetStructure, final IPainter graphics) {
+	protected void paintContentArea(
+		final ConsoleLook widgetStructure,
+		final IPainter painter
+	) {
 		
-		final int contentWidth = getContentAreaWidth();
-		final int contentHeight = getContentAreaHeight();
-		final int textSize = widgetStructure.getRecursiveOrDefaultTextSize();	
-		
-		final Font font =
-		new Font(
-			widgetStructure.getRecursiveOrDefaultTextFont(),
-			TextStyle.Default,
-			textSize,
-			widgetStructure.getRecursiveOrDefaultTextColor()
-		);
-		
-		final int lineCount = getLines().getElementCount();
-		final int shownLineCount = contentHeight / textSize;
+		final var textSize = widgetStructure.getRecursiveOrDefaultTextSize();	
+		final var font = getFont();
 		
 		//Iterates the lines of this console.
-		int lineNumber = 1;
-		for (final String l : getLines()) {
-			
-			int offsetLineCount = isEnabled() ? 2 : 1;
-			
-			if (lineNumber > lineCount - shownLineCount + offsetLineCount) {
-				graphics.paintText(getLinePrefix() + l, font, getContentAreaWidth());
-				graphics.translate(0, textSize);
-			}
-			
-			lineNumber++;
+		for (final var l : getLines()) {
+			painter.paintText(getLinePrefix() + l, font);
+			painter.translate(0, textSize);
 		}
 		
-		if (isEnabled()) {
+		if (isEditable()) {
 		
 			//Paints the edit line of this console.;
-			graphics.paintText(getLinePrefix() + getEditLine(), font, contentWidth);
+			painter.paintText(getLinePrefix() + getEditLine(), font);
 				
 			//Paints the text cursor of this console.
-				final int textCursorXPosition
-				= font.getSwingTextWidth(getLinePrefix()
+				final int textCursorXPosition =
+				font.getSwingTextWidth(getLinePrefix()
 				+ getEditLineBeforeTextCursor())
 				- 1;
 				
-				if (textCursorXPosition < contentWidth) {
-					graphics.setColor(widgetStructure.getRecursiveOrDefaultTextColor());
-					graphics.paintFilledRectangle(
-						textCursorXPosition,
-						0,
-						2,
-						font.getTextSize()
-					);
-				}
+				painter.setColor(widgetStructure.getRecursiveOrDefaultTextColor());
+				painter.paintFilledRectangle(
+					textCursorXPosition,
+					0,
+					2,
+					font.getTextSize()
+				);
 		}
+	}
+	
+	private Font getFont() {
+		
+		final var currentLook = getRefCurrentLook();
+		
+		return
+		new Font(
+			currentLook.getRecursiveOrDefaultTextFont(),
+			TextStyle.Default,
+			currentLook.getRecursiveOrDefaultTextSize(),
+			currentLook.getRecursiveOrDefaultTextColor()
+		);
 	}
 
 	//method
