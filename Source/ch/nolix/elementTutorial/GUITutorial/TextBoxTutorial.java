@@ -27,18 +27,17 @@ public final class TextBoxTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a text box.
-		final var textBox =
-		new TextBox()		
-		.setProposalWidth(500);
+		final var textBox = new TextBox();
 		
 		//Configures the look of the text box.
-		textBox
-		.getRefBaseLook()
-		.setBorderThicknesses(5)
-		.setBorderColors(Color.DARK_BLUE)
-		.setBackgroundColor(Color.ALICE_BLUE)
-		.setPaddings(10)
-		.setTextSize(30);
+			textBox.setProposalWidth(200);
+			
+			textBox
+			.getRefBaseLook()
+			.setBorderThicknesses(5)
+			.setBorderColors(Color.DARK_BLUE)
+			.setBackgroundColor(Color.ALICE_BLUE)
+			.setPaddings(5);
 		
 		//Creates a frame with the text box.
 		new Frame()
