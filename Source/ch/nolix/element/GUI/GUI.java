@@ -10,6 +10,7 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.interfaces.Clearable;
 import ch.nolix.core.interfaces.Closable;
@@ -20,6 +21,7 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.core.specificationInterfaces.Configurable;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.configurationElement.ConfigurationElement;
 import ch.nolix.element.core.NonEmptyText;
@@ -39,7 +41,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 730
+ * @lines 840
  * @param <G> The type of a GUI.
  */
 public abstract class GUI<G extends GUI<G>>
@@ -52,6 +54,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	public static final ContentPosition DEFAULT_CONTENT_POSITION = ContentPosition.Top;
 	
 	//constants
+	private static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
 	private static final String ROOT_WIDGET_HEADER = "RootRectangle";
 	private static final String REMOVE_ROOT_WIDGET_COMMAND = "RemoveRootWidget";
 	
@@ -147,11 +150,19 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	);
 	
 	//attribute
-	private final MutableProperty<Color> backgroundColor =
-	new MutableProperty<Color>(
+	private final MutableOptionalProperty<Color> backgroundColor =
+	new MutableOptionalProperty<Color>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		bc -> setBackgroundColor(bc),
 		s -> Color.createFromSpecification(s)
+	);
+	
+	//attribute
+	private final MutableOptionalProperty<ColorGradient> backgroundColorGradient =
+	new MutableOptionalProperty<ColorGradient>(
+		BACKGROUND_COLOR_GRADIENT_HEADER, 
+		bcg -> setBackgroundColorGradient(bcg),
+		s -> ColorGradient.createFromSpecification(s)
 	);
 	
 	//attributes
@@ -287,9 +298,19 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	//method
 	/**
 	 * @return the background color of this GUI.
+	 * @throws UnexistingAttributeException if this GUI has no background color.
 	 */
 	public final Color getBackgroundColor() {
 		return backgroundColor.getValue();
+	}
+	
+	//method
+	/**
+	 * @return the background color gradient of this GUI.
+	 * @throws UnexistingAttributeException if this GUI has no background color gradient.
+	 */
+	public final ColorGradient getBackgroundColorGradient() {
+		return backgroundColorGradient.getValue();
 	}
 	
 	//method
@@ -416,6 +437,22 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 */
 	public final String getTitle() {
 		return title.getValue().getValue();
+	}
+	
+	//method
+	/**
+	 * @return true if this GUI has a background color.
+	 */
+	public final boolean hasBackgroundColor() {
+		return backgroundColor.containsAny();
+	}
+	
+	//method
+	/**
+	 * @return true if this GUI has a background color gradient.
+	 */
+	public final boolean hasBackgroundColorGradient() {
+		return backgroundColorGradient.containsAny();
 	}
 	
 	//method
@@ -561,6 +598,20 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	
 	//method
 	/**
+	 * Removes the background color and the background color gradient of this GUI.
+	 * 
+	 * @return this GUI.
+	 */
+	public final G removeBackground() {
+		
+		backgroundColor.clear();
+		backgroundColorGradient.clear();
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
 	 * Removes the root widget of this GUI.
 	 */
 	public final void removeRootWidget() {
@@ -628,6 +679,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	//method
 	/**
 	 * Sets the background color of this GUI.
+	 * Removes the background color gradient of this GUI.
 	 * 
 	 * @param backgroundColor
 	 * @return this GUI.
@@ -635,7 +687,27 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 */
 	public final G setBackgroundColor(final Color backgroundColor) {
 		
+		removeBackground();
+		
 		this.backgroundColor.setValue(backgroundColor);
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Sets the background color gradient of this GUI.
+	 * Removes the background color of this GUI.
+	 * 
+	 * @param backgroundColorGradient
+	 * @return this GUI.
+	 * @throws NullArgumentException if the given background color gradient is null.
+	 */
+	public final G setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
+		
+		removeBackground();
+		
+		this.backgroundColorGradient.setValue(backgroundColorGradient);
 		
 		return getInstance();
 	}

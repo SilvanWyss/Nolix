@@ -17,7 +17,7 @@ import ch.nolix.primitive.logger.Logger;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 390
+ * @lines 290
  */
 public final class Frame extends VisibleGUI<Frame> {
 	
@@ -64,9 +64,16 @@ public final class Frame extends VisibleGUI<Frame> {
 			//Creates swing painter.
 			final var swingPainter = new SwingPainter(graphics);
 			
-			//Paints the background color of this frame.
-			swingPainter.setColor(getBackgroundColor());
-			swingPainter.paintFilledRectangle(getWidth(), getHeight());
+			//Paints the background of this frame.
+				if (hasBackgroundColor()) {
+					swingPainter.setColor(getBackgroundColor());
+					swingPainter.paintFilledRectangle(getWidth(), getHeight());
+				}
+				
+				if (hasBackgroundColorGradient()) {
+					swingPainter.setColorGradient(getBackgroundColorGradient());
+					swingPainter.paintFilledRectangle(getWidth(), getHeight());
+				}
 			
 			//Lets the root rectangle of this frame paint on this panel.
 			if (hasRootWidget()) {
