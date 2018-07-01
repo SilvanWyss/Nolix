@@ -5,7 +5,6 @@ package ch.nolix.element.color;
 import java.awt.GradientPaint;
 
 //own imports
-import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.enums.UniDirection;
 import ch.nolix.core.specification.Specification;
@@ -37,11 +36,6 @@ public class ColorGradient extends Element {
 	public static final UniDirection DEFAULT_DIRECTION = UniDirection.Vertical;
 	public static final Color DEFAULT_COLOR1 = Color.BLACK;
 	public static final Color DEFAULT_COLOR2 = Color.WHITE;
-	
-	//constants
-	private static final String DIRECTION_HEADER = "Direction";
-	private static final String COLOR_1_HEADER = "Color1";
-	private static final String COLOR_2_HEADER = "Color2";
 
 	//static method
 	/**
@@ -55,13 +49,21 @@ public class ColorGradient extends Element {
 		final Specification specification
 	) {
 		
-		final IContainer<Specification> attributes =
-		specification.getRefAttributes();
+		final var attributes = specification.getRefAttributes();
+		
+		final var directionSpecification = new StandardSpecification();
+		directionSpecification.addAttribute(attributes.getRefAt(1));
+		
+		final var color1Specification = new StandardSpecification();
+		color1Specification.addAttribute(attributes.getRefAt(2));
+		
+		final var color2Specification = new StandardSpecification();
+		color2Specification.addAttribute(attributes.getRefAt(3));
 		
 		return new ColorGradient(
-			UniDirection.createFromSpecification(attributes.getRefAt(1)),
-			Color.createFromSpecification(attributes.getRefAt(2)),
-			Color.createFromSpecification(attributes.getRefAt(3))
+			UniDirection.createFromSpecification(directionSpecification),
+			Color.createFromSpecification(color1Specification),
+			Color.createFromSpecification(color2Specification)
 		);
 	}
 	
@@ -213,12 +215,9 @@ public class ColorGradient extends Element {
 	public List<StandardSpecification> getAttributes() {
 		return 
 		new List<StandardSpecification>(
-			new StandardSpecification(
-				DIRECTION_HEADER,
-				getDirection().toString()
-			),		
-			getColor1().getSpecificationAs(COLOR_1_HEADER),
-			getColor2().getSpecificationAs(COLOR_2_HEADER)
+			StandardSpecification.createSpecificationWithHeaderOnly(getDirection().toString()),
+			StandardSpecification.createSpecificationWithHeaderOnly(getColor1().getStringValue()),
+			StandardSpecification.createSpecificationWithHeaderOnly(getColor2().getStringValue())
 		);
 	}
 	
