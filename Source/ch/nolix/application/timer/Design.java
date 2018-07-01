@@ -29,7 +29,7 @@ final class Design extends StandardConfiguration {
 		
 		addConfiguration(
 			new DeepConfiguration()
-			.setSelectorRole(ContainerRole.MainContainer)
+			.addSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute(
 				"BaseTopPadding(50)",
 				"ContentPosition(Center)",

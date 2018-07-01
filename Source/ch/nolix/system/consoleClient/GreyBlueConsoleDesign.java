@@ -24,7 +24,7 @@ public final class GreyBlueConsoleDesign extends StandardConfiguration {
 		
 		addConfiguration(
 			new DeepConfiguration()
-			.setSelectorRole(ContainerRole.MainContainer)
+			.addSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute(
 				"BaseBackgroundColor(White)",
 				"BaseLeftPadding(20)",

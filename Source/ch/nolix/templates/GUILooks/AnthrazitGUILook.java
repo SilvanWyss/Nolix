@@ -23,14 +23,14 @@ public final class AnthrazitGUILook extends StandardConfiguration {
 				"BaseTextColor(0x808080)"
 			),
 			new DeepConfiguration()
-			.setSelectorRole(ContainerRole.OverallContainer)
+			.addSelectorRole(ContainerRole.OverallContainer)
 			.addAttachingAttribute(
 				"MinWidth(800)",
 				"BaseBackgroundColor(0x202020)",
 				"BasePadding(10)"
 			),
 			new DeepConfiguration()
-			.setSelectorRole(ContainerRole.MainContainer)
+			.addSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute("MaxHeight(500)")
 			.addConfiguration(
 				new DeepConfiguration()
@@ -40,19 +40,19 @@ public final class AnthrazitGUILook extends StandardConfiguration {
 			.setSelectorType("Grid")
 			.addAttachingAttribute("BaseElementMargin(10)"),
 			new DeepConfiguration()
-			.setSelectorRole(LabelRole.Title)
+			.addSelectorRole(LabelRole.Title)
 			.addAttachingAttribute(
 				"BaseTextSize(40)",
 				"BaseBottomPadding(10)"
 			),
 			new DeepConfiguration()
-			.setSelectorRole(LabelRole.Level1Header)
+			.addSelectorRole(LabelRole.Level1Header)
 			.addAttachingAttribute(
 				"BaseTextSize(30)",
 				"BaseBottomPadding(10)"
 			),
 			new DeepConfiguration()
-			.setSelectorRole(LabelRole.Level2Header)
+			.addSelectorRole(LabelRole.Level2Header)
 			.addAttachingAttribute(
 				"BaseTextSize(20)",
 				"BaseBottomPadding(10)"

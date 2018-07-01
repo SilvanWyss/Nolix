@@ -24,7 +24,7 @@ public final class GreenConsoleDesign extends StandardConfiguration {
 		
 		addConfiguration(
 			new DeepConfiguration()
-			.setSelectorRole(ContainerRole.MainContainer)
+			.addSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute(
 				"NormalBackgroundColorGradient(Vertical,0x40C040,0x102010)",	
 				"NormalLeftPadding(30)",

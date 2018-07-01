@@ -25,7 +25,7 @@ final class Design extends StandardConfiguration {
 		
 		addConfiguration(
 			new DeepConfiguration()
-			.setSelectorRole(ContainerRole.MainContainer)
+			.addSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute("ContentPosition(Top)"),
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameManager.BENCHMARK_LABEL_NAME)

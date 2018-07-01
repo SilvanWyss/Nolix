@@ -31,7 +31,7 @@ public final class GreenDesign extends StandardConfiguration {
 		
 		addConfiguration(			
 			new DeepConfiguration()
-			.setSelectorRole(ContainerRole.OverallContainer)
+			.addSelectorRole(ContainerRole.OverallContainer)
 			.addAttachingAttribute(
 				"NormalBackgroundColor(White)",
 				"NormalTopBorderSize(50)",
@@ -39,7 +39,7 @@ public final class GreenDesign extends StandardConfiguration {
 				"Padding(10)"),
 			new DeepConfiguration()
 			.setSelectorType("TabContainer")
-			.setSelectorRole(ContainerRole.MainContainer)
+			.addSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute(
 				"MinWidth(600)",
 				"MenuItemMargin(50)",
@@ -61,7 +61,7 @@ public final class GreenDesign extends StandardConfiguration {
 			),
 			new DeepConfiguration()
 			.setSelectorType("Label")
-			.setSelectorRole(LabelRole.Title)
+			.addSelectorRole(LabelRole.Title)
 			.addAttachingAttribute("NormalTextSize(50)"),
 			new DeepConfiguration()
 			.setSelectorType("Button")

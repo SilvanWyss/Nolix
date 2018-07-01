@@ -3,6 +3,7 @@ package ch.nolix.element.configuration;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.interfaces.Freezable;
 import ch.nolix.core.specification.Specification;
@@ -17,7 +18,7 @@ import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 /**
  * @author Silvan Wyss
  * @month 2016-01
- * @lines 650
+ * @lines 710
  * @param <C> The type of a configuration.
  */
 public abstract class Configuration<C extends Configuration<C>>
@@ -39,11 +40,13 @@ implements Freezable<C> {
 	protected final List<Configuration<?>> configurations
 		= new List<Configuration<?>>();
 	
-	//optional attributes
+	//optional attribute
 	private NonEmptyText selectorType;
-	private NonEmptyText selectorRole;
 	private NonEmptyText selectorToken;
 	private NonEmptyText selectorName;
+	
+	//multi-attribute
+	private final List<String> selectorRoles = new List<String>();
 	
 	//method
 	/**
@@ -166,7 +169,7 @@ implements Freezable<C> {
 				setSelectorType(attribute.getOneAttributeAsString());
 				break;
 			case SELECTOR_ROLE_HEADER:
-				setSelectorRole(attribute.getOneAttributeAsString());
+				addSelectorRoles_(attribute.getAttributesToStrings());
 				break;
 			case SELECTOR_TOKEN_HEADER:
 				setSelectorToken(attribute.getOneAttributeAsString());
@@ -183,6 +186,74 @@ implements Freezable<C> {
 			default:
 				addAttachingAttribute(attribute);
 		}
+	}
+	
+	//method
+	/**
+	 * Adds the given selector role to this configuration.
+	 * 
+	 * @param selectorRole
+	 * @return this configuration.
+	 * @throws InvalidStateException if this configuration contains already the given selector role.
+	 * @throws InvalidStateException if this configuration is frozen.
+	 */
+	public final C addSelectorRole(final Enum<?> selectorRole) {
+		
+		addSelectorRole(selectorRole.toString());
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Adds the given selector roles to this configuration.
+	 * 
+	 * @param selectorRoles
+	 * @return this configuration.
+	 * @throws InvalidStateException if this configuration contains already one of the given selector role.
+	 * @throws InvalidStateException if this configuration is frozen.
+	 */
+	public final C addSelectorRole(final Enum<?>... selectorRoles) {
+		
+		//Iterates the given selector roles.
+		for (final var sr : selectorRoles) {
+			addSelectorRole(sr);
+		}
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Adds the given selector roles to this configuration.
+	 * 
+	 * @param selectorRoles
+	 * @return this configuration.
+	 * @throws InvalidStateException if this configuration contains already one of the given selector role.
+	 * @throws InvalidStateException if this configuration is frozen.
+	 */
+	public final C addSelectorRoles(final Iterable<Enum<?>> selectorRoles) {
+		
+		selectorRoles.forEach(sr -> addSelectorRole(sr));
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * @param selectorRole
+	 * @return true if this configuration contains the given selector role.
+	 */
+	public final boolean containsSelectorRole(final String selectorRole) {
+		return selectorRoles.containsEqualing(selectorRole);
+	}
+	
+	//method
+	/**
+	 * @return true if this configuration contains selector roles.
+	 */
+	public final boolean containsSelectorRoles() {
+		return selectorRoles.containsAny();
 	}
 	
 	//abstract method
@@ -220,9 +291,13 @@ implements Freezable<C> {
 			attributes.addAtEnd(selectorType.getSpecificationAs(SELECTOR_TYPE_HEADER));
 		}
 		
-		//Handles the case that this configuration has a selector role.
-		if (hasSelectorRole()) {
-			attributes.addAtEnd(selectorRole.getSpecificationAs(SELECTOR_ROLE_HEADER));
+		//Handles the case that this configuration contains selector roles.		
+		if (containsSelectorRoles()) {
+			
+			final var specification = new StandardSpecification(SELECTOR_ROLE_HEADER);
+			getSelectorRoles().forEach(sr -> specification.addAttribute(sr));
+			
+			attributes.addAtEnd(specification);
 		}
 		
 		//Handles the case that this configuration has a selector token.
@@ -258,17 +333,10 @@ implements Freezable<C> {
 	
 	//method
 	/**
-	 * @return the selector role of this configuration
-	 * @throws UnexistingAttributeException if this configuration has no selector role.
+	 * @return the selector roles of this configuration.
 	 */
-	public final String getSelectorRole() {
-		
-		//Checks if this configuration has a selector role.
-		if (!hasSelectorRole()) {
-			throw new UnexistingAttributeException(this, "selector role");
-		}
-		
-		return selectorRole.getValue();
+	public final IContainer<String> getSelectorRoles() {
+		return selectorRoles;
 	}
 	
 	//method
@@ -331,30 +399,6 @@ implements Freezable<C> {
 		
 		//Handles the case that this configuration has a selector name.
 		return getSelectorName().equals(selectorName);
-	}
-	
-	//method
-	/**
-	 * @return true if this configuration has a selector role.
-	 */
-	public final boolean hasSelectorRole() {
-		return (selectorRole != null);
-	}
-	
-	//method
-	/**
-	 * @param selectorRole
-	 * @return true if this configuration has the given selector role.
-	 */
-	public final boolean hasSelectorRole(final String selectorRole) {
-		
-		//Handles the case that this configuration has no selector role.
-		if (!hasSelectorRole()) {
-			return false;
-		}
-		
-		//Handles the case that this configuration has a selector role.
-		return getSelectorRole().equals(selectorRole);
 	}
 	
 	//method
@@ -429,16 +473,16 @@ implements Freezable<C> {
 	
 	//method
 	/**
-	 * Removes the selector role of this configuration.
+	 * Removes the selector roles of this configuration.
 	 * 
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
-	public final void removeSelectorRole() {
+	public final void removeSelectorRoles() {
 		
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();
 		
-		selectorRole = null;
+		selectorRoles.clear();
 	}
 	
 	//method
@@ -479,7 +523,7 @@ implements Freezable<C> {
 	public C reset() {
 
 		removeSelectorType();
-		removeSelectorRole();
+		removeSelectorRoles();
 		removeSelectorToken();
 		removeSelectorName();
 		
@@ -502,8 +546,8 @@ implements Freezable<C> {
 			return false;
 		}
 		
-		//Handles the case that this configuration has a selector role.
-		if (hasSelectorRole() && !element.hasRole(getSelectorRole())) {
+		//Handles the case that this configuration contains selector roles.
+		if (containsSelectorRoles() && getSelectorRoles().containsNone(sr -> element.hasRole(sr))) {
 			return false;
 		}
 		
@@ -562,17 +606,6 @@ implements Freezable<C> {
 	
 	//method
 	/**
-	 * Sets the selector role of this configuration.
-	 * @param selectorRole
-	 * @return this configuration.
-	 * @throws InvalidStateException if this configurtion is frozen.
-	 */
-	public final C setSelectorRole(final Enum<?> selectorRole) {
-		return setSelectorRole(selectorRole.toString());
-	}
-	
-	//method
-	/**
 	 * Sets the selector token of this configuration.
 	 * 
 	 * @param selectorToken
@@ -625,26 +658,6 @@ implements Freezable<C> {
 	
 	//method
 	/**
-	 * Sets the selector role of this configuration.
-	 * 
-	 * @param selectorRole
-	 * @return this configuration.
-	 * @throws NullArgumentException if the given selector role is null.
-	 * @throws EmptyArgumentException if the given selector role is empty.
-	 * @throws InvalidStateException if this configuration is frozen.
-	 */
-	private final C setSelectorRole(final String selectorRole) {
-		
-		//Checks if this configuration is not frozen.
-		supposeNotFrozen();
-		
-		this.selectorRole = new NonEmptyText(selectorRole);
-		
-		return getInstance();
-	}
-	
-	//method
-	/**
 	 * @throws InvalidStateException if this configuration is frozen
 	 */
 	protected final void supposeNotFrozen() {
@@ -653,5 +666,45 @@ implements Freezable<C> {
 		if (isFrozen()) {
 			throw new InvalidStateException(this, "is frozen");
 		}
+	}
+	
+	//method
+	/**
+	 * Adds the given selector role to this configuration.
+	 * 
+	 * @param selectorRole
+	 * @throws NullArgumentException if the given selector role is null.
+	 * @throws EmptyArgumentException if the given selector role is empty.
+	 * @throws InvalidStateException if this configuration contains already the given selector role.
+	 * @throws InvalidStateException if this configuration is frozen.
+	 */
+	private void addSelectorRole(final String selectorRole) {
+		
+		//Checks if this configuration contains the given selector role.
+		if (containsSelectorRole(selectorRole)) {
+			throw
+			new InvalidStateException(
+				this,
+				"contains the given selector role '" + selectorRole + "'"
+			);
+		}
+		
+		//Checks if this configuration is not frozen.
+		supposeNotFrozen();
+		
+		selectorRoles.addAtEnd(selectorRole);
+	}
+	
+	//method
+	/**
+	 * Adds the given selector roles to this configuration.
+	 * 
+	 * @param selectorRoles
+	 * @throws EmptyArgumentException if one of the given selector role is empty.
+	 * @throws InvalidStateException if this configuration contains already one of the given selector roles.
+	 * @throws InvalidStateException if this configuration is frozen.
+	 */
+	private void addSelectorRoles_(final Iterable<String> selectorRoles) {
+		selectorRoles.forEach(sr -> addSelectorRole(sr));
 	}
 }

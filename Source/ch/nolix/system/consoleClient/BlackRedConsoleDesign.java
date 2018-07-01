@@ -24,7 +24,7 @@ public final class BlackRedConsoleDesign extends StandardConfiguration {
 		
 		addConfiguration(
 			new DeepConfiguration()
-			.setSelectorRole(ContainerRole.MainContainer)
+			.addSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute(
 				"ElementMargin(20)"
 			),
