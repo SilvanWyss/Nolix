@@ -61,7 +61,7 @@ extends BackgroundWidgetLook<BWL> {
 	private static final String BOTTOM_PADDING_HEADER = "BottomPadding";
 	
 	//constants
-	private static final String BASE_SCROLLBAR_LOOK_HEADER = "NormalScrollbarLook";
+	private static final String BASE_SCROLLBAR_LOOK_HEADER = "BaseScrollbarLook";
 	private static final String HOVER_SCROLLBAR_LOOK_HEADER = "HoverScrollbarLook";
 	private static final String SELECTION_SCROLLBAR_LOOK_HEADER = "SelectionScrollbarLook";
 	
