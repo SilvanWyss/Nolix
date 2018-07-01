@@ -61,9 +61,16 @@ public final class Frame extends VisibleGUI<Frame> {
 			//Calls method of the base class.
 			super.paintComponent(graphics);
 			
+			//Creates swing painter.
+			final var swingPainter = new SwingPainter(graphics);
+			
+			//Paints the background color of this frame.
+			swingPainter.setColor(getBackgroundColor());
+			swingPainter.paintFilledRectangle(getWidth(), getHeight());
+			
 			//Lets the root rectangle of this frame paint on this panel.
 			if (hasRootWidget()) {
-				getRefRootWidget().paintUsingPositionOnParent(new SwingPainter(graphics));
+				getRefRootWidget().paintUsingPositionOnParent(swingPainter);
 			}
 			
 			Logger.logInfo("frame paint duration in milliseconds", timer.getRunMilliseconds());
@@ -183,7 +190,7 @@ public final class Frame extends VisibleGUI<Frame> {
 		final var timer = new Timer();
 		timer.start();
 		
-		panel.setBackground(getBackgroundColor().createSwingColor());
+		//panel.setBackground(getBackgroundColor().createSwingColor());
 		frame.setCursor(getActiveCursorIcon().getJavaCursor());
 		
 		//Handles the case that this frame has a root widget.
