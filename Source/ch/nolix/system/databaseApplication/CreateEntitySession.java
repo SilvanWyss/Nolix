@@ -57,7 +57,7 @@ public final class CreateEntitySession extends HeaderedSession {
 	
 	//method
 	private void cancel() {
-		getParentClient().popCurrentSession();
+		getParentClient().popSession();
 	}
 
 	//method
@@ -151,7 +151,7 @@ public final class CreateEntitySession extends HeaderedSession {
 		
 		getRefDatabaseAdapter().saveChanges();
 		
-		getParentClient().popCurrentSession();
+		getParentClient().popSession();
 	}
 	
 	//method

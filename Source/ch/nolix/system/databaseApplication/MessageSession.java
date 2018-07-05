@@ -37,6 +37,6 @@ public final class MessageSession extends DatabaseApplicationSession {
 	
 	//method
 	private void ok() {
-		getParentClient().popCurrentSession();
+		getParentClient().popSession();
 	}
 }

@@ -126,7 +126,7 @@ implements Closable {
 	 * 
 	 * @InvalidStateException if the current {@link Client} does not contain more than 1 session.
 	 */
-	public final void popCurrentSession() {
+	public final void popSession() {
 		
 		//Checks if the current client contains more than 1 session.
 		if (sessions.getElementCount() < 2) {
