@@ -31,41 +31,11 @@ public final class EntitySetSession extends HeaderedSession {
 	}
 	
 	//method
-	public void OpenCreateEntitySession() {
-		getParentClient().pushSession(
-			new CreateEntitySession(entitySetName),
-			() -> initialize()
-		);
-	}
-	
-	//method
-	public void OpenDeleteEntitySession(final int entityId) {
-		getParentClient().setSession(
-			new DeleteEntitySession(entitySetName, entityId)	
-		);
-	}
-	
-	//method
-	public void OpenEntitySession(final String entitySetName, final int entityId) {
-		getParentClient().setSession(
-			new EntitySession(
-				entitySetName,
-				entityId
-			)
-		);
-	}
-	
-	//method
-	public void OpenHomeSession() {
-		getParentClient().setSession(new HomeSession());
-	}
-	
-	//method
 	protected List<Button> createLinkButtons() {
 		return new List<Button>(
 			new Button("Home")
 			.setRole(ButtonRole.LinkButton)
-			.setLeftMouseButtonPressCommand(() -> OpenHomeSession())		
+			.setLeftMouseButtonPressCommand(() -> openHomeSession())		
 		);
 	}
 	
@@ -76,7 +46,7 @@ public final class EntitySetSession extends HeaderedSession {
 			new HorizontalStack(
 				new Button("Create")
 				.setRole(ButtonRole.CreateButton)
-				.setLeftMouseButtonPressCommand(() -> OpenCreateEntitySession())
+				.setLeftMouseButtonPressCommand(() -> openCreateEntitySession())
 			),
 			createEntitiesGrid()
 		);
@@ -126,7 +96,7 @@ public final class EntitySetSession extends HeaderedSession {
 					new Button("Open")
 					.setRole(ButtonRole.LinkButton)
 					.setLeftMouseButtonPressCommand(
-						() -> OpenEntitySession(entitySetName, e.getId())
+						() -> openEntitySession(entitySetName, e.getId())
 					)
 				);
 				
@@ -151,7 +121,7 @@ public final class EntitySetSession extends HeaderedSession {
 								new Button(String.valueOf(referenceProperty.getEntity().getId()))
 								.setRole(ButtonRole.LinkButton)
 								.setLeftMouseButtonPressCommand(
-									() -> OpenEntitySession(referenceProperty.getReferencedEntitySet().getName(), referenceProperty.getEntity().getId())
+									() -> openEntitySession(referenceProperty.getReferencedEntitySet().getName(), referenceProperty.getEntity().getId())
 								)
 							);
 							
@@ -169,7 +139,7 @@ public final class EntitySetSession extends HeaderedSession {
 						new Button("Delete")
 						.setRole(ButtonRole.DeleteButton)
 						.setLeftMouseButtonPressCommand(
-							() -> OpenDeleteEntitySession(e.getId())
+							() -> openDeleteEntitySession(e.getId())
 						)
 					);
 				}
@@ -183,5 +153,35 @@ public final class EntitySetSession extends HeaderedSession {
 	//method
 	private EntitySet<Entity> getRefEntitySet() {
 		return getRefDatabaseAdapter().getRefEntitySet(entitySetName);
+	}
+	
+	//method
+	private void openCreateEntitySession() {
+		getParentClient().pushSession(
+			new CreateEntitySession(entitySetName),
+			() -> initialize()
+		);
+	}
+	
+	//method
+	private void openDeleteEntitySession(final int entityId) {
+		getParentClient().setSession(
+			new DeleteEntitySession(entitySetName, entityId)	
+		);
+	}
+	
+	//method
+	private void openEntitySession(final String entitySetName, final int entityId) {
+		getParentClient().setSession(
+			new EntitySession(
+				entitySetName,
+				entityId
+			)
+		);
+	}
+	
+	//method
+	private void openHomeSession() {
+		getParentClient().setSession(new HomeSession());
 	}
 }

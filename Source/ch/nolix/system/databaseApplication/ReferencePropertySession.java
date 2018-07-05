@@ -27,26 +27,6 @@ public final class ReferencePropertySession extends HeaderedSession {
 		
 		this.referenceProperty = referenceProperty;
 	}
-	
-	//method
-	public void Cancel() {
-		getParentClient().popCurrentSession();
-	}
-	
-	//method
-	public void Select() {
-		
-		final SelectionMenu referencesSelectionMenu =
-		getRefGUI().getRefWidgetByNameRecursively("ReferencesSelectionMenu");
-		
-		referenceProperty.set(
-			referenceProperty
-			.getReferencedEntitySet()
-			.getRefEntityById(referencesSelectionMenu.getSelectedItemId())
-		);
-		
-		getParentClient().popCurrentSession();
-	}
 
 	//method
 	protected List<Button> createLinkButtons() {
@@ -60,11 +40,16 @@ public final class ReferencePropertySession extends HeaderedSession {
 			createReferencesSelectionMenu(),
 			new HorizontalStack(
 				new Button("Select")
-				.setLeftMouseButtonPressCommand(() -> Select()),
+				.setLeftMouseButtonPressCommand(() -> select()),
 				new Button("Cancel")
-				.setLeftMouseButtonPressCommand(() -> Cancel())
+				.setLeftMouseButtonPressCommand(() -> cancel())
 			)
 		);
+	}
+	
+	//method
+	private void cancel() {
+		getParentClient().popCurrentSession();
 	}
 
 	//method
@@ -81,5 +66,20 @@ public final class ReferencePropertySession extends HeaderedSession {
 		}
 		
 		return referencesSelectionMenu;
+	}
+	
+	//method
+	private void select() {
+		
+		final SelectionMenu referencesSelectionMenu =
+		getRefGUI().getRefWidgetByNameRecursively("ReferencesSelectionMenu");
+		
+		referenceProperty.set(
+			referenceProperty
+			.getReferencedEntitySet()
+			.getRefEntityById(referencesSelectionMenu.getSelectedItemId())
+		);
+		
+		getParentClient().popCurrentSession();
 	}
 }

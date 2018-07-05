@@ -9,17 +9,17 @@ import ch.nolix.element.GUI.VerticalStack;
 public final class LoginSession extends DatabaseApplicationSession {
 	
 	//method
-	public void Login() {
-		getParentClient()
-		.setSession(new HomeSession());
-	}
-	
-	//method
 	protected VerticalStack createContentWidget() {
 		return
 		new VerticalStack(
 			new Button("Login")
-			.setLeftMouseButtonPressCommand(() -> Login())
+			.setLeftMouseButtonPressCommand(() -> login())
 		);
+	}
+	
+	//method
+	private void login() {
+		getParentClient()
+		.setSession(new HomeSession());
 	}
 }

@@ -24,11 +24,6 @@ public final class MessageSession extends DatabaseApplicationSession {
 		
 		this.message = message;
 	}
-
-	//method
-	public void Ok() {
-		getParentClient().popCurrentSession();
-	}
 	
 	//method
 	protected VerticalStack createContentWidget() {
@@ -36,7 +31,12 @@ public final class MessageSession extends DatabaseApplicationSession {
 		new VerticalStack(
 			new Label(message),
 			new Button("Ok")
-			.setLeftMouseButtonPressCommand(() -> Ok())
+			.setLeftMouseButtonPressCommand(() -> ok())
 		);
+	}
+	
+	//method
+	private void ok() {
+		getParentClient().popCurrentSession();
 	}
 }

@@ -29,61 +29,6 @@ public final class CreateEntitySession extends HeaderedSession {
 			
 		this.entitySetName = entitySetName;
 	}
-	
-	//method
-	public void Cancel() {
-		getParentClient().popCurrentSession();
-	}
-	
-	//method
-	@SuppressWarnings({ "incomplete-switch" })
-	public void CreateEntity() {
-		
-		for (final var p : newEntity.getRefProperties()) {	
-			
-			switch (p.getPropertyKind()) {
-				case DATA:
-					
-					final var property = (Property<?>)p;
-			
-					final TextBox dataTextBox =
-					getRefGUI().getRefWidgetByNameRecursively(p.getHeader());
-					
-					property.setUntypedValue(dataTextBox.getText());
-					
-					break;
-					
-				case REFERENCE:
-					
-					break;
-			}
-		}
-		
-		getRefDatabaseAdapter().saveChanges();
-		
-		getParentClient().popCurrentSession();
-	}
-	
-	//method
-	@SuppressWarnings("unchecked")
-	public void OpenReferencePropertySession(final String referencePropertyHeader) {
-		
-		final var referenceProperty = 
-		(ReferenceProperty<Entity>)newEntity
-		.getRefProperties()
-		.getRefFirst(p -> p.hasHeader(referencePropertyHeader));
-		
-		getParentClient().pushSession(
-			new ReferencePropertySession(referenceProperty),
-			() -> {
-				final Button label = getRefGUI().getRefWidgetByNameRecursively(referencePropertyHeader + "LinkButton");
-				
-				if (referenceProperty.referencesEntity()) {
-					label.setText(String.valueOf(referenceProperty.getEntity().getId()));
-				}
-			}
-		);
-	}
 
 	//method
 	protected List<Button> createLinkButtons() {
@@ -102,12 +47,17 @@ public final class CreateEntitySession extends HeaderedSession {
 			new HorizontalStack(
 				new Button("Create")
 				.setRole(ButtonRole.CreateButton)
-				.setLeftMouseButtonPressCommand(() -> CreateEntity()),
+				.setLeftMouseButtonPressCommand(() -> createEntity()),
 				new Button("Cancel")
 				.setRole(ButtonRole.CancelButton)
-				.setLeftMouseButtonPressCommand(() -> Cancel())
+				.setLeftMouseButtonPressCommand(() -> cancel())
 			)
 		);
+	}
+	
+	//method
+	private void cancel() {
+		getParentClient().popCurrentSession();
 	}
 
 	//method
@@ -161,7 +111,7 @@ public final class CreateEntitySession extends HeaderedSession {
 							.setName(referenceProperty.getHeader() + "LinkButton"),
 							new Button("Select")
 							.setLeftMouseButtonPressCommand(
-							   () -> OpenReferencePropertySession(referenceProperty.getHeader())
+							   () -> openReferencePropertySession(referenceProperty.getHeader())
 							)
 						)
 					);
@@ -176,7 +126,57 @@ public final class CreateEntitySession extends HeaderedSession {
 	}
 	
 	//method
+	@SuppressWarnings({ "incomplete-switch" })
+	private void createEntity() {
+		
+		for (final var p : newEntity.getRefProperties()) {	
+			
+			switch (p.getPropertyKind()) {
+				case DATA:
+					
+					final var property = (Property<?>)p;
+			
+					final TextBox dataTextBox =
+					getRefGUI().getRefWidgetByNameRecursively(p.getHeader());
+					
+					property.setUntypedValue(dataTextBox.getText());
+					
+					break;
+					
+				case REFERENCE:
+					
+					break;
+			}
+		}
+		
+		getRefDatabaseAdapter().saveChanges();
+		
+		getParentClient().popCurrentSession();
+	}
+	
+	//method
 	private EntitySet<Entity> getRefEntitySet() {
 		return getRefDatabaseAdapter().getRefEntitySet(entitySetName);
+	}
+	
+	//method
+	@SuppressWarnings("unchecked")
+	private void openReferencePropertySession(final String referencePropertyHeader) {
+		
+		final var referenceProperty = 
+		(ReferenceProperty<Entity>)newEntity
+		.getRefProperties()
+		.getRefFirst(p -> p.hasHeader(referencePropertyHeader));
+		
+		getParentClient().pushSession(
+			new ReferencePropertySession(referenceProperty),
+			() -> {
+				final Button label = getRefGUI().getRefWidgetByNameRecursively(referencePropertyHeader + "LinkButton");
+				
+				if (referenceProperty.referencesEntity()) {
+					label.setText(String.valueOf(referenceProperty.getEntity().getId()));
+				}
+			}
+		);
 	}
 }

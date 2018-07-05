@@ -30,19 +30,6 @@ public final class DeleteEntitySession extends HeaderedSession {
 	}
 
 	//method
-	public void Cancel() {
-		openEntitySetSession();
-	}
-	
-	public void DeleteEntity() {
-		
-		getRefEntitySet().deleteEntity(entityId);
-		getRefDatabaseAdapter().saveChanges();
-		
-		openEntitySetSession();
-	}
-
-	//method
 	protected List<Button> createFurtherNavigationButtons() {
 		return new List<Button>();
 	}
@@ -59,11 +46,25 @@ public final class DeleteEntitySession extends HeaderedSession {
 			new Label("Do you want to delete the entity " + entityId + "?"),
 			new HorizontalStack(
 				new Button("Yes")
-				.setLeftMouseButtonPressCommand(() -> DeleteEntity()),
+				.setLeftMouseButtonPressCommand(() -> deleteEntity()),
 				new Button("No")
-				.setLeftMouseButtonPressCommand(() -> Cancel())
+				.setLeftMouseButtonPressCommand(() -> cancel())
 			)
 		);
+	}
+	
+	//method
+	private void cancel() {
+		openEntitySetSession();
+	}
+	
+	//method
+	private void deleteEntity() {
+		
+		getRefEntitySet().deleteEntity(entityId);
+		getRefDatabaseAdapter().saveChanges();
+		
+		openEntitySetSession();
 	}
 	
 	//method

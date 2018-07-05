@@ -15,13 +15,6 @@ public final class HomeSession extends HeaderedSession {
 	}
 	
 	//method
-	public void OpenEntitySetSession(final String entitySetName) {
-		getParentClient().setSession(
-			new EntitySetSession(entitySetName)
-		);
-	}
-	
-	//method
 	protected List<Button> createLinkButtons() {
 		return new List<Button>();
 	}
@@ -40,7 +33,7 @@ public final class HomeSession extends HeaderedSession {
 				column,
 				new Button(es.getName())
 				.setLeftMouseButtonPressCommand(
-					() -> OpenEntitySetSession(es.getName())
+					() -> openEntitySetSession(es.getName())
 				)
 			);
 			
@@ -53,5 +46,12 @@ public final class HomeSession extends HeaderedSession {
 		}
 		
 		return entitySetsGrid;
+	}
+	
+	//method
+	private void openEntitySetSession(final String entitySetName) {
+		getParentClient().setSession(
+			new EntitySetSession(entitySetName)
+		);
 	}
 }
