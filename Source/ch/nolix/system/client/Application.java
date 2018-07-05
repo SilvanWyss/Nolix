@@ -202,7 +202,7 @@ public class Application<C extends Client<C>> extends NamedElement {
 		client_.setParentApplication(this);
 		final Session<C> initialSession = createInitialSession();		
 		clients.addAtEnd(client_);
-		Sequencer.runInBackground(() -> client_.setSession(initialSession));
+		Sequencer.runInBackground(() -> client_.pushSession(initialSession));
 	}
 	
 	//method

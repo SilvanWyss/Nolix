@@ -74,7 +74,7 @@ public final class DeleteEntitySession extends HeaderedSession {
 	
 	//method
 	private void openEntitySetSession() {
-		getParentClient().setSession(
+		getParentClient().pushSession(
 			new EntitySetSession(entitySetName)
 		);
 	}

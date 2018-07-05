@@ -28,6 +28,6 @@ public final class LoginSession extends Session<BackConsoleClient> {
 			getParentClient().writeLineToConsole("Wrong password. Try again.");
 		}
 		
-		getParentClient().setSession(new MainSession());
+		getParentClient().pushSession(new MainSession());
 	}
 }

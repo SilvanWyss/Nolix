@@ -58,7 +58,7 @@ public final class EntitySession extends HeaderedSession {
 	//method
 	private void cancel() {
 		getParentClient()
-		.setSession(new EntitySession(entitySetName, entityId));
+		.pushSession(new EntitySession(entitySetName, entityId));
 	}
 	
 	//method
@@ -177,14 +177,14 @@ public final class EntitySession extends HeaderedSession {
 	
 	//method
 	private void openEntitySetSession() {
-		getParentClient().setSession(
+		getParentClient().pushSession(
 			new EntitySetSession(entitySetName)
 		);
 	}
 	
 	//method
 	private void openEntitySession(final String entitySetName, final int entityId) {
-		getParentClient().setSession(
+		getParentClient().pushSession(
 			new EntitySession(
 				entitySetName,
 				entityId

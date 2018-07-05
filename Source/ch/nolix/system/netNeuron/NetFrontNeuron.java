@@ -84,7 +84,7 @@ implements Closable {
 		
 		//Creates the client of this net front neuron.
 		client = new StandardClient(ip, port);
-		client.setSession(new NetFrontNeuronSession<O>(this));	
+		client.pushSession(new NetFrontNeuronSession<O>(this));	
 	}	
 
 	//method

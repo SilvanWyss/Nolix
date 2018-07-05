@@ -4,7 +4,7 @@ package ch.nolix.system.client;
 //own imports
 import ch.nolix.core.bases.OptionalSignableElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.Stack;
+import ch.nolix.core.container.List;
 import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.duplexController.LocalDuplexController;
 import ch.nolix.core.duplexController.NetDuplexController;
@@ -23,11 +23,11 @@ import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**
- * A {@link Client} is like and end point with comfortable functionalities.
+ * A {@link Client} is like an end point with comfortable functionalities.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 660
+ * @lines 740
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -49,12 +49,15 @@ implements Closable {
 	 */
 	private Application<C> parentApplication;
 	
+	//optional attribute
+	private Session<C> currentSession;
+	
 	//multi-attribute
-	private final Stack<Session<C>> sessions = new Stack<Session<C>>();
+	private final List<Session<C>> sessions = new List<Session<C>>();
 	
 	//method
 	/**
-	 * Aborts the current {@link Client}.
+	 * Closes the current {@link Client}.
 	 */
 	public final void close() {
 		duplexController.close();
@@ -65,7 +68,46 @@ implements Closable {
 	 * @return true if the current {@link Client} contains a current session.
 	 */
 	public final boolean containsCurrentSession() {
-		return sessions.containsAny();
+		return (currentSession != null);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Client} contais a next session.
+	 */
+	public final boolean containsNextSession() {
+		
+		if (!containsCurrentSession()) {
+			return false;
+		}
+		
+		if (getCurrentSessionIndex() == getSessionStackSize()) {
+			return false;
+		}
+		
+		return true;
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Client} contains a previous session.
+	 */
+	public final boolean containsPreviousSession() {
+		
+		if (!containsCurrentSession()) {
+			return false;
+		}
+		
+		if (getCurrentSessionIndex() < 2) {
+			return false;
+		}
+		
+		return true;
+	}
+	
+	//method
+	public final int getCurrentSessionIndex() {		
+		return sessions.getIndexOf(internal_getRefCurrentSession());
 	}
 
 	//method
@@ -122,22 +164,62 @@ implements Closable {
 	
 	//method
 	/**
+	 * Opens the next session of the current {@link Client}.
+	 * 
+	 * @throws UnexistingAttributeException if the current {@link Client} contains no next session.
+	 */
+	public final void openNextSession() {
+		
+		supposeContainsNextSession();
+		
+		final var nextSessionIndex = sessions.getIndexOf(internal_getRefCurrentSession()) + 1;
+		this.currentSession = sessions.getRefAt(nextSessionIndex);
+		internal_finishSessionInitialization();
+	}
+	
+	//method
+	/**
+	 * Opens the previous session of the current {@link Client}.
+	 * 
+	 * @throws UnexistingAttributeException if the current {@link Client} contains no previous session.
+	 */
+	public final void openPreviousSession() {
+		
+		supposeContainsPreviousSession();
+		
+		final var previousSessionIndex = sessions.getIndexOf(internal_getRefCurrentSession()) - 1;		
+		this.currentSession = sessions.getRefAt(previousSessionIndex);
+		internal_finishSessionInitialization();
+	}
+	
+	//method
+	/**
 	 * Pops the current session of the current {@link Client}.
 	 * 
 	 * @InvalidStateException if the current {@link Client} does not contain more than 1 session.
+	 * @InvalidStateException if the current session of the current {@link Client} is not the last session.
 	 */
 	public final void popSession() {
 		
 		//Checks if the current client contains more than 1 session.
-		if (sessions.getElementCount() < 2) {
+		if (getSessionStackSize() < 2) {
 			throw new InvalidStateException(this, "does not contain more than 1 session");
+		}
+		
+		//Checks if the current session of the current client is the last session
+		if (internal_getRefCurrentSession() != sessions.getRefLast()) {
+			throw
+			new InvalidStateException(
+				this, "cannot pop a session that is not the last session."
+			);
 		}
 		
 		//Removes the last session of the current client.
 			final var lastSession = sessions.removeAndGetRefLast();
 			lastSession.runProbabalePopFunction();
 			lastSession.removeParentClient();
-		
+			
+		currentSession = sessions.getRefLast();		
 		internal_finishSessionInitialization();
 	}
 	
@@ -155,7 +237,8 @@ implements Closable {
 		
 		//Sets the given session to the current {@link Client}.
 		session.setParentClient(getInstance());
-		sessions.addAtEnd(session);
+		sessions.addAtEnd(session);		
+		currentSession = session;
 		
 		//Initializes the given session.
 			try {				
@@ -190,38 +273,6 @@ implements Closable {
 	 */
 	public final boolean referencesParentApplication() {
 		return (parentApplication != null);
-	}
-	
-	//method
-	/**
-	 * Sets the given session to the current {@link Client}.
-	 * 
-	 * @param session
-	 * @throws NullArgumentException if the given session is null.
-	 */
-	public final void setSession(final Session<C> session) {
-		
-		//Checks if the given session is not null.
-		Validator.suppose(session).thatIsOfType(Session.class).isNotNull();
-		
-		//Removes the last session of the current client.
-		if (sessions.containsAny()) {
-			final var lastSession = sessions.removeAndGetRefLast();
-			lastSession.removeParentClient();
-		}
-		
-		//Sets the given session to the current {@link Client}.
-		session.setParentClient(getInstance());
-		sessions.addAtEnd(session);
-		
-		//Initializes the given session.
-			try {				
-				session.initialize();
-				internal_finishSessionInitialization();
-			}
-			
-			//A client swallows always a closed state exception.
-			catch (final ClosedStateException closedStateException) {}
 	}
 	
 	//method
@@ -410,7 +461,7 @@ implements Closable {
 		//Checks if the current client contains a current session.
 		supposeContainsCurrentSession();
 		
-		return sessions.getRefLast();
+		return currentSession;
 	}
 	
 	//method
@@ -624,19 +675,43 @@ implements Closable {
 		//Sets the parent application of the current client.
 		this.parentApplication = parentApplication;
 	}
-
+	
 	//method
 	/**
-	 * @throws InvalidStateException if the current {@link Client} contains no current session.
+	 * @throws UnexistingAttributeException if the current {@link Client} contains no current session.
 	 */	
 	private void supposeContainsCurrentSession() {
-
+		
 		//Checks if the current client contains a current session.
 		if (!containsCurrentSession()) {
-			throw new InvalidStateException(this, "contains no current session");
+			throw new UnexistingAttributeException(this, "current session");
 		}
 	}
-
+	
+	//method
+	/**
+	 * @throws UnexistingAttributeException if the current {@link Client} contains no next session.
+	 */	
+	private void supposeContainsNextSession() {
+		
+		//Checks if the current client contains a next session.
+		if (!containsNextSession()) {
+			throw new UnexistingAttributeException(this, "next session");
+		}
+	}
+	
+	//method
+	/**
+	 * @throws UnexistingAttributeException if the current {@link Client} contains no previous session.
+	 */	
+	private void supposeContainsPreviousSession() {
+		
+		//Checks if the current client contains a previous session.
+		if (!containsPreviousSession()) {
+			throw new UnexistingAttributeException(this, "previous session");
+		}
+	}
+	
 	//method
 	/**
 	 * @throws InvalidStateException if the current {@link Client} is connected.
@@ -664,6 +739,5 @@ implements Closable {
 				"does not reference a parent application"
 			);
 		}
-		
 	}
 }
