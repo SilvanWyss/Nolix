@@ -38,15 +38,19 @@ public final class DownloaderTutorial {
 		.setFileGetter(() -> new FileAccessor("tutorial.txt").readFileToBytes()) ;
 		
 		//Configures the look of the downloader.
-		downloader
-		.getRefBaseLook()
-		.setTextSize(50)
-		.setTextColor(Color.DARK_BLUE);
-		
-		downloader
-		.getRefHoverLook()
-		.setTextColor(Color.BLUE);
-		
+			downloader
+			.getRefBaseLook()
+			.setTextSize(50)
+			.setTextColor(Color.DARK_BLUE);
+			
+			downloader
+			.getRefHoverLook()
+			.setTextColor(Color.BLUE);
+			
+			downloader
+			.getRefFocusLook()
+			.setTextColor(Color.BLUE_VIOLET);
+			
 		//Creates a frame with the downloader.
 		new Frame()
 		.setTitle("Downloader Tutorial")
