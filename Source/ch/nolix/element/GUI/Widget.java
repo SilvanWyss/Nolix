@@ -30,7 +30,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1610
+ * @lines 1620
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -649,8 +649,15 @@ extends ConfigurableElement<W> {
 	 */
 	public final void noteAnyLeftMouseButtonRelease() {
 		if (isEnabled()) {
+			
 			if (isUnderCursor() || isFocused()) {
 				noteLeftMouseButtonRelease();
+			}
+			
+			if (!isUnderCursor()) {
+				if (isFocused() || isHoverFocused()) {
+					setNormal();
+				}
 			}
 		}
 	}
