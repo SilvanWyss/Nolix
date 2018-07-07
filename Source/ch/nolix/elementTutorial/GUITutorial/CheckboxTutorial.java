@@ -16,7 +16,7 @@ import ch.nolix.element.color.Color;
  * @lines 50
  */
 public final class CheckboxTutorial {
-
+	
 	//main method
 	/**
 	 * Creates a {@link Frame} with a {@link Checkbox}.
