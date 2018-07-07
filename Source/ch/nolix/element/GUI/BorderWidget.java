@@ -586,15 +586,17 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Lets this border widget note a left mouse button release.
+	 * {@inheritDoc}
 	 */
-	public void noteLeftMouseButtonRelease() {
+	public void noteAnyLeftMouseButtonRelease() {
 		
 		//Calls method of the base class.
-		super.noteLeftMouseButtonRelease();
+		super.noteAnyLeftMouseButtonRelease();
 		
-		isMovingHorizontalScrollbarCursor = false;
-		isMovingVerticalScrollbarCursor = false;
+		if (isEnabled()) {
+			isMovingHorizontalScrollbarCursor = false;
+			isMovingVerticalScrollbarCursor = false;
+		}
 	}
 	
 	//method
@@ -641,21 +643,21 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Lets this widget note the given mouse wheel rotation steps.
-	 * The given number of mouse wheel rotation steps is positive if the mouse wheel was rotated forward.
-	 * The given number mouse wheel rotation steps is negative if the mouse wheel was rotated backward.
-	 * 
-	 * @param rotationSteps
+	 * {@inheritDoc}
 	 */
-	public void noteMouseWheelRotationSteps(final int mouseWheelRotationSteps) {
+	public void noteAnyMouseWheelRotationSteps(final int mouseWheelRotationSteps) {
 		
 		//Calls method of the base class.
-		super.noteMouseWheelRotationSteps(mouseWheelRotationSteps);
+		super.noteAnyMouseWheelRotationSteps(mouseWheelRotationSteps);
 		
-		setViewAreaYPositionOnScrollArea(
-			getViewAreaYPositionOnScrollArea()
-			+ VIEW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP * mouseWheelRotationSteps
-		);
+		if (isEnabled()) {
+			if (isFocused() || isHoverFocused()) {
+				setViewAreaYPositionOnScrollArea(
+					getViewAreaYPositionOnScrollArea()
+					+ VIEW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP * mouseWheelRotationSteps
+				);
+			}
+		}
 	}
 
 	//method

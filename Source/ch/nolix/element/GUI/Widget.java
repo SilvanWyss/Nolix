@@ -647,17 +647,15 @@ extends ConfigurableElement<W> {
 	/**
 	 * Lets the current {@link Widget} note any mouse button release.
 	 */
-	public final void noteAnyLeftMouseButtonRelease() {
+	public void noteAnyLeftMouseButtonRelease() {
 		if (isEnabled()) {
-			
-			if (isUnderCursor() || isFocused()) {
-				noteLeftMouseButtonRelease();
-			}
-			
 			if (!isUnderCursor()) {
 				if (isFocused() || isHoverFocused()) {
 					setNormal();
 				}
+			}
+			else {
+				noteLeftMouseButtonRelease();
 			}
 		}
 	}
