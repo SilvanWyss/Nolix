@@ -43,7 +43,8 @@ public final class ButtonTutorial {
 		.setBorderThicknesses(5)
 		.setBorderColors(Color.DARK_BLUE)
 		.setBackgroundColor(Color.ALICE_BLUE)
-		.setPaddings(5);
+		.setPaddings(5)
+		.setTextSize(50);
 		
 		//Creates a frame with the button.
 		frame =
