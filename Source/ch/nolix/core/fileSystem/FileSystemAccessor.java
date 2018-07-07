@@ -19,7 +19,7 @@ import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 300
+ * @lines 310
  */
 public final class FileSystemAccessor {
 	
@@ -263,6 +263,19 @@ public final class FileSystemAccessor {
 	 */
 	public boolean fileSystemItemIsFolder(final String relativePath) {
 		return (new File(getEntryPath() + relativePath).isDirectory());
+	}
+	
+	//method
+	public void overwriteFile(
+		final String relativeFilePath,
+		final String content
+	) {
+	
+		if (!fileSystemItemExists(relativeFilePath)) {
+			createFile(relativeFilePath);
+		}
+		
+		new FileAccessor(relativeFilePath).overwriteFile(content);
 	}
 	
 	//method
