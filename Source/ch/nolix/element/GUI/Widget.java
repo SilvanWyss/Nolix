@@ -726,8 +726,10 @@ extends ConfigurableElement<W> {
 	 * Lets the current {@link Widget} note any right mouse button release.
 	 */
 	public final void noteAnyRightMouseButtonRelease() {
-		if (isEnabled() && isUnderCursor()) {
-			noteRightMouseButtonRelease();
+		if (isEnabled()) {
+			if (isUnderCursor()) {
+				noteRightMouseButtonRelease();
+			}
 		}
 	}
 	
