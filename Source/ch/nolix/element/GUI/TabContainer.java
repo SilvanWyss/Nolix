@@ -19,7 +19,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-04
- * @lines 540
+ * @lines 550
  */
 public final class TabContainer
 extends Container<TabContainer, TabContainerLook>
@@ -30,6 +30,9 @@ implements Clearable<TabContainer> {
 
 	//attribute
 	private final HorizontalStack menu = new HorizontalStack();
+	
+	//optional attribute
+	private Label nextMenuItemLabel;
 	
 	//multi-attribute
 	private final List<TabContainerTab> tabs = new List<TabContainerTab>();
@@ -272,6 +275,14 @@ implements Clearable<TabContainer> {
 		return getRefTabs().isEmpty();
 	}
 	
+	public void noteLeftMouseButtonPress() {
+		
+		//Calls method of the base class.
+		super.noteLeftMouseButtonPress();
+		
+		nextMenuItemLabel = (Label)menu.getRefWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
+	}
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -281,17 +292,17 @@ implements Clearable<TabContainer> {
 		//Calls method of the base class.
 		super.noteLeftMouseButtonRelease();
 		
-		//Extracts the menu item under the cursor if there exists one.
-		final var menuItemUnderCursor =
-		menu.getRefWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
-		
-		//Handles the case that there exists a menu item under the cursor.
-		if (menuItemUnderCursor != null) {
-			selectTab(
-				getRefTabs().getRefFirst(
-					t -> t.getRefMenuItem() == menuItemUnderCursor
-				)
-			);
+		if (nextMenuItemLabel != null) {
+			if (!nextMenuItemLabel.isUnderCursor()) {
+				nextMenuItemLabel = null;
+			}
+			else {
+				selectTab(
+					getRefTabs().getRefFirst(
+						t -> t.getRefMenuItem() == nextMenuItemLabel
+					)
+				);
+			}
 		}
 	}
 	
