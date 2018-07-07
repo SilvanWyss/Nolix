@@ -11,3 +11,4 @@ OpenAL64.dll
 
 #Data files
 *.database
+*.txt
