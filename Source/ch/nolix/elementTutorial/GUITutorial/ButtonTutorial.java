@@ -14,7 +14,7 @@ import ch.nolix.element.color.Color;
  * 
  * @author Silvan Wyss
  * @month 2018-05
- * @lines 60
+ * @lines 70
  */
 public final class ButtonTutorial {
 	
@@ -35,16 +35,24 @@ public final class ButtonTutorial {
 		new Button("Quit")
 		.setMinWidth(200)
 		.setCursorIcon(CursorIcon.Hand)
-		.setLeftMouseButtonPressCommand(() -> quit());
+		.setLeftMouseButtonReleaseCommand(() -> quit());
 		
 		//Configures the look of the button.
-		button
-		.getRefBaseLook()
-		.setBorderThicknesses(5)
-		.setBorderColors(Color.DARK_BLUE)
-		.setBackgroundColor(Color.ALICE_BLUE)
-		.setPaddings(5)
-		.setTextSize(50);
+			button
+			.getRefBaseLook()
+			.setBorderThicknesses(5)
+			.setBorderColors(Color.DARK_BLUE)
+			.setBackgroundColor(Color.ALICE_BLUE)
+			.setPaddings(5)
+			.setTextSize(50);
+			
+			button
+			.getRefHoverLook()
+			.setBackgroundColor(Color.GREY);
+			
+			button
+			.getRefFocusLook()
+			.setBackgroundColor(Color.GREY);
 		
 		//Creates a frame with the button.
 		frame =
