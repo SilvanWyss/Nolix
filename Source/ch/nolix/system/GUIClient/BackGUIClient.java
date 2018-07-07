@@ -7,6 +7,7 @@ import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
+import ch.nolix.element.GUI.Downloader;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.system.client.Client;
 
@@ -33,6 +34,9 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 	static final String LEFT_MOUSE_BUTTON_RELEASE_HEADER = "LeftMouseButtonRelease";
 	static final String RIGHT_MOUSE_BUTTON_PRESS_HEADER = "RightMouseButtonPress";
 	static final String RIGHT_MOUSE_BUTTON_RELEASE_HEADER = "RightMouseButtonRelease";
+	
+	//constant
+	static final String READ_FILE_HEADER = "ReadFile";
 	
 	public BackGUIClient(final DuplexController duplexController) {
 			
@@ -70,6 +74,28 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 		internal_runOnCounterpart(RESET_GUI_HEADER);
 		
 		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	protected StandardSpecification internal_getData(final Statement request) {
+		
+		//Enumerates the header of the given request.
+		switch (request.getHeader()) {
+			case READ_FILE_HEADER:
+				
+				final Downloader downloader =
+				getRefGUI().getRefWidgetByIndexRecursively(request.getOneAttributeAsInt());
+				
+				return
+				StandardSpecification.createSpecificationWithHeaderOnly(
+					downloader.readFile()
+				);
+			default:
+				return super.internal_getData(request);
+		}
 	}
 	
 	//method

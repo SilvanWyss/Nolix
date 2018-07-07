@@ -22,6 +22,11 @@ final class FrontGUIClientGUIController implements IGUIController {
 		
 		this.frontGUIClient = frontGUIClient;
 	}
+	
+	//method
+	public FileProvider getFileProvider(Widget<?, ?> widget) {
+		return frontGUIClient.getFileProvider(widget);
+	}
 
 	//method
 	public void noteLeftMouseButtonPressCommand(final Widget<?, ?> widget) {

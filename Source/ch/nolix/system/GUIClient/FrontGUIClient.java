@@ -179,6 +179,11 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	}
 	
 	//package-visible method
+	FileProvider getFileProvider(final Widget<?, ?> widget) {
+		return new FileProvider(this, widget);
+	}
+	
+	//package-visible method
 	void noteLeftMouseButtonPressCommandOnCounterpart(final Widget<?, ?> widget) {
 		noteCommandOnCounterpart(widget, BackGUIClient.LEFT_MOUSE_BUTTON_PRESS_HEADER);
 	}
@@ -196,6 +201,23 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	//package-visible method
 	void noteRightMouseButtonReleaseCommandOnCounterpart(final Widget<?, ?> widget) {
 		noteCommandOnCounterpart(widget, BackGUIClient.RIGHT_MOUSE_BUTTON_RELEASE_HEADER);
+	}
+	
+	//package-visible method
+	String readFileFromCounterpart(final Widget<?, ?> widget) {
+		return
+		internal_getDataFromCounterpart(
+			BackGUIClient.READ_FILE_HEADER
+			+ "("
+			+ widget.getIndexOnGUI()
+			+ ")"
+		)
+		.toString();
+	}
+	
+	//package-visible method
+	byte[] readFileToBytesFromCounterpart(final Widget<?, ?> widget) {
+		return readFileFromCounterpart(widget).getBytes();
 	}
 	
 	//method

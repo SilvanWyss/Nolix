@@ -3,7 +3,10 @@ package ch.nolix.element.GUI;
 
 //interface
 public interface IGUIController {
-
+	
+	//abstract method
+	public abstract IFileProvider getFileProvider(Widget<?, ?> widget);
+	
 	//abstract method
 	public abstract void noteLeftMouseButtonPressCommand(Widget<?, ?> widget);
 	
