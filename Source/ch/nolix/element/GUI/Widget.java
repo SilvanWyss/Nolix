@@ -100,7 +100,7 @@ extends ConfigurableElement<W> {
 	 */
 	public Widget() {	
 		getRefHoverLook().setBaseLook(getRefBaseLook());
-		getRefFocusLook().setBaseLook(getRefHoverLook());
+		getRefFocusLook().setBaseLook(getRefBaseLook());
 		getRefHoverFocusLook().setBaseLook(getRefFocusLook());
 	}
 	
