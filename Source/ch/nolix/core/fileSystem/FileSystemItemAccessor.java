@@ -4,6 +4,7 @@ package ch.nolix.core.fileSystem;
 //Java import
 import java.io.File;
 
+//own imports
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;
 import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
@@ -16,7 +17,7 @@ import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 10
+ * @lines 100
  */
 public class FileSystemItemAccessor {
 
@@ -48,6 +49,15 @@ public class FileSystemItemAccessor {
 
 	//method
 	/**
+	 * @return a new folder accessor to the parent folder
+	 * of the file system item of this file system item accessor.
+	 */
+	public final FolderAccessor getParentFolderAccessor() {
+		return new FolderAccessor(internalAccessor.getParent());
+	}
+	
+	//method
+	/**
 	 * @return the path of the file system item of this file system item accessor.
 	 */
 	public final String getPath() {
@@ -76,6 +86,15 @@ public class FileSystemItemAccessor {
 	 */
 	public final boolean isFolder() {
 		return getInternalAccessor().isDirectory();
+	}
+	
+	//method
+	/**
+	 * Opens the parent folder of the file system item of this file system item accessor
+	 * in the file explorer.
+	 */
+	public final void openParentFolder() {
+		getParentFolderAccessor().openInFileExplorer();
 	}
 	
 	//method
