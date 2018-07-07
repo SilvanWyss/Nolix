@@ -19,7 +19,7 @@ import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 90
+ * @lines 120
  */
 public final class FileAccessor extends FileSystemItemAccessor {
 	
@@ -57,6 +57,23 @@ public final class FileAccessor extends FileSystemItemAccessor {
 	
 	//method
 	/**
+	 * Overwrites the file of this file accessor with the given bytes.
+	 * 
+	 * @param bytes
+	 * @throws RuntimeException if an error occurs.
+	 */
+	public void overwriteFile(final byte[] bytes) {
+		try (final PrintWriter printWriter = new PrintWriter(getInternalAccessor())) {
+			printWriter.print(bytes);
+			printWriter.flush();
+		}
+		catch (final IOException exception) {
+			throw new RuntimeException(exception);
+		}
+	}
+	
+	//method
+	/**
 	 * Overwrites the file of this file accessor with the given content.
 	 * 
 	 * @param content
@@ -80,10 +97,21 @@ public final class FileAccessor extends FileSystemItemAccessor {
 	 * @throws RuntimeException if an error occurs.
 	 */
 	public String readFile() {		
+		return
+		new String(readFileToBytes())
+		.replace("\r", StringCatalogue.EMPTY_STRING);
+	}
+	
+	//method
+	/**
+	 * Reads the content of the file of this file accessor to bytes.
+	 * 
+	 * @return the content of the file of this file accessor to bytes.
+	 * @throws RuntimeException if an error occurs.
+	 */
+	public byte[] readFileToBytes() {
 		try {
-			return
-			new String(Files.readAllBytes(getInternalAccessor().toPath()))
-			.replace("\r", StringCatalogue.EMPTY_STRING);
+			return Files.readAllBytes(getInternalAccessor().toPath());
 		}
 		catch (final IOException exception) {
 			throw new RuntimeException(exception);
