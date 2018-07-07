@@ -382,8 +382,9 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @throws NonPositiveArgumentException if the given index is not positive.
 	 * @throws UnexistingAttributeException if this GUI contains no widget with the given index.
 	 */
-	public final Widget<?, ?> getRefWidgetByIndexRecursively(final int index) {
-		return getRefWidgetsRecursively().getRefAt(index);
+	@SuppressWarnings("unchecked")
+	public final <W extends Widget<?, ?>> W getRefWidgetByIndexRecursively(final int index) {
+		return (W)getRefWidgetsRecursively().getRefAt(index);
 	}
 	
 	//method
