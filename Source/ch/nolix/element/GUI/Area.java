@@ -22,7 +22,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 360
+ * @lines 380
  */
 public final class Area extends Widget<Area, AreaLook> {
 
@@ -187,6 +187,14 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * @return true if the current {@link Area} has the given role.
 	 */
 	public boolean hasRole(final String role) {
+		return false;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean keepsFocus() {
 		return false;
 	}
 	

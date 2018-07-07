@@ -126,6 +126,14 @@ public final class Button extends TextLineWidget<Button> {
 		return getRole().toString().equals(role);
 	}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean keepsFocus() {
+		return false;
+	}
+	
 	/**
 	 * Removes the role of the current {@link Button}.
 	 * 

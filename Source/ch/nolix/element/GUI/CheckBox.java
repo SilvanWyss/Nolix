@@ -13,7 +13,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 270
+ * @lines 280
  */
 public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 
@@ -117,6 +117,14 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	 */
 	public boolean isChecked() {
 		return checked;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean keepsFocus() {
+		return false;
 	}
 	
 	//method

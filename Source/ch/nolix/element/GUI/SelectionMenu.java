@@ -170,6 +170,14 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean keepsFocus() {
+		return true;
+	}
+	
+	//method
 	public void noteAnyMouseMove() {
 		
 		super.noteAnyMouseMove();

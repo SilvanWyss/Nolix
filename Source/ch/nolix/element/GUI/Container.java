@@ -104,6 +104,14 @@ extends BorderWidget<C, BWS> {
 		//Handles the case that the current container has a role.
 		return getRole().toString().equals(role);
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public final boolean keepsFocus() {
+		return true;
+	}
 		
 	//method
 	/**

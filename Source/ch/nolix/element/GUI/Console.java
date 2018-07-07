@@ -236,6 +236,14 @@ implements Clearable<Console> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	public boolean keepsFocus() {
+		return true;
+	}
+	
+	//method
+	/**
 	 * Inserts the given character into the edit line of this console after the text cursor.
 	 * 
 	 * @param character

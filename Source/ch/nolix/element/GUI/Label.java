@@ -14,7 +14,7 @@ import ch.nolix.primitive.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 160
+ * @lines 170
  */
 public final class Label extends TextLineWidget<Label> {
 	
@@ -125,6 +125,14 @@ public final class Label extends TextLineWidget<Label> {
 		
 		//Handles the case that the current label has a role.
 		return getRole().toString().equals(role);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean keepsFocus() {
+		return false;
 	}
 	
 	//method

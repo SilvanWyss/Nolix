@@ -30,7 +30,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1620
+ * @lines 1630
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -579,6 +579,12 @@ extends ConfigurableElement<W> {
 		);		
 	}
 	
+	//abstract method
+	/**
+	 * @return true if the current {@link Widget} keeps the focus.
+	 */
+	public abstract boolean keepsFocus();
+	
 	//method
 	/**
 	 * Lets the current {@link Widget} note any key press.
@@ -655,7 +661,14 @@ extends ConfigurableElement<W> {
 				}
 			}
 			else {
+				
 				noteLeftMouseButtonRelease();
+				
+				if (isHoverFocused()) {
+					if (!keepsFocus()) {
+						setHovered();
+					}
+				}
 			}
 		}
 	}
@@ -788,6 +801,10 @@ extends ConfigurableElement<W> {
 					getParentGUI().getRefController().noteLeftMouseButtonReleaseCommand(this);
 				}
 			}
+		}
+		
+		if (!keepsFocus()) {
+			setNormal();
 		}
 	}
 	

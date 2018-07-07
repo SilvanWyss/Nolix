@@ -21,7 +21,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 260
+ * @lines 280
  * @param <L> The type of a line.
  */
 public abstract class Line<L extends Line<L>>
@@ -132,6 +132,14 @@ extends Widget<L, LineLook> {
 	 * @return true if this line has the given role.
 	 */
 	public final boolean hasRole(final String role) {
+		return false;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean keepsFocus() {
 		return false;
 	}
 	

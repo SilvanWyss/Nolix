@@ -15,7 +15,7 @@ import ch.nolix.primitive.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2016-03
- * @lines 310
+ * @lines 320
  */
 public final class TextBox extends TextLineWidget<TextBox> {
 
@@ -73,6 +73,14 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 */
 	public boolean hasRole(final String role) {
 		return false;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean keepsFocus() {
+		return true;
 	}
 	
 	//method

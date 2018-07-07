@@ -70,6 +70,14 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean keepsFocus() {
+		return true;
+	}
+	
+	//method
 	public void noteLeftMouseButtonRelease() {
 		
 		super.noteLeftMouseButtonRelease();
