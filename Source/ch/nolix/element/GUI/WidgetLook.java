@@ -13,6 +13,7 @@ import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.font.TextFont;
 import ch.nolix.element.intData.TextSize;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
+import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**
@@ -27,7 +28,7 @@ import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 280
+ * @lines 290
  * @param <WL> The type of a {@link WidgetLook}.
  */
 public abstract class WidgetLook<WL extends WidgetLook<WL>>
@@ -265,7 +266,14 @@ implements IFluentObject<WL>, Specified {
 	 * @param baseLook
 	 * @throws NullArgumentException if the given base look is null.
 	 */
-	final void setBaseStructure(final WL baseLook) {
+	final void setBaseLook(final WL baseLook) {
+		
+		//Checks if the given base look is not null.
+		Validator
+		.suppose(baseLook)
+		.thatIsNamed("base look")
+		.isNotNull();
+		
 		setBaseEntity(baseLook);		
 	}
 	
