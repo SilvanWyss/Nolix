@@ -10,17 +10,18 @@ import ch.nolix.core.constants.StringCatalogue;
 
 //class
 /**
- * This class provides methods to show small pop-up windows.
- * Of this class no instance can be created.
+ * The {@link PopupWindowProvider} provides methods to show small pop-up windows.
+ * Of the {@link PopupWindowProvider} no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 110
+ * @lines 130
  */
 public final class PopupWindowProvider {
 	
-	//error window title
+	//constants
 	private static final String ERROR_WINDOW_TITLE = "Error";
+	private static final String MESSAGE_WINDOW_TITLE = "Message";
 	private static final String REQUEST_WINDOW_TITLE = "Request";
 
 	//static method
@@ -91,6 +92,20 @@ public final class PopupWindowProvider {
 		);
 	}
 	
+	/**
+	 * Shows a message window with the given message.
+	 * 
+	 * @param message
+	 */
+	public static void showMessageWindow(final String message) {
+		JOptionPane.showMessageDialog(
+			null,
+			message,
+			MESSAGE_WINDOW_TITLE,
+			JOptionPane.INFORMATION_MESSAGE
+		);
+	}
+	
 	//static method
 	/**
 	 * Shows a request window with the given question.
@@ -100,7 +115,7 @@ public final class PopupWindowProvider {
 	 */
 	public static boolean showRequestWindow(final String question) {
 		
-		final int result = JOptionPane.showConfirmDialog(
+		final var result = JOptionPane.showConfirmDialog(
 			null,
 			question,
 			REQUEST_WINDOW_TITLE,
