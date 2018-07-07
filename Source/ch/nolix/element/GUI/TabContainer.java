@@ -276,10 +276,10 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public void noteLeftMouseButtonPress() {
+	public void noteLeftMouseButtonRelease() {
 		
 		//Calls method of the base class.
-		super.noteLeftMouseButtonPress();
+		super.noteLeftMouseButtonRelease();
 		
 		//Extracts the menu item under the cursor if there exists one.
 		final var menuItemUnderCursor =
