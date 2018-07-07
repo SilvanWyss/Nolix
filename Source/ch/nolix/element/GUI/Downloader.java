@@ -70,9 +70,9 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	}
 	
 	//method
-	public void noteLeftMouseButtonPress() {
+	public void noteLeftMouseButtonRelease() {
 		
-		super.noteLeftMouseButtonPress();
+		super.noteLeftMouseButtonRelease();
 		
 		if (providesFile()) {
 			final var fileChooser = new JFileChooser();
