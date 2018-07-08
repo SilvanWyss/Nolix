@@ -4,14 +4,15 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.Cursor;
 
-//own import
+//own imports
+import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.ISpecifiedEnum;
 
 //enum
 /**
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 50
+ * @lines 60
  */
 public enum CursorIcon implements ISpecifiedEnum {
 	Arrow,
@@ -23,6 +24,19 @@ public enum CursorIcon implements ISpecifiedEnum {
 	
 	//constant
 	public static final String TYPE_NAME = "CursorIcon";
+	
+	//static method
+	/**
+	 * @param specification
+	 * @return a new {@link CursorIcon} from the given specification.
+	 * @throws InvalidArgumentException
+	 * if the given specification is not valid.
+	 */
+	public static CursorIcon createFromSpecification(
+		final Specification specification
+	) {
+		return valueOf(specification.getOneAttributeAsString());
+	}
 	
 	//method
 	/**
