@@ -44,7 +44,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 		//Enumerates the given attribute.
 		switch (attribute.getHeader()) {
 			case Text.TYPE_NAME:
-				setText(attribute.getOneAttributeAsString());
+				setText(attribute.getOneAttributeHeader());
 				break;
 			default:
 				
