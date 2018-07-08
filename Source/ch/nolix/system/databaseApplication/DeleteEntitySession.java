@@ -6,9 +6,11 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntitySet;
 import ch.nolix.element.GUI.Button;
+import ch.nolix.element.GUI.ButtonRole;
 import ch.nolix.element.GUI.HorizontalStack;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.VerticalStack;
+import ch.nolix.primitive.validator2.Validator;
 
 //class
 public final class DeleteEntitySession extends HeaderedSession {
@@ -23,7 +25,12 @@ public final class DeleteEntitySession extends HeaderedSession {
 		final int entityId
 	) {
 		
-		super("Delete " + entitySetName + " " + entityId);
+		super("Delete " + entitySetName);
+		
+		Validator
+		.suppose(entitySetName)
+		.thatIsNamed("entity set name")
+		.isNotEmpty();
 		
 		this.entitySetName = entitySetName;		
 		this.entityId = entityId;
@@ -43,11 +50,13 @@ public final class DeleteEntitySession extends HeaderedSession {
 	protected VerticalStack createSubSubContentWidget() {
 		return
 		new VerticalStack(
-			new Label("Do you want to delete the entity " + entityId + "?"),
+			new Label("Do you want to delete the entity (id: " + entityId + ")?"),
 			new HorizontalStack(
 				new Button("Yes")
+				.setRole(ButtonRole.ActionButton)
 				.setLeftMouseButtonPressCommand(() -> deleteEntity()),
 				new Button("No")
+				.setRole(ButtonRole.ActionButton)
 				.setLeftMouseButtonPressCommand(() -> cancel())
 			)
 		);
@@ -55,7 +64,7 @@ public final class DeleteEntitySession extends HeaderedSession {
 	
 	//method
 	private void cancel() {
-		openEntitySetSession();
+		getParentClient().popSession();
 	}
 	
 	//method
@@ -64,18 +73,11 @@ public final class DeleteEntitySession extends HeaderedSession {
 		getRefEntitySet().deleteEntity(entityId);
 		getRefDatabaseAdapter().saveChanges();
 		
-		openEntitySetSession();
+		getParentClient().popSession();
 	}
 	
 	//method
 	private EntitySet<Entity> getRefEntitySet() {
 		return getRefDatabaseAdapter().getRefEntitySet(entitySetName);
-	}
-	
-	//method
-	private void openEntitySetSession() {
-		getParentClient().pushSession(
-			new EntitySetSession(entitySetName)
-		);
 	}
 }
