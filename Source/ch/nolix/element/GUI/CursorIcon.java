@@ -11,7 +11,7 @@ import ch.nolix.core.specificationInterfaces.ISpecifiedEnum;
 /**
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 40
+ * @lines 50
  */
 public enum CursorIcon implements ISpecifiedEnum {
 	Arrow,
@@ -21,14 +21,16 @@ public enum CursorIcon implements ISpecifiedEnum {
 	Move,
 	Wait;
 	
-	//type name
+	//constant
 	public static final String TYPE_NAME = "CursorIcon";
 	
 	//method
 	/**
-	 * @return the java cursor of this cursor icon
+	 * @return the Java cursor of the current {@link CursorIcon}.
 	 */
 	public Cursor getJavaCursor() {
+		
+		//Enumerates the current cursor icon.
 		switch (this) {
 			case Arrow:
 				return new Cursor(java.awt.Cursor.DEFAULT_CURSOR);
