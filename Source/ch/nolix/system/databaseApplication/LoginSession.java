@@ -3,6 +3,7 @@ package ch.nolix.system.databaseApplication;
 
 //own imports
 import ch.nolix.element.GUI.Button;
+import ch.nolix.element.GUI.ButtonRole;
 import ch.nolix.element.GUI.VerticalStack;
 
 //class
@@ -13,6 +14,7 @@ public final class LoginSession extends DatabaseApplicationSession {
 		return
 		new VerticalStack(
 			new Button("Login")
+			.setRole(ButtonRole.ActionButton)
 			.setLeftMouseButtonPressCommand(() -> login())
 		);
 	}
