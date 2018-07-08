@@ -27,7 +27,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 710
+ * @lines 720
  */
 public abstract class Specification {
 	
@@ -133,12 +133,28 @@ public abstract class Specification {
 		return getRefAttributes().contains(a -> selector.getOutput(a));
 	}
 	
-	//abstract method
+	//method
 	/**
 	 * @return true if the current {@link Specification} contains attributes.
 	 */
 	public boolean containsAttributes() {
 		return getRefAttributes().containsAny();
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Specification} contains exactly 1 attribute.
+	 */
+	public boolean containsOneAttribute() {
+		return getRefAttributes().containsOne();
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Specification} contains exactly 1 attribute, which has a header.
+	 */
+	public boolean containsOneAttributeWithHeader() {
+		return (containsOneAttribute() && getRefOneAttribute().hasHeader());
 	}
 	
 	//method
