@@ -27,7 +27,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 700
+ * @lines 710
  */
 public abstract class Specification {
 	
@@ -222,7 +222,7 @@ public abstract class Specification {
 	 * @throws InvalidArgumentException
 	 * if the first attribute of the current {@link Specification} does not represent an integer.
 	 */
-	public final int getFirstAttributeAsInt() {
+	public int getFirstAttributeAsInt() {
 		return getRefFirstAttribute().toInt();
 	}
 	
@@ -279,6 +279,16 @@ public abstract class Specification {
 	 */
 	public String getOneAttributeAsString() {
 		return getRefOneAttribute().toString();
+	}
+	
+	//method
+	/**
+	 * @return the header of the one attribute of the current {@link Specification}.
+	 * @throws EmptyStateException if the current {@link Specification} contains no attributes.
+	 * @throws InvalidStateException if the current {@link Specification} contains several attributes.
+	 */
+	public String getOneAttributeHeader() {
+		return getRefOneAttribute().getHeader();
 	}
 	
 	//method
