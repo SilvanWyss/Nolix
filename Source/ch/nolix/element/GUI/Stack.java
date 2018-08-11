@@ -17,7 +17,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 290
+ * @lines 310
  * @param <S> The type of a {@link Stack}.
  */
 public abstract class Stack<S extends Stack<S>> 
@@ -209,6 +209,22 @@ implements Clearable<S> {
 	public final S removeElementMargin() {
 		
 		elementMargin = null;
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Removes the given widget from the current {@link Stack}.
+	 *
+	 * @param widget
+	 * @return the current {@link Stack}.
+	 * @throws InvalidStateException
+	 * if the current {@link Stack} does not contain the given widget.
+	 */
+	public final S removeWidget(final Widget<?, ?> widget) {
+		
+		widgets.removeFirst(widget);
 		
 		return getInstance();
 	}
