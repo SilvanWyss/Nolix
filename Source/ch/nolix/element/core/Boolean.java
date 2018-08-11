@@ -12,7 +12,7 @@ import ch.nolix.core.specification.StandardSpecification;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 110
+ * @lines 120
  */
 public final class Boolean extends Element {
 	
@@ -23,8 +23,12 @@ public final class Boolean extends Element {
 	public static final boolean DEFAULT_VALUE = false;
 	
 	//constants
-	private static final String FALSE = "False";
-	private static final String TRUE = "True";
+	public static final Boolean FALSE = new Boolean(false);
+	public static final Boolean TRUE = new Boolean(true);
+	
+	//constants
+	private static final String FALSE_HEADER = "False";
+	private static final String TRUE_HEADER = "True";
 	
 	//method
 	/**
@@ -71,12 +75,12 @@ public final class Boolean extends Element {
 		
 		//Handles the case that this boolean is false.
 		if (isFalse()) {
-			attributes.addAtEnd(new StandardSpecification(FALSE));
+			attributes.addAtEnd(new StandardSpecification(FALSE_HEADER));
 		}
 		
 		//Handles the case that this boolean ist true.
 		else {
-			attributes.addAtEnd(new StandardSpecification(TRUE));
+			attributes.addAtEnd(new StandardSpecification(TRUE_HEADER));
 		}
 
 		return attributes;
