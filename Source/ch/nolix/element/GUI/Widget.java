@@ -30,7 +30,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1630
+ * @lines 1650
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -706,6 +706,17 @@ extends ConfigurableElement<W> {
 				noteMouseMove();
 			}
 		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link Widget} note any mouse move recursively.
+	 */
+	public void noteAnyMouseMoveRecursively() {
+		
+		noteAnyMouseMove();
+		
+		getRefWidgetsRecursively().forEach(w -> w.noteAnyMouseMove());
 	}
 	
 	//method

@@ -548,11 +548,11 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		if (hasRootWidget()) {
 			
 			getRefRootWidget().setParentCursorPosition(
-					getCursorXPosition(), getCursorYPosition()
+				getCursorXPosition(), getCursorYPosition()
 			);
+			
+			getRefRootWidget().noteAnyMouseMoveRecursively();
 		}
-		
-		getRefWidgetsRecursively().forEach(w -> w.noteAnyMouseMove());
 		
 		refresh();
 	}
