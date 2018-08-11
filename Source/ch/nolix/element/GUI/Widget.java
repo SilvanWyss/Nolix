@@ -30,7 +30,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1650
+ * @lines 1660
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -651,6 +651,17 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
+	 * Lets the current {@link Widget} note any mouse button press recursively.
+	 */
+	public final void noteAnyLeftMouseButtonPressRecursively() {
+		
+		noteAnyLeftMouseButtonPress();
+		
+		getRefWidgetsRecursively().forEach(w -> w.noteAnyLeftMouseButtonPress());
+	}
+	
+	//method
+	/**
 	 * Lets the current {@link Widget} note any mouse button release.
 	 */
 	public void noteAnyLeftMouseButtonRelease() {
@@ -712,7 +723,7 @@ extends ConfigurableElement<W> {
 	/**
 	 * Lets the current {@link Widget} note any mouse move recursively.
 	 */
-	public void noteAnyMouseMoveRecursively() {
+	public final void noteAnyMouseMoveRecursively() {
 		
 		noteAnyMouseMove();
 		
