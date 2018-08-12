@@ -79,9 +79,11 @@ public abstract class Entity implements Specified {
 	 */
 	protected final void approveProperties() {
 		
-		getRefProperties().forEach(p -> p.approve());
-		
-		propertiesAreApproved = true;
+		//Handles the case that the properties of this entity are not approved yet.
+		if (!propertiesAreApproved()) {
+			getRefProperties().forEach(p -> p.approve());	
+			propertiesAreApproved = true;
+		}
 	}
 	
 	//method
