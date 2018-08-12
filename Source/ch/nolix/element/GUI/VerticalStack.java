@@ -87,7 +87,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 			case Left:
 				
 				var y1 = 0;
-				for (final var w : getRefShownWidgets()) {
+				for (final var w : getRefWidgets()) {
 					w.setPositionOnParent(0, y1);
 					y1 += w.getHeight() + getActiveElementMargin();
 				}
@@ -99,7 +99,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				
 				final var contentAreaWidth2 = getContentAreaWidth();
 				var y2 = 0;
-				for (final var w : getRefShownWidgets()) {			
+				for (final var w : getRefWidgets()) {			
 					w.setPositionOnParent((contentAreaWidth2 - w.getWidth()) / 2, y2);
 					y2 += w.getHeight() + getActiveElementMargin();
 				}
@@ -111,7 +111,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				
 				final var contentAreaWidth3 = getContentAreaWidth();
 				var y3 = 0;
-				for (final var w : getRefShownWidgets()) {
+				for (final var w : getRefWidgets()) {
 					w.setPositionOnParent(contentAreaWidth3 - w.getWidth(), y3);
 					y3 += w.getHeight() + getActiveElementMargin();
 				}
