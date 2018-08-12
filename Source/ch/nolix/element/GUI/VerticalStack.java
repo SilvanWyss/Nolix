@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 120
+ * @lines 130
  */
 public final class VerticalStack extends Stack<VerticalStack> {
 	
@@ -17,9 +17,23 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 * Creates a new {@link VerticalStack}.
 	 */
 	public VerticalStack() {
+		
+		//Calls other constructor.
+		this(true);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link VerticalStack}.
+	 */
+	public VerticalStack(final boolean applyUsableConfiguration) {
+		
 		reset();
 		approveProperties();
-		applyUsableConfiguration();
+		
+		if (applyUsableConfiguration) {
+			applyUsableConfiguration();
+		}
 	}
 	
 	//constructor
