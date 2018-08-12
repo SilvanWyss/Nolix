@@ -30,7 +30,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1660
+ * @lines 1670
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -192,7 +192,16 @@ extends ConfigurableElement<W> {
 	 * @return true if the current {@link Widget} belongs to a GUI.
 	 */
 	public final boolean belongsToGUI() {
-		return (parentGUI != null);
+		
+		if (parentGUI != null) {
+			return true;
+		}
+		
+		if (belongsToWidget()) {
+			return getParentWidget().belongsToGUI();
+		}
+		
+		return false;
 	}
 	
 	//method
@@ -370,8 +379,14 @@ extends ConfigurableElement<W> {
 	 */
 	public final GUI<?> getParentGUI() {
 		
-		//Checks if the current widget belongs to a GUI.
-		supposeBelongsToGUI();
+		if (parentGUI == null) {
+			
+			if (parentWidget == null) {
+				throw new InvalidStateException(this, "does not belong to a GUI");
+			}
+			
+			parentGUI = getParentWidget().getParentGUI();
+		}
 		
 		return parentGUI;
 	}
@@ -1350,6 +1365,12 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
+	 * Lets the current {@link Widget} note that it has been set a parent to it.
+	 */
+	protected void noteSetParent() {};
+	
+	//method
+	/**
 	 * Paints the current {@link Widget} using the given painter.
 	 * 
 	 * @param painter
@@ -1409,9 +1430,7 @@ extends ConfigurableElement<W> {
 		//Sets the parent widget of the current widget.
 		this.parentWidget = parentWidget;
 		
-		if (getParentWidget().belongsToGUI()) {
-			setParentGUI(getParentWidget().getParentGUI());
-		}
+		noteSetParent();
 	}
 	
 	//method
@@ -1455,7 +1474,7 @@ extends ConfigurableElement<W> {
 	 * @param GUI
 	 * @throws NullArgumentException if the given GUI is null.
 	 */
-	void setParentGUI(final GUI<?> parentGUI) {
+	final void setParentGUI(final GUI<?> parentGUI) {
 		
 		Validator
 		.suppose(parentGUI)
@@ -1466,7 +1485,7 @@ extends ConfigurableElement<W> {
 		
 		this.parentGUI = parentGUI;
 		
-		getRefWidgets().forEach(w -> w.setParentGUI(getParentGUI()));
+		noteSetParent();
 	}
 	
 	//method
@@ -1564,21 +1583,6 @@ extends ConfigurableElement<W> {
 		supposeHasRightMouseButtonReleaseCommad();
 		
 		return rightMouseButtonReleaseCommand;
-	}
-	
-	//method
-	/**
-	 * @throws InvalidStateException if the current {@link Widget} does not belong to a {@link GUI}.
-	 */
-	private void supposeBelongsToGUI() {
-		
-		//Checks if the current widget belongs to a GUI.
-		if (!belongsToGUI()) {
-			throw new InvalidStateException(
-				this,
-				"does not belong to a GUI"
-			);
-		}
 	}
 	
 	//method
