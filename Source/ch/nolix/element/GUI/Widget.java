@@ -172,7 +172,7 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @return the current {@link Widget}.
 	 */
-	public W applyUsableConfiguration() {
+	public final W applyUsableConfiguration() {
 		
 		resetConfiguration();		
 		applyUsableConfigurationWhenConfigurationIsReset();
