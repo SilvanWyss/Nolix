@@ -34,7 +34,7 @@ public final class ButtonTutorial {
 		final var button =
 		new Button("Quit")
 		.setMinWidth(200)
-		.setCursorIcon(CursorIcon.Hand)
+		.setCustomCursorIcon(CursorIcon.Hand)
 		.setLeftMouseButtonReleaseCommand(() -> quit());
 		
 		//Configures the look of the button.

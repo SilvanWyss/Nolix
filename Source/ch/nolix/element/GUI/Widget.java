@@ -55,7 +55,7 @@ extends ConfigurableElement<W> {
 	
 	//attributes
 	private WidgetState state = WidgetState.Normal;
-	private CursorIcon cursorIcon = CursorIcon.Arrow;
+	private CursorIcon customCursorIcon = CursorIcon.Arrow;
 	private boolean greyOutWhenDisabled = true;	
 	
 	//attributes
@@ -119,7 +119,7 @@ extends ConfigurableElement<W> {
 				setState(WidgetState.createFromSpecification(attribute));
 				break;
 			case CursorIcon.TYPE_NAME:
-				setCursorIcon(CursorIcon.valueOf(attribute.getOneAttributeAsString()));
+				setCustomCursorIcon(CursorIcon.valueOf(attribute.getOneAttributeAsString()));
 				break;
 			case NO_GREY_OUT_WHEN_DISABLED_HEADER:
 				removeGreyOutWhenDisabled();
@@ -217,12 +217,6 @@ extends ConfigurableElement<W> {
 		return (this.parentGUI != GUI);
 	}
 	
-	//abstract method
-	/**
-	 * @return the active cursor icon of the current {@link Widget}.
-	 */
-	public abstract CursorIcon getActiveCursorIcon();
-	
 	//method
 	/**
 	 * @return the attributes of the current {@link Widget}.
@@ -234,8 +228,9 @@ extends ConfigurableElement<W> {
 		
 		attributes.addAtBegin(getInteractionAttributes());
 		
-		if (cursorIcon != CursorIcon.Arrow) {
-			attributes.addAtEnd(cursorIcon.getSpecification());
+		//Handles the case that the custom cursor icon of the current widget is no arrow.
+		if (getCustomCursorIcon() != CursorIcon.Arrow) {
+			attributes.addAtEnd(getCustomCursorIcon().getSpecification());
 		}
 		
 		//Handles the case that the current widget has a left mouse button press command.
@@ -301,13 +296,11 @@ extends ConfigurableElement<W> {
 		return attributes;
 	}
 	
-	//method
+	//abstract method
 	/**
 	 * @return the cursor icon of the current {@link Widget}.
 	 */
-	public final CursorIcon getCursorIcon() {
-		return cursorIcon;
-	}
+	public abstract CursorIcon getCursorIcon();
 	
 	//method
 	/**
@@ -323,6 +316,14 @@ extends ConfigurableElement<W> {
 	 */
 	public final int getCursorYPosition() {
 		return cursorYPosition;
+	}
+	
+	//method
+	/**
+	 * @return the custom cursor icon of the current {@link Widget}.
+	 */
+	public final CursorIcon getCustomCursorIcon() {
+		return customCursorIcon;
 	}
 	
 	//method
@@ -939,7 +940,7 @@ extends ConfigurableElement<W> {
 		getRefHoverLook().reset();
 		getRefFocusLook().reset();
 		
-		setCursorIcon(CursorIcon.Arrow);
+		setCustomCursorIcon(CursorIcon.Arrow);
 		
 		//Resets the configuration of the widgets of the current widget.
 		getRefWidgets().forEach(r -> r.resetConfiguration());
@@ -1022,18 +1023,21 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Sets the cursor icon of the current {@link Widget}.
+	 * Sets the custom cursor icon of the current {@link Widget}.
 	 * 
-	 * @param cursorIcon
-	 * @throws NullArgumentException if the given cursor icon is null.
+	 * @param customCursorIcon
+	 * @throws NullArgumentException if the given custom cursor icon is null.
 	 */
-	public final W setCursorIcon(final CursorIcon cursorIcon) {
+	public final W setCustomCursorIcon(final CursorIcon customCursorIcon) {
 		
-		//Checks if the given cursor icon is not null.
-		Validator.suppose(cursorIcon).thatIsOfType(CursorIcon.class).isNotNull();
+		//Checks if the given custom cursor icon is not null.
+		Validator
+		.suppose(customCursorIcon)
+		.thatIsNamed("custom cursor icon")
+		.isNotNull();
 		
-		//Sets the cursor icon of the current {@link Widget}.
-		this.cursorIcon = cursorIcon;
+		//Sets the custom cursor icon of the current widget.
+		this.customCursorIcon = customCursorIcon;
 		
 		return getInstance();
 	}

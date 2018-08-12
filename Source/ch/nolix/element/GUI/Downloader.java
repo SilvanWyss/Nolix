@@ -174,7 +174,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	
 	//method
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {		
-		setCursorIcon(DEFAULT_CURSOR_ICON);
+		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
 	}
 	
 	//method

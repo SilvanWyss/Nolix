@@ -130,8 +130,8 @@ public final class Area extends Widget<Area, AreaLook> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public CursorIcon getActiveCursorIcon() {
-		return getCursorIcon();
+	public CursorIcon getCursorIcon() {
+		return getCustomCursorIcon();
 	}
 	
 	//method

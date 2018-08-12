@@ -173,7 +173,7 @@ implements Clearable<Console> {
 	 * {@inheritDoc}
 	 */
 	public CursorIcon getContentAreaCursorIcon() {
-		return getCursorIcon();
+		return getCustomCursorIcon();
 	}
 	
 	//method
@@ -446,7 +446,7 @@ implements Clearable<Console> {
 		//Calls method of the base class.
 		super.resetConfiguration();
 		
-		setCursorIcon(CursorIcon.Edit);
+		setCustomCursorIcon(CursorIcon.Edit);
 		
 		getRefBaseLook().setTextFont(TextFont.Console);
 		

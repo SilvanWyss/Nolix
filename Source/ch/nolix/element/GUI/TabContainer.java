@@ -220,12 +220,12 @@ implements Clearable<TabContainer> {
 		
 		//Handles the case that there exists a menu item under the cursor.
 		if (menuItemUnderCursor != null) {
-			return menuItemUnderCursor.getCursorIcon();
+			return menuItemUnderCursor.getCustomCursorIcon();
 		}
 		
 		//Handles the case that there is no menu item under the cursor.
 			//Calls method of the base class.
-			return super.getCursorIcon();
+			return super.getCustomCursorIcon();
 	}
 	
 	//method

@@ -70,7 +70,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	 * {@inheritDoc}
 	 */
 	public final CursorIcon getContentAreaCursorIcon() {
-		return getCursorIcon();
+		return getCustomCursorIcon();
 	}
 	
 	//method

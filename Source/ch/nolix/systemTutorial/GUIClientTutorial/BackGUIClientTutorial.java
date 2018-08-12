@@ -58,7 +58,7 @@ public final class BackGUIClientTutorial {
 			new Button()
 			.setText("Change color")
 			.setLeftMouseButtonPressCommand(() -> changeColor())
-			.setCursorIcon(CursorIcon.Hand);			
+			.setCustomCursorIcon(CursorIcon.Hand);			
 						
 			button
 			.getRefBaseLook()

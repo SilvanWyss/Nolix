@@ -45,7 +45,7 @@ implements Clearable<TabContainerTab> {
 	private final Label menuItem =
 	new Label()
 	.setContentPosition(ContentPosition.Center)
-	.setCursorIcon(CursorIcon.Hand);
+	.setCustomCursorIcon(CursorIcon.Hand);
 	
 	//optional attributes
 	private TabContainer parentTabContainer;

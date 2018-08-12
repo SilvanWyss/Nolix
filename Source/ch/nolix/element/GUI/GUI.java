@@ -267,7 +267,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	public CursorIcon getActiveCursorIcon() {
 		
 		if (hasRootWidget() && getRefRootWidget().isUnderCursor()) {
-			return getRefRootWidget().getActiveCursorIcon();
+			return getRefRootWidget().getCursorIcon();
 		}
 		
 		return CursorIcon.Arrow;	

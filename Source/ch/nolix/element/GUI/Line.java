@@ -74,8 +74,8 @@ extends Widget<L, LineLook> {
 	/**
 	 * @return the active cursor icon of the current {@link Line}.
 	 */
-	public CursorIcon getActiveCursorIcon() {
-		return getCursorIcon();
+	public CursorIcon getCursorIcon() {
+		return getCustomCursorIcon();
 	}
 	
 	//method

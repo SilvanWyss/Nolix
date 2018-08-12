@@ -66,7 +66,7 @@ extends Container<SingleContainer, SingleContainerLook> {
 	 * {@inheritDoc}
 	 */
 	public CursorIcon getContentAreaCursorIcon() {
-		return getCursorIcon();
+		return getCustomCursorIcon();
 	}
 	
 	//method

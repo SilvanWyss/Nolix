@@ -126,10 +126,10 @@ implements Clearable<SelectionMenu> {
 	public CursorIcon getContentAreaCursorIcon() {
 		
 		if (menu.isUnderCursor()) {
-			return menu.getActiveCursorIcon();
+			return menu.getCursorIcon();
 		}
 		
-		return getCursorIcon();
+		return getCustomCursorIcon();
 	}
 	
 	//method

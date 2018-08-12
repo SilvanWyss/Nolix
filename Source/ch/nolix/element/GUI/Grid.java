@@ -69,10 +69,10 @@ public final class Grid extends Container<Grid, GridLook> {
 		final var widgetUnderCursor = getRefWidgets().getRefFirstOrNull(w -> w.isUnderCursor());
 		
 		if (widgetUnderCursor != null) {
-			return widgetUnderCursor.getActiveCursorIcon();
+			return widgetUnderCursor.getCursorIcon();
 		}
 		
-		return getCursorIcon();
+		return getCustomCursorIcon();
 	}
 	
 	//method

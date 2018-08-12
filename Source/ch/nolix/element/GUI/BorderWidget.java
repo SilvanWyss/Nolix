@@ -167,7 +167,7 @@ extends BackgroundWidget<BW, BWS> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public final CursorIcon getActiveCursorIcon() {
+	public final CursorIcon getCursorIcon() {
 		
 		if (horizontalScrollbarIsUnderCursor() || verticalScrollbarIsUnderCursor()) {
 			return CursorIcon.Arrow;

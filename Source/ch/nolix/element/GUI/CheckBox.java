@@ -83,8 +83,8 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public CursorIcon getActiveCursorIcon() {
-		return getCursorIcon();
+	public CursorIcon getCursorIcon() {
+		return getCustomCursorIcon();
 	}
 	
 	//method
