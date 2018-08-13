@@ -60,6 +60,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	
 	//static attribute
 	private static final WidgetCreator widgetCreator = new WidgetCreator(
+		Accordion.class,
 		Area.class,
 		Button.class,
 		Checkbox.class,
