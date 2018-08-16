@@ -18,7 +18,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-07
- * @lines 570
+ * @lines 590
  * @param <E> The type of the elements of a {@link Matrix}.
  */
 public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
@@ -313,6 +313,29 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 */
 	public int getElementCount() {
 		return (getRowCount() * getColumnCount());
+	}
+	
+	//method
+	/**
+	 * @param rowIndex
+	 * @param columnIndex
+	 * @return the index of the element with the given row index and the given column index.
+	 * @throws NonPositiveArgumentException if the given row index is not positive.
+	 * @throws BiggerArgumentException
+	 * if the given row index is bigger than the number of rows of the current {@link Matrix}.
+	 * @throws NonPositiveArgumentException if the given column index is not positive.
+	 * @throws BiggerArgumentException
+	 * if the given column index is bigger than the number of columns of the current {@link Matrix}.
+	 */
+	public int getIndexOf(final int rowIndex, final int columnIndex) {
+		
+		//Checks if the current matrix contains an element
+		//at the given row index and the given column index.
+		supposeContainsElementAt(rowIndex, columnIndex);
+		
+		return
+		rowIndex * (getColumnCount() - 1)
+		+ columnIndex;
 	}
 	
 	//method
