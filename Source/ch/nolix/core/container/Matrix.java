@@ -333,9 +333,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		//at the given row index and the given column index.
 		supposeContainsElementAt(rowIndex, columnIndex);
 		
-		return
-		rowIndex * (getColumnCount() - 1)
-		+ columnIndex;
+		return ((rowIndex - 1) * getColumnCount() + columnIndex);
 	}
 	
 	//method
