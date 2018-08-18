@@ -112,7 +112,7 @@ public class LongMediator extends Mediator {
 	 * @throws OutOfRangeArgumentException
 	 * if the argument of this long mediator is not between the given min and max.
 	 */
-	public void isBetween(final int min, final int max) {
+	public void isBetween(final long min, final long max) {
 		
 		//Checks if the argument of this long mediator
 		//is between the given min and max.
