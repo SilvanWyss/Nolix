@@ -18,7 +18,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 310
+ * @lines 320
  */
 public final class StringHelper {
 	
@@ -55,6 +55,16 @@ public final class StringHelper {
 		.run(() -> stringBuilder.append(CharacterCatalogue.SPACE));
 		
 		return stringBuilder.toString();
+	}
+	
+	//static method
+	/**
+	 * @param string
+	 * @param n
+	 * @return a new {@link String} that is like the given string without the last n characters.
+	 */
+	public static String createStringWithoutLastCharacters(final String string, final int n) {
+		return string.substring(0, string.length() - n);
 	}
 	
 	//static method
