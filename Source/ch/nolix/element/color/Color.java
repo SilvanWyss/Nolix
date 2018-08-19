@@ -8,6 +8,7 @@ import java.lang.reflect.Modifier;
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
 import ch.nolix.core.specification.Specification;
@@ -16,25 +17,29 @@ import ch.nolix.element.core.Element;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.primitive.invalidStateException.InvalidStateException;
+import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**
- * This class represents a true color.
- * A true color is a color that consists of a blue, green and red value that are integers in [0, 255].
- * A color is not mutable.
+ * A {@link Color} represents a true color with an alpha value.
+ * A true color consists of a blue, green and red value that are integers in [0, 255].
+ * So a {@link Color} consists of a blue, green, red and alpha value that are integers in [0, 255].
+ * A {@link Color} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1090
+ * @lines 1280
  */
 public class Color extends Element {
 	
-	//type name
+	//constant
 	public static final String TYPE_NAME = "Color";
 	
-	//web colors
+	//default value
+	public static final int DEFAULT_ALPHA_VALUE = 255;
+	
+	//constants
 		public static final int ALICE_BLUE_INT = 0xF0F8FF;
 		public static final String ALICE_BLUE_STRING = "AliceBlue";
 		public static final Color ALICE_BLUE = new Color(ALICE_BLUE_INT);
@@ -599,125 +604,162 @@ public class Color extends Element {
 		public static final String YELLOW_GREEN_STRING = "YellowGreen";
 		public static final Color YELLOW_GREEN = new Color(YELLOW_GREEN_INT);
 	
+	//limits
+	private static final long MIN_COLOR_INT = 0;
+	private static final long MAX_COLOR_INT = 4294967296l;
+	
+	//limits
+	private static final short MIN_COLOR_COMPONENT = 0;
+	private static final short MAX_COLOR_COMPONENT = 255;
+	
+	//static attribute
+	private static final List<Pair<String, java.lang.Long>> webColorPairs =
+	new List<Pair<String, java.lang.Long>>();
+	
 	//static method
 	/**
-	 * 
 	 * @param specification
-	 * @return a new color from the given specification
+	 * @return a new {@link Color} from the given specification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static Color createFromSpecification(final Specification specification) {
 		return new Color(specification.getOneAttributeAsString());
 	}
-		
-	//default value
-	private static final int DEFAULT_VALUE = WHITE_INT;
-		
-	//true colors limits
-	private static final int MIN_TRUE_COLOR = 0;
-	private static final int MAX_TRUE_COLOR = 16777215;
-	
-	//true color component limits
-	private static final int MIN_TRUE_COLOR_COMPONENT = 0;
-	private static final int MAX_TRUE_COLOR_COMPONENT = 255;
-	
-	//web colors
-		private static final List<Pair<String, java.lang.Integer>> webColorMap
-		= new List<Pair<String, java.lang.Integer>>();
-			
-		private static final ReadContainer<Pair<String, java.lang.Integer>> webColorMap2
-		= new ReadContainer<Pair<String, java.lang.Integer>>(webColorMap);
 	
 	//static method
 	/**
-	 * Extracts the web color map.
-	 * 
-	 * @throws InvalidStateException if the web color map is extracted.
+	 * @param field
+	 * @return true if the given field declares a web color string.
 	 */
-	private static final void extractWebColorMap() {
-		
-		//Checks if the web color map is not extracted.
-		if (webColorMapIsExtracted()) {
-			throw new InvalidStateException(Color.class, "has extracted the web color map");
-		}
-		
-		try {
-		
-			//Iterates the declared fields of the color class.
-			for (final Field f : Color.class.getDeclaredFields()) {
-				if (
-					Modifier.isStatic(f.getModifiers())
-					&& f.getName().endsWith("_STRING")
-				) {
-					
-					final String colorName = f.get(null).toString();
-					int colorValue = 0;
-					
-					for (final Field f2 : Color.class.getDeclaredFields()) {
-						
-						if (
-							Modifier.isStatic(f2.getModifiers())
-							&& f2.getName().replace("_INT", "_STRING").equals(f.getName())
-						) {
-							colorValue = (int)f2.get(null);
-							break;
-						}
-					}
-					
-					webColorMap.addAtEnd(new Pair<String, java.lang.Integer>(colorName, colorValue));
-				}
-			}
-		}
-		catch (final IllegalAccessException illegalAccessException) {
-			throw new RuntimeException(illegalAccessException);
-		}
-	}	
-		
-	//static method
-	/**
-	 * @return a web color map.
-	 */
-	private static final ReadContainer<Pair<String, java.lang.Integer>> getWebColorMap() {
-		
-		//Handles the case that the web color map is not extracted.
-		if (!webColorMapIsExtracted()) {
-			extractWebColorMap();
-		}
-		
-		return webColorMap2;
+	private static boolean declaresWebColorString(final Field field) {
+		return
+		Modifier.isStatic(field.getModifiers())
+		&& field.getName().endsWith("_STRING");
 	}
 	
 	//static method
 	/**
-	 * @return true if the web color map is extracted.
+	 * Fills up the web color pairs.
 	 */
-	private static final boolean webColorMapIsExtracted() {
-		return webColorMap.containsAny();
+	private static void fillUpWebColorPairs() {
+		
+		//Handles the case that the web color pairs are not filled up already.
+		if (!webColorPairsAreFilledUp()) {		
+			try {
+				
+				//Iterates the declared fields of the color class.
+				for (final var f : Color.class.getDeclaredFields()) {
+					
+					//Handles the case that the current field declares a web color string.
+					if (declaresWebColorString(f)) {
+						webColorPairs.addAtEnd(
+							new Pair<String, java.lang.Long>(
+								f.get(null).toString(),
+								getWebColorInt(f)
+							)
+						);
+					}
+				}
+			}
+			catch (final IllegalAccessException illegalAccessException) {
+				throw new RuntimeException(illegalAccessException);
+			}
+		}
 	}	
 	
-	//attribute
-	private int value = DEFAULT_VALUE;
+	//static method
+	/**
+	 * 
+	 * @param webColorStringField
+	 * @return the web color int that corresponds to the given web color string field.
+	 */
+	private static long getWebColorInt(final Field webColorStringField) {
+		try {
+			return (int)getWebColorIntField(webColorStringField).get(null);
+		}
+		catch (final IllegalArgumentException | IllegalAccessException exception) {
+			throw new RuntimeException(exception);
+		}
+	}
+	
+	//static method
+	/**
+	 * 
+	 * @param webColorStringField
+	 * @return the web color int field that corresponds to the given web color string field.
+	 * @throws UnexistingAttributeException if the {@link Color} class
+	 * does not contain a web color int field for the given web color string field.
+	 */
+	private static Field getWebColorIntField(final Field webColorStringField) {
+		final var webColorIntFieldName =
+		StringHelper.createStringWithoutLastCharacters(webColorStringField.getName(), 7) + "_INT";
+		
+		//Iterates the fields of the color class.
+		for (final var f : Color.class.getDeclaredFields()) {
+			
+			//Handles the case that the current field 2 declares the int value of the web color with the current color name.
+			if (
+				Modifier.isStatic(f.getModifiers())
+				&& f.getName().equals(webColorIntFieldName)
+			) {
+				return f;
+			}
+		}
+		
+		throw
+		new UnexistingAttributeException(
+			Color.class,
+			"web color int field for the given web color string field '"
+			+ webColorStringField.getName()
+			+ "'"
+		);
+	}
+	
+	//static method
+	/**
+	 * @return the web color pairs.
+	 */
+	private static ReadContainer<Pair<String, java.lang.Long>> getWebColorPairs() {
+		
+		fillUpWebColorPairs();
+		
+		return new ReadContainer<Pair<String, java.lang.Long>>(webColorPairs);
+	}
+	
+	//static method
+	/**
+	 * @return true if the web color pairs are filled up.
+	 */
+	private static boolean webColorPairsAreFilledUp() {
+		return webColorPairs.containsAny();
+	}	
+	
+	//attributes
+	private short redValue;
+	private short greenValue;
+	private short blueValue;
+	private short alphaValue = DEFAULT_ALPHA_VALUE;
 	
 	//constructor
 	/**
-	 * Creates a new color with a default values.
+	 * Creates a new {@link Color} with default values.
 	 */
 	public Color() {}
 	
 	//constructor
 	/**
-	 * Creates a new color with the given value.
+	 * Creates a new {@link Color} with the given value.
 	 * 
 	 * @param value
-	 * @throws OutOfRangeArgumentException if the given value is no true color value (in [0, 16'777'215]).
+	 * @throws OutOfRangeArgumentException if the given value is no true color value with an optional alpha value.
 	 */
-	public Color(final int value) {
+	public Color(final long value) {
 		setValue(value);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new color with the given red value, green value and blue value.
+	 * Creates a new {@link Color} with the given red value, green value and blue value.
 	 * 
 	 * @param redValue
 	 * @param greenValue
@@ -731,10 +773,27 @@ public class Color extends Element {
 	
 	//constructor
 	/**
-	 * Creates a new color with the given value.
+	 * Creates a new {@link Color} with the given red value, green value, blue value and alpha value.
+	 * 
+	 * @param redValue
+	 * @param greenValue
+	 * @param blueValue
+	 * @param alphaValue
+	 */
+	public Color(final int redValue, final int greenValue, final int blueValue, final int alphaValue) {
+		setRedValue(redValue);
+		setGreenValue(greenValue);
+		setBlueValue(blueValue);
+		setAlphaValue(alphaValue);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link Color} with the given value.
 	 * 
 	 * @param value
-	 * @throws InvalidArgumentException if the given value is no color name or no true color value
+	 * @throws InvalidArgumentException if the given value is no color name
+	 * or no true color value with an optional alpha value.
 	 */
 	public Color(final String value) {
 		setValue(value);
@@ -742,192 +801,295 @@ public class Color extends Element {
 	
 	//method
 	/**
-	 * @return a new Swing color from this color.
+	 * @return a new {@link java.awt.Color} from the current {@link Color}.
 	 */
-	public final java.awt.Color createSwingColor() {
-		return new java.awt.Color(getValue());
+	public java.awt.Color createSwingColor() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return new java.awt.Color(redValue, greenValue, blueValue, alphaValue);
 	}
 	
 	//method
 	/**
-	 * @return the attributes of this color.
+	 * @return the alpha value of the current {@link Color}.
 	 */
-	public final List<StandardSpecification> getAttributes() {		
-		return new List<StandardSpecification>().addAtEnd(new StandardSpecification(getStringValue()));
+	public int getAlphaValue() {
+		return alphaValue;
 	}
 	
 	//method
 	/**
-	 * @return the blue value of this color.
+	 * @return the attributes of the current {@link Color}.
 	 */
-	public final int getBlueValue() {
-		return (value % 256);
+	public List<StandardSpecification> getAttributes() {		
+		return new List<StandardSpecification>(new StandardSpecification(getStringValue()));
 	}
 	
 	//method
 	/**
-	 * @return the green value of this color.
+	 * @return the blue value of the current {@link Color}.
 	 */
-	public final int getGreenValue() {
-		return ((value / 256) % 256);
+	public int getBlueValue() {
+		return blueValue;
 	}
 	
 	//method
 	/**
-	 * @return a new color that is the inverted color of this color.
+	 * @return the green value of the current {@link Color}.
 	 */
-	public final Color getInvertedColor() {
+	public int getGreenValue() {
+		return greenValue;
+	}
+	
+	//method
+	/**
+	 * @return the integer value of the current {@link Color}.
+	 */
+	public long getIntValue() {
+		
+		//Handles the case that the current color does not have a full alpha value.
+		if (!hasFullAlphaValue()) {
+			return
+			16777216 * getRedValue()
+			+ 65536 * getGreenValue()
+			+ 256 * getBlueValue()
+			+ getAlphaValue();
+		}
+		
+		//Handles the case that the current color has a fuel alpha value.
+		return
+		65536 * getRedValue()
+		+ 256 * getGreenValue()
+		+ getBlueValue();
+	}
+	
+	//method
+	/**
+	 * When a {@link Color} is inverted, the alpha value does not change.
+	 * 
+	 * @return a new {@link Color} that is the inverted color of the current {@link Color}.
+	 */
+	public Color getInvertedColor() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
 		return new Color(
-			MAX_TRUE_COLOR_COMPONENT - getRedValue(),
-			MAX_TRUE_COLOR_COMPONENT - getGreenValue(),
-			MAX_TRUE_COLOR_COMPONENT - getBlueValue()
+			MAX_COLOR_COMPONENT - redValue,
+			MAX_COLOR_COMPONENT - greenValue,
+			MAX_COLOR_COMPONENT - blueValue,
+			alphaValue
 		);
 	}
 	
 	//method
 	/**
-	 * @return the inverted normalized blue value of this color.
+	 * @return the inverted normalized alpha value of the current {@link Color}.
 	 */
-	public final double getInvertedNormalizedBlueValue() {
+	public double getInvertedNormalizedAlphaValue() {
+		return (1.0 - getNormalizedAlphaValue());
+	}
+	
+	//method
+	/**
+	 * @return the inverted normalized blue value of the current {@link Color}.
+	 */
+	public double getInvertedNormalizedBlueValue() {
 		return (1.0 - getNormalizedBlueValue());
 	}
 	
 	//method
 	/**
-	 * @return the inverted normalized green value of this color.
+	 * @return the inverted normalized green value of the current {@link Color}.
 	 */
-	public final double getInvertedNormalizedGreenValue() {
+	public double getInvertedNormalizedGreenValue() {
 		return (1.0 - getNormalizedGreenValue());
 	}
 	
 	//method
 	/**
-	 * @return the inverted normalized red value of this color.
+	 * @return the inverted normalized red value of the current {@link Color}.
 	 */
-	public final double getInvertedNormalizedRedValue() {
+	public double getInvertedNormalizedRedValue() {
 		return (1.0 - getNormalizedRedValue());
 	}
 	
 	//method
 	/**
-	 * @return the normalized blue value of this color.
+	 * @return the normalized alpha value of the current {@link Color}.
 	 */
-	public final double getNormalizedBlueValue() {
-		return ((double)getBlueValue() / 256);
-	}
-	
-	//method
-	/**
-	 * @return the normalized green value of this color.
-	 */
-	public final double getNormalizedGreenValue() {
-		return ((double)getGreenValue() / 256);
-	}
-	
-	//method
-	/**
-	 * @return the normalized red value of this color.
-	 */
-	public final double getNormalizedRedValue() {
-		return ((double)getRedValue() / 256);
-	}
-	
-	//method
-	/**
-	 * @return the red value of this color.
-	 */
-	public final int getRedValue() {
-		return (value / 65536);
-	}
-	
-	//method
-	/**
-	 * @return the string value of this color.
-	 */
-	public final String getStringValue() {
+	public double getNormalizedAlphaValue() {
 		
-		final Pair<String, Integer> pair =
-		getWebColorMap().getRefFirstOrNull(wc -> wc.getRefElement2().equals(getValue()));
+		//For a better performance, this implementation does not use all comfortable methods.
+		return ((double)alphaValue / 256);
+	}
+	
+	//method
+	/**
+	 * @return the normalized blue value of the current {@link Color}.
+	 */
+	public double getNormalizedBlueValue() {
 		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return ((double)blueValue / 256);
+	}
+	
+	//method
+	/**
+	 * @return the normalized green value of the current {@link Color}.
+	 */
+	public double getNormalizedGreenValue() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return ((double)greenValue / 256);
+	}
+	
+	//method
+	/**
+	 * @return the normalized red value of the current {@link Color}.
+	 */
+	public double getNormalizedRedValue() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return ((double)redValue / 256);
+	}
+	
+	//method
+	/**
+	 * @return the red value of the current {@link Color}.
+	 */
+	public int getRedValue() {
+		return redValue;
+	}
+	
+	//method
+	/**
+	 * @return the string value of the current {@link Color}.
+	 */
+	public String getStringValue() {
+		
+		final Pair<String, Long> pair =
+		getWebColorPairs().getRefFirstOrNull(wc -> wc.getRefElement2().equals(getIntValue()));
+		
+		//Handles the case that the current color has a color name.
 		if (pair != null) {
 			return pair.getRefElement1();
 		}
 		
-		//Enumerates the value of this color.
-		switch (getValue()) {
+		//Handles the case that the current color has no color name.
+			var string =
+			String.format("0x%02X", redValue)
+			+ String.format("0x02X", greenValue)
+			+ String.format("0x02X", blueValue);
 			
-			//Handles other colors.
-			default:
-				String value = StringCatalogue.HEXADECIMAL_PREFIX;
-				int base = 16777216;
-				for (int i = 1; i <= 6; i++) {
-					switch ((getValue() / base) % 16) {
-						case 0:
-							value += '0';
-							break;
-						case 1:
-							value += '1';
-							break;
-						case 2:
-							value += '2';
-							break;
-						case 3:
-							value += '3';
-							break;
-						case 4:
-							value += '4';
-							break;
-						case 5:
-							value += '5';
-							break;
-						case 6:
-							value += '6';
-							break;
-						case 7:
-							value += '7';
-							break;
-						case 8:
-							value += '8';
-							break;
-						case 9:
-							value += '9';
-							break;
-						case 10:
-							value += 'A';
-							break;
-						case 11:
-							value += 'B';
-							break;
-						case 12:
-							value += 'C';
-							break;
-						case 13:
-							value += 'D';
-							break;
-						case 14:
-							value += 'E';
-							break;
-						case 15:
-							value += 'F';
-							break;
-						}
-					base /= 16;
-				}
-				return value;	
-		}
+			//Handles the case that the current color has a full alpha value.
+			if (!hasFullAlphaValue()) {
+				string += String.format("0x02X", alphaValue);
+			}
+			
+			return string;			
 	}
+	
+	
 	
 	//method
 	/**
-	 * @return the integer value of this color.
+	 * @return true if the current {@link Color} has an alpha value.
 	 */
-	public final int getValue() {
-		return value;
+	public boolean hasAlphaValue() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (alphaValue > 0);
 	}
 	
 	//method
 	/**
-	 * Sets the blue value of this color.
+	 * @return true if the current {@link Color} has a blue value.
+	 */
+	public boolean hasBlueValue() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (blueValue > 0);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Color} has a full alpha value.
+	 */
+	public boolean hasFullAlphaValue() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (alphaValue == MAX_COLOR_COMPONENT);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Color} has a full blue value.
+	 */
+	public boolean hasFullBlueValue() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (blueValue == MAX_COLOR_COMPONENT);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Color} has a full green value.
+	 */
+	public boolean hasFullGreenValue() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (greenValue == MAX_COLOR_COMPONENT);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Color} has a full red value.
+	 */
+	public boolean hasFullRedValue() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (redValue == MAX_COLOR_COMPONENT);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Color} has a green value.
+	 */
+	public boolean hasGreenValue() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (greenValue > 0);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Color} has a red value.
+	 */
+	public boolean hasRedValue() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (redValue > 0);
+	}
+	
+	//method
+	/**
+	 * Sets the alpha value of the current {@link Color}.
+	 * 
+	 * @param alphaValue
+	 */
+	private void setAlphaValue(final int alphaValue) {
+	
+		//Checks if the given alpha value is between 0 and 255.
+		Validator
+		.suppose(alphaValue)
+		.thatIsNamed("alpha value")
+		.isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
+		
+		this.alphaValue = (short)alphaValue;
+	}
+	
+	//method
+	/**
+	 * Sets the blue value of the current {@link Color}.
 	 * 
 	 * @param blueValue
 	 * @throws OutOfRangeException if the given blue value is no true color component (in [0, 255]).
@@ -938,14 +1100,14 @@ public class Color extends Element {
 		Validator
 		.suppose(blueValue)
 		.thatIsNamed("blue value")
-		.isBetween(MIN_TRUE_COLOR_COMPONENT, MAX_TRUE_COLOR_COMPONENT);
+		.isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 		
-		value = getValue() - getBlueValue() + blueValue;
+		this.blueValue = (short)blueValue;
 	}
 	
 	//method
 	/**
-	 * Sets the green value of this color.
+	 * Sets the green value of the current {@link Color}.
 	 * 
 	 * @param greenValue
 	 * @throws OutOfRangeException if the given green value is no true color component (in [0, 255]5).
@@ -956,138 +1118,165 @@ public class Color extends Element {
 		Validator
 		.suppose(greenValue)
 		.thatIsNamed("green value")
-		.isBetween(MIN_TRUE_COLOR_COMPONENT, MAX_TRUE_COLOR_COMPONENT);
+		.isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 		
-        value = getValue() - (getGreenValue() * 256) + (greenValue * 256);
+        this.greenValue = (short)greenValue;
 	}
 	
 	//method
 	/**
-	 * Sets the red value of this color.
+	 * Sets the red value of the current {@link Color}.
 	 * 
 	 * @param redValue
 	 * @throws OutOfRangeException if the given red value is no true color component (in [0, 255]).
 	 */
 	private void setRedValue(final int redValue) {
 		
-		//Checks if the given blue value is between 0 and 255.
+		//Checks if the given red value is between 0 and 255.
 		Validator
 		.suppose(redValue)
 		.thatIsNamed("red value")
-		.isBetween(MIN_TRUE_COLOR_COMPONENT, MAX_TRUE_COLOR_COMPONENT);
+		.isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 		
-        value = getValue() - (getRedValue() * 65536) + (redValue * 65536);
+        this.redValue = (short)redValue;
 	}
 	
 	//method
 	/**
-	 * Sets the value of this color.
+	 * Sets the value of the current {@link Color}.
 	 * 
 	 * @param value
 	 * @throws OutOfRangeException if the given value is no true color value.
-	 * A true color value is in [0,16'777'215].
 	 */
-	private void setValue(final int value) {
+	private void setValue(long value) {
 		
 		//Checks if the given value is a true color value.
-		Validator.suppose(value).isBetween(MIN_TRUE_COLOR, MAX_TRUE_COLOR);
+		Validator.suppose(value).isBetween(MIN_COLOR_INT, MAX_COLOR_INT);
 		
-		this.value = value;
+		//Handles the case that the given value specifies an alpha value.
+		if (value >= 16777216) {
+			setAlphaValue((int)(value % 256));
+			value /= 256;
+		}
+		
+		setBlueValue((int)(value % 256));
+		value /= 256;
+		setGreenValue((int)(value % 256));
+		value /= 256;
+		setRedValue((int)value);
 	}
 	
 	//method
 	/**
-	 * Sets the value of this color.
+	 * Sets the value of the current {@link Color}.
 	 * 
 	 * @param value
-	 * @throws InvalidArgumentException if the given value is no color name or no true color value.
+	 * @throws InvalidArgumentException if the given value is no color name or no color value.
 	 */
 	private void setValue(final String value) {
 		
-		final Pair<String, java.lang.Integer> pair
-		= getWebColorMap().getRefFirstOrNull(p -> p.getRefElement1().equals(value));
+		final Pair<String, java.lang.Long> pair
+		= getWebColorPairs().getRefFirstOrNull(p -> p.getRefElement1().equals(value));
 		
-		//Handles the case that the given color is no web color.
+		//Handles the case that the given value is not a color name.
 		if (pair == null) {
 			
-			if (value.length() != 8 && !value.substring(2).equals(StringCatalogue.HEXADECIMAL_PREFIX)) {
+			if (
+				(value.length() != 8 || value.length() != 10)
+				&& !value.substring(0, 2).equals(StringCatalogue.HEXADECIMAL_PREFIX)) {
 				throw new InvalidArgumentException(
 					new Argument(value),
-					new ErrorPredicate("is no color name or true color value")
+					new ErrorPredicate("is no color name or color value")
 				);	
 			}
 			
-			this.value = 0;
-			int base = 1;
-			for (int i = 7; i >= 2; i--) {
-				
-				int tempValue;
-				
-				//Enumerates the character at the current index.
-				switch (value.charAt(i)) {
-					case '0':
-						tempValue = 0;
-						break;
-					case '1':
-						tempValue = 1;
-						break;
-					case '2':
-						tempValue = 2;
-						break;
-					case '3':
-						tempValue = 3;
-						break;
-					case '4':
-						tempValue = 4;
-						break;
-					case '5':
-						tempValue = 5;
-						break;
-					case '6':
-						tempValue = 6;
-						break;
-					case '7':
-						tempValue = 7;
-						break;
-					case '8':
-						tempValue = 8;
-						break;
-					case '9':
-						tempValue = 9;
-						break;
-					case 'A':
-						tempValue = 10;
-						break;
-					case 'B':
-						tempValue = 11;
-						break;
-					case 'C':
-						tempValue = 12;
-						break;
-					case 'D':
-						tempValue = 13;
-						break;
-					case 'E':
-						tempValue = 14;
-						break;
-					case 'F':
-						tempValue = 15;
-						break;
-					default:
-						throw new InvalidArgumentException(
-							new Argument(value),
-							new ErrorPredicate("is no color name or true color value")
-						);
-				}
+			//For a better performance, this implementation does not use all comfortable methods.
+			redValue = (short)getValue(value.substring(2, 4));
+			greenValue = (short)getValue(value.substring(4, 6));
+			blueValue = (short)getValue(value.substring(6, 8));
 			
-				this.value += tempValue * base;
-				base *= 16;
+			//Handles the case that the given value specifies an alpha value.
+			if (value.length() == 10) {
+				
+				//For a better performance, this implementation does not use all comfortable methods.
+				alphaValue = (short)getValue(value.substring(8, 10));
 			}
 		}
 		
-		//Handles the case that the given color is a web color.
+		//Handles the case that the given value is a color name.
 		else {
 			setValue(pair.getRefElement2());
 		}
+	}
+		
+	private int getValue(final String string) {
+		
+		var value = 0;
+		var base = 1;
+		
+		//Iterates the given string.
+		for (var i = string.length() - 1; i >= 0; i--) {
+			
+			var tempValue = 0;
+			
+			//Enumerates the current character.
+			switch (string.charAt(i)) {
+				case '0':
+					tempValue = 0;
+					break;
+				case '1':
+					tempValue = 1;
+					break;
+				case '2':
+					tempValue = 2;
+					break;
+				case '3':
+					tempValue = 3;
+					break;
+				case '4':
+					tempValue = 4;
+					break;
+				case '5':
+					tempValue = 5;
+					break;
+				case '6':
+					tempValue = 6;
+					break;
+				case '7':
+					tempValue = 7;
+					break;
+				case '8':
+					tempValue = 8;
+					break;
+				case '9':
+					tempValue = 9;
+					break;
+				case 'A':
+					tempValue = 10;
+					break;
+				case 'B':
+					tempValue = 11;
+					break;
+				case 'C':
+					tempValue = 12;
+					break;
+				case 'D':
+					tempValue = 13;
+					break;
+				case 'E':
+					tempValue = 14;
+					break;
+				case 'F':
+					tempValue = 15;
+					break;
+				default:
+					throw new InvalidArgumentException(new Argument(string));
+			}
+			
+			value += tempValue * base;
+			base *= 16;
+		}
+		
+		return value;
 	}
 }

@@ -35,13 +35,13 @@ public class TextBoxTest extends Test {
 		textBox.getRefBaseLook().setTextColor(Color.BLUE);
 		
 		//verification
-			expect(textBox.getRefBaseLook().getRecursiveOrDefaultTextColor().getValue())
+			expect(textBox.getRefBaseLook().getRecursiveOrDefaultTextColor().getIntValue())
 			.isEqualTo(Color.BLUE_INT);
 			
-			expect(textBox.getRefHoverLook().getRecursiveOrDefaultTextColor().getValue())
+			expect(textBox.getRefHoverLook().getRecursiveOrDefaultTextColor().getIntValue())
 			.isEqualTo(Color.BLUE_INT);
 			
-			expect(textBox.getRefFocusLook().getRecursiveOrDefaultTextColor().getValue())
+			expect(textBox.getRefFocusLook().getRecursiveOrDefaultTextColor().getIntValue())
 			.isEqualTo(Color.BLUE_INT);
 	}
 	

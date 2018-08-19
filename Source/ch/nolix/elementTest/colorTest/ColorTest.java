@@ -63,7 +63,7 @@ public final class ColorTest extends Test {
 		final Color invertedColor = color.getInvertedColor();
 
 		//verification
-		expect(invertedColor.getValue()).isEqualTo(0xFFFFFF);
+		expect(invertedColor.getIntValue()).isEqualTo(0xFFFFFF);
 	}
 	
 	//test method
@@ -76,7 +76,7 @@ public final class ColorTest extends Test {
 		final Color invertedColor = color.getInvertedColor();
 
 		//verification
-		expect(invertedColor.getValue()).isEqualTo(0x000000);
+		expect(invertedColor.getIntValue()).isEqualTo(0x000000);
 	}
 	
 	//test method
@@ -112,7 +112,7 @@ public final class ColorTest extends Test {
 		final Color color = new Color(Color.WHITE_STRING);
 		
 		//verification
-		expect(color.getValue()).isEqualTo(Color.WHITE_INT);
+		expect(color.getIntValue()).isEqualTo(Color.WHITE_INT);
 	}
 	
 	//test method
@@ -122,7 +122,7 @@ public final class ColorTest extends Test {
 		final Color color = new Color(Color.BLACK_STRING);
 		
 		//verification
-		expect(color.getValue()).isEqualTo(Color.BLACK_INT);
+		expect(color.getIntValue()).isEqualTo(Color.BLACK_INT);
 	}
 	
 	//test method
