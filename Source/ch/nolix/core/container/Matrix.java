@@ -18,7 +18,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-07
- * @lines 590
+ * @lines 650
  * @param <E> The type of the elements of a {@link Matrix}.
  */
 public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
@@ -254,22 +254,6 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	
 	//method
 	/**
-	 * @return the columns of the {@link Matrix}.
-	 */
-	public List<MatrixColumn<E>> getColumns() {
-		
-		final var columns = new List<MatrixColumn<E>>();
-		
-		//Iterates the columns of the current matrix.
-		for (var i = 1; i <= getColumnCount(); i++) {
-			columns.addAtEnd(new MatrixColumn<E>(this, i));
-		}
-		
-		return columns;
-	}
-	
-	//method
-	/**
 	 * The complexity of this method is O(1).
 	 * 
 	 * @return the number of columns of the current {@link Matrix}.
@@ -283,6 +267,38 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		
 		//Handles the case that the current {@link Matrix} is not empty.
 		return elements[0].length;
+	}
+	
+	//method
+	/**
+	 * @param index
+	 * @return the index of the column of the element from the current {@link Matrix} at the given index.
+	 * @throws NonPositiveArgumentException if the given index is not positive.
+	 * @throws BiggerArgumentException
+	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
+	 */
+	public int getColumnIndexOf(final int index) {
+		
+		//Checks if the current matrix contains an element at the given index.
+		supposeContainsElementAt(index);
+		
+		return ((index - 1) % getColumnCount() + 1);
+	}
+	
+	//method
+	/**
+	 * @return the columns of the {@link Matrix}.
+	 */
+	public List<MatrixColumn<E>> getColumns() {
+		
+		final var columns = new List<MatrixColumn<E>>();
+		
+		//Iterates the columns of the current matrix.
+		for (var i = 1; i <= getColumnCount(); i++) {
+			columns.addAtEnd(new MatrixColumn<E>(this, i));
+		}
+		
+		return columns;
 	}
 	
 	//method
@@ -344,16 +360,9 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
 	 */
 	public E getRefAt(final int index) {
-		
-		//Checks if the current matrix contains an element at the given index.
-		supposeContainsElementAt(index);
-		
-		return getRefAt(
-			(index - 1) / getColumnCount() + 1,
-			(index - 1) % getColumnCount() + 1
-		);
+		return getRefAt(getRowIndexOf(index), getColumnIndexOf(index));
 	}
-
+	
 	//method
 	/**
 	 * The complexity of this method is O(1).
@@ -387,6 +396,22 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 */
 	public MatrixRow<E> getRow(final int rowIndex) {
 		return new MatrixRow<E>(this, rowIndex);
+	}
+	
+	//method
+	/**
+	 * @param index
+	 * @return the index of the row of the element from the current {@link Matrix} at the given index.
+	 * @throws NonPositiveArgumentException if the given index is not positive.
+	 * @throws BiggerArgumentException
+	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
+	 */
+	public int getRowIndexOf(final int index) {
+		
+		//Checks if the current matrix contains an element at the given index.
+		supposeContainsElementAt(index);
+		
+		return ((index - 1) / getColumnCount() + 1);
 	}
 	
 	//method
@@ -444,6 +469,33 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	
 	//method
 	/**
+	 * Sets the given element to the current {@link Matrix} at the given index.
+	 * The complexity of this implementation is O(1).
+	 * 
+	 * @param index
+	 * @param element
+	 * @return the current {@link Matrix}.
+	 * @throws NonPositiveArgumentException if the given index is not positive.
+	 * @throws BiggerArgumentException
+	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
+	 * @throws NullArgumentException if the given element is null.
+	 */
+	public Matrix<E> set(final int index, final E element) {
+				
+		//Checks if the given element is not null.
+		Validator
+		.suppose(element)
+		.thatIsNamed(VariableNameCatalogue.ELEMENT)
+		.isNotNull();
+		
+		//Sets the given element at the given index to the current matrix.
+		elements[getRowIndexOf(index)][getColumnIndexOf(index)] = element;
+				
+		return this;
+	}
+	
+	//method
+	/**
 	 * Sets the given element to the current {@link Matrix}
 	 * to the row with the given row index and the column with the given column index.
 	 * 
@@ -459,6 +511,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * @throws NonPositiveArgumentException if the given column index is not positive.
 	 * @throws BiggerArgumentException
 	 * if the given column index is bigger than the number of columns of the current {@link Matrix}.
+	 * @throws NullArgumentException if the given element is null.
 	 */
 	public Matrix<E> set(
 		final int rowIndex,
@@ -469,6 +522,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		//Checks if the current matrix contains an element at the given row index and column index.
 		supposeContainsElementAt(rowIndex, columnIndex);
 		
+		//Checks if the given element is not null.
 		Validator
 		.suppose(element)
 		.thatIsNamed(VariableNameCatalogue.ELEMENT)
