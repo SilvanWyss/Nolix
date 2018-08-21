@@ -167,13 +167,13 @@ public final class FrontConsoleClient extends GUIClientoid<FrontConsoleClient> {
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case Protocol.READ_LINE_FROM_CONSOLE_REQUEST:
-				return StandardSpecification.createSpecificationWithHeaderOnly(console.readLine());
+				return StandardSpecification.createSpecificationWithHeader(console.readLine());
 			case Protocol.READ_NON_EMPTY_LINE_FROM_CONSOLE_REQUEST:
-				return StandardSpecification.createSpecificationWithHeaderOnly(console.readNonEmptyLine());
+				return StandardSpecification.createSpecificationWithHeader(console.readNonEmptyLine());
 			case Protocol.READ_SECRET_LINE_FROM_CONSOLE_REQUEST:
-				return StandardSpecification.createSpecificationWithHeaderOnly(console.readSecretLine());
+				return StandardSpecification.createSpecificationWithHeader(console.readSecretLine());
 			case Protocol.READ_CHARACTER_FROM_CONSOLE_REQUEST:
-				return StandardSpecification.createSpecificationWithHeaderOnly(String.valueOf(console.readCharacter()));
+				return StandardSpecification.createSpecificationWithHeader(String.valueOf(console.readCharacter()));
 			case Protocol.LINES_OF_CONSOLE_REQUEST:
 				
 				final StandardSpecification data = new StandardSpecification();

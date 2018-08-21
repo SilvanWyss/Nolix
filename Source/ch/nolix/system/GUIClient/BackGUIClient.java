@@ -90,7 +90,7 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 				getRefGUI().getRefWidgetByIndexRecursively(request.getOneAttributeAsInt());
 				
 				return
-				StandardSpecification.createSpecificationWithHeaderOnly(
+				StandardSpecification.createSpecificationWithHeader(
 					downloader.readFile()
 				);
 			default:

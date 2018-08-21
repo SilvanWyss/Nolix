@@ -76,7 +76,7 @@ public class Text extends Element {
 			attributes.addAtEnd(new StandardSpecification());
 		}
 		else {
-			attributes.addAtEnd(StandardSpecification.createSpecificationWithHeaderOnly(getValue()));
+			attributes.addAtEnd(StandardSpecification.createSpecificationWithHeader(getValue()));
 		}
 		
 		return attributes;

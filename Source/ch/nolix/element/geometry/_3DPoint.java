@@ -63,15 +63,15 @@ public class _3DPoint  extends Element {
 		return
 		new List<StandardSpecification>(
 			StandardSpecification
-			.createSpecificationWithHeaderOnly(
+			.createSpecificationWithHeader(
 				DoubleHelper.toString(getX())
 			),
 			StandardSpecification
-			.createSpecificationWithHeaderOnly(
+			.createSpecificationWithHeader(
 				DoubleHelper.toString(getY())
 			),
 			StandardSpecification
-			.createSpecificationWithHeaderOnly(
+			.createSpecificationWithHeader(
 				DoubleHelper.toString(getZ())
 			)
 		);

@@ -28,7 +28,7 @@ public interface ISpecifiedEnum extends Specified {
 	public default List<StandardSpecification> getAttributes() {
 		return
 		new List<StandardSpecification>(
-			StandardSpecification.createSpecificationWithHeaderOnly(toString())
+			StandardSpecification.createSpecificationWithHeader(toString())
 		);
 	}
 }

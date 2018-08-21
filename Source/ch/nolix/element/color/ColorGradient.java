@@ -215,9 +215,9 @@ public class ColorGradient extends Element {
 	public List<StandardSpecification> getAttributes() {
 		return 
 		new List<StandardSpecification>(
-			StandardSpecification.createSpecificationWithHeaderOnly(getDirection().toString()),
-			StandardSpecification.createSpecificationWithHeaderOnly(getColor1().getStringValue()),
-			StandardSpecification.createSpecificationWithHeaderOnly(getColor2().getStringValue())
+			StandardSpecification.createSpecificationWithHeader(getDirection().toString()),
+			StandardSpecification.createSpecificationWithHeader(getColor1().getStringValue()),
+			StandardSpecification.createSpecificationWithHeader(getColor2().getStringValue())
 		);
 	}
 	

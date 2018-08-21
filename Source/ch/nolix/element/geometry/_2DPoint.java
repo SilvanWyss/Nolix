@@ -59,11 +59,11 @@ public final class _2DPoint extends Element {
 		return
 		new List<StandardSpecification>(
 			StandardSpecification
-			.createSpecificationWithHeaderOnly(
+			.createSpecificationWithHeader(
 				DoubleHelper.toString(getX())
 			),
 			StandardSpecification
-			.createSpecificationWithHeaderOnly(
+			.createSpecificationWithHeader(
 				DoubleHelper.toString(getY())
 			)
 		);

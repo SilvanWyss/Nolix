@@ -52,7 +52,7 @@ public final class StandardSpecification extends Specification {
 	 * @return a new {@link StandardSpecification} that consists of the given header.
 	 * @throws NullArgumentException if the given header is null.
 	 */
-	public static final StandardSpecification createSpecificationWithHeaderOnly(final String header) {
+	public static final StandardSpecification createSpecificationWithHeader(final String header) {
 		final StandardSpecification specification = new StandardSpecification();
 		specification.setHeader(header);
 		return specification;
@@ -136,7 +136,7 @@ public final class StandardSpecification extends Specification {
 		for (final String a : attributes) {
 			
 			//Adds the current attribute to the current {@link StandardSpecification}.
-			addAttribute(createSpecificationWithHeaderOnly(a));
+			addAttribute(createSpecificationWithHeader(a));
 		}
 	}
 	
@@ -174,7 +174,7 @@ public final class StandardSpecification extends Specification {
 		for (final String a : attributes) {
 			
 			//Adds the current attribute to the current {@link StandardSpecification}.
-			addAttribute(createSpecificationWithHeaderOnly(a));
+			addAttribute(createSpecificationWithHeader(a));
 		}
 	}
 
