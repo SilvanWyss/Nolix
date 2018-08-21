@@ -79,11 +79,11 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 	public void isEqualTo(ApproximativeEqualing value) {
 		
 		if (this.value == null && value != null) {
-			addCurrentTestMethodError("Null was expected, but '" + this.value + "' was received.");
+			addCurrentTestCaseError("Null was expected, but '" + this.value + "' was received.");
 		}
 		
 		if (this.value != null && !this.value.equalsApproximatively(value, maxDeviation)) {
-			addCurrentTestMethodError("'" + this.value + "'±" + maxDeviation + " was expected, but '" + value + "' was received.");
+			addCurrentTestCaseError("'" + this.value + "'±" + maxDeviation + " was expected, but '" + value + "' was received.");
 		}
 	}
 	
@@ -97,11 +97,11 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 	public void isNotEqualTo(ApproximativeEqualing value) {
 		
 		if (this.value == null && value == null) {
-			addCurrentTestMethodError("A value was expected, but null was received.");
+			addCurrentTestCaseError("A value was expected, but null was received.");
 		}
 		
 		if (this.value != null && this.value.equalsApproximatively(value, maxDeviation)) {
-			addCurrentTestMethodError("'A value that does not equal " + value + " with ±" + maxDeviation + " was expected, but '" + this.value + "' was received.");
+			addCurrentTestCaseError("'A value that does not equal " + value + " with ±" + maxDeviation + " was expected, but '" + this.value + "' was received.");
 		}
 	}
 }

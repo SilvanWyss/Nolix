@@ -19,7 +19,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class CalculatorTest extends Test {
 
-	//test method
+	//test case
 	public void test_doubleAverage() {
 		
 		//setup
@@ -33,7 +33,7 @@ public final class CalculatorTest extends Test {
 		expect(Calculator.DOUBLE_AVERAGE.getOutput(vector)).isEqualTo(2.5);
 	}
 	
-	//test method
+	//test case
 	public void test_doubleMax() {
 		
 		//setup
@@ -47,7 +47,7 @@ public final class CalculatorTest extends Test {
 		expect(Calculator.DOUBLE_MAX.getOutput(vector)).isEqualTo(4.0);
 	}
 	
-	//test method
+	//test case
 	public void test_doubleMin() {
 		
 		//setup
@@ -61,7 +61,7 @@ public final class CalculatorTest extends Test {
 		expect(Calculator.DOUBLE_MIN.getOutput(vector)).isEqualTo(1.0);
 	}
 	
-	//test method
+	//test case
 	public void test_doubleSum() {
 		
 		//setup

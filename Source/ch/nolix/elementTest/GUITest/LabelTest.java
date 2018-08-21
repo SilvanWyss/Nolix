@@ -15,7 +15,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class LabelTest extends Test {
 	
-	//test method
+	//test case
 	public void test_getRefBaseLook_setTextSize() {
 		
 		//setup
@@ -28,7 +28,7 @@ public final class LabelTest extends Test {
 		expect(label.getRefBaseLook().getRecursiveOrDefaultTextSize()).isEqualTo(25);
 	}
 	
-	//test method
+	//test case
 	public void test_setText() {
 		
 		//setup

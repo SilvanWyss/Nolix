@@ -51,7 +51,7 @@ public final class DoubleMediator extends Mediator {
 		}
 		
 		if (!condition.getOutput(value)) {
-			addCurrentTestMethodError("A value that fulfils the given condition was expected, but " + value + " was received.");
+			addCurrentTestCaseError("A value that fulfils the given condition was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -71,7 +71,7 @@ public final class DoubleMediator extends Mediator {
 		}
 		
 		if (value < min || value > max) {
-			addCurrentTestMethodError("A value that is between " + min + " and " + max + " was expected, but " + value + " was received.");
+			addCurrentTestCaseError("A value that is between " + min + " and " + max + " was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -83,7 +83,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public void isBiggerThan(final double value) {
 		if (this.value <= value) {
-			addCurrentTestMethodError("A value that is bigger than " + value + " was expected, but " + this.value + " was received.");
+			addCurrentTestCaseError("A value that is bigger than " + value + " was expected, but " + this.value + " was received.");
 		}
 	}
 	
@@ -95,7 +95,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public void isBiggerThanOrEquals(final double value) {
 		if (this.value < value) {
-			addCurrentTestMethodError("A value that is bigger than or equals " + value + " was expected, but " + this.value + " was received.");
+			addCurrentTestCaseError("A value that is bigger than or equals " + value + " was expected, but " + this.value + " was received.");
 		}
 	}
 	
@@ -107,7 +107,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public void isEqualTo(final double value) {
 		if (this.value != value) {
-			addCurrentTestMethodError(value + " was expected, but " + this.value + " was received.");
+			addCurrentTestCaseError(value + " was expected, but " + this.value + " was received.");
 		}
 	}
 	
@@ -117,7 +117,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public void isNegative() {
 		if (value >= 0.0) {
-			addCurrentTestMethodError("A negative value was expected, but " + value + " was received.");
+			addCurrentTestCaseError("A negative value was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -137,7 +137,7 @@ public final class DoubleMediator extends Mediator {
 		}
 		
 		if (value >= min && value <= max) {
-			addCurrentTestMethodError("A value that is not between " + min + " and " + max + " was expected, but " + value + " was received.");
+			addCurrentTestCaseError("A value that is not between " + min + " and " + max + " was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -149,7 +149,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public void isNotEqualTo(final double value) {
 		if (this.value == value) {
-			addCurrentTestMethodError("A value that does not equal " + value + " was expected, but " + this.value + " was received.");
+			addCurrentTestCaseError("A value that does not equal " + value + " was expected, but " + this.value + " was received.");
 		}
 	}
 	
@@ -159,7 +159,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public void isNotNegative() {
 		if (value < 0.0) {
-			addCurrentTestMethodError("A value that is not negative was expected, but " + value + " was received.");
+			addCurrentTestCaseError("A value that is not negative was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -169,7 +169,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public void isNotPositive() {
 		if (value > 0.0) {
-			addCurrentTestMethodError("A value that is not positive was expected, but " + value + " was received.");
+			addCurrentTestCaseError("A value that is not positive was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -187,7 +187,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public void isPositive() {
 		if (value <= 0.0) {
-			addCurrentTestMethodError("A positive value was expected, but " + value + " was received.");
+			addCurrentTestCaseError("A positive value was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -197,7 +197,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public void isSmallerThan(final double value) {
 		if (this.value >= value) {
-			addCurrentTestMethodError("A value that is smaller than " + value + " was expected, but " + this.value + " was received.");
+			addCurrentTestCaseError("A value that is smaller than " + value + " was expected, but " + this.value + " was received.");
 		}
 	}
 	
@@ -209,7 +209,7 @@ public final class DoubleMediator extends Mediator {
 	 */
 	public void isSmallerThanOrEquals(final double value) {
 		if (this.value > value) {
-			addCurrentTestMethodError("A value that is smaller than or equals " + value + " was expected, but " + this.value + " was received.");
+			addCurrentTestCaseError("A value that is smaller than or equals " + value + " was expected, but " + this.value + " was received.");
 		}
 	}
 	

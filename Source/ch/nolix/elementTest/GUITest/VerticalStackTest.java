@@ -21,7 +21,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class VerticalStackTest extends Test {
 	
-	//test method
+	//test case
 	public void testConstructor() {
 		
 		//execution
@@ -33,7 +33,7 @@ public final class VerticalStackTest extends Test {
 		expectNot(verticalStack.belongsToGUI());
 	}
 	
-	//test method
+	//test case
 	public void testClear() {
 		
 		//setup

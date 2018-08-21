@@ -69,7 +69,7 @@ public final class MultiDoubleMediator extends Mediator {
 				
 				//Checks if the current value is positive.
 				if (v <= value) {
-					this.addCurrentTestMethodError(
+					this.addCurrentTestCaseError(
 						"Values that are bigger than "	+ value	+ " were expected, but the "+ i + "th value is not."
 					);
 				}
@@ -100,7 +100,7 @@ public final class MultiDoubleMediator extends Mediator {
 				
 				//Checks if the current value is negative.
 				if (v > 0) {
-					this.addCurrentTestMethodError(
+					this.addCurrentTestCaseError(
 						"Negative values were expected, but the " + i + "th value is not."
 					);
 				}
@@ -131,7 +131,7 @@ public final class MultiDoubleMediator extends Mediator {
 				
 				//Checks if the current value is positive.
 				if (v <= 0) {
-					this.addCurrentTestMethodError(
+					this.addCurrentTestCaseError(
 						"Positive values were expected, but the " + i + "th value is not."
 					);
 				}
@@ -162,7 +162,7 @@ public final class MultiDoubleMediator extends Mediator {
 				
 				//Checks if the current value is positive.
 				if (v >= value) {
-					this.addCurrentTestMethodError(
+					this.addCurrentTestCaseError(
 						"Values that are smaller than "	+ value	+ " were expected, but the "+ i + "th value is."
 					);
 				}
@@ -178,6 +178,6 @@ public final class MultiDoubleMediator extends Mediator {
 	 * Adds a null values error to the test this mediator belongs to.
 	 */
 	private void addNullValuesError() {
-		this.addCurrentTestMethodError("Values were expected, but null was received.");
+		this.addCurrentTestCaseError("Values were expected, but null was received.");
 	}
 }

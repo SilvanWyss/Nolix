@@ -17,7 +17,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class UniDirectionTest extends Test {
 	
-	//test method
+	//test case
 	public void test_getAttributes() {
 		
 		//execution
@@ -31,7 +31,7 @@ public final class UniDirectionTest extends Test {
 			.isEqualTo(new StandardSpecification("Horizontal"));
 	}
 
-	//test method
+	//test case
 	public void test_getSpecification() {
 		
 		//execution and verification
@@ -39,14 +39,14 @@ public final class UniDirectionTest extends Test {
 		.isEqualTo(new StandardSpecification("UniDirection(Horizontal)"));
 	}
 	
-	//test method
+	//test case
 	public void test_getType() {
 		
 		//execution and verification
 		expect(UniDirection.Horizontal.getType()).isEqualTo("UniDirection");
 	}
 	
-	//test method
+	//test case
 	public void test_toString() {
 		
 		//execution and verification

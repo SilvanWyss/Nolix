@@ -42,11 +42,11 @@ public final class TestAccessor {
 	 * Adds the given current test method error
 	 * to the test of this test accessor.
 	 * 
-	 * @param currentTestMethodError
+	 * @param currentTestCaseError
 	 */
-	public void addCurrentTestMethodError(
-		final String currentTestMethodError
+	public void addCurrentTestCaseError(
+		final String currentTestCaseError
 	) {
-		test.addCurrentTestMethodError(currentTestMethodError);
+		test.addCurrentTestCaseError(currentTestCaseError);
 	}
 }

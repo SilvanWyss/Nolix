@@ -28,7 +28,7 @@ public final class ListTest extends Test {
 		Logger.disable();
 	}
 	
-	//test method
+	//test case
 	public void test_clear() {
 		
 		//setup
@@ -48,7 +48,7 @@ public final class ListTest extends Test {
 		expect(list.isEmpty());
 	}
 	
-	//test method
+	//test case
 	public void test_contains() {
 		
 		//setup
@@ -81,7 +81,7 @@ public final class ListTest extends Test {
 			);
 	}
 	
-	//test method
+	//test case
 	public void test_contains_2() {
 		
 		//setup
@@ -104,7 +104,7 @@ public final class ListTest extends Test {
 		expectNot(list.contains((s1, s2) -> s1.length() + 6 == s2.length()));
 	}
 	
-	//test method
+	//test case
 	public void test_containsOne() {
 		
 		//setup
@@ -114,7 +114,7 @@ public final class ListTest extends Test {
 		expectNot(list.containsOne());
 	}
 	
-	//test method
+	//test case
 	public void test_containsOne_2() {
 		
 		//setup
@@ -124,7 +124,7 @@ public final class ListTest extends Test {
 		expect(list.containsOne());
 	}
 	
-	//test method
+	//test case
 	public void test_containsOne_3() {
 		
 		//setup
@@ -134,7 +134,7 @@ public final class ListTest extends Test {
 		expectNot(list.containsOne());
 	}
 	
-	//test method
+	//test case
 	public void test_containsOne_4() {
 		
 		//setup
@@ -146,7 +146,7 @@ public final class ListTest extends Test {
 		expectNot(list.containsOne(s -> s.length() == 2));
 	}
 	
-	//test method
+	//test case
 	public void test_forEach() {
 		
 		//setup
@@ -173,7 +173,7 @@ public final class ListTest extends Test {
 			}
 	}
 	
-	//test methods
+	//test cases
 	public void test_getContainerFrom() {
 		
 		//setup
@@ -206,7 +206,7 @@ public final class ListTest extends Test {
 			throwsExceptionOfType(UnexistingAttributeException.class);
 	}
 	
-	//test method
+	//test case
 	public void test_getContainerWithoutFirst() {
 	
 		//setup
@@ -227,7 +227,7 @@ public final class ListTest extends Test {
 		expect(!subList.contains("x"));
 	}
 	
-	//test method
+	//test case
 	public void test_getElementCount() {
 		
 		//setup
@@ -237,7 +237,7 @@ public final class ListTest extends Test {
 		expect(list.getElementCount()).isEqualTo(6);
 	}
 	
-	//test method
+	//test case
 	public void test_getElementCount_2() {
 		
 		//setup
@@ -256,7 +256,7 @@ public final class ListTest extends Test {
 		expect(list.getElementCount(e -> e.length() > 6)).isZero();
 	}
 	
-	//test method
+	//test case
 	public void test_getRefByMax() {
 		
 		//setup
@@ -275,7 +275,7 @@ public final class ListTest extends Test {
 		expect(list.getRefByMax(s -> s)).isEqualTo("toast");
 	}
 	
-	//test method
+	//test case
 	public void test_getRefByMaxInt() {
 		
 		//setup
@@ -292,7 +292,7 @@ public final class ListTest extends Test {
 		expect(list.getRefByMaxInt(s -> s.length())).isEqualTo("xxxxxx");
 	}
 	
-	//test method
+	//test case
 	public void test_getRefByMin() {
 		
 		//setup
@@ -311,7 +311,7 @@ public final class ListTest extends Test {
 		expect(list.getRefByMin(s -> s)).isEqualTo("cake");
 	}
 	
-	//test method
+	//test case
 	public void test_getRefByMinInt() {
 		
 		//setup
@@ -349,7 +349,7 @@ public final class ListTest extends Test {
 		expect(pair.getRefElement2()).isEqualTo("xxxxxx");
 	}
 	
-	//test method
+	//test case
 	public void test_getSequences() {
 		
 		//setup
@@ -380,7 +380,7 @@ public final class ListTest extends Test {
 			}
 	}
 	
-	//test method
+	//test case
 	public void test_getSequences_2() {
 		
 		//setup
@@ -418,7 +418,7 @@ public final class ListTest extends Test {
 			}
 	}
 	
-	//test method
+	//test case
 	public final void test_getVarianceByDouble() {
 		
 		//setup
@@ -434,7 +434,7 @@ public final class ListTest extends Test {
 		expect(list.getVarianceByDouble(e -> e.doubleValue())).isEqualTo(0.2);
 	}
 	
-	//test method
+	//test case
 	public void test_isEmpty() {
 		
 		//setup
@@ -444,7 +444,7 @@ public final class ListTest extends Test {
 		expect(list.isEmpty());
 	}
 	
-	//test method
+	//test case
 	public void test_isEmpty_2() {
 		
 		//setup
@@ -454,7 +454,7 @@ public final class ListTest extends Test {
 		expectNot(list.isEmpty());
 	}
 	
-	//test method
+	//test case
 	public void test_matches() {
 		
 		//setup
@@ -476,7 +476,7 @@ public final class ListTest extends Test {
 		expect(list.matches(sequencePattern));
 	}
 	
-	//test method
+	//test case
 	public void test_matches_2() {
 		
 		//setup
@@ -499,7 +499,7 @@ public final class ListTest extends Test {
 			expect(list.matches(sequencePattern));
 	}
 	
-	//test method
+	//test case
 	public void test_matches_3() {
 		
 		//setup
@@ -514,7 +514,7 @@ public final class ListTest extends Test {
 			expect(list.matches(sequencePattern));
 	}
 	
-	//test method
+	//test case
 	public void test_sort() {
 		
 		//setup
@@ -541,7 +541,7 @@ public final class ListTest extends Test {
 			expect(list.getRefAt(6)).isEqualTo("xxxxxx");
 	}
 	
-	//test method
+	//test case
 	public void test_sort_2() {
 		
 		//setup
@@ -568,7 +568,7 @@ public final class ListTest extends Test {
 			expect(list.getRefAt(6)).isEqualTo("zebra");
 	}
 	
-	//test method
+	//test case
 	public void test_toArray() {
 		
 		//setup
@@ -595,7 +595,7 @@ public final class ListTest extends Test {
 			expect(array[5]).isEqualTo("xxxxxx");
 	}
 	
-	//test method
+	//test case
 	public void test_toIntArray() {
 		
 		//setup
@@ -622,7 +622,7 @@ public final class ListTest extends Test {
 			expect(array[5]).isEqualTo(6);
 	}
 	
-	//test method
+	//test case
 	public void test_toString() {
 		
 		//setup
@@ -632,7 +632,7 @@ public final class ListTest extends Test {
 		expect(list.toString()).isEmpty();
 	}
 	
-	//test method
+	//test case
 	public void test_toString_2() {
 		
 		//setup

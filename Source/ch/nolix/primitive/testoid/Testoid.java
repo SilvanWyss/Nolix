@@ -101,7 +101,7 @@ public abstract class Testoid {
 			+ passedTestMethodsCount
 			+ "/"
 			+ testMethodsCount
-			+ " passed test methods ("
+			+ " passed test cases ("
 			+ timeInMiliseconds
 			+ "ms)");
 		System.out.println();
@@ -122,11 +122,11 @@ public abstract class Testoid {
 	
 	//package-visible method
 	/**
-	 * Adds the given current test method error to this test.
+	 * Adds the given current test case error to this test.
 	 * 
 	 * @param currentTestMethodError
 	 */
-	final void addCurrentTestMethodError(final String currentTestMethodError) {
+	final void addCurrentTestCaseError(final String currentTestMethodError) {
 		
 		String className = null;
 		int lineNumber = -1;

@@ -14,7 +14,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class TaskTest extends Test {
 
-	//test method
+	//test case
 	public void test_constructor() {
 				
 		//setup

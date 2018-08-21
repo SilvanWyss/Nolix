@@ -14,7 +14,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class TimeTest extends Test {
 	
-	//loop test method
+	//loop test case
 	public void loopTest_constructor_1() {
 		
 		//main loop
@@ -35,7 +35,7 @@ public final class TimeTest extends Test {
 		}
 	}
 	
-	//loop test method
+	//loop test case
 	public void loopTest_constructor_2() {
 				
 		//main loop
@@ -57,7 +57,7 @@ public final class TimeTest extends Test {
 		}
 	}
 	
-	//test method
+	//test case
 	public void test_constructor() {
 		
 		//execution
@@ -73,7 +73,7 @@ public final class TimeTest extends Test {
 		expect(time.getMillisecondOfSecond()).isEqualTo(Time.DEFAULT_MILLISECOND_OF_SECOND);
 	}
 	
-	//test method
+	//test case
 	public void test_getDay() {
 		
 		//setup

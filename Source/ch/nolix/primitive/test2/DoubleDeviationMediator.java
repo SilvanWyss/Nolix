@@ -79,7 +79,7 @@ public final class DoubleDeviationMediator extends Mediator {
 		
 		//Checks if the value of this double deviation mediator equals the given value with a devation that is not bigger than the max deviation of this double deviation mediator.
 		if (Math.abs(this.value - value) > maxDeviation) {
-			addCurrentTestMethodError(this.value + "±" + maxDeviation + " was expected, but " + value + " was received.");
+			addCurrentTestCaseError(this.value + "±" + maxDeviation + " was expected, but " + value + " was received.");
 		}
 	}
 	
@@ -94,7 +94,7 @@ public final class DoubleDeviationMediator extends Mediator {
 		
 		//Checks if the value of this double deviation mediator equals the given value with a devation that is not bigger than the max deviation of this double deviation mediator.
 		if (Math.abs(this.value - value) <= maxDeviation) {
-			addCurrentTestMethodError("A value that does not equal " + value + "±" + maxDeviation + " was expected, but " + this.value + " was received.");
+			addCurrentTestCaseError("A value that does not equal " + value + "±" + maxDeviation + " was expected, but " + this.value + " was received.");
 		}
 	}
 	

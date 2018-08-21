@@ -10,7 +10,7 @@ import ch.nolix.primitive.test2.Test;
 //test class
 public final class EntityTest extends Test {
 
-	//test method
+	//test case
 	public void test_getSpecification() {
 		
 		//setup

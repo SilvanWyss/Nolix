@@ -16,7 +16,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class AreaTest extends Test {
 	
-	//test method
+	//test case
 	public void test_equals() {
 		
 		//setup part 1
@@ -38,7 +38,7 @@ public final class AreaTest extends Test {
 		expect(area2).isEqualTo(area1);
 	}
 	
-	//test method
+	//test case
 	public void test_removeBackgroundColor() {
 		
 		//setup
@@ -51,7 +51,7 @@ public final class AreaTest extends Test {
 		expectNot(area.hasBackgroundColor());
 	}
 	
-	//test method
+	//test case
 	public void test_setBackgroundColor() {
 		
 		//setup

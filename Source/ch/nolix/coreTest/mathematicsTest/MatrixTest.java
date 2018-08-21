@@ -15,7 +15,7 @@ import ch.nolix.primitive.test2.Test;
 */
 public final class MatrixTest extends Test {
 	
-	//loop test method
+	//loop test case
 	public void loopTest_createIdendityMatrix() {
 				
 		//number of main loop iterations
@@ -33,7 +33,7 @@ public final class MatrixTest extends Test {
 		}
 	}
 	
-	//loop test method
+	//loop test case
 	public void loopTest_getRank() {
 		
 		//number of main loop iterations
@@ -50,7 +50,7 @@ public final class MatrixTest extends Test {
 		}
 	}
 	
-	//loop test method
+	//loop test case
 	public void loop_testGetTrace() {
 		
 		//number of main loop iterations
@@ -67,7 +67,7 @@ public final class MatrixTest extends Test {
 		}
 	}
 
-	//test method
+	//test case
 	public void test_Add() {
 		
 		//setup
@@ -82,7 +82,7 @@ public final class MatrixTest extends Test {
 		expect(sum).isEqualTo(expectedMatrix);
 	}
 	
-	//test method
+	//test case
 	public void test_AppendAtRight() {
 		
 		//setup
@@ -97,7 +97,7 @@ public final class MatrixTest extends Test {
 		expect(matrix1).isEqualTo(expectedMatrix);
 	}
 	
-	//test method
+	//test case
 	public void test_getInverse_1() {
 		
 		//setup
@@ -110,7 +110,7 @@ public final class MatrixTest extends Test {
 		expect(matrix.getProduct(inverse)).isEqualTo(Matrix.createIdendityMatrix(2));
 	}
 	
-	//test method
+	//test case
 	public void test_getInverse_2() {
 		
 		//setup
@@ -123,7 +123,7 @@ public final class MatrixTest extends Test {
 		expect(matrix.getProduct(inverse)).withDefaultMaxDeviation().isEqualTo(Matrix.createIdendityMatrix(3));
 	}
 	
-	//test method
+	//test case
 	public void test_getInverse_3() {
 		
 		//setup
@@ -136,7 +136,7 @@ public final class MatrixTest extends Test {
 		expect(matrix.getProduct(inverse)).withDefaultMaxDeviation().isEqualTo(Matrix.createIdendityMatrix(4));
 	}
 	
-	//test method
+	//test case
 	public void test_getProduct() {
 		
 		//setup
@@ -151,7 +151,7 @@ public final class MatrixTest extends Test {
 		expect(product).isEqualTo(expectedProduct);
 	}
 	
-	//test method
+	//test case
 	public void test_getSolutionAsExtendedMatrix_1() {
 		
 		//setup
@@ -166,7 +166,7 @@ public final class MatrixTest extends Test {
 		expect(solution[1]).isEqualTo(5.0);
 	}
 	
-	//test method
+	//test case
 	public void test_getSolutionAsExtendedMatrix_2() {
 		
 		//setup
@@ -182,7 +182,7 @@ public final class MatrixTest extends Test {
 		expect(solution[2]).isEqualTo(1.0);
 	}
 	
-	//test method
+	//test case
 	public void test_getTransposed() {
 		
 		//setup
@@ -196,7 +196,7 @@ public final class MatrixTest extends Test {
 		expect(transposed).isEqualTo(expectedTransposed);
 	}
 	
-	//test method
+	//test case
 	public void test_toString_1() {
 		
 		//setup
@@ -206,7 +206,7 @@ public final class MatrixTest extends Test {
 		expect(matrix.toString()).isEqualTo("[0]");
 	}
 	
-	//test method
+	//test case
 	public void test_toString_2() {
 		
 		//setup
@@ -216,7 +216,7 @@ public final class MatrixTest extends Test {
 		expect(matrix.toString()).isEqualTo("[0,0;0,0]");
 	}
 	
-	//test method
+	//test case
 	public void test_toString_3() {
 		
 		//setup
@@ -226,7 +226,7 @@ public final class MatrixTest extends Test {
 		expect(matrix.toString()).isEqualTo("[0,0,0;0,0,0;0,0,0]");
 	}
 	
-	//test method
+	//test case
 	public void test_toString_4() {
 		
 		//setup
@@ -236,7 +236,7 @@ public final class MatrixTest extends Test {
 		expect(matrix.toString()).isEqualTo("[0,0,0,0;0,0,0,0;0,0,0,0;0,0,0,0]");
 	}
 	
-	//test method
+	//test case
 	public void test_toString_5() {
 		
 		//setup
@@ -246,7 +246,7 @@ public final class MatrixTest extends Test {
 		expect(matrix.toString()).isEqualTo("[1]");
 	}
 	
-	//test method
+	//test case
 	public void test_toString_6() {
 		
 		//setup
@@ -256,7 +256,7 @@ public final class MatrixTest extends Test {
 		expect(matrix.toString()).isEqualTo("[1,0;0,1]");
 	}
 	
-	//test method
+	//test case
 	public void test_toString_7() {
 		
 		//setup
@@ -266,7 +266,7 @@ public final class MatrixTest extends Test {
 		expect(matrix.toString()).isEqualTo("[1,0,0;0,1,0;0,0,1]");
 	}
 	
-	//test method
+	//test case
 	public void test_toString_8() {
 		
 		//setup

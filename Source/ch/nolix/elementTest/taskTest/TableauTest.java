@@ -17,7 +17,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class TableauTest extends Test {
 
-	//test method
+	//test case
 	public void test_addTask() {
 		
 		//setup
@@ -35,7 +35,7 @@ public final class TableauTest extends Test {
 		expect(tableau.getRefTasks().contains(task2));
 	}
 	
-	//test method
+	//test case
 	public void test_addTask_2() {
 		
 		//setup
@@ -47,7 +47,7 @@ public final class TableauTest extends Test {
 		.throwsExceptionOfType(NullArgumentException.class);
 	}
 	
-	//test method
+	//test case
 	public void test_addTask_3() {
 		
 		//setup
@@ -60,7 +60,7 @@ public final class TableauTest extends Test {
 		.throwsExceptionOfType(InvalidArgumentException.class);
 	}
 	
-	//test method
+	//test case
 	public void test_clear() {
 		
 		//setup

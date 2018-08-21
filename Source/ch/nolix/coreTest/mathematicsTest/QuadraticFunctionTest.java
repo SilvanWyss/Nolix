@@ -15,7 +15,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class QuadraticFunctionTest extends Test {
 
-	//test method
+	//test case
 	public void test_constructor() {
 		
 		//execution and verification
@@ -23,7 +23,7 @@ public final class QuadraticFunctionTest extends Test {
 		.throwsExceptionOfType(InvalidArgumentException.class);
 	}
 	
-	//test method
+	//test case
 	public void test_hasMin() {
 		
 		//setup
@@ -34,7 +34,7 @@ public final class QuadraticFunctionTest extends Test {
 		expect(quadraticFunction.hasMin());
 	}
 	
-	//test method
+	//test case
 	public void test_hasMin_2() {
 		
 		//setup

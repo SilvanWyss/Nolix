@@ -15,7 +15,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class StatementTest extends Test {
 	
-	//text method
+	//test case
 	public void test_constructor_1() {
 		
 		//execution
@@ -27,7 +27,7 @@ public final class StatementTest extends Test {
 		expectNot(statement.hasNextStatement());
 	}
 
-	//text method
+	//test case
 	public void test_constructor_2() {
 		
 		//execution
@@ -39,7 +39,7 @@ public final class StatementTest extends Test {
 		expectNot(statement.hasNextStatement());
 	}
 	
-	//text method
+	//test case
 	public void test_constructor_3() {
 		
 		//execution
@@ -51,7 +51,7 @@ public final class StatementTest extends Test {
 		expectNot(statement.hasNextStatement());
 	}
 	
-	//text method
+	//test case
 	public void test_constructor_4() {
 		
 		//execution

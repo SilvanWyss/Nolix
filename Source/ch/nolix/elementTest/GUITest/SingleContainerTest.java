@@ -16,7 +16,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public class SingleContainerTest extends Test {
 
-	//test method
+	//test case
 	public void testGetTypes() {
 		//expectEquality("SingleContainer,Container,BorderableRectangle,Rectangle,ConfigurableElement,OptionalNamableElement,Element", new SingleContainer().getTypes().toString());
 	}

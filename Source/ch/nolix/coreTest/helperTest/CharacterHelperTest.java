@@ -18,7 +18,7 @@ import ch.nolix.primitive.test.Test;
 */
 public class CharacterHelperTest extends Test {
 
-	//test method
+	//test case
 	public void testIsDigit() {
 		
 		expectTrue(CharacterHelper.isDigit('0'));
@@ -44,7 +44,7 @@ public class CharacterHelperTest extends Test {
 		expectFalse(CharacterHelper.isDigit(')'));
 	}
 	
-	//test method
+	//test case
 	public void testIsHexadeciumalDigit() {
 		
 		expectTrue(CharacterHelper.isHexadecimalDigit('0'));

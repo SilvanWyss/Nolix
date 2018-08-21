@@ -38,7 +38,7 @@ public abstract class Test extends ch.nolix.primitive.testoid.Testoid {
 		
 		//Handles the case that the given value is false.
 		if (!value) {
-			new TestAccessor(this).addCurrentTestMethodError("True was expected, but false was received.");
+			new TestAccessor(this).addCurrentTestCaseError("True was expected, but false was received.");
 		}
 	}
 	
@@ -52,7 +52,7 @@ public abstract class Test extends ch.nolix.primitive.testoid.Testoid {
 		
 		//Handles the case that the given values is null.
 		if (values == null) {
-			new TestAccessor(this).addCurrentTestMethodError("True values were expected, but null was received.");
+			new TestAccessor(this).addCurrentTestCaseError("True values were expected, but null was received.");
 		}
 		
 		//Handles the case that the given values is not null.
@@ -64,7 +64,7 @@ public abstract class Test extends ch.nolix.primitive.testoid.Testoid {
 				//Handles the case that the current value is false.
 				if (!b) {
 					new TestAccessor(this)
-					.addCurrentTestMethodError("True values were expected, but the " + index + "th value is false.");
+					.addCurrentTestCaseError("True values were expected, but the " + index + "th value is false.");
 				}
 				
 				//Increments index.
@@ -108,7 +108,7 @@ public abstract class Test extends ch.nolix.primitive.testoid.Testoid {
 		return new LongMediator(this, value);
 	}
 	
-	//test method
+	//test case
 	/**
 	 * @param closure
 	 * @return a new closure mediator that belongs to this test and is for the given closure.
@@ -163,7 +163,7 @@ public abstract class Test extends ch.nolix.primitive.testoid.Testoid {
 		
 		//Handles the case that the given value is true.
 		if (value) {
-			new TestAccessor(this).addCurrentTestMethodError("False was expected, but true was received.");
+			new TestAccessor(this).addCurrentTestCaseError("False was expected, but true was received.");
 		}
 	}
 	
@@ -177,7 +177,7 @@ public abstract class Test extends ch.nolix.primitive.testoid.Testoid {
 		
 		//Handles the case that the given values is null.
 		if (values == null) {
-			new TestAccessor(this).addCurrentTestMethodError("False values were expected, but null was received.");
+			new TestAccessor(this).addCurrentTestCaseError("False values were expected, but null was received.");
 		}
 		
 		//Handles the case that the given values is not null.
@@ -189,7 +189,7 @@ public abstract class Test extends ch.nolix.primitive.testoid.Testoid {
 				//Handles the case that the current value is false.
 				if (v) {
 					new TestAccessor(this)
-					.addCurrentTestMethodError("False values were expected, but the " + index + "th value is true.");
+					.addCurrentTestCaseError("False values were expected, but the " + index + "th value is true.");
 				}
 				
 				//Increments index.

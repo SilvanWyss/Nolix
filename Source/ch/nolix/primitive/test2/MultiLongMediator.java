@@ -114,7 +114,7 @@ public final class MultiLongMediator extends Mediator {
 				
 				//Checks if the current value is between the given min and max.
 				if (v < min || v > max) {
-					addCurrentTestMethodError(
+					addCurrentTestCaseError(
 						"Values that are between " + min + " and " + max + " were expected, but the " + i + "th value is not."
 					);
 				}
@@ -147,7 +147,7 @@ public final class MultiLongMediator extends Mediator {
 				
 				//Checks if the current value is bigger than the given value.
 				if (v <= value) {
-					addCurrentTestMethodError(
+					addCurrentTestCaseError(
 						"Values that are bigger than " + value + " were expected, but the " + i + "th value is not."
 					);
 				}
@@ -186,7 +186,7 @@ public final class MultiLongMediator extends Mediator {
 				
 				//Checks if the current value is dividable by the given value.
 				if (v % value != 0) {
-					addCurrentTestMethodError(
+					addCurrentTestCaseError(
 						"Values that are dividable by " + value + " were expected, but the " + i + "th value is not."
 					);
 				}
@@ -217,7 +217,7 @@ public final class MultiLongMediator extends Mediator {
 				
 				//Checks if the current value equals the given value.
 				if (v != value) {
-					addCurrentTestMethodError(
+					addCurrentTestCaseError(
 						"Values that equal " + value + " were expected, but the " + i + "th value does not."
 					);
 				}
@@ -248,7 +248,7 @@ public final class MultiLongMediator extends Mediator {
 				
 				//Checks if the current value is even.
 				if (v % 2 != 0) {
-					addCurrentTestMethodError("Even values were expected, but the " + i + "th value is not.");
+					addCurrentTestCaseError("Even values were expected, but the " + i + "th value is not.");
 				}
 				
 				//Increments the index.
@@ -277,7 +277,7 @@ public final class MultiLongMediator extends Mediator {
 				
 				//Checks if the current value is negative.
 				if (v >= 0) {
-					addCurrentTestMethodError("Negative values were expected, but the " + i + "th value is not.");
+					addCurrentTestCaseError("Negative values were expected, but the " + i + "th value is not.");
 				}
 				
 				//Increments the index.
@@ -306,7 +306,7 @@ public final class MultiLongMediator extends Mediator {
 				
 				//Checks if the current value is odd.
 				if (v % 2 == 0) {
-					addCurrentTestMethodError("Odd values were expected, but the " + i + "th value is not.");
+					addCurrentTestCaseError("Odd values were expected, but the " + i + "th value is not.");
 				}
 				
 				//Increments the index.
@@ -335,7 +335,7 @@ public final class MultiLongMediator extends Mediator {
 				
 				//Checks if the current value is positive.
 				if (v <= 0) {
-					addCurrentTestMethodError("Positive values were expected, but the " + i + "th value is not.");
+					addCurrentTestCaseError("Positive values were expected, but the " + i + "th value is not.");
 				}
 				
 				//Increments the index.
@@ -366,7 +366,7 @@ public final class MultiLongMediator extends Mediator {
 				
 				//Checks if the current value is smaller than the given value.
 				if (v >= value) {
-					addCurrentTestMethodError(
+					addCurrentTestCaseError(
 						"Values that are smaller than " + value + " were expected, but the " + i + "th value is not."
 					);
 				}
@@ -397,7 +397,7 @@ public final class MultiLongMediator extends Mediator {
 				
 				//Checks if the current value does not equal the given value.
 				if (v == value) {
-					addCurrentTestMethodError(
+					addCurrentTestCaseError(
 						"Values that do not equal " + value + " were expected, but the " + i + "th value does."
 					);
 				}
@@ -413,6 +413,6 @@ public final class MultiLongMediator extends Mediator {
 	 * Adds a null values error to the test this mediator belongs to.
 	 */
 	private void addNullValuesError() {
-		this.addCurrentTestMethodError("Values were expected, but null was received.");
+		this.addCurrentTestCaseError("Values were expected, but null was received.");
 	}
 }

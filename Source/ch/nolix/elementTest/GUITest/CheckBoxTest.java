@@ -15,7 +15,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class CheckboxTest extends Test {
 
-	//test method
+	//test case
 	public void test_constructor() {
 		
 		//execution
@@ -25,7 +25,7 @@ public final class CheckboxTest extends Test {
 		expectNot(checkBox.isChecked());
 	}
 	
-	//test method
+	//test case
 	public void test_check() {
 		
 		//setup
@@ -38,7 +38,7 @@ public final class CheckboxTest extends Test {
 		expect(checkBox.isChecked());
 	}
 	
-	//test method
+	//test case
 	public void test_uncheck() {
 		
 		//setup

@@ -15,7 +15,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class CandleStickTest extends Test {
 	
-	//test method
+	//test case
 	public void test_isBearish_1() {
 		
 		//setup
@@ -32,7 +32,7 @@ public final class CandleStickTest extends Test {
 		expectNot(candleStick.isBearish());
 	}
 	
-	//test method
+	//test case
 	public void test_isBearish_2() {
 		
 		//setup
@@ -49,7 +49,7 @@ public final class CandleStickTest extends Test {
 		expect(candleStick.isBearish());
 	}
 
-	//test method
+	//test case
 	public void test_isBullish_1() {
 		
 		//setup
@@ -66,7 +66,7 @@ public final class CandleStickTest extends Test {
 		expect(candleStick.isBullish());
 	}
 	
-	//test method
+	//test case
 	public void test_isBullish_2() {
 		
 		//setup
@@ -83,7 +83,7 @@ public final class CandleStickTest extends Test {
 		expectNot(candleStick.isBullish());
 	}
 	
-	//test method
+	//test case
 	public void test_isHammer() {
 		
 		//setup

@@ -15,7 +15,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class ARModelTest extends Test {
 
-	//test method
+	//test case
 	public void test_constructor_1() {
 		
 		//execution
@@ -29,7 +29,7 @@ public final class ARModelTest extends Test {
 		expect(ARModel_.getForecast(4)).withMaxDeviation(0.01).isEqualTo(14.0);
 	}
 	
-	//test method
+	//test case
 	public void test_constructor_2() {
 		
 		//execution
@@ -43,7 +43,7 @@ public final class ARModelTest extends Test {
 		expect(ARModel_.getForecast(4)).withMaxDeviation(0.01).isEqualTo(14.0);
 	}
 	
-	//test method
+	//test case
 	public void test_constructor_3() {
 		
 		//execution
@@ -57,7 +57,7 @@ public final class ARModelTest extends Test {
 		expect(ARModel_.getForecast(4)).withMaxDeviation(0.01).isEqualTo(2.0);
 	}
 	
-	//test method
+	//test case
 	public void test_constructor_4() {
 		
 		//execution
@@ -71,7 +71,7 @@ public final class ARModelTest extends Test {
 		expect(ARModel_.getForecast(4)).withMaxDeviation(0.01).isEqualTo(2.0);
 	}
 	
-	//test method
+	//test case
 	public void test_constructor_5() {
 		
 		//execution
@@ -87,7 +87,7 @@ public final class ARModelTest extends Test {
 		expect(ARModel_.getForecast(6)).withMaxDeviation(0.01).isEqualTo(3.0);
 	}
 	
-	//test method
+	//test case
 	public final void test_constructor_6() {
 		
 		//exection

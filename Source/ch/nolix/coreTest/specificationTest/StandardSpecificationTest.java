@@ -15,7 +15,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class StandardSpecificationTest extends Test {
 	
-	//test method
+	//test case
 	public void test_constructor_1() {
 		
 		//setup
@@ -26,7 +26,7 @@ public final class StandardSpecificationTest extends Test {
 		expectNot(standardSpecification.containsAttributes());
 	}
 	
-	//test method
+	//test case
 	public void test_constructor_2() {
 		
 		//setup
@@ -37,7 +37,7 @@ public final class StandardSpecificationTest extends Test {
 		expectNot(standardSpecification.containsAttributes());
 	}
 	
-	//test method
+	//test case
 	public void test_constructor_3() {
 		
 		//setup
@@ -48,7 +48,7 @@ public final class StandardSpecificationTest extends Test {
 		expect(standardSpecification.containsAttributes());
 	}
 	
-	//test method
+	//test case
 	public void test_constructor_4() {
 		
 		//setup
@@ -59,7 +59,7 @@ public final class StandardSpecificationTest extends Test {
 		expect(standardSpecification.containsAttributes());
 	}
 	
-	//test method
+	//test case
 	public void test_toString_1() {
 		
 		//setup
@@ -69,7 +69,7 @@ public final class StandardSpecificationTest extends Test {
 		expect(standardSpecification.toString()).isEmpty();
 	}
 	
-	//test method
+	//test case
 	public void test_toString_2() {
 		
 		//setup
@@ -79,7 +79,7 @@ public final class StandardSpecificationTest extends Test {
 		expect(standardSpecification.toString()).isEqualTo("a");
 	}
 	
-	//test method
+	//test case
 	public void test_toString_3() {
 		
 		//setup

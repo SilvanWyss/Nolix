@@ -20,7 +20,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class NetEndPointTest extends Test {
 
-	//test method
+	//test case
 	public void test_constructor() throws InterruptedException {
 		
 		//test parameters
@@ -45,7 +45,7 @@ public final class NetEndPointTest extends Test {
 		expect(endPointTakerMock.getLastEndPoint().isAlive());	
 	}
 	
-	//test method
+	//test case
 	public void test_send() throws InterruptedException {
 		
 		//test parameters

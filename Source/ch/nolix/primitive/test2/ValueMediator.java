@@ -46,11 +46,11 @@ public class ValueMediator<V> extends Mediator {
 	public final void isEqualTo(final Object value) {
 		
 		if (getRefValue() == null && value != null) {
-			addCurrentTestMethodError("A value that equals '" + value + "' was expected, but null was received.");
+			addCurrentTestCaseError("A value that equals '" + value + "' was expected, but null was received.");
 		}
 		
 		if (getRefValue() != null && !getRefValue().equals(value)) {
-			addCurrentTestMethodError("A value that equals '" + value + "' was expected, but '" + getRefValue() + "' was received.");
+			addCurrentTestCaseError("A value that equals '" + value + "' was expected, but '" + getRefValue() + "' was received.");
 		}
 	}
 	
@@ -63,11 +63,11 @@ public class ValueMediator<V> extends Mediator {
 	public final void isNotEqualTo(final Object value) {
 
 		if (getRefValue() == null && value == null) {
-			addCurrentTestMethodError("A value that is not null was expected, but null was received.");
+			addCurrentTestCaseError("A value that is not null was expected, but null was received.");
 		}
 		
 		if (getRefValue() != null && getRefValue().equals(value)) {
-			addCurrentTestMethodError("A value that does not equal '" + value + "' was expected, but " + getRefValue() + " was received.");
+			addCurrentTestCaseError("A value that does not equal '" + value + "' was expected, but " + getRefValue() + " was received.");
 		}
 	}
 	
@@ -86,7 +86,7 @@ public class ValueMediator<V> extends Mediator {
 		}
 		
 		if (!condition.getOutput(getRefValue())) {
-			addCurrentTestMethodError("A value that fulfils the given condition was expected, but '" + getRefValue() + "' was received.");
+			addCurrentTestCaseError("A value that fulfils the given condition was expected, but '" + getRefValue() + "' was received.");
 		}
 	}
 	
@@ -105,7 +105,7 @@ public class ValueMediator<V> extends Mediator {
 		}
 		
 		if (condition.getOutput(getRefValue())) {
-			addCurrentTestMethodError("A value that does not fulfil the given condition was expected, but '" + getRefValue() + "' was received.");
+			addCurrentTestCaseError("A value that does not fulfil the given condition was expected, but '" + getRefValue() + "' was received.");
 		}
 	}
 	
@@ -117,7 +117,7 @@ public class ValueMediator<V> extends Mediator {
 	 */
 	public final void isSameAs(final Object value) {		
 		if (getRefValue() != value) {
-			addCurrentTestMethodError("'" + value + "' was expected, but '" + getRefValue() + "' was received.");
+			addCurrentTestCaseError("'" + value + "' was expected, but '" + getRefValue() + "' was received.");
 		}
 	}
 	
@@ -127,7 +127,7 @@ public class ValueMediator<V> extends Mediator {
 	 */
 	public final void isNotNull() {
 		if (getRefValue() != null) {
-			addCurrentTestMethodError("An object was expected, but null was received.");
+			addCurrentTestCaseError("An object was expected, but null was received.");
 		}
 	}
 	
@@ -139,7 +139,7 @@ public class ValueMediator<V> extends Mediator {
 	 */
 	public final void isNotSameAs(final Object value) {
 		if (getRefValue() == value) {
-			addCurrentTestMethodError("An other value than '" + getRefValue() + "' was expected, but the same value was received.");
+			addCurrentTestCaseError("An other value than '" + getRefValue() + "' was expected, but the same value was received.");
 		}
 	}
 	
@@ -149,7 +149,7 @@ public class ValueMediator<V> extends Mediator {
 	 */
 	public final void isNull() {
 		if (getRefValue() != null) {
-			addCurrentTestMethodError("Null was expected, but '" + getRefValue() + "' was received.");
+			addCurrentTestCaseError("Null was expected, but '" + getRefValue() + "' was received.");
 		}
 	}
 	

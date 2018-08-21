@@ -14,7 +14,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class ColorTest extends Test {
 	
-	//test method
+	//test case
 	public void test_equals() {
 		
 		//setup
@@ -27,7 +27,7 @@ public final class ColorTest extends Test {
 		expect(equals);
 	}
 	
-	//test method
+	//test case
 	public void testGetBlueValue() {
 		
 		//setup
@@ -40,7 +40,7 @@ public final class ColorTest extends Test {
 		expect(blueValue).isEqualTo(0x30);
 	}
 	
-	//test method
+	//test case
 	public void test_getGreenValue() {
 		
 		//setup
@@ -53,7 +53,7 @@ public final class ColorTest extends Test {
 		expect(greenValue).isEqualTo(0x20);
 	}
 	
-	//test method
+	//test case
 	public void test_getInvertedColor() {
 		
 		//setup
@@ -66,7 +66,7 @@ public final class ColorTest extends Test {
 		expect(invertedColor.getIntValue()).isEqualTo(0xFFFFFF);
 	}
 	
-	//test method
+	//test case
 	public void test_getInvertedColor_2() {
 		
 		//setup
@@ -79,7 +79,7 @@ public final class ColorTest extends Test {
 		expect(invertedColor.getIntValue()).isEqualTo(0x000000);
 	}
 	
-	//test method
+	//test case
 	public void test_getRedValue() {
 		
 		//setup
@@ -92,7 +92,7 @@ public final class ColorTest extends Test {
 		expect(redValue).isEqualTo(0x10);
 	}
 
-	//test method
+	//test case
 	public void test_getType() {
 		
 		//setup
@@ -105,7 +105,7 @@ public final class ColorTest extends Test {
 		expect(type).isEqualTo("Color");
 	}
 	
-	//test method
+	//test case
 	public void test_stringConstructor() {
 		
 		//execution
@@ -115,7 +115,7 @@ public final class ColorTest extends Test {
 		expect(color.getIntValue()).isEqualTo(Color.WHITE_INT);
 	}
 	
-	//test method
+	//test case
 	public void test_stringConstructor_2() {
 		
 		//execution
@@ -125,7 +125,7 @@ public final class ColorTest extends Test {
 		expect(color.getIntValue()).isEqualTo(Color.BLACK_INT);
 	}
 	
-	//test method
+	//test case
 	public void test_toString() {
 		
 		//setup
@@ -138,7 +138,7 @@ public final class ColorTest extends Test {
 		expect(string).isEqualTo("Color(AliceBlue)");
 	}
 	
-	//test method
+	//test case
 	public void test_toString_2() {
 		
 		//setup

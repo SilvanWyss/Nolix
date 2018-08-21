@@ -17,7 +17,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class DirectionTest extends Test {
 	
-	//test method
+	//test case
 	public void test_getAttributes() {
 		
 		//execution
@@ -31,7 +31,7 @@ public final class DirectionTest extends Test {
 			.isEqualTo(new StandardSpecification("LeftToRight"));
 	}
 
-	//test method
+	//test case
 	public void test_getSpecification() {
 		
 		//execution and verification
@@ -39,14 +39,14 @@ public final class DirectionTest extends Test {
 		.isEqualTo(new StandardSpecification("Direction(LeftToRight)"));
 	}
 	
-	//test method
+	//test case
 	public void test_getType() {
 		
 		//execution and verification
 		expect(Direction.LeftToRight.getType()).isEqualTo("Direction");
 	}
 	
-	//test method
+	//test case
 	public void test_toString() {
 		
 		//execution and verification

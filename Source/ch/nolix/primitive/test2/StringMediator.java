@@ -38,7 +38,7 @@ public class StringMediator extends ValueMediator<String> {
 	 */
 	public void contains(final char character) {		
 		if (getRefValue() == null || !getRefValue().contains(String.valueOf(character))) {
-			addCurrentTestMethodError(
+			addCurrentTestCaseError(
 				"A string that contains the character '" + character + "' was expected, but '" + getRefValue() + "' was received."
 			);
 		}
@@ -59,7 +59,7 @@ public class StringMediator extends ValueMediator<String> {
 		}
 		
 		if (getRefValue() == null || getRefValue().length() != length) {
-			addCurrentTestMethodError(
+			addCurrentTestCaseError(
 				"A string with the length " + length + " was expected, but '" + getRefValue() + "', that has the length " + getRefValue().length() + " was received."
 			);
 		}
@@ -71,7 +71,7 @@ public class StringMediator extends ValueMediator<String> {
 	 */
 	public void isEmpty() {		
 		if (getRefValue() == null || !getRefValue().isEmpty()) {
-			addCurrentTestMethodError(
+			addCurrentTestCaseError(
 				"An empty string was expected, but '" + getRefValue() + "' was received."
 			);
 		}
@@ -83,7 +83,7 @@ public class StringMediator extends ValueMediator<String> {
 	 */
 	public void isNotEmpty() {		
 		if (getRefValue() == null || getRefValue().isEmpty()) {
-			addCurrentTestMethodError(
+			addCurrentTestCaseError(
 				"An empty string was expected, but '" + getRefValue() + "' was received."
 			);
 		}
@@ -104,7 +104,7 @@ public class StringMediator extends ValueMediator<String> {
 		}
 		
 		if (getRefValue() == null || !getRefValue().startsWith(sequence)) {
-			addCurrentTestMethodError(
+			addCurrentTestCaseError(
 				"A string that starts with '" + sequence + "' was expected, but '" + getRefValue() + "' was received."
 			);
 		}
@@ -116,7 +116,7 @@ public class StringMediator extends ValueMediator<String> {
 	 */
 	public void startsWithDigit() {
 		if (getRefValue() == null || getRefValue().isEmpty() || !Character.isDigit(getRefValue().charAt(0))) {
-			addCurrentTestMethodError(
+			addCurrentTestCaseError(
 				"A string that starts with a digit was expected, but '" + getRefValue() + "' was received."
 			);
 		}
@@ -128,7 +128,7 @@ public class StringMediator extends ValueMediator<String> {
 	 */
 	public void startsWithLetter() {
 		if (getRefValue() == null || getRefValue().isEmpty() || !Character.isLetter(getRefValue().charAt(0))) {
-			addCurrentTestMethodError("A string that starts with a letter was expected, but '" + getRefValue() + "' was received.");
+			addCurrentTestCaseError("A string that starts with a letter was expected, but '" + getRefValue() + "' was received.");
 		}
 	}
 	
@@ -138,7 +138,7 @@ public class StringMediator extends ValueMediator<String> {
 	 */
 	public void startsWithLowerCaseLetter() {
 		if (getRefValue() == null || getRefValue().isEmpty() || !Character.isLowerCase(getRefValue().charAt(0))) {
-			addCurrentTestMethodError("A string that starts with a lower case letter was expected, but '" + getRefValue() + "' was received.");
+			addCurrentTestCaseError("A string that starts with a lower case letter was expected, but '" + getRefValue() + "' was received.");
 		}
 	}
 	
@@ -148,7 +148,7 @@ public class StringMediator extends ValueMediator<String> {
 	 */
 	public void startsWithUpperCaseLetter() {
 		if (getRefValue() == null || getRefValue().isEmpty() || !Character.isUpperCase(getRefValue().charAt(0))) {
-			addCurrentTestMethodError("A string that starts with an upper case letter was expected, but '" + getRefValue() + "' was received.");
+			addCurrentTestCaseError("A string that starts with an upper case letter was expected, but '" + getRefValue() + "' was received.");
 		}
 	}
 }

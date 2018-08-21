@@ -15,7 +15,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class MatrixTest extends Test {
 
-	//test method
+	//test case
 	public void test_addRow() {
 		
 		//setup
@@ -31,7 +31,7 @@ public final class MatrixTest extends Test {
 		expect(matrix.getRow(1).toString()).isEqualTo("apple,banana,cerish");
 	}
 	
-	//test method
+	//test case
 	public void test_getColumn() {
 		
 		//setup
@@ -57,7 +57,7 @@ public final class MatrixTest extends Test {
 			expect(column3.toString()).isEqualTo("cerish,monkey,palm");
 	}
 	
-	//test method
+	//test case
 	public void test_getIndexOf() {
 		
 		//setup
@@ -90,7 +90,7 @@ public final class MatrixTest extends Test {
 		expect(index9).isEqualTo(9);
 	}
 	
-	//test method
+	//test case
 	public void test_getRow() {
 		
 		//setup

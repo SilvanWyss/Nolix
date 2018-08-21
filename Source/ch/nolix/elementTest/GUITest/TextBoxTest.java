@@ -15,7 +15,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public class TextBoxTest extends Test {
 
-	//test method
+	//test case
 	public final void test_constructor() {
 		
 		//execution
@@ -25,7 +25,7 @@ public class TextBoxTest extends Test {
 		expect(textBox.getText()).isEmpty();
 	}
 	
-	//test method
+	//test case
 	public final void test_setNormalTextColor() {
 		
 		//setup
@@ -45,7 +45,7 @@ public class TextBoxTest extends Test {
 			.isEqualTo(Color.BLUE_INT);
 	}
 	
-	//test method
+	//test case
 	public final void test_setText() {
 				
 		//setup

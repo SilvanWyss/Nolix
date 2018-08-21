@@ -23,7 +23,7 @@ import ch.nolix.core.endPoint.NetEndPoint;
  */
 public final class NetEndPointTest extends Test {
 
-	//test method
+	//test case
 	public void test_send() {
 		
 		//test parameters

@@ -15,7 +15,7 @@ import ch.nolix.primitive.test2.Test;
  */
 public final class PolynomTest extends Test {
 	
-	//test method
+	//test case
 	public void test_constructor() {
 		
 		//execution
@@ -25,7 +25,7 @@ public final class PolynomTest extends Test {
 		expect(polynom.getDegree()).isEqualTo(10);
 	}
 	
-	//test method
+	//test case
 	public void test_integrate_1() {
 		
 		//setup
@@ -39,7 +39,7 @@ public final class PolynomTest extends Test {
 		expect(polynom.toString()).isEqualTo("x->2x^3");
 	}
 	
-	//test method
+	//test case
 	public void test_integrate_2() {
 		
 		//setup
@@ -56,7 +56,7 @@ public final class PolynomTest extends Test {
 		expect(coefficients[1]).isEqualTo(6.0);
 	}
 	
-	//test method
+	//test case
 	public void test_toString_1() {
 		
 		//setup
@@ -66,7 +66,7 @@ public final class PolynomTest extends Test {
 		expect(polynom.toString()).isEqualTo("x->x^2+2x+3");
 	}
 	
-	//test method
+	//test case
 	public void test_toString_2() {
 		
 		//setup
