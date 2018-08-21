@@ -29,7 +29,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1290
+ * @lines 1350
  */
 public class Color extends Element {
 	
@@ -613,6 +613,9 @@ public class Color extends Element {
 	private static final short MAX_COLOR_COMPONENT = 255;
 	
 	//static attribute
+	private static final List<Color> webColors = new List<Color>();
+	
+	//static attribute
 	private static final List<Pair<String, java.lang.Long>> webColorPairs =
 	new List<Pair<String, java.lang.Long>>();
 	
@@ -624,6 +627,33 @@ public class Color extends Element {
 	 */
 	public static Color createFromSpecification(final Specification specification) {
 		return new Color(specification.getOneAttributeAsString());
+	}
+	
+	//static method
+	/**
+	 * @return the web colors.
+	 */
+	public static ReadContainer<Color> getWebColors() {
+		
+		fillUpWebColors();
+		
+		return new ReadContainer<Color>(webColors);
+	}
+	
+	//static method
+	/**
+	 * @param field
+	 * @return true if the given field declares a web color
+	 */
+	private static boolean declaresWebColor(final Field field) {
+		try {
+			return
+			Modifier.isStatic(field.getModifiers())
+			&& field.get(null) instanceof Color;
+		}
+		catch (final IllegalArgumentException | IllegalAccessException exception) {
+			throw new RuntimeException(exception);
+		}
 	}
 	
 	//static method
@@ -665,7 +695,32 @@ public class Color extends Element {
 				throw new RuntimeException(illegalAccessException);
 			}
 		}
-	}	
+	}
+	
+	//static method
+	/**
+	 * Fills up the web colors.
+	 */
+	private static void fillUpWebColors() {
+		
+		//Handles the case that the web colors are not filled up already.
+		if (!webColorsAreFilledUp()) {
+			try {
+				
+				//Iterates the declared fields of the color class.
+				for (final var f : Color.class.getDeclaredFields()) {
+					
+					//Handles the case that the current field declares a web color.
+					if (declaresWebColor(f)) {
+						webColors.addAtEnd((Color)f.get(null));
+					} 
+				}
+			}
+			catch (final IllegalArgumentException | IllegalAccessException exception) {
+				throw new RuntimeException(exception);
+			}
+		}
+	}
 	
 	//static method
 	/**
@@ -732,6 +787,14 @@ public class Color extends Element {
 	 */
 	private static boolean webColorPairsAreFilledUp() {
 		return webColorPairs.containsAny();
+	}
+	
+	//static method
+	/**
+	 * @return true if the web colors are filled up.
+	 */
+	private static boolean webColorsAreFilledUp() {
+		return webColors.containsAny();
 	}	
 	
 	//attributes
