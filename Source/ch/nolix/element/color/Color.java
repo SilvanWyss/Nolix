@@ -29,7 +29,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1280
+ * @lines 1290
  */
 public class Color extends Element {
 	
@@ -843,6 +843,27 @@ public class Color extends Element {
 	
 	//method
 	/**
+	 * @return the hexadecimal value of the current {@link Color}.
+	 * 
+	 * @param appendAlphaValueAlways
+	 */
+	public String getHexadecimalValue(boolean appendAlphaValueAlways) {
+		
+		var string =
+		String.format("0x%02X", redValue)
+		+ String.format("0x02X", greenValue)
+		+ String.format("0x02X", blueValue);
+		
+		//Handles the case that the current color has a full alpha value.
+		if (appendAlphaValueAlways || !hasFullAlphaValue()) {
+			string += String.format("0x02X", alphaValue);
+		}
+		
+		return string;		
+	}
+	
+	//method
+	/**
 	 * @return the integer value of the current {@link Color}.
 	 */
 	public long getIntValue() {
@@ -975,20 +996,8 @@ public class Color extends Element {
 		}
 		
 		//Handles the case that the current color has no color name.
-			var string =
-			String.format("0x%02X", redValue)
-			+ String.format("0x02X", greenValue)
-			+ String.format("0x02X", blueValue);
-			
-			//Handles the case that the current color has a full alpha value.
-			if (!hasFullAlphaValue()) {
-				string += String.format("0x02X", alphaValue);
-			}
-			
-			return string;			
+		return getHexadecimalValue(false);
 	}
-	
-	
 	
 	//method
 	/**
