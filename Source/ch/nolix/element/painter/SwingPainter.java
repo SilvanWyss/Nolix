@@ -10,6 +10,7 @@ import java.awt.RenderingHints;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.font.Font;
+import ch.nolix.element.image.Image;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
@@ -106,7 +107,16 @@ public final class SwingPainter implements IPainter {
 			graphics2D.fillRect(xPosition, yPosition, width, height);
 		}
 	}
-
+	
+	//method
+	public void paintImage(
+		final Image image,
+		final int width,
+		final int height
+	) {
+		graphics.drawImage(image.getBufferedImage(), 0, 0, width, height, null);
+	}
+	
 	//method
 	public void paintText(final String text, final Font font) {
 		font.paintSwingText(text, graphics);

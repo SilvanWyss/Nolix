@@ -5,12 +5,13 @@ package ch.nolix.element.painter;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.font.Font;
+import ch.nolix.element.image.Image;
 
 //interface
 /**
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 140
+ * @lines 180
  */
 public interface IPainter {
 
@@ -94,6 +95,34 @@ public interface IPainter {
 		int xPosition,
 		int yPosition,
 		int width, 
+		int height
+	);
+	
+	//default method
+	/**
+	 * Lets the current {@link Painter} paint the given image.
+	 * 
+	 * @param image
+	 * @param width
+	 * @param height
+	 */
+	public default void paintImage(final Image image) {
+		
+		//Calls other method
+		paintImage(image, image.getWidth(), image.getHeight());
+	}
+	
+	//abstract method
+	/**
+	 * Lets the current {@link Painter} paint the given image with the given width and height.
+	 * 
+	 * @param image
+	 * @param width
+	 * @param height
+	 */
+	public abstract void paintImage(
+		Image image,
+		int width,
 		int height
 	);
 	
