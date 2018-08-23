@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techAPI.texture;
+package ch.nolix.techAPI.textureAPI;
 
 //own import
 import ch.nolix.element.image.Image;
