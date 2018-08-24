@@ -489,7 +489,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		.isNotNull();
 		
 		//Sets the given element at the given index to the current matrix.
-		elements[getRowIndexOf(index)][getColumnIndexOf(index)] = element;
+		elements[getRowIndexOf(index) - 1][getColumnIndexOf(index) - 1] = element;
 				
 		return this;
 	}
