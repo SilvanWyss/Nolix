@@ -7,7 +7,7 @@ package ch.nolix.core.constants;
  * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 100
+ * @lines 110
  */
 public final class VariableNameCatalogue {
 	
@@ -54,6 +54,7 @@ public final class VariableNameCatalogue {
 	public static final String HEIGHT = "height";
 	public static final String ID = "id";
 	public static final String INDEX = "index";
+	public static final String INTERFACE = "interface";
 	public static final String ITEM = "item";
 	public static final String LENGTH = "length";
 	public static final String MAXIMUM = "maximum";
@@ -76,6 +77,7 @@ public final class VariableNameCatalogue {
 	public static final String ROW_INDEX = "row index";
 	public static final String SEPARATOR = "separator";
 	public static final String SEQUENCE ="sequence";
+	public static final String SERVICE = "service";
 	public static final String SIZE = "size";
 	public static final String SPECIFICATION = "specification";
 	public static final String START_DATE = "start date";
