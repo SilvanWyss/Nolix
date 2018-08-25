@@ -14,15 +14,11 @@ public interface ITextureCreator {
 	
 	//abstract method
 	/**
+	 * On a texture, 1000 pixel will represent approximately 1 m.
+	 * 
 	 * @param width
 	 * @param height
-	 * @param pixelPerMeter
-	 * @return a new texture with the given width and height
-	 * and the given number of pixels per meter as scale.
+	 * @return a new texture with the given width and height.
 	 */
-	public abstract Image generateTexture(
-		int width,
-		int height,
-		double pixelPerMeter
-	);
+	public abstract Image createTexture(int width, int height);
 }
