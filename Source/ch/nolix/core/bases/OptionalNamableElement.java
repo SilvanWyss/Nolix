@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.bases;
 
-//own imports
-import ch.nolix.core.interfaces.OptionalNamable;
+import ch.nolix.core.skillInterfaces.OptionalNamable;
 import ch.nolix.primitive.validator2.Validator;
 
 //abstract class

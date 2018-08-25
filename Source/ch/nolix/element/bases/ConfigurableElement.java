@@ -12,7 +12,7 @@ package ch.nolix.element.bases;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.interfaces.OptionalTokenable;
+import ch.nolix.core.skillInterfaces.OptionalTokenable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;

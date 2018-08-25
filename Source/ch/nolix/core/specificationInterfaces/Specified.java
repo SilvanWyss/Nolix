@@ -3,7 +3,7 @@ package ch.nolix.core.specificationInterfaces;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.interfaces.Typed;
+import ch.nolix.core.skillInterfaces.Typed;
 import ch.nolix.core.specification.StandardSpecification;
 
 //interface

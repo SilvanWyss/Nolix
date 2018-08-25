@@ -9,7 +9,7 @@ import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.duplexController.LocalDuplexController;
 import ch.nolix.core.duplexController.NetDuplexController;
 import ch.nolix.core.functionInterfaces.IFunction;
-import ch.nolix.core.interfaces.Closable;
+import ch.nolix.core.skillInterfaces.Closable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;

@@ -4,9 +4,9 @@ package ch.nolix.system.neuronoid;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.interfaces.IFluentObject;
 import ch.nolix.core.sequencer.Future;
 import ch.nolix.core.sequencer.Sequencer;
+import ch.nolix.core.skillInterfaces.IFluentObject;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;

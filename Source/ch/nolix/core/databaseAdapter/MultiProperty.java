@@ -4,7 +4,7 @@ package ch.nolix.core.databaseAdapter;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.interfaces.Clearable;
+import ch.nolix.core.skillInterfaces.Clearable;
 import ch.nolix.core.specification.StandardSpecification;
 
 //class

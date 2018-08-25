@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.bases;
 
-//own imports
-import ch.nolix.core.interfaces.OptionalSignable;
+import ch.nolix.core.skillInterfaces.OptionalSignable;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
 

@@ -4,8 +4,7 @@ package ch.nolix.primitive.testoid;
 //Java import
 import java.util.Vector;
 
-//own imports
-import ch.nolix.core.interfaces.Runnable;
+import ch.nolix.core.skillInterfaces.Runnable;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;

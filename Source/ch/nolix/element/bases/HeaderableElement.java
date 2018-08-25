@@ -4,7 +4,7 @@ package ch.nolix.element.bases;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.entity.MutableProperty;
-import ch.nolix.core.interfaces.Headerable;
+import ch.nolix.core.skillInterfaces.Headerable;
 import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.core.NonEmptyText;
 

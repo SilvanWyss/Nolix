@@ -6,7 +6,7 @@ import java.lang.reflect.ParameterizedType;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.interfaces.Headered;
+import ch.nolix.core.skillInterfaces.Headered;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;

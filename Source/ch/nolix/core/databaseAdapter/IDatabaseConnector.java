@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.databaseAdapter;
 
-//own import
-import ch.nolix.core.interfaces.Named;
+import ch.nolix.core.skillInterfaces.Named;
 
 //interface
 public interface IDatabaseConnector extends Named {

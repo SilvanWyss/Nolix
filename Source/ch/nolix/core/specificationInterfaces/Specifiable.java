@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.specificationInterfaces;
 
-//own imports
-import ch.nolix.core.interfaces.Resettable;
+import ch.nolix.core.skillInterfaces.Resettable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;

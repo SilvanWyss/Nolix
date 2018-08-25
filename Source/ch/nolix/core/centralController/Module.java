@@ -4,8 +4,7 @@ package ch.nolix.core.centralController;
 //Java import
 import java.io.File;
 
-//own imports
-import ch.nolix.core.interfaces.Named;
+import ch.nolix.core.skillInterfaces.Named;
 import ch.nolix.primitive.validator2.Validator;
 
 //abstract class

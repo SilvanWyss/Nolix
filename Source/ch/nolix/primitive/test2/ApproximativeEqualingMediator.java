@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.primitive.test2;
 
-//own import
-import ch.nolix.core.interfaces.ApproximativeEqualing;
+import ch.nolix.core.skillInterfaces.ApproximativeEqualing;
 
 //class
 /**

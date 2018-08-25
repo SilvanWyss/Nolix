@@ -4,7 +4,7 @@ package ch.nolix.system.netNeuron;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
-import ch.nolix.core.interfaces.Closable;
+import ch.nolix.core.skillInterfaces.Closable;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.primitive.validator2.Validator;
 import ch.nolix.system.client.Application;

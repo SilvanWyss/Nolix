@@ -8,8 +8,7 @@
 //package declaration
 package ch.nolix.core.endPoint3;
 
-//own import
-import ch.nolix.core.interfaces.Named;
+import ch.nolix.core.skillInterfaces.Named;
 
 //interface
 /**

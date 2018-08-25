@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.databaseSchemaAdapter;
 
-//own import
-import ch.nolix.core.interfaces.Headered;
+import ch.nolix.core.skillInterfaces.Headered;
 
 //interface
 public interface IColumnConnector extends Headered {}

@@ -3,8 +3,8 @@ package ch.nolix.core.bases;
 
 //own import
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.skillInterfaces.Closable;
 import ch.nolix.core.container.List;
-import ch.nolix.core.interfaces.Closable;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
 

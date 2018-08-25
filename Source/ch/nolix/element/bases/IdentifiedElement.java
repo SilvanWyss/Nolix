@@ -4,7 +4,7 @@ package ch.nolix.element.bases;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.interfaces.Identified;
+import ch.nolix.core.skillInterfaces.Identified;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.core.Element;
 import ch.nolix.primitive.validator2.Validator;

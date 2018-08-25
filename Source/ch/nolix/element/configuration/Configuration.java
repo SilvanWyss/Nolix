@@ -5,7 +5,7 @@ package ch.nolix.element.configuration;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.interfaces.Freezable;
+import ch.nolix.core.skillInterfaces.Freezable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationInterfaces.Configurable;

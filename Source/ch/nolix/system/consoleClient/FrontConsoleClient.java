@@ -14,6 +14,7 @@ import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.primitive.validator2.Validator;
 import ch.nolix.system.GUIClientoid.GUIClientoid;
 import ch.nolix.system.client.Application;
+import ch.nolix.templates.frontConsoleClientLooks.GreyBlueFrontConsoleClientLook;
 
 //class
 /**
@@ -132,7 +133,7 @@ public final class FrontConsoleClient extends GUIClientoid<FrontConsoleClient> {
 			)
 			.setRole(ContainerRole.MainContainer)
 		)
-		.setConfiguration(new GreyBlueConsoleDesign());
+		.setConfiguration(new GreyBlueFrontConsoleClientLook());
 	}
 	
 	public void quit() {

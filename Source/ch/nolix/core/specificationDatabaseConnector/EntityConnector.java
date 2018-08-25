@@ -4,7 +4,7 @@ package ch.nolix.core.specificationDatabaseConnector;
 //own imports
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntityType;
-import ch.nolix.core.interfaces.Identified;
+import ch.nolix.core.skillInterfaces.Identified;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.primitive.validator2.Validator;
 

@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.interfaces.IFluentObject;
+import ch.nolix.core.skillInterfaces.IFluentObject;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;

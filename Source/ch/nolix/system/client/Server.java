@@ -3,7 +3,7 @@ package ch.nolix.system.client;
 
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
-import ch.nolix.core.interfaces.Clearable;
+import ch.nolix.core.skillInterfaces.Clearable;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;

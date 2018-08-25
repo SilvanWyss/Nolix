@@ -4,8 +4,8 @@ package ch.nolix.element.bases;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.interfaces.IRequestableContainer;
-import ch.nolix.core.interfaces.Namable;
+import ch.nolix.core.skillInterfaces.IRequestableContainer;
+import ch.nolix.core.skillInterfaces.Namable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.core.MutableElement;

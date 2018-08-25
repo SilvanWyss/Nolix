@@ -3,7 +3,7 @@ package ch.nolix.core.duplexController;
 
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
-import ch.nolix.core.interfaces.Clearable;
+import ch.nolix.core.skillInterfaces.Clearable;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 

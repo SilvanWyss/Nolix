@@ -6,7 +6,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.factory.Factory;
 import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
-import ch.nolix.core.interfaces.IChangesSaver;
+import ch.nolix.core.skillInterfaces.IChangesSaver;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.primitive.validator2.Validator;
 

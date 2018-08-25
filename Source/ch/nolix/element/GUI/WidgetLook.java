@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.entity2.Entity;
 import ch.nolix.core.entity2.Property;
-import ch.nolix.core.interfaces.IFluentObject;
+import ch.nolix.core.skillInterfaces.IFluentObject;
 import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;

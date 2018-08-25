@@ -5,9 +5,9 @@ package ch.nolix.systemTutorial.consoleClientTutorial;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.system.client.Application;
 import ch.nolix.system.client.Session;
-import ch.nolix.system.consoleClient.BlackRedConsoleDesign;
 import ch.nolix.system.consoleClient.BackConsoleClient;
 import ch.nolix.system.consoleClient.FrontConsoleClient;
+import ch.nolix.templates.frontConsoleClientLooks.BlackRedFrontConsoleClientLook;
 
 //class
 /**
@@ -50,7 +50,7 @@ public final class BackConsoleClientTutorial {
 		 */
 		public void initialize() {
 			
-			getParentClient().setDesign(new BlackRedConsoleDesign());
+			getParentClient().setDesign(new BlackRedFrontConsoleClientLook());
 			
 			getParentClient().writeLineToInfoPanel(
 				"This is the info panel of the console.",

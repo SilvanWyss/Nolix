@@ -6,7 +6,7 @@ import java.util.Vector;
 
 //own imports
 import ch.nolix.core.functionInterfaces.IFunction;
-import ch.nolix.core.interfaces.ApproximativeEqualing;
+import ch.nolix.core.skillInterfaces.ApproximativeEqualing;
 import ch.nolix.primitive.testoid.TestAccessor;
 
 //abstract class

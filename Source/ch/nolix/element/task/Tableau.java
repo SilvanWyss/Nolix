@@ -4,7 +4,7 @@ package ch.nolix.element.task;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.entity.MultiProperty;
-import ch.nolix.core.interfaces.Clearable;
+import ch.nolix.core.skillInterfaces.Clearable;
 import ch.nolix.element.bases.NamableElement;
 
 //class
