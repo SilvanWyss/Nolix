@@ -1,5 +1,7 @@
 //package declaration
-package ch.nolix.techAPI.textureAPI;
+package ch.nolix.techAPI;
+
+import ch.nolix.techAPI.textureAPI.ITextureCreator;
 
 //interface
 /**

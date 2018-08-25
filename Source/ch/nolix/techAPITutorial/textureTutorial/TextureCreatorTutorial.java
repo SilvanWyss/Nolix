@@ -9,7 +9,7 @@ import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.ImageWidget;
 import ch.nolix.tech.TechFactory;
 import ch.nolix.tech.texture.JuteTextureCreator;
-import ch.nolix.techAPI.textureAPI.ITechFactory;
+import ch.nolix.techAPI.ITechFactory;
 
 //class
 /**

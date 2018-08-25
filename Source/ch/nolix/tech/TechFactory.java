@@ -4,7 +4,7 @@ package ch.nolix.tech;
 //own imports
 import ch.nolix.tech.texture.ConcreteTextureCreator;
 import ch.nolix.tech.texture.JuteTextureCreator;
-import ch.nolix.techAPI.textureAPI.ITechFactory;
+import ch.nolix.techAPI.ITechFactory;
 
 //class
 public final class TechFactory implements ITechFactory {
