@@ -9,30 +9,23 @@ import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;
 import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.techAPI.resourceAPI.IResource;
 import ch.nolix.core.container.List;
-import ch.nolix.core.container.Pair;
 
 //class
 /**
- * Of a resource, a certain amount can be possessed.
- * A resource has a determined name.
- * A resource can have base resources.
- * A resource can serve as any of its base resources.
- * A resource is not mutable. 
- * 
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 170
+ * @lines 160
  */
-public final class Resource extends NamedElement {
+public final class Resource extends NamedElement implements IResource {
 	
-	//multiple attribute
-	//The base resources are the resources this resource can serve as.
-	public final ReadContainer<Resource> baseResources;
+	//multi-attribute
+	public final ReadContainer<IResource> baseResources;
 
 	//constructor
 	/**
-	 * Creates a new resource with the given name.
+	 * Creates a new {@link Resource} with the given name.
 	 * 
 	 * @param name
 	 * @throws NullArgumentException if the given name is null.
@@ -43,13 +36,13 @@ public final class Resource extends NamedElement {
 		//Calls constructor of the base class.
 		super(name);
 		
-		//Sets the base resources of this recource.
-		baseResources = new ReadContainer<Resource>();
+		//Sets the base resources of the current resource.
+		baseResources = new ReadContainer<IResource>();
 	}
 	
 	//constructor
 	/**
-	 * Creates a new resource with the given name and base resources.
+	 * Creates a new {@link Resource} with the given name and base resources.
 	 * 
 	 * @param name
 	 * @param baseResources
@@ -60,15 +53,15 @@ public final class Resource extends NamedElement {
 	 * @throws InvalidArgumentException if one of the given base resources
 	 * is a sub resource of another of the given base resources.
 	 */
-	public Resource(final String name, final Resource... baseResources) {
+	public Resource(final String name, final IResource... baseResources) {
 		
 		//Calls constructor of the base class.
 		super(name);
 		
-		final List<Resource> internalBaseResources = new List<Resource>();
+		final var internalBaseResources = new List<IResource>();
 		
 		//Iterates the given base resources.
-		for (final Resource br : baseResources) {
+		for (final var br : baseResources) {
 			
 			//Checks if the given name does not equal the name of the current base resource.
 			if (hasSameNameAs(br)) {
@@ -88,7 +81,7 @@ public final class Resource extends NamedElement {
 		//is a sub resource of another of the given base resources.
 		if (internalBaseResources.contains((sr1, sr2) -> sr1.isSubResourceOf(sr2))) {
 			
-			final Pair<Resource, Resource> pair
+			final var pair
 			= internalBaseResources.getRefFirst((sr1, sr2) -> sr1.isSubResourceOf(sr2));
 			
 			throw new InvalidArgumentException(
@@ -98,12 +91,12 @@ public final class Resource extends NamedElement {
 			);
 		}
 		
-		this.baseResources = new ReadContainer<Resource>(internalBaseResources);
+		this.baseResources = new ReadContainer<IResource>(internalBaseResources);
 	}
 	
 	//method
 	/**
-	 * @return the number of base resources of this resource.
+	 * {@inheritDoc}
 	 */
 	public final int getBaseResourceCount() {
 		return getBaseResources().getElementCount();
@@ -111,55 +104,50 @@ public final class Resource extends NamedElement {
 	
 	//method
 	/**
-	 * @return the base resources of this resource.
+	 * {@inheritDoc}
 	 */
-	public final ReadContainer<Resource> getBaseResources() {
+	public final ReadContainer<IResource> getBaseResources() {
 		return baseResources;
 	}
 	
 	//method
 	/**
-	 * @param resource
-	 * @return true if this resource is a base resource of the given resource.
+	 * {@inheritDoc}
 	 */
-	public final boolean isBaseResourceOf(final Resource resource) {
+	public final boolean isBaseResourceOf(final IResource resource) {
 		return resource.isSubResourceOf(this);
 	}
 	
 	//method
 	/**
-	 * @param resource
-	 * @return true if this resource is a direct base resource of the given resource.
+	 * {@inheritDoc}
 	 */
-	public final boolean isDirectBaseResourceOf(final Resource resource) {
+	public final boolean isDirectBaseResourceOf(final IResource resource) {
 		return resource.isDirectSubResourceOf(this);
 	}
 	
 	//method
 	/**
-	 * @param resource
-	 * @return true if this resource is a direct sub resource of the given resource.
+	 * {@inheritDoc}
 	 */
-	public final boolean isDirectSubResourceOf(final Resource resource) {
+	public final boolean isDirectSubResourceOf(final IResource resource) {
 		return getBaseResources().contains(resource);
 	}
 	
 	//method
 	/**
-	 * @param resource
-	 * @return true if this resource is a sub resource of the given resource.
+	 * {@inheritDoc}
 	 */
-	public final boolean isSubResourceOf(final Resource resource) {
+	public final boolean isSubResourceOf(final IResource resource) {
 		
-		//Handles the case that this resource is a direct sub resource of the given resource.
+		//Handles the case that the current resource is a direct sub resource of the given resource.
 		if (isDirectSubResourceOf(resource)) {
 			return true;
 		}
 		
-		//Handles the case that this resource is no direct sub resource of the given resource.
-		
-			//Iterates the base resources of this resource.
-			for (final Resource br : getBaseResources()) {
+		//Handles the case that the current resource is no direct sub resource of the given resource.
+			//Iterates the base resources of the current resource.
+			for (final var br : getBaseResources()) {
 				
 				//Checks if the current base resource is a sub resource of the given resource.
 				if (br.isSubResourceOf(resource)) {

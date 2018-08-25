@@ -3,16 +3,15 @@ package ch.nolix.tech.resource;
 
 //class
 /**
- * A resource set is a set of resources that depend on each other.
- * Of this class no instance can be created.
+ * Of a {@link ResourceCatalogue} no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2017-09
  * @lines 30
  */
-public class ResourceSet {
+public final class ResourceCatalogue {
 
-	//resources
+	//constants
 	public static final Resource CARBON = new Resource("Carbon");
 	public static final Resource COLE = new Resource("Cole", CARBON);
 	public static final Resource CARBON_HYDRIDE = new Resource("Carbon Hydride");
@@ -27,7 +26,7 @@ public class ResourceSet {
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of a {@link ResourceCatalogue} can be created.
 	 */
-	private ResourceSet() {}
+	private ResourceCatalogue() {}
 }
