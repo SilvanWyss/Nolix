@@ -1286,6 +1286,8 @@ extends ConfigurableElement<W> {
 		//Enumerates the state of the current {@link Widget}.
 		switch (getState()) {
 			case Normal:
+			case Disabled:
+			case Collapsed:
 				return getRefBaseLook();
 			case Hovered:
 				return getRefHoverLook();
@@ -1293,12 +1295,11 @@ extends ConfigurableElement<W> {
 				return getRefFocusLook();
 			case HoverFocused:
 				return getRefHoverFocusLook();
-			case Disabled:
-				return getRefBaseLook();
 			default:
 				throw new UnexistingAttributeException(
 					this,
-					"current look");
+					"current look"
+				);
 		}
 	}
 	
