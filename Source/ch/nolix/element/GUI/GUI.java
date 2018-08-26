@@ -791,6 +791,8 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		rootWidget.setParentGUI(this);
 		this.rootWidget = rootWidget;
 		
+		refresh();
+		
 		return getInstance();
 	}
 	
