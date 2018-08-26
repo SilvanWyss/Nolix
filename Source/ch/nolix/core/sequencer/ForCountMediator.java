@@ -3,6 +3,7 @@ package ch.nolix.core.sequencer;
 
 //own imports
 import ch.nolix.core.functionInterfaces.IFunction;
+import ch.nolix.core.functionInterfaces.IIntTaker;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
@@ -11,7 +12,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 50
+ * @lines 70
  */
 public final class ForCountMediator {
 
@@ -43,6 +44,18 @@ public final class ForCountMediator {
 	public void run(final IFunction job) {
 		for (int i = 1; i <= maxRunCount; i++) {
 			job.run();
+		}
+	}
+	
+	//method
+	/**
+	 * Lets this for count mediator run the given job.
+	 * 
+	 * @param job
+	 */
+	public void run(final IIntTaker job) {
+		for (var i = 1; i <= maxRunCount; i++) {
+			job.run(i);
 		}
 	}
 	
