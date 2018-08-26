@@ -40,6 +40,8 @@ public final class DownloaderTutorial {
 		//Configures the look of the downloader.
 			downloader
 			.getRefBaseLook()
+			.setBackgroundColor(Color.ALICE_BLUE)
+			.setPaddings(5)
 			.setTextSize(50)
 			.setTextColor(Color.DARK_BLUE);
 			
