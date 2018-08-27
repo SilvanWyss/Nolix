@@ -19,7 +19,7 @@ final class Protocol {
 	//console commands
 	public static final String CLEAR_CONSOLE_COMMAND = "ClearConsole";
 	public static final String READ_ENTER_FROM_CONSOLE_COMMAND = "ReadEnterFromConsole";
-	public static final String WRITE_EMPTY_LINE_TO_CONSOLE_COMMAND = "WriteEmptyTextLineToConsole";
+	public static final String WRITE_EMPTY_LINE_TO_CONSOLE_COMMAND = "WriteEmptyLineToConsole";
 	public static final String WRITE_LINE_TO_CONSOLE_COMMAND = "WriteLineToConsole";
 	public static final String WRITE_LINES_TO_CONSOLE_COMMAND = "WriteLinesToConsole";
 	
@@ -30,7 +30,7 @@ final class Protocol {
 	public static final String WRITE_LINES_TO_INFO_PANEL_COMMAND = "WriteLinesToInfoPanel";
 		
 	//console requests
-	public static final String LINES_OF_CONSOLE_REQUEST = "TextLinesOfConsole";
+	public static final String LINES_OF_CONSOLE_REQUEST = "LinesOfConsole";
 	public static final String READ_CHARACTER_FROM_CONSOLE_REQUEST = "ReadtCharacterFromConsole";
 	public static final String READ_LINE_FROM_CONSOLE_REQUEST = "ReadLineFromConsole";
 	public static final String READ_NON_EMPTY_LINE_FROM_CONSOLE_REQUEST = "NonEmptyLineFromConsole";

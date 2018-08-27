@@ -63,7 +63,7 @@ extends Session<BackConsoleClient> {
 	 * @return the next line from the console
 	 * of the counterpart of the client of this console back client session.
 	 */
-	public final String readTextLineFromConsole() {
+	public final String readLineFromConsole() {
 		return getParentClient().readLineFromConsole();
 	}
 	
@@ -72,7 +72,7 @@ extends Session<BackConsoleClient> {
 	 * @return the next line, that is not empty, from the console
 	 * of the counterpart of the client of this console back client session.
 	 */
-	public final String readNonEmptyTextLineFromConsole() {
+	public final String readNonEmptyLineFromConsole() {
 		return getParentClient().readNonEmptyLineFromConsole();
 	}
 	
@@ -94,7 +94,7 @@ extends Session<BackConsoleClient> {
 	 * 
 	 * @param line
 	 */
-	public final void writeTextLineToConsole(final String line) {		
+	public final void writeLineToConsole(final String line) {		
 		getParentClient().writeLineToConsole(line);
 	}
 	
@@ -105,7 +105,7 @@ extends Session<BackConsoleClient> {
 	 * 
 	 * @param lines
 	 */
-	public final void writeTextLineToConsole(final String... lines) {		
+	public final void writeLineToConsole(final String... lines) {		
 		getParentClient().writeLineToConsole(lines);
 	}
 	
@@ -117,7 +117,7 @@ extends Session<BackConsoleClient> {
 	 * @param line
 	 * @return this console back client session.
 	 */
-	public final void writeTextLineToInfoPanel(final String line) {	
+	public final void writeLineToInfoPanel(final String line) {	
 		getParentClient().writeLineToInfoPanel(line);
 	}
 	

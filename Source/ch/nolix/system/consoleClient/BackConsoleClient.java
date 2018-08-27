@@ -211,7 +211,7 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 	 * 
 	 * @return this console back client.
 	 */
-	public BackConsoleClient writeEmptyTextLineToInfoPanel() {
+	public BackConsoleClient writeEmptyLineToInfoPanel() {
 		
 		internal_runOnCounterpart(Protocol.WRITE_EMPTY_LINE_TO_INFO_PANEL_COMMAND);
 		

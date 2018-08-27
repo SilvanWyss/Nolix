@@ -179,9 +179,9 @@ public final class FrontConsoleClient extends GUIClientoid<FrontConsoleClient> {
 				
 				final StandardSpecification data = new StandardSpecification();
 				
-				//Iterates the text lines of the main console of this console front client.
-				for (final String tl : console.getLines()) {
-					data.addAttribute(StandardSpecification.createReproducingString(tl));
+				//Iterates the lines of the main console of this console front client.
+				for (final var l : console.getLines()) {
+					data.addAttribute(StandardSpecification.createReproducingString(l));
 				}
 				
 				return data;
