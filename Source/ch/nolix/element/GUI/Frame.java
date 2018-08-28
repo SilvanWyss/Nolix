@@ -19,7 +19,7 @@ import ch.nolix.primitive.logger.Logger;
  * @month 2015-12
  * @lines 290
  */
-public final class Frame extends VisibleGUI<Frame> {
+public final class Frame extends GUI<Frame> {
 	
 	//constant
 	public static final String TYPE_NAME = "Frame";
