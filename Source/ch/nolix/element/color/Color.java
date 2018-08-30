@@ -913,13 +913,14 @@ public class Color extends Element {
 	public String getHexadecimalValue(boolean appendAlphaValueAlways) {
 		
 		var string =
-		String.format("0x%02X", redValue)
-		+ String.format("0x02X", greenValue)
-		+ String.format("0x02X", blueValue);
+		StringCatalogue.HEXADECIMAL_PREFIX
+		+ String.format("%02X", redValue)
+		+ String.format("%02X", greenValue)
+		+ String.format("%02X", blueValue);
 		
 		//Handles the case that the current color has a full alpha value.
 		if (appendAlphaValueAlways || !hasFullAlphaValue()) {
-			string += String.format("0x02X", alphaValue);
+			string += String.format("%02X", alphaValue);
 		}
 		
 		return string;		
