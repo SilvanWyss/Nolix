@@ -7,17 +7,14 @@ import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-//own imports
-import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.util.Timer;
+//own import
 import ch.nolix.element.painter.SwingPainter;
-import ch.nolix.primitive.logger.Logger;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 290
+ * @lines 180
  */
 public final class Frame extends GUI<Frame> {
 	
@@ -28,18 +25,16 @@ public final class Frame extends GUI<Frame> {
 	public static final int DEFAULT_WIDTH = 1200;
 	public static final int DEFAULT_HEIGHT = 800;
 	
-	//minimum values
+	//limit values
 	public static final int MIN_WIDTH = 400;
 	public static final int MIN_HEIGHT = 200;
 	
-	//default x-position of a frame on the screen
+	//default values
 	private static final int DEFAULT_X_POSITION = 200;
-	
-	//default y-position of a frame on the screen
 	private static final int DEFAULT_Y_POSITION = 100;
 	
 	//attribute
-	private JFrame frame = new JFrame();
+	private final JFrame frame = new JFrame();
 	
 	//attribute
 	@SuppressWarnings("serial")
@@ -47,15 +42,11 @@ public final class Frame extends GUI<Frame> {
 
 		//method
 		/**
-		 * Paints on this panel using the given graphics.
-		 * 
-		 * @param graphics
+		 * {@inheritDoc}
 		 */
 		public void paintComponent(Graphics graphics) {
 			
-			final var timer = new Timer();
-			timer.start();
-			
+			//Paints the title of this frame.
 			frame.setTitle(getTitle());	
 			
 			//Calls method of the base class.
@@ -65,22 +56,22 @@ public final class Frame extends GUI<Frame> {
 			final var swingPainter = new SwingPainter(graphics);
 			
 			//Paints the background of this frame.
+				//Handles the case that this frame has a background color.
 				if (hasBackgroundColor()) {
 					swingPainter.setColor(getBackgroundColor());
 					swingPainter.paintFilledRectangle(getWidth(), getHeight());
 				}
 				
+				//Handles the case that this frame has a background color gradient.
 				if (hasBackgroundColorGradient()) {
 					swingPainter.setColorGradient(getBackgroundColorGradient());
 					swingPainter.paintFilledRectangle(getWidth(), getHeight());
 				}
 			
-			//Lets the root rectangle of this frame paint on this panel.
+			//Paints the root widget of this frame.
 			if (hasRootWidget()) {
 				getRefRootWidget().paintUsingPositionOnParent(swingPainter);
 			}
-			
-			Logger.logInfo("frame paint duration in milliseconds", timer.getRunMilliseconds());
 		}
 	};
 	
@@ -110,18 +101,16 @@ public final class Frame extends GUI<Frame> {
 			panel.addMouseMotionListener(new FrameMouseMotionListener(this));
 			panel.addMouseWheelListener(new FrameMouseWheelListener(this));
 			
-			//This is important that key events are handled.
-			panel.setFocusable(true);
-			
-			//This is important that key events are handled.
-			panel.requestFocus(); 
+		//This is important that key events are handled.
+		panel.setFocusable(true);
+		panel.requestFocus(); 
 						
 		refresh();
 	}
 	
 	//method
 	/**
-	 * Closes this frame.
+	 * {@inheritDoc}
 	 */
 	public void close() {
 		
@@ -133,7 +122,7 @@ public final class Frame extends GUI<Frame> {
 	
 	//method
 	/**
-	 * @return height of the content of this frame.
+	 * {@inheritDoc}
 	 */
 	public int getContentHeight() {
 		return frame.getComponent(0).getHeight();
@@ -141,7 +130,7 @@ public final class Frame extends GUI<Frame> {
 	
 	//method
 	/**
-	 * @return width of the content of this frame.
+	 * {@inheritDoc}
 	 */
 	public int getContentWidth() {
 		return frame.getComponent(0).getWidth();
@@ -149,7 +138,7 @@ public final class Frame extends GUI<Frame> {
 	
 	//method
 	/**
-	 * @return the x-position of the cursor on this frame.
+	 * {@inheritDoc}
 	 */
 	public int getCursorXPosition() {
 		
@@ -162,19 +151,20 @@ public final class Frame extends GUI<Frame> {
 
 	//method
 	/**
-	 * @return the y-position of the cursor on this frame.
+	 * {@inheritDoc}
 	 */
 	public int getCursorYPosition() {
 		
 		if (panel.getMousePosition() == null) {
 			return 0;
 		}
+		
 		return (int)panel.getMousePosition().getY();
 	}
 	
 	//method
 	/**
-	 * @return the height of this frame.
+	 * {@inheritDoc}
 	 */
 	public int getHeight() {
 		return frame.getHeight();
@@ -182,7 +172,7 @@ public final class Frame extends GUI<Frame> {
 	
 	//method
 	/**
-	 * @return the width of this frame.
+	 * {@inheritDoc}
 	 */
 	public int getWidth() {
 		return frame.getWidth();
@@ -190,106 +180,10 @@ public final class Frame extends GUI<Frame> {
 	
 	//method
 	/**
-	 * Refreshes this frame.
+	 * {@inheritDoc}
 	 */
-	public void refresh() {
-		
-		final var timer = new Timer();
-		timer.start();
-		
-		//panel.setBackground(getBackgroundColor().createSwingColor());
+	public void paint() {
 		frame.setCursor(getActiveCursorIcon().getJavaCursor());
-		
-		//Handles the case that this frame has a root widget.
-		if (hasRootWidget()) {
-			
-			//Enumerates the content position of this frame.
-			switch (getContentPosition()) {
-				case LeftTop:
-					
-					getRefRootWidget().setPositionOnParent(
-						0,
-						0
-					);
-					
-					break;
-				case Left:
-					
-					getRefRootWidget().setPositionOnParent(
-						0,
-						Calculator.getMax(0, (getContentHeight() - getRefRootWidget().getHeight()) / 2)
-					);
-					
-					break;					
-				case LeftBottom:
-					
-					getRefRootWidget().setPositionOnParent(
-						0,
-						Calculator.getMax(0, getContentHeight() - getRefRootWidget().getHeight())
-					);
-					
-					break;
-				case Top:
-					
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, (getContentWidth() - getRefRootWidget().getWidth()) / 2),
-						0
-					);
-					
-					break;
-				case Center:
-								
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, (getContentWidth() - getRefRootWidget().getWidth()) / 2),
-						Calculator.getMax(0, (getContentHeight() - getRefRootWidget().getHeight()) / 2)
-					);
-					
-					break;
-				case Bottom:
-					
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, (getContentWidth() - getRefRootWidget().getWidth()) / 2),
-						Calculator.getMax(0, getContentHeight() - getRefRootWidget().getHeight())
-					);
-					
-					break;
-				case RightTop:
-					
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, getContentWidth() - getRefRootWidget().getWidth()),
-						0
-					);
-					
-					break;
-				case Right:
-				
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, getWidth() - getRefRootWidget().getWidth()),
-						Calculator.getMax(0, (frame.getComponent(0).getHeight() - getRefRootWidget().getHeight()) / 2)
-					);
-				
-					break;
-				case RightBottom:
-					
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, getWidth() - getRefRootWidget().getWidth()),
-						Calculator.getMax(0, getHeight() - getRefRootWidget().getHeight())
-					);
-					
-					break;
-			}
-		}
-				
-		Logger.logInfo("frame set position duration in milliseconds", timer.getRunMilliseconds());
-		
 		frame.repaint();
-	}
-	
-	//method
-	/**
-	 * Lets this frame note a resizing.
-	 */
-	protected final void noteResizing() {
-		refresh();
 	}
 }

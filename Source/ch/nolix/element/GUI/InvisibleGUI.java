@@ -7,10 +7,10 @@ package ch.nolix.element.GUI;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 60
+ * @lines 90
  */
 public final class InvisibleGUI extends GUI<InvisibleGUI> {
-
+	
 	//attributes
 	private int cursorXPosition;
 	private int cursorYPosition;
@@ -29,7 +29,7 @@ public final class InvisibleGUI extends GUI<InvisibleGUI> {
 	 * Closes the current {@link InvisibleGUI}.
 	 */
 	public void close() {}
-
+	
 	//method
 	/**
 	 * @return the x-position of the cursor on the current {@link InvisibleGUI}.
@@ -37,7 +37,7 @@ public final class InvisibleGUI extends GUI<InvisibleGUI> {
 	public int getCursorXPosition() {
 		return cursorYPosition;
 	}
-
+	
 	//method
 	/**
 	 * @return the y-position of the cursor on this invisible GUI.
@@ -45,12 +45,36 @@ public final class InvisibleGUI extends GUI<InvisibleGUI> {
 	public int getCursorYPosition() {
 		return cursorXPosition;
 	}
-
+	
+	//method
+	public int getHeight() {
+		//TODO
+		return 0;
+	}
+	
+	//method
+	public int getWidth() {
+		//TODO
+		return 0;
+	}
+	
+	//method
+	public int getContentHeight() {
+		//TODO
+		return 0;
+	}
+	
+	//method
+	public int getContentWidth() {
+		//TODO
+		return 0;
+	}
+	
 	//method
 	/**
-	 * Refreshes the current {@link InvisibleGUI}.
+	 * {@inheritDoc}
 	 */
-	public final void refresh() {}
+	public final void paint() {}
 	
 	//method
 	/**

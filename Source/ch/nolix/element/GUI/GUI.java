@@ -12,6 +12,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
+import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.skillInterfaces.Clearable;
 import ch.nolix.core.skillInterfaces.Closable;
 import ch.nolix.core.skillInterfaces.IRequestableContainer;
@@ -41,7 +42,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 840
+ * @lines 970
  * @param <G> The type of a GUI.
  */
 public abstract class GUI<G extends GUI<G>>
@@ -314,6 +315,12 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		return backgroundColorGradient.getValue();
 	}
 	
+	//abstract method
+	/**
+	 * @return the height of the content of this GUI.
+	 */
+	public abstract int getContentHeight();
+	
 	//method
 	/**
 	 * @return the content position of this GUI.
@@ -321,6 +328,12 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	public final ContentPosition getContentPosition() {
 		return contentPosition;
 	}
+	
+	//abstract method
+	/**
+	 * @return the width of the content of this GUI.
+	 */
+	public abstract int getContentWidth();
 	
 	//abstract method
 	/**
@@ -333,6 +346,12 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @return the y-position of the cursor on this GUI.
 	 */
 	public abstract int getCursorYPosition();
+	
+	//abstract method
+	/**
+	 * @return the height of this GUI.
+	 */
+	public abstract int getHeight();
 	
 	//method
 	/**
@@ -440,6 +459,12 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	public final String getTitle() {
 		return title.getValue().getValue();
 	}
+	
+	//abstract method
+	/**
+	 * @return the width of this GUI.
+	 */
+	public abstract int getWidth();
 	
 	//method
 	/**
@@ -576,6 +601,14 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	
 	//method
 	/**
+	 * Lets this frame note a resizing.
+	 */
+	protected final void noteResizing() {
+		refresh();
+	}
+	
+	//method
+	/**
 	 * Lets this GUI note a right mouse button press.
 	 */
 	public void noteRightMouseButtonPress() {
@@ -618,6 +651,95 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 */
 	public final void removeRootWidget() {
 		rootWidget = null;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public final void refresh() {
+		
+		//Handles the case that this frame has a root widget.
+		if (hasRootWidget()) {
+			
+			//Enumerates the content position of this frame.
+			switch (getContentPosition()) {
+				case LeftTop:
+					
+					getRefRootWidget().setPositionOnParent(
+						0,
+						0
+					);
+					
+					break;
+				case Left:
+					
+					getRefRootWidget().setPositionOnParent(
+						0,
+						Calculator.getMax(0, (getContentHeight() - getRefRootWidget().getHeight()) / 2)
+					);
+					
+					break;					
+				case LeftBottom:
+					
+					getRefRootWidget().setPositionOnParent(
+						0,
+						Calculator.getMax(0, getContentHeight() - getRefRootWidget().getHeight())
+					);
+					
+					break;
+				case Top:
+					
+					getRefRootWidget().setPositionOnParent(
+						Calculator.getMax(0, (getContentWidth() - getRefRootWidget().getWidth()) / 2),
+						0
+					);
+					
+					break;
+				case Center:
+								
+					getRefRootWidget().setPositionOnParent(
+						Calculator.getMax(0, (getContentWidth() - getRefRootWidget().getWidth()) / 2),
+						Calculator.getMax(0, (getContentHeight() - getRefRootWidget().getHeight()) / 2)
+					);
+					
+					break;
+				case Bottom:
+					
+					getRefRootWidget().setPositionOnParent(
+						Calculator.getMax(0, (getContentWidth() - getRefRootWidget().getWidth()) / 2),
+						Calculator.getMax(0, getContentHeight() - getRefRootWidget().getHeight())
+					);
+					
+					break;
+				case RightTop:
+					
+					getRefRootWidget().setPositionOnParent(
+						Calculator.getMax(0, getContentWidth() - getRefRootWidget().getWidth()),
+						0
+					);
+					
+					break;
+				case Right:
+				
+					getRefRootWidget().setPositionOnParent(
+						Calculator.getMax(0, getContentWidth() - getRefRootWidget().getWidth()),
+						Calculator.getMax(0, (getContentHeight() - getRefRootWidget().getHeight()) / 2)
+					);
+				
+					break;
+				case RightBottom:
+					
+					getRefRootWidget().setPositionOnParent(
+						Calculator.getMax(0, getWidth() - getRefRootWidget().getWidth()),
+						Calculator.getMax(0, getHeight() - getRefRootWidget().getHeight())
+					);
+					
+					break;
+			}
+		}
+		
+		paint();
 	}
 	
 	//method
@@ -811,6 +933,9 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 		
 		return getInstance();
 	}
+	
+	//abstract method
+	protected abstract void paint();
 	
 	//package-visible method
 	/**
