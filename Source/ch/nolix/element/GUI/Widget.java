@@ -876,6 +876,23 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
+	 * Paints the current {@link Widget} using the position on its parent container using the given painter.
+	 * This method promises that the given painter
+	 * has the same position at the end as at the beginning.
+	 * 
+	 * @param painter
+	 */
+	public final void paintUsingPositionOnParent(final IPainter painter) {
+		paint(
+			painter.createTranslatedPainter(
+				getXPositionOnParent(),
+				getYPositionOnParent()
+			)
+		);
+	}
+	
+	//method
+	/**
 	 * Avoids that the current widget greys out when it is disabled.
 	 * 
 	 * @return the current {@link Widget}.
@@ -1395,23 +1412,6 @@ extends ConfigurableElement<W> {
 	 * @param painter
 	 */
 	protected abstract void paint(final WL widgetStructure, final IPainter painter);
-	
-	//method
-	/**
-	 * Paints the current {@link Widget} using the position on its parent container using the given painter.
-	 * This method promises that the given painter
-	 * has the same position at the end as at the beginning.
-	 * 
-	 * @param painter
-	 */
-	protected final void paintUsingPositionOnParent(final IPainter painter) {
-		paint(
-			painter.createTranslatedPainter(
-				getXPositionOnParent(),
-				getYPositionOnParent()
-			)
-		);
-	}
 	
 	//method
 	/**
