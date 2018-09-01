@@ -29,7 +29,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1350
+ * @lines 1360
  */
 public class Color extends Element {
 	
@@ -906,11 +906,19 @@ public class Color extends Element {
 	
 	//method
 	/**
-	 * @return the hexadecimal value of the current {@link Color}.
-	 * 
 	 * @param appendAlphaValueAlways
+	 * @return the hexadecimal specification of the current {@link Color}.
 	 */
-	public String getHexadecimalValue(boolean appendAlphaValueAlways) {
+	public Specification getHexadecimalSpecification(final boolean appendAlphaValueAlways) {
+		return new StandardSpecification(getType(), getHexadecimalValue(appendAlphaValueAlways));
+	}
+	
+	//method
+	/**
+	 * @param appendAlphaValueAlways
+	 * @return the hexadecimal value of the current {@link Color}.
+	 */
+	public String getHexadecimalValue(final boolean appendAlphaValueAlways) {
 		
 		var string =
 		StringCatalogue.HEXADECIMAL_PREFIX
