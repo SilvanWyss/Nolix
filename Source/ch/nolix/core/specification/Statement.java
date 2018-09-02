@@ -13,7 +13,7 @@ import ch.nolix.core.container.List;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 220
+ * @lines 230
  */
 public final class Statement {
 	
@@ -55,6 +55,14 @@ public final class Statement {
 	 */
 	public boolean containsAttributes() {
 		return specification.containsAttributes();
+	}
+	
+	//method
+	/**
+	 * @return the number of attributes of this statement.
+	 */
+	public int getAttributeCount() {
+		return specification.getAttributeCount();
 	}
 	
 	//method
