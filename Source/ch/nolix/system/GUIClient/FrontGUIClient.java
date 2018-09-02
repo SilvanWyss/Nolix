@@ -7,6 +7,9 @@ import ch.nolix.core.specification.Statement;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.Widget;
+import ch.nolix.primitive.invalidArgumentException.Argument;
+import ch.nolix.primitive.invalidArgumentException.ArgumentName;
+import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.primitive.validator2.Validator;
 import ch.nolix.system.client.Application;
 import ch.nolix.system.client.Client;
@@ -18,7 +21,7 @@ import ch.nolix.system.client.Client;
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 200
+ * @lines 330
  */
 public final class FrontGUIClient extends Client<FrontGUIClient> {
 	
@@ -165,14 +168,14 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
-			case BackGUIClient.RESET_GUI_HEADER:
-				resetGUI(command.getRefAttributes());
+			case BackGUIClient.COUNTERPART_HEADER:
+				runCounterpartCommand(command.getRefNextStatement());
 				break;
-			case BackGUIClient.RESET_COUNTERPART_GUI_HEADER:
-				resetCounterpartGUI(command.getRefAttributes());
+			case BackGUIClient.GUI_HEADER:
+				runGUICommand(command.getRefNextStatement());
 				break;
 			default:
-				
+			
 				//Calls method of the base class.
 				super.internal_run(command);
 		}
@@ -185,22 +188,22 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	
 	//package-visible method
 	void noteLeftMouseButtonPressCommandOnCounterpart(final Widget<?, ?> widget) {
-		noteCommandOnCounterpart(widget, BackGUIClient.LEFT_MOUSE_BUTTON_PRESS_HEADER);
+		noteCommandOnCounterpart(widget, BackGUIClient.NOTE_LEFT_MOUSE_BUTTON_PRESS_HEADER);
 	}
 	
 	//package-visible method
 	void noteLeftMouseButtonReleaseCommandOnCounterpart(final Widget<?, ?> widget) {
-		noteCommandOnCounterpart(widget, BackGUIClient.LEFT_MOUSE_BUTTON_RELEASE_HEADER);
+		noteCommandOnCounterpart(widget, BackGUIClient.NOTE_LEFT_MOUSE_BUTTON_RELEASE_HEADER);
 	}
 
 	//package-visible method
 	void noteRightMouseButtonPressCommandOnCounterpart(final Widget<?, ?> widget) {
-		noteCommandOnCounterpart(widget, BackGUIClient.RIGHT_MOUSE_BUTTON_PRESS_HEADER);
+		noteCommandOnCounterpart(widget, BackGUIClient.NOTE_RIGHT_MOUSE_BUTTON_PRESS_HEADER);
 	}
 	
 	//package-visible method
 	void noteRightMouseButtonReleaseCommandOnCounterpart(final Widget<?, ?> widget) {
-		noteCommandOnCounterpart(widget, BackGUIClient.RIGHT_MOUSE_BUTTON_RELEASE_HEADER);
+		noteCommandOnCounterpart(widget, BackGUIClient.NOTE_RIGHT_MOUSE_BUTTON_RELEASE_HEADER);
 	}
 	
 	//package-visible method
@@ -231,19 +234,23 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	private void noteCommandOnCounterpart(final Widget<?, ?> widget, final String commandHeader) {
 		internal_runOnCounterpart(			
 				
-			BackGUIClient.ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI_HEADER
+			BackGUIClient.GUI_HEADER
+			+ '.'
+			+ BackGUIClient.ADD_OR_CHANGE_WIDGETS_ATTRIBUTES_HEADER
 			+ '('
 			+ 
 				GUI_.getInteractionAttributesOfWidgetsRecursively()
 				.to(ias -> '(' + ias.toString() + ')')
 			+ ')',
 			
-			commandHeader
+			BackGUIClient.GUI_HEADER
+			+ '.'
+			+ BackGUIClient.WIDGET_BY_INDEX_HEADER
 			+ '('
 			+ widget.getIndexOnGUI()
-			+ ')',
-			
-			BackGUIClient.RESET_COUNTERPART_GUI_HEADER
+			+ ')'
+			+ '.'
+			+ commandHeader
 		);
 	}
 	
@@ -256,10 +263,12 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 */
 	private void resetCounterpartGUI(final Iterable<? extends Specification> attributes) {
 		internal_runOnCounterpart(
-			BackGUIClient.RESET_GUI_HEADER
-			+ "("
+			BackGUIClient.GUI_HEADER
+			+ '.'
+			+ BackGUIClient.RESET_HEADER
+			+ '('
 			+ GUI_.getAttributes()
-			+ ")"
+			+ ')'
 		);
 	}
 	
@@ -275,5 +284,51 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 		GUI_.reset(attributes);
 		GUI_.updateFromConfiguration();
 		GUI_.noteMouseMove();
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link FrontGUIClient} run the given counterpart command.
+	 * 
+	 * @param counterpartCommand
+	 * @throws InvalidArgumentException if the given counterpart command is not valid.
+	 */
+	private void runCounterpartCommand(final Statement counterpartCommand) {
+		
+		//Enumerates the header of the given counterpart command.
+		switch (counterpartCommand.getHeader()) {
+			case BackGUIClient.RESET_HEADER:
+				resetCounterpartGUI(counterpartCommand.getRefAttributes());
+				break;
+			default:
+				throw
+				new InvalidArgumentException(
+					new ArgumentName("counterpart command"),
+					new Argument(counterpartCommand)
+				);
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link FrontGUIClient} run the given GUI command.
+	 * 
+	 * @param GUICommand
+	 * @throws InvalidArgumentException if the given GUI command is not valid.
+	 */
+	private void runGUICommand(final Statement GUICommand) {
+		
+		//Enumerates the header of the given GUI command.
+		switch (GUICommand.getHeader()) {
+			case BackGUIClient.RESET_HEADER:
+				resetGUI(GUICommand.getRefAttributes());
+				break;
+			default:
+				throw
+				new InvalidArgumentException(
+					new ArgumentName("GUI command"),
+					new Argument(GUICommand)
+				);
+		}
 	}
 }

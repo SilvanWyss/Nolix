@@ -9,71 +9,78 @@ import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.element.GUI.Downloader;
 import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.GUI.Widget;
+import ch.nolix.primitive.invalidArgumentException.Argument;
+import ch.nolix.primitive.invalidArgumentException.ArgumentName;
+import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.system.client.Client;
 
 //class
 /**
- * A dialog client is a client that provides a dialog.
- * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 190
+ * @lines 310
  */
 public final class BackGUIClient extends Client<BackGUIClient> {
 	
 	//constants
-	static final String RESET_GUI_HEADER = "ResetGUI";
-	static final String RESET_COUNTERPART_GUI_HEADER = "ResetCounterpartGUI";
-	
-	//constant
-	static final String ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI_HEADER =
-	"AddOrChangeInteractionAttributesOfWidgetsOfGUI";
-
+	static final String GUI_HEADER = "GUI";
+	static final String WIDGET_BY_INDEX_HEADER = "WidgetByIndex";
+	static final String PAINTER_BY_INDEX_HEADER = "PainterByIndex";
+	static final String COUNTERPART_HEADER = "Counterpart";
+		
 	//constants
-	static final String LEFT_MOUSE_BUTTON_PRESS_HEADER = "LeftMouseButtonPress";
-	static final String LEFT_MOUSE_BUTTON_RELEASE_HEADER = "LeftMouseButtonRelease";
-	static final String RIGHT_MOUSE_BUTTON_PRESS_HEADER = "RightMouseButtonPress";
-	static final String RIGHT_MOUSE_BUTTON_RELEASE_HEADER = "RightMouseButtonRelease";
+	static final String ADD_OR_CHANGE_ATTRIBUTES_HEADER = "AddOrChangeAttributes";
+	static final String ADD_OR_CHANGE_WIDGETS_ATTRIBUTES_HEADER = "AddOrChangeWidgetAttributes";
+	static final String RESET_HEADER = "Reset";
+	static final String NOTE_LEFT_MOUSE_BUTTON_PRESS_HEADER = "NoteLeftMouseButtonPress";
+	static final String NOTE_LEFT_MOUSE_BUTTON_RELEASE_HEADER = "NoteLeftMouseButtonRelease";
+	static final String NOTE_RIGHT_MOUSE_BUTTON_PRESS_HEADER = "NoteRightMouseButtonPress";
+	static final String NOTE_RIGHT_MOUSE_BUTTON_RELEASE_HEADER = "NoteRightMouseButtonRelease";
+	
+	//constants
+	static final String PAINT_FILLED_RECTANGLE_HEADER = "PaintFilledRectangle";
+	static final String PAINT_IMAGE_HEADER = "PaintImage";
+	static final String SET_COLOR_HEADER = "SetColor";
+	static final String SET_COLOR_GRADIENT_HEADER = "SetColorGradient";
+	static final String TRANSLATE_HEADER = "Translate";
 	
 	//constant
 	static final String READ_FILE_HEADER = "ReadFile";
 	
+	//constructor
+	/**
+	 * Creates a new {@link BackGUIClient} with the given duplex controller.
+	 * This constructor is public that it can be found by reflection.
+	 * 
+	 * @param duplexController
+	 * @throws NullArgumentException if the given duplex controller is null.
+	 */
 	public BackGUIClient(final DuplexController duplexController) {
 			
 		//Calls constructor of the base class.
 		internal_setDuplexController(duplexController);
 	}
 	
-
-	
 	//method
 	/**
-	 * Invokes a run method of this dialog client.
-	 * 
-	 * @param runMethodCommand
+	 * @return the type of the front-end of the current {@link BackGUIClient}.
 	 */
-	public void runLocally(final String runMethodCommand) {
-		
-		final var session = (BackGUISession)internal_getRefCurrentSession();
-		
-		internal_invokeSessionUserRunMethod(new StandardSpecification(runMethodCommand));
-		internal_runOnCounterpart(RESET_GUI_HEADER + "(" + session.getRefGUI().getAttributes() + ")");
+	public FrontEndType getFrontEndType() {
+		//TODO
+		return FrontEndType.JAVA_APPLICATION;
 	}
 	
 	//method
 	/**
-	 * Resets this back GUI client.
+	 * Lets the current {@link BackGUIClient} run the given command locally.
 	 * 
-	 * @return this back GUI client.
+	 * @param command
+	 * @throws UnexistingAttributeException if the current back GUI client has no current session.
 	 */
-	public BackGUIClient reset() {
-		
-		final var session = (BackGUISession)internal_getRefCurrentSession();
-		
-		session.getRefGUI().reset();
-		internal_runOnCounterpart(RESET_GUI_HEADER);
-		
-		return this;
+	public void runLocally(final String command) {
+		internal_invokeSessionUserRunMethod(new StandardSpecification(command));
+		updateGUIOnCounterpart();
 	}
 	
 	//method
@@ -90,26 +97,27 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 				getRefGUI().getRefWidgetByIndexRecursively(request.getOneAttributeAsInt());
 				
 				return
-				StandardSpecification.createSpecificationWithHeader(
-					downloader.readFile()
-				);
+				StandardSpecification.createSpecificationWithHeader(downloader.readFile());
 			default:
+				
+				//Calls method of the base class.
 				return super.internal_getData(request);
 		}
 	}
 	
 	//method
 	/**
-	 * Finishes the initialization of the session of this dialog client.
+	 * Finishes the initialization of the session of the current {@link BackGUIClient}.
+	 * 
+	 * @throws UnexistingAttributeException if the current {@link BackGUIClient} has no current session.
 	 */
 	protected void internal_finishSessionInitialization() {
-		final var session = (BackGUISession)internal_getRefCurrentSession();
-		internal_runOnCounterpart(RESET_GUI_HEADER + "(" + session.getRefGUI().getAttributes() + ")");
+		updateGUIOnCounterpart();
 	}
 	
 	//method
 	/**
-	 * Lets this client run the given command.
+	 * Lets the current {@link BackGUIClient} run the given command.
 	 * 
 	 * @param command
 	 * @throws InvalidArgumentException if the given command is not valid.
@@ -118,42 +126,30 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
-			case RESET_GUI_HEADER:
-				resetDialog(command.getRefAttributes());
+			case GUI_HEADER:
+				runGUICommand(command.getRefNextStatement());
 				break;
-			case RESET_COUNTERPART_GUI_HEADER:
-				resetOtherSideDialog(command.getRefAttributes());
-				break;
-			case ADD_OR_CHANGE_INTERACTION_ATTRIBUTES_OF_WIDGETS_OF_GUI_HEADER:
-				addOrChangeInteractionAttributesToWidgetsOfGUI(						
-					command.getRefAttributes().to(a -> a.getRefAttributes())
-				);
-				break;
-			case LEFT_MOUSE_BUTTON_PRESS_HEADER:
-				getRefGUI()
-				.getRefWidgetByIndexRecursively(command.getOneAttributeAsInt())
-				.runLeftMouseButtonPressCommand();
-				break;
-			case LEFT_MOUSE_BUTTON_RELEASE_HEADER:
-				getRefGUI()
-				.getRefWidgetByIndexRecursively(command.getOneAttributeAsInt())
-				.runLeftMouseButtonReleaseCommand();
-				break;
-			case RIGHT_MOUSE_BUTTON_PRESS_HEADER:
-				getRefGUI()
-				.getRefWidgetByIndexRecursively(command.getOneAttributeAsInt())
-				.runRightMouseButtonPressCommand();
-				break;
-			case RIGHT_MOUSE_BUTTON_RELEASE_HEADER:
-				getRefGUI()
-				.getRefWidgetByIndexRecursively(command.getOneAttributeAsInt())
-				.runRightMouseButtonReleaseCommand();
+			case COUNTERPART_HEADER:
+				runCounterpartCommand(command.getRefNextStatement());
 				break;
 			default:
 				
 				//Calls method of the base class.
 				super.internal_run(command);
 		}
+	}
+	
+
+	
+	//method
+	/**
+	 * Adds or changes the given attributes to the {@link GUI} of the current {@link BackGUIClient}.
+	 * 
+	 * @param attributes
+	 * @throws InvalidArgumentException if one of the given attributes is not valid.
+	 */
+	private <S extends Specification> void addOrChangeGUIAttributes(final IContainer<S> attributes) {
+		getRefGUI().addOrChangeAttributes(attributes);
 	}
 	
 	//method
@@ -163,7 +159,7 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 	 * @param interactionAttributesOfWidgetsOfGUI
 	 * @throws InvalidArgumentException if the given interaction attributes are not valid.
 	 */
-	private <S extends Specification> void addOrChangeInteractionAttributesToWidgetsOfGUI(
+	private <S extends Specification> void addOrChangeGUIWidgetsAttributes(
 		final IContainer<IContainer<S>> interactionAttributesOfWidgetsOfGUI	
 	) {
 		getRefGUI().addOrChangeInteractionAttributesOfWidgetsRecursively(interactionAttributesOfWidgetsOfGUI);
@@ -182,15 +178,13 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 	
 	//method
 	/**
-	 * Resets the dialog of this dialog client with the given attributes.
+	 * Resets the {@link GUI} of the current {@link BackGUIClient} with the given attributes.
 	 * 
 	 * @param attributes
+	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	private void resetDialog(final Iterable<? extends Specification> attributes) {
-		
-		final var session = (BackGUISession)internal_getRefCurrentSession();
-		
-		session.getRefGUI().reset(attributes);
+	private <S extends Specification> void resetGUI(final IContainer<S> attributes) {
+		getRefGUI().reset(attributes);
 	}
 	
 	//method
@@ -199,10 +193,127 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 	 * 
 	 * @param attributes
 	 */
-	private void resetOtherSideDialog(final Iterable<StandardSpecification> attributes) {
+	private void resetGUIOnCounterpart(final Iterable<StandardSpecification> attributes) {
+		internal_runOnCounterpart(
+			GUI_HEADER
+			+ "."
+			+ RESET_HEADER
+			+ "("
+			+ attributes
+			+ ")"
+		);	
+	}
+
+	//method
+	/**
+	 * Lets the current {@link BackGUIClient} run the given counterpart command.
+	 * 
+	 * @param counterpartCommand
+	 * @throws InvalidArgumentException if the given counterpart command is not valid.
+	 */
+	private void runCounterpartCommand(final Statement counterpartCommand) {
 		
-		final var session = (BackGUISession)internal_getRefCurrentSession();
+		//Enumerates the header of the given counterpart command.
+		switch (counterpartCommand.getHeader()) {
+			case RESET_HEADER:
+				resetGUIOnCounterpart(counterpartCommand.getRefAttributes());
+				break;
+			default:
+				throw
+				new InvalidArgumentException(
+					new ArgumentName("counterpart command"),
+					new Argument(counterpartCommand)
+				);
+		}
+	}
+	
+	//method
+	/**
+	 * Lets the current {@link BackGUIClient} run the given GUI command.
+	 * 
+	 * @param GUICommand
+	 * @throws InvalidArgumentException if the given GUI command is not valid.
+	 */
+	private void runGUICommand(final Statement GUICommand) {
 		
-		internal_runOnCounterpart(BackGUIClient.RESET_GUI_HEADER + "(" + session.getRefGUI().getAttributes() + ")");
+		//Enumerates the header of the given GUI command.
+		switch (GUICommand.getHeader()) {
+			case ADD_OR_CHANGE_ATTRIBUTES_HEADER:
+				addOrChangeGUIAttributes(GUICommand.getRefAttributes());
+				break;
+			case RESET_HEADER:
+				resetGUI(GUICommand.getRefAttributes());
+				break;
+			case ADD_OR_CHANGE_WIDGETS_ATTRIBUTES_HEADER:
+				addOrChangeGUIWidgetsAttributes(						
+					GUICommand.getRefAttributes().to(a -> a.getRefAttributes())
+				);
+				break;
+			case WIDGET_BY_INDEX_HEADER:
+				runWidgetCommand(
+					getRefGUI().getRefWidgetByIndexRecursively(GUICommand.getOneAttributeAsInt()),
+					GUICommand.getRefNextStatement()
+				);
+				break;
+			default:
+				throw
+				new InvalidArgumentException(
+					new ArgumentName("GUI command"),
+					new Argument(GUICommand)
+				);
+		}
+	}
+	
+
+
+
+
+	//method
+	//method
+	/**
+	 * Lets the current {@link BackGUIClient} run the given widget command.
+	 * 
+	 * @param widgetCommand
+	 * @throws InvalidArgumentException if the given widget command is not valid.
+	 */
+	private void runWidgetCommand(final Widget<?, ?> widget, final Statement widgetCommand) {
+		
+		//Enumerates the header of the given widget command.
+		switch (widgetCommand.getHeader()) {
+			case NOTE_LEFT_MOUSE_BUTTON_PRESS_HEADER:
+				widget.runLeftMouseButtonPressCommand();
+				break;
+			case NOTE_LEFT_MOUSE_BUTTON_RELEASE_HEADER:
+				widget.runLeftMouseButtonReleaseCommand();
+				break;
+			case NOTE_RIGHT_MOUSE_BUTTON_PRESS_HEADER:
+				widget.runRightMouseButtonPressCommand();
+				break;
+			case NOTE_RIGHT_MOUSE_BUTTON_RELEASE_HEADER:
+				widget.runRightMouseButtonReleaseCommand();
+				break;
+			default:
+				new InvalidArgumentException(
+					new ArgumentName("widget command"),
+					new Argument(widgetCommand)
+				);
+		}
+	}
+	
+	//method
+	/**
+	 * Resets the GUI on the counterpart of the current {@link BackGUIClient}. 
+	 */
+	private void updateGUIOnCounterpart() {
+		
+		//Enumerates the front end type of the current back GUI client.
+		switch (getFrontEndType()) {
+			case JAVA_APPLICATION:
+				resetGUIOnCounterpart(getRefGUI().getAttributes());
+				break;
+			case BROWSER_APPLICATION:
+				getRefGUI().refresh();
+				break;
+		}
 	}
 }
