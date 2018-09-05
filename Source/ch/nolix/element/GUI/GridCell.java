@@ -154,10 +154,7 @@ implements Clearable<GridCell> {
 	//method
 	public GridCell setWidget(final Widget<?, ?> widget) {
 		
-		Validator
-		.suppose(widget)
-		.thatIsOfType(Widget.class)
-		.isNotNull();
+		Validator.suppose(widget).isInstanceOf(Widget.class);
 		
 		this.widget = widget;
 		

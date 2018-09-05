@@ -95,7 +95,7 @@ public class Candlestick extends Element {
 		final double highestPrice
 	) {
 		//Checks the given arguments.
-		Validator.suppose(time).thatIsOfType(Time.class).isNotNull();
+		Validator.suppose(time).isInstanceOf(Time.class);
 		Validator.suppose(openingPrice).thatIsNamed("opening price").isNotNegative();
 		Validator.suppose(closingPrice).thatIsNamed("closing price").isNotNegative();
 		Validator.suppose(lowestPrice).thatIsNamed("lowest price").isNotNegative();

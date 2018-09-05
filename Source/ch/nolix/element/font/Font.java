@@ -130,10 +130,10 @@ public final class Font extends Element {
 		final Color textColor) {
 		
 		//Checks if the given text font is not null.
-		Validator.suppose(textFont).thatIsOfType(TextFont.class).isNotNull();
+		Validator.suppose(textFont).isInstanceOf(TextFont.class);
 		
 		//Checks if the given text style is not null.
-		Validator.suppose(textStyle).thatIsOfType(TextStyle.class).isNotNull();
+		Validator.suppose(textStyle).isInstanceOf(TextStyle.class);
 		
 		//Checks if the given text color is not null.
 		Validator.suppose(textColor).thatIsNamed(TEXT_COLOR_HEADER).isNotNull();

@@ -18,15 +18,8 @@ public final class FileProvider implements IFileProvider {
 		final Widget<?, ?> widget
 	) {
 		
-		Validator
-		.suppose(frontGUIClient)
-		.thatIsOfType(FrontGUIClient.class)
-		.isNotNull();
-		
-		Validator
-		.suppose(widget)
-		.thatIsOfType(Widget.class)
-		.isNotNull();
+		Validator.suppose(frontGUIClient).isInstanceOf(FrontGUIClient.class);		
+		Validator.suppose(widget).isInstanceOf(Widget.class);
 		
 		this.frontGUIClient = frontGUIClient;
 		this.widget = widget;

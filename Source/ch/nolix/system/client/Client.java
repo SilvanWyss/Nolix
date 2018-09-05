@@ -233,7 +233,7 @@ implements Closable {
 	public final void pushSession(final Session<C> session) {
 		
 		//Checks if the given session is not null.
-		Validator.suppose(session).thatIsOfType(Session.class).isNotNull();
+		Validator.suppose(session).isInstanceOf(Session.class);
 		
 		//Sets the given session to the current {@link Client}.
 		session.setParentClient(getInstance());
@@ -631,10 +631,7 @@ implements Closable {
 	protected final void internal_setDuplexController(final DuplexController duplexController) {
 		
 		//Checks if the given duplex controller is not null.
-		Validator
-		.suppose(duplexController)
-		.thatIsOfType(DuplexController.class)
-		.isNotNull();
+		Validator.suppose(duplexController).isInstanceOf(DuplexController.class);
 		
 		//Checks if the current client is not connected.
 		supposeIsNotConnected();

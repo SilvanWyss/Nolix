@@ -118,7 +118,7 @@ public final class FrontConsoleClient extends GUIClientoid<FrontConsoleClient> {
 	private FrontConsoleClient(final GUI<?> GUI) {
 		
 		//Checks if the given GUI is not null.
-		Validator.suppose(GUI).thatIsOfType(GUI.class).isNotNull();
+		Validator.suppose(GUI).isInstanceOf(GUI.class);
 		
 		//Sets the GUI of this console front client.
 		this.GUI = GUI;

@@ -83,9 +83,7 @@ implements Identified, Specified {
 						
 						final Propertyoid<?> property = (Propertyoid<?>)(f.get(this));
 						
-						Validator.suppose(property)
-						.thatIsOfType(Propertyoid.class)
-						.isNotNull();
+						Validator.suppose(property).isInstanceOf(Propertyoid.class);
 						
 						columns.addAtEnd(
 							new Column<>(
@@ -415,9 +413,7 @@ implements Identified, Specified {
 						
 						final Propertyoid<?> property = (Propertyoid<?>)(f.get(this));
 						
-						Validator.suppose(property)
-						.thatIsOfType(Propertyoid.class)
-						.isNotNull();
+						Validator.suppose(property).isInstanceOf(Propertyoid.class);
 						
 						property.internal_setParentEntity(this);
 						properties.addAtEnd(property);	

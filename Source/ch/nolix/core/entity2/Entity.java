@@ -180,10 +180,7 @@ implements IFluentObject<E>, Specifiable<E> {
 						final Property<?> property = (Property<?>)(f.get(this));
 						
 						//Checks if the current property is not null.
-						Validator
-						.suppose(property)
-						.thatIsOfType(Property.class)
-						.isNotNull();
+						Validator.suppose(property).isInstanceOf(Property.class);
 						
 						properties.addAtEnd(property);		
 					}

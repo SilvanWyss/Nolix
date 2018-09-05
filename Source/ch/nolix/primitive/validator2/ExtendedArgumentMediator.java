@@ -30,9 +30,11 @@ public class ExtendedArgumentMediator<A> extends ArgumentMediator<A> {
 	//method
 	/**
 	 * @param type
-	 * @return a new generic argument mediator for the argument of this extended generic argument mediator.
+	 * @return a new generic argument mediator
+	 * with the argument name from the given type
+	 * and for the argument of this extended generic argument mediator.
 	 */
-	public final ArgumentMediator<A> thatIsOfType(final Class<?> type) {
+	public final ArgumentMediator<A> thatIsNamed(final Class<?> type) {
 		return new ArgumentMediator<A>(type.getSimpleName(), getRefArgument());
 	}
 	

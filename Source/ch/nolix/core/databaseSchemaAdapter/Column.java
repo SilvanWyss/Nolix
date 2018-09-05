@@ -29,15 +29,8 @@ implements Specified {
 		
 		super(header);
 
-		Validator
-		.suppose(entitySet)
-		.thatIsOfType(EntitySet.class)
-		.isNotNull();
-		
-		Validator
-		.suppose(valueType)
-		.thatIsOfType(PropertyoidType.class)
-		.isNotNull();
+		Validator.suppose(entitySet).isInstanceOf(EntitySet.class);
+		Validator.suppose(valueType).isInstanceOf(PropertyoidType.class);
 		
 		this.entitySet = entitySet;
 		this.valueType = valueType;

@@ -144,10 +144,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 */
 	private FrontGUIClient(final GUI<?> GUI_) {
 		
-		Validator
-		.suppose(GUI_)
-		.thatIsOfType(GUI.class)
-		.isNotNull();
+		Validator.suppose(GUI_).isInstanceOf(GUI.class);
 		
 		this.GUI_ = GUI_;
 		

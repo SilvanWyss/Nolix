@@ -20,8 +20,8 @@ final class ShapeRenderManager<S extends Shape<S>, RO, SRO> {
 	
 	public ShapeRenderManager(final S shape, final IShapeRenderer<S, RO, SRO> shapeRenderer) {
 		
-		Validator.suppose(shape).thatIsOfType(Shape.class).isNotNull();
-		Validator.suppose(shapeRenderer).thatIsOfType(IShapeRenderer.class).isNotNull();
+		Validator.suppose(shape).isInstanceOf(Shape.class);
+		Validator.suppose(shapeRenderer).isInstanceOf(IShapeRenderer.class);
 		
 		this.shape = shape;
 		this.shapeRenderer = shapeRenderer;

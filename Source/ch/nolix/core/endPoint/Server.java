@@ -29,7 +29,7 @@ implements IEndPointTaker {
 	public Server(final IEndPointTaker endPointTaker) {
 		
 		//Checks if the given end point taker is not null.
-		Validator.suppose(endPointTaker).thatIsOfType(IEndPointTaker.class).isNotNull();
+		Validator.suppose(endPointTaker).isInstanceOf(IEndPointTaker.class);
 		
 		//Sets the end point taker of this server.
 		this.endPointTaker = endPointTaker;

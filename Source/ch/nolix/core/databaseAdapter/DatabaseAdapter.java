@@ -55,15 +55,8 @@ public final class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 		final Schema schema
 	) {
 		
-		Validator
-		.suppose(schema)
-		.thatIsOfType(Schema.class)
-		.isNotNull();
-		
-		Validator
-		.suppose(databaseConnector)
-		.thatIsOfType(IDatabaseConnector.class)
-		.isNotNull();
+		Validator.suppose(schema).isInstanceOf(Schema.class);		
+		Validator.suppose(databaseConnector).isInstanceOf(IDatabaseConnector.class);
 		
 		this.schema = schema;
 		this.databaseConnector = databaseConnector;

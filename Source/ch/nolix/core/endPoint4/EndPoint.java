@@ -55,7 +55,7 @@ implements IGenericSender2<M, R> {
 	public void setReplier(final IGenericReplier<M, R> replier) {
 		
 		//Checks if the given replier is not null.
-		Validator.suppose(replier).thatIsOfType(IReplier.class).isNotNull();
+		Validator.suppose(replier).isInstanceOf(IReplier.class);
 		
 		//Sets the replier of this end point.
 		this.replier = replier;

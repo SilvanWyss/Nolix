@@ -45,7 +45,7 @@ final class Package extends ch.nolix.core.util.Package<String> {
 		super(index, message);
 		
 		//Checks if the given message role is not null.
-		Validator.suppose(messageRole).thatIsOfType(MessageRole.class).isNotNull();
+		Validator.suppose(messageRole).isInstanceOf(MessageRole.class);
 		
 		//Sets the message role of thsis zeta package.
 		this.messageRole = messageRole;

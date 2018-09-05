@@ -62,7 +62,7 @@ implements ISender {
 	public final void setReceiver(final IReceiver receiver) {
 		
 		//Checks if the given receiver is not null.
-		Validator.suppose(receiver).thatIsOfType(IReceiver.class).isNotNull();
+		Validator.suppose(receiver).isInstanceOf(IReceiver.class);
 		
 		//Checks if this end point is not aborted.
 		supposeBeingAlive();

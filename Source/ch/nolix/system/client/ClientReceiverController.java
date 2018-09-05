@@ -30,7 +30,7 @@ final class ClientReceiverController implements IMultiController {
 	public ClientReceiverController(final Client<?> client) {
 		
 		//Checks if the given client is not null.
-		Validator.suppose(client).thatIsOfType(Client.class).isNotNull();
+		Validator.suppose(client).isInstanceOf(Client.class);
 		
 		//Sets the client of this client receiver controller.
 		this.client = client;

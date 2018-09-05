@@ -785,10 +785,7 @@ extends BackgroundWidget<BW, BWS> {
 	public final BW setContentPosition(final ContentPosition contentPosition) {
 		
 		//Checks if the given content position is not null.
-		Validator
-		.suppose(contentPosition)
-		.thatIsOfType(ContentPosition.class)
-		.isNotNull();
+		Validator.suppose(contentPosition).isInstanceOf(ContentPosition.class);
 
 		//Sets the content position of this border widget.
 		this.contentPosition = contentPosition;

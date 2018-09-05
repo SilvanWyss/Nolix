@@ -865,10 +865,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	public final G setContentPosition(final ContentPosition contentPosition) {
 		
 		//Checks if the given content position is not null.
-		Validator
-		.suppose(contentPosition)
-		.thatIsOfType(ContentPosition.class)
-		.isNotNull();
+		Validator.suppose(contentPosition).isInstanceOf(ContentPosition.class);
 		
 		//Sets the content position of this GUI.
 		this.contentPosition = contentPosition;

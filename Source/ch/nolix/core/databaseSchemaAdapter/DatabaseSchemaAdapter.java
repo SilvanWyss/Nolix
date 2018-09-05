@@ -22,10 +22,7 @@ public final class DatabaseSchemaAdapter implements IChangesSaver<DatabaseSchema
 	//constructor
 	public DatabaseSchemaAdapter(final IDatabaseSchemaConnector databaseSchemaConnector) {
 		
-		Validator
-		.suppose(databaseSchemaConnector)
-		.thatIsOfType(IDatabaseSchemaConnector.class)
-		.isNotNull();
+		Validator.suppose(databaseSchemaConnector).isInstanceOf(IDatabaseSchemaConnector.class);
 		
 		this.databaseSchemaConnector = databaseSchemaConnector;
 		

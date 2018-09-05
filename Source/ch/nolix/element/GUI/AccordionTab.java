@@ -193,10 +193,7 @@ implements Clearable<AccordionTab> {
 	//method
 	public AccordionTab setWidget(final Widget<?, ?> widget) {
 		
-		Validator
-		.suppose(widget)
-		.thatIsOfType(Widget.class)
-		.isNotNull();
+		Validator.suppose(widget).isInstanceOf(Widget.class);
 		
 		this.widget = widget;
 		tabVerticalStack.addWidget(widget);

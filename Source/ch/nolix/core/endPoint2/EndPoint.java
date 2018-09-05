@@ -105,7 +105,7 @@ implements ISender {
 		supposeBeingAlive();
 		
 		//Checks if the given receiver is not null.
-		Validator.suppose(receiver).thatIsOfType(IReceiver.class).isNotNull();
+		Validator.suppose(receiver).isInstanceOf(IReceiver.class);
 		
 		//Sets the receiver of this end point.
 		this.receiver = receiver;
