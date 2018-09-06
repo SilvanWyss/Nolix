@@ -33,7 +33,7 @@ implements IMultiController {
 	 * Appends the given command to this duplex controller.
 	 * 
 	 * @param command
-	 * @throws NullArgumentException if the given command is null.
+	 * @throws NullArgumentException if the given command is not an instance.
 	 * @throws InvalidStateException if this duplex controller is aborted.
 	 */
 	public final void appendCommand(final Statement command) {
@@ -45,7 +45,7 @@ implements IMultiController {
 	 * Appends the given commands to this duplex controller.
 	 * 
 	 * @param commands
-	 * @throws NullArgumentException if one of the given commands is null.
+	 * @throws NullArgumentException if one of the given commands is not an instance.
 	 * @throws InvalidStateException if this duplex controller is aborted.
 	 */
 	public final void appendCommand(final Statement... commands) {
@@ -61,7 +61,7 @@ implements IMultiController {
 	 * Appends the given command to this duplex controller.
 	 * 
 	 * @param command
-	 * @throws NullArgumentException if the given command is null.
+	 * @throws NullArgumentException if the given command is not an instance.
 	 * @throws InvalidStateException if this duplex controller is aborted.
 	 */
 	public final void appendCommand(final String command) {
@@ -77,7 +77,7 @@ implements IMultiController {
 	 * Appends the given commands to this duplex controller.
 	 * 
 	 * @param commands
-	 * @throws NullArgumentException if one of the given commands is null.
+	 * @throws NullArgumentException if one of the given commands is not an instance.
 	 * @throws InvalidStateException if this duplex controller is aborted.
 	 */
 	public final void appendCommand(String... commands) {
@@ -167,12 +167,12 @@ implements IMultiController {
 	 * Sets the receiver controller of this duplex controller.
 	 * 
 	 * @param receiverController
-	 * @throws NullArgumentException if the given receiver controller is null.
+	 * @throws NullArgumentException if the given receiver controller is not an instance.
 	 */
 	public final void setReceiverController(final IMultiController receiverController) {
 		
-		//Checks if the given receiver controller is not null.
-		Validator.suppose(receiverController).thatIsNamed("receiver controller").isNotNull();
+		//Checks if the given receiver controller is an instance.
+		Validator.suppose(receiverController).thatIsNamed("receiver controller").isInstance();
 		
 		//Sets the receiver controller of this duplex controller.
 		this.receiverController = receiverController;

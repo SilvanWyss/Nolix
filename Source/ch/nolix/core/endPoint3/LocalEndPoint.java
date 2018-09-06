@@ -42,7 +42,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * Creates a new local end point that will connect to the given target
 	 * 
 	 * @param target
-	 * @throws NullArgumentException if the given target is null.
+	 * @throws NullArgumentException if the given target is not an instance.
 	 */
 	public LocalEndPoint(final IEndPointTaker target) {
 		
@@ -85,15 +85,15 @@ public final class LocalEndPoint extends EndPoint {
 	 * Creates a new local end point with the given counterpart.
 	 * 
 	 * @param counterPart
-	 * @throws NullArgumentException if the given counterpart is null.
+	 * @throws NullArgumentException if the given counterpart is not an instance.
 	 */
 	private LocalEndPoint(final LocalEndPoint counterPart) {
 		
 		//Sets the requested connection flag of this local end point.
 		requestedConnection = false;
 		
-		//Checks if the given counter part is not null.
-		Validator.suppose(counterPart).thatIsNamed("counterpart").isNotNull();
+		//Checks if the given counter part is an instance.
+		Validator.suppose(counterPart).thatIsNamed("counterpart").isInstance();
 		
 		//Sets the counter part of this local end point.
 		this.counterpart = counterPart;
@@ -108,8 +108,8 @@ public final class LocalEndPoint extends EndPoint {
 	 * 
 	 * @param counterpart
 	 * @param target
-	 * @throws NullArgumentException if the given counterpart is null.
-	 * @throws NullArgumentException if the given target is null.
+	 * @throws NullArgumentException if the given counterpart is not an instance.
+	 * @throws NullArgumentException if the given target is not an instance.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
 	private LocalEndPoint(final LocalEndPoint counterpart, final String target) {
@@ -117,8 +117,8 @@ public final class LocalEndPoint extends EndPoint {
 		//Sets the requested connection flag of this local end point.
 		requestedConnection = false;
 		
-		//Checks if the given counter part is not null.
-		Validator.suppose(counterpart).thatIsNamed("counterpart").isNotNull();
+		//Checks if the given counter part is an instance.
+		Validator.suppose(counterpart).thatIsNamed("counterpart").isInstance();
 		
 		//Sets the counter part of this local end point.
 		this.counterpart = counterpart;

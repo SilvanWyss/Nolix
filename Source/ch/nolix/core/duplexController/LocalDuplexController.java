@@ -70,15 +70,15 @@ public final class LocalDuplexController extends DuplexController {
 	 * Creates a new local duplex controller with the given counterpart.
 	 * 
 	 * @param counterpart
-	 * @throws NullArgumentException if the given counterpart is null.
+	 * @throws NullArgumentException if the given counterpart is not an instance.
 	 */
 	private LocalDuplexController(LocalDuplexController counterpart) {
 		
 		//Sets the reqested connection flag of this local duplex controller.
 		requestedConnection = false;
 		
-		//Checks if the given counterpart is not null.
-		Validator.suppose(counterpart).thatIsNamed("counterpart").isNotNull();
+		//Checks if the given counterpart is an instance.
+		Validator.suppose(counterpart).thatIsNamed("counterpart").isInstance();
 		
 		//Sets the counterpart of this local duplex controller.
 		this.counterpart = counterpart;
@@ -93,7 +93,7 @@ public final class LocalDuplexController extends DuplexController {
 	 * 
 	 * @param counterpart
 	 * @param target
-	 * @throws NullArgumentException if the given target is null.
+	 * @throws NullArgumentException if the given target is not an instance.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
 	private LocalDuplexController(
@@ -104,8 +104,8 @@ public final class LocalDuplexController extends DuplexController {
 		//Sets the requested connection flag of this local duplex controller.
 		requestedConnection = false;
 		
-		//Checks if the given counterpart is not null.
-		Validator.suppose(counterpart).thatIsNamed("counterpart").isNotNull();
+		//Checks if the given counterpart is an instance.
+		Validator.suppose(counterpart).thatIsNamed("counterpart").isInstance();
 		
 		//Sets the counterpart of this local duplex controller.
 		this.counterpart = counterpart;

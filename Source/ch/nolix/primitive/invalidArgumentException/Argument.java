@@ -34,12 +34,12 @@ public final class Argument {
 	 */
 	public String createArgumentName() {
 		
-		//Handles the case that the value of this argument is null.
+		//Handles the case that the value of this argument is not an instance.
 		if (value == null) {
 			return DEFAULT_ARGUMENT_NAME;
 		}
 		
-		//Handles the case that the value of this argument is not null.
+		//Handles the case that the value of this argument is an instance.
 		return value.getClass().getSimpleName();
 	}
 	
@@ -57,12 +57,12 @@ public final class Argument {
 	 */
 	public String toString() {
 		
-		//Handles the case that the value of this argument is null.
+		//Handles the case that the value of this argument is not an instance.
 		if (value == null) {
 			return StringCatalogue.NULL_NAME;
 		}
 		
-		//Handles the case that the value of this argument is not null.
+		//Handles the case that the value of this argument is an instance.
 		return value.toString();
 	}
 }

@@ -26,7 +26,7 @@ extends Session<StandardClient> {
 	 * with the given netFrontNeuron.
 	 * 
 	 * @param netFrontNeuron
-	 * @throws NullArgumentException if the given net front neuron is null.
+	 * @throws NullArgumentException if the given net front neuron is not an instance.
 	 */
 	public NetFrontNeuronSession(final NetFrontNeuron<O> netFrontNeuron) {
 		

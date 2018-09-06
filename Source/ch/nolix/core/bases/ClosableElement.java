@@ -104,11 +104,11 @@ public abstract class ClosableElement implements Closable {
 	 * Sets the close controller this closable element belongs to.
 	 * 
 	 * @param closeController
-	 * @throws NullArgumentException if the given close controller is null.
+	 * @throws NullArgumentException if the given close controller is not an instance.
 	 */
 	void setCloseController(final CloseController closeController) {
 		
-		//Checks if the given close controller is not null.
+		//Checks if the given close controller is an instance.
 		Validator.suppose(closeController).isInstanceOf(CloseController.class);
 		
 		//Sets the close controller of this closable element.

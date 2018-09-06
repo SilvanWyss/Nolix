@@ -64,7 +64,7 @@ extends Client<BGUIC> {
 	 * 
 	 * @param errorMessage
 	 * @return this base GUI client.
-	 * @throws NullArgumentException if the given error message is null.
+	 * @throws NullArgumentException if the given error message is not an instance.
 	 */
 	public final BGUIC showErrorMessage(final String errorMessage) {
 		

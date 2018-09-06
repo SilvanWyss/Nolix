@@ -198,7 +198,7 @@ implements IFluentObject<WL>, Specified {
 	 * 
 	 * @param textColor
 	 * @return the current {@link WidgetLook}.
-	 * @throws NullArgumentException if the given text color is null.
+	 * @throws NullArgumentException if the given text color is not an instance.
 	 */
 	public final WL setTextColor(final Color textColor) {
 		
@@ -264,15 +264,15 @@ implements IFluentObject<WL>, Specified {
 	 * Sets the base look of the current {@link WidgetLook}.
 	 * 
 	 * @param baseLook
-	 * @throws NullArgumentException if the given base look is null.
+	 * @throws NullArgumentException if the given base look is not an instance.
 	 */
 	final void setBaseLook(final WL baseLook) {
 		
-		//Checks if the given base look is not null.
+		//Checks if the given base look is an instance.
 		Validator
 		.suppose(baseLook)
 		.thatIsNamed("base look")
-		.isNotNull();
+		.isInstance();
 		
 		setBaseEntity(baseLook);		
 	}

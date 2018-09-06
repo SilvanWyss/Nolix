@@ -27,7 +27,7 @@ final class CloseController implements Closable {
 	 * Creates a new close controller with the given element.
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws NullArgumentException if the given element is not an instance.
 	 */
 	public CloseController(final ClosableElement element) {
 		elements.addAtEnd(element);
@@ -39,7 +39,7 @@ final class CloseController implements Closable {
 	 * Adds the given element to this close controller.
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws NullArgumentException if the given element is not an instance.
 	 * @throws InvalidStateException if this close controller contains already the given element.
 	 * @throws InvalidStateException if this close controller is already closed.
 	 */
@@ -48,8 +48,8 @@ final class CloseController implements Closable {
 		//Checks if this close controller is alive.
 		supposeBeingAlive();
 		
-		//Checks if the given element is not null.
-		Validator.suppose(element).thatIsNamed("element").isNotNull();
+		//Checks if the given element is an instance.
+		Validator.suppose(element).thatIsNamed("element").isInstance();
 		
 		//Checks if this close controller does not contain already the given element.
 		if (containsElement(element)) {

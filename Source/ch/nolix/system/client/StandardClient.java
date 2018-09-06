@@ -20,7 +20,7 @@ public final class StandardClient extends Client<StandardClient> {
 	 * Creates a new standard client that will connect to the given target application.
 	 * 
 	 * @param targetApplication
-	 * @throws NullArgumentException if the given target application is null.
+	 * @throws NullArgumentException if the given target application is not an instance.
 	 */
 	public StandardClient(final Application<StandardClient> targetApplication) {
 
@@ -47,7 +47,7 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @param ip
 	 * @param port
 	 * @param targetApplication
-	 * @throws NullArgumentException if the given target application is null.
+	 * @throws NullArgumentException if the given target application is not an instance.
 	 * @throws EmptyArgumentException if the given target application is empty.
 	 */	
 	public StandardClient(
@@ -88,7 +88,7 @@ public final class StandardClient extends Client<StandardClient> {
 	 * Creates a new standard client with the given duplex controller.
 	 * 
 	 * @param controller
-	 * @throws NullArgumentException if the given duplex controller is null.
+	 * @throws NullArgumentException if the given duplex controller is not an instance.
 	 */
 	public StandardClient(final DuplexController duplexController) {
 		
@@ -102,8 +102,8 @@ public final class StandardClient extends Client<StandardClient> {
 	 * 
 	 * @param controller
 	 * @param initialSession
-	 * @throws NullArgumentException if the given duplex controller is null.
-	 * @throws NullArgumentException if the given initial session is null.
+	 * @throws NullArgumentException if the given duplex controller is not an instance.
+	 * @throws NullArgumentException if the given initial session is not an instance.
 	 */
 	/*
 	public StandardClient(final Controller controller, final Session<StandardClient> initialSession) {

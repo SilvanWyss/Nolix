@@ -78,14 +78,14 @@ public final class NetEndPoint extends EndPoint {
 	 * Creates a new net end point with the given socket.
 	 * 
 	 * @param socket
-	 * @throws NullArgumentException if the given socket is null.
+	 * @throws NullArgumentException if the given socket is not an instance.
 	 */
 	NetEndPoint(final Socket socket) {
 		
 		//Calls constructor of the base class.
 		super(false);
 		
-		//Checks if the given socket is not null.
+		//Checks if the given socket is an instance.
 		Validator.suppose(socket).isInstanceOf(Socket.class);
 		
 		//Sets the socket of this net end point.
@@ -108,13 +108,13 @@ public final class NetEndPoint extends EndPoint {
 	 * Lets this net end point send the given message.
 	 * 
 	 * @param message
-	 * @throws NullArgumentException if the given message is null.
+	 * @throws NullArgumentException if the given message is not an instance.
 	 * @throws InvalidStateException if this net end point is aborted.
 	 */
 	public void send(final String message) {
 		
-		//Checks if the given message is not null.
-		Validator.suppose(message).thatIsNamed("message").isNotNull();
+		//Checks if the given message is an instance.
+		Validator.suppose(message).thatIsNamed("message").isInstance();
 		
 		//Checks if this net end point is not aborted.
 		supposeBeingAlive();

@@ -37,15 +37,15 @@ final class ReadArrayContainer<E> implements IContainer<E> {
 	 * Creates a new read array container for the given array.
 	 * 
 	 * @param array
-	 * @throws NullArgumentException if the given array is null.
+	 * @throws NullArgumentException if the given array is not an instance.
 	 */
 	public ReadArrayContainer(final E[] array) {
 		
-		//Checks if the given array is not null.
+		//Checks if the given array is an instance.
 		Validator
 		.suppose(array)
 		.thatIsNamed(VariableNameCatalogue.ARRAY)
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the array of this array wrapper.
 		this.array = array;

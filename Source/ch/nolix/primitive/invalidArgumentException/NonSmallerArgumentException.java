@@ -46,7 +46,7 @@ public final class NonSmallerArgumentException extends InvalidArgumentException 
 	 * @param argumentName
 	 * @param argument
 	 * @param limit
-	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is not an instance.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
 	public NonSmallerArgumentException(

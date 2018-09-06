@@ -52,17 +52,17 @@ implements Closable {
 	 * @param port
 	 * @param transformator
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65'535].
-	 * @throws NullArgumentException if the given transformator is null.
+	 * @throws NullArgumentException if the given transformator is not an instance.
 	 */
 	public NetBackNeuron(
 		final int port,
 		final IElementTakerElementGetter<I, StandardSpecification> transformator)
 	{
-		//Checks if the given transform is not null.
+		//Checks if the given transform is an instance.
 		Validator
 		.suppose(transformator)
 		.thatIsNamed(VariableNameCatalogue.TRANSFORMATOR)
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the transformer of this net back neuron.
 		this.transformator = transformator;

@@ -24,7 +24,7 @@ implements Namable<NE> {
 	 * Creates a new namable element with the given name.
 	 * 
 	 * @param name
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public NamableElement(final String name) {
@@ -44,7 +44,7 @@ implements Namable<NE> {
 	 * Sets the name of this namable element.
 	 * 
 	 * @param name
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public final NE setName(final String name) {

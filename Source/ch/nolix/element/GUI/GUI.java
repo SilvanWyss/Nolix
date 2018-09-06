@@ -122,7 +122,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * Registers the given widget class
 	 * 
 	 * @param widgetClass
-	 * @throws NullArgumentException if the given widget class is null.
+	 * @throws NullArgumentException if the given widget class is not an instance.
 	 * @throws InvalidArgumentException
 	 * if there can already be created a widget of the same type as the given widget class.
 	 */
@@ -135,7 +135,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * Registers the given widget classes
 	 * 
 	 * @param widgetClasses
-	 * @throws NullArgumentException if one of the given widget classes is null.
+	 * @throws NullArgumentException if one of the given widget classes is not an instance.
 	 * @throws InvalidArgumentException
 	 * if there can already be created a widget of the same type as one of the given widget classes.
 	 */
@@ -807,7 +807,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * 
 	 * @param backgroundColor
 	 * @return this GUI.
-	 * @throws NullArgumentException if the given background color is null.
+	 * @throws NullArgumentException if the given background color is not an instance.
 	 */
 	public final G setBackgroundColor(final Color backgroundColor) {
 		
@@ -825,7 +825,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * 
 	 * @param backgroundColorGradient
 	 * @return this GUI.
-	 * @throws NullArgumentException if the given background color gradient is null.
+	 * @throws NullArgumentException if the given background color gradient is not an instance.
 	 */
 	public final G setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
 		
@@ -860,11 +860,11 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * 
 	 * @param contentPosition
 	 * @return this GUI.
-	 * @throws NullArgumentException if the given content position is null.
+	 * @throws NullArgumentException if the given content position is not an instance.
 	 */
 	public final G setContentPosition(final ContentPosition contentPosition) {
 		
-		//Checks if the given content position is not null.
+		//Checks if the given content position is an instance.
 		Validator.suppose(contentPosition).isInstanceOf(ContentPosition.class);
 		
 		//Sets the content position of this GUI.
@@ -879,14 +879,14 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * 
 	 * @param controller
 	 * @return this GUI.
-	 * @throws NullArgumentException if the given controller is null.
+	 * @throws NullArgumentException if the given controller is not an instance.
 	 */
 	public final G setController(final IGUIController controller) {
 		
 		Validator
 		.suppose(controller)
 		.thatIsNamed(VariableNameCatalogue.CONTROLLER)
-		.isNotNull();
+		.isInstance();
 		
 		this.controller = controller;
 		
@@ -898,13 +898,13 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * Sets the root widget of this GUI.
 	 * 
 	 * @param rootWidget
-	 * @throws NullArgumentException if the given root widget is null.
+	 * @throws NullArgumentException if the given root widget is not an instance.
 	 * @throws InvalidArgumentException if the given root widget belongs already to an other GUI. 
 	 */
 	public final G setRootWidget(final Widget<?, ?> rootWidget) {
 		
-		//Checks if the given root widget is not null.
-		Validator.suppose(rootWidget).thatIsNamed("root widget").isNotNull();
+		//Checks if the given root widget is an instance.
+		Validator.suppose(rootWidget).thatIsNamed("root widget").isInstance();
 		
 		//Sets the root widget of this GUI.
 		rootWidget.setParentGUI(this);
@@ -921,7 +921,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * 
 	 * @param title
 	 * @return this GUI.
-	 * @throws NullArgumentException if the given title is null.
+	 * @throws NullArgumentException if the given title is not an instance.
 	 * @throws EmptyArgumentException if the given title is empty.
 	 */
 	public final G setTitle(final String title) {

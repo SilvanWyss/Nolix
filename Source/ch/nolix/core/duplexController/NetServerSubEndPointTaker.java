@@ -27,11 +27,11 @@ final class NetServerSubEndPointTaker implements IEndPointTaker {
 	 * 
 	 * @param duplexControllerTaker
 	 * @throws NullArgumentException
-	 * if the given net server is null.
+	 * if the given net server is not an instance.
 	 */
 	public NetServerSubEndPointTaker(final NetServer netServer) {
 		
-		//Checks if the given net server is not null.
+		//Checks if the given net server is an instance.
 		Validator.suppose(netServer).isInstanceOf(NetServer.class);
 		
 		//Sets the net server of htis net server sub end point taker.
@@ -51,7 +51,7 @@ final class NetServerSubEndPointTaker implements IEndPointTaker {
 	 * Lets this net server sub end point taker take the given end point.
 	 * 
 	 * @param endPoint
-	 * @throws NullArgumentException if the given end point is null.
+	 * @throws NullArgumentException if the given end point is not an instance.
 	 * @throws InvalidArgumentException if the given end point is no NetEndPoint.
 	 */
 	public void takeEndPoint(final EndPoint endPoint) {		

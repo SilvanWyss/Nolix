@@ -29,7 +29,7 @@ final class HeapNode<E> {
 	 * Creates a new heap node with the given element.
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws NullArgumentException if the given element is not an instance.
 	 */
 	public HeapNode(final E element) {
 		setElement(element);
@@ -103,12 +103,12 @@ final class HeapNode<E> {
 	 * Sets the element of this heap node.
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws NullArgumentException if the given element is not an instance.
 	 */
 	public void setElement(final E element) {
 		
-		//Checks if the given element is not null.
-		Validator.suppose(element).thatIsNamed("element").isNotNull();
+		//Checks if the given element is an instance.
+		Validator.suppose(element).thatIsNamed("element").isInstance();
 		
 		this.element = element;
 	}

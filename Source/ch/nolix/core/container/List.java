@@ -45,7 +45,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * The complexity of this method is O(1).
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws NullArgumentException if the given element is not an instance.
 	 */
 	public List(final E element) {
 		addAtEnd(element);
@@ -57,8 +57,8 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
-	 * @throws NullArgumentException if the given element container is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws NullArgumentException if the given element container is not an instance.
+	 * @throws NullArgumentException if one of the given elements is not an instance.
 	 */
 	@SuppressWarnings("unchecked")
 	public List(final E... elements) {
@@ -71,8 +71,8 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * The complexity of this method is O(n) if n elements are given.
 	 * 
 	 * @param elements
-	 * @throws NullArgumentException if the given element container is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws NullArgumentException if the given element container is not an instance.
+	 * @throws NullArgumentException if one of the given elements is not an instance.
 	 */
 	public <E2 extends E> List(final Iterable<E2> elements) {
 		addAtEnd(elements);
@@ -85,7 +85,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param element
 	 * @return this list.
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws NullArgumentException if the given element is not an instance.
 	 */
 	public List<E> addAtBegin(E element) {
 		
@@ -112,14 +112,14 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param elements
 	 * @return this list.
-	 * @throws NullArgumentException if the given element container is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws NullArgumentException if the given element container is not an instance.
+	 * @throws NullArgumentException if one of the given elements is not an instance.
 	 */
 	@SuppressWarnings("unchecked")
 	public List<E> addAtBegin(final E... elements) {
 		
-		//Checks if the given element container is not null.
-		Validator.suppose(elements).thatIsNamed("element container").isNotNull();
+		//Checks if the given element container is an instance.
+		Validator.suppose(elements).thatIsNamed("element container").isInstance();
 		
 		//Iterates the given elements.
 		for (int i = elements.length; i >= 0; i--) {
@@ -136,13 +136,13 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param elements
 	 * @return this list.
-	 * @throws NullArgumentException if the given element container is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws NullArgumentException if the given element container is not an instance.
+	 * @throws NullArgumentException if one of the given elements is not an instance.
 	 */
 	public <E2 extends E> List<E> addAtBegin(final Iterable<E2> elements) {
 		
-		//Checks if the given element container is not null.
-		Validator.suppose(elements).thatIsNamed("element container").isNotNull();
+		//Checks if the given element container is an instance.
+		Validator.suppose(elements).thatIsNamed("element container").isInstance();
 		
 		//Handles the case that the given elements is not empty.
 		if (new ReadContainer<E>(elements).isEmpty()) {
@@ -174,7 +174,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param element
 	 * @return this list.
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws NullArgumentException if the given element is not an instance.
 	 * @throws InvalidArgumentException if this list contains already the given element.
 	 */
 	public List<E> addAtBeginRegardingSingularity(final E element) {
@@ -197,7 +197,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param element
 	 * @return this list.
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws NullArgumentException if the given element is not an instance.
 	 */
 	public List<E> addAtEnd(final E element) {
 		
@@ -224,14 +224,14 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param elements
 	 * @return this list.
-	 * @throws NullArgumentException if the given element container is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws NullArgumentException if the given element container is not an instance.
+	 * @throws NullArgumentException if one of the given elements is not an instance.
 	 */
 	@SuppressWarnings("unchecked")
 	public List<E> addAtEnd(final E... elements) {
 		
-		//Checks if the given element container is not null.
-		Validator.suppose(elements).thatIsNamed("element container").isNotNull();
+		//Checks if the given element container is an instance.
+		Validator.suppose(elements).thatIsNamed("element container").isInstance();
 		
 		//Iterates the given elements.
 		for (final E e: elements) {
@@ -248,13 +248,13 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param elements
 	 * @return this list.
-	 * @throws NullArgumentException if the given element container is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws NullArgumentException if the given element container is not an instance.
+	 * @throws NullArgumentException if one of the given elements is not an instance.
 	 */
 	public <E2 extends E> List<E> addAtEnd(final Iterable<E2> elements) {
 		
-		//Checks if the given element container is not null.
-		Validator.suppose(elements).thatIsNamed("element container").isNotNull();
+		//Checks if the given element container is an instance.
+		Validator.suppose(elements).thatIsNamed("element container").isInstance();
 		
 		elements.forEach(e -> addAtEnd(e));
 		
@@ -287,7 +287,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param element
 	 * @return this list.
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws NullArgumentException if the given element is not an instance.
 	 * @throws InvalidArgumentException if this list contains already the given element.
 	 */
 	public List<E> addAtEndRegardingSingularity(final E element) {
@@ -833,7 +833,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * @param element
 	 * @return this list.
 	 * @throws InvalidArgumentException if this list contains no element the given selector selects.
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws NullArgumentException if the given element is not an instance.
 	 */
 	public List<E> replaceFirst(IElementTakerBooleanGetter<E> selector, E element) {
 		
@@ -922,7 +922,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	/**
 	 * @param extractor
 	 * @return a new list using mediator with this list and the given extractor.
-	 * @throws NullArgumentException if the given extractor is null.
+	 * @throws NullArgumentException if the given extractor is not an instance.
 	 */
 	public ListUsingMediator<E> using(final IElementTakerElementGetter<Object, E> extractor) {
 		return new ListUsingMediator<E>(this, extractor);
@@ -1012,13 +1012,13 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * Removes the next node of the given node.
 	 * 
 	 * @param node
-	 * @throws NullArgumentException if the given node is null.
+	 * @throws NullArgumentException if the given node is not an instance.
 	 * @throws UnexistingPropertyException if the given node has no next node.
 	 */
 	private void removeNextNode(ListNode<E> node) {
 		
-		//Checks if the given node is not null.
-		Validator.suppose(node).thatIsNamed("node").isNotNull();
+		//Checks if the given node is an instance.
+		Validator.suppose(node).thatIsNamed("node").isInstance();
 		
 		final ListNode<E> nextNode = node.getNextNode();
 		

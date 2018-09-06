@@ -35,8 +35,8 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * 
 	 * @param elements
 	 * @return the current {@link Matrix}.
-	 * @throws NullArgumentException if the given elements is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws NullArgumentException if the given elements is not an instance.
+	 * @throws NullArgumentException if one of the given elements is not an instance.
 	 * @throws UnequalArgumentException
 	 * if the current {@link Matrix} is not empty
 	 * and if not as many elements are given as the number of rows of the current {@link Matrix}.
@@ -57,8 +57,8 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * 
 	 * @param elements
 	 * @return the current {@link Matrix}.
-	 * @throws NullArgumentException if the given elements is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws NullArgumentException if the given elements is not an instance.
+	 * @throws NullArgumentException if one of the given elements is not an instance.
 	 * @throws UnequalArgumentException
 	 * if the current {@link Matrix} is not empty
 	 * and if not as many elements are given as the number of rows of the current {@link Matrix}.
@@ -128,8 +128,8 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * 
 	 * @param elements
 	 * @return the current {@link Matrix}.
-	 * @throws NullArgumentException if the given elements is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws NullArgumentException if the given elements is not an instance.
+	 * @throws NullArgumentException if one of the given elements is not an instance.
 	 * @throws UnequalArgumentException
 	 * the current {@link Matrix} is not empty
 	 * and if not as many elements are given as the number of columns of the current {@link Matrix}.
@@ -150,8 +150,8 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * 
 	 * @param elements
 	 * @return the current {@link Matrix}.
-	 * @throws NullArgumentException if the given elements is null.
-	 * @throws NullArgumentException if one of the given elements is null.
+	 * @throws NullArgumentException if the given elements is not an instance.
+	 * @throws NullArgumentException if one of the given elements is not an instance.
 	 * @throws UnequalArgumentException
 	 * the current {@link Matrix} is not empty
 	 * and if not as many elements are given as the number of columns of the current {@link Matrix}.
@@ -478,15 +478,15 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * @throws NonPositiveArgumentException if the given index is not positive.
 	 * @throws BiggerArgumentException
 	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws NullArgumentException if the given element is not an instance.
 	 */
 	public Matrix<E> set(final int index, final E element) {
 				
-		//Checks if the given element is not null.
+		//Checks if the given element is an instance.
 		Validator
 		.suppose(element)
 		.thatIsNamed(VariableNameCatalogue.ELEMENT)
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the given element at the given index to the current matrix.
 		elements[getRowIndexOf(index) - 1][getColumnIndexOf(index) - 1] = element;
@@ -511,7 +511,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * @throws NonPositiveArgumentException if the given column index is not positive.
 	 * @throws BiggerArgumentException
 	 * if the given column index is bigger than the number of columns of the current {@link Matrix}.
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws NullArgumentException if the given element is not an instance.
 	 */
 	public Matrix<E> set(
 		final int rowIndex,
@@ -522,11 +522,11 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		//Checks if the current matrix contains an element at the given row index and column index.
 		supposeContainsElementAt(rowIndex, columnIndex);
 		
-		//Checks if the given element is not null.
+		//Checks if the given element is an instance.
 		Validator
 		.suppose(element)
 		.thatIsNamed(VariableNameCatalogue.ELEMENT)
-		.isNotNull();
+		.isInstance();
 		
 		elements[rowIndex - 1][columnIndex - 1] = element;
 		

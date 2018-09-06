@@ -38,7 +38,7 @@ public final class MultiDoubleMediator extends Mediator {
 	 * 
 	 * @param test
 	 * @param values
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws NullArgumentException if the given test is not an instance.
 	 */
 	MultiDoubleMediator(final Test test, final Iterable<Double> values) {
 		
@@ -55,12 +55,12 @@ public final class MultiDoubleMediator extends Mediator {
 	 */
 	public void areBiggerThan(final double value) {
 		
-		//Handles the case that the given values is null.
+		//Handles the case that the given values is not an instance.
 		if (values == null) {
 			addNullValuesError();
 		}
 		
-		//Handles the case that the given values is not null.
+		//Handles the case that the given values is an instance.
 		else {
 		
 			//Iterates the values of this multi double mediator.
@@ -86,12 +86,12 @@ public final class MultiDoubleMediator extends Mediator {
 	 */
 	public void areNegative() {
 		
-		//Handles the case that the given values is null.
+		//Handles the case that the given values is not an instance.
 		if (values == null) {
 			addNullValuesError();
 		}
 		
-		//Handles the case that the given values is not null.
+		//Handles the case that the given values is an instance.
 		else {
 		
 			//Iterates the values of this multi double mediator.
@@ -117,12 +117,12 @@ public final class MultiDoubleMediator extends Mediator {
 	 */
 	public void arePositive() {
 	
-		//Handles the case that the given values is null.
+		//Handles the case that the given values is not an instance.
 		if (values == null) {
 			addNullValuesError();
 		}
 		
-		//Handles the case that the given values is not null.
+		//Handles the case that the given values is an instance.
 		else {
 		
 			//Iterates the values of this multi double mediator.
@@ -148,12 +148,12 @@ public final class MultiDoubleMediator extends Mediator {
 	 */
 	public void areSmallerThan(final double value) {
 		
-		//Handles the case that the given values is null.
+		//Handles the case that the given values is not an instance.
 		if (values == null) {
 			addNullValuesError();
 		}
 		
-		//Handles the case that the given values is not null.
+		//Handles the case that the given values is an instance.
 		else {
 		
 			//Iterates the values of this multi double mediator.

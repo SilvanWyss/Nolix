@@ -25,11 +25,11 @@ final class ClientReceiverController implements IMultiController {
 	 * Creates a new receiver controller with the given client.
 	 * 
 	 * @param client
-	 * @throws NullArgumentException if the given client is null.
+	 * @throws NullArgumentException if the given client is not an instance.
 	 */
 	public ClientReceiverController(final Client<?> client) {
 		
-		//Checks if the given client is not null.
+		//Checks if the given client is an instance.
 		Validator.suppose(client).isInstanceOf(Client.class);
 		
 		//Sets the client of this client receiver controller.

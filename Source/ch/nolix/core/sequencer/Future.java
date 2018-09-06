@@ -19,11 +19,11 @@ public final class Future {
 	 * Creates a new future with the given job runner.
 	 * 
 	 * @param jobRunner
-	 * @throws NullArgumentException if the given job runner is null.
+	 * @throws NullArgumentException if the given job runner is not an instance.
 	 */
 	Future(final JobRunner jobRunner) {
 		
-		//Checks if the given job runner is not null.
+		//Checks if the given job runner is an instance.
 		Validator.suppose(jobRunner).isInstanceOf(JobRunner.class);
 		
 		//Sets the job runner of this future.

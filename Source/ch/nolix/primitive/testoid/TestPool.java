@@ -76,11 +76,11 @@ public abstract class TestPool implements Runnable {
 	 * Adds the given test to this test pool.
 	 * 
 	 * @param test
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws NullArgumentException if the given test is not an instance.
 	 */
 	protected final void addTest(final Testoid test) {
 		
-		//Checks if the given test is not null.
+		//Checks if the given test is an instance.
 		if (test == null) {
 			throw new NullArgumentException("test");
 		}
@@ -93,7 +93,7 @@ public abstract class TestPool implements Runnable {
 	 * Adds the given tests to this test pool.
 	 * 
 	 * @param tests
-	 * @throws NullArgumentException if one of the given test is null.
+	 * @throws NullArgumentException if one of the given test is not an instance.
 	 */
 	protected final void addTest(Testoid... tests) {
 		
@@ -108,12 +108,12 @@ public abstract class TestPool implements Runnable {
 	 * Adds the given test pool to this test pool.
 	 * 
 	 * @param testPool
-	 * @throws NullArgumentException if the given test pool is null.
+	 * @throws NullArgumentException if the given test pool is not an instance.
 	 * @throws InvalidArgumentException if the given test pool contains this test pool recursively.
 	 */
 	protected final void addTestPool(final TestPool testPool) {
 		
-		//Checks if the given test pool is not null.
+		//Checks if the given test pool is an instance.
 		if (testPool == null) {
 			throw new NullArgumentException("test pool");
 		}
@@ -134,7 +134,7 @@ public abstract class TestPool implements Runnable {
 	 * Adds the given test pools to this test pool.
 	 * 
 	 * @param testPools
-	 * @throws NullArgumentException if one of the given test pools is null.
+	 * @throws NullArgumentException if one of the given test pools is not an instance.
 	 * @throws InvalidArgumentException if one of the given test pools contains this test pool recursively.
 	 */
 	protected final void addTestPool(final TestPool... testPools) {

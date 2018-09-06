@@ -36,16 +36,16 @@ final class ReadIterableContainer<E> implements IContainer<E> {
 	 * Creates a new read iterable container for the given container.
 	 * 
 	 * @param container
-	 * @throws NullArgumentException if the given container is null.
+	 * @throws NullArgumentException if the given container is not an instance.
 	 */
 	@SuppressWarnings("unchecked")
 	public <E2 extends E> ReadIterableContainer(final Iterable<E2> container) {
 		
-		//Checks if the given array is not null.
+		//Checks if the given array is an instance.
 		Validator
 		.suppose(container)
 		.thatIsNamed(VariableNameCatalogue.CONTAINER)
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the array of this array wrapper.
 		this.container = (Iterable<E>)container;

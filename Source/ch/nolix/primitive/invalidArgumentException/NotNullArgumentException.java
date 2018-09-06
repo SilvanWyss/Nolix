@@ -20,7 +20,7 @@ public class NotNullArgumentException extends InvalidArgumentException {
 	 * Creates a new not null argument exception for the given argument.
 	 * 
 	 * @param argument
-	 * @throws RuntimeException if the given argument is null.
+	 * @throws RuntimeException if the given argument is not an instance.
 	 */
 	public NotNullArgumentException(final Argument argument) {
 		
@@ -34,9 +34,9 @@ public class NotNullArgumentException extends InvalidArgumentException {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is not an instance.
 	 * @throws RuntimeException if the given argument name is empty.
-	 * @throws RuntimeException if the given argument is null.
+	 * @throws RuntimeException if the given argument is not an instance.
 	 */
 	public NotNullArgumentException(final ArgumentName argumentName, final Argument argument) {
 		

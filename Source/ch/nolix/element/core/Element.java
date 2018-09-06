@@ -31,7 +31,7 @@ public abstract class Element extends Entity implements TypeRequestable {
 	 */
 	public final boolean equals(final Object object) {
 	
-		//Handles the case that the given object is null.
+		//Handles the case that the given object is not an instance.
 		if (object == null) {
 			return false;
 		}

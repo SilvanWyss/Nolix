@@ -21,7 +21,7 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
 	 * Creates a new non empty argument exception for the given argument.
 	 * 
 	 * @param argument
-	 * @throws RuntimeException if the given argument is null.
+	 * @throws RuntimeException if the given argument is not an instance.
 	 */
 	public NonEmptyArgumentException(final Argument argument) {
 
@@ -34,7 +34,7 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
 	 * Creates a new non empty argument exception for an argument that has the given argument name.
 	 * 
 	 * @param argumentName
-	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is not an instance.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
 	public NonEmptyArgumentException(final ArgumentName argumentName) {
@@ -48,7 +48,7 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
 	 * Creates a new non empty argument exception for the given argument with the given argumet name.
 	 * @param argumentName
 	 * @param argument
-	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is not an instance.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
 	public NonEmptyArgumentException(final String argumentName, final Object argument) {

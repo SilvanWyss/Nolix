@@ -23,7 +23,7 @@ public final class ClosedStateException extends InvalidStateException {
 	 * Creates a new closed state exception for the given object.
 	 * 
 	 * @param object
-	 * @throws NullArgumentException if the given object is null.
+	 * @throws NullArgumentException if the given object is not an instance.
 	 */
 	public ClosedStateException(final AutoCloseable object) {
 		

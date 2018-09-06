@@ -54,7 +54,7 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 	 * This constructor is public that it can be found by reflection.
 	 * 
 	 * @param duplexController
-	 * @throws NullArgumentException if the given duplex controller is null.
+	 * @throws NullArgumentException if the given duplex controller is not an instance.
 	 */
 	public BackGUIClient(final DuplexController duplexController) {
 			

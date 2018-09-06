@@ -37,10 +37,10 @@ extends Propertyoid<V> {
 	 * @param name
 	 * @param setterMethod
 	 * @param valueCreator
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given setter method is null.
-	 * @throws NullArgumentException if the given value creator is null.
+	 * @throws NullArgumentException if the given setter method is not an instance.
+	 * @throws NullArgumentException if the given value creator is not an instance.
 	 */
 	SingleProperty(
 		final String name,
@@ -51,11 +51,11 @@ extends Propertyoid<V> {
 		//Calls constructor of the base class.
 		super(name, valueCreator);
 		
-		//Checks if the given setter method is not null.
+		//Checks if the given setter method is an instance.
 		Validator
 		.suppose(setterMethod)
 		.thatIsNamed("setter method")
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the setter method of this single property.
 		this.setterMethod = setterMethod;
@@ -110,17 +110,17 @@ extends Propertyoid<V> {
 	 * Sets the value of this single property.
 	 * 
 	 * @param value
-	 * @throws NullArgumentException if the given value is null.
+	 * @throws NullArgumentException if the given value is not an instance.
 	 * @throws InvalidStateException
 	 * if this single property is not approved when it is not mutable.
 	 */
 	public Propertyoid<V> setValue(final V value) {
 		
-		//Checks if the given value is not null.
+		//Checks if the given value is an instance.
 		Validator
 		.suppose(value)
 		.thatIsNamed(VariableNameCatalogue.VALUE)
-		.isNotNull();
+		.isInstance();
 		
 		//Checks if this single property is not approved when it is not mutable.
 		if (!isMutable()) {

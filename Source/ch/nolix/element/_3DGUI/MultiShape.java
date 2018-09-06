@@ -52,12 +52,12 @@ public final class MultiShape extends Shape<MultiShape> {
 	 * 
 	 * @param shape
 	 * @return this multi shape.
-	 * @throws NullArgumentException if the given shape is null.
+	 * @throws NullArgumentException if the given shape is not an instance.
 	 * @throws InvalidStateException if the given shape belongs to a GUI.
 	 */
 	public MultiShape addShape(final Shape<?> shape) {
 		
-		//Checks if the given shape is not null.
+		//Checks if the given shape is an instance.
 		Validator.suppose(shape).isInstanceOf(Shape.class);
 		
 		//Checks if the given shape belongs not to a GUI.
@@ -85,7 +85,7 @@ public final class MultiShape extends Shape<MultiShape> {
 	 * 
 	 * @param shapes
 	 * @return this multi shape.
-	 * @throws NullArgumentException if one of the given shapes is null.
+	 * @throws NullArgumentException if one of the given shapes is not an instance.
 	 * @throws InvalidArgumentException if one of the given shapes belongs to a GUI.
 	 */
 	public MultiShape addShape(final Shape<?>... shapes) {
@@ -104,7 +104,7 @@ public final class MultiShape extends Shape<MultiShape> {
 	 * 
 	 * @param shapes
 	 * @return this multi shape.
-	 * @throws NullArgumentException if one of the given shapes is null.
+	 * @throws NullArgumentException if one of the given shapes is not an instance.
 	 * @throws InvalidArgumentException if one of the given shapes belongs to a GUI.
 	 */
 	public MultiShape addShapes(final Iterable<Shape<?>> shapes) {

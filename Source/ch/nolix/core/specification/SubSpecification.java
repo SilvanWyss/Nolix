@@ -33,15 +33,15 @@ public final class SubSpecification extends Specification {
 		final SimplePersistentSpecification simplePersistentSpecification,
 		final StandardSpecification internalSpecification
 	) {
-		//Checks if the given simple persistent specification is not null.
+		//Checks if the given simple persistent specification is an instance.
 		Validator
 		.suppose(simplePersistentSpecification)
 		.isInstanceOf(SimplePersistentSpecification.class);
 		
-		//Checks if the given internal specification is not null.
+		//Checks if the given internal specification is an instance.
 		Validator.suppose(internalSpecification)
 		.thatIsNamed("internal specification")
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the simple persistent specification of this sub specification.
 		this.simplePersistentSpecification = simplePersistentSpecification;
@@ -129,7 +129,7 @@ public final class SubSpecification extends Specification {
 	/**
 	 * Sets the given header to this sub specification.
 	 * 
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws NullArgumentException if the given header is not an instance.
 	 * @throws EmptyArgumentException if the given header is empty.
 	 * @throws RuntimeException if an error occurs.
 	 */

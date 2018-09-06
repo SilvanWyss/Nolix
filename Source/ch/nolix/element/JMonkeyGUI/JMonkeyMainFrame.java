@@ -83,7 +83,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 */
 	private void enqueue(final IFunction method) {
 		
-		Validator.suppose(method).thatIsNamed("method").isNotNull();
+		Validator.suppose(method).thatIsNamed("method").isInstance();
 		
 		simpleApplication.enqueue(
 			new Callable<Object>() {
@@ -165,7 +165,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 * 
 	 * @param rootShape
 	 * @return this main frame.
-	 * @throws NullArgumentException if the given root shape is null.
+	 * @throws NullArgumentException if the given root shape is not an instance.
 	 */
 	public JMonkeyMainFrame setRootShape(final Shape<?> rootShape) {
 		
@@ -203,7 +203,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 * Sets the root shape of this 3D GUI.
 	 * 
 	 * @param rootShape
-	 * @throws NullArgumentException if the given root shape is null.
+	 * @throws NullArgumentException if the given root shape is not an instance.
 	 */
 	private void direct_attachRootShape(final Shape<?> rootShape) {
 		simpleApplication

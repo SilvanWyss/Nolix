@@ -22,7 +22,7 @@ implements IEntitySetConnector<E> {
 		
 		Validator
 		.suppose(entitySetSpecification)
-		.isNotNull();
+		.isInstance();
 		
 		this.entitySetSpecification = entitySetSpecification;
 	}

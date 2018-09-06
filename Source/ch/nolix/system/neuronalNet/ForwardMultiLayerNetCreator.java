@@ -120,12 +120,12 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	 * 
 	 * @param outputFunction
 	 * @return this forward multi layer net creator.
-	 * @throws NullArgumentException if the given output function is null.
+	 * @throws NullArgumentException if the given output function is not an instance.
 	 */
 	public ForwardMultiLayerNetCreator<IO> setOutputFunction(final IElementTakerElementGetter<Iterable<IO>, IO> outputFunction) {
 		
-		//Checks if the given output function is not null.
-		Validator.suppose(outputFunction).thatIsNamed("output function").isNotNull();
+		//Checks if the given output function is an instance.
+		Validator.suppose(outputFunction).thatIsNamed("output function").isInstance();
 		
 		//Sets the output function of this forward multilayer net creator.
 		this.outputFunction
@@ -149,14 +149,14 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	 * 
 	 * @param weightOutputFunction
 	 * @return this forward multi layer net creator.
-	 * @throws NullArgumentException if the given weight output function is null.
+	 * @throws NullArgumentException if the given weight output function is not an instance.
 	 */
 	public ForwardMultiLayerNetCreator<IO> setWeightOutputFunction(
 		final IElementTakerElementGetter<Iterable<InputConnection<IO>>, IO> weightOutputFunction
 	) {
 		
-		//Checks if the given output function is not null.
-		Validator.suppose(weightOutputFunction).thatIsNamed("weight output function").isNotNull();
+		//Checks if the given output function is an instance.
+		Validator.suppose(weightOutputFunction).thatIsNamed("weight output function").isInstance();
 		
 		outputFunction = weightOutputFunction;
 		

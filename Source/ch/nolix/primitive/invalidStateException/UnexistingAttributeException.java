@@ -24,7 +24,7 @@ public final class UnexistingAttributeException extends InvalidStateException {
 	 * 
 	 * @param object
 	 * @param attributeType
-	 * @throws NullArgumentException if the given object is null.
+	 * @throws NullArgumentException if the given object is not an instance.
 	 */
 	public UnexistingAttributeException(final Object object, final Class<?> attributeType) {
 		
@@ -39,8 +39,8 @@ public final class UnexistingAttributeException extends InvalidStateException {
 	 * 
 	 * @param object
 	 * @param attributeName
-	 * @throws NullArgumentException if the given object is null.
-	 * @throws NullArgumentException if the given attribute name is null.
+	 * @throws NullArgumentException if the given object is not an instance.
+	 * @throws NullArgumentException if the given attribute name is not an instance.
 	 * @throws EmptyArgumentException if the given attribute name is empty.
 	 */
 	public UnexistingAttributeException(final Object object, final String attributeName) {

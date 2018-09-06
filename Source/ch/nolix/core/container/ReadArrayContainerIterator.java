@@ -39,15 +39,15 @@ final class ReadArrayContainerIterator<E> implements Iterator<E> {
 	 * the given array belongs to.
 	 * 
 	 * @param array
-	 * @throws NullArgumentException if the given array is null.
+	 * @throws NullArgumentException if the given array is not an instance.
 	 */
 	public ReadArrayContainerIterator(final E[] array) {
 		
-		//Checks if the given array is not null.
+		//Checks if the given array is an instance.
 		Validator
 		.suppose(array)
 		.thatIsNamed(VariableNameCatalogue.ARRAY)
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the array of hits read array container iterator.
 		this.array = array;

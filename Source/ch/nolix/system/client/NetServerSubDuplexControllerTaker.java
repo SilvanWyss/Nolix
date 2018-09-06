@@ -25,11 +25,11 @@ final class NetServerSubDuplexControllerTaker implements IDuplexControllerTaker 
 	 * Creates a new net server sub duplex controller taker with the given net server.
 	 * 
 	 * @param netServer
-	 * @throws NullArgumentException if the given net server is null.
+	 * @throws NullArgumentException if the given net server is not an instance.
 	 */
 	public NetServerSubDuplexControllerTaker(final NetServer netServer) {
 		
-		//Checks if the given server is not null.
+		//Checks if the given server is an instance.
 		Validator.suppose(netServer).isInstanceOf(NetServer.class);
 		
 		//Sets the net server of this snet server sub duplex controller taker.

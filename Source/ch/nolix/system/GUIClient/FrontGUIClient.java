@@ -50,7 +50,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 * 
 	 * @param GUI_
 	 * @param application
-	 * @throws NullArgumentExcepiton if the given GUI is null.
+	 * @throws NullArgumentExcepiton if the given GUI is not an instance.
 	 */
 	public FrontGUIClient(
 		final GUI<?> GUI_,
@@ -72,7 +72,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 * @param port
 	 * @param name
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public FrontGUIClient(
@@ -96,7 +96,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 * @param port
 	 * @param name
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public FrontGUIClient(
@@ -120,7 +120,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 * @param port
 	 * @param name
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public FrontGUIClient(
@@ -140,7 +140,7 @@ public final class FrontGUIClient extends Client<FrontGUIClient> {
 	 * Creates a new {@link FrontGUIClient} with the given GUI
 	 * 
 	 * @param GUI_
-	 * @throws NullArgumentExcepiton if the given GUI is null.
+	 * @throws NullArgumentExcepiton if the given GUI is not an instance.
 	 */
 	private FrontGUIClient(final GUI<?> GUI_) {
 		

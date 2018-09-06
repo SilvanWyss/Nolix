@@ -26,7 +26,7 @@ public final class EntitySetConnector implements IEntitySetConnector {
 		Validator
 		.suppose(entitySetSpecification)
 		.thatIsNamed(ENTITY_SET_SPECIFICATION_VARIABLE_NAME)
-		.isNotNull();
+		.isInstance();
 		
 		this.entitySetSpecification = entitySetSpecification;
 	}

@@ -165,11 +165,11 @@ extends Widget<L, LineLook> {
 	 * 
 	 * @param color
 	 * @return this line.
-	 * @throws NullArgumentException if the given color is null.
+	 * @throws NullArgumentException if the given color is not an instance.
 	 */
 	public final L setColor(final Color color) {
 		
-		//Checks if the given color is not null.
+		//Checks if the given color is an instance.
 		Validator.suppose(color).isInstanceOf(Color.class);
 		
 		//Sets the color of this line.

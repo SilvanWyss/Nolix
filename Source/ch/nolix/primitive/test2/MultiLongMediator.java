@@ -26,19 +26,19 @@ public final class MultiLongMediator extends Mediator {
 	 * 
 	 * @param test
 	 * @param values
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws NullArgumentException if the given test is not an instance.
 	 */
 	MultiLongMediator(final Test test, final int[] values) {
 		
 		//Calls constructor of the base class.
 		super(test);
 		
-		//Handles the case that the given values is null.
+		//Handles the case that the given values is not an instance.
 		if (values == null) {
 			this.values = null;
 		}
 		
-		//Handles the case that the given values is not null.
+		//Handles the case that the given values is an instance.
 		else {
 			this.values = ArrayHelper.createIterable(values);
 		}
@@ -50,7 +50,7 @@ public final class MultiLongMediator extends Mediator {
 	 * 
 	 * @param test
 	 * @param values
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws NullArgumentException if the given test is not an instance.
 	 */
 	MultiLongMediator(final Test test, final Iterable<Long> values) {
 		
@@ -67,19 +67,19 @@ public final class MultiLongMediator extends Mediator {
 	 * 
 	 * @param test
 	 * @param values
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws NullArgumentException if the given test is not an instance.
 	 */
 	MultiLongMediator(final Test test, final long[] values) {
 		
 		//Calls constructor of the base class.
 		super(test);
 		
-		//Handles the case that the given values is null.
+		//Handles the case that the given values is not an instance.
 		if (values == null) {
 			this.values = null;
 		}
 		
-		//Handles the case that the given values is not null.
+		//Handles the case that the given values is an instance.
 		else {
 			this.values = ArrayHelper.createIterable(values);
 		}

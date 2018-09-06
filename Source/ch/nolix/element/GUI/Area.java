@@ -51,7 +51,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * Creates a new {@link Area} with the given background color.
 	 * 
 	 * @param backgroundColor
-	 * @throws NullArgumentException if the given background color is null.
+	 * @throws NullArgumentException if the given background color is not an instance.
 	 */
 	public Area(final Color backgroundColor) {
 		
@@ -87,7 +87,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * @param backgroundColor
 	 * @throws NonPositiveArgumentException if the given width is not positive.
 	 * @throws NonPositiveArgumentException if the given height is not positive.
-	 * @throws NullArgumentException if the given background color is null.
+	 * @throws NullArgumentException if the given background color is not an instance.
 	 */
 	public Area(
 		final int width,
@@ -234,15 +234,15 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * @param backgroundColor
 	 * @return the current {@link Area}.
 	 * @throws NullArgumentException
-	 * if the given background color is null.
+	 * if the given background color is not an instance.
 	 */
 	public Area setBackgroundColor(final Color backgroundColor) {
 		
-		//Checks if the given background color is not null.
+		//Checks if the given background color is an instance.
 		Validator
 		.suppose(backgroundColor)
 		.thatIsNamed(VariableNameCatalogue.BACKGROUND_COLOR)
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the background color of the current {@link Area}.
 		this.backgroundColor = backgroundColor;

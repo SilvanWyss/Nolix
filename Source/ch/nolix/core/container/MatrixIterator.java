@@ -27,15 +27,15 @@ final class MatrixIterator<E> implements Iterator<E> {
 	 * Creates a new {@link MatrixIterator} for the given matrix.
 	 * 
 	 * @param parentMatrix
-	 * @throws NullArgumentException if the given parent matrix is null.
+	 * @throws NullArgumentException if the given parent matrix is not an instance.
 	 */
 	public MatrixIterator(final Matrix<E> parentMatrix) {
 		
-		//Checks if the given parent matrix is not null.
+		//Checks if the given parent matrix is an instance.
 		Validator
 		.suppose(parentMatrix)
 		.thatIsNamed("parent matrix")
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the parent matrix of the current matrix iterator.
 		this.parentMatrix = parentMatrix;

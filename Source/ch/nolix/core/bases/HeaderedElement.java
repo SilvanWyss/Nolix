@@ -24,7 +24,7 @@ public abstract class HeaderedElement implements Headered {
 	 * Creates a new {@link HeaderedElement} with the given header.
 	 * 
 	 * @param header
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws NullArgumentException if the given header is not an instance.
 	 * @throws EmptyArgumentException if the given header is empty.
 	 */
 	public HeaderedElement(final String header) {

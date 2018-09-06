@@ -41,7 +41,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws NullArgumentException if the given argument name is not an instance.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	StringMediator(final String argumentName, final String argument) {
@@ -53,14 +53,14 @@ public class StringMediator extends ArgumentMediator<String> {
 	//method
 	/**
 	 * @param maxLength
-	 * @throws NullArgumentException if the argument of this string mediator is null.
+	 * @throws NullArgumentException if the argument of this string mediator is not an instance.
 	 * @throws InvalidArgumentException
 	 * if the argument of this string mediator has a bigger length than the given max length.
 	 */
 	public void hasMaxLength(final int maxLength) {
 		
-		//Checks if the argument of this string mediator is not null.
-		isNotNull();
+		//Checks if the argument of this string mediator is an instance.
+		isInstance();
 		
 		//Checks if the argument of this string mediator has not a bigger length than the given max length.
 		if (getRefArgument().length() > maxLength) {
@@ -77,14 +77,14 @@ public class StringMediator extends ArgumentMediator<String> {
 	//method
 	/**
 	 * @param minLength
-	 * @throws NullArgumentException if the argument of this string mediator is null.
+	 * @throws NullArgumentException if the argument of this string mediator is not an instance.
 	 * @throws InvalidArgumentException
 	 * if the argument of this string mediator has a smaller length than the given min length.
 	 */
 	public void hasMinLength(final int minLength) {
 		
-		//Checks if the argument of this string mediator is not null.
-		isNotNull();
+		//Checks if the argument of this string mediator is an instance.
+		isInstance();
 		
 		//Checks if the argument of this string mediator has not a smaller length than the given min length.
 		if (getRefArgument().length() < minLength) {
@@ -100,13 +100,13 @@ public class StringMediator extends ArgumentMediator<String> {
 	
 	//method
 	/**
-	 * @throws NullArgumentException if the argument of this string mediator is null.
+	 * @throws NullArgumentException if the argument of this string mediator is not an instance.
 	 * @throws NonEmptyArgumentException if the argument of this string mediator is not empty.
 	 */
 	public void isEmpty() {
 		
-		//Checks if the argument of this string mediator is not null.
-		isNotNull();
+		//Checks if the argument of this string mediator is an instance.
+		isInstance();
 		
 		//Checks if the argument of this string mediator is not empty.
 		if (!getRefArgument().isEmpty()) {
@@ -116,13 +116,13 @@ public class StringMediator extends ArgumentMediator<String> {
 
 	//method
 	/**
-	 * @throws NullArgumentException if the argument of this string mediator is null.
+	 * @throws NullArgumentException if the argument of this string mediator is not an instance.
 	 * @throws EmptyArgumentException if the argument of this string mediator is empty.
 	 */
 	public void isNotEmpty() {
 		
-		//Checks if the argument of this string mediator is not null.
-		isNotNull();
+		//Checks if the argument of this string mediator is an instance.
+		isInstance();
 		
 		//Checks if the argument of this string mediator is not empty.
 		if (getRefArgument().isEmpty()) {
@@ -133,14 +133,14 @@ public class StringMediator extends ArgumentMediator<String> {
 	//method
 	/**
 	 * @param directory
-	 * @throws NullArgumentException if the argument of this string mediator is null.
+	 * @throws NullArgumentException if the argument of this string mediator is not an instance.
 	 * @throws InvalidArgumentException
 	 * if the given directory does not exist on the local machine or cannot be created on the local machine.
 	 */
 	public void specifiesProbableDirectoryOnLocalMachine(final String directory) {	
 		
-		//Checks if the argument of this string mediator is not null.
-		isNotNull();
+		//Checks if the argument of this string mediator is an instance.
+		isInstance();
 				
 		boolean specifiesProbableDirectoryOnLocalMachine = true;
 		try {

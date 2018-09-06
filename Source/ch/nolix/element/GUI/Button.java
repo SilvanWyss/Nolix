@@ -41,7 +41,7 @@ public final class Button extends TextLineWidget<Button> {
 	 * 
 	 * @param text
 	 * @throws NullArgumentException
-	 * if the given text is null.
+	 * if the given text is not an instance.
 	 */
 	public Button(final String text) {
 		
@@ -151,15 +151,15 @@ public final class Button extends TextLineWidget<Button> {
 	 * 
 	 * @param role
 	 * @return the current {@link Button}.
-	 * @throws NullArgumentException if the given role is null.
+	 * @throws NullArgumentException if the given role is not an instance.
 	 */
 	public Button setRole(final ButtonRole role) {
 		
-		//Checks if the given role is not null.
+		//Checks if the given role is an instance.
 		Validator
 		.suppose(role)
 		.thatIsNamed(VariableNameCatalogue.ROLE)
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the role of the current button.
 		this.role = role;

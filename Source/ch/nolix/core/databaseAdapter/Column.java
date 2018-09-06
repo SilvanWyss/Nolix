@@ -23,7 +23,7 @@ public final class Column<V> extends HeaderedElement implements Specified {
 		Validator
 		.suppose(propertyType)
 		.thatIsNamed("property type")
-		.isNotNull();
+		.isInstance();
 		
 		this.propertyType = propertyType;
 	}

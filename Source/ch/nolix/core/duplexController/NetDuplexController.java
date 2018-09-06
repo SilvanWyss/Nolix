@@ -79,7 +79,7 @@ public class NetDuplexController extends DuplexController {
 	 * @param port
 	 * @parma target
 	 * @throws OutOfRangeException if the given port is not in [0, 65535].
-	 * @throws NullArgumentException if the given target is null.
+	 * @throws NullArgumentException if the given target is not an instance.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
 	public NetDuplexController(final String ip, final int port, final String target) {
@@ -93,11 +93,11 @@ public class NetDuplexController extends DuplexController {
 	 * Creates a new net duplex controller with the given net end point.
 	 * 
 	 * @param netEndPoint
-	 * @throws NullArgumentException if the given net end point is null.
+	 * @throws NullArgumentException if the given net end point is not an instance.
 	 */
 	NetDuplexController(final NetEndPoint netEndPoint) {
 		
-		//Checks if the given net end point is not null.
+		//Checks if the given net end point is an instance.
 		Validator.suppose(netEndPoint).isInstanceOf(NetEndPoint.class);
 		
 		//Sets the net end point of this net duplex controller.

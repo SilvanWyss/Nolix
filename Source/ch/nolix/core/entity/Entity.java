@@ -148,7 +148,7 @@ public abstract class Entity implements Specified {
 						
 						final var property = (Propertyoid<Specified>)(f.get(this));
 						
-						//Checks if the current property is not null.
+						//Checks if the current property is an instance.
 						Validator.suppose(property).isInstanceOf(MutableProperty.class);
 						
 						properties.addAtEnd(property);		

@@ -36,7 +36,7 @@ final class WidgetCreator {
 	 * Creates a new {@link WidgetCreator} with the given widget classes.
 	 * 
 	 * @param widgetClasses
-	 * @throws NullArgumentException if one of the given widget classes is null.
+	 * @throws NullArgumentException if one of the given widget classes is not an instance.
 	 * @throws InvalidArgumentException
 	 * if the current {@link WidgetCreator}
 	 * can already create a {@link Widget} of the same type as one of the given widget classes.
@@ -50,15 +50,15 @@ final class WidgetCreator {
 	 * Adds the given widget class to the current {@link WidgetCreator}.
 	 * 
 	 * @param widgetClass
-	 * @throws NullArgumentException if the given widget class is null.
+	 * @throws NullArgumentException if the given widget class is not an instance.
 	 * @throws InvalidArgumentException
 	 * if the current {@link WidgetCreator}
 	 * can already create a {@link Widget} of the same type as the given widget class.
 	 */
 	public void addWidgetClass(final Class<?> widgetClass) {
 		
-		//Checks if the given widget class is not null.
-		Validator.suppose(widgetClass).thatIsNamed("widget class").isNotNull();
+		//Checks if the given widget class is an instance.
+		Validator.suppose(widgetClass).thatIsNamed("widget class").isInstance();
 
 		//Checks if the current widget creator cannot already create a widget of the same type as the given widget class.
 		if (canCreateWidget(widgetClass.getSimpleName())) {
@@ -81,7 +81,7 @@ final class WidgetCreator {
 	 * Adds the given widget clasess to the current {@link WidgetCreator}.
 	 * 
 	 * @param widgetClasses
-	 * @throws NullArgumentException if one of the given widget classes is null.
+	 * @throws NullArgumentException if one of the given widget classes is not an instance.
 	 * @throws InvalidArgumentException
 	 * if the current {@link WidgetCreator}
 	 * can already create a {@link Widget} of the same type as one of the given widget classes.

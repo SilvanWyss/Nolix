@@ -19,7 +19,7 @@ public final class MatrixRow<E> implements IContainer<E> {
 		Validator
 		.suppose(parentMatrix)
 		.thatIsNamed("parent matrix")
-		.isNotNull();
+		.isInstance();
 		
 		Validator
 		.suppose(rowIndex)

@@ -41,14 +41,14 @@ public abstract class Specification {
 	/**
 	 * @param string
 	 * @return a reproducing string for the given string on the specification context.
-	 * @throws NullArgumentException if the given string is null.
+	 * @throws NullArgumentException if the given string is not an instance.
 	 */
 	public static String createReproducingString(final String string) {
 		
-		//Checks if the given string is not null.
+		//Checks if the given string is an instance.
 		Validator
 		.suppose(string)
-		.isNotNull();
+		.isInstance();
 		
 		return
 		string
@@ -65,14 +65,14 @@ public abstract class Specification {
 	/**
 	 * @param reproducingString
 	 * @return an origin string from the given reproducing string on the specification context.
-	 * @throws NullArgumentException if the given reproducingString is null.
+	 * @throws NullArgumentException if the given reproducingString is not an instance.
 	 */
 	public static String createOriginStringFromReproducingString(final String reproducingString) {
 		
 		Validator
 		.suppose(reproducingString)
 		.thatIsNamed("reproducing string")
-		.isNotNull();
+		.isInstance();
 		
 		return		
 		reproducingString		

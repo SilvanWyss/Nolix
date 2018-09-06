@@ -24,7 +24,7 @@ implements Signable<SE> {
 	 * Creates a new signable element with the given info stirng.
 	 * 
 	 * @param infoString
-	 * @throws NullArgumentException if the given info string is null.
+	 * @throws NullArgumentException if the given info string is not an instance.
 	 * @throws EmptyArgumentException if the given info string is empty.
 	 */
 	public SignableElement(final String infoString) {
@@ -45,7 +45,7 @@ implements Signable<SE> {
 	 * 
 	 * @param infoString
 	 * @return this signable element.
-	 * @throws NullArgumentException if the given info string is null.
+	 * @throws NullArgumentException if the given info string is not an instance.
 	 * @throws EmptyArgumentException if the given info string is empty.
 	 */
 	public final SE setInfoString(final String infoString) {

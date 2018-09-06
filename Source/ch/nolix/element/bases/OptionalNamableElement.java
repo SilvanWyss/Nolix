@@ -161,13 +161,13 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	 * Sets the requestable container this optional namable element will belong to.
 	 * 
 	 * @param requestableContainer
-	 * @throws NullArgumentExcetpion if the given requestable container is null.
+	 * @throws NullArgumentExcetpion if the given requestable container is not an instance.
 	 * @throws new InvalidStateException
 	 * if this optional namable element belongs already to another requestable container.
 	 */
 	public final void setRequestableContainer(IRequestableContainer requestableContainer) {
 		
-		//Checks if the given requestable container is not null.
+		//Checks if the given requestable container is an instance.
 		Validator.suppose(requestableContainer).isInstanceOf(IRequestableContainer.class);
 		
 		//Checks if this optional namable elmeent does not belong to another requestable container.

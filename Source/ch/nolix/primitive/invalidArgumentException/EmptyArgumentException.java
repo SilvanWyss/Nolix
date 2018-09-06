@@ -30,7 +30,7 @@ public final class EmptyArgumentException extends InvalidArgumentException {
 	 * Creates a new empty argument exception for the given argument.
 	 * 
 	 * @param argument
-	 * @throws RuntimeException if the given argument is null.
+	 * @throws RuntimeException if the given argument is not an instance.
 	 */
 	public EmptyArgumentException(final Argument argument) {
 		
@@ -43,7 +43,7 @@ public final class EmptyArgumentException extends InvalidArgumentException {
 	 * Creates a new empty argument exception for an argument that has given argument name.
 	 * 
 	 * @param argumentName
-	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is not an instance.
 	 */
 	public EmptyArgumentException(final ArgumentName argumentName) {
 		

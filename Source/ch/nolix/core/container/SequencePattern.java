@@ -47,7 +47,7 @@ public final class SequencePattern<E> {
 	 * Adds the given condition for the next element of the sequences of this sequence pattern.
 	 * 
 	 * @param condition
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws NullArgumentException if the given condition is not an instance.
 	 */
 	public SequencePattern<E> addConditionForNext(final IElementTakerBooleanGetter<E> condition) {
 		
@@ -63,7 +63,7 @@ public final class SequencePattern<E> {
 	 * 
 	 * @param sequenceCondition
 	 * @return this sequence pattern.
-	 * @throws NullArgumentException if the given sequence condition is null.
+	 * @throws NullArgumentException if the given sequence condition is not an instance.
 	 * 
 	 */
 	public SequencePattern<E> addSequenceCondition(

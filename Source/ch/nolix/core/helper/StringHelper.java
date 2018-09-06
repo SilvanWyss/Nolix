@@ -27,14 +27,14 @@ public final class StringHelper {
 	 * @param string
 	 * @param length
 	 * @return a new string that is the given string extended to the given length with spaces.
-	 * @throws NullArgumentException if the given string is null.
+	 * @throws NullArgumentException if the given string is not an instance.
 	 * @throws NegativeArgumentException if the given length is negative.
 	 * @throws InvalidArgumentException if the given string is longer than the given length.
 	 */
 	public static String createStringWithLength(final String string, final int length) {
 		
-		//Checks if the given string is not null.
-		Validator.suppose(string).isNotNull();
+		//Checks if the given string is an instance.
+		Validator.suppose(string).isInstance();
 		
 		//Checks if the given length is not negative.
 		Validator.suppose(length).thatIsNamed("length").isNotNegative();

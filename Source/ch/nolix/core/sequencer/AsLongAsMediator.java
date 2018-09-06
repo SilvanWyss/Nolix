@@ -27,12 +27,12 @@ public final class AsLongAsMediator {
 	 * Creates a new as long as mediator with the given condition.
 	 * 
 	 * @param condition
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws NullArgumentException if the given condition is not an instance.
 	 */
 	AsLongAsMediator(final IBooleanGetter condition) {
 		
-		//Checks if the given condition is not null.
-		Validator.suppose(condition).thatIsNamed("condition").isNotNull();
+		//Checks if the given condition is an instance.
+		Validator.suppose(condition).thatIsNamed("condition").isInstance();
 		
 		maxRunCount = null;
 		this.condition = condition;
@@ -88,7 +88,7 @@ public final class AsLongAsMediator {
 	 * 
 	 * @param job
 	 * @return a new future.
-	 * @throws NullArgumentException if the given job is null.
+	 * @throws NullArgumentException if the given job is not an instance.
 	 */
 	public Future runInBackground(final IFunction job) {
 		

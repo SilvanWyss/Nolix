@@ -30,7 +30,7 @@ public final class NetServer extends Server {
 	 * 
 	 * @param port
 	 * @param endPointTaker
-	 * @throws NullArgumentException if the given end point taker is null.
+	 * @throws NullArgumentException if the given end point taker is not an instance.
 	 * @throws OutOfRangeArgumentException if the given argument is not in [0, 65535].
 	 */
 	public NetServer(final int port, final IEndPointTaker endPointTaker) {

@@ -27,7 +27,7 @@ public final class DoubleDeviationMediator extends Mediator {
 	 * 
 	 * @param test
 	 * @param value
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws NullArgumentException if the given test is not an instance.
 	 */
 	DoubleDeviationMediator(final Test test, final double value) {
 		
@@ -44,7 +44,7 @@ public final class DoubleDeviationMediator extends Mediator {
 	 * 
 	 * @param test
 	 * @param value
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws NullArgumentException if the given test is not an instance.
 	 * @throws NegativeArgumentException if the given max deviation is negative.
 	 */
 	DoubleDeviationMediator(

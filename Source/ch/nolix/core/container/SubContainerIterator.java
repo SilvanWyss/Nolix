@@ -29,7 +29,7 @@ final class SubContainerIterator<E> implements Iterator<E> {
 	 * @param container
 	 * @param startIndex
 	 * @param endIndex
-	 * @throws NullArgumentException if the given container is null.
+	 * @throws NullArgumentException if the given container is not an instance.
 	 * @throws NonPositiveArgumentexception if the given start index is not positive.
 	 * @throws NonPositiveArgumentexception if the given end index is not positive.
 	 */
@@ -41,7 +41,7 @@ final class SubContainerIterator<E> implements Iterator<E> {
 		Validator
 		.suppose(container)
 		.thatIsNamed("container")
-		.isNotNull();
+		.isInstance();
 		
 		Validator
 		.suppose(startIndex)

@@ -42,10 +42,10 @@ public class Application<C extends Client<C>> extends NamedElement {
 	 * @param name
 	 * @param clientClass
 	 * @param initialSessionClass
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given client class is null.
-	 * @throws NullArgumentException if the given initial session class is null.
+	 * @throws NullArgumentException if the given client class is not an instance.
+	 * @throws NullArgumentException if the given initial session class is not an instance.
 	 */
 	public Application(
 		final String name,
@@ -56,17 +56,17 @@ public class Application<C extends Client<C>> extends NamedElement {
 		//Calls constructor of the base class.
 		super(name);
 		
-		//Checks if the given client class is not null.
+		//Checks if the given client class is an instance.
 		Validator
 		.suppose(clientClass)
 		.thatIsNamed("client class")
-		.isNotNull();
+		.isInstance();
 		
-		//Checks if the given initial session class is not null.
+		//Checks if the given initial session class is an instance.
 		Validator
 		.suppose(initialSessionClass)
 		.thatIsNamed("initial session class")
-		.isNotNull();
+		.isInstance();
 		
 		this.clientClass = clientClass;
 		this.initialSessionClass = initialSessionClass;
@@ -82,11 +82,11 @@ public class Application<C extends Client<C>> extends NamedElement {
 	 * @param clientClass
 	 * @param initialSessionClass
 	 * @param context
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given client class is null.
-	 * @throws NullArgumentException if the given initial session class is null.
-	 * @throws NullArgumentException if the given context is null.
+	 * @throws NullArgumentException if the given client class is not an instance.
+	 * @throws NullArgumentException if the given initial session class is not an instance.
+	 * @throws NullArgumentException if the given context is not an instance.
 	 */
 	public Application(
 		final String name,
@@ -98,23 +98,23 @@ public class Application<C extends Client<C>> extends NamedElement {
 		//Calls constructor of the base class.
 		super(name);
 		
-		//Checks if the given client class is not null.
+		//Checks if the given client class is an instance.
 		Validator
 		.suppose(clientClass)
 		.thatIsNamed("client class")
-		.isNotNull();
+		.isInstance();
 		
-		//Checks if the given initial session class is not null.
+		//Checks if the given initial session class is an instance.
 		Validator
 		.suppose(initialSessionClass)
 		.thatIsNamed("initial session class")
-		.isNotNull();
+		.isInstance();
 		
-		//Checks if the given context is not null.
+		//Checks if the given context is an instance.
 		Validator
 		.suppose(context)
 		.thatIsNamed(VariableNameCatalogue.CONTEXT)
-		.isNotNull();
+		.isInstance();
 		
 		this.clientClass = clientClass;
 		this.initialSessionClass = initialSessionClass;
@@ -131,10 +131,10 @@ public class Application<C extends Client<C>> extends NamedElement {
 	 * @param clientClass
 	 * @param initialSessionClass
 	 * @param port
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given client class is null.
-	 * @throws NullArgumentException if the given initial session class is null.
+	 * @throws NullArgumentException if the given client class is not an instance.
+	 * @throws NullArgumentException if the given initial session class is not an instance.
 	 */
 	@SuppressWarnings("resource")
 	public Application(

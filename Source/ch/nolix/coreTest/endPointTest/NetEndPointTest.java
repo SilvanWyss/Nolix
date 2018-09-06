@@ -84,7 +84,7 @@ public final class NetEndPointTest extends Test {
 			Validator
 			.suppose(message)
 			.thatIsNamed(VariableNameCatalogue.MESSAGE)
-			.isNotNull();
+			.isInstance();
 			
 			lastReceivedMessage = message;
 		}

@@ -52,8 +52,8 @@ implements Clearable<TabContainer> {
 	 * Creates a new {@link TabContainer} with the given tabs.
 	 * 
 	 * @param tabs
-	 * @throws NullArgumentException if the given tabs is null.
-	 * @throws NullArgumentException if one of the given tabs is null.
+	 * @throws NullArgumentException if the given tabs is not an instance.
+	 * @throws NullArgumentException if one of the given tabs is not an instance.
 	 */
 	public TabContainer(final Iterable<TabContainerTab> tabs) {
 		
@@ -68,8 +68,8 @@ implements Clearable<TabContainer> {
 	 * Creates a new {@link TabContainer} with the given tabs.
 	 * 
 	 * @param tabs
-	 * @throws NullArgumentException if the given tabs is null.
-	 * @throws NullArgumentException if one of the given tabs is null.
+	 * @throws NullArgumentException if the given tabs is not an instance.
+	 * @throws NullArgumentException if one of the given tabs is not an instance.
 	 */
 	public TabContainer(final TabContainerTab... tabs) {
 		
@@ -101,16 +101,16 @@ implements Clearable<TabContainer> {
 	 * 
 	 * @param tabs
 	 * @return the current {@link TabContainer}.
-	 * @throws NullArgumentException if the given tabs is null.
-	 * @throws NullArgumentException if one of the given tabs is null.
+	 * @throws NullArgumentException if the given tabs is not an instance.
+	 * @throws NullArgumentException if one of the given tabs is not an instance.
 	 */
 	public TabContainer addTabs(final Iterable<TabContainerTab> tabs) {
 		
-		//Checks if the given tabs is not null.
+		//Checks if the given tabs is an instance.
 		Validator
 		.suppose(tabs)
 		.thatIsNamed("tabs")
-		.isNotNull();
+		.isInstance();
 		
 		//Iterates the given tabs.
 		tabs.forEach(t -> addTab(t));
@@ -124,16 +124,16 @@ implements Clearable<TabContainer> {
 	 * 
 	 * @param tab
 	 * @return the current {@link TabContainer}.
-	 * @throws NullArgumentException if the given tab is null.
+	 * @throws NullArgumentException if the given tab is not an instance.
 	 * @throws InvalidStateException if the given tab belongs already to a {@link TabContainer}.
 	 */
 	public TabContainer addTab(final TabContainerTab tab) {
 		
-		//Checks if the given tab is not null.
+		//Checks if the given tab is an instance.
 		Validator
 		.suppose(tab)
 		.thatIsNamed(PascalCaseNameCatalogue.TAB)
-		.isNotNull();
+		.isInstance();
 		
 		//Adds the given tab to the current tab container.
 		tab.setParentTabContainer(this);
@@ -155,8 +155,8 @@ implements Clearable<TabContainer> {
 	 * 
 	 * @param tabs
 	 * @return the current {@link TabContainer}.
-	 * @throws NullArgumentException if the given tabs is null.
-	 * @throws NullArgumentException if one of the given tabs is null.
+	 * @throws NullArgumentException if the given tabs is not an instance.
+	 * @throws NullArgumentException if one of the given tabs is not an instance.
 	 */
 	public TabContainer addTab(TabContainerTab... tabs) {
 		return addTabs(new ReadContainer<TabContainerTab>(tabs));

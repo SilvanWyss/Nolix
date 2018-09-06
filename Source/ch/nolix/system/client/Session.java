@@ -167,16 +167,16 @@ public abstract class Session<C extends Client<C>> {
 	 * Sets the parent client of the current {@link Session}.
 	 * 
 	 * @param parentClient
-	 * @throws NullArgumentException if the given parent client is null.
+	 * @throws NullArgumentException if the given parent client is not an instance.
 	 * @throws InvalidStateException if the current {@link Session} belongs to a client.
 	 */
 	final void setParentClient(C parentClient) {
 		
-		//Checks if the given client is not null.
+		//Checks if the given client is an instance.
 		Validator
 		.suppose(parentClient)
 		.thatIsNamed("parent client")
-		.isNotNull();
+		.isInstance();
 		
 		//Checks if the current session does not belong to a client.
 		suppoeDoesNotBelongToClient();
@@ -201,14 +201,14 @@ public abstract class Session<C extends Client<C>> {
 	 * Sets the pop function of the current {@link Session}.
 	 * 
 	 * @param popFunction
-	 * @throws NullArgumentException if the given pop function is null.
+	 * @throws NullArgumentException if the given pop function is not an instance.
 	 */
 	final void setPopFunction(final IFunction popFunction) {
 		
 		Validator
 		.suppose(popFunction)
 		.thatIsNamed("pop function")
-		.isNotNull();
+		.isInstance();
 		
 		this.popFunction = popFunction;
 	}

@@ -21,11 +21,11 @@ final class Replier implements IReplier {
 	 * Creates a new receiver that belongs to the given net duplex controller.
 	 * 
 	 * @param netDuplexController
-	 * @throws NullArgumentException if the given net duplex controller is null.
+	 * @throws NullArgumentException if the given net duplex controller is not an instance.
 	 */
 	public Replier(final NetDuplexController netDuplexController) {
 		
-		//Checks if the given net duplex controller is not null.
+		//Checks if the given net duplex controller is an instance.
 		Validator.throwExceptionIfValueIsNull("net controller", netDuplexController);
 		
 		//Sets the net duplex controller of this replier.

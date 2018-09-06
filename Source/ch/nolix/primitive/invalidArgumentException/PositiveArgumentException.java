@@ -49,7 +49,7 @@ public final class PositiveArgumentException extends InvalidArgumentException {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is not an instance.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
 	public PositiveArgumentException(
@@ -71,7 +71,7 @@ public final class PositiveArgumentException extends InvalidArgumentException {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is not an instance.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
 	public PositiveArgumentException(

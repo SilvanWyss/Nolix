@@ -8,7 +8,7 @@ import ch.nolix.primitive.validator2.Validator;
 
 //package-visible class
 /**
- * A list node contains an element that is not null.
+ * A list node contains an element that is an instance.
  * A list node can have a next node.
  * 
  * @author Silvan Wyss
@@ -29,7 +29,7 @@ final class ListNode<E> {
 	 * Creates a new list node with the given element.
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws NullArgumentException if the given element is not an instance.
 	 */
 	public ListNode(final E element) {		
 		setElement(element);
@@ -97,12 +97,12 @@ final class ListNode<E> {
 	 * Sets the element of this list node.
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is null.
+	 * @throws NullArgumentException if the given element is not an instance.
 	 */
 	public void setElement(final E element) {
 		
-		//Checks if the given element is not null.
-		Validator.suppose(element).thatIsNamed("element").isNotNull();
+		//Checks if the given element is an instance.
+		Validator.suppose(element).thatIsNamed("element").isInstance();
 		
 		//Sets the element of this list node.
 		this.element = element;
@@ -113,12 +113,12 @@ final class ListNode<E> {
 	 * Sets the next node of this list node.
 	 * 
 	 * @param nextNode
-	 * @throws NullArgumentException if the given next node is null.
+	 * @throws NullArgumentException if the given next node is not an instance.
 	 */
 	public  void setNextNode(final ListNode<E> nextNode) {
 		
-		//Checks if the given next node is not null.
-		Validator.suppose(nextNode).thatIsNamed("next node").isNotNull();
+		//Checks if the given next node is an instance.
+		Validator.suppose(nextNode).thatIsNamed("next node").isInstance();
 		
 		//Sets the next node of this list node.
 		this.nextNode = nextNode;

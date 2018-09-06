@@ -47,7 +47,7 @@ public class DoubleMediator extends Mediator {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws NullArgumentException if the given argument name is not an instance.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	DoubleMediator(final String argumentName, final double argument) {

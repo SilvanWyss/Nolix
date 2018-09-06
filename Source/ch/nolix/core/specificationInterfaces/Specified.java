@@ -34,7 +34,7 @@ public interface Specified extends Typed {
 	/**
 	 * @param type
 	 * @return the specification of this specified as the given type.
-	 * @throws NullArgumentException if the given type is null.
+	 * @throws NullArgumentException if the given type is not an instance.
 	 * @throws EmptyArgumentException if the given type is empty.
 	 */
 	public default StandardSpecification getSpecificationAs(final String type) {

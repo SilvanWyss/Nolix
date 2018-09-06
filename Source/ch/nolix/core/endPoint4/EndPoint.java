@@ -50,11 +50,11 @@ implements IGenericSender2<M, R> {
 	 * Sets the replier of this end point.
 	 * 
 	 * @param replier
-	 * @throws NullArgumentException if the given replier is null.
+	 * @throws NullArgumentException if the given replier is not an instance.
 	 */
 	public void setReplier(final IGenericReplier<M, R> replier) {
 		
-		//Checks if the given replier is not null.
+		//Checks if the given replier is an instance.
 		Validator.suppose(replier).isInstanceOf(IReplier.class);
 		
 		//Sets the replier of this end point.

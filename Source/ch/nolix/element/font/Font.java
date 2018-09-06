@@ -65,7 +65,7 @@ public final class Font extends Element {
 	 * Creates a new font with the given text color.
 	 * 
 	 * @param textColor
-	 * @throws NullArgumentException if the given text color is null.
+	 * @throws NullArgumentException if the given text color is not an instance.
 	 */
 	public Font(final Color text_color) {
 		
@@ -91,7 +91,7 @@ public final class Font extends Element {
 	 * Creates a new font with the given text font.
 	 * 
 	 * @param textFont
-	 * @throws NullArgumentException if the given text font is null.
+	 * @throws NullArgumentException if the given text font is not an instance.
 	 */
 	public Font(final TextFont textFont) {
 		
@@ -104,7 +104,7 @@ public final class Font extends Element {
 	 * Creates a new font with the given text style.
 	 * 
 	 * @param textStyle
-	 * @throws NullArgumentException if the given text style is null.
+	 * @throws NullArgumentException if the given text style is not an instance.
 	 */
 	public Font(final TextStyle textStyle) {
 		
@@ -119,9 +119,9 @@ public final class Font extends Element {
 	 * @param textFont
 	 * @param textSize
 	 * @param textColor
-	 * @throws NullArgumentException if the given text font is null.
+	 * @throws NullArgumentException if the given text font is not an instance.
 	 * @throws NonPositiveArgumentException if the given text size is not positive.
-	 * @throws NullArgumentException if the given text color is null.
+	 * @throws NullArgumentException if the given text color is not an instance.
 	 */
 	public Font(
 		final TextFont textFont,
@@ -129,14 +129,14 @@ public final class Font extends Element {
 		final int textSize,
 		final Color textColor) {
 		
-		//Checks if the given text font is not null.
+		//Checks if the given text font is an instance.
 		Validator.suppose(textFont).isInstanceOf(TextFont.class);
 		
-		//Checks if the given text style is not null.
+		//Checks if the given text style is an instance.
 		Validator.suppose(textStyle).isInstanceOf(TextStyle.class);
 		
-		//Checks if the given text color is not null.
-		Validator.suppose(textColor).thatIsNamed(TEXT_COLOR_HEADER).isNotNull();
+		//Checks if the given text color is an instance.
+		Validator.suppose(textColor).thatIsNamed(TEXT_COLOR_HEADER).isInstance();
 		
 		this.textFont = textFont;
 		this.textStyle = textStyle;

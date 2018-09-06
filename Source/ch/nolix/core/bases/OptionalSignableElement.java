@@ -62,7 +62,7 @@ implements OptionalSignable<OSE> {
 	 * 
 	 * @param infoString
 	 * @return this optional signable element.
-	 * @throws NullArgumentException if the given info string is null.
+	 * @throws NullArgumentException if the given info string is not an instance.
 	 * @throws EmptyArgumentException if the given info string is empty.
 	 */
 	public final OSE setInfoString(final String infoString) {

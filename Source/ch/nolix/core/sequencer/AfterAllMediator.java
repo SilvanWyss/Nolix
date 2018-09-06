@@ -29,13 +29,13 @@ public final class AfterAllMediator {
 	 * 
 	 * @param condition
 	 * @param timeIntervalInMilliseconds
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws NullArgumentException if the given condition is not an instance.
 	 * @throws NegativeArgumentException if the given time interval in milliseconds is negative.
 	 */
 	AfterAllMediator(final IBooleanGetter condition, final int timeIntervalInMilliseconds) {
 		
-		//Checks if the given condition is not null.
-		Validator.suppose(condition).thatIsNamed("condition").isNotNull();
+		//Checks if the given condition is an instance.
+		Validator.suppose(condition).thatIsNamed("condition").isInstance();
 		
 		//Checks if the given time interval in milliseconds is not negative.
 		Validator
@@ -76,7 +76,7 @@ public final class AfterAllMediator {
 	 * @param condition
 	 * @param timeIntervalInMilliseconds
 	 * @throws NegativeArgumentException if the given max run count is negative.
-	 * @throws NullArgumentException if the given condition is null.
+	 * @throws NullArgumentException if the given condition is not an instance.
 	 * @throws NegativeArgumentException if the given time interval in milliseconds is negative.
 	 */
 	AfterAllMediator(
@@ -87,8 +87,8 @@ public final class AfterAllMediator {
 		//Checks if the given max run count is not negative.
 		Validator.suppose(maxRunCount).thatIsNamed("max run count").isNotNegative();
 		
-		//Checks if the given condition is not null.
-		Validator.suppose(condition).thatIsNamed("condition").isNotNull();
+		//Checks if the given condition is an instance.
+		Validator.suppose(condition).thatIsNamed("condition").isInstance();
 		
 		//Checks if the given time interval in milliseconds is not negative.
 		Validator
@@ -160,7 +160,7 @@ public final class AfterAllMediator {
 	 * 
 	 * @param job
 	 * @return a new future.
-	 * @throws NullArgumentException if the given job is null.
+	 * @throws NullArgumentException if the given job is not an instance.
 	 */
 	public final Future runInBackground(final IFunction job) {
 		

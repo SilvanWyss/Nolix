@@ -24,7 +24,7 @@ public final class ClosureMediator extends Mediator {
 	 * 
 	 * @param test
 	 * @param closure
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws NullArgumentException if the given test is not an instance.
 	 */
 	ClosureMediator(final Test test, final IFunction closure) {
 		
@@ -38,17 +38,17 @@ public final class ClosureMediator extends Mediator {
 	//method
 	/**
 	 * Generates an error if:
-	 * -The closure of this closure mediator is null.
+	 * -The closure of this closure mediator is not an instance.
 	 * -The closure of this closure mediator throws no exception by running 1 time.
 	 */
 	public void throwsException() {
 		
-		//Handles the case that the closure of this closure mediator is null.
+		//Handles the case that the closure of this closure mediator is not an instance.
 		if (closure == null) {
 			addCurrentTestCaseError("A closure that throws an exception was expected, but null was received.");
 		}
 		
-		//Handles the case that the closure of this closure mediator is not null.
+		//Handles the case that the closure of this closure mediator is an instance.
 		else {
 			try {
 				closure.run();
@@ -61,26 +61,26 @@ public final class ClosureMediator extends Mediator {
 	//method
 	/**
 	 * Generates an error if:
-	 * -The closure of this closure mediator is null.
+	 * -The closure of this closure mediator is not an instance.
 	 * -The closure of this closure mediator throws no exception
 	 *  whose type is of the given type or is a sub type of the given type.
 	 * 
 	 * @param type
-	 * @throws NullArgumentException if the given type is null.
+	 * @throws NullArgumentException if the given type is not an instance.
 	 */
 	public void throwsExceptionOfType(final Class<?> type) {
 		
-		//Checks if the given type is not null.
+		//Checks if the given type is an instance.
 		if (type == null) {
 			throw new NullArgumentException("type");
 		}
 		
-		//Handles the case that the closure of this closure mediator is null.
+		//Handles the case that the closure of this closure mediator is not an instance.
 		if (closure == null) {
 			addCurrentTestCaseError("A closure that throws an exception of the type " + type.getName() + " was expected, but null was received.");
 		}
 		
-		//Handles the case that the closure of this closure mediator is not null.
+		//Handles the case that the closure of this closure mediator is an instance.
 		else {
 			try {
 				closure.run();
@@ -99,17 +99,17 @@ public final class ClosureMediator extends Mediator {
 	//method
 	/**
 	 * Generates an error if:
-	 * -The closure of this closure mediator is null.
+	 * -The closure of this closure mediator is not an instance.
 	 * -The closure of this closure mediator throws an exception by running 1 time.
 	 */
 	public void throwsNoException() {
 		
-		//Handles the case that the closure of this closure mediator is null.
+		//Handles the case that the closure of this closure mediator is not an instance.
 		if (closure == null) {
 			addCurrentTestCaseError("A closure that throws no exception was expected, but null was received.");
 		}
 		
-		//Handles the case that the closure of this closure mediator is not null.
+		//Handles the case that the closure of this closure mediator is an instance.
 		else {
 			try {
 				closure.run();

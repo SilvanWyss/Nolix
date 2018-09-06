@@ -142,7 +142,7 @@ implements Headered, Specified {
 		Validator
 		.suppose(parentEntity)
 		.thatIsNamed("parent entity")
-		.isNotNull();
+		.isInstance();
 		
 		supposeBelongsToNoEntity();
 		

@@ -20,11 +20,11 @@ public final class ResultFuture<R> {
 	 * Creates a new result future with the given result job runner.
 	 * 
 	 * @param resultJobRunner
-	 * @throws NullArgumentException if the given result job runner is null.
+	 * @throws NullArgumentException if the given result job runner is not an instance.
 	 */
 	ResultFuture(final ResultJobRunner<R> resultJobRunner) {
 		
-		//Checks if the given result job runner is not null.
+		//Checks if the given result job runner is an instance.
 		Validator.suppose(resultJobRunner).isInstanceOf(ResultJobRunner.class);
 		
 		//Sets the result job runner of this result future.

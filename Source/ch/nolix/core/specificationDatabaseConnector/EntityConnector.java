@@ -20,7 +20,7 @@ public final class EntityConnector<E extends Entity> implements Identified {
 		Validator
 		.suppose(entitySpecification)
 		.thatIsNamed("entity specification")
-		.isNotNull();
+		.isInstance();
 		
 		this.entitySpecification = entitySpecification;
 	}

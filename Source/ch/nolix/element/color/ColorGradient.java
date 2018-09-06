@@ -89,9 +89,9 @@ public class ColorGradient extends Element {
 	 * @param direction
 	 * @param color1
 	 * @param color2
-	 * @throws NullArgumentException if the given direction is null.
-	 * @throws NullArgumentException if the given color 1 is null.
-	 * @throws NullArgumentException if the given color 2 is null.
+	 * @throws NullArgumentException if the given direction is not an instance.
+	 * @throws NullArgumentException if the given color 1 is not an instance.
+	 * @throws NullArgumentException if the given color 2 is not an instance.
 	 */
 	public ColorGradient(
 		final Color color1,
@@ -106,7 +106,7 @@ public class ColorGradient extends Element {
 	 * Creates a new color gradient with the given direction.
 	 * 
 	 * @param direction
-	 * @throws NullArgumentException if the given direction is null.
+	 * @throws NullArgumentException if the given direction is not an instance.
 	 */
 	public ColorGradient(final UniDirection direction) {
 		
@@ -121,23 +121,23 @@ public class ColorGradient extends Element {
 	 * @param direction
 	 * @param color1
 	 * @param color2
-	 * @throws NullArgumentException if the given direction is null.
-	 * @throws NullArgumentException if the given color 1 is null.
-	 * @throws NullArgumentException if the given color 2 is null.
+	 * @throws NullArgumentException if the given direction is not an instance.
+	 * @throws NullArgumentException if the given color 1 is not an instance.
+	 * @throws NullArgumentException if the given color 2 is not an instance.
 	 */
 	public ColorGradient(
 		final UniDirection direction,
 		final Color color1,
 		final Color color2
 	) {
-		//Checks if the given direction is not null.
-		Validator.suppose(direction).thatIsNamed("direction").isNotNull();
+		//Checks if the given direction is an instance.
+		Validator.suppose(direction).thatIsNamed("direction").isInstance();
 		
-		//Checks if the given color 1 is not null.
-		Validator.suppose(color1).thatIsNamed("color 1").isNotNull();
+		//Checks if the given color 1 is an instance.
+		Validator.suppose(color1).thatIsNamed("color 1").isInstance();
 		
-		//Checks if the given color 2 is not null.
-		Validator.suppose(color2).thatIsNamed("color 2").isNotNull();
+		//Checks if the given color 2 is an instance.
+		Validator.suppose(color2).thatIsNamed("color 2").isInstance();
 		
 		this.direction = direction;
 		this.color1 = color1;

@@ -30,9 +30,9 @@ public final class Factory<I, O> {
 	 * @return the current {@link Factory}.
 	 * @throws InvalidStateException if the current {@link Factory}
 	 * can already create instances of the given type.
-	 * @throws NullArgumentException if the given instance type is null.
+	 * @throws NullArgumentException if the given instance type is not an instance.
 	 * @throws EmptyArgumentException if the given instance type is empty.
-	 * @throws NullArgumentException if the given instance creator function is null.
+	 * @throws NullArgumentException if the given instance creator function is not an instance.
 	 */
 	public Factory<I, O> addInstanceCreator(
 		final String type,

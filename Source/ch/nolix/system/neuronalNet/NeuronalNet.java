@@ -34,24 +34,24 @@ extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	 * 
 	 * @param inputLayerNeurons
 	 * @param internalOutputNeurons
-	 * @throws NullArgumentException if the given input layer neurons is null.
-	 * @throws NullArgumentException if the given output layer neurons is null.
+	 * @throws NullArgumentException if the given input layer neurons is not an instance.
+	 * @throws NullArgumentException if the given output layer neurons is not an instance.
 	 */
 	public <N extends Neuronoid<N, IO, IO>> NeuronalNet(
 		final Iterable<N> inputLayerNeurons,
 		final Iterable<N> outputLayerNeurons
 	) {
-		//Checks if the given input layer neurons is not null.
+		//Checks if the given input layer neurons is an instance.
 		Validator
 		.suppose(inputLayerNeurons)
 		.thatIsNamed("input layer neurons")
-		.isNotNull();
+		.isInstance();
 		
-		//Checks if the given output layer neurons is not null.
+		//Checks if the given output layer neurons is an instance.
 		Validator
 		.suppose(outputLayerNeurons)
 		.thatIsNamed("output layer neurons")
-		.isNotNull();
+		.isInstance();
 		
 		//Connects the input fanout neuron of this neuronal net to the given input layer neurons.
 		int i = 1;

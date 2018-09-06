@@ -56,12 +56,12 @@ implements ISender {
 	 * Sets the receiver of this end point.
 	 * 
 	 * @param receiver
-	 * @throws NullArgumentException if the given receiver is null.
+	 * @throws NullArgumentException if the given receiver is not an instance.
 	 * @throws InvalidStateException if this end point is aborted.
 	 */
 	public final void setReceiver(final IReceiver receiver) {
 		
-		//Checks if the given receiver is not null.
+		//Checks if the given receiver is an instance.
 		Validator.suppose(receiver).isInstanceOf(IReceiver.class);
 		
 		//Checks if this end point is not aborted.

@@ -25,7 +25,7 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 	 * 
 	 * @param test
 	 * @param value
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws NullArgumentException if the given test is not an instance.
 	 */
 	ApproximativeEqualingDeviationMediator(
 		final Test test,
@@ -44,7 +44,7 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 	 * @param test
 	 * @param value
 	 * @param maxDeviation
-	 * @throws NullArgumentException if the given test is null.
+	 * @throws NullArgumentException if the given test is not an instance.
 	 * @throws NegativeArgumentException if the given max deviation is negative.
 	 */
 	ApproximativeEqualingDeviationMediator(

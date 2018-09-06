@@ -103,7 +103,7 @@ implements Namable<NE> {
 	 * Sets the name of this namable element.
 	 * 
 	 * @param name
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidStateException if this namable element belongs to a requestable container
 	 * that contains another element with the given name.
@@ -137,13 +137,13 @@ implements Namable<NE> {
 	 * Sets the requestable container this namable element will belong to.
 	 * 
 	 * @param requestableContainer
-	 * @throws NullArgumentExcetpion if the given requestable container is null.
+	 * @throws NullArgumentExcetpion if the given requestable container is not an instance.
 	 * @throws new InvalidStateException
 	 * if this namable element belongs already to another requestable container.
 	 */
 	public final void setRequestableContainer(IRequestableContainer requestableContainer) {
 		
-		//Checks if the given requestable container is not null.
+		//Checks if the given requestable container is an instance.
 		Validator.suppose(requestableContainer).isInstanceOf(IRequestableContainer.class);
 		
 		//Checks if this namable element does not belong to another requestable container.

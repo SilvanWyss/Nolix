@@ -25,9 +25,9 @@ extends SingleProperty<V> {
 	 * @param name
 	 * @param setterMethod
 	 * @param valueCreator
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given value creator is null.
+	 * @throws NullArgumentException if the given value creator is not an instance.
 	 */
 	public Property(
 		final String name,

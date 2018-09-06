@@ -41,7 +41,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 * Creates a new  {@link VerticalStack} with the given widgets
 	 * 
 	 * @param widgets
-	 * @throws NullArgumentException if one of the given widgets is null.
+	 * @throws NullArgumentException if one of the given widgets is not an instance.
 	 */
 	public VerticalStack(final Widget<?, ?>... widgets) {
 		

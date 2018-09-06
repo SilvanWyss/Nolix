@@ -53,16 +53,16 @@ public class InvalidArgumentException extends RuntimeException {
 	 * Creates a new invalid argument exception for the given argument.
 	 * 
 	 * @param argument
-	 * @throws RuntimeException if the given argument is null.
+	 * @throws RuntimeException if the given argument is not an instance.
 	 */
 	public InvalidArgumentException(final Argument argument) {
 		
 		//Calls constructor of the base class.
 		super("The given " + argument + " " + DEFAULT_ERROR_PREDICATE + ".");
 		
-		//Checks if the given argument is not null.
+		//Checks if the given argument is an instance.
 		if (argument == null) {
-			throw new RuntimeException("The given argument is null.");
+			throw new RuntimeException("The given argument is not an instance.");
 		}
 		
 		argumentName = DEFAULT_ARGUMENT_NAME;
@@ -76,16 +76,16 @@ public class InvalidArgumentException extends RuntimeException {
 	 * Creates a new invalid argument exception for an argument with a default argument name and for the given error predicate.
 	 * 
 	 * @param errorPredicate
-	 * @throws RuntimeException if the given error predicate is null.
+	 * @throws RuntimeException if the given error predicate is not an instance.
 	 */
 	public InvalidArgumentException(final ErrorPredicate errorPredicate) {
 		
 		//Calls constructor of the base class.
 		super("The given " + DEFAULT_ARGUMENT_NAME + " " + errorPredicate + ".");
 		
-		//Checks if the given error predicate is not null.
+		//Checks if the given error predicate is an instance.
 		if (errorPredicate == null) {
-			throw new RuntimeException("The given error predicate is null.");
+			throw new RuntimeException("The given error predicate is not an instance.");
 		}
 		
 		argumentName = DEFAULT_ARGUMENT_NAME;
@@ -101,17 +101,17 @@ public class InvalidArgumentException extends RuntimeException {
 	 * 
 	 * @param argument
 	 * @param errorPredicate
-	 * @throws RuntimeException if the given argument is null.
-	 * @throws RuntimeException if the given error predicate is null.
+	 * @throws RuntimeException if the given argument is not an instance.
+	 * @throws RuntimeException if the given error predicate is not an instance.
 	 */
 	public InvalidArgumentException(final Argument argument, final ErrorPredicate errorPredicate) {
 		
 		//Calls constructor of the base class.
 		super("The given " + argument.createArgumentName() + " " + argument + " " + errorPredicate + ".");
 			
-		//Checks if the given error predicate is not null.
+		//Checks if the given error predicate is an instance.
 		if (errorPredicate == null) {
-			throw new RuntimeException("The given error predicate is null.");
+			throw new RuntimeException("The given error predicate is not an instance.");
 		}
 		
 		argumentName = argument.createArgumentName();
@@ -127,22 +127,22 @@ public class InvalidArgumentException extends RuntimeException {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument is null.
+	 * @throws RuntimeException if the given argument name is not an instance.
+	 * @throws RuntimeException if the given argument is not an instance.
 	 */
 	public InvalidArgumentException(final ArgumentName argumentName, final Argument argument) {
 		
 		//Calls constructor of the base class.
 		super("The given " + argumentName + " " + argument + " " + DEFAULT_ERROR_PREDICATE + ".");
 	
-		//Checks if the given argument name is not null.
+		//Checks if the given argument name is an instance.
 		if (argumentName == null) {
-			throw new RuntimeException("The given argument name is null.");
+			throw new RuntimeException("The given argument name is not an instance.");
 		}
 		
-		//Checks if the given argument is not null.
+		//Checks if the given argument is an instance.
 		if (argument == null) {
-			throw new RuntimeException("The given argument is null.");
+			throw new RuntimeException("The given argument is not an instance.");
 		}
 		
 		this.argumentName = argumentName.toString();
@@ -158,8 +158,8 @@ public class InvalidArgumentException extends RuntimeException {
 	 * 
 	 * @param argumentName
 	 * @param errorPredicate
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given error predicate is null.
+	 * @throws RuntimeException if the given argument name is not an instance.
+	 * @throws RuntimeException if the given error predicate is not an instance.
 	 */
 	public InvalidArgumentException(
 		final ArgumentName argumentName,
@@ -168,14 +168,14 @@ public class InvalidArgumentException extends RuntimeException {
 		//Calls constructor of the base class.
 		super("The given " + argumentName + " " + errorPredicate + ".");
 		
-		//Checks if the given argument name is not null.
+		//Checks if the given argument name is an instance.
 		if (argumentName == null) {
-			throw new RuntimeException("The given argument name is null.");
+			throw new RuntimeException("The given argument name is not an instance.");
 		}
 			
-		//Checks if the given error predicate is not null.
+		//Checks if the given error predicate is an instance.
 		if (errorPredicate == null) {
-			throw new RuntimeException("The given error predicate is null.");
+			throw new RuntimeException("The given error predicate is not an instance.");
 		}
 		
 		this.argumentName = argumentName.toString();
@@ -192,9 +192,9 @@ public class InvalidArgumentException extends RuntimeException {
 	 * @param argumentName
 	 * @param argument
 	 * @param errorPredicate
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument is null.
-	 * @throws RuntimeException if the given error predicate is null.
+	 * @throws RuntimeException if the given argument name is not an instance.
+	 * @throws RuntimeException if the given argument is not an instance.
+	 * @throws RuntimeException if the given error predicate is not an instance.
 	 */
 	public InvalidArgumentException(
 		final ArgumentName argumentName,
@@ -204,19 +204,19 @@ public class InvalidArgumentException extends RuntimeException {
 		//Calls constructor of the base class.
 		super ("The given " + argumentName + " " + argument + " " + errorPredicate + ".");
 		
-		//Checks if the given argument name is not null.
+		//Checks if the given argument name is an instance.
 		if (argumentName == null) {
-			throw new RuntimeException("The given argument name is null.");
+			throw new RuntimeException("The given argument name is not an instance.");
 		}
 		
-		//Checks if the given argument is not null.
+		//Checks if the given argument is an instance.
 		if (argument == null) {
-			throw new RuntimeException("The given argument is null.");
+			throw new RuntimeException("The given argument is not an instance.");
 		}
 		
-		//Checks if the given error predicate is not null.
+		//Checks if the given error predicate is an instance.
 		if (errorPredicate == null) {
-			throw new RuntimeException("The given error predicate is null.");
+			throw new RuntimeException("The given error predicate is not an instance.");
 		}
 	
 		this.argumentName = argumentName.toString();

@@ -27,11 +27,11 @@ final class BrowserGUI extends GUI<BrowserGUI> {
 		reset();
 		approveProperties();
 		
-		//Checks if the given painter creator is not null.
+		//Checks if the given painter creator is an instance.
 		Validator
 		.suppose(painterCreator)
 		.thatIsNamed("painter creator")
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the painter creator of the current back browser GUI.
 		this.painterCreator = painterCreator;

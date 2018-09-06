@@ -105,15 +105,15 @@ extends ConfigurableElement<CE> {
 	 * 
 	 * @param configuration
 	 * @return this configuration element.
-	 * @throws NullArgumentException if the given configuration is null.
+	 * @throws NullArgumentException if the given configuration is not an instance.
 	 */
 	public CE setConfiguration(StandardConfiguration configuration) {
 		
-		//Checks if the given configuration is not null.
+		//Checks if the given configuration is an instance.
 		Validator
 		.suppose(configuration)
 		.thatIsNamed(VariableNameCatalogue.CONFIGURATION)
-		.isNotNull();
+		.isInstance();
 		
 		this.configuration = configuration;
 		updateFromConfiguration();

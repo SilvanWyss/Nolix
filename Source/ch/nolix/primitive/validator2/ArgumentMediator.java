@@ -47,7 +47,7 @@ public class ArgumentMediator<A> extends Mediator {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws NullArgumentException if the given argument name is not an instance.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	ArgumentMediator(final String argumentName, final A argument) {
@@ -62,18 +62,18 @@ public class ArgumentMediator<A> extends Mediator {
 	//method
 	/**
 	 * @param condition
-	 * @throws NullArgumentException if the given condition is null.
-	 * @throws InvalidArgumentException if the argument of this argument mediator is null.
+	 * @throws NullArgumentException if the given condition is not an instance.
+	 * @throws InvalidArgumentException if the argument of this argument mediator is not an instance.
 	 */
 	public final void fulfils(IElementTakerBooleanGetter<A> condition) {
 		
-		//Checks if the given condition is not null.
+		//Checks if the given condition is an instance.
 		if (condition == null) {
 			throw new NullArgumentException(VariableNameCatalogue.CONDITION);
 		}
 		
-		//Checks if the argument of this argument mediator is not null.
-		isNotNull();
+		//Checks if the argument of this argument mediator is an instance.
+		isInstance();
 		
 		if (!condition.getOutput(getRefArgument())) {
 			throw new InvalidArgumentException(
@@ -86,14 +86,14 @@ public class ArgumentMediator<A> extends Mediator {
 	//method
 	/**
 	 * @param type
-	 * @throws NullArgumentException if the argument of this argument mediator is null.
+	 * @throws NullArgumentException if the argument of this argument mediator is not an instance.
 	 * @throws InvalidArgumentException
 	 * if the argument of this argument mediator is not an instance of the given type.
 	 */
 	public final void isInstanceOf(final Class<?> type) {
 		
-		//Checks if the argument of this argument mediator is not null.
-		isNotNull();
+		//Checks if the argument of this argument mediator is an instance.
+		isInstance();
 		
 		//Checks if the argument of this argument mediator is of the given type.
 		if (!getRefArgument().getClass().getClass().isAssignableFrom(type.getClass())) {
@@ -107,11 +107,11 @@ public class ArgumentMediator<A> extends Mediator {
 	
 	//method
 	/**
-	 * @throws NullArgumentException if the argument of this argument mediator is null.
+	 * @throws NullArgumentException if the argument of this argument mediator is not an instance.
 	 */
-	public final void isNotNull() {
+	public final void isInstance() {
 		
-		//Checks if the argument of this argument mediator is null.
+		//Checks if the argument of this argument mediator is an instance.
 		if (argument == null) {
 			throw new NullArgumentException(getArgumentName());
 		}

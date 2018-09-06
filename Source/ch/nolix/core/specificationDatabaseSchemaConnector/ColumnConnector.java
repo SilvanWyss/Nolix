@@ -19,7 +19,7 @@ public final class ColumnConnector implements IColumnConnector {
 		Validator
 		.suppose(columnSpecification)
 		.thatIsNamed("column specification")
-		.isNotNull();
+		.isInstance();
 		
 		this.columnSpecification = columnSpecification;
 	}

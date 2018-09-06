@@ -54,8 +54,8 @@ implements Clearable<Accordion> {
 	 * Creates a new {@link Accordion} with the given tabs.
 	 * 
 	 * @param tabs
-	 * @throws NullArgumentException if the given tabs is null.
-	 * @throws NullArgumetnException if one of the given tabs is null.
+	 * @throws NullArgumentException if the given tabs is not an instance.
+	 * @throws NullArgumetnException if one of the given tabs is not an instance.
 	 */
 	public Accordion(final AccordionTab... tabs) {
 		
@@ -84,8 +84,8 @@ implements Clearable<Accordion> {
 	 * Creates a new {@link Accordion} with the given tabs.
 	 * 
 	 * @param tabs
-	 * @throws NullArgumentException if the given tabs is null.
-	 * @throws NullArgumetnException if one of the given tabs is null.
+	 * @throws NullArgumentException if the given tabs is not an instance.
+	 * @throws NullArgumetnException if one of the given tabs is not an instance.
 	 */
 	public Accordion(final boolean applyUsableConfiguration, final AccordionTab... tabs) {
 		
@@ -101,15 +101,15 @@ implements Clearable<Accordion> {
 	 * 
 	 * @param tab
 	 * @return the current {@link Accordion}.
-	 * @throws NullArgumentException if the given tab is null.
+	 * @throws NullArgumentException if the given tab is not an instance.
 	 */
 	public Accordion addTab(final AccordionTab tab) {
 		
-		//Checks if the given tab is not null.
+		//Checks if the given tab is an instance.
 		Validator
 		.suppose(tab)
 		.thatIsNamed(VariableNameCatalogue.TAB)
-		.isNotNull();
+		.isInstance();
 		
 		tab.setParentAccordion(this);
 		tabs.addAtEnd(tab);
@@ -131,16 +131,16 @@ implements Clearable<Accordion> {
 	 * 
 	 * @param tabs
 	 * @return the current {@link Accordion}.
-	 * @throws NullArgumentException if the given tabs is null.
-	 * @throws NullArgumetnException if one of the given tabs is null.
+	 * @throws NullArgumentException if the given tabs is not an instance.
+	 * @throws NullArgumetnException if one of the given tabs is not an instance.
 	 */
 	public Accordion addTab(final AccordionTab... tabs) {
 		
-		//Checks if the given tabs is not null.
+		//Checks if the given tabs is an instance.
 		Validator
 		.suppose(tabs)
 		.thatIsNamed(MultiVariableNameCatalogue.TABS)
-		.isNotNull();
+		.isInstance();
 		
 		return addTabs(new ReadContainer<AccordionTab>(tabs));
 	}
@@ -151,16 +151,16 @@ implements Clearable<Accordion> {
 	 * 
 	 * @param tabs
 	 * @return the current {@link Accordion}.
-	 * @throws NullArgumentException if the given tabs is null.
-	 * @throws NullArgumetnException if one of the given tabs is null.
+	 * @throws NullArgumentException if the given tabs is not an instance.
+	 * @throws NullArgumetnException if one of the given tabs is not an instance.
 	 */
 	public Accordion addTabs(final Iterable<AccordionTab> tabs) {
 		
-		//Checks if the given tabs is not null.
+		//Checks if the given tabs is an instance.
 		Validator
 		.suppose(tabs)
 		.thatIsNamed(MultiVariableNameCatalogue.TABS)
-		.isNotNull();
+		.isInstance();
 		
 		tabs.forEach(t -> addTab(t));
 		
@@ -316,7 +316,7 @@ implements Clearable<Accordion> {
 	 * 
 	 * @param expansionBehavior
 	 * @return the current {@link Accordion}.
-	 * @throws NullArgumentException if the given expansion behavior is null.
+	 * @throws NullArgumentException if the given expansion behavior is not an instance.
 	 */
 	public Accordion setExpansionBehavior(final AccordionExpansionBehavior expansionBehavior) {
 		

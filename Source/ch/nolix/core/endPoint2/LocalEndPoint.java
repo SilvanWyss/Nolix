@@ -34,7 +34,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * Creates a new local end point that will connect to the given target.
 	 * 
 	 * @param target
-	 * @throws NullArgumentException if the given target is null.
+	 * @throws NullArgumentException if the given target is not an instance.
 	 */
 	public LocalEndPoint(final IEndPointTaker target) {
 		
@@ -57,7 +57,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * 
 	 * @param server
 	 * @param target
-	 * @throws NullArgumentException if the given target is null.
+	 * @throws NullArgumentException if the given target is not an instance.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
 	public LocalEndPoint(final Server server, final String target) {
@@ -80,15 +80,15 @@ public final class LocalEndPoint extends EndPoint {
 	 * Creates a new local end point with the given counterpart.
 	 * 
 	 * @param counterpart
-	 * @throws NullArgumentException if the given counterpart is null.
+	 * @throws NullArgumentException if the given counterpart is not an instance.
 	 */
 	private LocalEndPoint(final LocalEndPoint counterpart) {
 		
 		//Calls constructor of the base class.
 		super(false);
 		
-		//Checks if the given counterpart is not null.
-		Validator.suppose(counterpart).thatIsNamed("counterpart").isNotNull();
+		//Checks if the given counterpart is an instance.
+		Validator.suppose(counterpart).thatIsNamed("counterpart").isInstance();
 				
 		//Sets the counterpart of this local end point.
 		this.counterpart = counterpart;
@@ -116,13 +116,13 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * Lets this local send the given message.
 	 * 
-	 * @throws NullArgumentException if the given message is null.
+	 * @throws NullArgumentException if the given message is not an instance.
 	 * @throws InvalidArgumentException if this local end point is aborted.
 	 */
 	public void send(final String message) {
 		
-		//Checks if the given message is not null.
-		Validator.suppose(message).thatIsNamed("message").isNotNull();
+		//Checks if the given message is an instance.
+		Validator.suppose(message).thatIsNamed("message").isInstance();
 		
 		//Checks if this local end point is not aborted.
 		supposeBeingAlive();

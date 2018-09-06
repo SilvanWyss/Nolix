@@ -31,11 +31,11 @@ extends NamedElement {
 		//Calls constructor of the base class.
 		super(name);
 		
-		//Checks if the given value creator is not null.
+		//Checks if the given value creator is an instance.
 		Validator
 		.suppose(valueCreator)
 		.thatIsNamed("value creator")
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the value creator of this property.
 		this.valueCreator = valueCreator;

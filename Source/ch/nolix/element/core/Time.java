@@ -241,15 +241,15 @@ public final class Time extends Element {
 	 * Creates a new time the given string represents.
 	 * 
 	 * @param string
-	 * @throws NullArgumentException if the given string is null.
+	 * @throws NullArgumentException if the given string is not an instance.
 	 */
 	public Time(final String string) {
 		
 		//Calls other constructor.
 		this();
 		
-		//Checks if the given string is not null.
-		Validator.suppose(string).thatIsNamed("string").isNotNull();
+		//Checks if the given string is an instance.
+		Validator.suppose(string).thatIsNamed("string").isInstance();
 		
 		//Creates array of values of the given string.
 		final String[] array = string.split("-");

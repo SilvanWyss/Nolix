@@ -119,15 +119,15 @@ extends BorderWidget<C, BWS> {
 	 * 
 	 * @param role
 	 * @return the current {@link Container}.
-	 * @throws NullArgumentException if the given role is null.
+	 * @throws NullArgumentException if the given role is not an instance.
 	 */
 	public final C setRole(final ContainerRole role) {
 		
-		//Checks if the given role is not null.
+		//Checks if the given role is an instance.
 		Validator
 		.suppose(role)
 		.thatIsNamed(VariableNameCatalogue.ROLE)
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the role of this container.
 		this.role = role;

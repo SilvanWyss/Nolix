@@ -52,12 +52,12 @@ public final class CoreServiceProvider {
 		Validator
 		.suppose(interface_)
 		.thatIsNamed(VariableNameCatalogue.INTERFACE)
-		.isNotNull();
+		.isInstance();
 		
 		Validator
 		.suppose(service)
 		.thatIsNamed(VariableNameCatalogue.SERVICE)
-		.isNotNull();
+		.isInstance();
 		
 		if (!overwrite) {
 			if (services.putIfAbsent(interface_, service) != null) {

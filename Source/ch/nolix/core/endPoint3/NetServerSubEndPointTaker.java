@@ -23,11 +23,11 @@ implements ch.nolix.core.endPoint2.IEndPointTaker {
 	 * Creates a new net server sub end point taker with the given net server.
 	 * 
 	 * @param netServer
-	 * @throws NullArgumentException if the given net server is null.
+	 * @throws NullArgumentException if the given net server is not an instance.
 	 */
 	public NetServerSubEndPointTaker(final NetServer netServer) {
 		
-		//Checks if hte given net server is not null.
+		//Checks if hte given net server is an instance.
 		Validator.suppose(netServer).isInstanceOf(NetServer.class);
 		
 		//Sets the net server of this end point taker.

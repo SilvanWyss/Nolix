@@ -37,7 +37,7 @@ public final class SubContainer<E> implements IContainer<E> {
 	 * @param container
 	 * @param startIndex
 	 * @param endIndex
-	 * @throws NullArgumentException if the given container is null.
+	 * @throws NullArgumentException if the given container is not an instance.
 	 * @throws NonPositiveArgumentexception if the given start index is not positive.
 	 * @throws NonPositiveArgumentexception if the given end index is not positive.
 	 * @throws SmallerArgumentException if the given end index is smaller than the given start index.
@@ -50,7 +50,7 @@ public final class SubContainer<E> implements IContainer<E> {
 		Validator
 		.suppose(container)
 		.thatIsNamed("container")
-		.isNotNull();
+		.isInstance();
 		
 		Validator
 		.suppose(startIndex)

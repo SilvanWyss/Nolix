@@ -39,7 +39,7 @@ public final class Label extends TextLineWidget<Label> {
 	 * Creates a new {@link Label} with the given text.
 	 * 
 	 * @param text
-	 * @throws NullArgumentException if the given text is null.
+	 * @throws NullArgumentException if the given text is not an instance.
 	 */
 	public Label(final String text) {
 		
@@ -141,15 +141,15 @@ public final class Label extends TextLineWidget<Label> {
 	 * 
 	 * @param role
 	 * @return the current {@link Label}.
-	 * @throws NullArgumentException if the given role is null.
+	 * @throws NullArgumentException if the given role is not an instance.
 	 */
 	public Label setRole(final LabelRole role) {
 		
-		//Checks if the given role is not null.
+		//Checks if the given role is an instance.
 		Validator
 		.suppose(role)
 		.thatIsNamed(VariableNameCatalogue.ROLE)
-		.isNotNull();
+		.isInstance();
 
 		//Sets the role of the current label.
 		this.role = role;

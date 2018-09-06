@@ -45,7 +45,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 	 * @param argumentName
 	 * @param argument
 	 * @param expectedValue
-	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is not an instance.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
 	public UnequalArgumentException(
@@ -68,7 +68,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 	 * @param argumentName
 	 * @param argument
 	 * @param expectedValue
-	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is not an instance.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
 	public UnequalArgumentException(

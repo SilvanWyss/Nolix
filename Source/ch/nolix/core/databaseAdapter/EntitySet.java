@@ -42,7 +42,7 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 		Validator
 		.suppose(parentDatabaseAdapter)
 		.thatIsNamed("parent database adapter")
-		.isNotNull();
+		.isInstance();
 		
 		Validator.suppose(entityType).isInstanceOf(EntityType.class);
 		

@@ -51,7 +51,7 @@ final class BrowserGUIPainter extends IndexedElement implements IPainter, Flusha
 		Validator
 		.suppose(bottom)
 		.thatIsNamed("bottom")
-		.isNotNull();
+		.isInstance();
 		
 		this.bottom = bottom;
 		this.xPosition = xPosition;

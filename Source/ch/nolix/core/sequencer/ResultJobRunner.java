@@ -28,12 +28,12 @@ final class ResultJobRunner<R> extends Thread {
 	 * The result job runner will start automatically.
 	 * 
 	 * @param resultJob
-	 * @throws NullArgumentException if the given result job is null.
+	 * @throws NullArgumentException if the given result job is not an instance.
 	 */
 	public ResultJobRunner(final IElementGetter<R> resultJob) {
 		
-		//Checks if the given result job is not null.
-		Validator.suppose(resultJob).thatIsNamed("result job").isNotNull();
+		//Checks if the given result job is an instance.
+		Validator.suppose(resultJob).thatIsNamed("result job").isInstance();
 		
 		//Sets the result job of this result job runner.
 		this.resultJob = resultJob;

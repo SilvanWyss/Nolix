@@ -43,7 +43,7 @@ public class InvalidStateException extends RuntimeException {
 	 * 
 	 * @param object
 	 * @param errorPredicate
-	 * @throws RuntimeException if the given error predicate is null.
+	 * @throws RuntimeException if the given error predicate is not an instance.
 	 * @throws RuntimeException if the given error predicate is empty.
 	 */
 	public InvalidStateException(final Object object, final String errorPredicate) {
@@ -51,9 +51,9 @@ public class InvalidStateException extends RuntimeException {
 		//Calls constructor of the base class.
 		super(object.getClass().getSimpleName() + " " + errorPredicate + ".");
 		
-		//Checks if the given error predicate is not null.
+		//Checks if the given error predicate is an instance.
 		if (errorPredicate == null) {
-			throw new RuntimeException("The given error predicate is null.");
+			throw new RuntimeException("The given error predicate is not an instance.");
 		}
 		
 		//Checks if the given error predicate is not empty.

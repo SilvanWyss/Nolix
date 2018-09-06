@@ -62,13 +62,13 @@ implements Clearable<S> {
 	 * 
 	 * @param widget
 	 * @return the current {@link Stack}.
-	 * @throws NullArgumentException if the given widget is null.
+	 * @throws NullArgumentException if the given widget is not an instance.
 	 * @throws InvalidArgumentException
 	 * if the given widget belongs to another GUI than the current {@link Stack}.
 	 */
 	public final S addWidget(final Widget<?, ?> widget) {
 		
-		//Checks if the given widget is not null.
+		//Checks if the given widget is an instance.
 		Validator.suppose(widget).isInstanceOf(Widget.class);
 		
 		widget.setParentWidget(this);		
@@ -83,7 +83,7 @@ implements Clearable<S> {
 	 * 
 	 * @param widgets
 	 * @return the current {@link Stack}.
-	 * @throws NullArgumentException if one of the given widgets is null.
+	 * @throws NullArgumentException if one of the given widgets is not an instance.
 	 * @throws InvalidArgumentException
 	 * if one of the given widgets belongs to another GUI than the current {@link Stack}.
 	 */
@@ -97,7 +97,7 @@ implements Clearable<S> {
 	 * 
 	 * @param widgets
 	 * @return the current {@link Stack}.
-	 * @throws NullArgumentException if one of the given widgets is null.
+	 * @throws NullArgumentException if one of the given widgets is not an instance.
 	 * @throws InvalidArgumentException
 	 * if one of the given widgets belongs to another GUI than the current {@link Stack}.
 	 */

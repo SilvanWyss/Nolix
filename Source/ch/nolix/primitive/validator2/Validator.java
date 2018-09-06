@@ -63,12 +63,12 @@ public final class Validator {
 	//static method
 	/** 
 	 * @param arguments
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws NullArgumentException if the given arguments is not an instance.
 	 * @throws FalseArgumentException if one of the given arguments is false.
 	 */
 	public static void suppose(final boolean... arguments) {
 		
-		//Checks if the given arguments is not null.
+		//Checks if the given arguments is an instance.
 		if (arguments == null) {
 			throw new NullArgumentException("arguments");
 		}
@@ -102,13 +102,13 @@ public final class Validator {
 	 */
 	public static ExtendedContainerMediator<Double> suppose(final double[] argument) {
 		
-		//Handles the case that the given argument is null.
+		//Handles the case that the given argument is not an instance.
 		if (argument == null) {
 			final List<Double> argumentVector = null;
 			return new ExtendedContainerMediator<Double>(argumentVector);
 		}
 		
-		//Handles the case that the given argument is not null.
+		//Handles the case that the given argument is an instance.
 		return new ExtendedContainerMediator<Double>(ArrayHelper.createIterable(argument));
 	}
 	
@@ -128,13 +128,13 @@ public final class Validator {
 	 */
 	public static ExtendedContainerMediator<Long> suppose(final int[] argument) {
 		
-		//Handles the case that the given argument is null.
+		//Handles the case that the given argument is not an instance.
 		if (argument == null) {
 			final List<Long> argumentVector = null;
 			return new ExtendedContainerMediator<Long>(argumentVector);
 		}
 		
-		//Handles the case that the given argument is not null.
+		//Handles the case that the given argument is an instance.
 		return new ExtendedContainerMediator<Long>(ArrayHelper.createIterable(argument));
 	}
 	
@@ -154,13 +154,13 @@ public final class Validator {
 	 */
 	public static ExtendedContainerMediator<Long> suppose(final long[] argument) {
 		
-		//Handles the case that the given argument is null.
+		//Handles the case that the given argument is not an instance.
 		if (argument == null) {
 			final List<Long> argumentVector = null;
 			return new ExtendedContainerMediator<Long>(argumentVector);
 		}
 		
-		//Handles the case that the given argument is not null.
+		//Handles the case that the given argument is an instance.
 		return new ExtendedContainerMediator<Long>(ArrayHelper.createIterable(argument));
 	}
 	
@@ -198,12 +198,12 @@ public final class Validator {
 	//static method
 	/** 
 	 * @param arguments
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws NullArgumentException if the given arguments is not an instance.
 	 * @throws TrueArgumentException if one of the given arguments is true.
 	 */
 	public static void supposeNot(final boolean... arguments) {
 		
-		//Checks if the given arguments is not null.
+		//Checks if the given arguments is an instance.
 		if (arguments == null) {
 			throw new NullArgumentException("arguments");
 		}
@@ -225,7 +225,7 @@ public final class Validator {
 	/**
 	 * @param arguments
 	 * @return a new multi double mediator for the given arguments.
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws NullArgumentException if the given arguments is not an instance.
 	 */
 	public static MultiDoubleMediator supposeTheDoubles(final double... arguments) {		
 		return new MultiDoubleMediator(arguments);
@@ -235,7 +235,7 @@ public final class Validator {
 	/**
 	 * @param arguments
 	 * @return a new multi double mediator for the given arguments.
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws NullArgumentException if the given arguments is not an instance.
 	 */
 	public static MultiDoubleMediator supposeTheDoubles(final Iterable<Double> arguments) {
 		return new MultiDoubleMediator(arguments);
@@ -245,7 +245,7 @@ public final class Validator {
 	/**
 	 * @param arguments
 	 * @return a new multi argument mediator for the given arguments.
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws NullArgumentException if the given arguments is not an instance.
 	 */
 	public static <E> MultiArgumentMediator<E> supposeTheElements(final E[] arguments) {
 		return new MultiArgumentMediator<E>(arguments);
@@ -255,7 +255,7 @@ public final class Validator {
 	/**
 	 * @param arguments
 	 * @return a new multi argument mediator for the given arguments.
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws NullArgumentException if the given arguments is not an instance.
 	 */
 	public static <E> MultiArgumentMediator<E> supposeTheElements(final Iterable<E> arguments) {
 		return new MultiArgumentMediator<E>(arguments);
@@ -265,7 +265,7 @@ public final class Validator {
 	/**
 	 * @param arguments
 	 * @return a new multi long mediator for the given arguments.
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws NullArgumentException if the given arguments is not an instance.
 	 */
 	public static MultiLongMediator supposeTheLongs(final long... arguments) {		
 		return new MultiLongMediator(arguments);
@@ -275,7 +275,7 @@ public final class Validator {
 	/**
 	 * @param arguments
 	 * @return a new multi long mediator for the given arguments.
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws NullArgumentException if the given arguments is not an instance.
 	 */
 	public static MultiLongMediator supposeTheLongs(final Iterable<Long> arguments) {
 		return new MultiLongMediator(arguments);
@@ -285,7 +285,7 @@ public final class Validator {
 	/**
 	 * @param arguments
 	 * @return a new multi string mediator for the given arguments.
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws NullArgumentException if the given arguments is not an instance.
 	 */
 	public static MultiStringMediator supposeTheStrings(final String... arguments) {		
 		return new MultiStringMediator(arguments);
@@ -295,7 +295,7 @@ public final class Validator {
 	/**
 	 * @param arguments
 	 * @return a new string container mediator for the given arguments.
-	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws NullArgumentException if the given arguments is not an instance.
 	 */
 	public static MultiStringMediator supposeTheStrings(final Iterable<String> arguments) {
 		return new MultiStringMediator(arguments);

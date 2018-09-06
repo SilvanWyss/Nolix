@@ -44,7 +44,7 @@ implements Closable {
 	 * @param port
 	 * @param transformator
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65'535].
-	 * @throws NullArgumentException if the given transformator is null.
+	 * @throws NullArgumentException if the given transformator is not an instance.
 	 */
 	public NetFrontNeuron(
 		final int port,
@@ -65,7 +65,7 @@ implements Closable {
 	 * @param port
 	 * @param transformator
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65'535].
-	 * @throws NullArgumentException if the given transformator is null.
+	 * @throws NullArgumentException if the given transformator is not an instance.
 	 */
 	public NetFrontNeuron(
 		final String ip,
@@ -73,11 +73,11 @@ implements Closable {
 		IElementTakerElementGetter<StandardSpecification, O> transformator
 	) {
 		
-		//Checks if the given transformer is not null.
+		//Checks if the given transformer is an instance.
 		Validator
 		.suppose(transformator)
 		.thatIsNamed(VariableNameCatalogue.TRANSFORMATOR)
-		.isNotNull();
+		.isInstance();
 				
 		//Sets the transformator of this net neuron.
 		this.transformator = transformator;

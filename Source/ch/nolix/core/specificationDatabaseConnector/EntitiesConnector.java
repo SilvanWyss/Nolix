@@ -20,7 +20,7 @@ public final class EntitiesConnector<E extends Entity> {
 		Validator
 		.suppose(entitiesSpecification)
 		.thatIsNamed("entities specification")
-		.isNotNull();
+		.isInstance();
 		
 		this.entitiesSpecification = entitiesSpecification;
 	}

@@ -31,7 +31,7 @@ public class ExtendedStringMediator extends StringMediator {
 	 * @param argumentName
 	 * @return a new string mediator
 	 * for the argument of this extended string mediator with the given argument name.
-	 * @throws NullArgumentException if the given argument name is null.
+	 * @throws NullArgumentException if the given argument name is not an instance.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	public StringMediator thatIsNamed(final String argumentName) {

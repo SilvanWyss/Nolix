@@ -24,16 +24,16 @@ public final class ListUsingMediator<E> {
 	 * 
 	 * @param list
 	 * @param extractor
-	 * @throws NullArgumentException if the given list is null.
-	 * @throws NullArgumentException if the given extractor is null.
+	 * @throws NullArgumentException if the given list is not an instance.
+	 * @throws NullArgumentException if the given extractor is not an instance.
 	 */
 	ListUsingMediator(List<E> list, IElementTakerElementGetter<Object, E> extractor) {
 		
-		//Checks if the given list is not null.
-		Validator.suppose(list).thatIsInstanceOf(List.class).isNotNull();
+		//Checks if the given list is an instance.
+		Validator.suppose(list).thatIsInstanceOf(List.class).isInstance();
 		
-		//Checks if the given extractor is not null.
-		Validator.suppose(extractor).thatIsNamed("extractor").isNotNull();
+		//Checks if the given extractor is an instance.
+		Validator.suppose(extractor).thatIsNamed("extractor").isInstance();
 		
 		//Sets the list of this list using mediator.
 		this.list = list;

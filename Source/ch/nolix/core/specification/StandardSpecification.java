@@ -50,7 +50,7 @@ public final class StandardSpecification extends Specification {
 	/**
 	 * @param header
 	 * @return a new {@link StandardSpecification} that consists of the given header.
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws NullArgumentException if the given header is not an instance.
 	 */
 	public static final StandardSpecification createSpecificationWithHeader(final String header) {
 		final StandardSpecification specification = new StandardSpecification();
@@ -108,9 +108,9 @@ public final class StandardSpecification extends Specification {
 	 * 
 	 * @param header
 	 * @param attributes
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws NullArgumentException if the given header is not an instance.
 	 * @throws EmptyArgumentException if the given header is empty.
-	 * @throws NullArgumentException if one of the given attributes is null.
+	 * @throws NullArgumentException if one of the given attributes is not an instance.
 	 */
 	public StandardSpecification(final String header, final Iterable<StandardSpecification> attributes) {
 		setHeader(header);
@@ -123,9 +123,9 @@ public final class StandardSpecification extends Specification {
 	 * 
 	 * @param header
 	 * @param attributes
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws NullArgumentException if the given header is not an instance.
 	 * @throws EmptyArgumentException if the given header is empty.
-	 * @throws NullArgumentException if one of the given attributes is null.
+	 * @throws NullArgumentException if one of the given attributes is not an instance.
 	 */
 	public StandardSpecification(final String header, final List<String> attributes) {
 		
@@ -146,9 +146,9 @@ public final class StandardSpecification extends Specification {
 	 * 
 	 * @param header
 	 * @param attributes
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws NullArgumentException if the given header is not an instance.
 	 * @throws EmptyArgumentException if the given header is empty.
-	 * @throws NullArgumentException if one of the given attributes is null.
+	 * @throws NullArgumentException if one of the given attributes is not an instance.
 	 */
 	public StandardSpecification(final String header, final StandardSpecification... attributes) {	
 		setHeader(header);
@@ -161,9 +161,9 @@ public final class StandardSpecification extends Specification {
 	 * 
 	 * @param header
 	 * @param attributes
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws NullArgumentException if the given header is not an instance.
 	 * @throws EmptyArgumentException if the given header is empty.
-	 * @throws NullArgumentException if one of the given attributes is null.
+	 * @throws NullArgumentException if one of the given attributes is not an instance.
 	 */
 	public StandardSpecification(final String header, final String... attributes) {
 		
@@ -214,7 +214,7 @@ public final class StandardSpecification extends Specification {
 	 * Sets the given prefix has header to the current {@link StandardSpecification} if it has no header.
 	 * 
 	 * @param prefix
-	 * @throws NullArgumentException if the given prefix is null.
+	 * @throws NullArgumentException if the given prefix is not an instance.
 	 * @throws EmptyArgumentException if the given prefix is empty.
 	 */
 	public void addPrefixToHeader(final String prefix) {
@@ -239,7 +239,7 @@ public final class StandardSpecification extends Specification {
 	 * Sets the given postfix as header to the current {@link StandardSpecification} if it has no header.
 	 * 
 	 * @param postfix
-	 * @throws NullArgumentException if the given postfix is null.
+	 * @throws NullArgumentException if the given postfix is not an instance.
 	 * @throws EmptyArgumentException if the given postfix is empty.
 	 */
 	public void addPostfixToHeader(String postfix) {
@@ -357,8 +357,8 @@ public final class StandardSpecification extends Specification {
 	 * Sets the attributes of the current {@link StandardSpecification}.
 	 * 
 	 * @param attributes
-	 * @throws NullArgumentException if the given attribute container is null.
-	 * @throws NullArgumentException if one of the given attributes is null.
+	 * @throws NullArgumentException if the given attribute container is not an instance.
+	 * @throws NullArgumentException if one of the given attributes is not an instance.
 	 */
 	public void setAttributes(final Iterable<StandardSpecification> attributes) {
 		
@@ -372,7 +372,7 @@ public final class StandardSpecification extends Specification {
 	 * Sets the header of the current {@link StandardSpecification}.
 	 * 
 	 * @param header
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws NullArgumentException if the given header is not an instance.
 	 * @throws EmptyArgumentException if the given header is empty.
 	 */
 	public void setHeader(final String header) {

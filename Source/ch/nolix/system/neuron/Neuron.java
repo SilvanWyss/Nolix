@@ -71,17 +71,17 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	 * 
 	 * @param outputFunction
 	 * @return this neuron.
-	 * @throws NullArgumentException if the given output function is null.
+	 * @throws NullArgumentException if the given output function is not an instance.
 	 */
 	public Neuron<IO> setOutputFunction(
 		final IElementTakerElementGetter<Iterable<IO>, IO> outputFunction
 	) {
 		
-		//Checks if the given output function is not null.
+		//Checks if the given output function is an instance.
 		Validator
 		.suppose(outputFunction)
 		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the output function of this neuron.
 		this.outputFunction = n -> outputFunction.getOutput(n.getRefInputs());
@@ -98,17 +98,17 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	 * 
 	 * @param outputFunction
 	 * @return this neuron.
-	 * @throws NullArgumentException if the given output function is null.
+	 * @throws NullArgumentException if the given output function is not an instance.
 	 */
 	public Neuron<IO> setOutputFunction2(
 		final IElementTakerElementGetter<IContainer<IO>, IO> outputFunction
 	) {
 		
-		//Checks if the given output function is not null.
+		//Checks if the given output function is an instance.
 		Validator
 		.suppose(outputFunction)
 		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the output function of this neuron.
 		this.outputFunction = n -> outputFunction.getOutput(n.getRefInputs());
@@ -125,17 +125,17 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	 * 
 	 * @param outputFunction
 	 * @return this neuron.
-	 * @throws NullArgumentException if the given weight output function is null.
+	 * @throws NullArgumentException if the given weight output function is not an instance.
 	 */
 	public Neuron<IO> setOutputFunction3(
 		final IElementTakerElementGetter<Iterable<InputConnection<IO>>, IO> outputFunction
 	) {
 		
-		//Checks if the given output function is not null.
+		//Checks if the given output function is an instance.
 		Validator
 		.suppose(outputFunction)
 		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the output function of this neuron.
 		this.outputFunction = n -> outputFunction.getOutput(n.getRefInputConnections());
@@ -152,17 +152,17 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	 * 
 	 * @param outputFunction
 	 * @return this neuron.
-	 * @throws NullArgumentException if the given weight output function is null.
+	 * @throws NullArgumentException if the given weight output function is not an instance.
 	 */
 	public Neuron<IO> setOutputFunction4(
 		final IElementTakerElementGetter<IContainer<InputConnection<IO>>, IO> outputFunction
 	) {
 		
-		//Checks if the given output function is not null.
+		//Checks if the given output function is an instance.
 		Validator
 		.suppose(outputFunction)
 		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the output function of this neuron.
 		this.outputFunction = n -> outputFunction.getOutput(n.getRefInputConnections());

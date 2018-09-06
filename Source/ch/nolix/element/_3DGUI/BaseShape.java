@@ -101,7 +101,7 @@ extends Shape<BS> {
 	 * 
 	 * @param color
 	 * @return this base shape.
-	 * @throws NullArgumentException if the given color is null.
+	 * @throws NullArgumentException if the given color is not an instance.
 	 */
 	public final BS setColor(final Color color) {
 	

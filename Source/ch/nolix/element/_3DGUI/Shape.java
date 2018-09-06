@@ -185,8 +185,8 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public final S setGUI(_3DGUI<?> GUI) {
 		
-		//Checks if the given GUI is not null.
-		Validator.suppose(GUI).thatIsNamed("GUI").isNotNull();
+		//Checks if the given GUI is an instance.
+		Validator.suppose(GUI).thatIsNamed("GUI").isInstance();
 		
 		//Checks if this shape does not belong already to a GUI.
 		if (belongsToAGUI()) {
@@ -210,12 +210,12 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 * 
 	 * @param position
 	 * @return this frame.
-	 * @throws NullArgumentException if the given position is null.
+	 * @throws NullArgumentException if the given position is not an instance.
 	 */
 	public final S setPosition(final _3DPoint position) {
 		
-		//Checks if the given position is not null.
-		Validator.suppose(position).thatIsNamed("position").isNotNull();
+		//Checks if the given position is an instance.
+		Validator.suppose(position).thatIsNamed("position").isInstance();
 		
 		//Sets the position of this frame.
 		this.position = position;

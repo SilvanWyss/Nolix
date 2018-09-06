@@ -216,12 +216,12 @@ extends ConfigurableElement<W> {
 	/**
 	 * @param GUI
 	 * @return true if the current {@link Widget} belongs to the given GUI.
-	 * @throws NullArgumentException if the given GUI is null.
+	 * @throws NullArgumentException if the given GUI is not an instance.
 	 */
 	public final boolean belongsToGUI(final GUI<?> GUI) {
 		
-		//Checks if the given GUI is not null.
-		Validator.suppose(GUI).isNotNull();
+		//Checks if the given GUI is an instance.
+		Validator.suppose(GUI).isInstance();
 		
 		return (this.parentGUI != GUI);
 	}
@@ -1058,15 +1058,15 @@ extends ConfigurableElement<W> {
 	 * Sets the custom cursor icon of the current {@link Widget}.
 	 * 
 	 * @param customCursorIcon
-	 * @throws NullArgumentException if the given custom cursor icon is null.
+	 * @throws NullArgumentException if the given custom cursor icon is not an instance.
 	 */
 	public final W setCustomCursorIcon(final CursorIcon customCursorIcon) {
 		
-		//Checks if the given custom cursor icon is not null.
+		//Checks if the given custom cursor icon is an instance.
 		Validator
 		.suppose(customCursorIcon)
 		.thatIsNamed("custom cursor icon")
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the custom cursor icon of the current widget.
 		this.customCursorIcon = customCursorIcon;
@@ -1160,15 +1160,15 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @param leftMouseButtonPressCommand
 	 * @return the current {@link Widget}.
-	 * @throws NullArgumentException if the given left mouse button press command is null.
+	 * @throws NullArgumentException if the given left mouse button press command is not an instance.
 	 */
 	public final W setLeftMouseButtonPressCommand(final IFunction leftMouseButtonPressCommand) {
 		
-		//Checks if the given left mouse button press command is not null.
+		//Checks if the given left mouse button press command is an instance.
 		Validator
 		.suppose(leftMouseButtonPressCommand)
 		.thatIsNamed("left mouse button press command")
-		.isNotNull();
+		.isInstance();
 		
 		this.leftMouseButtonPressCommand = leftMouseButtonPressCommand;
 		
@@ -1181,15 +1181,15 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @param leftMouseButtonReleaseCommand
 	 * @return the current {@link Widget}.
-	 * @throws NullArgumentException if the given left mouse button release command is null.
+	 * @throws NullArgumentException if the given left mouse button release command is not an instance.
 	 */
 	public final W setLeftMouseButtonReleaseCommand(final IFunction leftMouseButtonReleaseCommand) {
 		
-		//Checks if the given left mouse button release command is not null.
+		//Checks if the given left mouse button release command is an instance.
 		Validator
 		.suppose(leftMouseButtonReleaseCommand)
 		.thatIsNamed("left mouse button release command")
-		.isNotNull();
+		.isInstance();
 		
 		this.leftMouseButtonReleaseCommand = leftMouseButtonReleaseCommand;
 		
@@ -1202,15 +1202,15 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @param rightMouseButtonPressCommand
 	 * @return the current {@link Widget}.
-	 * @throws NullArgumentException if the given right mouse button press command is null.
+	 * @throws NullArgumentException if the given right mouse button press command is not an instance.
 	 */
 	public final W setRightMouseButtonPressCommand(final IFunction rightMouseButtonPressCommand) {
 		
-		//Checks if the given right mouse button press command is not null.
+		//Checks if the given right mouse button press command is an instance.
 		Validator
 		.suppose(rightMouseButtonPressCommand)
 		.thatIsNamed("right mouse button press command")
-		.isNotNull();
+		.isInstance();
 		
 		this.rightMouseButtonPressCommand = rightMouseButtonPressCommand;
 		
@@ -1223,15 +1223,15 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @param rightMouseButtonReleaseCommand
 	 * @return the current {@link Widget}.
-	 * @throws NullArgumentException if the given right mouse button release command is null.
+	 * @throws NullArgumentException if the given right mouse button release command is not an instance.
 	 */
 	public final W setRightMouseButtonReleaseCommand(final IFunction rightMouseButtonReleaseCommand) {
 		
-		//Checks if the given right mouse button release command is not null.
+		//Checks if the given right mouse button release command is an instance.
 		Validator
 		.suppose(rightMouseButtonReleaseCommand)
 		.thatIsNamed("right mouse button release command")
-		.isNotNull();
+		.isInstance();
 		
 		this.rightMouseButtonReleaseCommand = rightMouseButtonReleaseCommand;
 		
@@ -1256,12 +1256,12 @@ extends ConfigurableElement<W> {
 	 * Sets the state of the current {@link Widget}.
 	 * 
 	 * @param state
-	 * @throws NullArgumentException if the given state is null.
+	 * @throws NullArgumentException if the given state is not an instance.
 	 */
 	public final W setState(final WidgetState state) {
 		
-		//Checks if the given state is not null.
-		Validator.suppose(state).thatIsNamed("state").isNotNull();
+		//Checks if the given state is an instance.
+		Validator.suppose(state).thatIsNamed("state").isInstance();
 
 		//Sets the state of the current {@link Widget}.
 		this.state = state;
@@ -1418,15 +1418,15 @@ extends ConfigurableElement<W> {
 	 * Sets the {@link Widget} the current {@link Widget} will belong to.
 	 * 
 	 * @param parentWidget
-	 * @throws NullArgumentException if the given parent widget is null.
+	 * @throws NullArgumentException if the given parent widget is not an instance.
 	 */
 	protected final void setParentWidget(final Widget<?, ?> parentWidget) {
 		
-		//Checks if the given parent widget is not null.
+		//Checks if the given parent widget is an instance.
 		Validator
 		.suppose(parentWidget)
 		.thatIsNamed("parent widget")
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the parent widget of the current widget.
 		this.parentWidget = parentWidget;
@@ -1473,14 +1473,14 @@ extends ConfigurableElement<W> {
 	 * Sets the GUI the current {@link Widget} will belong to.
 	 * 
 	 * @param GUI
-	 * @throws NullArgumentException if the given GUI is null.
+	 * @throws NullArgumentException if the given GUI is not an instance.
 	 */
 	final void setParentGUI(final GUI<?> parentGUI) {
 		
 		Validator
 		.suppose(parentGUI)
 		.thatIsNamed("parent GUI")
-		.isNotNull();
+		.isInstance();
 		
 		setRequestableContainer(parentGUI);
 		

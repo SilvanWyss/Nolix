@@ -1493,15 +1493,15 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * @param separator
 	 * @return a string representation this container with the given separator.
-	 * @throws NullArgumentException if the given separator is null.
+	 * @throws NullArgumentException if the given separator is not an instance.
 	 */
 	public default String toString(final String separator)
 	{
-		//Checks if the given separator is not null.
+		//Checks if the given separator is an instance.
 		Validator
 		.suppose(separator)
 		.thatIsNamed(VariableNameCatalogue.SEPARATOR)
-		.isNotNull();
+		.isInstance();
 		
 		//Enumerates the element count of this container.
 		switch (getElementCount()) {

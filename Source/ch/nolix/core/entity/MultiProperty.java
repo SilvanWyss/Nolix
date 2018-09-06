@@ -38,10 +38,10 @@ implements Clearable<MultiProperty<V>> {
 	 * @param name
 	 * @param valueCreator
 	 * @param adderMethod
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given adder method is null.
-	 * @throws NullArgumentException if the given value creator is null.
+	 * @throws NullArgumentException if the given adder method is not an instance.
+	 * @throws NullArgumentException if the given value creator is not an instance.
 	 */
 	public MultiProperty(
 		final String name,
@@ -51,11 +51,11 @@ implements Clearable<MultiProperty<V>> {
 		//Calls constructor of the base class
 		super(name, valueCreator);
 		
-		//Checks if the given adder method is not null.
+		//Checks if the given adder method is an instance.
 		Validator
 		.suppose(adderMethod)
 		.thatIsNamed("adder method")
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the adder method of this multi property.
 		this.adderMethod = adderMethod;
@@ -67,7 +67,7 @@ implements Clearable<MultiProperty<V>> {
 	 * 
 	 * @param value
 	 * @throws NullArgumentException
-	 * if the given value is null.
+	 * if the given value is not an instance.
 	 * @throws InvalidArgumentException
 	 * if this multi property contains already the given value.
 	 */

@@ -22,7 +22,7 @@ public abstract class NamedElement implements Named {
 	 * Creates a new named element with the given name.
 	 * 
 	 * @param name
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public NamedElement(final String name) {

@@ -27,7 +27,7 @@ implements IDatabaseSchemaConnector {
 		Validator
 		.suppose(databaseSpecification)
 		.thatIsNamed("database specification")
-		.isNotNull();
+		.isInstance();
 		
 		this.databaseSpecification = databaseSpecification;
 	}

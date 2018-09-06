@@ -95,18 +95,18 @@ implements Clearable<G>, Closable, Refreshable {
 	 * @param shapeClass
 	 * @param shapeRenderer
 	 * @return this 3D GUI.
-	 * @throws NullArgumentException if the given shape class is null.
-	 * @throws NullArgumentException if the given shape renderer is null.
+	 * @throws NullArgumentException if the given shape class is not an instance.
+	 * @throws NullArgumentException if the given shape renderer is not an instance.
 	 * @throws InvalidStateException if this 3D GUI contains already
 	 * a shape class with the same name as the given shape class.
 	 */
 	public G addShapeClass(final Class<?> shapeClass, IShapeRenderer<?, ?, ?> shapeRenderer) {
 		
-		//Checks if the given shape class is not null.
-		Validator.suppose(shapeClass).thatIsNamed("shape class").isNotNull();
+		//Checks if the given shape class is an instance.
+		Validator.suppose(shapeClass).thatIsNamed("shape class").isInstance();
 		
-		//Checks if the given shape renderer is not null.
-		Validator.suppose(shapeRenderer).thatIsNamed("shape renderer").isNotNull();
+		//Checks if the given shape renderer is an instance.
+		Validator.suppose(shapeRenderer).thatIsNamed("shape renderer").isInstance();
 		
 		//Checks if this 3D GUI does not contain already
 		//a shape class with the same name as the given shape class.
@@ -301,7 +301,7 @@ implements Clearable<G>, Closable, Refreshable {
 	 * 
 	 * @param backgroundColor
 	 * @return this 3D GUI.
-	 * @throws NullArgumentException if the given background color is null.
+	 * @throws NullArgumentException if the given background color is not an instance.
 	 */
 	public final G setBackgroundColor(final Color backgroundColor) {
 				
@@ -316,7 +316,7 @@ implements Clearable<G>, Closable, Refreshable {
 	 * 
 	 * @param rootShape
 	 * @return this 3D GUI.
-	 * @throws NullArgumentException if the given root shape is null.
+	 * @throws NullArgumentException if the given root shape is not an instance.
 	 */
 	public G setRootShape(final Shape<?> rootShape) {
 		
@@ -335,7 +335,7 @@ implements Clearable<G>, Closable, Refreshable {
 	 * 
 	 * @param title
 	 * @return this 3D GUI.
-	 * @throws NullArgumentException if the given title is null.
+	 * @throws NullArgumentException if the given title is not an instance.
 	 * @throws EmptyArgumentException if the given title is empty.
 	 */
 	public final G setTitle(final String title) {

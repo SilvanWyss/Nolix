@@ -28,7 +28,7 @@ public final class Resource extends NamedElement implements IResource {
 	 * Creates a new {@link Resource} with the given name.
 	 * 
 	 * @param name
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public Resource(final String name) {
@@ -46,7 +46,7 @@ public final class Resource extends NamedElement implements IResource {
 	 * 
 	 * @param name
 	 * @param baseResources
-	 * @throws NullArgumentException if the given name is null.
+	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidArgumentException if the given name
 	 * equals the name of one of the given base resources.

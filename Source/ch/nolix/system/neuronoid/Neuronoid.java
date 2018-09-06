@@ -48,7 +48,7 @@ implements IFluentObject<N> {
 	 * @param weight
 	 * @param inputNeuron
 	 * @return this neuron.
-	 * @throws NullArgumentException if the given input neuron is null.
+	 * @throws NullArgumentException if the given input neuron is not an instance.
 	 * @throws NonSmallerArgumentException if this neuron has reached its maximal number of input neurons.
 	 * @throws RuntimeException if this neuron contains already the given input neuron.
 	 */
@@ -66,7 +66,7 @@ implements IFluentObject<N> {
 	 * 
 	 * @param inputNeuron
 	 * @return this neuron.
-	 * @throws NullArgumentException if the given input neuron is null.
+	 * @throws NullArgumentException if the given input neuron is not an instance.
 	 * @throws NonSmallerArgumentException if this neuron has reached its maximal number of input neurons.
 	 * @throws RuntimeException if this neuron contains already the given input neuron.
 	 */
@@ -263,14 +263,14 @@ implements IFluentObject<N> {
 	 * 
 	 * @param inputConnection
 	 * @return this neuron.
-	 * @throws NullArgumentException if the given input connection is null.
+	 * @throws NullArgumentException if the given input connection is not an instance.
 	 * @throws NonSmallerArgumentException if this neuron has not less input neurons than its maximal input neurons count says.
 	 * @throws InvalidArgumentException if this neuron contains already the input neuron of the given input connection.
 	 */
 	private final void addInputConnection(final InputConnection<I> inputConnection) {
 		
-		//Checks if the given input neuron is not null.
-		Validator.suppose(inputConnection).thatIsNamed("input neuron").isNotNull();
+		//Checks if the given input neuron is an instance.
+		Validator.suppose(inputConnection).thatIsNamed("input neuron").isInstance();
 		
 		//Checks if this neuron has less input neurons than its maximal input neurons count says.
 		Validator.suppose(getInputNeuronCount()).isSmallerThan(getMaxInputNeuronCount());

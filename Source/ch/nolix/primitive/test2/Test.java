@@ -50,12 +50,12 @@ public abstract class Test extends ch.nolix.primitive.testoid.Testoid {
 	 */
 	protected final void expect(final boolean... values) {
 		
-		//Handles the case that the given values is null.
+		//Handles the case that the given values is not an instance.
 		if (values == null) {
 			new TestAccessor(this).addCurrentTestCaseError("True values were expected, but null was received.");
 		}
 		
-		//Handles the case that the given values is not null.
+		//Handles the case that the given values is an instance.
 		
 			//Iterates the given values.
 			int index = 1;
@@ -175,12 +175,12 @@ public abstract class Test extends ch.nolix.primitive.testoid.Testoid {
 	 */
 	protected final void expectNot(final boolean... values) {
 		
-		//Handles the case that the given values is null.
+		//Handles the case that the given values is not an instance.
 		if (values == null) {
 			new TestAccessor(this).addCurrentTestCaseError("False values were expected, but null was received.");
 		}
 		
-		//Handles the case that the given values is not null.
+		//Handles the case that the given values is an instance.
 		
 			//Iterates the given values.
 			int index = 1;

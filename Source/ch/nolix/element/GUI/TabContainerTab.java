@@ -65,7 +65,7 @@ implements Clearable<TabContainerTab> {
 	 * Creates a new {@link TabContainerTab} with the given header.
 	 * 
 	 * @param header
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws NullArgumentException if the given header is not an instance.
 	 * @throws EmptyArgumentException if the given header is empty.
 	 */
 	public TabContainerTab(final String header) {
@@ -83,9 +83,9 @@ implements Clearable<TabContainerTab> {
 	 * 
 	 * @param header
 	 * @param widget
-	 * @throws NullArgumentException if the given header is null.
+	 * @throws NullArgumentException if the given header is not an instance.
 	 * @throws EmptyArgumentException if the given header is empty.
-	 * @throws NullArgumentException if the given widget is null.
+	 * @throws NullArgumentException if the given widget is not an instance.
 	 */
 	public TabContainerTab(final String header, final Widget<?,? > widget) {
 		
@@ -246,14 +246,14 @@ implements Clearable<TabContainerTab> {
 	 * 
 	 * @param widget
 	 * @return the current {@link TabContainerTab}.
-	 * @throws NullArgumentException if the given widget is null.
+	 * @throws NullArgumentException if the given widget is not an instance.
 	 * @throws InvalidArgumentException
 	 * if the given widget belongs to another {@link GUI}
 	 * than the current {@link TabContainerTab}.
 	 */
 	public TabContainerTab setWidget(final Widget<?, ?> widget) {
 		
-		//Checks if the given widget is not null.
+		//Checks if the given widget is an instance.
 		Validator.suppose(widget).isInstanceOf(Widget.class);
 		
 		if (belongsToTabContainer()) {
@@ -293,15 +293,15 @@ implements Clearable<TabContainerTab> {
 	 * Sets the tab container the current {@link TabContainerTab} will belong to.
 	 * 
 	 * @param parentTabContainer
-	 * @throws NullArgumentException if the given parent tab container is null.
+	 * @throws NullArgumentException if the given parent tab container is not an instance.
 	 */
 	void setParentTabContainer(final TabContainer parentTabContainer) {
 		
-		//Checks if the given parent tab container is not null.
+		//Checks if the given parent tab container is an instance.
 		Validator
 		.suppose(parentTabContainer)
 		.thatIsNamed("parent tab container")
-		.isNotNull();
+		.isInstance();
 		
 		//Sets the parent tab container of this tab container tab.
 		this.parentTabContainer = parentTabContainer;

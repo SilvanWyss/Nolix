@@ -25,7 +25,7 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 	 * Creates a new console client with the given duplex controller.
 	 * 
 	 * @param duplexController
-	 * @throws NullArgumentException if the given duplex controller is null.
+	 * @throws NullArgumentException if the given duplex controller is not an instance.
 	 */
 	public BackConsoleClient(final DuplexController duplexController) {
 		
@@ -176,7 +176,7 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 	 * 
 	 * @param title
 	 * @return this console back client.
-	 * @throws NullArgumentException if the given title is null.
+	 * @throws NullArgumentException if the given title is not an instance.
 	 */
 	public BackConsoleClient setTitle(final String title) {
 		
@@ -225,8 +225,8 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 	 * 
 	 * @param lines
 	 * @return this console back client.
-	 * @throws NullArgumentException if the given line container is null.
-	 * @throws NullArgumentException if one of the given line is null.
+	 * @throws NullArgumentException if the given line container is not an instance.
+	 * @throws NullArgumentException if one of the given line is not an instance.
 	 */
 	public BackConsoleClient writeLinesToConsole(final Iterable<String> lines) {
 		
@@ -247,8 +247,8 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 	 * 
 	 * @param lines
 	 * @return this console back client.
-	 * @throws NullArgumentException if the given line container is null.
-	 * @throws NullArgumentException if one of the given line is null.
+	 * @throws NullArgumentException if the given line container is not an instance.
+	 * @throws NullArgumentException if one of the given line is not an instance.
 	 */
 	public BackConsoleClient writeLinesToInfoPanel(final Iterable<String> lines) {
 		
@@ -281,12 +281,12 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 	 * 
 	 * @param line
 	 * @return this console back client.
-	 * @throws NullArgumentException if the given line is null.
+	 * @throws NullArgumentException if the given line is not an instance.
 	 */
 	public BackConsoleClient writeLineToConsole(final String line) {
 		
-		//Checks if the given line is not null.
-		Validator.suppose(line).thatIsNamed("line").isNotNull();
+		//Checks if the given line is an instance.
+		Validator.suppose(line).thatIsNamed("line").isInstance();
 	
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINE_TO_CONSOLE_COMMAND
@@ -305,7 +305,7 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 	 * 
 	 * @param lines
 	 * @return this console back client.
-     * @throws NullArgumentException if one of the given line is null.
+     * @throws NullArgumentException if one of the given line is not an instance.
 	 */
 	public BackConsoleClient writeLineToConsole(final String... lines) {
 				
@@ -326,7 +326,7 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 	 * 
 	 * @param line
 	 * @return this console back client.
-	 * @throws NullArgumentException if the given line is null.
+	 * @throws NullArgumentException if the given line is not an instance.
 	 */
 	public BackConsoleClient writeLineToInfoPanel(final String line) {
 		
@@ -346,7 +346,7 @@ public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
 	 * of the counterpart of this console back client.
 	 * 
 	 * @param lines
-     * @throws NullArgumentException if one of the given line is null.
+     * @throws NullArgumentException if one of the given line is not an instance.
 	 */
 	public BackConsoleClient writeLineToInfoPanel(final String... lines) { 
 				
