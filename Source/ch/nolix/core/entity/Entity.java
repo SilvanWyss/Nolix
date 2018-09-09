@@ -6,7 +6,7 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.Specified;
+import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
 

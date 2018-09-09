@@ -11,7 +11,7 @@ import ch.nolix.core.constants.FunctionCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.Configurable;
+import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.element.bases.ConfigurableElement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;

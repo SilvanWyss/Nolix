@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.specificationInterfaces;
+package ch.nolix.core.specificationAPI;
 
 import ch.nolix.core.skillInterfaces.Resettable;
 import ch.nolix.core.specification.Specification;

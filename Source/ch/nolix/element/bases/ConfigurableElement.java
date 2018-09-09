@@ -15,7 +15,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.skillInterfaces.OptionalTokenable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.Configurable;
+import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.element.core.NonEmptyText;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 

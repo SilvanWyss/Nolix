@@ -6,7 +6,7 @@ import ch.nolix.core.skillInterfaces.IFluentObject;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
-import ch.nolix.core.specificationInterfaces.Specifiable;
+import ch.nolix.core.specificationAPI.Specifiable;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;

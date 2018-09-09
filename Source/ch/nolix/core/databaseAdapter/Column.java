@@ -6,7 +6,7 @@ import ch.nolix.core.bases.HeaderedElement;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.Specified;
+import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.primitive.validator2.Validator;
 
 //class

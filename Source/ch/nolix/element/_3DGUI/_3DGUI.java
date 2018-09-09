@@ -16,7 +16,7 @@ import ch.nolix.core.skillInterfaces.Closable;
 import ch.nolix.core.skillInterfaces.Refreshable;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.Configurable;
+import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configurationElement.ConfigurationElement;
 import ch.nolix.element.core.NonEmptyText;

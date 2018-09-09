@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.core.specificationInterfaces;
+package ch.nolix.core.specificationAPI;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;

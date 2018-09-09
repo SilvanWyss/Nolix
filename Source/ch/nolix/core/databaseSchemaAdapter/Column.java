@@ -8,7 +8,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.PropertyKind;
 import ch.nolix.core.databaseAdapter.PropertyoidType;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.Specified;
+import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.primitive.validator2.Validator;
 
 //class

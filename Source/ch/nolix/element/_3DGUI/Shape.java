@@ -5,7 +5,7 @@ package ch.nolix.element._3DGUI;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.Configurable;
+import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.element.bases.ConfigurableElement;
 import ch.nolix.element.geometry._3DPoint;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;

@@ -11,7 +11,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.Specifiable;
+import ch.nolix.core.specificationAPI.Specifiable;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;

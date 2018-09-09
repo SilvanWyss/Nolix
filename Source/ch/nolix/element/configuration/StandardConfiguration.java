@@ -4,7 +4,7 @@ package ch.nolix.element.configuration;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specificationInterfaces.Configurable;
+import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 
 //class

@@ -4,7 +4,7 @@ package ch.nolix.core.databaseAdapter;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.Specified;
+import ch.nolix.core.specificationAPI.Specified;
 
 //abstract class
 public abstract class PropertyoidType<V> implements Specified {

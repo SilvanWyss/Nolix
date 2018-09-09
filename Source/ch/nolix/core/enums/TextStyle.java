@@ -3,7 +3,7 @@ package ch.nolix.core.enums;
 
 //own imports
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specificationInterfaces.ISpecifiedEnum;
+import ch.nolix.core.specificationAPI.ISpecifiedEnum;
 
 //enum
 /**

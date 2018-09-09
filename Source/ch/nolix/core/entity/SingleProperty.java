@@ -7,7 +7,7 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specificationInterfaces.Specified;
+import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;

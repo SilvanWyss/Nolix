@@ -8,7 +8,7 @@ import java.lang.reflect.ParameterizedType;
 import ch.nolix.core.container.List;
 import ch.nolix.core.skillInterfaces.Headered;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specificationInterfaces.Specified;
+import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
 
