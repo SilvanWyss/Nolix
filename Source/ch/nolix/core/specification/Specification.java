@@ -11,6 +11,7 @@ import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.helper.StringHelper;
+import ch.nolix.core.XMLDocument.XMLNode;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
@@ -27,7 +28,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 720
+ * @lines 750
  */
 public abstract class Specification {
 	
@@ -664,6 +665,32 @@ public abstract class Specification {
 		}
 		
 		return stringBuilder.toString();
+	}
+	
+	//method
+	/**
+	 * @return a XML representation of the current {@link Specification}.
+	 */
+	public final XMLNode toXML() {
+		
+		//Creates an XML node.
+		final var XMLNode = new XMLNode(getHeader());
+		
+		//Iterates the attributes of the current specification.
+		for (final Specification a : getRefAttributes()) {
+			
+			//Handles the case that the current attribute does not contain attributes.
+			if (!a.containsAttributes()) {
+				XMLNode.setValue(a.toString());
+			}
+			
+			//Handles the case that the current attribute contains attributes.
+			else {
+				XMLNode.addChildNode(a.toXML());
+			}
+		}
+		
+		return XMLNode;
 	}
 	
 	//method
