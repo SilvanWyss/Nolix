@@ -28,7 +28,7 @@ public final class CandleStickTest extends Test {
 			250.0
 		);
 		
-		//execution and verification
+		//execution & verification
 		expectNot(candleStick.isBearish());
 	}
 	
@@ -45,7 +45,7 @@ public final class CandleStickTest extends Test {
 			250.0
 		);
 		
-		//execution and verification
+		//execution & verification
 		expect(candleStick.isBearish());
 	}
 
@@ -62,7 +62,7 @@ public final class CandleStickTest extends Test {
 			250.0
 		);
 		
-		//execution and verification
+		//execution & verification
 		expect(candleStick.isBullish());
 	}
 	
@@ -79,7 +79,7 @@ public final class CandleStickTest extends Test {
 			250.0
 		);
 		
-		//execution and verification
+		//execution & verification
 		expectNot(candleStick.isBullish());
 	}
 	
@@ -96,7 +96,7 @@ public final class CandleStickTest extends Test {
 			210.0
 		);
 		
-		//execution and verification
+		//execution & verification
 		expect(candleStick.isHammer());
 	}
 }

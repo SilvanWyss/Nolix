@@ -18,7 +18,7 @@ public final class QuadraticFunctionTest extends Test {
 	//test case
 	public void testCase_constructor() {
 		
-		//execution and verification
+		//execution & verification
 		expect(() -> new QuadraticFunction(0.0, 0.0, 0.0))
 		.throwsExceptionOfType(InvalidArgumentException.class);
 	}
@@ -30,7 +30,7 @@ public final class QuadraticFunctionTest extends Test {
 		final QuadraticFunction quadraticFunction =
 		new QuadraticFunction(1.0, 0.0, 0.0);
 		
-		//execution and verification
+		//execution & verification
 		expect(quadraticFunction.hasMin());
 	}
 	
@@ -41,7 +41,7 @@ public final class QuadraticFunctionTest extends Test {
 		final QuadraticFunction quadraticFunction =
 		new QuadraticFunction(-1.0, 0.0, 0.0);
 		
-		//execution and verification
+		//execution & verification
 		expectNot(quadraticFunction.hasMin());
 	}
 }

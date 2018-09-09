@@ -45,7 +45,7 @@ public final class MatrixTest extends Test {
 			//setup
 			final Matrix matrix = Matrix.createIdendityMatrix(i);
 			
-			//execution and verification
+			//execution & verification
 			expect(matrix.getRank()).isEqualTo(i);
 		}
 	}
@@ -62,7 +62,7 @@ public final class MatrixTest extends Test {
 			//setup
 			final Matrix matrix = Matrix.createIdendityMatrix(i);
 			
-			//execution and verification
+			//execution & verification
 			expect(matrix.getTrace()).isEqualTo(i);
 		}
 	}
@@ -202,7 +202,7 @@ public final class MatrixTest extends Test {
 		//setup
 		final Matrix matrix = new Matrix(1);
 
-		//execution and verification
+		//execution & verification
 		expect(matrix.toString()).isEqualTo("[0]");
 	}
 	
@@ -212,7 +212,7 @@ public final class MatrixTest extends Test {
 		//setup
 		final Matrix matrix = new Matrix(2);
 
-		//execution and verification
+		//execution & verification
 		expect(matrix.toString()).isEqualTo("[0,0;0,0]");
 	}
 	
@@ -222,7 +222,7 @@ public final class MatrixTest extends Test {
 		//setup
 		final Matrix matrix = new Matrix(3);
 
-		//execution and verification
+		//execution & verification
 		expect(matrix.toString()).isEqualTo("[0,0,0;0,0,0;0,0,0]");
 	}
 	
@@ -232,7 +232,7 @@ public final class MatrixTest extends Test {
 		//setup
 		final Matrix matrix = new Matrix(4);
 		
-		//execution and verification
+		//execution & verification
 		expect(matrix.toString()).isEqualTo("[0,0,0,0;0,0,0,0;0,0,0,0;0,0,0,0]");
 	}
 	
@@ -242,7 +242,7 @@ public final class MatrixTest extends Test {
 		//setup
 		final Matrix matrix = Matrix.createIdendityMatrix(1);
 		
-		//execution and verification
+		//execution & verification
 		expect(matrix.toString()).isEqualTo("[1]");
 	}
 	
@@ -252,7 +252,7 @@ public final class MatrixTest extends Test {
 		//setup
 		final Matrix matrix = Matrix.createIdendityMatrix(2);
 		
-		//execution and verification
+		//execution & verification
 		expect(matrix.toString()).isEqualTo("[1,0;0,1]");
 	}
 	
@@ -262,7 +262,7 @@ public final class MatrixTest extends Test {
 		//setup
 		final Matrix matrix = Matrix.createIdendityMatrix(3);
 				
-		//execution and verification
+		//execution & verification
 		expect(matrix.toString()).isEqualTo("[1,0,0;0,1,0;0,0,1]");
 	}
 	
@@ -272,7 +272,7 @@ public final class MatrixTest extends Test {
 		//setup
 		final Matrix matrix = Matrix.createIdendityMatrix(4);
 				
-		//execution and verification
+		//execution & verification
 		expect(matrix.toString()).isEqualTo("[1,0,0,0;0,1,0,0;0,0,1,0;0,0,0,1]");
 	}
 }

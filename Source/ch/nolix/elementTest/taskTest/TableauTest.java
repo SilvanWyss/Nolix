@@ -42,7 +42,7 @@ public final class TableauTest extends Test {
 		final Tableau tableau = new Tableau();
 		final Task task = null;
 		
-		//execution and verification
+		//execution & verification
 		expect(() -> tableau.addTask(task))
 		.throwsExceptionOfType(NullArgumentException.class);
 	}
@@ -55,7 +55,7 @@ public final class TableauTest extends Test {
 		final Task task = new Task("Task");
 		tableau.addTask(task);
 		
-		//execution and verification
+		//execution & verification
 		expect(() -> tableau.addTask(task))
 		.throwsExceptionOfType(InvalidArgumentException.class);
 	}

@@ -34,7 +34,7 @@ public final class UniDirectionTest extends Test {
 	//test case
 	public void testCase_getSpecification() {
 		
-		//execution and verification
+		//execution & verification
 		expect(UniDirection.Horizontal.getSpecification())
 		.isEqualTo(new StandardSpecification("UniDirection(Horizontal)"));
 	}
@@ -42,14 +42,14 @@ public final class UniDirectionTest extends Test {
 	//test case
 	public void testCase_getType() {
 		
-		//execution and verification
+		//execution & verification
 		expect(UniDirection.Horizontal.getType()).isEqualTo("UniDirection");
 	}
 	
 	//test case
 	public void testCase_toString() {
 		
-		//execution and verification
+		//execution & verification
 		expect(UniDirection.Horizontal.toString()).isEqualTo("Horizontal");
 	}
 }

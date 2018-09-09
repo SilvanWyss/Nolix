@@ -34,7 +34,7 @@ public final class DirectionTest extends Test {
 	//test case
 	public void testCase_getSpecification() {
 		
-		//execution and verification
+		//execution & verification
 		expect(Direction.LeftToRight.getSpecification())
 		.isEqualTo(new StandardSpecification("Direction(LeftToRight)"));
 	}
@@ -42,14 +42,14 @@ public final class DirectionTest extends Test {
 	//test case
 	public void testCase_getType() {
 		
-		//execution and verification
+		//execution & verification
 		expect(Direction.LeftToRight.getType()).isEqualTo("Direction");
 	}
 	
 	//test case
 	public void testCase_toString() {
 		
-		//execution and verification
+		//execution & verification
 		expect(Direction.LeftToRight.toString()).isEqualTo("LeftToRight");
 	}
 }

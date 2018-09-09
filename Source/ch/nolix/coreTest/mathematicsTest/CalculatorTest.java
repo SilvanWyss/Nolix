@@ -29,7 +29,7 @@ public final class CalculatorTest extends Test {
 		vector.add(3.0);
 		vector.add(4.0);
 		
-		//execution and verification
+		//execution & verification
 		expect(Calculator.DOUBLE_AVERAGE.getOutput(vector)).isEqualTo(2.5);
 	}
 	
@@ -43,7 +43,7 @@ public final class CalculatorTest extends Test {
 		vector.add(3.0);
 		vector.add(4.0);
 		
-		//execution and verification
+		//execution & verification
 		expect(Calculator.DOUBLE_MAX.getOutput(vector)).isEqualTo(4.0);
 	}
 	
@@ -57,7 +57,7 @@ public final class CalculatorTest extends Test {
 		vector.add(3.0);
 		vector.add(4.0);
 		
-		//execution and verification
+		//execution & verification
 		expect(Calculator.DOUBLE_MIN.getOutput(vector)).isEqualTo(1.0);
 	}
 	
@@ -71,7 +71,7 @@ public final class CalculatorTest extends Test {
 		vector.add(3.0);
 		vector.add(4.0);
 		
-		//execution and verification
+		//execution & verification
 		expect(Calculator.DOUBLE_SUM.getOutput(vector)).isEqualTo(10.0);
 	}
 }

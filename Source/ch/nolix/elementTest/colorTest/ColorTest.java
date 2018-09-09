@@ -36,7 +36,7 @@ public final class ColorTest extends Test {
 		//execution
 		final int blueValue = color.getBlueValue();
 		
-		//execution and verification
+		//execution & verification
 		expect(blueValue).isEqualTo(0x30);
 	}
 	

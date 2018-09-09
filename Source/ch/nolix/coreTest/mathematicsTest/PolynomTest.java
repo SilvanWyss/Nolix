@@ -62,7 +62,7 @@ public final class PolynomTest extends Test {
 		//setup
 		final Polynom polynom = new Polynom(2).setCoefficients(1.0, 2.0, 3.0);
 			
-		//execution and verification
+		//execution & verification
 		expect(polynom.toString()).isEqualTo("x->x^2+2x+3");
 	}
 	
@@ -72,7 +72,7 @@ public final class PolynomTest extends Test {
 		//setup
 		final Polynom polynom = new Polynom(5).setCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
 		
-		//execution and verification
+		//execution & verification
 		expect(polynom.toString()).isEqualTo("x->x^5+2x^4+3x^3+4x^2+5x+6");
 	}
 }

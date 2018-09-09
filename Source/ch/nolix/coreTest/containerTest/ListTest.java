@@ -61,7 +61,7 @@ public final class ListTest extends Test {
 			"xxxxxx"
 		);
 		
-		//execution and verification
+		//execution & verification
 			expect(
 				list.contains(s -> s.equals("x")),
 				list.contains(s -> s.equals("xx")),
@@ -94,7 +94,7 @@ public final class ListTest extends Test {
 			"xxxxxx"
 		);
 		
-		//execution and verification
+		//execution & verification
 		expect(list.contains((s1, s2) -> s1.length() == s2.length()));
 		expect(list.contains((s1, s2) -> s1.length() + 1 == s2.length()));
 		expect(list.contains((s1, s2) -> s1.length() + 2 == s2.length()));
@@ -110,7 +110,7 @@ public final class ListTest extends Test {
 		//setup
 		final List<String> list = new List<String>();
 		
-		//execution and verification
+		//execution & verification
 		expectNot(list.containsOne());
 	}
 	
@@ -120,7 +120,7 @@ public final class ListTest extends Test {
 		//setup
 		final List<String> list = new List<String>("x");
 		
-		//execution and verification
+		//execution & verification
 		expect(list.containsOne());
 	}
 	
@@ -141,7 +141,7 @@ public final class ListTest extends Test {
 		final List<String> list
 		= new List<String>("x",  "xx", "xx", "xx", "xx", "xx");
 		
-		//execution and verification
+		//execution & verification
 		expect(list.containsOne(s -> s.length() == 1));
 		expectNot(list.containsOne(s -> s.length() == 2));
 	}
@@ -233,7 +233,7 @@ public final class ListTest extends Test {
 		//setup
 		final List<String> list = new List<String>("x", "x", "x", "x", "x", "x");
 		
-		//execution and verification
+		//execution & verification
 		expect(list.getElementCount()).isEqualTo(6);
 	}
 	
@@ -250,7 +250,7 @@ public final class ListTest extends Test {
 			"xxxxxx"
 		);
 		
-		//execution and verification
+		//execution & verification
 		expect(list.getElementCount(e -> e.length() > 0)).isEqualTo(6);
 		expect(list.getElementCount(e -> e.length() > 3)).isEqualTo(3);
 		expect(list.getElementCount(e -> e.length() > 6)).isZero();
@@ -271,7 +271,7 @@ public final class ListTest extends Test {
 			"toast"	
 		);
 		
-		//execution and verification
+		//execution & verification
 		expect(list.getRefByMax(s -> s)).isEqualTo("toast");
 	}
 	
@@ -288,7 +288,7 @@ public final class ListTest extends Test {
 			"xxxxxx"
 		);
 		
-		//execution and verification
+		//execution & verification
 		expect(list.getRefByMaxInt(s -> s.length())).isEqualTo("xxxxxx");
 	}
 	
@@ -307,7 +307,7 @@ public final class ListTest extends Test {
 			"toast"
 		);
 		
-		//execution and verification
+		//execution & verification
 		expect(list.getRefByMin(s -> s)).isEqualTo("cake");
 	}
 	
@@ -324,7 +324,7 @@ public final class ListTest extends Test {
 			"xxxxxx"
 		);
 		
-		//execution and verification
+		//execution & verification
 		expect(list.getRefByMinInt(s -> s.length())).isEqualTo("x");
 	}
 	
@@ -430,7 +430,7 @@ public final class ListTest extends Test {
 			1.0
 		);
 		
-		//execution and verification
+		//execution & verification
 		expect(list.getVarianceByDouble(e -> e.doubleValue())).isEqualTo(0.2);
 	}
 	
@@ -440,7 +440,7 @@ public final class ListTest extends Test {
 		//setup
 		final List<String> list = new List<String>();
 		
-		//execution and verification
+		//execution & verification
 		expect(list.isEmpty());
 	}
 	
@@ -450,7 +450,7 @@ public final class ListTest extends Test {
 		//setup
 		List<String> list = new List<String>("x");
 		
-		//execution and verification
+		//execution & verification
 		expectNot(list.isEmpty());
 	}
 	
@@ -472,7 +472,7 @@ public final class ListTest extends Test {
 			.addConditionForNext(s -> s.length() == 1)
 			.addConditionForNext(s -> s.length() == 4);
 		
-		//execution and verification
+		//execution & verification
 		expect(list.matches(sequencePattern));
 	}
 	
@@ -495,7 +495,7 @@ public final class ListTest extends Test {
 			.addBlankForNext()
 			.addBlankForNext();
 		
-		//execution and verification
+		//execution & verification
 			expect(list.matches(sequencePattern));
 	}
 	
@@ -510,7 +510,7 @@ public final class ListTest extends Test {
 			= new SequencePattern<String>()
 			.forNext(10).addBlank();
 		
-		//execution and verification
+		//execution & verification
 			expect(list.matches(sequencePattern));
 	}
 	
@@ -628,7 +628,7 @@ public final class ListTest extends Test {
 		//setup
 		final List<String> list = new List<String>();
 		
-		//execution and verification
+		//execution & verification
 		expect(list.toString()).isEmpty();
 	}
 	
@@ -645,7 +645,7 @@ public final class ListTest extends Test {
 			"zebra"
 		);
 		
-		//execution and verification
+		//execution & verification
 		expect(list.toString()).isEqualTo("elephant,jaguar,lion,python,shark,zebra");
 	}
 }
