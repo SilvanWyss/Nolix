@@ -20,9 +20,9 @@ import ch.nolix.primitive.validator2.Validator;
  * @lines 150
  * @param <V> The type of the values of a multi property.
  */
-public final class MultiProperty<V extends Specified>
+public final class MutableMultiProperty<V extends Specified>
 extends Propertyoid<V>
-implements Clearable<MultiProperty<V>> {
+implements Clearable<MutableMultiProperty<V>> {
 
 	//attributes
 	private final IElementTaker<V> adderMethod;
@@ -43,7 +43,7 @@ implements Clearable<MultiProperty<V>> {
 	 * @throws NullArgumentException if the given adder method is not an instance.
 	 * @throws NullArgumentException if the given value creator is not an instance.
 	 */
-	public MultiProperty(
+	public MutableMultiProperty(
 		final String name,
 		final IElementTaker<V> adderMethod,
 		final IElementTakerElementGetter<Specification, V> valueCreator) {
@@ -81,7 +81,7 @@ implements Clearable<MultiProperty<V>> {
 	 * 
 	 * @return this multi property.
 	 */
-	public MultiProperty<V> clear() {
+	public MutableMultiProperty<V> clear() {
 		
 		values.clear();
 		

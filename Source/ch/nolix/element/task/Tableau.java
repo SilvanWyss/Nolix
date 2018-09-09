@@ -3,7 +3,7 @@ package ch.nolix.element.task;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.entity.MultiProperty;
+import ch.nolix.core.entity.MutableMultiProperty;
 import ch.nolix.core.skillInterfaces.Clearable;
 import ch.nolix.element.bases.NamableElement;
 
@@ -21,8 +21,8 @@ extends NamableElement<Tableau>
 implements Clearable<Tableau> {
 
 	//attribute
-	private final MultiProperty<Task> tasks =
-	new MultiProperty<Task>(
+	private final MutableMultiProperty<Task> tasks =
+	new MutableMultiProperty<Task>(
 		Task.TYPE_NAME,
 		t -> addTask(t),
 		s -> Task.createFromSpecification(s)
