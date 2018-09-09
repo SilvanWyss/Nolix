@@ -231,23 +231,38 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 		stringBuilder.append('>');
 		
 			if (hasValue()) {
-				stringBuilder
-				.append(CharacterCatalogue.NEW_LINE)
-				.append(StringHelper.createTabulators(leadingTabulatorCount + 1))
-				.append(getValue());
+				 
+				if (!hasMixedContent()) {
+					stringBuilder.append(getValue());
+				}
+				
+				else {
+					stringBuilder
+					.append(CharacterCatalogue.NEW_LINE)
+					.append(StringHelper.createTabulators(leadingTabulatorCount + 1))
+					.append(getValue())
+					.append(CharacterCatalogue.NEW_LINE);
+					
+				}
 			}
 			
 			if (containsChildNodes()) {
+				
 				for (final var cn : getRefChildNodes()) {
 					stringBuilder
 					.append(CharacterCatalogue.NEW_LINE)
 					.append(cn.toFormatedString(leadingTabulatorCount + 1));
 				}
+				
+				stringBuilder.append(CharacterCatalogue.NEW_LINE);
 			}
+		
+		if (containsChildNodes()) {
+			stringBuilder.append(StringHelper.createTabulators(leadingTabulatorCount));
+		}
 			
 		stringBuilder
-		.append(CharacterCatalogue.NEW_LINE)
-		.append('<')
+		.append("</")
 		.append(getName())
 		.append('>');		
 		
