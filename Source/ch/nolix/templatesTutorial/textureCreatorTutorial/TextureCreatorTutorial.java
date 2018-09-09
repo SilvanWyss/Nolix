@@ -1,15 +1,13 @@
 //package declaration
-package ch.nolix.techAPITutorial.textureTutorial;
+package ch.nolix.templatesTutorial.textureCreatorTutorial;
 
 //own imports
-import ch.nolix.core.serviceProvider.ServiceProvider;
 import ch.nolix.element.GUI.Accordion;
 import ch.nolix.element.GUI.AccordionTab;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.ImageWidget;
-import ch.nolix.tech.TechFactory;
-import ch.nolix.tech.texture.JuteTextureCreator;
-import ch.nolix.techAPI.ITechFactory;
+import ch.nolix.templates.textureCreators.ConcreteTextureCreator;
+import ch.nolix.templates.textureCreators.JuteTextureCreator;
 
 //class
 /**
@@ -31,13 +29,8 @@ public final class TextureCreatorTutorial {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		ServiceProvider.register(ITechFactory.class, new TechFactory());
-		
-		final var juteTextureCreator = ServiceProvider.get(ITechFactory.class).createJuteTextureCreator();
-		final var juteTexture = juteTextureCreator.createTexture(1000, 500);
-		
-		final var concreteTextureCreator = ServiceProvider.get(ITechFactory.class).createConreteTextureCreator();
-		final var concreteTexture = concreteTextureCreator.createTexture(1000, 500);
+		final var juteTexture = new JuteTextureCreator().createTexture(1000, 500);
+		final var concreteTexture = new ConcreteTextureCreator().createTexture(1000, 500);
 		
 		//Creates a frame that will show the concrete texture.
 		new Frame()

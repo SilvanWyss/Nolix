@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.tech.texture;
+package ch.nolix.templates.textureCreators;
 
 //own imports
 import ch.nolix.element.color.Color;
