@@ -8,7 +8,7 @@ package ch.nolix.core.skillInterfaces;
  * 
  * @author Silvan Wyss
  * @month 2018-09
- * @lines 30
+ * @lines 60
  * @param <OV> The type of a {@link OptionalValueable}.
  * @param <V> The type of the value of a {@link OptionalValueable}.
  */
@@ -20,6 +20,40 @@ extends Valueable<OV, V> {
 	 * @return true if the current {@link OptionalValueable} has a value.
 	 */
 	public abstract boolean hasValue();
+	
+	//default method
+	/**
+	 * @param value
+	 * @return  true if the current {@link OptionalValueable}
+	 * has a value that equals the given value.
+	 */
+	public default boolean hasEqualValue(final Object value) {
+		
+		//Handles the case that the current optional valueable does not have a value.
+		if (!hasValue()) {
+			return false;
+		}
+		
+		//Handles the case that the current optional valueable has a value.
+		return getValue().equals(value);
+	}
+	
+	//default method
+	/**
+	 * @param value
+	 * @return true
+	 * if the current {@link OptionalValueable} has the given value.
+	 */
+	public default boolean hasValue(final Object value) {
+		
+		//Handles the case that the current optional valueable does not have a value.
+		if (!hasValue()) {
+			return false;
+		}
+		
+		//Handles the case that the current optional valueable has a value.
+		return (getValue() == value);
+	}
 	
 	//abstract method
 	/**
