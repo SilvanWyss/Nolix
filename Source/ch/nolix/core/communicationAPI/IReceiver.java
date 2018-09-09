@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.communicationInterfaces;
+package ch.nolix.core.communicationAPI;
 
 //interface
 /**

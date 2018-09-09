@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreTest.endPointTest;
 
-//own imports
-import ch.nolix.core.communicationInterfaces.IReceiver;
+import ch.nolix.core.communicationAPI.IReceiver;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.endPoint.EndPoint;
 import ch.nolix.core.endPoint.IEndPointTaker;

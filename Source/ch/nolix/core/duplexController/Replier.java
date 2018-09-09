@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.duplexController;
 
-//own imports
-import ch.nolix.core.communicationInterfaces.IReplier;
+import ch.nolix.core.communicationAPI.IReplier;
 import ch.nolix.primitive.validator.Validator;
 
 //package-visible class
