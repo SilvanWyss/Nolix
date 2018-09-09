@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.primitive.validator2;
 
-//own imports
-import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
+import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.primitive.helper.ArrayHelper;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;

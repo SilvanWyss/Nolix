@@ -4,7 +4,7 @@ package ch.nolix.core.specification;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
+import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;

@@ -3,7 +3,7 @@ package ch.nolix.system.GUIClient;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.functionInterfaces.IElementGetter;
+import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.primitive.validator2.Validator;
 

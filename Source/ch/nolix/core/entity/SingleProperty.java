@@ -4,8 +4,8 @@ package ch.nolix.core.entity;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
-import ch.nolix.core.functionInterfaces.IElementTaker;
+import ch.nolix.core.functionAPI.IElementTaker;
+import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;

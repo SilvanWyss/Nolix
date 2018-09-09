@@ -3,7 +3,7 @@ package ch.nolix.system.neuronoid;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
+import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.primitive.validator2.Validator;
 
 //class

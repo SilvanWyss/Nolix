@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.functionInterfaces.IFunction;
+import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.constants.FunctionCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specification.Specification;

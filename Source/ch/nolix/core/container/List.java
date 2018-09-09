@@ -3,11 +3,11 @@ package ch.nolix.core.container;
 
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
-import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
-import ch.nolix.core.functionInterfaces.IElementTakerComparableGetter;
-import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
+import ch.nolix.core.functionAPI.IElementTaker;
+import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
+import ch.nolix.core.functionAPI.IElementTakerComparableGetter;
+import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.skillInterfaces.Clearable;
-import ch.nolix.core.functionInterfaces.IElementTaker;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;

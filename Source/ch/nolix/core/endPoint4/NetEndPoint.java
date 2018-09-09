@@ -3,7 +3,7 @@ package ch.nolix.core.endPoint4;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
+import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 
 //class
 /**

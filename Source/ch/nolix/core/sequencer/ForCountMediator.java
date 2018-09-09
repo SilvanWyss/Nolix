@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.core.sequencer;
 
-//own imports
-import ch.nolix.core.functionInterfaces.IFunction;
-import ch.nolix.core.functionInterfaces.IIntTaker;
+import ch.nolix.core.functionAPI.IFunction;
+import ch.nolix.core.functionAPI.IIntTaker;
 import ch.nolix.primitive.validator2.Validator;
 
 //class

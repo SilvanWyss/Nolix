@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.functionInterfaces.IFunction;
+import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.helper.MethodHelper;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;

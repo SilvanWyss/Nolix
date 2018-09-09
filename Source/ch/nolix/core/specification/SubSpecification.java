@@ -3,7 +3,7 @@ package ch.nolix.core.specification;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
+import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;

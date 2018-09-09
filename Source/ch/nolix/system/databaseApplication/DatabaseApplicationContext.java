@@ -4,7 +4,7 @@ package ch.nolix.system.databaseApplication;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.databaseAdapter.DatabaseAdapter;
-import ch.nolix.core.functionInterfaces.IElementGetter;
+import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;

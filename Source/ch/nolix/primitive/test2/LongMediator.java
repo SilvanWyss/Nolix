@@ -3,7 +3,7 @@ package ch.nolix.primitive.test2;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
+import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.primitive.invalidArgumentException.NonBiggerArgumentException;
 import ch.nolix.primitive.invalidArgumentException.NonPositiveArgumentException;
 import ch.nolix.primitive.invalidArgumentException.NullArgumentException;

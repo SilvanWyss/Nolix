@@ -3,9 +3,9 @@ package ch.nolix.core.sequencer;
 
 //own imports
 import ch.nolix.core.constants.TimeUnitCatalogue;
-import ch.nolix.core.functionInterfaces.IBooleanGetter;
-import ch.nolix.core.functionInterfaces.IElementGetter;
-import ch.nolix.core.functionInterfaces.IFunction;
+import ch.nolix.core.functionAPI.IBooleanGetter;
+import ch.nolix.core.functionAPI.IElementGetter;
+import ch.nolix.core.functionAPI.IFunction;
 
 //class
 /**

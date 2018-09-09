@@ -5,7 +5,7 @@ package ch.nolix.core.databaseAdapter;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.factory.Factory;
-import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
+import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.skillInterfaces.IChangesSaver;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.primitive.validator2.Validator;

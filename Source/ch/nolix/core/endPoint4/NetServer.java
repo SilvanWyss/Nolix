@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint4;
 
-import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
+import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 
 //class

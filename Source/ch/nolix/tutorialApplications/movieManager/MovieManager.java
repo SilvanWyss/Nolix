@@ -3,7 +3,7 @@ package ch.nolix.tutorialApplications.movieManager;
 
 //own imports
 import ch.nolix.core.databaseAdapter.DatabaseAdapter;
-import ch.nolix.core.functionInterfaces.IElementGetter;
+import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.system.databaseApplication.DatabaseApplication;
 import ch.nolix.system.databaseApplication.DatabaseApplicationContext;

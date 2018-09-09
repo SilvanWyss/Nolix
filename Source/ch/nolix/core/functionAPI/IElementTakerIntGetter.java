@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.functionInterfaces;
+package ch.nolix.core.functionAPI;
 
 //functional interface
 /**

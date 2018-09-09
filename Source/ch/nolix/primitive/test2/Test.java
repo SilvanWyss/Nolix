@@ -4,8 +4,7 @@ package ch.nolix.primitive.test2;
 //Java import
 import java.util.Vector;
 
-//own imports
-import ch.nolix.core.functionInterfaces.IFunction;
+import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.skillInterfaces.ApproximativeEqualing;
 import ch.nolix.primitive.testoid.TestAccessor;
 

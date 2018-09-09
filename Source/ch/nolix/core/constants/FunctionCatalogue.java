@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.core.constants;
 
-//own imports
-import ch.nolix.core.functionInterfaces.IElementTakerBooleanGetter;
-import ch.nolix.core.functionInterfaces.IElementTakerDoubleGetter;
-import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
-import ch.nolix.core.functionInterfaces.IFunction;
+import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
+import ch.nolix.core.functionAPI.IElementTakerDoubleGetter;
+import ch.nolix.core.functionAPI.IElementTakerElementGetter;
+import ch.nolix.core.functionAPI.IFunction;
 
 //class
 /**

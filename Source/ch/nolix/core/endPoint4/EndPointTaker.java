@@ -1,6 +1,6 @@
 package ch.nolix.core.endPoint4;
 
-import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
+import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 
 final class EndPointTaker<M, R> implements ch.nolix.core.endPoint2.IEndPointTaker {
 

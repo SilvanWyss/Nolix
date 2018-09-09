@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.core.entity;
 
-//own imports
-import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
+import ch.nolix.core.functionAPI.IElementTaker;
+import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.skillInterfaces.Clearable;
-import ch.nolix.core.functionInterfaces.IElementTaker;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.Specified;
 

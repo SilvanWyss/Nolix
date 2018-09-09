@@ -4,7 +4,7 @@ package ch.nolix.core.entity;
 //own imports
 import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.functionInterfaces.IElementTakerElementGetter;
+import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationInterfaces.Specified;
 import ch.nolix.primitive.validator2.Validator;

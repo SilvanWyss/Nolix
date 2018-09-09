@@ -8,7 +8,7 @@ import javax.swing.JFileChooser;
 import ch.nolix.core.container.List;
 import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
-import ch.nolix.core.functionInterfaces.IElementGetter;
+import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.util.PopupWindowProvider;

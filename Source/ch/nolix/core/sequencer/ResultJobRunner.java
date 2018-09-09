@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.sequencer;
 
-//own imports
-import ch.nolix.core.functionInterfaces.IElementGetter;
+import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.core.util.PopupWindowProvider;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;

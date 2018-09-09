@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.primitive.test2;
 
-//own imports
-import ch.nolix.core.functionInterfaces.IFunction;
+import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.primitive.invalidArgumentException.NullArgumentException;
 
 //class
