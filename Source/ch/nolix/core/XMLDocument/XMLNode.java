@@ -213,7 +213,63 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	}
 	
 	//method
-	public String toFormatedString(final int leadingTabulatorCount) {
+	public String toFormatedString() {
+		return toFormatedString(0);
+	}
+	
+	//method
+	public String toString() {
+		
+		final var stringBuilder = new StringBuilder();
+		
+		stringBuilder
+		.append('<')
+		.append(getName());
+		
+		if (containsAttributes()) {
+			stringBuilder
+			.append(' ')
+			.append(getAttributes().toString(' '));
+		}
+		
+		stringBuilder.append('>');
+		
+			if (hasValue()) {
+				stringBuilder
+				.append(getValue());
+			}
+			
+			if (containsChildNodes()) {
+				for (final var cn : getRefChildNodes()) {
+					stringBuilder
+					.append(cn.toString());
+				}
+			}
+			
+		stringBuilder
+		.append('<')
+		.append(getName())
+		.append('>');		
+		
+		return stringBuilder.toString();
+	}
+	
+	//method
+	private void supposeHasValue() {
+		if (!hasValue()) {
+			throw new UnexistingAttributeException(this, VariableNameCatalogue.VALUE);
+		}
+	}
+	
+	//method
+	private void supposeIsNotFrozen() {
+		if (isFrozen()) {
+			throw new InvalidStateException(this, "is frozen");
+		}
+	}
+	
+	//method
+	private String toFormatedString(final int leadingTabulatorCount) {
 		
 		final var stringBuilder = new StringBuilder();
 		
@@ -267,56 +323,5 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 		.append('>');		
 		
 		return stringBuilder.toString();
-	}
-	
-	//method
-	public String toString() {
-		
-		final var stringBuilder = new StringBuilder();
-		
-		stringBuilder
-		.append('<')
-		.append(getName());
-		
-		if (containsAttributes()) {
-			stringBuilder
-			.append(' ')
-			.append(getAttributes().toString(' '));
-		}
-		
-		stringBuilder.append('>');
-		
-			if (hasValue()) {
-				stringBuilder
-				.append(getValue());
-			}
-			
-			if (containsChildNodes()) {
-				for (final var cn : getRefChildNodes()) {
-					stringBuilder
-					.append(cn.toString());
-				}
-			}
-			
-		stringBuilder
-		.append('<')
-		.append(getName())
-		.append('>');		
-		
-		return stringBuilder.toString();
-	}
-	
-	//method
-	private void supposeHasValue() {
-		if (!hasValue()) {
-			throw new UnexistingAttributeException(this, VariableNameCatalogue.VALUE);
-		}
-	}
-	
-	//method
-	private void supposeIsNotFrozen() {
-		if (isFrozen()) {
-			throw new InvalidStateException(this, "is frozen");
-		}
 	}
 }
