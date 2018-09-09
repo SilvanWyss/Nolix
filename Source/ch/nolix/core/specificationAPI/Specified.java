@@ -2,6 +2,7 @@
 package ch.nolix.core.specificationAPI;
 
 //own imports
+import ch.nolix.core.XMLDocument.XMLNode;
 import ch.nolix.core.container.List;
 import ch.nolix.core.skillInterfaces.Typed;
 import ch.nolix.core.specification.StandardSpecification;
@@ -69,5 +70,13 @@ public interface Specified extends Typed {
 	 */
 	public default void saveAsTo(final String type, final String path) {
 		getSpecificationAs(type).saveToFile(path);
+	}
+	
+	//default method
+	/**
+	 * @return a XML specification of this specified object.
+	 */
+	public default XMLNode toXML() {
+		return getSpecification().toXML();
 	}
 }
