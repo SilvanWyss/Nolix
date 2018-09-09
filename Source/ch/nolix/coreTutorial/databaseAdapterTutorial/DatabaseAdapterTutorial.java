@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreTutorial.databaseAdapter;
+package ch.nolix.coreTutorial.databaseAdapterTutorial;
 
 //own imports
 import ch.nolix.core.databaseAdapter.DatabaseAdapter;
