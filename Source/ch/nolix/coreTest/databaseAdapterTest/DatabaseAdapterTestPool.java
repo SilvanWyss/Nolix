@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreTest.databaseAdapter;
+package ch.nolix.coreTest.databaseAdapterTest;
 
 //own import
 import ch.nolix.primitive.testoid.TestPool;

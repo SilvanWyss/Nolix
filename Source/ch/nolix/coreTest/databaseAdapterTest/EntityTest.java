@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreTest.databaseAdapter;
+package ch.nolix.coreTest.databaseAdapterTest;
 
 //own imports
 import ch.nolix.core.databaseAdapter.Entity;

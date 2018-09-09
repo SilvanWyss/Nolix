@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreTest.databaseAdapter;
+package ch.nolix.coreTest.databaseAdapterTest;
 
 //class
 public final class Launcher {

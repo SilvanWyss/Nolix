@@ -3,7 +3,7 @@ package ch.nolix.coreTest;
 
 //own imports
 import ch.nolix.coreTest.containerTest.ContainerTestPool;
-import ch.nolix.coreTest.databaseAdapter.DatabaseAdapterTestPool;
+import ch.nolix.coreTest.databaseAdapterTest.DatabaseAdapterTestPool;
 import ch.nolix.coreTest.enumTest.EnumTestPool;
 import ch.nolix.coreTest.helperTest.HelperTestPool;
 import ch.nolix.coreTest.mathematicsTest.MathematicsTestPool;
