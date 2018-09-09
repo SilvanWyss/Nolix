@@ -3,9 +3,11 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.constants.MultiVariableNameCatalogue;
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.entity.MutableMultiProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.skillInterfaces.Clearable;
 import ch.nolix.element.color.Color;
@@ -16,7 +18,7 @@ import ch.nolix.primitive.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2018-08
- * @lines 460
+ * @lines 470
  */
 public final class Accordion
 extends Container<Accordion, AccordionLook>
@@ -34,10 +36,15 @@ implements Clearable<Accordion> {
 		s -> AccordionExpansionBehavior.createFromSpecification(s));
 	
 	//attribute
-	private final VerticalStack accordionVerticalStack = new VerticalStack(false);
+	private final MutableMultiProperty<AccordionTab> tabs =
+	new MutableMultiProperty<AccordionTab>(
+		PascalCaseNameCatalogue.TAB,
+		t -> addTab(t),
+		s -> AccordionTab.createFromSpecification(s)
+	);
 	
-	//multi-attribute
-	private final List<AccordionTab> tabs = new List<AccordionTab>();
+	//attribute
+	private final VerticalStack accordionVerticalStack = new VerticalStack(false);
 	
 	//constructor
 	/**
@@ -112,7 +119,7 @@ implements Clearable<Accordion> {
 		.isInstance();
 		
 		tab.setParentAccordion(this);
-		tabs.addAtEnd(tab);
+		tabs.addValue(tab);
 		accordionVerticalStack.addWidget(tab.getRefTabVerticalStack());
 		
 		if (
@@ -187,7 +194,7 @@ implements Clearable<Accordion> {
 	 */
 	public Accordion collapse() {
 		
-		tabs.forEach(t -> t.collapse());
+		getRefTabs().forEach(t -> t.collapse());
 		
 		return this;
 	}
@@ -200,7 +207,7 @@ implements Clearable<Accordion> {
 	 */
 	public Accordion expand() {
 		
-		tabs.forEach(t -> t.expand());
+		getRefTabs().forEach(t -> t.expand());
 		
 		return this;
 	}
@@ -242,7 +249,7 @@ implements Clearable<Accordion> {
 	 * @return the tabs of the current {@link Accordion}.
 	 */
 	public ReadContainer<AccordionTab> getRefTabs() {
-		return new ReadContainer<AccordionTab>(tabs);
+		return tabs.getRefValues();
 	}
 	
 	//method

@@ -27,6 +27,19 @@ implements Clearable<AccordionTab> {
 	//constant
 	private static final String EXPANDED_FLAG_HEADER = "Expanded";
 	
+	//method
+	/**
+	 * @param specification
+	 * @return a new {@link AccordionTab} from the given specification.
+	 */
+	public static AccordionTab createFromSpecification(final Specification specification) {
+		
+		final var tab = new AccordionTab(DEFAULT_HEADER);
+		tab.reset(specification);
+		
+		return tab;
+	}
+	
 	//attribute
 	private final MutableProperty<Boolean> expanded =
 	new MutableProperty<Boolean>(
