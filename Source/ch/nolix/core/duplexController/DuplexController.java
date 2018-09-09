@@ -4,7 +4,7 @@ package ch.nolix.core.duplexController;
 //own imports
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
-import ch.nolix.core.controllerInterfaces.IMultiController;
+import ch.nolix.core.controllerAPI.IMultiController;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;

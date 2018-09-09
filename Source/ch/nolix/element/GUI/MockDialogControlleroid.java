@@ -8,8 +8,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.controllerInterfaces.IController;
+import ch.nolix.core.controllerAPI.IController;
 import ch.nolix.core.specification.Statement;
 
 //class

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.core;
 
-//own imports
-import ch.nolix.core.controllerInterfaces.IController;
+import ch.nolix.core.controllerAPI.IController;
 import ch.nolix.core.skillInterfaces.IFluentObject;
 import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;

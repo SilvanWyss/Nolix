@@ -4,7 +4,7 @@ package ch.nolix.core.duplexController;
 //own imports
 import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.controllerInterfaces.IMultiController;
+import ch.nolix.core.controllerAPI.IMultiController;
 import ch.nolix.core.endPoint3.NetEndPoint;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;

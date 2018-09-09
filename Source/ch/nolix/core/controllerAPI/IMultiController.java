@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.controllerInterfaces;
+package ch.nolix.core.controllerAPI;
 
 //interface
 /**
