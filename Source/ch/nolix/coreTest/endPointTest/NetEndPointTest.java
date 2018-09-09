@@ -23,7 +23,7 @@ import ch.nolix.core.endPoint.NetEndPoint;
 public final class NetEndPointTest extends Test {
 
 	//test case
-	public void test_send() {
+	public void testCase_send() {
 		
 		//test parameters
 		final int port = 50000;

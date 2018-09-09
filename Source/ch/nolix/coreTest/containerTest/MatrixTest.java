@@ -16,7 +16,7 @@ import ch.nolix.primitive.test2.Test;
 public final class MatrixTest extends Test {
 
 	//test case
-	public void test_addRow() {
+	public void testCase_addRow() {
 		
 		//setup
 		final var matrix = new Matrix<String>();
@@ -32,7 +32,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_getColumn() {
+	public void testCase_getColumn() {
 		
 		//setup
 			final var matrix = new Matrix<String>();
@@ -58,7 +58,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_getIndexOf() {
+	public void testCase_getIndexOf() {
 		
 		//setup
 			final var matrix = new Matrix<String>();
@@ -91,7 +91,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_getRow() {
+	public void testCase_getRow() {
 		
 		//setup
 			final var matrix = new Matrix<String>();

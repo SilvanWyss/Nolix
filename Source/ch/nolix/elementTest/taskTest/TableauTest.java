@@ -18,7 +18,7 @@ import ch.nolix.primitive.test2.Test;
 public final class TableauTest extends Test {
 
 	//test case
-	public void test_addTask() {
+	public void testCase_addTask() {
 		
 		//setup
 		final Tableau tableau = new Tableau();
@@ -36,7 +36,7 @@ public final class TableauTest extends Test {
 	}
 	
 	//test case
-	public void test_addTask_2() {
+	public void testCase_addTask_2() {
 		
 		//setup
 		final Tableau tableau = new Tableau();
@@ -48,7 +48,7 @@ public final class TableauTest extends Test {
 	}
 	
 	//test case
-	public void test_addTask_3() {
+	public void testCase_addTask_3() {
 		
 		//setup
 		final Tableau tableau = new Tableau();
@@ -61,7 +61,7 @@ public final class TableauTest extends Test {
 	}
 	
 	//test case
-	public void test_clear() {
+	public void testCase_clear() {
 		
 		//setup
 		final Tableau tableau = new Tableau();

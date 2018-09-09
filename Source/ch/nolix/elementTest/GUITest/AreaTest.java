@@ -17,7 +17,7 @@ import ch.nolix.primitive.test2.Test;
 public final class AreaTest extends Test {
 	
 	//test case
-	public void test_equals() {
+	public void testCase_equals() {
 		
 		//setup part 1
 		final Area area1 =
@@ -39,7 +39,7 @@ public final class AreaTest extends Test {
 	}
 	
 	//test case
-	public void test_removeBackgroundColor() {
+	public void testCase_removeBackgroundColor() {
 		
 		//setup
 		final Area area = new Area().setBackgroundColor(Color.GREEN);
@@ -52,7 +52,7 @@ public final class AreaTest extends Test {
 	}
 	
 	//test case
-	public void test_setBackgroundColor() {
+	public void testCase_setBackgroundColor() {
 		
 		//setup
 		final Area area = new Area().removeBackgroundColor();

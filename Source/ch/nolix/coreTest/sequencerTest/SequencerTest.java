@@ -18,7 +18,7 @@ import ch.nolix.primitive.test2.Test;
 public final class SequencerTest extends Test {
 
 	//test case
-	public void test_runInBackground() {		
+	public void testCase_runInBackground() {		
 				
 		//execution
 			final ResultFuture<Integer> resultFuture

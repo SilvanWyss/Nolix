@@ -20,7 +20,7 @@ import ch.nolix.primitive.test2.Test;
 public final class NetEndPointTest extends Test {
 
 	//test case
-	public void test_constructor() throws InterruptedException {
+	public void testCase_constructor() throws InterruptedException {
 		
 		//test parameters
 		final int port = 50000;
@@ -45,7 +45,7 @@ public final class NetEndPointTest extends Test {
 	}
 	
 	//test case
-	public void test_send() throws InterruptedException {
+	public void testCase_send() throws InterruptedException {
 		
 		//test parameters
 		final int port = 50000;

@@ -19,7 +19,7 @@ import ch.nolix.primitive.test2.Test;
 public final class NetServerTest extends Test {
 
 	//test case
-	public void test_abort() {
+	public void testCase_abort() {
 		
 		//test parameter
 		final int port = 27900;

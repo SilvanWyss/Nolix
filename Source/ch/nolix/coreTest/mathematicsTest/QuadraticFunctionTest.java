@@ -16,7 +16,7 @@ import ch.nolix.primitive.test2.Test;
 public final class QuadraticFunctionTest extends Test {
 
 	//test case
-	public void test_constructor() {
+	public void testCase_constructor() {
 		
 		//execution and verification
 		expect(() -> new QuadraticFunction(0.0, 0.0, 0.0))
@@ -24,7 +24,7 @@ public final class QuadraticFunctionTest extends Test {
 	}
 	
 	//test case
-	public void test_hasMin() {
+	public void testCase_hasMin() {
 		
 		//setup
 		final QuadraticFunction quadraticFunction =
@@ -35,7 +35,7 @@ public final class QuadraticFunctionTest extends Test {
 	}
 	
 	//test case
-	public void test_hasMin_2() {
+	public void testCase_hasMin_2() {
 		
 		//setup
 		final QuadraticFunction quadraticFunction =

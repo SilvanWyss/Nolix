@@ -20,7 +20,7 @@ import ch.nolix.primitive.test2.Test;
 public final class CalculatorTest extends Test {
 
 	//test case
-	public void test_doubleAverage() {
+	public void testCase_doubleAverage() {
 		
 		//setup
 		final Vector<Double> vector = new Vector<Double>();
@@ -34,7 +34,7 @@ public final class CalculatorTest extends Test {
 	}
 	
 	//test case
-	public void test_doubleMax() {
+	public void testCase_doubleMax() {
 		
 		//setup
 		final Vector<Double> vector = new Vector<Double>();
@@ -48,7 +48,7 @@ public final class CalculatorTest extends Test {
 	}
 	
 	//test case
-	public void test_doubleMin() {
+	public void testCase_doubleMin() {
 		
 		//setup
 		final Vector<Double> vector = new Vector<Double>();
@@ -62,7 +62,7 @@ public final class CalculatorTest extends Test {
 	}
 	
 	//test case
-	public void test_doubleSum() {
+	public void testCase_doubleSum() {
 		
 		//setup
 		final Vector<Double> vector = new Vector<Double>();

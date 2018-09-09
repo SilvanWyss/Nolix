@@ -16,7 +16,7 @@ import ch.nolix.primitive.test2.Test;
 public class StringHelperTest extends Test {
 	
 	//test case
-	public void test_createStringWithoutLastCharacters() {
+	public void testCase_createStringWithoutLastCharacters() {
 		
 		expect(StringHelper.createStringWithoutLastCharacters("cheeseburger", 0))
 		.isEqualTo("cheeseburger");
@@ -29,7 +29,7 @@ public class StringHelperTest extends Test {
 	}
 	
 	//test case
-	public void test_toInt() {
+	public void testCase_toInt() {
 		
 		expect(StringHelper.toInt("1")).isEqualTo(1);
 		expect(StringHelper.toInt("10")).isEqualTo(10);

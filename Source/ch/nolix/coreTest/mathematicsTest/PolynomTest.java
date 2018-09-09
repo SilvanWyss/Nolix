@@ -16,7 +16,7 @@ import ch.nolix.primitive.test2.Test;
 public final class PolynomTest extends Test {
 	
 	//test case
-	public void test_constructor() {
+	public void testCase_constructor() {
 		
 		//execution
 		final Polynom polynom = new Polynom(10);
@@ -26,7 +26,7 @@ public final class PolynomTest extends Test {
 	}
 	
 	//test case
-	public void test_integrate_1() {
+	public void testCase_integrate_1() {
 		
 		//setup
 		final Polynom polynom = new Polynom(2).setCoefficients(6.0);
@@ -40,7 +40,7 @@ public final class PolynomTest extends Test {
 	}
 	
 	//test case
-	public void test_integrate_2() {
+	public void testCase_integrate_2() {
 		
 		//setup
 		final Polynom polynom = new Polynom(10).setCoefficients(66.0, 60.0);
@@ -57,7 +57,7 @@ public final class PolynomTest extends Test {
 	}
 	
 	//test case
-	public void test_toString_1() {
+	public void testCase_toString_1() {
 		
 		//setup
 		final Polynom polynom = new Polynom(2).setCoefficients(1.0, 2.0, 3.0);
@@ -67,7 +67,7 @@ public final class PolynomTest extends Test {
 	}
 	
 	//test case
-	public void test_toString_2() {
+	public void testCase_toString_2() {
 		
 		//setup
 		final Polynom polynom = new Polynom(5).setCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);

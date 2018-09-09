@@ -68,7 +68,7 @@ public final class MatrixTest extends Test {
 	}
 
 	//test case
-	public void test_Add() {
+	public void testCase_Add() {
 		
 		//setup
 		final Matrix matrix1 = new Matrix(2, 3).setValues(1.0, 1.0, 1.0, 2.0, 2.0, 2.0);
@@ -83,7 +83,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_AppendAtRight() {
+	public void testCase_AppendAtRight() {
 		
 		//setup
 		final Matrix matrix1 = new Matrix(2, 2).setValues(1.0, 1.0, 2.0, 2.0);
@@ -98,7 +98,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_getInverse_1() {
+	public void testCase_getInverse_1() {
 		
 		//setup
 		final Matrix matrix = new Matrix(2).setValues(1.0, 2.0, 3.0, 4.0);
@@ -111,7 +111,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_getInverse_2() {
+	public void testCase_getInverse_2() {
 		
 		//setup
 		final Matrix matrix = new Matrix(3).setValues(2.0, 6.0, 4.0, 1.0, 5.0, 9.0, 3.0, 7.0, 8.0);
@@ -124,7 +124,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_getInverse_3() {
+	public void testCase_getInverse_3() {
 		
 		//setup
 		final Matrix matrix = new Matrix(4).setValues(3.0, 1.0, 7.0, 3.0, 5.0, 9.0, 8.0, 7.0, 8.0, 6.0, 8.0, 4.0, 5.0, 9.0, 3.0, 2.0);
@@ -137,7 +137,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_getProduct() {
+	public void testCase_getProduct() {
 		
 		//setup
 		final Matrix matrix1 = new Matrix(2, 3).setValues(1, 1, 1, 2, 2, 2);
@@ -152,7 +152,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_getSolutionAsExtendedMatrix_1() {
+	public void testCase_getSolutionAsExtendedMatrix_1() {
 		
 		//setup
 		final Matrix matrix = new Matrix(2, 3).setValues(4.0, 4.0, 30.0, 0.0, 2.0, 10.0);
@@ -167,7 +167,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_getSolutionAsExtendedMatrix_2() {
+	public void testCase_getSolutionAsExtendedMatrix_2() {
 		
 		//setup
 		final Matrix matrix = new Matrix(3, 4).setValues(1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0);
@@ -183,7 +183,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_getTransposed() {
+	public void testCase_getTransposed() {
 		
 		//setup
 		final Matrix matrix = new Matrix(4, 3).setValues(20.0, 10.0, 1.0, 10.0, 20.0, 1.0, 20.0, 10.0, 1.0, 10.0, 20.0 ,1.0);
@@ -197,7 +197,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_toString_1() {
+	public void testCase_toString_1() {
 		
 		//setup
 		final Matrix matrix = new Matrix(1);
@@ -207,7 +207,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_toString_2() {
+	public void testCase_toString_2() {
 		
 		//setup
 		final Matrix matrix = new Matrix(2);
@@ -217,7 +217,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_toString_3() {
+	public void testCase_toString_3() {
 		
 		//setup
 		final Matrix matrix = new Matrix(3);
@@ -227,7 +227,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_toString_4() {
+	public void testCase_toString_4() {
 		
 		//setup
 		final Matrix matrix = new Matrix(4);
@@ -237,7 +237,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_toString_5() {
+	public void testCase_toString_5() {
 		
 		//setup
 		final Matrix matrix = Matrix.createIdendityMatrix(1);
@@ -247,7 +247,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_toString_6() {
+	public void testCase_toString_6() {
 		
 		//setup
 		final Matrix matrix = Matrix.createIdendityMatrix(2);
@@ -257,7 +257,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_toString_7() {
+	public void testCase_toString_7() {
 		
 		//setup
 		final Matrix matrix = Matrix.createIdendityMatrix(3);
@@ -267,7 +267,7 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
-	public void test_toString_8() {
+	public void testCase_toString_8() {
 		
 		//setup
 		final Matrix matrix = Matrix.createIdendityMatrix(4);

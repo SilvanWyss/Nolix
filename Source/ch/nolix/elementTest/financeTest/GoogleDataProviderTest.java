@@ -20,7 +20,7 @@ import ch.nolix.primitive.test2.Test;
 public final class GoogleDataProviderTest extends Test {
 
 	//test case
-	public void test_getCandleSticksPerDay() {
+	public void testCase_getCandleSticksPerDay() {
 		
 		//execution
 		final List<VolumeCandlestick> candleSticksPerDay 
@@ -44,7 +44,7 @@ public final class GoogleDataProviderTest extends Test {
 	}
 	
 	//test case
-	public void test_getCandleSticksPerHour() {
+	public void testCase_getCandleSticksPerHour() {
 		
 		//execution
 		final List<VolumeCandlestick> candleStricksPerHour 
@@ -68,7 +68,7 @@ public final class GoogleDataProviderTest extends Test {
 	}
 	
 	//test case
-	public void test_getCandleSticksPerMinute() {
+	public void testCase_getCandleSticksPerMinute() {
 		
 		//execution
 		final List<VolumeCandlestick> candleStricksPerMinute 

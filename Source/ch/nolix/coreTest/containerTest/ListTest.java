@@ -29,7 +29,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_clear() {
+	public void testCase_clear() {
 		
 		//setup
 		final List<String> list = new List<String>(
@@ -49,7 +49,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_contains() {
+	public void testCase_contains() {
 		
 		//setup
 		final List<String> list = new List<String>(
@@ -82,7 +82,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_contains_2() {
+	public void testCase_contains_2() {
 		
 		//setup
 		final List<String> list = new List<String>(
@@ -105,7 +105,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_containsOne() {
+	public void testCase_containsOne() {
 		
 		//setup
 		final List<String> list = new List<String>();
@@ -115,7 +115,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_containsOne_2() {
+	public void testCase_containsOne_2() {
 		
 		//setup
 		final List<String> list = new List<String>("x");
@@ -125,7 +125,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_containsOne_3() {
+	public void testCase_containsOne_3() {
 		
 		//setup
 		final List<String> list = new List<String>("x", "x");
@@ -135,7 +135,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_containsOne_4() {
+	public void testCase_containsOne_4() {
 		
 		//setup
 		final List<String> list
@@ -147,7 +147,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_forEach() {
+	public void testCase_forEach() {
 		
 		//setup
 			final List<String> list1 = new List<String>(
@@ -174,7 +174,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test cases
-	public void test_getContainerFrom() {
+	public void testCase_getContainerFrom() {
 		
 		//setup
 		final var list = new List<String>(
@@ -207,7 +207,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_getContainerWithoutFirst() {
+	public void testCase_getContainerWithoutFirst() {
 	
 		//setup
 		final var list = new List<String>(
@@ -228,7 +228,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_getElementCount() {
+	public void testCase_getElementCount() {
 		
 		//setup
 		final List<String> list = new List<String>("x", "x", "x", "x", "x", "x");
@@ -238,7 +238,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_getElementCount_2() {
+	public void testCase_getElementCount_2() {
 		
 		//setup
 		final List<String> list = new List<String>(
@@ -257,7 +257,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_getRefByMax() {
+	public void testCase_getRefByMax() {
 		
 		//setup
 		final List<String> list = new List<String>(
@@ -276,7 +276,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_getRefByMaxInt() {
+	public void testCase_getRefByMaxInt() {
 		
 		//setup
 		final List<String> list = new List<String>(
@@ -293,7 +293,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_getRefByMin() {
+	public void testCase_getRefByMin() {
 		
 		//setup
 		final List<String> list = new List<String>(
@@ -312,7 +312,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_getRefByMinInt() {
+	public void testCase_getRefByMinInt() {
 		
 		//setup
 		final List<String> list = new List<String>(
@@ -329,7 +329,7 @@ public final class ListTest extends Test {
 	}
 	
 	//method
-	public void test_getRefFirst() {
+	public void testCase_getRefFirst() {
 		
 		//setup
 		final List<String> list = new List<String>(
@@ -350,7 +350,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_getSequences() {
+	public void testCase_getSequences() {
 		
 		//setup
 			final List<String> list = new List<String>(
@@ -381,7 +381,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_getSequences_2() {
+	public void testCase_getSequences_2() {
 		
 		//setup
 			final List<String> list = new List<String>(
@@ -435,7 +435,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_isEmpty() {
+	public void testCase_isEmpty() {
 		
 		//setup
 		final List<String> list = new List<String>();
@@ -445,7 +445,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_isEmpty_2() {
+	public void testCase_isEmpty_2() {
 		
 		//setup
 		List<String> list = new List<String>("x");
@@ -455,7 +455,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_matches() {
+	public void testCase_matches() {
 		
 		//setup
 			final List<String> list = new List<String>(
@@ -477,7 +477,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_matches_2() {
+	public void testCase_matches_2() {
 		
 		//setup
 			final List<String> list = new List<String>();
@@ -500,7 +500,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_matches_3() {
+	public void testCase_matches_3() {
 		
 		//setup
 			final List<String> list = new List<String>();
@@ -515,7 +515,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_sort() {
+	public void testCase_sort() {
 		
 		//setup
 		final List<String> list = new List<String>(
@@ -542,7 +542,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_sort_2() {
+	public void testCase_sort_2() {
 		
 		//setup
 		final List<String> list = new List<String>(
@@ -569,7 +569,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_toArray() {
+	public void testCase_toArray() {
 		
 		//setup
 		final List<String> list = new List<String>(
@@ -596,7 +596,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_toIntArray() {
+	public void testCase_toIntArray() {
 		
 		//setup
 		final List<String> list = new List<String>(
@@ -623,7 +623,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_toString() {
+	public void testCase_toString() {
 		
 		//setup
 		final List<String> list = new List<String>();
@@ -633,7 +633,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void test_toString_2() {
+	public void testCase_toString_2() {
 		
 		//setup
 		final List<String> list = new List<String>(

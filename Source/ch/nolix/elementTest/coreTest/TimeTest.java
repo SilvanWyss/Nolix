@@ -58,7 +58,7 @@ public final class TimeTest extends Test {
 	}
 	
 	//test case
-	public void test_constructor() {
+	public void testCase_constructor() {
 		
 		//execution
 		final Time time = new Time();
@@ -74,7 +74,7 @@ public final class TimeTest extends Test {
 	}
 	
 	//test case
-	public void test_getDay() {
+	public void testCase_getDay() {
 		
 		//setup
 		final Time time = new Time(2010, 10, 10, 10, 10, 10, 100);

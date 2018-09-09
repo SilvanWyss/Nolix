@@ -16,7 +16,7 @@ import ch.nolix.primitive.test2.Test;
 public final class LabelTest extends Test {
 	
 	//test case
-	public void test_getRefBaseLook_setTextSize() {
+	public void testCase_getRefBaseLook_setTextSize() {
 		
 		//setup
 		final var label = new Label();
@@ -29,7 +29,7 @@ public final class LabelTest extends Test {
 	}
 	
 	//test case
-	public void test_setText() {
+	public void testCase_setText() {
 		
 		//setup
 		final var label = new Label();

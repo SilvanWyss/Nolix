@@ -16,7 +16,7 @@ import ch.nolix.primitive.test2.Test;
 public final class StandardSpecificationTest extends Test {
 	
 	//test case
-	public void test_constructor_1() {
+	public void testCase_constructor_1() {
 		
 		//setup
 		final StandardSpecification standardSpecification = new StandardSpecification();
@@ -27,7 +27,7 @@ public final class StandardSpecificationTest extends Test {
 	}
 	
 	//test case
-	public void test_constructor_2() {
+	public void testCase_constructor_2() {
 		
 		//setup
 		final StandardSpecification standardSpecification = new StandardSpecification("a");
@@ -38,7 +38,7 @@ public final class StandardSpecificationTest extends Test {
 	}
 	
 	//test case
-	public void test_constructor_3() {
+	public void testCase_constructor_3() {
 		
 		//setup
 		final StandardSpecification standardSpecification = new StandardSpecification("a(b)");
@@ -49,7 +49,7 @@ public final class StandardSpecificationTest extends Test {
 	}
 	
 	//test case
-	public void test_constructor_4() {
+	public void testCase_constructor_4() {
 		
 		//setup
 		final StandardSpecification standardSpecification = new StandardSpecification("a(b.)");
@@ -60,7 +60,7 @@ public final class StandardSpecificationTest extends Test {
 	}
 	
 	//test case
-	public void test_toString_1() {
+	public void testCase_toString_1() {
 		
 		//setup
 		final StandardSpecification standardSpecification = new StandardSpecification();
@@ -70,7 +70,7 @@ public final class StandardSpecificationTest extends Test {
 	}
 	
 	//test case
-	public void test_toString_2() {
+	public void testCase_toString_2() {
 		
 		//setup
 		final StandardSpecification standardSpecification = new StandardSpecification("a");
@@ -80,7 +80,7 @@ public final class StandardSpecificationTest extends Test {
 	}
 	
 	//test case
-	public void test_toString_3() {
+	public void testCase_toString_3() {
 		
 		//setup
 		final StandardSpecification standardSpecification = new StandardSpecification("a(b)");

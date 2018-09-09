@@ -11,7 +11,7 @@ import ch.nolix.primitive.test2.Test;
 public final class EntityTest extends Test {
 
 	//test case
-	public void test_getSpecification() {
+	public void testCase_getSpecification() {
 		
 		//setup
 		final var cat = new Cat();

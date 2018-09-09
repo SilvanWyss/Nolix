@@ -15,7 +15,7 @@ import ch.nolix.primitive.test2.Test;
 public final class ColorTest extends Test {
 	
 	//test case
-	public void test_equals() {
+	public void testCase_equals() {
 		
 		//setup
 		final Color color = new Color();
@@ -41,7 +41,7 @@ public final class ColorTest extends Test {
 	}
 	
 	//test case
-	public void test_getGreenValue() {
+	public void testCase_getGreenValue() {
 		
 		//setup
 		final Color color = new Color("0x102030");
@@ -54,7 +54,7 @@ public final class ColorTest extends Test {
 	}
 	
 	//test case
-	public void test_getInvertedColor() {
+	public void testCase_getInvertedColor() {
 		
 		//setup
 		final Color color = new Color(0x000000);
@@ -67,7 +67,7 @@ public final class ColorTest extends Test {
 	}
 	
 	//test case
-	public void test_getInvertedColor_2() {
+	public void testCase_getInvertedColor_2() {
 		
 		//setup
 		final Color color = new Color(0xFFFFFF);
@@ -80,7 +80,7 @@ public final class ColorTest extends Test {
 	}
 	
 	//test case
-	public void test_getRedValue() {
+	public void testCase_getRedValue() {
 		
 		//setup
 		final Color color = new Color("0x102030");
@@ -93,7 +93,7 @@ public final class ColorTest extends Test {
 	}
 
 	//test case
-	public void test_getType() {
+	public void testCase_getType() {
 		
 		//setup
 		final Color color = new Color();
@@ -106,7 +106,7 @@ public final class ColorTest extends Test {
 	}
 	
 	//test case
-	public void test_stringConstructor() {
+	public void testCase_stringConstructor() {
 		
 		//execution
 		final Color color = new Color(Color.WHITE_STRING);
@@ -116,7 +116,7 @@ public final class ColorTest extends Test {
 	}
 	
 	//test case
-	public void test_stringConstructor_2() {
+	public void testCase_stringConstructor_2() {
 		
 		//execution
 		final Color color = new Color(Color.BLACK_STRING);
@@ -126,7 +126,7 @@ public final class ColorTest extends Test {
 	}
 	
 	//test case
-	public void test_toString() {
+	public void testCase_toString() {
 		
 		//setup
 		final Color color = new Color(Color.ALICE_BLUE_INT);
@@ -139,7 +139,7 @@ public final class ColorTest extends Test {
 	}
 	
 	//test case
-	public void test_toString_2() {
+	public void testCase_toString_2() {
 		
 		//setup
 		final Color color = new Color(Color.YELLOW_GREEN_INT);

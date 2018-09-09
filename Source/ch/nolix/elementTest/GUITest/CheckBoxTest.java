@@ -16,7 +16,7 @@ import ch.nolix.primitive.test2.Test;
 public final class CheckboxTest extends Test {
 
 	//test case
-	public void test_constructor() {
+	public void testCase_constructor() {
 		
 		//execution
 		final var checkBox = new Checkbox();
@@ -26,7 +26,7 @@ public final class CheckboxTest extends Test {
 	}
 	
 	//test case
-	public void test_check() {
+	public void testCase_check() {
 		
 		//setup
 		final var checkBox = new Checkbox();
@@ -39,7 +39,7 @@ public final class CheckboxTest extends Test {
 	}
 	
 	//test case
-	public void test_uncheck() {
+	public void testCase_uncheck() {
 		
 		//setup
 		final var checkBox = new Checkbox();
