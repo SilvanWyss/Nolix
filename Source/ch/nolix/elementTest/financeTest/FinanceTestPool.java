@@ -16,9 +16,9 @@ public final class FinanceTestPool extends TestPool {
 	 * Creates a new finance test pool.
 	 */
 	public FinanceTestPool() {
-		addTest(
-			new CandleStickTest(),
-			new GoogleDataProviderTest()
+		addTestClass(
+			CandleStickTest.class,
+			GoogleDataProviderTest.class
 		);
 	}
 }

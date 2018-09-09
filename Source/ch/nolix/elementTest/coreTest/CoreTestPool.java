@@ -16,6 +16,6 @@ public final class CoreTestPool extends TestPool {
 	 * Creates a new core test pool.
 	 */
 	public CoreTestPool() {
-		addTest(new TimeTest());
+		addTestClass(TimeTest.class);
 	}
 }

@@ -16,9 +16,9 @@ public final class EnumTestPool extends TestPool {
 	 * Creates a new enum test pool.
 	 */
 	public EnumTestPool() {
-		addTest(
-			new DirectionTest(),
-			new UniDirectionTest()
+		addTestClass(
+			DirectionTest.class,
+			UniDirectionTest.class
 		);
 	}
 }

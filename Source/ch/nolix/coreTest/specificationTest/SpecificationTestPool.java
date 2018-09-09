@@ -16,9 +16,9 @@ public class SpecificationTestPool extends TestPool {
 	 * Creates a new specification test pool.
 	 */
 	public SpecificationTestPool() {
-		addTest(
-			new StandardSpecificationTest(),
-			new StatementTest()
+		addTestClass(
+			StandardSpecificationTest.class,
+			StatementTest.class
 		);
 	}
 }

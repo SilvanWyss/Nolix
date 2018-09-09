@@ -16,6 +16,6 @@ public final class EndPointTestPool extends TestPool {
 	 * Creates a new end point test pool.
 	 */
 	public EndPointTestPool() {
-		addTest(new NetEndPointTest());
+		addTestClass(NetEndPointTest.class);
 	}
 }

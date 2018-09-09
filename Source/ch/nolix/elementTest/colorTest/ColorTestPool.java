@@ -16,6 +16,6 @@ public final class ColorTestPool extends TestPool {
 	 * Creates a new color test pool.
 	 */
 	public ColorTestPool() {
-		addTest(new ColorTest());
+		addTestClass(ColorTest.class);
 	}
 }

@@ -16,9 +16,9 @@ public final class ContainerTestPool extends TestPool {
 	 * Creates a new container test pool.
 	 */
 	public ContainerTestPool() {
-		addTest(
-			new ListTest(),
-			new MatrixTest()
+		addTestClass(
+			ListTest.class,
+			MatrixTest.class
 		);
 	}
 }

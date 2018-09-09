@@ -18,14 +18,14 @@ public final class GUITestPool extends TestPool {
 	 * Creates a new dialog test pool.
 	 */
 	public GUITestPool() {
-		addTest(
-			new AreaTest(),
-			new CaptionPositionTest(),
-			new CheckboxTest(),
-			new LabelTest(),
-			new SingleContainerTest(),
-			new TextBoxTest(),
-			new VerticalStackTest()
+		addTestClass(
+			AreaTest.class,
+			CaptionPositionTest.class,
+			CheckboxTest.class,
+			LabelTest.class,
+			SingleContainerTest.class,
+			TextBoxTest.class,
+			VerticalStackTest.class
 		);
 	}
 }

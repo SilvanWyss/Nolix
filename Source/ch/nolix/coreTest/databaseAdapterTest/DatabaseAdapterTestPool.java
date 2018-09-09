@@ -9,6 +9,6 @@ public final class DatabaseAdapterTestPool extends TestPool {
 
 	//constructor
 	public DatabaseAdapterTestPool() {
-		addTest(new EntityTest());
+		addTestClass(EntityTest.class);
 	}
 }

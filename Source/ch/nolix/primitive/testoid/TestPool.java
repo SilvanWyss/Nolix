@@ -1,10 +1,13 @@
 //package declaration
 package ch.nolix.primitive.testoid;
 
-//Java import
+//Java imports
+import java.lang.reflect.InvocationTargetException;
 import java.util.Vector;
 
+//own imports
 import ch.nolix.core.skillInterfaces.Runnable;
+import ch.nolix.primitive.container.List;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
@@ -16,12 +19,12 @@ import ch.nolix.primitive.invalidArgumentException.NullArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-01
- * @lines 140
+ * @lines 160
  */
 public abstract class TestPool implements Runnable {
 
 	//multiple attribute
-	private final Vector<Testoid> tests = new Vector<Testoid>();
+	private final List<Class<Testoid>> testClasses = new List<Class<Testoid>>();
 	private final Vector<TestPool> testPools = new Vector<TestPool>();
 	
 	//method
@@ -42,19 +45,19 @@ public abstract class TestPool implements Runnable {
 	
 	//method
 	/**
-	 * @param test
-	 * @return true if this test pool contains the given test recursively.
+	 * @param testClass
+	 * @return true if this test pool contains the given test class recursively.
 	 */
-	public final boolean containsTestRecursively(final Testoid test) {
+	public final boolean containsTestClassRecursively(final Class<Testoid> testClass) {
 		
-		for (final Testoid t : tests) {
-			if (t == test) {
+		for (final var tc : testClasses) {
+			if (tc == testClass) {
 				return true;
 			}
 		}
 		
-		for (final TestPool tp : testPools) {
-			if (tp.containsTestRecursively(test)) {
+		for (final var tp : testPools) {
+			if (tp.containsTestClassRecursively(testClass)) {
 				return true;
 			}
 		}
@@ -67,39 +70,55 @@ public abstract class TestPool implements Runnable {
 	 * Executes the tests and the test pools of this test pool.
 	 */
 	public final void run() {
-		tests.forEach(t -> t.run());
+		for (final var tc : testClasses ) {
+			try {
+				tc.getDeclaredConstructor().newInstance().run();
+			}
+			catch (final 
+				InstantiationException
+				| IllegalAccessException
+				| IllegalArgumentException
+				| InvocationTargetException
+				| NoSuchMethodException
+				| SecurityException exception
+			) {
+				throw new RuntimeException(exception);
+			}
+		}
 		testPools.forEach(tp -> tp.run());
 	}
 	
 	//method
 	/**
-	 * Adds the given test to this test pool.
+	 * Adds the given test class to this test pool.
 	 * 
 	 * @param test
 	 * @throws NullArgumentException if the given test is not an instance.
 	 */
-	protected final void addTest(final Testoid test) {
+	@SuppressWarnings("unchecked")
+	protected final void addTestClass(final Class<?> testClass) {
 		
-		//Checks if the given test is an instance.
-		if (test == null) {
-			throw new NullArgumentException("test");
+		//Checks if the given test class is an instance.
+		if (testClass == null) {
+			throw new NullArgumentException("test class");
 		}
 		
-		tests.add(test);
+		//TODO: Check if test class is a testoid class.
+		testClasses.addAtEnd((Class<Testoid>)testClass);
 	}
 	
 	//method
 	/**
-	 * Adds the given tests to this test pool.
+	 * Adds the given test classes to this test pool.
 	 * 
 	 * @param tests
 	 * @throws NullArgumentException if one of the given test is not an instance.
 	 */
-	protected final void addTest(Testoid... tests) {
+	protected final void addTestClass(final Class<?>... testClasses) {
 		
-		//Iterates the given tests.
-		for (Testoid t: tests) {
-			addTest(t);
+		//Iterates the given test classes.
+		for (final var tc : testClasses) {
+			addTestClass(tc);
 		}
 	}
 	

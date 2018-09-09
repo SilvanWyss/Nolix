@@ -16,12 +16,12 @@ public final class MathematicsTestPool extends TestPool {
 	 * Creates a new mathematics test pool.
 	 */
 	public MathematicsTestPool() {
-		addTest(
-			new ARModelTest(),
-			new CalculatorTest(),
-			new MatrixTest(),
-			new PolynomTest(),
-			new QuadraticFunctionTest()
+		addTestClass(
+			ARModelTest.class,
+			CalculatorTest.class,
+			MatrixTest.class,
+			PolynomTest.class,
+			QuadraticFunctionTest.class
 		);
 	}
 }

@@ -17,9 +17,9 @@ public final class HelperTestPool extends TestPool {
 	 * Creates a new {@link HelperTestPool}.
 	 */
 	public HelperTestPool() {
-		addTest(
-			new CharacterHelperTest(),
-			new StringHelperTest()
+		addTestClass(
+			CharacterHelperTest.class,
+			StringHelperTest.class
 		);
 	}
 }

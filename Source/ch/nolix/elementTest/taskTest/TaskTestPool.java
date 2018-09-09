@@ -16,9 +16,9 @@ public final class TaskTestPool extends TestPool {
 	 * Creates a new task test pool.
 	 */
 	public TaskTestPool() {
-		addTest(
-			new TaskTest(),
-			new TableauTest()
+		addTestClass(
+			TaskTest.class,
+			TableauTest.class
 		);
 	}
 }
