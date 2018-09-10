@@ -34,7 +34,7 @@ implements Clearable<AccordionTab> {
 	 */
 	public static AccordionTab createFromSpecification(final Specification specification) {
 		
-		final var tab = new AccordionTab(DEFAULT_HEADER);
+		final var tab = new AccordionTab();
 		tab.reset(specification);
 		
 		return tab;
@@ -66,6 +66,11 @@ implements Clearable<AccordionTab> {
 	private Widget<?, ?> widget;
 	
 	//constructor
+	public AccordionTab() {
+		this(DEFAULT_HEADER);
+	}
+	
+	//constructor
 	public AccordionTab(final String header) {
 		
 		tabVerticalStack.reset();
@@ -87,7 +92,9 @@ implements Clearable<AccordionTab> {
 	
 	//constructor
 	public AccordionTab(final String header, final Widget<?, ?> widget) {
+		
 		this(header);
+		
 		setWidget(widget);
 	}
 	
