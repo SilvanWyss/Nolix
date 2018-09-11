@@ -4,17 +4,16 @@ package ch.nolix.elementTest.GUITest;
 //own imports
 import ch.nolix.element.GUI.Area;
 import ch.nolix.element.color.Color;
-import ch.nolix.primitive.test2.Test;
 
 //test class
 /**
- * A {@link AreaTest} is a test for a {@link Area}.
+ * A {@link AreaTest} is a test for {@link Area}.
  * 
  * @author Silvan Wyss
  * @month 2016-06
- * @lines 60
+ * @lines 70
  */
-public final class AreaTest extends Test {
+public final class AreaTest extends WidgetTest<Area> {
 	
 	//test case
 	public void testCase_equals() {
@@ -33,9 +32,9 @@ public final class AreaTest extends Test {
 		.setHeight(1000)
 		.setBackgroundColor(Color.GREEN);
 		
-		//verification
-		expect(area1).isEqualTo(area2);
-		expect(area2).isEqualTo(area1);
+		//execution & verification
+		expect(area1.equals(area2));
+		expect(area2.equals(area1));
 	}
 	
 	//test case
@@ -63,5 +62,10 @@ public final class AreaTest extends Test {
 		//verification
 		expect(area.hasBackgroundColor());
 		expect(area.getBackgroundColor()).isEqualTo(Color.GREEN);
+	}
+	
+	//method
+	protected Area createTestObject() {
+		return new Area();
 	}
 }
