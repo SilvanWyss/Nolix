@@ -7,6 +7,9 @@ import java.util.Iterator;
 //class
 public final class List<E> implements Iterable<E> {
 	
+	//attribute
+	private int elementCount = 0;
+	
 	//optional attributes
 	private ListNode<E> beginNode;
 	private ListNode<E> endNode;
@@ -32,6 +35,8 @@ public final class List<E> implements Iterable<E> {
 			node.setNextNode(beginNode);
 			beginNode = node;
 		}
+		
+		elementCount++;
 	}
 	
 	//method
@@ -47,12 +52,20 @@ public final class List<E> implements Iterable<E> {
 			endNode.setNextNode(node);
 			endNode = node;
 		}
+		
+		elementCount++;
 	}
 	
 	//method
 	public void clear() {
 		beginNode = null;
 		endNode = null;
+		elementCount = 0;
+	}
+	
+	//method
+	public int getElementCount() {
+		return elementCount;
 	}
 	
 	//method
@@ -88,6 +101,8 @@ public final class List<E> implements Iterable<E> {
 		else {
 			beginNode = beginNode.getRefNextNodeOrNull();
 		}
+		
+		elementCount--;
 	}
 	
 	//method
