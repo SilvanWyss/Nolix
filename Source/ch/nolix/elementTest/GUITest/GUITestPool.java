@@ -19,6 +19,7 @@ public final class GUITestPool extends TestPool {
 	 */
 	public GUITestPool() {
 		addTestClass(
+			AccordionTest.class,
 			AreaTest.class,
 			CaptionPositionTest.class,
 			CheckboxTest.class,
