@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
-//own import
+//own imports
 import ch.nolix.element.GUI.Label;
+import ch.nolix.element.color.Color;
 
 //test class
 /**
@@ -10,9 +11,22 @@ import ch.nolix.element.GUI.Label;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 40
+ * @lines 60
  */
 public final class LabelTest extends WidgetTest<Label> {
+	
+	//test case
+	public void testCase_getRefBaseLook_setTextColor() {
+		
+		//setup
+		final var label = new Label();
+		
+		//execution
+		label.getRefBaseLook().setTextColor(Color.BLUE);
+		
+		//verification
+		expect(label.getRefBaseLook().getRecursiveOrDefaultTextColor()).isEqualTo(Color.BLUE);
+	}
 		
 	//test case
 	public void testCase_getRefBaseLook_setTextSize() {
