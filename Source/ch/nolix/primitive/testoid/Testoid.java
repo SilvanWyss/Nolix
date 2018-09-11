@@ -12,11 +12,11 @@ import ch.nolix.primitive.container.List;
 /**
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 130
+ * @lines 170
  */
 public abstract class Testoid {
 	
-	//multiple attributes
+	//multi-attributes
 	private final List<String> lastErrors = new List<String>();
 	private final List<AutoCloseable> closableElements = new List<AutoCloseable>();
 
@@ -26,70 +26,73 @@ public abstract class Testoid {
 	 */
 	public final void run() {
 		
-		int testMethodsCount = 0;
 		int passedTestMethodsCount = 0;
-		Method[] testMethods = this.getClass().getDeclaredMethods();
+		
+		final var testMethods = getTestMethods();
+		final var testMethodArray = new Method[testMethods.getElementCount()];
+		var i = 0;
+		for (final var tm : testMethods) {
+			testMethodArray[i] = tm;
+			i++;
+		}
 		
 		boolean swap = true;
 		while (swap) {
 			swap = false;
-			for (int i = 0; i < testMethods.length - 1; i++) {
-				if (testMethods[i].getName().compareTo(testMethods[i + 1].getName()) > 0) {
+			for (i = 0; i < testMethodArray.length - 1; i++) {
+				if (testMethodArray[i + 1].getName().compareTo(testMethodArray[i].getName()) < 0) {
 					swap = true;
-					final Method temp = testMethods[i];
-					testMethods[i] = testMethods[i + 1];
-					testMethods[i + 1] = temp;
+					final Method temp = testMethodArray[i];
+					testMethodArray[i] = testMethodArray[i + 1];
+					testMethodArray[i + 1] = temp;
 				}
 			}
 		}
 		
 		long timeInMiliseconds = System.currentTimeMillis();
-		for (final Method m : testMethods) {				
-			if (!Modifier.isStatic(m.getModifiers())) {
-				testMethodsCount++;
-				long methodTimeInMiliseconds = System.currentTimeMillis();
-				try {		
-					m.invoke(this, (Object[])new Class[0]);
-					methodTimeInMiliseconds = System.currentTimeMillis() - methodTimeInMiliseconds;
-					
-					if (!lastErrors.isEmpty()) {
-						System.err.println("-->FAILED: " + m.getName() + ": (" + methodTimeInMiliseconds + "ms)");
-						System.err.flush();
-						int errorCount = 0;
-						for (String le: lastErrors) {
-							errorCount++;
-							System.err.println("   #" + errorCount + ": " + le);
-							System.err.flush();
-						}
-						lastErrors.clear();
-					}
-					else {
-						passedTestMethodsCount++;
-						System.out.println("   PASSED: " + m.getName() + " (" + methodTimeInMiliseconds + "ms)");
-						System.out.flush();
-					}
-				}
-				catch (Exception e) {
-					methodTimeInMiliseconds = System.currentTimeMillis() - methodTimeInMiliseconds;
-					if (e.getCause() != null) {
-						System.err.println("-->FAILED: " + m.getName() + ": " + e.getCause().getMessage() + " (" + methodTimeInMiliseconds + "ms)");
-					}
-					else {
-						System.err.println("-->FAILED: " + m.getName() + " (" + methodTimeInMiliseconds + "ms)");
-					}
+		for (final Method m : testMethodArray) {				
+			long methodTimeInMiliseconds = System.currentTimeMillis();
+			try {		
+				m.invoke(this, (Object[])new Class[0]);
+				methodTimeInMiliseconds = System.currentTimeMillis() - methodTimeInMiliseconds;
+				
+				if (!lastErrors.isEmpty()) {
+					System.err.println("-->FAILED: " + m.getName() + ": (" + methodTimeInMiliseconds + "ms)");
 					System.err.flush();
-				}
-				finally {
-					for (final AutoCloseable ce : closableElements) {
-						try {
-							ce.close();
-						} catch (final Exception exception) {
-							System.err.println("   An error occured by the try to close an element.");
-						}
+					int errorCount = 0;
+					for (String le: lastErrors) {
+						errorCount++;
+						System.err.println("   #" + errorCount + ": " + le);
+						System.err.flush();
 					}
-					
-					closableElements.clear();
+					lastErrors.clear();
 				}
+				else {
+					passedTestMethodsCount++;
+					System.out.println("   PASSED: " + m.getName() + " (" + methodTimeInMiliseconds + "ms)");
+					System.out.flush();
+				}
+			}
+			catch (Exception e) {
+				methodTimeInMiliseconds = System.currentTimeMillis() - methodTimeInMiliseconds;
+				if (e.getCause() != null) {
+					System.err.println("-->FAILED: " + m.getName() + ": " + e.getCause().getMessage() + " (" + methodTimeInMiliseconds + "ms)");
+				}
+				else {
+					System.err.println("-->FAILED: " + m.getName() + " (" + methodTimeInMiliseconds + "ms)");
+				}
+				System.err.flush();
+			}
+			finally {
+				for (final AutoCloseable ce : closableElements) {
+					try {
+						ce.close();
+					} catch (final Exception exception) {
+						System.err.println("   An error occured by the try to close an element.");
+					}
+				}
+				
+				closableElements.clear();
 			}
 		}
 		
@@ -100,7 +103,7 @@ public abstract class Testoid {
 			+ ": "
 			+ passedTestMethodsCount
 			+ "/"
-			+ testMethodsCount
+			+ testMethods.getElementCount()
 			+ " passed test cases ("
 			+ timeInMiliseconds
 			+ "ms)");
@@ -142,5 +145,28 @@ public abstract class Testoid {
 		}
 		
 		lastErrors.addAtEnd(currentTestMethodError + " (" + className + ".java:" + lineNumber + ")");
+	}
+	
+	//method
+	/**
+	 * @return the test methods of this test.
+	 */
+	private List<Method> getTestMethods() {
+		
+		final var testMethods = new List<Method>();
+				
+		Class<?> class_ = getClass();
+		while (!class_.equals(Testoid.class)) {
+			
+			for (final Method m : class_.getDeclaredMethods()) {
+				if (!Modifier.isStatic(m.getModifiers()) && Modifier.isPublic(m.getModifiers())) {
+					testMethods.addAtEnd(m);
+				}
+			}
+			
+			class_ = class_.getSuperclass();
+		}
+		
+		return testMethods;
 	}
 }
