@@ -7,7 +7,7 @@ import ch.nolix.element.GUI.AccordionExpansionBehavior;
 import ch.nolix.element.GUI.AccordionTab;
 
 //test class
-public final class AccordionTest extends WidgetTest {
+public final class AccordionTest extends WidgetTest<Accordion> {
 	
 	//test case
 	public void testCase_addTab() {
