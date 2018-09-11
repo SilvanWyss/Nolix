@@ -1,20 +1,19 @@
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
-//own imports
+//own import
 import ch.nolix.element.GUI.Label;
-import ch.nolix.primitive.test2.Test;
 
 //test class
 /**
- * A {@link LabelTest} is a test for a {@link Label}.
+ * A {@link LabelTest} is a test for {@link Label}.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 40
  */
-public final class LabelTest extends Test {
-	
+public final class LabelTest extends WidgetTest<Label> {
+		
 	//test case
 	public void testCase_getRefBaseLook_setTextSize() {
 		
@@ -39,5 +38,10 @@ public final class LabelTest extends Test {
 		
 		//verification
 		expect(label.getText()).isEqualTo("Helix");
+	}
+
+	//method
+	protected Label createTestObject() {
+		return new Label();
 	}
 }
