@@ -12,9 +12,10 @@ import ch.nolix.primitive.test2.ObjectTest;
  * 
  * @author Silvan Wyss
  * @month 2018-09
- * @lines 80
+ * @lines 70
  */
-public abstract class WidgetTest extends ObjectTest<Widget<?, ?>> {
+public abstract class WidgetTest<W extends Widget<?, ?>>
+extends ObjectTest<W> {
 	
 	//test case
 	public void testCase_collapse() {
