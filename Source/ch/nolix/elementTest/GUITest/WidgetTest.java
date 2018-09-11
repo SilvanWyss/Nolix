@@ -1,0 +1,78 @@
+//package declaration
+package ch.nolix.elementTest.GUITest;
+
+//own imports
+import ch.nolix.element.GUI.CursorIcon;
+import ch.nolix.element.GUI.Widget;
+import ch.nolix.primitive.test2.ObjectTest;
+
+//abstract test class
+/**
+ * A {@link WidgetTest} is a test for {@link Widget}.
+ * 
+ * @author Silvan Wyss
+ * @month 2018-09
+ * @lines 80
+ */
+public abstract class WidgetTest extends ObjectTest<Widget<?, ?>> {
+	
+	//test case
+	public void testCase_collapse() {
+		
+		//setup
+		final var widget = createTestObject();
+		
+		//execution
+		widget.setCollapsed();
+		
+		//verification
+		expect(widget.isCollapsed());
+	}
+	
+	//test case
+	public void testCase_getHeight() {
+		
+		//setup
+		final var widget = createTestObject();
+		
+		//execution
+		widget.setCollapsed();
+		
+		//verification
+		expect(widget.getHeight()).isZero();
+	}
+	
+	//test case
+	public void testCase_getWidth() {
+		
+		//setup
+		final var widget = createTestObject();
+		
+		//execution
+		widget.setCollapsed();
+		
+		//verification
+		expect(widget.getWidth()).isZero();
+	}
+	
+	//test case
+	public void testCase_reset() {
+		
+		//setup
+		final var widget = createTestObject();
+		
+		//execution
+		widget.reset();
+		
+		//verification
+			expect(widget.isNormal());
+			expect(widget.getCustomCursorIcon()).isEqualTo(CursorIcon.Arrow);
+			
+			expectNot(
+				widget.hasLeftMouseButtonPressCommand(),
+				widget.hasLeftMouseButtonReleaseCommand(),
+				widget.hasRightMouseButtonPressCommand(),
+				widget.hasRightMouseButtonReleaseCommand()
+			);
+	}
+}
