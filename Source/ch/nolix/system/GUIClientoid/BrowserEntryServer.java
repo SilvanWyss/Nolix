@@ -2,47 +2,98 @@
 package ch.nolix.system.GUIClientoid;
 
 //own imports
+import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.endPoint.EndPoint;
 import ch.nolix.core.endPoint.NetServer;
+import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.primitive.validator2.Validator;
-import ch.nolix.system.client.Application;
 
 //class
-public final class BrowserEntryServer {
+public final class BrowserEntryServer extends ClosableElement {
 	
 	//attributes
 	private final NetServer netServer;
-	private final Application<?> targetApplication;	
-	
-	//constructor
-	public BrowserEntryServer(final int HTTPPort) {
-		this(HTTPPort, new SampleApplication());
-	}
-	
+	private final String targetIP;
+	private final int targetPort;
+	private final String targetName;
+	private final String HTTPText;
+		
 	//constructor
 	public BrowserEntryServer(
 		final int HTTPPort,
-		final Application<?> targetApplication
+		final String targetIP,
+		final int targetPort,
+		final String targetName
 	) {
 		
 		Validator
-		.suppose(targetApplication)
-		.thatIsNamed("target application")
-		.isInstance();
+		.suppose(targetIP)
+		.thatIsNamed("target IP")
+		.isNotEmpty();
 		
+		Validator
+		.suppose(targetPort)
+		.thatIsNamed("target port")
+		.isBetween(0, 65535);
+		
+		Validator
+		.suppose(targetName)
+		.thatIsNamed("target name")
+		.isNotEmpty();
+		
+		this.targetIP = targetIP;
+		this.targetPort = targetPort;
+		this.targetName = targetName;
+		HTTPText = createHTTPText();
 		netServer = new NetServer(HTTPPort, ep -> takeEndPoint(ep));
-		this.targetApplication = targetApplication;
+	}
+	
+	//method
+	protected void noteClosing() {
+		netServer.close();
+	}
+	
+	//method
+	private String createBodyText() {
+		return
+		"<body onload='createFrontGUIClient("
+		+ targetIP
+		+ ", "
+		+ targetPort
+		+ ", "
+		+ targetName
+		+ ')'
+		+ "</body>";
+	}
+	
+	//method
+	private String createHTMLText() {
+		return
+		"<html>"
+		+ "<head>"
+		+ "</head>"
+		+ createJavaScriptText()
+		+ createBodyText()
+		+ "</html>";
+	}
+	
+	//method
+	private String createHTTPText() {
+		return
+		"HTTP/1.1 200 OK\r\n"
+		+ "Content-Type: text/html; charset=UTF-8\r\n"
+		+ "\r\n"
+		+ createHTMLText();
+	}
+		
+	//method
+	private String createJavaScriptText() {
+		return new FileAccessor("JavaScript/Specification.js").readFile();
 	}
 	
 	//method
 	private void takeEndPoint(final EndPoint endPoint) {
-		
-		//TODO
-		endPoint.send(
-			"HTTP/1.1 200 OK\r\n"
-			+ "Content-Type: text/html; charset=UTF-8\r\n"
-			+ "\r\n"
-			+ "<p>Please wait...</p>"
-		);
+		endPoint.send(HTTPText);
+		endPoint.close();
 	}
 }
