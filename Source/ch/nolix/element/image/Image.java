@@ -41,7 +41,7 @@ public final class Image extends MutableElement<Image> {
 	}
 
 	//attribute
-	private final Matrix<Color> pixels = new Matrix<Color>();
+	private final Matrix<Color> pixels;
 	
 	//attribute
 	private final Property<NonNegativeInteger> width =
@@ -64,6 +64,8 @@ public final class Image extends MutableElement<Image> {
 		
 		setWidth(width);
 		setHeight(height);
+		
+		pixels = new Matrix<Color>();
 		
 		if (width > 0 && height > 0) {
 			
@@ -88,6 +90,15 @@ public final class Image extends MutableElement<Image> {
 		for (var i = 1; i <= getPixelCount(); i++) {
 			pixels.set(i, color);
 		}
+	}
+	
+	//constructor
+	private Image(final Matrix<Color> pixels) {
+		
+		setWidth(pixels.getColumnCount());
+		setHeight(pixels.getRowCount());
+		
+		this.pixels = pixels;
 	}
 	
 	//method
@@ -198,6 +209,11 @@ public final class Image extends MutableElement<Image> {
 		}
 		
 		return this;
+	}
+	
+	//method
+	public Image toRightRotatedImage() {
+		return new Image(pixels.toRightRotatedMatrix());
 	}
 	
 	//method
