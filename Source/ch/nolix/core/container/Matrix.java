@@ -18,7 +18,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-07
- * @lines 650
+ * @lines 680
  * @param <E> The type of the elements of a {@link Matrix}.
  */
 public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
@@ -287,7 +287,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	
 	//method
 	/**
-	 * @return the columns of the {@link Matrix}.
+	 * @return the columns of the current {@link Matrix}.
 	 */
 	public List<MatrixColumn<E>> getColumns() {
 		
@@ -563,6 +563,35 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			}
 		
 		return matrix;
+	}
+	
+	//method
+	/**
+	 * @return a new right rotated {@link Matrix} of the current {@link Matrix}.
+	 */
+	public Matrix<E> toRightRotatedMatrix() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+			final var rightRotatedMatrix = new Matrix<E>();
+			final var rightRotatedMatrixRowCount = getColumnCount();
+			final var rightRotatedMatrixColumnCount = getRowCount();
+			
+			final var rightRotatedMatrixElements
+			= new Object[rightRotatedMatrixRowCount][rightRotatedMatrixColumnCount];
+			
+			rightRotatedMatrix.elements = rightRotatedMatrixElements;
+			
+			//Iterates the rows of the right rotated matrix.
+			for (var i = 0; i < rightRotatedMatrixRowCount; i++) {
+				
+				//Iterates the columns of the current row.
+				for (var j = 0; j < rightRotatedMatrixColumnCount; j++) {
+					rightRotatedMatrixElements[i][j]
+					= elements[rightRotatedMatrixColumnCount - j - 1][i];
+				}
+			}
+			
+			return rightRotatedMatrix;
 	}
 	
 	//method

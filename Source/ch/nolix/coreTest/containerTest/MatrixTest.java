@@ -11,7 +11,7 @@ import ch.nolix.primitive.test2.Test;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 110
+ * @lines 140
  */
 public final class MatrixTest extends Test {
 
@@ -114,5 +114,27 @@ public final class MatrixTest extends Test {
 		
 			expect(row3.getElementCount()).isEqualTo(3);
 			expect(row3.toString()).isEqualTo("flower,tree,palm");
+	}
+	
+	//test case
+	public void testCase_toRightRotatedMatrix() {
+		
+		//setup
+			final var matrix = new Matrix<String>();
+		
+			matrix.addRow("apple", "banana", "cerish");
+			matrix.addRow("elephant", "lion", "monkey");
+			matrix.addRow("flower", "tree", "palm");
+			
+		//execution
+		final var rightRotatedMatrix = matrix.toRightRotatedMatrix();
+		
+		//verification
+			expect(rightRotatedMatrix.getRowCount()).isEqualTo(3);
+			expect(rightRotatedMatrix.getColumnCount()).isEqualTo(3);
+			
+			expect(rightRotatedMatrix.getRow(1).toString()).isEqualTo("flower,elephant,apple");
+			expect(rightRotatedMatrix.getRow(2).toString()).isEqualTo("tree,lion,banana");
+			expect(rightRotatedMatrix.getRow(3).toString()).isEqualTo("palm,monkey,cerish");
 	}
 }
