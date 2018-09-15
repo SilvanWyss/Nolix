@@ -1,5 +1,6 @@
-#Build
+#build
 /bin/
+*.js
 lwjgl64.dll
 OpenAL64.dll
 
@@ -9,6 +10,6 @@ OpenAL64.dll
 #Eclipse
 /.settings/
 
-#Data files
+#data files
 *.database
 *.txt
