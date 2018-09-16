@@ -37,8 +37,8 @@ public final class BlackGreenFrontConsoleClientLook extends StandardConfiguratio
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameCatalogue.INFO_PANEL_NAME)
 			.addAttachingAttribute(
-				"BaseWidth(1000)",
-				"BaseHeight(300)",
+				"ProposalWidth(1000)",
+				"ProposalHeight(300)",
 				"BaseBackgroundColorGradient(Vertical,0x001000,0x002000)",	
 				"BasePadding(5)",
 				"BaseTextColor(Lime)"
@@ -46,8 +46,8 @@ public final class BlackGreenFrontConsoleClientLook extends StandardConfiguratio
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameCatalogue.CONSOLE_NAME)
 			.addAttachingAttribute(
-				"BaseWidth(1000)",
-				"BaseHeight(400)",				
+				"ProposalWidth(1000)",
+				"ProposalHeight(400)",				
 				"BaseBackgroundColorGradient(Vertical,0x204020,0x406040)",
 				"BasePadding(5)",
 				"BaseTextColor(Lime)"		
