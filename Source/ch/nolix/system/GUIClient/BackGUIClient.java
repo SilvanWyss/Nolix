@@ -19,7 +19,7 @@ import ch.nolix.system.client.Client;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 310
+ * @lines 320
  */
 public final class BackGUIClient extends Client<BackGUIClient> {
 	
@@ -39,8 +39,11 @@ public final class BackGUIClient extends Client<BackGUIClient> {
 	static final String NOTE_RIGHT_MOUSE_BUTTON_RELEASE_HEADER = "NoteRightMouseButtonRelease";
 	
 	//constants
+	static final String CREATE_PAINTER_HEADER = "CreatePainter";
 	static final String PAINT_FILLED_RECTANGLE_HEADER = "PaintFilledRectangle";
+	static final String PAINT_FILLED_POLYGON_HEADER = "PaintFilledPolygon";
 	static final String PAINT_IMAGE_HEADER = "PaintImage";
+	static final String PAINT_TEXT_HEADER = "PaintText";
 	static final String SET_COLOR_HEADER = "SetColor";
 	static final String SET_COLOR_GRADIENT_HEADER = "SetColorGradient";
 	static final String TRANSLATE_HEADER = "Translate";
