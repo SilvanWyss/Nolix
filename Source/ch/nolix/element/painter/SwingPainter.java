@@ -36,7 +36,7 @@ public final class SwingPainter implements IPainter {
 	}
 	
 	//method
-	public IPainter createTranslatedPainter(
+	public IPainter createPainter(
 		final int xTranslation,
 		final int yTranslation
 	) {
@@ -46,7 +46,7 @@ public final class SwingPainter implements IPainter {
 	}
 	
 	//method
-	public IPainter createTranslatedPainter(
+	public IPainter createPainter(
 			final int xTranslation,
 			final int yTranslation,
 			final int paintAreaWidth,

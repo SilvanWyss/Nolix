@@ -1121,7 +1121,7 @@ extends BackgroundWidget<BW, BWS> {
 		//Paints the bordered area of this border widget.
 		paintBorderedArea(
 			widgetStructure,
-			painter.createTranslatedPainter(
+			painter.createPainter(
 				getBorderedAreaXPosition(),
 				getBorderedAreaYPosition()
 			)
@@ -1736,7 +1736,7 @@ extends BackgroundWidget<BW, BWS> {
 		//Paints the view area of this border widget.
 		paintViewArea(
 			borderWidgetStructure,
-			painter.createTranslatedPainter(
+			painter.createPainter(
 				0,
 				0,
 				getViewAreaWidth(),				
@@ -1759,7 +1759,7 @@ extends BackgroundWidget<BW, BWS> {
 	) {
 		paintScrollArea(
 			widgetStructure,
-			painter.createTranslatedPainter(
+			painter.createPainter(
 				-getViewAreaXPositionOnScrollArea(),
 				-getViewAreaYPositionOnScrollArea(),
 				getScrollAreaWidth(),
@@ -1782,7 +1782,7 @@ extends BackgroundWidget<BW, BWS> {
 	) {
 		paintContentArea(
 			widgetStructure,
-			painter.createTranslatedPainter(
+			painter.createPainter(
 				getContentAreaXPositionOnScrollArea(),
 				getContentAreaYPositionOnScrollArea(),
 				getScrollAreaWidth(),

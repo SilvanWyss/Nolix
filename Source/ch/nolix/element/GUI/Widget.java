@@ -884,7 +884,7 @@ extends ConfigurableElement<W> {
 	 */
 	public final void paintUsingPositionOnParent(final IPainter painter) {
 		paint(
-			painter.createTranslatedPainter(
+			painter.createPainter(
 				getXPositionOnParent(),
 				getYPositionOnParent()
 			)

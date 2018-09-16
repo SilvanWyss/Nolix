@@ -38,7 +38,7 @@ implements IPainter, Flushable {
 	}
 	
 	//method
-	public BrowserGUIPainter createTranslatedPainter(
+	public BrowserGUIPainter createPainter(
 		final int xTranslation,
 		final int yTranslation
 	) {
@@ -58,7 +58,7 @@ implements IPainter, Flushable {
 	}
 		
 	//method
-	public IPainter createTranslatedPainter(
+	public IPainter createPainter(
 		final int xTranslation,
 		final int yTranslation,
 		final int paintAreaWidth,

@@ -22,7 +22,7 @@ public interface IPainter {
 	 * @return a new {@link IPainter} from the current {@link IPainter}
 	 * with the given translation.
 	 */
-	public abstract IPainter createTranslatedPainter(
+	public abstract IPainter createPainter(
 		int xTranslation,
 		int yTranslation
 	);
@@ -36,7 +36,7 @@ public interface IPainter {
 	 * @return a new {@link IPainter} from the current {@link IPainter}
 	 * with the given translation and paint area.
 	 */
-	public abstract IPainter createTranslatedPainter(
+	public abstract IPainter createPainter(
 		int xTranslation,
 		int yTranslation,
 		int paintAreaWidth,
