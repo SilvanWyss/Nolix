@@ -7,8 +7,8 @@ import ch.nolix.core.databaseAdapter.Schema;
 //class
 public final class MovieManagerSchema extends Schema {
 
+	//constructor
 	public MovieManagerSchema() {
-		
 		super(
 			Movie.class,
 			Genre.class
