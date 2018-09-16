@@ -5,6 +5,8 @@ package ch.nolix.element.JMonkeyGUI;
 import com.jme3.material.Material;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.shape.Box;
+import com.jme3.texture.Texture2D;
+import com.jme3.texture.plugins.AWTLoader;
 
 //own import
 import ch.nolix.element._3DGUI.Cuboid;
@@ -15,7 +17,7 @@ import ch.nolix.element._3DGUI.Cuboid;
  * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 70
+ * @lines 90
  */
 public final class JMonkeyCuboidRenderer
 implements IJMonkeyShapeRenderer<Cuboid, Geometry> {
@@ -29,15 +31,8 @@ implements IJMonkeyShapeRenderer<Cuboid, Geometry> {
 		//Creates box.
 		final Box box = new Box(1, 1, 1);
         
-		//Creates material.		
-			final Material material =
-			new Material(JMonkeyHelper.getAssetManager(), "Common/MatDefs/Light/Lighting.j3md");
-			
-			material.setBoolean("UseMaterialColors", true);
-		
 		//Creates geometry.
         final Geometry geometry = new Geometry("Box", box);
-        geometry.setMaterial(material);
 		
 		return geometry;
 	}
@@ -52,23 +47,50 @@ implements IJMonkeyShapeRenderer<Cuboid, Geometry> {
 	 */
 	public void render(final Cuboid cuboid, final Geometry geometry) {
 		
-		//Sets the position of the given render object.
+		//Sets the position to the given geometry.
 		geometry.setLocalTranslation(
 			cuboid.getXPositionAsFloat(),
 			cuboid.getYPositionAsFloat(),
 			cuboid.getZPositionAsFloat()
 		);
 		
-		//Sets the size of the given render object.
+		//Sets the size to the given geometry.
 		geometry.scale(
 			cuboid.getXLengthAsFloat(),
 			cuboid.getYLengthAsFloat(),
 			cuboid.getZLengthAsFloat()
 		);
 		
-		//Sets the color of the given render object.
-		geometry
-		.getMaterial()
-		.setColor("Diffuse", JMonkeyColorHelper.createColorRGBA(cuboid.getColor()));
+		//Handles the case that the given cuboid does not have a texture.
+		if (!cuboid.hasTexture()) {
+			
+			//Sets the color to the given geometry.
+				final var material =
+				new Material(JMonkeyHelper.getAssetManager(), "Common/MatDefs/Light/Lighting.j3md");
+				
+				material.setBoolean("UseMaterialColors", true);
+								
+				material.setColor(
+					"Diffuse",
+					JMonkeyColorHelper.createColorRGBA(cuboid.getColor())
+				);
+				
+				geometry.setMaterial(material);
+		}
+		
+		//Handles the case that the given cuboid has a texture.
+		else {
+									
+			//Sets the texture to the given geometry.
+				final var material
+				= new Material(JMonkeyHelper.getAssetManager(), "Common/MatDefs/Misc/Unshaded.j3md");
+				
+				final var texture
+				= new Texture2D(new AWTLoader().load(cuboid.getRefTexture().getBufferedImage(),true));
+				
+				material.setTexture("ColorMap", texture);	
+				
+				geometry.setMaterial(material);
+		}
 	}
 }
