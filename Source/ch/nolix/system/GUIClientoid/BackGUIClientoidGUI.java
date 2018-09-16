@@ -1,41 +1,13 @@
 //package declaration
-package ch.nolix.system.GUIClient;
+package ch.nolix.system.GUIClientoid;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.primitive.validator2.Validator;
 
-//package-visible class
-final class BrowserGUI extends GUI<BrowserGUI> {
-	
-	//attribute
-	private final IElementGetter<BrowserGUIPainter> painterCreator;
-	
-	public BrowserGUI() {
-		
-		reset();
-		approveProperties();
-		
-		painterCreator = null;
-	}
-	
-	//constructor
-	public BrowserGUI(IElementGetter<BrowserGUIPainter> painterCreator) {
-		
-		reset();
-		approveProperties();
-		
-		//Checks if the given painter creator is an instance.
-		Validator
-		.suppose(painterCreator)
-		.thatIsNamed("painter creator")
-		.isInstance();
-		
-		//Sets the painter creator of the current back browser GUI.
-		this.painterCreator = painterCreator;
-	}
+//package-visible abstract class
+abstract class BackGUIClientoidGUI extends GUI<BackGUIClientoidGUI> {
 	
 	//attributes
 	private int width;
@@ -139,27 +111,5 @@ final class BrowserGUI extends GUI<BrowserGUI> {
 		
 		//Sets the width of the current back web GUI.
 		this.width = width;
-	}
-	
-	//method
-	protected void paint() {
-		
-		if (painterCreator == null) {
-			return;
-		}
-		
-		//Creates a painter.
-		final var painter = painterCreator.getOutput();
-		
-		//Paints the background color of the current back web GUI.
-		painter.paintFilledRectangle(getContentWidth(), getContentHeight());
-		
-		//Handles the case that the current back web GUI has a root widget.
-		if (hasRootWidget()) {
-			getRefRootWidget().paintUsingPositionOnParent(painter);
-		}
-		
-		//Flushes the painter.
-		painter.flush();
 	}
 }

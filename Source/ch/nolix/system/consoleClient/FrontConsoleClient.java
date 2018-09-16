@@ -12,7 +12,7 @@ import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.primitive.validator2.Validator;
-import ch.nolix.system.GUIClientoid.GUIClientoid;
+import ch.nolix.system.GUIClientoid.BackGUIClientoid;
 import ch.nolix.system.client.Application;
 import ch.nolix.templates.frontConsoleClientLooks.GreyBlueFrontConsoleClientLook;
 
@@ -24,7 +24,7 @@ import ch.nolix.templates.frontConsoleClientLooks.GreyBlueFrontConsoleClientLook
 * @month 2017-03
 * @lines 260
 */
-public final class FrontConsoleClient extends GUIClientoid<FrontConsoleClient> {
+public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClient> {
 
 	//attributes
 		private final GUI<?> GUI;

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.GUIClient;
+package ch.nolix.system.GUIClientoid;
 
 //own imports
 import ch.nolix.core.container.List;
@@ -16,7 +16,7 @@ final class BrowserGUIPainterBottom {
 	
 	//method
 	public void appendPainterCommand(
-		final BrowserGUIPainter browserGUIPainter,
+		final FrontBrowserGUIClientoidPainter browserGUIPainter,
 		final String command
 	) {
 		painterCommands.addAtEnd(new Package<String>(browserGUIPainter.getIndex(), command));

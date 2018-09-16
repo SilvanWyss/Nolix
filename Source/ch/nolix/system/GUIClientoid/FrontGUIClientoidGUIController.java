@@ -1,19 +1,20 @@
 //package declaration
-package ch.nolix.system.GUIClient;
+package ch.nolix.system.GUIClientoid;
 
 //own imports
 import ch.nolix.element.GUI.IGUIController;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.system.GUIClient.FrontGUIClient;
 
 //package-visible class
-final class FrontGUIClientGUIController implements IGUIController {
+final class FrontGUIClientoidGUIController implements IGUIController {
 	
 	//attribute
-	private final FrontGUIClient frontGUIClient;
+	private final FrontGUIClientoid<?> frontGUIClient;
 	
 	//constructor
-	public FrontGUIClientGUIController(final FrontGUIClient frontGUIClient) {
+	public FrontGUIClientoidGUIController(final FrontGUIClientoid<?> frontGUIClient) {
 		
 		Validator.suppose(frontGUIClient).isInstanceOf(FrontGUIClient.class);
 		

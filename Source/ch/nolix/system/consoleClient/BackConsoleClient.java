@@ -7,7 +7,7 @@ import ch.nolix.core.duplexController.DuplexController;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.primitive.validator2.Validator;
-import ch.nolix.system.GUIClientoid.GUIClientoid;
+import ch.nolix.system.GUIClientoid.BackGUIClientoid;
 
 //class
 /**
@@ -18,7 +18,7 @@ import ch.nolix.system.GUIClientoid.GUIClientoid;
  * @month 2017-03
  * @lines 360
  */
-public final class BackConsoleClient extends GUIClientoid<BackConsoleClient> {
+public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient> {
 		
 	//constructor
 	/**

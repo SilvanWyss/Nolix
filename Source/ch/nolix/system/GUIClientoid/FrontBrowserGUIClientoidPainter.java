@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.GUIClient;
+package ch.nolix.system.GUIClientoid;
 
 //Java import
 import java.io.Flushable;
@@ -15,14 +15,14 @@ import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.helper.ArrayHelper;
 
 //package-visible class
-final class BrowserGUIPainter extends IndexedElement
+final class FrontBrowserGUIClientoidPainter extends IndexedElement
 implements IPainter, Flushable {
 	
 	//attributes
 	private final BrowserGUIPainterBottom bottom;
 	
 	//constructor
-	public BrowserGUIPainter() {
+	public FrontBrowserGUIClientoidPainter() {
 		
 		super(1);
 		
@@ -30,7 +30,7 @@ implements IPainter, Flushable {
 	}
 	
 	//constructor
-	private BrowserGUIPainter(final BrowserGUIPainterBottom bottom) {
+	private FrontBrowserGUIClientoidPainter(final BrowserGUIPainterBottom bottom) {
 		
 		super(bottom.getNextIndexAndUpdateNextIndex());
 		
@@ -38,14 +38,14 @@ implements IPainter, Flushable {
 	}
 	
 	//method
-	public BrowserGUIPainter createPainter(
+	public FrontBrowserGUIClientoidPainter createPainter(
 		final int xTranslation,
 		final int yTranslation
 	) {
-		final var painter = new BrowserGUIPainter(bottom);
+		final var painter = new FrontBrowserGUIClientoidPainter(bottom);
 		
 		appendPainterCommand(
-			BackGUIClient.CREATE_PAINTER_HEADER
+			Protocol.CREATE_PAINTER_HEADER
 			+ painter.getIndex()
 			+ '('
 			+ xTranslation
@@ -64,10 +64,10 @@ implements IPainter, Flushable {
 		final int paintAreaWidth,
 		final int paintAreaHeight
 	) {
-		final var painter = new BrowserGUIPainter(bottom);
+		final var painter = new FrontBrowserGUIClientoidPainter(bottom);
 		
 		appendPainterCommand(
-			BackGUIClient.CREATE_PAINTER_HEADER
+			Protocol.CREATE_PAINTER_HEADER
 			+ painter.getIndex()
 			+ '('
 			+ xTranslation
@@ -96,7 +96,7 @@ implements IPainter, Flushable {
 	//method
 	public void paintFilledPolygon(final int[] x, final int[] y) {
 		appendPainterCommand(
-			BackGUIClient.PAINT_FILLED_POLYGON_HEADER
+			Protocol.PAINT_FILLED_POLYGON_HEADER
 			+ '('
 			+ ArrayHelper.createString(x)
 			+ ','
@@ -113,7 +113,7 @@ implements IPainter, Flushable {
 		final int height
 	) {
 		appendPainterCommand(
-			BackGUIClient.PAINT_FILLED_RECTANGLE_HEADER
+			Protocol.PAINT_FILLED_RECTANGLE_HEADER
 			+ "("
 			+ xPostiion
 			+ ","
@@ -129,7 +129,7 @@ implements IPainter, Flushable {
 	//method
 	public void paintImage(final Image image) {
 		appendPainterCommand(
-			BackGUIClient.PAINT_IMAGE_HEADER
+			Protocol.PAINT_IMAGE_HEADER
 			+ '('
 			+ image.getSpecification()
 			+ ')'
@@ -139,7 +139,7 @@ implements IPainter, Flushable {
 	//method
 	public void paintImage(final Image image, final int width, final int height) {
 		appendPainterCommand(
-			BackGUIClient.PAINT_IMAGE_HEADER
+			Protocol.PAINT_IMAGE_HEADER
 			+ '('
 			+ image.getSpecification()
 			+ ','
@@ -153,7 +153,7 @@ implements IPainter, Flushable {
 	@Override
 	public void paintText(String text, Font font) {
 		appendPainterCommand(
-			BackGUIClient.PAINT_TEXT_HEADER
+			Protocol.PAINT_TEXT_HEADER
 			+ '('
 			+ Specification.createReproducingString(text)
 			+ ','
@@ -165,7 +165,7 @@ implements IPainter, Flushable {
 	//method
 	public void paintText(final String text, Font font, final int maxTextWidth) {
 		appendPainterCommand(
-			BackGUIClient.PAINT_TEXT_HEADER
+			Protocol.PAINT_TEXT_HEADER
 			+ '('
 			+ Specification.createReproducingString(text)
 			+ ','
@@ -179,7 +179,7 @@ implements IPainter, Flushable {
 	//method
 	public void setColor(final Color color) {	
 		appendPainterCommand(
-			BackGUIClient.SET_COLOR_HEADER
+			Protocol.SET_COLOR_HEADER
 			+ "("
 			+ color.getHexadecimalSpecification(true)
 			+ ")"
@@ -189,7 +189,7 @@ implements IPainter, Flushable {
 	//method
 	public void setColorGradient(final ColorGradient colorGradient) {
 		appendPainterCommand(
-			BackGUIClient.SET_COLOR_GRADIENT_HEADER
+			Protocol.SET_COLOR_GRADIENT_HEADER
 			+ '('
 			+ colorGradient.getHexadecimalSpecification(true)
 			+ ')'
@@ -199,7 +199,7 @@ implements IPainter, Flushable {
 	//method
 	public void translate(final int xTranslation, final int yTranslation) {
 		appendPainterCommand(
-			BackGUIClient.TRANSLATE_HEADER
+			Protocol.TRANSLATE_HEADER
 			+ '('
 			+ xTranslation
 			+ ','

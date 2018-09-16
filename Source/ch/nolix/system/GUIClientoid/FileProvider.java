@@ -1,20 +1,21 @@
 //package declaration
-package ch.nolix.system.GUIClient;
+package ch.nolix.system.GUIClientoid;
 
 //own import
 import ch.nolix.element.GUI.IFileProvider;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.system.GUIClient.FrontGUIClient;
 
 //class
 public final class FileProvider implements IFileProvider {
 	
-	final FrontGUIClient frontGUIClient;
+	final FrontGUIClientoid<?> frontGUIClient;
 	final Widget<?, ?> widget;
 	
 	//constructor
 	public FileProvider(
-		final FrontGUIClient frontGUIClient,
+		final FrontGUIClientoid<?> frontGUIClient,
 		final Widget<?, ?> widget
 	) {
 		

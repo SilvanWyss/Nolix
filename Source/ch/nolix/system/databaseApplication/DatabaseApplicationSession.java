@@ -8,11 +8,11 @@ import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.LabelRole;
 import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.element.GUI.Widget;
-import ch.nolix.system.GUIClient.BackGUISession;
+import ch.nolix.system.GUIClient.BackGUIClientSession;
 
 //abstract class
 public abstract class DatabaseApplicationSession
-extends BackGUISession {
+extends BackGUIClientSession {
 	
 	//attribute
 	private DatabaseAdapter databaseAdapter;

@@ -8,7 +8,7 @@ import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.GUI.ValueCatalogue;
 import ch.nolix.element.color.Color;
 import ch.nolix.system.GUIClient.BackGUIClient;
-import ch.nolix.system.GUIClient.BackGUISession;
+import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.client.Application;
 
@@ -46,7 +46,7 @@ public final class BackGUIClientTutorial {
 	}
 	
 	//inner class
-	private static final class MainSession extends BackGUISession {
+	private static final class MainSession extends BackGUIClientSession {
 
 		//attribute
 		private int counter = 1;
