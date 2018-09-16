@@ -244,4 +244,19 @@ public class ColorGradient extends Element {
 	public UniDirection getDirection() {
 		return direction;
 	}
+
+	//method
+	/**
+	 * @param appendAlphaValueAlways
+	 * @return a hexadecimal specification of this color gradient.
+	 */
+	public StandardSpecification getHexadecimalSpecification(
+		final boolean appendAlphaValueAlways
+	) {
+		return new StandardSpecification(
+			getType(),
+			color1.getHexadecimalSpecification(appendAlphaValueAlways),
+			color2.getHexadecimalSpecification(appendAlphaValueAlways)
+		);
+	}
 }
