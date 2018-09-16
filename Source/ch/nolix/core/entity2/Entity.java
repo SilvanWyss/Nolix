@@ -20,7 +20,7 @@ import ch.nolix.primitive.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 210
+ * @lines 230
  * @param <E> The type of an entity.
  */
 public abstract class Entity<E extends Entity<E>>
@@ -40,9 +40,20 @@ implements IFluentObject<E>, Specifiable<E> {
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	public void addOrChangeAttribute(final Specification attribute) {
-		getRefProperties()
-		.getRefFirst(p -> p.hasName(attribute.getHeader()))
-		.setValueFromSpecification(attribute);
+		
+		//Extracts the property with the name of the given attribute.
+		final var property = getRefProperties().getRefFirstOrNull(p -> p.hasName(attribute.getHeader()));
+		
+		//Handles the case that the property was not found.
+		if (property == null) {
+			throw
+			new InvalidStateException(
+				this,
+				"cannot not have a " + attribute.getHeaderInQuotes()
+			);
+		}
+		
+		property.setValueFromSpecification(attribute);
 	}
 	
 	//method
