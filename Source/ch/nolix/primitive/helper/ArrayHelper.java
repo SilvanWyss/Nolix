@@ -6,14 +6,12 @@ import ch.nolix.primitive.container.List;
 
 //class
 /**
- * This class provides functions to handle arrays.
- * Methods are called on objects, functions are not.
- * 
- * Of this class no instance can be created.
+ * The {@link ArrayHelper} provides functions to handle arrays.
+ * Of the {@link ArrayHelper} class no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 200
+ * @lines 230
  */
 public final class ArrayHelper {
 	
@@ -173,6 +171,34 @@ public final class ArrayHelper {
 		return stringBuilder.toString();
 	}
 	
+	//static method
+	/**
+	 * @param values
+	 * @return a string representation of the given values.
+	 * @throws NullArgumentExcetpion if the given values is not an instance.
+	 */
+	public static String createString(final int[] values) {
+		
+		//Checks if the given values is an instance.
+		if (values == null) {
+			throw new RuntimeException("The given values is not an instance.");
+		}
+		
+		final var stringBuilder = new StringBuilder();
+		
+		//Iterates the given values.
+		for (var i = 0; i < values.length; i++) {			
+			if (i < values.length - 1) {
+				stringBuilder.append(values[i] + ", ");
+			}
+			else {
+				stringBuilder.append(values[i]);
+			}			
+		}
+		
+		return stringBuilder.toString();
+	}
+	
 	//method
 	/**
 	 * @param values
@@ -203,7 +229,7 @@ public final class ArrayHelper {
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link ArrayHelper} can be created.
 	 */
 	private ArrayHelper() {}
 }
