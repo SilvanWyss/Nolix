@@ -32,20 +32,20 @@ public final class BlackRedFrontConsoleClientLook extends StandardConfiguration 
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameCatalogue.INFO_PANEL_NAME)
 			.addAttachingAttribute(
-				"NormalWidth(1000)",
-				"NormalHeight(300)",
-				"NormalBackgroundColor(0x202020)",
-				"NormalPadding(10)",
-				"NormalTextColor(OrangeRed)"
+				"BaseWidth(1000)",
+				"BaseHeight(300)",
+				"BaseBackgroundColor(0x202020)",
+				"BasePadding(10)",
+				"BaseTextColor(OrangeRed)"
 			),
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameCatalogue.CONSOLE_NAME)
 			.addAttachingAttribute(
-				"NormalWidth(1000)",
-				"NormalHeight(400)",
-				"NormalBackgroundColor(0x101010)",
-				"NormalPadding(10)",
-				"NormalTextColor(Red)"
+				"BaseWidth(1000)",
+				"BaseHeight(400)",
+				"BaseBackgroundColor(0x101010)",
+				"BasePadding(10)",
+				"BaseTextColor(Red)"
 			)
 		);
 	}
