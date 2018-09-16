@@ -212,6 +212,11 @@ public final class Image extends MutableElement<Image> {
 	}
 	
 	//method
+	public Image toLeftRotatedImage() {
+		return new Image(pixels.toLeftRotatedMatrix());
+	}
+	
+	//method
 	public Image toRightRotatedImage() {
 		return new Image(pixels.toRightRotatedMatrix());
 	}
