@@ -132,28 +132,6 @@ public final class Image extends MutableElement<Image> {
 	}
 	
 	//method
-	public BufferedImage getBufferedImage() {
-		
-		final var bufferedImage =
-		new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
-		final var raster = bufferedImage.getRaster();
-		
-		for (var y = 0; y < getHeight(); y++) {
-			for (var x = 0; x < getWidth(); x++) {
-				
-				final var pixel = pixels.getRefAt(y + 1, x + 1);
-				
-				//raster.setSample(x, y, 0, pixel.getAlphaValue());
-				raster.setSample(x, y, 0, pixel.getRedValue());
-				raster.setSample(x, y, 1, pixel.getGreenValue());
-				raster.setSample(x, y, 2, pixel.getBlueValue());
-			}
-		}
-		
-		return bufferedImage;
-	}
-	
-	//method
 	public int getHeight() {
 		return height.getValue().getValue();
 	}
@@ -209,6 +187,28 @@ public final class Image extends MutableElement<Image> {
 		}
 		
 		return this;
+	}
+	
+	//method
+	public BufferedImage toBufferedImage() {
+		
+		final var bufferedImage =
+		new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
+		final var raster = bufferedImage.getRaster();
+		
+		for (var y = 0; y < getHeight(); y++) {
+			for (var x = 0; x < getWidth(); x++) {
+				
+				final var pixel = pixels.getRefAt(y + 1, x + 1);
+				
+				//raster.setSample(x, y, 0, pixel.getAlphaValue());
+				raster.setSample(x, y, 0, pixel.getRedValue());
+				raster.setSample(x, y, 1, pixel.getGreenValue());
+				raster.setSample(x, y, 2, pixel.getBlueValue());
+			}
+		}
+		
+		return bufferedImage;
 	}
 	
 	//method

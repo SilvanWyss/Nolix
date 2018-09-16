@@ -111,7 +111,7 @@ public final class SwingPainter implements IPainter {
 		final int width,
 		final int height
 	) {
-		graphics.drawImage(image.getBufferedImage(), 0, 0, width, height, null);
+		graphics.drawImage(image.toBufferedImage(), 0, 0, width, height, null);
 	}
 	
 	//method
