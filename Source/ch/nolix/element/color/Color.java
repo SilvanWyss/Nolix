@@ -907,9 +907,9 @@ public class Color extends Element {
 	//method
 	/**
 	 * @param appendAlphaValueAlways
-	 * @return the hexadecimal specification of the current {@link Color}.
+	 * @return a hexadecimal specification of the current {@link Color}.
 	 */
-	public Specification getHexadecimalSpecification(final boolean appendAlphaValueAlways) {
+	public StandardSpecification getHexadecimalSpecification(final boolean appendAlphaValueAlways) {
 		return new StandardSpecification(getType(), getHexadecimalValue(appendAlphaValueAlways));
 	}
 	
