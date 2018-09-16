@@ -27,30 +27,30 @@ public final class BlackGreenFrontConsoleClientLook extends StandardConfiguratio
 			new DeepConfiguration()
 			.addSelectorRole(ContainerRole.MainContainer)
 			.addAttachingAttribute(
-				"NormalBackgroundColorGradient(Vertical,0x40C040,0x102010)",	
-				"NormalLeftPadding(30)",
-				"NormalRightPadding(30)",
-				"NormalTopPadding(15)",
-				"NormalBottomPadding(15)",
+				"BaseBackgroundColorGradient(Vertical,0x40C040,0x102010)",	
+				"BaseLeftPadding(30)",
+				"BaseRightPadding(30)",
+				"BaseTopPadding(15)",
+				"BaseBottomPadding(15)",
 				"ElementMargin(15)"
 			),
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameCatalogue.INFO_PANEL_NAME)
 			.addAttachingAttribute(
-				"NormalWidth(1000)",
-				"NormalHeight(300)",
-				"NormalBackgroundColorGradient(Vertical,0x001000,0x002000)",	
-				"NormalPadding(5)",
-				"NormalTextColor(Lime)"
+				"BaseWidth(1000)",
+				"BaseHeight(300)",
+				"BaseBackgroundColorGradient(Vertical,0x001000,0x002000)",	
+				"BasePadding(5)",
+				"BaseTextColor(Lime)"
 			),
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameCatalogue.CONSOLE_NAME)
 			.addAttachingAttribute(
-				"NormalWidth(1000)",
-				"NormalHeight(400)",				
-				"NormalBackgroundColorGradient(Vertical,0x204020,0x406040)",
-				"NormalPadding(5)",
-				"NormalTextColor(Lime)"		
+				"BaseWidth(1000)",
+				"BaseHeight(400)",				
+				"BaseBackgroundColorGradient(Vertical,0x204020,0x406040)",
+				"BasePadding(5)",
+				"BaseTextColor(Lime)"		
 			)
 		);
 	}
