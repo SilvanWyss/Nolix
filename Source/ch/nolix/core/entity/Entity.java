@@ -16,7 +16,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 190
+ * @lines 200
  */
 public abstract class Entity implements Specified {
 	
@@ -53,9 +53,20 @@ public abstract class Entity implements Specified {
 	 * if the given attribute is not valid.
 	 */
 	protected void addOrChangeAttribute(final Specification attribute) {
-		getRefProperties()
-		.getRefFirst(p -> p.hasName(attribute.getHeader()))
-		.addOrChangeValueFromSpecification(attribute);
+		
+		//Extracts the property with the name of the given attribute.
+		final var property = getRefProperties().getRefFirstOrNull(p -> p.hasName(attribute.getHeader()));
+		
+		//Handles the case that the property was not found.
+		if (property == null) {
+			throw
+			new InvalidStateException(
+				this,
+				"cannot not have a " + attribute.getHeaderInQuotes()
+			);
+		}
+		
+		property.addOrChangeValueFromSpecification(attribute);
 	}
 	
 	//method
