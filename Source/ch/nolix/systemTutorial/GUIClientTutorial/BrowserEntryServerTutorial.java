@@ -24,7 +24,8 @@ public final class BrowserEntryServerTutorial {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		new BrowserEntryServer(8000);
+		//TODO
+		//new BrowserEntryServer(8000);
 	}
 	
 	//private constructor
