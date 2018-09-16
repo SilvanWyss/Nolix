@@ -272,7 +272,8 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	//method
 	/**
 	 * @param index
-	 * @return the index of the column of the element from the current {@link Matrix} at the given index.
+	 * @return the index of the column of the element
+	 * of the current {@link Matrix} at the given index.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
 	 * @throws BiggerArgumentException
 	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
@@ -307,7 +308,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * -This matrix contains m rows.
 	 * -This matrix contains n columns.
 	 * 
-	 * @return a new matrix with the elements of the current {@link Matrix}.
+	 * @return a new {@link Matrix} with the elements of the current {@link Matrix}.
 	 */
 	public Matrix<E> getCopy() {
 		
@@ -335,7 +336,8 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	/**
 	 * @param rowIndex
 	 * @param columnIndex
-	 * @return the index of the element with the given row index and the given column index.
+	 * @return the index of the element of the current {@link Matrix}
+	 * at the given row index and column index.
 	 * @throws NonPositiveArgumentException if the given row index is not positive.
 	 * @throws BiggerArgumentException
 	 * if the given row index is bigger than the number of rows of the current {@link Matrix}.
@@ -354,7 +356,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	
 	//method
 	/**
-	 * @return the element at the given index from the current {@link Matrix}.
+	 * @return the element of the current {@link Matrix} at the given index .
 	 * @throws NonPositiveArgumentException if the given index is not positive.
 	 * @throws BiggerArgumentException
 	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
@@ -369,7 +371,8 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * 
 	 * @param rowIndex
 	 * @param columnIndex
-	 * @return the element at the given row index and column index from the current {@link Matrix}.
+	 * @return the element of the current {@link Matrix}
+	 * at the given row index and column index.
 	 * @throws NonPositiveArgumentException if the given row index is not positive.
 	 * @throws BiggerArgumentException
 	 * if the given row index is bigger than the number of rows of the current {@link Matrix}.
@@ -389,7 +392,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	//method
 	/**
 	 * @param rowIndex
-	 * @return the row of the current {@link Matrix} with the given row index.
+	 * @return the row of the current {@link Matrix} at the given row index.
 	 * @throws NonPositiveArgumentException if the given row index is not positive.
 	 * @throws BiggerArgumentException
 	 * if the given row index is bigger than the number of rows of the current {@link Matrix}.
@@ -401,7 +404,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	//method
 	/**
 	 * @param index
-	 * @return the index of the row of the element from the current {@link Matrix} at the given index.
+	 * @return the index of the row of the element of the current {@link Matrix} at the given index.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
 	 * @throws BiggerArgumentException
 	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
@@ -540,7 +543,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * -The given transformer has a complexity of O(1).
 	 * 
 	 * @return a new matrix with the elements
-	 * the given transformer transforms from the elements of the current {@link Matrix}.
+	 * the given transformer transforms of the elements of the current {@link Matrix}.
 	 * @param transformer
 	 */
 	@SuppressWarnings("unchecked")
@@ -567,6 +570,9 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	
 	//method
 	/**
+	 * The complexity of this implementation is O(n)
+	 * if the current {@link Matrix} contains n elements. 
+	 * 
 	 * @return a new right rotated {@link Matrix} of the current {@link Matrix}.
 	 */
 	public Matrix<E> toRightRotatedMatrix() {
@@ -596,7 +602,9 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link Matrix} contains n elements.
+	 * The complexity of this implementation is O(n) if:
+	 * -The current {@link Matrix} contains n elements.
+	 * -The toString method of the elements of the current {@link Matrix} has a complexity of O(1).
 	 * 
 	 * @return a string representation of the current {@link Matrix}.
 	 */
