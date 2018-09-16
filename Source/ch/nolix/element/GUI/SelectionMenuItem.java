@@ -27,15 +27,17 @@ public final class SelectionMenuItem extends OptionalIdentifiedElement {
 	new Property<NonEmptyText>(
 		PascalCaseNameCatalogue.TEXT,
 		t -> setText(t.getValue()),
-		s -> NonEmptyText.createFromSpecification(s)
+		s -> NonEmptyText.createFromSpecification(s),
+		t -> t.getSpecification()
 	);
 	
 	//attribute
 	private final Property<Boolean> selectionFlagProperty =
-	new Property<>(
+	new Property<Boolean>(
 		SELECTION_FLAG_HEADER,
 		sf -> setSelectionFlag(sf.getValue()),
-		s -> Boolean.createFromSpecification(s)
+		s -> Boolean.createFromSpecification(s),
+		b -> b.getSpecification()
 	);
 	
 	//attribute

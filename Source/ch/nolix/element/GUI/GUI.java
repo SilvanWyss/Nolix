@@ -148,7 +148,8 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	new MutableProperty<NonEmptyText>(
 		PascalCaseNameCatalogue.TITLE,
 		t -> setTitle(t.getValue()),
-		s -> NonEmptyText.createFromSpecification(s)
+		s -> NonEmptyText.createFromSpecification(s),
+		t -> t.getSpecification()
 	);
 	
 	//attribute
@@ -156,7 +157,8 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	new MutableOptionalProperty<Color>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		bc -> setBackgroundColor(bc),
-		s -> Color.createFromSpecification(s)
+		s -> Color.createFromSpecification(s),
+		bc -> bc.getSpecification()
 	);
 	
 	//attribute
@@ -164,7 +166,8 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	new MutableOptionalProperty<ColorGradient>(
 		BACKGROUND_COLOR_GRADIENT_HEADER, 
 		bcg -> setBackgroundColorGradient(bcg),
-		s -> ColorGradient.createFromSpecification(s)
+		s -> ColorGradient.createFromSpecification(s),
+		bcg -> bcg.getSpecification()
 	);
 	
 	//attributes

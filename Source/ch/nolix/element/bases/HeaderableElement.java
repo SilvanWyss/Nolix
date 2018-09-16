@@ -18,7 +18,8 @@ implements Headerable<HE> {
 	new MutableProperty<NonEmptyText>(
 		PascalCaseNameCatalogue.HEADER,
 		h -> setHeader(h.getValue()),
-		s -> NonEmptyText.createFromSpecification(s)
+		s -> NonEmptyText.createFromSpecification(s),
+		h -> h.getSpecification()
 	);
 	
 	//method

@@ -52,7 +52,8 @@ implements Clearable<AccordionTab> {
 				collapse();
 			}
 		},
-		s -> Boolean.createFromSpecification(s)
+		s -> Boolean.createFromSpecification(s),
+		e -> e.getSpecification()
 	);
 	
 	//attributes

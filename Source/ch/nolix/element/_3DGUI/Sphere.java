@@ -23,7 +23,8 @@ public final class Sphere extends BaseShape<Sphere> {
 	new MutableProperty<Radius>(
 		Radius.TYPE_NAME,
 		r -> setRadius(r.getValue()),
-		s -> Radius.createFromSpecification(s)
+		s -> Radius.createFromSpecification(s),
+		r -> r.getSpecification()
 	);
 	
 	//constructor

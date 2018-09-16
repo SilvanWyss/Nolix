@@ -37,7 +37,8 @@ public final class ScrollbarLook extends MutableElement<ScrollbarLook> {
 	new MutableProperty<Color>(
 			SCROLLBAR_COLOR_HEADER,
 		c -> setScrollbarColor(c),
-		s -> Color.createFromSpecification(s)
+		s -> Color.createFromSpecification(s),
+		c -> c.getSpecification()
 	);
 	
 	//attribute
@@ -45,7 +46,8 @@ public final class ScrollbarLook extends MutableElement<ScrollbarLook> {
 	new MutableProperty<Color>(
 		SCROLLBAR_CURSOR_COLOR_HEADER,
 		c -> setScrollbarCursorColor(c),
-		s -> Color.createFromSpecification(s)
+		s -> Color.createFromSpecification(s),
+		c -> c.getSpecification()
 	);
 	
 	//constructor

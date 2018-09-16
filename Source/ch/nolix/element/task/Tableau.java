@@ -25,7 +25,8 @@ implements Clearable<Tableau> {
 	new MutableMultiProperty<Task>(
 		Task.TYPE_NAME,
 		t -> addTask(t),
-		s -> Task.createFromSpecification(s)
+		s -> Task.createFromSpecification(s),
+		t -> t.getSpecification()
 	);
 		
 	//method

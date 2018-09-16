@@ -31,34 +31,38 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//attribute
 	private final MutableProperty<PositiveFloatingPointNumber> xLength =
-	new MutableProperty<>(
+	new MutableProperty<PositiveFloatingPointNumber>(
 		X_LENGTH_HEADER,
 		xl -> setXLength(xl.getValue()),
-		s -> PositiveFloatingPointNumber.createFromSpecification(s)
+		s -> PositiveFloatingPointNumber.createFromSpecification(s),
+		xl -> xl.getSpecification()
 	);
 	
 	//attribute
 	private final MutableProperty<PositiveFloatingPointNumber> yLength =
-	new MutableProperty<>(
+	new MutableProperty<PositiveFloatingPointNumber>(
 		Y_LENGTH_HEADER,
 		yl -> setYLength(yl.getValue()),
-		s -> PositiveFloatingPointNumber.createFromSpecification(s)
+		s -> PositiveFloatingPointNumber.createFromSpecification(s),
+		yl -> yl.getSpecification()
 	);
 	
 	//attribute
 	private final MutableProperty<PositiveFloatingPointNumber> zLength =
-	new MutableProperty<>(
+	new MutableProperty<PositiveFloatingPointNumber>(
 		Z_LENGTH_HEADER,
 		zl -> setZLength(zl.getValue()),
-		s -> PositiveFloatingPointNumber.createFromSpecification(s)
+		s -> PositiveFloatingPointNumber.createFromSpecification(s),
+		zl -> zl.getSpecification()
 	);
 	
 	//attribute
 	private final MutableOptionalProperty<Image> texture =
-	new MutableOptionalProperty<>(
+	new MutableOptionalProperty<Image>(
 		PascalCaseNameCatalogue.TEXTURE,
 		t -> setTexture(t),
-		s -> Image.createFromSpecification(s)
+		s -> Image.createFromSpecification(s),
+		t -> t.getSpecification()
 	);
 	
 	//constructor

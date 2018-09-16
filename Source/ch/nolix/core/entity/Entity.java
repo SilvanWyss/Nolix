@@ -16,7 +16,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 200
+ * @lines 190
  */
 public abstract class Entity implements Specified {
 	
@@ -37,21 +37,9 @@ public abstract class Entity implements Specified {
 		//Checks if the properties of this entity are approved.
 		supposePropertiesAreApproved();
 		
-		final List<StandardSpecification> attributes = new List<>();
+		final List<StandardSpecification> attributes = new List<StandardSpecification>();
 		
-		//Iterates the properties of this entity.
-		for (final Propertyoid<?> p : getRefProperties()) {
-			
-			//Iterates the values of the current property.
-			for (final Specified v : p.getRefValues()) {
-				attributes.addAtEnd(
-					new StandardSpecification(
-						p.getName(),
-						v.getAttributes()
-					)
-				);
-			}
-		}
+		getRefProperties().forEach(p -> p.fillUpAttributes(attributes));
 		
 		return attributes;
 	}

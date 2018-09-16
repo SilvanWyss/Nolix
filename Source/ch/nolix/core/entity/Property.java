@@ -4,6 +4,7 @@ package ch.nolix.core.entity;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationAPI.Specified;
 
 //class
@@ -24,18 +25,21 @@ extends SingleProperty<V> {
 	 * @param name
 	 * @param setterMethod
 	 * @param valueCreator
+	 * @param specificationCreator
 	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws NullArgumentException if the given value creator is not an instance.
+	 * @throws NullArgumentException if the given specification creator is not an instance.
 	 */
 	public Property(
 		final String name,
 		final IElementTaker<V> setterMethod,
-		final IElementTakerElementGetter<Specification, V> valueCreator
+		final IElementTakerElementGetter<Specification, V> valueCreator,
+		final IElementTakerElementGetter<V, StandardSpecification> specificationCreator
 	) {
 		
 		//Calls constructor of the base class.
-		super(name, setterMethod, valueCreator);
+		super(name, setterMethod, valueCreator, specificationCreator);
 	}
 	
 	//method

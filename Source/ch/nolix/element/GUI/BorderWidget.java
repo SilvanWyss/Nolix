@@ -71,7 +71,8 @@ extends BackgroundWidget<BW, BWS> {
 	new MutableOptionalProperty<PositiveInteger>(
 		MIN_WIDTH_HEADER,
 		mw -> setMinWidth(mw.getValue()),
-		s -> PositiveInteger.createFromSpecification(s)
+		s -> PositiveInteger.createFromSpecification(s),
+		mw -> mw.getSpecification()
 	);
 	
 	//attribute
@@ -79,7 +80,8 @@ extends BackgroundWidget<BW, BWS> {
 	new MutableOptionalProperty<PositiveInteger>(
 		MIN_HEIGHT_HEADER,
 		mh -> setMinHeight(mh.getValue()),
-		s -> PositiveInteger.createFromSpecification(s)
+		s -> PositiveInteger.createFromSpecification(s),
+		mh -> mh.getSpecification()
 	);
 	
 	//attribute
@@ -87,7 +89,8 @@ extends BackgroundWidget<BW, BWS> {
 	new MutableOptionalProperty<PositiveInteger>(
 		MAX_WIDTH_HEADER,
 		mw -> setMaxWidth(mw.getValue()),
-		s -> PositiveInteger.createFromSpecification(s)
+		s -> PositiveInteger.createFromSpecification(s),
+		mw -> mw.getSpecification()
 	);
 	
 	//attribute
@@ -95,7 +98,8 @@ extends BackgroundWidget<BW, BWS> {
 	new MutableOptionalProperty<PositiveInteger>(
 		MAX_HEIGHT_HEADER,
 		mh -> setMaxHeight(mh.getValue()),
-		s -> PositiveInteger.createFromSpecification(s)
+		s -> PositiveInteger.createFromSpecification(s),
+		mh -> mh.getSpecification()
 	);
 	
 	//attribute
@@ -103,7 +107,8 @@ extends BackgroundWidget<BW, BWS> {
 	new MutableOptionalProperty<PositiveInteger>(
 		PROPOSAL_WIDTH_HEADER,
 		pw -> setProposalWidth(pw.getValue()),
-		s -> PositiveInteger.createFromSpecification(s)
+		s -> PositiveInteger.createFromSpecification(s),
+		pw -> pw.getSpecification()
 	);
 	
 	//attribute
@@ -111,7 +116,8 @@ extends BackgroundWidget<BW, BWS> {
 	new MutableOptionalProperty<PositiveInteger>(
 		PROPOSAL_HEIGHT_HEADER,
 		ph -> setProposalHeight(ph.getValue()),
-		s -> PositiveInteger.createFromSpecification(s)
+		s -> PositiveInteger.createFromSpecification(s),
+		ph -> ph.getSpecification()
 	);
 	
 	//attribute
@@ -119,7 +125,8 @@ extends BackgroundWidget<BW, BWS> {
 	new MutableProperty<NonNegativeInteger>(
 		VIEW_AREA_X_POSITION_ON_SCROLL_AREA_HEADER,
 		x -> setViewAreaXPositionOnScrollArea(x.getValue()),
-		s -> NonNegativeInteger.createFromSpecification(s)
+		s -> NonNegativeInteger.createFromSpecification(s),
+		x -> x.getSpecification()
 	);
 	
 	//attribute
@@ -127,7 +134,8 @@ extends BackgroundWidget<BW, BWS> {
 	new MutableProperty<NonNegativeInteger>(
 		VIEW_AREA_Y_POSITION_ON_SCROLL_AREA_HEADER,
 		y -> setViewAreaYPositionOnScrollArea(y.getValue()),
-		s -> NonNegativeInteger.createFromSpecification(s)
+		s -> NonNegativeInteger.createFromSpecification(s),
+		y -> y.getSpecification()
 	);
 	
 	//attributes

@@ -48,7 +48,8 @@ public final class Image extends MutableElement<Image> {
 	new Property<NonNegativeInteger>(
 		PascalCaseNameCatalogue.WIDTH,
 		w -> setWidth(w.getValue()),
-		s -> NonNegativeInteger.createFromSpecification(s)
+		s -> NonNegativeInteger.createFromSpecification(s),
+		w -> w.getSpecification()
 	);
 	
 	//attribute
@@ -56,7 +57,8 @@ public final class Image extends MutableElement<Image> {
 	new Property<NonNegativeInteger>(
 		PascalCaseNameCatalogue.HEIGHT,
 		h -> setHeight(h.getValue()),
-		s -> NonNegativeInteger.createFromSpecification(s)
+		s -> NonNegativeInteger.createFromSpecification(s),
+		h -> h.getSpecification()
 	);
 	
 	//constructor

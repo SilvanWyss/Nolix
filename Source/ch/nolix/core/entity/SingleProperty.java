@@ -7,6 +7,7 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
@@ -37,19 +38,22 @@ extends Propertyoid<V> {
 	 * @param name
 	 * @param setterMethod
 	 * @param valueCreator
+	 * @param specificationCreator
 	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws NullArgumentException if the given setter method is not an instance.
 	 * @throws NullArgumentException if the given value creator is not an instance.
+	 * @throws NullArgumentException if the given specification creator is not an instance.
 	 */
 	SingleProperty(
 		final String name,
 		final IElementTaker<V> setterMethod,
-		final IElementTakerElementGetter<Specification, V> valueCreator
+		final IElementTakerElementGetter<Specification, V> valueCreator,
+		final IElementTakerElementGetter<V, StandardSpecification> specificationCreator
 	) {
 		
 		//Calls constructor of the base class.
-		super(name, valueCreator);
+		super(name, valueCreator, specificationCreator);
 		
 		//Checks if the given setter method is an instance.
 		Validator

@@ -8,6 +8,7 @@ import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.skillInterfaces.Clearable;
 import ch.nolix.core.specification.Specification;
+import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -38,18 +39,21 @@ implements Clearable<MutableMultiProperty<V>> {
 	 * @param name
 	 * @param valueCreator
 	 * @param adderMethod
+	 * @param specificationCreator
 	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws NullArgumentException if the given adder method is not an instance.
 	 * @throws NullArgumentException if the given value creator is not an instance.
+	 * @throws NullArgumentException if the given specification creator is not an instace.
 	 */
 	public MutableMultiProperty(
 		final String name,
 		final IElementTaker<V> adderMethod,
-		final IElementTakerElementGetter<Specification, V> valueCreator) {
+		final IElementTakerElementGetter<Specification, V> valueCreator,
+		final IElementTakerElementGetter<V, StandardSpecification> specificationCreator) {
 		
 		//Calls constructor of the base class
-		super(name, valueCreator);
+		super(name, valueCreator, specificationCreator);
 		
 		//Checks if the given adder method is an instance.
 		Validator

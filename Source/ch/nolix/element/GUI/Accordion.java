@@ -30,17 +30,20 @@ implements Clearable<Accordion> {
 	
 	//attribute
 	private final MutableProperty<AccordionExpansionBehavior> expansionBehavior =
-	new MutableProperty<>(
+	new MutableProperty<AccordionExpansionBehavior>(
 		AccordionExpansionBehavior.TYPE_NAME,
 		eb -> setExpansionBehavior(eb),
-		s -> AccordionExpansionBehavior.createFromSpecification(s));
+		s -> AccordionExpansionBehavior.createFromSpecification(s),
+		eb -> eb.getSpecification()
+	);
 	
 	//attribute
 	private final MutableMultiProperty<AccordionTab> tabs =
 	new MutableMultiProperty<AccordionTab>(
 		PascalCaseNameCatalogue.TAB,
 		t -> addTab(t),
-		s -> AccordionTab.createFromSpecification(s)
+		s -> AccordionTab.createFromSpecification(s),
+		t -> t.getSpecification()
 	);
 	
 	//attribute

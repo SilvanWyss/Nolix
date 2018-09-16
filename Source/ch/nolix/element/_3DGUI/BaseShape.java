@@ -26,10 +26,11 @@ extends Shape<BS> {
 	
 	//attribute
 	private MutableProperty<Color> color
-	= new MutableProperty<>(
+	= new MutableProperty<Color>(
 		Color.TYPE_NAME,
 		c -> setColor(c),
-		s -> Color.createFromSpecification(s)
+		s -> Color.createFromSpecification(s),
+		c -> c.getSpecification()
 	);
 	
 	//method

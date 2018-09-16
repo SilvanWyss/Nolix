@@ -49,23 +49,26 @@ public final class Task extends MutableElement<Task> {
 	new MutableProperty<Text>(
 		TITLE_HEADER,
 		t -> setTitle(t.getValue()),
-		s -> Text.createFromSpecification(s)
+		s -> Text.createFromSpecification(s),
+		t -> t.getSpecification()
 	);
 	
 	//attribute
 	private final Property<Time> creationDate =
 	new Property<Time>(
 		CREATION_DATE_HEADER,
-		ct -> setCreationDate(ct),
-		s -> Time.createFromSpecification(s)
+		cd -> setCreationDate(cd),
+		s -> Time.createFromSpecification(s),
+		cd -> cd.getSpecification()
 	);
 	
 	//attribute
 	private final MutableOptionalProperty<Time> solveTime =
-	new MutableOptionalProperty<>(
+	new MutableOptionalProperty<Time>(
 		SOLVE_DATE_HEADER,
 		st -> setAsSolved(st),
-		s -> Time.createFromSpecification(s)
+		s -> Time.createFromSpecification(s),
+		st -> st.getSpecification()
 	);
 	
 	//attribute
@@ -73,7 +76,8 @@ public final class Task extends MutableElement<Task> {
 	new MutableOptionalProperty<TaskSize>(
 		SIZE_HEADER,
 		s -> setSize(s),
-		s -> TaskSize.createFromSpecification(s)
+		s -> TaskSize.createFromSpecification(s),
+		s -> s.getSpecification()
 	);
 	
 	//constructor
