@@ -173,7 +173,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	/**
 	 * @param texture
 	 * @return this cuboid.
-	 * @throws NullArgumentException if the given texture is null.
+	 * @throws NullArgumentException if the given texture is not an instance.
 	 */
 	public Cuboid setTexture(final Image texture) {
 		

@@ -191,7 +191,7 @@ public final class StandardSpecification extends Specification {
 	 * Adds the given attribute to the current {@link StandardSpecification}.
 	 * 
 	 * @param attribute
-	 * @throws Exception if the given attribute is null
+	 * @throws NullArgumentException if the given attribute is not an instance.
 	 */
 	public void addAttribute(StandardSpecification attribute) {
 		attributes.addAtEnd(attribute);

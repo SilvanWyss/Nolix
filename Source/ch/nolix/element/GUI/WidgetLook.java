@@ -213,7 +213,7 @@ implements IFluentObject<WL>, Specified {
 	 * 
 	 * @param textFont
 	 * @return the current {@link WidgetLook}.
-	 * @throws NullArgumentException if the given text font is null
+	 * @throws NullArgumentException if the given text font is not an instance.
 	 */
 	public final WL setTextFont(final TextFont textFont) {
 		

@@ -139,13 +139,13 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	 * Sets the name of this namable element.
 	 * 
 	 * @param name
-	 * @throws Exception if
-	 *  -the given name is null or an empty string
-	 *  -this namable element belongs to a search container that contains an other element with the given name
+	 * @throws NullArgumentExcepiton if the given name is not an instance.
+	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public ONE setName(String name) {
 		if (!hasName(name)) {
 			
+			//TODO
 			if (belongsToRequestableContainer() && requestableContainer.containsElement(name)) {
 				//throw new RuntimeException("Namable element " + getNameInQuotes() + " belongs to a search container that contains an other element with the name '" + name + "'.");
 			}

@@ -107,10 +107,10 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	 * Sets the text of this text line rectangle.
 	 * 
 	 * @param text
-	 * @return this text line rectangle
-	 * @throws Exception if the given text is null
+	 * @return this text line widget.
+	 * @throws Exception if the given text is not an instance.
 	 */
-	public TLW setText(String text) {
+	public TLW setText(final String text) {
 		
 		this.text = new Text(text);
 		
