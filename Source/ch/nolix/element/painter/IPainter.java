@@ -11,9 +11,17 @@ import ch.nolix.element.image.Image;
 /**
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 180
+ * @lines 190
  */
 public interface IPainter {
+	
+	//default method
+	/**
+	 * @return a new {@link IPainter} from the current {@link IPainter}.
+	 */
+	public default IPainter createPainter() {
+		return createPainter(0, 0);
+	}
 
 	//abstract method
 	/**
