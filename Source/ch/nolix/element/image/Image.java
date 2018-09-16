@@ -88,7 +88,7 @@ public final class Image extends MutableElement<Image> {
 		this(width, height);
 		
 		for (var i = 1; i <= getPixelCount(); i++) {
-			pixels.set(i, color);
+			pixels.setAt(i, color);
 		}
 	}
 	
@@ -178,7 +178,7 @@ public final class Image extends MutableElement<Image> {
 		
 		final var pixelCount = getPixelCount();
 		for (var i = 1; i <= pixelCount; i++) {
-			pixels.set(i, Color.WHITE);
+			pixels.setAt(i, Color.WHITE);
 		}
 		
 		return this;
@@ -187,7 +187,7 @@ public final class Image extends MutableElement<Image> {
 	//method
 	public Image setPixel(int xPosition, int yPosition, final Color color) {
 		
-		pixels.set(yPosition, xPosition, color);
+		pixels.setAt(yPosition, xPosition, color);
 		
 		return this;
 	}
@@ -204,7 +204,7 @@ public final class Image extends MutableElement<Image> {
 		
 		var i = 1;
 		for (final var p : pixels) {
-			this.pixels.set(i, p);
+			this.pixels.setAt(i, p);
 			i++;
 		}
 		

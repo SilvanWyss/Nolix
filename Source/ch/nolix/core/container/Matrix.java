@@ -281,7 +281,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	public int getColumnIndexOf(final int index) {
 		
 		//Checks if the current matrix contains an element at the given index.
-		supposeContainsElementAt(index);
+		supposeContainsAt(index);
 		
 		return ((index - 1) % getColumnCount() + 1);
 	}
@@ -349,7 +349,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		
 		//Checks if the current matrix contains an element
 		//at the given row index and the given column index.
-		supposeContainsElementAt(rowIndex, columnIndex);
+		supposeContainsAt(rowIndex, columnIndex);
 		
 		return ((rowIndex - 1) * getColumnCount() + columnIndex);
 	}
@@ -384,7 +384,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	public E getRefAt(final int rowIndex, final int columnIndex) {
 		
 		//Checks if the current matrix contains an element at the given row index and column index.
-		supposeContainsElementAt(rowIndex, columnIndex);
+		supposeContainsAt(rowIndex, columnIndex);
 		
 		return (E)elements[rowIndex - 1][columnIndex - 1];
 	}
@@ -412,7 +412,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	public int getRowIndexOf(final int index) {
 		
 		//Checks if the current matrix contains an element at the given index.
-		supposeContainsElementAt(index);
+		supposeContainsAt(index);
 		
 		return ((index - 1) / getColumnCount() + 1);
 	}
@@ -483,7 +483,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
 	 * @throws NullArgumentException if the given element is not an instance.
 	 */
-	public Matrix<E> set(final int index, final E element) {
+	public Matrix<E> setAt(final int index, final E element) {
 				
 		//Checks if the given element is an instance.
 		Validator
@@ -516,14 +516,14 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * if the given column index is bigger than the number of columns of the current {@link Matrix}.
 	 * @throws NullArgumentException if the given element is not an instance.
 	 */
-	public Matrix<E> set(
+	public Matrix<E> setAt(
 		final int rowIndex,
 		final int columnIndex,
 		final E element
 	) {
 		
 		//Checks if the current matrix contains an element at the given row index and column index.
-		supposeContainsElementAt(rowIndex, columnIndex);
+		supposeContainsAt(rowIndex, columnIndex);
 		
 		//Checks if the given element is an instance.
 		Validator
@@ -639,7 +639,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * @throws BiggerArgumentException
 	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
 	 */
-	private void supposeContainsElementAt(final int index) {
+	private void supposeContainsAt(final int index) {
 		
 		Validator
 		.suppose(index)
@@ -663,7 +663,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * @throws BiggerArgumentException
 	 * if the given column index is bigger than the number of columns of the current {@link Matrix}.
 	 */
-	private void supposeContainsElementAt(final int rowIndex, final int columnIndex) {
+	private void supposeContainsAt(final int rowIndex, final int columnIndex) {
 		
 		Validator
 		.suppose(rowIndex)

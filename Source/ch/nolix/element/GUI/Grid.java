@@ -185,7 +185,7 @@ public final class Grid extends Container<Grid, GridLook> {
 		final Widget<?, ?> widget
 	) {
 		expandTo(rowIndex, columnIndex);
-		cells.set(rowIndex, columnIndex, new GridCell(rowIndex, columnIndex, widget));	
+		cells.setAt(rowIndex, columnIndex, new GridCell(rowIndex, columnIndex, widget));	
 		widget.setParentWidget(this);
 		
 		return this;
