@@ -32,8 +32,8 @@ public final class BlackRedFrontConsoleClientLook extends StandardConfiguration 
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameCatalogue.INFO_PANEL_NAME)
 			.addAttachingAttribute(
-				"BaseWidth(1000)",
-				"BaseHeight(300)",
+				"ProposalWidth(1000)",
+				"ProposalHeight(300)",
 				"BaseBackgroundColor(0x202020)",
 				"BasePadding(10)",
 				"BaseTextColor(OrangeRed)"
@@ -41,8 +41,8 @@ public final class BlackRedFrontConsoleClientLook extends StandardConfiguration 
 			new DeepConfiguration()
 			.setSelectorName(WidgetNameCatalogue.CONSOLE_NAME)
 			.addAttachingAttribute(
-				"BaseWidth(1000)",
-				"BaseHeight(400)",
+				"ProposalWidth(1000)",
+				"ProposalHeight(400)",
 				"BaseBackgroundColor(0x101010)",
 				"BasePadding(10)",
 				"BaseTextColor(Red)"
