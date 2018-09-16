@@ -18,7 +18,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-07
- * @lines 680
+ * @lines 720
  * @param <E> The type of the elements of a {@link Matrix}.
  */
 public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
@@ -566,6 +566,38 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			}
 		
 		return matrix;
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n)
+	 * if the current {@link Matrix} contains n elements. 
+	 * 
+	 * @return a new left rotated {@link Matrix} of the current {@link Matrix}.
+	 */
+	public Matrix<E> toLeftRotatedMatrix() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+			final var leftRotatedMatrix = new Matrix<E>();
+			final var leftRotatedMatrixRowCount = getColumnCount();
+			final var leftRotatedMatrixColumnCount = getRowCount();
+			
+			final var leftRotatedMatrixElements =
+			new Object[leftRotatedMatrixRowCount][leftRotatedMatrixColumnCount];
+			
+			leftRotatedMatrix.elements = leftRotatedMatrixElements;
+			
+			//Iterates the rows of the left rotated matrix.
+			for (var i = 0; i < leftRotatedMatrixRowCount; i++) {
+				
+				//Iterates the columns of the current row.
+				for (var j = 0; j < leftRotatedMatrixColumnCount; j++) {
+					leftRotatedMatrixElements[i][j]
+					= elements[j][leftRotatedMatrixRowCount - i - 1];
+				}
+			}
+			
+			return leftRotatedMatrix;
 	}
 	
 	//method

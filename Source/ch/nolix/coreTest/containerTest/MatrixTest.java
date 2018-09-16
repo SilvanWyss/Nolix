@@ -117,6 +117,28 @@ public final class MatrixTest extends Test {
 	}
 	
 	//test case
+	public void testCase_toLeftRotatedMatrix() {
+		
+		//setup
+			final var matrix = new Matrix<String>();
+		
+			matrix.addRow("apple", "banana", "cerish");
+			matrix.addRow("elephant", "lion", "monkey");
+			matrix.addRow("flower", "tree", "palm");
+			
+		//execution
+		final var leftRotatedMatrix = matrix.toLeftRotatedMatrix();
+		
+		//verification
+			expect(leftRotatedMatrix.getRowCount()).isEqualTo(3);
+			expect(leftRotatedMatrix.getColumnCount()).isEqualTo(3);
+			
+			expect(leftRotatedMatrix.getRow(1).toString()).isEqualTo("cerish,monkey,palm");
+			expect(leftRotatedMatrix.getRow(2).toString()).isEqualTo("banana,lion,tree");
+			expect(leftRotatedMatrix.getRow(3).toString()).isEqualTo("apple,elephant,flower");
+	}
+	
+	//test case
 	public void testCase_toRightRotatedMatrix() {
 		
 		//setup
