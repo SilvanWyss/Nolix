@@ -32,6 +32,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String DATE_OF_BIRTH = "DateOfBirth";
 	public static final String DEFAULT = "Default";
 	public static final String DESCRIPTION = "Description";
+	public static final String DIAMETER = "Diameter";
 	public static final String DISTANCE = "Distance";
 	public static final String DURATION = "Duration";
 	public static final String DURACTION_IN_MILLISECONDS = "DurationInMilliseconds";
