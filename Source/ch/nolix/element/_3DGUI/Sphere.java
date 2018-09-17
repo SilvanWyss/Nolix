@@ -2,28 +2,29 @@
 package ch.nolix.element._3DGUI;
 
 //own imports
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.entity.MutableProperty;
-import ch.nolix.element.FPNData.Radius;
+import ch.nolix.element.core.PositiveFloatingPointNumber;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 140
+ * @lines 120
  */
 public final class Sphere extends BaseShape<Sphere> {
 	
 	//default values
-	public static final double DEFAULT_RADIUS = Radius.DEFAULT_VALUE;
+	public static final double DEFAULT_RADIUS = 1.0;
 	public static final double DEFAULT_DIAMETER = 2.0 * DEFAULT_RADIUS;
 	
 	//attribute	
-	private final MutableProperty<Radius> radius =
-	new MutableProperty<Radius>(
-		Radius.TYPE_NAME,
+	private final MutableProperty<PositiveFloatingPointNumber> radius =
+	new MutableProperty<PositiveFloatingPointNumber>(
+		PascalCaseNameCatalogue.RADIUS,
 		r -> setRadius(r.getValue()),
-		s -> Radius.createFromSpecification(s),
+		s -> PositiveFloatingPointNumber.createFromSpecification(s),
 		r -> r.getSpecification()
 	);
 	
@@ -116,7 +117,7 @@ public final class Sphere extends BaseShape<Sphere> {
 	 */
 	public Sphere setRadius(final double radius) {
 		
-		this.radius.setValue(new Radius(radius));
+		this.radius.setValue(new PositiveFloatingPointNumber(radius));
 		
 		return this;
 	}
