@@ -38,6 +38,7 @@ public final class VariableNameCatalogue {
 	public static final String DEFAULT_SIZE = "default size";
 	public static final String DEFAULT_VALUE = "default value";
 	public static final String DESCRIPTION = "description";
+	public static final String DIAMETER = "diameter";
 	public static final String DISTANCE = "distance";
 	public static final String DURATION = "duration";
 	public static final String DURACTION_IN_MILLISECONDS = "duration in milliseconds";
