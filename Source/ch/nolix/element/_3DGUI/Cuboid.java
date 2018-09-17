@@ -5,7 +5,6 @@ package ch.nolix.element._3DGUI;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
-import ch.nolix.element.FPNData.Length;
 import ch.nolix.element.FPNData.Width;
 import ch.nolix.element.core.PositiveFloatingPointNumber;
 import ch.nolix.element.image.Image;
@@ -192,7 +191,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	 */
 	public Cuboid setXLength(final double xLength) {
 		
-		this.xLength.setValue(new Length(xLength));
+		this.xLength.setValue(new PositiveFloatingPointNumber(xLength));
 		
 		return this;
 	}
