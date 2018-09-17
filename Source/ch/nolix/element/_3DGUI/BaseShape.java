@@ -5,7 +5,6 @@ package ch.nolix.element._3DGUI;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.entity.MutableProperty;
-import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 
@@ -15,7 +14,7 @@ import ch.nolix.element.color.Color;
  * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 100
+ * @lines 90
  * @param <BS> The type of a base shape.
  */
 public abstract class BaseShape<BS extends BaseShape<BS>>
@@ -32,26 +31,6 @@ extends Shape<BS> {
 		s -> Color.createFromSpecification(s),
 		c -> c.getSpecification()
 	);
-	
-	//method
-	/**
-	 * Adds or changes the given attribute to this base shape.
-	 * 
-	 * @param attribute
-	 */
-	public void addOrChangeAttribute(final Specification attribute) {
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case Color.TYPE_NAME:
-				setColor(new Color(attribute.getOneAttributeAsString()));
-				break;
-			default:
-			
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
-	}
 	
 	//method
 	/**
