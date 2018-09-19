@@ -25,7 +25,7 @@ import ch.nolix.primitive.validator2.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 210
+ * @lines 230
  */
 public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 
@@ -74,6 +74,22 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		
 		simpleApplication.setShowSettings(false);
 		simpleApplication.start();
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link JMonkeyMainFrame} with the given title.
+	 * 
+	 * @param title
+	 * @throws NullArgumentException if the given title is not an instance.
+	 * @throws EmptyArgumentException if the given title is empty.
+	 */
+	public JMonkeyMainFrame(final String title) {
+	
+		//Calls other constructor.
+		this();
+		
+		setTitle(title);
 	}
 	
 	//method
