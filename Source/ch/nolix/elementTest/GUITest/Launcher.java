@@ -1,19 +1,19 @@
-/*
- * file:	Launcher.java
- * author:	Silvan Wyss
- * month:	2016-08
- * lines:	20
- */
-
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
-//package-visible class
-final class Launcher {
+//class
+/**
+ * Of the {@link Launcher} no instance can be created.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 20
+ */
+public final class Launcher {
 
 	//main method
 	/**
-	 * Creates a new dialog test pool and lets it execute its tests.
+	 * Creates a new {@link GUITestPool} and runs it.
 	 * 
 	 * @param args
 	 */
@@ -23,7 +23,7 @@ final class Launcher {
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link Launcher} can be created.
 	 */
 	private Launcher() {}
 }
