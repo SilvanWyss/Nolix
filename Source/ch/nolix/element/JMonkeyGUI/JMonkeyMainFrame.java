@@ -14,6 +14,7 @@ import com.jme3.system.AppSettings;
 
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.element._3DGUI.Cuboid;
+import ch.nolix.element._3DGUI.Cylinder;
 import ch.nolix.element._3DGUI.MainFrame;
 import ch.nolix.element._3DGUI.MultiShape;
 import ch.nolix.element._3DGUI.Shape;
@@ -58,6 +59,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		//Adds shape classes to this JMonkey main frame.
 		addShapeClass(Cuboid.class, new JMonkeyCuboidRenderer());
 		addShapeClass(Sphere.class, new JMonkeySphereRenderer());
+		addShapeClass(Cylinder.class, new JMonkeyCylinderRenderer());
 		addShapeClass(MultiShape.class, new JMonkeyMultiShapeRenderer());
 		
 		reset();
