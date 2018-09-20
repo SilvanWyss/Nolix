@@ -11,7 +11,7 @@ public interface Closable extends AutoCloseable {
 
 	//default method
 	/**
-	 * @return true if this abortable object is not closed.
+	 * @return true if the current {@link Closable} is not closed.
 	 */
 	public default boolean isAlive() {
 		return !isClosed();
@@ -19,7 +19,7 @@ public interface Closable extends AutoCloseable {
 	
 	//abstract method
 	/**
-	 * @return true if this closable object is closed.
+	 * @return true if the current {@link Closable} is closed.
 	 */
 	public abstract boolean isClosed();
 }
