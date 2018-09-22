@@ -14,7 +14,7 @@ import ch.nolix.element.painter.SwingPainter;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 180
+ * @lines 200
  */
 public final class Frame extends GUI<Frame> {
 	
@@ -24,14 +24,14 @@ public final class Frame extends GUI<Frame> {
 	//default values
 	public static final int DEFAULT_WIDTH = 1200;
 	public static final int DEFAULT_HEIGHT = 800;
+			
+	//default values
+	private static final int DEFAULT_X_POSITION = 200;
+	private static final int DEFAULT_Y_POSITION = 100;
 	
 	//limit values
 	public static final int MIN_WIDTH = 400;
 	public static final int MIN_HEIGHT = 200;
-	
-	//default values
-	private static final int DEFAULT_X_POSITION = 200;
-	private static final int DEFAULT_Y_POSITION = 100;
 	
 	//attribute
 	private final JFrame frame = new JFrame();
@@ -44,9 +44,9 @@ public final class Frame extends GUI<Frame> {
 		/**
 		 * {@inheritDoc}
 		 */
-		public void paintComponent(Graphics graphics) {
+		public void paintComponent(final Graphics graphics) {
 			
-			//Paints the title of this frame.
+			//Paints the title of the current frame.
 			frame.setTitle(getTitle());	
 			
 			//Calls method of the base class.
@@ -55,20 +55,20 @@ public final class Frame extends GUI<Frame> {
 			//Creates swing painter.
 			final var swingPainter = new SwingPainter(graphics);
 			
-			//Paints the background of this frame.
-				//Handles the case that this frame has a background color.
+			//Paints the background of the current frame.
+				//Handles the case that the current frame has a background color.
 				if (hasBackgroundColor()) {
 					swingPainter.setColor(getBackgroundColor());
 					swingPainter.paintFilledRectangle(getWidth(), getHeight());
 				}
 				
-				//Handles the case that this frame has a background color gradient.
+				//Handles the case that the current frame has a background color gradient.
 				if (hasBackgroundColorGradient()) {
 					swingPainter.setColorGradient(getBackgroundColorGradient());
 					swingPainter.paintFilledRectangle(getWidth(), getHeight());
 				}
 			
-			//Paints the root widget of this frame.
+			//Handles the case that the current frame has a root widget.
 			if (hasRootWidget()) {
 				getRefRootWidget().paintUsingPositionOnParent(swingPainter);
 			}
@@ -77,7 +77,7 @@ public final class Frame extends GUI<Frame> {
 	
 	//constructor
 	/**
-	 * Creates a new frame.
+	 * Creates a new {@link Frame}.
 	 */
 	public Frame() {
 			
@@ -96,16 +96,32 @@ public final class Frame extends GUI<Frame> {
 		frame.setLocation(DEFAULT_X_POSITION, DEFAULT_Y_POSITION);
 
 		//Add listeners to this frame.
-			panel.addKeyListener(new FrameKeyListener(this));
-			panel.addMouseListener(new FrameMouseListener(this));
-			panel.addMouseMotionListener(new FrameMouseMotionListener(this));
-			panel.addMouseWheelListener(new FrameMouseWheelListener(this));
+		panel.addKeyListener(new FrameKeyListener(this));
+		panel.addMouseListener(new FrameMouseListener(this));
+		panel.addMouseMotionListener(new FrameMouseMotionListener(this));
+		panel.addMouseWheelListener(new FrameMouseWheelListener(this));
 			
 		//This is important that key events are handled.
 		panel.setFocusable(true);
 		panel.requestFocus(); 
 						
 		refresh();
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link Frame} with the given title.
+	 * 
+	 * @param title
+	 * @throws NullArgumentException if the given title is null.
+	 * @throws EmptyArgumentExcpetion if hte givne title is empty.
+	 */
+	public Frame(final String title) {
+		
+		//Calls other constructor.
+		this();
+		
+		setTitle(title);
 	}
 	
 	//method
