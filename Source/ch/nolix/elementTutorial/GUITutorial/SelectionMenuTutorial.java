@@ -8,7 +8,7 @@ import ch.nolix.element.color.Color;
 
 //class
 /**
- * The {@link SelectionMenuTutorial} provides a tutorial for a {@link SelectionMenu}.
+ * The {@link SelectionMenuTutorial} is a tutorial for a {@link SelectionMenu}.
  * Of the {@link SelectionMenuTutorial} no instance can be created.
  * 
  * @author Silvan Wyss
@@ -19,7 +19,7 @@ public final class SelectionMenuTutorial {
 
 	//main method
 	/**
-	 * Creates a {@link Frame} with a {@link SelectionMenu}.
+	 * Creates a {@link SelectionMenu} and adds it to a {@link Frame}.
 	 * 
 	 * @param args
 	 */
@@ -28,8 +28,7 @@ public final class SelectionMenuTutorial {
 		
 		//Creates a selection menu.
 		final var selectionMenu =
-		new SelectionMenu()
-		.addItem(
+		new SelectionMenu(
 			"Gottfried Wilhelm Leibniz",
 			"Immanuel Kant",
 			"Johann Gottlieb Fichte",
@@ -46,17 +45,16 @@ public final class SelectionMenuTutorial {
 		
 		//Configures the look of the selection menu.
 			selectionMenu.setMaxHeight(200);
-		
+			
 			selectionMenu
 			.getRefBaseLook()
-			.setBorderThicknesses(5)
-			.setBorderColors(Color.DARK_BLUE)
 			.setBackgroundColor(Color.ALICE_BLUE)
+			.setBorderThicknesses(5)
+			.setBorderColors(Color.DARK_BLUE)			
 			.setItemPadding(5);
 		
-		//Creates a frame with the selection menu.
-		new Frame()
-		.setTitle("Selection Menu Tutorial")
+		//Creates a frame and adds the selection menu to it.
+		new Frame("Selection Menu Tutorial")
 		.setRootWidget(selectionMenu);
 	}
 	
