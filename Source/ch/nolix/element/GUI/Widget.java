@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.constants.FunctionCatalogue;
 import ch.nolix.core.container.List;
@@ -30,7 +31,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1670
+ * @lines 1730
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -163,6 +164,66 @@ extends ConfigurableElement<W> {
 					super.addOrChangeAttribute(attribute);
 				}
 		}				
+	}
+	
+	//method
+	/**
+	 * Applies the given base look mutator to the base look of the current {@link Widget}.
+	 * 
+	 * @param baseLookMutator
+	 * @return the current {@link Widget}.
+	 */
+	public final W applyOnBaseLook(final IElementTaker<WL> baseLookMutator) {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		baseLookMutator.run(baseLook);
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Applies the given focus look mutator to the focus look of the current {@link Widget}.
+	 * 
+	 * @param focusLookMutator
+	 * @return the current {@link Widget}.
+	 */
+	public final W applyOnFocusLook(final IElementTaker<WL> focusLookMutator) {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		focusLookMutator.run(focusLook);
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Applies the given hover focus look mutator to the hover focus look of the current {@link Widget}.
+	 * 
+	 * @param hoverFocusLookMutator
+	 * @return the current {@link Widget}.
+	 */
+	public final W applyOnHoverFocusLook(final IElementTaker<WL> hoverFocusLookMutator) {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		hoverFocusLookMutator.run(hoverFocusLook);
+		
+		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Applies the given hover look mutator to the hover look of the current {@link Widget}.
+	 * 
+	 * @param hoverLookMutator
+	 * @return the current {@link Widget}.
+	 */
+	public final W applyOnHoverLook(final IElementTaker<WL> hoverLookMutator) {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		hoverLookMutator.run(hoverLook);
+		
+		return getInstance();
 	}
 	
 	//method
