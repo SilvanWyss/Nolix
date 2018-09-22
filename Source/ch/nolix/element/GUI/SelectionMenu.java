@@ -37,6 +37,14 @@ implements Clearable<SelectionMenu> {
 		applyUsableConfiguration();
 	}
 	
+	//constructor
+	public SelectionMenu(final String... items) {
+		
+		this();
+		
+		addItem(items);
+	}
+	
 	//method
 	public SelectionMenu addItems(final Iterable<String> texts) {
 		
