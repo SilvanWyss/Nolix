@@ -9,7 +9,7 @@ import ch.nolix.element.core.PositiveFloatingPointNumber;
 /**
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 230
+ * @lines 190
  */
 public final class Cuboid extends BaseShape<Cuboid> {
 
@@ -52,15 +52,16 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//constructor
 	/**
-	 * Creates a new cuboid.
+	 * Creates a new {@link Cuboid}.
 	 */
 	public Cuboid() {
 		resetConfiguration();
+		approveProperties();
 	}
 	
 	//method
 	/**
-	 * @return the x-length of this cuboid.
+	 * @return the x-length of the current {@link Cuboid}.
 	 */
 	public double getXLength() {
 		return xLength.getValue().getValue();
@@ -68,7 +69,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * @return the x-length of this cuboid as float.
+	 * @return the x-length of the current {@link Cuboid} as float.
 	 */
 	public float getXLengthAsFloat() {
 		return (float)getXLength();
@@ -76,7 +77,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * @return the y-length of this cuboid.
+	 * @return the y-length of the current {@link Cuboid}.
 	 */
 	public double getYLength() {
 		return yLength.getValue().getValue();
@@ -92,7 +93,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * @return the z-length of this cuboid.
+	 * @return the z-length of the current {@link Cuboid}.
 	 */
 	public double getZLength() {
 		return zLength.getValue().getValue();
@@ -100,7 +101,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * @return the z-length of this cuboid as float.
+	 * @return the z-length of the current {@link Cuboid} as float.
 	 */
 	public float getZLengthAsFloat() {
 		return (float)getZLength();
@@ -108,28 +109,54 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * Resets this cuboid.
+	 * Resets the current {@link Cuboid}.
 	 * 
-	 * @return this cuboid.
+	 * @return the current {@link Cuboid}.
 	 */
 	public Cuboid reset() {
+		
+		//Calls method of the base class.
+		super.reset();
 		
 		setXLength(DEFAULT_X_LENGTH);
 		setZLength(DEFAULT_Y_LENGTH);
 		setYLength(DEFAULT_Z_LENGTH);
 		
-		//Calls method of the base class.
-		return super.reset();
+		return this;
 	}
 	
 	//method
 	/**
-	 * Sets the x-length of this cuboid.
+	 * Sets the size of the current {@link Cuboid}.
 	 * 
 	 * @param xLength
-	 * @return this cuboid.
-	 * @throws NonPositiveArgumentException
-	 * if the given x-length is not positive.
+	 * @param yLength
+	 * @param zLength
+	 * @return the current {@link Cuboid}.
+	 * @throws NonPositiveArgumentException if the given x-length is not positive.
+	 * @throws NonPositiveArgumentException if the given y-length is not positive.
+	 * @throws NonPositiveArgumentException if the given z-length is not positive.
+	 */
+	public Cuboid setSize(
+		final double xLength,
+		final double yLength,
+		final double zLength
+	) {
+		
+		setXLength(xLength);
+		setYLength(yLength);
+		setZLength(zLength);
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the x-length of the current {@link Cuboid}.
+	 * 
+	 * @param xLength
+	 * @return the current {@link Cuboid}.
+	 * @throws NonPositiveArgumentException if the given x-length is not positive.
 	 */
 	public Cuboid setXLength(final double xLength) {
 		
@@ -140,12 +167,11 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * Sets the y-length of this cuboid.
+	 * Sets the y-length of the current {@link Cuboid}.
 	 * 
 	 * @param yLength
-	 * @return this cuboid.
-	 * @throws NonPositiveArgumentException
-	 * if the given y-length is not positive.
+	 * @return the current {@link Cuboid}.
+	 * @throws NonPositiveArgumentException if the given y-length is not positive.
 	 */
 	public Cuboid setYLength(final double yLength) {
 		
@@ -156,12 +182,11 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * Sets the z-length of this cuboid.
+	 * Sets the z-length of the current {@link Cuboid}.
 	 * 
 	 * @param zLength
-	 * @return this cuboid.
-	 * @throws NonPositiveArgumentException
-	 * if the given z-length is not positive.
+	 * @return the current {@link Cuboid}.
+	 * @throws NonPositiveArgumentException if the given z-length is not positive.
 	 */
 	public Cuboid setZLength(final double zLength) {
 		
