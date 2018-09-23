@@ -41,7 +41,7 @@ public abstract class HeaderedElement implements Headered {
 	
 	//method
 	/**
-	 * @return the header of the current {@link HeaderedElement}.
+	 * {@inheritDoc}
 	 */
 	public final String getHeader() {
 		return header;
