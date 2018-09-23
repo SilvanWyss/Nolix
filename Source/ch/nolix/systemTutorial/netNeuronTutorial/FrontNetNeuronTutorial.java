@@ -4,9 +4,9 @@ package ch.nolix.systemTutorial.netNeuronTutorial;
 //own imports
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.system.netNeuron.NetFrontNeuron;
+import ch.nolix.system.netNeuron.FrontNetNeuron;
 import ch.nolix.system.neuronoid.SourceNeuron;
-import ch.nolix.system.netNeuron.NetBackNeuron;
+import ch.nolix.system.netNeuron.BackNetNeuron;
 
 //class
 /**
@@ -16,7 +16,7 @@ import ch.nolix.system.netNeuron.NetBackNeuron;
 * @month 2017-01
 * @lines 60
 */
-public final class NetFrontNeuronTutorial {
+public final class FrontNetNeuronTutorial {
 
 	//main method
 	/**
@@ -34,15 +34,15 @@ public final class NetFrontNeuronTutorial {
 		final int port = 20000;
 		
 		//Creates net back neuron and adds a source neuron as input neuron to it.
-		final NetBackNeuron<String> netBackNeuron =
-		new NetBackNeuron<String>(port, s -> new StandardSpecification(s));
+		final BackNetNeuron<String> netBackNeuron =
+		new BackNetNeuron<String>(port, s -> new StandardSpecification(s));
 		netBackNeuron.addInputNeuron(new SourceNeuron<String>("Hello_World!"));
 		
 		//Creates net front neurons that will connect to the net back neuron.
-		final NetFrontNeuron<String> netFrontNeuron1
-		= new NetFrontNeuron<String>(port, s -> s.toString());
-		final NetFrontNeuron<String> netFronNeuron2
-		= new NetFrontNeuron<String>(port, s -> s.toString());
+		final FrontNetNeuron<String> netFrontNeuron1
+		= new FrontNetNeuron<String>(port, s -> s.toString());
+		final FrontNetNeuron<String> netFronNeuron2
+		= new FrontNetNeuron<String>(port, s -> s.toString());
 		
 		//Lets the net back neuron fire.
 		Sequencer.waitForMilliseconds(200);
@@ -63,5 +63,5 @@ public final class NetFrontNeuronTutorial {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private NetFrontNeuronTutorial() {}
+	private FrontNetNeuronTutorial() {}
 }

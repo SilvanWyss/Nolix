@@ -14,11 +14,11 @@ import ch.nolix.system.client.StandardClient;
  * @param <O> The type of the output
  * of the net front neuron of a net front neuron session.
  */
-final class NetFrontNeuronSession<O>
+final class FrontNetNeuronSession<O>
 extends Session<StandardClient> {
 	
 	//attribute
-	private final NetFrontNeuron<O> netFrontNeuron;
+	private final FrontNetNeuron<O> frontNetNeuron;
 
 	//constructor
 	/**
@@ -28,13 +28,13 @@ extends Session<StandardClient> {
 	 * @param netFrontNeuron
 	 * @throws NullArgumentException if the given net front neuron is not an instance.
 	 */
-	public NetFrontNeuronSession(final NetFrontNeuron<O> netFrontNeuron) {
+	public FrontNetNeuronSession(final FrontNetNeuron<O> netFrontNeuron) {
 		
 		Validator
 		.suppose(netFrontNeuron)
-		.isInstanceOf(NetFrontNeuronSession.class);
+		.isInstanceOf(FrontNetNeuronSession.class);
 		
-		this.netFrontNeuron = netFrontNeuron;
+		this.frontNetNeuron = netFrontNeuron;
 	}
 	
 	//method
@@ -48,7 +48,7 @@ extends Session<StandardClient> {
 	 *  Runs the net front neuron of this net front neuron session.
 	 */
 	public void Fire() {
-		netFrontNeuron.fire();
+		frontNetNeuron.fire();
 	}
 	
 	//method
@@ -58,6 +58,6 @@ extends Session<StandardClient> {
 	 * @param output
 	 */
 	public void SetOutput(final String output) {
-		netFrontNeuron.setOutput(output);
+		frontNetNeuron.setOutput(output);
 	}
 }

@@ -23,8 +23,8 @@ import ch.nolix.system.neuronoid.Neuronoid;
  * @lines 140
  * @param <O> The type of the output of a net front neuron.
  */
-public final class NetFrontNeuron<O>
-extends Neuronoid<NetFrontNeuron<O>, Object, O>
+public final class FrontNetNeuron<O>
+extends Neuronoid<FrontNetNeuron<O>, Object, O>
 implements Closable {
 
 	//limits
@@ -46,7 +46,7 @@ implements Closable {
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65'535].
 	 * @throws NullArgumentException if the given transformator is not an instance.
 	 */
-	public NetFrontNeuron(
+	public FrontNetNeuron(
 		final int port,
 		IElementTakerElementGetter<StandardSpecification, O> transformator
 	) {
@@ -67,7 +67,7 @@ implements Closable {
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65'535].
 	 * @throws NullArgumentException if the given transformator is not an instance.
 	 */
-	public NetFrontNeuron(
+	public FrontNetNeuron(
 		final String ip,
 		final int port,
 		IElementTakerElementGetter<StandardSpecification, O> transformator
@@ -84,7 +84,7 @@ implements Closable {
 		
 		//Creates the client of this net front neuron.
 		client = new StandardClient(ip, port);
-		client.pushSession(new NetFrontNeuronSession<O>(this));	
+		client.pushSession(new FrontNetNeuronSession<O>(this));	
 	}	
 
 	//method

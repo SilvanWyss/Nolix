@@ -27,8 +27,8 @@ import ch.nolix.system.neuronoid.Neuronoid;
  * @lines 140
  * @param <I> The type of the input of a net back neuron.
  */
-public final class NetBackNeuron<I>
-extends Neuronoid<NetBackNeuron<I>, I, I>
+public final class BackNetNeuron<I>
+extends Neuronoid<BackNetNeuron<I>, I, I>
 implements Closable {
 	
 	//limits
@@ -54,7 +54,7 @@ implements Closable {
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65'535].
 	 * @throws NullArgumentException if the given transformator is not an instance.
 	 */
-	public NetBackNeuron(
+	public BackNetNeuron(
 		final int port,
 		final IElementTakerElementGetter<I, StandardSpecification> transformator)
 	{
@@ -75,7 +75,7 @@ implements Closable {
 		= new Application<StandardClient>(
 			APPLICATION_NAME,
 			StandardClient.class,
-			NetBackNeuronSession.class
+			BackNetNeuronSession.class
 		);
 		
 		netServer.addDefaultApplication(application);

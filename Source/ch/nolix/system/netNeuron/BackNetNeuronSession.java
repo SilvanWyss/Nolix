@@ -11,7 +11,7 @@ import ch.nolix.system.client.StandardClient;
  * @month 2017-01
  * @lines 20
  */
-final class NetBackNeuronSession extends Session<StandardClient> {
+final class BackNetNeuronSession extends Session<StandardClient> {
 
 	//method
 	/**
