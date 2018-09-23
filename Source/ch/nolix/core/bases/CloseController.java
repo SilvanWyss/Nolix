@@ -19,12 +19,12 @@ final class CloseController implements Closable {
 	//attribute
 	private boolean closed = false;
 	
-	//multiple attribute
+	//multi-attribute
 	private final List<ClosableElement> elements = new List<ClosableElement>();
 	
 	//constructor
 	/**
-	 * Creates a new close controller with the given element.
+	 * Creates a new {@link CoseController} with the given element.
 	 * 
 	 * @param element
 	 * @throws NullArgumentException if the given element is not an instance.
@@ -36,26 +36,26 @@ final class CloseController implements Closable {
 	
 	//method
 	/**
-	 * Adds the given element to this close controller.
+	 * Adds the given element to the current {@link CoseController}.
 	 * 
 	 * @param element
 	 * @throws NullArgumentException if the given element is not an instance.
-	 * @throws InvalidStateException if this close controller contains already the given element.
-	 * @throws InvalidStateException if this close controller is already closed.
+	 * @throws InvalidStateException if the current {@link CoseController} contains already the given element.
+	 * @throws InvalidStateException if the current {@link CoseController} is already closed.
 	 */
 	public synchronized void addElement(final ClosableElement element) {
 		
-		//Checks if this close controller is alive.
+		//Checks if the current {@link CoseController} is alive.
 		supposeBeingAlive();
 		
 		//Checks if the given element is an instance.
 		Validator.suppose(element).thatIsNamed("element").isInstance();
 		
-		//Checks if this close controller does not contain already the given element.
+		//Checks if the current {@link CoseController} does not contain already the given element.
 		if (containsElement(element)) {
 			throw new InvalidStateException(
 				this,
-				"contains already the given close dependency"
+				"contains already the given element"
 			);
 		}
 		
@@ -66,15 +66,17 @@ final class CloseController implements Closable {
 	
 	//method
 	/**
-	 * Closes this close controller.
+	 * Closes the current {@link CoseController}.
 	 */
-	public void close() {	
+	public void close() {
+		
+		//Handles the case that the current close controller is alive.
 		if (isAlive()) {	
 			
-			//Sets this close controller as closed.
+			//Sets the current {@link CoseController} as closed.
 			closed = true;
 			
-			//Lets note all element of this clsoe controller the closing.
+			//Lets note all elements of the current clsoe controller the close.
 			elements.forEach(e -> e.noteClose());
 		}
 	}
@@ -82,7 +84,7 @@ final class CloseController implements Closable {
 	//method
 	/**
 	 * @param element
-	 * @return true if this close controller contains the given element.
+	 * @return true if the current {@link CoseController} contains the given element.
 	 */
 	public boolean containsElement(final ClosableElement element) {
 		return elements.contains(element);
@@ -90,7 +92,7 @@ final class CloseController implements Closable {
 	
 	//method
 	/**
-	 * @return the elements of this close controller.
+	 * @return the elements of the current {@link CoseController}.
 	 */
 	public ReadContainer<ClosableElement> getRefElements() {
 		return new ReadContainer<ClosableElement>(elements);
@@ -98,7 +100,7 @@ final class CloseController implements Closable {
 	
 	//method
 	/**
-	 * @return true if this close controller is closed.
+	 * @return true if the current {@link CoseController} is closed.
 	 */
 	public boolean isClosed() {
 		return closed;
@@ -106,13 +108,14 @@ final class CloseController implements Closable {
 	
 	//method
 	/**
-	 * @throws InvalidStateException if this close controller is closed.
+	 * @throws InvalidStateException if the current {@link CoseController} is closed.
 	 */
 	private void supposeBeingAlive() {
 
-		//Checks if this close controller is alive.
+		//Checks if the current {@link CoseController} is alive.
 		if (isClosed()) {
-			throw new InvalidStateException(
+			throw
+			new InvalidStateException(
 				this,
 				"is closed"
 			);
