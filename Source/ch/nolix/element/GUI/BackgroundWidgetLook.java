@@ -11,7 +11,7 @@ import ch.nolix.element.color.ColorGradient;
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 140
+ * @lines 150
  * @param <BWL> The type of a {@link BackgroundWidgetLook}.
  */
 public abstract class BackgroundWidgetLook<BWL extends BackgroundWidgetLook<BWL>>
@@ -77,6 +77,20 @@ extends WidgetLook<BWL> {
      */
     public final boolean hasRecursiveBackgroundColorGradient() {
         return backgroundColorGradient.hasRecursiveValue();
+    }
+    
+    //method
+    /**
+     * Removes any background of the current {@link BackgroundWidgetLook}.
+     * 
+     * @return the current {@link BackgroundWidgetLook}.
+     */
+    public final BWL removeAnyBackground() {
+    	
+    	removeBackgroundColor();
+    	removeBackgroundColorGradient();
+    	
+    	return getInstance();
     }
     
     //method
