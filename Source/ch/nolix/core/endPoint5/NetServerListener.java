@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.duplexController;
+package ch.nolix.core.endPoint5;
 
 //own imports
 import ch.nolix.core.endPoint3.EndPoint;
@@ -13,7 +13,7 @@ import ch.nolix.primitive.validator2.Validator;
  * @month 2016-10
  * @lines 60
  */
-final class NetServerSubEndPointTaker implements IEndPointTaker {
+final class NetServerListener implements IEndPointTaker {
 
 	//name
 	private final static String NAME = "IntenralEndPointTaker";
@@ -29,7 +29,7 @@ final class NetServerSubEndPointTaker implements IEndPointTaker {
 	 * @throws NullArgumentException
 	 * if the given net server is not an instance.
 	 */
-	public NetServerSubEndPointTaker(final NetServer netServer) {
+	public NetServerListener(final NetServer netServer) {
 		
 		//Checks if the given net server is an instance.
 		Validator.suppose(netServer).isInstanceOf(NetServer.class);
@@ -56,7 +56,7 @@ final class NetServerSubEndPointTaker implements IEndPointTaker {
 	 */
 	public void takeEndPoint(final EndPoint endPoint) {		
 		netServer.takeDuplexController(
-			new NetDuplexController((NetEndPoint)endPoint)
+			new NetEndPointController((NetEndPoint)endPoint)
 		);
 	}
 }

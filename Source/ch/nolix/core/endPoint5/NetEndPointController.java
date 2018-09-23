@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.duplexController;
+package ch.nolix.core.endPoint5;
 
 //own imports
 import ch.nolix.core.constants.IPv6Catalogue;
@@ -21,7 +21,7 @@ import ch.nolix.primitive.validator2.Validator;
  * @month 2015-12
  * @lines 250
  */
-public class NetDuplexController extends DuplexController {
+public class NetEndPointController extends EndPoint {
 		
 	//attribute
 	private final NetEndPoint netEndPoint;
@@ -34,7 +34,7 @@ public class NetDuplexController extends DuplexController {
 	 * @param port
 	 * @throws OutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public NetDuplexController(final int port) {
+	public NetEndPointController(final int port) {
 		
 		//Calls other constructor.
 		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port);
@@ -49,7 +49,7 @@ public class NetDuplexController extends DuplexController {
 	 * @param target
 	 * @throws OutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public NetDuplexController(final int port, final String target) {
+	public NetEndPointController(final int port, final String target) {
 		
 		//Calls other constructor.
 		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port, target);
@@ -64,7 +64,7 @@ public class NetDuplexController extends DuplexController {
 	 * @param port
 	 * @throws OutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public NetDuplexController(final String ip, final int port) {
+	public NetEndPointController(final String ip, final int port) {
 		
 		//Calls other constructor.
 		this(new NetEndPoint(ip, port));
@@ -82,7 +82,7 @@ public class NetDuplexController extends DuplexController {
 	 * @throws NullArgumentException if the given target is not an instance.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
-	public NetDuplexController(final String ip, final int port, final String target) {
+	public NetEndPointController(final String ip, final int port, final String target) {
 		
 		//Calls other constructor.
 		this(new NetEndPoint(ip, port, target));
@@ -95,7 +95,7 @@ public class NetDuplexController extends DuplexController {
 	 * @param netEndPoint
 	 * @throws NullArgumentException if the given net end point is not an instance.
 	 */
-	NetDuplexController(final NetEndPoint netEndPoint) {
+	NetEndPointController(final NetEndPoint netEndPoint) {
 		
 		//Checks if the given net end point is an instance.
 		Validator.suppose(netEndPoint).isInstanceOf(NetEndPoint.class);

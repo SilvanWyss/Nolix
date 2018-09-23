@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.duplexController;
+package ch.nolix.core.endPoint5;
 
 //own imports
 import ch.nolix.core.container.List;
@@ -18,11 +18,11 @@ import ch.nolix.primitive.validator2.Validator;
  * @month 2015-12
  * @lines 200
  */
-public final class LocalDuplexController extends DuplexController {
+public final class LocalEndPoint extends EndPoint {
 	
 	//attributes
 	private final boolean requestedConnection;
-	private final LocalDuplexController counterpart;
+	private final LocalEndPoint counterpart;
 	
 	//optional attribute
 	private final String target;
@@ -32,13 +32,13 @@ public final class LocalDuplexController extends DuplexController {
 	 * Creates a new local duplex controller
 	 * that will connect to another new local duplex controller.
 	 */
-	public LocalDuplexController() {
+	public LocalEndPoint() {
 		
 		//Sets the reqested connection flag of this local duplex controller.
 		requestedConnection = true;
 		
 		//Creates the counterpart of this local duplex controller.
-		this.counterpart = new LocalDuplexController(this);
+		this.counterpart = new LocalEndPoint(this);
 		
 		//Clears the target of this local duplex controller.
 		target = null;
@@ -50,13 +50,13 @@ public final class LocalDuplexController extends DuplexController {
 	 * 
 	 * @param target
 	 */
-	public LocalDuplexController(final IDuplexControllerTaker target) {
+	public LocalEndPoint(final IEndPointTaker target) {
 		
 		//Sets the reqested connection flag of this local duplex controller.
 		requestedConnection = true;
 		
 		//Creates the counterpart of this local duplex controller.
-		this.counterpart = new LocalDuplexController(this, target.getName());
+		this.counterpart = new LocalEndPoint(this, target.getName());
 		
 		//Clears the target of this local duplex controller.
 		this.target = null;
@@ -72,7 +72,7 @@ public final class LocalDuplexController extends DuplexController {
 	 * @param counterpart
 	 * @throws NullArgumentException if the given counterpart is not an instance.
 	 */
-	private LocalDuplexController(LocalDuplexController counterpart) {
+	private LocalEndPoint(LocalEndPoint counterpart) {
 		
 		//Sets the reqested connection flag of this local duplex controller.
 		requestedConnection = false;
@@ -96,8 +96,8 @@ public final class LocalDuplexController extends DuplexController {
 	 * @throws NullArgumentException if the given target is not an instance.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
-	private LocalDuplexController(
-		final LocalDuplexController counterpart,
+	private LocalEndPoint(
+		final LocalEndPoint counterpart,
 		final String target
 	) {
 		
@@ -130,7 +130,7 @@ public final class LocalDuplexController extends DuplexController {
 	/**
 	 * @return the counterpart of this local duplex controller.
 	 */
-	public LocalDuplexController getRefCounterpart() {
+	public LocalEndPoint getRefCounterpart() {
 		return counterpart;
 	}
 	

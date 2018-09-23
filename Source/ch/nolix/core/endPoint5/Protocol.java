@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.duplexController;
+package ch.nolix.core.endPoint5;
 
 //package-visible class
 /**

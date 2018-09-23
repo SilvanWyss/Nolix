@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.duplexController;
+package ch.nolix.core.endPoint5;
 
 import ch.nolix.core.skillInterfaces.Named;
 
@@ -11,13 +11,13 @@ import ch.nolix.core.skillInterfaces.Named;
  * @month 2016-10
  * @lines 20
  */
-public interface IDuplexControllerTaker extends Named {
+public interface IEndPointTaker extends Named {
 
 	//abstract method
 	/**
 	 * Lets this duplex controller taker take the given duplex controller.
 	 * 
-	 * @param duplexController
+	 * @param endPoint
 	 */
-	public abstract void takeDuplexController(DuplexController duplexController);
+	public abstract void takeDuplexController(EndPoint endPoint);
 }

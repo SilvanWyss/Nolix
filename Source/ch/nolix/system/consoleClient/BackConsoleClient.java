@@ -3,7 +3,7 @@ package ch.nolix.system.consoleClient;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.duplexController.DuplexController;
+import ch.nolix.core.endPoint5.EndPoint;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.primitive.validator2.Validator;
@@ -24,13 +24,13 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 	/**
 	 * Creates a new console client with the given duplex controller.
 	 * 
-	 * @param duplexController
+	 * @param endPoint
 	 * @throws NullArgumentException if the given duplex controller is not an instance.
 	 */
-	public BackConsoleClient(final DuplexController duplexController) {
+	public BackConsoleClient(final EndPoint endPoint) {
 		
 		//Calls constructor of the base class.
-		internal_setDuplexController(duplexController);
+		internal_setDuplexController(endPoint);
 	}
 	
 	//method

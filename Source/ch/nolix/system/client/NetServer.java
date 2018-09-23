@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
-//own import
-import ch.nolix.core.duplexController.DuplexController;
+import ch.nolix.core.endPoint5.EndPoint;
 
 //class
 /**
@@ -15,7 +14,7 @@ import ch.nolix.core.duplexController.DuplexController;
 public final class NetServer extends Server {
 	
 	//attribute
-	private ch.nolix.core.duplexController.NetServer internalNetServer;
+	private ch.nolix.core.endPoint5.NetServer internalNetServer;
 	
 	//constructor
 	/**
@@ -27,7 +26,7 @@ public final class NetServer extends Server {
 	public NetServer(final int port) {
 		
 		//Creates the internal net server of this net server.
-		internalNetServer = new ch.nolix.core.duplexController.NetServer(port);
+		internalNetServer = new ch.nolix.core.endPoint5.NetServer(port);
 		
 		//Creates a close dependency between this net server and its internal net server.
 		createCloseDependency(internalNetServer);
@@ -60,15 +59,15 @@ public final class NetServer extends Server {
 		return internalNetServer.getPort();
 	}
 	
-	void takeDuplexController(final DuplexController duplexController) {
+	void takeDuplexController(final EndPoint endPoint) {
 		
 		if (!containsDefaultApplication()) {
-			getRefApplicationByName(duplexController.getTarget())
-			.takeDuplexController(duplexController);
+			getRefApplicationByName(endPoint.getTarget())
+			.takeDuplexController(endPoint);
 		}
 		
 		else {
-			getRefDefaultApplication().takeDuplexController(duplexController);
+			getRefDefaultApplication().takeDuplexController(endPoint);
 		}
 	}
 }

@@ -5,9 +5,9 @@ package ch.nolix.system.client;
 import ch.nolix.core.bases.OptionalSignableElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.duplexController.DuplexController;
-import ch.nolix.core.duplexController.LocalDuplexController;
-import ch.nolix.core.duplexController.NetDuplexController;
+import ch.nolix.core.endPoint5.EndPoint;
+import ch.nolix.core.endPoint5.LocalEndPoint;
+import ch.nolix.core.endPoint5.NetEndPointController;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.skillInterfaces.Closable;
 import ch.nolix.core.specification.Specification;
@@ -39,7 +39,7 @@ implements Closable {
 	protected static final String SESSION_USER_DATA_METHOD_HEADER = "SessionUserDataMethod";
 	
 	//attribute
-	private DuplexController duplexController;
+	private EndPoint endPoint;
 	
 	//optional attribute
 	/**
@@ -60,7 +60,7 @@ implements Closable {
 	 * Closes the current {@link Client}.
 	 */
 	public final void close() {
-		duplexController.close();
+		endPoint.close();
 	}
 	
 	//method
@@ -143,7 +143,7 @@ implements Closable {
 	 * @return true if the current {@link Client} is closed.
 	 */
 	public final boolean isClosed() {
-		return duplexController.isClosed();
+		return endPoint.isClosed();
 	}
 
 	//method
@@ -151,7 +151,7 @@ implements Closable {
 	 * @return true if the current {@link Client} is a local client.
 	 */
 	public final boolean isLocalClient() {
-		return duplexController.isLocalDuplexController();
+		return endPoint.isLocalDuplexController();
 	}
 	
 	//method
@@ -159,7 +159,7 @@ implements Closable {
 	 * @return true if the current {@link Client} is a net client.
 	 */
 	public final boolean isNetClient() {
-		return duplexController.isNetDuplexController();
+		return endPoint.isNetDuplexController();
 	}
 	
 	//method
@@ -286,11 +286,11 @@ implements Closable {
 	protected final void internal_connectTo(final Application<?> application) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new LocalDuplexController());
+		internal_setDuplexController(new LocalEndPoint());
 		
 		//Connects the current client to the given application.
 		application.takeDuplexController(
-			((LocalDuplexController)duplexController).getRefCounterpart()
+			((LocalEndPoint)endPoint).getRefCounterpart()
 		);
 	}
 	
@@ -306,7 +306,7 @@ implements Closable {
 	protected final void internal_connectTo(final int port) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new NetDuplexController(port));
+		internal_setDuplexController(new NetEndPointController(port));
 	}
 	
 	//method
@@ -324,7 +324,7 @@ implements Closable {
 	protected final void internal_connectTo(final int port, final String name) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new NetDuplexController(port, name));
+		internal_setDuplexController(new NetEndPointController(port, name));
 	}
 	
 	//method
@@ -338,11 +338,11 @@ implements Closable {
 	protected final void internal_connectTo(final Server server) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new LocalDuplexController());
+		internal_setDuplexController(new LocalEndPoint());
 		
 		//Connects the current client to the default application on the given server.
 		server.getRefDefaultApplication().takeDuplexController(
-			((LocalDuplexController)duplexController).getRefCounterpart()
+			((LocalEndPoint)endPoint).getRefCounterpart()
 		);
 	}
 	
@@ -358,11 +358,11 @@ implements Closable {
 	protected final void internal_connectTo(final Server server, final String name) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new LocalDuplexController());
+		internal_setDuplexController(new LocalEndPoint());
 		
 		//Connects the current client to the application with the given name on the given server.
 		server.getRefApplicationByName(name).takeDuplexController(
-			((LocalDuplexController)duplexController).getRefCounterpart()
+			((LocalEndPoint)endPoint).getRefCounterpart()
 		);
 	}
 	
@@ -379,7 +379,7 @@ implements Closable {
 	protected final void internal_connectTo(final String ip, final int port) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new NetDuplexController(ip, port));
+		internal_setDuplexController(new NetEndPointController(ip, port));
 	}
 	
 	//method
@@ -398,7 +398,7 @@ implements Closable {
 	protected final void internal_connectTo(String ip, int port, String name) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new NetDuplexController(ip, port, name));
+		internal_setDuplexController(new NetEndPointController(ip, port, name));
 	}
 	
 	//abstract method
@@ -434,7 +434,7 @@ implements Closable {
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
 	protected StandardSpecification internal_getDataFromCounterpart(final String request) {
-		return duplexController.getData(request);
+		return endPoint.getData(request);
 	}
 	
 	//method
@@ -469,7 +469,7 @@ implements Closable {
 	 * @return the name of the target application of the current {@link Client}.
 	 */
 	protected final String internal_getTarget() {
-		return duplexController.getTarget();
+		return endPoint.getTarget();
 	}
 	
 	//method
@@ -477,7 +477,7 @@ implements Closable {
 	 * @return true if the current {@link Client} has requested the connection.
 	 */
 	protected final boolean internal_hasRequestedConnection() {
-		return duplexController.hasRequestedConnection();
+		return endPoint.hasRequestedConnection();
 	}
 	
 	//method
@@ -565,7 +565,7 @@ implements Closable {
 	 * @return true if the current {@link Client} is connected.
 	 */
 	protected final boolean internal_isConnected() {
-		return (duplexController != null);
+		return (endPoint != null);
 	}
 	
 	//method
@@ -597,7 +597,7 @@ implements Closable {
 	 * @param command
 	 */
 	protected final void internal_runOnCounterpart(final Statement command) {
-		duplexController.run(command);
+		endPoint.run(command);
 	}
 	
 	//method
@@ -607,7 +607,7 @@ implements Closable {
 	 * @param command
 	 */
 	protected final void internal_runOnCounterpart(final String command) {
-		duplexController.run(command);
+		endPoint.run(command);
 	}
 	
 	//method
@@ -617,30 +617,30 @@ implements Closable {
 	 * @param commands
 	 */
 	protected final void internal_runOnCounterpart(final String... commands) {
-		duplexController.appendCommand(commands);
-		duplexController.runAppendedCommands();
+		endPoint.appendCommand(commands);
+		endPoint.runAppendedCommands();
 	}
 	
 	//method
 	/**
 	 * * 
-	 * @param duplexController
+	 * @param endPoint
 	 * @throws NullArgumentException if the given duplex controller is not an instance.
 	 * @throws InvalidStateException if the current {@link Client} is connected.
 	 */
-	protected final void internal_setDuplexController(final DuplexController duplexController) {
+	protected final void internal_setDuplexController(final EndPoint endPoint) {
 		
 		//Checks if the given duplex controller is an instance.
-		Validator.suppose(duplexController).isInstanceOf(DuplexController.class);
+		Validator.suppose(endPoint).isInstanceOf(EndPoint.class);
 		
 		//Checks if the current client is not connected.
 		supposeIsNotConnected();
 		
 		//Sets the duplex controller of the current client.
-		this.duplexController = duplexController;	
+		this.endPoint = endPoint;	
 		
 		//Sets the receiver controller of the duplex controller of the current client.
-		duplexController.setReceiverController(new ClientReceiverController(this));	
+		endPoint.setReceiverController(new ClientReceiverController(this));	
 	}
 	
 	//package-visible method

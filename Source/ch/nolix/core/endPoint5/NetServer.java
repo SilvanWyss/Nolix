@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.duplexController;
+package ch.nolix.core.endPoint5;
 
 //class
 /**
@@ -29,7 +29,7 @@ public final class NetServer extends Server {
 		//Creates a close dependency between this net server and its internal net server.
 		createCloseDependency(internalNetServer);
 		
-		internalNetServer.addArbitraryEndPointTaker(new NetServerSubEndPointTaker(this));
+		internalNetServer.addArbitraryEndPointTaker(new NetServerListener(this));
 	}
 	
 	//method

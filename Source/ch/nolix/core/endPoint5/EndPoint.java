@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.duplexController;
+package ch.nolix.core.endPoint5;
 
 //own imports
 import ch.nolix.core.bases.ClosableElement;
@@ -18,7 +18,7 @@ import ch.nolix.primitive.validator2.Validator;
  * @month 2015-12
  * @lines 200
  */
-public abstract class DuplexController
+public abstract class EndPoint
 extends ClosableElement
 implements IMultiController {	
 	

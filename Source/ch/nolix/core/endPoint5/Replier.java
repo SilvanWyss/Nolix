@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.duplexController;
+package ch.nolix.core.endPoint5;
 
 import ch.nolix.core.communicationAPI.IReplier;
 import ch.nolix.primitive.validator.Validator;
@@ -13,22 +13,22 @@ import ch.nolix.primitive.validator.Validator;
 final class Replier implements IReplier {
 
 	//attribute
-	private final NetDuplexController netDuplexController;
+	private final NetEndPointController netEndPointController;
 	
 	//constructor
 	/**
 	 * Creates a new receiver that belongs to the given net duplex controller.
 	 * 
-	 * @param netDuplexController
+	 * @param netEndPointController
 	 * @throws NullArgumentException if the given net duplex controller is not an instance.
 	 */
-	public Replier(final NetDuplexController netDuplexController) {
+	public Replier(final NetEndPointController netEndPointController) {
 		
 		//Checks if the given net duplex controller is an instance.
-		Validator.throwExceptionIfValueIsNull("net controller", netDuplexController);
+		Validator.throwExceptionIfValueIsNull("net controller", netEndPointController);
 		
 		//Sets the net duplex controller of this replier.
-		this.netDuplexController = netDuplexController;
+		this.netEndPointController = netEndPointController;
 	}
 	
 	//method
@@ -36,6 +36,6 @@ final class Replier implements IReplier {
 	 * @return the reply to the given message from this replier.
 	 */
 	public String getReply(final String message) {
-		return netDuplexController.receiveAndGetReply(message);
+		return netEndPointController.receiveAndGetReply(message);
 	}
 }

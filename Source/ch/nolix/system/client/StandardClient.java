@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
-//own imports
-import ch.nolix.core.duplexController.DuplexController;
+import ch.nolix.core.endPoint5.EndPoint;
 import ch.nolix.core.specification.StandardSpecification;
 
 //class
@@ -90,10 +89,10 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @param controller
 	 * @throws NullArgumentException if the given duplex controller is not an instance.
 	 */
-	public StandardClient(final DuplexController duplexController) {
+	public StandardClient(final EndPoint endPoint) {
 		
 		//Calls constructor of the base class.
-		internal_setDuplexController(duplexController);
+		internal_setDuplexController(endPoint);
 	}
 
 	//constructor

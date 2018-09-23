@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.client;
 
-//own imports
-import ch.nolix.core.duplexController.DuplexController;
-import ch.nolix.core.duplexController.IDuplexControllerTaker;
+import ch.nolix.core.endPoint5.EndPoint;
+import ch.nolix.core.endPoint5.IEndPointTaker;
 import ch.nolix.primitive.validator2.Validator;
 
 //package-visible class
@@ -12,7 +11,7 @@ import ch.nolix.primitive.validator2.Validator;
  * @month 2016-10
  * @lines 50
  */
-final class NetServerSubDuplexControllerTaker implements IDuplexControllerTaker {
+final class NetServerSubDuplexControllerTaker implements IEndPointTaker {
 	
 	//name
 	private static final String NAME = "InternalDuplexControllerTaker";
@@ -48,9 +47,9 @@ final class NetServerSubDuplexControllerTaker implements IDuplexControllerTaker 
 	/**
 	 * Lets this net server sub duplex controller taker take the given duplex controller.
 	 * 
-	 * @param duplexController
+	 * @param endPoint
 	 */
-	public void takeDuplexController(final DuplexController duplexController) {	
-		netServer.takeDuplexController(duplexController);
+	public void takeDuplexController(final EndPoint endPoint) {	
+		netServer.takeDuplexController(endPoint);
 	}
 }

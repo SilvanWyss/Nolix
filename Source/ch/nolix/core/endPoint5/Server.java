@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.duplexController;
+package ch.nolix.core.endPoint5;
 
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
@@ -19,11 +19,11 @@ import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//optional attribute
-	IDuplexControllerTaker arbitraryDuplexControllerTaker;
+	IEndPointTaker arbitraryDuplexControllerTaker;
 	
 	//multiple attribute
-	private final List<IDuplexControllerTaker> duplexControllerTaker
-	= new List<IDuplexControllerTaker>();
+	private final List<IEndPointTaker> endPointTaker
+	= new List<IEndPointTaker>();
 	
 	//method
 	/**
@@ -34,7 +34,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * @throws InvalidStateException if this server contains duplex controller.
 	 */
 	public void addArbitraryDuplexControllerTaker(
-		final IDuplexControllerTaker arbitraryDuplexControllerTaker
+		final IEndPointTaker arbitraryDuplexControllerTaker
 	) {
 		
 		//Checks if this server contains no duplex controller taker.
@@ -51,22 +51,22 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	/**
 	 * Adds the given duplex controller to this server.
 	 * 
-	 * @param duplexControllerTaker
+	 * @param endPointTaker
 	 * @throws InvalidStateException if this server contains a duplex controller
 	 * with the same name the given duplex controller has
 	 */
-	public void addDuplexControllerTaker(final IDuplexControllerTaker duplexControllerTaker) {
+	public void addDuplexControllerTaker(final IEndPointTaker endPointTaker) {
 		
 		//Checks if this server contains a duplex controller taker
 		//with the same name as the given duplex controller has.
-		if (containsDuplexControllerTaker(duplexControllerTaker.getName())) {
+		if (containsDuplexControllerTaker(endPointTaker.getName())) {
 			throw new InvalidStateException(
 				this,
 				"contains a duplex controller taker with the same name the given duplex controller taker has"
 			);
 		}
 		
-		this.duplexControllerTaker.addAtEnd(duplexControllerTaker);
+		this.endPointTaker.addAtEnd(endPointTaker);
 	}
 	
 	//method
@@ -77,7 +77,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 */
 	public final Server clear() {
 		
-		duplexControllerTaker.clear();
+		endPointTaker.clear();
 		arbitraryDuplexControllerTaker = null;
 		
 		return this;
@@ -89,7 +89,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * @return true if this server contains a duplex controller taker with the given name.
 	 */
 	public final boolean containsDuplexControllerTaker(final String name) {
-		return duplexControllerTaker.contains(dct -> dct.hasName(name));
+		return endPointTaker.contains(dct -> dct.hasName(name));
 	}
 	
 	//method
@@ -105,7 +105,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * @return true if this server contains no duplex controller taker.
 	 */
 	public final boolean isEmpty() {
-		return duplexControllerTaker.isEmpty();
+		return endPointTaker.isEmpty();
 	}
 	
 	//method
@@ -118,7 +118,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 */
 	public void removeDuplexControllerTaker(final String name) {
 		
-		duplexControllerTaker.removeFirst(dct -> dct.hasName(name));
+		endPointTaker.removeFirst(dct -> dct.hasName(name));
 		
 		if (arbitraryDuplexControllerTaker != null && arbitraryDuplexControllerTaker.hasName(name)) {
 			arbitraryDuplexControllerTaker = null;
@@ -129,24 +129,24 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	/**
 	 * Lets this server take the given duplex controller.
 	 * 
-	 * @param duplexController
+	 * @param endPoint
 	 * @throws UnexistingAttributeException if
 	 * this server has no arbitrary duplex controller taker
 	 * or contains no duplex controller taker
 	 * with the same name as the target of the given duplex controller.
 	 */
-	public final void takeDuplexController(final DuplexController duplexController) {
+	public final void takeDuplexController(final EndPoint endPoint) {
 		
 		//Handles the case that this server has no arbitrary duplex controller taker.
 		if (!hasArbitraryDuplexControllerTaker()) {
-			duplexControllerTaker
-			.getRefFirst(dct -> dct.hasName(duplexController.getTarget()))
-			.takeDuplexController(duplexController);
+			endPointTaker
+			.getRefFirst(dct -> dct.hasName(endPoint.getTarget()))
+			.takeDuplexController(endPoint);
 		}
 		
 		//Handles the case that this server has an arbitrary duplex controller taker.
 		else {
-			getArbitraryDuplexControllerTaker().takeDuplexController(duplexController);
+			getArbitraryDuplexControllerTaker().takeDuplexController(endPoint);
 		}
 	}
 
@@ -161,7 +161,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * @return the arbitrary duplex controller taker of this server.
 	 * @throws UnexistingAttributeException if this server has no arbitrary duplex controller taker.
 	 */
-	private IDuplexControllerTaker getArbitraryDuplexControllerTaker() {
+	private IEndPointTaker getArbitraryDuplexControllerTaker() {
 
 		//Checks if this server has an arbitrary duplex controller taker.
 		if (!hasArbitraryDuplexControllerTaker()) {

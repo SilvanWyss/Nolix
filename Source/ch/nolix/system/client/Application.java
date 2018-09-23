@@ -10,7 +10,7 @@ import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.duplexController.DuplexController;
+import ch.nolix.core.endPoint5.EndPoint;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
@@ -209,13 +209,13 @@ public class Application<C extends Client<C>> extends NamedElement {
 	/**
 	 * Lets this application take the given duplecx controller.
 	 * 
-	 * @param duplexController
+	 * @param endPoint
 	 */
-	public final void takeDuplexController(final DuplexController duplexController) {
+	public final void takeDuplexController(final EndPoint endPoint) {
 		try {
-			final var constructor = getClientClass().getConstructor(DuplexController.class);
+			final var constructor = getClientClass().getConstructor(EndPoint.class);
 			constructor.setAccessible(true);
-			C client = (C)constructor.newInstance(duplexController);
+			C client = (C)constructor.newInstance(endPoint);
 			takeClient(client);
 		} catch (final 
 			IllegalAccessException
