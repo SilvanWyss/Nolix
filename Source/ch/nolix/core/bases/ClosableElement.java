@@ -21,7 +21,7 @@ public abstract class ClosableElement implements Closable {
 	
 	//method
 	/**
-	 * Closes the current {@link ClosableElement}.
+	 * {@inheritDoc}
 	 */
 	public final void close() {
 		
@@ -43,7 +43,7 @@ public abstract class ClosableElement implements Closable {
 	
 	//method
 	/**
-	 * @return true if the current {@link ClosableElement} is closed.
+	 * {@inheritDoc}
 	 */
 	public final boolean isClosed() {
 		return parentCloseController.isClosed();
