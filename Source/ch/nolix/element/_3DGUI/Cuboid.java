@@ -2,11 +2,8 @@
 package ch.nolix.element._3DGUI;
 
 //own imports
-import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.element.core.PositiveFloatingPointNumber;
-import ch.nolix.element.image.Image;
 
 //class
 /**
@@ -53,30 +50,12 @@ public final class Cuboid extends BaseShape<Cuboid> {
 		zl -> zl.getSpecification()
 	);
 	
-	//attribute
-	private final MutableOptionalProperty<Image> texture =
-	new MutableOptionalProperty<Image>(
-		PascalCaseNameCatalogue.TEXTURE,
-		t -> setTexture(t),
-		s -> Image.createFromSpecification(s),
-		t -> t.getSpecification()
-	);
-	
 	//constructor
 	/**
 	 * Creates a new cuboid.
 	 */
 	public Cuboid() {
 		resetConfiguration();
-	}
-	
-	//method
-	/**
-	 * @return the texture of this cuboid.
-	 * @throws UnexistingAttributeException if this cuboid has no texture.
-	 */
-	public Image getRefTexture() {
-		return texture.getValue();
 	}
 	
 	//method
@@ -129,27 +108,6 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//method
 	/**
-	 * @return true if this cuboid has a texture.
-	 */
-	public boolean hasTexture() {
-		return texture.containsAny();
-	}
-	
-	//method
-	/**
-	 * Removes the texture of this cuboid.
-	 * 
-	 * @return this cuboid.
-	 */
-	public Cuboid removeTexture() {
-		
-		texture.clear();
-		
-		return this;
-	}
-	
-	//method
-	/**
 	 * Resets this cuboid.
 	 * 
 	 * @return this cuboid.
@@ -160,23 +118,8 @@ public final class Cuboid extends BaseShape<Cuboid> {
 		setZLength(DEFAULT_Y_LENGTH);
 		setYLength(DEFAULT_Z_LENGTH);
 		
-		removeTexture();
-		
 		//Calls method of the base class.
 		return super.reset();
-	}
-	
-	//method
-	/**
-	 * @param texture
-	 * @return this cuboid.
-	 * @throws NullArgumentException if the given texture is not an instance.
-	 */
-	public Cuboid setTexture(final Image texture) {
-		
-		this.texture.setValue(texture);
-		
-		return this;
 	}
 	
 	//method

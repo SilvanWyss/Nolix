@@ -61,8 +61,8 @@ implements IJMonkeyShapeRenderer<Cuboid, Geometry> {
 			cuboid.getZLengthAsFloat()
 		);
 		
-		//Handles the case that the given cuboid does not have a texture.
-		if (!cuboid.hasTexture()) {
+		//Handles the case that the given cuboid does not have a default texture.
+		if (!cuboid.hasDefaultTexture()) {
 			
 			//Sets the color to the given geometry.
 				final var material =
@@ -78,7 +78,7 @@ implements IJMonkeyShapeRenderer<Cuboid, Geometry> {
 				geometry.setMaterial(material);
 		}
 		
-		//Handles the case that the given cuboid has a texture.
+		//Handles the case that the given cuboid has a default texture.
 		else {
 									
 			//Sets the texture to the given geometry.
@@ -86,7 +86,7 @@ implements IJMonkeyShapeRenderer<Cuboid, Geometry> {
 				= new Material(JMonkeyHelper.getAssetManager(), "Common/MatDefs/Misc/Unshaded.j3md");
 				
 				final var texture
-				= new Texture2D(new AWTLoader().load(cuboid.getRefTexture().toBufferedImage(),true));
+				= new Texture2D(new AWTLoader().load(cuboid.getDefaultTexture().toBufferedImage(),true));
 				
 				material.setTexture("ColorMap", texture);	
 				
