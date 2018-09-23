@@ -3,6 +3,7 @@ package ch.nolix.element._3DGUI;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.specification.StandardSpecification;
@@ -26,7 +27,7 @@ extends Shape<BS> {
 	//attribute
 	private MutableProperty<Color> defaultColor
 	= new MutableProperty<Color>(
-		Color.TYPE_NAME,
+		PascalCaseNameCatalogue.DEFAULT_COLOR,
 		c -> setDefaultColor(c),
 		s -> Color.createFromSpecification(s),
 		c -> c.getSpecification()
