@@ -125,7 +125,7 @@ public final class LocalEndPoint extends EndPoint {
 		Validator.suppose(message).thatIsNamed("message").isInstance();
 		
 		//Checks if this local end point is not aborted.
-		supposeBeingAlive();
+		supposeIsAlive();
 		
 		counterpart.receive(message);	
 	}
@@ -134,5 +134,5 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * Lets this local end point note an abort.
 	 */
-	protected void noteClosing() {}
+	protected void noteClose() {}
 }

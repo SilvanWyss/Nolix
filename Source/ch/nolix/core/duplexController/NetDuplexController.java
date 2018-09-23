@@ -188,7 +188,7 @@ public class NetDuplexController extends DuplexController {
 	protected void run(final List<String> commands) {
 			
 		//Checks if this net duplex controller is not aborted.
-		supposeBeingAlive();
+		supposeIsAlive();
 		
 		//Creates message.
 		final String message = Protocol.COMMANDS + '(' + commands.toString() + ')';

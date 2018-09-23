@@ -65,7 +65,7 @@ implements ISender {
 		Validator.suppose(receiver).isInstanceOf(IReceiver.class);
 		
 		//Checks if this end point is not aborted.
-		supposeBeingAlive();
+		supposeIsAlive();
 		
 		//Sets the receiver of this end point.
 		this.receiver = receiver;
@@ -82,7 +82,7 @@ implements ISender {
 	protected final void receive(final String message) {
 		
 		//Checks if this end point is not aborted.
-		supposeBeingAlive();
+		supposeIsAlive();
 		
 		getRefReceiver().receive(message);
 	}

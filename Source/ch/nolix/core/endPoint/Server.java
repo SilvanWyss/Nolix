@@ -45,7 +45,7 @@ implements IEndPointTaker {
 	public final void takeEndPoint(final EndPoint endPoint) {
 		
 		//Checks if this server is not aborted.
-		supposeBeingAlive();
+		supposeIsAlive();
 		
 		endPointTaker.takeEndPoint(endPoint);
 	}
@@ -54,5 +54,5 @@ implements IEndPointTaker {
 	/**
 	 * Lets this server note an abort.
 	 */
-	protected void noteClosing() {}
+	protected void noteClose() {}
 }

@@ -51,7 +51,7 @@ implements IMultiController {
 	public final void appendCommand(final Statement... commands) {
 		
 		//Checks if this duplex controller is not aborted.
-		supposeBeingAlive();
+		supposeIsAlive();
 		
 		appendedCommands.using(c -> c.toString()).addAtEnd(commands);
 	}
@@ -67,7 +67,7 @@ implements IMultiController {
 	public final void appendCommand(final String command) {
 
 		//Checks if this duplex controller is not aborted.
-		supposeBeingAlive();
+		supposeIsAlive();
 		
 		appendedCommands.addAtEnd(command);
 	}
@@ -83,7 +83,7 @@ implements IMultiController {
 	public final void appendCommand(String... commands) {
 		
 		//Checks if this duplex controller is not aborted.
-		supposeBeingAlive();
+		supposeIsAlive();
 		
 		appendedCommands.addAtEnd(commands);
 	}
@@ -155,7 +155,7 @@ implements IMultiController {
 	public final void runAppendedCommands()
 	{
 		//Checks if this local duplex controller is not aborted.
-		supposeBeingAlive();
+		supposeIsAlive();
 		
 		final List<String> appendedCommands = this.appendedCommands.getCopy();
 		this.appendedCommands.clear();
@@ -197,7 +197,7 @@ implements IMultiController {
 	/**
 	 * Lets this duplex controller note an abort.
 	 */
-	protected final void noteClosing() {}
+	protected final void noteClose() {}
 	
 	//abstract method
 	/**

@@ -64,7 +64,7 @@ implements ISender2 {
 	/**
 	 * Lets this end point note an abort.
 	 */
-	protected final void noteClosing() {}
+	protected final void noteClose() {}
 	
 	//method
 	/**

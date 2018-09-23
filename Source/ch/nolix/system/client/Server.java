@@ -181,5 +181,5 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	/**
 	 * Lets this server note a closing.
 	 */
-	protected final void noteClosing() {}
+	protected final void noteClose() {}
 }

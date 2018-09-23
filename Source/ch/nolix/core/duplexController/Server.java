@@ -154,7 +154,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	/**
 	 * Lets this server note an abort.
 	 */
-	protected final void noteClosing() {}
+	protected final void noteClose() {}
 	
 	//method
 	/**

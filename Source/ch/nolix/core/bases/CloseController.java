@@ -31,7 +31,7 @@ final class CloseController implements Closable {
 	 */
 	public CloseController(final ClosableElement element) {
 		elements.addAtEnd(element);
-		element.setCloseController(this);
+		element.setParentCloseController(this);
 	}
 	
 	//method
@@ -61,7 +61,7 @@ final class CloseController implements Closable {
 		
 		elements.addAtEnd(element.getRefCloseDependencies());
 		elements.addAtEnd(element);
-		elements.forEach(e -> e.setCloseController(this));
+		elements.forEach(e -> e.setParentCloseController(this));
 	}
 	
 	//method
@@ -75,7 +75,7 @@ final class CloseController implements Closable {
 			closed = true;
 			
 			//Lets note all element of this clsoe controller the closing.
-			elements.forEach(e -> e.noteClosing());
+			elements.forEach(e -> e.noteClose());
 		}
 	}
 	

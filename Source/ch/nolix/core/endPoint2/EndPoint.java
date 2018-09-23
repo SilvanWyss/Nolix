@@ -102,7 +102,7 @@ implements ISender {
 	public final void setReceiver(final IReceiver receiver) {
 		
 		//Checks if this end point is aborted.
-		supposeBeingAlive();
+		supposeIsAlive();
 		
 		//Checks if the given receiver is an instance.
 		Validator.suppose(receiver).isInstanceOf(IReceiver.class);
@@ -130,7 +130,7 @@ implements ISender {
 		Validator.suppose(target).thatIsNamed("target").isNotEmpty();
 		
 		//Checks if this net end point is not stopped.
-		supposeBeingAlive();
+		supposeIsAlive();
 		
 		//Sets the target of this end point.
 		this.target = target;

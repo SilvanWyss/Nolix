@@ -17,75 +17,81 @@ import ch.nolix.primitive.validator2.Validator;
 public abstract class ClosableElement implements Closable {
 
 	//attribute
-	private CloseController closeController = new CloseController(this);
+	private CloseController parentCloseController = new CloseController(this);
 	
 	//method
 	/**
-	 * Closes this closable element.
+	 * Closes the current {@link ClosableElement}.
 	 */
 	public final void close() {
+		
+		//Handles the case that the current closable element is alive.
 		if (isAlive()) {
-			closeController.close();
+			parentCloseController.close();
 		}
 	}
 	
 	//method
 	/**
 	 * @param element
-	 * @return true if this closable element has a close dependency to the given element.
+	 * @return true if the current {@link ClosableElement}
+	 * has a close dependency to the given element.
 	 */
 	public final boolean hasCloseDependencyTo(final ClosableElement element) {
-		return closeController.containsElement(element);
+		return parentCloseController.containsElement(element);
 	}
 	
 	//method
 	/**
-	 * @return true if this closable element isclosed.
+	 * @return true if the current {@link ClosableElement} is closed.
 	 */
 	public final boolean isClosed() {
-		return closeController.isClosed();
+		return parentCloseController.isClosed();
 	}
 	
 	//method
 	/**
-	 * Creates a close dependency between this closable element and the given element.
-	 * When a closable element is closed all of its close dependencies will be closed too
+	 * Creates a close dependency
+	 * between the current {@link ClosableElement} and the given element.
+	 * 
+	 * When a {@link ClosableElement} is closed all of its close dependencies will be closed too
 	 * and vice versa.
 	 * 
 	 * @param element
-	 * @throws InvalidStateException if this closable element is closed.
+	 * @throws InvalidStateException if the current {@link ClosableElement} is closed.
 	 * @throws InvalidStateException
-	 * if this closable element has already the given close dependency.
+	 * if the current {@link ClosableElement} has already a close dependency to the given element.
 	 */
 	protected final synchronized void createCloseDependency(final ClosableElement element) {
 		
-		//Checks if this closable element is alive.
-		supposeBeingAlive();
+		//Checks if the current {@link ClosableElement} is alive.
+		supposeIsAlive();
 		
-		//Checks if this closable element has already the given close dependency.
+		//Checks if the current {@link ClosableElement}
+		//does not have already a close dependency to the given element.
 		if (hasCloseDependencyTo(element)) {
 			throw new InvalidStateException(
 				this,
-				"has already the given close dependency"
+				"has already a close dependency to the given element"
 			);
 		}
 		
-		closeController.addElement(element);
+		parentCloseController.addElement(element);
 	}
 	
 	//abstract method
 	/**
-	 * Lets this closable element note a closing.
+	 * Lets the current {@link ClosableElement} note a close.
 	 */
-	protected abstract void noteClosing();
+	protected abstract void noteClose();
 	
 	//method
 	/**
-	 * @throws ClosedStateException if this closable element is closed.
+	 * @throws ClosedStateException if the current {@link ClosableElement} is closed.
 	 */
-	protected final void supposeBeingAlive() {
+	protected final void supposeIsAlive() {
 
-		//Checks if this closable element is alive.
+		//Checks if the current {@link ClosableElement} is alive.
 		if (isClosed()) {
 			throw new ClosedStateException(this);
 		}
@@ -93,25 +99,28 @@ public abstract class ClosableElement implements Closable {
 	
 	//package-visible method
 	/**
-	 * @return the close dependencies of this closable element.
+	 * @return the close dependencies of the current {@link ClosableElement}.
 	 */
 	ReadContainer<ClosableElement> getRefCloseDependencies() {
-		return closeController.getRefElements();
+		return parentCloseController.getRefElements();
 	}
 
 	//package-visible method.
 	/**
-	 * Sets the close controller this closable element belongs to.
+	 * Sets the close controller the current {@link ClosableElement} will belong to.
 	 * 
-	 * @param closeController
-	 * @throws NullArgumentException if the given close controller is not an instance.
+	 * @param parentCloseController
+	 * @throws NullArgumentException if the given parent close controller is not an instance.
 	 */
-	void setCloseController(final CloseController closeController) {
+	void setParentCloseController(final CloseController parentCloseController) {
 		
-		//Checks if the given close controller is an instance.
-		Validator.suppose(closeController).isInstanceOf(CloseController.class);
+		//Checks if the given parent close controller is an instance.
+		Validator
+		.suppose(parentCloseController)
+		.thatIsNamed("parent close controller")
+		.isInstance();
 		
-		//Sets the close controller of this closable element.
-		this.closeController = closeController;
+		//Sets the parent close controller of the current {@link ClosableElement}.
+		this.parentCloseController = parentCloseController;
 	}
 }

@@ -67,7 +67,7 @@ public class NetServer extends Server {
 	/**
 	 * Lets this net server note a closing.
 	 */
-	protected void noteClosing() {
+	protected void noteClose() {
 		try {
 			serverSocket.close();
 		}

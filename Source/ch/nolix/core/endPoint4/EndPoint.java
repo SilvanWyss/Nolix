@@ -61,7 +61,7 @@ implements IGenericSender2<M, R> {
 		this.replier = replier;
 	}
 	
-	protected final void noteClosing() {}
+	protected final void noteClose() {}
 	
 	//method
 	/**

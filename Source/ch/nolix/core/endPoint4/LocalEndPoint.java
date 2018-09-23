@@ -176,7 +176,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	public R sendAndGetReply(final M message) {
 		
 		//Checks if this local end point is not aborted.
-		supposeBeingAlive();
+		supposeIsAlive();
 		
 		return getRefCounterpart().getReply(message);
 	}
