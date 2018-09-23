@@ -8,6 +8,8 @@ import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**
+ * A {@link IndexedElement} has an index.
+ * 
  * @author Silvan Wyss
  * @month 2018-09
  * @lines 40
