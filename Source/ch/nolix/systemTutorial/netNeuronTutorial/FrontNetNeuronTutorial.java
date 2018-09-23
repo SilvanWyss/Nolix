@@ -2,7 +2,6 @@
 package ch.nolix.systemTutorial.netNeuronTutorial;
 
 //own imports
-import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.system.netNeuron.FrontNetNeuron;
 import ch.nolix.system.neuronoid.SourceNeuron;
@@ -10,7 +9,7 @@ import ch.nolix.system.netNeuron.BackNetNeuron;
 
 //class
 /**
-* This class provides a tutorial for the net front neuron class.
+* The {@link FrontNetNeuronTutorial} is a tutorial for {FrontNetNeuron}.
 * 
 * @author Silvan Wyss
 * @month 2017-01
@@ -20,48 +19,46 @@ public final class FrontNetNeuronTutorial {
 
 	//main method
 	/**
-	 * 1. Creates a net back neuron and adds a source neuron as input neuron to it.
-	 * 3. Creates net front neurons that will connect to the net back neuron.
-	 * 4. Lets the net back neuron fire.
-	 * 5. Prints out to the console the outputs of the net front neurons.
-	 * 6. Closes the net back neuron and the net front neurons.
+	 * 1. Creates a back net neuron and adds an input neuron to it.
+	 * 3. Creates front net neurons that will connect to the back net neuron.
+	 * 4. Fires the back net neuron.
+	 * 5. Prints out the outputs of the front net neurons to the console.
+	 * 6. Closes the back net neuron and the front net neurons.
 	 * 
 	 * @param arguments
 	 */
 	public static final void main(String[] arguments) {
 		
-		//Defines the port of the net back neuron.
-		final int port = 20000;
+		//Defines the port for the back net neuron.
+		final var port = 20000;
 		
-		//Creates net back neuron and adds a source neuron as input neuron to it.
-		final BackNetNeuron<String> netBackNeuron =
+		//Creates a back net neuron.
+		final var netBackNeuron =
 		new BackNetNeuron<String>(port, s -> new StandardSpecification(s));
+		
+		//Creates and adds an input neuron to the back net neuron.
 		netBackNeuron.addInputNeuron(new SourceNeuron<String>("Hello_World!"));
 		
-		//Creates net front neurons that will connect to the net back neuron.
-		final FrontNetNeuron<String> netFrontNeuron1
-		= new FrontNetNeuron<String>(port, s -> s.toString());
-		final FrontNetNeuron<String> netFronNeuron2
-		= new FrontNetNeuron<String>(port, s -> s.toString());
+		//Creates front net neurons that will connect to the back net neuron.
+		final var frontNetNeuron1 = new FrontNetNeuron<String>(port, s -> s.toString());
+		final var frontNetNeuron2 = new FrontNetNeuron<String>(port, s -> s.toString());
 		
-		//Lets the net back neuron fire.
-		Sequencer.waitForMilliseconds(200);
+		//Fires the back net neuron.
 		netBackNeuron.fire();
-		Sequencer.waitForMilliseconds(200);
 		
-		//Prints out to the console the output of the front neurons.
-		System.out.println("net front neuron 1 output: " + netFrontNeuron1.getRefOutput());
-		System.out.println("net front neuron 2 output: " + netFronNeuron2.getRefOutput());
+		//Prints out the output of the front net neurons to the console.
+		System.out.println("front net neuron 1 output: " + frontNetNeuron1.getRefOutput());
+		System.out.println("front net neuron 2 output: " + frontNetNeuron2.getRefOutput());
 		
-		//Closes the net back neuron and the net front neurons.
+		//Closes the back net neuron and the fron net neurons.
 		netBackNeuron.close();
-		netFrontNeuron1.close();
-		netFronNeuron2.close();
+		frontNetNeuron1.close();
+		frontNetNeuron2.close();
 	}
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link FrontNetNeuronTutorial} can be created.
 	 */
 	private FrontNetNeuronTutorial() {}
 }
