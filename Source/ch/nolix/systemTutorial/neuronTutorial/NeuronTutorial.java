@@ -8,8 +8,8 @@ import ch.nolix.system.neuronoid.SourceNeuron;
 
 //class
 /**
- * This class provides a tutorial for the neuron class.
- * Of this class no instance can be created.
+ * The {@link NeuronTutorial} is a tutorial for a {@link Neuron}.
+ * Of the {@link NeuronTutorial} no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2017-01
@@ -19,46 +19,44 @@ public final class NeuronTutorial {
 
 	//main method
 	/**
-	 * 1. Creates 3 source neurons and a result neuron. The output type of all neurons is a floating point number.
-	 * 2. Adds the source neurons as input neurons to the result neuron.
-	 * 3. Sets the output function of the result neuron.
-	 * 4. Let the result neuron fire that it calculates its output.
-	 * 5. Prints out the output of the result neuron to the console.
+	 * 1. Creates 3 source neurons and a target neuron.
+	 *    The output type of all neurons is a floating point number.
+	 * 2. Adds the source neurons as input neurons to the target neuron.
+	 * 3. Defines the output function of the target neuron.
+	 * 4. Fires the target neuron for that it calculates its output.
+	 * 5. Prints out the output of the target neuron to the console.
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
 		//Creates source neuron 1.
-		final SourceNeuron<Double> sourceNeuron1 =
-		new SourceNeuron<Double>(6.0);
+		final var sourceNeuron1 = new SourceNeuron<Double>(5.0);
 		
 		//Creates source neuron 2.
-		final SourceNeuron<Double> sourceNeuron2 =
-		new SourceNeuron<Double>(8.0);
+		final var sourceNeuron2 = new SourceNeuron<Double>(7.0);
 		
 		//Creates source neuron 3.
-		final SourceNeuron<Double> sourceNeuron3 =
-		new SourceNeuron<Double>(16.0);
+		final var sourceNeuron3 = new SourceNeuron<Double>(18.0);
 		
-		//Creates result neuron.
-		final Neuron<Double> resultNeuron =
+		//Creates target neuron.
+		final var targetNeuron =
 		new Neuron<Double>()
 		.addInputNeuron(sourceNeuron1)
 		.addInputNeuron(sourceNeuron2)
 		.addInputNeuron(sourceNeuron3)
 		.setOutputFunction(Calculator.DOUBLE_AVERAGE);
 
-		//Lets the result neuron fire.
-		resultNeuron.fire();
+		//Fires the target neuron.
+		targetNeuron.fire();
 		
-		//Prints out the output of the result neuron to the console.
-		System.out.println("output: " + resultNeuron.getRefOutput());
+		//Prints out the output of the target neuron to the console.
+		System.out.println("output: " + targetNeuron.getRefOutput());
 	}
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link NeuronTutorial} can be created.
 	 */
 	private NeuronTutorial() {}
 }
