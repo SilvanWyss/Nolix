@@ -29,7 +29,7 @@ public abstract class HeaderedElement implements Headered {
 	 */
 	public HeaderedElement(final String header) {
 		
-		//Checks if the given header is not null or empty.
+		//Checks if the given header is an instance and not empty.
 		Validator
 		.suppose(header)
 		.thatIsNamed(VariableNameCatalogue.HEADER)
