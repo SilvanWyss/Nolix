@@ -2,17 +2,17 @@
 package ch.nolix.systemTutorial.neuronalNetTutorial;
 
 //own imports
-import ch.nolix.core.container.List;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.system.neuronalNet.ForwardMultiLayerNetCreator;
-import ch.nolix.system.neuronalNet.NeuronalNet;
 import ch.nolix.system.neuronoid.SourceNeuron;
 
 //class
 /**
- * This class provides a tutorial for the forward multi layer net creator class.
- * Of this class no instance can be created.
+ * The {@link ForwardMultiLayerNetCreatorTutorial}
+ * is a tutorial for a {@link ForwardMultiLayerNetCreator}
+ * .
+ * Of the {@link ForwardMultiLayerNetCreatorTutorial} no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2017-01
@@ -25,7 +25,7 @@ public final class ForwardMultiLayerNetCreatorTutorial {
 	 * 1. Creates a forward multi layer net creator.
 	 * 2. Lets the forward multi layer net creator create a neuronal net.
 	 * 3. Creates the inputs for the neuronal net.
-	 * 4. Lets the neuronal net fire.
+	 * 4. Fires the neuronal net.
 	 * 5. Prints out the output of the neuronal net to the console.
 	 * 
 	 * @param args
@@ -33,23 +33,22 @@ public final class ForwardMultiLayerNetCreatorTutorial {
 	public static void main(final String[] args) {
 		
 		//Creates a forward multi layer net creator.
-		final ForwardMultiLayerNetCreator<Double> forwardMultiLayerNetCreator =
+		final var forwardMultiLayerNetCreator =
 		new ForwardMultiLayerNetCreator<Double>()
 		.setLayerCount(4)
 		.setNeuronsPerLayer(5)
 		.setOutputFunction(Calculator.DOUBLE_SUM);
 		
 		//Lets the forward multi layer net creator create a neuronal net.
-		final NeuronalNet<Double> neuronalNet = forwardMultiLayerNetCreator.createNeuronalNet();
+		final var neuronalNet = forwardMultiLayerNetCreator.createNeuronalNet();
 		
 		//Creates inputs for the neuronal net.
-		final List<Double> inputs = new List<Double>();
-		Sequencer.forCount(5).run(() -> inputs.addAtEnd(0.01));
+		final var inputs = new ReadContainer<Double>(new Double[]{0.01, 0.01, 0.01, 0.01, 0.01});
 		
 		//Sets the inputs to the neuronal net.
 		neuronalNet.addInputNeuron(new SourceNeuron<Iterable<Double>>(inputs));
 		
-		//Lets the neuronal net fire.
+		//Fires the neuronal net.
 		neuronalNet.fire();
 		
 		//Prints out the output of the neuronal net to the console.
@@ -59,7 +58,7 @@ public final class ForwardMultiLayerNetCreatorTutorial {
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link ForwardMultiLayerNetCreatorTutorial} can be created.
 	 */
 	private ForwardMultiLayerNetCreatorTutorial() {}
 }
