@@ -119,8 +119,8 @@ public final class Cuboid extends BaseShape<Cuboid> {
 		super.reset();
 		
 		setXLength(DEFAULT_X_LENGTH);
-		setZLength(DEFAULT_Y_LENGTH);
-		setYLength(DEFAULT_Z_LENGTH);
+		setYLength(DEFAULT_Y_LENGTH);
+		setZLength(DEFAULT_Z_LENGTH);
 		
 		return this;
 	}
