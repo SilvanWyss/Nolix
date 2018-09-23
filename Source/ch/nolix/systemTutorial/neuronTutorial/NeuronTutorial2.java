@@ -6,8 +6,8 @@ import ch.nolix.system.neuron.Neuron;
 
 //class
 /**
- * This class provides a tutorial for the neuron class.
- * Of this class no instance can be created.
+ * The {@link NeuronTutorial2} is a tutorial for a {@link Neuron}.
+ * Of the {@link NeuronTutorial2} no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2016-11
@@ -18,7 +18,7 @@ public final class NeuronTutorial2 {
 	//main method
 	/**
 	 * 1. Creates 4 neurons that are connected linearly.
-	 * 2. Lets the first neuron fire.
+	 * 2. Fires the first neuron.
 	 * 3. Prints out the output of all neurons to the console.
 	 * 
 	 * @param args
@@ -26,28 +26,27 @@ public final class NeuronTutorial2 {
 	public static void main(String[] args) {
 		
 		//Creates neuron 1.
-		final Neuron<Double> neuron1 =
-		new Neuron<Double>().setOutput(1.0);
+		final var neuron1 =	new Neuron<Double>().setOutput(1.0);
 		
 		//Creates neuron 2.
-		final Neuron<Double> neuron2 =
+		final var neuron2 =
 		new Neuron<Double>()
 		.setOutputFunction(v -> 2.0 * v.iterator().next())
 		.addInputNeuron(neuron1);
 		
 		//Creates neuron 3.
-		final Neuron<Double> neuron3 =
+		final var neuron3 =
 		new Neuron<Double>()
 		.setOutputFunction(v -> 2.0 * v.iterator().next())
 		.addInputNeuron(neuron2);
 		
 		//Creates neuron 4.
-		final Neuron<Double> neuron4 =
+		final var neuron4 =
 		new Neuron<Double>()
 		.setOutputFunction(v -> 2.0 * v.iterator().next())
 		.addInputNeuron(neuron3);
 		
-		//Lets fire neuron1.
+		//Fires neuron 1.
 		neuron1.fire();
 		
 		//Prints out the output of the neurons to the console.
@@ -59,7 +58,7 @@ public final class NeuronTutorial2 {
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link NeuronTutorial2} can be created.
 	 */
 	private NeuronTutorial2() {}
 }
