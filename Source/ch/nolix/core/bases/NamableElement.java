@@ -1,17 +1,19 @@
 //package declaration
 package ch.nolix.core.bases;
 
+//own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.skillInterfaces.Namable;
 import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**
- * A namable element has a name.
+ * A {@link NamableElement} has a name.
  * 
  * @author Silvan Wyss
  * @month 2016-11
  * @lines 60
- * @parma <NE> - The type of a namable element.
+ * @parma <NE> The type of a {@link NamableElement}.
  */
 public abstract class NamableElement<NE extends NamableElement<NE>>
 implements Namable<NE> {
@@ -21,7 +23,7 @@ implements Namable<NE> {
 	
 	//constructor
 	/**
-	 * Creates a new namable element with the given name.
+	 * Creates a new {@link NamableElement} with the given name.
 	 * 
 	 * @param name
 	 * @throws NullArgumentException if the given name is not an instance.
@@ -33,7 +35,7 @@ implements Namable<NE> {
 	
 	//method
 	/**
-	 * @return the name of this namable element.
+	 * {@inheritDoc}
 	 */
 	public final String getName() {
 		return name;
@@ -41,18 +43,22 @@ implements Namable<NE> {
 	
 	//method
 	/**
-	 * Sets the name of this namable element.
+	 * Sets the name of the current {@link NamableElement}.
 	 * 
 	 * @param name
+	 * @return the current {@link NamableElement}.
 	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public final NE setName(final String name) {
 		
-		//Checks if the given name is not null or empty.
-		Validator.suppose(name).thatIsNamed("name").isNotEmpty();
+		//Checks if the given name is an instance and not empty.
+		Validator
+		.suppose(name)
+		.thatIsNamed(VariableNameCatalogue.NAME)
+		.isNotEmpty();
 		
-		//Sets the name of this namable element.
+		//Sets the name of the current namable element.
 		this.name = name;
 		
 		return getInstance();
