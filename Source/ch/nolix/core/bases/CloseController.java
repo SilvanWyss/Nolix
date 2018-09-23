@@ -66,7 +66,7 @@ final class CloseController implements Closable {
 	
 	//method
 	/**
-	 * Closes the current {@link CoseController}.
+	 * {@inheritDoc}
 	 */
 	public void close() {
 		
@@ -100,7 +100,7 @@ final class CloseController implements Closable {
 	
 	//method
 	/**
-	 * @return true if the current {@link CoseController} is closed.
+	 * {@inheritDoc}
 	 */
 	public boolean isClosed() {
 		return closed;
