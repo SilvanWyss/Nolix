@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.coreTutorial.validator2Tutorial;
 
+//own import
 import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**
- * This class provides a tutorial for the validator.
+ * The {@link ValidatorTutorial} is a tutorial for the {@link Validator}.
  * 
  * @author Silvan Wys
  * @month 2017-05
@@ -43,7 +44,7 @@ public final class ValidatorTutorial {
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link ValidatorTutorial} can be created.
 	 */
 	private ValidatorTutorial() {}
 }
