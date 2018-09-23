@@ -24,10 +24,10 @@ extends Shape<BS> {
 	public static final Color DEFAULT_COLOR = Color.WHITE;
 	
 	//attribute
-	private MutableProperty<Color> color
+	private MutableProperty<Color> defaultColor
 	= new MutableProperty<Color>(
 		Color.TYPE_NAME,
-		c -> setColor(c),
+		c -> setDefaultColor(c),
 		s -> Color.createFromSpecification(s),
 		c -> c.getSpecification()
 	);
@@ -41,17 +41,17 @@ extends Shape<BS> {
 		//Calls method of the base class.
 		final List<StandardSpecification> attributes = super.getAttributes();
 		
-		attributes.addAtEnd(getColor().getSpecification());
+		attributes.addAtEnd(getDefaultColor().getSpecification());
 		
 		return attributes;
 	}
 	
 	//method
 	/**
-	 * @return the color of this base shape.
+	 * @return the default color of this base shape.
 	 */
-	public final Color getColor() {
-		return color.getValue();
+	public final Color getDefaultColor() {
+		return defaultColor.getValue();
 	}
 	
 	//method
@@ -70,22 +70,22 @@ extends Shape<BS> {
 	 */
 	public final BS resetConfiguration() {
 		
-		setColor(DEFAULT_COLOR);
+		setDefaultColor(DEFAULT_COLOR);
 		
 		return getInstance();
 	}
 
 	//method
 	/**
-	 * Sets the color of this base shape.
+	 * Sets the default color of this base shape.
 	 * 
 	 * @param color
 	 * @return this base shape.
 	 * @throws NullArgumentException if the given color is not an instance.
 	 */
-	public final BS setColor(final Color color) {
+	public final BS setDefaultColor(final Color color) {
 	
-		this.color.setValue(color);
+		this.defaultColor.setValue(color);
 		
 		return getInstance();
 	}

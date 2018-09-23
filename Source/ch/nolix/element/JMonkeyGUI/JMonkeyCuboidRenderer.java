@@ -72,7 +72,7 @@ implements IJMonkeyShapeRenderer<Cuboid, Geometry> {
 								
 				material.setColor(
 					"Diffuse",
-					JMonkeyColorHelper.createColorRGBA(cuboid.getColor())
+					JMonkeyColorHelper.createColorRGBA(cuboid.getDefaultColor())
 				);
 				
 				geometry.setMaterial(material);

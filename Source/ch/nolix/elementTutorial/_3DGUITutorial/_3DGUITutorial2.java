@@ -37,16 +37,16 @@ public final class _3DGUITutorial2 {
 				.setXLength(2.0)
 				.setYLength(1.0)
 				.setZLength(0.5)
-				.setColor(Color.BLUE),
+				.setDefaultColor(Color.BLUE),
 				new Sphere()
 				.setPosition(4.0, -2.0, 0.0)
 				.setDiameter(1.0)
-				.setColor(Color.RED),
+				.setDefaultColor(Color.RED),
 				new Cylinder()
 				.setPosition(4.0, 2.0, 0.0)
 				.setRadius(2.0)
 				.setHeight(4.0)
-				.setColor(Color.GREEN)
+				.setDefaultColor(Color.GREEN)
 			)
 		);
 		

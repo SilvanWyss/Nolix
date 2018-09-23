@@ -27,7 +27,7 @@ public final class _3DGUITutorial {
 		final JMonkeyMainFrame mainFrame = new JMonkeyMainFrame();
 		
 		mainFrame.setRootShape(
-			new Sphere().setRadius(2.0).setColor(Color.BLUE)
+			new Sphere().setRadius(2.0).setDefaultColor(Color.BLUE)
 		);
 		
 		mainFrame.refresh();

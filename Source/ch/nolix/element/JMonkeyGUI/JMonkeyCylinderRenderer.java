@@ -38,7 +38,7 @@ implements IJMonkeyShapeRenderer<Cylinder, Geometry> {
 						
 		material.setColor(
 			"Diffuse",
-			JMonkeyColorHelper.createColorRGBA(cylinder.getColor())
+			JMonkeyColorHelper.createColorRGBA(cylinder.getDefaultColor())
 		);
 		
 		geometry.setMaterial(material);

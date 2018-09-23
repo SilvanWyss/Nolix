@@ -67,6 +67,6 @@ implements IJMonkeyShapeRenderer<Sphere, Geometry> {
 		//Sets the color of the given geometry.
 		geometry
 		.getMaterial()
-		.setColor("Diffuse", JMonkeyColorHelper.createColorRGBA(sphere.getColor()));
+		.setColor("Diffuse", JMonkeyColorHelper.createColorRGBA(sphere.getDefaultColor()));
 	}
 }
