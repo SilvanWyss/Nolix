@@ -86,7 +86,7 @@ implements IJMonkeyShapeRenderer<Cuboid, Geometry> {
 				= new Material(JMonkeyHelper.getAssetManager(), "Common/MatDefs/Misc/Unshaded.j3md");
 				
 				final var texture
-				= new Texture2D(new AWTLoader().load(cuboid.getDefaultTexture().toBufferedImage(),true));
+				= new Texture2D(new AWTLoader().load(cuboid.getRefDefaultTexture().toBufferedImage(),true));
 				
 				material.setTexture("ColorMap", texture);	
 				

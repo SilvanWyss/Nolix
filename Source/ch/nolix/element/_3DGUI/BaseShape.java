@@ -54,7 +54,7 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	 * @return the default texture of the current {@link BaseShape}.
 	 * @throws UnexistingAttribute if the current {@link BaseShape} has no default texture.
 	 */
-	public final Image getDefaultTexture() {
+	public final Image getRefDefaultTexture() {
 		return defaultTexture.getValue();
 	}
 	
