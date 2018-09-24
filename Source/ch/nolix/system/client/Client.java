@@ -7,7 +7,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.endPoint5.EndPoint;
 import ch.nolix.core.endPoint5.LocalEndPoint;
-import ch.nolix.core.endPoint5.NetEndPointController;
+import ch.nolix.core.endPoint5.NetEndPoint;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.skillInterfaces.Closable;
 import ch.nolix.core.specification.Specification;
@@ -306,7 +306,7 @@ implements Closable {
 	protected final void internal_connectTo(final int port) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new NetEndPointController(port));
+		internal_setDuplexController(new NetEndPoint(port));
 	}
 	
 	//method
@@ -324,7 +324,7 @@ implements Closable {
 	protected final void internal_connectTo(final int port, final String name) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new NetEndPointController(port, name));
+		internal_setDuplexController(new NetEndPoint(port, name));
 	}
 	
 	//method
@@ -379,7 +379,7 @@ implements Closable {
 	protected final void internal_connectTo(final String ip, final int port) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new NetEndPointController(ip, port));
+		internal_setDuplexController(new NetEndPoint(ip, port));
 	}
 	
 	//method
@@ -398,7 +398,7 @@ implements Closable {
 	protected final void internal_connectTo(String ip, int port, String name) {
 		
 		//Creates the duplex controller of the current client.
-		internal_setDuplexController(new NetEndPointController(ip, port, name));
+		internal_setDuplexController(new NetEndPoint(ip, port, name));
 	}
 	
 	//abstract method

@@ -13,22 +13,22 @@ import ch.nolix.primitive.validator.Validator;
 final class Replier implements IReplier {
 
 	//attribute
-	private final NetEndPointController netEndPointController;
+	private final NetEndPoint netEndPoint;
 	
 	//constructor
 	/**
 	 * Creates a new receiver that belongs to the given net duplex controller.
 	 * 
-	 * @param netEndPointController
+	 * @param netEndPoint
 	 * @throws NullArgumentException if the given net duplex controller is not an instance.
 	 */
-	public Replier(final NetEndPointController netEndPointController) {
+	public Replier(final NetEndPoint netEndPoint) {
 		
 		//Checks if the given net duplex controller is an instance.
-		Validator.throwExceptionIfValueIsNull("net controller", netEndPointController);
+		Validator.throwExceptionIfValueIsNull("net controller", netEndPoint);
 		
 		//Sets the net duplex controller of this replier.
-		this.netEndPointController = netEndPointController;
+		this.netEndPoint = netEndPoint;
 	}
 	
 	//method
@@ -36,6 +36,6 @@ final class Replier implements IReplier {
 	 * @return the reply to the given message from this replier.
 	 */
 	public String getReply(final String message) {
-		return netEndPointController.receiveAndGetReply(message);
+		return netEndPoint.receiveAndGetReply(message);
 	}
 }

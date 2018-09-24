@@ -5,7 +5,6 @@ package ch.nolix.core.endPoint5;
 import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerAPI.IMultiController;
-import ch.nolix.core.endPoint3.NetEndPoint;
 import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specification.Statement;
 import ch.nolix.primitive.invalidArgumentException.Argument;
@@ -21,10 +20,10 @@ import ch.nolix.primitive.validator2.Validator;
  * @month 2015-12
  * @lines 250
  */
-public class NetEndPointController extends EndPoint {
+public class NetEndPoint extends EndPoint {
 		
 	//attribute
-	private final NetEndPoint netEndPoint;
+	private final ch.nolix.core.endPoint3.NetEndPoint netEndPoint;
 		
 	//constructor
 	/**
@@ -34,7 +33,7 @@ public class NetEndPointController extends EndPoint {
 	 * @param port
 	 * @throws OutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public NetEndPointController(final int port) {
+	public NetEndPoint(final int port) {
 		
 		//Calls other constructor.
 		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port);
@@ -49,7 +48,7 @@ public class NetEndPointController extends EndPoint {
 	 * @param target
 	 * @throws OutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public NetEndPointController(final int port, final String target) {
+	public NetEndPoint(final int port, final String target) {
 		
 		//Calls other constructor.
 		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port, target);
@@ -64,10 +63,10 @@ public class NetEndPointController extends EndPoint {
 	 * @param port
 	 * @throws OutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public NetEndPointController(final String ip, final int port) {
+	public NetEndPoint(final String ip, final int port) {
 		
 		//Calls other constructor.
-		this(new NetEndPoint(ip, port));
+		this(new ch.nolix.core.endPoint3.NetEndPoint(ip, port));
 	}
 	
 	//constructor
@@ -82,10 +81,10 @@ public class NetEndPointController extends EndPoint {
 	 * @throws NullArgumentException if the given target is not an instance.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
-	public NetEndPointController(final String ip, final int port, final String target) {
+	public NetEndPoint(final String ip, final int port, final String target) {
 		
 		//Calls other constructor.
-		this(new NetEndPoint(ip, port, target));
+		this(new ch.nolix.core.endPoint3.NetEndPoint(ip, port, target));
 	}
 	
 	//package-visible constructor
@@ -95,10 +94,10 @@ public class NetEndPointController extends EndPoint {
 	 * @param netEndPoint
 	 * @throws NullArgumentException if the given net end point is not an instance.
 	 */
-	NetEndPointController(final NetEndPoint netEndPoint) {
+	NetEndPoint(final ch.nolix.core.endPoint3.NetEndPoint netEndPoint) {
 		
 		//Checks if the given net end point is an instance.
-		Validator.suppose(netEndPoint).isInstanceOf(NetEndPoint.class);
+		Validator.suppose(netEndPoint).isInstanceOf(ch.nolix.core.endPoint3.NetEndPoint.class);
 		
 		//Sets the net end point of this net duplex controller.
 		this.netEndPoint = netEndPoint;
