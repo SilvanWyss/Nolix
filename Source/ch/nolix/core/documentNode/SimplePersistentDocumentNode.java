@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.specification;
+package ch.nolix.core.documentNode;
 
 //own imports
 import ch.nolix.core.container.IContainer;
@@ -17,11 +17,11 @@ import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
  * @month 2017-07
  * @lines 130
  */
-public final class SimplePersistentSpecification extends Specification {
+public final class SimplePersistentDocumentNode extends DocumentNodeoid {
 
 	//attributes
 	private final FileAccessor fileAccessor;
-	private final StandardSpecification internalSpecification;
+	private final DocumentNode internalSpecification;
 	
 	//constructor
 	/**
@@ -31,7 +31,7 @@ public final class SimplePersistentSpecification extends Specification {
 	 * 
 	 * @param filePath
 	 */
-	public SimplePersistentSpecification(final String filePath) {
+	public SimplePersistentDocumentNode(final String filePath) {
 		
 		final FileSystemAccessor fileSystemAccessor = new FileSystemAccessor();
 		
@@ -46,7 +46,7 @@ public final class SimplePersistentSpecification extends Specification {
 		}
 		
 		internalSpecification
-		= StandardSpecification.createFromFile(filePath);
+		= DocumentNode.createFromFile(filePath);
 	}
 	
 	//method
@@ -55,7 +55,7 @@ public final class SimplePersistentSpecification extends Specification {
 	 * 
 	 * @param attribute
 	 */
-	public void addAttribute(final Specification attribute) {
+	public void addAttribute(final DocumentNodeoid attribute) {
 		internalSpecification.addAttribute(attribute);
 		save();
 	}
@@ -83,10 +83,10 @@ public final class SimplePersistentSpecification extends Specification {
 	 * @return the attributes of this simple persistent specification.
 	 */
 	@SuppressWarnings("unchecked")
-	public IContainer<SubSpecification> getRefAttributes() {
-		return new ReadContainer<SubSpecification>(
+	public IContainer<SubDocumentNode> getRefAttributes() {
+		return new ReadContainer<SubDocumentNode>(
 			internalSpecification.getRefAttributes().to(
-				a -> new SubSpecification(this, a)
+				a -> new SubDocumentNode(this, a)
 			)
 		);
 	}
@@ -97,8 +97,8 @@ public final class SimplePersistentSpecification extends Specification {
 	 * @throws RuntimeException if this simple persistent specification
 	 * has no or several attributes.
 	 */
-	public SubSpecification getRefOneAttribute() {
-		return new SubSpecification(
+	public SubDocumentNode getRefOneAttribute() {
+		return new SubDocumentNode(
 			this,
 			internalSpecification.getRefOneAttribute()
 		);
@@ -120,7 +120,7 @@ public final class SimplePersistentSpecification extends Specification {
 	 * @throws InvalidArgumentException
 	 * if this simple persistent specification contains no attribute the given selector selects.
 	 */
-	public void removeFirstAttribute(final IElementTakerBooleanGetter<Specification> selector) {
+	public void removeFirstAttribute(final IElementTakerBooleanGetter<DocumentNodeoid> selector) {
 		internalSpecification.removeFirstAttribute(a -> selector.getOutput(a));
 		save();
 	}

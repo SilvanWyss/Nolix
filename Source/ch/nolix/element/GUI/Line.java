@@ -3,8 +3,8 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.intData.Length;
 import ch.nolix.element.intData.Thickness;
@@ -50,7 +50,7 @@ extends Widget<L, LineLook> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public final void addOrChangeAttribute(final Specification attribute) {
+	public final void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -82,10 +82,10 @@ extends Widget<L, LineLook> {
 	/**
 	 * @return the attributes of this line.
 	 */
-	public final List<StandardSpecification> getAttributes() {	
+	public final List<DocumentNode> getAttributes() {	
 		
 		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
+		final List<DocumentNode> attributes = super.getAttributes();
 		
 		if (getLength() != DEFAULT_LENGTH) {
 			attributes.addAtEnd(length.getSpecification());

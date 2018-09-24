@@ -9,8 +9,8 @@ import java.awt.Graphics;
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.enums.TextStyle;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Element;
 import ch.nolix.element.core.PositiveInteger;
@@ -155,8 +155,8 @@ public final class Font extends Element {
 	/**
 	 * @return the attributes of the current {@link Font}.
 	 */
-	public List<StandardSpecification> getAttributes() {
-		return new List<StandardSpecification>(
+	public List<DocumentNode> getAttributes() {
+		return new List<DocumentNode>(
 			textFont.getSpecification(),
 			textStyle.getSpecificationAs(TextStyle.TYPE_NAME),
 			textSize.getSpecificationAs(TEXT_SIZE_HEADER),

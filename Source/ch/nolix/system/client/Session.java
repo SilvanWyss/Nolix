@@ -6,9 +6,9 @@ import java.lang.reflect.Method;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.helper.MethodHelper;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
@@ -58,7 +58,7 @@ public abstract class Session<C extends Client<C>> {
 							userRunMethods.addAtEnd(m);
 						}
 						
-						else if (m.getReturnType().equals(StandardSpecification.class)) {
+						else if (m.getReturnType().equals(DocumentNode.class)) {
 							
 							//Setting the method accessible is needed that it can be accessed.
 							m.setAccessible(true);
@@ -124,10 +124,10 @@ public abstract class Session<C extends Client<C>> {
 	 * @return the data the given data method returns for the given parameters.
 	 * @throws RuntimeException if an error occurs.
 	 */
-	final StandardSpecification invokeUserDataMethod(String name, String... arguments) {
+	final DocumentNode invokeUserDataMethod(String name, String... arguments) {
 		try {
 			return
-			(StandardSpecification)
+			(DocumentNode)
 			getUserDataMethod(name).invoke(this, (Object[])arguments);
 		}
 		catch (final Exception exception) {

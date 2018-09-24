@@ -3,7 +3,7 @@ package ch.nolix.core.databaseAdapter;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.specificationAPI.Specified;
 
 //abstract class
@@ -21,10 +21,10 @@ public abstract class PropertyoidType<V> implements Specified {
 	public abstract boolean captionsPropertyThatCanReference(Entity entity);
 	
 	//method
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		return
-		new List<StandardSpecification>(
-			new StandardSpecification(
+		new List<DocumentNode>(
+			new DocumentNode(
 				getValueTypeName()
 			)
 		);

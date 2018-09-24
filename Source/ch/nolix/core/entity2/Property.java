@@ -4,8 +4,8 @@ package ch.nolix.core.entity2;
 //own imports
 import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.specification.Specification;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
@@ -22,7 +22,7 @@ public final class Property<V extends Specified> extends NamedElement {
 	
 	//attributes
 	private final V defaultValue;
-	private final IElementTakerElementGetter<Specification, V> valueCreator;
+	private final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator;
 	
 	//optional attributes
 	private V value;
@@ -43,7 +43,7 @@ public final class Property<V extends Specified> extends NamedElement {
 	public Property(
 		final String name,		
 		final V defaultValue,
-		final IElementTakerElementGetter<Specification, V> valueCreator
+		final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator
 	) {
 		
 		//Calls constructor of the base class.
@@ -171,7 +171,7 @@ public final class Property<V extends Specified> extends NamedElement {
 	 * @param specification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public void setValueFromSpecification(final Specification specification) {
+	public void setValueFromSpecification(final DocumentNodeoid specification) {
 		setValue(valueCreator.getOutput(specification));
 	}
 	

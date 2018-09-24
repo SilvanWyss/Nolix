@@ -3,8 +3,8 @@ package ch.nolix.element.core;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.helper.StringHelper;
-import ch.nolix.core.specification.Specification;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 
 //class
@@ -36,7 +36,7 @@ public final class ValueOrPercentageHolder extends Element {
 	 * if the given specification is not valid.
 	 */
 	public static ValueOrPercentageHolder createFromSpecification(
-		final Specification specification
+		final DocumentNodeoid specification
 	) {
 		
 		var attribute = specification.getOneAttributeAsString();

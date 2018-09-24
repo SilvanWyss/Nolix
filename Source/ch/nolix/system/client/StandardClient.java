@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.client;
 
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.endPoint5.EndPoint;
-import ch.nolix.core.specification.StandardSpecification;
 
 //class
 /**
@@ -115,7 +115,7 @@ public final class StandardClient extends Client<StandardClient> {
 	 * @param request
 	 * @return the data the given data method request requests from a data method of the other side of this standard client.
 	 */
-	public StandardSpecification getData(final String dataMethodRequest) {
+	public DocumentNode getData(final String dataMethodRequest) {
 		return
 		internal_getDataFromCounterpart(SESSION_USER_DATA_METHOD_HEADER + "(" + dataMethodRequest + ")");
 	}

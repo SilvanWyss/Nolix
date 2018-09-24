@@ -3,7 +3,7 @@ package ch.nolix.element.core;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
 
 //class
 /**
@@ -47,10 +47,10 @@ public class Integer extends Element {
 	/**
 	 * @return the attributes of this integer.
 	 */
-	public final List<StandardSpecification> getAttributes() {
+	public final List<DocumentNode> getAttributes() {
 		return
-		new List<StandardSpecification>(
-			new StandardSpecification(java.lang.Integer.toString(getValue()))
+		new List<DocumentNode>(
+			new DocumentNode(java.lang.Integer.toString(getValue()))
 		);
 	}
 	

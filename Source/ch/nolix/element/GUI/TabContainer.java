@@ -3,12 +3,12 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.skillInterfaces.Clearable;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.validator2.Validator;
@@ -81,7 +81,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -195,7 +195,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();

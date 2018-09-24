@@ -4,9 +4,9 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.skillInterfaces.Clearable;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.core.MutableElement;
 import ch.nolix.primitive.invalidStateException.EmptyStateException;
 import ch.nolix.primitive.validator2.Validator;
@@ -53,7 +53,7 @@ implements Clearable<GridCell> {
 	}
 	
 	//method
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		if (GUI.canCreateWidget(attribute)) {
 			setWidget(GUI.createWidget(attribute));
@@ -72,11 +72,11 @@ implements Clearable<GridCell> {
 	}
 	
 	//method
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
-		final var attributes = new List<StandardSpecification>(
-			StandardSpecification.createFromInt(getRowIndex()),
-			StandardSpecification.createFromInt(getColumnIndex())
+		final var attributes = new List<DocumentNode>(
+			DocumentNode.createFromInt(getRowIndex()),
+			DocumentNode.createFromInt(getColumnIndex())
 		);
 		
 		if (containsAny()) {

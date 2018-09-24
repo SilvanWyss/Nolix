@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.core.entity;
 
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.skillInterfaces.Clearable;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationAPI.Specified;
 
 //class
@@ -37,8 +37,8 @@ implements Clearable<MutableOptionalProperty<V>> {
 	public MutableOptionalProperty(
 		final String name,
 		final IElementTaker<V> setterMethod,
-		final IElementTakerElementGetter<Specification, V> valueCreator,
-		final IElementTakerElementGetter<V, StandardSpecification> specificationCreator
+		final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator,
+		final IElementTakerElementGetter<V, DocumentNode> specificationCreator
 	) {
 		
 		//Calls constructor of the base class.

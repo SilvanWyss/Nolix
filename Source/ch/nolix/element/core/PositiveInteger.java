@@ -3,7 +3,7 @@ package ch.nolix.element.core;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
@@ -28,7 +28,7 @@ public class PositiveInteger extends Integer {
 	 * if the given specification is not valid.
 	 */
 	public static PositiveInteger createFromSpecification(
-		final Specification specification
+		final DocumentNodeoid specification
 	) {
 		return new PositiveInteger(
 			specification.getOneAttributeAsInt()

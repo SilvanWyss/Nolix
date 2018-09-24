@@ -6,9 +6,9 @@ import java.awt.GradientPaint;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.enums.UniDirection;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.core.Element;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
@@ -46,18 +46,18 @@ public class ColorGradient extends Element {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static ColorGradient createFromSpecification(
-		final Specification specification
+		final DocumentNodeoid specification
 	) {
 		
 		final var attributes = specification.getRefAttributes();
 		
-		final var directionSpecification = new StandardSpecification();
+		final var directionSpecification = new DocumentNode();
 		directionSpecification.addAttribute(attributes.getRefAt(1));
 		
-		final var color1Specification = new StandardSpecification();
+		final var color1Specification = new DocumentNode();
 		color1Specification.addAttribute(attributes.getRefAt(2));
 		
-		final var color2Specification = new StandardSpecification();
+		final var color2Specification = new DocumentNode();
 		color2Specification.addAttribute(attributes.getRefAt(3));
 		
 		return new ColorGradient(
@@ -212,12 +212,12 @@ public class ColorGradient extends Element {
 	/**
 	 * @return the attributes of this color gradient.
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		return 
-		new List<StandardSpecification>(
-			StandardSpecification.createSpecificationWithHeader(getDirection().toString()),
-			StandardSpecification.createSpecificationWithHeader(getColor1().getStringValue()),
-			StandardSpecification.createSpecificationWithHeader(getColor2().getStringValue())
+		new List<DocumentNode>(
+			DocumentNode.createSpecificationWithHeader(getDirection().toString()),
+			DocumentNode.createSpecificationWithHeader(getColor1().getStringValue()),
+			DocumentNode.createSpecificationWithHeader(getColor2().getStringValue())
 		);
 	}
 	
@@ -250,10 +250,10 @@ public class ColorGradient extends Element {
 	 * @param appendAlphaValueAlways
 	 * @return a hexadecimal specification of this color gradient.
 	 */
-	public StandardSpecification getHexadecimalSpecification(
+	public DocumentNode getHexadecimalSpecification(
 		final boolean appendAlphaValueAlways
 	) {
-		return new StandardSpecification(
+		return new DocumentNode(
 			getType(),
 			color1.getHexadecimalSpecification(appendAlphaValueAlways),
 			color2.getHexadecimalSpecification(appendAlphaValueAlways)

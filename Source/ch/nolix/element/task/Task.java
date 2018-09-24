@@ -3,10 +3,10 @@ package ch.nolix.element.task;
 
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.entity.Property;
-import ch.nolix.core.specification.Specification;
 import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.core.Text;
 import ch.nolix.element.core.Time;
@@ -40,7 +40,7 @@ public final class Task extends MutableElement<Task> {
 	 * @return a new task from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Task createFromSpecification(final Specification specification) {
+	public static Task createFromSpecification(final DocumentNodeoid specification) {
 		return new Task(specification);
 	}
 	
@@ -184,7 +184,7 @@ public final class Task extends MutableElement<Task> {
 	 * @param specification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	private Task(final Specification specification) {
+	private Task(final DocumentNodeoid specification) {
 		reset(specification);
 		approveProperties();
 	}

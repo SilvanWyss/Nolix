@@ -4,7 +4,7 @@ package ch.nolix.coreTest.databaseAdapterTest;
 //own imports
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.Property;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.primitive.test2.Test;
 
 //test class
@@ -24,7 +24,7 @@ public final class EntityTest extends Test {
 		//verification
 		expect(specification)
 		.isEqualTo(
-			new StandardSpecification(
+			new DocumentNode(
 				"Cat(Name(Garfield),WeightInGram(20000))"
 			)
 		);

@@ -6,8 +6,8 @@ import java.awt.event.KeyEvent;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -57,7 +57,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	/**
 	 * @return the interaction attributes of the current {@link TextBox}.
 	 */
-	public List<StandardSpecification> getInteractionAttributes() {
+	public List<DocumentNode> getInteractionAttributes() {
 		
 		//Calls method of the base class.
 		final var interactionAttributes = super.getInteractionAttributes();

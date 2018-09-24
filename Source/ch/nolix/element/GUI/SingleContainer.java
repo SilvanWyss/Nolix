@@ -10,8 +10,8 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.element.painter.IPainter;
 
 //class
@@ -40,7 +40,7 @@ extends Container<SingleContainer, SingleContainerLook> {
 	 * @param attributes
 	 * @throws Exception if the given attributes are not valid
 	 */
-	public SingleContainer(List<Specification> attributes) {
+	public SingleContainer(List<DocumentNodeoid> attributes) {
 		
 		//Calls other constructor.
 		this();
@@ -52,10 +52,10 @@ extends Container<SingleContainer, SingleContainerLook> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public final List<StandardSpecification> getAttributes() {
+	public final List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
-		List<StandardSpecification> attributes = super.getAttributes();
+		List<DocumentNode> attributes = super.getAttributes();
 		
 		attributes.addAtEnd(getRefRectangle().getSpecification());
 		return attributes;
@@ -77,7 +77,7 @@ extends Container<SingleContainer, SingleContainerLook> {
 		return widget;
 	}
 	
-	public final void addOrChangeAttribute(StandardSpecification attribute) {
+	public final void addOrChangeAttribute(DocumentNode attribute) {
 		
 		if (attribute.hasHeader() && GUI.canCreateWidget(attribute.getHeader())) {
 			setRectangle(GUI.createWidget(attribute));

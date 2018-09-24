@@ -5,9 +5,9 @@ package ch.nolix.core.entity;
 import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
@@ -21,14 +21,14 @@ public abstract class Propertyoid<V>
 extends NamedElement {
 	
 	//attributes
-	private final IElementTakerElementGetter<Specification, V> valueCreator;
-	private final IElementTakerElementGetter<V, StandardSpecification> specificationCreator;
+	private final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator;
+	private final IElementTakerElementGetter<V, DocumentNode> specificationCreator;
 	
 	//package-visible constructor
 	Propertyoid(
 		final String name,
-		final IElementTakerElementGetter<Specification, V> valueCreator,
-		final IElementTakerElementGetter<V, StandardSpecification> specificationCreator
+		final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator,
+		final IElementTakerElementGetter<V, DocumentNode> specificationCreator
 	) {
 		
 		//Calls constructor of the base class.
@@ -80,7 +80,7 @@ extends NamedElement {
 	 * @param specification
 	 */
 	final void addOrChangeValueFromSpecification(
-		final Specification specification
+		final DocumentNodeoid specification
 	) {
 		addOrChangeValue(valueCreator.getOutput(specification));
 	}
@@ -92,7 +92,7 @@ extends NamedElement {
 	abstract void approve();
 	
 	//package-visible method
-	final void fillUpAttributes(final List<StandardSpecification> attributes) {
+	final void fillUpAttributes(final List<DocumentNode> attributes) {
 		
 		//Iterates the values of this property.
 		for (final var v : getRefValues()) {
@@ -106,9 +106,9 @@ extends NamedElement {
 	}
 	
 	//package-visible method
-	final List<StandardSpecification> getAttributes() {
+	final List<DocumentNode> getAttributes() {
 		
-		final var attributes = new List<StandardSpecification>();
+		final var attributes = new List<DocumentNode>();
 		fillUpAttributes(attributes);
 				
 		return attributes;

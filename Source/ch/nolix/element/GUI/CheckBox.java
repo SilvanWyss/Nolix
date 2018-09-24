@@ -3,8 +3,8 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
 import ch.nolix.element.painter.IPainter;
@@ -53,7 +53,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -91,7 +91,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public List<StandardSpecification> getInteractionAttributes() {
+	public List<DocumentNode> getInteractionAttributes() {
 		
 		//Calls method of the base class.
 		final var interactionAttributes = super.getInteractionAttributes();

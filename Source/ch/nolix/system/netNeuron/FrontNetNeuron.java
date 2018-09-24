@@ -4,9 +4,9 @@ package ch.nolix.system.netNeuron;
 //own imports
 import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.skillInterfaces.Closable;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.primitive.validator2.Validator;
 import ch.nolix.system.client.StandardClient;
 import ch.nolix.system.neuronoid.Neuronoid;
@@ -33,7 +33,7 @@ implements Closable {
 	
 	//attributes
 	private final StandardClient client;
-	private final IElementTakerElementGetter<StandardSpecification, O> transformator;
+	private final IElementTakerElementGetter<DocumentNode, O> transformator;
 	
 	//constructor
 	/**
@@ -48,7 +48,7 @@ implements Closable {
 	 */
 	public FrontNetNeuron(
 		final int port,
-		IElementTakerElementGetter<StandardSpecification, O> transformator
+		IElementTakerElementGetter<DocumentNode, O> transformator
 	) {
 		
 		//Calls other constructor.
@@ -70,7 +70,7 @@ implements Closable {
 	public FrontNetNeuron(
 		final String ip,
 		final int port,
-		IElementTakerElementGetter<StandardSpecification, O> transformator
+		IElementTakerElementGetter<DocumentNode, O> transformator
 	) {
 		
 		//Checks if the given transformer is an instance.
@@ -131,7 +131,7 @@ implements Closable {
 	 * 
 	 * @param output
 	 */
-	void setOutput(final StandardSpecification output) {
+	void setOutput(final DocumentNode output) {
 		internal_setOutput(transformator.getOutput(output));
 	}
 	
@@ -143,7 +143,7 @@ implements Closable {
 	 */
 	void setOutput(final String output) {
 		internal_setOutput(
-			transformator.getOutput(new StandardSpecification(output))
+			transformator.getOutput(new DocumentNode(output))
 		);
 	}
 }

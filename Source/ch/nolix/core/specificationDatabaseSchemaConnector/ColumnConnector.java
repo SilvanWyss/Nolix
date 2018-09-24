@@ -4,17 +4,17 @@ package ch.nolix.core.specificationDatabaseSchemaConnector;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.databaseSchemaAdapter.IColumnConnector;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
 public final class ColumnConnector implements IColumnConnector {
 
 	//attribute
-	private final Specification columnSpecification;
+	private final DocumentNodeoid columnSpecification;
 	
 	//package-visible constructor
-	ColumnConnector(final Specification columnSpecification) {
+	ColumnConnector(final DocumentNodeoid columnSpecification) {
 		
 		Validator
 		.suppose(columnSpecification)

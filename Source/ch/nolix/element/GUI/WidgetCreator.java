@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;
 import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
@@ -110,7 +110,7 @@ final class WidgetCreator {
 	 * @return a new {@link Widget} from the given specification from the current {@link WidgetCreator}.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public Widget<?, ?> createWidget(final Specification specification) {
+	public Widget<?, ?> createWidget(final DocumentNodeoid specification) {
 		
 		final var widget = createWidget(specification.getHeader());
 		widget.addOrChangeAttributes(specification.getRefAttributes());

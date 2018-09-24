@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.specificationAPI.ISpecifiedEnum;
 
 //enum
@@ -32,7 +31,7 @@ public enum ButtonRole implements ISpecifiedEnum {
 	 * if the given specification is not valid.
 	 */
 	public static ButtonRole createFromSpecification(
-		final Specification specification
+		final DocumentNodeoid specification
 	) {
 		return valueOf(specification.getOneAttributeAsString());
 	}

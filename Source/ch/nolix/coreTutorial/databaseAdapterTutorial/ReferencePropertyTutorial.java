@@ -8,7 +8,7 @@ import ch.nolix.core.databaseAdapter.Property;
 import ch.nolix.core.databaseAdapter.ReferenceProperty;
 import ch.nolix.core.databaseAdapter.Schema;
 import ch.nolix.core.databaseSchemaAdapter.DatabaseSchemaAdapter;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.specificationDatabaseConnector.SpecificationDatabaseConnector;
 import ch.nolix.core.specificationDatabaseSchemaConnector.SpecificationDatabaseSchemaConnector;
 
@@ -19,7 +19,7 @@ public final class ReferencePropertyTutorial {
 	public static void main(String[] args) {
 		
 		//Creates the cat database.
-		final var catDatabase = new StandardSpecification();
+		final var catDatabase = new DocumentNode();
 		
 		//Creates a database schema adapter for the cat database.
 		final var catDatabaseSchemaAdapter = new DatabaseSchemaAdapter(

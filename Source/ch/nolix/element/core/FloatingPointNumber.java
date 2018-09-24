@@ -3,8 +3,8 @@ package ch.nolix.element.core;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.helper.DoubleHelper;
-import ch.nolix.core.specification.StandardSpecification;
 
 //class
 /**
@@ -33,8 +33,8 @@ public class FloatingPointNumber extends Element {
 	/**
 	 * @return the attributes of this floating point number.
 	 */
-	public final List<StandardSpecification> getAttributes() {
-		return new List<StandardSpecification>(new StandardSpecification(DoubleHelper.toString(getValue())));
+	public final List<DocumentNode> getAttributes() {
+		return new List<DocumentNode>(new DocumentNode(DoubleHelper.toString(getValue())));
 	}
 	
 	//method

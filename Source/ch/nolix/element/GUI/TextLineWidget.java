@@ -11,8 +11,8 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.enums.TextStyle;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Text;
 import ch.nolix.element.font.Font;
@@ -39,7 +39,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	 * 
 	 * @param attribute		The attribute to add or change to this text line rectangle.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the given attribute.
 		switch (attribute.getHeader()) {
@@ -61,7 +61,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		return super.getAttributes().addAtEnd(text.getSpecification());
 	}
 	
@@ -178,7 +178,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	/**
 	 * @return the text specification of this text line widget.
 	 */
-	protected StandardSpecification getTextSpecification() {
+	protected DocumentNode getTextSpecification() {
 		return text.getSpecification();
 	}
 	

@@ -2,10 +2,10 @@
 package ch.nolix.element.core;
 
 import ch.nolix.core.controllerAPI.IController;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.skillInterfaces.IFluentObject;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specification.Statement;
 import ch.nolix.core.specificationAPI.Specifiable;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;
@@ -36,7 +36,7 @@ implements IController, IFluentObject<MU>, Specifiable<MU> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Calls method of the base class.
 		super.addOrChangeAttribute(attribute);
@@ -61,7 +61,7 @@ implements IController, IFluentObject<MU>, Specifiable<MU> {
 			Validator.suppose(header).thatIsNamed("command").hasMinLength(4);
 			
 			addOrChangeAttribute(
-				new StandardSpecification(header.substring(3), command.getRefAttributes())
+				new DocumentNode(header.substring(3), command.getRefAttributes())
 			);
 			
 			return;

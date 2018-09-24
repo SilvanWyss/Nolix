@@ -7,9 +7,9 @@ import java.util.GregorianCalendar;
 //own imports
 import ch.nolix.core.constants.TimeUnitCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.helper.StringHelper;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -59,7 +59,7 @@ public final class Time extends Element {
 	 * @return a new time from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Time createFromSpecification(final Specification specification) {
+	public static Time createFromSpecification(final DocumentNodeoid specification) {
 		return new Time(specification.getOneAttributeAsString());
 	}
 	
@@ -279,9 +279,9 @@ public final class Time extends Element {
 	/**
 	 * @return the attributes of this time.
 	 */
-	public List<StandardSpecification> getAttributes() {
-		return new List<StandardSpecification>(
-			new StandardSpecification(String.format(
+	public List<DocumentNode> getAttributes() {
+		return new List<DocumentNode>(
+			new DocumentNode(String.format(
 				"%04d-%02d-%02d-%02d-%02d-%02d-%03d",
 				getYearAsInt(),
 				getMonthOfYear(),

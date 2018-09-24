@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.specification;
+package ch.nolix.core.documentNode;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
@@ -14,11 +14,11 @@ import ch.nolix.primitive.validator2.Validator;
  * @month 2017-07
  * @lines 180
  */
-public final class SubSpecification extends Specification {
+public final class SubDocumentNode extends DocumentNodeoid {
 
 	//attribute
-	private final SimplePersistentSpecification simplePersistentSpecification;
-	private final StandardSpecification internalSpecification;
+	private final SimplePersistentDocumentNode simplePersistentSpecification;
+	private final DocumentNode internalSpecification;
 	
 	//package-visible constructor
 	/**
@@ -29,14 +29,14 @@ public final class SubSpecification extends Specification {
 	 * @param simplePersistentSpecification
 	 * @param internalSpecification
 	 */
-	SubSpecification(
-		final SimplePersistentSpecification simplePersistentSpecification,
-		final StandardSpecification internalSpecification
+	SubDocumentNode(
+		final SimplePersistentDocumentNode simplePersistentSpecification,
+		final DocumentNode internalSpecification
 	) {
 		//Checks if the given simple persistent specification is an instance.
 		Validator
 		.suppose(simplePersistentSpecification)
-		.isInstanceOf(SimplePersistentSpecification.class);
+		.isInstanceOf(SimplePersistentDocumentNode.class);
 		
 		//Checks if the given internal specification is an instance.
 		Validator.suppose(internalSpecification)
@@ -56,7 +56,7 @@ public final class SubSpecification extends Specification {
 	 * 
 	 * @throws RuntimeException if an error occurs.
 	 */
-	public void addAttribute(final Specification attribute) {
+	public void addAttribute(final DocumentNodeoid attribute) {
 		internalSpecification.addAttribute(attribute);
 		simplePersistentSpecification.save();
 	}
@@ -84,10 +84,10 @@ public final class SubSpecification extends Specification {
 	 * @return the attributes of this sub specification
 	 */
 	@SuppressWarnings("unchecked")
-	public ReadContainer<SubSpecification> getRefAttributes() {
-		return new ReadContainer<SubSpecification>(
+	public ReadContainer<SubDocumentNode> getRefAttributes() {
+		return new ReadContainer<SubDocumentNode>(
 			internalSpecification.getRefAttributes().to(
-				a -> new SubSpecification(simplePersistentSpecification, a)
+				a -> new SubDocumentNode(simplePersistentSpecification, a)
 			)
 		);
 	}
@@ -98,8 +98,8 @@ public final class SubSpecification extends Specification {
 	 * @throws EmptyStateException if this sub specification contains no attributes.
 	 * @throws InvalidStateException if this sub specification contains several attributes.
 	 */
-	public SubSpecification getRefOneAttribute() {
-		return new SubSpecification(
+	public SubDocumentNode getRefOneAttribute() {
+		return new SubDocumentNode(
 			simplePersistentSpecification, internalSpecification.getRefOneAttribute()
 		);
 	}
@@ -120,7 +120,7 @@ public final class SubSpecification extends Specification {
 	 * @throws InvalidArgumentException
 	 * if this sub specification contains no attribute the given selector selects.
 	 */
-	public void removeFirstAttribute(final IElementTakerBooleanGetter<Specification> selector) {
+	public void removeFirstAttribute(final IElementTakerBooleanGetter<DocumentNodeoid> selector) {
 		internalSpecification.removeFirstAttribute(a -> selector.getOutput(a));
 		simplePersistentSpecification.save();
 	}
@@ -146,7 +146,7 @@ public final class SubSpecification extends Specification {
 
 	//method
 	/**
-	 * Removes the header of the current {@link SubSpecification}
+	 * Removes the header of the current {@link SubDocumentNode}
 	 */
 	public void removeHeader() {
 		internalSpecification.removeHeader();

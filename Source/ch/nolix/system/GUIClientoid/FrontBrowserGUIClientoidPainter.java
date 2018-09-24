@@ -6,7 +6,7 @@ import java.io.Flushable;
 
 //own imports
 import ch.nolix.core.bases.IndexedElement;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.font.Font;
@@ -155,7 +155,7 @@ implements IPainter, Flushable {
 		appendPainterCommand(
 			Protocol.PAINT_TEXT_HEADER
 			+ '('
-			+ Specification.createReproducingString(text)
+			+ DocumentNodeoid.createReproducingString(text)
 			+ ','
 			+ font.getSpecification()
 			+ ')'
@@ -167,7 +167,7 @@ implements IPainter, Flushable {
 		appendPainterCommand(
 			Protocol.PAINT_TEXT_HEADER
 			+ '('
-			+ Specification.createReproducingString(text)
+			+ DocumentNodeoid.createReproducingString(text)
 			+ ','
 			+ font.getSpecification()
 			+ ','

@@ -4,8 +4,8 @@ package ch.nolix.element.configurationElement;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.element.bases.ConfigurableElement;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.primitive.validator2.Validator;
@@ -31,7 +31,7 @@ extends ConfigurableElement<CE> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -49,10 +49,10 @@ extends ConfigurableElement<CE> {
 	/**
 	 * @return the attributes of this configuration element.
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
-		List<StandardSpecification> attributes = super.getAttributes();
+		List<DocumentNode> attributes = super.getAttributes();
 		
 		//Handles the case that this configuration element has a configuration.
 		if (hasConfiguration()) {

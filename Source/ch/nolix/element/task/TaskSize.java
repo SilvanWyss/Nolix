@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.task;
 
-//own imports
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.specificationAPI.ISpecifiedEnum;
 
 //enum
@@ -24,7 +23,7 @@ public enum TaskSize implements ISpecifiedEnum {
 	 * if the given specification is not valid.
 	 */
 	public static TaskSize createFromSpecification(
-		final Specification specification
+		final DocumentNodeoid specification
 	) {
 		return valueOf(specification.getOneAttributeAsString());
 	}

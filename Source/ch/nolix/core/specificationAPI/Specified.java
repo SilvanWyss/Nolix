@@ -4,8 +4,8 @@ package ch.nolix.core.specificationAPI;
 //own imports
 import ch.nolix.core.XMLDocument.XMLNode;
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.skillInterfaces.Typed;
-import ch.nolix.core.specification.StandardSpecification;
 
 //interface
 /**
@@ -21,14 +21,14 @@ public interface Specified extends Typed {
 	/**
 	 * @return the attributes of this specified object.
 	 */
-	public abstract List<StandardSpecification> getAttributes();
+	public abstract List<DocumentNode> getAttributes();
 	
 	//default method
 	/**
 	 * @return the specification of this specified object.
 	 */
-	public default StandardSpecification getSpecification() {
-		return new StandardSpecification(getType(), getAttributes());
+	public default DocumentNode getSpecification() {
+		return new DocumentNode(getType(), getAttributes());
 	}
 	
 	//default method
@@ -38,16 +38,16 @@ public interface Specified extends Typed {
 	 * @throws NullArgumentException if the given type is not an instance.
 	 * @throws EmptyArgumentException if the given type is empty.
 	 */
-	public default StandardSpecification getSpecificationAs(final String type) {
-		return new StandardSpecification(type, getAttributes());
+	public default DocumentNode getSpecificationAs(final String type) {
+		return new DocumentNode(type, getAttributes());
 	}
 	
 	//default method
 	/**
 	 * @return the specification of this specified object without header.
 	 */
-	public default StandardSpecification getSpecificationWithoutHeader() {
-		return new StandardSpecification(getAttributes());
+	public default DocumentNode getSpecificationWithoutHeader() {
+		return new DocumentNode(getAttributes());
 	}
 	
 	//default method

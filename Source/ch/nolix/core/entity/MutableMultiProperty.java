@@ -4,11 +4,11 @@ package ch.nolix.core.entity;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.skillInterfaces.Clearable;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -49,8 +49,8 @@ implements Clearable<MutableMultiProperty<V>> {
 	public MutableMultiProperty(
 		final String name,
 		final IElementTaker<V> adderMethod,
-		final IElementTakerElementGetter<Specification, V> valueCreator,
-		final IElementTakerElementGetter<V, StandardSpecification> specificationCreator) {
+		final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator,
+		final IElementTakerElementGetter<V, DocumentNode> specificationCreator) {
 		
 		//Calls constructor of the base class
 		super(name, valueCreator, specificationCreator);

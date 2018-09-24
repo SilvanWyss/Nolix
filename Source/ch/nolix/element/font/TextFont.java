@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.font;
 
-//own imports
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.specificationAPI.ISpecifiedEnum;
 
 //enum
@@ -31,7 +30,7 @@ public enum TextFont implements ISpecifiedEnum {
 	 * if the given specification is not valid.
 	 */
 	public static TextFont createFromSpecification(
-		final Specification specification
+		final DocumentNodeoid specification
 	) {
 		return TextFont.valueOf(specification.getOneAttributeAsString());
 	}

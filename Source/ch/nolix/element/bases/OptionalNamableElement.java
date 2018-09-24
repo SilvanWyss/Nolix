@@ -5,10 +5,10 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.skillInterfaces.IRequestableContainer;
 import ch.nolix.core.skillInterfaces.OptionalNamable;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.core.NonEmptyText;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
@@ -39,7 +39,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -65,10 +65,10 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	/**
 	 * @return the attributes of this optional namable element.
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
+		final List<DocumentNode> attributes = super.getAttributes();
 		
 		//Handles the case that this optional namable element has a name.
 		if (hasName()) {

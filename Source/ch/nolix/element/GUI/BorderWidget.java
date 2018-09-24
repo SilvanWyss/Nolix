@@ -3,11 +3,11 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.core.PositiveInteger;
@@ -153,7 +153,7 @@ extends BackgroundWidget<BW, BWS> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -188,10 +188,10 @@ extends BackgroundWidget<BW, BWS> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class
-		final List<StandardSpecification> attributes = super.getAttributes();
+		final List<DocumentNode> attributes = super.getAttributes();
 		
 		attributes.addAtEnd(contentPosition.getSpecification());
 

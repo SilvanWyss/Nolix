@@ -3,9 +3,9 @@ package ch.nolix.core.entity;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
@@ -32,12 +32,12 @@ public abstract class Entity implements Specified {
 	 * @throws InvalidStateException
 	 * if the properties of this entity are not approved.
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		//Checks if the properties of this entity are approved.
 		supposePropertiesAreApproved();
 		
-		final List<StandardSpecification> attributes = new List<StandardSpecification>();
+		final List<DocumentNode> attributes = new List<DocumentNode>();
 		
 		getRefProperties().forEach(p -> p.fillUpAttributes(attributes));
 		
@@ -52,7 +52,7 @@ public abstract class Entity implements Specified {
 	 * @throws InvalidArgumentException
 	 * if the given attribute is not valid.
 	 */
-	protected void addOrChangeAttribute(final Specification attribute) {
+	protected void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Extracts the property with the name of the given attribute.
 		final var property = getRefProperties().getRefFirstOrNull(p -> p.hasName(attribute.getHeader()));
@@ -94,7 +94,7 @@ public abstract class Entity implements Specified {
 	 * @throws InvalidArgumentException
 	 * if one of the attributes of the given specification is not valid.
 	 */
-	protected final void initializeProperties(final Specification specification) {
+	protected final void initializeProperties(final DocumentNodeoid specification) {
 		
 		supposePropertiesAreNotApproved();
 		

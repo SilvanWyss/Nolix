@@ -5,9 +5,9 @@ package ch.nolix.element.configuration;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.skillInterfaces.Freezable;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.element.bases.OptionalNamableElement;
 import ch.nolix.element.core.NonEmptyText;
@@ -35,8 +35,8 @@ implements Freezable<C> {
 	private boolean frozen = false;
 	
 	//multiple attributes
-	private final List<StandardSpecification> attachingAttributes
-		= new List<StandardSpecification>();
+	private final List<DocumentNode> attachingAttributes
+		= new List<DocumentNode>();
 	protected final List<Configuration<?>> configurations
 		= new List<Configuration<?>>();
 	
@@ -57,13 +57,13 @@ implements Freezable<C> {
 	 * @throws NullArgumentException if the given attaching attribute is not an instance.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
-	public final C addAttachingAttribute(final Specification attachingAttribute) {
+	public final C addAttachingAttribute(final DocumentNodeoid attachingAttribute) {
 		
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();
 				
 		attachingAttributes.addAtEnd(
-			new StandardSpecification(
+			new DocumentNode(
 				attachingAttribute.getHeader(),
 				attachingAttribute.getRefAttributes())
 		);
@@ -86,7 +86,7 @@ implements Freezable<C> {
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();			
 		
-		return addAttachingAttribute(new StandardSpecification(attachingAttribute));
+		return addAttachingAttribute(new DocumentNode(attachingAttribute));
 	}
 	
 	//method
@@ -158,7 +158,7 @@ implements Freezable<C> {
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -281,10 +281,10 @@ implements Freezable<C> {
 	/**
 	 * @return the attributes of this configuration.
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
+		final List<DocumentNode> attributes = super.getAttributes();
 		
 		//Handles the case that this configuration has a selector type.
 		if (hasSelectorType()) {
@@ -294,7 +294,7 @@ implements Freezable<C> {
 		//Handles the case that this configuration contains selector roles.		
 		if (containsSelectorRoles()) {
 			
-			final var specification = new StandardSpecification(SELECTOR_ROLE_HEADER);
+			final var specification = new DocumentNode(SELECTOR_ROLE_HEADER);
 			getSelectorRoles().forEach(sr -> specification.addAttribute(sr));
 			
 			attributes.addAtEnd(specification);

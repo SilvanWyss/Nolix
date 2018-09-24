@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreTest.specificationTest;
+package ch.nolix.coreTest.documentNodeTest;
 
 import ch.nolix.primitive.testoid.TestPool;
 
@@ -9,15 +9,15 @@ import ch.nolix.primitive.testoid.TestPool;
  * @month 2017-02
  * @lines 20
  */
-public class SpecificationTestPool extends TestPool {
+public class DocumentNodeTestPool extends TestPool {
 
 	//constructor
 	/**
 	 * Creates a new specification test pool.
 	 */
-	public SpecificationTestPool() {
+	public DocumentNodeTestPool() {
 		addTestClass(
-			StandardSpecificationTest.class,
+			DocumentNodeTest.class,
 			StatementTest.class
 		);
 	}

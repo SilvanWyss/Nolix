@@ -8,11 +8,11 @@ import java.lang.reflect.Modifier;
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.core.Element;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
@@ -625,7 +625,7 @@ public class Color extends Element {
 	 * @return a new {@link Color} from the given specification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Color createFromSpecification(final Specification specification) {
+	public static Color createFromSpecification(final DocumentNodeoid specification) {
 		return new Color(specification.getOneAttributeAsString());
 	}
 	
@@ -884,8 +884,8 @@ public class Color extends Element {
 	/**
 	 * @return the attributes of the current {@link Color}.
 	 */
-	public List<StandardSpecification> getAttributes() {		
-		return new List<StandardSpecification>(new StandardSpecification(getStringValue()));
+	public List<DocumentNode> getAttributes() {		
+		return new List<DocumentNode>(new DocumentNode(getStringValue()));
 	}
 	
 	//method
@@ -909,8 +909,8 @@ public class Color extends Element {
 	 * @param appendAlphaValueAlways
 	 * @return a hexadecimal specification of the current {@link Color}.
 	 */
-	public StandardSpecification getHexadecimalSpecification(final boolean appendAlphaValueAlways) {
-		return new StandardSpecification(getType(), getHexadecimalValue(appendAlphaValueAlways));
+	public DocumentNode getHexadecimalSpecification(final boolean appendAlphaValueAlways) {
+		return new DocumentNode(getType(), getHexadecimalValue(appendAlphaValueAlways));
 	}
 	
 	//method

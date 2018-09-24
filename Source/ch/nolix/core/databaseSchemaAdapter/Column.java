@@ -7,7 +7,7 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.PropertyKind;
 import ch.nolix.core.databaseAdapter.PropertyoidType;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -37,10 +37,10 @@ implements Specified {
 	}
 	
 	//method
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		return 
-		new List<StandardSpecification>(
-			new StandardSpecification(PascalCaseNameCatalogue.HEADER, getHeader()),
+		new List<DocumentNode>(
+			new DocumentNode(PascalCaseNameCatalogue.HEADER, getHeader()),
 			valueType.getSpecification()
 		);
 	}

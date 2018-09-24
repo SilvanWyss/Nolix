@@ -3,7 +3,7 @@ package ch.nolix.core.specificationAPI;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
 
 //interface
 /**
@@ -25,10 +25,10 @@ public interface ISpecifiedEnum extends Specified {
 	/**
 	 * @return the attributes of this specified enum.
 	 */
-	public default List<StandardSpecification> getAttributes() {
+	public default List<DocumentNode> getAttributes() {
 		return
-		new List<StandardSpecification>(
-			StandardSpecification.createSpecificationWithHeader(toString())
+		new List<DocumentNode>(
+			DocumentNode.createSpecificationWithHeader(toString())
 		);
 	}
 }

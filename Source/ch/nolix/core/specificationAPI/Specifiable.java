@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.core.specificationAPI;
 
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.skillInterfaces.Resettable;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 
 //interface
@@ -24,7 +24,7 @@ public interface Specifiable<S extends Specifiable<S>> extends Resettable<S>, Sp
 	 * 
 	 * @param attribute
 	 */
-	public abstract void addOrChangeAttribute(final Specification attribute);
+	public abstract void addOrChangeAttribute(final DocumentNodeoid attribute);
 	
 	//default method
 	/**
@@ -33,10 +33,10 @@ public interface Specifiable<S extends Specifiable<S>> extends Resettable<S>, Sp
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public default void addOrChangeAttribute(final Specification... attributes) {
+	public default void addOrChangeAttribute(final DocumentNodeoid... attributes) {
 		
 		//Iterates the given attributes.
-		for (final Specification a : attributes) {
+		for (final DocumentNodeoid a : attributes) {
 			addOrChangeAttribute(a);
 		}
 	}
@@ -49,7 +49,7 @@ public interface Specifiable<S extends Specifiable<S>> extends Resettable<S>, Sp
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	public default void addOrChangeAttribute(final String attribute) {
-		addOrChangeAttribute(new StandardSpecification(attribute));
+		addOrChangeAttribute(new DocumentNode(attribute));
 	}
 	
 	//default method
@@ -74,10 +74,10 @@ public interface Specifiable<S extends Specifiable<S>> extends Resettable<S>, Sp
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public default void addOrChangeAttributes(final Iterable<? extends Specification> attributes) {
+	public default void addOrChangeAttributes(final Iterable<? extends DocumentNodeoid> attributes) {
 		
 		//Iterates the given attributes.
-		for (final Specification a : attributes) {
+		for (final DocumentNodeoid a : attributes) {
 			addOrChangeAttribute(a);
 		}
 	}
@@ -89,7 +89,7 @@ public interface Specifiable<S extends Specifiable<S>> extends Resettable<S>, Sp
 	 * @param path
 	 */
 	public default void loadFrom(final String path) {
-		reset(StandardSpecification.createFromFile(path));
+		reset(DocumentNode.createFromFile(path));
 	}
 	
 	//default method
@@ -99,7 +99,7 @@ public interface Specifiable<S extends Specifiable<S>> extends Resettable<S>, Sp
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public default void reset(final Iterable<? extends Specification> attributes) {
+	public default void reset(final Iterable<? extends DocumentNodeoid> attributes) {
 		reset();
 		addOrChangeAttributes(attributes);
 	}
@@ -111,7 +111,7 @@ public interface Specifiable<S extends Specifiable<S>> extends Resettable<S>, Sp
 	 * @param standardSpecification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public default void reset(final Specification standardSpecification) {
+	public default void reset(final DocumentNodeoid standardSpecification) {
 		reset();
 		addOrChangeAttributes(standardSpecification.getRefAttributes());
 	}
@@ -124,6 +124,6 @@ public interface Specifiable<S extends Specifiable<S>> extends Resettable<S>, Sp
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public default void reset(final String specification) {
-		reset(new StandardSpecification(specification));
+		reset(new DocumentNode(specification));
 	}
 }

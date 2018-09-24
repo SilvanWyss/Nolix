@@ -5,7 +5,7 @@ package ch.nolix.core.databaseAdapter;
 import ch.nolix.core.bases.HeaderedElement;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -34,10 +34,10 @@ public final class Column<V> extends HeaderedElement implements Specified {
 	}
 	
 	//method
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		return
-		new List<StandardSpecification>(
-			new StandardSpecification(
+		new List<DocumentNode>(
+			new DocumentNode(
 				PascalCaseNameCatalogue.HEADER,
 				getHeader()
 			),

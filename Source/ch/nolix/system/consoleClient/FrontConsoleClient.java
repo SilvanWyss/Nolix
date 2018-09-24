@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.consoleClient;
 
-//own imports
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specification.Statement;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.Statement;
 import ch.nolix.element.GUI.Console;
 import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.GUI.Frame;
@@ -163,25 +162,25 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	 * @return the data the given request requests from this console front client.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	protected StandardSpecification internal_getData(final Statement request) {
+	protected DocumentNode internal_getData(final Statement request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case Protocol.READ_LINE_FROM_CONSOLE_REQUEST:
-				return StandardSpecification.createSpecificationWithHeader(console.readLine());
+				return DocumentNode.createSpecificationWithHeader(console.readLine());
 			case Protocol.READ_NON_EMPTY_LINE_FROM_CONSOLE_REQUEST:
-				return StandardSpecification.createSpecificationWithHeader(console.readNonEmptyLine());
+				return DocumentNode.createSpecificationWithHeader(console.readNonEmptyLine());
 			case Protocol.READ_SECRET_LINE_FROM_CONSOLE_REQUEST:
-				return StandardSpecification.createSpecificationWithHeader(console.readSecretLine());
+				return DocumentNode.createSpecificationWithHeader(console.readSecretLine());
 			case Protocol.READ_CHARACTER_FROM_CONSOLE_REQUEST:
-				return StandardSpecification.createSpecificationWithHeader(String.valueOf(console.readCharacter()));
+				return DocumentNode.createSpecificationWithHeader(String.valueOf(console.readCharacter()));
 			case Protocol.LINES_OF_CONSOLE_REQUEST:
 				
-				final StandardSpecification data = new StandardSpecification();
+				final DocumentNode data = new DocumentNode();
 				
 				//Iterates the lines of the main console of this console front client.
 				for (final var l : console.getLines()) {
-					data.addAttribute(StandardSpecification.createReproducingString(l));
+					data.addAttribute(DocumentNode.createReproducingString(l));
 				}
 				
 				return data;

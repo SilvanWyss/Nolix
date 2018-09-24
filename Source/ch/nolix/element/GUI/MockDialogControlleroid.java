@@ -9,7 +9,7 @@
 package ch.nolix.element.GUI;
 
 import ch.nolix.core.controllerAPI.IController;
-import ch.nolix.core.specification.Statement;
+import ch.nolix.core.documentNode.Statement;
 
 //class
 final class MockDialogControlleroid implements IController {

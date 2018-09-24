@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.specification;
+package ch.nolix.core.documentNode;
 
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
@@ -18,7 +18,7 @@ import ch.nolix.core.container.List;
 public final class Statement {
 	
 	//attribute
-	private StandardSpecification specification = new StandardSpecification();
+	private DocumentNode specification = new DocumentNode();
 	
 	//optional attribute
 	private Statement nextStatement;
@@ -139,7 +139,7 @@ public final class Statement {
 	/**
 	 * @return the attributes of this statement.
 	 */
-	public IContainer<StandardSpecification> getRefAttributes() {
+	public IContainer<DocumentNode> getRefAttributes() {
 		return specification.getRefAttributes();
 	}
 	
@@ -163,7 +163,7 @@ public final class Statement {
 	 * @return the one attribute of this statement.
 	 * @throws InvalidStateException if this statement contains no or several attributes.
 	 */
-	public StandardSpecification getRefOneAttribute() {
+	public DocumentNode getRefOneAttribute() {
 		return specification.getRefOneAttribute();
 	}
 	
@@ -227,6 +227,6 @@ public final class Statement {
 			}
 		}
 		
-		specification = new StandardSpecification(value);
+		specification = new DocumentNode(value);
 	}
 }

@@ -7,8 +7,8 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Matrix;
 import ch.nolix.core.container.MatrixRow;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -26,7 +26,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		switch (attribute.getHeader()) {
 			case PascalCaseNameCatalogue.CELL:
 				
@@ -45,7 +45,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		

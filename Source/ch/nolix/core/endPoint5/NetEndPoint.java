@@ -5,8 +5,8 @@ package ch.nolix.core.endPoint5;
 import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerAPI.IMultiController;
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specification.Statement;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.Statement;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
@@ -115,13 +115,13 @@ public class NetEndPoint extends EndPoint {
 	 * @return the data the given request requests from this net duplex controller.
 	 * @throws InvalidStateException if this net duplex controller is aborted.
 	 */
-	public StandardSpecification getData(final Statement request) {
+	public DocumentNode getData(final Statement request) {
 		
 		//Creates message.
 		final String message = Protocol.DATA_REQUEST + '(' + request.toString() + ')';
 		
 		//Sends message and gets reply.
-		final StandardSpecification reply = new StandardSpecification(netEndPoint.sendAndGetReply(message));
+		final DocumentNode reply = new DocumentNode(netEndPoint.sendAndGetReply(message));
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
@@ -193,7 +193,7 @@ public class NetEndPoint extends EndPoint {
 		final String message = Protocol.COMMANDS + '(' + commands.toString() + ')';
 				
 		//Sends the message and gets reply.
-		final StandardSpecification reply = new StandardSpecification(netEndPoint.sendAndGetReply(message));
+		final DocumentNode reply = new DocumentNode(netEndPoint.sendAndGetReply(message));
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
@@ -216,7 +216,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	final String receiveAndGetReply(final String message) {
 		try {
-			return receiveAndGetReply(new StandardSpecification(message));
+			return receiveAndGetReply(new DocumentNode(message));
 		}
 		catch (final Exception exception) {
 			return (Protocol.ERROR + '(' + exception.getMessage() + ')');
@@ -231,7 +231,7 @@ public class NetEndPoint extends EndPoint {
 	 * @return the reply to the given message from this net duplex controller.
 	 * @throws UnexistringAttributeException if this net duplex contorller has no receiver.
 	 */
-	private final String receiveAndGetReply(final StandardSpecification message) {
+	private final String receiveAndGetReply(final DocumentNode message) {
 		
 		//Gets the receiver controller of this net duplex controller.
 		final IMultiController receiverController = getRefReceiverController();

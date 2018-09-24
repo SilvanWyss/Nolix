@@ -6,11 +6,11 @@ import javax.swing.JFileChooser;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.functionAPI.IElementGetter;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.util.PopupWindowProvider;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
@@ -39,7 +39,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 		applyUsableConfiguration();
 	}
 	
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		switch (attribute.getHeader()) {
 			case FILE_GETTER_HEADER:
@@ -51,13 +51,13 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	}
 	
 	//method
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		
 		if (providesFile()) {
 			attributes.addAtEnd(
-				StandardSpecification.createSpecificationWithHeader(FILE_GETTER_HEADER)
+				DocumentNode.createSpecificationWithHeader(FILE_GETTER_HEADER)
 			);
 		}
 		

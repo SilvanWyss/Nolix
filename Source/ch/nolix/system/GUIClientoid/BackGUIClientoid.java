@@ -3,10 +3,10 @@ package ch.nolix.system.GUIClientoid;
 
 //own imports
 import ch.nolix.core.container.IContainer;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specification.Statement;
 import ch.nolix.core.util.PopupWindowProvider;
 import ch.nolix.element.GUI.Downloader;
 import ch.nolix.element.GUI.GUI;
@@ -45,9 +45,9 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 		internal_runOnCounterpart(
 			Protocol.CREATE_FILE_COMMAND
 			+ "("
-			+ StandardSpecification.createReproducingString(relativeFilePath)
+			+ DocumentNode.createReproducingString(relativeFilePath)
 			+ ","
-			+ StandardSpecification.createReproducingString(content)
+			+ DocumentNode.createReproducingString(content)
 			+ ")"
 		);
 		
@@ -86,7 +86,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * @throws UnexistingAttributeException if the current back GUI client has no current session.
 	 */
 	public void runLocally(final String command) {
-		internal_invokeSessionUserRunMethod(new StandardSpecification(command));
+		internal_invokeSessionUserRunMethod(new DocumentNode(command));
 		updateGUIOnCounterpart();
 	}
 	
@@ -103,7 +103,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 		internal_runOnCounterpart(
 			Protocol.SHOW_ERROR_MESSAGE
 			+ "("
-			+ StandardSpecification.createReproducingString(errorMessage)
+			+ DocumentNode.createReproducingString(errorMessage)
 			+ ")"
 		);
 		
@@ -119,7 +119,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 */
 	protected final void internal_createFile(
 		final String relativeFilePath,
-		final Specification content
+		final DocumentNodeoid content
 	) {
 		new FileSystemAccessor()
 		.createFileIncrementingFileName(relativeFilePath, content.toString());
@@ -129,7 +129,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	/**
 	 * {@inheritDoc}
 	 */
-	protected StandardSpecification internal_getData(final Statement request) {
+	protected DocumentNode internal_getData(final Statement request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
@@ -139,7 +139,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 				getRefGUI().getRefWidgetByIndexRecursively(request.getOneAttributeAsInt());
 				
 				return
-				StandardSpecification.createSpecificationWithHeader(downloader.readFile());
+				DocumentNode.createSpecificationWithHeader(downloader.readFile());
 			default:
 				
 				//Calls method of the base class.
@@ -223,7 +223,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	private <S extends Specification> void addOrChangeGUIAttributes(final IContainer<S> attributes) {
+	private <S extends DocumentNodeoid> void addOrChangeGUIAttributes(final IContainer<S> attributes) {
 		getRefGUI().addOrChangeAttributes(attributes);
 	}
 	
@@ -234,7 +234,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * @param interactionAttributesOfWidgetsOfGUI
 	 * @throws InvalidArgumentException if the given interaction attributes are not valid.
 	 */
-	private <S extends Specification> void addOrChangeGUIWidgetsAttributes(
+	private <S extends DocumentNodeoid> void addOrChangeGUIWidgetsAttributes(
 		final IContainer<IContainer<S>> interactionAttributesOfWidgetsOfGUI	
 	) {
 		getRefGUI().addOrChangeInteractionAttributesOfWidgetsRecursively(interactionAttributesOfWidgetsOfGUI);
@@ -282,7 +282,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	private <S extends Specification> void resetGUI(final IContainer<S> attributes) {
+	private <S extends DocumentNodeoid> void resetGUI(final IContainer<S> attributes) {
 		getRefGUI().reset(attributes);
 	}
 	
@@ -292,7 +292,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * 
 	 * @param attributes
 	 */
-	private void resetGUIOnCounterpart(final Iterable<StandardSpecification> attributes) {
+	private void resetGUIOnCounterpart(final Iterable<DocumentNode> attributes) {
 		internal_runOnCounterpart(
 			Protocol.GUI_HEADER
 			+ "."

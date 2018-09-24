@@ -3,8 +3,8 @@ package ch.nolix.system.consoleClient;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.endPoint5.EndPoint;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.primitive.validator2.Validator;
 import ch.nolix.system.GUIClientoid.BackGUIClientoid;
@@ -183,7 +183,7 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 		internal_runOnCounterpart(
 			Protocol.SET_TITLE_COMMAND
 			+ "("
-			+ StandardSpecification.createReproducingString(title)
+			+ DocumentNode.createReproducingString(title)
 			+")"
 		);
 		
@@ -233,7 +233,7 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINES_TO_CONSOLE_COMMAND
 			+ '('
-			+ new List<String>(lines).to(s -> StandardSpecification.createReproducingString(s))
+			+ new List<String>(lines).to(s -> DocumentNode.createReproducingString(s))
 			+ ')'
 		);
 		
@@ -255,7 +255,7 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINES_TO_INFO_PANEL_COMMAND
 			+ '('
-			+ new List<String>(lines).to(s -> StandardSpecification.createReproducingString(s))
+			+ new List<String>(lines).to(s -> DocumentNode.createReproducingString(s))
 			+ ')'
 		);
 		
@@ -291,7 +291,7 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINE_TO_CONSOLE_COMMAND
 			+ "("
-			+ StandardSpecification.createReproducingString(line)
+			+ DocumentNode.createReproducingString(line)
 			+ ")"
 		);
 		
@@ -312,7 +312,7 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINES_TO_CONSOLE_COMMAND
 			+ '('
-			+ new List<String>(lines).to(s -> StandardSpecification.createReproducingString(s))
+			+ new List<String>(lines).to(s -> DocumentNode.createReproducingString(s))
 			+ ')'
 		);
 		
@@ -333,7 +333,7 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINE_TO_INFO_PANEL_COMMAND
 			+ "("
-			+ StandardSpecification.createReproducingString(line)
+			+ DocumentNode.createReproducingString(line)
 			+ ")"
 		);
 		
@@ -353,7 +353,7 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINES_TO_INFO_PANEL_COMMAND
 			+ '('
-			+ new List<String>(lines).to(s -> StandardSpecification.createReproducingString(s))
+			+ new List<String>(lines).to(s -> DocumentNode.createReproducingString(s))
 			+ ')'
 		);
 		

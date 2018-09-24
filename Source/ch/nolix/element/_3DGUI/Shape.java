@@ -3,8 +3,8 @@ package ch.nolix.element._3DGUI;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.element.bases.ConfigurableElement;
 import ch.nolix.element.geometry._3DPoint;
@@ -46,10 +46,10 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	/**
 	 * @return the attributes of this shape.
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
+		final List<DocumentNode> attributes = super.getAttributes();
 		
 		attributes.addAtEnd(position.getSpecification());
 		

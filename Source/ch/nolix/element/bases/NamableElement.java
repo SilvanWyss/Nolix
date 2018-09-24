@@ -4,10 +4,10 @@ package ch.nolix.element.bases;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.skillInterfaces.IRequestableContainer;
 import ch.nolix.core.skillInterfaces.Namable;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.core.NonEmptyText;
 import ch.nolix.primitive.invalidArgumentException.Argument;
@@ -46,7 +46,7 @@ implements Namable<NE> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -73,8 +73,8 @@ implements Namable<NE> {
 	/**
 	 * @return the attributes of this namable element.
 	 */
-	public List<StandardSpecification> getAttributes() {
-		return new List<StandardSpecification>(name.getSpecificationAs(PascalCaseNameCatalogue.NAME));
+	public List<DocumentNode> getAttributes() {
+		return new List<DocumentNode>(name.getSpecificationAs(PascalCaseNameCatalogue.NAME));
 	}
 	
 	//method

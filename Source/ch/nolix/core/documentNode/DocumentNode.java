@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.specification;
+package ch.nolix.core.documentNode;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -13,25 +13,25 @@ import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**
- * A {@link StandardSpecification} is a specification
+ * A {@link DocumentNode} is a specification
  * that is completely stored in the memory like a common object.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 410
  */
-public final class StandardSpecification extends Specification {
+public final class DocumentNode extends DocumentNodeoid {
 	
 	//static method
 	/**
 	 * @param filePath
-	 * @return a new {@link StandardSpecification} from the file with the given file path.
+	 * @return a new {@link DocumentNode} from the file with the given file path.
 	 * @throws InvalidArgumentException if the given file path is not valid.
-	 * @throws InvalidArgumentException if the file with the given file path represents no {@link StandardSpecification}.
+	 * @throws InvalidArgumentException if the file with the given file path represents no {@link DocumentNode}.
 	 */
-	public static StandardSpecification createFromFile(final String filePath) {
+	public static DocumentNode createFromFile(final String filePath) {
 		
-		final var specification = new StandardSpecification();
+		final var specification = new DocumentNode();
 		specification.resetFromFile(filePath);
 		
 		return specification;
@@ -40,20 +40,20 @@ public final class StandardSpecification extends Specification {
 	//static method
 	/**
 	 * @param value
-	 * @return a new {@link StandardSpecification} from the given value.
+	 * @return a new {@link DocumentNode} from the given value.
 	 */
-	public static StandardSpecification createFromInt(final int value) {
-		return new StandardSpecification(String.valueOf(value));
+	public static DocumentNode createFromInt(final int value) {
+		return new DocumentNode(String.valueOf(value));
 	}
 	
 	//static method
 	/**
 	 * @param header
-	 * @return a new {@link StandardSpecification} that consists of the given header.
+	 * @return a new {@link DocumentNode} that consists of the given header.
 	 * @throws NullArgumentException if the given header is not an instance.
 	 */
-	public static final StandardSpecification createSpecificationWithHeader(final String header) {
-		final StandardSpecification specification = new StandardSpecification();
+	public static final DocumentNode createSpecificationWithHeader(final String header) {
+		final DocumentNode specification = new DocumentNode();
 		specification.setHeader(header);
 		return specification;
 	}
@@ -62,43 +62,43 @@ public final class StandardSpecification extends Specification {
 	private String header;
 	
 	//multiple attribute
-	private final List<StandardSpecification> attributes = new List<StandardSpecification>();
+	private final List<DocumentNode> attributes = new List<DocumentNode>();
 	
 	//constructor
 	/**
-	 * Creates a new {@link StandardSpecification} without header and without attributes.
+	 * Creates a new {@link DocumentNode} without header and without attributes.
 	 */
-	public StandardSpecification() {}
+	public DocumentNode() {}
 	
 	//constructor
 	/**
-	 * Creates a new {@link StandardSpecification} with a header that consists of the given character.
+	 * Creates a new {@link DocumentNode} with a header that consists of the given character.
 	 * 
 	 * @param character
 	 */
-	public StandardSpecification(final char character) {
+	public DocumentNode(final char character) {
 		setHeader(Character.toString(character));
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link StandardSpecification} with the given attributes.
+	 * Creates a new {@link DocumentNode} with the given attributes.
 	 * 
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attribute is not valid.
 	 */
-	public <S extends Specification> StandardSpecification(final Iterable<S> attributes) {
+	public <S extends DocumentNodeoid> DocumentNode(final Iterable<S> attributes) {
 		attributes.forEach(a -> a.addAttribute(a));
 	}
 		
 	//constructor
 	/**
-	 * Creates a new {@link StandardSpecification} the given string represents.
+	 * Creates a new {@link DocumentNode} the given string represents.
 	 * 
 	 * @param string
 	 * @throws InvalidArgumentException if the given string represents no standard specification.
 	 */
-	public StandardSpecification(final String string) {
+	public DocumentNode(final String string) {
 		reset(string);		
 	}
 	
@@ -112,14 +112,14 @@ public final class StandardSpecification extends Specification {
 	 * @throws EmptyArgumentException if the given header is empty.
 	 * @throws NullArgumentException if one of the given attributes is not an instance.
 	 */
-	public StandardSpecification(final String header, final Iterable<StandardSpecification> attributes) {
+	public DocumentNode(final String header, final Iterable<DocumentNode> attributes) {
 		setHeader(header);
 		setAttributes(attributes);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link StandardSpecification} with the given header and attributes.
+	 * Creates a new {@link DocumentNode} with the given header and attributes.
 	 * 
 	 * @param header
 	 * @param attributes
@@ -127,7 +127,7 @@ public final class StandardSpecification extends Specification {
 	 * @throws EmptyArgumentException if the given header is empty.
 	 * @throws NullArgumentException if one of the given attributes is not an instance.
 	 */
-	public StandardSpecification(final String header, final List<String> attributes) {
+	public DocumentNode(final String header, final List<String> attributes) {
 		
 		//Sets the header of the current {@link StandardSpecification}.
 		setHeader(header);
@@ -150,14 +150,14 @@ public final class StandardSpecification extends Specification {
 	 * @throws EmptyArgumentException if the given header is empty.
 	 * @throws NullArgumentException if one of the given attributes is not an instance.
 	 */
-	public StandardSpecification(final String header, final StandardSpecification... attributes) {	
+	public DocumentNode(final String header, final DocumentNode... attributes) {	
 		setHeader(header);
 		addAttribute(attributes);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link StandardSpecification} with the given header and attributes.
+	 * Creates a new {@link DocumentNode} with the given header and attributes.
 	 * 
 	 * @param header
 	 * @param attributes
@@ -165,7 +165,7 @@ public final class StandardSpecification extends Specification {
 	 * @throws EmptyArgumentException if the given header is empty.
 	 * @throws NullArgumentException if one of the given attributes is not an instance.
 	 */
-	public StandardSpecification(final String header, final String... attributes) {
+	public DocumentNode(final String header, final String... attributes) {
 		
 		//Sets the header of the current {@link StandardSpecification}.
 		setHeader(header);
@@ -180,38 +180,38 @@ public final class StandardSpecification extends Specification {
 
 	//method
 	/**
-	 * Adds the given attribute to the current {@link StandardSpecification}.
+	 * Adds the given attribute to the current {@link DocumentNode}.
 	 */
-	public void addAttribute(final Specification attribute) {
+	public void addAttribute(final DocumentNodeoid attribute) {
 		addAttribute(attribute.createCopy());
 	}
 	
 	//method
 	/**
-	 * Adds the given attribute to the current {@link StandardSpecification}.
+	 * Adds the given attribute to the current {@link DocumentNode}.
 	 * 
 	 * @param attribute
 	 * @throws NullArgumentException if the given attribute is not an instance.
 	 */
-	public void addAttribute(StandardSpecification attribute) {
+	public void addAttribute(DocumentNode attribute) {
 		attributes.addAtEnd(attribute);
 	}
 	
 	//method
 	/**
-	 * Adds the given attribute to the current {@link StandardSpecification}.
+	 * Adds the given attribute to the current {@link DocumentNode}.
 	 * 
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
 	public void addAttribute(String attribute) {
-		addAttribute(new StandardSpecification(attribute));
+		addAttribute(new DocumentNode(attribute));
 	}
 	
 	//method
 	/**
-	 * Adds the given prefix to the header of the current {@link StandardSpecification}.
-	 * Sets the given prefix has header to the current {@link StandardSpecification} if it has no header.
+	 * Adds the given prefix to the header of the current {@link DocumentNode}.
+	 * Sets the given prefix has header to the current {@link DocumentNode} if it has no header.
 	 * 
 	 * @param prefix
 	 * @throws NullArgumentException if the given prefix is not an instance.
@@ -235,8 +235,8 @@ public final class StandardSpecification extends Specification {
 	
 	//method
 	/**
-	 * Adds the given postfix to the header of the current {@link StandardSpecification}.
-	 * Sets the given postfix as header to the current {@link StandardSpecification} if it has no header.
+	 * Adds the given postfix to the header of the current {@link DocumentNode}.
+	 * Sets the given postfix as header to the current {@link DocumentNode} if it has no header.
 	 * 
 	 * @param postfix
 	 * @throws NullArgumentException if the given postfix is not an instance.
@@ -260,7 +260,7 @@ public final class StandardSpecification extends Specification {
 	
 	//method
 	/**
-	 * @return the number of attributes of the current {@link StandardSpecification}.
+	 * @return the number of attributes of the current {@link DocumentNode}.
 	 */
 	public int getAttributesCount() {
 		return attributes.getElementCount();
@@ -281,20 +281,20 @@ public final class StandardSpecification extends Specification {
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link StandardSpecification}
+	 * @return the attributes of the current {@link DocumentNode}
 	 */
 	@SuppressWarnings("unchecked")
-	public IContainer<StandardSpecification> getRefAttributes() {
-		return new ReadContainer<StandardSpecification>(attributes);
+	public IContainer<DocumentNode> getRefAttributes() {
+		return new ReadContainer<DocumentNode>(attributes);
 	}
 	
 	//method
 	/**
-	 * @return the one attribute of the current {@link StandardSpecification}
-	 * @throws EmptyStateException if the current {@link StandardSpecification} contains no attributes.
-	 * @throws InvalidStateException if the current {@link StandardSpecification} contains several attributes.
+	 * @return the one attribute of the current {@link DocumentNode}
+	 * @throws EmptyStateException if the current {@link DocumentNode} contains no attributes.
+	 * @throws InvalidStateException if the current {@link DocumentNode} contains several attributes.
 	 */
-	public StandardSpecification getRefOneAttribute() {
+	public DocumentNode getRefOneAttribute() {
 		return attributes.getRefOne();
 	}
 	
@@ -303,10 +303,10 @@ public final class StandardSpecification extends Specification {
 	 * @param header
 	 * @return the one attribute of the first attribute with the given header
 	 * @throws Exception if:
-	 *  -the current {@link StandardSpecification} contains no attribute with the given header
-	 *  -the first attribute of the current {@link StandardSpecification} with the given header contains no or several attributes
+	 *  -the current {@link DocumentNode} contains no attribute with the given header
+	 *  -the first attribute of the current {@link DocumentNode} with the given header contains no or several attributes
 	 */
-	public StandardSpecification getRefOneAttributeOfFirstAttribute(String header) {
+	public DocumentNode getRefOneAttributeOfFirstAttribute(String header) {
 		return attributes.getRefFirst(a -> a.hasHeader(header)).getRefOneAttribute();
 	}
 	
@@ -315,8 +315,8 @@ public final class StandardSpecification extends Specification {
 	 * @param header
 	 * @return a string representation of the one attribute of the first attribute with the given header
 	 * @throws Exception if:
-	 *  -the current {@link StandardSpecification} contains no attribute with the given header
-	 *  -the first attribute of the current {@link StandardSpecification} with the given header contains no or several attributes
+	 *  -the current {@link DocumentNode} contains no attribute with the given header
+	 *  -the first attribute of the current {@link DocumentNode} with the given header contains no or several attributes
 	 */
 	public String getRefOneAttributeOfFirstAttributeToString(String header)  {
 		return getRefOneAttributeOfFirstAttribute(header).toString();
@@ -326,15 +326,15 @@ public final class StandardSpecification extends Specification {
 	/**
 	 * @param header
 	 * @return the attributes of the first attribute with the given header
-	 * @throws Exception if the current {@link StandardSpecification} contains no attribute with the given header
+	 * @throws Exception if the current {@link DocumentNode} contains no attribute with the given header
 	 */
-	public IContainer<StandardSpecification> getRefAttributesOfFirstAttribute(String header) {
+	public IContainer<DocumentNode> getRefAttributesOfFirstAttribute(String header) {
 		return attributes.getRefFirst(a -> a.hasHeader(header)).getRefAttributes();
 	}
 	
 	//method
 	/**
-	 * @return true if the current {@link StandardSpecification} has a header
+	 * @return true if the current {@link DocumentNode} has a header
 	 */
 	public boolean hasHeader() {
 		return (header != null);
@@ -342,25 +342,25 @@ public final class StandardSpecification extends Specification {
 	
 	//method
 	/**
-	 * Removes the first attribute the given selector selects from the current {@link StandardSpecification}.
+	 * Removes the first attribute the given selector selects from the current {@link DocumentNode}.
 	 * 
 	 * @param selector
 	 * @throws InvalidArgumentException
-	 * if the current {@link StandardSpecification} contains no attribute the given selector selects.
+	 * if the current {@link DocumentNode} contains no attribute the given selector selects.
 	 */
-	public void removeFirstAttribute(final IElementTakerBooleanGetter<Specification> selector) {
+	public void removeFirstAttribute(final IElementTakerBooleanGetter<DocumentNodeoid> selector) {
 		attributes.removeFirst(a -> selector.getOutput(a));
 	}
 	
 	//method
 	/**
-	 * Sets the attributes of the current {@link StandardSpecification}.
+	 * Sets the attributes of the current {@link DocumentNode}.
 	 * 
 	 * @param attributes
 	 * @throws NullArgumentException if the given attribute container is not an instance.
 	 * @throws NullArgumentException if one of the given attributes is not an instance.
 	 */
-	public void setAttributes(final Iterable<StandardSpecification> attributes) {
+	public void setAttributes(final Iterable<DocumentNode> attributes) {
 		
 		this.attributes.clear();
 		
@@ -369,7 +369,7 @@ public final class StandardSpecification extends Specification {
 	
 	//method
 	/**
-	 * Sets the header of the current {@link StandardSpecification}.
+	 * Sets the header of the current {@link DocumentNode}.
 	 * 
 	 * @param header
 	 * @throws NullArgumentException if the given header is not an instance.
@@ -389,7 +389,7 @@ public final class StandardSpecification extends Specification {
 	
 	//method
 	/**
-	 * Removes the attributes of the current {@link StandardSpecification}.
+	 * Removes the attributes of the current {@link DocumentNode}.
 	 */
 	public void removeAttributes() {
 		attributes.clear();
@@ -397,7 +397,7 @@ public final class StandardSpecification extends Specification {
 
 	//method
 	/**
-	 * Removes the header of the current {@link StandardSpecification}.
+	 * Removes the header of the current {@link DocumentNode}.
 	 */
 	public void removeHeader() {
 		header = null;
@@ -405,7 +405,7 @@ public final class StandardSpecification extends Specification {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link StandardSpecification} has no header.
+	 * @throws UnexistingAttributeException if the current {@link DocumentNode} has no header.
 	 */
 	private void supposeHasHeader() {
 		

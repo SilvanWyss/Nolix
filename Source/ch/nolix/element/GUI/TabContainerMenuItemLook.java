@@ -4,9 +4,9 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity2.Entity;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.intData.TextSize;
@@ -31,7 +31,7 @@ extends Entity<SelectionMenuItemLook> {
 	
 	//static method
 	public static TabContainerMenuItemLook createFromSpecification(
-		final Specification specification
+		final DocumentNodeoid specification
 	) {
 		
 		final var tabContainerMenuItemLook = new TabContainerMenuItemLook();
@@ -48,7 +48,7 @@ extends Entity<SelectionMenuItemLook> {
 	private Color textColor;
 	
 	//method
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		switch (attribute.getHeader()) {
 			case MIN_WIDTH_HEADER:
 				setMinWidth(attribute.getOneAttributeAsInt());
@@ -72,9 +72,9 @@ extends Entity<SelectionMenuItemLook> {
 	}
 	
 	//method
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
-		final var attributes = new List<StandardSpecification>();
+		final var attributes = new List<DocumentNode>();
 		
 		if (hasMinWidth()) {
 			attributes.addAtEnd(

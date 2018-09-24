@@ -7,7 +7,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.databaseSchemaAdapter.Column;
 import ch.nolix.core.databaseSchemaAdapter.IColumnConnector;
 import ch.nolix.core.databaseSchemaAdapter.IEntitySetConnector;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -18,10 +18,10 @@ public final class EntitySetConnector implements IEntitySetConnector {
 	private static final String ENTITY_SET_SPECIFICATION_VARIABLE_NAME = "entity set specification";
 	
 	//attribute
-	private final Specification entitySetSpecification;
+	private final DocumentNodeoid entitySetSpecification;
 	
 	//constructor
-	EntitySetConnector(final Specification entitySetSpecification) {
+	EntitySetConnector(final DocumentNodeoid entitySetSpecification) {
 		
 		Validator
 		.suppose(entitySetSpecification)

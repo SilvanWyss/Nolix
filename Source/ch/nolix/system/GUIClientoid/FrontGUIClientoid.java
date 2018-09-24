@@ -3,9 +3,9 @@ package ch.nolix.system.GUIClientoid;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specification.Statement;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.documentNode.Statement;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
@@ -48,12 +48,12 @@ extends Client<FGC> {
 	 */
 	protected void internal_finishSessionInitialization() {}
 	
-	protected StandardSpecification internal_getData(final Statement request) {
+	protected DocumentNode internal_getData(final Statement request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case Protocol.FRONT_END_TYPE:
-				return StandardSpecification.createSpecificationWithHeader(getFrontEndType().toString());
+				return DocumentNode.createSpecificationWithHeader(getFrontEndType().toString());
 			default:
 				
 				//Calls method of the base class.
@@ -177,7 +177,7 @@ extends Client<FGC> {
 	 * 
 	 * @param attributes
 	 */
-	private void resetCounterpartGUI(final Iterable<? extends Specification> attributes) {
+	private void resetCounterpartGUI(final Iterable<? extends DocumentNodeoid> attributes) {
 		internal_runOnCounterpart(
 			Protocol.GUI_HEADER
 			+ '.'
@@ -196,7 +196,7 @@ extends Client<FGC> {
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	private void resetGUI(final Iterable<? extends Specification> attributes) {
+	private void resetGUI(final Iterable<? extends DocumentNodeoid> attributes) {
 		GUI.reset(attributes);
 		GUI.updateFromConfiguration();
 		GUI.noteMouseMove();

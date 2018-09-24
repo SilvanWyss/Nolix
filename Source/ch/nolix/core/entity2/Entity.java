@@ -6,11 +6,11 @@ import java.lang.reflect.Field;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.skillInterfaces.IFluentObject;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationAPI.Specifiable;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
@@ -39,7 +39,7 @@ implements IFluentObject<E>, Specifiable<E> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Extracts the property with the name of the given attribute.
 		final var property = getRefProperties().getRefFirstOrNull(p -> p.hasName(attribute.getHeader()));
@@ -60,10 +60,10 @@ implements IFluentObject<E>, Specifiable<E> {
 	/**
 	 * @return the attributes of this entity.
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
-		final List<StandardSpecification> attributes =
-		new List<StandardSpecification>();
+		final List<DocumentNode> attributes =
+		new List<DocumentNode>();
 		
 		//Iterates the properties of this entity.
 		for (final Property<?> p : getRefProperties()) {
@@ -71,7 +71,7 @@ implements IFluentObject<E>, Specifiable<E> {
 			//Handles the case that the current property has a value.
 			if (p.hasValue()) {
 				attributes.addAtEnd(
-					new StandardSpecification(
+					new DocumentNode(
 						p.getName(),
 						p.getRecursiveOrDefaultValue().getAttributes()
 					)

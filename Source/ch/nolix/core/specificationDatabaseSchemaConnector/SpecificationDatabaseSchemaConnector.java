@@ -9,8 +9,8 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.databaseSchemaAdapter.EntitySet;
 import ch.nolix.core.databaseSchemaAdapter.IDatabaseSchemaConnector;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -19,10 +19,10 @@ public final class SpecificationDatabaseSchemaConnector
 implements IDatabaseSchemaConnector {
 	
 	//attribute
-	private final Specification databaseSpecification;
+	private final DocumentNodeoid databaseSpecification;
 	
 	//constructor
-	public SpecificationDatabaseSchemaConnector(final Specification databaseSpecification) {
+	public SpecificationDatabaseSchemaConnector(final DocumentNodeoid databaseSpecification) {
 		
 		Validator
 		.suppose(databaseSpecification)
@@ -43,10 +43,10 @@ implements IDatabaseSchemaConnector {
 			);
 		}
 		
-		final var entitySetSpecification = new StandardSpecification("EntitySet");
+		final var entitySetSpecification = new DocumentNode("EntitySet");
 		
 		entitySetSpecification.addAttribute(
-			new StandardSpecification(
+			new DocumentNode(
 				PascalCaseNameCatalogue.NAME,
 				entitySet.getName()
 			)
@@ -57,7 +57,7 @@ implements IDatabaseSchemaConnector {
 		}
 		
 		entitySetSpecification
-		.addAttribute(new StandardSpecification(MultiPascalCaseNameCatalogue.ENTITIES));
+		.addAttribute(new DocumentNode(MultiPascalCaseNameCatalogue.ENTITIES));
 		
 		databaseSpecification.addAttribute(entitySetSpecification);
 	}

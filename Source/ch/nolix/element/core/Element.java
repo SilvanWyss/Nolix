@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.element.core;
 
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.Statement;
 //own imports
 import ch.nolix.core.entity.Entity;
 import ch.nolix.core.skillInterfaces.TypeRequestable;
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specification.Statement;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
@@ -59,14 +59,14 @@ public abstract class Element extends Entity implements TypeRequestable {
 	 * @return the data the given request requests from this element.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	public StandardSpecification getData(final Statement request) {
+	public DocumentNode getData(final Statement request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case TYPE_REQUEST:
-				return new StandardSpecification(getType());
+				return new DocumentNode(getType());
 			case TYPES_REQUEST:
-				return new StandardSpecification(getTypes().toString());
+				return new DocumentNode(getTypes().toString());
 			default:
 				throw new InvalidArgumentException(
 					new ArgumentName("request"),

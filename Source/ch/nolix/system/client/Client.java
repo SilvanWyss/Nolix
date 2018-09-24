@@ -5,14 +5,14 @@ package ch.nolix.system.client;
 import ch.nolix.core.bases.OptionalSignableElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.endPoint5.EndPoint;
 import ch.nolix.core.endPoint5.LocalEndPoint;
 import ch.nolix.core.endPoint5.NetEndPoint;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.skillInterfaces.Closable;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specification.Statement;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
@@ -412,7 +412,7 @@ implements Closable {
 	 * @return the data the given request requests from the current {@link Client}.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	protected StandardSpecification internal_getData(final Statement request) {
+	protected DocumentNode internal_getData(final Statement request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
@@ -433,7 +433,7 @@ implements Closable {
 	 * requests from the counterpart of the current {@link Client}.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	protected StandardSpecification internal_getDataFromCounterpart(final String request) {
+	protected DocumentNode internal_getDataFromCounterpart(final String request) {
 		return endPoint.getData(request);
 	}
 	
@@ -489,8 +489,8 @@ implements Closable {
 	 * @return the data the invoked user data method returns.
 	 * @throws InvalidStateException if the current {@link Client} contains no current session.
 	 */
-	protected final StandardSpecification internal_invokeSessionUserDataMethod(
-			final Specification sessionUserDataMethodRequest
+	protected final DocumentNode internal_invokeSessionUserDataMethod(
+			final DocumentNodeoid sessionUserDataMethodRequest
 	) {
 		//Extracts the name of the session user data method.
 		final var sessionUserDataMethodName = sessionUserDataMethodRequest.getHeader();
@@ -499,7 +499,7 @@ implements Closable {
 		final var arguments = sessionUserDataMethodRequest.getRefAttributes().toStringArray();
 		
 		//Invokes the session user data method.
-		return (StandardSpecification)internal_getRefCurrentSession().invokeUserDataMethod(
+		return (DocumentNode)internal_getRefCurrentSession().invokeUserDataMethod(
 			sessionUserDataMethodName, arguments
 		);
 	}
@@ -515,7 +515,7 @@ implements Closable {
 	 * @return the data the invoked user data method returns.
 	 * @throws InvalidStateException if the current {@link Client} contains no current session.
 	 */
-	protected final StandardSpecification internal_invokeSessionUserDataMethod(
+	protected final DocumentNode internal_invokeSessionUserDataMethod(
 		final String name,
 		final String... arguments
 	) {
@@ -548,7 +548,7 @@ implements Closable {
 	 * @param arguments
 	 * @throws InvalidStateException if the current {@link Client} contains no current session.
 	 */
-	protected final void internal_invokeSessionUserRunMethod(final Specification sessionUserRunMethodRequest) {
+	protected final void internal_invokeSessionUserRunMethod(final DocumentNodeoid sessionUserRunMethodRequest) {
 		
 		//Extracts the name of the session user run method.
 		final String sessionUserRunMethodName = sessionUserRunMethodRequest.getHeader();

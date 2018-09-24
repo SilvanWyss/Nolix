@@ -6,9 +6,9 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.skillInterfaces.Clearable;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.invalidArgumentException.Argument;
@@ -80,7 +80,7 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		switch (attribute.getHeader()) {
 			case PascalCaseNameCatalogue.ITEM:
 				addItem(SelectionMenuItem.createFromSpecification(attribute));
@@ -119,7 +119,7 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		
@@ -141,13 +141,13 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
-	public List<StandardSpecification> getInteractionAttributes() {
+	public List<DocumentNode> getInteractionAttributes() {
 		
 		final var interactionAttributes = super.getInteractionAttributes();
 		
 		if (containsSelectedItem()) {
 			interactionAttributes.addAtEnd(
-				new StandardSpecification(
+				new DocumentNode(
 					SELECTED_ITEM_HEADER,
 					getSelectedItemText()
 				)

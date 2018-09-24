@@ -7,10 +7,10 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.databaseAdapter.IDatabaseConnector;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntitySet;
-import ch.nolix.core.specification.Specification;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
@@ -18,11 +18,11 @@ public final class SpecificationDatabaseConnector
 implements IDatabaseConnector{
 	
 	//attribute
-	private final Specification databaseSpecification;
+	private final DocumentNodeoid databaseSpecification;
 	private final List<EntitySetConnector<Entity>> entitySetConnectors = new List<EntitySetConnector<Entity>>();
 	
 	//constructor
-	public SpecificationDatabaseConnector(final Specification databaseSpecification) {
+	public SpecificationDatabaseConnector(final DocumentNodeoid databaseSpecification) {
 		
 		Validator
 		.suppose(databaseSpecification)

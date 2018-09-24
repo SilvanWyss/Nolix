@@ -4,18 +4,18 @@ package ch.nolix.core.specificationDatabaseConnector;
 //own imports
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntityType;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.skillInterfaces.Identified;
-import ch.nolix.core.specification.Specification;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
 public final class EntityConnector<E extends Entity> implements Identified {
 
 	//attribute
-	private final Specification entitySpecification;
+	private final DocumentNodeoid entitySpecification;
 	
 	//package-visible constructor
-	EntityConnector(final Specification entitySpecification) {
+	EntityConnector(final DocumentNodeoid entitySpecification) {
 		
 		Validator
 		.suppose(entitySpecification)

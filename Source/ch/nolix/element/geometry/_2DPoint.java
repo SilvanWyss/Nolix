@@ -3,9 +3,9 @@ package ch.nolix.element.geometry;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.helper.DoubleHelper;
 import ch.nolix.core.mathematics.Vector;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.core.Element;
 
 //class
@@ -55,14 +55,14 @@ public final class _2DPoint extends Element {
 	/**
 	 * @return the attributes of this 2D point.
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		return
-		new List<StandardSpecification>(
-			StandardSpecification
+		new List<DocumentNode>(
+			DocumentNode
 			.createSpecificationWithHeader(
 				DoubleHelper.toString(getX())
 			),
-			StandardSpecification
+			DocumentNode
 			.createSpecificationWithHeader(
 				DoubleHelper.toString(getY())
 			)

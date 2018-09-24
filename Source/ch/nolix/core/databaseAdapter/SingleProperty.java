@@ -5,7 +5,7 @@ package ch.nolix.core.databaseAdapter;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
@@ -24,13 +24,13 @@ extends DataPropertyoid<V> {
 	}
 	
 	//method
-	public final List<StandardSpecification> getAttributes0() {
+	public final List<DocumentNode> getAttributes0() {
 		
-		final var attributes = new List<StandardSpecification>();
+		final var attributes = new List<DocumentNode>();
 		
 		if (hasValue()) {
 			attributes.addAtEnd(
-				new StandardSpecification(
+				new DocumentNode(
 					getValue().toString()
 				)
 			);

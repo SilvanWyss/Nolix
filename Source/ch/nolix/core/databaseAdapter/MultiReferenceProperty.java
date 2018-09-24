@@ -3,7 +3,7 @@ package ch.nolix.core.databaseAdapter;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -25,10 +25,10 @@ extends ReferencePropertyoid<E> {
 	}
 	
 	//method
-	public List<StandardSpecification> getAttributes0() {
+	public List<DocumentNode> getAttributes0() {
 		return
 		referencedEntityIds
-		.to(rei -> StandardSpecification.createFromInt(rei));
+		.to(rei -> DocumentNode.createFromInt(rei));
 	}
 	
 	//method

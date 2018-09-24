@@ -3,10 +3,10 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.skillInterfaces.Clearable;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.validator2.Validator;
@@ -37,7 +37,7 @@ implements Clearable<S> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		if (GUI.canCreateWidget(attribute.getHeader())) {
 			addWidget(GUI.createWidget(attribute));
@@ -138,10 +138,10 @@ implements Clearable<S> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public final List<StandardSpecification> getAttributes() {
+	public final List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
+		final List<DocumentNode> attributes = super.getAttributes();
 		
 		//Handles the case that the current {@link Stack} has an element margin.
 		if (hasElementMargin()) {

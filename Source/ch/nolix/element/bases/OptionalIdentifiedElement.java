@@ -5,8 +5,8 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.element.core.Element;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
@@ -28,13 +28,13 @@ public abstract class OptionalIdentifiedElement extends Element {
 	}
 	
 	//method
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		
 		if (hasId()) {
 			attributes.addAtEnd(
-				new StandardSpecification(
+				new DocumentNode(
 					PascalCaseNameCatalogue.ID,
 					String.valueOf(getId()))
 			);
@@ -67,7 +67,7 @@ public abstract class OptionalIdentifiedElement extends Element {
 	}
 	
 	//method
-	protected void addOrChangeAttribute(final Specification attribute) {
+	protected void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		switch (attribute.getHeader()) {
 			case PascalCaseNameCatalogue.ID:
 				setId(attribute.getOneAttributeAsInt());

@@ -4,9 +4,9 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.skillInterfaces.Clearable;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.bases.HeaderableElement;
 import ch.nolix.primitive.invalidStateException.EmptyStateException;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
@@ -30,7 +30,7 @@ implements Clearable<TabContainerTab> {
 	 * @param specification
 	 * @return a new {@link TabContainerTab} from the given specification.
 	 */
-	public static TabContainerTab createFromSpecification(final Specification specification) {
+	public static TabContainerTab createFromSpecification(final DocumentNodeoid specification) {
 		
 		final var tab = new TabContainerTab();
 		tab.reset(specification);
@@ -100,7 +100,7 @@ implements Clearable<TabContainerTab> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Handles the case that the given attribute specifies a widget.
 		if (GUI.canCreateWidget(attribute.getHeader())) {
@@ -140,7 +140,7 @@ implements Clearable<TabContainerTab> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();

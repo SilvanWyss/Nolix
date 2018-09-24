@@ -7,7 +7,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntityType;
 import ch.nolix.core.databaseAdapter.IEntitySetConnector;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
@@ -15,10 +15,10 @@ public final class EntitySetConnector<E extends Entity>
 implements IEntitySetConnector<E> {
 
 	//attribute
-	private final Specification entitySetSpecification;
+	private final DocumentNodeoid entitySetSpecification;
 	
 	//package-visible constructor
-	EntitySetConnector(final Specification entitySetSpecification) {
+	EntitySetConnector(final DocumentNodeoid entitySetSpecification) {
 		
 		Validator
 		.suppose(entitySetSpecification)

@@ -2,8 +2,8 @@
 package ch.nolix.system.client;
 
 import ch.nolix.core.controllerAPI.IMultiController;
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specification.Statement;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.Statement;
 import ch.nolix.primitive.validator2.Validator;
 
 //package-visible class
@@ -41,7 +41,7 @@ final class ClientReceiverController implements IMultiController {
 	 * @return the data the given request requests.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	public StandardSpecification getData(final Statement request) {
+	public DocumentNode getData(final Statement request) {
 		return client.internal_getData(request);
 	}
 	

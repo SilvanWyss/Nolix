@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+import ch.nolix.core.documentNode.DocumentNodeoid;
 //own imports
 import ch.nolix.core.entity.MutableProperty;
-import ch.nolix.core.specification.Specification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.MutableElement;
 
@@ -23,7 +23,7 @@ public final class ScrollbarLook extends MutableElement<ScrollbarLook> {
 	
 	//static method
 	public static ScrollbarLook createFromSpecification(
-		final Specification specification
+		final DocumentNodeoid specification
 	) {
 		
 		final var scrollbarLook = new ScrollbarLook();

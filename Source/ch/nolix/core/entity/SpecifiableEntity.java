@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.entity;
 
-//own imports
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.specificationAPI.Specifiable;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -39,7 +38,7 @@ implements Specifiable<SE> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Calls method of the base class.
 		super.addOrChangeAttribute(attribute);

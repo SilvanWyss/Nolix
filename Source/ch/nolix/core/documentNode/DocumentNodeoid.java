@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.specification;
+package ch.nolix.core.documentNode;
 
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
@@ -19,18 +19,18 @@ import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**
- * A {@link Specification} can have:
+ * A {@link DocumentNodeoid} can have:
  * -1 header
- * -several attributes that are a {@link Specification} themselves
+ * -several attributes that are a {@link DocumentNodeoid} themselves
  * 
- * The methods of a {@link Specification} are not final
+ * The methods of a {@link DocumentNodeoid} are not final
  * that they can be overwritten by an implementation with a higher performance.
  * 
  * @author Silvan Wyss
  * @month 2017-07
  * @lines 750
  */
-public abstract class Specification {
+public abstract class DocumentNodeoid {
 	
 	//constants
 	public static final String OPEN_BRACKET_CODE = "$O";
@@ -87,31 +87,31 @@ public abstract class Specification {
 	
 	//abstract method
 	/**
-	 * Adds the given attribute to the current {@link Specification}.
+	 * Adds the given attribute to the current {@link DocumentNodeoid}.
 	 * 
 	 * @param attribute
 	 */
-	public abstract void addAttribute(Specification attribute);
+	public abstract void addAttribute(DocumentNodeoid attribute);
 	
 	//method
 	/**
-	 * Adds the given attributes to the current {@link Specification}.
+	 * Adds the given attributes to the current {@link DocumentNodeoid}.
 	 * 
 	 * @param attributes
 	 */
-	public void addAttribute(final Specification... attributes) {
+	public void addAttribute(final DocumentNodeoid... attributes) {
 		
 		//Calls other method.
-		addAttributes(new ReadContainer<Specification>(attributes));
+		addAttributes(new ReadContainer<DocumentNodeoid>(attributes));
 	}
 	
 	//method
 	/**
-	 * Adds the given attributes to the current {@link Specification}.
+	 * Adds the given attributes to the current {@link DocumentNodeoid}.
 	 * 
 	 * @param attributes
 	 */
-	public <S extends Specification> void addAttributes(final Iterable<S> attributes) {
+	public <S extends DocumentNodeoid> void addAttributes(final Iterable<S> attributes) {
 		
 		//Iterates the given attributes.
 		attributes.forEach(a -> addAttribute(a));
@@ -128,15 +128,15 @@ public abstract class Specification {
 	//method
 	/**
 	 * @param selector
-	 * @return true if the current {@link Specification} contains an attribute the given selector selects.
+	 * @return true if the current {@link DocumentNodeoid} contains an attribute the given selector selects.
 	 */
-	public boolean containsAttribute(final IElementTakerBooleanGetter<Specification> selector) {
+	public boolean containsAttribute(final IElementTakerBooleanGetter<DocumentNodeoid> selector) {
 		return getRefAttributes().contains(a -> selector.getOutput(a));
 	}
 	
 	//method
 	/**
-	 * @return true if the current {@link Specification} contains attributes.
+	 * @return true if the current {@link DocumentNodeoid} contains attributes.
 	 */
 	public boolean containsAttributes() {
 		return getRefAttributes().containsAny();
@@ -144,7 +144,7 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return true if the current {@link Specification} contains exactly 1 attribute.
+	 * @return true if the current {@link DocumentNodeoid} contains exactly 1 attribute.
 	 */
 	public boolean containsOneAttribute() {
 		return getRefAttributes().containsOne();
@@ -152,7 +152,7 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return true if the current {@link Specification} contains exactly 1 attribute, which has a header.
+	 * @return true if the current {@link DocumentNodeoid} contains exactly 1 attribute, which has a header.
 	 */
 	public boolean containsOneAttributeWithHeader() {
 		return (containsOneAttribute() && getRefOneAttribute().hasHeader());
@@ -160,11 +160,11 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return a new copy of the current {@link Specification}.
+	 * @return a new copy of the current {@link DocumentNodeoid}.
 	 */
-	public StandardSpecification createCopy() {
+	public DocumentNode createCopy() {
 		
-		final StandardSpecification specification = new StandardSpecification();
+		final DocumentNode specification = new DocumentNode();
 		
 		//Handles the case that the current specification has a header.
 		if (hasHeader()) {
@@ -178,18 +178,18 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return true if the current {@link Specification} equals the given object.
+	 * @return true if the current {@link DocumentNodeoid} equals the given object.
 	 */
 	public boolean equals(final Object object) {
 		
 		//Handles the case that the given object is no standard specification.
-		if (!(object instanceof StandardSpecification)) {
+		if (!(object instanceof DocumentNode)) {
 			return false;
 		}
 		
 		//Handles the case that the given object is a standard specification.
 		
-			final var specification = (Specification)object;
+			final var specification = (DocumentNodeoid)object;
 			
 			if (!hasHeader()) {
 				if (specification.hasHeader()) {
@@ -219,7 +219,7 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return the number of attributes of the current {@link Specification}.
+	 * @return the number of attributes of the current {@link DocumentNodeoid}.
 	 */
 	public int getAttributeCount() {
 		return getRefAttributes().getElementCount();
@@ -227,7 +227,7 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return the string representations of the attributes of the current {@link Specification}.
+	 * @return the string representations of the attributes of the current {@link DocumentNodeoid}.
 	 */
 	public List<String> getAttributesToStrings() {
 		return getRefAttributes().to(a -> a.toString());
@@ -235,9 +235,9 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return the integer the first attribute of the current {@link Specification} represents.
+	 * @return the integer the first attribute of the current {@link DocumentNodeoid} represents.
 	 * @throws InvalidArgumentException
-	 * if the first attribute of the current {@link Specification} does not represent an integer.
+	 * if the first attribute of the current {@link DocumentNodeoid} does not represent an integer.
 	 */
 	public int getFirstAttributeAsInt() {
 		return getRefFirstAttribute().toInt();
@@ -245,13 +245,13 @@ public abstract class Specification {
 	
 	//abstract method
 	/**
-	 * @return the header of the current {@link Specification}.
+	 * @return the header of the current {@link DocumentNodeoid}.
 	 */
 	public abstract String getHeader();
 	
 	//method
 	/**
-	 * @return the header of the current {@link Specification} in quotes.
+	 * @return the header of the current {@link DocumentNodeoid} in quotes.
 	 */
 	public String getHeaderInQuotes() {
 		return
@@ -262,9 +262,9 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return the boolean the one attribute of the current {@link Specification} specifies.
+	 * @return the boolean the one attribute of the current {@link DocumentNodeoid} specifies.
 	 * @throws InvalidArgumentException
-	 * if the one attribute of the current {@link Specification} specifies no boolean.
+	 * if the one attribute of the current {@link DocumentNodeoid} specifies no boolean.
 	 */
 	public final boolean getOneAttributeAsBoolean() {
 		return getRefOneAttribute().toBoolean();
@@ -272,9 +272,9 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return the double the one attribute of the current {@link Specification} specifies.
+	 * @return the double the one attribute of the current {@link DocumentNodeoid} specifies.
 	 * @throws InvalidArgumentException
-	 * if the one attribute of the current {@link Specification} specifies no double.
+	 * if the one attribute of the current {@link DocumentNodeoid} specifies no double.
 	 */
 	public double getOneAttributeAsDouble() {
 		return getRefOneAttribute().toDouble();
@@ -282,9 +282,9 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return the integer the one attribute of the current {@link Specification} specifies.
+	 * @return the integer the one attribute of the current {@link DocumentNodeoid} specifies.
 	 * @throws InvalidArgumentException
-	 * if the one attribute of the current {@link Specification} specifies no int.
+	 * if the one attribute of the current {@link DocumentNodeoid} specifies no int.
 	 */
 	public int getOneAttributeAsInt() {
 		return getRefOneAttribute().toInt();
@@ -292,7 +292,7 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return a string representation of the one attribute of the current {@link Specification}.
+	 * @return a string representation of the one attribute of the current {@link DocumentNodeoid}.
 	 */
 	public String getOneAttributeAsString() {
 		return getRefOneAttribute().toString();
@@ -300,9 +300,9 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return the header of the one attribute of the current {@link Specification}.
-	 * @throws EmptyStateException if the current {@link Specification} contains no attributes.
-	 * @throws InvalidStateException if the current {@link Specification} contains several attributes.
+	 * @return the header of the one attribute of the current {@link DocumentNodeoid}.
+	 * @throws EmptyStateException if the current {@link DocumentNodeoid} contains no attributes.
+	 * @throws InvalidStateException if the current {@link DocumentNodeoid} contains several attributes.
 	 */
 	public String getOneAttributeHeader() {
 		return getRefOneAttribute().getHeader();
@@ -310,7 +310,7 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return a reproducing string representation of the header of the current {@link Specification}.
+	 * @return a reproducing string representation of the header of the current {@link DocumentNodeoid}.
 	 */
 	public String getReproducingHeader() {
 		return createReproducingString(getHeader());
@@ -319,61 +319,61 @@ public abstract class Specification {
 	//abstract method
 	/**
 	 * @param index
-	 * @return the attribute at the given index from the current {@link Specification}.
+	 * @return the attribute at the given index from the current {@link DocumentNodeoid}.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
-	 * @throws UnexistingAttributeException if the current {@link Specification} contains no attribute at the given index.
+	 * @throws UnexistingAttributeException if the current {@link DocumentNodeoid} contains no attribute at the given index.
 	 */
 	@SuppressWarnings("unchecked")
-	public <S extends Specification> S getRefAttributeAt(final int index) {
+	public <S extends DocumentNodeoid> S getRefAttributeAt(final int index) {
 		return (S)getRefAttributes().getRefAt(index);
 	}
 	
 	//abstract method
 	/**
-	 * @return the attributes of the current {@link Specification}.
+	 * @return the attributes of the current {@link DocumentNodeoid}.
 	 */
-	public abstract <S extends Specification> IContainer<S> getRefAttributes();
+	public abstract <S extends DocumentNodeoid> IContainer<S> getRefAttributes();
 	
 	//abstract method
 	/**
 	 * 
 	 * @param header
-	 * @return the attributes of the current {@link Specification} that have the given header.
+	 * @return the attributes of the current {@link DocumentNodeoid} that have the given header.
 	 */
-	public IContainer<Specification> getRefAttributes(final String header) {
+	public IContainer<DocumentNodeoid> getRefAttributes(final String header) {
 		return getRefAttributes(a -> a.hasHeader(header));
 	}
 	
 	//abstract method
 	/**
 	 * @param selector
-	 * @return the attributes the given selector selects from the current {@link Specification}.
+	 * @return the attributes the given selector selects from the current {@link DocumentNodeoid}.
 	 */
-	public IContainer<Specification> getRefAttributes(
-		final IElementTakerBooleanGetter<Specification> selector
+	public IContainer<DocumentNodeoid> getRefAttributes(
+		final IElementTakerBooleanGetter<DocumentNodeoid> selector
 	) {
 		return getRefAttributes().getRefSelected(a -> selector.getOutput(a));
 	}
 	
 	//method
 	/**
-	 * @return the first attribute of the current {@link Specification}.
-	 * @throws EmptyStateException if the current {@link Specification} contains no attributes.
+	 * @return the first attribute of the current {@link DocumentNodeoid}.
+	 * @throws EmptyStateException if the current {@link DocumentNodeoid} contains no attributes.
 	 */
 	@SuppressWarnings("unchecked")
-	public <S extends Specification> S getRefFirstAttribute() {
+	public <S extends DocumentNodeoid> S getRefFirstAttribute() {
 		return (S)getRefAttributes().getRefFirst();
 	}
 	
 	//method
 	/**
 	 * @param selector
-	 * @return the first attribute the given selector selects from the current {@link Specification}.
-	 * @throws UnexistingAttributeException if the current {@link Specification} contains no attribute the given selector selects.
+	 * @return the first attribute the given selector selects from the current {@link DocumentNodeoid}.
+	 * @throws UnexistingAttributeException if the current {@link DocumentNodeoid} contains no attribute the given selector selects.
 	 */
 	@SuppressWarnings("unchecked")
-	public <S extends Specification> S getRefFirstAttribute(
-		IElementTakerBooleanGetter<Specification> selector
+	public <S extends DocumentNodeoid> S getRefFirstAttribute(
+		IElementTakerBooleanGetter<DocumentNodeoid> selector
 	) {
 		return (S)getRefAttributes().getRefFirst(a -> selector.getOutput(a));
 	}
@@ -381,32 +381,32 @@ public abstract class Specification {
 	//method
 	/**
 	 * @param header
-	 * @return the first attribute of the current {@link Specification} with the given header.
+	 * @return the first attribute of the current {@link DocumentNodeoid} with the given header.
 	 */
-	public <S extends Specification> S getRefFirstAttribute(final String header) {
+	public <S extends DocumentNodeoid> S getRefFirstAttribute(final String header) {
 		return getRefFirstAttribute(a -> a.hasHeader(header));
 	}
 	
 	//abstract method
 	/**
-	 * @return the one attribute of the current {@link Specification}.
-	 * @throws EmptyStateException if the current {@link Specification} contains no attributes.
-	 * @throws InvalidStateException if the current {@link Specification} contains several attributes.
+	 * @return the one attribute of the current {@link DocumentNodeoid}.
+	 * @throws EmptyStateException if the current {@link DocumentNodeoid} contains no attributes.
+	 * @throws InvalidStateException if the current {@link DocumentNodeoid} contains several attributes.
 	 */
-	public Specification getRefOneAttribute() {
+	public DocumentNodeoid getRefOneAttribute() {
 		return getRefAttributes().getRefOne();
 	}
 	
 	//abstract method
 	/**
-	 * @return true if the current {@link Specification} has a header.
+	 * @return true if the current {@link DocumentNodeoid} has a header.
 	 */
 	public abstract boolean hasHeader();
 	
 	//method
 	/**
 	 * @param header
-	 * @return true if the current {@link Specification} has the given header.
+	 * @return true if the current {@link DocumentNodeoid} has the given header.
 	 */
 	public boolean hasHeader(final String header) {
 		
@@ -421,21 +421,21 @@ public abstract class Specification {
 	
 	//abstract method
 	/**
-	 * Removes the attributes of the current {@link Specification}.
+	 * Removes the attributes of the current {@link DocumentNodeoid}.
 	 */
 	public abstract void removeAttributes();
 	
 	//abstract method
 	/**
-	 * Removes the first attribute the given selector selects from the current {@link Specification}.
+	 * Removes the first attribute the given selector selects from the current {@link DocumentNodeoid}.
 	 * 
 	 * @param selector
 	 */
-	public abstract void removeFirstAttribute(IElementTakerBooleanGetter<Specification> selector);
+	public abstract void removeFirstAttribute(IElementTakerBooleanGetter<DocumentNodeoid> selector);
 	
 	//method
 	/**
-	 * Removes the first attribute with the given header from the current {@link Specification}.
+	 * Removes the first attribute with the given header from the current {@link DocumentNodeoid}.
 	 * 
 	 * @param header
 	 */
@@ -445,13 +445,13 @@ public abstract class Specification {
 	
 	//abstract method
 	/**
-	 * Removes the header of the current {@link Specification}.
+	 * Removes the header of the current {@link DocumentNodeoid}.
 	 */
 	public abstract void removeHeader();
 	
 	//method
 	/**
-	 * Removes the header and the attributes of the current {@link Specification}.
+	 * Removes the header and the attributes of the current {@link DocumentNodeoid}.
 	 */
 	public void reset() {
 		removeHeader();
@@ -460,7 +460,7 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * Resets the current {@link Specification} from the given string.
+	 * Resets the current {@link DocumentNodeoid} from the given string.
 	 * 
 	 * @param string
 	 * @throws InvalidValueException if the given string is not valid.
@@ -533,14 +533,14 @@ public abstract class Specification {
 					level--;
 				}
 				if (character == CharacterCatalogue.COMMA && level == 0) {
-					addAttribute(new StandardSpecification(attributeStringBuilder.toString()));
+					addAttribute(new DocumentNode(attributeStringBuilder.toString()));
 					attributeStringBuilder = new StringBuilder();
 				}
 				else {
 					attributeStringBuilder.append(character);
 				}
 			}
-			addAttribute(new StandardSpecification(attributeStringBuilder.toString()));
+			addAttribute(new DocumentNode(attributeStringBuilder.toString()));
 			
 			//Checks if the given value has as many opening brackets as closing brackets.
 			if (level != 0) {
@@ -562,18 +562,18 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * Resets the attributes of the current {@link Specification} to the given attributes.
+	 * Resets the attributes of the current {@link DocumentNodeoid} to the given attributes.
 	 * 
 	 * @param attributes
 	 */
-	public <S extends Specification> void resetAttributes(final Iterable<S> attributes) {
+	public <S extends DocumentNodeoid> void resetAttributes(final Iterable<S> attributes) {
 		removeAttributes();
 		addAttributes(attributes);
 	}
 	
 	//method
 	/**
-	 * Resets the current {@link Specification} from the file with the given file path.
+	 * Resets the current {@link DocumentNodeoid} from the file with the given file path.
 	 * 
 	 * @param filePath
 	 */
@@ -588,7 +588,7 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * Saves the current {@link Specification} to the file with the given path.
+	 * Saves the current {@link DocumentNodeoid} to the file with the given path.
 	 * 
 	 * @param filePath
 	 * @throws InvalidArgumentException if the given file path is not valid.
@@ -602,7 +602,7 @@ public abstract class Specification {
 	
 	//abstract method
 	/**
-	 * Sets the header of the current {@link Specification}.
+	 * Sets the header of the current {@link DocumentNodeoid}.
 	 * 
 	 * @param header
 	 */
@@ -610,8 +610,8 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return the boolean the current {@link Specification} represents.
-	 * @throws InvalidArgumenException if the current {@link Specification} represents no boolean.
+	 * @return the boolean the current {@link DocumentNodeoid} represents.
+	 * @throws InvalidArgumenException if the current {@link DocumentNodeoid} represents no boolean.
 	 */
 	public boolean toBoolean() {
 		return StringHelper.toBoolean(toString());
@@ -619,8 +619,8 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return the double the current {@link Specification} represents.
-	 * @throws InvalidArgumentException if the current {@link Specification} represents no double.
+	 * @return the double the current {@link DocumentNodeoid} represents.
+	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} represents no double.
 	 */
 	public double toDouble() {
 		return StringHelper.toDouble(toString());
@@ -628,7 +628,7 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return a formated string representation of the current {@link Specification}.
+	 * @return a formated string representation of the current {@link DocumentNodeoid}.
 	 */
 	public String toFormatedString() {
 		return toFormatedString(0);
@@ -636,8 +636,8 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return the integer the current {@link Specification} represents.
-	 * @throws InvalidArgumentException if the current {@link Specification} represents no int.
+	 * @return the integer the current {@link DocumentNodeoid} represents.
+	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} represents no int.
 	 */
 	public int toInt() {
 		return StringHelper.toInt(toString());		
@@ -645,7 +645,7 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return a string representation of the current {@link Specification}.
+	 * @return a string representation of the current {@link DocumentNodeoid}.
 	 */
 	public String toString() {
 		
@@ -669,7 +669,7 @@ public abstract class Specification {
 	
 	//method
 	/**
-	 * @return a XML representation of the current {@link Specification}.
+	 * @return a XML representation of the current {@link DocumentNodeoid}.
 	 */
 	public final XMLNode toXML() {
 		
@@ -677,7 +677,7 @@ public abstract class Specification {
 		final var XMLNode = new XMLNode(getHeader());
 		
 		//Iterates the attributes of the current specification.
-		for (final Specification a : getRefAttributes()) {
+		for (final DocumentNodeoid a : getRefAttributes()) {
 			
 			//Handles the case that the current attribute does not contain attributes.
 			if (!a.containsAttributes()) {
@@ -696,7 +696,7 @@ public abstract class Specification {
 	//method
 	/**
 	 * @param leadingTabulators
-	 * @return a formated string representation of the current {@link Specification}
+	 * @return a formated string representation of the current {@link DocumentNodeoid}
 	 * with as many leading tabulators as the given leading tabulator count says.
 	 */
 	protected String toFormatedString(final int leadingTabulators) {
@@ -730,7 +730,7 @@ public abstract class Specification {
 				//Iterates the attributes of the current specification.
 				final var attributeCount =  getAttributeCount();
 				var index = 1;
-				for (final Specification a : getRefAttributes()) {
+				for (final DocumentNodeoid a : getRefAttributes()) {
 					
 					stringBuilder.append(a.toFormatedString(leadingTabulators + 1));
 					

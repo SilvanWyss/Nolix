@@ -4,7 +4,7 @@ package ch.nolix.core.databaseAdapter;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -16,12 +16,12 @@ extends ReferencePropertyoid<E> {
 	private int referencedEntityId = -1;
 	
 	//method
-	public final List<StandardSpecification> getAttributes0() {
+	public final List<DocumentNode> getAttributes0() {
 
-		final var attributes = new List<StandardSpecification>();
+		final var attributes = new List<DocumentNode>();
 		
 		if (referencesEntity()) {
-			attributes.addAtEnd(StandardSpecification.createFromInt(getReferencedEntityId()));
+			attributes.addAtEnd(DocumentNode.createFromInt(getReferencedEntityId()));
 		}
 		
 		return attributes;

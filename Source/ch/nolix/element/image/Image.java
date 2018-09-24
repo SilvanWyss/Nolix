@@ -9,9 +9,9 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Matrix;
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity.Property;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.core.NonNegativeInteger;
@@ -27,7 +27,7 @@ public final class Image extends MutableElement<Image> {
 	private static final String PIXEL_ARRAY_HEADER = "PixelArray";
 	
 	//static method
-	public static Image createFromSpecification(final Specification specification) {
+	public static Image createFromSpecification(final DocumentNodeoid specification) {
 		
 		final var image =
 		new Image(
@@ -104,7 +104,7 @@ public final class Image extends MutableElement<Image> {
 	}
 	
 	//method
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		switch (attribute.getHeader()) {
 			case PIXEL_ARRAY_HEADER:
 				setPixelArray(attribute.getRefAttributes().to(a -> Color.createFromSpecification(a)));
@@ -115,13 +115,13 @@ public final class Image extends MutableElement<Image> {
 	}	
 	
 	//method
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		
 		{
 			final var pixelArraySpecification =
-			StandardSpecification.createSpecificationWithHeader(PIXEL_ARRAY_HEADER);
+			DocumentNode.createSpecificationWithHeader(PIXEL_ARRAY_HEADER);
 			
 			for (final var p : pixels) {
 				pixelArraySpecification.addAttribute(p.getHexadecimalValue(true));

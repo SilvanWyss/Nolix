@@ -5,17 +5,17 @@ package ch.nolix.core.specificationDatabaseConnector;
 import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntityType;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
 public final class EntitiesConnector<E extends Entity> {
 
 	//attribute
-	private final Specification entitiesSpecification;
+	private final DocumentNodeoid entitiesSpecification;
 	
 	//package-visible constructor
-	EntitiesConnector(final Specification entitiesSpecification) {
+	EntitiesConnector(final DocumentNodeoid entitiesSpecification) {
 		
 		Validator
 		.suppose(entitiesSpecification)

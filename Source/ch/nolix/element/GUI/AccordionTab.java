@@ -4,11 +4,11 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.skillInterfaces.Clearable;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.bases.HeaderableElement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
@@ -32,7 +32,7 @@ implements Clearable<AccordionTab> {
 	 * @param specification
 	 * @return a new {@link AccordionTab} from the given specification.
 	 */
-	public static AccordionTab createFromSpecification(final Specification specification) {
+	public static AccordionTab createFromSpecification(final DocumentNodeoid specification) {
 		
 		final var tab = new AccordionTab();
 		tab.reset(specification);
@@ -100,7 +100,7 @@ implements Clearable<AccordionTab> {
 	}
 	
 	//method
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		if (GUI.canCreateWidget(attribute.getHeader())) {
 			setWidget(GUI.createWidget(attribute));
@@ -149,7 +149,7 @@ implements Clearable<AccordionTab> {
 	}
 	
 	//method
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = super.getAttributes();
 		

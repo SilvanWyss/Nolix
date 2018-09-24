@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.coreTest.specificationTest;
+package ch.nolix.coreTest.documentNodeTest;
 
-//own imports
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.primitive.test2.Test;
 
 //test class
@@ -13,13 +12,13 @@ import ch.nolix.primitive.test2.Test;
  * @month 2015-12
  * @lines 80
  */
-public final class StandardSpecificationTest extends Test {
+public final class DocumentNodeTest extends Test {
 	
 	//test case
 	public void testCase_constructor_1() {
 		
 		//setup
-		final StandardSpecification standardSpecification = new StandardSpecification();
+		final DocumentNode standardSpecification = new DocumentNode();
 				
 		//verification
 		expectNot(standardSpecification.hasHeader());
@@ -30,7 +29,7 @@ public final class StandardSpecificationTest extends Test {
 	public void testCase_constructor_2() {
 		
 		//setup
-		final StandardSpecification standardSpecification = new StandardSpecification("a");
+		final DocumentNode standardSpecification = new DocumentNode("a");
 				
 		//verification
 		expect(standardSpecification.hasHeader());
@@ -41,7 +40,7 @@ public final class StandardSpecificationTest extends Test {
 	public void testCase_constructor_3() {
 		
 		//setup
-		final StandardSpecification standardSpecification = new StandardSpecification("a(b)");
+		final DocumentNode standardSpecification = new DocumentNode("a(b)");
 				
 		//verification
 		expect(standardSpecification.hasHeader());
@@ -52,7 +51,7 @@ public final class StandardSpecificationTest extends Test {
 	public void testCase_constructor_4() {
 		
 		//setup
-		final StandardSpecification standardSpecification = new StandardSpecification("a(b.)");
+		final DocumentNode standardSpecification = new DocumentNode("a(b.)");
 				
 		//verification
 		expect(standardSpecification.hasHeader());
@@ -63,7 +62,7 @@ public final class StandardSpecificationTest extends Test {
 	public void testCase_toString_1() {
 		
 		//setup
-		final StandardSpecification standardSpecification = new StandardSpecification();
+		final DocumentNode standardSpecification = new DocumentNode();
 		
 		//verification
 		expect(standardSpecification.toString()).isEmpty();
@@ -73,7 +72,7 @@ public final class StandardSpecificationTest extends Test {
 	public void testCase_toString_2() {
 		
 		//setup
-		final StandardSpecification standardSpecification = new StandardSpecification("a");
+		final DocumentNode standardSpecification = new DocumentNode("a");
 		
 		//verification
 		expect(standardSpecification.toString()).isEqualTo("a");
@@ -83,7 +82,7 @@ public final class StandardSpecificationTest extends Test {
 	public void testCase_toString_3() {
 		
 		//setup
-		final StandardSpecification standardSpecification = new StandardSpecification("a(b)");
+		final DocumentNode standardSpecification = new DocumentNode("a(b)");
 		
 		//verification
 		expect(standardSpecification.toString()).isEqualTo("a(b)");

@@ -3,7 +3,7 @@ package ch.nolix.element.configuration;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 
@@ -45,7 +45,7 @@ public class StandardConfiguration extends Configuration<StandardConfiguration> 
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	public <S extends Specification> StandardConfiguration(final Iterable<? extends Specification> attributes) {
+	public <S extends DocumentNodeoid> StandardConfiguration(final Iterable<? extends DocumentNodeoid> attributes) {
 		addOrChangeAttributes(attributes);
 	}
 	

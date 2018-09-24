@@ -6,12 +6,12 @@ import java.awt.event.KeyEvent;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.constants.FunctionCatalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.element.bases.ConfigurableElement;
 import ch.nolix.element.color.Color;
@@ -112,7 +112,7 @@ extends ConfigurableElement<W> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -291,10 +291,10 @@ extends ConfigurableElement<W> {
 	/**
 	 * @return the attributes of the current {@link Widget}.
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
+		final List<DocumentNode> attributes = super.getAttributes();
 		
 		attributes.addAtBegin(getInteractionAttributes());
 		
@@ -306,7 +306,7 @@ extends ConfigurableElement<W> {
 		//Handles the case that the current widget has a left mouse button press command.
 		if (hasLeftMouseButtonPressCommand()) {
 			attributes.addAtEnd(
-				new StandardSpecification(
+				new DocumentNode(
 					LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER,
 					leftMouseButtonPressCommand.toString()
 				)
@@ -316,7 +316,7 @@ extends ConfigurableElement<W> {
 		//Handles the case that the current widget has a left mouse button release command.
 		if (hasLeftMouseButtonReleaseCommand()) {
 			attributes.addAtEnd(
-				new StandardSpecification(
+				new DocumentNode(
 					LEFT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER,
 					leftMouseButtonReleaseCommand.toString()
 				)
@@ -326,7 +326,7 @@ extends ConfigurableElement<W> {
 		//Handles the case that the current widget has a right mouse button press command.
 		if (hasRightMouseButtonPressCommand()) {
 			attributes.addAtEnd(
-				new StandardSpecification(
+				new DocumentNode(
 					RIGHT_MOUSE_BUTTON_PRESS_COMMAND_HEADER,
 					rightMouseButtonPressCommand.toString()
 				)
@@ -336,7 +336,7 @@ extends ConfigurableElement<W> {
 		//Handles the case that the current widget has a right mouse button release command.
 		if (hasRightMouseButtonReleaseCommand()) {
 			attributes.addAtEnd(
-				new StandardSpecification(
+				new DocumentNode(
 					RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER,
 					rightMouseButtonReleaseCommand.toString()
 				)
@@ -345,21 +345,21 @@ extends ConfigurableElement<W> {
 		
 		//Handles the case that the current widget does not grey out when it is disabled.
 		if (!greysOutWhenDisabled()) {
-			attributes.addAtEnd(new StandardSpecification(NO_GREY_OUT_WHEN_DISABLED_HEADER));
+			attributes.addAtEnd(new DocumentNode(NO_GREY_OUT_WHEN_DISABLED_HEADER));
 		}
 	
 		//Extracts the normal state attributes of the current widget.
-		final List<StandardSpecification> normalStateAttributes = getRefBaseLook().getAttributes();
+		final List<DocumentNode> normalStateAttributes = getRefBaseLook().getAttributes();
 		normalStateAttributes.forEach(a -> a.addPrefixToHeader(BASE_PREFIX));
 		attributes.addAtEnd(normalStateAttributes);
 		
 		//Extracts the hover state attributes of the current widget.
-		final List<StandardSpecification> hoverStateAttributes = getRefHoverLook().getAttributes();
+		final List<DocumentNode> hoverStateAttributes = getRefHoverLook().getAttributes();
 		hoverStateAttributes.forEach(a -> a.addPrefixToHeader(HOVER_PREFIX));
 		attributes.addAtEnd(hoverStateAttributes);
 		
 		//Extracts focus state attributes of the current widget.
-		final List<StandardSpecification> focusStateAttributes = getRefFocusLook().getAttributes();
+		final List<DocumentNode> focusStateAttributes = getRefFocusLook().getAttributes();
 		focusStateAttributes.forEach(a -> a.addPrefixToHeader(FOCUS_PREFIX));
 		attributes.addAtEnd(focusStateAttributes);
 		
@@ -426,9 +426,9 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @return the interaction attributes of the current {@link Widget}.
 	 */
-	public List<StandardSpecification> getInteractionAttributes() {
+	public List<DocumentNode> getInteractionAttributes() {
 		return
-		new List<StandardSpecification> (
+		new List<DocumentNode> (
 			getState().getSpecificationAs(STATE_HEADER)
 		);
 	}

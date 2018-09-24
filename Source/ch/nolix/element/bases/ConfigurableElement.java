@@ -12,9 +12,9 @@ package ch.nolix.element.bases;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.skillInterfaces.OptionalTokenable;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.element.core.NonEmptyText;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
@@ -34,10 +34,10 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	/**
 	 * @return the attributes of this specifiable object
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
-		List<StandardSpecification> attributes = super.getAttributes();
+		List<DocumentNode> attributes = super.getAttributes();
 		
 		if (hasToken()) {
 			attributes.addAtEnd(token.getSpecificationAs(PascalCaseNameCatalogue.TOKEN));
@@ -104,7 +104,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		switch (attribute.getHeader()) {
 			case "Token":
 				setToken(attribute.getOneAttributeAsString());

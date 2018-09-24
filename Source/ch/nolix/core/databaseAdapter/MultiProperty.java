@@ -4,8 +4,8 @@ package ch.nolix.core.databaseAdapter;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.skillInterfaces.Clearable;
-import ch.nolix.core.specification.StandardSpecification;
 
 //class
 public final class MultiProperty<V>
@@ -54,8 +54,8 @@ implements Clearable<MultiProperty<V>> {
 	}
 	
 	//method
-	public List<StandardSpecification> getAttributes0() {
-		return getValues().to(v -> new StandardSpecification(v.toString()));
+	public List<DocumentNode> getAttributes0() {
+		return getValues().to(v -> new DocumentNode(v.toString()));
 	}
 	
 	//method

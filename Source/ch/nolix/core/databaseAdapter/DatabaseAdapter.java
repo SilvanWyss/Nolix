@@ -4,18 +4,18 @@ package ch.nolix.core.databaseAdapter;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.factory.Factory;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.skillInterfaces.IChangesSaver;
-import ch.nolix.core.specification.Specification;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
 public final class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 
 	//static attribute
-	private static final Factory<Specification, Object> valueFactory =
-	new Factory<Specification, Object>()
+	private static final Factory<DocumentNodeoid, Object> valueFactory =
+	new Factory<DocumentNodeoid, Object>()
 	.addInstanceCreator(Boolean.class.getSimpleName(), s -> s.toBoolean())
 	.addInstanceCreator(Integer.class.getSimpleName(), s -> s.toInt())
 	.addInstanceCreator(String.class.getSimpleName(), s -> s.toString());
@@ -23,7 +23,7 @@ public final class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 	//static method
 	public static void addValueCreator(
 		final String type,
-		final IElementTakerElementGetter<Specification, Object> valueCreator
+		final IElementTakerElementGetter<DocumentNodeoid, Object> valueCreator
 	) {
 		valueFactory.addInstanceCreator(type, valueCreator);
 	}
@@ -36,7 +36,7 @@ public final class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 	//static method
 	public static Object createValue(
 		final String type,
-		final Specification input
+		final DocumentNodeoid input
 	) {
 		return valueFactory.createInstance(type, input);
 	}

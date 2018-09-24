@@ -3,9 +3,9 @@ package ch.nolix.system.netNeuron;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.skillInterfaces.Closable;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.primitive.validator2.Validator;
 import ch.nolix.system.client.Application;
 import ch.nolix.system.client.NetServer;
@@ -41,7 +41,7 @@ implements Closable {
 	//attributes
 	private final NetServer netServer;
 	private final Application<StandardClient> application;
-	private final IElementTakerElementGetter<I, StandardSpecification> transformator;
+	private final IElementTakerElementGetter<I, DocumentNode> transformator;
 	
 	//constructor
 	/**
@@ -56,7 +56,7 @@ implements Closable {
 	 */
 	public BackNetNeuron(
 		final int port,
-		final IElementTakerElementGetter<I, StandardSpecification> transformator)
+		final IElementTakerElementGetter<I, DocumentNode> transformator)
 	{
 		//Checks if the given transform is an instance.
 		Validator
@@ -120,7 +120,7 @@ implements Closable {
 		else {
 			
 			internal_setOutput(getRefOneInput());			
-			final StandardSpecification output = transformator.getOutput(getRefOutput());
+			final DocumentNode output = transformator.getOutput(getRefOutput());
 			
 			//Iterates the clients of the application of this net back neuron.
 			for (final StandardClient c : application.getRefClients()) {

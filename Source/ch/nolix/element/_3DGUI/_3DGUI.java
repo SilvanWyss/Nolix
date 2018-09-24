@@ -8,14 +8,14 @@ import java.lang.reflect.InvocationTargetException;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.skillInterfaces.Clearable;
 import ch.nolix.core.skillInterfaces.Closable;
 import ch.nolix.core.skillInterfaces.Refreshable;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configurationElement.ConfigurationElement;
@@ -78,7 +78,7 @@ implements Clearable<G>, Closable, Refreshable {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public final void addOrChangeAttribute(final Specification attribute) {
+	public final void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Handles the case that the given attribute specifies a shape.
 		if (canCreateShape(attribute.getHeader())) {
@@ -145,10 +145,10 @@ implements Clearable<G>, Closable, Refreshable {
 	/**
 	 * @return the attributes of this 3D GUI.
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
+		final List<DocumentNode> attributes = super.getAttributes();
 		
 		//Handles the case that this 3D GUI has a root shape.
 		if (hasRootShape()) {

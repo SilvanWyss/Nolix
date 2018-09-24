@@ -6,6 +6,9 @@ import java.awt.event.KeyEvent;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
@@ -17,9 +20,6 @@ import ch.nolix.core.skillInterfaces.Clearable;
 import ch.nolix.core.skillInterfaces.Closable;
 import ch.nolix.core.skillInterfaces.IRequestableContainer;
 import ch.nolix.core.skillInterfaces.Refreshable;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specification.Statement;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
@@ -83,7 +83,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @param specification
 	 * @return true if a widget from the given specification can be created.
 	 */
-	public static boolean canCreateWidget(final Specification specification) {
+	public static boolean canCreateWidget(final DocumentNodeoid specification) {
 		return canCreateWidget(specification.getHeader());
 	}
 	
@@ -102,7 +102,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @return a new {@link Widget} from the given specificatio.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Widget<?, ?> createWidget(final Specification specification) {
+	public static Widget<?, ?> createWidget(final DocumentNodeoid specification) {
 		return widgetCreator.createWidget(specification);
 	}
 	
@@ -185,7 +185,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Handles the case that the given attribute specifies a widget.
 		if (canCreateWidget(attribute.getHeader())) {
@@ -217,7 +217,7 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * @return the current {@link GUI}.
 	 * @throws InvalidArgumentException if the given interaction attributes of widgets is not valid.
 	 */
-	public <S extends Specification> G addOrChangeInteractionAttributesOfWidgetsRecursively(
+	public <S extends DocumentNodeoid> G addOrChangeInteractionAttributesOfWidgetsRecursively(
 		final IContainer<IContainer<S>> interactionAttributesOfWidgets
 	) {
 		final var iterator = interactionAttributesOfWidgets.iterator();
@@ -282,10 +282,10 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	/**
 	 * @return the attributes of GUI.
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
+		final List<DocumentNode> attributes = super.getAttributes();
 		
 		//Handles the case that the content position of this GUI is not its default content position.
 		if (contentPosition != DEFAULT_CONTENT_POSITION) {
@@ -362,15 +362,15 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 * 
 	 * @return the interaction attributes of the current {@link GUI}.
 	 */
-	public List<StandardSpecification> getInteractionAttributes() {
-		return new List<StandardSpecification> ();
+	public List<DocumentNode> getInteractionAttributes() {
+		return new List<DocumentNode> ();
 	}
 	
 	//method
 	/**
 	 * @return the interaction attributes of all {@link Widget} of the current {@link GUI}.
 	 */
-	public IContainer<IContainer<StandardSpecification>> getInteractionAttributesOfWidgetsRecursively() {
+	public IContainer<IContainer<DocumentNode>> getInteractionAttributesOfWidgetsRecursively() {
 		return getRefWidgetsRecursively().to(w -> w.getInteractionAttributes());
 	}
 	

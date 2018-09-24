@@ -3,8 +3,8 @@ package ch.nolix.element.core;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 
 //class
 /**
@@ -36,7 +36,7 @@ public final class Boolean extends Element {
 	 * @return a new boolean from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Boolean createFromSpecification(final Specification specification) {
+	public static Boolean createFromSpecification(final DocumentNodeoid specification) {
 		return new Boolean(specification.getOneAttributeAsBoolean());
 	}
 	
@@ -69,18 +69,18 @@ public final class Boolean extends Element {
 	/**
 	 * @return the attributes of this boolean.
 	 */
-	public final List<StandardSpecification> getAttributes() {
+	public final List<DocumentNode> getAttributes() {
 		
-		final List<StandardSpecification> attributes = new List<StandardSpecification>();
+		final List<DocumentNode> attributes = new List<DocumentNode>();
 		
 		//Handles the case that this boolean is false.
 		if (isFalse()) {
-			attributes.addAtEnd(new StandardSpecification(FALSE_HEADER));
+			attributes.addAtEnd(new DocumentNode(FALSE_HEADER));
 		}
 		
 		//Handles the case that this boolean ist true.
 		else {
-			attributes.addAtEnd(new StandardSpecification(TRUE_HEADER));
+			attributes.addAtEnd(new DocumentNode(TRUE_HEADER));
 		}
 
 		return attributes;

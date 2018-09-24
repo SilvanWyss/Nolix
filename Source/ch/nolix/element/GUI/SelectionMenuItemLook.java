@@ -3,9 +3,9 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity2.Entity;
 import ch.nolix.core.entity2.Property;
-import ch.nolix.core.specification.Specification;
 import ch.nolix.element.color.Color;
 
 //class
@@ -21,7 +21,7 @@ extends Entity<SelectionMenuItemLook> {
 		
 	//static method
 	public static SelectionMenuItemLook createFromSpecification(
-		final Specification specification
+		final DocumentNodeoid specification
 	) {
 		
 		final var selectionMenuItemLook = new SelectionMenuItemLook();

@@ -3,8 +3,8 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity.Property;
-import ch.nolix.core.specification.Specification;
 import ch.nolix.element.bases.OptionalIdentifiedElement;
 import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.NonEmptyText;
@@ -17,7 +17,7 @@ public final class SelectionMenuItem extends OptionalIdentifiedElement {
 	
 	//static method
 	public static SelectionMenuItem createFromSpecification(
-		final Specification specification
+		final DocumentNodeoid specification
 	) {
 		return new SelectionMenuItem(specification);		
 	}
@@ -61,7 +61,7 @@ public final class SelectionMenuItem extends OptionalIdentifiedElement {
 	}
 	
 	//constructor
-	private SelectionMenuItem(final Specification specification) {
+	private SelectionMenuItem(final DocumentNodeoid specification) {
 		unselect();
 		initializeProperties(specification);		
 		approveProperties();

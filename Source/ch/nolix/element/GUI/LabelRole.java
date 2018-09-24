@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.specificationAPI.ISpecifiedEnum;
 
 //enum
@@ -27,7 +26,7 @@ public enum LabelRole implements ISpecifiedEnum {
 	 * @return a new {@link LabelRole} from the given specification.
 	 */
 	public static LabelRole createFromSpecification(
-		final Specification specification
+		final DocumentNodeoid specification
 	) {
 		return valueOf(specification.getOneAttributeAsString());
 	}

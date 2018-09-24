@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.specification.Specification;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.specificationAPI.ISpecifiedEnum;
 
 //enum
@@ -20,7 +19,7 @@ public enum ContainerRole implements ISpecifiedEnum {
 	 * @param specification
 	 * @return a new {@link ContainerRole} from the given specification.
 	 */
-	public static ContainerRole createFromSpecification(final Specification specification) {
+	public static ContainerRole createFromSpecification(final DocumentNodeoid specification) {
 		return ContainerRole.valueOf(specification.getOneAttributeAsString());
 	}
 }

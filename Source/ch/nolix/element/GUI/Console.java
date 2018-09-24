@@ -8,12 +8,12 @@ import java.awt.event.KeyEvent;
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.enums.TextStyle;
 import ch.nolix.core.skillInterfaces.Clearable;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specification.Specification;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.font.Font;
 import ch.nolix.element.font.TextFont;
@@ -87,7 +87,7 @@ implements Clearable<Console> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	public void addOrChangeAttribute(final Specification attribute) {
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
@@ -155,14 +155,14 @@ implements Clearable<Console> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<StandardSpecification> attributes = super.getAttributes();
+		final List<DocumentNode> attributes = super.getAttributes();
 		
 		//Handles the case that this console contains one or several lines.
 		if (containsAny()) {
-			attributes.addAtEnd(new StandardSpecification(LINES_HEADER, lines));
+			attributes.addAtEnd(new DocumentNode(LINES_HEADER, lines));
 		}
 		
 		return attributes;

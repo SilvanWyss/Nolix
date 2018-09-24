@@ -3,8 +3,8 @@ package ch.nolix.element.finance;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.element.core.Element;
 import ch.nolix.element.core.FloatingPointNumber;
 import ch.nolix.element.core.Time;
@@ -32,7 +32,7 @@ public class Candlestick extends Element {
 	private static final String LOWEST_PRICE_NAME = "LowestPrice";
 	private static final String HIGHEST_PRICE_NAME = "HighestPrice";
 	
-	public static Candlestick createCandleStick(final Iterable<StandardSpecification> attributes) {
+	public static Candlestick createCandleStick(final Iterable<DocumentNode> attributes) {
 		
 		Time time = null;
 		double openingPrice = 0.0;
@@ -40,7 +40,7 @@ public class Candlestick extends Element {
 		double lowestPrice = 0.0;
 		double highestPrice = 0.0;
 		
-		for (StandardSpecification a : attributes) {
+		for (DocumentNode a : attributes) {
 			switch (a.getHeader()) {
 				case Time.TYPE_NAME:
 					time = Time.createFromSpecification(a);
@@ -141,9 +141,9 @@ public class Candlestick extends Element {
 	/**
 	 * @return the attributes of this candlestick.
 	 */
-	public List<StandardSpecification> getAttributes() {
+	public List<DocumentNode> getAttributes() {
 		return
-		new List<StandardSpecification>(
+		new List<DocumentNode>(
 			time.getSpecification(),
 			new FloatingPointNumber(getOpeningPrice()).getSpecificationAs(OPENING_PRICE_NAME),
 			new FloatingPointNumber(getClosingPrice()).getSpecificationAs(CLOSING_PRICE_NAME),

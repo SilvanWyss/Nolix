@@ -6,8 +6,8 @@ import java.lang.reflect.ParameterizedType;
 
 //own imports
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.skillInterfaces.Headered;
-import ch.nolix.core.specification.StandardSpecification;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.validator2.Validator;
@@ -28,10 +28,10 @@ implements Headered, Specified {
 	public abstract boolean canReferenceEntity(Entity entity);
 	
 	//method
-	public final List<StandardSpecification> getAttributes() {
+	public final List<DocumentNode> getAttributes() {
 		return
 		internal_getValues()
-		.to(v -> new StandardSpecification(v.toString()));
+		.to(v -> new DocumentNode(v.toString()));
 	}
 	
 	//method

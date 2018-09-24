@@ -4,8 +4,8 @@ package ch.nolix.core.endPoint5;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerAPI.IMultiController;
-import ch.nolix.core.specification.StandardSpecification;
-import ch.nolix.core.specification.Statement;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.Statement;
 import ch.nolix.primitive.invalidStateException.InvalidStateException;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
@@ -122,7 +122,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @return the data the given request requests from this local duplex controller.
 	 * @throws UnexistingAttributeException if this local duplex controller has no receiver controller.
 	 */
-	public StandardSpecification getData(final Statement request) {
+	public DocumentNode getData(final Statement request) {
 		return counterpart.getRefReceiverController().getData(request);
 	}
 	

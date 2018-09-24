@@ -4,11 +4,11 @@ package ch.nolix.coreTest;
 //own imports
 import ch.nolix.coreTest.containerTest.ContainerTestPool;
 import ch.nolix.coreTest.databaseAdapterTest.DatabaseAdapterTestPool;
+import ch.nolix.coreTest.documentNodeTest.DocumentNodeTestPool;
 import ch.nolix.coreTest.enumTest.EnumTestPool;
 import ch.nolix.coreTest.helperTest.HelperTestPool;
 import ch.nolix.coreTest.mathematicsTest.MathematicsTestPool;
 import ch.nolix.coreTest.sequencerTest.SequencerTestPool;
-import ch.nolix.coreTest.specificationTest.SpecificationTestPool;
 import ch.nolix.coreTest.utilTest.UtilTestPool;
 import ch.nolix.primitive.testoid.TestPool;
 
@@ -34,7 +34,7 @@ public final class CoreTestPool extends TestPool {
 			new HelperTestPool(),
 			new MathematicsTestPool(),
 			new SequencerTestPool(),
-			new SpecificationTestPool(),
+			new DocumentNodeTestPool(),
 			new UtilTestPool()
 		);
 	}
