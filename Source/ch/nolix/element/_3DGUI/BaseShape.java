@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.element._3DGUI;
 
+//Java import
+import java.awt.image.BufferedImage;
+
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
@@ -47,6 +50,17 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	 */
 	public final Color getDefaultColor() {
 		return defaultColor.getValue();
+	}
+	
+	//method
+	/**
+	 * @return the default texture of the current {@link BaseShape} as {@link BufferedImage}.
+	 * @throws UnexistingAttribute if the current {@link BaseShape} has no default texture.
+	 */
+	public final BufferedImage getDefaultTextureAsBufferedImage() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return defaultTexture.getValue().toBufferedImage();
 	}
 	
 	//method
