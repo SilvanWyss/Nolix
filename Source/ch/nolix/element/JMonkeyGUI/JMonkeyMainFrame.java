@@ -17,6 +17,7 @@ import ch.nolix.element._3DGUI.Cuboid;
 import ch.nolix.element._3DGUI.Cylinder;
 import ch.nolix.element._3DGUI.MainFrame;
 import ch.nolix.element._3DGUI.MultiShape;
+import ch.nolix.element._3DGUI.Rectangle;
 import ch.nolix.element._3DGUI.Shape;
 import ch.nolix.element._3DGUI.Sphere;
 import ch.nolix.primitive.validator2.Validator;
@@ -61,6 +62,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		addShapeClass(Sphere.class, new JMonkeySphereRenderer());
 		addShapeClass(Cylinder.class, new JMonkeyCylinderRenderer());
 		addShapeClass(MultiShape.class, new JMonkeyMultiShapeRenderer());
+		addShapeClass(Rectangle.class, new JMonkeyRectangleRenderer());
 		
 		reset();
 		
