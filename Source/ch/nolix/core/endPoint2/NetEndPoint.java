@@ -9,6 +9,9 @@ import java.net.Socket;
 //own imports
 import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.constants.PortCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.primitive.invalidArgumentException.Argument;
+import ch.nolix.primitive.invalidArgumentException.ArgumentName;
 import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -27,6 +30,7 @@ public class NetEndPoint extends EndPoint {
 	
 	//attributes
 	private boolean receivedTargetInfo = false;
+	private final String HTTPMessage;
 	private final Socket socket;
 	private final PrintWriter printWriter;
 		
@@ -76,6 +80,8 @@ public class NetEndPoint extends EndPoint {
 		.thatIsNamed("port")
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
+		HTTPMessage = null;
+		
 		try {
 			
 			//Creates the socket of this net end point.
@@ -121,6 +127,8 @@ public class NetEndPoint extends EndPoint {
 		.thatIsNamed("port")
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
+		HTTPMessage = null;
+		
 		try {
 			
 			//Creates the socket of this net end point.
@@ -140,14 +148,13 @@ public class NetEndPoint extends EndPoint {
 	
 	//package-visible constructor
 	/**
-	 * Creates a new end point with the given socket.
+	 * Creates a new {@link NetEndPoint} with the given socket and HTTP message.
 	 * 
 	 * @param socket
+	 * @param HTTPMessage
 	 * @throws NullArgumentException if the given socket is not an instance.
 	 */
-	NetEndPoint(
-		final Socket socket
-	) {
+	NetEndPoint(final Socket socket, final String HTTPMessage) {
 		
 		//Calls constructor of the base class.
 		super(false);
@@ -155,7 +162,12 @@ public class NetEndPoint extends EndPoint {
 		//Checks if the given socket is an instance.
 		Validator.suppose(socket).isInstanceOf(Socket.class);
 		
-		//Sets the socket of this net end point.
+		//Checks if the given HTTP message is an instance and not empty.
+		Validator.suppose(HTTPMessage).thatIsNamed("HTTP message").isNotEmpty();
+		
+		this.HTTPMessage = HTTPMessage;
+		
+		//Sets the socket of the current net end point.
 		this.socket = socket;
 		
 		try {
@@ -165,12 +177,12 @@ public class NetEndPoint extends EndPoint {
 			throw new RuntimeException(e);
 		}
 		
-		//Creates and starts the listener of this net end point.
+		//Creates and starts the listener of the current net end point.
 		new NetEndPointSubListener(this);
 		
 		waitToTarget();
 	}
-
+	
 	//method
 	/**
 	 * @return true if this net end point is a net end point.
@@ -199,7 +211,14 @@ public class NetEndPoint extends EndPoint {
 		//Checks if this net end point is not stopped.
 		supposeIsAlive();
 		
+		//Enumerates the first character of the given message.
 		switch (message.charAt(0)) {
+			case 'M':
+			
+				//Calls method of the base class.
+				super.receive(message.substring(1));
+				
+				break;
 			case 'N':
 				receivedTargetInfo = true;
 				break;
@@ -207,10 +226,16 @@ public class NetEndPoint extends EndPoint {
 				receivedTargetInfo = true;
 				setTarget(message.substring(1));
 				break;
-			case 'M':
-				
-				//Calls method of the base class.
-				super.receive(message.substring(1));
+			case 'H':
+				send_internal(HTTPMessage);
+				receivedTargetInfo = true;
+				close();
+				break;
+			default:
+				throw new InvalidArgumentException(
+					new ArgumentName(VariableNameCatalogue.MESSAGE),
+					new Argument(message)
+				);
 		}
 	}
 	
