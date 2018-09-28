@@ -8,7 +8,7 @@ package ch.nolix.core.endPoint3;
 * 
 * @author Silvan Wyss
 * @month 2016-05
-* @lines 40
+* @lines 60
 */
 public final class NetServer extends Server {
 	
@@ -34,11 +34,35 @@ public final class NetServer extends Server {
 		internalNetServer.addArbitraryEndPointTaker(new NetServerSubEndPointTaker(this));
 	}
 	
+	//constructor
+	/**
+	 * Creates a new {@link NetServer}
+	 * that will listen to {@link NetEndPoint} on the given port.
+	 * 
+	 * When a web browser connects to the {@link NetServer},
+	 * the {@link NetServer} will send the given HTTP message and close the connection.
+	 * 
+	 * @param port
+	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
+	 * @throws NullArgumentException if the given HTTP message is not an instance.
+	 * @throws EmptyArgumentException if the given HTTP message is empty.
+	 */
+	public NetServer(final int port, final String HTTPMessage) {
+		
+		//Creates the internal net server of the current net server.
+		internalNetServer =	new ch.nolix.core.endPoint2.NetServer(port, HTTPMessage);
+		
+		//Creates a close dependency to the internal net server of the current net server.
+		createCloseDependency(internalNetServer);
+		
+		internalNetServer.addArbitraryEndPointTaker(new NetServerSubEndPointTaker(this));
+	}
+	
 	//method
 	/**
 	 * @return the port of the current {@link NetServer}.
 	 */
-	public final int getPort() {
+	public int getPort() {
 		return internalNetServer.getPort();
 	}
 }
