@@ -3,7 +3,8 @@ package ch.nolix.core.endPoint3;
 
 //class
 /**
-* A net server is a server that listens to net end points on a specific port.
+* A {@link NetServer} is a {@link Server}
+* that listens to {@link NetEndPoint} on a specific port.
 * 
 * @author Silvan Wyss
 * @month 2016-05
@@ -16,16 +17,18 @@ public final class NetServer extends Server {
 	
 	//constructor
 	/**
-	 * Creates a new net server that will listen to net end points on the given port.
+	 * Creates a new {@link NetServer}
+	 * that will listen to {@link NetEndPoint} on the given port.
 	 * 
 	 * @param port
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
 	 */
 	public NetServer(final int port) {
 		
-		//Creates the internal net server of this net server.
+		//Creates the internal net server of the current net server.
 		internalNetServer =	new ch.nolix.core.endPoint2.NetServer(port);
 		
+		//Creates a close dependency to the internal net server of the current net server.
 		createCloseDependency(internalNetServer);
 		
 		internalNetServer.addArbitraryEndPointTaker(new NetServerSubEndPointTaker(this));
@@ -33,13 +36,9 @@ public final class NetServer extends Server {
 	
 	//method
 	/**
-	 * @return the port of this net server.
+	 * @return the port of the current {@link NetServer}.
 	 */
 	public final int getPort() {
 		return internalNetServer.getPort();
-	}
-	
-	public void takeEndPoint(final ch.nolix.core.endPoint2.EndPoint endPoint) {
-		
 	}
 }
