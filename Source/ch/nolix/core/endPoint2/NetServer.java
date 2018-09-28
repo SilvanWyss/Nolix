@@ -11,26 +11,32 @@ import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**
-* A net server is a server that listens to net end points on a specific port.
+* A {@link NetServer} is a {@link Server}
+* that listens to {@link NetEndPoint} on a specific port.
 * 
 * @author Silvan Wyss
 * @month 2015-12
-* @lines 80
+* @lines 130
 */
-public class NetServer extends Server {
+public final class NetServer extends Server {
 	
 	//attributes
 	private final int port;
-	private final ServerSocket serverSocket;
 	private final String HTTPMessage;
+	private final ServerSocket serverSocket;
 	
 	//default value
 	private static final String DEFAULT_HTTP_MESSAGE =
-	"HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\n\r\n<h1>The requested server does not support web browsers.<h1>\r\n";
+	"HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\n\r\n"
+	+ "<html>"
+	+ "<head><title>Nolix</title><style>h1{font-family: Calibry;}</style></head>"
+	+ "<body><h1>The requested server does not support web browsers.<h1></body>"
+	+ "</html>\r\n";
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetServer} that will listen to {@link NetEndPoint} on the given port.
+	 * Creates a new {@link NetServer}
+	 * that will listen to {@link NetEndPoint} on the given port.
 	 * 
 	 * @param port
 	 * @throws OutOfRangeArgumentException if the given port is not in [0, 65535].
@@ -43,9 +49,10 @@ public class NetServer extends Server {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetServer} that will listen to {@link NetEndPoint} on the given port.
+	 * Creates a new {@link NetServer}
+	 * that will listen to {@link NetEndPoint} on the given port.
 	 * 
-	 * When a browser client connects to the {@link NetServer},
+	 * When a web browser connects to the {@link NetServer},
 	 * the {@link NetServer} will send the given HTTP message and close the connection.
 	 * 
 	 * @param port
@@ -65,7 +72,7 @@ public class NetServer extends Server {
 		//Sets the port of the current net server.
 		this.port = port;
 		
-		//Sets the HTTP message of hte current net server.
+		//Sets the HTTP message of tte current net server.
 		this.HTTPMessage = HTTPMessage;
 		
 		try {
@@ -73,12 +80,12 @@ public class NetServer extends Server {
 			//Creates the server socket of the current net server.
 			serverSocket = new ServerSocket(getPort());
 			
-			//This is important that the address can be reused immediately
-			//when the current net server is closed.
+			//This is important that the address of the current net server
+			//can be reused immediately when the current net server is closed.
 			serverSocket.setReuseAddress(true);
 		}
-		catch (final IOException exception) {
-			throw new RuntimeException(exception);
+		catch (final IOException IOException) {
+			throw new RuntimeException(IOException);
 		}
 		
 		//Creates a net server sub listener for the current net server.
@@ -87,7 +94,7 @@ public class NetServer extends Server {
 	
 	//method
 	/**
-	 * @return the port of this net server.
+	 * @return the port of the current {@link NetServer}.
 	 */
 	public int getPort() {
 		return port;
@@ -95,21 +102,21 @@ public class NetServer extends Server {
 	
 	//method
 	/**
-	 * Lets this net server note a closing.
+	 * Let the current {@link NetServer} note a closing.
 	 */
 	protected void noteClose() {
 		try {
 			serverSocket.close();
 		}
-		catch (final IOException exception) {
-			throw new RuntimeException(exception);
+		catch (final IOException IOexception) {
+			throw new RuntimeException(IOexception);
 		}
 	}
 	
 	//package-visible method
 	/**
 	 * The HTTP message of a {@link NetServer} is the message
-	 * the {@link NetServer} sends to browser end points.
+	 * the {@link NetServer} sends to web browsers.
 	 * 
 	 * @return the HTTP message of the current {@link NetServer}.
 	 */
@@ -119,7 +126,7 @@ public class NetServer extends Server {
 	
 	//package-visible method
 	/**
-	 * @return the server socket of this net server.
+	 * @return the server socket of the current {@link NetServer}.
 	 */
 	ServerSocket getRefServerSocket() {
 		return serverSocket;
