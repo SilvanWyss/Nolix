@@ -10,7 +10,6 @@ import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.enums.TextStyle;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Element;
 import ch.nolix.element.core.PositiveInteger;
@@ -28,13 +27,12 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 350
+ * @lines 330
  */
 public final class TextFormat extends Element {
 	
 	//default values
 	public static final Font DEFAULT_TEXT_FONT = Font.Verdana;
-	public static final TextStyle DEFAULT_TEXT_STYLE = TextStyle.Default;
 	public static final int DEFAULT_TEXT_SIZE = 20;
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 
@@ -44,7 +42,6 @@ public final class TextFormat extends Element {
 	
 	//attributes
 	private final Font font;
-	private final TextStyle textStyle;
 	private final PositiveInteger textSize;
 	private final Color textColor;
 	private final java.awt.Font javaFont;
@@ -57,7 +54,7 @@ public final class TextFormat extends Element {
 	public TextFormat() {
 		
 		//Calls other constructor.
-		this(DEFAULT_TEXT_FONT, DEFAULT_TEXT_STYLE, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
+		this(DEFAULT_TEXT_FONT, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
 	}
 	
 	//constructor
@@ -70,7 +67,7 @@ public final class TextFormat extends Element {
 	public TextFormat(final Color text_color) {
 		
 		//Calls other constructor.
-		this(DEFAULT_TEXT_FONT, DEFAULT_TEXT_STYLE, DEFAULT_TEXT_SIZE, text_color);
+		this(DEFAULT_TEXT_FONT, DEFAULT_TEXT_SIZE, text_color);
 	}
 	
 	//constructor
@@ -83,7 +80,7 @@ public final class TextFormat extends Element {
 	public TextFormat(final int textSize) {
 		
 		//Calls other constructor.
-		this(DEFAULT_TEXT_FONT, DEFAULT_TEXT_STYLE, textSize, DEFAULT_TEXT_COLOR);
+		this(DEFAULT_TEXT_FONT, textSize, DEFAULT_TEXT_COLOR);
 	}
 	
 	//constructor
@@ -96,20 +93,7 @@ public final class TextFormat extends Element {
 	public TextFormat(final Font font) {
 		
 		//Calls other constructor.
-		this(font, DEFAULT_TEXT_STYLE, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new font with the given text style.
-	 * 
-	 * @param textStyle
-	 * @throws NullArgumentException if the given text style is not an instance.
-	 */
-	public TextFormat(final TextStyle textStyle) {
-		
-		//Calls other constructor.
-		this(DEFAULT_TEXT_FONT, textStyle, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
+		this(font, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
 	}
 	
 	//constructor
@@ -125,21 +109,16 @@ public final class TextFormat extends Element {
 	 */
 	public TextFormat(
 		final Font font,
-		final TextStyle textStyle,
 		final int textSize,
 		final Color textColor) {
 		
 		//Checks if the given text font is an instance.
 		Validator.suppose(font).isInstanceOf(Font.class);
 		
-		//Checks if the given text style is an instance.
-		Validator.suppose(textStyle).isInstanceOf(TextStyle.class);
-		
 		//Checks if the given text color is an instance.
 		Validator.suppose(textColor).thatIsNamed(TEXT_COLOR_HEADER).isInstance();
 		
 		this.font = font;
-		this.textStyle = textStyle;
 		this.textSize = new PositiveInteger(textSize);
 		this.textColor = textColor;
 		
@@ -158,7 +137,6 @@ public final class TextFormat extends Element {
 	public List<DocumentNode> getAttributes() {
 		return new List<DocumentNode>(
 			font.getSpecification(),
-			textStyle.getSpecificationAs(TextStyle.TYPE_NAME),
 			textSize.getSpecificationAs(TEXT_SIZE_HEADER),
 			textColor.getSpecificationAs(TEXT_COLOR_HEADER)
 		);
@@ -242,14 +220,6 @@ public final class TextFormat extends Element {
 	 */
 	public Font getTextFont() {
 		return font;
-	}
-	
-	//method
-	/**
-	 * @return the text style of the current {@link TextFormat}.
-	 */
-	public TextStyle getTextStyle() {
-		return textStyle;
 	}
 	
 	//method

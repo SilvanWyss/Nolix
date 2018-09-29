@@ -9,7 +9,6 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.core.enums.TextStyle;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
@@ -163,7 +162,6 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 		return
 		new TextFormat(
 			textLineWidgetLook.getRecursiveOrDefaultTextFont(),
-			TextStyle.Default,
 			textLineWidgetLook.getRecursiveOrDefaultTextSize(),
 			textLineWidgetLook.getRecursiveOrDefaultTextColor()
 		);

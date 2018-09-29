@@ -10,7 +10,6 @@ import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.enums.TextStyle;
 import ch.nolix.core.skillInterfaces.Clearable;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
@@ -699,7 +698,6 @@ implements Clearable<Console> {
 		return
 		new TextFormat(
 			currentLook.getRecursiveOrDefaultTextFont(),
-			TextStyle.Default,
 			currentLook.getRecursiveOrDefaultTextSize(),
 			currentLook.getRecursiveOrDefaultTextColor()
 		);
