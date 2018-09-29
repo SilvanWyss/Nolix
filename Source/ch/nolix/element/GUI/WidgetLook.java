@@ -10,7 +10,6 @@ import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.PositiveInteger;
-import ch.nolix.element.intData.TextSize;
 import ch.nolix.element.textFormat.Font;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
@@ -63,7 +62,7 @@ implements IFluentObject<WL>, Specified {
 	private final Property<PositiveInteger> textSize =
 	new Property<PositiveInteger>(
 		PascalCaseNameCatalogue.TEXT_SIZE,
-		new TextSize(DEFAULT_TEXT_SIZE),
+		new PositiveInteger(DEFAULT_TEXT_SIZE),
 		s -> PositiveInteger.createFromSpecification(s)
 	);
 	

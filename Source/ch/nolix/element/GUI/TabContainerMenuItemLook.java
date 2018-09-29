@@ -9,7 +9,6 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity2.Entity;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.NonNegativeInteger;
-import ch.nolix.element.intData.TextSize;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
@@ -59,7 +58,7 @@ extends Entity<SelectionMenuItemLook> {
 			case PascalCaseNameCatalogue.BACKGROUND_COLOR:
 				setBackgroundColor(Color.createFromSpecification(attribute));
 				break;
-			case TextSize.TYPE_NAME:
+			case PascalCaseNameCatalogue.TEXT_SIZE:
 				setTextSize(attribute.getOneAttributeAsInt());
 				break;
 			case PascalCaseNameCatalogue.TEXT_COLOR:
