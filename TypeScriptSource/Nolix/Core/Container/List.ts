@@ -1,5 +1,5 @@
 //reference
-/// <reference path="ListNode.ts" />
+/// <reference path="ListNode.ts"/>
 
 //namespace declaration
 namespace Nolix.Core.Container {
