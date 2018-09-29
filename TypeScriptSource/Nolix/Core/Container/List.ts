@@ -1,97 +1,90 @@
-//reference
-/// <reference path="ListNode.ts"/>
+//cass
+export class List<E> {
 
-//namespace declaration
-namespace Nolix.Core.Container {
+    //attribute
+    private elementCount: number = 0;
 
-    //cass
-    export class List<E> {
+    //optional attributes
+    private beginNode: ListNode<E>;
+    private endNode: ListNode<E>;
 
-        //attribute
-        private elementCount: number = 0;
+    //method
+    public addAtBegin(element: E): List<E> {
 
-        //optional attributes
-        private beginNode: ListNode<E>;
-        private endNode: ListNode<E>;
+        const previousNode = new ListNode<E>(element);
 
-        //method
-        public addAtBegin(element: E): List<E> {
-
-            const previousNode = new ListNode<E>(element);
-
-            if (this.isEmpty) {
-                this.beginNode = previousNode;
-                this.endNode = previousNode;
-            }
-            else {
-                previousNode.setNextNode(this.beginNode);
-                this.beginNode = previousNode;
-            }
-
-            this.elementCount++;
-
-            return this;
+        if (this.isEmpty) {
+            this.beginNode = previousNode;
+            this.endNode = previousNode;
+        }
+        else {
+            previousNode.setNextNode(this.beginNode);
+            this.beginNode = previousNode;
         }
 
-        //method
-        public addAtEnd(element: E): List<E> {
+        this.elementCount++;
 
-            const nextNode = new ListNode<E>(element);
+        return this;
+    }
 
-            if (this.isEmpty) {
-                this.beginNode = nextNode;
-                this.endNode = nextNode;
-            }
-            else {
-                this.endNode.setNextNode(nextNode);
-                this.endNode = nextNode;
-            }
+    //method
+    public addAtEnd(element: E): List<E> {
 
-            this.elementCount++;
+        const nextNode = new ListNode<E>(element);
 
-            return this;
+        if (this.isEmpty) {
+            this.beginNode = nextNode;
+            this.endNode = nextNode;
+        }
+        else {
+            this.endNode.setNextNode(nextNode);
+            this.endNode = nextNode;
         }
 
-        //method
-        public containsAny(): boolean {
+        this.elementCount++;
 
-            //For a better performance, this implementation does not use all comfortable methods.
-            return (this.elementCount > 0);
-        }
+        return this;
+    }
 
-        //method
-        public getRefFirst(): E {
-            
-            this.supposeIsNotEmpty();
+    //method
+    public containsAny(): boolean {
 
-            return this.beginNode.getRefElement();
-        }
+        //For a better performance, this implementation does not use all comfortable methods.
+        return (this.elementCount > 0);
+    }
 
-        //method
-        public getRefLast(): E {
+    //method
+    public getRefFirst(): E {
+        
+        this.supposeIsNotEmpty();
 
-            this.supposeIsNotEmpty();
+        return this.beginNode.getRefElement();
+    }
 
-            return this.endNode.getRefElement();
-        }
+    //method
+    public getRefLast(): E {
 
-        //method
-        public getSize(): number {
-            return this.elementCount;
-        }
+        this.supposeIsNotEmpty();
 
-        //method
-        public isEmpty(): boolean {
+        return this.endNode.getRefElement();
+    }
 
-            //For a better performance, this implementation does not use all comfortable methods.
-            return (this.elementCount == 0);
-        }
+    //method
+    public getSize(): number {
+        return this.elementCount;
+    }
 
-        //method
-        private supposeIsNotEmpty(): void {
-            if (this.isEmpty) {
-                throw new Error("The current list is empty.");
-            }
+    //method
+    public isEmpty(): boolean {
+
+        //For a better performance, this implementation does not use all comfortable methods.
+        return (this.elementCount == 0);
+    }
+
+    //method
+    private supposeIsNotEmpty(): void {
+        if (this.isEmpty) {
+            throw new Error("The current list is empty.");
         }
     }
 }
