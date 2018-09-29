@@ -127,7 +127,7 @@ implements Closable {
 	 * @return the number of sessions on the session stack of the current {@link Client}.
 	 */
 	public final int getSessionStackSize() {
-		return sessions.getElementCount();
+		return sessions.getSize();
 	}
 	
 	//method

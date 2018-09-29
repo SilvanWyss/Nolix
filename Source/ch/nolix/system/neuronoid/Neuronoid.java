@@ -137,7 +137,7 @@ implements IFluentObject<N> {
 	 * @return the number of input neurons of this neuron.
 	 */
 	public final int getInputNeuronCount() {
-		return inputConnections.getElementCount();
+		return inputConnections.getSize();
 	}
 	
 	//abstract method

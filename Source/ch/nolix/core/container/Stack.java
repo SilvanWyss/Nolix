@@ -19,8 +19,8 @@ public final class Stack<E> implements IContainer<E> {
 	}
 
 	//method
-	public int getElementCount() {
-		return list.getElementCount();
+	public int getSize() {
+		return list.getSize();
 	}
 	
 	//method

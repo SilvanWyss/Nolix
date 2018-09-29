@@ -99,7 +99,7 @@ public final class Resource extends NamedElement implements IResource {
 	 * {@inheritDoc}
 	 */
 	public final int getBaseResourceCount() {
-		return getBaseResources().getElementCount();
+		return getBaseResources().getSize();
 	}
 	
 	//method

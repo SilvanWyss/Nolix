@@ -263,7 +263,7 @@ public final class DocumentNode extends DocumentNodeoid {
 	 * @return the number of attributes of the current {@link DocumentNode}.
 	 */
 	public int getAttributesCount() {
-		return attributes.getElementCount();
+		return attributes.getSize();
 	}
 
 	//method

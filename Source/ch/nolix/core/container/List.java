@@ -30,7 +30,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	//attributes
 	private ListNode<E> firstNode;
 	private ListNode<E> lastNode;
-	private int count = 0;
+	private int elementCount = 0;
 	
 	//constructor
 	/**
@@ -100,7 +100,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 			node.setNextNode(firstNode);
 			firstNode = node;
 		}
-		count++;
+		elementCount++;
 		
 		return this;
 	}
@@ -154,7 +154,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 				iterator.setElement(e);
 				iterator.setNextNode(new ListNode<E>(null));
 				iterator = iterator.getNextNode();
-				count++;
+				elementCount++;
 			}
 			
 			this.firstNode = preNode.getNextNode();
@@ -212,7 +212,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 			lastNode.setNextNode(node);
 			lastNode = node;
 		}
-		count++;
+		elementCount++;
 		
 		return this;
 	}
@@ -324,7 +324,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 			
 			firstNode = null;
 			lastNode = null;
-			count = 0;
+			elementCount = 0;
 			
 			System.gc();
 		}
@@ -359,7 +359,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		
 			final List<?> list = (List<?>)object;
 			
-			if (getElementCount() != list.getElementCount()) {
+			if (getSize() != list.getSize()) {
 				return false;
 			}
 			
@@ -392,16 +392,6 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 */
 	public List<E> getCopy() {
 		return to(e -> e);
-	}
-	
-	//method
-	/**
-	 * The complexity of this method is O(1).
-	 * 
-	 * @return the number of elements of this list.
-	 */
-	public int getElementCount() {
-		return count;
 	}
 	
 	//method
@@ -465,7 +455,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 			throw new EmptyStateException(this);
 		}
 		
-		return ((double)getSequenceCount(sequencePattern) / getElementCount());
+		return ((double)getSequenceCount(sequencePattern) / getSize());
 	}
 		
 	//method
@@ -512,7 +502,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * @return the number of sequences from this list that match the given sequence pattern.
 	 */
 	public int getSequenceCount(final SequencePattern<E> sequencePattern) {
-		return getSequences(sequencePattern).getElementCount();
+		return getSequences(sequencePattern).getSize();
 	}
 	
 	//method
@@ -540,7 +530,17 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		}
 		
 		//Handles the case that this list is not empty.
-		return getSortedSubList(1, getElementCount(), norm);
+		return getSortedSubList(1, getSize(), norm);
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @return the number of elements of this list.
+	 */
+	public int getSize() {
+		return elementCount;
 	}
 	
 	//method
@@ -657,7 +657,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		//Handles the case that this list contains several elements.
 		else {
 			firstNode = firstNode.getNextNode();
-			count--;
+			elementCount--;
 		}
 		
 		return this;
@@ -797,7 +797,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 			
 			iterator.removeNextNode();
 			lastNode = iterator;
-			count--;
+			elementCount--;
 		}
 		
 		return this;
@@ -1030,6 +1030,6 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 			lastNode = node;
 		}
 		
-		count--;
+		elementCount--;
 	}
 }

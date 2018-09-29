@@ -63,7 +63,7 @@ final class ReadArrayContainer<E> implements IContainer<E> {
 	/**
 	 * @return the number of elements of this read array container.
 	 */
-	public int getElementCount() {
+	public int getSize() {
 		return array.length;
 	}
 	

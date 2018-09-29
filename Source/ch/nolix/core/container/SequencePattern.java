@@ -89,7 +89,7 @@ public final class SequencePattern<E> {
 	 * @return the number of elements of the sequences of this sequence pattern.
 	 */
 	public int getSize() {
-		return elementConditions.getElementCount();
+		return elementConditions.getSize();
 	}
 	
 	//package visible method
@@ -101,7 +101,7 @@ public final class SequencePattern<E> {
 		
 		final List<List<E>> sequences = new List<List<E>>();
 		
-		final int maxSequenceCount = list.getElementCount() - getSize() + 1;
+		final int maxSequenceCount = list.getSize() - getSize() + 1;
 		
 		//Iterates the given list.
 		final ListIterator<E> iterator = list.iterator();
@@ -147,7 +147,7 @@ public final class SequencePattern<E> {
 	boolean matches(final List<E> list) {
 		
 		//Checks if the given list has as many elements as this sequence pattern requires.
-		if (list.getElementCount() != getSize()) {
+		if (list.getSize() != getSize()) {
 			return false;
 		}
 		

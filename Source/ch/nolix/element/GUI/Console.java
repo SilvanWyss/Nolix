@@ -384,10 +384,10 @@ implements Clearable<Console> {
 		
 		clearEditLine();
 		
-		final int lineCount = lines.getElementCount();
+		final int lineCount = lines.getSize();
 		
 		//This loop suffers from being optimized away by the compiler or the JVM.
-		while (getLines().getElementCount() == lineCount) {
+		while (getLines().getSize() == lineCount) {
 			supposeGUIIsAlive();
 			
 			//The following statement, that is actually unnecessary,
@@ -621,7 +621,7 @@ implements Clearable<Console> {
 		final var currentLook = getRefCurrentLook();
 		
 		var contentAreaHeight =
-		getLines().getElementCount() * currentLook.getRecursiveOrDefaultTextSize();
+		getLines().getSize() * currentLook.getRecursiveOrDefaultTextSize();
 		
 		if (isEditable()) {
 			contentAreaHeight += currentLook.getRecursiveOrDefaultTextSize();

@@ -31,7 +31,7 @@ public final class MatrixColumn<E> implements IContainer<E> {
 	}
 	
 	//method
-	public int getElementCount() {
+	public int getSize() {
 		return parentMatrix.getRowCount();
 	}
 	

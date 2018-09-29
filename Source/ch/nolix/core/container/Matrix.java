@@ -72,7 +72,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		if (isEmpty()) {
 			if (elements_.containsAny()) {
 				
-				this.elements = new Object[elements_.getElementCount()][1];
+				this.elements = new Object[elements_.getSize()][1];
 				
 				//Iterates the given elements.
 				var i = 0;
@@ -90,7 +90,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			
 			//Checks if as many elements are given as the number of rows of the current matrix.
 			Validator
-			.suppose(elements_.getElementCount())
+			.suppose(elements_.getSize())
 			.thatIsNamed("number of the given elements")
 			.isEqualTo(getRowCount());
 			
@@ -165,7 +165,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		if (isEmpty()) {
 			if (elements_.containsAny()) {
 				
-				this.elements = new Object[1][elements_.getElementCount()];
+				this.elements = new Object[1][elements_.getSize()];
 				
 				//Iterates the given elements.
 				var i = 0;
@@ -183,7 +183,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			
 			//Checks if as many elements are given as the number of columns of the current matrix.
 			Validator
-			.suppose(elements_.getElementCount())
+			.suppose(elements_.getSize())
 			.thatIsNamed("number of the given elements")
 			.isEqualTo(getColumnCount());
 			
@@ -326,7 +326,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * 
 	 * @return the number of elements of the current {@link Matrix}.
 	 */
-	public int getElementCount() {
+	public int getSize() {
 		return (getRowCount() * getColumnCount());
 	}
 	
@@ -679,7 +679,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		Validator
 		.suppose(index)
 		.thatIsNamed(VariableNameCatalogue.INDEX)
-		.isNotBiggerThan(getElementCount());
+		.isNotBiggerThan(getSize());
 	}
 	
 	//method

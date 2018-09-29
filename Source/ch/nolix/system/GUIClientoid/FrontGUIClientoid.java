@@ -342,7 +342,7 @@ extends Client<FGC> {
 		final var attributes = paintImageCommand.getRefAttributes();
 		
 		//Enumerates the number of attributes of the given paint image command.
-		switch (attributes.getElementCount()) {
+		switch (attributes.getSize()) {
 			case 1:
 				
 				painter.paintImage(Image.createFromSpecification(

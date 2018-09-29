@@ -29,7 +29,7 @@ final class MatrixColumnIterator<E> implements Iterator<E> {
 
 	//method
 	public boolean hasNext() {
-		return (nextElementRowIndex <= parentMatrixColumn.getElementCount());
+		return (nextElementRowIndex <= parentMatrixColumn.getSize());
 	}
 
 	//method

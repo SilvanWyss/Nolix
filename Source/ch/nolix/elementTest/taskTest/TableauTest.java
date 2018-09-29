@@ -30,7 +30,7 @@ public final class TableauTest extends Test {
 		
 		//verification
 		expect(tableau.containsAny());
-		expect(tableau.getRefTasks().getElementCount()).isEqualTo(2);
+		expect(tableau.getRefTasks().getSize()).isEqualTo(2);
 		expect(tableau.getRefTasks().contains(task1));
 		expect(tableau.getRefTasks().contains(task2));
 	}

@@ -63,7 +63,7 @@ final class ReadIterableContainer<E> implements IContainer<E> {
 	/**
 	 * @return the number of elements of this read iterable container.
 	 */
-	public int getElementCount() {
+	public int getSize() {
 		
 		int elementCount = 0;
 		

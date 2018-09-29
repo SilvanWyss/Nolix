@@ -70,7 +70,7 @@ public final class SubContainer<E> implements IContainer<E> {
 		Validator
 		.suppose(endIndex)
 		.thatIsNamed("end index")
-		.isNotBiggerThan(container.getElementCount());
+		.isNotBiggerThan(container.getSize());
 		
 		this.container = container;
 		this.startIndex = startIndex;
@@ -81,7 +81,7 @@ public final class SubContainer<E> implements IContainer<E> {
 	/**
 	 * @return the number of elements of this sub container.
 	 */
-	public int getElementCount() {
+	public int getSize() {
 		return (endIndex - startIndex + 1);
 	}
 

@@ -165,10 +165,10 @@ public final class ListTest extends Test {
 		list1.forEach(s -> list2.addAtEnd(s));
 		
 		//verification
-			expect(list2.getElementCount()).isEqualTo(list1.getElementCount());
+			expect(list2.getSize()).isEqualTo(list1.getSize());
 			
 			//Iterates list1.
-			for (int i = 1; i <= list1.getElementCount(); i++) {
+			for (int i = 1; i <= list1.getSize(); i++) {
 				expect(list2.getRefAt(i)).isEqualTo(list1.getRefAt(i));
 			}
 	}
@@ -190,7 +190,7 @@ public final class ListTest extends Test {
 		final var subList = list.getContainerFrom(4);
 		
 		//verification
-			expect(subList.getElementCount()).isEqualTo(3);
+			expect(subList.getSize()).isEqualTo(3);
 			
 			final Iterator<String> iterator = subList.iterator();
 			
@@ -223,7 +223,7 @@ public final class ListTest extends Test {
 		final var subList = list.getContainerWithoutFirst();
 		
 		//verification
-		expect(subList.getElementCount()).isEqualTo(5);
+		expect(subList.getSize()).isEqualTo(5);
 		expect(!subList.contains("x"));
 	}
 	
@@ -234,7 +234,7 @@ public final class ListTest extends Test {
 		final List<String> list = new List<String>("x", "x", "x", "x", "x", "x");
 		
 		//execution & verification
-		expect(list.getElementCount()).isEqualTo(6);
+		expect(list.getSize()).isEqualTo(6);
 	}
 	
 	//test case
@@ -371,11 +371,11 @@ public final class ListTest extends Test {
 		final List<List<String>> sequences = list.getSequences(sequencePattern);
 		
 		//verification
-			expect(sequences.getElementCount()).isEqualTo(3);
+			expect(sequences.getSize()).isEqualTo(3);
 			
 			//Iterates the sequences.
 			for (final List<String> s : sequences) {
-				expect(s.getElementCount()).isEqualTo(2);
+				expect(s.getSize()).isEqualTo(2);
 				expect(s.getRefAt(1)).isEqualTo("x");
 			}
 	}
@@ -408,11 +408,11 @@ public final class ListTest extends Test {
 		final List<List<String>> sequences = list.getSequences(sequencePattern);
 		
 		//verification
-			expect(sequences.getElementCount()).isEqualTo(4);
+			expect(sequences.getSize()).isEqualTo(4);
 			
 			//Iterates the sequences.
 			for (final List<String> s : sequences) {
-				expect(s.getElementCount()).isEqualTo(2);
+				expect(s.getSize()).isEqualTo(2);
 				expect(s.getRefAt(1)).isEqualTo("x");
 				expect(s.getRefAt(2)).isEqualTo("xxxx");
 			}
@@ -531,7 +531,7 @@ public final class ListTest extends Test {
 		list.sort(s -> s.length());
 		
 		//verification
-			expect(list.getElementCount()).isEqualTo(6);
+			expect(list.getSize()).isEqualTo(6);
 			
 			expect(list.getRefAt(1)).isEqualTo("x");
 			expect(list.getRefAt(2)).isEqualTo("xx");
@@ -558,7 +558,7 @@ public final class ListTest extends Test {
 		list.sort(s -> s);
 		
 		//verification
-			expect(list.getElementCount()).isEqualTo(6);
+			expect(list.getSize()).isEqualTo(6);
 			
 			expect(list.getRefAt(1)).isEqualTo("elephant");
 			expect(list.getRefAt(2)).isEqualTo("jaguar");

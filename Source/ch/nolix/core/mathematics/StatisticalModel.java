@@ -53,13 +53,13 @@ public abstract class StatisticalModel {
 	public final double getValueFromBack(final int index) {
 		
 		Validator.suppose(index).thatIsNamed("index").isPositive();
-		Validator.suppose(index).thatIsNamed("index").isNotBiggerThan(inputValues.length + forecasts.getElementCount());
+		Validator.suppose(index).thatIsNamed("index").isNotBiggerThan(inputValues.length + forecasts.getSize());
 		
-		if (index > forecasts.getElementCount()) {
-			return inputValues[getInputValuesCount() + forecasts.getElementCount() - index];
+		if (index > forecasts.getSize()) {
+			return inputValues[getInputValuesCount() + forecasts.getSize() - index];
 		}
 		
-		return forecasts.getRefAt(forecasts.getElementCount() - index + 1);
+		return forecasts.getRefAt(forecasts.getSize() - index + 1);
 	}
 	
 	//method
@@ -67,7 +67,7 @@ public abstract class StatisticalModel {
 		
 		Validator.suppose(index).thatIsNamed("index").isPositive();
 		
-		while (forecasts.getElementCount() < index) {
+		while (forecasts.getSize() < index) {
 			forecasts.addAtEnd(getNextValue());
 		}
 		
@@ -76,7 +76,7 @@ public abstract class StatisticalModel {
 	
 	//method
 	public final int getIndexOfNextValue() {		
-		return (getInputValuesCount() + forecasts.getElementCount() + 1);
+		return (getInputValuesCount() + forecasts.getSize() + 1);
 	}
 	
 	//method

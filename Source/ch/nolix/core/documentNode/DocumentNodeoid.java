@@ -222,7 +222,7 @@ public abstract class DocumentNodeoid {
 	 * @return the number of attributes of the current {@link DocumentNodeoid}.
 	 */
 	public int getAttributeCount() {
-		return getRefAttributes().getElementCount();
+		return getRefAttributes().getSize();
 	}
 	
 	//method

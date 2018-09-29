@@ -145,7 +145,7 @@ public final class Image extends MutableElement<Image> {
 	
 	//method
 	public int getPixelCount() {
-		return pixels.getElementCount();
+		return pixels.getSize();
 	}
 	
 	//method
@@ -178,7 +178,7 @@ public final class Image extends MutableElement<Image> {
 		final var pixelContainer = new ReadContainer<Color>(pixels);
 		
 		Validator
-		.suppose(pixelContainer.getElementCount())
+		.suppose(pixelContainer.getSize())
 		.thatIsNamed("number of pixels")
 		.isEqualTo(getPixelCount());
 		

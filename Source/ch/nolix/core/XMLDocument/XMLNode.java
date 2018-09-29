@@ -128,14 +128,14 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	public int getAttributeCount() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
-		return attributes.getElementCount();
+		return attributes.getSize();
 	}
 	
 	//method
 	public int getChildNodeCount() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
-		return childNodes.getElementCount();
+		return childNodes.getSize();
 	}
 	
 	//method

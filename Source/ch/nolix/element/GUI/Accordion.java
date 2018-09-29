@@ -264,7 +264,7 @@ implements Clearable<Accordion> {
 	 * @return the number of tabs of the current {@link Accordion}.
 	 */
 	public int getTabCount() {
-		return getRefTabs().getElementCount();
+		return getRefTabs().getSize();
 	}
 	
 	//method
