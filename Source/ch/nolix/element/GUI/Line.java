@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.intData.Length;
+import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.intData.Thickness;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.invalidArgumentException.Argument;
@@ -21,7 +22,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 280
+ * @lines 290
  * @param <L> The type of a line.
  */
 public abstract class Line<L extends Line<L>>
@@ -39,7 +40,7 @@ extends Widget<L, LineLook> {
 	public static final Color DEFAULT_COLOR = Color.BLACK;
 	
 	//attributes
-	private Length length;
+	private PositiveInteger length;
 	private Thickness thickness;
 	private Color color;
 	
@@ -54,7 +55,7 @@ extends Widget<L, LineLook> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case Length.TYPE_NAME:
+			case PascalCaseNameCatalogue.LENGTH:
 				setLength(attribute.getOneAttributeAsInt());
 				break;
 			case Thickness.TYPE_NAME:
@@ -88,7 +89,7 @@ extends Widget<L, LineLook> {
 		final List<DocumentNode> attributes = super.getAttributes();
 		
 		if (getLength() != DEFAULT_LENGTH) {
-			attributes.addAtEnd(length.getSpecification());
+			attributes.addAtEnd(length.getSpecificationAs(PascalCaseNameCatalogue.LENGTH));
 		}
 		
 		if (getThickness() != DEFAULT_THICKNESS) {
@@ -203,7 +204,7 @@ extends Widget<L, LineLook> {
 			);
 		}
 		
-		this.length = new Length(length);
+		this.length = new PositiveInteger(length);
 		
 		return getInstance();
 	}
