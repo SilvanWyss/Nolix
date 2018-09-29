@@ -10,8 +10,8 @@ import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.PositiveInteger;
-import ch.nolix.element.font.TextFont;
 import ch.nolix.element.intData.TextSize;
+import ch.nolix.element.textFormat.Font;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -36,7 +36,7 @@ extends Entity<WL>
 implements IFluentObject<WL>, Specified {
 	
 	//default values
-	public static final TextFont DEFAULT_TEXT_FONT = TextFont.Verdana;
+	public static final Font DEFAULT_TEXT_FONT = Font.Verdana;
 	public static final int DEFAULT_TEXT_SIZE = ValueCatalogue.MEDIUM_TEXT_SIZE;
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 	
@@ -44,11 +44,11 @@ implements IFluentObject<WL>, Specified {
 	private static final String BOLD_TEXT_FLAG_HEADER = "BoldTextFlag";
 	
 	//attribute
-	private final Property<TextFont> textFont =
-	new Property<TextFont>(
-		TextFont.TYPE_NAME,
+	private final Property<Font> font =
+	new Property<Font>(
+		Font.TYPE_NAME,
 		DEFAULT_TEXT_FONT,
-		s -> TextFont.createFromSpecification(s)
+		s -> Font.createFromSpecification(s)
 	);
 	
 	//attribute
@@ -98,8 +98,8 @@ implements IFluentObject<WL>, Specified {
 	 * @return the recursive or default text font
 	 * of the current {@link WidgetLook}.
 	 */
-	public final TextFont getRecursiveOrDefaultTextFont() {
-		return textFont.getRecursiveOrDefaultValue();
+	public final Font getRecursiveOrDefaultTextFont() {
+		return font.getRecursiveOrDefaultValue();
 	}
 		
 	//method
@@ -148,7 +148,7 @@ implements IFluentObject<WL>, Specified {
 	 */
 	public final WL removeTextFont() {
 		
-		textFont.removeValue();
+		font.removeValue();
 		
 		return getInstance();
 	}
@@ -211,13 +211,13 @@ implements IFluentObject<WL>, Specified {
 	/**
 	 * Sets the text font of the current {@link WidgetLook}.
 	 * 
-	 * @param textFont
+	 * @param font
 	 * @return the current {@link WidgetLook}.
 	 * @throws NullArgumentException if the given text font is not an instance.
 	 */
-	public final WL setTextFont(final TextFont textFont) {
+	public final WL setTextFont(final Font font) {
 		
-		this.textFont.setValue(textFont);
+		this.font.setValue(font);
 		
 		return getInstance();
 	}

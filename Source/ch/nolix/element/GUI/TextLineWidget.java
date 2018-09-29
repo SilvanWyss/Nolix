@@ -15,8 +15,8 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Text;
-import ch.nolix.element.font.Font;
 import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.textFormat.TextFormat;
 
 //class
 /**
@@ -123,7 +123,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	 */
 	protected final int getContentAreaHeight() {
 		return
-		new Font(getRefCurrentLook().getRecursiveOrDefaultTextSize())
+		new TextFormat(getRefCurrentLook().getRecursiveOrDefaultTextSize())
 		.getTextHeight();
 	}
 	
@@ -133,7 +133,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	 */
 	protected int getContentAreaWidth() {	
 		return
-		new Font(getRefCurrentLook()
+		new TextFormat(getRefCurrentLook()
 		.getRecursiveOrDefaultTextSize())
 		.getSwingTextWidth(getText());
 	}
@@ -156,12 +156,12 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	}
 	
 	//method
-	protected final Font createFont() {
+	protected final TextFormat createFont() {
 		
 		final var textLineWidgetLook = getRefCurrentLook();
 		
 		return
-		new Font(
+		new TextFormat(
 			textLineWidgetLook.getRecursiveOrDefaultTextFont(),
 			TextStyle.Default,
 			textLineWidgetLook.getRecursiveOrDefaultTextSize(),

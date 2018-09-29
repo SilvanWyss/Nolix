@@ -4,8 +4,8 @@ package ch.nolix.element.painter;
 //own imports
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
-import ch.nolix.element.font.Font;
 import ch.nolix.element.image.Image;
+import ch.nolix.element.textFormat.TextFormat;
 
 //interface
 /**
@@ -54,13 +54,13 @@ public interface IPainter {
 	//abstract method
 	/**
 	 * @param text
-	 * @param font
+	 * @param textFormat
 	 * @return the width of the given text
 	 * from the current {@link IPainter} using the given font.
 	 */
 	public abstract int getTextWith(
 		String text,
-		Font font
+		TextFormat textFormat
 	);
 	
 	//abstract method
@@ -139,11 +139,11 @@ public interface IPainter {
 	 * Lets the current {@link IPainter} paint the given text using the given font.
 	 * 
 	 * @param text
-	 * @param font
+	 * @param textFormat
 	 */
 	public abstract void paintText(
 		String text,
-		Font font
+		TextFormat textFormat
 	);
 	
 	//abstract method
@@ -154,12 +154,12 @@ public interface IPainter {
 	 * that is not longer than the given max width will be painted.
 	 * 
 	 * @param text
-	 * @param font
+	 * @param textFormat
 	 * @param maxTextWidth
 	 */
 	public abstract void paintText(
 		String text,
-		Font font,
+		TextFormat textFormat,
 		int maxTextWidth
 	);
 	

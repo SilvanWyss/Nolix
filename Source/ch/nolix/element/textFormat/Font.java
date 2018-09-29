@@ -1,18 +1,18 @@
 //package declaration
-package ch.nolix.element.font;
+package ch.nolix.element.textFormat;
 
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.specificationAPI.ISpecifiedEnum;
 
 //enum
 /**
- * A {@link TextFont} is not mutable.
+ * A {@link Font} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2017-08
  * @lines 50
  */
-public enum TextFont implements ISpecifiedEnum {
+public enum Font implements ISpecifiedEnum {
 	Arial,
 	ComicSansMS,
 	Console,
@@ -20,24 +20,24 @@ public enum TextFont implements ISpecifiedEnum {
 	Verdana;
 	
 	//constant
-	public static final String TYPE_NAME = "TextFont";
+	public static final String TYPE_NAME = "Font";
 	
 	//static method
 	/**
 	 * @param specification
-	 * @return a new {@link TextFont} from the given specification.
+	 * @return a new {@link Font} from the given specification.
 	 * @throws InvalidArgumentException
 	 * if the given specification is not valid.
 	 */
-	public static TextFont createFromSpecification(
+	public static Font createFromSpecification(
 		final DocumentNodeoid specification
 	) {
-		return TextFont.valueOf(specification.getOneAttributeAsString());
+		return Font.valueOf(specification.getOneAttributeAsString());
 	}
 	
 	//method
 	/**
-	 * @return the Java font family of this {@link TextFont}.
+	 * @return the Java font family of this {@link Font}.
 	 */
 	public String getSwingFontFamily() {
 		

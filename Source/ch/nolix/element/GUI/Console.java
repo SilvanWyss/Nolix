@@ -15,9 +15,9 @@ import ch.nolix.core.skillInterfaces.Clearable;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.font.Font;
-import ch.nolix.element.font.TextFont;
 import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.textFormat.Font;
+import ch.nolix.element.textFormat.TextFormat;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 import ch.nolix.primitive.validator2.Validator;
 
@@ -448,7 +448,7 @@ implements Clearable<Console> {
 		
 		setCustomCursorIcon(CursorIcon.Edit);
 		
-		getRefBaseLook().setTextFont(TextFont.Console);
+		getRefBaseLook().setTextFont(Font.Console);
 		
 		return this;
 	}
@@ -692,12 +692,12 @@ implements Clearable<Console> {
 		}
 	}
 	
-	private Font getFont() {
+	private TextFormat getFont() {
 		
 		final var currentLook = getRefCurrentLook();
 		
 		return
-		new Font(
+		new TextFormat(
 			currentLook.getRecursiveOrDefaultTextFont(),
 			TextStyle.Default,
 			currentLook.getRecursiveOrDefaultTextSize(),

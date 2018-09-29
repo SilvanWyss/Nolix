@@ -8,7 +8,7 @@ import ch.nolix.element.GUI.Grid;
 import ch.nolix.element.GUI.GridLineType;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.font.TextFont;
+import ch.nolix.element.textFormat.Font;
 
 //class
 /**
@@ -52,7 +52,7 @@ public final class GridTutorial {
 		.setPaddings(20)
 		.setLineType(GridLineType.InnerLines)
 		.setElementMargin(10)
-		.setTextFont(TextFont.Console);
+		.setTextFont(Font.Console);
 		
 		//Creates a frame with the grid.
 		new Frame()

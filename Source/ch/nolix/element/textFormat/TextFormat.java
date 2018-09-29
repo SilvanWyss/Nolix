@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.font;
+package ch.nolix.element.textFormat;
 
 //Java imports
 import java.awt.Canvas;
@@ -30,10 +30,10 @@ import ch.nolix.primitive.validator2.Validator;
  * @month 2017-08
  * @lines 350
  */
-public final class Font extends Element {
+public final class TextFormat extends Element {
 	
 	//default values
-	public static final TextFont DEFAULT_TEXT_FONT = TextFont.Verdana;
+	public static final Font DEFAULT_TEXT_FONT = Font.Verdana;
 	public static final TextStyle DEFAULT_TEXT_STYLE = TextStyle.Default;
 	public static final int DEFAULT_TEXT_SIZE = 20;
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
@@ -43,7 +43,7 @@ public final class Font extends Element {
 	private static final String TEXT_COLOR_HEADER = "TextColor";
 	
 	//attributes
-	private final TextFont textFont;
+	private final Font font;
 	private final TextStyle textStyle;
 	private final PositiveInteger textSize;
 	private final Color textColor;
@@ -54,7 +54,7 @@ public final class Font extends Element {
 	/**
 	 * Creates a new font.
 	 */
-	public Font() {
+	public TextFormat() {
 		
 		//Calls other constructor.
 		this(DEFAULT_TEXT_FONT, DEFAULT_TEXT_STYLE, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
@@ -67,7 +67,7 @@ public final class Font extends Element {
 	 * @param textColor
 	 * @throws NullArgumentException if the given text color is not an instance.
 	 */
-	public Font(final Color text_color) {
+	public TextFormat(final Color text_color) {
 		
 		//Calls other constructor.
 		this(DEFAULT_TEXT_FONT, DEFAULT_TEXT_STYLE, DEFAULT_TEXT_SIZE, text_color);
@@ -80,7 +80,7 @@ public final class Font extends Element {
 	 * @param textSize
 	 * @throws NonPositiveArgumentException if the given text size is not positive.
 	 */
-	public Font(final int textSize) {
+	public TextFormat(final int textSize) {
 		
 		//Calls other constructor.
 		this(DEFAULT_TEXT_FONT, DEFAULT_TEXT_STYLE, textSize, DEFAULT_TEXT_COLOR);
@@ -90,13 +90,13 @@ public final class Font extends Element {
 	/**
 	 * Creates a new font with the given text font.
 	 * 
-	 * @param textFont
+	 * @param font
 	 * @throws NullArgumentException if the given text font is not an instance.
 	 */
-	public Font(final TextFont textFont) {
+	public TextFormat(final Font font) {
 		
 		//Calls other constructor.
-		this(textFont, DEFAULT_TEXT_STYLE, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
+		this(font, DEFAULT_TEXT_STYLE, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
 	}
 	
 	//constructor
@@ -106,7 +106,7 @@ public final class Font extends Element {
 	 * @param textStyle
 	 * @throws NullArgumentException if the given text style is not an instance.
 	 */
-	public Font(final TextStyle textStyle) {
+	public TextFormat(final TextStyle textStyle) {
 		
 		//Calls other constructor.
 		this(DEFAULT_TEXT_FONT, textStyle, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
@@ -116,21 +116,21 @@ public final class Font extends Element {
 	/**
 	 * Creates a new font with the given text font, text size and text color.
 	 * 
-	 * @param textFont
+	 * @param font
 	 * @param textSize
 	 * @param textColor
 	 * @throws NullArgumentException if the given text font is not an instance.
 	 * @throws NonPositiveArgumentException if the given text size is not positive.
 	 * @throws NullArgumentException if the given text color is not an instance.
 	 */
-	public Font(
-		final TextFont textFont,
+	public TextFormat(
+		final Font font,
 		final TextStyle textStyle,
 		final int textSize,
 		final Color textColor) {
 		
 		//Checks if the given text font is an instance.
-		Validator.suppose(textFont).isInstanceOf(TextFont.class);
+		Validator.suppose(font).isInstanceOf(Font.class);
 		
 		//Checks if the given text style is an instance.
 		Validator.suppose(textStyle).isInstanceOf(TextStyle.class);
@@ -138,7 +138,7 @@ public final class Font extends Element {
 		//Checks if the given text color is an instance.
 		Validator.suppose(textColor).thatIsNamed(TEXT_COLOR_HEADER).isInstance();
 		
-		this.textFont = textFont;
+		this.font = font;
 		this.textStyle = textStyle;
 		this.textSize = new PositiveInteger(textSize);
 		this.textColor = textColor;
@@ -153,11 +153,11 @@ public final class Font extends Element {
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link Font}.
+	 * @return the attributes of the current {@link TextFormat}.
 	 */
 	public List<DocumentNode> getAttributes() {
 		return new List<DocumentNode>(
-			textFont.getSpecification(),
+			font.getSpecification(),
 			textStyle.getSpecificationAs(TextStyle.TYPE_NAME),
 			textSize.getSpecificationAs(TEXT_SIZE_HEADER),
 			textColor.getSpecificationAs(TEXT_COLOR_HEADER)
@@ -168,7 +168,7 @@ public final class Font extends Element {
 	/**
 	 * @param text
 	 * @param maxWidth
-	 * @return the first part of the given text the current {@link Font} can paint
+	 * @return the first part of the given text the current {@link TextFormat} can paint
 	 * that is not longer than the given max width.
 	 * @throws NegativeArgumentException if the given max width is negative.
 	 */
@@ -181,7 +181,7 @@ public final class Font extends Element {
 	 * @param text
 	 * @param maxWidth
 	 * @param ellipsis
-	 * @return the first part of the given text the current {@link Font} can paint,
+	 * @return the first part of the given text the current {@link TextFormat} can paint,
 	 * that is not longer than the given max width,
 	 * optionally with an ellipsis if the given text is longer than the given max width.
 	 */
@@ -219,7 +219,7 @@ public final class Font extends Element {
 	/**
 	 * @param text
 	 * @param maxWidth
-	 * @return the first part of the given text the current {@link Font} can paint,
+	 * @return the first part of the given text the current {@link TextFormat} can paint,
 	 * that is not longer than the given max width,
 	 * with an ellipsis if the given text is longer than the given max width.
 	 * @throws NegativeArgumentException if the given max width is negative.
@@ -230,7 +230,7 @@ public final class Font extends Element {
 	
 	//method
 	/**
-	 * @return the text color of the current {@link Font}.
+	 * @return the text color of the current {@link TextFormat}.
 	 */
 	public Color getTextColor() {
 		return textColor;
@@ -238,15 +238,15 @@ public final class Font extends Element {
 	
 	//method
 	/**
-	 * @return the text font of the current {@link Font}.
+	 * @return the text font of the current {@link TextFormat}.
 	 */
-	public TextFont getTextFont() {
-		return textFont;
+	public Font getTextFont() {
+		return font;
 	}
 	
 	//method
 	/**
-	 * @return the text style of the current {@link Font}.
+	 * @return the text style of the current {@link TextFormat}.
 	 */
 	public TextStyle getTextStyle() {
 		return textStyle;
@@ -257,7 +257,7 @@ public final class Font extends Element {
 	 * The text size is normative.
 	 * The text height depends on the text font and can differ.
 	 * 
-	 * @return the text height of the current {@link Font}.
+	 * @return the text height of the current {@link TextFormat}.
 	 */
 	public final int getTextHeight() {
 		return helperCanvas.getFontMetrics(javaFont).getHeight();
@@ -265,7 +265,7 @@ public final class Font extends Element {
 	
 	//method
 	/**
-	 * @return the text size of the current {@link Font}.
+	 * @return the text size of the current {@link TextFormat}.
 	 */
 	public int getTextSize() {
 		return textSize.getValue();
@@ -273,7 +273,7 @@ public final class Font extends Element {
 	
 	//method
 	/**
-	 * @return the width of the given character when the current {@link Font} would be applied to it.
+	 * @return the width of the given character when the current {@link TextFormat} would be applied to it.
 	 */
 	public final int getSwingTextWidth(final char character) {
 		return getSwingTextWidth(String.valueOf(character));
@@ -281,7 +281,7 @@ public final class Font extends Element {
 	
 	//method
 	/**
-	 * @return the width of the given text when the current {@link Font} would be applied to it.
+	 * @return the width of the given text when the current {@link TextFormat} would be applied to it.
 	 */
 	public final int getSwingTextWidth(final String text) {
 		return helperCanvas.getFontMetrics(javaFont).stringWidth(text);
@@ -289,7 +289,7 @@ public final class Font extends Element {
 	
 	//method
 	/**
-	 * Lets the current {@link Font} paint the given text using the given graphics.
+	 * Lets the current {@link TextFormat} paint the given text using the given graphics.
 	 * 
 	 * @param text
 	 * @param graphics
@@ -302,7 +302,7 @@ public final class Font extends Element {
 	
 	//method
 	/**
-	 * Lets the current {@link Font} paint the given text at the given position using the given graphics.
+	 * Lets the current {@link TextFormat} paint the given text at the given position using the given graphics.
 	 * 
 	 * @param text
 	 * @param graphics
@@ -322,7 +322,7 @@ public final class Font extends Element {
 	
 	//method
 	/**
-	 * Lets the current {@link Font} paint the given text using the given graphics.
+	 * Lets the current {@link TextFormat} paint the given text using the given graphics.
 	 * Only the first part of the given text
 	 * that is not longer than the given max width will be painted.
 	 * 
@@ -340,7 +340,7 @@ public final class Font extends Element {
 	
 	//method
 	/**
-	 * Lets the current {@link Font} paint the given text at the given position using the given graphics.
+	 * Lets the current {@link TextFormat} paint the given text at the given position using the given graphics.
 	 * Only the first part of the given text that is not longer than the given max width will be painted.
 	 * 
 	 * @param text

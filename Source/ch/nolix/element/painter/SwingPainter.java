@@ -9,8 +9,8 @@ import java.awt.RenderingHints;
 //own imports
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
-import ch.nolix.element.font.Font;
 import ch.nolix.element.image.Image;
+import ch.nolix.element.textFormat.TextFormat;
 import ch.nolix.primitive.validator2.Validator;
 
 //class
@@ -63,8 +63,8 @@ public final class SwingPainter implements IPainter {
 	}
 
 	//method
-	public int getTextWith(final String text, final Font font) {
-		return font.getSwingTextWidth(text);
+	public int getTextWith(final String text, final TextFormat textFormat) {
+		return textFormat.getSwingTextWidth(text);
 	}
 	
 	//method
@@ -115,17 +115,17 @@ public final class SwingPainter implements IPainter {
 	}
 	
 	//method
-	public void paintText(final String text, final Font font) {
-		font.paintSwingText(text, graphics);
+	public void paintText(final String text, final TextFormat textFormat) {
+		textFormat.paintSwingText(text, graphics);
 	}
 	
 	//method
 	public void paintText(
 		String text,
-		Font font,
+		TextFormat textFormat,
 		int maxTextWidth
 	) {
-		font.paintSwingText(text, maxTextWidth, graphics);
+		textFormat.paintSwingText(text, maxTextWidth, graphics);
 	}
 
 	//method

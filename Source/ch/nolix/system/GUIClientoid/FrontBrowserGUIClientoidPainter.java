@@ -9,9 +9,9 @@ import ch.nolix.core.bases.IndexedElement;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
-import ch.nolix.element.font.Font;
 import ch.nolix.element.image.Image;
 import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.textFormat.TextFormat;
 import ch.nolix.primitive.helper.ArrayHelper;
 
 //package-visible class
@@ -89,8 +89,8 @@ implements IPainter, Flushable {
 	}
 	
 	//method
-	public int getTextWith(final String text, final Font font) {
-		return font.getSwingTextWidth(text);
+	public int getTextWith(final String text, final TextFormat textFormat) {
+		return textFormat.getSwingTextWidth(text);
 	}
 	
 	//method
@@ -151,25 +151,25 @@ implements IPainter, Flushable {
 	}
 
 	@Override
-	public void paintText(String text, Font font) {
+	public void paintText(String text, TextFormat textFormat) {
 		appendPainterCommand(
 			Protocol.PAINT_TEXT_HEADER
 			+ '('
 			+ DocumentNodeoid.createReproducingString(text)
 			+ ','
-			+ font.getSpecification()
+			+ textFormat.getSpecification()
 			+ ')'
 		);
 	}
 
 	//method
-	public void paintText(final String text, Font font, final int maxTextWidth) {
+	public void paintText(final String text, TextFormat textFormat, final int maxTextWidth) {
 		appendPainterCommand(
 			Protocol.PAINT_TEXT_HEADER
 			+ '('
 			+ DocumentNodeoid.createReproducingString(text)
 			+ ','
-			+ font.getSpecification()
+			+ textFormat.getSpecification()
 			+ ','
 			+ maxTextWidth
 			+ ')'
