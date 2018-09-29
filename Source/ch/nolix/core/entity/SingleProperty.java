@@ -188,12 +188,12 @@ extends Propertyoid<V> {
 		return new ReadContainer<V>(getValue());
 	}
 	
-	//method
+	//package-visible method
 	/**
 	 * @throws UnexistingAttributeException
-	 * if this optional single property has no value.
+	 * if this single property has no value.
 	 */
-	private void supposeHasValue() {
+	void supposeHasValue() {
 		
 		//Checks if this single property has a value.
 		if (isEmpty()) {

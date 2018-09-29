@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.core.entity;
 
+//own imports
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-//own imports
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.specificationAPI.Specified;
@@ -12,7 +12,7 @@ import ch.nolix.core.specificationAPI.Specified;
 /**
 * @author Silvan Wyss
 * @month 2018-02
-* @lines 60
+* @lines 70
 * @param <V> The type of the value of an immutable optional property.
 */
 public final class OptionalProperty<V extends Specified>
@@ -57,5 +57,15 @@ extends SingleProperty<V> {
 	 */
 	public boolean isOptional() {
 		return true;
+	}
+	
+	//method
+	/**
+	 * @throws UnexistingAttributeException if the current {@link OptionalProperty} is empty.
+	 */
+	public void supposeHasValue() {
+		
+		//Calls method of the base class.
+		super.supposeHasValue();
 	}
 }

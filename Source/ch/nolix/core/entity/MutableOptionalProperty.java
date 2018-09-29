@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.entity;
 
+//own imports
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
@@ -12,7 +13,7 @@ import ch.nolix.core.specificationAPI.Specified;
 /**
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 70
+ * @lines 80
  * @param <V> The value of an optional property.
  */
 public final class MutableOptionalProperty<V extends Specified>
@@ -73,5 +74,15 @@ implements Clearable<MutableOptionalProperty<V>> {
 	 */
 	public boolean isOptional() {
 		return true;
+	}
+	
+	//method
+	/**
+	 * @throws UnexistingAttributeException if the current {@link MutableOptionalProperty} is empty.
+	 */
+	public void supposeHasValue() {
+		
+		//Calls method of the base class.
+		super.supposeHasValue();
 	}
 }
