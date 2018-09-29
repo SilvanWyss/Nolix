@@ -1,9 +1,12 @@
 {
-	"compilerOptions": {
-		"outDir": "../TypeScriptOutput"
-	},
-	"files": [
-		"Nolix/Core/Container/List.ts",
-		"Nolix/Core/Container/ListNode.ts"
-	]
+  "compilerOptions": {
+    "module":"amd",
+    "target": "ES2018",
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "outFile":"../TypeScriptOutput/build.js",
+    "sourceRoot": "Nolix/",
+    "rootDir": "Nolix/",
+    "sourceMap": true
+  }
 }
