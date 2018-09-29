@@ -17,17 +17,16 @@ import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**
- * A font can paint texts with a specific
+ * A {@link TextFormat} can paint texts with a specific
  * -text font
- * -text style
  * -text size
  * -text color
  * 
- * A font is not mutable.
+ * A {@link TextFormat} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 330
+ * @lines 340
  */
 public final class TextFormat extends Element {
 	
@@ -35,21 +34,22 @@ public final class TextFormat extends Element {
 	public static final Font DEFAULT_TEXT_FONT = Font.Verdana;
 	public static final int DEFAULT_TEXT_SIZE = 20;
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
-
+	
 	//constants
+	private static final String TEXT_FONT_HEADER = "TextFont";
 	private static final String TEXT_SIZE_HEADER = "TextSize";
 	private static final String TEXT_COLOR_HEADER = "TextColor";
 	
 	//attributes
-	private final Font font;
+	private final Font textFont;
 	private final PositiveInteger textSize;
 	private final Color textColor;
 	private final java.awt.Font javaFont;
-	private final Canvas helperCanvas = new Canvas();
+	private final Canvas canvas = new Canvas();
 	
 	//constructor
 	/**
-	 * Creates a new font.
+	 * Creates a new {@link TextFormat}.
 	 */
 	public TextFormat() {
 		
@@ -59,48 +59,35 @@ public final class TextFormat extends Element {
 	
 	//constructor
 	/**
-	 * Creates a new font with the given text color.
+	 * Creates a new {@link TextFormat} with the given text color.
 	 * 
 	 * @param textColor
 	 * @throws NullArgumentException if the given text color is not an instance.
 	 */
-	public TextFormat(final Color text_color) {
+	public TextFormat(final Color textColor) {
 		
 		//Calls other constructor.
-		this(DEFAULT_TEXT_FONT, DEFAULT_TEXT_SIZE, text_color);
+		this(DEFAULT_TEXT_FONT, DEFAULT_TEXT_SIZE, textColor);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new font with the given text size.
+	 * Creates a new {@link TextFormat} with the given text font.
 	 * 
-	 * @param textSize
-	 * @throws NonPositiveArgumentException if the given text size is not positive.
-	 */
-	public TextFormat(final int textSize) {
-		
-		//Calls other constructor.
-		this(DEFAULT_TEXT_FONT, textSize, DEFAULT_TEXT_COLOR);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new font with the given text font.
-	 * 
-	 * @param font
+	 * @param textFont
 	 * @throws NullArgumentException if the given text font is not an instance.
 	 */
-	public TextFormat(final Font font) {
+	public TextFormat(final Font textFont) {
 		
 		//Calls other constructor.
-		this(font, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
+		this(textFont, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new font with the given text font, text size and text color.
+	 * Creates a new {@link TextFormat} with the given text font, text size and text color.
 	 * 
-	 * @param font
+	 * @param textFont
 	 * @param textSize
 	 * @param textColor
 	 * @throws NullArgumentException if the given text font is not an instance.
@@ -108,17 +95,20 @@ public final class TextFormat extends Element {
 	 * @throws NullArgumentException if the given text color is not an instance.
 	 */
 	public TextFormat(
-		final Font font,
+		final Font textFont,
 		final int textSize,
 		final Color textColor) {
 		
 		//Checks if the given text font is an instance.
-		Validator.suppose(font).isInstanceOf(Font.class);
+		Validator.suppose(textFont).isInstanceOf(Font.class);
+		
+		//Checks if the given text size is positive.
+		Validator.suppose(textSize).thatIsNamed("text size").isPositive();
 		
 		//Checks if the given text color is an instance.
 		Validator.suppose(textColor).thatIsNamed(TEXT_COLOR_HEADER).isInstance();
 		
-		this.font = font;
+		this.textFont = textFont;
 		this.textSize = new PositiveInteger(textSize);
 		this.textColor = textColor;
 		
@@ -130,13 +120,26 @@ public final class TextFormat extends Element {
 		);
 	}
 	
+	//constructor
+	/**
+	 * Creates a new {@link TextFormat} with the given text size.
+	 * 
+	 * @param textSize
+	 * @throws NonPositiveArgumentException if the given text size is not positive.
+	 */
+	public TextFormat(final int textSize) {
+		
+		//Calls other constructor.
+		this(DEFAULT_TEXT_FONT, textSize, DEFAULT_TEXT_COLOR);
+	}
+	
 	//method
 	/**
 	 * @return the attributes of the current {@link TextFormat}.
 	 */
 	public List<DocumentNode> getAttributes() {
 		return new List<DocumentNode>(
-			font.getSpecification(),
+			textFont.getSpecificationAs(TEXT_FONT_HEADER),
 			textSize.getSpecificationAs(TEXT_SIZE_HEADER),
 			textColor.getSpecificationAs(TEXT_COLOR_HEADER)
 		);
@@ -168,12 +171,13 @@ public final class TextFormat extends Element {
 		//Checks if the given max width is not negative.
 		Validator.suppose(maxWidth).thatIsNamed("max width").isNotNegative();
 		
+		//Handles the case that the given text is not an instance.
 		if (text == null) {
 			text = StringCatalogue.NULL_NAME;
 		}
 		
+		//Extracts the first part of the given text.
 		String firstPart = StringCatalogue.EMPTY_STRING;
-				
 		while (firstPart.length() < text.length() && getSwingTextWidth(firstPart) < maxWidth) {
 			firstPart = text.substring(0, firstPart.length() + 1);
 		}
@@ -219,7 +223,7 @@ public final class TextFormat extends Element {
 	 * @return the text font of the current {@link TextFormat}.
 	 */
 	public Font getTextFont() {
-		return font;
+		return textFont;
 	}
 	
 	//method
@@ -230,7 +234,7 @@ public final class TextFormat extends Element {
 	 * @return the text height of the current {@link TextFormat}.
 	 */
 	public final int getTextHeight() {
-		return helperCanvas.getFontMetrics(javaFont).getHeight();
+		return canvas.getFontMetrics(javaFont).getHeight();
 	}
 	
 	//method
@@ -254,7 +258,7 @@ public final class TextFormat extends Element {
 	 * @return the width of the given text when the current {@link TextFormat} would be applied to it.
 	 */
 	public final int getSwingTextWidth(final String text) {
-		return helperCanvas.getFontMetrics(javaFont).stringWidth(text);
+		return canvas.getFontMetrics(javaFont).stringWidth(text);
 	}
 	
 	//method
