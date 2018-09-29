@@ -1,0 +1,9 @@
+{
+	"compilerOptions": {
+		"outDir": "../TypeScriptOutput"
+	},
+	"files": [
+		"Nolix/Core/Container/List.ts",
+		"Nolix/Core/Container/ListNode.ts"
+	]
+}

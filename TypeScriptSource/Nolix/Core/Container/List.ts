@@ -2,7 +2,7 @@
 /// <reference path="ListNode.ts" />
 
 //namespace declaration
-namespace Nolix.List {
+namespace Nolix.Core.Container {
 
     //cass
     export class List<E> {
@@ -53,17 +53,14 @@ namespace Nolix.List {
         }
 
         //method
-        public containsAnyElement() {
-            return (this.getElementCount() > 0);
+        public containsAny() {
+
+            //For a better performance, this implementation does not use all comfortable methods.
+            return (this.elementCount > 0);
         }
 
         //method
-        public getElementCount(): number {
-            return this.elementCount;
-        }
-
-        //method
-        public getRefFirstElement(): E {
+        public getRefFirst(): E {
             
             this.supposeIsNotEmpty();
 
@@ -71,7 +68,7 @@ namespace Nolix.List {
         }
 
         //method
-        public getRefLastElement(): E {
+        public getRefLast(): E {
 
             this.supposeIsNotEmpty();
 
@@ -79,8 +76,15 @@ namespace Nolix.List {
         }
 
         //method
+        public getSize(): number {
+            return this.elementCount;
+        }
+
+        //method
         public isEmpty() {
-            return (this.getElementCount() == 0);
+
+            //For a better performance, this implementation does not use all comfortable methods.
+            return (this.elementCount == 0);
         }
 
         //method

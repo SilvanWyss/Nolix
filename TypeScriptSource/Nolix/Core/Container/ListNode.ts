@@ -1,5 +1,5 @@
 //namespace declaration
-namespace Nolix.List {
+namespace Nolix.Core.Container {
 
     //class
     export class ListNode<E> {
