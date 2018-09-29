@@ -1,5 +1,8 @@
+//own import
+import { ListIterator } from "./ListIterator";
+
 //cass
-export class List<E> {
+export class List<E> implements Iterable<E> {
 
     //attribute
     private elementCount: number = 0;
@@ -54,6 +57,16 @@ export class List<E> {
     }
 
     //method
+    public forEach(elementTaker: (e: E) => void): List<E> {
+
+        for (let e of this) {
+            elementTaker(e);
+        }
+
+        return this;
+    }
+
+    //method
     public getRefFirst(): E {
         
         this.supposeIsNotEmpty();
@@ -86,5 +99,10 @@ export class List<E> {
         if (this.isEmpty) {
             throw new Error("The current list is empty.");
         }
+    }
+
+    //symbol method
+    [Symbol.iterator](): ListIterator<E> {
+        return new ListIterator<E>(this.beginNode);
     }
 }
