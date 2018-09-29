@@ -10,15 +10,15 @@ import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.skillInterfaces.Clearable;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.textFormat.Font;
 import ch.nolix.element.textFormat.TextFormat;
-import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
-import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

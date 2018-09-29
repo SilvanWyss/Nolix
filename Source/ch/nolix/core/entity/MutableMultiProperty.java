@@ -10,7 +10,7 @@ import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.skillInterfaces.Clearable;
 import ch.nolix.core.specificationAPI.Specified;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**

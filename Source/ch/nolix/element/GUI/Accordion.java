@@ -10,9 +10,9 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.entity.MutableMultiProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.skillInterfaces.Clearable;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

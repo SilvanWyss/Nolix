@@ -9,8 +9,8 @@ import ch.nolix.core.container.Matrix;
 import ch.nolix.core.container.MatrixRow;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.primitive.validator2.Validator;
 
 //class
 public final class Grid extends Container<Grid, GridLook> {

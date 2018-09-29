@@ -6,10 +6,10 @@ import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
+import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specificationAPI.Specified;
-import ch.nolix.primitive.invalidStateException.InvalidStateException;
-import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**

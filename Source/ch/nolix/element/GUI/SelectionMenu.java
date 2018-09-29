@@ -8,13 +8,13 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ErrorPredicate;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.skillInterfaces.Clearable;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.primitive.invalidArgumentException.Argument;
-import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
-import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.primitive.invalidStateException.InvalidStateException;
 
 //class
 public final class SelectionMenu

@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.nolixTest;
 
+import ch.nolix.core.testoid.TestPool;
 import ch.nolix.coreTest.CoreTestPool;
 import ch.nolix.elementTest.ElementTestPool;
-import ch.nolix.primitive.testoid.TestPool;
 
 //class
 /**

@@ -8,12 +8,12 @@
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
+import ch.nolix.core.test2.Test;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.TextBox;
 import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.element.GUI.WidgetState;
-import ch.nolix.primitive.test2.Test;
 
 //test class
 /**

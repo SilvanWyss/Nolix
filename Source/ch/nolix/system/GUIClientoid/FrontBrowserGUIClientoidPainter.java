@@ -7,12 +7,12 @@ import java.io.Flushable;
 //own imports
 import ch.nolix.core.bases.IndexedElement;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.primitiveHelper.ArrayHelper;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.image.Image;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.textFormat.TextFormat;
-import ch.nolix.primitive.helper.ArrayHelper;
 
 //package-visible class
 final class FrontBrowserGUIClientoidPainter extends IndexedElement

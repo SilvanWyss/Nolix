@@ -7,7 +7,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.skillInterfaces.Closable;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.system.client.StandardClient;
 import ch.nolix.system.neuronoid.Neuronoid;
 

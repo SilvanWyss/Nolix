@@ -5,7 +5,7 @@ package ch.nolix.element.core;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.helper.StringHelper;
-import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 
 //class
 /**

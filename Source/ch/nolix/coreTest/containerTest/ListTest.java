@@ -8,10 +8,10 @@ import java.util.Iterator;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
 import ch.nolix.core.container.SequencePattern;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.logger.Logger;
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
-import ch.nolix.primitive.logger.Logger;
-import ch.nolix.primitive.test2.Test;
+import ch.nolix.core.test2.Test;
 
 //test class
 /**

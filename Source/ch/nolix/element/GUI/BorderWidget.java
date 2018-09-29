@@ -7,14 +7,14 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
+import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.mathematics.Calculator;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.primitive.invalidStateException.InvalidStateException;
-import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
-import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**

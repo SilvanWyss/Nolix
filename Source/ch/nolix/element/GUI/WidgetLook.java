@@ -5,14 +5,14 @@ package ch.nolix.element.GUI;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.entity2.Entity;
 import ch.nolix.core.entity2.Property;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.skillInterfaces.IFluentObject;
 import ch.nolix.core.specificationAPI.Specified;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.textFormat.Font;
-import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
-import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**

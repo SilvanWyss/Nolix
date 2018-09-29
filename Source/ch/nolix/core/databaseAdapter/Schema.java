@@ -4,7 +4,7 @@ package ch.nolix.core.databaseAdapter;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.primitive.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidStateException.InvalidStateException;
 
 //abstract class
 public abstract class Schema {

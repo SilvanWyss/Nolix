@@ -1,7 +1,7 @@
 //abstract class
 package ch.nolix.element._3DGUI;
 
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**

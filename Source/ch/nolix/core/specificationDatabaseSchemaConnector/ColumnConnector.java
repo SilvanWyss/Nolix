@@ -5,7 +5,7 @@ package ch.nolix.core.specificationDatabaseSchemaConnector;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.databaseSchemaAdapter.IColumnConnector;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 public final class ColumnConnector implements IColumnConnector {

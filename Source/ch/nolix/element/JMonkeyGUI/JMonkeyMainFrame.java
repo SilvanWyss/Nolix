@@ -13,6 +13,7 @@ import com.jme3.math.Vector3f;
 import com.jme3.system.AppSettings;
 
 import ch.nolix.core.functionAPI.IFunction;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element._3DGUI.Cuboid;
 import ch.nolix.element._3DGUI.Cylinder;
 import ch.nolix.element._3DGUI.MainFrame;
@@ -20,7 +21,6 @@ import ch.nolix.element._3DGUI.MultiShape;
 import ch.nolix.element._3DGUI.Rectangle;
 import ch.nolix.element._3DGUI.Shape;
 import ch.nolix.element._3DGUI.Sphere;
-import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

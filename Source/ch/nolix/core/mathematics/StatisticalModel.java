@@ -3,7 +3,7 @@ package ch.nolix.core.mathematics;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**

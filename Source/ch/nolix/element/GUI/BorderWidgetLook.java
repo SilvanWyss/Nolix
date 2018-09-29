@@ -5,10 +5,10 @@ package ch.nolix.element.GUI;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.NonNegativeInteger;
-import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

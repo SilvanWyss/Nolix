@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreTest;
 
+import ch.nolix.core.testoid.TestPool;
 //own imports
 import ch.nolix.coreTest.containerTest.ContainerTestPool;
 import ch.nolix.coreTest.databaseAdapterTest.DatabaseAdapterTestPool;
@@ -10,7 +11,6 @@ import ch.nolix.coreTest.helperTest.HelperTestPool;
 import ch.nolix.coreTest.mathematicsTest.MathematicsTestPool;
 import ch.nolix.coreTest.sequencerTest.SequencerTestPool;
 import ch.nolix.coreTest.utilTest.UtilTestPool;
-import ch.nolix.primitive.testoid.TestPool;
 
 //class
 /**

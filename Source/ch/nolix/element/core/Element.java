@@ -5,10 +5,10 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.Statement;
 //own imports
 import ch.nolix.core.entity.Entity;
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillInterfaces.TypeRequestable;
-import ch.nolix.primitive.invalidArgumentException.Argument;
-import ch.nolix.primitive.invalidArgumentException.ArgumentName;
-import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 
 //abstract class
 /**

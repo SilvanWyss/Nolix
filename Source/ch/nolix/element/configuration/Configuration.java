@@ -7,12 +7,12 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.skillInterfaces.Freezable;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.element.bases.OptionalNamableElement;
 import ch.nolix.element.core.NonEmptyText;
-import ch.nolix.primitive.invalidStateException.InvalidStateException;
-import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
 
 //abstract class
 /**

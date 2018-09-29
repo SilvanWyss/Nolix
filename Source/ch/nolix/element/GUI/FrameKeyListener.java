@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**

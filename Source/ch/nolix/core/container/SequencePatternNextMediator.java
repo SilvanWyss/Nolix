@@ -3,7 +3,7 @@ package ch.nolix.core.container;
 
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**

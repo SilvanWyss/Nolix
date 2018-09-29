@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 
 //own imports
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**

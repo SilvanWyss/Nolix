@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
+import ch.nolix.core.validator2.Validator;
 //own import
 import ch.nolix.element.GUI.IFileProvider;
 import ch.nolix.element.GUI.Widget;
-import ch.nolix.primitive.validator2.Validator;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 
 //class

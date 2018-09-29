@@ -2,7 +2,7 @@
 package ch.nolix.core.bases;
 
 import ch.nolix.core.skillInterfaces.Signable;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**

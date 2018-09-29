@@ -3,11 +3,11 @@ package ch.nolix.element._3DGUI;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ErrorPredicate;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.core.container.List;
-import ch.nolix.primitive.invalidArgumentException.Argument;
-import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
-import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

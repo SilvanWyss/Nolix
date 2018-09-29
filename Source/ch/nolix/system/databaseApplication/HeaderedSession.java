@@ -3,11 +3,11 @@ package ch.nolix.system.databaseApplication;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.LabelRole;
 import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.element.GUI.Widget;
-import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 public abstract class HeaderedSession extends UserSession {

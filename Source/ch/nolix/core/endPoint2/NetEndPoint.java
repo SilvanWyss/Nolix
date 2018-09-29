@@ -10,10 +10,10 @@ import java.net.Socket;
 import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.constants.PortCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.primitive.invalidArgumentException.Argument;
-import ch.nolix.primitive.invalidArgumentException.ArgumentName;
-import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**

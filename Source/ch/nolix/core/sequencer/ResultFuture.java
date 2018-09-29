@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.sequencer;
 
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**

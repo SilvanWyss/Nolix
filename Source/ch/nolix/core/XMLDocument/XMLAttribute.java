@@ -5,7 +5,7 @@ package ch.nolix.core.XMLDocument;
 import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.skillInterfaces.Valued;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 public final class XMLAttribute

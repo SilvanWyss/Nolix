@@ -11,10 +11,10 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.functionAPI.IElementGetter;
+import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.util.PopupWindowProvider;
-import ch.nolix.primitive.invalidStateException.InvalidStateException;
-import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 public final class Downloader extends TextLineWidget<Downloader> {

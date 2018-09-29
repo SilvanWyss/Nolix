@@ -3,14 +3,14 @@ package ch.nolix.system.consoleClient;
 
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.Statement;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.GUI.Console;
 import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.element.configuration.StandardConfiguration;
-import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.primitive.validator2.Validator;
 import ch.nolix.system.GUIClientoid.BackGUIClientoid;
 import ch.nolix.system.client.Application;
 import ch.nolix.templates.frontConsoleClientLooks.GreyBlueFrontConsoleClientLook;

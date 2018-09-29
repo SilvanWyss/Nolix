@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coreTest.enumTest;
 
-import ch.nolix.primitive.testoid.TestPool;
+import ch.nolix.core.testoid.TestPool;
 
 //class
 /**

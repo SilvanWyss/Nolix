@@ -8,7 +8,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.factory.Factory;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.skillInterfaces.IChangesSaver;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 public final class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {

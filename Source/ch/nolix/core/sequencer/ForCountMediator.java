@@ -3,7 +3,7 @@ package ch.nolix.core.sequencer;
 
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.functionAPI.IIntTaker;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**

@@ -4,8 +4,8 @@ package ch.nolix.element._3DGUI;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.entity.MutableProperty;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.core.PositiveFloatingPointNumber;
-import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

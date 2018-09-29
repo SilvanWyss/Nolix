@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.taskTest;
 
-import ch.nolix.primitive.testoid.TestPool;
+import ch.nolix.core.testoid.TestPool;
 
 //class
 /**

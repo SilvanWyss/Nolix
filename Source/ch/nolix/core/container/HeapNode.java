@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.core.container;
 
-import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**

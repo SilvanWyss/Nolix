@@ -4,7 +4,7 @@ package ch.nolix.core.container;
 //Java import
 import java.util.Iterator;
 
-import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 
 //package-visible class
 /**

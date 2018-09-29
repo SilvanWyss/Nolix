@@ -7,13 +7,13 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.util.PopupWindowProvider;
 import ch.nolix.element.GUI.Downloader;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.GUI.Widget;
-import ch.nolix.primitive.invalidArgumentException.Argument;
-import ch.nolix.primitive.invalidArgumentException.ArgumentName;
-import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.client.Client;
 

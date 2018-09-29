@@ -5,11 +5,11 @@ package ch.nolix.core.documentNode;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
-import ch.nolix.primitive.validator2.Validator;
 
 //class
 /**

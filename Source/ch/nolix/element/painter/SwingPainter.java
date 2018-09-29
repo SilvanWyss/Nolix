@@ -6,12 +6,12 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
+import ch.nolix.core.validator2.Validator;
 //own imports
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.image.Image;
 import ch.nolix.element.textFormat.TextFormat;
-import ch.nolix.primitive.validator2.Validator;
 
 //class
 public final class SwingPainter implements IPainter {

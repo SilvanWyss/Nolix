@@ -5,7 +5,7 @@ package ch.nolix.coreTest.databaseAdapterTest;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.Property;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.primitive.test2.Test;
+import ch.nolix.core.test2.Test;
 
 //test class
 public final class EntityTest extends Test {

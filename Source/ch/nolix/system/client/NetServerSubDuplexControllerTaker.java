@@ -3,7 +3,7 @@ package ch.nolix.system.client;
 
 import ch.nolix.core.endPoint5.EndPoint;
 import ch.nolix.core.endPoint5.IEndPointTaker;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**

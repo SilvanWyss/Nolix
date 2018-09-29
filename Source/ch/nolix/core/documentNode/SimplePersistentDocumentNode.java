@@ -7,7 +7,7 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
-import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //class
 /**

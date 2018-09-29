@@ -8,7 +8,7 @@
 //package declaration
 package ch.nolix.core.mathematics;
 
-import ch.nolix.primitive.validator.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 public final class Vector {

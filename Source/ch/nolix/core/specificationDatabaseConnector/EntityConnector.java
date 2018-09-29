@@ -6,7 +6,7 @@ import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntityType;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.skillInterfaces.Identified;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 public final class EntityConnector<E extends Entity> implements Identified {

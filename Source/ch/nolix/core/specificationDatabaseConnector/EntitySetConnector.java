@@ -8,7 +8,7 @@ import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntityType;
 import ch.nolix.core.databaseAdapter.IEntitySetConnector;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 public final class EntitySetConnector<E extends Entity>

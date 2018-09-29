@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint3;
 
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**

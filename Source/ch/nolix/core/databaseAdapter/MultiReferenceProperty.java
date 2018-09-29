@@ -4,8 +4,8 @@ package ch.nolix.core.databaseAdapter;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.primitive.invalidStateException.InvalidStateException;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.validator2.Validator;
 
 //class
 public final class MultiReferenceProperty<E extends Entity>

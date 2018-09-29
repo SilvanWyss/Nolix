@@ -7,14 +7,14 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.entity.Property;
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
+import ch.nolix.core.invalidArgumentException.ErrorPredicate;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.core.Text;
 import ch.nolix.element.core.Time;
-import ch.nolix.primitive.invalidArgumentException.Argument;
-import ch.nolix.primitive.invalidArgumentException.ArgumentName;
-import ch.nolix.primitive.invalidArgumentException.ErrorPredicate;
-import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.primitive.invalidStateException.InvalidStateException;
 
 //class
 /**

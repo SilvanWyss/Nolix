@@ -4,7 +4,7 @@ package ch.nolix.system.client;
 import ch.nolix.core.controllerAPI.IMultiController;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.Statement;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**

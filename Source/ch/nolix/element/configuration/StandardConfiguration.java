@@ -4,8 +4,8 @@ package ch.nolix.element.configuration;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specificationAPI.Configurable;
-import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
 
 //class
 /**

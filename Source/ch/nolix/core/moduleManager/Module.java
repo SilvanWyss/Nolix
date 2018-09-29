@@ -5,7 +5,7 @@ package ch.nolix.core.moduleManager;
 import java.io.File;
 
 import ch.nolix.core.skillInterfaces.Named;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**

@@ -6,9 +6,9 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.primitive.invalidStateException.InvalidStateException;
-import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.validator2.Validator;
 
 //abstract class
 public abstract class SingleProperty<V>

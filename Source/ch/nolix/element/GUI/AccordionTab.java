@@ -7,14 +7,14 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity.MutableProperty;
+import ch.nolix.core.invalidStateException.EmptyStateException;
+import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.skillInterfaces.Clearable;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.bases.HeaderableElement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
-import ch.nolix.primitive.invalidStateException.EmptyStateException;
-import ch.nolix.primitive.invalidStateException.InvalidStateException;
-import ch.nolix.primitive.validator2.Validator;
 
 //class
 public final class AccordionTab

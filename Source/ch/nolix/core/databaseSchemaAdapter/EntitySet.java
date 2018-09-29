@@ -15,7 +15,7 @@ import ch.nolix.core.databaseAdapter.PropertyType;
 import ch.nolix.core.databaseAdapter.PropertyoidType;
 import ch.nolix.core.databaseAdapter.ReferencePropertyType;
 import ch.nolix.core.databaseAdapter.State;
-import ch.nolix.primitive.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidStateException.InvalidStateException;
 
 //class
 public final class EntitySet extends NamedElement {

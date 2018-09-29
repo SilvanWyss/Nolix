@@ -5,8 +5,7 @@ package ch.nolix.element.GUI;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
-//own import
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 final class FrameMouseWheelListener

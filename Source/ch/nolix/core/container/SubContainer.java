@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**

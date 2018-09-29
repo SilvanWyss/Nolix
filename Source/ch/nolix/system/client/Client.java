@@ -12,14 +12,14 @@ import ch.nolix.core.endPoint5.EndPoint;
 import ch.nolix.core.endPoint5.LocalEndPoint;
 import ch.nolix.core.endPoint5.NetEndPoint;
 import ch.nolix.core.functionAPI.IFunction;
+import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidStateException.ClosedStateException;
+import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.skillInterfaces.Closable;
-import ch.nolix.primitive.invalidArgumentException.Argument;
-import ch.nolix.primitive.invalidArgumentException.ArgumentName;
-import ch.nolix.primitive.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.primitive.invalidStateException.ClosedStateException;
-import ch.nolix.primitive.invalidStateException.InvalidStateException;
-import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**

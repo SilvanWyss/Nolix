@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
+import ch.nolix.core.test2.ObjectTest;
 //own imports
 import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.GUI.Widget;
-import ch.nolix.primitive.test2.ObjectTest;
 
 //abstract test class
 /**

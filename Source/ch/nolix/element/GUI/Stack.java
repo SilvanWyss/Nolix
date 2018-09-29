@@ -6,10 +6,10 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.skillInterfaces.Clearable;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.core.container.List;
 import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.primitive.validator2.Validator;
 
 //abstract class
 /**

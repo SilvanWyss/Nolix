@@ -9,9 +9,9 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.databaseAdapter.IDatabaseConnector;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IFunction;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntitySet;
-import ch.nolix.primitive.validator2.Validator;
 
 //class
 public final class SpecificationDatabaseConnector

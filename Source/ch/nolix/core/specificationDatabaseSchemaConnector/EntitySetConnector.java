@@ -8,8 +8,8 @@ import ch.nolix.core.databaseSchemaAdapter.Column;
 import ch.nolix.core.databaseSchemaAdapter.IColumnConnector;
 import ch.nolix.core.databaseSchemaAdapter.IEntitySetConnector;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.primitive.invalidStateException.InvalidStateException;
-import ch.nolix.primitive.validator2.Validator;
+import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.validator2.Validator;
 
 //class
 public final class EntitySetConnector implements IEntitySetConnector {
