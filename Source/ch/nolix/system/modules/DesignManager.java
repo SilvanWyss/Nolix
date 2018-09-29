@@ -4,11 +4,10 @@ package ch.nolix.system.modules;
 //Java import
 import java.io.File;
 
-//own imports
-import ch.nolix.core.centralController.CentralController;
-import ch.nolix.core.centralController.Module;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.moduleManager.Module;
+import ch.nolix.core.moduleManager.ModuleManager;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;
@@ -31,13 +30,13 @@ public final class DesignManager extends Module {
 	/**
 	 * Creates a new design manager with the given central controller.
 	 * 
-	 * @param centralController
+	 * @param moduleManager
 	 * @throws NullArgumentException if the given central controller is not an instance.
 	 */
-	public DesignManager(final CentralController centralController) {
+	public DesignManager(final ModuleManager moduleManager) {
 		
 		//Calls constructor of the base class.
-		super(centralController);
+		super(moduleManager);
 	}
 
 	//method

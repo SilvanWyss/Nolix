@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.centralController;
+package ch.nolix.core.moduleManager;
 
 //Java import
 import java.io.File;
@@ -17,7 +17,7 @@ import ch.nolix.primitive.validator2.Validator;
  * @month 2015-12
  * @lines 80
  */
-public class CentralController {
+public class ModuleManager {
 	
 	//attribute
 	private final String directory;
@@ -33,7 +33,7 @@ public class CentralController {
 	 * @param directory
 	 * @throws InvalidArgumentException if the given directory does not specify a directory on the local machine.
 	 */
-	public CentralController(final String directory) {
+	public ModuleManager(final String directory) {
 		
 		//Checks if the given directory specifies a directory.
 		Validator.suppose(directory).specifiesProbableDirectoryOnLocalMachine(directory);

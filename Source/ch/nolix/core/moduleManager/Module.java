@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.centralController;
+package ch.nolix.core.moduleManager;
 
 //Java import
 import java.io.File;
@@ -21,27 +21,27 @@ public abstract class Module
 implements Named {
 	
 	//attributes
-	private CentralController centralController;
+	private ModuleManager moduleManager;
 	
 	//constructor
 	/**
 	 * Creates a new module that belongs to the given central controller.
 	 * 
-	 * @param centralController
+	 * @param moduleManager
 	 * @throws NullArgumentException if the given central controller is not an instance.
 	 * @throws InvalidArgumentException
 	 * if the given central controller contains already a module with the same name as this module.
 	 */
-	public Module(final CentralController centralController) {
+	public Module(final ModuleManager moduleManager) {
 		
 		//Checks if the given central controller is an instance.
-		Validator.suppose(centralController).isInstanceOf(CentralController.class);
+		Validator.suppose(moduleManager).isInstanceOf(ModuleManager.class);
 		
 		//Sets the central controller this module belongs to.
-		this.centralController = centralController;
+		this.moduleManager = moduleManager;
 		
 		//Adds this module to the given central controller.
-		centralController.addModule(this);
+		moduleManager.addModule(this);
 	}
 	
 	//method
@@ -50,7 +50,7 @@ implements Named {
 	 */
 	public final String getDirectory() {	
 		
-		final String directory = centralController.getDirectory() + "/" + getName();
+		final String directory = moduleManager.getDirectory() + "/" + getName();
 		
 		Validator.suppose(directory).specifiesProbableDirectoryOnLocalMachine(directory);
 		
@@ -78,6 +78,6 @@ implements Named {
 	 * if the central controller this model belongs to contains no module with the given code name.
 	 */
 	protected final <M extends Module> M getRefModuleByName(final String name) {
-		return centralController.getModuleByName(name);
+		return moduleManager.getModuleByName(name);
 	}
 }
