@@ -251,9 +251,9 @@ public final class ListTest extends Test {
 		);
 		
 		//execution & verification
-		expect(list.getElementCount(e -> e.length() > 0)).isEqualTo(6);
-		expect(list.getElementCount(e -> e.length() > 3)).isEqualTo(3);
-		expect(list.getElementCount(e -> e.length() > 6)).isZero();
+		expect(list.getCount(e -> e.length() > 0)).isEqualTo(6);
+		expect(list.getCount(e -> e.length() > 3)).isEqualTo(3);
+		expect(list.getCount(e -> e.length() > 6)).isZero();
 	}
 	
 	//test case

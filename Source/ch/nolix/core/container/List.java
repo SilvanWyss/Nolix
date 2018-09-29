@@ -814,7 +814,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	public List<E> removeRegardingSingularity(final E element) {
 		
 		//Enumerates the element count of the given element.
-		switch (getElementCount(element)) {
+		switch (getCount(element)) {
 			case 0:
 				throw new InvalidStateException(this, "does not contain the given elemen");
 			case 1:

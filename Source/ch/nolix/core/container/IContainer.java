@@ -442,7 +442,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param selector
 	 * @return the number of elements the given selector selects from the current {@link IContainer}.
 	 */
-	public default int getElementCount(final IElementTakerBooleanGetter<E> selector) {
+	public default int getCount(final IElementTakerBooleanGetter<E> selector) {
 		
 		var elementCount = 0;
 		
@@ -463,7 +463,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param element
 	 * @return the number how many times this container contains the given element.
 	 */
-	public default int getElementCount(final Object element) {
+	public default int getCount(final Object element) {
 		
 		var elementCount = 0;
 		
@@ -607,7 +607,7 @@ public interface IContainer<E> extends Iterable<E> {
 			throw new EmptyStateException(this);
 		}
 		
-		return ((double)getElementCount(selector) / getSize());
+		return ((double)getCount(selector) / getSize());
 	}
 	
 	//default method

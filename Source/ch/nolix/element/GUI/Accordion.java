@@ -443,7 +443,7 @@ implements Clearable<Accordion> {
 	void collapse(final AccordionTab tab) {
 		if (
 			!expandsAtLeastOneTabWhenNotEmpty()
-			|| getRefTabs().getElementCount(t -> t.isExpanded()) > 1
+			|| getRefTabs().getCount(t -> t.isExpanded()) > 1
 		) {
 			tab.collapse();
 		}
