@@ -9,30 +9,24 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
 import ch.nolix.core.container.SequencePattern;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.logger.Logger;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.test2.Test;
 
-//test class
+//class
 /**
- * This class is a test class for the List class.
+ * A {@link ListTest} is a test for {@link List}.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 650
+ * @lines 640
  */
 public final class ListTest extends Test {
-	
-	//constructor
-	public ListTest() {
-		Logger.disable();
-	}
-	
+		
 	//test case
 	public void testCase_clear() {
 		
 		//setup
-		final List<String> list = new List<String>(
+		final var list = new List<String>(
 			"x",
 			"xx",
 			"xxx",
@@ -52,7 +46,7 @@ public final class ListTest extends Test {
 	public void testCase_contains() {
 		
 		//setup
-		final List<String> list = new List<String>(
+		final var list = new List<String>(
 			"x",
 			"xx",
 			"xxx",
@@ -85,7 +79,7 @@ public final class ListTest extends Test {
 	public void testCase_contains_2() {
 		
 		//setup
-		final List<String> list = new List<String>(
+		final var list = new List<String>(
 			"x",
 			"xx",
 			"xxx",
@@ -108,7 +102,7 @@ public final class ListTest extends Test {
 	public void testCase_containsOne() {
 		
 		//setup
-		final List<String> list = new List<String>();
+		final var list = new List<String>();
 		
 		//execution & verification
 		expectNot(list.containsOne());
@@ -118,7 +112,7 @@ public final class ListTest extends Test {
 	public void testCase_containsOne_2() {
 		
 		//setup
-		final List<String> list = new List<String>("x");
+		final var list = new List<String>("x");
 		
 		//execution & verification
 		expect(list.containsOne());
@@ -128,7 +122,7 @@ public final class ListTest extends Test {
 	public void testCase_containsOne_3() {
 		
 		//setup
-		final List<String> list = new List<String>("x", "x");
+		final var list = new List<String>("x", "x");
 		
 		//executation and verification
 		expectNot(list.containsOne());
@@ -138,7 +132,7 @@ public final class ListTest extends Test {
 	public void testCase_containsOne_4() {
 		
 		//setup
-		final List<String> list
+		final var list
 		= new List<String>("x",  "xx", "xx", "xx", "xx", "xx");
 		
 		//execution & verification
@@ -150,7 +144,7 @@ public final class ListTest extends Test {
 	public void testCase_forEach() {
 		
 		//setup
-			final List<String> list1 = new List<String>(
+			final var list1 = new List<String>(
 				"x",
 				"xx",
 				"xxx",
@@ -159,7 +153,7 @@ public final class ListTest extends Test {
 				"xxxxxx"
 			);
 			
-			final List<String> list2 = new List<String>();
+			final var list2 = new List<String>();
 		
 		//execution
 		list1.forEach(s -> list2.addAtEnd(s));
@@ -228,39 +222,10 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public void testCase_getElementCount() {
-		
-		//setup
-		final List<String> list = new List<String>("x", "x", "x", "x", "x", "x");
-		
-		//execution & verification
-		expect(list.getSize()).isEqualTo(6);
-	}
-	
-	//test case
-	public void testCase_getElementCount_2() {
-		
-		//setup
-		final List<String> list = new List<String>(
-			"x",
-			"xx",
-			"xxx",
-			"xxxx",
-			"xxxxx",
-			"xxxxxx"
-		);
-		
-		//execution & verification
-		expect(list.getCount(e -> e.length() > 0)).isEqualTo(6);
-		expect(list.getCount(e -> e.length() > 3)).isEqualTo(3);
-		expect(list.getCount(e -> e.length() > 6)).isZero();
-	}
-	
-	//test case
 	public void testCase_getRefByMax() {
 		
 		//setup
-		final List<String> list = new List<String>(
+		final var list = new List<String>(
 			"cake",
 			"chocolate",
 			"ice cream",
@@ -279,7 +244,7 @@ public final class ListTest extends Test {
 	public void testCase_getRefByMaxInt() {
 		
 		//setup
-		final List<String> list = new List<String>(
+		final var list = new List<String>(
 			"x",
 			"xx",
 			"xxx",
@@ -296,7 +261,7 @@ public final class ListTest extends Test {
 	public void testCase_getRefByMin() {
 		
 		//setup
-		final List<String> list = new List<String>(
+		final var list = new List<String>(
 			"cake",
 			"chocolate",
 			"ice cream",
@@ -315,7 +280,7 @@ public final class ListTest extends Test {
 	public void testCase_getRefByMinInt() {
 		
 		//setup
-		final List<String> list = new List<String>(
+		final var list = new List<String>(
 			"x",
 			"xx",
 			"xxx",
@@ -332,7 +297,7 @@ public final class ListTest extends Test {
 	public void testCase_getRefFirst() {
 		
 		//setup
-		final List<String> list = new List<String>(
+		final var list = new List<String>(
 			"x",
 			"xx",
 			"xxx",
@@ -353,7 +318,7 @@ public final class ListTest extends Test {
 	public void testCase_getSequences() {
 		
 		//setup
-			final List<String> list = new List<String>(
+			final var list = new List<String>(
 				"x",
 				"a",
 				"x",
@@ -374,7 +339,7 @@ public final class ListTest extends Test {
 			expect(sequences.getSize()).isEqualTo(3);
 			
 			//Iterates the sequences.
-			for (final List<String> s : sequences) {
+			for (final var s : sequences) {
 				expect(s.getSize()).isEqualTo(2);
 				expect(s.getRefAt(1)).isEqualTo("x");
 			}
@@ -384,7 +349,7 @@ public final class ListTest extends Test {
 	public void testCase_getSequences_2() {
 		
 		//setup
-			final List<String> list = new List<String>(
+			final var list = new List<String>(
 				"x",
 				"x",
 				"xxxx",
@@ -411,11 +376,40 @@ public final class ListTest extends Test {
 			expect(sequences.getSize()).isEqualTo(4);
 			
 			//Iterates the sequences.
-			for (final List<String> s : sequences) {
+			for (final var s : sequences) {
 				expect(s.getSize()).isEqualTo(2);
 				expect(s.getRefAt(1)).isEqualTo("x");
 				expect(s.getRefAt(2)).isEqualTo("xxxx");
 			}
+	}
+	
+	//test case
+	public void testCase_getSize() {
+		
+		//setup
+		final var list = new List<String>("x", "x", "x", "x", "x", "x");
+		
+		//execution & verification
+		expect(list.getSize()).isEqualTo(6);
+	}
+	
+	//test case
+	public void testCase_getSize_2() {
+		
+		//setup
+		final var list = new List<String>(
+			"x",
+			"xx",
+			"xxx",
+			"xxxx",
+			"xxxxx",
+			"xxxxxx"
+		);
+		
+		//execution & verification
+		expect(list.getCount(e -> e.length() > 0)).isEqualTo(6);
+		expect(list.getCount(e -> e.length() > 3)).isEqualTo(3);
+		expect(list.getCount(e -> e.length() > 6)).isZero();
 	}
 	
 	//test case
@@ -438,7 +432,7 @@ public final class ListTest extends Test {
 	public void testCase_isEmpty() {
 		
 		//setup
-		final List<String> list = new List<String>();
+		final var list = new List<String>();
 		
 		//execution & verification
 		expect(list.isEmpty());
@@ -448,7 +442,7 @@ public final class ListTest extends Test {
 	public void testCase_isEmpty_2() {
 		
 		//setup
-		List<String> list = new List<String>("x");
+		final var list = new List<String>("x");
 		
 		//execution & verification
 		expectNot(list.isEmpty());
@@ -458,7 +452,7 @@ public final class ListTest extends Test {
 	public void testCase_matches() {
 		
 		//setup
-			final List<String> list = new List<String>(
+			final var list = new List<String>(
 				"x",
 				"xxxx",
 				"x",
@@ -480,7 +474,7 @@ public final class ListTest extends Test {
 	public void testCase_matches_2() {
 		
 		//setup
-			final List<String> list = new List<String>();
+			final var list = new List<String>();
 			list.addAtEnd(
 				"x",
 				"xxxx",
@@ -503,7 +497,7 @@ public final class ListTest extends Test {
 	public void testCase_matches_3() {
 		
 		//setup
-			final List<String> list = new List<String>();
+			final var list = new List<String>();
 			Sequencer.forCount(10).run(() -> list.addAtEnd("x"));
 			
 			final SequencePattern<String> sequencePattern
@@ -518,7 +512,7 @@ public final class ListTest extends Test {
 	public void testCase_sort() {
 		
 		//setup
-		final List<String> list = new List<String>(
+		final var list = new List<String>(
 			"xxxxxx",
 			"xxxxx",
 			"xxxx",
@@ -545,7 +539,7 @@ public final class ListTest extends Test {
 	public void testCase_sort_2() {
 		
 		//setup
-		final List<String> list = new List<String>(
+		final var list = new List<String>(
 			"python",
 			"elephant",
 			"zebra",
@@ -572,7 +566,7 @@ public final class ListTest extends Test {
 	public void testCase_toArray() {
 		
 		//setup
-		final List<String> list = new List<String>(
+		final var list = new List<String>(
 			"x",
 			"xx",
 			"xxx",
@@ -599,7 +593,7 @@ public final class ListTest extends Test {
 	public void testCase_toIntArray() {
 		
 		//setup
-		final List<String> list = new List<String>(
+		final var list = new List<String>(
 			"x",
 			"xx",
 			"xxx",
@@ -626,7 +620,7 @@ public final class ListTest extends Test {
 	public void testCase_toString() {
 		
 		//setup
-		final List<String> list = new List<String>();
+		final var list = new List<String>();
 		
 		//execution & verification
 		expect(list.toString()).isEmpty();
@@ -636,7 +630,7 @@ public final class ListTest extends Test {
 	public void testCase_toString_2() {
 		
 		//setup
-		final List<String> list = new List<String>(
+		final var list = new List<String>(
 			"elephant",
 			"jaguar",
 			"lion",
