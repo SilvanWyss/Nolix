@@ -8,7 +8,6 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
-import ch.nolix.element.intData.Thickness;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.invalidArgumentException.Argument;
 import ch.nolix.primitive.invalidArgumentException.ArgumentName;
@@ -41,7 +40,7 @@ extends Widget<L, LineLook> {
 	
 	//attributes
 	private PositiveInteger length;
-	private Thickness thickness;
+	private PositiveInteger thickness;
 	private Color color;
 	
 	//method
@@ -58,7 +57,7 @@ extends Widget<L, LineLook> {
 			case PascalCaseNameCatalogue.LENGTH:
 				setLength(attribute.getOneAttributeAsInt());
 				break;
-			case Thickness.TYPE_NAME:
+			case PascalCaseNameCatalogue.THICKNESS:
 				setThickness(attribute.getOneAttributeAsInt());
 				break;	
 			case Color.TYPE_NAME:
@@ -93,7 +92,7 @@ extends Widget<L, LineLook> {
 		}
 		
 		if (getThickness() != DEFAULT_THICKNESS) {
-			attributes.addAtEnd(thickness.getSpecification());
+			attributes.addAtEnd(thickness.getSpecificationAs(PascalCaseNameCatalogue.THICKNESS));
 		}
 		
 		if (!getColor().equals(DEFAULT_COLOR)) {
@@ -235,7 +234,7 @@ extends Widget<L, LineLook> {
 			);
 		}
 		
-		this.thickness = new Thickness(thickness);
+		this.thickness = new PositiveInteger(thickness);
 		
 		return getInstance();
 	}
