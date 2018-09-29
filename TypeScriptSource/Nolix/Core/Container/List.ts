@@ -53,7 +53,7 @@ namespace Nolix.Core.Container {
         }
 
         //method
-        public containsAny() {
+        public containsAny(): boolean {
 
             //For a better performance, this implementation does not use all comfortable methods.
             return (this.elementCount > 0);
@@ -81,14 +81,14 @@ namespace Nolix.Core.Container {
         }
 
         //method
-        public isEmpty() {
+        public isEmpty(): boolean {
 
             //For a better performance, this implementation does not use all comfortable methods.
             return (this.elementCount == 0);
         }
 
         //method
-        private supposeIsNotEmpty() {
+        private supposeIsNotEmpty(): void {
             if (this.isEmpty) {
                 throw new Error("The current list is empty.");
             }
