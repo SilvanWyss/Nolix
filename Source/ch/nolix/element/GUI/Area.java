@@ -8,7 +8,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.intData.Height;
+import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.intData.Width;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.primitive.invalidStateException.UnexistingAttributeException;
@@ -31,7 +31,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//attributes
 	private Width width = new Width();
-	private Height height = new Height();
+	private PositiveInteger height = new PositiveInteger();
 	
 	//optional attribute
 	private Color backgroundColor;
@@ -113,7 +113,7 @@ public final class Area extends Widget<Area, AreaLook> {
 			case Width.TYPE_NAME:
 				setWidth(attribute.getOneAttributeAsInt());
 				break;
-			case Height.TYPE_NAME:
+			case PascalCaseNameCatalogue.HEIGHT:
 				setHeight(attribute.getOneAttributeAsInt());
 				break;
 			case PascalCaseNameCatalogue.BACKGROUND_COLOR:
@@ -144,7 +144,7 @@ public final class Area extends Widget<Area, AreaLook> {
 		final List<DocumentNode> attributes = super.getAttributes();
 		
 		attributes
-		.addAtEnd(width.getSpecification())
+		.addAtEnd(width.getSpecificationAs(PascalCaseNameCatalogue.HEIGHT))
 		.addAtEnd(height.getSpecification());
 		
 		//Handles the case that the current area has a background color.
@@ -261,7 +261,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	public Area setHeight(final int height) {
 		
-		this.height = new Height(height);
+		this.height = new PositiveInteger(height);
 		
 		return this;
 	}
