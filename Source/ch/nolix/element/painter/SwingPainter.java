@@ -116,7 +116,7 @@ public final class SwingPainter implements IPainter {
 	
 	//method
 	public void paintText(final String text, final TextFormat textFormat) {
-		textFormat.paintSwingText(text, graphics);
+		textFormat.paintSwingText(graphics, text);
 	}
 	
 	//method
@@ -125,7 +125,7 @@ public final class SwingPainter implements IPainter {
 		TextFormat textFormat,
 		int maxTextWidth
 	) {
-		textFormat.paintSwingText(text, maxTextWidth, graphics);
+		textFormat.paintSwingText(graphics, text, maxTextWidth);
 	}
 
 	//method

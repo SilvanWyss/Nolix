@@ -265,29 +265,30 @@ public final class TextFormat extends Element {
 	/**
 	 * Lets the current {@link TextFormat} paint the given text using the given graphics.
 	 * 
-	 * @param text
 	 * @param graphics
+	 * @param text
 	 */
-	public void paintSwingText(final String text, final Graphics graphics) {
+	public void paintSwingText(final Graphics graphics, final String text) {
 		
 		//Calls other method.
-		paintSwingText(text, graphics, 0, 0);
+		paintSwingText(graphics, 0, 0, text);
 	}
 	
 	//method
 	/**
-	 * Lets the current {@link TextFormat} paint the given text at the given position using the given graphics.
+	 * Lets the current {@link TextFormat} paint the given text
+	 * at the given position using the given graphics.
 	 * 
-	 * @param text
 	 * @param graphics
 	 * @param xPosition
 	 * @param yPosition
+	 * @param text
 	 */
-	public void paintSwingText(
-		final String text,
+	public void paintSwingText(		
 		final Graphics graphics,
 		final int xPosition,
-		final int yPosition
+		final int yPosition,
+		final String text
 	) {
 		graphics.setFont(javaFont);
 		graphics.setColor(getTextColor().createSwingColor());
@@ -297,44 +298,48 @@ public final class TextFormat extends Element {
 	//method
 	/**
 	 * Lets the current {@link TextFormat} paint the given text using the given graphics.
-	 * Only the first part of the given text
-	 * that is not longer than the given max width will be painted.
 	 * 
-	 * @param text
+	 * Only the first part of the given text,
+	 * that is not longer than the given max width, will be painted.
+	 * 
 	 * @param graphics
+	 * @param text
+	 * @param maxWidth
+	 * @throws NegativeArgumentException if the given max width is negative.
 	 */
 	public void paintSwingText(
+		final Graphics graphics,
 		final String text,
-		final int maxWidth,
-		final Graphics graphics) {
+		final int maxWidth
+	) {
 		
 		//Calls other method.
-		paintSwingText(text, maxWidth, graphics, 0, 0);
+		paintSwingText(graphics, getFirstPart(text, maxWidth));
 	}
 	
 	//method
 	/**
 	 * Lets the current {@link TextFormat} paint the given text at the given position using the given graphics.
-	 * Only the first part of the given text that is not longer than the given max width will be painted.
 	 * 
-	 * @param text
-	 * @param maxWidth
+	 * Only the first part of the given text,
+	 * that is not longer than the given max width, will be painted.
+	 * 
 	 * @param graphics
 	 * @param xPosition
 	 * @param yPosition
+	 * @param maxWidth
+	 * @param text
 	 * @throws NegativeArgumentException if the given max width is negative.
 	 */
-	public void paintSwingText(
-		final String text,
-		final int maxWidth,
+	public void paintSwingText(	
 		final Graphics graphics,
 		final int xPosition,
-		final int yPosition
+		final int yPosition,
+		final String text,
+		final int maxWidth
 	) {
-		final String firstPart = getFirstPart(text, maxWidth);
 		
-		graphics.setFont(javaFont);
-		graphics.setColor(getTextColor().createSwingColor());
-		graphics.drawString(firstPart, xPosition, yPosition + getTextSize());		
+		//Calls other method.
+		paintSwingText(graphics, xPosition, yPosition, getFirstPart(text, maxWidth));	
 	}
 }
