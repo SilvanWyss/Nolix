@@ -21,6 +21,7 @@ import ch.nolix.primitive.validator2.Validator;
  * A {@link TextFormat} can paint texts with a specific
  * -text font
  * -bold property
+ * -italic property
  * -text size
  * -text color
  * 
@@ -28,7 +29,7 @@ import ch.nolix.primitive.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 380
+ * @lines 430
  */
 public final class TextFormat extends Element {
 	
@@ -40,12 +41,14 @@ public final class TextFormat extends Element {
 	//constants
 	private static final String TEXT_FONT_HEADER = "TextFont";
 	private static final String BOLD_FLAG_HEADER = "Bold";
+	private static final String ITALIC_FLAG_HEADER = "Italic";
 	private static final String TEXT_SIZE_HEADER = "TextSize";
 	private static final String TEXT_COLOR_HEADER = "TextColor";
 	
 	//attributes
 	private final Font textFont;
 	private final boolean bold;
+	private final boolean italic;
 	private final PositiveInteger textSize;
 	private final Color textColor;
 	private final java.awt.Font swingFont;
@@ -58,7 +61,7 @@ public final class TextFormat extends Element {
 	public TextFormat() {
 		
 		//Calls other constructor.
-		this(DEFAULT_TEXT_FONT, false, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
+		this(DEFAULT_TEXT_FONT, false, false, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
 	}
 	
 	//constructor
@@ -71,7 +74,7 @@ public final class TextFormat extends Element {
 	public TextFormat(final Color textColor) {
 		
 		//Calls other constructor.
-		this(DEFAULT_TEXT_FONT, false, DEFAULT_TEXT_SIZE, textColor);
+		this(DEFAULT_TEXT_FONT, false, false, DEFAULT_TEXT_SIZE, textColor);
 	}
 	
 	//constructor
@@ -84,7 +87,7 @@ public final class TextFormat extends Element {
 	public TextFormat(final Font textFont) {
 		
 		//Calls other constructor.
-		this(textFont, false, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
+		this(textFont, false, false, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR);
 	}
 	
 	//constructor
@@ -104,6 +107,30 @@ public final class TextFormat extends Element {
 		final boolean bold,
 		final int textSize,
 		final Color textColor
+	) { 
+		//Calls other constructor.
+		this(textFont, bold, false, textSize, textColor);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link TextFormat} with the given text font, text size and text color.
+	 * 
+	 * @param textFont
+	 * @param bold
+	 * @param italic
+	 * @param textSize
+	 * @param textColor
+	 * @throws NullArgumentException if the given text font is not an instance.
+	 * @throws NonPositiveArgumentException if the given text size is not positive.
+	 * @throws NullArgumentException if the given text color is not an instance.
+	 */
+	public TextFormat(
+		final Font textFont,
+		final boolean bold,
+		final boolean italic,
+		final int textSize,
+		final Color textColor
 	) {
 		
 		//Checks if the given text font is an instance.
@@ -117,14 +144,28 @@ public final class TextFormat extends Element {
 		
 		this.textFont = textFont;
 		this.bold = bold;
+		this.italic = italic;
 		this.textSize = new PositiveInteger(textSize);
 		this.textColor = textColor;
+		
+		//Extracts the swing text style of the current text format.
+			var swingTextStyle = java.awt.Font.PLAIN;
+			
+			//Handles the case that the bold flag of the current text format is true.
+			if (getBoldFlag()) {
+				swingTextStyle |= java.awt.Font.BOLD;
+			}
+			
+			//Handles the case that the italic flag of the current text format is true.
+			if (getItalicFlag()) {
+				swingTextStyle |= java.awt.Font.ITALIC;
+			}
 		
 		//Creates the swing font of the current text format.
 		this.swingFont
 		= new java.awt.Font(
 			getTextFont().getSwingFontFamily(),
-			this.bold ? java.awt.Font.BOLD : java.awt.Font.PLAIN,
+			swingTextStyle,
 			getTextSize()
 		);
 	}
@@ -147,7 +188,7 @@ public final class TextFormat extends Element {
 	) {
 		
 		//Calls other constructor.
-		this(textFont, false, textSize, textColor);
+		this(textFont, false, false, textSize, textColor);
 	}
 	
 	//constructor
@@ -160,7 +201,7 @@ public final class TextFormat extends Element {
 	public TextFormat(final int textSize) {
 		
 		//Calls other constructor.
-		this(DEFAULT_TEXT_FONT, false, textSize, DEFAULT_TEXT_COLOR);
+		this(DEFAULT_TEXT_FONT, false, false, textSize, DEFAULT_TEXT_COLOR);
 	}
 	
 	//method
@@ -171,6 +212,7 @@ public final class TextFormat extends Element {
 		return new List<DocumentNode>(
 			textFont.getSpecificationAs(TEXT_FONT_HEADER),
 			new Boolean(getBoldFlag()).getSpecificationAs(BOLD_FLAG_HEADER),
+			new Boolean(getItalicFlag()).getSpecificationAs(ITALIC_FLAG_HEADER),
 			textSize.getSpecificationAs(TEXT_SIZE_HEADER),
 			textColor.getSpecificationAs(TEXT_COLOR_HEADER)
 		);
@@ -180,7 +222,7 @@ public final class TextFormat extends Element {
 	/**
 	 * @return the bold flag of the current {@TextFormat}.
 	 */
-	public final boolean getBoldFlag() {
+	public boolean getBoldFlag() {
 		return bold;
 	}
 	
@@ -251,6 +293,14 @@ public final class TextFormat extends Element {
 	
 	//method
 	/**
+	 * @return the bold flag of the current {@TextFormat}.
+	 */
+	public boolean getItalicFlag() {
+		return italic;
+	}
+	
+	//method
+	/**
 	 * @return the text color of the current {@link TextFormat}.
 	 */
 	public Color getTextColor() {
@@ -272,7 +322,7 @@ public final class TextFormat extends Element {
 	 * 
 	 * @return the text height of the current {@link TextFormat}.
 	 */
-	public final int getTextHeight() {
+	public int getTextHeight() {
 		return canvas.getFontMetrics(swingFont).getHeight();
 	}
 	
@@ -288,7 +338,7 @@ public final class TextFormat extends Element {
 	/**
 	 * @return the width of the given character when the current {@link TextFormat} would be applied to it.
 	 */
-	public final int getSwingTextWidth(final char character) {
+	public int getSwingTextWidth(final char character) {
 		return getSwingTextWidth(String.valueOf(character));
 	}
 	
@@ -296,7 +346,7 @@ public final class TextFormat extends Element {
 	/**
 	 * @return the width of the given text when the current {@link TextFormat} would be applied to it.
 	 */
-	public final int getSwingTextWidth(final String text) {
+	public int getSwingTextWidth(final String text) {
 		return canvas.getFontMetrics(swingFont).stringWidth(text);
 	}
 	
