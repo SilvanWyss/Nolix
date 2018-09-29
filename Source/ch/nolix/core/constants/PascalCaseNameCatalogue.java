@@ -71,6 +71,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String TEXT_COLOR = "TextColor";
 	public static final String TEXT_SIZE = "TextSize";
 	public static final String TEXTURE = "Texture";
+	public static final String THICKNESS = "Thickness";
 	public static final String TIMEOUT = "Timeout";
 	public static final String TIMEOUT_IN_MICROSECONDS = "TimeoutMicroseconds";
 	public static final String TIMEOUT_IN_MILLISECONDS = "TimeoutMilliseconds";
