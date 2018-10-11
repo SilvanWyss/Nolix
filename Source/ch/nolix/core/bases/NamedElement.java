@@ -1,12 +1,14 @@
 //package declaration
 package ch.nolix.core.bases;
 
+//own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.skillInterfaces.Named;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
- * A named element has a determined name.
+ * A {@link NamedElement} has a name.
  * 
  * @author Silvan Wyss
  * @month: 2016-10
@@ -19,7 +21,7 @@ public abstract class NamedElement implements Named {
 	
 	//constructor
 	/**
-	 * Creates a new named element with the given name.
+	 * Creates a new {@link NamedElement} with the given name.
 	 * 
 	 * @param name
 	 * @throws NullArgumentException if the given name is not an instance.
@@ -27,16 +29,19 @@ public abstract class NamedElement implements Named {
 	 */
 	public NamedElement(final String name) {
 		
-		//Checks if the given name is not null or empty.
-		Validator.suppose(name).thatIsNamed("name").isNotEmpty();
+		//Checks if the given name is an instance and not empty.
+		Validator
+		.suppose(name)
+		.thatIsNamed(VariableNameCatalogue.NAME)
+		.isNotEmpty();
 		
-		//Sets the name of this named element.
+		//Sets the name of the current named element.
 		this.name = name;
 	}
 	
 	//method
 	/**
-	 * @return the name of this named element.
+	 * {@inheritDoc}
 	 */
 	public final String getName() {
 		return name;
