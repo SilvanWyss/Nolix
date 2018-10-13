@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.core.bases;
 
+//own imports
 import ch.nolix.core.skillInterfaces.Signable;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
- * A signable element has an info string.
+ * A {@link SignableElement} has an info string.
  * 
  * @author Silvan Wyss
  * @month 2016-12
  * @lines 60
- * @param <OSE> - The type of an optional signable element.
+ * @param <OSE> The type of a {@link SignableElement}.
  */
 public abstract class SignableElement<SE extends SignableElement<SE>>
 implements Signable<SE> {
@@ -21,7 +22,7 @@ implements Signable<SE> {
 	
 	//constructor
 	/**
-	 * Creates a new signable element with the given info stirng.
+	 * Creates a new {@link SignableElement} with the given info string.
 	 * 
 	 * @param infoString
 	 * @throws NullArgumentException if the given info string is not an instance.
@@ -33,7 +34,7 @@ implements Signable<SE> {
 	
 	//method
 	/**
-	 * @return the info string of this signable element.
+	 * @return the info string of the current {@link SignableElement}.
 	 */
 	public final String getInfoString() {
 		return infoString;
@@ -41,19 +42,19 @@ implements Signable<SE> {
 	
 	//method
 	/**
-	 * Sets the info string of this signable element.
+	 * Sets the info string of the current {@link SignableElement}.
 	 * 
 	 * @param infoString
-	 * @return this signable element.
+	 * @return this {@link SignableElement}.
 	 * @throws NullArgumentException if the given info string is not an instance.
 	 * @throws EmptyArgumentException if the given info string is empty.
 	 */
 	public final SE setInfoString(final String infoString) {
 		
-		//Checks if the given info string is not null or empty.
+		//Checks if the given info string is an instance and not empty.
 		Validator.suppose(infoString).thatIsNamed("info string").isNotEmpty();
 		
-		//Sets the info string of this optional signable element.
+		//Sets the info string of the current optional signable element.
 		this.infoString = infoString;
 		
 		return getInstance();
