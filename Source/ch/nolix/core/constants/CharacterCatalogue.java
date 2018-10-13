@@ -10,7 +10,7 @@ package ch.nolix.core.constants;
 * @lines 40
 */
 public final class CharacterCatalogue {
-
+	
 	//constants
 	public static final char APOSTROPH = '\'';
 	public static final char BACK_SLASH = '\\';
