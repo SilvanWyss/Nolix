@@ -3,8 +3,7 @@ package ch.nolix.core.communicationAPI;
 
 //interface
 /**
- * A {@link IGenericReplier} can receive messages of a certain type
- * and can return replies of a certain type to the messages.
+ * A {@link IGenericReplier} can reply to messages of a certain type.
  * 
  * @author Silvan Wyss
  * @month 2015-12
@@ -13,7 +12,7 @@ package ch.nolix.core.communicationAPI;
  * @param <R> The type of the replies a {@link IGenericReplier} can return.
  */
 public interface  IGenericReplier<M, R> {
-
+	
 	//abstract method
 	/**
 	 * Lets the current {@link IGenericReplier} receive the given message.

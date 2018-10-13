@@ -3,8 +3,8 @@ package ch.nolix.core.communicationAPI;
 
 //interface
 /**
- * A {@link IGenericReplyingSender}
- * can send messages of a certain type and return replies.
+ * A {@link IGenericReplyingSender} can send messages of a certain type
+ * and return replies to the messages.
  * 
  * @author Silvan Wyss
  * @month 2017-06

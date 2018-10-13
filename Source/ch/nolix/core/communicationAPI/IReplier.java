@@ -3,7 +3,7 @@ package ch.nolix.core.communicationAPI;
 
 //interface
 /**
- * A {@link IReplier} can reply to the messages.
+ * A {@link IReplier} can reply to messages.
  * 
  * @author Silvan Wyss
  * @month 2015-12

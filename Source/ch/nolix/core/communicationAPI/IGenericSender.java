@@ -11,7 +11,7 @@ package ch.nolix.core.communicationAPI;
  * @param <M> The type of the messages a {@link IGenericSender} can send.
  */
 public interface IGenericSender<M> {
-
+	
 	//abstract method
 	/**
 	 * Lets the current {@link IGenericSender} send the given message.

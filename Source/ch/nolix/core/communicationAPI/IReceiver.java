@@ -10,7 +10,7 @@ package ch.nolix.core.communicationAPI;
  * @lines 20
  */
 public interface IReceiver {
-
+	
 	//abstract method
 	/**
 	 * Lets the current {@link IReceiver} receive the given message.
