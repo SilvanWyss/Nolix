@@ -26,7 +26,7 @@ implements OptionalNamable<ONE> {
 	/**
 	 * @return the name of the current {@link OptionalNamableElement} element.
 	 * @throws UnexistingAttributeException
-	 * if the current {@link OptionalNamableElement} has no name.
+	 * if the current {@link OptionalNamableElement} does not have a name.
 	 */
 	public final String getName() {
 		
@@ -82,7 +82,7 @@ implements OptionalNamable<ONE> {
 	//method
 	/**
 	 * @throws UnexistingAttributeException
-	 * if the current {@link OptionalNamableElement} has no name.
+	 * if the current {@link OptionalNamableElement} does not have a name.
 	 */
 	private void supposeHasName() {
 		if (!hasName()) {
