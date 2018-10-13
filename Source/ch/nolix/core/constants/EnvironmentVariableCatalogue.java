@@ -11,7 +11,7 @@ package ch.nolix.core.constants;
  * @lines 20
  */
 public final class EnvironmentVariableCatalogue {
-
+	
 	//constant
 	public static final String APP_DATA = "APPDATA";
 	
