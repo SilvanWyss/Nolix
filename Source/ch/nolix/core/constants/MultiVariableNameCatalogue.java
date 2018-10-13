@@ -16,7 +16,7 @@ public final class MultiVariableNameCatalogue {
 	public static final String OUTPUT_VALUES = "output values";
 	public static final String TABS = "tabs";
 	public static final String VALUES = "values";
-
+	
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link MultiVariableNameCatalogue} can be created.
