@@ -3,14 +3,14 @@ package ch.nolix.core.communicationAPI;
 
 //interface
 /**
- * A replier can receive messages and return replies to them.
+ * A {@link IReplier} can reply to the messages.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 20
  */
-public interface  IReplier {
-
+public interface IReplier {
+	
 	//abstract method
 	/**
 	 * @param message
