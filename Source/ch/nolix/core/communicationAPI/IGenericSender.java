@@ -3,18 +3,18 @@ package ch.nolix.core.communicationAPI;
 
 //interface
 /**
- * A generic sender can send messages of a certain type.
+ * A {@link IGenericSender} can send messages of a certain type.
  * 
  * @author Silvan Wyss
  * @month 2017-06
  * @lines 30
- * @param <M> - The type of the messages a generic sender can send.
+ * @param <M> The type of the messages a {@link IGenericSender} can send.
  */
 public interface IGenericSender<M> {
 
 	//abstract method
 	/**
-	 * Lets this sender send the given message.
+	 * Lets the current {@link IGenericSender} send the given message.
 	 * 
 	 * @param message
 	 */
@@ -22,7 +22,7 @@ public interface IGenericSender<M> {
 	
 	//default method
 	/**
-	 * Lets this sender send the given messages.
+	 * Lets the current {@link IGenericSender} send the given messages.
 	 * 
 	 * @param messages
 	 */
@@ -30,7 +30,7 @@ public interface IGenericSender<M> {
 	public default void send(final M... messages) {
 		
 		//Iterates the given messages.
-		for (final M m : messages) {
+		for (final var m : messages) {
 			send(m);
 		}
 	}
