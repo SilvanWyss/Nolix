@@ -3,14 +3,15 @@ package ch.nolix.core.container;
 
 //class
 /**
- * A FPN pair (floating point number pair) contains two floating point numbers.
+ * A {@link FPNPair} (floating point number pair) contains two floating point numbers.
+ * A {@link FPNPair} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2016-07
- * @lines 110
+ * @lines 70
  */
 public final class FPNPair {
-
+	
 	//default value
 	public static final double DEFAULT_VALUE = 0.0;
 	
@@ -20,13 +21,13 @@ public final class FPNPair {
 	
 	//constructor
 	/**
-	 * Creates a new FPN pair with default values.
+	 * Creates a new {@link FPNPair} with default values.
 	 */
 	public FPNPair() {}
 	
 	//constructor
 	/**
-	 * Creates a new FPN pair with the given values.
+	 * Creates a new {@link FPNPair} with the given values.
 	 * 
 	 * @param value1
 	 * @param value2
@@ -38,7 +39,7 @@ public final class FPNPair {
 	
 	//method
 	/**
-	 * @return true if this FPN pair equals the given object.
+	 * @return true if the current {@link FPNPair} equals the given object.
 	 */
 	public boolean equals(final Object object) {
 				
@@ -47,14 +48,14 @@ public final class FPNPair {
 			return false;
 		}
 		
-		//Handles the case that the given object is an FPN pair.
+		//Handles the case that the given object is a FPN pair.
 		final FPNPair fpnPair = (FPNPair)object;
 		return (fpnPair.getValue1() == getValue1() && fpnPair.getValue2() == getValue2());
 	}
 	
 	//method
 	/**
-	 * @return the value 1 of this FPN pair.
+	 * @return the value 1 of the current {@link FPNPair}.
 	 */
 	public double getValue1() {
 		return value1;
@@ -62,7 +63,7 @@ public final class FPNPair {
 	
 	//method
 	/**
-	 * @return the value 2 of this FPN pair.
+	 * @return the value 2 of the current {@link FPNPair}.
 	 */
 	public double getValue2() {
 		return value2;
@@ -70,39 +71,7 @@ public final class FPNPair {
 	
 	//method
 	/**
-	 * Sets the value 1 of this FPN pair.
-	 * 
-	 * @param value1
-	 */
-	public void setValue1(final double value1) {
-		this.value1 = value1;
-	}
-	
-	//method
-	/**
-	 * Sets the value 2 of this FPN pair.
-	 * 
-	 * @param value2
-	 */
-	public void setValue2(final double value2) {
-		this.value2 = value2;
-	}
-	
-	//method
-	/**
-	 * Sets the values of this FPN pair.
-	 * 
-	 * @param value1
-	 * @param value2
-	 */
-	public void setValues(final double value1, final double value2) {
-		this.value1 = value1;
-		this.value2 = value2;
-	}
-	
-	//method
-	/**
-	 * @return a string representation of this FPN pair.
+	 * @return a string representation of the current {@link FPNPair}.
 	 */
 	public String toString() {
 		return ("(" + getValue1() + "," + getValue2() + ")");
