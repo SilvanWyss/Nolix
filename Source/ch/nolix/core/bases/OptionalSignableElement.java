@@ -1,18 +1,19 @@
 //package declaration
 package ch.nolix.core.bases;
 
+//own imports
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.skillInterfaces.OptionalSignable;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
- * An optional signable element can have an info string.
+ * A {@link OptionalSignableElement} can have an info string.
  * 
  * @author Silvan Wyss
  * @month 2016-12
  * @lines 80
- * @param <OSE> - The type of an optional signable element.
+ * @param <OSE> The type of a {@link OptionalSignableElement}.
  */
 public abstract class OptionalSignableElement<OSE extends OptionalSignableElement<OSE>>
 implements OptionalSignable<OSE> {
@@ -22,22 +23,20 @@ implements OptionalSignable<OSE> {
 	
 	//method
 	/**
-	 * @return the info string of this optional signable element.
-	 * @throws UnexistingAttributeException if this optional signable element has no info string.
+	 * @return the info string of the current {@link OptionalSignableElement}.
+	 * @throws UnexistingAttributeException
+	 * if the current {@link OptionalSignableElement} does not have an info string.
 	 */
 	public final String getInfoString() {
 		
-		//Checks if this optional signable element has an info string.
-		if (!hasInfoString()) {
-			throw new UnexistingAttributeException(this, "info string");
-		}
+		supposeHasInfoString();
 		
 		return infoString;
 	}
 	
 	//method
 	/**
-	 * @return true if this optional signable element has an info stirng.
+	 * @return true if the current {@link OptionalSignableElement} has an info string.
 	 */
 	public final boolean hasInfoString() {
 		return (infoString != null);
@@ -45,9 +44,9 @@ implements OptionalSignable<OSE> {
 	
 	//method
 	/**
-	 * Removes the info string of this optional signable element.
+	 * Removes the info string of the current {@link OptionalSignableElement}.
 	 * 
-	 * @return this optioanl signable element.
+	 * @return the current {@link OptionalSignableElement}.
 	 */
 	public final OSE removeInfoString() {
 		
@@ -58,21 +57,32 @@ implements OptionalSignable<OSE> {
 	
 	//method
 	/**
-	 * Sets the info string of this optional signable element.
+	 * Sets the info string of the current {@link OptionalSignableElement}.
 	 * 
 	 * @param infoString
-	 * @return this optional signable element.
+	 * @return the current {@link OptionalSignableElement}.
 	 * @throws NullArgumentException if the given info string is not an instance.
 	 * @throws EmptyArgumentException if the given info string is empty.
 	 */
 	public final OSE setInfoString(final String infoString) {
 		
-		//Checks if the given info string is not null or empty.
+		//Checks if the given info string is an instance and not empty.
 		Validator.suppose(infoString).thatIsNamed("info string").isNotEmpty();
 		
-		//Sets the info string of this optional signable element.
+		//Sets the info string of the current optional signable element.
 		this.infoString = infoString;
 		
 		return getInstance();
+	}
+	
+	//method
+	/**
+	 * @throws UnexistingAttributeException
+	 * if the current {@link OptionalSignableElement} has no info string.
+	 */
+	private void supposeHasInfoString() {
+		if (!hasInfoString()) {
+			throw new UnexistingAttributeException(this, "info string");
+		}
 	}
 }
