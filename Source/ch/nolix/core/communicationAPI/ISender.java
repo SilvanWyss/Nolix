@@ -3,17 +3,17 @@ package ch.nolix.core.communicationAPI;
 
 //interface
 /**
- * A sender can send messages.
+ * A {@link Sender} can send messages.
  * 
  * @author Silvan Wyss
  * @month 2017-05
  * @lines 30
  */
 public interface ISender {
-
+	
 	//abstract method
 	/**
-	 * Lets this sender send the given message.
+	 * Lets the current  {@link Sender} send the given message.
 	 * 
 	 * @param message
 	 */
@@ -21,14 +21,14 @@ public interface ISender {
 	
 	//default method
 	/**
-	 * Lets this sender send the given messages.
+	 * Lets the current {@link Sender} send the given messages.
 	 * 
 	 * @param messages
 	 */
 	public default void send(final String... messages) {
 		
 		//Iterates the given messages.
-		for (final String m : messages) {
+		for (final var m : messages) {
 			send(m);
 		}
 	}
