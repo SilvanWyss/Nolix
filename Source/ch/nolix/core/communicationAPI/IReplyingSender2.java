@@ -9,7 +9,7 @@ package ch.nolix.core.communicationAPI;
  * @month 2017-05
  * @lines 20
  */
-public interface ISender2 {
+public interface IReplyingSender2 {
 
 	//abstract method
 	/**
