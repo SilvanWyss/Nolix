@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.constants;
 
+//own imports
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.functionAPI.IElementTakerDoubleGetter;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
@@ -30,7 +31,7 @@ public final class FunctionCatalogue {
 	 */
 	public static final IElementTakerBooleanGetter<Object> FALSE_FUNCTION =
 	o -> false;
-
+	
 	//function
 	/**
 	 * This function returns a given object.
