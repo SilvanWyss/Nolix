@@ -24,7 +24,7 @@ implements OptionalNamable<ONE> {
 	
 	//method
 	/**
-	 * @return the name of the current {@link OptionalNamableElement} element.
+	 * @return the name of the current {@link OptionalNamableElement}.
 	 * @throws UnexistingAttributeException
 	 * if the current {@link OptionalNamableElement} does not have a name.
 	 */
@@ -37,7 +37,7 @@ implements OptionalNamable<ONE> {
 	
 	//method
 	/**
-	 * @return true if the current {@link OptionalNamableElement} element has a name.
+	 * @return true if the current {@link OptionalNamableElement} has a name.
 	 */
 	public final boolean hasName() {
 		return (name != null);
@@ -45,9 +45,9 @@ implements OptionalNamable<ONE> {
 	
 	//method
 	/**
-	 * Removes the name of the current {@link OptionalNamableElement} element.
+	 * Removes the name of the current {@link OptionalNamableElement}.
 	 * 
-	 * @return the current {@link OptionalNamableElement} element.
+	 * @return the current {@link OptionalNamableElement}.
 	 */
 	public final ONE removeName() {
 		
@@ -58,7 +58,7 @@ implements OptionalNamable<ONE> {
 	
 	//method
 	/**
-	 * Sets the name of the current {@link OptionalNamableElement} element.
+	 * Sets the name of the current {@link OptionalNamableElement}.
 	 * 
 	 * @param name
 	 * @return the current {@link OptionalNamableElement} element.
