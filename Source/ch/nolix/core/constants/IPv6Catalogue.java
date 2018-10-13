@@ -11,9 +11,9 @@ package ch.nolix.core.constants;
  */
 public final class IPv6Catalogue {
 	
-	//loop back address
+	//constant
 	public static final String LOOP_BACK_ADDRESS = "::1";
-
+	
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link IPv6Catalogue} can be created.
