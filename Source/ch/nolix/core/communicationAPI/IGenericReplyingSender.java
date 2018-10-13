@@ -3,19 +3,20 @@ package ch.nolix.core.communicationAPI;
 
 //interface
 /**
- * A generic sender 2 can send messages of a cetrain type and receive replies of a certain type.
+ * A {@link IGenericReplyingSender}
+ * can send messages of a certain type and return replies.
  * 
  * @author Silvan Wyss
  * @month 2017-06
- * @lines 30
- * @param <M> - The type of the messages a generic sender can send.
- * @param <R> - The type of the replies a generic sender can receive.
+ * @lines 20
+ * @param <M> The type of the messages a {@link IGenericReplyingSender} can send.
+ * @param <R> The type of the replies a {@link IGenericReplyingSender} returns.
  */
 public interface IGenericReplyingSender<M, R> {
 
 	//abstract method
 	/**
-	 * Lets this sender send the given message.
+	 * Lets the current {@link IGenericReplyingSender} send the given message.
 	 * 
 	 * @param message
 	 * @return the reply to the given message.
