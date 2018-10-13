@@ -3,7 +3,7 @@ package ch.nolix.core.endPoint4;
 
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.communicationAPI.IGenericReplier;
-import ch.nolix.core.communicationAPI.IGenericSender2;
+import ch.nolix.core.communicationAPI.IGenericReplyingSender;
 import ch.nolix.core.communicationAPI.IReplier;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
@@ -19,7 +19,7 @@ import ch.nolix.core.validator2.Validator;
  */
 public abstract class EndPoint<M, R>
 extends ClosableElement
-implements IGenericSender2<M, R> {
+implements IGenericReplyingSender<M, R> {
 	
 	//constant
 	private static final long REPLIER_GETTING_DELAY_IN_MILLISECONDS = 5000;

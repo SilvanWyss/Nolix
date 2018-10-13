@@ -11,7 +11,7 @@ package ch.nolix.core.communicationAPI;
  * @param <M> - The type of the messages a generic sender can send.
  * @param <R> - The type of the replies a generic sender can receive.
  */
-public interface IGenericSender2<M, R> {
+public interface IGenericReplyingSender<M, R> {
 
 	//abstract method
 	/**
