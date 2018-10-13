@@ -3,17 +3,17 @@ package ch.nolix.core.communicationAPI;
 
 //interface
 /**
- * A sender 2 can send messages and receive replies.
+ * A {@link IReplyingSender} can send messages and return replies to the messages.
  * 
  * @author Silvan Wyss
  * @month 2017-05
  * @lines 20
  */
-public interface IReplyingSender2 {
+public interface IReplyingSender {
 
 	//abstract method
 	/**
-	 * Lets this sender 2 send the given message.
+	 * Lets the current {@link IReplyingSender} send the given message.
 	 * 
 	 * @param message
 	 * @return the reply to the given message.
