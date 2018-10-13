@@ -3,18 +3,18 @@ package ch.nolix.core.communicationAPI;
 
 //interface
 /**
- * A receiver can receive messages of a certain type.
+ * A {@link IGenericReceiver} can receive messages of a certain type.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 20
- * @param <M> - The type of the messages a generic receiver can receive.
+ * @param <M> The type of the messages a {@link IGenericReceiver} can receive.
  */
 public interface IGenericReceiver<M> {
-
+	
 	//abstract method
 	/**
-	 * Lets this generic receiver receive the given message.
+	 * Lets the current {@link IGenericReceiver} receive the given message.
 	 * 
 	 * @param message
 	 */
