@@ -18,7 +18,7 @@ import ch.nolix.element.color.Color;
  * @lines 80
  */
 public final class AccordionTutorial {
-
+	
 	//main method
 	/**
 	 * Creates a {@link Frame} with a {@link Accordion}.
@@ -62,11 +62,13 @@ public final class AccordionTutorial {
 		);
 		
 		//Configures the look of the accordion.
-		accordion
-		.getRefBaseLook()
-		.setBorderThicknesses(5)
-		.setBorderColors(Color.DARK_BLUE)
-		.setBackgroundColor(Color.ALICE_BLUE);
+		accordion.applyOnBaseLook(
+			bs ->
+			bs
+			.setBorderThicknesses(5)
+			.setBorderColors(Color.DARK_BLUE)
+			.setBackgroundColor(Color.ALICE_BLUE)
+		);
 		
 		//Creates a frame with the accordion.
 		new Frame()
