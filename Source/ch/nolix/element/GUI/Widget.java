@@ -85,9 +85,9 @@ extends ConfigurableElement<W> {
 	
 	//optional attribute
 	/**
-	 * The {@link GUI} the current {@link Widget} belongs to.
+	 * The {@link IGUI} the current {@link Widget} belongs to.
 	 */
-	private GUI<?> parentGUI;
+	private IGUI<?> parentGUI;
 	
 	//optional attributes
 	private IFunction leftMouseButtonPressCommand;
@@ -438,7 +438,7 @@ extends ConfigurableElement<W> {
 	 * @return the GUI the current {@link Widget} belongs to.
 	 * @throws InvalidStateException if the current {@link Widget} does not belong to a GUI.
 	 */
-	public final GUI<?> getParentGUI() {
+	public final IGUI<?> getParentGUI() {
 		
 		if (parentGUI == null) {
 			
@@ -1536,7 +1536,7 @@ extends ConfigurableElement<W> {
 	 * @param GUI
 	 * @throws NullArgumentException if the given GUI is not an instance.
 	 */
-	final void setParentGUI(final GUI<?> parentGUI) {
+	final void setParentGUI(final IGUI<?> parentGUI) {
 		
 		Validator
 		.suppose(parentGUI)

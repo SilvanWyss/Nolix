@@ -21,10 +21,6 @@ import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.skillInterfaces.Clearable;
-import ch.nolix.core.skillInterfaces.Closable;
-import ch.nolix.core.skillInterfaces.IRequestableContainer;
-import ch.nolix.core.skillInterfaces.Refreshable;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
@@ -42,12 +38,12 @@ import ch.nolix.element.core.NonEmptyText;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 970
+ * @lines 960
  * @param <G> The type of a GUI.
  */
 public abstract class GUI<G extends GUI<G>>
 extends ConfigurationElement<G>
-implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
+implements IGUI<G> {
 	
 	//default values
 	public static final String DEFAULT_TITLE = "GUI";
@@ -384,6 +380,18 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	
 	//method
 	/**
+	 * @return the controller of this GUI.
+	 * @throws UnexistingAttributeException if this GUI has no controller.
+	 */
+	public final IGUIController getRefController() {
+		
+		supposeHasController();
+		
+		return controller;
+	}
+	
+	//method
+	/**
 	 * @return the root widget of this GUI.
 	 * @throws UnexistingAttributeException if this GUI has no root widget.
 	 */
@@ -483,6 +491,14 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	 */
 	public final boolean hasBackgroundColorGradient() {
 		return backgroundColorGradient.containsAny();
+	}
+	
+	//method
+	/**
+	 * @return true if this GUI has a controller.
+	 */
+	public final boolean hasController() {
+		return (controller != null);
 	}
 	
 	//method
@@ -937,26 +953,6 @@ implements Clearable<G>, Closable, IRequestableContainer, Refreshable {
 	//abstract method
 	protected abstract void paint();
 	
-	//package-visible method
-	/**
-	 * @return the controller of this GUI.
-	 * @throws UnexistingAttributeException if this GUI has no controller.
-	 */
-	final IGUIController getRefController() {
-		
-		supposeHasController();
-		
-		return controller;
-	}
-	
-	//package-visible method
-	/**
-	 * @return true if this GUI has a controller.
-	 */
-	final boolean hasController() {
-		return (controller != null);
-	}
-
 	//method
 	/**
 	 * @throws UnexistingAttributeException if this GUI has no controller.
