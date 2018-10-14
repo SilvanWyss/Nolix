@@ -39,7 +39,7 @@ final class HeapNode<E> {
 	
 	//method
 	/**
-	 * @return the element of of the current {@link HeapNode}.
+	 * @return the element of the current {@link HeapNode}.
 	 */
 	public E getRefElement() {
 		return element;
@@ -47,7 +47,7 @@ final class HeapNode<E> {
 	
 	//method
 	/**
-	 * @return the next node of of the current {@link HeapNode}.
+	 * @return the next node of the current {@link HeapNode}.
 	 * @throws UnexistingAttributeException if the current {@link HeapNode} has no next node.
 	 */
 	public HeapNode<E> getRefNextNode() {
@@ -59,7 +59,7 @@ final class HeapNode<E> {
 	
 	//method
 	/**
-	 * @return true if of the current {@link HeapNode} has a left sub node.
+	 * @return true if the current {@link HeapNode} has a left sub node.
 	 */
 	public boolean hasLeftSubNode() {
 		return (leftSubNode != null);
@@ -67,7 +67,7 @@ final class HeapNode<E> {
 	
 	//method
 	/**
-	 * @return true if of the current {@link HeapNode} has a left and right sub node.
+	 * @return true if the current {@link HeapNode} has a left and right sub node.
 	 */
 	public boolean hasLeftAndRightSubNode() {
 		return (rightSubNode != null);
@@ -75,7 +75,7 @@ final class HeapNode<E> {
 	
 	//method
 	/**
-	 * @return true if of the current {@link HeapNode} has a next node.
+	 * @return true if the current {@link HeapNode} has a next node.
 	 */
 	public boolean hasNextNode() {
 		return (nextNode != null);
@@ -83,7 +83,7 @@ final class HeapNode<E> {
 	
 	//method
 	/**
-	 * Removes the next node of of the current {@link HeapNode}.
+	 * Removes the next node of the current {@link HeapNode}.
 	 */
 	public void removeNextNode() {
 		nextNode = null;
@@ -91,7 +91,7 @@ final class HeapNode<E> {
 	
 	//method
 	/**
-	 * Removes the right sub node of of the current {@link HeapNode}.
+	 * Removes the right sub node of the current {@link HeapNode}.
 	 */
 	public void removeRightSubNode() {
 		rightSubNode = null;
@@ -99,7 +99,7 @@ final class HeapNode<E> {
 	
 	//method
 	/**
-	 * Sets the element of of the current {@link HeapNode}.
+	 * Sets the element of the current {@link HeapNode}.
 	 * 
 	 * @param element
 	 * @throws NullArgumentException if the given element is not an instance.
