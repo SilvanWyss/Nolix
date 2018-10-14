@@ -1,19 +1,21 @@
 //package declaration
 package ch.nolix.core.container;
 
+//own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
- * A list node contains an element that is an instance.
- * A list node can have a next node.
+ * A {@link ListNode} contains an element.
+ * A {@link ListNode} can have a next node.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 140
- * @param <E> - The type of the element of a list node.
+ * @lines 150
+ * @param <E> The type of the element of a {@link ListNode}.
  */
 final class ListNode<E> {
 
@@ -25,7 +27,7 @@ final class ListNode<E> {
 	
 	//constructor
 	/**
-	 * Creates a new list node with the given element.
+	 * Creates a new {@link ListNode} with the given element.
 	 * 
 	 * @param element
 	 * @throws NullArgumentException if the given element is not an instance.
@@ -37,7 +39,8 @@ final class ListNode<E> {
 	//method
 	/**
 	 * @param selector
-	 * @return true if this list node contains an element the given selector selects.
+	 * @return true if the current {@link ListNode}
+	 * contains an element the given selector selects.
 	 */
 	public boolean contains(final IElementTakerBooleanGetter<E> selector) {
 		return selector.getOutput(getElement());
@@ -46,7 +49,7 @@ final class ListNode<E> {
 	// method
 	/**
 	 * @param element
-	 * @return true if this list node contains the given element.
+	 * @return true if the current {@link ListNode} contains the given element.
 	 */
 	public boolean contains(final Object element) {
 		return (getElement() == element);
@@ -54,7 +57,7 @@ final class ListNode<E> {
 	
 	//method
 	/**
-	 * @return the element of this list node.
+	 * @return the element of the current {@link ListNode}.
 	 */
 	public E getElement() {
 		return element;
@@ -62,12 +65,13 @@ final class ListNode<E> {
 	
 	//method
 	/**
-	 * @return the next node of this list node.
-	 * @throws UnexistringAttributeException if this list node has no next node.
+	 * @return the next node of the current {@link ListNode}.
+	 * @throws UnexistringAttributeException
+	 * if the current {@link ListNode} does not have a next node.
 	 */
 	public ListNode<E> getNextNode() {
 		
-		//Checks if this list node has a next node.
+		//Checks if the current list node has a next node.
 		if (!hasNextNode()) {
 			throw new UnexistingAttributeException(this, "next node");
 		}
@@ -77,7 +81,7 @@ final class ListNode<E> {
 	
 	//method
 	/**
-	 * @return true if this list node has a next node.
+	 * @return true if the current {@link ListNode} has a next node.
 	 */
 	public boolean hasNextNode() {
 		return (nextNode != null);
@@ -85,7 +89,7 @@ final class ListNode<E> {
 	
 	//method
 	/**
-	 * Removes the next node of this list node.
+	 * Removes the next node of the current {@link ListNode}.
 	 */
 	public void removeNextNode() {
 		nextNode = null;
@@ -93,7 +97,7 @@ final class ListNode<E> {
 	
 	//method
 	/**
-	 * Sets the element of this list node.
+	 * Sets the element of the current {@link ListNode}.
 	 * 
 	 * @param element
 	 * @throws NullArgumentException if the given element is not an instance.
@@ -101,37 +105,42 @@ final class ListNode<E> {
 	public void setElement(final E element) {
 		
 		//Checks if the given element is an instance.
-		Validator.suppose(element).thatIsNamed("element").isInstance();
+		Validator
+		.suppose(element)
+		.thatIsNamed(VariableNameCatalogue.ELEMENT)
+		.isInstance();
 		
-		//Sets the element of this list node.
+		//Sets the element of the current list node.
 		this.element = element;
 	}
 	
 	//method
 	/**
-	 * Sets the next node of this list node.
+	 * Sets the next node of the current {@link ListNode}.
 	 * 
 	 * @param nextNode
 	 * @throws NullArgumentException if the given next node is not an instance.
 	 */
-	public  void setNextNode(final ListNode<E> nextNode) {
+	public void setNextNode(final ListNode<E> nextNode) {
 		
 		//Checks if the given next node is an instance.
 		Validator.suppose(nextNode).thatIsNamed("next node").isInstance();
 		
-		//Sets the next node of this list node.
+		//Sets the next node of the current list node.
 		this.nextNode = nextNode;
 	}
 	
 	//method
 	/**
-	 * Swaps the element of this list node with the element of the next node of this list node.
+	 * Swaps the element of the current {@link ListNode}
+	 * with the element of the next node of the current {@link ListNode}.
 	 * 
-	 * @throws UnexistingAttributeException if this list node has no next node.
+	 * @throws UnexistingAttributeException
+	 * if the current {@link ListNode} does not have a next node.
 	 */
 	public void swapElementWithNextNode() {
 		
-		//Checks if this list node has a next node.
+		//Checks if the current list node has a next node.
 		if (!hasNextNode()) {
 			throw new UnexistingAttributeException(this, "next node");
 		}
