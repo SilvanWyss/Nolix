@@ -513,7 +513,7 @@ extends ConfigurableElement<W> {
 		
 		final var widgets = new List<Widget<?, ?>>();
 		
-		fillUpWidgets(widgets);
+		fillUpOwnWidgets(widgets);
 		
 		return widgets;
 	}
@@ -734,7 +734,7 @@ extends ConfigurableElement<W> {
 		
 		noteAnyLeftMouseButtonPress();
 		
-		getRefWidgetsRecursively().forEach(w -> w.noteAnyLeftMouseButtonPress());
+		getRefOwnWidgetsRecursively().forEach(w -> w.noteAnyLeftMouseButtonPress());
 	}
 	
 	//method
@@ -804,7 +804,7 @@ extends ConfigurableElement<W> {
 		
 		noteAnyMouseMove();
 		
-		getRefWidgetsRecursively().forEach(w -> w.noteAnyMouseMove());
+		getRefOwnWidgetsRecursively().forEach(w -> w.noteAnyMouseMove());
 	}
 	
 	//method
@@ -1338,15 +1338,15 @@ extends ConfigurableElement<W> {
 	
 	//abstract method
 	/**
-	 * Fills up the widgets of the current {@link Widget} into the given list.
+	 * Fills up the own widgets of the current {@link Widget} into the given list.
 	 * 
 	 * For a better performance,
-	 * a {@link Widget} fills up its widget up into a list
-	 * and does not create a new list with its widgets.
+	 * a {@link Widget} fills up its own widget into a list
+	 * and does not create a new list with its own widgets.
 	 * 
 	 * @param list
 	 */
-	protected abstract void fillUpWidgets(List<Widget<?, ?>> list);
+	protected abstract void fillUpOwnWidgets(List<Widget<?, ?>> list);
 	
 	//abstract method
 	/**
@@ -1383,13 +1383,13 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return the widgets of the current {@link Widget} recursively.
+	 * @return the own widgets of the current {@link Widget} recursively.
 	 */
-	protected final List<Widget<?, ?>> getRefWidgetsRecursively() {
+	protected final List<Widget<?, ?>> getRefOwnWidgetsRecursively() {
 		
 		final var widgets = new List<Widget<?, ?>>();
 		
-		fillUpWidgetsRecursively(widgets);
+		fillUpOwnWidgetsRecursively(widgets);
 		
 		return widgets;
 	}
@@ -1552,17 +1552,17 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * Fills up recursively the widgets of the current {@link Widget} into the given list.
+	 * Fills up recursively the own widgets of the current {@link Widget} into the given list.
 	 * 
 	 * For a better performance,
-	 * a {@link Widget} fills up recursively its widget up into a list
-	 * and does not create a new list with its widgets.
+	 * a {@link Widget} fills up recursively its own widgets into a list
+	 * and does not create a new list with its own widgets.
 	 * 
 	 * @param list
 	 */
-	private void fillUpWidgetsRecursively(final List<Widget<?, ?>> list) {
-		fillUpWidgets(list);
-		getRefWidgets().forEach(w -> w.fillUpWidgetsRecursively(list));
+	private void fillUpOwnWidgetsRecursively(final List<Widget<?, ?>> list) {
+		fillUpOwnWidgets(list);
+		getRefWidgets().forEach(w -> w.fillUpOwnWidgetsRecursively(list));
 	}
 	
 	//method

@@ -211,7 +211,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
-	protected void fillUpWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {
 		for (final var c : cells) {
 			if (c.containsAny()) {
 				list.addAtEnd(c.getRefWidget());

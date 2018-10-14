@@ -407,7 +407,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void fillUpWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {
 				
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Iterates the tabs of the current tab container.

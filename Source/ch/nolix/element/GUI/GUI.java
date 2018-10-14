@@ -457,7 +457,7 @@ implements IGUI<G> {
 		//Handles the case that this GUI has a root widget.
 		if (hasRootWidget()) {
 			widgets.addAtEnd((Widget<?, ?>)getRefRootWidget());
-			widgets.addAtEnd(getRefRootWidget().getRefWidgetsRecursively());
+			widgets.addAtEnd(getRefRootWidget().getRefOwnWidgetsRecursively());
 		}
 		
 		return widgets;

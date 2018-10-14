@@ -275,7 +275,7 @@ implements Clearable<S> {
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void fillUpWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {
 		list.addAtEnd(widgets);
 	}
 	

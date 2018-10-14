@@ -267,7 +267,7 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
-	protected void fillUpWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	protected int getContentAreaHeight() {

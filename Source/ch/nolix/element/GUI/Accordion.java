@@ -355,7 +355,7 @@ implements Clearable<Accordion> {
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void fillUpWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {
 		
 		//Iterates the tabs of the current accordion.
 		for (final var t : getRefTabs()) {

@@ -109,7 +109,7 @@ extends Container<SingleContainer, SingleContainerLook> {
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void fillUpWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**
