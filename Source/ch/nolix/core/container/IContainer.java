@@ -27,11 +27,9 @@ import ch.nolix.core.validator2.Validator;
  * A {@link IContainer} can store several elements of a certain type.
  * A {@link IContainer} is iterable.
  * 
- * This interface provides no mutating methods.
- * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1550
+ * @lines 1540
  * @param <E> The type of the elements of a {@link IContainer}.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -280,7 +278,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param doubleNorm
-	 * @return the average of the values the given double norm returns from the elements of this container.
+	 * @return the average of the values the given double norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyStateException if the current {@link IContainer} is empty.
 	 */
 	public default double getAverageByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
@@ -296,7 +294,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param intNorm
-	 * @return the average of the values the given int norm returns from the elements of this container.
+	 * @return the average of the values the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyStateException if the current {@link IContainer} is empty.
 	 */
 	public default double getAverageByInt(final IElementTakerIntGetter<E> intNorm) {
@@ -312,7 +310,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param longNorm
-	 * @return the average of the values the given long norm returns from the elements of this container.
+	 * @return the average of the values the given long norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyStateException if the current {@link IContainer} is empty.
 	 */
 	public default double getAverageByLong(final IElementTakerLongGetter<E> longNorm) {
@@ -328,7 +326,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param startIndex
-	 * @return a new sub container of this container from the given start index.
+	 * @return a new sub container of the current {@link IContainer} from the given start index.
 	 * @throws NonPositiveArgumentException
 	 * if the given start index is not positive.
 	 * @throws SmallerArgumentException
@@ -342,13 +340,13 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * @param startIndex
 	 * @param endIndex
-	 * @return a new sub container of this container from the given start index to the given end index.
+	 * @return a new sub container of the current {@link IContainer} from the given start index to the given end index.
 	 * @throws NonPositiveArgumentException
 	 * if the given start index is not positive.
 	 * @throws SmallerArgumentException
 	 * if the given end index is smaller than the given start index.
 	 * @throws BiggerThanExceptio
-	 * if the given end index is bigger than the number of elements of this container.
+	 * if the given end index is bigger than the number of elements of the current {@link IContainer}.
 	 */
 	public default IContainer<E> getContainerFromTo(
 		final int startIndex,
@@ -360,7 +358,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param endIndex
-	 * @return a new sub container of this container with the elements to the given end index.
+	 * @return a new sub container of the current {@link IContainer} with the elements to the given end index.
 	 * @throws NonPositiveArgumentException if the given end index is not positive.
 	 */
 	public default IContainer<E> getContainerTo(final int endIndex) {
@@ -369,7 +367,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @return a new sub container of this container without the first element.
+	 * @return a new sub container of the current {@link IContainer} without the first element.
 	 * @throws SmallerArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default IContainer<E> getContainerWithoutFirst() {
@@ -379,7 +377,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param n
-	 * @return a new sub container of this container without the first n elements.
+	 * @return a new sub container of the current {@link IContainer} without the first n elements.
 	 * @throws NonPositiveArgumentException if the given n is not positive.
 	 * @throws SmallerArgumentException if the current {@link IContainer} contains more than n elements.
 	 */
@@ -390,7 +388,7 @@ public interface IContainer<E> extends Iterable<E> {
 		//Checks if the given n is positive.
 		Validator.suppose(n).thatIsNamed("n").isPositive();
 		
-		//Checks if the given n is not bigger than the element count of this container.
+		//Checks if the given n is not bigger than the element count of the current {@link IContainer}.
 		Validator.suppose(n).thatIsNamed("n").isNotBiggerThan(elementCount);
 		
 		//Handles the case that this container contains less than n elements.
@@ -404,7 +402,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @return a new sub container of this container without the last element.
+	 * @return a new sub container of the current {@link IContainer} without the last element.
 	 * @throws SmallerArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default IContainer<E> getContainerWithoutLast() {
@@ -414,7 +412,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param n
-	 * @return a new sub container of this container without the last n elements of this container.
+	 * @return a new sub container of the current {@link IContainer} without the last n elements of the current {@link IContainer}.
 	 * @throws NonPositiveArgumentException if the given n is not positive.
 	 * @throws BiggerArgumentException if the current {@link IContainer} contains more than n elements.
 	 */
@@ -425,7 +423,7 @@ public interface IContainer<E> extends Iterable<E> {
 		//Checks if the given n is positive.
 		Validator.suppose(n).thatIsNamed("n").isPositive();
 		
-		//Checks if the given n is not bigger than the element count of this container.
+		//Checks if the given n is not bigger than the element count of the current {@link IContainer}.
 		Validator.suppose(n).thatIsNamed("n").isNotBiggerThan(elementCount);
 		
 		//Handles the case that this container contains less than n elements.
@@ -505,7 +503,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param norm
-	 * @return the biggest value the given norm returns from the elements of this container.
+	 * @return the biggest value the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	@SuppressWarnings("unchecked")
@@ -516,7 +514,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param doubleNorm
-	 * @return the biggest value the given double norm returns from the elements of this container.
+	 * @return the biggest value the given double norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default double getMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
@@ -526,7 +524,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param intNorm
-	 * @return the biggest value the given int norm returns from the elements of this container.
+	 * @return the biggest value the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default int getMaxInt(final IElementTakerIntGetter<E> intNorm) {
@@ -536,7 +534,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param longNorm
-	 * @return the biggest value the given long norm returns from the elements of this container.
+	 * @return the biggest value the given long norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default long getMaxLong(IElementTakerLongGetter<E> longNorm) {
@@ -546,7 +544,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param norm
-	 * @return the smallest value the given norm returns from the elements of this container.
+	 * @return the smallest value the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	@SuppressWarnings("unchecked")
@@ -557,7 +555,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param doubleNorm
-	 * @return the smallest value the given double norm returns from the elements of this container.
+	 * @return the smallest value the given double norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default double getMinDouble(IElementTakerDoubleGetter<E> doubleNorm) {
@@ -567,7 +565,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param intNorm
-	 * @return the smallest value the given int norm returns from the elements of this container.
+	 * @return the smallest value the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default int getMinInt(IElementTakerLongGetter<E> intNorm) {
@@ -577,7 +575,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param longNorm
-	 * @return the smallest value the given long norm returns from the elements of this container.
+	 * @return the smallest value the given long norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default long getMinLong(IElementTakerLongGetter<E> longNorm) {
@@ -612,7 +610,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @return a randomly selected element of this container.
+	 * @return a randomly selected element of the current {@link IContainer}.
 	 * @throws EmptyStateException if the current {@link IContainer} is empty.
 	 */
 	public default E getRefAny() {
@@ -635,7 +633,7 @@ public interface IContainer<E> extends Iterable<E> {
 	public default E getRefAt(final int index) {
 		
 		//Checks if the given index is positive.
-		Validator.suppose(index).thatIsNamed("index").isPositive();
+		Validator.suppose(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
 		
 		//Iterates the current container.
 		var i = 1;
@@ -655,7 +653,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param norm
-	 * @return the element with the biggest value the given norm returns from the elements of this container.
+	 * @return the element with the biggest value the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -681,7 +679,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param doubleNorm
-	 * @return the element with the biggest value the given double norm returns from the elements of this container.
+	 * @return the element with the biggest value the given double norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default E getRefByMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
@@ -706,7 +704,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param intNorm
-	 * @return the element with the biggest value the given int norm returns from the elements of this container.
+	 * @return the element with the biggest value the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default E getRefByMaxInt(final IElementTakerIntGetter<E> intNorm) {
@@ -731,7 +729,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param longNorm
-	 * @return the element with the biggest value the given long norm returns from the elements of this container.
+	 * @return the element with the biggest value the given long norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default E getRefByMaxLong(final IElementTakerLongGetter<E> longNorm) {
@@ -756,7 +754,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param norm
-	 * @return the element with the smallest value the given norm returns from the elements of this container.
+	 * @return the element with the smallest value the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -782,7 +780,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param doubleNorm
-	 * @return the element with the biggest value the given double norm returns from the elements of this container.
+	 * @return the element with the biggest value the given double norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default E getRefByMinDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
@@ -807,7 +805,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param intNorm
-	 * @return the element with the biggest value the given int norm returns from the elements of this container.
+	 * @return the element with the biggest value the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default E getRefByMinInt(final IElementTakerLongGetter<E> intNorm) {
@@ -832,7 +830,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param longNorm
-	 * @return the element with the smallest value the given long norm returns from the elements of this container.
+	 * @return the element with the smallest value the given long norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default E getRefByMinLong(IElementTakerLongGetter<E> longNorm) {
@@ -856,7 +854,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @return the first element of this container.
+	 * @return the first element of the current {@link IContainer}.
 	 * @throws EmptyStateException if the current {@link IContainer} is empty.
 	 */
 	public default E getRefFirst() {
@@ -894,7 +892,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n^2) if the current {@link IContainer} contains n elements.
 	 *
 	 * @param selector
-	 * @return the first 2 elements of this container the given selector selects together.
+	 * @return the first 2 elements of the current {@link IContainer} the given selector selects together.
 	 * @throws InvalidStateException if the current {@link IContainer}
 	 * contains no 2 elements the given selector selects together.
 	 */
@@ -919,7 +917,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * @return the first element of this container or null.
+	 * @return the first element of the current {@link IContainer} or null.
 	 */
 	public default E getRefFirstOrNull() {
 		
@@ -956,7 +954,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n^2) if the current {@link IContainer} contains n elements.
 	 *
 	 * @param selector
-	 * @return the first 2 elements of this container the given selector selects together or null.
+	 * @return the first 2 elements of the current {@link IContainer} the given selector selects together or null.
 	 */
 	public default Pair<E, E> getRefFirstOrNull(final ITwoElementTakerBooleanGetter<E> selector) {
 
@@ -987,7 +985,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @return the one element of this container.
+	 * @return the one element of the current {@link IContainer}.
 	 * @throws EmptyStateException if the current {@link IContainer} is empty.
 	 * @throws InvalidStateException if the current {@link IContainer} contains several elements.
 	 */
@@ -1108,7 +1106,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n*log(n)) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param norm
-	 * @return a new list with the elements of this container
+	 * @return a new list with the elements of the current {@link IContainer}
 	 * sorted from the smallest to the biggest element according to the given norm.
 	 */
 	public default <E2> List<E> getRefSorted(final IElementTakerComparableGetter<E, E2> norm) {
@@ -1167,14 +1165,14 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//abstract method
 	/**
-	 * @return the number of elements of this container.
+	 * @return the number of elements of the current {@link IContainer}.
 	 */
 	public abstract int getSize();
 	
 	//default method
 	/**
 	 * @param doubleNorm
-	 * @return the standard deviation of the values the given double norm returns from the elements of this container.
+	 * @return the standard deviation of the values the given double norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default double getStandardDeviationByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
@@ -1184,7 +1182,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param intNorm
-	 * @return the standard deviation of the values the given int norm returns from the elements of this container.
+	 * @return the standard deviation of the values the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default double getStandardDeviationByInt(final IElementTakerIntGetter<E> intNorm) {
@@ -1194,7 +1192,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param longNorm
-	 * @return the standard deviation of the values the given long norm returns from the elements of this container.
+	 * @return the standard deviation of the values the given long norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default double getStandardDeviationByInt(final IElementTakerLongGetter<E> longNorm) {
@@ -1204,7 +1202,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param doubleNorm
-	 * @return the sum of the values the given double norm returns from the elements of this container.
+	 * @return the sum of the values the given double norm returns from the elements of the current {@link IContainer}.
 	 */
 	public default double getSumByDoubleNorm(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
@@ -1221,7 +1219,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param intNorm
-	 * @return the sum of the values the given int norm returns from the element of this container.
+	 * @return the sum of the values the given int norm returns from the element of the current {@link IContainer}.
 	 */
 	public default int getSumByInt(final IElementTakerIntGetter<E> intNorm) {
 		
@@ -1238,7 +1236,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param longNorm
-	 * @return the sum of the values the given long norm returns from the elements of this container.
+	 * @return the sum of the values the given long norm returns from the elements of the current {@link IContainer}.
 	 */
 	public default long getSumByLong(final IElementTakerLongGetter<E> longNorm) {
 		
@@ -1255,7 +1253,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param doubleNorm
-	 * @return the variance of the values the given double norm returns from the elements of this container.
+	 * @return the variance of the values the given double norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default double getVarianceByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
@@ -1274,7 +1272,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param intNorm
-	 * @return the variance of the values the given int norm returns from the elements of this container.
+	 * @return the variance of the values the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default double getVarianceByInt(final IElementTakerIntGetter<E> intNorm) {
@@ -1293,7 +1291,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param longNorm
-	 * @return the variance of the values the given long norm returns from the elements of this container.
+	 * @return the variance of the values the given long norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default double getVarianceByLong(final IElementTakerLongGetter<E> longNorm) {
@@ -1349,7 +1347,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param extractor
-	 * @return a new list with the elements the given extractor extracts from the elements of this container.
+	 * @return a new list with the elements the given extractor extracts from the elements of the current {@link IContainer}.
 	 */
 	public default <E2> List<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
 		final var list = new List<E2>();
@@ -1359,7 +1357,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @return a new array with the elements of this container.
+	 * @return a new array with the elements of the current {@link IContainer}.
 	 */
 	@SuppressWarnings("unchecked")
 	public default E[] toArray() {	
@@ -1380,7 +1378,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param extractor
-	 * @return a new array with the elements the given extractor extracts from the elements of this container.
+	 * @return a new array with the elements the given extractor extracts from the elements of the current {@link IContainer}.
 	 */
 	@SuppressWarnings("unchecked")
 	public default <E2> E2[] toArray(final IElementTakerElementGetter<E, E2> extractor) {
@@ -1401,7 +1399,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param doubleNorm
-	 * @return a new array with the values the given double norm returns from the elements of this container.
+	 * @return a new array with the values the given double norm returns from the elements of the current {@link IContainer}.
 	 */
 	public default double[] toDoubleArray(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
@@ -1422,7 +1420,7 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * @param extractor
 	 * @return a new list with the elements of the containers
-	 * the given extractor extracts from the elements of this container.
+	 * the given extractor extracts from the elements of the current {@link IContainer}.
 	 */
 	public default <O> List<O> toFromMany(final IElementTakerElementGetter<E, IContainer<O>> extractor) {
 		final var list = new List<O>();
@@ -1433,7 +1431,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param intNorm
-	 * @return a new array with the values the given int norm returns from the elements of this container.
+	 * @return a new array with the values the given int norm returns from the elements of the current {@link IContainer}.
 	 */
 	public default int[] toIntArray(final IElementTakerLongGetter<E> intNorm) {
 		
@@ -1463,7 +1461,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param longNorm
-	 * @return a new array with the values the given long norm returns from the elements of this container.
+	 * @return a new array with the values the given long norm returns from the elements of the current {@link IContainer}.
 	 */
 	public default long[] toLongArray(final IElementTakerLongGetter<E> longNorm) {
 
@@ -1503,7 +1501,7 @@ public interface IContainer<E> extends Iterable<E> {
 		.thatIsNamed(VariableNameCatalogue.SEPARATOR)
 		.isInstance();
 		
-		//Enumerates the element count of this container.
+		//Enumerates the element count of the current {@link IContainer}.
 		switch (getSize()) {
 			case 0:
 				return StringCatalogue.EMPTY_STRING;
@@ -1524,13 +1522,13 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @return a new array with the strings that represent the elements of this container.
+	 * @return a new array with the strings that represent the elements of the current {@link IContainer}.
 	 */
 	public default String[] toStringArray() {
 		
 		final var stringArray = new String[getSize()];
 		
-		//Iterates the elements of this container.
+		//Iterates the elements of the current {@link IContainer}.
 		var i = 0;
 		for (final var e : this) {
 			stringArray[i] = e.toString();
@@ -1542,7 +1540,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @return a new list with the strings that represent the elements of this container.
+	 * @return a new list with the strings that represent the elements of the current {@link IContainer}.
 	 */
 	public default List<String> toStrings() {
 		return to(e -> e.toString());
