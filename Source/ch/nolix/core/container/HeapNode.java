@@ -1,18 +1,20 @@
 //package declaration
 package ch.nolix.core.container;
 
+//own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**
- * A heap node contains an element.
- * A heap node can have a next node, a left sub node and a right sub node.
+ * A {@link HeapNode} contains an element.
+ * A {@link HeapNode} can have a next node, a left sub node and a right sub node.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 110
- * @param <E> - The type of the element of a heap node.
+ * @lines 120
+ * @param <E> The type of the element of a {@link HeapNode}.
  */
 final class HeapNode<E> {
 	
@@ -26,7 +28,7 @@ final class HeapNode<E> {
 	
 	//constructor
 	/**
-	 * Creates a new heap node with the given element.
+	 * Creates a new {@link HeapNode} with the given element.
 	 * 
 	 * @param element
 	 * @throws NullArgumentException if the given element is not an instance.
@@ -37,30 +39,27 @@ final class HeapNode<E> {
 	
 	//method
 	/**
-	 * @return the element of this heap node.
+	 * @return the element of of the current {@link HeapNode}.
 	 */
-	public E getElement() {
+	public E getRefElement() {
 		return element;
 	}
 	
 	//method
 	/**
-	 * @return the next node of this heap node.
-	 * @throws UnexistingAttributeException if this heap node has no next node.
+	 * @return the next node of of the current {@link HeapNode}.
+	 * @throws UnexistingAttributeException if the current {@link HeapNode} has no next node.
 	 */
-	public HeapNode<E> getNextNode() {
+	public HeapNode<E> getRefNextNode() {
 		
-		//Checks if this heap node has a next node.
-		if (!hasNextNode()) {
-			throw new UnexistingAttributeException(this, "next node");
-		}
+		supposeHasNextNode();
 		
 		return nextNode;
 	}
 	
 	//method
 	/**
-	 * @return true if this heap node has a left sub node.
+	 * @return true if of the current {@link HeapNode} has a left sub node.
 	 */
 	public boolean hasLeftSubNode() {
 		return (leftSubNode != null);
@@ -68,7 +67,7 @@ final class HeapNode<E> {
 	
 	//method
 	/**
-	 * @return true if this heap node has a left and right sub node.
+	 * @return true if of the current {@link HeapNode} has a left and right sub node.
 	 */
 	public boolean hasLeftAndRightSubNode() {
 		return (rightSubNode != null);
@@ -76,7 +75,7 @@ final class HeapNode<E> {
 	
 	//method
 	/**
-	 * @return true if this heap node has a next node.
+	 * @return true if of the current {@link HeapNode} has a next node.
 	 */
 	public boolean hasNextNode() {
 		return (nextNode != null);
@@ -84,7 +83,7 @@ final class HeapNode<E> {
 	
 	//method
 	/**
-	 * Removes the next node of this heap node.
+	 * Removes the next node of of the current {@link HeapNode}.
 	 */
 	public void removeNextNode() {
 		nextNode = null;
@@ -92,7 +91,7 @@ final class HeapNode<E> {
 	
 	//method
 	/**
-	 * Removes the right sub node of this heap node.
+	 * Removes the right sub node of of the current {@link HeapNode}.
 	 */
 	public void removeRightSubNode() {
 		rightSubNode = null;
@@ -100,7 +99,7 @@ final class HeapNode<E> {
 	
 	//method
 	/**
-	 * Sets the element of this heap node.
+	 * Sets the element of of the current {@link HeapNode}.
 	 * 
 	 * @param element
 	 * @throws NullArgumentException if the given element is not an instance.
@@ -108,8 +107,19 @@ final class HeapNode<E> {
 	public void setElement(final E element) {
 		
 		//Checks if the given element is an instance.
-		Validator.suppose(element).thatIsNamed("element").isInstance();
+		Validator.suppose(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isInstance();
 		
+		//Sets the element of the current heap node.
 		this.element = element;
+	}
+	
+	//method
+	/**
+	 * @throws UnexistingAttributeException if the current {@link HeapNode} has no next node.
+	 */
+	private void supposeHasNextNode() {
+		if (!hasNextNode()) {
+			throw new UnexistingAttributeException(this, "next node");
+		}
 	}
 }
