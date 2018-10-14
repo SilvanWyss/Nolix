@@ -459,7 +459,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param element
-	 * @return the number how many times this container contains the given element.
+	 * @return the number how many times the current {@link IContainer} contains the given element.
 	 */
 	public default int getCount(final Object element) {
 		
@@ -1064,7 +1064,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * The complexity of this method is O(m*n) if:
-	 * -This contains contains m elements.
+	 * -The current {@link IContainer} contains m elements.
 	 * -n selectors are given.
 	 * 
 	 * @param selectors
@@ -1481,7 +1481,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param separator
-	 * @return a string representation this container.
+	 * @return a string representation the current {@link IContainer}.
 	 */
 	public default String toString(final char separator) {
 		return toString(String.valueOf(separator));
@@ -1490,7 +1490,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param separator
-	 * @return a string representation this container with the given separator.
+	 * @return a string representation of the current {@link IContainer} using the given separator.
 	 * @throws NullArgumentException if the given separator is not an instance.
 	 */
 	public default String toString(final String separator)
