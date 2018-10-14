@@ -4,6 +4,7 @@ package ch.nolix.core.container;
 //Java import
 import java.util.Iterator;
 
+//own import
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 
 //package-visible class
@@ -11,7 +12,7 @@ import ch.nolix.core.invalidStateException.UnexistingAttributeException;
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 70
- * @param <E> - The type of the elements of the list of a list iterator.
+ * @param <E> The type of the elements of a {@link ListIterator}.
  */
 final class ListIterator<E> implements Iterator<E> {
 	
@@ -20,7 +21,8 @@ final class ListIterator<E> implements Iterator<E> {
 	
 	//constructor
 	/**
-	 * Creates a new list iterator with the given first node.
+	 * Creates a new {@link ListIterator} with the given first node.
+	 * The given first node can be null.
 	 * 
 	 * @param firstNode
 	 */
@@ -30,7 +32,7 @@ final class ListIterator<E> implements Iterator<E> {
 	
 	//method
 	/**
-	 * @return a copy of this list iterator.
+	 * @return a copy of the current {@link ListIterator}.
 	 */
 	public ListIterator<E> getCopy() {
 		return new ListIterator<E>(nextNode);
@@ -38,7 +40,7 @@ final class ListIterator<E> implements Iterator<E> {
 
 	//method
 	/**
-	 * @return true if this list iterator has a next element.
+	 * @return true if the current {@link ListIterator} has a next element.
 	 */
 	public boolean hasNext() {
 		return (nextNode != null);
@@ -46,17 +48,17 @@ final class ListIterator<E> implements Iterator<E> {
 
 	//method
 	/**
-	 * @return the next element of this list iterator.
-	 * @throws UnexistingAttributeException if this list iterator has no next element.
+	 * @return the next element of the current {@link ListIterator}.
+	 * @throws UnexistingAttributeException if the current {@link ListIterator} has no next element.
 	 */
 	public E next() {
 		
-		//Checks if this list iterator has a next element.
+		//Checks if the current list iterator has a next element.
 		if (!hasNext()) {	
 			throw new UnexistingAttributeException(this, "next element");
 		}
 		
-		final E element = nextNode.getElement();
+		final var element = nextNode.getElement();
 		
 		if (nextNode.hasNextNode()) {
 			nextNode = nextNode.getNextNode();
