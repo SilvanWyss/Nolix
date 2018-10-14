@@ -522,7 +522,7 @@ public final class ListTest extends Test {
 		);
 		
 		//execution
-		list.sort(s -> s.length());
+		list.order(s -> s.length());
 		
 		//verification
 			expect(list.getSize()).isEqualTo(6);
@@ -549,7 +549,7 @@ public final class ListTest extends Test {
 		);
 		
 		//execution
-		list.sort(s -> s);
+		list.order(s -> s);
 		
 		//verification
 			expect(list.getSize()).isEqualTo(6);

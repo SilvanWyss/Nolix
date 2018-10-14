@@ -1102,19 +1102,6 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
-	 * This method uses the merge sort algorithm.
-	 * The complexity of this method is O(n*log(n)) if the current {@link IContainer} contains n elements.
-	 * 
-	 * @param norm
-	 * @return a new list with the elements of the current {@link IContainer}
-	 * sorted from the smallest to the biggest element according to the given norm.
-	 */
-	public default <E2> List<E> getRefSorted(final IElementTakerComparableGetter<E, E2> norm) {
-		return toList().sort(norm);
-	}
-	
-	//default method
-	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param selector
@@ -1318,10 +1305,10 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param norm
-	 * @return true if the current {@link IContainer} is sorted according to the given norm.
+	 * @return true if the current {@link IContainer} is ordered according to the given norm.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public default <E2> boolean isSorted(final IElementTakerComparableGetter<E, E2> norm) {
+	public default <E2> boolean isOrdered(final IElementTakerComparableGetter<E, E2> norm) {
 		
 		//Iterates the current container.
 		E previous = null;
@@ -1476,6 +1463,19 @@ public interface IContainer<E> extends Iterable<E> {
 		}
 		
 		return array;
+	}
+	
+	//default method
+	/**
+	 * This method uses the merge sort algorithm.
+	 * The complexity of this method is O(n*log(n)) if the current {@link IContainer} contains n elements.
+	 * 
+	 * @param norm
+	 * @return a new {@link List} with the elements of the current {@link IContainer}
+	 * ordered from the smallest to the biggest element according to the given norm.
+	 */
+	public default <E2> List<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
+		return toList().order(norm);
 	}
 	
 	//default method
