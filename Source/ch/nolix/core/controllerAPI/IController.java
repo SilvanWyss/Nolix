@@ -11,7 +11,7 @@ import ch.nolix.core.documentNode.Statement;
  * @lines 30
  */
 public interface IController {
-
+	
 	//abstract method
 	/**
 	 * Lets the current {@link IController} run the given command.
