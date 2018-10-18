@@ -63,8 +63,8 @@ public final class AccordionTutorial {
 		
 		//Configures the look of the accordion.
 		accordion.applyOnBaseLook(
-			bs ->
-			bs
+			bl ->
+			bl
 			.setBorderThicknesses(5)
 			.setBorderColors(Color.DARK_BLUE)
 			.setBackgroundColor(Color.ALICE_BLUE)
