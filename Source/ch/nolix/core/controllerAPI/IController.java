@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.controllerAPI;
 
+//own import
 import ch.nolix.core.documentNode.Statement;
 
 //interface
@@ -13,7 +14,7 @@ public interface IController {
 
 	//abstract method
 	/**
-	 * Lets this controller run the given command.
+	 * Lets the current {@link IController} run the given command.
 	 * 
 	 * @param command
 	 */
@@ -21,7 +22,7 @@ public interface IController {
 	
 	//default method
 	/**
-	 * Lets this controller run the given command.
+	 * Lets the current {@link IController} run the given command.
 	 * 
 	 * @param command
 	 */
