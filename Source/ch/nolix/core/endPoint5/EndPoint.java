@@ -4,7 +4,7 @@ package ch.nolix.core.endPoint5;
 //own imports
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
-import ch.nolix.core.controllerAPI.IMultiController;
+import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
@@ -20,10 +20,10 @@ import ch.nolix.core.validator2.Validator;
  */
 public abstract class EndPoint
 extends ClosableElement
-implements IMultiController {	
+implements IDataProviderController {	
 	
 	//optional attribute
-	private IMultiController receiverController;
+	private IDataProviderController receiverController;
 	
 	//multiple attribute
 	private final List<String> appendedCommands = new List<String>();
@@ -169,7 +169,7 @@ implements IMultiController {
 	 * @param receiverController
 	 * @throws NullArgumentException if the given receiver controller is not an instance.
 	 */
-	public final void setReceiverController(final IMultiController receiverController) {
+	public final void setReceiverController(final IDataProviderController receiverController) {
 		
 		//Checks if the given receiver controller is an instance.
 		Validator.suppose(receiverController).thatIsNamed("receiver controller").isInstance();
@@ -183,7 +183,7 @@ implements IMultiController {
 	 * @return the receiver controller of this duplex controller.
 	 * @throws UnexistingAttributeException if this duplex controller has no receiver controller.
 	 */
-	protected IMultiController getRefReceiverController() {
+	protected IDataProviderController getRefReceiverController() {
 		
 		//Checks if this duplex controller has a receiver controller.
 		if (!hasReceiverController()) {

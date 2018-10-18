@@ -4,7 +4,7 @@ package ch.nolix.core.endPoint5;
 //own imports
 import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.controllerAPI.IMultiController;
+import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.invalidArgumentException.Argument;
@@ -234,7 +234,7 @@ public class NetEndPoint extends EndPoint {
 	private final String receiveAndGetReply(final DocumentNode message) {
 		
 		//Gets the receiver controller of this net duplex controller.
-		final IMultiController receiverController = getRefReceiverController();
+		final IDataProviderController receiverController = getRefReceiverController();
 		
 		//Enumerates the header of the given message.
 		switch (message.getHeader()) {

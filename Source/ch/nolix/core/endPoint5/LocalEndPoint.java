@@ -3,7 +3,7 @@ package ch.nolix.core.endPoint5;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.controllerAPI.IMultiController;
+import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.invalidStateException.InvalidStateException;
@@ -195,7 +195,7 @@ public final class LocalEndPoint extends EndPoint {
 		//Checks if this local duplex controller is not aborted.
 		supposeIsAlive();
 		
-		final IMultiController counterpartReceiverController
+		final IDataProviderController counterpartReceiverController
 		= counterpart.getRefReceiverController();
 		
 		commands.forEach(c -> counterpartReceiverController.run(c));

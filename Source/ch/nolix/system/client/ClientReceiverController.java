@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
-import ch.nolix.core.controllerAPI.IMultiController;
+import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.validator2.Validator;
@@ -14,7 +14,7 @@ import ch.nolix.core.validator2.Validator;
  * @month 2015-12
  * @lines 50
  */
-final class ClientReceiverController implements IMultiController {
+final class ClientReceiverController implements IDataProviderController {
 
 	//attribute
 	private final Client<?> client;

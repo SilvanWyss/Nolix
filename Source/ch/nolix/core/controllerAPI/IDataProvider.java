@@ -10,7 +10,7 @@ import ch.nolix.core.documentNode.Statement;
  * @month 2017-06
  * @lines 30
  */
-public interface IDataController {
+public interface IDataProvider {
 
 	//abstract method
 	/**

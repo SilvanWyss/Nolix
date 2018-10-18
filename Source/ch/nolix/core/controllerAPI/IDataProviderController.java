@@ -7,5 +7,5 @@ package ch.nolix.core.controllerAPI;
  * @month 2017-10
  * @lines 10
  */
-public interface IMultiController
-extends IController, IDataController {}
+public interface IDataProviderController
+extends IController, IDataProvider {}
