@@ -14,56 +14,44 @@ import ch.nolix.element.color.Color;
  * 
  * @author Silvan Wyss
  * @month 2018-05
- * @lines 70
+ * @lines 60
  */
 public final class ButtonTutorial {
 	
-	//static attribute
-	private static Frame frame;
-
 	//main method
 	/**
 	 * Creates a {@link Frame} with a {@link Button}.
 	 * 
 	 * @param args
 	 */
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
+		
+		//Creates a frame.
+		final var frame = new Frame("Button Tutorial");
 		
 		//Creates a button.
 		final var button =
 		new Button("Quit")
 		.setMinWidth(200)
 		.setCustomCursorIcon(CursorIcon.Hand)
-		.setLeftMouseButtonReleaseCommand(() -> quit());
+		.setLeftMouseButtonReleaseCommand(() -> frame.close());
 		
 		//Configures the look of the button.
-			button
-			.getRefBaseLook()
+		button
+		.applyOnBaseLook(
+			bl ->
+			bl
 			.setBorderThicknesses(5)
 			.setBorderColors(Color.DARK_BLUE)
 			.setBackgroundColor(Color.ALICE_BLUE)
 			.setPaddings(5)
-			.setTextSize(50);
-			
-			button
-			.getRefHoverLook()
-			.setBackgroundColor(Color.GREY);
-			
-			button
-			.getRefFocusLook()
-			.setBackgroundColor(Color.GREY);
+			.setTextSize(50)
+		)
+		.applyOnHoverLook(hl -> hl.setBackgroundColor(Color.GREY))
+		.applyOnFocusLook(fl -> fl.setBackgroundColor(Color.GREY));
 		
-		//Creates a frame with the button.
-		frame =
-		new Frame()
-		.setTitle("Button Tutorial")
-		.setRootWidget(button);
-	}
-	
-	//static method
-	private static void quit() {
-		frame.close();
+		//Adds the button to the frame.
+		frame.setRootWidget(button);
 	}
 	
 	//private constructor
