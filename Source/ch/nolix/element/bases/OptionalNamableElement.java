@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.element.bases;
 
+//own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
-//own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
@@ -22,7 +22,7 @@ import ch.nolix.element.core.NonEmptyText;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 170
+ * @lines 200
  * @param <ONE> The type of an optional namable element.
  */
 public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<ONE>>
@@ -136,20 +136,31 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	
 	//method
 	/**
-	 * Sets the name of this namable element.
+	 * Sets the name of the current {OptionalNamableElement}.
 	 * 
 	 * @param name
+	 * @return the current {OptionalNamableElement}.
 	 * @throws NullArgumentExcepiton if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
+	 * @throws InvalidStateException if the current {OptionalNamableElement}
+	 * belongs to a {@link IRequestableContainer} that contains another element with the given name.
 	 */
-	public ONE setName(String name) {
+	public ONE setName(final String name) {
+		
+		//Handles the case that the current optional namable element does not have the given name.
 		if (!hasName(name)) {
 			
-			//TODO
-			if (belongsToRequestableContainer() && requestableContainer.containsElement(name)) {
-				//throw new RuntimeException("Namable element " + getNameInQuotes() + " belongs to a search container that contains an other element with the name '" + name + "'.");
+			//Checks if the current optional namable element does not belong to a requestable container
+			//that contains another element with the given name.
+			if (belongsToRequestableContainerThatContainsElement(name)) {
+				throw 
+				new InvalidStateException(
+					this,
+					"belongs to a requestable container that contains another element with the name '" + name + "'."
+				);
 			}
 			
+			//Sets the name of the current optional namable element.
 			this.name = new NonEmptyText(name);
 		}
 		
@@ -177,5 +188,15 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 		
 		//Sets the requestable container this namable element will belong to.
 		this.requestableContainer = requestableContainer;
+	}
+	
+	//method
+	/**
+	 * @param name
+	 * @return true if the current {OptionalNamableElement}
+	 * belongs to a {@link IRequestableContainer} that contains an element with the given name.
+	 */
+	private boolean belongsToRequestableContainerThatContainsElement(final String name) {
+		return (belongsToRequestableContainer() && requestableContainer.containsElement(name));
 	}
 }
