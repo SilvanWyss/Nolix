@@ -30,6 +30,11 @@ final class BackGUIClientoidBrowserGUI extends BackGUIClientoidGUI {
 	}
 	
 	//method
+	public boolean isRootGUI() {
+		return true;
+	}
+	
+	//method
 	protected void paint() {
 		
 		//Creates a painter.

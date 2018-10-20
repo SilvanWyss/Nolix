@@ -11,5 +11,10 @@ final class BackGUIClientoidApplicationGUI extends BackGUIClientoidGUI {
 	}
 	
 	//method
+	public boolean isRootGUI() {
+		return true;
+	}
+	
+	//method
 	protected void paint() {}
 }

@@ -28,4 +28,7 @@ Specifiable<G> {
 	
 	//abstract method
 	public abstract boolean hasController();
+	
+	//abstract method
+	public abstract boolean isRootGUI();
 }

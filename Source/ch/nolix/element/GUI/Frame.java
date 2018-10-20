@@ -14,7 +14,7 @@ import ch.nolix.element.painter.SwingPainter;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 200
+ * @lines 210
  */
 public final class Frame extends GUI<Frame> {
 	
@@ -192,6 +192,14 @@ public final class Frame extends GUI<Frame> {
 	 */
 	public int getWidth() {
 		return frame.getWidth();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean isRootGUI() {
+		return false;
 	}
 	
 	//method

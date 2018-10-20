@@ -88,6 +88,11 @@ implements IGUI<WidgetGUI> {
 	}
 	
 	//method
+	public boolean isRootGUI() {
+		return false;
+	}
+	
+	//method
 	public boolean keepsFocus() {
 		return false;
 	}

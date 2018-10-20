@@ -71,6 +71,11 @@ public final class InvisibleGUI extends GUI<InvisibleGUI> {
 	}
 	
 	//method
+	public boolean isRootGUI() {
+		return false;
+	}
+	
+	//method
 	/**
 	 * {@inheritDoc}
 	 */
