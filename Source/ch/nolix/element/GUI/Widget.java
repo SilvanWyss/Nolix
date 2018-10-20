@@ -431,6 +431,7 @@ extends ConfigurableElement<W> {
 	 * @return the index path of the current {@link Widget} on its root {@link IGUI}.
 	 * @throws InvalidStateException if the current {@link Widget} does not belong to a {@link IGUI}.
 	 */
+	@SuppressWarnings("unchecked")
 	public final List<Integer> getIndexPathOnRootGUI() {
 		
 		//Handles the case that the GUI, the current widget belongs to, is not a root GUI.
@@ -441,7 +442,7 @@ extends ConfigurableElement<W> {
 		//Handles the case that the GUI, the current widget belongs to, is a root GUI.
 		return
 		getParentGUI()
-		.as(WidgetGUI.class)
+		.as(Widget.class)
 		.getIndexPathOnRootGUI()
 		.addAtEnd(getIndexOnGUI());
 	}
