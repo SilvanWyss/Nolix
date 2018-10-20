@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.element.core;
 
+//own imports
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.Statement;
-//own imports
 import ch.nolix.core.entity.Entity;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.skillInterfaces.Castable;
 import ch.nolix.core.skillInterfaces.TypeRequestable;
 
 //abstract class
@@ -18,7 +19,7 @@ import ch.nolix.core.skillInterfaces.TypeRequestable;
  * @month 2015-12
  * @lines 100
  */
-public abstract class Element extends Entity implements TypeRequestable {
+public abstract class Element extends Entity implements Castable, TypeRequestable {
 	
 	//requests
 	public static final String TYPE_REQUEST = "Type";
