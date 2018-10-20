@@ -31,7 +31,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1730
+ * @lines 1750
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -413,13 +413,39 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @return the index of the current {@link Widget} on its GUI.
-	 * @throws InvalidStateException if the current {@link Widget} does not belong to a GUI.
+	 * @return the index of the current {@link Widget} on its {@link IGUI}.
+	 * @throws InvalidStateException if the current {@link Widget} does not belong to a {@link IGUI}.
 	 */
 	public final int getIndexOnGUI() {
 		return getParentGUI().getRefWidgetsRecursively().getIndexOf(this);
 	}
-
+	
+	//method
+	/**
+	 * Example: index path of a {@link Widget}
+	 * -Lets a {@link GUI} A contains a {@link WidgetGUI} B.
+	 * -Lets B contain a {@link WidgetGUI} C.
+	 * -Lets C contain a {@link Widget} D.
+	 * ->The path of D is 'A.B.C.D'.
+	 * 
+	 * @return the index path of the current {@link Widget} on its root {@link IGUI}.
+	 * @throws InvalidStateException if the current {@link Widget} does not belong to a {@link IGUI}.
+	 */
+	public final List<Integer> getIndexPathOnRootGUI() {
+		
+		//Handles the case that the GUI, the current widget belongs to, is not a root GUI.
+		if (!getParentGUI().isRootGUI()) {
+			return new List<Integer>(getIndexOnGUI());
+		}
+		
+		//Handles the case that the GUI, the current widget belongs to, is a root GUI.
+		return
+		getParentGUI()
+		.as(WidgetGUI.class)
+		.getIndexPathOnRootGUI()
+		.addAtEnd(getIndexOnGUI());
+	}
+	
 	//method
 	/**
 	 * The interaction attributes of a {@link Widget} are those a user can change.
