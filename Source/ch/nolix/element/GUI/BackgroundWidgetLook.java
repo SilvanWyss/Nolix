@@ -6,12 +6,13 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.entity2.Property;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
+import ch.nolix.element.image.Image;
 
 //abstract class
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 150
+ * @lines 170
  * @param <BWL> The type of a {@link BackgroundWidgetLook}.
  */
 public abstract class BackgroundWidgetLook<BWL extends BackgroundWidgetLook<BWL>>
@@ -24,8 +25,12 @@ extends WidgetLook<BWL> {
 	public static final ColorGradient DEFAULT_BACKGROUND_COLOR_GRADIENT
 	= ColorGradient.VERTICAL_BLACK_WHITE_COLOR_GRADIENT;
 	
-	//constant
+	//default value
+	public static final Image DEFAULT_BACKGROUND_IMAGE = new Image(200, 100, Color.BLACK);
+	
+	//constants
 	private static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
+	private static final String BACKGROUND_IMAGE_HEADER = "BackgroundImage";
 	
 	//attribute
 	private final Property<Color> backgroundColor =
@@ -41,6 +46,14 @@ extends WidgetLook<BWL> {
 		BACKGROUND_COLOR_GRADIENT_HEADER,
 		DEFAULT_BACKGROUND_COLOR_GRADIENT,
 		s -> ColorGradient.createFromSpecification(s)
+	);
+	
+	//attribute
+	private final Property<Image> backgroundImage =
+	new Property<Image>(
+		BACKGROUND_IMAGE_HEADER,
+		DEFAULT_BACKGROUND_IMAGE,
+		s -> Image.createFromSpecification(s)
 	);
 	
     //method
@@ -63,6 +76,15 @@ extends WidgetLook<BWL> {
     
     //method
     /**
+     * @return the recursive or default background image
+     * of the current {@link BackgroundWidgetLook}.
+     */
+    public final Image getRecursiveOrDefaultBackgroundImage() {
+        return backgroundImage.getRecursiveOrDefaultValue();
+    }
+    
+    //method
+    /**
      * @return true if the current {@link BackgroundWidgetLook}
      * has a recursive background color.
      */
@@ -81,48 +103,32 @@ extends WidgetLook<BWL> {
     
     //method
     /**
+     * @return true if the current {@link BackgroundWidgetLook}
+     * has a recursive background image.
+     */
+    public final boolean hasRecursiveBackgroundImage() {
+    	return backgroundImage.hasRecursiveValue();
+    }
+    
+    //method
+    /**
      * Removes any background of the current {@link BackgroundWidgetLook}.
      * 
      * @return the current {@link BackgroundWidgetLook}.
      */
     public final BWL removeAnyBackground() {
     	
-    	removeBackgroundColor();
-    	removeBackgroundColorGradient();
+    	backgroundColor.removeValue();
+    	backgroundColorGradient.removeValue();
+    	backgroundImage.removeValue();
     	
     	return getInstance();
     }
     
     //method
     /**
-     * Removes the background color of the current {@link BackgroundWidgetLook}.
-     * 
-     * @return the current {@link BackgroundWidgetLook}.
-     */
-    public final BWL removeBackgroundColor() {
-        
-        backgroundColor.removeValue();
-        
-        return getInstance();
-    }
-    
-    //method
-    /**
-     * Removes the background color gradient of the current {@link BackgroundWidgetLook}.
-     * 
-     * @return the current {@link BackgroundWidgetLook}.
-     */
-    public final BWL removeBackgroundColorGradient() {
-        
-        backgroundColorGradient.removeValue();
-        
-        return getInstance();
-    }
-    
-    //method
-    /**
      * Sets the background color of the current {@link BackgroundWidgetLook}.
-     * Removes the background color gradient of the current {@link BackgroundWidgetLook}.
+     * Removes any former background of the current {@link BackgroundWidgetLook}.
      * 
      * @param backgroundColor
      * @return the current {@link BackgroundWidgetLook}.
@@ -130,8 +136,8 @@ extends WidgetLook<BWL> {
      */
     public final BWL setBackgroundColor(final Color backgroundColor) {
     	
+    	removeAnyBackground();
     	this.backgroundColor.setValue(backgroundColor);
-    	removeBackgroundColorGradient();
     	
     	return getInstance();
     }
@@ -139,7 +145,7 @@ extends WidgetLook<BWL> {
     //method
     /**
      * Sets the background color gradient of the current {@link BackgroundWidgetLook}.
-     * Removes the background color of the current {@link BackgroundWidgetLook}.
+     * Removes any former background of the current {@link BackgroundWidgetLook}.
      * 
      * @param backgroundColorGradient
      * @return the current {@link BackgroundWidgetLook}.
@@ -147,8 +153,24 @@ extends WidgetLook<BWL> {
      */
     public final BWL setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
     	
+    	removeAnyBackground();
     	this.backgroundColorGradient.setValue(backgroundColorGradient);
-    	removeBackgroundColor();
+    	
+    	return getInstance();
+    }
+    
+    /**
+     * Sets the background image of the current {@link BackgroundWidgetLook}.
+     * Removes any former background of the current {@link BackgroundWidgetLook}.
+     * 
+     * @param backgroundImage
+     * @return the current {@link BackgroundWidgetLook}.
+     * @throws NullArgumentException if the given background image is not an instance.
+     */
+    public final BWL setBackgroundImage(final Image backgroundImage) {
+    		
+    	removeAnyBackground();
+    	this.backgroundImage.setValue(backgroundImage);
     	
     	return getInstance();
     }

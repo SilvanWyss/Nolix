@@ -8,7 +8,7 @@ import ch.nolix.element.painter.IPainter;
 /**
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 50
+ * @lines 60
  * @param <BW> The type of a {@link BackgroundWidget}.
  * @param <BWS> The type of the {@link BackgroundWidgetLook} of a {@link BackgroundWidget}.
  */
@@ -41,13 +41,23 @@ extends Widget<BW, BWS> {
 		
 		//Handles the case that the given background widget look
 		//has a recursive background color gradient.
-		else if (backgroundWidgetLook.hasRecursiveBackgroundColorGradient()) {
+		if (backgroundWidgetLook.hasRecursiveBackgroundColorGradient()) {
 			
 			painter.setColorGradient(
 				backgroundWidgetLook.getRecursiveOrDefaultBackgroundColorGradient()
 			);
 			
 			painter.paintFilledRectangle(getWidth(), getHeight());
+		}
+		
+		//Handles the case that the given background widget look
+		//has a recursive background image.
+		if (backgroundWidgetLook.hasRecursiveBackgroundImage()) {
+			painter.paintImage(
+				backgroundWidgetLook.getRecursiveOrDefaultBackgroundImage(),
+				getWidth(),
+				getHeight()
+			);
 		}
 	}
 }
