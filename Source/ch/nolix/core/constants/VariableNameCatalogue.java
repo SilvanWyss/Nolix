@@ -88,6 +88,7 @@ public final class VariableNameCatalogue {
 	public static final String SURNAME = "surname";
 	public static final String TAB = "tab";
 	public static final String TEST = "test";
+	public static final String TEST_CLASS = "test class";
 	public static final String TEXT = "text";
 	public static final String TIMEOUT = "timeout";
 	public static final String TIMEOUT_IN_MICROSECONDS = "timeout in microseconds";
