@@ -114,7 +114,6 @@ public abstract class TestPool implements Runnable {
 				new ErrorPredicate("is not a testoid class"));
 		}
 		
-		//TODO: Check if test class is a testoid class.
 		testClasses.addAtEnd((Class<Testoid>)testClass);
 	}
 	
