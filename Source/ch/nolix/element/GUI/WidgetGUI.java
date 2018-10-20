@@ -4,6 +4,7 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.painter.IPainter;
 
 //class
@@ -41,8 +42,7 @@ implements IGUI<WidgetGUI> {
 	
 	//method
 	public IGUIController getRefController() {
-		//TODO
-		return null;
+		return getParentGUI().getRefController();
 	}
 	
 	//method
@@ -68,8 +68,12 @@ implements IGUI<WidgetGUI> {
 	
 	//method
 	public boolean hasController() {
-		// TODO
-		return false;
+		
+		if (!belongsToGUI()) {
+			return false;
+		}
+		
+		return getParentGUI().hasController();
 	}
 	
 	//method
@@ -166,6 +170,17 @@ implements IGUI<WidgetGUI> {
 	public void refresh() {}
 	
 	//method
+	public WidgetGUI setRootWidget(final Widget<?, ?> rootWidget) {
+		
+		Validator.suppose(rootWidget).thatIsNamed("root widget").isInstance();
+		
+		rootWidget.setParentGUI(this);
+		this.rootWidget = rootWidget;
+		
+		return getInstance();
+	}
+	
+	//method
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {
 		setProposalWidth(500);
 		setProposalHeight(200);
@@ -198,6 +213,13 @@ implements IGUI<WidgetGUI> {
 		}
 		
 		return getRefRootWidget().getWidth();
+	}
+	
+	//method
+	protected void noteSetParent() {
+		if (containsAny()) {
+			getRefRootWidget().setParentGUI(this);
+		}
 	}
 	
 	//method
