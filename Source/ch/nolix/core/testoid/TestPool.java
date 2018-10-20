@@ -5,12 +5,14 @@ package ch.nolix.core.testoid;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Vector;
 
+//own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.primitiveContainer.List;
-//own imports
 import ch.nolix.core.skillInterfaces.Runnable;
 
 //class
@@ -19,7 +21,7 @@ import ch.nolix.core.skillInterfaces.Runnable;
  * 
  * @author Silvan Wyss
  * @month 2016-01
- * @lines 160
+ * @lines 170
  */
 public abstract class TestPool implements Runnable {
 
@@ -94,13 +96,22 @@ public abstract class TestPool implements Runnable {
 	 * 
 	 * @param test
 	 * @throws NullArgumentException if the given test is not an instance.
+	 * @throws InvalidArgumentException if the given test class is not a testoid class.
 	 */
 	@SuppressWarnings("unchecked")
 	protected final void addTestClass(final Class<?> testClass) {
 		
 		//Checks if the given test class is an instance.
 		if (testClass == null) {
-			throw new NullArgumentException("test class");
+			throw new NullArgumentException(VariableNameCatalogue.TEST_CLASS);
+		}
+		
+		//Checks if the given test class is a testoid class.
+		if (!Testoid.class.isAssignableFrom(testClass)) {
+			throw new InvalidArgumentException(
+				new ArgumentName(VariableNameCatalogue.TEST_CLASS),
+				new Argument(testClass),
+				new ErrorPredicate("is not a testoid class"));
 		}
 		
 		//TODO: Check if test class is a testoid class.
