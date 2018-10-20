@@ -9,7 +9,7 @@ import ch.nolix.element.configuration.StandardConfiguration;
 
 //class
 public final class AnthrazitGUILook extends StandardConfiguration {
-
+	
 	//constructor
 	public AnthrazitGUILook() {
 		
@@ -18,7 +18,7 @@ public final class AnthrazitGUILook extends StandardConfiguration {
 		addConfiguration(
 			new DeepConfiguration()
 			.addAttachingAttribute(
-				"BaseTextFont(Arial)",
+				"BaseFont(Arial)",
 				"BaseTextSize(20)",
 				"BaseTextColor(0x808080)"
 			),
