@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
+import ch.nolix.core.constants.CharacterCatalogue;
+import ch.nolix.core.container.IContainer;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
@@ -10,7 +12,6 @@ import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.element.GUI.GUI;
-import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.image.Image;
@@ -89,45 +90,45 @@ extends Client<FGC> {
 	}
 	
 	//package-visible method
-	FileProvider getFileProvider(final Widget<?, ?> widget) {
-		return new FileProvider(this, widget);
+	FileProvider getFileProvider(final IContainer<Integer> indexPathOnRootGUI) {
+		return new FileProvider(this, indexPathOnRootGUI);
 	}
 	
 	//package-visible method
-	void noteLeftMouseButtonPressCommandOnCounterpart(final Widget<?, ?> widget) {
-		noteCommandOnCounterpart(widget, Protocol.NOTE_LEFT_MOUSE_BUTTON_PRESS_HEADER);
+	void noteLeftMouseButtonPressCommandOnCounterpart(final IContainer<Integer> indexPathOnRootGUI) {
+		noteCommandOnCounterpart(indexPathOnRootGUI, Protocol.NOTE_LEFT_MOUSE_BUTTON_PRESS_HEADER);
 	}
 	
 	//package-visible method
-	void noteLeftMouseButtonReleaseCommandOnCounterpart(final Widget<?, ?> widget) {
-		noteCommandOnCounterpart(widget, Protocol.NOTE_LEFT_MOUSE_BUTTON_RELEASE_HEADER);
+	void noteLeftMouseButtonReleaseCommandOnCounterpart(final IContainer<Integer> indexPathOnRootGUI) {
+		noteCommandOnCounterpart(indexPathOnRootGUI, Protocol.NOTE_LEFT_MOUSE_BUTTON_RELEASE_HEADER);
 	}
 
 	//package-visible method
-	void noteRightMouseButtonPressCommandOnCounterpart(final Widget<?, ?> widget) {
-		noteCommandOnCounterpart(widget, Protocol.NOTE_RIGHT_MOUSE_BUTTON_PRESS_HEADER);
+	void noteRightMouseButtonPressCommandOnCounterpart(final IContainer<Integer> indexPathOnRootGUI) {
+		noteCommandOnCounterpart(indexPathOnRootGUI, Protocol.NOTE_RIGHT_MOUSE_BUTTON_PRESS_HEADER);
 	}
 	
 	//package-visible method
-	void noteRightMouseButtonReleaseCommandOnCounterpart(final Widget<?, ?> widget) {
-		noteCommandOnCounterpart(widget, Protocol.NOTE_RIGHT_MOUSE_BUTTON_RELEASE_HEADER);
+	void noteRightMouseButtonReleaseCommandOnCounterpart(final IContainer<Integer> indexPathOnRootGUI) {
+		noteCommandOnCounterpart(indexPathOnRootGUI, Protocol.NOTE_RIGHT_MOUSE_BUTTON_RELEASE_HEADER);
 	}
 	
 	//package-visible method
-	String readFileFromCounterpart(final Widget<?, ?> widget) {
+	String readFileFromCounterpart(final IContainer<Integer> indexPathOnRootGUI) {
 		return
 		internal_getDataFromCounterpart(
 			Protocol.READ_FILE_HEADER
 			+ "("
-			+ widget.getIndexOnGUI()
+			+ indexPathOnRootGUI.toString(CharacterCatalogue.DOT)
 			+ ")"
 		)
 		.toString();
 	}
 	
 	//package-visible method
-	byte[] readFileToBytesFromCounterpart(final Widget<?, ?> widget) {
-		return readFileFromCounterpart(widget).getBytes();
+	byte[] readFileToBytesFromCounterpart(final IContainer<Integer> indexPathOnRootGUI) {
+		return readFileFromCounterpart(indexPathOnRootGUI).getBytes();
 	}
 	
 	//method
@@ -147,7 +148,7 @@ extends Client<FGC> {
 	 * @param widget
 	 * @param commandHeader
 	 */
-	private void noteCommandOnCounterpart(final Widget<?, ?> widget, final String commandHeader) {
+	private void noteCommandOnCounterpart(final IContainer<Integer> indexPathOnRootGUI, final String commandHeader) {
 		internal_runOnCounterpart(			
 				
 			Protocol.GUI_HEADER
@@ -161,9 +162,9 @@ extends Client<FGC> {
 			
 			Protocol.GUI_HEADER
 			+ '.'
-			+ Protocol.WIDGET_BY_INDEX_HEADER
+			+ Protocol.WIDGET_BY_INDEX_PATH_HEADER
 			+ '('
-			+ widget.getIndexOnGUI()
+			+ indexPathOnRootGUI.toString(CharacterCatalogue.DOT)
 			+ ')'
 			+ '.'
 			+ commandHeader

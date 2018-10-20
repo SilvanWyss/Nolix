@@ -1,33 +1,33 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
+//own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.validator2.Validator;
-//own import
 import ch.nolix.element.GUI.IFileProvider;
-import ch.nolix.element.GUI.Widget;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 
 //class
 public final class FileProvider implements IFileProvider {
 	
 	final FrontGUIClientoid<?> frontGUIClient;
-	final Widget<?, ?> widget;
+	final IContainer<Integer> widgetIndexPathOnRootGUI;
 	
 	//constructor
 	public FileProvider(
 		final FrontGUIClientoid<?> frontGUIClient,
-		final Widget<?, ?> widget
+		final IContainer<Integer> indexPathOnRootGUI
 	) {
 		
 		Validator.suppose(frontGUIClient).isInstanceOf(FrontGUIClient.class);		
-		Validator.suppose(widget).isInstanceOf(Widget.class);
+		Validator.suppose(indexPathOnRootGUI).isInstanceOf(IContainer.class);
 		
 		this.frontGUIClient = frontGUIClient;
-		this.widget = widget;
+		widgetIndexPathOnRootGUI = indexPathOnRootGUI;
 	}
-
+	
 	//method
 	public byte[] readFileToBytes() {
-		return frontGUIClient.readFileToBytesFromCounterpart(widget);
+		return frontGUIClient.readFileToBytesFromCounterpart(widgetIndexPathOnRootGUI);
 	}
 }

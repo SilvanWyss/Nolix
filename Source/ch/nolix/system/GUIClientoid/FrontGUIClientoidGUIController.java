@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
-import ch.nolix.core.validator2.Validator;
 //own imports
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.validator2.Validator;
+import ch.nolix.element.GUI.IFileProvider;
 import ch.nolix.element.GUI.IGUIController;
-import ch.nolix.element.GUI.Widget;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 
 //package-visible class
@@ -22,27 +23,27 @@ final class FrontGUIClientoidGUIController implements IGUIController {
 	}
 	
 	//method
-	public FileProvider getFileProvider(Widget<?, ?> widget) {
-		return frontGUIClient.getFileProvider(widget);
+	public IFileProvider getFileProvider(IContainer<Integer> indexPathOnRootGUI) {
+		return frontGUIClient.getFileProvider(indexPathOnRootGUI);
 	}
-
+	
 	//method
-	public void noteLeftMouseButtonPressCommand(final Widget<?, ?> widget) {
-		frontGUIClient.noteLeftMouseButtonPressCommandOnCounterpart(widget);
+	public void noteLeftMouseButtonPressCommand(IContainer<Integer> indexPathOnRootGUI) {
+		frontGUIClient.noteLeftMouseButtonPressCommandOnCounterpart(indexPathOnRootGUI);
 	}
-
+	
 	//method
-	public void noteLeftMouseButtonReleaseCommand(final Widget<?, ?> widget) {
-		frontGUIClient.noteLeftMouseButtonReleaseCommandOnCounterpart(widget);
+	public void noteLeftMouseButtonReleaseCommand(IContainer<Integer> indexPathOnRootGUI) {
+		frontGUIClient.noteLeftMouseButtonReleaseCommandOnCounterpart(indexPathOnRootGUI);
 	}
-
+	
 	//method
-	public void noteRightMouseButtonPressCommand(final Widget<?, ?> widget) {
-		frontGUIClient.noteRightMouseButtonPressCommandOnCounterpart(widget);
+	public void noteRightMouseButtonPressCommand(IContainer<Integer> indexPathOnRootGUI) {
+		frontGUIClient.noteRightMouseButtonPressCommandOnCounterpart(indexPathOnRootGUI);
 	}
-
+	
 	//method
-	public void noteRightMouseButtonReleaseCommand(final Widget<?, ?> widget) {
-		frontGUIClient.noteRightMouseButtonReleaseCommandOnCounterpart(widget);
+	public void noteRightMouseButtonReleaseCommand(IContainer<Integer> indexPathOnRootGUI) {
+		frontGUIClient.noteRightMouseButtonReleaseCommandOnCounterpart(indexPathOnRootGUI);
 	}
 }

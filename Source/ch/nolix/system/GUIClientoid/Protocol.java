@@ -14,7 +14,7 @@ final class Protocol {
 	//constants
 	static final String COUNTERPART_HEADER = "Counterpart";
 	static final String GUI_HEADER = "GUI";
-	static final String WIDGET_BY_INDEX_HEADER = "WidgetByIndex";
+	static final String WIDGET_BY_INDEX_PATH_HEADER = "WidgetByIndexPath";
 	static final String PAINTER_BY_INDEX_HEADER = "PainterByIndex";
 	
 	//constants

@@ -17,6 +17,7 @@ import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
+import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
@@ -405,19 +406,7 @@ implements IGUI<G> {
 		
 		return (W)rootWidget;
 	}
-	
-	//method
-	/**
-	 * @param index
-	 * @return the widget with the given index recursively from this GUI.
-	 * @throws NonPositiveArgumentException if the given index is not positive.
-	 * @throws UnexistingAttributeException if this GUI contains no widget with the given index.
-	 */
-	@SuppressWarnings("unchecked")
-	public final <W extends Widget<?, ?>> W getRefWidgetByIndexRecursively(final int index) {
-		return (W)getRefWidgetsRecursively().getRefAt(index);
-	}
-	
+		
 	//method
 	/**
 	 * @param name

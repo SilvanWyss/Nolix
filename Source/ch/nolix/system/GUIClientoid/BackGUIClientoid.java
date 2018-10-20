@@ -3,10 +3,12 @@ package ch.nolix.system.GUIClientoid;
 
 //own imports
 import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
+import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -136,7 +138,11 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 			case Protocol.READ_FILE_HEADER:
 				
 				final Downloader downloader =
-				getRefGUI().getRefWidgetByIndexRecursively(request.getOneAttributeAsInt());
+				getRefGUI().getRefWidgetByIndexPath(
+					new ReadContainer<String>(
+						request.getOneAttributeToString().split("/.")).to(s -> StringHelper.toInt(s)
+					)
+				);
 				
 				return
 				DocumentNode.createSpecificationWithHeader(downloader.readFile());
@@ -348,9 +354,12 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 					GUICommand.getRefAttributes().to(a -> a.getRefAttributes())
 				);
 				break;
-			case Protocol.WIDGET_BY_INDEX_HEADER:
+			case Protocol.WIDGET_BY_INDEX_PATH_HEADER:				
 				runWidgetCommand(
-					getRefGUI().getRefWidgetByIndexRecursively(GUICommand.getOneAttributeAsInt()),
+					getRefGUI().getRefWidgetByIndexPath(
+						new ReadContainer<String>(GUICommand.getOneAttributeToString().split("/."))
+						.to(s -> StringHelper.toInt(s))
+					),
 					GUICommand.getRefNextStatement()
 				);
 				break;
