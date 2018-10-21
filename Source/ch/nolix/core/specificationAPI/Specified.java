@@ -13,7 +13,7 @@ import ch.nolix.core.skillInterfaces.Typed;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 70
+ * @lines 90
  */
 public interface Specified extends Typed {
 
@@ -74,9 +74,18 @@ public interface Specified extends Typed {
 	
 	//default method
 	/**
-	 * @return a XML specification of this specified object.
+	 * @return a XML representation of the current {@link Specified}.
 	 */
 	public default XMLNode toXML() {
 		return getSpecification().toXML();
+	}
+	
+	//default method
+	/**
+	 * @return a XML representation of the current {@link Specified} as the given type.
+	 * @param type
+	 */
+	public default XMLNode toXMLAs(final String type) {
+		return getSpecificationAs(type).toXML();
 	}
 }
