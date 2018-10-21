@@ -15,14 +15,15 @@ final class Protocol {
 	static final String COUNTERPART_HEADER = "Counterpart";
 	static final String GUI_HEADER = "GUI";
 	static final String WIDGET_BY_INDEX_PATH_HEADER = "WidgetByIndexPath";
-	static final String PAINTER_BY_INDEX_HEADER = "PainterByIndex";
 	
 	//constants
-	public static final String FRONT_END_TYPE = "FrontEndType";
-	public static final String SHOW_ERROR_MESSAGE = "ShowErrorMessage";
+	public static final String FRONT_END_TYPE_HEADER = "FrontEndType";
+	public static final String SHOW_ERROR_MESSAGE_COMMAND = "ShowErrorMessage";
 	public static final String CREATE_FILE_COMMAND = "CreateFile";
 	public static final String OPEN_FILE_EXPLORER_COMMAND = "OpenFileExplorer";
 	public static final String READ_FILE_HEADER = "ReadFile";
+	public static final String PAINT_HEADER = "Paint";
+	public static final String PAINTER_BY_INDEX_HEADER = "PainterByIndex";
 	
 	//constants
 	public static final String ADD_OR_CHANGE_ATTRIBUTES_HEADER = "AddOrChangeAttributes";

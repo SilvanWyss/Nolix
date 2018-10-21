@@ -22,11 +22,11 @@ implements IPainter, Flushable {
 	private final BrowserGUIPainterBottom bottom;
 	
 	//constructor
-	public FrontBrowserGUIClientoidPainter() {
+	public FrontBrowserGUIClientoidPainter(final BackGUIClientoid<?> parentBackGUIClient) {
 		
 		super(1);
 		
-		bottom = new BrowserGUIPainterBottom();
+		bottom = new BrowserGUIPainterBottom(parentBackGUIClient);
 	}
 	
 	//constructor
@@ -85,7 +85,7 @@ implements IPainter, Flushable {
 	
 	//method
 	public void flush() {
-		bottom.runPainterCommands();
+		bottom.paintOnCounterpart();
 	}
 	
 	//method

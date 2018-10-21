@@ -103,7 +103,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	public final BGUIC showErrorMessage(final String errorMessage) {
 		
 		internal_runOnCounterpart(
-			Protocol.SHOW_ERROR_MESSAGE
+			Protocol.SHOW_ERROR_MESSAGE_COMMAND
 			+ "("
 			+ DocumentNode.createReproducingString(errorMessage)
 			+ ")"
@@ -180,7 +180,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 			case Protocol.GUI_HEADER:
 				runGUICommand(command.getRefNextStatement());
 				break;			
-			case Protocol.SHOW_ERROR_MESSAGE:
+			case Protocol.SHOW_ERROR_MESSAGE_COMMAND:
 				internal_showErrorMessage(command.getOneAttributeToString());
 				break;
 			case Protocol.CREATE_FILE_COMMAND:
@@ -222,6 +222,16 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 		PopupWindowProvider.showErrorWindow(errorMessage);
 	}
 	
+	//package-visible method
+	final void paintOnCounterpart(final IContainer<Statement> painterCommands) {
+		internal_runOnCounterpart(
+			Protocol.PAINT_HEADER
+			+ '('
+			+ painterCommands.toStrings()
+			+ ')'
+		);
+	}
+	
 	//method
 	/**
 	 * Adds or changes the given attributes to the {@link GUI} of the current {@link BackGUIClientoid}.
@@ -257,7 +267,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 		if (!knowsFrontEndType()) {
 			frontEndType
 			= FrontGUIClientoidType.valueOf(
-				internal_getDataFromCounterpart(Protocol.FRONT_END_TYPE).getHeader()
+				internal_getDataFromCounterpart(Protocol.FRONT_END_TYPE_HEADER).getHeader()
 			);
 		}
 	}

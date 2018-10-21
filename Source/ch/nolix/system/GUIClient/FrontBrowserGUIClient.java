@@ -20,7 +20,6 @@ public final class FrontBrowserGUIClient extends FrontGUIClientoid<FrontBrowserG
 
 	public FrontBrowserGUIClient() {
 		super(true);
-		// TODO Auto-generated constructor stub
 	}
 
 	//method

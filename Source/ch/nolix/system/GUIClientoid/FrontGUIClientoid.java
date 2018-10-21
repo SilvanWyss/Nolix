@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
+//own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.container.IContainer;
-//own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
@@ -11,6 +11,7 @@ import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
@@ -31,7 +32,7 @@ extends Client<FGC> {
 	private final GUI<?> GUI;
 	
 	public FrontGUIClientoid(boolean browserGUI) {
-		GUI = new BackGUIClientoidBrowserGUI(() -> new FrontBrowserGUIClientoidPainter());
+		this(new Frame());
 	}
 	
 	public FrontGUIClientoid(final GUI<?> GUI) {
@@ -53,7 +54,7 @@ extends Client<FGC> {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
-			case Protocol.FRONT_END_TYPE:
+			case Protocol.FRONT_END_TYPE_HEADER:
 				return DocumentNode.createSpecificationWithHeader(getFrontEndType().toString());
 			default:
 				
@@ -76,11 +77,8 @@ extends Client<FGC> {
 			case Protocol.GUI_HEADER:
 				runGUICommand(command.getRefNextStatement());
 				break;
-			case Protocol.PAINTER_BY_INDEX_HEADER:
-				runPainterCommand(
-					getRefPainterByIndex(command.getOneAttributeAsInt()),
-					command.getRefNextStatement()
-				);
+			case Protocol.PAINT_HEADER:
+				runPainterCommands(command.getRefAttributes().to(a -> new Statement(a.toString())));
 				break;
 			default:
 			
@@ -88,7 +86,7 @@ extends Client<FGC> {
 				super.internal_run(command);
 		}
 	}
-	
+
 	//package-visible method
 	FileProvider getFileProvider(final IContainer<Integer> indexPathOnRootGUI) {
 		return new FileProvider(this, indexPathOnRootGUI);
@@ -278,6 +276,14 @@ extends Client<FGC> {
 					new ArgumentName("painter command"),
 					new Argument(painterCommand)
 				);
+		}
+	}
+	
+	//method
+	private void runPainterCommands(final IContainer<Statement> painterCommands) {
+		//TODO
+		for (final Statement pc : painterCommands) {
+			runPainterCommand(getRefPainterByIndex(pc.getOneAttributeAsInt()), pc.getRefNextStatement());
 		}
 	}
 	
