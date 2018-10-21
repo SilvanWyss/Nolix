@@ -313,12 +313,10 @@ public final class DocumentNode extends DocumentNodeoid {
 	//method
 	/**
 	 * @param header
-	 * @return a string representation of the one attribute of the first attribute with the given header
-	 * @throws Exception if:
-	 *  -the current {@link DocumentNode} contains no attribute with the given header
-	 *  -the first attribute of the current {@link DocumentNode} with the given header contains no or several attributes
+	 * @return a string representation
+	 * of the one attribute of the first attribute with the given header of the current {@link DocumentNode}.
 	 */
-	public String getRefOneAttributeOfFirstAttributeToString(String header)  {
+	public String getRefOneAttributeOfFirstAttributeAsString(String header)  {
 		return getRefOneAttributeOfFirstAttribute(header).toString();
 	}
 	
