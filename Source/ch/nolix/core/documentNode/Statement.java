@@ -128,10 +128,9 @@ public final class Statement {
 	
 	//method
 	/**
-	 * @return a string representation of the one attribute of this statement.
-	 * @throws InvalidStateException if this statement contains no or several attributes.
+	 * @return a string representation of the one attribute of the current {@link Statement}.
 	 */
-	public String getOneAttributeToString() {
+	public String getOneAttributeAsString() {
 		return specification.getOneAttributeAsString();
 	}
 	

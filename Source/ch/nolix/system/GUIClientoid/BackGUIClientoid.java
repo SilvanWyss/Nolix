@@ -140,7 +140,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 				final Downloader downloader =
 				getRefGUI().getRefWidgetByIndexPath(
 					new ReadContainer<String>(
-						request.getOneAttributeToString().split("/.")).to(s -> StringHelper.toInt(s)
+						request.getOneAttributeAsString().split("/.")).to(s -> StringHelper.toInt(s)
 					)
 				);
 				
@@ -181,7 +181,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 				runGUICommand(command.getRefNextStatement());
 				break;			
 			case Protocol.SHOW_ERROR_MESSAGE_COMMAND:
-				internal_showErrorMessage(command.getOneAttributeToString());
+				internal_showErrorMessage(command.getOneAttributeAsString());
 				break;
 			case Protocol.CREATE_FILE_COMMAND:
 				
@@ -367,7 +367,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 			case Protocol.WIDGET_BY_INDEX_PATH_HEADER:				
 				runWidgetCommand(
 					getRefGUI().getRefWidgetByIndexPath(
-						new ReadContainer<String>(GUICommand.getOneAttributeToString().split("/."))
+						new ReadContainer<String>(GUICommand.getOneAttributeAsString().split("/."))
 						.to(s -> StringHelper.toInt(s))
 					),
 					GUICommand.getRefNextStatement()

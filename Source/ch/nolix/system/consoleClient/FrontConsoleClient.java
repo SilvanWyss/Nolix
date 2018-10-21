@@ -211,7 +211,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 				setDesign(new StandardConfiguration(command.getRefOneAttribute().getRefAttributes()));
 				break;
 			case Protocol.SET_TITLE_COMMAND:
-				GUI.setTitle(command.getOneAttributeToString());
+				GUI.setTitle(command.getOneAttributeAsString());
 				break;			
 		
 			//Handles console commands.
@@ -227,7 +227,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 				GUI.refresh();
 				break;
 			case Protocol.WRITE_LINE_TO_CONSOLE_COMMAND:
-				console.writeLine(command.getOneAttributeToString());
+				console.writeLine(command.getOneAttributeAsString());
 				GUI.refresh();
 				break;
 			case Protocol.WRITE_LINES_TO_CONSOLE_COMMAND:
@@ -244,7 +244,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 				GUI.refresh();
 				break;
 			case Protocol.WRITE_LINE_TO_INFO_PANEL_COMMAND:
-				infoPanel.writeLine(command.getOneAttributeToString());
+				infoPanel.writeLine(command.getOneAttributeAsString());
 				GUI.refresh();
 				break;
 			case Protocol.WRITE_LINES_TO_INFO_PANEL_COMMAND:
