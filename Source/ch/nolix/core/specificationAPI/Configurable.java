@@ -63,7 +63,7 @@ extends IFluentObject<C>, Named, Specifiable<C>, Tokened {
 	/**
 	 * {@inheritDoc}
 	 */
-	default C reset() {
+	public default C reset() {
 		
 		resetConfiguration();
 		
