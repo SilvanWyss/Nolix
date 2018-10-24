@@ -7,20 +7,21 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.skillInterfaces.Listable;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 
 //class
 /**
- * A {@link DocumentNode} is a specification
+ * A {@link DocumentNode} is a {@link DocumentNodeoid}
  * that is completely stored in the memory like a common object.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 410
  */
-public final class DocumentNode extends DocumentNodeoid {
+public final class DocumentNode extends DocumentNodeoid implements Listable<DocumentNode> {
 	
 	//static method
 	/**
