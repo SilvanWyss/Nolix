@@ -12,10 +12,10 @@ import ch.nolix.core.documentNode.DocumentNode;
  * @lines 30
  */
 public interface ISpecifiedEnum extends Specified {
-
+	
 	//default method
 	/**
-	 * @return the type of this specified enum.
+	 * @return the type of the current {@link ISpecifiedEnum}.
 	 */
 	public default String getType() {
 		return getClass().getSimpleName();
@@ -23,12 +23,9 @@ public interface ISpecifiedEnum extends Specified {
 	
 	//default method
 	/**
-	 * @return the attributes of this specified enum.
+	 * @return the attributes of the current {@link ISpecifiedEnum}.
 	 */
 	public default List<DocumentNode> getAttributes() {
-		return
-		new List<DocumentNode>(
-			DocumentNode.createSpecificationWithHeader(toString())
-		);
+		return DocumentNode.createSpecificationWithHeader(toString()).intoList();
 	}
 }
