@@ -60,7 +60,7 @@ public class StandardConfiguration extends Configuration<StandardConfiguration> 
 			
 			setAttachingAttributesTo(element);
 						
-			final ReadContainer<Configurable<?>> elements = element.getRefConfigurables();
+			final var elements = element.getRefConfigurables();
 			elements.forEach(e -> configurations.forEach(c -> c.configure(e)));
 		}
 	}

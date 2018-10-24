@@ -1,78 +1,80 @@
-/*
- * file:	Configurable.java
- * author:	Silvan Wyss
- * month:	2015
- * lines:	60
- */
-
 //package declaration
 package ch.nolix.core.specificationAPI;
 
 //own imports
-import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.skillInterfaces.IFluentObject;
+import ch.nolix.core.skillInterfaces.Named;
+import ch.nolix.core.skillInterfaces.Tokened;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 
 //interface
 /**
- * A configurable object is a specifiable object that:
- * -has a type and super types
- * -can have a name
- * -can have a group
- * -can contain other configurable objects
- *   
- * The default methods of this interface need not to be overwritten.
+ * A {@link Configurable} is a {@link Named}, {@link Specifiable} and {@link Tokened}  that:
+ * -Has a type and super types.
+ * -Can have a role.
+ * -Can contain other {@link Configurable}.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 80
  */
-public interface Configurable<C extends Configurable<C>> extends Specifiable<C> {
+public interface Configurable<C extends Configurable<C>>
+extends IFluentObject<C>, Named, Specifiable<C>, Tokened {
 	
 	//abstract method
 	/**
-	 * @param name
-	 * @return true if this configurable has the given name
+	 * @return the {@link Configurable} of the current {@link Configurable}.
 	 */
-	public abstract boolean hasName(String name);
+	public abstract IContainer<Configurable<?>> getRefConfigurables();
+	
+	//default method
+	/**
+	 * @return the {@link Configurable} of the current {@link Configurable} recursively.
+	 */
+	public default IContainer<Configurable<?>> getRefConfigurablesRecursively() {
+		return
+		new List<Configurable<?>>(getRefConfigurables())
+		.addAtEnd(getRefConfigurables().toFromMany(c -> c.getRefConfigurablesRecursively()));
+	}
 	
 	//abstract method
 	/**
 	 * @param role
-	 * @return true if this configurable has the given role
+	 * @return true if the current {@link Configurable} has the given role.
 	 */
 	public abstract boolean hasRole(String role);
 	
 	//abstract method
 	/**
-	 * @param group
-	 * @return true if this configurable has the given group
+	 * @param token
+	 * @return true if the current {@link Configurable} has the given token.
 	 */
-	public abstract boolean hasToken(String group);
+	public abstract boolean hasToken(String token);
 	
 	//abstract method
 	/**
 	 * @param type
-	 * @return true if this configurable object has the given type or super type
+	 * @return true if the current {@link Configurable} has the given type or super type.
 	 */
 	public abstract boolean hasTypeOrSuperType(String type);	
 	
-	//abstract method
-	/**
-	 * @return the configurable objects of this configurable objects
-	 */
-	public abstract ReadContainer<Configurable<?>> getRefConfigurables();
-	
 	//default method
 	/**
-	 * @return the configurable objects of this configurable object recursively
+	 * {@inheritDoc}
 	 */
-	public default ReadContainer<Configurable<?>> getRefConfigurablesRecursively() {
-		final List<Configurable<?>> elements = new List<Configurable<?>>(getRefConfigurables());
-		getRefConfigurables().forEach(r -> elements.addAtEnd(r.getRefConfigurablesRecursively()));
-		return new ReadContainer<Configurable<?>>(elements);
+	default C reset() {
+		
+		resetConfiguration();
+		
+		return getInstance();
 	}
 	
 	//abstract method
 	/**
-	 * Resets the configuration of this configurable object.
+	 * Resets the configuration of the current {@link Configurable}.
 	 * 
-	 * @return this configurable object.
+	 * @return the current {@link Configurable}.
 	 */
 	public abstract C resetConfiguration();
 }

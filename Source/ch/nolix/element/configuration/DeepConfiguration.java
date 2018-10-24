@@ -77,7 +77,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 
 		if (!hasMaxSelectorLevel()) {
 
-			final ReadContainer<Configurable<?>> elements = element.getRefConfigurables();
+			final var elements = element.getRefConfigurables();
 			
 			if (selects(element)) {
 				setAttachingAttributesTo(element);		
@@ -189,7 +189,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	private void configure(Configurable<?> element, int level) {
 		if (level > 0) {
 			
-			final ReadContainer<Configurable<?>> elements = element.getRefConfigurables();
+			final var elements = element.getRefConfigurables();
 			
 			if (selects(element)) {
 				setAttachingAttributesTo(element);
