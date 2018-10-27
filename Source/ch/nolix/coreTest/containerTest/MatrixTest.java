@@ -5,15 +5,30 @@ package ch.nolix.coreTest.containerTest;
 import ch.nolix.core.container.Matrix;
 import ch.nolix.core.test2.Test;
 
-//test class
+//class
 /**
- * A {@link MatrixTest} is a test for the {@link Matrix} class.
+ * A {@link MatrixTest} is a test for {@link Matrix}.
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 140
+ * @lines 190
  */
 public final class MatrixTest extends Test {
+	
+	//test case
+	public void testCase_addColumn() {
+		
+		//setup
+		final var matrix = new Matrix<String>();
+				
+		//execution
+		matrix.addColumn("apple", "banana", "cerish");
+		
+		//verification
+		expect(matrix.getRowCount()).isEqualTo(3);
+		expect(matrix.getColumnCount()).isEqualTo(1);
+		expect(matrix.getColumn(1).toString()).isEqualTo("apple,banana,cerish");
+	}
 
 	//test case
 	public void testCase_addRow() {
@@ -25,7 +40,6 @@ public final class MatrixTest extends Test {
 		matrix.addRow("apple", "banana", "cerish");
 		
 		//verification
-		expect(matrix.getSize()).isEqualTo(3);
 		expect(matrix.getRowCount()).isEqualTo(1);
 		expect(matrix.getColumnCount()).isEqualTo(3);
 		expect(matrix.getRow(1).toString()).isEqualTo("apple,banana,cerish");
@@ -55,6 +69,28 @@ public final class MatrixTest extends Test {
 			
 			expect(column3.getSize()).isEqualTo(3);
 			expect(column3.toString()).isEqualTo("cerish,monkey,palm");
+	}
+	
+	//test case
+	public void testCase_getCopy() {
+		
+		//setup
+			final var matrix = new Matrix<String>();
+			
+			matrix.addRow("apple", "banana", "cerish");
+			matrix.addRow("elephant", "lion", "monkey");
+			matrix.addRow("flower", "tree", "palm");
+			
+		//execution
+		final var copy = matrix.getCopy();
+		
+		//verification
+			expect(copy.getColumnCount()).isEqualTo(3);
+			expect(copy.getRowCount()).isEqualTo(3);
+			
+			expect(copy.getRow(1).toString()).isEqualTo("apple,banana,cerish");
+			expect(copy.getRow(2).toString()).isEqualTo("elephant,lion,monkey");
+			expect(copy.getRow(3).toString()).isEqualTo("flower,tree,palm");
 	}
 	
 	//test case
@@ -111,7 +147,7 @@ public final class MatrixTest extends Test {
 			
 			expect(row2.getSize()).isEqualTo(3);
 			expect(row2.toString()).isEqualTo("elephant,lion,monkey");
-		
+			
 			expect(row3.getSize()).isEqualTo(3);
 			expect(row3.toString()).isEqualTo("flower,tree,palm");
 	}
