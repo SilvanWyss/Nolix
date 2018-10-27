@@ -47,7 +47,8 @@ implements IFluentObject<WL>, Specified {
 	new Property<Font>(
 		Font.TYPE_NAME,
 		DEFAULT_TEXT_FONT,
-		s -> Font.createFromSpecification(s)
+		s -> Font.createFromSpecification(s),
+		f -> f.getSpecification()
 	);
 	
 	//attribute
@@ -55,7 +56,8 @@ implements IFluentObject<WL>, Specified {
 	new Property<Boolean>(
 		BOLD_TEXT_FLAG_HEADER,
 		new Boolean(false),
-		s -> Boolean.createFromSpecification(s)
+		s -> Boolean.createFromSpecification(s),
+		bts -> bts.getSpecification()
 	);
 	
 	//attribute
@@ -63,7 +65,8 @@ implements IFluentObject<WL>, Specified {
 	new Property<PositiveInteger>(
 		PascalCaseNameCatalogue.TEXT_SIZE,
 		new PositiveInteger(DEFAULT_TEXT_SIZE),
-		s -> PositiveInteger.createFromSpecification(s)
+		s -> PositiveInteger.createFromSpecification(s),
+		ts -> ts.getSpecification()
 	);
 	
 	//attribute
@@ -71,7 +74,8 @@ implements IFluentObject<WL>, Specified {
 	new Property<Color>(
 		PascalCaseNameCatalogue.TEXT_COLOR,
 		DEFAULT_TEXT_COLOR,
-		s -> Color.createFromSpecification(s)
+		s -> Color.createFromSpecification(s),
+		tc -> tc.getSpecification()
 	);
 	
 	//method

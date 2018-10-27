@@ -26,7 +26,8 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	new Property<Color>(
 		TAB_HEADER_BACKGROUND_COLOR_HEADER,
 		DEFAULT_TAB_HEADER_BACKGROUND_COLOR,
-		s -> Color.createFromSpecification(s)
+		s -> Color.createFromSpecification(s),
+		thbc -> thbc.getSpecification()
 	);
 	
 	//attribute
@@ -34,7 +35,8 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	new Property<PositiveInteger>(
 		TAB_HEADER_TEXT_SIZE_HEADER,
 		new PositiveInteger(DEFAULT_TAB_HEADER_TEXT_SIZE),
-		s -> PositiveInteger.createFromSpecification(s)
+		s -> PositiveInteger.createFromSpecification(s),
+		thts -> thts.getSpecification()
 	);
 	
 	//attribute
@@ -42,7 +44,8 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	new Property<Color>(
 		TAB_HEADER_TEXT_COLOR_HEADER,
 		DEFAULT_TAB_HEADER_TEXT_COLOR,
-		s -> Color.createFromSpecification(s)
+		s -> Color.createFromSpecification(s),
+		thtc -> thtc.getSpecification()
 	);
 	
 	//attribute
@@ -50,7 +53,8 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	new Property<Color>(
 		TAB_BACKGROUND_COLOR_HEADER,
 		DEFAULT_TAB_BACKGROUND_COLOR,
-		s -> Color.createFromSpecification(s)
+		s -> Color.createFromSpecification(s),
+		tbc -> tbc.getSpecification()
 	);
 	
 	//method

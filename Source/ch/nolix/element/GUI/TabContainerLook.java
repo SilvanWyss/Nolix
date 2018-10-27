@@ -27,7 +27,8 @@ extends BorderWidgetLook<TabContainerLook> {
 	new Property<NonNegativeInteger>(
 		MENU_ITEM_MARGIN_HEADER,
 		new NonNegativeInteger(DEFAULT_MENU_ITEM_MARGIN),
-		s -> NonNegativeInteger.createFromSpecification(s)
+		s -> NonNegativeInteger.createFromSpecification(s),
+		mim -> mim.getSpecification()
 	);
 	
 	//attribute
@@ -35,7 +36,8 @@ extends BorderWidgetLook<TabContainerLook> {
 	new Property<NonNegativeInteger>(
 		MENU_MARGIN_HEADER,
 		new NonNegativeInteger(DEFAULT_MENU_MARGIN),
-		s -> NonNegativeInteger.createFromSpecification(s)
+		s -> NonNegativeInteger.createFromSpecification(s),
+		mm -> mm.getSpecification()
 	);
 	
 	//attribute
@@ -43,7 +45,8 @@ extends BorderWidgetLook<TabContainerLook> {
 	new Property<TabContainerMenuItemLook>(
 		BASE_MENU_ITEM_LOOK_HEADER,
 		new TabContainerMenuItemLook(),
-		s -> TabContainerMenuItemLook.createFromSpecification(s)
+		s -> TabContainerMenuItemLook.createFromSpecification(s),
+		bmil -> bmil.getSpecification()
 	);
 	
 	//attribute
@@ -51,7 +54,8 @@ extends BorderWidgetLook<TabContainerLook> {
 	new Property<TabContainerMenuItemLook>(
 		HOVER_MENU_ITEM_LOOK_HEADER,
 		new TabContainerMenuItemLook(),
-		s -> TabContainerMenuItemLook.createFromSpecification(s)
+		s -> TabContainerMenuItemLook.createFromSpecification(s),
+		hmil -> hmil.getSpecification()
 	);
 	
 	//attribute
@@ -59,7 +63,8 @@ extends BorderWidgetLook<TabContainerLook> {
 	new Property<TabContainerMenuItemLook>(
 		SELECTION_MENU_ITEM_LOOK_HEADER,
 		new TabContainerMenuItemLook(),
-		s -> TabContainerMenuItemLook.createFromSpecification(s)
+		s -> TabContainerMenuItemLook.createFromSpecification(s),
+		smil -> smil.getSpecification()
 	);
 	
 	//method

@@ -62,22 +62,8 @@ implements IFluentObject<E>, Specifiable<E> {
 	 */
 	public List<DocumentNode> getAttributes() {
 		
-		final List<DocumentNode> attributes =
-		new List<DocumentNode>();
-		
-		//Iterates the properties of this entity.
-		for (final Property<?> p : getRefProperties()) {
-			
-			//Handles the case that the current property has a value.
-			if (p.hasValue()) {
-				attributes.addAtEnd(
-					new DocumentNode(
-						p.getName(),
-						p.getRecursiveOrDefaultValue().getAttributes()
-					)
-				);
-			}
-		}
+		final List<DocumentNode> attributes = new List<DocumentNode>();
+		getRefProperties().forEach(p -> p.fillUpAttribute(attributes));
 		
 		return attributes;
 	}

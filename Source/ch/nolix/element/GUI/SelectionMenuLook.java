@@ -23,7 +23,8 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	new Property<NonNegativeInteger>(
 		ITEM_PADDING_HEADER,
 		new NonNegativeInteger(),
-		s -> NonNegativeInteger.createFromSpecification(s)
+		s -> NonNegativeInteger.createFromSpecification(s),
+		ipp -> ipp.getSpecification()
 	);
 	
 	//attribute
@@ -31,7 +32,8 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	new Property<SelectionMenuItemLook>(
 		NORMAL_ITEM_LOOK_HEADER,
 		new SelectionMenuItemLook(),
-		s -> SelectionMenuItemLook.createFromSpecification(s)
+		s -> SelectionMenuItemLook.createFromSpecification(s),
+		bilp -> bilp.getSpecification()
 	);
 	
 	//attribute
@@ -39,7 +41,8 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	new Property<SelectionMenuItemLook>(
 		HOVER_ITEM_LOOK_HEADER,
 		new SelectionMenuItemLook(),
-		s -> SelectionMenuItemLook.createFromSpecification(s)
+		s -> SelectionMenuItemLook.createFromSpecification(s),
+		hilp -> hilp.getSpecification()
 	);
 	
 	//attribute
@@ -47,7 +50,8 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	new Property<SelectionMenuItemLook>(
 		SELECTION_ITEM_LOOK_HEADER,
 		new SelectionMenuItemLook(),
-		s -> SelectionMenuItemLook.createFromSpecification(s)
+		s -> SelectionMenuItemLook.createFromSpecification(s),
+		silp -> silp.getSpecification()
 	);
 	
 	//method

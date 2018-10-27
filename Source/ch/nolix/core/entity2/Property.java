@@ -4,25 +4,27 @@ package ch.nolix.core.entity2;
 //own imports
 import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator2.Validator;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 230
+ * @lines 250
  * @param <V> The type of the value of a property.
  */
-public final class Property<V extends Specified> extends NamedElement {
+public final class Property<V> extends NamedElement {
 	
 	//attributes
 	private final V defaultValue;
 	private final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator;
+	private final IElementTakerElementGetter<V, DocumentNode> specificationCreator;
 	
 	//optional attributes
 	private V value;
@@ -35,15 +37,18 @@ public final class Property<V extends Specified> extends NamedElement {
 	 * @param name
 	 * @param defaultValue
 	 * @param valueCreator
+	 * @param specificationCreator
 	 * @throws NullArgumentException if the given name is not an instance.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws NullArgumentException if the given default value is not an instance.
 	 * @throws NullArgumentException if the given value creator is not an instance.
+	 * @throws NullArgumentException if the given specification creator is not an instance.
 	 */
 	public Property(
 		final String name,		
 		final V defaultValue,
-		final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator
+		final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator,
+		final IElementTakerElementGetter<V, DocumentNode> specificationCreator
 	) {
 		
 		//Calls constructor of the base class.
@@ -61,11 +66,20 @@ public final class Property<V extends Specified> extends NamedElement {
 		.thatIsNamed("value creator")
 		.isInstance();
 		
+		//Checks if the given specificaiton creator is an instance.
+		Validator
+		.suppose(specificationCreator)
+		.thatIsNamed("specification creator")
+		.isInstance();
+		
 		//Sets the default value of this property.
 		this.defaultValue = defaultValue;
 		
 		//Sets the value creator of this property.
 		this.valueCreator = valueCreator;
+		
+		//Sets the specification creator of this property.
+		this.specificationCreator = specificationCreator;
 	}
 	
 	//method
@@ -173,6 +187,19 @@ public final class Property<V extends Specified> extends NamedElement {
 	 */
 	public void setValueFromSpecification(final DocumentNodeoid specification) {
 		setValue(valueCreator.getOutput(specification));
+	}
+	
+	//package-visible method
+	void fillUpAttribute(final List<DocumentNode> attributes) {
+		
+		//Handles the case that the current property has a value.
+		if (hasValue()) {
+			
+			final var attribute = specificationCreator.getOutput(getRecursiveOrDefaultValue());
+			attribute.setHeader(getName());
+			
+			attributes.addAtEnd(attribute);
+		}
 	}
 	
 	//package-visible method

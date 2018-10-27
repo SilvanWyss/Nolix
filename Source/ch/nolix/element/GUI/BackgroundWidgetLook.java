@@ -37,7 +37,8 @@ extends WidgetLook<BWL> {
 	new Property<Color>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		DEFAULT_BACKGROUND_COLOR,
-		s -> Color.createFromSpecification(s)
+		s -> Color.createFromSpecification(s),
+		bc -> bc.getSpecification()
 	);
 
 	//attribute
@@ -45,7 +46,8 @@ extends WidgetLook<BWL> {
 	new Property<ColorGradient>(
 		BACKGROUND_COLOR_GRADIENT_HEADER,
 		DEFAULT_BACKGROUND_COLOR_GRADIENT,
-		s -> ColorGradient.createFromSpecification(s)
+		s -> ColorGradient.createFromSpecification(s),
+		cg -> cg.getSpecification()
 	);
 	
 	//attribute
@@ -53,7 +55,8 @@ extends WidgetLook<BWL> {
 	new Property<Image>(
 		BACKGROUND_IMAGE_HEADER,
 		DEFAULT_BACKGROUND_IMAGE,
-		s -> Image.createFromSpecification(s)
+		s -> Image.createFromSpecification(s),
+		bi -> bi.getSpecification()
 	);
 	
     //method

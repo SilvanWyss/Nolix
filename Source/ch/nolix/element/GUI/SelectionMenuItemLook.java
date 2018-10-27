@@ -35,7 +35,8 @@ extends Entity<SelectionMenuItemLook> {
 	new Property<Color>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		DEFAULT_BACKGROUND_COLOR,
-		s -> Color.createFromSpecification(s)
+		s -> Color.createFromSpecification(s),
+		bc -> bc.getSpecification()
 	);
 	
 	//attribute
@@ -43,7 +44,8 @@ extends Entity<SelectionMenuItemLook> {
 	new Property<Color>(
 		PascalCaseNameCatalogue.TEXT_COLOR,
 		DEFAULT_TEXT_COLOR,
-		s -> Color.createFromSpecification(s)
+		s -> Color.createFromSpecification(s),
+		tc -> tc.getSpecification()
 	);
 	
 	//method
