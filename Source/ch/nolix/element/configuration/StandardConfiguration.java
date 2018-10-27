@@ -2,7 +2,6 @@
 package ch.nolix.element.configuration;
 
 //own imports
-import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specificationAPI.Configurable;
@@ -27,9 +26,7 @@ public class StandardConfiguration extends Configuration<StandardConfiguration> 
 	 * if the file with the given file path represents no standard configuration.
 	 */
 	public static StandardConfiguration createConfigurationFromFile(final String filePath) {
-		StandardConfiguration standardConfiguration = new StandardConfiguration();
-		standardConfiguration.loadFrom(filePath);
-		return standardConfiguration;
+		return new StandardConfiguration().resetFrom(filePath);
 	}
 	
 	//constructor

@@ -2,7 +2,6 @@
 package ch.nolix.core.specificationAPI;
 
 //own imports
-import ch.nolix.core.skillInterfaces.IFluentObject;
 import ch.nolix.core.skillInterfaces.Named;
 import ch.nolix.core.skillInterfaces.Tokened;
 import ch.nolix.core.container.IContainer;
@@ -17,10 +16,10 @@ import ch.nolix.core.container.List;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 80
+ * @lines 70
  */
 public interface Configurable<C extends Configurable<C>>
-extends IFluentObject<C>, Named, Specifiable<C>, Tokened {
+extends Named, Specifiable<C>, Tokened {
 	
 	//abstract method
 	/**
