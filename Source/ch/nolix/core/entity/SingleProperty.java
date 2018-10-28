@@ -154,6 +154,7 @@ extends Propertyoid<V> {
 		//Checks if this single property is not empty when it is optional.
 		if (!isOptional() && isEmpty()) {
 			throw new InvalidStateException(
+				getName(),
 				this,
 				"is not optional, but empty");
 		}
