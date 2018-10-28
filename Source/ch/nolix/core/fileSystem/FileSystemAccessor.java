@@ -20,7 +20,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 380
+ * @lines 390
  */
 public final class FileSystemAccessor {
 	
@@ -174,14 +174,18 @@ public final class FileSystemAccessor {
 	 * @throws InvalidArgumentException if the given overwrite flag is false
 	 * and the computed file path exists already.
 	 */
-	public void createFile(
+	public FileAccessor createFile(
 		final String relativeFilePath,
 		final boolean overwrite,
 		final String content
 	) {
 		
 		//Calls other method.
-		createFile(relativeFilePath, overwrite).overwriteFile(content);
+		final var fileAccessor = createFile(relativeFilePath, overwrite);
+		
+		fileAccessor.overwriteFile(content);
+		
+		return fileAccessor;
 	}
 	
 	//method
@@ -200,13 +204,13 @@ public final class FileSystemAccessor {
 	 * @throws EmptyArgumentException if the given relative file path is empty.
 	 * @throws InvalidArgumentException if the computed file path exists already.
 	 */
-	public void createFile(
+	public FileAccessor createFile(
 		final String relativeFilePath,
 		final String content
 	) {
 		
 		//Calls other method.
-		createFile(relativeFilePath, false, content);
+		return createFile(relativeFilePath, false, content);
 	}
 	
 	//method
