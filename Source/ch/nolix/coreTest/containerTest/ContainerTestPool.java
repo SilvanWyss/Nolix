@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreTest.containerTest;
 
+//own import
 import ch.nolix.core.testoid.TestPool;
 
 //class
@@ -18,7 +19,8 @@ public final class ContainerTestPool extends TestPool {
 	public ContainerTestPool() {
 		addTestClass(
 			ListTest.class,
-			MatrixTest.class
+			MatrixTest.class,
+			ReadContainerTest.class
 		);
 	}
 }
