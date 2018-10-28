@@ -12,7 +12,7 @@ import ch.nolix.element.core.PositiveFloatingPointNumber;
  * @lines 190
  */
 public final class Cuboid extends BaseShape<Cuboid> {
-
+	
 	//default values	
 	public static final double DEFAULT_X_LENGTH = 1.0;
 	public static final double DEFAULT_Y_LENGTH = 1.0;
@@ -55,7 +55,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	 * Creates a new {@link Cuboid}.
 	 */
 	public Cuboid() {
-		resetConfiguration();
+		reset();
 		approveProperties();
 	}
 	
