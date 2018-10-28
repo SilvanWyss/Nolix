@@ -12,6 +12,7 @@ import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -19,7 +20,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 310
+ * @lines 380
  */
 public final class FileSystemAccessor {
 	
@@ -85,25 +86,59 @@ public final class FileSystemAccessor {
 	
 	//method
 	/**
-	 * Creates a new empty file with the given relative file path in the file system on the local machine.
+	 * Creates a new empty file in the file system on the local machine.
+	 * 
+	 * The file path will be the entry path of the current {@link FileSystemAccessor}
+	 * followed by the given relative file path.
 	 * 
 	 * @param relativeFilePath
-	 * @return file accessor to the created file.
-	 * @throws InvalidArgumentException if a file system item with the given relative file path
-	 * exists already in the file system on the local machine.
-	 * @throws RuntimeException if an error occurs.
+	 * @return a new {@link FileAccessor} to the created file.
+	 * @throws NullArgumentException if the given relative file path is null.
+	 * @throws EmptyArgumentException if the given relative file path is empty.
+	 * @throws InvalidArgumentException if the computed file path exists already.
 	 */
 	public FileAccessor createFile(final String relativeFilePath) {
 		
-		//Creates file path.
-		final String filePath = getEntryPath() + relativeFilePath;
+		//Calls other method.
+		return createFile(relativeFilePath, false);
+	}
+	
+	//method
+	/**
+	 * Creates a new empty file on the local machine.
+	 * 
+	 * The file path will be the entry path of the current {@link FileSystemAccessor}
+	 * followed by the given relative file path.
+	 * 
+	 * If the given overwrite flag is true,
+	 * a file with the computed file path, that exists already, will be overwritten.
+	 * 
+	 * @param relativeFilePath
+	 * @param overwrite
+	 * @return a new {@link FileAccessor} to the created file.
+	 * @throws NullArgumentException if the given relative file path is null.
+	 * @throws EmptyArgumentException if the given relative file path is empty.
+	 * @throws InvalidArgumentException if the given overwrite flag is false
+	 * and the computed file path exists already.
+	 */
+	public FileAccessor createFile(final String relativeFilePath, boolean overwrite) {
 		
-		//Checks if the given file path does not exist in the file system on the local machine.
-		if (fileSystemItemExists(filePath)) {
+		//Checks if the if given file path is not null and not empty.
+		Validator
+		.suppose(relativeFilePath)
+		.thatIsNamed("relative file path")
+		.isNotEmpty();
+		
+		//Computes file path.
+		final var filePath = getEntryPath() + relativeFilePath;
+		
+		//In the case the given overwrite flag is false,
+		//checks if the given file path does not exist already.
+		if (!overwrite && fileSystemItemExists(filePath)) {
 			throw new InvalidArgumentException(
 				new ArgumentName("file path"),
 				new Argument(filePath),
-				new ErrorPredicate("exists already in the file system")
+				new ErrorPredicate("exists already")
 			);
 		}
 		
@@ -115,25 +150,63 @@ public final class FileSystemAccessor {
 			throw new RuntimeException(exception);
 		}
 		
-		//Creates and returns a file accessor to the created file.
+		//Creates and returns a file accessor to the file.
 		return new FileAccessor(filePath);
 	}
 	
 	//method
 	/**
-	 * Creates a new file with the given relative file path in the file system on the local machine.
-	 * Writes the given content to the created file.
+	 * Creates a file on the local machine.
+	 * 
+	 * The file path will be the entry path of the current {@link FileSystemAccessor}
+	 * followed by the given relative file path.
+	 * 
+	 * The file will have the given content.
+	 * 
+	 * If the given overwrite flag is true,
+	 * a file with the computed file path, that exists already, will be overwritten.
 	 * 
 	 * @param relativeFilePath
-	 * @throws InvalidArgumentException if a file system item with the given relative file path
-	 * exists already in the file system on the local machine.
-	 * @throws RuntimeException if an error occurs.
+	 * @param overwrite
+	 * @return a new {@link FileAccessor} to the created file.
+	 * @throws NullArgumentException if the given relative file path is null.
+	 * @throws EmptyArgumentException if the given relative file path is empty.
+	 * @throws InvalidArgumentException if the given overwrite flag is false
+	 * and the computed file path exists already.
+	 */
+	public void createFile(
+		final String relativeFilePath,
+		final boolean overwrite,
+		final String content
+	) {
+		
+		//Calls other method.
+		createFile(relativeFilePath, overwrite).overwriteFile(content);
+	}
+	
+	//method
+	/**
+	 * Creates a file on the local machine.
+	 * 
+	 * The file path will be the entry path of the current {@link FileSystemAccessor}
+	 * followed by the given relative file path.
+	 * 
+	 * The file will have the given content.
+	 * 
+	 * @param relativeFilePath
+	 * @param overwrite
+	 * @return a new {@link FileAccessor} to the created file.
+	 * @throws NullArgumentException if the given relative file path is null.
+	 * @throws EmptyArgumentException if the given relative file path is empty.
+	 * @throws InvalidArgumentException if the computed file path exists already.
 	 */
 	public void createFile(
 		final String relativeFilePath,
 		final String content
-	) {	
-		createFile(relativeFilePath).overwriteFile(content);
+	) {
+		
+		//Calls other method.
+		createFile(relativeFilePath, false, content);
 	}
 	
 	//method
