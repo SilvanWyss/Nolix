@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.invalidStateException;
 
+//own import
 import ch.nolix.core.logger.Logger;
 
 //class
@@ -10,7 +11,7 @@ import ch.nolix.core.logger.Logger;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 80
+ * @lines 120
  */
 @SuppressWarnings("serial")
 public class InvalidStateException extends RuntimeException {
@@ -64,6 +65,52 @@ public class InvalidStateException extends RuntimeException {
 		this.object = object;
 		
 		//Sets the error predicate of this invalid state exception.
+		this.errorPredicate = errorPredicate;
+		
+		Logger.logError(getMessage());
+	}
+	
+	//constructor
+	/**
+	 * Creates a new invalid state exception for the given object, that has the given name,
+	 * and for the given error predicate.
+	 * 
+	 * @param name
+	 * @param object
+	 * @param errorPredicate
+	 * @throws RuntimeException if the given name is null.
+	 * @throws RuntimeException if the given name is empty.
+	 * @throws RuntimeException if the given error predicate is null.
+	 * @throws RuntimeException if the given error predicate is empty.
+	 */
+	public InvalidStateException(final String name, final Object object, final String errorPredicate) {
+		
+		super("The " + name + " '" + object + "' " + errorPredicate);
+		
+		//Checks if the given name is not null.
+		if (name == null) {
+			throw new RuntimeException("The given name is null.");
+		}
+		
+		//Checks if the given name is not empty.
+		if (name.isEmpty()) {
+			throw new RuntimeException("The given name is empty.");
+		}
+		
+		//Checks if the given error predicate is not null.
+		if (errorPredicate == null) {
+			throw new RuntimeException("The given error predicate is null.");
+		}
+		
+		//Checks if the given error predicate is not empty.
+		if (errorPredicate.isEmpty()) {
+			throw new RuntimeException("The given error predicate is empty.");
+		}
+		
+		//Sets the object of the current invalid state exception.
+		this.object = object;
+		
+		//Sets the error predicate of the current invalid state exception.
 		this.errorPredicate = errorPredicate;
 		
 		Logger.logError(getMessage());
