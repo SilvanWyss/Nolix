@@ -83,7 +83,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	
 	private LocalEndPoint(final LocalEndPoint<M, R> counterPart) {
 		
-		//Checks if the given counter part is an instance.
+		//Checks if the given counter part is not null.
 		Validator
 		.suppose(counterPart)
 		.thatIsNamed("counterpart")
@@ -102,8 +102,8 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	 * 
 	 * @param counterpart
 	 * @param target
-	 * @throws NullArgumentException if the given counterpart is not an instance.
-	 * @throws NullArgumentException if the given target is not an instance.
+	 * @throws NullArgumentException if the given counterpart is null.
+	 * @throws NullArgumentException if the given target is null.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
 	private LocalEndPoint(
@@ -114,7 +114,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 		//Sets the requested connection flag of this local end point.
 		requestedConnection = false;
 		
-		//Checks if the given counter part is an instance.
+		//Checks if the given counter part is not null.
 		Validator
 		.suppose(counterpart)
 		.thatIsNamed("counterpart")

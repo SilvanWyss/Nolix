@@ -32,7 +32,7 @@ public abstract class Element extends Entity implements Castable, TypeRequestabl
 	 */
 	public final boolean equals(final Object object) {
 	
-		//Handles the case that the given object is not an instance.
+		//Handles the case that the given object is null.
 		if (object == null) {
 			return false;
 		}

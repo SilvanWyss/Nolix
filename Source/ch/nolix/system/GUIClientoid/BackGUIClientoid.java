@@ -98,7 +98,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * 
 	 * @param errorMessage
 	 * @return this base GUI client.
-	 * @throws NullArgumentException if the given error message is not an instance.
+	 * @throws NullArgumentException if the given error message is null.
 	 */
 	public final BGUIC showErrorMessage(final String errorMessage) {
 		

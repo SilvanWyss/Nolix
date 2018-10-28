@@ -19,7 +19,7 @@ final class BackGUIClientoidBrowserGUI extends BackGUIClientoidGUI {
 		reset();
 		approveProperties();
 		
-		//Checks if the given painter creator is an instance.
+		//Checks if the given painter creator is not null.
 		Validator
 		.suppose(painterCreator)
 		.thatIsNamed("painter creator")

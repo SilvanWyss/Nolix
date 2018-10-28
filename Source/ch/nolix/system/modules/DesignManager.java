@@ -31,7 +31,7 @@ public final class DesignManager extends Module {
 	 * Creates a new design manager with the given central controller.
 	 * 
 	 * @param moduleManager
-	 * @throws NullArgumentException if the given central controller is not an instance.
+	 * @throws NullArgumentException if the given central controller is null.
 	 */
 	public DesignManager(final ModuleManager moduleManager) {
 		

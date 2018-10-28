@@ -110,11 +110,11 @@ public abstract class ClosableElement implements Closable {
 	 * Sets the close controller the current {@link ClosableElement} will belong to.
 	 * 
 	 * @param parentCloseController
-	 * @throws NullArgumentException if the given parent close controller is not an instance.
+	 * @throws NullArgumentException if the given parent close controller is null.
 	 */
 	void setParentCloseController(final CloseController parentCloseController) {
 		
-		//Checks if the given parent close controller is an instance.
+		//Checks if the given parent close controller is not null.
 		Validator
 		.suppose(parentCloseController)
 		.thatIsNamed("parent close controller")

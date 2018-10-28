@@ -27,7 +27,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	 * Creates a new {@link HorizontalStack} with the given widgets.
 	 * 
 	 * @param widgets
-	 * @throws NullArgumentException if one of the given widgets is not an instance.
+	 * @throws NullArgumentException if one of the given widgets is null.
 	 */
 	public <W extends Widget<?, ?>> HorizontalStack(final Iterable<W> widgets) {
 		
@@ -42,7 +42,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	 * Creates a new {@link HorizontalStack} with the given widgets.
 	 * 
 	 * @param widgets
-	 * @throws NullArgumentException if one of the given widgets is not an instance.
+	 * @throws NullArgumentException if one of the given widgets is null.
 	 */
 	public HorizontalStack(final Widget<?, ?>... widgets) {
 		

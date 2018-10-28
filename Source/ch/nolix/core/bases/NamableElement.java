@@ -26,7 +26,7 @@ implements Namable<NE> {
 	 * Creates a new {@link NamableElement} with the given name.
 	 * 
 	 * @param name
-	 * @throws NullArgumentException if the given name is not an instance.
+	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public NamableElement(final String name) {
@@ -47,12 +47,12 @@ implements Namable<NE> {
 	 * 
 	 * @param name
 	 * @return the current {@link NamableElement}.
-	 * @throws NullArgumentException if the given name is not an instance.
+	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public final NE setName(final String name) {
 		
-		//Checks if the given name is an instance and not empty.
+		//Checks if the given name is not null and not empty.
 		Validator
 		.suppose(name)
 		.thatIsNamed(VariableNameCatalogue.NAME)

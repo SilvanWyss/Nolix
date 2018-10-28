@@ -28,13 +28,13 @@ implements Named {
 	 * Creates a new module that belongs to the given central controller.
 	 * 
 	 * @param moduleManager
-	 * @throws NullArgumentException if the given central controller is not an instance.
+	 * @throws NullArgumentException if the given central controller is null.
 	 * @throws InvalidArgumentException
 	 * if the given central controller contains already a module with the same name as this module.
 	 */
 	public Module(final ModuleManager moduleManager) {
 		
-		//Checks if the given central controller is an instance.
+		//Checks if the given central controller is not null.
 		Validator.suppose(moduleManager).isInstanceOf(ModuleManager.class);
 		
 		//Sets the central controller this module belongs to.

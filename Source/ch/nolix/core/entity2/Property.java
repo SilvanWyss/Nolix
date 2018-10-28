@@ -38,11 +38,11 @@ public final class Property<V> extends NamedElement {
 	 * @param defaultValue
 	 * @param valueCreator
 	 * @param specificationCreator
-	 * @throws NullArgumentException if the given name is not an instance.
+	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given default value is not an instance.
-	 * @throws NullArgumentException if the given value creator is not an instance.
-	 * @throws NullArgumentException if the given specification creator is not an instance.
+	 * @throws NullArgumentException if the given default value is null.
+	 * @throws NullArgumentException if the given value creator is null.
+	 * @throws NullArgumentException if the given specification creator is null.
 	 */
 	public Property(
 		final String name,		
@@ -54,19 +54,19 @@ public final class Property<V> extends NamedElement {
 		//Calls constructor of the base class.
 		super(name);
 		
-		//Checks if the given default is an instance.
+		//Checks if the given default is not null.
 		Validator
 		.suppose(defaultValue)
 		.thatIsNamed(VariableNameCatalogue.DEFAULT_VALUE)
 		.isInstance();
 				
-		//Checks if the given value creator is an instance.
+		//Checks if the given value creator is not null.
 		Validator
 		.suppose(valueCreator)
 		.thatIsNamed("value creator")
 		.isInstance();
 		
-		//Checks if the given specificaiton creator is an instance.
+		//Checks if the given specificaiton creator is not null.
 		Validator
 		.suppose(specificationCreator)
 		.thatIsNamed("specification creator")
@@ -164,11 +164,11 @@ public final class Property<V> extends NamedElement {
 	 * Sets the value of this property.
 	 * 
 	 * @param value
-	 * @throws NullArgumentException if the given value is not an instance.
+	 * @throws NullArgumentException if the given value is null.
 	 */
 	public void setValue(final V value) {
 		
-		//Checks if the given value is an instance.
+		//Checks if the given value is not null.
 		Validator
 		.suppose(value)
 		.thatIsNamed(VariableNameCatalogue.VALUE)
@@ -207,13 +207,13 @@ public final class Property<V> extends NamedElement {
 	 * Sets the base property of this property.
 	 * 
 	 * @param baseProperty
-	 * @throws NullArgumentException if the given base property is not an instance.
+	 * @throws NullArgumentException if the given base property is null.
 	 * @throws InvalidStateException if this property has a base property.
 	 */
 	@SuppressWarnings("unchecked")
 	void setBaseProperty(final Property<?> baseProperty) {
 		
-		//Checks if the given base property is an instance.
+		//Checks if the given base property is not null.
 		Validator
 		.suppose(baseProperty)
 		.thatIsNamed("base property")

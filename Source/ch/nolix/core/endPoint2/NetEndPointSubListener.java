@@ -28,11 +28,11 @@ final class NetEndPointSubListener extends Thread {
 	 * Creates a new net end point sub listener that belongs to the given net end point.
 	 * 
 	 * @param netEndPoint
-	 * @throws NullArgumentException if the given net end point is not an instance.
+	 * @throws NullArgumentException if the given net end point is null.
 	 */
 	public NetEndPointSubListener(final NetEndPoint netEndPoint) {
 		
-		//Checks if the given net end point is an instance.
+		//Checks if the given net end point is not null.
 		Validator.suppose(netEndPoint).isInstanceOf(NetEndPoint.class);
 		
 		//Sets the net end point of this net end point sub listener.

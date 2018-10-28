@@ -24,11 +24,11 @@ final class FrameMouseListener implements MouseListener {
 	 * Creates a new frame mouse listener that belongs to the given frame.
 	 * 
 	 * @param frame
-	 * @throws NullArgumentException if the given frame is not an instance.
+	 * @throws NullArgumentException if the given frame is null.
 	 */
 	public FrameMouseListener(final Frame frame) {
 		
-		//Checks if the given frame is an instance.
+		//Checks if the given frame is not null.
 		Validator.suppose(frame).isInstanceOf(Frame.class);
 		
 		//Sets the frame of this frame mouse listener.

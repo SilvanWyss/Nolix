@@ -24,11 +24,11 @@ implements IEndPointTaker {
 	 * Creates a new server with the given end point taker.
 	 * 
 	 * @param endPointTaker
-	 * @throws NullArgumentException if the given end point taker is not an instance.
+	 * @throws NullArgumentException if the given end point taker is null.
 	 */
 	public Server(final IEndPointTaker endPointTaker) {
 		
-		//Checks if the given end point taker is an instance.
+		//Checks if the given end point taker is not null.
 		Validator.suppose(endPointTaker).isInstanceOf(IEndPointTaker.class);
 		
 		//Sets the end point taker of this server.

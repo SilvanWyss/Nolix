@@ -62,12 +62,12 @@ implements OptionalNamable<ONE> {
 	 * 
 	 * @param name
 	 * @return the current {@link OptionalNamableElement} element.
-	 * @throws NullArgumentException if the given name is not an instance.
+	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public final ONE setName(final String name) {
 		
-		//Checks if the given name is an instance and not empty.
+		//Checks if the given name is not null and not empty.
 		Validator
 		.suppose(name)
 		.thatIsNamed(VariableNameCatalogue.NAME)

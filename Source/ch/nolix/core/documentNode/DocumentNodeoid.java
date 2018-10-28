@@ -42,11 +42,11 @@ public abstract class DocumentNodeoid {
 	/**
 	 * @param string
 	 * @return a reproducing string for the given string on the specification context.
-	 * @throws NullArgumentException if the given string is not an instance.
+	 * @throws NullArgumentException if the given string is null.
 	 */
 	public static String createReproducingString(final String string) {
 		
-		//Checks if the given string is an instance.
+		//Checks if the given string is not null.
 		Validator
 		.suppose(string)
 		.isInstance();
@@ -66,7 +66,7 @@ public abstract class DocumentNodeoid {
 	/**
 	 * @param reproducingString
 	 * @return an origin string from the given reproducing string on the specification context.
-	 * @throws NullArgumentException if the given reproducingString is not an instance.
+	 * @throws NullArgumentException if the given reproducingString is null.
 	 */
 	public static String createOriginStringFromReproducingString(final String reproducingString) {
 		

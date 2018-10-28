@@ -471,11 +471,11 @@ implements Clearable<Console> {
 	 * 
 	 * @param editLine
 	 * @return this console
-	 * @throws NullArgumentException if the given edit line is not an instance.
+	 * @throws NullArgumentException if the given edit line is null.
 	 */
 	public Console setEditLine(final String editLine) {
 		
-		//Checks if the given edit line is an instance.
+		//Checks if the given edit line is not null.
 		Validator.suppose(editLine).thatIsNamed("edit line").isInstance();
 		
 		//Sets the edit line of this console.
@@ -541,7 +541,7 @@ implements Clearable<Console> {
 	 * 
 	 * @param line
 	 * @return this console.
-	 * @throws NullArgumentException if the given line is not an instance.
+	 * @throws NullArgumentException if the given line is null.
 	 */
 	public Console writeLine(final String line) {
 		
@@ -559,7 +559,7 @@ implements Clearable<Console> {
 	 * 
 	 * @param lines
 	 * @return this console.
-	 * @throws NullArgumentException if one of the given lines is not an instance.
+	 * @throws NullArgumentException if one of the given lines is null.
 	 */
 	public Console writeLine(final String... lines) {
 		
@@ -578,7 +578,7 @@ implements Clearable<Console> {
 	 * 
 	 * @param lines
 	 * @return this console.
-	 * @throws NullArgumentException if one of the given lines is not an instance.
+	 * @throws NullArgumentException if one of the given lines is null.
 	 */
 	public Console writeLines(final IContainer<String> lines) {
 
@@ -761,11 +761,11 @@ implements Clearable<Console> {
 	 * Sets the secret edit line of this console.
 	 * 
 	 * @param secretEditLine
-	 * @throws NullArgumentException if the given secret edit line is not an instance.
+	 * @throws NullArgumentException if the given secret edit line is null.
 	 */
 	private void setSecretEditLine(final String secretEditLine) {
 		
-		//Checks if the given secret edit line is an instance.
+		//Checks if the given secret edit line is not null.
 		Validator
 		.suppose(secretEditLine)
 		.thatIsNamed("secret edit line")

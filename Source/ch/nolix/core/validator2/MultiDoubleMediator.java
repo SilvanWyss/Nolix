@@ -23,7 +23,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	 * Creates a new multi double mediator for the given arguments.
 	 * 
 	 * @param arguments
-	 * @throws NullArgumentException if the given arguments is not an instance.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
 	MultiDoubleMediator(final Iterable<Double> arguments) {
 		
@@ -36,7 +36,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	 * Creates a new multi double mediator for the given arguments.
 	 * 
 	 * @param arguments
-	 * @throws NullArgumentException if the given arguments is not an instance.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
 	MultiDoubleMediator(final double[] arguments) {
 		
@@ -48,7 +48,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	/**
 	 * @param value
 	 * @throws NullArgumentException
-	 * if one of the arguments of this multi double mediator is not an instance.
+	 * if one of the arguments of this multi double mediator is null.
 	 * @throws NonNBiggerArgumentExceotion
 	 * if one of the arguments of this multi double mediator is not bigger than the given value.
 	 */
@@ -74,7 +74,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	//method
 	/**
 	 * @throws NullArgumentException
-	 * if one of the arguments of this multi double mediator is not an instance.
+	 * if one of the arguments of this multi double mediator is null.
 	 * @throws NonNegativeArgumentExceotion
 	 * if one of the arguments of this multi double mediator is not positive.
 	 */
@@ -100,7 +100,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	//method
 	/**
 	 * @throws NullArgumentException
-	 * if one of the arguments of this multi double mediator is not an instance.
+	 * if one of the arguments of this multi double mediator is null.
 	 * @throws NonPositiveArgumentExceotion
 	 * if one of the arguments of this multi double mediator is not positive.
 	 */
@@ -126,7 +126,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	//method
 	/**
 	 * @throws NullArgumentException
-	 * if one of the arguments of this multi double mediator is not an instance.
+	 * if one of the arguments of this multi double mediator is null.
 	 * @param value
 	 * @throws NonSmallerArgumentException
 	 * if one of the argument of this multi double mediator is not smaller than the given value.

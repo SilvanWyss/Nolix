@@ -35,7 +35,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * Creates a new server with the given applications.
 	 * 
 	 * @param applications
-	 * @throws NullArgumentException if one of the given applications is not an instance.
+	 * @throws NullArgumentException if one of the given applications is null.
 	 * @throws InvalidArgumentException if the given applications contains several applications with the same name.
 	 */
 	public Server(final Application<?>... applications) {
@@ -60,12 +60,12 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * Adds the given application to this server.
 	 * 
 	 * @param application
-	 * @throws NullArgumentException if the given application is not an instance.
+	 * @throws NullArgumentException if the given application is null.
 	 * @throws InvalidArgumentException if this server contains already anapplication with the same name as the given application.
 	 */
 	public final void addApplication(final Application<?> application) {
 		
-		//Checks if the given application is an instance.
+		//Checks if the given application is not null.
 		Validator.suppose(application).isInstanceOf(Application.class);
 		
 		//Checks if the given  this server contains not already an other application with the same name as the given applicaiton.
@@ -81,7 +81,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * Adds the given applications to this server.
 	 * 
 	 * @param applications
-	 * @throws NullArgumentException if one of the given applications is not an instance.
+	 * @throws NullArgumentException if one of the given applications is null.
 	 * @throws InvalidArgumentException if this server already contains an other application with the same name as one of the given applications.
 	 */
 	public final void addApplication(final Application<?>... applications) {

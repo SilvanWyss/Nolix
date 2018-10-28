@@ -17,14 +17,14 @@ public final class ErrorPredicate {
 	 * Creates a new error pedicate with the given value.
 	 *
 	 * @param value
-	 * @throws RuntimeException if the given value is not an instance.
+	 * @throws RuntimeException if the given value is null.
 	 * @throws RuntimeException if the given value is empty.
 	 */
 	public ErrorPredicate(final String value) {
 		
-		//Checks if the given value is an instance.
+		//Checks if the given value is not null.
 		if (value == null) {
-			throw new RuntimeException("The given error predicate is not an instance.");
+			throw new RuntimeException("The given error predicate is null.");
 		}
 		
 		//Checks if the given value is not empty.

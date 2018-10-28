@@ -23,11 +23,11 @@ final class NetServerListener implements ch.nolix.core.endPoint3.IEndPointTaker 
 	 * 
 	 * @param duplexControllerTaker
 	 * @throws NullArgumentException
-	 * if the given net server is not an instance.
+	 * if the given net server is null.
 	 */
 	public NetServerListener(final NetServer netServer) {
 		
-		//Checks if the given net server is an instance.
+		//Checks if the given net server is not null.
 		Validator.suppose(netServer).isInstanceOf(NetServer.class);
 		
 		//Sets the net server of htis net server sub end point taker.
@@ -47,7 +47,7 @@ final class NetServerListener implements ch.nolix.core.endPoint3.IEndPointTaker 
 	 * Lets this net server sub end point taker take the given end point.
 	 * 
 	 * @param endPoint
-	 * @throws NullArgumentException if the given end point is not an instance.
+	 * @throws NullArgumentException if the given end point is null.
 	 * @throws InvalidArgumentException if the given end point is no NetEndPoint.
 	 */
 	public void takeEndPoint(final ch.nolix.core.endPoint3.EndPoint endPoint) {		

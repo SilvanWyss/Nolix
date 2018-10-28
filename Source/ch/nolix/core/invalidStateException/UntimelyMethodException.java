@@ -20,7 +20,7 @@ public final class UntimelyMethodException extends InvalidStateException {
 	 * 
 	 * @param object
 	 * @param methodName
-	 * @throws RuntimeException if the given method name is not an instance.
+	 * @throws RuntimeException if the given method name is null.
 	 * @throws RuntimeException if the given method name is empty.
 	 */
 	public UntimelyMethodException(final Object object, final String methodName) {
@@ -28,9 +28,9 @@ public final class UntimelyMethodException extends InvalidStateException {
 		//Calls constructor of the base class.
 		super(object, "is not in a state for the method " + methodName);
 		
-		//Checks if the given method name is an instance.
+		//Checks if the given method name is not null.
 		if (methodName == null) {
-			throw new RuntimeException("The given method name is not an instance.");
+			throw new RuntimeException("The given method name is null.");
 		}
 		
 		//Checks if the given method name is not empty.

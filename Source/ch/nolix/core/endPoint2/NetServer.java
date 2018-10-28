@@ -58,7 +58,7 @@ public final class NetServer extends Server {
 	 * @param port
 	 * @param HTTPMessage
 	 * @throws OutOfRangeArgumentException if the given port is not in [0, 65535].
-	 * @throws NullArgumentException if the given HTTP message is not an instance.
+	 * @throws NullArgumentException if the given HTTP message is null.
 	 * @throws EmptyArgumentException if the given HTTP message is empty.
 	 */
 	public NetServer(final int port, final String HTTPMessage) {
@@ -66,7 +66,7 @@ public final class NetServer extends Server {
 		//Checks if the given port is in [0,65535]. 
 		Validator.suppose(port).isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
-		//Checks if the given HTTP message is an instance and not empty.
+		//Checks if the given HTTP message is not null and not empty.
 		Validator.suppose(HTTPMessage).thatIsNamed("HTTP message").isNotEmpty();
 		
 		//Sets the port of the current net server.

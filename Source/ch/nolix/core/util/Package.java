@@ -24,11 +24,11 @@ public class Package<C> {
 	 * 
 	 * @param index
 	 * @param context
-	 * @throws NullArgumentException if the given context is not an instance.
+	 * @throws NullArgumentException if the given context is null.
 	 */
 	public Package(final int index, final C context) {
 		
-		//Checks if the given context is an instance.
+		//Checks if the given context is not null.
 		Validator.suppose(context).thatIsNamed("context").isInstance();
 		
 		//Sets the index of this package.

@@ -201,7 +201,7 @@ implements IFluentObject<WL>, Specified {
 	 * 
 	 * @param textColor
 	 * @return the current {@link WidgetLook}.
-	 * @throws NullArgumentException if the given text color is not an instance.
+	 * @throws NullArgumentException if the given text color is null.
 	 */
 	public final WL setTextColor(final Color textColor) {
 		
@@ -216,7 +216,7 @@ implements IFluentObject<WL>, Specified {
 	 * 
 	 * @param font
 	 * @return the current {@link WidgetLook}.
-	 * @throws NullArgumentException if the given text font is not an instance.
+	 * @throws NullArgumentException if the given text font is null.
 	 */
 	public final WL setTextFont(final Font font) {
 		
@@ -267,11 +267,11 @@ implements IFluentObject<WL>, Specified {
 	 * Sets the base look of the current {@link WidgetLook}.
 	 * 
 	 * @param baseLook
-	 * @throws NullArgumentException if the given base look is not an instance.
+	 * @throws NullArgumentException if the given base look is null.
 	 */
 	final void setBaseLook(final WL baseLook) {
 		
-		//Checks if the given base look is an instance.
+		//Checks if the given base look is not null.
 		Validator
 		.suppose(baseLook)
 		.thatIsNamed("base look")

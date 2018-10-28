@@ -37,11 +37,11 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 	 * Creates a new read array container for the given array.
 	 * 
 	 * @param array
-	 * @throws NullArgumentException if the given array is not an instance.
+	 * @throws NullArgumentException if the given array is null.
 	 */
 	public ArrayReadContainer(final E[] array) {
 		
-		//Checks if the given array is an instance.
+		//Checks if the given array is not null.
 		Validator
 		.suppose(array)
 		.thatIsNamed(VariableNameCatalogue.ARRAY)

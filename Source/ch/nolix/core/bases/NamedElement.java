@@ -24,12 +24,12 @@ public abstract class NamedElement implements Named {
 	 * Creates a new {@link NamedElement} with the given name.
 	 * 
 	 * @param name
-	 * @throws NullArgumentException if the given name is not an instance.
+	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
 	public NamedElement(final String name) {
 		
-		//Checks if the given name is an instance and not empty.
+		//Checks if the given name is not null and not empty.
 		Validator
 		.suppose(name)
 		.thatIsNamed(VariableNameCatalogue.NAME)

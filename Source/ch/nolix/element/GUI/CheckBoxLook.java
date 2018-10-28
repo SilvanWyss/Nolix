@@ -236,11 +236,11 @@ extends BackgroundWidgetLook<CheckboxLook> {
 	 * 
 	 * @param lineColor
 	 * @return the current {@link CheckboxLook}.
-	 * @throws NullArgumentException if the given line color is not an instance.
+	 * @throws NullArgumentException if the given line color is null.
 	 */
 	public CheckboxLook setLineColor(final Color lineColor) {
 		
-		//Checks if the given line color is an instance.
+		//Checks if the given line color is not null.
 		Validator.suppose(lineColor).thatIsNamed("line color").isInstance();
 		
 		//Sets the line color of the current {@link CheckBoxLook}.

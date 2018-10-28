@@ -32,13 +32,13 @@ implements RawInputListener {
 	 * 
 	 * @param JMonkeyMainFrame_
 	 * @throws NullArgumentException
-	 * if the given JMonkey main frame is not an instance.
+	 * if the given JMonkey main frame is null.
 	 */
 	public JMonkeyMainFrameRawInputListener(
 		final JMonkeyMainFrame JMonkeyMainFrame_
 	) {
 		
-		//Checks if the given JMonkey main frame is an instance.
+		//Checks if the given JMonkey main frame is not null.
 		Validator
 		.suppose(JMonkeyMainFrame_).isInstanceOf(JMonkeyMainFrame.class);
 		

@@ -804,11 +804,11 @@ extends BackgroundWidgetLook<BWL> {
 	 * 
 	 * @param baseScrollbarLook
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given base scrollbar look is not an instance.
+	 * @throws NullArgumentException if the given base scrollbar look is null.
 	 */
 	public final BWL setBaseScrollbarLook(final ScrollbarLook baseScrollbarLook) {
 		
-		//Checks if the given base scrollbar look is an instance.
+		//Checks if the given base scrollbar look is not null.
 		Validator
 		.suppose(baseScrollbarLook)
 		.thatIsNamed("base scrollbar look")
@@ -826,7 +826,7 @@ extends BackgroundWidgetLook<BWL> {
 	 * 
 	 * @param borderColor
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given border color is not an instance.
+	 * @throws NullArgumentException if the given border color is null.
 	 */
 	public final BWL setBorderColors(final Color borderColor) {
 		
@@ -862,11 +862,11 @@ extends BackgroundWidgetLook<BWL> {
 	 * 
 	 * @param bottomBorderColor
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given bottom border color is not an instance.
+	 * @throws NullArgumentException if the given bottom border color is null.
 	 */
 	public final BWL setBottomBorderColor(final Color bottomBorderColor) {
 		
-		//Checks if the given bottom border color is an instance.
+		//Checks if the given bottom border color is not null.
 		Validator
 		.suppose(bottomBorderColor)
 		.thatIsNamed("bottom border color")
@@ -914,11 +914,11 @@ extends BackgroundWidgetLook<BWL> {
 	 * 
 	 * @param hoverScrollbarLook
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given hover scrollbar look is not an instance.
+	 * @throws NullArgumentException if the given hover scrollbar look is null.
 	 */
 	public final BWL setHoverScrollbarLook(final ScrollbarLook hoverScrollbarLook) {
 		
-		//Checks if the given hover scrollbar look is an instance.
+		//Checks if the given hover scrollbar look is not null.
 		Validator
 		.suppose(hoverScrollbarLook)
 		.thatIsNamed("hover scrollbar look")
@@ -936,11 +936,11 @@ extends BackgroundWidgetLook<BWL> {
 	 * 
 	 * @param leftBorderColor
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given left border color is not an instance.
+	 * @throws NullArgumentException if the given left border color is null.
 	 */
 	public final BWL setLeftBorderColor(final Color leftBorderColor) {
 		
-		//Checks if the given left border color is an instance.
+		//Checks if the given left border color is not null.
 		Validator
 		.suppose(leftBorderColor)
 		.thatIsNamed("left border color")
@@ -1006,11 +1006,11 @@ extends BackgroundWidgetLook<BWL> {
 	 * 
 	 * @param rightBorderColor
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given right border color is not an instance.
+	 * @throws NullArgumentException if the given right border color is null.
 	 */
 	public final BWL setRightBorderColor(final Color rightBorderColor) {
 		
-		//Checks if the given right border color is an instance.
+		//Checks if the given right border color is not null.
 		Validator
 		.suppose(rightBorderColor)
 		.thatIsNamed("right border color")
@@ -1058,11 +1058,11 @@ extends BackgroundWidgetLook<BWL> {
 	 * 
 	 * @param selectionScrollbarLook
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given selection scrollbar look is not an instance.
+	 * @throws NullArgumentException if the given selection scrollbar look is null.
 	 */
 	public final BWL setSelectionScrollbarLook(final ScrollbarLook selectionScrollbarLook) {
 		
-		//Checks if the given selection scrollbar look is an instance.
+		//Checks if the given selection scrollbar look is not null.
 		Validator
 		.suppose(selectionScrollbarLook)
 		.thatIsNamed("selection scrollbar look")
@@ -1080,11 +1080,11 @@ extends BackgroundWidgetLook<BWL> {
 	 * 
 	 * @param topBorderColor
 	 * @return the current {@link BorderWidgetLook}.
-	 * @throws NullArgumentException if the given top border color is not an instance.
+	 * @throws NullArgumentException if the given top border color is null.
 	 */
 	public final BWL setTopBorderColor(final Color topBorderColor) {
 		
-		//Checks if the given top border color is an instance.
+		//Checks if the given top border color is not null.
 		Validator
 		.suppose(topBorderColor)
 		.thatIsNamed("top border color")

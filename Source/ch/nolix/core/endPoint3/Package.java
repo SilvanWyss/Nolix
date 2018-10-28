@@ -36,15 +36,15 @@ final class Package extends ch.nolix.core.util.Package<String> {
 	 * @param index
 	 * @param messageRole
 	 * @param message
-	 * @throws NullArgumentException if the given message role is not an instance.
-	 * @throws NullArgumentExcetpion if the givne message is not an instance.
+	 * @throws NullArgumentException if the given message role is null.
+	 * @throws NullArgumentExcetpion if the givne message is null.
 	 */
 	public Package(final int index, final MessageRole messageRole, final String message) {
 		
 		//Calls constructor of the base class.
 		super(index, message);
 		
-		//Checks if the given message role is an instance.
+		//Checks if the given message role is not null.
 		Validator.suppose(messageRole).isInstanceOf(MessageRole.class);
 		
 		//Sets the message role of thsis zeta package.

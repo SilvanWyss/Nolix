@@ -119,7 +119,7 @@ implements IGUI<G> {
 	 * Registers the given widget class
 	 * 
 	 * @param widgetClass
-	 * @throws NullArgumentException if the given widget class is not an instance.
+	 * @throws NullArgumentException if the given widget class is null.
 	 * @throws InvalidArgumentException
 	 * if there can already be created a widget of the same type as the given widget class.
 	 */
@@ -132,7 +132,7 @@ implements IGUI<G> {
 	 * Registers the given widget classes
 	 * 
 	 * @param widgetClasses
-	 * @throws NullArgumentException if one of the given widget classes is not an instance.
+	 * @throws NullArgumentException if one of the given widget classes is null.
 	 * @throws InvalidArgumentException
 	 * if there can already be created a widget of the same type as one of the given widget classes.
 	 */
@@ -815,7 +815,7 @@ implements IGUI<G> {
 	 * 
 	 * @param backgroundColor
 	 * @return this GUI.
-	 * @throws NullArgumentException if the given background color is not an instance.
+	 * @throws NullArgumentException if the given background color is null.
 	 */
 	public final G setBackgroundColor(final Color backgroundColor) {
 		
@@ -833,7 +833,7 @@ implements IGUI<G> {
 	 * 
 	 * @param backgroundColorGradient
 	 * @return this GUI.
-	 * @throws NullArgumentException if the given background color gradient is not an instance.
+	 * @throws NullArgumentException if the given background color gradient is null.
 	 */
 	public final G setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
 		
@@ -868,11 +868,11 @@ implements IGUI<G> {
 	 * 
 	 * @param contentPosition
 	 * @return this GUI.
-	 * @throws NullArgumentException if the given content position is not an instance.
+	 * @throws NullArgumentException if the given content position is null.
 	 */
 	public final G setContentPosition(final ContentPosition contentPosition) {
 		
-		//Checks if the given content position is an instance.
+		//Checks if the given content position is not null.
 		Validator.suppose(contentPosition).isInstanceOf(ContentPosition.class);
 		
 		//Sets the content position of this GUI.
@@ -887,7 +887,7 @@ implements IGUI<G> {
 	 * 
 	 * @param controller
 	 * @return this GUI.
-	 * @throws NullArgumentException if the given controller is not an instance.
+	 * @throws NullArgumentException if the given controller is null.
 	 */
 	public final G setController(final IGUIController controller) {
 		
@@ -906,12 +906,12 @@ implements IGUI<G> {
 	 * Sets the root widget of this GUI.
 	 * 
 	 * @param rootWidget
-	 * @throws NullArgumentException if the given root widget is not an instance.
+	 * @throws NullArgumentException if the given root widget is null.
 	 * @throws InvalidArgumentException if the given root widget belongs already to an other GUI. 
 	 */
 	public final G setRootWidget(final Widget<?, ?> rootWidget) {
 		
-		//Checks if the given root widget is an instance.
+		//Checks if the given root widget is not null.
 		Validator.suppose(rootWidget).thatIsNamed("root widget").isInstance();
 		
 		//Sets the root widget of this GUI.
@@ -929,7 +929,7 @@ implements IGUI<G> {
 	 * 
 	 * @param title
 	 * @return this GUI.
-	 * @throws NullArgumentException if the given title is not an instance.
+	 * @throws NullArgumentException if the given title is null.
 	 * @throws EmptyArgumentException if the given title is empty.
 	 */
 	public final G setTitle(final String title) {

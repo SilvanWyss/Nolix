@@ -25,8 +25,8 @@ public class Pair<E1, E2> {
 	 * 
 	 * @param element1
 	 * @param element2
-	 * @throws NullArgumentException if the given element 1 is not an instance.
-	 * @throws NullArgumentException if the given element 2 is not an instance.
+	 * @throws NullArgumentException if the given element 1 is null.
+	 * @throws NullArgumentException if the given element 2 is null.
 	 */
 	public Pair(final E1 element1, final E2 element2) {
 		setElements(element1, element2);
@@ -53,11 +53,11 @@ public class Pair<E1, E2> {
 	 * Sets the element 1 of this pair.
 	 * 
 	 * @param element1
-	 * @throws NullArgumentException if the given element 1 is not an instance.
+	 * @throws NullArgumentException if the given element 1 is null.
 	 */
 	public void setElement1(final E1 element1) {
 		
-		//Checks if the given element 1 is an instance.
+		//Checks if the given element 1 is not null.
 		Validator.suppose(element1).thatIsNamed("element 1").isInstance();
 		
 		//Sets the element 1 of this pair.
@@ -69,11 +69,11 @@ public class Pair<E1, E2> {
 	 * Sets the element 2 of this pair.
 	 * 
 	 * @param element2
-	 * @throws NullArgumentException if the given element 2 is not an instance.
+	 * @throws NullArgumentException if the given element 2 is null.
 	 */
 	public void setElement2(final E2 element2) {
 		
-		//Checks if the given element 21 is an instance.
+		//Checks if the given element 21 is not null.
 		Validator.suppose(element2).thatIsNamed("element2").isInstance();
 		
 		//Sets the element 2 of this pair.
@@ -86,8 +86,8 @@ public class Pair<E1, E2> {
 	 * 
 	 * @param element1
 	 * @param element2
-	 * @throws NullArgumentException if the given element 1 is not an instance.
-	 * @throws NullArgumentException if the given element 2 is not an instance.
+	 * @throws NullArgumentException if the given element 1 is null.
+	 * @throws NullArgumentException if the given element 2 is null.
 	 */
 	public void setElements(final E1 element1, final E2 element2) {
 		setElement1(element1);

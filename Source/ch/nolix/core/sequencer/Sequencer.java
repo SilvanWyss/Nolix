@@ -50,7 +50,7 @@ public final class Sequencer {
 	/**
 	 * @param condition
 	 * @return a new as long as mediator with the given condition.
-	 * @throws NullArgumentException if the given condition is not an instance.
+	 * @throws NullArgumentException if the given condition is null.
 	 */
 	public static AsLongAsMediator asLongAs(final IBooleanGetter condition) {
 		return new AsLongAsMediator(condition);
@@ -72,7 +72,7 @@ public final class Sequencer {
 	 * 
 	 * @param job
 	 * @return a new future.
-	 * @throws NullArgumentException if the given job is not an instance.
+	 * @throws NullArgumentException if the given job is null.
 	 */
 	public static Future runInBackground(final IFunction job) {
 		return new Future(new JobRunner(job, 1));
@@ -85,7 +85,7 @@ public final class Sequencer {
 	 * 
 	 * @param resultJob
 	 * @return a new result future.
-	 * @throws NullArgumentException if the given result job is not an instance.
+	 * @throws NullArgumentException if the given result job is null.
 	 */
 	public static <R> ResultFuture<R> runInBackground(final IElementGetter<R> resultJob) {
 		return new ResultFuture<R>(new ResultJobRunner<R>(resultJob));

@@ -25,12 +25,12 @@ public final class SequencePatternNextMediator<E> {
 	 * 
 	 * @param sequencePattern
 	 * @param count
-	 * @throws NullArgumentException if the given sequence pattern is not an instance.
+	 * @throws NullArgumentException if the given sequence pattern is null.
 	 * @throws NegativeArgumentException if the given count is negative.
 	 */
 	SequencePatternNextMediator(final SequencePattern<E> sequencePattern, final int count) {
 		
-		//Checks if the given sequence pattern is an instance.
+		//Checks if the given sequence pattern is not null.
 		Validator.suppose(sequencePattern).isInstanceOf(SequencePattern.class);
 		
 		//Checks if the given count is not negative.
@@ -62,7 +62,7 @@ public final class SequencePatternNextMediator<E> {
 	 * 
 	 * @param condition
 	 * @return the sequence pattern of this sequence pattern next mediator.
-	 * @throws NullArgumentException if the given condition is not an instance.
+	 * @throws NullArgumentException if the given condition is null.
 	 */
 	public SequencePattern<E> addCondition(final IElementTakerBooleanGetter<E> condition) {
 		

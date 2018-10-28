@@ -20,7 +20,7 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
 	 * Creates a new long container mediator with the given arguments.
 	 * 
 	 * @param arguments
-	 * @throws NullArgumentException if the given argument container is not an instance.
+	 * @throws NullArgumentException if the given argument container is null.
 	 */
 	MultiLongMediator(final Iterable<Long> arguments) {
 		
@@ -36,7 +36,7 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
 
 	//method
 	/**
-	 * @throws NullArgumentException if one of the arguments of this long container mediator is not an instance.
+	 * @throws NullArgumentException if one of the arguments of this long container mediator is null.
 	 * @throws NonPositiveArgumentException if one of the arguments of this long container mediator is not positive.
 	 */
 	public void arePositive() {

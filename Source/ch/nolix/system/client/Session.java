@@ -167,12 +167,12 @@ public abstract class Session<C extends Client<C>> {
 	 * Sets the parent client of the current {@link Session}.
 	 * 
 	 * @param parentClient
-	 * @throws NullArgumentException if the given parent client is not an instance.
+	 * @throws NullArgumentException if the given parent client is null.
 	 * @throws InvalidStateException if the current {@link Session} belongs to a client.
 	 */
 	final void setParentClient(C parentClient) {
 		
-		//Checks if the given client is an instance.
+		//Checks if the given client is not null.
 		Validator
 		.suppose(parentClient)
 		.thatIsNamed("parent client")
@@ -201,7 +201,7 @@ public abstract class Session<C extends Client<C>> {
 	 * Sets the pop function of the current {@link Session}.
 	 * 
 	 * @param popFunction
-	 * @throws NullArgumentException if the given pop function is not an instance.
+	 * @throws NullArgumentException if the given pop function is null.
 	 */
 	final void setPopFunction(final IFunction popFunction) {
 		

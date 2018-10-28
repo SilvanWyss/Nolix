@@ -19,7 +19,7 @@ public abstract class LogHandler {
 	public LogHandler(final HarmLevel minHarmLevel) {
 		
 		if (minHarmLevel == null) {
-			throw new RuntimeException("The given min harm level is not an instance.");
+			throw new RuntimeException("The given min harm level is null.");
 		}
 		
 		this.minHarmLevel = minHarmLevel;

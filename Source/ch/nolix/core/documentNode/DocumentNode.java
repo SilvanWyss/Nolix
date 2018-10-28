@@ -51,7 +51,7 @@ public final class DocumentNode extends DocumentNodeoid implements Listable<Docu
 	/**
 	 * @param header
 	 * @return a new {@link DocumentNode} that consists of the given header.
-	 * @throws NullArgumentException if the given header is not an instance.
+	 * @throws NullArgumentException if the given header is null.
 	 */
 	public static final DocumentNode createSpecificationWithHeader(final String header) {
 		final DocumentNode specification = new DocumentNode();
@@ -109,9 +109,9 @@ public final class DocumentNode extends DocumentNodeoid implements Listable<Docu
 	 * 
 	 * @param header
 	 * @param attributes
-	 * @throws NullArgumentException if the given header is not an instance.
+	 * @throws NullArgumentException if the given header is null.
 	 * @throws EmptyArgumentException if the given header is empty.
-	 * @throws NullArgumentException if one of the given attributes is not an instance.
+	 * @throws NullArgumentException if one of the given attributes is null.
 	 */
 	public DocumentNode(final String header, final Iterable<DocumentNode> attributes) {
 		setHeader(header);
@@ -124,9 +124,9 @@ public final class DocumentNode extends DocumentNodeoid implements Listable<Docu
 	 * 
 	 * @param header
 	 * @param attributes
-	 * @throws NullArgumentException if the given header is not an instance.
+	 * @throws NullArgumentException if the given header is null.
 	 * @throws EmptyArgumentException if the given header is empty.
-	 * @throws NullArgumentException if one of the given attributes is not an instance.
+	 * @throws NullArgumentException if one of the given attributes is null.
 	 */
 	public DocumentNode(final String header, final List<String> attributes) {
 		
@@ -147,9 +147,9 @@ public final class DocumentNode extends DocumentNodeoid implements Listable<Docu
 	 * 
 	 * @param header
 	 * @param attributes
-	 * @throws NullArgumentException if the given header is not an instance.
+	 * @throws NullArgumentException if the given header is null.
 	 * @throws EmptyArgumentException if the given header is empty.
-	 * @throws NullArgumentException if one of the given attributes is not an instance.
+	 * @throws NullArgumentException if one of the given attributes is null.
 	 */
 	public DocumentNode(final String header, final DocumentNode... attributes) {	
 		setHeader(header);
@@ -162,9 +162,9 @@ public final class DocumentNode extends DocumentNodeoid implements Listable<Docu
 	 * 
 	 * @param header
 	 * @param attributes
-	 * @throws NullArgumentException if the given header is not an instance.
+	 * @throws NullArgumentException if the given header is null.
 	 * @throws EmptyArgumentException if the given header is empty.
-	 * @throws NullArgumentException if one of the given attributes is not an instance.
+	 * @throws NullArgumentException if one of the given attributes is null.
 	 */
 	public DocumentNode(final String header, final String... attributes) {
 		
@@ -192,7 +192,7 @@ public final class DocumentNode extends DocumentNodeoid implements Listable<Docu
 	 * Adds the given attribute to the current {@link DocumentNode}.
 	 * 
 	 * @param attribute
-	 * @throws NullArgumentException if the given attribute is not an instance.
+	 * @throws NullArgumentException if the given attribute is null.
 	 */
 	public void addAttribute(DocumentNode attribute) {
 		attributes.addAtEnd(attribute);
@@ -215,7 +215,7 @@ public final class DocumentNode extends DocumentNodeoid implements Listable<Docu
 	 * Sets the given prefix has header to the current {@link DocumentNode} if it has no header.
 	 * 
 	 * @param prefix
-	 * @throws NullArgumentException if the given prefix is not an instance.
+	 * @throws NullArgumentException if the given prefix is null.
 	 * @throws EmptyArgumentException if the given prefix is empty.
 	 */
 	public void addPrefixToHeader(final String prefix) {
@@ -240,7 +240,7 @@ public final class DocumentNode extends DocumentNodeoid implements Listable<Docu
 	 * Sets the given postfix as header to the current {@link DocumentNode} if it has no header.
 	 * 
 	 * @param postfix
-	 * @throws NullArgumentException if the given postfix is not an instance.
+	 * @throws NullArgumentException if the given postfix is null.
 	 * @throws EmptyArgumentException if the given postfix is empty.
 	 */
 	public void addPostfixToHeader(String postfix) {
@@ -356,8 +356,8 @@ public final class DocumentNode extends DocumentNodeoid implements Listable<Docu
 	 * Sets the attributes of the current {@link DocumentNode}.
 	 * 
 	 * @param attributes
-	 * @throws NullArgumentException if the given attribute container is not an instance.
-	 * @throws NullArgumentException if one of the given attributes is not an instance.
+	 * @throws NullArgumentException if the given attribute container is null.
+	 * @throws NullArgumentException if one of the given attributes is null.
 	 */
 	public void setAttributes(final Iterable<DocumentNode> attributes) {
 		
@@ -371,7 +371,7 @@ public final class DocumentNode extends DocumentNodeoid implements Listable<Docu
 	 * Sets the header of the current {@link DocumentNode}.
 	 * 
 	 * @param header
-	 * @throws NullArgumentException if the given header is not an instance.
+	 * @throws NullArgumentException if the given header is null.
 	 * @throws EmptyArgumentException if the given header is empty.
 	 */
 	public void setHeader(final String header) {

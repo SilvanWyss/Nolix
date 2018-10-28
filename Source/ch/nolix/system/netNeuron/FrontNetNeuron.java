@@ -44,7 +44,7 @@ implements Closable {
 	 * @param port
 	 * @param transformator
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65'535].
-	 * @throws NullArgumentException if the given transformator is not an instance.
+	 * @throws NullArgumentException if the given transformator is null.
 	 */
 	public FrontNetNeuron(
 		final int port,
@@ -65,7 +65,7 @@ implements Closable {
 	 * @param port
 	 * @param transformator
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65'535].
-	 * @throws NullArgumentException if the given transformator is not an instance.
+	 * @throws NullArgumentException if the given transformator is null.
 	 */
 	public FrontNetNeuron(
 		final String ip,
@@ -73,7 +73,7 @@ implements Closable {
 		IElementTakerElementGetter<DocumentNode, O> transformator
 	) {
 		
-		//Checks if the given transformer is an instance.
+		//Checks if the given transformer is not null.
 		Validator
 		.suppose(transformator)
 		.thatIsNamed(VariableNameCatalogue.TRANSFORMATOR)

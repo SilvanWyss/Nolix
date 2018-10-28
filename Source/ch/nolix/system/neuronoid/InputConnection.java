@@ -26,11 +26,11 @@ public final class InputConnection<O> {
 	 * Creates a new input connection with a default weight and the given input neuron.
 	 * 
 	 * @param inputNeuron
-	 * @throws NullArgumentException if the given input neuron is not an instance.
+	 * @throws NullArgumentException if the given input neuron is null.
 	 */
 	public InputConnection(final Neuronoid<?, ?, O> inputNeuron) {
 		
-		//Checks if the given input neuron is an instance.
+		//Checks if the given input neuron is not null.
 		Validator
 		.suppose(inputNeuron)
 		.thatIsNamed("input neuron")
@@ -46,7 +46,7 @@ public final class InputConnection<O> {
 	 * 
 	 * @param weight
 	 * @param inputNeuron
-	 * @throws NullArgumentException if the given input neuron is not an instance.
+	 * @throws NullArgumentException if the given input neuron is null.
 	 */
 	public InputConnection(
 		final double weight,

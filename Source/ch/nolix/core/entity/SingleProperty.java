@@ -39,11 +39,11 @@ extends Propertyoid<V> {
 	 * @param setterMethod
 	 * @param valueCreator
 	 * @param specificationCreator
-	 * @throws NullArgumentException if the given name is not an instance.
+	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given setter method is not an instance.
-	 * @throws NullArgumentException if the given value creator is not an instance.
-	 * @throws NullArgumentException if the given specification creator is not an instance.
+	 * @throws NullArgumentException if the given setter method is null.
+	 * @throws NullArgumentException if the given value creator is null.
+	 * @throws NullArgumentException if the given specification creator is null.
 	 */
 	SingleProperty(
 		final String name,
@@ -55,7 +55,7 @@ extends Propertyoid<V> {
 		//Calls constructor of the base class.
 		super(name, valueCreator, specificationCreator);
 		
-		//Checks if the given setter method is an instance.
+		//Checks if the given setter method is not null.
 		Validator
 		.suppose(setterMethod)
 		.thatIsNamed("setter method")
@@ -114,13 +114,13 @@ extends Propertyoid<V> {
 	 * Sets the value of this single property.
 	 * 
 	 * @param value
-	 * @throws NullArgumentException if the given value is not an instance.
+	 * @throws NullArgumentException if the given value is null.
 	 * @throws InvalidStateException
 	 * if this single property is not approved when it is not mutable.
 	 */
 	public Propertyoid<V> setValue(final V value) {
 		
-		//Checks if the given value is an instance.
+		//Checks if the given value is not null.
 		Validator
 		.suppose(value)
 		.thatIsNamed(VariableNameCatalogue.VALUE)

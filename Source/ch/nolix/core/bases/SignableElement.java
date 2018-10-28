@@ -25,7 +25,7 @@ implements Signable<SE> {
 	 * Creates a new {@link SignableElement} with the given info string.
 	 * 
 	 * @param infoString
-	 * @throws NullArgumentException if the given info string is not an instance.
+	 * @throws NullArgumentException if the given info string is null.
 	 * @throws EmptyArgumentException if the given info string is empty.
 	 */
 	public SignableElement(final String infoString) {
@@ -46,12 +46,12 @@ implements Signable<SE> {
 	 * 
 	 * @param infoString
 	 * @return this {@link SignableElement}.
-	 * @throws NullArgumentException if the given info string is not an instance.
+	 * @throws NullArgumentException if the given info string is null.
 	 * @throws EmptyArgumentException if the given info string is empty.
 	 */
 	public final SE setInfoString(final String infoString) {
 		
-		//Checks if the given info string is an instance and not empty.
+		//Checks if the given info string is not null and not empty.
 		Validator.suppose(infoString).thatIsNamed("info string").isNotEmpty();
 		
 		//Sets the info string of the current optional signable element.

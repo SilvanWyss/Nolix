@@ -30,7 +30,7 @@ public final class NullArgumentException extends InvalidArgumentException {
 	 * Creates a new null argument name exception for an argument with the given argument name.
 	 * 
 	 * @param argumentName
-	 * @throws RuntimeException if the given argument name is not an instance.
+	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
 	public NullArgumentException(final String argumentName) {

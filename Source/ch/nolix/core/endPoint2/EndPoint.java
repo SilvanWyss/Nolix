@@ -96,7 +96,7 @@ implements ISender {
 	 * Sets the receiver of this end point.
 	 * 
 	 * @param receiver
-	 * @throws NullArgumentException if the given receiver is not an instance.
+	 * @throws NullArgumentException if the given receiver is null.
 	 * @throws InvalidArgumentException if this end point is aborted.
 	 */
 	public final void setReceiver(final IReceiver receiver) {
@@ -104,7 +104,7 @@ implements ISender {
 		//Checks if this end point is aborted.
 		supposeIsAlive();
 		
-		//Checks if the given receiver is an instance.
+		//Checks if the given receiver is not null.
 		Validator.suppose(receiver).isInstanceOf(IReceiver.class);
 		
 		//Sets the receiver of this end point.
@@ -120,7 +120,7 @@ implements ISender {
 	 * Sets the target of this net end point.
 	 * 
 	 * @param target
-	 * @throws NullArgumentException if the given target is not an instance.
+	 * @throws NullArgumentException if the given target is null.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 * @throws InvalidArgumentException if this net end point is aborted.
 	 */

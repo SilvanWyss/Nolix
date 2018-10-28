@@ -34,13 +34,13 @@ extends NamedElement {
 		//Calls constructor of the base class.
 		super(name);
 		
-		//Checks if the given value creator is an instance.
+		//Checks if the given value creator is not null.
 		Validator
 		.suppose(valueCreator)
 		.thatIsNamed("value creator")
 		.isInstance();
 		
-		//Checks if the given specification creator is an instance.
+		//Checks if the given specification creator is not null.
 		Validator
 		.suppose(specificationCreator)
 		.thatIsNamed("specificaiton creator")

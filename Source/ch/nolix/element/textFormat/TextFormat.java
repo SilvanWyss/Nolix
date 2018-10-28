@@ -69,7 +69,7 @@ public final class TextFormat extends Element {
 	 * Creates a new {@link TextFormat} with the given text color.
 	 * 
 	 * @param textColor
-	 * @throws NullArgumentException if the given text color is not an instance.
+	 * @throws NullArgumentException if the given text color is null.
 	 */
 	public TextFormat(final Color textColor) {
 		
@@ -82,7 +82,7 @@ public final class TextFormat extends Element {
 	 * Creates a new {@link TextFormat} with the given text font.
 	 * 
 	 * @param textFont
-	 * @throws NullArgumentException if the given text font is not an instance.
+	 * @throws NullArgumentException if the given text font is null.
 	 */
 	public TextFormat(final Font textFont) {
 		
@@ -98,9 +98,9 @@ public final class TextFormat extends Element {
 	 * @param bold
 	 * @param textSize
 	 * @param textColor
-	 * @throws NullArgumentException if the given text font is not an instance.
+	 * @throws NullArgumentException if the given text font is null.
 	 * @throws NonPositiveArgumentException if the given text size is not positive.
-	 * @throws NullArgumentException if the given text color is not an instance.
+	 * @throws NullArgumentException if the given text color is null.
 	 */
 	public TextFormat(
 		final Font textFont,
@@ -121,9 +121,9 @@ public final class TextFormat extends Element {
 	 * @param italic
 	 * @param textSize
 	 * @param textColor
-	 * @throws NullArgumentException if the given text font is not an instance.
+	 * @throws NullArgumentException if the given text font is null.
 	 * @throws NonPositiveArgumentException if the given text size is not positive.
-	 * @throws NullArgumentException if the given text color is not an instance.
+	 * @throws NullArgumentException if the given text color is null.
 	 */
 	public TextFormat(
 		final Font textFont,
@@ -133,13 +133,13 @@ public final class TextFormat extends Element {
 		final Color textColor
 	) {
 		
-		//Checks if the given text font is an instance.
+		//Checks if the given text font is not null.
 		Validator.suppose(textFont).isInstanceOf(Font.class);
 		
 		//Checks if the given text size is positive.
 		Validator.suppose(textSize).thatIsNamed("text size").isPositive();
 		
-		//Checks if the given text color is an instance.
+		//Checks if the given text color is not null.
 		Validator.suppose(textColor).thatIsNamed(TEXT_COLOR_HEADER).isInstance();
 		
 		this.textFont = textFont;
@@ -177,9 +177,9 @@ public final class TextFormat extends Element {
 	 * @param textFont
 	 * @param textSize
 	 * @param textColor
-	 * @throws NullArgumentException if the given text font is not an instance.
+	 * @throws NullArgumentException if the given text font is null.
 	 * @throws NonPositiveArgumentException if the given text size is not positive.
-	 * @throws NullArgumentException if the given text color is not an instance.
+	 * @throws NullArgumentException if the given text color is null.
 	 */
 	public TextFormat(
 		final Font textFont,
@@ -252,7 +252,7 @@ public final class TextFormat extends Element {
 		//Checks if the given max width is not negative.
 		Validator.suppose(maxWidth).thatIsNamed("max width").isNotNegative();
 		
-		//Handles the case that the given text is not an instance.
+		//Handles the case that the given text is null.
 		if (text == null) {
 			text = StringCatalogue.NULL_NAME;
 		}

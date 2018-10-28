@@ -26,7 +26,7 @@ public class ValueMediator<V> extends Mediator {
 	 * 
 	 * @param test
 	 * @param value
-	 * @throws NullArgumentException if the given test is not an instance.
+	 * @throws NullArgumentException if the given test is null.
 	 */
 	public ValueMediator(final Test test, final V value) {
 		
@@ -76,11 +76,11 @@ public class ValueMediator<V> extends Mediator {
 	 * Generates an error if the value of this value mediator does not fulfil the given condition.
 	 * 
 	 * @param condition
-	 * @throws NullArgumentException if the given condition is not an instance.
+	 * @throws NullArgumentException if the given condition is null.
 	 */
 	public final void fulfils(final IElementTakerBooleanGetter<V> condition) {
 		
-		//Checks if the given condition is an instance.
+		//Checks if the given condition is not null.
 		if (condition == null) {
 			throw new NullArgumentException(VariableNameCatalogue.CONDITION);
 		}
@@ -95,11 +95,11 @@ public class ValueMediator<V> extends Mediator {
 	 * Generates an error if the value of this value mediator  fulfils the given condition.
 	 * 
 	 * @param condition
-	 * @throws NullArgumentException if the given condition is not an instance.
+	 * @throws NullArgumentException if the given condition is null.
 	 */
 	public final void fulfilsNot(final IElementTakerBooleanGetter<V> condition) {
 	
-		//Checks if the given condition is an instance.
+		//Checks if the given condition is not null.
 		if (condition == null) {
 			throw new NullArgumentException(VariableNameCatalogue.CONDITION);
 		}
@@ -123,7 +123,7 @@ public class ValueMediator<V> extends Mediator {
 	
 	//method
 	/**
-	 * Generates an error if the value of this value mediator is not an instance.
+	 * Generates an error if the value of this value mediator is null.
 	 */
 	public final void isNotNull() {
 		if (getRefValue() != null) {
@@ -145,7 +145,7 @@ public class ValueMediator<V> extends Mediator {
 	
 	//method
 	/**
-	 * Generates an error if the value of this value mediator is an instance.
+	 * Generates an error if the value of this value mediator is not null.
 	 */
 	public final void isNull() {
 		if (getRefValue() != null) {

@@ -119,11 +119,11 @@ implements IFluentObject<E>, Specifiable<E> {
 	 * Sets the base entity of this entity.
 	 * 
 	 * @param baseEntity
-	 * @throws NullArgumentException if the given base entity is not an instance.
+	 * @throws NullArgumentException if the given base entity is null.
 	 */
 	protected final void setBaseEntity(final E baseEntity) {
 		
-		//Checks if the given base entity is an instance.
+		//Checks if the given base entity is not null.
 		Validator
 		.suppose(baseEntity)
 		.thatIsNamed("base entity")
@@ -176,7 +176,7 @@ implements IFluentObject<E>, Specifiable<E> {
 						
 						final Property<?> property = (Property<?>)(f.get(this));
 						
-						//Checks if the current property is an instance.
+						//Checks if the current property is not null.
 						Validator.suppose(property).isInstanceOf(Property.class);
 						
 						properties.addAtEnd(property);		

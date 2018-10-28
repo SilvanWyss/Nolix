@@ -46,7 +46,7 @@ public final class InRangeArgumentException extends InvalidArgumentException {
 	 * @param argument
 	 * @param min
 	 * @param max
-	 * @throws RuntimeException if the given argument name is not an instance.
+	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
 	public InRangeArgumentException(
@@ -94,7 +94,7 @@ public final class InRangeArgumentException extends InvalidArgumentException {
 	 * @param argument
 	 * @param min
 	 * @param max
-	 * @throws RuntimeException if the given argument name is not an instance.
+	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
 	public InRangeArgumentException(

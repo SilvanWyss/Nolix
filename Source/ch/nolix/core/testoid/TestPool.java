@@ -95,13 +95,13 @@ public abstract class TestPool implements Runnable {
 	 * Adds the given test class to this test pool.
 	 * 
 	 * @param test
-	 * @throws NullArgumentException if the given test is not an instance.
+	 * @throws NullArgumentException if the given test is null.
 	 * @throws InvalidArgumentException if the given test class is not a testoid class.
 	 */
 	@SuppressWarnings("unchecked")
 	protected final void addTestClass(final Class<?> testClass) {
 		
-		//Checks if the given test class is an instance.
+		//Checks if the given test class is not null.
 		if (testClass == null) {
 			throw new NullArgumentException(VariableNameCatalogue.TEST_CLASS);
 		}
@@ -122,7 +122,7 @@ public abstract class TestPool implements Runnable {
 	 * Adds the given test classes to this test pool.
 	 * 
 	 * @param tests
-	 * @throws NullArgumentException if one of the given test is not an instance.
+	 * @throws NullArgumentException if one of the given test is null.
 	 */
 	protected final void addTestClass(final Class<?>... testClasses) {
 		
@@ -137,12 +137,12 @@ public abstract class TestPool implements Runnable {
 	 * Adds the given test pool to this test pool.
 	 * 
 	 * @param testPool
-	 * @throws NullArgumentException if the given test pool is not an instance.
+	 * @throws NullArgumentException if the given test pool is null.
 	 * @throws InvalidArgumentException if the given test pool contains this test pool recursively.
 	 */
 	protected final void addTestPool(final TestPool testPool) {
 		
-		//Checks if the given test pool is an instance.
+		//Checks if the given test pool is not null.
 		if (testPool == null) {
 			throw new NullArgumentException("test pool");
 		}
@@ -163,7 +163,7 @@ public abstract class TestPool implements Runnable {
 	 * Adds the given test pools to this test pool.
 	 * 
 	 * @param testPools
-	 * @throws NullArgumentException if one of the given test pools is not an instance.
+	 * @throws NullArgumentException if one of the given test pools is null.
 	 * @throws InvalidArgumentException if one of the given test pools contains this test pool recursively.
 	 */
 	protected final void addTestPool(final TestPool... testPools) {

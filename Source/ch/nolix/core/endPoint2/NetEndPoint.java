@@ -108,7 +108,7 @@ public class NetEndPoint extends EndPoint {
 	 * @param port
 	 * @param target
 	 * @throws OutOfRangeException if the given port is not in [0, 65535].
-	 * @throws NullArgumentException if the given target is not an instance.
+	 * @throws NullArgumentException if the given target is null.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
 	public NetEndPoint(
@@ -152,17 +152,17 @@ public class NetEndPoint extends EndPoint {
 	 * 
 	 * @param socket
 	 * @param HTTPMessage
-	 * @throws NullArgumentException if the given socket is not an instance.
+	 * @throws NullArgumentException if the given socket is null.
 	 */
 	NetEndPoint(final Socket socket, final String HTTPMessage) {
 		
 		//Calls constructor of the base class.
 		super(false);
 		
-		//Checks if the given socket is an instance.
+		//Checks if the given socket is not null.
 		Validator.suppose(socket).isInstanceOf(Socket.class);
 		
-		//Checks if the given HTTP message is an instance and not empty.
+		//Checks if the given HTTP message is not null and not empty.
 		Validator.suppose(HTTPMessage).thatIsNamed("HTTP message").isNotEmpty();
 		
 		this.HTTPMessage = HTTPMessage;
@@ -245,7 +245,7 @@ public class NetEndPoint extends EndPoint {
 	
 	private void send_internal(final String message) {
 		
-		//Checks if the given message is an instance.
+		//Checks if the given message is not null.
 		Validator.suppose(message).thatIsNamed("message").isInstance();
 		
 		//Checks if this net end point is not stopped.

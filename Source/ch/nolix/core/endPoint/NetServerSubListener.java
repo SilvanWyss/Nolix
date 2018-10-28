@@ -31,11 +31,11 @@ final class NetServerSubListener extends Thread {
 	 * The net server sub listener will start automatically.
 	 * 
 	 * @param netServer
-	 * @throws NullArgumentException if the given net server is not an instance.
+	 * @throws NullArgumentException if the given net server is null.
 	 */
 	public NetServerSubListener(final NetServer netServer) {
 		
-		//Checks if the given net server is an instance.
+		//Checks if the given net server is not null.
 		Validator.suppose(netServer).isInstanceOf(NetServer.class);
 		
 		//Sets the net server of htis net server sub listener.

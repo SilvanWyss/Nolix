@@ -20,7 +20,7 @@ public final class UnremovableAttributeException extends InvalidStateException {
 	 * 
 	 * @param object
 	 * @param attributeName
-	 * @throws RuntimeException if the given attribute name is not an instance.
+	 * @throws RuntimeException if the given attribute name is null.
 	 * @throws RuntimeException if the given attribute name is empty.
 	 */
 	public UnremovableAttributeException(final Object object, final String attributeName) {
@@ -28,9 +28,9 @@ public final class UnremovableAttributeException extends InvalidStateException {
 		//Calls constructor of the base class.
 		super(object, "cannot remove " + attributeName);
 		
-		//Checks if the given attribute name is an instance.
+		//Checks if the given attribute name is not null.
 		if (attributeName == null) {
-			throw new RuntimeException("The given attribtue name is not an instance.");
+			throw new RuntimeException("The given attribtue name is null.");
 		}
 		
 		//Checks if the given attribute name is not empty.

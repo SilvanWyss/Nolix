@@ -31,11 +31,11 @@ final class JobRunner extends Thread {
 	 * The job runner will start automatically.
 	 * 
 	 * @param job
-	 * @throws NullArgumentException if the given job is not an instance.
+	 * @throws NullArgumentException if the given job is null.
 	 */
 	public JobRunner(final IFunction job) {
 		
-		//Checks if the given job is an instance.
+		//Checks if the given job is not null.
 		Validator.suppose(job).thatIsNamed("job").isInstance();
 			
 		this.job = job;
@@ -53,15 +53,15 @@ final class JobRunner extends Thread {
 	 * 
 	 * @param job
 	 * @param condition
-	 * @throws NullArgumentException if the given job is not an instance.
-	 * @throws NullArgumentException if the given condition is not an instance.
+	 * @throws NullArgumentException if the given job is null.
+	 * @throws NullArgumentException if the given condition is null.
 	 */
 	public JobRunner(final IFunction job, final IBooleanGetter condition) {
 		
-		//Checks if the given job is an instance.
+		//Checks if the given job is not null.
 		Validator.suppose(job).thatIsNamed("job").isInstance();
 		
-		//Checks if the given condition is an instance.
+		//Checks if the given condition is not null.
 		Validator.suppose(condition).thatIsNamed("condition").isInstance();
 			
 		this.job = job;
@@ -77,7 +77,7 @@ final class JobRunner extends Thread {
 		final IBooleanGetter condition,
 		final int timeIntervalInMilliseconds
 	) {
-		//Checks if the given job is an instance.
+		//Checks if the given job is not null.
 		Validator.suppose(job).thatIsNamed("job").isInstance();
 		
 		Validator.suppose(condition).thatIsNamed("condition").isInstance();
@@ -102,7 +102,7 @@ final class JobRunner extends Thread {
 	 * 
 	 * @param job
 	 * @param maxRunCount
-	 * @throws NullArgumentException if the given job is not an instance.
+	 * @throws NullArgumentException if the given job is null.
 	 * @throws NegativeArgumentException if the given max run count is negative.
 	 */
 	public JobRunner(
@@ -110,7 +110,7 @@ final class JobRunner extends Thread {
 		final int maxRunCount
 	) {
 		
-		//Checks if the given job is an instance.
+		//Checks if the given job is not null.
 		Validator.suppose(job).thatIsNamed("job").isInstance();
 		
 		//Checks if the given max run count is not negative.
@@ -131,7 +131,7 @@ final class JobRunner extends Thread {
 	 * 
 	 * @param job
 	 * @param timeIntervalInMilliseconds
-	 * @throws NullArgumentException if the given job is not an instance.
+	 * @throws NullArgumentException if the given job is null.
 	 * @throws NegativeArgumenteException if the given time interval in milliseconds is negative.
 	 */
 	public JobRunner(
@@ -140,7 +140,7 @@ final class JobRunner extends Thread {
 		final boolean pseudoValue
 	) {
 		
-		//Checks if the given job is an instance.
+		//Checks if the given job is not null.
 		Validator.suppose(job).thatIsNamed("job").isInstance();
 		
 		//Checks if the given time interval in milliseconds is not negative.
@@ -162,9 +162,9 @@ final class JobRunner extends Thread {
 	 * @param job
 	 * @param maxRunCount
 	 * @param condition
-	 * @throws NullArgumentException if the given job is not an instance.
+	 * @throws NullArgumentException if the given job is null.
 	 * @throws NegativeArgumentException if the given max run count is negative.
-	 * @throws NullArgumentException if the given condition is not an instance.
+	 * @throws NullArgumentException if the given condition is null.
 	 */
 	public JobRunner(
 		final IFunction job,
@@ -172,13 +172,13 @@ final class JobRunner extends Thread {
 		final IBooleanGetter condition
 	) {
 		
-		//Checks if the given job is an instance.
+		//Checks if the given job is not null.
 		Validator.suppose(job).thatIsNamed("job").isInstance();
 		
 		//Checks if the given max run count is not negative.
 		Validator.suppose(maxRunCount).thatIsNamed("max run count").isNotNegative();
 		
-		//Checks if the given condition is an instance.
+		//Checks if the given condition is not null.
 		Validator.suppose(condition).thatIsNamed("condition").isInstance();
 		
 		this.job = job;
@@ -198,9 +198,9 @@ final class JobRunner extends Thread {
 	 * @param maxRunCount
 	 * @param condition
 	 * @param timeIntervalInMilliseconds
-	 * @throws NullArgumentException if the given job is not an instance.
+	 * @throws NullArgumentException if the given job is null.
 	 * @throws NegativeArgumentException if the given max run count is negative.
-	 * @throws NullArgumentException if the given condition is not an instance.
+	 * @throws NullArgumentException if the given condition is null.
 	 * @throws NegativeArgumenteException if the given time interval in milliseconds is negative.
 	 */
 	public JobRunner(
@@ -209,13 +209,13 @@ final class JobRunner extends Thread {
 		final IBooleanGetter condition,
 		final int timeIntervalInMilliseconds
 	) {
-		//Checks if the given job is an instance.
+		//Checks if the given job is not null.
 		Validator.suppose(job).thatIsNamed("job").isInstance();
 		
 		//Checks if the given max run count is not negative.
 		Validator.suppose(maxRunCount).thatIsNamed("max run count").isNotNegative();
 		
-		//Checks if the given condition is an instance.
+		//Checks if the given condition is not null.
 		Validator.suppose(condition).thatIsNamed("condition").isInstance();
 		
 		//Checks if the given time interval in milliseconds is not negative.
@@ -237,7 +237,7 @@ final class JobRunner extends Thread {
 	 * @param job
 	 * @param maxRunCount
 	 * @param timeIntervalInMilliseonds
-	 * @throws NullArgumentException if the given job is not an instance.
+	 * @throws NullArgumentException if the given job is null.
 	 * @throws NegativeArgumentException if the given max run count is negative.
 	 */
 	public JobRunner(
@@ -246,7 +246,7 @@ final class JobRunner extends Thread {
 		final int timeIntervalInMilliseconds
 	) {
 		
-		//Checks if the given job is an instance.
+		//Checks if the given job is not null.
 		Validator.suppose(job).thatIsNamed("job").isInstance();
 		
 		//Checks if the given max run count is not negative.

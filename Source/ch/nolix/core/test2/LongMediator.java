@@ -41,11 +41,11 @@ public final class LongMediator extends Mediator {
 	 * Generates an error if the value of this long mediator does not fulfil the given condition.
 	 * 
 	 * @param condition
-	 * @throws NullArgumentException if the given condition is not an instance.
+	 * @throws NullArgumentException if the given condition is null.
 	 */
 	public void fulfils(final IElementTakerBooleanGetter<Long> condition) {
 		
-		//Checks if the given condition is an instance.
+		//Checks if the given condition is not null.
 		if (condition == null) {
 			throw new NullArgumentException(VariableNameCatalogue.CONDITION);
 		}

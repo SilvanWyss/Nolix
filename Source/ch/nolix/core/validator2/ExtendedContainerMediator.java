@@ -54,7 +54,7 @@ public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
 	 * @param argumentName
 	 * @return a new container mediator
 	 * with the given argument name for the argument of this extended container mediator.
-	 * @throws NullArgumentException if the given argument name is not an instance.
+	 * @throws NullArgumentException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	public ContainerMediator<E> thatIsNamed(final String argumentName) {

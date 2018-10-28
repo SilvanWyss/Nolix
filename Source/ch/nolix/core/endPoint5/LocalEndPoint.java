@@ -70,14 +70,14 @@ public final class LocalEndPoint extends EndPoint {
 	 * Creates a new local duplex controller with the given counterpart.
 	 * 
 	 * @param counterpart
-	 * @throws NullArgumentException if the given counterpart is not an instance.
+	 * @throws NullArgumentException if the given counterpart is null.
 	 */
 	private LocalEndPoint(LocalEndPoint counterpart) {
 		
 		//Sets the reqested connection flag of this local duplex controller.
 		requestedConnection = false;
 		
-		//Checks if the given counterpart is an instance.
+		//Checks if the given counterpart is not null.
 		Validator.suppose(counterpart).thatIsNamed("counterpart").isInstance();
 		
 		//Sets the counterpart of this local duplex controller.
@@ -93,7 +93,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * 
 	 * @param counterpart
 	 * @param target
-	 * @throws NullArgumentException if the given target is not an instance.
+	 * @throws NullArgumentException if the given target is null.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
 	private LocalEndPoint(
@@ -104,7 +104,7 @@ public final class LocalEndPoint extends EndPoint {
 		//Sets the requested connection flag of this local duplex controller.
 		requestedConnection = false;
 		
-		//Checks if the given counterpart is an instance.
+		//Checks if the given counterpart is not null.
 		Validator.suppose(counterpart).thatIsNamed("counterpart").isInstance();
 		
 		//Sets the counterpart of this local duplex controller.

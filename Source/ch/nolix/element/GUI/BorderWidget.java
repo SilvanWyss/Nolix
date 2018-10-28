@@ -788,11 +788,11 @@ extends BackgroundWidget<BW, BWS> {
 	 * 
 	 * @param contentPosition
 	 * @return this border widget.
-	 * @throws NullArgumentException if the given content position is not an instance.
+	 * @throws NullArgumentException if the given content position is null.
 	 */
 	public final BW setContentPosition(final ContentPosition contentPosition) {
 		
-		//Checks if the given content position is an instance.
+		//Checks if the given content position is not null.
 		Validator.suppose(contentPosition).isInstanceOf(ContentPosition.class);
 
 		//Sets the content position of this border widget.

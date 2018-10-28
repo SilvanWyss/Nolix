@@ -36,7 +36,7 @@ implements Clearable<Tableau> {
 	 * @param task
 	 * @return this tableau.
 	 * @throws NullArgumentException
-	 * if the given task is not an instance.
+	 * if the given task is null.
 	 */
 	public Tableau addTask(final Task task) {
 		
@@ -52,7 +52,7 @@ implements Clearable<Tableau> {
 	 * @param tasks
 	 * @return this Tableau.
 	 * @throws NullArgumentException
-	 * if one of the given tasks is not an instance.
+	 * if one of the given tasks is null.
 	 */
 	public Tableau addTask(final Task...tasks) {
 		

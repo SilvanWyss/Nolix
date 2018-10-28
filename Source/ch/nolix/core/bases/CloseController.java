@@ -27,7 +27,7 @@ final class CloseController implements Closable {
 	 * Creates a new {@link CoseController} with the given element.
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is not an instance.
+	 * @throws NullArgumentException if the given element is null.
 	 */
 	public CloseController(final ClosableElement element) {
 		elements.addAtEnd(element);
@@ -39,7 +39,7 @@ final class CloseController implements Closable {
 	 * Adds the given element to the current {@link CoseController}.
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is not an instance.
+	 * @throws NullArgumentException if the given element is null.
 	 * @throws InvalidStateException if the current {@link CoseController} contains already the given element.
 	 * @throws InvalidStateException if the current {@link CoseController} is already closed.
 	 */
@@ -48,7 +48,7 @@ final class CloseController implements Closable {
 		//Checks if the current {@link CoseController} is alive.
 		supposeBeingAlive();
 		
-		//Checks if the given element is an instance.
+		//Checks if the given element is not null.
 		Validator.suppose(element).thatIsNamed("element").isInstance();
 		
 		//Checks if the current {@link CoseController} does not contain already the given element.

@@ -36,12 +36,12 @@ abstract class Mediator {
 	 * Creates a new argument mediator with the given argument name.
 	 * 
 	 * @param argumentName
-	 * @throws NullArgumentException if the given argument name is not an instance.
+	 * @throws NullArgumentException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	Mediator(final String argumentName) {
 		
-		//Checks if the given argument name is an instance.
+		//Checks if the given argument name is not null.
 		if (argumentName == null) {
 			throw new NullArgumentException("argument name");
 		}

@@ -30,7 +30,7 @@ final class ListNode<E> {
 	 * Creates a new {@link ListNode} with the given element.
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is not an instance.
+	 * @throws NullArgumentException if the given element is null.
 	 */
 	public ListNode(final E element) {		
 		setElement(element);
@@ -100,11 +100,11 @@ final class ListNode<E> {
 	 * Sets the element of the current {@link ListNode}.
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is not an instance.
+	 * @throws NullArgumentException if the given element is null.
 	 */
 	public void setElement(final E element) {
 		
-		//Checks if the given element is an instance.
+		//Checks if the given element is not null.
 		Validator
 		.suppose(element)
 		.thatIsNamed(VariableNameCatalogue.ELEMENT)
@@ -119,11 +119,11 @@ final class ListNode<E> {
 	 * Sets the next node of the current {@link ListNode}.
 	 * 
 	 * @param nextNode
-	 * @throws NullArgumentException if the given next node is not an instance.
+	 * @throws NullArgumentException if the given next node is null.
 	 */
 	public void setNextNode(final ListNode<E> nextNode) {
 		
-		//Checks if the given next node is an instance.
+		//Checks if the given next node is not null.
 		Validator.suppose(nextNode).thatIsNamed("next node").isInstance();
 		
 		//Sets the next node of the current list node.

@@ -53,11 +53,11 @@ public class Text extends Element {
 	 * Creates a new text with the given value.
 	 * 
 	 * @param value
-	 * @throws NullArgumentException if the given value is not an instance.
+	 * @throws NullArgumentException if the given value is null.
 	 */
 	public Text(final String value) {
 		
-		//Checks if the given value is an instance.
+		//Checks if the given value is not null.
 		Validator.suppose(value).thatIsNamed("value").isInstance();
 		
 		//Sets the value of this text.

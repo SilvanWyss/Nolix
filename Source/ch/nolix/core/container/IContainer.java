@@ -1491,11 +1491,11 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * @param separator
 	 * @return a string representation of the current {@link IContainer} using the given separator.
-	 * @throws NullArgumentException if the given separator is not an instance.
+	 * @throws NullArgumentException if the given separator is null.
 	 */
 	public default String toString(final String separator)
 	{
-		//Checks if the given separator is an instance.
+		//Checks if the given separator is not null.
 		Validator
 		.suppose(separator)
 		.thatIsNamed(VariableNameCatalogue.SEPARATOR)

@@ -135,7 +135,7 @@ extends WidgetLook<BWL> {
      * 
      * @param backgroundColor
      * @return the current {@link BackgroundWidgetLook}.
-     * @throws NullArgumentException if the given background color is not an instance.
+     * @throws NullArgumentException if the given background color is null.
      */
     public final BWL setBackgroundColor(final Color backgroundColor) {
     	
@@ -152,7 +152,7 @@ extends WidgetLook<BWL> {
      * 
      * @param backgroundColorGradient
      * @return the current {@link BackgroundWidgetLook}.
-     * @throws NullArgumentException if the given background color is not an instance.
+     * @throws NullArgumentException if the given background color is null.
      */
     public final BWL setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
     	
@@ -168,7 +168,7 @@ extends WidgetLook<BWL> {
      * 
      * @param backgroundImage
      * @return the current {@link BackgroundWidgetLook}.
-     * @throws NullArgumentException if the given background image is not an instance.
+     * @throws NullArgumentException if the given background image is null.
      */
     public final BWL setBackgroundImage(final Image backgroundImage) {
     		

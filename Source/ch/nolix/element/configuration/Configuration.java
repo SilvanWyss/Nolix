@@ -54,7 +54,7 @@ implements Freezable<C> {
 	 * 
 	 * @param attachingAttribute
 	 * @return this configuration.
-	 * @throws NullArgumentException if the given attaching attribute is not an instance.
+	 * @throws NullArgumentException if the given attaching attribute is null.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
 	public final C addAttachingAttribute(final DocumentNodeoid attachingAttribute) {
@@ -118,7 +118,7 @@ implements Freezable<C> {
 	 * 
 	 * @param configuration
 	 * @return this configuration.
-	 * @throws NullArgumentException if the given configuration is not an instance.
+	 * @throws NullArgumentException if the given configuration is null.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
 	public final C addConfiguration(final Configuration<?> configuration) {
@@ -137,7 +137,7 @@ implements Freezable<C> {
 	 * 
 	 * @param configurations
 	 * @return this configuration.
-	 * @throws NullArgumentException if one of the given configurations is not an instance.
+	 * @throws NullArgumentException if one of the given configurations is null.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
 	public final C addConfiguration(final Configuration<?>...configurations) {
@@ -569,7 +569,7 @@ implements Freezable<C> {
 	 * Sets the given name to this configuration.
 	 * 
 	 * @param name
-	 * @throws NullArgumentException if the given name is not an instance.
+	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
@@ -590,7 +590,7 @@ implements Freezable<C> {
 	 * 
 	 * @param selectorName
 	 * @return this configuration.
-	 * @throws NullArgumentException if the given selector name is not an instance.
+	 * @throws NullArgumentException if the given selector name is null.
 	 * @throws EmptyArgumentException if the given selector name is empty.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
@@ -610,7 +610,7 @@ implements Freezable<C> {
 	 * 
 	 * @param selectorToken
 	 * @return this configuration.
-	 * @throws NullArgumentException if the given selector token is not an instance.
+	 * @throws NullArgumentException if the given selector token is null.
 	 * @throws EmptyArgumentException if the given selector token is empty.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
@@ -630,7 +630,7 @@ implements Freezable<C> {
 	 * 
 	 * @param selectorType
 	 * @return this configuration.
-	 * @throws NullArgumentException if the given type selector type is not an instance.
+	 * @throws NullArgumentException if the given type selector type is null.
 	 * @throws EmptyArgumentException if the given selector type is empty.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
@@ -673,7 +673,7 @@ implements Freezable<C> {
 	 * Adds the given selector role to this configuration.
 	 * 
 	 * @param selectorRole
-	 * @throws NullArgumentException if the given selector role is not an instance.
+	 * @throws NullArgumentException if the given selector role is null.
 	 * @throws EmptyArgumentException if the given selector role is empty.
 	 * @throws InvalidStateException if this configuration contains already the given selector role.
 	 * @throws InvalidStateException if this configuration is frozen.

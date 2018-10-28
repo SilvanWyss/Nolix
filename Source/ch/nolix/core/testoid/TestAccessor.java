@@ -24,11 +24,11 @@ public final class TestAccessor {
 	 * Creates a new test accessor for the given test.
 	 * 
 	 * @param test
-	 * @throws NullArgumentException if the given test is not an instance.
+	 * @throws NullArgumentException if the given test is null.
 	 */
 	public TestAccessor(final Testoid test) {
 		
-		//Checks if the given test is an instance.
+		//Checks if the given test is not null.
 		if (test == null) {
 			throw new NullArgumentException("test");
 		}

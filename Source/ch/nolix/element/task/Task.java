@@ -86,7 +86,7 @@ public final class Task extends MutableElement<Task> {
 	 * The task will have the current time as creation date.
 	 * 
 	 * @param title
-	 * @throws NullArgumentException if the given title is not an instance.
+	 * @throws NullArgumentException if the given title is null.
 	 */
 	public Task(final String title) {
 		setTitle(title);
@@ -101,8 +101,8 @@ public final class Task extends MutableElement<Task> {
 	 * @param title
 	 * @param creationDate
 	 * @param solveDate
-	 * @throws NullArgumentException if the given title is not an instance.
-	 * @throws NullArgumentException if the given size is not an instance.
+	 * @throws NullArgumentException if the given title is null.
+	 * @throws NullArgumentException if the given size is null.
 	 */
 	public Task(final String title,	final TaskSize size) {
 		setTitle(title);
@@ -116,8 +116,8 @@ public final class Task extends MutableElement<Task> {
 	 * 
 	 * @param title
 	 * @param creationDate
-	 * @throws NullArgumentException if the given title is not an instance.
-	 * @throws NullArgumentException if the given creation date is not an instance.
+	 * @throws NullArgumentException if the given title is null.
+	 * @throws NullArgumentException if the given creation date is null.
 	 */
 	public Task(final String title, final Time creationDate) {
 		setTitle(title);
@@ -132,9 +132,9 @@ public final class Task extends MutableElement<Task> {
 	 * @param title
 	 * @param creationDate
 	 * @param solveDate
-	 * @throws NullArgumentException if the given title is not an instance.
-	 * @throws NullArgumentException if the given creation date is not an instance.
-	 * @throws NullArgumentException if the given solve date is not an instance.
+	 * @throws NullArgumentException if the given title is null.
+	 * @throws NullArgumentException if the given creation date is null.
+	 * @throws NullArgumentException if the given solve date is null.
 	 * @throws InvalidArgumentException
 	 * if the given solve date is before the given creation date.
 	 */
@@ -157,10 +157,10 @@ public final class Task extends MutableElement<Task> {
 	 * @param size
 	 * @param creationDate
 	 * @param solveDate
-	 * @throws NullArgumentException if the given title is not an instance.
-	 * @throws NullArgumentException if the given size is not an instance.
-	 * @throws NullArgumentException if the given creation date is not an instance.
-	 * @throws NullArgumentException if the given solve date is not an instance.
+	 * @throws NullArgumentException if the given title is null.
+	 * @throws NullArgumentException if the given size is null.
+	 * @throws NullArgumentException if the given creation date is null.
+	 * @throws NullArgumentException if the given solve date is null.
 	 * @throws InvalidArgumentException
 	 * if the given solve date is before the given creation date.
 	 */
@@ -274,7 +274,7 @@ public final class Task extends MutableElement<Task> {
 	 * 
 	 * @param solveTime
 	 * @return this task.
-	 * @throws InvalidArgumentException if the given solve time is not an instance.
+	 * @throws InvalidArgumentException if the given solve time is null.
 	 * @throws InvalidStateException if this task is already solved.
 	 */
 	public Task setAsSolved(final Time solveTime) {
@@ -318,7 +318,7 @@ public final class Task extends MutableElement<Task> {
 	 * 
 	 * @param size
 	 * @return this task.
-	 * @throws NullArgumentException if the given size is not an instance.
+	 * @throws NullArgumentException if the given size is null.
 	 */
 	public Task setSize(final TaskSize size) {
 		
@@ -333,7 +333,7 @@ public final class Task extends MutableElement<Task> {
 	 * 
 	 * @param title
 	 * @return this task.
-	 * @throws NullArgumentException if the given title is not an instance.
+	 * @throws NullArgumentException if the given title is null.
 	 */
 	public Task setTitle(final String title) {
 		

@@ -33,12 +33,12 @@ public final class SubDocumentNode extends DocumentNodeoid {
 		final SimplePersistentDocumentNode simplePersistentSpecification,
 		final DocumentNode internalSpecification
 	) {
-		//Checks if the given simple persistent specification is an instance.
+		//Checks if the given simple persistent specification is not null.
 		Validator
 		.suppose(simplePersistentSpecification)
 		.isInstanceOf(SimplePersistentDocumentNode.class);
 		
-		//Checks if the given internal specification is an instance.
+		//Checks if the given internal specification is not null.
 		Validator.suppose(internalSpecification)
 		.thatIsNamed("internal specification")
 		.isInstance();
@@ -129,7 +129,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	/**
 	 * Sets the given header to this sub specification.
 	 * 
-	 * @throws NullArgumentException if the given header is not an instance.
+	 * @throws NullArgumentException if the given header is null.
 	 * @throws EmptyArgumentException if the given header is empty.
 	 * @throws RuntimeException if an error occurs.
 	 */

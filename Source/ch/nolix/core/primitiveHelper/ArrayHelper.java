@@ -20,13 +20,13 @@ public final class ArrayHelper {
 	 * 
 	 * @param values
 	 * @return a new iterable object with the given values.
-	 * @throws NullArgumentExcetpion if the given values is not an instance.
+	 * @throws NullArgumentExcetpion if the given values is null.
 	 */
 	public static Iterable<Double> createIterable(final double[] values) {
 		
-		//Checks if the given values is an instance.
+		//Checks if the given values is not null.
 		if (values == null) {
-			throw new RuntimeException("The given values is not an instance.");
+			throw new RuntimeException("The given values is null.");
 		}
 		
 		final List<Double> valueList = new List<Double>();
@@ -45,13 +45,13 @@ public final class ArrayHelper {
 	 * 
 	 * @param elements
 	 * @return a new iterable object with the given elements.
-	 * @throws NullArgumentExcetpion if the given elements is not an instance.
+	 * @throws NullArgumentExcetpion if the given elements is null.
 	 */
 	public static <E> Iterable<E> createIterable(final E[] elements) {
 		
-		//Checks if the given elements is an instance.
+		//Checks if the given elements is not null.
 		if (elements == null) {
-			throw new RuntimeException("The given elements is not an instance.");
+			throw new RuntimeException("The given elements is null.");
 		}
 		
 		final List<E> elementList = new List<E>();
@@ -71,13 +71,13 @@ public final class ArrayHelper {
 	 * @param elements
 	 * @param additionalElement
 	 * @return a new iterable object with the given elements and additional element.
-	 * @throws NullArgumentExcetpion if the given elements is not an instance.
+	 * @throws NullArgumentExcetpion if the given elements is null.
 	 */
 	public static <E> Iterable<E> createIterable(final Iterable<E> elements, final E additionalElement) {
 		
-		//Checks if the given elements is an instance.
+		//Checks if the given elements is not null.
 		if (elements == null) {
-			throw new RuntimeException("The given elements is not an instance.");
+			throw new RuntimeException("The given elements is null.");
 		}
 		
 		final List<E> elementList = new List<E>();
@@ -98,13 +98,13 @@ public final class ArrayHelper {
 	 * 
 	 * @param values
 	 * @return a new iterable object with the given values.
-	 * @throws NullArgumentExcetpion if the given values is not an instance.
+	 * @throws NullArgumentExcetpion if the given values is null.
 	 */
 	public static Iterable<Long> createIterable(final int[] values) {
 		
-		//Checks if the given values is an instance.
+		//Checks if the given values is not null.
 		if (values == null) {
-			throw new RuntimeException("The given values is not an instance.");
+			throw new RuntimeException("The given values is null.");
 		}
 		
 		final List<Long> valueList = new List<Long>();
@@ -123,13 +123,13 @@ public final class ArrayHelper {
 	 * 
 	 * @param values
 	 * @return a new iterable object with the given values.
-	 * @throws NullArgumentExcetpion if the given values is not an instance.
+	 * @throws NullArgumentExcetpion if the given values is null.
 	 */
 	public static Iterable<Long> createIterable(final long[] values) {
 		
-		//Checks if the given values is an instance.
+		//Checks if the given values is not null.
 		if (values == null) {
-			throw new RuntimeException("The given values is not an instance.");
+			throw new RuntimeException("The given values is null.");
 		}
 		
 		final List<Long> valueList = new List<Long>();
@@ -146,13 +146,13 @@ public final class ArrayHelper {
 	/**
 	 * @param values
 	 * @return a string representation of the given values.
-	 * @throws NullArgumentExcetpion if the given values is not an instance.
+	 * @throws NullArgumentExcetpion if the given values is null.
 	 */
 	public static String createString(final double[] values) {
 		
-		//Checks if the given values is an instance.
+		//Checks if the given values is not null.
 		if (values == null) {
-			throw new RuntimeException("The given values is not an instance.");
+			throw new RuntimeException("The given values is null.");
 		}
 		
 		final StringBuilder stringBuilder = new StringBuilder();
@@ -174,13 +174,13 @@ public final class ArrayHelper {
 	/**
 	 * @param values
 	 * @return a string representation of the given values.
-	 * @throws NullArgumentExcetpion if the given values is not an instance.
+	 * @throws NullArgumentExcetpion if the given values is null.
 	 */
 	public static String createString(final int[] values) {
 		
-		//Checks if the given values is an instance.
+		//Checks if the given values is not null.
 		if (values == null) {
-			throw new RuntimeException("The given values is not an instance.");
+			throw new RuntimeException("The given values is null.");
 		}
 		
 		final var stringBuilder = new StringBuilder();
@@ -202,13 +202,13 @@ public final class ArrayHelper {
 	/**
 	 * @param values
 	 * @return a string representation of the given values.
-	 * @throws NullArgumentExcetpion if the given values is not an instance.
+	 * @throws NullArgumentExcetpion if the given values is null.
 	 */
 	public static String createString(final long[] values) {
 		
-		//Checks if the given values is an instance.
+		//Checks if the given values is not null.
 		if (values == null) {
-			throw new RuntimeException("The given values is not an instance.");
+			throw new RuntimeException("The given values is null.");
 		}
 		
 		final StringBuilder stringBuilder = new StringBuilder();

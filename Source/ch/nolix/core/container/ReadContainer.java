@@ -39,7 +39,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	/**
 	 * Creates a new read container for a new container that will contain the given element.
 	 * 
-	 * @throws NullArgumentException if the given element is not an instance.
+	 * @throws NullArgumentException if the given element is null.
 	 */
 	public <E2 extends E> ReadContainer(final E2 element) {
 		this(new List<E>(element));
@@ -50,7 +50,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	 * Creates a new read container for the given array.
 	 * 
 	 * @param array
-	 * @throws NullArgumentException if the given array is not an instance.
+	 * @throws NullArgumentException if the given array is null.
 	 */
 	public <E2 extends E> ReadContainer(final E2[] array) {
 		
@@ -63,7 +63,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	 * Creates a new read container for the given arrays.
 	 * 
 	 * @param arrays
-	 * @throws NullArgumentException if one of the given arrays is not an instance.
+	 * @throws NullArgumentException if one of the given arrays is null.
 	 */
 	@SuppressWarnings("unchecked")
 	public <E2 extends E> ReadContainer(final E2[]... arrays) {
@@ -75,12 +75,12 @@ public final class ReadContainer<E> implements IContainer<E> {
 	 * Creates a new read container for the given container.
 	 * 
 	 * @param container
-	 * @throws NullArgumentException if the given container is not an instance.
+	 * @throws NullArgumentException if the given container is null.
 	 */
 	@SuppressWarnings("unchecked")
 	public <E2 extends E> ReadContainer(final IContainer<E2> container) {
 		
-		//Checks if the given container is an instance.
+		//Checks if the given container is not null.
 		Validator.suppose(container).thatIsNamed("container").isInstance();
 		
 		//Sets the container of this read container.
@@ -92,7 +92,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	 * Creates a new read container for the given container.
 	 * 
 	 * @param container
-	 * @throws NullArgumentException if the given container is not an instance.
+	 * @throws NullArgumentException if the given container is null.
 	 */
 	public <E2 extends E> ReadContainer(final Iterable<E2> container) {
 		
@@ -105,7 +105,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	 * Creates a new read container for the given containers.
 	 * 
 	 * @param containers
-	 * @throws NullArgumentException if one of the given containers is not an instance.
+	 * @throws NullArgumentException if one of the given containers is null.
 	 */
 	@SuppressWarnings("unchecked")
 	public <E2 extends E> ReadContainer(final Iterable<E2>... containers) {

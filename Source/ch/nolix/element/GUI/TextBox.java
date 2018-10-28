@@ -45,7 +45,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	/**
 	 * Creates a new {@link TextBox} with the given text.
 	 * 
-	 * @throws NullArgumentException if the given text is not an instance.
+	 * @throws NullArgumentException if the given text is null.
 	 */
 	public TextBox(final String text) {	
 		reset();

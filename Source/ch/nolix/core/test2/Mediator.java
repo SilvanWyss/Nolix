@@ -20,11 +20,11 @@ public abstract class Mediator {
 	 * Creates a new mediator that belongs to the given test.
 	 * 
 	 * @param test
-	 * @throws NullArgumentException if the given test is not an instance.
+	 * @throws NullArgumentException if the given test is null.
 	 */
 	Mediator(final Test test) {
 		
-		//Checks if the given test is an instance.
+		//Checks if the given test is not null.
 		if (test == null) {
 			throw new NullArgumentException("test");
 		}

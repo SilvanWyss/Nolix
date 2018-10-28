@@ -228,11 +228,11 @@ implements Closable {
 	 * Pushes the given session to the current {@link Client}.
 	 * 
 	 * @param session
-	 * @throws NullArgumentException if the given session is not an instance.
+	 * @throws NullArgumentException if the given session is null.
 	 */
 	public final void pushSession(final Session<C> session) {
 		
-		//Checks if the given session is an instance.
+		//Checks if the given session is not null.
 		Validator.suppose(session).isInstanceOf(Session.class);
 		
 		//Sets the given session to the current {@link Client}.
@@ -256,8 +256,8 @@ implements Closable {
 	 * 
 	 * @param session
 	 * @param popFunction
-	 * @throws NullArgumentException if the given session is not an instance.
-	 * @throws NullArgumentException if the given pop function is not an instance.
+	 * @throws NullArgumentException if the given session is null.
+	 * @throws NullArgumentException if the given pop function is null.
 	 */
 	public final void pushSession(
 		final Session<C> session,
@@ -317,7 +317,7 @@ implements Closable {
 	 * @param port
 	 * @param name
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
-	 * @throws NullArgumentException if the given name is not an instance.
+	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidStateException if the current {@link Client} is already connected.
 	 */
@@ -391,7 +391,7 @@ implements Closable {
 	 * @param port
 	 * @param name
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
-	 * @throws NullArgumentException if the given name is not an instance.
+	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidStateException if the current {@link Client} is already connected.
 	 */
@@ -625,12 +625,12 @@ implements Closable {
 	/**
 	 * * 
 	 * @param endPoint
-	 * @throws NullArgumentException if the given duplex controller is not an instance.
+	 * @throws NullArgumentException if the given duplex controller is null.
 	 * @throws InvalidStateException if the current {@link Client} is connected.
 	 */
 	protected final void internal_setDuplexController(final EndPoint endPoint) {
 		
-		//Checks if the given duplex controller is an instance.
+		//Checks if the given duplex controller is not null.
 		Validator.suppose(endPoint).isInstanceOf(EndPoint.class);
 		
 		//Checks if the current client is not connected.
@@ -648,13 +648,13 @@ implements Closable {
 	 * Sets the {@link Application} the current {@link Client} will belong to.
 	 * 
 	 * @param parentApplication
-	 * @throws NullArgumentException if the given parent application is not an instance.
+	 * @throws NullArgumentException if the given parent application is null.
 	 * @throws InvalidStateException if the current {@link Client}
 	 * references already a parent application.
 	 */
 	final void setParentApplication(final Application<C> parentApplication) {
 		
-		//Checks if the given parent application is an instance.
+		//Checks if the given parent application is not null.
 		Validator
 		.suppose(parentApplication)
 		.thatIsNamed("parent application")

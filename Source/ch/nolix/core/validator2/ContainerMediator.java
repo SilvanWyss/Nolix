@@ -60,7 +60,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws NullArgumentException if the given argument name is not an instance.
+	 * @throws NullArgumentException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument is empty.
 	 */
 	ContainerMediator(
@@ -78,7 +78,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws NullArgumentException if the given argument name is not an instance.
+	 * @throws NullArgumentException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument is empty.
 	 */
 	ContainerMediator(
@@ -93,16 +93,16 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	/**
 	 * @param condition
 	 * @throws NullArgumentException
-	 * if the given condition is not an instance.
+	 * if the given condition is null.
 	 * @throws NullArgmentException
-	 * if the argument of this container mediator is not an instance.
+	 * if the argument of this container mediator is null.
 	 * @throws InvalidArgumentException
 	 * if the argument of this container mediator
 	 * contains no element that fulfills the given condition.
 	 */
 	public void contains(final IElementTakerBooleanGetter<E> condition) {
 		
-		//Checks if the given condition is an instance.
+		//Checks if the given condition is not null.
 		if (condition == null) {
 			throw new NullArgumentException(VariableNameCatalogue.CONDITION);
 		}
@@ -143,7 +143,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 			);
 		}
 		
-		//Checks if the argument of this container mediator is an instance.
+		//Checks if the argument of this container mediator is not null.
 		isInstance();
 		
 		int actualElementCount = 0;
@@ -180,12 +180,12 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	
 	//method
 	/**
-	 * @throws NullArgumentException if the argument of this container mediator is not an instance.
+	 * @throws NullArgumentException if the argument of this container mediator is null.
 	 * @throws NonEmptyArgumentException if the argument of this container mediator is empty.
 	 */
 	public void isEmpty() {
 		
-		//Checks if the argument of this container mediator is an instance.
+		//Checks if the argument of this container mediator is not null.
 		isInstance();
 		
 		//Checks if the argument of this container mediator is empty.
@@ -196,12 +196,12 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 
 	//method
 	/**
-	 * @throws NullArgumentException if the argument of this container mediator is not an instance.
+	 * @throws NullArgumentException if the argument of this container mediator is null.
 	 * @throws EmptyArgumentException if the argument of this container mediator is empty.
 	 */
 	public void isNotEmpty() {
 		
-		//Checks if the argument of this container mediator is an instance.
+		//Checks if the argument of this container mediator is not null.
 		isInstance();
 		
 		//Checks if the argument of this container mediator is not empty.

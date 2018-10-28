@@ -29,11 +29,11 @@ implements Clearable<MutableOptionalProperty<V>> {
 	 * @param setterMethod
 	 * @param valueCreator
 	 * @param specificationCreator
-	 * @throws NullArgumentException if the given name is not an instance.
+	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given setter method is not an instance.
-	 * @throws NullArgumentException if the given value creator is not an instance.
-	 * @throws NullArgumentException if the given specification creator is not an instance.
+	 * @throws NullArgumentException if the given setter method is null.
+	 * @throws NullArgumentException if the given value creator is null.
+	 * @throws NullArgumentException if the given specification creator is null.
 	 */
 	public MutableOptionalProperty(
 		final String name,

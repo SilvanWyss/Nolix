@@ -28,7 +28,7 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	 */
 	protected final void expectApproximativeEquality(final ApproximativeEqualing expectedValue, final ApproximativeEqualing actualValue) { 
 		if (expectedValue != null && actualValue == null) {
-			new TestAccessor(this).addCurrentTestCaseError("Expected value is an object, but actual value is not an instance.");
+			new TestAccessor(this).addCurrentTestCaseError("Expected value is an object, but actual value is null.");
 		}
 		if (expectedValue == null && actualValue != null) {
 			new TestAccessor(this).addCurrentTestCaseError("Expected value is null, but actual value is an object.");
@@ -232,7 +232,7 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	 */
 	protected final void expectNonEmptyString(String string) {
 		
-		//Handles the case that the given string is not an instance.
+		//Handles the case that the given string is null.
 		if (string == null) {
 			new TestAccessor(this).addCurrentTestCaseError("Non-empty string was expected, but null was received.");
 		}

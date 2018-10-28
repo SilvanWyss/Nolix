@@ -24,9 +24,9 @@ final class InstanceCreator<I, O> {
 	 * 
 	 * @param instanceType
 	 * @param instanceCreatorFunction
-	 * @throws NullArgumentException if the given instance type is not an instance.
+	 * @throws NullArgumentException if the given instance type is null.
 	 * @throws EmptyArgumentException if the given instance type is empty.
-	 * @throws NullArgumentException if the given instance creator function is not an instance.
+	 * @throws NullArgumentException if the given instance creator function is null.
 	 */
 	public InstanceCreator(
 		final String instanceType,
@@ -39,7 +39,7 @@ final class InstanceCreator<I, O> {
 		.thatIsNamed("instance type")
 		.isNotEmpty();
 		
-		//Checks if the given instance creator function is an instance.
+		//Checks if the given instance creator function is not null.
 		Validator
 		.suppose(instanceCreatorFunction)
 		.thatIsNamed("instance creator function")

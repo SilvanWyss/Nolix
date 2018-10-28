@@ -40,10 +40,10 @@ implements Clearable<MutableMultiProperty<V>> {
 	 * @param valueCreator
 	 * @param adderMethod
 	 * @param specificationCreator
-	 * @throws NullArgumentException if the given name is not an instance.
+	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given adder method is not an instance.
-	 * @throws NullArgumentException if the given value creator is not an instance.
+	 * @throws NullArgumentException if the given adder method is null.
+	 * @throws NullArgumentException if the given value creator is null.
 	 * @throws NullArgumentException if the given specification creator is not an instace.
 	 */
 	public MutableMultiProperty(
@@ -55,7 +55,7 @@ implements Clearable<MutableMultiProperty<V>> {
 		//Calls constructor of the base class
 		super(name, valueCreator, specificationCreator);
 		
-		//Checks if the given adder method is an instance.
+		//Checks if the given adder method is not null.
 		Validator
 		.suppose(adderMethod)
 		.thatIsNamed("adder method")
@@ -71,7 +71,7 @@ implements Clearable<MutableMultiProperty<V>> {
 	 * 
 	 * @param value
 	 * @throws NullArgumentException
-	 * if the given value is not an instance.
+	 * if the given value is null.
 	 * @throws InvalidArgumentException
 	 * if this multi property contains already the given value.
 	 */

@@ -50,7 +50,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	 * Creates a new front console client that connects to the given application.
 	 * 
 	 * @param application
-	 * @throws NullArgumentException if the given target application is not an instance.
+	 * @throws NullArgumentException if the given target application is null.
 	 */
 	public FrontConsoleClient(final Application<BackConsoleClient> application) {
 		
@@ -68,9 +68,9 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	 * @param ip
 	 * @param port
 	 * @param targetApplication
-	 * @throws NullArgumentException if the given target application is not an instance.
+	 * @throws NullArgumentException if the given target application is null.
 	 * @throws EmptyArgumentException if the given target application is empty.
-	 * @throws NullArgumentException if the given GUI is not an instance.
+	 * @throws NullArgumentException if the given GUI is null.
 	 */
 	public FrontConsoleClient(
 		final String ip,
@@ -91,9 +91,9 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	 * @param port
 	 * @param targetApplication
 	 * @param GUI
-	 * @throws NullArgumentException if the given target application is not an instance.
+	 * @throws NullArgumentException if the given target application is null.
 	 * @throws EmptyArgumentException if the given target application is empty.
-	 * @throws NullArgumentException if the given GUI is not an instance.
+	 * @throws NullArgumentException if the given GUI is null.
 	 */
 	public FrontConsoleClient(
 		final String ip,
@@ -112,11 +112,11 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	 * /Creates new console front client with the given GUI.
 	 * 
 	 * @param GUI
-	 * @throws NullArgumentException if the given GUI is not an instance.
+	 * @throws NullArgumentException if the given GUI is null.
 	 */
 	private FrontConsoleClient(final GUI<?> GUI) {
 		
-		//Checks if the given GUI is an instance.
+		//Checks if the given GUI is not null.
 		Validator.suppose(GUI).isInstanceOf(GUI.class);
 		
 		//Sets the GUI of this console front client.

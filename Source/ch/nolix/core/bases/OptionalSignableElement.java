@@ -61,12 +61,12 @@ implements OptionalSignable<OSE> {
 	 * 
 	 * @param infoString
 	 * @return the current {@link OptionalSignableElement}.
-	 * @throws NullArgumentException if the given info string is not an instance.
+	 * @throws NullArgumentException if the given info string is null.
 	 * @throws EmptyArgumentException if the given info string is empty.
 	 */
 	public final OSE setInfoString(final String infoString) {
 		
-		//Checks if the given info string is an instance and not empty.
+		//Checks if the given info string is not null and not empty.
 		Validator.suppose(infoString).thatIsNamed("info string").isNotEmpty();
 		
 		//Sets the info string of the current optional signable element.

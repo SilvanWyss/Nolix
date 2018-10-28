@@ -45,7 +45,7 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws RuntimeException if the given argument name is not an instance.
+	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
 	public NonNegativeArgumentException(final String argumentName, final double argument) {
@@ -64,7 +64,7 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws RuntimeException if the given argument name is not an instance.
+	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
 	public NonNegativeArgumentException(final String argumentName, final long argument) {

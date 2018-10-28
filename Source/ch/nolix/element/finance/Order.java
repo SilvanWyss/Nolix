@@ -26,9 +26,9 @@ public final class Order {
 	 * @param time
 	 * @param productSymbol
 	 * @param volume
-	 * @throws NullArgumentException if the given type is not an instance.
-	 * @throws NullArgumentException if the given time is not an instance.
-	 * @throws NullArgumentException if the given product symbol is not an instance.
+	 * @throws NullArgumentException if the given type is null.
+	 * @throws NullArgumentException if the given time is null.
+	 * @throws NullArgumentException if the given product symbol is null.
 	 * @throws EmptyArgumentException if the given product symbol is empty.
 	 * @throws NullArgumentException if the given volume is not positive.
 	 */

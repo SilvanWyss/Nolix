@@ -32,14 +32,14 @@ extends Neuronoid<TransformNeuron<I, O>, I, O> {
 	 * 
 	 * @param inputNeuron
 	 * @param transformator
-	 * @throws NullArgumentException if the given input neuron is not an instance.
-	 * @throws NullArgumentException if the given transformator is not an instance.
+	 * @throws NullArgumentException if the given input neuron is null.
+	 * @throws NullArgumentException if the given transformator is null.
 	 */
 	public TransformNeuron(
 		final Neuronoid<?, ?, I> inputNeuron,
 		final IElementTakerElementGetter<I, O> transformator
 	) {
-		//Checks if the given transformator is an instance.
+		//Checks if the given transformator is not null.
 		Validator
 		.suppose(transformator).
 		thatIsNamed(VariableNameCatalogue.TRANSFORMATOR).

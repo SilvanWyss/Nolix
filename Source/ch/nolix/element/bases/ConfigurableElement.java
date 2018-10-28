@@ -121,7 +121,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	 * Sets the token of this configurable element.
 	 * 
 	 * @param token
-	 * @throws NullArgumentException if the given token is not an instance.
+	 * @throws NullArgumentException if the given token is null.
 	 * @throws EmptyArgumentException if the given token is empty.
 	 */
 	public final CE setToken(final String token) {

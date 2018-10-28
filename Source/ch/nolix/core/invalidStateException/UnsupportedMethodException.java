@@ -20,8 +20,8 @@ public final class UnsupportedMethodException extends InvalidStateException {
 	 * 
 	 * @param object
 	 * @param methodName
-	 * @throws RuntimeException if the given argument is not an instance.
-	 * @throws RuntimeException if the given method name is not an instance.
+	 * @throws RuntimeException if the given argument is null.
+	 * @throws RuntimeException if the given method name is null.
 	 * @throws RuntimeException if the given method name is empty.
 	 */
 	public UnsupportedMethodException(final Object object, final String methodName) {
@@ -29,9 +29,9 @@ public final class UnsupportedMethodException extends InvalidStateException {
 		//Calls constructor of the base class.
 		super(object, "does not support the method " + methodName);
 		
-		//Checks if the given method name is an instance.
+		//Checks if the given method name is not null.
 		if (methodName == null) {
-			throw new RuntimeException("The given method name is not an instance.");
+			throw new RuntimeException("The given method name is null.");
 		}
 		
 		//Checks if the given attribute name is not empty.

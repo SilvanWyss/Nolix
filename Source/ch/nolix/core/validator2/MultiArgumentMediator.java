@@ -29,11 +29,11 @@ public class MultiArgumentMediator<A> {
 	 * Creates a new multi argument mediator with the given arguments.
 	 * 
 	 * @param arguments
-	 * @throws NullArgumentException if the given arguments is not an instance..
+	 * @throws NullArgumentException if the given arguments is null..
 	 */
 	MultiArgumentMediator(final Iterable<A> arguments) {
 
-		//Checks if the given arguments is an instance.
+		//Checks if the given arguments is not null.
 		if (arguments == null) {
 			throw new NullArgumentException("arguments");
 		}
@@ -47,7 +47,7 @@ public class MultiArgumentMediator<A> {
 	 * Creates a new multi argument mediator with the given arguments.
 	 * 
 	 * @param arguments
-	 * @throws NullArgumentException if the given arguments is not an instance.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
 	MultiArgumentMediator(final A[] arguments) {
 
@@ -57,7 +57,7 @@ public class MultiArgumentMediator<A> {
 	
 	//method
 	/**
-	 * @throws NullArgumentException if one of the arguments of this multi argument mediator is not an instance.
+	 * @throws NullArgumentException if one of the arguments of this multi argument mediator is null.
 	 */
 	public final void areNotNull() {
 		
@@ -65,7 +65,7 @@ public class MultiArgumentMediator<A> {
 		int index = 1;
 		for (final A a : getRefArguments()) {
 			
-			//Checks if the current argument is an instance.
+			//Checks if the current argument is not null.
 			if (a == null) {
 				throw new NullArgumentException(index + "th argument");
 			}
@@ -78,7 +78,7 @@ public class MultiArgumentMediator<A> {
 	//method
 	/**
 	 * @param condition
-	 * @throws NullArgumentException if the given condition is not an instance.
+	 * @throws NullArgumentException if the given condition is null.
 	 * @throws InvalidArgumentException if an argument of this argument container does not fulfill the given condition.
 	 */
 	public final void fulfill(final IElementTakerBooleanGetter<A> condition) {

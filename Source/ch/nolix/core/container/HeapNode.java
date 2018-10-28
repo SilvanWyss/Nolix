@@ -31,7 +31,7 @@ final class HeapNode<E> {
 	 * Creates a new {@link HeapNode} with the given element.
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is not an instance.
+	 * @throws NullArgumentException if the given element is null.
 	 */
 	public HeapNode(final E element) {
 		setElement(element);
@@ -102,11 +102,11 @@ final class HeapNode<E> {
 	 * Sets the element of the current {@link HeapNode}.
 	 * 
 	 * @param element
-	 * @throws NullArgumentException if the given element is not an instance.
+	 * @throws NullArgumentException if the given element is null.
 	 */
 	public void setElement(final E element) {
 		
-		//Checks if the given element is an instance.
+		//Checks if the given element is not null.
 		Validator.suppose(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isInstance();
 		
 		//Sets the element of the current heap node.

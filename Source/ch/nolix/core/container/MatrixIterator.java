@@ -27,11 +27,11 @@ final class MatrixIterator<E> implements Iterator<E> {
 	 * Creates a new {@link MatrixIterator} for the given matrix.
 	 * 
 	 * @param parentMatrix
-	 * @throws NullArgumentException if the given parent matrix is not an instance.
+	 * @throws NullArgumentException if the given parent matrix is null.
 	 */
 	public MatrixIterator(final Matrix<E> parentMatrix) {
 		
-		//Checks if the given parent matrix is an instance.
+		//Checks if the given parent matrix is not null.
 		Validator
 		.suppose(parentMatrix)
 		.thatIsNamed("parent matrix")

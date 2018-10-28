@@ -24,11 +24,11 @@ final class ClientReceiverController implements IDataProviderController {
 	 * Creates a new receiver controller with the given client.
 	 * 
 	 * @param client
-	 * @throws NullArgumentException if the given client is not an instance.
+	 * @throws NullArgumentException if the given client is null.
 	 */
 	public ClientReceiverController(final Client<?> client) {
 		
-		//Checks if the given client is an instance.
+		//Checks if the given client is not null.
 		Validator.suppose(client).isInstanceOf(Client.class);
 		
 		//Sets the client of this client receiver controller.

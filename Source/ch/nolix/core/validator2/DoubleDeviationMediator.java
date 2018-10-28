@@ -25,7 +25,7 @@ public final class DoubleDeviationMediator extends Mediator {
 	 * @param argumentName
 	 * @param argument
 	 * @param maxDeviation
-	 * @throws NullArgumentException if the given argument name is not an instance.
+	 * @throws NullArgumentException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 * @throws NegativeArgumentException if the given max deviation is negative.
 	 */
