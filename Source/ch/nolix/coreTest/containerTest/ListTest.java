@@ -8,6 +8,7 @@ import java.util.Iterator;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
 import ch.nolix.core.container.SequencePattern;
+import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.test2.Test;
@@ -18,10 +19,32 @@ import ch.nolix.core.test2.Test;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 640
+ * @lines 660
  */
 public final class ListTest extends Test {
+	
+	//test case
+	public void testCase_addAtBegin() {
 		
+		//setup
+		final var list = new List<String>();
+		
+		//execution & verification
+		final String string = null;
+		expect(() -> list.addAtBegin(string)).throwsExceptionOfType(NullArgumentException.class);
+	}
+	
+	//test case
+	public void testCase_addAtEnd() {
+		
+		//setup
+		final var list = new List<String>();
+		
+		//execution & verification
+		final String string = null;
+		expect(() -> list.addAtEnd(string)).throwsExceptionOfType(NullArgumentException.class);
+	}
+	
 	//test case
 	public void testCase_clear() {
 		
