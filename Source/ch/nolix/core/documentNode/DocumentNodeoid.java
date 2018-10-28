@@ -28,7 +28,7 @@ import ch.nolix.core.XMLDocument.XMLNode;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 750
+ * @lines 770
  */
 public abstract class DocumentNodeoid {
 	
@@ -588,16 +588,36 @@ public abstract class DocumentNodeoid {
 	
 	//method
 	/**
-	 * Saves the current {@link DocumentNodeoid} to the file with the given path.
+	 * Saves the current {@link DocumentNodeoid} to the file with the given file path.
 	 * 
 	 * @param filePath
-	 * @throws InvalidArgumentException if the given file path is not valid.
+	 * @throws NullArgumentException if the given relative file path is null.
+	 * @throws EmptyArgumentException if the given relative file path is empty.
+	 * @throws InvalidArgumentException
+	 * if a file system item with the given file path exists already.
 	 */
 	public void saveToFile(final String filePath) {
-		new FileSystemAccessor().createFile(
-			filePath,
-			toFormatedString()
-		);
+		
+		//Calls other method.
+		saveToFile(filePath, false);
+	}
+	
+	//method
+	/**
+	 * Saves the current {@link DocumentNodeoid} to the file with the given path.
+	 * 
+	 * If the given overwrite flag is true,
+	 * a file with the given file path, that exists already, will be overwritten.
+	 * 
+	 * @param filePath
+	 * @param overwrite
+	 * @throws NullArgumentException if the given relative file path is null.
+	 * @throws EmptyArgumentException if the given relative file path is empty.
+	 * @throws InvalidArgumentException if the given overwrite flag is false
+	 * and a file system item with the given file path exists already.
+	 */
+	public void saveToFile(final String filePath, final boolean overwrite) {
+		new FileSystemAccessor().createFile(filePath, overwrite, toFormatedString());
 	}
 	
 	//abstract method
@@ -699,7 +719,7 @@ public abstract class DocumentNodeoid {
 	 * @return a formated string representation of the current {@link DocumentNodeoid}
 	 * with as many leading tabulators as the given leading tabulator count says.
 	 */
-	protected String toFormatedString(final int leadingTabulators) {
+	private String toFormatedString(final int leadingTabulators) {
 		
 		final var stringBuilder = new StringBuilder();
 		
