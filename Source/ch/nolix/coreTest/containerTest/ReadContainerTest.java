@@ -58,4 +58,20 @@ public final class ReadContainerTest extends Test {
 			expectNot(readContainer.containsEqualing("saturn"));
 			expectNot(readContainer.containsEqualing("uranus"));
 	}
+	
+	//test case
+	public void testCase_getRefSelected() {
+		
+		//setup
+			final String[] array1 = { "A", "AA", "AAA" };
+			final String[] array2 = { "B", "BB", "BBB" };
+			final String[] array3 = { "C", "CC", "CCC" };
+			
+			final var readContainer = new ReadContainer<String>(array1, array2, array3);
+		
+		//execution & verification
+		expect(readContainer.getRefSelected(s -> s.length() == 1).toString()).isEqualTo("A,B,C");
+		expect(readContainer.getRefSelected(s -> s.length() == 2).toString()).isEqualTo("AA,BB,CC");
+		expect(readContainer.getRefSelected(s -> s.length() == 3).toString()).isEqualTo("AAA,BBB,CCC");
+	}
 }
