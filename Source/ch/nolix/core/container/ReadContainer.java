@@ -55,7 +55,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	public <E2 extends E> ReadContainer(final E2[] array) {
 		
 		//Calls other constructor.
-		this(new ReadArrayContainer<E2>(array));
+		this(new ArrayReadContainer<E2>(array));
 	}
 	
 	//constructor
@@ -85,7 +85,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	public <E2 extends E> ReadContainer(final Iterable<E2> container) {
 		
 		//Calls other constructor.
-		this(new ReadIterableContainer<E2>(container));
+		this(new IterableReadContainer<E2>(container));
 	}
 	
 	//method

@@ -16,7 +16,7 @@ import ch.nolix.core.validator2.Validator;
  * @lines 80
  * @param <E> The type of the elements of a read iterable container.
  */
-final class ReadIterableContainer<E> implements IContainer<E> {
+final class IterableReadContainer<E> implements IContainer<E> {
 
 	//attribute
 	private final Iterable<E> container;
@@ -25,7 +25,7 @@ final class ReadIterableContainer<E> implements IContainer<E> {
 	/**
 	 * Creates a new read iterable container for a new empty array.
 	 */
-	public ReadIterableContainer() {
+	public IterableReadContainer() {
 		
 		//Calls other constructor.
 		this(new List<E>());
@@ -39,7 +39,7 @@ final class ReadIterableContainer<E> implements IContainer<E> {
 	 * @throws NullArgumentException if the given container is not an instance.
 	 */
 	@SuppressWarnings("unchecked")
-	public <E2 extends E> ReadIterableContainer(final Iterable<E2> container) {
+	public <E2 extends E> IterableReadContainer(final Iterable<E2> container) {
 		
 		//Checks if the given array is an instance.
 		Validator

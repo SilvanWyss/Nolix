@@ -20,7 +20,7 @@ import ch.nolix.core.validator2.Validator;
  * @param <E> The type of the elements of the read array container
  * a read array container iterator belongs to.
  */
-final class ReadArrayContainerIterator<E> implements Iterator<E> {
+final class ArrayReadContainerIterator<E> implements Iterator<E> {
 
 	//attribute
 	/**
@@ -41,7 +41,7 @@ final class ReadArrayContainerIterator<E> implements Iterator<E> {
 	 * @param array
 	 * @throws NullArgumentException if the given array is not an instance.
 	 */
-	public ReadArrayContainerIterator(final E[] array) {
+	public ArrayReadContainerIterator(final E[] array) {
 		
 		//Checks if the given array is an instance.
 		Validator

@@ -16,7 +16,7 @@ import ch.nolix.core.validator2.Validator;
  * @lines 70
  * @param <E> The type of the elements of a read array container.
  */
-final class ReadArrayContainer<E> implements IContainer<E> {
+final class ArrayReadContainer<E> implements IContainer<E> {
 
 	//attribute
 	private final E[] array;
@@ -26,7 +26,7 @@ final class ReadArrayContainer<E> implements IContainer<E> {
 	 * Creates a new read array container for a new empty array.
 	 */
 	@SuppressWarnings("unchecked")
-	public ReadArrayContainer() {
+	public ArrayReadContainer() {
 		
 		//Calls other constructor.
 		this((E[])new Object[0]);
@@ -39,7 +39,7 @@ final class ReadArrayContainer<E> implements IContainer<E> {
 	 * @param array
 	 * @throws NullArgumentException if the given array is not an instance.
 	 */
-	public ReadArrayContainer(final E[] array) {
+	public ArrayReadContainer(final E[] array) {
 		
 		//Checks if the given array is an instance.
 		Validator
@@ -56,7 +56,7 @@ final class ReadArrayContainer<E> implements IContainer<E> {
 	 * @return a new iterator for this read array container.
 	 */
 	public Iterator<E> iterator() {
-		return new ReadArrayContainerIterator<E>(array);
+		return new ArrayReadContainerIterator<E>(array);
 	}
 
 	//method
