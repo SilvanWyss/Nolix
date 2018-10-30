@@ -12,6 +12,7 @@ import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
 import com.jme3.system.AppSettings;
 
+//own imports
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element._3DGUI.Cuboid;
@@ -30,8 +31,9 @@ import ch.nolix.element._3DGUI.Sphere;
  */
 public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 
-	//attribute
+	//attributes
 	private boolean closed = false;
+	private final AppSettings appSettings = new AppSettings(true);
 	
 	//attribute
 	private final SimpleApplication simpleApplication = new SimpleApplication() {
@@ -49,7 +51,6 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		}
 	};
 		
-	AppSettings appSettings = new AppSettings(true);
 		  
     //constructor
     /**
@@ -70,10 +71,10 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		directionalLight.setColor(new ColorRGBA(1.0f, 1.0f, 1.0f, 1.0f));
 		directionalLight.setDirection(new Vector3f(1, 0.5f, -0.5f));
 		simpleApplication.getRootNode().addLight(directionalLight);		
-		
+				
 		appSettings.setTitle(getTitle());
+		appSettings.setResizable(true);
 		simpleApplication.setSettings(appSettings);
-		
 		simpleApplication.setShowSettings(false);
 		simpleApplication.start();
 	}
