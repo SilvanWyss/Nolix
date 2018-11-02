@@ -79,6 +79,7 @@ public final class VariableNameCatalogue {
 	public static final String SEPARATOR = "separator";
 	public static final String SEQUENCE ="sequence";
 	public static final String SERVICE = "service";
+	public static final String SIDE_LENGTH = "side length";
 	public static final String SIZE = "size";
 	public static final String SPECIFICATION = "specification";
 	public static final String START_DATE = "start date";
