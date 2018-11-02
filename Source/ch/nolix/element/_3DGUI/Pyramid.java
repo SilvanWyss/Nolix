@@ -11,7 +11,7 @@ public final class Pyramid extends BaseShape<Pyramid> {
 	
 	//default values
 	public static final double DEFAULT_SIDE_LENGTH = 1.0;
-	public static final double DEFAULT_HEIGHT = 1.0;
+	public static final double DEFAULT_HEIGHT = 2.0;
 
 	//attribute
 	private final MutableProperty<PositiveFloatingPointNumber> sideLength =
