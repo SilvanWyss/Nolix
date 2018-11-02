@@ -8,6 +8,9 @@ import ch.nolix.element.core.PositiveFloatingPointNumber;
 
 //abstract class
 public abstract class Prisma<P extends Prisma<P>> extends BaseShape<P> {
+	
+	//default value
+	public static final double DEFAULT_HEIGHT = 2.0;
 
 	//attribute
 	private final MutableProperty<PositiveFloatingPointNumber> height =
@@ -26,6 +29,17 @@ public abstract class Prisma<P extends Prisma<P>> extends BaseShape<P> {
 	//method
 	public final float getHeightAsFloat() {
 		return (float)getHeight();
+	}
+	
+	//method
+	public P reset() {
+		
+		//Calls method of base class.
+		super.reset();
+		
+		setHeight(DEFAULT_HEIGHT);
+		
+		return getInstance();
 	}
 	
 	//method
