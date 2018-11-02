@@ -11,7 +11,7 @@ import ch.nolix.element.core.PositiveFloatingPointNumber;
 /**
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 120
+ * @lines 130
  */
 public final class Sphere extends BaseShape<Sphere> {
 	
@@ -32,7 +32,10 @@ public final class Sphere extends BaseShape<Sphere> {
 	/**
 	 * Creates a new sphere with a default radius.
 	 */
-	public Sphere() {}
+	public Sphere() {
+		reset();
+		approveProperties();
+	}
 	
 	//constructor
 	/**
@@ -42,6 +45,10 @@ public final class Sphere extends BaseShape<Sphere> {
 	 * @throws NonPositiveArgumentException if the given diameter is not positive.
 	 */
 	public Sphere(final double diameter) {
+		
+		//Calls other constructor.
+		this();
+		
 		setDiameter(diameter);
 	}
 	
