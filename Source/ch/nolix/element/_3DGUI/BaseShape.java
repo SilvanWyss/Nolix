@@ -24,7 +24,7 @@ import ch.nolix.element.image.Image;
 public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 
 	//default value
-	public static final Color DEFAULT_COLOR = Color.WHITE;
+	public static final Color DEFAULT_COLOR = Color.LIGHT_GREY;
 	
 	//attribute
 	private MutableProperty<Color> defaultColor
