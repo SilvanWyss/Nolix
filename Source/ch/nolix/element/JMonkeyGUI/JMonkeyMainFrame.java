@@ -27,7 +27,7 @@ import ch.nolix.element._3DGUI.Sphere;
 /**
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 230
+ * @lines 260
  */
 public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 
@@ -81,6 +81,21 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	
 	//constructor
 	/**
+	 * Creates a new {@link JMonkeyMainFrame} with the given root shape.
+	 * 
+	 * @param rootShape
+	 * @throws NullArgumentException if the given root shape is null.
+	 */
+	public JMonkeyMainFrame(final Shape<?> rootShape) {
+		
+		//Calls other constructor.
+		this();
+		
+		setRootShape(rootShape);
+	}
+	
+	//constructor
+	/**
 	 * Creates a new {@link JMonkeyMainFrame} with the given title.
 	 * 
 	 * @param title
@@ -93,6 +108,24 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		this();
 		
 		setTitle(title);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link JMonkeyMainFrame} with the given title and root shape.
+	 * 
+	 * @param title
+	 * @param rootShape
+	 * @throws NullArgumentException if the given title is null.
+	 * @throws EmptyArgumentException if the given title is empty.
+	 * @throws NullArgumentException if the given root shape is null.
+	 */
+	public JMonkeyMainFrame(final String title, final Shape<?> rootShape) {
+		
+		//Calls other constructor.
+		this(title);
+		
+		setRootShape(rootShape);
 	}
 	
 	//method
