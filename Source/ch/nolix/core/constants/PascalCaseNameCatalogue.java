@@ -60,6 +60,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String ROOT = "Root";
 	public static final String ROW = "Row";
 	public static final String SEPARATOR = "Separator";
+	public static final String SIDE_LENGTH = "SideLength";
 	public static final String SIZE = "Size";
 	public static final String START_DATE = "StartDate";
 	public static final String START_INDEX = "StartIndex";
