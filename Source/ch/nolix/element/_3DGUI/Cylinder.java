@@ -10,7 +10,10 @@ import ch.nolix.element.core.PositiveFloatingPointNumber;
 
 //class
 public final class Cylinder extends Prisma<Cylinder> {
-
+	
+	//default value
+	public static final double DEFAULT_RADIUS = 1.0;
+	
 	//attribute	
 	private final MutableProperty<PositiveFloatingPointNumber> radius =
 	new MutableProperty<PositiveFloatingPointNumber>(
@@ -19,6 +22,12 @@ public final class Cylinder extends Prisma<Cylinder> {
 		s -> PositiveFloatingPointNumber.createFromSpecification(s),
 		r -> r.getSpecification()
 	);
+	
+	//constructor
+	public Cylinder() {
+		reset();
+		approveProperties();
+	}
 	
 	//method
 	public double getDiameter() {
@@ -33,6 +42,17 @@ public final class Cylinder extends Prisma<Cylinder> {
 	//method
 	public float getRadiusAsFloat() {
 		return (float)getRadius();
+	}
+	
+	//method
+	public Cylinder reset() {
+		
+		//Calls method of base class.
+		super.reset();
+		
+		setRadius(DEFAULT_RADIUS);
+		
+		return this;
 	}
 	
 	//method
