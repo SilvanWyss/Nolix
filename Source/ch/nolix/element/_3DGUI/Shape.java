@@ -10,6 +10,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.bases.ConfigurableElement;
+import ch.nolix.element.geometry._2DPoint;
 import ch.nolix.element.geometry._3DPoint;
 
 //abstract class
@@ -204,6 +205,18 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 		return getInstance();
 	}
 	
+	/**
+	 * Sets the position of the current {@link Shape} with z-position=0.0.
+	 * 
+	 * @param position
+	 * @return the current {@link Shape}.
+	 */
+	public final S setPosition(final _2DPoint position) {
+		
+		//Calls other method.
+		return setPosition(position.to3DPoint());
+	}
+	
 	//method
 	/**
 	 * Sets the position of this frame.
@@ -221,6 +234,23 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 		this.position = position;
 		
 		return getInstance();
+	}
+	
+	//method
+	/**
+	 * Sets the position of the current {@link Shape} with z-position=0.0.
+	 * 
+	 * @param xPosition
+	 * @param xPosition
+	 * @return the current {@link Shape}.
+	 */
+	public final S setPosition(
+		final double xPosition,
+		final double yPosition
+	) {
+		
+		//Calls other method.
+		return setPosition(xPosition, yPosition, 0.0);
 	}
 	
 	//method
