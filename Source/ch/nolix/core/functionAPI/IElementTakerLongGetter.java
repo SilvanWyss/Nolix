@@ -17,5 +17,5 @@ public interface IElementTakerLongGetter<E> {
 	 * @param element
 	 * @return a long for the given element.
 	 */
-	public abstract int getOutput(E element);
+	public abstract long getOutput(E element);
 }
