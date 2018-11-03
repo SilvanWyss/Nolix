@@ -19,6 +19,7 @@ import ch.nolix.element._3DGUI.Cuboid;
 import ch.nolix.element._3DGUI.Cylinder;
 import ch.nolix.element._3DGUI.MainFrame;
 import ch.nolix.element._3DGUI.MultiShape;
+import ch.nolix.element._3DGUI.Pyramid;
 import ch.nolix.element._3DGUI.Rectangle;
 import ch.nolix.element._3DGUI.Shape;
 import ch.nolix.element._3DGUI.Sphere;
@@ -30,7 +31,7 @@ import ch.nolix.element._3DGUI.Sphere;
  * @lines 260
  */
 public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
-
+	
 	//attributes
 	private boolean closed = false;
 	private final AppSettings appSettings = new AppSettings(true);
@@ -50,8 +51,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 			inputManager.addRawInputListener(new JMonkeyMainFrameRawInputListener(getInstance()));
 		}
 	};
-		
-		  
+	
     //constructor
     /**
      * Creates a new JMonkey main frame.
@@ -63,6 +63,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		addShapeClass(Sphere.class, new JMonkeySphereRenderer());
 		addShapeClass(Cylinder.class, new JMonkeyCylinderRenderer());
 		addShapeClass(MultiShape.class, new JMonkeyMultiShapeRenderer());
+		addShapeClass(Pyramid.class, new JMonkeyPyramidRenderer());
 		addShapeClass(Rectangle.class, new JMonkeyRectangleRenderer());
 		
 		reset();
