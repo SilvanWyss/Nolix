@@ -29,7 +29,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1540
+ * @lines 1660
  * @param <E> The type of the elements of a {@link IContainer}.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -511,6 +511,7 @@ public interface IContainer<E> extends Iterable<E> {
 		return (E2)(norm.getValue(getRefByMax(norm)));
 	}
 	
+	//TODO: Rename getMaxDouble method to getMaxByDouble.
 	//default method
 	/**
 	 * @param doubleNorm
@@ -568,7 +569,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the smallest value the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default int getMinInt(IElementTakerLongGetter<E> intNorm) {
+	public default int getMinInt(IElementTakerIntGetter<E> intNorm) {
 		return intNorm.getOutput(getRefByMinInt(intNorm));
 	}
 	
@@ -590,6 +591,117 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default double getPercentage(final IElementTakerBooleanGetter<E> selector) {	
 		return (100.0 * getRatio(selector));
+	}
+	
+	//default method
+	/**
+	 * The range of some values is the difference between the maximum and the minimum of the values.
+	 * 
+	 * @param doubleNorm
+	 * @return the range of the values the given double norm returns from the current {@link IContainer}.
+	 * @throws EmptyStateException if the current {@link IContainer} is empty.
+	 */
+	public default double getRangeByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
+		
+		//For a better performance, this implementation does not use all comfortable methods.		
+			//Calculates the minimum and the maximum
+			//the given double norm returns from the elements of the current container.
+				var min = doubleNorm.getOutput(getRefFirst());
+				var max = min;
+				
+				//Iterates the current container.
+				for (final var e : this) {
+					
+					//Calculates the current value.
+					final var value = doubleNorm.getOutput(e);
+					
+					//Handles the case that the current value is smaller than the current minimum.
+					if (value < min) {
+						min = value;
+					}
+					
+					//Handles the case that the current value is bigger than the current maximum.
+					if (value > max) {
+						max = value;
+					}
+				}
+			
+			//Calculates and returns the range.
+			return (max - min);	
+	}
+	
+	//default method
+	/**
+	 * The range of some values is the difference between the maximum and the minimum of the values.
+	 * 
+	 * @param intNorm
+	 * @return the range of the values the given int norm returns from the current {@link IContainer}.
+	 * @throws EmptyStateException if the current {@link IContainer} is empty.
+	 */
+	public default int getRangeByInt(final IElementTakerIntGetter<E> intNorm) {
+		
+		//For a better performance, this implementation does not use all comfortable methods.		
+			//Calculates the minimum and the maximum
+			//the given double norm returns from the elements of the current container.
+				var min = intNorm.getOutput(getRefFirst());
+				var max = min;
+				
+				//Iterates the current container.
+				for (final var e : this) {
+					
+					//Calculates the current value.
+					final var value = intNorm.getOutput(e);
+					
+					//Handles the case that the current value is smaller than the current minimum.
+					if (value < min) {
+						min = value;
+					}
+					
+					//Handles the case that the current value is bigger than the current maximum.
+					if (value > max) {
+						max = value;
+					}
+				}
+			
+			//Calculates and returns the range.
+			return (max - min);	
+	}
+	
+	//default method
+	/**
+	 * The range of some values is the difference between the maximum and the minimum of the values.
+	 * 
+	 * @param longNorm
+	 * @return the range of the values the given long norm returns from the current {@link IContainer}.
+	 * @throws EmptyStateException if the current {@link IContainer} is empty.
+	 */
+	public default long getRangeByLong(final IElementTakerLongGetter<E> longNorm) {
+		
+		//For a better performance, this implementation does not use all comfortable methods.		
+			//Calculates the minimum and the maximum
+			//the given double norm returns from the elements of the current container.
+				var min = longNorm.getOutput(getRefFirst());
+				var max = min;
+				
+				//Iterates the current container.
+				for (final var e : this) {
+					
+					//Calculates the current value.
+					final var value = longNorm.getOutput(e);
+					
+					//Handles the case that the current value is smaller than the current minimum.
+					if (value < min) {
+						min = value;
+					}
+					
+					//Handles the case that the current value is bigger than the current maximum.
+					if (value > max) {
+						max = value;
+					}
+				}
+			
+			//Calculates and returns the range.
+			return (max - min);	
 	}
 	
 	//default method
@@ -808,7 +920,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the element with the biggest value the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default E getRefByMinInt(final IElementTakerLongGetter<E> intNorm) {
+	public default E getRefByMinInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		var element = getRefFirst();
 		var min = intNorm.getOutput(element);
@@ -1420,7 +1532,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param intNorm
 	 * @return a new array with the values the given int norm returns from the elements of the current {@link IContainer}.
 	 */
-	public default int[] toIntArray(final IElementTakerLongGetter<E> intNorm) {
+	public default int[] toIntArray(final IElementTakerIntGetter<E> intNorm) {
 		
 		//Creates array.
 		final var array = new int[getSize()];
