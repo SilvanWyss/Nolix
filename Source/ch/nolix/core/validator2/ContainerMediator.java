@@ -15,7 +15,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
 import ch.nolix.core.invalidArgumentException.NonEmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
-import ch.nolix.core.primitiveHelper.ArrayHelper;
+import ch.nolix.core.primitiveContainer.ArrayReadContainer;
 
 //class
 /**
@@ -38,7 +38,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	ContainerMediator(final E[] argument) {
 		
 		//Calls constructor of the base class.
-		super(ArrayHelper.createIterable(argument));
+		super(new ArrayReadContainer<E>(argument));
 	}
 	
 	//package-visible constructor
@@ -68,7 +68,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		final E[] argument) {
 		
 		//Calls constructor of the base class.
-		super(argumentName, ArrayHelper.createIterable(argument));
+		super(argumentName, new ArrayReadContainer<E>(argument));
 	}
 	
 	//package-visible constructor
