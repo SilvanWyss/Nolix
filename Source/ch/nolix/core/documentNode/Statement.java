@@ -3,153 +3,222 @@ package ch.nolix.core.documentNode;
 
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.skillInterfaces.Headered;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
- * A statement consists of a specification and can have a next statement.
+ * A {@link Statement} consists of a {@link DocumentNode} and optionally a next {@link Statement}.
+ * A {@link Statement} is not mutable as long as its document node or next statement are not mutated.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 230
+ * @lines 270
  */
-public final class Statement {
+public final class Statement implements Headered {
 	
 	//attribute
-	private DocumentNode specification = new DocumentNode();
+	private final DocumentNode documentNode;
 	
 	//optional attribute
-	private Statement nextStatement;
+	private final Statement nextStatement;
 	
 	//constructor
 	/**
-	 * Creates a new statement.
+	 * Creates a new {@link Statement}.
 	 */
-	public Statement() {}
+	public Statement() {
+		documentNode = new DocumentNode();
+		nextStatement = null;
+	}
+		
+	//constructor
+	/**
+	 * Creates a new {@link Statement} that consists of the given document node.
+	 * 
+	 * @param documentNode
+	 * @throws NullArgumentException if the given document node is null.
+	 */
+	public Statement(final DocumentNode documentNode) {
+		
+		//Checks if the given document node is not null.
+		Validator
+		.suppose(documentNode)
+		.thatIsNamed("document node")
+		.isInstance();
+		
+		this.documentNode = documentNode.createCopy();
+		nextStatement = null;
+	}
 	
 	//constructor
 	/**
-	 * Creates a new statement the given string represents
+	 * Creates a new {@link Statement} that consists of the given document node and next statement.
+	 * 
+	 * @param documentNode
+	 * @param nextStatement
+	 * @throws NullArgumentException if the given document node is null.
+	 * @throws NullArgumentException if the given next statement is null.
+	 */
+	public Statement(final DocumentNode documentNode, final Statement nextStatement) {
+		
+		//Checks if the given document node is not null.
+		Validator
+		.suppose(documentNode)
+		.thatIsNamed("document node")
+		.isInstance();
+		
+		//Checks if the given next statement is not null.
+		Validator
+		.suppose(nextStatement)
+		.thatIsNamed("next statement")
+		.isInstance();
+		
+		this.documentNode = documentNode;
+		this.nextStatement = nextStatement;
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link Statement} the given string represents
 	 * 
 	 * @param string
 	 * @throws InvalidArgumentException if the given string is not valid.
 	 */
 	public Statement(final String string) {
-		setValue(string);
+		
+		//Iterates the given string.
+		var openBrackets = 0;
+		for (var i = 0; i < string.length() - 1; i++) {
+			
+			//Enumerates the current character.
+			switch (string.charAt(i)) {
+				case CharacterCatalogue.OPEN_BRACKET:
+					openBrackets++;
+					break;
+				case CharacterCatalogue.CLOSED_BRACKET:
+					openBrackets--;
+					break;
+				case CharacterCatalogue.DOT:
+					if (openBrackets == 0) {
+						documentNode = new DocumentNode(string.substring(0, i));
+						nextStatement = new Statement(string.substring(i + 1, string.length()));
+						return;
+					}
+			}
+		}
+		
+		documentNode = new DocumentNode(string);
+		nextStatement = null;
 	}
 	
-	public Statement(String leftMouseButtonPressCommand, String[] arguments) {
-		
-		specification.setHeader(leftMouseButtonPressCommand);
-		
-		for (final String a : arguments) {
-			specification.addAttribute(a);
-		}
-	}
-
 	//method
 	/**
-	 * @return true if this statement contains attributes.
+	 * @return true if the current {@link Statement} contains attributes.
 	 */
 	public boolean containsAttributes() {
-		return specification.containsAttributes();
+		return documentNode.containsAttributes();
 	}
 	
 	//method
 	/**
-	 * @return the number of attributes of this statement.
+	 * @return the number of attributes of the current {@link Statement}.
 	 */
 	public int getAttributeCount() {
-		return specification.getAttributeCount();
+		return documentNode.getAttributeCount();
 	}
 	
 	//method
 	/**
-	 * @return the string representations of the attributes of this statement.
+	 * @return the string representations of the attributes of the current {@link Statement}.
 	 */
 	public List<String> getAttributesToStrings() {
-		return specification.getAttributesToStrings();
+		return documentNode.getAttributesToStrings();
 	}
 	
 	//method
 	/**
-	 * @return a copy of this statement.
+	 * @return a copy of the current {@link Statement}.
 	 */
 	public Statement getCopy() {
 		
-		final Statement statement = new Statement();
-		
-		statement.specification = specification.createCopy();
-		
-		if (hasNextStatement()) {
-			statement.nextStatement = getRefNextStatement().getCopy();
+		//Handles the case that the current statement does not have a next statement.
+		if (!hasNextStatement()) {
+			return new Statement(documentNode);
 		}
 		
-		return statement;
+		//Handles the case that the current statement has a next statement.
+		return new Statement(documentNode, getRefNextStatement());
 	}
 	
 	//method
 	/**
-	 * @return the first part of this statement to string.
-	 */
-	public String getFirstPartToString() {
-		return specification.toString();
-	}
-	
-	//method
-	/**
-	 * @return the header of this statement.
-	 * @throws UnexistingAttributeException if this statement has no header.
+	 * @return the header of the current {@link Statement}.
+	 * @throws UnexistingAttributeException if the current {@link Statement} has no header.
 	 */
 	public String getHeader() {
-		return specification.getHeader();
+		
+		//Checks if the current statement has a header.
+		//This pre-check provides a more suitable error message than the common checks.
+		if (!hasHeader()) {
+			throw new UnexistingAttributeException(this, VariableNameCatalogue.HEADER);
+		}
+		
+		return documentNode.getHeader();
 	}
 	
 	//method
 	/**
-	 * @return a string representation of the next statement of this statement.
-	 * @throws UnexistingAttributeException if this statement has no next statement.
+	 * @return a string representation of the next {@link Statement} of the current {@link Statement}.
+	 * @throws UnexistingAttributeException if the current {@link Statement} has no next {@link Statement}.
 	 */
-	public String getNextStatementToString() {
+	public String getNextStatementAsString() {
 		return getRefNextStatement().toString();
 	}
 	
 	//method
 	/**
-	 * @return the integer the one attribute of this statement represents.
-	 * @throws InvalidStateException if this statement contains no or several attributes.
-	 * @throws InvalidArgumentException if the one attribute of this statement represents no integer.
+	 * @return the integer the one attribute of the current {@link Statement} represents.
+	 * @throws EmptyStateException if the current {@link Statement} contains no attributes.
+	 * @throws InvalidStateException if the current {@link Statement} contains several attributes.
+	 * @throws InvalidArgumentException
+	 * if the one attribute of the current {@link Statement} does not represent an integer.
 	 */
 	public int getOneAttributeAsInt() {
-		return specification.getOneAttributeAsInt();
+		return documentNode.getOneAttributeAsInt();
 	}
 	
 	//method
 	/**
 	 * @return a string representation of the one attribute of the current {@link Statement}.
+	 * @throws EmptyStateException if the current {@link Statement} contains no attributes.
+	 * @throws InvalidStateException if the current {@link Statement} contains several attributes.
 	 */
 	public String getOneAttributeAsString() {
-		return specification.getOneAttributeAsString();
+		return documentNode.getOneAttributeAsString();
 	}
 	
 	//method
 	/**
-	 * @return the attributes of this statement.
+	 * @return the attributes of the current {@link Statement}.
 	 */
 	public IContainer<DocumentNode> getRefAttributes() {
-		return specification.getRefAttributes();
+		return documentNode.getRefAttributes();
 	}
 	
 	//method
 	/**
-	 * @return the next statement of this statement.
-	 * @throws UnexistingAttributeException if this statement has no next statement.
+	 * @return the next {@link Statement} of the current {@link Statement}.
+	 * @throws UnexistingAttributeException
+	 * if the current {@link Statement} does not have a next {@link Statement}.
 	 */
 	public Statement getRefNextStatement() {
 		
-		//Checks if this statement has a next statement.
+		//Checks if the current statement has a next statement.
 		if (!hasNextStatement()) {
 			throw new UnexistingAttributeException(this, "next statement");
 		}
@@ -159,24 +228,25 @@ public final class Statement {
 	
 	//method
 	/**
-	 * @return the one attribute of this statement.
-	 * @throws InvalidStateException if this statement contains no or several attributes.
+	 * @return the one attribute of the current {@link Statement}.
+	 * @throws EmptyStateException if the current {@link Statement} contains no attributes.
+	 * @throws InvalidStateException if the current {@link Statement} contains several attributes.
 	 */
 	public DocumentNode getRefOneAttribute() {
-		return specification.getRefOneAttribute();
+		return documentNode.getRefOneAttribute();
 	}
 	
 	//method
 	/**
-	 * @return true if this statement has a header.
+	 * @return true if the current {@link Statement} has a header.
 	 */
 	public boolean hasHeader() {
-		return specification.hasHeader();
+		return documentNode.hasHeader();
 	}
 	
 	//method
 	/**
-	 * @return true if this statement has a next statement.
+	 * @return true if the current {@link Statement} has a next {@link Statement}.
 	 */
 	public boolean hasNextStatement() {
 		return (nextStatement != null);
@@ -184,48 +254,17 @@ public final class Statement {
 	
 	//method
 	/**
-	 * @return a string representation of this statement.
+	 * @return a string representation of the current {@link Statement}.
 	 */
 	public String toString() {
 		
-		String string = specification.toString();
+		var string = documentNode.toString();
 		
-		//Handles the case that the current statement has a next statement.
+		//Handles the case that the current statement} has a next statement.
 		if (hasNextStatement()) {
 			string += CharacterCatalogue.DOT + getRefNextStatement().toString();
 		}
-				
+		
 		return string;
-	}
-	
-	//method
-	/**
-	 * Sets the value of this statement.
-	 * 
-	 * @param value
-	 * @throws InvalidArgumentException if the given value is not valid.
-	 */
-	private void setValue(final String value) {
-		
-		int openBrackets = 0;
-		
-		for (int i = 0; i < value.length() - 1; i++) {
-			
-			final char character = value.charAt(i);
-			
-			if (character == CharacterCatalogue.OPEN_BRACKET) {
-				openBrackets++;
-			}
-			else if (character == CharacterCatalogue.CLOSED_BRACKET) {
-				openBrackets--;
-			}
-			else if (character == CharacterCatalogue.DOT && openBrackets == 0) {
-				setValue(value.substring(0, i));
-				nextStatement = new Statement(value.substring(i + 1, value.length()));
-				return;
-			}
-		}
-		
-		specification = new DocumentNode(value);
 	}
 }
