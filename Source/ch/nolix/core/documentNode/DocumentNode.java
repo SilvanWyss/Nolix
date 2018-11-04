@@ -184,7 +184,7 @@ public final class DocumentNode extends DocumentNodeoid implements Listable<Docu
 	 * Adds the given attribute to the current {@link DocumentNode}.
 	 */
 	public void addAttribute(final DocumentNodeoid attribute) {
-		addAttribute(attribute.createCopy());
+		addAttribute(attribute.getCopy());
 	}
 	
 	//method

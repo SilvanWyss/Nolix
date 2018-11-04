@@ -139,22 +139,22 @@ extends ConfigurableElement<W> {
 				break;
 			default:
 				if (attribute.getHeader().startsWith(BASE_PREFIX)) {
-					final var temp = attribute.createCopy();
+					final var temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring(BASE_PREFIX.length()));
 					getRefBaseLook().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(HOVER_PREFIX)) {
-					final var temp = attribute.createCopy();
+					final var temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring(HOVER_PREFIX.length()));
 					getRefHoverLook().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(FOCUS_PREFIX)) {
-					final var temp = attribute.createCopy();
+					final var temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring(FOCUS_PREFIX.length()));
 					getRefFocusLook().addOrChangeAttribute(temp);
 				}
 				else if (attribute.getHeader().startsWith(HOVER_FOCUS_PREFIX)) {
-					final var temp = attribute.createCopy();
+					final var temp = attribute.getCopy();
 					temp.setHeader(attribute.getHeader().substring(HOVER_FOCUS_PREFIX.length()));
 					getRefFocusLook().addOrChangeAttribute(temp);
 				}

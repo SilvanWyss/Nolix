@@ -25,6 +25,7 @@ public final class VariableNameCatalogue {
 	public static final String CONDITION = "condition";
 	public static final String CONFIGURATION = "configuration";
 	public static final String CONTAINER = "container";
+	public static final String CONTENT = "content";
 	public static final String CONTEXT = "context";
 	public static final String CONTROLLER = "controller";
 	public static final String CREATION_DATE = "creation date";

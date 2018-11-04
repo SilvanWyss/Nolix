@@ -51,7 +51,7 @@ public final class Statement implements Headered {
 		.thatIsNamed("document node")
 		.isInstance();
 		
-		this.documentNode = documentNode.createCopy();
+		this.documentNode = documentNode.getCopy();
 		nextStatement = null;
 	}
 	
