@@ -3,7 +3,6 @@ package ch.nolix.core.databaseAdapter;
 
 //own imports
 import ch.nolix.core.bases.NamedElement;
-import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
@@ -21,7 +20,7 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 	private final EntityType<E> entityType;
 	
 	//multi-attributes
-	private final List<Column<?>> columns = new List<Column<?>>();
+	private final List<Column<?>> columns;
 	private final List<E> loadedAndCreatedEntities = new List<E>();
 	
 	//package-visible static method
@@ -48,12 +47,7 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 		
 		this.parentDatabaseAdapter = parentDatabaseAdapter;
 		this.entityType = entityType;
-				
-		columns
-		.addAtEnd(
-			new Column<>(PascalCaseNameCatalogue.ID, new IdPropertyType())
-		)	
-		.addAtEnd(entityType.getColumns());
+		columns = entityType.getColumns();
 	}
 	
 	//method

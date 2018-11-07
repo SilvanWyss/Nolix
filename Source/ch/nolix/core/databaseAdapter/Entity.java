@@ -5,6 +5,7 @@ package ch.nolix.core.databaseAdapter;
 import java.lang.reflect.Field;
 
 //own imports
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
@@ -67,8 +68,9 @@ implements Identified, Specified {
 		if (!propertiesAreExtracted()) {
 			extractProperties();
 		}
-				
-		final var columns = new List<Column<?>>();
+		
+		final var columns
+		= new List<Column<?>>(new Column<>(PascalCaseNameCatalogue.ID, new IdPropertyType()));
 		
 		Class<?> cl = getClass();
 		while (cl != null) {

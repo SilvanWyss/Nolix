@@ -69,6 +69,11 @@ extends NamedElement {
 	}
 	
 	//method
+	public List<Column<?>> getUserColumns() {
+		return columns.getRefSelected(c -> c.isUserColumn());
+	}
+	
+	//method
 	public Class<E> getEntityClass() {
 		return entityClass;
 	}

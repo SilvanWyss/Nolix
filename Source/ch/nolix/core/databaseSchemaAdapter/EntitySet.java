@@ -25,7 +25,7 @@ public final class EntitySet extends NamedElement {
 	private State state = State.CREATED;
 	
 	//multi-attribute
-	private final List<Column> columns = new List<Column>();
+	private final List<Column> columns;
 	
 	//package-visible constructor
 	EntitySet(
@@ -39,11 +39,10 @@ public final class EntitySet extends NamedElement {
 		
 		this.parentDatabaseSchemaAdapter = parentDatabaseSchemaAdapter;
 		
-		columns.addAtEnd(
-			entityType
-			.getColumns()
-			.to(c -> new Column(this, c.getHeader(), c.getPropertyType()))
-		);
+		columns =
+		entityType
+		.getColumns()
+		.to(c -> new Column(this, c.getHeader(), c.getPropertyType()));
 	}
 	
 	//method

@@ -79,4 +79,9 @@ public final class Column<V> extends HeaderedElement implements Specified {
 	public boolean isReferenceColumn() {
 		return getPropertyType().isReferenceType();
 	}
+	
+	//method
+	public boolean isUserColumn() {
+		return getPropertyType().isUserColumn();
+	}
 }

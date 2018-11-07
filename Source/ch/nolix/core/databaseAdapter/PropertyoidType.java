@@ -89,5 +89,20 @@ public abstract class PropertyoidType<V> implements Specified {
 	}
 	
 	//method
+	public final boolean isUserColumn() {
+		switch (getPropertyKind()) {
+			case DATA:
+			case OPTIONAL_DATA:
+			case MULTI_DATA:
+			case REFERENCE:
+			case OPTIONAL_REFERENCE:
+			case MULTI_REFERENCE:
+				return true;
+			default:
+				return false;
+		}
+	}
+	
+	//method
 	public abstract boolean referencesEntitySet(final String name);
 }
