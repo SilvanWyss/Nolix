@@ -10,8 +10,8 @@ import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.skillInterfaces.IChangesSaver;
 import ch.nolix.core.validator2.Validator;
 
-//class
-public final class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
+//abstract class
+public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 
 	//static attribute
 	private static final Factory<DocumentNodeoid, Object> valueFactory =
@@ -21,7 +21,7 @@ public final class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 	.addInstanceCreator(String.class.getSimpleName(), s -> s.toString());
 	
 	//static method
-	public static void addValueCreator(
+	public final static void addValueCreator(
 		final String type,
 		final IElementTakerElementGetter<DocumentNodeoid, Object> valueCreator
 	) {
@@ -29,12 +29,12 @@ public final class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 	}
 	
 	//static method
-	public static boolean canCreateValue(final String type) {
+	public final static boolean canCreateValue(final String type) {
 		return valueFactory.canCreateInstanceOf(type);
 	}
 	
 	//static method
-	public static Object createValue(
+	public final static Object createValue(
 		final String type,
 		final DocumentNodeoid input
 	) {
@@ -43,56 +43,50 @@ public final class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 	
 	//attributes
 	private final Schema schema;
-	private final IDatabaseConnector databaseConnector;
 	
 	//multi-attributes
 	private final List<EntitySet<Entity>> entitySets = new List<EntitySet<Entity>>();
 	private final List<Entity> changedEntitiesInOrder = new List<Entity>();
 		
 	//constructor
-	public DatabaseAdapter(
-		final IDatabaseConnector databaseConnector,
-		final Schema schema
-	) {
+	public DatabaseAdapter(final Schema schema) {
 		
 		Validator.suppose(schema).isInstanceOf(Schema.class);		
-		Validator.suppose(databaseConnector).isInstanceOf(IDatabaseConnector.class);
 		
 		this.schema = schema;
-		this.databaseConnector = databaseConnector;
 		
 		reset();
 	}
 	
 	//method
-	public boolean containsEntitySet(final String name) {
+	public final boolean containsEntitySet(final String name) {
 		return entitySets.contains(es -> es.hasName(name));
 	}
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public <E extends Entity> EntitySet<E> getRefEntitySet(final Class<E> entityClass) {
+	public final <E extends Entity> EntitySet<E> getRefEntitySet(final Class<E> entityClass) {
 		return
 		(EntitySet<E>)entitySets.getRefFirst(es -> es.hasName(entityClass.getSimpleName()));
 	}
 	
 	//method
-	public EntitySet<Entity> getRefEntitySet(final String name) {
+	public final EntitySet<Entity> getRefEntitySet(final String name) {
 		return entitySets.getRefFirst(es -> es.hasName(name));
 	}
 	
 	//method
-	public IContainer<EntitySet<Entity>> getRefEntitySets() {
+	public final IContainer<EntitySet<Entity>> getRefEntitySets() {
 		return entitySets;
 	}
 	
 	//method
-	public boolean hasChanges() {
+	public final boolean hasChanges() {
 		return changedEntitiesInOrder.containsAny();
 	}
 	
 	//method
-	public DatabaseAdapter reset() {	
+	public final DatabaseAdapter reset() {	
 		
 		entitySets.clear();
 		changedEntitiesInOrder.clear();
@@ -105,22 +99,25 @@ public final class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 	}
 	
 	//method
-	public void saveChanges() {
+	public final void saveChanges() {
 		
-		databaseConnector.saveChanges(changedEntitiesInOrder);
+		saveChangesToDatabase(changedEntitiesInOrder);
 		
 		reset();
 	}
 	
-	//package-visible constructor
-	IDatabaseConnector getRefDatabaseConnector() {
-		return databaseConnector;
-	}
-	
 	//method
-	void noteChangedEntity(final Entity entity) {
+	final void noteChangedEntity(final Entity entity) {
 		if (!changedEntitiesInOrder.contains(entity)) {
 			changedEntitiesInOrder.addAtEnd(entity);
 		}
 	}
+	
+	//abstract method
+	protected abstract <E extends Entity> IEntitySetConnector<E> getEntitySetConnector(
+		EntitySet<E> entitySet
+	);
+	
+	//abstract method
+	protected abstract void saveChangesToDatabase(Iterable<Entity> changedEntitiesInOrder);
 }

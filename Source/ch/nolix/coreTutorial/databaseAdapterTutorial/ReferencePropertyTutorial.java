@@ -2,14 +2,13 @@
 package ch.nolix.coreTutorial.databaseAdapterTutorial;
 
 //own imports
-import ch.nolix.core.databaseAdapter.DatabaseAdapter;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.Property;
 import ch.nolix.core.databaseAdapter.ReferenceProperty;
 import ch.nolix.core.databaseAdapter.Schema;
 import ch.nolix.core.databaseSchemaAdapter.DatabaseSchemaAdapter;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.specificationDatabaseConnector.SpecificationDatabaseConnector;
+import ch.nolix.core.specificationDatabaseAdapter.SpecificationDatabaseAdapter;
 import ch.nolix.core.specificationDatabaseSchemaConnector.SpecificationDatabaseSchemaConnector;
 
 //class
@@ -33,8 +32,8 @@ public final class ReferencePropertyTutorial {
 		.saveChanges();
 		
 		//Created a database adapter for the cat database.
-		final var catDatabaseAdapter = new DatabaseAdapter(
-			new SpecificationDatabaseConnector(catDatabase),
+		final var catDatabaseAdapter = new SpecificationDatabaseAdapter(
+			catDatabase,
 			new CatDatabaseSchema()
 		);
 		

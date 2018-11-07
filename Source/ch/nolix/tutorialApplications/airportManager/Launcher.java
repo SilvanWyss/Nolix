@@ -2,10 +2,9 @@
 package ch.nolix.tutorialApplications.airportManager;
 
 //own imports
-import ch.nolix.core.databaseAdapter.DatabaseAdapter;
 import ch.nolix.core.databaseSchemaAdapter.DatabaseSchemaAdapter;
 import ch.nolix.core.documentNode.SimplePersistentDocumentNode;
-import ch.nolix.core.specificationDatabaseConnector.SpecificationDatabaseConnector;
+import ch.nolix.core.specificationDatabaseAdapter.SpecificationDatabaseAdapter;
 import ch.nolix.core.specificationDatabaseSchemaConnector.SpecificationDatabaseSchemaConnector;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.templates.GUILooks.AnthrazitGUILook;
@@ -31,8 +30,8 @@ public final class Launcher {
 			.saveChanges();
 		
 			new DataGenerator().generateAndSaveSampleData(
-				new DatabaseAdapter(
-					new SpecificationDatabaseConnector(airportManagerDatabase),
+				new SpecificationDatabaseAdapter(
+					airportManagerDatabase,
 					airportManagerSchema
 				)
 			);
@@ -41,8 +40,8 @@ public final class Launcher {
 		final var airportManager =
 		new AirportManager(
 			() ->
-			new DatabaseAdapter(
-				new SpecificationDatabaseConnector(airportManagerDatabase),
+			new SpecificationDatabaseAdapter(
+				airportManagerDatabase,
 				airportManagerSchema
 			),
 			new AnthrazitGUILook()

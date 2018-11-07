@@ -1,5 +1,5 @@
 //package delcaration
-package ch.nolix.core.specificationDatabaseConnector;
+package ch.nolix.core.specificationDatabaseAdapter;
 
 //own imports
 import ch.nolix.core.constants.MultiPascalCaseNameCatalogue;

@@ -2,13 +2,12 @@
 package ch.nolix.coreTutorial.databaseAdapterTutorial;
 
 //own imports
-import ch.nolix.core.databaseAdapter.DatabaseAdapter;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.Property;
 import ch.nolix.core.databaseAdapter.Schema;
 import ch.nolix.core.databaseSchemaAdapter.DatabaseSchemaAdapter;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.specificationDatabaseConnector.SpecificationDatabaseConnector;
+import ch.nolix.core.specificationDatabaseAdapter.SpecificationDatabaseAdapter;
 import ch.nolix.core.specificationDatabaseSchemaConnector.SpecificationDatabaseSchemaConnector;
 
 //class
@@ -32,8 +31,8 @@ public final class DatabaseAdapterTutorial {
 		.saveChanges();
 			
 		//Creates a database adapter for the pet database.
-		final var petDatabaseAdapter = new DatabaseAdapter(
-			new SpecificationDatabaseConnector(petDatabase),
+		final var petDatabaseAdapter = new SpecificationDatabaseAdapter(
+			petDatabase,
 			new PetDatabaseSchema()
 		);
 		
