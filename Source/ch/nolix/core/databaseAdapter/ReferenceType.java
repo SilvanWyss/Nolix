@@ -2,11 +2,11 @@
 package ch.nolix.core.databaseAdapter;
 
 //class
-public final class ReferencePropertyType<E extends Entity>
-extends SingleReferencePropertyType<E>{
+public final class ReferenceType<E extends Entity>
+extends SingleReferenceType<E>{
 	
 	//constructor
-	public ReferencePropertyType(final Class<E> entityClass) {
+	public ReferenceType(final Class<E> entityClass) {
 		super(entityClass);
 	}
 

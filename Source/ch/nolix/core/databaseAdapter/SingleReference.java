@@ -9,8 +9,8 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
-public abstract class SingleReferenceProperty<E extends Entity>
-extends ReferencePropertyoid<E> {
+public abstract class SingleReference<E extends Entity>
+extends Referenceoid<E> {
 	
 	//optional attribute
 	private int referencedEntityId = -1;

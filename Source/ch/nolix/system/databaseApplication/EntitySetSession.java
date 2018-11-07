@@ -5,7 +5,7 @@ package ch.nolix.system.databaseApplication;
 import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntitySet;
-import ch.nolix.core.databaseAdapter.ReferenceProperty;
+import ch.nolix.core.databaseAdapter.Reference;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.ButtonRole;
 import ch.nolix.element.GUI.ContainerRole;
@@ -113,7 +113,7 @@ public final class EntitySetSession extends HeaderedSession {
 							break;
 						case REFERENCE:						
 							
-							final var referenceProperty = (ReferenceProperty<Entity>)p;
+							final var referenceProperty = (Reference<Entity>)p;
 							
 							entitiesGrid.setWidget(
 								rowIndex,

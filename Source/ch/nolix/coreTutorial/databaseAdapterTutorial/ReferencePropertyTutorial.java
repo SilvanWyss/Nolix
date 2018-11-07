@@ -4,7 +4,7 @@ package ch.nolix.coreTutorial.databaseAdapterTutorial;
 //own imports
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.Property;
-import ch.nolix.core.databaseAdapter.ReferenceProperty;
+import ch.nolix.core.databaseAdapter.Reference;
 import ch.nolix.core.databaseAdapter.Schema;
 import ch.nolix.core.databaseSchemaAdapter.DatabaseSchemaAdapter;
 import ch.nolix.core.documentNode.DocumentNode;
@@ -100,6 +100,6 @@ public final class ReferencePropertyTutorial {
 		
 		//attributes
 		public final Property<String> Name = new Property<String>();
-		public final ReferenceProperty<Person> Person = new ReferenceProperty<Person>();
+		public final Reference<Person> Person = new Reference<Person>();
 	}
 }

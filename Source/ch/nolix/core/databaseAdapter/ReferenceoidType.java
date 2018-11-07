@@ -2,11 +2,11 @@
 package ch.nolix.core.databaseAdapter;
 
 //abstract class
-public abstract class ReferencePropertyoidType<E extends Entity>
+public abstract class ReferenceoidType<E extends Entity>
 extends PropertyoidType<E> {
 	
 	//constructor
-	public ReferencePropertyoidType(final Class<E> entityClass) {
+	public ReferenceoidType(final Class<E> entityClass) {
 		super(entityClass);
 	}
 	

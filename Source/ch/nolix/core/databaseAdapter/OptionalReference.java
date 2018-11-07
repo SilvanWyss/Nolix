@@ -3,16 +3,16 @@ package ch.nolix.core.databaseAdapter;
 
 //own imports
 import ch.nolix.core.databaseAdapter.Entity;
-import ch.nolix.core.databaseAdapter.SingleReferenceProperty;
+import ch.nolix.core.databaseAdapter.SingleReference;
 import ch.nolix.core.skillInterfaces.Clearable;
 
 //class
-public final class OptionalReferenceProperty<E extends Entity>
-extends SingleReferenceProperty<E>
-implements Clearable<OptionalReferenceProperty<E>> {
+public final class OptionalReference<E extends Entity>
+extends SingleReference<E>
+implements Clearable<OptionalReference<E>> {
 
 	//method
-	public OptionalReferenceProperty<E> clear() {
+	public OptionalReference<E> clear() {
 		
 		internal_clear();
 		

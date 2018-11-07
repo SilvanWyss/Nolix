@@ -8,14 +8,14 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.validator2.Validator;
 
 //class
-public final class MultiReferenceProperty<E extends Entity>
-extends ReferencePropertyoid<E> {
+public final class MultiReference<E extends Entity>
+extends Referenceoid<E> {
 
 	//multi-attribute
 	private final List<Integer> referencedEntityIds = new List<Integer>();
 
 	//method
-	public MultiReferenceProperty<E> add(final E entity) {
+	public MultiReference<E> add(final E entity) {
 		
 		addValue(entity.getId());
 		
@@ -40,7 +40,7 @@ extends ReferencePropertyoid<E> {
 
 	//method
 	public PropertyoidType<E> getPropertyType() {
-		return new MultiReferencePropertyType<>(getValueClass());
+		return new MultiReferenceType<>(getValueClass());
 	}
 	
 	//method

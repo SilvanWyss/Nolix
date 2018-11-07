@@ -4,7 +4,7 @@ package ch.nolix.system.databaseApplication;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
-import ch.nolix.core.databaseAdapter.ReferenceProperty;
+import ch.nolix.core.databaseAdapter.Reference;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.HorizontalStack;
 import ch.nolix.element.GUI.SelectionMenu;
@@ -15,17 +15,17 @@ import ch.nolix.element.GUI.Widget;
 public final class ReferencePropertySession extends HeaderedSession {
 	
 	//attributes
-	private final ReferenceProperty<Entity> referenceProperty;
+	private final Reference<Entity> reference;
 	
 	//constructor
 	public ReferencePropertySession(
-		final ReferenceProperty<Entity> referenceProperty
+		final Reference<Entity> referenceProperty
 	) {
 		super(
 			referenceProperty.getReferencedEntitySet().getName()
 		);
 		
-		this.referenceProperty = referenceProperty;
+		this.reference = referenceProperty;
 	}
 
 	//method
@@ -57,12 +57,12 @@ public final class ReferencePropertySession extends HeaderedSession {
 		
 		final var referencesSelectionMenu = new SelectionMenu().setName("ReferencesSelectionMenu");
 		
-		for (final var e : referenceProperty.getReferencedEntitySet().getRefEntities()) {
+		for (final var e : reference.getReferencedEntitySet().getRefEntities()) {
 			referencesSelectionMenu.addItem(e.getId(), /*e.getParentEntitySet().getName() +*/ " " + e.getId());
 		}
 		
-		if (referenceProperty.referencesEntity()) {		
-			referencesSelectionMenu.select(referenceProperty.getEntity().getId());
+		if (reference.referencesEntity()) {		
+			referencesSelectionMenu.select(reference.getEntity().getId());
 		}
 		
 		return referencesSelectionMenu;
@@ -74,8 +74,8 @@ public final class ReferencePropertySession extends HeaderedSession {
 		final SelectionMenu referencesSelectionMenu =
 		getRefGUI().getRefWidgetByNameRecursively("ReferencesSelectionMenu");
 		
-		referenceProperty.set(
-			referenceProperty
+		reference.set(
+			reference
 			.getReferencedEntitySet()
 			.getRefEntityById(referencesSelectionMenu.getSelectedItemId())
 		);

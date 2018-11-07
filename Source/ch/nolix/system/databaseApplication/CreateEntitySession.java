@@ -6,7 +6,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntitySet;
 import ch.nolix.core.databaseAdapter.Property;
-import ch.nolix.core.databaseAdapter.ReferenceProperty;
+import ch.nolix.core.databaseAdapter.Reference;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.ButtonRole;
 import ch.nolix.element.GUI.Grid;
@@ -92,7 +92,7 @@ public final class CreateEntitySession extends HeaderedSession {
 					break;
 				case REFERENCE:
 					
-					final var referenceProperty = (ReferenceProperty<Entity>)p;
+					final var referenceProperty = (Reference<Entity>)p;
 					
 					dataGrid
 					.setWidget(
@@ -164,7 +164,7 @@ public final class CreateEntitySession extends HeaderedSession {
 	private void openReferencePropertySession(final String referencePropertyHeader) {
 		
 		final var referenceProperty = 
-		(ReferenceProperty<Entity>)newEntity
+		(Reference<Entity>)newEntity
 		.getRefProperties()
 		.getRefFirst(p -> p.hasHeader(referencePropertyHeader));
 		

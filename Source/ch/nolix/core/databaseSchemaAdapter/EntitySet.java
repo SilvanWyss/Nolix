@@ -8,12 +8,12 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntityType;
 import ch.nolix.core.databaseAdapter.MultiPropertyType;
-import ch.nolix.core.databaseAdapter.MultiReferencePropertyType;
+import ch.nolix.core.databaseAdapter.MultiReferenceType;
 import ch.nolix.core.databaseAdapter.OptionalPropertyType;
-import ch.nolix.core.databaseAdapter.OptionalReferencePropertyType;
+import ch.nolix.core.databaseAdapter.OptionalReferenceType;
 import ch.nolix.core.databaseAdapter.PropertyType;
 import ch.nolix.core.databaseAdapter.PropertyoidType;
-import ch.nolix.core.databaseAdapter.ReferencePropertyType;
+import ch.nolix.core.databaseAdapter.ReferenceType;
 import ch.nolix.core.databaseAdapter.State;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 
@@ -65,7 +65,7 @@ public final class EntitySet extends NamedElement {
 	//method
 	public EntitySet addMultiReferenceColumn(final String header, final Class<Entity> entityClass) {
 		
-		addColumn(header, new MultiReferencePropertyType<Entity>(entityClass));
+		addColumn(header, new MultiReferenceType<Entity>(entityClass));
 		
 		return this;
 	}
@@ -81,7 +81,7 @@ public final class EntitySet extends NamedElement {
 	//method
 	public EntitySet addOptionalReferenceColumn(final String header, final Class<Entity> entityClass) {
 		
-		addColumn(header, new OptionalReferencePropertyType<>(entityClass));
+		addColumn(header, new OptionalReferenceType<>(entityClass));
 	
 		return this;
 	}
@@ -89,7 +89,7 @@ public final class EntitySet extends NamedElement {
 	//method
 	public EntitySet addReferenceColumn(final String header, final Class<Entity> entityClass) {
 				
-		addColumn(header, new ReferencePropertyType<>(entityClass));
+		addColumn(header, new ReferenceType<>(entityClass));
 		
 		return this;
 	}
