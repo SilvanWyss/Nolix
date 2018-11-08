@@ -129,7 +129,7 @@ implements Headered, Specified {
 	//method
 	protected void internal_noteUpdate() {
 		if (belongsToEntity()) {
-			parentEntity.setUpdated();
+			parentEntity.setChanged();
 		}
 	}
 	

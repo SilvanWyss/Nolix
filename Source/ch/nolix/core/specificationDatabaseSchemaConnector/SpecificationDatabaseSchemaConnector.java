@@ -125,12 +125,12 @@ implements IDatabaseSchemaConnector {
 				addEntitySet(es);
 			}
 		
-		//Handles the updated entity sets.
-			final var updatedEntitySets =
-			changedEntitySetsInOrder.getRefSelected(e -> e.isUpdated());
+		//Handles the changed entity sets.
+			final var changedEntitySets =
+			changedEntitySetsInOrder.getRefSelected(e -> e.isChanged());
 			
-			for (final var es : updatedEntitySets) {
-				updatedEntitySet(es);
+			for (final var es : changedEntitySets) {
+				changeEntitySet(es);
 			}
 		
 		//Handles the deleted entity sets.
@@ -148,7 +148,7 @@ implements IDatabaseSchemaConnector {
 	}
 
 	//method
-	public void updatedEntitySet(final EntitySet entitySet) {
+	public void changeEntitySet(final EntitySet entitySet) {
 		//TODO: Implement.
 	}
 }

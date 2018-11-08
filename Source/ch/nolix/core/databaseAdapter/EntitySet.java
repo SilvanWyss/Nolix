@@ -132,6 +132,11 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 	}
 	
 	//method
+	public List<E> getRefChangedEntities() {
+		return loadedAndCreatedEntities.getRefSelected(e -> e.isChanged());
+	}
+	
+	//method
 	@SuppressWarnings("unchecked")
 	public IContainer<E> getRefEntities() {
 		
@@ -181,11 +186,6 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 		loadedAndCreatedEntities.addAtEnd(entity);
 		
 		return entity;
-	}
-	
-	//method
-	public List<E> getRefUpdatedEntities() {
-		return loadedAndCreatedEntities.getRefSelected(e -> e.isUpdated());
 	}
 	
 	//method

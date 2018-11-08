@@ -170,6 +170,11 @@ implements Identified, Specified {
 	}
 	
 	//method
+	public final boolean isChanged() {
+		return (getState() == State.CHANGED);
+	}
+	
+	//method
 	public final boolean isCreated() {
 		return (getState() == State.CREATED);
 	}
@@ -195,11 +200,6 @@ implements Identified, Specified {
 	//method
 	public final boolean isRejected() {
 		return (getState() == State.REJECTED);
-	}
-	
-	//method
-	public final boolean isUpdated() {
-		return (getState() == State.UPDATED);
 	}
 	
 	//method
@@ -251,6 +251,29 @@ implements Identified, Specified {
 	}
 	
 	//package-visible method
+	final void setChanged() {
+		switch (getState()) {
+			case PERSISTED:
+				
+				state = State.CHANGED;
+				
+				if (belongsToEntitySet()) {
+					getParentDatabaseAdapter().noteChangedEntity(this);
+				}
+				
+				break;
+			case CREATED:
+				break;
+			case CHANGED:
+				break;
+			case DELETED:
+				throw new InvalidStateException(this, "is deleted");
+			case REJECTED:
+				throw new InvalidStateException(this, "is rejected");
+		}
+	}
+	
+	//package-visible method
 	final void setDeleted() {
 		switch (getState()) {
 			case PERSISTED:
@@ -258,7 +281,7 @@ implements Identified, Specified {
 				break;
 			case CREATED:
 				throw new InvalidStateException(this, "is created");
-			case UPDATED:
+			case CHANGED:
 				state = State.DELETED;
 				break;
 			case DELETED:
@@ -284,8 +307,8 @@ implements Identified, Specified {
 			case CREATED:
 				state = State.PERSISTED;
 				break;
-			case UPDATED:
-				throw new InvalidStateException(this, "is updated");
+			case CHANGED:
+				throw new InvalidStateException(this, "is changed");
 			case DELETED:
 				throw new InvalidStateException(this, "is deleted");
 			case REJECTED:
@@ -371,29 +394,6 @@ implements Identified, Specified {
 					
 					break;
 			}
-		}
-	}
-	
-	//package-visible method
-	final void setUpdated() {
-		switch (getState()) {
-			case PERSISTED:
-				
-				state = State.UPDATED;
-				
-				if (belongsToEntitySet()) {
-					getParentDatabaseAdapter().noteChangedEntity(this);
-				}
-				
-				break;
-			case CREATED:
-				break;
-			case UPDATED:
-				break;
-			case DELETED:
-				throw new InvalidStateException(this, "is deleted");
-			case REJECTED:
-				throw new InvalidStateException(this, "is rejected");
 		}
 	}
 	

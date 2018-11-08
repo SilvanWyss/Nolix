@@ -72,11 +72,11 @@ public final class SpecificationDatabaseAdapter extends DatabaseAdapter {
 			getEntitySetConnector(e.getParentEntitySet()).add(e);
 		}
 		
-		final var updatedEntities =
+		final var changedEntities =
 		new ReadContainer<Entity>(changedEntitiesInOrder)
-		.getRefSelected(e -> e.isUpdated());
+		.getRefSelected(e -> e.isChanged());
 		
-		for (final var e : updatedEntities) {
+		for (final var e : changedEntities) {
 			getEntitySetConnector(e.getParentEntitySet()).update(e);
 		}
 		

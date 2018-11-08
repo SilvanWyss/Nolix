@@ -108,6 +108,11 @@ public final class EntitySet extends NamedElement {
 	}
 	
 	//method
+	public final boolean isChanged() {
+		return (getState() == State.CHANGED);
+	}
+	
+	//method
 	public final boolean isCreated() {
 		return (getState() == State.CREATED);
 	}
@@ -126,12 +131,7 @@ public final class EntitySet extends NamedElement {
 	public final boolean isRejected() {
 		return (getState() == State.REJECTED);
 	}
-	
-	//method
-	public final boolean isUpdated() {
-		return (getState() == State.UPDATED);
-	}
-	
+		
 	//method
 	public boolean references(final EntitySet entitySet) {
 		return columns.contains(c -> c.references(entitySet));
@@ -151,6 +151,27 @@ public final class EntitySet extends NamedElement {
 	}
 	
 	//package-visible method
+	final void setChanged() {
+		switch (getState()) {
+			case PERSISTED:
+				
+				state = State.CHANGED;
+				
+				parentDatabaseSchemaAdapter.noteChangedEntitySet(this);
+				
+				break;
+			case CREATED:
+				break;
+			case CHANGED:
+				break;
+			case DELETED:
+				throw new InvalidStateException(this, "is deleted");
+			case REJECTED:
+				throw new InvalidStateException(this, "is rejected");
+		}
+	}
+	
+	//package-visible method
 	final void setDeleted() {
 		switch (getState()) {
 			case PERSISTED:
@@ -158,7 +179,7 @@ public final class EntitySet extends NamedElement {
 				break;
 			case CREATED:
 				throw new InvalidStateException(this, "is created");
-			case UPDATED:
+			case CHANGED:
 				state = State.DELETED;
 				break;
 			case DELETED:
@@ -176,29 +197,8 @@ public final class EntitySet extends NamedElement {
 			case CREATED:
 				state = State.PERSISTED;
 				break;
-			case UPDATED:
-				throw new InvalidStateException(this, "is updated");
-			case DELETED:
-				throw new InvalidStateException(this, "is deleted");
-			case REJECTED:
-				throw new InvalidStateException(this, "is rejected");
-		}
-	}
-	
-	//package-visible method
-	final void setUpdated() {
-		switch (getState()) {
-			case PERSISTED:
-				
-				state = State.UPDATED;
-				
-				parentDatabaseSchemaAdapter.noteChangedEntitySet(this);
-				
-				break;
-			case CREATED:
-				break;
-			case UPDATED:
-				break;
+			case CHANGED:
+				throw new InvalidStateException(this, "is changed");
 			case DELETED:
 				throw new InvalidStateException(this, "is deleted");
 			case REJECTED:

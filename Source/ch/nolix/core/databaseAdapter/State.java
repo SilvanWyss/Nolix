@@ -5,7 +5,7 @@ package ch.nolix.core.databaseAdapter;
 public enum State {
 	PERSISTED,
 	CREATED,
-	UPDATED,
+	CHANGED,
 	DELETED,
 	REJECTED
 }
