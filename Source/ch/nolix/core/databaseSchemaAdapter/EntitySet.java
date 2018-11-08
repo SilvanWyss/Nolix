@@ -6,6 +6,7 @@ import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
+import ch.nolix.core.databaseAdapter.EntitySetState;
 import ch.nolix.core.databaseAdapter.EntityType;
 import ch.nolix.core.databaseAdapter.MultiPropertyType;
 import ch.nolix.core.databaseAdapter.MultiReferenceType;
@@ -14,7 +15,6 @@ import ch.nolix.core.databaseAdapter.OptionalReferenceType;
 import ch.nolix.core.databaseAdapter.PropertyType;
 import ch.nolix.core.databaseAdapter.PropertyoidType;
 import ch.nolix.core.databaseAdapter.ReferenceType;
-import ch.nolix.core.databaseAdapter.State;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 
 //class
@@ -22,7 +22,7 @@ public final class EntitySet extends NamedElement {
 	
 	//attributes
 	private final DatabaseSchemaAdapter parentDatabaseSchemaAdapter;
-	private State state = State.CREATED;
+	private EntitySetState state = EntitySetState.CREATED;
 	
 	//multi-attribute
 	private final List<Column> columns;
@@ -103,33 +103,43 @@ public final class EntitySet extends NamedElement {
 	}
 	
 	//method
-	public State getState() {
+	public EntitySetState getState() {
 		return state;
 	}
 	
 	//method
 	public final boolean isChanged() {
-		return (getState() == State.CHANGED);
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (state == EntitySetState.CHANGED);
 	}
 	
 	//method
 	public final boolean isCreated() {
-		return (getState() == State.CREATED);
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (state == EntitySetState.CREATED);
 	}
 	
 	//method
 	public final boolean isDeleted() {
-		return (getState() == State.DELETED);
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (state == EntitySetState.DELETED);
 	}
 	
 	//method
 	public final boolean isPersisted() {
-		return (getState() == State.PERSISTED);
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (state == EntitySetState.PERSISTED);
 	}
 	
 	//method
 	public final boolean isRejected() {
-		return (getState() == State.REJECTED);
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (state == EntitySetState.REJECTED);
 	}
 		
 	//method
@@ -155,7 +165,7 @@ public final class EntitySet extends NamedElement {
 		switch (getState()) {
 			case PERSISTED:
 				
-				state = State.CHANGED;
+				state = EntitySetState.CHANGED;
 				
 				parentDatabaseSchemaAdapter.noteChangedEntitySet(this);
 				
@@ -174,13 +184,11 @@ public final class EntitySet extends NamedElement {
 	//package-visible method
 	final void setDeleted() {
 		switch (getState()) {
-			case PERSISTED:
-				state = State.DELETED;
-				break;
 			case CREATED:
 				throw new InvalidStateException(this, "is created");
+			case PERSISTED:
 			case CHANGED:
-				state = State.DELETED;
+				state = EntitySetState.DELETED;
 				break;
 			case DELETED:
 				break;
@@ -195,7 +203,7 @@ public final class EntitySet extends NamedElement {
 			case PERSISTED:
 				break;
 			case CREATED:
-				state = State.PERSISTED;
+				state = EntitySetState.PERSISTED;
 				break;
 			case CHANGED:
 				throw new InvalidStateException(this, "is changed");

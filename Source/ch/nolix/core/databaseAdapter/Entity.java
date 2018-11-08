@@ -22,7 +22,7 @@ public abstract class Entity
 implements Identified, Specified {
 	
 	//attribute
-	private State state = State.CREATED;
+	private EntityState state = EntityState.CREATED;
 	
 	//optional attributes
 	private int id = -1;
@@ -155,7 +155,7 @@ implements Identified, Specified {
 	}
 	
 	//method
-	public final State getState() {
+	public final EntityState getState() {
 		return state;
 	}
 	
@@ -166,22 +166,37 @@ implements Identified, Specified {
 
 	//method
 	public final boolean hasId() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
 		return (id > -1);
 	}
 	
 	//method
 	public final boolean isChanged() {
-		return (getState() == State.CHANGED);
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (state == EntityState.CHANGED);
+	}
+	
+	//method
+	public final boolean isConcerned() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.	
+		return (state == EntityState.CONCERNED);
 	}
 	
 	//method
 	public final boolean isCreated() {
-		return (getState() == State.CREATED);
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (state == EntityState.CREATED);
 	}
 	
 	//method
 	public final boolean isDeleted() {
-		return (getState() == State.DELETED);
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return (state == EntityState.DELETED);
 	}
 	
 	//method
@@ -194,12 +209,12 @@ implements Identified, Specified {
 	
 	//method
 	public final boolean isPersisted() {
-		return (getState() == State.PERSISTED);
+		return (getState() == EntityState.PERSISTED);
 	}
 	
 	//method
 	public final boolean isRejected() {
-		return (getState() == State.REJECTED);
+		return (getState() == EntityState.REJECTED);
 	}
 	
 	//method
@@ -254,11 +269,12 @@ implements Identified, Specified {
 	final void setChanged() {
 		switch (getState()) {
 			case PERSISTED:
+			case CONCERNED:
 				
-				state = State.CHANGED;
+				state = EntityState.CHANGED;
 				
 				if (belongsToEntitySet()) {
-					getParentDatabaseAdapter().noteChangedEntity(this);
+					getParentDatabaseAdapter().noteMutatedEntity(this);
 				}
 				
 				break;
@@ -277,13 +293,12 @@ implements Identified, Specified {
 	final void setDeleted() {
 		switch (getState()) {
 			case PERSISTED:
-				state = State.DELETED;
+			case CONCERNED:
+			case CHANGED:
+				state = EntityState.DELETED;
 				break;
 			case CREATED:
 				throw new InvalidStateException(this, "is created");
-			case CHANGED:
-				state = State.DELETED;
-				break;
 			case DELETED:
 				break;
 			case REJECTED:
@@ -305,8 +320,10 @@ implements Identified, Specified {
 			case PERSISTED:
 				break;
 			case CREATED:
-				state = State.PERSISTED;
+				state = EntityState.PERSISTED;
 				break;
+			case CONCERNED:
+				throw new InvalidStateException(this, "is concerned");
 			case CHANGED:
 				throw new InvalidStateException(this, "is changed");
 			case DELETED:
@@ -318,7 +335,7 @@ implements Identified, Specified {
 	
 	//package-visible method
 	final void setRejected() {
-		state = State.REJECTED;
+		state = EntityState.REJECTED;
 	}
 	
 	//package-visible method

@@ -46,7 +46,7 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	
 	//multi-attributes
 	private final List<EntitySet<Entity>> entitySets = new List<EntitySet<Entity>>();
-	private final List<Entity> changedEntitiesInOrder = new List<Entity>();
+	private final List<Entity> mutatedEntitiesInOrderEntitiesInOrder = new List<Entity>();
 		
 	//constructor
 	public DatabaseAdapter(final Schema schema) {
@@ -82,14 +82,14 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	
 	//method
 	public final boolean hasChanges() {
-		return changedEntitiesInOrder.containsAny();
+		return mutatedEntitiesInOrderEntitiesInOrder.containsAny();
 	}
 	
 	//method
 	public final DatabaseAdapter reset() {	
 		
 		entitySets.clear();
-		changedEntitiesInOrder.clear();
+		mutatedEntitiesInOrderEntitiesInOrder.clear();
 		
 		for (final var et : schema.getRefEntityTypes()) {
 			entitySets.addAtEnd(EntitySet.createEntitySet(this, et));
@@ -101,15 +101,15 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	//method
 	public final void saveChanges() {
 		
-		saveChangesToDatabase(changedEntitiesInOrder);
+		saveChangesToDatabase(mutatedEntitiesInOrderEntitiesInOrder);
 		
 		reset();
 	}
 	
 	//method
-	final void noteChangedEntity(final Entity entity) {
-		if (!changedEntitiesInOrder.contains(entity)) {
-			changedEntitiesInOrder.addAtEnd(entity);
+	final void noteMutatedEntity(final Entity entity) {
+		if (!mutatedEntitiesInOrderEntitiesInOrder.contains(entity)) {
+			mutatedEntitiesInOrderEntitiesInOrder.addAtEnd(entity);
 		}
 	}
 	
@@ -119,5 +119,5 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	);
 	
 	//abstract method
-	protected abstract void saveChangesToDatabase(Iterable<Entity> changedEntitiesInOrder);
+	protected abstract void saveChangesToDatabase(IContainer<Entity> mutatedEntitiesInOrder);
 }

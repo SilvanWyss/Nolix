@@ -72,7 +72,7 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 		entity.setParentEntitySet((EntitySet<Entity>)this);
 		
 		loadedAndCreatedEntities.addAtEndRegardingSingularity(entity);
-		getParentDatabaseAdapter().noteChangedEntity(entity);
+		getParentDatabaseAdapter().noteMutatedEntity(entity);
 		
 		return this;
 	}
@@ -106,7 +106,7 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 				
 		entity.setDeleted();		
 		loadedAndCreatedEntities.removeFirst(entity);		
-		getParentDatabaseAdapter().noteChangedEntity(entity);
+		getParentDatabaseAdapter().noteMutatedEntity(entity);
 		
 		return this;
 	}

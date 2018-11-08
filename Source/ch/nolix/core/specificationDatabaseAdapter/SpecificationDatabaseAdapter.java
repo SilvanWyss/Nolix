@@ -5,7 +5,6 @@ package ch.nolix.core.specificationDatabaseAdapter;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.databaseAdapter.Schema;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IFunction;
@@ -60,29 +59,34 @@ public final class SpecificationDatabaseAdapter extends DatabaseAdapter {
 	public void run(IContainer<IFunction> commands) {
 		commands.forEach(c -> c.run());
 	}
-
+	
 	//method
-	public void saveChangesToDatabase(final Iterable<Entity> changedEntitiesInOrder) {
+	public void saveChangesToDatabase(final IContainer<Entity> mutatedEntitiesInOrder) {
 		
 		final var createdEntities =
-		new ReadContainer<Entity>(changedEntitiesInOrder)
-		.getRefSelected(e -> e.isCreated());
+		mutatedEntitiesInOrder.getRefSelected(e -> e.isCreated());
 		
 		for (final var e : createdEntities) {
 			getEntitySetConnector(e.getParentEntitySet()).add(e);
 		}
 		
+		//TODO: Handle concerned entities more suitable.
+		final var concernedEntities =
+		mutatedEntitiesInOrder.getRefSelected(e -> e.isConcerned());
+		
+		for (final var e : concernedEntities) {
+			getEntitySetConnector(e.getParentEntitySet()).update(e);
+		}
+		
 		final var changedEntities =
-		new ReadContainer<Entity>(changedEntitiesInOrder)
-		.getRefSelected(e -> e.isChanged());
+		mutatedEntitiesInOrder.getRefSelected(e -> e.isChanged());
 		
 		for (final var e : changedEntities) {
 			getEntitySetConnector(e.getParentEntitySet()).update(e);
 		}
 		
 		final var deletedEntities =
-		new ReadContainer<Entity>(changedEntitiesInOrder)
-		.getRefSelected(e -> e.isDeleted());
+		mutatedEntitiesInOrder.getRefSelected(e -> e.isDeleted());
 		
 		for (final var e : deletedEntities) {
 			getEntitySetConnector(e.getParentEntitySet()).delete(e);
