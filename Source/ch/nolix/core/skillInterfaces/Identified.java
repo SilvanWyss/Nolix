@@ -10,7 +10,7 @@ package ch.nolix.core.skillInterfaces;
  * @lines 30
  */
 public interface Identified {
-
+	
 	//abstract method
 	/**
 	 * @return the id of the current {@link Identified}.
@@ -22,7 +22,7 @@ public interface Identified {
 	 * @return true if the current {@link Identified}
 	 * has the given id.
 	 */
-	public default boolean hasId(final int id) {
+	public default boolean hasId(final long id) {
 		return (getId() == id);
 	}
 	
