@@ -66,6 +66,16 @@ public final class Column<V> extends HeaderedElement implements Specified {
 	}
 	
 	//method
+	public boolean isAnyDataColumn() {
+		return getPropertyType().isAnyDataType();
+	}
+	
+	//method
+	public boolean isAnyReferenceColumn() {
+		return getPropertyType().isAnyReferenceType();
+	}
+	
+	//method
 	public boolean isDataColumn() {
 		return getPropertyType().isDataType();
 	}
@@ -73,6 +83,26 @@ public final class Column<V> extends HeaderedElement implements Specified {
 	//method
 	public boolean isIdColumn() {
 		return getPropertyType().isIdType();
+	}
+	
+	//method
+	public boolean isMultiDataColumn() {
+		return getPropertyType().isMultiDataType();
+	}
+	
+	//method
+	public boolean isMultiReferenceColumn() {
+		return getPropertyType().isMultiReferenceType();
+	}
+	
+	//method
+	public boolean isOptionalDataColumn() {
+		return getPropertyType().isOptionalDataType();
+	}
+	
+	//method
+	public boolean isOptionalReferenceColumn() {
+		return getPropertyType().isOptionalReferenceType();
 	}
 	
 	//method
