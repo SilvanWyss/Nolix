@@ -10,7 +10,7 @@ public interface IEntitySetConnector<E extends Entity>
 extends Named {
 	
 	//abstract method
-	public abstract boolean containsEntity(int id);
+	public abstract boolean containsEntity(long id);
 	
 	//abstract method
 	public abstract List<E> getEntities(EntityType<E> entityType);

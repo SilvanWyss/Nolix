@@ -34,7 +34,7 @@ public final class EntitiesConnector<E extends Entity> {
 	}
 	
 	//method
-	public boolean containsEntity(final int id) {
+	public boolean containsEntity(final long id) {
 		return
 		entitiesSpecification
 		.containsAttribute(a -> new EntityConnector<E>(a).hasId(id));
@@ -61,7 +61,7 @@ public final class EntitiesConnector<E extends Entity> {
 	}
 	
 	//method
-	public E getEntity(final int id, final EntityType<E> entityType) {
+	public E getEntity(final long id, final EntityType<E> entityType) {
 		return getEntityConnector(id).createPersistedEntity(entityType);
 	}
 	
@@ -71,7 +71,7 @@ public final class EntitiesConnector<E extends Entity> {
 	}
 	
 	//method
-	public EntityConnector<E> getEntityConnector(final int id) {
+	public EntityConnector<E> getEntityConnector(final long id) {
 		return getEntityConnectors().getRefFirst(ev -> ev.hasId(id));
 	}
 	

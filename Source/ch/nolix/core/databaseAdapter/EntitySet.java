@@ -112,7 +112,7 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 	}
 	
 	//method
-	public EntitySet<E> deleteEntity(final int id) {
+	public EntitySet<E> deleteEntity(final long id) {
 		return deleteEntity(getRefEntityById(id));
 	}
 	

@@ -164,14 +164,14 @@ public final class EntitySetSession extends HeaderedSession {
 	}
 	
 	//method
-	private void openDeleteEntitySession(final int entityId) {
+	private void openDeleteEntitySession(final long entityId) {
 		getParentClient().pushSession(
 			new DeleteEntitySession(entitySetName, entityId)	
 		);
 	}
 	
 	//method
-	private void openEntitySession(final String entitySetName, final int entityId) {
+	private void openEntitySession(final String entitySetName, final long entityId) {
 		getParentClient().pushSession(
 			new EntitySession(
 				entitySetName,

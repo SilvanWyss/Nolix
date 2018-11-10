@@ -22,12 +22,12 @@ public final class EntitySession extends HeaderedSession {
 	
 	//attribute
 	private final String entitySetName;
-	private final int entityId;
+	private final long entityId;
 	
 	//constructor
 	public EntitySession(
 		final String entitySetName,
-		final int entityId
+		final long entityId
 	) {
 		
 		super(entitySetName);
@@ -183,7 +183,7 @@ public final class EntitySession extends HeaderedSession {
 	}
 	
 	//method
-	private void openEntitySession(final String entitySetName, final int entityId) {
+	private void openEntitySession(final String entitySetName, final long entityId) {
 		getParentClient().pushSession(
 			new EntitySession(
 				entitySetName,

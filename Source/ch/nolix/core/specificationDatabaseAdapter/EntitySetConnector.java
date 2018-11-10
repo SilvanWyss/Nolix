@@ -33,7 +33,7 @@ implements IEntitySetConnector<E> {
 	}
 	
 	//method
-	public boolean containsEntity(final int id) {
+	public boolean containsEntity(final long id) {
 		return getEntitiesConnector().containsEntity(id);
 	}
 	
@@ -58,7 +58,7 @@ implements IEntitySetConnector<E> {
 	}
 
 	//method
-	public E getEntity(final int id, final EntityType<E> entityType) {
+	public E getEntity(final long id, final EntityType<E> entityType) {
 		return getEntitiesConnector().getEntity(id, entityType);
 	}
 	

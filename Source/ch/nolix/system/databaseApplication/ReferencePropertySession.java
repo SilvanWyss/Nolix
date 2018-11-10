@@ -58,11 +58,11 @@ public final class ReferencePropertySession extends HeaderedSession {
 		final var referencesSelectionMenu = new SelectionMenu().setName("ReferencesSelectionMenu");
 		
 		for (final var e : reference.getReferencedEntitySet().getRefEntities()) {
-			referencesSelectionMenu.addItem(e.getId(), /*e.getParentEntitySet().getName() +*/ " " + e.getId());
+			referencesSelectionMenu.addItem((int)e.getId(), /*e.getParentEntitySet().getName() +*/ " " + e.getId());
 		}
 		
 		if (reference.referencesEntity()) {		
-			referencesSelectionMenu.select(reference.getEntity().getId());
+			referencesSelectionMenu.select((int)reference.getEntity().getId());
 		}
 		
 		return referencesSelectionMenu;

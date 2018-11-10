@@ -17,12 +17,12 @@ public final class DeleteEntitySession extends HeaderedSession {
 
 	//attribute
 	private final String entitySetName;
-	private final int entityId;
+	private final long entityId;
 	
 	//constructor
 	public DeleteEntitySession(
 		final String entitySetName,
-		final int entityId
+		final long entityId
 	) {
 		
 		super("Delete " + entitySetName);
