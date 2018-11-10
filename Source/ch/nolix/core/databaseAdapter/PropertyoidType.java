@@ -54,6 +54,30 @@ public abstract class PropertyoidType<V> implements Specified {
 	}
 	
 	//method
+	public final boolean isAnyDataType() {
+		switch (getPropertyKind()) {
+			case DATA:
+			case OPTIONAL_DATA:
+			case MULTI_DATA:
+				return true;
+			default:
+				return false;
+		}
+	}
+	
+	//method
+	public final boolean isAnyReferenceType() {
+		switch (getPropertyKind()) {
+			case REFERENCE:
+			case OPTIONAL_REFERENCE:
+			case MULTI_REFERENCE:
+				return true;
+			default:
+				return false;
+		}
+	}
+	
+	//method
 	public final boolean isDataType() {
 		return (getPropertyKind() == PropertyKind.DATA);
 	}
