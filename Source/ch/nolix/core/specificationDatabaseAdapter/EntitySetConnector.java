@@ -3,6 +3,7 @@ package ch.nolix.core.specificationDatabaseAdapter;
 
 //own imports
 import ch.nolix.core.constants.MultiPascalCaseNameCatalogue;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntityType;
@@ -56,7 +57,15 @@ implements IEntitySetConnector<E> {
 	public List<E> getEntities(final EntityType<E> entityType) {
 		return getEntitiesConnector().getEntities(entityType);
 	}
-
+	
+	//method
+	public List<E> getEntities(IContainer<Long> ids, EntityType<E> entityType) {
+		
+		final var entitiesConnector = getEntitiesConnector();
+		
+		return ids.to(id -> entitiesConnector.getEntity(id, entityType));
+	}
+	
 	//method
 	public E getEntity(final long id, final EntityType<E> entityType) {
 		return getEntitiesConnector().getEntity(id, entityType);

@@ -2,6 +2,7 @@
 package ch.nolix.core.databaseAdapter;
 
 //own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.skillInterfaces.Named;
 
@@ -14,6 +15,9 @@ extends Named {
 	
 	//abstract method
 	public abstract List<E> getEntities(EntityType<E> entityType);
+	
+	//abstract method
+	public List<E> getEntities(IContainer<Long> ids, EntityType<E> entityType);
 	
 	//abstract method
 	public abstract E getEntity(long id, EntityType<E> entityType);
