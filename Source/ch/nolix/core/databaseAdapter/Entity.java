@@ -52,7 +52,7 @@ implements Identified, Specified {
 		final var attributes = new List<DocumentNode>();
 		
 		if (hasId()) {
-			attributes.addAtEnd(DocumentNode.createFromInt(getId()));
+			attributes.addAtEnd(DocumentNode.createFromLong(getId()));
 		}
 		
 		for (final var p : getRefProperties()) {
@@ -145,7 +145,7 @@ implements Identified, Specified {
 		
 		final var rowSpecification = new DocumentNode();
 		
-		rowSpecification.addAttribute(DocumentNode.createFromInt(getId()));
+		rowSpecification.addAttribute(DocumentNode.createFromLong(getId()));
 		
 		for (final var p : getRefProperties()) {
 			rowSpecification.addAttribute(new DocumentNode(p.internal_getValues().toString()));

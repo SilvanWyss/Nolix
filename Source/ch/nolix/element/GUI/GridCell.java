@@ -75,8 +75,8 @@ implements Clearable<GridCell> {
 	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = new List<DocumentNode>(
-			DocumentNode.createFromInt(getRowIndex()),
-			DocumentNode.createFromInt(getColumnIndex())
+			DocumentNode.createFromLong(getRowIndex()),
+			DocumentNode.createFromLong(getColumnIndex())
 		);
 		
 		if (containsAny()) {

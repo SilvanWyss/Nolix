@@ -36,7 +36,7 @@ implements Identified {
 		attributes.addAtEnd(
 			new DocumentNode(
 				VariableNameCatalogue.ID,
-				DocumentNode.createFromInt(getId())
+				DocumentNode.createFromLong(getId())
 			)
 		);
 		

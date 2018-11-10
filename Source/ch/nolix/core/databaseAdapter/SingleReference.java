@@ -21,7 +21,7 @@ extends Referenceoid<E> {
 		final var attributes = new List<DocumentNode>();
 		
 		if (referencesEntity()) {
-			attributes.addAtEnd(DocumentNode.createFromInt(getReferencedEntityId()));
+			attributes.addAtEnd(DocumentNode.createFromLong(getReferencedEntityId()));
 		}
 		
 		return attributes;

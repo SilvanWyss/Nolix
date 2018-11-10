@@ -43,7 +43,7 @@ public final class DocumentNode extends DocumentNodeoid implements Listable<Docu
 	 * @param value
 	 * @return a new {@link DocumentNode} from the given value.
 	 */
-	public static DocumentNode createFromInt(final int value) {
+	public static DocumentNode createFromLong(final long value) {
 		return new DocumentNode(String.valueOf(value));
 	}
 	

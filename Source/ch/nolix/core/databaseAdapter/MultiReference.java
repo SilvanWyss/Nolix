@@ -28,7 +28,7 @@ extends Referenceoid<E> {
 	public List<DocumentNode> getAttributes0() {
 		return
 		referencedEntityIds
-		.to(rei -> DocumentNode.createFromInt(rei));
+		.to(rei -> DocumentNode.createFromLong(rei));
 	}
 	
 	//method
