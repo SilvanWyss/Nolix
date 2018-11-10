@@ -246,36 +246,6 @@ public abstract class Entity implements Identified2, Specified {
 	}
 	
 	//package-visible method
-	final Field getField(final Propertyoid<?> property) {
-		
-		for (final var f : getClass().getFields()) {
-			try {
-				
-				f.setAccessible(true);
-				
-				if (f.get(this) == property) {
-					return f;
-				}
-			}
-			catch (
-				final
-				IllegalArgumentException
-				| IllegalAccessException
-				exception
-			) {
-				throw new RuntimeException(exception);
-			}
-		}
-		
-		throw new InvalidStateException(this, "has no such property");
-	}
-	
-	//package-visible method
-	final String getFieldName(final Propertyoid<?> property) {
-		return getField(property).getName();
-	}
-	
-	//package-visible method
 	final void setChanged() {
 		switch (getState()) {
 			case PERSISTED:

@@ -7,6 +7,7 @@ import java.lang.reflect.ParameterizedType;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.helper.ReflectionHelper;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.skillInterfaces.Headered;
 import ch.nolix.core.specificationAPI.Specified;
@@ -36,7 +37,7 @@ implements Headered, Specified {
 	
 	//method
 	public final String getHeader() {
-		return getParentEntity().getFieldName(this);
+		return ReflectionHelper.getFieldName(getParentEntity(), this);
 	}
 	
 	//method
@@ -67,15 +68,15 @@ implements Headered, Specified {
 	
 	//method
 	public final String getType() {
-		return getParentEntity().getFieldName(this);
+		return ReflectionHelper.getFieldName(getParentEntity(), this);
 	}
 	
 	//method
 	@SuppressWarnings("unchecked")
 	public final Class<V> getValueClass() {
 		
-		final var actualClass = 
-		getParentEntity().getField(this).getGenericType();
+		final var actualClass =
+		ReflectionHelper.getRefField(getParentEntity(), this).getGenericType();
 		
 		return
 		(Class<V>)
