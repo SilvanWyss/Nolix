@@ -13,19 +13,18 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.skillInterfaces.Identified;
+import ch.nolix.core.skillInterfaces.Identified2;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
-public abstract class Entity
-implements Identified, Specified {
+public abstract class Entity implements Identified2, Specified {
 	
 	//attribute
 	private EntityState state = EntityState.CREATED;
 	
 	//optional attributes
-	private int id = -1;
+	private long id = -1;
 	private EntitySet<Entity> parentEntitySet;
 	
 	//multi-attribute
@@ -110,7 +109,7 @@ implements Identified, Specified {
 	}
 	
 	//method
-	public final int getId() {
+	public final long getId() {
 	
 		supposeHasId();
 		

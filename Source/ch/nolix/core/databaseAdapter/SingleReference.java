@@ -13,7 +13,7 @@ public abstract class SingleReference<E extends Entity>
 extends Referenceoid<E> {
 	
 	//optional attribute
-	private int referencedEntityId = -1;
+	private long referencedEntityId = -1;
 	
 	//method
 	public final List<DocumentNode> getAttributes0() {
@@ -95,7 +95,7 @@ extends Referenceoid<E> {
 	}
 	
 	//method
-	private int getReferencedEntityId() {
+	private long getReferencedEntityId() {
 		
 		supposeReferencesEntity();
 		
@@ -103,7 +103,7 @@ extends Referenceoid<E> {
 	}
 	
 	//method
-	private void setValue(int referencedEntityId) {
+	private void setValue(final long referencedEntityId) {
 		
 		Validator
 		.suppose(referencedEntityId)

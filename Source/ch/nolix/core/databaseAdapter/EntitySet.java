@@ -166,7 +166,7 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public E getRefEntityById(final int id) {
+	public E getRefEntityById(final long id) {
 		
 		final var loadedEntity = loadedAndCreatedEntities.getRefFirstOrNull(e -> e.getId() == id);
 		if (loadedEntity != null) {

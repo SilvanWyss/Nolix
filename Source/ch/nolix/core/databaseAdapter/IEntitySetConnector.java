@@ -16,5 +16,5 @@ extends Named {
 	public abstract List<E> getEntities(EntityType<E> entityType);
 	
 	//abstract method
-	public abstract E getEntity(int id, EntityType<E> entityType);
+	public abstract E getEntity(long id, EntityType<E> entityType);
 }

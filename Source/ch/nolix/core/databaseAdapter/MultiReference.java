@@ -12,7 +12,7 @@ public final class MultiReference<E extends Entity>
 extends Referenceoid<E> {
 
 	//multi-attribute
-	private final List<Integer> referencedEntityIds = new List<Integer>();
+	private final List<Long> referencedEntityIds = new List<Long>();
 
 	//method
 	public MultiReference<E> add(final E entity) {
@@ -78,7 +78,7 @@ extends Referenceoid<E> {
 	}
 	
 	//method
-	private void addValue(final int referencedEntityId) {
+	private void addValue(final long referencedEntityId) {
 		
 		Validator
 		.suppose(referencedEntityId)
@@ -90,12 +90,12 @@ extends Referenceoid<E> {
 	}
 	
 	//method
-	private boolean containsValue(int referencedEntityId) {
+	private boolean containsValue(final long referencedEntityId) {
 		return referencedEntityIds.contains(rei -> rei == referencedEntityId);
 	}
 
 	//method
-	private void supposeDoesNotContainValue(int referencedEntityId) {		
+	private void supposeDoesNotContainValue(final long referencedEntityId) {		
 		if (containsValue(referencedEntityId)) {
 			throw new InvalidStateException(
 				this,
