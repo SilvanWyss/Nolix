@@ -4,6 +4,7 @@ package ch.nolix.core.validator2;
 //Java import
 import java.io.File;
 
+//own imports
 import ch.nolix.core.invalidArgumentException.Argument;
 import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
@@ -19,10 +20,10 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 170
+ * @lines 210
  */
 public class StringMediator extends ArgumentMediator<String> {
-
+	
 	//package-visible constructor
 	/**
 	 * Creates a new string mediator for the given argument.
@@ -98,6 +99,25 @@ public class StringMediator extends ArgumentMediator<String> {
 		}
 	}
 	
+	/**
+	 * @throws NullArgumentException if the argument of the current {@link StringMediator} is null.
+	 * @throws InvalidArgumentException if the argument of the current {@link StringMediator} is not blank.
+	 */
+	public void isBlank() {
+		
+		//Checks if the argument of the current string mediator is not null.
+		isInstance();
+		
+		//Checks if the argument of the current string mediator is blank.
+		if (!getRefArgument().isBlank()) {
+			throw 
+			new InvalidArgumentException(
+				new ArgumentName(getArgumentName()),
+				new ErrorPredicate("is not blank")
+			);
+		}
+	}
+	
 	//method
 	/**
 	 * @throws NullArgumentException if the argument of this string mediator is null.
@@ -127,6 +147,27 @@ public class StringMediator extends ArgumentMediator<String> {
 		//Checks if the argument of this string mediator is not empty.
 		if (getRefArgument().isEmpty()) {
 			throw new EmptyArgumentException();
+		}
+	}
+	
+	//method
+	/**
+	 * @throws NullArgumentException if the argument of the current {@link StringMediator} is null.
+	 * @throws EmptyArgumentException if the argument of the current {@link StringMediator} is empty.
+	 * @throws InvalidArgumentException if the argument of the current {@link StringMediator} is blank.
+	 */
+	public void isNotBlank() {
+		
+		//Checks if the argument of the current string mediator is not null or empty.
+		isNotEmpty();	
+		
+		//Checks if the the argument of the current string mediator is not blank.
+		if (getRefArgument().isBlank()) {
+			throw 
+			new InvalidArgumentException(
+				new ArgumentName(getArgumentName()),
+				new ErrorPredicate("is blank")
+			);
 		}
 	}
 	
