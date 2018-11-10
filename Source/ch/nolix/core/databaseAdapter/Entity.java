@@ -166,9 +166,20 @@ implements Identified, Specified {
 
 	//method
 	public final boolean hasId() {
+		return (id > -1);
+	}
+	
+	//method
+	public final boolean hasId(final long id) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
-		return (id > -1);
+			//Handles the case that the current entity does not have an id.
+			if (this.id < 0) {
+				return false;
+			}
+			
+			//Handles the case that the current entity has an id.
+			return (this.id == id);
 	}
 	
 	//method
