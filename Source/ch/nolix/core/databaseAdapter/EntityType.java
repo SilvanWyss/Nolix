@@ -64,15 +64,15 @@ extends NamedElement {
 	}
 	
 	//method
-	public List<Column<?>> getColumns() {
-		return columns;
+	public List<Column<?>> getAnyDataAndReferenceColumns() {
+		return columns.getRefSelected(c -> c.isAnyDataOrReferenceColumn());
 	}
 	
 	//method
-	public List<Column<?>> getUserColumns() {
-		return columns.getRefSelected(c -> c.isUserColumn());
+	public List<Column<?>> getColumns() {
+		return columns;
 	}
-	
+		
 	//method
 	public Class<E> getEntityClass() {
 		return entityClass;

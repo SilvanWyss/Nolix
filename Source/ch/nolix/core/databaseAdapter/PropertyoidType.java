@@ -66,6 +66,21 @@ public abstract class PropertyoidType<V> implements Specified {
 	}
 	
 	//method
+	public final boolean isAnyDataOrReferenceType() {
+		switch (getPropertyKind()) {
+			case DATA:
+			case OPTIONAL_DATA:
+			case MULTI_DATA:
+			case REFERENCE:
+			case OPTIONAL_REFERENCE:
+			case MULTI_REFERENCE:
+				return true;
+			default:
+				return false;
+		}
+	}
+	
+	//method
 	public final boolean isAnyReferenceType() {
 		switch (getPropertyKind()) {
 			case REFERENCE:
@@ -110,21 +125,6 @@ public abstract class PropertyoidType<V> implements Specified {
 	//method
 	public final boolean isReferenceType() {
 		return (getPropertyKind() == PropertyKind.REFERENCE);
-	}
-	
-	//method
-	public final boolean isUserColumn() {
-		switch (getPropertyKind()) {
-			case DATA:
-			case OPTIONAL_DATA:
-			case MULTI_DATA:
-			case REFERENCE:
-			case OPTIONAL_REFERENCE:
-			case MULTI_REFERENCE:
-				return true;
-			default:
-				return false;
-		}
 	}
 	
 	//method
