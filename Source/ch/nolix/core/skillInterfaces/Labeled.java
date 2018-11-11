@@ -9,7 +9,7 @@ package ch.nolix.core.skillInterfaces;
  * @month 2016-12
  * @lines 20
  */
-public interface Signed {
+public interface Labeled {
 
 	//abstract method
 	/**

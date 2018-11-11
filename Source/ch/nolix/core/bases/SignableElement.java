@@ -2,7 +2,7 @@
 package ch.nolix.core.bases;
 
 //own imports
-import ch.nolix.core.skillInterfaces.Signable;
+import ch.nolix.core.skillInterfaces.Labelable;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
@@ -15,7 +15,7 @@ import ch.nolix.core.validator2.Validator;
  * @param <OSE> The type of a {@link SignableElement}.
  */
 public abstract class SignableElement<SE extends SignableElement<SE>>
-implements Signable<SE> {
+implements Labelable<SE> {
 
 	//attribute
 	private String infoString;

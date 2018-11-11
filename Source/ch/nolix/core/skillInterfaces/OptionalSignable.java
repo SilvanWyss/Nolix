@@ -12,7 +12,7 @@ package ch.nolix.core.skillInterfaces;
  * @param <OS> The type of an optional signable object.
  */
 public interface OptionalSignable<OS extends OptionalSignable<OS>>
-extends Signable<OS> {
+extends Labelable<OS> {
 	
 	//abstract method
 	/**
