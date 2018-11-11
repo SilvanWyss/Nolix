@@ -3,10 +3,10 @@ package ch.nolix.core.invalidStateException;
 
 //class
 /**
- * A closed state exception is an invalid state exception
+ * A {@link ClosedStateException} is a {@link InvalidStateException}
  * that is supposed to be thrown when an object is undesired closed.
  * 
- * A close state exception is not mutable.
+ * A {@link ClosedStateException} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2017-09
@@ -14,13 +14,13 @@ package ch.nolix.core.invalidStateException;
  */
 @SuppressWarnings("serial")
 public final class ClosedStateException extends InvalidStateException {
-
+	
 	//constant
 	private static final String ERROR_PREDICATE = "is closed";
-
+	
 	//constructor
 	/**
-	 * Creates a new closed state exception for the given object.
+	 * Creates a new {@link ClosedStateException} for the given object.
 	 * 
 	 * @param object
 	 * @throws NullArgumentException if the given object is null.
