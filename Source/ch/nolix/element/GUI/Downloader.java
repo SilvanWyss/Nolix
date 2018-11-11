@@ -30,7 +30,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	private boolean providesFile = false;
 	
 	//optional attribute
-	private IElementGetter<byte[]> fileGetter;
+	private IElementGetter<byte[]> fileProvider;
 	
 	//constructor
 	public Downloader() {
@@ -39,11 +39,11 @@ public final class Downloader extends TextLineWidget<Downloader> {
 		applyUsableConfiguration();
 	}
 	
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
-		
+	//method
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {	
 		switch (attribute.getHeader()) {
 			case FILE_GETTER_HEADER:
-				setProvidingFile();
+				setProvideFile();
 				break;
 			default:
 				super.addOrChangeAttribute(attribute);
@@ -123,7 +123,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 				return fileProvider.readFileToBytes();
 			}
 			
-			throw new InvalidStateException(this, "provides no file");
+			throw new InvalidStateException(this, "does not provide a file");
 		}
 		else {
 			return getFileGetter().getOutput();
@@ -131,10 +131,10 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	}
 	
 	//method
-	public Downloader removeFileGetter() {
+	public Downloader removeFileProvider() {
 		
 		providesFile = false;
-		fileGetter = null;
+		fileProvider = null;
 		
 		return this;
 	}
@@ -145,29 +145,31 @@ public final class Downloader extends TextLineWidget<Downloader> {
 		super.reset();
 		
 		setText(DEFAULT_TEXT);
-		removeFileGetter();
+		removeFileProvider();
 		
 		return this;
 	}
 	
 	//method
-	public Downloader setFileGetter(final IElementGetter<byte[]> fileGetter) {
+	public Downloader setFile(final byte[] file) {
+		return setFileProvider(() -> file);
+	}
+	
+	//method
+	public Downloader setFileProvider(final FileAccessor fileAccessor) {
+		return setFileProvider(() -> fileAccessor.readFileToBytes());
+	}
+	
+	//method
+	public Downloader setFileProvider(final IElementGetter<byte[]> fileProvider) {
 		
 		Validator
-		.suppose(fileGetter)
-		.thatIsNamed("file getter")
+		.suppose(fileProvider)
+		.thatIsNamed("file provider")
 		.isInstance();
 		
 		providesFile = true;
-		this.fileGetter = fileGetter;
-		
-		return this;
-	}
-	
-	//method
-	public Downloader setProvidingFile() {
-		
-		providesFile = true;
+		this.fileProvider = fileProvider;
 		
 		return this;
 	}
@@ -182,12 +184,17 @@ public final class Downloader extends TextLineWidget<Downloader> {
 		
 		supposeHasFileGetter();
 		
-		return fileGetter;
+		return fileProvider;
 	}
 	
 	//method
 	private boolean hasFileGetter() {
-		return (fileGetter != null);
+		return (fileProvider != null);
+	}
+	
+	//method
+	private void setProvideFile() {		
+		providesFile = true;
 	}
 	
 	//method

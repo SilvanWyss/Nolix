@@ -35,7 +35,7 @@ public final class DownloaderTutorial {
 		final var downloader =
 		new Downloader()
 		.setText("Download file")
-		.setFileGetter(() -> new FileAccessor("tutorial.txt").readFileToBytes()) ;
+		.setFileProvider(new FileAccessor("tutorial.txt")) ;
 		
 		//Configures the look of the downloader.
 			downloader
