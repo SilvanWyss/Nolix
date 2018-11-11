@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.core.validator2;
 
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ArgumentName;
+import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 

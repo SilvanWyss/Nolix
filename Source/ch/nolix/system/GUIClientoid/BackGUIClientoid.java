@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ArgumentName;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.ReadContainer;
@@ -9,8 +11,6 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.helper.StringHelper;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.util.PopupWindowProvider;
 import ch.nolix.element.GUI.Downloader;

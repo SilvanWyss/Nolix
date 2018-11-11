@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.client;
 
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ArgumentName;
 //own imports
 import ch.nolix.core.bases.OptionalSignableElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -12,8 +14,6 @@ import ch.nolix.core.endPoint5.EndPoint;
 import ch.nolix.core.endPoint5.LocalEndPoint;
 import ch.nolix.core.endPoint5.NetEndPoint;
 import ch.nolix.core.functionAPI.IFunction;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.ClosedStateException;
 import ch.nolix.core.invalidStateException.InvalidStateException;

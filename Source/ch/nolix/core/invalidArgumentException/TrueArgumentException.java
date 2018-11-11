@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
+import ch.nolix.core.argument.ArgumentName;
+import ch.nolix.core.argument.ErrorPredicate;
+
 //class
 /**
  * A true argument exception is an invalid argument exception

@@ -3,10 +3,10 @@ package ch.nolix.element._3DGUI;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ErrorPredicate;
 import ch.nolix.core.container.List;
 
 //class

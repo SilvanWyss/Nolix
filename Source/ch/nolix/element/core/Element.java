@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.element.core;
 
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ArgumentName;
 //own imports
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.entity.Entity;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillInterfaces.Castable;
 import ch.nolix.core.skillInterfaces.TypeRequestable;

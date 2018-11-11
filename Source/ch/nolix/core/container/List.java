@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.container;
 
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.MultiVariableNameCatalogue;
@@ -9,8 +11,6 @@ import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.functionAPI.IElementTakerComparableGetter;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.EmptyStateException;
 import ch.nolix.core.invalidStateException.InvalidStateException;

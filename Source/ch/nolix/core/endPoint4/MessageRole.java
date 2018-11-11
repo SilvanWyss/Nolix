@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint4;
 
-import ch.nolix.core.invalidArgumentException.Argument;
+import ch.nolix.core.argument.Argument;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NonRepresentingArgumentException;
 

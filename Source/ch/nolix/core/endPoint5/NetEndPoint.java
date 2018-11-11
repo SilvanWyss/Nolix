@@ -1,14 +1,14 @@
 //package declaration
 package ch.nolix.core.endPoint5;
 
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ArgumentName;
 //own imports
 import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.Statement;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator2.Validator;
 

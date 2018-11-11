@@ -5,11 +5,11 @@ package ch.nolix.core.testoid;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Vector;
 
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ArgumentName;
+import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
-import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.primitiveContainer.List;

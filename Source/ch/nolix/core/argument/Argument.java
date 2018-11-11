@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.invalidArgumentException;
+package ch.nolix.core.argument;
 
 //own import
 import ch.nolix.core.constants.StringCatalogue;

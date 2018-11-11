@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ArgumentName;
 //own imports
 import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.constants.PortCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator2.Validator;
 

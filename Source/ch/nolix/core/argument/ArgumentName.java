@@ -1,35 +1,35 @@
 //package declaration
-package ch.nolix.core.invalidArgumentException;
+package ch.nolix.core.argument;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2017-01
- * @lines 40
+ * @lines 30
  */
-public final class ErrorPredicate {
-
+public final class ArgumentName {
+	
 	//attribute
 	private final String value;
 	
 	//constructor
 	/**
-	 * Creates a new error pedicate with the given value.
-	 *
+	 * Creates a new argument name with the given value.
+	 * 
 	 * @param value
 	 * @throws RuntimeException if the given value is null.
 	 * @throws RuntimeException if the given value is empty.
 	 */
-	public ErrorPredicate(final String value) {
+	public ArgumentName(final String value) {
 		
 		//Checks if the given value is not null.
 		if (value == null) {
-			throw new RuntimeException("The given error predicate is null.");
+			throw new RuntimeException("The given argument name is null.");
 		}
 		
 		//Checks if the given value is not empty.
 		if (value.isEmpty()) {
-			throw new RuntimeException("The given error predicate is empty.");
+			throw new RuntimeException("The given argument name is empty.");
 		}
 		
 		this.value = value;
@@ -37,7 +37,7 @@ public final class ErrorPredicate {
 	
 	//method
 	/**
-	 * @return a string representation of this error pedicate.
+	 * @return a string representation of this argument name.
 	 */
 	public String toString() {
 		return value;

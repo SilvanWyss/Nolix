@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.core.helper;
 
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //class

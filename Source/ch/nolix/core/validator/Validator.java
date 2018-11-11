@@ -8,7 +8,7 @@
 //package declaration
 package ch.nolix.core.validator;
 
-import ch.nolix.core.invalidArgumentException.ArgumentName;
+import ch.nolix.core.argument.ArgumentName;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;

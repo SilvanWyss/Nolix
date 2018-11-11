@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ArgumentName;
+import ch.nolix.core.argument.ErrorPredicate;
 import ch.nolix.core.logger.Logger;
 
 /**

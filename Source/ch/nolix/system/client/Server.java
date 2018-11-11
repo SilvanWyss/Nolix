@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.client;
 
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ErrorPredicate;
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;

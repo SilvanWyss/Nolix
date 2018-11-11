@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+import ch.nolix.core.argument.ArgumentName;
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.skillInterfaces.Castable;

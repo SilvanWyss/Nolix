@@ -1,6 +1,10 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ArgumentName;
+import ch.nolix.core.argument.ErrorPredicate;
+
 //class
 /**
  * A non bigger argument exception is an argument exception that is intended to be thrown when an argument is undesired not bigger than a given limit.

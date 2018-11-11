@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.core.databaseAdapter;
 
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.validator2.Validator;

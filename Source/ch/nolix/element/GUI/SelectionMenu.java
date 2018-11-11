@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.IContainer;
@@ -8,8 +10,6 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.skillInterfaces.Clearable;

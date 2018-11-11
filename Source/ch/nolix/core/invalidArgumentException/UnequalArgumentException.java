@@ -1,6 +1,10 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ArgumentName;
+import ch.nolix.core.argument.ErrorPredicate;
+
 //class
 /**
  * An unequal argument exception is an argument exception that is intendend to be thrown when an argument does undesired not equal an expected value.

@@ -4,9 +4,9 @@ package ch.nolix.core.fileSystem;
 //Java import
 import java.io.IOException;
 
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
-import ch.nolix.core.invalidArgumentException.ErrorPredicate;
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ArgumentName;
+import ch.nolix.core.argument.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //class

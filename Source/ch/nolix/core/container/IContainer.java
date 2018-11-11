@@ -4,6 +4,8 @@ package ch.nolix.core.container;
 //Java import
 import java.util.Random;
 
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -14,8 +16,6 @@ import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.functionAPI.IElementTakerIntGetter;
 import ch.nolix.core.functionAPI.IElementTakerLongGetter;
 import ch.nolix.core.functionAPI.ITwoElementTakerBooleanGetter;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ErrorPredicate;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.EmptyStateException;
 import ch.nolix.core.invalidStateException.InvalidStateException;

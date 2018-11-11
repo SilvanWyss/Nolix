@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
+import ch.nolix.core.argument.Argument;
+import ch.nolix.core.argument.ArgumentName;
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.container.IContainer;
@@ -8,8 +10,6 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.documentNode.Statement;
-import ch.nolix.core.invalidArgumentException.Argument;
-import ch.nolix.core.invalidArgumentException.ArgumentName;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.GUI;
