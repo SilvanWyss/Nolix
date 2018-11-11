@@ -3,7 +3,7 @@ package ch.nolix.core.invalidStateException;
 
 //class
 /**
- * An empty state exception is an invalid state exception
+ * A {@link EmptyStateException} is a {@link InvalidStateException}
  * that is supposed to be thrown when an object is undesired empty.
  * 
  * @author Silvan Wyss
@@ -12,13 +12,13 @@ package ch.nolix.core.invalidStateException;
  */
 @SuppressWarnings("serial")
 public final class EmptyStateException extends InvalidStateException {
-
+	
 	//constant
 	private static final String ERROR_PREDICATE = "is empty";
-
+	
 	//constructor
 	/**
-	 * Creates a new empty state exception for the given object.
+	 * Creates a new {@link EmptyStateException} for the given object.
 	 * 
 	 * @param object
 	 * @throws NullArgumentException if the given object is null.
