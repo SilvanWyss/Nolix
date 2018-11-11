@@ -202,4 +202,14 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 		
 		return getRefEntities().contains(e -> e.references(entity));
 	}
+	
+	//method
+	public boolean reference(final String header, final Entity entity) {
+		
+		if (!canReference(entity)) {
+			return false;
+		}
+		
+		return getRefEntities().contains(e -> e.references(header, entity));
+	}
 }

@@ -61,12 +61,15 @@ extends Referenceoid<E> {
 	
 	//method
 	public final void set(final E entity) {
-		
-		setValue(entity.getId());
-		
-		internal_noteUpdate();
+		if (!references(entity)) {
+			
+			supposeCanReferenceAdditionally(entity);
+						
+			setValue(entity.getId());
+			internal_noteUpdate();
+		}
 	}
-	
+
 	//method
 	protected final void internal_clear() {
 		

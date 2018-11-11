@@ -27,14 +27,15 @@ public abstract class Entity implements Identified2, Specified {
 	private long id = -1;
 	private EntitySet<Entity> parentEntitySet;
 	
-	//multi-attribute
+	//multi-attributes
 	private List<Propertyoid<?>> properties;
+	private List<BackReferenceoid<?>> backReferences;
 	
 	//method
 	public final boolean belongsToEntitySet() {
 		return (parentEntitySet != null);
 	}
-		
+	
 	//method
 	public final boolean canReferenceEntity(final Entity entity) {
 		return getRefProperties().contains(p -> p.canReferenceEntity(entity));
@@ -64,8 +65,8 @@ public abstract class Entity implements Identified2, Specified {
 	//method
 	public final List<Column<?>> getColumns() {
 		
-		if (!propertiesAreExtracted()) {
-			extractProperties();
+		if (!propertiesAndBackReferencesAreExtracted()) {
+			extractPropertiesAndBackReferences();
 		}
 		
 		final var columns
@@ -132,8 +133,8 @@ public abstract class Entity implements Identified2, Specified {
 	//method
 	public IContainer<Propertyoid<?>> getRefProperties() {
 		
-		if (!propertiesAreExtracted()) {
-			extractProperties();
+		if (!propertiesAndBackReferencesAreExtracted()) {
+			extractPropertiesAndBackReferences();
 		}
 		
 		return properties;
@@ -230,6 +231,11 @@ public abstract class Entity implements Identified2, Specified {
 	//method
 	public final boolean references(final Entity entity) {
 		return getRefProperties().contains(p -> p.references(entity));
+	}
+	
+	//method
+	public final boolean references(final String header, final Entity entity) {
+		return getRefProperties().contains(p -> p.hasHeader(header) && p.references(entity));
 	}
 	
 	//method
@@ -394,8 +400,15 @@ public abstract class Entity implements Identified2, Specified {
 		}
 	}
 	
+	//package-visible method
+	final void supposeCanReferenceBackAdditionally(final Entity entity, final String referencingPropertyHeader) {
+		backReferences
+		.getRefSelected(br -> br.hasReferencingPropertyHeader(referencingPropertyHeader))
+		.forEach(br -> br.supposeCanReferenceBackAdditionally(entity, referencingPropertyHeader));
+	}
+	
 	//method
-	private void extractProperties() {
+	private void extractPropertiesAndBackReferences() {
 		
 		properties = new List<Propertyoid<?>>();
 		
@@ -404,22 +417,28 @@ public abstract class Entity implements Identified2, Specified {
 			
 			for (final Field f : cl.getDeclaredFields()) {
 				
-				if (Propertyoid.class.isAssignableFrom(f.getType())) {
-					
-					try {
-						
-						f.setAccessible(true);
-						
-						final Propertyoid<?> property = (Propertyoid<?>)(f.get(this));
-						
-						Validator.suppose(property).isInstanceOf(Propertyoid.class);
-						
+				f.setAccessible(true);
+				
+				if (Propertyoid.class.isAssignableFrom(f.getType())) {				
+					try {			
+						final var property = (Propertyoid<?>)(f.get(this));
 						property.internal_setParentEntity(this);
 						properties.addAtEnd(property);	
 					}
 					catch (
-						final IllegalArgumentException
-						| IllegalAccessException exception
+						final IllegalArgumentException | IllegalAccessException exception
+					) {
+						throw new RuntimeException(exception);
+					}
+				}
+				else if (BackReferenceoid.class.isAssignableFrom(f.getType())) {
+					try {			
+						final var backReference = (BackReferenceoid<?>)(f.get(this));
+						backReference.setParentEntity(this);
+						backReferences.addAtEnd(backReference);
+					}
+					catch (
+						final IllegalArgumentException | IllegalAccessException exception
 					) {
 						throw new RuntimeException(exception);
 					}
@@ -431,7 +450,7 @@ public abstract class Entity implements Identified2, Specified {
 	}
 	
 	//method
-	private boolean propertiesAreExtracted() {
+	private boolean propertiesAndBackReferencesAreExtracted() {
 		return (properties != null);
 	}
 	

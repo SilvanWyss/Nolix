@@ -16,4 +16,9 @@ extends Propertyoid<E> {
 		getParentDatabaseAdapter()
 		.getRefEntitySet(getValueClass());
 	}
+	
+	//method
+	final void supposeCanReferenceAdditionally(final E entity) {
+		entity.supposeCanReferenceBackAdditionally(entity, getHeader());
+	}
 }
