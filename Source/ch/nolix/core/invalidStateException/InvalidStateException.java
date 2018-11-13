@@ -6,8 +6,8 @@ import ch.nolix.core.logger.Logger;
 
 //class
 /**
- * An invalid state exception is an exception that intended to be thrown
- * when an object is in an invalid state.
+ * A {@link InvalidStateException} is a {@link RuntimeException}
+ * that is supposed to be thrown when an object is in an invalid state.
  * 
  * @author Silvan Wyss
  * @month 2017-05
@@ -15,112 +15,151 @@ import ch.nolix.core.logger.Logger;
  */
 @SuppressWarnings("serial")
 public class InvalidStateException extends RuntimeException {
-
+	
 	//constant
-	private static final String DEFAULT_ERROR_PREDICATE = "is in an invalid state";
+	private static final String ERROR_PREDICATE = "is not in a valid state";
 	
-	//attributes
-	final Object object;
-	final String errorPredicate;
+	//attribute
+	private final Object object;
 	
-	//constructor
+	//static method
 	/**
-	 * Creates a new invalid state exception for the given object.
-	 * 
-	 * @param object
-	 */
-	public InvalidStateException(final Object object) {
-		
-		//Calls other constructor.
-		this(object, DEFAULT_ERROR_PREDICATE);
-		
-		Logger.logError(getMessage());
-	}
-	
-	//constructor
-	/**
-	 * Creates a new invalid state exception for the given object and the given error predicate.
-	 * 
-	 * @param object
 	 * @param errorPredicate
+	 * @return a safe error predicate for the given error predicate.
 	 * @throws RuntimeException if the given error predicate is null.
-	 * @throws RuntimeException if the given error predicate is empty.
+	 * @throws RuntimeException if the given error predicate is blank.
 	 */
-	public InvalidStateException(final Object object, final String errorPredicate) {
-		
-		//Calls constructor of the base class.
-		super(object.getClass().getSimpleName() + " " + errorPredicate + ".");
+	private static String getSafeErrorPredicate(final String errorPredicate) {
 		
 		//Checks if the given error predicate is not null.
 		if (errorPredicate == null) {
 			throw new RuntimeException("The given error predicate is null.");
 		}
 		
-		//Checks if the given error predicate is not empty.
-		if (errorPredicate.isEmpty()) {
-			throw new RuntimeException("The given error predicate is empty.");
+		//Checks if the given error predicate is not blank.
+		if (errorPredicate.isBlank()) {
+			throw new RuntimeException("The given error predicate is blank.");
 		}
 		
-		//Sets the object of this invalid state exception.
-		this.object = object;
+		return errorPredicate;
+	}
+	
+	//static method
+	/**
+	 * @param object
+	 * @return a safe name for the given object.
+	 * @throws RuntimeException if the given object is null.
+	 */
+	private static String getSafeName(final Object object) {
 		
-		//Sets the error predicate of this invalid state exception.
-		this.errorPredicate = errorPredicate;
+		//Checks if the given object is not null.
+		if (object == null) {
+			throw new RuntimeException("The given object is null.");
+		}
+		
+		return object.getClass().getSimpleName();
+	}
+	
+	//static method
+	/**
+	 * @param name
+	 * @return a safe name for the given name.
+	 * @throws RuntimeException if the given object name is null.
+	 * @throws RuntimeException if the given object name is blank.
+	 */
+	private static String getSafeName2(final String name) {
+		
+		//Checks if the given object name is not null.
+		if (name == null) {
+			throw new RuntimeException("The given name is null.");
+		}
+		
+		//Checks if the given name is not blank.
+		if (name.isBlank()) {
+			throw new RuntimeException("The given name is blank.");
+		}
+		
+		return name;
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link InvalidStateException}
+	 * for the given object with the given error predicate.
+	 * 
+	 * @param object
+	 * @throws RuntimeException if the given object is null.
+	 */
+	public InvalidStateException(final Object object) {
+		
+		//Calls constructor of the base class.
+		super(getSafeName(object) + ' ' + ERROR_PREDICATE + '.');
+		
+		//Sets the object of the current invalid state exception.
+		this.object = object;
 		
 		Logger.logError(getMessage());
 	}
 	
 	//constructor
 	/**
-	 * Creates a new invalid state exception for the given object, that has the given name,
+	 * Creates a new {@link InvalidStateException} for the given object and error predicate.
+	 * 
+	 * @param object
+	 * @param errorPredicate
+	 * @throws RuntimeException if the given object is null.
+	 * @return RuntimeException if the given error predicate is null.
+	 * @throws RuntimeException if the given error predicate is blank.
+	 */
+	public InvalidStateException(final Object object, final String errorPredicate) {
+		
+		//Calls constructor of the base class.
+		super(getSafeName(object) + ' ' + getSafeErrorPredicate(errorPredicate) + '.');
+		
+		//Sets the object of the current invalid state exception.
+		this.object = object;
+		
+		Logger.logError(getMessage());
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link InvalidStateException} for the given object, that has the given name,
 	 * and for the given error predicate.
 	 * 
 	 * @param name
 	 * @param object
 	 * @param errorPredicate
 	 * @throws RuntimeException if the given name is null.
-	 * @throws RuntimeException if the given name is empty.
+	 * @throws RuntimeException if the given name is blank.
+	 * @return RuntimeException if the given object is null.
 	 * @throws RuntimeException if the given error predicate is null.
-	 * @throws RuntimeException if the given error predicate is empty.
+	 * @throws RuntimeException if the given error predicate is blank.
 	 */
-	public InvalidStateException(final String name, final Object object, final String errorPredicate) {
+	public InvalidStateException(
+		final String name,
+		final Object object,
+		final String errorPredicate
+	) {
 		
-		super("The " + name + " '" + object + "' " + errorPredicate);
+		super("The " + getSafeName2(name) + ' ' + errorPredicate);
 		
-		//Checks if the given name is not null.
-		if (name == null) {
-			throw new RuntimeException("The given name is null.");
-		}
-		
-		//Checks if the given name is not empty.
-		if (name.isEmpty()) {
-			throw new RuntimeException("The given name is empty.");
-		}
-		
-		//Checks if the given error predicate is not null.
-		if (errorPredicate == null) {
-			throw new RuntimeException("The given error predicate is null.");
-		}
-		
-		//Checks if the given error predicate is not empty.
-		if (errorPredicate.isEmpty()) {
-			throw new RuntimeException("The given error predicate is empty.");
+		//Checks if the given object is not null.
+		if (object == null) {
+			throw new RuntimeException("The given object is null.");
 		}
 		
 		//Sets the object of the current invalid state exception.
 		this.object = object;
-		
-		//Sets the error predicate of the current invalid state exception.
-		this.errorPredicate = errorPredicate;
 		
 		Logger.logError(getMessage());
 	}
 	
 	//method
 	/**
-	 * @return the object of this invalid state exception.
+	 * @return the object of the current {@link InvalidStateException}.
 	 */
-	public Object getRefObject() {
+	public final Object getRefObject() {
 		return object;
 	}
 }
