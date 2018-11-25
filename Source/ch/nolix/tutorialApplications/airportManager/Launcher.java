@@ -2,10 +2,9 @@
 package ch.nolix.tutorialApplications.airportManager;
 
 //own imports
-import ch.nolix.core.databaseSchemaAdapter.DatabaseSchemaAdapter;
 import ch.nolix.core.documentNode.SimplePersistentDocumentNode;
 import ch.nolix.core.documentNodeDatabaseAdapter.SpecificationDatabaseAdapter;
-import ch.nolix.core.documentNodeDatabaseSchemaAdapter.SpecificationDatabaseSchemaAdapter;
+import ch.nolix.core.documentNodeDatabaseSchemaAdapter.DocumentNodeDatabaseSchemaAdapter;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.templates.GUILooks.AnthrazitGUILook;
 
@@ -20,12 +19,12 @@ public final class Launcher {
 		final var airportManagerDatabase = new SimplePersistentDocumentNode(airportManagerDatabasePath);
 		final var airportManagerSchema = new AirportManagerSchema();
 		
-		final var airportManagerDatabaseSchemaConnector =
-		new DatabaseSchemaAdapter(new SpecificationDatabaseSchemaAdapter(airportManagerDatabase));
+		final var airportManagerDatabaseSchemaAdapter =
+		new DocumentNodeDatabaseSchemaAdapter(airportManagerDatabase);
 		
-		if (!airportManagerDatabaseSchemaConnector.containsEntitySet()) {
+		if (!airportManagerDatabaseSchemaAdapter.containsEntitySet()) {
 			
-			airportManagerDatabaseSchemaConnector
+			airportManagerDatabaseSchemaAdapter
 			.addSchema(airportManagerSchema)
 			.saveChanges();
 		

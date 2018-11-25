@@ -21,7 +21,7 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
 public final class EntitySet extends NamedElement {
 	
 	//attributes
-	private final DatabaseSchemaAdapter parentDatabaseSchemaAdapter;
+	private final DatabaseSchemaAdapter<?> parentDatabaseSchemaAdapter;
 	private EntitySetState state = EntitySetState.CREATED;
 	
 	//multi-attribute
@@ -29,7 +29,7 @@ public final class EntitySet extends NamedElement {
 	
 	//package-visible constructor
 	EntitySet(
-		final DatabaseSchemaAdapter parentDatabaseSchemaAdapter,
+		final DatabaseSchemaAdapter<?> parentDatabaseSchemaAdapter,
 		final Class<Entity> entityClass
 	) {
 		super(new EntityType<Entity>(entityClass).getName());

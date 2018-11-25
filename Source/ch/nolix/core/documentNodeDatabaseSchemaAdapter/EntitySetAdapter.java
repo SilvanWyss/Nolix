@@ -5,14 +5,14 @@ package ch.nolix.core.documentNodeDatabaseSchemaAdapter;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.databaseSchemaAdapter.Column;
-import ch.nolix.core.databaseSchemaAdapter.IColumnConnector;
-import ch.nolix.core.databaseSchemaAdapter.IEntitySetConnector;
+import ch.nolix.core.databaseSchemaAdapter.IColumnAdapter;
+import ch.nolix.core.databaseSchemaAdapter.IEntitySetAdapter;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.validator2.Validator;
 
 //class
-public final class EntitySetAdapter implements IEntitySetConnector {
+public final class EntitySetAdapter implements IEntitySetAdapter {
 	
 	//constant
 	private static final String ENTITY_SET_SPECIFICATION_VARIABLE_NAME = "entity set specification";
@@ -66,12 +66,12 @@ public final class EntitySetAdapter implements IEntitySetConnector {
 	}
 
 	//method
-	public IColumnConnector getColumnConnector(final Column column) {
-		return getColumnConnectors().getRefFirst(cc -> cc.hasSameHeaderAs(column));
+	public IColumnAdapter getColumnAdapter(final Column column) {
+		return getColumnAdapters().getRefFirst(cc -> cc.hasSameHeaderAs(column));
 	}
 	
 	//method
-	public List<ColumnAdapter> getColumnConnectors() {
+	public List<ColumnAdapter> getColumnAdapters() {
 		return
 		entitySetSpecification
 		.getRefAttributes(a -> a.hasHeader(PascalCaseNameCatalogue.COLUMN))

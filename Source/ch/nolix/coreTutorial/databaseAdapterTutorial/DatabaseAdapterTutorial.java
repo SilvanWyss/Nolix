@@ -5,10 +5,9 @@ package ch.nolix.coreTutorial.databaseAdapterTutorial;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.Property;
 import ch.nolix.core.databaseAdapter.Schema;
-import ch.nolix.core.databaseSchemaAdapter.DatabaseSchemaAdapter;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNodeDatabaseAdapter.SpecificationDatabaseAdapter;
-import ch.nolix.core.documentNodeDatabaseSchemaAdapter.SpecificationDatabaseSchemaAdapter;
+import ch.nolix.core.documentNodeDatabaseSchemaAdapter.DocumentNodeDatabaseSchemaAdapter;
 
 //class
 public final class DatabaseAdapterTutorial {
@@ -20,9 +19,8 @@ public final class DatabaseAdapterTutorial {
 		final var petDatabase = new DocumentNode();
 		
 		//Creates a database schema adapter for the pet database.
-		final var petDatabaseSchemaAdapter = new DatabaseSchemaAdapter(
-			new SpecificationDatabaseSchemaAdapter(petDatabase)
-		);
+		final var petDatabaseSchemaAdapter =
+		new DocumentNodeDatabaseSchemaAdapter(petDatabase);
 		
 		//Applies the schema to the pet database.
 		petDatabaseSchemaAdapter

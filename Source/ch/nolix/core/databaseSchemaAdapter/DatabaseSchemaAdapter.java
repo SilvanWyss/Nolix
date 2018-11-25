@@ -5,32 +5,22 @@ package ch.nolix.core.databaseSchemaAdapter;
 import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.Schema;
+import ch.nolix.core.generalSkillAPI.IFluentObject;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.skillAPI.IChangesSaver;
-import ch.nolix.core.validator2.Validator;
 
-// class
-public final class DatabaseSchemaAdapter implements IChangesSaver<DatabaseSchemaAdapter> {
-
-	//attribute
-	private final IDatabaseSchemaConnector databaseSchemaConnector;
+//abstract class
+public abstract class DatabaseSchemaAdapter<DSA extends DatabaseSchemaAdapter<DSA>>
+implements
+	IChangesSaver<DSA>,
+	IFluentObject<DSA> {
 	
 	//multi-attributes
 	private final List<EntitySet> loadedOrCreatedEntitySets = new List<EntitySet>();
 	private final List<EntitySet> changedEntitySetsInOrder = new List<EntitySet>();
 	
-	//constructor
-	public DatabaseSchemaAdapter(final IDatabaseSchemaConnector databaseSchemaConnector) {
-		
-		Validator.suppose(databaseSchemaConnector).isInstanceOf(IDatabaseSchemaConnector.class);
-		
-		this.databaseSchemaConnector = databaseSchemaConnector;
-		
-		reset();
-	}
-	
 	//method
-	public DatabaseSchemaAdapter addEntitySet(final Class<Entity> entityClass) {
+	public final DSA addEntitySet(final Class<Entity> entityClass) {
 		
 		final var entitySet = new EntitySet(this, entityClass);
 		
@@ -44,29 +34,27 @@ public final class DatabaseSchemaAdapter implements IChangesSaver<DatabaseSchema
 		loadedOrCreatedEntitySets.addAtEnd(entitySet);
 		noteChangedEntitySet(entitySet);
 		
-		return this;
+		return asConcreteType();
 	}
 
 	//method
-	public DatabaseSchemaAdapter addSchema(final Schema schema) {
+	public final DSA addSchema(final Schema schema) {
 		
 		schema.getRefEntityTypes().forEach(et -> addEntitySet(et.getEntityClass()));
 		
-		return this;
+		return asConcreteType();
 	}
 	
-	//method
-	public boolean containsEntitySet() {
-		return databaseSchemaConnector.containsEntitySet();
-	}
+	//abstract method
+	public abstract boolean containsEntitySet();
 	
 	//method
-	public boolean containsEntitySet(final String name) {
+	public final boolean containsEntitySet(final String name) {
 		return loadedOrCreatedEntitySets.contains(es -> es.hasName(name));
 	}
 	
 	//method
-	public DatabaseSchemaAdapter deleteEntitySet(final EntitySet entitySet) {
+	public final DSA deleteEntitySet(final EntitySet entitySet) {
 		
 		if (loadedOrCreatedEntitySets.contains(es -> es.references(entitySet))) {
 			throw new InvalidStateException(
@@ -79,46 +67,45 @@ public final class DatabaseSchemaAdapter implements IChangesSaver<DatabaseSchema
 		loadedOrCreatedEntitySets.removeFirst(entitySet);
 		noteChangedEntitySet(entitySet);
 		
-		return this;
+		return asConcreteType();
+	}
+	
+	//method
+	public final boolean hasChanges() {
+		return changedEntitySetsInOrder.containsAny();
 	}
 
 	//method
-	public DatabaseSchemaAdapter initialize() {
-		
-		databaseSchemaConnector.initialize();
-		
-		return this;
-	}
+	public abstract DSA initialize();
 	
 	//method
-	public boolean isInitialized() {
-		return databaseSchemaConnector.isInitialized();
-	}
+	public abstract boolean isInitialized();
 	
 	//method
-	public boolean hasChanges() {
-		return changedEntitySetsInOrder.containsAny();
-	}
-	
-	//method
-	public DatabaseSchemaAdapter reset() {
+	public final DSA reset() {
 		
 		loadedOrCreatedEntitySets.clear();
 		changedEntitySetsInOrder.clear();
 		
-		return this;
+		return asConcreteType();
 	}
-
+	
 	//method
-	public void saveChanges() {
+	public final void saveChanges() {
 		
-		databaseSchemaConnector.saveChanges(changedEntitySetsInOrder);
+		saveChangesToDatabase(changedEntitySetsInOrder);
 		
 		reset();
 	}
+	
+	//abstract method
+	protected abstract IEntitySetAdapter getEntitySetAdapter(EntitySet entitySet);
+	
+	//abstract method
+	protected abstract void saveChangesToDatabase(Iterable<EntitySet> changedEntitySetsInOrder);
 
 	//package-visible method
-	void noteChangedEntitySet(final EntitySet entitySet) {
+	final void noteChangedEntitySet(final EntitySet entitySet) {
 		if (!changedEntitySetsInOrder.contains(entitySet)) {
 			changedEntitySetsInOrder.addAtEnd(entitySet);
 		}

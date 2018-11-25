@@ -7,35 +7,35 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.databaseSchemaAdapter.DatabaseSchemaAdapter;
 import ch.nolix.core.databaseSchemaAdapter.EntitySet;
-import ch.nolix.core.databaseSchemaAdapter.IDatabaseSchemaConnector;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.validator2.Validator;
 
 //class
-public final class SpecificationDatabaseSchemaAdapter
-implements IDatabaseSchemaConnector {
+public final class DocumentNodeDatabaseSchemaAdapter
+extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	
 	//attribute
-	private final DocumentNodeoid databaseSpecification;
+	private final DocumentNodeoid documentNodeDatabase;
 	
 	//constructor
-	public SpecificationDatabaseSchemaAdapter(final DocumentNodeoid databaseSpecification) {
+	public DocumentNodeDatabaseSchemaAdapter(final DocumentNodeoid documentNodeDatabase) {
 		
 		Validator
-		.suppose(databaseSpecification)
-		.thatIsNamed("database specification")
+		.suppose(documentNodeDatabase)
+		.thatIsNamed("document node database")
 		.isInstance();
 		
-		this.databaseSpecification = databaseSpecification;
+		this.documentNodeDatabase = documentNodeDatabase;
 	}
 	
 	//method
 	public void addEntitySet(final EntitySet entitySet) {
 		
-		if (containsEntitySet(entitySet.getName())) {
+		if (databaseContainsEntitySet(entitySet.getName())) {
 			throw
 			new InvalidStateException(
 				this,
@@ -59,18 +59,18 @@ implements IDatabaseSchemaConnector {
 		entitySetSpecification
 		.addAttribute(new DocumentNode(MultiPascalCaseNameCatalogue.ENTITIES));
 		
-		databaseSpecification.addAttribute(entitySetSpecification);
+		documentNodeDatabase.addAttribute(entitySetSpecification);
 	}
 	
 	//method
 	public boolean containsEntitySet() {
-		return databaseSpecification.containsAttribute(a -> a.hasHeader("EntitySet"));
+		return documentNodeDatabase.containsAttribute(a -> a.hasHeader("EntitySet"));
 	}
 	
 	//method
-	public boolean containsEntitySet(final String name) {
+	public boolean databaseContainsEntitySet(final String name) {
 		return 
-		databaseSpecification.containsAttribute(
+		documentNodeDatabase.containsAttribute(
 			a ->
 				a.hasHeader("EntitySet")
 				&& new EntitySetAdapter(a).hasName(name)
@@ -78,8 +78,8 @@ implements IDatabaseSchemaConnector {
 	}
 	
 	//method
-	public void deleteEntitySet(final EntitySet es) {
-		databaseSpecification.removeFirstAttribute(
+	public void deleteEntitySetOnDatabase(final EntitySet es) {
+		documentNodeDatabase.removeFirstAttribute(
 			a ->
 				a.hasHeader("EntitySet")
 				&& new EntitySetAdapter(a).hasName(es.getName())
@@ -87,31 +87,34 @@ implements IDatabaseSchemaConnector {
 	}
 	
 	//method
-	public EntitySetAdapter getEntitySetConnector(final EntitySet entitySet) {
-		return getEntitySetConnector(entitySet.getName());
+	public EntitySetAdapter getEntitySetAdapter(final EntitySet entitySet) {
+		return getEntitySetAdapter(entitySet.getName());
 	}
 	
 	//method
-	public EntitySetAdapter getEntitySetConnector(final String name) {
-		return getEntitySetConnectors().getRefFirst(esc -> esc.hasName(name));
+	public EntitySetAdapter getEntitySetAdapter(final String name) {
+		return getEntitySetAdapters().getRefFirst(esc -> esc.hasName(name));
 	}
 	
 	//method
-	public List<EntitySetAdapter> getEntitySetConnectors() {
+	public List<EntitySetAdapter> getEntitySetAdapters() {
 		return
-		databaseSpecification
+		documentNodeDatabase
 		.getRefAttributes(a -> a.hasHeader("EntitySet"))
 		.to(a -> new EntitySetAdapter(a));
 	}
 	
 	//method
-	public void initialize() {
-		databaseSpecification.setHeader(PascalCaseNameCatalogue.DATABASE);
+	public DocumentNodeDatabaseSchemaAdapter initialize() {
+		
+		documentNodeDatabase.setHeader(PascalCaseNameCatalogue.DATABASE);
+		
+		return this;
 	}
 	
 	//method
 	public boolean isInitialized() {
-		return databaseSpecification.hasHeader("Database");
+		return documentNodeDatabase.hasHeader("Database");
 	}
 
 	//method
@@ -143,7 +146,7 @@ implements IDatabaseSchemaConnector {
 	}
 	
 	//method
-	public void saveChanges(final Iterable<EntitySet> changedEntitySetsInOrder) {
+	public void saveChangesToDatabase(final Iterable<EntitySet> changedEntitySetsInOrder) {
 		saveChanges(new ReadContainer<EntitySet>(changedEntitySetsInOrder));
 	}
 

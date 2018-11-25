@@ -3,12 +3,12 @@ package ch.nolix.core.documentNodeDatabaseSchemaAdapter;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.databaseSchemaAdapter.IColumnConnector;
+import ch.nolix.core.databaseSchemaAdapter.IColumnAdapter;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.validator2.Validator;
 
 //class
-public final class ColumnAdapter implements IColumnConnector {
+public final class ColumnAdapter implements IColumnAdapter {
 
 	//attribute
 	private final DocumentNodeoid columnSpecification;
