@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.specificationDatabaseSchemaConnector;
+package ch.nolix.core.documentNodeDatabaseSchemaAdapter;
 
 //own imports
 import ch.nolix.core.constants.MultiPascalCaseNameCatalogue;
@@ -15,14 +15,14 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.validator2.Validator;
 
 //class
-public final class SpecificationDatabaseSchemaConnector
+public final class SpecificationDatabaseSchemaAdapter
 implements IDatabaseSchemaConnector {
 	
 	//attribute
 	private final DocumentNodeoid databaseSpecification;
 	
 	//constructor
-	public SpecificationDatabaseSchemaConnector(final DocumentNodeoid databaseSpecification) {
+	public SpecificationDatabaseSchemaAdapter(final DocumentNodeoid databaseSpecification) {
 		
 		Validator
 		.suppose(databaseSpecification)
@@ -73,7 +73,7 @@ implements IDatabaseSchemaConnector {
 		databaseSpecification.containsAttribute(
 			a ->
 				a.hasHeader("EntitySet")
-				&& new EntitySetConnector(a).hasName(name)
+				&& new EntitySetAdapter(a).hasName(name)
 		);
 	}
 	
@@ -82,26 +82,26 @@ implements IDatabaseSchemaConnector {
 		databaseSpecification.removeFirstAttribute(
 			a ->
 				a.hasHeader("EntitySet")
-				&& new EntitySetConnector(a).hasName(es.getName())
+				&& new EntitySetAdapter(a).hasName(es.getName())
 		);
 	}
 	
 	//method
-	public EntitySetConnector getEntitySetConnector(final EntitySet entitySet) {
+	public EntitySetAdapter getEntitySetConnector(final EntitySet entitySet) {
 		return getEntitySetConnector(entitySet.getName());
 	}
 	
 	//method
-	public EntitySetConnector getEntitySetConnector(final String name) {
+	public EntitySetAdapter getEntitySetConnector(final String name) {
 		return getEntitySetConnectors().getRefFirst(esc -> esc.hasName(name));
 	}
 	
 	//method
-	public List<EntitySetConnector> getEntitySetConnectors() {
+	public List<EntitySetAdapter> getEntitySetConnectors() {
 		return
 		databaseSpecification
 		.getRefAttributes(a -> a.hasHeader("EntitySet"))
-		.to(a -> new EntitySetConnector(a));
+		.to(a -> new EntitySetAdapter(a));
 	}
 	
 	//method

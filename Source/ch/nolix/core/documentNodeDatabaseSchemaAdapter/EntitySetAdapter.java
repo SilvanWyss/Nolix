@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.specificationDatabaseSchemaConnector;
+package ch.nolix.core.documentNodeDatabaseSchemaAdapter;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
@@ -12,7 +12,7 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.validator2.Validator;
 
 //class
-public final class EntitySetConnector implements IEntitySetConnector {
+public final class EntitySetAdapter implements IEntitySetConnector {
 	
 	//constant
 	private static final String ENTITY_SET_SPECIFICATION_VARIABLE_NAME = "entity set specification";
@@ -21,7 +21,7 @@ public final class EntitySetConnector implements IEntitySetConnector {
 	private final DocumentNodeoid entitySetSpecification;
 	
 	//constructor
-	EntitySetConnector(final DocumentNodeoid entitySetSpecification) {
+	EntitySetAdapter(final DocumentNodeoid entitySetSpecification) {
 		
 		Validator
 		.suppose(entitySetSpecification)
@@ -51,7 +51,7 @@ public final class EntitySetConnector implements IEntitySetConnector {
 		entitySetSpecification.containsAttribute(
 			a ->
 				a.hasHeader(PascalCaseNameCatalogue.COLUMN)
-				&& new ColumnConnector(a).hasHeader(header)
+				&& new ColumnAdapter(a).hasHeader(header)
 		);
 	}
 
@@ -61,7 +61,7 @@ public final class EntitySetConnector implements IEntitySetConnector {
 		.removeFirstAttribute(
 			a ->
 			a.hasHeader(PascalCaseNameCatalogue.COLUMN)
-			&& new ColumnConnector(a).hasSameHeaderAs(column)
+			&& new ColumnAdapter(a).hasSameHeaderAs(column)
 		);
 	}
 
@@ -71,11 +71,11 @@ public final class EntitySetConnector implements IEntitySetConnector {
 	}
 	
 	//method
-	public List<ColumnConnector> getColumnConnectors() {
+	public List<ColumnAdapter> getColumnConnectors() {
 		return
 		entitySetSpecification
 		.getRefAttributes(a -> a.hasHeader(PascalCaseNameCatalogue.COLUMN))
-		.to(a -> new ColumnConnector(a));
+		.to(a -> new ColumnAdapter(a));
 	}
 	
 	//method

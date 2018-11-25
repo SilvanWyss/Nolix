@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.specificationDatabaseAdapter;
+package ch.nolix.core.documentNodeDatabaseAdapter;
 
 //own imports
 import ch.nolix.core.databaseAdapter.Entity;
@@ -9,13 +9,13 @@ import ch.nolix.core.skillAPI.Identified;
 import ch.nolix.core.validator2.Validator;
 
 //class
-public final class EntityConnector<E extends Entity> implements Identified {
+public final class EntityAdapter<E extends Entity> implements Identified {
 
 	//attribute
 	private final DocumentNodeoid entitySpecification;
 	
 	//package-visible constructor
-	EntityConnector(final DocumentNodeoid entitySpecification) {
+	EntityAdapter(final DocumentNodeoid entitySpecification) {
 		
 		Validator
 		.suppose(entitySpecification)

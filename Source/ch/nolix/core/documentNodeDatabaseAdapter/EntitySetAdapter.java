@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.specificationDatabaseAdapter;
+package ch.nolix.core.documentNodeDatabaseAdapter;
 
 //own imports
 import ch.nolix.core.constants.MultiPascalCaseNameCatalogue;
@@ -44,9 +44,9 @@ implements IEntitySetAdapter<E> {
 	}
 	
 	//method
-	public EntitiesConnector<E> getEntitiesConnector() {
+	public EntitiesAdapter<E> getEntitiesConnector() {
 		return
-		new EntitiesConnector<E>(
+		new EntitiesAdapter<E>(
 			entitySetSpecification.getRefFirstAttribute(
 				MultiPascalCaseNameCatalogue.ENTITIES
 			)

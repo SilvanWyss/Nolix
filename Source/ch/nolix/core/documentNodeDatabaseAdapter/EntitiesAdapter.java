@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.specificationDatabaseAdapter;
+package ch.nolix.core.documentNodeDatabaseAdapter;
 
 //own imports
 import ch.nolix.core.container.List;
@@ -9,13 +9,13 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.validator2.Validator;
 
 //class
-public final class EntitiesConnector<E extends Entity> {
+public final class EntitiesAdapter<E extends Entity> {
 
 	//attribute
 	private final DocumentNodeoid entitiesSpecification;
 	
 	//package-visible constructor
-	EntitiesConnector(final DocumentNodeoid entitiesSpecification) {
+	EntitiesAdapter(final DocumentNodeoid entitiesSpecification) {
 		
 		Validator
 		.suppose(entitiesSpecification)
@@ -37,13 +37,13 @@ public final class EntitiesConnector<E extends Entity> {
 	public boolean containsEntity(final long id) {
 		return
 		entitiesSpecification
-		.containsAttribute(a -> new EntityConnector<E>(a).hasId(id));
+		.containsAttribute(a -> new EntityAdapter<E>(a).hasId(id));
 	}
 	
 	//method
 	public void delete(final E entity) {
 		entitiesSpecification
-		.removeFirstAttribute(a -> new EntityConnector<E>(a).hasId(entity.getId()));
+		.removeFirstAttribute(a -> new EntityAdapter<E>(a).hasId(entity.getId()));
 	}
 	
 	//method
@@ -53,7 +53,7 @@ public final class EntitiesConnector<E extends Entity> {
 		
 		for (final var a : entitiesSpecification.getRefAttributes()) {
 			entities.addAtEnd(
-				new EntityConnector<E>(a).createPersistedEntity(entityType)
+				new EntityAdapter<E>(a).createPersistedEntity(entityType)
 			);
 		}
 		
@@ -66,21 +66,21 @@ public final class EntitiesConnector<E extends Entity> {
 	}
 	
 	//method
-	public EntityConnector<E> getEntityConnector(final E entity) {
+	public EntityAdapter<E> getEntityConnector(final E entity) {
 		return getEntityConnector(entity.getId());
 	}
 	
 	//method
-	public EntityConnector<E> getEntityConnector(final long id) {
+	public EntityAdapter<E> getEntityConnector(final long id) {
 		return getEntityConnectors().getRefFirst(ev -> ev.hasId(id));
 	}
 	
 	//method
-	public List<EntityConnector<E>> getEntityConnectors() {
+	public List<EntityAdapter<E>> getEntityConnectors() {
 		return
 		entitiesSpecification
 		.getRefAttributes()
-		.to(a -> new EntityConnector<E>(a));
+		.to(a -> new EntityAdapter<E>(a));
 	}
 	
 	//method

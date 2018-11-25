@@ -4,8 +4,8 @@ package ch.nolix.tutorialApplications.movieManager;
 //own imports
 import ch.nolix.core.databaseSchemaAdapter.DatabaseSchemaAdapter;
 import ch.nolix.core.documentNode.SimplePersistentDocumentNode;
-import ch.nolix.core.specificationDatabaseAdapter.SpecificationDatabaseAdapter;
-import ch.nolix.core.specificationDatabaseSchemaConnector.SpecificationDatabaseSchemaConnector;
+import ch.nolix.core.documentNodeDatabaseAdapter.SpecificationDatabaseAdapter;
+import ch.nolix.core.documentNodeDatabaseSchemaAdapter.SpecificationDatabaseSchemaAdapter;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.templates.GUILooks.AnthrazitGUILook;
 
@@ -21,7 +21,7 @@ public final class Launcher {
 		final var movieManagerSchema = new MovieManagerSchema();
 		
 		final var movieManagerDatabaseSchemaConnector =
-		new DatabaseSchemaAdapter(new SpecificationDatabaseSchemaConnector(movieManagerDatabase));
+		new DatabaseSchemaAdapter(new SpecificationDatabaseSchemaAdapter(movieManagerDatabase));
 		
 		if (!movieManagerDatabaseSchemaConnector.containsEntitySet()) {
 			

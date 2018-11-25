@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.specificationDatabaseSchemaConnector;
+package ch.nolix.core.documentNodeDatabaseSchemaAdapter;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
@@ -8,13 +8,13 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.validator2.Validator;
 
 //class
-public final class ColumnConnector implements IColumnConnector {
+public final class ColumnAdapter implements IColumnConnector {
 
 	//attribute
 	private final DocumentNodeoid columnSpecification;
 	
 	//package-visible constructor
-	ColumnConnector(final DocumentNodeoid columnSpecification) {
+	ColumnAdapter(final DocumentNodeoid columnSpecification) {
 		
 		Validator
 		.suppose(columnSpecification)

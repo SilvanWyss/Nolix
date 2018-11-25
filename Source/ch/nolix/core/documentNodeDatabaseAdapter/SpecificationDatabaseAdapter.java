@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.specificationDatabaseAdapter;
+package ch.nolix.core.documentNodeDatabaseAdapter;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;

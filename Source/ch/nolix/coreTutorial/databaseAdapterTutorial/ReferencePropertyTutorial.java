@@ -8,8 +8,8 @@ import ch.nolix.core.databaseAdapter.Reference;
 import ch.nolix.core.databaseAdapter.Schema;
 import ch.nolix.core.databaseSchemaAdapter.DatabaseSchemaAdapter;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.specificationDatabaseAdapter.SpecificationDatabaseAdapter;
-import ch.nolix.core.specificationDatabaseSchemaConnector.SpecificationDatabaseSchemaConnector;
+import ch.nolix.core.documentNodeDatabaseAdapter.SpecificationDatabaseAdapter;
+import ch.nolix.core.documentNodeDatabaseSchemaAdapter.SpecificationDatabaseSchemaAdapter;
 
 //class
 public final class ReferencePropertyTutorial {
@@ -22,7 +22,7 @@ public final class ReferencePropertyTutorial {
 		
 		//Creates a database schema adapter for the cat database.
 		final var catDatabaseSchemaAdapter = new DatabaseSchemaAdapter(
-			new SpecificationDatabaseSchemaConnector(catDatabase)
+			new SpecificationDatabaseSchemaAdapter(catDatabase)
 		);
 		
 		//Applies the schema to the cat database.
