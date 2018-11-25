@@ -30,21 +30,21 @@ implements IEntitySetAdapter<E> {
 	
 	//method
 	public void add(final E entity) {
-		getEntitiesConnector().add(entity);
+		getEntitiesAdapter().add(entity);
 	}
 	
 	//method
 	public boolean containsEntity(final long id) {
-		return getEntitiesConnector().containsEntity(id);
+		return getEntitiesAdapter().containsEntity(id);
 	}
 	
 	//method
 	public void delete(final E entity) {
-		getEntitiesConnector().delete(entity);
+		getEntitiesAdapter().delete(entity);
 	}
 	
 	//method
-	public EntitiesAdapter<E> getEntitiesConnector() {
+	public EntitiesAdapter<E> getEntitiesAdapter() {
 		return
 		new EntitiesAdapter<E>(
 			entitySetSpecification.getRefFirstAttribute(
@@ -55,20 +55,20 @@ implements IEntitySetAdapter<E> {
 	
 	//method
 	public List<E> getEntities(final EntityType<E> entityType) {
-		return getEntitiesConnector().getEntities(entityType);
+		return getEntitiesAdapter().getEntities(entityType);
 	}
 	
 	//method
 	public List<E> getEntities(IContainer<Long> ids, EntityType<E> entityType) {
 		
-		final var entitiesConnector = getEntitiesConnector();
+		final var entitiesAdapter = getEntitiesAdapter();
 		
-		return ids.to(id -> entitiesConnector.getEntity(id, entityType));
+		return ids.to(id -> entitiesAdapter.getEntity(id, entityType));
 	}
 	
 	//method
 	public E getEntity(final long id, final EntityType<E> entityType) {
-		return getEntitiesConnector().getEntity(id, entityType);
+		return getEntitiesAdapter().getEntity(id, entityType);
 	}
 	
 	//method
@@ -81,6 +81,6 @@ implements IEntitySetAdapter<E> {
 	
 	//method
 	public void update(final E entity) {
-		getEntitiesConnector().update(entity);
+		getEntitiesAdapter().update(entity);
 	}
 }

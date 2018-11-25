@@ -62,21 +62,21 @@ public final class EntitiesAdapter<E extends Entity> {
 	
 	//method
 	public E getEntity(final long id, final EntityType<E> entityType) {
-		return getEntityConnector(id).createPersistedEntity(entityType);
+		return getEntityAdapter(id).createPersistedEntity(entityType);
 	}
 	
 	//method
-	public EntityAdapter<E> getEntityConnector(final E entity) {
-		return getEntityConnector(entity.getId());
+	public EntityAdapter<E> getEntityAdapter(final E entity) {
+		return getEntityAdapter(entity.getId());
 	}
 	
 	//method
-	public EntityAdapter<E> getEntityConnector(final long id) {
-		return getEntityConnectors().getRefFirst(ev -> ev.hasId(id));
+	public EntityAdapter<E> getEntityAdapter(final long id) {
+		return getEntityAdapters().getRefFirst(ev -> ev.hasId(id));
 	}
 	
 	//method
-	public List<EntityAdapter<E>> getEntityConnectors() {
+	public List<EntityAdapter<E>> getEntityAdapters() {
 		return
 		entitiesSpecification
 		.getRefAttributes()
@@ -90,6 +90,6 @@ public final class EntitiesAdapter<E extends Entity> {
 	
 	//method
 	public void update(final E entity) {
-		getEntityConnector(entity).updateFrom(entity);
+		getEntityAdapter(entity).updateFrom(entity);
 	}
 }

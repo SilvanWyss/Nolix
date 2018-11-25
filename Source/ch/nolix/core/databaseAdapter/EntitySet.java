@@ -87,7 +87,7 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 	public boolean containsEntity(final int id) {
 		return
 		getParentDatabaseAdapter()
-		.getEntitySetConnector(this)
+		.getEntitySetAdapter(this)
 		.containsEntity(id);
 	}
 	
@@ -140,7 +140,7 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 		for (
 			final var e :
 			parentDatabaseAdapter
-			.getEntitySetConnector(this)
+			.getEntitySetAdapter(this)
 			.getEntities(getEntityType())
 		) {
 			if (!loadedAndCreatedEntities.contains(e2 -> e2.getId() == e.getId())) {
@@ -170,7 +170,7 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 		
 		final var entity
 		= parentDatabaseAdapter
-		.getEntitySetConnector(this)
+		.getEntitySetAdapter(this)
 		.getEntity(id, getEntityType());
 		
 		if (!entity.isPersisted()) {

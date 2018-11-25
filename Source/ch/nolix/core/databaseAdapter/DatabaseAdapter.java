@@ -114,7 +114,7 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	}
 	
 	//abstract method
-	protected abstract <E extends Entity> IEntitySetAdapter<E> getEntitySetConnector(
+	protected abstract <E extends Entity> IEntitySetAdapter<E> getEntitySetAdapter(
 		EntitySet<E> entitySet
 	);
 	

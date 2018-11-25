@@ -39,7 +39,7 @@ public final class SpecificationDatabaseAdapter extends DatabaseAdapter {
 
 	//method
 	@SuppressWarnings("unchecked")
-	public <E extends Entity> EntitySetAdapter<E> getEntitySetConnector(
+	public <E extends Entity> EntitySetAdapter<E> getEntitySetAdapter(
 		final EntitySet<E> entitySet
 	) {
 		return
@@ -67,7 +67,7 @@ public final class SpecificationDatabaseAdapter extends DatabaseAdapter {
 		mutatedEntitiesInOrder.getRefSelected(e -> e.isCreated());
 		
 		for (final var e : createdEntities) {
-			getEntitySetConnector(e.getParentEntitySet()).add(e);
+			getEntitySetAdapter(e.getParentEntitySet()).add(e);
 		}
 		
 		//TODO: Handle concerned entities more suitable.
@@ -75,21 +75,21 @@ public final class SpecificationDatabaseAdapter extends DatabaseAdapter {
 		mutatedEntitiesInOrder.getRefSelected(e -> e.isConcerned());
 		
 		for (final var e : concernedEntities) {
-			getEntitySetConnector(e.getParentEntitySet()).update(e);
+			getEntitySetAdapter(e.getParentEntitySet()).update(e);
 		}
 		
 		final var changedEntities =
 		mutatedEntitiesInOrder.getRefSelected(e -> e.isChanged());
 		
 		for (final var e : changedEntities) {
-			getEntitySetConnector(e.getParentEntitySet()).update(e);
+			getEntitySetAdapter(e.getParentEntitySet()).update(e);
 		}
 		
 		final var deletedEntities =
 		mutatedEntitiesInOrder.getRefSelected(e -> e.isDeleted());
 		
 		for (final var e : deletedEntities) {
-			getEntitySetConnector(e.getParentEntitySet()).delete(e);
+			getEntitySetAdapter(e.getParentEntitySet()).delete(e);
 		}
 	}
 }
