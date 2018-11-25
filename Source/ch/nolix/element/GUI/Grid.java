@@ -81,7 +81,7 @@ public final class Grid extends Container<Grid, GridLook> {
 		var contentHeight =
 		cells
 		.getRows()
-		.getSumByInt(r -> r.getMaxInt(c -> c.getHeight()));
+		.getSumByInt(r -> r.getMaxByInt(c -> c.getHeight()));
 
 		if (hasLines()) {
 			switch (getRefCurrentLook().getRecursiveLineTypeOrDefault()) {
@@ -105,7 +105,7 @@ public final class Grid extends Container<Grid, GridLook> {
 		var contentWidth =
 		cells
 		.getColumns()
-		.getSumByInt(c -> c.getMaxInt(cell -> cell.getWidth()));
+		.getSumByInt(c -> c.getMaxByInt(cell -> cell.getWidth()));
 		
 		if (hasLines()) {
 			switch (getRefCurrentLook().getRecursiveLineTypeOrDefault()) {
@@ -248,7 +248,7 @@ public final class Grid extends Container<Grid, GridLook> {
 				for (final var r : cells.getRows()) {
 					if (r.getRowIndex() < cells.getRowCount()) {
 						y += elementMargin;
-						y += r.getMaxInt(c -> c.getHeight());
+						y += r.getMaxByInt(c -> c.getHeight());
 						y += elementMargin;
 						painter.paintFilledRectangle(0, y, contentAreaWidth, lineThickness);
 						y += lineThickness;
@@ -266,7 +266,7 @@ public final class Grid extends Container<Grid, GridLook> {
 				for (final var c : cells.getColumns()) {
 					if (c.getColumnIndex() < cells.getColumnCount()) {
 						x += elementMargin;
-						x += c.getMaxInt(c2 -> c2.getWidth());
+						x += c.getMaxByInt(c2 -> c2.getWidth());
 						x += elementMargin;
 						painter.paintFilledRectangle(x, 0, lineThickness, contentAreaHeight);
 						x += lineThickness;
@@ -330,12 +330,12 @@ public final class Grid extends Container<Grid, GridLook> {
 					c.getRefWidget().setPositionOnParent(x, y);
 				}
 				
-				x += cells.getColumn(c.getColumnIndex()).getMaxInt(c2 -> c2.getWidth());
+				x += cells.getColumn(c.getColumnIndex()).getMaxByInt(c2 -> c2.getWidth());
 				x += getElementMargin();
 				x += getLineThickness();
 			}
 			
-			y += r.getMaxInt(c2 -> c2.getHeight());
+			y += r.getMaxByInt(c2 -> c2.getHeight());
 			y += getElementMargin();
 			y += getLineThickness();
 		}

@@ -27,7 +27,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1660
+ * @lines 1650
  * @param <E> The type of the elements of a {@link IContainer}.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -509,14 +509,13 @@ public interface IContainer<E> extends Iterable<E> {
 		return (E2)(norm.getValue(getRefByMax(norm)));
 	}
 	
-	//TODO: Rename getMaxDouble method to getMaxByDouble.
 	//default method
 	/**
 	 * @param doubleNorm
 	 * @return the biggest value the given double norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default double getMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
+	public default double getMaxByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		return doubleNorm.getOutput(getRefByMaxDouble(doubleNorm));
 	}
 	
@@ -526,7 +525,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the biggest value the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default int getMaxInt(final IElementTakerIntGetter<E> intNorm) {
+	public default int getMaxByInt(final IElementTakerIntGetter<E> intNorm) {
 		return intNorm.getOutput(getRefByMaxInt(intNorm));
 	}
 	
@@ -536,7 +535,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the biggest value the given long norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default long getMaxLong(IElementTakerLongGetter<E> longNorm) {
+	public default long getMaxByLong(IElementTakerLongGetter<E> longNorm) {
 		return longNorm.getOutput(getRefByMaxLong(longNorm));
 	}
 	
@@ -557,7 +556,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the smallest value the given double norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default double getMinDouble(IElementTakerDoubleGetter<E> doubleNorm) {
+	public default double getMinByDouble(IElementTakerDoubleGetter<E> doubleNorm) {
 		return doubleNorm.getOutput(getRefByMinDouble(doubleNorm));
 	}
 	
@@ -567,7 +566,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the smallest value the given int norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default int getMinInt(IElementTakerIntGetter<E> intNorm) {
+	public default int getMinByInt(IElementTakerIntGetter<E> intNorm) {
 		return intNorm.getOutput(getRefByMinInt(intNorm));
 	}
 	
@@ -577,7 +576,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the smallest value the given long norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default long getMinLong(IElementTakerLongGetter<E> longNorm) {
+	public default long getMinByLong(IElementTakerLongGetter<E> longNorm) {
 		return longNorm.getOutput(getRefByMinLong(longNorm));
 	}
 	

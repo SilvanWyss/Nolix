@@ -79,7 +79,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 		}
 		
 		//Handles the case that the current vertical stack is not empty.
-		return getRefWidgets().getMaxInt(w -> w.getWidth());
+		return getRefWidgets().getMaxByInt(w -> w.getWidth());
 	}
 	
 	//method
