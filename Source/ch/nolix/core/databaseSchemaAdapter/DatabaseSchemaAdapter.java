@@ -45,8 +45,10 @@ implements
 		return asConcreteType();
 	}
 	
-	//abstract method
-	public abstract boolean containsEntitySet();
+	//method
+	public final boolean containsEntitySet() {
+		return loadedOrCreatedEntitySets.containsAny();
+	}
 	
 	//method
 	public final boolean containsEntitySet(final String name) {

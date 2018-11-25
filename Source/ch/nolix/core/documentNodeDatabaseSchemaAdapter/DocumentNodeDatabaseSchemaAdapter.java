@@ -63,11 +63,6 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	}
 	
 	//method
-	public boolean containsEntitySet() {
-		return documentNodeDatabase.containsAttribute(a -> a.hasHeader("EntitySet"));
-	}
-	
-	//method
 	public boolean databaseContainsEntitySet(final String name) {
 		return 
 		documentNodeDatabase.containsAttribute(
