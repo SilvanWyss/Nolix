@@ -6,7 +6,7 @@ import ch.nolix.core.XMLDocument.XMLNode;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.skillInterfaces.Typed;
+import ch.nolix.core.skillAPI.Typed;
 
 //interface
 /**

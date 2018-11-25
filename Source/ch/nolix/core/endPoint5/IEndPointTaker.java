@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint5;
 
-import ch.nolix.core.skillInterfaces.Named;
+import ch.nolix.core.skillAPI.Named;
 
 //interface
 /**

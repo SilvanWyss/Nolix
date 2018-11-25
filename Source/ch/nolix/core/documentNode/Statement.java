@@ -7,7 +7,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.skillInterfaces.Headered;
+import ch.nolix.core.skillAPI.Headered;
 import ch.nolix.core.validator2.Validator;
 
 //class

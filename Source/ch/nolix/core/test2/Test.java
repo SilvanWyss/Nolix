@@ -5,7 +5,7 @@ package ch.nolix.core.test2;
 import java.util.Vector;
 
 import ch.nolix.core.functionAPI.IFunction;
-import ch.nolix.core.skillInterfaces.ApproximativeEqualing;
+import ch.nolix.core.skillAPI.ApproximativeEqualing;
 import ch.nolix.core.testoid.TestAccessor;
 
 //abstract class

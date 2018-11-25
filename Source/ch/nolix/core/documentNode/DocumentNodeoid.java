@@ -12,7 +12,7 @@ import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.skillInterfaces.Headered;
+import ch.nolix.core.skillAPI.Headered;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.core.XMLDocument.XMLNode;
 import ch.nolix.core.argument.Argument;

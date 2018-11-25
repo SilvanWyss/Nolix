@@ -8,7 +8,7 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.skillInterfaces.Clearable;
+import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator2.Validator;
 

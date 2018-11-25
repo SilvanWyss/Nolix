@@ -8,7 +8,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.skillInterfaces.OptionalTokenable;
+import ch.nolix.core.skillAPI.OptionalTokenable;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator2.Validator;
 

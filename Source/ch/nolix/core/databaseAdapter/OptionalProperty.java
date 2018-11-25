@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.databaseAdapter;
 
-import ch.nolix.core.skillInterfaces.Clearable;
+import ch.nolix.core.skillAPI.Clearable;
 
 //class
 public class OptionalProperty<V>

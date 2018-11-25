@@ -8,7 +8,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.skillInterfaces.Clearable;
+import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;

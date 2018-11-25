@@ -5,7 +5,7 @@ package ch.nolix.core.databaseAdapter;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.skillInterfaces.Clearable;
+import ch.nolix.core.skillAPI.Clearable;
 
 //class
 public final class MultiProperty<V>

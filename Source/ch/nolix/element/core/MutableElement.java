@@ -8,7 +8,7 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.skillInterfaces.IFluentObject;
+import ch.nolix.core.skillAPI.IFluentObject;
 import ch.nolix.core.specificationAPI.Specifiable;
 import ch.nolix.core.validator2.Validator;
 

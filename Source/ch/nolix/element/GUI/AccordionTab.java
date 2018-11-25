@@ -10,7 +10,7 @@ import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidStateException.EmptyStateException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.skillInterfaces.Clearable;
+import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.bases.HeaderableElement;
 import ch.nolix.element.color.Color;

@@ -7,7 +7,7 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.skillInterfaces.Listable;
+import ch.nolix.core.skillAPI.Listable;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;

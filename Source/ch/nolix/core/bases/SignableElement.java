@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.bases;
 
-//own imports
-import ch.nolix.core.skillInterfaces.Labelable;
+import ch.nolix.core.skillAPI.Labelable;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class

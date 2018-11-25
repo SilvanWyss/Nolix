@@ -5,7 +5,7 @@ package ch.nolix.core.specificationDatabaseAdapter;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntityType;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.skillInterfaces.Identified;
+import ch.nolix.core.skillAPI.Identified;
 import ch.nolix.core.validator2.Validator;
 
 //class

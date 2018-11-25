@@ -4,7 +4,7 @@ package ch.nolix.core.bases;
 //own import
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidStateException.InvalidStateException;
-import ch.nolix.core.skillInterfaces.Closable;
+import ch.nolix.core.skillAPI.Closable;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.core.container.List;
 

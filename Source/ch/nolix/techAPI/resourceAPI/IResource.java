@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.techAPI.resourceAPI;
 
-//own imports
-import ch.nolix.core.skillInterfaces.Named;
 import ch.nolix.core.container.IContainer;
+import ch.nolix.core.skillAPI.Named;
 
 //interface
 /**

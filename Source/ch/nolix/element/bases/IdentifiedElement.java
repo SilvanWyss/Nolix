@@ -5,7 +5,7 @@ package ch.nolix.element.bases;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.skillInterfaces.Identified;
+import ch.nolix.core.skillAPI.Identified;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.core.Element;
 

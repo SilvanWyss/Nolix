@@ -3,7 +3,7 @@ package ch.nolix.core.bases;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.skillInterfaces.Namable;
+import ch.nolix.core.skillAPI.Namable;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class

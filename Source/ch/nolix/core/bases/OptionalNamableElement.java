@@ -4,7 +4,7 @@ package ch.nolix.core.bases;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.skillInterfaces.OptionalNamable;
+import ch.nolix.core.skillAPI.OptionalNamable;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class

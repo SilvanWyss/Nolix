@@ -4,7 +4,7 @@ package ch.nolix.core.databaseAdapter;
 //own imports
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.SingleReference;
-import ch.nolix.core.skillInterfaces.Clearable;
+import ch.nolix.core.skillAPI.Clearable;
 
 //class
 public final class OptionalReference<E extends Entity>

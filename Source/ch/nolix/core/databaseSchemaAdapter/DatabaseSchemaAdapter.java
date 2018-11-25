@@ -6,7 +6,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.Schema;
 import ch.nolix.core.invalidStateException.InvalidStateException;
-import ch.nolix.core.skillInterfaces.IChangesSaver;
+import ch.nolix.core.skillAPI.IChangesSaver;
 import ch.nolix.core.validator2.Validator;
 
 // class

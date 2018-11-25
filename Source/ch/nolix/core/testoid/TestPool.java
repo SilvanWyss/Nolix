@@ -13,7 +13,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.primitiveContainer.List;
-import ch.nolix.core.skillInterfaces.Runnable;
+import ch.nolix.core.skillAPI.Runnable;
 
 //class
 /**

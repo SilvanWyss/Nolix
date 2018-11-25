@@ -8,8 +8,8 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.entity.Entity;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.skillInterfaces.Castable;
-import ch.nolix.core.skillInterfaces.TypeRequestable;
+import ch.nolix.core.skillAPI.Castable;
+import ch.nolix.core.skillAPI.TypeRequestable;
 
 //abstract class
 /**

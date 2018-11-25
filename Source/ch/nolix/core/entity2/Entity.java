@@ -10,7 +10,7 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.skillInterfaces.IFluentObject;
+import ch.nolix.core.skillAPI.IFluentObject;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specificationAPI.Specifiable;

@@ -3,7 +3,7 @@ package ch.nolix.core.bases;
 
 //own imports
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.skillInterfaces.OptionalSignable;
+import ch.nolix.core.skillAPI.OptionalSignable;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class

@@ -4,7 +4,7 @@ package ch.nolix.core.XMLDocument;
 //own imports
 import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.skillInterfaces.Valued;
+import ch.nolix.core.skillAPI.Valued;
 import ch.nolix.core.validator2.Validator;
 
 //class

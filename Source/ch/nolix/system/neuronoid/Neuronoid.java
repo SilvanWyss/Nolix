@@ -9,7 +9,7 @@ import ch.nolix.core.argument.ErrorPredicate;
 import ch.nolix.core.container.List;
 import ch.nolix.core.sequencer.Future;
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.skillInterfaces.IFluentObject;
+import ch.nolix.core.skillAPI.IFluentObject;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class

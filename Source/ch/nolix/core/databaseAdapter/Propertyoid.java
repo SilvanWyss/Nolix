@@ -9,7 +9,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.helper.ReflectionHelper;
 import ch.nolix.core.invalidStateException.InvalidStateException;
-import ch.nolix.core.skillInterfaces.Headered;
+import ch.nolix.core.skillAPI.Headered;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator2.Validator;
 

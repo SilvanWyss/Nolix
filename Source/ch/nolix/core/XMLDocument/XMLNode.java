@@ -11,8 +11,8 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.skillInterfaces.Freezable;
-import ch.nolix.core.skillInterfaces.OptionalValueable;
+import ch.nolix.core.skillAPI.Freezable;
+import ch.nolix.core.skillAPI.OptionalValueable;
 import ch.nolix.core.validator2.Validator;
 
 //class

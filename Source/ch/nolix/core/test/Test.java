@@ -8,7 +8,7 @@
 //package declaration
 package ch.nolix.core.test;
 
-import ch.nolix.core.skillInterfaces.ApproximativeEqualing;
+import ch.nolix.core.skillAPI.ApproximativeEqualing;
 import ch.nolix.core.testoid.TestAccessor;
 
 //abstract class

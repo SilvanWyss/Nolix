@@ -1,0 +1,19 @@
+//package declaration
+package ch.nolix.core.skillAPI;
+
+//interface
+/**
+ * A runnable object can run something.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-08
+ * @lines 10
+ */
+public interface Runnable {
+
+	//abstract method
+	/**
+	 * Lets this runnable object run.
+	 */
+	public abstract void run();
+}

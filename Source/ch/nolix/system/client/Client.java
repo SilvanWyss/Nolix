@@ -18,7 +18,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.ClosedStateException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.skillInterfaces.Closable;
+import ch.nolix.core.skillAPI.Closable;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class

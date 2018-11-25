@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.skillInterfaces.Clearable;
+import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.core.container.List;
 import ch.nolix.element.core.NonNegativeInteger;

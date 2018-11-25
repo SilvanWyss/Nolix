@@ -6,11 +6,11 @@ import ch.nolix.core.argument.ArgumentName;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.skillInterfaces.Castable;
-import ch.nolix.core.skillInterfaces.Clearable;
-import ch.nolix.core.skillInterfaces.Closable;
-import ch.nolix.core.skillInterfaces.IRequestableContainer;
-import ch.nolix.core.skillInterfaces.Refreshable;
+import ch.nolix.core.skillAPI.Castable;
+import ch.nolix.core.skillAPI.Clearable;
+import ch.nolix.core.skillAPI.Closable;
+import ch.nolix.core.skillAPI.IRequestableContainer;
+import ch.nolix.core.skillAPI.Refreshable;
 import ch.nolix.core.specificationAPI.Specifiable;
 
 //interface

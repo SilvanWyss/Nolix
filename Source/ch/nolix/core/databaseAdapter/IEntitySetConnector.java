@@ -4,7 +4,7 @@ package ch.nolix.core.databaseAdapter;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.skillInterfaces.Named;
+import ch.nolix.core.skillAPI.Named;
 
 //interface
 public interface IEntitySetConnector<E extends Entity>
