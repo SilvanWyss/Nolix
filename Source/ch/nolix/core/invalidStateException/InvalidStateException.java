@@ -11,13 +11,13 @@ import ch.nolix.core.logger.Logger;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 120
+ * @lines 150
  */
 @SuppressWarnings("serial")
 public class InvalidStateException extends RuntimeException {
 	
 	//constant
-	private static final String ERROR_PREDICATE = "is not in a valid state";
+	private static final String DEFAULT_ERROR_PREDICATE = "is not in a valid state";
 	
 	//attribute
 	private final Object object;
@@ -29,7 +29,7 @@ public class InvalidStateException extends RuntimeException {
 	 * @throws RuntimeException if the given error predicate is null.
 	 * @throws RuntimeException if the given error predicate is blank.
 	 */
-	private static String getSafeErrorPredicate(final String errorPredicate) {
+	private static String createSafeErrorPredicate(final String errorPredicate) {
 		
 		//Checks if the given error predicate is not null.
 		if (errorPredicate == null) {
@@ -46,11 +46,33 @@ public class InvalidStateException extends RuntimeException {
 	
 	//static method
 	/**
+	 * @param objectName
+	 * @return a safe object name for the given object name.
+	 * @throws RuntimeException if the given object name is null.
+	 * @throws RuntimeException if the given object name is blank.
+	 */
+	private static String createSafeObjectName(final String objectName) {
+		
+		//Checks if the given object name is not null.
+		if (objectName == null) {
+			throw new RuntimeException("The given object name is null.");
+		}
+		
+		//Checks if the given object name is not blank.
+		if (objectName.isBlank()) {
+			throw new RuntimeException("The given object name is blank.");
+		}
+		
+		return objectName;
+	}
+	
+	//static method
+	/**
 	 * @param object
-	 * @return a safe name for the given object.
+	 * @return a safe object name for the given object.
 	 * @throws RuntimeException if the given object is null.
 	 */
-	private static String getSafeName(final Object object) {
+	private static String createSafeObjectName2(final Object object) {
 		
 		//Checks if the given object is not null.
 		if (object == null) {
@@ -60,45 +82,17 @@ public class InvalidStateException extends RuntimeException {
 		return object.getClass().getSimpleName();
 	}
 	
-	//static method
-	/**
-	 * @param name
-	 * @return a safe name for the given name.
-	 * @throws RuntimeException if the given object name is null.
-	 * @throws RuntimeException if the given object name is blank.
-	 */
-	private static String getSafeName2(final String name) {
-		
-		//Checks if the given object name is not null.
-		if (name == null) {
-			throw new RuntimeException("The given name is null.");
-		}
-		
-		//Checks if the given name is not blank.
-		if (name.isBlank()) {
-			throw new RuntimeException("The given name is blank.");
-		}
-		
-		return name;
-	}
-	
 	//constructor
 	/**
-	 * Creates a new {@link InvalidStateException}
-	 * for the given object with the given error predicate.
+	 * Creates a new {@link InvalidStateException} for the given object.
 	 * 
 	 * @param object
 	 * @throws RuntimeException if the given object is null.
 	 */
 	public InvalidStateException(final Object object) {
 		
-		//Calls constructor of the base class.
-		super(getSafeName(object) + ' ' + ERROR_PREDICATE + '.');
-		
-		//Sets the object of the current invalid state exception.
-		this.object = object;
-		
-		Logger.logError(getMessage());
+		//Calls other constructor
+		this(createSafeObjectName2(object), object, DEFAULT_ERROR_PREDICATE);
 	}
 	
 	//constructor
@@ -113,36 +107,31 @@ public class InvalidStateException extends RuntimeException {
 	 */
 	public InvalidStateException(final Object object, final String errorPredicate) {
 		
-		//Calls constructor of the base class.
-		super(getSafeName(object) + ' ' + getSafeErrorPredicate(errorPredicate) + '.');
-		
-		//Sets the object of the current invalid state exception.
-		this.object = object;
-		
-		Logger.logError(getMessage());
+		//Calls other constructor
+		this(createSafeObjectName2(object), object, errorPredicate);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link InvalidStateException} for the given object, that has the given name,
-	 * and for the given error predicate.
+	 * Creates a new {@link InvalidStateException}
+	 * for the given object, object name, and error predicate.
 	 * 
-	 * @param name
+	 * @param objectName
 	 * @param object
 	 * @param errorPredicate
-	 * @throws RuntimeException if the given name is null.
-	 * @throws RuntimeException if the given name is blank.
+	 * @throws RuntimeException if the given object name is null.
+	 * @throws RuntimeException if the given object name is blank.
 	 * @return RuntimeException if the given object is null.
 	 * @throws RuntimeException if the given error predicate is null.
 	 * @throws RuntimeException if the given error predicate is blank.
 	 */
 	public InvalidStateException(
-		final String name,
+		final String objectName,
 		final Object object,
 		final String errorPredicate
 	) {
 		
-		super("The " + getSafeName2(name) + ' ' + errorPredicate);
+		super("The " + createSafeObjectName(objectName) + ' ' + createSafeErrorPredicate(errorPredicate));
 		
 		//Checks if the given object is not null.
 		if (object == null) {
