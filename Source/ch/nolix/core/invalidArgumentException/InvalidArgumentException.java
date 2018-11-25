@@ -15,7 +15,7 @@ import ch.nolix.core.logger.Logger;
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 250
+ * @lines 210
  */
 @SuppressWarnings("serial")
 public class InvalidArgumentException extends RuntimeException {
