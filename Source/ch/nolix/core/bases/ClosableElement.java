@@ -15,7 +15,7 @@ import ch.nolix.core.validator2.Validator;
  * @lines 120
  */
 public abstract class ClosableElement implements Closable {
-
+	
 	//attribute
 	private CloseController parentCloseController = new CloseController(this);
 	
@@ -120,7 +120,7 @@ public abstract class ClosableElement implements Closable {
 		.thatIsNamed("parent close controller")
 		.isInstance();
 		
-		//Sets the parent close controller of the current {@link ClosableElement}.
+		//Sets the parent close controller of the current closable element.
 		this.parentCloseController = parentCloseController;
 	}
 }
