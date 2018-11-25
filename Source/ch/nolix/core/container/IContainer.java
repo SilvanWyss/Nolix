@@ -4,8 +4,6 @@ package ch.nolix.core.container;
 //Java import
 import java.util.Random;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -1129,9 +1127,10 @@ public interface IContainer<E> extends Iterable<E> {
 			if (selector.getOutput(e)) {
 				
 				if (element != null) {
-					throw new InvalidArgumentException(
-						new Argument(this),
-						new ErrorPredicate("contains several elements the given selector selects")
+					throw
+					new InvalidArgumentException(
+						this,
+						"contains several elements the given selector selects"
 					);
 				}
 				
@@ -1141,8 +1140,8 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		if (element == null) {
 			throw new InvalidArgumentException(
-				new Argument(this),
-				new ErrorPredicate("contains no element the given selector selects")
+				this,
+				"does not contain any element the given selector selects"
 			);
 		}
 		

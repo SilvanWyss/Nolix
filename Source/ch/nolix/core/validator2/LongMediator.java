@@ -1,9 +1,7 @@
 //package declaration
 package ch.nolix.core.validator2;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
+//own imports
 import ch.nolix.core.invalidArgumentException.BiggerArgumentException;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.EqualArgumentException;
@@ -97,11 +95,9 @@ public class LongMediator extends Mediator {
 		}
 		
 		throw new InvalidArgumentException(
-			new ArgumentName(getArgumentName()),
-			new Argument(argument),
-			new ErrorPredicate(
-				"does not equal one of {" + ArrayHelper.createString(values) + "}"
-			)
+			getArgumentName(),
+			argument,
+			"does not equal one of {" + ArrayHelper.createString(values) + "}"
 		);
 	}
 	

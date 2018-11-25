@@ -1,10 +1,6 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
-
 //class
 /**
  * An equal argument exception is an argument exception
@@ -27,7 +23,7 @@ public final class EqualArgumentException extends InvalidArgumentException {
 	public EqualArgumentException(final double argument, final double unwantedValue) {
 		
 		//Calls constructor of the base class.
-		super(new Argument(argument), new ErrorPredicate("equals " + unwantedValue));
+		super(argument, "equals" + unwantedValue);
 	}
 	
 	//constructor
@@ -40,7 +36,7 @@ public final class EqualArgumentException extends InvalidArgumentException {
 	public EqualArgumentException(final long argument, final long unwantedValue) {
 		
 		//Calls constructor of the base class.
-		super(new Argument(argument), new ErrorPredicate("equals " + unwantedValue));
+		super(argument, "equals" + unwantedValue);
 	}
 	
 	//constructor
@@ -53,7 +49,7 @@ public final class EqualArgumentException extends InvalidArgumentException {
 	public EqualArgumentException(final Object argument, final Object unwantedValue) {
 		
 		//Calls constructor of the base class.
-		super(new Argument(argument), new ErrorPredicate("equals " + unwantedValue));
+		super(argument, "equals " + unwantedValue);
 	}
 	
 	//constructor
@@ -73,11 +69,7 @@ public final class EqualArgumentException extends InvalidArgumentException {
 		final double unwantedValue
 	) {
 		//Calls constructor of the base class.
-		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate("equals " + unwantedValue)
-		);
+		super(argumentName, argument, "equals" + unwantedValue);
 	}
 	
 	//constructor
@@ -97,11 +89,7 @@ public final class EqualArgumentException extends InvalidArgumentException {
 		final long unwantedValue
 	) {
 		//Calls constructor of the base class.
-		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate("equals " + unwantedValue)
-		);
+		super(argumentName, argument, "equals" + unwantedValue);
 	}
 	
 	//constructor
@@ -121,10 +109,6 @@ public final class EqualArgumentException extends InvalidArgumentException {
 		final Object unwantedValue
 	) {
 		//Calls constructor of the base class.
-		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate("equals " + unwantedValue)
-		);
+		super(argumentName, argument, "equals" + unwantedValue);
 	}
 }

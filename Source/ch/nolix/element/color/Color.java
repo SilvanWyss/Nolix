@@ -5,8 +5,6 @@ package ch.nolix.element.color;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.ReadContainer;
@@ -1265,9 +1263,10 @@ public class Color extends Element<Color> {
 			if (
 				(value.length() != 8 || value.length() != 10)
 				&& !value.substring(0, 2).equals(StringCatalogue.HEXADECIMAL_PREFIX)) {
-				throw new InvalidArgumentException(
-					new Argument(value),
-					new ErrorPredicate("is no color name or color value")
+				throw
+				new InvalidArgumentException(
+					value,
+					"is no color name or color value"
 				);	
 			}
 			
@@ -1351,7 +1350,7 @@ public class Color extends Element<Color> {
 					tempValue = 15;
 					break;
 				default:
-					throw new InvalidArgumentException(new Argument(string));
+					throw new InvalidArgumentException(string);
 			}
 			
 			value += tempValue * base;

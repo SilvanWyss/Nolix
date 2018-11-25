@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.element.task;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.documentNode.DocumentNodeoid;
@@ -282,12 +279,11 @@ public final class Task extends MutableElement<Task> {
 		//Checks if the given solve time is after the creation time of this task.
 		if (!getSolveDate().isAfter(getCreationDate())) {
 			throw new InvalidArgumentException(
-				new ArgumentName("solve time"),
-				new Argument(solveTime),
-				new ErrorPredicate(
-					"is not after the creation time '"
-					+ getCreationDate().toString()
-					+ "' of the task")
+				"solve time",
+				solveTime,				
+				"is not after the creation time '"
+				+ getCreationDate().toString()
+				+ "' of the task"
 			);
 		}
 		

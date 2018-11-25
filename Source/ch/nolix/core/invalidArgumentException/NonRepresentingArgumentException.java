@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ErrorPredicate;
-
 //class
 /**
  * A non representing argument exception is an exception that is intended to be thrown when an argument represents undesired no object of a given type.
@@ -25,6 +22,6 @@ public final class NonRepresentingArgumentException extends InvalidArgumentExcep
 	public NonRepresentingArgumentException(final Object argument, final Class<?> type) {
 		
 		//Calls constructor of the base class.
-		super(new Argument(argument), new ErrorPredicate("represents no " + type));
+		super(argument, "does not represent a " + type);
 	}
 }

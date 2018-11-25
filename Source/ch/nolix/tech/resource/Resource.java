@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.tech.resource;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -66,11 +63,9 @@ public final class Resource extends NamedElement implements IResource {
 			//Checks if the given name does not equal the name of the current base resource.
 			if (hasSameNameAs(br)) {
 				throw new InvalidArgumentException(
-					new ArgumentName(VariableNameCatalogue.NAME),
-					new Argument(name),
-					new ErrorPredicate(
-						"equals the name of the given base resource " + br.getName()
-					)
+					VariableNameCatalogue.NAME,
+					name,					
+					"equals the name of the given base resource " + br.getName()
 				);
 			}
 			
@@ -85,9 +80,9 @@ public final class Resource extends NamedElement implements IResource {
 			= internalBaseResources.getRefFirst((sr1, sr2) -> sr1.isSubResourceOf(sr2));
 			
 			throw new InvalidArgumentException(
-				new ArgumentName(VariableNameCatalogue.RESOURCE),
-				new Argument(pair.getRefElement1()),
-				new ErrorPredicate("is a sub resource of " + pair.getRefElement2())
+				VariableNameCatalogue.RESOURCE,
+				pair.getRefElement1(),
+				"is a sub resource of " + pair.getRefElement2()
 			);
 		}
 		

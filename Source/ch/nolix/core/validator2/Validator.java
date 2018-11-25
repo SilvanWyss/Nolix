@@ -55,7 +55,7 @@ public final class Validator {
 		
 		//Checks if the given argument is true.
 		if (!argument) {
-			throw new FalseArgumentException();
+			throw new FalseArgumentException(argument);
 		}
 	}
 	
@@ -190,7 +190,7 @@ public final class Validator {
 		
 		//Checks if the given argument is false.
 		if (argument) {
-			throw new TrueArgumentException();
+			throw new TrueArgumentException(argument);
 		}
 	}
 	

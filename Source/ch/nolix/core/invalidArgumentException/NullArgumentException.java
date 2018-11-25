@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
-
 //class
 /**
  * A null argument exception is an exception that is intended to be thrown when an argument is undesired null.
@@ -25,7 +22,7 @@ public final class NullArgumentException extends InvalidArgumentException {
 	public NullArgumentException() {
 		
 		//Calls constructor of the base class.
-		super(new ErrorPredicate(ERROR_PREDICATE));
+		super(null, ERROR_PREDICATE);
 	}
 	
 	//constructor
@@ -39,6 +36,6 @@ public final class NullArgumentException extends InvalidArgumentException {
 	public NullArgumentException(final String argumentName) {
 		
 		//Calls constructor of the base class.
-		super(new ArgumentName(argumentName), new ErrorPredicate(ERROR_PREDICATE));
+		super(null, ERROR_PREDICATE);
 	}
 }

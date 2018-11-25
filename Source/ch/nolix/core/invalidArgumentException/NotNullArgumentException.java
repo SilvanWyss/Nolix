@@ -1,10 +1,6 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
-
 //class
 /**
  * A not null argument exception is an argument exception that is intended to be thrown when an argument is undesired not null.
@@ -26,10 +22,10 @@ public class NotNullArgumentException extends InvalidArgumentException {
 	 * @param argument
 	 * @throws RuntimeException if the given argument is null.
 	 */
-	public NotNullArgumentException(final Argument argument) {
+	public NotNullArgumentException(final Object argument) {
 		
 		//Calls constructor of the base class.
-		super(argument, new ErrorPredicate(ERROR_PREDICATE));
+		super(argument, ERROR_PREDICATE);
 	}
 	
 	//constructor
@@ -42,9 +38,9 @@ public class NotNullArgumentException extends InvalidArgumentException {
 	 * @throws RuntimeException if the given argument name is empty.
 	 * @throws RuntimeException if the given argument is null.
 	 */
-	public NotNullArgumentException(final ArgumentName argumentName, final Argument argument) {
+	public NotNullArgumentException(final String argumentName, final Object argument) {
 		
 		//Calls constructor of the base class.
-		super(argumentName, argument, new ErrorPredicate(ERROR_PREDICATE));
+		super(argumentName, argument, ERROR_PREDICATE);
 	}
 }

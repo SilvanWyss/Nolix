@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.container.IContainer;
@@ -218,8 +216,9 @@ extends Client<FGC> {
 			default:
 				throw
 				new InvalidArgumentException(
-					new ArgumentName("counterpart command"),
-					new Argument(counterpartCommand)
+					"counterpart command",
+					counterpartCommand,
+					"is not valid"
 				);
 		}
 	}
@@ -239,11 +238,7 @@ extends Client<FGC> {
 				resetGUI(GUICommand.getRefAttributes());
 				break;
 			default:
-				throw
-				new InvalidArgumentException(
-					new ArgumentName("GUI command"),
-					new Argument(GUICommand)
-				);
+				throw new InvalidArgumentException("GUI command", GUICommand, "is not valid");
 		}
 	}
 	
@@ -271,11 +266,7 @@ extends Client<FGC> {
 				runSetColorGradientCommand(painter, painterCommand);
 				break;
 			default:
-				throw
-				new InvalidArgumentException(
-					new ArgumentName("painter command"),
-					new Argument(painterCommand)
-				);
+				throw new InvalidArgumentException("painter command",	painterCommand, "is not valid");
 		}
 	}
 	
@@ -326,8 +317,9 @@ extends Client<FGC> {
 			default:
 				throw
 				new InvalidArgumentException(
-					new ArgumentName("paint filled rectangle command"),
-					new Argument(paintFilledRectangleCommand)
+					"paint filled rectangle command",
+					paintFilledRectangleCommand,
+					"is not valid"
 				);
 		}
 	}
@@ -369,8 +361,9 @@ extends Client<FGC> {
 			default:
 				throw
 				new InvalidArgumentException(
-					new ArgumentName("paint image command"),
-					new Argument(paintImageCommand)
+					"paint image command",
+					paintImageCommand,
+					"is not valid"
 				);
 		}
 	}

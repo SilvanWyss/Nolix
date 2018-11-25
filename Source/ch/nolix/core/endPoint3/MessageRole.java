@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint3;
 
-import ch.nolix.core.argument.Argument;
+//own imports
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NonRepresentingArgumentException;
 
@@ -63,7 +63,7 @@ public enum MessageRole {
 			case ERROR_RESPONSE:
 				return ERROR_RESPONSE_PREFIX;
 			default:
-				throw new InvalidArgumentException(new Argument(this));
+				throw new InvalidArgumentException(this);
 		}
 	}
 }

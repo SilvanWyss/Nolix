@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.IContainer;
@@ -402,10 +400,8 @@ implements Clearable<SelectionMenu> {
 	private void supposeDoesNotContainItem(final String text) {
 		if (containsItem(text)) {
 			throw new InvalidArgumentException(
-				new Argument(this),
-				new ErrorPredicate(
-					"contains an item with the text '" + text + "'."
-				)
+				this,
+				"contains an item with the text '" + text + "'"
 			);
 		}
 	}

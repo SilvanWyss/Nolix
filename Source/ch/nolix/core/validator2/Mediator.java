@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.validator2;
 
-import ch.nolix.core.argument.ArgumentName;
+//own imports
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
@@ -48,7 +48,7 @@ abstract class Mediator {
 		
 		//Checks if the given argument name is not empty.
 		if (argumentName.isEmpty()) {
-			throw new EmptyArgumentException(new ArgumentName("argument name"));
+			throw new EmptyArgumentException("argument name", argumentName);
 		}
 		
 		//Sets the argument name of this mediator.

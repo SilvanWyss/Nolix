@@ -4,6 +4,7 @@ package ch.nolix.core.documentNode;
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
@@ -15,8 +16,6 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Headered;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.core.XMLDocument.XMLNode;
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
 
 //abstract class
 /**
@@ -479,18 +478,12 @@ public abstract class DocumentNodeoid implements Headered {
 			
 			//Checks if the current character is a closing bracket before an opening bracket.
 			if (character == CharacterCatalogue.CLOSED_BRACKET) {
-				throw new InvalidArgumentException(
-					new ArgumentName("content"),
-					new Argument(string)
-				);
+				throw new InvalidArgumentException(VariableNameCatalogue.CONTENT, string);
 			}
 			
 			//Checks if the current character is a comma before an opening bracket.
 			if (character == CharacterCatalogue.COMMA) {
-				throw new InvalidArgumentException(
-					new ArgumentName("content"),
-					new Argument(string)
-				);
+				throw new InvalidArgumentException(VariableNameCatalogue.CONTENT, string);
 			}
 			
 			//Handles the case that the current character is an opening bracket.
@@ -516,10 +509,7 @@ public abstract class DocumentNodeoid implements Headered {
 
 			//Checks if the start index is not too big.
 			if (attributestartIndex > string.length() - 1) {
-				throw new InvalidArgumentException(
-					new ArgumentName("content"),
-					new Argument(string)
-				);
+				throw new InvalidArgumentException(VariableNameCatalogue.CONTENT, string);
 			}
 			
 			var level = 0;			
@@ -546,18 +536,12 @@ public abstract class DocumentNodeoid implements Headered {
 			
 			//Checks if the given value has as many opening brackets as closing brackets.
 			if (level != 0) {
-				throw new InvalidArgumentException(
-					new ArgumentName("content"),
-					new Argument(string)
-				);
+				throw new InvalidArgumentException(VariableNameCatalogue.CONTENT, string);
 			}
 			
 			//Checks if the last character of the given value is a closing bracket.
 			if (string.charAt(string.length() - 1) != CharacterCatalogue.CLOSED_BRACKET) {
-				throw new InvalidArgumentException(
-					new ArgumentName("content"),
-					new Argument(string)
-				);
+				throw new InvalidArgumentException(VariableNameCatalogue.CONTENT, string);
 			}
 		}
 	}

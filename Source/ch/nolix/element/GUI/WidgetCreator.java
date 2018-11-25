@@ -4,9 +4,6 @@ package ch.nolix.element.GUI;
 //Java import
 import java.lang.reflect.InvocationTargetException;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
@@ -62,13 +59,14 @@ final class WidgetCreator {
 
 		//Checks if the current widget creator cannot already create a widget of the same type as the given widget class.
 		if (canCreateWidget(widgetClass.getSimpleName())) {
-			throw new InvalidArgumentException(
-				new Argument(widgetClass),
-				new ErrorPredicate(
-					"is invalid because the current "
-					+ getClass().getSimpleName()
-					+ "can already create a widget of the same type"
-				)
+			throw
+			new InvalidArgumentException(
+				widgetClass,
+				"is invalid because the current "
+				+ getClass().getSimpleName()
+				+ "can already create a widget of the type '"
+				+ widgetClass.getSimpleName()
+				+ "'"
 			);
 		}
 		
@@ -133,15 +131,15 @@ final class WidgetCreator {
 			widgetClasses.getRefFirstOrNull(wc -> wc.getSimpleName().equals(type));
 			
 			if (widgetClass == null) {
-				throw new InvalidArgumentException(
-					new ArgumentName(VariableNameCatalogue.TYPE),
-					new Argument(type),
-					new ErrorPredicate(
-						"is invalid because the current "
-						+ getClass().getSimpleName()
-						+ " cannot create a widget of the type "
-						+ type
-					)
+				throw
+				new InvalidArgumentException(
+					VariableNameCatalogue.TYPE,
+					type,
+					"is invalid because the current "
+					+ getClass().getSimpleName()
+					+ " cannot create a widget of the type '"
+					+ type
+					+ "'"
 				);
 			}
 		

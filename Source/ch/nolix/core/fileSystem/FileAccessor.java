@@ -6,11 +6,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //class
@@ -39,9 +37,9 @@ public final class FileAccessor extends FileSystemItemAccessor {
 		//Checks if the file system item with the given file path is acutally a file.
 		if (!new FileSystemAccessor().fileSystemItemIsFile(filePath)) {
 			throw new InvalidArgumentException(
-				new ArgumentName("file path"),
-				new Argument(filePath),
-				new ErrorPredicate("is no file")
+				VariableNameCatalogue.FILE_PATH,
+				filePath,
+				"is not a file"
 			);
 		}
 	}

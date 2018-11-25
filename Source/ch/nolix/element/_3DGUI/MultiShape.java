@@ -5,8 +5,6 @@ package ch.nolix.element._3DGUI;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator2.Validator;
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ErrorPredicate;
 import ch.nolix.core.container.List;
 
 //class
@@ -62,10 +60,7 @@ public final class MultiShape extends Shape<MultiShape> {
 		
 		//Checks if the given shape belongs not to a GUI.
 		if (shape.belongsToAGUI()) {
-			throw new InvalidArgumentException(
-				new Argument(shape),
-				new ErrorPredicate("belongs to a GUI")
-			);
+			throw new InvalidArgumentException(shape, "belongs already to a GUI");
 		}
 		
 		//Handles the case that this multi shape belongs to a GUI.

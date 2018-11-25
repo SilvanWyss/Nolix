@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.core.endPoint5;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
 //own imports
 import ch.nolix.core.constants.IPv6Catalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.documentNode.DocumentNode;
@@ -249,10 +248,7 @@ public class NetEndPoint extends EndPoint {
 					+ ')'
 				);
 			default:
-				throw new InvalidArgumentException(
-					new ArgumentName("message"),
-					new Argument(message)
-				);
+				throw new InvalidArgumentException(VariableNameCatalogue.MESSAGE, message, "is not valid");
 		}
 	}
 }

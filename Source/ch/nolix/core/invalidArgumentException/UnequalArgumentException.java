@@ -1,10 +1,6 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
-
 //class
 /**
  * An unequal argument exception is an argument exception that is intendend to be thrown when an argument does undesired not equal an expected value.
@@ -26,7 +22,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 	public UnequalArgumentException(final double argument, final double expectedValue) {
 		
 		//Calls constructor of the base class.
-		super(new Argument(argument), new ErrorPredicate("does not equal " + expectedValue));
+		super(argument, "does not equal " + expectedValue);
 	}
 	
 	//constructor
@@ -39,12 +35,13 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 	public UnequalArgumentException(final long argument, final long expectedValue) {
 		
 		//Calls constructor of the base class.
-		super(new Argument(argument), new ErrorPredicate("does not equal " + expectedValue));
+		super(argument, "does not equal " + expectedValue);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new unequal argument exception for the given argument, that has the given argument name, and for the given expected value.
+	 * Creates a new unequal argument exception for the given argument,
+	 * that has the given argument name, and for the given expected value.
 	 * 
 	 * @param argumentName
 	 * @param argument
@@ -58,16 +55,13 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 		final double expectedValue
 	) {
 		//Calls constructor of the base class.
-		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate("does not equal " + expectedValue)
-		);
+		super(argumentName,	argument, "does not equal " + expectedValue);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new unequal argument exception for the given argument, that has the given argument name, and for the given expected value.
+	 * Creates a new unequal argument exception for the given argument,
+	 * that has the given argument name, and for the given expected value.
 	 * 
 	 * @param argumentName
 	 * @param argument
@@ -81,10 +75,6 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 		final long expectedValue
 	) {
 		//Calls constructor of the base class.
-		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate("does not equal " + expectedValue)
-		);
+		super(argumentName,	argument, "does not equal " + expectedValue);
 	}
 }

@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.element.finance;
 
-import ch.nolix.core.argument.Argument;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
@@ -58,7 +57,7 @@ public class Candlestick extends Element<Candlestick> {
 					highestPrice = a.getOneAttributeAsDouble();
 					break;
 				default:
-					throw new InvalidArgumentException(new Argument(a));
+					throw new InvalidArgumentException(a);
 			}
 		}
 		

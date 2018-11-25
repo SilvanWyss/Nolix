@@ -5,11 +5,9 @@ package ch.nolix.element._3DGUI;
 import java.lang.reflect.InvocationTargetException;
 
 //own imports
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
@@ -385,11 +383,9 @@ implements Clearable<G>, Closable, Refreshable {
 			exception
 		) {
 			throw new InvalidArgumentException(
-				new ArgumentName("type"),
-				new Argument(type),
-				new ErrorPredicate(
-					"is not valid because the " + getType() + " cannot create a '" + type + "' shape"
-				)
+				VariableNameCatalogue.TYPE,
+				type,
+				"is not valid because the current " + getType() + " cannot create a '" + type + "' shape"
 			);
 		}
 	}

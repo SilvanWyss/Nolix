@@ -1,10 +1,6 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
-
 @SuppressWarnings("serial")
 /**
  * A non smaller argument exception is an argument exception
@@ -26,7 +22,10 @@ public final class NonSmallerArgumentException extends InvalidArgumentException 
 	public NonSmallerArgumentException(final double argument, final double  limit) {
 		
 		//Calls constructor of the base class.
-		super(new Argument(argument), new ErrorPredicate("is not smaller than " + limit));
+		super(
+			argument,
+			"is not smaller than " + limit
+		);
 	}
 
 	//constructor
@@ -39,9 +38,12 @@ public final class NonSmallerArgumentException extends InvalidArgumentException 
 	public NonSmallerArgumentException(final long argument, final long limit) {
 		
 		//Calls constructor of the base class.
-		super(new Argument(argument), new ErrorPredicate("is not smaller than " + limit));
+		super(
+			argument,
+			"is not smaller than " + limit
+		);
 	}
-
+	
 	//constructor
 	/**
 	 * Creates a new non smaller argument exception for the given argument
@@ -61,9 +63,9 @@ public final class NonSmallerArgumentException extends InvalidArgumentException 
 		
 		//Calls constructor of the base class.
 		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate("is not smaller than " + limit)
+			argumentName,
+			argument,
+			"is not smaller than " + limit
 		);
 	}
 }

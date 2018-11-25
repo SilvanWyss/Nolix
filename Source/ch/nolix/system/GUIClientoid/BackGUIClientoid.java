@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.ReadContainer;
@@ -334,11 +332,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 				resetGUIOnCounterpart(counterpartCommand.getRefAttributes());
 				break;
 			default:
-				throw
-				new InvalidArgumentException(
-					new ArgumentName("counterpart command"),
-					new Argument(counterpartCommand)
-				);
+				throw new InvalidArgumentException("counterpart command", counterpartCommand, "is not valid");
 		}
 	}
 	
@@ -374,11 +368,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 				);
 				break;
 			default:
-				throw
-				new InvalidArgumentException(
-					new ArgumentName("GUI command"),
-					new Argument(GUICommand)
-				);
+				throw new InvalidArgumentException("GUI command", GUICommand, "is not valid");
 		}
 	}
 	
@@ -406,10 +396,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 				widget.runRightMouseButtonReleaseCommand();
 				break;
 			default:
-				new InvalidArgumentException(
-					new ArgumentName("widget command"),
-					new Argument(widgetCommand)
-				);
+				throw new InvalidArgumentException("widget command", widgetCommand, "is not valid");
 		}
 	}
 	

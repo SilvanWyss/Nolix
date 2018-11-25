@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
-
 //class
 /**
  * A true argument exception is an invalid argument exception
@@ -23,10 +20,10 @@ public final class TrueArgumentException extends InvalidArgumentException {
 	/**
 	 * Creates a new true argument exception.
 	 */
-	public TrueArgumentException() {
+	public TrueArgumentException(final Object argument) {
 		
 		//Calls constructor of the base class.
-		super(new ErrorPredicate(ERROR_PREDICATE));
+		super(argument, ERROR_PREDICATE);
 	}
 	
 	//constructor
@@ -38,12 +35,9 @@ public final class TrueArgumentException extends InvalidArgumentException {
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
-	public TrueArgumentException(final String argumentName) {
+	public TrueArgumentException(final Object argument, final String argumentName) {
 		
 		//Calls constructor of the base class.
-		super(
-			new ArgumentName(argumentName),
-			new ErrorPredicate(ERROR_PREDICATE)
-		);
+		super(argumentName, argument, ERROR_PREDICATE);
 	}
 }

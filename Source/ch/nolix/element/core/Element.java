@@ -2,8 +2,7 @@
 package ch.nolix.element.core;
 
 //own imports
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.entity.Entity;
@@ -67,10 +66,7 @@ public abstract class Element<E extends Element<E>> extends Entity<E> {
 			case TYPES_REQUEST:
 				return new DocumentNode(getTypes().toString());
 			default:
-				throw new InvalidArgumentException(
-					new ArgumentName("request"),
-					new Argument(request)
-				);
+				throw new InvalidArgumentException(VariableNameCatalogue.REQUEST, request, "is not valid");
 		}	
 	}
 	

@@ -1,11 +1,9 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
-import ch.nolix.core.constants.PascalCaseNameCatalogue;
 //own imports
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
@@ -192,14 +190,11 @@ extends Widget<L, LineLook> {
 		//Checks if the given length is not smaller than 4 times the thickness of this line.
 		if (length < MIN_LENGTH_TO_THICKNESS_RATIO * getThickness()) {
 			throw new InvalidArgumentException(
-				new ArgumentName("length"),
-				new Argument(length),
-				new ErrorPredicate(
-					"is smaller than "
-					+ MIN_LENGTH_TO_THICKNESS_RATIO
-					+ "x the thickness "
-					+ getThickness() + "."
-				)
+				VariableNameCatalogue.LENGTH,
+				length,
+				"is smaller than "
+				+ MIN_LENGTH_TO_THICKNESS_RATIO
+				+ "*thickness "
 			);
 		}
 		
@@ -222,15 +217,10 @@ extends Widget<L, LineLook> {
 		//Checks the given thickness.
 		if (MIN_LENGTH_TO_THICKNESS_RATIO * thickness > getLength()) {
 			throw new InvalidArgumentException(
-				new ArgumentName("thickness"),
-				new Argument(thickness),
-				new ErrorPredicate(
-					"multiplied with "
-					+ MIN_LENGTH_TO_THICKNESS_RATIO
-					+ "x is bigger than the length "
-					+ getLength()
-					+ "."
-				)
+				VariableNameCatalogue.THICKNESS,
+				thickness,
+				"is bigger than length/"
+				+ MIN_LENGTH_TO_THICKNESS_RATIO
 			);
 		}
 		

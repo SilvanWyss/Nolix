@@ -1,10 +1,6 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
-
 //class
 /**
  * A non bigger argument exception is an argument exception that is intended to be thrown when an argument is undesired not bigger than a given limit.
@@ -26,7 +22,7 @@ public class NonBiggerArgumentException extends InvalidArgumentException {
 	public NonBiggerArgumentException(final double argument, final double limit) {
 		
 		//Calls constructor of the base class.
-		super(new Argument(argument), new ErrorPredicate("is not bigger than " + limit));
+		super(argument, "is not bigger than " + limit);
 	}
 	
 	//constructor
@@ -39,7 +35,7 @@ public class NonBiggerArgumentException extends InvalidArgumentException {
 	public NonBiggerArgumentException(final long argument, final long limit) {
 		
 		//Calls constructor of the base class.
-		super(new Argument(argument), new ErrorPredicate("is not bigger than " + limit));
+		super(argument, "is not bigger than " + limit);
 	}
 
 	//constructor
@@ -58,11 +54,7 @@ public class NonBiggerArgumentException extends InvalidArgumentException {
 		final double limit
 	) {
 		//Calls constructor of the base class.
-		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate("is not bigger than " + limit)
-		);
+		super(argumentName,	argument, "is not bigger than " + limit);
 	}
 	
 	//constructor
@@ -81,10 +73,6 @@ public class NonBiggerArgumentException extends InvalidArgumentException {
 		final long limit
 	) {
 		//Calls constructor of the base class.
-		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate("is not bigger than " + limit)
-		);
+		super(argumentName, argument, "is not bigger than " + limit);
 	}
 }

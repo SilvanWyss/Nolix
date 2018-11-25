@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.core.container;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.MultiVariableNameCatalogue;
@@ -185,9 +183,10 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		
 		//Checks if the current {@link List} contains already the given element.
 		if (contains(element)) {
-			throw new InvalidArgumentException(
-				new Argument(element),
-				new ErrorPredicate("is already contained by the list")
+			throw
+			new InvalidArgumentException(
+				element,
+				"is already contained in the current list"
 			);
 		}
 		
@@ -298,9 +297,10 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		
 		//Checks if the current {@link List} contains already the given element.
 		if (contains(element)) {
-			throw new InvalidArgumentException(
-				new Argument(element),
-				new ErrorPredicate("is already contained by the list")
+			throw
+			new InvalidArgumentException(
+				element,
+				"is already contained in the current list"
 			);
 		}
 		
@@ -675,9 +675,10 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		
 		//Checks if the current list is not empty.
 		if (isEmpty()) {
-			throw new InvalidArgumentException(
-				new Argument(this),
-				new ErrorPredicate("contains no such element")
+			throw
+			new InvalidArgumentException(
+				this,
+				"does not contain such an element"
 			);
 		}
 
@@ -698,9 +699,10 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 			iterator = nextNode;
 		}
 		
-		throw new InvalidArgumentException(
-			new Argument(this),
-			new ErrorPredicate("contains no such element")
+		throw
+		new InvalidArgumentException(
+			this,
+			"does not contain such an element"
 		);
 	}
 	
@@ -736,9 +738,10 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		
 		//Checks if the current list is not empty.
 		if (isEmpty()) {
-			throw new InvalidArgumentException(
-				new Argument(this),
-				new ErrorPredicate("contains not '" + element + "'")
+			throw
+			new InvalidArgumentException(
+				this,
+				"does not contain the element '" + element + "'"
 			);
 		}
 		
@@ -759,9 +762,10 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 			iterator = nextNode;
 		}
 		
-		throw new InvalidArgumentException(
-			new Argument(this),
-			new ErrorPredicate("does not contain '" + element + "'")
+		throw
+		new InvalidArgumentException(
+			this,
+			"does not contain the element '" + element + "'"
 		);
 	}
 		
@@ -838,9 +842,10 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		
 		//Checks if the current list is not empty.
 		if (isEmpty()) {
-			throw new InvalidArgumentException(
-				new Argument(this),
-				new ErrorPredicate("contains not '" + element + "'")
+			throw
+			new InvalidArgumentException(
+				this,
+				"does not contain the element '" + element + "'"
 			);
 		}
 		
@@ -857,9 +862,10 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 				continue;
 			}
 			
-			throw new InvalidArgumentException(
-				new Argument(this),
-				new ErrorPredicate("contains not '" + element + "'")
+			throw
+			new InvalidArgumentException(
+				this,
+				"does not contain the element '" + element + "'"
 			);
 		}
 	}

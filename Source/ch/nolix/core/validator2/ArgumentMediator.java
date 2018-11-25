@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.validator2;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
@@ -77,9 +74,10 @@ public class ArgumentMediator<A> extends Mediator {
 		
 		if (!condition.getOutput(getRefArgument())) {
 			throw new InvalidArgumentException(
-				new ArgumentName(getArgumentName()),
-				new Argument(getRefArgument()),
-				new ErrorPredicate("does not fulfil the given condition"));
+				getArgumentName(),
+				getRefArgument(),
+				"does not fulfil the given condition"
+			);
 		}
 	}
 	
@@ -98,9 +96,9 @@ public class ArgumentMediator<A> extends Mediator {
 		//Checks if the argument of this argument mediator is of the given type.
 		if (!getRefArgument().getClass().getClass().isAssignableFrom(type.getClass())) {
 			throw new InvalidArgumentException(
-				new ArgumentName(getArgumentName()),
-				new Argument(getRefArgument()),
-				new ErrorPredicate("is no " + type)
+				getArgumentName(),
+				getRefArgument(),
+				"is not a " + type
 			);
 		}
 	}

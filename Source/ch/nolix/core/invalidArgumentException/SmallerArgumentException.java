@@ -1,10 +1,6 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
-
 //class
 /**
  * A smaller argument exception is an exception that is intended to be thrown when an argument is undesired smaller than a given limit.
@@ -26,7 +22,10 @@ public final class SmallerArgumentException extends InvalidArgumentException {
 	public SmallerArgumentException(final double argument, final double limit) {
 		
 		//Calls constructor of the base class.
-		super(new Argument(argument), new ErrorPredicate("is smaller than " + limit));
+		super(
+			argument,
+			"is smaller than " + limit
+		);
 	}
 	
 	//constructor
@@ -39,12 +38,16 @@ public final class SmallerArgumentException extends InvalidArgumentException {
 	public SmallerArgumentException(final long argument, final long limit) {
 		
 		//Calls constructor of the base class.
-		super(new Argument(argument), new ErrorPredicate("is smaller than " + limit));
+		super(
+			argument,
+			"is smaller than " + limit
+		);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new smaller argument exception for the given argument, that has the given argument name, and for the given limit.
+	 * Creates a new smaller argument exception for the given argument,
+	 * that has the given argument name, and for the given limit.
 	 * 
 	 * @param argumentName
 	 * @param argument
@@ -59,15 +62,16 @@ public final class SmallerArgumentException extends InvalidArgumentException {
 	) {
 		//Calls constructor of the base class.
 		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate("is smaller than " + limit)
+			argumentName,
+			argument,
+			"is smaller than " + limit
 		);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new smaller argument exception for the given argument, that has the given argument name, and for the given limit.
+	 * Creates a new smaller argument exception for the given argument,
+	 * that has the given argument name, and for the given limit.
 	 * 
 	 * @param argumentName
 	 * @param argument
@@ -82,9 +86,9 @@ public final class SmallerArgumentException extends InvalidArgumentException {
 	) {
 		//Calls constructor of the base class.
 		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate("is smaller than " + limit)
+			argumentName,
+			argument,
+			"is smaller than " + limit
 		);
 	}
 }

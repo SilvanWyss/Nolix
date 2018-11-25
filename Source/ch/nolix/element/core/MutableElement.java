@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.element.core;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
+//own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.controllerAPI.IController;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
@@ -73,9 +73,6 @@ implements IController, Specifiable<MU> {
 		}
 		
 		//Handles the case that the given command is not valid.
-		throw new InvalidArgumentException(
-			new ArgumentName("command"),
-			new Argument(command)
-		);
+		throw new InvalidArgumentException(VariableNameCatalogue.COMMAND, command, "is not valid");
 	}
 }

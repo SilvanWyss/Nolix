@@ -2,7 +2,6 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.core.argument.ArgumentName;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.generalSkillAPI.Castable;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
@@ -38,7 +37,7 @@ Specifiable<G> {
 		
 		//Checks if the given index path is not empty.
 		if (indexPath.isEmpty()) {
-			throw new EmptyArgumentException(new ArgumentName("index path"));
+			throw new EmptyArgumentException("index path", indexPath);
 		}
 		
 		//Handles the case that the given index path contains 1 element.

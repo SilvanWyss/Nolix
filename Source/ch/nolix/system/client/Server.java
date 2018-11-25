@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ErrorPredicate;
+//own imports
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -70,7 +69,11 @@ public class Server extends ClosableElement implements Clearable<Server> {
 		
 		//Checks if the given  this server contains not already an other application with the same name as the given applicaiton.
 		if (containsApplication(application.getName())) {
-			throw new InvalidArgumentException(new Argument(this), new ErrorPredicate("contains already an application with the name " + application.getNameInQuotes() + "."));
+			throw
+			new InvalidArgumentException(
+				this,
+				"contains already an application with the name " + application.getNameInQuotes()
+			);
 		}
 		
 		applications.addAtEnd(application);

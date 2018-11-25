@@ -1,10 +1,6 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
-
 //class
 /**
  * An out of range exception is an invalid argument exception
@@ -35,8 +31,8 @@ public final class OutOfRangeArgumentException extends InvalidArgumentException 
 	) {		
 		//Calls constructor of the base class.
 		super(
-			new Argument(argument),
-			new ErrorPredicate("is not in [" + min + ", " + max + "]")
+			argument,
+			"is not in [" + min + ", " + max + "]"
 		);
 	}
 	
@@ -61,9 +57,9 @@ public final class OutOfRangeArgumentException extends InvalidArgumentException 
 	) {
 		//Calls constructor of the base class.
 		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate("is not in [" + min + ", " + max + "]")
+			argumentName,
+			argument,
+			"is not in [" + min + ", " + max + "]"
 		);
 	}
 	
@@ -82,10 +78,7 @@ public final class OutOfRangeArgumentException extends InvalidArgumentException 
 		final long max
 	) {		
 		//Calls constructor of the base class.
-		super(
-			new Argument(argument),
-			new ErrorPredicate("is not in [" + min + ", " + max + "]")
-		);
+		super(argument,	"is not in [" + min + ", " + max + "]");
 	}
 	
 	//constructor
@@ -108,10 +101,6 @@ public final class OutOfRangeArgumentException extends InvalidArgumentException 
 		final long max
 	) {
 		//Calls constructor of the base class.
-		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate("is not in [" + min + ", " + max + "]")
-		);
+		super(argumentName,	argument, "is not in [" + min + ", " + max + "]");
 	}
 }

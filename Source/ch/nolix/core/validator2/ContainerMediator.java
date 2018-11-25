@@ -4,9 +4,6 @@ package ch.nolix.core.validator2;
 //Java import
 import java.util.Iterator;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
@@ -119,9 +116,10 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		}
 		
 		if (!found) {
-			throw new InvalidArgumentException(
-				new Argument(getRefArgument()),
-				new ErrorPredicate("contains no element that fulfils the given condition")
+			throw
+			new InvalidArgumentException(
+				getRefArgument(),
+				"does not contain element that fulfils the given condition"
 			);
 		}
 	}
@@ -157,10 +155,11 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 			//Checks if the argument of this container mediator
 			//contains not more elements than the given element count says.
 			if (actualElementCount > elementCount) {
-				throw new InvalidArgumentException(
-					new ArgumentName(getArgumentName()),
-					new Argument(getRefArgument()),
-					new ErrorPredicate("contains more than " + elementCount + " elements")
+				throw
+				new InvalidArgumentException(
+					getArgumentName(),
+					getRefArgument(),
+					"contains more than " + elementCount + " elements"
 				);
 			}
 			
@@ -170,10 +169,11 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		//Checks if the argument of this container mediator
 		//contains not less elements than the given element count says.
 		if (actualElementCount < elementCount) {
-			throw new InvalidArgumentException(
-				new ArgumentName(getArgumentName()),
-				new Argument(getRefArgument()),
-				new ErrorPredicate("contains less than " + elementCount + " elements")
+			throw
+			new InvalidArgumentException(
+				getArgumentName(),
+				getRefArgument(),
+				"contains less than " + elementCount + " elements"
 			);
 		}
 	}
@@ -190,7 +190,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		
 		//Checks if the argument of this container mediator is empty.
 		if (IterableHelper.containsAny(getRefArgument())) {
-			throw new NonEmptyArgumentException(new Argument(getRefArgument()));
+			throw new NonEmptyArgumentException(getRefArgument());
 		}
 	}
 
@@ -206,7 +206,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		
 		//Checks if the argument of this container mediator is not empty.
 		if (IterableHelper.isEmpty(getRefArgument())) {
-			throw new EmptyArgumentException(new Argument(getRefArgument()));
+			throw new EmptyArgumentException(getRefArgument());
 		}
 	}
 }

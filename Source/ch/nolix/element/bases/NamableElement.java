@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.element.bases;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
@@ -54,10 +53,7 @@ implements Namable<NE> {
 				setName(attribute.getOneAttributeAsString());
 				break;
 			default:
-				throw new InvalidArgumentException(
-					new ArgumentName("attribute"),
-					new Argument(attribute)
-				);		
+				throw new InvalidArgumentException(VariableNameCatalogue.ATTRIBUTE, attribute, "is not valid");
 		}
 	}
 	

@@ -5,9 +5,6 @@ package ch.nolix.core.testoid;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Vector;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -109,9 +106,10 @@ public abstract class TestPool implements Runnable {
 		//Checks if the given test class is a testoid class.
 		if (!Testoid.class.isAssignableFrom(testClass)) {
 			throw new InvalidArgumentException(
-				new ArgumentName(VariableNameCatalogue.TEST_CLASS),
-				new Argument(testClass),
-				new ErrorPredicate("is not a testoid class"));
+				VariableNameCatalogue.TEST_CLASS,
+				testClass,
+				"is not a test class"
+			);
 		}
 		
 		testClasses.addAtEnd((Class<Testoid>)testClass);
@@ -150,8 +148,8 @@ public abstract class TestPool implements Runnable {
 		//Checks if the given test pool does not contain this test pool recursively.
 		if (testPool.containsTestPoolRecursively(this)) {
 			throw new InvalidArgumentException(
-				new Argument(testPool),
-				new ErrorPredicate(" contains the test pool recursively")
+				testPool,
+				"contains the current test pool recursively"
 			);
 		}
 		

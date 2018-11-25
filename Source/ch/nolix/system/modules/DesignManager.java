@@ -4,9 +4,7 @@ package ch.nolix.system.modules;
 //Java import
 import java.io.File;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
+//own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -56,14 +54,13 @@ public final class DesignManager extends Module {
 		
 		//Checks if this design manager does not contain a design with the name of the given name.
 		if (containsDesign(name)) {
-			throw new InvalidArgumentException(
-				new ArgumentName(name),
-				new Argument(design),
-				new ErrorPredicate(
-					"is invalid because the design manager contains already a design with the name '"
-					+ name
-					+ "'."
-				)
+			throw
+			new InvalidArgumentException(
+				name,
+				design,
+				"is invalid because the current design manager contains already a design with the name '"
+				+ name
+				+ "'."
 			);
 		}
 		

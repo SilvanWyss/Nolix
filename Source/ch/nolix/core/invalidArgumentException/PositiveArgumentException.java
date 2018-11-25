@@ -1,10 +1,6 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
-
 //class
 /**
  * A positive argument exception is an argument exception
@@ -31,7 +27,7 @@ public final class PositiveArgumentException extends InvalidArgumentException {
 	public PositiveArgumentException(final double argument) {
 
 		//Calls constructor of the base class.
-		super(new Argument(argument), new ErrorPredicate(ERROR_PREDICATE));
+		super(argument, ERROR_PREDICATE);
 	}
 	
 	//constructor
@@ -43,7 +39,7 @@ public final class PositiveArgumentException extends InvalidArgumentException {
 	public PositiveArgumentException(final long argument) {
 
 		//Calls constructor of the base class.
-		super(new Argument(argument), new ErrorPredicate(ERROR_PREDICATE));
+		super(argument,	ERROR_PREDICATE);
 	}
 	
 	//constructor
@@ -62,9 +58,9 @@ public final class PositiveArgumentException extends InvalidArgumentException {
 	) {		
 		//Calls constructor of the base class.
 		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate(ERROR_PREDICATE)
+			argumentName,
+			argument,
+			ERROR_PREDICATE
 		);
 	}
 	
@@ -83,10 +79,6 @@ public final class PositiveArgumentException extends InvalidArgumentException {
 		final long argument
 	) {
 		//Calls constructor of the base class.
-		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate(ERROR_PREDICATE)
-		);
+		super(argumentName, argument, ERROR_PREDICATE);
 	}
 }

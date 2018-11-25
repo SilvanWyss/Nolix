@@ -2,8 +2,6 @@
 package ch.nolix.system.client;
 
 //own imports
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
 import ch.nolix.core.bases.OptionalSignableElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
@@ -419,11 +417,7 @@ implements Closable {
 			case SESSION_USER_DATA_METHOD_HEADER:
 				return internal_invokeSessionUserDataMethod(request.getRefOneAttribute());
 			default:
-				throw
-				new InvalidArgumentException(
-					new ArgumentName(VariableNameCatalogue.REQUEST),
-					new Argument(request)
-				);
+				throw new InvalidArgumentException(VariableNameCatalogue.REQUEST, request,"is not valid");
 		}
 	}
 	
@@ -583,10 +577,7 @@ implements Closable {
 				internal_invokeSessionUserRunMethod(command.getRefOneAttribute());
 				break;
 			default:
-				throw new InvalidArgumentException(
-					new ArgumentName("command"),
-					new Argument(command)
-				);
+				throw new InvalidArgumentException(VariableNameCatalogue.COMMAND, command, "is not valid");
 		}
 	}
 	

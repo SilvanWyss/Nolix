@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.core.databaseAdapter;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.container.IContainer;
@@ -63,10 +61,7 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 	public EntitySet<E> addEntity(final E entity) {
 		
 		if (!entity.isCreated()) {
-			throw new InvalidArgumentException(
-				new Argument(entity),
-				new ErrorPredicate("is not created")
-			);
+			throw new InvalidArgumentException(entity, "is not created");
 		}
 		
 		entity.setParentEntitySet((EntitySet<Entity>)this);

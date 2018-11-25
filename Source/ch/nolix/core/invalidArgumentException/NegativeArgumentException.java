@@ -1,10 +1,6 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
-
 //class
 /**
  * A negative argument exception is an exception that is intended to be thrown when an argument is undesired negative.
@@ -28,7 +24,7 @@ public final class NegativeArgumentException extends InvalidArgumentException {
 	public NegativeArgumentException(final double argument) {
 		
 		//Calls constructor of the base class.
-		super(new Argument(argument), new ErrorPredicate(ERROR_PREDICATE));
+		super(argument,ERROR_PREDICATE);
 	}
 	
 	//constructor
@@ -40,7 +36,7 @@ public final class NegativeArgumentException extends InvalidArgumentException {
 	public NegativeArgumentException(final long argument) {
 		
 		//Calls constructor of the base class.
-		super(new Argument(argument), new ErrorPredicate(ERROR_PREDICATE));
+		super(argument, ERROR_PREDICATE);
 	}
 	
 	//constructor
@@ -55,11 +51,7 @@ public final class NegativeArgumentException extends InvalidArgumentException {
 	public NegativeArgumentException(final String argumentName, final double argument) {
 		
 		//Calls constructor of the base class.
-		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate(ERROR_PREDICATE)
-		);
+		super(argumentName, argument, ERROR_PREDICATE);
 	}
 	
 	//constructor
@@ -74,10 +66,6 @@ public final class NegativeArgumentException extends InvalidArgumentException {
 	public NegativeArgumentException(final String argumentName, final long argument) {
 		
 		//Calls constructor of the base class.
-		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate(ERROR_PREDICATE)
-		);
+		super(argumentName, argument, ERROR_PREDICATE);
 	}
 }

@@ -4,9 +4,8 @@ package ch.nolix.core.fileSystem;
 //Java import
 import java.io.IOException;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
+//own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //class
@@ -35,9 +34,9 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 		//Checks if the file system item with the given folder path is acutally a folder.
 		if (!new FileSystemAccessor().fileSystemItemIsFolder(folderPath)) {
 			throw new InvalidArgumentException(
-				new ArgumentName("folder path"),
-				new Argument(folderPath),
-				new ErrorPredicate("is no folder")
+				VariableNameCatalogue.FOLDER_PATH,
+				folderPath,
+				"is not a folder"
 			);
 		}
 	}

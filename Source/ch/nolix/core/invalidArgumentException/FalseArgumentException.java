@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
-
 //class
 /**
  * A false argument exception is an argument exception
@@ -23,10 +20,10 @@ public final class FalseArgumentException extends InvalidArgumentException {
 	/**
 	 * Creates a new false argument exception.
 	 */
-	public FalseArgumentException() {
+	public FalseArgumentException(final Object argument) {
 		
 		//Calls constructor of the base class.
-		super(new ErrorPredicate(ERROR_PREDICATE));
+		super(argument, ERROR_PREDICATE);
 	}
 	
 	//constructor
@@ -38,12 +35,9 @@ public final class FalseArgumentException extends InvalidArgumentException {
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
-	public FalseArgumentException(final String argumentName) {
+	public FalseArgumentException(final String argumentName, final Object argument) {
 		
 		//Calls constructor of the base class.
-		super(new ArgumentName(
-			argumentName),
-			new ErrorPredicate(ERROR_PREDICATE)
-		);
+		super(argumentName, argument, ERROR_PREDICATE);
 	}
 }

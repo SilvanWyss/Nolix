@@ -1,10 +1,6 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
-
 //class
 /**
  * A non empty argument exception is an argument exception
@@ -18,7 +14,7 @@ import ch.nolix.core.argument.ErrorPredicate;
 public final class NonEmptyArgumentException extends InvalidArgumentException {
 
 	//constant
-	private static final String PREDICATE = "is not empty";
+	private static final String ERROR_PREDICATE = "is not empty";
 	
 	//constructor
 	/**
@@ -27,24 +23,10 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
 	 * @param argument
 	 * @throws RuntimeException if the given argument is null.
 	 */
-	public NonEmptyArgumentException(final Argument argument) {
+	public NonEmptyArgumentException(final Object argument) {
 
 		//Calls constructor of the base class.
-		super(argument, new ErrorPredicate(PREDICATE));
-	}
-	
-	//constructor
-	/**
-	 * Creates a new non empty argument exception for an argument that has the given argument name.
-	 * 
-	 * @param argumentName
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is empty.
-	 */
-	public NonEmptyArgumentException(final ArgumentName argumentName) {
-
-		//Calls constructor of the base class.
-		super(argumentName, new ErrorPredicate(PREDICATE));
+		super(argument, ERROR_PREDICATE);
 	}
 	
 	//constructor
@@ -58,10 +40,6 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
 	public NonEmptyArgumentException(final String argumentName, final Object argument) {
 		
 		//Calls constructor of the base class.
-		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate(PREDICATE)
-		);
+		super(argumentName, argument, ERROR_PREDICATE);
 	}
 }

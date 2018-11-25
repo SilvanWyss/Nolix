@@ -1,10 +1,6 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
-
 //class
 /**
  * An in range argument exception is an invalid argument exception
@@ -34,10 +30,7 @@ public final class InRangeArgumentException extends InvalidArgumentException {
 		final double max
 	) {	
 		//Calls constructor of the base class.
-		super(
-			new Argument(argument),
-			new ErrorPredicate("is in [" + min + ", " + max + "]")
-		);
+		super(argument, "is in [" + min + ", " + max + "]");
 	}
 	
 	//constructor
@@ -60,11 +53,7 @@ public final class InRangeArgumentException extends InvalidArgumentException {
 		final double max
 	) {
 		//Calls constructor of the base class.
-		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate("is in [" + min + ", " + max + "]")
-		);
+		super(argumentName, argument, "is in [" + min + ", " + max + "]");
 	}
 	
 	//constructor
@@ -82,10 +71,7 @@ public final class InRangeArgumentException extends InvalidArgumentException {
 		final long max
 	) {	
 		//Calls constructor of the base class.
-		super(
-			new Argument(argument),
-			new ErrorPredicate("is in [" + min + ", " + max + "]")
-		);
+		super(argument, "is in [" + min + ", " + max + "]");
 	}
 	
 	//constructor
@@ -108,10 +94,6 @@ public final class InRangeArgumentException extends InvalidArgumentException {
 		final long max
 	) {
 		//Calls constructor of the base class.
-		super(
-			new ArgumentName(argumentName),
-			new Argument(argument),
-			new ErrorPredicate("is in [" + min + ", " + max + "]")
-		);
+		super(argumentName, argument, "is in [" + min + ", " + max + "]");
 	}
 }

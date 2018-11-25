@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
 //own imports
 import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.constants.PortCatalogue;
@@ -232,10 +230,7 @@ public class NetEndPoint extends EndPoint {
 				close();
 				break;
 			default:
-				throw new InvalidArgumentException(
-					new ArgumentName(VariableNameCatalogue.MESSAGE),
-					new Argument(message)
-				);
+				throw new InvalidArgumentException(VariableNameCatalogue.MESSAGE, message);
 		}
 	}
 	

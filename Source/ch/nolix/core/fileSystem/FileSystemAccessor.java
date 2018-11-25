@@ -5,12 +5,10 @@ package ch.nolix.core.fileSystem;
 import java.io.File;
 import java.io.IOException;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator2.Validator;
 
@@ -74,9 +72,9 @@ public final class FileSystemAccessor {
 		//Checks if the given root folder is a folder.
 		if (!fileSystemItemIsFolder(rootFolderPath)) {
 			throw new InvalidArgumentException(
-				new ArgumentName("root folder"),
-				new Argument(rootFolderPath),
-				new ErrorPredicate("is no folder")
+				VariableNameCatalogue.ROOT_FOLDER,
+				rootFolderPath,
+				"is not a folder"
 			);
 		}
 		
@@ -136,9 +134,9 @@ public final class FileSystemAccessor {
 		//checks if the given file path does not exist already.
 		if (!overwrite && fileSystemItemExists(filePath)) {
 			throw new InvalidArgumentException(
-				new ArgumentName("file path"),
-				new Argument(filePath),
-				new ErrorPredicate("exists already")
+				VariableNameCatalogue.FILE_PATH,
+				filePath,
+				"exists already"
 			);
 		}
 		
@@ -292,9 +290,9 @@ public final class FileSystemAccessor {
 		//Checks if the given folder path does not exist in the file system on the local machine.
 		if (fileSystemItemExists(folderPath)) {
 			throw new InvalidArgumentException(
-				new ArgumentName("folder path"),
-				new Argument(folderPath),
-				new ErrorPredicate("exists already in the file system")
+				VariableNameCatalogue.FOLDER_PATH,
+				folderPath,
+				"exists already"
 			);
 		}
 		

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.validator2;
 
-import ch.nolix.core.argument.ArgumentName;
+//own imports
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
@@ -57,7 +57,7 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
 						
 			//Checks if the current argument is not empty.
 			if (a.isEmpty()) {
-				throw new EmptyArgumentException(new ArgumentName(index + "th argument"));
+				throw new EmptyArgumentException(index + "th argument", a);
 			}
 			
 			//Increments index.

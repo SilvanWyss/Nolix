@@ -1,12 +1,10 @@
 //package declaration
 package ch.nolix.core.helper;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.validator2.Validator;
@@ -42,9 +40,9 @@ public final class StringHelper {
 		//Checks if the given string is not longer than the given length.
 		if (string.length() > length) {
 			throw new InvalidArgumentException(
-				new ArgumentName("string"),
-				new Argument(string),
-				new ErrorPredicate("is longer than " + length + " with a length of " + string.length())
+				VariableNameCatalogue.STRING,
+				string,
+				"is longer than " + length + " with a length of " + string.length()
 			);
 		}
 		
@@ -110,9 +108,10 @@ public final class StringHelper {
 			case "True":
 				return true;
 			default:
-				throw new InvalidArgumentException(
-					new Argument(string),
-					new ErrorPredicate("represents no boolean")
+				throw
+				new InvalidArgumentException(
+					string,
+					"does not represent a boolean"
 				);
 		}
 	}
@@ -126,10 +125,7 @@ public final class StringHelper {
 	public static double toDouble(final String string) {
 		
 		if (!string.matches("\\d+.\\d+")) {
-			throw new InvalidArgumentException(
-				new Argument(string),
-				new ErrorPredicate("represents no double")
-			);
+			throw new InvalidArgumentException(string, "does not represent a double");
 		}
 		
 		return Double.valueOf(string);
@@ -163,9 +159,10 @@ public final class StringHelper {
 		}
 		
 		if (string.length() - startIndex > 10) {
-			throw new InvalidArgumentException(
-				new Argument(string),
-				new ErrorPredicate("represents no int")
+			throw
+			new InvalidArgumentException(
+				string,
+				"does not represent an integer"
 			);
 		}
 		
@@ -232,9 +229,10 @@ public final class StringHelper {
 					number += 9;
 					break;
 				default:
-					throw new InvalidArgumentException(
-						new Argument(string),
-						new ErrorPredicate("represents no non-negative decimal int")
+					throw
+					new InvalidArgumentException(
+						string,
+						"does not represent a non-negative decimal int"
 					);
 			}
 		}
@@ -306,9 +304,10 @@ public final class StringHelper {
 					number += 15;
 					break;
 				default:
-					throw new InvalidArgumentException(
-						new Argument(string),
-						new ErrorPredicate("represents no non-negative hexadecimal decimal int")
+					throw
+					new InvalidArgumentException(
+						string,
+						"does not represents a non-negative hexadecimal decimal int"
 					);
 			}
 		}

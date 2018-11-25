@@ -1,20 +1,17 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
+//own imports
+import ch.nolix.core.constants.CharacterCatalogue;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.logger.Logger;
 
 /**
- * An invalid invalid argument exception is a runtime exception
- * that is intended to be thrown when an argument is not valid or has a undesired property.
+ * A {@link InvalidArgumentException} is a {@link RuntimeException}
+ * that is intended to be thrown when an argument is not valid.
  * 
- * An invalid invalid argument exception
- * stores always the argument name of the argument it is created for.
- * 
- * An invalid invalid argument exception
- * can store optionally the argument it is created for.
+ * A {@link InvalidArgumentException} stores the name of the argument it was created for.
+ * A {@link InvalidArgumentException} stores the argument it was created for.
  * 
  * @author Silvan Wyss
  * @month 2016-11
@@ -22,230 +19,177 @@ import ch.nolix.core.logger.Logger;
  */
 @SuppressWarnings("serial")
 public class InvalidArgumentException extends RuntimeException {
-
+	
+	//constant
+	public static final int MAX_ARGUMENT_NAME_LENGTH = 100;
+	
 	//constants
 	private static final String DEFAULT_ARGUMENT_NAME = "argument";
 	private static final String DEFAULT_ERROR_PREDICATE = "is not valid";
 	
+	//static method
+	/**
+	 * @return a safe argument name for the given argument name.
+	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is blank.
+	 */
+	private static String createSafeArgumentName(final String argumentName) {
+		
+		//Checks if the given argument name is not null.
+		if (argumentName == null) {
+			throw new RuntimeException("The given argument name is null.");
+		}
+		
+		//Checks if the given argument name is not blank.
+		if (argumentName.isBlank()) {
+			throw new RuntimeException("The given argument name is blank.");
+		}
+		
+		return argumentName;
+	}
+	
+	//static method
+	/**
+	 * The given argument can be null.
+	 * 
+	 * @return a safe argument name for the given argument.
+	 */
+	private static String createSafeArgumentName2(final Object argument) {
+		
+		//Handles the case that the given argument is null.
+		if (argument == null) {
+			return DEFAULT_ARGUMENT_NAME;
+		}
+		
+		//Handles the case that the given argument is not null.
+		return argument.getClass().getSimpleName();
+	}
+	
+	//static method
+	/**
+	 * The given argument can be null.
+	 * 
+	 * @return a safe string representation of the given argument.
+	 */
+	private static String createSafeArgumentString(final Object argument) {
+		
+		//Handles the case that the given argument is null.
+		if (argument == null) {
+			return StringCatalogue.NULL_NAME;
+		}
+		
+		//Handles the case that the given argument is not null.
+			//Gets the string representation of the given argument.
+			final var string = argument.toString();
+			
+			/*
+			 * Handles the case that the length of the string representation is not bigger
+			 * than the maximum argument name length.
+			 */
+			if (string.length() <= MAX_ARGUMENT_NAME_LENGTH) {
+				return string;
+			}
+			
+			/*
+			 * Handles the case that the length of the string representation is  bigger
+			 * than the maximum argument name length.
+			 */
+			return string.substring(0, 99) + CharacterCatalogue.ELLIPSIS;
+	}
+	
+	//static method
+	/**
+	 * @param errorPredicate
+	 * @return a safe error predicate for the given error predicate.
+	 * @throws RuntimeException if the given error predicate is null.
+	 * @throws RuntimeException if the given error predicate is blank.
+	 */
+	private static String createSafeErrorPredicate(final String errorPredicate) {
+		
+		//Checks if the given error predicate is not null.
+		if (errorPredicate == null) {
+			throw new RuntimeException("The given error predicate is null.");
+		}
+		
+		//Checks if the given error predicate is not blank.
+		if (errorPredicate.isBlank()) {
+			throw new RuntimeException("The given error predicate is blank.");
+		}
+		
+		return errorPredicate;
+	}
+	
 	//attributes
 	private final String argumentName;
-	private final boolean hasArgumentFlag;
-	
-	//optional attribute
 	private final Object argument;
+	private final String errorPredicate;
 	
 	//constructor
 	/**
-	 * Creates a new invalid argument exception.
-	 */
-	public InvalidArgumentException() {
-		
-		//Calls constructor of the base class.
-		super("The given " + DEFAULT_ARGUMENT_NAME + " " + DEFAULT_ERROR_PREDICATE + ".");
-		
-		argumentName = DEFAULT_ARGUMENT_NAME;
-		hasArgumentFlag = false;
-		argument = null;
-		
-		Logger.logError(getMessage());
-	}
-	
-	//constructor
-	/**
-	 * Creates a new invalid argument exception for the given argument.
+	 * Creates a new {@link InvalidArgumentException} for the given argument.
 	 * 
 	 * @param argument
-	 * @throws RuntimeException if the given argument is null.
 	 */
-	public InvalidArgumentException(final Argument argument) {
+	public InvalidArgumentException(final Object argument) {
 		
-		//Calls constructor of the base class.
-		super("The given " + argument + " " + DEFAULT_ERROR_PREDICATE + ".");
-		
-		//Checks if the given argument is not null.
-		if (argument == null) {
-			throw new RuntimeException("The given argument is null.");
-		}
-		
-		argumentName = DEFAULT_ARGUMENT_NAME;
-		hasArgumentFlag = true;
-		this.argument = argument.getValue();
-		
-		Logger.logError(getMessage());
-	}
-
-	/**
-	 * Creates a new invalid argument exception for an argument with a default argument name and for the given error predicate.
-	 * 
-	 * @param errorPredicate
-	 * @throws RuntimeException if the given error predicate is null.
-	 */
-	public InvalidArgumentException(final ErrorPredicate errorPredicate) {
-		
-		//Calls constructor of the base class.
-		super("The given " + DEFAULT_ARGUMENT_NAME + " " + errorPredicate + ".");
-		
-		//Checks if the given error predicate is not null.
-		if (errorPredicate == null) {
-			throw new RuntimeException("The given error predicate is null.");
-		}
-		
-		argumentName = DEFAULT_ARGUMENT_NAME;
-		hasArgumentFlag = false;
-		argument = null;
-		
-		Logger.logError(getMessage());
+		//Calls other constructor.
+		this(createSafeArgumentName2(argument), argument, DEFAULT_ERROR_PREDICATE);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new invalid argument exception for the given argument and the given error predicate.
+	 * Creates a new {@link InvalidArgumentException}
+	 * for the given argument and error predicate.
 	 * 
 	 * @param argument
 	 * @param errorPredicate
-	 * @throws RuntimeException if the given argument is null.
 	 * @throws RuntimeException if the given error predicate is null.
+	 * @throws RuntimeException if the given error predicate is blank.
 	 */
-	public InvalidArgumentException(final Argument argument, final ErrorPredicate errorPredicate) {
+	public InvalidArgumentException(final Object argument, final String errorPredicate) {
 		
-		//Calls constructor of the base class.
-		super("The given " + argument.createArgumentName() + " " + argument + " " + errorPredicate + ".");
-			
-		//Checks if the given error predicate is not null.
-		if (errorPredicate == null) {
-			throw new RuntimeException("The given error predicate is null.");
-		}
-		
-		argumentName = argument.createArgumentName();
-		hasArgumentFlag = true;
-		this.argument = argument.getValue();
-		
-		Logger.logError(getMessage());
+		//Calls other constructor.
+		this(createSafeArgumentName2(argument), argument, errorPredicate);
 	}
-	
+		
 	//constructor
 	/**
-	 * Creates a new invalid argument exception for the given argument that has the given argument name.
+	 * Creates a new {@link InvalidArgumentException}
+	 * for the given argument, argument name and error predicate.
 	 * 
-	 * @param argumentName
 	 * @param argument
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument is null.
-	 */
-	public InvalidArgumentException(final ArgumentName argumentName, final Argument argument) {
-		
-		//Calls constructor of the base class.
-		super("The given " + argumentName + " " + argument + " " + DEFAULT_ERROR_PREDICATE + ".");
-	
-		//Checks if the given argument name is not null.
-		if (argumentName == null) {
-			throw new RuntimeException("The given argument name is null.");
-		}
-		
-		//Checks if the given argument is not null.
-		if (argument == null) {
-			throw new RuntimeException("The given argument is null.");
-		}
-		
-		this.argumentName = argumentName.toString();
-		hasArgumentFlag = true;
-		this.argument = argument.getValue();
-		
-		Logger.logError(getMessage());
-	}
-	
-	//constructor
-	/**
-	 * Creates a new invalid argument exception for an argument with the given argument name and the given error predicate.
-	 * 
 	 * @param argumentName
 	 * @param errorPredicate
 	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is blank.
 	 * @throws RuntimeException if the given error predicate is null.
+	 * @throws RuntimeException if the given error predicate is blank.
 	 */
 	public InvalidArgumentException(
-		final ArgumentName argumentName,
-		final ErrorPredicate errorPredicate
+		final String argumentName,
+		final Object argument,
+		final String errorPredicate
 	) {
-		//Calls constructor of the base class.
-		super("The given " + argumentName + " " + errorPredicate + ".");
+		super(
+			"The given "
+			+ createSafeArgumentName(argumentName)
+			+ ' '
+			+ createSafeArgumentString(argument)
+			+ ' '
+			+ createSafeErrorPredicate(errorPredicate)
+			+ '.'
+		);
 		
-		//Checks if the given argument name is not null.
-		if (argumentName == null) {
-			throw new RuntimeException("The given argument name is null.");
-		}
-			
-		//Checks if the given error predicate is not null.
-		if (errorPredicate == null) {
-			throw new RuntimeException("The given error predicate is null.");
-		}
-		
-		this.argumentName = argumentName.toString();
-		hasArgumentFlag = false;
-		argument = null;
-		
-		Logger.logError(getMessage());
-	}
-	
-	//constructor
-	/**
-	 * Creates a new invalid argument exception for the given argument with the given argument name and the given error predicate.
-	 * 
-	 * @param argumentName
-	 * @param argument
-	 * @param errorPredicate
-	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument is null.
-	 * @throws RuntimeException if the given error predicate is null.
-	 */
-	public InvalidArgumentException(
-		final ArgumentName argumentName,
-		final Argument argument,
-		final ErrorPredicate errorPredicate
-	) {	
-		//Calls constructor of the base class.
-		super ("The given " + argumentName + " " + argument + " " + errorPredicate + ".");
-		
-		//Checks if the given argument name is not null.
-		if (argumentName == null) {
-			throw new RuntimeException("The given argument name is null.");
-		}
-		
-		//Checks if the given argument is not null.
-		if (argument == null) {
-			throw new RuntimeException("The given argument is null.");
-		}
-		
-		//Checks if the given error predicate is not null.
-		if (errorPredicate == null) {
-			throw new RuntimeException("The given error predicate is null.");
-		}
-	
-		this.argumentName = argumentName.toString();
-		hasArgumentFlag = true;
-		this.argument = argument.getValue();
+		this.argumentName = argumentName;
+		this.argument = argument;
+		this.errorPredicate = errorPredicate;
 		
 		Logger.logError(getMessage());
 	}
 	
 	//method
 	/**
-	 * @return the argument of this invalid argument exception.
-	 * @throws RuntimeException if this invalid argument exception has no argument.
-	 */
-	public final Object getArgument() {
-		
-		//Checks if this invalid argument exception has an argument.
-		if (!hasArgument()) {
-			throw new RuntimeException("invalid argument exception has no argument.");
-		}
-		
-		return argument;
-	}
-	
-	//method
-	/**
-	 * @return the argument name of the argument of this invalid argument exception.
+	 * @return the name of the argument of the current {@link InvalidArgumentException}.
 	 */
 	public final String getArgumentName() {
 		return argumentName;
@@ -253,9 +197,17 @@ public class InvalidArgumentException extends RuntimeException {
 	
 	//method
 	/**
-	 * @return true if this invalid argument exception has an argument.
+	 * @return the error predicate of the current {@link InvalidArgumentException}.
 	 */
-	public final boolean hasArgument() {
-		return hasArgumentFlag;
+	public final String getErrorPredicate() {
+		return errorPredicate;
+	}
+	
+	//method
+	/**
+	 * @return the argument of the current {@link InvalidArgumentException}.
+	 */
+	public final Object getRefArgument() {
+		return argument;
 	}
 }

@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.core.helper;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
+//own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //class
@@ -34,10 +34,7 @@ public final class CharacterHelper {
 			|| (letter > 90 && letter < 97)
 			|| letter > 122
 		) {
-			throw new InvalidArgumentException(
-				new ArgumentName("letter"),
-				new Argument(letter)
-			);
+			throw new InvalidArgumentException(VariableNameCatalogue.LETTER, letter, "is not valid");
 		}
 		
 		//Handles the case that the given letter is a vowel.

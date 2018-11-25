@@ -4,9 +4,7 @@ package ch.nolix.core.validator2;
 //Java import
 import java.io.File;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
+//own imports
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NonEmptyArgumentException;
@@ -65,11 +63,9 @@ public class StringMediator extends ArgumentMediator<String> {
 		//Checks if the argument of this string mediator has not a bigger length than the given max length.
 		if (getRefArgument().length() > maxLength) {
 			throw new InvalidArgumentException(
-				new ArgumentName(getArgumentName()),
-				new Argument(getRefArgument()),
-				new ErrorPredicate(
-					"has a length of " + getRefArgument().length() + " what is bigger than " + maxLength
-				)
+				getArgumentName(),
+				getRefArgument(),
+				"has the length " + getRefArgument().length() + ", which is bigger than " + maxLength
 			);
 		}
 	}
@@ -89,11 +85,9 @@ public class StringMediator extends ArgumentMediator<String> {
 		//Checks if the argument of this string mediator has not a smaller length than the given min length.
 		if (getRefArgument().length() < minLength) {
 			throw new InvalidArgumentException(
-				new ArgumentName(getArgumentName()),
-				new Argument(getRefArgument()),
-				new ErrorPredicate(
-					"has a length of " + getRefArgument().length() + " what is smaller than " + minLength
-				)
+				getArgumentName(),
+				getRefArgument(),
+				"has the length " + getRefArgument().length() + ", which is smaller than " + minLength
 			);
 		}
 	}
@@ -109,11 +103,7 @@ public class StringMediator extends ArgumentMediator<String> {
 		
 		//Checks if the argument of the current string mediator is blank.
 		if (!getRefArgument().isBlank()) {
-			throw 
-			new InvalidArgumentException(
-				new ArgumentName(getArgumentName()),
-				new ErrorPredicate("is not blank")
-			);
+			throw new InvalidArgumentException(getArgumentName(), getRefArgument(), "is not blank");
 		}
 	}
 	
@@ -145,7 +135,7 @@ public class StringMediator extends ArgumentMediator<String> {
 		
 		//Checks if the argument of this string mediator is not empty.
 		if (getRefArgument().isEmpty()) {
-			throw new EmptyArgumentException();
+			throw new EmptyArgumentException(getRefArgument());
 		}
 	}
 	
@@ -164,8 +154,9 @@ public class StringMediator extends ArgumentMediator<String> {
 		if (getRefArgument().isBlank()) {
 			throw 
 			new InvalidArgumentException(
-				new ArgumentName(getArgumentName()),
-				new ErrorPredicate("is blank")
+				getArgumentName(),
+				getRefArgument(),
+				"is blank"
 			);
 		}
 	}
@@ -207,9 +198,10 @@ public class StringMediator extends ArgumentMediator<String> {
 		}
 		
 		if (!specifiesProbableDirectoryOnLocalMachine) {
-			throw new InvalidArgumentException(
-				new Argument(directory),
-				new ErrorPredicate("is no probable directory on the local machine")
+			throw
+			new InvalidArgumentException(
+				(Object)directory,
+				"is not a probable directory on the local machine"
 			);
 		}
 	}

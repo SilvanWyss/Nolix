@@ -1,9 +1,7 @@
 //package declaration
 package ch.nolix.core.validator2;
 
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
+//own imports
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
@@ -90,9 +88,9 @@ public class MultiArgumentMediator<A> {
 			//Checks if the current argument fulfills the given condition.
 			if (!condition.getOutput(a)) {
 				throw new InvalidArgumentException(
-					new ArgumentName(index + "th argument"),
-					new Argument(a),
-					new ErrorPredicate("does not fulfil the given exception")
+					index + "th argument",
+					a,
+					"does not fulfil the given condition"
 				);
 			}
 			

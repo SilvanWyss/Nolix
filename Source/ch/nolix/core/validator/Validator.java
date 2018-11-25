@@ -8,7 +8,7 @@
 //package declaration
 package ch.nolix.core.validator;
 
-import ch.nolix.core.argument.ArgumentName;
+//own imports
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
@@ -33,7 +33,7 @@ public final class Validator {
 		Validator.throwExceptionIfValueIsNull(name, string);
 		
 		if (string.length() < 1) {
-			throw new EmptyArgumentException(new ArgumentName(name));
+			throw new EmptyArgumentException(name, string);
 		}
 	}
 	
@@ -291,7 +291,7 @@ public final class Validator {
 	 */
 	public static final void throwExceptionIfValueIsZero(String name, double value) {
 		if (value == 0) {
-			throw new ZeroArgumentException(name);
+			throw new ZeroArgumentException(name, value);
 		}
 	}
 
@@ -303,7 +303,7 @@ public final class Validator {
 	 */
 	public static final void throwExceptionIfValueIsZero(String name, int value) {
 		if (value == 0) {
-			throw new ZeroArgumentException(name);
+			throw new ZeroArgumentException(name, value);
 		}
 	}
 
@@ -315,7 +315,7 @@ public final class Validator {
 	 */
 	public static final void throwExceptionIfValueIsZero(String name, long value) {
 		if (value == 0) {
-			throw new ZeroArgumentException(name);
+			throw new ZeroArgumentException(name, value);
 		}
 	}
 

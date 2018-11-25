@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
-
 //class
 /**
  * A zero argument exception is an exception that is intended to be thrown when an argument is undesired zero.
@@ -20,25 +17,43 @@ public final class ZeroArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new zero argument exception.
+	 * Creates a new zero argument exception for the given argument.
+	 * 
+	 * @param argument
 	 */
-	public ZeroArgumentException() {
+	public ZeroArgumentException(final long argument) {
 		
 		//Calls constructor of the base class.
-		super(new ErrorPredicate(ERROR_PREDICATE));
+		super(argument, ERROR_PREDICATE);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new zero argument exception for an argument that has the given argument name.
+	 * Creates a new zero argument exception for the given argument, that has the given argument name.
 	 * 
 	 * @param argumentName
+	 * @param argument
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is empty.
 	 */
-	public ZeroArgumentException(final String argumentName) {
+	public ZeroArgumentException(final String argumentName, final double argument) {
 		
 		//Calls constructor of the base class.
-		super(new ArgumentName(argumentName), new ErrorPredicate(ERROR_PREDICATE));
+		super(argumentName, argument, ERROR_PREDICATE);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new zero argument exception for the given argument, that has the given argument name.
+	 * 
+	 * @param argumentName
+	 * @param argument
+	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is empty.
+	 */
+	public ZeroArgumentException(final String argumentName, final long argument) {
+		
+		//Calls constructor of the base class.
+		super(argumentName, argument, ERROR_PREDICATE);
 	}
 }

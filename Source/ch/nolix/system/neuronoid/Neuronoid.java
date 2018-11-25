@@ -5,8 +5,6 @@ package ch.nolix.system.neuronoid;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ErrorPredicate;
 import ch.nolix.core.container.List;
 import ch.nolix.core.sequencer.Future;
 import ch.nolix.core.sequencer.Sequencer;
@@ -278,8 +276,8 @@ implements ISmartObject<N> {
 		//Checks if this neuron does not contain the input neuron of the given input connection.
 		if (inputConnections.contains(ic -> ic.hasInputNeuron(inputConnection.getRefInputNeuron()))) {
 			throw new InvalidArgumentException(
-				new Argument(inputConnection),
-				new ErrorPredicate("is invalid because the neuron contains already its input neuron")
+				inputConnection,
+				"is invalid because the current neuron contains already its input neuron"
 			);
 		}
 		

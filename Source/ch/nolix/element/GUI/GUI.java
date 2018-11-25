@@ -9,9 +9,6 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.documentNode.Statement;
-import ch.nolix.core.argument.Argument;
-import ch.nolix.core.argument.ArgumentName;
-import ch.nolix.core.argument.ErrorPredicate;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
@@ -223,9 +220,9 @@ implements IGUI<G> {
 		
 		if (iterator.hasNext()) {
 			throw new InvalidArgumentException(
-				new ArgumentName("interaction attributes per widget"),
-				new Argument(interactionAttributesOfWidgets),
-				new ErrorPredicate("contains more elements than this GUI contains widgets")
+				"interaction attributes of widget",
+				interactionAttributesOfWidgets,
+				"contains more elements than the current " + getType() + " contains widgets"
 			);
 		}
 		
