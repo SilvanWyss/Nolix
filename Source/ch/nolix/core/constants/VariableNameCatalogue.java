@@ -7,7 +7,7 @@ package ch.nolix.core.constants;
  * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 110
+ * @lines 120
  */
 public final class VariableNameCatalogue {
 	
@@ -15,6 +15,7 @@ public final class VariableNameCatalogue {
 	public static final String AGE = "age";
 	public static final String AMOUNT = "amount";
 	public static final String ARRAY = "array";
+	public static final String ATTRIBUTE = "attribute";
 	public static final String BACKGROUND_COLOR = "background color";
 	public static final String CAPACITY = "capacity";
 	public static final String CAPTION = "caption";
@@ -50,6 +51,9 @@ public final class VariableNameCatalogue {
 	public static final String END_INDEX = "end index";
 	public static final String ENTITY = "entity";
 	public static final String ENTITY_TYPE = "entity type";
+	public static final String FILE_NAME = "file name";
+	public static final String FILE_PATH = "file path";
+	public static final String FOLDER_PATH = "folder path";
 	public static final String FUNCTION = "function";
 	public static final String HASH_CODE = "hash code";
 	public static final String HEADER = "header";
@@ -59,6 +63,7 @@ public final class VariableNameCatalogue {
 	public static final String INTERFACE = "interface";
 	public static final String ITEM = "item";
 	public static final String LENGTH = "length";
+	public static final String LETTER = "letter";
 	public static final String MAXIMUM = "maximum";
 	public static final String MESSAGE = "message";
 	public static final String MINIMUM = "minimum";
@@ -66,6 +71,7 @@ public final class VariableNameCatalogue {
 	public static final String NEXT_ELEMENT = "next element";
 	public static final String NODE = "node";
 	public static final String OUTPUT_FUNCTION = "output function";
+	public static final String PATH = "path";
 	public static final String PERCENTAGE = "percentage";
 	public static final String PRICE = "price";
 	public static final String RADIUS = "radius";
@@ -74,6 +80,7 @@ public final class VariableNameCatalogue {
 	public static final String RESOURCE = "resource";
 	public static final String ROLE = "role";
 	public static final String ROOT = "root";
+	public static final String ROOT_FOLDER = "root folder";
 	public static final String ROOT_NODE = "root node";
 	public static final String ROW_COUNT = "row count";
 	public static final String ROW_INDEX = "row index";
@@ -86,12 +93,14 @@ public final class VariableNameCatalogue {
 	public static final String START_DATE = "start date";
 	public static final String START_INDEX = "start index";
 	public static final String STATE = "state";
+	public static final String STRING = "string";
 	public static final String SUMMARY = "summary";
 	public static final String SURNAME = "surname";
 	public static final String TAB = "tab";
 	public static final String TEST = "test";
 	public static final String TEST_CLASS = "test class";
 	public static final String TEXT = "text";
+	public static final String THICKNESS = "thickness";
 	public static final String TIMEOUT = "timeout";
 	public static final String TIMEOUT_IN_MICROSECONDS = "timeout in microseconds";
 	public static final String TIMEOUT_IN_MILLISECONDS = "timeout in milliseconds";
