@@ -3,7 +3,7 @@ package ch.nolix.tutorialApplications.movieManager;
 
 //own imports
 import ch.nolix.core.documentNode.SimplePersistentDocumentNode;
-import ch.nolix.core.documentNodeDatabaseAdapter.SpecificationDatabaseAdapter;
+import ch.nolix.core.documentNodeDatabaseAdapter.DocumentNodeDatabaseAdapter;
 import ch.nolix.core.documentNodeDatabaseSchemaAdapter.DocumentNodeDatabaseSchemaAdapter;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.templates.GUILooks.AnthrazitGUILook;
@@ -29,7 +29,7 @@ public final class Launcher {
 			.saveChanges();
 		
 			new DataGenerator().generateAndSaveSampleData(
-				new SpecificationDatabaseAdapter(
+				new DocumentNodeDatabaseAdapter(
 					movieManagerDatabase,
 					movieManagerSchema
 				)
@@ -39,7 +39,7 @@ public final class Launcher {
 		final var movieManager =
 		new MovieManager(
 			() ->
-			new SpecificationDatabaseAdapter(
+			new DocumentNodeDatabaseAdapter(
 				movieManagerDatabase,
 				movieManagerSchema
 			),

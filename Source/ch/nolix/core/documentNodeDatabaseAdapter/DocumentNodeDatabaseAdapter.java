@@ -14,14 +14,14 @@ import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntitySet;
 
 //class
-public final class SpecificationDatabaseAdapter extends DatabaseAdapter {
+public final class DocumentNodeDatabaseAdapter extends DatabaseAdapter {
 	
 	//attribute
 	private final DocumentNodeoid databaseSpecification;
 	private final List<EntitySetAdapter<Entity>> entitySetAdapters = new List<EntitySetAdapter<Entity>>();
 	
 	//constructor
-	public SpecificationDatabaseAdapter(final DocumentNodeoid databaseSpecification, final Schema schema) {
+	public DocumentNodeDatabaseAdapter(final DocumentNodeoid databaseSpecification, final Schema schema) {
 		
 		super(schema);
 		
