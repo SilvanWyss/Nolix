@@ -7,8 +7,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.skillAPI.Named;
 
 //interface
-public interface IEntitySetConnector<E extends Entity>
-extends Named {
+public interface IEntitySetAdapter<E extends Entity> extends Named {
 	
 	//abstract method
 	public abstract boolean containsEntity(long id);

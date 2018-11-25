@@ -18,7 +18,7 @@ public final class SpecificationDatabaseAdapter extends DatabaseAdapter {
 	
 	//attribute
 	private final DocumentNodeoid databaseSpecification;
-	private final List<EntitySetConnector<Entity>> entitySetConnectors = new List<EntitySetConnector<Entity>>();
+	private final List<EntitySetAdapter<Entity>> entitySetAdapters = new List<EntitySetAdapter<Entity>>();
 	
 	//constructor
 	public SpecificationDatabaseAdapter(final DocumentNodeoid databaseSpecification, final Schema schema) {
@@ -34,17 +34,17 @@ public final class SpecificationDatabaseAdapter extends DatabaseAdapter {
 		
 		databaseSpecification
 		.getRefAttributes(a -> a.hasHeader("EntitySet"))
-		.forEach(a -> entitySetConnectors.addAtEnd(new EntitySetConnector<>(a)));
+		.forEach(a -> entitySetAdapters.addAtEnd(new EntitySetAdapter<>(a)));
 	}
 
 	//method
 	@SuppressWarnings("unchecked")
-	public <E extends Entity> EntitySetConnector<E> getEntitySetConnector(
+	public <E extends Entity> EntitySetAdapter<E> getEntitySetConnector(
 		final EntitySet<E> entitySet
 	) {
 		return
-		(EntitySetConnector<E>)
-		entitySetConnectors.getRefFirst(esc -> esc.hasSameNameAs(entitySet));
+		(EntitySetAdapter<E>)
+		entitySetAdapters.getRefFirst(esc -> esc.hasSameNameAs(entitySet));
 	}
 	
 	//method

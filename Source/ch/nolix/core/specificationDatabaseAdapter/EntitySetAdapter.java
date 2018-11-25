@@ -1,4 +1,4 @@
-//package delcaration
+//package declaration
 package ch.nolix.core.specificationDatabaseAdapter;
 
 //own imports
@@ -7,19 +7,19 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntityType;
-import ch.nolix.core.databaseAdapter.IEntitySetConnector;
+import ch.nolix.core.databaseAdapter.IEntitySetAdapter;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.validator2.Validator;
 
 //class
-public final class EntitySetConnector<E extends Entity>
-implements IEntitySetConnector<E> {
+public final class EntitySetAdapter<E extends Entity>
+implements IEntitySetAdapter<E> {
 
 	//attribute
 	private final DocumentNodeoid entitySetSpecification;
 	
 	//package-visible constructor
-	EntitySetConnector(final DocumentNodeoid entitySetSpecification) {
+	EntitySetAdapter(final DocumentNodeoid entitySetSpecification) {
 		
 		Validator
 		.suppose(entitySetSpecification)
