@@ -17,7 +17,7 @@ import ch.nolix.core.validator2.Validator;
  * @month 2015-12
  * @lines 90
  */
-public class Text extends Element {
+public class Text extends Element<Text> {
 
 	//type name
 	public static final String TYPE_NAME = "Text";

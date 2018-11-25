@@ -14,7 +14,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
  * @month 2015-12
  * @lines 120
  */
-public final class Boolean extends Element {
+public final class Boolean extends Element<Boolean> {
 	
 	//type name
 	public static final String TYPE_NAME = "Boolean";

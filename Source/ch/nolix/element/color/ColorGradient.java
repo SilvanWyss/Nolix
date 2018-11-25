@@ -22,7 +22,7 @@ import ch.nolix.element.core.Element;
  * @month 2016-07
  * @lines 240
  */
-public class ColorGradient extends Element {
+public class ColorGradient extends Element<ColorGradient> {
 	
 	//constant
 	public static final ColorGradient VERTICAL_BLACK_WHITE_COLOR_GRADIENT =

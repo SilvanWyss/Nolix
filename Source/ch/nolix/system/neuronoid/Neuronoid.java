@@ -3,13 +3,13 @@ package ch.nolix.system.neuronoid;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.argument.Argument;
 import ch.nolix.core.argument.ErrorPredicate;
 import ch.nolix.core.container.List;
 import ch.nolix.core.sequencer.Future;
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.skillAPI.IFluentObject;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
@@ -31,7 +31,7 @@ import ch.nolix.core.validator2.Validator;
  * @param <N> The type of a neuron.
  */
 public abstract class Neuronoid<N extends Neuronoid<N, I, O>, I, O>
-implements IFluentObject<N> {
+implements ISmartObject<N> {
 	
 	//attribute
 	private O output;
@@ -56,7 +56,7 @@ implements IFluentObject<N> {
 		
 		addInputConnection(new InputConnection<I>(weight, inputNeuron));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -74,7 +74,7 @@ implements IFluentObject<N> {
 		
 		addInputConnection(new InputConnection<I>(inputNeuron));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -93,7 +93,7 @@ implements IFluentObject<N> {
 			removeInputNeuron(getRefInputNeurons().getRefFirst());
 		}
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -238,7 +238,7 @@ implements IFluentObject<N> {
 		inputConnections.removeFirst(ic -> ic.hasInputNeuron(inputNeuron));
 		inputNeuron.outputNeurons.removeFirst(this);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//abstract method

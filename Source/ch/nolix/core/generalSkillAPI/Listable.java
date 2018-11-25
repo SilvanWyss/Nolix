@@ -1,11 +1,13 @@
 //package declaration
-package ch.nolix.core.skillAPI;
+package ch.nolix.core.generalSkillAPI;
 
 //own import
 import ch.nolix.core.container.List;
 
 //interface
 /**
+ * A {@link Listable} can return a {@link List} that contains the {@link Listable}.
+ * 
  * @author Silvan Wyss
  * @month 2018-10
  * @lines 20

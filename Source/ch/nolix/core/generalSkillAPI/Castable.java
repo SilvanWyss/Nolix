@@ -1,8 +1,10 @@
 //package declaration
-package ch.nolix.core.skillAPI;
+package ch.nolix.core.generalSkillAPI;
 
 //interface
 /**
+ * A {@link Castable} can return itself casted into a given type.
+ * 
  * @author Silvan Wyss
  * @month 2018-10
  * @lines 20

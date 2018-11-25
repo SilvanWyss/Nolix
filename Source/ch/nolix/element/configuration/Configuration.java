@@ -68,7 +68,7 @@ implements Freezable<C> {
 				attachingAttribute.getRefAttributes())
 		);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -109,7 +109,7 @@ implements Freezable<C> {
 			addAttachingAttribute(aa);
 		}
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -128,7 +128,7 @@ implements Freezable<C> {
 		
 		configurations.addAtEnd(configuration);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -147,7 +147,7 @@ implements Freezable<C> {
 		
 		this.configurations.addAtEnd(configurations);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -201,7 +201,7 @@ implements Freezable<C> {
 		
 		addSelectorRole(selectorRole.toString());
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -220,7 +220,7 @@ implements Freezable<C> {
 			addSelectorRole(sr);
 		}
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -236,7 +236,7 @@ implements Freezable<C> {
 		
 		selectorRoles.forEach(sr -> addSelectorRole(sr));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -274,7 +274,7 @@ implements Freezable<C> {
 		
 		frozen = true;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -542,7 +542,7 @@ implements Freezable<C> {
 	public final boolean selects(Configurable<?> element) {		
 		
 		//Handles the case that this configuration has a selector type.
-		if (hasSelectorType() && !element.hasTypeOrSuperType(getSelectorType())) {
+		if (hasSelectorType() && !element.isOfType(getSelectorType())) {
 			return false;
 		}
 		
@@ -581,7 +581,7 @@ implements Freezable<C> {
 		//Calls method of the base class.
 		super.setName(name);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -601,7 +601,7 @@ implements Freezable<C> {
 		
 		this.selectorName = new NonEmptyText(selectorName);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -621,7 +621,7 @@ implements Freezable<C> {
 		
 		this.selectorToken = new NonEmptyText(selectorToken);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -641,7 +641,7 @@ implements Freezable<C> {
 		
 		this.selectorType = new NonEmptyText(selectorType);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method

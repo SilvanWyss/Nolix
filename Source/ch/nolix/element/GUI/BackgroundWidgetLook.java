@@ -125,7 +125,7 @@ extends WidgetLook<BWL> {
     	backgroundColorGradient.removeValue();
     	backgroundImage.removeValue();
     	
-    	return getInstance();
+    	return asConcreteType();
     }
     
     //method
@@ -142,7 +142,7 @@ extends WidgetLook<BWL> {
     	removeAnyBackground();
     	this.backgroundColor.setValue(backgroundColor);
     	
-    	return getInstance();
+    	return asConcreteType();
     }
     
     //method
@@ -159,7 +159,7 @@ extends WidgetLook<BWL> {
     	removeAnyBackground();
     	this.backgroundColorGradient.setValue(backgroundColorGradient);
     	
-    	return getInstance();
+    	return asConcreteType();
     }
     
     /**
@@ -175,6 +175,6 @@ extends WidgetLook<BWL> {
     	removeAnyBackground();
     	this.backgroundImage.setValue(backgroundImage);
     	
-    	return getInstance();
+    	return asConcreteType();
     }
 }

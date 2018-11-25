@@ -95,7 +95,7 @@ implements Namable<NE> {
 		
 		setName(DEFAULT_NAME);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -129,7 +129,7 @@ implements Namable<NE> {
 			this.name = new NonEmptyText(name);
 		}
 
-		return getInstance();
+		return asConcreteType();
 	}
 
 	//method

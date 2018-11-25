@@ -96,10 +96,10 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public final boolean hasTypeOrSuperType(final String type) {
+	public final boolean isOfType(final String type) {
 		
 		//Calls method of the base class.
-		return super.hasTypeOrSuperType(type);
+		return super.isOfType(type);
 	}
 	
 	//method
@@ -110,7 +110,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 		
 		token = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -124,7 +124,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 		
 		resetConfiguration();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -146,7 +146,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 		//Sets the token of the current configurable element.
 		this.token = token;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method

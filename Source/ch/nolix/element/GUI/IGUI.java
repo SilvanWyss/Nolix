@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-import ch.nolix.core.argument.ArgumentName;
 //own imports
+import ch.nolix.core.argument.ArgumentName;
 import ch.nolix.core.container.IContainer;
+import ch.nolix.core.generalSkillAPI.Castable;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.skillAPI.Castable;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.skillAPI.Closable;
 import ch.nolix.core.skillAPI.IRequestableContainer;

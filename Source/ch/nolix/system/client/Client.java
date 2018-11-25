@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.client;
 
+//own imports
 import ch.nolix.core.argument.Argument;
 import ch.nolix.core.argument.ArgumentName;
-//own imports
 import ch.nolix.core.bases.OptionalSignableElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
@@ -236,7 +236,7 @@ implements Closable {
 		Validator.suppose(session).isInstanceOf(Session.class);
 		
 		//Sets the given session to the current {@link Client}.
-		session.setParentClient(getInstance());
+		session.setParentClient(asConcreteType());
 		sessions.addAtEnd(session);		
 		currentSession = session;
 		

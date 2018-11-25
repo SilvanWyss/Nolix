@@ -32,6 +32,6 @@ implements Headerable<HE> {
 		
 		headerProperty.setValue(new NonEmptyText(header));
 		
-		return getInstance();
+		return asConcreteType();
 	}	
 }

@@ -81,7 +81,7 @@ extends ConfigurableElement<CE> {
 		configuration = null;
 		resetConfiguration();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -118,7 +118,7 @@ extends ConfigurableElement<CE> {
 		this.configuration = configuration;
 		updateFromConfiguration();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method

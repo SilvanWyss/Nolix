@@ -14,7 +14,7 @@ import ch.nolix.core.helper.DoubleHelper;
  * @month 2017-02
  * @lines 40
  */
-public class FloatingPointNumber extends Element {
+public class FloatingPointNumber extends Element<FloatingPointNumber> {
 
 	//attribute
 	private final double value;

@@ -229,7 +229,7 @@ implements IGUI<G> {
 			);
 		}
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -242,7 +242,7 @@ implements IGUI<G> {
 		
 		removeRootWidget();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//abstract method
@@ -650,7 +650,7 @@ implements IGUI<G> {
 		backgroundColor.clear();
 		backgroundColorGradient.clear();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -781,7 +781,7 @@ implements IGUI<G> {
 			getRefRootWidget().resetConfiguration();
 		}
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -823,7 +823,7 @@ implements IGUI<G> {
 		
 		this.backgroundColor.setValue(backgroundColor);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -841,7 +841,7 @@ implements IGUI<G> {
 		
 		this.backgroundColorGradient.setValue(backgroundColorGradient);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -859,7 +859,7 @@ implements IGUI<G> {
 		
 		refresh();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 
 	//method
@@ -878,7 +878,7 @@ implements IGUI<G> {
 		//Sets the content position of this GUI.
 		this.contentPosition = contentPosition;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -898,7 +898,7 @@ implements IGUI<G> {
 		
 		this.controller = controller;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -920,7 +920,7 @@ implements IGUI<G> {
 		
 		refresh();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -936,7 +936,7 @@ implements IGUI<G> {
 		
 		this.title.setValue(new NonEmptyText(title));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//abstract method

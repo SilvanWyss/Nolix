@@ -7,7 +7,7 @@ import ch.nolix.core.skillAPI.Named;
 import ch.nolix.core.validator2.Validator;
 
 //class
-public final class Flag extends Element implements Named {
+public final class Flag extends Element<Flag> implements Named {
 
 	//attribute
 	private final String name;

@@ -177,7 +177,7 @@ implements IGUI<WidgetGUI> {
 		rootWidget.setParentGUI(this);
 		this.rootWidget = rootWidget;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method

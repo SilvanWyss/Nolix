@@ -20,7 +20,7 @@ import ch.nolix.core.invalidStateException.UnexistingAttributeException;
  * @month 2018-03
  * @lines 140
  */
-public final class ValueOrPercentageHolder extends Element {
+public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHolder> {
 
 	//attributes
 	private final boolean hasValue;

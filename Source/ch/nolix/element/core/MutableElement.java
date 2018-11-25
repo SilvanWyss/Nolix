@@ -8,7 +8,6 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.skillAPI.IFluentObject;
 import ch.nolix.core.specificationAPI.Specifiable;
 import ch.nolix.core.validator2.Validator;
 
@@ -20,8 +19,8 @@ import ch.nolix.core.validator2.Validator;
  * @param <MU> The type of a mutable element.
  */
 public abstract class MutableElement<MU extends MutableElement<MU>>
-extends Element
-implements IController, IFluentObject<MU>, Specifiable<MU> {
+extends Element<MU>
+implements IController, Specifiable<MU> {
 	
 	//command
 	private static final String RESET = "Reset";

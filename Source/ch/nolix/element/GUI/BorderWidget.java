@@ -678,7 +678,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		maxHeight.clear();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -691,7 +691,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		maxWidth.clear();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -704,7 +704,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		minHeight.clear();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -717,7 +717,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		minWidth.clear();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -739,7 +739,7 @@ extends BackgroundWidget<BW, BWS> {
 		setViewAreaXPositionOnScrollArea(0);
 		setViewAreaYPositionOnScrollArea(0);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -798,7 +798,7 @@ extends BackgroundWidget<BW, BWS> {
 		//Sets the content position of this border widget.
 		this.contentPosition = contentPosition;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -813,7 +813,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		this.maxHeight.setValue(new PositiveInteger(maxHeight));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -828,7 +828,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		this.maxWidth.setValue(new PositiveInteger(maxWidth));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -843,7 +843,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		this.minHeight.setValue(new PositiveInteger(minHeight));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -858,7 +858,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		this.minWidth.setValue(new PositiveInteger(minWidth));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -894,7 +894,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		proposalHeightProperty.setValue(new PositiveInteger(proposalHeight));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -909,7 +909,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		proposalWidthProperty.setValue(new PositiveInteger(proposalWidth));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -932,7 +932,7 @@ extends BackgroundWidget<BW, BWS> {
 		.viewAreaXPositionOnScrollArea
 		.setValue(new NonNegativeInteger(viewAreaXPositionOnScrollArea));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -955,7 +955,7 @@ extends BackgroundWidget<BW, BWS> {
 		.viewAreaYPositionOnScrollArea
 		.setValue(new NonNegativeInteger(viewAreaYPositionOnScrollArea));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method

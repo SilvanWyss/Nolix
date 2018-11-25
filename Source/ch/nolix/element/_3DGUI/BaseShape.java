@@ -98,7 +98,7 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 		
 		defaultTexture.clear();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -110,7 +110,7 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 		setDefaultColor(DEFAULT_COLOR);
 		removeDefaultTexture();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 
 	//method
@@ -125,7 +125,7 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	
 		this.defaultColor.setValue(defaultColor);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -140,6 +140,6 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 		
 		this.defaultTexture.setValue(defaultTexture);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 }

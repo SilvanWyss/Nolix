@@ -593,7 +593,7 @@ extends BackgroundWidgetLook<BWL> {
 		removeTopBorderColor();
 		removeBottomBorderColor();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -609,7 +609,7 @@ extends BackgroundWidgetLook<BWL> {
 		removeTopBorderThickness();
 		removeBottomBorderThickness();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -622,7 +622,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		bottomBorderColor = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -635,7 +635,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		bottomBorderThickness = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -648,7 +648,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		bottomPadding = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -661,7 +661,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		leftBorderColor = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -674,7 +674,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		leftBorderThickness = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -687,7 +687,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		leftPadding = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -703,7 +703,7 @@ extends BackgroundWidgetLook<BWL> {
 		removeTopPadding();
 		removeBottomPadding();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -716,7 +716,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		rightBorderColor = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -729,7 +729,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		rightBorderThickness = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -740,7 +740,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		rightPadding = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -753,7 +753,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		topBorderColor = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -766,7 +766,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		topBorderThickness = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -779,7 +779,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		topPadding = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -795,7 +795,7 @@ extends BackgroundWidgetLook<BWL> {
 		removeBorderColors();
 		removePaddings();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -817,7 +817,7 @@ extends BackgroundWidgetLook<BWL> {
 		//Sets the base scrollbar look of the current border widget look.
 		this.baseScrollbarLook = baseScrollbarLook;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -835,7 +835,7 @@ extends BackgroundWidgetLook<BWL> {
 		setTopBorderColor(borderColor);
 		setBottomBorderColor(borderColor);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -853,7 +853,7 @@ extends BackgroundWidgetLook<BWL> {
 		setTopBorderThickness(borderSize);
 		setBottomBorderThickness(borderSize);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -875,7 +875,7 @@ extends BackgroundWidgetLook<BWL> {
 		//Sets the bottom border color of the current {@link BorderWidgetLook}.
 		this.bottomBorderColor = bottomBorderColor;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 
 	//method
@@ -890,7 +890,7 @@ extends BackgroundWidgetLook<BWL> {
 
 		this.bottomBorderThickness = new NonNegativeInteger(bottomBorderThickness);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -905,7 +905,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		this.bottomPadding = new NonNegativeInteger(bottomPadding);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -927,7 +927,7 @@ extends BackgroundWidgetLook<BWL> {
 		//Sets the hover scrollbar look of the current border widget look.
 		this.hoverScrollbarLook = hoverScrollbarLook;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -949,7 +949,7 @@ extends BackgroundWidgetLook<BWL> {
 		//Sets the left border color of the current {@link BorderWidgetLook}.
 		this.leftBorderColor = leftBorderColor;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -964,7 +964,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		this.leftBorderThickness = new NonNegativeInteger(leftBordersize);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -979,7 +979,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		this.leftPadding = new NonNegativeInteger(leftPadding);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -997,7 +997,7 @@ extends BackgroundWidgetLook<BWL> {
 		setTopPadding(padding);
 		setBottomPadding(padding);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1019,7 +1019,7 @@ extends BackgroundWidgetLook<BWL> {
 		//Sets the right border color of the current {@link BorderWidgetLook}.
 		this.rightBorderColor = rightBorderColor;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1034,7 +1034,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		this.rightBorderThickness = new NonNegativeInteger(rightBorderThickness);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1049,7 +1049,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		this.rightPadding = new NonNegativeInteger(rightPadding);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1071,7 +1071,7 @@ extends BackgroundWidgetLook<BWL> {
 		//Sets the selection scrollbar look of the current border widget look.
 		this.selectionScrollbarLook = selectionScrollbarLook;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1093,7 +1093,7 @@ extends BackgroundWidgetLook<BWL> {
 		//Sets the top border color of the current {@link BorderWidgetLook}.
 		this.topBorderColor = topBorderColor;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1108,7 +1108,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		this.topBorderThickness = new NonNegativeInteger(topBorderThickness);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1123,7 +1123,7 @@ extends BackgroundWidgetLook<BWL> {
 		
 		this.topPadding = new NonNegativeInteger(topPadding);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 

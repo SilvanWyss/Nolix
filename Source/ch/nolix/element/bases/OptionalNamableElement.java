@@ -118,7 +118,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 		
 		name = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -131,7 +131,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 		
 		removeName();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -164,7 +164,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 			this.name = new NonEmptyText(name);
 		}
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method

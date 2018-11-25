@@ -8,9 +8,9 @@ import java.lang.reflect.Field;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.skillAPI.IFluentObject;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specificationAPI.Specifiable;
@@ -24,7 +24,9 @@ import ch.nolix.core.validator2.Validator;
  * @param <E> The type of an entity.
  */
 public abstract class Entity<E extends Entity<E>>
-implements IFluentObject<E>, Specifiable<E> {
+implements
+	ISmartObject<E>,
+	Specifiable<E> {
 	
 	//attribute
 	private List<Property<?>> properties;
@@ -90,7 +92,7 @@ implements IFluentObject<E>, Specifiable<E> {
 		
 		getRefProperties().forEach(p -> p.removeValue());
 		
-		return getInstance();
+		return asConcreteType();
 	}
 		
 	//method

@@ -11,8 +11,7 @@ package ch.nolix.core.skillAPI;
  * @lines 20
  * @param <S> The type of a signable object.
  */
-public interface Labelable<S extends Labelable<S>>
-extends IFluentObject<S>, Labeled {
+public interface Labelable<S extends Labelable<S>> extends Labeled {
 		
 	//abstract method
 	/**

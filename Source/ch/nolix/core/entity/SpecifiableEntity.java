@@ -15,7 +15,7 @@ import ch.nolix.core.validator2.Validator;
  * @lines 40
  */
 public abstract class SpecifiableEntity<SE extends SpecifiableEntity<SE>>
-extends Entity
+extends Entity<SE>
 implements Specifiable<SE> {
 
 	//class

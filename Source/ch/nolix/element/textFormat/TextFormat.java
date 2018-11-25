@@ -31,7 +31,7 @@ import ch.nolix.element.core.PositiveInteger;
  * @month 2017-08
  * @lines 430
  */
-public final class TextFormat extends Element {
+public final class TextFormat extends Element<TextFormat> {
 	
 	//default values
 	public static final Font DEFAULT_TEXT_FONT = Font.Verdana;

@@ -26,7 +26,7 @@ import ch.nolix.core.validator2.Validator;
  * @month 2016-08
  * @lines 740
  */
-public final class Time extends Element {
+public final class Time extends Element<Time> {
 	
 	//type name
 	public static final String TYPE_NAME = "Time";

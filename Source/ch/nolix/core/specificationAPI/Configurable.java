@@ -55,17 +55,18 @@ extends Named, Specifiable<C>, Tokened {
 	 * @param type
 	 * @return true if the current {@link Configurable} has the given type or super type.
 	 */
-	public abstract boolean hasTypeOrSuperType(String type);	
+	public abstract boolean isOfType(String type);	
 	
 	//default method
 	/**
 	 * {@inheritDoc}
 	 */
+	@SuppressWarnings("unchecked")
 	public default C reset() {
 		
 		resetConfiguration();
 		
-		return getInstance();
+		return (C)this;
 	}
 	
 	//abstract method

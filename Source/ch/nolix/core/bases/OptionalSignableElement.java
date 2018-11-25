@@ -2,6 +2,7 @@
 package ch.nolix.core.bases;
 
 //own imports
+import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.skillAPI.OptionalSignable;
 import ch.nolix.core.validator2.Validator;
@@ -16,7 +17,7 @@ import ch.nolix.core.validator2.Validator;
  * @param <OSE> The type of a {@link OptionalSignableElement}.
  */
 public abstract class OptionalSignableElement<OSE extends OptionalSignableElement<OSE>>
-implements OptionalSignable<OSE> {
+implements ISmartObject<OSE>, OptionalSignable<OSE> {
 
 	//optional attribute
 	private String infoString;
@@ -52,7 +53,7 @@ implements OptionalSignable<OSE> {
 		
 		infoString = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -72,7 +73,7 @@ implements OptionalSignable<OSE> {
 		//Sets the info string of the current optional signable element.
 		this.infoString = infoString;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method

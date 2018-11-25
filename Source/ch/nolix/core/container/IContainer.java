@@ -677,7 +677,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default long getRangeByLong(final IElementTakerLongGetter<E> longNorm) {
 		
-		//For a better performance, this implementation does not use all comfortable methods.		
+		//For a better performance, this implementation does not use all comfortable methods.
 			//Calculates the minimum and the maximum
 			//the given double norm returns from the elements of the current container.
 				var min = longNorm.getOutput(getRefFirst());

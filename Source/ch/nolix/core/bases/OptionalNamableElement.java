@@ -3,6 +3,7 @@ package ch.nolix.core.bases;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.skillAPI.OptionalNamable;
 import ch.nolix.core.validator2.Validator;
@@ -17,7 +18,7 @@ import ch.nolix.core.validator2.Validator;
  * @param <ONE> The type of a {@link OptionalNamableElement}.
  */
 public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<ONE>>
-implements OptionalNamable<ONE> {
+implements ISmartObject<ONE>, OptionalNamable<ONE> {
 
 	//optional attribute
 	private String name;
@@ -53,7 +54,7 @@ implements OptionalNamable<ONE> {
 		
 		name = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -76,7 +77,7 @@ implements OptionalNamable<ONE> {
 		//Sets the name of the current optional namabel element.
 		this.name = name;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method

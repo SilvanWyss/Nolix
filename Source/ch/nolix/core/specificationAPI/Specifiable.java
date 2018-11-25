@@ -5,7 +5,6 @@ package ch.nolix.core.specificationAPI;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.skillAPI.IFluentObject;
 import ch.nolix.core.skillAPI.Resettable;
 
 //interface
@@ -19,7 +18,7 @@ import ch.nolix.core.skillAPI.Resettable;
  * @lines 140
  */
 public interface Specifiable<S extends Specifiable<S>>
-extends IFluentObject<S>, Resettable<S>, Specified {
+extends Resettable<S>, Specified {
 	
 	//abstract method
 	/**
@@ -111,12 +110,13 @@ extends IFluentObject<S>, Resettable<S>, Specified {
 	 * @return the current {@link Specifiable}.
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
+	@SuppressWarnings("unchecked")
 	public default S reset(final Iterable<? extends DocumentNodeoid> attributes) {
 		
 		reset();
 		addOrChangeAttributes(attributes);
 		
-		return getInstance();
+		return (S)this;
 	}
 	
 	//default method

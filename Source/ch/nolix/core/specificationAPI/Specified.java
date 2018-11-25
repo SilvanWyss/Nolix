@@ -5,19 +5,19 @@ package ch.nolix.core.specificationAPI;
 import ch.nolix.core.XMLDocument.XMLNode;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.generalSkillAPI.TypeRequestable;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.skillAPI.Typed;
 
 //interface
 /**
- * A {@link Specified} is a {@link Typed}
+ * A {@link Specified} is a {@link TypeRequestable}
  * whose official attributes can be requested together.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 130
  */
-public interface Specified extends Typed {
+public interface Specified extends TypeRequestable {
 	
 	//abstract method
 	/**

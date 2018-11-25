@@ -74,7 +74,7 @@ implements Clearable<S> {
 		widget.setParentWidget(this);		
 		widgets.addAtEnd(widget);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -105,7 +105,7 @@ implements Clearable<S> {
 		
 		widgets.forEach(w -> addWidget(w));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -116,7 +116,7 @@ implements Clearable<S> {
 		
 		widgets.clear();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -207,7 +207,7 @@ implements Clearable<S> {
 		
 		elementMargin = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -223,7 +223,7 @@ implements Clearable<S> {
 		
 		widgets.removeFirst(widget);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -237,7 +237,7 @@ implements Clearable<S> {
 	
 		removeElementMargin();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -252,7 +252,7 @@ implements Clearable<S> {
 		
 		this.elementMargin = new NonNegativeInteger(elementMargin);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method

@@ -1,15 +1,13 @@
 //package declaration
 package ch.nolix.element.core;
 
+//own imports
 import ch.nolix.core.argument.Argument;
 import ch.nolix.core.argument.ArgumentName;
-//own imports
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.entity.Entity;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.skillAPI.Castable;
-import ch.nolix.core.skillAPI.TypeRequestable;
 
 //abstract class
 /**
@@ -19,7 +17,7 @@ import ch.nolix.core.skillAPI.TypeRequestable;
  * @month 2015-12
  * @lines 100
  */
-public abstract class Element extends Entity implements Castable, TypeRequestable {
+public abstract class Element<E extends Element<E>> extends Entity<E> {
 	
 	//requests
 	public static final String TYPE_REQUEST = "Type";
@@ -43,7 +41,7 @@ public abstract class Element extends Entity implements Castable, TypeRequestabl
 		}
 		
 		//Casts the given object to an element.
-		final Element element = (Element)object;
+		final var element = (Element<?>)object;
 		
 		//Handles the case that the specification of this element
 		//does not equal the specification of the given element.
@@ -80,10 +78,10 @@ public abstract class Element extends Entity implements Castable, TypeRequestabl
 	/**
 	 * @return the type of this type element.
 	 */
-	public final String getType() {
-		return TypeRequestable.super.getType();
+	public String getType() {
+		return getClass().getSimpleName();
 	}
-				
+	
 	//method
 	/**
 	 * @return a string representation of this element.

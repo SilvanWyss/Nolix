@@ -5,9 +5,9 @@ package ch.nolix.core.documentNode;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
+import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.skillAPI.Listable;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
@@ -21,7 +21,8 @@ import ch.nolix.core.container.List;
  * @month 2015-12
  * @lines 410
  */
-public final class DocumentNode extends DocumentNodeoid implements Listable<DocumentNode> {
+public final class DocumentNode extends DocumentNodeoid
+implements ISmartObject<DocumentNode> {
 	
 	//static method
 	/**

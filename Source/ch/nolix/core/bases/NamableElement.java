@@ -3,6 +3,7 @@ package ch.nolix.core.bases;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.skillAPI.Namable;
 import ch.nolix.core.validator2.Validator;
 
@@ -16,7 +17,7 @@ import ch.nolix.core.validator2.Validator;
  * @parma <NE> The type of a {@link NamableElement}.
  */
 public abstract class NamableElement<NE extends NamableElement<NE>>
-implements Namable<NE> {
+implements ISmartObject<NE>, Namable<NE> {
 
 	//attribute
 	private String name;
@@ -61,6 +62,6 @@ implements Namable<NE> {
 		//Sets the name of the current namable element.
 		this.name = name;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 }

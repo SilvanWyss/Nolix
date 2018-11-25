@@ -12,7 +12,8 @@ import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.core.Element;
 
 //abstract class
-public abstract class OptionalIdentifiedElement extends Element {
+public abstract class OptionalIdentifiedElement<OIE extends OptionalIdentifiedElement<OIE>>
+extends Element<OIE> {
 
 	//optional attribute
 	private int id;

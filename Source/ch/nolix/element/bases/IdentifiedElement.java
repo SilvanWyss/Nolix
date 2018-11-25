@@ -10,8 +10,8 @@ import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.core.Element;
 
 //abstract class
-public abstract class IdentifiedElement
-extends Element
+public abstract class IdentifiedElement<IE extends IdentifiedElement<IE>>
+extends Element<IE>
 implements Identified {
 
 	//attribute

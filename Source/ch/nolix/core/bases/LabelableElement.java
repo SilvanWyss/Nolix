@@ -1,39 +1,41 @@
 //package declaration
 package ch.nolix.core.bases;
 
+//own imports
+import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.skillAPI.Labelable;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**
- * A {@link SignableElement} has an info string.
+ * A {@link LabelableElement} has an info string.
  * 
  * @author Silvan Wyss
  * @month 2016-12
  * @lines 60
- * @param <OSE> The type of a {@link SignableElement}.
+ * @param <OSE> The type of a {@link LabelableElement}.
  */
-public abstract class SignableElement<SE extends SignableElement<SE>>
-implements Labelable<SE> {
+public abstract class LabelableElement<SE extends LabelableElement<SE>>
+implements ISmartObject<SE>, Labelable<SE> {
 
 	//attribute
 	private String infoString;
 	
 	//constructor
 	/**
-	 * Creates a new {@link SignableElement} with the given info string.
+	 * Creates a new {@link LabelableElement} with the given info string.
 	 * 
 	 * @param infoString
 	 * @throws NullArgumentException if the given info string is null.
 	 * @throws EmptyArgumentException if the given info string is empty.
 	 */
-	public SignableElement(final String infoString) {
+	public LabelableElement(final String infoString) {
 		setInfoString(infoString);
 	}
 	
 	//method
 	/**
-	 * @return the info string of the current {@link SignableElement}.
+	 * @return the info string of the current {@link LabelableElement}.
 	 */
 	public final String getInfoString() {
 		return infoString;
@@ -41,10 +43,10 @@ implements Labelable<SE> {
 	
 	//method
 	/**
-	 * Sets the info string of the current {@link SignableElement}.
+	 * Sets the info string of the current {@link LabelableElement}.
 	 * 
 	 * @param infoString
-	 * @return this {@link SignableElement}.
+	 * @return this {@link LabelableElement}.
 	 * @throws NullArgumentException if the given info string is null.
 	 * @throws EmptyArgumentException if the given info string is empty.
 	 */
@@ -56,6 +58,6 @@ implements Labelable<SE> {
 		//Sets the info string of the current optional signable element.
 		this.infoString = infoString;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 }

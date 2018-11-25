@@ -39,7 +39,7 @@ public abstract class Prisma<P extends Prisma<P>> extends BaseShape<P> {
 		
 		setHeight(DEFAULT_HEIGHT);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -47,6 +47,6 @@ public abstract class Prisma<P extends Prisma<P>> extends BaseShape<P> {
 		
 		this.height.setValue(new PositiveFloatingPointNumber(height));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 }

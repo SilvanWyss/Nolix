@@ -4,10 +4,10 @@ package ch.nolix.element._3DGUI;
 //Java import
 import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.core.argument.Argument;
 import ch.nolix.core.argument.ArgumentName;
 import ch.nolix.core.argument.ErrorPredicate;
-//own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.ReadContainer;
@@ -118,7 +118,7 @@ implements Clearable<G>, Closable, Refreshable {
 		
 		shapeClasses.addAtEnd(new Pair<>(shapeClass, shapeRenderer));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -138,7 +138,7 @@ implements Clearable<G>, Closable, Refreshable {
 		
 		removeRootShape();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -255,7 +255,7 @@ implements Clearable<G>, Closable, Refreshable {
 		
 		rootShape = null;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -294,7 +294,7 @@ implements Clearable<G>, Closable, Refreshable {
 		
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -309,7 +309,7 @@ implements Clearable<G>, Closable, Refreshable {
 				
 		this.backgroundColor.setValue(backgroundColor);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -328,7 +328,7 @@ implements Clearable<G>, Closable, Refreshable {
 		//Sets the given root shape to this 3D GUI.
 		this.rootShape = rootShape;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -344,7 +344,7 @@ implements Clearable<G>, Closable, Refreshable {
 		
 		this.title.setValue(new NonEmptyText(title));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	/**

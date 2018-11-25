@@ -11,8 +11,7 @@ package ch.nolix.core.skillAPI;
  * @lines 30
  * @param <N> The type of a namable object.
  */
-public interface Namable<N extends Namable<N>>
-extends IFluentObject<N>, Named {
+public interface Namable<N extends Namable<N>> extends Named {
 	
 	//abstract method
 	/**

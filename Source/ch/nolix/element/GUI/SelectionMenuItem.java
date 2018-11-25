@@ -10,7 +10,8 @@ import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.NonEmptyText;
 
 //class
-public final class SelectionMenuItem extends OptionalIdentifiedElement {
+public final class SelectionMenuItem
+extends OptionalIdentifiedElement<SelectionMenuItem> {
 	
 	//constant
 	private static final String SELECTION_FLAG_HEADER = "Selected";

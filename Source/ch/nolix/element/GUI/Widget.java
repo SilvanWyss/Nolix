@@ -178,7 +178,7 @@ extends ConfigurableElement<W> {
 		//For a better performance, this implementation does not use all comfortable methods.
 		baseLookMutator.run(baseLook);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -193,7 +193,7 @@ extends ConfigurableElement<W> {
 		//For a better performance, this implementation does not use all comfortable methods.
 		focusLookMutator.run(focusLook);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -208,7 +208,7 @@ extends ConfigurableElement<W> {
 		//For a better performance, this implementation does not use all comfortable methods.
 		hoverFocusLookMutator.run(hoverFocusLook);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -223,7 +223,7 @@ extends ConfigurableElement<W> {
 		//For a better performance, this implementation does not use all comfortable methods.
 		hoverLookMutator.run(hoverLook);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -238,7 +238,7 @@ extends ConfigurableElement<W> {
 		resetConfiguration();		
 		applyUsableConfigurationWhenConfigurationIsReset();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//abstract method
@@ -989,7 +989,7 @@ extends ConfigurableElement<W> {
 		
 		greyOutWhenDisabled = false;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1045,7 +1045,7 @@ extends ConfigurableElement<W> {
 		
 		resetConfiguration();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1065,7 +1065,7 @@ extends ConfigurableElement<W> {
 		//Resets the configuration of the widgets of the current widget.
 		getRefWidgets().forEach(r -> r.resetConfiguration());
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1080,7 +1080,7 @@ extends ConfigurableElement<W> {
 		
 		getLeftMouseButtonPressCommand().run();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1095,7 +1095,7 @@ extends ConfigurableElement<W> {
 		
 		getLeftMouseButtonReleaseCommand().run();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1110,7 +1110,7 @@ extends ConfigurableElement<W> {
 		
 		getRightMouseButtonPressCommand().run();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1125,7 +1125,7 @@ extends ConfigurableElement<W> {
 		
 		getRightMouseButtonReleaseCommand().run();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 
 	//method
@@ -1138,7 +1138,7 @@ extends ConfigurableElement<W> {
 		
 		state = WidgetState.Collapsed;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1159,7 +1159,7 @@ extends ConfigurableElement<W> {
 		//Sets the custom cursor icon of the current widget.
 		this.customCursorIcon = customCursorIcon;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1187,7 +1187,7 @@ extends ConfigurableElement<W> {
 		
 		state = WidgetState.Disabled;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1200,7 +1200,7 @@ extends ConfigurableElement<W> {
 		
 		state = WidgetState.Focused;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1213,7 +1213,7 @@ extends ConfigurableElement<W> {
 		
 		greyOutWhenDisabled = true;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1226,7 +1226,7 @@ extends ConfigurableElement<W> {
 		
 		state = WidgetState.Hovered;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1239,7 +1239,7 @@ extends ConfigurableElement<W> {
 		
 		state = WidgetState.HoverFocused;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1260,7 +1260,7 @@ extends ConfigurableElement<W> {
 		
 		this.leftMouseButtonPressCommand = leftMouseButtonPressCommand;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1281,7 +1281,7 @@ extends ConfigurableElement<W> {
 		
 		this.leftMouseButtonReleaseCommand = leftMouseButtonReleaseCommand;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1302,7 +1302,7 @@ extends ConfigurableElement<W> {
 		
 		this.rightMouseButtonPressCommand = rightMouseButtonPressCommand;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1323,7 +1323,7 @@ extends ConfigurableElement<W> {
 		
 		this.rightMouseButtonReleaseCommand = rightMouseButtonReleaseCommand;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1336,7 +1336,7 @@ extends ConfigurableElement<W> {
 		
 		state = WidgetState.Normal;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -1354,7 +1354,7 @@ extends ConfigurableElement<W> {
 		//Sets the state of the current {@link Widget}.
 		this.state = state;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//abstract method

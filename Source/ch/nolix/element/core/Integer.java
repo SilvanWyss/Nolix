@@ -13,7 +13,7 @@ import ch.nolix.core.documentNode.DocumentNode;
  * @month 2015-12
  * @lines 80
  */
-public class Integer extends Element {
+public class Integer extends Element<Integer> {
 	
 	//default value
 	private static final int DEFAULT_VALUE = 0;

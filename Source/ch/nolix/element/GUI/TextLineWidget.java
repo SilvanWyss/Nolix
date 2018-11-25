@@ -113,7 +113,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 		
 		this.text = new Text(text);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method

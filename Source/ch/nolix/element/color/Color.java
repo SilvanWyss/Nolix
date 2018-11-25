@@ -31,7 +31,7 @@ import ch.nolix.element.core.Element;
  * @month 2015-12
  * @lines 1360
  */
-public class Color extends Element {
+public class Color extends Element<Color> {
 	
 	//constant
 	public static final String TYPE_NAME = "Color";

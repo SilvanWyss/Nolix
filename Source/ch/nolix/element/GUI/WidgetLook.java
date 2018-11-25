@@ -6,8 +6,6 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.entity2.Entity;
 import ch.nolix.core.entity2.Property;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
-import ch.nolix.core.skillAPI.IFluentObject;
-import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
@@ -30,9 +28,7 @@ import ch.nolix.element.textFormat.Font;
  * @lines 290
  * @param <WL> The type of a {@link WidgetLook}.
  */
-public abstract class WidgetLook<WL extends WidgetLook<WL>>
-extends Entity<WL>
-implements IFluentObject<WL>, Specified {
+public abstract class WidgetLook<WL extends WidgetLook<WL>> extends Entity<WL> {
 	
 	//default values
 	public static final Font DEFAULT_TEXT_FONT = Font.Verdana;
@@ -140,7 +136,7 @@ implements IFluentObject<WL>, Specified {
 		
 		textColor.removeValue();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -153,7 +149,7 @@ implements IFluentObject<WL>, Specified {
 		
 		font.removeValue();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -166,7 +162,7 @@ implements IFluentObject<WL>, Specified {
 		
 		textSize.removeValue();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -179,7 +175,7 @@ implements IFluentObject<WL>, Specified {
 		
 		boldTextFlag.removeValue();
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -192,7 +188,7 @@ implements IFluentObject<WL>, Specified {
 		
 		this.boldTextFlag.setValue(new Boolean(boldTextFlag));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -207,7 +203,7 @@ implements IFluentObject<WL>, Specified {
 		
 		this.textColor.setValue(textColor);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -222,7 +218,7 @@ implements IFluentObject<WL>, Specified {
 		
 		this.font.setValue(font);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 		
 	//method
@@ -237,7 +233,7 @@ implements IFluentObject<WL>, Specified {
 		
 		this.textSize.setValue(new PositiveInteger(textSize));
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method

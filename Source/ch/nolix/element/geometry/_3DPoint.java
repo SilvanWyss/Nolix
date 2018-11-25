@@ -19,7 +19,7 @@ import ch.nolix.element.core.Element;
  * @month 2016-05
  * @lines 150
  */
-public class _3DPoint  extends Element {
+public class _3DPoint  extends Element<_3DPoint> {
 	
 	//default values.
 	public static final double DEFAULT_X = 0.0;

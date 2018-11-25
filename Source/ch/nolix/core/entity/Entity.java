@@ -5,6 +5,7 @@ package ch.nolix.core.entity;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specificationAPI.Specified;
@@ -18,7 +19,10 @@ import ch.nolix.core.validator2.Validator;
  * @month 2017-10
  * @lines 200
  */
-public abstract class Entity implements Specified {
+public abstract class Entity<E extends Entity<E>>
+implements
+	ISmartObject<E>,
+	Specified {
 	
 	//attribute
 	private boolean propertiesAreApproved = false;

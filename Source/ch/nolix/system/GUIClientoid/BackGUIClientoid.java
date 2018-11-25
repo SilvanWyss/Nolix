@@ -53,7 +53,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 			+ ")"
 		);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -77,7 +77,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 		
 		internal_runOnCounterpart(Protocol.OPEN_FILE_EXPLORER_COMMAND);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -109,7 +109,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 			+ ")"
 		);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method

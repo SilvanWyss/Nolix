@@ -20,7 +20,7 @@ import ch.nolix.element.core.Time;
  * @month 2016-08
  * @lines 420
  */
-public class Candlestick extends Element {
+public class Candlestick extends Element<Candlestick> {
 	
 	//constants
 	public static final double DEFAULT_HAMMER_MIN_LOWER_WICK_LENGTH_RATIO = 0.5;

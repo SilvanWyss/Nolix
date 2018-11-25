@@ -175,7 +175,7 @@ extends Widget<L, LineLook> {
 		//Sets the color of this line.
 		this.color = color;
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -205,7 +205,7 @@ extends Widget<L, LineLook> {
 		
 		this.length = new PositiveInteger(length);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
@@ -236,7 +236,7 @@ extends Widget<L, LineLook> {
 		
 		this.thickness = new PositiveInteger(thickness);
 		
-		return getInstance();
+		return asConcreteType();
 	}
 	
 	//method
