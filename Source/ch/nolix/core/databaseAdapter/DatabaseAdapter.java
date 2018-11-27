@@ -63,6 +63,9 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 		return entitySets.contains(es -> es.hasName(name));
 	}
 	
+	//abstract method
+	public abstract String getDatabaseName();
+	
 	//method
 	@SuppressWarnings("unchecked")
 	public final <E extends Entity> EntitySet<E> getRefEntitySet(final Class<E> entityClass) {

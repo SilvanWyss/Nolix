@@ -3,11 +3,11 @@ package ch.nolix.core.documentNodeDatabaseAdapter;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Schema;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.core.databaseAdapter.DatabaseAdapter;
 import ch.nolix.core.databaseAdapter.Entity;
@@ -17,51 +17,54 @@ import ch.nolix.core.databaseAdapter.EntitySet;
 public final class DocumentNodeDatabaseAdapter extends DatabaseAdapter {
 	
 	//attribute
-	private final DocumentNodeoid databaseSpecification;
-	private final List<EntitySetAdapter<Entity>> entitySetAdapters = new List<EntitySetAdapter<Entity>>();
+	private final DocumentNodeoid database;
+	
+	//multi-attribute
+	private final List<EntitySetAdapter<Entity>> entitySetAdapters =
+	new List<EntitySetAdapter<Entity>>();
 	
 	//constructor
-	public DocumentNodeDatabaseAdapter(final DocumentNodeoid databaseSpecification, final Schema schema) {
+	public DocumentNodeDatabaseAdapter(
+		final DocumentNodeoid database,
+		final Schema schema
+	) {
 		
+		//Calls constructor of the base class.
 		super(schema);
 		
+		//Checks if the given database is not null.
 		Validator
-		.suppose(databaseSpecification)
-		.thatIsNamed("database specification")
+		.suppose(database)
+		.thatIsNamed(VariableNameCatalogue.DATABASE)
 		.isInstance();
 		
-		this.databaseSpecification = databaseSpecification;
+		//Sets the database of the current document node database adapter.
+		this.database = database;
 		
-		databaseSpecification
+		database
 		.getRefAttributes(a -> a.hasHeader("EntitySet"))
 		.forEach(a -> entitySetAdapters.addAtEnd(new EntitySetAdapter<>(a)));
 	}
-
+	
+	//method
+	public String getDatabaseName() {
+		return
+		database.getRefFirstAttribute(PascalCaseNameCatalogue.NAME)
+		.getOneAttributeAsString();
+	}
+	
 	//method
 	@SuppressWarnings("unchecked")
-	public <E extends Entity> EntitySetAdapter<E> getEntitySetAdapter(
+	protected <E extends Entity> EntitySetAdapter<E> getEntitySetAdapter(
 		final EntitySet<E> entitySet
 	) {
 		return
 		(EntitySetAdapter<E>)
 		entitySetAdapters.getRefFirst(esc -> esc.hasSameNameAs(entitySet));
 	}
-	
+		
 	//method
-	public String getName() {
-		return
-		databaseSpecification
-		.getRefFirstAttribute(PascalCaseNameCatalogue.NAME)
-		.getOneAttributeAsString();
-	}
-
-	//method
-	public void run(IContainer<IFunction> commands) {
-		commands.forEach(c -> c.run());
-	}
-	
-	//method
-	public void saveChangesToDatabase(final IContainer<Entity> mutatedEntitiesInOrder) {
+	protected void saveChangesToDatabase(final IContainer<Entity> mutatedEntitiesInOrder) {
 		
 		final var createdEntities =
 		mutatedEntitiesInOrder.getRefSelected(e -> e.isCreated());
@@ -70,10 +73,10 @@ public final class DocumentNodeDatabaseAdapter extends DatabaseAdapter {
 			getEntitySetAdapter(e.getParentEntitySet()).add(e);
 		}
 		
-		//TODO: Handle concerned entities more suitable.
 		final var concernedEntities =
 		mutatedEntitiesInOrder.getRefSelected(e -> e.isConcerned());
 		
+		//TODO: Handle concerned entities more suitable.
 		for (final var e : concernedEntities) {
 			getEntitySetAdapter(e.getParentEntitySet()).update(e);
 		}
