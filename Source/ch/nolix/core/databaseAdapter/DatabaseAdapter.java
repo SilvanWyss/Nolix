@@ -12,7 +12,7 @@ import ch.nolix.core.validator2.Validator;
 
 //abstract class
 public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
-
+	
 	//static attribute
 	private static final Factory<DocumentNodeoid, Object> valueFactory =
 	new Factory<DocumentNodeoid, Object>()
@@ -46,8 +46,8 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	
 	//multi-attributes
 	private final List<EntitySet<Entity>> entitySets = new List<EntitySet<Entity>>();
-	private final List<Entity> mutatedEntitiesInOrderEntitiesInOrder = new List<Entity>();
-		
+	private final List<Entity> mutatedEntitiesInOrder = new List<Entity>();
+	
 	//constructor
 	public DatabaseAdapter(final Schema schema) {
 		
@@ -85,14 +85,14 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	
 	//method
 	public final boolean hasChanges() {
-		return mutatedEntitiesInOrderEntitiesInOrder.containsAny();
+		return mutatedEntitiesInOrder.containsAny();
 	}
 	
 	//method
 	public final DatabaseAdapter reset() {	
 		
 		entitySets.clear();
-		mutatedEntitiesInOrderEntitiesInOrder.clear();
+		mutatedEntitiesInOrder.clear();
 		
 		for (final var et : schema.getRefEntityTypes()) {
 			entitySets.addAtEnd(EntitySet.createEntitySet(this, et));
@@ -104,15 +104,15 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	//method
 	public final void saveChanges() {
 		
-		saveChangesToDatabase(mutatedEntitiesInOrderEntitiesInOrder);
+		saveChangesToDatabase(mutatedEntitiesInOrder);
 		
 		reset();
 	}
 	
-	//method
+	//package-visible method
 	final void noteMutatedEntity(final Entity entity) {
-		if (!mutatedEntitiesInOrderEntitiesInOrder.contains(entity)) {
-			mutatedEntitiesInOrderEntitiesInOrder.addAtEnd(entity);
+		if (!mutatedEntitiesInOrder.contains(entity)) {
+			mutatedEntitiesInOrder.addAtEnd(entity);
 		}
 	}
 	
