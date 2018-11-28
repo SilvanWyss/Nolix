@@ -22,7 +22,7 @@ import ch.nolix.core.validator2.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1010
+ * @lines 1110
  * @param <E> The type of the elements of a {@link List}.
  */
 public final class List<E> implements Clearable<List<E>>, IContainer<E> {
@@ -124,8 +124,8 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		Validator.suppose(elements).thatIsNamed(MultiVariableNameCatalogue.ELEMENTS).isInstance();
 		
 		//Iterates the given elements.
-		for (var i = elements.length; i >= 0; i--) {
-			addAtBegin(elements[i]);
+		for (final var e : elements) {
+			addAtEnd(e);
 		}
 		
 		return this;
@@ -164,6 +164,51 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 			if (lastNode == null) {
 				lastNode = iterator;
 			}
+		}
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Adds the given element at the begin of the current {@link List}
+	 * if the current {@link List} does not contain it.
+	 * 
+	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
+	 * 
+	 * @param element
+	 * @return the current {@link List}.
+	 * @throws NullArgumentException if the given element is null.
+	 */
+	public List<E> addAtBeginIfNotContained(final E element) {
+		
+		//Handles the case that the current list does not contain the given element.
+		if (!contains(element)) {
+			addAtBegin(element);
+		}
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Adds all of the given elements, the current {@link List} does not contain,
+	 * at the begin of the current {@link List}.
+	 * 
+	 * The complexity of this method is O(m*n) if:
+	 * -The current {@link List} contains m elements.
+	 * -n elements are given.
+	 * 
+	 * @param elements
+	 * @return the current {@link List}.
+	 * @throws NullArgumentException if one of the given elements is null.
+	 */
+	@SuppressWarnings("unchecked")
+	public List<E> addAtBeginIfNotContained(final E... elements) {
+		
+		//Iterates the given elements.
+		for (final var e : elements) {
+			addAtBeginIfNotContained(e);
 		}
 		
 		return this;
@@ -279,6 +324,51 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		IElementTakerElementGetter<E2, E> extractor
 	) {
 		elements.forEach(e -> addAtEnd(extractor.getOutput(e)));
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Adds the given element at the end of the current {@link List}
+	 * if the current {@link List} does not contain it.
+	 * 
+	 * The complexity of this method is O(n) if the current {@link List} contains n elements.
+	 * 
+	 * @param element
+	 * @return the current {@link List}.
+	 * @throws NullArgumentException if the given element is null.
+	 */
+	public List<E> addAtEndIfNotContained(final E element) {
+		
+		//Handles the case that the current list does not contain the given element.
+		if (!contains(element)) {
+			addAtEnd(element);
+		}
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Adds all of the given elements, the current {@link List} does not contain,
+	 * at the end of the current {@link List}.
+	 * 
+	 * The complexity of this method is O(m*n) if:
+	 * -The current {@link List} contains m elements.
+	 * -n elements are given.
+	 * 
+	 * @param elements
+	 * @return the current {@link List}.
+	 * @throws NullArgumentException if one of the given elements is null.
+	 */
+	@SuppressWarnings("unchecked")
+	public List<E> addAtEndIfNotContained(final E... elements) {
+		
+		//Iterates the given elements.
+		for (final var e : elements) {
+			addAtEndIfNotContained(e);
+		}
 		
 		return this;
 	}
