@@ -15,7 +15,7 @@ import ch.nolix.core.validator2.Validator;
  * @lines 40
  */
 public abstract class NamedElement implements Named {
-
+	
 	//attribute
 	private final String name;
 	

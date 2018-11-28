@@ -17,7 +17,7 @@ import ch.nolix.core.validator2.Validator;
  */
 public abstract class LabelableElement<SE extends LabelableElement<SE>>
 implements ISmartObject<SE>, Labelable<SE> {
-
+	
 	//attribute
 	private String infoString;
 	

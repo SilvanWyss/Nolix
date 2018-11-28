@@ -15,7 +15,7 @@ import ch.nolix.core.container.List;
  * @lines 120
  */
 final class CloseController implements Closable {
-
+	
 	//attribute
 	private boolean closed = false;
 	

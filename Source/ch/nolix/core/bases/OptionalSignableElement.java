@@ -18,7 +18,7 @@ import ch.nolix.core.validator2.Validator;
  */
 public abstract class OptionalSignableElement<OSE extends OptionalSignableElement<OSE>>
 implements ISmartObject<OSE>, OptionalSignable<OSE> {
-
+	
 	//optional attribute
 	private String infoString;
 	

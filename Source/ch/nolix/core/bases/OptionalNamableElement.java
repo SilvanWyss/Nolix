@@ -19,7 +19,7 @@ import ch.nolix.core.validator2.Validator;
  */
 public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<ONE>>
 implements ISmartObject<ONE>, OptionalNamable<ONE> {
-
+	
 	//optional attribute
 	private String name;
 	

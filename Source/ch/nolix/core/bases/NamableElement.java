@@ -18,7 +18,7 @@ import ch.nolix.core.validator2.Validator;
  */
 public abstract class NamableElement<NE extends NamableElement<NE>>
 implements ISmartObject<NE>, Namable<NE> {
-
+	
 	//attribute
 	private String name;
 	

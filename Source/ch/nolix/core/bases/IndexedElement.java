@@ -15,7 +15,7 @@ import ch.nolix.core.validator2.Validator;
  * @lines 40
  */
 public abstract class IndexedElement implements Indexed {
-
+	
 	//attribute
 	private final int index;
 	
