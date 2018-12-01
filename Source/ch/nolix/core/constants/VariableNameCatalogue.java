@@ -93,6 +93,7 @@ public final class VariableNameCatalogue {
 	public static final String START_DATE = "start date";
 	public static final String START_INDEX = "start index";
 	public static final String STATE = "state";
+	public static final String STATEMENT = "statement";
 	public static final String STRING = "string";
 	public static final String SUMMARY = "summary";
 	public static final String SURNAME = "surname";
