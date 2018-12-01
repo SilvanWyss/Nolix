@@ -17,8 +17,8 @@ import ch.nolix.core.skillAPI.Identified2;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator2.Validator;
 
-//abstract class
-public abstract class Entity implements Identified2, Specified {
+//class
+public class Entity implements Identified2, Specified {
 	
 	//attribute
 	private EntityState state = EntityState.CREATED;

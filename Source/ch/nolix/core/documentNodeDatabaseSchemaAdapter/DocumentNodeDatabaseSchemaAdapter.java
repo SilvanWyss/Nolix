@@ -6,12 +6,12 @@ import ch.nolix.core.constants.MultiPascalCaseNameCatalogue;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.databaseSchemaAdapter.DatabaseSchemaAdapter;
 import ch.nolix.core.databaseSchemaAdapter.EntitySet;
+import ch.nolix.core.databaseSchemaAdapter.IEntitySetAdapter;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -30,18 +30,76 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 		.isInstance();
 		
 		this.documentNodeDatabase = documentNodeDatabase;
+		
+		reset();
 	}
 	
 	//method
-	public void addEntitySet(final EntitySet entitySet) {
+	public boolean isInitialized() {
+		return documentNodeDatabase.hasHeader(PascalCaseNameCatalogue.DATABASE);
+	}
+	
+	//method
+	protected IEntitySetAdapter getEntitySetAdapter(final EntitySet entitySet) {
+		return getEntitySetAdapter(entitySet.getName());
+	}
+	
+	//method
+	protected IEntitySetAdapter getEntitySetAdapter(final String name) {
+		return getEntitySetAdapters().getRefFirst(esc -> esc.hasName(name));
+	}
+	
+	//method
+	protected List<IEntitySetAdapter> getEntitySetAdapters() {
+		return
+		documentNodeDatabase
+		.getRefAttributes(a -> a.hasHeader("EntitySet"))
+		.to(a -> new EntitySetAdapter(a));
+	}
+	
+	//method
+	protected void initializeDatabaseWhenNotInitialized() {		
+		documentNodeDatabase.setHeader(PascalCaseNameCatalogue.DATABASE);
+	}
+	
+	//method
+	protected void saveChangesToDatabase(final IContainer<EntitySet> entitySets) {
 		
-		if (databaseContainsEntitySet(entitySet.getName())) {
-			throw
-			new InvalidStateException(
-				this,
-				"contains already an entity set with the name " + entitySet.getNameInQuotes()
-			);
+		final var createdEntitySets = new List<EntitySet>();
+		final var changedEntitySets = new List<EntitySet>();
+		final var deletedEntitySets = new List<EntitySet>();
+		
+		//Iterates the given entity sets.
+		for (final var es : entitySets) {
+			
+			//Enumerates the state of the current entity set.
+			switch (es.getState()) {
+				case CREATED:
+					createdEntitySets.addAtEnd(es);
+					break;
+				case CHANGED:
+					changedEntitySets.addAtEnd(es);
+					break;
+				case DELETED:
+					deletedEntitySets.addAtEnd(es);
+					break;
+				default:
+					throw new InvalidArgumentException(es, "has the state " + es.getState());
+			}
 		}
+		
+		//Handles the created entity sets.
+		createdEntitySets.forEach(es -> addEntitySetToDatabase(es));
+		
+		//Handles the changed entity sets.
+		changedEntitySets.forEach(es -> changeEntitySetOnDatabase(es));
+		
+		//Handles the deleted entity sets.
+		changedEntitySets.forEach(es -> deleteEntitySetFromDatabase(es));
+	}
+	
+	//method
+	private void addEntitySetToDatabase(final EntitySet entitySet) {
 		
 		final var entitySetSpecification = new DocumentNode("EntitySet");
 		
@@ -61,92 +119,18 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 		
 		documentNodeDatabase.addAttribute(entitySetSpecification);
 	}
-	
+
 	//method
-	public boolean databaseContainsEntitySet(final String name) {
-		return 
-		documentNodeDatabase.containsAttribute(
-			a ->
-				a.hasHeader("EntitySet")
-				&& new EntitySetAdapter(a).hasName(name)
-		);
+	private void changeEntitySetOnDatabase(final EntitySet entitySet) {
+		//TODO: Implement.
 	}
 	
 	//method
-	public void deleteEntitySetOnDatabase(final EntitySet es) {
+	private void deleteEntitySetFromDatabase(final EntitySet es) {
 		documentNodeDatabase.removeFirstAttribute(
 			a ->
 				a.hasHeader("EntitySet")
 				&& new EntitySetAdapter(a).hasName(es.getName())
 		);
-	}
-	
-	//method
-	public EntitySetAdapter getEntitySetAdapter(final EntitySet entitySet) {
-		return getEntitySetAdapter(entitySet.getName());
-	}
-	
-	//method
-	public EntitySetAdapter getEntitySetAdapter(final String name) {
-		return getEntitySetAdapters().getRefFirst(esc -> esc.hasName(name));
-	}
-	
-	//method
-	public List<EntitySetAdapter> getEntitySetAdapters() {
-		return
-		documentNodeDatabase
-		.getRefAttributes(a -> a.hasHeader("EntitySet"))
-		.to(a -> new EntitySetAdapter(a));
-	}
-	
-	//method
-	public DocumentNodeDatabaseSchemaAdapter initialize() {
-		
-		documentNodeDatabase.setHeader(PascalCaseNameCatalogue.DATABASE);
-		
-		return this;
-	}
-	
-	//method
-	public boolean isInitialized() {
-		return documentNodeDatabase.hasHeader("Database");
-	}
-
-	//method
-	public void saveChanges(final IContainer<EntitySet> changedEntitySetsInOrder) {
-		
-		//Handles the created entity sets.
-			final var createdEntitySets =
-			changedEntitySetsInOrder.getRefSelected(es -> es.isCreated());
-			
-			for (final var es : createdEntitySets) {
-				addEntitySet(es);
-			}
-		
-		//Handles the changed entity sets.
-			final var changedEntitySets =
-			changedEntitySetsInOrder.getRefSelected(e -> e.isChanged());
-			
-			for (final var es : changedEntitySets) {
-				changeEntitySet(es);
-			}
-		
-		//Handles the deleted entity sets.
-			final var deletedEntitySets =
-			changedEntitySetsInOrder.getRefSelected(es -> es.isDeleted());
-			
-			for (final var es : deletedEntitySets) {
-				deleteEntitySet(es);
-			}
-	}
-	
-	//method
-	public void saveChangesToDatabase(final Iterable<EntitySet> changedEntitySetsInOrder) {
-		saveChanges(new ReadContainer<EntitySet>(changedEntitySetsInOrder));
-	}
-
-	//method
-	public void changeEntitySet(final EntitySet entitySet) {
-		//TODO: Implement.
 	}
 }

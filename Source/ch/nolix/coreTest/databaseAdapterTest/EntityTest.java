@@ -9,7 +9,7 @@ import ch.nolix.core.test2.Test;
 
 //test class
 public final class EntityTest extends Test {
-
+	
 	//test case
 	public void testCase_getSpecification() {
 		
@@ -31,7 +31,7 @@ public final class EntityTest extends Test {
 	}
 	
 	//inner class
-	private static class Cat extends Entity {
+	private static final class Cat extends Entity {
 		
 		//attributes
 		public final Property<String> Name = new Property<String>();

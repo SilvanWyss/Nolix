@@ -147,19 +147,6 @@ public final class EntitySet extends NamedElement {
 		return columns.contains(c -> c.references(entitySet));
 	}
 	
-	//method
-	private void addColumn(final Column column) {
-		
-		supposeDoesNotContainColumn(column.getHeader());
-		
-		columns.addAtEnd(column);
-	}
-	
-	//method
-	private void addColumn(final String header, final PropertyoidType<?> propertyoidType) {		
-		addColumn(new Column(this, header, propertyoidType));
-	}
-	
 	//package-visible method
 	final void setChanged() {
 		switch (getState()) {
@@ -167,7 +154,7 @@ public final class EntitySet extends NamedElement {
 				
 				state = EntitySetState.CHANGED;
 				
-				parentDatabaseSchemaAdapter.noteChangedEntitySet(this);
+				parentDatabaseSchemaAdapter.noteMutatedEntitySet(this);
 				
 				break;
 			case CREATED:
@@ -212,6 +199,24 @@ public final class EntitySet extends NamedElement {
 			case REJECTED:
 				throw new InvalidStateException(this, "is rejected");
 		}
+	}
+	
+	//package-visible method
+	final void setRejected() {
+		state = EntitySetState.REJECTED;
+	}
+	
+	//method
+	private void addColumn(final Column column) {
+		
+		supposeDoesNotContainColumn(column.getHeader());
+		
+		columns.addAtEnd(column);
+	}
+	
+	//method
+	private void addColumn(final String header, final PropertyoidType<?> propertyoidType) {		
+		addColumn(new Column(this, header, propertyoidType));
 	}
 	
 	//method

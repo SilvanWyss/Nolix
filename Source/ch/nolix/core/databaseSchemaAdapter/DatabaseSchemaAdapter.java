@@ -2,6 +2,7 @@
 package ch.nolix.core.databaseSchemaAdapter;
 
 //own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.Schema;
@@ -10,33 +11,38 @@ import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.skillAPI.IChangesSaver;
 
 //abstract class
+/**
+ * A {@link DatabaseSchemaAdapter} loads the current database scheme
+ * from its connected database when it is created or reset. 
+ * 
+ * @author Silvan Wyss
+ * @month 2018-04
+ * @param <DSA> The type of a {@link DatabaseSchemaAdapter}.
+ */
 public abstract class DatabaseSchemaAdapter<DSA extends DatabaseSchemaAdapter<DSA>>
 implements
 	IChangesSaver<DSA>,
 	IFluentObject<DSA> {
 	
 	//multi-attributes
-	private final List<EntitySet> loadedOrCreatedEntitySets = new List<EntitySet>();
-	private final List<EntitySet> changedEntitySetsInOrder = new List<EntitySet>();
+	private final List<EntitySet> loadedAndCreatedEntitySets = new List<EntitySet>();
+	private final List<EntitySet> mutatedEntitySetsInOrder = new List<EntitySet>();
 	
 	//method
 	public final DSA addEntitySet(final Class<Entity> entityClass) {
 		
 		final var entitySet = new EntitySet(this, entityClass);
 		
-		if (containsEntitySet(entitySet.getName())) {
-			throw new InvalidStateException(
-				this,
-				"contains already an entity set with the name " + entitySet.getNameInQuotes()
-			);
-		}
-				
-		loadedOrCreatedEntitySets.addAtEnd(entitySet);
-		noteChangedEntitySet(entitySet);
+		supposeDoesNotContainEntitySet(entitySet.getName());
+		
+		loadedAndCreatedEntitySets.addAtEnd(entitySet);
+		noteMutatedEntitySet(entitySet);
 		
 		return asConcreteType();
 	}
-
+	
+	//public final DSA addOrReplaceEntitySet(final Class<Entity> entityClass)
+	
 	//method
 	public final DSA addSchema(final Schema schema) {
 		
@@ -47,38 +53,40 @@ implements
 	
 	//method
 	public final boolean containsEntitySet() {
-		return loadedOrCreatedEntitySets.containsAny();
+		return loadedAndCreatedEntitySets.containsAny();
 	}
 	
 	//method
 	public final boolean containsEntitySet(final String name) {
-		return loadedOrCreatedEntitySets.contains(es -> es.hasName(name));
+		return loadedAndCreatedEntitySets.contains(es -> es.hasName(name));
 	}
 	
 	//method
 	public final DSA deleteEntitySet(final EntitySet entitySet) {
 		
-		if (loadedOrCreatedEntitySets.contains(es -> es.references(entitySet))) {
-			throw new InvalidStateException(
-				entitySet,
-				"cannot be deleted because it is referenced by " + loadedOrCreatedEntitySets.getRefSelected(es -> es.references(entitySet)).to(es -> es.getName())  +"."
-			);
-		}
+		supposeCanDelete(entitySet);
 		
+		loadedAndCreatedEntitySets.removeFirst(entitySet);
 		entitySet.setDeleted();
-		loadedOrCreatedEntitySets.removeFirst(entitySet);
-		noteChangedEntitySet(entitySet);
+		noteMutatedEntitySet(entitySet);
 		
 		return asConcreteType();
 	}
 	
 	//method
 	public final boolean hasChanges() {
-		return changedEntitySetsInOrder.containsAny();
+		return mutatedEntitySetsInOrder.containsAny();
 	}
-
+	
 	//method
-	public abstract DSA initialize();
+	public DSA initialize() {
+		
+		supposeIsNotInitialized();
+		
+		initializeDatabaseWhenNotInitialized();
+		
+		return asConcreteType();
+	}
 	
 	//method
 	public abstract boolean isInitialized();
@@ -86,8 +94,10 @@ implements
 	//method
 	public final DSA reset() {
 		
-		loadedOrCreatedEntitySets.clear();
-		changedEntitySetsInOrder.clear();
+		loadedAndCreatedEntitySets.forEach(es -> es.setRejected());
+		loadedAndCreatedEntitySets.clear();
+		mutatedEntitySetsInOrder.clear();
+		loadedAndCreatedEntitySets.addAtEnd(getEntitySetsFromDatabase());
 		
 		return asConcreteType();
 	}
@@ -95,21 +105,62 @@ implements
 	//method
 	public final void saveChanges() {
 		
-		saveChangesToDatabase(changedEntitySetsInOrder);
+		saveChangesToDatabase(mutatedEntitySetsInOrder);		
 		
 		reset();
 	}
 	
 	//abstract method
-	protected abstract IEntitySetAdapter getEntitySetAdapter(EntitySet entitySet);
+	protected abstract List<IEntitySetAdapter> getEntitySetAdapters();
 	
 	//abstract method
-	protected abstract void saveChangesToDatabase(Iterable<EntitySet> changedEntitySetsInOrder);
-
+	protected abstract void initializeDatabaseWhenNotInitialized();
+	
+	//abstract method
+	protected abstract void saveChangesToDatabase(IContainer<EntitySet> changedEntitySetsInOrder);
+	
+	//method
+	protected final void supposeDoesNotContainEntitySet(final String name) {
+		if (containsEntitySet(name)) {
+			throw new InvalidStateException(
+				this,
+				"contains an entity set with the name '" + name + "'"
+			);
+		}
+	}
+	
 	//package-visible method
-	final void noteChangedEntitySet(final EntitySet entitySet) {
-		if (!changedEntitySetsInOrder.contains(entitySet)) {
-			changedEntitySetsInOrder.addAtEnd(entitySet);
+	final void noteMutatedEntitySet(final EntitySet entitySet) {		
+		mutatedEntitySetsInOrder.addAtEndIfNotContained(entitySet);
+	}
+	
+	//abstract method
+	private List<EntitySet> getEntitySetsFromDatabase() {
+		//TODO
+		return getEntitySetAdapters().to(es -> new EntitySet(this, Entity.class));
+	}
+	
+	//method
+	private void supposeCanDelete(EntitySet entitySet) {
+		
+		final var referencingEntitySet =
+		loadedAndCreatedEntitySets.getRefFirstOrNull(es -> es.references(entitySet));
+		
+		if (referencingEntitySet != null) {
+			throw new InvalidStateException(
+				entitySet,
+				"cannot be deleted because it is referenced by "
+				+ referencingEntitySet.getNameInQuotes()
+			);
+		}
+	}
+	
+
+	
+	//method
+	private void supposeIsNotInitialized() {
+		if (isInitialized()) {
+			throw new RuntimeException("The database is initialized.");
 		}
 	}
 }

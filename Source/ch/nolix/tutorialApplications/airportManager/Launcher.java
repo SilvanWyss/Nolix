@@ -27,7 +27,7 @@ public final class Launcher {
 			airportManagerDatabaseSchemaAdapter
 			.addSchema(airportManagerSchema)
 			.saveChanges();
-		
+			
 			new DataGenerator().generateAndSaveSampleData(
 				new DocumentNodeDatabaseAdapter(
 					airportManagerDatabase,
