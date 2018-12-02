@@ -29,7 +29,7 @@ implements
 	private final List<EntitySet> mutatedEntitySetsInOrder = new List<EntitySet>();
 	
 	//method
-	public final DSA addEntitySet(final Class<Entity> entityClass) {
+	public final <E extends Entity> DSA addEntitySet(final Class<E> entityClass) {
 		
 		final var entitySet = new EntitySet(this, entityClass);
 		

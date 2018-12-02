@@ -29,14 +29,13 @@ public final class EntitySet extends NamedElement {
 	private final List<Column> columns;
 	
 	//package-visible constructor
-	EntitySet(
+	<E extends Entity> EntitySet(
 		final DatabaseSchemaAdapter<?> parentDatabaseSchemaAdapter,
-		final Class<Entity> entityClass
+		final Class<E> entityClass
 	) {
-		super(new EntityType<Entity>(entityClass).getName());
+		super(new EntityType<E>(entityClass).getName());
 		
-		final var entityType =
-		new EntityType<Entity>(entityClass);
+		final var entityType = new EntityType<E>(entityClass);
 		
 		this.parentDatabaseSchemaAdapter = parentDatabaseSchemaAdapter;
 		
