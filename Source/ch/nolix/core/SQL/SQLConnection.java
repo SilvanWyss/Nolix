@@ -6,8 +6,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import ch.nolix.core.constants.CharacterCatalogue;
+import ch.nolix.core.constants.IPv4Catalogue;
 //own imports
 import ch.nolix.core.constants.IPv6Catalogue;
+import ch.nolix.core.container.List;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
@@ -39,7 +42,7 @@ public abstract class SQLConnection {
 	) {
 		this(
 			SQLDatabaseEngine,
-			IPv6Catalogue.LOOP_BACK_ADDRESS,
+			IPv4Catalogue.LOOP_BACK_ADDRESS,
 			port,
 			databaseName,
 			userName,
@@ -97,11 +100,35 @@ public abstract class SQLConnection {
 	
 	//method
 	public final String getResult(final String SQLQuery) {
+		return getRows(SQLQuery).toString(CharacterCatalogue.SEMICOLON);
+	}
+	
+	//method
+	public final List<List<String>> getRows(final String SQLQuery) {
 		try {
-			return connection.createStatement().executeQuery(SQLQuery).toString();
+			
+			final var rows = new List<List<String>>();
+			
+			final var result =  connection.createStatement().executeQuery(SQLQuery);		
+			final var columnCount = result.getMetaData().getColumnCount();
+			
+			while (result.next()) {
+				final var line = new List<String>();
+				for (var i = 1; i <= columnCount; i++) {
+					line.addAtEnd(result.getString(i));
+				}
+				rows.addAtEnd(line);
+			}
+			
+			return rows;
 		} catch (SQLException SQLException) {
 			throw new RuntimeException(SQLException);
 		}
+	}
+	
+	//method
+	public final List<String> getRowsAsString(final String SQLQuery) {
+		return getRows(SQLQuery).toStrings();
 	}
 	
 	//method
@@ -111,13 +138,13 @@ public abstract class SQLConnection {
 	
 	//method
 	public final boolean tableExistsOnDatabase(final String name) {
-		return	
-		getResult(
+		return
+		getRows(
 			"SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '"
 			+ name
 			+ "'"
 		)
-		.equals("1");
+		.containsAny();
 	}
 	
 	//abstract method
