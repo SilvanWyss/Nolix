@@ -2,6 +2,7 @@
 package ch.nolix.core.databaseSchemaAdapter;
 
 //own imports
+import ch.nolix.core.SQL.SQLDatabaseEngine;
 import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
@@ -100,6 +101,17 @@ public final class EntitySet extends NamedElement {
 	
 	public IContainer<Column> getRefColumns() {
 		return columns;
+	}
+	
+	//method
+	public EntitySetSQLHelper getSQLHelper(final SQLDatabaseEngine sQLDatabaseEngine) {
+		switch (sQLDatabaseEngine) {
+			case MSSQL:
+				return new EntitySetMSSQLHelper(this);
+			default:
+				//TODO: Create an entity set SQL helper for all database engines.
+				return null;
+		}
 	}
 	
 	//method

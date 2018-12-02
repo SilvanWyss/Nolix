@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.databaseSchemaAdapter;
 
+import ch.nolix.core.SQL.SQLDatabaseEngine;
 //own imports
 import ch.nolix.core.bases.HeaderedElement;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
@@ -56,8 +57,31 @@ implements Specified {
 	}
 	
 	//method
+	public ColumnSQLHelper getSQLHelper(final SQLDatabaseEngine sQLDatabaseEngine) {
+		switch (sQLDatabaseEngine) {
+			case MSSQL:
+				return new ColumnMSSQLHelper(this);
+			default:
+				//TODO: Create a column SQL helper for all database engines.
+				return null;
+		}
+	}
+	
+	//method
 	public String getType() {
 		return PascalCaseNameCatalogue.COLUMN;
+	}
+	
+	//method
+	public Class<?> getValueClass() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return valueType.getValueClass();
+	}
+	
+	//method
+	public PropertyoidType<?> getValueType() {
+		return valueType;
 	}
 	
 	//method
