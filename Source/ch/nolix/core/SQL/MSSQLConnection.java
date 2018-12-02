@@ -38,7 +38,6 @@ public final class MSSQLConnection extends SQLConnection {
 	
 	//constructor
 	public MSSQLConnection(
-		final SQLDatabaseEngine SQLDatabaseEngine,
 		final String ip,
 		final int port,
 		final String databaseName,
