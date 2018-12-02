@@ -10,11 +10,11 @@ import ch.nolix.core.specificationAPI.Specified;
 public abstract class PropertyoidType<V> implements Specified {
 	
 	//attribute
-	private final ValueType<V> valueType;
+	private final ValueClassBox<V> valueClassBox;
 	
 	//constructor
 	public PropertyoidType(final Class<V> valueClass) {
-		this.valueType = new ValueType<V>(valueClass);
+		this.valueClassBox = new ValueClassBox<V>(valueClass);
 	}
 	
 	//abstract method
@@ -40,17 +40,17 @@ public abstract class PropertyoidType<V> implements Specified {
 	
 	//method
 	public final Class<V> getValueClass() {
-		return getValueType().getValueClass();
+		return getValueClassBox().getValueClass();
 	}
 	
 	//method
-	public final ValueType<V> getValueType() {
-		return valueType;
+	public final ValueClassBox<V> getValueClassBox() {
+		return valueClassBox;
 	}
 	
 	//method
 	public final String getValueTypeName() {
-		return getValueType().getName();
+		return getValueClassBox().getName();
 	}
 	
 	//method

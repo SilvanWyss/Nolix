@@ -5,13 +5,13 @@ package ch.nolix.core.databaseAdapter;
 import ch.nolix.core.bases.NamedElement;
 
 //class
-public final class ValueType<V> extends NamedElement {
-
+public final class ValueClassBox<V> extends NamedElement {
+	
 	//attribute
 	private final Class<V> valueClass;
 	
-	//constructor
-	public ValueType(final Class<V> valueClass) {
+	//package-visible constructor
+	ValueClassBox(final Class<V> valueClass) {
 		
 		super(valueClass.getSimpleName());
 		
