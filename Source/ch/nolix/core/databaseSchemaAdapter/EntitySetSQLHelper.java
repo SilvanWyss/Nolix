@@ -32,18 +32,16 @@ public abstract class EntitySetSQLHelper {
 		var begin = true;
 		for (final var c : entitySet.getRefColumns()) {
 			
-			if (begin) {
-				begin = false;
-			}
-			else {
-				stringBuilder.append(",");
-			}
-			
 			if (c.isDataColumn()) {
 				stringBuilder
 				.append(c.getHeader())
 				.append(" ")
-				.append(c.getSQLHelper(getDatabaseEngine()).getSQLDataType());
+				.append(c.getSQLHelper(getDatabaseEngine()).getSQLDataType())
+				.append(",");
+			}
+			
+			if (begin) {
+				begin = false;
 			}
 		}
 		
