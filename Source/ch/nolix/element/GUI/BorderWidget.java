@@ -36,7 +36,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1840
+ * @lines 1890
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -1039,6 +1039,62 @@ extends BackgroundWidget<BW, BWS> {
 		currentLook.getRecursiveOrDefaultTopBorderThickness()		
 		+ getBorderedAreaHeight()
 		+ currentLook.getRecursiveOrDefaultBottomBorderThickness();
+	}
+	
+	//method
+	/**
+	 * This method returns just a propose for the height for the content area of the current {@link BorderWidget}.
+	 * This is supposed for a {@link Widget}, that cannot determine a meaningful content area height.
+	 * 
+	 * @return a proposed height for the content area of the current {@link BorderWidget}.
+	 */
+	protected final int getProposedContentAreaHeight() {
+		
+		var proposedContentAreaHeight =
+		hasProposalHeight() ? getProposalHeight() : ValueCatalogue.MEDIUM_WIDGET_HEIGHT;
+		
+		//Handles the case that the current border widget has a min height.
+		if (hasMinHeight()) {
+			proposedContentAreaHeight =	Calculator.getMax(getMinHeight(), proposedContentAreaHeight);
+		}
+		
+		final var currentLook = getRefCurrentLook();
+		
+		return
+		proposedContentAreaHeight
+		- currentLook.getRecursiveOrDefaultTopBorderThickness()
+		- currentLook.getRecursiveOrDefaultTopPadding()
+		- getHorizontalScrollbarThickness()
+		- currentLook.getRecursiveOrDefaultBottomPadding()
+		- currentLook.getRecursiveOrDefaultBottomBorderThickness();
+	}
+	
+	//method
+	/**
+	 * This method returns just a propose for the width for the content area of the current {@link BorderWidget}.
+	 * This is supposed for a {@link Widget}, that cannot determine a meaningful content area width.
+	 * 
+	 * @return a proposed width for the content area of the current {@link BorderWidget}.
+	 */
+	protected final int getProposedContentAreaWidth() {
+		
+		var proposedContentAreaWidth =
+		hasProposalWidth() ? getProposalWidth() : ValueCatalogue.MEDIUM_WIDGET_WIDTH;
+		
+		//Handles the case that the current border widget has a min width.
+		if (hasMinWidth()) {
+			proposedContentAreaWidth = Calculator.getMax(getMinWidth(), proposedContentAreaWidth);
+		}
+		
+		final var currentLook = getRefCurrentLook();
+		
+		return
+		proposedContentAreaWidth
+		- currentLook.getRecursiveOrDefaultLeftBorderThickness()
+		- currentLook.getRecursiveOrDefaultLeftPadding()
+		- getVerticalScrollbarThickness()
+		- currentLook.getRecursiveOrDefaultRightPadding()
+		- currentLook.getRecursiveOrDefaultRightBorderThickness();
 	}
 	
 	//method
