@@ -12,8 +12,8 @@ public interface IEntitySetAdapter extends Named {
 	public abstract IColumnAdapter getColumnAdapter(Column column);
 	
 	//default method
-	public default EntityType<?> createArtificialEntityType() {
-		//TODO
+	public default EntityType<?> createEntityType() {
+		//TODO: Create a general Entity class. 
 		return null;
 	}
 }
