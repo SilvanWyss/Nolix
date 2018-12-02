@@ -36,7 +36,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1830
+ * @lines 1840
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -103,7 +103,7 @@ extends BackgroundWidget<BW, BWS> {
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<PositiveInteger> proposalWidthProperty =
+	private final MutableOptionalProperty<PositiveInteger> proposalWidth =
 	new MutableOptionalProperty<PositiveInteger>(
 		PROPOSAL_WIDTH_HEADER,
 		pw -> setProposalWidth(pw.getValue()),
@@ -112,7 +112,7 @@ extends BackgroundWidget<BW, BWS> {
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<PositiveInteger> proposalHeightProperty =
+	private final MutableOptionalProperty<PositiveInteger> proposalHeight =
 	new MutableOptionalProperty<PositiveInteger>(
 		PROPOSAL_HEIGHT_HEADER,
 		ph -> setProposalHeight(ph.getValue()),
@@ -148,7 +148,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to this border widget.
+	 * Adds or changes the given attribute to the current {@link BorderWidget}.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -200,13 +200,13 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//abstract method
 	/**
-	 * @return the cursor icon of the content area of this border widget.
+	 * @return the cursor icon of the content area of the current {@link BorderWidget}.
 	 */
 	public abstract CursorIcon getContentAreaCursorIcon();
 	
 	//method
 	/**
-	 * @return the content position of this border widget.
+	 * @return the content position of the current {@link BorderWidget}.
 	 */
 	public final ContentPosition getContentPosition() {
 		return contentPosition;
@@ -214,7 +214,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the x-position of the cursor on the scroll area of this border widget.
+	 * @return the x-position of the cursor on the scroll area of the current {@link BorderWidget}.
 	 */
 	public final int getCursorXPositionOnScrollArea() {
 		return (getCursorXPosition() - getViewAreaXPositionOnScrollArea());
@@ -222,7 +222,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the y-position of the cursor on the scroll area of this border widget.
+	 * @return the y-position of the cursor on the scroll area of the current {@link BorderWidget}.
 	 */
 	public final int getCursorYPositionOnScrollArea() {
 		return (getCursorYPosition() - getViewAreaYPositionOnScrollArea());
@@ -230,7 +230,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return color of the horizontal scrollbar of this border widget.
+	 * @return color of the horizontal scrollbar of the current {@link BorderWidget}.
 	 */
 	public final Color getHorizontalScrollbarColor() {
 		
@@ -254,7 +254,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return color of the horizontal scrollbar cursor of this border widget.
+	 * @return color of the horizontal scrollbar cursor of the current {@link BorderWidget}.
 	 */
 	public final Color getHorizontalScrollbarCursorColor() {
 		
@@ -278,23 +278,23 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the thickness of the horizontal scrollbar of this border widget.
+	 * @return the thickness of the horizontal scrollbar of the current {@link BorderWidget}.
 	 */
 	public final int getHorizontalScrollbarThickness() {
 		
-		//Handles the case that this border widget has no horizontal scrollbar.
+		//Handles the case that the current border widget has no horizontal scrollbar.
 		if (!hasHorizontalScrollbar()) {
 			return 0;
 		}
 		
-		//Handles the case that this border widget has a horizontal scrollbar.
+		//Handles the case that the current border widget has a horizontal scrollbar.
 		return 20;
 	}
 	
 	//method
 	/**
-	 * @return the max height of this border widget.
-	 * @throws UnexistingAttributeException if this border widget has no max height.
+	 * @return the max height of the current {@link BorderWidget}.
+	 * @throws UnexistingAttributeException if the current {@link BorderWidget} has no max height.
 	 */
 	public final int getMaxHeight() {
 		return maxHeight.getValue().getValue();
@@ -302,8 +302,8 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the max width of this border widget.
-	 * @throws UnexistingAttributeException if this border widget has no max widt.
+	 * @return the max width of the current {@link BorderWidget}.
+	 * @throws UnexistingAttributeException if the current {@link BorderWidget} has no max widt.
 	 */
 	public final int getMaxWidth() {
 		return maxWidth.getValue().getValue();
@@ -311,8 +311,8 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the min height of this border widget.
-	 * @throws UnexistingAttributeException if this border widget has no min height.
+	 * @return the min height of the current {@link BorderWidget}.
+	 * @throws UnexistingAttributeException if the current {@link BorderWidget} has no min height.
 	 */
 	public final int getMinHeight() {
 		return minHeight.getValue().getValue();
@@ -320,8 +320,8 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the min width of this border widget.
-	 * @throws UnexistingAttributeException if this border widget has no min width.
+	 * @return the min width of the current {@link BorderWidget}.
+	 * @throws UnexistingAttributeException if the current {@link BorderWidget} has no min width.
 	 */
 	public final int getMinWidth() {
 		return minWidth.getValue().getValue();
@@ -334,7 +334,7 @@ extends BackgroundWidget<BW, BWS> {
 	 * -Has no min height.
 	 * -Has no max height.
 	 * 
-	 * @return the natural height of this border widget.
+	 * @return the natural height of the current {@link BorderWidget}.
 	 */
 	public final int getNaturalHeight() {
 		
@@ -354,7 +354,7 @@ extends BackgroundWidget<BW, BWS> {
 	 * -Has no min width.
 	 * -Has no max width.
 	 * 
-	 * @return the natural width of this border widget.
+	 * @return the natural width of the current {@link BorderWidget}.
 	 */
 	public final int getNaturalWidth() {
 		
@@ -369,25 +369,25 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the proposal height of this border widget.
-	 * @throws UnexistingAttributeException if this border widget has no proposal height.
+	 * @return the proposal height of the current {@link BorderWidget}.
+	 * @throws UnexistingAttributeException if the current {@link BorderWidget} has no proposal height.
 	 */
 	public final int getProposalHeight() {
-		return proposalHeightProperty.getValue().getValue();
+		return proposalHeight.getValue().getValue();
 	}
 	
 	//method
 	/**
-	 * @return the proposal width of this border widget.
-	 * @throws UnexistingAttributeException if this border widget has no proposal width.
+	 * @return the proposal width of the current {@link BorderWidget}.
+	 * @throws UnexistingAttributeException if the current {@link BorderWidget} has no proposal width.
 	 */
 	public final int getProposalWidth() {
-		return proposalWidthProperty.getValue().getValue();
+		return proposalWidth.getValue().getValue();
 	}
 	
 	//method
 	/**
-	 * @return color of the vertical scrollbar of this border widget.
+	 * @return color of the vertical scrollbar of the current {@link BorderWidget}.
 	 */
 	public final Color getVerticalScrollbarColor() {
 		
@@ -411,7 +411,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return color of the vertical scrollbar cursor of this border widget.
+	 * @return color of the vertical scrollbar cursor of the current {@link BorderWidget}.
 	 */
 	public final Color getVerticalScrollbarCursorColor() {
 		
@@ -435,22 +435,22 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the thickness of the vertical scrollbar of this border widget.
+	 * @return the thickness of the vertical scrollbar of the current {@link BorderWidget}.
 	 */
 	public final int getVerticalScrollbarThickness() {
 		
-		//Handles the case that this border widget has no vertical scrollbar.
+		//Handles the case that the current border widget has no vertical scrollbar.
 		if (!hasVerticalScrollbar()) {
 			return 0;
 		}
 		
-		//Handles the case that this border widget has a vertical scroll bar.
+		//Handles the case that the current border widget} has a vertical scroll bar.
 		return 20;
 	}
 	
 	//method
 	/**
-	 * @return x-position of the view area of this border widget on the scroll area.
+	 * @return x-position of the view area of the current {@link BorderWidget} on the scroll area.
 	 */
 	public final int getViewAreaXPositionOnScrollArea() {
 		return viewAreaXPositionOnScrollArea.getValue().getValue();
@@ -458,7 +458,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the y-position of the view area of this border widget on the scroll area.
+	 * @return the y-position of the view area of the current {@link BorderWidget} on the scroll area.
 	 */
 	public final int getViewAreaYPositionOnScrollArea() {
 		return viewAreaYPositionOnScrollArea.getValue().getValue();
@@ -466,7 +466,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * This method determines if this border widget has a horizontal scroll bar.
+	 * This method determines if the current {@link BorderWidget} has a horizontal scroll bar.
 	 * 
 	 * There can be the following issues.
 	 * -The horizontal scrollbar is not there, but the user needs it.
@@ -475,7 +475,7 @@ extends BackgroundWidget<BW, BWS> {
 	 * No matter what result this method returns, the program works technically.
 	 * This method makes a good but not absolute guess if the user needs a horizontal scrollbar.
 	 * 
-	 * @return true if this border widget has a horizontal scrollbar.
+	 * @return true if the current {@link BorderWidget} has a horizontal scrollbar.
 	 */
 	public final boolean hasHorizontalScrollbar() {
 		
@@ -488,7 +488,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return true if this border widget has a max height.
+	 * @return true if the current {@link BorderWidget} has a max height.
 	 */
 	public final boolean hasMaxHeight() {
 		return maxHeight.hasValue();
@@ -496,7 +496,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return true if this border widget has a max width.
+	 * @return true if the current {@link BorderWidget} has a max width.
 	 */
 	public final boolean hasMaxWidth() {
 		return maxWidth.hasValue();
@@ -504,7 +504,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return true if this border widget has a min height.
+	 * @return true if the current {@link BorderWidget} has a min height.
 	 */	
 	public final boolean hasMinHeight() {
 		return minHeight.hasValue();
@@ -512,30 +512,30 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return true if this border widget has a min width.
+	 * @return true if the current {@link BorderWidget} has a min width.
 	 */
 	public final boolean hasMinWidth() {
 		return minWidth.hasValue();
 	}
 	
 	/**
-	 * @return true if this border widget has a proposal height.
+	 * @return true if the current {@link BorderWidget} has a proposal height.
 	 */
 	public final boolean hasProposalHeight() {
-		return proposalHeightProperty.hasValue();
+		return proposalHeight.hasValue();
 	}
 	
 	//method
 	/**
-	 * @return true if this border widget has a proposal width.
+	 * @return true if the current {@link BorderWidget} has a proposal width.
 	 */
 	public final boolean hasProposalWidth() {
-		return proposalWidthProperty.hasValue();
+		return proposalWidth.hasValue();
 	}
 	
 	//method
 	/**
-	 * @return true if this border widget has a vertical scrollbar.
+	 * @return true if the current {@link BorderWidget} has a vertical scrollbar.
 	 */
 	public final boolean hasVerticalScrollbar() {
 		
@@ -548,7 +548,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return true if the user is moving the horizontal scrollbar cursor of this border widget.
+	 * @return true if the user is moving the horizontal scrollbar cursor of the current {@link BorderWidget}.
 	 */
 	public final boolean isMovingHorizontalScrollbarCursor() {
 		return isMovingHorizontalScrollbarCursor;
@@ -556,7 +556,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return true if the user is moving the vertical scrollbar cursor of this border widget.
+	 * @return true if the user is moving the vertical scrollbar cursor of the current {@link BorderWidget}.
 	 */
 	public final boolean isMovingVerticalScrollbarCursor() {
 		return isMovingVerticalScrollbarCursor;
@@ -564,7 +564,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Lets this border widget note a left mouse button press.
+	 * Lets the current {@link BorderWidget} note a left mouse button press.
 	 */
 	public void noteLeftMouseButtonPress() {
 		
@@ -609,7 +609,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Lets this border widget note a mouse move
+	 * Lets the current {@link BorderWidget} note a mouse move
 	 */
 	public void noteMouseMove() {
 		
@@ -670,9 +670,9 @@ extends BackgroundWidget<BW, BWS> {
 
 	//method
 	/**
-	 * Removes the max height of this border widget.
+	 * Removes the max height of the current {@link BorderWidget}.
 	 * 
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW removeMaxHeight() {
 		
@@ -683,9 +683,9 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Removes the max width of this border widget.
+	 * Removes the max width of the current {@link BorderWidget}.
 	 * 
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW removeMaxWidtht() {
 		
@@ -696,9 +696,9 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Removes the min height of this border widget.
+	 * Removes the min height of the current {@link BorderWidget}.
 	 * 
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW removeMinHeight() {
 		
@@ -709,9 +709,9 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Removes the min width of this border widget.
+	 * Removes the min width of the current {@link BorderWidget}.
 	 * 
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW removeMinWidth() {
 		
@@ -722,9 +722,9 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Resets the configuration of this border widget.
+	 * Resets the configuration of the current {@link BorderWidget}.
 	 * 
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 */
 	public BW resetConfiguration() {
 		
@@ -744,9 +744,9 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Lets this border widget scroll to bottom.
+	 * Lets the current {@link BorderWidget} scroll to bottom.
 	 * 
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW scrollToBottom() {
 		return setViewAreaYPositionOnScrollArea(getScrollAreaHeight());
@@ -754,9 +754,9 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Lets this border widget scroll to left.
+	 * Lets the current {@link BorderWidget} scroll to left.
 	 * 
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW scrollToLeft() {
 		return setViewAreaXPositionOnScrollArea(0);
@@ -764,9 +764,9 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Lets this border widget scroll to right.
+	 * Lets the current {@link BorderWidget} scroll to right.
 	 * 
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW scrollToRight() {
 		return setViewAreaXPositionOnScrollArea(getScrollAreaWidth());
@@ -774,9 +774,9 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Lets this border widget scroll to top.
+	 * Lets the current {@link BorderWidget} scroll to top.
 	 * 
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW scrollToTop() {
 		return setViewAreaYPositionOnScrollArea(0);
@@ -784,10 +784,10 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Sets the content position of this border widget.
+	 * Sets the content position of the current {@link BorderWidget}.
 	 * 
 	 * @param contentPosition
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 * @throws NullArgumentException if the given content position is null.
 	 */
 	public final BW setContentPosition(final ContentPosition contentPosition) {
@@ -795,7 +795,7 @@ extends BackgroundWidget<BW, BWS> {
 		//Checks if the given content position is not null.
 		Validator.suppose(contentPosition).isInstanceOf(ContentPosition.class);
 
-		//Sets the content position of this border widget.
+		//Sets the content position of the current border widget.
 		this.contentPosition = contentPosition;
 		
 		return asConcreteType();
@@ -803,10 +803,10 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Sets the max height of this border widget.
+	 * Sets the max height of the current {@link BorderWidget}.
 	 * 
 	 * @param maxHeight
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 * @throws NonPositiveArgumentException if the given max height is not positive.
 	 */
 	public final BW setMaxHeight(final int maxHeight) {
@@ -818,10 +818,10 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Sets the max width of this border widget.
+	 * Sets the max width of the current {@link BorderWidget}.
 	 * 
 	 * @param maxWidth
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 * @throws NonPositiveArgumentException if the given max width is not positive.
 	 */
 	public final BW setMaxWidth(final int maxWidth) {
@@ -833,10 +833,10 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Sets the min height of this border widget.
+	 * Sets the min height of the current {@link BorderWidget}.
 	 * 
 	 * @param minHeight
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 * @throws NonPositiveArgumentException if the given min height is not positive.
 	 */
 	public final BW setMinHeight(final int minHeight) {
@@ -848,10 +848,10 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Sets the min width of this border widget.
+	 * Sets the min width of the current {@link BorderWidget}.
 	 * 
 	 * @param minWidth
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 * @throws NonPositiveArgumentException if the given min width is not positive.
 	 */
 	public final BW setMinWidth(final int minWidth) {
@@ -884,40 +884,40 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Sets the proposal height of this border widget.
+	 * Sets the proposal height of the current {@link BorderWidget}.
 	 * 
 	 * @param proposalHeight
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 * @throws NonPositiveArgumentException if the given proposal height is not positive.
 	 */
 	public final BW setProposalHeight(final int proposalHeight) {
 		
-		proposalHeightProperty.setValue(new PositiveInteger(proposalHeight));
+		this.proposalHeight.setValue(new PositiveInteger(proposalHeight));
 		
 		return asConcreteType();
 	}
 	
 	//method
 	/**
-	 * Sets the proposal with of this border widget.
+	 * Sets the proposal with of the current {@link BorderWidget}.
 	 * 
 	 * @param proposalWidth
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 * @throws NonPositiveArgumentException if the given proposal width is not positive.
 	 */
 	public final BW setProposalWidth(final int proposalWidth) {
 		
-		proposalWidthProperty.setValue(new PositiveInteger(proposalWidth));
+		this.proposalWidth.setValue(new PositiveInteger(proposalWidth));
 		
 		return asConcreteType();
 	}
 	
 	//method
 	/**
-	 * Sets the x-position of the view area on the scroll area of this border widget.
+	 * Sets the x-position of the view area on the scroll area of the current {@link BorderWidget}.
 	 * 
 	 * @param viewAreaXPositionOnScrollArea
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW setViewAreaXPositionOnScrollArea(int viewAreaXPositionOnScrollArea) {
 		
@@ -937,10 +937,10 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Sets the y-position of the view area on the scroll area of this border widget.
+	 * Sets the y-position of the view area on the scroll area of the current {@link BorderWidget}.
 	 * 
 	 * @param viewAreaYPositionOnScrollArea
-	 * @return this border widget.
+	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW setViewAreaYPositionOnScrollArea(int viewAreaYPositionOnScrollArea) {
 		
@@ -960,7 +960,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return true if the content area of this border widget is under the cursor.
+	 * @return true if the content area of the current {@link BorderWidget} is under the cursor.
 	 */
 	protected final boolean contentAreaIsUnderCursor() {
 		return (
@@ -973,19 +973,19 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//abstract method
 	/**
-	 * @return the height of the content area of this border widget.
+	 * @return the height of the content area of the current {@link BorderWidget}.
 	 */
 	protected abstract int getContentAreaHeight();
 	
 	//abstract method
 	/**
-	 * @return the width of the content area of this border widget.
+	 * @return the width of the content area of the current {@link BorderWidget}.
 	 */
 	protected abstract int getContentAreaWidth();
 	
 	//method
 	/**
-	 * @return the x-position of the content area of this border widget.
+	 * @return the x-position of the content area of the current {@link BorderWidget}.
 	 */
 	protected final int getContentAreaXPosition() {
 		
@@ -999,7 +999,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the y-position of the content area of this border widget.
+	 * @return the y-position of the content area of the current {@link BorderWidget}.
 	 */
 	protected final int getContentAreaYPosition() {
 		
@@ -1013,7 +1013,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the x-position of the cursor on the content area of this border widget.
+	 * @return the x-position of the cursor on the content area of the current {@link BorderWidget}.
 	 */
 	protected final int getCursorXPositionOnContentArea() {
 		return (getCursorXPosition() - getContentAreaXPosition());
@@ -1021,7 +1021,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the y-position of the cursor on the content area of this border widget.
+	 * @return the y-position of the cursor on the content area of the current {@link BorderWidget}.
 	 */
 	protected final int getCursorYPositionOnContentArea() {
 		return (getCursorYPosition() - getContentAreaYPosition());
@@ -1029,7 +1029,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the height of this border widget when it is not collapsed.
+	 * @return the height of the current {@link BorderWidget} when it is not collapsed.
 	 */
 	protected final int getHeightWhenNotCollapsed() {
 		
@@ -1043,7 +1043,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the  width of this border widget when it is not collapsed.
+	 * @return the  width of the current {@link BorderWidget} when it is not collapsed.
 	 */
 	protected final int getWidthWhenNotCollapsed() {
 		
@@ -1057,7 +1057,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Paints this border widget using the given widget structure and painter.
+	 * Paints the current {@link BorderWidget} using the given widget structure and painter.
 	 * 
 	 * @param widgetStructure
 	 * @param painter
@@ -1118,7 +1118,7 @@ extends BackgroundWidget<BW, BWS> {
 			);
 		}
 		
-		//Paints the bordered area of this border widget.
+		//Paints the bordered area of the current border widget.
 		paintBorderedArea(
 			widgetStructure,
 			painter.createPainter(
@@ -1130,7 +1130,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//abstract method
 	/**
-	 * Paints the content area of this border widget using the given border widget look and painter.
+	 * Paints the content area of the current {@link BorderWidget} using the given border widget look and painter.
 	 * 
 	 * @param borderWidgetLook
 	 * @param painter
@@ -1139,7 +1139,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Sets the cursor position on the content area of this border widget.
+	 * Sets the cursor position on the content area of the current {@link BorderWidget}.
 	 * 
 	 * @param cursorXPositionOnContent
 	 * @param cursorYPositionOnContent
@@ -1169,7 +1169,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the height of the bordered area of this border widget.
+	 * @return the height of the bordered area of the current {@link BorderWidget}.
 	 */
 	private int getBorderedAreaHeight() {
 		return 
@@ -1179,7 +1179,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the width of the bordered area of this border widget.
+	 * @return the width of the bordered area of the current {@link BorderWidget}.
 	 */
 	private int getBorderedAreaWidth() {
 		return 
@@ -1189,7 +1189,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the x-position of the bordered area of this border widget.
+	 * @return the x-position of the bordered area of the current {@link BorderWidget}.
 	 */
 	private int getBorderedAreaXPosition() {
 		
@@ -1200,7 +1200,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the y-position of the bordered area of this border widget.
+	 * @return the y-position of the bordered area of the current {@link BorderWidget}.
 	 */
 	private int getBorderedAreaYPosition() {
 		
@@ -1211,14 +1211,14 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the x-position of the content area of this border widget
-	 * on the scroll area of this border widget.
+	 * @return the x-position of the content area of the current {@link BorderWidget}
+	 * on the scroll area of the current {@link BorderWidget}.
 	 */
 	private int getContentAreaXPositionOnScrollArea() {
 		
 		final var currentStructure = getRefCurrentLook();
 		
-		//Enumerates the content position of this border widget.
+		//Enumerates the content position of the current border widget.
 		switch (getContentPosition()) {
 			case LeftTop:
 			case Left:
@@ -1242,14 +1242,14 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the y-position of the content area of this border widget
-	 * on the scroll area of this border widget.
+	 * @return the y-position of the content area of the current {@link BorderWidget}
+	 * on the scroll area of the current {@link BorderWidget}.
 	 */
 	private int getContentAreaYPositionOnScrollArea() {
 		
 		final var currentStructure = getRefCurrentLook();
 		
-		//Enumerates the content orientation of this border widget.
+		//Enumerates the content orientation of the current border widget.
 		switch (getContentPosition()) {
 			case LeftTop:
 			case Top:
@@ -1273,7 +1273,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the x-position of the cursor on the view area of this border widget.
+	 * @return the x-position of the cursor on the view area of the current {@link BorderWidget}.
 	 */
 	private int getCursorXPositionOnViewArea() {
 		return (getCursorXPosition() - getViewAreaXPosition());
@@ -1281,7 +1281,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the y-position of the cursor on the view area of this border widget.
+	 * @return the y-position of the cursor on the view area of the current {@link BorderWidget}.
 	 */
 	private int getCursorYPositionOnViewArea() {
 		return (getCursorYPosition() - getViewAreaYPosition());
@@ -1323,7 +1323,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the y-position of the horizontal scrollbar cursor of this border widget
+	 * @return the y-position of the horizontal scrollbar cursor of the current {@link BorderWidget}
 	 */
 	private int getHorizontalScrollbarCursorYPosition() {
 		return
@@ -1334,7 +1334,7 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	/**
 	 * @return the y-position of the horizontal scrollbar
-	 * on the bordered area of this border widget.
+	 * on the bordered area of the current {@link BorderWidget}.
 	 */
 	private int getHorizontalScrollbarYPositionOnBorderedArea() {
 		return (getBorderedAreaHeight()	- getHorizontalScrollbarThickness());
@@ -1468,7 +1468,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the height of the scroll area of this border widget.
+	 * @return the height of the scroll area of the current {@link BorderWidget}.
 	 */
 	private int getScrollAreaHeight() {
 		
@@ -1478,7 +1478,7 @@ extends BackgroundWidget<BW, BWS> {
 			scrollAreaHeight = Calculator.getMax(scrollAreaHeight, getProposalScrollAreaHeight());
 		}
 		
-		//Handles the case that this border widget has a min height.
+		//Handles the case that the current border widget has a min height.
 		if (hasMinHeight()) {
 			scrollAreaHeight = Calculator.getMax(
 				scrollAreaHeight,
@@ -1491,7 +1491,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the width of the scroll area of this border widget.
+	 * @return the width of the scroll area of the current {@link BorderWidget}.
 	 */
 	private int getScrollAreaWidth() {
 			
@@ -1501,7 +1501,7 @@ extends BackgroundWidget<BW, BWS> {
 			scrollAreaWidth = Calculator.getMax(scrollAreaWidth, getProposalScrollAreaWith());
 		}
 		
-		//Handles the case that this border widget has a min width.
+		//Handles the case that the current border widget has a min width.
 		if (hasMinWidth()) {
 			scrollAreaWidth = Calculator.getMax(
 				scrollAreaWidth,
@@ -1514,7 +1514,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the height of the vertical scrollbar cursor of this border widget.
+	 * @return the height of the vertical scrollbar cursor of the current {@link BorderWidget}.
 	 */
 	private int getVerticalScrollbarCursorHeight() {
 		return
@@ -1526,7 +1526,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the x-position of the vertical scroll bar cursor of this border widget.
+	 * @return the x-position of the vertical scroll bar cursor of the current {@link BorderWidget}.
 	 */
 	private int getVerticalScrollbarCursorXPosition() {
 		return
@@ -1536,7 +1536,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the y-position of the vertical scroll bar cursor of this border widget.
+	 * @return the y-position of the vertical scroll bar cursor of the current {@link BorderWidget}.
 	 */
 	private int getVerticalScrollbarCursorYPosition() {
 		return
@@ -1547,7 +1547,7 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	/**
 	 * @return the y-position of the vertical scrollbar cursor
-	 * on the vertical scrollbar of this border widget.
+	 * on the vertical scrollbar of the current {@link BorderWidget}.
 	 */
 	private int getVerticalScrollbarCursorYPositionOnVerticalScrollbar() {
 		
@@ -1562,7 +1562,7 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	/**
 	 * @return the x-position of the vertical scrollbar
-	 * on the bordered area of this border widget.
+	 * on the bordered area of the current {@link BorderWidget}.
 	 */
 	private int getVerticalScrollbarXPositionOnBorderedArea() {
 		return (getBorderedAreaWidth() - getVerticalScrollbarThickness());
@@ -1570,7 +1570,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the height of the view area of this border widget.
+	 * @return the height of the view area of the current {@link BorderWidget}.
 	 */
 	private int getViewAreaHeight() {
 		
@@ -1590,7 +1590,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the width of the view area of this border widget.
+	 * @return the width of the view area of the current {@link BorderWidget}.
 	 */
 	private int getViewAreaWidth() {
 						
@@ -1610,7 +1610,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the x-position of the view area of this border widget.
+	 * @return the x-position of the view area of the current {@link BorderWidget}.
 	 */
 	private int getViewAreaXPosition() {
 		return getBorderedAreaXPosition();
@@ -1618,7 +1618,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the y-position of the view area of this border widget.
+	 * @return the y-position of the view area of the current {@link BorderWidget}.
 	 */
 	private int getViewAreaYPosition() {
 		return getBorderedAreaYPosition();
@@ -1626,16 +1626,16 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return true if the cursor is over the horizontal scrollbar cursor of this border widget.
+	 * @return true if the cursor is over the horizontal scrollbar cursor of the current {@link BorderWidget}.
 	 */
 	private boolean horizontalScrollbarCursorIsUnderCursor() {
 		
-		//Handles the case that this border widget has no horizontal scrollbar.
+		//Handles the case that the current border widget has no horizontal scrollbar.
 		if (!hasHorizontalScrollbar()) {
 			return false;
 		}
 		
-		//Handles the case that this border widget has a horizontal scrollbar.
+		//Handles the case that the current border widget has a horizontal scrollbar.
 			final var cursorXPosition = getCursorXPosition();
 			final var cursorYPosition = getCursorYPosition();
 			final var horizontalScrollbarCursorXPosition = getHorizontalScrollbarCursorXPosition();
@@ -1650,16 +1650,16 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return true if the cursor is over the horizontal scrollbar of this border widget.
+	 * @return true if the cursor is over the horizontal scrollbar of the current {@link BorderWidget}.
 	 */
 	private boolean horizontalScrollbarIsUnderCursor() {
 		
-		//Handles the case that this border widget has no horizontal scrollbar.
+		//Handles the case that the current border widget has no horizontal scrollbar.
 		if (!hasHorizontalScrollbar()) {
 			return false;
 		}
 		
-		//Handles the case that this border widget has a horizontal scrollbar.
+		//Handles the case that the current border widget has a horizontal scrollbar.
 			final var cursorXPosition = getCursorXPosition();
 			final var cursorYPosition = getCursorYPosition();
 			final var horizontalScrollbarCursorXPosition = getHorizontalScrollbarCursorXPosition();
@@ -1674,7 +1674,7 @@ extends BackgroundWidget<BW, BWS> {
 
 	//method
 	/**
-	 * Paints the bordered area of this border widget
+	 * Paints the bordered area of the current {@link BorderWidget}
 	 * using the given border widget structure and painter.
 	 * 
 	 * @param borderWidgetStructure
@@ -1685,7 +1685,7 @@ extends BackgroundWidget<BW, BWS> {
 		final IPainter painter
 	) {
 		
-		//Paints the vertical scroll bar if this border widget has a vertical scrollbar.
+		//Paints the vertical scroll bar if the current border widget has a vertical scrollbar.
 		if (hasVerticalScrollbar()) {
 			
 			//Paints the vertical scrollbar.				
@@ -1709,7 +1709,7 @@ extends BackgroundWidget<BW, BWS> {
 				);
 		}
 		
-		//Paints the horizontal scrollbar if this border widget has a horizontal scrollbar.
+		//Paints the horizontal scrollbar if the current border widget has a horizontal scrollbar.
 		if (hasHorizontalScrollbar()) {
 			
 			//Paints the horizontal scrollbar.	
@@ -1733,7 +1733,7 @@ extends BackgroundWidget<BW, BWS> {
 				);
 		}
 		
-		//Paints the view area of this border widget.
+		//Paints the view area of the current border widget.
 		paintViewArea(
 			borderWidgetStructure,
 			painter.createPainter(
@@ -1747,7 +1747,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Paints the view area of this border widget
+	 * Paints the view area of the current {@link BorderWidget}
 	 * using the given widget structure and painter.
 	 * 
 	 * @param widgetStructure
@@ -1770,7 +1770,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * Lets this border widget paint its scroll area
+	 * Lets the current {@link BorderWidget} paint its scroll area
 	 * using the given widget structure and painter.
 	 * 
 	 * @param widgetStructure
@@ -1793,16 +1793,16 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return true if the cursor is over the vertical scrollbar cursor of this border widget.
+	 * @return true if the cursor is over the vertical scrollbar cursor of the current {@link BorderWidget}.
 	 */
 	private boolean verticalScrollbarCursorIsUnderCursor() {
 		
-		//Handles the case that this border widget has no vertical scrollbar.
+		//Handles the case that the current border widget has no vertical scrollbar.
 		if (!hasVerticalScrollbar()) {
 			return false;
 		}
 		
-		//Handles the case that this border widget has a vertical scrollbar.
+		//Handles the case that the current border widget has a vertical scrollbar.
 			final var cursorXPosition = getCursorXPosition();
 			final var cursorYPosition = getCursorYPosition();		
 			final var verticalScrollbarCursorXPosition = getVerticalScrollbarCursorXPosition();
@@ -1817,16 +1817,16 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return true if the cursor is over the vertical scrollbar of this border widget.
+	 * @return true if the cursor is over the vertical scrollbar of the current {@link BorderWidget}.
 	 */
 	private boolean verticalScrollbarIsUnderCursor() {
 		
-		//Handles the case that this border widget has no vertical scrollbar.
+		//Handles the case that the current border widget has no vertical scrollbar.
 		if (!hasVerticalScrollbar()) {
 			return false;
 		}
 		
-		//Handles the case that this border widget has a vertical scrollbar.
+		//Handles the case that the current border widget has a vertical scrollbar.
 			final var cursorXPosition = getCursorXPosition();
 			final var cursorYPosition = getCursorYPosition();		
 			final var verticalScrollbarCursorXPosition = getVerticalScrollbarCursorXPosition();
