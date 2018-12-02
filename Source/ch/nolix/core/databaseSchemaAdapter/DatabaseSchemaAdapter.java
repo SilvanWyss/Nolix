@@ -79,7 +79,7 @@ implements
 	}
 	
 	//method
-	public DSA initialize() {
+	public final DSA initialize() {
 		
 		supposeIsNotInitialized();
 		
@@ -136,7 +136,7 @@ implements
 	
 	//abstract method
 	private List<EntitySet> getEntitySetsFromDatabase() {
-		//TODO
+		//TODO: Create a general entity class.
 		return getEntitySetAdapters().to(es -> new EntitySet(this, Entity.class));
 	}
 	
@@ -154,8 +154,6 @@ implements
 			);
 		}
 	}
-	
-
 	
 	//method
 	private void supposeIsNotInitialized() {
