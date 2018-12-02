@@ -6,10 +6,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+//own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.IPv4Catalogue;
-//own imports
-import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.validator2.Validator;
 
