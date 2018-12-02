@@ -272,7 +272,7 @@ extends Client<FGC> {
 	
 	//method
 	private void runPainterCommands(final IContainer<Statement> painterCommands) {
-		//TODO
+		//TODO: Handle begin and end of 1 painting process.
 		for (final Statement pc : painterCommands) {
 			runPainterCommand(getRefPainterByIndex(pc.getOneAttributeAsInt()), pc.getRefNextStatement());
 		}
