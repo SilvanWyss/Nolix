@@ -52,7 +52,7 @@ public final class SQLExecutor implements Resettable<SQLExecutor> {
 			/*
 			 * For a better performance, this implementation does not use all comfortable methods.
 			 * 
-			 * A more suitable implementation is:
+			 * A shorter implementation is:
 			 * 
 			 * reset();
 			 */
