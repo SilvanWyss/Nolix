@@ -1064,7 +1064,6 @@ extends BackgroundWidget<BW, BWS> {
 		proposedContentAreaHeight
 		- currentLook.getRecursiveOrDefaultTopBorderThickness()
 		- currentLook.getRecursiveOrDefaultTopPadding()
-		- getHorizontalScrollbarThickness()
 		- currentLook.getRecursiveOrDefaultBottomPadding()
 		- currentLook.getRecursiveOrDefaultBottomBorderThickness();
 	}
@@ -1092,7 +1091,6 @@ extends BackgroundWidget<BW, BWS> {
 		proposedContentAreaWidth
 		- currentLook.getRecursiveOrDefaultLeftBorderThickness()
 		- currentLook.getRecursiveOrDefaultLeftPadding()
-		- getVerticalScrollbarThickness()
 		- currentLook.getRecursiveOrDefaultRightPadding()
 		- currentLook.getRecursiveOrDefaultRightBorderThickness();
 	}
