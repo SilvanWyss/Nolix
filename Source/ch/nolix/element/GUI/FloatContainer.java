@@ -185,6 +185,19 @@ implements Clearable<FloatContainer> {
 	}
 	
 	//method
+	protected void setCursorPositionOnContentArea(
+		final int cursorXPositionOnContent,
+		final int cursorYPositionOnContent
+	) {
+		for (final var w : getRefWidgets()) {
+			w.setParentCursorPosition(
+				cursorXPositionOnContent,
+				cursorYPositionOnContent
+			);
+		}
+	}
+	
+	//method
 	protected void setPositionOnParent(
 		final int relativeXPosition,
 		final int relativeYPosition
