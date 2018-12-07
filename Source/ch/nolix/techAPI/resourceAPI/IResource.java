@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.techAPI.resourceAPI;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.skillAPI.Named;
 
@@ -17,7 +18,7 @@ import ch.nolix.core.skillAPI.Named;
  * @lines 60
  */
 public interface IResource extends Named {
-		
+	
 	//abstract method
 	/**
 	 * @return the number of base resources of the current {@link IResource}.
@@ -30,19 +31,23 @@ public interface IResource extends Named {
 	 */
 	public abstract IContainer<IResource> getBaseResources();
 	
-	//abstract method
+	//default method
 	/**
 	 * @param resource
 	 * @return true if the current {@link IResource} is a base resource of the given resource.
 	 */
-	public abstract boolean isBaseResourceOf(final IResource resource);
+	public default boolean isBaseResourceOf(final IResource resource) {
+		return resource.isSubResourceOf(this);
+	}
 	
-	//abstract method
+	//default method
 	/**
 	 * @param resource
 	 * @return true if the current {@link IResource} is a direct base resource of the given resource.
 	 */
-	public abstract boolean isDirectBaseResourceOf(final IResource resource);
+	public default boolean isDirectBaseResourceOf(final IResource resource) {
+		return resource.isDirectSubResourceOf(this);
+	}
 	
 	//abstract method
 	/**
