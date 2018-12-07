@@ -133,13 +133,13 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * 
 	 * @param endPoint
 	 * @throws UnexistingAttributeException if
-	 * this server has no arbitrary duplex controller taker
+	 * this server does not have an arbitrary duplex controller taker
 	 * or does not contain a duplex controller taker
 	 * with the same name as the target of the given duplex controller.
 	 */
 	public final void takeDuplexController(final EndPoint endPoint) {
 		
-		//Handles the case that this server has no arbitrary duplex controller taker.
+		//Handles the case that this server does not have an arbitrary duplex controller taker.
 		if (!hasArbitraryDuplexControllerTaker()) {
 			endPointTaker
 			.getRefFirst(dct -> dct.hasName(endPoint.getTarget()))
@@ -162,7 +162,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	//method
 	/**
 	 * @return the arbitrary duplex controller taker of this server.
-	 * @throws UnexistingAttributeException if this server has no arbitrary duplex controller taker.
+	 * @throws UnexistingAttributeException if this server does not have an arbitrary duplex controller taker.
 	 */
 	private IEndPointTaker getArbitraryDuplexControllerTaker() {
 

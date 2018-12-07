@@ -75,7 +75,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	/**
 	 * @return the header of this sub specification.
 	 * @throws UnexistingAttributeException if this sub specification
-	 * has no header.
+	 * does not have a header.
 	 */
 	@Override
 	public String getHeader() {
@@ -99,7 +99,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	//method
 	/**
 	 * @return the one attribute of this sub specification.
-	 * @throws EmptyStateException if this sub specification does not contain a attributes.
+	 * @throws EmptyStateException if this sub specification does not contain an attribute.
 	 * @throws InvalidStateException if this sub specification contains several attributes.
 	 */
 	@Override

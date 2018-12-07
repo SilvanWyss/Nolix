@@ -44,9 +44,9 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	//method
 	public final void addDefaultApplication(final Application<?> arbitraryApplication) {
 		
-		//Checks if this server does not contain a applications.
+		//Checks if this server does not contain an application.
 		if (containsAny()) {
-			throw new InvalidStateException(this, "contains applications");
+			throw new InvalidStateException(this, "contains an application");
 		}
 		
 		addApplication(arbitraryApplication);
@@ -129,7 +129,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//method
 	/**
-	 * @return true if this server does not contain a application.
+	 * @return true if this server does not contain an application.
 	 */
 	@Override
 	public final boolean isEmpty() {
@@ -144,7 +144,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 */
 	public void takeClient(final Client<?> client) {
 		
-		//Handles the case that this server has no arbitrary application.
+		//Handles the case that this server does not have an arbitrary application.
 		if (!containsDefaultApplication()) {
 			applications
 			.getRefFirst(a -> a.hasName(client.internal_getTarget()))
@@ -160,7 +160,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	//method
 	/**
 	 * @return the arbitrary application of this server.
-	 * @throws UnexistingAttributeException if this server has no arbitrary application.
+	 * @throws UnexistingAttributeException if this server does not have an arbitrary application.
 	 */
 	protected Application<?> getRefDefaultApplication() {
 		
@@ -176,7 +176,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	/**
 	 * @param name
 	 * @return the application with the given name from this server.
-	 * @throws RuntimeException if this server does not contain a application with the given name.
+	 * @throws RuntimeException if this server does not contain an application with the given name.
 	 */
 	protected final Application<?> getRefApplicationByName(String name) {
 		return applications.getRefFirst(a -> a.hasName(name));

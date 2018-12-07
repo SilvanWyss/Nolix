@@ -80,7 +80,7 @@ final class SubContainerIterator<E> implements Iterator<E> {
 	//method
 	/**
 	 * @return the next element of this sub container iterator.
-	 * @throws UnexistingAttributeException if this sub container iterator has no next element.
+	 * @throws UnexistingAttributeException if this sub container iterator does not have a next element.
 	 */
 	@Override
 	public E next() {

@@ -55,7 +55,7 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	//method
 	/**
 	 * @return the default texture of the current {@link BaseShape} as {@link BufferedImage}.
-	 * @throws UnexistingAttribute if the current {@link BaseShape} has no default texture.
+	 * @throws UnexistingAttribute if the current {@link BaseShape} does not have a default texture.
 	 */
 	public final BufferedImage getDefaultTextureAsBufferedImage() {
 		
@@ -66,7 +66,7 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	//method
 	/**
 	 * @return the default texture of the current {@link BaseShape}.
-	 * @throws UnexistingAttribute if the current {@link BaseShape} has no default texture.
+	 * @throws UnexistingAttribute if the current {@link BaseShape} does not have a default texture.
 	 */
 	public final Image getRefDefaultTexture() {
 		return defaultTexture.getValue();

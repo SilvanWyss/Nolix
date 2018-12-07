@@ -83,7 +83,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	//method
 	/**
 	 * @return the name of this optional namable element.
-	 * @throws UnexistingAttributeException if this optional namable element has no name.
+	 * @throws UnexistingAttributeException if this optional namable element does not have a name.
 	 */
 	@Override
 	public final String getName() {

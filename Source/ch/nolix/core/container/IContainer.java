@@ -1446,7 +1446,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @return true if the current {@link IContainer} does not contain a elements.
+	 * @return true if the current {@link IContainer} does not contain an element.
 	 */
 	public default boolean isEmpty() {
 		return !iterator().hasNext();

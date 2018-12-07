@@ -74,7 +74,7 @@ public final class SimplePersistentDocumentNode extends DocumentNodeoid {
 	/**
 	 * @return true if this simple persistent specification has a header.
 	 * @throws UnexistingAttributeException if this simple persistent specification
-	 * has no header.
+	 * does not have a header.
 	 */
 	@Override
 	public String getHeader() {
@@ -99,7 +99,7 @@ public final class SimplePersistentDocumentNode extends DocumentNodeoid {
 	/**
 	 * @return the one attribute of this simple persistent specification.
 	 * @throws RuntimeException if this simple persistent specification
-	 * has no or several attributes.
+	 * does not contain an attribute or contains several attributes.
 	 */
 	@Override
 	public SubDocumentNode getRefOneAttribute() {

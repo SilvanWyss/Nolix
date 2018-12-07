@@ -322,7 +322,7 @@ implements Freezable<C> {
 	//method
 	/**
 	 * @return the selector name of this configuration.
-	 * @throws UnexistingAttributeException if this configuration has no selector name.
+	 * @throws UnexistingAttributeException if this configuration does not have a selector name.
 	 */
 	public final String getSelectorName() {
 		
@@ -345,7 +345,7 @@ implements Freezable<C> {
 	//method
 	/**
 	 * @return the selector token of this configuration.
-	 * @throws UnexistingAttributeException if this configuration has no selector token.
+	 * @throws UnexistingAttributeException if this configuration does not have a selector token.
 	 */
 	public final String getSelectorToken() {
 		
@@ -368,7 +368,7 @@ implements Freezable<C> {
 	//method
 	/**
 	 * @return the selector type of this configuration.
-	 * @throws UnexistingAttributeException if this configuration has no selector type.
+	 * @throws UnexistingAttributeException if this configuration does not have a selector type.
 	 */
 	public final String getSelectorType() {
 		
@@ -395,7 +395,7 @@ implements Freezable<C> {
 	 */
 	public final boolean hasSelectorName(final String selectorName) {
 		
-		//Handles the case that this configuration has no selector name.
+		//Handles the case that this configuration does not have a selector name.
 		if (!hasSelectorName()) {
 			return false;
 		}
@@ -419,7 +419,7 @@ implements Freezable<C> {
 	 */
 	public final boolean hasSelectorToken(final String selectorToken) {
 		
-		//Handles the case that this configuration has no selector token.
+		//Handles the case that this configuration does not have a selector token.
 		if (!hasSelectorToken()) {
 			return false;
 		}
@@ -443,7 +443,7 @@ implements Freezable<C> {
 	 */
 	public final boolean hasSelectorType(final String selectorType) {
 		
-		//Handles the case that this configuration has no selector type.
+		//Handles the case that this configuration does not have a selector type.
 		if (!hasSelectorType()) {
 			return false;
 		}

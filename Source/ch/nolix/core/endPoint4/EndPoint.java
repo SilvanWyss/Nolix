@@ -67,7 +67,7 @@ implements IGenericReplyingSender<M, R> {
 	//method
 	/**
 	 * @return the replier of this end point.
-	 * @throws UnexistingAttributeException if this end point has no replier.
+	 * @throws UnexistingAttributeException if this end point does not have a replier.
 	 */
 	protected final IGenericReplier<M, R> getRefReplier() {
 		

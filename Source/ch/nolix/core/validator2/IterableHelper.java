@@ -25,7 +25,7 @@ final class IterableHelper {
 	//method
 	/**
 	 * @param object
-	 * @return true if the given object does not contain a element.
+	 * @return true if the given object does not contain an element.
 	 */
 	public static <E> boolean isEmpty(final Iterable<E> object) {
 		return !object.iterator().hasNext();

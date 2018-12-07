@@ -66,7 +66,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 	/**
 	 * @return the next element of this read array container iterator.
 	 * @throws UnexistingAttributeException
-	 * if this read array container iterator has no next element.
+	 * if this read array container iterator does not have a next element.
 	 */
 	@Override
 	public E next() {

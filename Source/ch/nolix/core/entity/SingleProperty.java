@@ -69,7 +69,7 @@ extends Propertyoid<V> {
 	/**
 	 * @return the value of this single property.
 	 * @throws UnexistingAttributeException
-	 * if this single property has no value.
+	 * if this single property does not have a value.
 	 */
 	public final V getValue() {
 		
@@ -98,7 +98,7 @@ extends Propertyoid<V> {
 	
 	//method
 	/**
-	 * @return true if this single property has no value.
+	 * @return true if this single property does not have a value.
 	 */
 	@Override
 	public boolean isEmpty() {
@@ -197,7 +197,7 @@ extends Propertyoid<V> {
 	//package-visible method
 	/**
 	 * @throws UnexistingAttributeException
-	 * if this single property has no value.
+	 * if this single property does not have a value.
 	 */
 	void supposeHasValue() {
 		

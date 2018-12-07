@@ -34,7 +34,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 */
 	public final void addArbitraryEndPointTaker(final IEndPointTaker arbitraryEndPointTaker) {
 		
-		//Checks if this server does not contain a end point taker.
+		//Checks if this server does not contain an end point taker.
 		if (!isEmpty()) {
 			throw new InvalidStateException(this, "contains already end point taker");
 		}
@@ -98,7 +98,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//method
 	/**
-	 * @return true if this server does not contain a end point taker.
+	 * @return true if this server does not contain an end point taker.
 	 */
 	@Override
 	public final boolean isEmpty() {
@@ -111,7 +111,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * 
 	 * @param name
 	 * @throws InvalidArgumentException
-	 * if this server does not contain a end point taker with the given name.
+	 * if this server does not contain an end point taker with the given name.
 	 */
 	public final void removeEndPointTaker(final String name) {
 		
@@ -130,13 +130,13 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * 
 	 * @param endPoint
 	 * @throws UnexistingAttributeException if
-	 * this server has no arbitrary end point taker
-	 * or does not contain a end point taker
+	 * this server does not have an arbitrary end point taker
+	 * or does not contain an end point taker
 	 * with the same name as the target of the given end point taker. 
 	 */
 	public final void takeEndPoint(final EndPoint endPoint) {
 		
-		//Handles the case that this server has no arbitrary end point taker.
+		//Handles the case that this server does not have an arbitrary end point taker.
 		if (!hasArbitraryEndPointTaker()) {
 			endPointTaker
 			.getRefFirst(ept -> ept.hasName(endPoint.getTarget()))
@@ -160,7 +160,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	/**
 	 * @return the arbitrary end point taker of this server.
 	 * @throws UnexistingAttribtueException
-	 * if this server has no arbitrary end point taker.
+	 * if this server does not have an arbitrary end point taker.
 	 */
 	private IEndPointTaker getArbitraryEndPointTaker() {
 		

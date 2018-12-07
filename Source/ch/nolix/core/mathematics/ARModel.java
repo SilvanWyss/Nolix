@@ -85,7 +85,7 @@ public final class ARModel extends StatisticalModel {
 	/**
 	 * @param index
 	 * @return the p-coefficient of this AR model with the given index
-	 * @throws Exception if this AR model has no p-coefficient with the given index
+	 * @throws Exception if this AR model does not have a p-coefficient with the given index
 	 */
 	public final double getPCoefficient(final int index) {
 	

@@ -93,19 +93,19 @@ public final class Property<V> extends NamedElement {
 			return value;
 		}
 		
-		//Handles the case that this property has no value, but a base property.
+		//Handles the case that this property does not have a value, but a base property.
 		if (hasBaseProperty()) {
 			return baseProperty.getRecursiveOrDefaultValue();
 		}
 		
-		//Handles the case that this property has no value and no base property.
+		//Handles the case that this property does not have a value and no base property.
 		return defaultValue;
 	}
 	
 	//method
 	/**
 	 * @return the value of this property.
-	 * @throws UnexistingAttributeException if this property has no value.
+	 * @throws UnexistingAttributeException if this property does not have a value.
 	 */
 	public V getValue() {
 		
@@ -134,12 +134,12 @@ public final class Property<V> extends NamedElement {
 			return true;
 		}
 		
-		//Handles the case that this property has no value but a a base property.
+		//Handles the case that this property does not have a value but a base property.
 		if (hasBaseProperty()) {
 			return baseProperty.hasRecursiveValue();
 		}
 	
-		//Handles the case that this property has no value and no base property.
+		//Handles the case that this property does not have a value and no base property.
 		return false;
 	}
 	
@@ -231,7 +231,7 @@ public final class Property<V> extends NamedElement {
 	 */
 	private void supposeHasNoBaseProperty() {
 		
-		//Checks if this property has no base property.
+		//Checks if this property does not have a base property.
 		if (hasBaseProperty()) {
 			throw new InvalidStateException(
 				this,
@@ -243,7 +243,7 @@ public final class Property<V> extends NamedElement {
 
 	//method
 	/**
-	 * @throws UnexistingAttributeException if this property has no value.
+	 * @throws UnexistingAttributeException if this property does not have a value.
 	 */
 	private void supposeHasValue() {
 		

@@ -86,7 +86,7 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 	/**
 	 * @return the value of this percentage holder.
 	 * @throws UnexistingAttribtueException
-	 * if the current {@link ValueOrPercentageHolder} has no value.
+	 * if the current {@link ValueOrPercentageHolder} does not have a value.
 	 */
 	public int getValue() {
 		
@@ -105,7 +105,7 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 	/**
 	 * @return the percentage of this percentage holder.
 	 * @throws UnexistingAttribtueException
-	 * if the current {@link ValueOrPercentageHolder} has no percentage.
+	 * if the current {@link ValueOrPercentageHolder} does not have a percentage.
 	 */
 	public double getPercentage() {
 		

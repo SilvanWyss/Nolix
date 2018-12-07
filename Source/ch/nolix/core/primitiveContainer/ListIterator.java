@@ -26,7 +26,7 @@ public final class ListIterator<E> implements Iterator<E> {
 	public E next() {
 		
 		if (!hasNext()) {
-			throw new RuntimeException("The current iterator has no next element.");
+			throw new RuntimeException("The current iterator does not have a next element.");
 		}
 		
 		final E element = nextNode.getRefElement();

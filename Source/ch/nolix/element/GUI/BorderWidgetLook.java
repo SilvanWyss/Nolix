@@ -544,7 +544,7 @@ extends BackgroundWidgetLook<BWL> {
 	 */
 	public final int getRecursiveOrDefaultTopBorderThickness() {
 		
-		//Handles the case that the current border widget look has no top border thickness.
+		//Handles the case that the current border widget look does not have a top border thickness.
 		if (hasTopBorderThickness()) {
 			return topBorderThickness.getValue();
 		}
@@ -1264,7 +1264,7 @@ extends BackgroundWidgetLook<BWL> {
 	 */
 	private boolean hasSameBorderColorAtEachSide()  {
 		
-		//Handles the case that the current border widget look has no border color.
+		//Handles the case that the current border widget look does not have a border color.
 		if (
 			!hasLeftBorderColor()
 			&& !hasRightBorderColor()
@@ -1289,7 +1289,7 @@ extends BackgroundWidgetLook<BWL> {
 	 */
 	private boolean hasSameBorderThicknessAtEachSide() {
 		
-		//Handles the case that the current border widget look has no border thickness.
+		//Handles the case that the current border widget look does not have a border thickness.
 		if (
 			!hasLeftBorderThickness()
 			&& !hasRightBorderThickness()
@@ -1314,7 +1314,7 @@ extends BackgroundWidgetLook<BWL> {
 	 */
 	private boolean hasSamePaddingAtEachSide() {
 		
-		//Handles the case that the current border widget look has no paddings.
+		//Handles the case that the current border widget look does not have a paddings.
 		if (
 			!hasLeftPadding()
 			&& !hasRightPadding()

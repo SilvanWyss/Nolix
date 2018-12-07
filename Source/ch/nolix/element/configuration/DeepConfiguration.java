@@ -113,7 +113,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	//method
 	/**
 	 * @return the max selector level of this deep configuration.
-	 * @throws UnexistingAttributeException if this deep configuration has no max selector level.
+	 * @throws UnexistingAttributeException if this deep configuration does not have a max selector level.
 	 */
 	public int getMaxSelectorLevel() {
 		

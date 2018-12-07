@@ -214,7 +214,7 @@ implements ISmartObject<DocumentNode> {
 	//method
 	/**
 	 * Adds the given prefix to the header of the current {@link DocumentNode}.
-	 * Sets the given prefix has header to the current {@link DocumentNode} if it has no header.
+	 * Sets the given prefix has header to the current {@link DocumentNode} if it does not have a header.
 	 * 
 	 * @param prefix
 	 * @throws NullArgumentException if the given prefix is null.
@@ -225,7 +225,7 @@ implements ISmartObject<DocumentNode> {
 		//Checks if the given prefix is not null or empty.
 		Validator.suppose(prefix).thatIsNamed("prefix").isNotEmpty();
 		
-		//Handles the case that the current {@link StandardSpecification} has no header.
+		//Handles the case that the current {@link StandardSpecification} does not have a header.
 		if (!hasHeader()) {
 			setHeader(prefix);
 		}
@@ -239,7 +239,7 @@ implements ISmartObject<DocumentNode> {
 	//method
 	/**
 	 * Adds the given postfix to the header of the current {@link DocumentNode}.
-	 * Sets the given postfix as header to the current {@link DocumentNode} if it has no header.
+	 * Sets the given postfix as header to the current {@link DocumentNode} if it does not have a header.
 	 * 
 	 * @param postfix
 	 * @throws NullArgumentException if the given postfix is null.
@@ -250,7 +250,7 @@ implements ISmartObject<DocumentNode> {
 		//Checks if the given postfix is not null or empty.
 		Validator.suppose(postfix).thatIsNamed("postfix").isNotEmpty();
 		
-		//Handles the case that the current {@link StandardSpecification} has no header.
+		//Handles the case that the current {@link StandardSpecification} does not have a header.
 		if (hasHeader()) {
 			setHeader(postfix);			
 		}
@@ -272,7 +272,7 @@ implements ISmartObject<DocumentNode> {
 	//method
 	/**
 	 * @return the header of this specification.
-	 * @throws UnexistingAttributeException if this specification has no header.
+	 * @throws UnexistingAttributeException if this specification does not have a header.
 	 */
 	@Override
 	public String getHeader() {
@@ -296,7 +296,7 @@ implements ISmartObject<DocumentNode> {
 	//method
 	/**
 	 * @return the one attribute of the current {@link DocumentNode}
-	 * @throws EmptyStateException if the current {@link DocumentNode} does not contain a attributes.
+	 * @throws EmptyStateException if the current {@link DocumentNode} does not contain an attribute.
 	 * @throws InvalidStateException if the current {@link DocumentNode} contains several attributes.
 	 */
 	@Override
@@ -310,7 +310,8 @@ implements ISmartObject<DocumentNode> {
 	 * @return the one attribute of the first attribute with the given header
 	 * @throws Exception if:
 	 *  -the current {@link DocumentNode} does not contain an attribute with the given header
-	 *  -the first attribute of the current {@link DocumentNode} with the given header does not contain a or several attributes
+	 *  -the first attribute of the current {@link DocumentNode} with the given header
+	 *   does not contain an attribute or contains several attributes
 	 */
 	public DocumentNode getRefOneAttributeOfFirstAttribute(String header) {
 		return attributes.getRefFirst(a -> a.hasHeader(header)).getRefOneAttribute();
@@ -414,7 +415,7 @@ implements ISmartObject<DocumentNode> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link DocumentNode} has no header.
+	 * @throws UnexistingAttributeException if the current {@link DocumentNode} does not have a header.
 	 */
 	private void supposeHasHeader() {
 		

@@ -74,7 +74,7 @@ extends BorderWidget<C, BWS> {
 	//method
 	/**
 	 * @return the role of the current {@link Container}.
-	 * @throws UnexistingAttributeException if the current {@link Container} has no role.
+	 * @throws UnexistingAttributeException if the current {@link Container} does not have a role.
 	 */
 	public final ContainerRole getRole() {
 		
@@ -99,7 +99,7 @@ extends BorderWidget<C, BWS> {
 	@Override
 	public final boolean hasRole(final String role) {
 			
-		//Handles the case that the current container has no role.
+		//Handles the case that the current container does not have a role.
 		if (!hasRole()) {
 			return false;
 		}
@@ -141,7 +141,7 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link Container} has no role.
+	 * @throws UnexistingAttributeException if the current {@link Container} does not have a role.
 	 */
 	private void supposeHasRole() {
 		

@@ -165,7 +165,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	/**
 	 * @return the background color of the current {@link Area}.
 	 * @throws UnexistingAttributeException
-	 * if the current {@link Area} has no background color.
+	 * if the current {@link Area} does not have a background color.
 	 */
 	public Color getBackgroundColor() {
 		
@@ -378,7 +378,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	//method
 	/**
 	 * @throws UnexistingAttributeException
-	 * if the current {@link Area} has no background color.
+	 * if the current {@link Area} does not have a background color.
 	 */
 	private void supposeHasBackgroundColor() {
 		

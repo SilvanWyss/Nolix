@@ -95,7 +95,7 @@ public final class Label extends TextLineWidget<Label> {
 	//method
 	/**
 	 * @return the role of the current {@link Label}.
-	 * @throws UnexistingAttributeExcetpion if the current {@link Label} has no role.
+	 * @throws UnexistingAttributeExcetpion if the current {@link Label} does not have a role.
 	 */
 	public LabelRole getRole() {
 		
@@ -121,7 +121,7 @@ public final class Label extends TextLineWidget<Label> {
 	@Override
 	public boolean hasRole(final String role) {
 		
-		//Handles the case that the current label has no role.
+		//Handles the case that the current label does not have a role.
 		if (!hasRole()) {
 			return false;
 		}
@@ -170,7 +170,7 @@ public final class Label extends TextLineWidget<Label> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link Label} has no role.
+	 * @throws UnexistingAttributeException if the current {@link Label} does not have a role.
 	 */
 	private void supposeHasRole() {
 		

@@ -137,7 +137,7 @@ public class NetEndPoint extends EndPoint {
 	//method
 	/**
 	 * @return the target of this net duplex controller.
-	 * @throws UnexistingAttributeException if this net duplex controller has no target.
+	 * @throws UnexistingAttributeException if this net duplex controller does not have a target.
 	 */
 	@Override
 	public String getTarget() {
@@ -235,7 +235,7 @@ public class NetEndPoint extends EndPoint {
 	 * 
 	 * @param message
 	 * @return the reply to the given message from this net duplex controller.
-	 * @throws UnexistringAttributeException if this net duplex contorller has no receiver.
+	 * @throws UnexistringAttributeException if this net duplex contorller does not have a receiver.
 	 */
 	private final String receiveAndGetReply(final DocumentNode message) {
 		

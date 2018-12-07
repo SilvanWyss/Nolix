@@ -1100,7 +1100,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param node
 	 * @throws NullArgumentException if the given node is null.
-	 * @throws UnexistingPropertyException if the given node has no next node.
+	 * @throws UnexistingPropertyException if the given node does not have a next node.
 	 */
 	private void removeNextNode(final ListNode<E> node) {
 		

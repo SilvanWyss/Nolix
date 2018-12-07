@@ -28,7 +28,7 @@ extends Labelable<OS> {
 	@Override
 	public default boolean hasInfoString(final String infoString) {
 		
-		//Handles the case that this optional signable object has no info string.
+		//Handles the case that this optional signable object does not have an info string.
 		if (!hasInfoString()) {
 			return false;
 		}

@@ -241,7 +241,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends Entity<WL> {
 	/**
 	 * @return the base look of the current {@link WidgetLook}.
 	 * @throws UnexistingAttributeException
-	 * if the current {@link WidgetLook} has no base look.
+	 * if the current {@link WidgetLook} does not have a base look.
 	 */
 	protected final WL getRefBaseLook() {
 		
@@ -280,7 +280,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends Entity<WL> {
 	//method
 	/**
 	 * @throws UnexistingAttributeException
-	 * if the current {@link WidgetLook} has no base look.
+	 * if the current {@link WidgetLook} does not have a base look.
 	 */
 	private void supposeHasBaseLook() {
 		if (!hasBaseLook()) {

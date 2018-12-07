@@ -302,7 +302,7 @@ implements IGUI<G> {
 	//method
 	/**
 	 * @return the background color of this GUI.
-	 * @throws UnexistingAttributeException if this GUI has no background color.
+	 * @throws UnexistingAttributeException if this GUI does not have a background color.
 	 */
 	public final Color getBackgroundColor() {
 		return backgroundColor.getValue();
@@ -311,7 +311,7 @@ implements IGUI<G> {
 	//method
 	/**
 	 * @return the background color gradient of this GUI.
-	 * @throws UnexistingAttributeException if this GUI has no background color gradient.
+	 * @throws UnexistingAttributeException if this GUI does not have a background color gradient.
 	 */
 	public final ColorGradient getBackgroundColorGradient() {
 		return backgroundColorGradient.getValue();
@@ -385,7 +385,7 @@ implements IGUI<G> {
 	//method
 	/**
 	 * @return the controller of this GUI.
-	 * @throws UnexistingAttributeException if this GUI has no controller.
+	 * @throws UnexistingAttributeException if this GUI does not have a controller.
 	 */
 	@Override
 	public final IGUIController getRefController() {
@@ -398,7 +398,7 @@ implements IGUI<G> {
 	//method
 	/**
 	 * @return the root widget of this GUI.
-	 * @throws UnexistingAttributeException if this GUI has no root widget.
+	 * @throws UnexistingAttributeException if this GUI does not have a root widget.
 	 */
 	@SuppressWarnings("unchecked")
 	public final <W extends Widget<?, ?>> W getRefRootWidget() {
@@ -958,7 +958,7 @@ implements IGUI<G> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if this GUI has no controller.
+	 * @throws UnexistingAttributeException if this GUI does not have a controller.
 	 */
 	private void supposeHasController() {
 		if (!hasController()) {

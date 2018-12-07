@@ -77,7 +77,7 @@ implements ISender {
 	 * 
 	 * @param message
 	 * @throws InvalidStateException if this end point is aborted.
-	 * @throws UnexistingAttributeException if this end point has no receiver.
+	 * @throws UnexistingAttributeException if this end point does not have a receiver.
 	 */
 	protected final void receive(final String message) {
 		
@@ -90,7 +90,7 @@ implements ISender {
 	//method
 	/**
 	 * @return the receiver of this end point.
-	 * @throws UnexistingAttributeException if this end point has no receiver.
+	 * @throws UnexistingAttributeException if this end point does not have a receiver.
 	 */
 	private IReceiver getRefReceiver() {
 		

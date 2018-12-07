@@ -121,7 +121,7 @@ implements IDataProviderController {
 	 */
 	public final boolean hasTarget(final String target) {
 		
-		//Handles the case that this duplex controller has no target.
+		//Handles the case that this duplex controller does not have a target.
 		if (!hasTarget()) {
 			return false;
 		}
@@ -181,7 +181,7 @@ implements IDataProviderController {
 	//method
 	/**
 	 * @return the receiver controller of this duplex controller.
-	 * @throws UnexistingAttributeException if this duplex controller has no receiver controller.
+	 * @throws UnexistingAttributeException if this duplex controller does not have a receiver controller.
 	 */
 	protected IDataProviderController getRefReceiverController() {
 		

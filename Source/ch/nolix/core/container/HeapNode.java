@@ -48,7 +48,7 @@ final class HeapNode<E> {
 	//method
 	/**
 	 * @return the next node of the current {@link HeapNode}.
-	 * @throws UnexistingAttributeException if the current {@link HeapNode} has no next node.
+	 * @throws UnexistingAttributeException if the current {@link HeapNode} does not have a next node.
 	 */
 	public HeapNode<E> getRefNextNode() {
 		
@@ -115,7 +115,7 @@ final class HeapNode<E> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link HeapNode} has no next node.
+	 * @throws UnexistingAttributeException if the current {@link HeapNode} does not have a next node.
 	 */
 	private void supposeHasNextNode() {
 		if (!hasNextNode()) {

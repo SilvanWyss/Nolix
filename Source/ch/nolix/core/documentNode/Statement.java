@@ -158,7 +158,7 @@ public final class Statement implements Headered {
 	//method
 	/**
 	 * @return the header of the current {@link Statement}.
-	 * @throws UnexistingAttributeException if the current {@link Statement} has no header.
+	 * @throws UnexistingAttributeException if the current {@link Statement} does not have a header.
 	 */
 	@Override
 	public String getHeader() {
@@ -175,7 +175,7 @@ public final class Statement implements Headered {
 	//method
 	/**
 	 * @return a string representation of the next {@link Statement} of the current {@link Statement}.
-	 * @throws UnexistingAttributeException if the current {@link Statement} has no next {@link Statement}.
+	 * @throws UnexistingAttributeException if the current {@link Statement} does not have a next {@link Statement}.
 	 */
 	public String getNextStatementAsString() {
 		return getRefNextStatement().toString();
@@ -184,7 +184,7 @@ public final class Statement implements Headered {
 	//method
 	/**
 	 * @return the integer the one attribute of the current {@link Statement} represents.
-	 * @throws EmptyStateException if the current {@link Statement} does not contain a attributes.
+	 * @throws EmptyStateException if the current {@link Statement} does not contain an attribute.
 	 * @throws InvalidStateException if the current {@link Statement} contains several attributes.
 	 * @throws InvalidArgumentException
 	 * if the one attribute of the current {@link Statement} does not represent an integer.
@@ -196,7 +196,7 @@ public final class Statement implements Headered {
 	//method
 	/**
 	 * @return a string representation of the one attribute of the current {@link Statement}.
-	 * @throws EmptyStateException if the current {@link Statement} does not contain a attributes.
+	 * @throws EmptyStateException if the current {@link Statement} does not contain an attribute.
 	 * @throws InvalidStateException if the current {@link Statement} contains several attributes.
 	 */
 	public String getOneAttributeAsString() {
@@ -230,7 +230,7 @@ public final class Statement implements Headered {
 	//method
 	/**
 	 * @return the one attribute of the current {@link Statement}.
-	 * @throws EmptyStateException if the current {@link Statement} does not contain a attributes.
+	 * @throws EmptyStateException if the current {@link Statement} does not contain an attribute.
 	 * @throws InvalidStateException if the current {@link Statement} contains several attributes.
 	 */
 	public DocumentNode getRefOneAttribute() {

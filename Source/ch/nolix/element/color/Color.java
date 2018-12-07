@@ -1066,7 +1066,7 @@ public class Color extends Element<Color> {
 			return pair.getRefElement1();
 		}
 		
-		//Handles the case that the current color has no color name.
+		//Handles the case that the current color does not have a color name.
 		return getHexadecimalValue(false);
 	}
 	

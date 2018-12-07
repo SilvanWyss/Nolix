@@ -199,7 +199,7 @@ public class Polynom {
 	
 	//method
 	/**
-	 * A polynom is a zero polynom it has no coefficients.
+	 * A polynom is a zero polynom it does not have a coefficients.
 	 * 
 	 * @return true if this polynom is a zero polynom.
 	 */

@@ -372,7 +372,7 @@ public final class FileSystemAccessor {
 	 */
 	private String getRootPathOrEmptyString() {
 		
-		//Handles the case that this file system accessor has no root folder.
+		//Handles the case that this file system accessor does not have a root folder.
 		if (!hasRootFolder()) {
 			return StringCatalogue.EMPTY_STRING;
 		}

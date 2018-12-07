@@ -41,7 +41,7 @@ implements ISender {
 	//method
 	/**
 	 * @return the target of this end point.
-	 * @throws UnexistingAttributeException if this end point has no target.
+	 * @throws UnexistingAttributeException if this end point does not have a target.
 	 */
 	public final String getTarget() {
 		

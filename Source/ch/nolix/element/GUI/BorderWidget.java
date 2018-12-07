@@ -285,7 +285,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final int getHorizontalScrollbarThickness() {
 		
-		//Handles the case that the current border widget has no horizontal scrollbar.
+		//Handles the case that the current border widget does not have a horizontal scrollbar.
 		if (!hasHorizontalScrollbar()) {
 			return 0;
 		}
@@ -297,7 +297,7 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	/**
 	 * @return the max height of the current {@link BorderWidget}.
-	 * @throws UnexistingAttributeException if the current {@link BorderWidget} has no max height.
+	 * @throws UnexistingAttributeException if the current {@link BorderWidget} does not have a max height.
 	 */
 	public final int getMaxHeight() {
 		return maxHeight.getValue().getValue();
@@ -306,7 +306,7 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	/**
 	 * @return the max width of the current {@link BorderWidget}.
-	 * @throws UnexistingAttributeException if the current {@link BorderWidget} has no max widt.
+	 * @throws UnexistingAttributeException if the current {@link BorderWidget} does not have a max widt.
 	 */
 	public final int getMaxWidth() {
 		return maxWidth.getValue().getValue();
@@ -315,7 +315,7 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	/**
 	 * @return the min height of the current {@link BorderWidget}.
-	 * @throws UnexistingAttributeException if the current {@link BorderWidget} has no min height.
+	 * @throws UnexistingAttributeException if the current {@link BorderWidget} does not have a min height.
 	 */
 	public final int getMinHeight() {
 		return minHeight.getValue().getValue();
@@ -324,7 +324,7 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	/**
 	 * @return the min width of the current {@link BorderWidget}.
-	 * @throws UnexistingAttributeException if the current {@link BorderWidget} has no min width.
+	 * @throws UnexistingAttributeException if the current {@link BorderWidget} does not have a min width.
 	 */
 	public final int getMinWidth() {
 		return minWidth.getValue().getValue();
@@ -373,7 +373,7 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	/**
 	 * @return the proposal height of the current {@link BorderWidget}.
-	 * @throws UnexistingAttributeException if the current {@link BorderWidget} has no proposal height.
+	 * @throws UnexistingAttributeException if the current {@link BorderWidget} does not have a proposal height.
 	 */
 	public final int getProposalHeight() {
 		return proposalHeight.getValue().getValue();
@@ -382,7 +382,7 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	/**
 	 * @return the proposal width of the current {@link BorderWidget}.
-	 * @throws UnexistingAttributeException if the current {@link BorderWidget} has no proposal width.
+	 * @throws UnexistingAttributeException if the current {@link BorderWidget} does not have a proposal width.
 	 */
 	public final int getProposalWidth() {
 		return proposalWidth.getValue().getValue();
@@ -442,7 +442,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final int getVerticalScrollbarThickness() {
 		
-		//Handles the case that the current border widget has no vertical scrollbar.
+		//Handles the case that the current border widget does not have a vertical scrollbar.
 		if (!hasVerticalScrollbar()) {
 			return 0;
 		}
@@ -1715,7 +1715,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private boolean horizontalScrollbarCursorIsUnderCursor() {
 		
-		//Handles the case that the current border widget has no horizontal scrollbar.
+		//Handles the case that the current border widget does not have a horizontal scrollbar.
 		if (!hasHorizontalScrollbar()) {
 			return false;
 		}
@@ -1739,7 +1739,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private boolean horizontalScrollbarIsUnderCursor() {
 		
-		//Handles the case that the current border widget has no horizontal scrollbar.
+		//Handles the case that the current border widget does not have a horizontal scrollbar.
 		if (!hasHorizontalScrollbar()) {
 			return false;
 		}
@@ -1882,7 +1882,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private boolean verticalScrollbarCursorIsUnderCursor() {
 		
-		//Handles the case that the current border widget has no vertical scrollbar.
+		//Handles the case that the current border widget does not have a vertical scrollbar.
 		if (!hasVerticalScrollbar()) {
 			return false;
 		}
@@ -1906,7 +1906,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private boolean verticalScrollbarIsUnderCursor() {
 		
-		//Handles the case that the current border widget has no vertical scrollbar.
+		//Handles the case that the current border widget does not have a vertical scrollbar.
 		if (!hasVerticalScrollbar()) {
 			return false;
 		}

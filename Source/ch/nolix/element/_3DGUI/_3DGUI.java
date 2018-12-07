@@ -179,7 +179,7 @@ implements Clearable<G>, Closable, Refreshable {
 	//method
 	/**
 	 * @return the root shape of this 3D GUI.
-	 * @throws UnexistingAttributeException if this 3D GUI has no root shape.
+	 * @throws UnexistingAttributeException if this 3D GUI does not have a root shape.
 	 */
 	public final Shape<?> getRefRootShape() {
 		

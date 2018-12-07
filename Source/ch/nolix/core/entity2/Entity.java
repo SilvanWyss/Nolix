@@ -101,7 +101,7 @@ implements
 	//method
 	/**
 	 * @return the base entity of this entity.
-	 * @throws UnexistingAttributeException if this entity has no base entity.
+	 * @throws UnexistingAttributeException if this entity does not have a base entity.
 	 */
 	protected final E getRefBaseEntity() {
 		
@@ -209,7 +209,7 @@ implements
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if this entity has no base entity.
+	 * @throws UnexistingAttributeException if this entity does not have a base entity.
 	 */
 	private void supposeHasBaseEntity() {
 		

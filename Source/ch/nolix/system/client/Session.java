@@ -101,7 +101,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @throws InvalidStateException if the {@link Client} of the current {@link Session}
 	 * does not reference the {@link Application} it belongs to.
 	 * @throws UnexistingAttributeException if the {@link Application},
-	 * the {@link Client} of the current {@link Session} belongs to, has no context.
+	 * the {@link Client} of the current {@link Session} belongs to, does not have a context.
 	 */
 	public final Object getRefApplicationContext() {
 		return getParentClient().getRefApplicationContext();

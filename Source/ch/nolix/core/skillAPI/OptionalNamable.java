@@ -28,7 +28,7 @@ extends Namable<ON>{
 	@Override
 	public default boolean hasName(final String name) {
 		
-		//Handles the case that this optional namable object has no name.
+		//Handles the case that this optional namable object does not have a name.
 		if (!hasName()) {
 			return false;
 		}
@@ -44,7 +44,7 @@ extends Namable<ON>{
 	 */
 	public default boolean hasSameNameAs(final OptionalNamable<?> object) {
 		
-		//Handles the case that the given object has no name.
+		//Handles the case that the given object does not have a name.
 		if (!object.hasName()) {
 			return false;
 		}

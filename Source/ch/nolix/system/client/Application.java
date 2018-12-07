@@ -170,7 +170,7 @@ public class Application<C extends Client<C>> extends NamedElement {
 	//method
 	/**
 	 * @return the context of this application.
-	 * @throws UnexistingAttributeException if this application has no context.
+	 * @throws UnexistingAttributeException if this application does not have a context.
 	 */
 	public final Object getRefContext() {
 		
@@ -259,7 +259,7 @@ public class Application<C extends Client<C>> extends NamedElement {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if this application has no context.
+	 * @throws UnexistingAttributeException if this application does not have a context.
 	 */
 	private void supposeHasContext() {
 		

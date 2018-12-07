@@ -127,7 +127,7 @@ implements Clearable<S> {
 	 */
 	public final int getActiveElementMargin() {
 		
-		//Handles the case that the current {@link Stack} has no element margin.
+		//Handles the case that the current {@link Stack} does not have an element margin.
 		if (!hasElementMargin()) {
 			return 0;
 		}

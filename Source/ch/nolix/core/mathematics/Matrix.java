@@ -889,8 +889,8 @@ public class Matrix implements ApproximativeEqualing {
 	 * @param row1Index
 	 * @param row2Index
 	 * @return this matrix.
-	 * @throws OutOfRangeArgumentException if this matrix has no row with the given row1 index.
-	 * @throws OutOfRangeArgumentException if this matrix has no row with the given row1 index.
+	 * @throws OutOfRangeArgumentException if this matrix does not have a row with the given row1 index.
+	 * @throws OutOfRangeArgumentException if this matrix does not have a row with the given row1 index.
 	 */
 	public Matrix swapRows(int row1Index, int row2Index) {
 		
@@ -988,7 +988,7 @@ public class Matrix implements ApproximativeEqualing {
 		//Transforms this matrix to an equivalent upper left matrix.
 		transformToEquivalentUpperLeftMatrix();
 
-		//Checks if this matrix has no linear depending rows.	
+		//Checks if this matrix does not have a linear depending rows.	
 		if (rowCount != getRowCount()) {
 			throw new InvalidStateException(this, "has linear depending rows");
 		}

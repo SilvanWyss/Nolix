@@ -313,7 +313,7 @@ final class JobRunner extends Thread {
 		//main loop
 		while (true) {
 			
-			//Handles the case that this job runner has no max run count.
+			//Handles the case that this job runner does not have a max run count.
 			if (!hasMaxRunCount()) {
 				
 				//Handles the case that this job runner has a condition that is fulfilled.

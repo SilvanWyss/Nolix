@@ -83,7 +83,7 @@ implements ISmartObject<OSE>, OptionalSignable<OSE> {
 	//method
 	/**
 	 * @throws UnexistingAttributeException
-	 * if the current {@link OptionalSignableElement} has no info string.
+	 * if the current {@link OptionalSignableElement} does not have an info string.
 	 */
 	private void supposeHasInfoString() {
 		if (!hasInfoString()) {

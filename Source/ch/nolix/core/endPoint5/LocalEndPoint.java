@@ -120,7 +120,7 @@ public final class LocalEndPoint extends EndPoint {
 	//method
 	/**
 	 * @return the data the given request requests from this local duplex controller.
-	 * @throws UnexistingAttributeException if this local duplex controller has no receiver controller.
+	 * @throws UnexistingAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
 	public DocumentNode getData(final Statement request) {
@@ -177,7 +177,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * 
 	 * @param command
 	 * @throws InvalidStateException if this local duplex controller is aborted.
-	 * @throws UnexistingAttributeException if this local duplex controller has no receiver controller.
+	 * @throws UnexistingAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
 	public void run(final Statement command) {
@@ -194,7 +194,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * 
 	 * @param commands
 	 * @throws InvalidStateException if this local duplex contorller is aborted.
-	 * @throws UnexistingAttributeException if this local duplex controller has no receiver controller.
+	 * @throws UnexistingAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
 	protected void run(final List<String> commands) {

@@ -16,7 +16,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * @author Silvan Wyss
  * @month 2016-12
  * @lines 120
- * @param <A> The type of the argument of a argument mediator.
+ * @param <A> The type of the argument of an argument mediator.
  */
 public class ArgumentMediator<A> extends Mediator {
 

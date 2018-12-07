@@ -176,7 +176,7 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	/**
 	 * Lets this neuron fire.
 	 * 
-	 * @throws UnexistingAttributeException if this neuron has no output function.
+	 * @throws UnexistingAttributeException if this neuron does not have an output function.
 	 */
 	@Override
 	protected void internal_fire() {
@@ -186,7 +186,7 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	//method
 	/**
 	 * @return the output function of this neuron. 
-	 * @throws UnexistingAttributeException if this neuron has no output function.
+	 * @throws UnexistingAttributeException if this neuron does not have an output function.
 	 */
 	private IElementTakerElementGetter<Neuron<IO>, IO> getOutputFunction() {
 		
@@ -206,7 +206,7 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if this neuron has no output function.
+	 * @throws UnexistingAttributeException if this neuron does not have an output function.
 	 */
 	private void supposeHasOutputFunction() {
 		if (!hasOutputFunction()) {

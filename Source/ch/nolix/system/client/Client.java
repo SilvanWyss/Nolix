@@ -115,7 +115,7 @@ implements Closable {
 	 * @throws InvalidStateException if the current {@link Client}
 	 * does not reference the {@link Application} it belongs to.
 	 * @throws UnexistingAttributeException if the {@link Application},
-	 * the current {@link Client} belongs to, has no context.
+	 * the current {@link Client} belongs to, does not have a context.
 	 */
 	public final Object getRefApplicationContext() {
 		return internal_getParentApplication().getRefContext();

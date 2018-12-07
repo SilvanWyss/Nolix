@@ -168,7 +168,7 @@ public final class LocalEndPoint extends EndPoint {
 	//method
 	/**
 	 * @return the target of this local end point.
-	 * @throws UnexistingAttributeException if this local end point has no target.
+	 * @throws UnexistingAttributeException if this local end point does not have a target.
 	 */
 	@Override
 	public String getTarget() {

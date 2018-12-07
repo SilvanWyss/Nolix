@@ -115,7 +115,7 @@ implements Closable {
 	@Override
 	public void internal_fire() {
 		
-		//Handles the case that this net back neuron has no input neuron.
+		//Handles the case that this net back neuron does not have an input neuron.
 		if (getRefInputNeurons().isEmpty()) {
 			internal_setOutput(null);
 		}

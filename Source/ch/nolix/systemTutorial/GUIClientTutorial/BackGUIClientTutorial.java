@@ -25,7 +25,7 @@ public final class BackGUIClientTutorial {
 
 	//main method
 	/**
-	 * 1. Creates a an application for back GUI clients.
+	 * 1. Creates an application for back GUI clients.
 	 * 2. Creates a front GUI client that will connect to the application.
 	 * 
 	 * @param arguments

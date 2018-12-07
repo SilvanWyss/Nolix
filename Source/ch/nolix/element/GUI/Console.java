@@ -733,7 +733,7 @@ implements Clearable<Console> {
 	 * A console has a secret edit line when it is reading a secret line.
 	 * 
 	 * @return the secret edit line of this console.
-	 * @throws UnexistingAttribute exception if this console has no secret edit line.
+	 * @throws UnexistingAttribute exception if this console does not have a secret edit line.
 	 */
 	private String getSecretEditLine() {
 		
@@ -748,7 +748,7 @@ implements Clearable<Console> {
 	//method
 	/**
 	 * @return the text of the secret edit line of this console after the text cursor.
-	 * @throws UnexistingAttribute exception if this console has no secret edit line.
+	 * @throws UnexistingAttribute exception if this console does not have a secret edit line.
 	 */
 	private String getSecretEditLineAfterTextCursor() {
 		return getSecretEditLine().substring(textCursorPosition);
@@ -757,7 +757,7 @@ implements Clearable<Console> {
 	//method
 	/**
 	 * @return the text of the secret edit line of this console before the text cursor.
-	 * @throws UnexistingAttribute exception if this console has no secret edit line.
+	 * @throws UnexistingAttribute exception if this console does not have a secret edit line.
 	 */
 	private String getSecretEditLineBeforeTextCursor() {
 		return getSecretEditLine().substring(0, textCursorPosition);

@@ -78,7 +78,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	//method
 	/**
 	 * @return the render object of this shape.
-	 * @throws UnexistingAttributeException if this shape has no render object.
+	 * @throws UnexistingAttributeException if this shape does not have a render object.
 	 */
 	@SuppressWarnings("unchecked")
 	public final <RO> RO getRefRenderObject() {
@@ -310,7 +310,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	//method
 	/**
 	 * @return the shape render manager of this shape.
-	 * @throws UnexistingAttributeException if this shape has no shape render manager.
+	 * @throws UnexistingAttributeException if this shape does not have a shape render manager.
 	 */
 	protected final ShapeRenderManager<S, ?, ?> getRefShapeRenderManager() {
 		
@@ -350,7 +350,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if this shape has no shape render manager.
+	 * @throws UnexistingAttributeException if this shape does not have a shape render manager.
 	 */
 	private void supposeHasShapeRenderManager() {
 		if (!hasShapeRenderManager()) {

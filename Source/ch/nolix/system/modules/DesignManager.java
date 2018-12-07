@@ -43,7 +43,7 @@ public final class DesignManager extends Module {
 	 * 
 	 * @param design
 	 * @return this design manager.
-	 * @throws UnexistingAttributeException if the given design has no name.
+	 * @throws UnexistingAttributeException if the given design does not have a name.
 	 * @throws InvalidArgumentException
 	 * if this design manager contains already a design with the same name the given design.
 	 */
@@ -76,7 +76,7 @@ public final class DesignManager extends Module {
 	 * 
 	 * @param design
 	 * @return this design manager.
-	 * @throws UnexistingAttributeException if the given design has no name.
+	 * @throws UnexistingAttributeException if the given design does not have a name.
 	 */
 	public final DesignManager addDesignIfPossible(final StandardConfiguration design) {
 		

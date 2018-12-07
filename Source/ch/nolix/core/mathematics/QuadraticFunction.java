@@ -65,7 +65,7 @@ public class QuadraticFunction {
 	//method
 	/**
 	 * @return the maximum of this quadratic function.
-	 * @throws UnexistingAttributeException if this quadratic function has no maximum.
+	 * @throws UnexistingAttributeException if this quadratic function does not have a maximum.
 	 */
 	public double getMax() {
 		
@@ -80,7 +80,7 @@ public class QuadraticFunction {
 	//method
 	/**
 	 * @return the minimum of this quadratic function.
-	 * @throws UnexistingAttributeException if this quadratic function has no minimum.
+	 * @throws UnexistingAttributeException if this quadratic function does not have a minimum.
 	 */
 	public double getMin() {
 		
@@ -108,7 +108,7 @@ public class QuadraticFunction {
 		
 		final double discriminant = getDiscriminant();
 		
-		//Handles the case that this quadratic function has no solution.
+		//Handles the case that this quadratic function does not have a solution.
 		if (discriminant < 0) {
 			return new double[0];
 		}

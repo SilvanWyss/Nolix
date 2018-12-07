@@ -54,7 +54,7 @@ final class MatrixIterator<E> implements Iterator<E> {
 	/**
 	 * @return the next element of the current {@link MatrixIterator}.
 	 * @throws UnexistingAttributeException
-	 * if the current {@link MatrixIterator} has no next element.
+	 * if the current {@link MatrixIterator} does not have a next element.
 	 */
 	@Override
 	public final E next() {
@@ -70,7 +70,7 @@ final class MatrixIterator<E> implements Iterator<E> {
 	//method
 	/**
 	 * @throws UnexistingAttributeException
-	 * if the current {@link MatrixIterator} has no next element.
+	 * if the current {@link MatrixIterator} does not have a next element.
 	 */
 	private void supposeHasNextElement() {
 		

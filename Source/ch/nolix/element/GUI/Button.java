@@ -94,7 +94,7 @@ public final class Button extends TextLineWidget<Button> {
 	/**
 	 * @return the role of the current {@link Button}.
 	 * @throws UnexistingAttributeException
-	 * if the current {@link Button} has no role.
+	 * if the current {@link Button} does not have a role.
 	 */
 	public ButtonRole getRole() {
 		
@@ -120,7 +120,7 @@ public final class Button extends TextLineWidget<Button> {
 	@Override
 	public boolean hasRole(final String role) {
 		
-		//Handles the case that the current link button has no role.
+		//Handles the case that the current link button does not have a role.
 		if (!hasRole()) {
 			return false;
 		}
@@ -193,7 +193,7 @@ public final class Button extends TextLineWidget<Button> {
 	//method
 	/**
 	 * @throws UnexistingAttributeException
-	 * if the current {@link Button} has no role.
+	 * if the current {@link Button} does not have a role.
 	 */
 	private void supposeHasRole() {
 		

@@ -54,7 +54,7 @@ extends ClosableElement {
 	 * Removes the end point taker with the given name from this server.
 	 * 
 	 * @param name
-	 * @throws InvalidArgumentException if this server does not contain a end point taker with the given name.
+	 * @throws InvalidArgumentException if this server does not contain an end point taker with the given name.
 	 */
 	public void removeEndPointTaker(final String name) {
 		endPointTaker.removeFirst(ept -> ept.hasName(name));

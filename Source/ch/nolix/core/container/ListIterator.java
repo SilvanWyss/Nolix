@@ -50,7 +50,7 @@ final class ListIterator<E> implements Iterator<E> {
 	//method
 	/**
 	 * @return the next element of the current {@link ListIterator}.
-	 * @throws UnexistingAttributeException if the current {@link ListIterator} has no next element.
+	 * @throws UnexistingAttributeException if the current {@link ListIterator} does not have a next element.
 	 */
 	@Override
 	public E next() {
