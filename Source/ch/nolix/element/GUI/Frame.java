@@ -14,7 +14,7 @@ import ch.nolix.element.painter.SwingPainter;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 210
+ * @lines 230
  */
 public final class Frame extends GUI<Frame> {
 	
@@ -114,7 +114,7 @@ public final class Frame extends GUI<Frame> {
 	 * 
 	 * @param title
 	 * @throws NullArgumentException if the given title is null.
-	 * @throws EmptyArgumentExcpetion if hte givne title is empty.
+	 * @throws EmptyArgumentExcpetion if the given title is empty.
 	 */
 	public Frame(final String title) {
 		
@@ -122,6 +122,24 @@ public final class Frame extends GUI<Frame> {
 		this();
 		
 		setTitle(title);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link Frame} with the given title and root widget.
+	 * 
+	 * @param title
+	 * @param rootWidget
+	 * @throws NullArgumentException if the given title is null.
+	 * @throws EmptyArgumentExcpetion if the given title is empty.
+	 * @throws NullArgumentException if the given root widget is null.
+	 */
+	public Frame(final String title, final Widget<?, ?> rootWidget) {
+		
+		//Calls other constructor.
+		this(title);
+		
+		setRootWidget(rootWidget);
 	}
 	
 	//method
