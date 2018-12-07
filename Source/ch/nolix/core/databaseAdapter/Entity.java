@@ -47,6 +47,7 @@ public class Entity implements Identified2, Specified {
 	}
 	
 	//method
+	@Override
 	public final List<DocumentNode> getAttributes() {
 		
 		final var attributes = new List<DocumentNode>();
@@ -110,6 +111,7 @@ public class Entity implements Identified2, Specified {
 	}
 	
 	//method
+	@Override
 	public final long getId() {
 	
 		supposeHasId();
@@ -160,6 +162,7 @@ public class Entity implements Identified2, Specified {
 	}
 	
 	//method
+	@Override
 	public final String getType() {
 		return getClass().getSimpleName();
 	}
@@ -170,6 +173,7 @@ public class Entity implements Identified2, Specified {
 	}
 	
 	//method
+	@Override
 	public final boolean hasId(final long id) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.

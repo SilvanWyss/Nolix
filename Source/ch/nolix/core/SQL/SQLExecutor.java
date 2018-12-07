@@ -66,6 +66,7 @@ public final class SQLExecutor implements Resettable<SQLExecutor> {
 	}
 	
 	//method
+	@Override
 	public SQLExecutor reset() {
 		
 		statements.clear();

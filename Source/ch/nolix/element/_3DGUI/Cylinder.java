@@ -45,6 +45,7 @@ public final class Cylinder extends Prisma<Cylinder> {
 	}
 	
 	//method
+	@Override
 	public Cylinder reset() {
 		
 		//Calls method of base class.

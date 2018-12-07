@@ -65,6 +65,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws InvalidStateException if this local end point is aborted.
 	 * @throws UnexistingAttributeException if the counterpart of this local end point has no receiver.
 	 */
+	@Override
 	public void send(final String message) {
 		
 		//Checks if the given message is not null.
@@ -80,6 +81,7 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * Lets this local end point note an abort.
 	 */
+	@Override
 	protected void noteClose() {}
 	
 	//method

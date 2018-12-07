@@ -111,6 +111,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @throws NullArgumentException if the given message is null.
 	 * @throws InvalidStateException if this net end point is aborted.
 	 */
+	@Override
 	public void send(final String message) {
 		
 		//Checks if the given message is not null.
@@ -135,6 +136,7 @@ public final class NetEndPoint extends EndPoint {
 	/**
 	 * Lets this net end point note an abort.
 	 */
+	@Override
 	protected void noteClose() {
 		try {
 			socket.close();

@@ -10,6 +10,7 @@ import ch.nolix.techAPI.textureAPI.ITextureCreator;
 public final class ConcreteTextureCreator implements ITextureCreator {
 
 	//method
+	@Override
 	public Image createTexture(final int width,	final int height) {
 				
 		final var image = new Image(width, height);

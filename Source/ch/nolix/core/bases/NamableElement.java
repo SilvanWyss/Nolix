@@ -38,6 +38,7 @@ implements ISmartObject<NE>, Namable<NE> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final String getName() {
 		return name;
 	}
@@ -51,6 +52,7 @@ implements ISmartObject<NE>, Namable<NE> {
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
+	@Override
 	public final NE setName(final String name) {
 		
 		//Checks if the given name is not null and not empty.

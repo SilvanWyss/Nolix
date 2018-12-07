@@ -40,6 +40,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	}
 	
 	//method
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {	
 		switch (attribute.getHeader()) {
 			case FILE_GETTER_HEADER:
@@ -51,6 +52,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	}
 	
 	//method
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = super.getAttributes();
@@ -65,6 +67,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	}
 	
 	//method
+	@Override
 	public boolean hasRole(final String role) {
 		return false;
 	}
@@ -73,11 +76,13 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean keepsFocus() {
 		return true;
 	}
 	
 	//method
+	@Override
 	public void noteLeftMouseButtonRelease() {
 		
 		super.noteLeftMouseButtonRelease();
@@ -140,6 +145,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	}
 	
 	//method
+	@Override
 	public Downloader reset() {
 		
 		super.reset();
@@ -175,6 +181,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	}
 	
 	//method
+	@Override
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {		
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
 	}

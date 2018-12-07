@@ -218,6 +218,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * 
 	 * @return the current {@link Matrix}.
 	 */
+	@Override
 	public Matrix<E> clear() {
 		
 		elements = new Object[0][0];
@@ -232,6 +233,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * 
 	 * @return true if the current {@link Matrix} contains any element.
 	 */
+	@Override
 	public boolean containsAny() {
 		
 		//Calls the default method of the suitable interface.
@@ -326,6 +328,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * 
 	 * @return the number of elements of the current {@link Matrix}.
 	 */
+	@Override
 	public int getSize() {
 		return (getRowCount() * getColumnCount());
 	}
@@ -359,6 +362,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * @throws BiggerArgumentException
 	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
 	 */
+	@Override
 	public E getRefAt(final int index) {
 		return getRefAt(getRowIndexOf(index), getColumnIndexOf(index));
 	}
@@ -454,6 +458,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * 
 	 * @return true if the current {@link Matrix} is empty.
 	 */
+	@Override
 	public boolean isEmpty() {
 		return (elements.length == 0);
 	}
@@ -464,6 +469,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * 
 	 * @return a new iterator for the current {@link Matrix}.
 	 */
+	@Override
 	public MatrixIterator<E> iterator() {
 		return new MatrixIterator<E>(this);
 	}
@@ -638,6 +644,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * 
 	 * @return a string representation of the current {@link Matrix}.
 	 */
+	@Override
 	public String toString() {
 		
 		final var stringBuilder = new StringBuilder();

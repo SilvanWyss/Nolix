@@ -77,6 +77,7 @@ public final class Rectangle extends BaseShape<Rectangle> {
 	 * 
 	 * @return the current {@link Rectangle}.
 	 */
+	@Override
 	public Rectangle reset() {
 		
 		//Calls method of the base class.

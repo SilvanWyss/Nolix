@@ -47,6 +47,7 @@ public final class DocumentNodeDatabaseAdapter extends DatabaseAdapter {
 	}
 	
 	//method
+	@Override
 	public String getDatabaseName() {
 		return
 		database.getRefFirstAttribute(PascalCaseNameCatalogue.NAME)
@@ -54,6 +55,7 @@ public final class DocumentNodeDatabaseAdapter extends DatabaseAdapter {
 	}
 	
 	//method
+	@Override
 	@SuppressWarnings("unchecked")
 	protected <E extends Entity> EntitySetAdapter<E> getEntitySetAdapter(
 		final EntitySet<E> entitySet
@@ -64,6 +66,7 @@ public final class DocumentNodeDatabaseAdapter extends DatabaseAdapter {
 	}
 		
 	//method
+	@Override
 	protected void saveChangesToDatabase(final IContainer<Entity> mutatedEntitiesInOrder) {
 		
 		final var createdEntities =

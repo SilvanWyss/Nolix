@@ -19,11 +19,13 @@ public final class HomeSession extends HeaderedSession {
 	}
 	
 	//method
+	@Override
 	protected List<Button> createLinkButtons() {
 		return new List<Button>();
 	}
 	
 	//method
+	@Override
 	protected Grid createSubSubContentWidget() {
 		
 		final var entitySetsGrid = new Grid();

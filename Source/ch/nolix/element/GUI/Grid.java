@@ -26,6 +26,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		switch (attribute.getHeader()) {
 			case PascalCaseNameCatalogue.CELL:
@@ -45,6 +46,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = super.getAttributes();
@@ -64,6 +66,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
+	@Override
 	public CursorIcon getContentAreaCursorIcon() {
 		
 		final var widgetUnderCursor = getRefWidgets().getRefFirstOrNull(w -> w.isUnderCursor());
@@ -76,6 +79,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
+	@Override
 	public int getContentAreaHeight() {
 		
 		var contentHeight =
@@ -100,6 +104,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
+	@Override
 	public int getContentAreaWidth() {
 		
 		var contentWidth =
@@ -169,6 +174,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
+	@Override
 	public Grid reset() {
 		
 		super.reset();
@@ -195,6 +201,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {
 		
 		setMaxWidth(1000);
@@ -206,11 +213,13 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
+	@Override
 	protected GridLook createWidgetLook() {
 		return new GridLook();
 	}
 	
 	//method
+	@Override
 	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {
 		for (final var c : cells) {
 			if (c.containsAny()) {
@@ -220,6 +229,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 
 	//method
+	@Override
 	protected void paintContentArea(
 		final GridLook gridStructure,
 		final IPainter painter
@@ -279,6 +289,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	}
 	
 	//method
+	@Override
 	protected void setCursorPositionOnContentArea(
 		int cursorXPositionOnContent,
 		int cursorYPositionOnContent
@@ -298,6 +309,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	 * @param relativeXPosition
 	 * @param relativeYPosition
 	 */
+	@Override
 	protected void setPositionOnParent(
 		final int relativeXPosition,
 		final int relativeYPosition

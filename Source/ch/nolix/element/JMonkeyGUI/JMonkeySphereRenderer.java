@@ -24,6 +24,7 @@ implements IJMonkeyShapeRenderer<Sphere, Geometry> {
 	/**
 	 * @return a new render object for a sphere from this JMonkey sphere renderer.
 	 */
+	@Override
 	public Geometry createRenderObject() {
 					
 		//Creates sphere.
@@ -50,6 +51,7 @@ implements IJMonkeyShapeRenderer<Sphere, Geometry> {
 	 * @param sphere
 	 * @param renderObject
 	 */
+	@Override
 	public void render(
 		final Sphere sphere,
 		final Geometry geometry

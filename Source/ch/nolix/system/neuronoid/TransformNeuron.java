@@ -55,6 +55,7 @@ extends Neuronoid<TransformNeuron<I, O>, I, O> {
 	/**
 	 * @return the maximum number of input neurons of this transform neuron.
 	 */
+	@Override
 	public int getMaxInputNeuronCount() {
 		return MAX_INPUT_NEURON_COUNT;
 	}
@@ -63,6 +64,7 @@ extends Neuronoid<TransformNeuron<I, O>, I, O> {
 	/**
 	 * @return the minimal number of input neurons of this transform neuron.
 	 */
+	@Override
 	public int getMinInputNeuronCount() {
 		return MIN_INPUT_NEURON_COUNT;
 	}
@@ -71,6 +73,7 @@ extends Neuronoid<TransformNeuron<I, O>, I, O> {
 	/**
 	 * Lets this transform neuron fire.
 	 */
+	@Override
 	protected void internal_fire() {
 		internal_setOutput(transformator.getOutput(getRefOneInput()));
 	}

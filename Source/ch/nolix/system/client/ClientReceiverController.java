@@ -41,6 +41,7 @@ final class ClientReceiverController implements IDataProviderController {
 	 * @return the data the given request requests.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
+	@Override
 	public DocumentNode getData(final Statement request) {
 		return client.internal_getData(request);
 	}
@@ -52,6 +53,7 @@ final class ClientReceiverController implements IDataProviderController {
 	 * @param command
 	 * @throws InvalidArgumentException if the given command is not valid.
 	 */
+	@Override
 	public void run(Statement command) {
 		client.internal_run(command);
 	}

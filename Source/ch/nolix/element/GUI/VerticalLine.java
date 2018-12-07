@@ -24,6 +24,7 @@ public final class VerticalLine extends Line<VerticalLine> {
 	/**
 	 * @return the height of this line when it is not collapsed.
 	 */
+	@Override
 	public int getHeightWhenNotCollapsed() {
 		return getLength();
 	}
@@ -32,6 +33,7 @@ public final class VerticalLine extends Line<VerticalLine> {
 	/**
 	 * @return the width of this line when it is not collapsed.
 	 */
+	@Override
 	public int getWidthWhenNotCollapsed() {
 		return getThickness();
 	}

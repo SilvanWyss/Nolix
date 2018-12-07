@@ -34,6 +34,7 @@ public final class Column<V> extends HeaderedElement implements Specified {
 	}
 	
 	//method
+	@Override
 	public List<DocumentNode> getAttributes() {
 		return
 		new List<DocumentNode>(
@@ -56,6 +57,7 @@ public final class Column<V> extends HeaderedElement implements Specified {
 	}
 	
 	//method
+	@Override
 	public String getType() {
 		return PascalCaseNameCatalogue.COLUMN;
 	}

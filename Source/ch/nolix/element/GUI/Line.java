@@ -48,6 +48,7 @@ extends Widget<L, LineLook> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
+	@Override
 	public final void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
@@ -72,6 +73,7 @@ extends Widget<L, LineLook> {
 	/**
 	 * @return the active cursor icon of the current {@link Line}.
 	 */
+	@Override
 	public CursorIcon getCursorIcon() {
 		return getCustomCursorIcon();
 	}
@@ -80,6 +82,7 @@ extends Widget<L, LineLook> {
 	/**
 	 * @return the attributes of this line.
 	 */
+	@Override
 	public final List<DocumentNode> getAttributes() {	
 		
 		//Calls method of the base class.
@@ -129,6 +132,7 @@ extends Widget<L, LineLook> {
 	 * @param role
 	 * @return true if this line has the given role.
 	 */
+	@Override
 	public final boolean hasRole(final String role) {
 		return false;
 	}
@@ -137,6 +141,7 @@ extends Widget<L, LineLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean keepsFocus() {
 		return false;
 	}
@@ -147,6 +152,7 @@ extends Widget<L, LineLook> {
 	 * 
 	 * @return this line.
 	 */
+	@Override
 	public final L resetConfiguration() {
 				
 		setLength(DEFAULT_LENGTH);
@@ -233,6 +239,7 @@ extends Widget<L, LineLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected final void applyUsableConfigurationWhenConfigurationIsReset() {
 		setThickness(1);
 	}
@@ -241,6 +248,7 @@ extends Widget<L, LineLook> {
 	/**
 	 * @return a new widget look for this line.
 	 */
+	@Override
 	protected final LineLook createWidgetLook() {
 		return new LineLook();
 	}
@@ -249,6 +257,7 @@ extends Widget<L, LineLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
@@ -258,6 +267,7 @@ extends Widget<L, LineLook> {
 	 * @param widgetStructure
 	 * @param painter
 	 */
+	@Override
 	protected final void paint(
 		final LineLook widgetStructure,
 		final IPainter painter
@@ -273,6 +283,7 @@ extends Widget<L, LineLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected boolean viewAreaIsUnderCursor() {
 		return isUnderCursor();
 	}

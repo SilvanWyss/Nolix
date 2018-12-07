@@ -17,6 +17,7 @@ public interface ISpecifiedEnum extends Specified {
 	/**
 	 * @return the type of the current {@link ISpecifiedEnum}.
 	 */
+	@Override
 	public default String getType() {
 		return getClass().getSimpleName();
 	}
@@ -25,6 +26,7 @@ public interface ISpecifiedEnum extends Specified {
 	/**
 	 * @return the attributes of the current {@link ISpecifiedEnum}.
 	 */
+	@Override
 	public default List<DocumentNode> getAttributes() {
 		return DocumentNode.createSpecificationWithHeader(toString()).intoList();
 	}

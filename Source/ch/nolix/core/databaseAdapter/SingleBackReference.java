@@ -44,6 +44,7 @@ public abstract class SingleBackReference<E extends Entity> extends BackReferenc
 	}
 	
 	//package-visible method
+	@Override
 	final void supposeCanReferenceBackAdditionally(
 		Entity entity,
 		String referencingPropertyHeader

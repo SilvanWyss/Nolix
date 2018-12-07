@@ -29,6 +29,7 @@ extends Element<OIE> {
 	}
 	
 	//method
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = super.getAttributes();
@@ -68,6 +69,7 @@ extends Element<OIE> {
 	}
 	
 	//method
+	@Override
 	protected void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		switch (attribute.getHeader()) {
 			case PascalCaseNameCatalogue.ID:

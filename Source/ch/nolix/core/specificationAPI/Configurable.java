@@ -48,6 +48,7 @@ extends Named, Specifiable<C>, Tokened {
 	 * @param token
 	 * @return true if the current {@link Configurable} has the given token.
 	 */
+	@Override
 	public abstract boolean hasToken(String token);
 	
 	//abstract method
@@ -55,12 +56,14 @@ extends Named, Specifiable<C>, Tokened {
 	 * @param type
 	 * @return true if the current {@link Configurable} has the given type or super type.
 	 */
+	@Override
 	public abstract boolean isOfType(String type);	
 	
 	//default method
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public default C reset() {
 		

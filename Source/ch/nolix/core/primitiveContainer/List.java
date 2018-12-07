@@ -85,6 +85,7 @@ public final class List<E> implements Iterable<E> {
 	/**
 	 * @return a new {@link Iterator} for the current {@link List}.
 	 */
+	@Override
 	public Iterator<E> iterator() {
 		return new ListIterator<E>(beginNode);
 	}

@@ -70,6 +70,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * 
 	 * @return this server.
 	 */
+	@Override
 	public final Server clear() {
 		
 		endPointTaker.clear();
@@ -99,6 +100,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	/**
 	 * @return true if this server contains no end point taker.
 	 */
+	@Override
 	public final boolean isEmpty() {
 		return endPointTaker.isEmpty();
 	}
@@ -151,6 +153,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	/**
 	 * Lets this server note a closing.
 	 */
+	@Override
 	protected void noteClose() {}
 	
 	//method

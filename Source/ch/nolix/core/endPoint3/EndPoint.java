@@ -64,6 +64,7 @@ implements IReplyingSender {
 	/**
 	 * Lets this end point note an abort.
 	 */
+	@Override
 	protected final void noteClose() {}
 	
 	//method

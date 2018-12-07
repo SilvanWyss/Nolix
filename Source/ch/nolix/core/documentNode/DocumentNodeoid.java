@@ -181,6 +181,7 @@ public abstract class DocumentNodeoid implements Headered {
 	/**
 	 * @return true if the current {@link DocumentNodeoid} equals the given object.
 	 */
+	@Override
 	public boolean equals(final Object object) {
 		
 		//Handles the case that the given object is not a document node.
@@ -251,6 +252,7 @@ public abstract class DocumentNodeoid implements Headered {
 	/**
 	 * @return the header of the current {@link DocumentNodeoid}.
 	 */
+	@Override
 	public abstract String getHeader();
 	
 	//method
@@ -409,6 +411,7 @@ public abstract class DocumentNodeoid implements Headered {
 	 * @param header
 	 * @return true if the current {@link DocumentNodeoid} has the given header.
 	 */
+	@Override
 	public boolean hasHeader(final String header) {
 		
 		//Handles the case that the current document node does not have a header.
@@ -653,6 +656,7 @@ public abstract class DocumentNodeoid implements Headered {
 	/**
 	 * @return a string representation of the current {@link DocumentNodeoid}.
 	 */
+	@Override
 	public String toString() {
 		
 		final var stringBuilder = new StringBuilder();

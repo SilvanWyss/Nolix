@@ -51,6 +51,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 * @throws InvalidStateException if this deep configuration is frozen.
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
@@ -72,6 +73,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * 
 	 * @param element
 	 */
+	@Override
 	public void configure(Configurable<?> element) {
 
 		if (!hasMaxSelectorLevel()) {
@@ -94,6 +96,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	/**
 	 * @return the attributes of this deep configuration.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -154,6 +157,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * @return this deep configuration.
 	 * @throws InvalidStateException if this deep configuration is frozen.
 	 */
+	@Override
 	public DeepConfiguration reset() {
 				
 		removeMaxSelectorLevel();

@@ -9,6 +9,7 @@ extends SingleProperty<V>
 implements Clearable<OptionalProperty<V>> {
 
 	//method
+	@Override
 	public OptionalProperty<V> clear() {
 		
 		internal_clear();
@@ -17,11 +18,13 @@ implements Clearable<OptionalProperty<V>> {
 	}
 	
 	//method
+	@Override
 	public boolean isOptional() {
 		return true;
 	}
 
 	//method
+	@Override
 	public PropertyoidType<V> getPropertyType() {
 		return new OptionalPropertyType<V>(getValueClass());
 	}

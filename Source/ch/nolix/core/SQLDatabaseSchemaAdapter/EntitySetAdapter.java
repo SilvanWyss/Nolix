@@ -25,11 +25,13 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 	}
 	
 	//method
+	@Override
 	public ColumnAdapter getColumnAdapter(final Column column) {
 		return new ColumnAdapter(column);
 	}
 	
 	//method
+	@Override
 	public String getName() {
 		return name;
 	}

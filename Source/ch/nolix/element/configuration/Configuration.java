@@ -158,6 +158,7 @@ implements Freezable<C> {
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
@@ -270,6 +271,7 @@ implements Freezable<C> {
 	 * 
 	 * @return this configuration.
 	 */
+	@Override
 	public final C freeze() {
 		
 		frozen = true;
@@ -281,6 +283,7 @@ implements Freezable<C> {
 	/**
 	 * @return the attributes of this configuration.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -453,6 +456,7 @@ implements Freezable<C> {
 	/**
 	 * @return true if this configuration is frozen.
 	 */
+	@Override
 	public final boolean isFrozen() {
 		return frozen;
 	}
@@ -520,6 +524,7 @@ implements Freezable<C> {
 	 * @return this configuration.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
+	@Override
 	public C reset() {
 
 		removeSelectorType();
@@ -573,6 +578,7 @@ implements Freezable<C> {
 	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
+	@Override
 	public final C setName(final String name) {
 		
 		//Checks if this configuration is not frozen.

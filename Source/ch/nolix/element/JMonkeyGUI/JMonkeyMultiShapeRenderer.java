@@ -27,6 +27,7 @@ implements IJMonkeyShapeRenderer<MultiShape, Node> {
 	 * @param renderObject
 	 * @param subRenderObject
 	 */
+	@Override
 	public void addSubRenderObject(
 		final Node renderObject,
 		final Spatial subRenderObject
@@ -38,6 +39,7 @@ implements IJMonkeyShapeRenderer<MultiShape, Node> {
 	/**
 	 * @return a new render object for the multi shape of this JMonkey multi shape renderer.
 	 */
+	@Override
 	public Node createRenderObject() {
 		return new Node();
 	}
@@ -48,6 +50,7 @@ implements IJMonkeyShapeRenderer<MultiShape, Node> {
 	 * 
 	 * @param multiShape
 	 */
+	@Override
 	public void render(final MultiShape multiShape, final Node node) {
 		node.setLocalTranslation(
 			multiShape.getXPositionAsFloat(),

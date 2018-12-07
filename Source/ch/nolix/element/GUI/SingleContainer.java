@@ -52,6 +52,7 @@ extends Container<SingleContainer, SingleContainerLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -65,6 +66,7 @@ extends Container<SingleContainer, SingleContainerLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public CursorIcon getContentAreaCursorIcon() {
 		return getCustomCursorIcon();
 	}
@@ -103,18 +105,21 @@ extends Container<SingleContainer, SingleContainerLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**
 	 * @return the height of the content of this borderable rectangle
 	 */
+	@Override
 	protected final int getContentAreaHeight() {
 		return getRefRectangle().getHeightWhenNotCollapsed();
 	}
@@ -123,6 +128,7 @@ extends Container<SingleContainer, SingleContainerLook> {
 	/**
 	 * @return the width of the content of this borderable rectangle
 	 */
+	@Override
 	protected final int getContentAreaWidth() {
 		return getRefRectangle().getWidth();
 	}
@@ -134,6 +140,7 @@ extends Container<SingleContainer, SingleContainerLook> {
 	 * @param distanceFromTopPanelBorder
 	 * @throws Exception if the given distance from left panel border is negative or the given distance from top panel border is negative
 	 */
+	@Override
 	protected final void setPositionOnParent(int distanceFromLeftPanelBorder, int distanceFromTopPanelBorder) {
 		
 		//Calls method of the base class.
@@ -145,6 +152,7 @@ extends Container<SingleContainer, SingleContainerLook> {
 		);
 	}
 	
+	@Override
 	protected void paintContentArea(
 		SingleContainerLook rectangleStructure,
 		IPainter painter) {
@@ -153,6 +161,7 @@ extends Container<SingleContainer, SingleContainerLook> {
 	}
 
 	//method
+	@Override
 	protected SingleContainerLook createWidgetLook() {
 		return new SingleContainerLook();
 	}

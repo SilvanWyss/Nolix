@@ -19,6 +19,7 @@ public final class Stack<E> implements IContainer<E> {
 	}
 
 	//method
+	@Override
 	public int getSize() {
 		return list.getSize();
 	}
@@ -29,6 +30,7 @@ public final class Stack<E> implements IContainer<E> {
 	}
 	
 	//method
+	@Override
 	public Iterator<E> iterator() {
 		return list.iterator();
 	}

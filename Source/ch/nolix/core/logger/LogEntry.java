@@ -45,6 +45,7 @@ public final class LogEntry {
 	}
 	
 	//method
+	@Override
 	public String toString() {
 		return (getHarmLevel() + ": " + getMessage());
 	}

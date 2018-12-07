@@ -160,6 +160,7 @@ public final class Statement implements Headered {
 	 * @return the header of the current {@link Statement}.
 	 * @throws UnexistingAttributeException if the current {@link Statement} has no header.
 	 */
+	@Override
 	public String getHeader() {
 		
 		//Checks if the current statement has a header.
@@ -256,6 +257,7 @@ public final class Statement implements Headered {
 	/**
 	 * @return a string representation of the current {@link Statement}.
 	 */
+	@Override
 	public String toString() {
 		
 		var string = documentNode.toString();

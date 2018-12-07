@@ -56,6 +56,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected final int getContentAreaHeight() {
 		
 		//Handles the case that the current horizontal stack is empty.
@@ -71,6 +72,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected final int getContentAreaWidth() {
 		
 		int contentWidth = getRefWidgets().getSumByInt(w -> w.getWidth());
@@ -87,6 +89,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected final void setPositionOnParent(
 		final int xPositionOnParent,
 		final int yPositionOnParent

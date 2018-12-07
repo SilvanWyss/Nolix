@@ -39,6 +39,7 @@ final class NetServerSubDuplexControllerTaker implements IEndPointTaker {
 	/**
 	 * @return the name of this net server sub duplex controller taker.
 	 */
+	@Override
 	public String getName() {
 		return NAME;
 	}
@@ -49,6 +50,7 @@ final class NetServerSubDuplexControllerTaker implements IEndPointTaker {
 	 * 
 	 * @param endPoint
 	 */
+	@Override
 	public void takeDuplexController(final EndPoint endPoint) {	
 		netServer.takeDuplexController(endPoint);
 	}

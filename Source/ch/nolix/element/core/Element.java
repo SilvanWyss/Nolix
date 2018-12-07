@@ -27,6 +27,7 @@ public abstract class Element<E extends Element<E>> extends Entity<E> {
 	 * @param object
 	 * @return true if this element equals the given object.
 	 */
+	@Override
 	public final boolean equals(final Object object) {
 	
 		//Handles the case that the given object is null.
@@ -74,6 +75,7 @@ public abstract class Element<E extends Element<E>> extends Entity<E> {
 	/**
 	 * @return the type of this type element.
 	 */
+	@Override
 	public String getType() {
 		return getClass().getSimpleName();
 	}
@@ -82,6 +84,7 @@ public abstract class Element<E extends Element<E>> extends Entity<E> {
 	/**
 	 * @return a string representation of this element.
 	 */
+	@Override
 	public final String toString() {
 		return getSpecification().toString();
 	}

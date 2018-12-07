@@ -43,6 +43,7 @@ public abstract class NamedElement implements Named {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final String getName() {
 		return name;
 	}

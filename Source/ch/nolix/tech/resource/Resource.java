@@ -93,6 +93,7 @@ public final class Resource extends NamedElement implements IResource {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final int getBaseResourceCount() {
 		return getBaseResources().getSize();
 	}
@@ -101,6 +102,7 @@ public final class Resource extends NamedElement implements IResource {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final ReadContainer<IResource> getBaseResources() {
 		return baseResources;
 	}
@@ -109,6 +111,7 @@ public final class Resource extends NamedElement implements IResource {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean isBaseResourceOf(final IResource resource) {
 		return resource.isSubResourceOf(this);
 	}
@@ -117,6 +120,7 @@ public final class Resource extends NamedElement implements IResource {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean isDirectBaseResourceOf(final IResource resource) {
 		return resource.isDirectSubResourceOf(this);
 	}
@@ -125,6 +129,7 @@ public final class Resource extends NamedElement implements IResource {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean isDirectSubResourceOf(final IResource resource) {
 		return getBaseResources().contains(resource);
 	}
@@ -133,6 +138,7 @@ public final class Resource extends NamedElement implements IResource {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean isSubResourceOf(final IResource resource) {
 		
 		//Handles the case that the current resource is a direct sub resource of the given resource.

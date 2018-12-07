@@ -41,6 +41,7 @@ implements
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Extracts the property with the name of the given attribute.
@@ -62,6 +63,7 @@ implements
 	/**
 	 * @return the attributes of this entity.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		final List<DocumentNode> attributes = new List<DocumentNode>();
@@ -88,6 +90,7 @@ implements
 	/**
 	 * Removes the values of the properties of this entity.
 	 */
+	@Override
 	public E reset() {
 		
 		getRefProperties().forEach(p -> p.removeValue());

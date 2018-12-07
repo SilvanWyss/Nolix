@@ -23,6 +23,7 @@ final class MultiReadContainerIterator<E> implements Iterator<E> {
 	}
 	
 	//method
+	@Override
 	public boolean hasNext() {
 		
 		if (currentIterator != null && currentIterator.hasNext()) {
@@ -37,6 +38,7 @@ final class MultiReadContainerIterator<E> implements Iterator<E> {
 	}
 	
 	//method
+	@Override
 	public E next() {
 		
 		if (!hasNext()) {

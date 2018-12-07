@@ -14,6 +14,7 @@ import ch.nolix.element._3DGUI.Pyramid;
 final class JMonkeyPyramidRenderer implements IJMonkeyShapeRenderer<Pyramid, Geometry> {
 	
 	//method
+	@Override
 	public Geometry createRenderObject() {
 		return new Geometry(
 			"Dome",
@@ -22,6 +23,7 @@ final class JMonkeyPyramidRenderer implements IJMonkeyShapeRenderer<Pyramid, Geo
 	}
 	
 	//method
+	@Override
 	public void render(final Pyramid pyramid, final Geometry geometry) {
 		
 		geometry.setLocalTranslation(

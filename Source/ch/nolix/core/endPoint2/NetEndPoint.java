@@ -185,6 +185,7 @@ public class NetEndPoint extends EndPoint {
 	/**
 	 * @return true if this net end point is a net end point.
 	 */
+	@Override
 	public boolean isNetEndPoint() {
 		return true;
 	}
@@ -204,6 +205,7 @@ public class NetEndPoint extends EndPoint {
 	 * @param message
 	 * @throws InvalidArgumentException if this net end point is aborted.
 	 */
+	@Override
 	protected void receive(final String message) {
 		
 		//Checks if this net end point is not stopped.
@@ -234,6 +236,7 @@ public class NetEndPoint extends EndPoint {
 		}
 	}
 	
+	@Override
 	public void send(final String message) {
 		send_internal("M" + message);
 	}
@@ -254,6 +257,7 @@ public class NetEndPoint extends EndPoint {
 	/**
 	 * Lets this net end point note an abort.
 	 */
+	@Override
 	protected void noteClose() {
 		try {
 			socket.close();

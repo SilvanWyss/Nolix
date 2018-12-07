@@ -76,5 +76,6 @@ extends ClosableElement {
 	/**
 	 * Lets this server note an abort.
 	 */
+	@Override
 	protected void noteClose() {}
 }

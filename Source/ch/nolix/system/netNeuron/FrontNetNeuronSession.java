@@ -40,6 +40,7 @@ extends Session<StandardClient> {
 	/**
 	 * Initializes this net front neuron session.
 	 */
+	@Override
 	public void initialize() {}
 	
 	//method

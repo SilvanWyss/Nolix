@@ -72,6 +72,7 @@ final class SubContainerIterator<E> implements Iterator<E> {
 	/**
 	 * @return true if this sub container iterator has a next element.
 	 */
+	@Override
 	public boolean hasNext() {
 		return (currentIndex <= endIndex);
 	}
@@ -81,6 +82,7 @@ final class SubContainerIterator<E> implements Iterator<E> {
 	 * @return the next element of this sub container iterator.
 	 * @throws UnexistingAttributeException if this sub container iterator has no next element.
 	 */
+	@Override
 	public E next() {
 		
 		//Checks if this sub container iterator has a next element.

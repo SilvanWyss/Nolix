@@ -39,6 +39,7 @@ implements Clearable<FloatContainer> {
 	}
 
 	//own imports
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		if (GUI.canCreateWidget(attribute)) {
@@ -77,6 +78,7 @@ implements Clearable<FloatContainer> {
 	}
 	
 	//method
+	@Override
 	public FloatContainer clear() {
 		
 		widgets.clear();
@@ -85,6 +87,7 @@ implements Clearable<FloatContainer> {
 	}
 	
 	//method
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = super.getAttributes();
@@ -95,6 +98,7 @@ implements Clearable<FloatContainer> {
 	}
 	
 	//method
+	@Override
 	public CursorIcon getContentAreaCursorIcon() {
 		
 		final var widgetUnderCursor = widgets.getRefFirstOrNull(w -> w.isUnderCursor());
@@ -107,11 +111,13 @@ implements Clearable<FloatContainer> {
 	}
 	
 	//method
+	@Override
 	public boolean isEmpty() {
 		return widgets.isEmpty();
 	}
 	
 	//method
+	@Override
 	public FloatContainer reset() {
 		
 		super.reset();
@@ -122,19 +128,23 @@ implements Clearable<FloatContainer> {
 	}
 	
 	//method
+	@Override
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {}
 	
 	//method
+	@Override
 	protected FloatContainerLook createWidgetLook() {
 		return new FloatContainerLook();
 	}
 
 	//method
+	@Override
 	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {
 		list.addAtEnd(widgets);
 	}
 	
 	//method
+	@Override
 	protected int getContentAreaHeight() {
 		
 		if (isEmpty()) {
@@ -148,6 +158,7 @@ implements Clearable<FloatContainer> {
 	}
 	
 	//method
+	@Override
 	protected int getContentAreaWidth() {
 		
 		final var currentLook = getRefCurrentLook();
@@ -177,6 +188,7 @@ implements Clearable<FloatContainer> {
 	}
 	
 	//method
+	@Override
 	protected void paintContentArea(
 		final FloatContainerLook borderWidgetLook,
 		final IPainter painter
@@ -185,6 +197,7 @@ implements Clearable<FloatContainer> {
 	}
 	
 	//method
+	@Override
 	protected void setCursorPositionOnContentArea(
 		final int cursorXPositionOnContent,
 		final int cursorYPositionOnContent
@@ -198,6 +211,7 @@ implements Clearable<FloatContainer> {
 	}
 	
 	//method
+	@Override
 	protected void setPositionOnParent(
 		final int relativeXPosition,
 		final int relativeYPosition

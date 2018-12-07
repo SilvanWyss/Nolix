@@ -43,6 +43,7 @@ public abstract class HeaderedElement implements Headered {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final String getHeader() {
 		return header;
 	}

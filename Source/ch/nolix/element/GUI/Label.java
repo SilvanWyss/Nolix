@@ -57,6 +57,7 @@ public final class Label extends TextLineWidget<Label> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
@@ -75,6 +76,7 @@ public final class Label extends TextLineWidget<Label> {
 	/**
 	 * @return the attributes of the current {@link Label}.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -116,6 +118,7 @@ public final class Label extends TextLineWidget<Label> {
 	 * @param role
 	 * @return true if the current {@link Label} has the given role.
 	 */
+	@Override
 	public boolean hasRole(final String role) {
 		
 		//Handles the case that the current label has no role.
@@ -131,6 +134,7 @@ public final class Label extends TextLineWidget<Label> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean keepsFocus() {
 		return false;
 	}
@@ -161,6 +165,7 @@ public final class Label extends TextLineWidget<Label> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {}
 	
 	//method

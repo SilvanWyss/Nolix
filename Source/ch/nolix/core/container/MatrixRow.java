@@ -31,6 +31,7 @@ public final class MatrixRow<E> implements IContainer<E> {
 	}
 	
 	//method
+	@Override
 	public int getSize() {
 		return parentMatrix.getColumnCount();
 	}
@@ -41,16 +42,19 @@ public final class MatrixRow<E> implements IContainer<E> {
 	}
 	
 	//method
+	@Override
 	public E getRefAt(final int columnIndex) {
 		return parentMatrix.getRefAt(getRowIndex(), columnIndex);
 	}
 	
 	//method
+	@Override
 	public MatrixRowIterator<E> iterator() {
 		return new MatrixRowIterator<E>(this);
 	}
 	
 	//method
+	@Override
 	public String toString() {
 		return toString(CharacterCatalogue.COMMA);
 	}

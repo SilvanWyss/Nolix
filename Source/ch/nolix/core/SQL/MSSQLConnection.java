@@ -55,6 +55,7 @@ public final class MSSQLConnection extends SQLConnection {
 	}
 
 	//method
+	@Override
 	protected String getSQLDatabaseEngineDriverClass() {
 		return MSSQL_DATABASE_ENINGE_DRIVER_CLASS;
 	}

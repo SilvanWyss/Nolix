@@ -52,6 +52,7 @@ public final class BackGUIClientTutorial {
 		private int counter = 1;
 		
 		//method
+		@Override
 		public void initialize() {			
 			
 			final var button =

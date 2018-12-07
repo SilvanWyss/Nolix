@@ -39,11 +39,13 @@ extends Referenceoid<E> {
 	}
 
 	//method
+	@Override
 	public PropertyoidType<E> getPropertyType() {
 		return new MultiReferenceType<>(getValueClass());
 	}
 	
 	//method
+	@Override
 	public final boolean references(final Entity entity) {
 		
 		for (final var e : getEntities()) {
@@ -60,6 +62,7 @@ extends Referenceoid<E> {
 	}
 
 	//method
+	@Override
 	protected void internal_clear() {
 		
 		referencedEntityIds.clear();
@@ -68,11 +71,13 @@ extends Referenceoid<E> {
 	}
 
 	//method
+	@Override
 	protected List<Object> internal_getValues() {
 		return new List<Object>(referencedEntityIds);
 	}
 
 	//method
+	@Override
 	protected void internal_setValues(Iterable<Object> values) {
 		values.forEach(v -> addValue((int)v));
 	}

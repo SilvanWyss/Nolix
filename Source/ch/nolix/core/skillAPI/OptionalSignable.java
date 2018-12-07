@@ -25,6 +25,7 @@ extends Labelable<OS> {
 	 * @param infoString
 	 * @return true if this optional signable object has the given info string.
 	 */
+	@Override
 	public default boolean hasInfoString(final String infoString) {
 		
 		//Handles the case that this optional signable object has no info string.

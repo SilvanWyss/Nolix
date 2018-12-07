@@ -25,6 +25,7 @@ extends Tokenable<OT> {
 	 * @param token
 	 * @return true if this optional tokenable object has the given token.
 	 */
+	@Override
 	public default boolean hasToken(final String token) {
 		
 		//Handles the case that this optional tokenable object has no token.

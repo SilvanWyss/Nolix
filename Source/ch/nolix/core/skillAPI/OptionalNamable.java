@@ -25,6 +25,7 @@ extends Namable<ON>{
 	 * @param name
 	 * @return true if this optional namable object has the given name.
 	 */
+	@Override
 	public default boolean hasName(final String name) {
 		
 		//Handles the case that this optional namable object has no name.

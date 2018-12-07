@@ -55,6 +55,7 @@ public final class _2DPoint extends Element<_2DPoint> {
 	/**
 	 * @return the attributes of this 2D point.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		return
 		new List<DocumentNode>(

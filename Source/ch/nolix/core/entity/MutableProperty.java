@@ -47,6 +47,7 @@ extends SingleProperty<V> {
 	/**
 	 * @return true if this mutable property is mutable.
 	 */
+	@Override
 	public boolean isMutable() {
 		return true;
 	}
@@ -55,6 +56,7 @@ extends SingleProperty<V> {
 	/**
 	 * @return true if this mutable property is optional.
 	 */
+	@Override
 	public boolean isOptional() {
 		return false;
 	}

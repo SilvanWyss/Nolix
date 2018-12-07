@@ -26,9 +26,11 @@ public final class FrontBrowserGUIClient extends FrontGUIClientoid<FrontBrowserG
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void internal_finishSessionInitialization() {}
 
 	//method
+	@Override
 	public FrontGUIClientoidType getFrontEndType() {
 		return FrontGUIClientoidType.PainterCommandsConsumer;
 	}

@@ -62,6 +62,7 @@ public final class ARModel extends StatisticalModel {
 		constant = factor2Matrix.getValue(factor2Matrix.getSize(), 1);
 	}
 	
+	@Override
 	public final double getNextValue() {
 		
 		double nextValue = constant;

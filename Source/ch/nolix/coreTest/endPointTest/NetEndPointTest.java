@@ -36,6 +36,7 @@ public final class NetEndPointTest extends Test {
 			= new NetServer(
 				port,
 				new IEndPointTaker() {					
+					@Override
 					public void takeEndPoint(final EndPoint endPoint) {
 						endPoint.setReceiver(receiverFake);
 					}
@@ -78,6 +79,7 @@ public final class NetEndPointTest extends Test {
 		}
 		
 		//method
+		@Override
 		public void receive(final String message) {
 			
 			Validator

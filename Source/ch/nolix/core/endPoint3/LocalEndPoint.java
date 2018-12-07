@@ -170,6 +170,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @return the target of this local end point.
 	 * @throws UnexistingAttributeException if this local end point has no target.
 	 */
+	@Override
 	public String getTarget() {
 		
 		//Checks if this local end point has a target.
@@ -184,6 +185,7 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * @return true if this local end point has requested the connection.
 	 */
+	@Override
 	public boolean hasRequestedConnection() {
 		return requestedConnection;
 	}
@@ -192,6 +194,7 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * @return true if this local end point has a target.
 	 */
+	@Override
 	public boolean hasTarget() {
 		return (target != null);
 	}
@@ -202,6 +205,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * 
 	 * @return the reply to the given message from this local end point.
 	 */
+	@Override
 	public String sendAndGetReply(final String message) {		
 		return getRefCounterpart().receiveAndGetReply(message);
 	}

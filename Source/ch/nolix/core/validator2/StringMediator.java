@@ -200,7 +200,7 @@ public class StringMediator extends ArgumentMediator<String> {
 		if (!specifiesProbableDirectoryOnLocalMachine) {
 			throw
 			new InvalidArgumentException(
-				(Object)directory,
+				directory,
 				"is not a probable directory on the local machine"
 			);
 		}

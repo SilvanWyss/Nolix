@@ -16,10 +16,12 @@ final class EndPointTaker<M, R> implements ch.nolix.core.endPoint2.IEndPointTake
 		this.replyTransformer = replyTransformer;
 	}
 	
+	@Override
 	public String getName() {
 		return endPointTaker.getName();
 	}
 
+	@Override
 	public void takeEndPoint(ch.nolix.core.endPoint2.EndPoint endPoint) {
 		endPointTaker.takeEndPoint(
 			new NetEndPoint<M, R>(

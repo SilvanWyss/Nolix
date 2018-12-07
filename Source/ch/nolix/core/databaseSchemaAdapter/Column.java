@@ -38,6 +38,7 @@ implements Specified {
 	}
 	
 	//method
+	@Override
 	public List<DocumentNode> getAttributes() {
 		return 
 		new List<DocumentNode>(
@@ -68,6 +69,7 @@ implements Specified {
 	}
 	
 	//method
+	@Override
 	public String getType() {
 		return PascalCaseNameCatalogue.COLUMN;
 	}

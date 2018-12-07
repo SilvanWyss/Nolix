@@ -21,6 +21,7 @@ public abstract class PropertyoidType<V> implements Specified {
 	public abstract boolean captionsPropertyThatCanReference(Entity entity);
 	
 	//method
+	@Override
 	public List<DocumentNode> getAttributes() {
 		return
 		new List<DocumentNode>(
@@ -34,6 +35,7 @@ public abstract class PropertyoidType<V> implements Specified {
 	public abstract PropertyKind getPropertyKind();
 	
 	//method
+	@Override
 	public final String getType() {
 		return getClass().getSimpleName();
 	}

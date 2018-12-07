@@ -55,6 +55,7 @@ public final class Button extends TextLineWidget<Button> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
@@ -73,6 +74,7 @@ public final class Button extends TextLineWidget<Button> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -115,6 +117,7 @@ public final class Button extends TextLineWidget<Button> {
 	 * @return true
 	 * if the current {@link Button} has the given role.
 	 */
+	@Override
 	public boolean hasRole(final String role) {
 		
 		//Handles the case that the current link button has no role.
@@ -130,6 +133,7 @@ public final class Button extends TextLineWidget<Button> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean keepsFocus() {
 		return false;
 	}
@@ -171,6 +175,7 @@ public final class Button extends TextLineWidget<Button> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {
 		
 		setMinWidth(100);

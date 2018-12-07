@@ -32,6 +32,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	/**
 	 * @return a new forward multi layer neoronal net.
 	 */
+	@Override
 	public NeuronalNet<IO> createNeuronalNet() {
 			
 		final List<Neuron<IO>> inputNeurons = new List<Neuron<IO>>();

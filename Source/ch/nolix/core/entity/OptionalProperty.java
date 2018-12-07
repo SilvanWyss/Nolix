@@ -47,6 +47,7 @@ extends SingleProperty<V> {
 	/**
 	 * @return true if this immutable optional property is mutable.
 	 */
+	@Override
 	public boolean isMutable() {
 		return false;
 	}
@@ -55,6 +56,7 @@ extends SingleProperty<V> {
 	/**
 	 * @return true if this optional property is optional.
 	 */
+	@Override
 	public boolean isOptional() {
 		return true;
 	}
@@ -63,6 +65,7 @@ extends SingleProperty<V> {
 	/**
 	 * @throws UnexistingAttributeException if the current {@link OptionalProperty} is empty.
 	 */
+	@Override
 	public void supposeHasValue() {
 		
 		//Calls method of the base class.

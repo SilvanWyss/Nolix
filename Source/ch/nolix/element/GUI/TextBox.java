@@ -57,6 +57,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	/**
 	 * @return the interaction attributes of the current {@link TextBox}.
 	 */
+	@Override
 	public List<DocumentNode> getInteractionAttributes() {
 		
 		//Calls method of the base class.
@@ -71,6 +72,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	/**
 	 * @return if the current {@link TextBox} has the given role.
 	 */
+	@Override
 	public boolean hasRole(final String role) {
 		return false;
 	}
@@ -79,6 +81,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean keepsFocus() {
 		return true;
 	}
@@ -89,6 +92,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 * 
 	 * @param keyEvent
 	 */
+	@Override
 	public void noteKeyTyping(final KeyEvent keyEvent) {
 		
 		//Enumerates the key code of the given key event.
@@ -128,6 +132,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	/**
 	 * Lets the current {@link TextBox} note a left mouse button press.
 	 */
+	@Override
 	public void noteLeftMouseButtonPress() {
 		
 		//Calls method of the base class.
@@ -178,6 +183,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 * 
 	 * @return the current {@link TextBox}.
 	 */
+	@Override
 	public TextBox resetConfiguration() {
 		
 		//Calls method of the base class.
@@ -193,6 +199,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {
 		setCustomCursorIcon(CursorIcon.Edit);
 		getRefBaseLook().setBorderThicknesses(1);
@@ -202,6 +209,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	/**
 	 * @return the width of the content area of current {@link TextBox}.
 	 */
+	@Override
 	protected final int getContentAreaWidth() {
 		return
 		Calculator.getMin(
@@ -217,6 +225,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 * @param textLineWidgetLook
 	 * @param painter
 	 */
+	@Override
 	protected final void paintContentArea(
 		final TextLineWidgetLook textLineWidgetLook,
 		final IPainter painter

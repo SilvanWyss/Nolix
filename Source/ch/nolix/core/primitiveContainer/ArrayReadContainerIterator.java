@@ -29,11 +29,13 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 	}
 	
 	//method
+	@Override
 	public boolean hasNext() {
 		return (nextElementIndex < array.length);
 	}
 
 	//method
+	@Override
 	public E next() {
 		
 		//Checks if the current array read container iterator has a next element.

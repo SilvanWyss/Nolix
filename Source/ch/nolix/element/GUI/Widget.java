@@ -112,6 +112,7 @@ extends ConfigurableElement<W> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
@@ -291,6 +292,7 @@ extends ConfigurableElement<W> {
 	/**
 	 * @return the attributes of the current {@link Widget}.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -504,6 +506,7 @@ extends ConfigurableElement<W> {
 	/**
 	 * @return the configurable elements of the current {@link Widget}.
 	 */
+	@Override
 	public final ReadContainer<Configurable<?>> getRefConfigurables() {
 		return new ReadContainer<Configurable<?>>(getRefWidgets());
 	}
@@ -1030,6 +1033,7 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @return the current {@link Widget}.
 	 */
+	@Override
 	public W reset() {
 		
 		//Calls method of the base class.
@@ -1054,6 +1058,7 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @return the current {@link Widget}.
 	 */
+	@Override
 	public W resetConfiguration() {
 		
 		getRefBaseLook().reset();

@@ -23,11 +23,13 @@ implements Headerable<HE> {
 	);
 	
 	//method
+	@Override
 	public final String getHeader() {
 		return headerProperty.getValue().getValue();
 	}
 
 	//method
+	@Override
 	public final HE setHeader(final String header) {
 		
 		headerProperty.setValue(new NonEmptyText(header));

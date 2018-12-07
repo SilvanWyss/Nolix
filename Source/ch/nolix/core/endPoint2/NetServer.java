@@ -104,6 +104,7 @@ public final class NetServer extends Server {
 	/**
 	 * Let the current {@link NetServer} note a closing.
 	 */
+	@Override
 	protected void noteClose() {
 		try {
 			serverSocket.close();

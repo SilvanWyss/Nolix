@@ -101,6 +101,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * 
 	 * @return this server.
 	 */
+	@Override
 	public Server clear() {
 		
 		applications.clear();
@@ -130,6 +131,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	/**
 	 * @return true if this server contains no application.
 	 */
+	@Override
 	public final boolean isEmpty() {
 		return applications.isEmpty();
 	}
@@ -184,5 +186,6 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	/**
 	 * Lets this server note a closing.
 	 */
+	@Override
 	protected final void noteClose() {}
 }

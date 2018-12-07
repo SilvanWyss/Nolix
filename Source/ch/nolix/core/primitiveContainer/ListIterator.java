@@ -16,11 +16,13 @@ public final class ListIterator<E> implements Iterator<E> {
 	}
 	
 	//method
+	@Override
 	public boolean hasNext() {
 		return (nextNode != null);
 	}
 
 	//method
+	@Override
 	public E next() {
 		
 		if (!hasNext()) {

@@ -2,6 +2,7 @@
 package ch.nolix.system.consoleClient;
 
 import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator2.Validator;
@@ -153,6 +154,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	/**
 	 * Finishes the initialization of the session of this front console client.
 	 */
+	@Override
 	protected void internal_finishSessionInitialization() {}
 	
 	//method
@@ -162,6 +164,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	 * @return the data the given request requests from this console front client.
 	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
+	@Override
 	protected DocumentNode internal_getData(final Statement request) {
 		
 		//Enumerates the header of the given request.
@@ -180,7 +183,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 				
 				//Iterates the lines of the main console of this console front client.
 				for (final var l : console.getLines()) {
-					data.addAttribute(DocumentNode.createReproducingString(l));
+					data.addAttribute(DocumentNodeoid.createReproducingString(l));
 				}
 				
 				return data;
@@ -198,6 +201,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	 * @param command
 	 * @throws InvalidArgumentException if the given command is not valid.
 	 */
+	@Override
 	protected void internal_run(final Statement command) {
 		
 		//Enumerates the header of the given command.

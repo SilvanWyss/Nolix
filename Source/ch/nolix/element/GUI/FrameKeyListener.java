@@ -36,13 +36,16 @@ final class FrameKeyListener implements KeyListener {
 	}
 
 	//method
+	@Override
 	public void keyPressed(final KeyEvent keyEvent) {
 		frame.noteKeyTyping(keyEvent);
 	}
 
 	//method
+	@Override
 	public void keyReleased(final KeyEvent keyEvent) {}
 
 	//method
+	@Override
 	public void keyTyped(final KeyEvent keyEvent) {}
 }

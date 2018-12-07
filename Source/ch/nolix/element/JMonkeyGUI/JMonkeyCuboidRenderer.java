@@ -26,6 +26,7 @@ implements IJMonkeyShapeRenderer<Cuboid, Geometry> {
 	/**
 	 * @return a new render object for the cuboid of this JMonkey cuboid renderer.
 	 */
+	@Override
 	public Geometry createRenderObject() {
 		
 		//Creates box.
@@ -45,6 +46,7 @@ implements IJMonkeyShapeRenderer<Cuboid, Geometry> {
 	 * @param cuboid
 	 * @param geometry
 	 */
+	@Override
 	public void render(final Cuboid cuboid, final Geometry geometry) {
 		
 		//Sets the position to the given geometry.

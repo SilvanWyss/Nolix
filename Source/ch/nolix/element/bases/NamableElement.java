@@ -45,6 +45,7 @@ implements Namable<NE> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
@@ -69,6 +70,7 @@ implements Namable<NE> {
 	/**
 	 * @return the attributes of this namable element.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		return new List<DocumentNode>(name.getSpecificationAs(PascalCaseNameCatalogue.NAME));
 	}
@@ -77,6 +79,7 @@ implements Namable<NE> {
 	/**
 	 * @return the name of this namable element.
 	 */
+	@Override
 	public final String getName() {
 		return name.getValue();
 	}
@@ -87,6 +90,7 @@ implements Namable<NE> {
 	 * 
 	 * @return this namable element.
 	 */
+	@Override
 	public NE reset() {
 		
 		setName(DEFAULT_NAME);
@@ -104,6 +108,7 @@ implements Namable<NE> {
 	 * @throws InvalidStateException if this namable element belongs to a requestable container
 	 * that contains another element with the given name.
 	 */
+	@Override
 	public NE setName(String name) {
 		
 		//Handles the case that this namable element has not already the given name.

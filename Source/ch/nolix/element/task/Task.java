@@ -246,6 +246,7 @@ public final class Task extends MutableElement<Task> {
 	 * 
 	 * @return this task.
 	 */
+	@Override
 	public Task reset() {
 		
 		setTitle(DEFAULT_TITLE);

@@ -75,6 +75,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * 
 	 * @return this server.
 	 */
+	@Override
 	public final Server clear() {
 		
 		endPointTaker.clear();
@@ -104,6 +105,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	/**
 	 * @return true if this server contains no duplex controller taker.
 	 */
+	@Override
 	public final boolean isEmpty() {
 		return endPointTaker.isEmpty();
 	}
@@ -154,6 +156,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	/**
 	 * Lets this server note an abort.
 	 */
+	@Override
 	protected final void noteClose() {}
 	
 	//method

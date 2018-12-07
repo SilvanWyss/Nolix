@@ -27,6 +27,7 @@ extends Valueable<OV, V> {
 	 * @return  true if the current {@link OptionalValueable}
 	 * has a value that equals the given value.
 	 */
+	@Override
 	public default boolean hasEqualValue(final Object value) {
 		
 		//Handles the case that the current optional valueable does not have a value.
@@ -44,6 +45,7 @@ extends Valueable<OV, V> {
 	 * @return true
 	 * if the current {@link OptionalValueable} has the given value.
 	 */
+	@Override
 	public default boolean hasValue(final Object value) {
 		
 		//Handles the case that the current optional valueable does not have a value.

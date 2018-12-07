@@ -46,8 +46,10 @@ extends Client<FGC> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void internal_finishSessionInitialization() {}
 	
+	@Override
 	protected DocumentNode internal_getData(final Statement request) {
 		
 		//Enumerates the header of the given request.
@@ -65,6 +67,7 @@ extends Client<FGC> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void internal_run(final Statement command) {
 		
 		//Enumerates the header of the given command.

@@ -88,6 +88,7 @@ final class ResultJobRunner<R> extends Thread {
 	/**
 	 * Runs this result job runner.
 	 */
+	@Override
 	public void run() {
 		try {
 			result = resultJob.getOutput();

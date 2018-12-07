@@ -56,6 +56,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	 * 
 	 * @throws RuntimeException if an error occurs.
 	 */
+	@Override
 	public void addAttribute(final DocumentNodeoid attribute) {
 		internalSpecification.addAttribute(attribute);
 		simplePersistentSpecification.save();
@@ -65,6 +66,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	/**
 	 * @return true if this sub specification contains attributes.
 	 */
+	@Override
 	public boolean containsAttributes() {
 		return internalSpecification.containsAttributes();
 	}
@@ -75,6 +77,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	 * @throws UnexistingAttributeException if this sub specification
 	 * has no header.
 	 */
+	@Override
 	public String getHeader() {
 		return internalSpecification.getHeader();
 	}
@@ -83,6 +86,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	/**
 	 * @return the attributes of this sub specification
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public ReadContainer<SubDocumentNode> getRefAttributes() {
 		return new ReadContainer<SubDocumentNode>(
@@ -98,6 +102,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	 * @throws EmptyStateException if this sub specification contains no attributes.
 	 * @throws InvalidStateException if this sub specification contains several attributes.
 	 */
+	@Override
 	public SubDocumentNode getRefOneAttribute() {
 		return new SubDocumentNode(
 			simplePersistentSpecification, internalSpecification.getRefOneAttribute()
@@ -108,6 +113,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	/**
 	 * @return true if this sub specification has a header.
 	 */
+	@Override
 	public boolean hasHeader() {
 		return internalSpecification.hasHeader();
 	}
@@ -120,6 +126,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	 * @throws InvalidArgumentException
 	 * if this sub specification contains no attribute the given selector selects.
 	 */
+	@Override
 	public void removeFirstAttribute(final IElementTakerBooleanGetter<DocumentNodeoid> selector) {
 		internalSpecification.removeFirstAttribute(a -> selector.getOutput(a));
 		simplePersistentSpecification.save();
@@ -133,6 +140,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	 * @throws EmptyArgumentException if the given header is empty.
 	 * @throws RuntimeException if an error occurs.
 	 */
+	@Override
 	public void setHeader(final String header) {
 		internalSpecification.setHeader(header);
 		simplePersistentSpecification.save();
@@ -148,6 +156,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	/**
 	 * Removes the header of the current {@link SubDocumentNode}
 	 */
+	@Override
 	public void removeHeader() {
 		internalSpecification.removeHeader();
 		simplePersistentSpecification.save();

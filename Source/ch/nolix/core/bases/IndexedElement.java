@@ -42,6 +42,7 @@ public abstract class IndexedElement implements Indexed {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final int getIndex() {
 		return index;
 	}

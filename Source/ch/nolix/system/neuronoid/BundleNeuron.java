@@ -21,6 +21,7 @@ extends Neuronoid<BundleNeuron<O>, O, Iterable<O>> {
 	/**
 	 * @return the maximum number of input neurons of this bundle neuron.
 	 */
+	@Override
 	public int getMaxInputNeuronCount() {
 		return MAX_INPUT_NEURON_COUNT;
 	}
@@ -29,6 +30,7 @@ extends Neuronoid<BundleNeuron<O>, O, Iterable<O>> {
 	/**
 	 * @return the minimum number of input neurons of this bundle neuron.
 	 */
+	@Override
 	public int getMinInputNeuronCount() {
 		return MIN_INPUT_NEURON_COUNT;
 	}
@@ -39,6 +41,7 @@ extends Neuronoid<BundleNeuron<O>, O, Iterable<O>> {
 	 * 
 	 * @param processor
 	 */
+	@Override
 	protected void internal_fire() {
 		internal_setOutput(getRefInputs());
 	}

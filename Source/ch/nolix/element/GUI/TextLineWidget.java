@@ -38,6 +38,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	 * 
 	 * @param attribute		The attribute to add or change to this text line rectangle.
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the given attribute.
@@ -60,6 +61,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		return super.getAttributes().addAtEnd(text.getSpecification());
 	}
@@ -68,6 +70,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final CursorIcon getContentAreaCursorIcon() {
 		return getCustomCursorIcon();
 	}
@@ -86,6 +89,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	 * 
 	 * @return this text line widget.
 	 */
+	@Override
 	public TLW resetConfiguration() {
 				
 		getRefBaseLook().setTextSize(ValueCatalogue.MEDIUM_TEXT_SIZE);
@@ -120,6 +124,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	/**
 	 * @return the current height of the content of this text line rectangle
 	 */
+	@Override
 	protected final int getContentAreaHeight() {
 		return
 		new TextFormat(getRefCurrentLook().getRecursiveOrDefaultTextSize())
@@ -130,6 +135,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	/**
 	 * @return the current width of the content of this text line rectangle
 	 */
+	@Override
 	protected int getContentAreaWidth() {	
 		return
 		new TextFormat(getRefCurrentLook()
@@ -144,6 +150,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	 * @param rectangleStructure
 	 * @param painter
 	 */
+	@Override
 	protected void paintContentArea(
 		final TextLineWidgetLook rectangleStructure,
 		final IPainter painter
@@ -168,6 +175,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	}
 	
 	//method
+	@Override
 	protected TextLineWidgetLook createWidgetLook() {
 		return new TextLineWidgetLook();
 	}
@@ -184,5 +192,6 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {}
 }

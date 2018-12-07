@@ -53,6 +53,7 @@ public final class Order {
 	/**
 	 * @return true if this order equals the given object.
 	 */
+	@Override
 	public boolean equals(final Object object) {
 		
 		if (!(object instanceof Order)) {
@@ -117,6 +118,7 @@ public final class Order {
 	/**
 	 * @return a string representation of this order.
 	 */
+	@Override
 	public String toString() {
 		return (
 			getClass().getSimpleName()

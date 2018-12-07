@@ -29,6 +29,7 @@ implements ISmartObject<ONE>, OptionalNamable<ONE> {
 	 * @throws UnexistingAttributeException
 	 * if the current {@link OptionalNamableElement} does not have a name.
 	 */
+	@Override
 	public final String getName() {
 		
 		supposeHasName();
@@ -40,6 +41,7 @@ implements ISmartObject<ONE>, OptionalNamable<ONE> {
 	/**
 	 * @return true if the current {@link OptionalNamableElement} has a name.
 	 */
+	@Override
 	public final boolean hasName() {
 		return (name != null);
 	}
@@ -50,6 +52,7 @@ implements ISmartObject<ONE>, OptionalNamable<ONE> {
 	 * 
 	 * @return the current {@link OptionalNamableElement}.
 	 */
+	@Override
 	public final ONE removeName() {
 		
 		name = null;
@@ -66,6 +69,7 @@ implements ISmartObject<ONE>, OptionalNamable<ONE> {
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
 	 */
+	@Override
 	public final ONE setName(final String name) {
 		
 		//Checks if the given name is not null and not empty.

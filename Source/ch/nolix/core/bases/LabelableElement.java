@@ -37,6 +37,7 @@ implements ISmartObject<SE>, Labelable<SE> {
 	/**
 	 * @return the info string of the current {@link LabelableElement}.
 	 */
+	@Override
 	public final String getInfoString() {
 		return infoString;
 	}
@@ -50,6 +51,7 @@ implements ISmartObject<SE>, Labelable<SE> {
 	 * @throws NullArgumentException if the given info string is null.
 	 * @throws EmptyArgumentException if the given info string is empty.
 	 */
+	@Override
 	public final SE setInfoString(final String infoString) {
 		
 		//Checks if the given info string is not null and not empty.

@@ -43,6 +43,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		/**
 		 * Initializes this simple application.
 		 */
+		@Override
 		public void simpleInitApp() {
 			setDisplayStatView(false);
 			setDisplayFps(false);
@@ -148,6 +149,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 				 * 
 				 * @return null.
 				 */
+				@Override
 				public Object call() {
 					method.run();
 					return null;
@@ -160,6 +162,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	/**
 	 * @return true if this JMonkey main frame is closed.
 	 */
+	@Override
 	public boolean isClosed() {
 		return closed;
 	}
@@ -168,6 +171,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	/**
 	 * Closes this JMonkey main frame.
 	 */
+	@Override
 	public void close() {
 		closed = true;
 		simpleApplication.destroy();
@@ -185,30 +189,35 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	/**
 	 * Lets this JMonkey main frame note a left mouse button press.
 	 */
+	@Override
 	public void noteLeftMouseButtonPress() {}
 	
 	//method
 	/**
 	 * Lets this JMonkey main frame note 
 	 */
+	@Override
 	public void noteLeftMouseButtonRelease() {}
 	
 	//method
 	/**
 	 * Lets this JMonkey main frame note a right mouse button press.
 	 */
+	@Override
 	public void noteRightMouseButtonPress() {}
 	
 	//method
 	/**
 	 * Lets this JMonkey main frame note a right mouse button release.
 	 */
+	@Override
 	public void noteRightMouseButtonRelease() {}
 
 	//method
 	/**
 	 * Refreshes this JMonkey main frmae.
 	 */
+	@Override
 	public void refresh() {
 		enqueue(() -> direct_refresh());
 	}
@@ -221,6 +230,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 * @return this main frame.
 	 * @throws NullArgumentException if the given root shape is null.
 	 */
+	@Override
 	public JMonkeyMainFrame setRootShape(final Shape<?> rootShape) {
 		
 		//Calls method of the base class.

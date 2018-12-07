@@ -36,17 +36,20 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 	}
 	
 	//method
+	@Override
 	public boolean isInitialized() {
 		return SQLConnection.tableExistsOnDatabase(DATABASE_PROPERTIES_TABLE_NAME);
 	}
 	
 	//method
+	@Override
 	protected List<IEntitySetAdapter> getEntitySetAdapters() {
 		//TODO: Implement.
 		return null;
 	}
 	
 	//method
+	@Override
 	protected void initializeDatabaseWhenNotInitialized() {
 		SQLConnection.execute(
 			"CREATE TABLE "
@@ -60,6 +63,7 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 	}
 	
 	//method
+	@Override
 	protected void saveChangesToDatabase(final IContainer<EntitySet> mutatedEntitySetsInOrder) {
 		
 		//TODO: Block database for any other mutations as long as this method lasts.

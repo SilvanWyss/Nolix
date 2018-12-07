@@ -59,6 +59,7 @@ extends Entity<SelectionMenuItemLook> {
 	}
 	
 	//method
+	@Override
 	public String getType() {
 		return TYPE_NAME;
 	}

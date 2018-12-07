@@ -42,11 +42,13 @@ public final class DeleteEntitySession extends HeaderedSession {
 	}
 	
 	//method
+	@Override
 	protected List<Button> createLinkButtons() {
 		return new List<Button>();
 	}
 	
 	//method
+	@Override
 	protected VerticalStack createSubSubContentWidget() {
 		return
 		new VerticalStack(

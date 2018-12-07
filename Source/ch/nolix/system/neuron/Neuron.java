@@ -32,6 +32,7 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	/**
 	 * @return the maximal number of input neurons of this neuron.
 	 */
+	@Override
 	public int getMaxInputNeuronCount() {
 		return MAX_INPUT_NEURON_COUNT;
 	}
@@ -40,6 +41,7 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	/**
 	 * @return the minimal number of input neurons of this neuron.
 	 */
+	@Override
 	public int getMinInputNeuronCount() {
 		return MIN_INPUT_NEURON_COUNT;
 	}
@@ -176,6 +178,7 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	 * 
 	 * @throws UnexistingAttributeException if this neuron has no output function.
 	 */
+	@Override
 	protected void internal_fire() {
 		internal_setOutput(getOutputFunction().getOutput(this));
 	}

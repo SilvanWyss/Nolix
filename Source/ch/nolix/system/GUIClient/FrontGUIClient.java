@@ -141,6 +141,7 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	}
 
 	//method
+	@Override
 	public FrontGUIClientoidType getFrontEndType() {
 		return FrontGUIClientoidType.GUISpecificationConsumer;
 	}

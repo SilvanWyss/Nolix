@@ -23,6 +23,7 @@ public final class MultiBackReference<E extends Entity> extends BackReferenceoid
 	}
 	
 	//package-visible method
+	@Override
 	void supposeCanReferenceBackAdditionally(
 		final Entity entity,
 		final String referencingPropertyHeader

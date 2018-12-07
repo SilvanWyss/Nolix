@@ -116,6 +116,7 @@ public final class MultiShape extends Shape<MultiShape> {
 	/**
 	 * @return the shapes of this multi shape.
 	 */
+	@Override
 	public ReadContainer<Shape<?>> getRefShapes() {
 		return new ReadContainer<>(shapes);
 	}
@@ -147,6 +148,7 @@ public final class MultiShape extends Shape<MultiShape> {
 	 * 
 	 * @return this multi shape.
 	 */
+	@Override
 	public MultiShape resetConfiguration() {
 		return this;
 	}

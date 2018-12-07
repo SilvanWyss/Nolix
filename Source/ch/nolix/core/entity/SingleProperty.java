@@ -91,6 +91,7 @@ extends Propertyoid<V> {
 	/**
 	 * @return true if this single property is approved.
 	 */
+	@Override
 	public final boolean isApproved() {
 		return approved;
 	}
@@ -99,6 +100,7 @@ extends Propertyoid<V> {
 	/**
 	 * @return true if this single property has no value.
 	 */
+	@Override
 	public boolean isEmpty() {
 		return (value == null);
 	}
@@ -138,6 +140,7 @@ extends Propertyoid<V> {
 	}
 	
 	//package-visible method
+	@Override
 	final void addOrChangeValue(final V value) {
 		setterMethod.run(value);
 	}
@@ -149,6 +152,7 @@ extends Propertyoid<V> {
 	 * @throws InvalidStateException
 	 * if this single property is not optional, but empty.
 	 */
+	@Override
 	final void approve() {
 		
 		//Checks if this single property is not empty when it is optional.
@@ -178,6 +182,7 @@ extends Propertyoid<V> {
 	/**
 	 * @return the values of this single property.
 	 */
+	@Override
 	final ReadContainer<V> getRefValues() {
 		
 		//Handles the case that this single property is empty.

@@ -208,6 +208,7 @@ public final class TextFormat extends Element<TextFormat> {
 	/**
 	 * @return the attributes of the current {@link TextFormat}.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		return new List<DocumentNode>(
 			textFont.getSpecificationAs(TEXT_FONT_HEADER),

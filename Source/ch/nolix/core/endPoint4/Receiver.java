@@ -10,6 +10,7 @@ class Receiver<M, R> implements IReceiver {
 		this.netEndPoint = netEndPoint;
 	}
 
+	@Override
 	public void receive(String message) {
 		netEndPoint.receive(message);
 	}

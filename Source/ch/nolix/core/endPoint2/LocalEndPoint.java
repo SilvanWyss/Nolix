@@ -108,6 +108,7 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * @return true if this local end point is a net end point.
 	 */
+	@Override
 	public boolean isNetEndPoint() {
 		return false;
 	}
@@ -119,6 +120,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws NullArgumentException if the given message is null.
 	 * @throws InvalidArgumentException if this local end point is aborted.
 	 */
+	@Override
 	public void send(final String message) {
 		
 		//Checks if the given message is not null.
@@ -134,5 +136,6 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * Lets this local end point note an abort.
 	 */
+	@Override
 	protected void noteClose() {}
 }

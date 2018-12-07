@@ -29,11 +29,13 @@ public final class ReferencePropertySession extends HeaderedSession {
 	}
 
 	//method
+	@Override
 	protected List<Button> createLinkButtons() {
 		return new List<Button>();
 	}
 
 	//method
+	@Override
 	protected Widget<?, ?> createSubSubContentWidget() {
 		return
 		new VerticalStack(

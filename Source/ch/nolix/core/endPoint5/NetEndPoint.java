@@ -114,6 +114,7 @@ public class NetEndPoint extends EndPoint {
 	 * @return the data the given request requests from this net duplex controller.
 	 * @throws InvalidStateException if this net duplex controller is aborted.
 	 */
+	@Override
 	public DocumentNode getData(final Statement request) {
 		
 		//Creates message.
@@ -138,6 +139,7 @@ public class NetEndPoint extends EndPoint {
 	 * @return the target of this net duplex controller.
 	 * @throws UnexistingAttributeException if this net duplex controller has no target.
 	 */
+	@Override
 	public String getTarget() {
 		return netEndPoint.getTarget();
 	}
@@ -146,6 +148,7 @@ public class NetEndPoint extends EndPoint {
 	/**
 	 * @return true if this net duplex controller has requested the connection.
 	 */
+	@Override
 	public boolean hasRequestedConnection() {
 		return netEndPoint.hasRequestedConnection();
 	}
@@ -154,6 +157,7 @@ public class NetEndPoint extends EndPoint {
 	/**
 	 * @return true if this net duplex controller has a target.
 	 */
+	@Override
 	public boolean hasTarget() {
 		return netEndPoint.hasTarget();
 	}
@@ -162,6 +166,7 @@ public class NetEndPoint extends EndPoint {
 	/**
 	 * @return true if this net duplex controller is a net duplex controller.
 	 */
+	@Override
 	public boolean isNetDuplexController() {
 		return true;
 	}
@@ -172,6 +177,7 @@ public class NetEndPoint extends EndPoint {
 	 * 
 	 * @param command
 	 */
+	@Override
 	public void run(final Statement command) {
 		run(new List<String>(command.toString()));
 	}
@@ -183,6 +189,7 @@ public class NetEndPoint extends EndPoint {
 	 * @param commands
 	 * @throws InvalidStateException if this net duplex contorller is aborted.
 	 */
+	@Override
 	protected void run(final List<String> commands) {
 			
 		//Checks if this net duplex controller is not aborted.

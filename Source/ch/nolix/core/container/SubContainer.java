@@ -81,6 +81,7 @@ public final class SubContainer<E> implements IContainer<E> {
 	/**
 	 * @return the number of elements of this sub container.
 	 */
+	@Override
 	public int getSize() {
 		return (endIndex - startIndex + 1);
 	}
@@ -89,6 +90,7 @@ public final class SubContainer<E> implements IContainer<E> {
 	/**
 	 * @return a new iterator for this sub container.
 	 */
+	@Override
 	public Iterator<E> iterator() {
 		return
 		new SubContainerIterator<E>(
@@ -104,6 +106,7 @@ public final class SubContainer<E> implements IContainer<E> {
 	 * 
 	 * @return a string representation of this sub container.
 	 */
+	@Override
 	public String toString() {
 		return toString(CharacterCatalogue.COMMA);
 	}

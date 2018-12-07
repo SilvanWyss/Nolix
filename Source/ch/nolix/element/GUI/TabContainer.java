@@ -81,6 +81,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
@@ -166,6 +167,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public TabContainer clear() {
 		
 		tabs.clear();
@@ -195,6 +197,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -212,6 +215,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public CursorIcon getContentAreaCursorIcon() {
 		
 		//Extracts the menu item under the cursor if there exists one.
@@ -271,10 +275,12 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean isEmpty() {
 		return getRefTabs().isEmpty();
 	}
 	
+	@Override
 	public void noteLeftMouseButtonPress() {
 		
 		//Calls method of the base class.
@@ -287,6 +293,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void noteLeftMouseButtonRelease() {
 		
 		//Calls method of the base class.
@@ -310,6 +317,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void noteMouseMove() {
 		
 		//Calls method of the base class.
@@ -362,6 +370,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void setCursorPositionOnContentArea(
 		final int cursorXPositionOnContent,
 		final int cursorYPositionOnContent
@@ -376,6 +385,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {
 		getRefBaseLook()
 		.setBaseMenuItemLook(
@@ -399,6 +409,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected TabContainerLook createWidgetLook() {
 		return new TabContainerLook();
 	}
@@ -407,6 +418,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {
 				
 		//For a better performance, this implementation does not use all comfortable methods.
@@ -424,6 +436,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected final int getContentAreaHeight() {
 		
 		var height = menu.getHeight();
@@ -442,6 +455,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected final int getContentAreaWidth() {
 		
 		//Handles the case that the current tab container contains no tabs.
@@ -463,6 +477,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void paintContentArea(
 		final TabContainerLook tabContainerLook,
 		final IPainter painter
@@ -534,6 +549,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void setPositionOnParent(
 		final int xPositionOnParent,
 		final int yPositionOnParent

@@ -184,6 +184,7 @@ implements ISmartObject<DocumentNode> {
 	/**
 	 * Adds the given attribute to the current {@link DocumentNode}.
 	 */
+	@Override
 	public void addAttribute(final DocumentNodeoid attribute) {
 		addAttribute(attribute.getCopy());
 	}
@@ -273,6 +274,7 @@ implements ISmartObject<DocumentNode> {
 	 * @return the header of this specification.
 	 * @throws UnexistingAttributeException if this specification has no header.
 	 */
+	@Override
 	public String getHeader() {
 		
 		//Checks if the current {@link StandardSpecification} has a header.
@@ -285,6 +287,7 @@ implements ISmartObject<DocumentNode> {
 	/**
 	 * @return the attributes of the current {@link DocumentNode}
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public IContainer<DocumentNode> getRefAttributes() {
 		return new ReadContainer<DocumentNode>(attributes);
@@ -296,6 +299,7 @@ implements ISmartObject<DocumentNode> {
 	 * @throws EmptyStateException if the current {@link DocumentNode} contains no attributes.
 	 * @throws InvalidStateException if the current {@link DocumentNode} contains several attributes.
 	 */
+	@Override
 	public DocumentNode getRefOneAttribute() {
 		return attributes.getRefOne();
 	}
@@ -336,6 +340,7 @@ implements ISmartObject<DocumentNode> {
 	/**
 	 * @return true if the current {@link DocumentNode} has a header
 	 */
+	@Override
 	public boolean hasHeader() {
 		return (header != null);
 	}
@@ -348,6 +353,7 @@ implements ISmartObject<DocumentNode> {
 	 * @throws InvalidArgumentException
 	 * if the current {@link DocumentNode} contains no attribute the given selector selects.
 	 */
+	@Override
 	public void removeFirstAttribute(final IElementTakerBooleanGetter<DocumentNodeoid> selector) {
 		attributes.removeFirst(a -> selector.getOutput(a));
 	}
@@ -375,6 +381,7 @@ implements ISmartObject<DocumentNode> {
 	 * @throws NullArgumentException if the given header is null.
 	 * @throws EmptyArgumentException if the given header is empty.
 	 */
+	@Override
 	public void setHeader(final String header) {
 		
 		//Checks if the given header is not null or empty.
@@ -391,6 +398,7 @@ implements ISmartObject<DocumentNode> {
 	/**
 	 * Removes the attributes of the current {@link DocumentNode}.
 	 */
+	@Override
 	public void removeAttributes() {
 		attributes.clear();
 	}
@@ -399,6 +407,7 @@ implements ISmartObject<DocumentNode> {
 	/**
 	 * Removes the header of the current {@link DocumentNode}.
 	 */
+	@Override
 	public void removeHeader() {
 		header = null;
 	}

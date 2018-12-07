@@ -35,6 +35,7 @@ final class Replier implements IReplier {
 	/**
 	 * @return the reply to the given message from this replier.
 	 */
+	@Override
 	public String getReply(final String message) {
 		return netEndPoint.receiveAndGetReply(message);
 	}

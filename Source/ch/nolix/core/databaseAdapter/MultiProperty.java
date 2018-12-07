@@ -17,7 +17,7 @@ implements Clearable<MultiProperty<V>> {
 	
 	//method
 	public void addUntypedValue(final V value) {
-		addValue((V)value);
+		addValue(value);
 	}
 	
 	//method
@@ -46,6 +46,7 @@ implements Clearable<MultiProperty<V>> {
 	}
 	
 	//method
+	@Override
 	public MultiProperty<V> clear() {
 		
 		internal_clear();
@@ -59,6 +60,7 @@ implements Clearable<MultiProperty<V>> {
 	}
 	
 	//method
+	@Override
 	public PropertyoidType<V> getPropertyType() {
 		return new MultiPropertyType<V>(getValueClass());
 	}
@@ -69,21 +71,25 @@ implements Clearable<MultiProperty<V>> {
 	}
 
 	//method
+	@Override
 	public boolean isEmpty() {
 		return values.isEmpty();
 	}
 	
 	//method
+	@Override
 	protected void internal_clear() {
 		values.clear();
 	}
 	
 	//method
+	@Override
 	protected List<Object> internal_getValues() {
 		return new List<Object>(values);
 	}
 
 	//method
+	@Override
 	@SuppressWarnings("unchecked")
 	protected void internal_setValues(final Iterable<Object> values) {
 		values.forEach(v -> addValue((V)v));

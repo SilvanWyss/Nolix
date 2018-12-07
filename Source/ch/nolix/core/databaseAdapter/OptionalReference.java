@@ -12,6 +12,7 @@ extends SingleReference<E>
 implements Clearable<OptionalReference<E>> {
 
 	//method
+	@Override
 	public OptionalReference<E> clear() {
 		
 		internal_clear();
@@ -20,11 +21,13 @@ implements Clearable<OptionalReference<E>> {
 	}
 	
 	//method
+	@Override
 	public OptionalPropertyType<E> getPropertyType() {
 		return new OptionalPropertyType<>(getValueClass());
 	}
 	
 	//method
+	@Override
 	public boolean isOptional() {
 		return true;
 	}

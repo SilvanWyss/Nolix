@@ -52,6 +52,7 @@ public class StandardConfiguration extends Configuration<StandardConfiguration> 
 	 * 
 	 * @param element
 	 */
+	@Override
 	public final void configure(final Configurable<?> element) {	
 		if (selects(element)) {
 			

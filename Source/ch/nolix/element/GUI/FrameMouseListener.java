@@ -36,15 +36,19 @@ final class FrameMouseListener implements MouseListener {
 	}
 
 	//method
+	@Override
 	public final void mouseClicked(final MouseEvent mouseEvent) {}
 
 	//method
+	@Override
 	public final void mouseEntered(final MouseEvent mouseEvent) {}
 
 	//method
+	@Override
 	public final void mouseExited(final MouseEvent mouseEvent0) {}
 
 	//method
+	@Override
 	public final void mousePressed(final MouseEvent mouseEvent) {
 		
 		//Enumerates the button of the given mouse event.
@@ -59,6 +63,7 @@ final class FrameMouseListener implements MouseListener {
 	}
 
 	//method
+	@Override
 	public final void mouseReleased(final MouseEvent mouseEvent) {
 		
 		//Enumerates the button of the given mouse event.

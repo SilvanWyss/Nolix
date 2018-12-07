@@ -23,6 +23,7 @@ public abstract class ClosableElement implements Closable {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final void close() {
 		
 		//Handles the case that the current closable element is alive.
@@ -45,6 +46,7 @@ public abstract class ClosableElement implements Closable {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean isClosed() {
 		return parentCloseController.isClosed();
 	}

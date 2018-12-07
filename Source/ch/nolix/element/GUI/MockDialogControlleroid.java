@@ -22,6 +22,7 @@ final class MockDialogControlleroid implements IController {
 	 * Runs the given command.
 	 * @throws Exception if the given command is not valid
 	 */
+	@Override
 	public final void run(Statement command) {
 		throw new RuntimeException(MOCK_DIALOG_CONTROLLEROID_PROVIDES_NO_CALLS);
 	}

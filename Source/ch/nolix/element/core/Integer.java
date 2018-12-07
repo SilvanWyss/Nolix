@@ -47,6 +47,7 @@ public class Integer extends Element<Integer> {
 	/**
 	 * @return the attributes of this integer.
 	 */
+	@Override
 	public final List<DocumentNode> getAttributes() {
 		return
 		new List<DocumentNode>(

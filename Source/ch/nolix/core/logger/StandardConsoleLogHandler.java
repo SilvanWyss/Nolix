@@ -5,6 +5,7 @@ package ch.nolix.core.logger;
 public final class StandardConsoleLogHandler extends LogHandler {
 
 	//method
+	@Override
 	public void log(final LogEntry logEntry) {
 		switch (logEntry.getHarmLevel()) {
 			case INFO:

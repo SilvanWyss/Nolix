@@ -31,11 +31,13 @@ public final class CreateEntitySession extends HeaderedSession {
 	}
 
 	//method
+	@Override
 	protected List<Button> createLinkButtons() {
 		return new List<Button>();
 	}
 	
 	//method
+	@Override
 	protected VerticalStack createSubSubContentWidget() {
 		
 		newEntity = getRefEntitySet().createDefaultEntity();

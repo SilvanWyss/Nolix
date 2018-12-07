@@ -29,6 +29,7 @@ implements Headered, Specified {
 	public abstract boolean canReferenceEntity(Entity entity);
 	
 	//method
+	@Override
 	public final List<DocumentNode> getAttributes() {
 		return
 		internal_getValues()
@@ -36,6 +37,7 @@ implements Headered, Specified {
 	}
 	
 	//method
+	@Override
 	public final String getHeader() {
 		return ReflectionHelper.getFieldName(getParentEntity(), this);
 	}
@@ -67,6 +69,7 @@ implements Headered, Specified {
 	public abstract PropertyoidType<V> getPropertyType();
 	
 	//method
+	@Override
 	public final String getType() {
 		return ReflectionHelper.getFieldName(getParentEntity(), this);
 	}

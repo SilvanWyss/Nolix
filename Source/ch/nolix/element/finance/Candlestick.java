@@ -140,6 +140,7 @@ public class Candlestick extends Element<Candlestick> {
 	/**
 	 * @return the attributes of this candlestick.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		return
 		new List<DocumentNode>(

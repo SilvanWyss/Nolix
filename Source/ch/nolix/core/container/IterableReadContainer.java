@@ -55,6 +55,7 @@ final class IterableReadContainer<E> implements IContainer<E> {
 	/**
 	 * @return a new iterator for this read iterable container.
 	 */
+	@Override
 	public Iterator<E> iterator() {
 		return container.iterator();
 	}
@@ -63,6 +64,7 @@ final class IterableReadContainer<E> implements IContainer<E> {
 	/**
 	 * @return the number of elements of this read iterable container.
 	 */
+	@Override
 	public int getSize() {
 		
 		int elementCount = 0;
@@ -83,6 +85,7 @@ final class IterableReadContainer<E> implements IContainer<E> {
 	 * 
 	 * @return a string representation of this read iterable container.
 	 */
+	@Override
 	public String toString() {
 		return toString(CharacterCatalogue.COMMA);
 	}

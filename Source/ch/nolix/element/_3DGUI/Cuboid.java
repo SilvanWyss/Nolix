@@ -113,6 +113,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	 * 
 	 * @return the current {@link Cuboid}.
 	 */
+	@Override
 	public Cuboid reset() {
 		
 		//Calls method of the base class.

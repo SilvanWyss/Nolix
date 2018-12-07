@@ -53,6 +53,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
@@ -83,6 +84,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public CursorIcon getCursorIcon() {
 		return getCustomCursorIcon();
 	}
@@ -91,6 +93,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public List<DocumentNode> getInteractionAttributes() {
 		
 		//Calls method of the base class.
@@ -107,6 +110,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean hasRole(final String role) {
 		return false;
 	}
@@ -123,6 +127,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean keepsFocus() {
 		return false;
 	}
@@ -131,6 +136,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void noteLeftMouseButtonPress() {
 		setCheckFlag(!isChecked());
 	}
@@ -139,6 +145,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public Checkbox reset() {
 		
 		uncheck();
@@ -182,6 +189,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {
 		getRefBaseLook()
 		.setSize(20)
@@ -192,6 +200,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	/**
 	 * @return a new widget look for the current {@link Checkbox}.
 	 */
+	@Override
 	protected CheckboxLook createWidgetLook() {
 		return new CheckboxLook();
 	}
@@ -200,12 +209,14 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected int getHeightWhenNotCollapsed() {
 		return getRefCurrentLook().getRecursiveOrDefaultSize();
 	}
@@ -214,6 +225,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected int getWidthWhenNotCollapsed() {
 		return getRefCurrentLook().getRecursiveOrDefaultSize();
 	}
@@ -222,6 +234,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void paint(final CheckboxLook checkBoxLook, final IPainter painter) {
 		
 		//Calls method of the base class.
@@ -281,6 +294,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected boolean viewAreaIsUnderCursor() {
 		return isUnderCursor();
 	}

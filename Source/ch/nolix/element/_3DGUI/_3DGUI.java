@@ -76,6 +76,7 @@ implements Clearable<G>, Closable, Refreshable {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
+	@Override
 	public final void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Handles the case that the given attribute specifies a shape.
@@ -132,6 +133,7 @@ implements Clearable<G>, Closable, Refreshable {
 	/**
 	 * Removes the root shape of this 3D GUI.
 	 */
+	@Override
 	public final G clear() {
 		
 		removeRootShape();
@@ -143,6 +145,7 @@ implements Clearable<G>, Closable, Refreshable {
 	/**
 	 * @return the attributes of this 3D GUI.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -168,6 +171,7 @@ implements Clearable<G>, Closable, Refreshable {
 	/**
 	 * @return the configurable objects of this 3D GUI.
 	 */
+	@Override
 	public final ReadContainer<Configurable<?>> getRefConfigurables() {
 		return new ReadContainer<>(getRefShapes());
 	}
@@ -199,6 +203,7 @@ implements Clearable<G>, Closable, Refreshable {
 	/**
 	 * @return true if this 3D GUI has the given role.
 	 */
+	@Override
 	public final boolean hasRole(final String role) {
 		return false;
 	}
@@ -215,6 +220,7 @@ implements Clearable<G>, Closable, Refreshable {
 	/**
 	 * @return true if this 3D GUI has a root shape.
 	 */
+	@Override
 	public final boolean isEmpty() {
 		return hasRootShape();
 	}
@@ -260,6 +266,7 @@ implements Clearable<G>, Closable, Refreshable {
 	/**
 	 * Refreshes this 3D GUI.
 	 */
+	@Override
 	public void refresh() {
 		
 		//Handles the case that this 3D GUI has a root shape.
@@ -274,6 +281,7 @@ implements Clearable<G>, Closable, Refreshable {
 	 * 
 	 * @return this 3D GUI.
 	 */
+	@Override
 	public G reset() {
 		
 		setTitle(DEFAULT_TITLE);
@@ -288,6 +296,7 @@ implements Clearable<G>, Closable, Refreshable {
 	 * 
 	 * @return this 3D GUI.
 	 */
+	@Override
 	public G resetConfiguration() {
 		
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);

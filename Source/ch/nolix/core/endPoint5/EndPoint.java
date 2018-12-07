@@ -197,6 +197,7 @@ implements IDataProviderController {
 	/**
 	 * Lets this duplex controller note an abort.
 	 */
+	@Override
 	protected final void noteClose() {}
 	
 	//abstract method

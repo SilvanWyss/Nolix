@@ -153,6 +153,7 @@ extends BackgroundWidget<BW, BWS> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
@@ -175,6 +176,7 @@ extends BackgroundWidget<BW, BWS> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final CursorIcon getCursorIcon() {
 		
 		if (horizontalScrollbarIsUnderCursor() || verticalScrollbarIsUnderCursor()) {
@@ -188,6 +190,7 @@ extends BackgroundWidget<BW, BWS> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class
@@ -566,6 +569,7 @@ extends BackgroundWidget<BW, BWS> {
 	/**
 	 * Lets the current {@link BorderWidget} note a left mouse button press.
 	 */
+	@Override
 	public void noteLeftMouseButtonPress() {
 		
 		//Calls method of the base class.
@@ -596,6 +600,7 @@ extends BackgroundWidget<BW, BWS> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void noteAnyLeftMouseButtonRelease() {
 		
 		//Calls method of the base class.
@@ -611,6 +616,7 @@ extends BackgroundWidget<BW, BWS> {
 	/**
 	 * Lets the current {@link BorderWidget} note a mouse move
 	 */
+	@Override
 	public void noteMouseMove() {
 		
 		//Calls method of the base class.
@@ -653,6 +659,7 @@ extends BackgroundWidget<BW, BWS> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void noteAnyMouseWheelRotationSteps(final int mouseWheelRotationSteps) {
 		
 		//Calls method of the base class.
@@ -726,6 +733,7 @@ extends BackgroundWidget<BW, BWS> {
 	 * 
 	 * @return the current {@link BorderWidget}.
 	 */
+	@Override
 	public BW resetConfiguration() {
 		
 		//Calls method of the base class
@@ -868,6 +876,7 @@ extends BackgroundWidget<BW, BWS> {
 	 * @param parentCursorXPosition
 	 * @param parentCursorYPosition
 	 */
+	@Override
 	public final void setParentCursorPosition(
 		int parentCursorXPosition,
 		int parentCursorYPosition
@@ -1049,6 +1058,7 @@ extends BackgroundWidget<BW, BWS> {
 	/**
 	 * @return the height of the current {@link BorderWidget} when it is not collapsed.
 	 */
+	@Override
 	protected final int getHeightWhenNotCollapsed() {
 		
 		final var currentLook = getRefCurrentLook();
@@ -1117,6 +1127,7 @@ extends BackgroundWidget<BW, BWS> {
 	/**
 	 * @return the  width of the current {@link BorderWidget} when it is not collapsed.
 	 */
+	@Override
 	protected final int getWidthWhenNotCollapsed() {
 		
 		final var currentLook = getRefCurrentLook();
@@ -1134,6 +1145,7 @@ extends BackgroundWidget<BW, BWS> {
 	 * @param widgetStructure
 	 * @param painter
 	 */
+	@Override
 	protected final void paint(
 		final BWS widgetStructure,
 		final IPainter painter
@@ -1225,6 +1237,7 @@ extends BackgroundWidget<BW, BWS> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected final boolean viewAreaIsUnderCursor() {		
 		
 		//For a better performance, this implementation differs from the standard approach.	

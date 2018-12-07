@@ -38,6 +38,7 @@ implements ch.nolix.core.endPoint2.IEndPointTaker {
 	/**
 	 * @return the name of this net server sub end point taker.
 	 */
+	@Override
 	public String getName() {
 		return NAME;
 	}
@@ -46,6 +47,7 @@ implements ch.nolix.core.endPoint2.IEndPointTaker {
 	/**
 	 * Lets this net server sub end point taker take the given end point.
 	 */
+	@Override
 	public void takeEndPoint(
 		final ch.nolix.core.endPoint2.EndPoint endPoint
 	) {

@@ -57,6 +57,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 	/**
 	 * @return true if this read array container iterator has a next element.
 	 */
+	@Override
 	public boolean hasNext() {
 		return (nextElementIndex < array.length);
 	}
@@ -67,6 +68,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 	 * @throws UnexistingAttributeException
 	 * if this read array container iterator has no next element.
 	 */
+	@Override
 	public E next() {
 		
 		//Checks if this read array container iterator has a next element.

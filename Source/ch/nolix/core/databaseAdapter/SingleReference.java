@@ -43,6 +43,7 @@ extends Referenceoid<E> {
 	public abstract boolean isOptional();
 	
 	//method
+	@Override
 	public final boolean references(final Entity entity) {
 		
 		if (isEmpty()) {
@@ -71,6 +72,7 @@ extends Referenceoid<E> {
 	}
 
 	//method
+	@Override
 	protected final void internal_clear() {
 		
 		supposeIsOptional();
@@ -81,6 +83,7 @@ extends Referenceoid<E> {
 	}
 	
 	//method
+	@Override
 	protected final List<Object> internal_getValues() {
 		
 		final var values = new List<Object>();
@@ -93,6 +96,7 @@ extends Referenceoid<E> {
 	}
 	
 	//method
+	@Override
 	protected final void internal_setValues(final Iterable<Object> values) {
 		setValue((int)new ReadContainer<Object>(values).getRefOne());
 	}

@@ -42,6 +42,7 @@ final class ListIterator<E> implements Iterator<E> {
 	/**
 	 * @return true if the current {@link ListIterator} has a next element.
 	 */
+	@Override
 	public boolean hasNext() {
 		return (nextNode != null);
 	}
@@ -51,6 +52,7 @@ final class ListIterator<E> implements Iterator<E> {
 	 * @return the next element of the current {@link ListIterator}.
 	 * @throws UnexistingAttributeException if the current {@link ListIterator} has no next element.
 	 */
+	@Override
 	public E next() {
 		
 		//Checks if the current list iterator has a next element.

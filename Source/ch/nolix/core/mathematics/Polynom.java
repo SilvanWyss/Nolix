@@ -82,6 +82,7 @@ public class Polynom {
 	 * @param object
 	 * @return true if this polynom equals the given object
 	 */
+	@Override
 	public boolean equals(final Object object) {
 		
 		if (!(object instanceof Polynom)) {
@@ -309,6 +310,7 @@ public class Polynom {
 	/**
 	 * @return a string representation of this polynom.
 	 */
+	@Override
 	public String toString() {
 		
 		String string = "x->";

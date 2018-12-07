@@ -45,9 +45,9 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 		internal_runOnCounterpart(
 			Protocol.CREATE_FILE_COMMAND
 			+ "("
-			+ DocumentNode.createReproducingString(relativeFilePath)
+			+ DocumentNodeoid.createReproducingString(relativeFilePath)
 			+ ","
-			+ DocumentNode.createReproducingString(content)
+			+ DocumentNodeoid.createReproducingString(content)
 			+ ")"
 		);
 		
@@ -103,7 +103,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 		internal_runOnCounterpart(
 			Protocol.SHOW_ERROR_MESSAGE_COMMAND
 			+ "("
-			+ DocumentNode.createReproducingString(errorMessage)
+			+ DocumentNodeoid.createReproducingString(errorMessage)
 			+ ")"
 		);
 		
@@ -129,6 +129,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected DocumentNode internal_getData(final Statement request) {
 		
 		//Enumerates the header of the given request.
@@ -157,6 +158,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * 
 	 * @throws UnexistingAttributeException if the current {@link BackGUIClientoid} has no current session.
 	 */
+	@Override
 	protected void internal_finishSessionInitialization() {
 		updateGUIOnCounterpart();
 	}
@@ -168,6 +170,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * @param command
 	 * @throws InvalidArgumentException if the given command is not valid.
 	 */
+	@Override
 	protected void internal_run(final Statement command) {
 		
 		//Enumerates the header of the given command.

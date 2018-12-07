@@ -66,6 +66,7 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 	}
 
 	//method
+	@Override
 	public IColumnAdapter getColumnAdapter(final Column column) {
 		return getColumnAdapters().getRefFirst(cc -> cc.hasSameHeaderAs(column));
 	}
@@ -79,6 +80,7 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 	}
 	
 	//method
+	@Override
 	public String getName() {
 		return
 		entitySetSpecification

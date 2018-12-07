@@ -37,6 +37,7 @@ implements Clearable<S> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		if (GUI.canCreateWidget(attribute.getHeader())) {
@@ -112,6 +113,7 @@ implements Clearable<S> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final S clear() {
 		
 		widgets.clear();
@@ -138,6 +140,7 @@ implements Clearable<S> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -159,6 +162,7 @@ implements Clearable<S> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final CursorIcon getContentAreaCursorIcon() {
 		
 		final var widgetUnderCursor =
@@ -193,6 +197,7 @@ implements Clearable<S> {
 	/**
 	 * @return true if the current {@link Stack} contains no widget.
 	 */
+	@Override
 	public final boolean isEmpty() {
 		return widgets.isEmpty();
 	}
@@ -230,6 +235,7 @@ implements Clearable<S> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final S resetConfiguration() {
 		
 		//Calls method of the base class.
@@ -259,6 +265,7 @@ implements Clearable<S> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected final void applyUsableConfigurationWhenConfigurationIsReset() {
 		setElementMargin(10);
 	}
@@ -267,6 +274,7 @@ implements Clearable<S> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected final StackLook createWidgetLook() {
 		return new StackLook();
 	}
@@ -275,6 +283,7 @@ implements Clearable<S> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {
 		list.addAtEnd(widgets);
 	}
@@ -283,6 +292,7 @@ implements Clearable<S> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void paintContentArea(
 		final StackLook stackStructure,
 		final IPainter painter
@@ -295,6 +305,7 @@ implements Clearable<S> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void setCursorPositionOnContentArea(
 		int cursorXPositionOnContent,
 		int cursorYPositionOnContent

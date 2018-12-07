@@ -42,6 +42,7 @@ implements IEndPointTaker {
 	 * @param endPoint
 	 * @throws InvalidStateException if this server is aborted.
 	 */
+	@Override
 	public final void takeEndPoint(final EndPoint endPoint) {
 		
 		//Checks if this server is not aborted.
@@ -54,5 +55,6 @@ implements IEndPointTaker {
 	/**
 	 * Lets this server note an abort.
 	 */
+	@Override
 	protected void noteClose() {}
 }

@@ -72,6 +72,7 @@ extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	/**
 	 * @return the maximum number of input neurons of this neuronal net.
 	 */
+	@Override
 	public int getMaxInputNeuronCount() {
 		return MAX_INPUT_NEURON_COUNT;
 	}
@@ -80,6 +81,7 @@ extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	/**
 	 * @return the minimal number of input neurons of this neuronal net.
 	 */
+	@Override
 	public int getMinInputNeuronCount() {
 		return MIN_INPUT_NEURON_COUNT;
 	}
@@ -123,6 +125,7 @@ extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	/**
 	 * Lets this neuronal net fire.
 	 */
+	@Override
 	protected void internal_fire() {		
 		inputFanoutNeuron.clearInputNeurons();
 		inputFanoutNeuron.addInputNeuron(getRefOneInputNeuron());

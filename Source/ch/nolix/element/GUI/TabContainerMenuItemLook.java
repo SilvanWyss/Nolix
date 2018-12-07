@@ -47,6 +47,7 @@ extends Entity<SelectionMenuItemLook> {
 	private Color textColor;
 	
 	//method
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		switch (attribute.getHeader()) {
 			case MIN_WIDTH_HEADER:
@@ -71,6 +72,7 @@ extends Entity<SelectionMenuItemLook> {
 	}
 	
 	//method
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = new List<DocumentNode>();
@@ -159,6 +161,7 @@ extends Entity<SelectionMenuItemLook> {
 	}
 	
 	//method
+	@Override
 	public String getType() {
 		return TYPE_NAME;
 	}

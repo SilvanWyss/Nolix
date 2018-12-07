@@ -27,11 +27,13 @@ final class MultiReadContainer<E> implements IContainer<E> {
 	}
 	
 	//method
+	@Override
 	public Iterator<E> iterator() {
 		return new MultiReadContainerIterator<E>(containers);
 	}
 	
 	//method
+	@Override
 	public int getSize() {
 		return containers.getSumByInt(c -> c.getSize());
 	}

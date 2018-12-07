@@ -35,6 +35,7 @@ implements IController, Specifiable<MU> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Calls method of the base class.
@@ -48,6 +49,7 @@ implements IController, Specifiable<MU> {
 	 * @param command
 	 * @throws InvalidArgumentException if the given command is not valid.
 	 */
+	@Override
 	public void run(final Statement command) {
 		
 		//Extracts the header of the given command.

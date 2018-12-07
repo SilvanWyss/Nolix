@@ -68,6 +68,7 @@ public class Text extends Element<Text> {
 	/**
 	 * @return the attributes of this text.
 	 */
+	@Override
 	public final List<DocumentNode> getAttributes() {
 		
 		final var attributes = new List<DocumentNode>();

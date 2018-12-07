@@ -11,6 +11,7 @@ extends SingleReferenceType<E>{
 	}
 
 	//method
+	@Override
 	public boolean isOptional() {
 		return true;
 	}

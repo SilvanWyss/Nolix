@@ -63,6 +63,7 @@ final class Package extends ch.nolix.core.util.Package<String> {
 	/**
 	 * @return a string representation of this zeta package.
 	 */
+	@Override
 	public String toString() {
 		return String.format("%08d%c%s", getIndex(), getMessageRole().getPrefix(), getRefContent());
 	}

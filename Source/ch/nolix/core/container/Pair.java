@@ -98,6 +98,7 @@ public class Pair<E1, E2> {
 	/**
 	 * @return a string representation of this pair.
 	 */
+	@Override
 	public String toString() {
 		return ("(" + getRefElement1() + "," + getRefElement2() + ")");
 	}

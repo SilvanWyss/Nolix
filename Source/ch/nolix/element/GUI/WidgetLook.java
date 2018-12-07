@@ -114,6 +114,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends Entity<WL> {
 	/**
 	 * @return the type of the current {@link WidgetLook}.
 	 */
+	@Override
 	public final String getType() {
 		return getClass().getSimpleName();
 	}

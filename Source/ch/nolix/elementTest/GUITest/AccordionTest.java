@@ -80,6 +80,7 @@ public final class AccordionTest extends WidgetTest<Accordion> {
 	}
 
 	//method
+	@Override
 	protected Accordion createTestObject() {
 		return new Accordion();
 	}

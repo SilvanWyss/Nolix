@@ -31,6 +31,7 @@ extends Neuronoid<SourceNeuron<O>, Object, O> {
 	/**
 	 * @return the maximal number of input neurons of this source neuron.
 	 */
+	@Override
 	public int getMaxInputNeuronCount() {
 		return MAX_INPUT_NEURON_COUNT;
 	}
@@ -39,6 +40,7 @@ extends Neuronoid<SourceNeuron<O>, Object, O> {
 	/**
 	 * @return the minimal number of input neurons of this source neuron.
 	 */
+	@Override
 	public int getMinInputNeuronCount() {
 		return MIN_INPUT_NEURON_COUNT;
 	}
@@ -47,5 +49,6 @@ extends Neuronoid<SourceNeuron<O>, Object, O> {
 	/**
 	 * Lets this source neuron fire.
 	 */
+	@Override
 	protected void internal_fire() {}
 }

@@ -6,6 +6,7 @@ public abstract class Referenceoid<E extends Entity>
 extends Propertyoid<E> {
 	
 	//method
+	@Override
 	public final boolean canReferenceEntity(final Entity entity) {
 		return getValueClass().isAssignableFrom(entity.getClass());
 	}

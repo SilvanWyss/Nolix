@@ -27,6 +27,7 @@ public final class FileProvider implements IFileProvider {
 	}
 	
 	//method
+	@Override
 	public byte[] readFileToBytes() {
 		return frontGUIClient.readFileToBytesFromCounterpart(widgetIndexPathOnRootGUI);
 	}

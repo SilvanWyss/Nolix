@@ -67,6 +67,7 @@ public final class ScrollbarLook extends MutableElement<ScrollbarLook> {
 	}
 	
 	//method
+	@Override
 	public ScrollbarLook reset() {
 		
 		setScrollbarColor(DEFAULT_SCROLLBAR_COLOR);

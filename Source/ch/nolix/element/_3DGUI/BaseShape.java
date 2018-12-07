@@ -76,6 +76,7 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	/**
 	 * @return the shapes of the current {@link BaseShape}.
 	 */
+	@Override
 	public final ReadContainer<Shape<?>> getRefShapes() {
 		return new ReadContainer<Shape<?>>();
 	}
@@ -105,6 +106,7 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public BS resetConfiguration() {
 		
 		setDefaultColor(DEFAULT_COLOR);

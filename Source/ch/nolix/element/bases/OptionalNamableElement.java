@@ -39,6 +39,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
@@ -65,6 +66,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	/**
 	 * @return the attributes of this optional namable element.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -83,6 +85,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	 * @return the name of this optional namable element.
 	 * @throws UnexistingAttributeException if this optional namable element has no name.
 	 */
+	@Override
 	public final String getName() {
 		
 		//Checks if this optional namable element has a name.
@@ -97,6 +100,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	/**
 	 * @return true if this optional namable element has a name.
 	 */
+	@Override
 	public final boolean hasName() {
 		return (name != null);
 	}
@@ -106,6 +110,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	 * @parma name
 	 * @return true if this optional namable element has the given name.
 	 */
+	@Override
 	public final boolean hasName(String name) {	
 		return OptionalNamable.super.hasName(name);
 	}
@@ -114,6 +119,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	/**
 	 * Removes the name of this optional namable element.
 	 */
+	@Override
 	public final ONE removeName() {
 		
 		name = null;
@@ -127,6 +133,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	 * 
 	 * @return this optional namable element.
 	 */
+	@Override
 	public ONE reset() {
 		
 		removeName();
@@ -145,6 +152,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE>  {
 	 * @throws InvalidStateException if the current {OptionalNamableElement}
 	 * belongs to a {@link IRequestableContainer} that contains another element with the given name.
 	 */
+	@Override
 	public ONE setName(final String name) {
 		
 		//Handles the case that the current optional namable element does not have the given name.

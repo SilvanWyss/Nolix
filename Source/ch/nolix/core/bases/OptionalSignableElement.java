@@ -28,6 +28,7 @@ implements ISmartObject<OSE>, OptionalSignable<OSE> {
 	 * @throws UnexistingAttributeException
 	 * if the current {@link OptionalSignableElement} does not have an info string.
 	 */
+	@Override
 	public final String getInfoString() {
 		
 		supposeHasInfoString();
@@ -39,6 +40,7 @@ implements ISmartObject<OSE>, OptionalSignable<OSE> {
 	/**
 	 * @return true if the current {@link OptionalSignableElement} has an info string.
 	 */
+	@Override
 	public final boolean hasInfoString() {
 		return (infoString != null);
 	}
@@ -49,6 +51,7 @@ implements ISmartObject<OSE>, OptionalSignable<OSE> {
 	 * 
 	 * @return the current {@link OptionalSignableElement}.
 	 */
+	@Override
 	public final OSE removeInfoString() {
 		
 		infoString = null;
@@ -65,6 +68,7 @@ implements ISmartObject<OSE>, OptionalSignable<OSE> {
 	 * @throws NullArgumentException if the given info string is null.
 	 * @throws EmptyArgumentException if the given info string is empty.
 	 */
+	@Override
 	public final OSE setInfoString(final String infoString) {
 		
 		//Checks if the given info string is not null and not empty.

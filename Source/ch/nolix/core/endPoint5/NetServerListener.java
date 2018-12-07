@@ -38,6 +38,7 @@ final class NetServerListener implements ch.nolix.core.endPoint3.IEndPointTaker 
 	/**
 	 * @return the name of this net server sub end point taker.
 	 */
+	@Override
 	public String getName() {
 		return NAME;
 	}
@@ -50,6 +51,7 @@ final class NetServerListener implements ch.nolix.core.endPoint3.IEndPointTaker 
 	 * @throws NullArgumentException if the given end point is null.
 	 * @throws InvalidArgumentException if the given end point is no NetEndPoint.
 	 */
+	@Override
 	public void takeEndPoint(final ch.nolix.core.endPoint3.EndPoint endPoint) {		
 		netServer.takeDuplexController(
 			new NetEndPoint((ch.nolix.core.endPoint3.NetEndPoint)endPoint)

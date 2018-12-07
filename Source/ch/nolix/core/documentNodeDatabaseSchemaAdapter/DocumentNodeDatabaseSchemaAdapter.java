@@ -35,6 +35,7 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	}
 	
 	//method
+	@Override
 	public boolean isInitialized() {
 		return documentNodeDatabase.hasHeader(PascalCaseNameCatalogue.DATABASE);
 	}
@@ -50,6 +51,7 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	}
 	
 	//method
+	@Override
 	protected List<IEntitySetAdapter> getEntitySetAdapters() {
 		return
 		documentNodeDatabase
@@ -58,11 +60,13 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	}
 	
 	//method
+	@Override
 	protected void initializeDatabaseWhenNotInitialized() {		
 		documentNodeDatabase.setHeader(PascalCaseNameCatalogue.DATABASE);
 	}
 	
 	//method
+	@Override
 	protected void saveChangesToDatabase(final IContainer<EntitySet> entitySets) {
 		
 		final var createdEntitySets = new List<EntitySet>();

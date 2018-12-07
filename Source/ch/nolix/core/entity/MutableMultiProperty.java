@@ -85,6 +85,7 @@ implements Clearable<MutableMultiProperty<V>> {
 	 * 
 	 * @return this multi property.
 	 */
+	@Override
 	public MutableMultiProperty<V> clear() {
 		
 		values.clear();
@@ -96,6 +97,7 @@ implements Clearable<MutableMultiProperty<V>> {
 	/**
 	 * @return the values of this multi property.
 	 */
+	@Override
 	public ReadContainer<V> getRefValues() {
 		return new ReadContainer<V>(values);
 	}
@@ -104,6 +106,7 @@ implements Clearable<MutableMultiProperty<V>> {
 	/**
 	 * @return true if this single property is approved.
 	 */
+	@Override
 	public final boolean isApproved() {
 		return approved;
 	}
@@ -112,6 +115,7 @@ implements Clearable<MutableMultiProperty<V>> {
 	/**
 	 * @return true if this multi property contains no value.
 	 */
+	@Override
 	public boolean isEmpty() {
 		return values.isEmpty();
 	}
@@ -120,6 +124,7 @@ implements Clearable<MutableMultiProperty<V>> {
 	/**
 	 * @return true if this multi property is mutable.
 	 */
+	@Override
 	public boolean isMutable() {
 		return true;
 	}
@@ -141,6 +146,7 @@ implements Clearable<MutableMultiProperty<V>> {
 	 * Adds or changes the given value to this multi property.
 	 * This method uses the adder method of this multi property.
 	 */
+	@Override
 	void addOrChangeValue(final V value) {
 		adderMethod.run(value);
 	}
@@ -149,6 +155,7 @@ implements Clearable<MutableMultiProperty<V>> {
 	/**
 	 * Approves this multi property.
 	 */
+	@Override
 	void approve() {
 		approved = true;
 	}

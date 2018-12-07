@@ -68,6 +68,7 @@ final class CloseController implements Closable {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void close() {
 		
 		//Handles the case that the current close controller is alive.
@@ -102,6 +103,7 @@ final class CloseController implements Closable {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean isClosed() {
 		return closed;
 	}

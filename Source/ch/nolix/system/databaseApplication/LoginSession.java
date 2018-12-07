@@ -10,6 +10,7 @@ import ch.nolix.element.GUI.VerticalStack;
 public final class LoginSession extends DatabaseApplicationSession {
 	
 	//method
+	@Override
 	protected VerticalStack createContentWidget() {
 		return
 		new VerticalStack(

@@ -85,6 +85,7 @@ public class NetEndPoint extends EndPoint {
 	 * @return the target of this end point.
 	 * @throws UnexistingAttributeException if this net end point has no target.
 	 */
+	@Override
 	public String getTarget() {
 		return internalEndPoint.getTarget();
 	}
@@ -93,6 +94,7 @@ public class NetEndPoint extends EndPoint {
 	/**
 	 * @return true if this end point has requested the connection.
 	 */
+	@Override
 	public boolean hasRequestedConnection() {
 		return internalEndPoint.hasRequestedConnection();
 	}
@@ -123,6 +125,7 @@ public class NetEndPoint extends EndPoint {
 	 * @throws RuntimeException if this zeta end point is stopped.
 	 * @throws RuntimeException if an error occurs by trying to send the message.
 	 */
+	@Override
 	public String sendAndGetReply(final String message) {
 		return sendAndWaitToReply(message);
 	}

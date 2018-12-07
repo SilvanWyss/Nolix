@@ -179,6 +179,7 @@ implements IGUI<G> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Handles the case that the given attribute specifies a widget.
@@ -235,6 +236,7 @@ implements IGUI<G> {
 	 * 
 	 * @return this GUI.
 	 */
+	@Override
 	public final G clear() {
 		
 		removeRootWidget();
@@ -246,6 +248,7 @@ implements IGUI<G> {
 	/**
 	 * Closes this GUI.
 	 */
+	@Override
 	public void close() {
 		closed = true;
 	};
@@ -255,6 +258,7 @@ implements IGUI<G> {
 	 * @return true if this GUI contains an element with the given name.
 	 * @param name
 	 */
+	@Override
 	public final boolean containsElement(String name) {
 		return getRefConfigurablesRecursively().contains(c -> c.hasName(name));
 	}
@@ -276,6 +280,7 @@ implements IGUI<G> {
 	/**
 	 * @return the attributes of GUI.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -372,6 +377,7 @@ implements IGUI<G> {
 	/**
 	 * @return the configurable elements of this GUI.
 	 */
+	@Override
 	public final ReadContainer<Configurable<?>> getRefConfigurables() {
 		return new ReadContainer<>(getRefWidgets().to(w -> w));		
 	}
@@ -381,6 +387,7 @@ implements IGUI<G> {
 	 * @return the controller of this GUI.
 	 * @throws UnexistingAttributeException if this GUI has no controller.
 	 */
+	@Override
 	public final IGUIController getRefController() {
 		
 		supposeHasController();
@@ -436,13 +443,14 @@ implements IGUI<G> {
 	/**
 	 * @return the widgets of this GUI recursively.
 	 */
+	@Override
 	public final List<Widget<?, ?>> getRefWidgetsRecursively() {
 		
 		final var widgets = new List<Widget<?, ?>>();
 		
 		//Handles the case that this GUI has a root widget.
 		if (hasRootWidget()) {
-			widgets.addAtEnd((Widget<?, ?>)getRefRootWidget());
+			widgets.addAtEnd(getRefRootWidget().as(Widget.class));
 			widgets.addAtEnd(getRefRootWidget().getRefOwnWidgetsRecursively());
 		}
 		
@@ -483,6 +491,7 @@ implements IGUI<G> {
 	/**
 	 * @return true if this GUI has a controller.
 	 */
+	@Override
 	public final boolean hasController() {
 		return (controller != null);
 	}
@@ -491,6 +500,7 @@ implements IGUI<G> {
 	/**
 	 * @return true if this GUI has the given role.
 	 */
+	@Override
 	public final boolean hasRole(final String role) {
 		return false;
 	}
@@ -507,6 +517,7 @@ implements IGUI<G> {
 	/**
 	 * @return true if this GUI isclosed.
 	 */
+	@Override
 	public final boolean isClosed() {
 		return closed;
 	}
@@ -515,6 +526,7 @@ implements IGUI<G> {
 	/**
 	 * @return true if this GUI contains no widget.
 	 */
+	@Override
 	public final boolean isEmpty() {
 		return !hasRootWidget();
 	}
@@ -662,6 +674,7 @@ implements IGUI<G> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final void refresh() {
 		
 		//Handles the case that this frame has a root widget.
@@ -753,6 +766,7 @@ implements IGUI<G> {
 	 * 
 	 * @return this GUI.
 	 */
+	@Override
 	public G reset() {
 		
 		setTitle(DEFAULT_TITLE);
@@ -768,6 +782,7 @@ implements IGUI<G> {
 	 * 
 	 * @return this GUI.
 	 */
+	@Override
 	public G resetConfiguration() {
 		
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
@@ -788,6 +803,7 @@ implements IGUI<G> {
 	 * @param command
 	 * @throws InvalidArgumentException if the given command is not valid.
 	 */
+	@Override
 	public void run(final Statement command) {
 		
 		//Enumerates the header of the given command.
@@ -849,6 +865,7 @@ implements IGUI<G> {
 	 * @param configuration
 	 * @return this GUI.
 	 */
+	@Override
 	public final G setConfiguration(final StandardConfiguration configuration) {
 		
 		//Calls method of the base class.

@@ -59,6 +59,7 @@ public class _3DPoint  extends Element<_3DPoint> {
 	/**
 	 * @return the attribtues of this 3D point.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		return
 		new List<DocumentNode>(

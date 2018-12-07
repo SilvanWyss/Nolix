@@ -85,6 +85,7 @@ implements Closable {
 	/**
 	 * Closes this net back neuron.
 	 */
+	@Override
 	public void close() {
 		netServer.close();
 	}
@@ -93,6 +94,7 @@ implements Closable {
 	/**
 	 * @return the maximum number of input neurons of this net back neuron.
 	 */
+	@Override
 	public int getMaxInputNeuronCount() {
 		return MAX_INPUT_NEURON_COUNT;
 	}
@@ -101,6 +103,7 @@ implements Closable {
 	/**
 	 * @return the minimum number of input neurons of this net back neuron.
 	 */
+	@Override
 	public int getMinInputNeuronCount() {
 		return MIN_INPUT_NEURON_COUNT;
 	}
@@ -109,6 +112,7 @@ implements Closable {
 	/**
 	 * Lets this net back neuron fire.
 	 */
+	@Override
 	public void internal_fire() {
 		
 		//Handles the case that this net back neuron has no input neuron.
@@ -134,6 +138,7 @@ implements Closable {
 	/**
 	 * @return true if this net back neuron is closed.
 	 */
+	@Override
 	public boolean isClosed() {
 		return netServer.isClosed();
 	}

@@ -45,6 +45,7 @@ public final class NetServer<M, R> extends Server<M, R> {
 	 * @throws InvalidStateException
 	 * if this net server contains an end point taker with the same name as the given end point taker.
 	 */
+	@Override
 	public void addEndPointTaker(final IEndPointTaker<M, R> endPointTaker) {
 		
 		//Calls method of the base class.
@@ -68,6 +69,7 @@ public final class NetServer<M, R> extends Server<M, R> {
 	 * @param name
 	 * @throws InvalidArgumentException if this net server contains no end point taker with the given name.
 	 */
+	@Override
 	public void removeEndPointTaker(final String name) {
 		
 		//Calls method of the base class.

@@ -18,6 +18,7 @@ extends BackGUIClientSession {
 	private DatabaseAdapter databaseAdapter;
 	
 	//method
+	@Override
 	public final void initialize() {
 		
 		getRefGUI()

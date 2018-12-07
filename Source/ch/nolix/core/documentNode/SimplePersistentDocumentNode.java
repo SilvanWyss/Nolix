@@ -55,6 +55,7 @@ public final class SimplePersistentDocumentNode extends DocumentNodeoid {
 	 * 
 	 * @param attribute
 	 */
+	@Override
 	public void addAttribute(final DocumentNodeoid attribute) {
 		internalSpecification.addAttribute(attribute);
 		save();
@@ -64,6 +65,7 @@ public final class SimplePersistentDocumentNode extends DocumentNodeoid {
 	/**
 	 * @return true if this simple persistent specification contains attributes.
 	 */
+	@Override
 	public boolean containsAttributes() {
 		return internalSpecification.containsAttributes();
 	}
@@ -74,6 +76,7 @@ public final class SimplePersistentDocumentNode extends DocumentNodeoid {
 	 * @throws UnexistingAttributeException if this simple persistent specification
 	 * has no header.
 	 */
+	@Override
 	public String getHeader() {
 		return internalSpecification.getHeader();
 	}
@@ -82,6 +85,7 @@ public final class SimplePersistentDocumentNode extends DocumentNodeoid {
 	/**
 	 * @return the attributes of this simple persistent specification.
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public IContainer<SubDocumentNode> getRefAttributes() {
 		return new ReadContainer<SubDocumentNode>(
@@ -97,6 +101,7 @@ public final class SimplePersistentDocumentNode extends DocumentNodeoid {
 	 * @throws RuntimeException if this simple persistent specification
 	 * has no or several attributes.
 	 */
+	@Override
 	public SubDocumentNode getRefOneAttribute() {
 		return new SubDocumentNode(
 			this,
@@ -108,6 +113,7 @@ public final class SimplePersistentDocumentNode extends DocumentNodeoid {
 	/**
 	 * @return true if this simple persistent specification has a header.
 	 */
+	@Override
 	public boolean hasHeader() {
 		return internalSpecification.hasHeader();
 	}
@@ -120,6 +126,7 @@ public final class SimplePersistentDocumentNode extends DocumentNodeoid {
 	 * @throws InvalidArgumentException
 	 * if this simple persistent specification contains no attribute the given selector selects.
 	 */
+	@Override
 	public void removeFirstAttribute(final IElementTakerBooleanGetter<DocumentNodeoid> selector) {
 		internalSpecification.removeFirstAttribute(a -> selector.getOutput(a));
 		save();
@@ -129,11 +136,13 @@ public final class SimplePersistentDocumentNode extends DocumentNodeoid {
 	/**
 	 * Removes the attributes of this simple persisten specification.
 	 */
+	@Override
 	public void removeAttributes() {
 		internalSpecification.removeAttributes();
 		save();
 	}
 	
+	@Override
 	public void removeHeader() {
 		internalSpecification.removeHeader();
 		save();
@@ -148,6 +157,7 @@ public final class SimplePersistentDocumentNode extends DocumentNodeoid {
 	 * @throws EmptyArgumentException if the given header is empty.
 	 * @throws RuntimeException if an error occurs.
 	 */
+	@Override
 	public void setHeader(final String header) {
 		internalSpecification.setHeader(header);
 		save();

@@ -53,6 +53,7 @@ implements Clearable<GridCell> {
 	}
 	
 	//method
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		if (GUI.canCreateWidget(attribute)) {
@@ -64,6 +65,7 @@ implements Clearable<GridCell> {
 	}
 	
 	//method
+	@Override
 	public GridCell clear() {
 		
 		widget = null;
@@ -72,6 +74,7 @@ implements Clearable<GridCell> {
 	}
 	
 	//method
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = new List<DocumentNode>(
@@ -127,6 +130,7 @@ implements Clearable<GridCell> {
 	}
 	
 	//method
+	@Override
 	public boolean isEmpty() {
 		return (widget == null);
 	}
@@ -137,6 +141,7 @@ implements Clearable<GridCell> {
 	 * 
 	 * @return this grid cell.
 	 */
+	@Override
 	public GridCell reset() {
 		
 		clear();

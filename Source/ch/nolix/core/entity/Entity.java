@@ -36,6 +36,7 @@ implements
 	 * @throws InvalidStateException
 	 * if the properties of this entity are not approved.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Checks if the properties of this entity are approved.

@@ -95,6 +95,7 @@ extends BackgroundWidgetLook<BWL> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
@@ -164,6 +165,7 @@ extends BackgroundWidgetLook<BWL> {
 	/**
 	 * @return the attributes of the current {@link BorderWidgetLook}
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -786,6 +788,7 @@ extends BackgroundWidgetLook<BWL> {
 	/**
 	 * Removes all values of the current {@link BorderWidgetLook}.
 	 */
+	@Override
 	public BWL reset() {
 		
 		//Calls method of the base class.

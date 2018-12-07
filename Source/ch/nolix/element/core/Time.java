@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.core;
 
+import java.util.Calendar;
 //Java import
 import java.util.GregorianCalendar;
 
@@ -279,6 +280,7 @@ public final class Time extends Element<Time> {
 	/**
 	 * @return the attributes of this time.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		return new List<DocumentNode>(
 			new DocumentNode(String.format(
@@ -312,7 +314,7 @@ public final class Time extends Element<Time> {
 	 * @return the day of the month of this time.
 	 */
 	public int getDayOfMonth() {
-		return time.get(GregorianCalendar.DAY_OF_MONTH);
+		return time.get(Calendar.DAY_OF_MONTH);
 	}
 	
 	//method
@@ -345,7 +347,7 @@ public final class Time extends Element<Time> {
 	 * @return the hour of the month of this time.
 	 */
 	public int getHourOfDay() {
-		return time.get(GregorianCalendar.HOUR_OF_DAY);
+		return time.get(Calendar.HOUR_OF_DAY);
 	}
 	
 	//method
@@ -361,7 +363,7 @@ public final class Time extends Element<Time> {
 	 * @return the millisecond of the second of this time.
 	 */
 	public int getMillisecondOfSecond() {
-		return time.get(GregorianCalendar.MILLISECOND);
+		return time.get(Calendar.MILLISECOND);
 	}
 	
 	//method
@@ -395,7 +397,7 @@ public final class Time extends Element<Time> {
 	 * @return the minute of the hour of this time.
 	 */
 	public int getMinuteOfHour() {
-		return time.get(GregorianCalendar.MINUTE);
+		return time.get(Calendar.MINUTE);
 	}
 	
 	//method
@@ -411,7 +413,7 @@ public final class Time extends Element<Time> {
 	 * @return the month of the year of this time.
 	 */
 	public int getMonthOfYear() {
-		return (time.get(GregorianCalendar.MONTH) + 1);
+		return (time.get(Calendar.MONTH) + 1);
 	}
 		
 	//method
@@ -490,7 +492,7 @@ public final class Time extends Element<Time> {
 	 * @return the second of the minute of this time.
 	 */
 	public int getSecondOfMinute() {
-		return time.get(GregorianCalendar.SECOND);
+		return time.get(Calendar.SECOND);
 	}
 	
 	//method
@@ -557,7 +559,7 @@ public final class Time extends Element<Time> {
 	 * @return the year of this time.
 	 */
 	public int getYearAsInt() {
-		return time.get(GregorianCalendar.YEAR);
+		return time.get(Calendar.YEAR);
 	}
 	
 	//method
@@ -671,7 +673,7 @@ public final class Time extends Element<Time> {
 	 * @throws InvalidArgumentException if this time is frozen.
 	 */
 	private void setDayOfMonth(final int dayOfMonth) {
-		time.set(GregorianCalendar.DAY_OF_MONTH, dayOfMonth);
+		time.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 	}
 	
 	//method
@@ -682,7 +684,7 @@ public final class Time extends Element<Time> {
 	 * @return this time.
 	 */
 	private void setHourOfDay(final int hourOfDay) {
-		time.set(GregorianCalendar.HOUR_OF_DAY, hourOfDay);
+		time.set(Calendar.HOUR_OF_DAY, hourOfDay);
 	}
 	
 	//method
@@ -694,7 +696,7 @@ public final class Time extends Element<Time> {
 	 * @throws InvalidArgumentException if this time is frozen.
 	 */
 	private void setMillisecondOfSecond(final int millisecondOfSecond) {
-		time.set(GregorianCalendar.MILLISECOND, millisecondOfSecond);
+		time.set(Calendar.MILLISECOND, millisecondOfSecond);
 	}
 	
 	//method
@@ -705,7 +707,7 @@ public final class Time extends Element<Time> {
 	 * @return this time.
 	 */
 	private void setMinuteOfHour(final int minuteOfHour) {	
-		time.set(GregorianCalendar.MINUTE, minuteOfHour);
+		time.set(Calendar.MINUTE, minuteOfHour);
 	}
 	
 	//method
@@ -717,7 +719,7 @@ public final class Time extends Element<Time> {
 	 * @throws InvalidArgumentException if this time is frozen.
 	 */
 	private void setMonthOfYear(final int monthOfYear) {
-		time.set(GregorianCalendar.MONTH, monthOfYear - 1);
+		time.set(Calendar.MONTH, monthOfYear - 1);
 	}
 	
 	//method
@@ -728,7 +730,7 @@ public final class Time extends Element<Time> {
 	 * @return this time.
 	 */
 	private void setSecondOfMinute(final int secondOfMinute) {	
-		time.set(GregorianCalendar.SECOND, secondOfMinute);
+		time.set(Calendar.SECOND, secondOfMinute);
 	}
 	
 	//method
@@ -739,6 +741,6 @@ public final class Time extends Element<Time> {
 	 * @return this time.
 	 */
 	private void setYear(final int year) {
-		time.set(GregorianCalendar.YEAR, year);
+		time.set(Calendar.YEAR, year);
 	}
 }

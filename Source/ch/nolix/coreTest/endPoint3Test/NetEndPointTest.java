@@ -97,6 +97,7 @@ public final class NetEndPointTest extends Test {
 		}
 		
 		//method
+		@Override
 		public String getName() {
 			return NAME;
 		}
@@ -107,6 +108,7 @@ public final class NetEndPointTest extends Test {
 		}
 		
 		//method
+		@Override
 		public void takeEndPoint(final EndPoint endPoint) {
 			endPoint.setReplier(replier);
 			lastEndPoint = endPoint;
@@ -125,6 +127,7 @@ public final class NetEndPointTest extends Test {
 		}
 		
 		//method
+		@Override
 		public String getReply(final String message) {
 			return reply;
 		}

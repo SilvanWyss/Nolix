@@ -26,6 +26,7 @@ extends Widget<BW, BWS> {
 	 * @param backgroundWidgetLook
 	 * @param painter
 	 */
+	@Override
 	protected void paint(final BWS backgroundWidgetLook, final IPainter painter) {
 		
 		//Handles the case that the given background widget look

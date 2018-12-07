@@ -181,6 +181,7 @@ implements Clearable<Accordion> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public Accordion clear() {
 		
 		tabs.clear();
@@ -235,6 +236,7 @@ implements Clearable<Accordion> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public CursorIcon getContentAreaCursorIcon() {
 		return accordionVerticalStack.getCursorIcon();		
 	}
@@ -271,6 +273,7 @@ implements Clearable<Accordion> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean isEmpty() {
 		return getRefTabs().isEmpty();
 	}
@@ -279,6 +282,7 @@ implements Clearable<Accordion> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void noteLeftMouseButtonPress() {
 		
 		//Calls method of the base class.
@@ -294,6 +298,7 @@ implements Clearable<Accordion> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void noteMouseMove() {
 		
 		//Calls method of the base class.
@@ -309,6 +314,7 @@ implements Clearable<Accordion> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public Accordion reset() {
 		
 		//Calls method of the base class.
@@ -339,6 +345,7 @@ implements Clearable<Accordion> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {		
 		getRefBaseLook().setTabHeaderBackgroundColor(Color.LIGHT_GREY);
 	}
@@ -347,6 +354,7 @@ implements Clearable<Accordion> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected AccordionLook createWidgetLook() {
 		return new AccordionLook();
 	}
@@ -355,6 +363,7 @@ implements Clearable<Accordion> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {
 		
 		//Iterates the tabs of the current accordion.
@@ -371,6 +380,7 @@ implements Clearable<Accordion> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected int getContentAreaHeight() {
 		return accordionVerticalStack.getHeight();
 	}
@@ -379,6 +389,7 @@ implements Clearable<Accordion> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected int getContentAreaWidth() {
 		return accordionVerticalStack.getWidth();
 	}
@@ -387,6 +398,7 @@ implements Clearable<Accordion> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void noteSetParent() {
 		accordionVerticalStack.setParentWidget(this);
 	}
@@ -395,6 +407,7 @@ implements Clearable<Accordion> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void paintContentArea(
 		final AccordionLook borderWidgetLook,
 		final IPainter painter
@@ -409,6 +422,7 @@ implements Clearable<Accordion> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void setCursorPositionOnContentArea(
 		final int cursorXPositionOnContent,
 		final int cursorYPositionOnContent
@@ -423,6 +437,7 @@ implements Clearable<Accordion> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void setPositionOnParent(
 		final int xPositionOnParent,
 		final int yPositionOnParent

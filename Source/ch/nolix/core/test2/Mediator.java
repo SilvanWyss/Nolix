@@ -37,6 +37,7 @@ public abstract class Mediator {
 	/**
 	 * @throws RuntimeException.
 	 */
+	@Override
 	public final boolean equals(final Object object) {
 		throw new RuntimeException(
 			"Do not use the equals method of a mediator. For expecting equality, use the 'isEqualTo' method."

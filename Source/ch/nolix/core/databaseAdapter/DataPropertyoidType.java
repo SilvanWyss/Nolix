@@ -11,16 +11,19 @@ extends PropertyoidType<V> {
 	}
 	
 	//method
+	@Override
 	public final boolean captionsPropertyThatCanReference(final Entity entity) {
 		return false;
 	}
 
 	//method
+	@Override
 	public final PropertyKind getPropertyKind() {
 		return PropertyKind.DATA;
 	}
 	
 	//method
+	@Override
 	public boolean referencesEntitySet(final String name) {
 		return false;
 	}

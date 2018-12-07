@@ -34,6 +34,7 @@ implements IEntitySetAdapter<E> {
 	}
 	
 	//method
+	@Override
 	public boolean containsEntity(final long id) {
 		return getEntitiesAdapter().containsEntity(id);
 	}
@@ -54,11 +55,13 @@ implements IEntitySetAdapter<E> {
 	}
 	
 	//method
+	@Override
 	public List<E> getEntities(final EntityType<E> entityType) {
 		return getEntitiesAdapter().getEntities(entityType);
 	}
 	
 	//method
+	@Override
 	public List<E> getEntities(IContainer<Long> ids, EntityType<E> entityType) {
 		
 		final var entitiesAdapter = getEntitiesAdapter();
@@ -67,11 +70,13 @@ implements IEntitySetAdapter<E> {
 	}
 	
 	//method
+	@Override
 	public E getEntity(final long id, final EntityType<E> entityType) {
 		return getEntitiesAdapter().getEntity(id, entityType);
 	}
 	
 	//method
+	@Override
 	public String getName() {
 		return
 		entitySetSpecification

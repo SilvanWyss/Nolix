@@ -61,6 +61,7 @@ implements IGenericReplyingSender<M, R> {
 		this.replier = replier;
 	}
 	
+	@Override
 	protected final void noteClose() {}
 	
 	//method

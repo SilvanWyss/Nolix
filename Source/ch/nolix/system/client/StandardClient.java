@@ -144,5 +144,6 @@ public final class StandardClient extends Client<StandardClient> {
 	/**
 	 * Finishes the initialization of the session of this standard client.
 	 */
+	@Override
 	protected void internal_finishSessionInitialization() {}
 }

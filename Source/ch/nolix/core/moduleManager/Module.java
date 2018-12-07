@@ -66,6 +66,7 @@ implements Named {
 	/**
 	 * @return the name of this module.
 	 */
+	@Override
 	public final String getName() {
 		return getClass().getSimpleName();
 	}

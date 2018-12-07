@@ -122,6 +122,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @return the data the given request requests from this local duplex controller.
 	 * @throws UnexistingAttributeException if this local duplex controller has no receiver controller.
 	 */
+	@Override
 	public DocumentNode getData(final Statement request) {
 		return counterpart.getRefReceiverController().getData(request);
 	}
@@ -138,6 +139,7 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * @return the target of this local duplex controller.
 	 */
+	@Override
 	public String getTarget() {
 		return target;
 	}
@@ -146,6 +148,7 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * @return true if this local duplex controller has requested the conneciton.
 	 */
+	@Override
 	public boolean hasRequestedConnection() {
 		return requestedConnection;
 	}
@@ -154,6 +157,7 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * @return true if this local duplex controller has a target.
 	 */
+	@Override
 	public boolean hasTarget() {
 		return (target != null);
 	}
@@ -162,6 +166,7 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * @return true if this duplex controller is a net duplex controller.
 	 */
+	@Override
 	public boolean isNetDuplexController() {
 		return false;
 	}
@@ -174,6 +179,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws InvalidStateException if this local duplex controller is aborted.
 	 * @throws UnexistingAttributeException if this local duplex controller has no receiver controller.
 	 */
+	@Override
 	public void run(final Statement command) {
 		
 		//Checks if this local duplex controller is not aborted.
@@ -190,6 +196,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws InvalidStateException if this local duplex contorller is aborted.
 	 * @throws UnexistingAttributeException if this local duplex controller has no receiver controller.
 	 */
+	@Override
 	protected void run(final List<String> commands) {
 		
 		//Checks if this local duplex controller is not aborted.

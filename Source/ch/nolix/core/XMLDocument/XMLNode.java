@@ -114,6 +114,7 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	}
 	
 	//method
+	@Override
 	public XMLNode freeze() {
 		
 		if (!isFrozen()) {
@@ -139,6 +140,7 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	}
 	
 	//method
+	@Override
 	public String getValue() {
 		
 		supposeHasValue();
@@ -162,11 +164,13 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	}
 	
 	//method
+	@Override
 	public boolean hasValue() {
 		return (value != null);
 	}
 	
 	//method
+	@Override
 	public boolean isFrozen() {
 		return frozen;
 	}
@@ -192,6 +196,7 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	}
 	
 	//method
+	@Override
 	public XMLNode removeValue() {
 		
 		supposeIsNotFrozen();
@@ -202,6 +207,7 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	}
 	
 	//method
+	@Override
 	public XMLNode setValue(final String value) {
 		
 		Validator.suppose(value).isNotEmpty();		
@@ -218,6 +224,7 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	}
 	
 	//method
+	@Override
 	public String toString() {
 		
 		final var stringBuilder = new StringBuilder();

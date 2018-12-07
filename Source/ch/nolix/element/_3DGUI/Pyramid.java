@@ -62,6 +62,7 @@ public final class Pyramid extends BaseShape<Pyramid> {
 	}
 	
 	//method
+	@Override
 	public Pyramid reset() {
 		
 		//Calls method of the base class.

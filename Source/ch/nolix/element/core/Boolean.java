@@ -69,6 +69,7 @@ public final class Boolean extends Element<Boolean> {
 	/**
 	 * @return the attributes of this boolean.
 	 */
+	@Override
 	public final List<DocumentNode> getAttributes() {
 		
 		final List<DocumentNode> attributes = new List<DocumentNode>();

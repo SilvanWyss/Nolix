@@ -100,6 +100,7 @@ implements Clearable<TabContainerTab> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Handles the case that the given attribute specifies a widget.
@@ -129,6 +130,7 @@ implements Clearable<TabContainerTab> {
 	 * 
 	 * @return the current {@link TabContainerTab}.
 	 */
+	@Override
 	public TabContainerTab clear() {
 		
 		widget = null;
@@ -140,6 +142,7 @@ implements Clearable<TabContainerTab> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -201,6 +204,7 @@ implements Clearable<TabContainerTab> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean isEmpty() {
 		return (widget == null);
 	}
@@ -217,6 +221,7 @@ implements Clearable<TabContainerTab> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public TabContainerTab reset() {
 		
 		setHeader(DEFAULT_HEADER);

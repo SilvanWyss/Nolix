@@ -91,6 +91,7 @@ implements Closable {
 	/**
 	 * Closes this net front neuron.
 	 */
+	@Override
 	public void close() {
 		client.close();
 	}
@@ -99,6 +100,7 @@ implements Closable {
 	/**
 	 * @return the maximum number of input neurons of this net front neuron.
 	 */
+	@Override
 	public int getMaxInputNeuronCount() {
 		return MAX_INPUT_NEURON_COUNT;
 	}
@@ -107,6 +109,7 @@ implements Closable {
 	/**
 	 * @return the minimum number of input neurons of this net front neuron.
 	 */
+	@Override
 	public int getMinInputNeuronCount() {
 		return MIN_INPUT_NEURON_COUNT;
 	}
@@ -115,12 +118,14 @@ implements Closable {
 	/**
 	 * Lets this net front neuron fire.
 	 */
+	@Override
 	protected void internal_fire() {}
 	
 	//method
 	/**
 	 * @return true if this net front neuron is closed.
 	 */
+	@Override
 	public boolean isClosed() {
 		return client.isClosed();
 	}

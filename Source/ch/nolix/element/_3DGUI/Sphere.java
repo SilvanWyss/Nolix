@@ -90,6 +90,7 @@ public final class Sphere extends BaseShape<Sphere> {
 	 * 
 	 * @return this sphere.
 	 */
+	@Override
 	public Sphere reset() {		
 	
 		setRadius(DEFAULT_RADIUS);

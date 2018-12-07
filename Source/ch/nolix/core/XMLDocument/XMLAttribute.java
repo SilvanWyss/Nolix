@@ -34,11 +34,13 @@ implements Valued<XMLAttribute, String> {
 	}
 	
 	//method
+	@Override
 	public String getValue() {
 		return value;
 	}
 	
 	//method
+	@Override
 	public String toString() {
 		return (getName() + "='" + getValue() + "'");
 	}

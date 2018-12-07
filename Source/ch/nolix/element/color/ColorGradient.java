@@ -212,6 +212,7 @@ public class ColorGradient extends Element<ColorGradient> {
 	/**
 	 * @return the attributes of this color gradient.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		return 
 		new List<DocumentNode>(

@@ -25,6 +25,7 @@ public final class ColumnAdapter implements IColumnAdapter {
 	}
 	
 	//method
+	@Override
 	public String getHeader() {
 		return
 		columnSpecification

@@ -68,6 +68,7 @@ public abstract class TestPool implements Runnable {
 	/**
 	 * Executes the tests and the test pools of this test pool.
 	 */
+	@Override
 	public final void run() {
 		for (final var tc : testClasses ) {
 			try {

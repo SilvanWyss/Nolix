@@ -55,6 +55,7 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 	/**
 	 * @return a new iterator for this read array container.
 	 */
+	@Override
 	public Iterator<E> iterator() {
 		return new ArrayReadContainerIterator<E>(array);
 	}
@@ -63,6 +64,7 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 	/**
 	 * @return the number of elements of this read array container.
 	 */
+	@Override
 	public int getSize() {
 		return array.length;
 	}
@@ -73,6 +75,7 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 	 * 
 	 * @return a string representation of this read array container.
 	 */
+	@Override
 	public String toString() {
 		return toString(CharacterCatalogue.COMMA);
 	}

@@ -36,6 +36,7 @@ extends BorderWidget<C, BWS> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
@@ -54,6 +55,7 @@ extends BorderWidget<C, BWS> {
 	/**
 	 * @return the attributes of the current {@link Container}.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -94,6 +96,7 @@ extends BorderWidget<C, BWS> {
 	/**
 	 * @return true if the current {@link Container} has the given role.
 	 */
+	@Override
 	public final boolean hasRole(final String role) {
 			
 		//Handles the case that the current container has no role.
@@ -109,6 +112,7 @@ extends BorderWidget<C, BWS> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean keepsFocus() {
 		return true;
 	}

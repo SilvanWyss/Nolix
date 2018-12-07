@@ -29,7 +29,8 @@ public final class NetServerTest extends Test {
 			final NetServer netServer
 			= new NetServer(
 				port,
-				new IEndPointTaker() {public void takeEndPoint(EndPoint endPoint) {}}
+				new IEndPointTaker() {@Override
+				public void takeEndPoint(EndPoint endPoint) {}}
 			);
 			try {
 				Thread.sleep(500);
@@ -40,7 +41,8 @@ public final class NetServerTest extends Test {
 			final NetServer netServer2
 			= new NetServer(
 				port,
-				new IEndPointTaker() {public void takeEndPoint(EndPoint endPoint) {}}
+				new IEndPointTaker() {@Override
+				public void takeEndPoint(EndPoint endPoint) {}}
 			);
 			try {
 				Thread.sleep(500);

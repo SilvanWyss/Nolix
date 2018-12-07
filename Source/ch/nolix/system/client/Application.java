@@ -215,7 +215,7 @@ public class Application<C extends Client<C>> extends NamedElement {
 		try {
 			final var constructor = getClientClass().getConstructor(EndPoint.class);
 			constructor.setAccessible(true);
-			C client = (C)constructor.newInstance(endPoint);
+			C client = constructor.newInstance(endPoint);
 			takeClient(client);
 		} catch (final 
 			IllegalAccessException

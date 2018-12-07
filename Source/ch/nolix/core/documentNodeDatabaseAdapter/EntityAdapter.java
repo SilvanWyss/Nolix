@@ -34,6 +34,7 @@ public final class EntityAdapter<E extends Entity> implements Identified {
 	}
 	
 	//method
+	@Override
 	public int getId() {
 		return entitySpecification.getFirstAttributeAsInt();
 	}

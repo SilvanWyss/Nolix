@@ -69,6 +69,7 @@ implements Clearable<Tableau> {
 	/**
 	 * Removes all tasks of this tableau.
 	 */
+	@Override
 	public Tableau clear() {
 		
 		tasks.clear();
@@ -88,6 +89,7 @@ implements Clearable<Tableau> {
 	/**
 	 * @return true if this tableau contains no task.
 	 */
+	@Override
 	public boolean isEmpty() {
 		return tasks.isEmpty();
 	}
@@ -110,6 +112,7 @@ implements Clearable<Tableau> {
 	 * 
 	 * @return this tableau.
 	 */
+	@Override
 	public Tableau reset() {
 				
 		clear();

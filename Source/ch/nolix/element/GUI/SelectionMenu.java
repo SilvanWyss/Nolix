@@ -78,6 +78,7 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		switch (attribute.getHeader()) {
 			case PascalCaseNameCatalogue.ITEM:
@@ -92,6 +93,7 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
+	@Override
 	public SelectionMenu clear() {
 		
 		unselect();
@@ -117,6 +119,7 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = super.getAttributes();
@@ -129,6 +132,7 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
+	@Override
 	public CursorIcon getContentAreaCursorIcon() {
 		
 		if (menu.isUnderCursor()) {
@@ -139,6 +143,7 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
+	@Override
 	public List<DocumentNode> getInteractionAttributes() {
 		
 		final var interactionAttributes = super.getInteractionAttributes();
@@ -166,11 +171,13 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
+	@Override
 	public boolean hasRole(final String role) {
 		return false;
 	}
 	
 	//method
+	@Override
 	public boolean isEmpty() {
 		return items.isEmpty();
 	}
@@ -179,11 +186,13 @@ implements Clearable<SelectionMenu> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean keepsFocus() {
 		return true;
 	}
 	
 	//method
+	@Override
 	public void noteAnyMouseMove() {
 		
 		super.noteAnyMouseMove();
@@ -192,6 +201,7 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
+	@Override
 	public void noteLeftMouseButtonPress() {
 		
 		super.noteLeftMouseButtonPress();
@@ -244,6 +254,7 @@ implements Clearable<SelectionMenu> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {
 		
 		menu.setElementMargin(0);
@@ -260,14 +271,17 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
+	@Override
 	protected SelectionMenuLook createWidgetLook() {
 		return new SelectionMenuLook();
 	}
 	
 	//method
+	@Override
 	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
+	@Override
 	protected int getContentAreaHeight() {
 		
 		if (isEmpty()) {
@@ -278,6 +292,7 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
+	@Override
 	protected int getContentAreaWidth() {
 		
 		if (isEmpty()) {
@@ -288,6 +303,7 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
+	@Override
 	protected void paintContentArea(
 		final SelectionMenuLook selectionMenuLook,
 		final IPainter painter
@@ -348,6 +364,7 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
+	@Override
 	protected void setCursorPositionOnContentArea(
 		final int cursorXPositionOnContent,
 		final int cursorYPositionOnContent

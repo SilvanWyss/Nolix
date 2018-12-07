@@ -24,17 +24,21 @@ public class FrameResizeListener implements ComponentListener {
 	}
 
 	//method
+	@Override
 	public void componentHidden(ComponentEvent arg0) {}
 
 	//method
+	@Override
 	public void componentMoved(ComponentEvent arg0) {}
 
 	//method
+	@Override
 	public void componentResized(ComponentEvent arg0) {
 		getRefFrame().noteResizing();
 	}
 
 	//method
+	@Override
 	public void componentShown(ComponentEvent arg0) {}
 	
 	private Frame getRefFrame() {

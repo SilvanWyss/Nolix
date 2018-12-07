@@ -16,11 +16,13 @@ final class JMonkeyRectangleRenderer
 implements IJMonkeyShapeRenderer<Rectangle, Geometry> {
 
 	//method
+	@Override
 	public Geometry createRenderObject() {		
 		return new Geometry("Quad", new Quad(1.0f, 1.0f));
 	}
 
 	//method
+	@Override
 	public void render(final Rectangle rectangle, final Geometry geometry) {
 		
 		geometry.setLocalTranslation(

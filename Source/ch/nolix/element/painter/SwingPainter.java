@@ -36,6 +36,7 @@ public final class SwingPainter implements IPainter {
 	}
 	
 	//method
+	@Override
 	public IPainter createPainter(
 		final int xTranslation,
 		final int yTranslation
@@ -46,6 +47,7 @@ public final class SwingPainter implements IPainter {
 	}
 	
 	//method
+	@Override
 	public IPainter createPainter(
 			final int xTranslation,
 			final int yTranslation,
@@ -63,11 +65,13 @@ public final class SwingPainter implements IPainter {
 	}
 
 	//method
+	@Override
 	public int getTextWith(final String text, final TextFormat textFormat) {
 		return textFormat.getSwingTextWidth(text);
 	}
 	
 	//method
+	@Override
 	public void paintFilledPolygon(final int[] xs, final int[] ys) {
 		
 		Validator
@@ -79,6 +83,7 @@ public final class SwingPainter implements IPainter {
 	}
 
 	//method
+	@Override
 	public void paintFilledRectangle(
 		final int xPosition,
 		final int yPosition,
@@ -106,6 +111,7 @@ public final class SwingPainter implements IPainter {
 	}
 	
 	//method
+	@Override
 	public void paintImage(
 		final Image image,
 		final int width,
@@ -115,11 +121,13 @@ public final class SwingPainter implements IPainter {
 	}
 	
 	//method
+	@Override
 	public void paintText(final String text, final TextFormat textFormat) {
 		textFormat.paintSwingText(graphics, text);
 	}
 	
 	//method
+	@Override
 	public void paintText(
 		String text,
 		TextFormat textFormat,
@@ -129,12 +137,14 @@ public final class SwingPainter implements IPainter {
 	}
 
 	//method
+	@Override
 	public void setColor(final Color color) {
 		graphics.setColor(color.createSwingColor());
 		colorGradient = null;
 	}
 
 	//method
+	@Override
 	public void setColorGradient(ColorGradient colorGradient) {
 		
 		Validator.suppose(colorGradient).isInstanceOf(ColorGradient.class);
@@ -143,6 +153,7 @@ public final class SwingPainter implements IPainter {
 	}
 	
 	//method
+	@Override
 	public void translate(
 		final int xTranslation,
 		final int yTranslation

@@ -100,6 +100,7 @@ implements Clearable<AccordionTab> {
 	}
 	
 	//method
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		if (GUI.canCreateWidget(attribute.getHeader())) {
@@ -117,6 +118,7 @@ implements Clearable<AccordionTab> {
 	}
 	
 	//method
+	@Override
 	public AccordionTab clear() {
 		
 		if (containsAny()) {
@@ -149,6 +151,7 @@ implements Clearable<AccordionTab> {
 	}
 	
 	//method
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = super.getAttributes();
@@ -187,6 +190,7 @@ implements Clearable<AccordionTab> {
 	}
 	
 	//method
+	@Override
 	public boolean isEmpty() {
 		return (widget == null);
 	}
@@ -202,6 +206,7 @@ implements Clearable<AccordionTab> {
 	}
 	
 	//method
+	@Override
 	public AccordionTab reset() {
 		
 		setHeader(DEFAULT_HEADER);

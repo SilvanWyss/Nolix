@@ -90,6 +90,7 @@ extends DataPropertyoid<V> {
 	}
 	
 	//method
+	@Override
 	protected final void internal_clear() {
 		
 		supposeIsOptional();
@@ -100,6 +101,7 @@ extends DataPropertyoid<V> {
 	}
 	
 	//method
+	@Override
 	protected final List<Object> internal_getValues() {
 		
 		final var values = new List<Object>();
@@ -112,6 +114,7 @@ extends DataPropertyoid<V> {
 	}
 	
 	//package-visible method
+	@Override
 	@SuppressWarnings("unchecked")
 	protected final void internal_setValues(final Iterable<Object> values) {
 		setValue((V)(new ReadContainer<>(values).getRefOne()));

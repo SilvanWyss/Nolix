@@ -49,6 +49,7 @@ public final class BrowserEntryServer extends ClosableElement {
 	}
 	
 	//method
+	@Override
 	protected void noteClose() {
 		netServer.close();
 	}

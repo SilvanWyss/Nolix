@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
 //own import
 import ch.nolix.element.painter.SwingPainter;
@@ -44,6 +45,7 @@ public final class Frame extends GUI<Frame> {
 		/**
 		 * {@inheritDoc}
 		 */
+		@Override
 		public void paintComponent(final Graphics graphics) {
 			
 			//Paints the title of the current frame.
@@ -85,12 +87,12 @@ public final class Frame extends GUI<Frame> {
 		approveProperties();
 		
 		frame.setLocationByPlatform(true);
-		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		frame.addWindowListener(new FrameCloseListener(this));
 		frame.addComponentListener(new FrameResizeListener(this));
 		frame.setContentPane(panel);
 		frame.setVisible(true);
-		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		frame.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 		frame.setMinimumSize(new Dimension(MIN_WIDTH, MIN_HEIGHT));
 		frame.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		frame.setLocation(DEFAULT_X_POSITION, DEFAULT_Y_POSITION);
@@ -146,6 +148,7 @@ public final class Frame extends GUI<Frame> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void close() {
 		
 		//Calls method of the base class.
@@ -158,6 +161,7 @@ public final class Frame extends GUI<Frame> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public int getContentHeight() {
 		return frame.getComponent(0).getHeight();
 	}
@@ -166,6 +170,7 @@ public final class Frame extends GUI<Frame> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public int getContentWidth() {
 		return frame.getComponent(0).getWidth();
 	}
@@ -174,6 +179,7 @@ public final class Frame extends GUI<Frame> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public int getCursorXPosition() {
 		
 		if (panel.getMousePosition() == null) {
@@ -187,6 +193,7 @@ public final class Frame extends GUI<Frame> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public int getCursorYPosition() {
 		
 		if (panel.getMousePosition() == null) {
@@ -200,6 +207,7 @@ public final class Frame extends GUI<Frame> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public int getHeight() {
 		return frame.getHeight();
 	}
@@ -208,6 +216,7 @@ public final class Frame extends GUI<Frame> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public int getWidth() {
 		return frame.getWidth();
 	}
@@ -216,6 +225,7 @@ public final class Frame extends GUI<Frame> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean isRootGUI() {
 		return false;
 	}
@@ -224,6 +234,7 @@ public final class Frame extends GUI<Frame> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void paint() {
 		frame.setCursor(getActiveCursorIcon().getJavaCursor());
 		frame.repaint();

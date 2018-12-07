@@ -119,6 +119,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	 * 
 	 * @return true if the given object equals this read container..
 	 */
+	@Override
 	public boolean equals(final Object object) {
 		
 		//Handles the case that the given object is no read container.
@@ -140,6 +141,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	/**
 	 * @return the number of elements of this read container.
 	 */
+	@Override
 	public int getSize() {
 		return container.getSize();
 	}
@@ -148,6 +150,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	/**
 	 * @return a new iterator of this read container.
 	 */
+	@Override
 	public Iterator<E> iterator() {
 		return container.iterator();
 	}
@@ -158,6 +161,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	 * 
 	 * @return a string representation of this read container.
 	 */
+	@Override
 	public String toString() {
 		return toString(CharacterCatalogue.COMMA);
 	}

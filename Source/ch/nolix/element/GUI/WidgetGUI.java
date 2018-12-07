@@ -18,6 +18,7 @@ implements IGUI<WidgetGUI> {
 	private Widget<?, ?> rootWidget;
 	
 	//method
+	@Override
 	public WidgetGUI clear() {
 		
 		rootWidget = null;
@@ -26,21 +27,25 @@ implements IGUI<WidgetGUI> {
 	}
 	
 	//method
+	@Override
 	public void close() throws Exception {
 		closed = true;
 	}
 	
 	//method
+	@Override
 	public boolean containsElement(final String name) {
 		return getRefOwnWidgetsRecursively().contains(w -> w.hasName(name));
 	}
 	
 	//method
+	@Override
 	public CursorIcon getContentAreaCursorIcon() {
 		return getCustomCursorIcon();
 	}
 	
 	//method
+	@Override
 	public IGUIController getRefController() {
 		return getParentGUI().getRefController();
 	}
@@ -56,6 +61,7 @@ implements IGUI<WidgetGUI> {
 	}
 	
 	//method
+	@Override
 	public List<Widget<?, ?>> getRefWidgetsRecursively() {
 		
 		if (isEmpty()) {
@@ -67,6 +73,7 @@ implements IGUI<WidgetGUI> {
 	}
 	
 	//method
+	@Override
 	public boolean hasController() {
 		
 		if (!belongsToGUI()) {
@@ -77,31 +84,37 @@ implements IGUI<WidgetGUI> {
 	}
 	
 	//method
+	@Override
 	public boolean hasRole(final String role) {
 		return false;
 	}
 	
 	//method
+	@Override
 	public boolean isClosed() {
 		return closed;
 	}
 	
 	//method
+	@Override
 	public boolean isEmpty() {
 		return (rootWidget == null);
 	}
 	
 	//method
+	@Override
 	public boolean isRootGUI() {
 		return false;
 	}
 	
 	//method
+	@Override
 	public boolean keepsFocus() {
 		return false;
 	}
 	
 	//method
+	@Override
 	public void noteLeftMouseButtonPress() {
 		
 		//Calls method of the base class.
@@ -115,6 +128,7 @@ implements IGUI<WidgetGUI> {
 	}
 	
 	//method
+	@Override
 	public void noteLeftMouseButtonRelease() {
 		
 		//Calls method of the base class.
@@ -128,6 +142,7 @@ implements IGUI<WidgetGUI> {
 	}
 	
 	//method
+	@Override
 	public void noteMouseMove() {
 		
 		//Calls method of the base class.
@@ -141,6 +156,7 @@ implements IGUI<WidgetGUI> {
 	}
 	
 	//method
+	@Override
 	public void noteRightMouseButtonPress() {
 		
 		//Calls method of the base class.
@@ -167,6 +183,7 @@ implements IGUI<WidgetGUI> {
 	}
 	
 	//method
+	@Override
 	public void refresh() {}
 	
 	//method
@@ -181,6 +198,7 @@ implements IGUI<WidgetGUI> {
 	}
 	
 	//method
+	@Override
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {
 		setProposalWidth(500);
 		setProposalHeight(200);
@@ -188,14 +206,17 @@ implements IGUI<WidgetGUI> {
 	}
 	
 	//method
+	@Override
 	protected WidgetGUILook createWidgetLook() {
 		return new WidgetGUILook();
 	}
 	
 	//method
+	@Override
 	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {	}
 	
 	//method
+	@Override
 	protected int getContentAreaHeight() {
 		
 		if (isEmpty()) {
@@ -206,6 +227,7 @@ implements IGUI<WidgetGUI> {
 	}
 	
 	//method
+	@Override
 	protected int getContentAreaWidth() {
 		
 		if (isEmpty()) {
@@ -216,6 +238,7 @@ implements IGUI<WidgetGUI> {
 	}
 	
 	//method
+	@Override
 	protected void noteSetParent() {
 		if (containsAny()) {
 			getRefRootWidget().setParentGUI(this);
@@ -223,6 +246,7 @@ implements IGUI<WidgetGUI> {
 	}
 	
 	//method
+	@Override
 	protected void paintContentArea(
 		final WidgetGUILook borderWidgetLook,
 		final IPainter painter

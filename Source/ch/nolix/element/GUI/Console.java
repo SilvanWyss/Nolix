@@ -86,6 +86,7 @@ implements Clearable<Console> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
@@ -106,6 +107,7 @@ implements Clearable<Console> {
 	 * 
 	 * @return this console.
 	 */
+	@Override
 	public Console clear() {
 		
 		lines.clear();
@@ -154,6 +156,7 @@ implements Clearable<Console> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -171,6 +174,7 @@ implements Clearable<Console> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public CursorIcon getContentAreaCursorIcon() {
 		return getCustomCursorIcon();
 	}
@@ -221,6 +225,7 @@ implements Clearable<Console> {
 	/**
 	 * @return true if this console contains no line.
 	 */
+	@Override
 	public boolean isEmpty() {
 		return getLines().isEmpty();
 	}
@@ -229,6 +234,7 @@ implements Clearable<Console> {
 	/**
 	 * @return true if this console has the given role.
 	 */
+	@Override
 	public boolean hasRole(final String role) {
 		return false;
 	}
@@ -237,6 +243,7 @@ implements Clearable<Console> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean keepsFocus() {
 		return true;
 	}
@@ -305,6 +312,7 @@ implements Clearable<Console> {
 	/**
 	 * Lets this console note a key typing.
 	 */
+	@Override
 	public void noteKeyTyping(final KeyEvent keyEvent) {
 		
 		//Enumerates the key code of the given key event.
@@ -440,6 +448,7 @@ implements Clearable<Console> {
 	 * 
 	 * @return this console.
 	 */
+	@Override
 	public Console resetConfiguration() {
 		
 		//Calls method of the base class.
@@ -594,6 +603,7 @@ implements Clearable<Console> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {
 		getRefBaseLook().setPaddings(10);
 	}
@@ -602,6 +612,7 @@ implements Clearable<Console> {
 	/**
 	 * @return a new widget look for this console.
 	 */
+	@Override
 	protected ConsoleLook createWidgetLook() {
 		return new ConsoleLook();
 	}
@@ -610,12 +621,14 @@ implements Clearable<Console> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {}
 
 	//method
 	/**
 	 * @return the height of the content of this console.
 	 */
+	@Override
 	protected int getContentAreaHeight() {
 		
 		final var currentLook = getRefCurrentLook();
@@ -636,6 +649,7 @@ implements Clearable<Console> {
 	/**
 	 * @return the width of the content of this console.
 	 */
+	@Override
 	protected int getContentAreaWidth() {
 		
 		final var font = getFont();
@@ -656,6 +670,7 @@ implements Clearable<Console> {
 	 * @param widgetStructure
 	 * @param painter
 	 */
+	@Override
 	protected void paintContentArea(
 		final ConsoleLook widgetStructure,
 		final IPainter painter

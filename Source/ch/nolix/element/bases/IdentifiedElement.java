@@ -29,6 +29,7 @@ implements Identified {
 	}
 	
 	//method
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = super.getAttributes();
@@ -44,6 +45,7 @@ implements Identified {
 	}
 	
 	//method
+	@Override
 	public final int getId() {
 		return id;
 	}

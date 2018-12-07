@@ -48,6 +48,7 @@ public final class BackConsoleClientTutorial {
 		/**
 		 * Initializes this main session.
 		 */
+		@Override
 		public void initialize() {
 			
 			getParentClient().setDesign(new BlackRedFrontConsoleClientLook());

@@ -262,6 +262,7 @@ public class Matrix implements ApproximativeEqualing {
 	 * @param object
 	 * @return true if this matrix equals the given object
 	 */
+	@Override
 	public boolean equals(Object object) {
 				
 		if (!(object instanceof Matrix)) {
@@ -295,6 +296,7 @@ public class Matrix implements ApproximativeEqualing {
 	 * @param epsilon
 	 * @return true if this matrix equals approximatively the given object with a tolerance that is smaller than the given epsilon
 	 */
+	@Override
 	public boolean equalsApproximatively(final Object object, final double epsilon) {
 		
 		if (object == null) {
@@ -1075,6 +1077,7 @@ public class Matrix implements ApproximativeEqualing {
 	/**
 	 * @return a string representation of this object
 	 */
+	@Override
 	public String toString() {
 		
 		String matrix = "[";

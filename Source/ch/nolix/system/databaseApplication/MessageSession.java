@@ -26,6 +26,7 @@ public final class MessageSession extends DatabaseApplicationSession {
 	}
 	
 	//method
+	@Override
 	protected VerticalStack createContentWidget() {
 		return
 		new VerticalStack(

@@ -37,6 +37,7 @@ public final class EntitySession extends HeaderedSession {
 	}
 
 	//method
+	@Override
 	protected List<Button> createLinkButtons() {
 		return new List<Button>(
 			new Button()
@@ -47,6 +48,7 @@ public final class EntitySession extends HeaderedSession {
 	}
 	
 	//method
+	@Override
 	protected VerticalStack createSubSubContentWidget() {
 		return new VerticalStack(
 			createMainDataWidget(),

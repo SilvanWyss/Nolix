@@ -18,6 +18,7 @@ final class LogWorker extends Thread {
 	}
 	
 	//method
+	@Override
 	public void run() {
 		
 		boolean idle = false;

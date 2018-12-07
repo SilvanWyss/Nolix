@@ -22,31 +22,37 @@ abstract class BackGUIClientoidGUI extends GUI<BackGUIClientoidGUI> {
 	private int cursorYPosition;
 	
 	//method
+	@Override
 	public int getCursorXPosition() {
 		return cursorXPosition;
 	}
 
 	//method
+	@Override
 	public int getCursorYPosition() {
 		return cursorYPosition;
 	}
 
 	//method
+	@Override
 	public int getContentHeight() {
 		return contentHeight;
 	}
 
 	//method
+	@Override
 	public int getContentWidth() {
 		return contentWidth;
 	}
 	
 	//method
+	@Override
 	public int getHeight() {
 		return height;
 	}
 
 	//method
+	@Override
 	public int getWidth() {
 		return width;
 	}

@@ -47,6 +47,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	/**
 	 * @return the attributes of this shape.
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -69,6 +70,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	/**
 	 * @return the configurable elements of this shape.
 	 */
+	@Override
 	public final ReadContainer<Configurable<?>> getRefConfigurables() {
 		return new ReadContainer<Configurable<?>>(getRefShapes());
 	}
@@ -141,6 +143,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	/**
 	 * @return true if this shape has the given role.
 	 */
+	@Override
 	public boolean hasRole(final String role) {
 		return false;
 	}
@@ -168,6 +171,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 * 
 	 * @return this shape.
 	 */
+	@Override
 	public S reset() {
 		
 		setPosition(DEFAULT_POSITION);

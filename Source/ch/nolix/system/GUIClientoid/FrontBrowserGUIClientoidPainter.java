@@ -38,6 +38,7 @@ implements IPainter, Flushable {
 	}
 	
 	//method
+	@Override
 	public FrontBrowserGUIClientoidPainter createPainter(
 		final int xTranslation,
 		final int yTranslation
@@ -58,6 +59,7 @@ implements IPainter, Flushable {
 	}
 		
 	//method
+	@Override
 	public IPainter createPainter(
 		final int xTranslation,
 		final int yTranslation,
@@ -84,16 +86,19 @@ implements IPainter, Flushable {
 	}
 	
 	//method
+	@Override
 	public void flush() {
 		bottom.paintOnCounterpart();
 	}
 	
 	//method
+	@Override
 	public int getTextWith(final String text, final TextFormat textFormat) {
 		return textFormat.getSwingTextWidth(text);
 	}
 	
 	//method
+	@Override
 	public void paintFilledPolygon(final int[] x, final int[] y) {
 		appendPainterCommand(
 			Protocol.PAINT_FILLED_POLYGON_HEADER
@@ -106,6 +111,7 @@ implements IPainter, Flushable {
 	}
 	
 	//method
+	@Override
 	public void paintFilledRectangle(
 		final int xPostiion,
 		final int yPosition,
@@ -127,6 +133,7 @@ implements IPainter, Flushable {
 	}
 	
 	//method
+	@Override
 	public void paintImage(final Image image) {
 		appendPainterCommand(
 			Protocol.PAINT_IMAGE_HEADER
@@ -137,6 +144,7 @@ implements IPainter, Flushable {
 	}
 	
 	//method
+	@Override
 	public void paintImage(final Image image, final int width, final int height) {
 		appendPainterCommand(
 			Protocol.PAINT_IMAGE_HEADER
@@ -163,6 +171,7 @@ implements IPainter, Flushable {
 	}
 
 	//method
+	@Override
 	public void paintText(final String text, TextFormat textFormat, final int maxTextWidth) {
 		appendPainterCommand(
 			Protocol.PAINT_TEXT_HEADER
@@ -177,6 +186,7 @@ implements IPainter, Flushable {
 	}
 	
 	//method
+	@Override
 	public void setColor(final Color color) {	
 		appendPainterCommand(
 			Protocol.SET_COLOR_HEADER
@@ -187,6 +197,7 @@ implements IPainter, Flushable {
 	}
 
 	//method
+	@Override
 	public void setColorGradient(final ColorGradient colorGradient) {
 		appendPainterCommand(
 			Protocol.SET_COLOR_GRADIENT_HEADER
@@ -197,6 +208,7 @@ implements IPainter, Flushable {
 	}
 	
 	//method
+	@Override
 	public void translate(final int xTranslation, final int yTranslation) {
 		appendPainterCommand(
 			Protocol.TRANSLATE_HEADER

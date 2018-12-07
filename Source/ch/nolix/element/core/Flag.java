@@ -24,6 +24,7 @@ public final class Flag extends Element<Flag> implements Named {
 	}
 	
 	//method
+	@Override
 	public String getName() {
 		return name;
 	}

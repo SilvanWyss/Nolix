@@ -38,6 +38,7 @@ implements Clearable<ImageWidget> {
 	}
 	
 	//method
+	@Override
 	public ImageWidget clear() {
 		
 		image.clear();
@@ -46,6 +47,7 @@ implements Clearable<ImageWidget> {
 	}
 	
 	//method
+	@Override
 	public CursorIcon getContentAreaCursorIcon() {
 		return getCustomCursorIcon();
 	}
@@ -56,16 +58,19 @@ implements Clearable<ImageWidget> {
 	}
 
 	//method
+	@Override
 	public boolean hasRole(final String role) {
 		return false;
 	}
 	
 	//method
+	@Override
 	public boolean isEmpty() {
 		return image.isEmpty();
 	}
 	
 	//method
+	@Override
 	public boolean keepsFocus() {
 		return false;
 	}
@@ -79,27 +84,33 @@ implements Clearable<ImageWidget> {
 	}
 	
 	//method
+	@Override
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {}
 	
 	//method
+	@Override
 	protected ImageWidgetLook createWidgetLook() {
 		return new ImageWidgetLook();
 	}
 	
 	//method
+	@Override
 	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
+	@Override
 	protected int getContentAreaHeight() {
 		return (isEmpty() ? 0 : getRefImage().getHeight());
 	}
 
 	//method
+	@Override
 	protected int getContentAreaWidth() {
 		return (isEmpty() ? 0 : getRefImage().getWidth());
 	}
 
 	//method
+	@Override
 	protected void paintContentArea(
 		final ImageWidgetLook borderWidgetLook,
 		final IPainter painter

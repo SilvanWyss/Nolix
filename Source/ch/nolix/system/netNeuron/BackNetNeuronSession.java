@@ -17,5 +17,6 @@ final class BackNetNeuronSession extends Session<StandardClient> {
 	/**
 	 * Initializes this net back neuron session.
 	 */
+	@Override
 	public void initialize() {}
 }

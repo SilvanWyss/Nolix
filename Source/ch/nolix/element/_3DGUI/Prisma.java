@@ -32,6 +32,7 @@ public abstract class Prisma<P extends Prisma<P>> extends BaseShape<P> {
 	}
 	
 	//method
+	@Override
 	public P reset() {
 		
 		//Calls method of base class.

@@ -57,6 +57,7 @@ implements Closable {
 	/**
 	 * Closes the current {@link Client}.
 	 */
+	@Override
 	public final void close() {
 		endPoint.close();
 	}
@@ -132,6 +133,7 @@ implements Closable {
 	/**
 	 * @return the type of the current {@link Client}.
 	 */
+	@Override
 	public final String getType() {
 		return getClass().getSimpleName();
 	}
@@ -140,6 +142,7 @@ implements Closable {
 	/**
 	 * @return true if the current {@link Client} is closed.
 	 */
+	@Override
 	public final boolean isClosed() {
 		return endPoint.isClosed();
 	}
@@ -493,7 +496,7 @@ implements Closable {
 		final var arguments = sessionUserDataMethodRequest.getRefAttributes().toStringArray();
 		
 		//Invokes the session user data method.
-		return (DocumentNode)internal_getRefCurrentSession().invokeUserDataMethod(
+		return internal_getRefCurrentSession().invokeUserDataMethod(
 			sessionUserDataMethodName, arguments
 		);
 	}

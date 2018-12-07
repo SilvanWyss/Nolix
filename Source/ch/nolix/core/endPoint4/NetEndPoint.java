@@ -108,6 +108,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	/**
 	 * @return the target of this end point.
 	 */
+	@Override
 	public String getTarget() {
 		return internalEndPoint.getTarget();
 	}
@@ -116,6 +117,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	/**
 	 * @return true if this end point has requested the connection.
 	 */
+	@Override
 	public boolean hasRequestedConnection() {
 		return internalEndPoint.hasRequestedConnection();
 	}
@@ -124,6 +126,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	/**
 	 * @return true if this net end point has a target.
 	 */
+	@Override
 	public boolean hasTarget() {
 		return internalEndPoint.hasTarget();
 	}
@@ -154,6 +157,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	 * @throws RuntimeException if this zeta end point is stopped.
 	 * @throws RuntimeException if an error occurs by trying to send the message.
 	 */
+	@Override
 	public R sendAndGetReply(final M message) {
 		return sendAndWaitToReply(message);
 	}

@@ -52,6 +52,7 @@ public class VolumeCandlestick extends Candlestick {
 	/**
 	 * @return a copy of this volume candlestick.
 	 */
+	@Override
 	public VolumeCandlestick getCopy() {
 		return (
 			new VolumeCandlestick(getRefTime(),

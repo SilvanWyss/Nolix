@@ -10,11 +10,13 @@ import ch.nolix.techAPI.resourceAPI.IResource;
 public final class TechFactory implements ITechFactory {
 	
 	//method
+	@Override
 	public IResource createResource(final String name) {
 		return new Resource(name);
 	}
 
 	//method
+	@Override
 	public IResource createResource(final String name, final IResource... baseResources) {
 		return new Resource(name, baseResources);
 	}

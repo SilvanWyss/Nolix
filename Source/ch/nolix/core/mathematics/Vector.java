@@ -87,6 +87,7 @@ public final class Vector {
 	 * @param object
 	 * @return true if this vector equals the given object
 	 */
+	@Override
 	public final boolean equals(Object object) {
 		
 		if (object == null) {

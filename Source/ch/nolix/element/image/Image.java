@@ -104,6 +104,7 @@ public final class Image extends MutableElement<Image> {
 	}
 	
 	//method
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		switch (attribute.getHeader()) {
 			case PIXEL_ARRAY_HEADER:
@@ -115,6 +116,7 @@ public final class Image extends MutableElement<Image> {
 	}	
 	
 	//method
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = super.getAttributes();
@@ -154,6 +156,7 @@ public final class Image extends MutableElement<Image> {
 	}
 	
 	//method
+	@Override
 	public Image reset() {
 		
 		final var pixelCount = getPixelCount();

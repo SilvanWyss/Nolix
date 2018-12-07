@@ -32,6 +32,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Enumerates the header of the given attribute.
@@ -50,6 +51,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -68,6 +70,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final String getToken() {
 		
 		//Checks if the current configurable element has a token.
@@ -80,6 +83,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean hasToken() {
 		return (token != null);
 	}
@@ -88,6 +92,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean hasToken(String token) {		
 		return OptionalTokenable.super.hasToken(token);
 	}
@@ -96,6 +101,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean isOfType(final String type) {
 		
 		//Calls method of the base class.
@@ -106,6 +112,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final CE removeToken() {
 		
 		token = null;
@@ -117,6 +124,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public CE reset() {
 		
 		//Calls method of the base class.
@@ -135,6 +143,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	 * @throws NullArgumentException if the given token is null.
 	 * @throws EmptyArgumentException if the given token is empty.
 	 */
+	@Override
 	public final CE setToken(final String token) {
 		
 		//Checks if the given token is not null and not empty.

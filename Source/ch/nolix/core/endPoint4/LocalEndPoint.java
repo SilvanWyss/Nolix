@@ -145,6 +145,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	/**
 	 * @return the target of this local end point.
 	 */
+	@Override
 	public String getTarget() {
 		return target;
 	}
@@ -153,6 +154,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	/**
 	 * @return true if this local end point has requested the connection.
 	 */
+	@Override
 	public boolean hasRequestedConnection() {
 		return requestedConnection;
 	}
@@ -161,6 +163,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	/**
 	 * @return true if this local end point has a target.
 	 */
+	@Override
 	public boolean hasTarget() {
 		return (target != null);
 	}
@@ -173,6 +176,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 	 * @return the reply to the given message.
 	 * @throws InvalidStateException if this local end point is aborted.
 	 */
+	@Override
 	public R sendAndGetReply(final M message) {
 		
 		//Checks if this local end point is not aborted.

@@ -23,26 +23,31 @@ final class FrontGUIClientoidGUIController implements IGUIController {
 	}
 	
 	//method
+	@Override
 	public IFileProvider getFileProvider(IContainer<Integer> indexPathOnRootGUI) {
 		return frontGUIClient.getFileProvider(indexPathOnRootGUI);
 	}
 	
 	//method
+	@Override
 	public void noteLeftMouseButtonPressCommand(IContainer<Integer> indexPathOnRootGUI) {
 		frontGUIClient.noteLeftMouseButtonPressCommandOnCounterpart(indexPathOnRootGUI);
 	}
 	
 	//method
+	@Override
 	public void noteLeftMouseButtonReleaseCommand(IContainer<Integer> indexPathOnRootGUI) {
 		frontGUIClient.noteLeftMouseButtonReleaseCommandOnCounterpart(indexPathOnRootGUI);
 	}
 	
 	//method
+	@Override
 	public void noteRightMouseButtonPressCommand(IContainer<Integer> indexPathOnRootGUI) {
 		frontGUIClient.noteRightMouseButtonPressCommandOnCounterpart(indexPathOnRootGUI);
 	}
 	
 	//method
+	@Override
 	public void noteRightMouseButtonReleaseCommand(IContainer<Integer> indexPathOnRootGUI) {
 		frontGUIClient.noteRightMouseButtonReleaseCommandOnCounterpart(indexPathOnRootGUI);
 	}

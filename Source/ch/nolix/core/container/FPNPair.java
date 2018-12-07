@@ -41,6 +41,7 @@ public final class FPNPair {
 	/**
 	 * @return true if the current {@link FPNPair} equals the given object.
 	 */
+	@Override
 	public boolean equals(final Object object) {
 				
 		//Handles the case that the given object is no FPN pair.
@@ -73,6 +74,7 @@ public final class FPNPair {
 	/**
 	 * @return a string representation of the current {@link FPNPair}.
 	 */
+	@Override
 	public String toString() {
 		return ("(" + getValue1() + "," + getValue2() + ")");
 	}

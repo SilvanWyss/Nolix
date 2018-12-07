@@ -64,6 +64,7 @@ extends Neuronoid<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	/**
 	 * @return the maximum number of input neurons of this fanout neuron.
 	 */
+	@Override
 	public int getMaxInputNeuronCount() {
 		return MAX_INPUT_NEURON_COUNT;
 	}
@@ -72,6 +73,7 @@ extends Neuronoid<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	/**
 	 * @return the minimum number of input neurons of this fanout neuron.
 	 */
+	@Override
 	public int getMinInputNeuronCount() {
 		return MIN_INPUT_NEURON_COUNT;
 	}
@@ -88,6 +90,7 @@ extends Neuronoid<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	/**
 	 * Lets this neuron fire.
 	 */
+	@Override
 	protected void internal_fire() {
 		internal_setOutput(getRefOneInput());
 	}	

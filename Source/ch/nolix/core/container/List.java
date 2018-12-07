@@ -404,6 +404,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @return the current {@link List}.
 	 */
+	@Override
 	public List<E> clear() {
 		
 		//Handles the case that the current list contains any elements.
@@ -430,6 +431,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	/**
 	 * @return true if the current {@link List} contains any element.
 	 */
+	@Override
 	public boolean containsAny() {
 		
 		//Calls the default method of the required interface.
@@ -442,6 +444,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @return true if the given object equals the current {@link List}.
 	 */
+	@Override
 	public boolean equals(Object object) {
 		
 		//Handles the case that the given object is no list.
@@ -607,6 +610,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @return the number of elements of the current {@link List}.
 	 */
+	@Override
 	public int getSize() {
 		return elementCount;
 	}
@@ -615,6 +619,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	/**
 	 * @return true if the current {@link List} is empty
 	 */
+	@Override
 	public boolean isEmpty() {
 		
 		//Calls the method of the desired interface of the current list.
@@ -627,6 +632,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @return a new iterator of the current {@link List}.
 	 */
+	@Override
 	public ListIterator<E> iterator() {
 		return new ListIterator<E>(firstNode);
 	}
@@ -994,6 +1000,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @return a string representation of the current {@link List}.
 	 */
+	@Override
 	public String toString() {
 		return toString(CharacterCatalogue.COMMA);
 	}
