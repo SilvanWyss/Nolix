@@ -37,7 +37,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 		final IEndPointTaker arbitraryDuplexControllerTaker
 	) {
 		
-		//Checks if this server contains no duplex controller taker.
+		//Checks if this server does not contain a duplex controller taker.
 		if (containsAny()) {
 			throw new InvalidStateException(this, "contains duplex controller");
 		}
@@ -103,7 +103,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//method
 	/**
-	 * @return true if this server contains no duplex controller taker.
+	 * @return true if this server does not contain a duplex controller taker.
 	 */
 	@Override
 	public final boolean isEmpty() {
@@ -116,7 +116,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * 
 	 * @param name
 	 * @throws InvalidArgumentException
-	 * if this server contains no duplex controller taker with the given name.
+	 * if this server does not contain a duplex controller taker with the given name.
 	 */
 	public void removeDuplexControllerTaker(final String name) {
 		
@@ -134,7 +134,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * @param endPoint
 	 * @throws UnexistingAttributeException if
 	 * this server has no arbitrary duplex controller taker
-	 * or contains no duplex controller taker
+	 * or does not contain a duplex controller taker
 	 * with the same name as the target of the given duplex controller.
 	 */
 	public final void takeDuplexController(final EndPoint endPoint) {

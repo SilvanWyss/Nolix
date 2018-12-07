@@ -218,7 +218,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @param name
 	 * @return the user data method with the given name from the current {@link Session}.
 	 * @throws UnexistingAttributeException
-	 * if the current {@link Session} contains no user data method with the given name.
+	 * if the current {@link Session} does not contain a user data method with the given name.
 	 */
 	private Method getUserDataMethod(final String name) {
 		return userDataMethods.getRefFirst(m -> m.getName().equals(name));
@@ -229,7 +229,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @param name
 	 * @return the user run method with the given name from the current {@link Session}.
 	 * @throws UnexistingAttributeException
-	 * if the current {@link Session} contains no user run method with the given name.
+	 * if the current {@link Session} does not contain a user run method with the given name.
 	 */
 	private Method getUserRunMethod(final String name) {
 		return userRunMethods.getRefFirst(m -> m.getName().equals(name));

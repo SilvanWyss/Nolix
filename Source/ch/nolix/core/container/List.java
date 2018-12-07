@@ -707,7 +707,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param selector
 	 * @return the first element the given selector selects from the current {@link List}.
-	 * @throws InvalidArgumentException if the current {@link List} contains no element the given selector selects.
+	 * @throws InvalidArgumentException if the current {@link List} does not contain an element the given selector selects.
 	 */
 	public E removeAndGetRefFirst(final IElementTakerBooleanGetter<E> selector) {
 		E element = getRefFirst(selector);
@@ -765,7 +765,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param selector
 	 * @return the current {@link List}.
-	 * @throws InvalidArgumentException if the current {@link List} contains no element the given selector selects.
+	 * @throws InvalidArgumentException if the current {@link List} does not contain an element the given selector selects.
 	 */
 	public List<E> removeFirst(final IElementTakerBooleanGetter<E> selector) {
 		
@@ -931,7 +931,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * @param selector
 	 * @param element
 	 * @return the current {@link List}.
-	 * @throws InvalidArgumentException if the current {@link List} contains no element the given selector selects.
+	 * @throws InvalidArgumentException if the current {@link List} does not contain an element the given selector selects.
 	 * @throws NullArgumentException if the given element is null.
 	 */
 	public List<E> replaceFirst(IElementTakerBooleanGetter<E> selector, E element) {

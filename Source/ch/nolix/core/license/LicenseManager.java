@@ -51,7 +51,7 @@ public final class LicenseManager {
 	//method
 	/**
 	 * @param type
-	 * @throws UnexistringAttributeException if this license manager contains no license of the given type.
+	 * @throws UnexistringAttributeException if this license manager does not contain a license of the given type.
 	 */
 	public <L extends License> void supposeLicense(final Class<L> type) {
 		

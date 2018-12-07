@@ -160,7 +160,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @param selector
-	 * @return true if the current {@link IContainer} contains no element the given selector selects.
+	 * @return true if the current {@link IContainer} does not contain an element the given selector selects.
 	 */
 	public default boolean containsNone(final IElementTakerBooleanGetter<E> selector) {
 		return !contains(e -> selector.getOutput(e));
@@ -755,7 +755,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the element at the given index.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
 	 * @throws UnexistringAttributeException
-	 * if the current {@link IContainer} contains no element at the given index.
+	 * if the current {@link IContainer} does not contain an element at the given index.
 	 */
 	public default E getRefAt(final int index) {
 		
@@ -1007,7 +1007,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param selector
 	 * @return the first element the given selector selects from the current {@link IContainer}.
 	 * @throws UnexistingAttributeException
-	 * if the current {@link IContainer} contains no element the given selector selects.
+	 * if the current {@link IContainer} does not contain an element the given selector selects.
 	 */
 	public default E getRefFirst(final IElementTakerBooleanGetter<E> selector) {
 		
@@ -1030,7 +1030,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param selector
 	 * @return the first 2 elements of the current {@link IContainer} the given selector selects together.
 	 * @throws InvalidStateException if the current {@link IContainer}
-	 * contains no 2 elements the given selector selects together.
+	 * does not contain a 2 elements the given selector selects together.
 	 */
 	public default Pair<E, E> getRefFirst(final ITwoElementTakerBooleanGetter<E> selector) {
 
@@ -1446,7 +1446,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @return true if the current {@link IContainer} contains no elements.
+	 * @return true if the current {@link IContainer} does not contain a elements.
 	 */
 	public default boolean isEmpty() {
 		return !iterator().hasNext();

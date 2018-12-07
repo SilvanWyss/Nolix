@@ -639,8 +639,8 @@ public class Matrix implements ApproximativeEqualing {
 	 * @param rowIndex
 	 * @param columnIndex
 	 * @return the value in the row with the given row index and the column with the given column index.
-	 * @throws OutOfRangeArgumentException if this matrix contains no row with the given row index.
-	 * @throws OutOfRangeArgumentException if this matrix contains no column with the given column index.
+	 * @throws OutOfRangeArgumentException if this matrix does not contain a row with the given row index.
+	 * @throws OutOfRangeArgumentException if this matrix does not contain a column with the given column index.
 	 */
 	public double getValue(final int rowIndex, final int columnIndex) {
 		
@@ -740,7 +740,7 @@ public class Matrix implements ApproximativeEqualing {
 	 * @param rowIndex
 	 * @param factor
 	 * @return this matrix.
-	 * @throws OutOfRangeArgumentException if this matrix contains no row with the given row index.
+	 * @throws OutOfRangeArgumentException if this matrix does not contain a row with the given row index.
 	 */
 	public Matrix multiplyRow(final int rowIndex, final double factor) {
 		
@@ -816,8 +816,8 @@ public class Matrix implements ApproximativeEqualing {
 	 * @param columnIndex
 	 * @param value
 	 * @return this matrix.
-	 * @throws OutOfRangeArgumentException if this matrix contains no row with the given row index.
-	 * @throws OutOfRangeArgumentException if this matrix contains no column with the given column index.
+	 * @throws OutOfRangeArgumentException if this matrix does not contain a row with the given row index.
+	 * @throws OutOfRangeArgumentException if this matrix does not contain a column with the given column index.
 	 */
 	public Matrix setValue(final int rowIndex, final int columnIndex, final double value) {
 		

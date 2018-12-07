@@ -124,7 +124,7 @@ public final class SimplePersistentDocumentNode extends DocumentNodeoid {
 	 * 
 	 * @param selector
 	 * @throws InvalidArgumentException
-	 * if this simple persistent specification contains no attribute the given selector selects.
+	 * if this simple persistent specification does not contain an attribute the given selector selects.
 	 */
 	@Override
 	public void removeFirstAttribute(final IElementTakerBooleanGetter<DocumentNodeoid> selector) {

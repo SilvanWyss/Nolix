@@ -99,7 +99,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	//method
 	/**
 	 * @return the one attribute of this sub specification.
-	 * @throws EmptyStateException if this sub specification contains no attributes.
+	 * @throws EmptyStateException if this sub specification does not contain a attributes.
 	 * @throws InvalidStateException if this sub specification contains several attributes.
 	 */
 	@Override
@@ -124,7 +124,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	 * 
 	 * @param selector
 	 * @throws InvalidArgumentException
-	 * if this sub specification contains no attribute the given selector selects.
+	 * if this sub specification does not contain an attribute the given selector selects.
 	 */
 	@Override
 	public void removeFirstAttribute(final IElementTakerBooleanGetter<DocumentNodeoid> selector) {

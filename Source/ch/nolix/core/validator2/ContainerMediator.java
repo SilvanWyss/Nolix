@@ -95,7 +95,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	 * if the argument of this container mediator is null.
 	 * @throws InvalidArgumentException
 	 * if the argument of this container mediator
-	 * contains no element that fulfills the given condition.
+	 * does not contain an element that fulfills the given condition.
 	 */
 	public void contains(final IElementTakerBooleanGetter<E> condition) {
 		

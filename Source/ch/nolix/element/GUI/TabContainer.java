@@ -236,7 +236,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * @return the selected tab of the current {@link TabContainer}.
 	 * @throws UnexistingAttributeException
-	 * if the current {@link TabContainer} contains no selected tab.
+	 * if the current {@link TabContainer} does not contain a selected tab.
 	 */
 	public TabContainerTab getRefSelectedTab() {
 		return getRefTabs().getRefFirst(t -> t.isSelected());
@@ -246,7 +246,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * @return the selected widget of the current {@link TabContainer}.
 	 * @throws UnexistingAttributeException if the current {@link TabContainer}
-	 * contains no selected widget.
+	 * does not contain a selected widget.
 	 */
 	public Widget<?, ?> getRefSelectedWidget() {
 		return getRefSelectedTab().getRefWidget();
@@ -257,7 +257,7 @@ implements Clearable<TabContainer> {
 	 * @param header
 	 * @return the tab with the given header from the current {@link TabContainer}.
 	 * @throws UnexistingAttributeException if the current {@link TabContainer}
-	 * contains no tab with the given header.
+	 * does not contain a tab with the given header.
 	 */
 	public TabContainerTab getRefTabByHeader(final String header) {
 		return getRefTabs().getRefFirst(t -> t.hasHeader(header));
@@ -333,7 +333,7 @@ implements Clearable<TabContainer> {
 	 * @param header
 	 * @return the current {@link TabContainer}.
 	 * @throws UnexistingAttributeException
-	 * if the current {@link TabContainer} contains no tab with the given header.
+	 * if the current {@link TabContainer} does not contain a tab with the given header.
 	 */
 	public TabContainer selectTab(final String header) {
 		
@@ -458,7 +458,7 @@ implements Clearable<TabContainer> {
 	@Override
 	protected final int getContentAreaWidth() {
 		
-		//Handles the case that the current tab container contains no tabs.
+		//Handles the case that the current tab container does not contain a tabs.
 		if (isEmpty()) {
 			return menu.getWidth();
 		}

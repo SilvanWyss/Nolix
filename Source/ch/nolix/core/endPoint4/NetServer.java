@@ -67,7 +67,7 @@ public final class NetServer<M, R> extends Server<M, R> {
 	 * Removes the end point taker with the given name from this net server.
 	 * 
 	 * @param name
-	 * @throws InvalidArgumentException if this net server contains no end point taker with the given name.
+	 * @throws InvalidArgumentException if this net server does not contain a end point taker with the given name.
 	 */
 	@Override
 	public void removeEndPointTaker(final String name) {

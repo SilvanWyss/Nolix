@@ -23,11 +23,11 @@ implements Specifiable<SE> {
 	 * Creates a new entity with mutables.
 	 * 
 	 * @throws InvalidArgumentException
-	 * if this entity with mutable contains no property that is mutable.
+	 * if this entity with mutable does not contain a property that is mutable.
 	 */
 	public SpecifiableEntity() {
 		
-		//Checks if this entity with mutables contains no property that is mutable.
+		//Checks if this entity with mutables does not contain a property that is mutable.
 		Validator.suppose(getRefProperties()).contains(p -> p.isMutable());
 	}
 	

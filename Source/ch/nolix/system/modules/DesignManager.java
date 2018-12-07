@@ -112,7 +112,7 @@ public final class DesignManager extends Module {
 	 * @param name
 	 * @return the design with the given name from this design manager
 	 * @throws UnexistingAttributeException
-	 * if this design manager contains no design with the given name.
+	 * if this design manager does not contain a design with the given name.
 	 */
 	public StandardConfiguration getDesignByName(final String name) {
 		

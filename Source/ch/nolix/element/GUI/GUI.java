@@ -415,7 +415,7 @@ implements IGUI<G> {
 	/**
 	 * @param name
 	 * @return the widget that has the given name recursively from this GUI.
-	 * @throws InvalidArgumentException if this GUI contains no widget with the given name.
+	 * @throws InvalidArgumentException if this GUI does not contain a widget with the given name.
 	 */
 	@SuppressWarnings("unchecked")
 	public final <W extends Widget<?, ?>> W getRefWidgetByNameRecursively(final String name) {
@@ -524,7 +524,7 @@ implements IGUI<G> {
 	
 	//method
 	/**
-	 * @return true if this GUI contains no widget.
+	 * @return true if this GUI does not contain a widget.
 	 */
 	@Override
 	public final boolean isEmpty() {

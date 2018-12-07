@@ -76,7 +76,7 @@ implements Named {
 	 * @param name
 	 * @return the module with the given name of the central central controller this module belongs to.
 	 * @throws InvalidArgumentException
-	 * if the central controller this model belongs to contains no module with the given code name.
+	 * if the central controller this model belongs to does not contain a module with the given code name.
 	 */
 	protected final <M extends Module> M getRefModuleByName(final String name) {
 		return moduleManager.getModuleByName(name);

@@ -30,7 +30,7 @@ Specifiable<G> {
 	 * @param indexPath
 	 * @return the {@link Widget} with the given index path from the current {@link IGUI}.
 	 * @throws UnexistingAttributeException
-	 * if the current {@link IGUI} contains no {@link Widget} with the given path.
+	 * if the current {@link IGUI} does not contain a {@link Widget} with the given path.
 	 */
 	@SuppressWarnings("unchecked")
 	public default <W extends Widget<?, ?>> W getRefWidgetByIndexPath(final IContainer<Integer> indexPath) {
@@ -59,7 +59,7 @@ Specifiable<G> {
 	 * @return the {@link Widget} with the given index recursively from the current {@link IGUI}.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
 	 * @throws UnexistingAttributeException
-	 * if the current {@link IGUI} contains no {@link Widget} with the given index.
+	 * if the current {@link IGUI} does not contain a {@link Widget} with the given index.
 	 */
 	@SuppressWarnings("unchecked")
 	public default <W extends Widget<?, ?>> W getRefWidgetByIndexRecursively(final int index) {

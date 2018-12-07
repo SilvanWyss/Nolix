@@ -113,7 +113,7 @@ implements Clearable<MutableMultiProperty<V>> {
 	
 	//method
 	/**
-	 * @return true if this multi property contains no value.
+	 * @return true if this multi property does not contain a value.
 	 */
 	@Override
 	public boolean isEmpty() {

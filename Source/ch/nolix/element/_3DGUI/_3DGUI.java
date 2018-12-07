@@ -358,7 +358,7 @@ implements Clearable<G>, Closable, Refreshable {
 	 * @param shape
 	 * @return a new shape renderer for the given shape from this 3D GUI.
 	 * @throws UnexistingAttributeException
-	 * if this 3D GUI contains no shape renderer for the given shape.
+	 * if this 3D GUI does not contain a shape renderer for the given shape.
 	 */
 	protected final IShapeRenderer<?, ?, ?> getShapeRendererFor(final Shape<?> shape) {
 		return

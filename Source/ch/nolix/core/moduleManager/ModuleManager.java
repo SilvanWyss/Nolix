@@ -59,7 +59,7 @@ public class ModuleManager {
 	/**
 	 * @param name
 	 * @return the module of this central central controller with the given name.
-	 * @throws InvalidArgumentException if this central controller contains no module with the given code name.
+	 * @throws InvalidArgumentException if this central controller does not contain a module with the given code name.
 	 */
 	@SuppressWarnings("unchecked")
 	public final <M extends Module> M getModuleByName(final String name) {

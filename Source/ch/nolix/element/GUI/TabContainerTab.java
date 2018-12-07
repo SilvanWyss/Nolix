@@ -162,7 +162,7 @@ implements Clearable<TabContainerTab> {
 	 */
 	public int getHeight() {
 		
-		//Handles the case that the current tab container tab contains no widget.
+		//Handles the case that the current tab container tab does not contain a widget.
 		if (isEmpty()) {
 			return 0;
 		}
@@ -191,7 +191,7 @@ implements Clearable<TabContainerTab> {
 	 */
 	public int getWidth() {
 		
-		//Handles the case that the current tab container tab contains no widget.
+		//Handles the case that the current tab container tab does not contain a widget.
 		if (isEmpty()) {
 			return 0;
 		}

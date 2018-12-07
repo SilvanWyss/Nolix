@@ -31,7 +31,7 @@ public interface Clearable<C extends Clearable<C>> {
 	
 	//abstract method
 	/**
-	 * @return true if this clearable object contains no element.
+	 * @return true if this clearable object does not contain a element.
 	 */
 	public abstract boolean isEmpty();
 }

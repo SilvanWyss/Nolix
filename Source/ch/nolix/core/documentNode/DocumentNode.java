@@ -296,7 +296,7 @@ implements ISmartObject<DocumentNode> {
 	//method
 	/**
 	 * @return the one attribute of the current {@link DocumentNode}
-	 * @throws EmptyStateException if the current {@link DocumentNode} contains no attributes.
+	 * @throws EmptyStateException if the current {@link DocumentNode} does not contain a attributes.
 	 * @throws InvalidStateException if the current {@link DocumentNode} contains several attributes.
 	 */
 	@Override
@@ -309,8 +309,8 @@ implements ISmartObject<DocumentNode> {
 	 * @param header
 	 * @return the one attribute of the first attribute with the given header
 	 * @throws Exception if:
-	 *  -the current {@link DocumentNode} contains no attribute with the given header
-	 *  -the first attribute of the current {@link DocumentNode} with the given header contains no or several attributes
+	 *  -the current {@link DocumentNode} does not contain an attribute with the given header
+	 *  -the first attribute of the current {@link DocumentNode} with the given header does not contain a or several attributes
 	 */
 	public DocumentNode getRefOneAttributeOfFirstAttribute(String header) {
 		return attributes.getRefFirst(a -> a.hasHeader(header)).getRefOneAttribute();
@@ -330,7 +330,7 @@ implements ISmartObject<DocumentNode> {
 	/**
 	 * @param header
 	 * @return the attributes of the first attribute with the given header
-	 * @throws Exception if the current {@link DocumentNode} contains no attribute with the given header
+	 * @throws Exception if the current {@link DocumentNode} does not contain an attribute with the given header
 	 */
 	public IContainer<DocumentNode> getRefAttributesOfFirstAttribute(String header) {
 		return attributes.getRefFirst(a -> a.hasHeader(header)).getRefAttributes();
@@ -351,7 +351,7 @@ implements ISmartObject<DocumentNode> {
 	 * 
 	 * @param selector
 	 * @throws InvalidArgumentException
-	 * if the current {@link DocumentNode} contains no attribute the given selector selects.
+	 * if the current {@link DocumentNode} does not contain an attribute the given selector selects.
 	 */
 	@Override
 	public void removeFirstAttribute(final IElementTakerBooleanGetter<DocumentNodeoid> selector) {

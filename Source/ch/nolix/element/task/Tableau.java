@@ -87,7 +87,7 @@ implements Clearable<Tableau> {
 
 	//method
 	/**
-	 * @return true if this tableau contains no task.
+	 * @return true if this tableau does not contain a task.
 	 */
 	@Override
 	public boolean isEmpty() {

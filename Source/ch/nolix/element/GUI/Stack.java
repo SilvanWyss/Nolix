@@ -195,7 +195,7 @@ implements Clearable<S> {
 	
 	//method
 	/**
-	 * @return true if the current {@link Stack} contains no widget.
+	 * @return true if the current {@link Stack} does not contain a widget.
 	 */
 	@Override
 	public final boolean isEmpty() {

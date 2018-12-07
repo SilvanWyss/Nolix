@@ -44,7 +44,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	//method
 	public final void addDefaultApplication(final Application<?> arbitraryApplication) {
 		
-		//Checks if this server contains no applications.
+		//Checks if this server does not contain a applications.
 		if (containsAny()) {
 			throw new InvalidStateException(this, "contains applications");
 		}
@@ -129,7 +129,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//method
 	/**
-	 * @return true if this server contains no application.
+	 * @return true if this server does not contain a application.
 	 */
 	@Override
 	public final boolean isEmpty() {
@@ -176,7 +176,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	/**
 	 * @param name
 	 * @return the application with the given name from this server.
-	 * @throws RuntimeException if this server contains no application with the given name.
+	 * @throws RuntimeException if this server does not contain a application with the given name.
 	 */
 	protected final Application<?> getRefApplicationByName(String name) {
 		return applications.getRefFirst(a -> a.hasName(name));

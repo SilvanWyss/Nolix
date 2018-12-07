@@ -223,7 +223,7 @@ implements Clearable<Console> {
 	
 	//method
 	/**
-	 * @return true if this console contains no line.
+	 * @return true if this console does not contain a line.
 	 */
 	@Override
 	public boolean isEmpty() {

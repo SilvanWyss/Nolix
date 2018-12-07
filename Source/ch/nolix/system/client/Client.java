@@ -167,7 +167,7 @@ implements Closable {
 	/**
 	 * Opens the next session of the current {@link Client}.
 	 * 
-	 * @throws UnexistingAttributeException if the current {@link Client} contains no next session.
+	 * @throws UnexistingAttributeException if the current {@link Client} does not contain a next session.
 	 */
 	public final void openNextSession() {
 		
@@ -182,7 +182,7 @@ implements Closable {
 	/**
 	 * Opens the previous session of the current {@link Client}.
 	 * 
-	 * @throws UnexistingAttributeException if the current {@link Client} contains no previous session.
+	 * @throws UnexistingAttributeException if the current {@link Client} does not contain a previous session.
 	 */
 	public final void openPreviousSession() {
 		
@@ -451,7 +451,7 @@ implements Closable {
 	//method
 	/**
 	 * @return the current session of the current {@link Client}.
-	 * @throws InvalidStateException if the current {@link Client} contains no current session.
+	 * @throws InvalidStateException if the current {@link Client} does not contain a current session.
 	 */
 	protected final Session<C> internal_getRefCurrentSession() {
 		
@@ -484,7 +484,7 @@ implements Closable {
 	 * 
 	 * @param sessionUserDataMethodRequest
 	 * @return the data the invoked user data method returns.
-	 * @throws InvalidStateException if the current {@link Client} contains no current session.
+	 * @throws InvalidStateException if the current {@link Client} does not contain a current session.
 	 */
 	protected final DocumentNode internal_invokeSessionUserDataMethod(
 			final DocumentNodeoid sessionUserDataMethodRequest
@@ -510,7 +510,7 @@ implements Closable {
 	 * @param name
 	 * @param arguments
 	 * @return the data the invoked user data method returns.
-	 * @throws InvalidStateException if the current {@link Client} contains no current session.
+	 * @throws InvalidStateException if the current {@link Client} does not contain a current session.
 	 */
 	protected final DocumentNode internal_invokeSessionUserDataMethod(
 		final String name,
@@ -527,7 +527,7 @@ implements Closable {
 	 * 
 	 * @param name
 	 * @param arguments
-	 * @throws InvalidStateException if the current {@link Client} contains no current session.
+	 * @throws InvalidStateException if the current {@link Client} does not contain a current session.
 	 */
 	protected final void internal_invokeSessionUserRunMethod(
 		final String name,
@@ -543,7 +543,7 @@ implements Closable {
 	 * 
 	 * @param name
 	 * @param arguments
-	 * @throws InvalidStateException if the current {@link Client} contains no current session.
+	 * @throws InvalidStateException if the current {@link Client} does not contain a current session.
 	 */
 	protected final void internal_invokeSessionUserRunMethod(final DocumentNodeoid sessionUserRunMethodRequest) {
 		
@@ -669,7 +669,7 @@ implements Closable {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link Client} contains no current session.
+	 * @throws UnexistingAttributeException if the current {@link Client} does not contain a current session.
 	 */	
 	private void supposeContainsCurrentSession() {
 		
@@ -681,7 +681,7 @@ implements Closable {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link Client} contains no next session.
+	 * @throws UnexistingAttributeException if the current {@link Client} does not contain a next session.
 	 */	
 	private void supposeContainsNextSession() {
 		
@@ -693,7 +693,7 @@ implements Closable {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link Client} contains no previous session.
+	 * @throws UnexistingAttributeException if the current {@link Client} does not contain a previous session.
 	 */	
 	private void supposeContainsPreviousSession() {
 		
