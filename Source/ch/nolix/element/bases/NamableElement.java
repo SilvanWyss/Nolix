@@ -110,7 +110,7 @@ implements Namable<NE> {
 		if (!hasName(name)) {
 			
 			//Checks if this namable element does not belong to a requestable container
-			//that contains another element with the givne name.
+			//that contains another element with the given name.
 			if (belongsToRequestableContainer()	&& requestableContainer.containsElement(name)
 			) {
 				throw new InvalidStateException(

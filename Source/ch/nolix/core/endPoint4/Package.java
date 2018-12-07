@@ -37,7 +37,7 @@ final class Package extends ch.nolix.core.util.Package<String> {
 	 * @param messageRole
 	 * @param message
 	 * @throws NullArgumentException if the given message role is null.
-	 * @throws NullArgumentExcetpion if the givne message is null.
+	 * @throws NullArgumentExcetpion if the given message is null.
 	 */
 	public Package(final int index, final MessageRole messageRole, final String message) {
 		

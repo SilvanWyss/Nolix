@@ -240,7 +240,7 @@ public class Matrix implements ApproximativeEqualing {
 	 */
 	public Matrix appendRowAtBottom(double... rowValues) {
 		
-		//Checks if as many row values are givne than the number of columsn of this matrix.
+		//Checks if as many row values are given than the number of columsn of this matrix.
 		Validator.suppose(rowValues).thatIsNamed("row values").hasElementCount(getColumnCount());
 		
 		double[][] oldValues = values;

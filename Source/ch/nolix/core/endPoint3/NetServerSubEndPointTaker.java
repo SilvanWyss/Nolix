@@ -27,7 +27,7 @@ implements ch.nolix.core.endPoint2.IEndPointTaker {
 	 */
 	public NetServerSubEndPointTaker(final NetServer netServer) {
 		
-		//Checks if hte given net server is not null.
+		//Checks if the given net server is not null.
 		Validator.suppose(netServer).isInstanceOf(NetServer.class);
 		
 		//Sets the net server of this end point taker.
