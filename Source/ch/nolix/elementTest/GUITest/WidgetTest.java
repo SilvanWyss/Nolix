@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
-import ch.nolix.core.test2.ObjectTest;
 //own imports
+import ch.nolix.core.test2.ObjectTest;
 import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.GUI.Widget;
 
@@ -12,7 +12,7 @@ import ch.nolix.element.GUI.Widget;
  * 
  * @author Silvan Wyss
  * @month 2018-09
- * @lines 70
+ * @lines 90
  */
 public abstract class WidgetTest<W extends Widget<?, ?>>
 extends ObjectTest<W> {
@@ -54,6 +54,24 @@ extends ObjectTest<W> {
 		
 		//verification
 		expect(widget.getWidth()).isZero();
+	}
+	
+	//test case
+	public void testCase_noteAnyLeftMouseButtonPress() {
+		
+		//setup
+		final var widget = createTestObject();
+		widget.setParentCursorPosition(1, 1);
+		
+		//setup verification
+		expect(widget.isNormal());
+		expect(widget.isUnderCursor());
+		
+		//execution
+		widget.noteAnyLeftMouseButtonPress();
+		
+		//verification
+		expect(widget.isHoverFocused());
 	}
 	
 	//test case
