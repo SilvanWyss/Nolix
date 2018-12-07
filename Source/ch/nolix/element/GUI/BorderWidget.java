@@ -36,7 +36,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1890
+ * @lines 1910
  * @param <BW> The type of a border widget.
  * @param <BWS> The type of the widget structures of a border widget.
  */
@@ -893,6 +893,24 @@ extends BackgroundWidget<BW, BWS> {
 	public final BW setProposalHeight(final int proposalHeight) {
 		
 		this.proposalHeight.setValue(new PositiveInteger(proposalHeight));
+		
+		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * Sets the proposal width and the proposal height of the current {@link BorderWidget}.
+	 * 
+	 * @param proposalWidth
+	 * @param proposalHeight
+	 * @return the current {@link BorderWidget}.
+	 * @throws NonPositiveArgumentException if the given proposal width is not positive.
+	 * @throws NonPositiveArgumentException if the given proposal height is not positive.
+	 */
+	public final BW setProposalSize(final int proposalWidth, final int proposalHeight) {
+		
+		setProposalWidth(proposalWidth);
+		setProposalHeight(proposalHeight);
 		
 		return asConcreteType();
 	}
