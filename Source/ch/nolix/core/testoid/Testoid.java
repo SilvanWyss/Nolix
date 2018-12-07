@@ -140,6 +140,23 @@ public abstract class Testoid {
 		}
 		
 		if (className == null) {
+			for (final StackTraceElement ste : Thread.currentThread().getStackTrace()) {
+				Class<?> class_ = getClass();
+				do {
+					
+					if (ste.getClassName().equals(class_.getName())) {
+						className = ste.getClassName();
+						lineNumber = ste.getLineNumber();
+						break;
+					}
+					
+					class_ = class_.getSuperclass();
+				}
+				while (class_ != null);
+			}
+		}
+		
+		if (className == null) {
 			throw new RuntimeException("Class was not found.");
 		}
 		
