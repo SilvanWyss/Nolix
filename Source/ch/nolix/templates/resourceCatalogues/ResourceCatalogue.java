@@ -1,5 +1,8 @@
 //package declaration
-package ch.nolix.tech.resource;
+package ch.nolix.templates.resourceCatalogues;
+
+//own import
+import ch.nolix.tech.resource.Resource;
 
 //class
 /**
@@ -10,7 +13,7 @@ package ch.nolix.tech.resource;
  * @lines 30
  */
 public final class ResourceCatalogue {
-
+	
 	//constants
 	public static final Resource CARBON = new Resource("Carbon");
 	public static final Resource COLE = new Resource("Cole", CARBON);
