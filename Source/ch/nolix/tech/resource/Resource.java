@@ -11,15 +11,17 @@ import ch.nolix.core.container.List;
 
 //class
 /**
+ * A {@link Resource} is not mutable.
+ * 
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 160
+ * @lines 150
  */
 public final class Resource extends NamedElement implements IResource {
 	
 	//multi-attribute
 	public final ReadContainer<IResource> baseResources;
-
+	
 	//constructor
 	/**
 	 * Creates a new {@link Resource} with the given name.
@@ -30,11 +32,8 @@ public final class Resource extends NamedElement implements IResource {
 	 */
 	public Resource(final String name) {
 		
-		//Calls constructor of the base class.
-		super(name);
-		
-		//Sets the base resources of the current resource.
-		baseResources = new ReadContainer<IResource>();
+		//Calls other constructor.
+		this(name, new ReadContainer<IResource>());
 	}
 	
 	//constructor
@@ -52,6 +51,25 @@ public final class Resource extends NamedElement implements IResource {
 	 */
 	public Resource(final String name, final IResource... baseResources) {
 		
+		//Calls other constructor.
+		this(name, new ReadContainer<IResource>(baseResources));
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link Resource} with the given name and base resources.
+	 * 
+	 * @param name
+	 * @param baseResources
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws EmptyArgumentException if the given name is empty.
+	 * @throws InvalidArgumentException if the given name
+	 * equals the name of one of the given base resources.
+	 * @throws InvalidArgumentException if one of the given base resources
+	 * is a sub resource of another of the given base resources.
+	 */
+	public Resource(final String name, final Iterable<IResource> baseResources) {
+		
 		//Calls constructor of the base class.
 		super(name);
 		
@@ -61,11 +79,11 @@ public final class Resource extends NamedElement implements IResource {
 		for (final var br : baseResources) {
 			
 			//Checks if the given name does not equal the name of the current base resource.
-			if (hasSameNameAs(br)) {
+			if (name.equals(br.getName())) {
 				throw new InvalidArgumentException(
 					VariableNameCatalogue.NAME,
 					name,					
-					"equals the name of the given base resource " + br.getName()
+					"equals the name of the given base resource"
 				);
 			}
 			
@@ -112,24 +130,6 @@ public final class Resource extends NamedElement implements IResource {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean isBaseResourceOf(final IResource resource) {
-		return resource.isSubResourceOf(this);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final boolean isDirectBaseResourceOf(final IResource resource) {
-		return resource.isDirectSubResourceOf(this);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public final boolean isDirectSubResourceOf(final IResource resource) {
 		return getBaseResources().contains(resource);
 	}
@@ -147,15 +147,6 @@ public final class Resource extends NamedElement implements IResource {
 		}
 		
 		//Handles the case that the current resource is no direct sub resource of the given resource.
-			//Iterates the base resources of the current resource.
-			for (final var br : getBaseResources()) {
-				
-				//Checks if the current base resource is a sub resource of the given resource.
-				if (br.isSubResourceOf(resource)) {
-					return true;
-				}
-			}
-		
-		return false;
+		return baseResources.contains(br -> br.isSubResourceOf(resource));
 	}
 }
