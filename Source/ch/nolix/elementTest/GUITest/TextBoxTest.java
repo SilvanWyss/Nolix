@@ -16,7 +16,7 @@ import ch.nolix.element.color.Color;
 public class TextBoxTest extends Test {
 
 	//test case
-	public final void test_constructor() {
+	public final void testCase_constructor() {
 		
 		//execution
 		final TextBox textBox = new TextBox();
@@ -26,7 +26,7 @@ public class TextBoxTest extends Test {
 	}
 	
 	//test case
-	public final void test_setNormalTextColor() {
+	public final void testCase_setNormalTextColor() {
 		
 		//setup
 		final TextBox textBox = new TextBox();
@@ -46,7 +46,7 @@ public class TextBoxTest extends Test {
 	}
 	
 	//test case
-	public final void test_setText() {
+	public final void testCase_setText() {
 				
 		//setup
 		final TextBox textBox = new TextBox();

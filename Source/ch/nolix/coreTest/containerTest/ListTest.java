@@ -436,7 +436,7 @@ public final class ListTest extends Test {
 	}
 	
 	//test case
-	public final void test_getVarianceByDouble() {
+	public final void testCase_getVarianceByDouble() {
 		
 		//setup
 		final List<Double> list = new List<Double>(

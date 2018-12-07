@@ -88,7 +88,7 @@ public final class ARModelTest extends Test {
 	}
 	
 	//test case
-	public final void test_constructor_6() {
+	public final void testCase_constructor_6() {
 		
 		//exection
 		final double[] inputValues = {1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3};
