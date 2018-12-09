@@ -101,7 +101,7 @@ public final class ClosureMediator extends Mediator {
 	 * -The closure of this closure mediator is null.
 	 * -The closure of this closure mediator throws an exception by running 1 time.
 	 */
-	public void throwsNoException() {
+	public void doesNotThrowException() {
 		
 		//Handles the case that the closure of this closure mediator is null.
 		if (closure == null) {
