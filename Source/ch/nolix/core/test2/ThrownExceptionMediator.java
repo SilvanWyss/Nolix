@@ -133,7 +133,7 @@ public class ThrownExceptionMediator extends Mediator {
 						"An exception with the message '"
 						+ message
 						+ "' was expected, but an exception with the message '"
-						+ message
+						+ exception.getMessage()
 						+ "' was thrown."
 					);
 				}
