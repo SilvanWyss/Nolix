@@ -173,11 +173,11 @@ public class InvalidArgumentException extends RuntimeException {
 		super(
 			"The given "
 			+ createSafeArgumentName(argumentName)
-			+ ' '
+			+ " '"
 			+ createSafeArgumentString(argument)
-			+ ' '
+			+ "' "
 			+ createSafeErrorPredicate(errorPredicate)
-			+ '.'
+			+ "."
 		);
 		
 		this.argumentName = argumentName;
