@@ -31,7 +31,9 @@ public final class ListTest extends Test {
 		
 		//execution & verification
 		final String string = null;
-		expect(() -> list.addAtBegin(string)).throwsExceptionOfType(NullArgumentException.class);
+		expect(() -> list.addAtBegin(string))
+		.throwsException()
+		.ofType(NullArgumentException.class);
 	}
 	
 	//test case
@@ -42,7 +44,9 @@ public final class ListTest extends Test {
 		
 		//execution & verification
 		final String string = null;
-		expect(() -> list.addAtEnd(string)).throwsExceptionOfType(NullArgumentException.class);
+		expect(() -> list.addAtEnd(string))
+		.throwsException()
+		.ofType(NullArgumentException.class);
 	}
 	
 	//test case
@@ -219,8 +223,9 @@ public final class ListTest extends Test {
 			expect(iterator.next()).isEqualTo("xxxxxx");
 			expectNot(iterator.hasNext());
 			
-			expect(() -> iterator.next()).
-			throwsExceptionOfType(UnexistingAttributeException.class);
+			expect(() -> iterator.next())
+			.throwsException()
+			.ofType(UnexistingAttributeException.class);
 	}
 	
 	//test case

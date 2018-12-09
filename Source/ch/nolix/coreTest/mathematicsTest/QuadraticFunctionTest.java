@@ -20,7 +20,8 @@ public final class QuadraticFunctionTest extends Test {
 		
 		//execution & verification
 		expect(() -> new QuadraticFunction(0.0, 0.0, 0.0))
-		.throwsExceptionOfType(InvalidArgumentException.class);
+		.throwsException()
+		.ofType(InvalidArgumentException.class);
 	}
 	
 	//test case
