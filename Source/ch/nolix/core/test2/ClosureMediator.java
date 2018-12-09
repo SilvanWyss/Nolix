@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.test2;
 
+//own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
@@ -10,7 +12,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-09
- * @lines 120
+ * @lines 170
  */
 public final class ClosureMediator extends Mediator {
 
@@ -94,7 +96,57 @@ public final class ClosureMediator extends Mediator {
 			}
 		}
 	}
-
+	
+	//method
+	/**
+	 * Generates an error if:
+	 * -The closure of the current {@link ClosureMediator} is null.
+	 * -The closure of the current {@link ClosureMediator}
+	 *  does not throw an {@link Exception} with the given message.
+	 */
+	public void throwsExceptionWithMessage(final String message) {
+		
+		//Checks if the given message is not null.
+		if (message == null) {
+			throw new NullArgumentException(VariableNameCatalogue.MESSAGE);
+		}
+		
+		//Handles the case that the closure of the current closure mediator is null.
+		if (closure == null) {
+			addCurrentTestCaseError("A closure that throws an exception was expected, but null was received.");
+		}
+		
+		//Handles the case that the closure of the current closure mediator is not null.
+		else {
+			try {
+				closure.run();
+				addCurrentTestCaseError("An exception was expected, but there was not thrown an exception.");
+			}
+			catch (final Exception exception) { 
+				
+				//Handles the case that the exception does not have a message.
+				if (exception.getMessage() == null) {
+					addCurrentTestCaseError(
+						"An exception with the message '"
+						+ message
+						+ "' was expected, but the thrown exception does not have a message."
+					);
+				}
+				
+				//Handles the case that the exception has a message.
+				else if (!exception.getMessage().equals(message)) {
+					addCurrentTestCaseError(
+						"An exception with the message '"
+						+ message
+						+ "' was expected, but an exception with the message '"
+						+ message
+						+ "' was thrown."
+					);
+				}
+			}
+		}
+	}
+	
 	//method
 	/**
 	 * Generates an error if:
