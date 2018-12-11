@@ -14,7 +14,7 @@ import ch.nolix.element.core.NonNegativeInteger;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1360
+ * @lines 1370
  * @param <BWL> The type of a {@link BorderWidgetLook}.
  */
 public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>>
@@ -832,6 +832,11 @@ extends BackgroundWidgetLook<BWL> {
 	 * @throws NullArgumentException if the given border color is null.
 	 */
 	public final BWL setBorderColors(final Color borderColor) {
+		
+		Validator
+		.suppose(borderColor)
+		.thatIsNamed("border color")
+		.isInstance();
 		
 		setLeftBorderColor(borderColor);
 		setRightBorderColor(borderColor);
