@@ -3,7 +3,6 @@ package ch.nolix.core.invalidArgumentException;
 
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
-import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.logger.Logger;
 
 /**
@@ -75,7 +74,7 @@ public class InvalidArgumentException extends RuntimeException {
 		
 		//Handles the case that the given argument is null.
 		if (argument == null) {
-			return StringCatalogue.NULL_NAME;
+			return " ";
 		}
 		
 		//Handles the case that the given argument is not null.
@@ -87,14 +86,14 @@ public class InvalidArgumentException extends RuntimeException {
 			 * than the maximum argument name length.
 			 */
 			if (string.length() <= MAX_ARGUMENT_NAME_LENGTH) {
-				return string;
+				return " '" + string + "' ";
 			}
 			
 			/*
 			 * Handles the case that the length of the string representation is  bigger
 			 * than the maximum argument name length.
 			 */
-			return string.substring(0, 99) + CharacterCatalogue.ELLIPSIS;
+			return " '" + string.substring(0, 99) + CharacterCatalogue.ELLIPSIS + "' ";
 	}
 	
 	//static method
@@ -173,9 +172,7 @@ public class InvalidArgumentException extends RuntimeException {
 		super(
 			"The given "
 			+ createSafeArgumentName(argumentName)
-			+ " '"
 			+ createSafeArgumentString(argument)
-			+ "' "
 			+ createSafeErrorPredicate(errorPredicate)
 			+ "."
 		);
