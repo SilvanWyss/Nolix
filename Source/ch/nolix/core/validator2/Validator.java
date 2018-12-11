@@ -40,15 +40,6 @@ public final class Validator {
 	//static method
 	/**
 	 * @param argument
-	 * @return a new extended container mediator for the given argument.
-	 */
-	public static <A> ExtendedContainerMediator<A> suppose(final Iterable<A> argument) {
-		return new ExtendedContainerMediator<A>(argument);
-	}
-	
-	//static method
-	/**
-	 * @param argument
 	 * @throws FalseArgumentException if the given argument is false.
 	 */
 	public static void suppose(final boolean argument) {
@@ -135,6 +126,15 @@ public final class Validator {
 		
 		//Handles the case that the given argument is not null.
 		return new ExtendedContainerMediator<Long>(ArrayHelper.createIterable(argument));
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new extended container mediator for the given argument.
+	 */
+	public static <A> ExtendedContainerMediator<A> suppose(final Iterable<A> argument) {
+		return new ExtendedContainerMediator<A>(argument);
 	}
 	
 	//static method
