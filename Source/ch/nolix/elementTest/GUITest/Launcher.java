@@ -10,7 +10,7 @@ package ch.nolix.elementTest.GUITest;
  * @lines 20
  */
 public final class Launcher {
-
+	
 	//main method
 	/**
 	 * Creates a new {@link GUITestPool} and runs it.
