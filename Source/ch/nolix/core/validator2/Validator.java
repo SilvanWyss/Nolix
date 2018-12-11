@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.validator2;
 
+//own imports
 import ch.nolix.core.invalidArgumentException.FalseArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.invalidArgumentException.TrueArgumentException;
@@ -15,7 +16,7 @@ import ch.nolix.core.primitiveHelper.ArrayHelper;
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 300
+ * @lines 310
  */
 public final class Validator {
 	
@@ -74,6 +75,15 @@ public final class Validator {
 			
 			i++;
 		}
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new {@link ExtendedTypeMediator} for the given argument.
+	 */
+	public static <T> ExtendedTypeMediator<T> suppose(final Class<T> argument) {
+		return new ExtendedTypeMediator<T>(argument);
 	}
 	
 	//static method
