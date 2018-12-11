@@ -1,14 +1,7 @@
-/*
- * file:	VerticalStackTest.java
- * author:	Silvan Wyss
- * month:	2016-06
- * lines:	50
- */
-
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
-import ch.nolix.core.test2.Test;
+//own imports
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.TextBox;
@@ -17,15 +10,19 @@ import ch.nolix.element.GUI.WidgetState;
 
 //test class
 /**
- * This class is a test class for the vertical stack class.
+ * A {@link VerticalStackTest} is a test for {@link VerticalStack}.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-06
+ * @lines 50
  */
-public final class VerticalStackTest extends Test {
+public final class VerticalStackTest extends BorderWidgetTest<VerticalStack> {
 	
 	//test case
-	public void testConstructor() {
+	public void testCase_constructor() {
 		
 		//execution
-		final VerticalStack verticalStack = new VerticalStack();
+		final var verticalStack = new VerticalStack();
 		
 		//verification
 		expect(verticalStack.getState()).isEqualTo(WidgetState.Normal);
@@ -34,11 +31,11 @@ public final class VerticalStackTest extends Test {
 	}
 	
 	//test case
-	public void testClear() {
+	public void testCase_clear() {
 		
 		//setup
-		final VerticalStack verticalStack = new VerticalStack()	
-		.addWidget(
+		final var verticalStack =
+		new VerticalStack(
 			new Label(),
 			new Button(),
 			new TextBox()
@@ -49,5 +46,10 @@ public final class VerticalStackTest extends Test {
 		
 		//verification
 		expect(verticalStack.isEmpty());
+	}
+	
+	//method
+	protected VerticalStack createTestObject() {
+		return new VerticalStack();
 	}
 }
