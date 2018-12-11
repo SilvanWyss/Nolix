@@ -11,6 +11,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.primitiveContainer.List;
 import ch.nolix.core.skillAPI.Runnable;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -99,19 +100,15 @@ public abstract class TestPool implements Runnable {
 	@SuppressWarnings("unchecked")
 	protected final void addTestClass(final Class<?> testClass) {
 		
-		//Checks if the given test class is not null.
-		if (testClass == null) {
-			throw new NullArgumentException(VariableNameCatalogue.TEST_CLASS);
-		}
+		Validator
+		.suppose(testClass)
+		.thatIsNamed(VariableNameCatalogue.TEST_CLASS)
+		.isNotAbstract();
 		
-		//Checks if the given test class is a testoid class.
-		if (!Testoid.class.isAssignableFrom(testClass)) {
-			throw new InvalidArgumentException(
-				VariableNameCatalogue.TEST_CLASS,
-				testClass,
-				"is not a test class"
-			);
-		}
+		Validator
+		.suppose(testClass)
+		.thatIsNamed(VariableNameCatalogue.TEST_CLASS)
+		.isSubClassOf(Testoid.class);
 		
 		testClasses.addAtEnd((Class<Testoid>)testClass);
 	}
