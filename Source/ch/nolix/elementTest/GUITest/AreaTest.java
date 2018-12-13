@@ -19,14 +19,14 @@ public final class AreaTest extends WidgetTest<Area> {
 	public void testCase_equals() {
 		
 		//setup part 1
-		final Area area1 =
+		final var area1 =
 		new Area()
 		.setWidth(2000)
 		.setHeight(1000)
 		.setBackgroundColor(Color.GREEN);
 		
 		//setup part 2
-		final Area area2 =
+		final var area2 =
 		new Area()
 		.setWidth(2000)
 		.setHeight(1000)
@@ -34,14 +34,16 @@ public final class AreaTest extends WidgetTest<Area> {
 		
 		//execution & verification
 		expect(area1.equals(area2));
-		expect(area2.equals(area1));
 	}
 	
 	//test case
 	public void testCase_removeBackgroundColor() {
 		
 		//setup
-		final Area area = new Area().setBackgroundColor(Color.GREEN);
+		final var area = new Area().setBackgroundColor(Color.GREEN);
+		
+		//setup verification
+		expect(area.hasBackgroundColor());
 		
 		//execution
 		area.removeBackgroundColor();
@@ -54,13 +56,15 @@ public final class AreaTest extends WidgetTest<Area> {
 	public void testCase_setBackgroundColor() {
 		
 		//setup
-		final Area area = new Area().removeBackgroundColor();
+		final var area = new Area().removeBackgroundColor();
+		
+		//setup verification
+		expectNot(area.hasBackgroundColor());
 		
 		//execution
 		area.setBackgroundColor(Color.GREEN);
 		
 		//verification
-		expect(area.hasBackgroundColor());
 		expect(area.getBackgroundColor()).isEqualTo(Color.GREEN);
 	}
 	
