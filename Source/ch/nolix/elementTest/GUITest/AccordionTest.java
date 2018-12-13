@@ -7,6 +7,13 @@ import ch.nolix.element.GUI.AccordionExpansionBehavior;
 import ch.nolix.element.GUI.AccordionTab;
 
 //test class
+/**
+ * A {@link AccordionTest} is a test for {@link Accordion}.
+ * 
+ * @author Silvan Wyss
+ * @month 2018-08
+ * @lines 90
+ */
 public final class AccordionTest extends WidgetTest<Accordion> {
 	
 	//test case
@@ -68,7 +75,7 @@ public final class AccordionTest extends WidgetTest<Accordion> {
 		expectNot(tab3.isExpanded());
 		expectNot(tab4.isExpanded());
 	}
-
+	
 	//test case
 	public void testCase_getType() {
 		
@@ -78,7 +85,7 @@ public final class AccordionTest extends WidgetTest<Accordion> {
 		//execution & verification
 		expect(accordion.getType()).isEqualTo("Accordion");
 	}
-
+	
 	//method
 	@Override
 	protected Accordion createTestObject() {
