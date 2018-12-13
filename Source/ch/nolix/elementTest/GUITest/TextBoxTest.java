@@ -1,25 +1,25 @@
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
-import ch.nolix.core.test2.Test;
+//own imports
 import ch.nolix.element.GUI.TextBox;
 import ch.nolix.element.color.Color;
 
 //test class
 /**
- * A text box test is a test for the text box class.
+ * A {@link TextBoxTest} is a test for {@link TextBox}.
  * 
  * @author Silvan Wyss
  * @month 2016-08
  * @lines 60
  */
-public class TextBoxTest extends Test {
-
+public class TextBoxTest extends BorderWidgetTest<TextBox> {
+	
 	//test case
 	public final void testCase_constructor() {
 		
 		//execution
-		final TextBox textBox = new TextBox();
+		final var textBox = new TextBox();
 		
 		//verification
 		expect(textBox.getText()).isEmpty();
@@ -29,32 +29,41 @@ public class TextBoxTest extends Test {
 	public final void testCase_setNormalTextColor() {
 		
 		//setup
-		final TextBox textBox = new TextBox();
+		final var textBox = new TextBox();
 		
 		//execution
 		textBox.getRefBaseLook().setTextColor(Color.BLUE);
 		
 		//verification
-			expect(textBox.getRefBaseLook().getRecursiveOrDefaultTextColor().getIntValue())
-			.isEqualTo(Color.BLUE_INT);
+			expect(textBox.getRefBaseLook().getRecursiveOrDefaultTextColor())
+			.isEqualTo(Color.BLUE);
 			
-			expect(textBox.getRefHoverLook().getRecursiveOrDefaultTextColor().getIntValue())
-			.isEqualTo(Color.BLUE_INT);
+			expect(textBox.getRefHoverLook().getRecursiveOrDefaultTextColor())
+			.isEqualTo(Color.BLUE);
 			
-			expect(textBox.getRefFocusLook().getRecursiveOrDefaultTextColor().getIntValue())
-			.isEqualTo(Color.BLUE_INT);
+			expect(textBox.getRefFocusLook().getRecursiveOrDefaultTextColor())
+			.isEqualTo(Color.BLUE);
+			
+			expect(textBox.getRefHoverFocusLook().getRecursiveOrDefaultTextColor())
+			.isEqualTo(Color.BLUE);
 	}
 	
 	//test case
 	public final void testCase_setText() {
-				
+		
 		//setup
-		final TextBox textBox = new TextBox();
+		final var textBox = new TextBox();
 		
 		//execution
 		textBox.setText("Test");
 		
 		//verification
 		expect(textBox.getText()).isEqualTo("Test");
+	}
+	
+	//method
+	@Override
+	protected TextBox createTestObject() {
+		return new TextBox();
 	}
 }
