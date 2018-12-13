@@ -14,7 +14,7 @@ import ch.nolix.element.GUI.AccordionTab;
  * @month 2018-08
  * @lines 90
  */
-public final class AccordionTest extends WidgetTest<Accordion> {
+public final class AccordionTest extends BorderWidgetTest<Accordion> {
 	
 	//test case
 	public void testCase_addTab() {
