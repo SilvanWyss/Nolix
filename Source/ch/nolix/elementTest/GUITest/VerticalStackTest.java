@@ -41,6 +41,9 @@ public final class VerticalStackTest extends BorderWidgetTest<VerticalStack> {
 			new TextBox()
 		);
 		
+		//setup verification
+		expectNot(verticalStack.isEmpty());
+		
 		//execution
 		verticalStack.clear();
 		
