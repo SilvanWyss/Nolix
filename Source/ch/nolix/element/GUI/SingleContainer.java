@@ -1,88 +1,64 @@
-/*
- * file:	SingleContainer.java
- * author:	Silvan Wyss
- * month:	2015
- * lines:	140
- */
-
 //package declaration
 package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.element.painter.IPainter;
 
 //class
-public final class SingleContainer
-extends Container<SingleContainer, SingleContainerLook> {
+/**
+ * A {@link SingleContainer} is a {@link Container} that can have 1 {@link Widget}.
+ * 
+ * @author Silvan Wyss
+ * @month 2015-12
+ * @lines 270
+ */
+public final class SingleContainer extends Container<SingleContainer, SingleContainerLook>
+implements Clearable<SingleContainer> {
 	
-	//type name
+	//constant
 	public static final String TYPE_NAME = "SingleContainer";
 	
-	//attribute
+	//optional attribute
 	private Widget<?, ?> widget;
 	
 	//constructor
 	/**
-	 * Creates a new single container that has default attributes.
+	 * Creates a new {@link SingleContainer}.
 	 */
 	public SingleContainer() {
-		
-		widget = new Area();
-		resetConfiguration();
+		reset();
+		approveProperties();
+		applyUsableConfiguration();
 	}
 	
 	//constructor
 	/**
-	 * Creates a new single container that has the given attributes.
-	 * @param attributes
-	 * @throws Exception if the given attributes are not valid
+	 * Creates a new {@link SingleContainer} with the given widget.
+	 * 
+	 * @param widget
+	 * @throws NullArgumentException if the given widget is null.
 	 */
-	public SingleContainer(List<DocumentNodeoid> attributes) {
+	public SingleContainer(final Widget<?, ?> widget) {
 		
 		//Calls other constructor.
 		this();
 		
-		addOrChangeAttributes(attributes);
+		setWidget(widget);
 	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
-	public final List<DocumentNode> getAttributes() {
+	public void addOrChangeAttribute(DocumentNode attribute) {
 		
-		//Calls method of the base class.
-		List<DocumentNode> attributes = super.getAttributes();
-		
-		attributes.addAtEnd(getRefRectangle().getSpecification());
-		return attributes;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public CursorIcon getContentAreaCursorIcon() {
-		return getCustomCursorIcon();
-	}
-	
-	//method
-	/**
-	 * @return the rectangle of this single container
-	 */
-	public final Widget<?, ?> getRefRectangle() {
-		return widget;
-	}
-	
-	public final void addOrChangeAttribute(DocumentNode attribute) {
-		
-		if (attribute.hasHeader() && GUI.canCreateWidget(attribute.getHeader())) {
-			setRectangle(GUI.createWidget(attribute));
+		//Handles the case that the given attribute specicifies a widget.
+		if (GUI.canCreateWidget(attribute.getHeader())) {
+			setWidget(GUI.createWidget(attribute));
 			return;
 		}
 		
@@ -92,13 +68,112 @@ extends Container<SingleContainer, SingleContainerLook> {
 	
 	//method
 	/**
-	 * Sets the given rectangle as the rectangle of this single container.
-	 * @param rectangle
-	 * @throws Exception if the given rectangle does not belong to the dialog this single container belongs to
+	 * {@inheritDoc}
 	 */
-	public void setRectangle(Widget<?, ?> rectangle) {
-		setParentWidget(rectangle);
-		this.widget = rectangle;
+	@Override
+	public SingleContainer clear() {
+		
+		widget = null;
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<DocumentNode> getAttributes() {
+		
+		//Calls method of the base class.
+		final var attributes = super.getAttributes();
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+			//Handles the case that the current single container has a widget.
+			if (widget != null) {
+				attributes.addAtEnd(widget.getSpecification());
+			}
+				
+		return attributes;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CursorIcon getContentAreaCursorIcon() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+			//Handles the case that the current single container does not have a widget.
+			if (widget == null) {
+				return getCustomCursorIcon();
+			}
+			
+			//Handles the case that the current single container has a widget.
+				//Handles the case that the widget of the current single container is not under the cursor.
+				if (!widget.isUnderCursor()) {
+					return getCustomCursorIcon();
+				}
+				
+				//Handles the case that the widget of the current single container is under the cursor.
+				return widget.getCursorIcon(); 
+	}
+	
+	//method
+	/**
+	 * @return the {@link Widget} of the current {@link SingleContainer}.
+	 * @throws UnexistingAttributeException
+	 * if the current {@link SingleContainer} does not contain a {@link Widget}.
+	 */
+	public Widget<?, ?> getRefWidget() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+			//Checks if the current single container has a widget.
+			if (widget == null) {
+				throw new UnexistingAttributeException(this, Widget.class);
+			}
+			
+			return widget;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isEmpty() {
+		return (widget != null);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public SingleContainer reset() {
+		
+		//Calls method of the base class.
+		super.reset();
+		
+		clear();
+		
+		return this;
+	}
+	
+	/**
+	 * Sets the widget of the current {@link SingleContainer}.
+	 * 
+	 * @param widget
+	 * @return the current {@link SingleContainer}.
+	 * @throws NullArgumentException if the given widget is null.
+	 */
+	public SingleContainer setWidget(final Widget<?, ?> widget) {
+		
+		setParentWidget(this);
+		this.widget = widget;
+		
+		return this;
 	}
 	
 	//method
@@ -113,56 +188,90 @@ extends Container<SingleContainer, SingleContainerLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {}
+	protected SingleContainerLook createWidgetLook() {
+		return new SingleContainerLook();
+	}
 	
 	//method
 	/**
-	 * @return the height of the content of this borderable rectangle
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+			//Handles the case that the current single container has a widget.	
+			if (widget != null) {
+				list.addAtEnd(widget);
+			}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
 	protected final int getContentAreaHeight() {
-		return getRefRectangle().getHeightWhenNotCollapsed();
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (widget == null) {
+			return 0;
+		}
+		
+		return widget.getWidth();
 	}
 	
 	//method
 	/**
-	 * @return the width of the content of this borderable rectangle
+	 * {@inheritDoc}
 	 */
 	@Override
 	protected final int getContentAreaWidth() {
-		return getRefRectangle().getWidth();
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (widget == null) {
+			return 0;
+		}
+		
+		return widget.getHeight();
 	}
 	
 	//method
 	/**
-	 * Sets the position of this rectangle.
-	 * @param distanceFromLeftPanelBorder
-	 * @param distanceFromTopPanelBorder
-	 * @throws Exception if the given distance from left panel border is negative or the given distance from top panel border is negative
+	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void setPositionOnParent(int distanceFromLeftPanelBorder, int distanceFromTopPanelBorder) {
-		
-		//Calls method of the base class.
-		super.setPositionOnParent(distanceFromLeftPanelBorder, distanceFromTopPanelBorder);
-		
-		getRefRectangle().setPositionOnParent(
-				distanceFromLeftPanelBorder + getContentAreaXPosition(),
-				distanceFromTopPanelBorder + getContentAreaYPosition()
-		);
+	protected void paintContentArea(
+		final SingleContainerLook singleContainerLook,
+		final IPainter painter
+	) {
+		//For a better performance, this implementation does not use all comfortable methods.
+			//Handles the case that the current single container has a widget.
+			if (widget != null) {
+				widget.paintUsingPositionOnParent(painter);
+			}
 	}
 	
-	@Override
-	protected void paintContentArea(
-		SingleContainerLook rectangleStructure,
-		IPainter painter) {
-		
-		widget.paintUsingPositionOnParent(painter);
-	}
-
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	protected SingleContainerLook createWidgetLook() {
-		return new SingleContainerLook();
+	protected final void setPositionOnParent(
+		final int xPositionOnParent,
+		final int yPositionOnParent
+	) {
+		
+		//Calls method of the base class.
+		super.setPositionOnParent(xPositionOnParent, yPositionOnParent);
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+			//Handles the case that the current single container has a widget.
+			if (widget != null) {
+				widget.setPositionOnParent(
+					getContentAreaXPosition(),
+					getContentAreaYPosition()
+				);
+			}
 	}
 }
