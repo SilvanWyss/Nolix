@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
-//own imports
-import ch.nolix.core.test2.Test;
+//own import
 import ch.nolix.element.GUI.Checkbox;
 
 //test class
@@ -11,9 +10,9 @@ import ch.nolix.element.GUI.Checkbox;
  * 
  * @author Silvan Wyss
  * @month 2017-03
- * @lines 50
+ * @lines 60
  */
-public final class CheckboxTest extends Test {
+public final class CheckboxTest extends WidgetTest<Checkbox> {
 	
 	//test case
 	public void testCase_constructor() {
@@ -55,5 +54,11 @@ public final class CheckboxTest extends Test {
 		
 		//verification
 		expectNot(checkBox.isChecked());
+	}
+	
+	//method
+	@Override
+	protected Checkbox createTestObject() {
+		return new Checkbox();
 	}
 }
