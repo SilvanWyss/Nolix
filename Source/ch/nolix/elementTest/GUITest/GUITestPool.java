@@ -1,21 +1,20 @@
-/*
- * file:	DialogTestPool.java
- * author:	Silvan Wyss
- * month:	201-08
- * lines:	30
- */
-
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
+//own import
 import ch.nolix.core.testoid.TestPool;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2017-03
+ * @lines 30
+ */
 public final class GUITestPool extends TestPool {
-
+	
 	//constructor
 	/**
-	 * Creates a new dialog test pool.
+	 * Creates a new {@link GUITestPool}.
 	 */
 	public GUITestPool() {
 		addTestClass(
