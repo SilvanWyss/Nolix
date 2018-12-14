@@ -53,7 +53,7 @@ public final class LabelTest extends WidgetTest<Label> {
 		//verification
 		expect(label.getText()).isEqualTo("Helix");
 	}
-
+	
 	//method
 	@Override
 	protected Label createTestObject() {
