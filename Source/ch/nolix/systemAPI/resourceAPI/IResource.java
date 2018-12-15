@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techAPI.resourceAPI;
+package ch.nolix.systemAPI.resourceAPI;
 
 //own imports
 import ch.nolix.core.container.IContainer;

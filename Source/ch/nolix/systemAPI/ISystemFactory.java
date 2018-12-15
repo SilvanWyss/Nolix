@@ -1,8 +1,8 @@
 //package declaration
-package ch.nolix.techAPI;
+package ch.nolix.systemAPI;
 
 //own import
-import ch.nolix.techAPI.resourceAPI.IResource;
+import ch.nolix.systemAPI.resourceAPI.IResource;
 
 //interface
 /**
@@ -10,7 +10,7 @@ import ch.nolix.techAPI.resourceAPI.IResource;
  * @month 2018-08
  * @lines 20
  */
-public interface ITechFactory {
+public interface ISystemFactory {
 	
 	//abstract method
 	/**

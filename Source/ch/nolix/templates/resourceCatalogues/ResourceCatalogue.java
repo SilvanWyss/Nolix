@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.templates.resourceCatalogues;
 
-//own import
-import ch.nolix.tech.resource.Resource;
+import ch.nolix.system.resource.Resource;
 
 //class
 /**

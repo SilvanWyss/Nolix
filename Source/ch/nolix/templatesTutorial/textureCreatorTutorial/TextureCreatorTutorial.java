@@ -11,7 +11,7 @@ import ch.nolix.templates.textureCreators.JuteTextureCreator;
 
 //class
 /**
- * The {@link TextureCreatorTutorial} provides a tutorial for a {@link JuteTextureCreator}.
+ * The {@link TextureCreatorTutorial} provides a tutorial for {@link JuteTextureCreator}.
  * Of the {@link TextureCreatorTutorial} no instance can be created.
  * 
  * @author Silvan Wyss
@@ -19,7 +19,7 @@ import ch.nolix.templates.textureCreators.JuteTextureCreator;
  * @lines 60
  */
 public final class TextureCreatorTutorial {
-
+	
 	//main method
 	/**
 	 * Creates a {@link Frame} with textures that are created from a {@link JuteTextureCreator}.
@@ -29,24 +29,25 @@ public final class TextureCreatorTutorial {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		final var juteTexture = new JuteTextureCreator().createTexture(1000, 500);
+		//Creates textures.
 		final var concreteTexture = new ConcreteTextureCreator().createTexture(1000, 500);
+		final var juteTexture = new JuteTextureCreator().createTexture(1000, 500);
 		
-		//Creates a frame that will show the concrete texture.
+		//Creates a frame that will show the textures.
 		new Frame()
 		.setTitle("Texture Creator Tutorial")
 		.setRootWidget(
 			new Accordion(
 				new AccordionTab(
-					"Jute",
-					new ImageWidget(
-						juteTexture
-					)
-				),
-				new AccordionTab(
 					"Concrete",
 					new ImageWidget(
 						concreteTexture
+					)
+				),
+				new AccordionTab(
+					"Jute",
+					new ImageWidget(
+						juteTexture
 					)
 				)
 			)	

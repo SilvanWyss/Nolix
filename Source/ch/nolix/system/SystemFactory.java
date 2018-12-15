@@ -1,20 +1,20 @@
 //package declaration
-package ch.nolix.tech;
+package ch.nolix.system;
 
 //own imports
-import ch.nolix.tech.resource.Resource;
-import ch.nolix.techAPI.ITechFactory;
-import ch.nolix.techAPI.resourceAPI.IResource;
+import ch.nolix.system.resource.Resource;
+import ch.nolix.systemAPI.ISystemFactory;
+import ch.nolix.systemAPI.resourceAPI.IResource;
 
 //class
-public final class TechFactory implements ITechFactory {
+public final class SystemFactory implements ISystemFactory {
 	
 	//method
 	@Override
 	public IResource createResource(final String name) {
 		return new Resource(name);
 	}
-
+	
 	//method
 	@Override
 	public IResource createResource(final String name, final IResource... baseResources) {
