@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.task;
 
+//own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.specificationAPI.ISpecifiedEnum;
 

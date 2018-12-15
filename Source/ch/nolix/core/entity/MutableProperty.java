@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.entity;
 
+//own imports
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 //own imports

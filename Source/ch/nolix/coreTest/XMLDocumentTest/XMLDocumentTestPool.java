@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreTest.XMLDocumentTest;
 
+//own imports
 import ch.nolix.core.testoid.TestPool;
 
 //class

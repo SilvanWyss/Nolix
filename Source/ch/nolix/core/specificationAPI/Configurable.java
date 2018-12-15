@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.specificationAPI;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.skillAPI.Named;

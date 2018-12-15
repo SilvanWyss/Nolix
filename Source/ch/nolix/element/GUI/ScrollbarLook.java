@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
+//own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
 //own imports
 import ch.nolix.core.entity.MutableProperty;

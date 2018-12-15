@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.GUIClient;
 
+//own imports
 import ch.nolix.core.endPoint5.EndPoint;
 import ch.nolix.system.GUIClientoid.BackGUIClientoid;
 

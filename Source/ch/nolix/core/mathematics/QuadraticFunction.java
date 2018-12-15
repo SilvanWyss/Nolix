@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.mathematics;
 
+//own imports
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 

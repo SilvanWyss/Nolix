@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreTest.documentNodeTest;
 
+//own imports
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.test2.Test;
 

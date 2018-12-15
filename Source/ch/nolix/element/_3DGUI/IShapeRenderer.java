@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element._3DGUI;
 
+//own imports
 import ch.nolix.core.invalidStateException.UnsupportedMethodException;
 
 //interface

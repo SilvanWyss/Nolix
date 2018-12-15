@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint2;
 
+//own imports
 import ch.nolix.core.skillAPI.Named;
 
 //interface

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.databaseAdapter;
 
+//own imports
 import ch.nolix.core.skillAPI.Clearable;
 
 //class

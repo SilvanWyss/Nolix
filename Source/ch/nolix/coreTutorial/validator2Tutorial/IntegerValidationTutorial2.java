@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreTutorial.validator2Tutorial;
 
+//own imports
 import ch.nolix.core.validator2.Validator;
 
 //class

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.bases;
 
+//own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;

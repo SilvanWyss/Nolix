@@ -4,6 +4,7 @@ package ch.nolix.element.GUI;
 //Java import
 import java.awt.Cursor;
 
+//own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.specificationAPI.ISpecifiedEnum;
 

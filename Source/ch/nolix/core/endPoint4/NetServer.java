@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint4;
 
+//own imports
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 

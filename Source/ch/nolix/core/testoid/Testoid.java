@@ -5,6 +5,7 @@ package ch.nolix.core.testoid;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
+//own imports
 import ch.nolix.core.primitiveContainer.List;
 
 //abstract class

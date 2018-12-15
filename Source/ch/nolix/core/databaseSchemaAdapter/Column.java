@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.databaseSchemaAdapter;
 
+//own imports
 import ch.nolix.core.SQL.SQLDatabaseEngine;
 //own imports
 import ch.nolix.core.bases.HeaderedElement;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.logger;
 
+//own imports
 import ch.nolix.core.primitiveContainer.List;
 
 //package-visible class

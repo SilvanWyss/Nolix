@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.nolixTest;
 
+//own imports
 import ch.nolix.core.testoid.TestPool;
 import ch.nolix.coreTest.CoreTestPool;
 import ch.nolix.elementTest.ElementTestPool;

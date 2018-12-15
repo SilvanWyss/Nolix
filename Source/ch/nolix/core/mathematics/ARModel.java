@@ -8,6 +8,7 @@
 //package declaration
 package ch.nolix.core.mathematics;
 
+//own imports
 import ch.nolix.core.validator.Validator;
 
 //class

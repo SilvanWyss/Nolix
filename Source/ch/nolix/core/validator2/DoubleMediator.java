@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.validator2;
 
+//own imports
 import ch.nolix.core.invalidArgumentException.BiggerArgumentException;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.EqualArgumentException;

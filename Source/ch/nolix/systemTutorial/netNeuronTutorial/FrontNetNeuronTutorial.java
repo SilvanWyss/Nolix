@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemTutorial.netNeuronTutorial;
 
+//own imports
 import ch.nolix.system.netNeuron.FrontNetNeuron;
 import ch.nolix.system.neuronoid.SourceNeuron;
 import ch.nolix.core.documentNode.DocumentNode;

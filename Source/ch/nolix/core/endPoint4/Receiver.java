@@ -1,5 +1,6 @@
 package ch.nolix.core.endPoint4;
 
+//own imports
 import ch.nolix.core.communicationAPI.IReceiver;
 
 class Receiver<M, R> implements IReceiver {

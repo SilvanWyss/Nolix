@@ -4,6 +4,7 @@ package ch.nolix.core.container;
 //Java import
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.sequencer.Sequencer;
 

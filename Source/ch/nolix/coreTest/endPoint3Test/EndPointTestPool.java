@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreTest.endPoint3Test;
 
+//own imports
 import ch.nolix.core.testoid.TestPool;
 
 //class

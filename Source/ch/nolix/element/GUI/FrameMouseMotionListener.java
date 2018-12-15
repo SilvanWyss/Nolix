@@ -5,6 +5,7 @@ package ch.nolix.element.GUI;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
+//own imports
 import ch.nolix.core.validator2.Validator;
 
 //class

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.test2;
 
+//own imports
 import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
 import ch.nolix.core.skillAPI.ApproximativeEqualing;
 

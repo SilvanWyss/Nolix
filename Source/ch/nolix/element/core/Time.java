@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.core;
 
+//own imports
 import java.util.Calendar;
 //Java import
 import java.util.GregorianCalendar;

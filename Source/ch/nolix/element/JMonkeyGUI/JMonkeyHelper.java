@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.JMonkeyGUI;
 
+//own imports
 import com.jme3.asset.AssetManager;
 import com.jme3.system.JmeSystem;
 

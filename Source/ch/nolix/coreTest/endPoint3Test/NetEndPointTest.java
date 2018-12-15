@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreTest.endPoint3Test;
 
+//own imports
 import ch.nolix.core.communicationAPI.IReplier;
 import ch.nolix.core.endPoint3.EndPoint;
 import ch.nolix.core.endPoint3.NetEndPoint;

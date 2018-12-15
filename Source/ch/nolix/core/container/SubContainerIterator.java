@@ -4,6 +4,7 @@ package ch.nolix.core.container;
 //Java import
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 

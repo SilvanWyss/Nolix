@@ -4,6 +4,7 @@ package ch.nolix.core.test2;
 //Java import
 import java.util.Vector;
 
+//own imports
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.skillAPI.ApproximativeEqualing;
 import ch.nolix.core.testoid.TestAccessor;

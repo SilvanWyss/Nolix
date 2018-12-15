@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint3;
 
+//own imports
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.communicationAPI.IReplier;
 import ch.nolix.core.communicationAPI.IReplyingSender;

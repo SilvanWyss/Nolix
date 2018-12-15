@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.testoid;
 
+//own imports
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //class
