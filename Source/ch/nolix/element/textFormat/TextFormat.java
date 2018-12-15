@@ -107,7 +107,7 @@ public final class TextFormat extends Element<TextFormat> {
 		final boolean bold,
 		final int textSize,
 		final Color textColor
-	) { 
+	) {
 		//Calls other constructor.
 		this(textFont, bold, false, textSize, textColor);
 	}
@@ -235,7 +235,7 @@ public final class TextFormat extends Element<TextFormat> {
 	 * that is not longer than the given max width.
 	 * @throws NegativeArgumentException if the given max width is negative.
 	 */
-	public String getFirstPart(final String text, final int maxWidth) {		
+	public String getFirstPart(final String text, final int maxWidth) {
 		return getFirstPart(text, maxWidth, true);
 	}
 	
@@ -266,7 +266,7 @@ public final class TextFormat extends Element<TextFormat> {
 		
 		//Handles the case that an ellipsis has to be attached to the first part.
 		if (attachEllipsis) {
-			if (firstPart.length() < text.length()) {		
+			if (firstPart.length() < text.length()) {
 				
 				while (getSwingTextWidth(firstPart + CharacterCatalogue.ELLIPSIS) > maxWidth) {
 					firstPart = firstPart.substring(0, firstPart.length() - 1);
@@ -382,7 +382,7 @@ public final class TextFormat extends Element<TextFormat> {
 	) {
 		graphics.setFont(swingFont);
 		graphics.setColor(getTextColor().createSwingColor());
-		graphics.drawString(text, xPosition, yPosition + getTextSize());		
+		graphics.drawString(text, xPosition, yPosition + getTextSize());
 	}
 	
 	//method
@@ -421,7 +421,7 @@ public final class TextFormat extends Element<TextFormat> {
 	 * @param text
 	 * @throws NegativeArgumentException if the given max width is negative.
 	 */
-	public void paintSwingText(	
+	public void paintSwingText(
 		final Graphics graphics,
 		final int xPosition,
 		final int yPosition,
@@ -430,6 +430,6 @@ public final class TextFormat extends Element<TextFormat> {
 	) {
 		
 		//Calls other method.
-		paintSwingText(graphics, xPosition, yPosition, getFirstPart(text, maxWidth));	
+		paintSwingText(graphics, xPosition, yPosition, getFirstPart(text, maxWidth));
 	}
 }

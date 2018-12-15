@@ -68,7 +68,7 @@ public abstract class Element<E extends Element<E>> extends Entity<E> {
 				return new DocumentNode(getTypes().toString());
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.REQUEST, request, "is not valid");
-		}	
+		}
 	}
 	
 	//method

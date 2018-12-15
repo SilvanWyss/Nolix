@@ -28,7 +28,7 @@ public final class Label extends TextLineWidget<Label> {
 	/**
 	 * Creates a new {@link Label}.
 	 */
-	public Label() {	
+	public Label() {
 		reset();
 		approveProperties();
 		applyUsableConfiguration();

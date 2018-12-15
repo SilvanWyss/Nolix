@@ -336,7 +336,7 @@ public class Entity implements Identified2, Specified {
 		final var propertiesIterator = getRefProperties().iterator();
 		for (final var v : valuesInOrder) {
 			
-			final var property = propertiesIterator.next();			
+			final var property = propertiesIterator.next();
 			
 			//Enumerates the kind of the current property.
 			switch (property.getPropertyKind()) {
@@ -348,7 +348,7 @@ public class Entity implements Identified2, Specified {
 						)
 					);
 					
-					break;					
+					break;
 				case OPTIONAL_DATA:
 					
 					if (v.containsAttributes()) {
@@ -423,11 +423,11 @@ public class Entity implements Identified2, Specified {
 				
 				f.setAccessible(true);
 				
-				if (Propertyoid.class.isAssignableFrom(f.getType())) {				
-					try {			
+				if (Propertyoid.class.isAssignableFrom(f.getType())) {
+					try {
 						final var property = (Propertyoid<?>)(f.get(this));
 						property.internal_setParentEntity(this);
-						properties.addAtEnd(property);	
+						properties.addAtEnd(property);
 					}
 					catch (
 						final IllegalArgumentException | IllegalAccessException exception
@@ -436,7 +436,7 @@ public class Entity implements Identified2, Specified {
 					}
 				}
 				else if (BackReferenceoid.class.isAssignableFrom(f.getType())) {
-					try {			
+					try {
 						final var backReference = (BackReferenceoid<?>)(f.get(this));
 						backReference.setParentEntity(this);
 						backReferences.addAtEnd(backReference);
@@ -459,13 +459,13 @@ public class Entity implements Identified2, Specified {
 	}
 	
 	//method
-	private void supposeBelongsToEntitySet() {		
+	private void supposeBelongsToEntitySet() {
 		if (!belongsToEntitySet()) {
 			throw new InvalidStateException(
 				this,
 				"belongs to no entity set"
 			);
-		}		
+		}
 	}
 	
 	//method
@@ -475,7 +475,7 @@ public class Entity implements Identified2, Specified {
 				this,
 				"belongs to entity"
 			);
-		}		
+		}
 	}
 	
 	//method
@@ -489,7 +489,7 @@ public class Entity implements Identified2, Specified {
 	}
 	
 	//method
-	private void supposeHasNoId() {		
+	private void supposeHasNoId() {
 		if (hasId()) {
 			throw new InvalidStateException(
 				this,

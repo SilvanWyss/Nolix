@@ -284,7 +284,7 @@ public class NetEndPoint<M, R> extends EndPoint<M, R> {
 	) {
 		//Sends message nd receives reply.
 		final int index = getNextSentPackageIndex();
-		send(new Package(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message.toString()));		
+		send(new Package(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message.toString()));
 		final Package response = waitToAndGetAndRemoveReceivedPackage(index);
 		
 		//Enumerates the response.

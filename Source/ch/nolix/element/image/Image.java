@@ -113,7 +113,7 @@ public final class Image extends MutableElement<Image> {
 			default:
 				super.addOrChangeAttribute(attribute);
 		}
-	}	
+	}
 	
 	//method
 	@Override

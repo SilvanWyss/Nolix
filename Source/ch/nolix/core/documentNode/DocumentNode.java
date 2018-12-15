@@ -101,7 +101,7 @@ implements ISmartObject<DocumentNode> {
 	 * @throws InvalidArgumentException if the given string represents no standard specification.
 	 */
 	public DocumentNode(final String string) {
-		reset(string);		
+		reset(string);
 	}
 	
 	//constructor
@@ -152,7 +152,7 @@ implements ISmartObject<DocumentNode> {
 	 * @throws EmptyArgumentException if the given header is empty.
 	 * @throws NullArgumentException if one of the given attributes is null.
 	 */
-	public DocumentNode(final String header, final DocumentNode... attributes) {	
+	public DocumentNode(final String header, final DocumentNode... attributes) {
 		setHeader(header);
 		addAttribute(attributes);
 	}
@@ -231,7 +231,7 @@ implements ISmartObject<DocumentNode> {
 		}
 		
 		//Handles the case that the current {@link StandardSpecification} has a header.
-		else {			
+		else {
 			setHeader(prefix + getHeader());
 		}
 	}
@@ -252,7 +252,7 @@ implements ISmartObject<DocumentNode> {
 		
 		//Handles the case that the current {@link StandardSpecification} does not have a header.
 		if (hasHeader()) {
-			setHeader(postfix);			
+			setHeader(postfix);
 		}
 		
 		//Handles the case that the current {@link StandardSpecification} has a header.

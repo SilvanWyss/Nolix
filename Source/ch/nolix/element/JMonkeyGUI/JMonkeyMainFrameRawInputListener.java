@@ -54,11 +54,11 @@ implements RawInputListener {
 
 	//method
 	@Override
-	public void endInput() {}		
+	public void endInput() {}
 
 	//method
 	@Override
-	public void onJoyAxisEvent(JoyAxisEvent joyAxisEvent) {}		
+	public void onJoyAxisEvent(JoyAxisEvent joyAxisEvent) {}
 
 	//method
 	@Override

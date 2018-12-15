@@ -123,7 +123,7 @@ implements Closable {
 		//Handles the case that this net back neuron has an input neuron.
 		else {
 			
-			internal_setOutput(getRefOneInput());			
+			internal_setOutput(getRefOneInput());
 			final DocumentNode output = transformator.getOutput(getRefOutput());
 			
 			//Iterates the clients of the application of this net back neuron.

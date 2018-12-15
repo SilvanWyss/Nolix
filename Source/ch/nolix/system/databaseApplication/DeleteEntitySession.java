@@ -32,7 +32,7 @@ public final class DeleteEntitySession extends HeaderedSession {
 		.thatIsNamed("entity set name")
 		.isNotEmpty();
 		
-		this.entitySetName = entitySetName;		
+		this.entitySetName = entitySetName;
 		this.entityId = entityId;
 	}
 

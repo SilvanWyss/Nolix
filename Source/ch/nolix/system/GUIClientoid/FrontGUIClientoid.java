@@ -257,7 +257,7 @@ extends Client<FGC> {
 		//Enumerates the header of the given painter command.
 		switch (painterCommand.getHeader()) {
 			case Protocol.PAINT_IMAGE_HEADER:
-				runPaintImageCommand(painter, painterCommand);				
+				runPaintImageCommand(painter, painterCommand);
 				break;
 			case Protocol.PAINT_FILLED_RECTANGLE_HEADER:
 				runPaintFilledRectangleCommand(painter, painterCommand);
@@ -304,7 +304,7 @@ extends Client<FGC> {
 				painter.paintFilledRectangle(
 					attributes.getRefAt(1).toInt(),
 					attributes.getRefAt(2).toInt()
-				);				
+				);
 				
 				break;
 			case 4:
@@ -382,7 +382,7 @@ extends Client<FGC> {
 	private void runSetColorCommand(final IPainter painter, final Statement setColorCommand) {
 		painter.setColor(
 			Color.createFromSpecification(setColorCommand.getRefOneAttribute())
-		);	
+		);
 	}
 	
 	//method
@@ -399,6 +399,6 @@ extends Client<FGC> {
 	) {
 		painter.setColorGradient(
 			ColorGradient.createFromSpecification(setColorGradientCommand.getRefOneAttribute())
-		);	
+		);
 	}
 }

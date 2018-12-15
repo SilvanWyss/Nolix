@@ -20,7 +20,7 @@ import ch.nolix.core.validator2.Validator;
  */
 public abstract class EndPoint
 extends ClosableElement
-implements IDataProviderController {	
+implements IDataProviderController {
 	
 	//optional attribute
 	private IDataProviderController receiverController;

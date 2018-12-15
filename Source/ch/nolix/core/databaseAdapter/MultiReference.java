@@ -100,7 +100,7 @@ extends Referenceoid<E> {
 	}
 
 	//method
-	private void supposeDoesNotContainValue(final long referencedEntityId) {		
+	private void supposeDoesNotContainValue(final long referencedEntityId) {
 		if (containsValue(referencedEntityId)) {
 			throw new InvalidStateException(
 				this,

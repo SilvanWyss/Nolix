@@ -19,9 +19,9 @@ public final class TimeTest extends Test {
 	public void loopTest_constructor_1() {
 		
 		//main loop
-		for (int y = 1600; y <= 1600; y++) {	
+		for (int y = 1600; y <= 1600; y++) {
 			for (int m = 1; m <= 12; m++) {
-				final int dayCount = m != 2 ? 30 : 28;		
+				final int dayCount = m != 2 ? 30 : 28;
 				for (int d = 1; d <= dayCount; d++) {
 					
 					//execution
@@ -40,7 +40,7 @@ public final class TimeTest extends Test {
 	public void loopTest_constructor_2() {
 				
 		//main loop
-		for (int h = 0; h <= 23; h++) {		
+		for (int h = 0; h <= 23; h++) {
 			for (int m = 0; m <= 59; m++) {
 					
 				//execution

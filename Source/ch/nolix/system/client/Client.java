@@ -105,7 +105,7 @@ implements Closable {
 	}
 	
 	//method
-	public final int getCurrentSessionIndex() {		
+	public final int getCurrentSessionIndex() {
 		return sessions.getIndexOf(internal_getRefCurrentSession());
 	}
 
@@ -188,7 +188,7 @@ implements Closable {
 		
 		supposeContainsPreviousSession();
 		
-		final var previousSessionIndex = sessions.getIndexOf(internal_getRefCurrentSession()) - 1;		
+		final var previousSessionIndex = sessions.getIndexOf(internal_getRefCurrentSession()) - 1;
 		this.currentSession = sessions.getRefAt(previousSessionIndex);
 		internal_finishSessionInitialization();
 	}
@@ -220,7 +220,7 @@ implements Closable {
 			lastSession.runProbabalePopFunction();
 			lastSession.removeParentClient();
 			
-		currentSession = sessions.getRefLast();		
+		currentSession = sessions.getRefLast();
 		internal_finishSessionInitialization();
 	}
 	
@@ -238,11 +238,11 @@ implements Closable {
 		
 		//Sets the given session to the current {@link Client}.
 		session.setParentClient(asConcreteType());
-		sessions.addAtEnd(session);		
+		sessions.addAtEnd(session);
 		currentSession = session;
 		
 		//Initializes the given session.
-			try {				
+			try {
 				session.initialize();
 				internal_finishSessionInitialization();
 			}
@@ -631,10 +631,10 @@ implements Closable {
 		supposeIsNotConnected();
 		
 		//Sets the duplex controller of the current client.
-		this.endPoint = endPoint;	
+		this.endPoint = endPoint;
 		
 		//Sets the receiver controller of the duplex controller of the current client.
-		endPoint.setReceiverController(new ClientReceiverController(this));	
+		endPoint.setReceiverController(new ClientReceiverController(this));
 	}
 	
 	//package-visible method

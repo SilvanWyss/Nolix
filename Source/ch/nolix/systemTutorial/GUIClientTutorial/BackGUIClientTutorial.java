@@ -53,13 +53,13 @@ public final class BackGUIClientTutorial {
 		
 		//method
 		@Override
-		public void initialize() {			
+		public void initialize() {
 			
 			final var button =
 			new Button()
 			.setText("Change color")
 			.setLeftMouseButtonPressCommand(() -> changeColor())
-			.setCustomCursorIcon(CursorIcon.Hand);			
+			.setCustomCursorIcon(CursorIcon.Hand);
 						
 			button
 			.getRefBaseLook()
@@ -79,7 +79,7 @@ public final class BackGUIClientTutorial {
 			.setTitle("Back GUI Client Tutorial")
 			.setBackgroundColor(Color.GREEN)
 			.setContentPosition(ContentPosition.Center)
-			.setRootWidget(button);	
+			.setRootWidget(button);
 		}
 		
 		//method

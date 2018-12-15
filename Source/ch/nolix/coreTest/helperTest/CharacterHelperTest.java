@@ -35,7 +35,7 @@ public class CharacterHelperTest extends Test {
 		expectFalse(CharacterHelper.isDigit('A'));
 		expectFalse(CharacterHelper.isDigit('a'));
 		expectFalse(CharacterHelper.isDigit('Z'));
-		expectFalse(CharacterHelper.isDigit('z'));		
+		expectFalse(CharacterHelper.isDigit('z'));
 		expectFalse(CharacterHelper.isDigit('%'));
 		expectFalse(CharacterHelper.isDigit('&'));
 		expectFalse(CharacterHelper.isDigit('.'));
@@ -53,7 +53,7 @@ public class CharacterHelperTest extends Test {
 		expectTrue(CharacterHelper.isHexadecimalDigit('3'));
 		expectTrue(CharacterHelper.isHexadecimalDigit('4'));
 		expectTrue(CharacterHelper.isHexadecimalDigit('5'));
-		expectTrue(CharacterHelper.isHexadecimalDigit('6'));	
+		expectTrue(CharacterHelper.isHexadecimalDigit('6'));
 		expectTrue(CharacterHelper.isHexadecimalDigit('7'));
 		expectTrue(CharacterHelper.isHexadecimalDigit('8'));
 		expectTrue(CharacterHelper.isHexadecimalDigit('9'));

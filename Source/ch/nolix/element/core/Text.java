@@ -104,7 +104,7 @@ public class Text extends Element<Text> {
 		stringBuilder.append(CharacterCatalogue.APOSTROPH);
 		
 		return stringBuilder.toString();
-	}	
+	}
 	
 	//method
 	/**

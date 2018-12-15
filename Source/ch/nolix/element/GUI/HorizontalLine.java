@@ -16,7 +16,7 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 	/**
 	 * Creates a new horizontal line.
 	 */
-	public HorizontalLine() {		
+	public HorizontalLine() {
 		resetConfiguration();
 	}
 	

@@ -61,7 +61,7 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	
 	//method
 	@Override
-	protected void initializeDatabaseWhenNotInitialized() {		
+	protected void initializeDatabaseWhenNotInitialized() {
 		documentNodeDatabase.setHeader(PascalCaseNameCatalogue.DATABASE);
 	}
 	

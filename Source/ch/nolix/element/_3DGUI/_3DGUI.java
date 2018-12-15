@@ -86,7 +86,7 @@ implements Clearable<G>, Closable, Refreshable {
 		}
 		
 		//Handles the case that the given attribute specifies no shape.
-		super.addOrChangeAttribute(attribute);			
+		super.addOrChangeAttribute(attribute);
 	}
 	
 	//method

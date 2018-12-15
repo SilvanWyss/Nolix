@@ -466,7 +466,7 @@ public class Matrix implements ApproximativeEqualing {
 		.thatIsNamed("number of rows of the given solution matrix")
 		.isEqualTo(getRowCount());
 		
-		final Matrix transposedMatrix = getTransposed();		
+		final Matrix transposedMatrix = getTransposed();
 		final Matrix matrix = transposedMatrix.getProduct(this);
 		Matrix inverseMatrix = null;
 		
@@ -626,7 +626,7 @@ public class Matrix implements ApproximativeEqualing {
 		//Checks if this matrix is quadratic.
 		supposeIsQuadratic();
 		
-		double trace = 0.0;		
+		double trace = 0.0;
 		for (int i = 0; i < getRowCount(); i++) {
 			trace += values[i][i];
 		}
@@ -1011,7 +1011,7 @@ public class Matrix implements ApproximativeEqualing {
 				
 				for (int k = 0; k < getColumnCount(); k++) {
 					values[i][k] -= factor2 * values[j][k];
-				}				
+				}
 			}
 		}
 
@@ -1057,7 +1057,7 @@ public class Matrix implements ApproximativeEqualing {
 					double factor = -values[j][minColumnIndex] / values[i][minColumnIndex];
 					
 					//Iterates the values of the row.
-					for (int k = minColumnIndex; k < values[j].length; k++) {		
+					for (int k = minColumnIndex; k < values[j].length; k++) {
 						values[j][k] += factor * values[i][k];
 					}
 				}
@@ -1082,7 +1082,7 @@ public class Matrix implements ApproximativeEqualing {
 		
 		String matrix = "[";
 		
-		for (int i = 0; i < getRowCount(); i++) {	
+		for (int i = 0; i < getRowCount(); i++) {
 			
 			String line = StringCatalogue.EMPTY_STRING;
 			

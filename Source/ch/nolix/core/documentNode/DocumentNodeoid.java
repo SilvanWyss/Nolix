@@ -59,7 +59,7 @@ public abstract class DocumentNodeoid implements Headered {
 		
 		.replace(String.valueOf(CharacterCatalogue.COMMA), COMMA_CODE)
 		.replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
-		.replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);		
+		.replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
 	}
 	
 	//static method
@@ -515,7 +515,7 @@ public abstract class DocumentNodeoid implements Headered {
 				throw new InvalidArgumentException(VariableNameCatalogue.CONTENT, string);
 			}
 			
-			var level = 0;			
+			var level = 0;
 			var attributeStringBuilder = new StringBuilder();
 			for (var i = attributestartIndex; i < string.length() - 1; i++)
 			{
@@ -649,7 +649,7 @@ public abstract class DocumentNodeoid implements Headered {
 	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} represents no int.
 	 */
 	public int toInt() {
-		return StringHelper.toInt(toString());		
+		return StringHelper.toInt(toString());
 	}
 	
 	//method

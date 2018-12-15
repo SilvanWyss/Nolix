@@ -27,7 +27,7 @@ public final class SequencePattern<E> {
 	private final List<IElementTakerBooleanGetter<E>> elementConditions
 	= new List<IElementTakerBooleanGetter<E>>();
 	private final List<IElementTakerBooleanGetter<List<E>>> sequenceConditions
-	= new List<IElementTakerBooleanGetter<List<E>>>(); 
+	= new List<IElementTakerBooleanGetter<List<E>>>();
 	
 	//method
 	/**
@@ -37,7 +37,7 @@ public final class SequencePattern<E> {
 	 */
 	public SequencePattern<E> addBlankForNext() {
 		
-		addConditionForNext(e -> true);	
+		addConditionForNext(e -> true);
 		
 		return this;
 	}

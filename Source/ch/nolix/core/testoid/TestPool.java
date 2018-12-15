@@ -34,7 +34,7 @@ public abstract class TestPool implements Runnable {
 	 */
 	public final boolean containsTestPoolRecursively(final TestPool testPool) {
 		
-		for (final TestPool tp : testPools) {			
+		for (final TestPool tp : testPools) {
 			if (tp.containsTestPoolRecursively(testPool)) {
 				return true;
 			}

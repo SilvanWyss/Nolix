@@ -49,7 +49,7 @@ public final class Frame extends GUI<Frame> {
 		public void paintComponent(final Graphics graphics) {
 			
 			//Paints the title of the current frame.
-			frame.setTitle(getTitle());	
+			frame.setTitle(getTitle());
 			
 			//Calls method of the base class.
 			super.paintComponent(graphics);
@@ -105,7 +105,7 @@ public final class Frame extends GUI<Frame> {
 			
 		//This is important that key events are handled.
 		panel.setFocusable(true);
-		panel.requestFocus(); 
+		panel.requestFocus();
 						
 		refresh();
 	}

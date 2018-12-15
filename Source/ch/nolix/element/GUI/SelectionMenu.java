@@ -86,7 +86,7 @@ implements Clearable<SelectionMenu> {
 				break;
 			case SELECTED_ITEM_HEADER:
 				select(attribute.getOneAttributeAsString());
-				break;				
+				break;
 			default:				
 				super.addOrChangeAttribute(attribute);
 		}

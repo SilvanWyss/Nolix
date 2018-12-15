@@ -64,7 +64,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	public Matrix<E> addColumn(final Iterable<E> elements) {
 		
 		//Checks if the given elements are not null.
-		Validator.supposeTheElements(elements).areNotNull();		
+		Validator.supposeTheElements(elements).areNotNull();
 		
 		final var elements_ = new ReadContainer<E>(elements);
 		
@@ -188,7 +188,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 			.isEqualTo(getColumnCount());
 			
 			final var rowCount = getRowCount();
-			final var columnCount = getColumnCount();			
+			final var columnCount = getColumnCount();
 			final var newElements = new Object[rowCount + 1][columnCount];
 			
 			//Iterates the rows of the current matrix.

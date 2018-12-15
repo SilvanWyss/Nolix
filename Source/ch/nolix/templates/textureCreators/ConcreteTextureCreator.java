@@ -16,7 +16,7 @@ public final class ConcreteTextureCreator implements ITextureCreator {
 		final var image = new Image(width, height);
 		
 		for (var x = 1; x <= image.getWidth(); x++) {
-			for (var y = 1; y <= image.getHeight(); y++) {		
+			for (var y = 1; y <= image.getHeight(); y++) {
 				
 				image.setPixel(x, y, new Color(0xA0A0A0));
 				
@@ -26,7 +26,7 @@ public final class ConcreteTextureCreator implements ITextureCreator {
 				
 				if ((y + 1) * (x * y - y % 3) % 7== (x * y - x % 5 + y % 2) % 11) {
 					image.setPixel(x, y, new Color(0x808080));
-				}				
+				}
 			}
 		}
 		

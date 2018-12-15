@@ -252,7 +252,7 @@ implements ISmartObject<N> {
 	 * 
 	 * @param output
 	 */
-	protected final void internal_setOutput(final O output) {		
+	protected final void internal_setOutput(final O output) {
 		this.output = output;
 	}
 	

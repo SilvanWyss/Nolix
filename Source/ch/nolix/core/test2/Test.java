@@ -221,7 +221,7 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	 * @return a new multi long mediator that belongs to this test and is for the given values.
 	 */
 	protected final MultiLongMediator expectTheInts(final int... values) {
-		return new MultiLongMediator(this, values);		
+		return new MultiLongMediator(this, values);
 	}
 	
 	//method

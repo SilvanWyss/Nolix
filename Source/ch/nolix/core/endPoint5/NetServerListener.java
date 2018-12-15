@@ -53,7 +53,7 @@ final class NetServerListener implements ch.nolix.core.endPoint3.IEndPointTaker 
 	 * @throws InvalidArgumentException if the given end point is no NetEndPoint.
 	 */
 	@Override
-	public void takeEndPoint(final ch.nolix.core.endPoint3.EndPoint endPoint) {		
+	public void takeEndPoint(final ch.nolix.core.endPoint3.EndPoint endPoint) {
 		netServer.takeDuplexController(
 			new NetEndPoint((ch.nolix.core.endPoint3.NetEndPoint)endPoint)
 		);

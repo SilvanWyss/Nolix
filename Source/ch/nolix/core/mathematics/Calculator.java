@@ -92,7 +92,7 @@ public final class Calculator {
 			throw new RuntimeException("No values are given.");
 		}
 		
-		double min = values.iterator().next();	
+		double min = values.iterator().next();
 		for (double v: values) {
 			if (v < min) {
 				min = v;
@@ -129,7 +129,7 @@ public final class Calculator {
 			}
 		}
 		
-		return (max - min);		
+		return (max - min);
 	};
 	
 	//function
@@ -251,7 +251,7 @@ public final class Calculator {
 		}
 		
 		//Calculates the minimum of the given values.
-		long min = values.iterator().next();	
+		long min = values.iterator().next();
 		for (Long v: values) {
 			if (v < min) {
 				min = v;
@@ -289,7 +289,7 @@ public final class Calculator {
 			}
 		}
 		
-		return (max - min);		
+		return (max - min);
 	};
 	
 	//function
@@ -455,7 +455,7 @@ public final class Calculator {
 			for (int j = 0; j < factor1.getColumnCount(); j++) {
 				xMatrixValues[i * factor1.getColumnCount() + j] = Math.pow(xValues[i], factor1.getColumnCount() - j - 1);
 			}
-		}	
+		}
 		factor1.setValues(xMatrixValues);
 
 		Matrix solutionMatrix = new Matrix(yValues.length, 1);

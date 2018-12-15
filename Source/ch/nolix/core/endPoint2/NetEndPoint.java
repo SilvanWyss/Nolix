@@ -86,7 +86,7 @@ public class NetEndPoint extends EndPoint {
 			socket = new Socket(ip, port);
 			
 			printWriter = new PrintWriter(socket.getOutputStream());
-		} 
+		}
 		catch (final IOException exception) {
 			throw new RuntimeException(exception);
 		}
@@ -133,7 +133,7 @@ public class NetEndPoint extends EndPoint {
 			socket = new Socket(ip, port);
 			
 			printWriter = new PrintWriter(socket.getOutputStream());
-		} 
+		}
 		catch (final IOException exception) {
 			throw new RuntimeException(exception);
 		}

@@ -35,5 +35,5 @@ implements Headerable<HE> {
 		headerProperty.setValue(new NonEmptyText(header));
 		
 		return asConcreteType();
-	}	
+	}
 }

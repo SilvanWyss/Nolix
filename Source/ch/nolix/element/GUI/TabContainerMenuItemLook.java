@@ -202,7 +202,7 @@ extends Entity<SelectionMenuItemLook> {
 	//method
 	public TabContainerMenuItemLook removeMinWidth() {
 		
-		minWidth = null;	
+		minWidth = null;
 		
 		return this;
 	}
@@ -210,7 +210,7 @@ extends Entity<SelectionMenuItemLook> {
 	//method
 	public TabContainerMenuItemLook removePadding() {
 		
-		padding = null;	
+		padding = null;
 		
 		return this;
 	}

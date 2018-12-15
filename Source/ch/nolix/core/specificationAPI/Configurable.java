@@ -58,7 +58,7 @@ extends Named, Specifiable<C>, Tokened {
 	 * @return true if the current {@link Configurable} has the given type or super type.
 	 */
 	@Override
-	public abstract boolean isOfType(String type);	
+	public abstract boolean isOfType(String type);
 	
 	//default method
 	/**

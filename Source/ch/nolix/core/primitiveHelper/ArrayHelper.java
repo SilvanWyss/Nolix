@@ -159,13 +159,13 @@ public final class ArrayHelper {
 		final StringBuilder stringBuilder = new StringBuilder();
 		
 		//Iterates the given values.
-		for (int i = 0; i < values.length; i++) {			
+		for (int i = 0; i < values.length; i++) {
 			if (i < values.length - 1) {
 				stringBuilder.append(values[i] + ", ");
 			}
 			else {
 				stringBuilder.append(values[i]);
-			}			
+			}
 		}
 		
 		return stringBuilder.toString();
@@ -187,13 +187,13 @@ public final class ArrayHelper {
 		final var stringBuilder = new StringBuilder();
 		
 		//Iterates the given values.
-		for (var i = 0; i < values.length; i++) {			
+		for (var i = 0; i < values.length; i++) {
 			if (i < values.length - 1) {
 				stringBuilder.append(values[i] + ", ");
 			}
 			else {
 				stringBuilder.append(values[i]);
-			}			
+			}
 		}
 		
 		return stringBuilder.toString();
@@ -215,13 +215,13 @@ public final class ArrayHelper {
 		final StringBuilder stringBuilder = new StringBuilder();
 		
 		//Iterates the given values.
-		for (int i = 0; i < values.length; i++) {			
+		for (int i = 0; i < values.length; i++) {
 			if (i < values.length - 1) {
 				stringBuilder.append(values[i] + ", ");
 			}
 			else {
 				stringBuilder.append(values[i]);
-			}			
+			}
 		}
 		
 		return stringBuilder.toString();

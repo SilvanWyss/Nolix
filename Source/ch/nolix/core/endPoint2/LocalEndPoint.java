@@ -130,7 +130,7 @@ public final class LocalEndPoint extends EndPoint {
 		//Checks if this local end point is not aborted.
 		supposeIsAlive();
 		
-		counterpart.receive(message);	
+		counterpart.receive(message);
 	}
 
 	//method

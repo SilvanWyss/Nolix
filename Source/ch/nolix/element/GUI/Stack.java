@@ -49,7 +49,7 @@ implements Clearable<S> {
 		switch (attribute.getHeader()) {
 			case ELEMENT_MARGIN_HEADER:
 				setElementMargin(attribute.getOneAttributeAsInt());
-				break;		
+				break;
 			default:
 				
 				//Calls method of the base class.
@@ -72,7 +72,7 @@ implements Clearable<S> {
 		//Checks if the given widget is not null.
 		Validator.suppose(widget).isInstanceOf(Widget.class);
 		
-		widget.setParentWidget(this);		
+		widget.setParentWidget(this);
 		widgets.addAtEnd(widget);
 		
 		return asConcreteType();
@@ -153,7 +153,7 @@ implements Clearable<S> {
 			);
 		}
 		
-		getRefWidgets().forEach(r -> attributes.addAtEnd(r.getSpecification()));	
+		getRefWidgets().forEach(r -> attributes.addAtEnd(r.getSpecification()));
 		
 		return attributes;
 	}

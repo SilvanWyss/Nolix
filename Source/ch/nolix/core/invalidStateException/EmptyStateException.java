@@ -27,5 +27,5 @@ public final class EmptyStateException extends InvalidStateException {
 		
 		//Calls constructor of the base class.
 		super(object, ERROR_PREDICATE);
-	}	
+	}
 }

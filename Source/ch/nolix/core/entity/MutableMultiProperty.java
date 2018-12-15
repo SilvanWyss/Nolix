@@ -137,7 +137,7 @@ implements Clearable<MutableMultiProperty<V>> {
 	 * @throws InvalidArgumentException
 	 * if this multi property does not contain the given value.
 	 */
-	public void removeValue(final V value) {		
+	public void removeValue(final V value) {
 		values.removeFirst(value);
 	}
 	

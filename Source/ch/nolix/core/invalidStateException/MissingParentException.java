@@ -75,7 +75,7 @@ public final class MissingParentException extends InvalidStateException {
 	 * @throws RuntimeException if the given object is null.
 	 * @throws RuntimeException if the given parent type is null.
 	 */
-	public MissingParentException(final Object object, final Class<?> parentType) {	
+	public MissingParentException(final Object object, final Class<?> parentType) {
 		
 		//Calls constructor of the base class.
 		super(object, "does not belong to a " + getParentTypeName(parentType));
@@ -91,7 +91,7 @@ public final class MissingParentException extends InvalidStateException {
 	 * @throws RuntimeException if the given parent type is null.
 	 * @throws RuntimeException if the given parent type is blank.
 	 */
-	public MissingParentException(final Object object, final String parentType) {	
+	public MissingParentException(final Object object, final String parentType) {
 		
 		//Calls constructor of the base class.
 		super(object, "does not belong to a " + getParentTypeName(parentType));

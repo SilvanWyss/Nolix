@@ -90,7 +90,7 @@ implements IJMonkeyShapeRenderer<Cuboid, Geometry> {
 				final var texture
 				= new Texture2D(new AWTLoader().load(cuboid.getRefDefaultTexture().toBufferedImage(),true));
 				
-				material.setTexture("ColorMap", texture);	
+				material.setTexture("ColorMap", texture);
 				
 				geometry.setMaterial(material);
 		}

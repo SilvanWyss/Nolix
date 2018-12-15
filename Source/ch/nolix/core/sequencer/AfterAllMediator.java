@@ -115,7 +115,7 @@ public final class AfterAllMediator {
 			//Handles the case that this after all mediator does not have a condition.
 			if (!hasCondition()) {
 				while (true) {
-					job.run();				
+					job.run();
 					Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
 				}
 			}

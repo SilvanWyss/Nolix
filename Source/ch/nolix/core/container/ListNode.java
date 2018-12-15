@@ -32,7 +32,7 @@ final class ListNode<E> {
 	 * @param element
 	 * @throws NullArgumentException if the given element is null.
 	 */
-	public ListNode(final E element) {		
+	public ListNode(final E element) {
 		setElement(element);
 	}
 	

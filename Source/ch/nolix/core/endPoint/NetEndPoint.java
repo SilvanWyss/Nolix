@@ -64,7 +64,7 @@ public final class NetEndPoint extends EndPoint {
 			
 			//Creates the printwriter of this net end point.
 			printWriter = new PrintWriter(socket.getOutputStream());
-		} 
+		}
 		catch (final IOException exception) {
 			throw new RuntimeException(exception);
 		}

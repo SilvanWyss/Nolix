@@ -41,7 +41,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	
 	//method
 	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {	
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		switch (attribute.getHeader()) {
 			case FILE_GETTER_HEADER:
 				setProvideFile();
@@ -106,7 +106,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 					new FileAccessor(destinationFilePath).openParentFolder();
 				}
 			}
-		}	
+		}
 	}
 	
 	//method
@@ -182,7 +182,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	
 	//method
 	@Override
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {		
+	protected void applyUsableConfigurationWhenConfigurationIsReset() {
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
 	}
 	
@@ -200,7 +200,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	}
 	
 	//method
-	private void setProvideFile() {		
+	private void setProvideFile() {
 		providesFile = true;
 	}
 	

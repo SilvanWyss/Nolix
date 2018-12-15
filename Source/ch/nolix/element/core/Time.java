@@ -275,7 +275,7 @@ public final class Time extends Element<Time> {
 		if (array.length >= 7) {
 			setMillisecondOfSecond(StringHelper.toInt(array[6]));
 		}
-	}	
+	}
 	
 	//method
 	/**
@@ -655,7 +655,7 @@ public final class Time extends Element<Time> {
 	 * 
 	 * @throws InvalidArgumentException if this time is frozen.
 	 */
-	private void reset() {		
+	private void reset() {
 		setYear(DEFAULT_YEAR);
 		setMonthOfYear(DEFAULT_MONTH_OF_YEAR);
 		setDayOfMonth(DEFAULT_DAY_OF_MONTH);
@@ -707,7 +707,7 @@ public final class Time extends Element<Time> {
 	 * @param minuteOfHour
 	 * @return this time.
 	 */
-	private void setMinuteOfHour(final int minuteOfHour) {	
+	private void setMinuteOfHour(final int minuteOfHour) {
 		time.set(Calendar.MINUTE, minuteOfHour);
 	}
 	
@@ -730,7 +730,7 @@ public final class Time extends Element<Time> {
 	 * @param secondOfMinute
 	 * @return this time.
 	 */
-	private void setSecondOfMinute(final int secondOfMinute) {	
+	private void setSecondOfMinute(final int secondOfMinute) {
 		time.set(Calendar.SECOND, secondOfMinute);
 	}
 	

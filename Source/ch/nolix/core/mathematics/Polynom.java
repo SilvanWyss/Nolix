@@ -184,7 +184,7 @@ public class Polynom {
 		
 		for (int i = integrationCount; i < coefficients.length; i++) {
 			coefficients[i] = this.coefficients[i - integrationCount];
-		}	
+		}
 		
 		for (int i = 1; i <= integrationCount; i++) {
 			for (int j = i - 1; j < coefficients.length - 1; j++) {
@@ -393,7 +393,7 @@ public class Polynom {
 		}
 		
 		//Removes all leading coefficients that are 0.0.
-		if (firstNonZeroCoefficientIndex > 0) {	
+		if (firstNonZeroCoefficientIndex > 0) {
 			final double[] oldCoefficients = coefficients;
 			coefficients = new double[oldCoefficients.length - firstNonZeroCoefficientIndex];
 			for (int i = 0; i < coefficients.length; i++) {

@@ -10,7 +10,7 @@ import ch.nolix.element.core.PositiveInteger;
 public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	
 	//default value
-	public static final Color DEFAULT_TAB_HEADER_BACKGROUND_COLOR = Color.WHITE;	
+	public static final Color DEFAULT_TAB_HEADER_BACKGROUND_COLOR = Color.WHITE;
 	public static final int DEFAULT_TAB_HEADER_TEXT_SIZE = ValueCatalogue.MEDIUM_TEXT_SIZE;
 	public static final Color DEFAULT_TAB_HEADER_TEXT_COLOR = Color.BLACK;
 	public static final Color DEFAULT_TAB_BACKGROUND_COLOR = Color.WHITE;

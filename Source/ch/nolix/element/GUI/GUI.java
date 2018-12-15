@@ -273,7 +273,7 @@ implements IGUI<G> {
 			return getRefRootWidget().getCursorIcon();
 		}
 		
-		return CursorIcon.Arrow;	
+		return CursorIcon.Arrow;
  	}
 	
 	//method
@@ -379,7 +379,7 @@ implements IGUI<G> {
 	 */
 	@Override
 	public final ReadContainer<Configurable<?>> getRefConfigurables() {
-		return new ReadContainer<>(getRefWidgets().to(w -> w));		
+		return new ReadContainer<>(getRefWidgets().to(w -> w));
 	}
 	
 	//method
@@ -697,7 +697,7 @@ implements IGUI<G> {
 						Calculator.getMax(0, (getContentHeight() - getRefRootWidget().getHeight()) / 2)
 					);
 					
-					break;					
+					break;
 				case LeftBottom:
 					
 					getRefRootWidget().setPositionOnParent(

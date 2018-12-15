@@ -232,7 +232,7 @@ implements Clearable<FloatContainer> {
 			if (row.containsAny() && x + widgetMargin + widgetWidth > contentAreaWidth) {
 				x = 0;
 				y += row.getMaxByInt(w2 -> w2.getHeight()) + widgetMargin;
-				row.clear();	
+				row.clear();
 			}
 			
 			w.setPositionOnParent(x, y);

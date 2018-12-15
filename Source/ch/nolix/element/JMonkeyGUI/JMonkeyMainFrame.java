@@ -69,10 +69,10 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		
 		reset();
 		
-		final DirectionalLight directionalLight = new DirectionalLight();		
+		final DirectionalLight directionalLight = new DirectionalLight();
 		directionalLight.setColor(new ColorRGBA(1.0f, 1.0f, 1.0f, 1.0f));
 		directionalLight.setDirection(new Vector3f(1, 0.5f, -0.5f));
-		simpleApplication.getRootNode().addLight(directionalLight);		
+		simpleApplication.getRootNode().addLight(directionalLight);
 				
 		appSettings.setTitle(getTitle());
 		appSettings.setResizable(true);
@@ -245,7 +245,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	/**
 	 * Refreshes this JMonkey main frmae.
 	 */
-	private void direct_refresh() {		
+	private void direct_refresh() {
 		
 		if (!appSettings.getTitle().equals(getTitle())) {
 			appSettings.setTitle(getTitle());

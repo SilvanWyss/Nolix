@@ -53,7 +53,7 @@ implements Closable {
 		
 		//Calls other constructor.
 		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port, transformator);
-	}	
+	}
 	
 	//constructor
 	/**
@@ -84,8 +84,8 @@ implements Closable {
 		
 		//Creates the client of this net front neuron.
 		client = new StandardClient(ip, port);
-		client.pushSession(new FrontNetNeuronSession<O>(this));	
-	}	
+		client.pushSession(new FrontNetNeuronSession<O>(this));
+	}
 
 	//method
 	/**

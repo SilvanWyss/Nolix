@@ -117,7 +117,7 @@ extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	 * as neurons whose inputs and output are of the same type as the inputs and output of this neuronal net.
 	 */
 	@SuppressWarnings("unchecked")
-	public <N extends Neuronoid<N, IO, IO>> List<N> getRefNeuronsAsTyped() {	
+	public <N extends Neuronoid<N, IO, IO>> List<N> getRefNeuronsAsTyped() {
 		return getRefNeurons().to(e -> (N)e);
 	}
 	
@@ -126,7 +126,7 @@ extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	 * Lets this neuronal net fire.
 	 */
 	@Override
-	protected void internal_fire() {		
+	protected void internal_fire() {
 		inputFanoutNeuron.clearInputNeurons();
 		inputFanoutNeuron.addInputNeuron(getRefOneInputNeuron());
 		inputFanoutNeuron.fire();

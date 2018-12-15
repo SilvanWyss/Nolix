@@ -187,13 +187,13 @@ implements IPainter, Flushable {
 	
 	//method
 	@Override
-	public void setColor(final Color color) {	
+	public void setColor(final Color color) {
 		appendPainterCommand(
 			Protocol.SET_COLOR_HEADER
 			+ "("
 			+ color.getHexadecimalSpecification(true)
 			+ ")"
-		); 
+		);
 	}
 
 	//method

@@ -49,7 +49,7 @@ public interface IContainer<E> extends Iterable<E> {
 		}
 		
 		return false;
-	}	
+	}
 	
 	//default method
 	/**
@@ -401,7 +401,7 @@ public interface IContainer<E> extends Iterable<E> {
 		//Handles the case that this container contains less than n elements.
 		if (n < elementCount) {
 			return new SubContainer<E>(this, n + 1, elementCount);
-		}		
+		}
 		
 		//Handles the case that this container contains n elements.
 		return new ReadContainer<E>();
@@ -461,7 +461,7 @@ public interface IContainer<E> extends Iterable<E> {
 			}
 		}
 		
-		return elementCount;		
+		return elementCount;
 	}
 	
 	//default method
@@ -603,7 +603,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the percentage of elements the given selector selects from the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
-	public default double getPercentage(final IElementTakerBooleanGetter<E> selector) {	
+	public default double getPercentage(final IElementTakerBooleanGetter<E> selector) {
 		return (100.0 * getRatio(selector));
 	}
 	
@@ -641,7 +641,7 @@ public interface IContainer<E> extends Iterable<E> {
 				}
 			
 			//Calculates and returns the range.
-			return (max - min);	
+			return (max - min);
 	}
 	
 	//default method
@@ -678,7 +678,7 @@ public interface IContainer<E> extends Iterable<E> {
 				}
 			
 			//Calculates and returns the range.
-			return (max - min);	
+			return (max - min);
 	}
 	
 	//default method
@@ -715,7 +715,7 @@ public interface IContainer<E> extends Iterable<E> {
 				}
 			
 			//Calculates and returns the range.
-			return (max - min);	
+			return (max - min);
 	}
 	
 	//default method
@@ -787,7 +787,7 @@ public interface IContainer<E> extends Iterable<E> {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public default <E2> E getRefByMax(final IElementTakerComparableGetter<E, E2> norm) {
 		
-		var element = getRefFirst();		
+		var element = getRefFirst();
 		var max = norm.getValue(element);
 		
 		//Iterates the current container.
@@ -999,7 +999,7 @@ public interface IContainer<E> extends Iterable<E> {
 			throw new EmptyStateException(this);
 		}
 
-		return iterator().next();	
+		return iterator().next();
 	}
 	
 	//default method
@@ -1498,7 +1498,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new array with the elements of the current {@link IContainer}.
 	 */
 	@SuppressWarnings("unchecked")
-	public default E[] toArray() {	
+	public default E[] toArray() {
 
 		//Creates array.
 		final var array = (E[])new Object[getSize()];
@@ -1532,7 +1532,7 @@ public interface IContainer<E> extends Iterable<E> {
 			i++;
 		}
 		
-		return array;	
+		return array;
 	}
 
 	//default method

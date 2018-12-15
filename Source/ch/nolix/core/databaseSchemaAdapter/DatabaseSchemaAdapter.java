@@ -108,7 +108,7 @@ implements
 	@Override
 	public final void saveChanges() {
 		
-		saveChangesToDatabase(mutatedEntitySetsInOrder);		
+		saveChangesToDatabase(mutatedEntitySetsInOrder);
 		
 		reset();
 	}
@@ -133,7 +133,7 @@ implements
 	}
 	
 	//package-visible method
-	final void noteMutatedEntitySet(final EntitySet entitySet) {		
+	final void noteMutatedEntitySet(final EntitySet entitySet) {
 		mutatedEntitySetsInOrder.addAtEndIfNotContained(entitySet);
 	}
 	

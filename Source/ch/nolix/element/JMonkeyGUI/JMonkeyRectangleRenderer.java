@@ -17,7 +17,7 @@ implements IJMonkeyShapeRenderer<Rectangle, Geometry> {
 
 	//method
 	@Override
-	public Geometry createRenderObject() {		
+	public Geometry createRenderObject() {
 		return new Geometry("Quad", new Quad(1.0f, 1.0f));
 	}
 
@@ -59,7 +59,7 @@ implements IJMonkeyShapeRenderer<Rectangle, Geometry> {
 			final var texture
 			= new Texture2D(new AWTLoader().load(rectangle.getDefaultTextureAsBufferedImage(), true));
 			
-			material.setTexture("ColorMap", texture);	
+			material.setTexture("ColorMap", texture);
 			
 			geometry.setMaterial(material);
 		}

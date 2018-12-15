@@ -70,7 +70,7 @@ implements IController, Specifiable<MU> {
 		
 		//Handles the case that the given command is a reset command.
 		if (header.equals(RESET)) {
-			reset(command.getRefAttributes());			
+			reset(command.getRefAttributes());
 			return;
 		}
 		

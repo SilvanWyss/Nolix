@@ -79,12 +79,12 @@ extends BackgroundWidgetLook<BWL> {
 	
 	//optional attributes
 	private NonNegativeInteger leftPadding;
-	private NonNegativeInteger rightPadding;	
-	private NonNegativeInteger topPadding;	
+	private NonNegativeInteger rightPadding;
+	private NonNegativeInteger topPadding;
 	private NonNegativeInteger bottomPadding;
 	
 	//optional attributes
-	private ScrollbarLook baseScrollbarLook;	
+	private ScrollbarLook baseScrollbarLook;
 	private ScrollbarLook hoverScrollbarLook;
 	private ScrollbarLook selectionScrollbarLook;
 	

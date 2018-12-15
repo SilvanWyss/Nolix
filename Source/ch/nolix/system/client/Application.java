@@ -201,7 +201,7 @@ public class Application<C extends Client<C>> extends NamedElement {
 		final var client_ = ((C)client);
 		
 		client_.setParentApplication(this);
-		final Session<C> initialSession = createInitialSession();		
+		final Session<C> initialSession = createInitialSession();
 		clients.addAtEnd(client_);
 		Sequencer.runInBackground(() -> client_.pushSession(initialSession));
 	}
@@ -242,7 +242,7 @@ public class Application<C extends Client<C>> extends NamedElement {
 		final Constructor<?> constructor = getRefInitialSessionClass().getDeclaredConstructors()[0];
 		constructor.setAccessible(true);
 		
-		try {	
+		try {
 			return (Session<C>)constructor.newInstance();
 		}
 		catch (Exception e) {

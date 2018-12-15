@@ -27,7 +27,7 @@ public final class Validator {
 	 */
 	public static <A> ExtendedArgumentMediator<A> suppose(final A argument) {
 		return new ExtendedArgumentMediator<A>(argument);
-	}	
+	}
 	
 	//static method
 	/**
@@ -189,7 +189,7 @@ public final class Validator {
 	 */
 	public static ExtendedContainerMediator<String> suppose(final String[] argument) {
 		return new ExtendedContainerMediator<String>(argument);
-	}	
+	}
 	
 	//static method
 	/**
@@ -236,7 +236,7 @@ public final class Validator {
 	 * @return a new multi double mediator for the given arguments.
 	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static MultiDoubleMediator supposeTheDoubles(final double... arguments) {		
+	public static MultiDoubleMediator supposeTheDoubles(final double... arguments) {
 		return new MultiDoubleMediator(arguments);
 	}
 	
@@ -276,7 +276,7 @@ public final class Validator {
 	 * @return a new multi long mediator for the given arguments.
 	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static MultiLongMediator supposeTheLongs(final long... arguments) {		
+	public static MultiLongMediator supposeTheLongs(final long... arguments) {
 		return new MultiLongMediator(arguments);
 	}
 	
@@ -296,7 +296,7 @@ public final class Validator {
 	 * @return a new multi string mediator for the given arguments.
 	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static MultiStringMediator supposeTheStrings(final String... arguments) {		
+	public static MultiStringMediator supposeTheStrings(final String... arguments) {
 		return new MultiStringMediator(arguments);
 	}
 	

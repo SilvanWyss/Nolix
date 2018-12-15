@@ -44,7 +44,7 @@ public abstract class Schema {
 	}
 	
 	//method
-	private void supposeDoesNotContainEntityType(final String name) {		
+	private void supposeDoesNotContainEntityType(final String name) {
 		if (containsEntityType(name)) {
 			throw
 			new InvalidStateException(

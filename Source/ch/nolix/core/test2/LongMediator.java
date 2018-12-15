@@ -134,7 +134,7 @@ public final class LongMediator extends Mediator {
 	/**
 	 * Generates an error if the value of this long mediator is not even.
 	 */
-	public void isEven() {		
+	public void isEven() {
 		if (value % 2 != 0) {
 			addCurrentTestCaseError("An even value was expected, but " + value + " was received.");
 		}
@@ -214,7 +214,7 @@ public final class LongMediator extends Mediator {
 	/**
 	 * Generates an error if the value of this long mediator is not odd.
 	 */
-	public void isOdd() {		
+	public void isOdd() {
 		if (value % 2 == 0) {
 			addCurrentTestCaseError("An odd value was expected, but " + value + " was received.");
 		}

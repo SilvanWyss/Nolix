@@ -93,7 +93,7 @@ implements Clearable<TabContainer> {
 				
 				//Calls method of the base class.
 				super.addOrChangeAttribute(attribute);
-		}	
+		}
 	}
 	
 	//method
@@ -357,7 +357,7 @@ implements Clearable<TabContainer> {
 			//Handles the case that the current tab container contains a selected tab.
 			if (containsSelectedTab()) {
 				getRefSelectedTab().unselect();
-			}			
+			}
 			
 			//Selects the given tab.
 			tab.select();

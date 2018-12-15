@@ -217,7 +217,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 				break;
 			case Protocol.SET_TITLE_COMMAND:
 				GUI.setTitle(command.getOneAttributeAsString());
-				break;			
+				break;
 		
 			//Handles console commands.
 			case Protocol.CLEAR_CONSOLE_COMMAND:

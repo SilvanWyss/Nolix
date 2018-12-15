@@ -36,7 +36,7 @@ public interface TypeRequestable {
 		 * ordered from the most concrete to the most general.
 		 */
 		Class<?> c = getClass();
-		while (c.getSuperclass() != null) {		
+		while (c.getSuperclass() != null) {
 				types.addAtEnd(c.getSimpleName());
 				c = c.getSuperclass();
 		}
@@ -88,7 +88,7 @@ public interface TypeRequestable {
 		 */ 
 			//Iterates the classes of this type requestable object.
 			Class<?> c = getClass();
-			while (c.getSuperclass() != null) {	
+			while (c.getSuperclass() != null) {
 				
 				//Handles the case that the current class is the given type or super type.
 				if (c.getSimpleName().equals(type)) {

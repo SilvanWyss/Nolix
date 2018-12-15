@@ -72,7 +72,7 @@ final class CloseController implements Closable {
 	public void close() {
 		
 		//Handles the case that the current close controller is alive.
-		if (isAlive()) {	
+		if (isAlive()) {
 			
 			//Sets the current {@link CoseController} as closed.
 			closed = true;

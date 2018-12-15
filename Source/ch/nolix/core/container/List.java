@@ -410,7 +410,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		//Handles the case that the current list contains any elements.
 		if (containsAny()) {
 			
-			var iterator = firstNode;		
+			var iterator = firstNode;
 			while (iterator.hasNextNode()) {
 				final var nextNode = iterator.getNextNode();
 				iterator.removeNextNode();
@@ -783,7 +783,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		}
 
 		var iterator = firstNode;
-		while (iterator.hasNextNode()) {	
+		while (iterator.hasNextNode()) {
 			
 			final ListNode<E> nextNode = iterator.getNextNode();
 			
@@ -1035,7 +1035,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		}
 		
 		//Calculates the length of the sub list.
-		final var length = (endIndex - startIndex) + 1;	
+		final var length = (endIndex - startIndex) + 1;
 		
 		//Handles the case when the sub list contains 1 element.
 		if (length == 1) {
@@ -1051,7 +1051,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 			final Comparable element2Value = norm.getValue(startNode.getNextNode().getElement());
 			if (element1Value.compareTo(element2Value) > 0) {
 				list.addAtEnd(startNode.getNextNode().getElement());
-				list.addAtEnd(startNode.getElement());					
+				list.addAtEnd(startNode.getElement());
 			}
 			else {
 				list.addAtEnd(startNode.getElement());
@@ -1065,10 +1065,10 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 			final var list = new List<E>();
 			final var middleIndex = startIndex + length / 2;
 			final var subList1 = getOrderedSubList(startIndex, middleIndex, norm);
-			final var subList2 = getOrderedSubList(middleIndex + 1, endIndex, norm);	
+			final var subList2 = getOrderedSubList(middleIndex + 1, endIndex, norm);
 			for (var i = 1; i <= length; i++) {
 				
-				if (subList1.isEmpty()) {					
+				if (subList1.isEmpty()) {
 					list.addAtEnd(subList2.getRefFirst());
 					subList2.removeFirst();
 				}
@@ -1084,7 +1084,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 						list.addAtEnd(subList2.getRefFirst());
 						subList2.removeFirst();
 					}
-					else {					
+					else {
 						list.addAtEnd(subList1.getRefFirst());
 						subList1.removeFirst();
 					}

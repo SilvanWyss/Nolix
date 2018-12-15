@@ -124,7 +124,7 @@ implements Clearable<AccordionTab> {
 		if (containsAny()) {
 			tabVerticalStack.removeWidget(widget);
 			widget = null;
-		}		
+		}
 		
 		return this;
 	}

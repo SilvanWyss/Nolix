@@ -99,8 +99,8 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 	//method
 	public EntitySet<E> deleteEntity(final E entity) {
 				
-		entity.setDeleted();		
-		loadedAndCreatedEntities.removeFirst(entity);		
+		entity.setDeleted();
+		loadedAndCreatedEntities.removeFirst(entity);
 		getParentDatabaseAdapter().noteMutatedEntity(entity);
 		
 		return this;
@@ -149,7 +149,7 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 					throw new InvalidStateException(e, "is not persisted");
 				}
 				
-				e.setParentEntitySet((EntitySet<Entity>)this);			
+				e.setParentEntitySet((EntitySet<Entity>)this);
 				newlyLoadedEntities.addAtEnd(e);
 			}
 		}

@@ -28,7 +28,7 @@ public final class InRangeArgumentException extends InvalidArgumentException {
 		final double argument,
 		final double min,
 		final double max
-	) {	
+	) {
 		//Calls constructor of the base class.
 		super(argument, "is in [" + min + ", " + max + "]");
 	}
@@ -69,7 +69,7 @@ public final class InRangeArgumentException extends InvalidArgumentException {
 		final long argument,
 		final long min,
 		final long max
-	) {	
+	) {
 		//Calls constructor of the base class.
 		super(argument, "is in [" + min + ", " + max + "]");
 	}

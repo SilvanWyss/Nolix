@@ -111,7 +111,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE> {
 	 * @return true if this optional namable element has the given name.
 	 */
 	@Override
-	public final boolean hasName(String name) {	
+	public final boolean hasName(String name) {
 		return OptionalNamable.super.hasName(name);
 	}
 	

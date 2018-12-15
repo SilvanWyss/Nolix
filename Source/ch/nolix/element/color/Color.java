@@ -52,7 +52,7 @@ public class Color extends Element<Color> {
 		
 		public static final int AQUAMARINE_INT = 0x7FFFD4;
 		public static final String AQUAMARINE_STRING = "Aquamarine";
-		public static final Color AQUAMARINE = new Color(AQUAMARINE_INT);		
+		public static final Color AQUAMARINE = new Color(AQUAMARINE_INT);
 		
 		public static final int AZURE_INT = 0xF0FFFF;
 		public static final String AZURE_STRING = "Azure";
@@ -672,7 +672,7 @@ public class Color extends Element<Color> {
 	private static void fillUpWebColorPairs() {
 		
 		//Handles the case that the web color pairs are not filled up already.
-		if (!webColorPairsAreFilledUp()) {		
+		if (!webColorPairsAreFilledUp()) {
 			try {
 				
 				//Iterates the declared fields of the color class.
@@ -711,7 +711,7 @@ public class Color extends Element<Color> {
 					//Handles the case that the current field declares a web color.
 					if (declaresWebColor(f)) {
 						webColors.addAtEnd((Color)f.get(null));
-					} 
+					}
 				}
 			}
 			catch (final IllegalArgumentException | IllegalAccessException exception) {
@@ -793,7 +793,7 @@ public class Color extends Element<Color> {
 	 */
 	private static boolean webColorsAreFilledUp() {
 		return webColors.containsAny();
-	}	
+	}
 	
 	//attributes
 	private short redValue;
@@ -883,7 +883,7 @@ public class Color extends Element<Color> {
 	 * @return the attributes of the current {@link Color}.
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {		
+	public List<DocumentNode> getAttributes() {
 		return new List<DocumentNode>(new DocumentNode(getStringValue()));
 	}
 	
@@ -930,7 +930,7 @@ public class Color extends Element<Color> {
 			string += String.format("%02X", alphaValue);
 		}
 		
-		return string;		
+		return string;
 	}
 	
 	//method
@@ -1268,7 +1268,7 @@ public class Color extends Element<Color> {
 				new InvalidArgumentException(
 					value,
 					"is no color name or color value"
-				);	
+				);
 			}
 			
 			//For a better performance, this implementation does not use all comfortable methods.

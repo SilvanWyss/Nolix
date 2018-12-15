@@ -51,7 +51,7 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	//constructor
 	public DatabaseAdapter(final Schema schema) {
 		
-		Validator.suppose(schema).isInstanceOf(Schema.class);		
+		Validator.suppose(schema).isInstanceOf(Schema.class);
 		
 		this.schema = schema;
 		
@@ -91,7 +91,7 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	
 	//method
 	@Override
-	public final DatabaseAdapter reset() {	
+	public final DatabaseAdapter reset() {
 		
 		entitySets.clear();
 		mutatedEntitiesInOrder.clear();

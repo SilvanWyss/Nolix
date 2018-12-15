@@ -191,7 +191,7 @@ public final class Grid extends Container<Grid, GridLook> {
 		final Widget<?, ?> widget
 	) {
 		expandTo(rowIndex, columnIndex);
-		cells.setAt(rowIndex, columnIndex, new GridCell(rowIndex, columnIndex, widget));	
+		cells.setAt(rowIndex, columnIndex, new GridCell(rowIndex, columnIndex, widget));
 		widget.setParentWidget(this);
 		
 		return this;
@@ -209,7 +209,7 @@ public final class Grid extends Container<Grid, GridLook> {
 		
 		getRefBaseLook()
 		.setLineType(GridLineType.InnerLines)
-		.setElementMargin(10);		
+		.setElementMargin(10);
 	}
 	
 	//method
@@ -253,7 +253,7 @@ public final class Grid extends Container<Grid, GridLook> {
 				if (outerLinesDefined) {
 					painter.paintFilledRectangle(contentAreaWidth, lineThickness);
 					y += lineThickness;
-				}			
+				}
 				
 				for (final var r : cells.getRows()) {
 					if (r.getRowIndex() < cells.getRowCount()) {
@@ -328,7 +328,7 @@ public final class Grid extends Container<Grid, GridLook> {
 							
 			y += getElementMargin();
 			
-			var x = 0;	
+			var x = 0;
 			
 			if (hasInnerAndOuterLines()) {
 				x += getLineThickness();

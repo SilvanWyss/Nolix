@@ -125,7 +125,7 @@ public final class DesignManager extends Module {
 			//Handles the case that the current design has the given name.
 			if (design.hasName(name)) {
 				return design;
-			}				
+			}
 		}
 		
 		throw new UnexistingAttributeException(this, "design with the name '" + name + "'.");
@@ -145,7 +145,7 @@ public final class DesignManager extends Module {
 			StandardConfiguration.createConfigurationFromFile(f.getAbsolutePath());
 			designNames.addAtEnd(design.getName());
 						
-		}	
+		}
 		
 		return new ReadContainer<>(designNames);
 	}

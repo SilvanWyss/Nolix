@@ -36,7 +36,7 @@ public class StringMediator extends ValueMediator<String> {
 	 * 
 	 * @param character
 	 */
-	public void contains(final char character) {		
+	public void contains(final char character) {
 		if (getRefValue() == null || !getRefValue().contains(String.valueOf(character))) {
 			addCurrentTestCaseError(
 				"A string that contains the character '" + character + "' was expected, but '" + getRefValue() + "' was received."
@@ -69,7 +69,7 @@ public class StringMediator extends ValueMediator<String> {
 	/**
 	 * Generates an error if the value of this string mediator is not empty.
 	 */
-	public void isEmpty() {		
+	public void isEmpty() {
 		if (getRefValue() == null || !getRefValue().isEmpty()) {
 			addCurrentTestCaseError(
 				"An empty string was expected, but '" + getRefValue() + "' was received."
@@ -81,7 +81,7 @@ public class StringMediator extends ValueMediator<String> {
 	/**
 	 * Generates an error if the value of this string mediator is empty.
 	 */
-	public void isNotEmpty() {		
+	public void isNotEmpty() {
 		if (getRefValue() == null || getRefValue().isEmpty()) {
 			addCurrentTestCaseError(
 				"An empty string was expected, but '" + getRefValue() + "' was received."

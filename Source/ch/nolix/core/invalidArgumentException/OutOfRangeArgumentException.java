@@ -28,7 +28,7 @@ public final class OutOfRangeArgumentException extends InvalidArgumentException 
 		final double argument,
 		final double min,
 		final double max
-	) {		
+	) {
 		//Calls constructor of the base class.
 		super(
 			argument,
@@ -76,7 +76,7 @@ public final class OutOfRangeArgumentException extends InvalidArgumentException 
 		final long argument,
 		final long min,
 		final long max
-	) {		
+	) {
 		//Calls constructor of the base class.
 		super(argument,	"is not in [" + min + ", " + max + "]");
 	}

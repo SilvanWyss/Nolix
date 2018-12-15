@@ -28,14 +28,14 @@ public abstract class StatisticalModel {
 	 */
 	public StatisticalModel( final int backStepsCount, final double[] inputValues) {
 		
-		Validator.suppose(inputValues).thatIsNamed("input values").isNotEmpty();		
+		Validator.suppose(inputValues).thatIsNamed("input values").isNotEmpty();
 		Validator.suppose(backStepsCount).thatIsNamed("back step count").isBetween(1, inputValues.length);
 		
 		//Sets the back steps count of this statistical model.
 		this.backStepCount = backStepsCount;
 		
 		//Sets the input values of this statistical model.
-		this.inputValues = inputValues.clone();	
+		this.inputValues = inputValues.clone();
 	}
 	
 	//method
@@ -75,7 +75,7 @@ public abstract class StatisticalModel {
 	}
 	
 	//method
-	public final int getIndexOfNextValue() {		
+	public final int getIndexOfNextValue() {
 		return (getInputValuesCount() + forecasts.getSize() + 1);
 	}
 	

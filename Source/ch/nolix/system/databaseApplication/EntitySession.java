@@ -32,7 +32,7 @@ public final class EntitySession extends HeaderedSession {
 		
 		super(entitySetName);
 		
-		this.entitySetName = entitySetName;			
+		this.entitySetName = entitySetName;
 		this.entityId = entityId;
 	}
 
@@ -218,7 +218,7 @@ public final class EntitySession extends HeaderedSession {
 		
 		final var entity = getRefEntity();
 		
-		for (final var p : entity.getRefProperties()) {	
+		for (final var p : entity.getRefProperties()) {
 			
 			switch (p.getPropertyKind()) {
 				case DATA:

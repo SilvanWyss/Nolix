@@ -48,21 +48,21 @@ final class FrameCloseListener implements WindowListener {
 	@Override
 	public void windowClosing(final WindowEvent windowEvent) {
 		frame.close();
-	}			
+	}
 
 	//method
 	@Override
-	public void windowDeactivated(final WindowEvent windowEvent) {}		
+	public void windowDeactivated(final WindowEvent windowEvent) {}
 
 	// method
 	@Override
-	public void windowDeiconified(final WindowEvent windowEvent) {}			
+	public void windowDeiconified(final WindowEvent windowEvent) {}
 
 	//method
 	@Override
-	public void windowIconified(final WindowEvent windowEvent) {}			
+	public void windowIconified(final WindowEvent windowEvent) {}
 
 	//method
 	@Override
-	public void windowOpened(final WindowEvent windowEvent) {}	
+	public void windowOpened(final WindowEvent windowEvent) {}
 }

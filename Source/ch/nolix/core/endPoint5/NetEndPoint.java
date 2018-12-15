@@ -245,7 +245,7 @@ public class NetEndPoint extends EndPoint {
 		//Enumerates the header of the given message.
 		switch (message.getHeader()) {
 			case Protocol.COMMANDS:			
-				message.getRefAttributes().forEach(a -> receiverController.run(a.toString()));	
+				message.getRefAttributes().forEach(a -> receiverController.run(a.toString()));
 				return Protocol.DONE;
 			case Protocol.DATA_REQUEST:
 				return (

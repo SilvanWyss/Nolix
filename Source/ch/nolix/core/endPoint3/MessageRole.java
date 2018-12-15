@@ -43,7 +43,7 @@ public enum MessageRole {
 				return ERROR_RESPONSE;
 			default:
 				throw new NonRepresentingArgumentException(prefix, MessageRole.class);
-		}	
+		}
 	}
 	
 	//method

@@ -57,7 +57,7 @@ implements Clearable<TabContainerTab> {
 	 */
 	public TabContainerTab() {
 		reset();
-		approveProperties();		
+		approveProperties();
 	}
 	
 	//constructor
@@ -214,7 +214,7 @@ implements Clearable<TabContainerTab> {
 	 * @return true if the current {@link TabContainerTab} is selected.
 	 */
 	public boolean isSelected() {
-		return selected;		
+		return selected;
 	}
 	
 	//method
@@ -279,7 +279,7 @@ implements Clearable<TabContainerTab> {
 	 */
 	public TabContainerTab unselect() {
 		
-		selected = false;		
+		selected = false;
 		getRefMenuItem().setNormal();
 		
 		return this;

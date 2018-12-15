@@ -27,7 +27,7 @@ implements MouseWheelListener {
 	@Override
 	public void mouseWheelMoved(
 		final MouseWheelEvent mouseWheelEvent
-	) {		
+	) {
 		frame.noteMouseWheelRotationSteps(
 			(int)mouseWheelEvent.getPreciseWheelRotation()
 		);

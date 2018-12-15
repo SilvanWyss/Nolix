@@ -60,7 +60,7 @@ final class JMonkeyPyramidRenderer implements IJMonkeyShapeRenderer<Pyramid, Geo
 			final var texture =
 			new Texture2D(new AWTLoader().load(pyramid.getDefaultTextureAsBufferedImage(), true));
 			
-			material.setTexture("ColorMap", texture);	
+			material.setTexture("ColorMap", texture);
 			
 			geometry.setMaterial(material);
 		}

@@ -26,7 +26,7 @@ implements MouseMotionListener {
 	//method
 	@Override
 	public void mouseMoved(final MouseEvent mouseEvent) {
-		frame.noteMouseMove();	
+		frame.noteMouseMove();
 	}
 
 	//method

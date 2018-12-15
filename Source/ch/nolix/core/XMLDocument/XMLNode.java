@@ -77,7 +77,7 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	//method
 	public XMLNode addChildNode(final XMLNode childNode) {
 		
-		supposeIsNotFrozen();		
+		supposeIsNotFrozen();
 		childNodes.addAtEnd(childNode);
 		
 		return this;
@@ -210,7 +210,7 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	@Override
 	public XMLNode setValue(final String value) {
 		
-		Validator.suppose(value).isNotEmpty();		
+		Validator.suppose(value).isNotEmpty();
 		supposeIsNotFrozen();
 		
 		this.value = value;
@@ -256,7 +256,7 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 		stringBuilder
 		.append('<')
 		.append(getName())
-		.append('>');		
+		.append('>');
 		
 		return stringBuilder.toString();
 	}
@@ -327,7 +327,7 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 		stringBuilder
 		.append("</")
 		.append(getName())
-		.append('>');		
+		.append('>');
 		
 		return stringBuilder.toString();
 	}

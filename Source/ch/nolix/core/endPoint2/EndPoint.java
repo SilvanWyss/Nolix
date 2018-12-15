@@ -113,7 +113,7 @@ implements ISender {
 	}
 	
 	protected void receive(final String message) {
-		getRefReceiver().receive(message);	
+		getRefReceiver().receive(message);
 	}
 	
 	//method

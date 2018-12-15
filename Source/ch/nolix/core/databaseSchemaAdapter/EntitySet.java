@@ -226,7 +226,7 @@ public final class EntitySet extends NamedElement {
 	}
 	
 	//method
-	private void addColumn(final String header, final PropertyoidType<?> propertyoidType) {		
+	private void addColumn(final String header, final PropertyoidType<?> propertyoidType) {
 		addColumn(new Column(this, header, propertyoidType));
 	}
 	
@@ -237,6 +237,6 @@ public final class EntitySet extends NamedElement {
 				this,
 				"contains a column with the header '" + header + "'"
 			);
-		}	
+		}
 	}
 }

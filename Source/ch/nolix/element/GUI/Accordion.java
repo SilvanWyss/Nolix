@@ -238,7 +238,7 @@ implements Clearable<Accordion> {
 	 */
 	@Override
 	public CursorIcon getContentAreaCursorIcon() {
-		return accordionVerticalStack.getCursorIcon();		
+		return accordionVerticalStack.getCursorIcon();
 	}
 	
 	//method
@@ -346,7 +346,7 @@ implements Clearable<Accordion> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {		
+	protected void applyUsableConfigurationWhenConfigurationIsReset() {
 		getRefBaseLook().setTabHeaderBackgroundColor(Color.LIGHT_GREY);
 	}
 	

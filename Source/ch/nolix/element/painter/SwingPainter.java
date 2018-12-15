@@ -78,7 +78,7 @@ public final class SwingPainter implements IPainter {
 		Validator
 		.suppose(ys)
 		.thatIsNamed("y-points")
-		.hasElementCount(xs.length);		
+		.hasElementCount(xs.length);
 		
 		graphics.fillPolygon(xs, ys, xs.length);
 	}
@@ -91,7 +91,7 @@ public final class SwingPainter implements IPainter {
 		final int width,
 		final int	height
 	) {
-		if (!hasColorGradient()) {			
+		if (!hasColorGradient()) {
 			graphics.fillRect(xPosition, yPosition, width, height);
 		}
 		else {
@@ -159,7 +159,7 @@ public final class SwingPainter implements IPainter {
 		final int xTranslation,
 		final int yTranslation
 	) {
-		graphics.translate(xTranslation, yTranslation);	
+		graphics.translate(xTranslation, yTranslation);
 	}
 	
 	//method

@@ -79,9 +79,9 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 			);
 		}
 		
-		final E element = array[nextElementIndex];		
+		final E element = array[nextElementIndex];
 		
-		nextElementIndex++;		
+		nextElementIndex++;
 		
 		return element;
 	}

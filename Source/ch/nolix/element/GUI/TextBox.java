@@ -35,7 +35,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	/**
 	 * Creates a new {@link TextBox}.
 	 */
-	public TextBox() {	
+	public TextBox() {
 		reset();
 		approveProperties();
 		applyUsableConfiguration();
@@ -47,7 +47,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 * 
 	 * @throws NullArgumentException if the given text is null.
 	 */
-	public TextBox(final String text) {	
+	public TextBox(final String text) {
 		reset();
 		approveProperties();
 		setText(text);
@@ -146,7 +146,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 			}
 			else {
 				
-				final var cursorXPositionOnContentArea = getCursorXPositionOnContentArea();			
+				final var cursorXPositionOnContentArea = getCursorXPositionOnContentArea();
 				final var font = createFont();
 				
 				if (cursorXPositionOnContentArea <= font.getSwingTextWidth(text.charAt(0)) / 2

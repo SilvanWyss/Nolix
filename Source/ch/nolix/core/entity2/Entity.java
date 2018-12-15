@@ -184,7 +184,7 @@ implements
 						//Checks if the current property is not null.
 						Validator.suppose(property).isInstanceOf(Property.class);
 						
-						properties.addAtEnd(property);		
+						properties.addAtEnd(property);
 					}
 					catch (
 						IllegalArgumentException

@@ -116,7 +116,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				
 				final var contentAreaWidth2 = getContentAreaWidth();
 				var y2 = 0;
-				for (final var w : getRefWidgets()) {			
+				for (final var w : getRefWidgets()) {
 					w.setPositionOnParent((contentAreaWidth2 - w.getWidth()) / 2, y2);
 					y2 += w.getHeight() + getActiveElementMargin();
 				}

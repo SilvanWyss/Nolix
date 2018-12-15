@@ -48,7 +48,7 @@ public abstract class Session<C extends Client<C>> {
 					if (
 						Character.isUpperCase(m.getName().charAt(0))
 						&& MethodHelper.allParametersOfMethodAreStrings(m)
-					) {	
+					) {
 						
 						if (m.getReturnType().equals(Void.TYPE)) {
 							
@@ -252,7 +252,7 @@ public abstract class Session<C extends Client<C>> {
 		//Checks if the current {@link Session} belongs to a client.
 		if (!belongsToClient()) {
 			throw new InvalidStateException(this, "does not belong to a client");
-		}	
+		}
 	}
 	
 	//method
@@ -264,6 +264,6 @@ public abstract class Session<C extends Client<C>> {
 		//Checks if the current {@link Session} does not belong to a client.
 		if (belongsToClient()) {
 			throw new InvalidStateException(this, "belongs to a client");
-		}	
+		}
 	}
 }

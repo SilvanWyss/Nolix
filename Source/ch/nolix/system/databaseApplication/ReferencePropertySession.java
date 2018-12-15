@@ -63,7 +63,7 @@ public final class ReferencePropertySession extends HeaderedSession {
 			referencesSelectionMenu.addItem((int)e.getId(), /*e.getParentEntitySet().getName() +*/ " " + e.getId());
 		}
 		
-		if (reference.referencesEntity()) {		
+		if (reference.referencesEntity()) {
 			referencesSelectionMenu.select((int)reference.getEntity().getId());
 		}
 		

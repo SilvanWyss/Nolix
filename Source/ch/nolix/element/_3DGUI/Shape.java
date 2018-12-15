@@ -203,7 +203,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 		//Sets the GUI of this shape.
 		this.GUI = GUI;
 		
-		getRefShapes().forEach(s -> s.setGUI(GUI));		
+		getRefShapes().forEach(s -> s.setGUI(GUI));
 		getRefShapes().forEach(s -> getRefShapeRenderManager().addSubRenderObject(s));
 		
 		return asConcreteType();

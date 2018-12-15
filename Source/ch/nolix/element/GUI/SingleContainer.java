@@ -117,7 +117,7 @@ implements Clearable<SingleContainer> {
 				}
 				
 				//Handles the case that the widget of the current single container is under the cursor.
-				return widget.getCursorIcon(); 
+				return widget.getCursorIcon();
 	}
 	
 	//method

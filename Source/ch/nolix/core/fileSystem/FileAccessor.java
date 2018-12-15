@@ -77,7 +77,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 	 * @param content
 	 * @throws RuntimeException if an error occurs.
 	 */
-	public void overwriteFile(final String content) {		
+	public void overwriteFile(final String content) {
 		try (final PrintWriter printWriter = new PrintWriter(getInternalAccessor())) {
 			printWriter.print(content.replace("\n", "\r\n"));
 			printWriter.flush();
@@ -94,7 +94,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 	 * @return the content of the file of this file accessor.
 	 * @throws RuntimeException if an error occurs.
 	 */
-	public String readFile() {		
+	public String readFile() {
 		return
 		new String(readFileToBytes())
 		.replace("\r", StringCatalogue.EMPTY_STRING);

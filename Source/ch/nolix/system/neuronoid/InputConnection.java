@@ -89,7 +89,7 @@ public final class InputConnection<O> {
 	 * @param inputNeuron
 	 * @return true if this input connection has the given input neuron.
 	 */
-	public boolean hasInputNeuron(final Neuronoid<?, ?, ?> inputNeuron) {	
+	public boolean hasInputNeuron(final Neuronoid<?, ?, ?> inputNeuron) {
 		return (this.inputNeuron == inputNeuron);
 	}
 	

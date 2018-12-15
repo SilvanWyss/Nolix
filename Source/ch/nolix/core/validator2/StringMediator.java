@@ -148,7 +148,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	public void isNotBlank() {
 		
 		//Checks if the argument of the current string mediator is not null or empty.
-		isNotEmpty();	
+		isNotEmpty();
 		
 		//Checks if the the argument of the current string mediator is not blank.
 		if (getRefArgument().isBlank()) {
@@ -168,7 +168,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	 * @throws InvalidArgumentException
 	 * if the given directory does not exist on the local machine or cannot be created on the local machine.
 	 */
-	public void specifiesProbableDirectoryOnLocalMachine(final String directory) {	
+	public void specifiesProbableDirectoryOnLocalMachine(final String directory) {
 		
 		//Checks if the argument of this string mediator is not null.
 		isInstance();

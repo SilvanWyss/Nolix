@@ -55,7 +55,7 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	public NonPositiveArgumentException(
 		final String argumentName,
 		final double argument
-	) {		
+	) {
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);
 	}
@@ -73,7 +73,7 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	public NonPositiveArgumentException(
 		final String argumentName,
 		final long argument
-	) {		
+	) {
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);
 	}

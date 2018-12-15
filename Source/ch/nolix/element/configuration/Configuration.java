@@ -84,7 +84,7 @@ implements Freezable<C> {
 	public final C addAttachingAttribute(final String attachingAttribute) {
 		
 		//Checks if this configuration is not frozen.
-		supposeNotFrozen();			
+		supposeNotFrozen();
 		
 		return addAttachingAttribute(new DocumentNode(attachingAttribute));
 	}
@@ -102,7 +102,7 @@ implements Freezable<C> {
 	public final C addAttachingAttribute(final String... attachingAttributes) {
 
 		//Checks if this configuration is not frozen.
-		supposeNotFrozen();		
+		supposeNotFrozen();
 		
 		//Iterates the given attaching attributes.
 		for (final String aa : attachingAttributes) {
@@ -544,7 +544,7 @@ implements Freezable<C> {
 	 * @param element
 	 * @return true if this configuration selects the given element.
 	 */
-	public final boolean selects(Configurable<?> element) {		
+	public final boolean selects(Configurable<?> element) {
 		
 		//Handles the case that this configuration has a selector type.
 		if (hasSelectorType() && !element.isOfType(getSelectorType())) {

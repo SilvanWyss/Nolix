@@ -60,7 +60,7 @@ public final class BackConsoleClientTutorial {
 			);
 			
 			getParentClient().writeLineToConsole("Enter your name.");
-			final String name = getParentClient().readLineFromConsole();			
+			final String name = getParentClient().readLineFromConsole();
 			getParentClient().writeLineToConsole("Hello " + name + ".");
 						
 			boolean answerIsValid = false;

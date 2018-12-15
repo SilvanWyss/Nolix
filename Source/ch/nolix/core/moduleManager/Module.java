@@ -49,7 +49,7 @@ implements Named {
 	/**
 	 * @return the directory of this module.
 	 */
-	public final String getDirectory() {	
+	public final String getDirectory() {
 		
 		final String directory = moduleManager.getDirectory() + "/" + getName();
 		

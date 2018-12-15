@@ -274,7 +274,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends Entity<WL> {
 		.thatIsNamed("base look")
 		.isInstance();
 		
-		setBaseEntity(baseLook);		
+		setBaseEntity(baseLook);
 	}
 	
 	//method

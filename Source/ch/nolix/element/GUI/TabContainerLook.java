@@ -113,7 +113,7 @@ extends BorderWidgetLook<TabContainerLook> {
 		
 		menuItemMargin.removeValue();
 		
-		return this;		
+		return this;
 	}
 	
 	//method
@@ -121,7 +121,7 @@ extends BorderWidgetLook<TabContainerLook> {
 		
 		menuMargin.removeValue();
 		
-		return this;		
+		return this;
 	}
 	
 	//method

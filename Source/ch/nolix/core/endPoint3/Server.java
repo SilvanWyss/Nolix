@@ -141,7 +141,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 		if (!hasArbitraryEndPointTaker()) {
 			endPointTaker
 			.getRefFirst(ept -> ept.hasName(endPoint.getTarget()))
-			.takeEndPoint(endPoint);			
+			.takeEndPoint(endPoint);
 		}
 		
 		//Handles the case that this server has an arbitrary end point taker.

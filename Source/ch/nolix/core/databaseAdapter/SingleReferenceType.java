@@ -11,5 +11,5 @@ extends ReferenceoidType<E>{
 	}
 
 	//method
-	public abstract boolean isOptional(); 
+	public abstract boolean isOptional();
 }

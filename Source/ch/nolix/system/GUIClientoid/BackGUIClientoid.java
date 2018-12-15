@@ -180,7 +180,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 				break;
 			case Protocol.GUI_HEADER:
 				runGUICommand(command.getRefNextStatement());
-				break;			
+				break;
 			case Protocol.SHOW_ERROR_MESSAGE_COMMAND:
 				internal_showErrorMessage(command.getOneAttributeAsString());
 				break;
@@ -317,7 +317,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 			+ "("
 			+ attributes
 			+ ")"
-		);	
+		);
 	}
 	
 	//method

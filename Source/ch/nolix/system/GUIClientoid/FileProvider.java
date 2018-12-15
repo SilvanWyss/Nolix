@@ -19,7 +19,7 @@ public final class FileProvider implements IFileProvider {
 		final IContainer<Integer> indexPathOnRootGUI
 	) {
 		
-		Validator.suppose(frontGUIClient).isInstanceOf(FrontGUIClient.class);		
+		Validator.suppose(frontGUIClient).isInstanceOf(FrontGUIClient.class);
 		Validator.suppose(indexPathOnRootGUI).isInstanceOf(IContainer.class);
 		
 		this.frontGUIClient = frontGUIClient;

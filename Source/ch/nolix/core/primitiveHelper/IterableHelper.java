@@ -32,7 +32,7 @@ public final class IterableHelper {
 		}
 		
 		return elementCount;
-	}	
+	}
 
 	//private constructor
 	/**

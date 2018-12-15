@@ -1238,7 +1238,7 @@ extends BackgroundWidget<BW, BWS> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final boolean viewAreaIsUnderCursor() {		
+	protected final boolean viewAreaIsUnderCursor() {
 		
 		//For a better performance, this implementation differs from the standard approach.	
 			final var cursorXPositionOnViewArea = getCursorXPositionOnViewArea();
@@ -1308,7 +1308,7 @@ extends BackgroundWidget<BW, BWS> {
 			case LeftTop:
 			case Left:
 			case LeftBottom:
-				return currentStructure.getRecursiveOrDefaultLeftPadding();	
+				return currentStructure.getRecursiveOrDefaultLeftPadding();
 			case Top:
 			case Center:
 			case Bottom:
@@ -1339,11 +1339,11 @@ extends BackgroundWidget<BW, BWS> {
 			case LeftTop:
 			case Top:
 			case RightTop:
-				return currentStructure.getRecursiveOrDefaultTopPadding();				
+				return currentStructure.getRecursiveOrDefaultTopPadding();
 			case Left:
 			case Center:
 			case Right:
-				return (getScrollAreaHeight() - getContentAreaHeight()) / 2;			
+				return (getScrollAreaHeight() - getContentAreaHeight()) / 2;
 			case LeftBottom:
 			case Bottom:
 			case RightBottom:
@@ -1889,7 +1889,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		//Handles the case that the current border widget has a vertical scrollbar.
 			final var cursorXPosition = getCursorXPosition();
-			final var cursorYPosition = getCursorYPosition();		
+			final var cursorYPosition = getCursorYPosition();
 			final var verticalScrollbarCursorXPosition = getVerticalScrollbarCursorXPosition();
 			final var verticalScrollbarCursorYPosition = getVerticalScrollbarCursorYPosition();
 			
@@ -1913,7 +1913,7 @@ extends BackgroundWidget<BW, BWS> {
 		
 		//Handles the case that the current border widget has a vertical scrollbar.
 			final var cursorXPosition = getCursorXPosition();
-			final var cursorYPosition = getCursorYPosition();		
+			final var cursorYPosition = getCursorYPosition();
 			final var verticalScrollbarCursorXPosition = getVerticalScrollbarCursorXPosition();
 			final var verticalScrollbarCursorYPosition = getVerticalScrollbarCursorYPosition();
 						

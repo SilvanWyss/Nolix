@@ -83,7 +83,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 				getArgumentName(),
 				getRefArgument(),
 				"does not implement " + interface_.getName()
-			);	
+			);
 		}
 	}
 	

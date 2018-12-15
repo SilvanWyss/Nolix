@@ -348,7 +348,7 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 	 * @param lines
  * @throws NullArgumentException if one of the given line is null.
 	 */
-	public BackConsoleClient writeLineToInfoPanel(final String... lines) { 
+	public BackConsoleClient writeLineToInfoPanel(final String... lines) {
 				
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINES_TO_INFO_PANEL_COMMAND

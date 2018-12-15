@@ -18,7 +18,7 @@ extends Session<BackConsoleClient> {
 	 * Clears the console
 	 * of the counterpart of the client of this console back client session.
 	 */
-	public final void clearConsole() {		
+	public final void clearConsole() {
 		getParentClient().clearConsole();
 	}
 	
@@ -27,7 +27,7 @@ extends Session<BackConsoleClient> {
 	 * Clears the info panel
 	 * of the counterpart of the client of this console back client session.
 	 */
-	public final void clearInfoPanel() {	
+	public final void clearInfoPanel() {
 		getParentClient().clearInfoPanel();
 	}
 	
@@ -36,7 +36,7 @@ extends Session<BackConsoleClient> {
 	 * Lets the counterpart of the client of this console back client session
 	 * open a file explorer.
 	 */
-	public final void openFileExplorer() {	
+	public final void openFileExplorer() {
 		getParentClient().openFileExplorer();
 	}
 	
@@ -83,7 +83,7 @@ extends Session<BackConsoleClient> {
 	 * 
 	 * @param title
 	 */
-	public final void setTitle(final String title) {	
+	public final void setTitle(final String title) {
 		getParentClient().setTitle(title);
 	}
 	
@@ -94,7 +94,7 @@ extends Session<BackConsoleClient> {
 	 * 
 	 * @param line
 	 */
-	public final void writeLineToConsole(final String line) {		
+	public final void writeLineToConsole(final String line) {
 		getParentClient().writeLineToConsole(line);
 	}
 	
@@ -105,7 +105,7 @@ extends Session<BackConsoleClient> {
 	 * 
 	 * @param lines
 	 */
-	public final void writeLineToConsole(final String... lines) {		
+	public final void writeLineToConsole(final String... lines) {
 		getParentClient().writeLineToConsole(lines);
 	}
 	
@@ -117,7 +117,7 @@ extends Session<BackConsoleClient> {
 	 * @param line
 	 * @return this console back client session.
 	 */
-	public final void writeLineToInfoPanel(final String line) {	
+	public final void writeLineToInfoPanel(final String line) {
 		getParentClient().writeLineToInfoPanel(line);
 	}
 	
@@ -128,7 +128,7 @@ extends Session<BackConsoleClient> {
 	 * 
 	 * @param lines
 	 */
-	public final void writeNextLineToInfoPanel(final String... lines) {		
+	public final void writeNextLineToInfoPanel(final String... lines) {
 		getParentClient().writeLineToInfoPanel(lines);
 	}
 }

@@ -50,7 +50,7 @@ public class MultiArgumentMediator<A> {
 	MultiArgumentMediator(final A[] arguments) {
 
 		//Calls other constructor.
-		this(ArrayHelper.createIterable(arguments));		
+		this(ArrayHelper.createIterable(arguments));
 	}
 	
 	//method

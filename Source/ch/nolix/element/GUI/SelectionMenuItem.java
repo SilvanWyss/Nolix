@@ -20,7 +20,7 @@ extends OptionalIdentifiedElement<SelectionMenuItem> {
 	public static SelectionMenuItem createFromSpecification(
 		final DocumentNodeoid specification
 	) {
-		return new SelectionMenuItem(specification);		
+		return new SelectionMenuItem(specification);
 	}
 	
 	//attribute
@@ -56,15 +56,15 @@ extends OptionalIdentifiedElement<SelectionMenuItem> {
 		
 		super(id);
 		
-		unselect();	
-		setText(text);		
+		unselect();
+		setText(text);
 		approveProperties();
 	}
 	
 	//constructor
 	private SelectionMenuItem(final DocumentNodeoid specification) {
 		unselect();
-		initializeProperties(specification);		
+		initializeProperties(specification);
 		approveProperties();
 	}
 	
@@ -111,7 +111,7 @@ extends OptionalIdentifiedElement<SelectionMenuItem> {
 	}
 	
 	//method
-	private void setSelectionFlag(final boolean selected) {		
+	private void setSelectionFlag(final boolean selected) {
 		if (!selected) {
 			unselect();
 		}
@@ -121,7 +121,7 @@ extends OptionalIdentifiedElement<SelectionMenuItem> {
 	}
 	
 	//method
-	private void setText(final String text) {	
+	private void setText(final String text) {
 		this.text.setValue(new NonEmptyText(text));
 		label.setText(text);
 	}

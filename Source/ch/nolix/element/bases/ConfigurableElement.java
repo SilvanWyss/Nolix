@@ -23,7 +23,7 @@ import ch.nolix.core.validator2.Validator;
  */
 public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>>
 extends OptionalNamableElement<CE>
-implements Configurable<CE>, OptionalTokenable<CE> {	
+implements Configurable<CE>, OptionalTokenable<CE> {
 	
 	//optional attribute
 	private String token;
@@ -43,7 +43,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 			default:
 				
 				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);	
+				super.addOrChangeAttribute(attribute);
 		}
 	}
 	
@@ -93,7 +93,7 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean hasToken(String token) {		
+	public final boolean hasToken(String token) {
 		return OptionalTokenable.super.hasToken(token);
 	}
 	

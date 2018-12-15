@@ -18,16 +18,16 @@ import ch.nolix.core.test2.Test;
 public final class SequencerTest extends Test {
 
 	//test case
-	public void testCase_runInBackground() {		
+	public void testCase_runInBackground() {
 				
 		//execution
 			final ResultFuture<Integer> resultFuture
 			= Sequencer.runInBackground(() -> 2 * 3 * 4 * 5);
 			
-			resultFuture.waitUntilFinished();		
+			resultFuture.waitUntilFinished();
 		
 		//verification
 		expect(resultFuture.isFinishedSuccessfully());
-		expect(resultFuture.getResult()).isEqualTo(120);		
+		expect(resultFuture.getResult()).isEqualTo(120);
 	}
 }

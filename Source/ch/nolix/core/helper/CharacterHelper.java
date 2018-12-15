@@ -70,7 +70,7 @@ public final class CharacterHelper {
 	 * @param character
 	 * @return true if the given character is a digit.
 	 */
-	public static boolean isDigit(final char character) {		
+	public static boolean isDigit(final char character) {
 		return (character >= 48 && character <= 57);
 	}
 	

@@ -36,13 +36,13 @@ public final class NetEndPointTest extends Test {
 		
 		//execution
 		final NetEndPoint netEndPoint
-		= new NetEndPoint(port, endPointTakerMock.getName());	
-		registerToClose(netEndPoint);	
+		= new NetEndPoint(port, endPointTakerMock.getName());
+		registerToClose(netEndPoint);
 		Thread.sleep(200);
 		
 		//verification
 		expect(endPointTakerMock.hasLastEndPoint());
-		expect(endPointTakerMock.getLastEndPoint().isAlive());	
+		expect(endPointTakerMock.getLastEndPoint().isAlive());
 	}
 	
 	//test case

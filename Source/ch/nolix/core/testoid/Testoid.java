@@ -50,9 +50,9 @@ public abstract class Testoid {
 		}
 		
 		long timeInMiliseconds = System.currentTimeMillis();
-		for (final Method m : testMethodArray) {				
+		for (final Method m : testMethodArray) {
 			long methodTimeInMiliseconds = System.currentTimeMillis();
-			try {		
+			try {
 				m.invoke(this, (Object[])new Class[0]);
 				methodTimeInMiliseconds = System.currentTimeMillis() - methodTimeInMiliseconds;
 				

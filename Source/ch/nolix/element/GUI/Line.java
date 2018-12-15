@@ -58,14 +58,14 @@ extends Widget<L, LineLook> {
 				break;
 			case PascalCaseNameCatalogue.THICKNESS:
 				setThickness(attribute.getOneAttributeAsInt());
-				break;	
+				break;
 			case Color.TYPE_NAME:
 				setColor(new Color(attribute.getOneAttributeAsString()));
 				break;
 			default:
 				
 				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);			
+				super.addOrChangeAttribute(attribute);
 		}
 	}
 	
@@ -83,7 +83,7 @@ extends Widget<L, LineLook> {
 	 * @return the attributes of this line.
 	 */
 	@Override
-	public final List<DocumentNode> getAttributes() {	
+	public final List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
 		final List<DocumentNode> attributes = super.getAttributes();

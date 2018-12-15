@@ -85,7 +85,7 @@ implements
 		
 		//Handles the case that the properties of this entity are not approved yet.
 		if (!propertiesAreApproved()) {
-			getRefProperties().forEach(p -> p.approve());	
+			getRefProperties().forEach(p -> p.approve());
 			propertiesAreApproved = true;
 		}
 	}
@@ -155,7 +155,7 @@ implements
 						//Checks if the current property is not null.
 						Validator.suppose(property).isInstanceOf(MutableProperty.class);
 						
-						properties.addAtEnd(property);		
+						properties.addAtEnd(property);
 					}
 					catch (final IllegalArgumentException | IllegalAccessException exception) {
 						throw new RuntimeException(exception);

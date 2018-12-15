@@ -55,7 +55,7 @@ public final class PositiveArgumentException extends InvalidArgumentException {
 	public PositiveArgumentException(
 		final String argumentName,
 		final double argument
-	) {		
+	) {
 		//Calls constructor of the base class.
 		super(
 			argumentName,

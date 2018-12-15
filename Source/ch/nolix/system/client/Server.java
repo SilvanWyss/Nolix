@@ -148,7 +148,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 		if (!containsDefaultApplication()) {
 			applications
 			.getRefFirst(a -> a.hasName(client.internal_getTarget()))
-			.takeClient(client);			
+			.takeClient(client);
 		}
 		
 		//Handles the case that this server has an arbitrary application.

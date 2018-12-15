@@ -27,7 +27,7 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	 * @param actualValue
 	 * @throws Error if the given actual value does not equal approximatively the given expected value
 	 */
-	protected final void expectApproximativeEquality(final ApproximativeEqualing expectedValue, final ApproximativeEqualing actualValue) { 
+	protected final void expectApproximativeEquality(final ApproximativeEqualing expectedValue, final ApproximativeEqualing actualValue) {
 		if (expectedValue != null && actualValue == null) {
 			new TestAccessor(this).addCurrentTestCaseError("Expected value is an object, but actual value is null.");
 		}
@@ -335,7 +335,7 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 		if (value <= 0) {
 			new TestAccessor(this).addCurrentTestCaseError("Positive value was expected, but " + value + " was received");
 		}
-	}	
+	}
 	
 	//method
 	/**
@@ -346,7 +346,7 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 		if (value <= 0) {
 			new TestAccessor(this).addCurrentTestCaseError("Positive value was expected, but " + value + " was received");
 		}
-	}	
+	}
 	
 	//method
 	/**

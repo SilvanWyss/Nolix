@@ -131,7 +131,7 @@ public final class CreateEntitySession extends HeaderedSession {
 	@SuppressWarnings({ "incomplete-switch" })
 	private void createEntity() {
 		
-		for (final var p : newEntity.getRefProperties()) {	
+		for (final var p : newEntity.getRefProperties()) {
 			
 			switch (p.getPropertyKind()) {
 				case DATA:

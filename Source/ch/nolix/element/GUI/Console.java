@@ -120,7 +120,7 @@ implements Clearable<Console> {
 	/**
 	 * Clears the edit line of this console.
 	 */
-	public void clearEditLine() {		
+	public void clearEditLine() {
 		editLine = StringCatalogue.EMPTY_STRING;
 		textCursorPosition = 0;
 	}
@@ -359,12 +359,12 @@ implements Clearable<Console> {
 	
 			//The following statement, that is actually unnecessary,
 			//makes that the current loop is not optimized away.
-			System.out.flush();			
+			System.out.flush();
 			
 			supposeGUIIsAlive();
 		}
 		
-		final char nextCharacter = getEditLine().charAt(0);	
+		final char nextCharacter = getEditLine().charAt(0);
 		writeLine(nextCharacter);
 		
 		return nextCharacter;
@@ -415,7 +415,7 @@ implements Clearable<Console> {
 	 * @return the next line of this console that is not empty.
 	 * 
 	 */
-	public String readNonEmptyLine() {		
+	public String readNonEmptyLine() {
 		while (true) {
 			
 			final String nextLine = readLine();
@@ -434,8 +434,8 @@ implements Clearable<Console> {
 	 * 
 	 * @return the next line that is written to this console as secret line.
 	 */
-	public String readSecretLine() {	
-		this.secretEditLine = StringCatalogue.EMPTY_STRING;	
+	public String readSecretLine() {
+		this.secretEditLine = StringCatalogue.EMPTY_STRING;
 		readLine();
 		final String secretLine = this.secretEditLine;
 		this.secretEditLine = null;
@@ -656,7 +656,7 @@ implements Clearable<Console> {
 		
 		if (isEmpty()) {
 			return font.getSwingTextWidth(getLinePrefix());
-		}		
+		}
 		
 		return
 		font.getSwingTextWidth(getLinePrefix())
@@ -676,7 +676,7 @@ implements Clearable<Console> {
 		final IPainter painter
 	) {
 		
-		final var textSize = widgetStructure.getRecursiveOrDefaultTextSize();	
+		final var textSize = widgetStructure.getRecursiveOrDefaultTextSize();
 		final var font = getFont();
 		
 		//Iterates the lines of this console.

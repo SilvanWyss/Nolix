@@ -88,7 +88,7 @@ public class _3DPoint extends Element<_3DPoint> {
 			Math.pow(getX() - point.getX(), 2) +
 			Math.pow(getY() - point.getY(), 2) +
 			Math.pow(getZ() - point.getZ(), 2)
-		);		
+		);
 	}
 	
 	//method

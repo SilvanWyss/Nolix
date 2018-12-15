@@ -24,7 +24,7 @@ final class JobRunner extends Thread {
 	//optional attributes
 	private final Integer maxRunCount;
 	private final IBooleanGetter condition;
-	private final Integer timeIntervalInMilliseconds;	
+	private final Integer timeIntervalInMilliseconds;
 	
 	//constructor
 	/**
@@ -339,7 +339,7 @@ final class JobRunner extends Thread {
 			
 			try {
 				finishedJobCount++;
-				job.run();				
+				job.run();
 				
 				//Handles the case that this job runner has a time interval.
 				if (hasTimeInterval()) {

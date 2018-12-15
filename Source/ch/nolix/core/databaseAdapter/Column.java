@@ -43,7 +43,7 @@ public final class Column<V> extends HeaderedElement implements Specified {
 				getHeader()
 			),
 			getPropertyType().getSpecification()
-		);		
+		);
 	}
 	
 	//method

@@ -57,7 +57,7 @@ extends ConfigurableElement<W> {
 	//attributes
 	private WidgetState state = WidgetState.Normal;
 	private CursorIcon customCursorIcon = CursorIcon.Arrow;
-	private boolean greyOutWhenDisabled = true;	
+	private boolean greyOutWhenDisabled = true;
 	
 	//attributes
 	private final WL baseLook = createWidgetLook();
@@ -99,7 +99,7 @@ extends ConfigurableElement<W> {
 	/**
 	 * Creates a new {@link Widget}.
 	 */
-	public Widget() {	
+	public Widget() {
 		getRefHoverLook().setBaseLook(getRefBaseLook());
 		getRefFocusLook().setBaseLook(getRefBaseLook());
 		getRefHoverFocusLook().setBaseLook(getRefFocusLook());
@@ -164,7 +164,7 @@ extends ConfigurableElement<W> {
 					//Calls method of the base class.
 					super.addOrChangeAttribute(attribute);
 				}
-		}				
+		}
 	}
 	
 	//method
@@ -236,7 +236,7 @@ extends ConfigurableElement<W> {
 	 */
 	public final W applyUsableConfiguration() {
 		
-		resetConfiguration();		
+		resetConfiguration();
 		applyUsableConfigurationWhenConfigurationIsReset();
 		
 		return asConcreteType();
@@ -332,7 +332,7 @@ extends ConfigurableElement<W> {
 					RIGHT_MOUSE_BUTTON_PRESS_COMMAND_HEADER,
 					rightMouseButtonPressCommand.toString()
 				)
-			);	
+			);
 		}
 		
 		//Handles the case that the current widget has a right mouse button release command.
@@ -683,7 +683,7 @@ extends ConfigurableElement<W> {
 			&& cursorYPosition >= 0
 			&& cursorXPosition < getWidth()
 			&& cursorYPosition < getHeight()
-		);		
+		);
 	}
 	
 	//abstract method
@@ -729,7 +729,7 @@ extends ConfigurableElement<W> {
 		if (isEnabled()) {
 			if (!isUnderCursor()) {
 				
-				if (isFocused()) {				
+				if (isFocused()) {
 					setNormal();
 				}
 				
@@ -1177,7 +1177,7 @@ extends ConfigurableElement<W> {
 	public void setParentCursorPosition(
 		int parentCursorXPosition,
 		int parentCursorYPosition
-	) {				
+	) {
 		this.cursorXPosition = parentCursorXPosition - getXPositionOnParent();
 		this.cursorYPosition = parentCursorYPosition - getYPositionOnParent();
 	}
@@ -1621,7 +1621,7 @@ extends ConfigurableElement<W> {
 		supposeHasLeftMouseButtonReleaseCommad();
 		
 		return leftMouseButtonReleaseCommand;
-	}	
+	}
 
 	//method
 	/**

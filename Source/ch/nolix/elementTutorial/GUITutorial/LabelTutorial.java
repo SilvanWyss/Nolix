@@ -25,7 +25,7 @@ public final class LabelTutorial {
 	public static void main(String[] args) {
 	
 		//Creates clock caption label.
-		final var clockCaptionLabel = new Label("Time:");	
+		final var clockCaptionLabel = new Label("Time:");
 		
 		//Sets the look of the clock caption label.
 		clockCaptionLabel

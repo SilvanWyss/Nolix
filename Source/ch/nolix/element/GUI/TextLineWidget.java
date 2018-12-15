@@ -136,7 +136,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	 * @return the current width of the content of this text line rectangle
 	 */
 	@Override
-	protected int getContentAreaWidth() {	
+	protected int getContentAreaWidth() {
 		return
 		new TextFormat(getRefCurrentLook()
 		.getRecursiveOrDefaultTextSize())
@@ -158,7 +158,7 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 		painter.paintText(
 			getText(),
 			createFont()
-		);	
+		);
 	}
 	
 	//method
