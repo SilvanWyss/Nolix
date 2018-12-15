@@ -31,7 +31,7 @@ public interface Valued<VA extends Valued<VA, V>, V> {
 	//default method
 	/**
 	 * @param value
-	 * @return  true if the current {@link Valued}
+	 * @return true if the current {@link Valued}
 	 * has a value that equals the given value.
 	 */
 	public default boolean hasEqualValue(final Object value) {

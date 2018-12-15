@@ -108,7 +108,7 @@ public abstract class SQLConnection {
 			
 			final var rows = new List<List<String>>();
 			
-			final var result =  connection.createStatement().executeQuery(SQLQuery);		
+			final var result = connection.createStatement().executeQuery(SQLQuery);		
 			final var columnCount = result.getMetaData().getColumnCount();
 			
 			while (result.next()) {

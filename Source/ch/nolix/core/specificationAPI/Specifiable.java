@@ -133,7 +133,7 @@ extends Resettable<S>, Specified {
 	
 	//default method
 	/**
-	 * Resets the  current {@link Specifiable} with the specification
+	 * Resets the current {@link Specifiable} with the specification
 	 * from the file with the given file path.
 	 * 
 	 * @param filePath

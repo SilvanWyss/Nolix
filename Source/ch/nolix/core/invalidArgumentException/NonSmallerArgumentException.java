@@ -19,7 +19,7 @@ public final class NonSmallerArgumentException extends InvalidArgumentException 
 	 * @param argument
 	 * @param limi
 	 */
-	public NonSmallerArgumentException(final double argument, final double  limit) {
+	public NonSmallerArgumentException(final double argument, final double limit) {
 		
 		//Calls constructor of the base class.
 		super(

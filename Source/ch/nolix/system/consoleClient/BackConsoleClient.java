@@ -305,7 +305,7 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 	 * 
 	 * @param lines
 	 * @return this console back client.
-     * @throws NullArgumentException if one of the given line is null.
+ * @throws NullArgumentException if one of the given line is null.
 	 */
 	public BackConsoleClient writeLineToConsole(final String... lines) {
 				
@@ -346,7 +346,7 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 	 * of the counterpart of this console back client.
 	 * 
 	 * @param lines
-     * @throws NullArgumentException if one of the given line is null.
+ * @throws NullArgumentException if one of the given line is null.
 	 */
 	public BackConsoleClient writeLineToInfoPanel(final String... lines) { 
 				

@@ -20,7 +20,7 @@ import ch.nolix.element.textFormat.Font;
  * Step 1: If the {@link WidgetLook} has a value for A,
  * 			getRecursiveOrDefaultA() must return thevalue.
  * Step 2: If the {@link WidgetLook} has a base look,
- * 			getRecursiveOrDefaultA()  must return getRecursiveOrDefaultA() of the base structure.
+ * 			getRecursiveOrDefaultA() must return getRecursiveOrDefaultA() of the base structure.
  * Step 3: getRecursiveOrDefaultA() must return the default value for A.
  * 
  * @author Silvan Wyss

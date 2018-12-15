@@ -113,7 +113,7 @@ public final class CreateEntitySession extends HeaderedSession {
 							.setName(referenceProperty.getHeader() + "LinkButton"),
 							new Button("Select")
 							.setLeftMouseButtonPressCommand(
-							   () -> openReferencePropertySession(referenceProperty.getHeader())
+							 () -> openReferencePropertySession(referenceProperty.getHeader())
 							)
 						)
 					);

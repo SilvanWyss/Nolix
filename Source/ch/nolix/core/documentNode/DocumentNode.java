@@ -309,9 +309,9 @@ implements ISmartObject<DocumentNode> {
 	 * @param header
 	 * @return the one attribute of the first attribute with the given header
 	 * @throws Exception if:
-	 *  -the current {@link DocumentNode} does not contain an attribute with the given header
-	 *  -the first attribute of the current {@link DocumentNode} with the given header
-	 *   does not contain an attribute or contains several attributes
+	 * -the current {@link DocumentNode} does not contain an attribute with the given header
+	 * -the first attribute of the current {@link DocumentNode} with the given header
+	 * does not contain an attribute or contains several attributes
 	 */
 	public DocumentNode getRefOneAttributeOfFirstAttribute(String header) {
 		return attributes.getRefFirst(a -> a.hasHeader(header)).getRefOneAttribute();
@@ -323,7 +323,7 @@ implements ISmartObject<DocumentNode> {
 	 * @return a string representation
 	 * of the one attribute of the first attribute with the given header of the current {@link DocumentNode}.
 	 */
-	public String getRefOneAttributeOfFirstAttributeAsString(String header)  {
+	public String getRefOneAttributeOfFirstAttributeAsString(String header) {
 		return getRefOneAttributeOfFirstAttribute(header).toString();
 	}
 	

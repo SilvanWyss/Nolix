@@ -160,7 +160,7 @@ public final class ListTest extends Test {
 		
 		//setup
 		final var list
-		= new List<String>("x",  "xx", "xx", "xx", "xx", "xx");
+		= new List<String>("x", "xx", "xx", "xx", "xx", "xx");
 		
 		//execution & verification
 		expect(list.containsOne(s -> s.length() == 1));

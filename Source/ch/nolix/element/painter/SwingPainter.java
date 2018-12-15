@@ -32,7 +32,7 @@ public final class SwingPainter implements IPainter {
 		
 		((Graphics2D)graphics).setRenderingHint(
 			RenderingHints.KEY_ANTIALIASING,
-            RenderingHints.VALUE_ANTIALIAS_ON
+ RenderingHints.VALUE_ANTIALIAS_ON
 		);
 	}
 	

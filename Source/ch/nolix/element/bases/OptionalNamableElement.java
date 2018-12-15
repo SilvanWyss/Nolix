@@ -26,7 +26,7 @@ import ch.nolix.element.core.NonEmptyText;
  * @param <ONE> The type of an optional namable element.
  */
 public abstract class OptionalNamableElement<ONE extends OptionalNamableElement<ONE>>
-extends MutableElement<ONE> implements OptionalNamable<ONE>  {
+extends MutableElement<ONE> implements OptionalNamable<ONE> {
 	
 	//optional attributes
 	private NonEmptyText name;

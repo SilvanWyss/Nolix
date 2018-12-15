@@ -21,9 +21,9 @@ import ch.nolix.element.painter.IPainter;
  * A border widget is a background widget that:
  * -Can have an individual border at each of its 4 sides.
  * -Can have a min size
- *  that has the effect that the content of the border widget is moved inside its borders.
+ * that has the effect that the content of the border widget is moved inside its borders.
  * -Can have a max size
- *  that has the effect that the border widget becomes scrollable.
+ * that has the effect that the border widget becomes scrollable.
  * 
  * A border widget consists of the following areas from outer to inner.
  * 1. widget area: Contains the probable shadows area and caption area.
@@ -1125,7 +1125,7 @@ extends BackgroundWidget<BW, BWS> {
 	
 	//method
 	/**
-	 * @return the  width of the current {@link BorderWidget} when it is not collapsed.
+	 * @return the width of the current {@link BorderWidget} when it is not collapsed.
 	 */
 	@Override
 	protected final int getWidthWhenNotCollapsed() {

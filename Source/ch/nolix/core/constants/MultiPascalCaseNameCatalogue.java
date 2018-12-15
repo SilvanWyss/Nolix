@@ -16,7 +16,7 @@ public final class MultiPascalCaseNameCatalogue {
 	
 	//private constructor
 	/**
-	 *  Avoids that an instance of the {@link MultiPascalCaseNameCatalogue} can be created.
+	 * Avoids that an instance of the {@link MultiPascalCaseNameCatalogue} can be created.
 	 */
 	private MultiPascalCaseNameCatalogue() {}
 }

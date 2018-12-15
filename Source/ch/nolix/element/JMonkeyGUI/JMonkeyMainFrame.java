@@ -53,10 +53,10 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		}
 	};
 	
-    //constructor
-    /**
-     * Creates a new JMonkey main frame.
-     */
+ //constructor
+ /**
+ * Creates a new JMonkey main frame.
+ */
 	public JMonkeyMainFrame() {
 		
 		//Adds shape classes to this JMonkey main frame.

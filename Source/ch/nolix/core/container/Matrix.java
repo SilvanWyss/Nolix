@@ -649,25 +649,25 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		
 		final var stringBuilder = new StringBuilder();
 		
-        //Iterates the rows of the current matrix.
-        for (var i = 0; i < getRowCount(); i++) {
-            
-        	if (i > 0) {
-        		stringBuilder.append(CharacterCatalogue.SEMICOLON);
-        	}
-        	
-            //Iterates the columns of the current row.
-            for (int j = 0; j < getColumnCount(); j++) {
-            	
-            	if (j > 0) {
-            		stringBuilder.append(CharacterCatalogue.COMMA);
-            	}
-            	
-                stringBuilder.append(elements[i][j].toString());
-            }
-        }
-        
-        return stringBuilder.toString();
+ //Iterates the rows of the current matrix.
+ for (var i = 0; i < getRowCount(); i++) {
+ 
+ 	if (i > 0) {
+ 		stringBuilder.append(CharacterCatalogue.SEMICOLON);
+ 	}
+ 	
+ //Iterates the columns of the current row.
+ for (int j = 0; j < getColumnCount(); j++) {
+ 	
+ 	if (j > 0) {
+ 		stringBuilder.append(CharacterCatalogue.COMMA);
+ 	}
+ 	
+ stringBuilder.append(elements[i][j].toString());
+ }
+ }
+ 
+ return stringBuilder.toString();
 	}
 	
 	//method

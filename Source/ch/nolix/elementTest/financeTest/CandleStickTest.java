@@ -22,7 +22,7 @@ public final class CandleStickTest extends Test {
 		//setup
 		final Candlestick candleStick
 		= new Candlestick(
-		   new Time(2020, 1, 1),
+		 new Time(2020, 1, 1),
 			100.0,
 			200.0,
 			50.0,
@@ -39,7 +39,7 @@ public final class CandleStickTest extends Test {
 		//setup
 		final Candlestick candleStick
 		= new Candlestick(
-		   new Time(2020, 1, 1),
+		 new Time(2020, 1, 1),
 			200.0,
 			100.0,
 			50.0,
@@ -56,7 +56,7 @@ public final class CandleStickTest extends Test {
 		//setup
 		final Candlestick candleStick
 		= new Candlestick(
-		   new Time(2020, 1, 1),
+		 new Time(2020, 1, 1),
 			100.0,
 			200.0,
 			50.0,
@@ -73,7 +73,7 @@ public final class CandleStickTest extends Test {
 		//setup
 		final Candlestick candleStick
 		= new Candlestick(
-		   new Time(2020, 1, 1),
+		 new Time(2020, 1, 1),
 			200.0,
 			100.0,
 			50.0,
@@ -90,7 +90,7 @@ public final class CandleStickTest extends Test {
 		//setup
 		final Candlestick candleStick
 		= new Candlestick(
-		   new Time(2020, 1, 1),
+		 new Time(2020, 1, 1),
 			200.0,
 			210.0,
 			100.0,

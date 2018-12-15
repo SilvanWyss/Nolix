@@ -77,7 +77,7 @@ public class ThrownExceptionMediator extends Mediator {
 			 * shorter implementation:
 			 * 
 			 * if (hasException()) {
-			 *   ...
+			 * ...
 			 * }
 			 */
 			if (exception != null) {
@@ -113,7 +113,7 @@ public class ThrownExceptionMediator extends Mediator {
 			 * shorter implementation:
 			 * 
 			 * if (hasException()) {
-			 *   ...
+			 * ...
 			 * }
 			 */
 			if (exception != null) {
@@ -154,7 +154,7 @@ public class ThrownExceptionMediator extends Mediator {
 			 * shorter implementation:
 			 * 
 			 * if (hasException()) {
-			 *   ...
+			 * ...
 			 * }
 			 */
 			if (exception != null) {
@@ -184,7 +184,7 @@ public class ThrownExceptionMediator extends Mediator {
 			 * shorter implementation:
 			 * 
 			 * if (!hasException()) {
-			 *   ...
+			 * ...
 			 * }
 			 */
 			if (exception == null) {

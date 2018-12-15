@@ -1088,7 +1088,7 @@ public class Matrix implements ApproximativeEqualing {
 			
 			for (int j = 0; j < getColumnCount(); j++) {
 				
-				line +=  DoubleHelper.toString(values[i][j]);
+				line += DoubleHelper.toString(values[i][j]);
 				
 				if (j < getColumnCount() - 1) {
 					line += ",";

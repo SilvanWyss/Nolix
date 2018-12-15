@@ -16,7 +16,7 @@ import ch.nolix.core.container.List;
  * @lines 90
  * @param <O> The type of the elements of the input and of the elements of the output of a fanout neuron.
  */
-public final class  FanoutNeuron<O>
+public final class FanoutNeuron<O>
 extends Neuronoid<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	
 	//limits

@@ -272,8 +272,8 @@ public class NetEndPoint extends EndPoint {
 	/**
 	 * Lets this net end point wait to the target.
 	 * 
-	 *  @throws RuntimeException if this net end point reaches the timeout before it receives the target.
-	 *  @throws InvalidArgumentException if this net end point is aborted.
+	 * @throws RuntimeException if this net end point reaches the timeout before it receives the target.
+	 * @throws InvalidArgumentException if this net end point is aborted.
 	 */
 	private void waitToTarget() {
 		

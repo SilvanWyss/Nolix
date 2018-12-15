@@ -90,7 +90,7 @@ public class InvalidArgumentException extends RuntimeException {
 			}
 			
 			/*
-			 * Handles the case that the length of the string representation is  bigger
+			 * Handles the case that the length of the string representation is bigger
 			 * than the maximum argument name length.
 			 */
 			return " '" + string.substring(0, 99) + CharacterCatalogue.ELLIPSIS + "' ";

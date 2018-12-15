@@ -159,8 +159,8 @@ public class Color extends Element<Color> {
 		public static final Color DARK_ORANGE = new Color(DARK_ORANGE_INT);
 		
 		public static final int DARK_ORCHID_INT = 0x9932CC;
-		public static final String  DARK_ORCHID_STRING = "DarkOrchid";
-		public static final Color  DARK_ORCHID = new Color( DARK_ORCHID_INT);
+		public static final String DARK_ORCHID_STRING = "DarkOrchid";
+		public static final Color DARK_ORCHID = new Color( DARK_ORCHID_INT);
 		
 		public static final int DARK_RED_INT = 0x8B0000;
 		public static final String DARK_RED_STRING = "DarkRed";
@@ -1200,7 +1200,7 @@ public class Color extends Element<Color> {
 		.thatIsNamed("green value")
 		.isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 		
-        this.greenValue = (short)greenValue;
+ this.greenValue = (short)greenValue;
 	}
 	
 	//method
@@ -1218,7 +1218,7 @@ public class Color extends Element<Color> {
 		.thatIsNamed("red value")
 		.isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 		
-        this.redValue = (short)redValue;
+ this.redValue = (short)redValue;
 	}
 	
 	//method

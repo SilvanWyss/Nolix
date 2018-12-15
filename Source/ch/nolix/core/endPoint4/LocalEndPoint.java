@@ -122,7 +122,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 		.isInstance();
 		
 		//Sets the counter part of this local end point.
-		this.counterpart  = counterpart;
+		this.counterpart = counterpart;
 		
 		//Checks if the given target is not null or empty.
 		Validator

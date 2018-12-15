@@ -168,7 +168,7 @@ extends Propertyoid<V> {
 	/**
 	 * Removes the value of this single property.
 	 * 
-	 * @return this  single property.
+	 * @return this single property.
 	 */
 	Propertyoid<V> clear() {
 		
@@ -190,7 +190,7 @@ extends Propertyoid<V> {
 			return new ReadContainer<V>();
 		}
 		
-		//Handles  the case that this single property is not empty.
+		//Handles the case that this single property is not empty.
 		return new ReadContainer<V>(getValue());
 	}
 	

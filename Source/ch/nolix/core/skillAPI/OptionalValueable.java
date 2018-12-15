@@ -24,7 +24,7 @@ extends Valueable<OV, V> {
 	//default method
 	/**
 	 * @param value
-	 * @return  true if the current {@link OptionalValueable}
+	 * @return true if the current {@link OptionalValueable}
 	 * has a value that equals the given value.
 	 */
 	@Override

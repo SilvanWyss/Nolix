@@ -38,7 +38,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	
 	//constructor
 	/**
-	 * Creates a new  {@link VerticalStack} with the given widgets
+	 * Creates a new {@link VerticalStack} with the given widgets
 	 * 
 	 * @param widgets
 	 * @throws NullArgumentException if one of the given widgets is null.

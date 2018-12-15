@@ -9,7 +9,7 @@ import ch.nolix.core.skillAPI.Tokened;
 
 //interface
 /**
- * A {@link Configurable} is a {@link Named}, {@link Specifiable} and {@link Tokened}  that:
+ * A {@link Configurable} is a {@link Named}, {@link Specifiable} and {@link Tokened} that:
  * -Has a type and super types.
  * -Can have a role.
  * -Can contain other {@link Configurable}.

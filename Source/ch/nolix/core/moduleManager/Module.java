@@ -11,12 +11,12 @@ import ch.nolix.core.validator2.Validator;
 //abstract class
 /**
  * A module is a level 3 controller that has:
- *  -a name
- *  -belongs to a central controller
- *  
- *  @author Silvan Wyss
- *  @month 2016-04
- *  @lines 80
+ * -a name
+ * -belongs to a central controller
+ * 
+ * @author Silvan Wyss
+ * @month 2016-04
+ * @lines 80
  */
 public abstract class Module
 implements Named {

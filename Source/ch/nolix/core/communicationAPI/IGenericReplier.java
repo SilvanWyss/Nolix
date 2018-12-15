@@ -11,7 +11,7 @@ package ch.nolix.core.communicationAPI;
  * @param <M> The type of the messages a {@link IGenericReplier} can reply to.
  * @param <R> The type of the replies a {@link IGenericReplier} can return.
  */
-public interface  IGenericReplier<M, R> {
+public interface IGenericReplier<M, R> {
 	
 	//abstract method
 	/**

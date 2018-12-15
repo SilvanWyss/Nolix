@@ -146,7 +146,7 @@ implements Clearable<Console> {
 		if (!editLine.isEmpty() && textCursorPosition > 0) {
 			
 			editLine
-			= editLine.substring(0, textCursorPosition  - 1) + getEditLineAfterTextCursor();
+			= editLine.substring(0, textCursorPosition - 1) + getEditLineAfterTextCursor();
 			
 			textCursorPosition--;
 		}

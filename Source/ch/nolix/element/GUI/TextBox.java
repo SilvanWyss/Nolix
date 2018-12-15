@@ -265,7 +265,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 */
 	private final void deleteCharacterBeforeTextCursor() {
 		if (!getText().isEmpty() && getTextCursorPosition() > 0) {
-			setText(getText().substring(0, textCursorPosition  - 1) + getText().substring(textCursorPosition));
+			setText(getText().substring(0, textCursorPosition - 1) + getText().substring(textCursorPosition));
 			textCursorPosition--;
 		}
 	}

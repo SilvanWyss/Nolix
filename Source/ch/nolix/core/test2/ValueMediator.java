@@ -92,7 +92,7 @@ public class ValueMediator<V> extends Mediator {
 	
 	//method
 	/**
-	 * Generates an error if the value of this value mediator  fulfils the given condition.
+	 * Generates an error if the value of this value mediator fulfils the given condition.
 	 * 
 	 * @param condition
 	 * @throws NullArgumentException if the given condition is null.

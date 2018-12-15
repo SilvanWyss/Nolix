@@ -31,9 +31,9 @@ implements IJMonkeyShapeRenderer<Cuboid, Geometry> {
 		
 		//Creates box.
 		final Box box = new Box(1, 1, 1);
-        
+ 
 		//Creates geometry.
-        final Geometry geometry = new Geometry("Box", box);
+ final Geometry geometry = new Geometry("Box", box);
 		
 		return geometry;
 	}

@@ -20,7 +20,7 @@ public final class NeuronTutorial {
 	//main method
 	/**
 	 * 1. Creates 3 source neurons and a target neuron.
-	 *    The output type of all neurons is a floating point number.
+	 * The output type of all neurons is a floating point number.
 	 * 2. Adds the source neurons as input neurons to the target neuron.
 	 * 3. Defines the output function of the target neuron.
 	 * 4. Fires the target neuron for that it calculates its output.

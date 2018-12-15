@@ -13,7 +13,7 @@ public interface ISender {
 	
 	//abstract method
 	/**
-	 * Lets the current  {@link Sender} send the given message.
+	 * Lets the current {@link Sender} send the given message.
 	 * 
 	 * @param message
 	 */

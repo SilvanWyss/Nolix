@@ -38,9 +38,9 @@ implements IJMonkeyShapeRenderer<Sphere, Geometry> {
 			material.setBoolean("UseMaterialColors", true);
 		
 		//Creates geometry.
-        final Geometry geometry = new Geometry("Box", sphere);
-        geometry.setMaterial(material);
-        
+ final Geometry geometry = new Geometry("Box", sphere);
+ geometry.setMaterial(material);
+ 
 		return geometry;
 	}
 

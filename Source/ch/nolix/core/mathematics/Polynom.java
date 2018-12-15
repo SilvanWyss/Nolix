@@ -24,7 +24,7 @@ public class Polynom {
 	/**
 	 * Creates a new polynom with the given degree.
 	 * The highest coefficient of the polynom will be 1.0, the resting coefficients will be 0.0.
-	 *  
+	 * 
 	 * @param degree
 	 * @throws NegaviteArgumentException if the given degree is negative.
 	 */

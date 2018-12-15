@@ -1240,7 +1240,7 @@ extends ConfigurableElement<W> {
 	 * 
 	 * @return the current {@link Widget}.
 	 */
-	public final W  setHoverFocused() {
+	public final W setHoverFocused() {
 		
 		state = WidgetState.HoverFocused;
 		

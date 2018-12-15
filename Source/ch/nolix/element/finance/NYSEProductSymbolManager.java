@@ -27,7 +27,7 @@ public final class NYSEProductSymbolManager {
 	public static final String BOEING = "BA";
 	public static final String BP = "BP";
 	public static final String CABOT_OIL_GAS_CORPORATION = "COG";
-	public static final String CHEVRON_CORPORATION  = "CVX";
+	public static final String CHEVRON_CORPORATION = "CVX";
 	public static final String CITYGROUP_INC = "C";
 	public static final String CREDIT_SUISSE_GROUP_AG = "CS";
 	public static final String EXXON_MOBILE_CORPORATION = "XOM";

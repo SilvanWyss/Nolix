@@ -13,7 +13,7 @@ import ch.nolix.core.sequencer.Sequencer;
  * A sequence pattern is a pattern for sequences.
  * -The sequences of a sequence pattern must have a defined length.
  * -The elements of the sequences of a sequence pattern
- *  must fulfil the according element conditions of the sequence pattern.
+ * must fulfil the according element conditions of the sequence pattern.
  * -The sequences of a sequence pattern must fulfil the sequence conditions of the sequence pattern.
  * 
  * @author Silvan Wyss

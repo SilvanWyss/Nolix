@@ -1267,7 +1267,7 @@ extends BackgroundWidgetLook<BWL> {
 	/**
 	 * @return true if the current {@link BorderWidgetLook} has the same border color at each side.
 	 */
-	private boolean hasSameBorderColorAtEachSide()  {
+	private boolean hasSameBorderColorAtEachSide() {
 		
 		//Handles the case that the current border widget look does not have a border color.
 		if (

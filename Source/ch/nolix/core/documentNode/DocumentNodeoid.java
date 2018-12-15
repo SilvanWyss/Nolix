@@ -738,7 +738,7 @@ public abstract class DocumentNodeoid implements Headered {
 				.append(CharacterCatalogue.NEW_LINE);
 				
 				//Iterates the attributes of the current specification.
-				final var attributeCount =  getAttributeCount();
+				final var attributeCount = getAttributeCount();
 				var index = 1;
 				for (final DocumentNodeoid a : getRefAttributes()) {
 					

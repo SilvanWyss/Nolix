@@ -59,122 +59,122 @@ extends WidgetLook<BWL> {
 		bi -> bi.getSpecification()
 	);
 	
-    //method
-    /**
-     * @return the recursive or default background color
-     * of the current {@link BackgroundWidgetLook}.
-     */
-    public final Color getRecursiveOrDefaultBackgroundColor() {
-        return backgroundColor.getRecursiveOrDefaultValue();
-    }
-    
-    //method
-    /**
-     * @return the recursive or default background color gradient
-     * of the current {@link BackgroundWidgetLook}.
-     */
-    public final ColorGradient getRecursiveOrDefaultBackgroundColorGradient() {
-        return backgroundColorGradient.getRecursiveOrDefaultValue();
-    }
-    
-    //method
-    /**
-     * @return the recursive or default background image
-     * of the current {@link BackgroundWidgetLook}.
-     */
-    public final Image getRecursiveOrDefaultBackgroundImage() {
-        return backgroundImage.getRecursiveOrDefaultValue();
-    }
-    
-    //method
-    /**
-     * @return true if the current {@link BackgroundWidgetLook}
-     * has a recursive background color.
-     */
-    public final boolean hasRecursiveBackgroundColor() {
-        return backgroundColor.hasRecursiveValue();
-    }
-    
-    //method
-    /**
-     * @return true if the current {@link BackgroundWidgetLook}
-     * has a recursive background color gradient.
-     */
-    public final boolean hasRecursiveBackgroundColorGradient() {
-        return backgroundColorGradient.hasRecursiveValue();
-    }
-    
-    //method
-    /**
-     * @return true if the current {@link BackgroundWidgetLook}
-     * has a recursive background image.
-     */
-    public final boolean hasRecursiveBackgroundImage() {
-    	return backgroundImage.hasRecursiveValue();
-    }
-    
-    //method
-    /**
-     * Removes any background of the current {@link BackgroundWidgetLook}.
-     * 
-     * @return the current {@link BackgroundWidgetLook}.
-     */
-    public final BWL removeAnyBackground() {
-    	
-    	backgroundColor.removeValue();
-    	backgroundColorGradient.removeValue();
-    	backgroundImage.removeValue();
-    	
-    	return asConcreteType();
-    }
-    
-    //method
-    /**
-     * Sets the background color of the current {@link BackgroundWidgetLook}.
-     * Removes any former background of the current {@link BackgroundWidgetLook}.
-     * 
-     * @param backgroundColor
-     * @return the current {@link BackgroundWidgetLook}.
-     * @throws NullArgumentException if the given background color is null.
-     */
-    public final BWL setBackgroundColor(final Color backgroundColor) {
-    	
-    	removeAnyBackground();
-    	this.backgroundColor.setValue(backgroundColor);
-    	
-    	return asConcreteType();
-    }
-    
-    //method
-    /**
-     * Sets the background color gradient of the current {@link BackgroundWidgetLook}.
-     * Removes any former background of the current {@link BackgroundWidgetLook}.
-     * 
-     * @param backgroundColorGradient
-     * @return the current {@link BackgroundWidgetLook}.
-     * @throws NullArgumentException if the given background color is null.
-     */
-    public final BWL setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
-    	
-    	removeAnyBackground();
-    	this.backgroundColorGradient.setValue(backgroundColorGradient);
-    	
-    	return asConcreteType();
-    }
-    
-    /**
-     * Sets the background image of the current {@link BackgroundWidgetLook}.
-     * Removes any former background of the current {@link BackgroundWidgetLook}.
-     * 
-     * @param backgroundImage
-     * @return the current {@link BackgroundWidgetLook}.
-     * @throws NullArgumentException if the given background image is null.
-     */
-    public final BWL setBackgroundImage(final Image backgroundImage) {
-    		
-    	removeAnyBackground();
-    	this.backgroundImage.setValue(backgroundImage);
-    	
-    	return asConcreteType();
-    }
+ //method
+ /**
+ * @return the recursive or default background color
+ * of the current {@link BackgroundWidgetLook}.
+ */
+ public final Color getRecursiveOrDefaultBackgroundColor() {
+ return backgroundColor.getRecursiveOrDefaultValue();
+ }
+ 
+ //method
+ /**
+ * @return the recursive or default background color gradient
+ * of the current {@link BackgroundWidgetLook}.
+ */
+ public final ColorGradient getRecursiveOrDefaultBackgroundColorGradient() {
+ return backgroundColorGradient.getRecursiveOrDefaultValue();
+ }
+ 
+ //method
+ /**
+ * @return the recursive or default background image
+ * of the current {@link BackgroundWidgetLook}.
+ */
+ public final Image getRecursiveOrDefaultBackgroundImage() {
+ return backgroundImage.getRecursiveOrDefaultValue();
+ }
+ 
+ //method
+ /**
+ * @return true if the current {@link BackgroundWidgetLook}
+ * has a recursive background color.
+ */
+ public final boolean hasRecursiveBackgroundColor() {
+ return backgroundColor.hasRecursiveValue();
+ }
+ 
+ //method
+ /**
+ * @return true if the current {@link BackgroundWidgetLook}
+ * has a recursive background color gradient.
+ */
+ public final boolean hasRecursiveBackgroundColorGradient() {
+ return backgroundColorGradient.hasRecursiveValue();
+ }
+ 
+ //method
+ /**
+ * @return true if the current {@link BackgroundWidgetLook}
+ * has a recursive background image.
+ */
+ public final boolean hasRecursiveBackgroundImage() {
+ 	return backgroundImage.hasRecursiveValue();
+ }
+ 
+ //method
+ /**
+ * Removes any background of the current {@link BackgroundWidgetLook}.
+ * 
+ * @return the current {@link BackgroundWidgetLook}.
+ */
+ public final BWL removeAnyBackground() {
+ 	
+ 	backgroundColor.removeValue();
+ 	backgroundColorGradient.removeValue();
+ 	backgroundImage.removeValue();
+ 	
+ 	return asConcreteType();
+ }
+ 
+ //method
+ /**
+ * Sets the background color of the current {@link BackgroundWidgetLook}.
+ * Removes any former background of the current {@link BackgroundWidgetLook}.
+ * 
+ * @param backgroundColor
+ * @return the current {@link BackgroundWidgetLook}.
+ * @throws NullArgumentException if the given background color is null.
+ */
+ public final BWL setBackgroundColor(final Color backgroundColor) {
+ 	
+ 	removeAnyBackground();
+ 	this.backgroundColor.setValue(backgroundColor);
+ 	
+ 	return asConcreteType();
+ }
+ 
+ //method
+ /**
+ * Sets the background color gradient of the current {@link BackgroundWidgetLook}.
+ * Removes any former background of the current {@link BackgroundWidgetLook}.
+ * 
+ * @param backgroundColorGradient
+ * @return the current {@link BackgroundWidgetLook}.
+ * @throws NullArgumentException if the given background color is null.
+ */
+ public final BWL setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
+ 	
+ 	removeAnyBackground();
+ 	this.backgroundColorGradient.setValue(backgroundColorGradient);
+ 	
+ 	return asConcreteType();
+ }
+ 
+ /**
+ * Sets the background image of the current {@link BackgroundWidgetLook}.
+ * Removes any former background of the current {@link BackgroundWidgetLook}.
+ * 
+ * @param backgroundImage
+ * @return the current {@link BackgroundWidgetLook}.
+ * @throws NullArgumentException if the given background image is null.
+ */
+ public final BWL setBackgroundImage(final Image backgroundImage) {
+ 		
+ 	removeAnyBackground();
+ 	this.backgroundImage.setValue(backgroundImage);
+ 	
+ 	return asConcreteType();
+ }
 }

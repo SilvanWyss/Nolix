@@ -46,7 +46,7 @@ extends Session<StandardClient> {
 	
 	//method
 	/**
-	 *  Runs the net front neuron of this net front neuron session.
+	 * Runs the net front neuron of this net front neuron session.
 	 */
 	public void Fire() {
 		frontNetNeuron.fire();
