@@ -5,9 +5,6 @@ package ch.nolix.coreTest.mathematicsTest;
 import java.util.Vector;
 
 //own imports
-
-
-//own imports
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.test2.Test;
 
