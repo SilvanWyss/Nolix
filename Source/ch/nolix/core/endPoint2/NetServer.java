@@ -30,10 +30,12 @@ public final class NetServer extends Server {
 	
 	//default value
 	private static final String DEFAULT_HTTP_MESSAGE =
-	"HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\n\r\n"
+	"HTTP/1.1 200 OK\r\n"
+	+ "Content-Type: text/html; charset=UTF-8\r\n"
+	+ "\r\n"
 	+ "<html>"
-	+ "<head><title>Nolix</title><style>h1{font-family: Calibri;}</style></head>"
-	+ "<body><h1>The requested server does not support web browsers.<h1></body>"
+	+ "<head><title>Nolix</title><style>*{font-family: Calibri;}</style></head>"
+	+ "<body><h1>Nolix</h1><h2>The requested server does not support web browsers.</h2></body>"
 	+ "</html>\r\n";
 	
 	//constructor
