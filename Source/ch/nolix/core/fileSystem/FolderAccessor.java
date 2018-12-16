@@ -17,7 +17,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 100
+ * @lines 120
  */
 public final class FolderAccessor extends FileSystemItemAccessor {
 
@@ -93,6 +93,18 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 */
 	public void deleteFileSystemItem(final String relativePath) {
 		new FileSystemAccessor(getPath()).deleteFileSystemItem(relativePath);
+	}
+	
+	//method
+	/**
+	 * @return new {@link FileAccessor}
+	 * for the files in the folder of the current {@link FolderAccessor}.
+	 */
+	public List<FileSystemItemAccessor> getFileAccessors() {
+		return
+		new ReadContainer<File>(new File(getPath()))
+		.getRefSelected(f -> f.isFile())
+		.to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));
 	}
 	
 	//method
