@@ -5,6 +5,7 @@ package ch.nolix.core.util;
 import java.io.IOException;
 
 //own imports
+import ch.nolix.core.constants.PortCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.validator2.Validator;
 
@@ -25,6 +26,32 @@ public final class ShellProvider {
 		catch (final IOException IOException) {
 			new RuntimeException(IOException);
 		}
+	}
+	
+	//static method
+	public static void startFirefox() {
+		run("start firefox");
+	}
+	
+	//static method
+	public static void startFirefox(final String url) {
+		startFirefox(url, PortCatalogue.DE_FACTO_HTTP_PORT);
+	}
+	
+	//static method
+	public static void startFirefox(final String url, final int port) {
+		
+		Validator
+		.suppose(url)
+		.thatIsNamed(VariableNameCatalogue.URL)
+		.isNotBlank();
+		
+		Validator
+		.suppose(port)
+		.thatIsNamed(VariableNameCatalogue.PORT)
+		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
+		
+		run("start firefox --url " + url + ":" + port);
 	}
 	
 	//private constructor
