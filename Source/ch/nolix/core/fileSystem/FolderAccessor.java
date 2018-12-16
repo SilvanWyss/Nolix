@@ -1,11 +1,14 @@
 //package declaration
 package ch.nolix.core.fileSystem;
 
-//Java import
+//Java imports
+import java.io.File;
 import java.io.IOException;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.container.List;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //class
@@ -14,7 +17,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 90
+ * @lines 100
  */
 public final class FolderAccessor extends FileSystemItemAccessor {
 
@@ -90,5 +93,16 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 */
 	public void deleteFileSystemItem(final String relativePath) {
 		new FileSystemAccessor(getPath()).deleteFileSystemItem(relativePath);
+	}
+	
+	//method
+	/**
+	 * @return new {@link FileSystemItemAccessor}
+	 * for the file system items in the folder of the current {@link FolderAccessor}.
+	 */
+	public List<FileSystemItemAccessor> getFileSystemItemAccessors() {
+		return
+		new ReadContainer<File>(new File(getPath()))
+		.to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));
 	}
 }
