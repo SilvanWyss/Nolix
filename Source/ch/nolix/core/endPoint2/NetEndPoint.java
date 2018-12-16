@@ -11,6 +11,7 @@ import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.core.constants.PortCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -28,6 +29,7 @@ public class NetEndPoint extends EndPoint {
 	
 	//attributes
 	private boolean receivedTargetInfo = false;
+	private boolean isBrowserEndPoint = false;
 	private final String HTTPMessage;
 	private final Socket socket;
 	private final PrintWriter printWriter;
@@ -208,31 +210,45 @@ public class NetEndPoint extends EndPoint {
 	@Override
 	protected void receive(final String message) {
 		
-		//Checks if this net end point is not stopped.
-		supposeIsAlive();
+		Validator
+		.suppose(message)
+		.thatIsNamed(VariableNameCatalogue.MESSAGE)
+		.isNotEmpty();
 		
 		//Enumerates the first character of the given message.
 		switch (message.charAt(0)) {
 			case 'M':
+				
+				supposeIsAlive();
 			
 				//Calls method of the base class.
 				super.receive(message.substring(1));
 				
 				break;
 			case 'N':
+				supposeIsAlive();
 				receivedTargetInfo = true;
 				break;
 			case 'T':
+				supposeIsAlive();
 				receivedTargetInfo = true;
 				setTarget(message.substring(1));
 				break;
 			case 'H':
+				isBrowserEndPoint = true;
 				send_internal(HTTPMessage);
 				receivedTargetInfo = true;
 				close();
 				break;
 			default:
-				throw new InvalidArgumentException(VariableNameCatalogue.MESSAGE, message);
+				
+				if (!isBrowserEndPoint) {
+					Sequencer.waitForASecond();
+				}
+				
+				if (!isBrowserEndPoint) {
+					throw new InvalidArgumentException(VariableNameCatalogue.MESSAGE, message);
+				}
 		}
 	}
 	
@@ -288,6 +304,10 @@ public class NetEndPoint extends EndPoint {
 			//This statement, that is actually unnecessary,
 			//makes that the current loop is not optimized away.
 			System.out.flush();
+			
+			if (isBrowserEndPoint) {
+				return;
+			}
 			
 			if (System.currentTimeMillis() - startTimeInMilliseconds > 5000) {
 				throw new RuntimeException("Zeta end point reached timeout while waiting to target application.");
