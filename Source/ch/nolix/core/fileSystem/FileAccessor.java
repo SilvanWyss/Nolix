@@ -17,7 +17,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 120
+ * @lines 110
  */
 public final class FileAccessor extends FileSystemItemAccessor {
 	

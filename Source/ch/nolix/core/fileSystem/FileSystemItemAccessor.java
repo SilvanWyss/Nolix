@@ -15,7 +15,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 100
+ * @lines 130
  */
 public class FileSystemItemAccessor {
 
@@ -44,7 +44,31 @@ public class FileSystemItemAccessor {
 			);
 		}
 	}
-
+	
+	//method
+	/**
+	 * @return the extension of the name of the file system item
+	 * of the current {@link FileSystemItemAccessor}.
+	 */
+	public final String getExtension() {
+		
+		final var array = getName().split(".");
+		
+		return array[array.length - 1];
+	}
+	
+	//method
+	/**
+	 * @return the name of the file system item
+	 * of the current {@link FileSystemItemAccessor}.
+	 */
+	public final String getName() {
+		
+		final var array = getPath().split("/");
+		
+		return array[array.length - 1];
+	}
+	
 	//method
 	/**
 	 * @return a new folder accessor to the parent folder
@@ -60,6 +84,16 @@ public class FileSystemItemAccessor {
 	 */
 	public final String getPath() {
 		return internalAccessor.getAbsolutePath();
+	}
+	
+	//method
+	/**
+	 * @param extension
+	 * @return true if the file system item of the current {@link FileSystemItemAccessor}
+	 * has the given extension.
+	 */
+	public final boolean hasExtension(final String extension) {
+		return getExtension().equals(extension);
 	}
 	
 	//method
