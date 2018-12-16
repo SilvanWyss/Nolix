@@ -17,10 +17,10 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 120
+ * @lines 160
  */
 public final class FolderAccessor extends FileSystemItemAccessor {
-
+	
 	//constructor
 	/**
 	 * Creates a new folder accessor for the folder with the given folder path.
@@ -30,7 +30,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 * in the file system on the local machine.
 	 */
 	public FolderAccessor(final String folderPath) {
-
+		
 		//Calls constructor of the base class.
 		super(folderPath);
 		
@@ -105,6 +105,53 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 		new ReadContainer<File>(new File(getPath()))
 		.getRefSelected(f -> f.isFile())
 		.to(f -> new FileAccessor(f.getAbsolutePath()));
+	}
+	
+	//method
+	/**
+	 * @param extension
+	 * @return new {@link FileAccessor}
+	 * for the files in the folder of the current {@link FolderAccessor},
+	 * that have the given extension.
+	 */
+	public List<FileAccessor> getFileAccessors(final String extension) {
+		return
+		getFileAccessors()
+		.getRefSelected(fa -> fa.hasExtension(extension));
+	}
+	
+	//method
+	/**
+	 * @param extension
+	 * @return new {@link FileAccessor}
+	 * for the files in the folder of the current {@link FolderAccessor},
+	 * that have the given extension, recursively.
+	 */
+	public List<FileAccessor> getFileAccessorsRecursively(final String extension) {
+		return
+		getFileAccessorsRecursively()
+		.getRefSelected(fa -> fa.hasExtension(extension));
+	}
+	
+	//method
+	/**
+	 * @return new {@link FileAccessor}
+	 * for the files in the folder of the current {@link FolderAccessor} recursively.
+	 */
+	public List<FileAccessor> getFileAccessorsRecursively() {
+		
+		final var fileAccessors = new List<FileAccessor>();
+		
+		for (final var f : new File(getPath()).listFiles()) {
+			if (f.isFile()) {
+				fileAccessors.addAtEnd(new FileAccessor(f.getPath()));
+			}
+			else {
+				fileAccessors.addAtEnd(new FolderAccessor(f.getPath()).getFileAccessorsRecursively());
+			}
+		}
+		
+		return fileAccessors;
 	}
 	
 	//method
