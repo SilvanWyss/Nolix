@@ -100,11 +100,11 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 * @return new {@link FileAccessor}
 	 * for the files in the folder of the current {@link FolderAccessor}.
 	 */
-	public List<FileSystemItemAccessor> getFileAccessors() {
+	public List<FileAccessor> getFileAccessors() {
 		return
 		new ReadContainer<File>(new File(getPath()))
 		.getRefSelected(f -> f.isFile())
-		.to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));
+		.to(f -> new FileAccessor(f.getAbsolutePath()));
 	}
 	
 	//method
