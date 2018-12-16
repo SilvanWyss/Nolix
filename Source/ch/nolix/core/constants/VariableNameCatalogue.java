@@ -7,7 +7,7 @@ package ch.nolix.core.constants;
  * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 120
+ * @lines 130
  */
 public final class VariableNameCatalogue {
 	
@@ -76,6 +76,7 @@ public final class VariableNameCatalogue {
 	public static final String OUTPUT_FUNCTION = "output function";
 	public static final String PATH = "path";
 	public static final String PERCENTAGE = "percentage";
+	public static final String PORT = "port";
 	public static final String PRICE = "price";
 	public static final String RADIUS = "radius";
 	public static final String REASON = "reason";
@@ -114,6 +115,7 @@ public final class VariableNameCatalogue {
 	public static final String TOKEN = "token";
 	public static final String TRANSFORMATOR = "transformator";
 	public static final String TYPE = "type";
+	public static final String URL = "URL";
 	public static final String VALUE = "value";
 	public static final String VALUE_TYPE = "value type";
 	public static final String WEIGHT = "weight";
