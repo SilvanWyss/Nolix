@@ -17,6 +17,7 @@ public final class PortCatalogue {
 	public static final int SMTP_PORT = 25;
 	public static final int HTTP_PORT = 80;
 	public static final int HTTPS_PORT = 443;
+	public static final int DE_FACTO_HTTP_PORT = 8080;
 	public static final int MAX_PORT = 65535;
 	
 	//private constructor
