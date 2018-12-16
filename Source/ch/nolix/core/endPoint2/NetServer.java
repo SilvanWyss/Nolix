@@ -16,9 +16,12 @@ import ch.nolix.core.validator2.Validator;
 * 
 * @author Silvan Wyss
 * @month 2015-12
-* @lines 130
+* @lines 160
 */
 public final class NetServer extends Server {
+	
+	//default value
+	public static final int DEFAULT_PORT = PortCatalogue.DE_FACTO_HTTP_PORT;
 	
 	//attributes
 	private final int port;
@@ -29,9 +32,20 @@ public final class NetServer extends Server {
 	private static final String DEFAULT_HTTP_MESSAGE =
 	"HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\n\r\n"
 	+ "<html>"
-	+ "<head><title>Nolix</title><style>h1{font-family: Calibry;}</style></head>"
+	+ "<head><title>Nolix</title><style>h1{font-family: Calibri;}</style></head>"
 	+ "<body><h1>The requested server does not support web browsers.<h1></body>"
 	+ "</html>\r\n";
+	
+	//constructor
+	/**
+	 * Creates a new {@link NetServer}
+	 * that will listen to {@link NetEndPoint} on the default port.
+	 */
+	public NetServer() {
+		
+		//Calls other constructor.
+		this(DEFAULT_PORT, DEFAULT_HTTP_MESSAGE);
+	}
 	
 	//constructor
 	/**
@@ -90,6 +104,22 @@ public final class NetServer extends Server {
 		
 		//Creates a net server sub listener for the current net server.
 		new NetServerSubListener(this);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link NetServer}
+	 * that will listen to {@link NetEndPoint} on the default port.
+	 * 
+	 * When a web browser connects to the {@link NetServer},
+	 * the {@link NetServer} will send the given HTTP message and close the connection.
+	 * 
+	 * @param HTTPMessage
+	 */
+	public NetServer(final String HTTPMessage) {
+		
+		//Calls other constructor.
+		this(DEFAULT_PORT, HTTPMessage);
 	}
 	
 	//method
