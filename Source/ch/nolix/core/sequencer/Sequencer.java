@@ -3,9 +3,11 @@ package ch.nolix.core.sequencer;
 
 //own imports
 import ch.nolix.core.constants.TimeUnitCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IBooleanGetter;
 import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.core.functionAPI.IFunction;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
@@ -14,7 +16,7 @@ import ch.nolix.core.functionAPI.IFunction;
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 150
+ * @lines 180
  */
 public final class Sequencer {
 
@@ -64,6 +66,27 @@ public final class Sequencer {
 	 */
 	public static ForCountMediator forCount(final int maxRunCount) {
 		return new ForCountMediator(maxRunCount);
+	}
+	
+	//static method
+	/**
+	 * Runs the given job forever catching any error.
+	 * 
+	 * @param job
+	 * @throws NullArgumentException if the given result job is null.
+	 */
+	public static void runForeverCatchingAnyError(final IFunction job) {
+		
+		//Checks if the given job is not null.
+		Validator.suppose(job).thatIsNamed(VariableNameCatalogue.JOB).isInstance();
+		
+		//infinite loop
+		while (true) {
+			try {
+				job.run();
+			}
+			catch (final Throwable error) {}
+		}
 	}
 	
 	//static method
