@@ -65,6 +65,7 @@ public final class VariableNameCatalogue {
 	public static final String INDEX = "index";
 	public static final String INTERFACE = "interface";
 	public static final String ITEM = "item";
+	public static final String JOB = "job";
 	public static final String LENGTH = "length";
 	public static final String LETTER = "letter";
 	public static final String MAXIMUM = "maximum";
