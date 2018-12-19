@@ -11,19 +11,19 @@ import ch.nolix.core.validator2.Validator;
 
 //class
 /**
- * This class provides methods to control program flows.
- * Of this class no instance can be created.
+ * The {@link Sequencer} provides methods for flow control.
+ * Of the {@link Sequencer} no instance can be created.
  * 
  * @author Silvan Wyss
  * @month 2016-05
  * @lines 180
  */
 public final class Sequencer {
-
+	
 	//static method
 	/**
 	 * @param timeIntervalInMilliseconds
-	 * @return a new after all mediator with the given time interval in milliseconds.
+	 * @return a new {@link AfterAllMediator} with the given time interval in milliseconds.
 	 * @throws NegativeArgumentException if the given time interval in milliseconds is negative.
 	 */
 	public static AfterAllMediator afterAllMilliseconds(final int timeIntervalInMilliseconds) {
@@ -32,7 +32,7 @@ public final class Sequencer {
 	
 	//static method
 	/**
-	 * @return a new after all mediator with 1 second as time interval.
+	 * @return a new {@link AfterAllMediator} with 1 second as time interval.
 	 */
 	public static AfterAllMediator afterAllSeconds() {
 		return new AfterAllMediator(TimeUnitCatalogue.MILLISECONDS_PER_SECOND);
@@ -41,7 +41,7 @@ public final class Sequencer {
 	//static method
 	/**
 	 * @param timeIntervalInSeconds
-	 * @return a new after all mediator with the given time interval in seconds.
+	 * @return a new {@link AfterAllMediator} with the given time interval in seconds.
 	 * @throws NegativeArgumentException if the given time interval in milliseconds is negative.
 	 */
 	public static AfterAllMediator afterAllSeconds(final int timeIntervalInSeconds) {
@@ -51,7 +51,7 @@ public final class Sequencer {
 	//static method
 	/**
 	 * @param condition
-	 * @return a new as long as mediator with the given condition.
+	 * @return a new {@link AsLongAsMediator} with the given condition.
 	 * @throws NullArgumentException if the given condition is null.
 	 */
 	public static AsLongAsMediator asLongAs(final IBooleanGetter condition) {
@@ -61,7 +61,7 @@ public final class Sequencer {
 	//static method
 	/**
 	 * @param maxRunCount
-	 * @return a new for count mediator with the given max run count.
+	 * @return a new {@link ForCountMediator} with the given max run count.
 	 * @throws NegativeArgumentException if the given max run count is negative.
 	 */
 	public static ForCountMediator forCount(final int maxRunCount) {
@@ -94,7 +94,7 @@ public final class Sequencer {
 	 * Runs the given job in background.
 	 * 
 	 * @param job
-	 * @return a new future.
+	 * @return a new {@link Future}.
 	 * @throws NullArgumentException if the given job is null.
 	 */
 	public static Future runInBackground(final IFunction job) {
@@ -107,7 +107,7 @@ public final class Sequencer {
 	 * A result job is a job that returns a result.
 	 * 
 	 * @param resultJob
-	 * @return a new result future.
+	 * @return a new {@link ResultFuture}.
 	 * @throws NullArgumentException if the given result job is null.
 	 */
 	public static <R> ResultFuture<R> runInBackground(final IElementGetter<R> resultJob) {
@@ -119,8 +119,13 @@ public final class Sequencer {
 	 * Waits as long as the given condition is fulfilled.
 	 * 
 	 * @param condition
+	 * @throws NullArgumentException if the given condition is null.
 	 */
 	public static void waitAsLongAs(final IBooleanGetter condition) {
+		
+		//Checks if the given condition is not null.
+		Validator.suppose(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isInstance();
+				
 		int i = 1;
 		while (condition.getOutput()) {
 			
@@ -169,6 +174,7 @@ public final class Sequencer {
 	 * Waits until the given condition is fulfilled.
 	 * 
 	 * @param condition
+	 * @throws NullArgumentException if the given condition is null.
 	 */
 	public static void waitUntil(final IBooleanGetter condition) {
 		waitAsLongAs(() -> !condition.getOutput());
@@ -176,7 +182,7 @@ public final class Sequencer {
 
 	//private constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Avoids that an instance of the {@link Sequencer} can be created.
 	 */
 	private Sequencer() {}
 }
