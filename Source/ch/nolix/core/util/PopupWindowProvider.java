@@ -41,17 +41,17 @@ public final class PopupWindowProvider {
 	
 	//static method
 	/**
-	 * Shows an exception window with the given exception.
+	 * Shows an error window for the given error.
 	 * 
-	 * @param exception
+	 * @param error
 	 */
-	public static void showExceptionWindow(final Exception exception) {
+	public static void showErrorWindow(final Throwable error) {
 		
 		String title;
 		String text;
 		
 		//Handles the case that the given exception is null.
-		if (exception == null) {
+		if (error == null) {
 			title = "Exception";
 			text = "An exception, that is null, occured.";
 		}
@@ -60,18 +60,18 @@ public final class PopupWindowProvider {
 		else {
 			
 			//Sets the title.
-			title = exception.getClass().getSimpleName();
+			title = error.getClass().getSimpleName();
 			
 			//Sets the text.
 				text = StringCatalogue.EMPTY_STRING;
 				
 				//Handles the case that the given exception has a message.
-				if (exception.getMessage() != null && !exception.getMessage().isEmpty()) {
-					text += exception.getMessage() + CharacterCatalogue.NEW_LINE + CharacterCatalogue.NEW_LINE;
+				if (error.getMessage() != null && !error.getMessage().isEmpty()) {
+					text += error.getMessage() + CharacterCatalogue.NEW_LINE + CharacterCatalogue.NEW_LINE;
 				}
 				
 				//Iterates the stack trace of the given exception.
-				for (final StackTraceElement ste : exception.getStackTrace()) {
+				for (final StackTraceElement ste : error.getStackTrace()) {
 					
 					final String[] classPath = ste.getClassName().split("\\.");
 					text += classPath[classPath.length - 1];

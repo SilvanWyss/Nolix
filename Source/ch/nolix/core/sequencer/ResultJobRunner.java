@@ -96,7 +96,7 @@ final class ResultJobRunner<R> extends Thread {
 		}
 		catch (final Exception exception) {
 			caughtError = true;
-			PopupWindowProvider.showExceptionWindow(exception);
+			PopupWindowProvider.showErrorWindow(exception);
 		}
 		finally {
 			running = false;

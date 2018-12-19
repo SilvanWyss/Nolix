@@ -73,10 +73,10 @@ public abstract class Testoid {
 					System.out.flush();
 				}
 			}
-			catch (Exception e) {
+			catch (final Throwable error) {
 				methodTimeInMiliseconds = System.currentTimeMillis() - methodTimeInMiliseconds;
-				if (e.getCause() != null) {
-					System.err.println("-->FAILED: " + m.getName() + ": " + e.getCause().getMessage() + " (" + methodTimeInMiliseconds + "ms)");
+				if (error.getCause() != null) {
+					System.err.println("-->FAILED: " + m.getName() + ": " + error.getCause().getMessage() + " (" + methodTimeInMiliseconds + "ms)");
 				}
 				else {
 					System.err.println("-->FAILED: " + m.getName() + " (" + methodTimeInMiliseconds + "ms)");
@@ -84,9 +84,9 @@ public abstract class Testoid {
 				System.err.flush();
 			}
 			finally {
-				for (final AutoCloseable ce : closableElements) {
+				for (final AutoCloseable ac : closableElements) {
 					try {
-						ce.close();
+						ac.close();
 					} catch (final Exception exception) {
 						System.err.println("   An error occured by the try to close an element.");
 					}

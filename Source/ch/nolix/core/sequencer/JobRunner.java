@@ -346,9 +346,9 @@ final class JobRunner extends Thread {
 					Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
 				}
 			}
-			catch (final Exception exception) {
+			catch (final Throwable error) {
 				caughtError = true;
-				PopupWindowProvider.showExceptionWindow(exception);
+				PopupWindowProvider.showErrorWindow(error);
 				break;
 			}
 		}
