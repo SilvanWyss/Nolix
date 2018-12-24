@@ -3,7 +3,7 @@ package ch.nolix.core.constants;
 
 //class
 /**
- * Of the {@link TimeUnitCatalogue} no instance can be created.
+ * Of the {@link TimeUnitCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-02

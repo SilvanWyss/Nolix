@@ -158,7 +158,7 @@ implements Headered, Specified {
 		if (!belongsToEntity()) {
 			throw new InvalidStateException(
 				this,
-				"belongs to no entity"
+				"does not belong to a entity"
 			);
 		}
 	}

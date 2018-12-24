@@ -812,7 +812,7 @@ public class Color extends Element<Color> {
 	 * Creates a new {@link Color} with the given value.
 	 * 
 	 * @param value
-	 * @throws OutOfRangeArgumentException if the given value is no true color value with an optional alpha value.
+	 * @throws OutOfRangeArgumentException if the given value is not a true color value with an optional alpha value.
 	 */
 	public Color(final long value) {
 		setValue(value);
@@ -853,8 +853,8 @@ public class Color extends Element<Color> {
 	 * Creates a new {@link Color} with the given value.
 	 * 
 	 * @param value
-	 * @throws InvalidArgumentException if the given value is no color name
-	 * or no true color value with an optional alpha value.
+	 * @throws InvalidArgumentException if the given value is not a color name
+	 * or true color value with an optional alpha value.
 	 */
 	public Color(final String value) {
 		setValue(value);
@@ -1172,7 +1172,7 @@ public class Color extends Element<Color> {
 	 * Sets the blue value of the current {@link Color}.
 	 * 
 	 * @param blueValue
-	 * @throws OutOfRangeException if the given blue value is no true color component (in [0, 255]).
+	 * @throws OutOfRangeException if the given blue value is not a true color component (in [0, 255]).
 	 */
 	private void setBlueValue(final int blueValue) {
 		
@@ -1190,7 +1190,7 @@ public class Color extends Element<Color> {
 	 * Sets the green value of the current {@link Color}.
 	 * 
 	 * @param greenValue
-	 * @throws OutOfRangeException if the given green value is no true color component (in [0, 255]5).
+	 * @throws OutOfRangeException if the given green value is not a true color component (in [0, 255]5).
 	 */
 	private void setGreenValue(final int greenValue) {
 		
@@ -1208,7 +1208,7 @@ public class Color extends Element<Color> {
 	 * Sets the red value of the current {@link Color}.
 	 * 
 	 * @param redValue
-	 * @throws OutOfRangeException if the given red value is no true color component (in [0, 255]).
+	 * @throws OutOfRangeException if the given red value is not a true color component (in [0, 255]).
 	 */
 	private void setRedValue(final int redValue) {
 		
@@ -1226,7 +1226,7 @@ public class Color extends Element<Color> {
 	 * Sets the value of the current {@link Color}.
 	 * 
 	 * @param value
-	 * @throws OutOfRangeException if the given value is no true color value.
+	 * @throws OutOfRangeException if the given value is not a true color value.
 	 */
 	private void setValue(long value) {
 		
@@ -1251,7 +1251,7 @@ public class Color extends Element<Color> {
 	 * Sets the value of the current {@link Color}.
 	 * 
 	 * @param value
-	 * @throws InvalidArgumentException if the given value is no color name or no color value.
+	 * @throws InvalidArgumentException if the given value is not a color name or color value.
 	 */
 	private void setValue(final String value) {
 		
@@ -1267,7 +1267,7 @@ public class Color extends Element<Color> {
 				throw
 				new InvalidArgumentException(
 					value,
-					"is no color name or color value"
+					"is not a color name or color value"
 				);
 			}
 			

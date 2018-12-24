@@ -11,7 +11,7 @@ import ch.nolix.element.color.Color;
 //class
 /**
  * The {@link AccordionTutorial} provides a tutorial for a {@link Accordion}.
- * Of the {@link AccordionTutorial} no instance can be created.
+ * Of the {@link AccordionTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-08

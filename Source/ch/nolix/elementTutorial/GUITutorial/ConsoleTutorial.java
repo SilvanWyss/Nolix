@@ -9,7 +9,7 @@ import ch.nolix.element.color.Color;
 //class
 /**
  * The {@link ConsoleTutorial} provides a tutorial for a {@link Console}.
- * Of the {@link ConsoleTutorial} no instance can be created.
+ * Of the {@link ConsoleTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-06

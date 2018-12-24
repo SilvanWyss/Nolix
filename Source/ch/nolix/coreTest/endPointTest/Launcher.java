@@ -3,7 +3,7 @@ package ch.nolix.coreTest.endPointTest;
 
 //class
 /**
- * Of this class no instance can be created.
+ * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-05

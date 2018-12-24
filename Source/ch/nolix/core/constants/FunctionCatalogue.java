@@ -10,7 +10,7 @@ import ch.nolix.core.functionAPI.IFunction;
 //class
 /**
  * The {@link FunctionCatalogue} provides functions.
- * Of the {@link FunctionCatalogue} no instance can be created.
+ * Of the {@link FunctionCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2016-12

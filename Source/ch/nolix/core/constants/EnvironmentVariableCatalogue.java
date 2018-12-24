@@ -4,7 +4,7 @@ package ch.nolix.core.constants;
 //class
 /**
  * The {@link EnvironmentVariableCatalogue} provides environment variables for Microsoft Windows.
- * Of the {@link EnvironmentVariableCatalogue} no instance can be created.
+ * Of the {@link EnvironmentVariableCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2016-09

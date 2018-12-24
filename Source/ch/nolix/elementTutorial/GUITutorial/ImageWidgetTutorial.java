@@ -10,7 +10,7 @@ import ch.nolix.element.image.Image;
 //class
 /**
  * The {@link ImageWidgetTutorial} provides a tutorial for a {@link ImageWidget}.
- * Of the {@link ImageWidgetTutorial} no instance can be created.
+ * Of the {@link ImageWidgetTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-08

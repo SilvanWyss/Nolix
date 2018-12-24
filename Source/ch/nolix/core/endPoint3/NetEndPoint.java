@@ -118,7 +118,7 @@ public class NetEndPoint extends EndPoint {
 	//method
 	/**
 	 * Sends the given message and returns the reply.
-	 * This method throws an exception if no reply is received within the timeout.
+	 * This method throws an exception if there is not received a reply within the timeout.
 	 * 
 	 * @param message
 	 * @return the reply of the given message.

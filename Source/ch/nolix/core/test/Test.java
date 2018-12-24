@@ -102,7 +102,7 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	//static method
 	/**
 	 * @param string
-	 * @throws Error if the given string is no empty string
+	 * @throws Error if the given string is not a empty string
 	 */
 	protected final void expectEmptyString(String string) {
 		if (string == null) {

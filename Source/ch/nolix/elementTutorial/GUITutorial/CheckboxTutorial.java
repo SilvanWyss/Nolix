@@ -9,7 +9,7 @@ import ch.nolix.element.color.Color;
 //class
 /**
  * The {@link CheckboxTutorial} provides a tutorial for a {@link Checkbox}.
- * Of the {@link CheckboxTutorial} no instance can be created.
+ * Of the {@link CheckboxTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-05

@@ -108,7 +108,7 @@ implements Clearable<TabContainerTab> {
 			setWidget(GUI.createWidget(attribute));
 		}
 		
-		//Handles the case that the given attribute specifies no widget.
+		//Handles the case that the given attribute does not specify a widget.
 		else {
 			
 			//Calls method of the base class.

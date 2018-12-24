@@ -8,7 +8,7 @@ import ch.nolix.core.validator2.Validator;
 //package-visibel class
 /**
  * This class provides methods to wait for specific durations.
- * Of this class no instance can be created.
+ * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-06

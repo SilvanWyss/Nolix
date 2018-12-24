@@ -298,7 +298,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	//method
 	/**
 	 * @return the GUI this shape belongs to.
-	 * @throws InvalidStateException if this shape belongs to no GUI.
+	 * @throws InvalidStateException if this shape does not belong to a GUI.
 	 */
 	protected final _3DGUI<?> getRefGUI() {
 		

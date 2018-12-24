@@ -12,7 +12,7 @@ import ch.nolix.core.primitiveHelper.ArrayHelper;
 /**
  * The validator provides functions to validate arguments.
  * Methods are called on objects, functions are called independently.
- * Of this class no instance can be created.
+ * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2016-11

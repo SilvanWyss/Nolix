@@ -27,7 +27,7 @@ public enum MessageRole {
 	/**
 	 * @param prefix
 	 * @return a new message role the given prefix represents.
-	 * @throws InvalidArgumentException if the given prefix represents no message role.
+	 * @throws InvalidArgumentException if the given prefix does not represent a message role.
 	 */
 	public static MessageRole createMessageRole(final char prefix) {
 		

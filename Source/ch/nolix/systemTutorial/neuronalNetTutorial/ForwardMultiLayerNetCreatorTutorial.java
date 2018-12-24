@@ -12,7 +12,7 @@ import ch.nolix.system.neuronoid.SourceNeuron;
  * The {@link ForwardMultiLayerNetCreatorTutorial}
  * is a tutorial for a {@link ForwardMultiLayerNetCreator}
  * .
- * Of the {@link ForwardMultiLayerNetCreatorTutorial} no instance can be created.
+ * Of the {@link ForwardMultiLayerNetCreatorTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-01

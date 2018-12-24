@@ -4,7 +4,7 @@ package ch.nolix.core.license;
 //class
 /**
  * This class provides methods to manage licenses at a central point.
- * From this class no instance can be created.
+ * From this class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-05

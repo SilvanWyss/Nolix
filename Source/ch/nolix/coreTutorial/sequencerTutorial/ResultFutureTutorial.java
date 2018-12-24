@@ -9,7 +9,7 @@ import ch.nolix.core.sequencer.Sequencer;
 //class
 /**
  * The result future tutorial is a tutorial for the result future.
- * Of this class no instance can be created.
+ * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-10

@@ -391,7 +391,7 @@ public final class Calculator {
 	/**
 	 * @param values
 	 * @return the average of the given values
-	 * @throws Exception if no values are given
+	 * @throws Exception if the given values is empty.
 	 */
 	public static double getAverage(double... values) {
 		
@@ -404,7 +404,7 @@ public final class Calculator {
 	/**
 	 * @param values
 	 * @return the average of the given values
-	 * @throws Exception if no values are given
+	 * @throws Exception if the given values is empty.
 	 */
 	public static int getAverage(int... values) {
 		
@@ -417,7 +417,7 @@ public final class Calculator {
 	/**
 	 * @param values
 	 * @return the average of the given values
-	 * @throws Exception if no values are given
+	 * @throws Exception if the given values is empty.
 	 */
 	public static long getAverage(long... values) {
 		

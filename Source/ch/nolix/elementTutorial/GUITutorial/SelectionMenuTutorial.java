@@ -9,7 +9,7 @@ import ch.nolix.element.color.Color;
 //class
 /**
  * The {@link SelectionMenuTutorial} is a tutorial for a {@link SelectionMenu}.
- * Of the {@link SelectionMenuTutorial} no instance can be created.
+ * Of the {@link SelectionMenuTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-05

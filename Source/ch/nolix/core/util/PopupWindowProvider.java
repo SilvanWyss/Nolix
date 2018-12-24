@@ -11,7 +11,7 @@ import ch.nolix.core.constants.StringCatalogue;
 //class
 /**
  * The {@link PopupWindowProvider} provides methods to show small pop-up windows.
- * Of the {@link PopupWindowProvider} no instance can be created.
+ * Of the {@link PopupWindowProvider} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-08

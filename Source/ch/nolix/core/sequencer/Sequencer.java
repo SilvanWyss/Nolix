@@ -12,7 +12,7 @@ import ch.nolix.core.validator2.Validator;
 //class
 /**
  * The {@link Sequencer} provides methods for flow control.
- * Of the {@link Sequencer} no instance can be created.
+ * Of the {@link Sequencer} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2016-05

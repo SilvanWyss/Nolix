@@ -3,7 +3,7 @@ package ch.nolix.coreTest.containerTest;
 
 //class
 /**
- * Of this class no instance can be created.
+ * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2016-08

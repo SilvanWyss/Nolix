@@ -916,7 +916,7 @@ public class Matrix implements ApproximativeEqualing {
 		
 		//Checks if the upper left element of this matrix is 0.
 		if (values[0][0] == 0) {
-			throw new RuntimeException("Matrix represents no polynom because its upper left element is 0.");
+			throw new RuntimeException("Matrix does not represent a polynom because its upper left element is 0.");
 		}
 		
 		//Handles the case that this matrix consists of 1 row.

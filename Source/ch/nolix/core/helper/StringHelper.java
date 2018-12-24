@@ -12,7 +12,7 @@ import ch.nolix.core.validator2.Validator;
 //class
 /**
  * This class provides methods to handle strings.
- * Of this class no instance can be created.
+ * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2015-12
@@ -89,7 +89,7 @@ public final class StringHelper {
 	/**
 	 * @param string
 	 * @return the boolean the given string represents.
-	 * @throws InvalidArgumentException if the given string represents no boolean.
+	 * @throws InvalidArgumentException if the given string does not represent a boolean.
 	 */
 	public static boolean toBoolean(final String string) {
 		
@@ -120,7 +120,7 @@ public final class StringHelper {
 	/**
 	 * @param string
 	 * @return the double the given string represents.
-	 * @throws InvalidArgumentException if the given string represents no double.
+	 * @throws InvalidArgumentException if the given string does not represent a double.
 	 */
 	public static double toDouble(final String string) {
 		
@@ -135,7 +135,7 @@ public final class StringHelper {
 	/**
 	 * @param string
 	 * @return the int the given string represents.
-	 * @throws InvalidArgumentException if the given string represents no int.
+	 * @throws InvalidArgumentException if the given string does not represent a int.
 	 */
 	public static int toInt(final String string) {
 		
@@ -187,7 +187,7 @@ public final class StringHelper {
 	/**
 	 * @param string
 	 * @return the non negative decimal int the given string represents.
-	 * @throws InvalidArgumentException if the given string represents no non-negative decimal int.
+	 * @throws InvalidArgumentException if the given string does not represent a non-negative decimal int.
 	 */
 	private static int toIntFromNonNegativeDecimal(final String string) {
 		
@@ -244,7 +244,7 @@ public final class StringHelper {
 	/**
 	 * @param string
 	 * @return the non-negative hexadecimal int the given string represents.
-	 * @throws Exception if the given string represents no non-negative hexadecimal int.
+	 * @throws Exception if the given string does not represent a non-negative hexadecimal int.
 	 */
 	private static int toIntFromNonNegativeHexaDecimal(final String string) {
 		

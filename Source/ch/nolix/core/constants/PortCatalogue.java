@@ -3,7 +3,7 @@ package ch.nolix.core.constants;
 
 //class
 /**
- * Of the {@link PortCatalogue} no instance can be created.
+ * Of the {@link PortCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2015-12

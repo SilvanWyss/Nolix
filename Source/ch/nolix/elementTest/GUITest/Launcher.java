@@ -3,7 +3,7 @@ package ch.nolix.elementTest.GUITest;
 
 //class
 /**
- * Of the {@link Launcher} no instance can be created.
+ * Of the {@link Launcher} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2016-08

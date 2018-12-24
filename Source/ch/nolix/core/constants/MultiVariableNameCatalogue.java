@@ -3,7 +3,7 @@ package ch.nolix.core.constants;
 
 //class
 /**
- * Of the {@link MultiVariableNameCatalogue} no instance can be created.
+ * Of the {@link MultiVariableNameCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-03

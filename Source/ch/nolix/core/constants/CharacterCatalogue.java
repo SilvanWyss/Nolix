@@ -3,7 +3,7 @@ package ch.nolix.core.constants;
 
 //class
 /**
-* Of the {@link CharacterCatalogue} no instance can be created.
+* Of the {@link CharacterCatalogue} an instance cannot be created.
 * 
 * @author Silvan Wyss
 * @month 2017-06

@@ -122,7 +122,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	@Override
 	public boolean equals(final Object object) {
 		
-		//Handles the case that the given object is no read container.
+		//Handles the case that the given object is not a read container.
 		if (!(object instanceof ReadContainer<?>)) {
 			return false;
 		}

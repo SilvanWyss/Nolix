@@ -64,7 +64,7 @@ public final class FileSystemAccessor {
 	 * Creates a new file system accessor with the root folder with the given root folder path.
 	 * 
 	 * @param rootFolderPath
-	 * @throws InvalidArgumentException if there exists no folder
+	 * @throws InvalidArgumentException if there does not exist a folder
 	 * with the given root folder path in the file system on the local machine.
 	 */
 	public FileSystemAccessor(final String rootFolderPath) {
@@ -226,7 +226,7 @@ public final class FileSystemAccessor {
 		final String relativeFilePath
 	) {
 		
-		//Handles the case that no file system item with the given relative file path exists
+		//Handles the case that there does not exist a file system item with the given relative file path
 		//in the file system on the local machine.
 		if (!fileSystemItemExists(relativeFilePath)) {
 			return createFile(relativeFilePath);

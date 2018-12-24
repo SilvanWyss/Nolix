@@ -3,7 +3,7 @@ package ch.nolix.system.GUIClientoid;
 
 //package-visible class
 /**
- * Of the {@link Protocol} no instance can be created.
+ * Of the {@link Protocol} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-09

@@ -9,7 +9,7 @@ import ch.nolix.system.neuronoid.SourceNeuron;
 //class
 /**
  * The {@link NeuronTutorial} is a tutorial for a {@link Neuron}.
- * Of the {@link NeuronTutorial} no instance can be created.
+ * Of the {@link NeuronTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-01

@@ -44,7 +44,7 @@ public final class FPNPair {
 	@Override
 	public boolean equals(final Object object) {
 				
-		//Handles the case that the given object is no FPN pair.
+		//Handles the case that the given object is not a FPN pair.
 		if (!(object instanceof FPNPair)) {
 			return false;
 		}

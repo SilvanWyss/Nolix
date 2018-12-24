@@ -264,13 +264,13 @@ extends BackgroundWidgetLook<BWL> {
 		}
 		
 		//Handles the case that the current border widget look
-		//has no base scrollbar look but a base look.
+		//does not have a base scrollbar look but a base look.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultBaseScrollbarLook();
 		}
 		
 		//Handles the case that the current border widget look
-		//has no base scrollbar look and no base look.
+		//does not have a base scrollbar look or base look.
 		return DEFAULT_BASE_SCROLLBAR_LOOK;
 	}
 	
@@ -286,13 +286,13 @@ extends BackgroundWidgetLook<BWL> {
 		}
 		
 		//Handles the case that the current border widget look
-		//has no bottom border color but a base look.
+		//does not have a bottom border color but a base look.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultBottomBorderColor();
 		}
 		
 		//Handles the case that the current border widget look
-		//has no bottom border color and no base look.
+		//does not have a bottom border color or base look.
 		return DEFAULT_BORDER_COLOR;
 	}
 	
@@ -308,13 +308,13 @@ extends BackgroundWidgetLook<BWL> {
 		}
 		
 		//Handles the case that the current border widget look
-		//has no bottom border thickness but a base look.
+		//does not have a bottom border thickness but a base look.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultBottomBorderThickness();
 		}
 		
 		//Handles the case that the current border widget look
-		//has no bottom border thickness and no base look.
+		//does not have a bottom border thickness or base look.
 		return DEFAULT_BORDER_THICKNESS;
 	}
 	
@@ -330,13 +330,13 @@ extends BackgroundWidgetLook<BWL> {
 		}
 		
 		//Handles the case that the current border widget look
-		//has no bottom padding but a base look.
+		//does not have a bottom padding but a base look.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultBottomPadding();
 		}
 		
 		//Handles the case that the current border widget look
-		//has no bottom padding and no base look.
+		//does not have a bottom padding or base look.
 		return DEFAULT_PADDING;
 	}
 	
@@ -352,13 +352,13 @@ extends BackgroundWidgetLook<BWL> {
 		}
 		
 		//Handles the case that the current border widget look
-		//has no hover scrollbar look but a base look.
+		//does not have a hover scrollbar look but a base look.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultHoverScrollbarLook();
 		}
 		
 		//Handles the case that the current border widget look
-		//has no hover scrollbar look and no base look.
+		//does not have a hover scrollbar look or base look.
 		return DEFAULT_HOVER_SCROLLBAR_LOOK;
 	}
 	
@@ -374,13 +374,13 @@ extends BackgroundWidgetLook<BWL> {
 		}
 		
 		//Handles the case that the current border widget look
-		//has no left border color but a base look.
+		//does not have a left border color but a base look.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultLeftBorderColor();
 		}
 		
 		//Handles the case that the current border widget look
-		//has no left border color and no base look.
+		//does not have a left border color or base look.
 		return DEFAULT_BORDER_COLOR;
 	}
 	
@@ -396,13 +396,13 @@ extends BackgroundWidgetLook<BWL> {
 		}
 		
 		//Handles the case that the current border widget look
-		//has no left border thickness but a base look.
+		//does not have a left border thickness but a base look.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultLeftBorderThickness();
 		}
 		
 		//Handles the case that the current border widget look
-		//has no left border thickness and no base look.
+		//does not have a left border thickness or base look.
 		return DEFAULT_BORDER_THICKNESS;
 	}
 	
@@ -418,13 +418,13 @@ extends BackgroundWidgetLook<BWL> {
 		}
 		
 		//Handles the case that the current border widget look
-		//has no left padding but a base look.
+		//does not have a left padding but a base look.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultLeftPadding();
 		}
 		
 		//Handles the case that the current border widget look
-		//has no left padding and no base look.
+		//does not have a left padding or base look.
 		return DEFAULT_PADDING;
 	}
 	
@@ -440,13 +440,13 @@ extends BackgroundWidgetLook<BWL> {
 		}
 		
 		//Handles the case that the current border widget look
-		//has no right border color but a base look.
+		//does not have a right border color but a base look.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultRightBorderColor();
 		}
 		
 		//Handles the case if the current {@link BorderWidgetLook}
-		//has no right border color and no base look.
+		//does not have a right border color or base look.
 		return DEFAULT_BORDER_COLOR;
 	}
 	
@@ -462,13 +462,13 @@ extends BackgroundWidgetLook<BWL> {
 		}
 		
 		//Handles the case that the current border widget look
-		//has no right border thickness but a base look.
+		//does not have a right border thickness but a base look.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultRightBorderThickness();
 		}
 		
 		//Handles the case that the current border widget look
-		//has no right border thickness and no base look.
+		//does not have a right border thickness or base look.
 		return DEFAULT_BORDER_THICKNESS;
 	}
 	
@@ -484,13 +484,13 @@ extends BackgroundWidgetLook<BWL> {
 		}
 		
 		//Handles the case that the current border widget look
-		//has no right padding but a base look.
+		//does not have a right padding but a base look.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultRightPadding();
 		}
 		
 		//Handles the case that the current border widget look
-		//has no right padding and no base look.
+		//does not have a right padding or base look.
 		return DEFAULT_PADDING;
 	}
 	
@@ -506,13 +506,13 @@ extends BackgroundWidgetLook<BWL> {
 		}
 		
 		//Handles the case that the current border widget look
-		//has no selection scrollbar look but a base look.
+		//does not have a selection scrollbar look but a base look.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultSelectionScrollbarLook();
 		}
 		
 		//Handles the case that the current border widget look
-		//has no selection scrollbar look and no base look.
+		//does not have a selection scrollbar look or base look.
 		return DEFAULT_SELECTION_SCROLLBAR_LOOK;
 	}
 	
@@ -528,13 +528,13 @@ extends BackgroundWidgetLook<BWL> {
 		}
 		
 		//Handles the case that the current border widget look
-		//has no top border color but a base look.
+		//does not have a top border color but a base look.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultTopBorderColor();
 		}
 		
 		//Handles the case that the current border widget look
-		//has no top border color and no base look.
+		//does not have a top border color or base look.
 		return DEFAULT_BORDER_COLOR;
 	}
 	
@@ -550,13 +550,13 @@ extends BackgroundWidgetLook<BWL> {
 		}
 		
 		//Handles the case that the current border widget look
-		//has no top border thickness but a base look.
+		//does not have a top border thickness but a base look.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultTopBorderThickness();
 		}
 		
 		//Handles the case that the current border widget look
-		//has no top border thickness and no base look.
+		//does not have a top border thickness or base look.
 		return DEFAULT_BORDER_THICKNESS;
 	}
 	
@@ -572,13 +572,13 @@ extends BackgroundWidgetLook<BWL> {
 		}
 		
 		//Handles the case that the current border widget look
-		//has no top padding but a base look.
+		//does not have a top padding but a base look.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultTopPadding();
 		}
 		
 		//Handles the case that the current border widget look
-		//has no top padding and no base look.
+		//does not have a top padding or base look.
 		return DEFAULT_PADDING;
 	}
 	

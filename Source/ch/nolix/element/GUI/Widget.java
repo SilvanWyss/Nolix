@@ -300,7 +300,7 @@ extends ConfigurableElement<W> {
 		
 		attributes.addAtBegin(getInteractionAttributes());
 		
-		//Handles the case that the custom cursor icon of the current widget is no arrow.
+		//Handles the case that the custom cursor icon of the current widget is not a arrow.
 		if (getCustomCursorIcon() != CursorIcon.Arrow) {
 			attributes.addAtEnd(getCustomCursorIcon().getSpecification());
 		}

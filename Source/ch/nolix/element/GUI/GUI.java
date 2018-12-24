@@ -188,8 +188,7 @@ implements IGUI<G> {
 			return;
 		}
 		
-		//Handles the case that the given attribute specificies no widget.
-		
+		//Handles the case that the given attribute does not specify a widget.
 			//Enumerates the header of the given attribute.
 			switch (attribute.getHeader()) {
 				case ContentPosition.TYPE_NAME:

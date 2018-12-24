@@ -3,7 +3,7 @@ package ch.nolix.core.constants;
 
 //class
 /**
- * Of the {@link PascalCaseNameCatalogue} no instance can be created.
+ * Of the {@link PascalCaseNameCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-04

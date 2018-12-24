@@ -8,7 +8,7 @@ import java.lang.reflect.Parameter;
 //class
 /**
  * This class provides methods to handle methods.
- * Of this class no instance can be created.
+ * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2016-02

@@ -11,7 +11,7 @@ import ch.nolix.element.color.Color;
 //class
 /**
  * The {@link FloatContainerTutorial} provides a tutorial for a {@link FloatContainer}.
- * Of the {@link FloatContainerTutorial} no instance can be created.
+ * Of the {@link FloatContainerTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-05

@@ -3,7 +3,7 @@ package ch.nolix.core.constants;
 
 //class
 /**
- * Of the {@link VariableNameCatalogue} no instance can be created.
+ * Of the {@link VariableNameCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-11

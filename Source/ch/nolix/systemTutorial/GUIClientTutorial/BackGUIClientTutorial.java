@@ -15,7 +15,7 @@ import ch.nolix.system.client.Application;
 //class
 /**
  * The {@link BackGUIClientTutorial} is a tutorial for a {@link BackGUIClient}.
- * Of the {@link BackGUIClientTutorial} no instance can be created.
+ * Of the {@link BackGUIClientTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-02

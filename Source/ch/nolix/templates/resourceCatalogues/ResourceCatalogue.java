@@ -6,7 +6,7 @@ import ch.nolix.system.resource.Resource;
 
 //class
 /**
- * Of a {@link ResourceCatalogue} no instance can be created.
+ * Of a {@link ResourceCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-09

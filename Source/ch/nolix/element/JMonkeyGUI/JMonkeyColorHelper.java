@@ -10,7 +10,7 @@ import ch.nolix.element.color.Color;
 //class
 /**
  * The JMonkey color helper provides method to handle colors.
- * Of this class no instance can be created.
+ * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-11

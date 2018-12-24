@@ -26,7 +26,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 	 * Creates a new file accessor for a file with the given file path.
 	 * 
 	 * @param filePath
-	 * @throws InvalidArgumentException if there exists no file with the given file path
+	 * @throws InvalidArgumentException if there does not exist a file with the given file path
 	 * in the file system on the local machine.
 	 */
 	public FileAccessor(final String filePath) {

@@ -10,7 +10,7 @@ import ch.nolix.element.color.Color;
 //class
 /**
  * The {@link ButtonTutorial} provides a tutorial for a {@link Button}.
- * Of the {@link ButtonTutorial} no instance can be created.
+ * Of the {@link ButtonTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-05

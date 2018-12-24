@@ -12,7 +12,7 @@ import ch.nolix.element.core.Time;
 //class
 /**
  * The {@link LabelTutorial} provides a tutorial for a {@link Label}.
- * Of the {@link LabelTutorial} no instance can be created.
+ * Of the {@link LabelTutorial} an instance cannot be created.
  *
  * @author Silvan Wyss
  * @month 2017-09

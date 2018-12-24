@@ -9,7 +9,7 @@ import java.util.Iterator;
  * This class provides functions to handle iterable objects.
  * Methods are called on objects, functions are not.
  * 
- * Of this class no instance can be created.
+ * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-12

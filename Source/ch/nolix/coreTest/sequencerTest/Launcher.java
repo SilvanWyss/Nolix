@@ -4,7 +4,7 @@ package ch.nolix.coreTest.sequencerTest;
 //class
 /**
  * The Launcher provides a main method to run a sequencer test pool.
- * Of this class no instance can be created.
+ * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-11

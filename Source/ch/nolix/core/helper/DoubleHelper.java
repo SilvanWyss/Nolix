@@ -9,7 +9,7 @@ import java.util.Locale;
 //class
 /**
  * This class provides methods to handle doubles.
- * Of this class no instance can be created.
+ * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2016-07

@@ -408,7 +408,7 @@ implements Clearable<SelectionMenu> {
 		if (!containsSelectedItem()) {
 			throw new InvalidStateException(
 				this,
-				"contains no selected item"
+				"does not contain a selected item"
 			);
 		}
 	}

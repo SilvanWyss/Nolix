@@ -1047,7 +1047,7 @@ public interface IContainer<E> extends Iterable<E> {
 		throw
 		new InvalidStateException(
 			this,
-			"contains no elements the given selector selects together"
+			"does not contain any elements the given selector selects together"
 		);
 	}
 	
@@ -1144,7 +1144,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param selector
 	 * @return the one element the given selector selects from the current {@link IContainer}.
 	 * @throws InvalidArgumentException
-	 * if the given selector selects no or several elements from the current {@link IContainer}.
+	 * if the given selector does not select an element or selects several elements from the current {@link IContainer}.
 	 */
 	public default E getRefOne(final IElementTakerBooleanGetter<E> selector) {
 		

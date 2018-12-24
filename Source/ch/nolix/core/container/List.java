@@ -447,7 +447,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	@Override
 	public boolean equals(Object object) {
 		
-		//Handles the case that the given object is no list.
+		//Handles the case that the given object is not a list.
 		if (!(object instanceof List<?>)) {
 			return false;
 		}

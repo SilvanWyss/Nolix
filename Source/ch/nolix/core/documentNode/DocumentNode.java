@@ -29,7 +29,7 @@ implements ISmartObject<DocumentNode> {
 	 * @param filePath
 	 * @return a new {@link DocumentNode} from the file with the given file path.
 	 * @throws InvalidArgumentException if the given file path is not valid.
-	 * @throws InvalidArgumentException if the file with the given file path represents no {@link DocumentNode}.
+	 * @throws InvalidArgumentException if the file with the given file path does not represent a {@link DocumentNode}.
 	 */
 	public static DocumentNode createFromFile(final String filePath) {
 		
@@ -98,7 +98,7 @@ implements ISmartObject<DocumentNode> {
 	 * Creates a new {@link DocumentNode} the given string represents.
 	 * 
 	 * @param string
-	 * @throws InvalidArgumentException if the given string represents no standard specification.
+	 * @throws InvalidArgumentException if the given string does not represent a standard specification.
 	 */
 	public DocumentNode(final String string) {
 		reset(string);

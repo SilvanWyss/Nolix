@@ -132,7 +132,7 @@ extends Referenceoid<E> {
 		if (!referencesEntity()) {
 			throw new InvalidStateException(
 				this,
-				"references no entity"
+				"does not reference an entity"
 			);
 		}
 	}

@@ -463,7 +463,7 @@ public class Entity implements Identified2, Specified {
 		if (!belongsToEntitySet()) {
 			throw new InvalidStateException(
 				this,
-				"belongs to no entity set"
+				"does not belong to a entity set"
 			);
 		}
 	}

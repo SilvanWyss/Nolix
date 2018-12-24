@@ -4,7 +4,7 @@ package ch.nolix.nolixTest;
 //class
 /**
  * This class provides a main method to run a Nolix test pool.
- * Of this class no instance can be created.
+ * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-11

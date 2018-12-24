@@ -26,7 +26,7 @@ public final class SimplePersistentDocumentNode extends DocumentNodeoid {
 	//constructor
 	/**
 	 * Creates a new simple persistent specification with the given file path.
-	 * Creates a new file if there exists no file with the given file path.
+	 * Creates a new file if there does not exist a file with the given file path.
 	 * Access and changes the file if there exists a file with the given file path.
 	 * 
 	 * @param filePath
@@ -35,7 +35,7 @@ public final class SimplePersistentDocumentNode extends DocumentNodeoid {
 		
 		final FileSystemAccessor fileSystemAccessor = new FileSystemAccessor();
 		
-		//Handles the case that there exists no file with the given file path.
+		//Handles the case that there does not exist a file with the given file path.
 		if (!fileSystemAccessor.fileSystemItemIsFile(filePath)) {
 			fileAccessor = fileSystemAccessor.createFile(filePath);
 		}

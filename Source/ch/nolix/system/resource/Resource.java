@@ -146,7 +146,7 @@ public final class Resource extends NamedElement implements IResource {
 			return true;
 		}
 		
-		//Handles the case that the current resource is no direct sub resource of the given resource.
+		//Handles the case that the current resource is not a direct sub resource of the given resource.
 		return baseResources.contains(br -> br.isSubResourceOf(resource));
 	}
 }

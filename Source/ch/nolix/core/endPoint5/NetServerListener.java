@@ -50,7 +50,7 @@ final class NetServerListener implements ch.nolix.core.endPoint3.IEndPointTaker 
 	 * 
 	 * @param endPoint
 	 * @throws NullArgumentException if the given end point is null.
-	 * @throws InvalidArgumentException if the given end point is no NetEndPoint.
+	 * @throws InvalidArgumentException if the given end point is not a NetEndPoint.
 	 */
 	@Override
 	public void takeEndPoint(final ch.nolix.core.endPoint3.EndPoint endPoint) {

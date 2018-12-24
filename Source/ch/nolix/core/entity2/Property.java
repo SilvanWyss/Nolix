@@ -98,7 +98,7 @@ public final class Property<V> extends NamedElement {
 			return baseProperty.getRecursiveOrDefaultValue();
 		}
 		
-		//Handles the case that this property does not have a value and no base property.
+		//Handles the case that this property does not have a value or base property.
 		return defaultValue;
 	}
 	
@@ -139,7 +139,7 @@ public final class Property<V> extends NamedElement {
 			return baseProperty.hasRecursiveValue();
 		}
 	
-		//Handles the case that this property does not have a value and no base property.
+		//Handles the case that this property does not have a value or base property.
 		return false;
 	}
 	

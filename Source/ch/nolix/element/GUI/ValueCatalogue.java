@@ -3,7 +3,7 @@ package ch.nolix.element.GUI;
 
 //class
 /**
- * Of the {@link ValueCatalogue} no instance can be created.
+ * Of the {@link ValueCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2016-06

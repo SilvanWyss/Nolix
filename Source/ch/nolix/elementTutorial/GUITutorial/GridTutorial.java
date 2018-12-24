@@ -13,7 +13,7 @@ import ch.nolix.element.textFormat.Font;
 //class
 /**
  * The {@link GridTutorial} provides a tutorial for a {@link Grid}.
- * Of the {@link GridTutorial} no instance can be created.
+ * Of the {@link GridTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-05

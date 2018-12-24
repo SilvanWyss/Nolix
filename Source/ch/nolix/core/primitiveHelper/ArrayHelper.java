@@ -7,7 +7,7 @@ import ch.nolix.core.primitiveContainer.List;
 //class
 /**
  * The {@link ArrayHelper} provides functions to handle arrays.
- * Of the {@link ArrayHelper} class no instance can be created.
+ * Of the {@link ArrayHelper} class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-08

@@ -8,7 +8,7 @@ import com.jme3.system.JmeSystem;
 //class
 /**
  * The JMonkey helper provides method to handle the JMonkey engine.
- * Of this class no instance can be created
+ * Of the {@link JMonkeyHelper} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-11

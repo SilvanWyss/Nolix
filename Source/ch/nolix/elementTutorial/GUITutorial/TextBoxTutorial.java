@@ -9,7 +9,7 @@ import ch.nolix.element.color.Color;
 //class
 /**
  * The {@link TextBoxTutorial} provides a tutorial for a {@link TextBox}.
- * Of the {@link TextBoxTutorial} no instance can be created.
+ * Of the {@link TextBoxTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-05

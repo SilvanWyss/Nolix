@@ -30,7 +30,7 @@ public final class UnexistingAttributeException extends InvalidStateException {
 	public UnexistingAttributeException(final Object object, final Class<?> attributeType) {
 		
 		//Calls constructor of the base class.
-		super(object, "has no " + attributeType.getSimpleName());
+		super(object, "does not have a " + attributeType.getSimpleName());
 	}
 	
 	//constructor
@@ -47,7 +47,7 @@ public final class UnexistingAttributeException extends InvalidStateException {
 	public UnexistingAttributeException(final Object object, final String attributeName) {
 		
 		//Calls constructor of the base class.
-		super(object, "has no " + attributeName);
+		super(object, "does not have a " + attributeName);
 		
 		//Checks if the given attribute name is not null or empty.
 		Validator.suppose(attributeName).isNotEmpty();

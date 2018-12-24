@@ -3,7 +3,7 @@ package ch.nolix.core.constants;
 
 //class
 /**
- * Of the {@link MultiPascalCaseNameCatalogue} no instance can be created.
+ * Of the {@link MultiPascalCaseNameCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-04

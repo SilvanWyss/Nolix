@@ -27,7 +27,7 @@ public class FileSystemItemAccessor {
 	 * Creates a new file system accessor for the file system item with the given path.
 	 * 
 	 * @param path
-	 * @throws InvalidArgumentException if there exists no file system item with the given path
+	 * @throws InvalidArgumentException if there does not exist a file system item with the given path
 	 * in the file system on the local machine.
 	 */
 	public FileSystemItemAccessor(final String path) {

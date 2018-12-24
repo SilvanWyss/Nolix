@@ -68,7 +68,7 @@ public final class NetEndPointTest extends Test {
 		public String getLastReceivedMessage() {
 			
 			if (!hasReceivedMessage()) {
-				throw new InvalidStateException(this, "received no message");
+				throw new InvalidStateException(this, "has not received a message");
 			}
 			
 			return lastReceivedMessage;

@@ -5,8 +5,8 @@ package ch.nolix.core.validator2;
 /**
  * The iterable helper provides methods to analyse iterable objects.
  * Methods are called on an object, functions are not.
- * The iterable helper is no common iterable helper because it does not use dependencies.
- * Of this class no instance can be created.
+ * The iterable helper is not a common iterable helper because it does not use dependencies.
+ * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-09

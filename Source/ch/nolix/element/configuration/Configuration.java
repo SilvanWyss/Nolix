@@ -78,7 +78,7 @@ implements Freezable<C> {
 	 * @param attachingAttribute
 	 * @return this configuration
 	 * @throws InvalidArgumentException
-	 * if the given attachingAttribute represents no standard specification.
+	 * if the given attachingAttribute does not represent a standard specification.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
 	public final C addAttachingAttribute(final String attachingAttribute) {
@@ -96,7 +96,7 @@ implements Freezable<C> {
 	 * @param attachingAttributes
 	 * @return this configuration.
 	 * @throws InvalidArgumentException
-	 * if one of the given attaching attributes represents no standard specification.
+	 * if one of the given attaching attributes does not represent a standard specification.
 	 * @throws InvalidStateException if this configuration is frozen.
 	 */
 	public final C addAttachingAttribute(final String... attachingAttributes) {

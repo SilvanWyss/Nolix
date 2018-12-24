@@ -26,7 +26,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 * Creates a new folder accessor for the folder with the given folder path.
 	 * 
 	 * @param folderPath
-	 * @throws InvalidArgumentException if there exists no folder with the given folder path
+	 * @throws InvalidArgumentException if there does not exist a folder with the given folder path
 	 * in the file system on the local machine.
 	 */
 	public FolderAccessor(final String folderPath) {

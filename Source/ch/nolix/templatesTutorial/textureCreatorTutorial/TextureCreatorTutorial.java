@@ -12,7 +12,7 @@ import ch.nolix.templates.textureCreators.JuteTextureCreator;
 //class
 /**
  * The {@link TextureCreatorTutorial} provides a tutorial for {@link JuteTextureCreator}.
- * Of the {@link TextureCreatorTutorial} no instance can be created.
+ * Of the {@link TextureCreatorTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-08

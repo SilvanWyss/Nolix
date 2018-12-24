@@ -8,7 +8,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 //class
 /**
  * This class provides methods to handle characters.
- * Of this class no instance can be created.
+ * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2015-12

@@ -23,7 +23,7 @@ public class StandardConfiguration extends Configuration<StandardConfiguration> 
 	 * @return a new standard specification from the file with the given file path.
 	 * @throws InvalidArgumentException if the given file path is not valid.
 	 * @throws InvalidArgumentException
-	 * if the file with the given file path represents no standard configuration.
+	 * if the file with the given file path does not represent a standard configuration.
 	 */
 	public static StandardConfiguration createConfigurationFromFile(final String filePath) {
 		return new StandardConfiguration().resetFrom(filePath);

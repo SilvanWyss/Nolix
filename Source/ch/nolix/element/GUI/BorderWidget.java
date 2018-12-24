@@ -334,8 +334,8 @@ extends BackgroundWidget<BW, BWS> {
 	/**
 	 * The natural height of a border widget is its height when the border widget:
 	 * -Is not collapsed.
-	 * -Has no min height.
-	 * -Has no max height.
+	 * -Does not have a min height.
+	 * -Does not have a max height.
 	 * 
 	 * @return the natural height of the current {@link BorderWidget}.
 	 */
@@ -354,8 +354,8 @@ extends BackgroundWidget<BW, BWS> {
 	/**
 	 * The natural width of a border widget is its width when the border widget:
 	 * -Is not collapsed.
-	 * -Has no min width.
-	 * -Has no max width.
+	 * -Does not have a min width.
+	 * -Does not have a max width.
 	 * 
 	 * @return the natural width of the current {@link BorderWidget}.
 	 */

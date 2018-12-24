@@ -3,7 +3,7 @@ package ch.nolix.core.constants;
 
 //class
 /**
- * Of the {@link IPv6Catalogue} no instance can be created.
+ * Of the {@link IPv6Catalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2017-02

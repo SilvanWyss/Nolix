@@ -11,7 +11,7 @@ import ch.nolix.element.color.Color;
 //class
 /**
  * The {@link DownloaderTutorial} provides a tutorial for a {@link Downloader}.
- * Of the {@link DownloaderTutorial} no instance can be created.
+ * Of the {@link DownloaderTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-07

@@ -620,7 +620,7 @@ public abstract class DocumentNodeoid implements Headered {
 	//method
 	/**
 	 * @return the boolean the current {@link DocumentNodeoid} represents.
-	 * @throws InvalidArgumenException if the current {@link DocumentNodeoid} represents no boolean.
+	 * @throws InvalidArgumenException if the current {@link DocumentNodeoid} does not represent a boolean.
 	 */
 	public boolean toBoolean() {
 		return StringHelper.toBoolean(toString());
@@ -629,7 +629,7 @@ public abstract class DocumentNodeoid implements Headered {
 	//method
 	/**
 	 * @return the double the current {@link DocumentNodeoid} represents.
-	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} represents no double.
+	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} does not represent a double.
 	 */
 	public double toDouble() {
 		return StringHelper.toDouble(toString());
@@ -646,7 +646,7 @@ public abstract class DocumentNodeoid implements Headered {
 	//method
 	/**
 	 * @return the integer the current {@link DocumentNodeoid} represents.
-	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} represents no int.
+	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} does not represent a int.
 	 */
 	public int toInt() {
 		return StringHelper.toInt(toString());
@@ -723,7 +723,7 @@ public abstract class DocumentNodeoid implements Headered {
 		//Handles the case that the current specification contains attributes.
 		if (containsAttributes()) {
 			
-			//Handles the case that all attributes of the current specification contain no attributes.
+			//Handles the case that all attributes of the current specification do not contain any attributes.
 			if (allAttributesDoNotHaveAttributes()) {
 				stringBuilder
 				.append(CharacterCatalogue.OPEN_BRACKET)

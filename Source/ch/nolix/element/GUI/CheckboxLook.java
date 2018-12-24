@@ -97,13 +97,13 @@ extends BackgroundWidgetLook<CheckboxLook> {
 		}
 		
 		//Handles the case that the current check box look
-		//has no line color but a normal structure.
+		//does not have a line color but a normal structure.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultLineColor();
 		}
 		
 		//Handles the case that the current check box look
-		//has no line color and no normal structure.
+		//does not have a line color or normal structure.
 		return DEFAULT_LINE_COLOR;
 	}
 	
@@ -119,13 +119,13 @@ extends BackgroundWidgetLook<CheckboxLook> {
 		}
 		
 		//Handles the case that the current check box look
-		//has no line thickness but a normal structure.
+		//does not have a line thickness but a normal structure.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultLineThickness();
 		}
 		
 		//Handles the case that the current check box look
-		//has no line thickness and no normal structure.
+		//does not have a line thickness or normal structure.
 		return DEFAULT_LINE_THICKNESS;
 	}
 	
@@ -141,13 +141,13 @@ extends BackgroundWidgetLook<CheckboxLook> {
 		}
 		
 		//Handles the case that the current check box look
-		//has no size but a normal structure.
+		//does not have a size but a normal structure.
 		if (hasBaseLook()) {
 			return getRefBaseLook().getRecursiveOrDefaultSize();
 		}
 		
 		//Handles the case that the current check box look
-		//has no size and no normal structure.
+		//does not have a size or normal structure.
 		return DEFAULT_SIZE;
 	}
 	

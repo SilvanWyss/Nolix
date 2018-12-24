@@ -9,7 +9,7 @@ import ch.nolix.element.color.Color;
 //class
 /**
  * The {@link ScrollTutorial} provides a tutorial for the scroll feature of a {@link Label}.
- * Of the {@link ScrollTutorial} no instance can be created.
+ * Of the {@link ScrollTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-05

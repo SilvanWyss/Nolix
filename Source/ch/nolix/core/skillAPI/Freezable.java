@@ -3,7 +3,7 @@ package ch.nolix.core.skillAPI;
 
 //interface
 /**
- * A freezable object can be frozen. A frozen object can not be mutated anymore.
+ * A freezable object can be frozen. A frozen object cannot be mutated anymore.
  * A frozen object cannot be unfrozen.
  * A frozen object can be passed as parameter and is safe from any try to be mutated.
  * 

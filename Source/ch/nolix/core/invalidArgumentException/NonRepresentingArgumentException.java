@@ -3,7 +3,7 @@ package ch.nolix.core.invalidArgumentException;
 
 //class
 /**
- * A non representing argument exception is an exception that is intended to be thrown when an argument represents undesired no object of a given type.
+ * A non representing argument exception is an exception that is intended to be thrown when an argument does not undesired represent an object of a given type.
  * 
  * @author Silvan Wyss
  * @month 2017-03

@@ -83,7 +83,7 @@ public abstract class Session<C extends Client<C>> {
 	//method
 	/**
 	 * @return the parent client of the current {@link Session}.
-	 * @throws InvalidStateException if the current {@link Session} belongs to no client.
+	 * @throws InvalidStateException if the current {@link Session} does not belong to a client.
 	 */
 	public final C getParentClient() {
 		
@@ -97,7 +97,7 @@ public abstract class Session<C extends Client<C>> {
 	/**
 	 * @return the context of the {@link Application}
 	 * the {@link Client} of the current {@link Session} belongs to.
-	 * @throws InvalidStateException if the current {@link Session} belongs to no {@link Client}.
+	 * @throws InvalidStateException if the current {@link Session} does not belong to a {@link Client}.
 	 * @throws InvalidStateException if the {@link Client} of the current {@link Session}
 	 * does not reference the {@link Application} it belongs to.
 	 * @throws UnexistingAttributeException if the {@link Application},

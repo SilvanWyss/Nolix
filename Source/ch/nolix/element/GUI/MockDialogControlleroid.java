@@ -16,7 +16,7 @@ import ch.nolix.core.documentNode.Statement;
 final class MockDialogControlleroid implements IController {
 
 	//error messages
-	private static final String MOCK_DIALOG_CONTROLLEROID_PROVIDES_NO_CALLS = "Mock dialog controlleroid provides no calls.";
+	private static final String MOCK_DIALOG_CONTROLLEROID_PROVIDES_NO_CALLS = "Mock dialog controlleroid does not provide calls.";
 
 	//method
 	/**
