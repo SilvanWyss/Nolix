@@ -481,12 +481,12 @@ public abstract class DocumentNodeoid implements Headered {
 			
 			//Checks if the current character is a closing bracket before an opening bracket.
 			if (character == CharacterCatalogue.CLOSED_BRACKET) {
-				throw new InvalidArgumentException(VariableNameCatalogue.CONTENT, string);
+				throw new InvalidArgumentException(string);
 			}
 			
 			//Checks if the current character is a comma before an opening bracket.
 			if (character == CharacterCatalogue.COMMA) {
-				throw new InvalidArgumentException(VariableNameCatalogue.CONTENT, string);
+				throw new InvalidArgumentException(string);
 			}
 			
 			//Handles the case that the current character is an opening bracket.
@@ -512,7 +512,7 @@ public abstract class DocumentNodeoid implements Headered {
 
 			//Checks if the start index is not too big.
 			if (attributestartIndex > string.length() - 1) {
-				throw new InvalidArgumentException(VariableNameCatalogue.CONTENT, string);
+				throw new InvalidArgumentException(string);
 			}
 			
 			var level = 0;
@@ -544,7 +544,7 @@ public abstract class DocumentNodeoid implements Headered {
 			
 			//Checks if the last character of the given value is a closing bracket.
 			if (string.charAt(string.length() - 1) != CharacterCatalogue.CLOSED_BRACKET) {
-				throw new InvalidArgumentException(VariableNameCatalogue.CONTENT, string);
+				throw new InvalidArgumentException(string);
 			}
 		}
 	}
