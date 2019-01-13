@@ -21,7 +21,7 @@ public final class TerminalLongMediator extends Mediator {
 	}
 	
 	//method
-	public double andReturn() {
+	public long andReturn() {
 		return argument;
 	}
 }
