@@ -26,6 +26,7 @@ import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.configurationElement.ConfigurationElement;
 import ch.nolix.element.core.NonEmptyText;
+import ch.nolix.element.painter.IPainter;
 
 //class
 /**
@@ -645,6 +646,28 @@ implements IGUI<G> {
 		.forEach(w -> w.noteAnyRightMouseButtonRelease());
 		
 		refresh();
+	}
+	
+	//method
+	public final void paintContent(IPainter painter) {
+		
+		//Paints the background of the current frame.
+			//Handles the case that the current frame has a background color.
+			if (hasBackgroundColor()) {
+				painter.setColor(getBackgroundColor());
+				painter.paintFilledRectangle(getWidth(), getHeight());
+			}
+			
+			//Handles the case that the current frame has a background color gradient.
+			if (hasBackgroundColorGradient()) {
+				painter.setColorGradient(getBackgroundColorGradient());
+				painter.paintFilledRectangle(getWidth(), getHeight());
+			}
+	
+		//Handles the case that the current frame has a root widget.
+		if (hasRootWidget()) {
+			getRefRootWidget().paintUsingPositionOnParent(painter);
+		}
 	}
 	
 	//method

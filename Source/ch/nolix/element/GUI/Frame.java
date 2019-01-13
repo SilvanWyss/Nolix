@@ -55,25 +55,7 @@ public final class Frame extends GUI<Frame> {
 			super.paintComponent(graphics);
 			
 			//Creates swing painter.
-			final var swingPainter = new SwingPainter(graphics);
-			
-			//Paints the background of the current frame.
-				//Handles the case that the current frame has a background color.
-				if (hasBackgroundColor()) {
-					swingPainter.setColor(getBackgroundColor());
-					swingPainter.paintFilledRectangle(getWidth(), getHeight());
-				}
-				
-				//Handles the case that the current frame has a background color gradient.
-				if (hasBackgroundColorGradient()) {
-					swingPainter.setColorGradient(getBackgroundColorGradient());
-					swingPainter.paintFilledRectangle(getWidth(), getHeight());
-				}
-			
-			//Handles the case that the current frame has a root widget.
-			if (hasRootWidget()) {
-				getRefRootWidget().paintUsingPositionOnParent(swingPainter);
-			}
+			Frame.this.paintContent(new SwingPainter(graphics));
 		}
 	};
 	
