@@ -110,14 +110,13 @@ extends Referenceoid<E> {
 	}
 	
 	//method
-	private void setValue(final long referencedEntityId) {
-		
+	private void setValue(final long referencedEntityId) {		
+		this.referencedEntityId =				
 		Validator
 		.suppose(referencedEntityId)
 		.thatIsNamed("referenced entity id")
-		.isPositive();
-		
-		this.referencedEntityId = referencedEntityId;
+		.isPositive()
+		.andReturn();
 	}
 	
 	//method
