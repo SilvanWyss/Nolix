@@ -59,7 +59,7 @@ implements IController, Specifiable<MU> {
 		if (header.startsWith(SET_ATTRIBUTE_COMMAND_PREFIX)) {
 		
 			//Checks if the header of the given command has a length that is bigger than 4.
-			Validator.suppose(header).thatIsNamed("command").hasMinLength(4);
+			Validator.suppose(header).thatIsNamed("command").isNotShorterThan(4);
 			
 			addOrChangeAttribute(
 				new DocumentNode(header.substring(3), command.getRefAttributes())

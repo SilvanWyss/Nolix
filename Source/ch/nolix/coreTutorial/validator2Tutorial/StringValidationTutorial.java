@@ -24,7 +24,7 @@ public final class StringValidationTutorial {
 		Validator.suppose("Hello World!").isNotEmpty();
 		
 		//Lets the validator validate that he string 'Hello World!' has the max length 20.
-		Validator.suppose("Hello World!").hasMaxLength(12);
+		Validator.suppose("Hello World!").isNotLongerThan(12);
 	}
 	
 	//private constructor
