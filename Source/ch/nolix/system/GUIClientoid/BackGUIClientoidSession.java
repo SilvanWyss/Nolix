@@ -8,9 +8,9 @@ import ch.nolix.system.client.Session;
 //abstract class
 public abstract class BackGUIClientoidSession<BGUIC extends BackGUIClientoid<BGUIC>>
 extends Session<BGUIC> {
-
+	
 	//attribute
-	private final GUI<?> GUI = new BackGUIClientoidApplicationGUI();
+	private GUI<?> GUI = new BackGUIClientoidApplicationGUI();
 	
 	//package-visible method
 	protected final GUI<?> getRefGUI() {

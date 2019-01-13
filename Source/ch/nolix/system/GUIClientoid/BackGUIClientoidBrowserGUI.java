@@ -37,29 +37,5 @@ final class BackGUIClientoidBrowserGUI extends BackGUIClientoidGUI {
 	
 	//method
 	@Override
-	protected void paint() {
-		
-		//Creates a painter.
-		final var painter = painterCreator.getOutput();
-		
-		//Handles the case that the current GUI has a background color.
-		if (hasBackgroundColor()) {
-			painter.setColor(getBackgroundColor());
-			painter.paintFilledRectangle(getContentWidth(), getContentHeight());
-		}
-		
-		//Handles the case that the current GUI has a background color gradient.
-		if (hasBackgroundColorGradient()) {
-			painter.setColorGradient(getBackgroundColorGradient());
-			painter.paintFilledRectangle(getContentWidth(), getContentHeight());
-		}
-		
-		//Handles the case that the current GUI has a root widget.
-		if (hasRootWidget()) {
-			getRefRootWidget().paintUsingPositionOnParent(painter);
-		}
-		
-		//Flushes the painter.
-		painter.flush();
-	}
+	public void paint() {}
 }

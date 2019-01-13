@@ -225,12 +225,14 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//package-visible method
 	final void paintOnCounterpart(final IContainer<Statement> painterCommands) {
-		internal_runOnCounterpart(
-			Protocol.PAINT_HEADER
-			+ '('
-			+ painterCommands.toStrings()
-			+ ')'
-		);
+		if (painterCommands.containsAny()) {	
+			internal_runOnCounterpart(
+				Protocol.PAINT_HEADER
+				+ '('
+				+ painterCommands.to(pc -> DocumentNode.createReproducingString(pc.toString()))
+				+ ')'
+			);
+		}
 	}
 	
 	//method
@@ -415,7 +417,10 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 				resetGUIOnCounterpart(getRefGUI().getAttributes());
 				break;
 			case PainterCommandsConsumer:
+				final var painter = new FrontBrowserGUIClientoidPainter(this);
 				getRefGUI().refresh();
+				getRefGUI().paintContent(painter);
+				painter.flush();
 				break;
 		}
 	}

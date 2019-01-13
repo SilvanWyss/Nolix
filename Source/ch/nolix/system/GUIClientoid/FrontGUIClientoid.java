@@ -15,6 +15,7 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.image.Image;
 import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.painter.SwingPainter;
 import ch.nolix.system.GUIClient.FrontBrowserGUIClient;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.client.Client;
@@ -24,7 +25,7 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>>
 extends Client<FGC> {
 	
 	//multi-attribute
-	private final List<FrontBrowserGUIClientoidPainter> painters = new List<FrontBrowserGUIClientoidPainter>();
+	private final List<IPainter> painters = new List<IPainter>();
 	
 	//attribute
 	private final GUI<?> GUI;
@@ -79,7 +80,11 @@ extends Client<FGC> {
 				runGUICommand(command.getRefNextStatement());
 				break;
 			case Protocol.PAINT_HEADER:
-				runPainterCommands(command.getRefAttributes().to(a -> new Statement(a.toString())));
+				runPainterCommands(
+					command
+					.getRefAttributes()
+					.to(a -> new Statement(DocumentNode.createOriginStringFromReproducingString(a.toString())))
+				);
 				break;
 			default:
 			
@@ -276,6 +281,7 @@ extends Client<FGC> {
 	//method
 	private void runPainterCommands(final IContainer<Statement> painterCommands) {
 		//TODO: Handle begin and end of 1 painting process.
+		
 		for (final Statement pc : painterCommands) {
 			runPainterCommand(getRefPainterByIndex(pc.getOneAttributeAsInt()), pc.getRefNextStatement());
 		}

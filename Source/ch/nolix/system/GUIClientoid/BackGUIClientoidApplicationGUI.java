@@ -18,5 +18,5 @@ final class BackGUIClientoidApplicationGUI extends BackGUIClientoidGUI {
 	
 	//method
 	@Override
-	protected void paint() {}
+	public void paint() {}
 }
