@@ -8,9 +8,6 @@ import ch.nolix.core.validator2.Validator;
 //package-visible class
 final class BackGUIClientoidBrowserGUI extends BackGUIClientoidGUI {
 	
-	//attribute
-	private final IElementGetter<FrontBrowserGUIClientoidPainter> painterCreator;
-
 	//constructor
 	public BackGUIClientoidBrowserGUI(
 		final IElementGetter<FrontBrowserGUIClientoidPainter> painterCreator
@@ -24,9 +21,6 @@ final class BackGUIClientoidBrowserGUI extends BackGUIClientoidGUI {
 		.suppose(painterCreator)
 		.thatIsNamed("painter creator")
 		.isInstance();
-		
-		//Sets the painter creator of the current GUI.
-		this.painterCreator = painterCreator;
 	}
 	
 	//method

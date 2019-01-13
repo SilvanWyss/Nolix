@@ -4,7 +4,6 @@ package ch.nolix.system.GUIClientoid;
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.documentNode.Statement;
@@ -15,7 +14,6 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.image.Image;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.element.painter.SwingPainter;
 import ch.nolix.system.GUIClient.FrontBrowserGUIClient;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.client.Client;
@@ -23,9 +21,6 @@ import ch.nolix.system.client.Client;
 //abstract
 public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>>
 extends Client<FGC> {
-	
-	//multi-attribute
-	private final List<IPainter> painters = new List<IPainter>();
 	
 	//attribute
 	private final GUI<?> GUI;
@@ -141,7 +136,8 @@ extends Client<FGC> {
 	 * @param index
 	 */
 	private IPainter getRefPainterByIndex(final int index) {
-		return painters.getRefFirst(p -> p.hasIndex(index));
+		//TODO: Implement.
+		return null;
 	}
 	
 	//method
