@@ -26,7 +26,7 @@ import ch.nolix.core.primitiveHelper.ArrayHelper;
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 300
+ * @lines 340
  */
 public class LongMediator extends Mediator {
 	
@@ -66,31 +66,35 @@ public class LongMediator extends Mediator {
 	//method
 	/**
 	 * @param value
+	 * @return a new {@link LongTerminalMediator} for the argument of the current {@link LongMediator}.
 	 * @throws UnequalArgumentException
 	 * if the argument of this long mediator does not equal the given value.
 	 */
-	public void isEqualTo(final long value) {
+	public LongTerminalMediator isEqualTo(final long value) {
 		
 		//Checks if the argument of this long mediator equals the given value.
 		if (argument != value) {
 			throw new UnequalArgumentException(getArgumentName(), argument, value);
 		}
+		
+		return new LongTerminalMediator(getArgumentName(), argument);
 	}
 	
 	//method
 	/**
 	 * @param values
+	 * @return a new {@link LongTerminalMediator} for the argument of the current {@link LongMediator}.
 	 * @throws InvalidArgumentException
 	 * if the argument of this long mediator does not equal one of the given values.
 	 */
-	public void isEqualToAny(final long... values) {
+	public LongTerminalMediator isEqualToAny(final long... values) {
 		
 		//Iterates the given values.
 		for (final long v : values) {
 			
 			//Checks if the argument of this long mediator equals the current value.
 			if (argument == v) {
-				return;
+				return new LongTerminalMediator(getArgumentName(), argument);
 			}
 		}
 		
@@ -105,10 +109,11 @@ public class LongMediator extends Mediator {
 	/**
 	 * @param min
 	 * @param max
+	 * @return a new {@link LongTerminalMediator} for the argument of the current {@link LongMediator}.
 	 * @throws OutOfRangeArgumentException
 	 * if the argument of this long mediator is not between the given min and max.
 	 */
-	public void isBetween(final long min, final long max) {
+	public LongTerminalMediator isBetween(final long min, final long max) {
 		
 		//Checks if the argument of this long mediator
 		//is between the given min and max.
@@ -120,59 +125,71 @@ public class LongMediator extends Mediator {
 				max
 			);
 		}
+		
+		return new LongTerminalMediator(getArgumentName(), argument);
 	}
 	
 	//method
 	/**
 	 * @param value
+	 * @return a new {@link LongTerminalMediator} for the argument of the current {@link LongMediator}.
 	 * @throws NonBiggerArgumentException
 	 * if the argument of this long mediator is not bigger than the given value.
 	 */
-	public void isBiggerThan(final long value) {
+	public LongTerminalMediator isBiggerThan(final long value) {
 		
 		//Checks if the argument of this long mediator is bigger than the given value.
 		if (argument <= value) {
 			throw new NonBiggerArgumentException(getArgumentName(), argument, value);
 		}
+		
+		return new LongTerminalMediator(getArgumentName(), argument);
 	}
 	
 	//method
 	/**
 	 * @param value
+	 * @return a new {@link LongTerminalMediator} for the argument of the current {@link LongMediator}.
 	 * @throws SmallerArgumentException
 	 * if the argument of this long mediator
 	 * is not bigger than or does not equal the given value.
 	 */
-	public void isBiggerThanOrEquals(final long value) {
+	public LongTerminalMediator isBiggerThanOrEquals(final long value) {
 		
 		//Checks if the argument of this long mediator
 		//is bigger than or equals the given value.
 		if (argument < value) {
 			throw new SmallerArgumentException(getArgumentName(), argument, value);
 		}
+		
+		return new LongTerminalMediator(getArgumentName(), argument);
 	}
 	
 	//method
 	/**
+	 * @return a new {@link LongTerminalMediator} for the argument of the current {@link LongMediator}.
 	 * @throws NonNegativeArgumentException
 	 * if the argument of this long mediator is not negative.
 	 */
-	public void isNegative() {
+	public LongTerminalMediator isNegative() {
 		
 		//Checks if the argument of this long mediator is negative.
 		if (argument >= 0) {
 			throw new NonNegativeArgumentException(getArgumentName(), argument);
 		}
+		
+		return new LongTerminalMediator(getArgumentName(), argument);
 	}
 	
 	//method
 	/**
 	 * @param min
 	 * @param max
+	 * @return a new {@link LongTerminalMediator} for the argument of the current {@link LongMediator}.
 	 * @throws InRangeArgumentException
 	 * if the argument of this long mediator is between the given min and max.
 	 */
-	public void isNotBetween(final int min, final int max) {
+	public LongTerminalMediator isNotBetween(final int min, final int max) {
 		
 		//Checks if the argument of this long mediator
 		//is not between the given min and max.
@@ -184,109 +201,136 @@ public class LongMediator extends Mediator {
 				max
 			);
 		}
+		
+		return new LongTerminalMediator(getArgumentName(), argument);
 	}
 	
 	//method
 	/**
 	 * @param value
+	 * @return a new {@link LongTerminalMediator} for the argument of the current {@link LongMediator}.
 	 * @throws EqualArgumentExcetpion
 	 * if the argument of this long mediator equals the given value.
 	 */
-	public void isNotEqualTo(final long value) {
+	public LongTerminalMediator isNotEqualTo(final long value) {
 		
 		//Checks if the argument of this long mediator does not equals the given value.
 		if (argument == value) {
 			throw new EqualArgumentException(getArgumentName(), argument, value);
 		}
+		
+		return new LongTerminalMediator(getArgumentName(), argument);
 	}
 	
 	//method
 	/**
 	 * @param value
+	 * @return a new {@link LongTerminalMediator} for the argument of the current {@link LongMediator}.
 	 * @throws BiggerArgumentException
 	 * if the argument of this long mediator is bigger than the given value.
 	 */
-	public void isNotBiggerThan(final long value) {
+	public LongTerminalMediator isNotBiggerThan(final long value) {
 		
 		//Checks if the argument of this long mediator is not bigger than the given value.
 		if (argument > value) {
 			throw new BiggerArgumentException(getArgumentName(), argument, value);
 		}
+		
+		return new LongTerminalMediator(getArgumentName(), argument);
 	}
 	
 	//method
 	/**
+	 * @return a new {@link LongTerminalMediator} for the argument of the current {@link LongMediator}.
 	 * @throws NegativeArgumentException
 	 * if the argument of htis long mediator is negative.
 	 */
-	public void isNotNegative() {
+	public LongTerminalMediator isNotNegative() {
 		
 		//Checks if the argument of this long mediator is not negative.
 		if (argument < 0.0) {
 			throw new NegativeArgumentException(getArgumentName(), argument);
 		}
+		
+		return new LongTerminalMediator(getArgumentName(), argument);
 	}
 	
 	//method
 	/**
+	 * @return a new {@link LongTerminalMediator} for the argument of the current {@link LongMediator}.
 	 * @throws PositiveArgumentException
 	 * if the argument of this long mediator is positive.
 	 */
-	public void isNotPositive() {
+	public LongTerminalMediator isNotPositive() {
 		
 		//Checks if the argument of this long mediator is not positive.
 		if (argument > 0) {
 			throw new PositiveArgumentException(getArgumentName(), argument);
 		}
+		
+		return new LongTerminalMediator(getArgumentName(), argument);
 	}
 	
 	//method
 	/**
+	 * @return a new {@link LongTerminalMediator} for the argument of the current {@link LongMediator}.
 	 * @param SmallerArgumentException
 	 * if the argument of this long mediator is smaller than the given value.
 	 */
-	public void isNotSmallerThan(final long value) {
+	public LongTerminalMediator isNotSmallerThan(final long value) {
 	
 		//Checks if the argument of this long mediator is not smaller than the given value.
 		if (argument < value) {
 			throw new SmallerArgumentException(getArgumentName(), argument, value);
 		}
+		
+		return new LongTerminalMediator(getArgumentName(), argument);
 	}
 	
 	//method
 	/**
+	 * @return a new {@link LongTerminalMediator} for the argument of the current {@link LongMediator}.
 	 * @throws NonPositiveArgumentException
 	 * if the argument of this long mediator is not positive.
 	 */
-	public void isPositive() {
+	public LongTerminalMediator isPositive() {
 		
 		//Checks if the argument of this long mediator is positive.
 		if (argument < 1) {
 			throw new NonPositiveArgumentException(getArgumentName(), argument);
 		}
+		
+		return new LongTerminalMediator(getArgumentName(), argument);
 	}
 	
 	//method
 	/**
 	 * @param value
+	 * @return a new {@link LongTerminalMediator} for the argument of the current {@link LongMediator}.
 	 * @throws NonSmallerArgumentException
 	 * if the argument of this long mediator is not smaller than the given value.
 	 */
-	public void isSmallerThan(final long value) {
+	public LongTerminalMediator isSmallerThan(final long value) {
 		
 		//Checks if the argument of this long mediator is smaller than the given value.
 		if (argument >= value) {
 			throw new NonSmallerArgumentException(getArgumentName(), argument, value);
 		}
+		
+		return new LongTerminalMediator(getArgumentName(), argument);
 	}
 	
 	//method
 	/**
+	 * @return a new {@link LongTerminalMediator} for the argument of the current {@link LongMediator}.
 	 * @throws UnequalArgumentException
 	 * if the argument of this long mediator is not 0.
 	 */
-	public void isZero() {
+	public LongTerminalMediator isZero() {
+		
 		isEqualTo(0);
+		
+		return new LongTerminalMediator(getArgumentName(), argument);
 	}
 	
 	//method
