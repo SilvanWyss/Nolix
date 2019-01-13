@@ -1,7 +1,5 @@
-//package declaration
 package ch.nolix.templatesTutorial.textureCreatorTutorial;
 
-//own imports
 import ch.nolix.element.GUI.Accordion;
 import ch.nolix.element.GUI.AccordionTab;
 import ch.nolix.element.GUI.Frame;
@@ -9,23 +7,16 @@ import ch.nolix.element.GUI.ImageWidget;
 import ch.nolix.templates.textureCreators.ConcreteTextureCreator;
 import ch.nolix.templates.textureCreators.JuteTextureCreator;
 
-//class
 /**
  * The {@link TextureCreatorTutorial} provides a tutorial for {@link JuteTextureCreator}.
  * Of the {@link TextureCreatorTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-08
- * @lines 60
+ * @lines 40
  */
 public final class TextureCreatorTutorial {
 	
-	//main method
-	/**
-	 * Creates a {@link Frame} with textures that are created from a {@link JuteTextureCreator}.
-	 * 
-	 * @param args
-	 */
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
@@ -54,9 +45,5 @@ public final class TextureCreatorTutorial {
 		);
 	}
 	
-	//private constructor
-	/**
-	 * Avoids that an instance of the {@link TextureCreatorTutorial} can be created.
-	 */
 	private TextureCreatorTutorial() {}
 }
