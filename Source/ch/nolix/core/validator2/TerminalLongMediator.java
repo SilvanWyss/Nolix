@@ -2,18 +2,18 @@
 package ch.nolix.core.validator2;
 
 //class
-public final class LongTerminalMediator extends Mediator {
+public final class TerminalLongMediator extends Mediator {
 	
 	//attribute
 	private final long argument;
 	
 	//constructor
-	public LongTerminalMediator(final long argument) {
+	public TerminalLongMediator(final long argument) {
 		this.argument = argument;
 	}
 	
 	//constructor
-	public LongTerminalMediator(final String argumentName, final long argument) {
+	public TerminalLongMediator(final String argumentName, final long argument) {
 		
 		super(argumentName);
 		
