@@ -3,6 +3,7 @@ package ch.nolix.core.validator2;
 
 //own imports
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //class
@@ -11,7 +12,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 50
+ * @lines 90
  */
 public final class MultiStringMediator extends MultiArgumentMediator<String> {
 
@@ -40,7 +41,38 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
 		//Calls method of the base class.
 		super(arguments);
 	}
-
+	
+	//method
+	/**
+	 * @return a new {@link TerminalArgumentMediator}
+	 * for the arguments of the current {@link MultiStringMediator}.
+	 * @throws NullArgumentException
+	 * if one of the arguments of the current {@link MultiStringMediator} is null.
+	 * @throws InvalidArgumentException
+	 * if one of the arguments of the current {@link MultiStringMediator} is blank.
+	 */
+	public TerminalArgumentMediator<Iterable<String>> areNotBlank() {
+		
+		//Checks if the arguments of the current multi string mediator are not null.
+		areNotNull();
+		
+		//Iterates the arguments of the current multi string mediator.
+		var index = 1;
+		for (final var a : getRefArguments()) {
+						
+			//Checks if the current argument is not blank.
+			if (a.isBlank()) {
+				throw new InvalidArgumentException(index + "th argument", a, "is blank");
+			}
+			
+			//Increments index.
+			index++;
+		}
+		
+		//Creates new terminal argument mediator for the arguments of the current multi string mediator.
+		return new TerminalArgumentMediator<Iterable<String>>(getRefArguments());
+	}
+	
 	//method
 	/**
 	 * @throws NullArgumentException if one of the arguments of this strinc container mediator is null.
