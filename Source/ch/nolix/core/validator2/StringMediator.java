@@ -54,7 +54,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	 * @throws NullArgumentException if the argument of the current {@link StringMediator} is null.
 	 * @throws InvalidArgumentException if the argument of the current {@link StringMediator} is not blank.
 	 */
-	public TerminalStringMediator isBlank() {
+	public TerminalArgumentMediator<String> isBlank() {
 		
 		//Checks if the argument of the current string mediator is not null.
 		isInstance();
@@ -64,7 +64,7 @@ public class StringMediator extends ArgumentMediator<String> {
 			throw new InvalidArgumentException(getArgumentName(), getRefArgument(), "is not blank");
 		}
 		
-		return new TerminalStringMediator(getArgumentName(), getRefArgument());
+		return new TerminalArgumentMediator<String>(getArgumentName(), getRefArgument());
 	}
 	
 	//method
@@ -73,7 +73,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	 * @throws NullArgumentException if the argument of the current {@link StringMediator} is null.
 	 * @throws NonEmptyArgumentException if the argument of the current {@link StringMediator} is not empty.
 	 */
-	public TerminalStringMediator isEmpty() {
+	public TerminalArgumentMediator<String> isEmpty() {
 		
 		//Checks if the argument of the current string mediator is not null.
 		isInstance();
@@ -83,7 +83,7 @@ public class StringMediator extends ArgumentMediator<String> {
 			throw new NonEmptyArgumentException(getArgumentName(), getRefArgument());
 		}
 		
-		return new TerminalStringMediator(getArgumentName(), getRefArgument());
+		return new TerminalArgumentMediator<String>(getArgumentName(), getRefArgument());
 	}
 
 	//method
@@ -92,7 +92,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	 * @throws NullArgumentException if the argument of the current {@link StringMediator} is null.
 	 * @throws EmptyArgumentException if the argument of the current {@link StringMediator} is empty.
 	 */
-	public TerminalStringMediator isNotEmpty() {
+	public TerminalArgumentMediator<String> isNotEmpty() {
 		
 		//Checks if the argument of the current string mediator is not null.
 		isInstance();
@@ -102,7 +102,7 @@ public class StringMediator extends ArgumentMediator<String> {
 			throw new EmptyArgumentException(getRefArgument());
 		}
 		
-		return new TerminalStringMediator(getArgumentName(), getRefArgument());
+		return new TerminalArgumentMediator<String>(getArgumentName(), getRefArgument());
 	}
 	
 	//method
@@ -112,7 +112,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	 * @throws EmptyArgumentException if the argument of the current {@link StringMediator} is empty.
 	 * @throws InvalidArgumentException if the argument of the current {@link StringMediator} is blank.
 	 */
-	public TerminalStringMediator isNotBlank() {
+	public TerminalArgumentMediator<String> isNotBlank() {
 		
 		//Checks if the argument of the current string mediator is not null or empty.
 		isNotEmpty();
@@ -127,7 +127,7 @@ public class StringMediator extends ArgumentMediator<String> {
 			);
 		}
 		
-		return new TerminalStringMediator(getArgumentName(), getRefArgument());
+		return new TerminalArgumentMediator<String>(getArgumentName(), getRefArgument());
 	}
 	
 	//method
@@ -138,7 +138,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	 * @throws InvalidArgumentException
 	 * if the argument of the current {@link StringMediator} is longer than the given max length says.
 	 */
-	public TerminalStringMediator isNotLongerThan(final int maxLength) {
+	public TerminalArgumentMediator<String> isNotLongerThan(final int maxLength) {
 		
 		//Checks if the argument of the current string mediator is not null.
 		isInstance();
@@ -153,7 +153,7 @@ public class StringMediator extends ArgumentMediator<String> {
 			);
 		}
 		
-		return new TerminalStringMediator(getArgumentName(), getRefArgument());
+		return new TerminalArgumentMediator<String>(getArgumentName(), getRefArgument());
 	}
 	
 	//method
@@ -164,7 +164,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	 * @throws InvalidArgumentException
 	 * if the argument of the current {@link StringMediator} is shorter than the given min length says.
 	 */
-	public TerminalStringMediator isNotShorterThan(final int minLength) {
+	public TerminalArgumentMediator<String> isNotShorterThan(final int minLength) {
 		
 		//Checks if the argument of the current string mediator is not null.
 		isInstance();
@@ -179,7 +179,7 @@ public class StringMediator extends ArgumentMediator<String> {
 			);
 		}
 		
-		return new TerminalStringMediator(getArgumentName(), getRefArgument());
+		return new TerminalArgumentMediator<String>(getArgumentName(), getRefArgument());
 	}
 	
 	//method
@@ -190,7 +190,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	 * @throws InvalidArgumentException
 	 * if the given directory does not exist on the local machine or cannot be created on the local machine.
 	 */
-	public TerminalStringMediator specifiesProbableDirectoryOnLocalMachine(final String directory) {
+	public TerminalArgumentMediator<String> specifiesProbableDirectoryOnLocalMachine(final String directory) {
 		
 		//Checks if the argument of the current string mediator is not null.
 		isInstance();
@@ -227,6 +227,6 @@ public class StringMediator extends ArgumentMediator<String> {
 			);
 		}
 		
-		return new TerminalStringMediator(getArgumentName(), getRefArgument());
+		return new TerminalArgumentMediator<String>(getArgumentName(), getRefArgument());
 	}
 }

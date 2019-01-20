@@ -2,18 +2,18 @@
 package ch.nolix.core.validator2;
 
 //class
-public final class TerminalStringMediator extends Mediator {
+public final class TerminalArgumentMediator<A> extends Mediator {
 	
 	//attribute
-	private final String argument;
+	private final A argument;
 	
 	//package-visible constructor
-	TerminalStringMediator(final String argument) {
+	TerminalArgumentMediator(final A argument) {
 		this.argument = argument;
 	}
 	
 	//package-visible constructor
-	TerminalStringMediator(final String argumentName, final String argument) {
+	TerminalArgumentMediator(final String argumentName, final A argument) {
 		
 		super(argumentName);
 		
@@ -21,7 +21,7 @@ public final class TerminalStringMediator extends Mediator {
 	}
 	
 	//method
-	public String andReturn() {
+	public A andReturn() {
 		return argument;
 	}
 }
