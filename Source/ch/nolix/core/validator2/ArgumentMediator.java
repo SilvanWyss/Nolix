@@ -21,7 +21,7 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
 public class ArgumentMediator<A> extends Mediator {
 
 	//constant
-	public static final String DEFAULT_ARGUMENT_NAME = "Argument";
+	public static final String DEFAULT_ARGUMENT_NAME = "argument";
 	
 	//attribute
 	private final A argument;
