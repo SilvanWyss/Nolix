@@ -182,7 +182,7 @@ implements
 						final Property<?> property = (Property<?>)(f.get(this));
 						
 						//Checks if the current property is not null.
-						Validator.suppose(property).isInstanceOf(Property.class);
+						Validator.suppose(property).isOfType(Property.class);
 						
 						properties.addAtEnd(property);
 					}

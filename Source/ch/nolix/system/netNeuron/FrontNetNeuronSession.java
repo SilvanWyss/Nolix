@@ -32,7 +32,7 @@ extends Session<StandardClient> {
 		
 		Validator
 		.suppose(netFrontNeuron)
-		.isInstanceOf(FrontNetNeuronSession.class);
+		.isOfType(FrontNetNeuronSession.class);
 		
 		this.frontNetNeuron = netFrontNeuron;
 	}

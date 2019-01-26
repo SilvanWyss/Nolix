@@ -83,12 +83,24 @@ public class ArgumentMediator<A> extends Mediator {
 	
 	//method
 	/**
+	 * @throws NullArgumentException if the argument of this argument mediator is null.
+	 */
+	public final void isNotNull() {
+		
+		//Checks if the argument of this argument mediator is not null.
+		if (argument == null) {
+			throw new NullArgumentException(getArgumentName());
+		}
+	}
+	
+	//method
+	/**
 	 * @param type
 	 * @throws NullArgumentException if the argument of this argument mediator is null.
 	 * @throws InvalidArgumentException
 	 * if the argument of this argument mediator is null of the given type.
 	 */
-	public final void isInstanceOf(final Class<?> type) {
+	public final void isOfType(final Class<?> type) {
 		
 		//Checks if the argument of this argument mediator is not null.
 		isNotNull();
@@ -100,18 +112,6 @@ public class ArgumentMediator<A> extends Mediator {
 				getRefArgument(),
 				"is not a " + type
 			);
-		}
-	}
-	
-	//method
-	/**
-	 * @throws NullArgumentException if the argument of this argument mediator is null.
-	 */
-	public final void isNotNull() {
-		
-		//Checks if the argument of this argument mediator is not null.
-		if (argument == null) {
-			throw new NullArgumentException(getArgumentName());
 		}
 	}
 	

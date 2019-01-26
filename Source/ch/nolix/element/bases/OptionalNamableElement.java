@@ -187,7 +187,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE> {
 	public final void setRequestableContainer(IRequestableContainer requestableContainer) {
 		
 		//Checks if the given requestable container is not null.
-		Validator.suppose(requestableContainer).isInstanceOf(IRequestableContainer.class);
+		Validator.suppose(requestableContainer).isOfType(IRequestableContainer.class);
 		
 		//Checks if this optional namable elmeent does not belong to another requestable container.
 		if (belongsToRequestableContainer() && this.requestableContainer != requestableContainer) {

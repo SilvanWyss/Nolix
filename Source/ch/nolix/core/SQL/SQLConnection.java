@@ -24,8 +24,8 @@ public abstract class SQLConnection {
 		final SQLDatabaseEngine SQLDatabaseEngine,
 		final Connection connection
 	) {
-		Validator.suppose(SQLDatabaseEngine).isInstanceOf(SQLDatabaseEngine.class);
-		Validator.suppose(connection).isInstanceOf(Connection.class);
+		Validator.suppose(SQLDatabaseEngine).isOfType(SQLDatabaseEngine.class);
+		Validator.suppose(connection).isOfType(Connection.class);
 		
 		this.SQLDatabaseEngine = SQLDatabaseEngine;
 		this.connection = connection;
@@ -58,7 +58,7 @@ public abstract class SQLConnection {
 		final String userName,
 		final String userPassword
 	) {
-		Validator.suppose(SQLDatabaseEngine).isInstanceOf(SQLDatabaseEngine.class);
+		Validator.suppose(SQLDatabaseEngine).isOfType(SQLDatabaseEngine.class);
 		
 		this.SQLDatabaseEngine = SQLDatabaseEngine;
 		

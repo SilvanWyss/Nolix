@@ -17,7 +17,7 @@ final class FrontGUIClientoidGUIController implements IGUIController {
 	//constructor
 	public FrontGUIClientoidGUIController(final FrontGUIClientoid<?> frontGUIClient) {
 		
-		Validator.suppose(frontGUIClient).isInstanceOf(FrontGUIClient.class);
+		Validator.suppose(frontGUIClient).isOfType(FrontGUIClient.class);
 		
 		this.frontGUIClient = frontGUIClient;
 	}

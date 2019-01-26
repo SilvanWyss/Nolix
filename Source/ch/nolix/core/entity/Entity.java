@@ -153,7 +153,7 @@ implements
 						final var property = (Propertyoid<Specified>)(f.get(this));
 						
 						//Checks if the current property is not null.
-						Validator.suppose(property).isInstanceOf(MutableProperty.class);
+						Validator.suppose(property).isOfType(MutableProperty.class);
 						
 						properties.addAtEnd(property);
 					}

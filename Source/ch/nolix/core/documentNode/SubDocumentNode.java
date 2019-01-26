@@ -36,7 +36,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 		//Checks if the given simple persistent specification is not null.
 		Validator
 		.suppose(simplePersistentSpecification)
-		.isInstanceOf(SimplePersistentDocumentNode.class);
+		.isOfType(SimplePersistentDocumentNode.class);
 		
 		//Checks if the given internal specification is not null.
 		Validator.suppose(internalSpecification)

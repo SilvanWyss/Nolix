@@ -20,7 +20,7 @@ public final class SQLExecutor implements Resettable<SQLExecutor> {
 	//package-visible constructor
 	SQLExecutor(final SQLConnection SQLConnection) {
 		
-		Validator.suppose(SQLConnection).isInstanceOf(SQLConnection.class);
+		Validator.suppose(SQLConnection).isOfType(SQLConnection.class);
 		
 		this.SQLConnection = SQLConnection;
 	}

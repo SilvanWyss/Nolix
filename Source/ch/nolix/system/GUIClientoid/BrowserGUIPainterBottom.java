@@ -19,7 +19,7 @@ final class BrowserGUIPainterBottom {
 	//constructor
 	public BrowserGUIPainterBottom(final BackGUIClientoid<?> parentBackGUIClient) {
 		
-		Validator.suppose(parentBackGUIClient).isInstanceOf(BackGUIClientoid.class);
+		Validator.suppose(parentBackGUIClient).isOfType(BackGUIClientoid.class);
 		
 		this.parentBackGUIClient = parentBackGUIClient;
 	}

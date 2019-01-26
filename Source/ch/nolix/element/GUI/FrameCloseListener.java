@@ -30,7 +30,7 @@ final class FrameCloseListener implements WindowListener {
 	public FrameCloseListener(final Frame frame) {
 		
 		//Checks if the given frame is not null.
-		Validator.suppose(frame).isInstanceOf(Frame.class);
+		Validator.suppose(frame).isOfType(Frame.class);
 		
 		//Sets the frame of this frame close listener.
 		this.frame = frame;

@@ -19,8 +19,8 @@ public final class FileProvider implements IFileProvider {
 		final IContainer<Integer> indexPathOnRootGUI
 	) {
 		
-		Validator.suppose(frontGUIClient).isInstanceOf(FrontGUIClient.class);
-		Validator.suppose(indexPathOnRootGUI).isInstanceOf(IContainer.class);
+		Validator.suppose(frontGUIClient).isOfType(FrontGUIClient.class);
+		Validator.suppose(indexPathOnRootGUI).isOfType(IContainer.class);
 		
 		this.frontGUIClient = frontGUIClient;
 		widgetIndexPathOnRootGUI = indexPathOnRootGUI;

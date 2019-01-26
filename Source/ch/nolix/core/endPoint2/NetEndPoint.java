@@ -160,7 +160,7 @@ public class NetEndPoint extends EndPoint {
 		super(false);
 		
 		//Checks if the given socket is not null.
-		Validator.suppose(socket).isInstanceOf(Socket.class);
+		Validator.suppose(socket).isOfType(Socket.class);
 		
 		//Checks if the given HTTP message is not null and not empty.
 		Validator.suppose(HTTPMessage).thatIsNamed("HTTP message").isNotEmpty();

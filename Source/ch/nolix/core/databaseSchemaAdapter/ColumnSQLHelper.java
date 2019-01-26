@@ -14,7 +14,7 @@ public abstract class ColumnSQLHelper {
 	//package-visible constructor
 	ColumnSQLHelper(final Column column) {
 		
-		Validator.suppose(column).isInstanceOf(Column.class);
+		Validator.suppose(column).isOfType(Column.class);
 		
 		this.column = column;
 	}

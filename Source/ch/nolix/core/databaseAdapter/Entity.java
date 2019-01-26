@@ -86,7 +86,7 @@ public class Entity implements Identified2, Specified {
 						
 						final Propertyoid<?> property = (Propertyoid<?>)(f.get(this));
 						
-						Validator.suppose(property).isInstanceOf(Propertyoid.class);
+						Validator.suppose(property).isOfType(Propertyoid.class);
 						
 						columns.addAtEnd(
 							new Column<>(

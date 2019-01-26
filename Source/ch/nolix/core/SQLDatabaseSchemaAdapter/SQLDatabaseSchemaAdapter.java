@@ -25,7 +25,7 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 	//constructor
 	protected SQLDatabaseSchemaAdapter(final SQLConnection SQLConnection) {
 		
-		Validator.suppose(SQLConnection).isInstanceOf(SQLConnection.class);
+		Validator.suppose(SQLConnection).isOfType(SQLConnection.class);
 		
 		this.SQLConnection = SQLConnection;
 	}

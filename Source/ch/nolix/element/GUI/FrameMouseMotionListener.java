@@ -18,7 +18,7 @@ implements MouseMotionListener {
 	//constructor
 	public FrameMouseMotionListener(final Frame frame) {
 		
-		Validator.suppose(frame).isInstanceOf(Frame.class);
+		Validator.suppose(frame).isOfType(Frame.class);
 		
 		this.frame = frame;
 	}

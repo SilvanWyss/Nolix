@@ -26,7 +26,7 @@ public final class SwingPainter implements IPainter {
 	//constructor
 	public SwingPainter(final Graphics graphics) {
 		
-		Validator.suppose(graphics).isInstanceOf(Graphics.class);
+		Validator.suppose(graphics).isOfType(Graphics.class);
 		
 		this.graphics = graphics;
 		
@@ -148,7 +148,7 @@ public final class SwingPainter implements IPainter {
 	@Override
 	public void setColorGradient(ColorGradient colorGradient) {
 		
-		Validator.suppose(colorGradient).isInstanceOf(ColorGradient.class);
+		Validator.suppose(colorGradient).isOfType(ColorGradient.class);
 		
 		this.colorGradient = colorGradient;
 	}

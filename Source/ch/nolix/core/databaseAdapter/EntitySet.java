@@ -41,7 +41,7 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 		.thatIsNamed("parent database adapter")
 		.isNotNull();
 		
-		Validator.suppose(entityType).isInstanceOf(EntityType.class);
+		Validator.suppose(entityType).isOfType(EntityType.class);
 		
 		this.parentDatabaseAdapter = parentDatabaseAdapter;
 		this.entityType = entityType;

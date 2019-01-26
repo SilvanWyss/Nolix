@@ -31,8 +31,8 @@ implements Specified {
 		
 		super(header);
 
-		Validator.suppose(entitySet).isInstanceOf(EntitySet.class);
-		Validator.suppose(valueType).isInstanceOf(PropertyoidType.class);
+		Validator.suppose(entitySet).isOfType(EntitySet.class);
+		Validator.suppose(valueType).isOfType(PropertyoidType.class);
 		
 		this.entitySet = entitySet;
 		this.valueType = valueType;

@@ -134,7 +134,7 @@ public final class TextFormat extends Element<TextFormat> {
 	) {
 		
 		//Checks if the given text font is not null.
-		Validator.suppose(textFont).isInstanceOf(Font.class);
+		Validator.suppose(textFont).isOfType(Font.class);
 		
 		//Checks if the given text size is positive.
 		Validator.suppose(textSize).thatIsNamed("text size").isPositive();

@@ -909,7 +909,7 @@ implements IGUI<G> {
 	public final G setContentPosition(final ContentPosition contentPosition) {
 		
 		//Checks if the given content position is not null.
-		Validator.suppose(contentPosition).isInstanceOf(ContentPosition.class);
+		Validator.suppose(contentPosition).isOfType(ContentPosition.class);
 		
 		//Sets the content position of this GUI.
 		this.contentPosition = contentPosition;

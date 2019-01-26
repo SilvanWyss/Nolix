@@ -174,7 +174,7 @@ extends Widget<L, LineLook> {
 	public final L setColor(final Color color) {
 		
 		//Checks if the given color is not null.
-		Validator.suppose(color).isInstanceOf(Color.class);
+		Validator.suppose(color).isOfType(Color.class);
 		
 		//Sets the color of this line.
 		this.color = color;

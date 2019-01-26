@@ -70,7 +70,7 @@ implements Clearable<S> {
 	public final S addWidget(final Widget<?, ?> widget) {
 		
 		//Checks if the given widget is not null.
-		Validator.suppose(widget).isInstanceOf(Widget.class);
+		Validator.suppose(widget).isOfType(Widget.class);
 		
 		widget.setParentWidget(this);
 		widgets.addAtEnd(widget);

@@ -36,7 +36,7 @@ implements Named {
 	public Module(final ModuleManager moduleManager) {
 		
 		//Checks if the given central controller is not null.
-		Validator.suppose(moduleManager).isInstanceOf(ModuleManager.class);
+		Validator.suppose(moduleManager).isOfType(ModuleManager.class);
 		
 		//Sets the central controller this module belongs to.
 		this.moduleManager = moduleManager;

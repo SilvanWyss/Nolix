@@ -145,7 +145,7 @@ implements Namable<NE> {
 	public final void setRequestableContainer(IRequestableContainer requestableContainer) {
 		
 		//Checks if the given requestable container is not null.
-		Validator.suppose(requestableContainer).isInstanceOf(IRequestableContainer.class);
+		Validator.suppose(requestableContainer).isOfType(IRequestableContainer.class);
 		
 		//Checks if this namable element does not belong to another requestable container.
 		if (belongsToRequestableContainer() && this.requestableContainer != requestableContainer) {
