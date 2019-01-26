@@ -172,7 +172,7 @@ implements IDataProviderController {
 	public final void setReceiverController(final IDataProviderController receiverController) {
 		
 		//Checks if the given receiver controller is not null.
-		Validator.suppose(receiverController).thatIsNamed("receiver controller").isInstance();
+		Validator.suppose(receiverController).thatIsNamed("receiver controller").isNotNull();
 		
 		//Sets the receiver controller of this duplex controller.
 		this.receiverController = receiverController;

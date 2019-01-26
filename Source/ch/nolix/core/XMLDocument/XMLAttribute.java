@@ -28,7 +28,7 @@ implements Valued<XMLAttribute, String> {
 		
 		super(name);
 		
-		Validator.suppose(value).isInstance();
+		Validator.suppose(value).isNotNull();
 		
 		this.value = value;
 	}

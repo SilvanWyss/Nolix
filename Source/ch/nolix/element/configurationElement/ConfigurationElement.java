@@ -116,7 +116,7 @@ extends ConfigurableElement<CE> {
 		Validator
 		.suppose(configuration)
 		.thatIsNamed(VariableNameCatalogue.CONFIGURATION)
-		.isInstance();
+		.isNotNull();
 		
 		this.configuration = configuration;
 		updateFromConfiguration();

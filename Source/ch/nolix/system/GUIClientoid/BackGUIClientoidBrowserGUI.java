@@ -20,7 +20,7 @@ final class BackGUIClientoidBrowserGUI extends BackGUIClientoidGUI {
 		Validator
 		.suppose(painterCreator)
 		.thatIsNamed("painter creator")
-		.isInstance();
+		.isNotNull();
 	}
 	
 	//method

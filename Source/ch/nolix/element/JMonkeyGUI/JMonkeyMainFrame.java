@@ -138,7 +138,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 */
 	private void enqueue(final IFunction method) {
 		
-		Validator.suppose(method).thatIsNamed("method").isInstance();
+		Validator.suppose(method).thatIsNamed("method").isNotNull();
 		
 		simpleApplication.enqueue(
 			new Callable<Object>() {

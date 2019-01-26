@@ -269,7 +269,7 @@ implements ISmartObject<N> {
 	private final void addInputConnection(final InputConnection<I> inputConnection) {
 		
 		//Checks if the given input neuron is not null.
-		Validator.suppose(inputConnection).thatIsNamed("input neuron").isInstance();
+		Validator.suppose(inputConnection).thatIsNamed("input neuron").isNotNull();
 		
 		//Checks if this neuron has less input neurons than its maximal input neurons count says.
 		Validator.suppose(getInputNeuronCount()).isSmallerThan(getMaxInputNeuronCount());

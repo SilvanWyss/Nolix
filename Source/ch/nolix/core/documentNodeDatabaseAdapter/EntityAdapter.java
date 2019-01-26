@@ -20,7 +20,7 @@ public final class EntityAdapter<E extends Entity> implements Identified {
 		Validator
 		.suppose(entitySpecification)
 		.thatIsNamed("entity specification")
-		.isInstance();
+		.isNotNull();
 		
 		this.entitySpecification = entitySpecification;
 	}

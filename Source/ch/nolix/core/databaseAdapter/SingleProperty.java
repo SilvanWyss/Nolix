@@ -82,7 +82,7 @@ extends DataPropertyoid<V> {
 		Validator
 		.suppose(value)
 		.thatIsNamed(VariableNameCatalogue.VALUE)
-		.isInstance();
+		.isNotNull();
 		
 		this.value = value;
 		

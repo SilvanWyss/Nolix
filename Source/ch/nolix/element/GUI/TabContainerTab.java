@@ -306,7 +306,7 @@ implements Clearable<TabContainerTab> {
 		Validator
 		.suppose(parentTabContainer)
 		.thatIsNamed("parent tab container")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the parent tab container of this tab container tab.
 		this.parentTabContainer = parentTabContainer;

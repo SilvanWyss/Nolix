@@ -120,7 +120,7 @@ public abstract class ClosableElement implements Closable {
 		Validator
 		.suppose(parentCloseController)
 		.thatIsNamed("parent close controller")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the parent close controller of the current closable element.
 		this.parentCloseController = parentCloseController;

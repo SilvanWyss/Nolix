@@ -43,7 +43,7 @@ extends Neuronoid<TransformNeuron<I, O>, I, O> {
 		Validator
 		.suppose(transformator).
 		thatIsNamed(VariableNameCatalogue.TRANSFORMATOR).
-		isInstance();
+		isNotNull();
 						
 		addInputNeuron(inputNeuron);
 		

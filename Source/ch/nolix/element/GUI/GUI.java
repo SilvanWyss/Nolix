@@ -930,7 +930,7 @@ implements IGUI<G> {
 		Validator
 		.suppose(controller)
 		.thatIsNamed(VariableNameCatalogue.CONTROLLER)
-		.isInstance();
+		.isNotNull();
 		
 		this.controller = controller;
 		
@@ -948,7 +948,7 @@ implements IGUI<G> {
 	public final G setRootWidget(final Widget<?, ?> rootWidget) {
 		
 		//Checks if the given root widget is not null.
-		Validator.suppose(rootWidget).thatIsNamed("root widget").isInstance();
+		Validator.suppose(rootWidget).thatIsNamed("root widget").isNotNull();
 		
 		//Sets the root widget of this GUI.
 		rootWidget.setParentGUI(this);

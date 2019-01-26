@@ -119,7 +119,7 @@ implements Clearable<Accordion> {
 		Validator
 		.suppose(tab)
 		.thatIsNamed(VariableNameCatalogue.TAB)
-		.isInstance();
+		.isNotNull();
 		
 		tab.setParentAccordion(this);
 		tabs.addValue(tab);
@@ -150,7 +150,7 @@ implements Clearable<Accordion> {
 		Validator
 		.suppose(tabs)
 		.thatIsNamed(MultiVariableNameCatalogue.TABS)
-		.isInstance();
+		.isNotNull();
 		
 		return addTabs(new ReadContainer<AccordionTab>(tabs));
 	}
@@ -170,7 +170,7 @@ implements Clearable<Accordion> {
 		Validator
 		.suppose(tabs)
 		.thatIsNamed(MultiVariableNameCatalogue.TABS)
-		.isInstance();
+		.isNotNull();
 		
 		tabs.forEach(t -> addTab(t));
 		

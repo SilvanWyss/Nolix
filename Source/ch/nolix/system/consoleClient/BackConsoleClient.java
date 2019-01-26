@@ -286,7 +286,7 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 	public BackConsoleClient writeLineToConsole(final String line) {
 		
 		//Checks if the given line is not null.
-		Validator.suppose(line).thatIsNamed("line").isInstance();
+		Validator.suppose(line).thatIsNamed("line").isNotNull();
 	
 		internal_runOnCounterpart(
 			Protocol.WRITE_LINE_TO_CONSOLE_COMMAND

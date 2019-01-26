@@ -61,13 +61,13 @@ public class Application<C extends Client<C>> extends NamedElement {
 		Validator
 		.suppose(clientClass)
 		.thatIsNamed("client class")
-		.isInstance();
+		.isNotNull();
 		
 		//Checks if the given initial session class is not null.
 		Validator
 		.suppose(initialSessionClass)
 		.thatIsNamed("initial session class")
-		.isInstance();
+		.isNotNull();
 		
 		this.clientClass = clientClass;
 		this.initialSessionClass = initialSessionClass;
@@ -103,19 +103,19 @@ public class Application<C extends Client<C>> extends NamedElement {
 		Validator
 		.suppose(clientClass)
 		.thatIsNamed("client class")
-		.isInstance();
+		.isNotNull();
 		
 		//Checks if the given initial session class is not null.
 		Validator
 		.suppose(initialSessionClass)
 		.thatIsNamed("initial session class")
-		.isInstance();
+		.isNotNull();
 		
 		//Checks if the given context is not null.
 		Validator
 		.suppose(context)
 		.thatIsNamed(VariableNameCatalogue.CONTEXT)
-		.isInstance();
+		.isNotNull();
 		
 		this.clientClass = clientClass;
 		this.initialSessionClass = initialSessionClass;

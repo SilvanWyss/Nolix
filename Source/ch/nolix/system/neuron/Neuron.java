@@ -83,7 +83,7 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 		Validator
 		.suppose(outputFunction)
 		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the output function of this neuron.
 		this.outputFunction = n -> outputFunction.getOutput(n.getRefInputs());
@@ -110,7 +110,7 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 		Validator
 		.suppose(outputFunction)
 		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the output function of this neuron.
 		this.outputFunction = n -> outputFunction.getOutput(n.getRefInputs());
@@ -137,7 +137,7 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 		Validator
 		.suppose(outputFunction)
 		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the output function of this neuron.
 		this.outputFunction = n -> outputFunction.getOutput(n.getRefInputConnections());
@@ -164,7 +164,7 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 		Validator
 		.suppose(outputFunction)
 		.thatIsNamed(VariableNameCatalogue.OUTPUT_FUNCTION)
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the output function of this neuron.
 		this.outputFunction = n -> outputFunction.getOutput(n.getRefInputConnections());

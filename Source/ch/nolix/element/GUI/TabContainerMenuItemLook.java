@@ -237,7 +237,7 @@ extends Entity<SelectionMenuItemLook> {
 		Validator
 		.suppose(backgroundColor)
 		.thatIsNamed(PascalCaseNameCatalogue.BACKGROUND_COLOR)
-		.isInstance();
+		.isNotNull();
 		
 		this.backgroundColor = backgroundColor;
 		
@@ -266,7 +266,7 @@ extends Entity<SelectionMenuItemLook> {
 		Validator
 		.suppose(textColor)
 		.thatIsNamed(PascalCaseNameCatalogue.TEXT_COLOR)
-		.isInstance();
+		.isNotNull();
 		
 		this.textColor = textColor;
 		

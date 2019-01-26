@@ -59,7 +59,7 @@ extends Propertyoid<V> {
 		Validator
 		.suppose(setterMethod)
 		.thatIsNamed("setter method")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the setter method of this single property.
 		this.setterMethod = setterMethod;
@@ -126,7 +126,7 @@ extends Propertyoid<V> {
 		Validator
 		.suppose(value)
 		.thatIsNamed(VariableNameCatalogue.VALUE)
-		.isInstance();
+		.isNotNull();
 		
 		//Checks if this single property is not approved when it is not mutable.
 		if (!isMutable()) {

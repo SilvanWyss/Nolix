@@ -1654,7 +1654,7 @@ public interface IContainer<E> extends Iterable<E> {
 		Validator
 		.suppose(separator)
 		.thatIsNamed(VariableNameCatalogue.SEPARATOR)
-		.isInstance();
+		.isNotNull();
 		
 		//Enumerates the element count of the current {@link IContainer}.
 		switch (getSize()) {

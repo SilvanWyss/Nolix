@@ -33,7 +33,7 @@ public final class DatabaseApplicationContext {
 		Validator
 		.suppose(databaseAdapterFactory)
 		.thatIsNamed("database adapter factory")
-		.isInstance();
+		.isNotNull();
 		
 		this.title = title;
 		this.databaseAdapterFactory = databaseAdapterFactory;
@@ -54,12 +54,12 @@ public final class DatabaseApplicationContext {
 			Validator
 			.suppose(databaseAdapterFactory)
 			.thatIsNamed("database adapter factory")
-			.isInstance();
+			.isNotNull();
 			
 			Validator
 			.suppose(GUILook)
 			.thatIsNamed("GUI look")
-			.isInstance();
+			.isNotNull();
 			
 			this.title = title;
 			this.databaseAdapterFactory = databaseAdapterFactory;

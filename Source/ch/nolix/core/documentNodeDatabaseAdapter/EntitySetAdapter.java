@@ -23,7 +23,7 @@ implements IEntitySetAdapter<E> {
 		
 		Validator
 		.suppose(entitySetSpecification)
-		.isInstance();
+		.isNotNull();
 		
 		this.entitySetSpecification = entitySetSpecification;
 	}

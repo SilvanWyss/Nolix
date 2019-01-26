@@ -142,7 +142,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		}
 		
 		//Checks if the argument of this container mediator is not null.
-		isInstance();
+		isNotNull();
 		
 		int actualElementCount = 0;
 		
@@ -186,7 +186,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	public void isEmpty() {
 		
 		//Checks if the argument of this container mediator is not null.
-		isInstance();
+		isNotNull();
 		
 		//Checks if the argument of this container mediator is empty.
 		if (IterableHelper.containsAny(getRefArgument())) {
@@ -202,7 +202,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	public void isNotEmpty() {
 		
 		//Checks if the argument of this container mediator is not null.
-		isInstance();
+		isNotNull();
 		
 		//Checks if the argument of this container mediator is not empty.
 		if (IterableHelper.isEmpty(getRefArgument())) {

@@ -94,7 +94,7 @@ public abstract class BackReferenceoid<E extends Entity> {
 		Validator
 		.suppose(parentEntity)
 		.thatIsNamed("parent entity")
-		.isInstance();
+		.isNotNull();
 		
 		//Checks if the current back reference does not belong to an entity.
 		if (parentEntity != null) {

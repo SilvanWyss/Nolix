@@ -251,7 +251,7 @@ public final class Time extends Element<Time> {
 		this();
 		
 		//Checks if the given string is not null.
-		Validator.suppose(string).thatIsNamed("string").isInstance();
+		Validator.suppose(string).thatIsNamed("string").isNotNull();
 		
 		//Creates array of values of the given string.
 		final String[] array = string.split("-");

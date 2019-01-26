@@ -27,7 +27,7 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 		Validator
 		.suppose(documentNodeDatabase)
 		.thatIsNamed("document node database")
-		.isInstance();
+		.isNotNull();
 		
 		this.documentNodeDatabase = documentNodeDatabase;
 		

@@ -126,7 +126,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	public ForwardMultiLayerNetCreator<IO> setOutputFunction(final IElementTakerElementGetter<Iterable<IO>, IO> outputFunction) {
 		
 		//Checks if the given output function is not null.
-		Validator.suppose(outputFunction).thatIsNamed("output function").isInstance();
+		Validator.suppose(outputFunction).thatIsNamed("output function").isNotNull();
 		
 		//Sets the output function of this forward multilayer net creator.
 		this.outputFunction
@@ -157,7 +157,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	) {
 		
 		//Checks if the given output function is not null.
-		Validator.suppose(weightOutputFunction).thatIsNamed("weight output function").isInstance();
+		Validator.suppose(weightOutputFunction).thatIsNamed("weight output function").isNotNull();
 		
 		outputFunction = weightOutputFunction;
 		

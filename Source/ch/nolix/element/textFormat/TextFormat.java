@@ -140,7 +140,7 @@ public final class TextFormat extends Element<TextFormat> {
 		Validator.suppose(textSize).thatIsNamed("text size").isPositive();
 		
 		//Checks if the given text color is not null.
-		Validator.suppose(textColor).thatIsNamed(TEXT_COLOR_HEADER).isInstance();
+		Validator.suppose(textColor).thatIsNamed(TEXT_COLOR_HEADER).isNotNull();
 		
 		this.textFont = textFont;
 		this.bold = bold;

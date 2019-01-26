@@ -247,7 +247,7 @@ public final class Area extends Widget<Area, AreaLook> {
 		Validator
 		.suppose(backgroundColor)
 		.thatIsNamed(VariableNameCatalogue.BACKGROUND_COLOR)
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the background color of the current {@link Area}.
 		this.backgroundColor = backgroundColor;

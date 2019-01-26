@@ -18,7 +18,7 @@ public final class ShellProvider {
 		Validator
 		.suppose(command)
 		.thatIsNamed(VariableNameCatalogue.COMMAND)
-		.isInstance();
+		.isNotNull();
 		
 		try {
 			Runtime.getRuntime().exec("cmd.exe /c " + command);

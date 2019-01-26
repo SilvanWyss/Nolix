@@ -88,7 +88,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 		Validator
 		.suppose(counterPart)
 		.thatIsNamed("counterpart")
-		.isInstance();
+		.isNotNull();
 		
 		requestedConnection = false;
 		target = counterPart.getTarget();
@@ -119,7 +119,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 		Validator
 		.suppose(counterpart)
 		.thatIsNamed("counterpart")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the counter part of this local end point.
 		this.counterpart = counterpart;

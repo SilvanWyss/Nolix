@@ -35,7 +35,7 @@ public final class InputConnection<O> {
 		Validator
 		.suppose(inputNeuron)
 		.thatIsNamed("input neuron")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the input neuron of this input connection.
 		this.inputNeuron = inputNeuron;

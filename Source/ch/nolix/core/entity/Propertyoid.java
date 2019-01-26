@@ -38,13 +38,13 @@ extends NamedElement {
 		Validator
 		.suppose(valueCreator)
 		.thatIsNamed("value creator")
-		.isInstance();
+		.isNotNull();
 		
 		//Checks if the given specification creator is not null.
 		Validator
 		.suppose(specificationCreator)
 		.thatIsNamed("specificaiton creator")
-		.isInstance();
+		.isNotNull();
 		
 		this.valueCreator = valueCreator;
 		this.specificationCreator = specificationCreator;

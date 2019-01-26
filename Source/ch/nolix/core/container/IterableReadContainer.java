@@ -45,7 +45,7 @@ final class IterableReadContainer<E> implements IContainer<E> {
 		Validator
 		.suppose(container)
 		.thatIsNamed(VariableNameCatalogue.CONTAINER)
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the array of this array wrapper.
 		this.container = (Iterable<E>)container;

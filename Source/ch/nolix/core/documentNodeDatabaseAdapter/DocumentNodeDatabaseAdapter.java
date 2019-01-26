@@ -36,7 +36,7 @@ public final class DocumentNodeDatabaseAdapter extends DatabaseAdapter {
 		Validator
 		.suppose(database)
 		.thatIsNamed(VariableNameCatalogue.DATABASE)
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the database of the current document node database adapter.
 		this.database = database;

@@ -19,7 +19,7 @@ public final class ColumnAdapter implements IColumnAdapter {
 		Validator
 		.suppose(columnSpecification)
 		.thatIsNamed("column specification")
-		.isInstance();
+		.isNotNull();
 		
 		this.columnSpecification = columnSpecification;
 	}

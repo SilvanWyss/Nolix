@@ -35,7 +35,7 @@ final class MatrixIterator<E> implements Iterator<E> {
 		Validator
 		.suppose(parentMatrix)
 		.thatIsNamed("parent matrix")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the parent matrix of the current matrix iterator.
 		this.parentMatrix = parentMatrix;

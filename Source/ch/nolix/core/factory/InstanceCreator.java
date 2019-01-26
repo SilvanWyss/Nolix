@@ -44,7 +44,7 @@ final class InstanceCreator<I, O> {
 		Validator
 		.suppose(instanceCreatorFunction)
 		.thatIsNamed("instance creator function")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the instance type of the current instance creator.
 		this.instanceType = instanceType;

@@ -335,7 +335,7 @@ implements Clearable<AccordionTab> {
 		Validator
 		.suppose(parentAccordion)
 		.thatIsNamed("parent accordion")
-		.isInstance();
+		.isNotNull();
 		
 		this.parentAccordion = parentAccordion;
 	}

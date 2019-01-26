@@ -131,7 +131,7 @@ extends BorderWidget<C, BWS> {
 		Validator
 		.suppose(role)
 		.thatIsNamed(VariableNameCatalogue.ROLE)
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the role of this container.
 		this.role = role;

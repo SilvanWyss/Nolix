@@ -70,7 +70,7 @@ public class ArgumentMediator<A> extends Mediator {
 		}
 		
 		//Checks if the argument of this argument mediator is not null.
-		isInstance();
+		isNotNull();
 		
 		if (!condition.getOutput(getRefArgument())) {
 			throw new InvalidArgumentException(
@@ -91,7 +91,7 @@ public class ArgumentMediator<A> extends Mediator {
 	public final void isInstanceOf(final Class<?> type) {
 		
 		//Checks if the argument of this argument mediator is not null.
-		isInstance();
+		isNotNull();
 		
 		//Checks if the argument of this argument mediator is of the given type.
 		if (!getRefArgument().getClass().getClass().isAssignableFrom(type.getClass())) {
@@ -107,7 +107,7 @@ public class ArgumentMediator<A> extends Mediator {
 	/**
 	 * @throws NullArgumentException if the argument of this argument mediator is null.
 	 */
-	public final void isInstance() {
+	public final void isNotNull() {
 		
 		//Checks if the argument of this argument mediator is not null.
 		if (argument == null) {

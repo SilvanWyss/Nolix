@@ -24,7 +24,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 	//method
 	public final void isAbstract() {
 		
-		isInstance();
+		isNotNull();
 		
 		if (!Modifier.isAbstract(getRefArgument().getModifiers())) {
 			throw
@@ -39,7 +39,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 	//method
 	public final void isClass() {
 		
-		isInstance();
+		isNotNull();
 		
 		if (
 			getRefArgument().isInterface()
@@ -58,7 +58,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 	//method
 	public final void isEnum() {
 		
-		isInstance();
+		isNotNull();
 		
 		if (!getRefArgument().isEnum()) {
 			throw
@@ -90,7 +90,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 	//method
 	public final void isInterface() {
 		
-		isInstance();
+		isNotNull();
 		
 		if (!getRefArgument().isInterface()) {
 			throw
@@ -105,7 +105,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 	//method
 	public final void isNotAbstract() {
 		
-		isInstance();
+		isNotNull();
 		
 		if (Modifier.isAbstract(getRefArgument().getModifiers())) {
 			throw

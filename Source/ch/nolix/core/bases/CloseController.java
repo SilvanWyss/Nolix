@@ -49,7 +49,7 @@ final class CloseController implements Closable {
 		supposeBeingAlive();
 		
 		//Checks if the given element is not null.
-		Validator.suppose(element).thatIsNamed("element").isInstance();
+		Validator.suppose(element).thatIsNamed("element").isNotNull();
 		
 		//Checks if the current {@link CoseController} does not contain already the given element.
 		if (containsElement(element)) {

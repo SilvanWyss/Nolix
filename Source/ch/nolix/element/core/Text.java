@@ -58,7 +58,7 @@ public class Text extends Element<Text> {
 	public Text(final String value) {
 		
 		//Checks if the given value is not null.
-		Validator.suppose(value).thatIsNamed("value").isInstance();
+		Validator.suppose(value).thatIsNamed("value").isNotNull();
 		
 		//Sets the value of this text.
 		this.value = value;

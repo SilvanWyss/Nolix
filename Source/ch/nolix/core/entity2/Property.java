@@ -58,19 +58,19 @@ public final class Property<V> extends NamedElement {
 		Validator
 		.suppose(defaultValue)
 		.thatIsNamed(VariableNameCatalogue.DEFAULT_VALUE)
-		.isInstance();
+		.isNotNull();
 				
 		//Checks if the given value creator is not null.
 		Validator
 		.suppose(valueCreator)
 		.thatIsNamed("value creator")
-		.isInstance();
+		.isNotNull();
 		
 		//Checks if the given specificaiton creator is not null.
 		Validator
 		.suppose(specificationCreator)
 		.thatIsNamed("specification creator")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the default value of this property.
 		this.defaultValue = defaultValue;
@@ -172,7 +172,7 @@ public final class Property<V> extends NamedElement {
 		Validator
 		.suppose(value)
 		.thatIsNamed(VariableNameCatalogue.VALUE)
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the value of this property.
 		this.value = value;
@@ -217,7 +217,7 @@ public final class Property<V> extends NamedElement {
 		Validator
 		.suppose(baseProperty)
 		.thatIsNamed("base property")
-		.isInstance();
+		.isNotNull();
 		
 		supposeHasNoBaseProperty();
 		

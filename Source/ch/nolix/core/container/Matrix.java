@@ -493,7 +493,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		Validator
 		.suppose(element)
 		.thatIsNamed(VariableNameCatalogue.ELEMENT)
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the given element at the given index to the current matrix.
 		elements[getRowIndexOf(index) - 1][getColumnIndexOf(index) - 1] = element;
@@ -533,7 +533,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 		Validator
 		.suppose(element)
 		.thatIsNamed(VariableNameCatalogue.ELEMENT)
-		.isInstance();
+		.isNotNull();
 		
 		elements[rowIndex - 1][columnIndex - 1] = element;
 		

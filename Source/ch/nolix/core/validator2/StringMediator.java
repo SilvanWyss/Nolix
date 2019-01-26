@@ -57,7 +57,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	public TerminalArgumentMediator<String> isBlank() {
 		
 		//Checks if the argument of the current string mediator is not null.
-		isInstance();
+		isNotNull();
 		
 		//Checks if the argument of the current string mediator is blank.
 		if (!getRefArgument().isBlank()) {
@@ -76,7 +76,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	public TerminalArgumentMediator<String> isEmpty() {
 		
 		//Checks if the argument of the current string mediator is not null.
-		isInstance();
+		isNotNull();
 		
 		//Checks if the argument of the current string mediator is not empty.
 		if (!getRefArgument().isEmpty()) {
@@ -95,7 +95,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	public TerminalArgumentMediator<String> isNotEmpty() {
 		
 		//Checks if the argument of the current string mediator is not null.
-		isInstance();
+		isNotNull();
 		
 		//Checks if the argument of the current string mediator is not empty.
 		if (getRefArgument().isEmpty()) {
@@ -141,7 +141,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	public TerminalArgumentMediator<String> isNotLongerThan(final int maxLength) {
 		
 		//Checks if the argument of the current string mediator is not null.
-		isInstance();
+		isNotNull();
 		
 		//Checks if the argument of the current string mediator is not longer than the given max length says.
 		if (getRefArgument().length() > maxLength) {
@@ -167,7 +167,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	public TerminalArgumentMediator<String> isNotShorterThan(final int minLength) {
 		
 		//Checks if the argument of the current string mediator is not null.
-		isInstance();
+		isNotNull();
 		
 		//Checks if the argument of the current string mediator is not shorter than the given min length says.
 		if (getRefArgument().length() < minLength) {
@@ -193,7 +193,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	public TerminalArgumentMediator<String> specifiesProbableDirectoryOnLocalMachine(final String directory) {
 		
 		//Checks if the argument of the current string mediator is not null.
-		isInstance();
+		isNotNull();
 				
 		boolean specifiesProbableDirectoryOnLocalMachine = true;
 		try {

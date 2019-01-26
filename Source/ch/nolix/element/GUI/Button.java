@@ -163,7 +163,7 @@ public final class Button extends TextLineWidget<Button> {
 		Validator
 		.suppose(role)
 		.thatIsNamed(VariableNameCatalogue.ROLE)
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the role of the current button.
 		this.role = role;

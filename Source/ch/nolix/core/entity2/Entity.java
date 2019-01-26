@@ -132,7 +132,7 @@ implements
 		Validator
 		.suppose(baseEntity)
 		.thatIsNamed("base entity")
-		.isInstance();
+		.isNotNull();
 		
 		this.baseEntity = baseEntity;
 		

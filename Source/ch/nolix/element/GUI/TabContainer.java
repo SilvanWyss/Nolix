@@ -111,7 +111,7 @@ implements Clearable<TabContainer> {
 		Validator
 		.suppose(tabs)
 		.thatIsNamed("tabs")
-		.isInstance();
+		.isNotNull();
 		
 		//Iterates the given tabs.
 		tabs.forEach(t -> addTab(t));
@@ -134,7 +134,7 @@ implements Clearable<TabContainer> {
 		Validator
 		.suppose(tab)
 		.thatIsNamed(PascalCaseNameCatalogue.TAB)
-		.isInstance();
+		.isNotNull();
 		
 		//Adds the given tab to the current tab container.
 		tab.setParentTabContainer(this);

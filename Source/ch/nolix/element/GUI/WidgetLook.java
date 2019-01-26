@@ -272,7 +272,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends Entity<WL> {
 		Validator
 		.suppose(baseLook)
 		.thatIsNamed("base look")
-		.isInstance();
+		.isNotNull();
 		
 		setBaseEntity(baseLook);
 	}

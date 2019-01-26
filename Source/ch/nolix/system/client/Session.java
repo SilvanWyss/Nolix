@@ -176,7 +176,7 @@ public abstract class Session<C extends Client<C>> {
 		Validator
 		.suppose(parentClient)
 		.thatIsNamed("parent client")
-		.isInstance();
+		.isNotNull();
 		
 		//Checks if the current session does not belong to a client.
 		suppoeDoesNotBelongToClient();
@@ -208,7 +208,7 @@ public abstract class Session<C extends Client<C>> {
 		Validator
 		.suppose(popFunction)
 		.thatIsNamed("pop function")
-		.isInstance();
+		.isNotNull();
 		
 		this.popFunction = popFunction;
 	}

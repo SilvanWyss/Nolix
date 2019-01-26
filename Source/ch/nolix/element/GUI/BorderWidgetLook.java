@@ -815,7 +815,7 @@ extends BackgroundWidgetLook<BWL> {
 		Validator
 		.suppose(baseScrollbarLook)
 		.thatIsNamed("base scrollbar look")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the base scrollbar look of the current border widget look.
 		this.baseScrollbarLook = baseScrollbarLook;
@@ -836,7 +836,7 @@ extends BackgroundWidgetLook<BWL> {
 		Validator
 		.suppose(borderColor)
 		.thatIsNamed("border color")
-		.isInstance();
+		.isNotNull();
 		
 		setLeftBorderColor(borderColor);
 		setRightBorderColor(borderColor);
@@ -878,7 +878,7 @@ extends BackgroundWidgetLook<BWL> {
 		Validator
 		.suppose(bottomBorderColor)
 		.thatIsNamed("bottom border color")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the bottom border color of the current {@link BorderWidgetLook}.
 		this.bottomBorderColor = bottomBorderColor;
@@ -930,7 +930,7 @@ extends BackgroundWidgetLook<BWL> {
 		Validator
 		.suppose(hoverScrollbarLook)
 		.thatIsNamed("hover scrollbar look")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the hover scrollbar look of the current border widget look.
 		this.hoverScrollbarLook = hoverScrollbarLook;
@@ -952,7 +952,7 @@ extends BackgroundWidgetLook<BWL> {
 		Validator
 		.suppose(leftBorderColor)
 		.thatIsNamed("left border color")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the left border color of the current {@link BorderWidgetLook}.
 		this.leftBorderColor = leftBorderColor;
@@ -1022,7 +1022,7 @@ extends BackgroundWidgetLook<BWL> {
 		Validator
 		.suppose(rightBorderColor)
 		.thatIsNamed("right border color")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the right border color of the current {@link BorderWidgetLook}.
 		this.rightBorderColor = rightBorderColor;
@@ -1074,7 +1074,7 @@ extends BackgroundWidgetLook<BWL> {
 		Validator
 		.suppose(selectionScrollbarLook)
 		.thatIsNamed("selection scrollbar look")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the selection scrollbar look of the current border widget look.
 		this.selectionScrollbarLook = selectionScrollbarLook;
@@ -1096,7 +1096,7 @@ extends BackgroundWidgetLook<BWL> {
 		Validator
 		.suppose(topBorderColor)
 		.thatIsNamed("top border color")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the top border color of the current {@link BorderWidgetLook}.
 		this.topBorderColor = topBorderColor;

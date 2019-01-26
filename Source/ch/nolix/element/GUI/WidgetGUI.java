@@ -189,7 +189,7 @@ implements IGUI<WidgetGUI> {
 	//method
 	public WidgetGUI setRootWidget(final Widget<?, ?> rootWidget) {
 		
-		Validator.suppose(rootWidget).thatIsNamed("root widget").isInstance();
+		Validator.suppose(rootWidget).thatIsNamed("root widget").isNotNull();
 		
 		rootWidget.setParentGUI(this);
 		this.rootWidget = rootWidget;

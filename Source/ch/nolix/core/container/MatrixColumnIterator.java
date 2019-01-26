@@ -22,7 +22,7 @@ final class MatrixColumnIterator<E> implements Iterator<E> {
 		Validator
 		.suppose(parentMatrixColumn)
 		.thatIsNamed("parent matrix column")
-		.isInstance();
+		.isNotNull();
 		
 		this.parentMatrixColumn = parentMatrixColumn;
 	}

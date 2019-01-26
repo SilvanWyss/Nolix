@@ -59,7 +59,7 @@ implements Clearable<MutableMultiProperty<V>> {
 		Validator
 		.suppose(adderMethod)
 		.thatIsNamed("adder method")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the adder method of this multi property.
 		this.adderMethod = adderMethod;

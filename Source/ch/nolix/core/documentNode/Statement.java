@@ -49,7 +49,7 @@ public final class Statement implements Headered {
 		Validator
 		.suppose(documentNode)
 		.thatIsNamed("document node")
-		.isInstance();
+		.isNotNull();
 		
 		this.documentNode = documentNode.getCopy();
 		nextStatement = null;
@@ -70,13 +70,13 @@ public final class Statement implements Headered {
 		Validator
 		.suppose(documentNode)
 		.thatIsNamed("document node")
-		.isInstance();
+		.isNotNull();
 		
 		//Checks if the given next statement is not null.
 		Validator
 		.suppose(nextStatement)
 		.thatIsNamed("next statement")
-		.isInstance();
+		.isNotNull();
 		
 		this.documentNode = documentNode;
 		this.nextStatement = nextStatement;

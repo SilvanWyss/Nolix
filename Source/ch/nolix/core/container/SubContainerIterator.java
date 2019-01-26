@@ -42,7 +42,7 @@ final class SubContainerIterator<E> implements Iterator<E> {
 		Validator
 		.suppose(container)
 		.thatIsNamed("container")
-		.isInstance();
+		.isNotNull();
 		
 		Validator
 		.suppose(startIndex)

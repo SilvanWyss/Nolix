@@ -81,7 +81,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	public <E2 extends E> ReadContainer(final IContainer<E2> container) {
 		
 		//Checks if the given container is not null.
-		Validator.suppose(container).thatIsNamed("container").isInstance();
+		Validator.suppose(container).thatIsNamed("container").isNotNull();
 		
 		//Sets the container of this read container.
 		this.container = (IContainer<E>)container;

@@ -107,7 +107,7 @@ final class HeapNode<E> {
 	public void setElement(final E element) {
 		
 		//Checks if the given element is not null.
-		Validator.suppose(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isInstance();
+		Validator.suppose(element).thatIsNamed(VariableNameCatalogue.ELEMENT).isNotNull();
 		
 		//Sets the element of the current heap node.
 		this.element = element;

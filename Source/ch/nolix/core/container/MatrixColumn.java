@@ -19,7 +19,7 @@ public final class MatrixColumn<E> implements IContainer<E> {
 		Validator
 		.suppose(parentMatrix)
 		.thatIsNamed("parent matrix")
-		.isInstance();
+		.isNotNull();
 		
 		Validator
 		.suppose(columnIndex)

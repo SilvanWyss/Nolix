@@ -115,7 +115,7 @@ public final class NetEndPoint extends EndPoint {
 	public void send(final String message) {
 		
 		//Checks if the given message is not null.
-		Validator.suppose(message).thatIsNamed("message").isInstance();
+		Validator.suppose(message).thatIsNamed("message").isNotNull();
 		
 		//Checks if this net end point is not aborted.
 		supposeIsAlive();

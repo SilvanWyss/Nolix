@@ -77,7 +77,7 @@ implements Closable {
 		Validator
 		.suppose(transformator)
 		.thatIsNamed(VariableNameCatalogue.TRANSFORMATOR)
-		.isInstance();
+		.isNotNull();
 				
 		//Sets the transformator of this net neuron.
 		this.transformator = transformator;

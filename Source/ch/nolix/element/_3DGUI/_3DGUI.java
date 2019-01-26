@@ -104,10 +104,10 @@ implements Clearable<G>, Closable, Refreshable {
 	public G addShapeClass(final Class<?> shapeClass, IShapeRenderer<?, ?, ?> shapeRenderer) {
 		
 		//Checks if the given shape class is not null.
-		Validator.suppose(shapeClass).thatIsNamed("shape class").isInstance();
+		Validator.suppose(shapeClass).thatIsNamed("shape class").isNotNull();
 		
 		//Checks if the given shape renderer is not null.
-		Validator.suppose(shapeRenderer).thatIsNamed("shape renderer").isInstance();
+		Validator.suppose(shapeRenderer).thatIsNamed("shape renderer").isNotNull();
 		
 		//Checks if this 3D GUI does not contain already
 		//a shape class with the same name as the given shape class.

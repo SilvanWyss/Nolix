@@ -47,7 +47,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 		Validator
 		.suppose(array)
 		.thatIsNamed(VariableNameCatalogue.ARRAY)
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the array of hits read array container iterator.
 		this.array = array;

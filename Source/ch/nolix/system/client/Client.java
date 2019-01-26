@@ -652,7 +652,7 @@ implements Closable {
 		Validator
 		.suppose(parentApplication)
 		.thatIsNamed("parent application")
-		.isInstance();
+		.isNotNull();
 		
 		//Checks if the current client does not reference already a parent application.
 		if (referencesParentApplication()) {

@@ -108,7 +108,7 @@ final class ListNode<E> {
 		Validator
 		.suppose(element)
 		.thatIsNamed(VariableNameCatalogue.ELEMENT)
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the element of the current list node.
 		this.element = element;
@@ -124,7 +124,7 @@ final class ListNode<E> {
 	public void setNextNode(final ListNode<E> nextNode) {
 		
 		//Checks if the given next node is not null.
-		Validator.suppose(nextNode).thatIsNamed("next node").isInstance();
+		Validator.suppose(nextNode).thatIsNamed("next node").isNotNull();
 		
 		//Sets the next node of the current list node.
 		this.nextNode = nextNode;

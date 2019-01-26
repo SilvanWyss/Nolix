@@ -283,7 +283,7 @@ extends ConfigurableElement<W> {
 	public final boolean belongsToGUI(final GUI<?> GUI) {
 		
 		//Checks if the given GUI is not null.
-		Validator.suppose(GUI).isInstance();
+		Validator.suppose(GUI).isNotNull();
 		
 		return (this.parentGUI != GUI);
 	}
@@ -1159,7 +1159,7 @@ extends ConfigurableElement<W> {
 		Validator
 		.suppose(customCursorIcon)
 		.thatIsNamed("custom cursor icon")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the custom cursor icon of the current widget.
 		this.customCursorIcon = customCursorIcon;
@@ -1261,7 +1261,7 @@ extends ConfigurableElement<W> {
 		Validator
 		.suppose(leftMouseButtonPressCommand)
 		.thatIsNamed("left mouse button press command")
-		.isInstance();
+		.isNotNull();
 		
 		this.leftMouseButtonPressCommand = leftMouseButtonPressCommand;
 		
@@ -1282,7 +1282,7 @@ extends ConfigurableElement<W> {
 		Validator
 		.suppose(leftMouseButtonReleaseCommand)
 		.thatIsNamed("left mouse button release command")
-		.isInstance();
+		.isNotNull();
 		
 		this.leftMouseButtonReleaseCommand = leftMouseButtonReleaseCommand;
 		
@@ -1303,7 +1303,7 @@ extends ConfigurableElement<W> {
 		Validator
 		.suppose(rightMouseButtonPressCommand)
 		.thatIsNamed("right mouse button press command")
-		.isInstance();
+		.isNotNull();
 		
 		this.rightMouseButtonPressCommand = rightMouseButtonPressCommand;
 		
@@ -1324,7 +1324,7 @@ extends ConfigurableElement<W> {
 		Validator
 		.suppose(rightMouseButtonReleaseCommand)
 		.thatIsNamed("right mouse button release command")
-		.isInstance();
+		.isNotNull();
 		
 		this.rightMouseButtonReleaseCommand = rightMouseButtonReleaseCommand;
 		
@@ -1354,7 +1354,7 @@ extends ConfigurableElement<W> {
 	public final W setState(final WidgetState state) {
 		
 		//Checks if the given state is not null.
-		Validator.suppose(state).thatIsNamed("state").isInstance();
+		Validator.suppose(state).thatIsNamed("state").isNotNull();
 
 		//Sets the state of the current {@link Widget}.
 		this.state = state;
@@ -1519,7 +1519,7 @@ extends ConfigurableElement<W> {
 		Validator
 		.suppose(parentWidget)
 		.thatIsNamed("parent widget")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the parent widget of the current widget.
 		this.parentWidget = parentWidget;
@@ -1573,7 +1573,7 @@ extends ConfigurableElement<W> {
 		Validator
 		.suppose(parentGUI)
 		.thatIsNamed("parent GUI")
-		.isInstance();
+		.isNotNull();
 		
 		setRequestableContainer(parentGUI);
 		

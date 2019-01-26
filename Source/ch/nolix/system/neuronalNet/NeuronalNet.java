@@ -45,13 +45,13 @@ extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 		Validator
 		.suppose(inputLayerNeurons)
 		.thatIsNamed("input layer neurons")
-		.isInstance();
+		.isNotNull();
 		
 		//Checks if the given output layer neurons is not null.
 		Validator
 		.suppose(outputLayerNeurons)
 		.thatIsNamed("output layer neurons")
-		.isInstance();
+		.isNotNull();
 		
 		//Connects the input fanout neuron of this neuronal net to the given input layer neurons.
 		int i = 1;

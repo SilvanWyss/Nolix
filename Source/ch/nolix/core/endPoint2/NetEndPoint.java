@@ -260,7 +260,7 @@ public class NetEndPoint extends EndPoint {
 	private void send_internal(final String message) {
 		
 		//Checks if the given message is not null.
-		Validator.suppose(message).thatIsNamed("message").isInstance();
+		Validator.suppose(message).thatIsNamed("message").isNotNull();
 		
 		//Checks if this net end point is not stopped.
 		supposeIsAlive();

@@ -50,7 +50,7 @@ public final class SubContainer<E> implements IContainer<E> {
 		Validator
 		.suppose(container)
 		.thatIsNamed("container")
-		.isInstance();
+		.isNotNull();
 		
 		Validator
 		.suppose(startIndex)

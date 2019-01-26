@@ -41,7 +41,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 		//Checks if the given internal specification is not null.
 		Validator.suppose(internalSpecification)
 		.thatIsNamed("internal specification")
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the simple persistent specification of this sub specification.
 		this.simplePersistentSpecification = simplePersistentSpecification;

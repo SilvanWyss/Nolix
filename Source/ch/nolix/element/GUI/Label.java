@@ -153,7 +153,7 @@ public final class Label extends TextLineWidget<Label> {
 		Validator
 		.suppose(role)
 		.thatIsNamed(VariableNameCatalogue.ROLE)
-		.isInstance();
+		.isNotNull();
 
 		//Sets the role of the current label.
 		this.role = role;

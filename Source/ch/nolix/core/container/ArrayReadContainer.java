@@ -45,7 +45,7 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 		Validator
 		.suppose(array)
 		.thatIsNamed(VariableNameCatalogue.ARRAY)
-		.isInstance();
+		.isNotNull();
 		
 		//Sets the array of this array wrapper.
 		this.array = array;

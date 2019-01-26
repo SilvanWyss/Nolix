@@ -172,7 +172,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 		Validator
 		.suppose(fileProvider)
 		.thatIsNamed("file provider")
-		.isInstance();
+		.isNotNull();
 		
 		providesFile = true;
 		this.fileProvider = fileProvider;

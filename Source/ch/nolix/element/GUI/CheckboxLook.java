@@ -244,7 +244,7 @@ extends BackgroundWidgetLook<CheckboxLook> {
 	public CheckboxLook setLineColor(final Color lineColor) {
 		
 		//Checks if the given line color is not null.
-		Validator.suppose(lineColor).thatIsNamed("line color").isInstance();
+		Validator.suppose(lineColor).thatIsNamed("line color").isNotNull();
 		
 		//Sets the line color of the current {@link CheckBoxLook}.
 		this.lineColor = lineColor;

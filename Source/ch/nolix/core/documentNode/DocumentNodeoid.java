@@ -49,7 +49,7 @@ public abstract class DocumentNodeoid implements Headered {
 		//Checks if the given string is not null.
 		Validator
 		.suppose(string)
-		.isInstance();
+		.isNotNull();
 		
 		return
 		string
@@ -74,7 +74,7 @@ public abstract class DocumentNodeoid implements Headered {
 		Validator
 		.suppose(reproducingString)
 		.thatIsNamed("reproducing string")
-		.isInstance();
+		.isNotNull();
 		
 		return		
 		reproducingString		

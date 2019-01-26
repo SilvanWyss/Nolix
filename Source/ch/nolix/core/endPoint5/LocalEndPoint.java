@@ -78,7 +78,7 @@ public final class LocalEndPoint extends EndPoint {
 		requestedConnection = false;
 		
 		//Checks if the given counterpart is not null.
-		Validator.suppose(counterpart).thatIsNamed("counterpart").isInstance();
+		Validator.suppose(counterpart).thatIsNamed("counterpart").isNotNull();
 		
 		//Sets the counterpart of this local duplex controller.
 		this.counterpart = counterpart;
@@ -105,7 +105,7 @@ public final class LocalEndPoint extends EndPoint {
 		requestedConnection = false;
 		
 		//Checks if the given counterpart is not null.
-		Validator.suppose(counterpart).thatIsNamed("counterpart").isInstance();
+		Validator.suppose(counterpart).thatIsNamed("counterpart").isNotNull();
 		
 		//Sets the counterpart of this local duplex controller.
 		this.counterpart = counterpart;
