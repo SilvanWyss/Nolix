@@ -99,7 +99,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	//method
 	/**
 	 * @return the one attribute of this sub specification.
-	 * @throws EmptyStateException if this sub specification does not contain an attribute.
+	 * @throws EmptyArgumentException if this sub specification does not contain an attribute.
 	 * @throws InvalidStateException if this sub specification contains several attributes.
 	 */
 	@Override

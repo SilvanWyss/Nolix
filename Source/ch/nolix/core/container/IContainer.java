@@ -14,8 +14,8 @@ import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.functionAPI.IElementTakerIntGetter;
 import ch.nolix.core.functionAPI.IElementTakerLongGetter;
 import ch.nolix.core.functionAPI.ITwoElementTakerBooleanGetter;
+import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.EmptyStateException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
@@ -282,13 +282,13 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param doubleNorm
 	 * @return the average of the values
 	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyStateException if the current {@link IContainer} is empty.
+	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default double getAverageByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		//Checks if the current container is not empty.
 		if (isEmpty()) {
-			throw new EmptyStateException(this);
+			throw new EmptyArgumentException(this);
 		}
 		
 		return (getSumByDoubleNorm(doubleNorm) / getSize());
@@ -299,13 +299,13 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param intNorm
 	 * @return the average of the values
 	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyStateException if the current {@link IContainer} is empty.
+	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default double getAverageByInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		//Checks if the current container is not empty.
 		if (isEmpty()) {
-			throw new EmptyStateException(this);
+			throw new EmptyArgumentException(this);
 		}
 		
 		return (getSumByInt(intNorm) / getSize());
@@ -316,13 +316,13 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param longNorm
 	 * @return the average of the values
 	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyStateException if the current {@link IContainer} is empty.
+	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default double getAverageByLong(final IElementTakerLongGetter<E> longNorm) {
 		
 		//Checks if the current container is not empty.
 		if (isEmpty()) {
-			throw new EmptyStateException(this);
+			throw new EmptyArgumentException(this);
 		}
 		
 		return (getSumByLong(longNorm) / getSize());
@@ -613,7 +613,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * 
 	 * @param doubleNorm
 	 * @return the range of the values the given double norm returns from the current {@link IContainer}.
-	 * @throws EmptyStateException if the current {@link IContainer} is empty.
+	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default double getRangeByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
@@ -650,7 +650,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * 
 	 * @param intNorm
 	 * @return the range of the values the given int norm returns from the current {@link IContainer}.
-	 * @throws EmptyStateException if the current {@link IContainer} is empty.
+	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default int getRangeByInt(final IElementTakerIntGetter<E> intNorm) {
 		
@@ -687,7 +687,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * 
 	 * @param longNorm
 	 * @return the range of the values the given long norm returns from the current {@link IContainer}.
-	 * @throws EmptyStateException if the current {@link IContainer} is empty.
+	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default long getRangeByLong(final IElementTakerLongGetter<E> longNorm) {
 		
@@ -722,13 +722,13 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * @param selector
 	 * @return the ratio of elements the given selector selects from the current {@link IContainer}.
-	 * @throws EmptyStateException if the current {@link IContainer} is empty.
+	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default double getRatio(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Checks if the current container is not empty.
 		if (isEmpty()) {
-			throw new EmptyStateException(this);
+			throw new EmptyArgumentException(this);
 		}
 		
 		return ((double)getCount(selector) / getSize());
@@ -737,13 +737,13 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @return a randomly selected element of the current {@link IContainer}.
-	 * @throws EmptyStateException if the current {@link IContainer} is empty.
+	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default E getRefAny() {
 		
 		//Checks if the current container is not empty.
 		if (isEmpty()) {
-			throw new EmptyStateException(this);
+			throw new EmptyArgumentException(this);
 		}
 		
 		return getRefAt(new Random().nextInt(getSize()) + 1);
@@ -990,13 +990,13 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @return the first element of the current {@link IContainer}.
-	 * @throws EmptyStateException if the current {@link IContainer} is empty.
+	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default E getRefFirst() {
 		
 		//Checks if the current container is not empty.
 		if (isEmpty()) {
-			throw new EmptyStateException(this);
+			throw new EmptyArgumentException(this);
 		}
 
 		return iterator().next();
@@ -1123,14 +1123,14 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * @return the one element of the current {@link IContainer}.
-	 * @throws EmptyStateException if the current {@link IContainer} is empty.
+	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 * @throws InvalidStateException if the current {@link IContainer} contains several elements.
 	 */
 	public default E getRefOne() {
 		
 		//Checks if the current {@link IContainer} contains exactly 1 element.
 		if (isEmpty()) {
-			throw new EmptyStateException(this);
+			throw new EmptyArgumentException(this);
 		}
 		if (getSize() > 1) {
 			throw new InvalidStateException(this, "contains several elements");

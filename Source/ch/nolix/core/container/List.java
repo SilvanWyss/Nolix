@@ -9,8 +9,8 @@ import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.functionAPI.IElementTakerComparableGetter;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
+import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.EmptyStateException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator2.Validator;
@@ -532,13 +532,13 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param sequencePattern
 	 * @return the ratio of the sequences from the current {@link List} that match the given sequence pattern.
-	 * @throws EmptyStateException if the current {@link List} is empty.
+	 * @throws EmptyArgumentException if the current {@link List} is empty.
 	 */
 	public double getRatio(final SequencePattern<E> sequencePattern) {
 		
 		//Checks if the current list is not empty.
 		if (isEmpty()) {
-			throw new EmptyStateException(this);
+			throw new EmptyArgumentException(this);
 		}
 		
 		return ((double)getSequenceCount(sequencePattern) / getSize());
@@ -549,13 +549,13 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * The complexity of this method is O(1).
 	 * 
 	 * @return the last element of the current {@link List}.
-	 * @throws EmptyStateException if the current {@link List} is empty.
+	 * @throws EmptyArgumentException if the current {@link List} is empty.
 	 */
 	public E getRefLast() {
 		
 		//Checks if the current list is not empty.
 		if (isEmpty()) {
-			throw new EmptyStateException(this);
+			throw new EmptyArgumentException(this);
 		}
 		
 		return lastNode.getElement();
@@ -735,13 +735,13 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * The complexity of this method is O(1).
 	 * 
 	 * @return the current {@link List}.
-	 * @throws EmptyStateException if the current {@link List} is empty.
+	 * @throws EmptyArgumentException if the current {@link List} is empty.
 	 */
 	public List<E> removeFirst() {
 		
 		//Checks if the current list is not empty.
 		if (isEmpty()) {
-			throw new EmptyStateException(this);
+			throw new EmptyArgumentException(this);
 		}
 		
 		//Handles the case that the current list contains 1 element.
@@ -871,13 +871,13 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * The complexity of this method is O(1).
 	 * 
 	 * @return the current {@link List}.
-	 * @throws EmptyStateException if the current {@link List} is empty.
+	 * @throws EmptyArgumentException if the current {@link List} is empty.
 	 */
 	public List<E> removeLast() {
 		
 		//Checks if the current list is not empty.
 		if (isEmpty()) {
-			throw new EmptyStateException(this);
+			throw new EmptyArgumentException(this);
 		}
 		
 		//Handles the case that the current list contains 1 element.

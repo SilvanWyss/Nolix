@@ -6,7 +6,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.invalidStateException.EmptyStateException;
+import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.core.MutableElement;
@@ -113,7 +113,7 @@ implements Clearable<GridCell> {
 	public Widget<?, ?> getRefWidget() {
 		
 		if (isEmpty()) {
-			throw new EmptyStateException(this);
+			throw new EmptyArgumentException(this);
 		}
 		
 		return widget;

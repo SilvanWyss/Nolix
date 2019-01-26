@@ -6,7 +6,7 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.invalidStateException.EmptyStateException;
+import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator2.Validator;
@@ -351,7 +351,7 @@ implements Clearable<TabContainerTab> {
 		
 		//Checks if the current tab container tab is not empty.
 		if (isEmpty()) {
-			throw new EmptyStateException(this);
+			throw new EmptyArgumentException(this);
 		}
 	}
 }

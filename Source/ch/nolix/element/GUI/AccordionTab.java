@@ -7,7 +7,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity.MutableProperty;
-import ch.nolix.core.invalidStateException.EmptyStateException;
+import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.skillAPI.Clearable;
@@ -377,7 +377,7 @@ implements Clearable<AccordionTab> {
 	//method
 	private void supposeIsNotEmpty() {
 		if (isEmpty()) {
-			throw new EmptyStateException(this);
+			throw new EmptyArgumentException(this);
 		}
 	}
 }

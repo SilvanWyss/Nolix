@@ -258,7 +258,7 @@ public abstract class DocumentNodeoid implements Headered {
 	//method
 	/**
 	 * @return the boolean the one attribute of the current {@link DocumentNodeoid} represents.
-	 * @throws EmptyStateException if the current {@link DocumentNodeoid} does not contain attributes.
+	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
 	 * @throws InvalidStateException if the current {@link DocumentNodeoid} contains several attributes.
 	 * @throws InvalidArgumentException
 	 * if the one attribute of the current {@link DocumentNodeoid} does not represent a boolean.
@@ -270,7 +270,7 @@ public abstract class DocumentNodeoid implements Headered {
 	//method
 	/**
 	 * @return the double the one attribute of the current {@link DocumentNodeoid} represents.
-	 * @throws EmptyStateException if the current {@link DocumentNodeoid} does not contain attributes.
+	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
 	 * @throws InvalidStateException if the current {@link DocumentNodeoid} contains several attributes.
 	 * @throws InvalidArgumentException
 	 * if the one attribute of the current {@link DocumentNodeoid} does not represent a double.
@@ -282,7 +282,7 @@ public abstract class DocumentNodeoid implements Headered {
 	//method
 	/**
 	 * @return the integer the one attribute of the current {@link DocumentNodeoid} represents.
-	 * @throws EmptyStateException if the current {@link DocumentNodeoid} does not contain attributes.
+	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
 	 * @throws InvalidStateException if the current {@link DocumentNodeoid} contains several attributes.
 	 * @throws InvalidArgumentException
 	 * if the one attribute of the current {@link DocumentNodeoid} does not represent an integer.
@@ -294,7 +294,7 @@ public abstract class DocumentNodeoid implements Headered {
 	//method
 	/**
 	 * @return a string representation of the one attribute of the current {@link DocumentNodeoid}.
-	 * @throws EmptyStateException if the current {@link DocumentNodeoid} does not contain attributes.
+	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
 	 * @throws InvalidStateException if the current {@link DocumentNodeoid} contains several attributes.
 	 */
 	public String getOneAttributeAsString() {
@@ -304,7 +304,7 @@ public abstract class DocumentNodeoid implements Headered {
 	//method
 	/**
 	 * @return the header of the one attribute of the current {@link DocumentNodeoid}.
-	 * @throws EmptyStateException if the current {@link DocumentNodeoid} does not contain attributes.
+	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
 	 * @throws InvalidStateException if the current {@link DocumentNodeoid} contains several attributes.
 	 */
 	public String getOneAttributeHeader() {
@@ -361,7 +361,7 @@ public abstract class DocumentNodeoid implements Headered {
 	//method
 	/**
 	 * @return the first attribute of the current {@link DocumentNodeoid}.
-	 * @throws EmptyStateException if the current {@link DocumentNodeoid} does not contain attributes.
+	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
 	 */
 	@SuppressWarnings("unchecked")
 	public <S extends DocumentNodeoid> S getRefFirstAttribute() {
@@ -393,7 +393,7 @@ public abstract class DocumentNodeoid implements Headered {
 	//abstract method
 	/**
 	 * @return the one attribute of the current {@link DocumentNodeoid}.
-	 * @throws EmptyStateException if the current {@link DocumentNodeoid} does not contain attributes.
+	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
 	 * @throws InvalidStateException if the current {@link DocumentNodeoid} contains several attributes.
 	 */
 	public DocumentNodeoid getRefOneAttribute() {
