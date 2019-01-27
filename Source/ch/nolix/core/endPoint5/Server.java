@@ -4,7 +4,7 @@ package ch.nolix.core.endPoint5;
 //own imports
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 
@@ -32,7 +32,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * An arbitrary duplex controller taker takes all duplex controllers without or with any target.
 	 * 
 	 * @param arbitraryDuplexControllerTaker
-	 * @throws InvalidStateException if this server contains duplex controller.
+	 * @throws InvalidArgumentException if this server contains duplex controller.
 	 */
 	public void addArbitraryDuplexControllerTaker(
 		final IEndPointTaker arbitraryDuplexControllerTaker
@@ -40,7 +40,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 		
 		//Checks if this server does not contain a duplex controller taker.
 		if (containsAny()) {
-			throw new InvalidStateException(this, "contains duplex controller");
+			throw new InvalidArgumentException(this, "contains duplex controller");
 		}
 		
 		addDuplexControllerTaker(arbitraryDuplexControllerTaker);
@@ -53,7 +53,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * Adds the given duplex controller to this server.
 	 * 
 	 * @param endPointTaker
-	 * @throws InvalidStateException if this server contains a duplex controller
+	 * @throws InvalidArgumentException if this server contains a duplex controller
 	 * with the same name the given duplex controller has
 	 */
 	public void addDuplexControllerTaker(final IEndPointTaker endPointTaker) {
@@ -61,7 +61,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 		//Checks if this server contains a duplex controller taker
 		//with the same name as the given duplex controller has.
 		if (containsDuplexControllerTaker(endPointTaker.getName())) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"contains a duplex controller taker with the same name the given duplex controller taker has"
 			);

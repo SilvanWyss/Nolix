@@ -4,7 +4,7 @@ package ch.nolix.element._3DGUI;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specificationAPI.Configurable;
@@ -195,7 +195,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 		
 		//Checks if this shape does not belong already to a GUI.
 		if (belongsToAGUI()) {
-			throw new InvalidStateException(this, "belongs already to a GUI");
+			throw new InvalidArgumentException(this, "belongs already to a GUI");
 		}
 		
 		this.shapeRenderManager = new ShapeRenderManager(this, GUI.getShapeRendererFor(this));
@@ -298,7 +298,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	//method
 	/**
 	 * @return the GUI this shape belongs to.
-	 * @throws InvalidStateException if this shape does not belong to a GUI.
+	 * @throws InvalidArgumentException if this shape does not belong to a GUI.
 	 */
 	protected final _3DGUI<?> getRefGUI() {
 		
@@ -330,21 +330,21 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @throws InvalidStateException if this shape belongs to a GUI. 
+	 * @throws InvalidArgumentException if this shape belongs to a GUI. 
 	 */
 	protected final void supposeBelongsNotToAGUI() {
 		if (belongsToAGUI()) {
-			throw new InvalidStateException(this, "belongs to a GUI");
+			throw new InvalidArgumentException(this, "belongs to a GUI");
 		}
 	}
 	
 	//method
 	/**
-	 * @throws InvalidStateException if this shape belongs not to a GUI. 
+	 * @throws InvalidArgumentException if this shape belongs not to a GUI. 
 	 */
 	protected final void supposeBelongsToAGUI() {
 		if (!belongsToAGUI()) {
-			throw new InvalidStateException(this, "belongs not to a GUI");
+			throw new InvalidArgumentException(this, "belongs not to a GUI");
 		}
 	}
 	

@@ -9,7 +9,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.helper.MethodHelper;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 
@@ -83,7 +83,7 @@ public abstract class Session<C extends Client<C>> {
 	//method
 	/**
 	 * @return the parent client of the current {@link Session}.
-	 * @throws InvalidStateException if the current {@link Session} does not belong to a client.
+	 * @throws InvalidArgumentException if the current {@link Session} does not belong to a client.
 	 */
 	public final C getParentClient() {
 		
@@ -97,8 +97,8 @@ public abstract class Session<C extends Client<C>> {
 	/**
 	 * @return the context of the {@link Application}
 	 * the {@link Client} of the current {@link Session} belongs to.
-	 * @throws InvalidStateException if the current {@link Session} does not belong to a {@link Client}.
-	 * @throws InvalidStateException if the {@link Client} of the current {@link Session}
+	 * @throws InvalidArgumentException if the current {@link Session} does not belong to a {@link Client}.
+	 * @throws InvalidArgumentException if the {@link Client} of the current {@link Session}
 	 * does not reference the {@link Application} it belongs to.
 	 * @throws UnexistingAttributeException if the {@link Application},
 	 * the {@link Client} of the current {@link Session} belongs to, does not have a context.
@@ -168,7 +168,7 @@ public abstract class Session<C extends Client<C>> {
 	 * 
 	 * @param parentClient
 	 * @throws NullArgumentException if the given parent client is null.
-	 * @throws InvalidStateException if the current {@link Session} belongs to a client.
+	 * @throws InvalidArgumentException if the current {@link Session} belongs to a client.
 	 */
 	final void setParentClient(C parentClient) {
 		
@@ -245,25 +245,25 @@ public abstract class Session<C extends Client<C>> {
 	
 	//method
 	/**
-	 * @throws InvalidStateException if the current {@link Session} does not belong to a client.
+	 * @throws InvalidArgumentException if the current {@link Session} does not belong to a client.
 	 */
 	private void supposeBelongsToClient() {
 		
 		//Checks if the current {@link Session} belongs to a client.
 		if (!belongsToClient()) {
-			throw new InvalidStateException(this, "does not belong to a client");
+			throw new InvalidArgumentException(this, "does not belong to a client");
 		}
 	}
 	
 	//method
 	/**
-	 * @throws InvalidStateException if the current {@link Session} belongs to a client.
+	 * @throws InvalidArgumentException if the current {@link Session} belongs to a client.
 	 */
 	private void suppoeDoesNotBelongToClient() {
 		
 		//Checks if the current {@link Session} does not belong to a client.
 		if (belongsToClient()) {
-			throw new InvalidStateException(this, "belongs to a client");
+			throw new InvalidArgumentException(this, "belongs to a client");
 		}
 	}
 }

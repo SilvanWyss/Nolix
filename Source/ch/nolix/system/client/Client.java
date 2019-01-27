@@ -14,7 +14,6 @@ import ch.nolix.core.endPoint5.NetEndPoint;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.skillAPI.Closable;
 import ch.nolix.core.validator2.Validator;
@@ -112,7 +111,7 @@ implements Closable {
 	//method
 	/**
 	 * @return the context of the {@link Application} the current {@link Client} belongs to.
-	 * @throws InvalidStateException if the current {@link Client}
+	 * @throws InvalidArgumentException if the current {@link Client}
 	 * does not reference the {@link Application} it belongs to.
 	 * @throws UnexistingAttributeException if the {@link Application},
 	 * the current {@link Client} belongs to, does not have a context.
@@ -197,20 +196,20 @@ implements Closable {
 	/**
 	 * Pops the current session of the current {@link Client}.
 	 * 
-	 * @InvalidStateException if the current {@link Client} does not contain more than 1 session.
-	 * @InvalidStateException if the current session of the current {@link Client} is not the last session.
+	 * @InvalidArgumentException if the current {@link Client} does not contain more than 1 session.
+	 * @InvalidArgumentException if the current session of the current {@link Client} is not the last session.
 	 */
 	public final void popSession() {
 		
 		//Checks if the current client contains more than 1 session.
 		if (getSessionStackSize() < 2) {
-			throw new InvalidStateException(this, "does not contain more than 1 session");
+			throw new InvalidArgumentException(this, "does not contain more than 1 session");
 		}
 		
 		//Checks if the current session of the current client is the last session
 		if (internal_getRefCurrentSession() != sessions.getRefLast()) {
 			throw
-			new InvalidStateException(
+			new InvalidArgumentException(
 				this, "cannot pop a session that is not the last session."
 			);
 		}
@@ -282,7 +281,7 @@ implements Closable {
 	 * 
 	 * @param application
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
-	 * @throws InvalidStateException if the current {@link Client} is already connected.
+	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
 	protected final void internal_connectTo(final Application<?> application) {
 		
@@ -302,7 +301,7 @@ implements Closable {
 	 * 
 	 * @param port
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
-	 * @throws InvalidStateException if the current {@link Client} is already connected.
+	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
 	protected final void internal_connectTo(final int port) {
 		
@@ -320,7 +319,7 @@ implements Closable {
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws InvalidStateException if the current {@link Client} is already connected.
+	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
 	protected final void internal_connectTo(final int port, final String name) {
 		
@@ -334,7 +333,7 @@ implements Closable {
 	 * on the given server.
 	 * 
 	 * @param server
-	 * @throws InvalidStateException if the current {@link Client} is already connected.
+	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
 	protected final void internal_connectTo(final Server server) {
 		
@@ -354,7 +353,7 @@ implements Closable {
 	 * 
 	 * @param server
 	 * @param name
-	 * @throws InvalidStateException if the current {@link Client} is already connected.
+	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
 	protected final void internal_connectTo(final Server server, final String name) {
 		
@@ -375,7 +374,7 @@ implements Closable {
 	 * @param ip
 	 * @param port
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
-	 * @throws InvalidStateException if the current {@link Client} is already connected.
+	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
 	protected final void internal_connectTo(final String ip, final int port) {
 		
@@ -394,7 +393,7 @@ implements Closable {
 	 * @throws OutOfRangeException if the given port is not in [0,65535].
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws InvalidStateException if the current {@link Client} is already connected.
+	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
 	protected final void internal_connectTo(String ip, int port, String name) {
 		
@@ -437,7 +436,7 @@ implements Closable {
 	//method
 	/**
 	 * @return the {@link Application} the current {@link Client} belongs to.
-	 * @throws InvalidStateException if the current {@link Client}
+	 * @throws InvalidArgumentException if the current {@link Client}
 	 * does not reference the {@link Application} it belongs to.
 	 */
 	protected final Application<C> internal_getParentApplication() {
@@ -451,7 +450,7 @@ implements Closable {
 	//method
 	/**
 	 * @return the current session of the current {@link Client}.
-	 * @throws InvalidStateException if the current {@link Client} does not contain a current session.
+	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
 	 */
 	protected final Session<C> internal_getRefCurrentSession() {
 		
@@ -484,7 +483,7 @@ implements Closable {
 	 * 
 	 * @param sessionUserDataMethodRequest
 	 * @return the data the invoked user data method returns.
-	 * @throws InvalidStateException if the current {@link Client} does not contain a current session.
+	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
 	 */
 	protected final DocumentNode internal_invokeSessionUserDataMethod(
 			final DocumentNodeoid sessionUserDataMethodRequest
@@ -510,7 +509,7 @@ implements Closable {
 	 * @param name
 	 * @param arguments
 	 * @return the data the invoked user data method returns.
-	 * @throws InvalidStateException if the current {@link Client} does not contain a current session.
+	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
 	 */
 	protected final DocumentNode internal_invokeSessionUserDataMethod(
 		final String name,
@@ -527,7 +526,7 @@ implements Closable {
 	 * 
 	 * @param name
 	 * @param arguments
-	 * @throws InvalidStateException if the current {@link Client} does not contain a current session.
+	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
 	 */
 	protected final void internal_invokeSessionUserRunMethod(
 		final String name,
@@ -543,7 +542,7 @@ implements Closable {
 	 * 
 	 * @param name
 	 * @param arguments
-	 * @throws InvalidStateException if the current {@link Client} does not contain a current session.
+	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
 	 */
 	protected final void internal_invokeSessionUserRunMethod(final DocumentNodeoid sessionUserRunMethodRequest) {
 		
@@ -620,7 +619,7 @@ implements Closable {
 	 * * 
 	 * @param endPoint
 	 * @throws NullArgumentException if the given duplex controller is null.
-	 * @throws InvalidStateException if the current {@link Client} is connected.
+	 * @throws InvalidArgumentException if the current {@link Client} is connected.
 	 */
 	protected final void internal_setDuplexController(final EndPoint endPoint) {
 		
@@ -643,7 +642,7 @@ implements Closable {
 	 * 
 	 * @param parentApplication
 	 * @throws NullArgumentException if the given parent application is null.
-	 * @throws InvalidStateException if the current {@link Client}
+	 * @throws InvalidArgumentException if the current {@link Client}
 	 * references already a parent application.
 	 */
 	final void setParentApplication(final Application<C> parentApplication) {
@@ -657,7 +656,7 @@ implements Closable {
 		//Checks if the current client does not reference already a parent application.
 		if (referencesParentApplication()) {
 			throw
-			new InvalidStateException(
+			new InvalidArgumentException(
 				this,
 				"references already a parent application"
 			);
@@ -705,19 +704,19 @@ implements Closable {
 	
 	//method
 	/**
-	 * @throws InvalidStateException if the current {@link Client} is connected.
+	 * @throws InvalidArgumentException if the current {@link Client} is connected.
 	 */
 	private void supposeIsNotConnected() {
 		
 		//Checks if the current client is not connected.
 		if (internal_isConnected()) {
-			throw new InvalidStateException(this, "is connected");
+			throw new InvalidArgumentException(this, "is connected");
 		}
 	}
 	
 	//method
 	/**
-	 * @throws InvalidStateException if the current {@link Client}
+	 * @throws InvalidArgumentException if the current {@link Client}
 	 * does not reference the {@link Application} it belongs to.
 	 */
 	private void supposeReferencesParentApplication() {
@@ -725,7 +724,7 @@ implements Closable {
 		//Checks if the current client references the application it belongs to.
 		if (!referencesParentApplication()) {
 			throw
-			new InvalidStateException(
+			new InvalidArgumentException(
 				this,
 				"does not reference a parent application"
 			);

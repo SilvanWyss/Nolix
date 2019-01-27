@@ -7,7 +7,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.Schema;
 import ch.nolix.core.generalSkillAPI.IFluentObject;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.IChangesSaver;
 
 //abstract class
@@ -125,7 +125,7 @@ implements
 	//method
 	protected final void supposeDoesNotContainEntitySet(final String name) {
 		if (containsEntitySet(name)) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"contains an entity set with the name '" + name + "'"
 			);
@@ -150,7 +150,7 @@ implements
 		loadedAndCreatedEntitySets.getRefFirstOrNull(es -> es.references(entitySet));
 		
 		if (referencingEntitySet != null) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				entitySet,
 				"cannot be deleted because it is referenced by "
 				+ referencingEntitySet.getNameInQuotes()

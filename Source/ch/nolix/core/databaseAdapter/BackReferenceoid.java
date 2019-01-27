@@ -6,7 +6,7 @@ import java.lang.reflect.ParameterizedType;
 
 //own imports
 import ch.nolix.core.helper.ReflectionHelper;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.MissingParentException;
 import ch.nolix.core.validator2.Validator;
 
@@ -98,7 +98,7 @@ public abstract class BackReferenceoid<E extends Entity> {
 		
 		//Checks if the current back reference does not belong to an entity.
 		if (parentEntity != null) {
-			throw new InvalidStateException(this, "belongs already to an entity");
+			throw new InvalidArgumentException(this, "belongs already to an entity");
 		}
 		
 		this.parentEntity = parentEntity;
@@ -107,7 +107,7 @@ public abstract class BackReferenceoid<E extends Entity> {
 	//package-visible method
 	final void supposeCanReferenceBack(final Entity entity) {
 		if (!canReferenceBack(entity)) {
-			throw new InvalidStateException(this, "cannot reference back the given entity");
+			throw new InvalidArgumentException(this, "cannot reference back the given entity");
 		}
 	}
 	
@@ -120,7 +120,7 @@ public abstract class BackReferenceoid<E extends Entity> {
 		supposeCanReferenceBack(entity);
 		
 		if (!hasReferencingPropertyHeader(referencingPropertyHeader)) {
-			throw new InvalidStateException(this, "cannot reference back the given entity");
+			throw new InvalidArgumentException(this, "cannot reference back the given entity");
 		}
 	}
 	

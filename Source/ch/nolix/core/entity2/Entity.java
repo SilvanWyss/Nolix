@@ -9,7 +9,7 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
@@ -50,7 +50,7 @@ implements
 		//Handles the case that the property was not found.
 		if (property == null) {
 			throw
-			new InvalidStateException(
+			new InvalidArgumentException(
 				this,
 				"cannot not have a " + attribute.getHeaderInQuotes()
 			);
@@ -150,14 +150,14 @@ implements
 	/**
 	 * Extracts the properties of this entity.
 	 * 
-	 * @throws InvalidStateException
+	 * @throws InvalidArgumentException
 	 * if the properties of this entity are extracted already.
 	 */
 	private void extractProperties() {
 		
 		//Checks if the properties of this entity are not extracted yet.
 		if (propertiesAreExtracted()) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"has extracted already its properties"
 			);

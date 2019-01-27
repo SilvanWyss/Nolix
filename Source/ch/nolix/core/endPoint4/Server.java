@@ -4,7 +4,7 @@ package ch.nolix.core.endPoint4;
 //own imports
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //abstract class
 /**
@@ -26,13 +26,13 @@ extends ClosableElement {
 	 * Adds the given end point taker to this server.
 	 * 
 	 * @param endPointTaker
-	 * @throws InvalidStateException
+	 * @throws InvalidArgumentException
 	 * if this server contains an end point taker with the same name as the given end point taker.
 	 */
 	public void addEndPointTaker(final IEndPointTaker<M, R> endPointTaker) {
 		
 		if (containsEndPointTaker(endPointTaker.getName())) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"contains an end point taker with the same name as the given end point taker"
 			);

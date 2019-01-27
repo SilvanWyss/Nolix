@@ -6,7 +6,7 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator2.Validator;
@@ -33,7 +33,7 @@ implements
 	//method
 	/**
 	 * @return the attributes of this entity.
-	 * @throws InvalidStateException
+	 * @throws InvalidArgumentException
 	 * if the properties of this entity are not approved.
 	 */
 	@Override
@@ -65,7 +65,7 @@ implements
 		//Handles the case that the property was not found.
 		if (property == null) {
 			throw
-			new InvalidStateException(
+			new InvalidArgumentException(
 				this,
 				"cannot not have a " + attribute.getHeaderInQuotes()
 			);
@@ -78,7 +78,7 @@ implements
 	/**
 	 * Approves the properties of this entity.
 	 * 
-	 * @throws InvalidStateException
+	 * @throws InvalidArgumentException
 	 * if this entity has a non-optional property that is empty.
 	 */
 	protected final void approveProperties() {
@@ -95,7 +95,7 @@ implements
 	 * Initializes the properties of this entity from the given specification.
 	 * 
 	 * @param specification
-	 * @throws InvalidStateException if the properties of this entity are approved.
+	 * @throws InvalidArgumentException if the properties of this entity are approved.
 	 * @throws InvalidArgumentException
 	 * if one of the attributes of the given specification is not valid.
 	 */
@@ -185,25 +185,25 @@ implements
 	
 	//method
 	/**
-	 * @throws InvalidStateException if the properties of this entity are not approved.
+	 * @throws InvalidArgumentException if the properties of this entity are not approved.
 	 */
 	private void supposePropertiesAreApproved() {
 
 		//Checks if the properties of this entity are approved.
 		if (this.containsProperties() && !propertiesAreApproved()) {
-			throw new InvalidStateException(this, "contains properties that are not approved");
+			throw new InvalidArgumentException(this, "contains properties that are not approved");
 		}
 	}
 	
 	//method
 	/**
-	 * @throws InvalidStateException if the properties of this entity are approved.
+	 * @throws InvalidArgumentException if the properties of this entity are approved.
 	 */
 	private void supposePropertiesAreNotApproved() {
 		
 		//Checks if the properties of this entity are not approved.
 		if (this.containsProperties() && propertiesAreApproved()) {
-			throw new InvalidStateException(this, "contains properties that are approved");
+			throw new InvalidArgumentException(this, "contains properties that are approved");
 		}
 	}
 }

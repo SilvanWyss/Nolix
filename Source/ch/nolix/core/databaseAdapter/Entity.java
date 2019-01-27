@@ -11,7 +11,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.skillAPI.Identified2;
 import ch.nolix.core.specificationAPI.Specified;
@@ -273,9 +273,9 @@ public class Entity implements Identified2, Specified {
 			case CHANGED:
 				break;
 			case DELETED:
-				throw new InvalidStateException(this, "is deleted");
+				throw new InvalidArgumentException(this, "is deleted");
 			case REJECTED:
-				throw new InvalidStateException(this, "is rejected");
+				throw new InvalidArgumentException(this, "is rejected");
 		}
 	}
 	
@@ -288,11 +288,11 @@ public class Entity implements Identified2, Specified {
 				state = EntityState.DELETED;
 				break;
 			case CREATED:
-				throw new InvalidStateException(this, "is created");
+				throw new InvalidArgumentException(this, "is created");
 			case DELETED:
 				break;
 			case REJECTED:
-				throw new InvalidStateException(this, "is rejected");
+				throw new InvalidArgumentException(this, "is rejected");
 		}
 	}
 	
@@ -313,13 +313,13 @@ public class Entity implements Identified2, Specified {
 				state = EntityState.PERSISTED;
 				break;
 			case CONCERNED:
-				throw new InvalidStateException(this, "is concerned");
+				throw new InvalidArgumentException(this, "is concerned");
 			case CHANGED:
-				throw new InvalidStateException(this, "is changed");
+				throw new InvalidArgumentException(this, "is changed");
 			case DELETED:
-				throw new InvalidStateException(this, "is deleted");
+				throw new InvalidArgumentException(this, "is deleted");
 			case REJECTED:
-				throw new InvalidStateException(this, "is rejected");
+				throw new InvalidArgumentException(this, "is rejected");
 		}
 	}
 	
@@ -461,7 +461,7 @@ public class Entity implements Identified2, Specified {
 	//method
 	private void supposeBelongsToEntitySet() {
 		if (!belongsToEntitySet()) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"does not belong to a entity set"
 			);
@@ -471,7 +471,7 @@ public class Entity implements Identified2, Specified {
 	//method
 	private void supposeDoesNotBelongToEntitySet() {
 		if (belongsToEntitySet()) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"belongs to entity"
 			);
@@ -491,7 +491,7 @@ public class Entity implements Identified2, Specified {
 	//method
 	private void supposeHasNoId() {
 		if (hasId()) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"has an id"
 			);

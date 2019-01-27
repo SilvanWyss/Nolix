@@ -11,7 +11,6 @@ import ch.nolix.core.functionAPI.IElementTakerComparableGetter;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator2.Validator;
 
@@ -908,18 +907,18 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * 
 	 * @param element
 	 * @return the current {@link List}.
-	 * @throws InvalidStateException if the current {@link List} does not contain the given element once.
+	 * @throws InvalidArgumentException if the current {@link List} does not contain the given element once.
 	 */
 	public List<E> removeRegardingSingularity(final E element) {
 		
 		//Enumerates the element count of the given element.
 		switch (getCount(element)) {
 			case 0:
-				throw new InvalidStateException(this, "does not contain the given elemen");
+				throw new InvalidArgumentException(this, "does not contain the given elemen");
 			case 1:
 				return removeFirst(element);
 			default:
-				throw new InvalidStateException(this, "contains the given element several times");
+				throw new InvalidArgumentException(this, "contains the given element several times");
 		}
 	}
 	

@@ -8,7 +8,6 @@ import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.entity.Property;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.core.Text;
 import ch.nolix.element.core.Time;
@@ -206,7 +205,7 @@ public final class Task extends MutableElement<Task> {
 	//method
 	/**
 	 * @return the solve date of this task.
-	 * @throws InvalidStateException if this task is not solved.
+	 * @throws InvalidArgumentException if this task is not solved.
 	 */
 	public Time getSolveDate() {
 		
@@ -260,7 +259,7 @@ public final class Task extends MutableElement<Task> {
 	 * Sets this task as solved with the current time as solve time.
 	 * 
 	 * @return this task.
-	 * @throws InvalidStateException if this task is already solved.
+	 * @throws InvalidArgumentException if this task is already solved.
 	 */
 	public Task setAsSolved() {
 		return setAsSolved(Time.createCurrentTime());
@@ -273,7 +272,7 @@ public final class Task extends MutableElement<Task> {
 	 * @param solveTime
 	 * @return this task.
 	 * @throws InvalidArgumentException if the given solve time is null.
-	 * @throws InvalidStateException if this task is already solved.
+	 * @throws InvalidArgumentException if this task is already solved.
 	 */
 	public Task setAsSolved(final Time solveTime) {
 		
@@ -344,7 +343,7 @@ public final class Task extends MutableElement<Task> {
 	 * Sets the creation date of this task.
 	 * 
 	 * @param creationDate
-	 * @throws InvalidStateException if the properties of this task are approved.
+	 * @throws InvalidArgumentException if the properties of this task are approved.
 	 */
 	private void setCreationDate(final Time creationDate) {
 		this.creationDate.setValue(creationDate.getDay());
@@ -352,25 +351,25 @@ public final class Task extends MutableElement<Task> {
 	
 	//method
 	/**
-	 * @throws InvalidStateException if this task is solved.
+	 * @throws InvalidArgumentException if this task is solved.
 	 */
 	private void supposeIsNotSolved() {
 		
 		//Checks if this task is not solved.
 		if (isSolved()) {
-			throw new InvalidStateException(this, "is solved");
+			throw new InvalidArgumentException(this, "is solved");
 		}
 	}
 	
 	//method
 	/**
-	 * @throws InvalidStateException if this task is not solved.
+	 * @throws InvalidArgumentException if this task is not solved.
 	 */
 	private void supposeIsSolved() {
 		
 		//Checks if this task is solved.
 		if (!isSolved()) {
-			throw new InvalidStateException(this, "is not solved");
+			throw new InvalidArgumentException(this, "is not solved");
 		}
 	}
 }

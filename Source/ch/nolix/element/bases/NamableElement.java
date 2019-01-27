@@ -8,7 +8,6 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.skillAPI.IRequestableContainer;
 import ch.nolix.core.skillAPI.Namable;
 import ch.nolix.core.validator2.Validator;
@@ -105,7 +104,7 @@ implements Namable<NE> {
 	 * @param name
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws InvalidStateException if this namable element belongs to a requestable container
+	 * @throws InvalidArgumentException if this namable element belongs to a requestable container
 	 * that contains another element with the given name.
 	 */
 	@Override
@@ -118,7 +117,7 @@ implements Namable<NE> {
 			//that contains another element with the given name.
 			if (belongsToRequestableContainer()	&& requestableContainer.containsElement(name)
 			) {
-				throw new InvalidStateException(
+				throw new InvalidArgumentException(
 					this,
 					"belongs to a requestable container that contains another element with the name '"
 					+ name
@@ -139,7 +138,7 @@ implements Namable<NE> {
 	 * 
 	 * @param requestableContainer
 	 * @throws NullArgumentExcetpion if the given requestable container is null.
-	 * @throws new InvalidStateException
+	 * @throws new InvalidArgumentException
 	 * if this namable element belongs already to another requestable container.
 	 */
 	public final void setRequestableContainer(IRequestableContainer requestableContainer) {
@@ -149,7 +148,7 @@ implements Namable<NE> {
 		
 		//Checks if this namable element does not belong to another requestable container.
 		if (belongsToRequestableContainer() && this.requestableContainer != requestableContainer) {
-			throw new InvalidStateException(this, "belongs already to another requestable container");
+			throw new InvalidArgumentException(this, "belongs already to another requestable container");
 		}
 		
 		//Sets the requestable container this namable element will belong to.

@@ -8,7 +8,7 @@ import ch.nolix.core.databaseSchemaAdapter.Column;
 import ch.nolix.core.databaseSchemaAdapter.IColumnAdapter;
 import ch.nolix.core.databaseSchemaAdapter.IEntitySetAdapter;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -36,7 +36,7 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 		
 		if (containsColumn(column.getHeader())) {
 			throw
-			new InvalidStateException(
+			new InvalidArgumentException(
 				"entity set specification",
 				"contains already a column with the header" + column.getHeaderInQuotes()
 			);

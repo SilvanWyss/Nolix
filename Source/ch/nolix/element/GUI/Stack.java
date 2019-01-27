@@ -221,7 +221,7 @@ implements Clearable<S> {
 	 *
 	 * @param widget
 	 * @return the current {@link Stack}.
-	 * @throws InvalidStateException
+	 * @throws InvalidArgumentException
 	 * if the current {@link Stack} does not contain the given widget.
 	 */
 	public final S removeWidget(final Widget<?, ?> widget) {

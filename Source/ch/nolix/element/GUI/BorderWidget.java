@@ -7,7 +7,7 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.validator2.Validator;
@@ -1322,7 +1322,7 @@ extends BackgroundWidget<BW, BWS> {
 				- currentStructure.getRecursiveOrDefaultRightPadding();
 		}
 		
-		throw new InvalidStateException(this);
+		throw new InvalidArgumentException(this);
 	}
 	
 	//method
@@ -1353,7 +1353,7 @@ extends BackgroundWidget<BW, BWS> {
 				- currentStructure.getRecursiveOrDefaultBottomPadding();
 		}
 		
-		throw new InvalidStateException(this);
+		throw new InvalidArgumentException(this);
 	}
 	
 	//method

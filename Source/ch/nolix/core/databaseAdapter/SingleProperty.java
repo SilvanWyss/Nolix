@@ -6,7 +6,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 
@@ -133,7 +133,7 @@ extends DataPropertyoid<V> {
 	//method
 	private void supposeIsOptional() {
 		if (!isOptional()) {
-			throw new InvalidStateException(this, "is not optional");
+			throw new InvalidArgumentException(this, "is not optional");
 		}
 	}
 }

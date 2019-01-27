@@ -6,7 +6,7 @@ import java.io.File;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -78,7 +78,7 @@ public class ModuleManager {
 		
 		final String name = module.getName();
 		if (modules.contains(m -> m.hasName(name))) {
-			throw new InvalidStateException(this, "contains other module with the name '" + name + "'.");
+			throw new InvalidArgumentException(this, "contains other module with the name '" + name + "'.");
 		}
 		
 		modules.addAtEnd(module);

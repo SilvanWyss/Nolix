@@ -12,7 +12,6 @@ import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.constants.FunctionCatalogue;
 import ch.nolix.core.container.List;
@@ -416,7 +415,7 @@ extends ConfigurableElement<W> {
 	//method
 	/**
 	 * @return the index of the current {@link Widget} on its {@link IGUI}.
-	 * @throws InvalidStateException if the current {@link Widget} does not belong to a {@link IGUI}.
+	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link IGUI}.
 	 */
 	public final int getIndexOnGUI() {
 		return getParentGUI().getRefWidgetsRecursively().getIndexOf(this);
@@ -431,7 +430,7 @@ extends ConfigurableElement<W> {
 	 * ->The path of D is 'A.B.C.D'.
 	 * 
 	 * @return the index path of the current {@link Widget} on its root {@link IGUI}.
-	 * @throws InvalidStateException if the current {@link Widget} does not belong to a {@link IGUI}.
+	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link IGUI}.
 	 */
 	@SuppressWarnings("unchecked")
 	public final List<Integer> getIndexPathOnRootGUI() {
@@ -465,14 +464,14 @@ extends ConfigurableElement<W> {
 	//method
 	/**
 	 * @return the GUI the current {@link Widget} belongs to.
-	 * @throws InvalidStateException if the current {@link Widget} does not belong to a GUI.
+	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a GUI.
 	 */
 	public final IGUI<?> getParentGUI() {
 		
 		if (parentGUI == null) {
 			
 			if (parentWidget == null) {
-				throw new InvalidStateException(this, "does not belong to a GUI");
+				throw new InvalidArgumentException(this, "does not belong to a GUI");
 			}
 			
 			parentGUI = getParentWidget().getParentGUI();
@@ -484,7 +483,7 @@ extends ConfigurableElement<W> {
 	//method
 	/**
 	 * @return the {@link Widget} the current {@link Widget} belongs to.
-	 * @throws InvalidStateException if the current {@link Widget} does not belong to a {@link Widget}.
+	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link Widget}.
 	 */
 	public final Widget<?, ?> getParentWidget() {
 		
@@ -1681,13 +1680,13 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @throws InvalidStateException if the current {@link Widget} does not belong to a {@link Widget}.
+	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link Widget}.
 	 */
 	private void supposeBelongsToWidget() {
 		
 		//Checks if the current widget belongs to a widget.
 		if (!belongsToWidget()) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"does not belong to a widget"
 			);

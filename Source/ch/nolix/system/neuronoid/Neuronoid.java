@@ -178,7 +178,7 @@ implements ISmartObject<N> {
 	/**
 	 * @return the one input of this neuron.
 	 * @throws EmptyArgumentException if this neuron does not have an input.
-	 * @throws InvalidStateException if this neuron has several inputs.
+	 * @throws InvalidArgumentException if this neuron has several inputs.
 	 */
 	public final I getRefOneInput() {
 		return getRefOneInputConnection().getRefInputNeuronOutput();
@@ -188,7 +188,7 @@ implements ISmartObject<N> {
 	/**
 	 * @return the one input connection of this neuron.
 	 * @throws EmptyArgumentException if this neuron does not contain an input connection.
-	 * @throws InvalidStateException if this neuron contains several input connections.
+	 * @throws InvalidArgumentException if this neuron contains several input connections.
 	 */
 	public final InputConnection<I> getRefOneInputConnection() {
 		return inputConnections.getRefOne();

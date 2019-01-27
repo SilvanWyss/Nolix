@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -23,7 +23,7 @@ public final class CoreServiceProvider {
 		
 		if (service == null) {
 			throw
-			new InvalidStateException(
+			new InvalidArgumentException(
 				this,
 				"does not contain a service for the interface '"
 				+ interface_.getCanonicalName()
@@ -62,7 +62,7 @@ public final class CoreServiceProvider {
 		if (!overwrite) {
 			if (services.putIfAbsent(interface_, service) != null) {
 				throw
-				new InvalidStateException(
+				new InvalidArgumentException(
 					this,
 					"contains already a service with the given interface '"
 					+ interface_.getCanonicalName()

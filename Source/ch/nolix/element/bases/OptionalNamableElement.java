@@ -8,7 +8,6 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.skillAPI.IRequestableContainer;
 import ch.nolix.core.skillAPI.OptionalNamable;
@@ -149,7 +148,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE> {
 	 * @return the current {OptionalNamableElement}.
 	 * @throws NullArgumentExcepiton if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws InvalidStateException if the current {OptionalNamableElement}
+	 * @throws InvalidArgumentException if the current {OptionalNamableElement}
 	 * belongs to a {@link IRequestableContainer} that contains another element with the given name.
 	 */
 	@Override
@@ -162,7 +161,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE> {
 			//that contains another element with the given name.
 			if (belongsToRequestableContainerThatContainsElement(name)) {
 				throw 
-				new InvalidStateException(
+				new InvalidArgumentException(
 					this,
 					"belongs to a requestable container that contains another element with the name '" + name + "'."
 				);
@@ -181,7 +180,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE> {
 	 * 
 	 * @param requestableContainer
 	 * @throws NullArgumentExcetpion if the given requestable container is null.
-	 * @throws new InvalidStateException
+	 * @throws new InvalidArgumentException
 	 * if this optional namable element belongs already to another requestable container.
 	 */
 	public final void setRequestableContainer(IRequestableContainer requestableContainer) {
@@ -191,7 +190,7 @@ extends MutableElement<ONE> implements OptionalNamable<ONE> {
 		
 		//Checks if this optional namable elmeent does not belong to another requestable container.
 		if (belongsToRequestableContainer() && this.requestableContainer != requestableContainer) {
-			throw new InvalidStateException(this, "belongs already to another requestable container");
+			throw new InvalidArgumentException(this, "belongs already to another requestable container");
 		}
 		
 		//Sets the requestable container this namable element will belong to.

@@ -7,7 +7,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.bases.HeaderableElement;
@@ -174,7 +174,7 @@ implements Clearable<TabContainerTab> {
 	//method
 	/**
 	 * @return the widget of the current {@link TabContainerTab}
-	 * @throws InvalidStateException
+	 * @throws InvalidArgumentException
 	 * if the current {@link TabContainerTab} is empty.
 	 */
 	public Widget<?, ?> getRefWidget() {
@@ -315,7 +315,7 @@ implements Clearable<TabContainerTab> {
 	//method
 	/**
 	 * @return the {@link TabContainer} the current {@link TabContainerTab} belongs.
-	 * @throws InvalidStateException if the current {@link TabContainerTab}
+	 * @throws InvalidArgumentException if the current {@link TabContainerTab}
 	 * does not belong to a {@link TabContainer}.
 	 */
 	private TabContainer getParentTabContainer() {
@@ -328,14 +328,14 @@ implements Clearable<TabContainerTab> {
 	
 	//method
 	/**
-	 * @throws InvalidStateException if the current {@link TabContainerTab}
+	 * @throws InvalidArgumentException if the current {@link TabContainerTab}
 	 * does not belong to a {@link TabContainer}.
 	 */
 	private void supposeBelongsToTabContainer() {
 		
 		//Checks if the current tab container tab belongs to a tab container.
 		if (!belongsToTabContainer()) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"does not belong to a tab container"
 			);

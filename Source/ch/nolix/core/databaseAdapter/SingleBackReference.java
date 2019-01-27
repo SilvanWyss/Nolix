@@ -2,7 +2,7 @@
 package ch.nolix.core.databaseAdapter;
 
 //own import
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //abstract class
 public abstract class SingleBackReference<E extends Entity> extends BackReferenceoid<E> {
@@ -53,7 +53,7 @@ public abstract class SingleBackReference<E extends Entity> extends BackReferenc
 		supposeCanReferenceBack(entity, referencingPropertyHeader);
 		
 		if (referencesBackEntity()) {
-			throw new InvalidStateException(this, "cannot reference back additionally the given entity");
+			throw new InvalidArgumentException(this, "cannot reference back additionally the given entity");
 		}
 	}
 }

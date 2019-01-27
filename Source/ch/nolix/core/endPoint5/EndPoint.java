@@ -6,7 +6,7 @@ import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.documentNode.Statement;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 
@@ -34,7 +34,7 @@ implements IDataProviderController {
 	 * 
 	 * @param command
 	 * @throws NullArgumentException if the given command is null.
-	 * @throws InvalidStateException if this duplex controller is aborted.
+	 * @throws InvalidArgumentException if this duplex controller is aborted.
 	 */
 	public final void appendCommand(final Statement command) {
 		appendCommand(command.toString());
@@ -46,7 +46,7 @@ implements IDataProviderController {
 	 * 
 	 * @param commands
 	 * @throws NullArgumentException if one of the given commands is null.
-	 * @throws InvalidStateException if this duplex controller is aborted.
+	 * @throws InvalidArgumentException if this duplex controller is aborted.
 	 */
 	public final void appendCommand(final Statement... commands) {
 		
@@ -62,7 +62,7 @@ implements IDataProviderController {
 	 * 
 	 * @param command
 	 * @throws NullArgumentException if the given command is null.
-	 * @throws InvalidStateException if this duplex controller is aborted.
+	 * @throws InvalidArgumentException if this duplex controller is aborted.
 	 */
 	public final void appendCommand(final String command) {
 
@@ -78,7 +78,7 @@ implements IDataProviderController {
 	 * 
 	 * @param commands
 	 * @throws NullArgumentException if one of the given commands is null.
-	 * @throws InvalidStateException if this duplex controller is aborted.
+	 * @throws InvalidArgumentException if this duplex controller is aborted.
 	 */
 	public final void appendCommand(String... commands) {
 		
@@ -150,7 +150,7 @@ implements IDataProviderController {
 	 * This method allows that an appended command leads to further appended commands.
 	 * The appended commands of this local duplex controller will be removed in any case.
 	 * 
-	 * @throws InvalidStateException if this local duplex controller is aborted.
+	 * @throws InvalidArgumentException if this local duplex controller is aborted.
 	 */
 	public final void runAppendedCommands()
 	{

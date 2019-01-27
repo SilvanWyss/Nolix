@@ -3,7 +3,7 @@ package ch.nolix.core.sequencer;
 
 //own imports
 import ch.nolix.core.functionAPI.IElementGetter;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.util.PopupWindowProvider;
 import ch.nolix.core.validator2.Validator;
 
@@ -52,7 +52,7 @@ final class ResultJobRunner<R> extends Thread {
 	//method
 	/**
 	 * @return the result of this result job runner
-	 * @throws InvalidStateException if this job runner is not finished successfully.
+	 * @throws InvalidArgumentException if this job runner is not finished successfully.
 	 */
 	public R getResult() {
 		
@@ -105,24 +105,24 @@ final class ResultJobRunner<R> extends Thread {
 	
 	//method
 	/**
-	 * @throws InvalidStateException if this result job runner is not finished.
+	 * @throws InvalidArgumentException if this result job runner is not finished.
 	 */
 	private void supposeIsFinished() {
 		if (isRunning()) {
-			throw new InvalidStateException(this, "is running");
+			throw new InvalidArgumentException(this, "is running");
 		}
 	}
 	
 	//method
 	/**
-	 * @throws InvalidStateException if this result job runner is not finished successfully.
+	 * @throws InvalidArgumentException if this result job runner is not finished successfully.
 	 */
 	private void supposeIsFinishedSuccessfully() {
 		
 		supposeIsFinished();
 		
 		if (caughtError) {
-			throw new InvalidStateException(this, "is finished with error");
+			throw new InvalidArgumentException(this, "is finished with error");
 		}
 	}
 }

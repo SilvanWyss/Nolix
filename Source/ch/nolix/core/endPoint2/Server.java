@@ -4,7 +4,7 @@ package ch.nolix.core.endPoint2;
 //own imports
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 
@@ -31,13 +31,13 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * An arbitrary end point taker takes all end points without or with any target.
 	 * 
 	 * @param arbitraryEndPointTaker
-	 * @throws InvalidStateException if this server contains end point taker.
+	 * @throws InvalidArgumentException if this server contains end point taker.
 	 */
 	public final void addArbitraryEndPointTaker(final IEndPointTaker arbitraryEndPointTaker) {
 		
 		//Checks if this server does not contain an end point taker.
 		if (!isEmpty()) {
-			throw new InvalidStateException(this, "contains already end point taker");
+			throw new InvalidArgumentException(this, "contains already end point taker");
 		}
 		
 		addEndPointTaker(arbitraryEndPointTaker);
@@ -50,7 +50,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * Adds the given end point taker to this server.
 	 * 
 	 * @param endPointTaker
-	 * @throws InvalidStateException if this server contains an end point taker
+	 * @throws InvalidArgumentException if this server contains an end point taker
 	 * with the same name as the given end point taker
 	 */
 	public final void addEndPointTaker(final IEndPointTaker endPointTaker) {
@@ -58,7 +58,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 		//Checks if this server contains an end point taker
 		//with the same name as the given end point taker.
 		if (containsEndPointTaker(endPointTaker.getName())) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"contains an end point taker with the same name as the given end point taker"
 			);

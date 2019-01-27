@@ -7,7 +7,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.skillAPI.Freezable;
 import ch.nolix.core.specificationAPI.Configurable;
@@ -55,7 +55,7 @@ implements Freezable<C> {
 	 * @param attachingAttribute
 	 * @return this configuration.
 	 * @throws NullArgumentException if the given attaching attribute is null.
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C addAttachingAttribute(final DocumentNodeoid attachingAttribute) {
 		
@@ -79,7 +79,7 @@ implements Freezable<C> {
 	 * @return this configuration
 	 * @throws InvalidArgumentException
 	 * if the given attachingAttribute does not represent a standard specification.
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C addAttachingAttribute(final String attachingAttribute) {
 		
@@ -97,7 +97,7 @@ implements Freezable<C> {
 	 * @return this configuration.
 	 * @throws InvalidArgumentException
 	 * if one of the given attaching attributes does not represent a standard specification.
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C addAttachingAttribute(final String... attachingAttributes) {
 
@@ -119,7 +119,7 @@ implements Freezable<C> {
 	 * @param configuration
 	 * @return this configuration.
 	 * @throws NullArgumentException if the given configuration is null.
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C addConfiguration(final Configuration<?> configuration) {
 		
@@ -138,7 +138,7 @@ implements Freezable<C> {
 	 * @param configurations
 	 * @return this configuration.
 	 * @throws NullArgumentException if one of the given configurations is null.
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C addConfiguration(final Configuration<?>...configurations) {
 		
@@ -156,7 +156,7 @@ implements Freezable<C> {
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
@@ -195,8 +195,8 @@ implements Freezable<C> {
 	 * 
 	 * @param selectorRole
 	 * @return this configuration.
-	 * @throws InvalidStateException if this configuration contains already the given selector role.
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration contains already the given selector role.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C addSelectorRole(final Enum<?> selectorRole) {
 		
@@ -211,8 +211,8 @@ implements Freezable<C> {
 	 * 
 	 * @param selectorRoles
 	 * @return this configuration.
-	 * @throws InvalidStateException if this configuration contains already one of the given selector role.
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration contains already one of the given selector role.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C addSelectorRole(final Enum<?>... selectorRoles) {
 		
@@ -230,8 +230,8 @@ implements Freezable<C> {
 	 * 
 	 * @param selectorRoles
 	 * @return this configuration.
-	 * @throws InvalidStateException if this configuration contains already one of the given selector role.
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration contains already one of the given selector role.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C addSelectorRoles(final Iterable<Enum<?>> selectorRoles) {
 		
@@ -465,7 +465,7 @@ implements Freezable<C> {
 	/**
 	 * Removes the selector name of this configuration.
 	 * 
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final void removeSelectorName() {
 		
@@ -479,7 +479,7 @@ implements Freezable<C> {
 	/**
 	 * Removes the selector roles of this configuration.
 	 * 
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final void removeSelectorRoles() {
 		
@@ -493,7 +493,7 @@ implements Freezable<C> {
 	/**
 	 * Removes the selector token of this configuration.
 	 * 
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final void removeSelectorToken() {
 		
@@ -522,7 +522,7 @@ implements Freezable<C> {
 	 * Resets this configuration.
 	 * 
 	 * @return this configuration.
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	@Override
 	public C reset() {
@@ -576,7 +576,7 @@ implements Freezable<C> {
 	 * @param name
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	@Override
 	public final C setName(final String name) {
@@ -598,7 +598,7 @@ implements Freezable<C> {
 	 * @return this configuration.
 	 * @throws NullArgumentException if the given selector name is null.
 	 * @throws EmptyArgumentException if the given selector name is empty.
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C setSelectorName(final String selectorName) {
 		
@@ -618,7 +618,7 @@ implements Freezable<C> {
 	 * @return this configuration.
 	 * @throws NullArgumentException if the given selector token is null.
 	 * @throws EmptyArgumentException if the given selector token is empty.
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C setSelectorToken(final String selectorToken) {
 		
@@ -638,7 +638,7 @@ implements Freezable<C> {
 	 * @return this configuration.
 	 * @throws NullArgumentException if the given type selector type is null.
 	 * @throws EmptyArgumentException if the given selector type is empty.
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	public final C setSelectorType(final String selectorType) {
 		
@@ -664,13 +664,13 @@ implements Freezable<C> {
 	
 	//method
 	/**
-	 * @throws InvalidStateException if this configuration is frozen
+	 * @throws InvalidArgumentException if this configuration is frozen
 	 */
 	protected final void supposeNotFrozen() {
 		
 		//Checks if this configuration is not frozen.
 		if (isFrozen()) {
-			throw new InvalidStateException(this, "is frozen");
+			throw new InvalidArgumentException(this, "is frozen");
 		}
 	}
 	
@@ -681,15 +681,15 @@ implements Freezable<C> {
 	 * @param selectorRole
 	 * @throws NullArgumentException if the given selector role is null.
 	 * @throws EmptyArgumentException if the given selector role is empty.
-	 * @throws InvalidStateException if this configuration contains already the given selector role.
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration contains already the given selector role.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	private void addSelectorRole(final String selectorRole) {
 		
 		//Checks if this configuration contains the given selector role.
 		if (containsSelectorRole(selectorRole)) {
 			throw
-			new InvalidStateException(
+			new InvalidArgumentException(
 				this,
 				"contains the given selector role '" + selectorRole + "'"
 			);
@@ -707,8 +707,8 @@ implements Freezable<C> {
 	 * 
 	 * @param selectorRoles
 	 * @throws EmptyArgumentException if one of the given selector role is empty.
-	 * @throws InvalidStateException if this configuration contains already one of the given selector roles.
-	 * @throws InvalidStateException if this configuration is frozen.
+	 * @throws InvalidArgumentException if this configuration contains already one of the given selector roles.
+	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	private void addSelectorRoles_(final Iterable<String> selectorRoles) {
 		selectorRoles.forEach(sr -> addSelectorRole(sr));

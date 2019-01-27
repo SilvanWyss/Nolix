@@ -16,7 +16,6 @@ import ch.nolix.core.functionAPI.IElementTakerLongGetter;
 import ch.nolix.core.functionAPI.ITwoElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 
@@ -489,7 +488,7 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * @param element
 	 * @return the index of the given element from the current {@link IContainer}.
-	 * @throws InvalidStateException if the current {@link IContainer} does not contain the given element.
+	 * @throws InvalidArgumentException if the current {@link IContainer} does not contain the given element.
 	 */
 	public default int getIndexOf(final E element) {
 		
@@ -505,7 +504,7 @@ public interface IContainer<E> extends Iterable<E> {
 			index++;
 		}
 		
-		throw new InvalidStateException(this, "does not contain the given element");
+		throw new InvalidArgumentException(this, "does not contain the given element");
 	}
 	
 	//default method
@@ -1029,7 +1028,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 *
 	 * @param selector
 	 * @return the first 2 elements of the current {@link IContainer} the given selector selects together.
-	 * @throws InvalidStateException if the current {@link IContainer}
+	 * @throws InvalidArgumentException if the current {@link IContainer}
 	 * does not contain a 2 elements the given selector selects together.
 	 */
 	public default Pair<E, E> getRefFirst(final ITwoElementTakerBooleanGetter<E> selector) {
@@ -1045,7 +1044,7 @@ public interface IContainer<E> extends Iterable<E> {
 		}
 		
 		throw
-		new InvalidStateException(
+		new InvalidArgumentException(
 			this,
 			"does not contain any elements the given selector selects together"
 		);
@@ -1124,7 +1123,7 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * @return the one element of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
-	 * @throws InvalidStateException if the current {@link IContainer} contains several elements.
+	 * @throws InvalidArgumentException if the current {@link IContainer} contains several elements.
 	 */
 	public default E getRefOne() {
 		
@@ -1133,7 +1132,7 @@ public interface IContainer<E> extends Iterable<E> {
 			throw new EmptyArgumentException(this);
 		}
 		if (getSize() > 1) {
-			throw new InvalidStateException(this, "contains several elements");
+			throw new InvalidArgumentException(this, "contains several elements");
 		}
 		
 		return iterator().next();

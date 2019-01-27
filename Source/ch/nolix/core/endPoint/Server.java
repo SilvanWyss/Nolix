@@ -41,7 +41,7 @@ implements IEndPointTaker {
 	 * Lets this server take the given end point.
 	 * 
 	 * @param endPoint
-	 * @throws InvalidStateException if this server is aborted.
+	 * @throws InvalidArgumentException if this server is aborted.
 	 */
 	@Override
 	public final void takeEndPoint(final EndPoint endPoint) {

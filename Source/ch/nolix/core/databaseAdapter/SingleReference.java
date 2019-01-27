@@ -5,7 +5,7 @@ package ch.nolix.core.databaseAdapter;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
@@ -122,14 +122,14 @@ extends Referenceoid<E> {
 	//method
 	private void supposeIsOptional() {
 		if (!isOptional()) {
-			throw new InvalidStateException(this, "is not optional");
+			throw new InvalidArgumentException(this, "is not optional");
 		}
 	}
 	
 	//method
 	private void supposeReferencesEntity() {
 		if (!referencesEntity()) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"does not reference an entity"
 			);

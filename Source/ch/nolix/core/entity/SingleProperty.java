@@ -8,7 +8,7 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator2.Validator;
@@ -117,7 +117,7 @@ extends Propertyoid<V> {
 	 * 
 	 * @param value
 	 * @throws NullArgumentException if the given value is null.
-	 * @throws InvalidStateException
+	 * @throws InvalidArgumentException
 	 * if this single property is not approved when it is not mutable.
 	 */
 	public Propertyoid<V> setValue(final V value) {
@@ -149,7 +149,7 @@ extends Propertyoid<V> {
 	/**
 	 * Approves this single property.
 	 * 
-	 * @throws InvalidStateException
+	 * @throws InvalidArgumentException
 	 * if this single property is not optional, but empty.
 	 */
 	@Override
@@ -157,7 +157,7 @@ extends Propertyoid<V> {
 		
 		//Checks if this single property is not empty when it is optional.
 		if (!isOptional() && isEmpty()) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				getName(),
 				this,
 				"is not optional, but empty");
@@ -212,13 +212,13 @@ extends Propertyoid<V> {
 	
 	//method
 	/**
-	 * @throws InvalidStateException if this single property is approved.
+	 * @throws InvalidArgumentException if this single property is approved.
 	 */
 	private void supposeIsNotApproved() {
 		
 		//Checks if this single property is not approved.
 		if (isApproved()) {
-			throw new InvalidStateException(this, "is approved");
+			throw new InvalidArgumentException(this, "is approved");
 		}
 	}
 }

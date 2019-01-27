@@ -297,7 +297,7 @@ implements ISmartObject<DocumentNode> {
 	/**
 	 * @return the one attribute of the current {@link DocumentNode}
 	 * @throws EmptyArgumentException if the current {@link DocumentNode} does not contain an attribute.
-	 * @throws InvalidStateException if the current {@link DocumentNode} contains several attributes.
+	 * @throws InvalidArgumentException if the current {@link DocumentNode} contains several attributes.
 	 */
 	@Override
 	public DocumentNode getRefOneAttribute() {

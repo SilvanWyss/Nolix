@@ -11,7 +11,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.functionAPI.IElementGetter;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.util.PopupWindowProvider;
 import ch.nolix.core.validator2.Validator;
@@ -128,7 +128,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 				return fileProvider.readFileToBytes();
 			}
 			
-			throw new InvalidStateException(this, "does not provide a file");
+			throw new InvalidArgumentException(this, "does not provide a file");
 		}
 		else {
 			return getFileGetter().getOutput();

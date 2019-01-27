@@ -4,7 +4,7 @@ package ch.nolix.core.bases;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Closable;
 import ch.nolix.core.validator2.Validator;
 
@@ -60,8 +60,8 @@ public abstract class ClosableElement implements Closable {
 	 * and vice versa.
 	 * 
 	 * @param element
-	 * @throws InvalidStateException if the current {@link ClosableElement} is closed.
-	 * @throws InvalidStateException
+	 * @throws InvalidArgumentException if the current {@link ClosableElement} is closed.
+	 * @throws InvalidArgumentException
 	 * if the current {@link ClosableElement} has already a close dependency to the given element.
 	 */
 	protected final synchronized void createCloseDependency(final ClosableElement element) {
@@ -72,7 +72,7 @@ public abstract class ClosableElement implements Closable {
 		//Checks if the current {@link ClosableElement}
 		//does not have already a close dependency to the given element.
 		if (hasCloseDependencyTo(element)) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"has already a close dependency to the given element"
 			);

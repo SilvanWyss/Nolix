@@ -51,7 +51,7 @@ public final class MultiShape extends Shape<MultiShape> {
 	 * @param shape
 	 * @return this multi shape.
 	 * @throws NullArgumentException if the given shape is null.
-	 * @throws InvalidStateException if the given shape belongs to a GUI.
+	 * @throws InvalidArgumentException if the given shape belongs to a GUI.
 	 */
 	public MultiShape addShape(final Shape<?> shape) {
 		

@@ -6,7 +6,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.Statement;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 
@@ -176,7 +176,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * Lets this local duplex controller run the given command.
 	 * 
 	 * @param command
-	 * @throws InvalidStateException if this local duplex controller is aborted.
+	 * @throws InvalidArgumentException if this local duplex controller is aborted.
 	 * @throws UnexistingAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
@@ -193,7 +193,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * Lets this local duplex controller run the given commands.
 	 * 
 	 * @param commands
-	 * @throws InvalidStateException if this local duplex contorller is aborted.
+	 * @throws InvalidArgumentException if this local duplex contorller is aborted.
 	 * @throws UnexistingAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override

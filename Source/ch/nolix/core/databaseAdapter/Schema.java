@@ -4,7 +4,7 @@ package ch.nolix.core.databaseAdapter;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //abstract class
 public abstract class Schema {
@@ -47,7 +47,7 @@ public abstract class Schema {
 	private void supposeDoesNotContainEntityType(final String name) {
 		if (containsEntityType(name)) {
 			throw
-			new InvalidStateException(
+			new InvalidArgumentException(
 				this,
 				"contains already an entity type '" + name + "'"
 			);

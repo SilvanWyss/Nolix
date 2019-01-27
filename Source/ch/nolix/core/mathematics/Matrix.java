@@ -9,7 +9,7 @@ import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.helper.DoubleHelper;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.ApproximativeEqualing;
 import ch.nolix.core.validator2.Validator;
 
@@ -371,7 +371,7 @@ public class Matrix implements ApproximativeEqualing {
 	//method
 	/**
 	 * @return the inverse matrix of this matrix.
-	 * @throws InvalidStateExceptionException if this matrix is not regular.
+	 * @throws InvalidArgumentExceptionException if this matrix is not regular.
 	 */
 	public Matrix getInverse() {
 		
@@ -384,7 +384,7 @@ public class Matrix implements ApproximativeEqualing {
 		.tranformFirstPartToIdentityMatrix();
 		
 		if (matrix.getRowCount() < getRowCount()) {
-			throw new InvalidStateException(this, "is not regular");
+			throw new InvalidArgumentException(this, "is not regular");
 		}
 		
 		return matrix.getMatrixWithLastColumns(getColumnCount());
@@ -513,7 +513,7 @@ public class Matrix implements ApproximativeEqualing {
 	//method
 	/**
 	 * @return a pseudo inverse matrix of this matrix.
-	 * @throws InvalidStateException if this matrix is not quadratic.
+	 * @throws InvalidArgumentException if this matrix is not quadratic.
 	 */
 	public Matrix getPseudoInverse() {
 		
@@ -529,7 +529,7 @@ public class Matrix implements ApproximativeEqualing {
 	//method
 	/**
 	 * @return the rank of this matrix.
-	 * @throws InvalidStateException if this matrix is not quadratic.
+	 * @throws InvalidArgumentException if this matrix is not quadratic.
 	 */
 	public int getRank() {
 		
@@ -619,7 +619,7 @@ public class Matrix implements ApproximativeEqualing {
 	//method
 	/**
 	 * @return the trace of this matrix.
-	 * @throws InvalidStateException if this matrix is not quadratic.
+	 * @throws InvalidArgumentException if this matrix is not quadratic.
 	 */
 	public double getTrace() {
 		
@@ -973,8 +973,8 @@ public class Matrix implements ApproximativeEqualing {
 	 * Transforms the first part of this matrix to an identity matrix.
 	 * 
 	 * @return this matrix
-	 * @throws InvalidStateException if this matrix has more rows than columns.
-	 * @throws InvalidStateException if this matrix has linear depending rows.
+	 * @throws InvalidArgumentException if this matrix has more rows than columns.
+	 * @throws InvalidArgumentException if this matrix has linear depending rows.
 	 */
 	public Matrix tranformFirstPartToIdentityMatrix() {
 		
@@ -982,7 +982,7 @@ public class Matrix implements ApproximativeEqualing {
 		
 		//Checks if this matrix has not more rows than columns.
 		if (getRowCount() > getColumnCount()) {
-			throw new InvalidStateException(this, "has more rows than columns");
+			throw new InvalidArgumentException(this, "has more rows than columns");
 		}
 		
 		//Transforms this matrix to an equivalent upper left matrix.
@@ -990,14 +990,14 @@ public class Matrix implements ApproximativeEqualing {
 
 		//Checks if this matrix does not have a linear depending rows.	
 		if (rowCount != getRowCount()) {
-			throw new InvalidStateException(this, "has linear depending rows");
+			throw new InvalidArgumentException(this, "has linear depending rows");
 		}
 		
 		//Iterates the rows of this matrix.
 		for (int i = getRowCount() - 1; i >= 0; i--) {
 			
 			if (Calculator.equalsApproximatively(values[i][i], 0.0)) {
-				throw new InvalidStateException(this, "has linear depending rows");
+				throw new InvalidArgumentException(this, "has linear depending rows");
 			}
 			
 			final double factor = 1 / values[i][i];
@@ -1130,11 +1130,11 @@ public class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * @throws InvalidStateException if this matrix is not quadratic.
+	 * @throws InvalidArgumentException if this matrix is not quadratic.
 	 */
 	private final void supposeIsQuadratic() {
 		if (!isQuadratic()) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"is not quadratic"
 			);

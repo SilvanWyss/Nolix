@@ -8,7 +8,7 @@ import java.lang.reflect.ParameterizedType;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.helper.ReflectionHelper;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Headered;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator2.Validator;
@@ -156,7 +156,7 @@ implements Headered, Specified {
 	//method
 	private void supposeBelongsToEntity() {
 		if (!belongsToEntity()) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"does not belong to a entity"
 			);
@@ -166,7 +166,7 @@ implements Headered, Specified {
 	//method
 	private void supposeBelongsToNoEntity() {
 		if (belongsToEntity()) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"belongs to an entity"
 			);

@@ -109,7 +109,7 @@ public final class NetEndPoint extends EndPoint {
 	 * 
 	 * @param message
 	 * @throws NullArgumentException if the given message is null.
-	 * @throws InvalidStateException if this net end point is aborted.
+	 * @throws InvalidArgumentException if this net end point is aborted.
 	 */
 	@Override
 	public void send(final String message) {

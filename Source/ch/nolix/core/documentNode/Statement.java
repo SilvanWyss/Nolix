@@ -185,7 +185,7 @@ public final class Statement implements Headered {
 	/**
 	 * @return the integer the one attribute of the current {@link Statement} represents.
 	 * @throws EmptyArgumentException if the current {@link Statement} does not contain an attribute.
-	 * @throws InvalidStateException if the current {@link Statement} contains several attributes.
+	 * @throws InvalidArgumentException if the current {@link Statement} contains several attributes.
 	 * @throws InvalidArgumentException
 	 * if the one attribute of the current {@link Statement} does not represent an integer.
 	 */
@@ -197,7 +197,7 @@ public final class Statement implements Headered {
 	/**
 	 * @return a string representation of the one attribute of the current {@link Statement}.
 	 * @throws EmptyArgumentException if the current {@link Statement} does not contain an attribute.
-	 * @throws InvalidStateException if the current {@link Statement} contains several attributes.
+	 * @throws InvalidArgumentException if the current {@link Statement} contains several attributes.
 	 */
 	public String getOneAttributeAsString() {
 		return documentNode.getOneAttributeAsString();
@@ -231,7 +231,7 @@ public final class Statement implements Headered {
 	/**
 	 * @return the one attribute of the current {@link Statement}.
 	 * @throws EmptyArgumentException if the current {@link Statement} does not contain an attribute.
-	 * @throws InvalidStateException if the current {@link Statement} contains several attributes.
+	 * @throws InvalidArgumentException if the current {@link Statement} contains several attributes.
 	 */
 	public DocumentNode getRefOneAttribute() {
 		return documentNode.getRefOneAttribute();

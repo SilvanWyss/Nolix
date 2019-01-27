@@ -9,7 +9,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.helper.StringHelper;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.skillAPI.Freezable;
 import ch.nolix.core.skillAPI.OptionalValueable;
@@ -271,7 +271,7 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	//method
 	private void supposeIsNotFrozen() {
 		if (isFrozen()) {
-			throw new InvalidStateException(this, "is frozen");
+			throw new InvalidArgumentException(this, "is frozen");
 		}
 	}
 	

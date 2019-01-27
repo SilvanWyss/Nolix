@@ -8,7 +8,7 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator2.Validator;
@@ -367,7 +367,7 @@ implements Clearable<AccordionTab> {
 	private void supposeBelongsToAccordion() {
 		if (!belongsToAccordion()) {
 			throw
-			new InvalidStateException(
+			new InvalidArgumentException(
 				this,
 				"does not belong to an accordion"
 			);

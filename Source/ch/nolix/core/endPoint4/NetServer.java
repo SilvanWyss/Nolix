@@ -3,7 +3,7 @@ package ch.nolix.core.endPoint4;
 
 //own imports
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //class
 /**
@@ -43,7 +43,7 @@ public final class NetServer<M, R> extends Server<M, R> {
 	 * Adds the given end point taker to this net server.
 	 * 
 	 * @param endPointTaker
-	 * @throws InvalidStateException
+	 * @throws InvalidArgumentException
 	 * if this net server contains an end point taker with the same name as the given end point taker.
 	 */
 	@Override

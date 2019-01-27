@@ -58,7 +58,7 @@ implements ISender {
 	 * 
 	 * @param receiver
 	 * @throws NullArgumentException if the given receiver is null.
-	 * @throws InvalidStateException if this end point is aborted.
+	 * @throws InvalidArgumentException if this end point is aborted.
 	 */
 	public final void setReceiver(final IReceiver receiver) {
 		
@@ -77,7 +77,7 @@ implements ISender {
 	 * Lets this end point receive the given message.
 	 * 
 	 * @param message
-	 * @throws InvalidStateException if this end point is aborted.
+	 * @throws InvalidArgumentException if this end point is aborted.
 	 * @throws UnexistingAttributeException if this end point does not have a receiver.
 	 */
 	protected final void receive(final String message) {

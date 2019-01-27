@@ -100,7 +100,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	/**
 	 * @return the one attribute of this sub specification.
 	 * @throws EmptyArgumentException if this sub specification does not contain an attribute.
-	 * @throws InvalidStateException if this sub specification contains several attributes.
+	 * @throws InvalidArgumentException if this sub specification contains several attributes.
 	 */
 	@Override
 	public SubDocumentNode getRefOneAttribute() {

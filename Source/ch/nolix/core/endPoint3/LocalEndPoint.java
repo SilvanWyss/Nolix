@@ -137,7 +137,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * 
 	 * @param message
 	 * @return the reply to the given message.
-	 * @throws InvalidStateException if this local end point is aborted.
+	 * @throws InvalidArgumentException if this local end point is aborted.
 	 */
 	public String sendAndWaitToReply(final String message) {
 		

@@ -7,7 +7,6 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -146,7 +145,7 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 			if (!loadedAndCreatedEntities.contains(e2 -> e2.getId() == e.getId())) {
 			
 				if (!e.isPersisted()) {
-					throw new InvalidStateException(e, "is not persisted");
+					throw new InvalidArgumentException(e, "is not persisted");
 				}
 				
 				e.setParentEntitySet((EntitySet<Entity>)this);
@@ -174,7 +173,7 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 		.getEntity(id, getEntityType());
 		
 		if (!entity.isPersisted()) {
-			throw new InvalidStateException(entity, "is not persisted");
+			throw new InvalidArgumentException(entity, "is not persisted");
 		}
 		
 		entity.setParentEntitySet((EntitySet<Entity>)this);

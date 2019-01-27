@@ -16,7 +16,7 @@ import ch.nolix.core.databaseAdapter.OptionalReferenceType;
 import ch.nolix.core.databaseAdapter.PropertyType;
 import ch.nolix.core.databaseAdapter.PropertyoidType;
 import ch.nolix.core.databaseAdapter.ReferenceType;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //class
 public final class EntitySet extends NamedElement {
@@ -173,9 +173,9 @@ public final class EntitySet extends NamedElement {
 			case CHANGED:
 				break;
 			case DELETED:
-				throw new InvalidStateException(this, "is deleted");
+				throw new InvalidArgumentException(this, "is deleted");
 			case REJECTED:
-				throw new InvalidStateException(this, "is rejected");
+				throw new InvalidArgumentException(this, "is rejected");
 		}
 	}
 	
@@ -183,7 +183,7 @@ public final class EntitySet extends NamedElement {
 	final void setDeleted() {
 		switch (getState()) {
 			case CREATED:
-				throw new InvalidStateException(this, "is created");
+				throw new InvalidArgumentException(this, "is created");
 			case PERSISTED:
 			case CHANGED:
 				state = EntitySetState.DELETED;
@@ -191,7 +191,7 @@ public final class EntitySet extends NamedElement {
 			case DELETED:
 				break;
 			case REJECTED:
-				throw new InvalidStateException(this, "is rejected");
+				throw new InvalidArgumentException(this, "is rejected");
 		}
 	}
 	
@@ -204,11 +204,11 @@ public final class EntitySet extends NamedElement {
 				state = EntitySetState.PERSISTED;
 				break;
 			case CHANGED:
-				throw new InvalidStateException(this, "is changed");
+				throw new InvalidArgumentException(this, "is changed");
 			case DELETED:
-				throw new InvalidStateException(this, "is deleted");
+				throw new InvalidArgumentException(this, "is deleted");
 			case REJECTED:
-				throw new InvalidStateException(this, "is rejected");
+				throw new InvalidArgumentException(this, "is rejected");
 		}
 	}
 	
@@ -233,7 +233,7 @@ public final class EntitySet extends NamedElement {
 	//method
 	private void supposeDoesNotContainColumn(final String header) {
 		if (containsColumn(header)) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"contains a column with the header '" + header + "'"
 			);

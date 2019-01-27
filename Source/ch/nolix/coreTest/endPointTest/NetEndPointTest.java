@@ -7,7 +7,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.endPoint.EndPoint;
 import ch.nolix.core.endPoint.IEndPointTaker;
 import ch.nolix.core.endPoint.NetServer;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.test2.Test;
 import ch.nolix.core.validator2.Validator;
@@ -68,7 +68,7 @@ public final class NetEndPointTest extends Test {
 		public String getLastReceivedMessage() {
 			
 			if (!hasReceivedMessage()) {
-				throw new InvalidStateException(this, "has not received a message");
+				throw new InvalidArgumentException(this, "has not received a message");
 			}
 			
 			return lastReceivedMessage;

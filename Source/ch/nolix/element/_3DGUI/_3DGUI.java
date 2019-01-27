@@ -15,7 +15,6 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.skillAPI.Closable;
@@ -98,7 +97,7 @@ implements Clearable<G>, Closable, Refreshable {
 	 * @return this 3D GUI.
 	 * @throws NullArgumentException if the given shape class is null.
 	 * @throws NullArgumentException if the given shape renderer is null.
-	 * @throws InvalidStateException if this 3D GUI contains already
+	 * @throws InvalidArgumentException if this 3D GUI contains already
 	 * a shape class with the same name as the given shape class.
 	 */
 	public G addShapeClass(final Class<?> shapeClass, IShapeRenderer<?, ?, ?> shapeRenderer) {
@@ -112,7 +111,7 @@ implements Clearable<G>, Closable, Refreshable {
 		//Checks if this 3D GUI does not contain already
 		//a shape class with the same name as the given shape class.
 		if (canCreateShape(shapeClass.getSimpleName())) {
-			throw new InvalidStateException(this, "contains already a shape class '" + shapeClass + "'");
+			throw new InvalidArgumentException(this, "contains already a shape class '" + shapeClass + "'");
 		}
 		
 		shapeClasses.addAtEnd(new Pair<>(shapeClass, shapeRenderer));

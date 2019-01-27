@@ -9,7 +9,6 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
@@ -406,7 +405,7 @@ implements Clearable<SelectionMenu> {
 	//method
 	private void supposeContainsSelectedItem() {
 		if (!containsSelectedItem()) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"does not contain a selected item"
 			);

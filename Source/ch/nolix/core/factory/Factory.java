@@ -4,7 +4,7 @@ package ch.nolix.core.factory;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //class
 /**
@@ -28,7 +28,7 @@ public final class Factory<I, O> {
 	 * @param type
 	 * @param instanceCreator
 	 * @return the current {@link Factory}.
-	 * @throws InvalidStateException if the current {@link Factory}
+	 * @throws InvalidArgumentException if the current {@link Factory}
 	 * can already create instances of the given type.
 	 * @throws NullArgumentException if the given instance type is null.
 	 * @throws EmptyArgumentException if the given instance type is empty.
@@ -42,7 +42,7 @@ public final class Factory<I, O> {
 		//Checks if the current factory can already instances of the given type.
 		if (canCreateInstanceOf(type)) {
 			throw
-			new InvalidStateException(
+			new InvalidArgumentException(
 				this,
 				"can already create a '"
 				+ type
@@ -72,7 +72,7 @@ public final class Factory<I, O> {
 	 * @param input
 	 * @return a new instance from the current {@link Factory}
 	 * that is of the given type and from the given input.
-	 * @throws InvalidStateException if the current {@link Factory}
+	 * @throws InvalidArgumentException if the current {@link Factory}
 	 * cannot create instances of the given type.
 	 */
 	public O createInstance(final String type, final I input) {
@@ -85,7 +85,7 @@ public final class Factory<I, O> {
 		//Checks if the current factory can create instances of the given type.
 		if (instanceCreator == null) {
 			throw
-			new InvalidStateException(
+			new InvalidArgumentException(
 				this,
 				"cannot create a '"
 				+ type

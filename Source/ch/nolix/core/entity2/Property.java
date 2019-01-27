@@ -8,7 +8,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.validator2.Validator;
 
@@ -208,7 +208,7 @@ public final class Property<V> extends NamedElement {
 	 * 
 	 * @param baseProperty
 	 * @throws NullArgumentException if the given base property is null.
-	 * @throws InvalidStateException if this property has a base property.
+	 * @throws InvalidArgumentException if this property has a base property.
 	 */
 	@SuppressWarnings("unchecked")
 	void setBaseProperty(final Property<?> baseProperty) {
@@ -227,13 +227,13 @@ public final class Property<V> extends NamedElement {
 	
 	//method
 	/**
-	 * @throws InvalidStateException if this property has a base property.
+	 * @throws InvalidArgumentException if this property has a base property.
 	 */
 	private void supposeHasNoBaseProperty() {
 		
 		//Checks if this property does not have a base property.
 		if (hasBaseProperty()) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"has a base property"
 			);

@@ -49,7 +49,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
-	 * @throws InvalidStateException if this deep configuration is frozen.
+	 * @throws InvalidArgumentException if this deep configuration is frozen.
 	 */
 	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
@@ -138,7 +138,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * Removes the max selector level of this deep configuration.
 	 * 
 	 * @return this deep configuration.
-	 * @throws InvalidStateException if this deep configuration is frozen.
+	 * @throws InvalidArgumentException if this deep configuration is frozen.
 	 */
 	public DeepConfiguration removeMaxSelectorLevel() {
 		
@@ -155,7 +155,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * Resets this deep configuration.
 	 * 
 	 * @return this deep configuration.
-	 * @throws InvalidStateException if this deep configuration is frozen.
+	 * @throws InvalidArgumentException if this deep configuration is frozen.
 	 */
 	@Override
 	public DeepConfiguration reset() {
@@ -172,7 +172,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * 
 	 * @param maxSelectorLevel
 	 * @throws NonPositiveArgumentException if the given max selector level is not positive.
-	 * @throws InvalidStateException if this deep configuration is frozen.
+	 * @throws InvalidArgumentException if this deep configuration is frozen.
 	 */
 	public void setMaxSelectorLevel(int maxSelectorLevel) {
 		

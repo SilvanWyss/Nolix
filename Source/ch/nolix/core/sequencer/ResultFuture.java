@@ -43,7 +43,7 @@ public final class ResultFuture<R> {
 	//method
 	/**
 	 * @return the result of this result future.
-	 * @throws InvalidStateException if this result future is not finished successfully.
+	 * @throws InvalidArgumentException if this result future is not finished successfully.
 	 */
 	public R getResult() {
 		return resultJobRunner.getResult();

@@ -3,7 +3,7 @@ package ch.nolix.core.bases;
 
 //own import
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Closable;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.core.container.List;
@@ -40,8 +40,8 @@ final class CloseController implements Closable {
 	 * 
 	 * @param element
 	 * @throws NullArgumentException if the given element is null.
-	 * @throws InvalidStateException if the current {@link CoseController} contains already the given element.
-	 * @throws InvalidStateException if the current {@link CoseController} is already closed.
+	 * @throws InvalidArgumentException if the current {@link CoseController} contains already the given element.
+	 * @throws InvalidArgumentException if the current {@link CoseController} is already closed.
 	 */
 	public synchronized void addElement(final ClosableElement element) {
 		
@@ -53,7 +53,7 @@ final class CloseController implements Closable {
 		
 		//Checks if the current {@link CoseController} does not contain already the given element.
 		if (containsElement(element)) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"contains already the given element"
 			);
@@ -110,14 +110,14 @@ final class CloseController implements Closable {
 	
 	//method
 	/**
-	 * @throws InvalidStateException if the current {@link CoseController} is closed.
+	 * @throws InvalidArgumentException if the current {@link CoseController} is closed.
 	 */
 	private void supposeBeingAlive() {
 
 		//Checks if the current {@link CoseController} is alive.
 		if (isClosed()) {
 			throw
-			new InvalidStateException(
+			new InvalidArgumentException(
 				this,
 				"is closed"
 			);

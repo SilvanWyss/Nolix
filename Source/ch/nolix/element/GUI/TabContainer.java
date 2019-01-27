@@ -126,7 +126,7 @@ implements Clearable<TabContainer> {
 	 * @param tab
 	 * @return the current {@link TabContainer}.
 	 * @throws NullArgumentException if the given tab is null.
-	 * @throws InvalidStateException if the given tab belongs already to a {@link TabContainer}.
+	 * @throws InvalidArgumentException if the given tab belongs already to a {@link TabContainer}.
 	 */
 	public TabContainer addTab(final TabContainerTab tab) {
 		

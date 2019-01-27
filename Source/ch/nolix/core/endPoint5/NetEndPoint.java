@@ -112,7 +112,7 @@ public class NetEndPoint extends EndPoint {
 	/**
 	 * @param request
 	 * @return the data the given request requests from this net duplex controller.
-	 * @throws InvalidStateException if this net duplex controller is aborted.
+	 * @throws InvalidArgumentException if this net duplex controller is aborted.
 	 */
 	@Override
 	public DocumentNode getData(final Statement request) {
@@ -187,7 +187,7 @@ public class NetEndPoint extends EndPoint {
 	 * Lets this net duplex contorller run the given commands.
 	 * 
 	 * @param commands
-	 * @throws InvalidStateException if this net duplex contorller is aborted.
+	 * @throws InvalidArgumentException if this net duplex contorller is aborted.
 	 */
 	@Override
 	protected void run(final List<String> commands) {

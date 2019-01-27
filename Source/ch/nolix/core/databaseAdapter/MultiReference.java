@@ -4,7 +4,7 @@ package ch.nolix.core.databaseAdapter;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.invalidStateException.InvalidStateException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -102,7 +102,7 @@ extends Referenceoid<E> {
 	//method
 	private void supposeDoesNotContainValue(final long referencedEntityId) {
 		if (containsValue(referencedEntityId)) {
-			throw new InvalidStateException(
+			throw new InvalidArgumentException(
 				this,
 				"contains a value '" + referencedEntityId + "'"
 			);

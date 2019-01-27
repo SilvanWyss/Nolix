@@ -240,7 +240,7 @@ public abstract class DocumentNodeoid implements Headered {
 	//method
 	/**
 	 * @return the integer the first attribute of the current {@link DocumentNodeoid} represents.
-	 * @throws InvalidStateException if the current {@link DocumentNodeoid} does not have attributes.
+	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} does not have attributes.
 	 * @throws InvalidArgumentException
 	 * if the first attribute of the current {@link DocumentNodeoid} does not represent an integer.
 	 */
@@ -259,7 +259,7 @@ public abstract class DocumentNodeoid implements Headered {
 	/**
 	 * @return the boolean the one attribute of the current {@link DocumentNodeoid} represents.
 	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
-	 * @throws InvalidStateException if the current {@link DocumentNodeoid} contains several attributes.
+	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} contains several attributes.
 	 * @throws InvalidArgumentException
 	 * if the one attribute of the current {@link DocumentNodeoid} does not represent a boolean.
 	 */
@@ -271,7 +271,7 @@ public abstract class DocumentNodeoid implements Headered {
 	/**
 	 * @return the double the one attribute of the current {@link DocumentNodeoid} represents.
 	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
-	 * @throws InvalidStateException if the current {@link DocumentNodeoid} contains several attributes.
+	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} contains several attributes.
 	 * @throws InvalidArgumentException
 	 * if the one attribute of the current {@link DocumentNodeoid} does not represent a double.
 	 */
@@ -283,7 +283,7 @@ public abstract class DocumentNodeoid implements Headered {
 	/**
 	 * @return the integer the one attribute of the current {@link DocumentNodeoid} represents.
 	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
-	 * @throws InvalidStateException if the current {@link DocumentNodeoid} contains several attributes.
+	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} contains several attributes.
 	 * @throws InvalidArgumentException
 	 * if the one attribute of the current {@link DocumentNodeoid} does not represent an integer.
 	 */
@@ -295,7 +295,7 @@ public abstract class DocumentNodeoid implements Headered {
 	/**
 	 * @return a string representation of the one attribute of the current {@link DocumentNodeoid}.
 	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
-	 * @throws InvalidStateException if the current {@link DocumentNodeoid} contains several attributes.
+	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} contains several attributes.
 	 */
 	public String getOneAttributeAsString() {
 		return getRefOneAttribute().toString();
@@ -305,7 +305,7 @@ public abstract class DocumentNodeoid implements Headered {
 	/**
 	 * @return the header of the one attribute of the current {@link DocumentNodeoid}.
 	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
-	 * @throws InvalidStateException if the current {@link DocumentNodeoid} contains several attributes.
+	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} contains several attributes.
 	 */
 	public String getOneAttributeHeader() {
 		return getRefOneAttribute().getHeader();
@@ -394,7 +394,7 @@ public abstract class DocumentNodeoid implements Headered {
 	/**
 	 * @return the one attribute of the current {@link DocumentNodeoid}.
 	 * @throws EmptyArgumentException if the current {@link DocumentNodeoid} does not contain attributes.
-	 * @throws InvalidStateException if the current {@link DocumentNodeoid} contains several attributes.
+	 * @throws InvalidArgumentException if the current {@link DocumentNodeoid} contains several attributes.
 	 */
 	public DocumentNodeoid getRefOneAttribute() {
 		return getRefAttributes().getRefOne();
