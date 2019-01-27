@@ -11,8 +11,8 @@ import ch.nolix.core.validator2.Validator;
  * A {@link NamedElement} has a name.
  * 
  * @author Silvan Wyss
- * @month: 2016-10
- * @lines 40
+ * @month 2016-10
+ * @lines 50
  */
 public abstract class NamedElement implements Named {
 	
@@ -26,14 +26,15 @@ public abstract class NamedElement implements Named {
 	 * @param name
 	 * @throws NullArgumentException if the given name is null.
 	 * @throws EmptyArgumentException if the given name is empty.
+	 * @throws InvalidArgumentException if the given name is blank.
 	 */
 	public NamedElement(final String name) {
 		
-		//Checks if the given name is not null and not empty.
+		//Checks if the given name is not null, empty or blank.
 		Validator
 		.suppose(name)
 		.thatIsNamed(VariableNameCatalogue.NAME)
-		.isNotEmpty();
+		.isNotBlank();
 		
 		//Sets the name of the current named element.
 		this.name = name;
