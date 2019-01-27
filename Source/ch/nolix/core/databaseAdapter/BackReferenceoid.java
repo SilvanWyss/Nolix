@@ -6,8 +6,8 @@ import java.lang.reflect.ParameterizedType;
 
 //own imports
 import ch.nolix.core.helper.ReflectionHelper;
+import ch.nolix.core.invalidArgumentException.ArgumentWithoutParentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.MissingParentException;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
@@ -45,7 +45,7 @@ public abstract class BackReferenceoid<E extends Entity> {
 		
 		//Checks if the current back reference belongs to an entity.
 		if (parentEntity == null) {
-			throw new MissingParentException(this, Entity.class);
+			throw new ArgumentWithoutParentException(this, Entity.class);
 		}
 		
 		return parentEntity;
