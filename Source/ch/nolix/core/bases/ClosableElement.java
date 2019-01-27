@@ -93,7 +93,7 @@ public abstract class ClosableElement implements Closable {
 	 */
 	protected final void supposeIsAlive() {
 		
-		//Checks if the current {@link ClosableElement} is alive.
+		//Checks if the current closable element is alive.
 		if (isClosed()) {
 			throw new ClosedArgumentException(this);
 		}
