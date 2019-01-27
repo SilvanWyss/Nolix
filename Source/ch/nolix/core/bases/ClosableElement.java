@@ -3,7 +3,7 @@ package ch.nolix.core.bases;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.invalidStateException.ClosedStateException;
+import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.skillAPI.Closable;
 import ch.nolix.core.validator2.Validator;
@@ -89,13 +89,13 @@ public abstract class ClosableElement implements Closable {
 	
 	//method
 	/**
-	 * @throws ClosedStateException if the current {@link ClosableElement} is closed.
+	 * @throws ClosedArgumentException if the current {@link ClosableElement} is closed.
 	 */
 	protected final void supposeIsAlive() {
 
 		//Checks if the current {@link ClosableElement} is alive.
 		if (isClosed()) {
-			throw new ClosedStateException(this);
+			throw new ClosedArgumentException(this);
 		}
 	}
 	

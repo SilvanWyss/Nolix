@@ -12,8 +12,8 @@ import ch.nolix.core.endPoint5.EndPoint;
 import ch.nolix.core.endPoint5.LocalEndPoint;
 import ch.nolix.core.endPoint5.NetEndPoint;
 import ch.nolix.core.functionAPI.IFunction;
+import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.ClosedStateException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.skillAPI.Closable;
@@ -248,7 +248,7 @@ implements Closable {
 			}
 			
 			//A client swallows always a closed state exception.
-			catch (final ClosedStateException closedStateException) {}
+			catch (final ClosedArgumentException closedStateException) {}
 	}
 	
 	//method

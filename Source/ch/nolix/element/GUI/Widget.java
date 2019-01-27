@@ -10,8 +10,8 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IFunction;
+import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.ClosedStateException;
 import ch.nolix.core.invalidStateException.InvalidStateException;
 import ch.nolix.core.invalidStateException.UnexistingAttributeException;
 import ch.nolix.core.constants.FunctionCatalogue;
@@ -1547,11 +1547,11 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @throws ClosedStateException if the current {@link Widget} belongs to a GUI that is closed.
+	 * @throws ClosedArgumentException if the current {@link Widget} belongs to a GUI that is closed.
 	 */
 	protected void supposeGUIIsAlive() {
 		if (belongsToGUI() && getParentGUI().isClosed()) {
-			throw new ClosedStateException(getParentGUI());
+			throw new ClosedArgumentException(getParentGUI());
 		}
 	}
 	
