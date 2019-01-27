@@ -11,8 +11,8 @@ import ch.nolix.core.validator2.Validator;
  * A {@link HeaderedElement} has a header.
  * 
  * @author Silvan Wyss
- * @month: 2018-04
- * @lines 40
+ * @month 2018-04
+ * @lines 50
  */
 public abstract class HeaderedElement implements Headered {
 	
@@ -26,14 +26,15 @@ public abstract class HeaderedElement implements Headered {
 	 * @param header
 	 * @throws NullArgumentException if the given header is null.
 	 * @throws EmptyArgumentException if the given header is empty.
+	 * @throws InvalidArgumentException if the given header is blank.
 	 */
 	public HeaderedElement(final String header) {
 		
-		//Checks if the given header is not null and not empty.
+		//Checks if the given header is not null, empty or blank.
 		Validator
 		.suppose(header)
 		.thatIsNamed(VariableNameCatalogue.HEADER)
-		.isNotEmpty();
+		.isNotBlank();
 		
 		//Sets the header of the current headered element.
 		this.header = header;
