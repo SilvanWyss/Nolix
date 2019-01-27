@@ -66,10 +66,10 @@ public abstract class ClosableElement implements Closable {
 	 */
 	protected final synchronized void createCloseDependency(final ClosableElement element) {
 		
-		//Checks if the current {@link ClosableElement} is alive.
+		//Checks if the current closable element is alive.
 		supposeIsAlive();
 		
-		//Checks if the current {@link ClosableElement}
+		//Checks if the current closable element
 		//does not have already a close dependency to the given element.
 		if (hasCloseDependencyTo(element)) {
 			throw new InvalidArgumentException(
@@ -92,7 +92,7 @@ public abstract class ClosableElement implements Closable {
 	 * @throws ClosedArgumentException if the current {@link ClosableElement} is closed.
 	 */
 	protected final void supposeIsAlive() {
-
+		
 		//Checks if the current {@link ClosableElement} is alive.
 		if (isClosed()) {
 			throw new ClosedArgumentException(this);
@@ -103,10 +103,10 @@ public abstract class ClosableElement implements Closable {
 	/**
 	 * @return the close dependencies of the current {@link ClosableElement}.
 	 */
-	ReadContainer<ClosableElement> getRefCloseDependencies() {
+	final ReadContainer<ClosableElement> getRefCloseDependencies() {
 		return parentCloseController.getRefElements();
 	}
-
+	
 	//package-visible method.
 	/**
 	 * Sets the close controller the current {@link ClosableElement} will belong to.
@@ -114,7 +114,7 @@ public abstract class ClosableElement implements Closable {
 	 * @param parentCloseController
 	 * @throws NullArgumentException if the given parent close controller is null.
 	 */
-	void setParentCloseController(final CloseController parentCloseController) {
+	final void setParentCloseController(final CloseController parentCloseController) {
 		
 		//Checks if the given parent close controller is not null.
 		Validator
