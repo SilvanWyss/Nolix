@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.bases;
 
-//own import
+//own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Closable;
@@ -24,34 +24,33 @@ final class CloseController implements Closable {
 	
 	//constructor
 	/**
-	 * Creates a new {@link CoseController} with the given element.
+	 * Creates a new {@link CloseController} with the given element.
 	 * 
 	 * @param element
 	 * @throws NullArgumentException if the given element is null.
 	 */
 	public CloseController(final ClosableElement element) {
-		elements.addAtEnd(element);
-		element.setParentCloseController(this);
+		addElement(element);
 	}
 	
 	//method
 	/**
-	 * Adds the given element to the current {@link CoseController}.
+	 * Adds the given element to the current {@link CloseController}.
 	 * 
 	 * @param element
 	 * @throws NullArgumentException if the given element is null.
-	 * @throws InvalidArgumentException if the current {@link CoseController} contains already the given element.
-	 * @throws InvalidArgumentException if the current {@link CoseController} is already closed.
+	 * @throws InvalidArgumentException if the current {@link CloseController} contains already the given element.
+	 * @throws InvalidArgumentException if the current {@link CloseController} is already closed.
 	 */
 	public synchronized void addElement(final ClosableElement element) {
-		
-		//Checks if the current {@link CoseController} is alive.
-		supposeBeingAlive();
-		
+				
 		//Checks if the given element is not null.
 		Validator.suppose(element).thatIsNamed("element").isNotNull();
 		
-		//Checks if the current {@link CoseController} does not contain already the given element.
+		//Checks if the current {@link CloseController} is alive.
+		supposeBeingAlive();
+		
+		//Checks if the current {@link CloseController} does not contain already the given element.
 		if (containsElement(element)) {
 			throw new InvalidArgumentException(
 				this,
@@ -71,13 +70,13 @@ final class CloseController implements Closable {
 	@Override
 	public void close() {
 		
-		//Handles the case that the current close controller is alive.
+		//Handles the case that the current {@link CloseController} is alive.
 		if (isAlive()) {
 			
-			//Sets the current {@link CoseController} as closed.
+			//Sets the current {@link CloseController} as closed.
 			closed = true;
 			
-			//Lets note all elements of the current clsoe controller the close.
+			//Lets note all elements of the current {@link CloseController} the close.
 			elements.forEach(e -> e.noteClose());
 		}
 	}
@@ -85,7 +84,7 @@ final class CloseController implements Closable {
 	//method
 	/**
 	 * @param element
-	 * @return true if the current {@link CoseController} contains the given element.
+	 * @return true if the current {@link CloseController} contains the given element.
 	 */
 	public boolean containsElement(final ClosableElement element) {
 		return elements.contains(element);
@@ -93,7 +92,7 @@ final class CloseController implements Closable {
 	
 	//method
 	/**
-	 * @return the elements of the current {@link CoseController}.
+	 * @return the elements of the current {@link CloseController}.
 	 */
 	public ReadContainer<ClosableElement> getRefElements() {
 		return new ReadContainer<ClosableElement>(elements);
@@ -110,11 +109,11 @@ final class CloseController implements Closable {
 	
 	//method
 	/**
-	 * @throws InvalidArgumentException if the current {@link CoseController} is closed.
+	 * @throws InvalidArgumentException if the current {@link CloseController} is closed.
 	 */
 	private void supposeBeingAlive() {
-
-		//Checks if the current {@link CoseController} is alive.
+		
+		//Checks if the current {@link CloseController} is not closed.
 		if (isClosed()) {
 			throw
 			new InvalidArgumentException(
