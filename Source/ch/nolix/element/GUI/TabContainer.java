@@ -235,7 +235,7 @@ implements Clearable<TabContainer> {
 	//method
 	/**
 	 * @return the selected tab of the current {@link TabContainer}.
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link TabContainer} does not contain a selected tab.
 	 */
 	public TabContainerTab getRefSelectedTab() {
@@ -245,7 +245,7 @@ implements Clearable<TabContainer> {
 	//method
 	/**
 	 * @return the selected widget of the current {@link TabContainer}.
-	 * @throws UnexistingAttributeException if the current {@link TabContainer}
+	 * @throws ArgumentMissesAttributeException if the current {@link TabContainer}
 	 * does not contain a selected widget.
 	 */
 	public Widget<?, ?> getRefSelectedWidget() {
@@ -256,7 +256,7 @@ implements Clearable<TabContainer> {
 	/**
 	 * @param header
 	 * @return the tab with the given header from the current {@link TabContainer}.
-	 * @throws UnexistingAttributeException if the current {@link TabContainer}
+	 * @throws ArgumentMissesAttributeException if the current {@link TabContainer}
 	 * does not contain a tab with the given header.
 	 */
 	public TabContainerTab getRefTabByHeader(final String header) {
@@ -332,7 +332,7 @@ implements Clearable<TabContainer> {
 	 * 
 	 * @param header
 	 * @return the current {@link TabContainer}.
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link TabContainer} does not contain a tab with the given header.
 	 */
 	public TabContainer selectTab(final String header) {

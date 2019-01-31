@@ -81,7 +81,7 @@ implements Clearable<MutableOptionalProperty<V>> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link MutableOptionalProperty} is empty.
+	 * @throws ArgumentMissesAttributeException if the current {@link MutableOptionalProperty} is empty.
 	 */
 	@Override
 	public void supposeHasValue() {

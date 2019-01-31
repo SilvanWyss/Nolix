@@ -8,7 +8,7 @@ import java.io.File;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.moduleManager.Module;
 import ch.nolix.core.moduleManager.ModuleManager;
 import ch.nolix.element.configuration.StandardConfiguration;
@@ -43,7 +43,7 @@ public final class DesignManager extends Module {
 	 * 
 	 * @param design
 	 * @return this design manager.
-	 * @throws UnexistingAttributeException if the given design does not have a name.
+	 * @throws ArgumentMissesAttributeException if the given design does not have a name.
 	 * @throws InvalidArgumentException
 	 * if this design manager contains already a design with the same name the given design.
 	 */
@@ -76,7 +76,7 @@ public final class DesignManager extends Module {
 	 * 
 	 * @param design
 	 * @return this design manager.
-	 * @throws UnexistingAttributeException if the given design does not have a name.
+	 * @throws ArgumentMissesAttributeException if the given design does not have a name.
 	 */
 	public final DesignManager addDesignIfPossible(final StandardConfiguration design) {
 		
@@ -111,7 +111,7 @@ public final class DesignManager extends Module {
 	/**
 	 * @param name
 	 * @return the design with the given name from this design manager
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if this design manager does not contain a design with the given name.
 	 */
 	public StandardConfiguration getDesignByName(final String name) {
@@ -128,7 +128,7 @@ public final class DesignManager extends Module {
 			}
 		}
 		
-		throw new UnexistingAttributeException(this, "design with the name '" + name + "'.");
+		throw new ArgumentMissesAttributeException(this, "design with the name '" + name + "'.");
 	}
 	
 	//method

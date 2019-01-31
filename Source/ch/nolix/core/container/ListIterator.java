@@ -5,7 +5,7 @@ package ch.nolix.core.container;
 import java.util.Iterator;
 
 //own import
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 
 //package-visible class
 /**
@@ -50,14 +50,14 @@ final class ListIterator<E> implements Iterator<E> {
 	//method
 	/**
 	 * @return the next element of the current {@link ListIterator}.
-	 * @throws UnexistingAttributeException if the current {@link ListIterator} does not have a next element.
+	 * @throws ArgumentMissesAttributeException if the current {@link ListIterator} does not have a next element.
 	 */
 	@Override
 	public E next() {
 		
 		//Checks if the current list iterator has a next element.
 		if (!hasNext()) {
-			throw new UnexistingAttributeException(this, "next element");
+			throw new ArgumentMissesAttributeException(this, "next element");
 		}
 		
 		final var element = nextNode.getElement();

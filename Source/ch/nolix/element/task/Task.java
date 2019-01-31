@@ -196,7 +196,7 @@ public final class Task extends MutableElement<Task> {
 	//method
 	/**
 	 * @return the size of this task.
-	 * @throws UnexistingAttributeException if this task is not assigned a size.
+	 * @throws ArgumentMissesAttributeException if this task is not assigned a size.
 	 */
 	public TaskSize getSize() {
 		return size.getValue();

@@ -3,7 +3,7 @@ package ch.nolix.core.license;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 
 //class
 /**
@@ -57,7 +57,7 @@ public final class LicenseManager {
 		
 		//Checks if this license manager contains a license of the given type.
 		if (!containsLicense(type)) {
-			throw new UnexistingAttributeException(this, type.getSimpleName());
+			throw new ArgumentMissesAttributeException(this, type.getSimpleName());
 		}
 	}
 }

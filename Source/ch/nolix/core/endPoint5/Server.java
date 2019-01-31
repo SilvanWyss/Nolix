@@ -5,7 +5,7 @@ package ch.nolix.core.endPoint5;
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 
 //class
@@ -133,7 +133,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * Lets this server take the given duplex controller.
 	 * 
 	 * @param endPoint
-	 * @throws UnexistingAttributeException if
+	 * @throws ArgumentMissesAttributeException if
 	 * this server does not have an arbitrary duplex controller taker
 	 * or does not contain a duplex controller taker
 	 * with the same name as the target of the given duplex controller.
@@ -163,13 +163,13 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	//method
 	/**
 	 * @return the arbitrary duplex controller taker of this server.
-	 * @throws UnexistingAttributeException if this server does not have an arbitrary duplex controller taker.
+	 * @throws ArgumentMissesAttributeException if this server does not have an arbitrary duplex controller taker.
 	 */
 	private IEndPointTaker getArbitraryDuplexControllerTaker() {
 
 		//Checks if this server has an arbitrary duplex controller taker.
 		if (!hasArbitraryDuplexControllerTaker()) {
-			throw new UnexistingAttributeException(this, "arbitrary duplex controller taker");
+			throw new ArgumentMissesAttributeException(this, "arbitrary duplex controller taker");
 		}
 		
 		return arbitraryDuplexControllerTaker;

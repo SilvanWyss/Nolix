@@ -5,7 +5,7 @@ package ch.nolix.core.endPoint3;
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.communicationAPI.IReplier;
 import ch.nolix.core.communicationAPI.IReplyingSender;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
@@ -71,7 +71,7 @@ implements IReplyingSender {
 	//method
 	/**
 	 * @return the replier of this end point.
-	 * @throws UnexistingAttributeException if this end point does not have a replier.
+	 * @throws ArgumentMissesAttributeException if this end point does not have a replier.
 	 */
 	protected final IReplier getRefReplier() {
 		
@@ -85,7 +85,7 @@ implements IReplyingSender {
 			System.out.flush();
 			
 			if (System.currentTimeMillis() - startTimeInMilliseconds > REPLIER_GETTING_DELAY_IN_MILLISECONDS) {
-				throw new UnexistingAttributeException(this, IReplier.class);
+				throw new ArgumentMissesAttributeException(this, IReplier.class);
 			}
 		}
 		

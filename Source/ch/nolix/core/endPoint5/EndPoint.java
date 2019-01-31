@@ -7,7 +7,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -181,13 +181,13 @@ implements IDataProviderController {
 	//method
 	/**
 	 * @return the receiver controller of this duplex controller.
-	 * @throws UnexistingAttributeException if this duplex controller does not have a receiver controller.
+	 * @throws ArgumentMissesAttributeException if this duplex controller does not have a receiver controller.
 	 */
 	protected IDataProviderController getRefReceiverController() {
 		
 		//Checks if this duplex controller has a receiver controller.
 		if (!hasReceiverController()) {
-			throw new UnexistingAttributeException(this, "receiver controller");
+			throw new ArgumentMissesAttributeException(this, "receiver controller");
 		}
 		
 		return receiverController;

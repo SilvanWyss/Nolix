@@ -16,7 +16,7 @@ import ch.nolix.core.functionAPI.IElementTakerLongGetter;
 import ch.nolix.core.functionAPI.ITwoElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //interface
@@ -773,7 +773,7 @@ public interface IContainer<E> extends Iterable<E> {
 			i++;
 		}
 		
-		throw new UnexistingAttributeException(this, "element at " + index);
+		throw new ArgumentMissesAttributeException(this, "element at " + index);
 	}
 	
 	//default method
@@ -1005,7 +1005,7 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * @param selector
 	 * @return the first element the given selector selects from the current {@link IContainer}.
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link IContainer} does not contain an element the given selector selects.
 	 */
 	public default E getRefFirst(final IElementTakerBooleanGetter<E> selector) {
@@ -1019,7 +1019,7 @@ public interface IContainer<E> extends Iterable<E> {
 			}
 		}
 		
-		throw new UnexistingAttributeException(this, "element the given selector selects");
+		throw new ArgumentMissesAttributeException(this, "element the given selector selects");
 	}
 	
 	//default method

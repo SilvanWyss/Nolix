@@ -12,7 +12,7 @@ import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.util.PopupWindowProvider;
 import ch.nolix.core.validator2.Validator;
 
@@ -207,7 +207,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	//method
 	private void supposeHasFileGetter() {
 		if (!hasFileGetter()) {
-			throw new UnexistingAttributeException(this, "file getter");
+			throw new ArgumentMissesAttributeException(this, "file getter");
 		}
 	}
 }

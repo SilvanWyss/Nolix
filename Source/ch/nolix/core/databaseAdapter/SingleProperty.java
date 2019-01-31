@@ -7,7 +7,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
@@ -123,7 +123,7 @@ extends DataPropertyoid<V> {
 	//method
 	private void supposeHasValue() {
 		if (!hasValue()) {
-			throw new UnexistingAttributeException(
+			throw new ArgumentMissesAttributeException(
 				this,
 				VariableNameCatalogue.VALUE
 			);

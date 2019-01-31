@@ -5,7 +5,7 @@ package ch.nolix.element.core;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.helper.StringHelper;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 
 //class
 /**
@@ -92,7 +92,7 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 		
 		//Checks if this value or percentage holder has a value.
 		if (!hasValue) {
-			throw new UnexistingAttributeException(
+			throw new ArgumentMissesAttributeException(
 				this,
 				VariableNameCatalogue.VALUE
 			);
@@ -111,7 +111,7 @@ public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHold
 		
 		//Checks if this value or percentage holder has a percentage.
 		if (hasValue) {
-			throw new UnexistingAttributeException(
+			throw new ArgumentMissesAttributeException(
 				this,
 				VariableNameCatalogue.PERCENTAGE
 			);

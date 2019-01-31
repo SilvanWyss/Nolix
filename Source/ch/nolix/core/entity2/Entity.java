@@ -10,7 +10,7 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specificationAPI.Specifiable;
@@ -101,7 +101,7 @@ implements
 	//method
 	/**
 	 * @return the base entity of this entity.
-	 * @throws UnexistingAttributeException if this entity does not have a base entity.
+	 * @throws ArgumentMissesAttributeException if this entity does not have a base entity.
 	 */
 	protected final E getRefBaseEntity() {
 		
@@ -209,13 +209,13 @@ implements
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if this entity does not have a base entity.
+	 * @throws ArgumentMissesAttributeException if this entity does not have a base entity.
 	 */
 	private void supposeHasBaseEntity() {
 		
 		//Checks if this entity has a base entity.
 		if (!hasBaseEntity()) {
-			throw new UnexistingAttributeException(
+			throw new ArgumentMissesAttributeException(
 				this,
 				"base entity"
 			);

@@ -8,7 +8,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.IRequestableContainer;
 import ch.nolix.core.skillAPI.OptionalNamable;
 import ch.nolix.core.validator2.Validator;
@@ -82,14 +82,14 @@ extends MutableElement<ONE> implements OptionalNamable<ONE> {
 	//method
 	/**
 	 * @return the name of this optional namable element.
-	 * @throws UnexistingAttributeException if this optional namable element does not have a name.
+	 * @throws ArgumentMissesAttributeException if this optional namable element does not have a name.
 	 */
 	@Override
 	public final String getName() {
 		
 		//Checks if this optional namable element has a name.
 		if (!hasName()) {
-			throw new UnexistingAttributeException(this, VariableNameCatalogue.NAME);
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.NAME);
 		}
 		
 		return name.getValue();

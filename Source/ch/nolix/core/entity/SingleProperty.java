@@ -9,7 +9,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator2.Validator;
 
@@ -68,7 +68,7 @@ extends Propertyoid<V> {
 	//method
 	/**
 	 * @return the value of this single property.
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if this single property does not have a value.
 	 */
 	public final V getValue() {
@@ -196,14 +196,14 @@ extends Propertyoid<V> {
 	
 	//package-visible method
 	/**
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if this single property does not have a value.
 	 */
 	void supposeHasValue() {
 		
 		//Checks if this single property has a value.
 		if (isEmpty()) {
-			throw new UnexistingAttributeException(
+			throw new ArgumentMissesAttributeException(
 				this,
 				VariableNameCatalogue.VALUE
 			);

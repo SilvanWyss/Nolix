@@ -5,7 +5,7 @@ package ch.nolix.core.documentNode;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -74,7 +74,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	//method
 	/**
 	 * @return the header of this sub specification.
-	 * @throws UnexistingAttributeException if this sub specification
+	 * @throws ArgumentMissesAttributeException if this sub specification
 	 * does not have a header.
 	 */
 	@Override

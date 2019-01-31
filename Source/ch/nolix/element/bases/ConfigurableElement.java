@@ -7,7 +7,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.OptionalTokenable;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator2.Validator;
@@ -160,14 +160,14 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link ConfigurableElement} does not have a token.
 	 */
 	private void supposeHasToken() {
 		
 		//Checks if the current configurable element has a token.
 		if (!hasToken()) {
-			throw new UnexistingAttributeException(this, VariableNameCatalogue.TOKEN);
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.TOKEN);
 		}
 	}
 }

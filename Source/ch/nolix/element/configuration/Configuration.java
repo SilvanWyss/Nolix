@@ -8,7 +8,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Freezable;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.element.bases.OptionalNamableElement;
@@ -322,13 +322,13 @@ implements Freezable<C> {
 	//method
 	/**
 	 * @return the selector name of this configuration.
-	 * @throws UnexistingAttributeException if this configuration does not have a selector name.
+	 * @throws ArgumentMissesAttributeException if this configuration does not have a selector name.
 	 */
 	public final String getSelectorName() {
 		
 		//Checks if this configuration has a selector name.
 		if (!hasSelectorName()) {
-			throw new UnexistingAttributeException(this, "selector name");
+			throw new ArgumentMissesAttributeException(this, "selector name");
 		}
 		
 		return selectorName.getValue();
@@ -345,13 +345,13 @@ implements Freezable<C> {
 	//method
 	/**
 	 * @return the selector token of this configuration.
-	 * @throws UnexistingAttributeException if this configuration does not have a selector token.
+	 * @throws ArgumentMissesAttributeException if this configuration does not have a selector token.
 	 */
 	public final String getSelectorToken() {
 		
 		//Checks if this configuration has a selector token.
 		if (!hasSelectorToken()) {
-			throw new UnexistingAttributeException(this, "selector token");
+			throw new ArgumentMissesAttributeException(this, "selector token");
 		}
 		
 		return selectorToken.getValue();
@@ -368,13 +368,13 @@ implements Freezable<C> {
 	//method
 	/**
 	 * @return the selector type of this configuration.
-	 * @throws UnexistingAttributeException if this configuration does not have a selector type.
+	 * @throws ArgumentMissesAttributeException if this configuration does not have a selector type.
 	 */
 	public final String getSelectorType() {
 		
 		//Checks if this configuration has a selector type.
 		if (!hasSelectorType()) {
-			throw new UnexistingAttributeException(this, "selector type");
+			throw new ArgumentMissesAttributeException(this, "selector type");
 		}
 		
 		return selectorType.getValue();

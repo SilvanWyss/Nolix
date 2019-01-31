@@ -3,7 +3,7 @@ package ch.nolix.core.bases;
 
 //own imports
 import ch.nolix.core.generalSkillAPI.ISmartObject;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.OptionalSignable;
 import ch.nolix.core.validator2.Validator;
 
@@ -25,7 +25,7 @@ implements ISmartObject<OSE>, OptionalSignable<OSE> {
 	//method
 	/**
 	 * @return the info string of the current {@link OptionalSignableElement}.
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link OptionalSignableElement} does not have an info string.
 	 */
 	@Override
@@ -82,12 +82,12 @@ implements ISmartObject<OSE>, OptionalSignable<OSE> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link OptionalSignableElement} does not have an info string.
 	 */
 	private void supposeHasInfoString() {
 		if (!hasInfoString()) {
-			throw new UnexistingAttributeException(this, "info string");
+			throw new ArgumentMissesAttributeException(this, "info string");
 		}
 	}
 }

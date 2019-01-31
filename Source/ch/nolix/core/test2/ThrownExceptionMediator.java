@@ -4,7 +4,7 @@ package ch.nolix.core.test2;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 
 //class
 /**
@@ -188,7 +188,7 @@ public class ThrownExceptionMediator extends Mediator {
 			 * }
 			 */
 			if (exception == null) {
-				throw new UnexistingAttributeException(this, VariableNameCatalogue.EXCEPTION);
+				throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.EXCEPTION);
 			}
 		
 		return exception;

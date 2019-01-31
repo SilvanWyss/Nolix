@@ -5,7 +5,7 @@ package ch.nolix.core.helper;
 import java.lang.reflect.Field;
 
 //own import
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 
 //class
 public final class ReflectionHelper {
@@ -32,7 +32,7 @@ public final class ReflectionHelper {
 			}
 		}
 		
-		throw new UnexistingAttributeException(object, attribute.getClass());
+		throw new ArgumentMissesAttributeException(object, attribute.getClass());
 	}
 	
 	//private constructor

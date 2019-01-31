@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.entity2.Entity;
 import ch.nolix.core.entity2.Property;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
@@ -240,7 +240,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends Entity<WL> {
 	//method
 	/**
 	 * @return the base look of the current {@link WidgetLook}.
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link WidgetLook} does not have a base look.
 	 */
 	protected final WL getRefBaseLook() {
@@ -279,12 +279,12 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends Entity<WL> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link WidgetLook} does not have a base look.
 	 */
 	private void supposeHasBaseLook() {
 		if (!hasBaseLook()) {
-			throw new UnexistingAttributeException(this, "base look");
+			throw new ArgumentMissesAttributeException(this, "base look");
 		}
 	}
 }

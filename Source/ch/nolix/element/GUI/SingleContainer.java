@@ -4,7 +4,7 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.element.painter.IPainter;
 
@@ -123,7 +123,7 @@ implements Clearable<SingleContainer> {
 	//method
 	/**
 	 * @return the {@link Widget} of the current {@link SingleContainer}.
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link SingleContainer} does not contain a {@link Widget}.
 	 */
 	public Widget<?, ?> getRefWidget() {
@@ -131,7 +131,7 @@ implements Clearable<SingleContainer> {
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Checks if the current single container has a widget.
 			if (widget == null) {
-				throw new UnexistingAttributeException(this, Widget.class);
+				throw new ArgumentMissesAttributeException(this, Widget.class);
 			}
 			
 			return widget;

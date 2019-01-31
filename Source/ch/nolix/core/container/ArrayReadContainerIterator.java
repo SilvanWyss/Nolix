@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //package-visible class
@@ -65,7 +65,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 	//method
 	/**
 	 * @return the next element of this read array container iterator.
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if this read array container iterator does not have a next element.
 	 */
 	@Override
@@ -73,7 +73,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 		
 		//Checks if this read array container iterator has a next element.
 		if (!hasNext()) {
-			throw new UnexistingAttributeException(
+			throw new ArgumentMissesAttributeException(
 				this,
 				VariableNameCatalogue.NEXT_ELEMENT
 			);

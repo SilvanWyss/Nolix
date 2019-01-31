@@ -10,7 +10,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Freezable;
 import ch.nolix.core.skillAPI.OptionalValueable;
 import ch.nolix.core.validator2.Validator;
@@ -264,7 +264,7 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	//method
 	private void supposeHasValue() {
 		if (!hasValue()) {
-			throw new UnexistingAttributeException(this, VariableNameCatalogue.VALUE);
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.VALUE);
 		}
 	}
 	

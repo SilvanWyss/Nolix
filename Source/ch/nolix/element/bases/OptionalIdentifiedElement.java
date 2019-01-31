@@ -8,7 +8,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.core.Element;
 
@@ -96,7 +96,7 @@ extends Element<OIE> {
 	//method
 	private void supposeHasId() {
 		if (!hasId()) {
-			throw new UnexistingAttributeException(
+			throw new ArgumentMissesAttributeException(
 				this,
 				VariableNameCatalogue.ID
 			);

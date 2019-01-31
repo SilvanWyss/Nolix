@@ -5,7 +5,7 @@ package ch.nolix.core.endPoint2;
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 
 //class
@@ -132,7 +132,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	 * Lets this server take the given end point.
 	 * 
 	 * @param endPoint
-	 * @throws UnexistingAttributeException if
+	 * @throws ArgumentMissesAttributeException if
 	 * this server does not have an arbitrary end point taker
 	 * or does not contain an end point taker
 	 * with the same name as the target of the given end point taker. 
@@ -173,7 +173,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 		
 		//Checks if this server has an arbitrary end point taker.
 		if (!hasArbitraryEndPointTaker()) {
-			throw new UnexistingAttributeException(	this,"arbitrary end point taker");
+			throw new ArgumentMissesAttributeException(	this,"arbitrary end point taker");
 		}
 		
 		return arbitraryEndPointTaker;

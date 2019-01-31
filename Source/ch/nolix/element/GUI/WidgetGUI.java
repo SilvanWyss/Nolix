@@ -3,7 +3,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.painter.IPainter;
 
@@ -54,7 +54,7 @@ implements IGUI<WidgetGUI> {
 	public Widget<?, ?> getRefRootWidget() {
 		
 		if (isEmpty()) {
-			throw new UnexistingAttributeException(this, "root widget");
+			throw new ArgumentMissesAttributeException(this, "root widget");
 		}
 		
 		return rootWidget;

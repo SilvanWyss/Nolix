@@ -4,7 +4,7 @@ package ch.nolix.core.bases;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.OptionalNamable;
 import ch.nolix.core.validator2.Validator;
 
@@ -26,7 +26,7 @@ implements ISmartObject<ONE>, OptionalNamable<ONE> {
 	//method
 	/**
 	 * @return the name of the current {@link OptionalNamableElement}.
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link OptionalNamableElement} does not have a name.
 	 */
 	@Override
@@ -86,12 +86,12 @@ implements ISmartObject<ONE>, OptionalNamable<ONE> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link OptionalNamableElement} does not have a name.
 	 */
 	private void supposeHasName() {
 		if (!hasName()) {
-			throw new UnexistingAttributeException(this, VariableNameCatalogue.NAME);
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.NAME);
 		}
 	}
 }

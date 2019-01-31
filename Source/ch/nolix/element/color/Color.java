@@ -12,7 +12,7 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
@@ -740,7 +740,7 @@ public class Color extends Element<Color> {
 	 * 
 	 * @param webColorStringField
 	 * @return the web color int field that corresponds to the given web color string field.
-	 * @throws UnexistingAttributeException if the {@link Color} class
+	 * @throws ArgumentMissesAttributeException if the {@link Color} class
 	 * does not contain a web color int field for the given web color string field.
 	 */
 	private static Field getWebColorIntField(final Field webColorStringField) {
@@ -760,7 +760,7 @@ public class Color extends Element<Color> {
 		}
 		
 		throw
-		new UnexistingAttributeException(
+		new ArgumentMissesAttributeException(
 			Color.class,
 			"web color int field for the given web color string field '"
 			+ webColorStringField.getName()

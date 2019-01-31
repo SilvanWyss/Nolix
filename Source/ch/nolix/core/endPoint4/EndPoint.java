@@ -6,7 +6,7 @@ import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.communicationAPI.IGenericReplier;
 import ch.nolix.core.communicationAPI.IGenericReplyingSender;
 import ch.nolix.core.communicationAPI.IReplier;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
@@ -68,7 +68,7 @@ implements IGenericReplyingSender<M, R> {
 	//method
 	/**
 	 * @return the replier of this end point.
-	 * @throws UnexistingAttributeException if this end point does not have a replier.
+	 * @throws ArgumentMissesAttributeException if this end point does not have a replier.
 	 */
 	protected final IGenericReplier<M, R> getRefReplier() {
 		
@@ -82,7 +82,7 @@ implements IGenericReplyingSender<M, R> {
 			System.out.flush();
 			
 			if (System.currentTimeMillis() - startTimeInMilliseconds > REPLIER_GETTING_DELAY_IN_MILLISECONDS) {
-				throw new UnexistingAttributeException(this, IReplier.class);
+				throw new ArgumentMissesAttributeException(this, IReplier.class);
 			}
 		}
 		

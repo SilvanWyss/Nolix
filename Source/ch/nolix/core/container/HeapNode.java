@@ -3,7 +3,7 @@ package ch.nolix.core.container;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //package-visible class
@@ -48,7 +48,7 @@ final class HeapNode<E> {
 	//method
 	/**
 	 * @return the next node of the current {@link HeapNode}.
-	 * @throws UnexistingAttributeException if the current {@link HeapNode} does not have a next node.
+	 * @throws ArgumentMissesAttributeException if the current {@link HeapNode} does not have a next node.
 	 */
 	public HeapNode<E> getRefNextNode() {
 		
@@ -115,11 +115,11 @@ final class HeapNode<E> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link HeapNode} does not have a next node.
+	 * @throws ArgumentMissesAttributeException if the current {@link HeapNode} does not have a next node.
 	 */
 	private void supposeHasNextNode() {
 		if (!hasNextNode()) {
-			throw new UnexistingAttributeException(this, "next node");
+			throw new ArgumentMissesAttributeException(this, "next node");
 		}
 	}
 }

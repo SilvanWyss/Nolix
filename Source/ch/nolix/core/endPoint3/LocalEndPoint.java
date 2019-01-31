@@ -2,7 +2,7 @@
 package ch.nolix.core.endPoint3;
 
 //own imports
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -169,14 +169,14 @@ public final class LocalEndPoint extends EndPoint {
 	//method
 	/**
 	 * @return the target of this local end point.
-	 * @throws UnexistingAttributeException if this local end point does not have a target.
+	 * @throws ArgumentMissesAttributeException if this local end point does not have a target.
 	 */
 	@Override
 	public String getTarget() {
 		
 		//Checks if this local end point has a target.
 		if (!hasTarget()) {
-			throw new UnexistingAttributeException(this, "target");
+			throw new ArgumentMissesAttributeException(this, "target");
 		}
 		
 		return target;

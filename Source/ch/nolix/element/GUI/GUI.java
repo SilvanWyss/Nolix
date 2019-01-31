@@ -17,7 +17,7 @@ import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator2.Validator;
@@ -302,7 +302,7 @@ implements IGUI<G> {
 	//method
 	/**
 	 * @return the background color of this GUI.
-	 * @throws UnexistingAttributeException if this GUI does not have a background color.
+	 * @throws ArgumentMissesAttributeException if this GUI does not have a background color.
 	 */
 	public final Color getBackgroundColor() {
 		return backgroundColor.getValue();
@@ -311,7 +311,7 @@ implements IGUI<G> {
 	//method
 	/**
 	 * @return the background color gradient of this GUI.
-	 * @throws UnexistingAttributeException if this GUI does not have a background color gradient.
+	 * @throws ArgumentMissesAttributeException if this GUI does not have a background color gradient.
 	 */
 	public final ColorGradient getBackgroundColorGradient() {
 		return backgroundColorGradient.getValue();
@@ -385,7 +385,7 @@ implements IGUI<G> {
 	//method
 	/**
 	 * @return the controller of this GUI.
-	 * @throws UnexistingAttributeException if this GUI does not have a controller.
+	 * @throws ArgumentMissesAttributeException if this GUI does not have a controller.
 	 */
 	@Override
 	public final IGUIController getRefController() {
@@ -398,14 +398,14 @@ implements IGUI<G> {
 	//method
 	/**
 	 * @return the root widget of this GUI.
-	 * @throws UnexistingAttributeException if this GUI does not have a root widget.
+	 * @throws ArgumentMissesAttributeException if this GUI does not have a root widget.
 	 */
 	@SuppressWarnings("unchecked")
 	public final <W extends Widget<?, ?>> W getRefRootWidget() {
 		
 		//Checks if this GUI has a root widget.
 		if (!hasRootWidget()) {
-			throw new UnexistingAttributeException(this, ROOT_WIDGET_HEADER);
+			throw new ArgumentMissesAttributeException(this, ROOT_WIDGET_HEADER);
 		}
 		
 		return (W)rootWidget;
@@ -980,12 +980,12 @@ implements IGUI<G> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if this GUI does not have a controller.
+	 * @throws ArgumentMissesAttributeException if this GUI does not have a controller.
 	 */
 	private void supposeHasController() {
 		if (!hasController()) {
 			throw
-			new UnexistingAttributeException(this, VariableNameCatalogue.CONTROLLER);
+			new ArgumentMissesAttributeException(this, VariableNameCatalogue.CONTROLLER);
 		}
 	}
 }

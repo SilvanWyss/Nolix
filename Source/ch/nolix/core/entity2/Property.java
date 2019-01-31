@@ -9,7 +9,7 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -105,7 +105,7 @@ public final class Property<V> extends NamedElement {
 	//method
 	/**
 	 * @return the value of this property.
-	 * @throws UnexistingAttributeException if this property does not have a value.
+	 * @throws ArgumentMissesAttributeException if this property does not have a value.
 	 */
 	public V getValue() {
 		
@@ -243,13 +243,13 @@ public final class Property<V> extends NamedElement {
 
 	//method
 	/**
-	 * @throws UnexistingAttributeException if this property does not have a value.
+	 * @throws ArgumentMissesAttributeException if this property does not have a value.
 	 */
 	private void supposeHasValue() {
 		
 		//Checks if this property has a value.
 		if (!hasValue()) {
-			throw new UnexistingAttributeException(
+			throw new ArgumentMissesAttributeException(
 				this,
 				VariableNameCatalogue.VALUE
 			);

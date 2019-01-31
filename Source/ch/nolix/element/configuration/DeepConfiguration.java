@@ -4,7 +4,7 @@ package ch.nolix.element.configuration;
 //own imports
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.element.core.PositiveInteger;
@@ -113,13 +113,13 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	//method
 	/**
 	 * @return the max selector level of this deep configuration.
-	 * @throws UnexistingAttributeException if this deep configuration does not have a max selector level.
+	 * @throws ArgumentMissesAttributeException if this deep configuration does not have a max selector level.
 	 */
 	public int getMaxSelectorLevel() {
 		
 		//Checks if this deep configuration has a max selector level.
 		if (!hasMaxSelectorLevel()) {
-			throw new UnexistingAttributeException(this, "max selector level");
+			throw new ArgumentMissesAttributeException(this, "max selector level");
 		}
 		
 		return maxSelectorLevel.getValue();

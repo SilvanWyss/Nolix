@@ -7,7 +7,7 @@ import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -120,7 +120,7 @@ public final class LocalEndPoint extends EndPoint {
 	//method
 	/**
 	 * @return the data the given request requests from this local duplex controller.
-	 * @throws UnexistingAttributeException if this local duplex controller does not have a receiver controller.
+	 * @throws ArgumentMissesAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
 	public DocumentNode getData(final Statement request) {
@@ -177,7 +177,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * 
 	 * @param command
 	 * @throws InvalidArgumentException if this local duplex controller is aborted.
-	 * @throws UnexistingAttributeException if this local duplex controller does not have a receiver controller.
+	 * @throws ArgumentMissesAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
 	public void run(final Statement command) {
@@ -194,7 +194,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * 
 	 * @param commands
 	 * @throws InvalidArgumentException if this local duplex contorller is aborted.
-	 * @throws UnexistingAttributeException if this local duplex controller does not have a receiver controller.
+	 * @throws ArgumentMissesAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
 	protected void run(final List<String> commands) {

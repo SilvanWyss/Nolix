@@ -10,7 +10,7 @@ import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.core.container.IContainer;
@@ -739,7 +739,7 @@ implements Clearable<Console> {
 		
 		//Checks if this console has a secret edit line.
 		if (!isReadingSecretLine()) {
-			throw new UnexistingAttributeException(this, "secret edit line");
+			throw new ArgumentMissesAttributeException(this, "secret edit line");
 		}
 		
 		return secretEditLine;

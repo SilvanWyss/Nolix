@@ -7,7 +7,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -170,13 +170,13 @@ public final class Label extends TextLineWidget<Label> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link Label} does not have a role.
+	 * @throws ArgumentMissesAttributeException if the current {@link Label} does not have a role.
 	 */
 	private void supposeHasRole() {
 		
 		//Checks if the current {@link Label} has a role.
 		if (!hasRole()) {
-			throw new UnexistingAttributeException(this, VariableNameCatalogue.ROLE);
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.ROLE);
 		}
 	}
 }

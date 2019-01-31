@@ -6,7 +6,7 @@ import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Headered;
 import ch.nolix.core.validator2.Validator;
 
@@ -158,7 +158,7 @@ public final class Statement implements Headered {
 	//method
 	/**
 	 * @return the header of the current {@link Statement}.
-	 * @throws UnexistingAttributeException if the current {@link Statement} does not have a header.
+	 * @throws ArgumentMissesAttributeException if the current {@link Statement} does not have a header.
 	 */
 	@Override
 	public String getHeader() {
@@ -166,7 +166,7 @@ public final class Statement implements Headered {
 		//Checks if the current statement has a header.
 		//This pre-check provides a more suitable error message than the common checks.
 		if (!hasHeader()) {
-			throw new UnexistingAttributeException(this, VariableNameCatalogue.HEADER);
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.HEADER);
 		}
 		
 		return documentNode.getHeader();
@@ -175,7 +175,7 @@ public final class Statement implements Headered {
 	//method
 	/**
 	 * @return a string representation of the next {@link Statement} of the current {@link Statement}.
-	 * @throws UnexistingAttributeException if the current {@link Statement} does not have a next {@link Statement}.
+	 * @throws ArgumentMissesAttributeException if the current {@link Statement} does not have a next {@link Statement}.
 	 */
 	public String getNextStatementAsString() {
 		return getRefNextStatement().toString();
@@ -214,14 +214,14 @@ public final class Statement implements Headered {
 	//method
 	/**
 	 * @return the next {@link Statement} of the current {@link Statement}.
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link Statement} does not have a next {@link Statement}.
 	 */
 	public Statement getRefNextStatement() {
 		
 		//Checks if the current statement has a next statement.
 		if (!hasNextStatement()) {
-			throw new UnexistingAttributeException(this, "next statement");
+			throw new ArgumentMissesAttributeException(this, "next statement");
 		}
 		
 		return nextStatement;

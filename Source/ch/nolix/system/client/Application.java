@@ -12,7 +12,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.endPoint5.EndPoint;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.validator2.Validator;
 
@@ -171,7 +171,7 @@ public class Application<C extends Client<C>> extends NamedElement {
 	//method
 	/**
 	 * @return the context of this application.
-	 * @throws UnexistingAttributeException if this application does not have a context.
+	 * @throws ArgumentMissesAttributeException if this application does not have a context.
 	 */
 	public final Object getRefContext() {
 		
@@ -260,14 +260,14 @@ public class Application<C extends Client<C>> extends NamedElement {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if this application does not have a context.
+	 * @throws ArgumentMissesAttributeException if this application does not have a context.
 	 */
 	private void supposeHasContext() {
 		
 		//Checks if this application has a context.
 		if (!hasContext()) {
 			throw
-			new UnexistingAttributeException(
+			new ArgumentMissesAttributeException(
 				this,
 				VariableNameCatalogue.CONTEXT
 			);

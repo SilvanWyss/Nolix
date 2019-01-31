@@ -137,7 +137,7 @@ public class NetEndPoint extends EndPoint {
 	//method
 	/**
 	 * @return the target of this net duplex controller.
-	 * @throws UnexistingAttributeException if this net duplex controller does not have a target.
+	 * @throws ArgumentMissesAttributeException if this net duplex controller does not have a target.
 	 */
 	@Override
 	public String getTarget() {

@@ -63,7 +63,7 @@ extends SingleProperty<V> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link OptionalProperty} is empty.
+	 * @throws ArgumentMissesAttributeException if the current {@link OptionalProperty} is empty.
 	 */
 	@Override
 	public void supposeHasValue() {

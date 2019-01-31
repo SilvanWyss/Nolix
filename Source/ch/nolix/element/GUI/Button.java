@@ -7,7 +7,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 
@@ -93,7 +93,7 @@ public final class Button extends TextLineWidget<Button> {
 	//method
 	/**
 	 * @return the role of the current {@link Button}.
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link Button} does not have a role.
 	 */
 	public ButtonRole getRole() {
@@ -192,7 +192,7 @@ public final class Button extends TextLineWidget<Button> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link Button} does not have a role.
 	 */
 	private void supposeHasRole() {
@@ -200,7 +200,7 @@ public final class Button extends TextLineWidget<Button> {
 		//Checks if the current button has a role.
 		if (!hasRole()) {
 			throw 
-			new UnexistingAttributeException(
+			new ArgumentMissesAttributeException(
 				this,
 				VariableNameCatalogue.ROLE
 			);

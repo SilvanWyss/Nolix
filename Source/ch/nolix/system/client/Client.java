@@ -14,7 +14,7 @@ import ch.nolix.core.endPoint5.NetEndPoint;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Closable;
 import ch.nolix.core.validator2.Validator;
 
@@ -113,7 +113,7 @@ implements Closable {
 	 * @return the context of the {@link Application} the current {@link Client} belongs to.
 	 * @throws InvalidArgumentException if the current {@link Client}
 	 * does not reference the {@link Application} it belongs to.
-	 * @throws UnexistingAttributeException if the {@link Application},
+	 * @throws ArgumentMissesAttributeException if the {@link Application},
 	 * the current {@link Client} belongs to, does not have a context.
 	 */
 	public final Object getRefApplicationContext() {
@@ -166,7 +166,7 @@ implements Closable {
 	/**
 	 * Opens the next session of the current {@link Client}.
 	 * 
-	 * @throws UnexistingAttributeException if the current {@link Client} does not contain a next session.
+	 * @throws ArgumentMissesAttributeException if the current {@link Client} does not contain a next session.
 	 */
 	public final void openNextSession() {
 		
@@ -181,7 +181,7 @@ implements Closable {
 	/**
 	 * Opens the previous session of the current {@link Client}.
 	 * 
-	 * @throws UnexistingAttributeException if the current {@link Client} does not contain a previous session.
+	 * @throws ArgumentMissesAttributeException if the current {@link Client} does not contain a previous session.
 	 */
 	public final void openPreviousSession() {
 		
@@ -668,37 +668,37 @@ implements Closable {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link Client} does not contain a current session.
+	 * @throws ArgumentMissesAttributeException if the current {@link Client} does not contain a current session.
 	 */	
 	private void supposeContainsCurrentSession() {
 		
 		//Checks if the current client contains a current session.
 		if (!containsCurrentSession()) {
-			throw new UnexistingAttributeException(this, "current session");
+			throw new ArgumentMissesAttributeException(this, "current session");
 		}
 	}
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link Client} does not contain a next session.
+	 * @throws ArgumentMissesAttributeException if the current {@link Client} does not contain a next session.
 	 */	
 	private void supposeContainsNextSession() {
 		
 		//Checks if the current client contains a next session.
 		if (!containsNextSession()) {
-			throw new UnexistingAttributeException(this, "next session");
+			throw new ArgumentMissesAttributeException(this, "next session");
 		}
 	}
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link Client} does not contain a previous session.
+	 * @throws ArgumentMissesAttributeException if the current {@link Client} does not contain a previous session.
 	 */	
 	private void supposeContainsPreviousSession() {
 		
 		//Checks if the current client contains a previous session.
 		if (!containsPreviousSession()) {
-			throw new UnexistingAttributeException(this, "previous session");
+			throw new ArgumentMissesAttributeException(this, "previous session");
 		}
 	}
 	

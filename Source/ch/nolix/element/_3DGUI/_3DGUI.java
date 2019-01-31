@@ -15,7 +15,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.skillAPI.Closable;
 import ch.nolix.core.skillAPI.Refreshable;
@@ -178,13 +178,13 @@ implements Clearable<G>, Closable, Refreshable {
 	//method
 	/**
 	 * @return the root shape of this 3D GUI.
-	 * @throws UnexistingAttributeException if this 3D GUI does not have a root shape.
+	 * @throws ArgumentMissesAttributeException if this 3D GUI does not have a root shape.
 	 */
 	public final Shape<?> getRefRootShape() {
 		
 		//Checks if this 3D GUI has a root shape.
 		if (!hasRootShape()) {
-			throw new UnexistingAttributeException(this, "root shape");
+			throw new ArgumentMissesAttributeException(this, "root shape");
 		}
 		
 		return rootShape;
@@ -356,7 +356,7 @@ implements Clearable<G>, Closable, Refreshable {
 	/**
 	 * @param shape
 	 * @return a new shape renderer for the given shape from this 3D GUI.
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if this 3D GUI does not contain a shape renderer for the given shape.
 	 */
 	protected final IShapeRenderer<?, ?, ?> getShapeRendererFor(final Shape<?> shape) {

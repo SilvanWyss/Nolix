@@ -5,7 +5,7 @@ package ch.nolix.element._3DGUI;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator2.Validator;
@@ -78,7 +78,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	//method
 	/**
 	 * @return the render object of this shape.
-	 * @throws UnexistingAttributeException if this shape does not have a render object.
+	 * @throws ArgumentMissesAttributeException if this shape does not have a render object.
 	 */
 	@SuppressWarnings("unchecked")
 	public final <RO> RO getRefRenderObject() {
@@ -310,7 +310,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	//method
 	/**
 	 * @return the shape render manager of this shape.
-	 * @throws UnexistingAttributeException if this shape does not have a shape render manager.
+	 * @throws ArgumentMissesAttributeException if this shape does not have a shape render manager.
 	 */
 	protected final ShapeRenderManager<S, ?, ?> getRefShapeRenderManager() {
 		
@@ -350,11 +350,11 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if this shape does not have a shape render manager.
+	 * @throws ArgumentMissesAttributeException if this shape does not have a shape render manager.
 	 */
 	private void supposeHasShapeRenderManager() {
 		if (!hasShapeRenderManager()) {
-			throw new UnexistingAttributeException(this, ShapeRenderManager.class);
+			throw new ArgumentMissesAttributeException(this, ShapeRenderManager.class);
 		}
 	}
 }

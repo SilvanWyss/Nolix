@@ -4,7 +4,7 @@ package ch.nolix.core.container;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //package-visible class
@@ -73,7 +73,7 @@ final class ListNode<E> {
 		
 		//Checks if the current list node has a next node.
 		if (!hasNextNode()) {
-			throw new UnexistingAttributeException(this, "next node");
+			throw new ArgumentMissesAttributeException(this, "next node");
 		}
 		
 		return nextNode;
@@ -135,14 +135,14 @@ final class ListNode<E> {
 	 * Swaps the element of the current {@link ListNode}
 	 * with the element of the next node of the current {@link ListNode}.
 	 * 
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link ListNode} does not have a next node.
 	 */
 	public void swapElementWithNextNode() {
 		
 		//Checks if the current list node has a next node.
 		if (!hasNextNode()) {
-			throw new UnexistingAttributeException(this, "next node");
+			throw new ArgumentMissesAttributeException(this, "next node");
 		}
 				
 		final E element = nextNode.getElement();

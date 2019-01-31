@@ -7,7 +7,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
@@ -74,7 +74,7 @@ extends BorderWidget<C, BWS> {
 	//method
 	/**
 	 * @return the role of the current {@link Container}.
-	 * @throws UnexistingAttributeException if the current {@link Container} does not have a role.
+	 * @throws ArgumentMissesAttributeException if the current {@link Container} does not have a role.
 	 */
 	public final ContainerRole getRole() {
 		
@@ -141,13 +141,13 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link Container} does not have a role.
+	 * @throws ArgumentMissesAttributeException if the current {@link Container} does not have a role.
 	 */
 	private void supposeHasRole() {
 		
 		//Checks if the current container has a role.
 		if (!hasRole()) {
-			throw new UnexistingAttributeException(this, VariableNameCatalogue.ROLE);
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.ROLE);
 		}
 	}
 }

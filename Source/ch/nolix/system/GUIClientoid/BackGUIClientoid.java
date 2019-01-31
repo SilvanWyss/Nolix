@@ -83,7 +83,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * Lets the current {@link BackGUIClientoid} run the given command locally.
 	 * 
 	 * @param command
-	 * @throws UnexistingAttributeException if the current back GUI client does not have a current session.
+	 * @throws ArgumentMissesAttributeException if the current back GUI client does not have a current session.
 	 */
 	public void runLocally(final String command) {
 		internal_invokeSessionUserRunMethod(new DocumentNode(command));
@@ -156,7 +156,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	/**
 	 * Finishes the initialization of the session of the current {@link BackGUIClientoid}.
 	 * 
-	 * @throws UnexistingAttributeException if the current {@link BackGUIClientoid} does not have a current session.
+	 * @throws ArgumentMissesAttributeException if the current {@link BackGUIClientoid} does not have a current session.
 	 */
 	@Override
 	protected void internal_finishSessionInitialization() {

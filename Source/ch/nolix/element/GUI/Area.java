@@ -7,7 +7,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
@@ -164,7 +164,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	//method
 	/**
 	 * @return the background color of the current {@link Area}.
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link Area} does not have a background color.
 	 */
 	public Color getBackgroundColor() {
@@ -377,14 +377,14 @@ public final class Area extends Widget<Area, AreaLook> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link Area} does not have a background color.
 	 */
 	private void supposeHasBackgroundColor() {
 		
 		//Checks if the current area has a background color.
 		if (!hasBackgroundColor()) {
-			throw new UnexistingAttributeException(
+			throw new ArgumentMissesAttributeException(
 				this,
 				VariableNameCatalogue.BACKGROUND_COLOR
 			);

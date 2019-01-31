@@ -5,7 +5,7 @@ package ch.nolix.core.endPoint;
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.communicationAPI.IReceiver;
 import ch.nolix.core.communicationAPI.ISender;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
@@ -78,7 +78,7 @@ implements ISender {
 	 * 
 	 * @param message
 	 * @throws InvalidArgumentException if this end point is aborted.
-	 * @throws UnexistingAttributeException if this end point does not have a receiver.
+	 * @throws ArgumentMissesAttributeException if this end point does not have a receiver.
 	 */
 	protected final void receive(final String message) {
 		
@@ -91,13 +91,13 @@ implements ISender {
 	//method
 	/**
 	 * @return the receiver of this end point.
-	 * @throws UnexistingAttributeException if this end point does not have a receiver.
+	 * @throws ArgumentMissesAttributeException if this end point does not have a receiver.
 	 */
 	private IReceiver getRefReceiver() {
 		
 		//Checks if this end point has a receiver.
 		if (!hasReceiver()) {
-			throw new UnexistingAttributeException(this, IReceiver.class);
+			throw new ArgumentMissesAttributeException(this, IReceiver.class);
 		}
 		
 		return receiver;

@@ -10,7 +10,7 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.helper.MethodHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
@@ -100,7 +100,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @throws InvalidArgumentException if the current {@link Session} does not belong to a {@link Client}.
 	 * @throws InvalidArgumentException if the {@link Client} of the current {@link Session}
 	 * does not reference the {@link Application} it belongs to.
-	 * @throws UnexistingAttributeException if the {@link Application},
+	 * @throws ArgumentMissesAttributeException if the {@link Application},
 	 * the {@link Client} of the current {@link Session} belongs to, does not have a context.
 	 */
 	public final Object getRefApplicationContext() {
@@ -217,7 +217,7 @@ public abstract class Session<C extends Client<C>> {
 	/**
 	 * @param name
 	 * @return the user data method with the given name from the current {@link Session}.
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link Session} does not contain a user data method with the given name.
 	 */
 	private Method getUserDataMethod(final String name) {
@@ -228,7 +228,7 @@ public abstract class Session<C extends Client<C>> {
 	/**
 	 * @param name
 	 * @return the user run method with the given name from the current {@link Session}.
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link Session} does not contain a user run method with the given name.
 	 */
 	private Method getUserRunMethod(final String name) {

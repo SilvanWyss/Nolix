@@ -2,7 +2,7 @@
 package ch.nolix.core.mathematics;
 
 //own imports
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //class
@@ -66,13 +66,13 @@ public class QuadraticFunction {
 	//method
 	/**
 	 * @return the maximum of this quadratic function.
-	 * @throws UnexistingAttributeException if this quadratic function does not have a maximum.
+	 * @throws ArgumentMissesAttributeException if this quadratic function does not have a maximum.
 	 */
 	public double getMax() {
 		
 		//Checks if this quadratic function has a maximum.
 		if (!hasMax()) {
-			throw new UnexistingAttributeException(this, "maximum");
+			throw new ArgumentMissesAttributeException(this, "maximum");
 		}
 		
 		return (-b / (2 * a));
@@ -81,13 +81,13 @@ public class QuadraticFunction {
 	//method
 	/**
 	 * @return the minimum of this quadratic function.
-	 * @throws UnexistingAttributeException if this quadratic function does not have a minimum.
+	 * @throws ArgumentMissesAttributeException if this quadratic function does not have a minimum.
 	 */
 	public double getMin() {
 		
 		//Checks if this quadratic function has a minimum.
 		if (hasMin()) {
-			throw new UnexistingAttributeException(this, "minimum");
+			throw new ArgumentMissesAttributeException(this, "minimum");
 		}
 		
 		return (-b / (2 * a));

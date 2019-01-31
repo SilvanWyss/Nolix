@@ -5,7 +5,7 @@ package ch.nolix.system.databaseApplication;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.databaseAdapter.DatabaseAdapter;
 import ch.nolix.core.functionAPI.IElementGetter;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.configuration.StandardConfiguration;
 
@@ -92,7 +92,7 @@ public final class DatabaseApplicationContext {
 	//method
 	private void supposeHasGUILook() {
 		if (!hasGUILook()) {
-			throw new UnexistingAttributeException(this, "GUI look");
+			throw new ArgumentMissesAttributeException(this, "GUI look");
 		}
 	}
 }

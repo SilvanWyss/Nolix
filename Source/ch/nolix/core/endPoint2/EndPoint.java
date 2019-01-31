@@ -6,7 +6,7 @@ import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.communicationAPI.IReceiver;
 import ch.nolix.core.communicationAPI.ISender;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class
@@ -42,13 +42,13 @@ implements ISender {
 	//method
 	/**
 	 * @return the target of this end point.
-	 * @throws UnexistingAttributeException if this end point does not have a target.
+	 * @throws ArgumentMissesAttributeException if this end point does not have a target.
 	 */
 	public final String getTarget() {
 		
 		//Checks if this end point has a target.
 		if (!hasTarget()) {
-			throw new UnexistingAttributeException(this, "target");
+			throw new ArgumentMissesAttributeException(this, "target");
 		}
 		
 		return target;
@@ -141,7 +141,7 @@ implements ISender {
 		
 		//Checks if this end point has a receiver.
 		if (!hasReceiver()) {
-			throw new UnexistingAttributeException(this, IReceiver.class);
+			throw new ArgumentMissesAttributeException(this, IReceiver.class);
 		}
 		
 		return receiver;

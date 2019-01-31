@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.generalSkillAPI.Castable;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.skillAPI.Closable;
 import ch.nolix.core.skillAPI.IRequestableContainer;
@@ -29,7 +29,7 @@ Specifiable<G> {
 	/**
 	 * @param indexPath
 	 * @return the {@link Widget} with the given index path from the current {@link IGUI}.
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link IGUI} does not contain a {@link Widget} with the given path.
 	 */
 	@SuppressWarnings("unchecked")
@@ -58,7 +58,7 @@ Specifiable<G> {
 	 * @param index
 	 * @return the {@link Widget} with the given index recursively from the current {@link IGUI}.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
-	 * @throws UnexistingAttributeException
+	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link IGUI} does not contain a {@link Widget} with the given index.
 	 */
 	@SuppressWarnings("unchecked")

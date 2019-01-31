@@ -64,7 +64,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * 
 	 * @throws NullArgumentException if the given message is null.
 	 * @throws InvalidArgumentException if this local end point is aborted.
-	 * @throws UnexistingAttributeException if the counterpart of this local end point does not have a receiver.
+	 * @throws ArgumentMissesAttributeException if the counterpart of this local end point does not have a receiver.
 	 */
 	@Override
 	public void send(final String message) {

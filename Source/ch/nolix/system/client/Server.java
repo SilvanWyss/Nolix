@@ -5,7 +5,7 @@ package ch.nolix.system.client;
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator2.Validator;
 
@@ -159,13 +159,13 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	//method
 	/**
 	 * @return the arbitrary application of this server.
-	 * @throws UnexistingAttributeException if this server does not have an arbitrary application.
+	 * @throws ArgumentMissesAttributeException if this server does not have an arbitrary application.
 	 */
 	protected Application<?> getRefDefaultApplication() {
 		
 		//Checks if this server has an arbitrary application.
 		if (!containsDefaultApplication()) {
-			throw new UnexistingAttributeException(this, "arbitrary application");
+			throw new ArgumentMissesAttributeException(this, "arbitrary application");
 		}
 		
 		return defaultApplication;

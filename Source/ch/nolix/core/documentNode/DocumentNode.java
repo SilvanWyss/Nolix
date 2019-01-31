@@ -7,7 +7,7 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
@@ -272,7 +272,7 @@ implements ISmartObject<DocumentNode> {
 	//method
 	/**
 	 * @return the header of this specification.
-	 * @throws UnexistingAttributeException if this specification does not have a header.
+	 * @throws ArgumentMissesAttributeException if this specification does not have a header.
 	 */
 	@Override
 	public String getHeader() {
@@ -415,13 +415,13 @@ implements ISmartObject<DocumentNode> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link DocumentNode} does not have a header.
+	 * @throws ArgumentMissesAttributeException if the current {@link DocumentNode} does not have a header.
 	 */
 	private void supposeHasHeader() {
 		
 		//Checks if the current standard specification has a header.
 		if (!hasHeader()) {
-			throw new UnexistingAttributeException(this, VariableNameCatalogue.HEADER);
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.HEADER);
 		}
 	}
 }

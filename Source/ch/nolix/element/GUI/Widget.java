@@ -12,7 +12,7 @@ import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.UnexistingAttributeException;
+import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
 import ch.nolix.core.constants.FunctionCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specificationAPI.Configurable;
@@ -1077,7 +1077,7 @@ extends ConfigurableElement<W> {
 	 * Runs the left mouse button press command of the current {@link Widget}.
 	 * 
 	 * @return the current {@link Widget}.
-	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
 	 * does not have a left mouse button press command.
 	 */
 	public final W runLeftMouseButtonPressCommand() {
@@ -1092,7 +1092,7 @@ extends ConfigurableElement<W> {
 	 * Runs the left mouse button release command of the current {@link Widget}.
 	 * 
 	 * @return the current {@link Widget}.
-	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
 	 * does not have a left mouse button release command.
 	 */
 	public final W runLeftMouseButtonReleaseCommand() {
@@ -1107,7 +1107,7 @@ extends ConfigurableElement<W> {
 	 * Runs the right mouse button press command of the current {@link Widget}.
 	 * 
 	 * @return the current {@link Widget}.
-	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
 	 * does not have a right mouse button press command.
 	 */
 	public final W runRightMouseButtonPressCommand() {
@@ -1122,7 +1122,7 @@ extends ConfigurableElement<W> {
 	 * Runs the right mouse button release command of the current {@link Widget}.
 	 * 
 	 * @return the current {@link Widget}.
-	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
 	 * does not have a right mouse button release command.
 	 */
 	public final W runRightMouseButtonReleaseCommand() {
@@ -1388,7 +1388,7 @@ extends ConfigurableElement<W> {
 	//method
 	/**
 	 * @return the current look of the current {@link Widget}.
-	 * @throws UnexistingAttributeException if the current {@link Widget} does not have a current look.
+	 * @throws ArgumentMissesAttributeException if the current {@link Widget} does not have a current look.
 	 */
 	protected final WL getRefCurrentLook() {
 		
@@ -1405,7 +1405,7 @@ extends ConfigurableElement<W> {
 			case HoverFocused:
 				return getRefHoverFocusLook();
 			default:
-				throw new UnexistingAttributeException(
+				throw new ArgumentMissesAttributeException(
 					this,
 					"current look"
 				);
@@ -1599,7 +1599,7 @@ extends ConfigurableElement<W> {
 	//method
 	/**
 	 * @return the left mouse button press command of the current {@link Widget}.
-	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
 	 * does not have a left mouse button press command.
 	 */
 	private IFunction getLeftMouseButtonPressCommand() {
@@ -1612,7 +1612,7 @@ extends ConfigurableElement<W> {
 	//method
 	/**
 	 * @return the left mouse button release command of the current {@link Widget}.
-	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
 	 * does not have a left mouse button release command.
 	 */
 	private IFunction getLeftMouseButtonReleaseCommand() {
@@ -1655,7 +1655,7 @@ extends ConfigurableElement<W> {
 	//method
 	/**
 	 * @return the right mouse button press command of the current {@link Widget}.
-	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
 	 * does not have a right mouse button press command.
 	 */
 	private IFunction getRightMouseButtonPressCommand() {
@@ -1668,7 +1668,7 @@ extends ConfigurableElement<W> {
 	//method
 	/**
 	 * @return the right mouse button release command of the current {@link Widget}.
-	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
 	 * does not have a right mouse button release command.
 	 */
 	private IFunction getRightMouseButtonReleaseCommand() {
@@ -1695,7 +1695,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
 	 * does not have a left mouse button press command.
 	 */
 	private void supposeHasLeftMouseButtonPressCommad() {
@@ -1703,7 +1703,7 @@ extends ConfigurableElement<W> {
 		//Checks if the current widget has a left mouse button press command.
 		if (!hasLeftMouseButtonPressCommand()) {
 			throw 
-			new UnexistingAttributeException(
+			new ArgumentMissesAttributeException(
 				this,
 				"left mouse button press command"
 			);
@@ -1712,7 +1712,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
 	 * does not have a left mouse button release command.
 	 */
 	private void supposeHasLeftMouseButtonReleaseCommad() {
@@ -1720,7 +1720,7 @@ extends ConfigurableElement<W> {
 		//Checks if the current widget has a left mouse button release command.
 		if (!hasLeftMouseButtonReleaseCommand()) {
 			throw 
-			new UnexistingAttributeException(
+			new ArgumentMissesAttributeException(
 				this,
 				"left mouse button release command"
 			);
@@ -1729,7 +1729,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
 	 * does not have a right mouse button press command.
 	 */
 	private void supposeHasRightMouseButtonPressCommad() {
@@ -1737,7 +1737,7 @@ extends ConfigurableElement<W> {
 		//Checks if the current widget has a right mouse button press command.
 		if (!hasRightMouseButtonPressCommand()) {
 			throw 
-			new UnexistingAttributeException(
+			new ArgumentMissesAttributeException(
 				this,
 				"right mouse button press command"
 			);
@@ -1746,7 +1746,7 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
-	 * @throws UnexistingAttributeException if the current {@link Widget}
+	 * @throws ArgumentMissesAttributeException if the current {@link Widget}
 	 * does not have a right mouse button release command.
 	 */
 	private void supposeHasRightMouseButtonReleaseCommad() {
@@ -1754,7 +1754,7 @@ extends ConfigurableElement<W> {
 		//Checks if the current widget has a right mouse button release command.
 		if (!hasRightMouseButtonReleaseCommand()) {
 			throw 
-			new UnexistingAttributeException(
+			new ArgumentMissesAttributeException(
 				this,
 				"right mouse button release command"
 			);

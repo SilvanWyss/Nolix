@@ -324,7 +324,7 @@ public abstract class DocumentNodeoid implements Headered {
 	 * @param index
 	 * @return the attribute at the given index from the current {@link DocumentNodeoid}.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
-	 * @throws UnexistingAttributeException if the current {@link DocumentNodeoid} does not contain an attribute at the given index.
+	 * @throws ArgumentMissesAttributeException if the current {@link DocumentNodeoid} does not contain an attribute at the given index.
 	 */
 	@SuppressWarnings("unchecked")
 	public <S extends DocumentNodeoid> S getRefAttributeAt(final int index) {
@@ -372,7 +372,7 @@ public abstract class DocumentNodeoid implements Headered {
 	/**
 	 * @param selector
 	 * @return the first attribute the given selector selects from the current {@link DocumentNodeoid}.
-	 * @throws UnexistingAttributeException if the current {@link DocumentNodeoid} does not contain an attribute the given selector selects.
+	 * @throws ArgumentMissesAttributeException if the current {@link DocumentNodeoid} does not contain an attribute the given selector selects.
 	 */
 	@SuppressWarnings("unchecked")
 	public <S extends DocumentNodeoid> S getRefFirstAttribute(
