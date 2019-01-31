@@ -17,7 +17,7 @@ import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator2.Validator;

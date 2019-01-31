@@ -8,7 +8,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.color.Color;

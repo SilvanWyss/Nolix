@@ -5,7 +5,7 @@ package ch.nolix.system.neuron;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.system.neuronoid.InputConnection;
 import ch.nolix.system.neuronoid.Neuronoid;

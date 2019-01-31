@@ -3,7 +3,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 import ch.nolix.element.painter.IPainter;
 

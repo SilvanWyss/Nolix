@@ -5,7 +5,7 @@ package ch.nolix.core.endPoint3;
 import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.communicationAPI.IReplier;
 import ch.nolix.core.communicationAPI.IReplyingSender;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //abstract class

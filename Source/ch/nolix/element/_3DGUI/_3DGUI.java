@@ -15,7 +15,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.skillAPI.Closable;
 import ch.nolix.core.skillAPI.Refreshable;

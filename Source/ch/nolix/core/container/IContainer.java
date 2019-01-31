@@ -16,7 +16,7 @@ import ch.nolix.core.functionAPI.IElementTakerLongGetter;
 import ch.nolix.core.functionAPI.ITwoElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //interface

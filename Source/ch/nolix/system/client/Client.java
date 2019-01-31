@@ -14,7 +14,7 @@ import ch.nolix.core.endPoint5.NetEndPoint;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Closable;
 import ch.nolix.core.validator2.Validator;
 

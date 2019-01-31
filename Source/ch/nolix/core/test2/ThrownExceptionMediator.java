@@ -4,7 +4,7 @@ package ch.nolix.core.test2;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 
 //class
 /**

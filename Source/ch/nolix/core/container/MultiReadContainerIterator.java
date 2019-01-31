@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 
 //package-visible class
 final class MultiReadContainerIterator<E> implements Iterator<E> {

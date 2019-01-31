@@ -9,7 +9,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.container.Pair;
 import ch.nolix.core.container.SequencePattern;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.test2.Test;
 

@@ -7,7 +7,7 @@ import ch.nolix.core.endPoint3.EndPoint;
 import ch.nolix.core.endPoint3.NetEndPoint;
 import ch.nolix.core.endPoint3.IEndPointTaker;
 import ch.nolix.core.endPoint3.NetServer;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.test2.Test;
 
 //test class

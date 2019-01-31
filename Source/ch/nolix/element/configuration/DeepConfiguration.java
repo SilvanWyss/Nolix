@@ -4,7 +4,7 @@ package ch.nolix.element.configuration;
 //own imports
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.element.core.PositiveInteger;

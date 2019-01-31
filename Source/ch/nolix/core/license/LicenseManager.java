@@ -3,7 +3,7 @@ package ch.nolix.core.license;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 
 //class
 /**

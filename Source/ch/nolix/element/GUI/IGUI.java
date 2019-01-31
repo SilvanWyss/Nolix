@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.generalSkillAPI.Castable;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.skillAPI.Closable;
 import ch.nolix.core.skillAPI.IRequestableContainer;

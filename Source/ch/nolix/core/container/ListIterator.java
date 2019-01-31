@@ -5,7 +5,7 @@ package ch.nolix.core.container;
 import java.util.Iterator;
 
 //own import
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 
 //package-visible class
 /**

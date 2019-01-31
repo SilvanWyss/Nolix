@@ -5,7 +5,7 @@ package ch.nolix.core.documentNode;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //class

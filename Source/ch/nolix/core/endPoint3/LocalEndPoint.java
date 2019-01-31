@@ -2,7 +2,7 @@
 package ch.nolix.core.endPoint3;
 
 //own imports
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator2.Validator;
 
 //class

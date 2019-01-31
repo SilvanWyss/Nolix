@@ -12,7 +12,7 @@ import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.util.PopupWindowProvider;
 import ch.nolix.core.validator2.Validator;
 

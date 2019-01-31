@@ -12,7 +12,7 @@ import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidStateException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.constants.FunctionCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specificationAPI.Configurable;
