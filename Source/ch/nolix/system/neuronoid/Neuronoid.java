@@ -5,6 +5,7 @@ package ch.nolix.system.neuronoid;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.sequencer.Future;
 import ch.nolix.core.sequencer.Sequencer;
@@ -253,6 +254,9 @@ implements ISmartObject<N> {
 	 * @param output
 	 */
 	protected final void internal_setOutput(final O output) {
+		
+		Validator.suppose(output).thatIsNamed(VariableNameCatalogue.OUTPUT).isNotNull();
+		
 		this.output = output;
 	}
 	
