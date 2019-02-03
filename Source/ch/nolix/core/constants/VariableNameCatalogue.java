@@ -63,6 +63,7 @@ public final class VariableNameCatalogue {
 	public static final String HEIGHT = "height";
 	public static final String ID = "id";
 	public static final String INDEX = "index";
+	public static final String INPUT = "input";
 	public static final String INTERFACE = "interface";
 	public static final String ITEM = "item";
 	public static final String JOB = "job";
@@ -74,6 +75,7 @@ public final class VariableNameCatalogue {
 	public static final String NAME = "name";
 	public static final String NEXT_ELEMENT = "next element";
 	public static final String NODE = "node";
+	public static final String OUTPUT = "output";
 	public static final String OUTPUT_FUNCTION = "output function";
 	public static final String PATH = "path";
 	public static final String PERCENTAGE = "percentage";
