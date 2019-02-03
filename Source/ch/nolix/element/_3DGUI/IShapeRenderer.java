@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.element._3DGUI;
 
-//own imports
-import ch.nolix.core.invalidStateException.UnsupportedMethodException;
+//own import
+import ch.nolix.core.invalidArgumentException.ArgumentDoesNotSupportMethodException;
 
 //interface
 /**
@@ -25,7 +25,7 @@ public interface IShapeRenderer<S extends Shape<S>, RO, SRO> {
 		final RO renderObject,
 		final SRO subRenderObject
 	) {
-		throw new UnsupportedMethodException(
+		throw new ArgumentDoesNotSupportMethodException(
 			this,
 			"add sub render object"
 		);
@@ -57,7 +57,7 @@ public interface IShapeRenderer<S extends Shape<S>, RO, SRO> {
 		RO renderObject,
 		SRO subRederObject
 	) {
-		throw new UnsupportedMethodException(
+		throw new ArgumentDoesNotSupportMethodException(
 			this,
 			"remove sub render object"
 		);
