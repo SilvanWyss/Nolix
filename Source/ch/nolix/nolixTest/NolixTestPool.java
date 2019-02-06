@@ -9,17 +9,17 @@ import ch.nolix.systemTest.SystemTestPool;
 
 //class
 /**
- * A Nolix test pool is not mutable.
+ * A {@link NolixTestPool} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 20
+ * @lines 30
  */
 public final class NolixTestPool extends TestPool {
-
+	
 	//constructor
 	/**
-	 * Creates a new nolix test pool.
+	 * Creates a new {@link NolixTestPool}.
 	 */
 	public NolixTestPool() {
 		addTestPool(
