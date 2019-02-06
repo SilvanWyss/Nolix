@@ -7,14 +7,14 @@ import ch.nolix.core.validator2.Validator;
 
 //class
 /**
- * A quadratic function is not mutable.
+ * A {@link QuadraticFunction} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 170
+ * @lines 210
  */
-public class QuadraticFunction {
-
+public final class QuadraticFunction {
+	
 	//attributes
 	private final double a;
 	private final double b;
@@ -22,17 +22,31 @@ public class QuadraticFunction {
 	
 	//constructor
 	/**
-	 * Creates a new quadratic function with the given coefficients.
+	 * Creates a new {@link QuadraticFunction} with the givenac.
+	 * The b and c of the {@link QuadraticFunction} will be 0.0.
+	 * 
+	 * @param a
+	 * @throws ZeroArgumentException if the given a is 0.0.
+	 */
+	public QuadraticFunction(final double a) {
+		
+		//Calls other constructor.
+		this(a, 0.0, 0.0);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link QuadraticFunction} with the given coefficients.
 	 * 
 	 * @param a
 	 * @param b
 	 * @param c
-	 * @throws ZeroArgumentException if the given coefficient of the quadratic term is 0.0.
+	 * @throws ZeroArgumentException if the given a is 0.0.
 	 */
 	public QuadraticFunction(final double a, final double b, final double c) {
 		
-		//Checks if the given coefficient of the quadratic term is not 0.0.
-		Validator.suppose(a).thatIsNamed("coefficient of the quadratic term").isNotZero();
+		//Checks if the given a is not 0.0.
+		Validator.suppose(a).thatIsNamed("a").isNotZero();
 		
 		this.a = a;
 		this.b = b;
@@ -41,15 +55,31 @@ public class QuadraticFunction {
 	
 	//method
 	/**
-	 * @return the constant coefficient of this quadratic function.
+	 * @return the a of the current {@link QuadraticFunction}.
 	 */
-	public double getConstantCoefficient() {
+	public double getA() {
+		return a;
+	}
+	
+	//method
+	/**
+	 * @return the b of the current {@link QuadraticFunction}.
+	 */
+	public double getB() {
+		return b;
+	}
+	
+	//method
+	/**
+	 * @return the c of the current {@link QuadraticFunction}.
+	 */
+	public double getC() {
 		return c;
 	}
 	
 	//method
 	/**
-	 * @return the discriminant of this quadratic function.
+	 * @return the discriminant of the current {@link QuadraticFunction}.
 	 */
 	public double getDiscriminant() {
 		return (Math.pow(b, 2) - (4 * a * c));
@@ -57,20 +87,13 @@ public class QuadraticFunction {
 	
 	//method
 	/**
-	 * @return the linear coefficient of this quadratic function.
-	 */
-	public double getLinearCoefficient() {
-		return b;
-	}
-	
-	//method
-	/**
-	 * @return the maximum of this quadratic function.
-	 * @throws ArgumentMissesAttributeException if this quadratic function does not have a maximum.
+	 * @return the maximum of the current {@link QuadraticFunction}.
+	 * @throws ArgumentMissesAttributeException
+	 * if the current {@link QuadraticFunction} does not have a maximum.
 	 */
 	public double getMax() {
 		
-		//Checks if this quadratic function has a maximum.
+		//Checks if the current quadratic function has a maximum.
 		if (!hasMax()) {
 			throw new ArgumentMissesAttributeException(this, "maximum");
 		}
@@ -80,12 +103,13 @@ public class QuadraticFunction {
 	
 	//method
 	/**
-	 * @return the minimum of this quadratic function.
-	 * @throws ArgumentMissesAttributeException if this quadratic function does not have a minimum.
+	 * @return the minimum of the current {@link QuadraticFunction}.
+	 * @throws ArgumentMissesAttributeException
+	 * if the current{@link QuadraticFunction} does not have a minimum.
 	 */
 	public double getMin() {
 		
-		//Checks if this quadratic function has a minimum.
+		//Checks if the current quadratic function has a minimum.
 		if (hasMin()) {
 			throw new ArgumentMissesAttributeException(this, "minimum");
 		}
@@ -95,32 +119,24 @@ public class QuadraticFunction {
 	
 	//method
 	/**
-	 * @return the quadratic coefficient of this quadratic function.
-	 */
-	public double getQuadtaticCoefficient() {
-		return a;
-	}
-	
-	//method
-	/**
-	 * @return the solutions of this quadratic function.
+	 * @return the solutions of the current {@link QuadraticFunction}.
 	 */
 	public double[] getSolutions() {
 		
 		final double discriminant = getDiscriminant();
 		
-		//Handles the case that this quadratic function does not have a solution.
+		//Handles the case that the current quadratic function does not have a solution.
 		if (discriminant < 0) {
 			return new double[0];
 		}
 		
-		//Handles the case that this quadratic function has 1 solution.
+		//Handles the case that the current quadratic function has 1 solution.
 		if (discriminant == 0) {
 			final double[] solutions = new double[1];
 			solutions[0] = -b / (2 * a);
 		}
 		
-		//Handles the case that this quadratic function has 2 solutions.
+		//Handles the case that the current quadratic function has 2 solutions.
 		final double[] solutions = new double[2];
 		double discriminantRoot = Math.sqrt(discriminant);
 		solutions[0] = (-b - discriminantRoot) / (2 * a);
@@ -131,26 +147,30 @@ public class QuadraticFunction {
 	
 	//method
 	/**
-	 * @return the number of solutions of this quadratic function.
+	 * @return the number of solutions of the current {@link QuadraticFunction}.
 	 */
 	public int getSolutionCount() {
 		
+		//Calculates the discriminant of the current quadratic function.
 		final double discriminant = getDiscriminant();
 		
+		//Handles the case that the discriminant is negative.
 		if (discriminant < 0) {
 			return 0;
 		}
 		
+		//Handles the case that the discriminant is 0.0.
 		if (discriminant == 0) {
 			return 1;
 		}
 		
+		//Handles the case that the discriminant is positive.
 		return 2;
 	}
 	
 	//method
 	/**
-	 * @return true if this quadratic function has a maximum.
+	 * @return true if the current {@link QuadraticFunction} has a maximum.
 	 */
 	public boolean hasMax() {
 		return (a < 0);
@@ -158,7 +178,7 @@ public class QuadraticFunction {
 	
 	//method
 	/**
-	 * @return ttrue if this quadratic function has a minimum.
+	 * @return true if the current {@link QuadraticFunction} has a minimum.
 	 */
 	public boolean hasMin() {
 		return (a > 0);
@@ -166,9 +186,25 @@ public class QuadraticFunction {
 	
 	//method
 	/**
-	 * @return a polynom representation of this quadratic function.
+	 * @return a new array with the coefficients of the current {@link QuadraticFunction}.
+	 */
+	public double[] toArray() {
+		return new double[]{a, b, c};
+	}
+	
+	//method
+	/**
+	 * @return a new {@link Polynom} representation of the current {@link QuadraticFunction}.
 	 */
 	public Polynom toPolynom() {
 		return new Polynom(3).setCoefficients(a, b, c);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public String toString() {
+		return toPolynom().toString();
 	}
 }
