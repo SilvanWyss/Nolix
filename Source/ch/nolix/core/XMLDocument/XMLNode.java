@@ -16,8 +16,7 @@ import ch.nolix.core.skillAPI.OptionalValueable;
 import ch.nolix.core.validator2.Validator;
 
 //class
-public final class XMLNode
-extends OptionalNamableElement<XMLNode>
+public final class XMLNode extends OptionalNamableElement<XMLNode>
 implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	
 	//attribute
@@ -101,15 +100,11 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	
 	//method
 	public boolean containsAttributes() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return attributes.containsAny();
 	}
 	
 	//method
 	public boolean containsChildNodes() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return childNodes.containsAny();
 	}
 	
@@ -127,15 +122,11 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	
 	//method
 	public int getAttributeCount() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return attributes.getSize();
 	}
 	
 	//method
 	public int getChildNodeCount() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return childNodes.getSize();
 	}
 	
@@ -241,18 +232,18 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 		
 		stringBuilder.append('>');
 		
-			if (hasValue()) {
+		if (hasValue()) {
+			stringBuilder
+			.append(getValue());
+		}
+		
+		if (containsChildNodes()) {
+			for (final var cn : getRefChildNodes()) {
 				stringBuilder
-				.append(getValue());
+				.append(cn.toString());
 			}
-			
-			if (containsChildNodes()) {
-				for (final var cn : getRefChildNodes()) {
-					stringBuilder
-					.append(cn.toString());
-				}
-			}
-			
+		}
+		
 		stringBuilder
 		.append('<')
 		.append(getName())
@@ -293,32 +284,32 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 		
 		stringBuilder.append('>');
 		
-			if (hasValue()) {
-				 
-				if (!hasMixedContent()) {
-					stringBuilder.append(getValue());
-				}
-				
-				else {
-					stringBuilder
-					.append(CharacterCatalogue.NEW_LINE)
-					.append(StringHelper.createTabulators(leadingTabulatorCount + 1))
-					.append(getValue())
-					.append(CharacterCatalogue.NEW_LINE);
-					
-				}
+		if (hasValue()) {
+			 
+			if (!hasMixedContent()) {
+				stringBuilder.append(getValue());
 			}
 			
-			if (containsChildNodes()) {
+			else {
+				stringBuilder
+				.append(CharacterCatalogue.NEW_LINE)
+				.append(StringHelper.createTabulators(leadingTabulatorCount + 1))
+				.append(getValue())
+				.append(CharacterCatalogue.NEW_LINE);
 				
-				for (final var cn : getRefChildNodes()) {
-					stringBuilder
-					.append(CharacterCatalogue.NEW_LINE)
-					.append(cn.toFormatedString(leadingTabulatorCount + 1));
-				}
-				
-				stringBuilder.append(CharacterCatalogue.NEW_LINE);
 			}
+		}
+		
+		if (containsChildNodes()) {
+			
+			for (final var cn : getRefChildNodes()) {
+				stringBuilder
+				.append(CharacterCatalogue.NEW_LINE)
+				.append(cn.toFormatedString(leadingTabulatorCount + 1));
+			}
+			
+			stringBuilder.append(CharacterCatalogue.NEW_LINE);
+		}
 		
 		if (containsChildNodes()) {
 			stringBuilder.append(StringHelper.createTabulators(leadingTabulatorCount));
