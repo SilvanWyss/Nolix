@@ -8,8 +8,7 @@ import ch.nolix.core.skillAPI.Valued;
 import ch.nolix.core.validator2.Validator;
 
 //class
-public final class XMLAttribute
-extends NamedElement
+public final class XMLAttribute extends NamedElement
 implements Valued<XMLAttribute, String> {
 	
 	//optional attribute
