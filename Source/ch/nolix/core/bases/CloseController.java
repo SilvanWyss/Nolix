@@ -30,7 +30,7 @@ final class CloseController implements Closable {
 	 * @throws NullArgumentException if the given element is null.
 	 */
 	public CloseController(final ClosableElement element) {
-		addElement(element);
+		elements.addAtEnd(element);
 	}
 	
 	//method
