@@ -3,16 +3,16 @@ package ch.nolix.core.functionAPI;
 
 //interface
 /**
- * A two element taker boolean getter has a method
+ * A {@link ITwoElementTakerBooleanGetter} has a method
  * that takes 2 elements of the same type and returns a boolean.
  * 
  * @author Silvan Wyss
  * @month 2017-09
  * @lines 20
- * @param <E> The type of the elements a two element taker boolean getter takes.
+ * @param <E> The type of the elements a {@link ITwoElementTakerBooleanGetter} getter takes.
  */
 public interface ITwoElementTakerBooleanGetter<E> {
-
+	
 	//abstract method
 	/**
 	 * @param element1

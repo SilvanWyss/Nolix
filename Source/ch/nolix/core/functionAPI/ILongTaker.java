@@ -3,19 +3,19 @@ package ch.nolix.core.functionAPI;
 
 //functional interface
 /**
- * A {@link IIntTaker} has a method that takes an int.
+ * A {@link ILongTaker} has a method that takes a long.
  * 
  * @author Silvan Wyss
- * @month 2018-08
+ * @month 2016-09
  * @lines 20
  */
-public interface IIntTaker {
+public interface ILongTaker {
 	
 	//abstract method
 	/**
 	 * Takes the given value.
 	 * 
-	 * @param value
+	 * @return value
 	 */
-	public abstract void run(int value);
+	public abstract void run(long value);
 }

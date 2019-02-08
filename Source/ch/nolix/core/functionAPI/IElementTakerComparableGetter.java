@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.functionAPI;
 
-//function interface
+//functional interface
 /**
  * A {@link IElementTakerComparableGetter} takes an element and returns a {@link Comparable}.
  * 
@@ -13,7 +13,7 @@ package ch.nolix.core.functionAPI;
  * a {@link IElementTakerComparableGetter} returns.
  */
 public interface IElementTakerComparableGetter<E, E2> {
-
+	
 	//abstract method
 	/**
 	 * @param element

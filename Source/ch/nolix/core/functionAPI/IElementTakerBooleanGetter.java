@@ -3,15 +3,15 @@ package ch.nolix.core.functionAPI;
 
 //functional interface
 /**
- * An element taker boolean getter has a method that takes an element and returns a boolean.
+ * A {@link IElementTakerBooleanGetter} has a method that takes an element and returns a boolean.
  * 
  * @author Silvan Wyss
  * @month 2016-03
  * @lines 20
- * @param <E> - The type of the elements an element taker boolean getter takes.
+ * @param <E> The type of the elements a {@link IElementTakerBooleanGetter} takes.
  */
 public interface IElementTakerBooleanGetter<E> {
-
+	
 	//abstract method
 	/**
 	 * @param element

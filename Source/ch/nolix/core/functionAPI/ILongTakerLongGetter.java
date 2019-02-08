@@ -3,14 +3,14 @@ package ch.nolix.core.functionAPI;
 
 //functional interface
 /**
- * A long taker long getter has a method that takes a long and returns a long.
+ * A {@link ILongTakerLongGetter} has a method that takes a long and returns a long.
  * 
  * @author Silvan Wyss
  * @month 2017-12
  * @lines 20
  */
 public interface ILongTakerLongGetter {
-
+	
 	//abstract method
 	/**
 	 * @param value

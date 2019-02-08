@@ -3,13 +3,13 @@ package ch.nolix.core.functionAPI;
 
 //functional interface
 /**
- * A {@link IIntTaker} has a method that takes an int.
+ * A {@link IBooleanTaker} has a method that takes a boolean.
  * 
  * @author Silvan Wyss
  * @month 2018-08
  * @lines 20
  */
-public interface IIntTaker {
+public interface IBooleanTaker {
 	
 	//abstract method
 	/**
@@ -17,5 +17,5 @@ public interface IIntTaker {
 	 * 
 	 * @param value
 	 */
-	public abstract void run(int value);
+	public abstract void run(boolean value);
 }

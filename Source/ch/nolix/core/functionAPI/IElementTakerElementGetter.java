@@ -3,20 +3,20 @@ package ch.nolix.core.functionAPI;
 
 //functional interface
 /**
- * An element taker element getter has a method that takes an element and returns an element.
+ * A {@link IElementTakerElementGetter} has a method that takes an element and returns an element.
  * 
  * @author Silvan Wyss
  * @month 2016-03
  * @lines 20
- * @param <I> - The type of the elements an element taker element getter takes.
- * @param <O> - The type of the elements an element taker element getter returns.
+ * @param <E> The type of the elements a {@link IElementTakerElementGetter} takes.
+ * @param <E2> The type of the elements a {@link IElementTakerElementGetter} returns.
  */
-public interface IElementTakerElementGetter<I, O> {
-
+public interface IElementTakerElementGetter<E, E2> {
+	
 	//abstract method
 	/**
 	 * @param element
 	 * @return an element for the given element.
 	 */
-	public abstract O getOutput(I element);
+	public abstract E2 getOutput(E element);
 }
