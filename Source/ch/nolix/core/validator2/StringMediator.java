@@ -5,19 +5,21 @@ package ch.nolix.core.validator2;
 import java.io.File;
 
 //own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
 import ch.nolix.core.invalidArgumentException.NonEmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //class
 /**
- * A {@link StringMediator} is a {@link Mediator} for an argument, that is a {@link String}.
+ * A {@link StringMediator} is a {@link Mediator} for an argument that is a {@link String}.
  * A {@link StringMediator} is not mutable.
  * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 230
+ * @lines 260
  */
 public class StringMediator extends ArgumentMediator<String> {
 	
@@ -40,12 +42,44 @@ public class StringMediator extends ArgumentMediator<String> {
 	 * @param argumentName
 	 * @param argument
 	 * @throws NullArgumentException if the given argument name is null.
-	 * @throws EmptyArgumentException if the given argument name is empty.
+	 * @throws InvalidArgumentException if the given argument name is blank.
 	 */
 	StringMediator(final String argumentName, final String argument) {
 		
 		//Calls constructor of the base class.
 		super(argumentName, argument);
+	}
+	
+	//method
+	/**
+	 * @param length
+	 * @return a new {TerminalStringMediator} for the argument of the current {@link StringMediator}.
+	 * @throws NegativeArgumentException if the given length is negative.
+	 * @throws NullArgumentException if the argument of the current {@link StringMediator} is null.
+	 * @throws InvalidArgumentException
+	 * if the argument of the current {@link StringMediator} does not have the given length.
+	 */
+	public TerminalArgumentMediator<String> hasLength(final int length) {
+		
+		//Checks if the given length is not negative.
+		if (length < 0) {
+			throw new NegativeArgumentException(VariableNameCatalogue.LENGTH, length);
+		}
+		
+		//Checks if the argument of the current string mediator is not null.
+		isNotNull();
+		
+		//Checks if the argument of the current string mediator does not have the given length.
+		if (getRefArgument().length() != length) {
+			throw
+			new InvalidArgumentException(
+				getArgumentName(),
+				getRefArgument(),
+				"does not have the length " + length
+			);
+		}
+		
+		return new TerminalArgumentMediator<String>(getArgumentName(), getRefArgument());
 	}
 	
 	//method
@@ -109,13 +143,12 @@ public class StringMediator extends ArgumentMediator<String> {
 	/**
 	 * @return a new {TerminalStringMediator} for the argument of the current {@link StringMediator}.
 	 * @throws NullArgumentException if the argument of the current {@link StringMediator} is null.
-	 * @throws EmptyArgumentException if the argument of the current {@link StringMediator} is empty.
 	 * @throws InvalidArgumentException if the argument of the current {@link StringMediator} is blank.
 	 */
 	public TerminalArgumentMediator<String> isNotBlank() {
 		
-		//Checks if the argument of the current string mediator is not null or empty.
-		isNotEmpty();
+		//Checks if the argument of the current string mediator is not null.
+		isNotNull();
 		
 		//Checks if the the argument of the current string mediator is not blank.
 		if (getRefArgument().isBlank()) {
