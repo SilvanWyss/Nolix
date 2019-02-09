@@ -6,7 +6,7 @@ import java.util.Vector;
 
 //own imports
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.test2.Test;
+import ch.nolix.core.test.Test;
 
 /**
  * This class is a test class for the calculator class.

@@ -3,7 +3,7 @@ package ch.nolix.coreTest.containerTest;
 
 //own imports
 import ch.nolix.core.container.Matrix;
-import ch.nolix.core.test2.Test;
+import ch.nolix.core.test.Test;
 
 //class
 /**

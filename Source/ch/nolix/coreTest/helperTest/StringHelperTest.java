@@ -3,7 +3,7 @@ package ch.nolix.coreTest.helperTest;
 
 //own imports
 import ch.nolix.core.helper.StringHelper;
-import ch.nolix.core.test2.Test;
+import ch.nolix.core.test.Test;
 
 //test class
 /**

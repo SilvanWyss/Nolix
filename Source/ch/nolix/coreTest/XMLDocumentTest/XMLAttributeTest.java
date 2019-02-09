@@ -4,7 +4,7 @@ package ch.nolix.coreTest.XMLDocumentTest;
 //own imports
 import ch.nolix.core.XMLDocument.XMLAttribute;
 import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.test2.Test;
+import ch.nolix.core.test.Test;
 
 //test class
 public final class XMLAttributeTest extends Test {

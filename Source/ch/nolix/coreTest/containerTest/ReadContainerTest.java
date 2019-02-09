@@ -3,7 +3,7 @@ package ch.nolix.coreTest.containerTest;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.test2.Test;
+import ch.nolix.core.test.Test;
 
 //class
 public final class ReadContainerTest extends Test {

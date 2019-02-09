@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.test2;
+package ch.nolix.core.test;
 
 //own imports
 import ch.nolix.core.invalidArgumentException.NullArgumentException;

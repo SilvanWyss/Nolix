@@ -4,7 +4,7 @@ package ch.nolix.elementTest.taskTest;
 //own imports
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
-import ch.nolix.core.test2.Test;
+import ch.nolix.core.test.Test;
 import ch.nolix.element.task.Tableau;
 import ch.nolix.element.task.Task;
 

@@ -11,7 +11,7 @@ import ch.nolix.core.container.SequencePattern;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.test2.Test;
+import ch.nolix.core.test.Test;
 
 //class
 /**

@@ -3,7 +3,7 @@ package ch.nolix.elementTest.financeTest;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.test2.Test;
+import ch.nolix.core.test.Test;
 import ch.nolix.element.core.Time;
 import ch.nolix.element.finance.GoogleDataProvider;
 import ch.nolix.element.finance.NASDAQProductSymbolManager;

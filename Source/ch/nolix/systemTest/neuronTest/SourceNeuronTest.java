@@ -3,7 +3,7 @@ package ch.nolix.systemTest.neuronTest;
 
 //own imports
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
-import ch.nolix.core.test2.Test;
+import ch.nolix.core.test.Test;
 import ch.nolix.system.neuronoid.SourceNeuron;
 
 //test class

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.taskTest;
 
-//own imports
-import ch.nolix.core.test2.Test;
+import ch.nolix.core.test.Test;
 import ch.nolix.element.task.Task;
 
 //test class

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
-//own imports
-import ch.nolix.core.test2.ObjectTest;
+import ch.nolix.core.test.ObjectTest;
 import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.GUI.Widget;
 
