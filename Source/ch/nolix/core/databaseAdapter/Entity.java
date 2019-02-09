@@ -133,7 +133,17 @@ public class Entity implements Identified2, Specified {
 	}
 	
 	//method
-	public IContainer<Propertyoid<?>> getRefProperties() {
+	public final IContainer<BackReferenceoid<?>> getRefBackReferences() {
+		
+		if (!propertiesAndBackReferencesAreExtracted()) {
+			extractPropertiesAndBackReferences();
+		}
+		
+		return backReferences;
+	}
+	
+	//method
+	public final IContainer<Propertyoid<?>> getRefProperties() {
 		
 		if (!propertiesAndBackReferencesAreExtracted()) {
 			extractPropertiesAndBackReferences();
@@ -406,7 +416,7 @@ public class Entity implements Identified2, Specified {
 	
 	//package-visible method
 	final void supposeCanReferenceBackAdditionally(final Entity entity, final String referencingPropertyHeader) {
-		backReferences
+		getRefBackReferences()
 		.getRefSelected(br -> br.hasReferencingPropertyHeader(referencingPropertyHeader))
 		.forEach(br -> br.supposeCanReferenceBackAdditionally(entity, referencingPropertyHeader));
 	}
@@ -415,6 +425,7 @@ public class Entity implements Identified2, Specified {
 	private void extractPropertiesAndBackReferences() {
 		
 		properties = new List<Propertyoid<?>>();
+		backReferences = new List<BackReferenceoid<?>>();
 		
 		Class<?> cl = getClass();
 		while (cl != null) {
