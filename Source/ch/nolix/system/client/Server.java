@@ -7,7 +7,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 /**

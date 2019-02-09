@@ -6,7 +6,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.skillAPI.Resettable;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 public final class SQLExecutor implements Resettable<SQLExecutor> {

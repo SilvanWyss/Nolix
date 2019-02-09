@@ -5,7 +5,7 @@ package ch.nolix.core.container;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //package-visible class
 /**

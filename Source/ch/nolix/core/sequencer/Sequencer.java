@@ -7,7 +7,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IBooleanGetter;
 import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.core.functionAPI.IFunction;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 /**

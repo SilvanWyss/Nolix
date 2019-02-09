@@ -10,7 +10,7 @@ import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.core.PositiveInteger;

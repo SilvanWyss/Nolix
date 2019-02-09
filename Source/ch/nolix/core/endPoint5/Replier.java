@@ -3,7 +3,7 @@ package ch.nolix.core.endPoint5;
 
 //own imports
 import ch.nolix.core.communicationAPI.IReplier;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //package-visible class
 /**

@@ -4,7 +4,7 @@ package ch.nolix.core.util;
 //own imports
 import ch.nolix.core.constants.FileExtensionCatalogue;
 import ch.nolix.core.fileSystem.FolderAccessor;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 public final class JavaScriptBundler {

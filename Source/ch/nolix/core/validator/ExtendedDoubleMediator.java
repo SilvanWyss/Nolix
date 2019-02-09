@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.validator2;
+package ch.nolix.core.validator;
 
 //own imports
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
@@ -7,21 +7,21 @@ import ch.nolix.core.invalidArgumentException.NullArgumentException;
 
 //class
 /**
-* An extended long mediator is not mutable.
+* An extended double mediator is not mutable.
 * 
 * @author Silvan Wyss
 * @month 2017-11
 * @lines 40
 */
-public class ExtendedLongMediator extends LongMediator {
+public class ExtendedDoubleMediator extends DoubleMediator {
 
-	//package-visible constructor
+	//package-visibel constructor
 	/**
-	 * Creates a new extended long mediator for the given argument.
+	 * Creates a new extended double mediator for the given argument.
 	 * 
 	 * @param argument
 	 */
-	ExtendedLongMediator(final long argument) {
+	ExtendedDoubleMediator(final double argument) {
 		
 		//Calls constructor of the base class.
 		super(argument);
@@ -30,11 +30,11 @@ public class ExtendedLongMediator extends LongMediator {
 	//method
 	/**
 	 * @param argumentName
-	 * @return a new long mediator with the given argument name for the argument of this extended long mediator.
+	 * @return a new double mediator with the given argument name for the argument of this extended double mediator.
 	 * @throws NullArgumentException if the given argument name is null.
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
-	public LongMediator thatIsNamed(final String argumentName) {
-		return new LongMediator(argumentName, getArgument());
+	public DoubleMediator thatIsNamed(final String argumentName) {
+		return new DoubleMediator(argumentName, getArgument());
 	}
 }

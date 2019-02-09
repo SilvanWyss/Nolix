@@ -10,7 +10,7 @@ import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.Element;

@@ -7,7 +7,7 @@ import java.io.File;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 /**

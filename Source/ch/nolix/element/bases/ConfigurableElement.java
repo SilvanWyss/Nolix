@@ -10,7 +10,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.OptionalTokenable;
 import ch.nolix.core.specificationAPI.Configurable;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //abstract class
 /**

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.validator2;
+package ch.nolix.core.validator;
 
 //own imports
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;

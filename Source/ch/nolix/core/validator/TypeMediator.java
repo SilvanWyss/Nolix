@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.validator2;
+package ch.nolix.core.validator;
 
 //Java import
 import java.lang.reflect.Modifier;

@@ -8,7 +8,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.databaseAdapter.Schema;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.core.databaseAdapter.DatabaseAdapter;
 import ch.nolix.core.databaseAdapter.Entity;
 import ch.nolix.core.databaseAdapter.EntitySet;

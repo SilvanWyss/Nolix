@@ -8,7 +8,7 @@ import java.lang.reflect.ParameterizedType;
 import ch.nolix.core.helper.ReflectionHelper;
 import ch.nolix.core.invalidArgumentException.ArgumentWithoutParentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //abstract class
 public abstract class BackReferenceoid<E extends Entity> {

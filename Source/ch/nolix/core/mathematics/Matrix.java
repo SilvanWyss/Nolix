@@ -11,7 +11,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.helper.DoubleHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.ApproximativeEqualing;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 /**

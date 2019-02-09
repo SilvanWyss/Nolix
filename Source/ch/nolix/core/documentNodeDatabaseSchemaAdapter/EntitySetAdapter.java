@@ -9,7 +9,7 @@ import ch.nolix.core.databaseSchemaAdapter.IColumnAdapter;
 import ch.nolix.core.databaseSchemaAdapter.IEntitySetAdapter;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 public final class EntitySetAdapter implements IEntitySetAdapter {

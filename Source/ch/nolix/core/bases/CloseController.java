@@ -5,7 +5,7 @@ package ch.nolix.core.bases;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Closable;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.core.container.List;
 
 //package-visible class

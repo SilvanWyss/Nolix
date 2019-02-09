@@ -8,7 +8,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 
 //class

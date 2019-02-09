@@ -4,7 +4,7 @@ package ch.nolix.system.client;
 //own imports
 import ch.nolix.core.endPoint5.EndPoint;
 import ch.nolix.core.endPoint5.IEndPointTaker;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //package-visible class
 /**

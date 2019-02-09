@@ -5,7 +5,7 @@ package ch.nolix.core.SQLDatabaseSchemaAdapter;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.databaseSchemaAdapter.Column;
 import ch.nolix.core.databaseSchemaAdapter.IColumnAdapter;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 public final class ColumnAdapter implements IColumnAdapter {

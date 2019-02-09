@@ -11,7 +11,7 @@ import ch.nolix.core.databaseAdapter.PropertyKind;
 import ch.nolix.core.databaseAdapter.PropertyoidType;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.specificationAPI.Specified;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 public final class Column

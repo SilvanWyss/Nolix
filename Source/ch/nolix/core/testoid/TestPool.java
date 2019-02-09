@@ -11,7 +11,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.primitiveContainer.List;
 import ch.nolix.core.skillAPI.Runnable;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 /**

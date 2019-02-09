@@ -9,7 +9,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.specificationAPI.Specifiable;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //abstract class
 /**

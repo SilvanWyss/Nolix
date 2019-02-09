@@ -3,7 +3,7 @@ package ch.nolix.core.sequencer;
 
 //own imports
 import ch.nolix.core.constants.TimeUnitCatalogue;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //package-visibel class
 /**

@@ -4,7 +4,7 @@ package ch.nolix.core.bases;
 //own imports
 import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.skillAPI.Labelable;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //abstract class
 /**

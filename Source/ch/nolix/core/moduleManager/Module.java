@@ -6,7 +6,7 @@ import java.io.File;
 
 //own imports
 import ch.nolix.core.skillAPI.Named;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //abstract class
 /**

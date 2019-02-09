@@ -5,7 +5,7 @@ package ch.nolix.core.sequencer;
 import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.util.PopupWindowProvider;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //package-visible class
 /**

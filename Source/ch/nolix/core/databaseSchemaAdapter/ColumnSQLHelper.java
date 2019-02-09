@@ -3,7 +3,7 @@ package ch.nolix.core.databaseSchemaAdapter;
 
 //own imports
 import ch.nolix.core.SQL.SQLDatabaseEngine;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //abstract class
 public abstract class ColumnSQLHelper {

@@ -10,8 +10,8 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.helper.MethodHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
-import ch.nolix.core.validator2.Validator;
 
 //abstract class
 /**

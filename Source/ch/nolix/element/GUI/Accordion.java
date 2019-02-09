@@ -10,7 +10,7 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.entity.MutableMultiProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.skillAPI.Clearable;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
 

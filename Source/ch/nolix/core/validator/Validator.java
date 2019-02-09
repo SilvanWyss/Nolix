@@ -1,324 +1,315 @@
-/*
- * file:	Validator.java
- * author:	Silvan Wyss
- * month:	2016-01
- * lines:	320
- */
-
 //package declaration
 package ch.nolix.core.validator;
 
 //own imports
-import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
+import ch.nolix.core.invalidArgumentException.FalseArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
-import ch.nolix.core.invalidArgumentException.SmallerArgumentException;
-import ch.nolix.core.invalidArgumentException.UnequalArgumentException;
-import ch.nolix.core.invalidArgumentException.ZeroArgumentException;
+import ch.nolix.core.invalidArgumentException.TrueArgumentException;
+import ch.nolix.core.primitiveContainer.List;
+import ch.nolix.core.primitiveHelper.ArrayHelper;
 
 //class
 /**
- * This class provides methods to validate values.
+ * The validator provides functions to validate arguments.
+ * Methods are called on objects, functions are called independently.
+ * Of this class an instance cannot be created.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-11
+ * @lines 310
  */
 public final class Validator {
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new argument mediator for given argument.
+	 */
+	public static <A> ExtendedArgumentMediator<A> suppose(final A argument) {
+		return new ExtendedArgumentMediator<A>(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new extended container mediator for the given argument.
+	 */
+	public static <A> ExtendedContainerMediator<A> suppose(final A[] argument) {
+		return new ExtendedContainerMediator<A>(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @throws FalseArgumentException if the given argument is false.
+	 */
+	public static void suppose(final boolean argument) {
 		
+		//Checks if the given argument is true.
+		if (!argument) {
+			throw new FalseArgumentException(argument);
+		}
+	}
+	
 	//static method
-	/**
-	 * @param name
-	 * @param string
-	 * @throws Exception if the given string, that has the given name, is null or empty
+	/** 
+	 * @param arguments
+	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws FalseArgumentException if one of the given arguments is false.
 	 */
-	public static final void throwExceptionIfStringIsNullOrEmpty(String name, String string) {
+	public static void suppose(final boolean... arguments) {
 		
-		Validator.throwExceptionIfValueIsNull(name, string);
+		//Checks if the given arguments is not null.
+		if (arguments == null) {
+			throw new NullArgumentException("arguments");
+		}
 		
-		if (string.length() < 1) {
-			throw new EmptyArgumentException(name, string);
-		}
-	}
-	
-	//static method
-	/**
-	 * @param name
-	 * @param max
-	 * @param valie
-	 * @throws Exception if the given value, that has the given name, is bigger than the given max
-	 */
-	public static final void throwExceptionIfValueIsBigger(String name, double max, double value) {
-		if (value > max) {
-			throw new RuntimeException("The " + name + " " + value + " is bigger than " + max + ".");
-		}
-	}
-
-	//static method
-	/**
-	 * @param name
-	 * @param max
-	 * @param valie
-	 * @throws Exception if the given value, that has the given name, is bigger than the given max
-	 */
-	public static final void throwExceptionIfValueIsBigger(String name, int max, int value) {
-		if (value > max) {
-			throw new RuntimeException("The " + name + " " + value + " is bigger than " + max + ".");
-		}
-	}
-	
-	//static method
-	/**
-	 * @param name
-	 * @param max
-	 * @param valie
-	 * @throws Exception if the given value, that has the given name, is bigger than the given max
-	 */
-	public static final void throwExceptionIfValueIsBigger(String name, long max, long value) {
-		if (value > max) {
-			throw new RuntimeException("The " + name + " " + value + " is bigger than " + max + ".");
-		}
-	}
-	
-	//static method
-	/**
-	 * @param name
-	 * @param value
-	 * @throws Exception if the given value, that has the given name, is negative
-	 */
-	public static final void throwExceptionIfValueIsNegative(String name, double value) {
-		if (value < 0) {
-			throw new NegativeArgumentException(name, value);
-		}
-	}
-	
-	//static method
-	/**
-	 * @param name
-	 * @param value
-	 * @throws Exception if the given value, that has the given name, is negative
-	 */
-	public static final void throwExceptionIfValueIsNegative(String name, int value) {
-		if (value < 0) {
-			throw new NegativeArgumentException(name, value);
-		}
-	}
-	
-	//static method
-	/**
-	 * @param name
-	 * @param value
-	 * @throws Exception if the given value, that has the given name, is negative
-	 */
-	public static final void throwExceptionIfValueIsNegative(String name, long value) {
-		if (value < 0) {
-			throw new NegativeArgumentException(name, value);
-		}
-	}
-	
-	//static method
-	/**
-	 * @param name
-	 * @param expectedValue
-	 * @param value
-	 * @throws Exception if the given value, that has the given name, does not equal the given expected value
-	 */
-	public static final void throwExceptionIfValueIsNotEqual(String name, double expectedValue, double value) {
-		if (value != expectedValue) {
-			throw new UnequalArgumentException(name, expectedValue, value);
-		}
-	}
-	
-	//static method
-	/**
-	 * @param name
-	 * @param expectedValue
-	 * @param value
-	 * @throws Exception if the given value, that has the given name, does not equal the given expected value
-	 */
-	public static final void throwExceptionIfValueIsNotEqual(String name, int expectedValue, int value) {
-		if (value != expectedValue) {
-			throw new UnequalArgumentException(name, expectedValue, value);
-		}
-	}
-	
-	//static method
-	/**
-	 * @param name
-	 * @param expectedValue
-	 * @param value
-	 * @throws Exception if the given value, that has the given name, does not equal the given expected value
-	 */
-	public static final void throwExceptionIfValueIsNotEqual(String name, long expectedValue, long value) {
-		if (value != expectedValue) {
-			throw new UnequalArgumentException(name, expectedValue, value);
-		}
-	}
-	
-	public static final void throwExceptionIfValueIsNotOne(String name, int value) {
-		if (value != 1) {
+		//Iterates the given arguments.
+		int i = 1;
+		for (final boolean a: arguments) {
+				
+			//Checks if the current argument is true.
+			if (!a) {
+				throw new FalseArgumentException(i + "th argument");
+			}
 			
+			i++;
 		}
 	}
 	
 	//static method
 	/**
-	 * @param name
-	 * @param min
-	 * @param max
-	 * @param value
-	 * @throws Exception if the given value, that has the given name, is not in the given range
+	 * @param argument
+	 * @return a new {@link ExtendedTypeMediator} for the given argument.
 	 */
-	public static final void throwExceptionIfValueIsNotInRange(String name, double min, double max, double value) {
-		throwExceptionIfValueIsSmaller(name, min, value);
-		throwExceptionIfValueIsBigger(name, max, value);
+	public static <T> ExtendedTypeMediator<T> suppose(final Class<T> argument) {
+		return new ExtendedTypeMediator<T>(argument);
 	}
 	
 	//static method
 	/**
-	 * @param name
-	 * @param min
-	 * @param max
-	 * @param value
-	 * @throws Exception if the given value, that has the given name, is not in the given range
+	 * @param argument
+	 * @return a new extended double mediator for the given argument.
 	 */
-	public static final void throwExceptionIfValueIsNotInRange(String name, int min, int max, int value) {
-		throwExceptionIfValueIsSmaller(name, min, value);
-		throwExceptionIfValueIsBigger(name, max, value);
+	public static ExtendedDoubleMediator suppose(final double argument) {
+		return new ExtendedDoubleMediator(argument);
 	}
 	
 	//static method
 	/**
-	 * @param name
-	 * @param min
-	 * @param max
-	 * @param value
-	 * @throws Exception if the given value, that has the given name, is not in the given range
+	 * @param argument
+	 * @return a new extended container mediator for the given argument.
 	 */
-	public static final void throwExceptionIfValueIsNotInRange(String name, long min, long max, long value) {
-		throwExceptionIfValueIsSmaller(name, min, value);
-		throwExceptionIfValueIsBigger(name, max, value);
+	public static ExtendedContainerMediator<Double> suppose(final double[] argument) {
+		
+		//Handles the case that the given argument is null.
+		if (argument == null) {
+			final List<Double> argumentVector = null;
+			return new ExtendedContainerMediator<Double>(argumentVector);
+		}
+		
+		//Handles the case that the given argument is not null.
+		return new ExtendedContainerMediator<Double>(ArrayHelper.createIterable(argument));
 	}
 	
 	//static method
 	/**
-	 * @param name
-	 * @param value
-	 * @throws Exception if the given value, that has the with given name, is not positive
+	 * @param argument
+	 * @return a new extended long mediator for the given argument.
 	 */
-	public static final void throwExceptionIfValueIsNotPositive(String name, double value) {
-		if (value < 1) {
-			throw new RuntimeException("The " + name + " " + value + " is not positive.");
+	public static ExtendedLongMediator suppose(final int argument) {
+		return new ExtendedLongMediator(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new extended container mediator for the given argument.
+	 */
+	public static ExtendedContainerMediator<Long> suppose(final int[] argument) {
+		
+		//Handles the case that the given argument is null.
+		if (argument == null) {
+			final List<Long> argumentVector = null;
+			return new ExtendedContainerMediator<Long>(argumentVector);
+		}
+		
+		//Handles the case that the given argument is not null.
+		return new ExtendedContainerMediator<Long>(ArrayHelper.createIterable(argument));
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new extended container mediator for the given argument.
+	 */
+	public static <A> ExtendedContainerMediator<A> suppose(final Iterable<A> argument) {
+		return new ExtendedContainerMediator<A>(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new extended long mediator for the given argument.
+	 */
+	public static ExtendedLongMediator suppose(final long argument) {
+		return new ExtendedLongMediator(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new extended container mediator for the given argument.
+	 */
+	public static ExtendedContainerMediator<Long> suppose(final long[] argument) {
+		
+		//Handles the case that the given argument is null.
+		if (argument == null) {
+			final List<Long> argumentVector = null;
+			return new ExtendedContainerMediator<Long>(argumentVector);
+		}
+		
+		//Handles the case that the given argument is not null.
+		return new ExtendedContainerMediator<Long>(ArrayHelper.createIterable(argument));
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new extended string mediator for the given argument.
+	 */
+	public static ExtendedStringMediator suppose(final String argument) {
+		return new ExtendedStringMediator(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new extended container mediator for the given argument.
+	 */
+	public static ExtendedContainerMediator<String> suppose(final String[] argument) {
+		return new ExtendedContainerMediator<String>(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @throws TrueException if the given argument is true.
+	 */
+	public static void supposeNot(final boolean argument) {
+		
+		//Checks if the given argument is false.
+		if (argument) {
+			throw new TrueArgumentException(argument);
+		}
+	}
+	
+	//static method
+	/** 
+	 * @param arguments
+	 * @throws NullArgumentException if the given arguments is null.
+	 * @throws TrueArgumentException if one of the given arguments is true.
+	 */
+	public static void supposeNot(final boolean... arguments) {
+		
+		//Checks if the given arguments is not null.
+		if (arguments == null) {
+			throw new NullArgumentException("arguments");
+		}
+		
+		//Iterates the given arguments.
+		int i = 1;
+		for (final boolean a : arguments) {
+				
+			//Checks if the current argument is false.
+			if (a) {
+				throw new TrueArgumentException(i + "th argument");
+			}
+			
+			i++;
 		}
 	}
 	
 	//static method
 	/**
-	 * @param name
-	 * @param value
-	 * @throws Exception if the given value, that has the with given name, is not positive
+	 * @param arguments
+	 * @return a new multi double mediator for the given arguments.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static final void throwExceptionIfValueIsNotPositive(String name, int value) {
-		if (value < 1) {
-			throw new RuntimeException("The " + name + " " + value + " is not positive.");
-		}
+	public static MultiDoubleMediator supposeTheDoubles(final double... arguments) {
+		return new MultiDoubleMediator(arguments);
 	}
 	
 	//static method
 	/**
-	 * @param name
-	 * @param value
-	 * @throws Exception if the given value, that has the with given name, is not positive
+	 * @param arguments
+	 * @return a new multi double mediator for the given arguments.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static final void throwExceptionIfValueIsNotPositive(String name, long value) {
-		if (value < 1) {
-			throw new RuntimeException("The " + name + " " + value + " is not positive.");
-		}
+	public static MultiDoubleMediator supposeTheDoubles(final Iterable<Double> arguments) {
+		return new MultiDoubleMediator(arguments);
 	}
 	
 	//static method
 	/**
-	 * @param name
-	 * @param value
-	 * @throws Exception if the given value, that has the given name, is null
+	 * @param arguments
+	 * @return a new multi argument mediator for the given arguments.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static final void throwExceptionIfValueIsNull(String name, Object value) {
-		if (value == null) {
-			throw new NullArgumentException(name);
-		}
+	public static <E> MultiArgumentMediator<E> supposeTheElements(final E[] arguments) {
+		return new MultiArgumentMediator<E>(arguments);
 	}
 	
 	//static method
 	/**
-	 * @param name
-	 * @param min
-	 * @param value
-	 * @throws Exception if the given value, that has the given name, is smaller than the given min
+	 * @param arguments
+	 * @return a new multi argument mediator for the given arguments.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static final void throwExceptionIfValueIsSmaller(String name, double min, double value) {
-		if (value < min) {
-			throw new SmallerArgumentException(name, min, value);
-		}
-	}
-
-	//static method
-	/**
-	 * @param name
-	 * @param min
-	 * @param value
-	 * @throws Exception if the given value, that has the given name, is smaller than the given min
-	 */
-	public static final void throwExceptionIfValueIsSmaller(String name, int min, int value) {
-		if (value < min) {
-			throw new SmallerArgumentException(name, min, value);
-		}
+	public static <E> MultiArgumentMediator<E> supposeTheElements(final Iterable<E> arguments) {
+		return new MultiArgumentMediator<E>(arguments);
 	}
 	
 	//static method
 	/**
-	 * @param name
-	 * @param min
-	 * @param value
-	 * @throws Exception if the given value, that has the given name, is smaller than the given min
+	 * @param arguments
+	 * @return a new multi long mediator for the given arguments.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static final void throwExceptionIfValueIsSmaller(String name, long min, long value) {
-		if (value < min) {
-			throw new SmallerArgumentException(name, min, value);
-		}
+	public static MultiLongMediator supposeTheLongs(final long... arguments) {
+		return new MultiLongMediator(arguments);
 	}
 	
 	//static method
 	/**
-	 * @param name
-	 * @param value
-	 * @throws Exception if the given value, that has the given name, is zero
+	 * @param arguments
+	 * @return a new multi long mediator for the given arguments.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static final void throwExceptionIfValueIsZero(String name, double value) {
-		if (value == 0) {
-			throw new ZeroArgumentException(name, value);
-		}
+	public static MultiLongMediator supposeTheLongs(final Iterable<Long> arguments) {
+		return new MultiLongMediator(arguments);
 	}
-
+	
 	//static method
 	/**
-	 * @param name
-	 * @param value
-	 * @throws Exception if the given value, that has the given name, is zero
+	 * @param arguments
+	 * @return a new multi string mediator for the given arguments.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static final void throwExceptionIfValueIsZero(String name, int value) {
-		if (value == 0) {
-			throw new ZeroArgumentException(name, value);
-		}
+	public static MultiStringMediator supposeTheStrings(final String... arguments) {
+		return new MultiStringMediator(arguments);
 	}
-
+	
 	//static method
 	/**
-	 * @param name
-	 * @param value
-	 * @throws Exception if the given value, that has the given name, is zero
+	 * @param arguments
+	 * @return a new string container mediator for the given arguments.
+	 * @throws NullArgumentException if the given arguments is null.
 	 */
-	public static final void throwExceptionIfValueIsZero(String name, long value) {
-		if (value == 0) {
-			throw new ZeroArgumentException(name, value);
-		}
+	public static MultiStringMediator supposeTheStrings(final Iterable<String> arguments) {
+		return new MultiStringMediator(arguments);
 	}
-
+	
 	//private constructor
 	/**
 	 * Avoids that an instance of this class can be created.

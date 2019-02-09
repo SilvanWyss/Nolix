@@ -5,7 +5,7 @@ package ch.nolix.system.consoleClient;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.endPoint5.EndPoint;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.system.GUIClientoid.BackGUIClientoid;
 

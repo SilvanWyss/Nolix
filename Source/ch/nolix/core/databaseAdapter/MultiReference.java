@@ -5,7 +5,7 @@ package ch.nolix.core.databaseAdapter;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 public final class MultiReference<E extends Entity>

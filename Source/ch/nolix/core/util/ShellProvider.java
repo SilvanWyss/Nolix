@@ -7,7 +7,7 @@ import java.io.IOException;
 //own imports
 import ch.nolix.core.constants.PortCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 public final class ShellProvider {

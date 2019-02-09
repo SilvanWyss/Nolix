@@ -9,8 +9,8 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
-import ch.nolix.core.validator2.Validator;
 
 //class
 /**

@@ -3,7 +3,7 @@ package ch.nolix.core.factory;
 
 //own imports
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //package-visible class
 /**

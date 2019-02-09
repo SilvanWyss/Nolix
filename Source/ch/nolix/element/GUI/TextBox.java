@@ -8,7 +8,7 @@ import java.awt.event.KeyEvent;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.mathematics.Calculator;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.element.painter.IPainter;
 
 //class

@@ -10,7 +10,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.IRequestableContainer;
 import ch.nolix.core.skillAPI.Namable;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.core.NonEmptyText;
 

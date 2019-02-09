@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.netNeuron;
 
-//own imports
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.system.client.Session;
 import ch.nolix.system.client.StandardClient;
 

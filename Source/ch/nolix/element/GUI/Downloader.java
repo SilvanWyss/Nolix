@@ -14,7 +14,7 @@ import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.util.PopupWindowProvider;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 public final class Downloader extends TextLineWidget<Downloader> {

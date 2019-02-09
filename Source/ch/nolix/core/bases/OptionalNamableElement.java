@@ -6,7 +6,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.OptionalNamable;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //abstract class
 /**

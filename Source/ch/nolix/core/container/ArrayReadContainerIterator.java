@@ -7,7 +7,7 @@ import java.util.Iterator;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //package-visible class
 /**

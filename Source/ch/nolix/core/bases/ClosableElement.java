@@ -6,7 +6,7 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Closable;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //abstract class
 /**

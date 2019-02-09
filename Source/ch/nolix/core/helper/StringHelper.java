@@ -7,7 +7,7 @@ import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 /**

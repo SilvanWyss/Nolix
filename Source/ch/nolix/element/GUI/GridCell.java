@@ -8,7 +8,7 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.skillAPI.Clearable;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.element.core.MutableElement;
 
 //package-visible class

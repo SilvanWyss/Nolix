@@ -8,8 +8,7 @@
 //package declaration
 package ch.nolix.core.mathematics;
 
-//own imports
-import ch.nolix.core.validator.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 public final class ARModel extends StatisticalModel {

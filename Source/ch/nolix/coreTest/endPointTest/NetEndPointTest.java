@@ -10,7 +10,7 @@ import ch.nolix.core.endPoint.NetServer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.test.Test;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.core.endPoint.NetEndPoint;
 
 //test class

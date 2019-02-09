@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.IPv4Catalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //abstract class
 public abstract class SQLConnection {

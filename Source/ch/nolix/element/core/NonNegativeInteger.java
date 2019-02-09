@@ -5,7 +5,7 @@ package ch.nolix.element.core;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 /**

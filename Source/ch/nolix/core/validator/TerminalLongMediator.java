@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.validator2;
+package ch.nolix.core.validator;
 
 //class
 public final class TerminalLongMediator extends Mediator {

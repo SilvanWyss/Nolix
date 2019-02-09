@@ -3,7 +3,7 @@ package ch.nolix.system.GUIClientoid;
 
 //own imports
 import ch.nolix.core.functionAPI.IElementGetter;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //package-visible class
 final class BackGUIClientoidBrowserGUI extends BackGUIClientoidGUI {

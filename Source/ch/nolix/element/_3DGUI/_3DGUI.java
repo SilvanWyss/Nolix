@@ -20,7 +20,7 @@ import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.skillAPI.Closable;
 import ch.nolix.core.skillAPI.Refreshable;
 import ch.nolix.core.specificationAPI.Configurable;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configurationElement.ConfigurationElement;
 import ch.nolix.element.core.NonEmptyText;

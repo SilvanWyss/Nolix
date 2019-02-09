@@ -11,7 +11,7 @@ import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.mathematics.Calculator;
 import ch.nolix.core.skillAPI.Clearable;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.element.bases.HeaderableElement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;

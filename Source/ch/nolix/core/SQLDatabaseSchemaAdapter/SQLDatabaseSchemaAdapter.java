@@ -8,7 +8,7 @@ import ch.nolix.core.databaseSchemaAdapter.DatabaseSchemaAdapter;
 import ch.nolix.core.databaseSchemaAdapter.EntitySet;
 import ch.nolix.core.databaseSchemaAdapter.IEntitySetAdapter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.core.SQL.SQLConnection;
 import ch.nolix.core.SQL.SQLDatabaseEngine;
 

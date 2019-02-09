@@ -6,7 +6,7 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.Console;
 import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.GUI.Frame;

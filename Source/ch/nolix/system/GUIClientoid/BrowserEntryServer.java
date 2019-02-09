@@ -6,7 +6,7 @@ import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.endPoint.EndPoint;
 import ch.nolix.core.endPoint.NetServer;
 import ch.nolix.core.fileSystem.FileAccessor;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 public final class BrowserEntryServer extends ClosableElement {

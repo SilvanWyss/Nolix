@@ -4,7 +4,7 @@ package ch.nolix.element.core;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.skillAPI.Named;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 public final class Flag extends Element<Flag> implements Named {

@@ -6,7 +6,7 @@ import ch.nolix.core.bases.ClosableElement;
 import ch.nolix.core.communicationAPI.IReceiver;
 import ch.nolix.core.communicationAPI.ISender;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //abstract class
 /**

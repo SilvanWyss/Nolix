@@ -3,7 +3,7 @@ package ch.nolix.element.core;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 /**

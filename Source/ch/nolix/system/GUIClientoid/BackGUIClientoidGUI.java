@@ -3,7 +3,7 @@ package ch.nolix.system.GUIClientoid;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.GUI;
 
 //package-visible abstract class

@@ -11,7 +11,7 @@ import ch.nolix.core.helper.ReflectionHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Headered;
 import ch.nolix.core.specificationAPI.Specified;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //abstract class
 public abstract class Propertyoid<V>

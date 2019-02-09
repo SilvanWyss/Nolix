@@ -14,7 +14,7 @@ import com.jme3.system.AppSettings;
 
 //own imports
 import ch.nolix.core.functionAPI.IFunction;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.element._3DGUI.Cuboid;
 import ch.nolix.element._3DGUI.Cylinder;
 import ch.nolix.element._3DGUI.MainFrame;

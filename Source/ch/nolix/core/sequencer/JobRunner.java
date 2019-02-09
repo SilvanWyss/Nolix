@@ -5,7 +5,7 @@ package ch.nolix.core.sequencer;
 import ch.nolix.core.functionAPI.IBooleanGetter;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.util.PopupWindowProvider;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //package-visible class
 /**

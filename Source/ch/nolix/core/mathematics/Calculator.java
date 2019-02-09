@@ -12,7 +12,7 @@ package ch.nolix.core.mathematics;
 import ch.nolix.core.container.FPNPair;
 import ch.nolix.core.container.List;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.validator.Validator;
+import ch.nolix.core.validator2.Validator;
 
 //class
 /**
