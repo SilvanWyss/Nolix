@@ -3,11 +3,11 @@ package ch.nolix.system.databaseApplication;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.databaseAdapter.DatabaseAdapter;
 import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.configuration.StandardConfiguration;
+import ch.nolix.system.databaseAdapter.DatabaseAdapter;
 
 //class
 public final class DatabaseApplicationContext {

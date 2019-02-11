@@ -3,10 +3,6 @@ package ch.nolix.system.databaseApplication;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.databaseAdapter.Entity;
-import ch.nolix.core.databaseAdapter.EntitySet;
-import ch.nolix.core.databaseAdapter.Property;
-import ch.nolix.core.databaseAdapter.Reference;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.ButtonRole;
 import ch.nolix.element.GUI.Grid;
@@ -14,6 +10,10 @@ import ch.nolix.element.GUI.HorizontalStack;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.TextBox;
 import ch.nolix.element.GUI.VerticalStack;
+import ch.nolix.system.databaseAdapter.Entity;
+import ch.nolix.system.databaseAdapter.EntitySet;
+import ch.nolix.system.databaseAdapter.Property;
+import ch.nolix.system.databaseAdapter.Reference;
 
 //class
 public final class CreateEntitySession extends HeaderedSession {

@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
-//own imports
-import ch.nolix.core.databaseAdapter.DatabaseAdapter;
 import ch.nolix.element.GUI.ContainerRole;
 import ch.nolix.element.GUI.Label;
 import ch.nolix.element.GUI.LabelRole;
 import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
+import ch.nolix.system.databaseAdapter.DatabaseAdapter;
 
 //abstract class
 public abstract class DatabaseApplicationSession

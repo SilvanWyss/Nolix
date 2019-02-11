@@ -3,9 +3,9 @@ package ch.nolix.tutorialApplications.movieManager;
 
 //own imports
 import ch.nolix.core.documentNode.SimplePersistentDocumentNode;
-import ch.nolix.core.documentNodeDatabaseAdapter.DocumentNodeDatabaseAdapter;
-import ch.nolix.core.documentNodeDatabaseSchemaAdapter.DocumentNodeDatabaseSchemaAdapter;
 import ch.nolix.system.GUIClient.FrontGUIClient;
+import ch.nolix.system.documentNodeDatabaseAdapter.DocumentNodeDatabaseAdapter;
+import ch.nolix.system.documentNodeDatabaseSchemaAdapter.DocumentNodeDatabaseSchemaAdapter;
 import ch.nolix.templates.GUILooks.AnthrazitGUILook;
 
 //class

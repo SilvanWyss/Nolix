@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.tutorialApplications.airportManager;
 
-//own imports
-import ch.nolix.core.databaseAdapter.Entity;
-import ch.nolix.core.databaseAdapter.Property;
-import ch.nolix.core.databaseAdapter.Reference;
+import ch.nolix.system.databaseAdapter.Entity;
+import ch.nolix.system.databaseAdapter.Property;
+import ch.nolix.system.databaseAdapter.Reference;
 
 //class
 public final class Flight extends Entity {

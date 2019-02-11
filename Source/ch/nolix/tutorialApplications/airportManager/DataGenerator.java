@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.tutorialApplications.airportManager;
 
-//own import
-import ch.nolix.core.databaseAdapter.DatabaseAdapter;
+import ch.nolix.system.databaseAdapter.DatabaseAdapter;
 
 //class
 public final class DataGenerator {

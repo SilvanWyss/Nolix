@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.tutorialApplications.airportManager;
 
-//own import
-import ch.nolix.core.databaseAdapter.Schema;
+import ch.nolix.system.databaseAdapter.Schema;
 
 //class
 public final class AirportManagerSchema extends Schema {

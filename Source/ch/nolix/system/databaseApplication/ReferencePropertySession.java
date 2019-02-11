@@ -3,13 +3,13 @@ package ch.nolix.system.databaseApplication;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.databaseAdapter.Entity;
-import ch.nolix.core.databaseAdapter.Reference;
 import ch.nolix.element.GUI.Button;
 import ch.nolix.element.GUI.HorizontalStack;
 import ch.nolix.element.GUI.SelectionMenu;
 import ch.nolix.element.GUI.VerticalStack;
 import ch.nolix.element.GUI.Widget;
+import ch.nolix.system.databaseAdapter.Entity;
+import ch.nolix.system.databaseAdapter.Reference;
 
 //class
 public final class ReferencePropertySession extends HeaderedSession {
