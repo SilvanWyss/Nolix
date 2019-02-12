@@ -1,9 +1,9 @@
 //package declaration
-package ch.nolix.coreTest.mathematicsTest;
+package ch.nolix.coreTest.mathTest;
 
 //own imports
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.mathematics.QuadraticFunction;
+import ch.nolix.core.math.QuadraticFunction;
 import ch.nolix.core.test.Test;
 
 //test class

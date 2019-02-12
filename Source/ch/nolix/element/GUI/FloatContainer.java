@@ -5,7 +5,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.mathematics.Calculator;
+import ch.nolix.core.math.Calculator;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.element.painter.IPainter;
 

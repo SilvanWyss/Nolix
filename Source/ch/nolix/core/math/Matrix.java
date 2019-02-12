@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.mathematics;
+package ch.nolix.core.math;
 
 //Java import
 import java.util.Random;

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemTutorial.neuronTutorial;
 
-//own imports
-import ch.nolix.core.mathematics.Calculator;
+import ch.nolix.core.math.Calculator;
 import ch.nolix.system.neuron.Neuron;
 import ch.nolix.system.neuronoid.SourceNeuron;
 

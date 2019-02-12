@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreTutorial.sequencerTutorial;
 
-//own imports
-import ch.nolix.core.mathematics.Matrix;
+import ch.nolix.core.math.Matrix;
 import ch.nolix.core.sequencer.ResultFuture;
 import ch.nolix.core.sequencer.Sequencer;
 

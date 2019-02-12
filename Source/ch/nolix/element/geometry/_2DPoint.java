@@ -5,7 +5,7 @@ package ch.nolix.element.geometry;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.helper.DoubleHelper;
-import ch.nolix.core.mathematics.Vector;
+import ch.nolix.core.math.Vector;
 import ch.nolix.element.core.Element;
 
 //class

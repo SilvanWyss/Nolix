@@ -1,11 +1,10 @@
 //package declaration
-package ch.nolix.coreTest.mathematicsTest;
+package ch.nolix.coreTest.mathTest;
 
 //Java import
 import java.util.Vector;
 
-//own imports
-import ch.nolix.core.mathematics.Calculator;
+import ch.nolix.core.math.Calculator;
 import ch.nolix.core.test.Test;
 
 /**

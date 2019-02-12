@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.core.mathematics;
+package ch.nolix.core.math;
 
 import ch.nolix.core.validator2.Validator;
 

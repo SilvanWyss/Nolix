@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.core.mathematics;
+package ch.nolix.core.math;
 
 //own imports
 import ch.nolix.core.container.FPNPair;

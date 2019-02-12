@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreTest.mathematicsTest;
+package ch.nolix.coreTest.mathTest;
 
 //class
 /**
