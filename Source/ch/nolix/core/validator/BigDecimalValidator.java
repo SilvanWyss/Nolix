@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 
 //own imports
 import ch.nolix.core.invalidArgumentException.NegativeArgumentException;
+import ch.nolix.core.invalidArgumentException.NonPositiveArgumentException;
 import ch.nolix.core.invalidArgumentException.SmallerArgumentException;
 
 //class
@@ -46,6 +47,18 @@ public class BigDecimalValidator extends ArgumentMediator<BigDecimal> {
 		//Checks if the argument of the current BigDecimalValidator is not smaller than the given value.
 		if (getRefArgument().compareTo(value) < 0) {
 			throw new SmallerArgumentException(getArgumentName(), getRefArgument(), value);
+		}
+	}
+	
+	//method
+	public final void isPositive() {
+		
+		//Checks if the argument of the current BigDecimalValidator is not null.
+		isNotNull();
+		
+		//Checks if the argument of the current BigDecimalValidator is positive.
+		if (getRefArgument().compareTo(BigDecimal.ZERO) <= 0) {
+			throw new NonPositiveArgumentException(getArgumentName(), getRefArgument());
 		}
 	}
 }
