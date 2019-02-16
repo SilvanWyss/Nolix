@@ -1,13 +1,18 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
+//Java imports
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 //class
 /**
- * A negative argument exception is an exception that is intended to be thrown when an argument is undesired negative.
+ * A {@link NegativeArgumentException} is a {@link InvalidArgumentException}
+ * that is supposed to be thrown when a given argument is undesirably negative.
  * 
  * @author Silvan Wyss
  * @month 2016-02
- * @lines 70
+ * @lines 130
  */
 @SuppressWarnings("serial")
 public final class NegativeArgumentException extends InvalidArgumentException {
@@ -17,7 +22,31 @@ public final class NegativeArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new negative argument exception for the given argument.
+	 * Creates a new {@link NegativeArgumentException} for the given argument.
+	 * 
+	 * @param argument
+	 */
+	public NegativeArgumentException(final BigDecimal argument) {
+		
+		//Calls constructor of the base class.
+		super(argument,ERROR_PREDICATE);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link NegativeArgumentException} for the given argument.
+	 * 
+	 * @param argument
+	 */
+	public NegativeArgumentException(final BigInteger argument) {
+		
+		//Calls constructor of the base class.
+		super(argument,ERROR_PREDICATE);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link NegativeArgumentException} for the given argument.
 	 * 
 	 * @param argument
 	 */
@@ -29,7 +58,7 @@ public final class NegativeArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new negative argument exception for the given argument.
+	 * Creates a new {@link NegativeArgumentException} for the given argument.
 	 * 
 	 * @param argument
 	 */
@@ -41,12 +70,45 @@ public final class NegativeArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new negative argument exception for the given argument that has the given argument name.
+	 * Creates a new {@link NegativeArgumentException}
+	 * for the given argument that has the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument
 	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is empty.
+	 * @throws RuntimeException if the given argument name is blank.
+	 */
+	public NegativeArgumentException(final String argumentName, final BigDecimal argument) {
+		
+		//Calls constructor of the base class.
+		super(argumentName, argument, ERROR_PREDICATE);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link NegativeArgumentException}
+	 * for the given argument that has the given argument name.
+	 * 
+	 * @param argumentName
+	 * @param argument
+	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is blank.
+	 */
+	public NegativeArgumentException(final String argumentName, final BigInteger argument) {
+		
+		//Calls constructor of the base class.
+		super(argumentName, argument, ERROR_PREDICATE);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link NegativeArgumentException}
+	 * for the given argument that has the given argument name.
+	 * 
+	 * @param argumentName
+	 * @param argument
+	 * @throws RuntimeException if the given argument name is null.
+	 * @throws RuntimeException if the given argument name is blank.
 	 */
 	public NegativeArgumentException(final String argumentName, final double argument) {
 		
@@ -56,12 +118,13 @@ public final class NegativeArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new negative argument exception for the given argument that has the given argument name.
+	 * Creates a new {@link NegativeArgumentException}
+	 * for the given argument that has the given argument name.
 	 * 
 	 * @param argumentName
 	 * @param argument
 	 * @throws RuntimeException if the given argument name is null.
-	 * @throws RuntimeException if the given argument name is empty.
+	 * @throws RuntimeException if the given argument name is blank.
 	 */
 	public NegativeArgumentException(final String argumentName, final long argument) {
 		
