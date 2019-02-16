@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.validator;
 
+//Java import
+import java.math.BigDecimal;
+
 //own imports
 import ch.nolix.core.invalidArgumentException.FalseArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
@@ -16,7 +19,7 @@ import ch.nolix.core.primitiveHelper.ArrayHelper;
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 310
+ * @lines 330
  */
 public final class Validator {
 	
@@ -36,6 +39,15 @@ public final class Validator {
 	 */
 	public static <A> ExtendedContainerMediator<A> suppose(final A[] argument) {
 		return new ExtendedContainerMediator<A>(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new {@link ExtendedBigDecimalValidator} for the given argument.
+	 */
+	public static ExtendedBigDecimalValidator suppose(final BigDecimal argument) {
+		return new ExtendedBigDecimalValidator(argument);
 	}
 	
 	//static method
