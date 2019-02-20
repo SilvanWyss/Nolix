@@ -7,8 +7,8 @@ import java.math.RoundingMode;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.container.Pair;
 import ch.nolix.core.math.Calculator;
-import ch.nolix.core.pair.MonoPair;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.techAPI.genericMathAPI.IClosedInterval;
 
@@ -87,12 +87,12 @@ public final class ClosedInterval implements IClosedInterval {
 	
 	//method
 	@Override
-	public MonoPair<IClosedInterval> getHalfs() {
+	public Pair<IClosedInterval, IClosedInterval> getHalfs() {
 		
 		final var midPoint = getMidPoint();
 		
 		return
-		new MonoPair<IClosedInterval>(
+		new Pair<IClosedInterval, IClosedInterval>(
 			new ClosedInterval(min, midPoint, min.scale()),
 			new ClosedInterval(midPoint, max, min.scale())
 		);
