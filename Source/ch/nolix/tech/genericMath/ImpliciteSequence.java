@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.Pair;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
+import ch.nolix.core.tuple.Pair;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.techAPI.genericMathAPI.ISequence;
 

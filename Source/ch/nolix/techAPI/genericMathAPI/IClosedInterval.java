@@ -4,8 +4,7 @@ package ch.nolix.techAPI.genericMathAPI;
 //Java import
 import java.math.BigDecimal;
 
-//own import
-import ch.nolix.core.container.Pair;
+import ch.nolix.core.tuple.Pair;
 
 //interface
 public interface IClosedInterval {

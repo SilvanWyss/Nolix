@@ -7,8 +7,8 @@ import java.math.RoundingMode;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.Pair;
 import ch.nolix.core.math.Calculator;
+import ch.nolix.core.tuple.Pair;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.techAPI.genericMathAPI.IClosedInterval;
 
