@@ -4,7 +4,6 @@ package ch.nolix.core.documentNode;
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
-import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
@@ -13,6 +12,7 @@ import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentException.NonRepresentingArgumentException;
 import ch.nolix.core.skillAPI.Headered;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.core.XMLDocument.XMLNode;
@@ -28,7 +28,7 @@ import ch.nolix.core.XMLDocument.XMLNode;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 770
+ * @lines 740
  */
 public abstract class DocumentNodeoid implements Headered {
 	
@@ -471,82 +471,11 @@ public abstract class DocumentNodeoid implements Headered {
 	 */
 	public void reset(final String string) {
 		
-		reset();
-		
-		var hasAttributes = false;
-		var attributestartIndex = 0;
-		for (var i = 0; i < string.length(); i++) {
-			
-			final Character character = string.charAt(i);
-			
-			//Checks if the current character is a closing bracket before an opening bracket.
-			if (character == CharacterCatalogue.CLOSED_BRACKET) {
-				throw new InvalidArgumentException(string);
-			}
-			
-			//Checks if the current character is a comma before an opening bracket.
-			if (character == CharacterCatalogue.COMMA) {
-				throw new InvalidArgumentException(string);
-			}
-			
-			//Handles the case that the current character is an opening bracket.
-			if (character == CharacterCatalogue.OPEN_BRACKET) {
-				
-				hasAttributes = true;
-				
-				if (i > 0) {
-					setHeader(string.substring(0, i));
-				}
-				
-				attributestartIndex = i + 1;
-				break;
-			}
-		}
-		
-		if (!hasAttributes && string.length() > 0) {
-			setHeader(string);
-		}
-		
-		//Extract the attributes of the given value.
-		if (hasAttributes) {
-
-			//Checks if the start index is not too big.
-			if (attributestartIndex > string.length() - 1) {
-				throw new InvalidArgumentException(string);
-			}
-			
-			var level = 0;
-			var attributeStringBuilder = new StringBuilder();
-			for (var i = attributestartIndex; i < string.length() - 1; i++)
-			{
-				final var character = string.charAt(i);
-				
-				if (character == CharacterCatalogue.OPEN_BRACKET) {
-					level++;
-				}
-				else if (character == CharacterCatalogue.CLOSED_BRACKET) {
-					level--;
-				}
-				if (character == CharacterCatalogue.COMMA && level == 0) {
-					addAttribute(new DocumentNode(attributeStringBuilder.toString()));
-					attributeStringBuilder = new StringBuilder();
-				}
-				else {
-					attributeStringBuilder.append(character);
-				}
-			}
-			addAttribute(new DocumentNode(attributeStringBuilder.toString()));
-			
-			//Checks if the given value has as many opening brackets as closing brackets.
-			if (level != 0) {
-				throw new InvalidArgumentException(VariableNameCatalogue.CONTENT, string);
-			}
-			
-			//Checks if the last character of the given value is a closing bracket.
-			if (string.charAt(string.length() - 1) != CharacterCatalogue.CLOSED_BRACKET) {
-				throw new InvalidArgumentException(string);
-			}
-		}
+        reset();
+        
+        if (setAndGetEndIndex(string, 0) != string.length() - 1) {
+        	throw new NonRepresentingArgumentException(string, DocumentNode.class);
+        }
 	}
 	
 	//method
@@ -701,6 +630,61 @@ public abstract class DocumentNodeoid implements Headered {
 		}
 		
 		return XMLNode;
+	}
+	
+	//package-visible method
+	final int setAndGetEndIndex(final String substring, final int startIndex) {
+		
+		var index = startIndex;
+		
+        var endIndex = -1;
+        while (index < substring.length()) {
+        	
+            var character = substring.charAt(index);
+
+            if (character == '(') {
+                break;
+            }
+
+            else if (character == ',' || character == ')') {
+                endIndex = index - 1;
+                break;
+            }
+
+            index++;
+        }
+
+        if (index > startIndex) {
+            this.setHeader(substring.substring(startIndex, index));
+        }
+
+        if (index == substring.length()) {
+            return (index - 1);
+        }
+
+        if (endIndex != -1) {
+            return endIndex;
+        }              
+
+        if (index < substring.length()) {
+            var documentNode = new DocumentNode();
+            index = documentNode.setAndGetEndIndex(substring, index + 1) + 1;
+            this.addAttribute(documentNode);
+        }
+
+        while (index < substring.length()) {
+            switch (substring.charAt(index)) {
+                case ',':
+                    var documentNode = new DocumentNode();
+                    index = documentNode.setAndGetEndIndex(substring, index + 1) + 1;
+                    this.addAttribute(documentNode);
+                    break;            
+                case ')':
+                    return index;	
+            }
+        }
+        
+        throw new NonRepresentingArgumentException(substring, DocumentNode.class);
 	}
 	
 	//method
