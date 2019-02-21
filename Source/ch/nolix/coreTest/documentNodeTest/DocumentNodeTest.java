@@ -7,85 +7,107 @@ import ch.nolix.core.test.Test;
 
 //test class
 /**
- * This class is a test class for the specification class.
+ * A {@link DocumentNodeTest} is a test for {@link DocumentNode}.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 80
+ * @lines 110
  */
 public final class DocumentNodeTest extends Test {
 	
 	//test case
 	public void testCase_constructor_1() {
 		
-		//setup
-		final DocumentNode standardSpecification = new DocumentNode();
+		//execution
+		final var documentNode = new DocumentNode();
 				
 		//verification
-		expectNot(standardSpecification.hasHeader());
-		expectNot(standardSpecification.containsAttributes());
+		expectNot(documentNode.hasHeader());
+		expect(documentNode.getRefAttributes().getSize()).isEqualTo(0);
+		expect(documentNode.toString()).isEqualTo("");
 	}
 	
 	//test case
 	public void testCase_constructor_2() {
 		
-		//setup
-		final DocumentNode standardSpecification = new DocumentNode("a");
+		//execution
+		final var documentNode = new DocumentNode("");
 				
 		//verification
-		expect(standardSpecification.hasHeader());
-		expectNot(standardSpecification.containsAttributes());
+		expectNot(documentNode.hasHeader());
+		expect(documentNode.getRefAttributes().getSize()).isEqualTo(0);
+		expect(documentNode.toString()).isEqualTo("");
 	}
 	
 	//test case
 	public void testCase_constructor_3() {
 		
-		//setup
-		final DocumentNode standardSpecification = new DocumentNode("a(b)");
+		//execution
+		final var documentNode = new DocumentNode("A");
 				
 		//verification
-		expect(standardSpecification.hasHeader());
-		expect(standardSpecification.containsAttributes());
+		expect(documentNode.hasHeader());
+		expect(documentNode.getRefAttributes().getSize()).isEqualTo(0);
+		expect(documentNode.toString()).isEqualTo("A");
 	}
 	
 	//test case
 	public void testCase_constructor_4() {
 		
-		//setup
-		final DocumentNode standardSpecification = new DocumentNode("a(b.)");
+		//execution
+		final var documentNode = new DocumentNode("A(B)");
 				
 		//verification
-		expect(standardSpecification.hasHeader());
-		expect(standardSpecification.containsAttributes());
+		expect(documentNode.hasHeader());
+		expect(documentNode.getRefAttributes().getSize()).isEqualTo(1);
+		expect(documentNode.toString()).isEqualTo("A(B)");
 	}
 	
 	//test case
-	public void testCase_toString_1() {
+	public void testCase_constructor_5() {
 		
-		//setup
-		final DocumentNode standardSpecification = new DocumentNode();
-		
+		//execution
+		final var documentNode = new DocumentNode("A(B1,B2,B3)");
+				
 		//verification
-		expect(standardSpecification.toString()).isEmpty();
+		expect(documentNode.hasHeader());
+		expect(documentNode.getRefAttributes().getSize()).isEqualTo(3);
+		expect(documentNode.toString()).isEqualTo("A(B1,B2,B3)");
 	}
 	
 	//test case
-	public void testCase_toString_2() {
+	public void testCase_constructor_6() {
 		
-		//setup
-		final DocumentNode standardSpecification = new DocumentNode("a");
-		
+		//execution
+		final var documentNode = new DocumentNode("A(B(C))");
+				
 		//verification
-		expect(standardSpecification.toString()).isEqualTo("a");
+		expect(documentNode.hasHeader());
+		expect(documentNode.getRefAttributes().getSize()).isEqualTo(1);
+		expect(documentNode.toString()).isEqualTo("A(B(C))");
 	}
 	
 	//test case
-	public void testCase_toString_3() {
+	public void testCase_constructor_7() {
 		
-		//setup
-		final DocumentNode standardSpecification = new DocumentNode("a(b)");
-		
+		//execution
+		final var documentNode = new DocumentNode("A(B1(C1),B2(C2))");
+				
 		//verification
-		expect(standardSpecification.toString()).isEqualTo("a(b)");
+		expect(documentNode.hasHeader());
+		expect(documentNode.getRefAttributes().getSize()).isEqualTo(2);
+		expect(documentNode.toString()).isEqualTo("A(B1(C1),B2(C2))");
+	}
+	
+	//test case
+	public void testCase_constructor_8() {
+		
+		//execution
+		final var documentNode = new DocumentNode("A(B1(C1,C2),B2(C3,C4))");
+				
+		//verification
+		expect(documentNode.hasHeader());
+		expect(documentNode.getRefAttributes().getSize()).isEqualTo(2);
+		expect(documentNode.toString()).isEqualTo("A(B1(C1,C2),B2(C3,C4))");
 	}
 }
