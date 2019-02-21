@@ -4,13 +4,11 @@ package ch.nolix.templates.textureCreators;
 //own imports
 import ch.nolix.element.color.Color;
 import ch.nolix.element.image.Image;
-import ch.nolix.systemAPI.textureAPI.ITextureCreator;
 
 //class
-public final class JuteTextureCreator implements ITextureCreator {
+public final class JuteTextureCreator {
 
 	//method
-	@Override
 	public Image createTexture(
 		final int width,
 		final int height

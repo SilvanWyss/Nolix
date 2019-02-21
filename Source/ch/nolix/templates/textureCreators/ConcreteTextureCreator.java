@@ -4,13 +4,11 @@ package ch.nolix.templates.textureCreators;
 //own imports
 import ch.nolix.element.color.Color;
 import ch.nolix.element.image.Image;
-import ch.nolix.systemAPI.textureAPI.ITextureCreator;
 
 //class
-public final class ConcreteTextureCreator implements ITextureCreator {
+public final class ConcreteTextureCreator {
 
 	//method
-	@Override
 	public Image createTexture(final int width,	final int height) {
 				
 		final var image = new Image(width, height);

@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.system.resource;
+package ch.nolix.tech.resource;
 
 //own imports
 import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.systemAPI.resourceAPI.IResource;
+import ch.nolix.techAPI.resourceAPI.IResource;
 import ch.nolix.core.container.List;
 
 //class
