@@ -17,8 +17,16 @@ public final class CoreClassProvider {
 	private final HashMap<Class<?>, Class<?>> classes = new HashMap<Class<?>, Class<?>>();
 	
 	//method
+	public boolean containsClassFor(final Class<?> interface_) {
+		return classes.containsKey(interface_);
+	}
+	
+	//method
 	@SuppressWarnings("unchecked")
-	public <I, C extends I> C create(Class<I> interface_, Object[] arguments) {
+	public <I, C extends I> C create(
+		final Class<I> interface_,
+		final Object[] arguments
+	) {
 		
 		final var class_ = classes.get(interface_);
 			
@@ -42,12 +50,19 @@ public final class CoreClassProvider {
 	}
 	
 	//method
-	public <I, C extends I> void register(Class<I> interface_, Class<C> class_) {
+	public <I, C extends I> void register(
+		final Class<I> interface_,
+		final Class<C> class_
+	) {
 		register(interface_, class_, false);
 	}
 	
 	//method
-	public <I, C extends I> void register(Class<I> interface_, Class<C> class_, boolean overwrite) {
+	public <I, C extends I> void register(
+		final Class<I> interface_,
+		final Class<C> class_,
+		final boolean overwrite
+	) {
 				
 		Validator
 		.suppose(interface_)

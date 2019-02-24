@@ -9,6 +9,11 @@ public final class ClassProvider {
 	new CoreClassProvider();
 	
 	//static method
+	public static boolean containsClassFor(final Class<?> interface_) {
+		return coreClassProvider.containsClassFor(interface_);
+	}
+	
+	//static method
 	//Important: The ClassProvider will found only the first (!) constructor with the given amount of parameters.
 	public static <I, C extends I> C create(
 		final Class<I> interface_,
