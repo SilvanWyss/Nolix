@@ -5,7 +5,7 @@ package ch.nolix.core.bases;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
-import ch.nolix.core.skillAPI.OptionalSignable;
+import ch.nolix.core.skillAPI.OptionalLabelable;
 import ch.nolix.core.validator.Validator;
 
 //abstract class
@@ -18,7 +18,7 @@ import ch.nolix.core.validator.Validator;
  * @param <OLE> The type of a {@link OptionalLabelableElement}.
  */
 public abstract class OptionalLabelableElement<OLE extends OptionalLabelableElement<OLE>>
-implements ISmartObject<OLE>, OptionalSignable<OLE> {
+implements ISmartObject<OLE>, OptionalLabelable<OLE> {
 	
 	//optional attribute
 	private String infoString;
