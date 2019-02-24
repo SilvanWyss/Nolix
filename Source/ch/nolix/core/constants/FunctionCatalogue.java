@@ -5,16 +5,17 @@ package ch.nolix.core.constants;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.functionAPI.IElementTakerDoubleGetter;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
+import ch.nolix.core.functionAPI.IElementTakerLongGetter;
 import ch.nolix.core.functionAPI.IFunction;
+import ch.nolix.core.functionAPI.ITwoElementTakerBooleanGetter;
 
 //class
 /**
- * The {@link FunctionCatalogue} provides functions.
  * Of the {@link FunctionCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 80
+ * @lines 120
  */
 public final class FunctionCatalogue {
 	
@@ -22,35 +23,63 @@ public final class FunctionCatalogue {
 	/**
 	 * This function does not do anything.
 	 */
-	public static final IFunction EMPTY_FUNCTION =
+	public static final IFunction EMPTY =
 	() -> {};
+	
+	//function
+	/**
+	 * This function returns true if 2 given objects are equal.
+	 */
+	public static final ITwoElementTakerBooleanGetter<Object> EQUALITY =
+	(o1, o2) -> o1 != null ? o1.equals(o2) : o2 == null;
 	
 	//function
 	/**
 	 * This function returns false for a given object.
 	 */
-	public static final IElementTakerBooleanGetter<Object> FALSE_FUNCTION =
+	public static final IElementTakerBooleanGetter<Object> FALSE =
 	o -> false;
 	
 	//function
 	/**
-	 * This function returns a given object.
+	 * This function returns the hash code of a given object.
 	 */
-	public static final IElementTakerElementGetter<Object, Object> IDENTITY_FUNCTION =
-	o -> o;
+	public static final IElementTakerLongGetter<Object> HASH_CODE =
+	o -> o.hashCode();
+	
+	//function
+	/**
+	 * This function returns true if 2 given objects are the same.
+	 */
+	public static final ITwoElementTakerBooleanGetter<Object> IDENTITY =
+	(o1, o2) -> o1 == o2;
 	
 	//function
 	/**
 	 * This function returns null for a given object.
 	 */
-	public static final IElementTakerElementGetter<Object, Object> NULL_FUNCTION =
+	public static final IElementTakerElementGetter<Object, Object> NULL =
 	o -> null;
 	
 	//function
 	/**
-	 * This function returns a string that represents the given object.
+	 * This function returns 1.0 for a given object.
 	 */
-	public static final IElementTakerElementGetter<Object, String> TO_STRING_FUNCTION =
+	public static final IElementTakerDoubleGetter<Object> ONE =
+	o -> 1.0;
+	
+	//function
+	/**
+	 * This function returns a given object.
+	 */
+	public static final IElementTakerElementGetter<Object, Object> SELF =
+	o -> o;
+	
+	//function
+	/**
+	 * This function returns the String representation of a given object.
+	 */
+	public static final IElementTakerElementGetter<Object, String> TO_STRING =
 	o -> {
 		
 		//Handles the case that the given object is null.
@@ -66,14 +95,21 @@ public final class FunctionCatalogue {
 	/**
 	 * This function returns true for a given object.
 	 */
-	public static final IElementTakerBooleanGetter<Object> TRUE_FUNCTION =
+	public static final IElementTakerBooleanGetter<Object> TRUE =
 	o -> true;
 	
 	//function
 	/**
-	 * This function returns 0.0 for a given input object.
+	 * This function returns the type of a given object.
 	 */
-	public static final IElementTakerDoubleGetter<Object> ZERO_FUNCTION =
+	public static final IElementTakerElementGetter<Class<?>, Object> TYPE =
+	o -> o.getClass();
+	
+	//function
+	/**
+	 * This function returns 0.0 for a given object.
+	 */
+	public static final IElementTakerDoubleGetter<Object> ZERO =
 	o -> 0.0;
 	
 	//private constructor

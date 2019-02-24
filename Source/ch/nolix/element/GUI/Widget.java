@@ -126,16 +126,16 @@ extends ConfigurableElement<W> {
 				removeGreyOutWhenDisabled();
 				break;
 			case LEFT_MOUSE_BUTTON_PRESS_COMMAND_HEADER:
-				setLeftMouseButtonPressCommand(FunctionCatalogue.EMPTY_FUNCTION);
+				setLeftMouseButtonPressCommand(FunctionCatalogue.EMPTY);
 				break;
 			case LEFT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER:
-				setLeftMouseButtonReleaseCommand(FunctionCatalogue.EMPTY_FUNCTION);
+				setLeftMouseButtonReleaseCommand(FunctionCatalogue.EMPTY);
 				break;
 			case RIGHT_MOUSE_BUTTON_PRESS_COMMAND_HEADER:
-				setRightMouseButtonPressCommand(FunctionCatalogue.EMPTY_FUNCTION);
+				setRightMouseButtonPressCommand(FunctionCatalogue.EMPTY);
 				break;
 			case RIGHT_MOUSE_BUTTON_RELEASE_COMMAND_HEADER:				
-				setRightMouseButtonReleaseCommand(FunctionCatalogue.EMPTY_FUNCTION);
+				setRightMouseButtonReleaseCommand(FunctionCatalogue.EMPTY);
 				break;
 			default:
 				if (attribute.getHeader().startsWith(BASE_PREFIX)) {
