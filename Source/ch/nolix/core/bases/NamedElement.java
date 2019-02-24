@@ -25,18 +25,17 @@ public abstract class NamedElement implements Named {
 	 * 
 	 * @param name
 	 * @throws NullArgumentException if the given name is null.
-	 * @throws EmptyArgumentException if the given name is empty.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 */
 	public NamedElement(final String name) {
 		
-		//Checks if the given name is not null, empty or blank.
+		//Checks if the given name is not null and not blank.
 		Validator
 		.suppose(name)
 		.thatIsNamed(VariableNameCatalogue.NAME)
 		.isNotBlank();
 		
-		//Sets the name of the current named element.
+		//Sets the name of the current NamedElement.
 		this.name = name;
 	}
 	

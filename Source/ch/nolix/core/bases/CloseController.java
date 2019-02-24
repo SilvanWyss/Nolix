@@ -47,10 +47,10 @@ final class CloseController implements Closable {
 		//Checks if the given element is not null.
 		Validator.suppose(element).thatIsNamed("element").isNotNull();
 		
-		//Checks if the current close controller is alive.
-		supposeBeingAlive();
+		//Checks if the current CloseController is alive.
+		supposeIsAlive();
 		
-		//Checks if the current close controller does not contain already the given element.
+		//Checks if the current CloseController does not contain already the given element.
 		if (containsElement(element)) {
 			throw new InvalidArgumentException(
 				this,
@@ -70,13 +70,13 @@ final class CloseController implements Closable {
 	@Override
 	public void close() {
 		
-		//Handles the case that the current close controller is alive.
+		//Handles the case that the current CloseController is alive.
 		if (isAlive()) {
 			
-			//Sets the current close controller as closed.
+			//Sets the current CloseController as closed.
 			closed = true;
 			
-			//Lets note all elements of the current close controller the close.
+			//Lets note all elements of the current CloseController the close.
 			elements.forEach(e -> e.noteClose());
 		}
 	}
@@ -111,9 +111,9 @@ final class CloseController implements Closable {
 	/**
 	 * @throws InvalidArgumentException if the current {@link CloseController} is closed.
 	 */
-	private void supposeBeingAlive() {
+	private void supposeIsAlive() {
 		
-		//Checks if the current close controller is not closed.
+		//Checks if the current CloseController is not closed.
 		if (isClosed()) {
 			throw
 			new InvalidArgumentException(

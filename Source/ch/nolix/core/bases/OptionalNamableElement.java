@@ -67,18 +67,18 @@ implements ISmartObject<ONE>, OptionalNamable<ONE> {
 	 * @param name
 	 * @return the current {@link OptionalNamableElement} element.
 	 * @throws NullArgumentException if the given name is null.
-	 * @throws EmptyArgumentException if the given name is empty.
+	 * @throws InvalidArgumentException if the given name is blank.
 	 */
 	@Override
 	public final ONE setName(final String name) {
 		
-		//Checks if the given name is not null and not empty.
+		//Checks if the given name is not null and not blank.
 		Validator
 		.suppose(name)
 		.thatIsNamed(VariableNameCatalogue.NAME)
-		.isNotEmpty();
+		.isNotBlank();
 		
-		//Sets the name of the current optional namabel element.
+		//Sets the name of the current OptionalNamableElement.
 		this.name = name;
 		
 		return asConcreteType();

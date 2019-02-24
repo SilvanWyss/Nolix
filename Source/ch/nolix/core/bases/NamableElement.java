@@ -28,7 +28,7 @@ implements ISmartObject<NE>, Namable<NE> {
 	 * 
 	 * @param name
 	 * @throws NullArgumentException if the given name is null.
-	 * @throws EmptyArgumentException if the given name is empty.
+	 * @throws InvalidArgumentException if the given name is blank.
 	 */
 	public NamableElement(final String name) {
 		setName(name);
@@ -50,18 +50,18 @@ implements ISmartObject<NE>, Namable<NE> {
 	 * @param name
 	 * @return the current {@link NamableElement}.
 	 * @throws NullArgumentException if the given name is null.
-	 * @throws EmptyArgumentException if the given name is empty.
+	 * @throws EmptyArgumentException if the given name is blank.
 	 */
 	@Override
 	public final NE setName(final String name) {
 		
-		//Checks if the given name is not null and not empty.
+		//Checks if the given name is not null and not blank.
 		Validator
 		.suppose(name)
 		.thatIsNamed(VariableNameCatalogue.NAME)
-		.isNotEmpty();
+		.isNotBlank();
 		
-		//Sets the name of the current namable element.
+		//Sets the name of the current NamableElement.
 		this.name = name;
 		
 		return asConcreteType();

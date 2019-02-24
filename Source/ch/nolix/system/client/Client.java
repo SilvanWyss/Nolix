@@ -2,7 +2,7 @@
 package ch.nolix.system.client;
 
 //own imports
-import ch.nolix.core.bases.OptionalSignableElement;
+import ch.nolix.core.bases.OptionalLabelableElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
@@ -28,7 +28,7 @@ import ch.nolix.core.validator.Validator;
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
-extends OptionalSignableElement<C>
+extends OptionalLabelableElement<C>
 implements Closable {
 	
 	//constants

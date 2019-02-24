@@ -26,7 +26,7 @@ public abstract class ClosableElement implements Closable {
 	@Override
 	public final void close() {
 		
-		//Handles the case that the current closable element is alive.
+		//Handles the case that the current ClosableElement is alive.
 		if (isAlive()) {
 			parentCloseController.close();
 		}
@@ -56,20 +56,20 @@ public abstract class ClosableElement implements Closable {
 	 * Creates a close dependency
 	 * between the current {@link ClosableElement} and the given element.
 	 * 
-	 * When a {@link ClosableElement} is closed all of its close dependencies will be closed too
-	 * and vice versa.
+	 * When a {@link ClosableElement} is closed
+	 * all of its close dependencies will be closed too and vice versa.
 	 * 
 	 * @param element
 	 * @throws InvalidArgumentException if the current {@link ClosableElement} is closed.
 	 * @throws InvalidArgumentException
 	 * if the current {@link ClosableElement} has already a close dependency to the given element.
 	 */
-	protected final synchronized void createCloseDependency(final ClosableElement element) {
+	protected final void createCloseDependency(final ClosableElement element) {
 		
-		//Checks if the current closable element is alive.
+		//Checks if the current ClosableElement is alive.
 		supposeIsAlive();
 		
-		//Checks if the current closable element
+		//Checks if the current ClosableElement
 		//does not have already a close dependency to the given element.
 		if (hasCloseDependencyTo(element)) {
 			throw new InvalidArgumentException(
@@ -93,7 +93,7 @@ public abstract class ClosableElement implements Closable {
 	 */
 	protected final void supposeIsAlive() {
 		
-		//Checks if the current closable element is alive.
+		//Checks if the current ClosableElement is alive.
 		if (isClosed()) {
 			throw new ClosedArgumentException(this);
 		}
@@ -122,7 +122,7 @@ public abstract class ClosableElement implements Closable {
 		.thatIsNamed("parent close controller")
 		.isNotNull();
 		
-		//Sets the parent close controller of the current closable element.
+		//Sets the parent close controller of the current ClosableElement.
 		this.parentCloseController = parentCloseController;
 	}
 }

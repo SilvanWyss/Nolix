@@ -34,7 +34,7 @@ public abstract class IndexedElement implements Indexed {
 		.thatIsNamed(VariableNameCatalogue.INDEX)
 		.isPositive();
 		
-		//Sets the index of the current indexed element.
+		//Sets the index of the current IndexedElement.
 		this.index = index;
 	}
 	

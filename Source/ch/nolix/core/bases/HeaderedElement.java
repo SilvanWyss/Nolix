@@ -25,18 +25,17 @@ public abstract class HeaderedElement implements Headered {
 	 * 
 	 * @param header
 	 * @throws NullArgumentException if the given header is null.
-	 * @throws EmptyArgumentException if the given header is empty.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
 	public HeaderedElement(final String header) {
 		
-		//Checks if the given header is not null, empty or blank.
+		//Checks if the given header is not null and not blank.
 		Validator
 		.suppose(header)
 		.thatIsNamed(VariableNameCatalogue.HEADER)
 		.isNotBlank();
 		
-		//Sets the header of the current headered element.
+		//Sets the header of the current HeaderedElement.
 		this.header = header;
 	}
 	
