@@ -7,7 +7,7 @@ package ch.nolix.core.constants;
  * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 130
+ * @lines 140
  */
 public final class VariableNameCatalogue {
 	
@@ -17,10 +17,13 @@ public final class VariableNameCatalogue {
 	public static final String ARRAY = "array";
 	public static final String ATTRIBUTE = "attribute";
 	public static final String BACKGROUND_COLOR = "background color";
+	public static final String BORDER_COLOR = "border color";
 	public static final String CAPACITY = "capacity";
 	public static final String CAPTION = "caption";
+	public static final String CELL = "cell";
 	public static final String CLASS = "class";
 	public static final String COLOR = "color";
+	public static final String COLUMN = "column";
 	public static final String COLUMN_COUNT = "column count";
 	public static final String COLUMN_INDEX = "column index";
 	public static final String COMMAND = "command";
@@ -36,9 +39,12 @@ public final class VariableNameCatalogue {
 	public static final String DATA_TYPE = "data type";
 	public static final String DATE = "date";
 	public static final String DATE_OF_BIRTH = "date of birth";
+	public static final String DEFAULT = "default";
 	public static final String DEFAULT_CAPACITY = "default capacity";
+	public static final String DEFAULT_COLOR = "default colour";
 	public static final String DEFAULT_NAME = "default name";
 	public static final String DEFAULT_SIZE = "default size";
+	public static final String DEFAULT_TEXTURE = "default texture";
 	public static final String DEFAULT_VALUE = "default value";
 	public static final String DESCRIPTION = "description";
 	public static final String DIAMETER = "diameter";
@@ -48,6 +54,7 @@ public final class VariableNameCatalogue {
 	public static final String DURATION_IN_SECONDS = "duration in seconds";
 	public static final String ELEMENT = "element";
 	public static final String ELEMENT_COUNT = "element count";
+	public static final String ELEMENT_MARGIN = "element margin";
 	public static final String END_DATE = "end date";
 	public static final String END_INDEX = "end index";
 	public static final String ENTITY = "entity";
@@ -70,6 +77,8 @@ public final class VariableNameCatalogue {
 	public static final String JOB = "job";
 	public static final String LENGTH = "length";
 	public static final String LETTER = "letter";
+	public static final String LINE_COLOR = "line color";
+	public static final String LINE_THICKNESS = "line thickness";
 	public static final String MAXIMUM = "maximum";
 	public static final String MESSAGE = "message";
 	public static final String MINIMUM = "minimum";
@@ -78,6 +87,7 @@ public final class VariableNameCatalogue {
 	public static final String NODE = "node";
 	public static final String OUTPUT = "output";
 	public static final String OUTPUT_FUNCTION = "output function";
+	public static final String PADDING = "padding";
 	public static final String PATH = "path";
 	public static final String PERCENTAGE = "percentage";
 	public static final String PORT = "port";
@@ -90,6 +100,7 @@ public final class VariableNameCatalogue {
 	public static final String ROOT = "root";
 	public static final String ROOT_FOLDER = "root folder";
 	public static final String ROOT_NODE = "root node";
+	public static final String ROW = "row";
 	public static final String ROW_COUNT = "row count";
 	public static final String ROW_INDEX = "row index";
 	public static final String SEPARATOR = "separator";
@@ -109,6 +120,9 @@ public final class VariableNameCatalogue {
 	public static final String TEST = "test";
 	public static final String TEST_CLASS = "test class";
 	public static final String TEXT = "text";
+	public static final String TEXT_COLOR = "text color";
+	public static final String TEXT_SIZE = "text size";
+	public static final String TEXTURE = "texture";
 	public static final String THICKNESS = "thickness";
 	public static final String TIMEOUT = "timeout";
 	public static final String TIMEOUT_IN_MICROSECONDS = "timeout in microseconds";
