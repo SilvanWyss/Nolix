@@ -54,7 +54,7 @@ public class FileSystemItemAccessor {
 		
 		final var array = getName().split(".");
 		
-		return array[array.length - 1];
+		return ("." + array[array.length - 1]);
 	}
 	
 	//method
