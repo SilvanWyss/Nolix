@@ -19,7 +19,7 @@ public final class CharacterCatalogue {
 	public static final char CLOSED_CROCODILE_BRACKET = '>';
 	public static final char CLOSED_SQUARE_BRACKET = ']';
 	public static final char COMMA = ',';
-	public static final char DOLLAR_SYMBOL = '$';
+	public static final char DOLLAR = '$';
 	public static final char DOT = '.';
 	public static final char ELLIPSIS = 0x2026;
 	public static final char FAT_CHECK_MARK = 0x2714;

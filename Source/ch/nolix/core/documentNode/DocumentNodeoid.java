@@ -55,7 +55,7 @@ public abstract class DocumentNodeoid implements Headered {
 		string
 		
 		//It is important that the dollar symbol is replaced at first.
-		.replace(String.valueOf(CharacterCatalogue.DOLLAR_SYMBOL), DOLLAR_SYMBOL_CODE)
+		.replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
 		
 		.replace(String.valueOf(CharacterCatalogue.COMMA), COMMA_CODE)
 		.replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
@@ -83,7 +83,7 @@ public abstract class DocumentNodeoid implements Headered {
 		.replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
 		
 		//It is important that the dollar symbol code is replaced at last.
-		.replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR_SYMBOL));
+		.replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
 	}
 	
 	//abstract method
