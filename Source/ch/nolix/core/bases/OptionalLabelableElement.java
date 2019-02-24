@@ -10,7 +10,8 @@ import ch.nolix.core.validator.Validator;
 
 //abstract class
 /**
- * A {@link OptionalLabelableElement} can have an info string.
+ * A {@link OptionalLabelableElement} has an info string
+ * that can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2016-12

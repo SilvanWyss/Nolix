@@ -10,7 +10,8 @@ import ch.nolix.core.validator.Validator;
 
 //abstract class
 /**
- * A {@link OptionalNamableElement} can have a name.
+ * A {@link OptionalNamableElement} has a name
+ * that can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2017-06

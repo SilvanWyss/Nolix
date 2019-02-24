@@ -9,7 +9,7 @@ import ch.nolix.core.validator.Validator;
 
 //abstract class
 /**
- * A {@link NamableElement} has a name.
+ * A {@link NamableElement} has a name that can be set programmatically.
  * 
  * @author Silvan Wyss
  * @month 2016-11
