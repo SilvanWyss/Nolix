@@ -76,7 +76,7 @@ implements ISmartObject<ONE>, OptionalHeaderable<ONE> {
 		//Checks if the given header is not null and not blank.
 		Validator
 		.suppose(header)
-		.thatIsNamed(VariableNameCatalogue.NAME)
+		.thatIsNamed(VariableNameCatalogue.HEADER)
 		.isNotBlank();
 		
 		//Sets the header of the current OptionalHeaderableElement.
@@ -92,7 +92,7 @@ implements ISmartObject<ONE>, OptionalHeaderable<ONE> {
 	 */
 	private void supposeHasHeader() {
 		if (!hasHeader()) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.NAME);
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.HEADER);
 		}
 	}
 }
