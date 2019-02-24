@@ -11,8 +11,13 @@ package ch.nolix.core.constants;
  */
 public final class MultiPascalCaseNameCatalogue {
 	
-	//constant
+	//constants
+	public static final String ELEMENTS = "Elements";
 	public static final String ENTITIES = "Entities";
+	public static final String INPUT_VALUES = "InputValues";
+	public static final String OUTPUT_VALUES = "OutputValues";
+	public static final String TABS = "Tabs";
+	public static final String VALUES = "Values";
 	
 	//private constructor
 	/**
