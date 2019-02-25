@@ -22,7 +22,6 @@ public final class Fractal implements IFractal {
 	private final IClosedInterval realComponentInterval;
 	private final IClosedInterval imaginaryComponentInterval;
 	private final int widthInPixel;
-	private final int sequencesStartIndex;
 	private final IComplexNumber sequencesStartValue;
 	private final ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> sequenceNextValueFunction;
 	private final BigDecimal minDivergenceMangitude;
@@ -34,7 +33,6 @@ public final class Fractal implements IFractal {
 		final IClosedInterval realComponentInterval,
 		final IClosedInterval imaginaryComponentInterval,
 		final int widthInPixel,
-		final int sequencesStartIndex,
 		final IComplexNumber sequencesStartValue,
 		final ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> sequenceNextValueFunction,
 		final BigDecimal minDivergenceMangitude,
@@ -86,7 +84,6 @@ public final class Fractal implements IFractal {
 		this.imaginaryComponentInterval = imaginaryComponentInterval.getInBigDecimalScale(bigDecimalScae);
 		this.realComponentInterval = realComponentInterval.getInBigDecimalScale(bigDecimalScae);
 		this.widthInPixel = widthInPixel;
-		this.sequencesStartIndex = sequencesStartIndex;
 		this.sequencesStartValue = sequencesStartValue.getInBigDecimalScale(bigDecimalScae);
 		this.sequenceNextValueFunction = sequenceNextValueFunction;
 		this.minDivergenceMangitude = minDivergenceMangitude;
@@ -173,12 +170,6 @@ public final class Fractal implements IFractal {
 	
 	//method
 	@Override
-	public int getSequencesStartIndex() {
-		return sequencesStartIndex;
-	}
-	
-	//method
-	@Override
 	public IComplexNumber getSequencesStartValue() {
 		return sequencesStartValue;
 	}
@@ -235,7 +226,7 @@ public final class Fractal implements IFractal {
 					heightInpixel - y + 1,
 					getColor(
 						new ImpliciteSequence<IComplexNumber>(
-							getSequencesStartIndex(),
+							1,
 							getSequencesStartValue(),
 							z -> sequenceNextValueFunction.getOutput(z, c),
 							z -> z.getSquaredMagnitude()

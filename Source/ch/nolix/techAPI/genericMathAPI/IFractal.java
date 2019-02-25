@@ -48,9 +48,6 @@ public interface IFractal {
 	public abstract int getSequencesMaxIndex();
 	
 	//abstract method
-	public abstract int getSequencesStartIndex();
-	
-	//abstract method
 	public abstract IComplexNumber getSequencesStartValue();
 	
 	//abstract method

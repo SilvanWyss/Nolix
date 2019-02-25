@@ -23,7 +23,6 @@ public class MandelbrotTutorial {
 					new ClosedInterval(new BigDecimal(-1.5), new BigDecimal(-1.45)),
 					new ClosedInterval(new BigDecimal(-0.025), new BigDecimal(0.025)),
 					600,
-					1,
 					new ComplexNumber(0.0, 0.0),
 					(z, c) -> z.getSquare().getSum(c),
 					new BigDecimal(2.5),
