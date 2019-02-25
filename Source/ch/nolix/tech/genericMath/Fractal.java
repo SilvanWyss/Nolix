@@ -25,7 +25,7 @@ public final class Fractal implements IFractal {
 	private final IComplexNumber sequencesStartValue;
 	private final ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> sequenceNextValueFunction;
 	private final BigDecimal minDivergenceMangitude;
-	private final int sequencesMaxIndex;
+	private final int sequencesMaxIterationCount;
 	private final IIntTakerElementGetter<Color> colorFunction;
 	
 	//constructor
@@ -36,7 +36,7 @@ public final class Fractal implements IFractal {
 		final IComplexNumber sequencesStartValue,
 		final ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> sequenceNextValueFunction,
 		final BigDecimal minDivergenceMangitude,
-		final int sequencesMaxIndex,
+		final int sequencesMaxIterationCount,
 		final IIntTakerElementGetter<Color> colorFunction,
 		final int bigDecimalScae
 	) {
@@ -72,6 +72,11 @@ public final class Fractal implements IFractal {
 		.isPositive();
 		
 		Validator
+		.suppose(sequencesMaxIterationCount)
+		.thatIsNamed("sequences max iteration count")
+		.isPositive();
+		
+		Validator
 		.suppose(colorFunction)
 		.thatIsNamed("color function")
 		.isNotNull();
@@ -87,7 +92,7 @@ public final class Fractal implements IFractal {
 		this.sequencesStartValue = sequencesStartValue.getInBigDecimalScale(bigDecimalScae);
 		this.sequenceNextValueFunction = sequenceNextValueFunction;
 		this.minDivergenceMangitude = minDivergenceMangitude;
-		this.sequencesMaxIndex = sequencesMaxIndex;
+		this.sequencesMaxIterationCount = sequencesMaxIterationCount;
 		this.colorFunction = colorFunction;
 	}	
 	
@@ -164,8 +169,8 @@ public final class Fractal implements IFractal {
 	
 	//method
 	@Override
-	public int getSequencesMaxIndex() {
-		return sequencesMaxIndex;
+	public int getSequencesMaxIterationCount() {
+		return sequencesMaxIterationCount;
 	}
 	
 	//method
@@ -233,7 +238,7 @@ public final class Fractal implements IFractal {
 						)
 						.getConvergenceGrade(
 							getMinDivergenceMagnitude(),
-							getSequencesMaxIndex()
+							getSequencesMaxIterationCount()
 						)
 					)
 				);

@@ -45,7 +45,7 @@ public interface IFractal {
 	public abstract IClosedInterval getRealComponentInterval();
 	
 	//abstract method
-	public abstract int getSequencesMaxIndex();
+	public abstract int getSequencesMaxIterationCount();
 	
 	//abstract method
 	public abstract IComplexNumber getSequencesStartValue();
