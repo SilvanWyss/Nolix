@@ -603,12 +603,12 @@ public class Color extends Element<Color> {
 		public static final Color YELLOW_GREEN = new Color(YELLOW_GREEN_INT);
 	
 	//limits
-	private static final long MIN_COLOR_INT = 0;
-	private static final long MAX_COLOR_INT = 4294967296l;
+	public static final long MIN_COLOR_INT = 0;
+	public static final long MAX_COLOR_INT = 4294967296l;
 	
 	//limits
-	private static final short MIN_COLOR_COMPONENT = 0;
-	private static final short MAX_COLOR_COMPONENT = 255;
+	public static final short MIN_COLOR_COMPONENT = 0;
+	public static final short MAX_COLOR_COMPONENT = 255;
 	
 	//static attribute
 	private static final List<Color> webColors = new List<Color>();
