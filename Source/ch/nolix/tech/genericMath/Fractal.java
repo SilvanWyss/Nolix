@@ -38,7 +38,7 @@ public final class Fractal implements IFractal {
 		final BigDecimal sequencesMinDivergenceMagnitude,
 		final int sequencesMaxIterationCount,
 		final IIntTakerElementGetter<Color> colorFunction,
-		final int bigDecimalScae
+		final int bigDecimalScale
 	) {
 		
 		Validator
@@ -82,14 +82,14 @@ public final class Fractal implements IFractal {
 		.isNotNull();
 		
 		Validator
-		.suppose(bigDecimalScae)
+		.suppose(bigDecimalScale)
 		.thatIsNamed("big decimal scale")
 		.isPositive();
 		
-		this.imaginaryComponentInterval = imaginaryComponentInterval.getInBigDecimalScale(bigDecimalScae);
-		this.realComponentInterval = realComponentInterval.getInBigDecimalScale(bigDecimalScae);
+		this.imaginaryComponentInterval = imaginaryComponentInterval.getInBigDecimalScale(bigDecimalScale);
+		this.realComponentInterval = realComponentInterval.getInBigDecimalScale(bigDecimalScale);
 		this.widthInPixel = widthInPixel;
-		this.sequencesStartValue = sequencesStartValue.getInBigDecimalScale(bigDecimalScae);
+		this.sequencesStartValue = sequencesStartValue.getInBigDecimalScale(bigDecimalScale);
 		this.sequencesNextValueFunction = sequencesNextValueFunction;
 		this.sequencesMinDivergenceMagnitude = sequencesMinDivergenceMagnitude;
 		this.sequencesMaxIterationCount = sequencesMaxIterationCount;
