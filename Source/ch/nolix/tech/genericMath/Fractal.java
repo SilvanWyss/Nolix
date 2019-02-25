@@ -175,6 +175,12 @@ public final class Fractal implements IFractal {
 	
 	//method
 	@Override
+	public ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> getSequencesNextValueFunction() {
+		return sequencesNextValueFunction;
+	}
+	
+	//method
+	@Override
 	public IComplexNumber getSequencesStartValue() {
 		return sequencesStartValue;
 	}
@@ -192,6 +198,12 @@ public final class Fractal implements IFractal {
 	}
 	
 	//method
+	public ImageBuilder startImageBuild() {
+		return new ImageBuilder(this);
+	}
+	
+	//method
+	@Override
 	public Image toImage() {
 		
 		final var widthInPixel = getWidthInPixel();
@@ -199,24 +211,15 @@ public final class Fractal implements IFractal {
 		
 		final var image = new Image(widthInPixel, heightInpixel);
 		
-		final var argument = new ComplexNumber(getMinRealComponent(), getMinImaginaryComponent(), getBigDecimalScale());
+		final var argument
+		= new ComplexNumber(getMinRealComponent(), getMinImaginaryComponent(), getBigDecimalScale());
+		
 		final var unitsPerPixel = getUnitsPerPixel();
+		
 		for (var x = 1; x <= widthInPixel; x++) {
 			
 			for (var y = 1; y <= heightInpixel; y++) {
-				
-				/*
-				final var c = new ComplexNumber(
-					argument
-					.getRealComponent()
-					.add(unitsPerPixel.multiply(new BigDecimal(x - 1))),
-					argument
-					.getImaginaryComponent()
-					.add(unitsPerPixel.multiply(new BigDecimal(y - 1))),
-					getBigDecimalScale()
-				);
-				*/
-				
+								
 				final var c =
 				argument.getSum(
 					new ComplexNumber(

@@ -5,6 +5,7 @@ package ch.nolix.techAPI.genericMathAPI;
 import java.math.BigDecimal;
 
 //own imports
+import ch.nolix.core.functionAPI.ITwoElementTakerElementGetter;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.image.Image;
 
@@ -48,6 +49,10 @@ public interface IFractal {
 	public abstract BigDecimal getSequencesMinDivergenceMagnitude();
 	
 	//abstract method
+	public abstract ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber>
+	getSequencesNextValueFunction();
+	
+	//abstract method
 	public abstract IComplexNumber getSequencesStartValue();
 	
 	//abstract method
@@ -55,6 +60,9 @@ public interface IFractal {
 	
 	//abstract method
 	public abstract int getWidthInPixel();
+	
+	//abstract method
+	public abstract IImageBuilder startImageBuild();
 	
 	//abstract method
 	public abstract Image toImage();
