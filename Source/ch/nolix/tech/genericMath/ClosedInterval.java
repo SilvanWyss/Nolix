@@ -60,6 +60,16 @@ public final class ClosedInterval implements IClosedInterval {
 		this.max = max.setScale(bigDecimalScale, RoundingMode.HALF_UP);
 	}
 	
+	//constructor
+	public ClosedInterval(final double min, final double max) {
+		this(new BigDecimal(min), new BigDecimal(max));
+	}
+	
+	//constructor
+	public ClosedInterval(final double min, final double max, final int bigDecimalScale) {
+		this(new BigDecimal(min), new BigDecimal(max), bigDecimalScale);
+	}
+	
 	//method
 	@Override
 	public boolean contains(final BigDecimal value) {
