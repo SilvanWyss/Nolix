@@ -125,6 +125,12 @@ public final class FractalBuilder implements IFractalBuilder {
 	
 	//method
 	@Override
+	public IFractalBuilder setSequencesMinDivergenceMagnitude(final double sequencesMinDivergenceMagnitude) {
+		return setSequencesMinDivergenceMagnitude(new BigDecimal(sequencesMinDivergenceMagnitude));
+	}
+	
+	//method
+	@Override
 	public IFractalBuilder setSequencesNextValueFunction(
 		final ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> sequenceNextValueFunction
 	) {

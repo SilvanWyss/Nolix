@@ -34,6 +34,9 @@ public interface IFractalBuilder {
 	public abstract IFractalBuilder setSequencesMinDivergenceMagnitude(BigDecimal sequencesMinDivergenceMagnitude);
 	
 	//abstract method
+	public abstract IFractalBuilder setSequencesMinDivergenceMagnitude(double sequencesMinDivergenceMagnitude);
+	
+	//abstract method
 	public abstract IFractalBuilder setSequencesNextValueFunction(
 		ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> sequenceNextValueFunction
 	);
