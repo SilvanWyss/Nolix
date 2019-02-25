@@ -23,8 +23,8 @@ public final class Fractal implements IFractal {
 	private final IClosedInterval imaginaryComponentInterval;
 	private final int widthInPixel;
 	private final IComplexNumber sequencesStartValue;
-	private final ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> sequenceNextValueFunction;
-	private final BigDecimal minDivergenceMagnitude;
+	private final ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> sequencesNextValueFunction;
+	private final BigDecimal sequencesMinDivergenceMagnitude;
 	private final int sequencesMaxIterationCount;
 	private final IIntTakerElementGetter<Color> colorFunction;
 	
@@ -34,8 +34,8 @@ public final class Fractal implements IFractal {
 		final IClosedInterval imaginaryComponentInterval,
 		final int widthInPixel,
 		final IComplexNumber sequencesStartValue,
-		final ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> sequenceNextValueFunction,
-		final BigDecimal minDivergenceMagnitude,
+		final ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> sequencesNextValueFunction,
+		final BigDecimal sequencesMinDivergenceMagnitude,
 		final int sequencesMaxIterationCount,
 		final IIntTakerElementGetter<Color> colorFunction,
 		final int bigDecimalScae
@@ -62,13 +62,13 @@ public final class Fractal implements IFractal {
 		.isNotNull();
 		
 		Validator
-		.suppose(sequenceNextValueFunction)
-		.thatIsNamed("sequence next value function")
+		.suppose(sequencesNextValueFunction)
+		.thatIsNamed("sequences next value function")
 		.isNotNull();
 		
 		Validator
-		.suppose(minDivergenceMagnitude)
-		.thatIsNamed("min divergence magnitude")
+		.suppose(sequencesMinDivergenceMagnitude)
+		.thatIsNamed("sequences min divergence magnitude")
 		.isPositive();
 		
 		Validator
@@ -90,8 +90,8 @@ public final class Fractal implements IFractal {
 		this.realComponentInterval = realComponentInterval.getInBigDecimalScale(bigDecimalScae);
 		this.widthInPixel = widthInPixel;
 		this.sequencesStartValue = sequencesStartValue.getInBigDecimalScale(bigDecimalScae);
-		this.sequenceNextValueFunction = sequenceNextValueFunction;
-		this.minDivergenceMagnitude = minDivergenceMagnitude;
+		this.sequencesNextValueFunction = sequencesNextValueFunction;
+		this.sequencesMinDivergenceMagnitude = sequencesMinDivergenceMagnitude;
 		this.sequencesMaxIterationCount = sequencesMaxIterationCount;
 		this.colorFunction = colorFunction;
 	}	
@@ -139,12 +139,6 @@ public final class Fractal implements IFractal {
 	
 	//method
 	@Override
-	public BigDecimal getMinDivergenceMagnitude() {
-		return minDivergenceMagnitude;
-	}
-	
-	//method
-	@Override
 	public BigDecimal getMinImaginaryComponent() {
 		return imaginaryComponentInterval.getMin();
 	}
@@ -171,6 +165,12 @@ public final class Fractal implements IFractal {
 	@Override
 	public int getSequencesMaxIterationCount() {
 		return sequencesMaxIterationCount;
+	}
+	
+	//method
+	@Override
+	public BigDecimal getSequencesMinDivergenceMagnitude() {
+		return sequencesMinDivergenceMagnitude;
 	}
 	
 	//method
@@ -233,11 +233,11 @@ public final class Fractal implements IFractal {
 						new ImpliciteSequence<IComplexNumber>(
 							1,
 							getSequencesStartValue(),
-							z -> sequenceNextValueFunction.getOutput(z, c),
+							z -> sequencesNextValueFunction.getOutput(z, c),
 							z -> z.getSquaredMagnitude()
 						)
 						.getConvergenceGrade(
-							getMinDivergenceMagnitude(),
+							getSequencesMinDivergenceMagnitude(),
 							getSequencesMaxIterationCount()
 						)
 					)

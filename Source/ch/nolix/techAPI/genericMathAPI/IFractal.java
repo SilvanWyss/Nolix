@@ -30,9 +30,6 @@ public interface IFractal {
 	public abstract BigDecimal getMaxRealComponent();	
 	
 	//abstract method
-	public abstract BigDecimal getMinDivergenceMagnitude();
-	
-	//abstract method
 	public abstract BigDecimal getMinImaginaryComponent();
 	
 	//abstract method
@@ -46,6 +43,9 @@ public interface IFractal {
 	
 	//abstract method
 	public abstract int getSequencesMaxIterationCount();
+	
+	//abstract method
+	public abstract BigDecimal getSequencesMinDivergenceMagnitude();
 	
 	//abstract method
 	public abstract IComplexNumber getSequencesStartValue();
