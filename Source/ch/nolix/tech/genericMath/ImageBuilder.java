@@ -64,7 +64,7 @@ public final class ImageBuilder implements IImageBuilder {
 			fractal.getBigDecimalScale()
 		);
 		
-		final var linesPerThread = 50;
+		final var linesPerThread = 10;
 		
 		for (var y = 1; y <= heightInpixel - linesPerThread; y += linesPerThread) {
 			final var y_ = y;
