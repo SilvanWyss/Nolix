@@ -61,6 +61,7 @@ public final class VariableNameCatalogue {
 	public static final String ENTITY_TYPE = "entity type";
 	public static final String ENUM = "enum";
 	public static final String EXCEPTION = "exception";
+	public static final String EXPONENT = "exponent";
 	public static final String FILE_NAME = "file name";
 	public static final String FILE_PATH = "file path";
 	public static final String FOLDER_PATH = "folder path";
