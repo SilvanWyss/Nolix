@@ -7,6 +7,7 @@ import java.math.MathContext;
 import java.math.RoundingMode;
 
 //own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumber;
@@ -122,6 +123,24 @@ public final class ComplexNumber implements IComplexNumber {
 		.add(imaginaryComponent.pow(2))
 		.sqrt(MathContext.DECIMAL128)
 		.setScale(getScale(), RoundingMode.HALF_UP);
+	}
+	
+	//method
+	@Override
+	public ComplexNumber getPower(final int exponent) {
+		
+		Validator
+		.suppose(exponent)
+		.thatIsNamed(VariableNameCatalogue.EXPONENT)
+		.isPositive();
+		
+		var complexNumber = this;
+		
+		for (var i = 2; i <= exponent; i++) {
+			complexNumber = complexNumber.getProduct(this);
+		}
+		
+		return complexNumber;
 	}
 	
 	//method

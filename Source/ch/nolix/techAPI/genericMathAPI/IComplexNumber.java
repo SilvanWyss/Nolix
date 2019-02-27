@@ -23,6 +23,9 @@ public interface IComplexNumber {
 	public abstract BigDecimal getMagnitude();
 	
 	//abstract method
+	public abstract IComplexNumber getPower(int exponent);
+	
+	//abstract method
 	public abstract IComplexNumber getProduct(IComplexNumber complexNumber);
 	
 	//abstract method
