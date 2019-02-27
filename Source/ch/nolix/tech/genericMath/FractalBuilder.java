@@ -16,23 +16,24 @@ import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
 public final class FractalBuilder implements IFractalBuilder {
 	
 	//default values
-	public static final IClosedInterval DEFAULT_REAL_COMPONENT_INTERVAL = new ClosedInterval(-1.5, 1.5);
+	public static final IClosedInterval DEFAULT_REAL_COMPONENT_INTERVAL = new ClosedInterval(-2.5, 1.0);
 	public static final IClosedInterval DEFAULT_IMAGINARY_COMPONENT_INTERVAL = new ClosedInterval(-1.5, 1.5);
 	public static final int DEFAULT_WIDHT_IN_PIXEL = 500;
 	public static final IComplexNumber DEFAULT_SEQUENCES_START_VALUE = new ComplexNumber(0.0, 0.0);
 	
 	//default value
 	public static final ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber>
-	DEFAULT_SEQUENCES_NEXT_VALUE_FUNCTION
-	= (z, c) -> z.getSquare().getSum(c);
+	DEFAULT_SEQUENCES_NEXT_VALUE_FUNCTION =
+	(z, c) -> z.getSquare().getSum(c);
 	
 	//default values
 	public static final double DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE = 2.5;
-	public static final int DEFAULT_SEQUENCE_MAX_ITERATION_COUNT = 50;
+	public static final int DEFAULT_SEQUENCE_MAX_ITERATION_COUNT = 100;
 	
 	//default value
-	public static final IIntTakerElementGetter<Color> DEFAULT_COLOR_FUNCTION
-	= i -> i < DEFAULT_SEQUENCE_MAX_ITERATION_COUNT ? new Color(0, 0, (10 * i) % Color.MAX_COLOR_COMPONENT) : Color.BLACK;
+	public static final IIntTakerElementGetter<Color>
+	DEFAULT_COLOR_FUNCTION =
+	i -> i < DEFAULT_SEQUENCE_MAX_ITERATION_COUNT ? new Color(0, 0, (10 * i) % Color.MAX_COLOR_COMPONENT) : Color.BLACK;
 	
 	//default value
 	public static final int DEFAULT_BIG_DECIMAL_SCALE = 10;
@@ -44,8 +45,8 @@ public final class FractalBuilder implements IFractalBuilder {
 	private IComplexNumber sequencesStartValue = DEFAULT_SEQUENCES_START_VALUE;
 	
 	//attribute
-	private ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> sequencesNextValueFunction
-	= DEFAULT_SEQUENCES_NEXT_VALUE_FUNCTION;
+	private ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> sequencesNextValueFunction =
+	DEFAULT_SEQUENCES_NEXT_VALUE_FUNCTION;
 	
 	//attributes
 	private BigDecimal sequencesMinDivergenceMagnitude = new BigDecimal(DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE);
