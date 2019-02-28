@@ -1,11 +1,16 @@
 //package declaration
 package ch.nolix.element.image;
 
-//Java import
+//Java imports
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import javax.imageio.ImageIO;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.Matrix;
 import ch.nolix.core.container.ReadContainer;
@@ -168,6 +173,16 @@ public final class Image extends MutableElement<Image> {
 	}
 	
 	//method
+	public void saveAsPNG() {
+		try {
+			ImageIO.write(toBufferedImage(), "PNG", new File(StringCatalogue.EMPTY_STRING));
+		}
+		catch (final IOException IOException) {
+			throw new RuntimeException(IOException);
+		}
+	}
+	
+	//method
 	public Image setPixel(int xPosition, int yPosition, final Color color) {
 		
 		pixels.setAt(yPosition, xPosition, color);
@@ -217,8 +232,18 @@ public final class Image extends MutableElement<Image> {
 	}
 	
 	//method
+	public byte[] toJPG() {
+		return to("jpg");
+	}
+	
+	//method
 	public Image toLeftRotatedImage() {
 		return new Image(pixels.toLeftRotatedMatrix());
+	}
+	
+	//method
+	public byte[] toPNG() {
+		return to("png");
 	}
 	
 	//method
@@ -234,5 +259,24 @@ public final class Image extends MutableElement<Image> {
 	//method
 	private void setWidth(final int width) {
 		this.width.setValue(new NonNegativeInteger(width));
+	}
+	
+	//method
+	private byte[] to(final String fileFormat) {
+		
+		final var outputStream = new OutputStream() {
+			
+			//TODO
+			@Override
+			public void write(final int byte_) throws IOException {}
+		};
+		
+		try {
+			ImageIO.write(toBufferedImage(), fileFormat, outputStream);
+			return null;
+		}
+		catch (final IOException IOException) {
+			throw new RuntimeException(IOException);
+		}
 	}
 }
