@@ -15,6 +15,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.util.PopupWindowProvider;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.color.Color;
 
 //class
 public final class Downloader extends TextLineWidget<Downloader> {
@@ -183,7 +184,14 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	//method
 	@Override
 	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+		
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
+		
+		getRefBaseLook().setTextColor(Color.DARK_BLUE);
+		
+		getRefHoverLook().setTextColor(Color.BLUE);
+		
+		getRefHoverFocusLook().setTextColor(Color.BLUE);
 	}
 	
 	//method
