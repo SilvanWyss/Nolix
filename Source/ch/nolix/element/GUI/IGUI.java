@@ -50,7 +50,7 @@ Specifiable<G> {
 		(W)
 		getRefWidgetByIndexRecursively(indexPath.getRefFirst())
 		.as(GUI.class)
-		.getRefWidgetByIndexPath(indexPath.getContainerWithoutFirst());
+		.getRefWidgetByIndexPath(indexPath.withoutFirst());
 	}
 	
 	//default method

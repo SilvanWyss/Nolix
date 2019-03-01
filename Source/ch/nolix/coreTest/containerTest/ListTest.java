@@ -208,7 +208,7 @@ public final class ListTest extends Test {
 		);
 		
 		//execution
-		final var subList = list.getContainerFrom(4);
+		final var subList = list.from(4);
 		
 		//verification
 			expect(subList.getSize()).isEqualTo(3);
@@ -242,7 +242,7 @@ public final class ListTest extends Test {
 		);
 		
 		//execution
-		final var subList = list.getContainerWithoutFirst();
+		final var subList = list.withoutFirst();
 		
 		//verification
 		expect(subList.getSize()).isEqualTo(5);

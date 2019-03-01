@@ -27,19 +27,21 @@ import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1700
+ * @lines 1870
  * @param <E> The type of the elements of a {@link IContainer}.
  */
 public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param selector
 	 * @return true if the current {@link IContainer} contains an element the given selector selects.
 	 */
 	public default boolean contains(final IElementTakerBooleanGetter<E> selector) {
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			//Handles the case that the given selector selects the current element.
@@ -65,12 +67,14 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param element
 	 * @return true if the current {@link IContainer} contains the given element.
 	 */
 	public default boolean contains(final Object element) {
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			//Handles the case that the current element is the given element.
@@ -84,6 +88,10 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(m*n) if:
+	 * -The current {@link IContainer} contains m elements.
+	 * -n elements are given.
+	 * 
 	 * @param elements
 	 * @return true if the current {@link IContainer} contains all of the given elements.
 	 */
@@ -92,7 +100,7 @@ public interface IContainer<E> extends Iterable<E> {
 		//Iterates the given elements.
 		for (final var e : elements) {
 			
-			//Handles the case that the current container does not contain the current element.
+			//Handles the case that the current IContainer does not contain the current element.
 			if (!contains(e)) {
 				return false;
 			}
@@ -103,6 +111,10 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(m*n) if:
+	 * -The current {@link IContainer} contains m elements.
+	 * -n elements are given.
+	 * 
 	 * @param elements
 	 * @return true if the current {@link IContainer} contains all the given elements.
 	 */
@@ -111,7 +123,7 @@ public interface IContainer<E> extends Iterable<E> {
 		//Iterates the given elements.
 		for (final var e : elements) {
 			
-			//Handles the case that the current container does not contain the current element.
+			//Handles the case that the current IContainer does not contain the current element.
 			if (!contains(e)) {
 				return false;
 			}
@@ -122,6 +134,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(1).
+	 * 
 	 * @return true if the current {@link IContainer} contains any element.
 	 */
 	public default boolean containsAny() {
@@ -130,6 +144,10 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(m*n) if:
+	 * -The current {@link IContainer} contains m elements.
+	 * -n elements are given.
+	 * 
 	 * @param elements
 	 * @return true if the current {@link IContainer} contains any of the given elements.
 	 */
@@ -138,7 +156,7 @@ public interface IContainer<E> extends Iterable<E> {
 		//Iterates the given elements.
 		for (final var e : elements) {
 			
-			//Handles the case that the current container contains the current element.
+			//Handles the case that the current IContainer contains the current element.
 			if (contains(e)) {
 				return true;
 			}
@@ -149,6 +167,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param element
 	 * @return true if the current {@link IContainer}
 	 * contains an element that equals the given given element.
@@ -159,6 +179,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param selector
 	 * @return true if the current {@link IContainer} does not contain an element the given selector selects.
 	 */
@@ -168,6 +190,10 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(m*n) if:
+	 * -The current {@link IContainer} contains m elements.
+	 * -n elements are given.
+	 * 
 	 * @param elements
 	 * @return true if the current {@link IContainer} contains none of the given elements.
 	 */
@@ -176,7 +202,7 @@ public interface IContainer<E> extends Iterable<E> {
 		//Iterates the given elements.
 		for (final var e : elements) {
 			
-			//Handles the case that the current container contains the current element.
+			//Handles the case that the current IContainer contains the current element.
 			if (contains(e)) {
 				return false;
 			}
@@ -187,6 +213,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param element
 	 * @return true if the current {@link IContainer} contains the given element exactly 1 time.
 	 */
@@ -194,7 +222,7 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		var found = false;
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			//Handles the case that the current element is the given element.
@@ -214,24 +242,28 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(1).
+	 * 
 	 * @return true if the current {@link IContainer} contains exactly 1 element.
 	 */
 	public default boolean containsOne() {
 		
 		final var iterator = iterator();
 		
-		//Handles the case that the current container is empty.
+		//Handles the case that the current IContainer is empty.
 		if (!iterator.hasNext()) {
 			return false;
 		}
 		
-		//Handles the case that the current container is not empty.
+		//Handles the case that the current IContainer is not empty.
 		iterator.next();
 		return !iterator.hasNext();
 	}
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param selector
 	 * @return true if the current {@link IContainer}
 	 * contains exactly 1 element the given selector selects.
@@ -240,7 +272,7 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		var found = false;
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			//Handles the case that the given selector selects the current element.
@@ -260,6 +292,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param element
 	 * @return true if the current {@link IContainer}
 	 * contains exactly 1 element that equals the given element.
@@ -270,6 +304,10 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(m*n) if:
+	 * -The current {@link IContainer} contains m elements.
+	 * -n elements are given.
+	 * 
 	 * @param selector
 	 * @return true if the current {@link IContainer} contains only elements the given selector selects.
 	 */
@@ -279,6 +317,41 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @param startIndex
+	 * @return a new sub container of the current {@link IContainer} from the given start index.
+	 * @throws NonPositiveArgumentException if the given start index is not positive.
+	 * @throws SmallerArgumentException
+	 * if the current {@link IContainer} contains less element than the value of the given start index.
+	 */
+	public default IContainer<E> from(final int startIndex) {
+		return new SubContainer<E>(this, startIndex, getSize());
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @param startIndex
+	 * @param endIndex
+	 * @return a new sub container of the current {@link IContainer}
+	 * from the given start index to the given end index.
+	 * @throws NonPositiveArgumentException
+	 * if the given start index is not positive.
+	 * @throws SmallerArgumentException
+	 * if the given end index is smaller than the given start index.
+	 * @throws BiggerArgumentException
+	 * if the given end index is bigger than the number of elements of the current {@link IContainer}.
+	 */
+	public default IContainer<E> fromUntil(final int startIndex, final int endIndex) {
+		return new SubContainer<E>(this, startIndex, endIndex);
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param doubleNorm
 	 * @return the average of the values
 	 * the given double norm returns from the elements of the current {@link IContainer}.
@@ -286,7 +359,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default double getAverageByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
-		//Checks if the current container is not empty.
+		//Checks if the current IContainer is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -296,6 +369,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param intNorm
 	 * @return the average of the values
 	 * the given int norm returns from the elements of the current {@link IContainer}.
@@ -303,7 +378,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default double getAverageByInt(final IElementTakerIntGetter<E> intNorm) {
 		
-		//Checks if the current container is not empty.
+		//Checks if the current IContainer is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -313,6 +388,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param longNorm
 	 * @return the average of the values
 	 * the given long norm returns from the elements of the current {@link IContainer}.
@@ -320,7 +397,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default double getAverageByLong(final IElementTakerLongGetter<E> longNorm) {
 		
-		//Checks if the current container is not empty.
+		//Checks if the current IContainer is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -330,121 +407,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @param startIndex
-	 * @return a new sub container of the current {@link IContainer} from the given start index.
-	 * @throws NonPositiveArgumentException
-	 * if the given start index is not positive.
-	 * @throws SmallerArgumentException
-	 * if the current {@link IContainer} contains less element than the value of the given start index.
-	 */
-	public default IContainer<E> getContainerFrom(final int startIndex) {
-		return new SubContainer<E>(this, startIndex, getSize());
-	}
-	
-	//default method
-	/**
-	 * @param startIndex
-	 * @param endIndex
-	 * @return a new sub container of the current {@link IContainer}
-	 * from the given start index to the given end index.
-	 * @throws NonPositiveArgumentException
-	 * if the given start index is not positive.
-	 * @throws SmallerArgumentException
-	 * if the given end index is smaller than the given start index.
-	 * @throws BiggerThanExceptio
-	 * if the given end index is bigger than the number of elements of the current {@link IContainer}.
-	 */
-	public default IContainer<E> getContainerFromTo(
-		final int startIndex,
-		final int endIndex
-	) {
-		return new SubContainer<E>(this, startIndex, endIndex);
-	}
-	
-	//default method
-	/**
-	 * @param endIndex
-	 * @return a new sub container of the current {@link IContainer}
-	 * with the elements to the given end index.
-	 * @throws NonPositiveArgumentException if the given end index is not positive.
-	 */
-	public default IContainer<E> getContainerTo(final int endIndex) {
-		return new SubContainer<>(this, 1, endIndex);
-	}
-	
-	//default method
-	/**
-	 * @return a new sub container of the current {@link IContainer} without the first element.
-	 * @throws SmallerArgumentException if the current {@link IContainer} is empty.
-	 */
-	public default IContainer<E> getContainerWithoutFirst() {
-		return getContainerWithoutFirst(1);
-	}
-	
-	//default method
-	/**
-	 * @param n
-	 * @return a new sub container of the current {@link IContainer} without the first n elements.
-	 * @throws NonPositiveArgumentException if the given n is not positive.
-	 * @throws SmallerArgumentException if the current {@link IContainer} contains more than n elements.
-	 */
-	public default IContainer<E> getContainerWithoutFirst(final int n) {
-		
-		final var elementCount = getSize();
-		
-		//Checks if the given n is positive.
-		Validator.suppose(n).thatIsNamed("n").isPositive();
-		
-		//Checks if the given n is not bigger than the element count of the current {@link IContainer}.
-		Validator.suppose(n).thatIsNamed("n").isNotBiggerThan(elementCount);
-		
-		//Handles the case that this container contains less than n elements.
-		if (n < elementCount) {
-			return new SubContainer<E>(this, n + 1, elementCount);
-		}
-		
-		//Handles the case that this container contains n elements.
-		return new ReadContainer<E>();
-	}
-	
-	//default method
-	/**
-	 * @return a new sub container of the current {@link IContainer} without the last element.
-	 * @throws SmallerArgumentException if the current {@link IContainer} is empty.
-	 */
-	public default IContainer<E> getContainerWithoutLast() {
-		return getContainerWithoutLast(1);
-	}
-	
-	//default method
-	/**
-	 * @param n
-	 * @return a new sub container of the current {@link IContainer}
-	 * without the last n elements of the current {@link IContainer}.
-	 * @throws NonPositiveArgumentException if the given n is not positive.
-	 * @throws BiggerArgumentException if the current {@link IContainer} contains more than n elements.
-	 */
-	public default IContainer<E> getContainerWithoutLast(final int n) {
-		
-		final var elementCount = getSize();
-		
-		//Checks if the given n is positive.
-		Validator.suppose(n).thatIsNamed("n").isPositive();
-		
-		//Checks if the given n is not bigger than the element count of the current {@link IContainer}.
-		Validator.suppose(n).thatIsNamed("n").isNotBiggerThan(elementCount);
-		
-		//Handles the case that this container contains less than n elements.
-		if (n < elementCount) {
-			return new SubContainer<E>(this, 0, elementCount - n);
-		}
-		
-		//Handles the case that this container contains n elements.
-		return new ReadContainer<E>();
-	}
-	
-	//default method
-	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param selector
 	 * @return the number of elements the given selector selects from the current {@link IContainer}.
 	 */
@@ -452,7 +416,7 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		var elementCount = 0;
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			//Handles the case that the given selector selects the current element.
@@ -466,6 +430,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param element
 	 * @return the number how many times the current {@link IContainer} contains the given element.
 	 */
@@ -473,7 +439,7 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		var elementCount = 0;
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			//Handles the case that the current element is the given element.
@@ -487,14 +453,16 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param element
-	 * @return the index of the given element from the current {@link IContainer}.
+	 * @return the index of the given element in the current {@link IContainer}.
 	 * @throws InvalidArgumentException if the current {@link IContainer} does not contain the given element.
 	 */
 	public default int getIndexOf(final E element) {
 		
-		//Iterates the current container.
-		int index = 1;
+		//Iterates the current IContainer.
+		var index = 1;
 		for (final var e : this) {
 			
 			//Handles the case that the current element is the given element.
@@ -510,6 +478,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param norm
 	 * @return the biggest value the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
@@ -521,6 +491,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param doubleNorm
 	 * @return the biggest value
 	 * the given double norm returns from the elements of the current {@link IContainer}.
@@ -532,6 +504,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param intNorm
 	 * @return the biggest value
 	 * the given int norm returns from the elements of the current {@link IContainer}.
@@ -543,6 +517,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param longNorm
 	 * @return the biggest value
 	 * the given long norm returns from the elements of the current {@link IContainer}.
@@ -554,6 +530,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param norm
 	 * @return the smallest value
 	 * the given norm returns from the elements of the current {@link IContainer}.
@@ -566,6 +544,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param doubleNorm
 	 * @return the smallest value
 	 * the given double norm returns from the elements of the current {@link IContainer}.
@@ -577,6 +557,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param intNorm
 	 * @return the smallest value
 	 * the given int norm returns from the elements of the current {@link IContainer}.
@@ -588,6 +570,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param longNorm
 	 * @return the smallest value
 	 * the given long norm returns from the elements of the current {@link IContainer}.
@@ -599,8 +583,11 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param selector
-	 * @return the percentage of elements the given selector selects from the current {@link IContainer}.
+	 * @return the percentage of the number of elements
+	 * the given selector selects from the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default double getPercentage(final IElementTakerBooleanGetter<E> selector) {
@@ -610,6 +597,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * The range of some values is the difference between the maximum and the minimum of the values.
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the range of the values the given double norm returns from the current {@link IContainer}.
@@ -619,11 +607,11 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Calculates the minimum and the maximum
-			//the given double norm returns from the elements of the current container.
+			//the given double norm returns from the elements of the current IContainer.
 				var min = doubleNorm.getOutput(getRefFirst());
 				var max = min;
 				
-				//Iterates the current container.
+				//Iterates the current IContainer.
 				for (final var e : this) {
 					
 					//Calculates the current value.
@@ -647,6 +635,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * The range of some values is the difference between the maximum and the minimum of the values.
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the range of the values the given int norm returns from the current {@link IContainer}.
@@ -656,11 +645,11 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Calculates the minimum and the maximum
-			//the given double norm returns from the elements of the current container.
+			//the given double norm returns from the elements of the current IContainer.
 				var min = intNorm.getOutput(getRefFirst());
 				var max = min;
 				
-				//Iterates the current container.
+				//Iterates the current IContainer.
 				for (final var e : this) {
 					
 					//Calculates the current value.
@@ -684,6 +673,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//default method
 	/**
 	 * The range of some values is the difference between the maximum and the minimum of the values.
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the range of the values the given long norm returns from the current {@link IContainer}.
@@ -693,11 +683,11 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Calculates the minimum and the maximum
-			//the given double norm returns from the elements of the current container.
+			//the given double norm returns from the elements of the current IContainer.
 				var min = longNorm.getOutput(getRefFirst());
 				var max = min;
 				
-				//Iterates the current container.
+				//Iterates the current IContainer.
 				for (final var e : this) {
 					
 					//Calculates the current value.
@@ -720,13 +710,16 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param selector
-	 * @return the ratio of elements the given selector selects from the current {@link IContainer}.
+	 * @return the ratio of the number of elements
+	 * the given selector selects from the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default double getRatio(final IElementTakerBooleanGetter<E> selector) {
 		
-		//Checks if the current container is not empty.
+		//Checks if the current IContainer is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -736,12 +729,14 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(1).
+	 * 
 	 * @return a randomly selected element of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default E getRefAny() {
 		
-		//Checks if the current container is not empty.
+		//Checks if the current IContainer is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -751,6 +746,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param index
 	 * @return the element at the given index.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
@@ -762,7 +759,7 @@ public interface IContainer<E> extends Iterable<E> {
 		//Checks if the given index is positive.
 		Validator.suppose(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		var i = 1;
 		for (final var e : this) {
 			
@@ -779,6 +776,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param norm
 	 * @return the element with the biggest value
 	 * the given norm returns from the elements of the current {@link IContainer}.
@@ -790,7 +789,7 @@ public interface IContainer<E> extends Iterable<E> {
 		var element = getRefFirst();
 		var max = norm.getValue(element);
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			final Comparable value = norm.getValue(e);
@@ -806,6 +805,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param doubleNorm
 	 * @return the element with the biggest value
 	 * the given double norm returns from the elements of the current {@link IContainer}.
@@ -816,7 +817,7 @@ public interface IContainer<E> extends Iterable<E> {
 		var element = getRefFirst();
 		var max = doubleNorm.getOutput(element);
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			final var value = doubleNorm.getOutput(e);
@@ -832,6 +833,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param intNorm
 	 * @return the element with the biggest value
 	 * the given int norm returns from the elements of the current {@link IContainer}.
@@ -842,7 +845,7 @@ public interface IContainer<E> extends Iterable<E> {
 		var element = getRefFirst();
 		var max = intNorm.getOutput(element);
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			final var value = intNorm.getOutput(e);
@@ -858,6 +861,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param longNorm
 	 * @return the element with the biggest value
 	 * the given long norm returns from the elements of the current {@link IContainer}.
@@ -868,7 +873,7 @@ public interface IContainer<E> extends Iterable<E> {
 		var element = getRefFirst();
 		var max = longNorm.getOutput(element);
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			final var value = longNorm.getOutput(e);
@@ -884,6 +889,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param norm
 	 * @return the element with the smallest value
 	 * the given norm returns from the elements of the current {@link IContainer}.
@@ -895,7 +902,7 @@ public interface IContainer<E> extends Iterable<E> {
 		var element = getRefFirst();
 		var min = norm.getValue(element);
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			final Comparable value = norm.getValue(e);
@@ -911,6 +918,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param doubleNorm
 	 * @return the element with the biggest value
 	 * the given double norm returns from the elements of the current {@link IContainer}.
@@ -921,7 +930,7 @@ public interface IContainer<E> extends Iterable<E> {
 		var element = getRefFirst();
 		var min = doubleNorm.getOutput(element);
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			final var value = doubleNorm.getOutput(e);
@@ -937,6 +946,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param intNorm
 	 * @return the element with the biggest value
 	 * the given int norm returns from the elements of the current {@link IContainer}.
@@ -947,7 +958,7 @@ public interface IContainer<E> extends Iterable<E> {
 		var element = getRefFirst();
 		var min = intNorm.getOutput(element);
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			final var value = intNorm.getOutput(e);
@@ -963,6 +974,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param longNorm
 	 * @return the element with the smallest value
 	 * the given long norm returns from the elements of the current {@link IContainer}.
@@ -973,7 +986,7 @@ public interface IContainer<E> extends Iterable<E> {
 		var element = getRefFirst();
 		var min = longNorm.getOutput(element);
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			final var value = longNorm.getOutput(e);
@@ -989,12 +1002,14 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(1).
+	 * 
 	 * @return the first element of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
 	 */
 	public default E getRefFirst() {
 		
-		//Checks if the current container is not empty.
+		//Checks if the current IContainer is not empty.
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
 		}
@@ -1004,6 +1019,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param selector
 	 * @return the first element the given selector selects from the current {@link IContainer}.
 	 * @throws ArgumentMissesAttributeException
@@ -1011,7 +1028,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default E getRefFirst(final IElementTakerBooleanGetter<E> selector) {
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			//Handles the case that the given selector selects the current element.
@@ -1034,10 +1051,10 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default Pair<E, E> getRefFirst(final ITwoElementTakerBooleanGetter<E> selector) {
 
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
-		
-			final E element = getRefFirstOrNull(e2 -> selector.getOutput(e, e2));
+			
+			final var element = getRefFirstOrNull(e2 -> selector.getOutput(e, e2));
 			
 			if (element != null) {
 				return new Pair<E, E>(e, element);
@@ -1051,8 +1068,10 @@ public interface IContainer<E> extends Iterable<E> {
 		);
 	}
 	
-	//method
+	//default method
 	/**
+	 * The complexity of this method is O(1).
+	 * 
 	 * @return the first element of the current {@link IContainer} or null.
 	 */
 	public default E getRefFirstOrNull() {
@@ -1068,12 +1087,14 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(1).
+	 * 
 	 * @param selector
 	 * @return the first element the given selector selects from the current {@link IContainer} or null.
 	 */
 	public default E getRefFirstOrNull(final IElementTakerBooleanGetter<E> selector) {
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			//Handles the case that the given selector selects the current element.
@@ -1095,10 +1116,10 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default Pair<E, E> getRefFirstOrNull(final ITwoElementTakerBooleanGetter<E> selector) {
 
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
-		
-			final E element = getRefFirstOrNull(e2 -> selector.getOutput(e, e2));
+			
+			final var element = getRefFirstOrNull(e2 -> selector.getOutput(e, e2));
 			
 			if (element != null) {
 				return new Pair<E, E>(e, element);
@@ -1113,7 +1134,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param selector
-	 * @return a new list with the elements from the current {@link IContainer} that are of the given type.
+	 * @return a new {@link List} with the elements from the current {@link IContainer} that are of the given type.
 	 */
 	@SuppressWarnings("unchecked")
 	public default <E2 extends E> List<E2> getRefOfType(final Class<E2> type) {
@@ -1141,6 +1162,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param selector
 	 * @return the one element the given selector selects from the current {@link IContainer}.
 	 * @throws InvalidArgumentException
@@ -1150,7 +1173,7 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		E element = null;
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			if (selector.getOutput(e)) {
 				
@@ -1181,14 +1204,15 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param selector
-	 * @return a new list with the elements the given selector selects from the current {@link IContainer}.
+	 * @return a new {@link List} with the elements
+	 * the given selector selects from the current {@link IContainer}.
 	 */
 	public default List<E> getRefSelected(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Creates list.
 		final var list = new List<E>();
 		
-		//Fills up the list with the elements the given selector selects from the current container.
+		//Fills up the list with the elements the given selector selects from the current IContainer.
 		for (final var e : this) {
 			
 			//Handles the case that the given selector selects the current element.
@@ -1207,7 +1231,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * -n selectors are given.
 	 * 
 	 * @param selectors
-	 * @return a new list with the elements the given selectors selects from the current {@link IContainer}.
+	 * @return a new {@link List} with the elements the given selectors selects from the current {@link IContainer}.
 	 */
 	@SuppressWarnings("unchecked")
 	public default List<E> getRefSelected(final IElementTakerBooleanGetter<E>... selecors) {
@@ -1215,7 +1239,7 @@ public interface IContainer<E> extends Iterable<E> {
 		//Creates list.
 		final var list = new List<E>();
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			var selected = true;
@@ -1244,7 +1268,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param selector
-	 * @return a new list with the elements
+	 * @return a new {@link List} with the elements
 	 * the given selector selects not (!) from the current {@link IContainer}.
 	 */
 	public default List<E> getRefUnselected(final IElementTakerBooleanGetter<E> selector) {
@@ -1258,7 +1282,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * -n selectors are given.
 	 * 
 	 * @param selectors
-	 * @return a new list with the elements
+	 * @return a new {@link List} with the elements
 	 * the given selectors selects not (!) from the current {@link IContainer}.
 	 */
 	@SuppressWarnings("unchecked")
@@ -1267,7 +1291,7 @@ public interface IContainer<E> extends Iterable<E> {
 		//Creates list.
 		final var list = new List<E>();
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			
 			var selected = false;
@@ -1299,6 +1323,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param doubleNorm
 	 * @return the standard deviation of the values
 	 * the given double norm returns from the elements of the current {@link IContainer}.
@@ -1310,6 +1336,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param intNorm
 	 * @return the standard deviation of the values
 	 * the given int norm returns from the elements of the current {@link IContainer}.
@@ -1321,6 +1349,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param longNorm
 	 * @return the standard deviation of the values
 	 * the given long norm returns from the elements of the current {@link IContainer}.
@@ -1332,6 +1362,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param doubleNorm
 	 * @return the sum of the values
 	 * the given double norm returns from the elements of the current {@link IContainer}.
@@ -1340,7 +1372,7 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		var sum = 0.0;
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			sum += doubleNorm.getOutput(e);
 		}
@@ -1350,6 +1382,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param intNorm
 	 * @return the sum of the values
 	 * the given int norm returns from the element of the current {@link IContainer}.
@@ -1358,7 +1392,7 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		var sum = 0;
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			sum += intNorm.getOutput(e);
 		}
@@ -1368,6 +1402,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param longNorm
 	 * @return the sum of the values
 	 * the given long norm returns from the elements of the current {@link IContainer}.
@@ -1376,7 +1412,7 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		var sum = 0;
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			sum += longNorm.getOutput(e);
 		}
@@ -1386,6 +1422,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param doubleNorm
 	 * @return the variance of the values
 	 * the given double norm returns from the elements of the current {@link IContainer}.
@@ -1396,7 +1434,7 @@ public interface IContainer<E> extends Iterable<E> {
 		var sum = 0.0;
 		final var average = getAverageByDouble(doubleNorm);
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			sum += Math.pow(doubleNorm.getOutput(e) - average, 2);
 		}
@@ -1406,6 +1444,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param intNorm
 	 * @return the variance of the values
 	 * the given int norm returns from the elements of the current {@link IContainer}.
@@ -1416,7 +1456,7 @@ public interface IContainer<E> extends Iterable<E> {
 		var sum = 0.0;
 		final var average = getAverageByInt(intNorm);
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			sum += Math.pow(intNorm.getOutput(e) - average, 2);
 		}
@@ -1426,6 +1466,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param longNorm
 	 * @return the variance of the values
 	 * the given long norm returns from the elements of the current {@link IContainer}.
@@ -1436,7 +1478,7 @@ public interface IContainer<E> extends Iterable<E> {
 		var sum = 0.0;
 		final var average = getAverageByLong(longNorm);
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		for (final var e : this) {
 			sum += Math.pow(longNorm.getOutput(e) - average, 2);
 		}
@@ -1446,6 +1488,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(1).
+	 * 
 	 * @return true if the current {@link IContainer} does not contain an element.
 	 */
 	public default boolean isEmpty() {
@@ -1454,13 +1498,15 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param norm
 	 * @return true if the current {@link IContainer} is ordered according to the given norm.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public default <E2> boolean isOrdered(final IElementTakerComparableGetter<E, E2> norm) {
 		
-		//Iterates the current container.
+		//Iterates the current IContainer.
 		E previous = null;
 		for (final var e : this) {
 			
@@ -1484,7 +1530,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param extractor
-	 * @return a new list with the elements
+	 * @return a new {@link List} with the elements
 	 * the given extractor extracts from the elements of the current {@link IContainer}.
 	 */
 	public default <E2> List<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
@@ -1495,6 +1541,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @return a new array with the elements of the current {@link IContainer}.
 	 */
 	@SuppressWarnings("unchecked")
@@ -1515,6 +1563,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param extractor
 	 * @return a new array with the elements
 	 * the given extractor extracts from the elements of the current {@link IContainer}.
@@ -1537,6 +1587,8 @@ public interface IContainer<E> extends Iterable<E> {
 
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param doubleNorm
 	 * @return a new array with the values
 	 * the given double norm returns from the elements of the current {@link IContainer}.
@@ -1558,8 +1610,10 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param extractor
-	 * @return a new list with the elements of the containers
+	 * @return a new {@link List} with the elements of the {@link IContainer}
 	 * the given extractor extracts from the elements of the current {@link IContainer}.
 	 */
 	public default <O> List<O> toFromMany(final IElementTakerElementGetter<E, IContainer<O>> extractor) {
@@ -1570,6 +1624,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param intNorm
 	 * @return a new array with the values
 	 * the given int norm returns from the elements of the current {@link IContainer}.
@@ -1593,7 +1649,7 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
 	 * 
-	 * @return a new list with the elements from the current {@link IContainer}.
+	 * @return a new {@link List} with the elements from the current {@link IContainer}.
 	 */
 	public default List<E> toList() {
 		return to(e -> e);
@@ -1601,6 +1657,8 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param longNorm
 	 * @return a new array with the values
 	 * the given long norm returns from the elements of the current {@link IContainer}.
@@ -1635,8 +1693,10 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param separator
-	 * @return a string representation the current {@link IContainer}.
+	 * @return a String representation the current {@link IContainer} using the given separator.
 	 */
 	public default String toString(final char separator) {
 		return toString(String.valueOf(separator));
@@ -1644,8 +1704,10 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
 	 * @param separator
-	 * @return a string representation of the current {@link IContainer} using the given separator.
+	 * @return a String representation of the current {@link IContainer} using the given separator.
 	 * @throws NullArgumentException if the given separator is null.
 	 */
 	public default String toString(final String separator)
@@ -1656,7 +1718,7 @@ public interface IContainer<E> extends Iterable<E> {
 		.thatIsNamed(VariableNameCatalogue.SEPARATOR)
 		.isNotNull();
 		
-		//Enumerates the element count of the current {@link IContainer}.
+		//Enumerates the element count of the current IContainer.
 		switch (getSize()) {
 			case 0:
 				return StringCatalogue.EMPTY_STRING;
@@ -1667,7 +1729,7 @@ public interface IContainer<E> extends Iterable<E> {
 				final var stringBuilder = new StringBuilder();
 				stringBuilder.append(getRefFirst());
 				
-				for (final var e : getContainerWithoutFirst()) {
+				for (final var e : withoutFirst()) {
 					stringBuilder.append(separator + e);
 				}
 				
@@ -1677,13 +1739,15 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @return a new array with the strings that represent the elements of the current {@link IContainer}.
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
+	 * @return a new array with the Strings that represent the elements of the current {@link IContainer}.
 	 */
 	public default String[] toStringArray() {
 		
 		final var stringArray = new String[getSize()];
 		
-		//Iterates the elements of the current {@link IContainer}.
+		//Iterates the elements of the current IContainer.
 		var i = 0;
 		for (final var e : this) {
 			stringArray[i] = e.toString();
@@ -1695,9 +1759,117 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//default method
 	/**
-	 * @return a new list with the strings that represent the elements of the current {@link IContainer}.
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
+	 * @return a new {@link List}
+	 * with the Strings that represent the elements of the current {@link IContainer}.
 	 */
 	public default List<String> toStrings() {
 		return to(e -> e.toString());
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @param endIndex
+	 * @return a new sub container of the current {@link IContainer}
+	 * with the elements to the given end index.
+	 * @throws NonPositiveArgumentException if the given end index is not positive.
+	 */
+	public default IContainer<E> until(final int endIndex) {
+		return new SubContainer<>(this, 1, endIndex);
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @return a new sub container of the current {@link IContainer} without the first element.
+	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 */
+	public default IContainer<E> withoutFirst() {
+		
+		if (isEmpty()) {
+			throw new EmptyArgumentException(this);
+		}
+		
+		return withoutFirst(1);
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @param n
+	 * @return a new sub container of the current {@link IContainer} without the first n elements.
+	 * @throws NonPositiveArgumentException if the given n is not positive.
+	 * @throws BiggerArgumentException
+	 * if the given n is bigger than the number of elements of the current {@link IContainer}.
+	 */
+	public default IContainer<E> withoutFirst(final int n) {
+		
+		final var elementCount = getSize();
+		
+		//Checks if the given n is positive.
+		Validator.suppose(n).thatIsNamed("n").isPositive();
+		
+		//Checks if the given n is not bigger than the element count of the current IContainer.
+		Validator.suppose(n).thatIsNamed("n").isNotBiggerThan(elementCount);
+		
+		//Handles the case that the current IContainer contains less than n elements.
+		if (n < elementCount) {
+			return new SubContainer<E>(this, n + 1, elementCount);
+		}
+		
+		//Handles the case that the current IContainer contains n elements.
+		return new ReadContainer<E>();
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @return a new sub container of the current {@link IContainer} without the last element.
+	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 */
+	public default IContainer<E> withoutLast() {
+		
+		//Checks if the current IContainer is not empty.
+		if (isEmpty()) {
+			throw new EmptyArgumentException(this);
+		}
+		
+		return withoutLast(1);
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @param n
+	 * @return a new sub container of the current {@link IContainer}
+	 * without the last n elements of the current {@link IContainer}.
+	 * @throws NonPositiveArgumentException if the given n is not positive.
+	 * @throws BiggerArgumentException
+	 * if the given n is bigger than the number of elements of the current {@link IContainer}.
+	 */
+	public default IContainer<E> withoutLast(final int n) {
+		
+		final var elementCount = getSize();
+		
+		//Checks if the given n is positive.
+		Validator.suppose(n).thatIsNamed("n").isPositive();
+		
+		//Checks if the given n is not bigger than the element count of the current IContainer.
+		Validator.suppose(n).thatIsNamed("n").isNotBiggerThan(elementCount);
+		
+		//Handles the case that the current IContainer contains less than n elements.
+		if (n < elementCount) {
+			return new SubContainer<E>(this, 0, elementCount - n);
+		}
+		
+		//Handles the case that the current IContainer contains n elements.
+		return new ReadContainer<E>();
 	}
 }
