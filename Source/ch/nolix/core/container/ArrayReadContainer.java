@@ -13,17 +13,17 @@ import ch.nolix.core.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 70
- * @param <E> The type of the elements of a read array container.
+ * @lines 80
+ * @param <E> The type of the elements of a {@link ArrayReadContainer}.
  */
 final class ArrayReadContainer<E> implements IContainer<E> {
-
+	
 	//attribute
 	private final E[] array;
 	
 	//constructor
 	/**
-	 * Creates a new read array container for a new empty array.
+	 * Creates a new {@link ArrayReadContainer} for a new empty array.
 	 */
 	@SuppressWarnings("unchecked")
 	public ArrayReadContainer() {
@@ -34,7 +34,7 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 	
 	//constructor
 	/**
-	 * Creates a new read array container for the given array.
+	 * Creates a new {@link ArrayReadContainer} for the given array.
 	 * 
 	 * @param array
 	 * @throws NullArgumentException if the given array is null.
@@ -47,22 +47,13 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 		.thatIsNamed(VariableNameCatalogue.ARRAY)
 		.isNotNull();
 		
-		//Sets the array of this array wrapper.
+		//Sets the array of the current ArrayReadContainer.
 		this.array = array;
 	}
 	
 	//method
 	/**
-	 * @return a new iterator for this read array container.
-	 */
-	@Override
-	public Iterator<E> iterator() {
-		return new ArrayReadContainerIterator<E>(array);
-	}
-
-	//method
-	/**
-	 * @return the number of elements of this read array container.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int getSize() {
@@ -71,9 +62,19 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if this read array container contains n elements.
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Iterator<E> iterator() {
+		return new ArrayReadContainerIterator<E>(array);
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n)
+	 * if the current {@link ArrayReadContainer} contains n elements.
 	 * 
-	 * @return a string representation of this read array container.
+	 * @return a String representation of the current {@link ArrayReadContainer}.
 	 */
 	@Override
 	public String toString() {
