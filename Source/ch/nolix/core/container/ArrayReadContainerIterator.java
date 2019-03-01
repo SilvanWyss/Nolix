@@ -11,31 +11,30 @@ import ch.nolix.core.validator.Validator;
 
 //package-visible class
 /**
- * A read array container iterator
- * is an iterator for a read array container.
+ * A {@link ArrayReadContainerIterator} is an iterator for a {@link ArrayReadContainer}.
  * 
  * @author Silvan Wyss
  * @month 2017-11
  * @lines 80
- * @param <E> The type of the elements of the read array container
- * a read array container iterator belongs to.
+ * @param <E> The type of the elements of the {@link ArrayReadContainer}
+ * a {@link ArrayReadContainerIterator} belongs to.
  */
 final class ArrayReadContainerIterator<E> implements Iterator<E> {
-
-	//attribute
-	/**
-	 * The array that belongs to the read array container
-	 * this read array container iterator belongs to.
-	 */
-	final E[] array;
 	
 	//attribute
-	int nextElementIndex = 0;
+	/**
+	 * The array that belongs to the {@link ArrayReadContainer}
+	 * the current {@link ArrayReadContainerIterator} iterator belongs to.
+	 */
+	private final E[] array;
+	
+	//attribute
+	private int nextElementIndex = 0;
 	
 	//constructor
 	/**
-	 * Creates a new read array container iterator
-	 * that belongs to the read array container
+	 * Creates a new {@link ArrayReadContainerIterator}
+	 * that will belong to the {@link ArrayReadContainer}
 	 * the given array belongs to.
 	 * 
 	 * @param array
@@ -49,37 +48,35 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 		.thatIsNamed(VariableNameCatalogue.ARRAY)
 		.isNotNull();
 		
-		//Sets the array of hits read array container iterator.
+		//Sets the array of the current {@link ArrayReadContainerIterator}.
 		this.array = array;
 	}
 	
 	//method
 	/**
-	 * @return true if this read array container iterator has a next element.
+	 * @return true if the current {@link ArrayReadContainerIterator} has a next element.
 	 */
 	@Override
 	public boolean hasNext() {
 		return (nextElementIndex < array.length);
 	}
-
+	
 	//method
 	/**
-	 * @return the next element of this read array container iterator.
+	 * @return the next element of the current {@link ArrayReadContainerIterator}.
 	 * @throws ArgumentMissesAttributeException
-	 * if this read array container iterator does not have a next element.
+	 * if the current {@link ArrayReadContainerIterator} iterator does not have a next element.
 	 */
 	@Override
 	public E next() {
 		
-		//Checks if this read array container iterator has a next element.
-		if (!hasNext()) {
-			throw new ArgumentMissesAttributeException(
-				this,
-				VariableNameCatalogue.NEXT_ELEMENT
-			);
+		//Checks if the current ArrayReadContainerIterator has a next element.
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (nextElementIndex >= array.length) {
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.NEXT_ELEMENT);
 		}
 		
-		final E element = array[nextElementIndex];
+		final var element = array[nextElementIndex];
 		
 		nextElementIndex++;
 		
