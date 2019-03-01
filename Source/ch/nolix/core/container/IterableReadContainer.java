@@ -81,7 +81,7 @@ final class IterableReadContainer<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n)
+	 * The complexity of this method is O(n).
 	 * if the current {@link IterableReadContainer} contains n elements.
 	 * 
 	 * @return a String representation of the current {@link IterableReadContainer}.

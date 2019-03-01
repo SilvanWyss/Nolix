@@ -477,7 +477,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	//method
 	/**
 	 * Sets the given element to the current {@link Matrix} at the given index.
-	 * The complexity of this implementation is O(1).
+	 * The complexity of this method is O(1).
 	 * 
 	 * @param index
 	 * @param element
@@ -506,7 +506,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * Sets the given element to the current {@link Matrix}
 	 * to the row with the given row index and the column with the given column index.
 	 * 
-	 * The complexity of this implementation is O(1).
+	 * The complexity of this method is O(1).
 	 * 
 	 * @param rowIndex
 	 * @param columnIndex
@@ -542,7 +542,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if:
+	 * The complexity of this method is O(n) if:
 	 * -This matrix contains n elements.
 	 * -The given transformer has a complexity of O(1).
 	 * 
@@ -574,7 +574,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n)
+	 * The complexity of this method is O(n)
 	 * if the current {@link Matrix} contains n elements. 
 	 * 
 	 * @return a new left rotated {@link Matrix} of the current {@link Matrix}.
@@ -606,7 +606,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n)
+	 * The complexity of this method is O(n)
 	 * if the current {@link Matrix} contains n elements. 
 	 * 
 	 * @return a new right rotated {@link Matrix} of the current {@link Matrix}.
@@ -638,7 +638,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if:
+	 * The complexity of this method is O(n) if:
 	 * -The current {@link Matrix} contains n elements.
 	 * -The toString method of the elements of the current {@link Matrix} has a complexity of O(1).
 	 * 
