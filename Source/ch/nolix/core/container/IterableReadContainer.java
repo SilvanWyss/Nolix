@@ -13,17 +13,17 @@ import ch.nolix.core.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 80
- * @param <E> The type of the elements of a read iterable container.
+ * @lines 90
+ * @param <E> The type of the elements of a {@link IterableReadContainer}.
  */
 final class IterableReadContainer<E> implements IContainer<E> {
-
+	
 	//attribute
 	private final Iterable<E> container;
 	
 	//constructor
 	/**
-	 * Creates a new read iterable container for a new empty array.
+	 * Creates a new {@link IterableReadContainer} for a new empty container.
 	 */
 	public IterableReadContainer() {
 		
@@ -33,7 +33,7 @@ final class IterableReadContainer<E> implements IContainer<E> {
 	
 	//constructor
 	/**
-	 * Creates a new read iterable container for the given container.
+	 * Creates a new {@link IterableReadContainer} for the given container.
 	 * 
 	 * @param container
 	 * @throws NullArgumentException if the given container is null.
@@ -41,49 +41,50 @@ final class IterableReadContainer<E> implements IContainer<E> {
 	@SuppressWarnings("unchecked")
 	public <E2 extends E> IterableReadContainer(final Iterable<E2> container) {
 		
-		//Checks if the given array is not null.
+		//Checks if the given container is not null.
 		Validator
 		.suppose(container)
 		.thatIsNamed(VariableNameCatalogue.CONTAINER)
 		.isNotNull();
 		
-		//Sets the array of this array wrapper.
+		//Sets the container of the current IterableReadContainer.
 		this.container = (Iterable<E>)container;
 	}
 	
 	//method
 	/**
-	 * @return a new iterator for this read iterable container.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Iterator<E> iterator() {
 		return container.iterator();
 	}
-
+	
 	//method
 	/**
-	 * @return the number of elements of this read iterable container.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int getSize() {
 		
-		int elementCount = 0;
+		var size = 0;
 		
-		//Iterates this read iterable container.
-		final Iterator<?> iterator = container.iterator();
+		//Iterates the current IterableReadContainer.
+		final var iterator = container.iterator();
 		while (iterator.hasNext()) {
-			elementCount++;
+			size++;
 			iterator.next();
 		}
 		
-		return elementCount;
+		return size;
 	}
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if this read iterable container contains n elements.
+	 * The complexity of this method is O(n)
+	 * if the current {@link IterableReadContainer} contains n elements.
 	 * 
-	 * @return a string representation of this read iterable container.
+	 * @return a String representation of the current {@link IterableReadContainer}.
 	 */
 	@Override
 	public String toString() {
