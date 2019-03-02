@@ -20,6 +20,25 @@ public final class ComplexNumber implements IComplexNumber {
 	private final BigDecimal imaginaryComponent;
 	
 	//constructor
+	public ComplexNumber(final BigDecimal realComponent, final BigDecimal imaginaryComponent) {
+		
+		Validator
+		.suppose(realComponent)
+		.thatIsNamed("real component")
+		.isNotNull();
+		
+		Validator
+		.suppose(imaginaryComponent)
+		.thatIsNamed("imaginary component")
+		.isNotNull();
+		
+		final var bigDecimalScale = Calculator.getMax(realComponent.scale(), imaginaryComponent.scale());
+		
+		this.realComponent = realComponent.setScale(bigDecimalScale, RoundingMode.HALF_UP);
+		this.imaginaryComponent = imaginaryComponent.setScale(bigDecimalScale, RoundingMode.HALF_UP);
+	}
+	
+	//constructor
 	public ComplexNumber(
 		final BigDecimal realComponent,
 		final BigDecimal imaginaryComponent,
