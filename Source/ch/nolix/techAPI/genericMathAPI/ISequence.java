@@ -22,9 +22,6 @@ public interface ISequence<N> {
 	//abstract method
 	public abstract int getStartIndex();
 	
-	//default method
-	public abstract N getStartValue();
-	
 	//abstract method
 	public abstract N getValue(int index);
 }
