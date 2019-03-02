@@ -22,11 +22,9 @@ public final class CoreClassProvider {
 	}
 	
 	//method
+	//Important: The CoreClassProvider will found only the first (!) constructor with the given amount of parameters.
 	@SuppressWarnings("unchecked")
-	public <I, C extends I> C create(
-		final Class<I> interface_,
-		final Object[] arguments
-	) {
+	public <I, C extends I> C create(final Class<I> interface_,	final Object[] arguments) {
 		
 		final var class_ = classes.get(interface_);
 			
@@ -50,20 +48,13 @@ public final class CoreClassProvider {
 	}
 	
 	//method
-	public <I, C extends I> void register(
-		final Class<I> interface_,
-		final Class<C> class_
-	) {
+	public <I, C extends I> void register(final Class<I> interface_, final Class<C> class_) {
 		register(interface_, class_, false);
 	}
 	
 	//method
-	public <I, C extends I> void register(
-		final Class<I> interface_,
-		final Class<C> class_,
-		final boolean overwrite
-	) {
-				
+	public <I, C extends I> void register(final Class<I> interface_, final Class<C> class_,	final boolean overwrite) {
+		
 		Validator
 		.suppose(interface_)
 		.thatIsNamed(VariableNameCatalogue.INTERFACE)

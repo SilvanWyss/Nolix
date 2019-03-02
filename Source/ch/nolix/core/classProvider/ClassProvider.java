@@ -1,12 +1,14 @@
 //package declaration
 package ch.nolix.core.classProvider;
 
+//own import
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
+
 //class
 public final class ClassProvider {
 	
 	//static attribute
-	private static final CoreClassProvider coreClassProvider =
-	new CoreClassProvider();
+	private static final CoreClassProvider coreClassProvider =	new CoreClassProvider();
 	
 	//static method
 	public static boolean containsClassFor(final Class<?> interface_) {
@@ -14,7 +16,6 @@ public final class ClassProvider {
 	}
 	
 	//static method
-	//Important: The ClassProvider will found only the first (!) constructor with the given amount of parameters.
 	public static <I, C extends I> C create(
 		final Class<I> interface_,
 		final Object... arguments
@@ -23,21 +24,27 @@ public final class ClassProvider {
 	}
 	
 	//static method
-	public static <I, C extends I> void register(
-		final Class<I> interface_,
-		final Class<C> class_
-	) {
+	public static <I, C extends I> RegistrationMediator register(final Class<I> interface_,	final Class<C> class_) {
+		
 		coreClassProvider.register(interface_, class_);
+		
+		return new RegistrationMediator();
 	}
 	
 	//static method
-	public static <I, C extends I> void register(
+	public static <I, C extends I> RegistrationMediator register(
 		final Class<I> interface_,
-		final Class<C> class_, boolean overwrite
+		final Class<C> class_,
+		boolean overwrite
 	) {
-		coreClassProvider.register(interface_, class_);
+		
+		coreClassProvider.register(interface_, class_, overwrite);
+		
+		return new RegistrationMediator();
 	}
 	
 	//private constructor
-	private ClassProvider() {}
+	private ClassProvider() { 
+		throw new UninstantiableClassException(ClassProvider.class);
+	}
 }
