@@ -1,6 +1,7 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
 import ch.nolix.core.classProvider.ClassProvider;
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Downloader;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.ImageWidget;
@@ -36,5 +37,9 @@ public class SaveFractalAsPNGTutorial {
 				new ImageWidget(image)
 			)
 		);
+	}
+	
+	private SaveFractalAsPNGTutorial() {
+		throw new UninstantiableClassException(SaveFractalAsPNGTutorial.class);
 	}
 }

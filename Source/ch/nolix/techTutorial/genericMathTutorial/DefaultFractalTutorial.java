@@ -1,6 +1,7 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
 import ch.nolix.core.classProvider.ClassProvider;
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.ImageWidget;
 import ch.nolix.element.GUI.Label;
@@ -26,5 +27,7 @@ public final class DefaultFractalTutorial {
 		frame.setRootWidget(new ImageWidget(ClassProvider.create(IFractalBuilder.class).build().toImage()));
 	}
 	
-	private DefaultFractalTutorial() {}
+	private DefaultFractalTutorial() {
+		throw new UninstantiableClassException(DefaultFractalTutorial.class);
+	}
 }

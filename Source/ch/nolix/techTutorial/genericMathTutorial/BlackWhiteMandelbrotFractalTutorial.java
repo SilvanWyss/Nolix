@@ -1,6 +1,7 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
 import ch.nolix.core.classProvider.ClassProvider;
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.ImageWidget;
@@ -45,5 +46,7 @@ public class BlackWhiteMandelbrotFractalTutorial {
 		Sequencer.asLongAs(() -> frame.isAlive()).afterAllMilliseconds(100).run(() -> frame.refresh());
 	}
 	
-	private BlackWhiteMandelbrotFractalTutorial() {}
+	private BlackWhiteMandelbrotFractalTutorial() {
+		throw new UninstantiableClassException(BlackWhiteMandelbrotFractalTutorial.class);
+	}
 }
