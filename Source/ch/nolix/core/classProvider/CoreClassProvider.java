@@ -27,7 +27,12 @@ public final class CoreClassProvider {
 	public <I, C extends I> C create(final Class<I> interface_,	final Object[] arguments) {
 		
 		final var class_ = classes.get(interface_);
-			
+		
+		//Checks if the given interface is registered.
+		if (class_ == null) {
+			throw new InvalidArgumentException(interface_, "is not registered at the ClassProvider");
+		}
+		
 		for (final var c : class_.getConstructors()) {
 			if (c.getParameterCount() == arguments.length) {
 				c.setAccessible(true);
