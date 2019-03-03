@@ -7,26 +7,34 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 
 //own imports
+import ch.nolix.core.constants.MultiVariableNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.tuple.Pair;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.techAPI.genericMathAPI.ISequence;
+import ch.nolix.techAPI.genericMathAPI.IImplicitSequence;
 
 //class
-public final class ImpliciteSequence<N> implements ISequence<N> {
+public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 	
 	//attributes
 	private final int startIndex;
-	private final ArrayList<Pair<N, BigDecimal>> valuesAndSquaredMagnitudes = new ArrayList<Pair<N, BigDecimal>>();
-	private final IElementTakerElementGetter<N, N> nextValueFunction;
+	
+	//multi-attribute
+	private final ArrayList<N> startValues = new ArrayList<N>();
+	
+	//attributes
+	private final IElementTakerElementGetter<ArrayList<N>, N> nextValueFunction;
 	private final IElementTakerElementGetter<N, BigDecimal> squaredMagnitudeFunction;
+	
+	//multi-attribute
+	private final ArrayList<Pair<N, BigDecimal>> valuesAndSquaredMagnitudes = new ArrayList<Pair<N, BigDecimal>>();
 	
 	//constructor
 	public ImpliciteSequence(
 		final int startIndex,
-		final N startValue,
-		final IElementTakerElementGetter<N, N> nextValueFunction,
+		final ArrayList<N> startValues,
+		final IElementTakerElementGetter<ArrayList<N>, N> nextValueFunction,
 		final IElementTakerElementGetter<N, BigDecimal> squaredMagnitudeFunction
 	) {
 		
@@ -34,6 +42,15 @@ public final class ImpliciteSequence<N> implements ISequence<N> {
 		.suppose(startIndex)
 		.thatIsNamed(VariableNameCatalogue.START_INDEX)
 		.isNotNegative();
+		
+		Validator
+		.suppose(startValues)
+		.thatIsNamed(MultiVariableNameCatalogue.START_VALUES)
+		.isNotEmpty();
+		
+		Validator
+		.supposeTheElements(startValues)
+		.areNotNull();
 		
 		Validator
 		.suppose(nextValueFunction)
@@ -49,9 +66,13 @@ public final class ImpliciteSequence<N> implements ISequence<N> {
 		this.nextValueFunction = nextValueFunction;
 		this.squaredMagnitudeFunction = squaredMagnitudeFunction;
 		
-		valuesAndSquaredMagnitudes.add(
-			new Pair<N, BigDecimal>(startValue, squaredMagnitudeFunction.getOutput(startValue))
-		);
+		for (final var sv : startValues) {
+			this.startValues.add(sv);
+		}
+		
+		for (final var sv : startValues) {
+			valuesAndSquaredMagnitudes.add(new Pair<N, BigDecimal>(sv, squaredMagnitudeFunction.getOutput(sv)));
+		}
 	}
 	
 	//method
@@ -92,8 +113,15 @@ public final class ImpliciteSequence<N> implements ISequence<N> {
 	}
 	
 	//method
-	public N getStartValue() {
-		return valuesAndSquaredMagnitudes.get(0).getRefElement1();
+	@Override
+	public ArrayList<N> getStartValues() {
+		return startValues;
+	}
+	
+	//method
+	@Override
+	public int getStartValuesCount() {
+		return startValues.size();
 	}
 	
 	//method
@@ -107,15 +135,19 @@ public final class ImpliciteSequence<N> implements ISequence<N> {
 	
 	//method
 	private void calculateValuesAndSquaredMagnitudesUntil(final int index) {
+		
+		final var startValuesCount = getStartValuesCount();
+				
 		while (valuesAndSquaredMagnitudes.size() < startIndex + index) {
 			
-			final var value =
-			nextValueFunction.getOutput(
-				valuesAndSquaredMagnitudes.get(valuesAndSquaredMagnitudes.size() - 1).getRefElement1()
-			);
+			final var previousValues = new ArrayList<N>(startValuesCount);
+			final var endIndex = valuesAndSquaredMagnitudes.size() - startValuesCount;
+			for (var i = valuesAndSquaredMagnitudes.size() - 1; i >= endIndex; i--) {
+				previousValues.add(valuesAndSquaredMagnitudes.get(i).getRefElement1());
+			}
 			
-			final var squaredMagnitude = squaredMagnitudeFunction.getOutput(value);
-			
+			final var value = nextValueFunction.getOutput(previousValues);			
+			final var squaredMagnitude = squaredMagnitudeFunction.getOutput(value);			
 			valuesAndSquaredMagnitudes.add(new Pair<N, BigDecimal>(value, squaredMagnitude));
 		}
 	}

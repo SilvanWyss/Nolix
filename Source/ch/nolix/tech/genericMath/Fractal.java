@@ -4,6 +4,7 @@ package ch.nolix.tech.genericMath;
 //Java imports
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 
 //own imports
 import ch.nolix.core.functionAPI.IIntTakerElementGetter;
@@ -22,8 +23,15 @@ public final class Fractal implements IFractal {
 	private final IClosedInterval realComponentInterval;
 	private final IClosedInterval imaginaryComponentInterval;
 	private final int widthInPixel;
-	private final IComplexNumber sequencesStartValue;
-	private final ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> sequencesNextValueFunction;
+	
+	//multi-attribute
+	private final ArrayList<IComplexNumber> sequencesStartValues = new ArrayList<IComplexNumber>();
+	
+	//attribute
+	private final ITwoElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+	sequencesNextValueFunction;
+	
+	//attributes
 	private final BigDecimal sequencesMinDivergenceMagnitude;
 	private final int sequencesMaxIterationCount;
 	private final IIntTakerElementGetter<Color> colorFunction;
@@ -33,8 +41,9 @@ public final class Fractal implements IFractal {
 		final IClosedInterval realComponentInterval,
 		final IClosedInterval imaginaryComponentInterval,
 		final int widthInPixel,
-		final IComplexNumber sequencesStartValue,
-		final ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> sequencesNextValueFunction,
+		final ArrayList<IComplexNumber> sequencesStartValues,
+		final ITwoElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+		sequencesNextValueFunction,
 		final BigDecimal sequencesMinDivergenceMagnitude,
 		final int sequencesMaxIterationCount,
 		final IIntTakerElementGetter<Color> colorFunction,
@@ -57,9 +66,13 @@ public final class Fractal implements IFractal {
 		.isPositive();
 		
 		Validator
-		.suppose(sequencesStartValue)
-		.thatIsNamed("sequences start value")
-		.isNotNull();
+		.suppose(sequencesStartValues)
+		.thatIsNamed("sequences start values")
+		.isNotEmpty();
+		
+		Validator
+		.supposeTheElements(sequencesStartValues)
+		.areNotNull();
 		
 		Validator
 		.suppose(sequencesNextValueFunction)
@@ -89,7 +102,11 @@ public final class Fractal implements IFractal {
 		this.imaginaryComponentInterval = imaginaryComponentInterval.getInBigDecimalScale(bigDecimalScale);
 		this.realComponentInterval = realComponentInterval.getInBigDecimalScale(bigDecimalScale);
 		this.widthInPixel = widthInPixel;
-		this.sequencesStartValue = sequencesStartValue.getInBigDecimalScale(bigDecimalScale);
+		
+		for (final var ssv : sequencesStartValues) {
+			this.sequencesStartValues.add(ssv.getInBigDecimalScale(bigDecimalScale));
+		}
+		
 		this.sequencesNextValueFunction = sequencesNextValueFunction;
 		this.sequencesMinDivergenceMagnitude = sequencesMinDivergenceMagnitude;
 		this.sequencesMaxIterationCount = sequencesMaxIterationCount;
@@ -99,7 +116,7 @@ public final class Fractal implements IFractal {
 	//method
 	@Override
 	public int getBigDecimalScale() {
-		return sequencesStartValue.getScale();
+		return sequencesStartValues.get(0).getScale();
 	}
 	
 	//method
@@ -175,14 +192,15 @@ public final class Fractal implements IFractal {
 	
 	//method
 	@Override
-	public ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> getSequencesNextValueFunction() {
+	public ITwoElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+	getSequencesNextValueFunction() {
 		return sequencesNextValueFunction;
 	}
 	
 	//method
 	@Override
-	public IComplexNumber getSequencesStartValue() {
-		return sequencesStartValue;
+	public ArrayList<IComplexNumber> getSequencesStartValues() {
+		return sequencesStartValues;
 	}
 	
 	//method
@@ -235,7 +253,7 @@ public final class Fractal implements IFractal {
 					getColor(
 						new ImpliciteSequence<IComplexNumber>(
 							1,
-							getSequencesStartValue(),
+							sequencesStartValues,
 							z -> sequencesNextValueFunction.getOutput(z, c),
 							z -> z.getSquaredMagnitude()
 						)

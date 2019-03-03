@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.tech.genericMath;
 
-//Java import
+//Java imports
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 //own imports
 import ch.nolix.core.functionAPI.IIntTakerElementGetter;
@@ -22,9 +23,9 @@ public final class FractalBuilder implements IFractalBuilder {
 	public static final IComplexNumber DEFAULT_SEQUENCES_START_VALUE = new ComplexNumber(0.0, 0.0);
 	
 	//default value
-	public static final ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber>
+	public static final ITwoElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
 	DEFAULT_SEQUENCES_NEXT_VALUE_FUNCTION =
-	(z, c) -> z.getSquare().getSum(c);
+	(z, c) -> z.get(0).getSquare().getSum(c);
 	
 	//default values
 	public static final double DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE = 2.5;
@@ -42,10 +43,13 @@ public final class FractalBuilder implements IFractalBuilder {
 	private IClosedInterval realComponentInterval = DEFAULT_REAL_COMPONENT_INTERVAL;
 	private IClosedInterval imaginaryComponentInterval = DEFAULT_IMAGINARY_COMPONENT_INTERVAL;
 	private int widthInPixel = DEFAULT_WIDHT_IN_PIXEL;
-	private IComplexNumber sequencesStartValue = DEFAULT_SEQUENCES_START_VALUE;
+	
+	//multi-attribute
+	private ArrayList<IComplexNumber> sequencesStartValues = new ArrayList<IComplexNumber>();
 	
 	//attribute
-	private ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> sequencesNextValueFunction =
+	private ITwoElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+	sequencesNextValueFunction =
 	DEFAULT_SEQUENCES_NEXT_VALUE_FUNCTION;
 	
 	//attributes
@@ -54,6 +58,11 @@ public final class FractalBuilder implements IFractalBuilder {
 	private IIntTakerElementGetter<Color> colorFunction = DEFAULT_COLOR_FUNCTION;
 	private int bigDecimalScale = DEFAULT_BIG_DECIMAL_SCALE;
 	
+	//constructor
+	public FractalBuilder() {
+		this.sequencesStartValues.add(DEFAULT_SEQUENCES_START_VALUE);
+	}
+	
 	//method
 	public Fractal build() {
 		return
@@ -61,7 +70,7 @@ public final class FractalBuilder implements IFractalBuilder {
 			realComponentInterval,
 			imaginaryComponentInterval,
 			widthInPixel,
-			sequencesStartValue,
+			sequencesStartValues,
 			sequencesNextValueFunction,
 			sequencesMinDivergenceMagnitude,
 			sequencesMaxIterationCount,
@@ -133,7 +142,8 @@ public final class FractalBuilder implements IFractalBuilder {
 	//method
 	@Override
 	public IFractalBuilder setSequencesNextValueFunction(
-		final ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> sequenceNextValueFunction
+		final ITwoElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+		sequenceNextValueFunction
 	) {
 		
 		this.sequencesNextValueFunction = sequenceNextValueFunction;
@@ -143,9 +153,13 @@ public final class FractalBuilder implements IFractalBuilder {
 	
 	//method
 	@Override
-	public IFractalBuilder setSequencesStartValue(final IComplexNumber sequencesStartValue) {
-
-		this.sequencesStartValue = sequencesStartValue;
+	public IFractalBuilder setSequencesStartValues(IComplexNumber... sequencesStartValues) {
+		
+		this.sequencesStartValues.clear();
+		
+		for (final var ssv : sequencesStartValues) {
+			this.sequencesStartValues.add(ssv);
+		}
 		
 		return this;
 	}

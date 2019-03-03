@@ -23,13 +23,14 @@ public class MandelbrotFractalTutorial {
 				.setRealComponentInterval(new ClosedInterval(-2.5, 1.0))
 				.setImaginaryComponentInterval(new ClosedInterval(-1.5, 1.5))
 				.setWidthInPixel(800)
-				.setSequencesStartValue(new ComplexNumber(0.0, 0.0))
-				.setSequencesNextValueFunction((z, c) -> z.getSquare().getSum(c))
+				.setSequencesStartValues(new ComplexNumber(0.0, 0.0))
+				.setSequencesNextValueFunction((z, c) -> z.get(0).getSquare().getSum(c))
 				.setSequencesMinDivergenceMagnitude(3.0)
 				.setSequencesMaxIterationCount(maxIterationCount)
 				.setColorFunction(
 					i ->
-					i < maxIterationCount ? new Color(0,(i * i) % Color.MAX_COLOR_COMPONENT, (10 * i) % 255) : Color.BLACK
+					i < maxIterationCount ?
+					new Color(0,(i * i) % Color.MAX_COLOR_COMPONENT, (10 * i) % 255) : Color.BLACK
 				)
 				.setBigDecimalScale(20)
 				.build()

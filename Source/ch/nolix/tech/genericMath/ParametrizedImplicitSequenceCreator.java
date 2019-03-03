@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.tech.genericMath;
 
-//Java import
+//Java imports
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 //own imports
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
@@ -14,19 +15,19 @@ public final class ParametrizedImplicitSequenceCreator<N> implements IParametriz
 	
 	//attributes
 	private final int sequencesStartIndex;
-	private final IElementTakerElementGetter<N, N> nextValueFunction;
+	private final IElementTakerElementGetter<ArrayList<N>, N> sequencesNextValueFunction;
 	private final IElementTakerElementGetter<N, BigDecimal> magnitudeFunction;
 	
 	//constructor
 	public ParametrizedImplicitSequenceCreator(
 		final int sequencesStartIndex,
-		final IElementTakerElementGetter<N, N> nextValueFunction,
+		final IElementTakerElementGetter<ArrayList<N>, N> sequencesNextValueFunction,
 		final IElementTakerElementGetter<N, BigDecimal> magnitudeFunction
 	) {
 		
 		Validator
-		.suppose(nextValueFunction)
-		.thatIsNamed("next value function")
+		.suppose(sequencesNextValueFunction)
+		.thatIsNamed("sequences next value function")
 		.isNotNull();
 		
 		Validator
@@ -35,18 +36,18 @@ public final class ParametrizedImplicitSequenceCreator<N> implements IParametriz
 		.isNotNull();
 		
 		this.sequencesStartIndex = sequencesStartIndex;
-		this.nextValueFunction = nextValueFunction;
+		this.sequencesNextValueFunction = sequencesNextValueFunction;
 		this.magnitudeFunction = magnitudeFunction;
 	}
 	
 	//method
 	@Override
-	public ImpliciteSequence<N> createSequence(final N startValue) {
+	public ImpliciteSequence<N> createSequence(final ArrayList<N> startValue) {
 		return
 		new ImpliciteSequence<N>(
 			sequencesStartIndex,
 			startValue,
-			nextValueFunction,
+			sequencesNextValueFunction,
 			magnitudeFunction
 		);
 	}
