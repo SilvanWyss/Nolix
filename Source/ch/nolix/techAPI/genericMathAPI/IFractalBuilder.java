@@ -44,7 +44,7 @@ public interface IFractalBuilder {
 	);
 	
 	//abstract method
-	public abstract IFractalBuilder setSequencesStartValues(ArrayList<IComplexNumber> sequencesStartValues);
+	public abstract IFractalBuilder setSequencesStartValues(IComplexNumber... sequencesStartValues);
 	
 	//abstract method
 	public abstract IFractalBuilder setWidthInPixel(int widthInPixel);
