@@ -16,6 +16,7 @@ public final class MultiVariableNameCatalogue {
 	public static final String ENTITIES = "entities";
 	public static final String INPUT_VALUES = "input values";
 	public static final String OUTPUT_VALUES = "output values";
+	public static final String START_VALUES = "start values";
 	public static final String TABS = "tabs";
 	public static final String VALUES = "values";
 	

@@ -16,6 +16,7 @@ public final class MultiPascalCaseNameCatalogue {
 	public static final String ENTITIES = "Entities";
 	public static final String INPUT_VALUES = "InputValues";
 	public static final String OUTPUT_VALUES = "OutputValues";
+	public static final String START_VALUES = "StartValues";
 	public static final String TABS = "Tabs";
 	public static final String VALUES = "Values";
 	
