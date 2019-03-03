@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.constants;
 
+//own import
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
+
 //class
 /**
  * The {@link WindowsEnvironmentVariableCatalogue}
@@ -10,7 +13,7 @@ package ch.nolix.core.constants;
  * 
  * @author Silvan Wyss
  * @month 2016-09
- * @lines 20
+ * @lines 30
  */
 public final class WindowsEnvironmentVariableCatalogue {
 	
@@ -20,6 +23,10 @@ public final class WindowsEnvironmentVariableCatalogue {
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link WindowsEnvironmentVariableCatalogue} can be created.
+	 * 
+	 * @throws UninstantiableClassException
 	 */
-	private WindowsEnvironmentVariableCatalogue() {}
+	private WindowsEnvironmentVariableCatalogue() {
+		throw new UninstantiableClassException(WindowsEnvironmentVariableCatalogue.class);
+	}
 }

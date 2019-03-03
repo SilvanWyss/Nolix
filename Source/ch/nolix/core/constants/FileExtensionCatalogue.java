@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.constants;
 
+//own import
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
+
 //class
 /**
  * Of the {@link FileExtensionCatalogue} an instance cannot be created.
@@ -46,6 +49,10 @@ public final class FileExtensionCatalogue {
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link FileExtensionCatalogue} can be created.
+	 * 
+	 * @throws UninstantiableClassException
 	 */
-	private FileExtensionCatalogue() {}
+	private FileExtensionCatalogue() {
+		throw new UninstantiableClassException(FileExtensionCatalogue.class);
+	}
 }

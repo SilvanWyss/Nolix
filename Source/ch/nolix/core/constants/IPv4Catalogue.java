@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.constants;
 
+//own import
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
+
 //class
 /**
  * Of the {@link IPv4Catalogue} an instance cannot be created.
@@ -17,6 +20,10 @@ public final class IPv4Catalogue {
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link IPv4Catalogue} can be created.
+	 * 
+	 * @throws UninstantiableClassException
 	 */
-	private IPv4Catalogue() {}
+	private IPv4Catalogue() {
+		throw new UninstantiableClassException(IPv4Catalogue.class);
+	}
 }

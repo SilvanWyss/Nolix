@@ -1,13 +1,16 @@
 //package declaration
 package ch.nolix.core.constants;
 
+//own import
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
+
 //class
 /**
  * Of the {@link PortCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 20
+ * @lines 30
  */
 public final class PortCatalogue {
 	
@@ -23,6 +26,10 @@ public final class PortCatalogue {
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link PortCatalogue} can be created.
+	 * 
+	 * @throws UninstantiableClassException
 	 */
-	private PortCatalogue() {}
+	private PortCatalogue() {
+		throw new UninstantiableClassException(PortCatalogue.class);
+	}
 }

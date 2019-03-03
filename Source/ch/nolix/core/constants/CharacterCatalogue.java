@@ -1,13 +1,16 @@
 //package declaration
 package ch.nolix.core.constants;
 
+//own import
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
+
 //class
 /**
 * Of the {@link CharacterCatalogue} an instance cannot be created.
 * 
 * @author Silvan Wyss
 * @month 2017-06
-* @lines 40
+* @lines 50
 */
 public final class CharacterCatalogue {
 	
@@ -41,6 +44,10 @@ public final class CharacterCatalogue {
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link CharacterCatalogue} can be created.
+	 * 
+	 * @throws UninstantiableClassException
 	 */
-	private CharacterCatalogue() {}
+	private CharacterCatalogue() {
+		new UninstantiableClassException(CharacterCatalogue.class);
+	}
 }

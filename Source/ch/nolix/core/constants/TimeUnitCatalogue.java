@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.constants;
 
+//own import
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
+
 //class
 /**
  * Of the {@link TimeUnitCatalogue} an instance cannot be created.
@@ -47,6 +50,10 @@ public final class TimeUnitCatalogue {
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link TimeUnitCatalogue} can be created.
+	 * 
+	 * @throws UninstantiableClassException
 	 */
-	private TimeUnitCatalogue() {}
+	private TimeUnitCatalogue() {
+		throw new UninstantiableClassException(TimeUnitCatalogue.class);
+	}
 }

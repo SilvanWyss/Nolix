@@ -1,13 +1,16 @@
 //package declaration
 package ch.nolix.core.constants;
 
+//own import
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
+
 //class
 /**
  * Of the {@link MultiPascalCaseNameCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-04
- * @lines 20
+ * @lines 30
  */
 public final class MultiPascalCaseNameCatalogue {
 	
@@ -23,6 +26,10 @@ public final class MultiPascalCaseNameCatalogue {
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link MultiPascalCaseNameCatalogue} can be created.
+	 * 
+	 * @throws UninstantiableClassException
 	 */
-	private MultiPascalCaseNameCatalogue() {}
+	private MultiPascalCaseNameCatalogue() {
+		throw new UninstantiableClassException(MultiPascalCaseNameCatalogue.class);
+	}
 }
