@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.techAPI.genericMathAPI;
 
-//Java import
+//Java imports
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 //own imports
 import ch.nolix.core.functionAPI.IIntTakerElementGetter;
@@ -38,11 +39,12 @@ public interface IFractalBuilder {
 	
 	//abstract method
 	public abstract IFractalBuilder setSequencesNextValueFunction(
-		ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> sequenceNextValueFunction
+		ITwoElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+		sequenceNextValueFunction
 	);
 	
 	//abstract method
-	public abstract IFractalBuilder setSequencesStartValue(IComplexNumber sequencesStartValue);
+	public abstract IFractalBuilder setSequencesStartValues(ArrayList<IComplexNumber> sequencesStartValues);
 	
 	//abstract method
 	public abstract IFractalBuilder setWidthInPixel(int widthInPixel);

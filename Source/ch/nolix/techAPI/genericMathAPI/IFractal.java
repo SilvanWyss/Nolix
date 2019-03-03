@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.techAPI.genericMathAPI;
 
-//Java import
+//Java imports
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 //own imports
 import ch.nolix.core.functionAPI.ITwoElementTakerElementGetter;
@@ -49,11 +50,11 @@ public interface IFractal {
 	public abstract BigDecimal getSequencesMinDivergenceMagnitude();
 	
 	//abstract method
-	public abstract ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber>
+	public abstract ITwoElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
 	getSequencesNextValueFunction();
 	
 	//abstract method
-	public abstract IComplexNumber getSequencesStartValue();
+	public abstract ArrayList<IComplexNumber> getSequencesStartValues();
 	
 	//abstract method
 	public abstract BigDecimal getUnitsPerPixel();
