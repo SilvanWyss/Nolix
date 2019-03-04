@@ -99,11 +99,23 @@ public final class FractalBuilder implements IFractalBuilder {
 	
 	//method
 	@Override
+	public IFractalBuilder setImaginaryComponentInterval(final double min, final double max) {
+		return setImaginaryComponentInterval(new ClosedInterval(min, max));
+	}
+	
+	//method
+	@Override
 	public IFractalBuilder setImaginaryComponentInterval(final IClosedInterval imaginaryComponentInterval) {
 		
 		this.imaginaryComponentInterval = imaginaryComponentInterval;
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	public IFractalBuilder setRealComponentInterval(final double min, final double max) {
+		return setRealComponentInterval(new ClosedInterval(min, max));
 	}
 	
 	//method
@@ -153,7 +165,7 @@ public final class FractalBuilder implements IFractalBuilder {
 	
 	//method
 	@Override
-	public IFractalBuilder setSequencesStartValues(IComplexNumber... sequencesStartValues) {
+	public IFractalBuilder setSequencesStartValues(final IComplexNumber... sequencesStartValues) {
 		
 		this.sequencesStartValues.clear();
 		
