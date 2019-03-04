@@ -31,12 +31,11 @@ public class MandelbrotFractalTutorial {
 				.setWidthInPixel(800)
 				.setSequencesStartValues(ClassProvider.create(IComplexNumberFactory.class).create(0.0, 0.0))
 				.setSequencesNextValueFunctionFor1Predecessor((p, c) -> p.getSquare().getSum(c))
-				.setSequencesMinDivergenceMagnitude(3.0)
+				.setSequencesMinDivergenceMagnitude(2.5)
 				.setSequencesMaxIterationCount(maxIterationCount)
 				.setColorFunction(
 					i ->
-					i < maxIterationCount ?
-					new Color(0, (i * i) % Color.MAX_COLOR_COMPONENT, (10 * i) % 255) : Color.BLACK
+					i < maxIterationCount ?	new Color((2 * i) % 256, (10 * i) % 256, (2 * i) % 256) : Color.BLACK
 				)
 				.setBigDecimalScale(20)
 				.build()
