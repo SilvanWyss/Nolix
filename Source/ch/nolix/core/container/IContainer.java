@@ -8,6 +8,7 @@ import java.util.Random;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
+import ch.nolix.core.functionAPI.IElementTakerByteGetter;
 import ch.nolix.core.functionAPI.IElementTakerComparableGetter;
 import ch.nolix.core.functionAPI.IElementTakerDoubleGetter;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
@@ -27,7 +28,7 @@ import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1870
+ * @lines 1890
  * @param <E> The type of the elements of a {@link IContainer}.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -1584,7 +1585,30 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		return array;
 	}
-
+	
+	//default method
+	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
+	 * @param byteNorm
+	 * @return a new array with the values
+	 * the given byte norm returns from the elements of the current {@link IContainer}.
+	 */
+	public default byte[] toByteArray(final IElementTakerByteGetter<E> byteNorm) {
+		
+		//Creates array.
+		final var array = new byte[getSize()];
+		
+		//Fills up the array.
+		var i = 0;
+		for (final var e : this) {
+			array[i] = byteNorm.getOutput(e);
+			i++;
+		}
+		
+		return array;
+	}
+	
 	//default method
 	/**
 	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
