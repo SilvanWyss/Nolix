@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 //own imports
-import ch.nolix.core.functionAPI.ITwoElementTakerElementGetter;
+import ch.nolix.core.functionAPI.I2ElementTakerElementGetter;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.image.Image;
 
@@ -50,7 +50,7 @@ public interface IFractal {
 	public abstract BigDecimal getSequencesMinDivergenceMagnitude();
 	
 	//abstract method
-	public abstract ITwoElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+	public abstract I2ElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
 	getSequencesNextValueFunction();
 	
 	//abstract method

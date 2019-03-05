@@ -10,7 +10,7 @@ import ch.nolix.core.functionAPI.I3ElementTakerElementGetter;
 import ch.nolix.core.functionAPI.I4ElementTakerElementGetter;
 import ch.nolix.core.functionAPI.I5ElementTakerElementGetter;
 import ch.nolix.core.functionAPI.IIntTakerElementGetter;
-import ch.nolix.core.functionAPI.ITwoElementTakerElementGetter;
+import ch.nolix.core.functionAPI.I2ElementTakerElementGetter;
 import ch.nolix.element.color.Color;
 
 //interface
@@ -48,13 +48,13 @@ public interface IFractalBuilder {
 	
 	//abstract method
 	public abstract IFractalBuilder setSequencesNextValueFunction(
-		ITwoElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+		I2ElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
 		sequenceNextValueFunction
 	);
 	
 	//default method
 	public default IFractalBuilder setSequencesNextValueFunctionFor1Predecessor(
-		final ITwoElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber>
+		final I2ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber>
 		sequenceNextValueFunction
 	) {
 		return setSequencesNextValueFunction((p, c) -> sequenceNextValueFunction.getOutput(p.get(0), c));

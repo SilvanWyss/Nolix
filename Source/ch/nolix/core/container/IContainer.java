@@ -14,7 +14,7 @@ import ch.nolix.core.functionAPI.IElementTakerDoubleGetter;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.functionAPI.IElementTakerIntGetter;
 import ch.nolix.core.functionAPI.IElementTakerLongGetter;
-import ch.nolix.core.functionAPI.ITwoElementTakerBooleanGetter;
+import ch.nolix.core.functionAPI.I2ElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.tuple.Pair;
@@ -62,7 +62,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return true if the current {@link IContainer}
 	 * contains at least 2 elements the given selector selects together.
 	 */
-	public default boolean contains(final ITwoElementTakerBooleanGetter<E> selector) {
+	public default boolean contains(final I2ElementTakerBooleanGetter<E> selector) {
 		return contains(e -> contains(e2 -> selector.getOutput(e, e2)));
 	}
 	
@@ -1050,7 +1050,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @throws InvalidArgumentException if the current {@link IContainer}
 	 * does not contain a 2 elements the given selector selects together.
 	 */
-	public default Pair<E, E> getRefFirst(final ITwoElementTakerBooleanGetter<E> selector) {
+	public default Pair<E, E> getRefFirst(final I2ElementTakerBooleanGetter<E> selector) {
 
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -1115,7 +1115,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the first 2 elements of the current {@link IContainer}
 	 * the given selector selects together or null.
 	 */
-	public default Pair<E, E> getRefFirstOrNull(final ITwoElementTakerBooleanGetter<E> selector) {
+	public default Pair<E, E> getRefFirstOrNull(final I2ElementTakerBooleanGetter<E> selector) {
 
 		//Iterates the current IContainer.
 		for (final var e : this) {

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 //own imports
 import ch.nolix.core.functionAPI.IIntTakerElementGetter;
-import ch.nolix.core.functionAPI.ITwoElementTakerElementGetter;
+import ch.nolix.core.functionAPI.I2ElementTakerElementGetter;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.image.Image;
@@ -28,7 +28,7 @@ public final class Fractal implements IFractal {
 	private final ArrayList<IComplexNumber> sequencesStartValues = new ArrayList<IComplexNumber>();
 	
 	//attribute
-	private final ITwoElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+	private final I2ElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
 	sequencesNextValueFunction;
 	
 	//attributes
@@ -42,7 +42,7 @@ public final class Fractal implements IFractal {
 		final IClosedInterval imaginaryComponentInterval,
 		final int widthInPixel,
 		final ArrayList<IComplexNumber> sequencesStartValues,
-		final ITwoElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+		final I2ElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
 		sequencesNextValueFunction,
 		final BigDecimal sequencesMinDivergenceMagnitude,
 		final int sequencesMaxIterationCount,
@@ -192,7 +192,7 @@ public final class Fractal implements IFractal {
 	
 	//method
 	@Override
-	public ITwoElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+	public I2ElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
 	getSequencesNextValueFunction() {
 		return sequencesNextValueFunction;
 	}

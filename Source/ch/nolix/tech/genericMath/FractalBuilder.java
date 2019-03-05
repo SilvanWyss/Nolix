@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 //own imports
 import ch.nolix.core.functionAPI.IIntTakerElementGetter;
-import ch.nolix.core.functionAPI.ITwoElementTakerElementGetter;
+import ch.nolix.core.functionAPI.I2ElementTakerElementGetter;
 import ch.nolix.element.color.Color;
 import ch.nolix.techAPI.genericMathAPI.IClosedInterval;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumber;
@@ -23,7 +23,7 @@ public final class FractalBuilder implements IFractalBuilder {
 	public static final IComplexNumber DEFAULT_SEQUENCES_START_VALUE = new ComplexNumber(0.0, 0.0);
 	
 	//default value
-	public static final ITwoElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+	public static final I2ElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
 	DEFAULT_SEQUENCES_NEXT_VALUE_FUNCTION =
 	(z, c) -> z.get(0).getSquare().getSum(c);
 	
@@ -48,7 +48,7 @@ public final class FractalBuilder implements IFractalBuilder {
 	private ArrayList<IComplexNumber> sequencesStartValues = new ArrayList<IComplexNumber>();
 	
 	//attribute
-	private ITwoElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+	private I2ElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
 	sequencesNextValueFunction =
 	DEFAULT_SEQUENCES_NEXT_VALUE_FUNCTION;
 	
@@ -154,7 +154,7 @@ public final class FractalBuilder implements IFractalBuilder {
 	//method
 	@Override
 	public IFractalBuilder setSequencesNextValueFunction(
-		final ITwoElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+		final I2ElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
 		sequenceNextValueFunction
 	) {
 		

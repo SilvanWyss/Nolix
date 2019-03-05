@@ -7,7 +7,7 @@ import ch.nolix.core.functionAPI.IElementTakerDoubleGetter;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.functionAPI.IElementTakerLongGetter;
 import ch.nolix.core.functionAPI.IFunction;
-import ch.nolix.core.functionAPI.ITwoElementTakerBooleanGetter;
+import ch.nolix.core.functionAPI.I2ElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 
 //class
@@ -31,7 +31,7 @@ public final class FunctionCatalogue {
 	/**
 	 * This function returns true if 2 given objects are equal.
 	 */
-	public static final ITwoElementTakerBooleanGetter<Object> EQUALITY =
+	public static final I2ElementTakerBooleanGetter<Object> EQUALITY =
 	(o1, o2) -> o1 != null ? o1.equals(o2) : o2 == null;
 	
 	//function
@@ -52,7 +52,7 @@ public final class FunctionCatalogue {
 	/**
 	 * This function returns true if 2 given objects are the same.
 	 */
-	public static final ITwoElementTakerBooleanGetter<Object> IDENTITY =
+	public static final I2ElementTakerBooleanGetter<Object> IDENTITY =
 	(o1, o2) -> o1 == o2;
 	
 	//function
