@@ -71,7 +71,7 @@ public final class ComplexNumber implements IComplexNumber {
 		final var imaginaryComponentBigDecimal = new BigDecimal(imaginaryComponent);
 		
 		final var bigDecimalScale =
-		Calculator.getMax(realComponentBigDecimal.scale(), imaginaryComponentBigDecimal.scale());
+		Calculator.getMax(realComponentBigDecimal.scale(), imaginaryComponentBigDecimal.scale(), 1);
 		
 		this.realComponent = realComponentBigDecimal.setScale(bigDecimalScale);
 		this.imaginaryComponent = imaginaryComponentBigDecimal.setScale(bigDecimalScale);
