@@ -7,6 +7,7 @@ import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.techAPI.genericMathAPI.IClosedIntervalFactory;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumberFactory;
 import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
+import ch.nolix.techAPI.genericMathAPI.IImplicitComplexSequenceBuilder;
 
 //class
 public final class GenericMathRegistrator {
@@ -16,7 +17,8 @@ public final class GenericMathRegistrator {
 		ClassProvider
 		.register(IClosedIntervalFactory.class, ClosedIntervalFactory.class)
 		.register(IComplexNumberFactory.class, ComplexNumberFactory.class)
-		.register(IFractalBuilder.class, FractalBuilder.class);
+		.register(IFractalBuilder.class, FractalBuilder.class)
+		.register(IImplicitComplexSequenceBuilder.class, ImplicitComplexSequenceBuilder.class);
 	}
 	
 	//private constructor
