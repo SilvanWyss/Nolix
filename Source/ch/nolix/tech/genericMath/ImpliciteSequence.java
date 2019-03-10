@@ -130,7 +130,7 @@ public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 		
 		calculateValuesAndSquaredMagnitudesUntil(index);
 		
-		return valuesAndSquaredMagnitudes.get(startIndex + index - 1).getRefElement1();
+		return valuesAndSquaredMagnitudes.get(index - startIndex).getRefElement1();
 	}
 	
 	//method
