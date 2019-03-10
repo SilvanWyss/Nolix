@@ -199,7 +199,8 @@ public final class ComplexNumber implements IComplexNumber {
 			.multiply(realComponent)
 			.subtract(imaginaryComponent.multiply(imaginaryComponent)),
 			new BigDecimal(2.0)
-			.multiply(realComponent.multiply(imaginaryComponent)),
+			.multiply(realComponent)
+			.multiply(imaginaryComponent),
 			getBigDecimalScale()
 		);
 	}
@@ -229,8 +230,7 @@ public final class ComplexNumber implements IComplexNumber {
 	public ComplexNumber getSum(final IComplexNumber complexNumber) {
 		return
 		new ComplexNumber(
-			realComponent
-			.add(complexNumber.getRealComponent()),
+			realComponent.add(complexNumber.getRealComponent()),
 			imaginaryComponent.add(complexNumber.getImaginaryComponent()),
 			getBigDecimalScale()
 		);
