@@ -32,7 +32,7 @@ public final class ComplexNumber implements IComplexNumber {
 		.thatIsNamed("imaginary component")
 		.isNotNull();
 		
-		final var bigDecimalScale = Calculator.getMax(realComponent.scale(), imaginaryComponent.scale());
+		final var bigDecimalScale = Calculator.getMax(realComponent.scale(), imaginaryComponent.scale(), 10);
 		
 		this.realComponent = realComponent.setScale(bigDecimalScale, RoundingMode.HALF_UP);
 		this.imaginaryComponent = imaginaryComponent.setScale(bigDecimalScale, RoundingMode.HALF_UP);
@@ -71,10 +71,10 @@ public final class ComplexNumber implements IComplexNumber {
 		final var imaginaryComponentBigDecimal = new BigDecimal(imaginaryComponent);
 		
 		final var bigDecimalScale =
-		Calculator.getMax(realComponentBigDecimal.scale(), imaginaryComponentBigDecimal.scale(), 1);
+		Calculator.getMax(realComponentBigDecimal.scale(), imaginaryComponentBigDecimal.scale(), 10);
 		
-		this.realComponent = realComponentBigDecimal.setScale(bigDecimalScale);
-		this.imaginaryComponent = imaginaryComponentBigDecimal.setScale(bigDecimalScale);
+		this.realComponent = realComponentBigDecimal.setScale(bigDecimalScale, RoundingMode.HALF_UP);
+		this.imaginaryComponent = imaginaryComponentBigDecimal.setScale(bigDecimalScale, RoundingMode.HALF_UP);
 	}
 	
 	//constructor
