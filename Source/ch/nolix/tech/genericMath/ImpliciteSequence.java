@@ -17,7 +17,7 @@ import ch.nolix.techAPI.genericMathAPI.IImplicitSequence;
 //class
 public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 	
-	//attributes
+	//attribute
 	private final int startIndex;
 	
 	//multi-attribute
@@ -138,7 +138,7 @@ public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 		
 		final var startValuesCount = getStartValuesCount();
 				
-		while (valuesAndSquaredMagnitudes.size() < startIndex + index) {
+		while (valuesAndSquaredMagnitudes.size() < index - startIndex + 1) {
 			
 			final var previousValues = new ArrayList<N>(startValuesCount);
 			final var endIndex = valuesAndSquaredMagnitudes.size() - startValuesCount;
