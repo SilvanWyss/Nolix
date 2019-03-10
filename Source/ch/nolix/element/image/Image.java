@@ -3,9 +3,9 @@ package ch.nolix.element.image;
 
 //Java imports
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.OutputStream;
 import javax.imageio.ImageIO;
 
 //own imports
@@ -264,16 +264,11 @@ public final class Image extends MutableElement<Image> {
 	//method
 	private byte[] to(final String fileFormat) {
 		
-		final var outputStream = new OutputStream() {
-			
-			//TODO
-			@Override
-			public void write(final int byte_) throws IOException {}
-		};
+		final var byteArrayOutputStream = new ByteArrayOutputStream();
 		
 		try {
-			ImageIO.write(toBufferedImage(), fileFormat, outputStream);
-			return null;
+			ImageIO.write(toBufferedImage(), fileFormat, byteArrayOutputStream);
+			return byteArrayOutputStream.toByteArray();
 		}
 		catch (final IOException IOException) {
 			throw new RuntimeException(IOException);
