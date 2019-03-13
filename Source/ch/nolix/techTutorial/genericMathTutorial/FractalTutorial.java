@@ -23,7 +23,7 @@ public class FractalTutorial {
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		final var frame =
 		new Frame(
-			"Mandelrbrot Fractal Tutorial",
+			"Fractal Tutorial",
 			new ImageWidget(
 				ClassProvider.create(IFractalBuilder.class)
 				.setRealComponentInterval(-2.0, 1.5)
