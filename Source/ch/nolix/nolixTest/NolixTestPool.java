@@ -6,6 +6,7 @@ import ch.nolix.core.testoid.TestPool;
 import ch.nolix.coreTest.CoreTestPool;
 import ch.nolix.elementTest.ElementTestPool;
 import ch.nolix.systemTest.SystemTestPool;
+import ch.nolix.techTest.TechTestPool;
 
 //class
 /**
@@ -25,7 +26,8 @@ public final class NolixTestPool extends TestPool {
 		addTestPool(
 			new CoreTestPool(),
 			new ElementTestPool(),
-			new SystemTestPool()
+			new SystemTestPool(),
+			new TechTestPool()
 		);
 	}
 }
