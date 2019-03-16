@@ -9,6 +9,9 @@ public final class GenericMathTestPool extends TestPool {
 	
 	//constructor
 	public GenericMathTestPool() {
-		addTestClass(ComplexNumberTest.class);
+		addTestClass(
+			ClosedIntervalTest.class,
+			ComplexNumberTest.class	
+		);
 	}
 }
