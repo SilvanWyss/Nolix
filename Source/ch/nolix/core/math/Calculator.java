@@ -693,7 +693,16 @@ public final class Calculator {
 		
 		return (Math.abs(value) < maxDeviation);
 	}
-
+	
+	//static method
+	/**
+	 * @param value
+	 * @return a new {@link IntRoundingMediator} for the given value.
+	 */
+	public static IntRoundingMediator round(final int value) {
+		return new IntRoundingMediator(value);
+	}
+	
 	//private constructor
 	/**
 	 * Avoids that an instance of this class can be instantiated.
