@@ -13,32 +13,42 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //class
 /**
- * A folder accessor can access a given folder.
+ * A {@link FolderAccessor} can access a folder.
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 160
+ * @lines 180
  */
 public final class FolderAccessor extends FileSystemItemAccessor {
 	
 	//constructor
 	/**
-	 * Creates a new folder accessor for the folder with the given folder path.
-	 * 
-	 * @param folderPath
-	 * @throws InvalidArgumentException if there does not exist a folder with the given folder path
-	 * in the file system on the local machine.
+	 * Creates a new {@link FolderAccessor} for the folder of the running jar file.
 	 */
-	public FolderAccessor(final String folderPath) {
+	public FolderAccessor() {
 		
 		//Calls constructor of the base class.
-		super(folderPath);
+		super(FileSystemAccessor.getFolderPathOfRunningJar());
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link FolderAccessor} for the folder with the given path.
+	 * 
+	 * @param path
+	 * @throws InvalidArgumentException
+	 * if there does not exist a folder with the given path in the file system on the local machine.
+	 */
+	public FolderAccessor(final String path) {
 		
-		//Checks if the file system item with the given folder path is acutally a folder.
-		if (!new FileSystemAccessor().fileSystemItemIsFolder(folderPath)) {
+		//Calls constructor of the base class.
+		super(path);
+		
+		//Checks if the file system item with the given path is actually a folder.
+		if (!new FileSystemAccessor().fileSystemItemIsFolder(path)) {
 			throw new InvalidArgumentException(
-				VariableNameCatalogue.FOLDER_PATH,
-				folderPath,
+				VariableNameCatalogue.PATH,
+				path,
 				"is not a folder"
 			);
 		}
@@ -46,48 +56,47 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	
 	//method
 	/**
-	 * Creates a new empty file with the given relative path in the folder of this folder accessor.
+	 * Creates a new empty file with the given relative path in the folder of the current {@link FolderAccessor}.
 	 * 
-	 * @param relativeFilePath
-	 * @return new file accessor to the created file.
-	 * @throws InvalidArgumentException if a file system item with the given relative file path
-	 * exists in the folder of this folder accessor.
-	 * @throws RuntimeException if an error occurs.
+	 * @param relativePath
+	 * @return a new {@link FileAccessor} for the created file.
+	 * @throws InvalidArgumentException if there exists already a file system item with the given relative path
+	 * in the folder of the current {@link FolderAccessor}.
 	 */
-	public FileAccessor createFile(final String relativeFilePath) {
-		return (new FileSystemAccessor(getPath()).createFile(relativeFilePath));
+	public FileAccessor createFile(final String relativePath) {
+		return (new FileSystemAccessor(getPath()).createFile(relativePath));
 	}
 	
 	//method
 	/**
-	 * Creates a new empty folder with the given relative path in the folder of this folder accessor.
+	 * Creates a new empty folder with the given relative path in the folder of the current {@link FolderAccessor}.
 	 * 
-	 * @param relativeFolderPath
-	 * @return new folder accessor to the created folder.
-	 * @throws InvalidArgumentException if a file system item with the given relative file path
-	 * exists in the folder of this folder accessor.
+	 * @param relativePath
+	 * @return a new {@link FolderAccessor} for the created folder.
+	 * @throws InvalidArgumentException if there exists alreay a file system item with the given relative path
+	 * in the folder of the current {@link FolderAccessor}.
 	 */
-	public FolderAccessor createFolder(final String relativeFolderPath) {
-		return (new FileSystemAccessor(getPath()).createFolder(relativeFolderPath));
+	public FolderAccessor createFolder(final String relativePath) {
+		return (new FileSystemAccessor(getPath()).createFolder(relativePath));
 	}
 	
 	//method
 	/**
-	 * Opens the folder of this folder accessor in a new file explorer.
+	 * Opens the folder of the current {@link FolderAccessor} in a new file explorer.
 	 */
 	public final void openInFileExplorer() {
 		try {
 			new ProcessBuilder(("explorer.exe " + getPath()).split(" ")).start();
 		}
-		catch (final IOException exception) {
-			throw new RuntimeException(exception);
+		catch (final IOException IOException) {
+			throw new RuntimeException(IOException);
 		}
 	}
 	
 	//method
 	/**
 	 * Deletes the file system item with the given relative path
-	 * from the folder of this folder accessor if it exists.
+	 * from the folder of the current {@link FolderAccessor} if it exists.
 	 * 
 	 * @param relativePath
 	 */
@@ -97,8 +106,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	
 	//method
 	/**
-	 * @return new {@link FileAccessor}
-	 * for the files in the folder of the current {@link FolderAccessor}.
+	 * @return new {@link FileAccessor} for the files in the folder of the current {@link FolderAccessor}.
 	 */
 	public List<FileAccessor> getFileAccessors() {
 		return
@@ -111,8 +119,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	/**
 	 * @param extension
 	 * @return new {@link FileAccessor}
-	 * for the files in the folder of the current {@link FolderAccessor},
-	 * that have the given extension.
+	 * for the files in the folder of the current {@link FolderAccessor}, that have the given extension.
 	 */
 	public List<FileAccessor> getFileAccessors(final String extension) {
 		return
@@ -135,8 +142,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	
 	//method
 	/**
-	 * @return new {@link FileAccessor}
-	 * for the files in the folder of the current {@link FolderAccessor} recursively.
+	 * @return new {@link FileAccessor} for the files in the folder of the current {@link FolderAccessor} recursively.
 	 */
 	public List<FileAccessor> getFileAccessorsRecursively() {
 		
@@ -163,5 +169,15 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 		return
 		new ReadContainer<File>(new File(getPath()))
 		.to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));
+	}
+	
+	//method
+	/**
+	 * @param relativePath
+	 * @return a new {@link FolderAccessor}
+	 * for the folder with the given relative path in the folder of the current {@link FolderAccessor}.
+	 */
+	public FolderAccessor getFolderAccessor(final String relativePath) {
+		return new FolderAccessor(getPath() + "/" + relativePath);
 	}
 }
