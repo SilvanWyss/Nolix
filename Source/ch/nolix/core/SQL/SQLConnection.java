@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.IPv4Catalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.validator.Validator;
 
 //abstract class
@@ -24,6 +25,7 @@ public abstract class SQLConnection {
 		final SQLDatabaseEngine SQLDatabaseEngine,
 		final Connection connection
 	) {
+		
 		Validator.suppose(SQLDatabaseEngine).isOfType(SQLDatabaseEngine.class);
 		Validator.suppose(connection).isOfType(Connection.class);
 		
@@ -58,14 +60,14 @@ public abstract class SQLConnection {
 		final String userName,
 		final String userPassword
 	) {
+		
 		Validator.suppose(SQLDatabaseEngine).isOfType(SQLDatabaseEngine.class);
 		
 		this.SQLDatabaseEngine = SQLDatabaseEngine;
 		
 		registerSQLDatabaseEngineDriver();
+		
 		try {
-			
-			
 			connection =
 			DriverManager.getConnection(
 				"jdbc:sqlserver://" + ip + ':'+ port + ";database=" + databaseName,
@@ -84,6 +86,25 @@ public abstract class SQLConnection {
 	}
 	
 	//method
+	public final SQLConnection execute(final Iterable<String> SQLStatements) {	
+		
+		try {
+			
+			final var statement = connection.createStatement();
+			
+			for (final var SQLS : SQLStatements) {
+				statement.addBatch(SQLS);
+			}
+			
+			statement.executeBatch();		
+		} catch (final SQLException SQLException) {
+			throw new RuntimeException(SQLException);
+		}
+		
+		return this;
+	}
+	
+	//method
 	public final SQLConnection execute(final String SQLStatement) {
 		
 		try {
@@ -93,6 +114,11 @@ public abstract class SQLConnection {
 		}
 		
 		return this;
+	}
+	
+	//method
+	public final SQLConnection execute(final String... SQLStatements) {
+		return execute(new ReadContainer<String>(SQLStatements));
 	}
 	
 	//method
