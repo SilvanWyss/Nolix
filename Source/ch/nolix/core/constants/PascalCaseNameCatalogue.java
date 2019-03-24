@@ -117,6 +117,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String START_INDEX = "StartIndex";
 	public static final String STATE = "State";
 	public static final String STATEMENT = "Statement";
+	public static final String STEP = "Step";
 	public static final String STRING = "String";
 	public static final String SUMMARY = "Summary";
 	public static final String SURNAME = "Surname";
