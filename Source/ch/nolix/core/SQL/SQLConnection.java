@@ -85,16 +85,14 @@ public abstract class SQLConnection {
 	
 	//method
 	public final SQLConnection execute(final String SQLStatement) {
-		//TODO: Handle the execution of a statement as transaction.
+		
 		try {
-			
 			connection.createStatement().execute(SQLStatement);
-			
-			return this;
-			
 		} catch (final SQLException SQLException) {
 			throw new RuntimeException(SQLException);
 		}
+		
+		return this;
 	}
 	
 	//method
