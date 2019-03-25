@@ -65,7 +65,7 @@ extends Referenceoid<E> {
 		if (!references(entity)) {
 			
 			supposeCanReferenceAdditionally(entity);
-						
+				
 			setValue(entity.getId());
 			internal_noteUpdate();
 		}

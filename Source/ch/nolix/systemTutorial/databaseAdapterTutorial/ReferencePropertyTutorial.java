@@ -23,7 +23,7 @@ public final class ReferencePropertyTutorial {
 		
 		//Applies the schema to the cat database.
 		catDatabaseSchemaAdapter
-		.initialize()
+		.initializeDatabase()
 		.addSchema(new CatDatabaseSchema())
 		.saveChanges();
 		

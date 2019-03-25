@@ -14,9 +14,9 @@ public final class MSSQLDatabaseSchemaAdapterTutorial {
 		final var sqlDatabaseSchemaAdapter =
 		new MSSQLDatabaseSchemaAdapter(1433, "TestDB", "sa", "123456");
 		
-		if (!sqlDatabaseSchemaAdapter.isInitialized()) {
+		if (!sqlDatabaseSchemaAdapter.databaseIsInitialized()) {
 			sqlDatabaseSchemaAdapter
-			.initialize()
+			.initializeDatabase()
 			.addEntitySet(Person.class)
 			.saveChanges();
 		}

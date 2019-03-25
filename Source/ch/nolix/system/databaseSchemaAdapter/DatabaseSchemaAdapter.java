@@ -62,6 +62,21 @@ implements
 	}
 	
 	//method
+	public final boolean databaseIsInitialized() {
+		return (getDatabaseState() != DatabaseState.Uninitialized);
+	}
+	
+	//method
+	public final boolean databaseIsLocked() {
+		return (getDatabaseState() == DatabaseState.Locked);
+	}
+	
+	//method
+	public final boolean databaseIsReady() {
+		return (getDatabaseState() == DatabaseState.Ready);
+	}
+	
+	//method
 	public final DSA deleteEntitySet(final EntitySet entitySet) {
 		
 		supposeCanDelete(entitySet);
@@ -73,6 +88,9 @@ implements
 		return asConcreteType();
 	}
 	
+	//abstract method
+	public abstract DatabaseState getDatabaseState();
+	
 	//method
 	@Override
 	public final boolean hasChanges() {
@@ -80,17 +98,14 @@ implements
 	}
 	
 	//method
-	public final DSA initialize() {
+	public final DSA initializeDatabase() {
 		
-		supposeIsNotInitialized();
+		supposeDatabaseIsNotInitialized();
 		
 		initializeDatabaseWhenNotInitialized();
 		
 		return asConcreteType();
 	}
-	
-	//method
-	public abstract boolean isInitialized();
 	
 	//method
 	@Override
@@ -108,11 +123,13 @@ implements
 	@Override
 	public final void saveChanges() {
 		
-		saveChangesToDatabase(mutatedEntitySetsInOrder);
+		supposeDatabaseIsReadyAndLockDatabase();
+		
+		saveChangesToDatabaseAndSetDatabaseReady(mutatedEntitySetsInOrder);
 		
 		reset();
 	}
-	
+
 	//abstract method
 	protected abstract List<IEntitySetAdapter> getEntitySetAdapters();
 	
@@ -120,7 +137,10 @@ implements
 	protected abstract void initializeDatabaseWhenNotInitialized();
 	
 	//abstract method
-	protected abstract void saveChangesToDatabase(IContainer<EntitySet> changedEntitySetsInOrder);
+	protected abstract void lockDatabase();
+	
+	//abstract method
+	protected abstract void saveChangesToDatabaseAndSetDatabaseReady(IContainer<EntitySet> changedEntitySetsInOrder);
 	
 	//method
 	protected final void supposeDoesNotContainEntitySet(final String name) {
@@ -159,9 +179,24 @@ implements
 	}
 	
 	//method
-	private void supposeIsNotInitialized() {
-		if (isInitialized()) {
+	private void supposeDatabaseIsNotInitialized() {
+		if (databaseIsInitialized()) {
 			throw new RuntimeException("The database is initialized.");
 		}
+	}
+	
+	//method
+	private void supposeDatabaseIsReady() {
+		if (!databaseIsReady()) {
+			throw new RuntimeException("The database is not ready.");
+		}
+	}
+	
+	//method
+	private void supposeDatabaseIsReadyAndLockDatabase() {
+		
+		supposeDatabaseIsReady();
+		
+		lockDatabase();
 	}
 }

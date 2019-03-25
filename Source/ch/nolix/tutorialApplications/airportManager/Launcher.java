@@ -10,21 +10,22 @@ import ch.nolix.templates.GUILooks.AnthrazitGUILook;
 
 //class
 public final class Launcher {
-
+	
 	//main method
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		final var airportManagerDatabasePath = "airportManagerDatabase.database";
+		final var airportManagerDatabasePath = "airportManager.database";
 		final var airportManagerDatabase = new FileDocumentNode(airportManagerDatabasePath);
 		final var airportManagerSchema = new AirportManagerSchema();
 		
 		final var airportManagerDatabaseSchemaAdapter =
 		new DocumentNodeDatabaseSchemaAdapter(airportManagerDatabase);
 		
-		if (!airportManagerDatabaseSchemaAdapter.containsEntitySet()) {
+		if (!airportManagerDatabaseSchemaAdapter.databaseIsInitialized()) {
 			
 			airportManagerDatabaseSchemaAdapter
+			.initializeDatabase()
 			.addSchema(airportManagerSchema)
 			.saveChanges();
 			

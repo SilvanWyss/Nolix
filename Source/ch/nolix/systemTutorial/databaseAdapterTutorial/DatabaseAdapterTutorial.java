@@ -23,7 +23,7 @@ public final class DatabaseAdapterTutorial {
 		
 		//Applies the schema to the pet database.
 		petDatabaseSchemaAdapter
-		.initialize()
+		.initializeDatabase()
 		.addSchema(new PetDatabaseSchema())
 		.saveChanges();
 			

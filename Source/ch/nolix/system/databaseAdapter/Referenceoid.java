@@ -20,6 +20,6 @@ extends Propertyoid<E> {
 	
 	//method
 	final void supposeCanReferenceAdditionally(final E entity) {
-		entity.supposeCanReferenceBackAdditionally(entity, getHeader());
+		entity.supposeCanReferenceBackAdditionally(getParentEntity(), getHeader());
 	}
 }

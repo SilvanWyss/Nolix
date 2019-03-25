@@ -7,6 +7,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.system.databaseSchemaAdapter.DatabaseSchemaAdapter;
+import ch.nolix.system.databaseSchemaAdapter.DatabaseState;
 import ch.nolix.system.databaseSchemaAdapter.EntitySet;
 import ch.nolix.system.databaseSchemaAdapter.IEntitySetAdapter;
 import ch.nolix.core.SQL.SQLConnection;
@@ -31,14 +32,19 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 	}
 	
 	//method
-	public final SQLDatabaseEngine getSQLDatabaseEngine() {
-		return SQLConnection.getSQLDatabaseEngine();
+	public final DatabaseState getDatabaseState() {
+		return
+		DatabaseState.valueOf(
+			SQLConnection
+			.getRows("SELECT content FROM " + DATABASE_PROPERTIES_TABLE_NAME + " WHERE name = 'State'")
+			.getRefOne()
+			.getRefOne()
+		);
 	}
 	
 	//method
-	@Override
-	public boolean isInitialized() {
-		return SQLConnection.tableExistsOnDatabase(DATABASE_PROPERTIES_TABLE_NAME);
+	public final SQLDatabaseEngine getSQLDatabaseEngine() {
+		return SQLConnection.getSQLDatabaseEngine();
 	}
 	
 	//method
@@ -57,16 +63,28 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 			+ "("
 			+ "id int IDENTITY,"
 			+ "name ntext,"
-			+ "context ntext"
-			+ ")"
+			+ "content ntext"
+			+ ")",
+			getSetDatabaseReadySQLStatement()
 		);
 	}
 	
 	//method
 	@Override
-	protected void saveChangesToDatabase(final IContainer<EntitySet> mutatedEntitySetsInOrder) {
-		
-		//TODO: Block database for any other mutations as long as this method lasts.
+	protected void lockDatabase() {
+		SQLConnection
+		.execute(
+			"INSERT INTO "
+			+ DATABASE_PROPERTIES_TABLE_NAME
+			+ " (name, content) VALUES ('State', '"
+			+ DatabaseState.Locked.toString()
+			+ "')"
+		);
+	}
+	
+	//method
+	@Override
+	protected void saveChangesToDatabaseAndSetDatabaseReady(final IContainer<EntitySet> mutatedEntitySetsInOrder) {
 		
 		final var createdEntitySets = new List<EntitySet>();
 		final var changedEntitySets = new List<EntitySet>();
@@ -91,7 +109,6 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 			}
 		}
 		
-		
 		final var SQLExecutor = SQLConnection.createSQLExecutor();
 		
 		for (final var es : createdEntitySets) {
@@ -105,6 +122,18 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 			SQLExecutor.addStatement(es.getSQLHelper(getSQLDatabaseEngine()).getDeleteSQLStatement());
 		}
 		
+		SQLExecutor.addStatement(getSetDatabaseReadySQLStatement());
+		
 		SQLExecutor.execute();
+	}
+	
+	//method
+	private String getSetDatabaseReadySQLStatement() {
+		return
+		"INSERT INTO "
+		+ DATABASE_PROPERTIES_TABLE_NAME
+		+ " (name, content) VALUES ('State', '"
+		+ DatabaseState.Locked.toString()
+		+ "')";
 	}
 }

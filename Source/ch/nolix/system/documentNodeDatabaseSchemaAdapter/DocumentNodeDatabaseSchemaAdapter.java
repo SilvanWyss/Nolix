@@ -11,6 +11,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.system.databaseSchemaAdapter.DatabaseSchemaAdapter;
+import ch.nolix.system.databaseSchemaAdapter.DatabaseState;
 import ch.nolix.system.databaseSchemaAdapter.EntitySet;
 import ch.nolix.system.databaseSchemaAdapter.IEntitySetAdapter;
 
@@ -20,6 +21,9 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	
 	//attribute
 	private final DocumentNodeoid documentNodeDatabase;
+	
+	//constant
+	private static final String DATABASE_PROPERTIES_HEADER = "DatabaseProperties";
 	
 	//constructor
 	public DocumentNodeDatabaseSchemaAdapter(final DocumentNodeoid documentNodeDatabase) {
@@ -35,9 +39,18 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	}
 	
 	//method
-	@Override
-	public boolean isInitialized() {
-		return documentNodeDatabase.hasHeader(PascalCaseNameCatalogue.DATABASE);
+	public DatabaseState getDatabaseState() {
+		
+		if (!documentNodeDatabase.hasHeader()) {
+			return DatabaseState.Uninitialized;
+		}
+		
+		return
+		DatabaseState.valueOf(		
+			getDatabasePropertiesDocumentNode()
+			.getRefFirstAttribute(PascalCaseNameCatalogue.STATE)
+			.getOneAttributeAsString()
+		);
 	}
 	
 	//method
@@ -62,12 +75,32 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	//method
 	@Override
 	protected void initializeDatabaseWhenNotInitialized() {
+		
 		documentNodeDatabase.setHeader(PascalCaseNameCatalogue.DATABASE);
+		
+		documentNodeDatabase.addAttribute(
+			new DocumentNode(
+				DATABASE_PROPERTIES_HEADER,
+				new DocumentNode(
+					PascalCaseNameCatalogue.STATE,
+					"Ready"
+				)
+			)
+		);
 	}
 	
 	//method
 	@Override
-	protected void saveChangesToDatabase(final IContainer<EntitySet> entitySets) {
+	protected void lockDatabase() {
+		getDatabasePropertiesDocumentNode()
+		.getRefFirstAttribute(PascalCaseNameCatalogue.STATE)
+		.getRefOneAttribute()
+		.setHeader(DatabaseState.Locked.toString());
+	}
+	
+	//method
+	@Override
+	protected void saveChangesToDatabaseAndSetDatabaseReady(final IContainer<EntitySet> entitySets) {
 		
 		final var createdEntitySets = new List<EntitySet>();
 		final var changedEntitySets = new List<EntitySet>();
@@ -100,6 +133,8 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 		
 		//Handles the deleted entity sets.
 		changedEntitySets.forEach(es -> deleteEntitySetFromDatabase(es));
+		
+		setDatabaseReady();
 	}
 	
 	//method
@@ -136,5 +171,18 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 				a.hasHeader("EntitySet")
 				&& new EntitySetAdapter(a).hasName(es.getName())
 		);
+	}
+	
+	//method
+	private DocumentNodeoid getDatabasePropertiesDocumentNode() {
+		return documentNodeDatabase.getRefFirstAttribute(DATABASE_PROPERTIES_HEADER);
+	}
+	
+	//method
+	private void setDatabaseReady() {
+		getDatabasePropertiesDocumentNode()
+		.getRefFirstAttribute(PascalCaseNameCatalogue.STATE)
+		.getRefOneAttribute()
+		.setHeader(DatabaseState.Ready.toString());	
 	}
 }
