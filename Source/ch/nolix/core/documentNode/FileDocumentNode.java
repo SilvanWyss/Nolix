@@ -17,7 +17,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * @month 2017-07
  * @lines 130
  */
-public final class SimplePersistentDocumentNode extends DocumentNodeoid {
+public final class FileDocumentNode extends DocumentNodeoid {
 
 	//attributes
 	private final FileAccessor fileAccessor;
@@ -31,7 +31,7 @@ public final class SimplePersistentDocumentNode extends DocumentNodeoid {
 	 * 
 	 * @param filePath
 	 */
-	public SimplePersistentDocumentNode(final String filePath) {
+	public FileDocumentNode(final String filePath) {
 		
 		final FileSystemAccessor fileSystemAccessor = new FileSystemAccessor();
 		

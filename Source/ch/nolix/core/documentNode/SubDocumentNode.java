@@ -17,7 +17,7 @@ import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 public final class SubDocumentNode extends DocumentNodeoid {
 
 	//attribute
-	private final SimplePersistentDocumentNode simplePersistentSpecification;
+	private final FileDocumentNode simplePersistentSpecification;
 	private final DocumentNode internalSpecification;
 	
 	//package-visible constructor
@@ -30,13 +30,13 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	 * @param internalSpecification
 	 */
 	SubDocumentNode(
-		final SimplePersistentDocumentNode simplePersistentSpecification,
+		final FileDocumentNode simplePersistentSpecification,
 		final DocumentNode internalSpecification
 	) {
 		//Checks if the given simple persistent specification is not null.
 		Validator
 		.suppose(simplePersistentSpecification)
-		.isOfType(SimplePersistentDocumentNode.class);
+		.isOfType(FileDocumentNode.class);
 		
 		//Checks if the given internal specification is not null.
 		Validator.suppose(internalSpecification)

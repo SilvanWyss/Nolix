@@ -2,7 +2,7 @@
 package ch.nolix.tutorialApplications.movieManager;
 
 //own imports
-import ch.nolix.core.documentNode.SimplePersistentDocumentNode;
+import ch.nolix.core.documentNode.FileDocumentNode;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.documentNodeDatabaseAdapter.DocumentNodeDatabaseAdapter;
 import ch.nolix.system.documentNodeDatabaseSchemaAdapter.DocumentNodeDatabaseSchemaAdapter;
@@ -16,7 +16,7 @@ public final class Launcher {
 	public static void main(String[] args) {
 		
 		final var movieManagerDatabasePath = "movieManagerDatabase.database";
-		final var movieManagerDatabase = new SimplePersistentDocumentNode(movieManagerDatabasePath);
+		final var movieManagerDatabase = new FileDocumentNode(movieManagerDatabasePath);
 		final var movieManagerSchema = new MovieManagerSchema();
 		
 		final var movieManagerDatabaseSchemaAdapter =
