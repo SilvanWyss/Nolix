@@ -29,10 +29,12 @@ public final class EntitySet extends NamedElement {
 	private final List<Column> columns;
 	
 	//package-visible constructor
-	<E extends Entity> EntitySet(
+	<E extends Entity>
+	EntitySet(
 		final DatabaseSchemaAdapter<?> parentDatabaseSchemaAdapter,
 		final Class<E> entityClass
 	) {
+		
 		super(new EntityType<E>(entityClass).getName());
 		
 		final var entityType = new EntityType<E>(entityClass);
@@ -103,13 +105,12 @@ public final class EntitySet extends NamedElement {
 	}
 	
 	//method
-	public EntitySetSQLHelper getSQLHelper(final SQLDatabaseEngine sQLDatabaseEngine) {
-		switch (sQLDatabaseEngine) {
+	public EntitySetSQLHelper getSQLHelper(final SQLDatabaseEngine SQLDatabaseEngine) {
+		switch (SQLDatabaseEngine) {
 			case MSSQL:
 				return new EntitySetMSSQLHelper(this);
 			default:
-				//TODO: Create an entity set SQL helper for all database engines.
-				return null;
+				throw new RuntimeException("The SQL database engine '" + SQLDatabaseEngine + "' is not supported.");
 		}
 	}
 	
