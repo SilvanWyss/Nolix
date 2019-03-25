@@ -110,7 +110,8 @@ public final class EntitySet extends NamedElement {
 			case MSSQL:
 				return new EntitySetMSSQLHelper(this);
 			default:
-				throw new RuntimeException("The SQL database engine '" + SQLDatabaseEngine + "' is not supported.");
+				throw
+				new RuntimeException("The given SQL database engine '" + SQLDatabaseEngine + "' is not supported.");
 		}
 	}
 	

@@ -3,7 +3,6 @@ package ch.nolix.system.databaseSchemaAdapter;
 
 //own imports
 import ch.nolix.core.SQL.SQLDatabaseEngine;
-//own imports
 import ch.nolix.core.bases.HeaderedElement;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
@@ -14,11 +13,9 @@ import ch.nolix.system.databaseAdapter.PropertyKind;
 import ch.nolix.system.databaseAdapter.PropertyoidType;
 
 //class
-public final class Column
-extends HeaderedElement
-implements Specified {
+public final class Column extends HeaderedElement implements Specified {
 	
-	//attribute
+	//attributes
 	private final EntitySet entitySet;
 	private final PropertyoidType<?> valueType;
 		
@@ -59,13 +56,13 @@ implements Specified {
 	}
 	
 	//method
-	public ColumnSQLHelper getSQLHelper(final SQLDatabaseEngine sQLDatabaseEngine) {
-		switch (sQLDatabaseEngine) {
+	public ColumnSQLHelper getSQLHelper(final SQLDatabaseEngine SQLDatabaseEngine) {
+		switch (SQLDatabaseEngine) {
 			case MSSQL:
 				return new ColumnMSSQLHelper(this);
 			default:
-				//TODO: Create a column SQL helper for all database engines.
-				return null;
+				throw
+				new RuntimeException("The given SQL database engine '" + SQLDatabaseEngine + "' is not supported.");
 		}
 	}
 	
