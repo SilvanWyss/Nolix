@@ -2,6 +2,7 @@
 package ch.nolix.core.testoid;
 
 //Java imports
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
@@ -12,27 +13,59 @@ import ch.nolix.core.primitiveContainer.List;
 /**
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 170
+ * @lines 240
  */
 public abstract class Testoid {
+	
+	//optional attribute
+	private Method afterTestCaseMethod;
 	
 	//multi-attributes
 	private final List<String> lastErrors = new List<String>();
 	private final List<AutoCloseable> closableElements = new List<AutoCloseable>();
-
+	
+	//constructor
+	/**
+	 * Creates a new {@link Testoid}.
+	 */
+	public Testoid() {
+		
+		Class<?> class_ = getClass();
+		while (!class_.equals(Testoid.class)) {
+			
+			for (final var m : class_.getDeclaredMethods()) {
+				if (m.getAnnotation(AfterTestCase.class) != null) {
+					m.setAccessible(true);
+					afterTestCaseMethod = m;
+					break;
+				}
+			}
+			
+			class_ = class_.getSuperclass();
+		}
+	}
+	
 	//method
 	/**
-	 * Runs this test and prints out the test results to the console.
+	 * @return true if the current {@link Testoid} has a afterTestCaseMethod.
+	 */
+	public final boolean hasAfterTestCaseMethod() {
+		return (afterTestCaseMethod != null);
+	}
+	
+	//method
+	/**
+	 * Runs the test cases of the current {@link Testoid} and prints out the test results to the console.
 	 */
 	public final void run() {
 		
-		int passedTestMethodsCount = 0;
+		var passedTestMethodsCount = 0;
 		
-		final var testMethods = getTestMethods();
-		final var testMethodArray = new Method[testMethods.getElementCount()];
+		final var testCases = getRefTestCases();
+		final var testMethodArray = new Method[testCases.getElementCount()];
 		var i = 0;
-		for (final var tm : testMethods) {
-			testMethodArray[i] = tm;
+		for (final var tc : testCases) {
+			testMethodArray[i] = tc;
 			i++;
 		}
 		
@@ -50,17 +83,18 @@ public abstract class Testoid {
 		}
 		
 		long timeInMiliseconds = System.currentTimeMillis();
-		for (final Method m : testMethodArray) {
+		for (final var m : testMethodArray) {
 			long methodTimeInMiliseconds = System.currentTimeMillis();
 			try {
+				
 				m.invoke(this, (Object[])new Class[0]);
 				methodTimeInMiliseconds = System.currentTimeMillis() - methodTimeInMiliseconds;
 				
 				if (!lastErrors.isEmpty()) {
 					System.err.println("-->FAILED: " + m.getName() + ": (" + methodTimeInMiliseconds + "ms)");
 					System.err.flush();
-					int errorCount = 0;
-					for (String le: lastErrors) {
+					var errorCount = 0;
+					for (final var le: lastErrors) {
 						errorCount++;
 						System.err.println("   #" + errorCount + ": " + le);
 						System.err.flush();
@@ -84,15 +118,8 @@ public abstract class Testoid {
 				System.err.flush();
 			}
 			finally {
-				for (final AutoCloseable ac : closableElements) {
-					try {
-						ac.close();
-					} catch (final Exception exception) {
-						System.err.println("   An error occured by the try to close an element.");
-					}
-				}
-				
-				closableElements.clear();
+				closeAndClearClosableElements();
+				runProbableAfterTestCaseMethod();
 			}
 		}
 		
@@ -103,7 +130,7 @@ public abstract class Testoid {
 			+ ": "
 			+ passedTestMethodsCount
 			+ "/"
-			+ testMethods.getElementCount()
+			+ testCases.getElementCount()
 			+ " passed test cases ("
 			+ timeInMiliseconds
 			+ "ms)");
@@ -113,7 +140,7 @@ public abstract class Testoid {
 	
 	//method
 	/**
-	 * Lets this test register the given element to close.
+	 * Lets the current {@link Testoid} register the given element to close.
 	 * 
 	 * @param element
 	 */
@@ -125,7 +152,7 @@ public abstract class Testoid {
 	
 	//package-visible method
 	/**
-	 * Adds the given current test case error to this test.
+	 * Adds the given current test case error to the current {@link Testoid}.
 	 * 
 	 * @param currentTestMethodError
 	 */
@@ -133,7 +160,7 @@ public abstract class Testoid {
 		
 		String className = null;
 		int lineNumber = -1;
-		for (final StackTraceElement ste : Thread.currentThread().getStackTrace()) {
+		for (final var ste : Thread.currentThread().getStackTrace()) {
 			if (ste.getClassName().equals(getClass().getName())) {
 				className = ste.getClassName();
 				lineNumber = ste.getLineNumber();
@@ -141,7 +168,7 @@ public abstract class Testoid {
 		}
 		
 		if (className == null) {
-			for (final StackTraceElement ste : Thread.currentThread().getStackTrace()) {
+			for (final var ste : Thread.currentThread().getStackTrace()) {
 				Class<?> class_ = getClass();
 				do {
 					
@@ -165,25 +192,53 @@ public abstract class Testoid {
 	}
 	
 	//method
-	/**
-	 * @return the test methods of this test.
-	 */
-	private List<Method> getTestMethods() {
+	private void closeAndClearClosableElements() {
 		
-		final var testMethods = new List<Method>();
+		for (final var ac : closableElements) {
+			try {
+				ac.close();
+			} catch (final Exception exception) {
+				System.err.println("   An error occured by trying to close an element.");
+				System.out.flush();
+			}
+		}
+		
+		closableElements.clear();
+	}
+	
+	//method
+	/**
+	 * @return the test cases of the current {@link Testoid}.
+	 */
+	private List<Method> getRefTestCases() {
+		
+		final var testCases = new List<Method>();
 				
 		Class<?> class_ = getClass();
 		while (!class_.equals(Testoid.class)) {
 			
-			for (final Method m : class_.getDeclaredMethods()) {
+			for (final var m : class_.getDeclaredMethods()) {
 				if (!Modifier.isStatic(m.getModifiers()) && Modifier.isPublic(m.getModifiers())) {
-					testMethods.addAtEnd(m);
+					testCases.addAtEnd(m);
 				}
 			}
 			
 			class_ = class_.getSuperclass();
 		}
 		
-		return testMethods;
+		return testCases;
+	}
+	
+	//method
+	private void runProbableAfterTestCaseMethod() {
+		if (hasAfterTestCaseMethod()) {
+			try {
+				afterTestCaseMethod.invoke(this);
+			}
+			catch (final IllegalAccessException | IllegalArgumentException | InvocationTargetException exception) {
+				System.err.println("   An error occured by trying to run an afterTestCase method.");
+				System.out.flush();
+			}
+		}
 	}
 }
