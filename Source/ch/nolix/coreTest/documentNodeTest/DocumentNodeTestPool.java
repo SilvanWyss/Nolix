@@ -19,6 +19,7 @@ public class DocumentNodeTestPool extends TestPool {
 	public DocumentNodeTestPool() {
 		addTestClass(
 			DocumentNodeTest.class,
+			FileDocumentNodeTest.class,
 			StatementTest.class
 		);
 	}
