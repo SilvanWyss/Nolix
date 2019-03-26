@@ -12,6 +12,7 @@ import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.skillAPI.Recalculable;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.constants.FunctionCatalogue;
 import ch.nolix.core.container.List;
@@ -34,8 +35,8 @@ import ch.nolix.element.painter.IPainter;
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
-public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>>
-extends ConfigurableElement<W> {
+public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>> extends ConfigurableElement<W>
+implements Recalculable {
 	
 	//constants
 	private static final String STATE_HEADER ="State";
@@ -71,10 +72,8 @@ extends ConfigurableElement<W> {
 	private int cursorYPosition = 0;
 	
 	//attributes
-	private boolean calculatedWidthIsUpToDate = false;
-	private boolean calculatedHeightIsUpToDate = false;
-	private int calculatedWidth;
-	private int calculatedHeight;
+	private int width;
+	private int height;
 	
 	//optional attribute
 	/**
@@ -402,14 +401,7 @@ extends ConfigurableElement<W> {
 	 * @return the height of the current {@link Widget}.
 	 */
 	public final int getHeight() {
-		
-		//Handles the case that the calculated height of the current widget is not up to date.
-		if (!calculatedHeightIsUpToDate) {
-			calculatedHeight = getNewCalculatedHeight();
-			calculatedHeightIsUpToDate = true;
-		}
-		
-		return calculatedHeight;
+		return height;
 	}
 	
 	//method
@@ -560,17 +552,8 @@ extends ConfigurableElement<W> {
 	 * @return the width of the current {@link Widget}.
 	 */
 	public final int getWidth() {
-		
-		//Handles the case that the calculated width of the current widget is not up to date.
-		if (!calculatedWidthIsUpToDate) {
-			calculatedWidth = getNewCalculatedWidth();
-			calculatedWidthIsUpToDate = true;
-		}
-		
-		return calculatedWidth;
+		return width;
 	}
-	
-
 	
 	//method
 	/**
@@ -979,6 +962,15 @@ extends ConfigurableElement<W> {
 				getYPositionOnParent()
 			)
 		);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}}
+	 */
+	public final void recalculate() {
+		width = calculatedWidth();
+		height = calculatedHeight();
 	}
 	
 	//method
@@ -1537,11 +1529,11 @@ extends ConfigurableElement<W> {
 		final int xPositionOnParent,
 		final int yPositionOnParent
 	) {
+		
+		recalculate();
+		
 		this.xPositionOnParent = xPositionOnParent;
 		this.yPositionOnParent = yPositionOnParent;
-		
-		calculatedWidthIsUpToDate = false;
-		calculatedHeightIsUpToDate = false;
 	}
 	
 	//method
@@ -1583,6 +1575,36 @@ extends ConfigurableElement<W> {
 	
 	//method
 	/**
+	 * @return the newly calculated height of the current {@link Widget}.
+	 */
+	private int calculatedHeight() {
+		
+		//Handles the case that the current widget is collapsed.
+		if (isCollapsed()) {
+			return 0;
+		}
+		
+		//Handles the case that the current widget is not collapsed.
+		return getHeightWhenNotCollapsed();
+	}
+	
+	//method
+	/**
+	 * @return the newly calculated width of the current {@link Widget}.
+	 */
+	private int calculatedWidth() {
+		
+		//Handles the case that the current widget is collapsed.
+		if (isCollapsed()) {
+			return 0;
+		}
+		
+		//Handles the case that the current widget is not collapsed.
+		return getWidthWhenNotCollapsed();
+	}
+	
+	//method
+	/**
 	 * Fills up recursively the own widgets of the current {@link Widget} into the given list.
 	 * 
 	 * For a better performance,
@@ -1620,36 +1642,6 @@ extends ConfigurableElement<W> {
 		supposeHasLeftMouseButtonReleaseCommad();
 		
 		return leftMouseButtonReleaseCommand;
-	}
-
-	//method
-	/**
-	 * @return the newly calculated height of the current {@link Widget}.
-	 */
-	private int getNewCalculatedHeight() {
-		
-		//Handles the case that the current widget is collapsed.
-		if (isCollapsed()) {
-			return 0;
-		}
-		
-		//Handles the case that the current widget is not collapsed.
-		return getHeightWhenNotCollapsed();
-	}
-	
-	//method
-	/**
-	 * @return the newly calculated width of the current {@link Widget}.
-	 */
-	private int getNewCalculatedWidth() {
-		
-		//Handles the case that the current widget is collapsed.
-		if (isCollapsed()) {
-			return 0;
-		}
-		
-		//Handles the case that the current widget is not collapsed.
-		return getWidthWhenNotCollapsed();
 	}
 	
 	//method
