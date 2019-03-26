@@ -139,7 +139,7 @@ implements Clearable<FloatContainer> {
 
 	//method
 	@Override
-	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
 		list.addAtEnd(widgets);
 	}
 	
@@ -202,7 +202,7 @@ implements Clearable<FloatContainer> {
 		final int cursorXPositionOnContent,
 		final int cursorYPositionOnContent
 	) {
-		for (final var w : getRefWidgets()) {
+		for (final var w : getChildWidgets()) {
 			w.setParentCursorPosition(
 				cursorXPositionOnContent,
 				cursorYPositionOnContent

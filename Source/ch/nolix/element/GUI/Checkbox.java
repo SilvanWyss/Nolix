@@ -210,7 +210,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**

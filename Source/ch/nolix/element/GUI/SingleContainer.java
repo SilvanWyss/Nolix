@@ -197,7 +197,7 @@ implements Clearable<SingleContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Handles the case that the current single container has a widget.	

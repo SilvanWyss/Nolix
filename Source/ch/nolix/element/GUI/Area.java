@@ -330,7 +330,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**

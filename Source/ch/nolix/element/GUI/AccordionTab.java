@@ -268,7 +268,7 @@ implements Clearable<AccordionTab> {
 		}
 		
 		if (borderWidgetLook.hasRecursiveTabHeaderTextSize()) {
-			for (final var w : headerHorizontalStack.getRefWidgets()) {
+			for (final var w : headerHorizontalStack.getChildWidgets()) {
 				w
 				.getRefBaseLook()
 				.setTextSize(borderWidgetLook.getRecursiveOrDefaultTabHeaderTextSize());
@@ -276,7 +276,7 @@ implements Clearable<AccordionTab> {
 		}
 		
 		if (borderWidgetLook.hasRecursiveTabHeaderTextColor()) {
-			for (final var w : headerHorizontalStack.getRefWidgets()) {
+			for (final var w : headerHorizontalStack.getChildWidgets()) {
 				w
 				.getRefBaseLook()
 				.setTextColor(borderWidgetLook.getRecursiveOrDefaultTabHeaderTextColor());

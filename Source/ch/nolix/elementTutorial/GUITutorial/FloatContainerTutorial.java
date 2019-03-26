@@ -52,7 +52,7 @@ public final class FloatContainerTutorial {
 		);
 		
 		//Configures the look of the widgets of the float container.
-		for (final var w : floatContainer.getRefWidgets()) {
+		for (final var w : floatContainer.getChildWidgets()) {
 			w
 			.as(Label.class)
 			.setProposalSize(500, 200)

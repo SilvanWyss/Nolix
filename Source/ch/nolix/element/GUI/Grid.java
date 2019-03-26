@@ -69,7 +69,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	@Override
 	public CursorIcon getContentAreaCursorIcon() {
 		
-		final var widgetUnderCursor = getRefWidgets().getRefFirstOrNull(w -> w.isUnderCursor());
+		final var widgetUnderCursor = getChildWidgets().getRefFirstOrNull(w -> w.isUnderCursor());
 		
 		if (widgetUnderCursor != null) {
 			return widgetUnderCursor.getCursorIcon();
@@ -220,7 +220,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	
 	//method
 	@Override
-	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
 		for (final var c : cells) {
 			if (c.containsAny()) {
 				list.addAtEnd(c.getRefWidget());
@@ -285,7 +285,7 @@ public final class Grid extends Container<Grid, GridLook> {
 		}
 		
 		//Paints the widgets of the current grid.
-		getRefWidgets().forEach(w -> w.paintUsingPositionOnParent(painter));
+		getChildWidgets().forEach(w -> w.paintUsingPositionOnParent(painter));
 	}
 	
 	//method
@@ -294,7 +294,7 @@ public final class Grid extends Container<Grid, GridLook> {
 		int cursorXPositionOnContent,
 		int cursorYPositionOnContent
 	) {
-		for (final var w : getRefWidgets()) {
+		for (final var w : getChildWidgets()) {
 			w.setParentCursorPosition(
 				cursorXPositionOnContent,
 				cursorYPositionOnContent

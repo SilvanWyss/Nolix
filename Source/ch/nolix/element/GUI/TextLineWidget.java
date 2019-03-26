@@ -193,5 +193,5 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
 }

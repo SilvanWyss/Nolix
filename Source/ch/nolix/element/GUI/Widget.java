@@ -366,6 +366,19 @@ implements Recalculable {
 		return attributes;
 	}
 	
+	//method
+	/** 
+	 * @return all child {@link Widget} of the current {@link Widget}.
+	 */
+	public final List<Widget<?, ?>> getChildWidgets() {
+		
+		final var childWidgets = new List<Widget<?, ?>>();
+		
+		fillUpChildWidgets(childWidgets);
+		
+		return childWidgets;
+	}
+	
 	//abstract method
 	/**
 	 * @return the cursor icon of the current {@link Widget}.
@@ -499,7 +512,7 @@ implements Recalculable {
 	 */
 	@Override
 	public final ReadContainer<Configurable<?>> getRefConfigurables() {
-		return new ReadContainer<Configurable<?>>(getRefWidgets());
+		return new ReadContainer<Configurable<?>>(getChildWidgets());
 	}
 	
 	//method
@@ -524,19 +537,6 @@ implements Recalculable {
 	 */
 	public final WL getRefHoverLook() {
 		return hoverLook;
-	}
-	
-	//method
-	/** 
-	 * @return the widgets of the current {@link Widget}.
-	 */
-	public final List<Widget<?, ?>> getRefWidgets() {
-		
-		final var widgets = new List<Widget<?, ?>>();
-		
-		fillUpOwnWidgets(widgets);
-		
-		return widgets;
 	}
 	
 	//method
@@ -1059,7 +1059,7 @@ implements Recalculable {
 		setCustomCursorIcon(CursorIcon.Arrow);
 		
 		//Resets the configuration of the widgets of the current widget.
-		getRefWidgets().forEach(r -> r.resetConfiguration());
+		getChildWidgets().forEach(r -> r.resetConfiguration());
 		
 		return asConcreteType();
 	}
@@ -1361,15 +1361,15 @@ implements Recalculable {
 	
 	//abstract method
 	/**
-	 * Fills up the own widgets of the current {@link Widget} into the given list.
+	 * Fills up all child {@link Widget} of the current {@link Widget} into the given list.
 	 * 
 	 * For a better performance,
-	 * a {@link Widget} fills up its own widget into a list
-	 * and does not create a new list with its own widgets.
+	 * a {@link Widget} fills up all its child {@link Widget} into a list
+	 * and does not create a new list with all its child {@link Widget}.
 	 * 
 	 * @param list
 	 */
-	protected abstract void fillUpOwnWidgets(List<Widget<?, ?>> list);
+	protected abstract void fillUpChildWidgets(List<Widget<?, ?>> list);
 	
 	//abstract method
 	/**
@@ -1614,8 +1614,8 @@ implements Recalculable {
 	 * @param list
 	 */
 	private void fillUpOwnWidgetsRecursively(final List<Widget<?, ?>> list) {
-		fillUpOwnWidgets(list);
-		getRefWidgets().forEach(w -> w.fillUpOwnWidgetsRecursively(list));
+		fillUpChildWidgets(list);
+		getChildWidgets().forEach(w -> w.fillUpOwnWidgetsRecursively(list));
 	}
 	
 	//method

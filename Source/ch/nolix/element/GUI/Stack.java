@@ -153,7 +153,7 @@ implements Clearable<S> {
 			);
 		}
 		
-		getRefWidgets().forEach(r -> attributes.addAtEnd(r.getSpecification()));
+		getChildWidgets().forEach(r -> attributes.addAtEnd(r.getSpecification()));
 		
 		return attributes;
 	}
@@ -166,7 +166,7 @@ implements Clearable<S> {
 	public final CursorIcon getContentAreaCursorIcon() {
 		
 		final var widgetUnderCursor =
-		getRefWidgets().getRefFirstOrNull(w -> w.isUnderCursor());
+		getChildWidgets().getRefFirstOrNull(w -> w.isUnderCursor());
 		
 		if (widgetUnderCursor != null) {
 			return widgetUnderCursor.getCursorIcon();
@@ -181,7 +181,7 @@ implements Clearable<S> {
 	 */
 	public final ReadContainer<Widget<?, ?>> getRefShownWidgets() {
 		return new ReadContainer<Widget<?, ?>>(
-			getRefWidgets().getRefSelected(w -> !w.isCollapsed())
+			getChildWidgets().getRefSelected(w -> !w.isCollapsed())
 		);
 	}
 	
@@ -284,7 +284,7 @@ implements Clearable<S> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
 		list.addAtEnd(widgets);
 	}
 	
@@ -310,7 +310,7 @@ implements Clearable<S> {
 		int cursorXPositionOnContent,
 		int cursorYPositionOnContent
 	) {
-		for (final var w : getRefWidgets()) {
+		for (final var w : getChildWidgets()) {
 			w.setParentCursorPosition(
 				cursorXPositionOnContent,
 				cursorYPositionOnContent

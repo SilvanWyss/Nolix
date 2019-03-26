@@ -196,7 +196,7 @@ implements Clearable<SelectionMenu> {
 		
 		super.noteAnyMouseMove();
 		
-		menu.getRefWidgets().forEach(w -> w.noteAnyMouseMove());
+		menu.getChildWidgets().forEach(w -> w.noteAnyMouseMove());
 	}
 	
 	//method
@@ -277,7 +277,7 @@ implements Clearable<SelectionMenu> {
 	
 	//method
 	@Override
-	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	@Override
@@ -314,7 +314,7 @@ implements Clearable<SelectionMenu> {
 		final var hoverItemLook = selectionMenuLook.getRefRecursiveOrDefaultHoverItemLook();
 		final var selectedItemLook = selectionMenuLook.getRefRecursiveOrDefaultSelectionItemLook();
 		
-		for (final Widget<?, ?> w : menu.getRefWidgets()) {
+		for (final Widget<?, ?> w : menu.getChildWidgets()) {
 			
 			final var label = (Label)w;
 			

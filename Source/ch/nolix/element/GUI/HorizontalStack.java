@@ -65,7 +65,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 		}
 		
 		//Handles the case that the current horizontal stack is not empty.
-		return getRefWidgets().getMaxByInt(r -> r.getHeight());
+		return getChildWidgets().getMaxByInt(r -> r.getHeight());
 	}
 	
 	//method
@@ -75,11 +75,11 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	@Override
 	protected final int getContentAreaWidth() {
 		
-		int contentWidth = getRefWidgets().getSumByInt(w -> w.getWidth());
+		int contentWidth = getChildWidgets().getSumByInt(w -> w.getWidth());
 		
 		//Handles the case that the current horizontal stack is not empty.
 		if (containsAny()) {
-			contentWidth += (getRefWidgets().getSize() - 1) * getActiveElementMargin();
+			contentWidth += (getChildWidgets().getSize() - 1) * getActiveElementMargin();
 		}
 		
 		return contentWidth;
@@ -105,7 +105,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 			case RightTop:
 				
 				var x1 = 0;
-				for (final var w : getRefWidgets()) {
+				for (final var w : getChildWidgets()) {
 					w.setPositionOnParent(x1, 0);
 					x1 += w.getWidth() + getActiveElementMargin();
 				}
@@ -117,7 +117,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 				
 				final var contentAreaHeight2 = getContentAreaHeight();
 				var x2 = 0;
-				for (final var w: getRefWidgets()) {
+				for (final var w: getChildWidgets()) {
 					w.setPositionOnParent(x2, (contentAreaHeight2 - w.getHeight()) / 2);
 					x2 += w.getWidth() + getActiveElementMargin();
 				}
@@ -129,7 +129,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 				
 				final var contentAreaHeight3 = getContentAreaHeight();
 				var x3 = 0;
-				for (final var w : getRefWidgets()) {
+				for (final var w : getChildWidgets()) {
 					w.setPositionOnParent(x3, contentAreaHeight3 - w.getHeight());
 					x3 += w.getWidth() + getActiveElementMargin();
 				}

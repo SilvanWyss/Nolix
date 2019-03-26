@@ -220,7 +220,7 @@ implements Clearable<TabContainer> {
 		
 		//Extracts the menu item under the cursor if there exists one.
 		final var menuItemUnderCursor =
-		menu.getRefWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
+		menu.getChildWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
 		
 		//Handles the case that there exists a menu item under the cursor.
 		if (menuItemUnderCursor != null) {
@@ -286,7 +286,7 @@ implements Clearable<TabContainer> {
 		//Calls method of the base class.
 		super.noteLeftMouseButtonPress();
 		
-		nextMenuItemLabel = (Label)menu.getRefWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
+		nextMenuItemLabel = (Label)menu.getChildWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
 	}
 	
 	//method
@@ -323,7 +323,7 @@ implements Clearable<TabContainer> {
 		//Calls method of the base class.
 		super.noteMouseMove();
 		
-		menu.getRefWidgets().forEach(w -> w.noteAnyMouseMove());
+		menu.getChildWidgets().forEach(w -> w.noteAnyMouseMove());
 	}
 	
 	//method
@@ -419,7 +419,7 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpOwnWidgets(final List<Widget<?, ?>> list) {
+	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
 				
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Iterates the tabs of the current tab container.
