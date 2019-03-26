@@ -32,7 +32,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 		approveProperties();
 		
 		if (applyUsableConfiguration) {
-			applyUsableConfiguration();
+			applyDefaultConfiguration();
 		}
 	}
 	

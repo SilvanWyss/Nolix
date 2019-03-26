@@ -105,6 +105,21 @@ implements Recalculable {
 	
 	//method
 	/**
+	 * Resets the configuration of the current {@link Widget}
+	 * and applies a default configuration to the current{@link Widget}.
+	 * 
+	 * @return the current {@link Widget}.
+	 */
+	public final W applyDefaultConfiguration() {
+		
+		resetConfiguration();
+		applyDefaultConfigurationWhenHasBeenReset();
+		
+		return asConcreteType();
+	}
+	
+	//method
+	/**
 	 * Adds or changes the given attribute to the current {@link Widget}.
 	 * 
 	 * @param attribute
@@ -225,27 +240,12 @@ implements Recalculable {
 		return asConcreteType();
 	}
 	
-	//method
-	/**
-	 * Resets the configuration of the current {@link Widget}
-	 * and applies a usable configuration to the current{@link Widget}.
-	 * 
-	 * @return the current {@link Widget}.
-	 */
-	public final W applyUsableConfiguration() {
-		
-		resetConfiguration();
-		applyUsableConfigurationWhenConfigurationIsReset();
-		
-		return asConcreteType();
-	}
-	
 	//abstract method
 	/**
 	 * Applies a usable configuration to the current {@link Widget}
 	 * when the configuration of the current {@link Widget} has been reset.
 	 */
-	protected abstract void applyUsableConfigurationWhenConfigurationIsReset();
+	protected abstract void applyDefaultConfigurationWhenHasBeenReset();
 
 	//method
 	/**

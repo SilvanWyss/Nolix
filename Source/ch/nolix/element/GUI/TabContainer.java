@@ -44,7 +44,7 @@ implements Clearable<TabContainer> {
 	public TabContainer() {
 		reset();
 		approveProperties();
-		applyUsableConfiguration();
+		applyDefaultConfiguration();
 	}
 	
 	//constructor
@@ -386,7 +386,7 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		getRefBaseLook()
 		.setBaseMenuItemLook(
 			new TabContainerMenuItemLook()

@@ -190,7 +190,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		getRefBaseLook()
 		.setSize(20)
 		.setLineColor(Color.BLACK);

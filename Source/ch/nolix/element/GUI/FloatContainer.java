@@ -129,7 +129,7 @@ implements Clearable<FloatContainer> {
 	
 	//method
 	@Override
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {}
+	protected void applyDefaultConfigurationWhenHasBeenReset() {}
 	
 	//method
 	@Override

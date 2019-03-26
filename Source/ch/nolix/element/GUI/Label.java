@@ -31,7 +31,7 @@ public final class Label extends TextLineWidget<Label> {
 	public Label() {
 		reset();
 		approveProperties();
-		applyUsableConfiguration();
+		applyDefaultConfiguration();
 	}
 	
 	//constructor
@@ -166,7 +166,7 @@ public final class Label extends TextLineWidget<Label> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {}
+	protected void applyDefaultConfigurationWhenHasBeenReset() {}
 	
 	//method
 	/**

@@ -38,7 +38,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	public TextBox() {
 		reset();
 		approveProperties();
-		applyUsableConfiguration();
+		applyDefaultConfiguration();
 	}
 	
 	//constructor
@@ -200,7 +200,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		setCustomCursorIcon(CursorIcon.Edit);
 		getRefBaseLook().setBorderThicknesses(1);
 	}

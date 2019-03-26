@@ -42,7 +42,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	public Area() {
 		reset();
 		approveProperties();
-		applyUsableConfiguration();
+		applyDefaultConfiguration();
 	}
 	
 	//constructor
@@ -312,7 +312,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		setBackgroundColor(Color.LIGHT_GREY);
 	}
 	

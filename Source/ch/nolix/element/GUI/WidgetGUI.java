@@ -199,7 +199,7 @@ implements IGUI<WidgetGUI> {
 	
 	//method
 	@Override
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		setProposalWidth(500);
 		setProposalHeight(200);
 		getRefBaseLook().setBorderThicknesses(1);

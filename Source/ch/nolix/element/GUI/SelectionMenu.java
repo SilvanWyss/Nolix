@@ -31,7 +31,7 @@ implements Clearable<SelectionMenu> {
 	public SelectionMenu() {
 		reset();
 		approveProperties();
-		applyUsableConfiguration();
+		applyDefaultConfiguration();
 	}
 	
 	//constructor
@@ -254,7 +254,7 @@ implements Clearable<SelectionMenu> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		
 		menu.setElementMargin(0);
 		

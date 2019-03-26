@@ -32,7 +32,7 @@ implements Clearable<SingleContainer> {
 	public SingleContainer() {
 		reset();
 		approveProperties();
-		applyUsableConfiguration();
+		applyDefaultConfiguration();
 	}
 	
 	//constructor
@@ -181,7 +181,7 @@ implements Clearable<SingleContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {}
+	protected void applyDefaultConfigurationWhenHasBeenReset() {}
 	
 	//method
 	/**

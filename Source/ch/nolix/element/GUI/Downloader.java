@@ -37,7 +37,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	public Downloader() {
 		reset();
 		approveProperties();
-		applyUsableConfiguration();
+		applyDefaultConfiguration();
 	}
 	
 	//method
@@ -183,7 +183,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	
 	//method
 	@Override
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
 		

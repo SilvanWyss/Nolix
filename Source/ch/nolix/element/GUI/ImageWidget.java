@@ -26,7 +26,7 @@ implements Clearable<ImageWidget> {
 	public ImageWidget() {
 		reset();
 		approveProperties();
-		applyUsableConfiguration();
+		applyDefaultConfiguration();
 	}
 	
 	//constructor
@@ -85,7 +85,7 @@ implements Clearable<ImageWidget> {
 	
 	//method
 	@Override
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {}
+	protected void applyDefaultConfigurationWhenHasBeenReset() {}
 	
 	//method
 	@Override

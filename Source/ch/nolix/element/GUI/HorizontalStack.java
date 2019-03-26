@@ -19,7 +19,7 @@ public final class HorizontalStack extends Stack<HorizontalStack> {
 	public HorizontalStack() {
 		reset();
 		approveProperties();
-		applyUsableConfiguration();
+		applyDefaultConfiguration();
 	}
 	
 	//constructor

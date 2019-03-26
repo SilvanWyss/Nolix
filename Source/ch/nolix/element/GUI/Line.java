@@ -240,7 +240,7 @@ extends Widget<L, LineLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void applyUsableConfigurationWhenConfigurationIsReset() {
+	protected final void applyDefaultConfigurationWhenHasBeenReset() {
 		setThickness(1);
 	}
 	

@@ -32,7 +32,7 @@ public final class Button extends TextLineWidget<Button> {
 	public Button() {
 		reset();
 		approveProperties();
-		applyUsableConfiguration();
+		applyDefaultConfiguration();
 	}
 	
 	//constructor
@@ -176,7 +176,7 @@ public final class Button extends TextLineWidget<Button> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		
 		setMinWidth(100);
 		setContentPosition(ContentPosition.Center);

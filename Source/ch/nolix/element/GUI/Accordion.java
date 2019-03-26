@@ -85,7 +85,7 @@ implements Clearable<Accordion> {
 		approveProperties();
 		
 		if (applyUsableConfiguration) {
-			applyUsableConfiguration();
+			applyDefaultConfiguration();
 		}
 	}
 	
@@ -346,7 +346,7 @@ implements Clearable<Accordion> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		getRefBaseLook().setTabHeaderBackgroundColor(Color.LIGHT_GREY);
 	}
 	

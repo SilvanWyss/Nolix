@@ -266,7 +266,7 @@ implements Clearable<S> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void applyUsableConfigurationWhenConfigurationIsReset() {
+	protected final void applyDefaultConfigurationWhenHasBeenReset() {
 		setElementMargin(10);
 	}
 	

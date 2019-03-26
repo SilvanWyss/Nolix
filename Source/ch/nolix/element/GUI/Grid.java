@@ -22,7 +22,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	public Grid() {
 		reset();
 		approveProperties();
-		applyUsableConfiguration();
+		applyDefaultConfiguration();
 	}
 	
 	//method
@@ -202,7 +202,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {
+	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		
 		setMaxWidth(1000);
 		setMaxHeight(500);

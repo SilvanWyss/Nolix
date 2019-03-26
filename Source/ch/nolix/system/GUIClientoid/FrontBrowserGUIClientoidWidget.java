@@ -27,7 +27,7 @@ extends Widget<FrontBrowserGUIClientoidWidget, FrontBrowserGUIClientoidWidgetLoo
 	}
 	
 	@Override
-	protected void applyUsableConfigurationWhenConfigurationIsReset() {}
+	protected void applyDefaultConfigurationWhenHasBeenReset() {}
 	
 	@Override
 	protected FrontBrowserGUIClientoidWidgetLook createWidgetLook() {
