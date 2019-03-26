@@ -50,22 +50,22 @@ public final class Launcher {
 		)
 		.downToNext(10);
 		
-		System.out.println("number of productive classes: ca. " + productiveClassCount);
+		System.out.println("productive classes: ca. " + productiveClassCount);
 		
 		final var testClassCount =
 		Calculator.round(fileAccesssors.getCount(fa -> fa.getName().endsWith("Test.java"))).downToNext(10);
 		
-		System.out.println("number of test classes: ca. " +  testClassCount);
+		System.out.println("test classes: ca. " +  testClassCount);
 		
 		final var launcherClassCount =
 		Calculator.round(fileAccesssors.getCount(fa -> fa.getName().endsWith("Launcher.java"))).downToNext(10);
 		
-		System.out.println("number of launcher classes: ca. " + launcherClassCount);
+		System.out.println("launcher classes: ca. " + launcherClassCount);
 		
 		final var tutorialClassCount =
 		Calculator.round(fileAccesssors.getCount(fa -> fa.getName().endsWith("Tutorial.java"))).downToNext(10);
 		
-		System.out.println("number of tutorial classes: ca. " + tutorialClassCount);
+		System.out.println("tutorial classes: ca. " + tutorialClassCount);
 	}
 	
 	//private constructor
