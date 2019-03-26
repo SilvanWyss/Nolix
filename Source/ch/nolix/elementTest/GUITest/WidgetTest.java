@@ -65,7 +65,6 @@ extends ObjectTest<W> {
 		
 		//setup verification
 		expect(widget.isNormal());
-		expect(widget.isUnderCursor());
 		
 		//execution
 		widget.noteAnyLeftMouseButtonPress();
