@@ -54,7 +54,7 @@ public interface IFractal {
 	getSequencesNextValueFunction();
 	
 	//abstract method
-	public abstract ArrayList<IComplexNumber> getSequencesStartValues();
+	public abstract ArrayList<IComplexNumber> getSequencesStartValues(final IComplexNumber complexNumber);
 	
 	//abstract method
 	public abstract BigDecimal getUnitsPerPixel();

@@ -93,7 +93,7 @@ public final class ImageBuilder implements IImageBuilder {
 				fractal.getColor(
 					new ImpliciteSequence<IComplexNumber>(
 						1,
-						fractal.getSequencesStartValues(),
+						fractal.getSequencesStartValues(c),
 						z -> fractal.getSequencesNextValueFunction().getOutput(z, c),
 						z -> z.getSquaredMagnitude()
 					)

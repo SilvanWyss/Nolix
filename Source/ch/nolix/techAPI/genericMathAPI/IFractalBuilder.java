@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import ch.nolix.core.functionAPI.I3ElementTakerElementGetter;
 import ch.nolix.core.functionAPI.I4ElementTakerElementGetter;
 import ch.nolix.core.functionAPI.I5ElementTakerElementGetter;
+import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.functionAPI.IIntTakerElementGetter;
 import ch.nolix.core.functionAPI.I2ElementTakerElementGetter;
 import ch.nolix.element.color.Color;
@@ -97,6 +98,11 @@ public interface IFractalBuilder {
 	
 	//abstract method
 	public abstract IFractalBuilder setSequencesStartValues(IComplexNumber... sequencesStartValues);
+	
+	//abstract method
+	public abstract IFractalBuilder setSequencesStartValuesFunction(
+		IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction
+	);
 	
 	//abstract method
 	public abstract IFractalBuilder setWidthInPixel(int widthInPixel);

@@ -35,7 +35,7 @@ public class MandelbrotFractalTutorial {
 				.setSequencesMaxIterationCount(maxIterationCount)
 				.setColorFunction(
 					i ->
-					i < maxIterationCount ?	new Color((2 * i) % 256, (10 * i) % 256, (2 * i) % 256) : Color.BLACK
+					i < maxIterationCount ?	new Color(i % 256, (10 * i) % 256, (2 * i) % 256) : Color.BLACK
 				)
 				.setBigDecimalScale(20)
 				.build()
