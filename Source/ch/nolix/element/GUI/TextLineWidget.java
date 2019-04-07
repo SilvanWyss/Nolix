@@ -68,15 +68,6 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final CursorIcon getContentAreaCursorIcon() {
-		return getCustomCursorIcon();
-	}
-	
-	//method
-	/**
 	 * @return the text of this text line rectangle
 	 */
 	public final String getText() {
@@ -182,16 +173,23 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	
 	//method
 	/**
-	 * @return the text specification of this text line widget.
+	 * {@inheritDoc}
 	 */
-	protected DocumentNode getTextSpecification() {
-		return text.getSpecification();
-	}
+	@Override
+	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
+	
+	//method
+	/**
+	 * @return the text specification of this text line widget.
+	 */
+	protected DocumentNode getTextSpecification() {
+		return text.getSpecification();
+	}
 }

@@ -5,7 +5,6 @@ package ch.nolix.element.GUI;
 import java.awt.event.KeyEvent;
 
 //own imports
-import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
@@ -27,7 +26,6 @@ import ch.nolix.element.painter.IPainter;
  * A {@link Widget} is an element on a {@link GUI}.
  * A {@link Widget} determines its width and height.
  * A {@link Widget} is a {@link ConfigurableElement}.
- * The methods concerning the position of a {@link Widget} are not public.
  * 
  * @author Silvan Wyss
  * @month 2015-12
@@ -56,6 +54,7 @@ implements Recalculable {
 	
 	//attributes
 	private WidgetState state = WidgetState.Normal;
+	private boolean keepsFocus = false;
 	private CursorIcon customCursorIcon = CursorIcon.Arrow;
 	private boolean greyOutWhenDisabled = true;
 	
@@ -68,8 +67,8 @@ implements Recalculable {
 	//attributes
 	private int xPositionOnParent = 0;
 	private int yPositionOnParent = 0;
-	private int cursorXPosition = 0;
-	private int cursorYPosition = 0;
+	protected int cursorXPosition = 0;
+	protected int cursorYPosition = 0;
 	
 	//attributes
 	private int width;
@@ -239,13 +238,6 @@ implements Recalculable {
 		
 		return asConcreteType();
 	}
-	
-	//abstract method
-	/**
-	 * Applies a usable configuration to the current {@link Widget}
-	 * when the configuration of the current {@link Widget} has been reset.
-	 */
-	protected abstract void applyDefaultConfigurationWhenHasBeenReset();
 
 	//method
 	/**
@@ -373,17 +365,37 @@ implements Recalculable {
 	public final List<Widget<?, ?>> getChildWidgets() {
 		
 		final var childWidgets = new List<Widget<?, ?>>();
-		
 		fillUpChildWidgets(childWidgets);
 		
 		return childWidgets;
+	}
+	
+	//method
+	/** 
+	 * @return all configurable child {@link Widget} of the current {@link Widget}.
+	 */
+	public final List<Widget<?, ?>> getConfigurableChildWidgets() {
+		
+		final var configurableChildWidgets = new List<Widget<?, ?>>();
+		fillUpConfigurableChildWidgets(configurableChildWidgets);
+		
+		return configurableChildWidgets;
 	}
 	
 	//abstract method
 	/**
 	 * @return the cursor icon of the current {@link Widget}.
 	 */
-	public abstract CursorIcon getCursorIcon();
+	public CursorIcon getCursorIcon() {
+		
+		final var childWidgetUnderCursor = getChildWidgets().getRefFirstOrNull(cw -> cw.isUnderCursor());
+		
+		if (childWidgetUnderCursor != null) {
+			return childWidgetUnderCursor.getCursorIcon();
+		}
+		
+		return getCustomCursorIcon();
+	}
 	
 	//method
 	/**
@@ -511,8 +523,12 @@ implements Recalculable {
 	 * @return the configurable elements of the current {@link Widget}.
 	 */
 	@Override
-	public final ReadContainer<Configurable<?>> getRefConfigurables() {
-		return new ReadContainer<Configurable<?>>(getChildWidgets());
+	public final List<Configurable<?>> getRefConfigurables() {
+		
+		final var configurables = new List<Widget<?, ?>>();
+		fillUpConfigurableChildWidgets(configurables);
+		
+		return new List<Configurable<?>>(configurables);
 	}
 	
 	//method
@@ -672,7 +688,9 @@ implements Recalculable {
 	/**
 	 * @return true if the current {@link Widget} keeps the focus.
 	 */
-	public abstract boolean keepsFocus();
+	public final boolean keepsFocus() {
+		return keepsFocus;
+	}
 	
 	//method
 	/**
@@ -682,7 +700,7 @@ implements Recalculable {
 	 */
 	public final void noteAnyKeyPress(final KeyEvent keyEvent) {
 		
-		//Handles the case that the current widget is focused or hover focused.
+		//Handles the case that the current Widget is focused or hover focused.
 		if (isFocused() || isHoverFocused()) {
 			noteKeyPress(keyEvent);
 		}
@@ -696,7 +714,7 @@ implements Recalculable {
 	 */
 	public final void noteAnyKeyTyping(final KeyEvent keyEvent) {
 		
-		//Handles the case that the current widget is focused or hover focused.
+		//Handles the case that the current Widget is focused or hover focused.
 		if (isFocused() || isHoverFocused()) {
 			noteKeyTyping(keyEvent);
 		}
@@ -706,17 +724,19 @@ implements Recalculable {
 	/**
 	 * Lets the current {@link Widget} note any mouse button press.
 	 */
-	public final void noteAnyLeftMouseButtonPress() {
-				
+	public final void noteAnyLeftMouseButtonPress() {			
 		if (isEnabled()) {
 			if (!isUnderCursor()) {
-				
-				if (isFocused()) {
-					setNormal();
-				}
-				
-				else if (isHoverFocused()) {
-					setNormal();
+				switch (getState()) {
+					case Focused:
+					case HoverFocused:
+						
+						if (!keepsFocus()) {
+							setNormal();
+						}
+						
+						break;
+					default:
 				}
 			}
 			else {
@@ -746,7 +766,7 @@ implements Recalculable {
 		
 		noteAnyLeftMouseButtonPress();
 		
-		getRefOwnWidgetsRecursively().forEach(w -> w.noteAnyLeftMouseButtonPress());
+		getChildWidgetsRecursively().forEach(w -> w.noteAnyLeftMouseButtonPress());
 	}
 	
 	//method
@@ -756,19 +776,20 @@ implements Recalculable {
 	public void noteAnyLeftMouseButtonRelease() {
 		if (isEnabled()) {
 			if (!isUnderCursor()) {
-				if (isFocused() || isHoverFocused()) {
-					setNormal();
+				switch (getState()) {
+					case Focused:
+					case HoverFocused:
+						
+						if (!keepsFocus()) {
+							setNormal();
+						}
+						
+						break;
+					default:
 				}
 			}
 			else {
-				
 				noteLeftMouseButtonRelease();
-				
-				if (isHoverFocused()) {
-					if (!keepsFocus()) {
-						setHovered();
-					}
-				}
 			}
 		}
 	}
@@ -816,7 +837,7 @@ implements Recalculable {
 		
 		noteAnyMouseMove();
 		
-		getRefOwnWidgetsRecursively().forEach(w -> w.noteAnyMouseMove());
+		getChildWidgetsRecursively().forEach(w -> w.noteAnyMouseMove());
 	}
 	
 	//method
@@ -914,8 +935,10 @@ implements Recalculable {
 			}
 		}
 		
-		if (!keepsFocus()) {
-			setNormal();
+		if (!isUnderCursor()) {
+			if (!keepsFocus()) {
+				setNormal();
+			}
 		}
 	}
 	
@@ -950,13 +973,12 @@ implements Recalculable {
 	//method
 	/**
 	 * Paints the current {@link Widget} using the position on its parent container using the given painter.
-	 * This method promises that the given painter
-	 * has the same position at the end as at the beginning.
+	 * This method promises that the given painter has the same position at the end as at the beginning.
 	 * 
 	 * @param painter
 	 */
-	public final void paintUsingPositionOnParent(final IPainter painter) {
-		paint(
+	public final void paint(final IPainter painter) {
+		paint2(
 			painter.createPainter(
 				getXPositionOnParent(),
 				getYPositionOnParent()
@@ -968,9 +990,16 @@ implements Recalculable {
 	/**
 	 * {@inheritDoc}}
 	 */
-	public final void recalculate() {
+	public void recalculate() {
 		width = calculatedWidth();
 		height = calculatedHeight();
+	}
+	
+	public final void recalculateRecursively() {
+		
+		getChildWidgets().forEach(cw -> cw.recalculateRecursively());
+		
+		recalculate();
 	}
 	
 	//method
@@ -1039,6 +1068,15 @@ implements Recalculable {
 		removeRightMouseButtonReleaseCommand();
 		
 		resetConfiguration();
+		
+		return asConcreteType();
+	}
+	
+	//method
+	public W resetAndApplyDefaultConfiguration() {
+						
+		reset();
+		applyDefaultConfigurationWhenHasBeenReset();
 		
 		return asConcreteType();
 	}
@@ -1159,18 +1197,31 @@ implements Recalculable {
 	}
 	
 	//method
+	public void setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
+		
+		this.cursorXPosition = cursorXPosition;
+		this.cursorYPosition = cursorYPosition;
+		
+		getChildWidgets().forEach(cw -> cw.setParentCursorPosition(cursorXPosition, cursorYPosition));
+	}
+	
+	//method
 	/**
 	 * Sets the cursor position of the parent of the current {@link Widget}.
 	 * 
 	 * @param parentCursorXPosition
 	 * @param parentCursorYPosition
 	 */
-	public void setParentCursorPosition(
+	public final void setParentCursorPosition(
 		int parentCursorXPosition,
 		int parentCursorYPosition
 	) {
-		this.cursorXPosition = parentCursorXPosition - getXPositionOnParent();
-		this.cursorYPosition = parentCursorYPosition - getYPositionOnParent();
+		setCursorPosition(
+			parentCursorXPosition - xPositionOnParent,
+			parentCursorYPosition - yPositionOnParent
+		);
+		//this.cursorXPosition = parentCursorXPosition - getXPositionOnParent();
+		//this.cursorYPosition = parentCursorYPosition - getYPositionOnParent();
 	}
 	
 	//method
@@ -1234,6 +1285,14 @@ implements Recalculable {
 	public final W setHoverFocused() {
 		
 		state = WidgetState.HoverFocused;
+		
+		return asConcreteType();
+	}
+	
+	//method
+	public final W setKeepsFocus() {
+		
+		keepsFocus = true;
 		
 		return asConcreteType();
 	}
@@ -1355,6 +1414,13 @@ implements Recalculable {
 	
 	//abstract method
 	/**
+	 * Applies a usable configuration to the current {@link Widget}
+	 * when the configuration of the current {@link Widget} has been reset.
+	 */
+	protected abstract void applyDefaultConfigurationWhenHasBeenReset();
+	
+	//abstract method
+	/**
 	 * @return a new widget look for the current {@link Widget}.
 	 */
 	protected abstract WL createWidgetLook();
@@ -1363,13 +1429,25 @@ implements Recalculable {
 	/**
 	 * Fills up all child {@link Widget} of the current {@link Widget} into the given list.
 	 * 
-	 * For a better performance,
-	 * a {@link Widget} fills up all its child {@link Widget} into a list
-	 * and does not create a new list with all its child {@link Widget}.
+	 * For a better performance, a {@link Widget} fills up all its child {@link Widget} into a list
+	 * and does not create a new list.
 	 * 
 	 * @param list
 	 */
 	protected abstract void fillUpChildWidgets(List<Widget<?, ?>> list);
+	
+	//abstract method
+	/**
+	 * Fills up all configurable child {@link Widget} of the current {@link Widget} into the given list.
+	 * 
+	 * For a better performance, a {@link Widget} fills up all its configurable child {@link Widget} into a list
+	 * and does not create a new list.
+	 * 
+	 * @param list
+	 */
+	protected abstract void fillUpConfigurableChildWidgets(List<Widget<?, ?>> list);
+	
+	//protected abstract void fillUpShownWidgets(final List<Widget<?, ?>> list);
 	
 	//abstract method
 	/**
@@ -1408,7 +1486,7 @@ implements Recalculable {
 	/**
 	 * @return the own widgets of the current {@link Widget} recursively.
 	 */
-	protected final List<Widget<?, ?>> getRefOwnWidgetsRecursively() {
+	protected final List<Widget<?, ?>> getChildWidgetsRecursively() {
 		
 		final var widgets = new List<Widget<?, ?>>();
 		
@@ -1467,25 +1545,26 @@ implements Recalculable {
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note that it has been set a parent to it.
-	 */
-	protected void noteSetParent() {};
-	
-	//method
-	/**
 	 * Paints the current {@link Widget} using the given painter.
 	 * 
 	 * @param painter
 	 */
-	protected void paint(final IPainter painter) {
+	protected final void paint2(final IPainter painter) {
 		
-		paint(getRefCurrentLook(), painter);
+		paint3(painter);
 		
 		//Handles the case that the current widget is disabled and would grey out.
 		if (isDisabled() && greysOutWhenDisabled()) {
 			painter.setColor(Color.GREY);
 			painter.paintFilledRectangle(getWidth(), getHeight());
 		}
+	}
+	
+	protected void paint3(final IPainter painter) {
+		
+		paint(getRefCurrentLook(), painter);
+		
+		getChildWidgets().forEach(cw ->  cw.paint(painter));
 	}
 	
 	//abstract method
@@ -1514,8 +1593,6 @@ implements Recalculable {
 		
 		//Sets the parent widget of the current widget.
 		this.parentWidget = parentWidget;
-		
-		noteSetParent();
 	}
 	
 	//method
@@ -1525,13 +1602,10 @@ implements Recalculable {
 	 * @param xPositionOnParent
 	 * @param yPositionOnParent
 	 */
-	protected void setPositionOnParent(
+	protected final void setPositionOnParent(
 		final int xPositionOnParent,
 		final int yPositionOnParent
-	) {
-		
-		recalculate();
-		
+	) {				
 		this.xPositionOnParent = xPositionOnParent;
 		this.yPositionOnParent = yPositionOnParent;
 	}
@@ -1540,7 +1614,7 @@ implements Recalculable {
 	/**
 	 * @throws ClosedArgumentException if the current {@link Widget} belongs to a GUI that is closed.
 	 */
-	protected void supposeGUIIsAlive() {
+	protected final void supposeGUIIsAlive() {
 		if (belongsToGUI() && getParentGUI().isClosed()) {
 			throw new ClosedArgumentException(getParentGUI());
 		}
@@ -1570,7 +1644,7 @@ implements Recalculable {
 		
 		this.parentGUI = parentGUI;
 		
-		noteSetParent();
+		getChildWidgets().forEach(cw -> cw.setParentGUI(parentGUI));
 	}
 	
 	//method

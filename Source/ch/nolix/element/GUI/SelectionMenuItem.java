@@ -46,6 +46,7 @@ extends OptionalIdentifiedElement<SelectionMenuItem> {
 	
 	//constructor
 	public SelectionMenuItem(final String text) {
+		label.setKeepsFocus();
 		unselect();
 		setText(text);
 		approveProperties();

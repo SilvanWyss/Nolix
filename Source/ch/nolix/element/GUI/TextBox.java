@@ -36,9 +36,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 * Creates a new {@link TextBox}.
 	 */
 	public TextBox() {
-		reset();
-		approveProperties();
-		applyDefaultConfiguration();
+		resetAndApplyDefaultConfiguration();
 	}
 	
 	//constructor
@@ -48,8 +46,9 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 * @throws NullArgumentException if the given text is null.
 	 */
 	public TextBox(final String text) {
-		reset();
-		approveProperties();
+		
+		resetAndApplyDefaultConfiguration();
+		
 		setText(text);
 	}
 	
@@ -75,15 +74,6 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	@Override
 	public boolean hasRole(final String role) {
 		return false;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean keepsFocus() {
-		return true;
 	}
 	
 	//method

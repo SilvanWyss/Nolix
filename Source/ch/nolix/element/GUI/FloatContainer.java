@@ -18,14 +18,13 @@ implements Clearable<FloatContainer> {
 	
 	//constructor
 	public FloatContainer() {
-		reset();
-		approveProperties();
+		resetAndApplyDefaultConfiguration();
 	}
 	
 	//constructor
 	public FloatContainer(final Iterable<Widget<?, ?>> widets) {
 		
-		this();
+		resetAndApplyDefaultConfiguration();
 		
 		addWidgets(widgets);
 	}
@@ -33,7 +32,7 @@ implements Clearable<FloatContainer> {
 	//constructor
 	public FloatContainer(final Widget<?, ?>... widgets) {
 		
-		this();
+		resetAndApplyDefaultConfiguration();
 		
 		addWidget(widgets);
 	}
@@ -99,21 +98,36 @@ implements Clearable<FloatContainer> {
 	
 	//method
 	@Override
-	public CursorIcon getContentAreaCursorIcon() {
-		
-		final var widgetUnderCursor = widgets.getRefFirstOrNull(w -> w.isUnderCursor());
-		
-		if (widgetUnderCursor != null) {
-			return widgetUnderCursor.getCursorIcon();
-		}
-		
-		return getCustomCursorIcon();
+	public boolean isEmpty() {
+		return widgets.isEmpty();
 	}
 	
 	//method
 	@Override
-	public boolean isEmpty() {
-		return widgets.isEmpty();
+	public void recalculate() {
+		
+		final var contentAreaWidth = getContentAreaWidth();
+		final var widgetMargin = getRefCurrentLook().getRecursiveOrDefaultWidgetMargin();
+		
+		var y = 0;
+		var x = 0;
+		final var row = new List<Widget<?, ?>>();
+		for (final var w : widgets) {
+			
+			final var widgetWidth = w.getWidth();
+			
+			if (row.containsAny() && x + widgetMargin + widgetWidth > contentAreaWidth) {
+				x = 0;
+				y += row.getMaxByInt(w2 -> w2.getHeight()) + widgetMargin;
+				row.clear();
+			}
+			
+			w.setPositionOnParent(x, y);
+			row.addAtEnd(w);
+			x += widgetMargin + widgetWidth;
+		}
+		
+		super.recalculate();
 	}
 	
 	//method
@@ -140,6 +154,12 @@ implements Clearable<FloatContainer> {
 	//method
 	@Override
 	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
+		list.addAtEnd(widgets);
+	}
+	
+	//method
+	@Override
+	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {
 		list.addAtEnd(widgets);
 	}
 	
@@ -193,51 +213,6 @@ implements Clearable<FloatContainer> {
 		final FloatContainerLook borderWidgetLook,
 		final IPainter painter
 	) {
-		widgets.forEach(w -> w.paintUsingPositionOnParent(painter));
-	}
-	
-	//method
-	@Override
-	protected void setCursorPositionOnContentArea(
-		final int cursorXPositionOnContent,
-		final int cursorYPositionOnContent
-	) {
-		for (final var w : getChildWidgets()) {
-			w.setParentCursorPosition(
-				cursorXPositionOnContent,
-				cursorYPositionOnContent
-			);
-		}
-	}
-	
-	//method
-	@Override
-	protected void setPositionOnParent(
-		final int relativeXPosition,
-		final int relativeYPosition
-	) {
-		
-		super.setPositionOnParent(relativeXPosition, relativeYPosition);
-		
-		final var contentAreaWidth = getContentAreaWidth();
-		final var widgetMargin = getRefCurrentLook().getRecursiveOrDefaultWidgetMargin();
-		
-		var y = 0;
-		var x = 0;
-		final var row = new List<Widget<?, ?>>();
-		for (final var w : widgets) {
-			
-			final var widgetWidth = w.getWidth();
-			
-			if (row.containsAny() && x + widgetMargin + widgetWidth > contentAreaWidth) {
-				x = 0;
-				y += row.getMaxByInt(w2 -> w2.getHeight()) + widgetMargin;
-				row.clear();
-			}
-			
-			w.setPositionOnParent(x, y);
-			row.addAtEnd(w);
-			x += widgetMargin + widgetWidth;
-		}
+		widgets.forEach(w -> w.paint(painter));
 	}
 }

@@ -31,8 +31,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	 * Creates a new {@link Checkbox}.
 	 */
 	public Checkbox() {
-		reset();
-		approveProperties();
+		resetAndApplyDefaultConfiguration();
 	}
 	
 	//constructor
@@ -43,8 +42,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	 */
 	public Checkbox(final boolean checked) {
 		
-		//Calls other constructor.
-		this();
+		resetAndApplyDefaultConfiguration();
 		
 		setCheckFlag(checked);
 	}
@@ -85,15 +83,6 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public CursorIcon getCursorIcon() {
-		return getCustomCursorIcon();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public List<DocumentNode> getInteractionAttributes() {
 		
 		//Calls method of the base class.
@@ -121,15 +110,6 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	 */
 	public boolean isChecked() {
 		return checked;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean keepsFocus() {
-		return false;
 	}
 	
 	//method
@@ -211,6 +191,13 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	 */
 	@Override
 	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**

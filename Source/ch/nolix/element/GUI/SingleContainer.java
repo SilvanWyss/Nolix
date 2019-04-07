@@ -30,9 +30,7 @@ implements Clearable<SingleContainer> {
 	 * Creates a new {@link SingleContainer}.
 	 */
 	public SingleContainer() {
-		reset();
-		approveProperties();
-		applyDefaultConfiguration();
+		resetAndApplyDefaultConfiguration();
 	}
 	
 	//constructor
@@ -44,8 +42,7 @@ implements Clearable<SingleContainer> {
 	 */
 	public SingleContainer(final Widget<?, ?> widget) {
 		
-		//Calls other constructor.
-		this();
+		resetAndApplyDefaultConfiguration();
 		
 		setWidget(widget);
 	}
@@ -95,29 +92,6 @@ implements Clearable<SingleContainer> {
 			}
 				
 		return attributes;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public CursorIcon getContentAreaCursorIcon() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-			//Handles the case that the current single container does not have a widget.
-			if (widget == null) {
-				return getCustomCursorIcon();
-			}
-			
-			//Handles the case that the current single container has a widget.
-				//Handles the case that the widget of the current single container is not under the cursor.
-				if (!widget.isUnderCursor()) {
-					return getCustomCursorIcon();
-				}
-				
-				//Handles the case that the widget of the current single container is under the cursor.
-				return widget.getCursorIcon();
 	}
 	
 	//method
@@ -211,6 +185,20 @@ implements Clearable<SingleContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+			//Handles the case that the current single container has a widget.	
+			if (widget != null) {
+				list.addAtEnd(widget);
+			}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected final int getContentAreaHeight() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
@@ -248,30 +236,7 @@ implements Clearable<SingleContainer> {
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Handles the case that the current single container has a widget.
 			if (widget != null) {
-				widget.paintUsingPositionOnParent(painter);
-			}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final void setPositionOnParent(
-		final int xPositionOnParent,
-		final int yPositionOnParent
-	) {
-		
-		//Calls method of the base class.
-		super.setPositionOnParent(xPositionOnParent, yPositionOnParent);
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-			//Handles the case that the current single container has a widget.
-			if (widget != null) {
-				widget.setPositionOnParent(
-					getContentAreaXPosition(),
-					getContentAreaYPosition()
-				);
+				widget.paint(painter);
 			}
 	}
 }

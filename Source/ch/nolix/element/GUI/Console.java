@@ -75,8 +75,7 @@ implements Clearable<Console> {
 	 * Creates a new console.
 	 */
 	public Console() {
-		reset();
-		approveProperties();
+		resetAndApplyDefaultConfiguration();
 	}
 	
 	//method
@@ -172,15 +171,6 @@ implements Clearable<Console> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public CursorIcon getContentAreaCursorIcon() {
-		return getCustomCursorIcon();
-	}
-	
-	//method
-	/**
 	 * The edit line of a console is its next line that can be edited.
 	 * 
 	 * @return the edit line of this console.
@@ -238,16 +228,7 @@ implements Clearable<Console> {
 	public boolean hasRole(final String role) {
 		return false;
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean keepsFocus() {
-		return true;
-	}
-	
+		
 	//method
 	/**
 	 * Inserts the given character into the edit line of this console after the text cursor.
@@ -623,7 +604,14 @@ implements Clearable<Console> {
 	 */
 	@Override
 	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
-
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
+	
 	//method
 	/**
 	 * @return the height of the content of this console.

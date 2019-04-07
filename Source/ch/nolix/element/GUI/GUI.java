@@ -445,16 +445,14 @@ implements IGUI<G> {
 	 */
 	@Override
 	public final List<Widget<?, ?>> getRefWidgetsRecursively() {
-		
-		final var widgets = new List<Widget<?, ?>>();
-		
-		//Handles the case that this GUI has a root widget.
-		if (hasRootWidget()) {
-			widgets.addAtEnd(getRefRootWidget().as(Widget.class));
-			widgets.addAtEnd(getRefRootWidget().getRefOwnWidgetsRecursively());
+				
+		//Handles the case that the current GUI does not have a root widget.
+		if (!hasRootWidget()) {
+			return new List<Widget<?, ?>>();
 		}
 		
-		return widgets;
+		//Handles the case that the current GUI has a root widget.
+		return getRefRootWidget().getChildWidgetsRecursively().addAtEnd(getRefRootWidget().as(Widget.class));
 	}
 	
 	//method
@@ -539,8 +537,7 @@ implements IGUI<G> {
 	 */
 	public void noteKeyPress(final KeyEvent keyEvent) {
 		
-		getRefWidgetsRecursively()
-		.forEach(w -> w.noteAnyKeyPress(keyEvent));
+		getRefWidgetsRecursively().forEach(w -> w.noteAnyKeyPress(keyEvent));
 		
 		refresh();
 	}
@@ -553,8 +550,7 @@ implements IGUI<G> {
 	 */
 	public void noteKeyTyping(final KeyEvent keyEvent) {
 		
-		getRefWidgetsRecursively()
-		.forEach(w -> w.noteAnyKeyTyping(keyEvent));
+		getRefWidgetsRecursively().forEach(w -> w.noteAnyKeyTyping(keyEvent));
 		
 		refresh();
 	}
@@ -565,8 +561,7 @@ implements IGUI<G> {
 	 */
 	public void noteLeftMouseButtonPress() {
 		
-		getRefWidgetsRecursively()
-		.forEach(w -> w.noteAnyLeftMouseButtonPress());
+		getRefWidgetsRecursively().forEach(w -> w.noteAnyLeftMouseButtonPress());
 		
 		refresh();
 	}
@@ -590,9 +585,7 @@ implements IGUI<G> {
 				
 		if (hasRootWidget()) {
 			
-			getRefRootWidget().setParentCursorPosition(
-				getCursorXPosition(), getCursorYPosition()
-			);
+			getRefRootWidget().setParentCursorPosition(getCursorXPosition(), getCursorYPosition());
 			
 			getRefRootWidget().noteAnyMouseMoveRecursively();
 		}
@@ -610,8 +603,7 @@ implements IGUI<G> {
 	 */
 	public final void noteMouseWheelRotationSteps(final int mouseWheelRotationSteps) {
 		
-		getRefWidgetsRecursively()
-		.forEach(w -> w.noteAnyMouseWheelRotationSteps(mouseWheelRotationSteps));
+		getRefWidgetsRecursively().forEach(w -> w.noteAnyMouseWheelRotationSteps(mouseWheelRotationSteps));
 		
 		refresh();
 	}
@@ -630,8 +622,7 @@ implements IGUI<G> {
 	 */
 	public void noteRightMouseButtonPress() {
 		
-		getRefWidgetsRecursively()
-		.forEach(w -> w.noteAnyRightMouseButtonPress());
+		getRefWidgetsRecursively().forEach(w -> w.noteAnyRightMouseButtonPress());
 		
 		refresh();
 	}
@@ -642,8 +633,7 @@ implements IGUI<G> {
 	 */
 	public void noteRightMouseButtonRelease() {
 		
-		getRefWidgetsRecursively()
-		.forEach(w -> w.noteAnyRightMouseButtonRelease());
+		getRefWidgetsRecursively().forEach(w -> w.noteAnyRightMouseButtonRelease());
 		
 		refresh();
 	}
@@ -666,7 +656,7 @@ implements IGUI<G> {
 	
 		//Handles the case that the current frame has a root widget.
 		if (hasRootWidget()) {
-			getRefRootWidget().paintUsingPositionOnParent(painter);
+			getRefRootWidget().paint(painter);
 		}
 	}
 	
@@ -777,6 +767,8 @@ implements IGUI<G> {
 					
 					break;
 			}
+			
+			rootWidget.recalculateRecursively();
 		}
 		
 		paint();

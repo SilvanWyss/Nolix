@@ -316,6 +316,8 @@ implements Clearable<AccordionTab> {
 				getRefWidget().setNormal();
 			}
 		}
+		
+		tabVerticalStack.recalculate();
 	}
 	
 	//package-visible method

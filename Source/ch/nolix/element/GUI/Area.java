@@ -21,10 +21,10 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 380
+ * @lines 370
  */
 public final class Area extends Widget<Area, AreaLook> {
-
+	
 	//constant
 	public static final String TYPE_NAME = "Area";
 	
@@ -40,29 +40,26 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * Creates a new {@link Area}.
 	 */
 	public Area() {
-		reset();
-		approveProperties();
-		applyDefaultConfiguration();
+		resetAndApplyDefaultConfiguration();
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link Area} with the given background color.
+	 * Creates a new {@link Area} with the given backgroundColor.
 	 * 
 	 * @param backgroundColor
-	 * @throws NullArgumentException if the given background color is null.
+	 * @throws NullArgumentException if the given backgroundColor is null.
 	 */
 	public Area(final Color backgroundColor) {
 		
-		//Calls other constructor
-		this();
+		resetAndApplyDefaultConfiguration();
 		
 		setBackgroundColor(backgroundColor);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link Area} with the given with and height.
+	 * Creates a new {@link Area} with the given width and height.
 	 * 
 	 * @param width
 	 * @param height
@@ -71,15 +68,14 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	public Area(final int width, final int height) {
 		
-		//Calls other constructor
-		this();
+		resetAndApplyDefaultConfiguration();
 		
 		setSize(width, height);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link Area} with the given with, height and background color.
+	 * Creates a new {@link Area} with the given width, height and background color.
 	 * 
 	 * @param width
 	 * @param height
@@ -94,8 +90,7 @@ public final class Area extends Widget<Area, AreaLook> {
 		final Color backgroundColor
 	) {
 		
-		//Calls other constructor
-		this();
+		resetAndApplyDefaultConfiguration();
 		
 		setSize(width, height);
 		setBackgroundColor(backgroundColor);
@@ -131,15 +126,6 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public CursorIcon getCursorIcon() {
-		return getCustomCursorIcon();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
@@ -149,7 +135,7 @@ public final class Area extends Widget<Area, AreaLook> {
 		.addAtEnd(width.getSpecificationAs(PascalCaseNameCatalogue.HEIGHT))
 		.addAtEnd(height.getSpecificationAs(PascalCaseNameCatalogue.WIDTH));
 		
-		//Handles the case that the current area has a background color.
+		//Handles the case that the current Area has a background color.
 		if (hasBackgroundColor()) {
 			attributes.addAtEnd(
 				getBackgroundColor().getSpecificationAs(
@@ -164,12 +150,11 @@ public final class Area extends Widget<Area, AreaLook> {
 	//method
 	/**
 	 * @return the background color of the current {@link Area}.
-	 * @throws ArgumentMissesAttributeException
-	 * if the current {@link Area} does not have a background color.
+	 * @throws ArgumentMissesAttributeException if the current {@link Area} does not have a background color.
 	 */
 	public Color getBackgroundColor() {
 		
-		//Checks if the current area has a background color.
+		//Checks if the current Area has a background color.
 		supposeHasBackgroundColor();
 		
 		return backgroundColor;
@@ -190,15 +175,6 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	@Override
 	public boolean hasRole(final String role) {
-		return false;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean keepsFocus() {
 		return false;
 	}
 	
@@ -331,6 +307,13 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	@Override
 	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**

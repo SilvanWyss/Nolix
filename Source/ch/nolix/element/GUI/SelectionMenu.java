@@ -29,15 +29,13 @@ implements Clearable<SelectionMenu> {
 	
 	//constructor
 	public SelectionMenu() {
-		reset();
-		approveProperties();
-		applyDefaultConfiguration();
+		resetAndApplyDefaultConfiguration();
 	}
 	
 	//constructor
 	public SelectionMenu(final String... items) {
 		
-		this();
+		resetAndApplyDefaultConfiguration();
 		
 		addItem(items);
 	}
@@ -132,17 +130,6 @@ implements Clearable<SelectionMenu> {
 	
 	//method
 	@Override
-	public CursorIcon getContentAreaCursorIcon() {
-		
-		if (menu.isUnderCursor()) {
-			return menu.getCursorIcon();
-		}
-		
-		return getCustomCursorIcon();
-	}
-	
-	//method
-	@Override
 	public List<DocumentNode> getInteractionAttributes() {
 		
 		final var interactionAttributes = super.getInteractionAttributes();
@@ -182,24 +169,6 @@ implements Clearable<SelectionMenu> {
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean keepsFocus() {
-		return true;
-	}
-	
-	//method
-	@Override
-	public void noteAnyMouseMove() {
-		
-		super.noteAnyMouseMove();
-		
-		menu.getChildWidgets().forEach(w -> w.noteAnyMouseMove());
-	}
-	
-	//method
 	@Override
 	public void noteLeftMouseButtonPress() {
 		
@@ -211,6 +180,63 @@ implements Clearable<SelectionMenu> {
 			
 			if (selectedItem != null) {
 				select(selectedItem);
+			}
+		}
+	}
+	
+	//method
+	public void recalculate() {
+		
+		super.recalculate();
+		
+		final var selectionMenuLook = getRefCurrentLook();
+		final var contentWidth = getContentAreaWidth();
+		
+		final var baseItemLook = selectionMenuLook.getRefRecursiveOrDefaultBaseItemLook();
+		final var hoverItemLook = selectionMenuLook.getRefRecursiveOrDefaultHoverItemLook();
+		final var selectedItemLook = selectionMenuLook.getRefRecursiveOrDefaultSelectionItemLook();
+		
+		for (final Widget<?, ?> w : menu.getChildWidgets()) {
+			
+			final var label = (Label)w;
+			
+			label.setMinWidth(contentWidth);
+
+			label
+			.getRefBaseLook()
+			.reset()						
+			.setTextColor(baseItemLook.getRecursiveOrDefaultTextColor())
+			.setPaddings(selectionMenuLook.getRecursiveOrDefaultItemPadding())
+			.setTextSize(selectionMenuLook.getRecursiveOrDefaultTextSize());
+			
+			if (baseItemLook.hasRecursiveBackgroundColor()) {
+				label
+				.getRefBaseLook()
+				.setBackgroundColor(baseItemLook.getRecursiveOrDefaultBackgroundColor());
+			}
+			
+			label
+			.getRefHoverLook()
+			.reset()
+			.setBackgroundColor(hoverItemLook.getRecursiveOrDefaultBackgroundColor())
+			.setTextColor(hoverItemLook.getRecursiveOrDefaultTextColor());
+			
+			if (hoverItemLook.hasRecursiveBackgroundColor()) {
+				label
+				.getRefHoverLook()
+				.setBackgroundColor(hoverItemLook.getRecursiveOrDefaultBackgroundColor());
+			}
+			
+			label
+			.getRefFocusLook()
+			.reset()
+			.setBackgroundColor(selectedItemLook.getRecursiveOrDefaultBackgroundColor())
+			.setTextColor(selectedItemLook.getRecursiveOrDefaultTextColor());
+			
+			if (selectedItemLook.hasRecursiveBackgroundColor()) {
+				label
+				.getRefFocusLook()
+				.setBackgroundColor(selectedItemLook.getRecursiveOrDefaultBackgroundColor());
 			}
 		}
 	}
@@ -277,8 +303,14 @@ implements Clearable<SelectionMenu> {
 	
 	//method
 	@Override
-	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
+		list.addAtEnd(menu);
+	}
 	
+	//method
+	@Override
+	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
+		
 	//method
 	@Override
 	protected int getContentAreaHeight() {
@@ -298,6 +330,9 @@ implements Clearable<SelectionMenu> {
 			return 0;
 		}
 		
+		//TODO: Make this line unnecessary.
+		items.forEach(i -> i.getRefLabel().recalculate());
+		
 		return items.getMaxByInt(i -> i.getRefLabel().getWidth());
 	}
 	
@@ -308,70 +343,8 @@ implements Clearable<SelectionMenu> {
 		final IPainter painter
 	) {
 		
-		final var contentWidth = getContentAreaWidth();
 		
-		final var baseItemLook = selectionMenuLook.getRefRecursiveOrDefaultBaseItemLook();
-		final var hoverItemLook = selectionMenuLook.getRefRecursiveOrDefaultHoverItemLook();
-		final var selectedItemLook = selectionMenuLook.getRefRecursiveOrDefaultSelectionItemLook();
-		
-		for (final Widget<?, ?> w : menu.getChildWidgets()) {
-			
-			final var label = (Label)w;
-			
-			label.setMinWidth(contentWidth);
-
-			label
-			.getRefBaseLook()
-			.reset()						
-			.setTextColor(baseItemLook.getRecursiveOrDefaultTextColor())
-			.setPaddings(selectionMenuLook.getRecursiveOrDefaultItemPadding())
-			.setTextSize(selectionMenuLook.getRecursiveOrDefaultTextSize());
-			
-			if (baseItemLook.hasRecursiveBackgroundColor()) {
-				label
-				.getRefBaseLook()
-				.setBackgroundColor(baseItemLook.getRecursiveOrDefaultBackgroundColor());
-			}
-			
-			label
-			.getRefHoverLook()
-			.reset()
-			.setBackgroundColor(hoverItemLook.getRecursiveOrDefaultBackgroundColor())
-			.setTextColor(hoverItemLook.getRecursiveOrDefaultTextColor());
-			
-			if (hoverItemLook.hasRecursiveBackgroundColor()) {
-				label
-				.getRefHoverLook()
-				.setBackgroundColor(hoverItemLook.getRecursiveOrDefaultBackgroundColor());
-			}
-			
-			label
-			.getRefFocusLook()
-			.reset()
-			.setBackgroundColor(selectedItemLook.getRecursiveOrDefaultBackgroundColor())
-			.setTextColor(selectedItemLook.getRecursiveOrDefaultTextColor());
-			
-			if (selectedItemLook.hasRecursiveBackgroundColor()) {
-				label
-				.getRefFocusLook()
-				.setBackgroundColor(selectedItemLook.getRecursiveOrDefaultBackgroundColor());
-			}
-		}
-		
-		menu.setPositionOnParent(0, 0);
-		menu.paintUsingPositionOnParent(painter);
-	}
-	
-	//method
-	@Override
-	protected void setCursorPositionOnContentArea(
-		final int cursorXPositionOnContent,
-		final int cursorYPositionOnContent
-	) {
-		menu.setParentCursorPosition(
-			cursorXPositionOnContent,
-			cursorYPositionOnContent
-		);
+		menu.paint(painter);
 	}
 	
 	//method

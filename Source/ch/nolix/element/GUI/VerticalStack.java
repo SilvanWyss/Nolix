@@ -17,23 +17,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 * Creates a new {@link VerticalStack}.
 	 */
 	public VerticalStack() {
-		
-		//Calls other constructor.
-		this(true);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link VerticalStack}.
-	 */
-	public VerticalStack(final boolean applyUsableConfiguration) {
-		
-		reset();
-		approveProperties();
-		
-		if (applyUsableConfiguration) {
-			applyDefaultConfiguration();
-		}
+		resetAndApplyDefaultConfiguration();
 	}
 	
 	//constructor
@@ -45,10 +29,59 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 */
 	public VerticalStack(final Widget<?, ?>... widgets) {
 		
-		//Calls other constructor.
-		this();
+		resetAndApplyDefaultConfiguration();
 		
 		addWidget(widgets);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void recalculate() {
+		
+		//Calls method of the base class.
+		super.recalculate();
+		
+		//Enumerates the content position of the current vertical stack.
+		switch (getContentPosition()) {
+			case LeftTop:
+			case LeftBottom:
+			case Left:
+				
+				var y1 = 0;
+				for (final var w : getChildWidgets()) {
+					w.setPositionOnParent(0, y1);
+					y1 += w.getHeight() + getElementMargin();
+				}
+				
+				break;
+			case Top:
+			case Center:
+			case Bottom:
+				
+				final var contentAreaWidth2 = getContentAreaWidth();
+				var y2 = 0;
+				for (final var w : getChildWidgets()) {
+					w.setPositionOnParent((contentAreaWidth2 - w.getWidth()) / 2, y2);
+					y2 += w.getHeight() + getElementMargin();
+				}
+				
+				break;
+			case RightTop:
+			case Right:
+			case RightBottom:
+				
+				final var contentAreaWidth3 = getContentAreaWidth();
+				var y3 = 0;
+				for (final var w : getChildWidgets()) {
+					w.setPositionOnParent(contentAreaWidth3 - w.getWidth(), y3);
+					y3 += w.getHeight() + getElementMargin();
+				}
+				
+				break;
+		}
 	}
 		
 	//method
@@ -62,7 +95,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 				
 		//Handles the case that the current vertical stack is not empty.
 		if (containsAny()) {
-			contentHeight += (getChildWidgets().getSize() - 1) * getActiveElementMargin();
+			contentHeight += (getChildWidgets().getSize() - 1) * getElementMargin();
 		}
 		
 		return contentHeight;
@@ -82,58 +115,5 @@ public final class VerticalStack extends Stack<VerticalStack> {
 		
 		//Handles the case that the current vertical stack is not empty.
 		return getChildWidgets().getMaxByInt(w -> w.getWidth());
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void setPositionOnParent(
-		final int xPositionOnParent,
-		final int yPositionOnParent
-	) {
-		
-		//Calls method of the base class.
-		super.setPositionOnParent(xPositionOnParent, yPositionOnParent);
-		
-		//Enumerates the content position of the current vertical stack.
-		switch (getContentPosition()) {
-			case LeftTop:
-			case LeftBottom:
-			case Left:
-				
-				var y1 = 0;
-				for (final var w : getChildWidgets()) {
-					w.setPositionOnParent(0, y1);
-					y1 += w.getHeight() + getActiveElementMargin();
-				}
-				
-				break;
-			case Top:
-			case Center:
-			case Bottom:
-				
-				final var contentAreaWidth2 = getContentAreaWidth();
-				var y2 = 0;
-				for (final var w : getChildWidgets()) {
-					w.setPositionOnParent((contentAreaWidth2 - w.getWidth()) / 2, y2);
-					y2 += w.getHeight() + getActiveElementMargin();
-				}
-				
-				break;
-			case RightTop:
-			case Right:
-			case RightBottom:
-				
-				final var contentAreaWidth3 = getContentAreaWidth();
-				var y3 = 0;
-				for (final var w : getChildWidgets()) {
-					w.setPositionOnParent(contentAreaWidth3 - w.getWidth(), y3);
-					y3 += w.getHeight() + getActiveElementMargin();
-				}
-				
-				break;
-		}
 	}
 }

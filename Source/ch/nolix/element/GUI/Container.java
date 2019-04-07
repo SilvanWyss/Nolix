@@ -110,15 +110,6 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final boolean keepsFocus() {
-		return true;
-	}
-		
-	//method
-	/**
 	 * Sets the role of the current {@link Container}.
 	 * 
 	 * @param role

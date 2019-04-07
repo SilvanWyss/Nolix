@@ -42,9 +42,7 @@ implements Clearable<TabContainer> {
 	 * Creates a new {@link TabContainer}.
 	 */
 	public TabContainer() {
-		reset();
-		approveProperties();
-		applyDefaultConfiguration();
+		resetAndApplyDefaultConfiguration();
 	}
 	
 	//constructor
@@ -57,8 +55,7 @@ implements Clearable<TabContainer> {
 	 */
 	public TabContainer(final Iterable<TabContainerTab> tabs) {
 		
-		//Calls other constructor.
-		this();
+		resetAndApplyDefaultConfiguration();
 		
 		addTabs(tabs);
 	}
@@ -213,27 +210,6 @@ implements Clearable<TabContainer> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public CursorIcon getContentAreaCursorIcon() {
-		
-		//Extracts the menu item under the cursor if there exists one.
-		final var menuItemUnderCursor =
-		menu.getChildWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
-		
-		//Handles the case that there exists a menu item under the cursor.
-		if (menuItemUnderCursor != null) {
-			return menuItemUnderCursor.getCustomCursorIcon();
-		}
-		
-		//Handles the case that there is not a menu item under the cursor.
-			//Calls method of the base class.
-			return super.getCustomCursorIcon();
-	}
-	
-	//method
-	/**
 	 * @return the selected tab of the current {@link TabContainer}.
 	 * @throws ArgumentMissesAttributeException
 	 * if the current {@link TabContainer} does not contain a selected tab.
@@ -318,12 +294,19 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteMouseMove() {
+	public void recalculate() {
 		
 		//Calls method of the base class.
-		super.noteMouseMove();
+		super.recalculate();	
 		
-		menu.getChildWidgets().forEach(w -> w.noteAnyMouseMove());
+		//Handles the case that the current tab container contains a selected widget.
+		if (containsSelectedTabWithWidget()) {
+			getRefSelectedWidget().setPositionOnParent(
+				0,				
+				menu.getHeight()
+				+ getRefCurrentLook().getRecursiveOrDefaultMenuMargin()
+			);
+		}
 	}
 	
 	//method
@@ -371,21 +354,6 @@ implements Clearable<TabContainer> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void setCursorPositionOnContentArea(
-		final int cursorXPositionOnContent,
-		final int cursorYPositionOnContent
-	) {
-		menu.setCursorPositionOnContentArea(
-			cursorXPositionOnContent,
-			cursorYPositionOnContent
-		);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		getRefBaseLook()
 		.setBaseMenuItemLook(
@@ -420,7 +388,21 @@ implements Clearable<TabContainer> {
 	 */
 	@Override
 	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
-				
+		
+		list.addAtEnd(menu);
+		
+		if (containsSelectedTab()) {
+			list.addAtEnd(getRefSelectedWidget());
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {
+		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Iterates the tabs of the current tab container.
 			for (final var t: tabs) {
@@ -538,35 +520,10 @@ implements Clearable<TabContainer> {
 			}
 		}
 		
-		menu.paintUsingPositionOnParent(painter);
+		menu.paint(painter);
 		
 		if (containsSelectedTabWithWidget()) {
-			getRefSelectedWidget().paintUsingPositionOnParent(painter);
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void setPositionOnParent(
-		final int xPositionOnParent,
-		final int yPositionOnParent
-	) {
-		
-		//Calls method of the base class.
-		super.setPositionOnParent(xPositionOnParent, yPositionOnParent);
-		
-		menu.setPositionOnParent(0, 0);
-		
-		//Handles the case that the current tab container contains a selected widget.
-		if (containsSelectedTabWithWidget()) {
-			getRefSelectedWidget().setPositionOnParent(
-				0,				
-				menu.getHeight()
-				+ getRefCurrentLook().getRecursiveOrDefaultMenuMargin()
-			);
+			getRefSelectedWidget().paint(painter);
 		}
 	}
 }

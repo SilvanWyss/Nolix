@@ -71,15 +71,6 @@ extends Widget<L, LineLook> {
 	
 	//method
 	/**
-	 * @return the active cursor icon of the current {@link Line}.
-	 */
-	@Override
-	public CursorIcon getCursorIcon() {
-		return getCustomCursorIcon();
-	}
-	
-	//method
-	/**
 	 * @return the attributes of this line.
 	 */
 	@Override
@@ -134,15 +125,6 @@ extends Widget<L, LineLook> {
 	 */
 	@Override
 	public final boolean hasRole(final String role) {
-		return false;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean keepsFocus() {
 		return false;
 	}
 	
@@ -241,7 +223,7 @@ extends Widget<L, LineLook> {
 	 */
 	@Override
 	protected final void applyDefaultConfigurationWhenHasBeenReset() {
-		setThickness(1);
+		setThickness(DEFAULT_THICKNESS);
 	}
 	
 	//method
@@ -262,6 +244,13 @@ extends Widget<L, LineLook> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
+	
+	//method
+	/**
 	 * Paints this line using the given widget structure and graphics.
 	 * 
 	 * @param widgetStructure
@@ -269,7 +258,7 @@ extends Widget<L, LineLook> {
 	 */
 	@Override
 	protected final void paint(
-		final LineLook widgetStructure,
+		final LineLook lineLook,
 		final IPainter painter
 	) {
 		painter.setColor(color);

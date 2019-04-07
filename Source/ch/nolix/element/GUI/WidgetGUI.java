@@ -35,13 +35,7 @@ implements IGUI<WidgetGUI> {
 	//method
 	@Override
 	public boolean containsElement(final String name) {
-		return getRefOwnWidgetsRecursively().contains(w -> w.hasName(name));
-	}
-	
-	//method
-	@Override
-	public CursorIcon getContentAreaCursorIcon() {
-		return getCustomCursorIcon();
+		return getChildWidgetsRecursively().contains(w -> w.hasName(name));
 	}
 	
 	//method
@@ -69,7 +63,7 @@ implements IGUI<WidgetGUI> {
 		}
 		
 		//For a better performance, this implementation does not use all comfortable methods.
-		return rootWidget.getRefOwnWidgetsRecursively();
+		return rootWidget.getChildWidgetsRecursively();
 	}
 	
 	//method
@@ -106,13 +100,7 @@ implements IGUI<WidgetGUI> {
 	public boolean isRootGUI() {
 		return false;
 	}
-	
-	//method
-	@Override
-	public boolean keepsFocus() {
-		return false;
-	}
-	
+		
 	//method
 	@Override
 	public void noteLeftMouseButtonPress() {
@@ -213,7 +201,11 @@ implements IGUI<WidgetGUI> {
 	
 	//method
 	@Override
-	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {	}
+	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
+	
+	//method
+	@Override
+	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	@Override
@@ -239,14 +231,6 @@ implements IGUI<WidgetGUI> {
 	
 	//method
 	@Override
-	protected void noteSetParent() {
-		if (containsAny()) {
-			getRefRootWidget().setParentGUI(this);
-		}
-	}
-	
-	//method
-	@Override
 	protected void paintContentArea(
 		final WidgetGUILook borderWidgetLook,
 		final IPainter painter
@@ -254,7 +238,7 @@ implements IGUI<WidgetGUI> {
 		if (containsAny()) {
 			
 			//For a better performance, this implementation does not use all comfortable methods.
-			rootWidget.paint(painter);
+			rootWidget.paint2(painter);
 		}
 	}
 }

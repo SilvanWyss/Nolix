@@ -24,9 +24,7 @@ implements Clearable<ImageWidget> {
 	
 	//constructor
 	public ImageWidget() {
-		reset();
-		approveProperties();
-		applyDefaultConfiguration();
+		resetAndApplyDefaultConfiguration();
 	}
 	
 	//constructor
@@ -47,12 +45,6 @@ implements Clearable<ImageWidget> {
 	}
 	
 	//method
-	@Override
-	public CursorIcon getContentAreaCursorIcon() {
-		return getCustomCursorIcon();
-	}
-	
-	//method
 	public Image getRefImage() {
 		return image.getValue();
 	}
@@ -67,12 +59,6 @@ implements Clearable<ImageWidget> {
 	@Override
 	public boolean isEmpty() {
 		return image.isEmpty();
-	}
-	
-	//method
-	@Override
-	public boolean keepsFocus() {
-		return false;
 	}
 	
 	//method
@@ -96,6 +82,10 @@ implements Clearable<ImageWidget> {
 	//method
 	@Override
 	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
+	
+	//method
+	@Override
+	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	@Override

@@ -35,9 +35,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	
 	//constructor
 	public Downloader() {
-		reset();
-		approveProperties();
-		applyDefaultConfiguration();
+		resetAndApplyDefaultConfiguration();
 	}
 	
 	//method
@@ -71,15 +69,6 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	@Override
 	public boolean hasRole(final String role) {
 		return false;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean keepsFocus() {
-		return true;
 	}
 	
 	//method

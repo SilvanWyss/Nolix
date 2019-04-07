@@ -183,7 +183,7 @@ extends BackgroundWidget<BW, BWS> {
 			return CursorIcon.Arrow;
 		}
 		
-		return getContentAreaCursorIcon();
+		return super.getCursorIcon();
 	}
 	
 	//method
@@ -200,12 +200,6 @@ extends BackgroundWidget<BW, BWS> {
 
 		return attributes;
 	}
-	
-	//abstract method
-	/**
-	 * @return the cursor icon of the content area of the current {@link BorderWidget}.
-	 */
-	public abstract CursorIcon getContentAreaCursorIcon();
 	
 	//method
 	/**
@@ -810,6 +804,15 @@ extends BackgroundWidget<BW, BWS> {
 	}
 	
 	//method
+	public void setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
+		
+		this.cursorXPosition = cursorXPosition;
+		this.cursorYPosition = cursorYPosition;
+		
+		getChildWidgets().forEach(cw -> cw.setParentCursorPosition(getCursorXPositionOnContentArea(), getCursorYPositionOnContentArea()));
+	}
+	
+	//method
 	/**
 	 * Sets the max height of the current {@link BorderWidget}.
 	 * 
@@ -867,28 +870,6 @@ extends BackgroundWidget<BW, BWS> {
 		this.minWidth.setValue(new PositiveInteger(minWidth));
 		
 		return asConcreteType();
-	}
-	
-	//method
-	/**
-	 * Sets the cursor position of the parent of the current {@link TabContainer}.
-	 * 
-	 * @param parentCursorXPosition
-	 * @param parentCursorYPosition
-	 */
-	@Override
-	public final void setParentCursorPosition(
-		int parentCursorXPosition,
-		int parentCursorYPosition
-	) {
-		
-		//Calls method of the base class.
-		super.setParentCursorPosition(parentCursorXPosition, parentCursorYPosition);
-		
-		setCursorPositionOnContentArea(
-			getCursorXPositionOnContentArea(),
-			getCursorYPositionOnContentArea()
-		);
 	}
 	
 	//method
@@ -1212,6 +1193,10 @@ extends BackgroundWidget<BW, BWS> {
 		);
 	}
 	
+	protected void paint3(IPainter painter) {
+		paint(getRefCurrentLook(), painter);
+	}
+	
 	//abstract method
 	/**
 	 * Paints the content area of the current {@link BorderWidget} using the given border widget look and painter.
@@ -1219,19 +1204,14 @@ extends BackgroundWidget<BW, BWS> {
 	 * @param borderWidgetLook
 	 * @param painter
 	 */
-	protected abstract void paintContentArea(BWS borderWidgetLook, IPainter painter);
+	protected void paintContentArea(BWS borderWidgetLook, IPainter painter) {}
 	
-	//method
-	/**
-	 * Sets the cursor position on the content area of the current {@link BorderWidget}.
-	 * 
-	 * @param cursorXPositionOnContent
-	 * @param cursorYPositionOnContent
-	 */
-	protected void setCursorPositionOnContentArea(
-		int cursorXPositionOnContent,
-		int cursorYPositionOnContent
-	) {}
+	private void paintContentArea2(BWS borderWidgetLook, IPainter painter) {
+		
+		paintContentArea(borderWidgetLook, painter);
+		
+		getChildWidgets().forEach(cw -> cw.paint(painter));
+	}
 	
 	//method
 	/**
@@ -1865,7 +1845,7 @@ extends BackgroundWidget<BW, BWS> {
 		final BWS widgetStructure,
 		final IPainter painter
 	) {
-		paintContentArea(
+		paintContentArea2(
 			widgetStructure,
 			painter.createPainter(
 				getContentAreaXPositionOnScrollArea(),

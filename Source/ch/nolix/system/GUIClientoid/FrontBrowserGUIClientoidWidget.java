@@ -3,7 +3,6 @@ package ch.nolix.system.GUIClientoid;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.element.GUI.CursorIcon;
 import ch.nolix.element.GUI.Widget;
 import ch.nolix.element.painter.IPainter;
 
@@ -12,17 +11,7 @@ final class FrontBrowserGUIClientoidWidget
 extends Widget<FrontBrowserGUIClientoidWidget, FrontBrowserGUIClientoidWidgetLook> {
 	
 	@Override
-	public CursorIcon getCursorIcon() {
-		return getCustomCursorIcon();
-	}
-	
-	@Override
 	public boolean hasRole(final String role) {
-		return false;
-	}
-	
-	@Override
-	public boolean keepsFocus() {
 		return false;
 	}
 	
@@ -36,7 +25,10 @@ extends Widget<FrontBrowserGUIClientoidWidget, FrontBrowserGUIClientoidWidgetLoo
 
 	@Override
 	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
-
+	
+	@Override
+	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
+	
 	@Override
 	protected int getHeightWhenNotCollapsed() {
 		//TODO

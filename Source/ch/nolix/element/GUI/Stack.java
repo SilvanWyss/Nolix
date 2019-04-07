@@ -9,7 +9,6 @@ import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.core.container.List;
 import ch.nolix.element.core.NonNegativeInteger;
-import ch.nolix.element.painter.IPainter;
 
 //abstract class
 /**
@@ -125,7 +124,7 @@ implements Clearable<S> {
 	/**
 	 * @return the active element margin of the current {@link Stack}.
 	 */
-	public final int getActiveElementMargin() {
+	public final int getElementMargin() {
 		
 		//Handles the case that the current {@link Stack} does not have an element margin.
 		if (!hasElementMargin()) {
@@ -156,33 +155,6 @@ implements Clearable<S> {
 		getChildWidgets().forEach(r -> attributes.addAtEnd(r.getSpecification()));
 		
 		return attributes;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final CursorIcon getContentAreaCursorIcon() {
-		
-		final var widgetUnderCursor =
-		getChildWidgets().getRefFirstOrNull(w -> w.isUnderCursor());
-		
-		if (widgetUnderCursor != null) {
-			return widgetUnderCursor.getCursorIcon();
-		}
-		
-		return getCustomCursorIcon();
-	}
-	
-	//method
-	/**
-	 * @return the widgets of the current {@link Stack} that are shown.
-	 */
-	public final ReadContainer<Widget<?, ?>> getRefShownWidgets() {
-		return new ReadContainer<Widget<?, ?>>(
-			getChildWidgets().getRefSelected(w -> !w.isCollapsed())
-		);
 	}
 	
 	//method
@@ -285,36 +257,19 @@ implements Clearable<S> {
 	 */
 	@Override
 	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
-		list.addAtEnd(widgets);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void paintContentArea(
-		final StackLook stackStructure,
-		final IPainter painter
-	) {
-		//Paints the shown widgets of the current stack.
-		getRefShownWidgets().forEach(r -> r.paintUsingPositionOnParent(painter));
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void setCursorPositionOnContentArea(
-		int cursorXPositionOnContent,
-		int cursorYPositionOnContent
-	) {
-		for (final var w : getChildWidgets()) {
-			w.setParentCursorPosition(
-				cursorXPositionOnContent,
-				cursorYPositionOnContent
-			);
+		for (final var w : widgets) {
+			if (w.isEnabled()) {
+				list.addAtEnd(w);
+			}
 		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {
+		list.addAtEnd(widgets);
 	}
 }

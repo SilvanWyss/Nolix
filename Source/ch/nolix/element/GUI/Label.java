@@ -29,9 +29,7 @@ public final class Label extends TextLineWidget<Label> {
 	 * Creates a new {@link Label}.
 	 */
 	public Label() {
-		reset();
-		approveProperties();
-		applyDefaultConfiguration();
+		resetAndApplyDefaultConfiguration();
 	}
 	
 	//constructor
@@ -43,8 +41,7 @@ public final class Label extends TextLineWidget<Label> {
 	 */
 	public Label(final String text) {
 		
-		//Calls other constructor.
-		this();
+		resetAndApplyDefaultConfiguration();
 		
 		//Sets the text of the current label.
 		setText(text);
@@ -128,15 +125,6 @@ public final class Label extends TextLineWidget<Label> {
 		
 		//Handles the case that the current label has a role.
 		return getRole().toString().equals(role);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean keepsFocus() {
-		return false;
 	}
 	
 	//method

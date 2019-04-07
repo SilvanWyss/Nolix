@@ -56,6 +56,7 @@ implements Clearable<TabContainerTab> {
 	 * Creates a new {@link TabContainerTab}.
 	 */
 	public TabContainerTab() {
+		menuItem.setKeepsFocus();
 		reset();
 		approveProperties();
 	}

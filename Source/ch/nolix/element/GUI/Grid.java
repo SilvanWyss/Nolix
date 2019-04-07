@@ -20,9 +20,7 @@ public final class Grid extends Container<Grid, GridLook> {
 	
 	//constructor
 	public Grid() {
-		reset();
-		approveProperties();
-		applyDefaultConfiguration();
+		resetAndApplyDefaultConfiguration();
 	}
 	
 	//method
@@ -63,19 +61,6 @@ public final class Grid extends Container<Grid, GridLook> {
 	//method
 	public int getColumnCount() {
 		return cells.getColumnCount();
-	}
-	
-	//method
-	@Override
-	public CursorIcon getContentAreaCursorIcon() {
-		
-		final var widgetUnderCursor = getChildWidgets().getRefFirstOrNull(w -> w.isUnderCursor());
-		
-		if (widgetUnderCursor != null) {
-			return widgetUnderCursor.getCursorIcon();
-		}
-		
-		return getCustomCursorIcon();
 	}
 	
 	//method
@@ -227,7 +212,20 @@ public final class Grid extends Container<Grid, GridLook> {
 			}
 		}
 	}
-
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {
+		for (final var c : cells) {
+			if (c.containsAny()) {
+				list.addAtEnd(c.getRefWidget());
+			}
+		}
+	}
+	
 	//method
 	@Override
 	protected void paintContentArea(
@@ -285,21 +283,7 @@ public final class Grid extends Container<Grid, GridLook> {
 		}
 		
 		//Paints the widgets of the current grid.
-		getChildWidgets().forEach(w -> w.paintUsingPositionOnParent(painter));
-	}
-	
-	//method
-	@Override
-	protected void setCursorPositionOnContentArea(
-		int cursorXPositionOnContent,
-		int cursorYPositionOnContent
-	) {
-		for (final var w : getChildWidgets()) {
-			w.setParentCursorPosition(
-				cursorXPositionOnContent,
-				cursorYPositionOnContent
-			);
-		}
+		getChildWidgets().forEach(w -> w.paint(painter));
 	}
 	
 	//method
@@ -310,13 +294,10 @@ public final class Grid extends Container<Grid, GridLook> {
 	 * @param relativeYPosition
 	 */
 	@Override
-	protected void setPositionOnParent(
-		final int relativeXPosition,
-		final int relativeYPosition
-	) {
+	public void recalculate () {
 		
 		//Calls method of the base class.
-		super.setPositionOnParent(relativeXPosition, relativeYPosition);
+		super.recalculate();
 				
 		var y = 0;
 		

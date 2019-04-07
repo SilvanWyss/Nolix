@@ -12,21 +12,22 @@ import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.painter.IPainter;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2018-08
- * @lines 470
+ * @lines 370
  */
-public final class Accordion
-extends Container<Accordion, AccordionLook>
-implements Clearable<Accordion> {
+public final class Accordion extends Container<Accordion, AccordionLook> implements Clearable<Accordion> {
 	
 	//default value
 	public static final AccordionExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR =
 	AccordionExpansionBehavior.Single;
+	
+	//default value
+	public static final Color DEFAULT_TAB_HEADER_BACKGROUND_COLOR =
+	Color.LIGHT_GREY;
 	
 	//attribute
 	private final MutableProperty<AccordionExpansionBehavior> expansionBehavior =
@@ -47,16 +48,14 @@ implements Clearable<Accordion> {
 	);
 	
 	//attribute
-	private final VerticalStack accordionVerticalStack = new VerticalStack(false);
+	private final VerticalStack accordionVerticalStack = new VerticalStack().reset();
 	
 	//constructor
 	/**
 	 * Creates a new {@link Accordion}.
 	 */
 	public Accordion() {
-		
-		//Calls other constructor.
-		this(true);
+		resetAndApplyDefaultConfiguration();
 	}
 	
 	//method
@@ -69,38 +68,7 @@ implements Clearable<Accordion> {
 	 */
 	public Accordion(final AccordionTab... tabs) {
 		
-		//Calls other constructor.
-		this();
-		
-		addTab(tabs);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Accordion}.
-	 */
-	public Accordion(final boolean applyUsableConfiguration) {
-		
-		reset();
-		approveProperties();
-		
-		if (applyUsableConfiguration) {
-			applyDefaultConfiguration();
-		}
-	}
-	
-	//method
-	/**
-	 * Creates a new {@link Accordion} with the given tabs.
-	 * 
-	 * @param tabs
-	 * @throws NullArgumentException if the given tabs is null.
-	 * @throws NullArgumetnException if one of the given tabs is null.
-	 */
-	public Accordion(final boolean applyUsableConfiguration, final AccordionTab... tabs) {
-		
-		//Calls other constructor.
-		this(applyUsableConfiguration);
+		resetAndApplyDefaultConfiguration();
 		
 		addTab(tabs);
 	}
@@ -125,10 +93,7 @@ implements Clearable<Accordion> {
 		tabs.addValue(tab);
 		accordionVerticalStack.addWidget(tab.getRefTabVerticalStack());
 		
-		if (
-			expandsAtLeastOneTabWhenNotEmpty()
-			&& getTabCount() < 2
-		) {
+		if (expandsAtLeastOneTabWhenNotEmpty() && getTabCount() < 2) {
 			tab.expand();
 		}
 		
@@ -234,15 +199,6 @@ implements Clearable<Accordion> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public CursorIcon getContentAreaCursorIcon() {
-		return accordionVerticalStack.getCursorIcon();
-	}
-	
-	//method
-	/**
 	 * @return the expansion behavior of the current {@link Accordion}.
 	 */
 	public AccordionExpansionBehavior getExpansionBehavior() {
@@ -278,38 +234,16 @@ implements Clearable<Accordion> {
 		return getRefTabs().isEmpty();
 	}
 	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public void noteLeftMouseButtonPress() {
+	public void recalculate() {
+						
+		getRefTabs().forEach(t -> t.preparePaint(getRefCurrentLook()));
 		
-		//Calls method of the base class.
-		super.noteLeftMouseButtonPress();
+		accordionVerticalStack.recalculate();
 		
-		//Iterates the tabs of the current accordion.
-		for (final var t : getRefTabs()) {
-			t.getRefHeaderHorizontalStack().noteAnyLeftMouseButtonPressRecursively();
-		}
+		super.recalculate();
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void noteMouseMove() {
 		
-		//Calls method of the base class.
-		super.noteMouseMove();
-		
-		//Iterates the tabs of the current accordion.
-		for (final var t : getRefTabs()) {
-			t.getRefHeaderHorizontalStack().noteAnyMouseMoveRecursively();
-		}
-	}
-	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -347,7 +281,8 @@ implements Clearable<Accordion> {
 	 */
 	@Override
 	protected void applyDefaultConfigurationWhenHasBeenReset() {
-		getRefBaseLook().setTabHeaderBackgroundColor(Color.LIGHT_GREY);
+		setExpansionBehavior(DEFAULT_EXPANSION_BEHAVIOR);
+		getRefBaseLook().setTabHeaderBackgroundColor(DEFAULT_TAB_HEADER_BACKGROUND_COLOR);
 	}
 	
 	//method
@@ -365,8 +300,18 @@ implements Clearable<Accordion> {
 	 */
 	@Override
 	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
+		getRefBaseLook().setBackgroundColor(Color.RED);
+		list.addAtEnd(accordionVerticalStack);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {
 		
-		//Iterates the tabs of the current accordion.
+		//Iterates the tabs of the current Accordion.
 		for (final var t : getRefTabs()) {
 			
 			//Handles the case that the current tab is not empty.
@@ -394,61 +339,6 @@ implements Clearable<Accordion> {
 		return accordionVerticalStack.getWidth();
 	}
 	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void noteSetParent() {
-		accordionVerticalStack.setParentWidget(this);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void paintContentArea(
-		final AccordionLook borderWidgetLook,
-		final IPainter painter
-	) {
-		
-		getRefTabs().forEach(t -> t.preparePaint(borderWidgetLook));
-		
-		accordionVerticalStack.paint(painter);
-	}
-
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void setCursorPositionOnContentArea(
-		final int cursorXPositionOnContent,
-		final int cursorYPositionOnContent
-	) {
-		accordionVerticalStack.setParentCursorPosition(
-			cursorXPositionOnContent,
-			cursorYPositionOnContent
-		);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void setPositionOnParent(
-		final int xPositionOnParent,
-		final int yPositionOnParent
-	) {
-		
-		//Calls method of the base class.
-		super.setPositionOnParent(xPositionOnParent, yPositionOnParent);
-		
-		accordionVerticalStack.setPositionOnParent(0, 0);
-	}
-	
 	//package-visible method
 	/**
 	 * Lets the current {@link Accordion} collapse the given tab.
@@ -456,10 +346,7 @@ implements Clearable<Accordion> {
 	 * @param tab
 	 */
 	void collapse(final AccordionTab tab) {
-		if (
-			!expandsAtLeastOneTabWhenNotEmpty()
-			|| getRefTabs().getCount(t -> t.isExpanded()) > 1
-		) {
+		if (!expandsAtLeastOneTabWhenNotEmpty()	|| getRefTabs().getCount(t -> t.isExpanded()) > 1) {
 			tab.collapse();
 		}
  	}
@@ -478,9 +365,7 @@ implements Clearable<Accordion> {
 			case Single:
 				getRefTabs().forEach(t -> t.collapse());
 				break;
-			case MultiOrNone:
-			case Multi:
-				break;
+			default:
 		}
 		
 		tab.expand();

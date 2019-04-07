@@ -30,9 +30,7 @@ public final class Button extends TextLineWidget<Button> {
 	 * Creates a new {@link Button}.
 	 */
 	public Button() {
-		reset();
-		approveProperties();
-		applyDefaultConfiguration();
+		resetAndApplyDefaultConfiguration();
 	}
 	
 	//constructor
@@ -45,8 +43,7 @@ public final class Button extends TextLineWidget<Button> {
 	 */
 	public Button(final String text) {
 		
-		//Calls other constructor.
-		this();
+		resetAndApplyDefaultConfiguration();
 		
 		setText(text);
 	}
@@ -127,15 +124,6 @@ public final class Button extends TextLineWidget<Button> {
 		
 		//Handles the case that the current link button has a role.
 		return getRole().toString().equals(role);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean keepsFocus() {
-		return false;
 	}
 	
 	/**
