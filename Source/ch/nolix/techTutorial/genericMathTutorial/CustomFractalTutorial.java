@@ -10,7 +10,7 @@ import ch.nolix.tech.genericMath.GenericMathRegistrator;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumberFactory;
 import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
 
-public class FractalTutorial {
+public class CustomFractalTutorial {
 	
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
@@ -23,7 +23,7 @@ public class FractalTutorial {
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		final var frame =
 		new Frame(
-			"Fractal Tutorial",
+			"Custom Fractal Tutorial",
 			new ImageWidget(
 				ClassProvider.create(IFractalBuilder.class)
 				.setRealComponentInterval(-2.0, 1.5)
@@ -48,7 +48,7 @@ public class FractalTutorial {
 		Sequencer.asLongAs(() -> frame.isAlive()).afterAllMilliseconds(100).run(() -> frame.refresh());
 	}
 	
-	private FractalTutorial() {
-		throw new UninstantiableClassException(FractalTutorial.class);
+	private CustomFractalTutorial() {
+		throw new UninstantiableClassException(CustomFractalTutorial.class);
 	}
 }
