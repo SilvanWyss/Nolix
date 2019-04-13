@@ -7,7 +7,7 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.entity.MutableMultiProperty;
+import ch.nolix.core.entity.MultiProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
@@ -39,8 +39,8 @@ public final class Accordion extends Container<Accordion, AccordionLook> impleme
 	);
 	
 	//attribute
-	private final MutableMultiProperty<AccordionTab> tabs =
-	new MutableMultiProperty<AccordionTab>(
+	private final MultiProperty<AccordionTab> tabs =
+	new MultiProperty<AccordionTab>(
 		PascalCaseNameCatalogue.TAB,
 		t -> addTab(t),
 		s -> AccordionTab.createFromSpecification(s),

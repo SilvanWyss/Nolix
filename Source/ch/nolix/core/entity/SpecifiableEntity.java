@@ -9,7 +9,7 @@ import ch.nolix.core.validator.Validator;
 //abstract class
 /**
  * 
- * A specifiable entity is an entity that is specifiable..
+ * A {@link SpecifiableEntity} is a {@link Entity} that is specifiable..
  * 
  * @author Silvan Wyss
  * @month 2018-02
@@ -18,26 +18,23 @@ import ch.nolix.core.validator.Validator;
 public abstract class SpecifiableEntity<SE extends SpecifiableEntity<SE>>
 extends Entity<SE>
 implements Specifiable<SE> {
-
+	
 	//class
 	/**
-	 * Creates a new entity with mutables.
+	 * Creates a new {@link SpecifiableEntity}.
 	 * 
 	 * @throws InvalidArgumentException
-	 * if this entity with mutable does not contain a property that is mutable.
+	 * if the current {@link SpecifiableEntity} does not contain a mutable property.
 	 */
 	public SpecifiableEntity() {
 		
-		//Checks if this entity with mutables does not contain a property that is mutable.
+		//Checks if the current SpecifiableEntity does not contain a a mutable property.
 		Validator.suppose(getRefProperties()).contains(p -> p.isMutable());
 	}
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to this specifiable object.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {

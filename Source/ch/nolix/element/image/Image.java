@@ -85,8 +85,6 @@ public final class Image extends MutableElement<Image> {
 				pixels.addRow(row);
 			}
 		}
-		
-		approveProperties();
 	}
 	
 	//constructor

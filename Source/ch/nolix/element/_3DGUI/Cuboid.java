@@ -56,7 +56,6 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	 */
 	public Cuboid() {
 		reset();
-		approveProperties();
 	}
 	
 	//method

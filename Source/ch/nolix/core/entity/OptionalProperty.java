@@ -10,27 +10,25 @@ import ch.nolix.core.specificationAPI.Specified;
 
 //class
 /**
-* @author Silvan Wyss
-* @month 2018-02
-* @lines 70
-* @param <V> The type of the value of an immutable optional property.
-*/
-public final class OptionalProperty<V extends Specified>
-extends SingleProperty<V> {
+ * @author Silvan Wyss
+ * @month 2018-02
+ * @lines 60
+ * @param <V> The type of the value of a {@link OptionalProperty}.
+ */
+public final class OptionalProperty<V extends Specified> extends SingleProperty<V> {
 	
 	//constructor
 	/**
-	 * Creates a new immutable optional property
-	 * with the given name, setter method and value generator.
+	 * Creates a new {@link OptionalProperty} with the given name, setterMethod, valueCreator and specificationCreator.
 	 * 
 	 * @param name
 	 * @param setterMethod
 	 * @param valueCreator
 	 * @param specificationCreator
 	 * @throws NullArgumentException if the given name is null.
-	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given value creator is null.
-	 * @throws NullArgumentException if the given specification creator is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws NullArgumentException if the given valueCreator is null.
+	 * @throws NullArgumentException if the given specificationCreator is null.
 	 */
 	public OptionalProperty(
 		final String name,
@@ -45,7 +43,7 @@ extends SingleProperty<V> {
 	
 	//method
 	/**
-	 * @return true if this immutable optional property is mutable.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean isMutable() {
@@ -54,21 +52,10 @@ extends SingleProperty<V> {
 	
 	//method
 	/**
-	 * @return true if this optional property is optional.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean isOptional() {
 		return true;
-	}
-	
-	//method
-	/**
-	 * @throws ArgumentMissesAttributeException if the current {@link OptionalProperty} is empty.
-	 */
-	@Override
-	public void supposeHasValue() {
-		
-		//Calls method of the base class.
-		super.supposeHasValue();
 	}
 }

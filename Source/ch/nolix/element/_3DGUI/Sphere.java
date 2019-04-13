@@ -34,7 +34,6 @@ public final class Sphere extends BaseShape<Sphere> {
 	 */
 	public Sphere() {
 		reset();
-		approveProperties();
 	}
 	
 	//constructor

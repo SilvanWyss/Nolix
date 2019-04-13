@@ -58,7 +58,6 @@ implements Clearable<TabContainerTab> {
 	public TabContainerTab() {
 		menuItem.setKeepsFocus();
 		reset();
-		approveProperties();
 	}
 	
 	//constructor

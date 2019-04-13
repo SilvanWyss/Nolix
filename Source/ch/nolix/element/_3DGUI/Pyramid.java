@@ -34,7 +34,6 @@ public final class Pyramid extends BaseShape<Pyramid> {
 	//constructor
 	public Pyramid() {
 		reset();
-		approveProperties();
 	}
 	
 	//method

@@ -54,7 +54,6 @@ public final class ScrollbarLook extends MutableElement<ScrollbarLook> {
 	//constructor
 	public ScrollbarLook() {
 		reset();
-		approveProperties();
 	}
 	
 	//method

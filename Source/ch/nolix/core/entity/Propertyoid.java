@@ -3,8 +3,8 @@ package ch.nolix.core.entity;
 
 //own imports
 import ch.nolix.core.bases.NamedElement;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
@@ -51,12 +51,6 @@ extends NamedElement {
 	}
 	
 	//abstract method
-	/**
-	 * @return true if this property is approved.
-	 */
-	public abstract boolean isApproved();
-	
-	//abstract method
 	public abstract boolean isEmpty();
 	
 	//abstract method
@@ -86,12 +80,6 @@ extends NamedElement {
 	}
 	
 	//package-visible method
-	/**
-	 * Approves this property.
-	 */
-	abstract void approve();
-	
-	//package-visible method
 	final void fillUpAttributes(final List<DocumentNode> attributes) {
 		
 		//Iterates the values of this property.
@@ -118,5 +106,5 @@ extends NamedElement {
 	/**
 	 * @return the values of this property.
 	 */
-	abstract ReadContainer<V> getRefValues();
+	abstract IContainer<V> getRefValues();
 }

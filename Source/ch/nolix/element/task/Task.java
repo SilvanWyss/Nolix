@@ -87,7 +87,6 @@ public final class Task extends MutableElement<Task> {
 	public Task(final String title) {
 		setTitle(title);
 		setCreationDate(Time.createCurrentTime());
-		approveProperties();
 	}
 	
 	//constructor
@@ -103,7 +102,6 @@ public final class Task extends MutableElement<Task> {
 	public Task(final String title,	final TaskSize size) {
 		setTitle(title);
 		setSize(size);
-		approveProperties();
 	}
 	
 	//constructor
@@ -118,7 +116,6 @@ public final class Task extends MutableElement<Task> {
 	public Task(final String title, final Time creationDate) {
 		setTitle(title);
 		setCreationDate(creationDate);
-		approveProperties();
 	}
 	
 	//constructor
@@ -142,7 +139,6 @@ public final class Task extends MutableElement<Task> {
 		setTitle(title);
 		setCreationDate(creationDate);
 		setAsSolved(solveDate);
-		approveProperties();
 	}
 	
 	//constructor
@@ -170,7 +166,6 @@ public final class Task extends MutableElement<Task> {
 		setSize(size);
 		setCreationDate(creationDate);
 		setAsSolved(solveDate);
-		approveProperties();
 	}
 	
 	//constructor
@@ -182,7 +177,6 @@ public final class Task extends MutableElement<Task> {
 	 */
 	private Task(final DocumentNodeoid specification) {
 		reset(specification);
-		approveProperties();
 	}
 	
 	//method

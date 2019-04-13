@@ -4,34 +4,31 @@ package ch.nolix.core.entity;
 //own imports
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-//own imports
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.specificationAPI.Specified;
 
+//class
 /**
  * @author Silvan Wyss
- * @month 2017-10
+ * @month 2018-02
  * @lines 60
- * @param <V> The value of a property.
+ * @param <V> The type of the value of a {@link MutableProperty}.
  */
-public final class MutableProperty<V extends Specified>
-extends SingleProperty<V> {
+public final class MutableProperty<V extends Specified> extends SingleProperty<V> {
 	
 	//constructor
 	/**
-	 * Creates a new property
-	 * with the given name, setter method and value creator.
+	 * Creates a new {@link MutableProperty} with the given name, setterMethod, valueCreator and specificationCreator.
 	 * 
 	 * @param name
 	 * @param setterMethod
 	 * @param valueCreator
-	 * @param specificaitonCreatr
+	 * @param specificationCreator
 	 * @throws NullArgumentException if the given name is null.
-	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given setter method is null.
-	 * @throws NullArgumentException if the given value creator is null.
-	 * @throws NullArgumentException if the given specification creator is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws NullArgumentException if the given valueCreator is null.
+	 * @throws NullArgumentException if the given specificationCreator is null.
 	 */
 	public MutableProperty(
 		final String name,
@@ -46,7 +43,7 @@ extends SingleProperty<V> {
 	
 	//method
 	/**
-	 * @return true if this mutable property is mutable.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean isMutable() {
@@ -55,7 +52,7 @@ extends SingleProperty<V> {
 	
 	//method
 	/**
-	 * @return true if this mutable property is optional.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean isOptional() {

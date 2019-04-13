@@ -88,7 +88,6 @@ implements Clearable<AccordionTab> {
 		
 		reset();
 		setHeader(header);
-		approveProperties();
 	}
 	
 	//constructor

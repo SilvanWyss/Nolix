@@ -4,6 +4,7 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.entity.Property;
 import ch.nolix.element.bases.OptionalIdentifiedElement;
 import ch.nolix.element.core.Boolean;
@@ -33,8 +34,8 @@ extends OptionalIdentifiedElement<SelectionMenuItem> {
 	);
 	
 	//attribute
-	private final Property<Boolean> selectionFlagProperty =
-	new Property<Boolean>(
+	private final MutableProperty<Boolean> selectionFlagProperty =
+	new MutableProperty<Boolean>(
 		SELECTION_FLAG_HEADER,
 		sf -> setSelectionFlag(sf.getValue()),
 		s -> Boolean.createFromSpecification(s),
@@ -49,7 +50,6 @@ extends OptionalIdentifiedElement<SelectionMenuItem> {
 		label.setKeepsFocus();
 		unselect();
 		setText(text);
-		approveProperties();
 	}
 	
 	//constructor
@@ -59,14 +59,12 @@ extends OptionalIdentifiedElement<SelectionMenuItem> {
 		
 		unselect();
 		setText(text);
-		approveProperties();
 	}
 	
 	//constructor
 	private SelectionMenuItem(final DocumentNodeoid specification) {
 		unselect();
-		initializeProperties(specification);
-		approveProperties();
+		specification.getRefAttributes().forEach(a -> addOrChangeAttribute(a));
 	}
 	
 	//method

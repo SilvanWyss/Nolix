@@ -3,6 +3,7 @@ package ch.nolix.core.entity;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
@@ -10,42 +11,37 @@ import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
-import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator.Validator;
 
-//abstract class
+//package-visible abstract class
 /**
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 210
- * @param <V> The type of the value of a single property.
+ * @lines 150
+ * @param <V> The type of the value of a {@link SingleProperty}.
  */
-public abstract class SingleProperty<V extends Specified>
-extends Propertyoid<V> {
+abstract class SingleProperty<V> extends Propertyoid<V> {
 	
-	//attributes
+	//attribute
 	private final IElementTaker<V> setterMethod;
-	private boolean approved = false;
 	
 	//optional attribute
 	private V value;
 
-	//package-visible constructor
+	//constructor
 	/**
-	 * Creates a new single property
-	 * with the given name, setter method and value creator.
+	 * Creates a new {@link SingleProperty} with the given name, setterMethod, valueCreator and specificationCreator.
 	 * 
 	 * @param name
 	 * @param setterMethod
 	 * @param valueCreator
 	 * @param specificationCreator
 	 * @throws NullArgumentException if the given name is null.
-	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given setter method is null.
-	 * @throws NullArgumentException if the given value creator is null.
-	 * @throws NullArgumentException if the given specification creator is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws NullArgumentException if the given valueCreator is null.
+	 * @throws NullArgumentException if the given specificationCreator is null.
 	 */
-	SingleProperty(
+	public SingleProperty(
 		final String name,
 		final IElementTaker<V> setterMethod,
 		final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator,
@@ -55,33 +51,42 @@ extends Propertyoid<V> {
 		//Calls constructor of the base class.
 		super(name, valueCreator, specificationCreator);
 		
-		//Checks if the given setter method is not null.
+		//Checks if the given setterMethod is not null.
 		Validator
 		.suppose(setterMethod)
 		.thatIsNamed("setter method")
 		.isNotNull();
 		
-		//Sets the setter method of this single property.
+		//Sets the setterMethod of the current SingleProperty.
 		this.setterMethod = setterMethod;
 	}
 	
 	//method
 	/**
-	 * @return the value of this single property.
-	 * @throws ArgumentMissesAttributeException
-	 * if this single property does not have a value.
+	 * @return true if the current {@link SingleProperty} has a value.
+	 */
+	public final boolean containsAny() {
+		return (value != null);
+	}
+	
+	//method
+	/**
+	 * @return the value of the current {@link SingleProperty}.
+	 * @throws ArgumentMissesAttributeException if the current {@link SingleProperty} does not have a value.
 	 */
 	public final V getValue() {
 		
-		//Checks if this single property has a value.
-		supposeHasValue();
+		//Checks if the current SingleProperty has a value.
+		if (value == null) {
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.VALUE);
+		}
 		
 		return value;
 	}
 	
 	//method
 	/**
-	 * @return true if this single property has a value.
+	 * @return true if the current {@link SingleProperty} has a value.
 	 */
 	public final boolean hasValue() {
 		return (value != null);
@@ -89,38 +94,28 @@ extends Propertyoid<V> {
 	
 	//method
 	/**
-	 * @return true if this single property is approved.
+	 * @return true if the current {@link SingleProperty} does not have a value.
 	 */
 	@Override
-	public final boolean isApproved() {
-		return approved;
-	}
-	
-	//method
-	/**
-	 * @return true if this single property does not have a value.
-	 */
-	@Override
-	public boolean isEmpty() {
+	public final boolean isEmpty() {
 		return (value == null);
 	}
 	
 	//abstract method
 	/**
-	 * @return true if this single property is optional.
+	 * @return true if the current {@link SingleProperty} is optional.
 	 */
 	public abstract boolean isOptional();
 	
 	//method
 	/**
-	 * Sets the value of this single property.
+	 * Sets the value of the current {@link SingleProperty}.
 	 * 
 	 * @param value
 	 * @throws NullArgumentException if the given value is null.
-	 * @throws InvalidArgumentException
-	 * if this single property is not approved when it is not mutable.
+	 * @throws InvalidArgumentException if the current {@link SingleProperty} is not mutable and has already a value.
 	 */
-	public Propertyoid<V> setValue(final V value) {
+	public final void setValue(final V value) {
 		
 		//Checks if the given value is not null.
 		Validator
@@ -128,15 +123,13 @@ extends Propertyoid<V> {
 		.thatIsNamed(VariableNameCatalogue.VALUE)
 		.isNotNull();
 		
-		//Checks if this single property is not approved when it is not mutable.
-		if (!isMutable()) {
-			supposeIsNotApproved();
+		//Checks if the current SingleProperty is mutable or does not have already a value.
+		if (!isMutable() && hasValue()) {
+			throw new InvalidArgumentException(this, "is not mutable and has already a value");
 		}
 		
-		//Sets the value of this single property.
+		//Sets the value of the current SingleProperty.
 		this.value = value;
-		
-		return this;
 	}
 	
 	//package-visible method
@@ -147,78 +140,27 @@ extends Propertyoid<V> {
 	
 	//package-visible method
 	/**
-	 * Approves this single property.
+	 * Removes the value of the current {@link SingleProperty}.
 	 * 
-	 * @throws InvalidArgumentException
-	 * if this single property is not optional, but empty.
+	 * @return the current {@link SingleProperty}.
 	 */
-	@Override
-	final void approve() {
-		
-		//Checks if this single property is not empty when it is optional.
-		if (!isOptional() && isEmpty()) {
-			throw new InvalidArgumentException(
-				getName(),
-				this,
-				"is not optional, but empty");
-		}
-	}
-	
-	//package-visible method
-	/**
-	 * Removes the value of this single property.
-	 * 
-	 * @return this single property.
-	 */
-	Propertyoid<V> clear() {
-		
-		//Clears the value of this optional single property.
+	void clear() {	
 		value = null;
-		
-		return this;
 	}
 	
 	//method
 	/**
-	 * @return the values of this single property.
+	 * @return the values of the current {@link SingleProperty}.
 	 */
 	@Override
-	final ReadContainer<V> getRefValues() {
+	final IContainer<V> getRefValues() {
 		
-		//Handles the case that this single property is empty.
-		if (isEmpty()) {
+		//Handles the case that the current SingleProperty does not have a value.
+		if (value == null) {
 			return new ReadContainer<V>();
 		}
 		
-		//Handles the case that this single property is not empty.
+		//Handles the case that the current SingleProperty has a value.
 		return new ReadContainer<V>(getValue());
-	}
-	
-	//package-visible method
-	/**
-	 * @throws ArgumentMissesAttributeException
-	 * if this single property does not have a value.
-	 */
-	void supposeHasValue() {
-		
-		//Checks if this single property has a value.
-		if (isEmpty()) {
-			throw new ArgumentMissesAttributeException(
-				this,
-				VariableNameCatalogue.VALUE
-			);
-		}
-	}
-	
-	//method
-	/**
-	 * @throws InvalidArgumentException if this single property is approved.
-	 */
-	private void supposeIsNotApproved() {
-		
-		//Checks if this single property is not approved.
-		if (isApproved()) {
-			throw new InvalidArgumentException(this, "is approved");
-		}
 	}
 }

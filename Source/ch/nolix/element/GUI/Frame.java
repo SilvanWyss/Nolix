@@ -66,7 +66,6 @@ public final class Frame extends GUI<Frame> {
 	public Frame() {
 			
 		reset();
-		approveProperties();
 		
 		frame.setLocationByPlatform(true);
 		frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);

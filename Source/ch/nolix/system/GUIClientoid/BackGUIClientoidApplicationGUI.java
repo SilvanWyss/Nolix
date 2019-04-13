@@ -7,7 +7,6 @@ final class BackGUIClientoidApplicationGUI extends BackGUIClientoidGUI {
 	//constructor
 	public BackGUIClientoidApplicationGUI() {
 		reset();
-		approveProperties();
 	}
 	
 	//method

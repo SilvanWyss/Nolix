@@ -26,7 +26,6 @@ public final class Cylinder extends Prisma<Cylinder> {
 	//constructor
 	public Cylinder() {
 		reset();
-		approveProperties();
 	}
 	
 	//method

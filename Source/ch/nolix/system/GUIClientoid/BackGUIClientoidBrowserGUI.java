@@ -14,7 +14,6 @@ final class BackGUIClientoidBrowserGUI extends BackGUIClientoidGUI {
 	) {
 		
 		reset();
-		approveProperties();
 		
 		//Checks if the given painter creator is not null.
 		Validator
