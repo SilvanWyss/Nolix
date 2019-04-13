@@ -11,7 +11,6 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.painter.IPainter;
 
 //class
 public final class SelectionMenu
@@ -186,7 +185,7 @@ implements Clearable<SelectionMenu> {
 	
 	//method
 	public void recalculate() {
-		
+				
 		super.recalculate();
 		
 		final var selectionMenuLook = getRefCurrentLook();
@@ -330,21 +329,7 @@ implements Clearable<SelectionMenu> {
 			return 0;
 		}
 		
-		//TODO: Make this line unnecessary.
-		items.forEach(i -> i.getRefLabel().recalculate());
-		
 		return items.getMaxByInt(i -> i.getRefLabel().getWidth());
-	}
-	
-	//method
-	@Override
-	protected void paintContentArea(
-		final SelectionMenuLook selectionMenuLook,
-		final IPainter painter
-	) {
-		
-		
-		menu.paint(painter);
 	}
 	
 	//method
