@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.sequencer;
 
-//own imports
-import ch.nolix.core.skillAPI.IFuture;
+import ch.nolix.core.futureAPI.IFuture;
 import ch.nolix.core.validator.Validator;
 
 //class
