@@ -7,6 +7,8 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IBooleanGetter;
 import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.core.functionAPI.IFunction;
+import ch.nolix.core.futureAPI.IFuture;
+import ch.nolix.core.jobPool.JobPool;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -16,9 +18,12 @@ import ch.nolix.core.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-05
- * @lines 180
+ * @lines 200
  */
 public final class Sequencer {
+	
+	//static attribute
+	private static final JobPool jobPool = new JobPool();
 	
 	//static method
 	/**
@@ -56,6 +61,18 @@ public final class Sequencer {
 	 */
 	public static AsLongAsMediator asLongAs(final IBooleanGetter condition) {
 		return new AsLongAsMediator(condition);
+	}
+	
+	//static method
+	/**
+	 * Enqueues the given job.
+	 * 
+	 * @param job
+	 * @return a {@link IFuture} for the given job.
+	 * @throws NullArgumentException if the given job is null.
+	 */
+	public static IFuture enqueue(final IFunction job) {
+		return jobPool.enqueue(job);
 	}
 	
 	//static method
