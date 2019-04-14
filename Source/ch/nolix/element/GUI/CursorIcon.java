@@ -6,7 +6,7 @@ import java.awt.Cursor;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.specificationAPI.ISpecifiedEnum;
+import ch.nolix.core.specificationAPI.IElementEnum;
 
 //enum
 /**
@@ -14,7 +14,7 @@ import ch.nolix.core.specificationAPI.ISpecifiedEnum;
  * @month 2016-05
  * @lines 60
  */
-public enum CursorIcon implements ISpecifiedEnum {
+public enum CursorIcon implements IElementEnum {
 	Arrow,
 	Cross,
 	Edit,

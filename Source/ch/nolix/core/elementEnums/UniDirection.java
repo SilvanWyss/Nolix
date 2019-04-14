@@ -1,9 +1,9 @@
 //package declaration
-package ch.nolix.core.enums;
+package ch.nolix.core.elementEnums;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.specificationAPI.ISpecifiedEnum;
+import ch.nolix.core.specificationAPI.IElementEnum;
 
 //enum
 /**
@@ -17,7 +17,7 @@ import ch.nolix.core.specificationAPI.ISpecifiedEnum;
  * @month 2017-09
  * @lines 20
  */
-public enum UniDirection implements ISpecifiedEnum {
+public enum UniDirection implements IElementEnum {
 	Horizontal,
 	Vertical,
 	DiagonalUp,

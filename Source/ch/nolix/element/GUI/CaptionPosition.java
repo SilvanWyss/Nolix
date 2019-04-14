@@ -2,7 +2,7 @@
 package ch.nolix.element.GUI;
 
 //own imports
-import ch.nolix.core.specificationAPI.ISpecifiedEnum;
+import ch.nolix.core.specificationAPI.IElementEnum;
 
 //enum
 /**
@@ -10,7 +10,7 @@ import ch.nolix.core.specificationAPI.ISpecifiedEnum;
  * @month 2016-04
  * @lines 30
  */
-public enum CaptionPosition implements ISpecifiedEnum {
+public enum CaptionPosition implements IElementEnum {
 	LeftTop,
 	Left,
 	LeftBottom,

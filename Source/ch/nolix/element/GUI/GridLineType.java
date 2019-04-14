@@ -3,10 +3,10 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.specificationAPI.ISpecifiedEnum;
+import ch.nolix.core.specificationAPI.IElementEnum;
 
 //enum
-public enum GridLineType implements ISpecifiedEnum {
+public enum GridLineType implements IElementEnum {
 	InnerLines,
 	InnerAndOuterLines;
 

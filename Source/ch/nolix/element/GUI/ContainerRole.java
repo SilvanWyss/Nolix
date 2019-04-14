@@ -3,7 +3,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.specificationAPI.ISpecifiedEnum;
+import ch.nolix.core.specificationAPI.IElementEnum;
 
 //enum
 /**
@@ -11,7 +11,7 @@ import ch.nolix.core.specificationAPI.ISpecifiedEnum;
  * @month 2016-08
  * @lines 20
  */
-public enum ContainerRole implements ISpecifiedEnum {
+public enum ContainerRole implements IElementEnum {
 	OverallContainer,
 	MainContainer;
 	

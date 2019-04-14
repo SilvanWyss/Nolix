@@ -3,7 +3,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.specificationAPI.ISpecifiedEnum;
+import ch.nolix.core.specificationAPI.IElementEnum;
 
 //enum
 /**
@@ -13,7 +13,7 @@ import ch.nolix.core.specificationAPI.ISpecifiedEnum;
  * @month 2016-08
  * @lines 40
  */
-public enum ContentPosition implements ISpecifiedEnum {
+public enum ContentPosition implements IElementEnum {
 	LeftTop,
 	Left,
 	LeftBottom,

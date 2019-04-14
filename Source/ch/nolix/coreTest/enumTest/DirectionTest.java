@@ -4,7 +4,7 @@ package ch.nolix.coreTest.enumTest;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.enums.Direction;
+import ch.nolix.core.elementEnums.Direction;
 import ch.nolix.core.test.Test;
 
 //test class

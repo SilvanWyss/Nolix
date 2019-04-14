@@ -3,7 +3,7 @@ package ch.nolix.element.textFormat;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.specificationAPI.ISpecifiedEnum;
+import ch.nolix.core.specificationAPI.IElementEnum;
 
 //enum
 /**
@@ -13,7 +13,7 @@ import ch.nolix.core.specificationAPI.ISpecifiedEnum;
  * @month 2017-08
  * @lines 50
  */
-public enum Font implements ISpecifiedEnum {
+public enum Font implements IElementEnum {
 	Arial,
 	ComicSansMS,
 	Console,

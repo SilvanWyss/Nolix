@@ -2,7 +2,7 @@
 package ch.nolix.system.GUIClientoid;
 
 //own import
-import ch.nolix.core.specificationAPI.ISpecifiedEnum;
+import ch.nolix.core.specificationAPI.IElementEnum;
 
 //enum
 /**
@@ -10,7 +10,7 @@ import ch.nolix.core.specificationAPI.ISpecifiedEnum;
  * @month 2018-09
  * @lines 10
  */
-public enum FrontGUIClientoidType implements ISpecifiedEnum {
+public enum FrontGUIClientoidType implements IElementEnum {
 	GUISpecificationConsumer,
 	PainterCommandsConsumer
 }

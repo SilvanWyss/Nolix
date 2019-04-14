@@ -3,7 +3,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.specificationAPI.ISpecifiedEnum;
+import ch.nolix.core.specificationAPI.IElementEnum;
 
 //enum
 /**
@@ -13,7 +13,7 @@ import ch.nolix.core.specificationAPI.ISpecifiedEnum;
  * @month 2018-05
  * @lines 30
  */
-public enum ButtonRole implements ISpecifiedEnum {
+public enum ButtonRole implements IElementEnum {
 	ActionButton,
 	LinkButton,
 	CreateButton,

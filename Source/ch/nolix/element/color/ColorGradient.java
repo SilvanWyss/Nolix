@@ -8,7 +8,7 @@ import java.awt.GradientPaint;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.enums.UniDirection;
+import ch.nolix.core.elementEnums.UniDirection;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.core.Element;

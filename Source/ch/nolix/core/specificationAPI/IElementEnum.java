@@ -11,11 +11,11 @@ import ch.nolix.core.documentNode.DocumentNode;
  * @month 2018-03
  * @lines 30
  */
-public interface ISpecifiedEnum extends Specified {
+public interface IElementEnum extends Specified {
 	
 	//default method
 	/**
-	 * @return the type of the current {@link ISpecifiedEnum}.
+	 * @return the type of the current {@link IElementEnum}.
 	 */
 	@Override
 	public default String getType() {
@@ -24,7 +24,7 @@ public interface ISpecifiedEnum extends Specified {
 	
 	//default method
 	/**
-	 * @return the attributes of the current {@link ISpecifiedEnum}.
+	 * @return the attributes of the current {@link IElementEnum}.
 	 */
 	@Override
 	public default List<DocumentNode> getAttributes() {
