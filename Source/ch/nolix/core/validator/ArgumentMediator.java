@@ -83,14 +83,17 @@ public class ArgumentMediator<A> extends Mediator {
 	
 	//method
 	/**
+	 * @return a new terminal argument mediator for the argument of this argument mediator.
 	 * @throws NullArgumentException if the argument of this argument mediator is null.
 	 */
-	public final void isNotNull() {
+	public TerminalArgumentMediator<A> isNotNull() {
 		
 		//Checks if the argument of this argument mediator is not null.
 		if (argument == null) {
 			throw new NullArgumentException(getArgumentName());
 		}
+		
+		return new TerminalArgumentMediator<A>(getRefArgument());
 	}
 	
 	//method
