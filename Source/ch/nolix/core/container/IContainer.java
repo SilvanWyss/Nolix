@@ -28,7 +28,7 @@ import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1890
+ * @lines 1940
  * @param <E> The type of the elements of a {@link IContainer}.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -176,6 +176,50 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	public default boolean containsEqualing(final Object element) {
 		return contains(e -> e.equals(element));
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @param container
+	 * @return true if the current {@link IContainer} contains less elements than the given container.
+	 */
+	public default boolean containsLessThan(final IContainer<?> container) {
+		return (getSize() < container.getSize());
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @param container
+	 * @return true if the current {@link IContainer} contains less elements than the given container.
+	 */
+	public default boolean containsLessThan(final Iterable<?> container) {
+		return containsLessThan(new ReadContainer<>(container));
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @param container
+	 * @return true if the current {@link IContainer} contains more elements than the given container.
+	 */
+	public default boolean containsMoreThan(final IContainer<?> container) {
+		return (getSize() > container.getSize());
+	}
+	
+	//default method
+	/**
+	 * The complexity of this method is O(1).
+	 * 
+	 * @param container
+	 * @return true if the current {@link IContainer} contains more elements than the given container.
+	 */
+	public default boolean containsMoreThan(final Iterable<?> container) {
+		return containsMoreThan(new ReadContainer<>(container));
 	}
 	
 	//default method
