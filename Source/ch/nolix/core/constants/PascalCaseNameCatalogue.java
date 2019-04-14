@@ -63,6 +63,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String ENTITY = "Entity";
 	public static final String ENTITY_TYPE = "EntityType";
 	public static final String ENUM = "Enum";
+	public static final String ERROR = "Error";
 	public static final String EXCEPTION = "Execption";
 	public static final String EXPONENT = "Exponent";
 	public static final String FILE_NAME = "FileName";
