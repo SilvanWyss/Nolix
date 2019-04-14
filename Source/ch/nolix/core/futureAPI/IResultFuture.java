@@ -7,7 +7,7 @@ package ch.nolix.core.futureAPI;
  * 
  * @author Silvan Wyss
  * @month 2019-04
- * @lines 20
+ * @lines 30
  * @param <R> The type of the result of a {@link IResultFuture}.
  */
 public interface IResultFuture<R> extends IFuture {
@@ -18,4 +18,17 @@ public interface IResultFuture<R> extends IFuture {
 	 * @throws Exception if the current {@link IResultFuture} is not finished or has caught an error.
 	 */
 	public abstract R getResult();
+	
+	//default method
+	/**
+	 * Waits until the current {@link IResultFuture} is finished and returns its result.
+	 * 
+	 * @return the result of the current {@link IResultFuture} after waiting until it is finished.
+	 */
+	public default R waitUntilIsFinishedAndGetResult() {
+		
+		waitUntilIsFinished();
+		
+		return getResult();
+	}
 }
