@@ -2,17 +2,18 @@
 package ch.nolix.core.sequencer;
 
 //own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IElementGetter;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.util.PopupWindowProvider;
 import ch.nolix.core.validator.Validator;
 
 //package-visible class
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 120
- * @param <R> The type of the result of the result job of a result job runner.
+ * @lines 130
+ * @param <R> The type of the result of the resulltJob of a {@link ResultJobRunner}.
  */
 final class ResultJobRunner<R> extends Thread {
 
@@ -20,50 +21,77 @@ final class ResultJobRunner<R> extends Thread {
 	private final IElementGetter<R> resultJob;
 	private R result;
 	private boolean running = true;
-	private boolean caughtError = false;
+	
+	//optional attribute
+	private Throwable error;
 	
 	//constructor
 	/**
-	 * Creates a new result job runner with the given result job.
-	 * The result job runner will start automatically.
+	 * Creates a {@link ResultJobRunner} with the given resultJob.
+	 * The {@link ResultJobRunner} will start automatically.
 	 * 
 	 * @param resultJob
-	 * @throws NullArgumentException if the given result job is null.
+	 * @throws NullArgumentException if the given resultJob is null.
 	 */
 	public ResultJobRunner(final IElementGetter<R> resultJob) {
 		
-		//Checks if the given result job is not null.
+		//Checks if the given resultJob is not null.
 		Validator.suppose(resultJob).thatIsNamed("result job").isNotNull();
 		
-		//Sets the result job of this result job runner.
+		//Sets the resultJob of the current ResultJobRunner.
 		this.resultJob = resultJob;
 		
+		//Starts the current ResultJobRunner.
 		start();
 	}
 	
 	//method
 	/**
-	 * @return true if this result job runner caught an error.
+	 * @return true if the current {@link ResultJobRunner} has caught an error.
 	 */
 	public boolean caughtError() {
-		return caughtError;
+		return (error != null);
 	}
 	
 	//method
 	/**
-	 * @return the result of this result job runner
-	 * @throws InvalidArgumentException if this job runner is not finished successfully.
+	 * @return the error of the current {@link ResultJobRunner}.
+	 * @throws ArgumentMissesAttributeException if the current  {@link ResultJobRunner} does not have an error.
+	 */
+	public Throwable getError() {
+		
+		//Checks if the current ResultJobRunner has an error.
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (error == null) {
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.ERROR);
+		}
+		
+		return error;
+	}
+	
+	//method
+	/**
+	 * @return the result of the current {@link ResultJobRunner}
+	 * @throws Exception if the current {@link ResultJobRunner} is not finished or has caught an error.
 	 */
 	public R getResult() {
 		
-		supposeIsFinishedSuccessfully();
+		//Checks if the current ResultJobRunner is finished.
+		if (!isFinished()) {
+			throw new InvalidArgumentException(this, "is not finished");
+		}
+		
+		//Checks if the current ResultJobRunner has not caught an error.
+		if (caughtError()) {
+			throw new InvalidArgumentException(this, "has caught an error");
+		}
 		
 		return result;
 	}
 	
 	//method
 	/**
-	 * @return true if this result job runner is finished.
+	 * @return true if the current {@link ResultJobRunner} is finished.
 	 */
 	public boolean isFinished() {
 		return !isRunning();
@@ -71,15 +99,15 @@ final class ResultJobRunner<R> extends Thread {
 	
 	//method
 	/**
-	 * @return true if this result job runner is finisehd successfully.
+	 * @return true if the current {@link ResultJobRunner} is finished successfully.
 	 */
 	public boolean isFinsishedSuccessfully() {
-		return (isFinished() & !caughtError());
+		return (isFinished() && !caughtError());
 	}
 	
 	//method
 	/**
-	 * @return true if this result job runner is running.
+	 * @return true if the current {@link ResultJobRunner} is running.
 	 */
 	public boolean isRunning() {
 		return running;
@@ -87,42 +115,18 @@ final class ResultJobRunner<R> extends Thread {
 	
 	//method
 	/**
-	 * Runs this result job runner.
+	 * Runs the current {@link ResultJobRunner}.
 	 */
 	@Override
 	public void run() {
 		try {
 			result = resultJob.getOutput();
 		}
-		catch (final Exception exception) {
-			caughtError = true;
-			PopupWindowProvider.showErrorWindow(exception);
+		catch (final Throwable error) {
+			this.error = error;
 		}
 		finally {
 			running = false;
-		}
-	}
-	
-	//method
-	/**
-	 * @throws InvalidArgumentException if this result job runner is not finished.
-	 */
-	private void supposeIsFinished() {
-		if (isRunning()) {
-			throw new InvalidArgumentException(this, "is running");
-		}
-	}
-	
-	//method
-	/**
-	 * @throws InvalidArgumentException if this result job runner is not finished successfully.
-	 */
-	private void supposeIsFinishedSuccessfully() {
-		
-		supposeIsFinished();
-		
-		if (caughtError) {
-			throw new InvalidArgumentException(this, "is finished with error");
 		}
 	}
 }
