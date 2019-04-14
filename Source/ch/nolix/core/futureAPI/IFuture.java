@@ -46,4 +46,10 @@ public interface IFuture {
 	public default boolean isRunning() {
 		return !isFinished();
 	}
+	
+	//abstract method
+	/**
+	 * Lets the current {@link IFuture} wait until it is finished.
+	 */
+	public abstract void waitUntilIsFinished();
 }

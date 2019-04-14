@@ -24,7 +24,7 @@ public final class SequencerTest extends Test {
 			final ResultFuture<Integer> resultFuture
 			= Sequencer.runInBackground(() -> 2 * 3 * 4 * 5);
 			
-			resultFuture.waitUntilFinished();
+			resultFuture.waitUntilIsFinished();
 		
 		//verification
 		expect(resultFuture.isFinishedSuccessfully());

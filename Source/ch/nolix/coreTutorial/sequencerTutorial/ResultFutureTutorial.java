@@ -31,7 +31,7 @@ public final class ResultFutureTutorial {
 		System.out.println("Calculations are done in background.");
 		System.out.println("...");
 		
-		future.waitUntilFinished();
+		future.waitUntilIsFinished();
 		
 		System.out.println("rank: " + future.getResult());
 	}

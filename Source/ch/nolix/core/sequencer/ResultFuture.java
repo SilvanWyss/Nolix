@@ -9,7 +9,7 @@ import ch.nolix.core.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 70
+ * @lines 80
  * @param <R> The type of the result of a {@link ResultFuture}.
  */
 public final class ResultFuture<R> implements IResultFuture<R> {
@@ -37,6 +37,7 @@ public final class ResultFuture<R> implements IResultFuture<R> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean caughtError() {
 		return resultJobRunner.caughtError();
 	}
@@ -45,6 +46,7 @@ public final class ResultFuture<R> implements IResultFuture<R> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public Throwable getError() {
 		return resultJobRunner.getError();
 	}
@@ -53,6 +55,7 @@ public final class ResultFuture<R> implements IResultFuture<R> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public R getResult() {
 		return resultJobRunner.getResult();
 	}
@@ -61,15 +64,17 @@ public final class ResultFuture<R> implements IResultFuture<R> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean isFinished() {
 		return resultJobRunner.isFinished();
 	}
 	
 	//method
 	/**
-	 * Lets the current {@link ResultFuture} wait until it is finished.
+	 * {@inheritDoc}
 	 */
-	public void waitUntilFinished() {
+	@Override
+	public void waitUntilIsFinished() {
 		Sequencer.waitUntil(() -> isFinished());
 	}
 }

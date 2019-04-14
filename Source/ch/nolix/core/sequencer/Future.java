@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.sequencer;
 
+//own imports
 import ch.nolix.core.futureAPI.IFuture;
 import ch.nolix.core.validator.Validator;
 
@@ -8,7 +9,7 @@ import ch.nolix.core.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 60
+ * @lines 70
  */
 public final class Future implements IFuture {
 	
@@ -64,5 +65,14 @@ public final class Future implements IFuture {
 	@Override
 	public boolean isFinished() {
 		return jobRunner.isFinished();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void waitUntilIsFinished() {
+		Sequencer.waitUntil(() -> isFinished());
 	}
 }
