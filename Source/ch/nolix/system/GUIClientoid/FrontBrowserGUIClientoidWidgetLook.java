@@ -2,10 +2,7 @@
 package ch.nolix.system.GUIClientoid;
 
 //own import
-import ch.nolix.element.GUI.WidgetLook;
+import ch.nolix.element.GUI.BorderWidgetLook;
 
 //package-visible class
-class FrontBrowserGUIClientoidWidgetLook
-extends WidgetLook<FrontBrowserGUIClientoidWidgetLook> {
-
-}
+final class FrontBrowserGUIClientoidWidgetLook extends BorderWidgetLook<FrontBrowserGUIClientoidWidgetLook> {}
