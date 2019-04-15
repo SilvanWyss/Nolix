@@ -8,7 +8,6 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -18,7 +17,7 @@ import ch.nolix.core.validator.Validator;
  * @lines 120
  * @param <V> The type of the values of a {@link MultiProperty}.
  */
-public final class MultiProperty<V extends Specified> extends Propertyoid<V> {
+public final class MultiProperty<V> extends Propertyoid<V> {
 	
 	//attribute
 	private final IElementTaker<V> adderMethod;

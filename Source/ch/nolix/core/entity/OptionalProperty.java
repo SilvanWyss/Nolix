@@ -6,7 +6,6 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.specificationAPI.Specified;
 
 //class
 /**
@@ -15,7 +14,7 @@ import ch.nolix.core.specificationAPI.Specified;
  * @lines 60
  * @param <V> The type of the value of a {@link OptionalProperty}.
  */
-public final class OptionalProperty<V extends Specified> extends SingleProperty<V> {
+public final class OptionalProperty<V> extends SingleProperty<V> {
 	
 	//constructor
 	/**
