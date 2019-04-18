@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.bases;
+package ch.nolix.core.closeController;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;

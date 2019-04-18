@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
-//own imports
-import ch.nolix.core.bases.ClosableElement;
+import ch.nolix.core.closeController.ClosableElement;
 import ch.nolix.core.endPoint.EndPoint;
 import ch.nolix.core.endPoint.NetServer;
 import ch.nolix.core.fileSystem.FileAccessor;

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint2;
 
-//own imports
-import ch.nolix.core.bases.ClosableElement;
+import ch.nolix.core.closeController.ClosableElement;
 import ch.nolix.core.communicationAPI.IReceiver;
 import ch.nolix.core.communicationAPI.ISender;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
