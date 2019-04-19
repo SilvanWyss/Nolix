@@ -1,6 +1,6 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
-import ch.nolix.core.classProvider.ClassProvider;
+import ch.nolix.core.classProvider.CentralClassProvider;
 import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Downloader;
 import ch.nolix.element.GUI.Frame;
@@ -26,7 +26,7 @@ public class SaveFractalAsPNGTutorial {
 		);
 		
 		//Creates an image of a Fractal.
-		final var image = ClassProvider.create(IFractalBuilder.class).build().toImage();
+		final var image = CentralClassProvider.create(IFractalBuilder.class).build().toImage();
 		
 		//Lets the frame show the image.
 		frame.setRootWidget(

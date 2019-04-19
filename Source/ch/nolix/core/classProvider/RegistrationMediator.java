@@ -9,7 +9,7 @@ public final class RegistrationMediator {
 	
 	//method
 	public <I, C extends I> RegistrationMediator register(final Class<I> interface_, final Class<C> class_) {
-		return ClassProvider.register(interface_, class_);
+		return CentralClassProvider.register(interface_, class_);
 	}
 	
 	//method
@@ -18,6 +18,6 @@ public final class RegistrationMediator {
 		final Class<C> class_,
 		boolean overwrite
 	) {
-		return ClassProvider.register(interface_, class_, overwrite);
+		return CentralClassProvider.register(interface_, class_, overwrite);
 	}
 }

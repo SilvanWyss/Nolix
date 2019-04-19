@@ -1,6 +1,6 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
-import ch.nolix.core.classProvider.ClassProvider;
+import ch.nolix.core.classProvider.CentralClassProvider;
 import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
@@ -20,14 +20,14 @@ public final class CustomFractalTutorial3 {
 		GenericMathRegistrator.register();
 		
 		final var maxIterationCount = 100;
-		final var j = ClassProvider.create(IComplexNumberFactory.class).create(-0.745, 0.25);
+		final var j = CentralClassProvider.create(IComplexNumberFactory.class).create(-0.745, 0.25);
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		final var frame =
 		new Frame(
 			"Julia Fractal Tutorial",
 			new ImageWidget(
-				ClassProvider.create(IFractalBuilder.class)
+				CentralClassProvider.create(IFractalBuilder.class)
 				.setRealComponentInterval(-1.5, 1.5)
 				.setImaginaryComponentInterval(-1.0, 1.0)
 				.setWidthInPixel(800)

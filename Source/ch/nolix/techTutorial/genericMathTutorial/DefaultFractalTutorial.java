@@ -1,6 +1,6 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
-import ch.nolix.core.classProvider.ClassProvider;
+import ch.nolix.core.classProvider.CentralClassProvider;
 import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.ImageWidget;
@@ -24,7 +24,7 @@ public final class DefaultFractalTutorial {
 		);
 		
 		//Sets the image of a Fractal to the frame. The creation of the image may last a few seconds.
-		frame.setRootWidget(new ImageWidget(ClassProvider.create(IFractalBuilder.class).build().toImage()));
+		frame.setRootWidget(new ImageWidget(CentralClassProvider.create(IFractalBuilder.class).build().toImage()));
 	}
 	
 	private DefaultFractalTutorial() {

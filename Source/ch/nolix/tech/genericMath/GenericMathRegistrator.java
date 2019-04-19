@@ -2,7 +2,7 @@
 package ch.nolix.tech.genericMath;
 
 //own imports
-import ch.nolix.core.classProvider.ClassProvider;
+import ch.nolix.core.classProvider.CentralClassProvider;
 import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.techAPI.genericMathAPI.IClosedIntervalFactory;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumberFactory;
@@ -14,7 +14,7 @@ public final class GenericMathRegistrator {
 	
 	//static method
 	public static void register() {
-		ClassProvider
+		CentralClassProvider
 		.register(IClosedIntervalFactory.class, ClosedIntervalFactory.class)
 		.register(IComplexNumberFactory.class, ComplexNumberFactory.class)
 		.register(IFractalBuilder.class, FractalBuilder.class)

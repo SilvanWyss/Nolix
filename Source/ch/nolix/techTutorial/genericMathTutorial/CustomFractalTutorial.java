@@ -1,6 +1,6 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
-import ch.nolix.core.classProvider.ClassProvider;
+import ch.nolix.core.classProvider.CentralClassProvider;
 import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
@@ -25,11 +25,11 @@ public class CustomFractalTutorial {
 		new Frame(
 			"Custom Fractal Tutorial",
 			new ImageWidget(
-				ClassProvider.create(IFractalBuilder.class)
+				CentralClassProvider.create(IFractalBuilder.class)
 				.setRealComponentInterval(-2.0, 1.5)
 				.setImaginaryComponentInterval(-1.5, 1.5)
 				.setWidthInPixel(800)
-				.setSequencesStartValues(ClassProvider.create(IComplexNumberFactory.class).create(0.0, 0.0))
+				.setSequencesStartValues(CentralClassProvider.create(IComplexNumberFactory.class).create(0.0, 0.0))
 				.setSequencesNextValueFunctionFor1Predecessor((p, c) -> p.getPower(4).getSum(c))
 				.setSequencesMinDivergenceMagnitude(2.5)
 				.setSequencesMaxIterationCount(maxIterationCount)
