@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint5;
 
-import ch.nolix.core.closeController.ClosableElement;
+import ch.nolix.core.closableElement.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.documentNode.Statement;

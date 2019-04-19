@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint;
 
-import ch.nolix.core.closeController.ClosableElement;
+import ch.nolix.core.closableElement.ClosableElement;
 import ch.nolix.core.validator.Validator;
 
 //class

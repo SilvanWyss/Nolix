@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
-import ch.nolix.core.closeController.ClosableElement;
+import ch.nolix.core.closableElement.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
