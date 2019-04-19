@@ -2,17 +2,18 @@
 package ch.nolix.system.databaseAdapter;
 
 //own imports
-import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.skillAPI.Named;
 import ch.nolix.core.validator.Validator;
 
 //class
-public final class EntitySet<E extends Entity> extends NamedElement {
+public final class EntitySet<E extends Entity> implements Named {
 
 	//attributes
+	private final String name;
 	private final DatabaseAdapter parentDatabaseAdapter;
 	private final EntityType<E> entityType;
 	
@@ -33,7 +34,8 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 		final DatabaseAdapter parentDatabaseAdapter,
 		final EntityType<E> entityType
 	) {
-		super(entityType.getName());
+		
+		name = entityType.getName();
 		
 		Validator
 		.suppose(parentDatabaseAdapter)
@@ -118,6 +120,12 @@ public final class EntitySet<E extends Entity> extends NamedElement {
 	//method
 	public EntityType<E> getEntityType() {
 		return entityType;
+	}
+	
+	//method
+	@Override
+	public String getName() {
+		return name;
 	}
 	
 	//method

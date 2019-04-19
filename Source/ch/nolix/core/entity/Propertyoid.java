@@ -2,12 +2,13 @@
 package ch.nolix.core.entity;
 
 //own imports
-import ch.nolix.core.bases.NamedElement;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
+import ch.nolix.core.skillAPI.Named;
 import ch.nolix.core.validator.Validator;
 
 //abstract class
@@ -17,10 +18,10 @@ import ch.nolix.core.validator.Validator;
 * @lines 120
 * @param <V> The type of the values of a property.
 */
-public abstract class Propertyoid<V>
-extends NamedElement {
+public abstract class Propertyoid<V> implements Named {
 	
 	//attributes
+	private final String name;
 	private final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator;
 	private final IElementTakerElementGetter<V, DocumentNode> specificationCreator;
 	
@@ -31,8 +32,7 @@ extends NamedElement {
 		final IElementTakerElementGetter<V, DocumentNode> specificationCreator
 	) {
 		
-		//Calls constructor of the base class.
-		super(name);
+		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 		
 		//Checks if the given value creator is not null.
 		Validator
@@ -48,6 +48,15 @@ extends NamedElement {
 		
 		this.valueCreator = valueCreator;
 		this.specificationCreator = specificationCreator;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String getName() {
+		return name;
 	}
 	
 	//abstract method

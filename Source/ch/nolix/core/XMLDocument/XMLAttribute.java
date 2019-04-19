@@ -2,34 +2,34 @@
 package ch.nolix.core.XMLDocument;
 
 //own imports
-import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.constants.StringCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.skillAPI.Named;
 import ch.nolix.core.skillAPI.Valued;
 import ch.nolix.core.validator.Validator;
 
 //class
-public final class XMLAttribute extends NamedElement
-implements Valued<XMLAttribute, String> {
+public final class XMLAttribute implements Named, Valued<XMLAttribute, String> {
 	
-	//optional attribute
+	//optional attributes
+	private final String name;
 	private final String value;
 	
 	//constructor
 	public XMLAttribute(final String name) {
-		
-		super(name);
-		
-		value = StringCatalogue.EMPTY_STRING;
+		this(name, StringCatalogue.EMPTY_STRING);
 	}
 	
 	//constructor
 	public XMLAttribute(final String name, final String value) {
-		
-		super(name);
-		
-		Validator.suppose(value).isNotNull();
-		
-		this.value = value;
+		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();	
+		this.value = Validator.suppose(value).thatIsNamed(VariableNameCatalogue.VALUE).isNotNull().andReturn();
+	}
+	
+	//method
+	@Override
+	public String getName() {
+		return name;
 	}
 	
 	//method

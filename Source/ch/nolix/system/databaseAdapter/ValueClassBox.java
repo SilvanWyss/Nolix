@@ -2,20 +2,23 @@
 package ch.nolix.system.databaseAdapter;
 
 //own import
-import ch.nolix.core.bases.NamedElement;
+import ch.nolix.core.skillAPI.Named;
 
 //class
-public final class ValueClassBox<V> extends NamedElement {
+public final class ValueClassBox<V> implements Named {
 	
-	//attribute
+	//attributes
 	private final Class<V> valueClass;
 	
 	//package-visible constructor
-	ValueClassBox(final Class<V> valueClass) {
-		
-		super(valueClass.getSimpleName());
-		
+	ValueClassBox(final Class<V> valueClass) {		
 		this.valueClass = valueClass;
+	}
+	
+	//method
+	@Override
+	public String getName() {
+		return valueClass.getSimpleName();
 	}
 	
 	//method

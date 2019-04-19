@@ -2,13 +2,13 @@
 package ch.nolix.core.entity2;
 
 //own imports
-import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.skillAPI.Named;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 
@@ -19,9 +19,10 @@ import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
  * @lines 250
  * @param <V> The type of the value of a property.
  */
-public final class Property<V> extends NamedElement {
+public final class Property<V> implements Named {
 	
 	//attributes
+	private final String name;
 	private final V defaultValue;
 	private final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator;
 	private final IElementTakerElementGetter<V, DocumentNode> specificationCreator;
@@ -51,8 +52,7 @@ public final class Property<V> extends NamedElement {
 		final IElementTakerElementGetter<V, DocumentNode> specificationCreator
 	) {
 		
-		//Calls constructor of the base class.
-		super(name);
+		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 		
 		//Checks if the given default is not null.
 		Validator
@@ -80,6 +80,12 @@ public final class Property<V> extends NamedElement {
 		
 		//Sets the specification creator of this property.
 		this.specificationCreator = specificationCreator;
+	}
+	
+	//method
+	@Override
+	public String getName() {
+		return name;
 	}
 	
 	//method

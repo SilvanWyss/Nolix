@@ -3,10 +3,10 @@ package ch.nolix.system.databaseSchemaAdapter;
 
 //own imports
 import ch.nolix.core.SQL.SQLDatabaseEngine;
-import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.skillAPI.Named;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.EntitySetState;
 import ch.nolix.system.databaseAdapter.EntityType;
@@ -19,9 +19,10 @@ import ch.nolix.system.databaseAdapter.PropertyoidType;
 import ch.nolix.system.databaseAdapter.ReferenceType;
 
 //class
-public final class EntitySet extends NamedElement {
+public final class EntitySet implements Named {
 	
 	//attributes
+	private final String name;
 	private final DatabaseSchemaAdapter<?> parentDatabaseSchemaAdapter;
 	private EntitySetState state = EntitySetState.CREATED;
 	
@@ -35,7 +36,7 @@ public final class EntitySet extends NamedElement {
 		final Class<E> entityClass
 	) {
 		
-		super(new EntityType<E>(entityClass).getName());
+		name = new EntityType<E>(entityClass).getName();
 		
 		final var entityType = new EntityType<E>(entityClass);
 		
@@ -100,6 +101,13 @@ public final class EntitySet extends NamedElement {
 		return columns.contains(c -> c.hasHeader(header));
 	}
 	
+	//method
+	@Override
+	public String getName() {
+		return name;
+	}
+	
+	//method
 	public IContainer<Column> getRefColumns() {
 		return columns;
 	}

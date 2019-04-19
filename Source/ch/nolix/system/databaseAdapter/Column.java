@@ -2,23 +2,25 @@
 package ch.nolix.system.databaseAdapter;
 
 //own imports
-import ch.nolix.core.bases.HeaderedElement;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.skillAPI.Headered;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator.Validator;
 
 //class
-public final class Column<V> extends HeaderedElement implements Specified {
+public final class Column<V> implements Headered, Specified {
 
-	//attribute
+	//attributes
+	private final String header;
 	private final PropertyoidType<V> propertyType;
 	
 	//constructor
 	public Column(final String header, final PropertyoidType<V> propertyType) {
 		
-		super(header);
+		this.header = Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank().andReturn();
 		
 		Validator
 		.suppose(propertyType)
@@ -44,6 +46,12 @@ public final class Column<V> extends HeaderedElement implements Specified {
 			),
 			getPropertyType().getSpecification()
 		);
+	}
+	
+	//method
+	@Override
+	public String getHeader() {
+		return header;
 	}
 	
 	//method

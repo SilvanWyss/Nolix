@@ -5,9 +5,9 @@ package ch.nolix.system.GUIClientoid;
 import java.io.Flushable;
 
 //own imports
-import ch.nolix.core.bases.IndexedElement;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.primitiveHelper.ArrayHelper;
+import ch.nolix.core.skillAPI.Indexed;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.image.Image;
@@ -15,26 +15,22 @@ import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.textFormat.TextFormat;
 
 //package-visible class
-final class FrontBrowserGUIClientoidPainter extends IndexedElement
-implements IPainter, Flushable {
+final class FrontBrowserGUIClientoidPainter implements Indexed, IPainter, Flushable {
 	
 	//attributes
 	private final BrowserGUIPainterBottom bottom;
+	private final int index;
 	
 	//constructor
 	public FrontBrowserGUIClientoidPainter(final BackGUIClientoid<?> parentBackGUIClient) {
-		
-		super(1);
-		
 		bottom = new BrowserGUIPainterBottom(parentBackGUIClient);
+		index = 1;
 	}
 	
 	//constructor
 	private FrontBrowserGUIClientoidPainter(final BrowserGUIPainterBottom bottom) {
-		
-		super(bottom.getNextIndexAndUpdateNextIndex());
-		
 		this.bottom = bottom;
+		this.index = bottom.getNextIndexAndUpdateNextIndex();
 	}
 	
 	//method
@@ -89,6 +85,12 @@ implements IPainter, Flushable {
 	@Override
 	public void flush() {
 		bottom.paintOnCounterpart();
+	}
+	
+	//method
+	@Override
+	public int getIndex() {
+		return index;
 	}
 	
 	//method

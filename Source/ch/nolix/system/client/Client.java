@@ -2,7 +2,6 @@
 package ch.nolix.system.client;
 
 //own imports
-import ch.nolix.core.bases.OptionalLabelableElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
@@ -12,10 +11,12 @@ import ch.nolix.core.endPoint5.EndPoint;
 import ch.nolix.core.endPoint5.LocalEndPoint;
 import ch.nolix.core.endPoint5.NetEndPoint;
 import ch.nolix.core.functionAPI.IFunction;
+import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Closable;
+import ch.nolix.core.skillAPI.OptionalLabelable;
 import ch.nolix.core.validator.Validator;
 
 //abstract class
@@ -28,8 +29,7 @@ import ch.nolix.core.validator.Validator;
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
-extends OptionalLabelableElement<C>
-implements Closable {
+implements Closable, OptionalLabelable<C>, ISmartObject<C> {
 	
 	//constants
 	protected static final String SESSION_USER_RUN_METHOD_HEADER = "SessionUserRunMethod";
@@ -46,8 +46,9 @@ implements Closable {
 	 */
 	private Application<C> parentApplication;
 	
-	//optional attribute
+	//optional attributes
 	private Session<C> currentSession;
+	private String infoString;
 	
 	//multi-attribute
 	private final List<Session<C>> sessions = new List<Session<C>>();
@@ -107,7 +108,18 @@ implements Closable {
 	public final int getCurrentSessionIndex() {
 		return sessions.getIndexOf(internal_getRefCurrentSession());
 	}
-
+	
+	//method
+	@Override
+	public final String getInfoString() {
+		
+		if (infoString == null) {
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.INFO_STRING);
+		}
+		
+		return infoString;
+	}
+	
 	//method
 	/**
 	 * @return the context of the {@link Application} the current {@link Client} belongs to.
@@ -135,6 +147,15 @@ implements Closable {
 	@Override
 	public final String getType() {
 		return getClass().getSimpleName();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean hasInfoString() {
+		return (infoString != null);
 	}
 	
 	//method
@@ -273,6 +294,25 @@ implements Closable {
 	 */
 	public final boolean referencesParentApplication() {
 		return (parentApplication != null);
+	}
+	
+	//method
+	@Override
+	public final C removeInfoString() {
+		
+		infoString = null;
+		
+		return asConcreteType();
+	}
+	
+	//method
+	@Override
+	public final C setInfoString(final String infoString) {
+		
+		this.infoString
+		= Validator.suppose(infoString).thatIsNamed(VariableNameCatalogue.INFO_STRING).isNotBlank().andReturn();
+		
+		return asConcreteType();
 	}
 	
 	//method

@@ -3,19 +3,21 @@ package ch.nolix.system.databaseSchemaAdapter;
 
 //own imports
 import ch.nolix.core.SQL.SQLDatabaseEngine;
-import ch.nolix.core.bases.HeaderedElement;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.skillAPI.Headered;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.system.databaseAdapter.PropertyKind;
 import ch.nolix.system.databaseAdapter.PropertyoidType;
 
 //class
-public final class Column extends HeaderedElement implements Specified {
+public final class Column implements Headered, Specified {
 	
 	//attributes
+	private final String header;
 	private final EntitySet entitySet;
 	private final PropertyoidType<?> valueType;
 		
@@ -26,8 +28,8 @@ public final class Column extends HeaderedElement implements Specified {
 		final PropertyoidType<?> valueType
 	) {
 		
-		super(header);
-
+		this.header = Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank().andReturn();
+		
 		Validator.suppose(entitySet).isOfType(EntitySet.class);
 		Validator.suppose(valueType).isOfType(PropertyoidType.class);
 		
@@ -43,6 +45,12 @@ public final class Column extends HeaderedElement implements Specified {
 			new DocumentNode(PascalCaseNameCatalogue.HEADER, getHeader()),
 			valueType.getSpecification()
 		);
+	}
+	
+	//method
+	@Override
+	public String getHeader() {
+		return header;
 	}
 	
 	//method

@@ -1,19 +1,18 @@
 //package declaration
 package ch.nolix.system.client;
 
-//own imports
-import java.lang.reflect.Constructor;
 //Java import
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 //own imports
-import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.endPoint5.EndPoint;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.sequencer.Sequencer;
+import ch.nolix.core.skillAPI.Named;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -23,9 +22,10 @@ import ch.nolix.core.validator.Validator;
  * @lines 260
  * @param <C> The type of the clients of an application.
  */
-public class Application<C extends Client<C>> extends NamedElement {
+public class Application<C extends Client<C>> implements Named {
 
 	//attributes
+	private final String name;
 	private final Class<C> clientClass;
 	private final Class<?> initialSessionClass;
 	
@@ -53,9 +53,8 @@ public class Application<C extends Client<C>> extends NamedElement {
 		final Class<C> clientClass,
 		final Class<?> initialSessionClass
 	) {
-	
-		//Calls constructor of the base class.
-		super(name);
+		
+		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 		
 		//Checks if the given client class is not null.
 		Validator
@@ -95,9 +94,8 @@ public class Application<C extends Client<C>> extends NamedElement {
 		final Class<?> initialSessionClass,
 		final Object context
 	) {
-	
-		//Calls constructor of the base class.
-		super(name);
+		
+		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 		
 		//Checks if the given client class is not null.
 		Validator
@@ -158,6 +156,14 @@ public class Application<C extends Client<C>> extends NamedElement {
 	 */
 	public final Class<C> getClientClass() {
 		return clientClass;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public final String getName() {
+		return name;
 	}
 	
 	//method

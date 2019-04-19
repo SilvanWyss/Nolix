@@ -2,10 +2,11 @@
 package ch.nolix.tech.resource;
 
 //own imports
-import ch.nolix.core.bases.NamedElement;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.skillAPI.Named;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.techAPI.resourceAPI.IResource;
 import ch.nolix.core.container.List;
 
@@ -15,9 +16,12 @@ import ch.nolix.core.container.List;
  * 
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 150
+ * @lines 160
  */
-public final class Resource extends NamedElement implements IResource {
+public final class Resource implements IResource, Named {
+	
+	//attribute
+	private final String name;
 	
 	//multi-attribute
 	public final ReadContainer<IResource> baseResources;
@@ -70,8 +74,7 @@ public final class Resource extends NamedElement implements IResource {
 	 */
 	public Resource(final String name, final Iterable<IResource> baseResources) {
 		
-		//Calls constructor of the base class.
-		super(name);
+		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 		
 		final var internalBaseResources = new List<IResource>();
 		
@@ -114,6 +117,15 @@ public final class Resource extends NamedElement implements IResource {
 	@Override
 	public final int getBaseResourceCount() {
 		return getBaseResources().getSize();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getName() {
+		return name;
 	}
 	
 	//method

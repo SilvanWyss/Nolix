@@ -2,7 +2,6 @@
 package ch.nolix.core.XMLDocument;
 
 //own imports
-import ch.nolix.core.bases.OptionalNamableElement;
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
@@ -12,17 +11,19 @@ import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Freezable;
+import ch.nolix.core.skillAPI.OptionalNamable;
 import ch.nolix.core.skillAPI.OptionalValueable;
 import ch.nolix.core.validator.Validator;
 
 //class
-public final class XMLNode extends OptionalNamableElement<XMLNode>
-implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
+public final class XMLNode
+implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNode, String> {
 	
 	//attribute
 	private boolean frozen = false;
 	
 	//optional attribute
+	private String name;
 	private String value;
 	
 	//multi-attributes
@@ -145,6 +146,17 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	}
 	
 	//method
+	@Override
+	public String getName() {
+		
+		if (name == null) {
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.NAME);
+		}
+		
+		return name;
+	}
+	
+	//method
 	public IContainer<XMLNode> getRefChildNodes() {
 		return childNodes;
 	}
@@ -152,6 +164,12 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	//method
 	public boolean hasMixedContent() {
 		return (hasValue() && containsChildNodes());
+	}
+	
+	//method
+	@Override
+	public boolean hasName() {
+		return (name != null);
 	}
 	
 	//method
@@ -188,11 +206,31 @@ implements Freezable<XMLNode>, OptionalValueable<XMLNode, String> {
 	
 	//method
 	@Override
+	public XMLNode removeName() {
+		
+		supposeIsNotFrozen();
+		
+		name = null;
+		
+		return this;
+	}
+	
+	//method
+	@Override
 	public XMLNode removeValue() {
 		
 		supposeIsNotFrozen();
 		
 		value = null;
+		
+		return this;
+	}
+	
+	//method
+	@Override
+	public XMLNode setName(final String name) {
+		
+		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 		
 		return this;
 	}
