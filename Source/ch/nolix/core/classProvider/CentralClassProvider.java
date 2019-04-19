@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.core.classProvider;
 
-//own import
+//own imports
+import ch.nolix.core.enums.WriteMode;
 import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 
 //class
@@ -35,10 +36,10 @@ public final class CentralClassProvider {
 	public static <I, C extends I> RegistrationMediator register(
 		final Class<I> interface_,
 		final Class<C> class_,
-		boolean overwrite
+		final WriteMode writeMode
 	) {
 		
-		classProvider.register(interface_, class_, overwrite);
+		classProvider.register(interface_, class_, writeMode);
 		
 		return new RegistrationMediator();
 	}

@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.classProvider;
 
+//own import
+import ch.nolix.core.enums.WriteMode;
+
 //class
 public final class RegistrationMediator {
 	
@@ -16,8 +19,8 @@ public final class RegistrationMediator {
 	public <I, C extends I> RegistrationMediator register(
 		final Class<I> interface_,
 		final Class<C> class_,
-		boolean overwrite
+		final WriteMode writeMode
 	) {
-		return CentralClassProvider.register(interface_, class_, overwrite);
+		return CentralClassProvider.register(interface_, class_, writeMode);
 	}
 }

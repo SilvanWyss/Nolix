@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.enums.WriteMode;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
 
@@ -54,11 +55,15 @@ public final class ClassProvider {
 	
 	//method
 	public <I, C extends I> void register(final Class<I> interface_, final Class<C> class_) {
-		register(interface_, class_, false);
+		register(interface_, class_, WriteMode.THROW_EXCEPTION_WHEN_EXISTS_ALREADY);
 	}
 	
 	//method
-	public <I, C extends I> void register(final Class<I> interface_, final Class<C> class_,	final boolean overwrite) {
+	public <I, C extends I> void register(
+		final Class<I> interface_,
+		final Class<C> class_,
+		final WriteMode writeMode
+	) {
 		
 		Validator
 		.suppose(interface_)
@@ -70,19 +75,26 @@ public final class ClassProvider {
 		.thatIsNamed(VariableNameCatalogue.CLASS)
 		.isImplementing(interface_);
 		
-		if (!overwrite) {
-			if (classes.putIfAbsent(interface_, class_) != null) {
-				throw
-				new InvalidArgumentException(
-					this,
-					"contains already a class that implements the interface '"
-					+ interface_.getCanonicalName()
-					+ "'"
-				);
-			}
-		}
-		else {
-			classes.put(interface_, class_);
+		switch (writeMode) {
+			case THROW_EXCEPTION_WHEN_EXISTS_ALREADY:
+				
+				if (classes.putIfAbsent(interface_, class_) != null) {
+					throw
+					new InvalidArgumentException(
+						this,
+						"contains already a class that implements the interface '"
+						+ interface_.getCanonicalName()
+						+ "'"
+					);
+				}
+				
+				break;
+			case OVERWRITE_WHEN_EXISTS_ALREADY:
+				classes.put(interface_, class_);
+				break;
+			case SKIP_WHEN_EXISTS_ALREADY:
+				classes.putIfAbsent(interface_, class_);
+				break;
 		}
 	}
 }
