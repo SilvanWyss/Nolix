@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.entity2;
+package ch.nolix.core.layerEntity;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -19,7 +19,7 @@ import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
  * @lines 250
  * @param <V> The type of the value of a property.
  */
-public final class Property<V> implements Named {
+public final class LayerProperty<V> implements Named {
 	
 	//attributes
 	private final String name;
@@ -29,7 +29,7 @@ public final class Property<V> implements Named {
 	
 	//optional attributes
 	private V value;
-	private Property<V> baseProperty;
+	private LayerProperty<V> baseProperty;
 	
 	//constructor
 	/**
@@ -45,7 +45,7 @@ public final class Property<V> implements Named {
 	 * @throws NullArgumentException if the given value creator is null.
 	 * @throws NullArgumentException if the given specification creator is null.
 	 */
-	public Property(
+	public LayerProperty(
 		final String name,		
 		final V defaultValue,
 		final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator,
@@ -217,7 +217,7 @@ public final class Property<V> implements Named {
 	 * @throws InvalidArgumentException if this property has a base property.
 	 */
 	@SuppressWarnings("unchecked")
-	void setBaseProperty(final Property<?> baseProperty) {
+	void setBaseProperty(final LayerProperty<?> baseProperty) {
 		
 		//Checks if the given base property is not null.
 		Validator
@@ -228,7 +228,7 @@ public final class Property<V> implements Named {
 		supposeHasNoBaseProperty();
 		
 		//Sets the base property of this property.
-		this.baseProperty = (Property<V>)baseProperty;
+		this.baseProperty = (LayerProperty<V>)baseProperty;
 	}
 	
 	//method

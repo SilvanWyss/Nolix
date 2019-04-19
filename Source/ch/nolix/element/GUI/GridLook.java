@@ -3,7 +3,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.entity2.Property;
+import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
 
@@ -20,8 +20,8 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	private static final String LINE_TYPE_HEADER = "LineType";
 	
 	//attribute
-	private final Property<PositiveInteger> lineThickness =
-	new Property<PositiveInteger>(
+	private final LayerProperty<PositiveInteger> lineThickness =
+	new LayerProperty<PositiveInteger>(
 		PascalCaseNameCatalogue.LINE_THICKNESS,
 		new PositiveInteger(DEFAULT_LINE_THICKNESS),
 		s -> PositiveInteger.createFromSpecification(s),
@@ -29,8 +29,8 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	);
 	
 	//attribute
-	private final Property<Color> lineColor =
-	new Property<Color>(
+	private final LayerProperty<Color> lineColor =
+	new LayerProperty<Color>(
 		PascalCaseNameCatalogue.COLOR,
 		DEFAULT_LINE_COLOR,
 		s -> Color.createFromSpecification(s),
@@ -38,8 +38,8 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	);
 	
 	//attribute
-	private final Property<PositiveInteger> elementMargin =
-	new Property<PositiveInteger>(
+	private final LayerProperty<PositiveInteger> elementMargin =
+	new LayerProperty<PositiveInteger>(
 		PascalCaseNameCatalogue.ELEMENT_MARGIN,
 		new PositiveInteger(DEFAULT_ELEMENT_MARGIN),
 		s -> PositiveInteger.createFromSpecification(s),
@@ -47,8 +47,8 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	);
 	
 	//attribute
-	private final Property<GridLineType> lineType =
-	new Property<GridLineType>(
+	private final LayerProperty<GridLineType> lineType =
+	new LayerProperty<GridLineType>(
 		LINE_TYPE_HEADER,
 		DEFAULT_LINE_TYPE,
 		s -> GridLineType.createFromSpecification(s),

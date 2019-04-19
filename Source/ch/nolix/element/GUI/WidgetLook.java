@@ -3,9 +3,9 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.entity2.Entity;
-import ch.nolix.core.entity2.Property;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
+import ch.nolix.core.layerEntity.LayerEntity;
+import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
@@ -28,7 +28,7 @@ import ch.nolix.element.textFormat.Font;
  * @lines 290
  * @param <WL> The type of a {@link WidgetLook}.
  */
-public abstract class WidgetLook<WL extends WidgetLook<WL>> extends Entity<WL> {
+public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerEntity<WL> {
 	
 	//default values
 	public static final Font DEFAULT_TEXT_FONT = Font.Verdana;
@@ -39,8 +39,8 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends Entity<WL> {
 	private static final String BOLD_TEXT_FLAG_HEADER = "BoldTextFlag";
 	
 	//attribute
-	private final Property<Font> font =
-	new Property<Font>(
+	private final LayerProperty<Font> font =
+	new LayerProperty<Font>(
 		Font.TYPE_NAME,
 		DEFAULT_TEXT_FONT,
 		s -> Font.createFromSpecification(s),
@@ -48,8 +48,8 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends Entity<WL> {
 	);
 	
 	//attribute
-	private final Property<Boolean> boldTextFlag =
-	new Property<Boolean>(
+	private final LayerProperty<Boolean> boldTextFlag =
+	new LayerProperty<Boolean>(
 		BOLD_TEXT_FLAG_HEADER,
 		new Boolean(false),
 		s -> Boolean.createFromSpecification(s),
@@ -57,8 +57,8 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends Entity<WL> {
 	);
 	
 	//attribute
-	private final Property<PositiveInteger> textSize =
-	new Property<PositiveInteger>(
+	private final LayerProperty<PositiveInteger> textSize =
+	new LayerProperty<PositiveInteger>(
 		PascalCaseNameCatalogue.TEXT_SIZE,
 		new PositiveInteger(DEFAULT_TEXT_SIZE),
 		s -> PositiveInteger.createFromSpecification(s),
@@ -66,8 +66,8 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends Entity<WL> {
 	);
 	
 	//attribute
-	private final Property<Color> textColor =
-	new Property<Color>(
+	private final LayerProperty<Color> textColor =
+	new LayerProperty<Color>(
 		PascalCaseNameCatalogue.TEXT_COLOR,
 		DEFAULT_TEXT_COLOR,
 		s -> Color.createFromSpecification(s),

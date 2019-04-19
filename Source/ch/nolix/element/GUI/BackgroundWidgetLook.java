@@ -3,7 +3,7 @@ package ch.nolix.element.GUI;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.entity2.Property;
+import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.image.Image;
@@ -33,8 +33,8 @@ extends WidgetLook<BWL> {
 	private static final String BACKGROUND_IMAGE_HEADER = "BackgroundImage";
 	
 	//attribute
-	private final Property<Color> backgroundColor =
-	new Property<Color>(
+	private final LayerProperty<Color> backgroundColor =
+	new LayerProperty<Color>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		DEFAULT_BACKGROUND_COLOR,
 		s -> Color.createFromSpecification(s),
@@ -42,8 +42,8 @@ extends WidgetLook<BWL> {
 	);
 
 	//attribute
-	private final Property<ColorGradient> backgroundColorGradient =
-	new Property<ColorGradient>(
+	private final LayerProperty<ColorGradient> backgroundColorGradient =
+	new LayerProperty<ColorGradient>(
 		BACKGROUND_COLOR_GRADIENT_HEADER,
 		DEFAULT_BACKGROUND_COLOR_GRADIENT,
 		s -> ColorGradient.createFromSpecification(s),
@@ -51,8 +51,8 @@ extends WidgetLook<BWL> {
 	);
 	
 	//attribute
-	private final Property<Image> backgroundImage =
-	new Property<Image>(
+	private final LayerProperty<Image> backgroundImage =
+	new LayerProperty<Image>(
 		BACKGROUND_IMAGE_HEADER,
 		DEFAULT_BACKGROUND_IMAGE,
 		s -> Image.createFromSpecification(s),

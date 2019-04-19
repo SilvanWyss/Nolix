@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.entity2.Property;
+import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.element.core.PositiveInteger;
 
 //class
@@ -17,8 +16,8 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 	private static final String WIDGET_MARGIN_HEADER = "WidgetMargin";
 	
 	//attribute
-	private final Property<PositiveInteger> proposeContentWidth =
-	new Property<PositiveInteger>(
+	private final LayerProperty<PositiveInteger> proposeContentWidth =
+	new LayerProperty<PositiveInteger>(
 		PROPOSE_CONTENT_WIDTH_HEADER,
 		new PositiveInteger(DEFAULT_PROPOSE_CONTENT_WIDTH),
 		s -> PositiveInteger.createFromSpecification(s),
@@ -26,8 +25,8 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 	);
 		
 	//attribute
-	private final Property<PositiveInteger> widgetMargin =
-	new Property<PositiveInteger>(
+	private final LayerProperty<PositiveInteger> widgetMargin =
+	new LayerProperty<PositiveInteger>(
 		WIDGET_MARGIN_HEADER,
 		new PositiveInteger(DEFAULT_WIDGET_MARGIN),
 		s -> PositiveInteger.createFromSpecification(s),

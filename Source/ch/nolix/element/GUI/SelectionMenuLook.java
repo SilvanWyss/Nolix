@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.entity2.Property;
+import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.element.core.NonNegativeInteger;
 
 //class
@@ -19,8 +18,8 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	private static final String SELECTION_ITEM_LOOK_HEADER = "SelectionItemLook";
 	
 	//attribute
-	private final Property<NonNegativeInteger> itemPaddingProperty =
-	new Property<NonNegativeInteger>(
+	private final LayerProperty<NonNegativeInteger> itemPaddingProperty =
+	new LayerProperty<NonNegativeInteger>(
 		ITEM_PADDING_HEADER,
 		new NonNegativeInteger(),
 		s -> NonNegativeInteger.createFromSpecification(s),
@@ -28,8 +27,8 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	);
 	
 	//attribute
-	private final Property<SelectionMenuItemLook> baseItemLookProperty =
-	new Property<SelectionMenuItemLook>(
+	private final LayerProperty<SelectionMenuItemLook> baseItemLookProperty =
+	new LayerProperty<SelectionMenuItemLook>(
 		NORMAL_ITEM_LOOK_HEADER,
 		new SelectionMenuItemLook(),
 		s -> SelectionMenuItemLook.createFromSpecification(s),
@@ -37,8 +36,8 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	);
 	
 	//attribute
-	private final Property<SelectionMenuItemLook> hoverItemLookProperty =
-	new Property<SelectionMenuItemLook>(
+	private final LayerProperty<SelectionMenuItemLook> hoverItemLookProperty =
+	new LayerProperty<SelectionMenuItemLook>(
 		HOVER_ITEM_LOOK_HEADER,
 		new SelectionMenuItemLook(),
 		s -> SelectionMenuItemLook.createFromSpecification(s),
@@ -46,8 +45,8 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	);
 	
 	//attribute
-	private final Property<SelectionMenuItemLook> selectionItemLookProperty =
-	new Property<SelectionMenuItemLook>(
+	private final LayerProperty<SelectionMenuItemLook> selectionItemLookProperty =
+	new LayerProperty<SelectionMenuItemLook>(
 		SELECTION_ITEM_LOOK_HEADER,
 		new SelectionMenuItemLook(),
 		s -> SelectionMenuItemLook.createFromSpecification(s),

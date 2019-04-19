@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.entity2;
+package ch.nolix.core.layerEntity;
 
 //Java import
 import java.lang.reflect.Field;
@@ -23,13 +23,13 @@ import ch.nolix.core.validator.Validator;
  * @lines 230
  * @param <E> The type of an entity.
  */
-public abstract class Entity<E extends Entity<E>>
+public abstract class LayerEntity<E extends LayerEntity<E>>
 implements
 	ISmartObject<E>,
 	Specifiable<E> {
 	
 	//attribute
-	private List<Property<?>> properties;
+	private List<LayerProperty<?>> layerProperties;
 	
 	//optional attribute
 	private E baseEntity;
@@ -76,14 +76,14 @@ implements
 	/**
 	 * @return the properties of this entity.
 	 */
-	public final IContainer<Property<?>> getRefProperties() {
+	public final IContainer<LayerProperty<?>> getRefProperties() {
 		
 		//Handles the case that the properties of this entity are not extracted yet.
 		if (!propertiesAreExtracted()) {
 			extractProperties();
 		}
 		
-		return new ReadContainer<Property<?>>(properties);
+		return new ReadContainer<LayerProperty<?>>(layerProperties);
 	}
 	
 	//method
@@ -163,7 +163,7 @@ implements
 			);
 		}
 		
-		properties = new List<Property<?>>();
+		layerProperties = new List<LayerProperty<?>>();
 		
 		//Iterates the types of this entity.
 		Class<?> cl = getClass();
@@ -173,18 +173,18 @@ implements
 			for (final Field f : cl.getDeclaredFields()) {
 				
 				//Handles the case that the current field is a property.
-				if (f.getType().isAssignableFrom(Property.class)) {
+				if (f.getType().isAssignableFrom(LayerProperty.class)) {
 					
 					try {
 						
 						f.setAccessible(true);
 						
-						final Property<?> property = (Property<?>)(f.get(this));
+						final LayerProperty<?> property = (LayerProperty<?>)(f.get(this));
 						
 						//Checks if the current property is not null.
-						Validator.suppose(property).isOfType(Property.class);
+						Validator.suppose(property).isOfType(LayerProperty.class);
 						
-						properties.addAtEnd(property);
+						layerProperties.addAtEnd(property);
 					}
 					catch (
 						IllegalArgumentException
@@ -204,7 +204,7 @@ implements
 	 * @return true if the properties of this entity are extracted.
 	 */
 	private boolean propertiesAreExtracted() {
-		return (properties != null);
+		return (layerProperties != null);
 	}
 	
 	//method

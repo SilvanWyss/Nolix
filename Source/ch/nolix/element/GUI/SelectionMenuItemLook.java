@@ -4,13 +4,13 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.entity2.Entity;
-import ch.nolix.core.entity2.Property;
+import ch.nolix.core.layerEntity.LayerEntity;
+import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.element.color.Color;
 
 //class
 public final class SelectionMenuItemLook
-extends Entity<SelectionMenuItemLook> {
+extends LayerEntity<SelectionMenuItemLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "ItemLook";
@@ -31,8 +31,8 @@ extends Entity<SelectionMenuItemLook> {
 	}
 
 	//attribute
-	private final Property<Color> backgroundColor =
-	new Property<Color>(
+	private final LayerProperty<Color> backgroundColor =
+	new LayerProperty<Color>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		DEFAULT_BACKGROUND_COLOR,
 		s -> Color.createFromSpecification(s),
@@ -40,8 +40,8 @@ extends Entity<SelectionMenuItemLook> {
 	);
 	
 	//attribute
-	private final Property<Color> textColor =
-	new Property<Color>(
+	private final LayerProperty<Color> textColor =
+	new LayerProperty<Color>(
 		PascalCaseNameCatalogue.TEXT_COLOR,
 		DEFAULT_TEXT_COLOR,
 		s -> Color.createFromSpecification(s),

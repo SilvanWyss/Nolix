@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.entity2.Property;
+import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
 
@@ -22,8 +21,8 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	private static final String TAB_BACKGROUND_COLOR_HEADER = "TabBackgroundColor";
 	
 	//attribute
-	private final Property<Color> tabHeaderBackgroundColor =
-	new Property<Color>(
+	private final LayerProperty<Color> tabHeaderBackgroundColor =
+	new LayerProperty<Color>(
 		TAB_HEADER_BACKGROUND_COLOR_HEADER,
 		DEFAULT_TAB_HEADER_BACKGROUND_COLOR,
 		s -> Color.createFromSpecification(s),
@@ -31,8 +30,8 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	);
 	
 	//attribute
-	private final Property<PositiveInteger> tabHeaderTextSize =
-	new Property<PositiveInteger>(
+	private final LayerProperty<PositiveInteger> tabHeaderTextSize =
+	new LayerProperty<PositiveInteger>(
 		TAB_HEADER_TEXT_SIZE_HEADER,
 		new PositiveInteger(DEFAULT_TAB_HEADER_TEXT_SIZE),
 		s -> PositiveInteger.createFromSpecification(s),
@@ -40,8 +39,8 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	);
 	
 	//attribute
-	private final Property<Color> tabHeaderTextColor =
-	new Property<Color>(
+	private final LayerProperty<Color> tabHeaderTextColor =
+	new LayerProperty<Color>(
 		TAB_HEADER_TEXT_COLOR_HEADER,
 		DEFAULT_TAB_HEADER_TEXT_COLOR,
 		s -> Color.createFromSpecification(s),
@@ -49,8 +48,8 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	);
 	
 	//attribute
-	private final Property<Color> tabBackgroundColor =
-	new Property<Color>(
+	private final LayerProperty<Color> tabBackgroundColor =
+	new LayerProperty<Color>(
 		TAB_BACKGROUND_COLOR_HEADER,
 		DEFAULT_TAB_BACKGROUND_COLOR,
 		s -> Color.createFromSpecification(s),

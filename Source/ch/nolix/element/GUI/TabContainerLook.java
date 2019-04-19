@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.GUI;
 
-//own imports
-import ch.nolix.core.entity2.Property;
+import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.element.core.NonNegativeInteger;
 
 //class
@@ -23,8 +22,8 @@ extends BorderWidgetLook<TabContainerLook> {
 	private static final String SELECTION_MENU_ITEM_LOOK_HEADER = "SelectionMenuItemLook";
 	
 	//attribute
-	private final Property<NonNegativeInteger> menuItemMargin =
-	new Property<NonNegativeInteger>(
+	private final LayerProperty<NonNegativeInteger> menuItemMargin =
+	new LayerProperty<NonNegativeInteger>(
 		MENU_ITEM_MARGIN_HEADER,
 		new NonNegativeInteger(DEFAULT_MENU_ITEM_MARGIN),
 		s -> NonNegativeInteger.createFromSpecification(s),
@@ -32,8 +31,8 @@ extends BorderWidgetLook<TabContainerLook> {
 	);
 	
 	//attribute
-	private final Property<NonNegativeInteger> menuMargin =
-	new Property<NonNegativeInteger>(
+	private final LayerProperty<NonNegativeInteger> menuMargin =
+	new LayerProperty<NonNegativeInteger>(
 		MENU_MARGIN_HEADER,
 		new NonNegativeInteger(DEFAULT_MENU_MARGIN),
 		s -> NonNegativeInteger.createFromSpecification(s),
@@ -41,8 +40,8 @@ extends BorderWidgetLook<TabContainerLook> {
 	);
 	
 	//attribute
-	private final Property<TabContainerMenuItemLook> baseMenuItemLook =
-	new Property<TabContainerMenuItemLook>(
+	private final LayerProperty<TabContainerMenuItemLook> baseMenuItemLook =
+	new LayerProperty<TabContainerMenuItemLook>(
 		BASE_MENU_ITEM_LOOK_HEADER,
 		new TabContainerMenuItemLook(),
 		s -> TabContainerMenuItemLook.createFromSpecification(s),
@@ -50,8 +49,8 @@ extends BorderWidgetLook<TabContainerLook> {
 	);
 	
 	//attribute
-	private final Property<TabContainerMenuItemLook> hoverMenuItemLook =
-	new Property<TabContainerMenuItemLook>(
+	private final LayerProperty<TabContainerMenuItemLook> hoverMenuItemLook =
+	new LayerProperty<TabContainerMenuItemLook>(
 		HOVER_MENU_ITEM_LOOK_HEADER,
 		new TabContainerMenuItemLook(),
 		s -> TabContainerMenuItemLook.createFromSpecification(s),
@@ -59,8 +58,8 @@ extends BorderWidgetLook<TabContainerLook> {
 	);
 	
 	//attribute
-	private final Property<TabContainerMenuItemLook> selectionMenuItemLook =
-	new Property<TabContainerMenuItemLook>(
+	private final LayerProperty<TabContainerMenuItemLook> selectionMenuItemLook =
+	new LayerProperty<TabContainerMenuItemLook>(
 		SELECTION_MENU_ITEM_LOOK_HEADER,
 		new TabContainerMenuItemLook(),
 		s -> TabContainerMenuItemLook.createFromSpecification(s),
