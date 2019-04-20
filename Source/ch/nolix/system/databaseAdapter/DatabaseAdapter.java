@@ -5,8 +5,8 @@ package ch.nolix.system.databaseAdapter;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.factory.Factory;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
+import ch.nolix.core.instanceCreator.InstanceCreator;
 import ch.nolix.core.skillAPI.IChangesSaver;
 import ch.nolix.core.validator.Validator;
 
@@ -14,8 +14,8 @@ import ch.nolix.core.validator.Validator;
 public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 	
 	//static attribute
-	private static final Factory<DocumentNodeoid, Object> valueFactory =
-	new Factory<DocumentNodeoid, Object>()
+	private static final InstanceCreator<DocumentNodeoid, Object> valueFactory =
+	new InstanceCreator<DocumentNodeoid, Object>()
 	.addInstanceCreator(Boolean.class.getSimpleName(), s -> s.toBoolean())
 	.addInstanceCreator(Integer.class.getSimpleName(), s -> s.toInt())
 	.addInstanceCreator(String.class.getSimpleName(), s -> s.toString());

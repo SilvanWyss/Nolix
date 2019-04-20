@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.factory;
+package ch.nolix.core.instanceCreator;
 
 //own imports
 import ch.nolix.core.container.List;
@@ -11,30 +11,30 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * @author Silvan Wyss
  * @month 2018-06
  * @lines 90
- * @param <I> The type of the inputs of a {@link Factory}.
- * @param <O> The type of the instances a {@link Factory} can create.
+ * @param <I> The type of the inputs of a {@link InstanceCreator}.
+ * @param <O> The type of the instances a {@link InstanceCreator} can create.
  */
-public final class Factory<I, O> {
+public final class InstanceCreator<I, O> {
 	
 	//multi-attribute
-	private final List<InstanceCreator<I, O>> instanceCreators =
-	new List<InstanceCreator<I, O>>();
+	private final List<SingleTypeInstanceCreator<I, O>> singleTypeInstanceCreators =
+	new List<SingleTypeInstanceCreator<I, O>>();
 
 	//method
 	/**
-	 * Adds a new instance creator to the current {@link Factory},
+	 * Adds a new instance creator to the current {@link InstanceCreator},
 	 * that can create instances of the given type and has the given instance creator.
 	 * 
 	 * @param type
 	 * @param instanceCreator
-	 * @return the current {@link Factory}.
-	 * @throws InvalidArgumentException if the current {@link Factory}
+	 * @return the current {@link InstanceCreator}.
+	 * @throws InvalidArgumentException if the current {@link InstanceCreator}
 	 * can already create instances of the given type.
 	 * @throws NullArgumentException if the given instance type is null.
 	 * @throws EmptyArgumentException if the given instance type is empty.
 	 * @throws NullArgumentException if the given instance creator function is null.
 	 */
-	public Factory<I, O> addInstanceCreator(
+	public InstanceCreator<I, O> addInstanceCreator(
 		final String type,
 		final IElementTakerElementGetter<I, O> instanceCreator
 	) {
@@ -50,8 +50,8 @@ public final class Factory<I, O> {
 			);
 		}
 		
-		instanceCreators.addAtEnd(
-			new InstanceCreator<>(type, instanceCreator)
+		singleTypeInstanceCreators.addAtEnd(
+			new SingleTypeInstanceCreator<>(type, instanceCreator)
 		);
 		
 		return this;
@@ -60,26 +60,26 @@ public final class Factory<I, O> {
 	//method
 	/**
 	 * @param type
-	 * @return true if the current {@link Factory} can create instances of the given type.
+	 * @return true if the current {@link InstanceCreator} can create instances of the given type.
 	 */
 	public boolean canCreateInstanceOf(final String type) {
-		return instanceCreators.contains(ic -> ic.canCreateInstanceOf(type));
+		return singleTypeInstanceCreators.contains(ic -> ic.canCreateInstanceOf(type));
 	}
 	
 	//method
 	/**
 	 * @param type
 	 * @param input
-	 * @return a new instance from the current {@link Factory}
+	 * @return a new instance from the current {@link InstanceCreator}
 	 * that is of the given type and from the given input.
-	 * @throws InvalidArgumentException if the current {@link Factory}
+	 * @throws InvalidArgumentException if the current {@link InstanceCreator}
 	 * cannot create instances of the given type.
 	 */
 	public O createInstance(final String type, final I input) {
 		
 		//Extracts the required instance creator.
 		final var instanceCreator =
-		instanceCreators
+		singleTypeInstanceCreators
 		.getRefFirstOrNull(ic -> ic.canCreateInstanceOf(type));
 		
 		//Checks if the current factory can create instances of the given type.

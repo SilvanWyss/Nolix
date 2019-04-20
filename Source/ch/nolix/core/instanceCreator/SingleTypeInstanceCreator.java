@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.factory;
+package ch.nolix.core.instanceCreator;
 
 //own imports
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
@@ -10,10 +10,10 @@ import ch.nolix.core.validator.Validator;
  * @author Silvan Wyss
  * @month 2018-06
  * @lines 80
- * @param <I> The type of the inputs of a {@link InstanceCreator}.
+ * @param <I> The type of the inputs of a {@link SingleTypeInstanceCreator}.
  * @param <O> The type of the instances a {@link InstnaceCreator} can create.
  */
-final class InstanceCreator<I, O> {
+final class SingleTypeInstanceCreator<I, O> {
 
 	//attributes
 	private final String instanceType;
@@ -21,7 +21,7 @@ final class InstanceCreator<I, O> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link InstanceCreator} with the given instance type and instance creator function.
+	 * Creates a new {@link SingleTypeInstanceCreator} with the given instance type and instance creator function.
 	 * 
 	 * @param instanceType
 	 * @param instanceCreatorFunction
@@ -29,7 +29,7 @@ final class InstanceCreator<I, O> {
 	 * @throws EmptyArgumentException if the given instance type is empty.
 	 * @throws NullArgumentException if the given instance creator function is null.
 	 */
-	public InstanceCreator(
+	public SingleTypeInstanceCreator(
 		final String instanceType,
 		IElementTakerElementGetter<I, O> instanceCreatorFunction
 	) {
@@ -56,7 +56,7 @@ final class InstanceCreator<I, O> {
 	//method
 	/**
 	 * @param type
-	 * @return true if the current {@link InstanceCreator} can create an instance of the given type.
+	 * @return true if the current {@link SingleTypeInstanceCreator} can create an instance of the given type.
 	 */
 	public boolean canCreateInstanceOf(final String type) {
 		return instanceType.equals(type);
@@ -65,7 +65,7 @@ final class InstanceCreator<I, O> {
 	//method
 	/**
 	 * @param input
-	 * @return a new instance from the current {@link InstanceCreator} from the given input.
+	 * @return a new instance from the current {@link SingleTypeInstanceCreator} from the given input.
 	 */
 	public O createInstance(final I input) {
 		return instanceCreatorFunction.getOutput(input);
@@ -73,7 +73,7 @@ final class InstanceCreator<I, O> {
 	
 	//method
 	/**
-	 * @return the instance type of the current {@link InstanceCreator}.
+	 * @return the instance type of the current {@link SingleTypeInstanceCreator}.
 	 */
 	public String getInstanceType() {
 		return instanceType;
