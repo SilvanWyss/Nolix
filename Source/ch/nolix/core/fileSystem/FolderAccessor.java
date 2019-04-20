@@ -17,7 +17,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 190
+ * @lines 200
  */
 public final class FolderAccessor extends FileSystemItemAccessor {
 	
@@ -88,19 +88,6 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 */
 	public FolderAccessor createFolder(final String relativePath) {
 		return (new FileSystemAccessor(getPath()).createFolder(relativePath));
-	}
-	
-	//method
-	/**
-	 * Opens the folder of the current {@link FolderAccessor} in a new file explorer.
-	 */
-	public final void openInFileExplorer() {
-		try {
-			new ProcessBuilder(("explorer.exe " + getPath()).split(" ")).start();
-		}
-		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
-		}
 	}
 	
 	//method
@@ -189,5 +176,31 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 */
 	public FolderAccessor getFolderAccessor(final String relativePath) {
 		return new FolderAccessor(getPath() + "/" + relativePath);
+	}
+	
+	//method
+	/**
+	 * Opens the folder of the current {@link FolderAccessor} in a new file explorer.
+	 */
+	public void openInFileExplorer() {
+		try {
+			new ProcessBuilder(("explorer.exe " + getPath()).split(" ")).start();
+		}
+		catch (final IOException IOException) {
+			throw new RuntimeException(IOException);
+		}
+	}
+	
+	//method
+	/**
+	 * Reads the content of the file with the given relative path.
+	 * 
+	 * @return the content of the file with the given relative path.
+	 * @throws InvalidArgumentException if there does not exist a file
+	 * with the given relative path in the folder of the current {@link FolderAccessor}.
+	 * @throws RuntimeException if an error occurs.
+	 */
+	public String readFile(final String relativePath) {
+		return new FileAccessor(getPath() + "/" + relativePath).readFile();
 	}
 }
