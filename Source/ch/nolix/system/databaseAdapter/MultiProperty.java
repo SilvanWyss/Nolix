@@ -87,11 +87,20 @@ implements Clearable<MultiProperty<V>> {
 	protected List<Object> internal_getValues() {
 		return new List<Object>(values);
 	}
-
+	
+	//method
+	@Override
+	@SuppressWarnings("unchecked")
+	protected void internal_setValue(final Object value) {
+		clear();
+		values.addAtEnd((V)value);
+	}
+	
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
 	protected void internal_setValues(final Iterable<Object> values) {
+		clear();
 		values.forEach(v -> addValue((V)v));
 	}
 }

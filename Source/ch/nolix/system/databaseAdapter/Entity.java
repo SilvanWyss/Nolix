@@ -351,22 +351,12 @@ public class Entity implements Identified2, Specified {
 			//Enumerates the kind of the current property.
 			switch (property.getPropertyKind()) {
 				case DATA:
-					
-					property.internal_setValues(
-						new List<Object>(
-							DatabaseAdapter.createValue(property.getValueType(), v)
-						)
-					);
-					
+					property.internal_setValue(DatabaseAdapter.createValue(property.getValueType(), v));					
 					break;
 				case OPTIONAL_DATA:
 					
 					if (v.containsAttributes()) {
-						property.internal_setValues(
-							new List<Object>(
-								DatabaseAdapter.createValue(property.getValueType(), v)
-							)
-						);
+						property.internal_setValue(DatabaseAdapter.createValue(property.getValueType(), v));
 					}
 					
 					break;
@@ -381,23 +371,13 @@ public class Entity implements Identified2, Specified {
 					);
 					
 					break;
-				case REFERENCE:
-					
-					property.internal_setValues(
-						new List<Object>(
-							v.toInt()
-						)
-					);
-					
+				case REFERENCE:		
+					property.internal_setValue(v.toInt());
 					break;
 				case OPTIONAL_REFERENCE:
 					
 					if (v.containsAttributes()) {
-						property.internal_setValues(
-							new List<Object>(
-								v.toInt()
-							)
-						);
+						property.internal_setValue(v.toInt());
 					}
 					
 					break;

@@ -138,6 +138,9 @@ implements Headered, Specified {
 	}
 	
 	//abstract method
+	protected abstract void internal_setValue(Object value);
+	
+	//abstract method
 	protected abstract void internal_setValues(Iterable<Object> values);
 	
 	//method

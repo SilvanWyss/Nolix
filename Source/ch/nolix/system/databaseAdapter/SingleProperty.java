@@ -113,7 +113,14 @@ extends DataPropertyoid<V> {
 		return values;
 	}
 	
-	//package-visible method
+	//method
+	@Override
+	@SuppressWarnings("unchecked")
+	protected final void internal_setValue(final Object value) {
+		setValue((V)value);
+	}
+	
+	//method
 	@Override
 	@SuppressWarnings("unchecked")
 	protected final void internal_setValues(final Iterable<Object> values) {

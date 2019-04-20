@@ -8,8 +8,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
 
 //class
-public final class MultiReference<E extends Entity>
-extends Referenceoid<E> {
+public final class MultiReference<E extends Entity> extends Referenceoid<E> {
 
 	//multi-attribute
 	private final List<Long> referencedEntityIds = new List<Long>();
@@ -74,6 +73,12 @@ extends Referenceoid<E> {
 	@Override
 	protected List<Object> internal_getValues() {
 		return new List<Object>(referencedEntityIds);
+	}
+	
+	//method
+	@Override
+	protected void internal_setValue(final Object value) {
+		addValue((int)value);
 	}
 
 	//method

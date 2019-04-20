@@ -97,6 +97,12 @@ extends Referenceoid<E> {
 	
 	//method
 	@Override
+	protected final void internal_setValue(final Object value) {
+		setValue((int)value);
+	}
+	
+	//method
+	@Override
 	protected final void internal_setValues(final Iterable<Object> values) {
 		setValue((int)new ReadContainer<Object>(values).getRefOne());
 	}
