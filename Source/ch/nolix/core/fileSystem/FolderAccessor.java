@@ -17,7 +17,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 180
+ * @lines 190
  */
 public final class FolderAccessor extends FileSystemItemAccessor {
 	
@@ -52,6 +52,16 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 				"is not a folder"
 			);
 		}
+	}
+	
+	//method
+	/**
+	 * @param relativePath
+	 * @return true if the folder of the current {@link FolderAccessor}
+	 * contains an item with the given relative path.
+	 */
+	public boolean containsItem(final String relativePath) {
+		return new FileSystemAccessor().fileSystemItemExists(getPath() + "/" + relativePath);
 	}
 	
 	//method
