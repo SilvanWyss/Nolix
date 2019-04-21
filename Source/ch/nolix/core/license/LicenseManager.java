@@ -2,62 +2,102 @@
 package ch.nolix.core.license;
 
 //own imports
-import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 
 //class
 /**
- * A license manager manages licenses.
+ * The {@link LicenseManager} manages {@link License}s.
+ * Of the {@link LicenseManager} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-05
- * @lines 60
+ * @month 2019-04
+ * @lines 100
  */
-public final class LicenseManager {
-
-	//attribute
-	private final List<License> licenses = new List<License>();
+public class LicenseManager {
 	
-	//method
+	//static attribute
+	private static final InternalLicenseManager internalLicenseManager = new InternalLicenseManager();
+	
+	//static method
 	/**
-	 * Adds the given license to this license manager
-	 * if this license manager does not contain already a license of the same type.
+	 * Creates and adds a new {@link License} of the given type to the {@link LicenseManager}
+	 * if the {@link LicenseManager} does not contain already a {@link License} of that type.
+	 * 
+	 * @param type
+	 * @return the {@link InternalLicenseManager} of the {@link LicenseManager}.
+	 * @throws NullArgumentException if the given type is null.
+	 * @throws RuntimeException if there was not found a file with the key for a License of the given type.
+	 * @throws InvalidArgumentException 
+	 * if the given type does not contain an accessible constructor with 1 String parameter.
+	 * @throws InvalidArgumentException if the found key is not valid.
+	 * @throws InvalidArgumentException
+	 * if the {@link LicenseManager} contains already a {@link License} of the given type.
+	 */
+	public static <L extends License> InternalLicenseManager addLicense(final Class<L> type) {
+		return internalLicenseManager.addLicense(type);
+	}
+	
+	//static method
+	/**
+	 * Adds the given license to the {@link LicenseManager}.
 	 * 
 	 * @param license
+	 * @return the {@link InternalLicenseManager} of the {@link LicenseManager}.
+	 * @throws NullArgumentException if the given license is null.
+	 * @throws InvalidArgumentException
+	 * if the {@link LicenseManager} contains already a {@link License} of the same type.
+	 * @throws InvalidArgumentException
+	 * if the {@link LicenseManager} contains already a {@link License} of the type the given license is.
 	 */
-	public void addLicense(final License license) {
-		if (!containsLicense(license.getClass())) {
-			licenses.addAtEnd(license);
-		}
+	public static InternalLicenseManager addLicense(final License license) {
+		return internalLicenseManager.addLicense(license);
+	}
+	
+	//method
+	/**
+	 * Adds the given permission to the {@link LicenseManager}.
+	 * 
+	 * @param permission
+	 * @return the {@link InternalLicenseManager} of the {@link LicenseManager}.
+	 * @throws NullArgumentException if the given permission is null.
+	 * @throws InvalidArgumentException if the {@link LicenseManager}
+	 * contains already a permission of the same type the given permission is.
+	 */
+	public InternalLicenseManager addPermission(final Permission permission) {
+		return internalLicenseManager.addPermission(permission);
 	}
 	
 	//method
 	/**
 	 * @param type
-	 * @return true if this license manager contains a license of the given type.
+	 * @return true if the {@link LicenseManager} contains a {@link License} of the given type.
 	 */
-	public <L extends License> boolean containsLicense(final Class<L> type) {
-		return licenses.contains(l -> l.getClass().isAssignableFrom(type));
+	public static <L extends License> boolean containsLicense(final Class<L> type) {
+		return internalLicenseManager.containsLicense(type);
 	}
 	
-	//method
+	//static method
 	/**
-	 * @return the number of licenses of this license manager.
-	 */
-	public int getLicenseCount() {
-		return licenses.getSize();
-	}
-	
-	//method
-	/**
+	 * Let the {@link LicenseManager} require a {@link Permission} of the given type.
+	 * 
 	 * @param type
-	 * @throws UnexistringAttributeException if this license manager does not contain a license of the given type.
+	 * @return the {@link InternalLicenseManager} of the {@link LicenseManager}.
+	 * @throws ArgumentMissesAttributeException if the {@link LicenseManager}
+	 * does not contain a {@link Permission} of the given type.
 	 */
-	public <L extends License> void supposeLicense(final Class<L> type) {
-		
-		//Checks if this license manager contains a license of the given type.
-		if (!containsLicense(type)) {
-			throw new ArgumentMissesAttributeException(this, type.getSimpleName());
-		}
+	public static <P extends Permission> void requirePermission(final Class<P> type) {
+		internalLicenseManager.requirePermission(type);
+	}
+	
+	//private constructor
+	/**
+	 * Avoids that an instance of the {@link LicenseManager} can be created.
+	 * 
+	 * @throws UninstantiableClassException
+	 */
+	private LicenseManager() {
+		throw new UninstantiableClassException(LicenseManager.class);
 	}
 }
