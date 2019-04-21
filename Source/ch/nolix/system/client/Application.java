@@ -5,6 +5,7 @@ package ch.nolix.system.client;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+import ch.nolix.core.attributeAPI.Named;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
@@ -12,7 +13,6 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.endPoint5.EndPoint;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.sequencer.Sequencer;
-import ch.nolix.core.skillAPI.Named;
 import ch.nolix.core.validator.Validator;
 
 //class

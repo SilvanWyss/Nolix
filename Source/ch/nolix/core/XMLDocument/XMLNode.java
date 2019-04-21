@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.XMLDocument;
 
+import ch.nolix.core.attributeAPI.OptionalNamable;
+import ch.nolix.core.attributeAPI.OptionalValueable;
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -11,8 +13,6 @@ import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Freezable;
-import ch.nolix.core.skillAPI.OptionalNamable;
-import ch.nolix.core.skillAPI.OptionalValueable;
 import ch.nolix.core.validator.Validator;
 
 //class

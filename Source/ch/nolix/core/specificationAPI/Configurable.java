@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.core.specificationAPI;
 
+import ch.nolix.core.attributeAPI.Named;
+import ch.nolix.core.attributeAPI.Tokened;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.skillAPI.Named;
-import ch.nolix.core.skillAPI.Tokened;
 
 //interface
 /**

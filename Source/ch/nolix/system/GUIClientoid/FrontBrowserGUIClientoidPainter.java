@@ -4,10 +4,10 @@ package ch.nolix.system.GUIClientoid;
 //Java import
 import java.io.Flushable;
 
+import ch.nolix.core.attributeAPI.Indexed;
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.primitiveHelper.ArrayHelper;
-import ch.nolix.core.skillAPI.Indexed;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.image.Image;

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
-//own import
-import ch.nolix.core.skillAPI.Named;
+import ch.nolix.core.attributeAPI.Named;
 
 //class
 public final class ValueClassBox<V> implements Named {

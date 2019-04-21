@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.core.license;
 
+import ch.nolix.core.attributeAPI.Named;
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.skillAPI.Named;
 
 //abstract class
 /**

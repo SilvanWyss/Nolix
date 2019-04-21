@@ -4,12 +4,12 @@ package ch.nolix.system.databaseAdapter;
 //Java import
 import java.lang.reflect.ParameterizedType;
 
+import ch.nolix.core.attributeAPI.Headered;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.helper.ReflectionHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.skillAPI.Headered;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator.Validator;
 

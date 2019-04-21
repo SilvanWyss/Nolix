@@ -1,12 +1,12 @@
 //package-declaration
 package ch.nolix.system.databaseAdapter;
 
+import ch.nolix.core.attributeAPI.Headered;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.skillAPI.Headered;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator.Validator;
 

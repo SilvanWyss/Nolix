@@ -4,8 +4,7 @@ package ch.nolix.core.moduleManager;
 //Java import
 import java.io.File;
 
-//own imports
-import ch.nolix.core.skillAPI.Named;
+import ch.nolix.core.attributeAPI.Named;
 import ch.nolix.core.validator.Validator;
 
 //abstract class

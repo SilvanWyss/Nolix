@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.core.XMLDocument;
 
+import ch.nolix.core.attributeAPI.Named;
+import ch.nolix.core.attributeAPI.Valued;
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.skillAPI.Named;
-import ch.nolix.core.skillAPI.Valued;
 import ch.nolix.core.validator.Validator;
 
 //class

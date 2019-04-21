@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.skillAPI;
+package ch.nolix.core.attributeAPI;
 
 //interface
 /**

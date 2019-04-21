@@ -1,21 +1,21 @@
 //package declaration
-package ch.nolix.core.skillAPI;
+package ch.nolix.core.attributeAPI;
 
 //interface
 /**
- * A {@link Identified2} has an id.
+ * A {@link Identified} has an id.
  * 
  * @author Silvan Wyss
- * @month 2018-11
+ * @month 2018-04
  * @lines 30
  */
-public interface Identified2 {
+public interface Identified {
 	
 	//abstract method
 	/**
-	 * @return the id of the current {@link Identified2}.
+	 * @return the id of the current {@link Identified}.
 	 */
-	public abstract long getId();
+	public abstract int getId();
 	
 	//default method
 	/**
@@ -23,13 +23,13 @@ public interface Identified2 {
 	 * @return true if the current {@link Identified}
 	 * has the same id as the given object.
 	 */
-	public default boolean hasId(final Identified2 object) {
+	public default boolean hasId(final Identified object) {
 		return hasId(object.getId());
 	}
 	
 	//default method
 	/**
-	 * @return true if the current {@link Identified2}
+	 * @return true if the current {@link Identified}
 	 * has the given id.
 	 */
 	public default boolean hasId(final long id) {

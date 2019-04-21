@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.documentNodeDatabaseAdapter;
 
+import ch.nolix.core.attributeAPI.Identified;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.skillAPI.Identified;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.EntityType;

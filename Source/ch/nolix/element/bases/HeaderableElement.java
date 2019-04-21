@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.element.bases;
 
+import ch.nolix.core.attributeAPI.Headerable;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.entity.MutableProperty;
-import ch.nolix.core.skillAPI.Headerable;
 import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.core.NonEmptyText;
 

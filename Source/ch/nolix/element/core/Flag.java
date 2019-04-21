@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.element.core;
 
+import ch.nolix.core.attributeAPI.Named;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.skillAPI.Named;
 import ch.nolix.core.validator.Validator;
 
 //class

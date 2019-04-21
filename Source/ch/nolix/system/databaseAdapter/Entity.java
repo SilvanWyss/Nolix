@@ -4,6 +4,7 @@ package ch.nolix.system.databaseAdapter;
 //Java import
 import java.lang.reflect.Field;
 
+import ch.nolix.core.attributeAPI.Identified2;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -13,7 +14,6 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
-import ch.nolix.core.skillAPI.Identified2;
 import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator.Validator;
 

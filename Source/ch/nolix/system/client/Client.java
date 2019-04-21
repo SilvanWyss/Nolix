@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
+import ch.nolix.core.attributeAPI.OptionalLabelable;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
@@ -16,7 +17,6 @@ import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Closable;
-import ch.nolix.core.skillAPI.OptionalLabelable;
 import ch.nolix.core.validator.Validator;
 
 //abstract class
