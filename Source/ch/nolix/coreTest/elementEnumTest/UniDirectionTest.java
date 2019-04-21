@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreTest.enumTest;
+package ch.nolix.coreTest.elementEnumTest;
 
 //own imports
 import ch.nolix.core.container.List;

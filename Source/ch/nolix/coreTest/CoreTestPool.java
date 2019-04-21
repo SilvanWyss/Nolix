@@ -5,7 +5,7 @@ package ch.nolix.coreTest;
 import ch.nolix.core.testoid.TestPool;
 import ch.nolix.coreTest.containerTest.ContainerTestPool;
 import ch.nolix.coreTest.documentNodeTest.DocumentNodeTestPool;
-import ch.nolix.coreTest.enumTest.EnumTestPool;
+import ch.nolix.coreTest.elementEnumTest.ElementEnumTestPool;
 import ch.nolix.coreTest.helperTest.HelperTestPool;
 import ch.nolix.coreTest.mathTest.MathematicsTestPool;
 import ch.nolix.coreTest.sequencerTest.SequencerTestPool;
@@ -31,7 +31,7 @@ public final class CoreTestPool extends TestPool {
 			new DatabaseAdapterTestPool(),
 			new ch.nolix.coreTest.endPointTest.EndPointTestPool(),
 			new ch.nolix.coreTest.endPoint3Test.EndPointTestPool(),
-			new EnumTestPool(),
+			new ElementEnumTestPool(),
 			new HelperTestPool(),
 			new MathematicsTestPool(),
 			new SequencerTestPool(),

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreTest.enumTest;
+package ch.nolix.coreTest.elementEnumTest;
 
 //class
 /**
@@ -18,7 +18,7 @@ public final class Launcher {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		new EnumTestPool().run();
+		new ElementEnumTestPool().run();
 	}
 	
 	//private constructor
