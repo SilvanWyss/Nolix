@@ -6,6 +6,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.generalSkillAPI.IFluentObject;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.license.LicenseManager;
 import ch.nolix.core.skillAPI.IChangesSaver;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.Schema;
@@ -17,12 +18,11 @@ import ch.nolix.system.databaseAdapter.Schema;
  * 
  * @author Silvan Wyss
  * @month 2018-04
+ * @lines 200
  * @param <DSA> The type of a {@link DatabaseSchemaAdapter}.
  */
 public abstract class DatabaseSchemaAdapter<DSA extends DatabaseSchemaAdapter<DSA>>
-implements
-	IChangesSaver<DSA>,
-	IFluentObject<DSA> {
+implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	
 	//multi-attributes
 	private final List<EntitySet> loadedAndCreatedEntitySets = new List<EntitySet>();
@@ -30,6 +30,11 @@ implements
 	
 	//method
 	public final <E extends Entity> DSA addEntitySet(final Class<E> entityClass) {
+		
+		//TODO: LicenseManager.when(getEntitySetCount().isBiggerThan(10).thenRequire(FullDatabasePermission.class);
+		if (loadedAndCreatedEntitySets.getSize() >= 10) {
+			LicenseManager.requirePermission(FullDatabasePermission.class);
+		}
 		
 		final var entitySet = new EntitySet(this, entityClass);
 		
