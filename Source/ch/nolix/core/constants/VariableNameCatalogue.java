@@ -10,7 +10,7 @@ import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
  * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 150
+ * @lines 160
  */
 public final class VariableNameCatalogue {
 	
@@ -66,6 +66,7 @@ public final class VariableNameCatalogue {
 	public static final String ERROR = "error";
 	public static final String EXCEPTION = "exception";
 	public static final String EXPONENT = "exponent";
+	public static final String FEATURE = "feature";
 	public static final String FILE_NAME = "file name";
 	public static final String FILE_PATH = "file path";
 	public static final String FOLDER_PATH = "folder path";
@@ -82,6 +83,7 @@ public final class VariableNameCatalogue {
 	public static final String JOB = "job";
 	public static final String LENGTH = "length";
 	public static final String LETTER = "letter";
+	public static final String LICENSE = "license";
 	public static final String LINE_COLOR = "line color";
 	public static final String LINE_THICKNESS = "line thickness";
 	public static final String MAXIMUM = "maximum";
@@ -95,6 +97,7 @@ public final class VariableNameCatalogue {
 	public static final String PADDING = "padding";
 	public static final String PATH = "path";
 	public static final String PERCENTAGE = "percentage";
+	public static final String PERMISSION = "permission";
 	public static final String PORT = "port";
 	public static final String PRICE = "price";
 	public static final String RADIUS = "radius";

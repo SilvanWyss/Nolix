@@ -10,7 +10,7 @@ import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
  * 
  * @author Silvan Wyss
  * @month 2018-04
- * @lines 150
+ * @lines 160
  */
 public final class PascalCaseNameCatalogue {
 	
@@ -66,6 +66,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String ERROR = "Error";
 	public static final String EXCEPTION = "Execption";
 	public static final String EXPONENT = "Exponent";
+	public static final String FEATURE = "Feature";
 	public static final String FILE_NAME = "FileName";
 	public static final String FILE_PATH = "FilePath";
 	public static final String FOLDER_PATH = "FolderPath";
@@ -82,6 +83,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String Job = "Job";
 	public static final String LENGTH = "Length";
 	public static final String LETTER = "Letter";
+	public static final String LICENSE = "License";
 	public static final String LINE_COLOR = "LineColor";
 	public static final String LINE_THICKNESS = "LineThickness";
 	public static final String MAXIMUM = "Maximum";
@@ -95,6 +97,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String PADDING = "Padding";
 	public static final String PATH = "Path";
 	public static final String PERCENTAGE = "Percentage";
+	public static final String PERMISSION = "Permission";
 	public static final String PORT = "Port";
 	public static final String PRICE = "Price";
 	public static final String RADIUS = "Radius";
