@@ -2,7 +2,7 @@ package ch.nolix.coreTutorial.classProviderTutorial;
 
 import ch.nolix.core.classProvider.CentralClassProvider;
 
-public final class ClassProviderTutorial {
+public final class CentralClassProviderTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -45,5 +45,5 @@ public final class ClassProviderTutorial {
 		}
 	}
 	
-	private ClassProviderTutorial() {}
+	private CentralClassProviderTutorial() {}
 }
