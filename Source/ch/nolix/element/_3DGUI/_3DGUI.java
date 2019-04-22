@@ -22,7 +22,7 @@ import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.tuple.Pair;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.configurationElement.ConfigurationElement;
+import ch.nolix.element.configuration.ConfigurationElement;
 import ch.nolix.element.core.NonEmptyText;
 
 //abstract class

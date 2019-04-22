@@ -9,7 +9,7 @@ import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.bases.ConfigurableElement;
+import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.geometry._2DPoint;
 import ch.nolix.element.geometry._3DPoint;
 

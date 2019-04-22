@@ -23,8 +23,8 @@ import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
+import ch.nolix.element.configuration.ConfigurationElement;
 import ch.nolix.element.configuration.StandardConfiguration;
-import ch.nolix.element.configurationElement.ConfigurationElement;
 import ch.nolix.element.core.NonEmptyText;
 import ch.nolix.element.painter.IPainter;
 

@@ -17,8 +17,8 @@ import ch.nolix.core.constants.FunctionCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.bases.ConfigurableElement;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.painter.IPainter;
 
 //abstract class
