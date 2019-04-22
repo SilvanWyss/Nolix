@@ -2,7 +2,10 @@
 package ch.nolix.element.GUI;
 
 //own imports
+import ch.nolix.core.attributeAPI.Headerable;
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
@@ -12,20 +15,28 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.bases.HeaderableElement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
+import ch.nolix.element.core.MutableElement;
 
 //class
-public final class AccordionTab
-extends HeaderableElement<AccordionTab>
-implements Clearable<AccordionTab> {
+public final class AccordionTab extends MutableElement<AccordionTab>
+implements Clearable<AccordionTab>, Headerable<AccordionTab> {
 	
 	//default value
 	public static final String DEFAULT_HEADER = StringCatalogue.DEFAULT_STRING;
 	
 	//constant
 	private static final String EXPANDED_FLAG_HEADER = "Expanded";
+	
+	//attribute
+	private final MutableProperty<String> header =
+	new MutableProperty<String>(
+		PascalCaseNameCatalogue.HEADER,
+		h -> setHeader(h),
+		s -> s.getOneAttributeAsString(),
+		h -> new DocumentNode(PascalCaseNameCatalogue.HEADER, getHeader())
+	);
 	
 	//method
 	/**
@@ -163,6 +174,12 @@ implements Clearable<AccordionTab> {
 	}
 	
 	//method
+	@Override
+	public final String getHeader() {
+		return header.getValue();
+	}
+	
+	//method
 	public int getHeaderHeight() {
 		return headerHorizontalStack.getHeight();
 	}
@@ -213,6 +230,17 @@ implements Clearable<AccordionTab> {
 		clear();
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	public AccordionTab setHeader(final String header) {
+		
+		Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
+		
+		this.header.setValue(header);
+		
+		return asConcreteType();
 	}
 	
 	//method

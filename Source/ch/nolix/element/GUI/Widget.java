@@ -1640,7 +1640,7 @@ implements Recalculable {
 		.thatIsNamed("parent GUI")
 		.isNotNull();
 		
-		setRequestableContainer(parentGUI);
+		//TODO: Make sure that all Widgets of a GUI have different names.
 		
 		this.parentGUI = parentGUI;
 		

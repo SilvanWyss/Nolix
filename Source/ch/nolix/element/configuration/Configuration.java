@@ -2,7 +2,9 @@
 package ch.nolix.element.configuration;
 
 //own imports
+import ch.nolix.core.attributeAPI.OptionalNamable;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
@@ -11,7 +13,8 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Freezable;
 import ch.nolix.core.specificationAPI.Configurable;
-import ch.nolix.element.bases.OptionalNamableElement;
+import ch.nolix.core.validator.Validator;
+import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.core.NonEmptyText;
 
 //abstract class
@@ -21,9 +24,8 @@ import ch.nolix.element.core.NonEmptyText;
  * @lines 710
  * @param <C> The type of a configuration.
  */
-public abstract class Configuration<C extends Configuration<C>>
-extends OptionalNamableElement<C>
-implements Freezable<C> {
+public abstract class Configuration<C extends Configuration<C>> extends MutableElement<C>
+implements Freezable<C>, OptionalNamable<C> {
 	
 	//attribute headers
 	private static final String SELECTOR_TYPE_HEADER = "SelectorType";
@@ -34,13 +36,16 @@ implements Freezable<C> {
 	//attribute
 	private boolean frozen = false;
 	
-	//multiple attributes
+	//optional attribute
+	private String name;
+	
+	//multi-attributes
 	private final List<DocumentNode> attachingAttributes
 		= new List<DocumentNode>();
 	protected final List<Configuration<?>> configurations
 		= new List<Configuration<?>>();
 	
-	//optional attribute
+	//optional attributes
 	private NonEmptyText selectorType;
 	private NonEmptyText selectorToken;
 	private NonEmptyText selectorName;
@@ -289,6 +294,11 @@ implements Freezable<C> {
 		//Calls method of the base class.
 		final List<DocumentNode> attributes = super.getAttributes();
 		
+		//Handles the case that this configuration has a name
+		if (hasName()) {
+			attributes.addAtBegin(new DocumentNode(PascalCaseNameCatalogue.NAME, name));
+		}
+		
 		//Handles the case that this configuration has a selector type.
 		if (hasSelectorType()) {
 			attributes.addAtEnd(selectorType.getSpecificationAs(SELECTOR_TYPE_HEADER));
@@ -317,6 +327,22 @@ implements Freezable<C> {
 		attributes.addAtEnd(configurations, c -> c.getSpecification());
 		
 		return attributes;
+	}
+	
+	//method
+	/**
+	 * @return the name of this configuration.
+	 * @throws ArgumentMissesAttributeException if this configuration does not have a name.
+	 */
+	public final String getName() {
+		
+		//Checks if this configuration has a a name.
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (name == null) {
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.NAME);
+		}
+		
+		return name;
 	}
 	
 	//method
@@ -378,6 +404,15 @@ implements Freezable<C> {
 		}
 		
 		return selectorType.getValue();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean hasName() {
+		return (name != null);
 	}
 	
 	//method
@@ -526,7 +561,9 @@ implements Freezable<C> {
 	 */
 	@Override
 	public C reset() {
-
+		
+		removeName();
+		
 		removeSelectorType();
 		removeSelectorRoles();
 		removeSelectorToken();
@@ -535,8 +572,19 @@ implements Freezable<C> {
 		attachingAttributes.clear();
 		configurations.clear();
 		
-		//Calls method of the base class.
-		return super.reset();
+		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public C removeName() {
+		
+		name = null;
+		
+		return asConcreteType();
 	}
 	
 	//method
@@ -571,11 +619,12 @@ implements Freezable<C> {
 	
 	//method
 	/**
-	 * Sets the given name to this configuration.
+	 * Sets the name of this configuration.
 	 * 
 	 * @param name
+	 * @return this configuration.
 	 * @throws NullArgumentException if the given name is null.
-	 * @throws EmptyArgumentException if the given name is empty.
+	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
 	@Override
@@ -584,8 +633,7 @@ implements Freezable<C> {
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();
 		
-		//Calls method of the base class.
-		super.setName(name);
+		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 		
 		return asConcreteType();
 	}

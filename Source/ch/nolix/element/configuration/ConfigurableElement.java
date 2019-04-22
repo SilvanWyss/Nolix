@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.element.configuration;
 
-import ch.nolix.core.attributeAPI.OptionalTokenable;
 //own imports
+import ch.nolix.core.attributeAPI.OptionalNamable;
+import ch.nolix.core.attributeAPI.OptionalTokenable;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
@@ -11,7 +12,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.bases.OptionalNamableElement;
+import ch.nolix.element.core.MutableElement;
 
 //abstract class
 /**
@@ -22,11 +23,11 @@ import ch.nolix.element.bases.OptionalNamableElement;
  * @month 2015-12
  * @lines 160
  */
-public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>>
-extends OptionalNamableElement<CE>
-implements Configurable<CE>, OptionalTokenable<CE> {
+public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>> extends MutableElement<CE>
+implements Configurable<CE>, OptionalNamable<CE>, OptionalTokenable<CE> {
 	
-	//optional attribute
+	//optional attributes
+	private String name;
 	private String token;
 	
 	//method
@@ -38,7 +39,10 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case VariableNameCatalogue.TOKEN:
+			case PascalCaseNameCatalogue.NAME:
+				setName(attribute.getOneAttributeAsString());
+				break;
+			case PascalCaseNameCatalogue.TOKEN:
 				setToken(attribute.getOneAttributeAsString());
 				break;
 			default:
@@ -58,13 +62,26 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();
 		
-		//Handles the case that the current configurbale element has token.
-		if (hasToken()) {
-			attributes.addAtEnd(
-				new DocumentNode(PascalCaseNameCatalogue.TOKEN, getToken())
-			);
+		//Handles the case that the current configurbale element has a name.
+		if (hasName()) {
+			attributes.addAtEnd(new DocumentNode(PascalCaseNameCatalogue.NAME, name));
 		}
+		
+		//Handles the case that the current configurbale element has a token.
+		if (hasToken()) {
+			attributes.addAtEnd(new DocumentNode(PascalCaseNameCatalogue.TOKEN, token));
+		}
+		
 		return attributes;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String getName() {
+		return name;
 	}
 	
 	//method
@@ -78,6 +95,15 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 		supposeHasToken();
 		
 		return token;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean hasName() {
+		return (name != null);
 	}
 	
 	//method
@@ -114,6 +140,18 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public final CE removeName() {
+		
+		name = null;
+		
+		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public final CE removeToken() {
 		
 		token = null;
@@ -128,10 +166,23 @@ implements Configurable<CE>, OptionalTokenable<CE> {
 	@Override
 	public CE reset() {
 		
-		//Calls method of the base class.
-		super.reset();
-		
+		removeName();
 		resetConfiguration();
+		
+		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * @param name
+	 * @return the current {@link ConfigurableElement}.
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 */
+	@Override
+	public final CE setName(final String name) {
+		
+		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 		
 		return asConcreteType();
 	}

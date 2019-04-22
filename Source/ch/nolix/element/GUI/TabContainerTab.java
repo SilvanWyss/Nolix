@@ -2,15 +2,18 @@
 package ch.nolix.element.GUI;
 
 //own imports
+import ch.nolix.core.attributeAPI.Headerable;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.bases.HeaderableElement;
+import ch.nolix.element.core.MutableElement;
 
 //class
 /**
@@ -18,12 +21,20 @@ import ch.nolix.element.bases.HeaderableElement;
  * @month 2016-04
  * @lines 350
  */
-public class TabContainerTab
-extends HeaderableElement<TabContainerTab>
-implements Clearable<TabContainerTab> {
+public class TabContainerTab extends MutableElement<TabContainerTab>
+implements Clearable<TabContainerTab>, Headerable<TabContainerTab> {
 
 	//default value
 	public static final String DEFAULT_HEADER = PascalCaseNameCatalogue.DEFAULT;
+	
+	//attribute
+	private final MutableProperty<String> header =
+	new MutableProperty<String>(
+		PascalCaseNameCatalogue.HEADER,
+		h -> setHeader(h),
+		s -> s.getOneAttributeAsString(),
+		h -> new DocumentNode(PascalCaseNameCatalogue.HEADER, h)
+	);
 	
 	//method
 	/**
@@ -158,6 +169,16 @@ implements Clearable<TabContainerTab> {
 	
 	//method
 	/**
+	 * @return the header of the current {@link TabContainerTab}.
+	 * @throws ArgumentMissesAttributeException if the current {@link TabContainerTab} does not have a header.
+	 */
+	@Override
+	public String getHeader() {
+		return header.getValue();
+	}
+	
+	//method
+	/**
 	 * @return the height of the current {@link TabContainerTab}.
 	 */
 	public int getHeight() {
@@ -241,6 +262,25 @@ implements Clearable<TabContainerTab> {
 		selected = true;
 		
 		getRefMenuItem().setFocused();
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * @param header
+	 * @return the current {@link TabContainerTab}.
+	 * @throws NullArgumentException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	@Override
+	public TabContainerTab setHeader(final String header) {
+		
+		//Checks if the given header is not null or empty.
+		Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
+		
+		//Sets the header of the current TabContainerTab.
+		this.header.setValue(header);
 		
 		return this;
 	}

@@ -2,10 +2,15 @@
 package ch.nolix.element.task;
 
 //own imports
+import ch.nolix.core.attributeAPI.Namable;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.entity.MultiProperty;
+import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.skillAPI.Clearable;
-import ch.nolix.element.bases.NamableElement;
+import ch.nolix.core.validator.Validator;
+import ch.nolix.element.core.MutableElement;
 
 //class
 /**
@@ -14,12 +19,19 @@ import ch.nolix.element.bases.NamableElement;
  * 
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 110
+ * @lines 160
  */
-public final class Tableau
-extends NamableElement<Tableau>
-implements Clearable<Tableau> {
-
+public final class Tableau extends MutableElement<Tableau> implements Clearable<Tableau>, Namable<Tableau> {
+	
+	//attribute
+	private final MutableProperty<String> name =
+	new MutableProperty<String>(
+		VariableNameCatalogue.NAME,
+		n -> setName(n),
+		s -> s.getOneAttributeAsString(),
+		n -> new DocumentNode(VariableNameCatalogue.NAME, n)
+	);
+	
 	//attribute
 	private final MultiProperty<Task> tasks =
 	new MultiProperty<Task>(
@@ -79,6 +91,15 @@ implements Clearable<Tableau> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getName() {
+		return name.getValue();
+	}
+	
+	//method
+	/**
 	 * @return the tasks of this tableau.
 	 */
 	public ReadContainer<Task> getRefTasks() {
@@ -117,7 +138,27 @@ implements Clearable<Tableau> {
 				
 		clear();
 		
-		//Calls method of the base class.
-		return super.reset();
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the name of this tableau.
+	 * 
+	 * @param name
+	 * @return this tableau.
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 */
+	@Override
+	public Tableau setName(final String name) {
+		
+		//Checks if the given name is not blank.
+		Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
+		
+		//Sets the name of this tableau.
+		this.name.setValue(name);
+		
+		return this;
 	}
 }
