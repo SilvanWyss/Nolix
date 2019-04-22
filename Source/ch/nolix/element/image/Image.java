@@ -126,7 +126,7 @@ public final class Image extends MutableElement<Image> {
 		
 		{
 			final var pixelArraySpecification =
-			DocumentNode.createSpecificationWithHeader(PIXEL_ARRAY_HEADER);
+			DocumentNode.createWithHeader(PIXEL_ARRAY_HEADER);
 			
 			for (final var p : pixels) {
 				pixelArraySpecification.addAttribute(p.getHexadecimalValue(true));

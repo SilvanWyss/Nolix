@@ -60,11 +60,11 @@ public final class _2DPoint extends Element<_2DPoint> {
 		return
 		new List<DocumentNode>(
 			DocumentNode
-			.createSpecificationWithHeader(
+			.createWithHeader(
 				DoubleHelper.toString(getX())
 			),
 			DocumentNode
-			.createSpecificationWithHeader(
+			.createWithHeader(
 				DoubleHelper.toString(getY())
 			)
 		);

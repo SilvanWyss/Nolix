@@ -171,13 +171,13 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case Protocol.READ_LINE_FROM_CONSOLE_REQUEST:
-				return DocumentNode.createSpecificationWithHeader(console.readLine());
+				return DocumentNode.createWithHeader(console.readLine());
 			case Protocol.READ_NON_EMPTY_LINE_FROM_CONSOLE_REQUEST:
-				return DocumentNode.createSpecificationWithHeader(console.readNonEmptyLine());
+				return DocumentNode.createWithHeader(console.readNonEmptyLine());
 			case Protocol.READ_SECRET_LINE_FROM_CONSOLE_REQUEST:
-				return DocumentNode.createSpecificationWithHeader(console.readSecretLine());
+				return DocumentNode.createWithHeader(console.readSecretLine());
 			case Protocol.READ_CHARACTER_FROM_CONSOLE_REQUEST:
-				return DocumentNode.createSpecificationWithHeader(String.valueOf(console.readCharacter()));
+				return DocumentNode.createWithHeader(String.valueOf(console.readCharacter()));
 			case Protocol.LINES_OF_CONSOLE_REQUEST:
 				
 				final DocumentNode data = new DocumentNode();

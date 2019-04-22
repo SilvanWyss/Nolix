@@ -28,6 +28,6 @@ public interface IElementEnum extends Specified {
 	 */
 	@Override
 	public default List<DocumentNode> getAttributes() {
-		return DocumentNode.createSpecificationWithHeader(toString()).intoList();
+		return DocumentNode.createWithHeader(toString()).intoList();
 	}
 }

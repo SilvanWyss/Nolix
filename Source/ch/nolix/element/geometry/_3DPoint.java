@@ -64,15 +64,15 @@ public class _3DPoint extends Element<_3DPoint> {
 		return
 		new List<DocumentNode>(
 			DocumentNode
-			.createSpecificationWithHeader(
+			.createWithHeader(
 				DoubleHelper.toString(getX())
 			),
 			DocumentNode
-			.createSpecificationWithHeader(
+			.createWithHeader(
 				DoubleHelper.toString(getY())
 			),
 			DocumentNode
-			.createSpecificationWithHeader(
+			.createWithHeader(
 				DoubleHelper.toString(getZ())
 			)
 		);

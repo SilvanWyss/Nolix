@@ -51,7 +51,7 @@ extends Client<FGC> {
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case Protocol.FRONT_END_TYPE_HEADER:
-				return DocumentNode.createSpecificationWithHeader(getFrontEndType().toString());
+				return DocumentNode.createWithHeader(getFrontEndType().toString());
 			default:
 				
 				//Calls method of the base class.

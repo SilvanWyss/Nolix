@@ -216,9 +216,9 @@ public class ColorGradient extends Element<ColorGradient> {
 	public List<DocumentNode> getAttributes() {
 		return 
 		new List<DocumentNode>(
-			DocumentNode.createSpecificationWithHeader(getDirection().toString()),
-			DocumentNode.createSpecificationWithHeader(getColor1().getStringValue()),
-			DocumentNode.createSpecificationWithHeader(getColor2().getStringValue())
+			DocumentNode.createWithHeader(getDirection().toString()),
+			DocumentNode.createWithHeader(getColor1().getStringValue()),
+			DocumentNode.createWithHeader(getColor2().getStringValue())
 		);
 	}
 	

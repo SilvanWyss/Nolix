@@ -51,12 +51,14 @@ implements ISmartObject<DocumentNode> {
 	//static method
 	/**
 	 * @param header
-	 * @return a new {@link DocumentNode} that consists of the given header.
+	 * @return a new {@link DocumentNode} with the given header.
 	 * @throws NullArgumentException if the given header is null.
 	 */
-	public static final DocumentNode createSpecificationWithHeader(final String header) {
-		final DocumentNode specification = new DocumentNode();
+	public static final DocumentNode createWithHeader(final String header) {
+		
+		final var specification = new DocumentNode();
 		specification.setHeader(header);
+		
 		return specification;
 	}
 	
@@ -138,7 +140,7 @@ implements ISmartObject<DocumentNode> {
 		for (final String a : attributes) {
 			
 			//Adds the current attribute to the current {@link StandardSpecification}.
-			addAttribute(createSpecificationWithHeader(a));
+			addAttribute(createWithHeader(a));
 		}
 	}
 	
@@ -176,7 +178,7 @@ implements ISmartObject<DocumentNode> {
 		for (final String a : attributes) {
 			
 			//Adds the current attribute to the current {@link StandardSpecification}.
-			addAttribute(createSpecificationWithHeader(a));
+			addAttribute(createWithHeader(a));
 		}
 	}
 

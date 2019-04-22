@@ -144,7 +144,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 				);
 				
 				return
-				DocumentNode.createSpecificationWithHeader(downloader.readFile());
+				DocumentNode.createWithHeader(downloader.readFile());
 			default:
 				
 				//Calls method of the base class.

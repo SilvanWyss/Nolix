@@ -58,7 +58,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 		
 		if (providesFile()) {
 			attributes.addAtEnd(
-				DocumentNode.createSpecificationWithHeader(FILE_GETTER_HEADER)
+				DocumentNode.createWithHeader(FILE_GETTER_HEADER)
 			);
 		}
 		
