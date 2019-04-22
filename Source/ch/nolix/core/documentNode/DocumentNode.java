@@ -21,8 +21,7 @@ import ch.nolix.core.container.List;
  * @month 2015-12
  * @lines 440
  */
-public final class DocumentNode extends DocumentNodeoid
-implements ISmartObject<DocumentNode> {
+public final class DocumentNode extends DocumentNodeoid implements ISmartObject<DocumentNode> {
 	
 	//static method
 	/**
