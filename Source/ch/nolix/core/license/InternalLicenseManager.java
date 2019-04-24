@@ -18,7 +18,7 @@ import ch.nolix.core.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2019-04
- * @lines 180
+ * @lines 200
  */
 public final class InternalLicenseManager {
 	
@@ -162,6 +162,22 @@ public final class InternalLicenseManager {
 		return
 		licenses.contains(l -> l.containsPermission(type))
 		|| losePermissions.contains(lp -> lp.getClass().equals(type));
+	}
+	
+	//mmethod
+	/**
+	 * Removes the given license from the {@link LicenseManager}.
+	 * 
+	 * @param license
+	 * @return the current {@link InternalLicenseManager}.
+	 * @throws InvalidArgumentException
+	 * if the current {@link InternalLicenseManager} does not contain the given license.
+	 */
+	public <L extends License> InternalLicenseManager removeLicense(final L license) {
+		
+		licenses.removeFirst(license);
+		
+		return this;
 	}
 	
 	//method

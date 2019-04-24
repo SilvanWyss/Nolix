@@ -13,7 +13,7 @@ import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
  * 
  * @author Silvan Wyss
  * @month 2019-04
- * @lines 100
+ * @lines 110
  */
 public class LicenseManager {
 	
@@ -80,6 +80,18 @@ public class LicenseManager {
 	
 	//static method
 	/**
+	 * Removes the given license from the {@link LicenseManager}.
+	 * 
+	 * @param license
+	 * @return the {@link InternalLicenseManager} of the {@link LicenseManager}.
+	 * @throws InvalidArgumentException if the {@link LicenseManager} does not contain the given license.
+	 */
+	public static <L extends License> InternalLicenseManager removeLicense(final L license) {
+		return internalLicenseManager.removeLicense(license);
+	}
+	
+	//static method
+	/**
 	 * Let the {@link LicenseManager} require a {@link Permission} of the given type.
 	 * 
 	 * @param type
@@ -87,8 +99,8 @@ public class LicenseManager {
 	 * @throws ArgumentMissesAttributeException if the {@link LicenseManager}
 	 * does not contain a {@link Permission} of the given type.
 	 */
-	public static <P extends Permission> void requirePermission(final Class<P> type) {
-		internalLicenseManager.requirePermission(type);
+	public static <P extends Permission> InternalLicenseManager requirePermission(final Class<P> type) {
+		return internalLicenseManager.requirePermission(type);
 	}
 	
 	//private constructor
