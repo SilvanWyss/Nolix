@@ -11,7 +11,7 @@ import ch.nolix.element.textFormat.TextFormat;
 /**
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 190
+ * @lines 200
  */
 public interface IPainter {
 	
@@ -134,9 +134,19 @@ public interface IPainter {
 		int height
 	);
 	
+	//default method
+	/**
+	 * Lets the current {@link IPainter} paint the given using a default {@link TextFormat}.
+	 * 
+	 * @param text
+	 */
+	public default void paintText(final String text) {
+		paintText(text, new TextFormat());
+	}
+	
 	//abstract method
 	/**
-	 * Lets the current {@link IPainter} paint the given text using the given font.
+	 * Lets the current {@link IPainter} paint the given text using the given text format.
 	 * 
 	 * @param text
 	 * @param textFormat
@@ -148,7 +158,7 @@ public interface IPainter {
 	
 	//abstract method
 	/**
-	 * Lets the current {@link IPainter} paint the given text using the given font.
+	 * Lets the current {@link IPainter} paint the given text using the given text format.
 	 * 
 	 * Only the first part of the given text
 	 * that is not longer than the given max width will be painted.
