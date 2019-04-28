@@ -29,7 +29,7 @@ import ch.nolix.element.core.PositiveInteger;
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 430
+ * @lines 450
  */
 public final class TextFormat extends Element<TextFormat> {
 	
@@ -53,6 +53,30 @@ public final class TextFormat extends Element<TextFormat> {
 	private final Color textColor;
 	private final java.awt.Font swingFont;
 	private final Canvas canvas = new Canvas();
+	
+	//static method
+	/**
+	 * Creates a new {@link TextFormat} from the given specification.
+	 * The given specification must specify all attributes of the {@link TextFormat}.
+	 * 
+	 * @param specification
+	 * @return a new {@link TextFormat} from the given specification
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	public static TextFormat createFromSpecification(final DocumentNode specification) {
+		
+		//Extracts the attributes of the given specification.
+		final var attributes = specification.getRefAttributes();
+		
+		return
+		new TextFormat(
+			Font.createFromSpecification(attributes.getRefAt(1)),
+			attributes.getRefAt(2).getOneAttributeAsBoolean(),
+			attributes.getRefAt(3).getOneAttributeAsBoolean(),
+			attributes.getRefAt(4).getOneAttributeAsInt(),
+			Color.createFromSpecification(attributes.getRefAt(5))
+		);
+	}
 	
 	//constructor
 	/**
