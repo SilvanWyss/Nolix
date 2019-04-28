@@ -10,10 +10,6 @@ import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.GUI;
-import ch.nolix.element.color.Color;
-import ch.nolix.element.color.ColorGradient;
-import ch.nolix.element.image.Image;
-import ch.nolix.element.painter.IPainter;
 import ch.nolix.system.GUIClient.FrontBrowserGUIClient;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.client.Client;
@@ -22,8 +18,9 @@ import ch.nolix.system.client.Client;
 public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>>
 extends Client<FGC> {
 	
-	//attribute
+	//attributes
 	private final GUI<?> GUI;
+	private final FrontBrowserGUIClientoidWidget frontBrowserGUIClientoidWidget;
 	
 	public FrontGUIClientoid(boolean browserGUI) {
 		this(new Frame());
@@ -32,8 +29,9 @@ extends Client<FGC> {
 	public FrontGUIClientoid(final GUI<?> GUI) {
 		
 		this.GUI = GUI;
-		
+		this.frontBrowserGUIClientoidWidget = new FrontBrowserGUIClientoidWidget();
 		GUI.setController(new FrontGUIClientoidGUIController(this));
+		GUI.setRootWidget(frontBrowserGUIClientoidWidget);
 	}
 	
 	public abstract FrontGUIClientoidType getFrontEndType();
@@ -75,7 +73,7 @@ extends Client<FGC> {
 				runGUICommand(command.getRefNextStatement());
 				break;
 			case Protocol.PAINT_HEADER:
-				runPainterCommands(
+				setPainterCommands(
 					command
 					.getRefAttributes()
 					.to(a -> new Statement(DocumentNode.createOriginStringFromReproducingString(a.toString())))
@@ -130,15 +128,7 @@ extends Client<FGC> {
 		return readFileFromCounterpart(indexPathOnRootGUI).getBytes();
 	}
 	
-	//method
-	/**
-	 * @return the {IPainter} with the given index from the current {@link FrontBrowserGUIClient}.
-	 * @param index
-	 */
-	private IPainter getRefPainterByIndex(final int index) {
-		//TODO: Implement.
-		return null;
-	}
+
 	
 	//method
 	/**
@@ -253,35 +243,7 @@ extends Client<FGC> {
 	 * @param painterCommand
 	 * @throws InvalidArgumentException if the given painter command is not valid.
 	 */
-	private void runPainterCommand(final IPainter painter, final Statement painterCommand) {
-		
-		//Enumerates the header of the given painter command.
-		switch (painterCommand.getHeader()) {
-			case Protocol.PAINT_IMAGE_HEADER:
-				runPaintImageCommand(painter, painterCommand);
-				break;
-			case Protocol.PAINT_FILLED_RECTANGLE_HEADER:
-				runPaintFilledRectangleCommand(painter, painterCommand);
-				break;
-			case Protocol.SET_COLOR_HEADER:
-				runSetColorCommand(painter, painterCommand);
-				break;
-			case Protocol.SET_COLOR_GRADIENT_HEADER:
-				runSetColorGradientCommand(painter, painterCommand);
-				break;
-			default:
-				throw new InvalidArgumentException("painter command",	painterCommand, "is not valid");
-		}
-	}
-	
-	//method
-	private void runPainterCommands(final IContainer<Statement> painterCommands) {
-		//TODO: Handle begin and end of 1 painting process.
-		
-		for (final Statement pc : painterCommands) {
-			runPainterCommand(getRefPainterByIndex(pc.getOneAttributeAsInt()), pc.getRefNextStatement());
-		}
-	}
+
 	
 	//method
 	/**
@@ -291,43 +253,7 @@ extends Client<FGC> {
 	 * @param paintFilledRectangleCommand
 	 * @throws InvalidArgumentException if the given paint filled rectangle command is not valid.
 	 */
-	private void runPaintFilledRectangleCommand(
-		final IPainter painter,
-		final Statement paintFilledRectangleCommand
-	) {
-		
-		//Extracts the attributes of the given paint filled rectangle command.
-		final var attributes = paintFilledRectangleCommand.getRefAttributes();
-		
-		//Enumerates the number of attributes of the given paint filled rectangle command.
-		switch (paintFilledRectangleCommand.getAttributeCount()) {
-			case 2:
-				
-				painter.paintFilledRectangle(
-					attributes.getRefAt(1).toInt(),
-					attributes.getRefAt(2).toInt()
-				);
-				
-				break;
-			case 4:
-				
-				painter.paintFilledRectangle(
-					attributes.getRefAt(1).toInt(),
-					attributes.getRefAt(2).toInt(),
-					attributes.getRefAt(3).toInt(),
-					attributes.getRefAt(4).toInt()
-				);
-				
-				break;
-			default:
-				throw
-				new InvalidArgumentException(
-					"paint filled rectangle command",
-					paintFilledRectangleCommand,
-					"is not valid"
-				);
-		}
-	}
+
 	
 	//method
 	/**
@@ -337,41 +263,7 @@ extends Client<FGC> {
 	 * @param paintImageCommand
 	 * @throws InvalidArgumentException if the given paint image command is not valid.
 	 */
-	private void runPaintImageCommand(
-		final IPainter painter,
-		final Statement paintImageCommand
-	) {
-		
-		//Extracts the attributes of the given paint image command.
-		final var attributes = paintImageCommand.getRefAttributes();
-		
-		//Enumerates the number of attributes of the given paint image command.
-		switch (attributes.getSize()) {
-			case 1:
-				
-				painter.paintImage(Image.createFromSpecification(
-					attributes.getRefAt(1))
-				);
-				
-				break;
-			case 3:
-												
-				painter.paintImage(
-					Image.createFromSpecification(attributes.getRefAt(1)),
-					attributes.getRefAt(2).toInt(),
-					attributes.getRefAt(3).toInt()
-				);
-				
-				break;
-			default:
-				throw
-				new InvalidArgumentException(
-					"paint image command",
-					paintImageCommand,
-					"is not valid"
-				);
-		}
-	}
+
 	
 	//method
 	/**
@@ -381,11 +273,7 @@ extends Client<FGC> {
 	 * @param setColorCommand
 	 * @throws InvalidArgumentException if the given set color command is not valid.
 	 */
-	private void runSetColorCommand(final IPainter painter, final Statement setColorCommand) {
-		painter.setColor(
-			Color.createFromSpecification(setColorCommand.getRefOneAttribute())
-		);
-	}
+
 	
 	//method
 	/**
@@ -395,12 +283,10 @@ extends Client<FGC> {
 	 * @param setColorGradientCommand
 	 * @throws InvalidArgumentException if the given set color gradient command is not valid.
 	 */
-	private void runSetColorGradientCommand(
-		final IPainter painter,
-		final Statement setColorGradientCommand
-	) {
-		painter.setColorGradient(
-			ColorGradient.createFromSpecification(setColorGradientCommand.getRefOneAttribute())
-		);
+
+	
+	//method
+	private void setPainterCommands(final IContainer<Statement> painterCommands) {
+		frontBrowserGUIClientoidWidget.setPainterCommands(painterCommands);
 	}
 }

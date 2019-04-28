@@ -15,35 +15,34 @@ import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.textFormat.TextFormat;
 
 //package-visible class
-final class FrontBrowserGUIClientoidPainter implements Indexed, IPainter, Flushable {
+final class BackBrowserGUIClientoidPainter implements Indexed, IPainter, Flushable {
 	
 	//attributes
 	private final BrowserGUIPainterBottom bottom;
 	private final int index;
 	
 	//constructor
-	public FrontBrowserGUIClientoidPainter(final BackGUIClientoid<?> parentBackGUIClient) {
+	public BackBrowserGUIClientoidPainter(final BackGUIClientoid<?> parentBackGUIClient) {
 		bottom = new BrowserGUIPainterBottom(parentBackGUIClient);
 		index = 1;
 	}
 	
 	//constructor
-	private FrontBrowserGUIClientoidPainter(final BrowserGUIPainterBottom bottom) {
+	private BackBrowserGUIClientoidPainter(final BrowserGUIPainterBottom bottom) {
 		this.bottom = bottom;
 		this.index = bottom.getNextIndexAndUpdateNextIndex();
 	}
 	
 	//method
 	@Override
-	public FrontBrowserGUIClientoidPainter createPainter(
+	public BackBrowserGUIClientoidPainter createPainter(
 		final int xTranslation,
 		final int yTranslation
 	) {
-		final var painter = new FrontBrowserGUIClientoidPainter(bottom);
+		final var painter = new BackBrowserGUIClientoidPainter(bottom);
 		
 		appendPainterCommand(
 			Protocol.CREATE_PAINTER_HEADER
-			+ painter.getIndex()
 			+ '('
 			+ xTranslation
 			+ ','
@@ -62,11 +61,10 @@ final class FrontBrowserGUIClientoidPainter implements Indexed, IPainter, Flusha
 		final int paintAreaWidth,
 		final int paintAreaHeight
 	) {
-		final var painter = new FrontBrowserGUIClientoidPainter(bottom);
+		final var painter = new BackBrowserGUIClientoidPainter(bottom);
 		
 		appendPainterCommand(
 			Protocol.CREATE_PAINTER_HEADER
-			+ painter.getIndex()
 			+ '('
 			+ xTranslation
 			+ ','

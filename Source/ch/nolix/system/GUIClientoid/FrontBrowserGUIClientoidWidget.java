@@ -2,38 +2,54 @@
 package ch.nolix.system.GUIClientoid;
 
 //own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.entity.MutableProperty;
+import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.BorderWidget;
 import ch.nolix.element.GUI.Widget;
-import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.painter.IPainter;
 
 //package-visible class
 final class FrontBrowserGUIClientoidWidget
 extends BorderWidget<FrontBrowserGUIClientoidWidget, FrontBrowserGUIClientoidWidgetLook> {
 	
+	//default values
+	private static final int DEFAULT_CONTENT_WIDTH = 1000;
+	private static final int DEFAULT_CONTENT_HEIGHT = 1000;
+	
 	//constants
 	private static final String CONTENT_WIDTH_HEADER = "ContentWidth";
 	private static final String CONTENT_HEIGHT_HEADER = "ContentHeight";
 	
 	//attribute
-	private final MutableProperty<PositiveInteger> contentWidth =
-	new MutableProperty<PositiveInteger>(
+	private final MutableProperty<Integer> contentWidth =
+	new MutableProperty<Integer>(
 		CONTENT_WIDTH_HEADER,
-		cw -> setContentWidth(cw.getValue()),
-		s -> PositiveInteger.createFromSpecification(s),
-		cw -> cw.getSpecification()
+		cw -> setContentWidth(cw),
+		s -> s.getOneAttributeAsInt(),
+		cw -> DocumentNode.createWithOneAttribute(cw)
 	);
 	
 	//attribute
-	private final MutableProperty<PositiveInteger> contentHeight =
-	new MutableProperty<PositiveInteger>(
+	private final MutableProperty<Integer> contentHeight =
+	new MutableProperty<Integer>(
 		CONTENT_HEIGHT_HEADER,
-		ch -> setContentHeight(ch.getValue()),
-		s -> PositiveInteger.createFromSpecification(s),
-		ch -> ch.getSpecification()
+		ch -> setContentHeight(ch),
+		s -> s.getOneAttributeAsInt(),
+		ch -> DocumentNode.createWithOneAttribute(ch)
 	);
+	
+	//attribute
+	private FrontBroserGUIClientoidPaintManager frontBroserGUIClientoidPaintManager  =
+	new FrontBroserGUIClientoidPaintManager();
+	
+	//constructor
+	public FrontBrowserGUIClientoidWidget() {
+		resetAndApplyDefaultConfiguration();
+	}
 	
 	//method
 	@Override
@@ -42,9 +58,25 @@ extends BorderWidget<FrontBrowserGUIClientoidWidget, FrontBrowserGUIClientoidWid
 	}
 	
 	//method
+	@Override
+	public FrontBrowserGUIClientoidWidget reset() {
+		
+		setContentWidth(DEFAULT_CONTENT_WIDTH);
+		setContentHeight(DEFAULT_CONTENT_HEIGHT);
+		
+		frontBroserGUIClientoidPaintManager = new FrontBroserGUIClientoidPaintManager();
+		
+		super.reset();
+		
+		return this;
+	}
+	
+	//method
 	public FrontBrowserGUIClientoidWidget setContentHeight(final int contentHeight) {
 		
-		this.contentHeight.setValue(new PositiveInteger(contentHeight));
+		Validator.suppose(contentHeight).thatIsNamed("content height").isPositive();
+		
+		this.contentHeight.setValue(contentHeight);
 		
 		return this;
 	}
@@ -52,7 +84,9 @@ extends BorderWidget<FrontBrowserGUIClientoidWidget, FrontBrowserGUIClientoidWid
 	//method
 	public FrontBrowserGUIClientoidWidget setContentWidth(final int contentWidth) {
 		
-		this.contentWidth.setValue(new PositiveInteger(contentWidth));
+		Validator.suppose(contentWidth).thatIsNamed("content width").isPositive();
+		
+		this.contentWidth.setValue(contentWidth);
 		
 		return this;
 	}
@@ -78,13 +112,13 @@ extends BorderWidget<FrontBrowserGUIClientoidWidget, FrontBrowserGUIClientoidWid
 	//method
 	@Override
 	protected int getContentAreaHeight() {
-		return contentHeight.getValue().getValue();
+		return contentHeight.getValue();
 	}
 	
 	//method
 	@Override
 	protected int getContentAreaWidth() {
-		return contentWidth.getValue().getValue();
+		return contentWidth.getValue();
 	}
 	
 	//method
@@ -93,6 +127,11 @@ extends BorderWidget<FrontBrowserGUIClientoidWidget, FrontBrowserGUIClientoidWid
 		final FrontBrowserGUIClientoidWidgetLook frontBrowserGUIClientoidWidgetLook,
 		final IPainter painter
 	) {
-		//TODO
+		frontBroserGUIClientoidPaintManager.paint(painter);
+	}
+	
+	//package-visible method
+	void setPainterCommands(final IContainer<Statement> painterCommands) {
+		frontBroserGUIClientoidPaintManager = new FrontBroserGUIClientoidPaintManager(painterCommands);
 	}
 }

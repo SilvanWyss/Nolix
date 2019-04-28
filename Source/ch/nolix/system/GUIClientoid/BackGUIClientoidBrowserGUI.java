@@ -10,7 +10,7 @@ final class BackGUIClientoidBrowserGUI extends BackGUIClientoidGUI {
 	
 	//constructor
 	public BackGUIClientoidBrowserGUI(
-		final IElementGetter<FrontBrowserGUIClientoidPainter> painterCreator
+		final IElementGetter<BackBrowserGUIClientoidPainter> painterCreator
 	) {
 		
 		reset();

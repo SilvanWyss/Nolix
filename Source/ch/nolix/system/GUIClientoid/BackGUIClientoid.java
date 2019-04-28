@@ -417,7 +417,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 				resetGUIOnCounterpart(getRefGUI().getAttributes());
 				break;
 			case PainterCommandsConsumer:
-				final var painter = new FrontBrowserGUIClientoidPainter(this);
+				final var painter = new BackBrowserGUIClientoidPainter(this);
 				getRefGUI().refresh();
 				getRefGUI().paintContent(painter);
 				painter.flush();

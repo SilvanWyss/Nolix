@@ -26,7 +26,7 @@ final class BrowserGUIPainterBottom {
 	
 	//method
 	public void appendPainterCommand(
-		final FrontBrowserGUIClientoidPainter browserGUIPainter,
+		final BackBrowserGUIClientoidPainter browserGUIPainter,
 		final String command
 	) {
 		painterCommands.addAtEnd(
