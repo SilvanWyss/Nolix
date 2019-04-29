@@ -1,26 +1,26 @@
 //package declaration
 package ch.nolix.core.endPoint2;
 
+//own imports
 import ch.nolix.core.closableElement.ClosableElement;
 import ch.nolix.core.communicationAPI.IReceiver;
 import ch.nolix.core.communicationAPI.ISender;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 
 //abstract class
 /**
- * An end point can send messages to an other end point of the same type.
- * An end point is abortable.
+ * A {@link EndPoint} can send messages to an other {@link EndPoint} of the same type.
+ * A {@link EndPoint} is closable.
  * 
  * @author Silvan Wyss
  * @month 2017-04
- * @lines 140
+ * @lines 160
  */
-public abstract class EndPoint
-extends ClosableElement
-implements ISender {
-
+public abstract class EndPoint extends ClosableElement implements ISender {
+	
 	//attribute
 	private final boolean hasRequestedConnection;
 	
@@ -30,7 +30,7 @@ implements ISender {
 	
 	//package-visible constructor
 	/**
-	 * Creates a new end point.
+	 * Creates a new {@link EndPoint}.
 	 * 
 	 * @param hasRequestedConnection
 	 */
@@ -40,14 +40,15 @@ implements ISender {
 
 	//method
 	/**
-	 * @return the target of this end point.
-	 * @throws ArgumentMissesAttributeException if this end point does not have a target.
+	 * @return the target of the current {@link EndPoint}.
+	 * @throws ArgumentMissesAttributeException if the current {@link EndPoint} does not have a target.
 	 */
 	public final String getTarget() {
 		
-		//Checks if this end point has a target.
-		if (!hasTarget()) {
-			throw new ArgumentMissesAttributeException(this, "target");
+		//Checks if the current EndPoint has a target.
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (this.target == null) {
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.TARGET);
 		}
 		
 		return target;
@@ -55,7 +56,7 @@ implements ISender {
 	
 	//method
 	/**
-	 * @return true if this end point has a receiver.
+	 * @return true if the current {@link EndPoint} has a receiver.
 	 */
 	public final boolean hasReceiver() {
 		return (receiver != null);
@@ -63,7 +64,7 @@ implements ISender {
 	
 	//method
 	/**
-	 * @return true if this end point has requested the connection.
+	 * @return true if the current {@link EndPoint} has requested the connection.
 	 */
 	public final boolean hasRequestedConnection() {
 		return hasRequestedConnection;
@@ -71,7 +72,7 @@ implements ISender {
 	
 	//method
 	/**
-	 * @return true if this end point has a target.
+	 * @return true if the current {@link EndPoint} has a target.
 	 */
 	public final boolean hasTarget() {
 		return (target != null);
@@ -79,67 +80,79 @@ implements ISender {
 	
 	//method
 	/**
-	 * @return true if this end point is a local end point.
+	 * @return true if the current {@link EndPoint} is a local {@link EndPoint}.
 	 */
 	public final boolean isLocalEndPoint() {
 		return !isNetEndPoint();
 	}
 	
-	//method
+	//abstract method
 	/**
-	 * @return true if this end point is a net end point.
+	 * @return true if the current {@link EndPoint} is a net {@link EndPoint}.
 	 */
 	public abstract boolean isNetEndPoint();
 	
 	//method
 	/**
-	 * Sets the receiver of this end point.
+	 * Sets the receiver of the current {@link EndPoint}.
 	 * 
 	 * @param receiver
 	 * @throws NullArgumentException if the given receiver is null.
-	 * @throws InvalidArgumentException if this end point is aborted.
+	 * @throws InvalidArgumentException if the current {@link EndPoint} is closed.
 	 */
 	public final void setReceiver(final IReceiver receiver) {
 		
-		//Checks if this end point is aborted.
+		//Checks if the current EndPoint is alive.
 		supposeIsAlive();
 		
 		//Checks if the given receiver is not null.
 		Validator.suppose(receiver).isOfType(IReceiver.class);
 		
-		//Sets the receiver of this end point.
+		//Sets the receiver of the current EndPoint.
 		this.receiver = receiver;
 	}
 	
+	//method
+	/**
+	 * Lets the current {@link EndPoint} receive the given message.
+	 * 
+	 * @param message
+	 */
 	protected void receive(final String message) {
 		getRefReceiver().receive(message);
 	}
 	
 	//method
 	/**
-	 * Sets the target of this net end point.
+	 * Sets the target of the current {@link EndPoint}.
 	 * 
 	 * @param target
 	 * @throws NullArgumentException if the given target is null.
-	 * @throws EmptyArgumentException if the given target is empty.
-	 * @throws InvalidArgumentException if this net end point is aborted.
+	 * @throws InvalidArgumentException if the given target is blank.
+	 * @throws InvalidArgumentException if the current net {@link EndPoint} is closed.
 	 */
-	protected void setTarget(final String target) {
+	protected final void setTarget(final String target) {
 		
-		//Checks if the given target is not empty.
-		Validator.suppose(target).thatIsNamed("target").isNotEmpty();
-		
-		//Checks if this net end point is not stopped.
+		//Checks if the current net EndPoint is alive.
 		supposeIsAlive();
+				
+		//Checks if the given target is not null or blank.
+		Validator.suppose(target).thatIsNamed(VariableNameCatalogue.TARGET).isNotBlank();
 		
-		//Sets the target of this end point.
+		//Sets the target of the current EndPoint.
 		this.target = target;
 	}
 	
+	//method
+	/**
+	 * @return the receiver of the current {@link EndPoint}.
+	 * @throws ArgumentMissesAttributeException if the current {@link EndPoint} does not have a receiver.
+	 */
 	private IReceiver getRefReceiver() {
 		
-		//Checks if this end point has a receiver.
-		if (!hasReceiver()) {
+		//Checks if the current EndPoint has a receiver.
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (receiver == null) {
 			throw new ArgumentMissesAttributeException(this, IReceiver.class);
 		}
 		
