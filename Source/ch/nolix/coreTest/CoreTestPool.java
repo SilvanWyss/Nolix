@@ -21,7 +21,7 @@ import ch.nolix.systemTest.databaseAdapterTest.DatabaseAdapterTestPool;
  * @lines 40
  */
 public final class CoreTestPool extends TestPool {
-
+	
 	//constructor
 	/**
 	 * Creates a new {@link CoreTestPool}.
@@ -31,6 +31,7 @@ public final class CoreTestPool extends TestPool {
 			new ContainerTestPool(),
 			new DatabaseAdapterTestPool(),
 			new ch.nolix.coreTest.endPointTest.EndPointTestPool(),
+			new ch.nolix.coreTest.endPoint2Test.EndPointTestPool(),
 			new ch.nolix.coreTest.endPoint3Test.EndPointTestPool(),
 			new ElementEnumTestPool(),
 			new HelperTestPool(),
