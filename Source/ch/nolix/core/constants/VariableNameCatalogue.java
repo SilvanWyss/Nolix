@@ -126,6 +126,7 @@ public final class VariableNameCatalogue {
 	public static final String SUMMARY = "summary";
 	public static final String SURNAME = "surname";
 	public static final String TAB = "tab";
+	public static final String TARGET = "target";
 	public static final String TEST = "test";
 	public static final String TEST_CLASS = "test class";
 	public static final String TEXT = "text";
