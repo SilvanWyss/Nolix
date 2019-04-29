@@ -126,7 +126,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String SUMMARY = "Summary";
 	public static final String SURNAME = "Surname";
 	public static final String TAB = "Tab";
-	public static final String TARGET = "target";
+	public static final String TARGET = "Target";
 	public static final String TEST = "Test";
 	public static final String TEST_CLASSS = "TestClass";
 	public static final String TEXT = "Text";
