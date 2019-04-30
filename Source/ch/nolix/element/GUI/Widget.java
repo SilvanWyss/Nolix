@@ -29,7 +29,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1750
+ * @lines 1830
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -1630,20 +1630,28 @@ implements Recalculable {
 	/**
 	 * Sets the GUI the current {@link Widget} will belong to.
 	 * 
-	 * @param GUI
-	 * @throws NullArgumentException if the given GUI is null.
+	 * @param parentGUI
+	 * @throws NullArgumentException if the given parentGUI is null.
 	 */
 	final void setParentGUI(final IGUI<?> parentGUI) {
 		
-		Validator
-		.suppose(parentGUI)
-		.thatIsNamed("parent GUI")
-		.isNotNull();
+		//Checks if the given parentGUI is not null.
+		Validator.suppose(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		
-		//TODO: Make sure that all Widgets of a GUI have different names.
-		
+		//Checks if the given parentGUI does not contain already a Widget with the same name than the current Widget.
+		if (parentGUI.containsElement(getName())) {
+			throw
+			new InvalidArgumentException(
+				"parent GUI",
+				parentGUI,
+				"contains already a Widget with the name " + getNameInQuotes()
+			);
+		}
+				
+		//Sets the parentGUI of the current Widget.
 		this.parentGUI = parentGUI;
 		
+		//Sets the parentGUI of the child Widgets of the current Widget.
 		getChildWidgets().forEach(cw -> cw.setParentGUI(parentGUI));
 	}
 	
