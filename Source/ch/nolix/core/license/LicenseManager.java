@@ -13,7 +13,7 @@ import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
  * 
  * @author Silvan Wyss
  * @month 2019-04
- * @lines 110
+ * @lines 120
  */
 public class LicenseManager {
 	
@@ -101,6 +101,15 @@ public class LicenseManager {
 	 */
 	public static <P extends Permission> InternalLicenseManager requirePermission(final Class<P> type) {
 		return internalLicenseManager.requirePermission(type);
+	}
+	
+	//static method
+	/**
+	 * @param value
+	 * @return a new {@link LongMediator} for the given value.
+	 */
+	public static LongMediator when(final long value) {
+		return internalLicenseManager.when(value);
 	}
 	
 	//private constructor

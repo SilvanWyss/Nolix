@@ -18,7 +18,7 @@ import ch.nolix.core.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2019-04
- * @lines 200
+ * @lines 210
  */
 public final class InternalLicenseManager {
 	
@@ -197,5 +197,14 @@ public final class InternalLicenseManager {
 		}
 		
 		return this;
+	}
+	
+	//static method
+	/**
+	 * @param value
+	 * @return a new {@link LongMediator} for the given value.
+	 */
+	public LongMediator when(final long value) {
+		return new LongMediator(this, value);
 	}
 }
