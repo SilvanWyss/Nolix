@@ -29,7 +29,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1830
+ * @lines 1890
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -65,8 +65,8 @@ implements Recalculable {
 	private final WL hoverFocusLook = createWidgetLook();
 	
 	//attributes
-	private int xPositionOnParent = 0;
-	private int yPositionOnParent = 0;
+	private int xPositionOnParent = 1;
+	private int yPositionOnParent = 1;
 	protected int cursorXPosition = 0;
 	protected int cursorYPosition = 0;
 	
@@ -276,6 +276,66 @@ implements Recalculable {
 		Validator.suppose(GUI).isNotNull();
 		
 		return (this.parentGUI != GUI);
+	}
+	
+	//method
+	/**
+	 * @param xPosition
+	 * @param yPosition
+	 * @return true if the current {@link Widget} covers the point with the given x-position and y-position.
+	 */
+	public final boolean coversPoint(final int xPosition, final int yPosition) {
+		
+		//For a better performance, this implementation does the cheap comparisons at first.
+		return
+		xPosition > 0
+		&& yPosition > 0
+		&& xPosition < getWidth()
+		&& yPosition < getHeight();
+	}
+	
+	//method
+	/**
+	 * @param xPositionOnGUI
+	 * @param yPositionOnGUI
+	 * @return true if the current {@link Widget}
+	 * covers the point with the given x-position on GUI and y-position on GUI.
+	 */
+	public final boolean coversPointOnGUI(final int xPositionOnGUI, final int yPositionOnGUI) {
+		
+		//For a better performance, this implementation does the cheap comparisons at first.
+		//For a better performance, this implementation does the cheap comparisons at first.
+			final var thisXPositionOnGUI = getXPositionOnGUI();
+			
+			if (xPositionOnGUI < thisXPositionOnGUI || xPositionOnGUI >= thisXPositionOnGUI + getWidth()) {
+				return false;
+			}
+			
+			final var thisYPositionOnGUI = getYPositionOnGUI();
+			
+			if (yPositionOnGUI < thisYPositionOnGUI || yPositionOnGUI >= thisYPositionOnGUI + getHeight()) {
+				return false;
+			}
+			
+			return true;
+	}
+	
+	//method
+	/**
+	 * @param xPositionOnParent
+	 * @param yPositionOnParent
+	 * @return true if the current {@link Widget}
+	 * covers the point with the given x-position on parent and y-position on parent.
+	 */
+	public final boolean coversPointOnParent(final int xPositionOnParent, final int yPositionOnParent) {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		//For a better performance, this implementation does the cheap comparisons at first.
+		return
+		xPositionOnParent >= this.xPositionOnParent
+		&& yPositionOnParent >= this.yPositionOnParent
+		&& xPositionOnParent < this.xPositionOnParent + getWidth()
+		&& yPositionOnParent < this.yPositionOnParent + getHeight();
 	}
 	
 	//method
@@ -671,17 +731,10 @@ implements Recalculable {
 	
 	//method
 	/**
-	 * If a widget is under mouse it is not surely hovered, for example when it is disabled.
-	 * 
-	 * @return true if the mouse is on the current {@link Widget}.
+	 * @return true if the current {@link Widget} is under the cursor.
 	 */
 	public final boolean isUnderCursor() {
-		return (
-			cursorXPosition >= 0	//First, checks the conditions that can be calculated easily.
-			&& cursorYPosition >= 0
-			&& cursorXPosition < getWidth()
-			&& cursorYPosition < getHeight()
-		);
+		return coversPoint(cursorXPosition, cursorYPosition);
 	}
 	
 	//abstract method
