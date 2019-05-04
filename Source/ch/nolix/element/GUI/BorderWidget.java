@@ -18,14 +18,13 @@ import ch.nolix.element.painter.IPainter;
 
 //abstract class
 /**
- * A border widget is a background widget that:
+ * A {@link BorderWidget} is a {@link BackgroundWidget} that:
  * -Can have an individual border at each of its 4 sides.
- * -Can have a min size
- * that has the effect that the content of the border widget is moved inside its borders.
- * -Can have a max size
- * that has the effect that the border widget becomes scrollable.
+ * -Can have a min size,
+ *  that has the effect that the content of the {@link BackgroundWidget is moved inside its borders.
+ * -Can have a max size, that has the effect that the {@link BackgroundWidget becomes scrollable.
  * 
- * A border widget consists of the following areas from outer to inner.
+ * A {@link BackgroundWidget consists of the following areas from outer to inner.
  * 1. widget area: Contains the probable shadows area and caption area.
  * 2. caption area: Contains the probable captions and main area.
  * 3. main area: Contains the probable borders and bordered area.
@@ -36,18 +35,17 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1910
- * @param <BW> The type of a border widget.
- * @param <BWS> The type of the widget structures of a border widget.
+ * @lines 1900
+ * @param <BW> The type of a {@link BackgroundWidget.
+ * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget.
  */
-public abstract class BorderWidget<
-	BW extends BorderWidget<BW, BWS>,
-	BWS extends BorderWidgetLook<BWS>
->
-extends BackgroundWidget<BW, BWS> {
+public abstract class BorderWidget<BW extends BorderWidget<BW, BWL>,BWL extends BorderWidgetLook<BWL>>
+extends BackgroundWidget<BW, BWL> {
 	
-	//constants
+	//constant
 	public static final String TYPE_NAME = "Borderablewidget";
+	
+	//constant
 	private static final int VIEW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP = 50;
 	
 	//limit
@@ -231,7 +229,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final Color getHorizontalScrollbarColor() {
 		
-		final var currentLook = getRefCurrentLook();
+		final BWL currentLook = getRefCurrentLook();
 		
 		if (!isMovingHorizontalScrollbarCursor()) {
 			if (!horizontalScrollbarCursorIsUnderCursor()) {
@@ -255,7 +253,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final Color getHorizontalScrollbarCursorColor() {
 		
-		final var currentLook = getRefCurrentLook();
+		final BWL currentLook = getRefCurrentLook();
 		
 		if (!isMovingHorizontalScrollbarCursor()) {
 			if (!horizontalScrollbarCursorIsUnderCursor()) {
@@ -335,7 +333,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final int getNaturalHeight() {
 		
-		final var currentStructure = getRefCurrentLook();
+		final BWL currentStructure = getRefCurrentLook();
 		
 		return
 		currentStructure.getRecursiveOrDefaultTopBorderThickness()
@@ -355,7 +353,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final int getNaturalWidth() {
 		
-		final var currentStructure = getRefCurrentLook();
+		final BWL currentStructure = getRefCurrentLook();
 		
 		return
 		currentStructure.getRecursiveOrDefaultLeftBorderThickness()
@@ -388,7 +386,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final Color getVerticalScrollbarColor() {
 		
-		final var currentLook = getRefCurrentLook();
+		final BWL currentLook = getRefCurrentLook();
 		
 		if (!isMovingVerticalScrollbarCursor()) {
 			if (!verticalScrollbarCursorIsUnderCursor()) {
@@ -412,7 +410,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	public final Color getVerticalScrollbarCursorColor() {
 		
-		final var currentLook = getRefCurrentLook();
+		final BWL currentLook = getRefCurrentLook();
 		
 		if (!isMovingVerticalScrollbarCursor()) {
 			if (!verticalScrollbarCursorIsUnderCursor()) {
@@ -997,7 +995,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	protected final int getContentAreaXPosition() {
 		
-		final var currentStructure = getRefCurrentLook();
+		final BWL currentStructure = getRefCurrentLook();
 		
 		return
 		currentStructure.getRecursiveOrDefaultLeftBorderThickness()
@@ -1011,7 +1009,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	protected final int getContentAreaYPosition() {
 		
-		final var currentStructure = getRefCurrentLook();
+		final BWL currentStructure = getRefCurrentLook();
 		
 		return
 		currentStructure.getRecursiveOrDefaultTopBorderThickness()
@@ -1042,7 +1040,7 @@ extends BackgroundWidget<BW, BWS> {
 	@Override
 	protected final int getHeightWhenNotCollapsed() {
 		
-		final var currentLook = getRefCurrentLook();
+		final BWL currentLook = getRefCurrentLook();
 		
 		return
 		currentLook.getRecursiveOrDefaultTopBorderThickness()		
@@ -1067,7 +1065,7 @@ extends BackgroundWidget<BW, BWS> {
 			proposedContentAreaHeight =	Calculator.getMax(getMinHeight(), proposedContentAreaHeight);
 		}
 		
-		final var currentLook = getRefCurrentLook();
+		final BWL currentLook = getRefCurrentLook();
 		
 		return
 		proposedContentAreaHeight
@@ -1094,7 +1092,7 @@ extends BackgroundWidget<BW, BWS> {
 			proposedContentAreaWidth = Calculator.getMax(getMinWidth(), proposedContentAreaWidth);
 		}
 		
-		final var currentLook = getRefCurrentLook();
+		final BWL currentLook = getRefCurrentLook();
 		
 		return
 		proposedContentAreaWidth
@@ -1111,7 +1109,7 @@ extends BackgroundWidget<BW, BWS> {
 	@Override
 	protected final int getWidthWhenNotCollapsed() {
 		
-		final var currentLook = getRefCurrentLook();
+		final BWL currentLook = getRefCurrentLook();
 		
 		return
 		currentLook.getRecursiveOrDefaultLeftBorderThickness()		
@@ -1128,7 +1126,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	@Override
 	protected final void paint(
-		final BWS widgetStructure,
+		final BWL widgetStructure,
 		final IPainter painter
 	) {
 				
@@ -1204,9 +1202,9 @@ extends BackgroundWidget<BW, BWS> {
 	 * @param borderWidgetLook
 	 * @param painter
 	 */
-	protected void paintContentArea(BWS borderWidgetLook, IPainter painter) {}
+	protected void paintContentArea(BWL borderWidgetLook, IPainter painter) {}
 	
-	private void paintContentArea2(BWS borderWidgetLook, IPainter painter) {
+	private void paintContentArea2(BWL borderWidgetLook, IPainter painter) {
 		
 		paintContentArea(borderWidgetLook, painter);
 		
@@ -1258,7 +1256,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private int getBorderedAreaXPosition() {
 		
-		final var currentStructure = getRefCurrentLook();
+		final BWL currentStructure = getRefCurrentLook();
 		
 		return currentStructure.getRecursiveOrDefaultLeftBorderThickness();
 	}
@@ -1269,7 +1267,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private int getBorderedAreaYPosition() {
 		
-		final var currentStructure = getRefCurrentLook();
+		final BWL currentStructure = getRefCurrentLook();
 		
 		return currentStructure.getRecursiveOrDefaultTopBorderThickness();
 	}
@@ -1281,7 +1279,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private int getContentAreaXPositionOnScrollArea() {
 		
-		final var currentStructure = getRefCurrentLook();
+		final BWL currentStructure = getRefCurrentLook();
 		
 		//Enumerates the content position of the current border widget.
 		switch (getContentPosition()) {
@@ -1312,7 +1310,7 @@ extends BackgroundWidget<BW, BWS> {
 	 */
 	private int getContentAreaYPositionOnScrollArea() {
 		
-		final var currentStructure = getRefCurrentLook();
+		final BWL currentStructure = getRefCurrentLook();
 		
 		//Enumerates the content orientation of the current border widget.
 		switch (getContentPosition()) {
@@ -1408,7 +1406,7 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	private int getMaxViewAreaHeight() {
 		
-		final var currentLook = getRefCurrentLook();
+		final BWL currentLook = getRefCurrentLook();
 		
 		return
 		getMaxHeight()
@@ -1420,7 +1418,7 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	private int getMaxViewAreaWidth() {
 		
-		final var currentLook = getRefCurrentLook();
+		final BWL currentLook = getRefCurrentLook();
 		
 		return
 		getMaxWidth()
@@ -1432,7 +1430,7 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	private int getMinScrollAreaHeight() {
 		
-		final var currentLook = getRefCurrentLook();
+		final BWL currentLook = getRefCurrentLook();
 		
 		return
 		getMinHeight()
@@ -1444,7 +1442,7 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	private int getMinScrollAreaWidth() {
 		
-		final var currentLook = getRefCurrentLook();
+		final BWL currentLook = getRefCurrentLook();
 		
 		return
 		getMinWidth()
@@ -1468,7 +1466,7 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	private int getNaturalScrollAreaHeight() {
 		
-		final var currentLook = getRefCurrentLook();
+		final BWL currentLook = getRefCurrentLook();
 		
 		return
 		currentLook.getRecursiveOrDefaultTopPadding()
@@ -1479,7 +1477,7 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	private int getNaturalScrollAreaWidth() {
 		
-		final var currentLook = getRefCurrentLook();
+		final BWL currentLook = getRefCurrentLook();
 		
 		return
 		currentLook.getRecursiveOrDefaultLeftPadding()
@@ -1500,7 +1498,7 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	private int getProposalScrollAreaHeight() {
 		
-		final var currentLook = getRefCurrentLook();
+		final BWL currentLook = getRefCurrentLook();
 		
 		return
 		getProposalHeight()
@@ -1512,7 +1510,7 @@ extends BackgroundWidget<BW, BWS> {
 	//method
 	private int getProposalScrollAreaWith() {
 		
-		final var currentLook = getRefCurrentLook();
+		final BWL currentLook = getRefCurrentLook();
 		
 		return
 		getProposalWidth()
@@ -1746,7 +1744,7 @@ extends BackgroundWidget<BW, BWS> {
 	 * @param painter
 	 */
 	private void paintBorderedArea(
-		final BWS borderWidgetStructure,
+		final BWL borderWidgetStructure,
 		final IPainter painter
 	) {
 		
@@ -1819,7 +1817,7 @@ extends BackgroundWidget<BW, BWS> {
 	 * @param painter
 	 */
 	private void paintViewArea(
-		final BWS widgetStructure,
+		final BWL widgetStructure,
 		final IPainter painter
 	) {
 		paintScrollArea(
@@ -1842,7 +1840,7 @@ extends BackgroundWidget<BW, BWS> {
 	 * @param painter
 	 */
 	private void paintScrollArea(
-		final BWS widgetStructure,
+		final BWL widgetStructure,
 		final IPainter painter
 	) {
 		paintContentArea2(
