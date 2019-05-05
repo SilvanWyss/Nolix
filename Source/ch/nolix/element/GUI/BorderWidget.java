@@ -35,7 +35,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1900
+ * @lines 1840
  * @param <BW> The type of a {@link BackgroundWidget.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget.
  */
@@ -136,6 +136,9 @@ extends BackgroundWidget<BW, BWL> {
 		y -> y.getSpecification()
 	);
 	
+	//attribute
+	private final BorderWidgetContentArea<BW, BWL> contentArea = new BorderWidgetContentArea<>(this);
+	
 	//attributes
 	private boolean isMovingVerticalScrollbarCursor = false;
 	private boolean isMovingHorizontalScrollbarCursor = false;
@@ -197,6 +200,11 @@ extends BackgroundWidget<BW, BWL> {
 		attributes.addAtEnd(contentPosition.getSpecification());
 
 		return attributes;
+	}
+	
+	//method
+	public final BorderWidgetContentArea<BW, BWL> getContentArea() {
+		return contentArea;
 	}
 	
 	//method
@@ -964,19 +972,6 @@ extends BackgroundWidget<BW, BWL> {
 		return asConcreteType();
 	}
 	
-	//method
-	/**
-	 * @return true if the content area of the current {@link BorderWidget} is under the cursor.
-	 */
-	protected final boolean contentAreaIsUnderCursor() {
-		return (
-			getCursorXPositionOnContentArea() >= 0
-			&& getCursorXPositionOnContentArea() < getContentAreaWidth()
-			&& getCursorYPositionOnContentArea() >= 0
-			&& getCursorYPositionOnContentArea() < getContentAreaHeight()
-		);
-	}
-	
 	//abstract method
 	/**
 	 * @return the height of the content area of the current {@link BorderWidget}.
@@ -1000,7 +995,7 @@ extends BackgroundWidget<BW, BWL> {
 		return
 		currentStructure.getRecursiveOrDefaultLeftBorderThickness()
 		- getViewAreaXPositionOnScrolledArea()
-		+ getContentAreaXPositionOnScrolledArea();
+		+ contentArea.getXPositionOnScrolledArea();
 	}
 	
 	//method
@@ -1014,7 +1009,7 @@ extends BackgroundWidget<BW, BWL> {
 		return
 		currentStructure.getRecursiveOrDefaultTopBorderThickness()
 		- getViewAreaYPositionOnScrolledArea()
-		+ getContentAreaYPositionOnScrolledArea();
+		+ contentArea.getYPositionOnScrolledArea();
 	}
 	
 	//method
@@ -1204,13 +1199,6 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	protected void paintContentArea(BWL borderWidgetLook, IPainter painter) {}
 	
-	private void paintContentArea2(BWL borderWidgetLook, IPainter painter) {
-		
-		paintContentArea(borderWidgetLook, painter);
-		
-		getChildWidgets().forEach(cw -> cw.paint(painter));
-	}
-	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -1270,68 +1258,6 @@ extends BackgroundWidget<BW, BWL> {
 		final BWL currentStructure = getRefCurrentLook();
 		
 		return currentStructure.getRecursiveOrDefaultTopBorderThickness();
-	}
-	
-	//method
-	/**
-	 * @return the x-position of the content area of the current {@link BorderWidget}
-	 * on the scroll area of the current {@link BorderWidget}.
-	 */
-	private int getContentAreaXPositionOnScrolledArea() {
-		
-		final BWL currentStructure = getRefCurrentLook();
-		
-		//Enumerates the content position of the current border widget.
-		switch (getContentPosition()) {
-			case LeftTop:
-			case Left:
-			case LeftBottom:
-				return currentStructure.getRecursiveOrDefaultLeftPadding();
-			case Top:
-			case Center:
-			case Bottom:
-				return (getScrolledAreaWidth() - getContentAreaWidth()) / 2;
-			case RightTop:
-			case Right:
-			case RightBottom:				
-				return
-				getScrolledAreaWidth()
-				- getContentAreaWidth()
-				- currentStructure.getRecursiveOrDefaultRightPadding();
-		}
-		
-		throw new InvalidArgumentException(this);
-	}
-	
-	//method
-	/**
-	 * @return the y-position of the content area of the current {@link BorderWidget}
-	 * on the scroll area of the current {@link BorderWidget}.
-	 */
-	private int getContentAreaYPositionOnScrolledArea() {
-		
-		final BWL currentStructure = getRefCurrentLook();
-		
-		//Enumerates the content orientation of the current border widget.
-		switch (getContentPosition()) {
-			case LeftTop:
-			case Top:
-			case RightTop:
-				return currentStructure.getRecursiveOrDefaultTopPadding();
-			case Left:
-			case Center:
-			case Right:
-				return (getScrolledAreaHeight() - getContentAreaHeight()) / 2;
-			case LeftBottom:
-			case Bottom:
-			case RightBottom:
-				return
-				getScrolledAreaHeight()
-				- getContentAreaHeight()
-				- currentStructure.getRecursiveOrDefaultBottomPadding();
-		}
-		
-		throw new InvalidArgumentException(this);
 	}
 	
 	//method
@@ -1533,7 +1459,7 @@ extends BackgroundWidget<BW, BWL> {
 	/**
 	 * @return the height of the scroll area of the current {@link BorderWidget}.
 	 */
-	private int getScrolledAreaHeight() {
+	int getScrolledAreaHeight() {
 		
 		var scrolledAreaHeight = getNaturalScrolledAreaHeight();
 		
@@ -1556,7 +1482,7 @@ extends BackgroundWidget<BW, BWL> {
 	/**
 	 * @return the width of the scroll area of the current {@link BorderWidget}.
 	 */
-	private int getScrolledAreaWidth() {
+	int getScrolledAreaWidth() {
 			
 		var scrolledAreaWidth = getNaturalScrolledAreaWidth();
 		
@@ -1843,11 +1769,11 @@ extends BackgroundWidget<BW, BWL> {
 		final BWL widgetStructure,
 		final IPainter painter
 	) {
-		paintContentArea2(
+		contentArea.paint(
 			widgetStructure,
 			painter.createPainter(
-				getContentAreaXPositionOnScrolledArea(),
-				getContentAreaYPositionOnScrolledArea(),
+				contentArea.getXPositionOnScrolledArea(),
+				contentArea.getYPositionOnScrolledArea(),
 				getScrolledAreaWidth(),
 				getScrolledAreaHeight()
 			)
