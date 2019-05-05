@@ -17,6 +17,9 @@ import ch.nolix.core.primitiveContainer.List;
  */
 public abstract class Testoid {
 	
+	//attribute
+	private static final long TEST_CASE_MAX_DURATION_IN_MILLISECONDS = 5000;
+
 	//optional attribute
 	private Method afterTestCaseMethod;
 	
@@ -95,10 +98,11 @@ public abstract class Testoid {
 				//This statement, that is actually unnecessary, makes that the current loop is not optimized away.
 				System.err.flush();
 				
-				if (testCaseRunner.getRuntimeInMilliseconds() > 2000) {
+				if (m.getAnnotation(IgnoreTimeout.class) == null && testCaseRunner.getRuntimeInMilliseconds() > TEST_CASE_MAX_DURATION_IN_MILLISECONDS) {
 					testCaseRunner.stop2();
+					break;
 				}
-			}
+			}	
 			
 			if (!testCaseRunner.hasFatalError()) {
 				if (!lastErrors.isEmpty()) {
