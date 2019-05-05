@@ -11,36 +11,47 @@ import ch.nolix.element.color.Color;
  * 
  * @author Silvan Wyss
  * @month 2016-06
- * @lines 70
+ * @lines 80
  */
 public final class AreaTest extends WidgetTest<Area> {
 	
 	//test case
-	public void testCase_equals() {
+	public void testCase_coversPoint() {
 		
-		//setup part 1
-		final var area1 =
-		new Area()
-		.setWidth(2000)
-		.setHeight(1000)
-		.setBackgroundColor(Color.GREEN);
-		
-		//setup part 2
-		final var area2 =
-		new Area()
-		.setWidth(2000)
-		.setHeight(1000)
-		.setBackgroundColor(Color.GREEN);
+		//setup
+		final var area = new Area(500, 200);
 		
 		//execution & verification
-		expect(area1.equals(area2));
+		expect(area.coversPoint(1, 1));
+		expect(area.coversPoint(1, 200));
+		expect(area.coversPoint(500, 1));
+		expect(area.coversPoint(500, 100));
+		expectNot(area.coversPoint(0, 1));
+		expectNot(area.coversPoint(0, 200));
+		expectNot(area.coversPoint(1, 0));
+		expectNot(area.coversPoint(1, 201));
+		expectNot(area.coversPoint(500, 0));
+		expectNot(area.coversPoint(500, 201));
+		expectNot(area.coversPoint(501, 1));
+		expectNot(area.coversPoint(501, 200));
+	}
+	
+	//test case
+	public void testCase_equals() {
+		
+		//setup 
+		final var area = new Area(2000, 1000, Color.GREEN);
+		final var area2 = new Area(2000, 1000, Color.GREEN);
+		
+		//execution & verification
+		expect(area.equals(area2));
 	}
 	
 	//test case
 	public void testCase_removeBackgroundColor() {
 		
 		//setup
-		final var area = new Area().setBackgroundColor(Color.GREEN);
+		final var area = new Area(Color.GREEN);
 		
 		//setup verification
 		expect(area.hasBackgroundColor());
