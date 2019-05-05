@@ -290,8 +290,8 @@ implements Recalculable {
 		return
 		xPosition > 0
 		&& yPosition > 0
-		&& xPosition < getWidth()
-		&& yPosition < getHeight();
+		&& xPosition <= getWidth()
+		&& yPosition <= getHeight();
 	}
 	
 	//method
