@@ -30,7 +30,7 @@ import ch.nolix.element.painter.IPainter;
  * 3. main area: Contains the probable borders and bordered area.
  * 4. bordered area: Contains the probable scrollbars and view area.
  * 5. view area: Is over the scroll area and is like a hole to look on the scroll area below.
- * 6. scroll area: Contains the probable paddings and content area.
+ * 6. scrolled area: Contains the probable paddings and content area.
  * 7. content area: Contains the content.
  * 
  * @author Silvan Wyss
@@ -58,8 +58,8 @@ extends BackgroundWidget<BW, BWL> {
 	private static final String MAX_HEIGHT_HEADER = "MaxHeight";
 	private static final String PROPOSAL_WIDTH_HEADER = "ProposalWidth";
 	private static final String PROPOSAL_HEIGHT_HEADER = "ProposalHeight";
-	private static final String VIEW_AREA_X_POSITION_ON_SCROLL_AREA_HEADER = "ViewAreaXPositionOnScrollArea";
-	private static final String VIEW_AREA_Y_POSITION_ON_SCROLL_AREA_HEADER = "ViewAreaYPositionOnScrollArea";
+	private static final String VIEW_AREA_X_POSITION_ON_SCROLLED_AREA_HEADER = "ViewAreaXPositionOnScrolledArea";
+	private static final String VIEW_AREA_Y_POSITION_ON_SCROLLED_AREA_HEADER = "ViewAreaYPositionOnScrolledArea";
 	
 	//attribute
 	private ContentPosition contentPosition;
@@ -119,19 +119,19 @@ extends BackgroundWidget<BW, BWL> {
 	);
 	
 	//attribute
-	private final MutableProperty<NonNegativeInteger> viewAreaXPositionOnScrollArea =
+	private final MutableProperty<NonNegativeInteger> viewAreaXPositionOnScrolledArea =
 	new MutableProperty<NonNegativeInteger>(
-		VIEW_AREA_X_POSITION_ON_SCROLL_AREA_HEADER,
-		x -> setViewAreaXPositionOnScrollArea(x.getValue()),
+		VIEW_AREA_X_POSITION_ON_SCROLLED_AREA_HEADER,
+		x -> setViewAreaXPositionOnScrolledArea(x.getValue()),
 		s -> NonNegativeInteger.createFromSpecification(s),
 		x -> x.getSpecification()
 	);
 	
 	//attribute
-	private final MutableProperty<NonNegativeInteger> viewAreaYPositionOnScrollArea =
+	private final MutableProperty<NonNegativeInteger> viewAreaYPositionOnScrolledArea =
 	new MutableProperty<NonNegativeInteger>(
-		VIEW_AREA_Y_POSITION_ON_SCROLL_AREA_HEADER,
-		y -> setViewAreaYPositionOnScrollArea(y.getValue()),
+		VIEW_AREA_Y_POSITION_ON_SCROLLED_AREA_HEADER,
+		y -> setViewAreaYPositionOnScrolledArea(y.getValue()),
 		s -> NonNegativeInteger.createFromSpecification(s),
 		y -> y.getSpecification()
 	);
@@ -211,16 +211,16 @@ extends BackgroundWidget<BW, BWL> {
 	/**
 	 * @return the x-position of the cursor on the scroll area of the current {@link BorderWidget}.
 	 */
-	public final int getCursorXPositionOnScrollArea() {
-		return (getCursorXPosition() - getViewAreaXPositionOnScrollArea());
+	public final int getCursorXPositionOnScrolledArea() {
+		return (getCursorXPosition() - getViewAreaXPositionOnScrolledArea());
 	}
 	
 	//method
 	/**
 	 * @return the y-position of the cursor on the scroll area of the current {@link BorderWidget}.
 	 */
-	public final int getCursorYPositionOnScrollArea() {
-		return (getCursorYPosition() - getViewAreaYPositionOnScrollArea());
+	public final int getCursorYPositionOnScrolledArea() {
+		return (getCursorYPosition() - getViewAreaYPositionOnScrolledArea());
 	}
 	
 	//method
@@ -337,7 +337,7 @@ extends BackgroundWidget<BW, BWL> {
 		
 		return
 		currentStructure.getRecursiveOrDefaultTopBorderThickness()
-		+ getNaturalScrollAreaHeight()
+		+ getNaturalScrolledAreaHeight()
 		+ getHorizontalScrollbarThickness()
 		+ currentStructure.getRecursiveOrDefaultBottomBorderThickness();
 	}
@@ -357,7 +357,7 @@ extends BackgroundWidget<BW, BWL> {
 		
 		return
 		currentStructure.getRecursiveOrDefaultLeftBorderThickness()
-		+ getNaturalScrollAreaWidth()
+		+ getNaturalScrolledAreaWidth()
 		+ getVerticalScrollbarThickness()
 		+ currentStructure.getRecursiveOrDefaultRightBorderThickness();
 	}
@@ -447,16 +447,16 @@ extends BackgroundWidget<BW, BWL> {
 	/**
 	 * @return x-position of the view area of the current {@link BorderWidget} on the scroll area.
 	 */
-	public final int getViewAreaXPositionOnScrollArea() {
-		return viewAreaXPositionOnScrollArea.getValue().getValue();
+	public final int getViewAreaXPositionOnScrolledArea() {
+		return viewAreaXPositionOnScrolledArea.getValue().getValue();
 	}
 	
 	//method
 	/**
 	 * @return the y-position of the view area of the current {@link BorderWidget} on the scroll area.
 	 */
-	public final int getViewAreaYPositionOnScrollArea() {
-		return viewAreaYPositionOnScrollArea.getValue().getValue();
+	public final int getViewAreaYPositionOnScrolledArea() {
+		return viewAreaYPositionOnScrolledArea.getValue().getValue();
 	}
 	
 	//method
@@ -474,11 +474,11 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	public final boolean hasHorizontalScrollbar() {
 		
-		final var naturalScrollAreaWidth = getNaturalScrollAreaWidth();
+		final var naturalScrolledAreaWidth = getNaturalScrolledAreaWidth();
 		
 		return
-		(hasMaxWidth() && getMaxWidth() < naturalScrollAreaWidth)
-		|| (hasProposalWidth() && getProposalWidth() < naturalScrollAreaWidth);
+		(hasMaxWidth() && getMaxWidth() < naturalScrolledAreaWidth)
+		|| (hasProposalWidth() && getProposalWidth() < naturalScrolledAreaWidth);
 	}
 	
 	//method
@@ -534,11 +534,11 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	public final boolean hasVerticalScrollbar() {
 		
-		final var naturalScrollAreaHeight = getNaturalScrollAreaHeight();
+		final var naturalScrolledAreaHeight = getNaturalScrolledAreaHeight();
 		
 		return
-		(hasMaxHeight() && getMaxHeight() < naturalScrollAreaHeight)
-		|| (hasProposalHeight() && getProposalHeight() < naturalScrollAreaHeight);
+		(hasMaxHeight() && getMaxHeight() < naturalScrolledAreaHeight)
+		|| (hasProposalHeight() && getProposalHeight() < naturalScrolledAreaHeight);
 	}
 	
 	//method
@@ -622,12 +622,12 @@ extends BackgroundWidget<BW, BWL> {
 			final var viewAreaHeight = getViewAreaHeight();
 			
 			final var viewAreaYDelta =
-			(verticalScrollbarCursorYDelta * (getScrollAreaHeight() - viewAreaHeight))
+			(verticalScrollbarCursorYDelta * (getScrolledAreaHeight() - viewAreaHeight))
 			/ (viewAreaHeight - getVerticalScrollbarCursorHeight());
 			
-			final var viewAreaYPositionOnScrollArea = viewAreaYDelta;
+			final var viewAreaYPositionOnScrolledArea = viewAreaYDelta;
 			
-			setViewAreaYPositionOnScrollArea(viewAreaYPositionOnScrollArea);
+			setViewAreaYPositionOnScrolledArea(viewAreaYPositionOnScrolledArea);
 		}
 		
 		if (isMovingHorizontalScrollbarCursor) {
@@ -638,12 +638,12 @@ extends BackgroundWidget<BW, BWL> {
 			final var viewAreaWidth = getViewAreaWidth();
 			
 			final var viewAreaXDelta =
-			(horizontalScrollbarCursorXDelta * (getScrollAreaWidth() - viewAreaWidth))
+			(horizontalScrollbarCursorXDelta * (getScrolledAreaWidth() - viewAreaWidth))
 			/ (viewAreaWidth - getHorizontalScrollbarCursorWidth());
 			
-			final var viewAreaXPositionOnScrollArea = viewAreaXDelta;
+			final var viewAreaXPositionOnScrolledArea = viewAreaXDelta;
 			
-			setViewAreaXPositionOnScrollArea(viewAreaXPositionOnScrollArea);
+			setViewAreaXPositionOnScrolledArea(viewAreaXPositionOnScrolledArea);
 		}
 	}
 	
@@ -659,8 +659,8 @@ extends BackgroundWidget<BW, BWL> {
 		
 		if (isEnabled()) {
 			if (isFocused() || isHoverFocused()) {
-				setViewAreaYPositionOnScrollArea(
-					getViewAreaYPositionOnScrollArea()
+				setViewAreaYPositionOnScrolledArea(
+					getViewAreaYPositionOnScrolledArea()
 					+ VIEW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP * mouseWheelRotationSteps
 				);
 			}
@@ -736,8 +736,8 @@ extends BackgroundWidget<BW, BWL> {
 		removeMinHeight();
 		removeMaxWidtht();
 		removeMaxHeight();
-		setViewAreaXPositionOnScrollArea(0);
-		setViewAreaYPositionOnScrollArea(0);
+		setViewAreaXPositionOnScrolledArea(0);
+		setViewAreaYPositionOnScrolledArea(0);
 		
 		return asConcreteType();
 	}
@@ -749,7 +749,7 @@ extends BackgroundWidget<BW, BWL> {
 	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW scrollToBottom() {
-		return setViewAreaYPositionOnScrollArea(getScrollAreaHeight());
+		return setViewAreaYPositionOnScrolledArea(getScrolledAreaHeight());
 	}
 	
 	//method
@@ -759,7 +759,7 @@ extends BackgroundWidget<BW, BWL> {
 	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW scrollToLeft() {
-		return setViewAreaXPositionOnScrollArea(0);
+		return setViewAreaXPositionOnScrolledArea(0);
 	}
 	
 	//method
@@ -769,7 +769,7 @@ extends BackgroundWidget<BW, BWL> {
 	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW scrollToRight() {
-		return setViewAreaXPositionOnScrollArea(getScrollAreaWidth());
+		return setViewAreaXPositionOnScrolledArea(getScrolledAreaWidth());
 	}
 	
 	//method
@@ -779,7 +779,7 @@ extends BackgroundWidget<BW, BWL> {
 	 * @return the current {@link BorderWidget}.
 	 */
 	public final BW scrollToTop() {
-		return setViewAreaYPositionOnScrollArea(0);
+		return setViewAreaYPositionOnScrolledArea(0);
 	}
 	
 	//method
@@ -922,21 +922,21 @@ extends BackgroundWidget<BW, BWL> {
 	/**
 	 * Sets the x-position of the view area on the scroll area of the current {@link BorderWidget}.
 	 * 
-	 * @param viewAreaXPositionOnScrollArea
+	 * @param viewAreaXPositionOnScrolledArea
 	 * @return the current {@link BorderWidget}.
 	 */
-	public final BW setViewAreaXPositionOnScrollArea(int viewAreaXPositionOnScrollArea) {
+	public final BW setViewAreaXPositionOnScrolledArea(int viewAreaXPositionOnScrolledArea) {
 		
-		viewAreaXPositionOnScrollArea = Calculator.getMax(viewAreaXPositionOnScrollArea, 0);
+		viewAreaXPositionOnScrolledArea = Calculator.getMax(viewAreaXPositionOnScrolledArea, 0);
 		
-		viewAreaXPositionOnScrollArea = Calculator.getMin(
-			viewAreaXPositionOnScrollArea,
-			getScrollAreaWidth() - getViewAreaWidth()
+		viewAreaXPositionOnScrolledArea = Calculator.getMin(
+			viewAreaXPositionOnScrolledArea,
+			getScrolledAreaWidth() - getViewAreaWidth()
 		);
 		
 		this
-		.viewAreaXPositionOnScrollArea
-		.setValue(new NonNegativeInteger(viewAreaXPositionOnScrollArea));
+		.viewAreaXPositionOnScrolledArea
+		.setValue(new NonNegativeInteger(viewAreaXPositionOnScrolledArea));
 		
 		return asConcreteType();
 	}
@@ -945,21 +945,21 @@ extends BackgroundWidget<BW, BWL> {
 	/**
 	 * Sets the y-position of the view area on the scroll area of the current {@link BorderWidget}.
 	 * 
-	 * @param viewAreaYPositionOnScrollArea
+	 * @param viewAreaYPositionOnScrolledArea
 	 * @return the current {@link BorderWidget}.
 	 */
-	public final BW setViewAreaYPositionOnScrollArea(int viewAreaYPositionOnScrollArea) {
+	public final BW setViewAreaYPositionOnScrolledArea(int viewAreaYPositionOnScrolledArea) {
 		
-		viewAreaYPositionOnScrollArea = Calculator.getMax(viewAreaYPositionOnScrollArea, 0);
+		viewAreaYPositionOnScrolledArea = Calculator.getMax(viewAreaYPositionOnScrolledArea, 0);
 		
-		viewAreaYPositionOnScrollArea = Calculator.getMin(
-			viewAreaYPositionOnScrollArea,
-			getScrollAreaHeight() - getViewAreaHeight()
+		viewAreaYPositionOnScrolledArea = Calculator.getMin(
+			viewAreaYPositionOnScrolledArea,
+			getScrolledAreaHeight() - getViewAreaHeight()
 		);
 		
 		this
-		.viewAreaYPositionOnScrollArea
-		.setValue(new NonNegativeInteger(viewAreaYPositionOnScrollArea));
+		.viewAreaYPositionOnScrolledArea
+		.setValue(new NonNegativeInteger(viewAreaYPositionOnScrolledArea));
 		
 		return asConcreteType();
 	}
@@ -999,8 +999,8 @@ extends BackgroundWidget<BW, BWL> {
 		
 		return
 		currentStructure.getRecursiveOrDefaultLeftBorderThickness()
-		- getViewAreaXPositionOnScrollArea()
-		+ getContentAreaXPositionOnScrollArea();
+		- getViewAreaXPositionOnScrolledArea()
+		+ getContentAreaXPositionOnScrolledArea();
 	}
 	
 	//method
@@ -1013,8 +1013,8 @@ extends BackgroundWidget<BW, BWL> {
 		
 		return
 		currentStructure.getRecursiveOrDefaultTopBorderThickness()
-		- getViewAreaYPositionOnScrollArea()
-		+ getContentAreaYPositionOnScrollArea();
+		- getViewAreaYPositionOnScrolledArea()
+		+ getContentAreaYPositionOnScrolledArea();
 	}
 	
 	//method
@@ -1277,7 +1277,7 @@ extends BackgroundWidget<BW, BWL> {
 	 * @return the x-position of the content area of the current {@link BorderWidget}
 	 * on the scroll area of the current {@link BorderWidget}.
 	 */
-	private int getContentAreaXPositionOnScrollArea() {
+	private int getContentAreaXPositionOnScrolledArea() {
 		
 		final BWL currentStructure = getRefCurrentLook();
 		
@@ -1290,12 +1290,12 @@ extends BackgroundWidget<BW, BWL> {
 			case Top:
 			case Center:
 			case Bottom:
-				return (getScrollAreaWidth() - getContentAreaWidth()) / 2;
+				return (getScrolledAreaWidth() - getContentAreaWidth()) / 2;
 			case RightTop:
 			case Right:
 			case RightBottom:				
 				return
-				getScrollAreaWidth()
+				getScrolledAreaWidth()
 				- getContentAreaWidth()
 				- currentStructure.getRecursiveOrDefaultRightPadding();
 		}
@@ -1308,7 +1308,7 @@ extends BackgroundWidget<BW, BWL> {
 	 * @return the y-position of the content area of the current {@link BorderWidget}
 	 * on the scroll area of the current {@link BorderWidget}.
 	 */
-	private int getContentAreaYPositionOnScrollArea() {
+	private int getContentAreaYPositionOnScrolledArea() {
 		
 		final BWL currentStructure = getRefCurrentLook();
 		
@@ -1321,12 +1321,12 @@ extends BackgroundWidget<BW, BWL> {
 			case Left:
 			case Center:
 			case Right:
-				return (getScrollAreaHeight() - getContentAreaHeight()) / 2;
+				return (getScrolledAreaHeight() - getContentAreaHeight()) / 2;
 			case LeftBottom:
 			case Bottom:
 			case RightBottom:
 				return
-				getScrollAreaHeight()
+				getScrolledAreaHeight()
 				- getContentAreaHeight()
 				- currentStructure.getRecursiveOrDefaultBottomPadding();
 		}
@@ -1354,7 +1354,7 @@ extends BackgroundWidget<BW, BWL> {
 	private int getHorizontalScrollbarCursorWidth() {
 		return
 		Calculator.getMax(
-			(int)(Math.pow(getViewAreaWidth(), 2) / getScrollAreaWidth()),
+			(int)(Math.pow(getViewAreaWidth(), 2) / getScrolledAreaWidth()),
 			MIN_SCROLL_CURSOR_LENGTH
 		);
 	}
@@ -1380,8 +1380,8 @@ extends BackgroundWidget<BW, BWL> {
 		
 		return
 		(viewAreaWidth - getHorizontalScrollbarCursorWidth())
-		* getViewAreaXPositionOnScrollArea()
-		/ (getScrollAreaWidth() - viewAreaWidth);
+		* getViewAreaXPositionOnScrolledArea()
+		/ (getScrolledAreaWidth() - viewAreaWidth);
 	}
 	
 	//method
@@ -1428,7 +1428,7 @@ extends BackgroundWidget<BW, BWL> {
 	}
 	
 	//method
-	private int getMinScrollAreaHeight() {
+	private int getMinScrolledAreaHeight() {
 		
 		final BWL currentLook = getRefCurrentLook();
 		
@@ -1440,7 +1440,7 @@ extends BackgroundWidget<BW, BWL> {
 	}
 	
 	//method
-	private int getMinScrollAreaWidth() {
+	private int getMinScrolledAreaWidth() {
 		
 		final BWL currentLook = getRefCurrentLook();
 		
@@ -1453,18 +1453,18 @@ extends BackgroundWidget<BW, BWL> {
 	
 	//method
 	private int getMinViewAreaHeight() {
-		return getMinScrollAreaHeight();
+		return getMinScrolledAreaHeight();
 	}
 	
 	//method
 	private int getMinViewAreaWidth() {
-		return getMinScrollAreaWidth();
+		return getMinScrolledAreaWidth();
 	}
 	
 
 	
 	//method
-	private int getNaturalScrollAreaHeight() {
+	private int getNaturalScrolledAreaHeight() {
 		
 		final BWL currentLook = getRefCurrentLook();
 		
@@ -1475,7 +1475,7 @@ extends BackgroundWidget<BW, BWL> {
 	}
 
 	//method
-	private int getNaturalScrollAreaWidth() {
+	private int getNaturalScrolledAreaWidth() {
 		
 		final BWL currentLook = getRefCurrentLook();
 		
@@ -1487,16 +1487,16 @@ extends BackgroundWidget<BW, BWL> {
 	
 	//method
 	private int getNaturalViewAreaHeight() {
-		return getNaturalScrollAreaHeight();
+		return getNaturalScrolledAreaHeight();
 	}
 	
 	//method
 	private int getNaturalViewAreaWidth() {
-		return getNaturalScrollAreaWidth();
+		return getNaturalScrolledAreaWidth();
 	}
 	
 	//method
-	private int getProposalScrollAreaHeight() {
+	private int getProposalScrolledAreaHeight() {
 		
 		final BWL currentLook = getRefCurrentLook();
 		
@@ -1508,7 +1508,7 @@ extends BackgroundWidget<BW, BWL> {
 	}
 	
 	//method
-	private int getProposalScrollAreaWith() {
+	private int getProposalScrolledAreaWith() {
 		
 		final BWL currentLook = getRefCurrentLook();
 		
@@ -1521,58 +1521,58 @@ extends BackgroundWidget<BW, BWL> {
 	
 	//method
 	private int getProposalViewAreaHeight() {
-		return getProposalScrollAreaHeight();
+		return getProposalScrolledAreaHeight();
 	}
 
 	//method
 	private int getProposalViewAreaWidth() {
-		return getProposalScrollAreaWith();
+		return getProposalScrolledAreaWith();
 	}
 	
 	//method
 	/**
 	 * @return the height of the scroll area of the current {@link BorderWidget}.
 	 */
-	private int getScrollAreaHeight() {
+	private int getScrolledAreaHeight() {
 		
-		var scrollAreaHeight = getNaturalScrollAreaHeight();
+		var scrolledAreaHeight = getNaturalScrolledAreaHeight();
 		
 		if (hasProposalHeight()) {
-			scrollAreaHeight = Calculator.getMax(scrollAreaHeight, getProposalScrollAreaHeight());
+			scrolledAreaHeight = Calculator.getMax(scrolledAreaHeight, getProposalScrolledAreaHeight());
 		}
 		
 		//Handles the case that the current border widget has a min height.
 		if (hasMinHeight()) {
-			scrollAreaHeight = Calculator.getMax(
-				scrollAreaHeight,
-				getMinScrollAreaHeight()
+			scrolledAreaHeight = Calculator.getMax(
+				scrolledAreaHeight,
+				getMinScrolledAreaHeight()
 			);
 		}
 		
-		return scrollAreaHeight;
+		return scrolledAreaHeight;
 	}
 	
 	//method
 	/**
 	 * @return the width of the scroll area of the current {@link BorderWidget}.
 	 */
-	private int getScrollAreaWidth() {
+	private int getScrolledAreaWidth() {
 			
-		var scrollAreaWidth = getNaturalScrollAreaWidth();
+		var scrolledAreaWidth = getNaturalScrolledAreaWidth();
 		
 		if (hasProposalWidth()) {
-			scrollAreaWidth = Calculator.getMax(scrollAreaWidth, getProposalScrollAreaWith());
+			scrolledAreaWidth = Calculator.getMax(scrolledAreaWidth, getProposalScrolledAreaWith());
 		}
 		
 		//Handles the case that the current border widget has a min width.
 		if (hasMinWidth()) {
-			scrollAreaWidth = Calculator.getMax(
-				scrollAreaWidth,
-				getMinScrollAreaWidth()
+			scrolledAreaWidth = Calculator.getMax(
+				scrolledAreaWidth,
+				getMinScrolledAreaWidth()
 			);
 		}
 		
-		return scrollAreaWidth;
+		return scrolledAreaWidth;
 	}
 	
 	//method
@@ -1582,7 +1582,7 @@ extends BackgroundWidget<BW, BWL> {
 	private int getVerticalScrollbarCursorHeight() {
 		return
 		Calculator.getMax(
-			(int)(Math.pow(getViewAreaHeight(), 2) / getScrollAreaHeight()),
+			(int)(Math.pow(getViewAreaHeight(), 2) / getScrolledAreaHeight()),
 			MIN_SCROLL_CURSOR_LENGTH
 		);
 	}
@@ -1618,8 +1618,8 @@ extends BackgroundWidget<BW, BWL> {
 		
 		return
 		(viewAreaHeight - getVerticalScrollbarCursorHeight())
-		* getViewAreaYPositionOnScrollArea()
-		/ (getScrollAreaHeight() - viewAreaHeight);
+		* getViewAreaYPositionOnScrolledArea()
+		/ (getScrolledAreaHeight() - viewAreaHeight);
 	}
 	
 	//method
@@ -1820,13 +1820,13 @@ extends BackgroundWidget<BW, BWL> {
 		final BWL widgetStructure,
 		final IPainter painter
 	) {
-		paintScrollArea(
+		paintScrolledArea(
 			widgetStructure,
 			painter.createPainter(
-				-getViewAreaXPositionOnScrollArea(),
-				-getViewAreaYPositionOnScrollArea(),
-				getScrollAreaWidth(),
-				getScrollAreaHeight()
+				-getViewAreaXPositionOnScrolledArea(),
+				-getViewAreaYPositionOnScrolledArea(),
+				getScrolledAreaWidth(),
+				getScrolledAreaHeight()
 			)
 		);
 	}
@@ -1839,17 +1839,17 @@ extends BackgroundWidget<BW, BWL> {
 	 * @param widgetStructure
 	 * @param painter
 	 */
-	private void paintScrollArea(
+	private void paintScrolledArea(
 		final BWL widgetStructure,
 		final IPainter painter
 	) {
 		paintContentArea2(
 			widgetStructure,
 			painter.createPainter(
-				getContentAreaXPositionOnScrollArea(),
-				getContentAreaYPositionOnScrollArea(),
-				getScrollAreaWidth(),
-				getScrollAreaHeight()
+				getContentAreaXPositionOnScrolledArea(),
+				getContentAreaYPositionOnScrolledArea(),
+				getScrolledAreaWidth(),
+				getScrolledAreaHeight()
 			)
 		);
 	}
