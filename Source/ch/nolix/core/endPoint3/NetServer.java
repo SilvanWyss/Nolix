@@ -3,13 +3,12 @@ package ch.nolix.core.endPoint3;
 
 //class
 /**
-* A {@link NetServer} is a {@link Server}
-* that listens to {@link NetEndPoint} on a specific port.
-* 
-* @author Silvan Wyss
-* @month 2016-05
-* @lines 60
-*/
+ * A {@link NetServer} is a {@link Server} that listens to {@link NetEndPoint} on a specific port.
+ * 
+ * @author Silvan Wyss
+ * @month 2016-05
+ * @lines 60
+ */
 public final class NetServer extends Server {
 	
 	//attribute
@@ -17,11 +16,10 @@ public final class NetServer extends Server {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetServer}
-	 * that will listen to {@link NetEndPoint} on the given port.
+	 * Creates a new {@link NetServer} that will listen to {@link NetEndPoint}s on the given port.
 	 * 
 	 * @param port
-	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
+	 * @throws OutOfRangeArgumentException if the given port is not in [0, 65535].
 	 */
 	public NetServer(final int port) {
 		
@@ -31,22 +29,21 @@ public final class NetServer extends Server {
 		//Creates a close dependency to the internal net server of the current net server.
 		createCloseDependency(internalNetServer);
 		
-		internalNetServer.addMainEndPointTaker(new NetServerSubEndPointTaker(this));
+		internalNetServer.addMainEndPointTaker(new NetServerEndPointTaker(this));
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetServer}
-	 * that will listen to {@link NetEndPoint} on the given port.
+	 * Creates a new {@link NetServer} that will listen to {@link NetEndPoint}s on the given port.
 	 * 
 	 * When a web browser connects to the {@link NetServer},
 	 * the {@link NetServer} will send the given HTTP message and close the connection.
 	 * 
 	 * @param port
 	 * @param HTTPMessage
-	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
+	 * @throws OutOfRangeArgumentException if the given port is not in [0, 65535].
 	 * @throws NullArgumentException if the given HTTP message is null.
-	 * @throws EmptyArgumentException if the given HTTP message is empty.
+	 * @throws EmptyArgumentException if the given HTTP message is blank.
 	 */
 	public NetServer(final int port, final String HTTPMessage) {
 		
@@ -56,7 +53,7 @@ public final class NetServer extends Server {
 		//Creates a close dependency to the internal net server of the current net server.
 		createCloseDependency(internalNetServer);
 		
-		internalNetServer.addMainEndPointTaker(new NetServerSubEndPointTaker(this));
+		internalNetServer.addMainEndPointTaker(new NetServerEndPointTaker(this));
 	}
 	
 	//method
