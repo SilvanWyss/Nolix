@@ -6,14 +6,14 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
-//own imports
+//own import
 import ch.nolix.core.primitiveContainer.List;
 
 //abstract class
 /**
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 240
+ * @lines 250
  */
 public abstract class Testoid {
 	
@@ -59,6 +59,8 @@ public abstract class Testoid {
 	 */
 	public final void run() {
 		
+		System.out.println(getClass().getName());
+		
 		var passedTestMethodsCount = 0;
 		
 		final var testCases = getRefTestCases();
@@ -84,50 +86,56 @@ public abstract class Testoid {
 		
 		long timeInMiliseconds = System.currentTimeMillis();
 		for (final var m : testMethodArray) {
-			long methodTimeInMiliseconds = System.currentTimeMillis();
-			try {
+			
+			final var testCaseRunner = new TestCaseRunner(this, m);
+			
+			//This loop suffers from being optimized away by the compiler or the JVM.
+			while (!testCaseRunner.isFinished()) {
 				
-				m.invoke(this, (Object[])new Class[0]);
-				methodTimeInMiliseconds = System.currentTimeMillis() - methodTimeInMiliseconds;
+				//This statement, that is actually unnecessary, makes that the current loop is not optimized away.
+				System.err.flush();
 				
+				if (testCaseRunner.getRuntimeInMilliseconds() > 2000) {
+					testCaseRunner.stop2();
+				}
+			}
+			
+			if (!testCaseRunner.hasFatalError()) {
 				if (!lastErrors.isEmpty()) {
-					System.err.println("-->FAILED: " + m.getName() + ": (" + methodTimeInMiliseconds + "ms)");
+					System.err.println("-->FAILED: " + m.getName() + ": (" + testCaseRunner.getRuntimeInMilliseconds() + "ms)");
 					System.err.flush();
 					var errorCount = 0;
 					for (final var le: lastErrors) {
 						errorCount++;
-						System.err.println("   #" + errorCount + ": " + le);
+						System.err.println("      #" + errorCount + ": " + le);
 						System.err.flush();
 					}
 					lastErrors.clear();
 				}
 				else {
 					passedTestMethodsCount++;
-					System.out.println("   PASSED: " + m.getName() + " (" + methodTimeInMiliseconds + "ms)");
+					System.out.println("   PASSED: " + m.getName() + " (" + testCaseRunner.getRuntimeInMilliseconds() + "ms)");
 					System.out.flush();
 				}
 			}
-			catch (final Throwable error) {
-				methodTimeInMiliseconds = System.currentTimeMillis() - methodTimeInMiliseconds;
-				if (error.getCause() != null) {
-					System.err.println("-->FAILED: " + m.getName() + ": " + error.getCause().getMessage() + " (" + methodTimeInMiliseconds + "ms)");
+			else {
+				final var fatalError = testCaseRunner.getFatalError();
+				if (fatalError.getCause() != null) {
+					System.err.println("-->FAILED: " + m.getName() + ": " + fatalError.getCause().getMessage() + " (" + testCaseRunner.getRuntimeInMilliseconds() + "ms)");
 				}
 				else {
-					System.err.println("-->FAILED: " + m.getName() + " (" + methodTimeInMiliseconds + "ms)");
+					System.err.println("-->FAILED: " + m.getName() + " (" + testCaseRunner.getRuntimeInMilliseconds() + "ms)");
 				}
 				System.err.flush();
 			}
-			finally {
-				closeAndClearClosableElements();
-				runProbableAfterTestCaseMethod();
-			}
+
+			closeAndClearClosableElements();
+			runProbableAfterTestCaseMethod();
 		}
 		
 		timeInMiliseconds = System.currentTimeMillis() - timeInMiliseconds;
 		System.out.println(
-			" = "
-			+ getClass().getSimpleName()
-			+ ": "
+			"   summary: "
 			+ passedTestMethodsCount
 			+ "/"
 			+ testCases.getElementCount()
