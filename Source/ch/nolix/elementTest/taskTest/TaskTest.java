@@ -15,7 +15,7 @@ import ch.nolix.element.task.Task;
 public final class TaskTest extends Test {
 
 	//test case
-	public void testCase_constructor() {
+	public void testCase_creation() {
 				
 		//setup
 		final Task task = new Task("My task");

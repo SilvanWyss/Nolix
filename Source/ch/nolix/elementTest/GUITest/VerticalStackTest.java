@@ -19,7 +19,7 @@ import ch.nolix.element.GUI.WidgetState;
 public final class VerticalStackTest extends BorderWidgetTest<VerticalStack> {
 	
 	//test case
-	public void testCase_constructor() {
+	public void testCase_creation() {
 		
 		//execution
 		final var verticalStack = new VerticalStack();

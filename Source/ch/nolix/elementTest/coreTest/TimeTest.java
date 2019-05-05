@@ -15,7 +15,7 @@ import ch.nolix.element.core.Time;
 public final class TimeTest extends Test {
 	
 	//loop test case
-	public void loopTest_constructor_1() {
+	public void loopTestCase_creation() {
 		
 		//main loop
 		for (int y = 1600; y <= 1600; y++) {
@@ -36,7 +36,7 @@ public final class TimeTest extends Test {
 	}
 	
 	//loop test case
-	public void loopTest_constructor_2() {
+	public void loopTestCase_creation_2() {
 				
 		//main loop
 		for (int h = 0; h <= 23; h++) {
@@ -58,7 +58,7 @@ public final class TimeTest extends Test {
 	}
 	
 	//test case
-	public void testCase_constructor() {
+	public void testCase_creation() {
 		
 		//execution
 		final Time time = new Time();

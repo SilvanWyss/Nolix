@@ -15,7 +15,7 @@ import ch.nolix.core.test.Test;
 public final class ARModelTest extends Test {
 
 	//test case
-	public void testCase_constructor_1() {
+	public void testCase_creation_1() {
 		
 		//execution
 		final double[] inputValues = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -29,7 +29,7 @@ public final class ARModelTest extends Test {
 	}
 	
 	//test case
-	public void testCase_constructor_2() {
+	public void testCase_creation_2() {
 		
 		//execution
 		final double[] inputValues = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -43,7 +43,7 @@ public final class ARModelTest extends Test {
 	}
 	
 	//test case
-	public void testCase_constructor_3() {
+	public void testCase_creation_3() {
 		
 		//execution
 		final double[] inputValues = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2};
@@ -57,7 +57,7 @@ public final class ARModelTest extends Test {
 	}
 	
 	//test case
-	public void testCase_constructor_4() {
+	public void testCase_creation_4() {
 		
 		//execution
 		final double[] inputValues = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2};
@@ -71,7 +71,7 @@ public final class ARModelTest extends Test {
 	}
 	
 	//test case
-	public void testCase_constructor_5() {
+	public void testCase_creation_5() {
 		
 		//execution
 		final double[] inputValues = {1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3};
@@ -87,7 +87,7 @@ public final class ARModelTest extends Test {
 	}
 	
 	//test case
-	public final void testCase_constructor_6() {
+	public final void testCase_creation_6() {
 		
 		//exection
 		final double[] inputValues = {1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3};

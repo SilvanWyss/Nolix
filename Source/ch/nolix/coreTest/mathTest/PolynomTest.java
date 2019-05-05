@@ -15,7 +15,7 @@ import ch.nolix.core.test.Test;
 public final class PolynomTest extends Test {
 	
 	//test case
-	public void testCase_constructor() {
+	public void testCase_creation() {
 		
 		//execution
 		final var polynom = new Polynom(10);

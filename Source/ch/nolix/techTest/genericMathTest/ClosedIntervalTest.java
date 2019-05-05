@@ -13,7 +13,7 @@ import ch.nolix.tech.genericMath.ClosedInterval;
 public final class ClosedIntervalTest extends Test {
 	
 	//test case
-	public void test_constructor_whenTheGivenMinIsNull() {
+	public void testCase_creation_whenTheGivenMinIsNull() {
 		expect(() -> new ClosedInterval(null, new BigDecimal(1.0)))
 		.throwsException()
 		.ofType(NullArgumentException.class)
@@ -21,7 +21,7 @@ public final class ClosedIntervalTest extends Test {
 	}
 	
 	//test case
-	public void test_constructor_whenTheGivenMaxIsNull() {
+	public void testCase_creation_whenTheGivenMaxIsNull() {
 		expect(() -> new ClosedInterval(new BigDecimal(1.0), null))
 		.throwsException()
 		.ofType(NullArgumentException.class)
@@ -29,7 +29,7 @@ public final class ClosedIntervalTest extends Test {
 	}
 	
 	//test case
-	public void test_getLength() {
+	public void testCase_getLength() {
 		
 		//execution & verification
 		expect(new ClosedInterval(-1.0, -1.0, 10).getLength()).isEqualTo(new BigDecimal(0.0).setScale(10));
@@ -38,7 +38,7 @@ public final class ClosedIntervalTest extends Test {
 	}
 	
 	//test case
-	public void test_toString() {
+	public void testCase_toString() {
 		
 		//execution & verification
 		expect(new ClosedInterval(-1.0, 1.0, 5).toString()).isEqualTo("[-1.00000, 1.00000]");

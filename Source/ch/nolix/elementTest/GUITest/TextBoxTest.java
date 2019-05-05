@@ -16,7 +16,7 @@ import ch.nolix.element.color.Color;
 public class TextBoxTest extends BorderWidgetTest<TextBox> {
 	
 	//test case
-	public final void testCase_constructor() {
+	public final void testCase_creation() {
 		
 		//execution
 		final var textBox = new TextBox();

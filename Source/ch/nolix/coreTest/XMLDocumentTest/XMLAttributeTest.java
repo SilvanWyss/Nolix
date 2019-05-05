@@ -10,14 +10,14 @@ import ch.nolix.core.test.Test;
 public final class XMLAttributeTest extends Test {
 	
 	//test case
-	public void testCase_constructor() {
+	public void testCase_creation() {
 		
 		//execution & verification
 		expect(() -> new XMLAttribute("x", StringCatalogue.EMPTY_STRING));
 	}
 	
 	//test case
-	public void testCase_constructor_2() {
+	public void testCase_creation_2() {
 		
 		//execution
 		final var XMLAttribute = new XMLAttribute("color", "green");

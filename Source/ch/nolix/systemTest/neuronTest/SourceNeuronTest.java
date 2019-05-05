@@ -10,7 +10,7 @@ import ch.nolix.system.neuronoid.SourceNeuron;
 public final class SourceNeuronTest extends Test {
 	
 	//test case
-	public void testCase_constructor() {
+	public void testCase_creation() {
 		
 		//setup
 		final var output = "test output";
@@ -23,7 +23,7 @@ public final class SourceNeuronTest extends Test {
 	}
 	
 	//test case
-	public void testCase_constructor_whenTheGivenOutputIsNull() {
+	public void testCase_creation_whenTheGivenOutputIsNull() {
 		
 		//execution & verification
 		expect(() -> new SourceNeuron<String>(null))

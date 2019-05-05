@@ -12,7 +12,7 @@ import ch.nolix.tech.genericMath.ComplexNumber;
 public final class ComplexNumberTest extends Test {
 	
 	//test case
-	public void test_getMangitude() {
+	public void testCase_getMangitude() {
 		
 		//execution & verification
 		expect(new ComplexNumber(0.0, 0.0, 10).getMagnitude()).isEqualTo(new BigDecimal(0.0).setScale(10));
@@ -23,7 +23,7 @@ public final class ComplexNumberTest extends Test {
 	}
 	
 	//test case
-	public void test_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary() {
+	public void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary() {
 		
 		//execution & verification
 		expectNot(new ComplexNumber(1.0, -1.0).isPureImaginary());
@@ -32,7 +32,7 @@ public final class ComplexNumberTest extends Test {
 	}
 	
 	//test case
-	public void test_isPureReal_whenTheGivenComplexNumberIsNotPureReal() {
+	public void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal() {
 		
 		//execution & verification
 		expectNot(new ComplexNumber(-1.0, 1.0).isPureReal());
@@ -41,7 +41,7 @@ public final class ComplexNumberTest extends Test {
 	}
 	
 	//test case
-	public void test_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary() {
+	public void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary() {
 		
 		//execution & verification
 		expect(new ComplexNumber(0.0, -1.0).isPureImaginary());
@@ -49,7 +49,7 @@ public final class ComplexNumberTest extends Test {
 	}
 	
 	//test case
-	public void test_isPureReal_whenTheGivenComplexNumberIsPureReal() {
+	public void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal() {
 		
 		//execution & verification
 		expect(new ComplexNumber(-1.0, 0.0).isPureReal());

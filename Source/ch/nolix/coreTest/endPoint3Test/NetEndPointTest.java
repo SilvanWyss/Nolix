@@ -21,7 +21,7 @@ import ch.nolix.core.test.Test;
 public final class NetEndPointTest extends Test {
 
 	//test case
-	public void testCase_constructor() throws InterruptedException {
+	public void testCase_creation() throws InterruptedException {
 		
 		//test parameters
 		final int port = 50000;

@@ -17,7 +17,7 @@ import ch.nolix.core.test.Test;
 public final class QuadraticFunctionTest extends Test {
 
 	//test case
-	public void testCase_constructor() {
+	public void testCase_creation() {
 		
 		//execution & verification
 		expect(() -> new QuadraticFunction(0.0, 0.0, 0.0))

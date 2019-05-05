@@ -15,7 +15,7 @@ import ch.nolix.element.GUI.Checkbox;
 public final class CheckboxTest extends WidgetTest<Checkbox> {
 	
 	//test case
-	public void testCase_constructor() {
+	public void testCase_creation() {
 		
 		//execution
 		final var checkBox = new Checkbox();

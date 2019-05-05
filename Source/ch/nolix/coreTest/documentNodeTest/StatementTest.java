@@ -16,7 +16,7 @@ import ch.nolix.core.test.Test;
 public final class StatementTest extends Test {
 	
 	//test case
-	public void testCase_constructor_1() {
+	public void testCase_creation_1() {
 		
 		//execution
 		final Statement statement = new Statement();
@@ -28,7 +28,7 @@ public final class StatementTest extends Test {
 	}
 
 	//test case
-	public void testCase_constructor_2() {
+	public void testCase_creation_2() {
 		
 		//execution
 		final Statement statement = new Statement("a");
@@ -40,7 +40,7 @@ public final class StatementTest extends Test {
 	}
 	
 	//test case
-	public void testCase_constructor_3() {
+	public void testCase_creation_3() {
 		
 		//execution
 		final Statement statement = new Statement("a(b)");
@@ -52,7 +52,7 @@ public final class StatementTest extends Test {
 	}
 	
 	//test case
-	public void testCase_constructor_4() {
+	public void testCase_creation_4() {
 		
 		//execution
 		final Statement statement = new Statement("a(b).c");

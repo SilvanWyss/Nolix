@@ -9,7 +9,7 @@ import ch.nolix.core.test.Test;
 public final class ReadContainerTest extends Test {
 	
 	//test case
-	public void testCase_constructor() {
+	public void testCase_creation() {
 		
 		//setup
 		final String[] array1 = {"apple", "banana", "cerish"};
