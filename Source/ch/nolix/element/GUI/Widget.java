@@ -29,7 +29,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1890
+ * @lines 1950
  * @param <W> The type of a {@link Widget}.
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -448,7 +448,7 @@ implements Recalculable {
 	 */
 	public CursorIcon getCursorIcon() {
 		
-		final var childWidgetUnderCursor = getChildWidgets().getRefFirstOrNull(cw -> cw.isUnderCursor());
+		final var childWidgetUnderCursor = getTriggerableChildWidgets().getRefFirstOrNull(cw -> cw.isUnderCursor());
 		
 		if (childWidgetUnderCursor != null) {
 			return childWidgetUnderCursor.getCursorIcon();
@@ -621,6 +621,32 @@ implements Recalculable {
 	 */
 	public final WidgetState getState() {
 		return state;
+	}
+	
+	//method
+	/**
+	 * @return the triggerable child {@link Widget}s of the current {@link Widget}.
+	 */
+	public final List<Widget<?, ?>> getTriggerableChildWidgets() {
+		
+		final var widgets = new List<Widget<?, ?>>();
+		
+		fillUpTriggerableChildWidgets(widgets);
+		
+		return widgets;
+	}
+	
+	//method
+	/**
+	 * @return the triggerable child {@link Widget}s of the current {@link Widget}.
+	 */
+	public final List<Widget<?, ?>> getTriggerableChildWidgetsRecursively() {
+		
+		final var widgets = new List<Widget<?, ?>>();
+		
+		fillUpTriggerableChildWidgetsRecursively(widgets);
+		
+		return widgets;
 	}
 	
 	//method
@@ -819,7 +845,7 @@ implements Recalculable {
 		
 		noteAnyLeftMouseButtonPress();
 		
-		getChildWidgetsRecursively().forEach(w -> w.noteAnyLeftMouseButtonPress());
+		getTriggerableChildWidgets().forEach(w -> w.noteAnyLeftMouseButtonPress());
 	}
 	
 	//method
@@ -890,7 +916,7 @@ implements Recalculable {
 		
 		noteAnyMouseMove();
 		
-		getChildWidgetsRecursively().forEach(w -> w.noteAnyMouseMove());
+		getTriggerableChildWidgetsRecursively().forEach(w -> w.noteAnyMouseMove());
 	}
 	
 	//method
@@ -1041,13 +1067,17 @@ implements Recalculable {
 	
 	//method
 	/**
-	 * {@inheritDoc}}
+	 * {@inheritDoc}
 	 */
 	public void recalculate() {
 		width = calculatedWidth();
 		height = calculatedHeight();
 	}
 	
+	//method
+	/**
+	 * Recalculates the {@link Widget} recursively.
+	 */
 	public final void recalculateRecursively() {
 		
 		getChildWidgets().forEach(cw -> cw.recalculateRecursively());
@@ -1126,8 +1156,13 @@ implements Recalculable {
 	}
 	
 	//method
-	public W resetAndApplyDefaultConfiguration() {
-						
+	/**
+	 * Resets and applies the default configuration to the current {@link Widget}.
+	 * 
+	 * @return the current {@link Widget}.
+	 */
+	public final W resetAndApplyDefaultConfiguration() {
+				
 		reset();
 		applyDefaultConfigurationWhenHasBeenReset();
 		
@@ -1250,12 +1285,18 @@ implements Recalculable {
 	}
 	
 	//method
+	/**
+	 * Sets the position of the cursor to the current {@link Widget}.
+	 * 
+	 * @param cursorXPosition
+	 * @param cursorYPosition
+	 */
 	public void setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
 		
 		this.cursorXPosition = cursorXPosition;
 		this.cursorYPosition = cursorYPosition;
 		
-		getChildWidgets().forEach(cw -> cw.setParentCursorPosition(cursorXPosition, cursorYPosition));
+		getTriggerableChildWidgets().forEach(cw -> cw.setParentCursorPosition(cursorXPosition, cursorYPosition));
 	}
 	
 	//method
@@ -1266,15 +1307,10 @@ implements Recalculable {
 	 * @param parentCursorYPosition
 	 */
 	public final void setParentCursorPosition(
-		int parentCursorXPosition,
-		int parentCursorYPosition
+		final int parentCursorXPosition,
+		final int parentCursorYPosition
 	) {
-		setCursorPosition(
-			parentCursorXPosition - xPositionOnParent,
-			parentCursorYPosition - yPositionOnParent
-		);
-		//this.cursorXPosition = parentCursorXPosition - getXPositionOnParent();
-		//this.cursorYPosition = parentCursorYPosition - getYPositionOnParent();
+		setCursorPosition(parentCursorXPosition - xPositionOnParent, parentCursorYPosition - yPositionOnParent);
 	}
 	
 	//method
@@ -1343,6 +1379,11 @@ implements Recalculable {
 	}
 	
 	//method
+	/**
+	 * Sets that the current {@link widget} keeps the focus.
+	 * 
+	 * @return the current {@link widget}.
+	 */
 	public final W setKeepsFocus() {
 		
 		keepsFocus = true;
@@ -1500,6 +1541,19 @@ implements Recalculable {
 	 */
 	protected abstract void fillUpConfigurableChildWidgets(List<Widget<?, ?>> list);
 	
+	//method
+	/**
+	 * Fills up the triggerable child {@link Widget}s of the current {@link Widget} into the given list.
+	 * 
+	 * For a better performance, a {@link Widget} fills up its triggerable child {@link Widget}s into a list
+	 * and does not create a new list.
+	 * 
+	 * @param list
+	 */
+	protected void fillUpTriggerableChildWidgets(final List<Widget<?, ?>> list) {
+		fillUpChildWidgets(list);
+	}
+	
 	//protected abstract void fillUpShownWidgets(final List<Widget<?, ?>> list);
 	
 	//abstract method
@@ -1543,7 +1597,7 @@ implements Recalculable {
 		
 		final var widgets = new List<Widget<?, ?>>();
 		
-		fillUpOwnWidgetsRecursively(widgets);
+		fillUpChildWidgetsRecursively(widgets);
 		
 		return widgets;
 	}
@@ -1748,9 +1802,24 @@ implements Recalculable {
 	 * 
 	 * @param list
 	 */
-	private void fillUpOwnWidgetsRecursively(final List<Widget<?, ?>> list) {
+	private void fillUpChildWidgetsRecursively(final List<Widget<?, ?>> list) {
 		fillUpChildWidgets(list);
-		getChildWidgets().forEach(w -> w.fillUpOwnWidgetsRecursively(list));
+		getChildWidgets().forEach(w -> w.fillUpChildWidgetsRecursively(list));
+	}
+	
+	//method
+	/**
+	 * Fills up recursively the triggerable child {@link Widget}s of the current {@link Widget}.
+	 * 
+	 * For a better performance, a {@link Widget}
+	 * fills up recursively it striggerable child {@link Widget}s into a list
+	 * and does not create a new list with its triggerable child {@link Widget}s.
+	 * 
+	 * @param list
+	 */
+	private void fillUpTriggerableChildWidgetsRecursively(final List<Widget<?, ?>> list) {
+		fillUpTriggerableChildWidgets(list);
+		getTriggerableChildWidgets().forEach(w -> w.fillUpTriggerableChildWidgetsRecursively(list));
 	}
 	
 	//method

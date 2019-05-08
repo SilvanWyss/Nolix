@@ -240,14 +240,14 @@ extends Widget<L, LineLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
+	protected final void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
+	protected final void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
 	
 	//method
 	/**

@@ -28,7 +28,7 @@ import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.core.NonEmptyText;
 import ch.nolix.element.painter.IPainter;
 
-//class
+//abstract class
 /**
  * A GUI is clearable.
  * A GUI is closable.
@@ -37,12 +37,10 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 960
+ * @lines 990
  * @param <G> The type of a GUI.
  */
-public abstract class GUI<G extends GUI<G>>
-extends ConfigurationElement<G>
-implements IGUI<G> {
+public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IGUI<G> {
 	
 	//default values
 	public static final String DEFAULT_TITLE = "GUI";
@@ -410,6 +408,21 @@ implements IGUI<G> {
 		
 		return (W)rootWidget;
 	}
+	
+	//method
+	/**
+	 * @return the triggerable {@link Widget}s of this widget recursively.
+	 */
+	public final List<Widget<?, ?>> getRefTriggerableWidgetsRecursively() {
+		
+		//Handles the case that this GUI has a root widget.
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (rootWidget == null) {
+			return new List<Widget<?, ?>>();
+		}
+		
+		return rootWidget.getTriggerableChildWidgetsRecursively().addAtEnd(rootWidget);
+	}
 		
 	//method
 	/**
@@ -561,7 +574,7 @@ implements IGUI<G> {
 	 */
 	public void noteLeftMouseButtonPress() {
 		
-		getRefWidgetsRecursively().forEach(w -> w.noteAnyLeftMouseButtonPress());
+		getRefTriggerableWidgetsRecursively().forEach(w -> w.noteAnyLeftMouseButtonPress());
 		
 		refresh();
 	}
@@ -572,7 +585,7 @@ implements IGUI<G> {
 	 */
 	public void noteLeftMouseButtonRelease() {
 		
-		getRefWidgetsRecursively().forEach(w -> w.noteAnyLeftMouseButtonRelease());
+		getRefTriggerableWidgetsRecursively().forEach(w -> w.noteAnyLeftMouseButtonRelease());
 		
 		refresh();
 	}
@@ -622,7 +635,7 @@ implements IGUI<G> {
 	 */
 	public void noteRightMouseButtonPress() {
 		
-		getRefWidgetsRecursively().forEach(w -> w.noteAnyRightMouseButtonPress());
+		getRefTriggerableWidgetsRecursively().forEach(w -> w.noteAnyRightMouseButtonPress());
 		
 		refresh();
 	}
@@ -633,7 +646,7 @@ implements IGUI<G> {
 	 */
 	public void noteRightMouseButtonRelease() {
 		
-		getRefWidgetsRecursively().forEach(w -> w.noteAnyRightMouseButtonRelease());
+		getRefTriggerableWidgetsRecursively().forEach(w -> w.noteAnyRightMouseButtonRelease());
 		
 		refresh();
 	}
@@ -968,6 +981,9 @@ implements IGUI<G> {
 	}
 	
 	//abstract method
+	/**
+	 * Paints the current {@link GUI}.
+	 */
 	protected abstract void paint();
 	
 	//method

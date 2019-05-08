@@ -35,7 +35,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1840
+ * @lines 1850
  * @param <BW> The type of a {@link BackgroundWidget.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget.
  */
@@ -203,6 +203,9 @@ extends BackgroundWidget<BW, BWL> {
 	}
 	
 	//method
+	/**
+	 * @return the content area of the current {@link BorderWidget}.
+	 */
 	public final BorderWidgetContentArea<BW, BWL> getContentArea() {
 		return contentArea;
 	}
@@ -810,12 +813,15 @@ extends BackgroundWidget<BW, BWL> {
 	}
 	
 	//method
-	public void setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
+	public final void setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
 		
 		this.cursorXPosition = cursorXPosition;
 		this.cursorYPosition = cursorYPosition;
 		
-		getChildWidgets().forEach(cw -> cw.setParentCursorPosition(getCursorXPositionOnContentArea(), getCursorYPositionOnContentArea()));
+		getTriggerableChildWidgets()
+		.forEach(
+			cw -> cw.setParentCursorPosition(getCursorXPositionOnContentArea(), getCursorYPositionOnContentArea())
+		);
 	}
 	
 	//method
@@ -970,6 +976,21 @@ extends BackgroundWidget<BW, BWL> {
 		.setValue(new NonNegativeInteger(viewAreaYPositionOnScrolledArea));
 		
 		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void fillUpTriggerableChildWidgets(final List<Widget<?, ?>> list) {
+		
+		//Handles the case that the view area of the current BorderWidget is under the cursor.
+		if (viewAreaIsUnderCursor()) {
+			
+			//Calls method of the base class.
+			super.fillUpTriggerableChildWidgets(list);
+		}
 	}
 	
 	//abstract method
