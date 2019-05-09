@@ -35,7 +35,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1710
+ * @lines 1580
  * @param <BW> The type of a {@link BackgroundWidget.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget.
  */
@@ -139,6 +139,7 @@ extends BackgroundWidget<BW, BWL> {
 	//attributes
 	private final BorderWidgetScrolledArea<BW, BWL> scrolledArea = new BorderWidgetScrolledArea<>(this);
 	private final BorderWidgetContentArea<BW, BWL> contentArea = new BorderWidgetContentArea<>(this);
+	private final BorderWidgetViewArea<BW, BWL> viewArea = new BorderWidgetViewArea<>(this);
 	
 	//attributes
 	private boolean isMovingVerticalScrollbarCursor = false;
@@ -465,6 +466,14 @@ extends BackgroundWidget<BW, BWL> {
 	
 	//method
 	/**
+	 * @return the view area of the current {@link BorderWidget}.
+	 */
+	public final BorderWidgetViewArea<BW, BWL> getViewArea() {
+		return viewArea;
+	}
+	
+	//method
+	/**
 	 * @return x-position of the view area of the current {@link BorderWidget} on the scroll area.
 	 */
 	public final int getViewAreaXPositionOnScrolledArea() {
@@ -639,7 +648,7 @@ extends BackgroundWidget<BW, BWL> {
 			final var verticalScrollbarCursorYDelta =
 			getCursorYPosition() - verticalScrollingCursorStartYPosition;
 			
-			final var viewAreaHeight = getViewAreaHeight();
+			final var viewAreaHeight = viewArea.getHeight();
 			
 			final var viewAreaYDelta =
 			(verticalScrollbarCursorYDelta * (scrolledArea.getHeight() - viewAreaHeight))
@@ -655,7 +664,7 @@ extends BackgroundWidget<BW, BWL> {
 			final var horizontalScrollbarCursorXDelta =
 			getCursorXPosition() - horizontalScrollingCursorStartXPosition;
 			
-			final var viewAreaWidth = getViewAreaWidth();
+			final var viewAreaWidth = viewArea.getWidth();
 			
 			final var viewAreaXDelta =
 			(horizontalScrollbarCursorXDelta * (scrolledArea.getWidth() - viewAreaWidth))
@@ -954,7 +963,7 @@ extends BackgroundWidget<BW, BWL> {
 		
 		viewAreaXPositionOnScrolledArea = Calculator.getMin(
 			viewAreaXPositionOnScrolledArea,
-			scrolledArea.getWidth() - getViewAreaWidth()
+			scrolledArea.getWidth() - viewArea.getWidth()
 		);
 		
 		this
@@ -977,7 +986,7 @@ extends BackgroundWidget<BW, BWL> {
 		
 		viewAreaYPositionOnScrolledArea = Calculator.getMin(
 			viewAreaYPositionOnScrolledArea,
-			scrolledArea.getHeight() - getViewAreaHeight()
+			scrolledArea.getHeight() - viewArea.getHeight()
 		);
 		
 		this
@@ -1235,17 +1244,7 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	@Override
 	protected final boolean viewAreaIsUnderCursor() {
-		
-		//For a better performance, this implementation differs from the standard approach.	
-			final var cursorXPositionOnViewArea = getCursorXPositionOnViewArea();
-			final var cursorYPositionOnViewArea = getCursorYPositionOnViewArea();
-			
-			return
-			cursorXPositionOnViewArea > 0
-			&& cursorYPositionOnViewArea > 0
-			&& cursorXPositionOnViewArea < getViewAreaWidth()
-			&& cursorYPositionOnViewArea < getViewAreaHeight();
-		
+		return viewArea.isUnderCursor();
 	}
 	
 	//method
@@ -1254,7 +1253,7 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	private int getBorderedAreaHeight() {
 		return 
-		getViewAreaHeight()
+		viewArea.getHeight()
 		+ getHorizontalScrollbarThickness();
 	}
 	
@@ -1264,7 +1263,7 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	private int getBorderedAreaWidth() {
 		return 
-		getViewAreaWidth()
+		viewArea.getWidth()
 		+ getVerticalScrollbarThickness();
 	}
 	
@@ -1291,26 +1290,10 @@ extends BackgroundWidget<BW, BWL> {
 	}
 	
 	//method
-	/**
-	 * @return the x-position of the cursor on the view area of the current {@link BorderWidget}.
-	 */
-	private int getCursorXPositionOnViewArea() {
-		return (getCursorXPosition() - getViewAreaXPosition());
-	}
-	
-	//method
-	/**
-	 * @return the y-position of the cursor on the view area of the current {@link BorderWidget}.
-	 */
-	private int getCursorYPositionOnViewArea() {
-		return (getCursorYPosition() - getViewAreaYPosition());
-	}
-	
-	//method
 	private int getHorizontalScrollbarCursorWidth() {
 		return
 		Calculator.getMax(
-			(int)(Math.pow(getViewAreaWidth(), 2) / scrolledArea.getWidth()),
+			(int)(Math.pow(viewArea.getWidth(), 2) / scrolledArea.getWidth()),
 			MIN_SCROLL_CURSOR_LENGTH
 		);
 	}
@@ -1332,7 +1315,7 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	private int getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar() {
 				
-		final var viewAreaWidth = getViewAreaWidth();
+		final var viewAreaWidth = viewArea.getWidth();
 		
 		return
 		(viewAreaWidth - getHorizontalScrollbarCursorWidth())
@@ -1360,67 +1343,13 @@ extends BackgroundWidget<BW, BWL> {
 	}
 	
 	//method
-	private int getMaxViewAreaHeight() {
-		
-		final BWL currentLook = getRefCurrentLook();
-		
-		return
-		getMaxHeight()
-		- currentLook.getRecursiveOrDefaultTopBorderThickness()
-		- currentLook.getRecursiveOrDefaultBottomBorderThickness()
-		- getHorizontalScrollbarThickness();
-	}
-
-	//method
-	private int getMaxViewAreaWidth() {
-		
-		final BWL currentLook = getRefCurrentLook();
-		
-		return
-		getMaxWidth()
-		- currentLook.getRecursiveOrDefaultLeftBorderThickness()
-		- currentLook.getRecursiveOrDefaultRightBorderThickness()
-		- getVerticalScrollbarThickness();
-	}
-	
-	//method
-	private int getMinViewAreaHeight() {
-		return scrolledArea.getMinHeight();
-	}
-	
-	//method
-	private int getMinViewAreaWidth() {
-		return scrolledArea.getMinWidth();
-	}
-	
-	//method
-	private int getNaturalViewAreaHeight() {
-		return scrolledArea.getNaturalHeight();
-	}
-	
-	//method
-	private int getNaturalViewAreaWidth() {
-		return scrolledArea.getNaturalWidth();
-	}
-	
-	//method
-	private int getProposalViewAreaHeight() {
-		return scrolledArea.getProposalHeight();
-	}
-
-	//method
-	private int getProposalViewAreaWidth() {
-		return scrolledArea.getProposalWidth();
-	}
-	
-	//method
 	/**
 	 * @return the height of the vertical scrollbar cursor of the current {@link BorderWidget}.
 	 */
 	private int getVerticalScrollbarCursorHeight() {
 		return
 		Calculator.getMax(
-			(int)(Math.pow(getViewAreaHeight(), 2) / scrolledArea.getHeight()),
+			(int)(Math.pow(viewArea.getHeight(), 2) / scrolledArea.getHeight()),
 			MIN_SCROLL_CURSOR_LENGTH
 		);
 	}
@@ -1452,7 +1381,7 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	private int getVerticalScrollbarCursorYPositionOnVerticalScrollbar() {
 		
-		final var viewAreaHeight = getViewAreaHeight();
+		final var viewAreaHeight = viewArea.getHeight();
 		
 		return
 		(viewAreaHeight - getVerticalScrollbarCursorHeight())
@@ -1467,62 +1396,6 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	private int getVerticalScrollbarXPositionOnBorderedArea() {
 		return (getBorderedAreaWidth() - getVerticalScrollbarThickness());
-	}
-	
-	//method
-	/**
-	 * @return the height of the view area of the current {@link BorderWidget}.
-	 */
-	private int getViewAreaHeight() {
-		
-		var viewAreaHeight =
-		hasProposalHeight() ? getProposalViewAreaHeight() : getNaturalViewAreaHeight();
-		
-		if (hasMinHeight()) {
-			viewAreaHeight = Calculator.getMax(viewAreaHeight, getMinViewAreaHeight());
-		}
-		
-		if (hasMaxHeight()) {
-			viewAreaHeight = Calculator.getMin(viewAreaHeight, getMaxViewAreaHeight());
-		}
-		
-		return viewAreaHeight;
-	}
-	
-	//method
-	/**
-	 * @return the width of the view area of the current {@link BorderWidget}.
-	 */
-	private int getViewAreaWidth() {
-						
-		var viewAreaWidth =
-		hasProposalWidth() ? getProposalViewAreaWidth() : getNaturalViewAreaWidth();
-		
-		if (hasMinWidth()) {
-			viewAreaWidth = Calculator.getMax(viewAreaWidth, getMinViewAreaWidth());
-		}
-		
-		if (hasMaxWidth()) {
-			viewAreaWidth = Calculator.getMin(viewAreaWidth, getMaxViewAreaWidth());
-		}
-		
-		return viewAreaWidth;
-	}
-	
-	//method
-	/**
-	 * @return the x-position of the view area of the current {@link BorderWidget}.
-	 */
-	private int getViewAreaXPosition() {
-		return getBorderedAreaXPosition();
-	}
-	
-	//method
-	/**
-	 * @return the y-position of the view area of the current {@link BorderWidget}.
-	 */
-	private int getViewAreaYPosition() {
-		return getBorderedAreaYPosition();
 	}
 	
 	//method
@@ -1568,7 +1441,7 @@ extends BackgroundWidget<BW, BWL> {
 			
 			return
 			cursorXPosition >= horizontalScrollbarCursorXPosition
-			&& cursorXPosition < horizontalScrollbarCursorXPosition + getViewAreaWidth()
+			&& cursorXPosition < horizontalScrollbarCursorXPosition + viewArea.getWidth()
 			&& cursorYPosition >= horizontalScrollbarCursorYPosition
 			&& cursorYPosition < horizontalScrollbarCursorYPosition + getHorizontalScrollbarThickness();
 	}
@@ -1596,7 +1469,7 @@ extends BackgroundWidget<BW, BWL> {
 					getVerticalScrollbarXPositionOnBorderedArea(),
 					0,
 					getVerticalScrollbarThickness(),
-					getViewAreaHeight()
+					viewArea.getHeight()
 				);
 			
 			//Paints the vertical scrollbar cursor.				
@@ -1619,7 +1492,7 @@ extends BackgroundWidget<BW, BWL> {
 				painter.paintFilledRectangle(
 					0,
 					getHorizontalScrollbarYPositionOnBorderedArea(),
-					getViewAreaWidth(),
+					viewArea.getWidth(),
 					getHorizontalScrollbarThickness()
 				);
 			
@@ -1640,8 +1513,8 @@ extends BackgroundWidget<BW, BWL> {
 			painter.createPainter(
 				0,
 				0,
-				getViewAreaWidth(),				
-				getViewAreaHeight()
+				viewArea.getWidth(),				
+				viewArea.getHeight()
 			)
 		);
 	}
@@ -1658,15 +1531,7 @@ extends BackgroundWidget<BW, BWL> {
 		final BWL widgetStructure,
 		final IPainter painter
 	) {
-		scrolledArea.paint(
-			widgetStructure,
-			painter.createPainter(
-				-getViewAreaXPositionOnScrolledArea(),
-				-getViewAreaYPositionOnScrolledArea(),
-				scrolledArea.getWidth(),
-				scrolledArea.getHeight()
-			)
-		);
+		
 	}
 	
 	//method
@@ -1714,6 +1579,6 @@ extends BackgroundWidget<BW, BWL> {
 			cursorXPosition >= verticalScrollbarCursorXPosition
 			&& cursorXPosition < verticalScrollbarCursorXPosition + getVerticalScrollbarThickness()
 			&& cursorYPosition >= verticalScrollbarCursorYPosition
-			&& cursorYPosition < verticalScrollbarCursorYPosition + getViewAreaHeight();
+			&& cursorYPosition < verticalScrollbarCursorYPosition + viewArea.getHeight();
 	}
 }
