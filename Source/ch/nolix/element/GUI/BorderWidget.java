@@ -35,7 +35,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1580
+ * @lines 1560
  * @param <BW> The type of a {@link BackgroundWidget.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget.
  */
@@ -1508,7 +1508,7 @@ extends BackgroundWidget<BW, BWL> {
 		}
 		
 		//Paints the view area of the current border widget.
-		paintViewArea(
+		viewArea.paint(
 			borderWidgetStructure,
 			painter.createPainter(
 				0,
@@ -1517,21 +1517,6 @@ extends BackgroundWidget<BW, BWL> {
 				viewArea.getHeight()
 			)
 		);
-	}
-	
-	//method
-	/**
-	 * Paints the view area of the current {@link BorderWidget}
-	 * using the given widget structure and painter.
-	 * 
-	 * @param widgetStructure
-	 * @param painter
-	 */
-	private void paintViewArea(
-		final BWL widgetStructure,
-		final IPainter painter
-	) {
-		
 	}
 	
 	//method
