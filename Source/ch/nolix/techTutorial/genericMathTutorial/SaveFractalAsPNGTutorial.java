@@ -2,11 +2,11 @@ package ch.nolix.techTutorial.genericMathTutorial;
 
 import ch.nolix.core.classProvider.CentralClassProvider;
 import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
-import ch.nolix.element.GUI.Downloader;
 import ch.nolix.element.GUI.Frame;
-import ch.nolix.element.GUI.ImageWidget;
-import ch.nolix.element.GUI.Label;
-import ch.nolix.element.GUI.VerticalStack;
+import ch.nolix.element.widget.Downloader;
+import ch.nolix.element.widget.ImageWidget;
+import ch.nolix.element.widget.Label;
+import ch.nolix.element.widget.VerticalStack;
 import ch.nolix.tech.genericMath.GenericMathRegistrator;
 import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
 

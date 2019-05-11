@@ -3,9 +3,9 @@ package ch.nolix.system.databaseApplication;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.element.GUI.Button;
-import ch.nolix.element.GUI.ButtonRole;
-import ch.nolix.element.GUI.Grid;
+import ch.nolix.element.widget.Button;
+import ch.nolix.element.widget.ButtonRole;
+import ch.nolix.element.widget.Grid;
 
 //class
 public final class HomeSession extends HeaderedSession {

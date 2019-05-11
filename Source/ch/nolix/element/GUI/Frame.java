@@ -10,6 +10,7 @@ import javax.swing.WindowConstants;
 
 //own import
 import ch.nolix.element.painter.SwingPainter;
+import ch.nolix.element.widget.Widget;
 
 //class
 /**

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
-//own import
-import ch.nolix.element.GUI.Checkbox;
+import ch.nolix.element.widget.Checkbox;
 
 //test class
 /**

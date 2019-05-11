@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
-//own imports
-import ch.nolix.element.GUI.TextBox;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.widget.TextBox;
 
 //test class
 /**

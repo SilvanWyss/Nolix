@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
-//own imports
-import ch.nolix.element.GUI.Button;
-import ch.nolix.element.GUI.ButtonRole;
-import ch.nolix.element.GUI.VerticalStack;
+import ch.nolix.element.widget.Button;
+import ch.nolix.element.widget.ButtonRole;
+import ch.nolix.element.widget.VerticalStack;
 
 //class
 public final class LoginSession extends DatabaseApplicationSession {

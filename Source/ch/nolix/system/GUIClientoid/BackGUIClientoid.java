@@ -11,9 +11,9 @@ import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.util.PopupWindowProvider;
-import ch.nolix.element.GUI.Downloader;
 import ch.nolix.element.GUI.GUI;
-import ch.nolix.element.GUI.Widget;
+import ch.nolix.element.widget.Downloader;
+import ch.nolix.element.widget.Widget;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.client.Client;
 

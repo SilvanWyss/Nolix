@@ -1,9 +1,9 @@
 package ch.nolix.templatesTutorial.textureCreatorTutorial;
 
-import ch.nolix.element.GUI.Accordion;
-import ch.nolix.element.GUI.AccordionTab;
 import ch.nolix.element.GUI.Frame;
-import ch.nolix.element.GUI.ImageWidget;
+import ch.nolix.element.widget.Accordion;
+import ch.nolix.element.widget.AccordionTab;
+import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.templates.textureCreators.ConcreteTextureCreator;
 import ch.nolix.templates.textureCreators.JuteTextureCreator;
 

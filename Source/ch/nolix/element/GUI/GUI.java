@@ -27,6 +27,26 @@ import ch.nolix.element.configuration.ConfigurationElement;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.core.NonEmptyText;
 import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.widget.Accordion;
+import ch.nolix.element.widget.Area;
+import ch.nolix.element.widget.Button;
+import ch.nolix.element.widget.Checkbox;
+import ch.nolix.element.widget.Console;
+import ch.nolix.element.widget.ContentPosition;
+import ch.nolix.element.widget.CursorIcon;
+import ch.nolix.element.widget.Grid;
+import ch.nolix.element.widget.HorizontalLine;
+import ch.nolix.element.widget.HorizontalStack;
+import ch.nolix.element.widget.IGUI;
+import ch.nolix.element.widget.IGUIController;
+import ch.nolix.element.widget.Label;
+import ch.nolix.element.widget.SelectionMenu;
+import ch.nolix.element.widget.SingleContainer;
+import ch.nolix.element.widget.TabContainer;
+import ch.nolix.element.widget.TextBox;
+import ch.nolix.element.widget.VerticalLine;
+import ch.nolix.element.widget.VerticalStack;
+import ch.nolix.element.widget.Widget;
 
 //abstract class
 /**

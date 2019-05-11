@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
-//own imports
-import ch.nolix.element.GUI.Button;
-import ch.nolix.element.GUI.Label;
-import ch.nolix.element.GUI.TextBox;
-import ch.nolix.element.GUI.VerticalStack;
-import ch.nolix.element.GUI.WidgetState;
+import ch.nolix.element.widget.Button;
+import ch.nolix.element.widget.Label;
+import ch.nolix.element.widget.TextBox;
+import ch.nolix.element.widget.VerticalStack;
+import ch.nolix.element.widget.WidgetState;
 
 //test class
 /**

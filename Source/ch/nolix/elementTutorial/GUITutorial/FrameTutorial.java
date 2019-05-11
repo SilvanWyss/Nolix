@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.elementTutorial.GUITutorial;
 
-//own imports
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 

@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
-//own imports
-import ch.nolix.element.GUI.Accordion;
-import ch.nolix.element.GUI.AccordionExpansionBehavior;
-import ch.nolix.element.GUI.AccordionTab;
+import ch.nolix.element.widget.Accordion;
+import ch.nolix.element.widget.AccordionExpansionBehavior;
+import ch.nolix.element.widget.AccordionTab;
 
 //test class
 /**

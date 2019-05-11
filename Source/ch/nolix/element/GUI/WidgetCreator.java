@@ -10,6 +10,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.widget.Widget;
 
 //package-visible class
 /**

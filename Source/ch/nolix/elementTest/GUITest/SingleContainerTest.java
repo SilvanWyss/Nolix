@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.elementTest.GUITest;
 
-//own imports
-import ch.nolix.element.GUI.Label;
-import ch.nolix.element.GUI.SingleContainer;
+import ch.nolix.element.widget.Label;
+import ch.nolix.element.widget.SingleContainer;
 
 //test class
 /**

@@ -4,8 +4,8 @@ package ch.nolix.elementTest.GUITest;
 //own imports
 import ch.nolix.core.invalidArgumentException.NonPositiveArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
-import ch.nolix.element.GUI.BorderWidget;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.widget.BorderWidget;
 
 //abstract test class
 /**

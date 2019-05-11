@@ -2,7 +2,7 @@
 package ch.nolix.elementTest.GUITest;
 
 import ch.nolix.core.test.Test;
-import ch.nolix.element.GUI.CaptionPosition;
+import ch.nolix.element.widget.CaptionPosition;
 
 //test class
 /**

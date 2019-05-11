@@ -8,11 +8,10 @@
 //package declaration
 package ch.nolix.templates.GUILooks;
 
-//own imports
-import ch.nolix.element.GUI.ContainerRole;
-import ch.nolix.element.GUI.LabelRole;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.StandardConfiguration;
+import ch.nolix.element.widget.ContainerRole;
+import ch.nolix.element.widget.LabelRole;
 
 //class
 public final class WhiteGreenGUILook extends StandardConfiguration {

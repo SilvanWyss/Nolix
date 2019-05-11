@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.system.GUIClient;
 
-//own imports
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.system.GUIClientoid.FrontGUIClientoid;

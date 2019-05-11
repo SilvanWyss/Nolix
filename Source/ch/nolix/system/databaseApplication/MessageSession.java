@@ -4,9 +4,9 @@ package ch.nolix.system.databaseApplication;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.GUI.Button;
-import ch.nolix.element.GUI.Label;
-import ch.nolix.element.GUI.VerticalStack;
+import ch.nolix.element.widget.Button;
+import ch.nolix.element.widget.Label;
+import ch.nolix.element.widget.VerticalStack;
 
 //class
 public final class MessageSession extends DatabaseApplicationSession {

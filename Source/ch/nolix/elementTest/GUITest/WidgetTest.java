@@ -2,8 +2,8 @@
 package ch.nolix.elementTest.GUITest;
 
 import ch.nolix.core.test.ObjectTest;
-import ch.nolix.element.GUI.CursorIcon;
-import ch.nolix.element.GUI.Widget;
+import ch.nolix.element.widget.CursorIcon;
+import ch.nolix.element.widget.Widget;
 
 //abstract test class
 /**

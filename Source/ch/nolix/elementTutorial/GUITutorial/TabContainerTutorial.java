@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.elementTutorial.GUITutorial;
 
-//own imports
-import ch.nolix.element.GUI.Area;
 import ch.nolix.element.GUI.Frame;
-import ch.nolix.element.GUI.TabContainer;
-import ch.nolix.element.GUI.TabContainerTab;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.widget.Area;
+import ch.nolix.element.widget.TabContainer;
+import ch.nolix.element.widget.TabContainerTab;
 
 //class
 /**

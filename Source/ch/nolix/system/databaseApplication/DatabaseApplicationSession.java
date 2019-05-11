@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
-import ch.nolix.element.GUI.ContainerRole;
-import ch.nolix.element.GUI.Label;
-import ch.nolix.element.GUI.LabelRole;
-import ch.nolix.element.GUI.VerticalStack;
-import ch.nolix.element.GUI.Widget;
+import ch.nolix.element.widget.ContainerRole;
+import ch.nolix.element.widget.Label;
+import ch.nolix.element.widget.LabelRole;
+import ch.nolix.element.widget.VerticalStack;
+import ch.nolix.element.widget.Widget;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.databaseAdapter.DatabaseAdapter;
 

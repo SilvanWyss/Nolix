@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
-//own imports
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.system.client.Session;
 
