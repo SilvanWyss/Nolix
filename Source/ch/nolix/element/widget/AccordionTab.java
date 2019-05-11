@@ -30,15 +30,6 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab> {
 	//constant
 	private static final String EXPANDED_FLAG_HEADER = "Expanded";
 	
-	//attribute
-	private final MutableProperty<String> header =
-	new MutableProperty<String>(
-		PascalCaseNameCatalogue.HEADER,
-		h -> setHeader(h),
-		s -> s.getOneAttributeAsString(),
-		h -> new DocumentNode(PascalCaseNameCatalogue.HEADER, getHeader())
-	);
-	
 	//method
 	/**
 	 * @param specification
@@ -51,6 +42,15 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab> {
 		
 		return tab;
 	}
+	
+	//attribute
+	private final MutableProperty<String> header =
+	new MutableProperty<String>(
+		PascalCaseNameCatalogue.HEADER,
+		h -> setHeader(h),
+		s -> s.getOneAttributeAsString(),
+		h -> new DocumentNode(PascalCaseNameCatalogue.HEADER, getHeader())
+	);
 	
 	//attribute
 	private final MutableProperty<Boolean> expanded =
@@ -90,8 +90,8 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab> {
 		
 		tabVerticalStack.addWidget(
 			headerHorizontalStack.addWidget(
-				headerLabel,
-				expandButton
+				expandButton,
+				headerLabel
 			)
 		);
 		
@@ -278,8 +278,8 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab> {
 	}
 	
 	//package-visible method
-	void preparePaint(final AccordionLook borderWidgetLook) {
-			
+	void preparePaint(final AccordionLook accordionLook) {
+		
 		headerLabel.setText(getHeader());
 		
 		headerHorizontalStack.resetConfiguration();
@@ -289,52 +289,38 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab> {
 			headerHorizontalStack.setProposalWidth(contentAreaWidth);
 		}
 		
-		if (borderWidgetLook.hasRecursiveTabHeaderBackgroundColor()) {
+		if (accordionLook.hasRecursiveTabHeaderBackgroundColor()) {
 			headerHorizontalStack
 			.getRefBaseLook()
-			.setBackgroundColor(borderWidgetLook.getRecursiveOrDefaultTabHeaderBackgroundColor());
+			.setBackgroundColor(accordionLook.getRecursiveOrDefaultTabHeaderBackgroundColor());
 		}
 		
-		if (borderWidgetLook.hasRecursiveTabHeaderTextSize()) {
+		if (accordionLook.hasRecursiveTabHeaderTextSize()) {
 			for (final var w : headerHorizontalStack.getChildWidgets()) {
 				w
 				.getRefBaseLook()
-				.setTextSize(borderWidgetLook.getRecursiveOrDefaultTabHeaderTextSize());
+				.setTextSize(accordionLook.getRecursiveOrDefaultTabHeaderTextSize());
 			}
 		}
 		
-		if (borderWidgetLook.hasRecursiveTabHeaderTextColor()) {
+		if (accordionLook.hasRecursiveTabHeaderTextColor()) {
 			for (final var w : headerHorizontalStack.getChildWidgets()) {
 				w
 				.getRefBaseLook()
-				.setTextColor(borderWidgetLook.getRecursiveOrDefaultTabHeaderTextColor());
+				.setTextColor(accordionLook.getRecursiveOrDefaultTabHeaderTextColor());
 			}
 		}
 				
-		if (borderWidgetLook.hasRecursiveTabBackgroundColor()) {
+		if (accordionLook.hasRecursiveTabBackgroundColor()) {
 			headerHorizontalStack
 			.getRefBaseLook()
-			.setBackgroundColor(borderWidgetLook.getRecursiveOrDefaultTabBackgroundColor());
+			.setBackgroundColor(accordionLook.getRecursiveOrDefaultTabBackgroundColor());
 		}
 		
 		expandButton.setCustomCursorIcon(CursorIcon.Hand);
-		
-		expandButton
-		.getRefBaseLook()
-		.setPaddings(2)
-		.setTextColor(Color.GREY);
-		
-		expandButton
-		.getRefHoverLook()
-		.setBorderThicknesses(2)
-		.setBorderColors(Color.GREY)
-		.setPaddings(0);
-		
-		expandButton
-		.getRefHoverFocusLook()
-		.setBorderThicknesses(2)
-		.setBorderColors(Color.GREY)
-		.setPaddings(0);
+		expandButton.getRefBaseLook().setTextColor(Color.GREY);
+		expandButton.getRefHoverLook().setTextColor(Color.BLACK);
+		expandButton.getRefFocusLook().setTextColor(Color.BLACK);
 		
 		if (containsAny()) {
 			if (isCollapsed()) {

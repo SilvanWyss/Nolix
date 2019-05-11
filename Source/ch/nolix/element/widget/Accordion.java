@@ -241,6 +241,7 @@ public final class Accordion extends Container<Accordion, AccordionLook> impleme
 		
 		accordionVerticalStack.recalculate();
 		
+		//Calls method of the base class.
 		super.recalculate();
 	}
 		
@@ -300,7 +301,6 @@ public final class Accordion extends Container<Accordion, AccordionLook> impleme
 	 */
 	@Override
 	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
-		getRefBaseLook().setBackgroundColor(Color.RED);
 		list.addAtEnd(accordionVerticalStack);
 	}
 	
