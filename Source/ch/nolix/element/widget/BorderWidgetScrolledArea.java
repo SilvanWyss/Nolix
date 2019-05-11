@@ -144,7 +144,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 		final var currentLook = parentBorderWidget.getRefCurrentLook();
 		
 		return
-		getProposalHeight()
+		parentBorderWidget.getProposalHeight()
 		- currentLook.getRecursiveOrDefaultTopBorderThickness()
 		- currentLook.getRecursiveOrDefaultBottomBorderThickness()
 		- parentBorderWidget.getHorizontalScrollbarThickness();
@@ -159,7 +159,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 		final var look = parentBorderWidget.getRefCurrentLook();
 		
 		return
-		getProposalWidth()
+		parentBorderWidget.getProposalWidth()
 		- look.getRecursiveOrDefaultLeftBorderThickness()
 		- look.getRecursiveOrDefaultRightBorderThickness()
 		- parentBorderWidget.getVerticalScrollbarThickness();
