@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTutorial.GUITutorial;
+package ch.nolix.elementTutorial.widgetTutorial;
 
 //own imports
 import ch.nolix.core.sequencer.Sequencer;

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTutorial.GUITutorial;
+package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
