@@ -1,24 +1,21 @@
-//package declaration
 package ch.nolix.elementTutorial.widgetTutorial;
 
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.Accordion;
 import ch.nolix.element.widget.AccordionTab;
 import ch.nolix.element.widget.Area;
 
-//class
 /**
- * The {@link AccordionTutorial} provides a tutorial for a {@link Accordion}.
+ * The {@link AccordionTutorial} is a tutorial for {@link Accordion}s.
  * Of the {@link AccordionTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-08
- * @lines 80
  */
 public final class AccordionTutorial {
 	
-	//main method
 	/**
 	 * Creates a {@link Frame} with a {@link Accordion}.
 	 * 
@@ -27,37 +24,17 @@ public final class AccordionTutorial {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		//Creates an accordion.
+		
+		//Creates a Frame.
+		final var frame = new Frame("Accordion Container Tutorial");
+		
+		//Creates an Accordion.
 		final var accordion =
 		new Accordion(
-			new AccordionTab(
-				"Tab1",
-				new Area()
-				.setBackgroundColor(Color.DARK_BLUE)
-				.setWidth(500)
-				.setHeight(200)
-			),
-			new AccordionTab(
-				"Tab2",
-				new Area()
-				.setBackgroundColor(Color.BLUE)
-				.setWidth(200)
-				.setHeight(100)
-			),
-			new AccordionTab(
-				"Tab3",
-				new Area()
-				.setBackgroundColor(Color.DARK_BLUE)
-				.setWidth(500)
-				.setHeight(200)
-			),
-			new AccordionTab(
-				"Tab4",
-				new Area()
-				.setBackgroundColor(Color.BLUE)
-				.setWidth(200)
-				.setHeight(100)
-			)
+			new AccordionTab("A", new Area(500, 200, Color.LIGHT_GREEN)),
+			new AccordionTab("B", new Area(500, 200, Color.GREEN)),
+			new AccordionTab("C", new Area(500, 200, Color.LIGHT_GREEN)),
+			new AccordionTab("D", new Area(500, 200, Color.GREEN))
 		);
 		
 		//Configures the look of the accordion.
@@ -69,15 +46,16 @@ public final class AccordionTutorial {
 			.setBackgroundColor(Color.ALICE_BLUE)
 		);
 		
-		//Creates a frame with the accordion.
-		new Frame()
-		.setTitle("Accordion Container Tutorial")
-		.setRootWidget(accordion);
+		//Adds the accordion to the frame.
+		frame.setRootWidget(accordion);
 	}
 	
-	//private constructor
 	/**
 	 * Avoids that an instance of the {@link AccordionTutorial} can be created.
+	 * 
+	 * @throws UninstantiableClassException
 	 */
-	private AccordionTutorial() {}
+	private AccordionTutorial() {
+		throw new UninstantiableClassException(getClass());
+	}
 }

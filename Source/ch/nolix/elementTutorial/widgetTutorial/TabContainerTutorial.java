@@ -1,24 +1,21 @@
-//package declaration
 package ch.nolix.elementTutorial.widgetTutorial;
 
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.Area;
 import ch.nolix.element.widget.TabContainer;
 import ch.nolix.element.widget.TabContainerTab;
 
-//class
 /**
- * The {@link TabContainerTutorial} provides a tutorial for a {@link TabContainer}.
+ * The {@link TabContainerTutorial} is a tutorial for {@link TabContainer}s.
  * Of the {@link TabContainerTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-05
- * @lines 70
  */
 public final class TabContainerTutorial {
-
-	//main method
+	
 	/**
 	 * Creates a {@link Frame} with a {@link TabContainer}.
 	 * 
@@ -27,57 +24,39 @@ public final class TabContainerTutorial {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		//Creates a tab container.
+		//Creates a Frame.
+		final var frame = new Frame("Tab Container Tutorial");
+		
+		//Creates a TabContainer.
 		final var tabContainer =
 		new TabContainer()
 		.addTab(
-			new TabContainerTab(
-				"Tab1",
-				new Area()
-				.setBackgroundColor(Color.DARK_BLUE)
-				.setWidth(500)
-				.setHeight(200)
-			),
-			new TabContainerTab(
-				"Tab2",
-				new Area()
-				.setBackgroundColor(Color.BLUE)
-				.setWidth(500)
-				.setHeight(200)
-			),
-			new TabContainerTab(
-				"Tab3",
-				new Area()
-				.setBackgroundColor(Color.DARK_BLUE)
-				.setWidth(500)
-				.setHeight(200)
-			),
-			new TabContainerTab(
-				"Tab4",
-				new Area()
-				.setBackgroundColor(Color.BLUE)
-				.setWidth(500)
-				.setHeight(200)
-			)
+			new TabContainerTab("A", new Area(500, 200, Color.LIGHT_GREEN)),
+			new TabContainerTab("B", new Area(500, 200, Color.GREEN)),
+			new TabContainerTab("C", new Area(500, 200, Color.LIGHT_GREEN)),
+			new TabContainerTab("D", new Area(500, 200, Color.GREEN))
 		);
 		
-		//Configures the look of the tab container.
-		tabContainer
-		.getRefBaseLook()
-		.setBorderThicknesses(5)
-		.setBorderColors(Color.DARK_BLUE)
-		.setBackgroundColor(Color.ALICE_BLUE)
-		.setPaddings(20);
+		//Configures the look of the tabContainer.
+		tabContainer.applyOnBaseLook(
+			bl ->
+			bl
+			.setBorderThicknesses(5)
+			.setBorderColors(Color.DARK_BLUE)
+			.setBackgroundColor(Color.WHITE_SMOKE)
+			.setPaddings(20)
+		);
 		
-		//Creates a frame with the tab container.
-		new Frame()
-		.setTitle("Tab Container Tutorial")
-		.setRootWidget(tabContainer);
+		//Adds the tabContainer to the frame.
+		frame.setRootWidget(tabContainer);
 	}
 	
-	//private constructor
 	/**
 	 * Avoids that an instance of the {@link TabContainerTutorial} can be created.
+	 * 
+	 * @throws UninstantiableClassException
 	 */
-	private TabContainerTutorial() {}
+	private TabContainerTutorial() {
+		throw new UninstantiableClassException(getClass());
+	}
 }

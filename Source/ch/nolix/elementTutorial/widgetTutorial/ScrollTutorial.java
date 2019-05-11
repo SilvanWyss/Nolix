@@ -1,22 +1,19 @@
-//package declaration
 package ch.nolix.elementTutorial.widgetTutorial;
 
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.Label;
 
-//class
 /**
- * The {@link ScrollTutorial} provides a tutorial for the scroll feature of a {@link Label}.
+ * The {@link ScrollTutorial} is a tutorial for the scroll feature of {@link BorderWidget}s.
  * Of the {@link ScrollTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-05
- * @lines 50
  */
 public final class ScrollTutorial {
-
-	//main method
+	
 	/**
 	 * Creates a {@link Frame} with a scrollable {@link Label}.
 	 * 
@@ -25,30 +22,35 @@ public final class ScrollTutorial {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		//Creates a label.
-		final var label = 
-		new Label()
-		.setText("PLATON")
-		.setMaxWidth(800)
-		.setMaxHeight(400);
+		//Creates a Frame.
+		final var frame = new Frame("Scroll Tutorial");
+		
+		//Creates a Label.
+		final var label = new Label("PLATON");
 		
 		//Configures the look of the label.
 		label
-		.getRefBaseLook()
-		.setBorderThicknesses(5)
-		.setBorderColors(Color.DARK_BLUE)
-		.setBackgroundColor(Color.ALICE_BLUE)
-		.setTextSize(400);
+		.setMaxWidth(1000)
+		.setMaxHeight(500)
+		.applyOnBaseLook(
+			bl ->
+			bl
+			.setBorderThicknesses(5)
+			.setBorderColors(Color.DARK_BLUE)
+			.setBackgroundColor(Color.WHITE_SMOKE)
+			.setTextSize(500)
+		);
 		
-		//Creates a frame with the label.
-		new Frame()
-		.setTitle("Scroll Tutorial")
-		.setRootWidget(label);
+		//Adds the label to the frame.
+		frame.setRootWidget(label);
 	}
 	
-	//private constructor
 	/**
 	 * Avoids that an instance of the {@link ScrollTutorial} can be created.
+	 * 
+	 * @throws UninstantiableClassException
 	 */
-	private ScrollTutorial() {}
+	private ScrollTutorial() {
+		throw new UninstantiableClassException(getClass());
+	}
 }

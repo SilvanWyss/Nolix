@@ -1,24 +1,21 @@
-//package declaration
 package ch.nolix.elementTutorial.widgetTutorial;
 
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.ContentPosition;
 import ch.nolix.element.widget.FloatContainer;
 import ch.nolix.element.widget.Label;
 
-//class
 /**
- * The {@link FloatContainerTutorial} provides a tutorial for a {@link FloatContainer}.
+ * The {@link FloatContainerTutorial} is a tutorial for {@link FloatContainer}s.
  * Of the {@link FloatContainerTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-05
- * @lines 70
  */
 public final class FloatContainerTutorial {
 	
-	//main method
 	/**
 	 * Creates a {@link Frame} with a {@link FloatContainerTutorial}.
 	 * 
@@ -27,7 +24,10 @@ public final class FloatContainerTutorial {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		//Creates a float container.
+		//Creates a Frame.
+		final var frame = new Frame("Float Container Tutorial");
+		
+		//Creates a FloatConatiner.
 		final var floatContainer =
 		new FloatContainer(
 			new Label("A"),
@@ -38,36 +38,41 @@ public final class FloatContainerTutorial {
 			new Label("F")
 		);
 		
-		//Configures the look of the float container.
-		floatContainer
-		.setProposalWidth(1000)
-		.applyOnBaseLook(
+		//Configures the look of the floatContainer.
+		floatContainer.applyOnBaseLook(
 			bl ->
 			bl
 			.setBorderThicknesses(5)
-			.setBorderColors(Color.GREY)
+			.setBorderColors(Color.DARK_BLUE)
+			.setBackgroundColor(Color.WHITE_SMOKE)
 			.setPaddings(20)
-			.setProposeContentWidth(2100)
+			.setProposeContentWidth(1000)
 		);
 		
-		//Configures the look of the widgets of the float container.
-		for (final var w : floatContainer.getChildWidgets()) {
-			w
+		//Configures the look of the child Widgets of the floatContainer.
+		for (final var cw : floatContainer.getChildWidgets()) {
+			cw
 			.as(Label.class)
-			.setProposalSize(500, 200)
+			.setProposalSize(220, 100)
 			.setContentPosition(ContentPosition.Center)
-			.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.LIGHT_GREEN).setTextSize(50))
-			.applyOnHoverLook(bl -> bl.setBackgroundColor(Color.GREEN))
-			.applyOnFocusLook(bl -> bl.setBackgroundColor(Color.GREEN));
+			.applyOnBaseLook(
+				bl ->
+				bl.setBackgroundColor(Color.LIGHT_GREEN)
+				.setTextSize(50)
+				.setTextColor(Color.DARK_GREEN)
+			);
 		}
 		
-		//Creates a frame with the float container.
-		new Frame("Float Container Tutorial", floatContainer);
+		//Adds the floatContainer to the frame.
+		frame.setRootWidget(floatContainer);
 	}
 	
-	//private constructor
 	/**
 	 * Avoids that an instance of the {@link FloatContainerTutorial} can be created.
+	 * 
+	 * @throws UninstantiableClassException
 	 */
-	private FloatContainerTutorial() {}
+	private FloatContainerTutorial() {
+		throw new UninstantiableClassException(getClass());
+	}
 }

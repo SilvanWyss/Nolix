@@ -1,6 +1,6 @@
-//package declaration
 package ch.nolix.elementTutorial.widgetTutorial;
 
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.textFormat.Font;
@@ -9,18 +9,15 @@ import ch.nolix.element.widget.Grid;
 import ch.nolix.element.widget.GridLineType;
 import ch.nolix.element.widget.Label;
 
-//class
 /**
- * The {@link GridTutorial} provides a tutorial for a {@link Grid}.
+ * The {@link GridTutorial} is a tutorial for {@link Grid}s.
  * Of the {@link GridTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-05
- * @lines 60
  */
 public final class GridTutorial {
-
-	//main method
+	
 	/**
 	 * Creates a {@link Frame} with a {@link Grid}.
 	 * 
@@ -29,39 +26,46 @@ public final class GridTutorial {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		//Creates a grid
+		//Creates a Frame.
+		final var frame = new Frame("Grid Tutorial");
+		
+		//Creates a Grid
 		final var grid =
 		new Grid()
-		.setWidget(1, 1, new Label("Sokrates"))
-		.setWidget(1, 2, new Label("Platon"))
-		.setWidget(1, 3, new Label("Aristoteles"))
-		.setWidget(1, 4, new Label("Demokrit"))
-		.setWidget(2, 1, new Area().setBackgroundColor(Color.DARK_BLUE).setWidth(200).setHeight(100))
-		.setWidget(2, 3, new Area().setBackgroundColor(Color.DARK_BLUE).setWidth(200).setHeight(100))
-		.setWidget(3, 2, new Area().setBackgroundColor(Color.DARK_BLUE).setWidth(200).setHeight(100))
-		.setWidget(3, 4, new Area().setBackgroundColor(Color.DARK_BLUE).setWidth(200).setHeight(100))
-		.setWidget(4, 1, new Area().setBackgroundColor(Color.DARK_BLUE).setWidth(200).setHeight(100))
-		.setWidget(4, 3, new Area().setBackgroundColor(Color.DARK_BLUE).setWidth(200).setHeight(100));
+		.setWidget(1, 1, new Label("A"))
+		.setWidget(1, 2, new Label("B"))
+		.setWidget(1, 3, new Label("C"))
+		.setWidget(1, 4, new Label("D"))
+		.setWidget(2, 1, new Area(200, 100, Color.LIGHT_GREEN))
+		.setWidget(2, 3, new Area(200, 100, Color.LIGHT_GREEN))
+		.setWidget(3, 2, new Area(200, 100, Color.LIGHT_GREEN))
+		.setWidget(3, 4, new Area(200, 100, Color.LIGHT_GREEN))
+		.setWidget(4, 1, new Area(200, 100, Color.LIGHT_GREEN))
+		.setWidget(4, 3, new Area(200, 100, Color.LIGHT_GREEN));
 		
 		//Configures the look of the grid.
-		grid
-		.getRefBaseLook()
-		.setBorderThicknesses(5)
-		.setBorderColors(Color.DARK_BLUE)
-		.setPaddings(20)
-		.setLineType(GridLineType.InnerLines)
-		.setElementMargin(10)
-		.setTextFont(Font.Console);
+		grid.applyOnBaseLook(
+			bl ->
+			bl
+			.setBorderThicknesses(5)
+			.setBorderColors(Color.DARK_BLUE)
+			.setBackgroundColor(Color.WHITE_SMOKE)
+			.setPaddings(20)
+			.setLineType(GridLineType.InnerLines)
+			.setElementMargin(10)
+			.setTextFont(Font.Console)
+		);
 		
-		//Creates a frame with the grid.
-		new Frame()
-		.setTitle("Grid Tutorial")
-		.setRootWidget(grid);
+		//Adds the grid to the frame.
+		frame.setRootWidget(grid);
 	}
 	
-	//private constructor
 	/**
 	 * Avoids that an instance of the {@link GridTutorial} can be created.
+	 * 
+	 * @throws UninstantiableClassException
 	 */
-	private GridTutorial() {}
+	private GridTutorial() {
+		throw new UninstantiableClassException(getClass());
+	}
 }

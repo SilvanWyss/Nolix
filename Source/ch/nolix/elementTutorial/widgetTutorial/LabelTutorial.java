@@ -1,7 +1,6 @@
-//package declaration
 package ch.nolix.elementTutorial.widgetTutorial;
 
-//own imports
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
@@ -9,50 +8,37 @@ import ch.nolix.element.core.Time;
 import ch.nolix.element.widget.HorizontalStack;
 import ch.nolix.element.widget.Label;
 
-//class
 /**
- * The {@link LabelTutorial} provides a tutorial for a {@link Label}.
+ * The {@link LabelTutorial} is a tutorial for {@link Label}s.
  * Of the {@link LabelTutorial} an instance cannot be created.
  *
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 80
  */
 public final class LabelTutorial {
-
-	//main method
+	
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-	
-		//Creates clock caption label.
+		
+		//Creates a Frame.
+		final var frame = new Frame("Label Tutorial");
+		
+		//Creates clockCaptionLabel.
 		final var clockCaptionLabel = new Label("Time:");
 		
-		//Sets the look of the clock caption label.
-		clockCaptionLabel
-		.getRefBaseLook()
-		.setTextSize(50);
+		//Sets the look of clockCaptionLabel.
+		clockCaptionLabel.applyOnBaseLook(bl -> bl.setTextSize(50));
 		
-		//Creates clock label.
+		//Creates clockLabel.
 		final var clockLabel = new Label();
 		
-		//Sets the look of the clock label.
-		clockLabel
-		.getRefBaseLook()
-		.setBackgroundColor(Color.YELLOW)
-		.setTextSize(50);
+		//Sets the look of the clockLabel.
+		clockLabel.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.YELLOW).setTextSize(50));
 	
-		//Creates a frame that will contain the clock caption label and the clock label.
-		final var frame =
-		new Frame()
-		.setTitle("Label Tutorial")
-		.setRootWidget(
-			new HorizontalStack(
-				clockCaptionLabel,
-				clockLabel
-			)
-		);
+		//Adds the clockCaptionLabel and clockLabel to the frame.
+		frame.setRootWidget(new HorizontalStack(clockCaptionLabel, clockLabel));
 		
-		//Starts the background job that updates the text of the clock label.
+		//Starts a background job that updates constantly the text of the clockLabel.
 		Sequencer
 		.asLongAs(() -> frame.isAlive())
 		.afterAllMilliseconds(100)
@@ -71,17 +57,21 @@ public final class LabelTutorial {
 					currentTime.getSecondOfMinute()
 				);
 				
-				//Sets the text to the clock label.
+				//Sets the text to the clockLabel.
 				clockLabel.setText(text);
 				
+				//Refreshes the frame.
 				frame.refresh();
 			}
 		);
 	}
 	
-	//private constructor
 	/**
 	 * Avoids that an instance of the {@link LabelTutorial} can be created.
+	 * 
+	 * @throws UninstantiableClassException
 	 */
-	private LabelTutorial() {}
+	private LabelTutorial() {
+		throw new UninstantiableClassException(getClass());
+	}
 }

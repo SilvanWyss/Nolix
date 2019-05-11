@@ -1,22 +1,19 @@
-//package declaration
 package ch.nolix.elementTutorial.widgetTutorial;
 
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.TextBox;
 
-//class
 /**
- * The {@link TextBoxTutorial} provides a tutorial for a {@link TextBox}.
+ * The {@link TextBoxTutorial} is a tutorial for {@link TextBox}s.
  * Of the {@link TextBoxTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-05
- * @lines 50
  */
 public final class TextBoxTutorial {
 	
-	//main method
 	/**
 	 * Creates a {@link Frame} with a {@link TextBox}.
 	 * 
@@ -25,28 +22,34 @@ public final class TextBoxTutorial {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		//Creates a text box.
+		//Creates a Frame.
+		final var frame = new Frame("Text Box Tutorial");
+		
+		//Creates a TextBox.
 		final var textBox = new TextBox();
 		
-		//Configures the look of the text box.
-			textBox.setProposalWidth(200);
-			
-			textBox
-			.getRefBaseLook()
+		//Configures the look of the textBox.
+		textBox
+		.setProposalWidth(200)
+		.applyOnBaseLook(
+			bl ->
+			bl
 			.setBorderThicknesses(5)
 			.setBorderColors(Color.DARK_BLUE)
-			.setBackgroundColor(Color.ALICE_BLUE)
-			.setPaddings(5);
+			.setBackgroundColor(Color.WHITE_SMOKE)
+			.setPaddings(5)
+		);
 		
-		//Creates a frame with the text box.
-		new Frame()
-		.setTitle("Text Box Tutorial")
-		.setRootWidget(textBox);
+		//Adds the textBox to the frame.
+		frame.setRootWidget(textBox);
 	}
 	
-	//private constructor
 	/**
 	 * Avoids that an instance of the {@link TextBoxTutorial} can be created.
+	 * 
+	 * @throws UninstantiableClassException
 	 */
-	private TextBoxTutorial() {}
+	private TextBoxTutorial() {
+		throw new UninstantiableClassException(getClass());
+	}
 }

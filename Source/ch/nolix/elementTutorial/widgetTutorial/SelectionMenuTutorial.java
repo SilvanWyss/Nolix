@@ -1,31 +1,31 @@
-//package declaration
 package ch.nolix.elementTutorial.widgetTutorial;
 
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.SelectionMenu;
 
-//class
 /**
- * The {@link SelectionMenuTutorial} is a tutorial for a {@link SelectionMenu}.
+ * The {@link SelectionMenuTutorial} is a tutorial for {@link SelectionMenu}s.
  * Of the {@link SelectionMenuTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-05
- * @lines 60
  */
 public final class SelectionMenuTutorial {
-
-	//main method
+	
 	/**
-	 * Creates a {@link SelectionMenu} and adds it to a {@link Frame}.
+	 * Creates a {@link Frame} with a {@link SelectionMenu}.
 	 * 
 	 * @param args
 	 */
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		//Creates a selection menu.
+		//Creates a Frame.
+		final var frame = new Frame("Selection Menu Tutorial");
+		
+		//Creates a SelectionMenu.
 		final var selectionMenu =
 		new SelectionMenu(
 			"Gottfried Wilhelm Leibniz",
@@ -42,24 +42,28 @@ public final class SelectionMenuTutorial {
 			"Richard David Precht"
 		);
 		
-		//Configures the look of the selection menu.
-			selectionMenu.setMaxHeight(200);
-			
-			selectionMenu
-			.getRefBaseLook()
-			.setBackgroundColor(Color.ALICE_BLUE)
+		//Configures the look of the selectionMenu.
+		selectionMenu
+		.setMaxHeight(200)			
+		.applyOnBaseLook(
+			bl ->
+			bl			
 			.setBorderThicknesses(5)
-			.setBorderColors(Color.DARK_BLUE)			
-			.setItemPadding(5);
+			.setBorderColors(Color.DARK_BLUE)
+			.setBackgroundColor(Color.WHITE_SMOKE)
+			.setItemPadding(5)
+		);
 		
-		//Creates a frame and adds the selection menu to it.
-		new Frame("Selection Menu Tutorial")
-		.setRootWidget(selectionMenu);
+		//Adds the selectionMenu to the frame.
+		frame.setRootWidget(selectionMenu);
 	}
 	
-	//private constructor
 	/**
 	 * Avoids that an instance of the {@link SelectionMenuTutorial} can be created.
+	 * 
+	 * @throws UninstantiableClassException
 	 */
-	private SelectionMenuTutorial() {}
+	private SelectionMenuTutorial() {
+		throw new UninstantiableClassException(getClass());
+	}
 }
