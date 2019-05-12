@@ -126,10 +126,10 @@ extends Neuronoid<NeuronalNet<IO>, Iterable<IO>, Iterable<IO>> {
 	 * Lets this neuronal net fire.
 	 */
 	@Override
-	protected void internal_fire() {
+	public void fire() {
 		inputFanoutNeuron.clearInputNeurons();
 		inputFanoutNeuron.addInputNeuron(getRefOneInputNeuron());
-		inputFanoutNeuron.fire();
+		inputFanoutNeuron.fireTransitively();
 		internal_setOutput(outputBundleNeuron.getRefOutput());
 	}
 }

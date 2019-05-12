@@ -47,7 +47,7 @@ public final class NeuronTutorial2 {
 		.addInputNeuron(neuron3);
 		
 		//Fires neuron 1.
-		neuron1.fire();
+		neuron1.fireTransitively();
 		
 		//Prints out the output of the neurons to the console.
 		System.out.println("neuron 1 output: " + neuron1.getRefOutput());

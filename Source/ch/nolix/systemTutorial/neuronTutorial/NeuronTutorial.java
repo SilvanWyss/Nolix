@@ -47,7 +47,7 @@ public final class NeuronTutorial {
 		.setOutputFunction(Calculator.DOUBLE_AVERAGE);
 
 		//Fires the target neuron.
-		targetNeuron.fire();
+		targetNeuron.fireTransitively();
 		
 		//Prints out the output of the target neuron to the console.
 		System.out.println("output: " + targetNeuron.getRefOutput());

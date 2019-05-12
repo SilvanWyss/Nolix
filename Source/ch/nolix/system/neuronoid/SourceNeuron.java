@@ -50,5 +50,5 @@ extends Neuronoid<SourceNeuron<O>, Object, O> {
 	 * Lets this source neuron fire.
 	 */
 	@Override
-	protected void internal_fire() {}
+	public void fire() {}
 }

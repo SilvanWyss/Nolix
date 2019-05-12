@@ -113,7 +113,7 @@ implements Closable {
 	 * Lets this net back neuron fire.
 	 */
 	@Override
-	public void internal_fire() {
+	public void fire() {
 		
 		//Handles the case that this net back neuron does not have an input neuron.
 		if (getRefInputNeurons().isEmpty()) {

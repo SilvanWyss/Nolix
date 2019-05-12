@@ -91,7 +91,7 @@ extends Neuronoid<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	 * Lets this neuron fire.
 	 */
 	@Override
-	protected void internal_fire() {
+	public void fire() {
 		internal_setOutput(getRefOneInput());
 	}
 }

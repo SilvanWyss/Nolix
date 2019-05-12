@@ -119,7 +119,7 @@ implements Closable {
 	 * Lets this net front neuron fire.
 	 */
 	@Override
-	protected void internal_fire() {}
+	public void fire() {}
 	
 	//method
 	/**

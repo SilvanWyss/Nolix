@@ -179,7 +179,7 @@ public final class Neuron<IO> extends Neuronoid<Neuron<IO>, IO, IO> {
 	 * @throws ArgumentMissesAttributeException if this neuron does not have an output function.
 	 */
 	@Override
-	protected void internal_fire() {
+	public void fire() {
 		internal_setOutput(getOutputFunction().getOutput(this));
 	}
 	

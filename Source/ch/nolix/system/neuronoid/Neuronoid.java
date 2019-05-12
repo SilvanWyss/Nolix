@@ -97,9 +97,9 @@ implements ISmartObject<N> {
 	
 	//method
 	/**
-	 * Lets this neuron fire.
+	 * Lets this neuron fire transitively.
 	 */
-	public void fire() {
+	public void fireTransitively() {
 		
 		final List<Neuronoid<?, ?, ?>> nextNeurons = new List<Neuronoid<?, ?, ?>>(this);
 		final List<Neuronoid<?, ?, ?>> visitedNeurons = new List<Neuronoid<?, ?, ?>>();
@@ -108,7 +108,7 @@ implements ISmartObject<N> {
 			
 			final Neuronoid<?, ?, ?> neuron = nextNeurons.removeAndGetRefFirst();
 			visitedNeurons.addAtEnd(neuron);
-			neuron.internal_fire();
+			neuron.fire();
 			
 			//Iterates the output neurons of the current neuron.
 			for (final Neuronoid<?, ?, ?> on : neuron.getRefOutputNeurons()) {
@@ -128,7 +128,7 @@ implements ISmartObject<N> {
 	 * @return a new future.
 	 */
 	public final Future fireInBackground() {
-		return Sequencer.runInBackground(() -> fire());
+		return Sequencer.runInBackground(() -> fireTransitively());
 	}
 		
 	//method
@@ -245,7 +245,7 @@ implements ISmartObject<N> {
 	/**
 	 * Lets this neuron fire.
 	 */
-	protected abstract void internal_fire();
+	public abstract void fire();
 	
 	//method
 	/**

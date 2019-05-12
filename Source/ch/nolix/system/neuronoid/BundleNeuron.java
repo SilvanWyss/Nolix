@@ -42,7 +42,7 @@ extends Neuronoid<BundleNeuron<O>, O, Iterable<O>> {
 	 * @param processor
 	 */
 	@Override
-	protected void internal_fire() {
+	public void fire() {
 		internal_setOutput(getRefInputs());
 	}
 }

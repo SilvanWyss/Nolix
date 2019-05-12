@@ -74,7 +74,7 @@ extends Neuronoid<TransformNeuron<I, O>, I, O> {
 	 * Lets this transform neuron fire.
 	 */
 	@Override
-	protected void internal_fire() {
+	public void fire() {
 		internal_setOutput(transformator.getOutput(getRefOneInput()));
 	}
 }

@@ -44,7 +44,7 @@ public final class FrontNetNeuronTutorial {
 		final var frontNetNeuron2 = new FrontNetNeuron<String>(port, s -> s.toString());
 		
 		//Fires the back net neuron.
-		netBackNeuron.fire();
+		netBackNeuron.fireTransitively();
 		
 		//Prints out the output of the front net neurons to the console.
 		System.out.println("front net neuron 1 output: " + frontNetNeuron1.getRefOutput());
