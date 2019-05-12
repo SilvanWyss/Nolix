@@ -4,6 +4,7 @@ package ch.nolix.system.neuronoid;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
@@ -24,7 +25,7 @@ import ch.nolix.core.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 290
+ * @lines 320
  * @param <I> The type of the inputs of a neuron.
  * @param <O> The type of the output of a neuron.
  * @param <N> The type of a neuron.
@@ -108,6 +109,7 @@ implements ISmartObject<N> {
 			
 			final Neuronoid<?, ?, ?> neuron = nextNeurons.removeAndGetRefFirst();
 			visitedNeurons.addAtEnd(neuron);
+			neuron.fillUpInputNeuronsWithoutOutputPartialRecursively(visitedNeurons);
 			neuron.fire();
 			
 			//Iterates the output neurons of the current neuron.
@@ -123,11 +125,11 @@ implements ISmartObject<N> {
 	
 	//method
 	/**
-	 * Lets this neuron fire in background.
+	 * Lets this neuron fire transitively in background.
 	 * 
 	 * @return a new future.
 	 */
-	public final Future fireInBackground() {
+	public final Future fireTransitivelyInBackground() {
 		return Sequencer.runInBackground(() -> fireTransitively());
 	}
 		
@@ -208,8 +210,18 @@ implements ISmartObject<N> {
 	//method
 	/**
 	 * @return the output of this neuron.
+	 * @throws ArgumentMissesAttributeException if this neuron does not have an output after firing.
 	 */
 	public final O getRefOutput() {
+		
+		if (output == null) {
+			fire();
+		}
+		
+		if (output == null) {
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.OUTPUT);
+		}
+		
 		return output;
 	}
 	
@@ -289,5 +301,27 @@ implements ISmartObject<N> {
 		inputConnections.addAtEnd(inputConnection);
 		
 		inputConnection.getRefInputNeuron().outputNeurons.addAtEnd(this);
+	}
+	
+	//method
+	/**
+	 * Fills up the input neurons of this neuron, that do not have an output, into the given list partial recursively.
+	 * 
+	 * @param list
+	 */
+	private void fillUpInputNeuronsWithoutOutputPartialRecursively(final List<Neuronoid<?, ?, ?>> list) {
+		
+		//Iterates the input connections of this neuron.
+		for (final var ic : inputConnections) {
+			
+			//Extracts the input neuron of the current input connection.
+			final var inputNeuron = ic.getRefInputNeuron();
+			
+			//Handles the case that the input neuron does not have an output.
+			if (inputNeuron.output == null) {
+				list.addAtEnd(inputNeuron);
+				inputNeuron.fillUpInputNeuronsWithoutOutputPartialRecursively(list);
+			}
+		}
 	}
 }
