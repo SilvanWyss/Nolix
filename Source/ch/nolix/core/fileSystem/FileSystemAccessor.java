@@ -9,6 +9,7 @@ import java.io.IOException;
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
 
@@ -18,7 +19,7 @@ import ch.nolix.core.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 390
+ * @lines 400
  */
 public final class FileSystemAccessor {
 	
@@ -351,6 +352,19 @@ public final class FileSystemAccessor {
 		}
 		
 		new FileAccessor(relativeFilePath).overwriteFile(content);
+	}
+	
+	//method
+	/**
+	 * Reads the content of the file with the given path to lines.
+	 * 
+	 * @return the lines of the file with the given path.
+	 * @throws InvalidArgumentException if there does not exist a file with the given path
+	 * in the file system on the local machine.
+	 * @throws RuntimeException if an error occurs.
+	 */
+	public List<String> readFileToLines(final String path) {
+		return new FileAccessor(path).readFileToLines();
 	}
 	
 	//method
