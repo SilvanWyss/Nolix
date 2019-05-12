@@ -2,6 +2,8 @@
 package ch.nolix.core.fileSystem;
 
 //Java imports
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
@@ -9,6 +11,7 @@ import java.nio.file.Files;
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //class
@@ -104,7 +107,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 	/**
 	 * Reads the content of the file of this file accessor to bytes.
 	 * 
-	 * @return the content of the file of this file accessor to bytes.
+	 * @return the bytes of the file of this file accessor.
 	 * @throws RuntimeException if an error occurs.
 	 */
 	public byte[] readFileToBytes() {
@@ -114,5 +117,29 @@ public final class FileAccessor extends FileSystemItemAccessor {
 		catch (final IOException exception) {
 			throw new RuntimeException(exception);
 		}
+	}
+	
+	//method
+	/**
+	 * Reads the content of the file of this file accessor to lines.
+	 * 
+	 * @return the lines of the file of this file accessor.
+	 * @throws RuntimeException if an error occurs.
+	 */
+	public List<String> readFileToLines() {
+		
+		final var lines = new List<String>();
+		
+		try (final BufferedReader bufferedReader = new BufferedReader(new FileReader(getInternalAccessor()))) {
+		    String line;
+		    while ((line = bufferedReader.readLine()) != null) {
+		       lines.addAtEnd(line);
+		    }
+		}
+		catch (final IOException IOException) {
+			throw new RuntimeException(IOException);
+		}
+		
+		return lines;
 	}
 }
