@@ -33,11 +33,9 @@ public final class FileDocumentNode extends DocumentNodeoid {
 	 */
 	public FileDocumentNode(final String filePath) {
 		
-		final FileSystemAccessor fileSystemAccessor = new FileSystemAccessor();
-		
 		//Handles the case that there does not exist a file with the given file path.
-		if (!fileSystemAccessor.fileSystemItemIsFile(filePath)) {
-			fileAccessor = fileSystemAccessor.createFile(filePath);
+		if (!FileSystemAccessor.isFile(filePath)) {
+			fileAccessor = FileSystemAccessor.createFile(filePath);
 		}
 		
 		//Handles the case that there exists a file with the given file path.

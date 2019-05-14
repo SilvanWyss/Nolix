@@ -112,7 +112,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	
 	//method
 	/**
-	 * Lets this base GUI client a file with the given relative file path and content.
+	 * Lets this base GUI client create a file with the given relative file path and content.
 	 * 
 	 * @param relativeFilePath
 	 * @param content
@@ -121,8 +121,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 		final String relativeFilePath,
 		final DocumentNodeoid content
 	) {
-		new FileSystemAccessor()
-		.createFileIncrementingFileName(relativeFilePath, content.toString());
+		FileSystemAccessor.createFile(relativeFilePath, content.toString());
 	}
 	
 	//method
@@ -210,7 +209,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * Lets this base GUI client open a file explorer.
 	 */
 	protected final void internal_openFileExplorer() {
-		FileSystemAccessor.openFolderOfRunningJarInExplorer();
+		FileSystemAccessor.openFolderOfRunningJarFileInExplorer();
 	}
 	
 	//method

@@ -535,7 +535,7 @@ public abstract class DocumentNodeoid implements Headered {
 	 * and a file system item with the given file path exists already.
 	 */
 	public void saveToFile(final String filePath, final boolean overwrite) {
-		new FileSystemAccessor().createFile(filePath, overwrite, toFormatedString());
+		FileSystemAccessor.createFile(filePath, overwrite, toFormatedString());
 	}
 	
 	//abstract method

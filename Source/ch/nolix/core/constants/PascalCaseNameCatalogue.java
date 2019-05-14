@@ -69,6 +69,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String FEATURE = "Feature";
 	public static final String FILE_NAME = "FileName";
 	public static final String FILE_PATH = "FilePath";
+	public static final String FOLDER = "Folder";
 	public static final String FOLDER_PATH = "FolderPath";
 	public static final String FUNCTION = "Function";
 	public static final String HASH_CODE = "HashCode";

@@ -6,400 +6,320 @@ import java.io.File;
 import java.io.IOException;
 
 //own imports
-import ch.nolix.core.constants.CharacterCatalogue;
-import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
+import ch.nolix.core.util.ShellProvider;
 import ch.nolix.core.validator.Validator;
 
 //class
 /**
- * A file system accessor can access the file system on the local machine.
+ * The {@link FileSystemAccessor} can access the file system on the local machine.
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 400
+ * @lines 320
  */
 public final class FileSystemAccessor {
 	
 	//static method
 	/**
-	 * @return a new folder accessor to the folder of the running jar.
+	 * @return a new {@link FolderAccessor} to the folder of the running jar file.
 	 */
-	public static FolderAccessor accessFolderOfRunningJar() {
-		return new FolderAccessor(getFolderPathOfRunningJar());
+	public static FolderAccessor getFolderOfRunningJarFile() {
+		return new FolderAccessor(getFolderPathOfRunningJarFile());
 	}
 	
 	//static method
 	/**
-	 * @return the folder path of the running jar file.
+	 * @return the path of the folder of the running jar file.
 	 */
-	public static String getFolderPathOfRunningJar() {
+	public static String getFolderPathOfRunningJarFile() {
 		return new File(ClassLoader.getSystemClassLoader().getResource(".").getPath()).getAbsolutePath();
 	}
 	
 	//static method
 	/**
-	 * Opens the folder of the running jar in a new file explorer.
+	 * Opens the folder with the given path in a new file explorer.
+	 * 
+	 * @param path
 	 */
-	public static void openFolderOfRunningJarInExplorer() {
-		accessFolderOfRunningJar().openInFileExplorer();
-	}
-
-	//optional attribute
-	private final String rootFolder;
-	
-	//constructor
-	/**
-	 * Creates a new file system accessor.
-	 */
-	public FileSystemAccessor() {
-		
-		//Clears the root folder of this file system accessor.
-		rootFolder = null;
+	public static void openInFileExplorer(final String path) {
+		ShellProvider.run("explorer.exe path");
 	}
 	
-	//constructor
+	//static method
 	/**
-	 * Creates a new file system accessor with the root folder with the given root folder path.
-	 * 
-	 * @param rootFolderPath
-	 * @throws InvalidArgumentException if there does not exist a folder
-	 * with the given root folder path in the file system on the local machine.
+	 * Opens the folder of the running jar file in a new file explorer.
 	 */
-	public FileSystemAccessor(final String rootFolderPath) {
-		
-		//Checks if the given root folder is a folder.
-		if (!fileSystemItemIsFolder(rootFolderPath)) {
-			throw new InvalidArgumentException(
-				VariableNameCatalogue.ROOT_FOLDER,
-				rootFolderPath,
-				"is not a folder"
-			);
-		}
-		
-		//Sets the root folder of this file system accessor.
-		this.rootFolder = rootFolderPath;
+	public static void openFolderOfRunningJarFileInExplorer() {
+		openInFileExplorer(getFolderPathOfRunningJarFile());
 	}
 	
-	//method
+	//static method
 	/**
-	 * Creates a new empty file in the file system on the local machine.
+	 * Creates a new empty file with the given path.
 	 * 
-	 * The file path will be the entry path of the current {@link FileSystemAccessor}
-	 * followed by the given relative file path.
-	 * 
-	 * @param relativeFilePath
+	 * @param path
 	 * @return a new {@link FileAccessor} to the created file.
-	 * @throws NullArgumentException if the given relative file path is null.
-	 * @throws EmptyArgumentException if the given relative file path is empty.
-	 * @throws InvalidArgumentException if the computed file path exists already.
+	 * @throws NullArgumentException if the given path is null.
+	 * @throws EmptyArgumentException if the given path is empty.
+	 * @throws InvalidArgumentException if there exists already a file system item with the given path.
 	 */
-	public FileAccessor createFile(final String relativeFilePath) {
+	public static FileAccessor createFile(final String path) {
 		
 		//Calls other method.
-		return createFile(relativeFilePath, false);
+		return createFile(path, false);
 	}
 	
-	//method
+	//static method
 	/**
-	 * Creates a new empty file on the local machine.
-	 * 
-	 * The file path will be the entry path of the current {@link FileSystemAccessor}
-	 * followed by the given relative file path.
+	 * Creates a new empty file with the given path.
 	 * 
 	 * If the given overwrite flag is true,
-	 * a file with the computed file path, that exists already, will be overwritten.
+	 * a file with the given path, that exists already, will be overwritten.
 	 * 
-	 * @param relativeFilePath
+	 * @param path
 	 * @param overwrite
 	 * @return a new {@link FileAccessor} to the created file.
-	 * @throws NullArgumentException if the given relative file path is null.
-	 * @throws EmptyArgumentException if the given relative file path is empty.
+	 * @throws NullArgumentException if the given path is null.
+	 * @throws EmptyArgumentException if the given path is empty.
 	 * @throws InvalidArgumentException if the given overwrite flag is false
-	 * and the computed file path exists already.
+	 * and there exists already a file system item with the given path.
 	 */
-	public FileAccessor createFile(final String relativeFilePath, boolean overwrite) {
+	public static FileAccessor createFile(final String path, final boolean overwrite) {
 		
-		//Checks if the if given file path is not null and not empty.
-		Validator
-		.suppose(relativeFilePath)
-		.thatIsNamed("relative file path")
-		.isNotEmpty();
+		//Checks if the if given path is not null or empty.
+		Validator.suppose(path).thatIsNamed(VariableNameCatalogue.PATH).isNotEmpty();
 		
-		//Computes file path.
-		final var filePath = getEntryPath() + relativeFilePath;
-		
-		//In the case the given overwrite flag is false,
-		//checks if the given file path does not exist already.
-		if (!overwrite && fileSystemItemExists(filePath)) {
-			throw new InvalidArgumentException(
-				VariableNameCatalogue.FILE_PATH,
-				filePath,
-				"exists already"
-			);
+		//If the given overwrite flag is false,
+		//checks if there does not exist already a file system item with the given path.
+		if (!overwrite && exists(path)) {
+			throw new InvalidArgumentException("file system item",	path, "exists already");
 		}
 		
 		//Creates file.
 		try {
-			new File(filePath).createNewFile();
+			new File(path).createNewFile();
 		}
 		catch (final IOException exception) {
 			throw new RuntimeException(exception);
 		}
 		
-		//Creates and returns a file accessor to the file.
-		return new FileAccessor(filePath);
+		//Creates and returns a FileAccessor to the file.
+		return new FileAccessor(path);
 	}
 	
-	//method
+	//static method
 	/**
-	 * Creates a file on the local machine.
+	 * Creates a new file with the given path.
 	 * 
-	 * The file path will be the entry path of the current {@link FileSystemAccessor}
-	 * followed by the given relative file path.
+	 * If the given overwrite flag is true,
+	 * a file with the given path, that exists already, will be overwritten.
 	 * 
 	 * The file will have the given content.
 	 * 
-	 * If the given overwrite flag is true,
-	 * a file with the computed file path, that exists already, will be overwritten.
-	 * 
-	 * @param relativeFilePath
+	 * @param path
 	 * @param overwrite
+	 * @param content
 	 * @return a new {@link FileAccessor} to the created file.
-	 * @throws NullArgumentException if the given relative file path is null.
-	 * @throws EmptyArgumentException if the given relative file path is empty.
+	 * @throws NullArgumentException if the given path is null.
+	 * @throws EmptyArgumentException if the given path is empty.
 	 * @throws InvalidArgumentException if the given overwrite flag is false
-	 * and the computed file path exists already.
+	 * and there exists already a file system item with the given path.
+	 * @throws NullArgumentException if the given content is null.
 	 */
-	public FileAccessor createFile(
-		final String relativeFilePath,
+	public static FileAccessor createFile(
+		final String path,
 		final boolean overwrite,
 		final String content
 	) {
 		
-		//Calls other method.
-		final var fileAccessor = createFile(relativeFilePath, overwrite);
+		final var fileAccessor = createFile(path, overwrite);
 		
 		fileAccessor.overwriteFile(content);
 		
 		return fileAccessor;
 	}
 	
-	//method
+	//static method
 	/**
-	 * Creates a file on the local machine.
-	 * 
-	 * The file path will be the entry path of the current {@link FileSystemAccessor}
-	 * followed by the given relative file path.
-	 * 
+	 * Creates a new file with the given path.
 	 * The file will have the given content.
 	 * 
-	 * @param relativeFilePath
+	 * @param path
 	 * @param overwrite
 	 * @return a new {@link FileAccessor} to the created file.
-	 * @throws NullArgumentException if the given relative file path is null.
-	 * @throws EmptyArgumentException if the given relative file path is empty.
-	 * @throws InvalidArgumentException if the computed file path exists already.
+	 * @throws NullArgumentException if the given path is null.
+	 * @throws EmptyArgumentException if the given path is empty.
+	 * @throws InvalidArgumentException if there exists already a file system item with the given path.
 	 */
-	public FileAccessor createFile(
-		final String relativeFilePath,
-		final String content
-	) {
+	public static FileAccessor createFile(final String path, final String content) {
 		
 		//Calls other method.
-		return createFile(relativeFilePath, false, content);
+		return createFile(path, false, content);
 	}
 	
-	//method
+	//static method
 	/**
-	 * Creates a new empty file with the given relative file path in the file system on the local machine.
+	 * Creates a new empty folder with the given path.
 	 * 
-	 * Increments the file name if a file system item with the given relative file path
-	 * exists already in the file system on the local machine.
-	 * 
-	 * @param relativeFilePath
-	 * @return file accessor to the created file.
-	 * @throws RuntimeException if an error occurs.
+	 * @param path
+	 * @return a new {@link FileAccessor} to the created folder.
+	 * @throws InvalidArgumentException if there exists already a file system item with the given path.
 	 */
-	public FileAccessor createFileIncrementingFileName(
-		final String relativeFilePath
-	) {
+	public static FolderAccessor createFolder(final String path) {
 		
-		//Handles the case that there does not exist a file system item with the given relative file path
-		//in the file system on the local machine.
-		if (!fileSystemItemExists(relativeFilePath)) {
-			return createFile(relativeFilePath);
-		}
-		
-		//Handles the case that a file system item with the given relative file path exists
-		//in the file system on the local machine.		
-			final String[] relativeFilePathParts = relativeFilePath.split("\\.");
-			
-			String producteRelativeFilePath;
-			int i = 1;
-			do {
-				
-				producteRelativeFilePath
-				= relativeFilePathParts[0]
-				+ "_"
-				+ i
-				+ "."
-				+ relativeFilePathParts[relativeFilePathParts.length - 1];
-				
-				i++;
-			}
-			while (fileSystemItemExists(producteRelativeFilePath));
-			
-			return createFile(producteRelativeFilePath);
-	}
-	
-	//method
-	/**
-	 * Creates a new file with the given relative file path in the file system on the local machine.
-	 * Writes the given content to the created file.
-	 * 
-	 * Increments the file name if a file system item with the given relative file path
-	 * exists already in the file system on the local machine.
-	 * 
-	 * @param relativeFilePath
-	 * @throws RuntimeException if an error occurs.
-	 */
-	public void createFileIncrementingFileName(
-		final String relativeFilePath,
-		final String content
-	) {
-		createFileIncrementingFileName(relativeFilePath)
-		.overwriteFile(content);
-	}
-	
-	//method
-	/**
-	 * Creates a new empty folder with the given relative folder path in the file system on the local machine.
-	 * 
-	 * @param relativeFolderPath
-	 * @return new folder accessor to the created folder.
-	 * @throws InvalidArgumentException if a file system item with the given relative folder path
-	 * exists already in the file system on the local machine.
-	 */
-	public FolderAccessor createFolder(final String relativeFolderPath) {
-		
-		//Creates folder path.
-		final String folderPath = getEntryPath() + relativeFolderPath;
-		
-		//Checks if the given folder path does not exist in the file system on the local machine.
-		if (fileSystemItemExists(folderPath)) {
-			throw new InvalidArgumentException(
-				VariableNameCatalogue.FOLDER_PATH,
-				folderPath,
-				"exists already"
-			);
+		//Checks if there does not exist already a file system item with the givne path.
+		if (exists(path)) {
+			throw new InvalidArgumentException("file system item",	path, "exists already");
 		}
 		
 		//Creates folder.
-		new File(folderPath).mkdirs();
+		new File(path).mkdirs();
 		
-		//Creates and returns folder accessor.
-		return new FolderAccessor(folderPath);
+		//Creates and returns a FolderAccessor to the folder.
+		return new FolderAccessor(path);
 	}
 	
-	//method
+	//static method
 	/**
-	 * Deletes the file system item with the given relative path from the file system on the local machine if it exists.
+	 * Deletes the file system item with the given path if it exists.
 	 * 
-	 * @param relativePath
+	 * @param path
 	 */
-	public void deleteFileSystemItem(final String relativePath) {
-		new File(getEntryPath() + relativePath).delete();
+	public static void deleteFileSystemItem(final String path) {
+		new File(path).delete();
 	}
 	
-	//method
+	//static method
 	/**
-	 * @param relativePath
-	 * @return true if a file system item with given relative path exists in the file system on the local machine.
+	 * @param path
+	 * @return true if there exists a file system item with given path.
 	 */
-	public boolean fileSystemItemExists(final String relativePath) {
-		return (new File(getEntryPath() + relativePath).exists());
+	public static boolean exists(final String path) {
+		return new File(path).exists();
 	}
-
-	//method
+	
+	//static method
 	/**
-	 * @param relativePath
-	 * @return true if the file system item with the given relative path is a file in the file system on the local machine.
+	 * @param path
+	 * @return new {@link FileAccessor}s for the files in the folder with the given path.
 	 */
-	public boolean fileSystemItemIsFile(final String relativePath) {
-		return (new File(getEntryPath() + relativePath).isFile());
+	public static List<FileAccessor> getFileAccessors(final String path) {
+		return
+		new ReadContainer<File>(new File(path).listFiles())
+		.getRefSelected(f -> f.isFile())
+		.to(f -> new FileAccessor(f.getAbsolutePath()));
 	}
 	
-	//method
+	//static method
 	/**
-	 * @param relativePath
-	 * @return true if the file system item with the given path exists in the file system on the local machine.
+	 * @param path
+	 * @param extension
+	 * @return new {@link FileAccessor}s for the files in the folder with the given path,
+	 * that have the given extension.
 	 */
-	public boolean fileSystemItemIsFolder(final String relativePath) {
-		return (new File(getEntryPath() + relativePath).isDirectory());
+	public static List<FileAccessor> getFileAccessors(final String path, final String extension) {
+		return getFileAccessors(path).getRefSelected(fa -> fa.hasExtension(extension));
 	}
 	
-	//method
-	public void overwriteFile(
-		final String relativeFilePath,
-		final String content
-	) {
-	
-		if (!fileSystemItemExists(relativeFilePath)) {
-			createFile(relativeFilePath);
+	//static method
+	/**
+	 * @param path
+	 * @return new {@link FileAccessor}s for the files in the folder with the given path recursively.
+	 */
+	public static List<FileAccessor> getFileAccessorsRecursively(final String path) {
+		
+		final var fileAccessors = new List<FileAccessor>();
+		
+		for (final var f : new File(path).listFiles()) {
+			if (f.isFile()) {
+				fileAccessors.addAtEnd(new FileAccessor(f.getPath()));
+			}
+			else if (f.isDirectory()) {
+				fileAccessors.addAtEnd(new FolderAccessor(f.getPath()).getFileAccessorsRecursively());
+			}
 		}
 		
-		new FileAccessor(relativeFilePath).overwriteFile(content);
+		return fileAccessors;
 	}
 	
-	//method
+	//static method
+	/**
+	 * @param path
+	 * @return new {@link FileSystemItemAccessor}s
+	 * for the file system items in the folder with the given path.
+	 */
+	public static List<FileSystemItemAccessor> getFileSystemItemAccessors(final String path) {
+		return
+		new ReadContainer<File>(new File(path).listFiles())
+		.to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));
+	}
+	
+	//static method
+	/**
+	 * @param relativePath
+	 * @return true if there exists a file with the given path.
+	 */
+	public static boolean isFile(final String path) {
+		return new File(path).isFile();
+	}
+	
+	//static method
+	/**
+	 * @param path
+	 * @return true if there exists a folder with the given path.
+	 */
+	public static boolean isFolder(final String path) {
+		return new File(path).isDirectory();
+	}
+	
+	//static method
+	/**
+	 * Overwrites the file with the given path.
+	 * Creates a new file with the given path if it does not exists.
+	 * The file will get the given content.
+	 * 
+	 * @param path
+	 * @param content
+	 * @throws InvalidArgumentException if there exists already a folder with the given path.
+	 */
+	public static void overwriteFile(final String path, final String content) {
+		
+		//Checks if there does not exist a folder with the given path.
+		if (isFolder(path)) {
+			throw new InvalidArgumentException(path, "is a folder");
+		}
+		
+		//Handles the case that there does not exist a file with the given path.
+		if (!isFile(path)) {
+			createFile(path);
+		}
+		
+		new FileAccessor(path).overwriteFile(content);
+	}
+	
+	//static method
 	/**
 	 * Reads the content of the file with the given path to lines.
 	 * 
 	 * @return the lines of the file with the given path.
-	 * @throws InvalidArgumentException if there does not exist a file with the given path
-	 * in the file system on the local machine.
-	 * @throws RuntimeException if an error occurs.
+	 * @throws InvalidArgumentException if there does not exist a file with the given path.
 	 */
-	public List<String> readFileToLines(final String path) {
+	public static List<String> readFileToLines(final String path) {
 		return new FileAccessor(path).readFileToLines();
 	}
 	
-	//method
+	//private constructor
 	/**
-	 * @return the entry path of this file system accessor.
+	 * Avoids that an instance of the {@link FileSystemAccessor} can be created.
+	 * 
+	 * @throws UninstantiableClassException
 	 */
-	private String getEntryPath() {
-		
-		if (!hasRootFolder()) {
-			return StringCatalogue.EMPTY_STRING;
-		}
-		
-		return (getRootPathOrEmptyString() + CharacterCatalogue.SLASH);
-	}
-	
-	//method
-	/**
-	 * @return the root path of this file system accessor or an empty string.
-	 */
-	private String getRootPathOrEmptyString() {
-		
-		//Handles the case that this file system accessor does not have a root folder.
-		if (!hasRootFolder()) {
-			return StringCatalogue.EMPTY_STRING;
-		}
-		
-		//Handles the case that this file system accessor has a root folder.
-		return rootFolder;
-	}
-	
-	//method
-	/**
-	 * @return true if this file system accessor has a root folder.
-	 */
-	private boolean hasRootFolder() {
-		return (rootFolder != null);
+	private FileSystemAccessor() {
+		throw new UninstantiableClassException(getClass());
 	}
 }

@@ -28,7 +28,7 @@ public final class DownloaderTutorial {
 		final var frame = new Frame("Downloader Tutorial");
 		
 		//Creates a file for the downloader.
-		new FileSystemAccessor().overwriteFile("tutorial.txt", "Tutorial");
+		FileSystemAccessor.overwriteFile("tutorial.txt", "Tutorial");
 		
 		//Creates a Downloader.
 		final var downloader =

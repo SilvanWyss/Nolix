@@ -1,14 +1,9 @@
 //package declaration
 package ch.nolix.core.fileSystem;
 
-//Java imports
-import java.io.File;
-import java.io.IOException;
-
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //class
@@ -17,7 +12,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * 
  * @author Silvan Wyss
  * @month 2017-07
- * @lines 200
+ * @lines 170
  */
 public final class FolderAccessor extends FileSystemItemAccessor {
 	
@@ -28,7 +23,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	public FolderAccessor() {
 		
 		//Calls constructor of the base class.
-		super(FileSystemAccessor.getFolderPathOfRunningJar());
+		super(FileSystemAccessor.getFolderPathOfRunningJarFile());
 	}
 	
 	//constructor
@@ -45,12 +40,8 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 		super(path);
 		
 		//Checks if the file system item with the given path is actually a folder.
-		if (!new FileSystemAccessor().fileSystemItemIsFolder(path)) {
-			throw new InvalidArgumentException(
-				VariableNameCatalogue.PATH,
-				path,
-				"is not a folder"
-			);
+		if (!FileSystemAccessor.isFolder(path)) {
+			throw new InvalidArgumentException(VariableNameCatalogue.PATH, path, "is not a folder");
 		}
 	}
 	
@@ -61,7 +52,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 * contains an item with the given relative path.
 	 */
 	public boolean containsItem(final String relativePath) {
-		return new FileSystemAccessor().fileSystemItemExists(getPath() + "/" + relativePath);
+		return FileSystemAccessor.exists(getPath() + "/" + relativePath);
 	}
 	
 	//method
@@ -74,7 +65,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 * in the folder of the current {@link FolderAccessor}.
 	 */
 	public FileAccessor createFile(final String relativePath) {
-		return (new FileSystemAccessor(getPath()).createFile(relativePath));
+		return (FileSystemAccessor.createFile(getPath() + "/" +  relativePath));
 	}
 	
 	//method
@@ -87,7 +78,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 * in the folder of the current {@link FolderAccessor}.
 	 */
 	public FolderAccessor createFolder(final String relativePath) {
-		return (new FileSystemAccessor(getPath()).createFolder(relativePath));
+		return FileSystemAccessor.createFolder(getPath() + "/" + relativePath);
 	}
 	
 	//method
@@ -98,30 +89,25 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 * @param relativePath
 	 */
 	public void deleteFileSystemItem(final String relativePath) {
-		new FileSystemAccessor(getPath()).deleteFileSystemItem(relativePath);
+		FileSystemAccessor.deleteFileSystemItem(getPath() + "/" + relativePath);
 	}
 	
 	//method
 	/**
-	 * @return new {@link FileAccessor} for the files in the folder of the current {@link FolderAccessor}.
+	 * @return new {@link FileAccessor}s for the files in the folder of the current {@link FolderAccessor}.
 	 */
 	public List<FileAccessor> getFileAccessors() {
-		return
-		new ReadContainer<File>(new File(getPath()))
-		.getRefSelected(f -> f.isFile())
-		.to(f -> new FileAccessor(f.getAbsolutePath()));
+		return FileSystemAccessor.getFileAccessors(getPath());
 	}
 	
 	//method
 	/**
 	 * @param extension
-	 * @return new {@link FileAccessor}
-	 * for the files in the folder of the current {@link FolderAccessor}, that have the given extension.
+	 * @return a new {@link FileAccessor}s for the files in the folder of the current {@link FolderAccessor},
+	 * that have the given extension.
 	 */
 	public List<FileAccessor> getFileAccessors(final String extension) {
-		return
-		getFileAccessors()
-		.getRefSelected(fa -> fa.hasExtension(extension));
+		return FileSystemAccessor.getFileAccessors(getPath(), extension);
 	}
 	
 	//method
@@ -142,30 +128,16 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 * @return new {@link FileAccessor} for the files in the folder of the current {@link FolderAccessor} recursively.
 	 */
 	public List<FileAccessor> getFileAccessorsRecursively() {
-		
-		final var fileAccessors = new List<FileAccessor>();
-		
-		for (final var f : new File(getPath()).listFiles()) {
-			if (f.isFile()) {
-				fileAccessors.addAtEnd(new FileAccessor(f.getPath()));
-			}
-			else {
-				fileAccessors.addAtEnd(new FolderAccessor(f.getPath()).getFileAccessorsRecursively());
-			}
-		}
-		
-		return fileAccessors;
+		return FileSystemAccessor.getFileAccessorsRecursively(getPath());
 	}
 	
 	//method
 	/**
-	 * @return new {@link FileSystemItemAccessor}
-	 * for the file system items in the folder of the current {@link FolderAccessor}.
+	 * @return new {@link FileSystemItemAccessor}s to the file system items
+	 * in the folder of the current {@link FolderAccessor}.
 	 */
 	public List<FileSystemItemAccessor> getFileSystemItemAccessors() {
-		return
-		new ReadContainer<File>(new File(getPath()))
-		.to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));
+		return FileSystemAccessor.getFileSystemItemAccessors(getPath());
 	}
 	
 	//method
@@ -183,12 +155,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 * Opens the folder of the current {@link FolderAccessor} in a new file explorer.
 	 */
 	public void openInFileExplorer() {
-		try {
-			new ProcessBuilder(("explorer.exe " + getPath()).split(" ")).start();
-		}
-		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
-		}
+		FileSystemAccessor.openInFileExplorer(getPath());
 	}
 	
 	//method

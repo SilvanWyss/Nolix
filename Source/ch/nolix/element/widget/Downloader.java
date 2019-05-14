@@ -83,16 +83,16 @@ public final class Downloader extends TextLineWidget<Downloader> {
 				
 				final var destinationFilePath = fileChooser.getSelectedFile().getPath();
 				
-				if (new FileSystemAccessor().fileSystemItemExists(destinationFilePath)) {
+				if (FileSystemAccessor.exists(destinationFilePath)) {
 					if (PopupWindowProvider.showRequestWindow(
 							"The file '" + destinationFilePath + "' exists already. Do you want to overwrite it?")
 						) {
-						new FileSystemAccessor().overwriteFile(destinationFilePath, readFile());
+						FileSystemAccessor.overwriteFile(destinationFilePath, readFile());
 						new FileAccessor(destinationFilePath).openParentFolder();
 					}
 				}
 				else {
-					new FileSystemAccessor().createFile(destinationFilePath, readFile());
+					FileSystemAccessor.createFile(destinationFilePath, readFile());
 					new FileAccessor(destinationFilePath).openParentFolder();
 				}
 			}

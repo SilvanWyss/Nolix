@@ -38,7 +38,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 		super(filePath);
 		
 		//Checks if the file system item with the given file path is acutally a file.
-		if (!new FileSystemAccessor().fileSystemItemIsFile(filePath)) {
+		if (!FileSystemAccessor.isFile(filePath)) {
 			throw new InvalidArgumentException(
 				VariableNameCatalogue.FILE_PATH,
 				filePath,

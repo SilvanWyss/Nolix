@@ -11,11 +11,11 @@ public final class FileDocumentNodeTest extends DocumentNodeoidTest {
 	
 	@Override
 	protected FileDocumentNode createTestObject() {
-		return new FileDocumentNode(FileSystemAccessor.accessFolderOfRunningJar().getPath() + "/documentNode");
+		return new FileDocumentNode(FileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/documentNode");
 	}
 	
 	@AfterTestCase
 	private void afterTestCase() {
-		FileSystemAccessor.accessFolderOfRunningJar().deleteFileSystemItem("documentNode");
+		FileSystemAccessor.getFolderOfRunningJarFile().deleteFileSystemItem("documentNode");
 	}
 }
