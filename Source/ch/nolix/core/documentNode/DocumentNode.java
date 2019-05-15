@@ -19,7 +19,7 @@ import ch.nolix.core.container.List;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 450
+ * @lines 470
  */
 public final class DocumentNode extends DocumentNodeoid implements ISmartObject<DocumentNode> {
 	
@@ -130,6 +130,21 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	 */
 	public DocumentNode(final String string) {
 		reset(string);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link DocumentNode} with the given header and attribtue.
+	 * 
+	 * @param header
+	 * @param attribute
+	 * @throws NullArgumentException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	public DocumentNode(final String header, final long attribute) {
+		
+		//Calls other constructor.
+		this(header, String.valueOf(attribute));
 	}
 	
 	//constructor
