@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.widget;
+package ch.nolix.element.containerWidget;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
@@ -9,19 +9,21 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.widget.BorderWidget;
+import ch.nolix.element.widget.BorderWidgetLook;
 
 //abstract class
 /**
- * A {@link Container} is a {@link BorderWidget} that can contain other widgets.
+ * A {@link ContainerWidget} is a {@link BorderWidget} that can contain other widgets.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 140
- * @param <C> The type of a {@link Container}.
- * @param <BWS> The type of the {@link BorderWidgetLook} of a {@link Container}.
+ * @param <C> The type of a {@link ContainerWidget}.
+ * @param <BWS> The type of the {@link BorderWidgetLook} of a {@link ContainerWidget}.
  */
-public abstract class Container<
-	C extends Container<C, BWS>,
+public abstract class ContainerWidget<
+	C extends ContainerWidget<C, BWS>,
 	BWS extends BorderWidgetLook<BWS>
 >
 extends BorderWidget<C, BWS> {
@@ -31,7 +33,7 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to the current {@link Container}.
+	 * Adds or changes the given attribute to the current {@link ContainerWidget}.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -53,7 +55,7 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link Container}.
+	 * @return the attributes of the current {@link ContainerWidget}.
 	 */
 	@Override
 	public List<DocumentNode> getAttributes() {
@@ -73,8 +75,8 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
-	 * @return the role of the current {@link Container}.
-	 * @throws ArgumentMissesAttributeException if the current {@link Container} does not have a role.
+	 * @return the role of the current {@link ContainerWidget}.
+	 * @throws ArgumentMissesAttributeException if the current {@link ContainerWidget} does not have a role.
 	 */
 	public final ContainerRole getRole() {
 		
@@ -86,7 +88,7 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
-	 * @return true if the current {@link Container} has a role.
+	 * @return true if the current {@link ContainerWidget} has a role.
 	 */
 	public final boolean hasRole() {
 		return (role != null);
@@ -94,7 +96,7 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
-	 * @return true if the current {@link Container} has the given role.
+	 * @return true if the current {@link ContainerWidget} has the given role.
 	 */
 	@Override
 	public final boolean hasRole(final String role) {
@@ -110,10 +112,10 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
-	 * Sets the role of the current {@link Container}.
+	 * Sets the role of the current {@link ContainerWidget}.
 	 * 
 	 * @param role
-	 * @return the current {@link Container}.
+	 * @return the current {@link ContainerWidget}.
 	 * @throws NullArgumentException if the given role is null.
 	 */
 	public final C setRole(final ContainerRole role) {
@@ -132,7 +134,7 @@ extends BorderWidget<C, BWS> {
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException if the current {@link Container} does not have a role.
+	 * @throws ArgumentMissesAttributeException if the current {@link ContainerWidget} does not have a role.
 	 */
 	private void supposeHasRole() {
 		

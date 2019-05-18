@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.widget;
+package ch.nolix.element.containerWidget;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;

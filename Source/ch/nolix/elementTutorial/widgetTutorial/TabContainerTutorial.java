@@ -3,9 +3,9 @@ package ch.nolix.elementTutorial.widgetTutorial;
 import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.containerWidget.TabContainer;
+import ch.nolix.element.containerWidget.TabContainerTab;
 import ch.nolix.element.widget.Area;
-import ch.nolix.element.widget.TabContainer;
-import ch.nolix.element.widget.TabContainerTab;
 
 /**
  * The {@link TabContainerTutorial} is a tutorial for {@link TabContainer}s.

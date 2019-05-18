@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseApplication;
 
-import ch.nolix.element.widget.ContainerRole;
+import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.LabelRole;
 import ch.nolix.element.widget.VerticalStack;

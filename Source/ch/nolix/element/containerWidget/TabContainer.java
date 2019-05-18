@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.widget;
+package ch.nolix.element.containerWidget;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
@@ -12,6 +12,9 @@ import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.widget.HorizontalStack;
+import ch.nolix.element.widget.Label;
+import ch.nolix.element.widget.Widget;
 
 //class
 /**
@@ -22,7 +25,7 @@ import ch.nolix.element.painter.IPainter;
  * @lines 550
  */
 public final class TabContainer
-extends Container<TabContainer, TabContainerLook>
+extends ContainerWidget<TabContainer, TabContainerLook>
 implements Clearable<TabContainer> {
 
 	//constant

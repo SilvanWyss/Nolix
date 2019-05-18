@@ -1,8 +1,9 @@
 //package declaration
-package ch.nolix.element.widget;
+package ch.nolix.element.containerWidget;
 
 import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.element.core.NonNegativeInteger;
+import ch.nolix.element.widget.BorderWidgetLook;
 
 //class
 public final class TabContainerLook

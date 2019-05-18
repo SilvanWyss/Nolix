@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.widget;
+package ch.nolix.element.containerWidget;
 
 //own imports
 import ch.nolix.core.container.List;
@@ -9,9 +9,10 @@ import ch.nolix.core.math.Calculator;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.widget.Widget;
 
 //class
-public final class FloatContainer extends Container<FloatContainer, FloatContainerLook>
+public final class FloatContainer extends ContainerWidget<FloatContainer, FloatContainerLook>
 implements Clearable<FloatContainer> {
 	
 	//multi-attribute

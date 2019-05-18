@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.widget;
+package ch.nolix.element.containerWidget;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -11,6 +11,7 @@ import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.core.MutableElement;
+import ch.nolix.element.widget.Widget;
 
 //package-visible class
 final class GridCell

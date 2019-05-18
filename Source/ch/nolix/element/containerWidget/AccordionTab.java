@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.widget;
+package ch.nolix.element.containerWidget;
 
 //own imports
 import ch.nolix.core.attributeAPI.Headerable;
@@ -19,6 +19,12 @@ import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.MutableElement;
+import ch.nolix.element.widget.Button;
+import ch.nolix.element.widget.CursorIcon;
+import ch.nolix.element.widget.HorizontalStack;
+import ch.nolix.element.widget.Label;
+import ch.nolix.element.widget.VerticalStack;
+import ch.nolix.element.widget.Widget;
 
 //class
 public final class AccordionTab extends MutableElement<AccordionTab>

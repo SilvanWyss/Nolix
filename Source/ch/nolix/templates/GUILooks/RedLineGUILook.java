@@ -3,8 +3,8 @@ package ch.nolix.templates.GUILooks;
 
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.StandardConfiguration;
+import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.element.widget.ButtonRole;
-import ch.nolix.element.widget.ContainerRole;
 import ch.nolix.element.widget.LabelRole;
 
 //class

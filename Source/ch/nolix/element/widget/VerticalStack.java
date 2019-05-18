@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.element.widget;
 
+import ch.nolix.element.containerWidget.Stack;
+
 //class
 /**
  * @author Silvan Wyss

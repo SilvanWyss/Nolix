@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.widget;
+package ch.nolix.element.containerWidget;
 
 //own imports
 import ch.nolix.core.constants.MultiVariableNameCatalogue;
@@ -12,6 +12,8 @@ import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.widget.VerticalStack;
+import ch.nolix.element.widget.Widget;
 
 //class
 /**
@@ -19,7 +21,7 @@ import ch.nolix.element.color.Color;
  * @month 2018-08
  * @lines 370
  */
-public final class Accordion extends Container<Accordion, AccordionLook> implements Clearable<Accordion> {
+public final class Accordion extends ContainerWidget<Accordion, AccordionLook> implements Clearable<Accordion> {
 	
 	//default value
 	public static final AccordionExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR =

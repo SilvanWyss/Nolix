@@ -1646,7 +1646,7 @@ implements Recalculable {
 	/**
 	 * @return the relative y-position of the current {@link Widget} on its parent container.
 	 */
-	protected final int getYPositionOnParent() {
+	public final int getYPositionOnParent() {
 		return yPositionOnParent;
 	}
 	
@@ -1690,7 +1690,7 @@ implements Recalculable {
 	 * @param parentWidget
 	 * @throws NullArgumentException if the given parent widget is null.
 	 */
-	protected final void setParentWidget(final Widget<?, ?> parentWidget) {
+	public final void setParentWidget(final Widget<?, ?> parentWidget) {
 		
 		//Checks if the given parent widget is not null.
 		Validator

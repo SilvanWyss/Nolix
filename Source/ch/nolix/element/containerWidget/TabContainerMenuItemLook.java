@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.widget;
+package ch.nolix.element.containerWidget;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
@@ -10,6 +10,8 @@ import ch.nolix.core.layerEntity.LayerEntity;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.NonNegativeInteger;
+import ch.nolix.element.widget.SelectionMenuItemLook;
+import ch.nolix.element.widget.ValueCatalogue;
 
 //class
 public final class TabContainerMenuItemLook

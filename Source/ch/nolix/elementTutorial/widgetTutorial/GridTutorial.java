@@ -3,10 +3,10 @@ package ch.nolix.elementTutorial.widgetTutorial;
 import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.containerWidget.Grid;
+import ch.nolix.element.containerWidget.GridLineType;
 import ch.nolix.element.textFormat.Font;
 import ch.nolix.element.widget.Area;
-import ch.nolix.element.widget.Grid;
-import ch.nolix.element.widget.GridLineType;
 import ch.nolix.element.widget.Label;
 
 /**

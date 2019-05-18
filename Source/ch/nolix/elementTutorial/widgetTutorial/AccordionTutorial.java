@@ -3,8 +3,8 @@ package ch.nolix.elementTutorial.widgetTutorial;
 import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widget.Accordion;
-import ch.nolix.element.widget.AccordionTab;
+import ch.nolix.element.containerWidget.Accordion;
+import ch.nolix.element.containerWidget.AccordionTab;
 import ch.nolix.element.widget.Area;
 
 /**

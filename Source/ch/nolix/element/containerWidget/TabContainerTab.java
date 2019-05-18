@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.widget;
+package ch.nolix.element.containerWidget;
 
 //own imports
 import ch.nolix.core.attributeAPI.Headerable;
@@ -16,6 +16,10 @@ import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.core.MutableElement;
+import ch.nolix.element.widget.CursorIcon;
+import ch.nolix.element.widget.IGUI;
+import ch.nolix.element.widget.Label;
+import ch.nolix.element.widget.Widget;
 
 //class
 /**

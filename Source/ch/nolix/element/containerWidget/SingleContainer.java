@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.widget;
+package ch.nolix.element.containerWidget;
 
 //own imports
 import ch.nolix.core.container.List;
@@ -8,16 +8,17 @@ import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.widget.Widget;
 
 //class
 /**
- * A {@link SingleContainer} is a {@link Container} that can have 1 {@link Widget}.
+ * A {@link SingleContainer} is a {@link ContainerWidget} that can have 1 {@link Widget}.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 270
  */
-public final class SingleContainer extends Container<SingleContainer, SingleContainerLook>
+public final class SingleContainer extends ContainerWidget<SingleContainer, SingleContainerLook>
 implements Clearable<SingleContainer> {
 	
 	//constant

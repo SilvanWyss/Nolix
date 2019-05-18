@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.widget;
+package ch.nolix.element.containerWidget;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
@@ -12,9 +12,10 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.widget.Widget;
 
 //class
-public final class Grid extends Container<Grid, GridLook> {
+public final class Grid extends ContainerWidget<Grid, GridLook> {
 		
 	//multi-attribute
 	private Matrix<GridCell> cells = new Matrix<GridCell>();

@@ -3,7 +3,7 @@ package ch.nolix.templates.frontConsoleClientLooks;
 
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.StandardConfiguration;
-import ch.nolix.element.widget.ContainerRole;
+import ch.nolix.element.containerWidget.ContainerRole;
 import ch.nolix.system.consoleClient.WidgetNameCatalogue;
 
 //class

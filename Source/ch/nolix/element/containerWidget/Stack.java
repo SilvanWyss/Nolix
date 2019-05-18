@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.widget;
+package ch.nolix.element.containerWidget;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
@@ -10,10 +10,11 @@ import ch.nolix.core.validator.Validator;
 import ch.nolix.core.container.List;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.core.NonNegativeInteger;
+import ch.nolix.element.widget.Widget;
 
 //abstract class
 /**
- * A {@link Stack} is a {@link Container} that places its widgets linearly.
+ * A {@link Stack} is a {@link ContainerWidget} that places its widgets linearly.
  * 
  * @author Silvan Wyss
  * @month 2015-12
@@ -21,7 +22,7 @@ import ch.nolix.element.core.NonNegativeInteger;
  * @param <S> The type of a {@link Stack}.
  */
 public abstract class Stack<S extends Stack<S>> 
-extends Container<S, StackLook>
+extends ContainerWidget<S, StackLook>
 implements Clearable<S> {
 	
 	//constant

@@ -1,8 +1,10 @@
 //package declaration
-package ch.nolix.element.widget;
+package ch.nolix.element.containerWidget;
 
 import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.element.core.PositiveInteger;
+import ch.nolix.element.widget.BorderWidgetLook;
+import ch.nolix.element.widget.ValueCatalogue;
 
 //class
 public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLook> {
