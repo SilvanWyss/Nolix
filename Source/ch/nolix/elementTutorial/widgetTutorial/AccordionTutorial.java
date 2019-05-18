@@ -47,7 +47,7 @@ public final class AccordionTutorial {
 		);
 		
 		//Adds the accordion to the frame.
-		frame.setRootWidget(accordion);
+		frame.addLayerOnTop(accordion);
 	}
 	
 	/**

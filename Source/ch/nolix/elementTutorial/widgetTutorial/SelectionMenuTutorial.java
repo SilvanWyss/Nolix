@@ -55,7 +55,7 @@ public final class SelectionMenuTutorial {
 		);
 		
 		//Adds the selectionMenu to the frame.
-		frame.setRootWidget(selectionMenu);
+		frame.addLayerOnTop(selectionMenu);
 	}
 	
 	/**

@@ -35,13 +35,13 @@ abstract class BackGUIClientoidGUI extends GUI<BackGUIClientoidGUI> {
 
 	//method
 	@Override
-	public int getContentHeight() {
+	public int getViewAreaHeight() {
 		return contentHeight;
 	}
 
 	//method
 	@Override
-	public int getContentWidth() {
+	public int getViewAreaWidth() {
 		return contentWidth;
 	}
 	

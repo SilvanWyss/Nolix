@@ -47,7 +47,7 @@ public final class ButtonTutorial {
 		.applyOnFocusLook(fl -> fl.setBackgroundColor(Color.LIGHT_GREY));
 		
 		//Adds the button to the frame.
-		frame.setRootWidget(button);
+		frame.addLayerOnTop(button);
 	}
 	
 	/**

@@ -30,5 +30,9 @@ final class BackGUIClientoidBrowserGUI extends BackGUIClientoidGUI {
 	
 	//method
 	@Override
-	public void paint() {}
+	public void paint() {	}
+	
+	//method
+	@Override
+	protected void noteClosing() {}
 }

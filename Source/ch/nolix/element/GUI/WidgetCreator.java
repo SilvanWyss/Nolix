@@ -53,13 +53,13 @@ final class WidgetCreator {
 	 * if the current {@link WidgetCreator}
 	 * can already create a {@link Widget} of the same type as the given widget class.
 	 */
-	public void addWidgetClass(final Class<?> widgetClass) {
+	public void registerWidgetClass(final Class<?> widgetClass) {
 		
 		//Checks if the given widget class is not null.
 		Validator.suppose(widgetClass).thatIsNamed("widget class").isNotNull();
 
 		//Checks if the current widget creator cannot already create a widget of the same type as the given widget class.
-		if (canCreateWidget(widgetClass.getSimpleName())) {
+		if (canCreateWidgetOf(widgetClass.getSimpleName())) {
 			throw
 			new InvalidArgumentException(
 				widgetClass,
@@ -89,8 +89,17 @@ final class WidgetCreator {
 		
 		//Iterates the given widget classes.
 		for (final var wc : widgetClasses) {
-			addWidgetClass(wc);
+			registerWidgetClass(wc);
 		}
+	}
+	
+	//method
+	/**
+	 * @param specification
+	 * @return true if the current {@link WidgetCreator} can create a {@link Widget} from the given specification.
+	 */
+	public boolean canCreateWidgetFrom(final DocumentNodeoid specification) {
+		return canCreateWidgetOf(specification.getHeader());
 	}
 	
 	//method
@@ -99,7 +108,7 @@ final class WidgetCreator {
 	 * @return true if the current {@link WidgetCreator}
 	 * can create a {@link Widget} of the given type.
 	 */
-	public boolean canCreateWidget(final String type) {
+	public boolean canCreateWidgetOf(final String type) {
 		return widgetClasses.contains(wc -> wc.getSimpleName().equals(type));
 	}
 	

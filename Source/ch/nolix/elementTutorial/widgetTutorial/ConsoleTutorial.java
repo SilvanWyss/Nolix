@@ -44,7 +44,7 @@ public final class ConsoleTutorial {
 		);
 		
 		//Adds the console to the frame.
-		frame.setRootWidget(console);
+		frame.addLayerOnTop(console);
 	}
 	
 	/**

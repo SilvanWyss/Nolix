@@ -31,7 +31,7 @@ extends Client<FGC> {
 		this.GUI = GUI;
 		this.frontBrowserGUIClientoidWidget = new FrontBrowserGUIClientoidWidget();
 		GUI.setController(new FrontGUIClientoidGUIController(this));
-		GUI.setRootWidget(frontBrowserGUIClientoidWidget);
+		GUI.addLayerOnTop(frontBrowserGUIClientoidWidget);
 	}
 	
 	public abstract FrontGUIClientoidType getFrontEndType();

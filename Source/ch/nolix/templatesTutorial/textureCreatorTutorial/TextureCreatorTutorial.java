@@ -27,7 +27,7 @@ public final class TextureCreatorTutorial {
 		//Creates a frame that will show the textures.
 		new Frame()
 		.setTitle("Texture Creator Tutorial")
-		.setRootWidget(
+		.addLayerOnTop(
 			new Accordion(
 				new AccordionTab(
 					"Concrete",

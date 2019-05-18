@@ -15,12 +15,12 @@ import ch.nolix.core.specificationAPI.Specifiable;
 //interface
 public interface IGUI<G extends IGUI<G>>
 extends
-Castable,
-Clearable<G>,
-Closable,
-IRequestableContainer,
-Refreshable,
-Specifiable<G> {
+	Castable,
+	Clearable<G>,
+	Closable,
+	IRequestableContainer,
+	Refreshable,
+	Specifiable<G> {
 	
 	//abstract method
 	public abstract IGUIController getRefController();

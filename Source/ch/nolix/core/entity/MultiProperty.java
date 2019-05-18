@@ -1,7 +1,11 @@
 //package declaration
 package ch.nolix.core.entity;
 
+//Java import
+import java.util.Iterator;
+
 //own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
@@ -14,10 +18,10 @@ import ch.nolix.core.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 120
+ * @lines 150
  * @param <V> The type of the values of a {@link MultiProperty}.
  */
-public final class MultiProperty<V> extends Propertyoid<V> {
+public final class MultiProperty<V> extends Propertyoid<V> implements IContainer<V> {
 	
 	//attribute
 	private final IElementTaker<V> adderMethod;
@@ -79,6 +83,7 @@ public final class MultiProperty<V> extends Propertyoid<V> {
 		values.clear();
 	}
 	
+	//TODO: Delete this method.
 	//method
 	/**
 	 * {@inheritDoc}
@@ -86,6 +91,15 @@ public final class MultiProperty<V> extends Propertyoid<V> {
 	@Override
 	public ReadContainer<V> getRefValues() {
 		return new ReadContainer<V>(values);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getSize() {
+		return values.getSize();
 	}
 	
 	//method
@@ -104,6 +118,15 @@ public final class MultiProperty<V> extends Propertyoid<V> {
 	@Override
 	public boolean isMutable() {
 		return true;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Iterator<V> iterator() {
+		return values.iterator();
 	}
 	
 	//method

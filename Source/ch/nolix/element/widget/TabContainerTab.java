@@ -116,7 +116,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab> {
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
 		//Handles the case that the given attribute specifies a widget.
-		if (GUI.canCreateWidget(attribute.getHeader())) {
+		if (GUI.canCreateWidgetOf(attribute.getHeader())) {
 			setWidget(GUI.createWidget(attribute));
 		}
 		

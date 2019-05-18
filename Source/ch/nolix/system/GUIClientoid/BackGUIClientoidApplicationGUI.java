@@ -3,7 +3,7 @@ package ch.nolix.system.GUIClientoid;
 
 //package-visible class
 final class BackGUIClientoidApplicationGUI extends BackGUIClientoidGUI {
-
+	
 	//constructor
 	public BackGUIClientoidApplicationGUI() {
 		reset();
@@ -18,4 +18,8 @@ final class BackGUIClientoidApplicationGUI extends BackGUIClientoidGUI {
 	//method
 	@Override
 	public void paint() {}
+
+	//method
+	@Override
+	protected void noteClosing() {}
 }

@@ -127,7 +127,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 		//Builds up the GUI of this console front client.					
 		GUI
 		.setTitle("Console")
-		.setRootWidget(
+		.addLayerOnTop(
 			new VerticalStack(
 				infoPanel,
 				console
@@ -210,7 +210,14 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 		
 			//Handles general commands.
 			case Protocol.QUIT_COMMAND:
-				GUI.close();
+				
+				try {
+					GUI.close();
+				}
+				catch (final Exception exception) {
+					throw new RuntimeException(exception);
+				}
+				
 				break;
 			case Protocol.SET_DESIGN_COMMAND:				
 				setDesign(new StandardConfiguration(command.getRefOneAttribute().getRefAttributes()));

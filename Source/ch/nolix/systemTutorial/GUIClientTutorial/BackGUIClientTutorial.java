@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemTutorial.GUIClientTutorial;
 
+//own imports
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.ContentPosition;
@@ -77,8 +78,7 @@ public final class BackGUIClientTutorial {
 			getRefGUI()
 			.setTitle("Back GUI Client Tutorial")
 			.setBackgroundColor(Color.GREEN)
-			.setContentPosition(ContentPosition.Center)
-			.setRootWidget(button);
+			.addLayerOnTop(ContentPosition.Center, button);
 		}
 		
 		//method

@@ -40,7 +40,7 @@ implements Clearable<S> {
 	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
-		if (GUI.canCreateWidget(attribute.getHeader())) {
+		if (GUI.canCreateWidgetOf(attribute.getHeader())) {
 			addWidget(GUI.createWidget(attribute));
 			return;
 		}

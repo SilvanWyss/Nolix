@@ -57,7 +57,7 @@ implements Clearable<GridCell> {
 	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
-		if (GUI.canCreateWidget(attribute)) {
+		if (GUI.canCreateWidgetFrom(attribute)) {
 			setWidget(GUI.createWidget(attribute));
 			return;
 		}

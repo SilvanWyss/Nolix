@@ -53,7 +53,7 @@ public final class DownloaderTutorial {
 		.applyOnHoverFocusLook(fl -> fl.setBorderColors(Color.BLUE_VIOLET).setTextColor(Color.BLUE_VIOLET));
 		
 		//Adds the downloader to the frame.
-		frame.setRootWidget(downloader);
+		frame.addLayerOnTop(downloader);
 	}
 	
 	/**

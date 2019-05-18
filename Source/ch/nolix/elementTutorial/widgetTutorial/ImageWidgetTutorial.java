@@ -49,7 +49,7 @@ public final class ImageWidgetTutorial {
 		);
 		
 		//Adds the imageWidget to the frame.
-		frame.setRootWidget(imageWidget);
+		frame.addLayerOnTop(imageWidget);
 	}
 	
 	/**

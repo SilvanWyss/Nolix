@@ -42,7 +42,7 @@ public final class ScrollTutorial {
 		);
 		
 		//Adds the label to the frame.
-		frame.setRootWidget(label);
+		frame.addLayerOnTop(label);
 	}
 	
 	/**

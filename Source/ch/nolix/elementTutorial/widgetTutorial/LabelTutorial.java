@@ -36,7 +36,7 @@ public final class LabelTutorial {
 		clockLabel.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.YELLOW).setTextSize(50));
 	
 		//Adds the clockCaptionLabel and clockLabel to the frame.
-		frame.setRootWidget(new HorizontalStack(clockCaptionLabel, clockLabel));
+		frame.addLayerOnTop(new HorizontalStack(clockCaptionLabel, clockLabel));
 		
 		//Starts a background job that updates constantly the text of the clockLabel.
 		Sequencer

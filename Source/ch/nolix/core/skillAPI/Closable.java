@@ -8,7 +8,7 @@ package ch.nolix.core.skillAPI;
  * @lines 20
  */
 public interface Closable extends AutoCloseable {
-
+	
 	//default method
 	/**
 	 * @return true if the current {@link Closable} is not closed.

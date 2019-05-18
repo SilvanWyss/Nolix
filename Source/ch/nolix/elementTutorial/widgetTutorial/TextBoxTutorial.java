@@ -41,7 +41,7 @@ public final class TextBoxTutorial {
 		);
 		
 		//Adds the textBox to the frame.
-		frame.setRootWidget(textBox);
+		frame.addLayerOnTop(textBox);
 	}
 	
 	/**

@@ -16,7 +16,7 @@ import ch.nolix.element.widget.Widget;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 230
+ * @lines 220
  */
 public final class Frame extends GUI<Frame> {
 	
@@ -32,8 +32,8 @@ public final class Frame extends GUI<Frame> {
 	private static final int DEFAULT_Y_POSITION = 100;
 	
 	//limit values
-	public static final int MIN_WIDTH = 400;
-	public static final int MIN_HEIGHT = 200;
+	public static final int MIN_WIDTH = 200;
+	public static final int MIN_HEIGHT = 100;
 	
 	//attribute
 	private final JFrame frame = new JFrame();
@@ -56,7 +56,7 @@ public final class Frame extends GUI<Frame> {
 			super.paintComponent(graphics);
 			
 			//Creates swing painter.
-			Frame.this.paintContent(new SwingPainter(graphics));
+			Frame.this.paint(new SwingPainter(graphics));
 		}
 	};
 	
@@ -78,13 +78,13 @@ public final class Frame extends GUI<Frame> {
 		frame.setMinimumSize(new Dimension(MIN_WIDTH, MIN_HEIGHT));
 		frame.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		frame.setLocation(DEFAULT_X_POSITION, DEFAULT_Y_POSITION);
-
-		//Add listeners to this frame.
+		
+		//Add listeners to the current Frame.
 		panel.addKeyListener(new FrameKeyListener(this));
 		panel.addMouseListener(new FrameMouseListener(this));
 		panel.addMouseMotionListener(new FrameMouseMotionListener(this));
 		panel.addMouseWheelListener(new FrameMouseWheelListener(this));
-			
+		
 		//This is important that key events are handled.
 		panel.setFocusable(true);
 		panel.requestFocus();
@@ -98,7 +98,7 @@ public final class Frame extends GUI<Frame> {
 	 * 
 	 * @param title
 	 * @throws NullArgumentException if the given title is null.
-	 * @throws EmptyArgumentExcpetion if the given title is empty.
+	 * @throws InvalidArgumentException if the given title is blank.
 	 */
 	public Frame(final String title) {
 		
@@ -110,51 +110,20 @@ public final class Frame extends GUI<Frame> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link Frame} with the given title and root widget.
+	 * Creates a new {@link Frame} with the given title and rootWidget.
 	 * 
 	 * @param title
 	 * @param rootWidget
 	 * @throws NullArgumentException if the given title is null.
-	 * @throws EmptyArgumentExcpetion if the given title is empty.
-	 * @throws NullArgumentException if the given root widget is null.
+	 * @throws InvalidArgumentException if the given title is blank.
+	 * @throws NullArgumentException if the given rootWidget is null.
 	 */
 	public Frame(final String title, final Widget<?, ?> rootWidget) {
 		
 		//Calls other constructor.
 		this(title);
 		
-		setRootWidget(rootWidget);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void close() {
-		
-		//Calls method of the base class.
-		super.close();
-		
-		frame.dispose();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getContentHeight() {
-		return frame.getComponent(0).getHeight();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getContentWidth() {
-		return frame.getComponent(0).getWidth();
+		addLayerOnTop(rootWidget);
 	}
 	
 	//method
@@ -208,8 +177,26 @@ public final class Frame extends GUI<Frame> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public int getViewAreaHeight() {
+		return frame.getComponent(0).getHeight();
+	}
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getViewAreaWidth() {
+		return frame.getComponent(0).getWidth();
+	}
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public boolean isRootGUI() {
-		return false;
+		return true;
 	}
 	
 	//method
@@ -218,7 +205,16 @@ public final class Frame extends GUI<Frame> {
 	 */
 	@Override
 	public void paint() {
-		frame.setCursor(getActiveCursorIcon().getJavaCursor());
+		frame.setCursor(getCursorIcon().getJavaCursor());
 		frame.repaint();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteClosing() {
+		frame.dispose();
 	}
 }

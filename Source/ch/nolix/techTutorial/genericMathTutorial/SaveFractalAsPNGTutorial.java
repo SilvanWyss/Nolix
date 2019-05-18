@@ -29,7 +29,7 @@ public class SaveFractalAsPNGTutorial {
 		final var image = CentralClassProvider.create(IFractalBuilder.class).build().toImage();
 		
 		//Lets the frame show the image.
-		frame.setRootWidget(
+		frame.addLayerOnTop(
 			new VerticalStack(
 				new Downloader()
 				.setText("Save as PNG")

@@ -55,7 +55,7 @@ implements Clearable<SingleContainer> {
 	public void addOrChangeAttribute(DocumentNode attribute) {
 		
 		//Handles the case that the given attribute specicifies a widget.
-		if (GUI.canCreateWidget(attribute.getHeader())) {
+		if (GUI.canCreateWidgetOf(attribute.getHeader())) {
 			setWidget(GUI.createWidget(attribute));
 			return;
 		}

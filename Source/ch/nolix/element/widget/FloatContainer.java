@@ -42,7 +42,7 @@ implements Clearable<FloatContainer> {
 	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
-		if (GUI.canCreateWidget(attribute)) {
+		if (GUI.canCreateWidgetFrom(attribute)) {
 			addWidget(GUI.createWidget(attribute));
 			return;
 		}

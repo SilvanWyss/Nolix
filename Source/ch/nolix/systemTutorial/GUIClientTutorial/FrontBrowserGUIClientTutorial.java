@@ -23,7 +23,7 @@ public final class FrontBrowserGUIClientTutorial {
 		
 		@Override
 		public void initialize() {
-			getRefGUI().setRootWidget(new Label("Hello World!"));
+			getRefGUI().addLayerOnTop(new Label("Hello World!"));
 		}
 	}
 	

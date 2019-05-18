@@ -22,7 +22,7 @@ extends BackGUIClientSession {
 		
 		getRefGUI()
 		.setTitle(((DatabaseApplicationContext)getRefApplicationContext()).getTitle())
-		.setRootWidget(
+		.addLayerOnTop(
 			new VerticalStack(
 				createTitleWidget(),
 				createContentWidget()

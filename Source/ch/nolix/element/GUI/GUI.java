@@ -5,27 +5,21 @@ package ch.nolix.element.GUI;
 import java.awt.event.KeyEvent;
 
 //own imports
-import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.entity.MutableOptionalProperty;
+import ch.nolix.core.entity.MultiProperty;
 import ch.nolix.core.entity.MutableProperty;
-import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.math.Calculator;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.configuration.ConfigurationElement;
-import ch.nolix.element.configuration.StandardConfiguration;
-import ch.nolix.element.core.NonEmptyText;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.widget.Accordion;
 import ch.nolix.element.widget.Area;
@@ -34,11 +28,14 @@ import ch.nolix.element.widget.Checkbox;
 import ch.nolix.element.widget.Console;
 import ch.nolix.element.widget.ContentPosition;
 import ch.nolix.element.widget.CursorIcon;
+import ch.nolix.element.widget.Downloader;
+import ch.nolix.element.widget.FloatContainer;
 import ch.nolix.element.widget.Grid;
 import ch.nolix.element.widget.HorizontalLine;
 import ch.nolix.element.widget.HorizontalStack;
 import ch.nolix.element.widget.IGUI;
 import ch.nolix.element.widget.IGUIController;
+import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.SelectionMenu;
 import ch.nolix.element.widget.SingleContainer;
@@ -50,38 +47,36 @@ import ch.nolix.element.widget.Widget;
 
 //abstract class
 /**
- * A GUI is clearable.
- * A GUI is closable.
- * A GUI is configurable.
- * A GUI is refreshable.
+ * A {@link GUI} contains several {@link GUILayers}, that are stacked.
+ * A {@link GUI} is clearable.
+ * A {@link GUI} is closable.
+ * A {@link GUI} is configurable.
+ * A {@link GUI} is refreshable.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 990
- * @param <G> The type of a GUI.
+ * @lines 750
+ * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IGUI<G> {
 	
-	//default values
+	//default value
 	public static final String DEFAULT_TITLE = "GUI";
-	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
-	public static final ContentPosition DEFAULT_CONTENT_POSITION = ContentPosition.Top;
-	
-	//constants
-	private static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
-	private static final String ROOT_WIDGET_HEADER = "RootRectangle";
-	private static final String REMOVE_ROOT_WIDGET_COMMAND = "RemoveRootWidget";
 	
 	//static attribute
-	private static final WidgetCreator widgetCreator = new WidgetCreator(
+	private static final WidgetCreator widgetCreator =
+	new WidgetCreator(
 		Accordion.class,
 		Area.class,
 		Button.class,
 		Checkbox.class,
 		Console.class,
+		Downloader.class,
+		FloatContainer.class,
 		Grid.class,
 		HorizontalLine.class,
 		HorizontalStack.class,
+		ImageWidget.class,
 		Label.class,
 		SelectionMenu.class,
 		SingleContainer.class,
@@ -94,25 +89,25 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	//static method
 	/**
 	 * @param specification
-	 * @return true if a widget from the given specification can be created.
+	 * @return true if a {@link GUI} can create a {@link Widget} from the given specification.
 	 */
-	public static boolean canCreateWidget(final DocumentNodeoid specification) {
-		return canCreateWidget(specification.getHeader());
+	public static boolean canCreateWidgetFrom(final DocumentNodeoid specification) {
+		return widgetCreator.canCreateWidgetFrom(specification);
 	}
 	
 	//static method
 	/**
 	 * @param type
-	 * @return true if a widget of the given type can be created.
+	 * @return true if a {@link GUI} can create a {@link Widget} of the given type.
 	 */
-	public static boolean canCreateWidget(final String type) {
-		return widgetCreator.canCreateWidget(type);
+	public static boolean canCreateWidgetOf(final String type) {
+		return widgetCreator.canCreateWidgetOf(type);
 	}
 	
 	//static method
 	/**
 	 * @param specification
-	 * @return a new {@link Widget} from the given specificatio.
+	 * @return a new {@link Widget} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static Widget<?, ?> createWidget(final DocumentNodeoid specification) {
@@ -122,9 +117,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	//static method
 	/**
 	 * @param type
-	 * @return a new {@link Widget} of the given type with default values.
-	 * @throws InvalidArgumentException
-	 * if a {@link Widget} of the given type cannot be created.
+	 * @return a new {@link Widget} of the given type with.
+	 * @throws InvalidArgumentException if a {@link GUI} cannot create a {@link Widget} of the given type.
 	 */
 	public static Widget<?, ?> createWidget(final String type) {
 		return widgetCreator.createWidget(type);
@@ -132,88 +126,124 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//static method
 	/**
-	 * Registers the given widget class
+	 * Registers the given widgetClass.
 	 * 
 	 * @param widgetClass
-	 * @throws NullArgumentException if the given widget class is null.
+	 * @throws NullArgumentException if the given widgetClass is null.
 	 * @throws InvalidArgumentException
-	 * if there can already be created a widget of the same type as the given widget class.
+	 * if a {@link GUI} contains already a {@link Widget} class wit the same type as the given widgetClass.
 	 */
-	public static void registerWidgetClass(final Class<?> widgetClass) {
-		widgetCreator.addWidgetClass(widgetClass);
+	public static void registerWidgetClass(final Class<Widget<?, ?>> widgetClass) {
+		widgetCreator.registerWidgetClass(widgetClass);
 	}
 	
 	//static method
 	/**
-	 * Registers the given widget classes
+	 * Registers the given widgetClasses
 	 * 
 	 * @param widgetClasses
-	 * @throws NullArgumentException if one of the given widget classes is null.
+	 * @throws NullArgumentException if one of the given widgetClasses is null.
 	 * @throws InvalidArgumentException
-	 * if there can already be created a widget of the same type as one of the given widget classes.
+	 * if a {@link GUI} contains already a {@link Widget} class with the same type as one of the given widgetClasses.
 	 */
 	public static void registerWidgetClass(final Class<?>... widgetClasses) {
 		widgetCreator.addWidgetClass(widgetClasses);
 	}
 	
 	//attribute
-	private final MutableProperty<NonEmptyText> title =
-	new MutableProperty<NonEmptyText>(
-		PascalCaseNameCatalogue.TITLE,
-		t -> setTitle(t.getValue()),
-		s -> NonEmptyText.createFromSpecification(s),
-		t -> t.getSpecification()
-	);
-	
-	//attribute
-	private final MutableOptionalProperty<Color> backgroundColor =
-	new MutableOptionalProperty<Color>(
-		PascalCaseNameCatalogue.BACKGROUND_COLOR,
-		bc -> setBackgroundColor(bc),
-		s -> Color.createFromSpecification(s),
-		bc -> bc.getSpecification()
-	);
-	
-	//attribute
-	private final MutableOptionalProperty<ColorGradient> backgroundColorGradient =
-	new MutableOptionalProperty<ColorGradient>(
-		BACKGROUND_COLOR_GRADIENT_HEADER, 
-		bcg -> setBackgroundColorGradient(bcg),
-		s -> ColorGradient.createFromSpecification(s),
-		bcg -> bcg.getSpecification()
-	);
-	
-	//attributes
-	private ContentPosition contentPosition = DEFAULT_CONTENT_POSITION;
 	private boolean closed = false;
-				
-	//optional attributes
-	private Widget<?, ?> rootWidget;
+	
+	//attribute
+	private final MutableProperty<String> title =
+	new MutableProperty<String>(
+		PascalCaseNameCatalogue.TITLE,
+		t -> setTitle(t),
+		s -> s.getOneAttributeAsString(),
+		t -> new DocumentNode(PascalCaseNameCatalogue.TITLE, t)
+	);
+	
+	//attribute
+	private final MultiProperty<GUILayer> layers =
+	new MultiProperty<GUILayer>(
+		PascalCaseNameCatalogue.LAYER,
+		l -> addLayerOnTop(l),
+		s -> GUILayer.createFromSpecification(this, s),
+		l -> l.getSpecification()
+	);
+	
+	//attribute
+	private final GUILayer backGround = new GUILayer(this);
+	
+	//optional attribute
 	private IGUIController controller;
+	
+	//optional attribute
+	/**
+	 * The top layer of the current {@link GUI} when the current {@link GUI} contains layers.
+	 */
+	private GUILayer topLayer;
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to this GUI.
+	 * Adds a new layer on the top of the current {@link GUI}.
+	 * The layer will have the given rootWidget.
 	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 * @param rootWidget
+	 * @return the current {@link GUI}.
+	 * @throws NullArgumentException if the given rootWidget is null.
+	 */
+	public final G addLayerOnTop(final Widget<?, ?> rootWidget) {
+		
+		topLayer = new GUILayer(this, rootWidget);
+		addLayerOnTop(topLayer);
+		
+		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * Adds a new layer on the top of the current {@link GUI}.
+	 * The layer will have the given contentPosition and rootWidget.
+	 * 
+	 * @param contentPosition.
+	 * @param rootWidget
+	 * @return the current {@link GUI}.
+	 * @throws NullArgumentException if the given contentPosition is null.
+	 * @throws NullArgumentException if the given rootWidget is null.
+	 */
+	public G addLayerOnTop(ContentPosition contentPosition, Widget<?, ?> rootWidget) {
+		
+		addLayerOnTop(new GUILayer(this, contentPosition, rootWidget));
+		
+		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
 		
-		//Handles the case that the given attribute specifies a widget.
-		if (canCreateWidget(attribute.getHeader())) {
-			setRootWidget(createWidget(attribute));
-			return;
+		//Handles the case that the given attribute specifies a Widget.
+		if (canCreateWidgetOf(attribute.getHeader())) {
+			
+			//Handles the case that the current GUI does not contain a layer.
+			if (isEmpty()) {
+				layers.addValue(new GUILayer(this));
+			}
+			
+			layers.getRefFirst().setRootWidget(createWidget(attribute));
 		}
 		
 		//Handles the case that the given attribute does not specify a widget.
 			//Enumerates the header of the given attribute.
-			switch (attribute.getHeader()) {
-				case ContentPosition.TYPE_NAME:
-					setContentPosition(
-						ContentPosition.valueOf(attribute.getOneAttributeAsString())
-					);
+			switch (attribute.getHeader()) {				
+				case PascalCaseNameCatalogue.BACKGROUND_COLOR:
+					backGround.setBackgroundColor(Color.createFromSpecification(attribute));
+					break;		
+				case GUILayer.BACKGROUND_COLOR_GRADIENT_HEADER:
+					backGround.setBackgroundColorGradient(ColorGradient.createFromSpecification(attribute));
 					break;
 				default:
 					
@@ -224,24 +254,25 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * Adds or changes the given interaction attributes to the widgets of the current {@link GUI}.
+	 * Adds or changes the given interaction attributes to the {@link Widget}s of the current {@link GUI}.
 	 * 
 	 * @param interactionAttributesOfWidgets
 	 * @return the current {@link GUI}.
-	 * @throws InvalidArgumentException if the given interaction attributes of widgets is not valid.
+	 * @throws InvalidArgumentException if the given interactionAttributesOfWidgets are not valid.
 	 */
 	public <S extends DocumentNodeoid> G addOrChangeInteractionAttributesOfWidgetsRecursively(
 		final IContainer<IContainer<S>> interactionAttributesOfWidgets
 	) {
+		
 		final var iterator = interactionAttributesOfWidgets.iterator();
 		
 		getRefWidgetsRecursively().forEach(w -> w.addOrChangeAttributes(iterator.next()));
 		
 		if (iterator.hasNext()) {
 			throw new InvalidArgumentException(
-				"interaction attributes of widget",
+				"interaction attributes of Widgets",
 				interactionAttributesOfWidgets,
-				"contains more elements than the current " + getType() + " contains widgets"
+				"contains more than " + getRefWidgetsRecursively().getSize() + " Widgets"
 			);
 		}
 		
@@ -250,68 +281,52 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * Removes the root widget of this GUI.
+	 * Removes the root {@link Widget} of the current GUI.
 	 * 
-	 * @return this GUI.
+	 * @return the current {@link GUI}.
 	 */
 	@Override
 	public final G clear() {
 		
-		removeRootWidget();
+		layers.clear();
+		topLayer = null;
 		
 		return asConcreteType();
 	}
 	
-	//abstract method
-	/**
-	 * Closes this GUI.
-	 */
 	@Override
-	public void close() {
+	public final void close() {
 		closed = true;
-	};
-	
-	//method
-	/**
-	 * @return true if this GUI contains an element with the given name.
-	 * @param name
-	 */
-	@Override
-	public final boolean containsElement(String name) {
-		return getRefConfigurablesRecursively().contains(c -> c.hasName(name));
+		noteClosing();
 	}
 	
 	//method
 	/**
-	 * @return the active cursor icon of this GUI.
+	 * {@inheritDoc}
 	 */
-	public CursorIcon getActiveCursorIcon() {
-		
-		if (hasRootWidget() && getRefRootWidget().isUnderCursor()) {
-			return getRefRootWidget().getCursorIcon();
-		}
-		
-		return CursorIcon.Arrow;
- 	}
+	@Override
+	public final boolean containsElement(final String name) {
+		return getRefWidgetsRecursively().contains(c -> c.hasName(name));
+	}
 	
 	//method
 	/**
-	 * @return the attributes of GUI.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public List<DocumentNode> getAttributes() {
+	public final List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<DocumentNode> attributes = super.getAttributes();
+		final var attributes = super.getAttributes();
 		
-		//Handles the case that the content position of this GUI is not its default content position.
-		if (contentPosition != DEFAULT_CONTENT_POSITION) {
-			attributes.addAtEnd(contentPosition.getSpecification());
+		//Handles the case that the current GUI has a background Color.
+		if (backGround.hasBackgroundColor()) {
+			attributes.addAtEnd(backGround.getBackgroundColor().getSpecification());
 		}
 		
-		//Handles the case that this GUI has a root widget.
-		if (hasRootWidget()) {
-			attributes.addAtEnd(getRefRootWidget().getSpecification());
+		//Handles the case that the current GUI has a background ColorGradient.
+		if (backGround.hasBackgroundColorGradient()) {
+			attributes.addAtEnd(backGround.getBackgroundColorGradient().getSpecification());
 		}
 		
 		return attributes;
@@ -319,69 +334,36 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * @return the background color of this GUI.
-	 * @throws ArgumentMissesAttributeException if this GUI does not have a background color.
+	 * @return the {@link CursorIcon} of the current GUI.
 	 */
-	public final Color getBackgroundColor() {
-		return backgroundColor.getValue();
-	}
-	
-	//method
-	/**
-	 * @return the background color gradient of this GUI.
-	 * @throws ArgumentMissesAttributeException if this GUI does not have a background color gradient.
-	 */
-	public final ColorGradient getBackgroundColorGradient() {
-		return backgroundColorGradient.getValue();
-	}
+	public final CursorIcon getCursorIcon() {
+		
+		//Handles the case that the current GUI does not contain a layer.
+		if (isEmpty()) {
+			return CursorIcon.Arrow;
+		}
+		
+		//Handles the case that the current GUI contains layers.
+		return topLayer.getCursorIcon();
+ 	}
 	
 	//abstract method
 	/**
-	 * @return the height of the content of this GUI.
-	 */
-	public abstract int getContentHeight();
-	
-	//method
-	/**
-	 * @return the content position of this GUI.
-	 */
-	public final ContentPosition getContentPosition() {
-		return contentPosition;
-	}
-	
-	//abstract method
-	/**
-	 * @return the width of the content of this GUI.
-	 */
-	public abstract int getContentWidth();
-	
-	//abstract method
-	/**
-	 * @return the x-position of the cursor on this GUI.
+	 * @return the x-position of the cursor on the current {@link GUI}.
 	 */
 	public abstract int getCursorXPosition();
 	
 	//abstract method
 	/**
-	 * @return the y-position of the cursor on this GUI.
+	 * @return the y-position of the cursor on the current {@link GUI}.
 	 */
 	public abstract int getCursorYPosition();
 	
 	//abstract method
 	/**
-	 * @return the height of this GUI.
+	 * @return the height of the current GUI.
 	 */
 	public abstract int getHeight();
-	
-	//method
-	/**
-	 * The interaction attributes of a {@link GUI} are those a user can change.
-	 * 
-	 * @return the interaction attributes of the current {@link GUI}.
-	 */
-	public List<DocumentNode> getInteractionAttributes() {
-		return new List<DocumentNode> ();
-	}
 	
 	//method
 	/**
@@ -393,62 +375,53 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * @return the configurable elements of this GUI.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final ReadContainer<Configurable<?>> getRefConfigurables() {
-		return new ReadContainer<>(getRefWidgets().to(w -> w));
+	public final List<Configurable<?>> getRefConfigurables() {
+		return new List<Configurable<?>>(getRefWidgets());
 	}
 	
 	//method
 	/**
-	 * @return the controller of this GUI.
-	 * @throws ArgumentMissesAttributeException if this GUI does not have a controller.
+	 * @return the controller of the current {@link GUI}.
+	 * @throws ArgumentMissesAttributeException if the current {@link GUI} does not have a controller.
 	 */
 	@Override
 	public final IGUIController getRefController() {
 		
-		supposeHasController();
+		//Checks if the current GUI has a controller.
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (controller == null) {
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.CONTROLLER);
+		}
 		
 		return controller;
 	}
 	
 	//method
-	/**
-	 * @return the root widget of this GUI.
-	 * @throws ArgumentMissesAttributeException if this GUI does not have a root widget.
-	 */
-	@SuppressWarnings("unchecked")
-	public final <W extends Widget<?, ?>> W getRefRootWidget() {
-		
-		//Checks if this GUI has a root widget.
-		if (!hasRootWidget()) {
-			throw new ArgumentMissesAttributeException(this, ROOT_WIDGET_HEADER);
-		}
-		
-		return (W)rootWidget;
+	public final Widget<?, ?> getRefTopRootWidget0() {
+		return layers.getRefFirst().getRefRootWidget();
 	}
 	
 	//method
 	/**
-	 * @return the triggerable {@link Widget}s of this widget recursively.
+	 * @return the triggerable {@link Widget}s of the current widget recursively.
 	 */
 	public final List<Widget<?, ?>> getRefTriggerableWidgetsRecursively() {
 		
-		//Handles the case that this GUI has a root widget.
-		//For a better performance, this implementation does not use all comfortable methods.
-		if (rootWidget == null) {
+		if (isEmpty()) {
 			return new List<Widget<?, ?>>();
 		}
-		
-		return rootWidget.getTriggerableChildWidgetsRecursively().addAtEnd(rootWidget);
+				
+		return topLayer.getRefTriggerableWidgetsRecursively();
 	}
 		
 	//method
 	/**
 	 * @param name
-	 * @return the widget that has the given name recursively from this GUI.
-	 * @throws InvalidArgumentException if this GUI does not contain a widget with the given name.
+	 * @return the widget that has the given name recursively from the current {@link GUI}.
+	 * @throws InvalidArgumentException if the current {@link GUI} does not contain a widget with the given name.
 	 */
 	@SuppressWarnings("unchecked")
 	public final <W extends Widget<?, ?>> W getRefWidgetByNameRecursively(final String name) {
@@ -457,70 +430,50 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * @return the widgets of this GUI.
+	 * @return the widgets of the current GUI.
 	 */
-	public final ReadContainer<Widget<?, ?>> getRefWidgets() {
-		
-		final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>();
-		
-		//Handles the case that this GUI has a root widget.
-		if (hasRootWidget()) {
-			final Widget<?, ?> rootWidget = getRefRootWidget();
-			widgets.addAtEnd(rootWidget);//.addAtEnd(getRefRootWidget().getRefWidgets());
-		}
-		
-		return new ReadContainer<Widget<?, ?>>(widgets);
+	public final List<Widget<?, ?>> getRefWidgets() {
+		return layers.to(l -> l.getRefRootWidget());
 	}
 	
 	//method
 	/**
-	 * @return the widgets of this GUI recursively.
+	 * @return the widgets of the current GUI recursively.
 	 */
 	@Override
 	public final List<Widget<?, ?>> getRefWidgetsRecursively() {
-				
-		//Handles the case that the current GUI does not have a root widget.
-		if (!hasRootWidget()) {
-			return new List<Widget<?, ?>>();
-		}
-		
-		//Handles the case that the current GUI has a root widget.
-		return getRefRootWidget().getChildWidgetsRecursively().addAtEnd(getRefRootWidget().as(Widget.class));
+		return layers.toFromMany(l -> l.getRefRootWidget().getChildWidgetsRecursively());
 	}
 	
 	//method
 	/**
-	 * @return the title of this GUI.
+	 * @return the title of the current GUI.
 	 */
 	public final String getTitle() {
-		return title.getValue().getValue();
+		return title.getValue();
 	}
 	
 	//abstract method
 	/**
-	 * @return the width of this GUI.
+	 * @return the width of the current GUI.
 	 */
 	public abstract int getWidth();
 	
-	//method
+	//abstract method
 	/**
-	 * @return true if this GUI has a background color.
+	 * @return the height of the content of the current GUI.
 	 */
-	public final boolean hasBackgroundColor() {
-		return backgroundColor.containsAny();
-	}
-	
-	//method
+	public abstract int getViewAreaHeight();
+
+	//abstract method
 	/**
-	 * @return true if this GUI has a background color gradient.
+	 * @return the width of the content of the current GUI.
 	 */
-	public final boolean hasBackgroundColorGradient() {
-		return backgroundColorGradient.containsAny();
-	}
-	
+	public abstract int getViewAreaWidth();
+
 	//method
 	/**
-	 * @return true if this GUI has a controller.
+	 * @return true if the current {@link GUI} has a controller.
 	 */
 	@Override
 	public final boolean hasController() {
@@ -529,7 +482,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * @return true if this GUI has the given role.
+	 * @return true if the current {@link GUI} has the given role.
 	 */
 	@Override
 	public final boolean hasRole(final String role) {
@@ -538,15 +491,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * @return true if this GUI has a root widget.
-	 */
-	public final boolean hasRootWidget() {
-		return (rootWidget != null);
-	}
-	
-	//method
-	/**
-	 * @return true if this GUI isclosed.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean isClosed() {
@@ -555,20 +500,20 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * @return true if this GUI does not contain a widget.
+	 * @return true if the current {@link GUI} does not contain a GUI layer.
 	 */
 	@Override
 	public final boolean isEmpty() {
-		return !hasRootWidget();
+		return layers.isEmpty();
 	}
 	
 	//method
 	/**
-	 * Lets this GUI note a key press.
+	 * Lets the current {@link GUI} note a key press.
 	 * 
 	 * @param keyEvent
 	 */
-	public void noteKeyPress(final KeyEvent keyEvent) {
+	public final void noteKeyPress(final KeyEvent keyEvent) {
 		
 		getRefWidgetsRecursively().forEach(w -> w.noteAnyKeyPress(keyEvent));
 		
@@ -577,11 +522,11 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * Lets this GUI note a key typing.
+	 * Lets the current {@link GUI} note a key typing.
 	 * 
 	 * @param keyEvent
 	 */
-	public void noteKeyTyping(final KeyEvent keyEvent) {
+	public final void noteKeyTyping(final KeyEvent keyEvent) {
 		
 		getRefWidgetsRecursively().forEach(w -> w.noteAnyKeyTyping(keyEvent));
 		
@@ -590,9 +535,9 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 
 	//method
 	/**
-	 * Lets this GUI note a left mouse button press.
+	 * Lets the current {@link GUI} note a left mouse button press.
 	 */
-	public void noteLeftMouseButtonPress() {
+	public final void noteLeftMouseButtonPress() {
 		
 		getRefTriggerableWidgetsRecursively().forEach(w -> w.noteAnyLeftMouseButtonPress());
 		
@@ -601,9 +546,9 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * Lets this GUI note a left mouse button release.
+	 * Lets the current {@link GUI} note a left mouse button release.
 	 */
-	public void noteLeftMouseButtonRelease() {
+	public final void noteLeftMouseButtonRelease() {
 		
 		getRefTriggerableWidgetsRecursively().forEach(w -> w.noteAnyLeftMouseButtonRelease());
 		
@@ -612,38 +557,40 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * Lets this GUI note a mouse move.
+	 * Lets the current {@link GUI} note a mouse move.
 	 */
-	public void noteMouseMove() {
-				
-		if (hasRootWidget()) {
+	public final void noteMouseMove() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (topLayer != null && topLayer.containsAny()) {
 			
-			getRefRootWidget().setParentCursorPosition(getCursorXPosition(), getCursorYPosition());
+			final var topLayerRootWidget = topLayer.getRefRootWidget();
 			
-			getRefRootWidget().noteAnyMouseMoveRecursively();
-		}
+			topLayerRootWidget.setParentCursorPosition(getCursorXPosition(), getCursorYPosition());
+			getRefTriggerableWidgetsRecursively().forEach(w -> w.noteAnyMouseMoveRecursively());
+		}		
 		
 		refresh();
 	}
 	
 	//method
 	/**
-	 * Lets this GUI note the given mouse wheel rotation steps.
-	 * The given number of mouse wheel rotation steps is positive if the mouse wheel was rotated forward.
-	 * The given number mouse wheel rotation steps is negative if the mouse wheel was rotated backward.
+	 * Lets the current {@link GUI} note the given mouse wheel rotation steps.
+	 * The given mouseWheelRotationSteps is positive if the mouse wheel has been rotated forward.
+	 * The given mouseWheelRotationSteps is negative if the mouse wheel has been rotated backward.
 	 * 
 	 * @param rotationSteps
 	 */
 	public final void noteMouseWheelRotationSteps(final int mouseWheelRotationSteps) {
 		
-		getRefWidgetsRecursively().forEach(w -> w.noteAnyMouseWheelRotationSteps(mouseWheelRotationSteps));
+		getRefTriggerableWidgetsRecursively().forEach(w -> w.noteAnyMouseWheelRotationSteps(mouseWheelRotationSteps));
 		
 		refresh();
 	}
 	
 	//method
 	/**
-	 * Lets this frame note a resizing.
+	 * Lets the current {@link GUI} note a resizing.
 	 */
 	protected final void noteResizing() {
 		refresh();
@@ -651,7 +598,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * Lets this GUI note a right mouse button press.
+	 * Lets the current {@link GUI} note a right mouse button press.
 	 */
 	public void noteRightMouseButtonPress() {
 		
@@ -662,7 +609,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * Lets this GUI note a right mouse button release.
+	 * Lets the current {@link GUI} note a right mouse button release.
 	 */
 	public void noteRightMouseButtonRelease() {
 		
@@ -672,47 +619,16 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	}
 	
 	//method
-	public final void paintContent(IPainter painter) {
-		
-		//Paints the background of the current frame.
-			//Handles the case that the current frame has a background color.
-			if (hasBackgroundColor()) {
-				painter.setColor(getBackgroundColor());
-				painter.paintFilledRectangle(getWidth(), getHeight());
-			}
-			
-			//Handles the case that the current frame has a background color gradient.
-			if (hasBackgroundColorGradient()) {
-				painter.setColorGradient(getBackgroundColorGradient());
-				painter.paintFilledRectangle(getWidth(), getHeight());
-			}
-	
-		//Handles the case that the current frame has a root widget.
-		if (hasRootWidget()) {
-			getRefRootWidget().paint(painter);
-		}
-	}
-	
-	//method
 	/**
-	 * Removes the background color and the background color gradient of this GUI.
+	 * Paints the current GUI using the given painter.
 	 * 
-	 * @return this GUI.
+	 * @param painter
 	 */
-	public final G removeBackground() {
+	public final void paint(final IPainter painter) {
 		
-		backgroundColor.clear();
-		backgroundColorGradient.clear();
+		backGround.paint(painter);
 		
-		return asConcreteType();
-	}
-	
-	//method
-	/**
-	 * Removes the root widget of this GUI.
-	 */
-	public final void removeRootWidget() {
-		rootWidget = null;
+		layers.forEach(l -> l.paint(painter));
 	}
 	
 	//method
@@ -721,123 +637,36 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	@Override
 	public final void refresh() {
-		
-		//Handles the case that this frame has a root widget.
-		if (hasRootWidget()) {
-			
-			//Enumerates the content position of this frame.
-			switch (getContentPosition()) {
-				case LeftTop:
-					
-					getRefRootWidget().setPositionOnParent(
-						0,
-						0
-					);
-					
-					break;
-				case Left:
-					
-					getRefRootWidget().setPositionOnParent(
-						0,
-						Calculator.getMax(0, (getContentHeight() - getRefRootWidget().getHeight()) / 2)
-					);
-					
-					break;
-				case LeftBottom:
-					
-					getRefRootWidget().setPositionOnParent(
-						0,
-						Calculator.getMax(0, getContentHeight() - getRefRootWidget().getHeight())
-					);
-					
-					break;
-				case Top:
-					
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, (getContentWidth() - getRefRootWidget().getWidth()) / 2),
-						0
-					);
-					
-					break;
-				case Center:
-								
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, (getContentWidth() - getRefRootWidget().getWidth()) / 2),
-						Calculator.getMax(0, (getContentHeight() - getRefRootWidget().getHeight()) / 2)
-					);
-					
-					break;
-				case Bottom:
-					
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, (getContentWidth() - getRefRootWidget().getWidth()) / 2),
-						Calculator.getMax(0, getContentHeight() - getRefRootWidget().getHeight())
-					);
-					
-					break;
-				case RightTop:
-					
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, getContentWidth() - getRefRootWidget().getWidth()),
-						0
-					);
-					
-					break;
-				case Right:
-				
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, getContentWidth() - getRefRootWidget().getWidth()),
-						Calculator.getMax(0, (getContentHeight() - getRefRootWidget().getHeight()) / 2)
-					);
-				
-					break;
-				case RightBottom:
-					
-					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, getWidth() - getRefRootWidget().getWidth()),
-						Calculator.getMax(0, getHeight() - getRefRootWidget().getHeight())
-					);
-					
-					break;
-			}
-			
-			rootWidget.recalculateRecursively();
-		}
-		
+		layers.forEach(l -> l.recalculate());
 		paint();
 	}
 	
 	//method
 	/**
-	 * Resets this GUI.
-	 * 
-	 * @return this GUI.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public G reset() {
 		
-		setTitle(DEFAULT_TITLE);
-		removeRootWidget();
-		
 		//Calls method of the base class.
-		return super.reset();
+		super.reset();
+		
+		setTitle(DEFAULT_TITLE);
+		clear();
+		
+		return asConcreteType();
 	}
 	
 	//method
 	/**
-	 * Resets the configuration of this GUI.
-	 * 
-	 * @return this GUI.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public G resetConfiguration() {
 		
-		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
-		setContentPosition(DEFAULT_CONTENT_POSITION);
-		
-		//Handles the case that this GUI has a root widget.
-		if (hasRootWidget()) {
-			getRefRootWidget().resetConfiguration();
+		if (containsAny()) {
+			layers.forEach(l -> l.resetConfiguration());
+			topLayer.resetConfiguration();
 		}
 		
 		return asConcreteType();
@@ -845,109 +674,26 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * Lets this GUI run the given command.
-	 * 
-	 * @param command
-	 * @throws InvalidArgumentException if the given command is not valid.
-	 */
-	@Override
-	public void run(final Statement command) {
-		
-		//Enumerates the header of the given command.
-		switch (command.getHeader()) {
-			case ROOT_WIDGET_HEADER:
-				getRefRootWidget().run(command.getRefNextStatement());
-				break;
-			case REMOVE_ROOT_WIDGET_COMMAND:
-				removeRootWidget();
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.run(command);
-		}
-	}
-	
-	//method
-	/**
-	 * Sets the background color of this GUI.
-	 * Removes the background color gradient of this GUI.
+	 * Sets the background {@link Color} of the current {@link GUI}.
+	 * Removes any former background of the current {@link GUI}.
 	 * 
 	 * @param backgroundColor
-	 * @return this GUI.
-	 * @throws NullArgumentException if the given background color is null.
+	 * @return the current {@link GUI}.
+	 * @throws NullArgumentException if the given backgroundColor is null.
 	 */
-	public final G setBackgroundColor(final Color backgroundColor) {
+	public G setBackgroundColor(final Color backgroundColor) {
 		
-		removeBackground();
-		
-		this.backgroundColor.setValue(backgroundColor);
+		backGround.setBackgroundColor(backgroundColor);
 		
 		return asConcreteType();
 	}
 	
 	//method
 	/**
-	 * Sets the background color gradient of this GUI.
-	 * Removes the background color of this GUI.
-	 * 
-	 * @param backgroundColorGradient
-	 * @return this GUI.
-	 * @throws NullArgumentException if the given background color gradient is null.
-	 */
-	public final G setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
-		
-		removeBackground();
-		
-		this.backgroundColorGradient.setValue(backgroundColorGradient);
-		
-		return asConcreteType();
-	}
-	
-	//method
-	/**
-	 * Sets the configuration of this GUI.
-	 * Will refresh this GUI.
-	 * 
-	 * @param configuration
-	 * @return this GUI.
-	 */
-	@Override
-	public final G setConfiguration(final StandardConfiguration configuration) {
-		
-		//Calls method of the base class.
-		super.setConfiguration(configuration);
-		
-		refresh();
-		
-		return asConcreteType();
-	}
-
-	//method
-	/**
-	 * Sets the content position of this GUI.
-	 * 
-	 * @param contentPosition
-	 * @return this GUI.
-	 * @throws NullArgumentException if the given content position is null.
-	 */
-	public final G setContentPosition(final ContentPosition contentPosition) {
-		
-		//Checks if the given content position is not null.
-		Validator.suppose(contentPosition).isOfType(ContentPosition.class);
-		
-		//Sets the content position of this GUI.
-		this.contentPosition = contentPosition;
-		
-		return asConcreteType();
-	}
-	
-	//method
-	/**
-	 * Sets the controller of this GUI.
+	 * Sets the controller of the current {@link GUI}.
 	 * 
 	 * @param controller
-	 * @return this GUI.
+	 * @return the current {@link GUI}.
 	 * @throws NullArgumentException if the given controller is null.
 	 */
 	public final G setController(final IGUIController controller) {
@@ -964,38 +710,19 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * Sets the root widget of this GUI.
-	 * 
-	 * @param rootWidget
-	 * @throws NullArgumentException if the given root widget is null.
-	 * @throws InvalidArgumentException if the given root widget belongs already to an other GUI. 
-	 */
-	public final G setRootWidget(final Widget<?, ?> rootWidget) {
-		
-		//Checks if the given root widget is not null.
-		Validator.suppose(rootWidget).thatIsNamed("root widget").isNotNull();
-		
-		//Sets the root widget of this GUI.
-		rootWidget.setParentGUI(this);
-		this.rootWidget = rootWidget;
-		
-		refresh();
-		
-		return asConcreteType();
-	}
-	
-	//method
-	/**
-	 * Sets the title of this GUI.
+	 * Sets the title of the current GUI.
 	 * 
 	 * @param title
-	 * @return this GUI.
+	 * @return the current {@link GUI}.
 	 * @throws NullArgumentException if the given title is null.
-	 * @throws EmptyArgumentException if the given title is empty.
+	 * @throws InvalidArgumentException if the given title is blank.
 	 */
 	public final G setTitle(final String title) {
 		
-		this.title.setValue(new NonEmptyText(title));
+		//Checks if the given title is not null or blank.
+		Validator.suppose(title).thatIsNamed(VariableNameCatalogue.TITLE).isNotBlank();
+		
+		this.title.setValue(title);
 		
 		return asConcreteType();
 	}
@@ -1004,16 +731,23 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	/**
 	 * Paints the current {@link GUI}.
 	 */
-	protected abstract void paint();
+	public abstract void paint();
+	
+	//abstract method
+	/**
+	 * Lets the current {@link GUI} note a closing.
+	 */
+	protected abstract void noteClosing();
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException if this GUI does not have a controller.
+	 * Adds the given layer on the top of the current {@link GUI}.
+	 * 
+	 * @param layer
+	 * @throws NullArgumentException if the given layer is null.
 	 */
-	private void supposeHasController() {
-		if (!hasController()) {
-			throw
-			new ArgumentMissesAttributeException(this, VariableNameCatalogue.CONTROLLER);
-		}
+	private void addLayerOnTop(final GUILayer layer) {
+		layers.addValue(layer);
+		topLayer = layer;
 	}
 }

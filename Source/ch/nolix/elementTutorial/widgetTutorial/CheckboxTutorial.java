@@ -39,7 +39,7 @@ public final class CheckboxTutorial {
 		);
 		
 		//Adds the checkbox to the frame.
-		frame.setRootWidget(checkBox);
+		frame.addLayerOnTop(checkBox);
 	}
 	
 	/**

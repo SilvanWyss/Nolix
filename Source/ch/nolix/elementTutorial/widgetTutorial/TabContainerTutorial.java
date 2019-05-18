@@ -48,7 +48,7 @@ public final class TabContainerTutorial {
 		);
 		
 		//Adds the tabContainer to the frame.
-		frame.setRootWidget(tabContainer);
+		frame.addLayerOnTop(tabContainer);
 	}
 	
 	/**
