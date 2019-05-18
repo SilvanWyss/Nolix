@@ -1,4 +1,4 @@
-package ch.nolix.elementTutorial.widgetTutorial;
+package ch.nolix.elementTutorial.containerWidgetTutorial;
 
 import ch.nolix.core.elementEnums.ContentPosition;
 import ch.nolix.core.invalidArgumentException.UninstantiableClassException;

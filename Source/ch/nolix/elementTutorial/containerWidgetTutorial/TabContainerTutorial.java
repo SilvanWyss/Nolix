@@ -1,4 +1,4 @@
-package ch.nolix.elementTutorial.widgetTutorial;
+package ch.nolix.elementTutorial.containerWidgetTutorial;
 
 import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
