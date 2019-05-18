@@ -1,9 +1,9 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
+import ch.nolix.core.elementEnums.ContentPosition;
 import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widget.ContentPosition;
 import ch.nolix.element.widget.FloatContainer;
 import ch.nolix.element.widget.Label;
 

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.widget;
+package ch.nolix.core.elementEnums;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;

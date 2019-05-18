@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 //own imports
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.elementEnums.ContentPosition;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
@@ -26,7 +27,6 @@ import ch.nolix.element.widget.Area;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.Checkbox;
 import ch.nolix.element.widget.Console;
-import ch.nolix.element.widget.ContentPosition;
 import ch.nolix.element.widget.CursorIcon;
 import ch.nolix.element.widget.Downloader;
 import ch.nolix.element.widget.FloatContainer;

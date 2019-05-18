@@ -5,6 +5,7 @@ package ch.nolix.element.GUI;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.elementEnums.ContentPosition;
 import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.math.Calculator;
@@ -14,7 +15,6 @@ import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.element.widget.ContentPosition;
 import ch.nolix.element.widget.CursorIcon;
 import ch.nolix.element.widget.Widget;
 
