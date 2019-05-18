@@ -1,0 +1,38 @@
+//package declaration
+package ch.nolix.core.elementEnums;
+
+//own imports
+import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.specificationAPI.IElementEnum;
+
+//enum
+/**
+ * @author Silvan Wyss
+ * @month 2019-05
+ * @lines 30
+ */
+public enum ExtendedContentPosition implements IElementEnum {
+	LeftTop,
+	Left,
+	LeftBottom,
+	Top,
+	Center,
+	Bottom,
+	RightTop,
+	Right,
+	RightBottom,
+	Free;
+	
+	//constant
+	public static final String TYPE_NAME = "ExtendedContentPosition";
+	
+	//static method
+	/**
+	 * @param specification
+	 * @return a new {@link ExtendedContentPosition} from the given specification.
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	public static ExtendedContentPosition createFromSpecification(final DocumentNodeoid specification) {
+		return valueOf(specification.getOneAttributeAsString());
+	}
+}
