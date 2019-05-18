@@ -7,11 +7,9 @@ import ch.nolix.core.specificationAPI.IElementEnum;
 
 //enum
 /**
- * A {@link ContentPosition} is not mutable.
- * 
  * @author Silvan Wyss
  * @month 2016-08
- * @lines 40
+ * @lines 30
  */
 public enum ContentPosition implements IElementEnum {
 	LeftTop,
@@ -26,17 +24,14 @@ public enum ContentPosition implements IElementEnum {
 	
 	//constant
 	public static final String TYPE_NAME = "ContentPosition";
-
+	
 	//static method
 	/**
 	 * @param specification
 	 * @return a new {@link ContentPosition} from the given specification.
-	 * @throws InvalidArgumentException
-	 * if the given specification is not valid.
+	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static ContentPosition createFromSpecification(
-		final DocumentNodeoid specification
-	) {
+	public static ContentPosition createFromSpecification(final DocumentNodeoid specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 }
