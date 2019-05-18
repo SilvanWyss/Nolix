@@ -27,7 +27,7 @@ public final class MultiReference<E extends Entity> extends Referenceoid<E> {
 	public List<DocumentNode> getAttributes0() {
 		return
 		referencedEntityIds
-		.to(rei -> DocumentNode.createFromLong(rei));
+		.to(rei -> new DocumentNode(rei));
 	}
 	
 	//method

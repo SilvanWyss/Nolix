@@ -80,8 +80,8 @@ implements Clearable<GridCell> {
 	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = new List<DocumentNode>(
-			DocumentNode.createFromLong(getRowIndex()),
-			DocumentNode.createFromLong(getColumnIndex())
+			new DocumentNode(getRowIndex()),
+			new DocumentNode(getColumnIndex())
 		);
 		
 		if (containsAny()) {

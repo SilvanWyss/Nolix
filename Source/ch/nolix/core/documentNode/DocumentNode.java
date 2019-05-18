@@ -40,15 +40,6 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	
 	//static method
 	/**
-	 * @param value
-	 * @return a new {@link DocumentNode} from the given value.
-	 */
-	public static DocumentNode createFromLong(final long value) {
-		return new DocumentNode(String.valueOf(value));
-	}
-	
-	//static method
-	/**
 	 * @param header
 	 * @return a new {@link DocumentNode} with the given header.
 	 * @throws NullArgumentException if the given header is null.
@@ -120,7 +111,17 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	public <S extends DocumentNodeoid> DocumentNode(final Iterable<S> attributes) {
 		attributes.forEach(a -> a.addAttribute(a));
 	}
-		
+	
+	//constructor
+	/**
+	 * Creates a new {@link DocumentNode} with the given header.
+	 * 
+	 * @param header
+	 */
+	public DocumentNode(final long header) {
+		setHeader(String.valueOf(header));
+	}
+	
 	//constructor
 	/**
 	 * Creates a new {@link DocumentNode} the given string represents.
@@ -134,7 +135,7 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	
 	//constructor
 	/**
-	 * Creates a new {@link DocumentNode} with the given header and attribtue.
+	 * Creates a new {@link DocumentNode} with the given header and attribute.
 	 * 
 	 * @param header
 	 * @param attribute

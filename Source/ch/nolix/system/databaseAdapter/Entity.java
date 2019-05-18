@@ -53,7 +53,7 @@ public class Entity implements Identified2, Specified {
 		final var attributes = new List<DocumentNode>();
 		
 		if (hasId()) {
-			attributes.addAtEnd(DocumentNode.createFromLong(getId()));
+			attributes.addAtEnd(new DocumentNode(getId()));
 		}
 		
 		for (final var p : getRefProperties()) {
@@ -157,7 +157,7 @@ public class Entity implements Identified2, Specified {
 		
 		final var rowSpecification = new DocumentNode();
 		
-		rowSpecification.addAttribute(DocumentNode.createFromLong(getId()));
+		rowSpecification.addAttribute(new DocumentNode(getId()));
 		
 		for (final var p : getRefProperties()) {
 			rowSpecification.addAttribute(new DocumentNode(p.internal_getValues().toString()));
