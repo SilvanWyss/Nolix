@@ -6,6 +6,7 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.elementEnums.ContentPosition;
+import ch.nolix.core.elementEnums.ExtendedContentPosition;
 import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.math.Calculator;
@@ -14,6 +15,7 @@ import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.core.MutableElement;
+import ch.nolix.element.discreteGeometry.Discrete2DPoint;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.widget.CursorIcon;
 import ch.nolix.element.widget.Widget;
@@ -26,17 +28,19 @@ import ch.nolix.element.widget.Widget;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 490
+ * @lines 550
  */
 public final class GUILayer extends MutableElement<GUILayer> implements Clearable<GUILayer> {
 	
 	//default values
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
-	public static final ContentPosition DEFAULT_CONTENT_POSITION = ContentPosition.Top;
+	public static final ExtendedContentPosition DEFAULT_CONTENT_POSITION = ExtendedContentPosition.Top;
+	public static final Discrete2DPoint DEFAULT_FREE_CONTENT_POSITION = new Discrete2DPoint(1, 1);
 	
 	//constants
 	static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
 	static final String ROOT_WIDGET_HEADER = "RootWidget";
+	static final String FREE_CONTENT_POSITION_HEADER = "FreeContentPosition";
 	
 	//static method
 	/**
@@ -78,12 +82,21 @@ public final class GUILayer extends MutableElement<GUILayer> implements Clearabl
 	);
 	
 	//attribute
-	private final MutableProperty<ContentPosition> contentPosition =
-	new MutableProperty<ContentPosition>(
+	private final MutableProperty<ExtendedContentPosition> contentPosition =
+	new MutableProperty<ExtendedContentPosition>(
 		ContentPosition.TYPE_NAME,
 		cp -> setContentPosition(cp),
-		s -> ContentPosition.createFromSpecification(s),
+		s -> ExtendedContentPosition.createFromSpecification(s),
 		cp -> cp.getSpecification()
+	);
+	
+	//attribute
+	private final MutableProperty<Discrete2DPoint> freeContentPosition =
+	new MutableProperty<Discrete2DPoint>(
+		FREE_CONTENT_POSITION_HEADER,
+		fcp -> setFreeContentPosition(fcp.getX(), fcp.getY()),
+		s -> Discrete2DPoint.createFromSpecification(s),
+		fcp -> fcp.getSpecification()
 	);
 	
 	//attribute
@@ -122,7 +135,7 @@ public final class GUILayer extends MutableElement<GUILayer> implements Clearabl
 	 * @throws NullArgumentException if the given contentPosition is null.
 	 * @throws NullArgumentException if the given rootWidget is null.
 	 */
-	GUILayer(GUI<?> parentGUI, ContentPosition contentPosition, Widget<?, ?> rootWidget) {
+	GUILayer(GUI<?> parentGUI, ExtendedContentPosition contentPosition, Widget<?, ?> rootWidget) {
 		
 		//Calls other constructor.
 		this(parentGUI, rootWidget);
@@ -176,6 +189,22 @@ public final class GUILayer extends MutableElement<GUILayer> implements Clearabl
 	 */
 	public ColorGradient getBackgroundColorGradient() {
 		return backgroundColorGradient.getValue();
+	}
+	
+	//method
+	/**
+	 * @return the x-free-position of the current {@link GUILayer}.
+	 */
+	public int getContentXFreePosition() {
+		return freeContentPosition.getValue().getX();
+	}
+	
+	//method
+	/**
+	 * @return the y-free-position of the current {@link GUILayer}.
+	 */
+	public int getContentYFreePosition() {
+		return freeContentPosition.getValue().getY();
 	}
 	
 	//method
@@ -285,6 +314,7 @@ public final class GUILayer extends MutableElement<GUILayer> implements Clearabl
 	@Override
 	public GUILayer reset() {
 		
+		setFreeContentPosition(DEFAULT_FREE_CONTENT_POSITION);
 		clear();
 		resetConfiguration();
 		
@@ -347,17 +377,44 @@ public final class GUILayer extends MutableElement<GUILayer> implements Clearabl
 	
 	//method
 	/**
-	 * Sets the {@link ContentPosition} of the current {@link GUILayer}.
+	 * Sets the {@link ExtendedContentPosition} of the current {@link GUILayer}.
 	 * 
 	 * @param contentPosition
 	 * @return the current {@link GUILayer}.
 	 * @throws NullArgumentException if the given contentPosition is null.
 	 */
-	public GUILayer setContentPosition(final ContentPosition contentPosition) {
+	public GUILayer setContentPosition(final ExtendedContentPosition contentPosition) {
 		
 		this.contentPosition.setValue(contentPosition);
 		
 		return this;
+	}
+	
+	/**
+	 * Sets the free content position of the current {@link GUILayer}.
+	 * 
+	 * @param freeContentPosition
+	 * @return the current {@link GUILayer}.
+	 * @throws NullArgumentException if the given freeContentPosition is null.
+	 */
+	public GUILayer setFreeContentPosition(final Discrete2DPoint freeContentPosition) {
+		
+		this.freeContentPosition.setValue(freeContentPosition);
+		
+		return this;
+	}
+	
+	/**
+	 * Sets the free content position of the current {@link GUILayer}.
+	 * 
+	 * @param x
+	 * @param y
+	 * @return the current {@link GUILayer}.
+	 */
+	public GUILayer setFreeContentPosition(final int x, final int y) {
+		
+		//Calls other method.
+		return setFreeContentPosition(new Discrete2DPoint(x, y));
 	}
 	
 	//method
@@ -486,6 +543,12 @@ public final class GUILayer extends MutableElement<GUILayer> implements Clearabl
 						Calculator.getMax(0, parentGUI.getWidth() - getRefRootWidget().getWidth()),
 						Calculator.getMax(0, parentGUI.getHeight() - getRefRootWidget().getHeight())
 					);
+					
+					break;
+				case Free:
+					
+					final var freeContentPosition = this.freeContentPosition.getValue();					
+					getRefRootWidget().setPositionOnParent(freeContentPosition.getX(), freeContentPosition.getY());
 					
 					break;
 			}

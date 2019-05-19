@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 //own imports
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.elementEnums.ContentPosition;
+import ch.nolix.core.elementEnums.ExtendedContentPosition;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
@@ -212,7 +212,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * @throws NullArgumentException if the given contentPosition is null.
 	 * @throws NullArgumentException if the given rootWidget is null.
 	 */
-	public G addLayerOnTop(ContentPosition contentPosition, Widget<?, ?> rootWidget) {
+	public G addLayerOnTop(ExtendedContentPosition contentPosition, Widget<?, ?> rootWidget) {
 		
 		addLayerOnTop(new GUILayer(this, contentPosition, rootWidget));
 		
