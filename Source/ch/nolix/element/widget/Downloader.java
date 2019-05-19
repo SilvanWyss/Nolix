@@ -171,6 +171,15 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean shortensShownTextWhenHasLimitedWidth() {
+		return true;
+	}
+	
+	//method
 	@Override
 	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		

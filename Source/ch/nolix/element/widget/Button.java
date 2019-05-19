@@ -159,6 +159,15 @@ public final class Button extends TextLineWidget<Button> {
 		
 		return this;
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean shortensShownTextWhenHasLimitedWidth() {
+		return true;
+	}
 
 	//method
 	/**

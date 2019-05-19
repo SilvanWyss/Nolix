@@ -17,6 +17,11 @@ import ch.nolix.element.widget.Label;
  */
 public final class LabelTutorial {
 	
+	/**
+	 * Creates a {@link Frame} with 2 {@link Label}s.
+	 * 
+	 * @param args
+	 */
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
@@ -26,13 +31,13 @@ public final class LabelTutorial {
 		//Creates clockCaptionLabel.
 		final var clockCaptionLabel = new Label("Time:");
 		
-		//Sets the look of clockCaptionLabel.
+		//Configures the look of clockCaptionLabel.
 		clockCaptionLabel.applyOnBaseLook(bl -> bl.setTextSize(50));
 		
 		//Creates clockLabel.
 		final var clockLabel = new Label();
 		
-		//Sets the look of the clockLabel.
+		//Configures the look of the clockLabel.
 		clockLabel.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.YELLOW).setTextSize(50));
 	
 		//Adds the clockCaptionLabel and clockLabel to the frame.

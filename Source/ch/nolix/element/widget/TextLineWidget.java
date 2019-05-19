@@ -1,74 +1,50 @@
-/*
- * file:	TextLineRectangle.java
- * author:	Silvan Wyss
- * month:	2015-12
- * lines:	160
- */
-
 //package declaration
 package ch.nolix.element.widget;
 
 //own imports
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.Text;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.textFormat.TextFormat;
 
-//class
+//abstract class
 /**
- * A text line rectangle is a rectangle that has a text in 1 line.
+ * A {@link TextLineWidget} is a {@link Widget} that contains 1 text line.
  * 
  * @author Silvan Wyss
- * @month 2016-03
- * @lines 180
- * @param <TLW> The type of a text line widget.
+ * @month 2015-12
+ * @lines 210
+ * @param <TLW> The type of a {@link TextLineWidget}.
  */
-public abstract class TextLineWidget<TLW extends TextLineWidget<TLW>>
-extends BorderWidget<TLW, TextLineWidgetLook> {
-
+public abstract class TextLineWidget<TLW extends TextLineWidget<TLW>> extends BorderWidget<TLW, TextLineWidgetLook> {
+	
+	//constant
+	public static final String DEFAULT_TEXT = StringCatalogue.EMPTY_STRING;
+	
 	//attribute
-	private Text text = new Text();
+	private MutableProperty<String> text =
+	new MutableProperty<String>(
+		PascalCaseNameCatalogue.TEXT,
+		t -> setText(t),
+		s -> s.getOneAttributeAsString(),
+		t -> DocumentNode.createWithHeader(t)
+	);
 	
 	//method
 	/**
-	 * Adds or change the given attribute to this text line rectangle.
-	 * 
-	 * @param attribute		The attribute to add or change to this text line rectangle.
+	 * @return the shown text of the current {@link TextLineWidget}.
 	 */
-	@Override
-	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
-		
-		//Enumerates the given attribute.
-		switch (attribute.getHeader()) {
-			case Text.TYPE_NAME:
-				
-				if (attribute.containsOneAttributeWithHeader()) {
-					setText(attribute.getOneAttributeHeader());
-				}
-				
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
+	public final String getShownText() {
+		return getTextFormat().getFirstPart(getText(), getContentAreaWidth(), true);
 	}
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public List<DocumentNode> getAttributes() {
-		return super.getAttributes().addAtEnd(text.getSpecification());
-	}
-	
-	//method
-	/**
-	 * @return the text of this text line rectangle
+	 * @return the text of the current {@link TextLineWidget}.
 	 */
 	public final String getText() {
 		return text.getValue();
@@ -76,120 +52,166 @@ extends BorderWidget<TLW, TextLineWidgetLook> {
 	
 	//method
 	/**
-	 * Resets the configuration of this text line rectangle.
-	 * 
-	 * @return this text line widget.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public TLW resetConfiguration() {
+	public TLW reset() {
 				
-		getRefBaseLook().setTextSize(ValueCatalogue.MEDIUM_TEXT_SIZE);
-		getRefBaseLook().setTextColor(Color.BLACK);
-		
-		getRefHoverLook().removeTextSize();
-		getRefHoverLook().removeTextColor();
-		
-		getRefFocusLook().removeTextSize();
-		getRefFocusLook().removeTextColor();
+		setText(DEFAULT_TEXT);
 		
 		//Calls method of the base class.
-		return super.resetConfiguration();
-	}
-	
-	//method
-	/**
-	 * Sets the text of this text line rectangle.
-	 * 
-	 * @param text
-	 * @return this text line widget.
-	 * @throws Exception if the given text is null.
-	 */
-	public TLW setText(final String text) {
-		
-		this.text = new Text(text);
+		super.reset();
 		
 		return asConcreteType();
 	}
 	
 	//method
 	/**
-	 * @return the current height of the content of this text line rectangle
+	 * {@inheritDoc}
 	 */
 	@Override
-	protected final int getContentAreaHeight() {
-		return
-		new TextFormat(getRefCurrentLook().getRecursiveOrDefaultTextSize())
-		.getTextHeight();
+	public TLW resetConfiguration() {
+		
+		//Calls method of the base class.
+		super.resetConfiguration();
+		
+		getRefBaseLook()
+		.setTextSize(ValueCatalogue.MEDIUM_TEXT_SIZE)
+		.setTextColor(Color.BLACK);
+		
+		return asConcreteType();
 	}
 	
 	//method
 	/**
-	 * @return the current width of the content of this text line rectangle
-	 */
-	@Override
-	protected int getContentAreaWidth() {
-		return
-		new TextFormat(getRefCurrentLook()
-		.getRecursiveOrDefaultTextSize())
-		.getSwingTextWidth(getText());
-	}
-	
-	//method
-	/**
-	 * Paints the content of this text line rectangle using the given rectangle structure and painter.
+	 * Sets the text of the current {@link TextLineWidget}.
 	 * 
-	 * @param rectangleStructure
-	 * @param painter
+	 * @param text
+	 * @return the current {@link TextLineWidget}.
+	 * @throws NullArgumentException if the given text is null.
 	 */
-	@Override
-	protected void paintContentArea(
-		final TextLineWidgetLook rectangleStructure,
-		final IPainter painter
-	) {
-		painter.paintText(
-			getText(),
-			createFont()
-		);
+	public TLW setText(final String text) {
+		
+		this.text.setValue(text);
+		
+		return asConcreteType();
 	}
 	
 	//method
-	protected final TextFormat createFont() {
-		
-		final var textLineWidgetLook = getRefCurrentLook();
-		
-		return
-		new TextFormat(
-			textLineWidgetLook.getRecursiveOrDefaultTextFont(),
-			textLineWidgetLook.getRecursiveOrDefaultTextSize(),
-			textLineWidgetLook.getRecursiveOrDefaultTextColor()
-		);
+	/**
+	 * @return true if the current {@link TextLineWidget} scrolls its shown text
+	 * when the current {@link TextLineWidget} has a limiting proposal width or max width.
+	 */
+	public final boolean scrollsShownTextWhenHasLimitedWidth() {
+		return !shortensShownTextWhenHasLimitedWidth();
 	}
 	
-	//method
-	@Override
-	protected TextLineWidgetLook createWidgetLook() {
-		return new TextLineWidgetLook();
-	}
+	//abstract method
+	/**
+	 * @return true if the current {@link TextLineWidget} shortens its shown text
+	 * when the current {@link TextLineWidget} has a limiting proposal width or max width.
+	 */
+	public abstract boolean shortensShownTextWhenHasLimitedWidth();
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
-	
+	protected final TextLineWidgetLook createWidgetLook() {
+		return new TextLineWidgetLook();
+	}
+
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final int getContentAreaHeight() {
+		return new TextFormat(getRefCurrentLook().getRecursiveOrDefaultTextSize()).getTextHeight();
+	}
 	
 	//method
 	/**
-	 * @return the text specification of this text line widget.
+	 * {@inheritDoc}
 	 */
-	protected DocumentNode getTextSpecification() {
-		return text.getSpecification();
+	@Override
+	protected int getContentAreaWidth() {
+		
+		//Extracts the look of the current TextLineWidget.
+		final var look = getRefCurrentLook();
+		
+		//Handles the case that the current TextLineWidget shortens its text when it has a limited width.
+		if (shortensShownTextWhenHasLimitedWidth()) {
+			
+			if (hasMaxWidth()) {
+				return
+				getMaxWidth()
+				- look.getRecursiveOrDefaultLeftBorderThickness()
+				- look.getRecursiveOrDefaultLeftPadding()
+				- look.getRecursiveOrDefaultRightPadding()
+				- look.getRecursiveOrDefaultRightBorderThickness();
+			}
+			
+			if (hasProposalWidth()) {
+				return
+				getProposalWidth()
+				- look.getRecursiveOrDefaultLeftBorderThickness()
+				- look.getRecursiveOrDefaultLeftPadding()
+				- look.getRecursiveOrDefaultRightPadding()
+				- look.getRecursiveOrDefaultRightBorderThickness();
+			}
+		}
+		
+		//Handles the case that the current TextLineWidget does not shorten its text when it has a limited width.
+		return getTextFormat().getSwingTextWidth(getText());
+	}
+	
+	//method
+	/**
+	 * @return a new {@link TextFormat} for the current {@link TextLineWidget}.
+	 */
+	protected final TextFormat getTextFormat() {
+		
+		//Extracts the of the current TextLineWidget.
+		final var look = getRefCurrentLook();
+		
+		return
+		new TextFormat(
+			look.getRecursiveOrDefaultTextFont(),
+			look.getRecursiveOrDefaultTextSize(),
+			look.getRecursiveOrDefaultTextColor()
+		);
+	}
+	
+	//method
+	/**
+	 * @return a new specification of the text of the current {@link TextLineWidget}.
+	 */
+	protected final DocumentNode getTextSpecification() {
+		return new DocumentNode(PascalCaseNameCatalogue.NAME, getText());
+	}
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void paintContentArea(final TextLineWidgetLook textLineWidgetLook, final IPainter painter) {
+		painter.paintText(getShownText(), getTextFormat());
 	}
 }

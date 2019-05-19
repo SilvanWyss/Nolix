@@ -154,6 +154,15 @@ public final class Label extends TextLineWidget<Label> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public boolean shortensShownTextWhenHasLimitedWidth() {
+		return true;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void applyDefaultConfigurationWhenHasBeenReset() {}
 	
 	//method

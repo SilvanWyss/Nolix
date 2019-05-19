@@ -137,14 +137,14 @@ public final class TextBox extends TextLineWidget<TextBox> {
 			else {
 				
 				final var cursorXPositionOnContentArea = getCursorXPositionOnContentArea();
-				final var font = createFont();
+				final var textFormat = getTextFormat();
 				
-				if (cursorXPositionOnContentArea <= font.getSwingTextWidth(text.charAt(0)) / 2
+				if (cursorXPositionOnContentArea <= textFormat.getSwingTextWidth(text.charAt(0)) / 2
 				) {
 					setTextCursorPosition(0);
 				}
 			
-				else if (cursorXPositionOnContentArea >= font.getSwingTextWidth(text) - font.getSwingTextWidth(text.charAt(text.length() - 1))) {
+				else if (cursorXPositionOnContentArea >= textFormat.getSwingTextWidth(text) - textFormat.getSwingTextWidth(text.charAt(text.length() - 1))) {
 					setTextCursorPosition(text.length());
 				}
 				
@@ -152,9 +152,9 @@ public final class TextBox extends TextLineWidget<TextBox> {
 			
 					for (int i = 1; i < text.length(); i++) {
 						
-						final var subTextWidth = font.getSwingTextWidth(text.substring(0, i));
-						final var previousCharacterWidth = font.getSwingTextWidth(text.charAt(i - 1));
-						final var nextCharacterWidth = font.getSwingTextWidth(text.charAt(i));
+						final var subTextWidth = textFormat.getSwingTextWidth(text.substring(0, i));
+						final var previousCharacterWidth = textFormat.getSwingTextWidth(text.charAt(i - 1));
+						final var nextCharacterWidth = textFormat.getSwingTextWidth(text.charAt(i));
 						
 						if (
 							subTextWidth - previousCharacterWidth / 2 <= cursorXPositionOnContentArea
@@ -190,6 +190,15 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public boolean shortensShownTextWhenHasLimitedWidth() {
+		return false;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		setCustomCursorIcon(CursorIcon.Edit);
 		getRefBaseLook().setBorderThicknesses(1);
@@ -204,7 +213,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 		return
 		Calculator.getMin(
 			MIN_CONTENT_AREA_WIDTH,
-			createFont().getSwingTextWidth(getText())
+			getTextFormat().getSwingTextWidth(getText())
 		);
 	}
 	
@@ -289,7 +298,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 * @return the x-position of the text cursor of the current {@link TextBox} on the content area.
 	 */
 	private final int getTextCursorXPositionOnContentArea() {
-		return createFont().getSwingTextWidth(getTextBeforeTextCursor());
+		return getTextFormat().getSwingTextWidth(getTextBeforeTextCursor());
 	}
 	
 	//method
