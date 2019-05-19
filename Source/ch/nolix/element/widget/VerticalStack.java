@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.element.widget;
 
+//own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.element.containerWidget.Stack;
 
 //class
@@ -20,6 +22,20 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 */
 	public VerticalStack() {
 		resetAndApplyDefaultConfiguration();
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link VerticalStack} with the given widgets
+	 * 
+	 * @param widgets
+	 * @throws NullArgumentException if one of the given widgets is null.
+	 */
+	public VerticalStack(final IContainer<Widget<?, ?>> widgets) {
+		
+		resetAndApplyDefaultConfiguration();
+		
+		addWidgets(widgets);
 	}
 	
 	//constructor
