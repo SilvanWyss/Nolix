@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTest.GUITest;
+package ch.nolix.elementTest.widgetTest;
 
 //own import
 import ch.nolix.core.testoid.TestPool;
@@ -12,25 +12,22 @@ import ch.nolix.elementTest.widgetTest.TextBoxTest;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-03
+ * @month 2019-05
  * @lines 30
  */
-public final class GUITestPool extends TestPool {
+public final class WidgetTestPool extends TestPool {
 	
 	//constructor
 	/**
-	 * Creates a new {@link GUITestPool}.
+	 * Creates a new {@link WidgetTestPool}.
 	 */
-	public GUITestPool() {
+	public WidgetTestPool() {
 		addTestClass(
-			AccordionTest.class,
 			AreaTest.class,
 			CaptionPositionTest.class,
 			CheckboxTest.class,
 			LabelTest.class,
-			SingleContainerTest.class,
-			TextBoxTest.class,
-			VerticalStackTest.class
+			TextBoxTest.class
 		);
 	}
 }

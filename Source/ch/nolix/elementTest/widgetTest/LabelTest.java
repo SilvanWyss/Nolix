@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTest.GUITest;
+package ch.nolix.elementTest.widgetTest;
 
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.Label;

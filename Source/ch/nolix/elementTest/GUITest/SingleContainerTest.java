@@ -3,6 +3,7 @@ package ch.nolix.elementTest.GUITest;
 
 import ch.nolix.element.containerWidget.SingleContainer;
 import ch.nolix.element.widget.Label;
+import ch.nolix.elementTest.widgetTest.BorderWidgetTest;
 
 //test class
 /**

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTest.GUITest;
+package ch.nolix.elementTest.widgetTest;
 
 //own imports
 import ch.nolix.core.invalidArgumentException.NonPositiveArgumentException;
