@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTest.GUITest;
+package ch.nolix.elementTest.containerTest;
 
 import ch.nolix.element.containerWidget.Accordion;
 import ch.nolix.element.containerWidget.AccordionExpansionBehavior;
