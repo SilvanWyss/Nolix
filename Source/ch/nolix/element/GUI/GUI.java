@@ -16,6 +16,7 @@ import ch.nolix.core.entity.MultiProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
+import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
@@ -55,7 +56,7 @@ import ch.nolix.element.widget.Widget;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 750
+ * @lines 780
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IGUI<G> {
@@ -639,6 +640,34 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public final void refresh() {
 		layers.forEach(l -> l.recalculate());
 		paint();
+	}
+	
+	//method
+	/**
+	 * Removes the top layer of the current {@link GUI}.
+	 * 
+	 * @return the current {@link GUI}.
+	 * @throws EmptyArgumentException if the current {@link GUI} does not contain a layer.
+	 */
+	public G removeTopLayer() {
+		
+		//Checks if the current GUI is not empty.
+		if (isEmpty()) {
+			throw new EmptyArgumentException(this);
+		}
+		
+		//Handles the case that the current GUI contains 1 layer.
+		if (layers.containsOne()) {
+			clear();
+		}
+		
+		//Handles the case that the current GUI contains several layers.
+		else {
+			topLayer = layers.getRefAt(layers.getSize() - 1);
+			layers.removeValue(layers.getRefAt(layers.getSize()));
+		}
+		
+		return asConcreteType();
 	}
 	
 	//method
