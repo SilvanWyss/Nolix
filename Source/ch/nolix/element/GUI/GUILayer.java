@@ -9,8 +9,8 @@ import ch.nolix.core.elementEnums.ContentPosition;
 import ch.nolix.core.elementEnums.ExtendedContentPosition;
 import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.math.Calculator;
-import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
@@ -18,6 +18,8 @@ import ch.nolix.element.core.MutableElement;
 import ch.nolix.element.discreteGeometry.Discrete2DPoint;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.widget.CursorIcon;
+import ch.nolix.element.widget.IGUI;
+import ch.nolix.element.widget.IGUILayer;
 import ch.nolix.element.widget.Widget;
 
 //class
@@ -30,7 +32,7 @@ import ch.nolix.element.widget.Widget;
  * @month 2019-05
  * @lines 550
  */
-public final class GUILayer extends MutableElement<GUILayer> implements Clearable<GUILayer> {
+public final class GUILayer extends MutableElement<GUILayer> implements IGUILayer<GUILayer> {
 	
 	//default values
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
@@ -45,23 +47,20 @@ public final class GUILayer extends MutableElement<GUILayer> implements Clearabl
 	//static method
 	/**
 	 * Creates a new {@link GUILayer} from the given specification.
-	 * The {@link GUILayer} will belong to the given parentGUI.
 	 * 
-	 * @param parentGUI
 	 * @param specification
 	 * @return a new {@link GUILayer} from the given specification that will belong to the given parentGUI.
-	 * @throws NullArgumentException if the given parentGUI is null.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static GUILayer createFromSpecification(final GUI<?> parentGUI, final DocumentNodeoid specification) {
-		return new GUILayer(parentGUI).reset(specification);
+	public static GUILayer createFromSpecification(final DocumentNodeoid specification) {
+		return new GUILayer().reset(specification);
 	}
 	
 	//attribute
 	/**
 	 * The {@link GUI} the current {@link GUILayer} belongs to.
 	 */
-	private GUI<?> parentGUI;
+	private IGUI<?> parentGUI;
 	
 	//attribute
 	private final MutableOptionalProperty<Color> backgroundColor =
@@ -108,55 +107,45 @@ public final class GUILayer extends MutableElement<GUILayer> implements Clearabl
 		s -> s.getSpecification()
 	);
 	
-	//package-visible constructor
+	//constructor
 	/**
-	 * Creates a new {@link GUILayer} that will belong to the given parentGUI.
+	 * Creates a new {@link GUILayer}.
 	 * 
 	 * @param parentGUI
-	 * @throws NullArgumentException if the given parentGUI is null.
 	 */
-	GUILayer(final GUI<?> parentGUI) {
-		
-		//Checks if the given parentGUI is not null.
-		this.parentGUI = Validator.suppose(parentGUI).thatIsNamed("parent GUI").isNotNull().andReturn();
-		
+	public GUILayer() {
 		reset();
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
-	 * Creates a new {@link GUILayer} that will belong to the given parentGUI.
-	 * The {@link GUILayer} will have the given contentPosition and rootWidget.
+	 * Creates a new {@link GUILayer} with the given contentPosition and rootWidget.
 	 * 
-	 * @param parentGUI
 	 * @param contentPosition
 	 * @param rootWidget
-	 * @throws NullArgumentException if the given parentGUI is null.
 	 * @throws NullArgumentException if the given contentPosition is null.
 	 * @throws NullArgumentException if the given rootWidget is null.
 	 */
-	GUILayer(GUI<?> parentGUI, ExtendedContentPosition contentPosition, Widget<?, ?> rootWidget) {
+	public GUILayer(ExtendedContentPosition contentPosition, Widget<?, ?> rootWidget) {
 		
 		//Calls other constructor.
-		this(parentGUI, rootWidget);
+		this(rootWidget);
 		
 		setContentPosition(contentPosition);
 	}
 	
-	//package-visible constructor
+	//constructor
 	/**
-	 * Creates a new {@link GUILayer} that will belong to the given parentGUI.
-	 * The {@link GUILayer} will have the given rootWidget.
+	 * Creates a new {@link GUILayer} with the given rootWidget.
 	 * 
-	 * @param parentGUI
 	 * @param rootWidget
 	 * @throws NullArgumentException if the given parentGUI is null.
 	 * @throws NullArgumentException if the given rootWidget is null.
 	 */
-	GUILayer(final GUI<?> parentGUI, final Widget<?, ?> rootWidget) {
+	public GUILayer(final Widget<?, ?> rootWidget) {
 		
 		//Calls other constructor.
-		this(parentGUI);
+		this();
 		
 		setRootWidget(rootWidget);
 	}
@@ -329,7 +318,7 @@ public final class GUILayer extends MutableElement<GUILayer> implements Clearabl
 	 */
 	public void resetConfiguration() {
 		
-		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+		removeBackground();
 		setContentPosition(DEFAULT_CONTENT_POSITION);
 		
 		//Handles the case that the current GUILayer has a root Widget.
@@ -428,7 +417,10 @@ public final class GUILayer extends MutableElement<GUILayer> implements Clearabl
 	public GUILayer setRootWidget(final Widget<?, ?> rootWidget) {
 				
 		this.rootWidget.setValue(rootWidget);
-		rootWidget.setParentGUI(parentGUI);
+		
+		if (parentGUI != null) {
+			rootWidget.setParentGUI(parentGUI);
+		}
 		
 		return this;
 	}
@@ -439,19 +431,19 @@ public final class GUILayer extends MutableElement<GUILayer> implements Clearabl
 	 * 
 	 * @param painter
 	 */
-	void paint(final IPainter painter) {
+	public void paint(final IPainter painter) {
 		
 		//Paints the background of the current GUILayer.
 			//Handles the case that the current GUILayer has a background color.
 			if (hasBackgroundColor()) {
 				painter.setColor(getBackgroundColor());
-				painter.paintFilledRectangle(parentGUI.getWidth(), parentGUI.getHeight());
+				painter.paintFilledRectangle(parentGUI.getViewAreaWidth(), parentGUI.getViewAreaHeight());
 			}
 			
 			//Handles the case that the current GUILayer has a background color gradient.
 			else if (hasBackgroundColorGradient()) {
 				painter.setColorGradient(getBackgroundColorGradient());
-				painter.paintFilledRectangle(parentGUI.getWidth(), parentGUI.getHeight());
+				painter.paintFilledRectangle(parentGUI.getViewAreaWidth(), parentGUI.getViewAreaHeight());
 		}
 		
 		//Handles the case that the current GUILayer has a root Widget.
@@ -465,7 +457,7 @@ public final class GUILayer extends MutableElement<GUILayer> implements Clearabl
 	/**
 	 * Recalculates the current  {@link GUILayer}.
 	 */
-	void recalculate() {
+	public void recalculate() {
 		
 		//Handles the case that the current GUILayer has a root Widget.
 		//For a better performance, this implementation does not use all comfortable methods.
@@ -540,8 +532,8 @@ public final class GUILayer extends MutableElement<GUILayer> implements Clearabl
 				case RightBottom:
 					
 					getRefRootWidget().setPositionOnParent(
-						Calculator.getMax(0, parentGUI.getWidth() - getRefRootWidget().getWidth()),
-						Calculator.getMax(0, parentGUI.getHeight() - getRefRootWidget().getHeight())
+						Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
+						Calculator.getMax(0, parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight())
 					);
 					
 					break;
@@ -555,5 +547,23 @@ public final class GUILayer extends MutableElement<GUILayer> implements Clearabl
 			
 			rootWidget.recalculateRecursively();
 		}
+	}
+	
+	//package-visible method
+	public GUILayer setParentGUI(final IGUI<?> parentGUI) {
+		
+		Validator.suppose(parentGUI).thatIsNamed("parent GUI").isNotNull();
+		
+		if (this.parentGUI != null && parentGUI != this.parentGUI) {
+			throw new InvalidArgumentException(this, "belongs already to another parent GUI");
+		}
+		
+		this.parentGUI = parentGUI;
+		
+		if (rootWidget.hasValue()) {
+			rootWidget.getValue().setParentGUI(parentGUI);
+		}
+		
+		return this;
 	}
 }

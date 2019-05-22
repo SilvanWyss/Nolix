@@ -23,6 +23,37 @@ extends
 	Specifiable<G> {
 	
 	//abstract method
+	/**
+	 * Adds the given layer on the top of the current {@link IGUI}.
+	 * 
+	 * @param layer
+	 * @return the current {@link IGUI}.
+	 */
+	public abstract G addLayerOnTop(final IGUILayer<?> layer);
+	
+	//abstract method
+	/**
+	 * Adds a new layer on the top of the current {@link IGUI}.
+	 * The layer will have the given rootWidget.
+	 * 
+	 * @param rootWidget
+	 * @return the current {@link IGUI}.
+	 */
+	public abstract G addLayerOnTop(final Widget<?, ?> rootWidget);
+	
+	//abstract method
+	//public abstract int getHeight();
+	
+	//abstract method
+	public abstract int getViewAreaHeight();
+	
+	//abstract method
+	public abstract int getViewAreaWidth();
+	
+	//abstract method
+	//public abstract int getWidth();
+	
+	//abstract method
 	public abstract IGUIController getRefController();
 	
 	//default method
@@ -74,4 +105,12 @@ extends
 	
 	//abstract method
 	public abstract boolean isRootGUI();
+	
+	//abstract method
+	/**
+	 * Removes the top layer of the current {@link IGUI}.
+	 * 
+	 * @return the current {@link IGUI}.
+	 */
+	public abstract G removeTopLayer();
 }

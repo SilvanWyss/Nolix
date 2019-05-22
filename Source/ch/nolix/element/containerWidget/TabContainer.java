@@ -260,11 +260,7 @@ implements Clearable<TabContainer> {
 	}
 	
 	@Override
-	public void noteLeftMouseButtonPress() {
-		
-		//Calls method of the base class.
-		super.noteLeftMouseButtonPress();
-		
+	public void noteLeftMouseButtonPressOnViewArea() {		
 		nextMenuItemLabel = (Label)menu.getChildWidgets().getRefFirstOrNull(mi -> mi.isUnderCursor());
 	}
 	

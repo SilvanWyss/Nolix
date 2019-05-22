@@ -11,7 +11,6 @@ import ch.nolix.element.color.Color;
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 30
  */
 public final class FrameTutorial {
 

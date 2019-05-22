@@ -3,25 +3,37 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
-import ch.nolix.core.validator.Validator;
 import ch.nolix.element.painter.IPainter;
 
 //class
-public final class WidgetGUI extends BorderWidget<WidgetGUI, WidgetGUILook>
-implements IGUI<WidgetGUI> {
+public final class WidgetGUI extends BorderWidget<WidgetGUI, WidgetGUILook> implements IGUI<WidgetGUI> {
 	
 	//attribute
-	private boolean closed = false;
+	private final WidgetGUIInternalGUI internalGUI = new WidgetGUIInternalGUI();
 	
-	//optional attribute
-	private Widget<?, ?> rootWidget;
+	//method
+	@Override
+	public WidgetGUI addLayerOnTop(final IGUILayer<?> layer) {
+		
+		internalGUI.addLayerOnTop(layer);
+		
+		return this;
+	}
+	
+	//method
+	@Override
+	public WidgetGUI addLayerOnTop(final Widget<?, ?> rootWidget) {
+		
+		internalGUI.addLayerOnTop(rootWidget);
+		
+		return this;
+	}
 	
 	//method
 	@Override
 	public WidgetGUI clear() {
 		
-		rootWidget = null;
+		internalGUI.clear();
 		
 		return this;
 	}
@@ -29,7 +41,7 @@ implements IGUI<WidgetGUI> {
 	//method
 	@Override
 	public void close() throws Exception {
-		closed = true;
+		internalGUI.close();
 	}
 	
 	//method
@@ -45,27 +57,25 @@ implements IGUI<WidgetGUI> {
 	}
 	
 	//method
-	public Widget<?, ?> getRefRootWidget() {
-		
-		if (isEmpty()) {
-			throw new ArgumentMissesAttributeException(this, "root widget");
-		}
-		
-		return rootWidget;
+	@Override
+	public List<Widget<?, ?>> getRefWidgetsRecursively() {
+		return internalGUI.getRefWidgetsRecursively();
 	}
 	
 	//method
 	@Override
-	public List<Widget<?, ?>> getRefWidgetsRecursively() {
-		
-		if (isEmpty()) {
-			return new List<Widget<?, ?>>();
-		}
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-		return rootWidget.getChildWidgetsRecursively();
+	public int getViewAreaHeight() {
+		//TODO
+		return 0;
 	}
 	
+	//method
+	@Override
+	public int getViewAreaWidth() {
+		//TODO
+		return 0;
+	}
+
 	//method
 	@Override
 	public boolean hasController() {
@@ -86,13 +96,13 @@ implements IGUI<WidgetGUI> {
 	//method
 	@Override
 	public boolean isClosed() {
-		return closed;
+		return internalGUI.isClosed();
 	}
 	
 	//method
 	@Override
 	public boolean isEmpty() {
-		return (rootWidget == null);
+		return internalGUI.isEmpty();
 	}
 	
 	//method
@@ -103,71 +113,8 @@ implements IGUI<WidgetGUI> {
 		
 	//method
 	@Override
-	public void noteLeftMouseButtonPress() {
-		
-		//Calls method of the base class.
-		super.noteLeftMouseButtonPress();
-				
-		if (isAlive() && containsAny()) {
-			
-			//For a better performance, this implementation does not use all comfortable methods.
-			rootWidget.noteLeftMouseButtonPress();
-		}
-	}
-	
-	//method
-	@Override
-	public void noteLeftMouseButtonRelease() {
-		
-		//Calls method of the base class.
-		super.noteLeftMouseButtonPress();
-		
-		if (isAlive() && containsAny()) {
-			
-			//For a better performance, this implementation does not use all comfortable methods.
-			rootWidget.noteLeftMouseButtonPress();
-		}
-	}
-	
-	//method
-	@Override
-	public void noteMouseMove() {
-		
-		//Calls method of the base class.
-		super.noteMouseMove();
-		
-		if (isAlive() && containsAny()) {
-			
-			//For a better performance, this implementation does not use all comfortable methods.
-			rootWidget.noteMouseMove();
-		}
-	}
-	
-	//method
-	@Override
-	public void noteRightMouseButtonPress() {
-		
-		//Calls method of the base class.
-		super.noteRightMouseButtonPress();
-				
-		if (isAlive() && containsAny()) {
-			
-			//For a better performance, this implementation does not use all comfortable methods.
-			rootWidget.noteRightMouseButtonPress();
-		}
-	}
-	
-	//method
-	public void noteRighttMouseButtonRelease() {
-		
-		//Calls method of the base class.
-		super.noteRightMouseButtonPress();
-		
-		if (isAlive() && containsAny()) {
-			
-			//For a better performance, this implementation does not use all comfortable methods.
-			rootWidget.noteRightMouseButtonPress();
-		}
+	public void noteLeftMouseButtonPressOnViewArea() {
+		internalGUI.noteLeftMouseButtonPress();
 	}
 	
 	//method
@@ -175,16 +122,14 @@ implements IGUI<WidgetGUI> {
 	public void refresh() {}
 	
 	//method
-	public WidgetGUI setRootWidget(final Widget<?, ?> rootWidget) {
+	@Override
+	public WidgetGUI removeTopLayer() {
 		
-		Validator.suppose(rootWidget).thatIsNamed("root widget").isNotNull();
+		internalGUI.removeTopLayer();
 		
-		rootWidget.setParentGUI(this);
-		this.rootWidget = rootWidget;
-		
-		return asConcreteType();
+		return this;
 	}
-	
+
 	//method
 	@Override
 	protected void applyDefaultConfigurationWhenHasBeenReset() {
@@ -210,35 +155,20 @@ implements IGUI<WidgetGUI> {
 	//method
 	@Override
 	protected int getContentAreaHeight() {
-		
-		if (isEmpty()) {
-			return 0;
-		}
-		
-		return getRefRootWidget().getHeight();
+		//TODO
+		return 0;
 	}
 	
 	//method
 	@Override
 	protected int getContentAreaWidth() {
-		
-		if (isEmpty()) {
-			return 0;
-		}
-		
-		return getRefRootWidget().getWidth();
+		//TODO
+		return 0;
 	}
 	
 	//method
 	@Override
-	protected void paintContentArea(
-		final WidgetGUILook borderWidgetLook,
-		final IPainter painter
-	) {
-		if (containsAny()) {
-			
-			//For a better performance, this implementation does not use all comfortable methods.
-			rootWidget.paint2(painter);
-		}
+	protected void paintContentArea(final WidgetGUILook borderWidgetLook, final IPainter painter) {
+		internalGUI.paint(painter);
 	}
 }

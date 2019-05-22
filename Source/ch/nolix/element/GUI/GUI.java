@@ -38,6 +38,7 @@ import ch.nolix.element.widget.HorizontalLine;
 import ch.nolix.element.widget.HorizontalStack;
 import ch.nolix.element.widget.IGUI;
 import ch.nolix.element.widget.IGUIController;
+import ch.nolix.element.widget.IGUILayer;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.SelectionMenu;
@@ -164,16 +165,16 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	);
 	
 	//attribute
-	private final MultiProperty<GUILayer> layers =
-	new MultiProperty<GUILayer>(
+	private final MultiProperty<IGUILayer<?>> layers =
+	new MultiProperty<IGUILayer<?>>(
 		PascalCaseNameCatalogue.LAYER,
 		l -> addLayerOnTop(l),
-		s -> GUILayer.createFromSpecification(this, s),
+		s -> GUILayer.createFromSpecification(s),
 		l -> l.getSpecification()
 	);
 	
 	//attribute
-	private final GUILayer backGround = new GUILayer(this);
+	private final GUILayer backGround = new GUILayer();
 	
 	//optional attribute
 	private IGUIController controller;
@@ -182,23 +183,10 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	/**
 	 * The top layer of the current {@link GUI} when the current {@link GUI} contains layers.
 	 */
-	private GUILayer topLayer;
+	private IGUILayer<?> topLayer;
 	
-	//method
-	/**
-	 * Adds a new layer on the top of the current {@link GUI}.
-	 * The layer will have the given rootWidget.
-	 * 
-	 * @param rootWidget
-	 * @return the current {@link GUI}.
-	 * @throws NullArgumentException if the given rootWidget is null.
-	 */
-	public final G addLayerOnTop(final Widget<?, ?> rootWidget) {
-		
-		topLayer = new GUILayer(this, rootWidget);
-		addLayerOnTop(topLayer);
-		
-		return asConcreteType();
+	public GUI() {
+		backGround.setParentGUI(this);
 	}
 	
 	//method
@@ -212,11 +200,39 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * @throws NullArgumentException if the given contentPosition is null.
 	 * @throws NullArgumentException if the given rootWidget is null.
 	 */
-	public G addLayerOnTop(ExtendedContentPosition contentPosition, Widget<?, ?> rootWidget) {
+	public G addLayerOnTop(ExtendedContentPosition contentPosition, Widget<?, ?> rootWidget) {		
+		return addLayerOnTop(new GUILayer(contentPosition, rootWidget));
+	}
+
+	//method
+	/**
+	 * Adds the given layer on the top of the current {@link GUI}.
+	 * 
+	 * @param layer
+	 * @return the current {@link GUI}.
+	 * @throws NullArgumentException if the given layer is null.
+	 */
+	@Override
+	public G addLayerOnTop(final IGUILayer<?> layer) {
 		
-		addLayerOnTop(new GUILayer(this, contentPosition, rootWidget));
+		//Checks if the given layer is not null.
+		Validator.suppose(layer).thatIsNamed(VariableNameCatalogue.LAYER).isNotNull();
+		
+		layer.setParentGUI(this);
+		layers.addValue(layer);
+		topLayer = layer;
 		
 		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @throws NullArgumentException if the given rootWidget is null.
+	 */
+	public final G addLayerOnTop(final Widget<?, ?> rootWidget) {		
+		return addLayerOnTop(new GUILayer(rootWidget));
 	}
 	
 	//method
@@ -231,7 +247,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 			
 			//Handles the case that the current GUI does not contain a layer.
 			if (isEmpty()) {
-				layers.addValue(new GUILayer(this));
+				addLayerOnTop(new GUILayer());
 			}
 			
 			layers.getRefFirst().setRootWidget(createWidget(attribute));
@@ -401,11 +417,6 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	}
 	
 	//method
-	public final Widget<?, ?> getRefTopRootWidget0() {
-		return layers.getRefFirst().getRefRootWidget();
-	}
-	
-	//method
 	/**
 	 * @return the triggerable {@link Widget}s of the current widget recursively.
 	 */
@@ -414,7 +425,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		if (isEmpty()) {
 			return new List<Widget<?, ?>>();
 		}
-				
+		
 		return topLayer.getRefTriggerableWidgetsRecursively();
 	}
 		
@@ -568,7 +579,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 			final var topLayerRootWidget = topLayer.getRefRootWidget();
 			
 			topLayerRootWidget.setParentCursorPosition(getCursorXPosition(), getCursorYPosition());
-			getRefTriggerableWidgetsRecursively().forEach(w -> w.noteAnyMouseMoveRecursively());
+			topLayerRootWidget.noteAnyMouseMoveRecursively();
 		}		
 		
 		refresh();
@@ -644,11 +655,11 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * Removes the top layer of the current {@link GUI}.
-	 * 
-	 * @return the current {@link GUI}.
+	 * {@inheritDoc}
+	 *
 	 * @throws EmptyArgumentException if the current {@link GUI} does not contain a layer.
 	 */
+	@Override
 	public G removeTopLayer() {
 		
 		//Checks if the current GUI is not empty.
@@ -767,16 +778,4 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * Lets the current {@link GUI} note a closing.
 	 */
 	protected abstract void noteClosing();
-	
-	//method
-	/**
-	 * Adds the given layer on the top of the current {@link GUI}.
-	 * 
-	 * @param layer
-	 * @throws NullArgumentException if the given layer is null.
-	 */
-	private void addLayerOnTop(final GUILayer layer) {
-		layers.addValue(layer);
-		topLayer = layer;
-	}
 }

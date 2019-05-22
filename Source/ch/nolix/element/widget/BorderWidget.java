@@ -592,13 +592,18 @@ extends BackgroundWidget<BW, BWL> {
 	 * Lets the current {@link BorderWidget} note a left mouse button press.
 	 */
 	@Override
-	public void noteLeftMouseButtonPress() {
+	public final void noteLeftMouseButtonPress() {
 		
 		//Calls method of the base class.
 		super.noteLeftMouseButtonPress();
 		
+		//Handles the case that the cursor is over the view area.
+		if (viewAreaIsUnderCursor()) {
+			noteLeftMouseButtonPressOnViewArea();
+		}
+		
 		//Handles the case that the cursor is over the vertical scrollbar cursor.
-		if (verticalScrollbarCursorIsUnderCursor()) {
+		else if (verticalScrollbarCursorIsUnderCursor()) {
 			
 			isMovingVerticalScrollbarCursor = true;
 			
@@ -1003,9 +1008,9 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	@Override
 	protected void fillUpTriggerableChildWidgets(final List<Widget<?, ?>> list) {
-		
+				
 		//Handles the case that the view area of the current BorderWidget is under the cursor.
-		if (viewAreaIsUnderCursor()) {
+		if (viewAreaIsUnderCursor() || !hasHorizontalScrollbar() || !hasVerticalScrollbar()) {
 			
 			//Calls method of the base class.
 			super.fillUpTriggerableChildWidgets(list);
@@ -1151,6 +1156,12 @@ extends BackgroundWidget<BW, BWL> {
 		+ getBorderedAreaWidth()
 		+ currentLook.getRecursiveOrDefaultRightBorderThickness();
 	}
+	
+	//method
+	/**
+	 * Lets the current {@link BorderWidget} note a left mouse button press on the view area.
+	 */
+	protected void noteLeftMouseButtonPressOnViewArea() {}
 	
 	//method
 	/**

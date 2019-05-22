@@ -123,11 +123,7 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	 * Lets the current {@link TextBox} note a left mouse button press.
 	 */
 	@Override
-	public void noteLeftMouseButtonPress() {
-		
-		//Calls method of the base class.
-		super.noteLeftMouseButtonPress();
-		
+	public void noteLeftMouseButtonPressOnViewArea() {		
 		//Updates the text cursor position.
 			final var text = getText();
 			
