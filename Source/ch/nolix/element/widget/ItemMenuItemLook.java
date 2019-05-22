@@ -9,8 +9,8 @@ import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.element.color.Color;
 
 //class
-public final class SelectionMenuItemLook
-extends LayerEntity<SelectionMenuItemLook> {
+public final class ItemMenuItemLook
+extends LayerEntity<ItemMenuItemLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "ItemLook";
@@ -20,11 +20,11 @@ extends LayerEntity<SelectionMenuItemLook> {
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 		
 	//static method
-	public static SelectionMenuItemLook createFromSpecification(
+	public static ItemMenuItemLook createFromSpecification(
 		final DocumentNodeoid specification
 	) {
 		
-		final var selectionMenuItemLook = new SelectionMenuItemLook();
+		final var selectionMenuItemLook = new ItemMenuItemLook();
 		selectionMenuItemLook.reset(specification);
 		
 		return selectionMenuItemLook;
@@ -75,7 +75,7 @@ extends LayerEntity<SelectionMenuItemLook> {
 	}
 	
 	//method
-	public SelectionMenuItemLook setBackgroundColor(final Color backgroundColor) {
+	public ItemMenuItemLook setBackgroundColor(final Color backgroundColor) {
 		
 		this.backgroundColor.setValue(backgroundColor);
 		
@@ -83,7 +83,7 @@ extends LayerEntity<SelectionMenuItemLook> {
 	}
 	
 	//method
-	public SelectionMenuItemLook setTextColor(final Color textColor) {
+	public ItemMenuItemLook setTextColor(final Color textColor) {
 		
 		this.textColor.setValue(textColor);
 		

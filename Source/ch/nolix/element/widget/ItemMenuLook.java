@@ -5,8 +5,8 @@ import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.element.core.NonNegativeInteger;
 
 //class
-public final class SelectionMenuLook
-extends BorderWidgetLook<SelectionMenuLook> {
+public final class ItemMenuLook
+extends BorderWidgetLook<ItemMenuLook> {
 
 	//default value
 	public static final int DEFAULT_ITEM_PADDING = ValueCatalogue.SMALL_WIDGET_PADDING;
@@ -27,29 +27,29 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	);
 	
 	//attribute
-	private final LayerProperty<SelectionMenuItemLook> baseItemLookProperty =
-	new LayerProperty<SelectionMenuItemLook>(
+	private final LayerProperty<ItemMenuItemLook> baseItemLookProperty =
+	new LayerProperty<ItemMenuItemLook>(
 		NORMAL_ITEM_LOOK_HEADER,
-		new SelectionMenuItemLook(),
-		s -> SelectionMenuItemLook.createFromSpecification(s),
+		new ItemMenuItemLook(),
+		s -> ItemMenuItemLook.createFromSpecification(s),
 		bilp -> bilp.getSpecification()
 	);
 	
 	//attribute
-	private final LayerProperty<SelectionMenuItemLook> hoverItemLookProperty =
-	new LayerProperty<SelectionMenuItemLook>(
+	private final LayerProperty<ItemMenuItemLook> hoverItemLookProperty =
+	new LayerProperty<ItemMenuItemLook>(
 		HOVER_ITEM_LOOK_HEADER,
-		new SelectionMenuItemLook(),
-		s -> SelectionMenuItemLook.createFromSpecification(s),
+		new ItemMenuItemLook(),
+		s -> ItemMenuItemLook.createFromSpecification(s),
 		hilp -> hilp.getSpecification()
 	);
 	
 	//attribute
-	private final LayerProperty<SelectionMenuItemLook> selectionItemLookProperty =
-	new LayerProperty<SelectionMenuItemLook>(
+	private final LayerProperty<ItemMenuItemLook> selectionItemLookProperty =
+	new LayerProperty<ItemMenuItemLook>(
 		SELECTION_ITEM_LOOK_HEADER,
-		new SelectionMenuItemLook(),
-		s -> SelectionMenuItemLook.createFromSpecification(s),
+		new ItemMenuItemLook(),
+		s -> ItemMenuItemLook.createFromSpecification(s),
 		silp -> silp.getSpecification()
 	);
 	
@@ -59,30 +59,30 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	}
 	
 	//method
-	public SelectionMenuItemLook getRefRecursiveOrDefaultBaseItemLook() {
+	public ItemMenuItemLook getRefRecursiveOrDefaultBaseItemLook() {
 		return baseItemLookProperty.getRecursiveOrDefaultValue();
 	}
 	
 	//method
-	public SelectionMenuItemLook getRefRecursiveOrDefaultHoverItemLook() {
+	public ItemMenuItemLook getRefRecursiveOrDefaultHoverItemLook() {
 		return hoverItemLookProperty.getRecursiveOrDefaultValue();
 	}
 	
 	//method
-	public SelectionMenuItemLook getRefRecursiveOrDefaultSelectionItemLook() {
+	public ItemMenuItemLook getRefRecursiveOrDefaultSelectionItemLook() {
 		return selectionItemLookProperty.getRecursiveOrDefaultValue();
 	}
 	
 	//method
-	public SelectionMenuLook setBaseItemLook(final SelectionMenuItemLook selectionMenuItemLook) {
+	public ItemMenuLook setBaseItemLook(final ItemMenuItemLook itemMenuItemLook) {
 		
-		baseItemLookProperty.setValue(selectionMenuItemLook);
+		baseItemLookProperty.setValue(itemMenuItemLook);
 		
 		return this;
 	}
 	
 	//method
-	public SelectionMenuLook setHoverItemLook(final SelectionMenuItemLook hoverMenuItemLook) {
+	public ItemMenuLook setHoverItemLook(final ItemMenuItemLook hoverMenuItemLook) {
 		
 		hoverItemLookProperty.setValue(hoverMenuItemLook);
 		
@@ -90,7 +90,7 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	}
 	
 	//method
-	public SelectionMenuLook setItemPadding(final int itemPadding) {
+	public ItemMenuLook setItemPadding(final int itemPadding) {
 		
 		itemPaddingProperty.setValue(new NonNegativeInteger(itemPadding));
 		
@@ -98,9 +98,9 @@ extends BorderWidgetLook<SelectionMenuLook> {
 	}
 	
 	//method
-	public SelectionMenuLook setSelectionItemLook(final SelectionMenuItemLook selectionMenuItemLook) {
+	public ItemMenuLook setSelectionItemLook(final ItemMenuItemLook itemMenuItemLook) {
 		
-		selectionItemLookProperty.setValue(selectionMenuItemLook);
+		selectionItemLookProperty.setValue(itemMenuItemLook);
 		
 		return this;
 	}

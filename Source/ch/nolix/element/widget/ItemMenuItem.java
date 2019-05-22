@@ -4,26 +4,25 @@ package ch.nolix.element.widget;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity.MutableProperty;
+import ch.nolix.core.entity.OptionalProperty;
 import ch.nolix.core.entity.Property;
-import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.Element;
 import ch.nolix.element.core.NonEmptyText;
 
 //class
-public final class SelectionMenuItem extends Element<SelectionMenuItem> {
+public final class ItemMenuItem extends Element<ItemMenuItem> {
 	
 	//constant
 	private static final String SELECTION_FLAG_HEADER = "Selected";
 	
 	//static method
-	public static SelectionMenuItem createFromSpecification(
-		final DocumentNodeoid specification
-	) {
-		return new SelectionMenuItem(specification);
+	public static ItemMenuItem createFromSpecification(final DocumentNodeoid specification) {
+		return new ItemMenuItem(specification);
 	}
 	
 	//attribute
@@ -36,7 +35,16 @@ public final class SelectionMenuItem extends Element<SelectionMenuItem> {
 	);
 	
 	//attribute
-	private final MutableProperty<Boolean> selectionFlagProperty =
+	private final OptionalProperty<String> id =
+	new OptionalProperty<String>(
+		PascalCaseNameCatalogue.ID,
+		id -> setId(id),
+		s -> s.getOneAttributeAsString(),
+		id -> DocumentNode.createWithHeader(id)
+	);
+	
+	//attribute
+	private final MutableProperty<Boolean> selectionFlag =
 	new MutableProperty<Boolean>(
 		SELECTION_FLAG_HEADER,
 		sf -> setSelectionFlag(sf.getValue()),
@@ -44,56 +52,32 @@ public final class SelectionMenuItem extends Element<SelectionMenuItem> {
 		b -> b.getSpecification()
 	);
 	
-	//optional attribute
-	private final int id;
-	
 	//attribute
 	private final Label label = new Label();
 	
 	//constructor
-	public SelectionMenuItem(final String text) {
-		id = -1;
+	public ItemMenuItem(final String text) {
+		setText(text);
+		unselect();
 		label.setKeepsFocus();
-		unselect();
-		setText(text);
 	}
 	
 	//constructor
-	public SelectionMenuItem(final int id, final String text) {
-		
-		Validator.suppose(id).thatIsNamed(VariableNameCatalogue.ID).isPositive();
-		
-		this.id = id;
-		
-		unselect();
-		setText(text);
+	public ItemMenuItem(final String id, final String text) {
+		this(text);	
+		setId(id);
 	}
 	
 	//constructor
-	private SelectionMenuItem(final DocumentNodeoid specification) {
-		id = -1;
+	private ItemMenuItem(final DocumentNodeoid specification) {
 		unselect();
+		label.setKeepsFocus();
 		specification.getRefAttributes().forEach(a -> addOrChangeAttribute(a));
 	}
 	
 	//method
-	public int getHeight() {
-		return label.getHeight();
-	}
-	
-	//method
-	public int getId() {
-		
-		if (!hasId()) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.ID);
-		}
-		
-		return id;
-	}
-	
-	//method
-	public Label getRefLabel() {
-		return label;
+	public String getId() {
+		return id.getValue();
 	}
 	
 	//method
@@ -102,18 +86,13 @@ public final class SelectionMenuItem extends Element<SelectionMenuItem> {
 	}
 	
 	//method
-	public int getWidth() {
-		return label.getWidth();
-	}
-	
-	//method
 	public boolean hasId() {
-		return (id > 0);
+		return id.containsAny();
 	}
 	
 	//method
-	public boolean hasId(final long id) {
-		return hasId() && (this.id == id);
+	public boolean hasId(final String id) {
+		return (this.id.hasValue() && this.id.getValue().equals(id));
 	}
 	
 	//method
@@ -123,29 +102,47 @@ public final class SelectionMenuItem extends Element<SelectionMenuItem> {
 	
 	//method
 	public boolean isSelected() {
-		return selectionFlagProperty.getValue().getValue();
+		return selectionFlag.getValue().getValue();
 	}
 	
 	//method
 	public void select() {
-		selectionFlagProperty.setValue(new Boolean(true));
+		selectionFlag.setValue(new Boolean(true));
 		label.setFocused();
 	}
 	
 	//method
 	public void unselect() {
-		selectionFlagProperty.setValue(new Boolean(false));
+		selectionFlag.setValue(new Boolean(false));
 		label.setNormal();
 	}
 	
+	//package-visible method
+	int getHeight() {
+		return label.getHeight();
+	}
+
+	//package-visible method
+	Label getRefLabel() {
+		return label;
+	}
+
+	//package-visible method
+	int getWidth() {
+		return label.getWidth();
+	}
+	
+	//method
+	private void setId(final String id) {
+		
+		Validator.suppose(id).thatIsNamed(VariableNameCatalogue.ID).isNotBlank();
+		
+		this.id.setValue(id);
+	}
+
 	//method
 	private void setSelectionFlag(final boolean selected) {
-		if (!selected) {
-			unselect();
-		}
-		else {
-			select();
-		}
+		if (selected) select(); else unselect();
 	}
 	
 	//method

@@ -60,11 +60,11 @@ public final class ReferencePropertySession extends HeaderedSession {
 		final var referencesSelectionMenu = new SelectionMenu().setName("ReferencesSelectionMenu");
 		
 		for (final var e : reference.getReferencedEntitySet().getRefEntities()) {
-			referencesSelectionMenu.addItem((int)e.getId(), /*e.getParentEntitySet().getName() +*/ " " + e.getId());
+			referencesSelectionMenu.addItem(String.valueOf(e.getId()), /*e.getParentEntitySet().getName() +*/ " " + e.getId());
 		}
 		
 		if (reference.referencesEntity()) {
-			referencesSelectionMenu.select((int)reference.getEntity().getId());
+			referencesSelectionMenu.selectItemById(String.valueOf(reference.getEntity().getId()));
 		}
 		
 		return referencesSelectionMenu;
@@ -79,7 +79,7 @@ public final class ReferencePropertySession extends HeaderedSession {
 		reference.set(
 			reference
 			.getReferencedEntitySet()
-			.getRefEntityById(referencesSelectionMenu.getSelectedItemId())
+			.getRefEntityById(Long.valueOf(referencesSelectionMenu.getSelectedItemId()))
 		);
 		
 		getParentClient().popSession();

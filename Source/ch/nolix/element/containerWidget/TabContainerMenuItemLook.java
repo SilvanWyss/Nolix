@@ -10,12 +10,12 @@ import ch.nolix.core.layerEntity.LayerEntity;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.NonNegativeInteger;
-import ch.nolix.element.widget.SelectionMenuItemLook;
+import ch.nolix.element.widget.ItemMenuItemLook;
 import ch.nolix.element.widget.ValueCatalogue;
 
 //class
 public final class TabContainerMenuItemLook
-extends LayerEntity<SelectionMenuItemLook> {
+extends LayerEntity<ItemMenuItemLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "MenuItemLook";
