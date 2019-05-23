@@ -62,8 +62,9 @@ import ch.nolix.element.widget.Widget;
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IGUI<G> {
 	
-	//default value
+	//default values
 	public static final String DEFAULT_TITLE = "GUI";
+	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	
 	//static attribute
 	private static final WidgetCreator widgetCreator =
@@ -221,6 +222,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		layer.setParentGUI(this);
 		layers.addValue(layer);
 		topLayer = layer;
+		
+		noteMouseMove();
 		
 		return asConcreteType();
 	}
@@ -678,6 +681,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 			layers.removeValue(layers.getRefAt(layers.getSize()));
 		}
 		
+		noteMouseMove();
+		
 		return asConcreteType();
 	}
 	
@@ -703,6 +708,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	@Override
 	public G resetConfiguration() {
+		
+		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 		
 		if (containsAny()) {
 			layers.forEach(l -> l.resetConfiguration());
