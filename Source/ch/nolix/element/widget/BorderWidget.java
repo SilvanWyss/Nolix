@@ -36,7 +36,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1560
+ * @lines 1580
  * @param <BW> The type of a {@link BackgroundWidget.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget.
  */
@@ -487,6 +487,14 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	public final int getViewAreaYPositionOnScrolledArea() {
 		return viewAreaYPositionOnScrolledArea.getValue().getValue();
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link BorderWidget} has any scrollbar.
+	 */
+	public final boolean hasAnyScrollbar() {
+		return (hasVerticalScrollbar() || hasHorizontalScrollbar());
 	}
 	
 	//method
@@ -1010,7 +1018,7 @@ extends BackgroundWidget<BW, BWL> {
 	protected void fillUpTriggerableChildWidgets(final List<Widget<?, ?>> list) {
 				
 		//Handles the case that the view area of the current BorderWidget is under the cursor.
-		if (viewAreaIsUnderCursor() || !hasHorizontalScrollbar() || !hasVerticalScrollbar()) {
+		if (viewAreaIsUnderCursor() || !hasAnyScrollbar()) {
 			
 			//Calls method of the base class.
 			super.fillUpTriggerableChildWidgets(list);
