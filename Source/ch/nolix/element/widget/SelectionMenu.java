@@ -17,6 +17,14 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	}
 	
 	//constructor
+	public SelectionMenu(Iterable<String> items) {
+
+		resetAndApplyDefaultConfiguration();
+		
+		addItems(items);
+	}
+	
+	//constructor
 	public SelectionMenu(final String... items) {
 		
 		resetAndApplyDefaultConfiguration();
@@ -28,7 +36,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	public String getSelectedItemId() {
 		return getSelectedItem().getId();
 	}
-		
+	
 	//method
 	@Override
 	public boolean hasRole(final String role) {
