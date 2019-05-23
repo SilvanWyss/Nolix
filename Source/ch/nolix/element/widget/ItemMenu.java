@@ -9,8 +9,10 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity.MultiProperty;
+import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Clearable;
+import ch.nolix.core.validator.Validator;
 
 //abstract class
 public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM, ItemMenuLook>
@@ -28,6 +30,10 @@ implements Clearable<IM> {
 		i -> i.getSpecification()
 	);
 	
+	//optional attribute
+	private IElementTaker<ItemMenuItem> selectCommand;
+	
+	//method
 	public final IM addItem(final ItemMenuItem item) {
 		
 		supposeDoesNotContainItemWithText(item.getText());
@@ -123,6 +129,11 @@ implements Clearable<IM> {
 	}
 	
 	//method
+	public final boolean hasSelectCommand() {
+		return (selectCommand != null);
+	}
+	
+	//method
 	@Override
 	public final boolean isEmpty() {
 		return items.isEmpty();
@@ -186,6 +197,26 @@ implements Clearable<IM> {
 	}
 	
 	//method
+	public final IM removeSelectCommand() {
+		
+		selectCommand = null;
+		
+		return asConcreteType();
+	}
+	
+	//method
+	@Override
+	public IM reset() {
+		
+		super.reset();
+		
+		clear();
+		removeSelectCommand();
+		
+		return asConcreteType();
+	}
+	
+	//method
 	public final IM selectItemById(final String id) {
 		
 		select(items.getRefFirst(i -> i.hasId(id)));
@@ -210,7 +241,15 @@ implements Clearable<IM> {
 	}
 	
 	//method
-	public IM unselectAllItems() {
+	public final IM setSelectCommand(final IElementTaker<ItemMenuItem> selectCommand) {
+		
+		this.selectCommand = Validator.suppose(selectCommand).thatIsNamed("select command").isNotNull().andReturn();
+		
+		return asConcreteType();
+	}
+	
+	//method
+	public final IM unselectAllItems() {
 		
 		if (containsSelectedItem()) {
 			getSelectedItem().unselect();
@@ -266,6 +305,10 @@ implements Clearable<IM> {
 			
 			items.forEach(i -> i.unselect());
 		
+			if (selectCommand != null) {
+				selectCommand.run(item);
+			}
+			
 		item.select();
 		noteSelectItem(item);
 	}
