@@ -117,4 +117,8 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	protected void noteClear() {
 		menu.clear();
 	}
+	
+	//method
+	@Override
+	protected void noteSelectItem(ItemMenuItem item) {}
 }

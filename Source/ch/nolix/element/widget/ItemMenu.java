@@ -251,6 +251,9 @@ implements Clearable<IM> {
 	//abstract method
 	protected abstract void noteClear();
 	
+	//abstract method
+	protected abstract void noteSelectItem(ItemMenuItem item);
+	
 	//method
 	protected final void select(final ItemMenuItem item) {
 		
@@ -264,6 +267,7 @@ implements Clearable<IM> {
 			items.forEach(i -> i.unselect());
 		
 		item.select();
+		noteSelectItem(item);
 	}
 	
 	//method
