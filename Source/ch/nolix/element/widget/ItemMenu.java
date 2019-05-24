@@ -11,6 +11,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity.MultiProperty;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.math.Calculator;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 
@@ -145,7 +146,7 @@ implements Clearable<IM> {
 		super.recalculate();
 		
 		final var look = getRefCurrentLook();
-		final var contentWidth = getContentAreaWidth();
+		final var contentWidth = Calculator.getMax(1, getContentAreaWidth());
 		
 		final var baseItemLook = look.getRefRecursiveOrDefaultBaseItemLook();
 		final var hoverItemLook = look.getRefRecursiveOrDefaultHoverItemLook();
