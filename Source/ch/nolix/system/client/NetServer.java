@@ -2,64 +2,104 @@
 package ch.nolix.system.client;
 
 //own imports
+import ch.nolix.core.constants.PortCatalogue;
 import ch.nolix.core.endPoint5.EndPoint;
 
 //class
 /**
- * A net server is a server that listens to net clients on a specific port.
+ * A {@link NetServer} is a {@link Server} that listens to net {@link Client}s on a specific port.
  * 
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 40
+ * @lines 110
  */
 public final class NetServer extends Server {
+	
+	//constant
+	public static final int DEFAULT_PORT = PortCatalogue.DE_FACTO_HTTP_PORT;
 	
 	//attribute
 	private ch.nolix.core.endPoint5.NetServer internalNetServer;
 	
 	//constructor
 	/**
-	 * Creates a new net server with the given port.
+	 * Creates a new {@link NetServer} that will listen to net {@link Client}s on the default port.
+	 * 
+	 * @param port
+	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
+	 */
+	public NetServer() {
+		
+		//Calls other constructor.
+		this(DEFAULT_PORT);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link NetServer} that will listen to net {@link Client}s on the default port.
+	 * The {@link NetServer} will have the given mainApplication.
+	 * 
+	 * @param mainApplication.
+	 * @throws NullArgumentException if the given mainApplication is null.
+	 */
+	public NetServer(final Application<?> mainApplication) {
+		
+		//Calls other constructor.
+		this();
+		
+		addDefaultApplication(mainApplication);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link NetServer} that will listen to net {@link Client}s on the given port.
 	 * 
 	 * @param port
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
 	 */
 	public NetServer(final int port) {
 		
-		//Creates the internal net server of this net server.
+		//Creates the internalNetServer of the current NetServer.
 		internalNetServer = new ch.nolix.core.endPoint5.NetServer(port);
+				
+		internalNetServer.addArbitraryDuplexControllerTaker(new NetServerSubDuplexControllerTaker(this));
 		
-		//Creates a close dependency between this net server and its internal net server.
+		//Creates a close dependency between the current NetServer and its internalNetServer.
 		createCloseDependency(internalNetServer);
-		
-		internalNetServer
-		.addArbitraryDuplexControllerTaker(new NetServerSubDuplexControllerTaker(this));
 	}
 	
 	//constructor
 	/**
-	 * Creates a new net server with the given port and applications.
+	 * Creates a new {@link NetServer} that will listen to net {@link Client}s on the given port.
+	 * The {@link NetServer} will have the given mainApplication.
 	 * 
 	 * @param port
-	 * @param applications
+	 * @param mainApplication.
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
+	 * @throws NullArgumentException if the given mainApplication is null.
 	 */
-	public NetServer(final int port, final Application<?> applications) {
+	public NetServer(final int port, final Application<?> mainApplication) {
 		
 		//Calls other constructor.
 		this(port);
 		
-		addApplication(applications);
+		addDefaultApplication(mainApplication);
 	}
 	
 	//method
 	/**
-	 * @return the port of this net server.
+	 * @return the port of the current {@link NetServer}.
 	 */
 	public int getPort() {
 		return internalNetServer.getPort();
 	}
 	
+	//method
+	/**
+	 * Lets the current {@link NetServer} take the given endPoint.
+	 * 
+	 * @param endPoint
+	 */
 	void takeDuplexController(final EndPoint endPoint) {
 		
 		if (!containsDefaultApplication()) {
