@@ -4,6 +4,7 @@ package ch.nolix.element.GUI;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.elementEnums.ContentPosition;
 import ch.nolix.core.elementEnums.ExtendedContentPosition;
@@ -99,13 +100,7 @@ public final class GUILayer extends MutableElement<GUILayer> implements IGUILaye
 	);
 	
 	//attribute
-	private final MutableOptionalProperty<Widget<?, ?>> rootWidget =
-	new MutableOptionalProperty<Widget<?, ?>>(
-		ROOT_WIDGET_HEADER,
-		rw -> setRootWidget(rw),
-		s -> GUI.createWidget(s),
-		s -> s.getSpecification()
-	);
+	private Widget<?, ?> rootWidget;
 	
 	//constructor
 	/**
@@ -151,6 +146,17 @@ public final class GUILayer extends MutableElement<GUILayer> implements IGUILaye
 	}
 	
 	//method
+	@Override
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+		if (GUI.canCreateWidgetFrom(attribute)) {
+			setRootWidget(GUI.createWidget(attribute));
+		}
+		else {
+			super.addOrChangeAttribute(attribute);
+		}
+	}
+	
+	//method
 	/**
 	 * Removes the root {@link Widget} of the current {@link GUILayer}.
 	 * 
@@ -159,9 +165,22 @@ public final class GUILayer extends MutableElement<GUILayer> implements IGUILaye
 	@Override
 	public GUILayer clear() {
 		
-		rootWidget.clear();
+		rootWidget = null;
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	public List<DocumentNode> getAttributes() {
+		
+		final var attributes = super.getAttributes();
+		
+		if (rootWidget != null) {
+			attributes.addAtEnd(rootWidget.getSpecification());
+		}
+		
+		return attributes;
 	}
 	
 	//method
@@ -202,8 +221,8 @@ public final class GUILayer extends MutableElement<GUILayer> implements IGUILaye
 	 */
 	public CursorIcon getCursorIcon() {
 		
-		if (rootWidget.containsAny() && rootWidget.getValue().isUnderCursor()) {
-			return rootWidget.getValue().getCursorIcon();
+		if (rootWidget != null && rootWidget.isUnderCursor()) {
+			return rootWidget.getCursorIcon();
 		}
 				
 		return CursorIcon.Arrow;
@@ -214,7 +233,7 @@ public final class GUILayer extends MutableElement<GUILayer> implements IGUILaye
 	 * @return the root {@link Widget} of the current {@link GUILayer}.
 	 */
 	public Widget<?, ?> getRefRootWidget() {
-		return rootWidget.getValue();
+		return rootWidget;
 	}
 	
 	//method
@@ -225,14 +244,11 @@ public final class GUILayer extends MutableElement<GUILayer> implements IGUILaye
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Handles the case that the current GUILayer does not have a root Widget.
-			if (rootWidget.isEmpty()) {
+			if (rootWidget == null) {
 				return new List<Widget<?, ?>>();
 			}
 			
-			//Handles the case that the current GUILayer has a root Widget.			
-				//Extracts the root Widget of the current GUILayer.
-				final var rootWidget = this.rootWidget.getValue();
-				
+			//Handles the case that the current GUILayer has a root Widget.
 				return rootWidget.getChildWidgetsRecursively().addAtEnd(rootWidget);
 	}
 	
@@ -244,14 +260,12 @@ public final class GUILayer extends MutableElement<GUILayer> implements IGUILaye
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Handles the case that the current GUILayer does not have a root Widget.
-			if (rootWidget.isEmpty()) {
+			if (rootWidget == null) {
 				return new List<Widget<?, ?>>();
 			}
 			
 			//Handles the case that the current GUILayer has a root Widget.			
 				//Extracts the root Widget of the current GUILayer.
-				final var rootWidget = this.rootWidget.getValue();
-				
 				return rootWidget.getTriggerableChildWidgetsRecursively().addAtEnd(rootWidget);
 	}
 	
@@ -277,7 +291,7 @@ public final class GUILayer extends MutableElement<GUILayer> implements IGUILaye
 	 */
 	@Override
 	public boolean isEmpty() {
-		return rootWidget.isEmpty();
+		return (rootWidget == null);
 	}
 	
 	//method
@@ -323,8 +337,8 @@ public final class GUILayer extends MutableElement<GUILayer> implements IGUILaye
 		
 		//Handles the case that the current GUILayer has a root Widget.
 		//For a better performance, this implementation does not use all comfortable methods.
-		if (rootWidget.containsAny()) {
-			rootWidget.getValue().resetConfiguration();
+		if (rootWidget != null) {
+			rootWidget.resetConfiguration();
 		}
 	}
 	
@@ -415,8 +429,8 @@ public final class GUILayer extends MutableElement<GUILayer> implements IGUILaye
 	 * @throws NullArgumentException if the given rootWidget is null.
 	 */
 	public GUILayer setRootWidget(final Widget<?, ?> rootWidget) {
-				
-		this.rootWidget.setValue(rootWidget);
+		
+		this.rootWidget = Validator.suppose(rootWidget).thatIsNamed("root widget").isNotNull().andReturn();
 		
 		if (parentGUI != null) {
 			rootWidget.setParentGUI(parentGUI);
@@ -448,8 +462,8 @@ public final class GUILayer extends MutableElement<GUILayer> implements IGUILaye
 		
 		//Handles the case that the current GUILayer has a root Widget.
 		//For a better performance, this implementation does not use all comfortable methods.
-		if (rootWidget.containsAny()) {
-			rootWidget.getValue().paint(painter);
+		if (rootWidget != null) {
+			rootWidget.paint(painter);
 		}
 	}
 	
@@ -461,11 +475,8 @@ public final class GUILayer extends MutableElement<GUILayer> implements IGUILaye
 		
 		//Handles the case that the current GUILayer has a root Widget.
 		//For a better performance, this implementation does not use all comfortable methods.
-		if (rootWidget.containsAny()) {
-			
-			//Extracts the root Widget of the current GUILayer.
-			final var rootWidget = this.rootWidget.getValue();
-						
+		if (rootWidget != null) {
+									
 			//Enumerates the content position of the current GUILayer.
 			switch (contentPosition.getValue()) {
 				case LeftTop:
@@ -560,8 +571,8 @@ public final class GUILayer extends MutableElement<GUILayer> implements IGUILaye
 		
 		this.parentGUI = parentGUI;
 		
-		if (rootWidget.hasValue()) {
-			rootWidget.getValue().setParentGUI(parentGUI);
+		if (rootWidget != null) {
+			rootWidget.setParentGUI(parentGUI);
 		}
 		
 		return this;
