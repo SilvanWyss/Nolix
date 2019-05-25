@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.GUIClient;
 
+import ch.nolix.core.constants.IPv6Catalogue;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.system.GUIClientoid.FrontGUIClientoid;
@@ -14,7 +15,7 @@ import ch.nolix.system.client.Application;
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 330
+ * @lines 160
  */
 public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 	
@@ -51,6 +52,19 @@ public final class FrontGUIClient extends FrontGUIClientoid<FrontGUIClient> {
 		this(GUI_);
 		
 		internal_connectTo(application);
+	}
+	
+	/**
+	 * Creates a new {@link FrontGUIClient} that will connect to the main application
+	 * on the given port on the local machine.
+	 * 
+	 * @param port
+	 * @throws OutOfRangeException if the given port is not in [0,65535].
+	 */
+	public FrontGUIClient(final int port) {
+		
+		//Calls other constructor.
+		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port);
 	}
 	
 	//constructor
