@@ -5,6 +5,7 @@ package ch.nolix.core.util;
 import java.io.IOException;
 
 //own imports
+import ch.nolix.core.constants.IPv4Catalogue;
 import ch.nolix.core.constants.PortCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.validator.Validator;
@@ -31,6 +32,11 @@ public final class ShellProvider {
 	//static method
 	public static void startFirefox() {
 		run("start firefox");
+	}
+	
+	//static method
+	public static void startFirefox(final int port) {
+		startFirefox(IPv4Catalogue.LOOP_BACK_ADDRESS, port);
 	}
 	
 	//static method
