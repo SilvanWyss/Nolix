@@ -158,7 +158,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * @throws ArgumentMissesAttributeException if the current {@link BackGUIClientoid} does not have a current session.
 	 */
 	@Override
-	protected void internal_finishSessionInitialization() {
+	protected final void internal_finishSessionInitialization() {
 		updateGUIOnCounterpart();
 	}
 	

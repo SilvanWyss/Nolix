@@ -153,13 +153,6 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	
 	//method
 	/**
-	 * Finishes the initialization of the session of this front console client.
-	 */
-	@Override
-	protected void internal_finishSessionInitialization() {}
-	
-	//method
-	/**
 	 * @param request
 	 * 
 	 * @return the data the given request requests from this console front client.

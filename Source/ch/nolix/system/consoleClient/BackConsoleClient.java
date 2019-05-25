@@ -359,11 +359,4 @@ public final class BackConsoleClient extends BackGUIClientoid<BackConsoleClient>
 		
 		return this;
 	}
-
-	//method
-	/**
-	 * Finishes the initialization of the session of this console back client.
-	 */
-	@Override
-	protected void internal_finishSessionInitialization() {}
 }
