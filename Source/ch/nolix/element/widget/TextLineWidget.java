@@ -31,7 +31,7 @@ public abstract class TextLineWidget<TLW extends TextLineWidget<TLW>> extends Bo
 		PascalCaseNameCatalogue.TEXT,
 		t -> setText(t),
 		s -> s.getOneAttributeAsString(),
-		t -> DocumentNode.createWithHeader(t)
+		t -> new DocumentNode(PascalCaseNameCatalogue.TEXT, t)
 	);
 	
 	//method
