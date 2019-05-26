@@ -432,8 +432,9 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 		//Checks if the given header is not null or empty.
 		Validator.suppose(header).thatIsNamed(header).isNotEmpty();
 		
-		this.header
-		= header
+		this.header =
+		header
+		.replace(DOT_CODE, ".")
 		.replace(COMMA_CODE, ",")
 		.replace(OPEN_BRACKET_CODE, "(")
 		.replace(CLOSED_BRACKET_CODE, ")");

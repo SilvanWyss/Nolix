@@ -33,10 +33,11 @@ import ch.nolix.core.attributeAPI.Headered;
 public abstract class DocumentNodeoid implements Headered {
 	
 	//constants
+	public static final String DOT_CODE = "$D";
+	public static final String COMMA_CODE = "$M";
+	public static final String DOLLAR_SYMBOL_CODE = "$X";
 	public static final String OPEN_BRACKET_CODE = "$O";
 	public static final String CLOSED_BRACKET_CODE = "$C";
-	public static final String COMMA_CODE = "$M";
-	public static final String DOLLAR_SYMBOL_CODE = "$D";
 	
 	//static method
 	/**
@@ -57,6 +58,7 @@ public abstract class DocumentNodeoid implements Headered {
 		//It is important that the dollar symbol is replaced at first.
 		.replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
 		
+		.replace(String.valueOf(CharacterCatalogue.DOT), DOT_CODE)
 		.replace(String.valueOf(CharacterCatalogue.COMMA), COMMA_CODE)
 		.replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
 		.replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
