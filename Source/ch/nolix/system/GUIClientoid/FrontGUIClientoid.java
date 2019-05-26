@@ -15,23 +15,38 @@ import ch.nolix.system.GUIClient.FrontGUIClient;
 import ch.nolix.system.client.Client;
 
 //abstract
-public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>>
-extends Client<FGC> {
+public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> extends Client<FGC> {
 	
 	//attributes
 	private final GUI<?> GUI;
 	private final FrontBrowserGUIClientoidWidget frontBrowserGUIClientoidWidget;
 	
-	public FrontGUIClientoid(boolean browserGUI) {
+	//constructor
+	public FrontGUIClientoid(final boolean browserGUI) {
+		
+		//Calls other constructor.
 		this(new Frame());
 	}
 	
+	//constructor
 	public FrontGUIClientoid(final GUI<?> GUI) {
-		
 		this.GUI = GUI;
 		this.frontBrowserGUIClientoidWidget = new FrontBrowserGUIClientoidWidget();
 		GUI.setController(new FrontGUIClientoidGUIController(this));
 		GUI.addLayerOnTop(frontBrowserGUIClientoidWidget);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void close() {
+		
+		//Calls method of the base class.
+		super.close();
+		
+		GUI.close();
 	}
 	
 	public abstract FrontGUIClientoidType getFrontEndType();

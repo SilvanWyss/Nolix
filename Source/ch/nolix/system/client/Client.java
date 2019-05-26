@@ -58,7 +58,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C> {
 	 * Closes the current {@link Client}.
 	 */
 	@Override
-	public final void close() {
+	public void close() {
 		endPoint.close();
 	}
 	
