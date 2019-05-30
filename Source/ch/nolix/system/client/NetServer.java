@@ -11,12 +11,28 @@ import ch.nolix.core.endPoint5.EndPoint;
  * 
  * @author Silvan Wyss
  * @month 2017-09
- * @lines 110
+ * @lines 130
  */
 public final class NetServer extends Server {
 	
 	//constant
 	public static final int DEFAULT_PORT = PortCatalogue.DE_FACTO_HTTP_PORT;
+	
+	//constant
+	private static final String HTTP_MESSAGE =
+	"HTTP/1.1 200 OK\r\n"
+	+ "Content-Type: text/html; charset=UTF-8\r\n"
+	+ "\r\n"
+	+ "<!DOCTYPE html>"
+	+ "<html>"
+	+ "<head>"
+	+ "<script data-main=\"http://www.nolix.ch/Build/Launcher/main.js\" src=\"http://www.nolix.ch/Build/Launcher/require.js\"></script>"
+	+ "<title>Nolix</title>"
+	+ "<style>*{font-family: Calibri;}</style>"
+	+ "</head>"
+	+ "<h1>Nolix</h1>"
+	+ "</body>"
+	+ "</html>\r\n";
 	
 	//attribute
 	private ch.nolix.core.endPoint5.NetServer internalNetServer;
@@ -60,7 +76,7 @@ public final class NetServer extends Server {
 	public NetServer(final int port) {
 		
 		//Creates the internalNetServer of the current NetServer.
-		internalNetServer = new ch.nolix.core.endPoint5.NetServer(port);
+		internalNetServer = new ch.nolix.core.endPoint5.NetServer(port, HTTP_MESSAGE);
 				
 		internalNetServer.addArbitraryDuplexControllerTaker(new NetServerSubDuplexControllerTaker(this));
 		
