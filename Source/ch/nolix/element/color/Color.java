@@ -1024,7 +1024,7 @@ public class Color extends Element<Color> {
 	 */
 	@Override
 	public List<DocumentNode> getAttributes() {
-		return new List<DocumentNode>(new DocumentNode(getStringValue()));
+		return new List<DocumentNode>(DocumentNode.createFromString(getStringValue()));
 	}
 	
 	//method

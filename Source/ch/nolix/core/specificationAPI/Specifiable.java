@@ -71,7 +71,7 @@ extends Resettable<S>, Specified {
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	public default void addOrChangeAttribute(final String attribute) {
-		addOrChangeAttribute(new DocumentNode(attribute));
+		addOrChangeAttribute(DocumentNode.createFromString(attribute));
 	}
 	
 	//default method
@@ -128,7 +128,7 @@ extends Resettable<S>, Specified {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public default S reset(final String specification) {
-		return reset(new DocumentNode(specification));
+		return reset(DocumentNode.createFromString(specification));
 	}
 	
 	//default method

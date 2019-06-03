@@ -91,7 +91,7 @@ implements Freezable<C>, OptionalNamable<C> {
 		//Checks if this configuration is not frozen.
 		supposeNotFrozen();
 		
-		return addAttachingAttribute(new DocumentNode(attachingAttribute));
+		return addAttachingAttribute(DocumentNode.createFromString(attachingAttribute));
 	}
 	
 	//method
@@ -307,7 +307,7 @@ implements Freezable<C>, OptionalNamable<C> {
 		//Handles the case that this configuration contains selector roles.		
 		if (containsSelectorRoles()) {
 			
-			final var specification = new DocumentNode(SELECTOR_ROLE_HEADER);
+			final var specification = DocumentNode.createFromString(SELECTOR_ROLE_HEADER);
 			getSelectorRoles().forEach(sr -> specification.addAttribute(sr));
 			
 			attributes.addAtEnd(specification);

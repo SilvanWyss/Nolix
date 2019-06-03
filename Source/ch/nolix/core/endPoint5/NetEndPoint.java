@@ -121,7 +121,7 @@ public class NetEndPoint extends EndPoint {
 		final String message = Protocol.DATA_REQUEST + '(' + request.toString() + ')';
 		
 		//Sends message and gets reply.
-		final DocumentNode reply = new DocumentNode(netEndPoint.sendAndGetReply(message));
+		final DocumentNode reply = DocumentNode.createFromString(netEndPoint.sendAndGetReply(message));
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
@@ -199,7 +199,7 @@ public class NetEndPoint extends EndPoint {
 		final String message = Protocol.COMMANDS + '(' + commands.toString() + ')';
 				
 		//Sends the message and gets reply.
-		final DocumentNode reply = new DocumentNode(netEndPoint.sendAndGetReply(message));
+		final DocumentNode reply = DocumentNode.createFromString(netEndPoint.sendAndGetReply(message));
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
@@ -222,7 +222,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	final String receiveAndGetReply(final String message) {
 		try {
-			return receiveAndGetReply(new DocumentNode(message));
+			return receiveAndGetReply(DocumentNode.createFromString(message));
 		}
 		catch (final Exception exception) {
 			return (Protocol.ERROR + '(' + exception.getMessage() + ')');

@@ -56,7 +56,7 @@ implements Clearable<MultiProperty<V>> {
 	
 	//method
 	public List<DocumentNode> getAttributes0() {
-		return getValues().to(v -> new DocumentNode(v.toString()));
+		return getValues().to(v -> DocumentNode.createFromString(v.toString()));
 	}
 	
 	//method

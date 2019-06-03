@@ -397,7 +397,7 @@ implements Recalculable {
 		
 		//Handles the case that the current widget does not grey out when it is disabled.
 		if (!greysOutWhenDisabled()) {
-			attributes.addAtEnd(new DocumentNode(NO_GREY_OUT_WHEN_DISABLED_HEADER));
+			attributes.addAtEnd(DocumentNode.createFromString(NO_GREY_OUT_WHEN_DISABLED_HEADER));
 		}
 	
 		//Extracts the normal state attributes of the current widget.

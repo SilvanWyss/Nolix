@@ -76,12 +76,12 @@ public final class Boolean extends Element<Boolean> {
 		
 		//Handles the case that this boolean is false.
 		if (isFalse()) {
-			attributes.addAtEnd(new DocumentNode(FALSE_HEADER));
+			attributes.addAtEnd(DocumentNode.createFromString(FALSE_HEADER));
 		}
 		
 		//Handles the case that this boolean ist true.
 		else {
-			attributes.addAtEnd(new DocumentNode(TRUE_HEADER));
+			attributes.addAtEnd(DocumentNode.createFromString(TRUE_HEADER));
 		}
 
 		return attributes;

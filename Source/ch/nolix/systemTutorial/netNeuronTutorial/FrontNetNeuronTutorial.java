@@ -34,7 +34,7 @@ public final class FrontNetNeuronTutorial {
 		
 		//Creates a back net neuron.
 		final var netBackNeuron =
-		new BackNetNeuron<String>(port, s -> new DocumentNode(s));
+		new BackNetNeuron<String>(port, s -> DocumentNode.createFromString(s));
 		
 		//Creates and adds an input neuron to the back net neuron.
 		netBackNeuron.addInputNeuron(new SourceNeuron<String>("Hello_World!"));

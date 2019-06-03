@@ -51,7 +51,7 @@ public class Integer extends Element<Integer> {
 	public final List<DocumentNode> getAttributes() {
 		return
 		new List<DocumentNode>(
-			new DocumentNode(java.lang.Integer.toString(getValue()))
+				DocumentNode.createFromString(java.lang.Integer.toString(getValue()))
 		);
 	}
 	

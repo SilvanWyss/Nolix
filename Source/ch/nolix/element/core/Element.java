@@ -63,9 +63,9 @@ public abstract class Element<E extends Element<E>> extends Entity<E> {
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
 			case TYPE_REQUEST:
-				return new DocumentNode(getType());
+				return DocumentNode.createFromString(getType());
 			case TYPES_REQUEST:
-				return new DocumentNode(getTypes().toString());
+				return DocumentNode.createFromString(getTypes().toString());
 			default:
 				throw new InvalidArgumentException(VariableNameCatalogue.REQUEST, request, "is not valid");
 		}

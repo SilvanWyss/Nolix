@@ -140,7 +140,7 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 	//method
 	private void addEntitySetToDatabase(final EntitySet entitySet) {
 		
-		final var entitySetSpecification = new DocumentNode("EntitySet");
+		final var entitySetSpecification = DocumentNode.createFromString("EntitySet");
 		
 		entitySetSpecification.addAttribute(
 			new DocumentNode(
@@ -154,7 +154,7 @@ extends DatabaseSchemaAdapter<DocumentNodeDatabaseSchemaAdapter> {
 		}
 		
 		entitySetSpecification
-		.addAttribute(new DocumentNode(MultiPascalCaseNameCatalogue.ENTITIES));
+		.addAttribute(DocumentNode.createFromString(MultiPascalCaseNameCatalogue.ENTITIES));
 		
 		documentNodeDatabase.addAttribute(entitySetSpecification);
 	}

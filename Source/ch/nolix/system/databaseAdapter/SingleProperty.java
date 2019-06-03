@@ -30,7 +30,7 @@ extends DataPropertyoid<V> {
 		
 		if (hasValue()) {
 			attributes.addAtEnd(
-				new DocumentNode(
+				DocumentNode.createFromString(
 					getValue().toString()
 				)
 			);

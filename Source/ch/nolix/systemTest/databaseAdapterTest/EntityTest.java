@@ -23,7 +23,7 @@ public final class EntityTest extends Test {
 		//verification
 		expect(specification)
 		.isEqualTo(
-			new DocumentNode(
+			DocumentNode.createFromString(
 				"Cat(Name(Garfield),WeightInGram(20000))"
 			)
 		);

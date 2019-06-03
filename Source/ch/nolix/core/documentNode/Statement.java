@@ -105,14 +105,14 @@ public final class Statement implements Headered {
 					break;
 				case CharacterCatalogue.DOT:
 					if (openBrackets == 0) {
-						documentNode = new DocumentNode(string.substring(0, i));
+						documentNode = DocumentNode.createFromString(string.substring(0, i));
 						nextStatement = new Statement(string.substring(i + 1, string.length()));
 						return;
 					}
 			}
 		}
 		
-		documentNode = new DocumentNode(string);
+		documentNode = DocumentNode.createFromString(string);
 		nextStatement = null;
 	}
 	

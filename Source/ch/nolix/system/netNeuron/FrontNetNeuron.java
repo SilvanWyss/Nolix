@@ -148,7 +148,7 @@ implements Closable {
 	 */
 	void setOutput(final String output) {
 		internal_setOutput(
-			transformator.getOutput(new DocumentNode(output))
+			transformator.getOutput(DocumentNode.createFromString(output))
 		);
 	}
 }

@@ -28,7 +28,7 @@ public final class UniDirectionTest extends Test {
 			expect(attributes.getSize()).isEqualTo(1);
 			
 			expect(attributes.getRefOne())
-			.isEqualTo(new DocumentNode("Horizontal"));
+			.isEqualTo(DocumentNode.createFromString("Horizontal"));
 	}
 
 	//test case
@@ -36,7 +36,7 @@ public final class UniDirectionTest extends Test {
 		
 		//execution & verification
 		expect(UniDirection.Horizontal.getSpecification())
-		.isEqualTo(new DocumentNode("UniDirection(Horizontal)"));
+		.isEqualTo(DocumentNode.createFromString("UniDirection(Horizontal)"));
 	}
 	
 	//test case

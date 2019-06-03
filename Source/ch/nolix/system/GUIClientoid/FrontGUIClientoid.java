@@ -129,21 +129,21 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	//package-visible method
 	String readFileFromCounterpart(final IContainer<Integer> indexPathOnRootGUI) {
 		return
-		internal_getDataFromCounterpart(
-			Protocol.READ_FILE_HEADER
-			+ "("
-			+ indexPathOnRootGUI.toString(CharacterCatalogue.DOT)
-			+ ")"
-		)
-		.toString();
+		DocumentNodeoid.createOriginStringFromReproducingString(
+			internal_getDataFromCounterpart(
+				Protocol.READ_FILE_HEADER
+				+ "("
+				+ indexPathOnRootGUI.toString(CharacterCatalogue.DOT)
+				+ ")"
+			)
+			.toString()
+		);
 	}
 	
 	//package-visible method
 	byte[] readFileToBytesFromCounterpart(final IContainer<Integer> indexPathOnRootGUI) {
 		return readFileFromCounterpart(indexPathOnRootGUI).getBytes();
 	}
-	
-
 	
 	//method
 	/**

@@ -40,11 +40,25 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	
 	//static method
 	/**
+	 * @param string
+	 * @return a new {@link DocumentNode} from the given string.
+	 * @throws InvalidArgumentException if the given string does not represent a {@link DocumentNode}.
+	 */
+	public static DocumentNode createFromString(final String string) {
+		
+		final var documentNode = new DocumentNode();
+		documentNode.reset(string);
+		
+		return documentNode;
+	}
+	
+	//static method
+	/**
 	 * @param header
 	 * @return a new {@link DocumentNode} with the given header.
 	 * @throws NullArgumentException if the given header is null.
 	 */
-	public static final DocumentNode createWithHeader(final String header) {
+	public static DocumentNode createWithHeader(final String header) {
 		
 		final var documentNode = new DocumentNode();
 		documentNode.setHeader(header);
@@ -58,7 +72,7 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	 * @return a new {@link DocumentNode} with the given attribute.
 	 * @throws NullArgumentException if the given attribute is null.
 	 */
-	public static final DocumentNode createWithOneAttribute(final DocumentNodeoid attribute) {
+	public static DocumentNode createWithOneAttribute(final DocumentNodeoid attribute) {
 		
 		final var documentNode = new DocumentNode();
 		documentNode.addAttribute(attribute);
@@ -120,17 +134,6 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	 */
 	public DocumentNode(final long header) {
 		setHeader(String.valueOf(header));
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link DocumentNode} the given string represents.
-	 * 
-	 * @param string
-	 * @throws InvalidArgumentException if the given string does not represent a standard specification.
-	 */
-	public DocumentNode(final String string) {
-		reset(string);
 	}
 	
 	//constructor
@@ -240,7 +243,7 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	 * @param attribute
 	 * @throws NullArgumentException if the given attribute is null.
 	 */
-	public void addAttribute(DocumentNode attribute) {
+	public void addAttribute(final DocumentNode attribute) {
 		attributes.addAtEnd(attribute);
 	}
 	
@@ -251,8 +254,10 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	 * @param attribute
 	 * @throws Exception if the given attribute is not valid
 	 */
-	public void addAttribute(String attribute) {
-		addAttribute(new DocumentNode(attribute));
+	public void addAttribute(final String attribute) {
+		
+		//Calls other method
+		addAttribute(createFromString(attribute));
 	}
 	
 	//method
@@ -430,14 +435,9 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	public void setHeader(final String header) {
 		
 		//Checks if the given header is not null or empty.
-		Validator.suppose(header).thatIsNamed(header).isNotEmpty();
+		Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotEmpty();
 		
-		this.header =
-		header
-		.replace(DOT_CODE, ".")
-		.replace(COMMA_CODE, ",")
-		.replace(OPEN_BRACKET_CODE, "(")
-		.replace(CLOSED_BRACKET_CODE, ")");
+		this.header = header;
 	}
 	
 	//method

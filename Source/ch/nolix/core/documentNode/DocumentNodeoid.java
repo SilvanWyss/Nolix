@@ -48,20 +48,18 @@ public abstract class DocumentNodeoid implements Headered {
 	public static String createReproducingString(final String string) {
 		
 		//Checks if the given string is not null.
-		Validator
-		.suppose(string)
-		.isNotNull();
+		Validator.suppose(string).isNotNull();
 		
 		return
-		string
-		
-		//It is important that the dollar symbol is replaced at first.
-		.replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
-		
-		.replace(String.valueOf(CharacterCatalogue.DOT), DOT_CODE)
-		.replace(String.valueOf(CharacterCatalogue.COMMA), COMMA_CODE)
-		.replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
-		.replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
+			string
+			
+			//It is important that the dollar symbol is replaced at first.
+			.replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
+			
+			.replace(String.valueOf(CharacterCatalogue.DOT), DOT_CODE)
+			.replace(String.valueOf(CharacterCatalogue.COMMA), COMMA_CODE)
+			.replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
+			.replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
 	}
 	
 	//static method
@@ -78,14 +76,15 @@ public abstract class DocumentNodeoid implements Headered {
 		.thatIsNamed("reproducing string")
 		.isNotNull();
 		
-		return		
-		reproducingString		
-		.replace(COMMA_CODE, String.valueOf(CharacterCatalogue.COMMA))
-		.replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalogue.OPEN_BRACKET))
-		.replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
-		
-		//It is important that the dollar symbol code is replaced at last.
-		.replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
+		return
+			reproducingString
+			.replace(DOT_CODE, String.valueOf(CharacterCatalogue.DOT))
+			.replace(COMMA_CODE, String.valueOf(CharacterCatalogue.COMMA))
+			.replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalogue.OPEN_BRACKET))
+			.replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
+			
+			//It is important that the dollar symbol code is replaced at last.
+			.replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
 	}
 	
 	//abstract method
@@ -469,7 +468,7 @@ public abstract class DocumentNodeoid implements Headered {
 	 * Resets the current {@link DocumentNodeoid} from the given string.
 	 * 
 	 * @param string
-	 * @throws InvalidValueException if the given string is not valid.
+	 * @throws InvalidArgumentException if the given string is not valid.
 	 */
 	public void reset(final String string) {
 		
@@ -655,25 +654,25 @@ public abstract class DocumentNodeoid implements Headered {
 
             index++;
         }
-
+        
         if (index > startIndex) {
-            this.setHeader(substring.substring(startIndex, index));
+            this.setHeader(createOriginStringFromReproducingString(substring.substring(startIndex, index)));
         }
-
+        
         if (index == substring.length()) {
             return (index - 1);
         }
-
+        
         if (endIndex != -1) {
             return endIndex;
         }              
-
+        
         if (index < substring.length()) {
             var documentNode = new DocumentNode();
             index = documentNode.setAndGetEndIndex(substring, index + 1) + 1;
             this.addAttribute(documentNode);
         }
-
+        
         while (index < substring.length()) {
             switch (substring.charAt(index)) {
                 case ',':

@@ -33,7 +33,7 @@ implements Headered, Specified {
 	public final List<DocumentNode> getAttributes() {
 		return
 		internal_getValues()
-		.to(v -> new DocumentNode(v.toString()));
+		.to(v -> DocumentNode.createFromString(v.toString()));
 	}
 	
 	//method

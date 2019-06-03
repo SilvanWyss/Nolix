@@ -160,7 +160,7 @@ public class Entity implements Identified2, Specified {
 		rowSpecification.addAttribute(new DocumentNode(getId()));
 		
 		for (final var p : getRefProperties()) {
-			rowSpecification.addAttribute(new DocumentNode(p.internal_getValues().toString()));
+			rowSpecification.addAttribute(DocumentNode.createFromString(p.internal_getValues().toString()));
 		}
 		
 		return rowSpecification;

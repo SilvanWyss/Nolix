@@ -25,7 +25,7 @@ public abstract class PropertyoidType<V> implements Specified {
 	public List<DocumentNode> getAttributes() {
 		return
 		new List<DocumentNode>(
-			new DocumentNode(
+			DocumentNode.createFromString(
 				getValueTypeName()
 			)
 		);

@@ -86,7 +86,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 	 * @throws ArgumentMissesAttributeException if the current back GUI client does not have a current session.
 	 */
 	public void runLocally(final String command) {
-		internal_invokeSessionUserRunMethod(new DocumentNode(command));
+		internal_invokeSessionUserRunMethod(DocumentNode.createFromString(command));
 		updateGUIOnCounterpart();
 	}
 	
@@ -143,7 +143,7 @@ public abstract class BackGUIClientoid<BGUIC extends BackGUIClientoid<BGUIC>> ex
 				);
 				
 				return
-				DocumentNode.createWithHeader(downloader.readFile());
+				DocumentNode.createWithHeader(DocumentNodeoid.createReproducingString(downloader.readFile()));
 			default:
 				
 				//Calls method of the base class.
