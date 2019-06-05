@@ -272,4 +272,26 @@ public abstract class DocumentNodeoidTest extends ObjectTest<DocumentNodeoid> {
 		//verification
 		expect(documentNode.getHeader()).isEqualTo("Ipsum");
 	}
+	
+	//test case
+	public void testCase_toString() {
+		
+		//setup
+		final var documentNode = createTestObject();
+		documentNode.setHeader("Lorem(");
+		
+		//execution & verification
+		expect(documentNode.toString()).isEqualTo("Lorem$O");
+	}
+	
+	//test case
+	public void testCase_toString_2() {
+		
+		//setup
+		final var documentNode = createTestObject();
+		documentNode.setHeader("Lorem,");
+		
+		//execution & verification
+		expect(documentNode.toString()).isEqualTo("Lorem$M");
+	}
 }
