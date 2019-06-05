@@ -101,6 +101,8 @@ public final class VariableNameCatalogue {
 	public static final String PERCENTAGE = "percentage";
 	public static final String PERMISSION = "permission";
 	public static final String PORT = "port";
+	public static final String POSTFIX = "postfix";
+	public static final String PREFIX = "prefix";
 	public static final String PRICE = "price";
 	public static final String RADIUS = "radius";
 	public static final String REASON = "reason";
