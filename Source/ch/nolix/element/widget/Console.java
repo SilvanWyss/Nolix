@@ -163,7 +163,7 @@ implements Clearable<Console> {
 		
 		//Handles the case that this console contains one or several lines.
 		if (containsAny()) {
-			attributes.addAtEnd(new DocumentNode(LINES_HEADER, lines));
+			attributes.addAtEnd(new DocumentNode(LINES_HEADER, lines.to(l -> DocumentNode.createWithHeader(l))));
 		}
 		
 		return attributes;

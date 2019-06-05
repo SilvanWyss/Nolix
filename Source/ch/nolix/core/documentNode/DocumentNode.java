@@ -19,7 +19,7 @@ import ch.nolix.core.container.List;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 470
+ * @lines 440
  */
 public final class DocumentNode extends DocumentNodeoid implements ISmartObject<DocumentNode> {
 	
@@ -138,6 +138,54 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	
 	//constructor
 	/**
+	 * Creates a new {@link DocumentNode} with the given header.
+	 * 
+	 * @param header
+	 * @throws NullArgumentException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	public DocumentNode(final String header) {
+		setHeader(header);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link DocumentNode} with the given header and attributes.
+	 * 
+	 * @param header
+	 * @param attributes
+	 * @throws NullArgumentException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws NullArgumentException if one of the given attributes is null.
+	 */
+	public DocumentNode(final String header, final DocumentNode... attributes) {
+		
+		//Calls other constructor.
+		this(header);
+		
+		addAttribute(attributes);
+	}
+
+	//constructor
+	/**
+	 * Creates a new specification with the given header and attributes.
+	 * 
+	 * @param header
+	 * @param attributes
+	 * @throws NullArgumentException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws NullArgumentException if one of the given attributes is null.
+	 */
+	public DocumentNode(final String header, final Iterable<DocumentNode> attributes) {
+		
+		//Calls other constructor.
+		this(header);
+		
+		resetAttributes(attributes);
+	}
+
+	//constructor
+	/**
 	 * Creates a new {@link DocumentNode} with the given header and attribute.
 	 * 
 	 * @param header
@@ -153,76 +201,23 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	
 	//constructor
 	/**
-	 * Creates a new specification with the given header and attributes.
-	 * 
-	 * @param header
-	 * @param attributes
-	 * @throws NullArgumentException if the given header is null.
-	 * @throws EmptyArgumentException if the given header is empty.
-	 * @throws NullArgumentException if one of the given attributes is null.
-	 */
-	public DocumentNode(final String header, final Iterable<DocumentNode> attributes) {
-		setHeader(header);
-		setAttributes(attributes);
-	}
-	
-	//constructor
-	/**
 	 * Creates a new {@link DocumentNode} with the given header and attributes.
 	 * 
 	 * @param header
 	 * @param attributes
 	 * @throws NullArgumentException if the given header is null.
-	 * @throws EmptyArgumentException if the given header is empty.
-	 * @throws NullArgumentException if one of the given attributes is null.
-	 */
-	public DocumentNode(final String header, final List<String> attributes) {
-		
-		//Sets the header of the current {@link StandardSpecification}.
-		setHeader(header);
-		
-		//Iterates the given attributes.
-		for (final String a : attributes) {
-			
-			//Adds the current attribute to the current {@link StandardSpecification}.
-			addAttribute(createWithHeader(a));
-		}
-	}
-	
-	//constructor
-	/**
-	 * Creates a new standard specificatio nwith the given header and attributes.
-	 * 
-	 * @param header
-	 * @param attributes
-	 * @throws NullArgumentException if the given header is null.
-	 * @throws EmptyArgumentException if the given header is empty.
-	 * @throws NullArgumentException if one of the given attributes is null.
-	 */
-	public DocumentNode(final String header, final DocumentNode... attributes) {
-		setHeader(header);
-		addAttribute(attributes);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link DocumentNode} with the given header and attributes.
-	 * 
-	 * @param header
-	 * @param attributes
-	 * @throws NullArgumentException if the given header is null.
-	 * @throws EmptyArgumentException if the given header is empty.
+	 * @throws InvalidArgumentException if the given header is blank.
 	 * @throws NullArgumentException if one of the given attributes is null.
 	 */
 	public DocumentNode(final String header, final String... attributes) {
 		
-		//Sets the header of the current {@link StandardSpecification}.
-		setHeader(header);
+		//Calls other constructor.
+		this(header);
 		
 		//Iterates the given attributes.
 		for (final String a : attributes) {
 			
-			//Adds the current attribute to the current {@link StandardSpecification}.
+			//Adds the current attribute to the current DocumentNode.
 			addAttribute(createWithHeader(a));
 		}
 	}
@@ -267,19 +262,19 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	 * 
 	 * @param prefix
 	 * @throws NullArgumentException if the given prefix is null.
-	 * @throws EmptyArgumentException if the given prefix is empty.
+	 * @throws InvalidArgumentException if the given prefix is blank.
 	 */
 	public void addPrefixToHeader(final String prefix) {
 		
-		//Checks if the given prefix is not null or empty.
-		Validator.suppose(prefix).thatIsNamed("prefix").isNotEmpty();
+		//Checks if the given prefix is not null or blank.
+		Validator.suppose(prefix).thatIsNamed(VariableNameCatalogue.PREFIX).isNotBlank();
 		
-		//Handles the case that the current {@link StandardSpecification} does not have a header.
+		//Handles the case that the current DocumentNode does not have a header.
 		if (!hasHeader()) {
 			setHeader(prefix);
 		}
 		
-		//Handles the case that the current {@link StandardSpecification} has a header.
+		//Handles the case that the current DocumentNode has a header.
 		else {
 			setHeader(prefix + getHeader());
 		}
@@ -292,19 +287,19 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	 * 
 	 * @param postfix
 	 * @throws NullArgumentException if the given postfix is null.
-	 * @throws EmptyArgumentException if the given postfix is empty.
+	 * @throws InvalidArgumentArgumentException if the given postfix is blank.
 	 */
-	public void addPostfixToHeader(String postfix) {
+	public void addPostfixToHeader(final String postfix) {
 		
-		//Checks if the given postfix is not null or empty.
-		Validator.suppose(postfix).thatIsNamed("postfix").isNotEmpty();
+		//Checks if the given postfix is not null or blank.
+		Validator.suppose(postfix).thatIsNamed(VariableNameCatalogue.POSTFIX).isNotBlank();
 		
-		//Handles the case that the current {@link StandardSpecification} does not have a header.
+		//Handles the case that the current DocumentNode does not have a header.
 		if (hasHeader()) {
 			setHeader(postfix);
 		}
 		
-		//Handles the case that the current {@link StandardSpecification} has a header.
+		//Handles the case that the current DocumentNode has a header.
 		else {
 			setHeader(getHeader() + postfix);
 		}
@@ -326,8 +321,10 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	@Override
 	public String getHeader() {
 		
-		//Checks if the current {@link StandardSpecification} has a header.
-		supposeHasHeader();
+		//Checks if the current DocumentNode has a header.
+		if (!hasHeader()) {
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.HEADER);
+		}
 		
 		return header;
 	}
@@ -342,6 +339,16 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 		return new ReadContainer<DocumentNode>(attributes);
 	}
 	
+	//method
+	/**
+	 * @param header
+	 * @return the attributes of the first attribute with the given header
+	 * @throws Exception if the current {@link DocumentNode} does not contain an attribute with the given header
+	 */
+	public IContainer<DocumentNode> getRefAttributesOfFirstAttribute(String header) {
+		return attributes.getRefFirst(a -> a.hasHeader(header)).getRefAttributes();
+	}
+
 	//method
 	/**
 	 * @return the one attribute of the current {@link DocumentNode}
@@ -378,16 +385,6 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	
 	//method
 	/**
-	 * @param header
-	 * @return the attributes of the first attribute with the given header
-	 * @throws Exception if the current {@link DocumentNode} does not contain an attribute with the given header
-	 */
-	public IContainer<DocumentNode> getRefAttributesOfFirstAttribute(String header) {
-		return attributes.getRefFirst(a -> a.hasHeader(header)).getRefAttributes();
-	}
-	
-	//method
-	/**
 	 * @return true if the current {@link DocumentNode} has a header
 	 */
 	@Override
@@ -395,6 +392,15 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 		return (header != null);
 	}
 	
+	//method
+	/**
+	 * Removes the attributes of the current {@link DocumentNode}.
+	 */
+	@Override
+	public void removeAttributes() {
+		attributes.clear();
+	}
+
 	//method
 	/**
 	 * Removes the first attribute the given selector selects from the current {@link DocumentNode}.
@@ -410,47 +416,6 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	
 	//method
 	/**
-	 * Sets the attributes of the current {@link DocumentNode}.
-	 * 
-	 * @param attributes
-	 * @throws NullArgumentException if the given attribute container is null.
-	 * @throws NullArgumentException if one of the given attributes is null.
-	 */
-	public void setAttributes(final Iterable<DocumentNode> attributes) {
-		
-		this.attributes.clear();
-		
-		this.attributes.addAtEnd(attributes);
-	}
-	
-	//method
-	/**
-	 * Sets the header of the current {@link DocumentNode}.
-	 * 
-	 * @param header
-	 * @throws NullArgumentException if the given header is null.
-	 * @throws EmptyArgumentException if the given header is empty.
-	 */
-	@Override
-	public void setHeader(final String header) {
-		
-		//Checks if the given header is not null or empty.
-		Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotEmpty();
-		
-		this.header = header;
-	}
-	
-	//method
-	/**
-	 * Removes the attributes of the current {@link DocumentNode}.
-	 */
-	@Override
-	public void removeAttributes() {
-		attributes.clear();
-	}
-
-	//method
-	/**
 	 * Removes the header of the current {@link DocumentNode}.
 	 */
 	@Override
@@ -460,13 +425,19 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException if the current {@link DocumentNode} does not have a header.
+	 * Sets the header of the current {@link DocumentNode}.
+	 * 
+	 * @param header
+	 * @throws NullArgumentException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	private void supposeHasHeader() {
+	@Override
+	public void setHeader(final String header) {
 		
-		//Checks if the current standard specification has a header.
-		if (!hasHeader()) {
-			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.HEADER);
-		}
+		//Checks if the given header is not null or blank.
+		Validator.suppose(header).thatIsNamed(VariableNameCatalogue.HEADER).isNotBlank();
+		
+		//Sets the header of the current DocumentNode.
+		this.header = header;
 	}
 }
