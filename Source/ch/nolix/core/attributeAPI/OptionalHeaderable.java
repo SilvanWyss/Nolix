@@ -3,16 +3,14 @@ package ch.nolix.core.attributeAPI;
 
 //interface
 /**
- * A {@link OptionalHeaderable} is a {@link Headerable}
- * whose header can be removed programmatically.
+ * A {@link OptionalHeaderable} is a {@link Headerable} whose header can be removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2019-02
  * @lines 60
- * @param <OH> The type of a {@link OptionalHeaderable} object.
+ * @param <OH> The type of a {@link OptionalHeaderable}.
  */
-public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>>
-extends Headerable<OH>{
+public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> extends Headerable<OH>{
 	
 	//abstract method
 	/**
@@ -23,7 +21,7 @@ extends Headerable<OH>{
 	//default method
 	/**
 	 * @param header
-	 * @return true if current {@link OptionalHeaderable} has the given header.
+	 * @return true if the current {@link OptionalHeaderable} has the given header.
 	 */
 	@Override
 	public default boolean hasHeader(final String header) {
@@ -40,17 +38,21 @@ extends Headerable<OH>{
 	//default method
 	/**
 	 * @param object
-	 * @return true if current {@link OptionalHeaderable}
-	 * has the same header as the given object.
+	 * @return true if current {@link OptionalHeaderable} has the same header as the given object.
 	 */
 	public default boolean hasSameHeaderAs(final OptionalHeaderable<?> object) {
+		
+		//Handles the case that the given object is null.
+		if (object == null) {
+			return false;
+		}
 		
 		//Handles the case that the given object does not have a header.
 		if (!object.hasHeader()) {
 			return false;
 		}
 		
-		//Handles the case that the given object has a header.
+		//Calls other method.
 		return hasHeader(object.getHeader());
 	}
 	
