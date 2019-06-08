@@ -3,8 +3,7 @@ package ch.nolix.core.attributeAPI;
 
 //interface
 /**
- * A {@link OptionalValueable} is a {@link Valueable}
- * whose value is optional.
+ * A {@link OptionalValueable} is a {@link Valueable} whose value can be removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2018-09
@@ -12,9 +11,8 @@ package ch.nolix.core.attributeAPI;
  * @param <OV> The type of a {@link OptionalValueable}.
  * @param <V> The type of the value of a {@link OptionalValueable}.
  */
-public interface OptionalValueable<OV extends OptionalValueable<OV, V>, V>
-extends Valueable<OV, V> {
-
+public interface OptionalValueable<OV extends OptionalValueable<OV, V>, V> extends Valueable<OV, V> {
+	
 	//abstract method
 	/**
 	 * @return true if the current {@link OptionalValueable} has a value.
@@ -24,36 +22,34 @@ extends Valueable<OV, V> {
 	//default method
 	/**
 	 * @param value
-	 * @return true if the current {@link OptionalValueable}
-	 * has a value that equals the given value.
+	 * @return true if the current {@link OptionalValueable} has a value that equals the given value.
 	 */
 	@Override
 	public default boolean hasEqualValue(final Object value) {
 		
-		//Handles the case that the current optional valueable does not have a value.
+		//Handles the case that the current OptionalValueable does not have a value.
 		if (!hasValue()) {
 			return false;
 		}
 		
-		//Handles the case that the current optional valueable has a value.
+		//Handles the case that the current OptionalValueable has a value.
 		return getValue().equals(value);
 	}
 	
 	//default method
 	/**
 	 * @param value
-	 * @return true
-	 * if the current {@link OptionalValueable} has the given value.
+	 * @return true if the current {@link OptionalValueable} has the given value.
 	 */
 	@Override
 	public default boolean hasValue(final Object value) {
 		
-		//Handles the case that the current optional valueable does not have a value.
+		//Handles the case that the current OptionalValueable does not have a value.
 		if (!hasValue()) {
 			return false;
 		}
 		
-		//Handles the case that the current optional valueable has a value.
+		//Handles the case that the current OptionalValueable has a value.
 		return (getValue() == value);
 	}
 	
