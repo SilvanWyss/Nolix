@@ -7,7 +7,7 @@ package ch.nolix.core.attributeAPI;
  * 
  * @author Silvan Wyss
  * @month 2018-04
- * @lines 30
+ * @lines 60
  */
 public interface Identified {
 	
@@ -15,24 +15,53 @@ public interface Identified {
 	/**
 	 * @return the id of the current {@link Identified}.
 	 */
-	public abstract int getId();
+	public abstract long getId();
 	
 	//default method
 	/**
-	 * @param object
-	 * @return true if the current {@link Identified}
-	 * has the same id as the given object.
+	 * @return the id of the current {@link Identified} as {@link String}.
 	 */
-	public default boolean hasId(final Identified object) {
-		return hasId(object.getId());
+	public default String getIdAsString() {
+		return String.valueOf(getId());
 	}
 	
 	//default method
 	/**
-	 * @return true if the current {@link Identified}
-	 * has the given id.
+	 * @return the id of the current {@link Identified} as {@link String} in brackets.
+	 */
+	public default String getIdAsStringInBrackets() {
+		return ("(" + getIdAsString() + ")");
+	}
+	
+	//default method
+	/**
+	 * @return the id of the current {@link Identified} as {@link String} in quotes.
+	 */
+	public default String getIdAsStringInQuotes() {
+		return ("'" + getIdAsString() + "'");
+	}
+	
+	//default method
+	/**
+	 * @return true if the current {@link Identified} has the given id.
 	 */
 	public default boolean hasId(final long id) {
 		return (getId() == id);
+	}
+	
+	//default method
+	/**
+	 * @param object
+	 * @return true if the current {@link Identified} has the same id as the given object.
+	 */
+	public default boolean hasSameIdAs(final Identified object) {
+		
+		//Handles the case that the given object is null.
+		if (object == null) {
+			return false;
+		}
+		
+		//Handles the case that the given object is not null.
+		return hasId(object.getId());
 	}
 }

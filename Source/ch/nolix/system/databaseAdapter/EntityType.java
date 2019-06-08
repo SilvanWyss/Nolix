@@ -51,7 +51,7 @@ public final class EntityType<E extends Entity> implements Named {
 	}
 	
 	//method
-	public E createPersistedEntity(final int id, final Iterable<DocumentNodeoid> valuesInOrder) {
+	public E createPersistedEntity(final long id, final Iterable<DocumentNodeoid> valuesInOrder) {
 		
 		final var entity = createDefaultEntity();
 		entity.setId(id);

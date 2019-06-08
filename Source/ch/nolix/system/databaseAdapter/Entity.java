@@ -4,8 +4,8 @@ package ch.nolix.system.databaseAdapter;
 //Java import
 import java.lang.reflect.Field;
 
-import ch.nolix.core.attributeAPI.Identified2;
 //own imports
+import ch.nolix.core.attributeAPI.Identified;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
@@ -18,7 +18,7 @@ import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator.Validator;
 
 //class
-public class Entity implements Identified2, Specified {
+public class Entity implements Identified, Specified {
 	
 	//attribute
 	private EntityState state = EntityState.CREATED;
@@ -253,7 +253,7 @@ public class Entity implements Identified2, Specified {
 	}
 	
 	//method
-	public final void setId(final int id) {
+	public final void setId(final long id) {
 		
 		Validator
 		.suppose(id)
