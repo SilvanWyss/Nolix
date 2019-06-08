@@ -3,16 +3,14 @@ package ch.nolix.core.attributeAPI;
 
 //interface
 /**
- * A {@link Headerable} is a {@link Headered}
- * whose header can be set programmatically.
+ * A {@link Headerable} is a {@link Headered} whose header can be set programmatically.
  * 
  * @author Silvan Wyss
  * @month 2018-04
  * @lines 20
  * @param <H> The type of a {@link Headerable}.
  */
-public interface Headerable<H extends Headered>
-extends Headered {
+public interface Headerable<H extends Headered> extends Headered {
 	
 	//abstract method
 	/**
