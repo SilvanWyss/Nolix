@@ -3,24 +3,24 @@ package ch.nolix.core.attributeAPI;
 
 //interface
 /**
- * A signed object has an info string.
+ * A {@link Labeled} has an info string.
  * 
  * @author Silvan Wyss
  * @month 2016-12
  * @lines 20
  */
 public interface Labeled {
-
+	
 	//abstract method
 	/**
-	 * @return the info string of this signed object.
+	 * @return the info string of the current {@link Labeled}.
 	 */
 	public abstract String getInfoString();
 	
 	//default method
 	/**
 	 * @param infoString
-	 * @return true if this signed object has the given info string.
+	 * @return true if the current {@link Labeled} has the given info string.
 	 */
 	public default boolean hasInfoString(final String infoString) {
 		return getInfoString().equals(infoString);
