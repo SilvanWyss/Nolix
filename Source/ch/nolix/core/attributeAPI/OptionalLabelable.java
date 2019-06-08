@@ -3,16 +3,14 @@ package ch.nolix.core.attributeAPI;
 
 //interface
 /**
- * A {@link OptionalLabelable} is a {@link Labelable}
- * whose info string can be removed programmatically.
+ * A {@link OptionalLabelable} is a {@link Labelable} whose info string can be removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 40
  * @param <OL> The type of an {@link OptionalLabelable}.
  */
-public interface OptionalLabelable<OL extends OptionalLabelable<OL>>
-extends Labelable<OL> {
+public interface OptionalLabelable<OL extends OptionalLabelable<OL>> extends Labelable<OL> {
 	
 	//abstract method
 	/**
