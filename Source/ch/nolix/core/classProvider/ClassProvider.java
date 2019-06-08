@@ -54,12 +54,12 @@ public final class ClassProvider {
 	}
 	
 	//method
-	public <I, C extends I> void register(final Class<I> interface_, final Class<C> class_) {
-		register(interface_, class_, WriteMode.THROW_EXCEPTION_WHEN_EXISTS_ALREADY);
+	public <I, C extends I> RegistrationMediator register(final Class<I> interface_, final Class<C> class_) {
+		return register(interface_, class_, WriteMode.THROW_EXCEPTION_WHEN_EXISTS_ALREADY);
 	}
 	
 	//method
-	public <I, C extends I> void register(
+	public <I, C extends I> RegistrationMediator register(
 		final Class<I> interface_,
 		final Class<C> class_,
 		final WriteMode writeMode
@@ -96,5 +96,7 @@ public final class ClassProvider {
 				classes.putIfAbsent(interface_, class_);
 				break;
 		}
+		
+		return new RegistrationMediator(this);
 	}
 }

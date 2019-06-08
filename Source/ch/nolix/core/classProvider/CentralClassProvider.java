@@ -17,19 +17,13 @@ public final class CentralClassProvider {
 	}
 	
 	//static method
-	public static <I, C extends I> C create(
-		final Class<I> interface_,
-		final Object... arguments
-	) {
+	public static <I, C extends I> C create(final Class<I> interface_, final Object... arguments) {
 		return classProvider.create(interface_, arguments);
 	}
 	
 	//static method
-	public static <I, C extends I> RegistrationMediator register(final Class<I> interface_,	final Class<C> class_) {
-		
-		classProvider.register(interface_, class_);
-		
-		return new RegistrationMediator();
+	public static <I, C extends I> RegistrationMediator register(final Class<I> interface_,	final Class<C> class_) {		
+		return classProvider.register(interface_, class_);
 	}
 	
 	//static method
@@ -38,14 +32,11 @@ public final class CentralClassProvider {
 		final Class<C> class_,
 		final WriteMode writeMode
 	) {
-		
-		classProvider.register(interface_, class_, writeMode);
-		
-		return new RegistrationMediator();
+		return classProvider.register(interface_, class_, writeMode);
 	}
 	
 	//private constructor
 	private CentralClassProvider() { 
-		throw new UninstantiableClassException(CentralClassProvider.class);
+		throw new UninstantiableClassException(getClass());
 	}
 }
