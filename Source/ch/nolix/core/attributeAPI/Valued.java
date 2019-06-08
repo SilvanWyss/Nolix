@@ -3,7 +3,7 @@ package ch.nolix.core.attributeAPI;
 
 //interface
 /**
- * A {@link Valued} has a certain value.
+ * A {@link Valued} has a value.
  * 
  * @author Silvan Wyss
  * @month 2018-09
@@ -21,8 +21,7 @@ public interface Valued<VA extends Valued<VA, V>, V> {
 	
 	//default method
 	/**
-	 * @return a string representation of the value
-	 * of the current {@link Valued}.
+	 * @return a {@link String} representation of the current {@link Valued}.
 	 */
 	public default String getValueAsString() {
 		return getValue().toString();
@@ -31,8 +30,7 @@ public interface Valued<VA extends Valued<VA, V>, V> {
 	//default method
 	/**
 	 * @param value
-	 * @return true if the current {@link Valued}
-	 * has a value that equals the given value.
+	 * @return true if the current {@link Valued} has a value that equals the given value.
 	 */
 	public default boolean hasEqualValue(final Object value) {
 		return getValue().equals(value);
@@ -41,8 +39,7 @@ public interface Valued<VA extends Valued<VA, V>, V> {
 	//default method
 	/**
 	 * @param value
-	 * @return true
-	 * if the current {@link Valued} has the given value.
+	 * @return true if the current {@link Valued} has the given value.
 	 */
 	public default boolean hasValue(final Object value) {
 		return (getValue() == value);
