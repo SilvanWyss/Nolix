@@ -3,7 +3,7 @@ package ch.nolix.core.attributeAPI;
 
 //interface
 /**
- * A {@link Valueable} has a certain value.
+ * A {@link Valueable} is a {@link Valued} whose value can be set programmatically.
  * 
  * @author Silvan Wyss
  * @month 2018-09
@@ -11,8 +11,7 @@ package ch.nolix.core.attributeAPI;
  * @param <VA> The type of a {@link Valueable}.
  * @param <V> The type of the value of a {@link Valueable}.
  */
-public interface Valueable<VA extends Valueable<VA, V>, V>
-extends Valued<VA, V> {
+public interface Valueable<VA extends Valueable<VA, V>, V> extends Valued<VA, V> {
 	
 	//abstract method
 	/**
