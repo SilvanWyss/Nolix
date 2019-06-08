@@ -27,6 +27,6 @@ public interface IController {
 	 * @param command
 	 */
 	public default void run(final String command) {
-		run(new Statement(command));
+		run(Statement.fromString(command));
 	}
 }

@@ -26,6 +26,6 @@ public interface IDataProvider {
 	 * @return the data the given request requests from the current {@link IDataProvider}.
 	 */
 	public default DocumentNode getData(final String request) {
-		return getData(new Statement(request));
+		return getData(Statement.fromString(request));
 	}
 }

@@ -30,7 +30,7 @@ final class BrowserGUIPainterBottom {
 		final String command
 	) {
 		painterCommands.addAtEnd(
-			new Statement(
+			Statement.fromString(
 				Protocol.PAINTER_BY_INDEX_HEADER
 				+ '('
 				+ browserGUIPainter.getIndex()

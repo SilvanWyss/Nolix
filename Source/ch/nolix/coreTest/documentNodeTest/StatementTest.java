@@ -7,7 +7,7 @@ import ch.nolix.core.test.Test;
 
 //test class
 /**
- * This class is a test class for the statement class.
+ * A {@link StatementTest} is a test for {@link Statement}
  * 
  * @author Silvan Wyss
  * @month 2015-12
@@ -16,50 +16,54 @@ import ch.nolix.core.test.Test;
 public final class StatementTest extends Test {
 	
 	//test case
-	public void testCase_creation_1() {
+	public void testCase_fromString() {
 		
 		//execution
-		final Statement statement = new Statement();
+		final var statement = Statement.fromString("");
 		
 		//verification
 		expectNot(statement.hasHeader());
 		expectNot(statement.containsAttributes());
 		expectNot(statement.hasNextStatement());
+		expect(statement.toString()).isEqualTo("");
 	}
 
 	//test case
-	public void testCase_creation_2() {
+	public void testCase_fromString_2() {
 		
 		//execution
-		final Statement statement = new Statement("a");
+		final var statement =Statement.fromString("a");
 		
 		//verification
 		expect(statement.hasHeader());
 		expectNot(statement.containsAttributes());
 		expectNot(statement.hasNextStatement());
+		expect(statement.toString()).isEqualTo("a");
 	}
 	
 	//test case
-	public void testCase_creation_3() {
+	public void testCase_fromString_3() {
 		
 		//execution
-		final Statement statement = new Statement("a(b)");
+		final var statement = Statement.fromString("a(b)");
 		
 		//verification
 		expect(statement.hasHeader());
 		expect(statement.containsAttributes());
 		expectNot(statement.hasNextStatement());
+		expect(statement.toString()).isEqualTo("a(b)");
 	}
 	
 	//test case
-	public void testCase_creation_4() {
+	public void testCase_fromString_4() {
 		
 		//execution
-		final Statement statement = new Statement("a(b).c");
+		final var statement = Statement.fromString("a(b).c");
 		
 		//verification
 		expect(statement.hasHeader());
 		expect(statement.containsAttributes());
 		expect(statement.hasNextStatement());
+		expect(statement.toString()).isEqualTo("a(b).c");
 	}
 }

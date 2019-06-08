@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.core.documentNode;
 
-import ch.nolix.core.attributeAPI.Headered;
 //own imports
+import ch.nolix.core.attributeAPI.Headered;
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
@@ -17,9 +17,19 @@ import ch.nolix.core.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 270
+ * @lines 280
  */
 public final class Statement implements Headered {
+	
+	//static method
+	/**
+	 * @param string
+	 * @return a new {@link Statement} the given string represents.
+	 * @throws InvalidArgumentException if the given string is not valid.
+	 */
+	public static Statement fromString(final String string) {
+		return new Statement(string);
+	}
 	
 	//attribute
 	private final DocumentNode documentNode;
@@ -89,7 +99,7 @@ public final class Statement implements Headered {
 	 * @param string
 	 * @throws InvalidArgumentException if the given string is not valid.
 	 */
-	public Statement(final String string) {
+	private Statement(final String string) {
 		
 		//Iterates the given string.
 		var openBrackets = 0;

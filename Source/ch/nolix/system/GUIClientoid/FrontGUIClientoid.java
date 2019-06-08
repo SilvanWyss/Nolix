@@ -91,7 +91,7 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 				setPainterCommands(
 					command
 					.getRefAttributes()
-					.to(a -> new Statement(DocumentNode.createOriginStringFromReproducingString(a.toString())))
+					.to(a -> Statement.fromString(DocumentNode.createOriginStringFromReproducingString(a.getHeader())))
 				);
 				break;
 			default:
