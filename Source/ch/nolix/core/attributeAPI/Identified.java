@@ -43,6 +43,7 @@ public interface Identified {
 	
 	//default method
 	/**
+	 * @param id
 	 * @return true if the current {@link Identified} has the given id.
 	 */
 	public default boolean hasId(final long id) {
