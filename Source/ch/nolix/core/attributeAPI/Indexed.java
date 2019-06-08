@@ -7,7 +7,7 @@ package ch.nolix.core.attributeAPI;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 20
+ * @lines 60
  */
 public interface Indexed {
 	
