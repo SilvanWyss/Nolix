@@ -47,7 +47,7 @@ public interface Tokened {
 	 * @param object
 	 * @return true if the current {@link Tokened} has the same token as the given object.
 	 */
-	public default boolean hasSameHeaderAs(final Tokened object) {
+	public default boolean hasSameTokenAs(final Tokened object) {
 		
 		//Handles the case that the given object is null.
 		if (object == null) {
