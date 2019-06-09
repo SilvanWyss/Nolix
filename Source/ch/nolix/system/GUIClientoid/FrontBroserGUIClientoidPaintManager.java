@@ -4,9 +4,9 @@ package ch.nolix.system.GUIClientoid;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.statement.Statement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.image.Image;

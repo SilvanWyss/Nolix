@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.controllerAPI;
 
-//own import
-import ch.nolix.core.documentNode.Statement;
+import ch.nolix.core.statement.Statement;
 
 //interface
 /**

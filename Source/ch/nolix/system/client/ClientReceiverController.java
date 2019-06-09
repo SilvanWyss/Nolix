@@ -4,7 +4,7 @@ package ch.nolix.system.client;
 //own imports
 import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.Statement;
+import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 
 //package-visible class

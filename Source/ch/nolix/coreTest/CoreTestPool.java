@@ -10,6 +10,7 @@ import ch.nolix.coreTest.helperTest.HelperTestPool;
 import ch.nolix.coreTest.licenseTest.LicenseTestPool;
 import ch.nolix.coreTest.mathTest.MathematicsTestPool;
 import ch.nolix.coreTest.sequencerTest.SequencerTestPool;
+import ch.nolix.coreTest.statementTest.StatementTestPool;
 import ch.nolix.coreTest.utilTest.UtilTestPool;
 import ch.nolix.coreTest.validatorTest.ValidatorTestPool;
 import ch.nolix.systemTest.databaseAdapterTest.DatabaseAdapterTestPool;
@@ -30,6 +31,7 @@ public final class CoreTestPool extends TestPool {
 		addTestPool(
 			new ContainerTestPool(),
 			new DatabaseAdapterTestPool(),
+			new DocumentNodeTestPool(),
 			new ch.nolix.coreTest.endPointTest.EndPointTestPool(),
 			new ch.nolix.coreTest.endPoint2Test.EndPointTestPool(),
 			new ch.nolix.coreTest.endPoint3Test.EndPointTestPool(),
@@ -38,7 +40,7 @@ public final class CoreTestPool extends TestPool {
 			new LicenseTestPool(),
 			new MathematicsTestPool(),
 			new SequencerTestPool(),
-			new DocumentNodeTestPool(),
+			new StatementTestPool(),
 			new UtilTestPool(),
 			new ValidatorTestPool()
 		);

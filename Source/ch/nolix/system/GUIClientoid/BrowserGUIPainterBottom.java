@@ -3,7 +3,7 @@ package ch.nolix.system.GUIClientoid;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.documentNode.Statement;
+import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 
 //package-visible class

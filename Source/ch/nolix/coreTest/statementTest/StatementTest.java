@@ -1,13 +1,13 @@
 //package declaration
-package ch.nolix.coreTest.documentNodeTest;
+package ch.nolix.coreTest.statementTest;
 
 //own imports
-import ch.nolix.core.documentNode.Statement;
+import ch.nolix.core.statement.Statement;
 import ch.nolix.core.test.Test;
 
 //test class
 /**
- * A {@link StatementTest} is a test for {@link Statement}
+ * A {@link StatementTest} is a test for {@link Statement}.
  * 
  * @author Silvan Wyss
  * @month 2015-12

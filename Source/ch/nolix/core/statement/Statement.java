@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.documentNode;
+package ch.nolix.core.statement;
 
 //own imports
 import ch.nolix.core.attributeAPI.Headered;
@@ -7,6 +7,7 @@ import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator.Validator;
 

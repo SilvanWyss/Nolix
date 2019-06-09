@@ -3,7 +3,7 @@ package ch.nolix.core.controllerAPI;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.Statement;
+import ch.nolix.core.statement.Statement;
 
 //interface
 /**

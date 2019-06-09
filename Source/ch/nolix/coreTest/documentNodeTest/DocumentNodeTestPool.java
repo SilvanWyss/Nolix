@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coreTest.documentNodeTest;
 
-//own imports
+//own import
 import ch.nolix.core.testoid.TestPool;
 
 //class
@@ -19,8 +19,7 @@ public class DocumentNodeTestPool extends TestPool {
 	public DocumentNodeTestPool() {
 		addTestClass(
 			DocumentNodeTest.class,
-			FileDocumentNodeTest.class,
-			StatementTest.class
+			FileDocumentNodeTest.class
 		);
 	}
 }

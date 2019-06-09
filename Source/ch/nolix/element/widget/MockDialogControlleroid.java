@@ -10,7 +10,7 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.core.controllerAPI.IController;
-import ch.nolix.core.documentNode.Statement;
+import ch.nolix.core.statement.Statement;
 
 //class
 final class MockDialogControlleroid implements IController {

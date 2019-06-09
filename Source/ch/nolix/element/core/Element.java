@@ -4,9 +4,9 @@ package ch.nolix.element.core;
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.documentNode.Statement;
 import ch.nolix.core.entity.Entity;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.statement.Statement;
 
 //abstract class
 /**
