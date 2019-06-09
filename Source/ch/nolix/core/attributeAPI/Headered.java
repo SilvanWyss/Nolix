@@ -7,7 +7,7 @@ package ch.nolix.core.attributeAPI;
  * 
  * @author Silvan Wyss
  * @month 2018-04
- * @lines 60
+ * @lines 50
  */
 public interface Headered {
 	
@@ -16,14 +16,6 @@ public interface Headered {
 	 * @return the header of the current {@link Headered}.
 	 */
 	public abstract String getHeader();
-	
-	//default method
-	/**
-	 * @return the header of the current {@link Headered} in brackets.
-	 */
-	public default String getHeaderInBrackets() {
-		return ("(" + getHeader() + ")");
-	}
 	
 	//default method
 	/**

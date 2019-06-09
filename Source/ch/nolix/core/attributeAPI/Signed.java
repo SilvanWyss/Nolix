@@ -20,7 +20,7 @@ package ch.nolix.core.attributeAPI;
  * 
  * @author Silvan Wyss
  * @month 2018-11
- * @lines 50
+ * @lines 40
  */
 public interface Signed {
 	
@@ -29,14 +29,6 @@ public interface Signed {
 	 * @return the signature of the current {@link Signed}.
 	 */
 	public abstract String getSignature();
-	
-	//default method
-	/**
-	 * @return the signature of the current {@link Signed} in brackets.
-	 */
-	public default String getSignatureInBrackets() {
-		return ("(" + getSignature() + ")");
-	}
 	
 	//default method
 	/**

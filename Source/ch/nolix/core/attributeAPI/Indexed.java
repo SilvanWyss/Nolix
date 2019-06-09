@@ -27,14 +27,6 @@ public interface Indexed {
 	
 	//default method
 	/**
-	 * @return the index of the current {@link Indexed} as {@link String} in brackets.
-	 */
-	public default String getIndexAsStringInBrackets() {
-		return ("(" + getIndexAsString() + ")");
-	}
-	
-	//default method
-	/**
 	 * @return the index of the current {@link Indexed} as {@link String} in quotes.
 	 */
 	public default String getIndexAsStringInQuotes() {

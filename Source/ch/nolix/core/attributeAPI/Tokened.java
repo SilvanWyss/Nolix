@@ -7,7 +7,7 @@ package ch.nolix.core.attributeAPI;
  * 
  * @author Silvan Wyss
  * @month 2016-12
- * @lines 60
+ * @lines 50
  */
 public interface Tokened {
 	
@@ -16,14 +16,6 @@ public interface Tokened {
 	 * @return the token of the current {@link Tokened}.
 	 */
 	public abstract String getToken();
-	
-	//default method
-	/**
-	 * @return the token of the current {@link Tokened} in brackets.
-	 */
-	public default String getTokenInBrackets() {
-		return ("(" + getToken() + ")");
-	}
 	
 	//default method
 	/**

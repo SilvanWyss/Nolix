@@ -7,7 +7,7 @@ package ch.nolix.core.attributeAPI;
  * 
  * @author Silvan Wyss
  * @month 2018-04
- * @lines 60
+ * @lines 40
  */
 public interface Identified {
 	
@@ -27,14 +27,6 @@ public interface Identified {
 	
 	//default method
 	/**
-	 * @return the id of the current {@link Identified} as {@link String} in brackets.
-	 */
-	public default String getIdAsStringInBrackets() {
-		return ("(" + getIdAsString() + ")");
-	}
-	
-	//default method
-	/**
 	 * @return the id of the current {@link Identified} as {@link String} in quotes.
 	 */
 	public default String getIdAsStringInQuotes() {
@@ -48,21 +40,5 @@ public interface Identified {
 	 */
 	public default boolean hasId(final long id) {
 		return (getId() == id);
-	}
-	
-	//default method
-	/**
-	 * @param object
-	 * @return true if the current {@link Identified} has the same id as the given object.
-	 */
-	public default boolean hasSameIdAs(final Identified object) {
-		
-		//Handles the case that the given object is null.
-		if (object == null) {
-			return false;
-		}
-		
-		//Handles the case that the given object is not null.
-		return hasId(object.getId());
 	}
 }

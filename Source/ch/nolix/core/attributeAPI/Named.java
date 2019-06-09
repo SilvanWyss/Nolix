@@ -7,7 +7,7 @@ package ch.nolix.core.attributeAPI;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 60
+ * @lines 50
  */
 public interface Named {
 	
@@ -16,14 +16,6 @@ public interface Named {
 	 * @return the name of the current {@link Named}.
 	 */
 	public abstract String getName();
-	
-	//default method
-	/**
-	 * @return the name of the current {@link Named} in brackets.
-	 */
-	public default String getNameInBrackets() {
-		return ("(" + getName() + ")");
-	}
 	
 	//default method
 	/**
