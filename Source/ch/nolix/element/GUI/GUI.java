@@ -341,12 +341,12 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		
 		//Handles the case that the current GUI has a background Color.
 		if (backGround.hasBackgroundColor()) {
-			attributes.addAtEnd(backGround.getBackgroundColor().getSpecification());
+			attributes.addAtEnd(backGround.getBackgroundColor().getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
 		}
 		
 		//Handles the case that the current GUI has a background ColorGradient.
 		if (backGround.hasBackgroundColorGradient()) {
-			attributes.addAtEnd(backGround.getBackgroundColorGradient().getSpecification());
+			attributes.addAtEnd(backGround.getBackgroundColorGradient().getSpecificationAs(GUILayer.BACKGROUND_COLOR_GRADIENT_HEADER));
 		}
 		
 		return attributes;
