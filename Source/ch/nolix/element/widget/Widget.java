@@ -513,7 +513,7 @@ implements Recalculable {
 	public final List<Integer> getIndexPathOnRootGUI() {
 		
 		//Handles the case that the GUI, the current widget belongs to, is not a root GUI.
-		if (!getParentGUI().isRootGUI()) {
+		if (getParentGUI().isRootGUI()) {
 			return new List<Integer>(getIndexOnGUI());
 		}
 		
