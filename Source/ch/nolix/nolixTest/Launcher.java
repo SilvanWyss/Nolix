@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.nolixTest;
 
-//own imports
+//own import
 import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 
 //class
