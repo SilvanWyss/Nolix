@@ -2,9 +2,7 @@
 package ch.nolix.nolixTest;
 
 //own imports
-import ch.nolix.core.fileSystem.FolderAccessor;
 import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
-import ch.nolix.core.math.Calculator;
 
 //class
 /**
@@ -12,7 +10,7 @@ import ch.nolix.core.math.Calculator;
  * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 80
+ * @lines 30
  */
 public final class Launcher {
 	
@@ -23,49 +21,7 @@ public final class Launcher {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
-		System.out.println("--- Nolix ---");
-		System.out.println();
-		
-		measureSizeOfNolixLibrary();
-		System.out.println();
-		
 		new NolixTestPool().run();
-	}
-	
-	//static method
-	private static void measureSizeOfNolixLibrary() {
-		
-		final var fileAccesssors =
-		new FolderAccessor().getParentFolderAccessor().getFolderAccessor("Source").getFileAccessorsRecursively();
-		
-		final var productiveClassCount =
-		Calculator.round(
-			fileAccesssors.getCount(
-				fa -> 
-				!fa.getName().endsWith("Test.java")
-				&& !fa.getName().endsWith("Launcher.java")
-				&& !fa.getName().endsWith("Tutorial.java")
-			)
-		)
-		.downToNext(10);
-		
-		System.out.println("productive classes: ca. " + productiveClassCount);
-		
-		final var testClassCount =
-		Calculator.round(fileAccesssors.getCount(fa -> fa.getName().endsWith("Test.java"))).downToNext(10);
-		
-		System.out.println("test classes: ca. " +  testClassCount);
-		
-		final var launcherClassCount =
-		Calculator.round(fileAccesssors.getCount(fa -> fa.getName().endsWith("Launcher.java"))).downToNext(10);
-		
-		System.out.println("launcher classes: ca. " + launcherClassCount);
-		
-		final var tutorialClassCount =
-		Calculator.round(fileAccesssors.getCount(fa -> fa.getName().endsWith("Tutorial.java"))).downToNext(10);
-		
-		System.out.println("tutorial classes: ca. " + tutorialClassCount);
 	}
 	
 	//private constructor
@@ -75,6 +31,6 @@ public final class Launcher {
 	 * @throws UninstantiableClassException
 	 */
 	private Launcher() {
-		throw new UninstantiableClassException(Launcher.class);
+		throw new UninstantiableClassException(getClass());
 	}
 }
