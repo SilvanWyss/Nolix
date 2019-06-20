@@ -4,14 +4,8 @@ package ch.nolix.element.widget;
 //own import
 import ch.nolix.element.GUI.GUI;
 
-//package-visibel class
+//package-visible class
 final class WidgetGUIInternalGUI extends GUI<WidgetGUIInternalGUI> {
-	
-	//method
-	@Override
-	public boolean isRootGUI() {
-		return false;
-	}
 	
 	//method
 	@Override
@@ -55,6 +49,12 @@ final class WidgetGUIInternalGUI extends GUI<WidgetGUIInternalGUI> {
 		return 0;
 	}
 	
+	//method
+	@Override
+	public boolean isRootGUI() {
+		return false;
+	}
+
 	//method
 	@Override
 	public void paint() {

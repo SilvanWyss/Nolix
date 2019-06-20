@@ -8,14 +8,16 @@ import ch.nolix.element.painter.IPainter;
 //class
 public final class WidgetGUI extends BorderWidget<WidgetGUI, WidgetGUILook> implements IGUI<WidgetGUI> {
 	
-	//attribute
-	private final WidgetGUIInternalGUI internalGUI = new WidgetGUIInternalGUI();
+	//attributes
+	private final Label titleLabel = new Label();
+	private final WidgetGUIInternalWidget GUIWidget = new WidgetGUIInternalWidget();
+	private final VerticalStack mainVerticalStack = new VerticalStack(titleLabel, GUIWidget);
 	
 	//method
 	@Override
 	public WidgetGUI addLayerOnTop(final IGUILayer<?> layer) {
 		
-		internalGUI.addLayerOnTop(layer);
+		GUIWidget.addLayerOnTopOfGUI(layer);
 		
 		return this;
 	}
@@ -24,7 +26,7 @@ public final class WidgetGUI extends BorderWidget<WidgetGUI, WidgetGUILook> impl
 	@Override
 	public WidgetGUI addLayerOnTop(final Widget<?, ?> rootWidget) {
 		
-		internalGUI.addLayerOnTop(rootWidget);
+		GUIWidget.addLayerOnTopOfGUI(rootWidget);
 		
 		return this;
 	}
@@ -33,7 +35,7 @@ public final class WidgetGUI extends BorderWidget<WidgetGUI, WidgetGUILook> impl
 	@Override
 	public WidgetGUI clear() {
 		
-		internalGUI.clear();
+		GUIWidget.clearGUI();
 		
 		return this;
 	}
@@ -41,7 +43,7 @@ public final class WidgetGUI extends BorderWidget<WidgetGUI, WidgetGUILook> impl
 	//method
 	@Override
 	public void close() throws Exception {
-		internalGUI.close();
+		GUIWidget.closeGUI();
 	}
 	
 	//method
@@ -59,21 +61,19 @@ public final class WidgetGUI extends BorderWidget<WidgetGUI, WidgetGUILook> impl
 	//method
 	@Override
 	public List<Widget<?, ?>> getRefWidgetsRecursively() {
-		return internalGUI.getRefWidgetsRecursively();
+		return GUIWidget.getRefWidgetsOfGUIRecursively();
 	}
 	
 	//method
 	@Override
 	public int getViewAreaHeight() {
-		//TODO
-		return 0;
+		return getContentAreaHeight();
 	}
 	
 	//method
 	@Override
 	public int getViewAreaWidth() {
-		//TODO
-		return 0;
+		return getContentAreaWidth();
 	}
 
 	//method
@@ -96,25 +96,19 @@ public final class WidgetGUI extends BorderWidget<WidgetGUI, WidgetGUILook> impl
 	//method
 	@Override
 	public boolean isClosed() {
-		return internalGUI.isClosed();
+		return GUIWidget.GUIIsClosed();
 	}
 	
 	//method
 	@Override
 	public boolean isEmpty() {
-		return internalGUI.isEmpty();
+		return GUIWidget.GUIIsEmpty();
 	}
 	
 	//method
 	@Override
 	public boolean isRootGUI() {
 		return false;
-	}
-		
-	//method
-	@Override
-	public void noteLeftMouseButtonPressOnViewArea() {
-		internalGUI.noteLeftMouseButtonPress();
 	}
 	
 	//method
@@ -125,11 +119,16 @@ public final class WidgetGUI extends BorderWidget<WidgetGUI, WidgetGUILook> impl
 	@Override
 	public WidgetGUI removeTopLayer() {
 		
-		internalGUI.removeTopLayer();
+		GUIWidget.removeTopLayerOfGUI();
 		
 		return this;
 	}
-
+	
+	@Override
+	public void recalculate() {
+		titleLabel.setText(GUIWidget.getTitleOfGUI());
+	}
+	
 	//method
 	@Override
 	protected void applyDefaultConfigurationWhenHasBeenReset() {
@@ -146,7 +145,9 @@ public final class WidgetGUI extends BorderWidget<WidgetGUI, WidgetGUILook> impl
 	
 	//method
 	@Override
-	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {}
+	protected void fillUpChildWidgets(final List<Widget<?, ?>> list) {
+		list.addAtEnd(mainVerticalStack);
+	}
 	
 	//method
 	@Override
@@ -155,20 +156,12 @@ public final class WidgetGUI extends BorderWidget<WidgetGUI, WidgetGUILook> impl
 	//method
 	@Override
 	protected int getContentAreaHeight() {
-		//TODO
-		return 0;
+		return mainVerticalStack.getHeight();
 	}
 	
 	//method
 	@Override
 	protected int getContentAreaWidth() {
-		//TODO
-		return 0;
-	}
-	
-	//method
-	@Override
-	protected void paintContentArea(final WidgetGUILook borderWidgetLook, final IPainter painter) {
-		internalGUI.paint(painter);
+		return mainVerticalStack.getWidth();
 	}
 }
