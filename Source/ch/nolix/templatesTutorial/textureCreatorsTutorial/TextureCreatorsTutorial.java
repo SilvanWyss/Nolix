@@ -1,4 +1,4 @@
-package ch.nolix.templatesTutorial.textureCreatorTutorial;
+package ch.nolix.templatesTutorial.textureCreatorsTutorial;
 
 import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
@@ -10,14 +10,14 @@ import ch.nolix.templates.textureCreators.ConcreteTextureCreator;
 import ch.nolix.templates.textureCreators.JuteTextureCreator;
 
 /**
- * The {@link TextureCreatorTutorial} is a tutorial for Texture creators.
- * Of the {@link TextureCreatorTutorial} an instance cannot be created.
+ * The {@link TextureCreatorsTutorial} is a tutorial for Texture creators.
+ * Of the {@link TextureCreatorsTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @month 2018-08
  * @lines 50
  */
-public final class TextureCreatorTutorial {
+public final class TextureCreatorsTutorial {
 	
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
@@ -44,7 +44,7 @@ public final class TextureCreatorTutorial {
 		);
 	}
 	
-	private TextureCreatorTutorial() {
+	private TextureCreatorsTutorial() {
 		throw new UninstantiableClassException(getClass());
 	}
 }
