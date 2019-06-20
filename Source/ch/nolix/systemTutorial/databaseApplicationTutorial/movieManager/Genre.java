@@ -1,13 +1,12 @@
 //package declaration
-package ch.nolix.tutorialApplications.airportManager;
+package ch.nolix.systemTutorial.databaseApplicationTutorial.movieManager;
 
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.Property;
 
 //class
-public final class Airport extends Entity {
+public final class Genre extends Entity {
 
-	//attributes
+	//attribute
 	public final Property<String> Name = new Property<String>();
-	public final Property<String> AirportCode = new Property<String>();
 }

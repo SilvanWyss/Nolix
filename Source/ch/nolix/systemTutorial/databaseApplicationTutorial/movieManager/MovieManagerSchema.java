@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.tutorialApplications.movieManager;
+package ch.nolix.systemTutorial.databaseApplicationTutorial.movieManager;
 
 import ch.nolix.system.databaseAdapter.Schema;
 

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.tutorialApplications.airportManager;
+package ch.nolix.systemTutorial.databaseApplicationTutorial.airportManager;
 
 import ch.nolix.system.databaseAdapter.Schema;
 

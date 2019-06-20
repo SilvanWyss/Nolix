@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.tutorialApplications.airportManager;
+package ch.nolix.systemTutorial.databaseApplicationTutorial.airportManager;
 
 import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.element.configuration.StandardConfiguration;
