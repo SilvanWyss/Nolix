@@ -200,6 +200,11 @@ public final class GUILayer extends MutableElement<GUILayer> implements IGUILaye
 	}
 	
 	//method
+	public ExtendedContentPosition getContentPosition() {
+		return contentPosition.getValue();
+	}
+	
+	//method
 	/**
 	 * @return the x-free-position of the current {@link GUILayer}.
 	 */

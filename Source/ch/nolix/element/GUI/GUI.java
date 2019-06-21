@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 //own imports
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.elementEnums.ContentPosition;
 import ch.nolix.core.elementEnums.ExtendedContentPosition;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -57,7 +58,7 @@ import ch.nolix.element.widget.Widget;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 780
+ * @lines 800
  * @param <G> The type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IGUI<G> {
@@ -265,6 +266,9 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 				case GUILayer.BACKGROUND_COLOR_GRADIENT_HEADER:
 					backGround.setBackgroundColorGradient(ColorGradient.createFromSpecification(attribute));
 					break;
+				case ContentPosition.TYPE_NAME:
+					backGround.setContentPosition(ExtendedContentPosition.createFromSpecification(attribute));
+					break;
 				default:
 					
 					//Calls method of the base class.
@@ -348,6 +352,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		if (backGround.hasBackgroundColorGradient()) {
 			attributes.addAtEnd(backGround.getBackgroundColorGradient().getSpecificationAs(GUILayer.BACKGROUND_COLOR_GRADIENT_HEADER));
 		}
+		
+		attributes.addAtEnd(backGround.getContentPosition().getSpecificationAs(ContentPosition.TYPE_NAME));
 		
 		return attributes;
 	}
@@ -605,14 +611,6 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * Lets the current {@link GUI} note a resizing.
-	 */
-	protected final void noteResizing() {
-		refresh();
-	}
-	
-	//method
-	/**
 	 * Lets the current {@link GUI} note a right mouse button press.
 	 */
 	public void noteRightMouseButtonPress() {
@@ -737,6 +735,21 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
+	 * Sets the content position of the current {@link GUI}.
+	 * 
+	 * @param contentPosition
+	 * @return the current {@link GUI}.
+	 * @throws NullArgumentException if the given contentPosition is null.
+	 */
+	public G setContentPosition(final ExtendedContentPosition contentPosition) {
+		
+		backGround.setContentPosition(contentPosition);
+		
+		return asConcreteType();
+	}
+	
+	//method
+	/**
 	 * Sets the controller of the current {@link GUI}.
 	 * 
 	 * @param controller
@@ -785,4 +798,12 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * Lets the current {@link GUI} note a closing.
 	 */
 	protected abstract void noteClosing();
+
+	//method
+	/**
+	 * Lets the current {@link GUI} note a resizing.
+	 */
+	protected final void noteResizing() {
+		refresh();
+	}
 }
