@@ -22,7 +22,7 @@ import ch.nolix.element.widget.Widget;
  * 
  * @author Silvan Wyss
  * @month 2016-04
- * @lines 550
+ * @lines 520
  */
 public final class TabContainer
 extends ContainerWidget<TabContainer, TabContainerLook>
@@ -390,7 +390,7 @@ implements Clearable<TabContainer> {
 		
 		list.addAtEnd(menu);
 		
-		if (containsSelectedTab()) {
+		if (containsSelectedTabWithWidget()) {
 			list.addAtEnd(getRefSelectedWidget());
 		}
 	}
