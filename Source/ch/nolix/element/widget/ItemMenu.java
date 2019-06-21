@@ -46,6 +46,16 @@ implements Clearable<IM> {
 	}
 	
 	//method
+	public final IM addItem(final ItemMenuItem... items) {
+		
+		for (final var i : items) {
+			addItem(i);
+		}
+		
+		return asConcreteType();
+	}
+	
+	//method
 	public IM addItems(final Iterable<String> texts) {
 		
 		texts.forEach(t -> addItem(new ItemMenuItem(t)));
