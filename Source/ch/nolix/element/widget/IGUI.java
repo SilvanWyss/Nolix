@@ -3,7 +3,7 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.generalSkillAPI.Castable;
+import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
@@ -11,13 +11,15 @@ import ch.nolix.core.skillAPI.Closable;
 import ch.nolix.core.skillAPI.IRequestableContainer;
 import ch.nolix.core.skillAPI.Refreshable;
 import ch.nolix.core.specificationAPI.Specifiable;
+import ch.nolix.element.configuration.IConfigurationElement;
 
 //interface
 public interface IGUI<G extends IGUI<G>>
 extends
-	Castable,
 	Clearable<G>,
 	Closable,
+	IConfigurationElement<G>,
+	ISmartObject<G>,
 	IRequestableContainer,
 	Refreshable,
 	Specifiable<G> {
