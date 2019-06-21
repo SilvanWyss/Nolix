@@ -17,9 +17,17 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	}
 	
 	//constructor
-	public SelectionMenu(Iterable<String> items) {
+	public SelectionMenu(final ItemMenuItem... items) {
+		
+		this();
+		
+		addItem(items);
+	}
+	
+	//constructor
+	public SelectionMenu(final Iterable<String> items) {
 
-		resetAndApplyDefaultConfiguration();
+		this();
 		
 		addItems(items);
 	}
@@ -27,7 +35,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	//constructor
 	public SelectionMenu(final String... items) {
 		
-		resetAndApplyDefaultConfiguration();
+		this();
 		
 		addItem(items);
 	}
