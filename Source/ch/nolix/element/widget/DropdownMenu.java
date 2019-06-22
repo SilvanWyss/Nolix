@@ -62,6 +62,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		
 		selectionMenu
 		.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.WHITE))
+		.setProposalWidth(originHorizontalStack.getWidth())
 		.setProposalHeight(200);		
 		
 		originHorizontalStack.recalculate();
