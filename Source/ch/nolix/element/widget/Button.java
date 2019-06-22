@@ -20,18 +20,23 @@ import ch.nolix.element.color.Color;
  */
 public final class Button extends TextLineWidget<Button> {
 	
+	//default value
+	public static final String DEFAULT_TEXT  = "-";
+	
 	//constant
 	public static final String TYPE_NAME = "Button";
-	
+			
 	//optional attribute
 	private ButtonRole role;
 	
 	//constructor
 	/**
-	 * Creates a new {@link Button}.
+	 * Creates a new {@link Button} with a default text.
 	 */
 	public Button() {
-		resetAndApplyDefaultConfiguration();
+		
+		//Calls other constructor.
+		this(DEFAULT_TEXT);
 	}
 	
 	//constructor
@@ -39,8 +44,7 @@ public final class Button extends TextLineWidget<Button> {
 	 * Creates a new {@link Button} with the given text.
 	 * 
 	 * @param text
-	 * @throws NullArgumentException
-	 * if the given text is null.
+	 * @throws NullArgumentException if the given text is null.
 	 */
 	public Button(final String text) {
 		
@@ -78,7 +82,7 @@ public final class Button extends TextLineWidget<Button> {
 		//Calls method of the base class.
 		final var attributes = super.getAttributes();
 		
-		//Handles the case that the current button has a role.
+		//Handles the case that the current Button has a role.
 		if (hasRole()) {
 			attributes.addAtEnd(
 				getRole().getSpecificationAs(PascalCaseNameCatalogue.ROLE)
@@ -91,11 +95,11 @@ public final class Button extends TextLineWidget<Button> {
 	//method
 	/**
 	 * @return the role of the current {@link Button}.
-	 * @throws ArgumentMissesAttributeException
-	 * if the current {@link Button} does not have a role.
+	 * @throws ArgumentMissesAttributeException if the current {@link Button} does not have a role.
 	 */
 	public ButtonRole getRole() {
 		
+		//Checks if the current Button has a role.
 		supposeHasRole();
 		
 		return role;
@@ -103,7 +107,7 @@ public final class Button extends TextLineWidget<Button> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
+	 * @return true if the current {@link Button} has a role.
 	 */
 	public boolean hasRole() {
 		return (role != null);
@@ -111,20 +115,11 @@ public final class Button extends TextLineWidget<Button> {
 
 	//method
 	/**
-	 * @param role
-	 * @return true
-	 * if the current {@link Button} has the given role.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean hasRole(final String role) {
-		
-		//Handles the case that the current link button does not have a role.
-		if (!hasRole()) {
-			return false;
-		}
-		
-		//Handles the case that the current link button has a role.
-		return getRole().toString().equals(role);
+	public boolean hasRole(final String role) {	
+		return (hasRole() && getRole().toString().equals(role));
 	}
 	
 	/**
@@ -148,14 +143,7 @@ public final class Button extends TextLineWidget<Button> {
 	 */
 	public Button setRole(final ButtonRole role) {
 		
-		//Checks if the given role is not null.
-		Validator
-		.suppose(role)
-		.thatIsNamed(VariableNameCatalogue.ROLE)
-		.isNotNull();
-		
-		//Sets the role of the current button.
-		this.role = role;
+		this.role = Validator.suppose(role).thatIsNamed(VariableNameCatalogue.ROLE).isNotNull().andReturn();
 		
 		return this;
 	}
@@ -180,29 +168,29 @@ public final class Button extends TextLineWidget<Button> {
 		setContentPosition(ContentPosition.Center);
 		
 		getRefBaseLook()
-		.setBackgroundColor(Color.LIGHT_GREY)
+		.setBorderThicknesses(1)
+		.setLeftBorderColor(Color.GREY)
+		.setRightBorderColor(Color.BLACK)
+		.setTopBorderColor(Color.GREY)
+		.setBottomBorderColor(Color.BLACK)
+		.setBackgroundColor(Color.WHITE_SMOKE)
 		.setLeftPadding(10)
 		.setRightPadding(10);
 		
-		getRefHoverLook().setBackgroundColor(Color.DARK_GREY);
+		getRefHoverLook().setBackgroundColor(Color.LIGHT_GREY);
 		
-		getRefHoverFocusLook().setBackgroundColor(Color.DARK_GREY);
+		getRefHoverFocusLook().setBackgroundColor(Color.LIGHT_GREY);
 	}
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException
-	 * if the current {@link Button} does not have a role.
+	 * @throws ArgumentMissesAttributeException if the current {@link Button} does not have a role.
 	 */
 	private void supposeHasRole() {
 		
-		//Checks if the current button has a role.
+		//Checks if the current Button has a role.
 		if (!hasRole()) {
-			throw 
-			new ArgumentMissesAttributeException(
-				this,
-				VariableNameCatalogue.ROLE
-			);
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.ROLE);
 		}
 	}
 }
