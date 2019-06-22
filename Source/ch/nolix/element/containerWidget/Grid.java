@@ -12,6 +12,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.painter.IPainter;
+import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.Widget;
 
 //class
@@ -172,11 +173,13 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	}
 	
 	//method
-	public Grid setWidget(
-		final int rowIndex,
-		final int columnIndex,
-		final Widget<?, ?> widget
-	) {
+	public Grid setWidget(final int rowIndex, final int columnIndex, final String text) {
+		return setWidget(rowIndex, columnIndex, new Label(text));
+	}
+	
+	//method
+	public Grid setWidget(final int rowIndex, final int columnIndex, final Widget<?, ?> widget) {
+		
 		expandTo(rowIndex, columnIndex);
 		cells.setAt(rowIndex, columnIndex, new GridCell(rowIndex, columnIndex, widget));
 		widget.setParentWidget(this);
