@@ -10,20 +10,18 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.containerWidget.ContainerWidget;
 import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.painter.IPainter;
 
 //abstract class
 /**
- * The width of a line is bigger than its thickness.
- * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 290
+ * @lines 250
  * @param <L> The type of a line.
  */
-public abstract class Line<L extends Line<L>>
-extends Widget<L, LineLook> {
+public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	
 	//type name
 	public static final String TYPE_NAME = "Line";
@@ -37,7 +35,6 @@ extends Widget<L, LineLook> {
 	public static final Color DEFAULT_COLOR = Color.BLACK;
 	
 	//attributes
-	private PositiveInteger length;
 	private PositiveInteger thickness;
 	private Color color;
 	
@@ -53,9 +50,6 @@ extends Widget<L, LineLook> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case PascalCaseNameCatalogue.LENGTH:
-				setLength(attribute.getOneAttributeAsInt());
-				break;
 			case PascalCaseNameCatalogue.THICKNESS:
 				setThickness(attribute.getOneAttributeAsInt());
 				break;
@@ -69,6 +63,10 @@ extends Widget<L, LineLook> {
 		}
 	}
 	
+	public final boolean belongsToContainerWidget() {
+		return (belongsToWidget() && getParentWidget().isOfType(ContainerWidget.class));
+	}
+	
 	//method
 	/**
 	 * @return the attributes of this line.
@@ -78,10 +76,6 @@ extends Widget<L, LineLook> {
 		
 		//Calls method of the base class.
 		final List<DocumentNode> attributes = super.getAttributes();
-		
-		if (getLength() != DEFAULT_LENGTH) {
-			attributes.addAtEnd(length.getSpecificationAs(PascalCaseNameCatalogue.LENGTH));
-		}
 		
 		if (getThickness() != DEFAULT_THICKNESS) {
 			attributes.addAtEnd(thickness.getSpecificationAs(PascalCaseNameCatalogue.THICKNESS));
@@ -107,7 +101,20 @@ extends Widget<L, LineLook> {
 	 * @return the length of this line.
 	 */
 	public final int getLength() {
-		return length.getValue();
+		
+		if (belongsToContainerWidget()) {
+			
+			for (final var st : Thread.currentThread().getStackTrace()) {
+				if (st.getFileName() == Line.TYPE_NAME && st.getMethodName() == "getLength") {
+					return DEFAULT_LENGTH;
+				}
+			}
+			
+			return getParentWidget().as(ContainerWidget.class).getContentArea().getWidth();
+			
+		}
+		
+		return DEFAULT_LENGTH;
 	}
 	
 	//method
@@ -136,8 +143,7 @@ extends Widget<L, LineLook> {
 	 */
 	@Override
 	public final L resetConfiguration() {
-				
-		setLength(DEFAULT_LENGTH);
+		
 		setThickness(DEFAULT_THICKNESS);
 		setColor(DEFAULT_COLOR);
 		
@@ -160,33 +166,6 @@ extends Widget<L, LineLook> {
 		
 		//Sets the color of this line.
 		this.color = color;
-		
-		return asConcreteType();
-	}
-	
-	//method
-	/**
-	 * Sets the length of this line.
-	 * 
-	 * @param length
-	 * @return this line.
-	 * @throws InvalidArgumentException if the given length
-	 * is smaller than 4 times the thickness of this line.
-	 */
-	public final L setLength(final int length) {
-		
-		//Checks if the given length is not smaller than 4 times the thickness of this line.
-		if (length < MIN_LENGTH_TO_THICKNESS_RATIO * getThickness()) {
-			throw new InvalidArgumentException(
-				VariableNameCatalogue.LENGTH,
-				length,
-				"is smaller than "
-				+ MIN_LENGTH_TO_THICKNESS_RATIO
-				+ "*thickness "
-			);
-		}
-		
-		this.length = new PositiveInteger(length);
 		
 		return asConcreteType();
 	}
