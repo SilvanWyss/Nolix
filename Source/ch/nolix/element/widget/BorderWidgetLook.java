@@ -14,7 +14,7 @@ import ch.nolix.element.core.NonNegativeInteger;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1370
+ * @lines 1380
  * @param <BWL> The type of a {@link BorderWidgetLook}.
  */
 public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>>
@@ -786,7 +786,7 @@ extends BackgroundWidgetLook<BWL> {
 	
 	//method
 	/**
-	 * Removes all values of the current {@link BorderWidgetLook}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public BWL reset() {
@@ -797,6 +797,18 @@ extends BackgroundWidgetLook<BWL> {
 		removeBorderThicknesses();
 		removeBorderColors();
 		removePaddings();
+		
+		if (hasBaseScrollbarLook()) {
+			baseScrollbarLook.reset();
+		}
+		
+		if (hasHoverScrollbarLook()) {
+			hoverScrollbarLook.reset();
+		}
+		
+		if (hasSelectionScrollbarLook()) {
+			selectionScrollbarLook.reset();
+		}
 		
 		return asConcreteType();
 	}
