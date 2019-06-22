@@ -9,6 +9,8 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.entity.OptionalProperty;
 import ch.nolix.core.entity.Property;
+import ch.nolix.core.functionAPI.IElementTaker;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.Element;
@@ -24,6 +26,9 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	public static ItemMenuItem createFromSpecification(final DocumentNodeoid specification) {
 		return new ItemMenuItem(specification);
 	}
+	
+	//attribute
+	private ItemMenu<?> parentItemMenu;
 	
 	//attribute
 	private final Property<NonEmptyText> text =
@@ -42,6 +47,9 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 		s -> s.getOneAttributeAsString(),
 		id -> DocumentNode.createWithHeader(id)
 	);
+	
+	//optional attribute
+	private IElementTaker<ItemMenu<?>> selectCommand;
 	
 	//attribute
 	private final MutableProperty<Boolean> selectionFlag =
@@ -63,8 +71,26 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	}
 	
 	//constructor
+	public ItemMenuItem(final String text, final IElementTaker<ItemMenu<?>> selectCommand) {
+		
+		this(text);
+		
+		this.selectCommand = Validator.suppose(selectCommand).thatIsNamed("select command").isNotNull().andReturn();
+	}
+	
+	//constructor
 	public ItemMenuItem(final String id, final String text) {
+		
 		this(text);	
+		
+		setId(id);
+	}
+	
+	//constructor
+	public ItemMenuItem(final String id, final String text, final IElementTaker<ItemMenu<?>> selectCommand) {
+		
+		this(text, selectCommand);
+		
 		setId(id);
 	}
 	
@@ -96,6 +122,11 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	}
 	
 	//method
+	public boolean hasSelectCommand() {
+		return (selectCommand != null);
+	}
+	
+	//method
 	public boolean hasText(final String text) {
 		return getText().equals(text);
 	}
@@ -107,8 +138,13 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	
 	//method
 	public void select() {
+		
 		selectionFlag.setValue(new Boolean(true));
 		label.setFocused();
+		
+		if (hasSelectCommand()) {
+			selectCommand.run(getParentItemMenu());
+		}
 	}
 	
 	//method
@@ -130,6 +166,24 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	//package-visible method
 	int getWidth() {
 		return label.getWidth();
+	}
+	
+	//package-visible method
+	public void setParentMenu(final ItemMenu<?> parentItemMenu) {
+		
+		Validator.suppose(parentItemMenu).thatIsNamed("parent item menu").isNotNull().andReturn();
+		
+		this.parentItemMenu = parentItemMenu;
+	}
+
+	//method
+	private ItemMenu<?> getParentItemMenu() {
+		
+		if (parentItemMenu == null) {
+			throw new ArgumentMissesAttributeException(this, "parent item menu");
+		}
+		
+		return parentItemMenu;
 	}
 	
 	//method

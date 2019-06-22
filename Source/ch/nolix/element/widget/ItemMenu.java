@@ -39,6 +39,7 @@ implements Clearable<IM> {
 		
 		supposeDoesNotContainItemWithText(item.getText());
 		
+		item.setParentMenu(this);
 		items.addValue(item);
 		noteAddItem(item);
 		
@@ -71,6 +72,16 @@ implements Clearable<IM> {
 	//method
 	public IM addItem(final String... texts) {
 		return addItems(new ReadContainer<String>(texts));
+	}
+	
+	//method
+	public IM addItem(final String text, final IElementTaker<ItemMenu<?>> selectCommand) {
+		return addItem(new ItemMenuItem(text, selectCommand));
+	}
+	
+	//method
+	public IM addItem(final String id, final String text, final IElementTaker<ItemMenu<?>> selectCommand) {
+		return addItem(new ItemMenuItem(id, text, selectCommand));
 	}
 	
 	//method
