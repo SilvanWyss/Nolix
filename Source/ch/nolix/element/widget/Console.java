@@ -586,6 +586,7 @@ implements Clearable<Console> {
 	 */
 	@Override
 	protected void applyDefaultConfigurationWhenHasBeenReset() {
+		setProposalSize(200, 100);
 		getRefBaseLook().setPaddings(10);
 	}
 	
