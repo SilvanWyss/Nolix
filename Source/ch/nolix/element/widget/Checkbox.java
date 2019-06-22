@@ -5,6 +5,7 @@ package ch.nolix.element.widget;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.math.Calculator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
 import ch.nolix.element.painter.IPainter;
@@ -247,7 +248,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 		//Paints the icon of the current check box if it is checked.
 		if (isChecked()) {
 			
-			final var a = (int)(0.75 * t);
+			final var a = Calculator.getMax(1, (int)(0.75 * t));
 			
 			//Paints the line from the bottom left corner to to the top right corner of the cross.
 			{
