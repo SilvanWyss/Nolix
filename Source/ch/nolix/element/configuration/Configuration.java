@@ -21,7 +21,7 @@ import ch.nolix.element.core.NonEmptyText;
 /**
  * @author Silvan Wyss
  * @month 2016-01
- * @lines 710
+ * @lines 770
  * @param <C> The type of a configuration.
  */
 public abstract class Configuration<C extends Configuration<C>> extends MutableElement<C>
@@ -707,7 +707,19 @@ implements Freezable<C>, OptionalNamable<C> {
 	 * is not valid for the given element.
 	 */
 	protected final void setAttachingAttributesTo(Configurable<?> element) {
-		attachingAttributes.forEach(aa -> element.addOrChangeAttribute(aa));
+		for (final var aa : attachingAttributes) {
+			try {
+				element.addOrChangeAttribute(aa);
+			}
+			catch (final Exception exception) {
+				throw
+				new InvalidArgumentException(
+					"attaching attribute",
+					aa,
+					"could not be added to the given " + element.getType() + " '" + element.getSpecification() + "'"
+				);
+			}
+		}
 	}
 	
 	//method
