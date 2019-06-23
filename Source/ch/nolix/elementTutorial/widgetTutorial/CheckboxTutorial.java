@@ -32,9 +32,9 @@ public final class CheckboxTutorial {
 		checkBox.applyOnBaseLook(
 			bl -> 
 			bl
-			.setSize(50)
+			.setTextSize(50)
 			.setLineThickness(5)
-			.setLineColor(Color.DARK_BLUE)
+			.setTextColor(Color.DARK_BLUE)
 			.setBackgroundColor(Color.WHITE_SMOKE)
 		);
 		

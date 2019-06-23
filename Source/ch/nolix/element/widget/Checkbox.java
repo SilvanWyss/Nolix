@@ -173,8 +173,8 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	@Override
 	protected void applyDefaultConfigurationWhenHasBeenReset() {
 		getRefBaseLook()
-		.setSize(20)
-		.setLineColor(Color.BLACK);
+		.setTextSize(20)
+		.setTextColor(Color.BLACK);
 	}
 	
 	//method
@@ -206,7 +206,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	 */
 	@Override
 	protected int getHeightWhenNotCollapsed() {
-		return getRefCurrentLook().getRecursiveOrDefaultSize();
+		return getRefCurrentLook().getRecursiveOrDefaultTextSize();
 	}
 	
 	//method
@@ -215,7 +215,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	 */
 	@Override
 	protected int getWidthWhenNotCollapsed() {
-		return getRefCurrentLook().getRecursiveOrDefaultSize();
+		return getRefCurrentLook().getRecursiveOrDefaultTextSize();
 	}
 	
 	//method
@@ -228,10 +228,10 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 		//Calls method of the base class.
 		super.paint(checkBoxLook, painter);
 		
-		final var s = checkBoxLook.getRecursiveOrDefaultSize();
+		final var s = checkBoxLook.getRecursiveOrDefaultTextSize();
 		final var t = checkBoxLook.getRecursiveOrDefaultLineThickness();
 		
-		painter.setColor(checkBoxLook.getRecursiveOrDefaultLineColor());
+		painter.setColor(checkBoxLook.getRecursiveOrDefaultTextColor());
 		
 		//Paints the left border of the current check box.
 		painter.paintFilledRectangle(0, 0, t, s);
