@@ -23,7 +23,7 @@ public final class BlackBlueGUILook extends StandardConfiguration {
 	public BlackBlueGUILook() {
 		
 		addAttachingAttribute(
-			"ContentOrientation(Top)",
+			"ContentPosition(Top)",
 			"BackgroundColor(Black)"
 		);
 		
@@ -31,10 +31,10 @@ public final class BlackBlueGUILook extends StandardConfiguration {
 			new DeepConfiguration()
 			.addSelectorRole(ContainerRole.OverallContainer)
 			.addAttachingAttribute(
-				"NormalBackgroundColor(Anthrazit)",
-				"NormalTopBorderSize(50)",
-				"NormalTopBorderColor(Black)",
-				"Padding(10)"),
+				"BaseBackgroundColor(0xE0E0E0)",
+				"BaseTopBorderThickness(50)",
+				"BaseTopBorderColor(Black)",
+				"BasePadding(10)"),
 			new DeepConfiguration()
 			.setSelectorType("TabContainer")
 			.addSelectorRole(ContainerRole.MainContainer)
@@ -44,8 +44,8 @@ public final class BlackBlueGUILook extends StandardConfiguration {
 				"MenuItemLeftPadding(10)",
 				"MenuItemRightPadding(10)",
 				"MenuMargin(10)",
-				"NormalMenuItemTextColor(Blue)",
-				"NormalMenuItemTextSize(30)",
+				"BaseMenuItemTextColor(Blue)",
+				"BaseMenuItemTextThickness(30)",
 				"HoverMenuItemBackgroundColor(Blue)",
 				"HoverMenuItemTextColor(White)",
 				"FocusMenuItemBackgroundColor(Blue)",
@@ -55,26 +55,26 @@ public final class BlackBlueGUILook extends StandardConfiguration {
 			.setSelectorType("Stack")
 			.addAttachingAttribute(
 				"ElementMargin(10)",
-				"ContentOrientation(Center)"
+				"ContentPosition(Center)"
 			),
 			new DeepConfiguration()
 			.setSelectorType("Label")
 			.addSelectorRole(LabelRole.Title)
 			.addAttachingAttribute(
-				"NormalTextSize(50)",
-				"NormalTextColor(Blue)"
+				"BaseTextSize(50)",
+				"BaseTextColor(Blue)"
 			),
 			new DeepConfiguration()
 			.setSelectorType("Button")
 			.addAttachingAttribute(
 				"CursorIcon(Hand)",
 				"MinWidth(200)",
-				"ContentOrientation(Center)",
-				"NormalBackgroundColor(DarkGrey)",
-				"NormalTextColor(Blue)",
+				"ContentPosition(Center)",
+				"BaseBackgroundColor(DarkGrey)",
+				"BaseTextColor(Blue)",
 				"HoverBackgroundColor(Black)",
 				"HoverTextColor(White)",
-				"Padding(10)"
+				"BasePadding(10)"
 			)
 		);
 			

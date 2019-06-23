@@ -24,7 +24,7 @@ public final class WhiteGreenGUILook extends StandardConfiguration {
 		
 		setName("Green");
 		addAttachingAttribute(
-			"ContentOrientation(Top)",
+			"ContentPosition(Top)",
 			"BackgroundColor(DarkGreen)"
 		);
 		
@@ -32,10 +32,10 @@ public final class WhiteGreenGUILook extends StandardConfiguration {
 			new DeepConfiguration()
 			.addSelectorRole(ContainerRole.OverallContainer)
 			.addAttachingAttribute(
-				"NormalBackgroundColor(White)",
-				"NormalTopBorderSize(50)",
-				"NormalTopBorderColor(DarkGreen)",
-				"Padding(10)"),
+				"BaseBackgroundColor(White)",
+				"BaseTopBorderThickness(50)",
+				"BaseTopBorderColor(DarkGreen)",
+				"BasePadding(10)"),
 			new DeepConfiguration()
 			.setSelectorType("TabContainer")
 			.addSelectorRole(ContainerRole.MainContainer)
@@ -45,8 +45,8 @@ public final class WhiteGreenGUILook extends StandardConfiguration {
 				"MenuItemLeftPadding(10)",
 				"MenuItemRightPadding(10)",
 				"MenuMargin(10)",
-				"NormalMenuItemTextColor(DarkGreen)",
-				"NormalMenuItemTextSize(30)",
+				"BaseMenuItemTextColor(DarkGreen)",
+				"BaseMenuItemTextThickness(30)",
 				"HoverMenuItemBackgroundColor(DarkGreen)",
 				"HoverMenuItemTextColor(White)",
 				"FocusMenuItemBackgroundColor(DarkGreen)",
@@ -56,22 +56,22 @@ public final class WhiteGreenGUILook extends StandardConfiguration {
 			.setSelectorType("Stack")
 			.addAttachingAttribute(
 				"ElementMargin(10)",
-				"ContentOrientation(Center)"
+				"ContentPosition(Center)"
 			),
 			new DeepConfiguration()
 			.setSelectorType("Label")
 			.addSelectorRole(LabelRole.Title)
-			.addAttachingAttribute("NormalTextSize(50)"),
+			.addAttachingAttribute("BaseTextSize(50)"),
 			new DeepConfiguration()
 			.setSelectorType("Button")
 			.addAttachingAttribute(
 				"CursorIcon(Hand)",
 				"MinWidth(200)",
-				"ContentOrientation(Center)",
-				"NormalBackgroundColor(LightGrey)",
+				"ContentPosition(Center)",
+				"BaseBackgroundColor(LightGrey)",
 				"HoverBackgroundColor(Grey)",
 				"HoverTextColor(White)",
-				"Padding(10)"
+				"BasePadding(10)"
 			)
 		);
 		

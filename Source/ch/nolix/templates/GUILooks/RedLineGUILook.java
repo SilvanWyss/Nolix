@@ -21,9 +21,13 @@ public final class RedLineGUILook extends StandardConfiguration {
 		addConfiguration(
 			new DeepConfiguration()
 			.addAttachingAttribute(
-				"BaseTextFont(Arial)",
+				"BaseFont(Arial)",
 				"BaseTextSize(25)",
-				"BaseTextColor(White)",
+				"BaseTextColor(White)"
+			),
+			new DeepConfiguration()
+			.setSelectorType("BorderWidget")
+			.addAttachingAttribute(
 				"BaseBaseScrollbarLook(ScrollbarColor(Black),ScrollbarCursorColor(DarkBlue))",
 				"BaseHoverScrollbarLook(ScrollbarColor(Black),ScrollbarCursorColor(Blue))",
 				"BaseSelectionScrollbarLook(ScrollbarColor(Black),ScrollbarCursorColor(Blue))"
