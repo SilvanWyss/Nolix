@@ -72,6 +72,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 		menu.setElementMargin(0);
 		
 		getRefBaseLook()
+		.setBackgroundColor(Color.WHITE_SMOKE)
 		.setHoverItemLook(
 			new ItemMenuItemLook()
 			.setBackgroundColor(Color.LIGHT_GREY)
