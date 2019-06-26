@@ -138,6 +138,7 @@ extends BackgroundWidget<BW, BWL> {
 	);
 	
 	//attributes
+	private final BorderWidgetMainArea mainArea = new BorderWidgetMainArea(this);
 	private final BorderWidgetBorderedArea borderedArea = new BorderWidgetBorderedArea(this);
 	private final BorderWidgetScrolledArea<BW, BWL> scrolledArea = new BorderWidgetScrolledArea<>(this);
 	private final BorderWidgetContentArea<BW, BWL> contentArea = new BorderWidgetContentArea<>(this);
@@ -304,6 +305,14 @@ extends BackgroundWidget<BW, BWL> {
 		
 		//Handles the case that the current border widget has a horizontal scrollbar.
 		return 20;
+	}
+	
+	//method
+	/**
+	 * @return the main area of the current {@link BorderWidget}.
+	 */
+	public final BorderWidgetMainArea getMainArea() {
+		return mainArea;
 	}
 	
 	//method
