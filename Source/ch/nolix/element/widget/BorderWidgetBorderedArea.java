@@ -73,7 +73,7 @@ public final class BorderWidgetBorderedArea {
 	 */
 	public int getXPosition() {
 		
-		final var look = parentBorderWidget.getRefCurrentLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return look.getRecursiveOrDefaultLeftBorderThickness();
 	}
@@ -85,7 +85,7 @@ public final class BorderWidgetBorderedArea {
 	 */
 	public int getYPosition() {
 		
-		final var look = parentBorderWidget.getRefCurrentLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return look.getRecursiveOrDefaultTopBorderThickness();
 	}

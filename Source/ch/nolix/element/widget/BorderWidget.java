@@ -252,21 +252,21 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	public final Color getHorizontalScrollbarColor() {
 		
-		final BWL currentLook = getRefCurrentLook();
+		final BWL look = getRefLook();
 		
 		if (!isMovingHorizontalScrollbarCursor()) {
 			if (!horizontalScrollbarCursorIsUnderCursor()) {
 				return
-				currentLook.getRecursiveOrDefaultBaseScrollbarLook().getScrollbarColor();
+				look.getRecursiveOrDefaultBaseScrollbarLook().getScrollbarColor();
 			}
 			else {
 				return
-				currentLook.getRecursiveOrDefaultHoverScrollbarLook().getScrollbarColor();
+				look.getRecursiveOrDefaultHoverScrollbarLook().getScrollbarColor();
 			}
 		}
 		else {
 			return
-			currentLook.getRecursiveOrDefaultSelectionScrollbarLook().getScrollbarColor();
+			look.getRecursiveOrDefaultSelectionScrollbarLook().getScrollbarColor();
 		}
 	}
 	
@@ -276,21 +276,18 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	public final Color getHorizontalScrollbarCursorColor() {
 		
-		final BWL currentLook = getRefCurrentLook();
+		final var look = getRefLook();
 		
 		if (!isMovingHorizontalScrollbarCursor()) {
 			if (!horizontalScrollbarCursorIsUnderCursor()) {
-				return
-				currentLook.getRecursiveOrDefaultBaseScrollbarLook().getScrollbarCursorColor();
+				return look.getRecursiveOrDefaultBaseScrollbarLook().getScrollbarCursorColor();
 			}
 			else {
-				return
-				currentLook.getRecursiveOrDefaultHoverScrollbarLook().getScrollbarCursorColor();
+				return look.getRecursiveOrDefaultHoverScrollbarLook().getScrollbarCursorColor();
 			}
 		}
 		else {
-			return
-			currentLook.getRecursiveOrDefaultSelectionScrollbarLook().getScrollbarCursorColor();
+			return look.getRecursiveOrDefaultSelectionScrollbarLook().getScrollbarCursorColor();
 		}
 	}
 	
@@ -356,7 +353,7 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	public final int getNaturalHeight() {
 		
-		final BWL currentStructure = getRefCurrentLook();
+		final BWL currentStructure = getRefLook();
 		
 		return
 		currentStructure.getRecursiveOrDefaultTopBorderThickness()
@@ -376,7 +373,7 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	public final int getNaturalWidth() {
 		
-		final BWL currentStructure = getRefCurrentLook();
+		final BWL currentStructure = getRefLook();
 		
 		return
 		currentStructure.getRecursiveOrDefaultLeftBorderThickness()
@@ -417,21 +414,18 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	public final Color getVerticalScrollbarColor() {
 		
-		final BWL currentLook = getRefCurrentLook();
+		final var look = getRefLook();
 		
 		if (!isMovingVerticalScrollbarCursor()) {
 			if (!verticalScrollbarCursorIsUnderCursor()) {
-				return
-				currentLook.getRecursiveOrDefaultBaseScrollbarLook().getScrollbarColor();
+				return look.getRecursiveOrDefaultBaseScrollbarLook().getScrollbarColor();
 			}
 			else {
-				return
-				currentLook.getRecursiveOrDefaultHoverScrollbarLook().getScrollbarColor();
+				return look.getRecursiveOrDefaultHoverScrollbarLook().getScrollbarColor();
 			}
 		}
 		else {
-			return
-			currentLook.getRecursiveOrDefaultSelectionScrollbarLook().getScrollbarColor();
+			return look.getRecursiveOrDefaultSelectionScrollbarLook().getScrollbarColor();
 		}
 	}
 	
@@ -441,21 +435,18 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	public final Color getVerticalScrollbarCursorColor() {
 		
-		final BWL currentLook = getRefCurrentLook();
+		final var look = getRefLook();
 		
 		if (!isMovingVerticalScrollbarCursor()) {
 			if (!verticalScrollbarCursorIsUnderCursor()) {
-				return
-				currentLook.getRecursiveOrDefaultBaseScrollbarLook().getScrollbarCursorColor();
+				return look.getRecursiveOrDefaultBaseScrollbarLook().getScrollbarCursorColor();
 			}
 			else {
-				return
-				currentLook.getRecursiveOrDefaultHoverScrollbarLook().getScrollbarCursorColor();
+				return look.getRecursiveOrDefaultHoverScrollbarLook().getScrollbarCursorColor();
 			}
 		}
 		else {
-			return
-			currentLook.getRecursiveOrDefaultSelectionScrollbarLook().getScrollbarCursorColor();
+			return look.getRecursiveOrDefaultSelectionScrollbarLook().getScrollbarCursorColor();
 		}
 	}
 	
@@ -1052,7 +1043,7 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	protected final int getContentAreaXPosition() {
 		
-		final BWL currentStructure = getRefCurrentLook();
+		final BWL currentStructure = getRefLook();
 		
 		return
 		currentStructure.getRecursiveOrDefaultLeftBorderThickness()
@@ -1066,10 +1057,10 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	protected final int getContentAreaYPosition() {
 		
-		final BWL currentStructure = getRefCurrentLook();
+		final var look = getRefLook();
 		
 		return
-		currentStructure.getRecursiveOrDefaultTopBorderThickness()
+		look.getRecursiveOrDefaultTopBorderThickness()
 		- getViewAreaYPositionOnScrolledArea()
 		+ contentArea.getYPositionOnScrolledArea();
 	}
@@ -1097,12 +1088,12 @@ extends BackgroundWidget<BW, BWL> {
 	@Override
 	protected final int getHeightWhenNotCollapsed() {
 		
-		final BWL currentLook = getRefCurrentLook();
+		final var look = getRefLook();
 		
 		return
-		currentLook.getRecursiveOrDefaultTopBorderThickness()		
+		look.getRecursiveOrDefaultTopBorderThickness()		
 		+ borderedArea.getHeight()
-		+ currentLook.getRecursiveOrDefaultBottomBorderThickness();
+		+ look.getRecursiveOrDefaultBottomBorderThickness();
 	}
 	
 	//method
@@ -1122,14 +1113,14 @@ extends BackgroundWidget<BW, BWL> {
 			proposedContentAreaHeight =	Calculator.getMax(getMinHeight(), proposedContentAreaHeight);
 		}
 		
-		final BWL currentLook = getRefCurrentLook();
+		final var look = getRefLook();
 		
 		return
 		proposedContentAreaHeight
-		- currentLook.getRecursiveOrDefaultTopBorderThickness()
-		- currentLook.getRecursiveOrDefaultTopPadding()
-		- currentLook.getRecursiveOrDefaultBottomPadding()
-		- currentLook.getRecursiveOrDefaultBottomBorderThickness();
+		- look.getRecursiveOrDefaultTopBorderThickness()
+		- look.getRecursiveOrDefaultTopPadding()
+		- look.getRecursiveOrDefaultBottomPadding()
+		- look.getRecursiveOrDefaultBottomBorderThickness();
 	}
 	
 	//method
@@ -1149,14 +1140,14 @@ extends BackgroundWidget<BW, BWL> {
 			proposedContentAreaWidth = Calculator.getMax(getMinWidth(), proposedContentAreaWidth);
 		}
 		
-		final BWL currentLook = getRefCurrentLook();
+		final var look = getRefLook();
 		
 		return
 		proposedContentAreaWidth
-		- currentLook.getRecursiveOrDefaultLeftBorderThickness()
-		- currentLook.getRecursiveOrDefaultLeftPadding()
-		- currentLook.getRecursiveOrDefaultRightPadding()
-		- currentLook.getRecursiveOrDefaultRightBorderThickness();
+		- look.getRecursiveOrDefaultLeftBorderThickness()
+		- look.getRecursiveOrDefaultLeftPadding()
+		- look.getRecursiveOrDefaultRightPadding()
+		- look.getRecursiveOrDefaultRightBorderThickness();
 	}
 	
 	//method
@@ -1166,12 +1157,12 @@ extends BackgroundWidget<BW, BWL> {
 	@Override
 	protected final int getWidthWhenNotCollapsed() {
 		
-		final BWL currentLook = getRefCurrentLook();
+		final var look = getRefLook();
 		
 		return
-		currentLook.getRecursiveOrDefaultLeftBorderThickness()		
+		look.getRecursiveOrDefaultLeftBorderThickness()		
 		+ borderedArea.getWidth()
-		+ currentLook.getRecursiveOrDefaultRightBorderThickness();
+		+ look.getRecursiveOrDefaultRightBorderThickness();
 	}
 	
 	//method
@@ -1255,7 +1246,7 @@ extends BackgroundWidget<BW, BWL> {
 	}
 	
 	protected void paint3(IPainter painter) {
-		paint(getRefCurrentLook(), painter);
+		paint(getRefLook(), painter);
 	}
 	
 	//abstract method

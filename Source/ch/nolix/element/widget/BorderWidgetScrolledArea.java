@@ -83,7 +83,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 	 */
 	public int getMinHeight() {
 		
-		final var look= parentBorderWidget.getRefCurrentLook();
+		final var look= parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMinHeight()
@@ -98,7 +98,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 	 */
 	public int getMinWidth() {
 		
-		final var look = parentBorderWidget.getRefCurrentLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMinWidth()
@@ -113,7 +113,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 	 */
 	public int getNaturalHeight() {
 		
-		final var look = parentBorderWidget.getRefCurrentLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		look.getRecursiveOrDefaultTopPadding()
@@ -127,7 +127,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 	 */
 	public int getNaturalWidth() {
 		
-		final var look = parentBorderWidget.getRefCurrentLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		look.getRecursiveOrDefaultLeftPadding()
@@ -141,12 +141,12 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 	 */
 	public int getProposalHeight() {
 		
-		final var currentLook = parentBorderWidget.getRefCurrentLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getProposalHeight()
-		- currentLook.getRecursiveOrDefaultTopBorderThickness()
-		- currentLook.getRecursiveOrDefaultBottomBorderThickness()
+		- look.getRecursiveOrDefaultTopBorderThickness()
+		- look.getRecursiveOrDefaultBottomBorderThickness()
 		- parentBorderWidget.getHorizontalScrollbarThickness();
 	}
 	
@@ -156,7 +156,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 	 */
 	public int getProposalWidth() {
 		
-		final var look = parentBorderWidget.getRefCurrentLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getProposalWidth()

@@ -620,16 +620,16 @@ implements Clearable<Console> {
 	@Override
 	protected int getContentAreaHeight() {
 		
-		final var currentLook = getRefCurrentLook();
+		final var look = getRefLook();
 		
 		var contentAreaHeight =
-		getLines().getSize() * currentLook.getRecursiveOrDefaultTextSize();
+		getLines().getSize() * look.getRecursiveOrDefaultTextSize();
 		
 		if (isEditable()) {
-			contentAreaHeight += currentLook.getRecursiveOrDefaultTextSize();
+			contentAreaHeight += look.getRecursiveOrDefaultTextSize();
 		}
 		
-		contentAreaHeight += 0.5 * currentLook.getRecursiveOrDefaultTextSize();
+		contentAreaHeight += 0.5 * look.getRecursiveOrDefaultTextSize();
 		
 		return contentAreaHeight;
 	}
@@ -697,13 +697,13 @@ implements Clearable<Console> {
 	
 	private TextFormat getFont() {
 		
-		final var currentLook = getRefCurrentLook();
+		final var look = getRefLook();
 		
 		return
 		new TextFormat(
-			currentLook.getRecursiveOrDefaultTextFont(),
-			currentLook.getRecursiveOrDefaultTextSize(),
-			currentLook.getRecursiveOrDefaultTextColor()
+			look.getRecursiveOrDefaultTextFont(),
+			look.getRecursiveOrDefaultTextSize(),
+			look.getRecursiveOrDefaultTextColor()
 		);
 	}
 

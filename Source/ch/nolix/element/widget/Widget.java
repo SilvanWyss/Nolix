@@ -1567,7 +1567,7 @@ implements Recalculable {
 	 * @return the current look of the current {@link Widget}.
 	 * @throws ArgumentMissesAttributeException if the current {@link Widget} does not have a current look.
 	 */
-	protected final WL getRefCurrentLook() {
+	protected final WL getRefLook() {
 		
 		//Enumerates the state of the current {@link Widget}.
 		switch (getState()) {
@@ -1669,7 +1669,7 @@ implements Recalculable {
 	
 	protected void paint3(final IPainter painter) {
 		
-		paint(getRefCurrentLook(), painter);
+		paint(getRefLook(), painter);
 		
 		getChildWidgets().forEach(cw ->  cw.paint(painter));
 	}

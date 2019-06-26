@@ -239,7 +239,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	@Override
 	public void recalculate() {
 						
-		getRefTabs().forEach(t -> t.preparePaint(getRefCurrentLook()));
+		getRefTabs().forEach(t -> t.preparePaint(getRefLook()));
 		
 		accordionVerticalStack.recalculate();
 		

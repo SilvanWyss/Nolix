@@ -206,7 +206,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	 */
 	@Override
 	protected int getHeightWhenNotCollapsed() {
-		return getRefCurrentLook().getRecursiveOrDefaultTextSize();
+		return getRefLook().getRecursiveOrDefaultTextSize();
 	}
 	
 	//method
@@ -215,7 +215,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	 */
 	@Override
 	protected int getWidthWhenNotCollapsed() {
-		return getRefCurrentLook().getRecursiveOrDefaultTextSize();
+		return getRefLook().getRecursiveOrDefaultTextSize();
 	}
 	
 	//method

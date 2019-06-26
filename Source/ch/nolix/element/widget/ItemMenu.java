@@ -166,7 +166,7 @@ implements Clearable<IM> {
 				
 		super.recalculate();
 		
-		final var look = getRefCurrentLook();
+		final var look = getRefLook();
 		final var contentWidth = Calculator.getMax(1, getContentAreaWidth());
 		
 		final var baseItemLook = look.getRefRecursiveOrDefaultBaseItemLook();

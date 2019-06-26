@@ -77,7 +77,7 @@ public final class BorderWidgetViewArea<BW extends BorderWidget<BW, BWL>, BWL ex
 	 */
 	public int getMaxHeight() {
 		
-		final var look = parentBorderWidget.getRefCurrentLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMaxHeight()
@@ -92,7 +92,7 @@ public final class BorderWidgetViewArea<BW extends BorderWidget<BW, BWL>, BWL ex
 	 */
 	public int getMaxWidth() {
 		
-		final var look = parentBorderWidget.getRefCurrentLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMaxWidth()

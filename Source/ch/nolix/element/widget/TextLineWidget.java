@@ -142,7 +142,7 @@ public abstract class TextLineWidget<TLW extends TextLineWidget<TLW>> extends Bo
 	 */
 	@Override
 	protected final int getContentAreaHeight() {
-		return new TextFormat(getRefCurrentLook().getRecursiveOrDefaultTextSize()).getTextHeight();
+		return new TextFormat(getRefLook().getRecursiveOrDefaultTextSize()).getTextHeight();
 	}
 	
 	//method
@@ -153,7 +153,7 @@ public abstract class TextLineWidget<TLW extends TextLineWidget<TLW>> extends Bo
 	protected int getContentAreaWidth() {
 		
 		//Extracts the look of the current TextLineWidget.
-		final var look = getRefCurrentLook();
+		final var look = getRefLook();
 		
 		//Handles the case that the current TextLineWidget shortens its text when it has a limited width.
 		if (shortensShownTextWhenHasLimitedWidth()) {
@@ -188,7 +188,7 @@ public abstract class TextLineWidget<TLW extends TextLineWidget<TLW>> extends Bo
 	protected final TextFormat getTextFormat() {
 		
 		//Extracts the of the current TextLineWidget.
-		final var look = getRefCurrentLook();
+		final var look = getRefLook();
 		
 		return
 		new TextFormat(

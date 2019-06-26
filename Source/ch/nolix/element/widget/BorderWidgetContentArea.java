@@ -75,7 +75,7 @@ public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL
 	 */
 	public int getXPositionOnScrolledArea() {
 		
-		final var look = parentBorderWidget.getRefCurrentLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		//Enumerates the content position of the current border widget.
 		switch (parentBorderWidget.getContentPosition()) {
@@ -106,7 +106,7 @@ public final class BorderWidgetContentArea<BW extends BorderWidget<BW, BWL>, BWL
 	 */
 	public int getYPositionOnScrolledArea() {
 		
-		final var look = parentBorderWidget.getRefCurrentLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		//Enumerates the content orientation of the current border widget.
 		switch (parentBorderWidget.getContentPosition()) {

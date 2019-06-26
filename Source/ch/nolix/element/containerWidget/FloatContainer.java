@@ -109,7 +109,7 @@ implements Clearable<FloatContainer> {
 	public void recalculate() {
 		
 		final var contentAreaWidth = getContentAreaWidth();
-		final var widgetMargin = getRefCurrentLook().getRecursiveOrDefaultWidgetMargin();
+		final var widgetMargin = getRefLook().getRecursiveOrDefaultWidgetMargin();
 		
 		var y = 0;
 		var x = 0;
@@ -175,7 +175,7 @@ implements Clearable<FloatContainer> {
 		
 		return
 		widgets.getRefLast().getYPositionOnParent()
-		+ getRefCurrentLook().getRecursiveOrDefaultWidgetMargin()
+		+ getRefLook().getRecursiveOrDefaultWidgetMargin()
 		+ widgets.getRefLast().getHeight();
 	}
 	
@@ -183,17 +183,17 @@ implements Clearable<FloatContainer> {
 	@Override
 	protected int getContentAreaWidth() {
 		
-		final var currentLook = getRefCurrentLook();
+		final var look = getRefLook();
 		
-		if (currentLook.hasRecursiveProposeContentWidth()) {
+		if (look.hasRecursiveProposeContentWidth()) {
 			
 			if (isEmpty()) {
-				return currentLook.getRecursiveOrDefaultProposeContentWidth();
+				return look.getRecursiveOrDefaultProposeContentWidth();
 			}
 			
 			return
 			Calculator.getMax(
-				currentLook.getRecursiveOrDefaultProposeContentWidth(),
+				look.getRecursiveOrDefaultProposeContentWidth(),
 				widgets.getMaxByInt(w -> w.getWidth())
 			);
 		}

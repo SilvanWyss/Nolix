@@ -303,7 +303,7 @@ implements Clearable<TabContainer> {
 			getRefSelectedWidget().setPositionOnParent(
 				0,				
 				menu.getHeight()
-				+ getRefCurrentLook().getRecursiveOrDefaultMenuMargin()
+				+ getRefLook().getRecursiveOrDefaultMenuMargin()
 			);
 		}
 	}
@@ -422,7 +422,7 @@ implements Clearable<TabContainer> {
 		
 		var height = menu.getHeight();
 		
-		height += getRefCurrentLook().getRecursiveOrDefaultMenuMargin();
+		height += getRefLook().getRecursiveOrDefaultMenuMargin();
 		
 		//Handles the case that the current tab container contains tabs.
 		if (containsAny()) {
