@@ -55,7 +55,7 @@ public final class BorderWidgetBorderedArea {
 	 * @return the height of the current {@link BorderWidgetBorderedArea}.
 	 */
 	public int getHeight() {
-		return parentBorderWidget.getContentAreaHeight();
+		return parentBorderWidget.getViewArea().getHeight() + parentBorderWidget.getHorizontalScrollbarThickness();
 	}
 	
 	//method
@@ -63,7 +63,7 @@ public final class BorderWidgetBorderedArea {
 	 * @return the width of the current {@link BorderWidgetBorderedArea}.
 	 */
 	public int getWidth() {
-		return parentBorderWidget.getContentAreaWidth();
+		return parentBorderWidget.getViewArea().getWidth() + parentBorderWidget.getVerticalScrollbarThickness();
 	}
 	
 	//method

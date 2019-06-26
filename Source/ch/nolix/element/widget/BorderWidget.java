@@ -138,6 +138,7 @@ extends BackgroundWidget<BW, BWL> {
 	);
 	
 	//attributes
+	private final BorderWidgetBorderedArea borderedArea = new BorderWidgetBorderedArea(this);
 	private final BorderWidgetScrolledArea<BW, BWL> scrolledArea = new BorderWidgetScrolledArea<>(this);
 	private final BorderWidgetContentArea<BW, BWL> contentArea = new BorderWidgetContentArea<>(this);
 	private final BorderWidgetViewArea<BW, BWL> viewArea = new BorderWidgetViewArea<>(this);
@@ -203,6 +204,14 @@ extends BackgroundWidget<BW, BWL> {
 		attributes.addAtEnd(contentPosition.getSpecification());
 
 		return attributes;
+	}
+	
+	//method
+	/**
+	 * @return the bordered area of the current {@link BorderWidget}.
+	 */
+	public final BorderWidgetBorderedArea getBorderedArea() {
+		return borderedArea;
 	}
 	
 	//method
@@ -1092,7 +1101,7 @@ extends BackgroundWidget<BW, BWL> {
 		
 		return
 		currentLook.getRecursiveOrDefaultTopBorderThickness()		
-		+ getBorderedAreaHeight()
+		+ borderedArea.getHeight()
 		+ currentLook.getRecursiveOrDefaultBottomBorderThickness();
 	}
 	
@@ -1161,7 +1170,7 @@ extends BackgroundWidget<BW, BWL> {
 		
 		return
 		currentLook.getRecursiveOrDefaultLeftBorderThickness()		
-		+ getBorderedAreaWidth()
+		+ borderedArea.getWidth()
 		+ currentLook.getRecursiveOrDefaultRightBorderThickness();
 	}
 	
@@ -1239,8 +1248,8 @@ extends BackgroundWidget<BW, BWL> {
 		paintBorderedArea(
 			widgetStructure,
 			painter.createPainter(
-				getBorderedAreaXPosition(),
-				getBorderedAreaYPosition()
+				borderedArea.getXPosition(),
+				borderedArea.getYPosition()
 			)
 		);
 	}
@@ -1268,48 +1277,6 @@ extends BackgroundWidget<BW, BWL> {
 	}
 	
 	//method
-	/**
-	 * @return the height of the bordered area of the current {@link BorderWidget}.
-	 */
-	private int getBorderedAreaHeight() {
-		return 
-		viewArea.getHeight()
-		+ getHorizontalScrollbarThickness();
-	}
-	
-	//method
-	/**
-	 * @return the width of the bordered area of the current {@link BorderWidget}.
-	 */
-	private int getBorderedAreaWidth() {
-		return 
-		viewArea.getWidth()
-		+ getVerticalScrollbarThickness();
-	}
-	
-	//method
-	/**
-	 * @return the x-position of the bordered area of the current {@link BorderWidget}.
-	 */
-	private int getBorderedAreaXPosition() {
-		
-		final BWL currentStructure = getRefCurrentLook();
-		
-		return currentStructure.getRecursiveOrDefaultLeftBorderThickness();
-	}
-	
-	//method
-	/**
-	 * @return the y-position of the bordered area of the current {@link BorderWidget}.
-	 */
-	private int getBorderedAreaYPosition() {
-		
-		final BWL currentStructure = getRefCurrentLook();
-		
-		return currentStructure.getRecursiveOrDefaultTopBorderThickness();
-	}
-	
-	//method
 	private int getHorizontalScrollbarCursorWidth() {
 		return
 		Calculator.getMax(
@@ -1324,7 +1291,7 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	private int getHorizontalScrollbarCursorXPosition() {
 		return
-		getBorderedAreaXPosition()
+		borderedArea.getXPosition()
 		+ getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar();
 	}
 	
@@ -1349,7 +1316,7 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	private int getHorizontalScrollbarCursorYPosition() {
 		return
-		getBorderedAreaYPosition()
+		borderedArea.getYPosition()
 		+ getHorizontalScrollbarYPositionOnBorderedArea();
 	}
 	
@@ -1359,7 +1326,7 @@ extends BackgroundWidget<BW, BWL> {
 	 * on the bordered area of the current {@link BorderWidget}.
 	 */
 	private int getHorizontalScrollbarYPositionOnBorderedArea() {
-		return (getBorderedAreaHeight()	- getHorizontalScrollbarThickness());
+		return (borderedArea.getHeight() - getHorizontalScrollbarThickness());
 	}
 	
 	//method
@@ -1380,7 +1347,7 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	private int getVerticalScrollbarCursorXPosition() {
 		return
-		getBorderedAreaXPosition()
+		borderedArea.getXPosition()
 		+ getVerticalScrollbarXPositionOnBorderedArea();
 	}
 	
@@ -1390,7 +1357,7 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	private int getVerticalScrollbarCursorYPosition() {
 		return
-		getBorderedAreaYPosition()
+		borderedArea.getYPosition()
 		+ getVerticalScrollbarCursorYPositionOnVerticalScrollbar();
 	}
 	
@@ -1415,7 +1382,7 @@ extends BackgroundWidget<BW, BWL> {
 	 * on the bordered area of the current {@link BorderWidget}.
 	 */
 	private int getVerticalScrollbarXPositionOnBorderedArea() {
-		return (getBorderedAreaWidth() - getVerticalScrollbarThickness());
+		return (borderedArea.getWidth() - getVerticalScrollbarThickness());
 	}
 	
 	//method

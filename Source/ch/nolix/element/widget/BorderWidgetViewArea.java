@@ -170,8 +170,7 @@ public final class BorderWidgetViewArea<BW extends BorderWidget<BW, BWL>, BWL ex
 	
 	//method
 	/**
-	 * @return the x-position of the current {@link BorderWidgetViewArea}
-	 * on the {@link BorderWidget} it belongs to.
+	 * @return the x-position of the current {@link BorderWidgetViewArea} on the {@link BorderWidget} it belongs to.
 	 */
 	public int getXPosition() {
 		//TODO
@@ -180,8 +179,7 @@ public final class BorderWidgetViewArea<BW extends BorderWidget<BW, BWL>, BWL ex
 	
 	//method
 	/**
-	 * @return the y-position of the current {@link BorderWidgetViewArea}
-	 * on the {@link BorderWidget} it belongs to.
+	 * @return the y-position of the current {@link BorderWidgetViewArea} on the {@link BorderWidget} it belongs to.
 	 */
 	public int getYPosition() {
 		//TODO
