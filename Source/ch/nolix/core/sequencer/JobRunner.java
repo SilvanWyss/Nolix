@@ -2,7 +2,6 @@
 package ch.nolix.core.sequencer;
 
 //own imports
-import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IBooleanGetter;
 import ch.nolix.core.functionAPI.IFunction;
@@ -187,13 +186,13 @@ final class JobRunner extends Thread {
 	) {
 		
 		//Checks if the given job is not null.
-		Validator.suppose(job).thatIsNamed(PascalCaseNameCatalogue.Job).isNotNull();
+		Validator.suppose(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
 		
 		//Checks if the given maxRunCount is not negative.
 		Validator.suppose(maxRunCount).thatIsNamed("max run count").isNotNegative();
 		
 		//Checks if the given condition is not null.
-		Validator.suppose(condition).thatIsNamed(PascalCaseNameCatalogue.CONDITION).isNotNull();
+		Validator.suppose(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();
 		
 		this.job = job;
 		this.maxRunCount = maxRunCount;
@@ -224,13 +223,13 @@ final class JobRunner extends Thread {
 		final int timeIntervalInMilliseconds
 	) {
 		//Checks if the given job is not null.
-		Validator.suppose(job).thatIsNamed(PascalCaseNameCatalogue.Job).isNotNull();
+		Validator.suppose(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
 		
 		//Checks if the given max run count is not negative.
 		Validator.suppose(maxRunCount).thatIsNamed("max run count").isNotNegative();
 		
 		//Checks if the given condition is not null.
-		Validator.suppose(condition).thatIsNamed(PascalCaseNameCatalogue.CONDITION).isNotNull();
+		Validator.suppose(condition).thatIsNamed(VariableNameCatalogue.CONDITION).isNotNull();
 		
 		//Checks if the given timeIntervalInMilliseconds is not negative.
 		Validator.suppose(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
@@ -262,7 +261,7 @@ final class JobRunner extends Thread {
 	) {
 		
 		//Checks if the given job is not null.
-		Validator.suppose(job).thatIsNamed(PascalCaseNameCatalogue.Job).isNotNull();
+		Validator.suppose(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
 		
 		//Checks if the given maxRunCount is not negative.
 		Validator.suppose(maxRunCount).thatIsNamed("max run count").isNotNegative();

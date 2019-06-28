@@ -46,7 +46,7 @@ public final class FileSystemAccessor {
 	 * @param path
 	 */
 	public static void openInFileExplorer(final String path) {
-		ShellProvider.run("explorer.exe path");
+		ShellProvider.run("explorer.exe" + path);
 	}
 	
 	//static method
