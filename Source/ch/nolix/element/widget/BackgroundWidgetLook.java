@@ -34,7 +34,7 @@ extends WidgetLook<BWL> {
 	
 	//attribute
 	private final LayerProperty<Color> backgroundColor =
-	new LayerProperty<Color>(
+	new LayerProperty<>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		DEFAULT_BACKGROUND_COLOR,
 		s -> Color.createFromSpecification(s),
@@ -43,7 +43,7 @@ extends WidgetLook<BWL> {
 
 	//attribute
 	private final LayerProperty<ColorGradient> backgroundColorGradient =
-	new LayerProperty<ColorGradient>(
+	new LayerProperty<>(
 		BACKGROUND_COLOR_GRADIENT_HEADER,
 		DEFAULT_BACKGROUND_COLOR_GRADIENT,
 		s -> ColorGradient.createFromSpecification(s),
@@ -52,7 +52,7 @@ extends WidgetLook<BWL> {
 	
 	//attribute
 	private final LayerProperty<Image> backgroundImage =
-	new LayerProperty<Image>(
+	new LayerProperty<>(
 		BACKGROUND_IMAGE_HEADER,
 		DEFAULT_BACKGROUND_IMAGE,
 		s -> Image.createFromSpecification(s),

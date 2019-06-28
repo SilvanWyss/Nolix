@@ -33,7 +33,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	
 	//attribute
 	private final MutableProperty<AccordionExpansionBehavior> expansionBehavior =
-	new MutableProperty<AccordionExpansionBehavior>(
+	new MutableProperty<>(
 		AccordionExpansionBehavior.TYPE_NAME,
 		eb -> setExpansionBehavior(eb),
 		s -> AccordionExpansionBehavior.createFromSpecification(s),
@@ -42,7 +42,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	
 	//attribute
 	private final MultiProperty<AccordionTab> tabs =
-	new MultiProperty<AccordionTab>(
+	new MultiProperty<>(
 		PascalCaseNameCatalogue.TAB,
 		t -> addTab(t),
 		s -> AccordionTab.createFromSpecification(s),

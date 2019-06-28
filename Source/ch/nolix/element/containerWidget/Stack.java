@@ -32,7 +32,7 @@ implements Clearable<S> {
 	private NonNegativeInteger elementMargin;
 	
 	//multi-attribute
-	private final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>();
+	private final List<Widget<?, ?>> widgets = new List<>();
 	
 	//method
 	/**

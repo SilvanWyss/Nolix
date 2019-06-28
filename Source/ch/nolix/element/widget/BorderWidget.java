@@ -67,7 +67,7 @@ extends BackgroundWidget<BW, BWL> {
 	
 	//attribute
 	private final MutableOptionalProperty<PositiveInteger> minWidth =
-	new MutableOptionalProperty<PositiveInteger>(
+	new MutableOptionalProperty<>(
 		MIN_WIDTH_HEADER,
 		mw -> setMinWidth(mw.getValue()),
 		s -> PositiveInteger.createFromSpecification(s),
@@ -76,7 +76,7 @@ extends BackgroundWidget<BW, BWL> {
 	
 	//attribute
 	private final MutableOptionalProperty<PositiveInteger> minHeight =
-	new MutableOptionalProperty<PositiveInteger>(
+	new MutableOptionalProperty<>(
 		MIN_HEIGHT_HEADER,
 		mh -> setMinHeight(mh.getValue()),
 		s -> PositiveInteger.createFromSpecification(s),
@@ -85,7 +85,7 @@ extends BackgroundWidget<BW, BWL> {
 	
 	//attribute
 	private final MutableOptionalProperty<PositiveInteger> maxWidth =
-	new MutableOptionalProperty<PositiveInteger>(
+	new MutableOptionalProperty<>(
 		MAX_WIDTH_HEADER,
 		mw -> setMaxWidth(mw.getValue()),
 		s -> PositiveInteger.createFromSpecification(s),
@@ -94,7 +94,7 @@ extends BackgroundWidget<BW, BWL> {
 	
 	//attribute
 	private final MutableOptionalProperty<PositiveInteger> maxHeight =
-	new MutableOptionalProperty<PositiveInteger>(
+	new MutableOptionalProperty<>(
 		MAX_HEIGHT_HEADER,
 		mh -> setMaxHeight(mh.getValue()),
 		s -> PositiveInteger.createFromSpecification(s),
@@ -103,7 +103,7 @@ extends BackgroundWidget<BW, BWL> {
 	
 	//attribute
 	private final MutableOptionalProperty<PositiveInteger> proposalWidth =
-	new MutableOptionalProperty<PositiveInteger>(
+	new MutableOptionalProperty<>(
 		PROPOSAL_WIDTH_HEADER,
 		pw -> setProposalWidth(pw.getValue()),
 		s -> PositiveInteger.createFromSpecification(s),
@@ -112,7 +112,7 @@ extends BackgroundWidget<BW, BWL> {
 	
 	//attribute
 	private final MutableOptionalProperty<PositiveInteger> proposalHeight =
-	new MutableOptionalProperty<PositiveInteger>(
+	new MutableOptionalProperty<>(
 		PROPOSAL_HEIGHT_HEADER,
 		ph -> setProposalHeight(ph.getValue()),
 		s -> PositiveInteger.createFromSpecification(s),
@@ -121,7 +121,7 @@ extends BackgroundWidget<BW, BWL> {
 	
 	//attribute
 	private final MutableProperty<NonNegativeInteger> viewAreaXPositionOnScrolledArea =
-	new MutableProperty<NonNegativeInteger>(
+	new MutableProperty<>(
 		VIEW_AREA_X_POSITION_ON_SCROLLED_AREA_HEADER,
 		x -> setViewAreaXPositionOnScrolledArea(x.getValue()),
 		s -> NonNegativeInteger.createFromSpecification(s),
@@ -130,7 +130,7 @@ extends BackgroundWidget<BW, BWL> {
 	
 	//attribute
 	private final MutableProperty<NonNegativeInteger> viewAreaYPositionOnScrolledArea =
-	new MutableProperty<NonNegativeInteger>(
+	new MutableProperty<>(
 		VIEW_AREA_Y_POSITION_ON_SCROLLED_AREA_HEADER,
 		y -> setViewAreaYPositionOnScrolledArea(y.getValue()),
 		s -> NonNegativeInteger.createFromSpecification(s),
@@ -677,9 +677,7 @@ extends BackgroundWidget<BW, BWL> {
 			(verticalScrollbarCursorYDelta * (scrolledArea.getHeight() - viewAreaHeight))
 			/ (viewAreaHeight - getVerticalScrollbarCursorHeight());
 			
-			final var viewAreaYPositionOnScrolledArea = viewAreaYDelta;
-			
-			setViewAreaYPositionOnScrolledArea(viewAreaYPositionOnScrolledArea);
+			setViewAreaYPositionOnScrolledArea(viewAreaYDelta);
 		}
 		
 		if (isMovingHorizontalScrollbarCursor) {
@@ -693,9 +691,7 @@ extends BackgroundWidget<BW, BWL> {
 			(horizontalScrollbarCursorXDelta * (scrolledArea.getWidth() - viewAreaWidth))
 			/ (viewAreaWidth - getHorizontalScrollbarCursorWidth());
 			
-			final var viewAreaXPositionOnScrolledArea = viewAreaXDelta;
-			
-			setViewAreaXPositionOnScrolledArea(viewAreaXPositionOnScrolledArea);
+			setViewAreaXPositionOnScrolledArea(viewAreaXDelta);
 		}
 	}
 	
@@ -709,13 +705,11 @@ extends BackgroundWidget<BW, BWL> {
 		//Calls method of the base class.
 		super.noteAnyMouseWheelRotationSteps(mouseWheelRotationSteps);
 		
-		if (isEnabled()) {
-			if (isFocused() || isHoverFocused()) {
-				setViewAreaYPositionOnScrolledArea(
-					getViewAreaYPositionOnScrolledArea()
-					+ VIEW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP * mouseWheelRotationSteps
-				);
-			}
+		if (isEnabled() && (isFocused() || isHoverFocused())) {
+			setViewAreaYPositionOnScrolledArea(
+				getViewAreaYPositionOnScrolledArea()
+				+ VIEW_AREA_X_DELTA_PER_MOUSE_WHEEL_ROTATION_STEP * mouseWheelRotationSteps
+			);
 		}
 	}
 
@@ -854,6 +848,7 @@ extends BackgroundWidget<BW, BWL> {
 	}
 	
 	//method
+	@Override
 	public final void setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
 		
 		this.cursorXPosition = cursorXPosition;
@@ -1254,6 +1249,8 @@ extends BackgroundWidget<BW, BWL> {
 		);
 	}
 	
+	//method
+	@Override
 	protected void paint3(IPainter painter) {
 		paint(getRefLook(), painter);
 	}

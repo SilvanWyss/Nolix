@@ -40,7 +40,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerEntity<
 	
 	//attribute
 	private final LayerProperty<Font> font =
-	new LayerProperty<Font>(
+	new LayerProperty<>(
 		Font.TYPE_NAME,
 		DEFAULT_TEXT_FONT,
 		s -> Font.createFromSpecification(s),
@@ -49,7 +49,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerEntity<
 	
 	//attribute
 	private final LayerProperty<Boolean> boldTextFlag =
-	new LayerProperty<Boolean>(
+	new LayerProperty<>(
 		BOLD_TEXT_FLAG_HEADER,
 		new Boolean(false),
 		s -> Boolean.createFromSpecification(s),
@@ -58,7 +58,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerEntity<
 	
 	//attribute
 	private final LayerProperty<PositiveInteger> textSize =
-	new LayerProperty<PositiveInteger>(
+	new LayerProperty<>(
 		PascalCaseNameCatalogue.TEXT_SIZE,
 		new PositiveInteger(DEFAULT_TEXT_SIZE),
 		s -> PositiveInteger.createFromSpecification(s),
@@ -67,7 +67,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerEntity<
 	
 	//attribute
 	private final LayerProperty<Color> textColor =
-	new LayerProperty<Color>(
+	new LayerProperty<>(
 		PascalCaseNameCatalogue.TEXT_COLOR,
 		DEFAULT_TEXT_COLOR,
 		s -> Color.createFromSpecification(s),

@@ -27,8 +27,8 @@ implements Freezable<XMLNode>, OptionalNamable<XMLNode>, OptionalValueable<XMLNo
 	private String value;
 	
 	//multi-attributes
-	private final List<XMLAttribute> attributes = new List<XMLAttribute>();
-	private final List<XMLNode> childNodes = new List<XMLNode>();
+	private final List<XMLAttribute> attributes = new List<>();
+	private final List<XMLNode> childNodes = new List<>();
 	
 	//constructor
 	public XMLNode() {}

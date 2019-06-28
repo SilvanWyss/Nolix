@@ -270,12 +270,12 @@ implements Recalculable {
 	 * @return true if the current {@link Widget} belongs to the given GUI.
 	 * @throws NullArgumentException if the given GUI is null.
 	 */
-	public final boolean belongsToGUI(final IGUI<?> GUI) {
+	public final boolean belongsToGUI(final IGUI<?> aGUI) {
 		
 		//Checks if the given GUI is not null.
-		Validator.suppose(GUI).isNotNull();
+		Validator.suppose(aGUI).isNotNull();
 		
-		return (this.parentGUI != GUI);
+		return (this.parentGUI != aGUI);
 	}
 	
 	//method
@@ -312,7 +312,6 @@ implements Recalculable {
 			}
 			
 			final var thisYPositionOnGUI = getYPositionOnGUI();
-			
 			if (yPositionOnGUI < thisYPositionOnGUI || yPositionOnGUI >= thisYPositionOnGUI + getHeight()) {
 				return false;
 			}
@@ -514,7 +513,7 @@ implements Recalculable {
 		
 		//Handles the case that the GUI, the current widget belongs to, is not a root GUI.
 		if (getParentGUI().isRootGUI()) {
-			return new List<Integer>(getIndexOnGUI());
+			return new List<>(getIndexOnGUI());
 		}
 		
 		//Handles the case that the GUI, the current widget belongs to, is a root GUI.
@@ -533,7 +532,7 @@ implements Recalculable {
 	 */
 	public List<DocumentNode> getInteractionAttributes() {
 		return
-		new List<DocumentNode> (
+		new List<> (
 			getState().getSpecificationAs(STATE_HEADER)
 		);
 	}
@@ -583,12 +582,9 @@ implements Recalculable {
 	 * @return the configurable elements of the current {@link Widget}.
 	 */
 	@Override
-	public final List<Configurable<?>> getRefConfigurables() {
-		
-		final var configurables = new List<Widget<?, ?>>();
-		fillUpConfigurableChildWidgets(configurables);
-		
-		return new List<Configurable<?>>(configurables);
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public final List<Configurable<?>> getRefConfigurables() {		
+		return (List)(getChildWidgets());
 	}
 	
 	//method
@@ -803,37 +799,11 @@ implements Recalculable {
 	/**
 	 * Lets the current {@link Widget} note any mouse button press.
 	 */
-	public final void noteAnyLeftMouseButtonPress() {			
+	public final void noteAnyLeftMouseButtonPress() {
+		
+		//Handles the case that the current Widget is enabled.
 		if (isEnabled()) {
-			if (!isUnderCursor()) {
-				switch (getState()) {
-					case Focused:
-					case HoverFocused:
-						
-						if (!keepsFocus()) {
-							setNormal();
-						}
-						
-						break;
-					default:
-				}
-			}
-			else {
-				
-				if (isNormal()) {
-					setHoverFocused();
-				}
-				
-				else if (isHovered()) {
-					setHoverFocused();
-				}
-				
-				else if (isFocused()) {
-					setHoverFocused();
-				}
-				
-				noteLeftMouseButtonPress();
-			}
+			noteAnyLeftMouseButtonPressWhenEnabled();
 		}
 	}
 	
@@ -948,10 +918,8 @@ implements Recalculable {
 	 * Lets the current {@link Widget} note any right mouse button release.
 	 */
 	public final void noteAnyRightMouseButtonRelease() {
-		if (isEnabled()) {
-			if (isUnderCursor()) {
-				noteRightMouseButtonRelease();
-			}
+		if (isEnabled() && isUnderCursor()) {
+			noteRightMouseButtonRelease();
 		}
 	}
 	
@@ -977,18 +945,13 @@ implements Recalculable {
 	 */
 	public void noteLeftMouseButtonPress() {
 		
-		//Handles the case that the cursor is under the view area of the current widget.
-		if (viewAreaIsUnderCursor()) {
+		if (viewAreaIsUnderCursor() && hasLeftMouseButtonPressCommand()) {
+				
+			leftMouseButtonPressCommand.run();
 			
-			//Handles the case that the current widget has a left mouse button release command.
-			if (hasLeftMouseButtonPressCommand()) {
-				
-				leftMouseButtonPressCommand.run();
-				
-				//Handles the case that the GUI the current widget belongs to has a controller.
-				if (getParentGUI().hasController()) {
-					getParentGUI().getRefController().noteLeftMouseButtonPressCommand(this);
-				}
+			//Handles the case that the GUI the current widget belongs to has a controller.
+			if (getParentGUI().hasController()) {
+				getParentGUI().getRefController().noteLeftMouseButtonPressCommand(this);
 			}
 		}
 	}
@@ -999,25 +962,18 @@ implements Recalculable {
 	 */
 	public void noteLeftMouseButtonRelease() {
 		
-		//Handles the case that the cursor is under the view area of the current widget.
-		if (viewAreaIsUnderCursor()) {
+		if (viewAreaIsUnderCursor() && hasLeftMouseButtonReleaseCommand()) {
+				
+			leftMouseButtonReleaseCommand.run();
 			
-			//Handles the case that the current widget has a left mouse button release command.
-			if (hasLeftMouseButtonReleaseCommand()) {
-				
-				leftMouseButtonReleaseCommand.run();
-				
-				//Handles the case that the GUI the current widget belongs to has a controller.
-				if (getParentGUI().hasController()) {
-					getParentGUI().getRefController().noteLeftMouseButtonReleaseCommand(this);
-				}
+			//Handles the case that the GUI the current widget belongs to has a controller.
+			if (getParentGUI().hasController()) {
+				getParentGUI().getRefController().noteLeftMouseButtonReleaseCommand(this);
 			}
 		}
 		
-		if (!isUnderCursor()) {
-			if (!keepsFocus()) {
-				setNormal();
-			}
+		if (!isUnderCursor() && !keepsFocus()) {
+			setNormal();
 		}
 	}
 	
@@ -1554,8 +1510,6 @@ implements Recalculable {
 		fillUpChildWidgets(list);
 	}
 	
-	//protected abstract void fillUpShownWidgets(final List<Widget<?, ?>> list);
-	
 	//abstract method
 	/**
 	 * @return the height of the current {@link Widget} when it is s not collapsed.
@@ -1874,6 +1828,34 @@ implements Recalculable {
 		return rightMouseButtonReleaseCommand;
 	}
 	
+	private void noteAnyLeftMouseButtonPressWhenEnabled() {
+		
+		//Handles the case that the current Widget is not under the cursor.
+		if (!isUnderCursor()) {
+			switch (getState()) {
+				case Focused:
+				case HoverFocused:
+					
+					if (!keepsFocus()) {
+						setNormal();
+					}
+					
+					break;
+				default:
+			}
+		}
+		
+		//Handles the case that the current Widget is under the cursor.
+		else {
+			
+			if (isNormal() || isHovered() || isFocused()) {
+				setHoverFocused();
+			}
+			
+			noteLeftMouseButtonPress();
+		}
+	}
+
 	//method
 	/**
 	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link Widget}.

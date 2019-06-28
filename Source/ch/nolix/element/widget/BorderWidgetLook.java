@@ -14,7 +14,7 @@ import ch.nolix.element.core.NonNegativeInteger;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1380
+ * @lines 1420
  * @param <BWL> The type of a {@link BorderWidgetLook}.
  */
 public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>>
@@ -169,85 +169,12 @@ extends BackgroundWidgetLook<BWL> {
 	public List<DocumentNode> getAttributes() {
 		
 		//Calls method of the base class.
-		final List<DocumentNode> attributes = super.getAttributes();
+		final var attributes = super.getAttributes();
 		
-		if (hasABorderThickness() && hasSameBorderThicknessAtEachSide()) {
-			attributes.addAtEnd(leftBorderThickness.getSpecificationAs(BORDER_THICKNESS_HEADER));
-		}
-		else {
-			
-			if (hasLeftBorderThickness()) {
-				attributes.addAtEnd(leftBorderThickness.getSpecificationAs(LEFT_BORDER_THICKNESS_HEADER));
-			}
-			
-			if (hasRightBorderThickness()) {
-				attributes.addAtEnd(rightBorderThickness.getSpecificationAs(RIGHT_BORDER_THICKNESS_HEADER));
-			}
-			
-			if (hasTopBorderThickness()) {
-				attributes.addAtEnd(topBorderThickness.getSpecificationAs(TOP_BORDER_THICKNESS_HEADER));
-			}
-			
-			if (hasBottomBorderThickness()) {
-				attributes.addAtEnd(bottomBorderThickness.getSpecificationAs(BOTTOM_BORDER_THICKNESS_HEADER));
-			}
-		}
-		
-		if (hasABorderColor() && hasSameBorderColorAtEachSide()) {
-			attributes.addAtEnd(leftBorderColor.getSpecificationAs(BORDER_COLOR_HEADER));
-		}
-		else {
-			
-			if (hasLeftBorderColor()) {
-				attributes.addAtEnd(leftBorderColor.getSpecificationAs(LEFT_BORDER_COLOR_HEADER));
-			}
-			
-			if (hasRightBorderColor()) {
-				attributes.addAtEnd(rightBorderColor.getSpecificationAs(RIGHT_BORDER_COLOR_HEADER));
-			}
-			
-			if (hasTopBorderColor()) {
-				attributes.addAtEnd(topBorderColor.getSpecificationAs(TOP_BORDER_COLOR_HEADER));
-			}
-			
-			if (hasBottomBorderColor()) {
-				attributes.addAtEnd(bottomBorderColor.getSpecificationAs(BOTTOM_BORDER_COLOR_HEADER));
-			}
-		}
-		
-		if (hasAPadding() && hasSamePaddingAtEachSide()) {
-			attributes.addAtEnd(leftPadding.getSpecificationAs(PADDING_HEADER));
-		}
-		else {
-			
-			if (hasLeftPadding()) {
-				attributes.addAtEnd(leftPadding.getSpecificationAs(LEFT_PADDING_HEADER));
-			}
-			
-			if (hasRightPadding()) {
-				attributes.addAtEnd(rightPadding.getSpecificationAs(RIGHT_PADDING_HEADER));
-			}
-			
-			if (hasTopPadding()) {
-				attributes.addAtEnd(topPadding.getSpecificationAs(TOP_PADDING_HEADER));
-			}
-			
-			if (hasBottomPadding()) {
-				attributes.addAtEnd(bottomPadding.getSpecificationAs(BOTTOM_PADDING_HEADER));
-			}
-		}
-		
-		if (hasBaseScrollbarLook()) {
-			attributes.addAtEnd(baseScrollbarLook.getSpecificationAs(BASE_SCROLLBAR_LOOK_HEADER));
-		}
-		
-		if (hasHoverScrollbarLook()) {
-			attributes.addAtEnd(hoverScrollbarLook.getSpecificationAs(HOVER_SCROLLBAR_LOOK_HEADER));
-		}
-		
-		if (hasSelectionScrollbarLook()) {
-			attributes.addAtEnd(selectionScrollbarLook.getSpecificationAs(SELECTION_SCROLLBAR_LOOK_HEADER));
-		}
+		fillUpBorderThicknessesSpecifications(attributes);
+		fillUpBorderColorsSpecifications(attributes);
+		fillUpPaddingSpecifications(attributes);	
+		fillUpScrollbarLooksSpecifications(attributes);
 		
 		return attributes;
 	}
@@ -1146,7 +1073,116 @@ extends BackgroundWidgetLook<BWL> {
 		return asConcreteType();
 	}
 	
-
+	//method
+	/**
+	 * Fills up the specification of the border colors of the current {@link BorderWidgetLook} into the given list.
+	 * 
+	 * @param list
+	 */
+	private void fillUpBorderColorsSpecifications(final List<DocumentNode> list) {
+		if (hasABorderColor() && hasSameBorderColorAtEachSide()) {
+			list.addAtEnd(leftBorderColor.getSpecificationAs(BORDER_COLOR_HEADER));
+		}
+		else {
+			
+			if (hasLeftBorderColor()) {
+				list.addAtEnd(leftBorderColor.getSpecificationAs(LEFT_BORDER_COLOR_HEADER));
+			}
+			
+			if (hasRightBorderColor()) {
+				list.addAtEnd(rightBorderColor.getSpecificationAs(RIGHT_BORDER_COLOR_HEADER));
+			}
+			
+			if (hasTopBorderColor()) {
+				list.addAtEnd(topBorderColor.getSpecificationAs(TOP_BORDER_COLOR_HEADER));
+			}
+			
+			if (hasBottomBorderColor()) {
+				list.addAtEnd(bottomBorderColor.getSpecificationAs(BOTTOM_BORDER_COLOR_HEADER));
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * Fills up the specification of the border thicknesses of the current {@link BorderWidgetLook} into the given list.
+	 * 
+	 * @param list
+	 */
+	private void fillUpBorderThicknessesSpecifications(final List<DocumentNode> list) {
+		if (hasABorderThickness() && hasSameBorderThicknessAtEachSide()) {
+			list.addAtEnd(leftBorderThickness.getSpecificationAs(BORDER_THICKNESS_HEADER));
+		}
+		else {
+			
+			if (hasLeftBorderThickness()) {
+				list.addAtEnd(leftBorderThickness.getSpecificationAs(LEFT_BORDER_THICKNESS_HEADER));
+			}
+			
+			if (hasRightBorderThickness()) {
+				list.addAtEnd(rightBorderThickness.getSpecificationAs(RIGHT_BORDER_THICKNESS_HEADER));
+			}
+			
+			if (hasTopBorderThickness()) {
+				list.addAtEnd(topBorderThickness.getSpecificationAs(TOP_BORDER_THICKNESS_HEADER));
+			}
+			
+			if (hasBottomBorderThickness()) {
+				list.addAtEnd(bottomBorderThickness.getSpecificationAs(BOTTOM_BORDER_THICKNESS_HEADER));
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * Fills up the specification of the paddings of the current {@link BorderWidgetLook} into the given list.
+	 * 
+	 * @param list
+	 */
+	private void fillUpPaddingSpecifications(final List<DocumentNode> list) {
+		if (hasAPadding() && hasSamePaddingAtEachSide()) {
+			list.addAtEnd(leftPadding.getSpecificationAs(PADDING_HEADER));
+		}
+		else {
+			
+			if (hasLeftPadding()) {
+				list.addAtEnd(leftPadding.getSpecificationAs(LEFT_PADDING_HEADER));
+			}
+			
+			if (hasRightPadding()) {
+				list.addAtEnd(rightPadding.getSpecificationAs(RIGHT_PADDING_HEADER));
+			}
+			
+			if (hasTopPadding()) {
+				list.addAtEnd(topPadding.getSpecificationAs(TOP_PADDING_HEADER));
+			}
+			
+			if (hasBottomPadding()) {
+				list.addAtEnd(bottomPadding.getSpecificationAs(BOTTOM_PADDING_HEADER));
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * Fills up the specifications of the scrollbar looks of the current {@link BorderWidgetLook} into the given list.
+	 * 
+	 * @param list
+	 */
+	private void fillUpScrollbarLooksSpecifications(final List<DocumentNode> list) {
+		
+		if (hasBaseScrollbarLook()) {
+			list.addAtEnd(baseScrollbarLook.getSpecificationAs(BASE_SCROLLBAR_LOOK_HEADER));
+		}
+		
+		if (hasHoverScrollbarLook()) {
+			list.addAtEnd(hoverScrollbarLook.getSpecificationAs(HOVER_SCROLLBAR_LOOK_HEADER));
+		}
+		
+		if (hasSelectionScrollbarLook()) {
+			list.addAtEnd(selectionScrollbarLook.getSpecificationAs(SELECTION_SCROLLBAR_LOOK_HEADER));
+		}
+	}
 	
 	//method
 	/**
