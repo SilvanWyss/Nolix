@@ -11,27 +11,27 @@ public final class CentralClassProvider {
 	private static final ClassProvider classProvider =	new ClassProvider();
 	
 	//static method
-	public static boolean containsClassFor(final Class<?> interface_) {
-		return classProvider.containsClassFor(interface_);
+	public static boolean containsClassFor(final Class<?> _interface) {
+		return classProvider.containsClassFor(_interface);
 	}
 	
 	//static method
-	public static <I, C extends I> C create(final Class<I> interface_, final Object... arguments) {
-		return classProvider.create(interface_, arguments);
+	public static <I, C extends I> C create(final Class<I> _interface, final Object... arguments) {
+		return classProvider.create(_interface, arguments);
 	}
 	
 	//static method
-	public static <I, C extends I> RegistrationMediator register(final Class<I> interface_,	final Class<C> class_) {		
-		return classProvider.register(interface_, class_);
+	public static <I, C extends I> RegistrationMediator register(final Class<I> _interface,	final Class<C> _class) {		
+		return classProvider.register(_interface, _class);
 	}
 	
 	//static method
 	public static <I, C extends I> RegistrationMediator register(
-		final Class<I> interface_,
-		final Class<C> class_,
+		final Class<I> _interface,
+		final Class<C> _class,
 		final WriteMode writeMode
 	) {
-		return classProvider.register(interface_, class_, writeMode);
+		return classProvider.register(_interface, _class, writeMode);
 	}
 	
 	//private constructor

@@ -66,7 +66,7 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 	 */
 	@Override
 	public Iterator<E> iterator() {
-		return new ArrayReadContainerIterator<E>(array);
+		return new ArrayReadContainerIterator<>(array);
 	}
 	
 	//method

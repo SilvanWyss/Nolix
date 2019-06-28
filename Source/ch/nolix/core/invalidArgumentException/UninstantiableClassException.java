@@ -15,30 +15,30 @@ public final class UninstantiableClassException extends InvalidArgumentException
 	
 	//static method
 	/**
-	 * @param class_
+	 * @param _class
 	 * @return a safe class for the given class.
 	 * @throws RuntimeException if the given class is null.
 	 */
-	private static Class<?> createSafeClass(final Class<?> class_) {
+	private static Class<?> createSafeClass(final Class<?> _class) {
 		
 		//Checks if the given class is not null.
-		if (class_ == null) {
+		if (_class == null) {
 			throw new RuntimeException("The given class is null.");
 		}
 		
-		return class_;
+		return _class;
 	}
 	
 	//constructor
 	/**
 	 * Creates a new {@link UninstantiableClassException} for the given class.
 	 * 
-	 * @param class_
+	 * @param _class
 	 * @throws RuntimeException if the given class is null.
 	 */
-	public UninstantiableClassException(final Class<?> class_) {
+	public UninstantiableClassException(final Class<?> _class) {
 		
 		//Calls constructor of the base class.
-		super(createSafeClass(class_));
+		super(createSafeClass(_class));
 	}
 }

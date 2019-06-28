@@ -12,7 +12,7 @@ import ch.nolix.core.validator.Validator;
  * 
  * @author Silvan Wyss
  * @month 2017-05
- * @lines 200
+ * @lines 220
  */
 public final class AfterAllMediator {
 
@@ -100,7 +100,7 @@ public final class AfterAllMediator {
 		this.condition = condition;
 		this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
 	}
-
+	
 	//method
 	/**
 	 * Lets this after all mediator run the given job.
@@ -111,47 +111,12 @@ public final class AfterAllMediator {
 		
 		//Handles the case that this after all mediator does not have a max run count.
 		if (!hasMaxRunCount()) {
-			
-			//Handles the case that this after all mediator does not have a condition.
-			if (!hasCondition()) {
-				while (true) {
-					job.run();
-					Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
-				}
-			}
-			
-			//Handles the case of this after all mediator has a condition.
-			else {
-				while (condition.getOutput()) {
-					job.run();
-					Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
-				}
-			}
+			runWhenDoesNotHaveRunCount(job);
 		}
 		
 		//Handles the case that this after all mediator has a max run count.
 		else {
-			
-			//Handles the case that this after all mediator does not have a condition.
-			if (!hasCondition()) {
-				for (int i = 1; i <= maxRunCount; i++) {
-					job.run();
-					Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
-				}
-			}
-			
-			//Handles the case that this after all mediator has a condition.
-			else {
-				for (int i = 1; i <= maxRunCount; i++) {
-					
-					if (!condition.getOutput()) {
-						break;
-					}
-					
-					job.run();
-					Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
-				}
-			}
+			runWhenHasRunCount(job);
 		}
 	}
 	
@@ -169,7 +134,7 @@ public final class AfterAllMediator {
 			
 			//Handles the case that this after all mediator does not have a condition.
 			if (!hasCondition()) {
-				return new Future(new JobRunner(job, timeIntervalInMilliseconds, false /*pseudo value*/));
+				return new Future(new JobRunner(job, timeIntervalInMilliseconds, () -> true));
 			}
 			
 			//Handles the case that this after all mediator has a condition.
@@ -201,5 +166,60 @@ public final class AfterAllMediator {
 	 */
 	private boolean hasMaxRunCount() {
 		return (maxRunCount != null);
+	}
+	
+	//method
+	/**
+	 * Lets this after all mediator run the given job when this after all mediator does not have a run count.
+	 * 
+	 * @param job
+	 */
+	private void runWhenDoesNotHaveRunCount(IFunction job) {
+					
+		//Handles the case that this after all mediator does not have a condition.
+		if (!hasCondition()) {
+			while (true) {
+				job.run();
+				Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
+			}
+		}
+		
+		//Handles the case of this after all mediator has a condition.
+		else {
+			while (condition.getOutput()) {
+				job.run();
+				Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * Lets this after all mediator run the given job when this after all mediator has a run count.
+	 * 
+	 * @param job
+	 */
+	private void runWhenHasRunCount(IFunction job) {
+		
+		//Handles the case that this after all mediator does not have a condition.
+		if (!hasCondition()) {
+			for (int i = 1; i <= maxRunCount; i++) {
+				job.run();
+				Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
+			}
+		}
+		
+		//Handles the case that this after all mediator has a condition.
+		else {
+			for (int i = 1; i <= maxRunCount; i++) {
+				
+				if (!condition.getOutput()) {
+					break;
+				}
+				
+				job.run();
+				Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
+			}
+		}
 	}
 }

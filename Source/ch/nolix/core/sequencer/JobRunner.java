@@ -61,7 +61,7 @@ final class JobRunner extends Thread {
 	public JobRunner(final IFunction job, final IBooleanGetter condition) {
 		
 		//Checks if the given job is not null.
-		Validator.suppose(job).thatIsNamed("job").isNotNull();
+		Validator.suppose(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
 		
 		//Checks if the given condition is not null.
 		Validator.suppose(condition).thatIsNamed("condition").isNotNull();
@@ -124,7 +124,7 @@ final class JobRunner extends Thread {
 	) {
 		
 		//Checks if the given job is not null.
-		Validator.suppose(job).thatIsNamed("job").isNotNull();
+		Validator.suppose(job).thatIsNamed(VariableNameCatalogue.JOB).isNotNull();
 		
 		//Checks if the given maxRunCount is not negative.
 		Validator.suppose(maxRunCount).thatIsNamed("max run count").isNotNegative();
@@ -133,36 +133,6 @@ final class JobRunner extends Thread {
 		this.maxRunCount = maxRunCount;
 		condition = null;
 		timeIntervalInMilliseconds = null;
-		
-		start();
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link JobRunner} with the given job and timeIntervalInMilliseconds.
-	 * The {@link JobRunner} will start automatically.
-	 * 
-	 * @param job
-	 * @param timeIntervalInMilliseconds
-	 * @throws NullArgumentException if the given job is null.
-	 * @throws NegativeArgumenteException if the given timeIntervalInMilliseconds is negative.
-	 */
-	public JobRunner(
-		final IFunction job,
-		final int timeIntervalInMilliseconds,
-		final boolean pseudoValue
-	) {
-		
-		//Checks if the given job is not null.
-		Validator.suppose(job).thatIsNamed("job").isNotNull();
-		
-		//Checks if the given timeIntervalInMilliseconds is not negative.
-		Validator.suppose(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
-		
-		this.job = job;
-		maxRunCount = null;
-		condition = null;
-		this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
 		
 		start();
 	}
