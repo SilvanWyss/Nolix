@@ -3,14 +3,21 @@ package ch.nolix.core.attributeAPI;
 
 //interface
 /**
- * A {@link OptionalTokenable} is a {@link Tokenable} whose token can be removed programmatically.
+ * A {@link OptionalTokenable} can have a token that can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 30
+ * @lines 80
  * @param <OT> The type of a {@link OptionalTokenable}.
  */
-public interface OptionalTokenable<OT extends OptionalTokenable<OT>> extends Tokenable<OT> {
+public interface OptionalTokenable<OT extends OptionalTokenable<OT>> {
+	
+	//abstract method
+	/**
+	 * @return the token of the current {@link OptionalTokenable}.
+	 * @throws Exception if the current {@link OptionalTokenable} does not have a token.
+	 */
+	public abstract String getToken();
 	
 	//abstract method
 	/**
@@ -44,7 +51,6 @@ public interface OptionalTokenable<OT extends OptionalTokenable<OT>> extends Tok
 	 * @param token
 	 * @return true if the current {@link OptionalTokenable} has the given token.
 	 */
-	@Override
 	public default boolean hasToken(final String token) {
 		
 		//Handles the case that the current OptionalTokenable does not have a token.
@@ -63,4 +69,13 @@ public interface OptionalTokenable<OT extends OptionalTokenable<OT>> extends Tok
 	 * @return the current {@link OptionalTokenable}.
 	 */
 	public abstract OT removeToken();
+	
+	//abstract method
+	/**
+	 * Sets the token of the current {@link OptionalTokenable}.
+	 * 
+	 * @param token
+	 * @return the current {@link OptionalTokenable}.
+	 */
+	public abstract OT setToken(String token);
 }
