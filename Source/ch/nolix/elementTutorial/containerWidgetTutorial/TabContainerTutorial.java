@@ -1,6 +1,5 @@
 package ch.nolix.elementTutorial.containerWidgetTutorial;
 
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidget.TabContainer;
@@ -53,10 +52,6 @@ public final class TabContainerTutorial {
 	
 	/**
 	 * Avoids that an instance of the {@link TabContainerTutorial} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private TabContainerTutorial() {
-		throw new UninstantiableClassException(getClass());
-	}
+	private TabContainerTutorial() {}
 }

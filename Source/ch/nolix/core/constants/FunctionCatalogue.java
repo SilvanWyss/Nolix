@@ -8,7 +8,6 @@ import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.functionAPI.IElementTakerLongGetter;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.functionAPI.I2ElementTakerBooleanGetter;
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 
 //class
 /**
@@ -116,10 +115,6 @@ public final class FunctionCatalogue {
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link FunctionCatalogue} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private FunctionCatalogue() {
-		throw new UninstantiableClassException(FunctionCatalogue.class);
-	}
+	private FunctionCatalogue() {}
 }

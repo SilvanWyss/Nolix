@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.constants;
 
-//own import
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
-
 //class
 /**
  * Of the {@link MultiVariableNameCatalogue} an instance cannot be created.
@@ -26,10 +23,6 @@ public final class MultiVariableNameCatalogue {
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link MultiVariableNameCatalogue} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private MultiVariableNameCatalogue() {
-		throw new UninstantiableClassException(MultiVariableNameCatalogue.class);
-	}
+	private MultiVariableNameCatalogue() {}
 }

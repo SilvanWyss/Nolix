@@ -1,6 +1,5 @@
 package ch.nolix.templatesTutorial.textureCreatorsTutorial;
 
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidget.Accordion;
@@ -44,7 +43,5 @@ public final class TextureCreatorsTutorial {
 		);
 	}
 	
-	private TextureCreatorsTutorial() {
-		throw new UninstantiableClassException(getClass());
-	}
+	private TextureCreatorsTutorial() {}
 }

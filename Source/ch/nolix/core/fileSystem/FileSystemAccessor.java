@@ -10,7 +10,6 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.core.util.ShellProvider;
 import ch.nolix.core.validator.Validator;
 
@@ -316,10 +315,6 @@ public final class FileSystemAccessor {
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link FileSystemAccessor} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private FileSystemAccessor() {
-		throw new UninstantiableClassException(getClass());
-	}
+	private FileSystemAccessor() {}
 }

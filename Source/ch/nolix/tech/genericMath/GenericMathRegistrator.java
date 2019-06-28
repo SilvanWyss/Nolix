@@ -3,7 +3,6 @@ package ch.nolix.tech.genericMath;
 
 //own imports
 import ch.nolix.core.classProvider.CentralClassProvider;
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.techAPI.genericMathAPI.IClosedIntervalFactory;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumberFactory;
 import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
@@ -22,7 +21,5 @@ public final class GenericMathRegistrator {
 	}
 	
 	//private constructor
-	private GenericMathRegistrator() {
-		throw new UninstantiableClassException(GenericMathRegistrator.class);
-	}
+	private GenericMathRegistrator() {}
 }

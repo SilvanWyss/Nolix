@@ -1,6 +1,5 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.DropdownMenu;
@@ -58,10 +57,6 @@ public final class DropdownMenuTutorial {
 	
 	/**
 	 * Avoids that an instance of the {@link DropdownMenuTutorial} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private DropdownMenuTutorial() {
-		throw new UninstantiableClassException(getClass());
-	}
+	private DropdownMenuTutorial() {}
 }

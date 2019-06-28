@@ -1,6 +1,5 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.Checkbox;
@@ -44,10 +43,6 @@ public final class CheckboxTutorial {
 	
 	/**
 	 * Avoids that an instance of the {@link CheckboxTutorial} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private CheckboxTutorial() {
-		throw new UninstantiableClassException(getClass());
-	}
+	private CheckboxTutorial() {}
 }

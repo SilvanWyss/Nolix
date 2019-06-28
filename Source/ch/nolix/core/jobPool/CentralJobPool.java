@@ -4,7 +4,6 @@ package ch.nolix.core.jobPool;
 //own imports
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.futureAPI.IFuture;
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 
 //class
 /**
@@ -40,10 +39,6 @@ public final class CentralJobPool {
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link CentralJobPool} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private CentralJobPool() {
-		throw new UninstantiableClassException(CentralJobPool.class);
-	}
+	private CentralJobPool() {}
 }

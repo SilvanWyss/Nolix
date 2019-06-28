@@ -1,7 +1,6 @@
 package ch.nolix.elementTutorial.containerWidgetTutorial;
 
 import ch.nolix.core.elementEnums.ContentPosition;
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidget.FloatContainer;
@@ -69,10 +68,6 @@ public final class FloatContainerTutorial {
 	
 	/**
 	 * Avoids that an instance of the {@link FloatContainerTutorial} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private FloatContainerTutorial() {
-		throw new UninstantiableClassException(getClass());
-	}
+	private FloatContainerTutorial() {}
 }

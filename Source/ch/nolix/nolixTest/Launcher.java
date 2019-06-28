@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.nolixTest;
 
-//own import
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
-
 //class
 /**
  * Of the {@link Launcher} an instance cannot be created.
@@ -27,10 +24,6 @@ public final class Launcher {
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link NolixTestPool} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private Launcher() {
-		throw new UninstantiableClassException(getClass());
-	}
+	private Launcher() {}
 }

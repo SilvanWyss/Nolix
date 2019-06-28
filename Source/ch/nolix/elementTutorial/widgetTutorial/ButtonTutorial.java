@@ -1,6 +1,5 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.Button;
@@ -52,10 +51,6 @@ public final class ButtonTutorial {
 	
 	/**
 	 * Avoids that an instance of the {@link ButtonTutorial} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private ButtonTutorial() {
-		throw new UninstantiableClassException(getClass());
-	}
+	private ButtonTutorial() {}
 }

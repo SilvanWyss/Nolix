@@ -1,6 +1,5 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.image.Image;
@@ -54,10 +53,6 @@ public final class ImageWidgetTutorial {
 	
 	/**
 	 * Avoids that an instance of the {@link ImageWidgetTutorial} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private ImageWidgetTutorial() {
-		throw new UninstantiableClassException(getClass());
-	}
+	private ImageWidgetTutorial() {}
 }

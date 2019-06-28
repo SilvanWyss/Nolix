@@ -1,6 +1,5 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
@@ -73,10 +72,6 @@ public final class LabelTutorial {
 	
 	/**
 	 * Avoids that an instance of the {@link LabelTutorial} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private LabelTutorial() {
-		throw new UninstantiableClassException(getClass());
-	}
+	private LabelTutorial() {}
 }

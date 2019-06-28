@@ -1,6 +1,5 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.TextBox;
@@ -46,10 +45,6 @@ public final class TextBoxTutorial {
 	
 	/**
 	 * Avoids that an instance of the {@link TextBoxTutorial} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private TextBoxTutorial() {
-		throw new UninstantiableClassException(getClass());
-	}
+	private TextBoxTutorial() {}
 }

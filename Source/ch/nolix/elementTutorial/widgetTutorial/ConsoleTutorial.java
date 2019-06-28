@@ -1,6 +1,5 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.Console;
@@ -49,10 +48,6 @@ public final class ConsoleTutorial {
 	
 	/**
 	 * Avoids that an instance of the {@link ConsoleTutorial} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private ConsoleTutorial() {
-		throw new UninstantiableClassException(getClass());
-	}
+	private ConsoleTutorial() {}
 }

@@ -3,7 +3,6 @@ package ch.nolix.core.classProvider;
 
 //own imports
 import ch.nolix.core.enums.WriteMode;
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 
 //class
 public final class CentralClassProvider {
@@ -36,7 +35,5 @@ public final class CentralClassProvider {
 	}
 	
 	//private constructor
-	private CentralClassProvider() { 
-		throw new UninstantiableClassException(getClass());
-	}
+	private CentralClassProvider() {}
 }

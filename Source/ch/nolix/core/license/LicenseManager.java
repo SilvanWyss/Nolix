@@ -4,7 +4,6 @@ package ch.nolix.core.license;
 //own imports
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 
 //class
 /**
@@ -115,10 +114,6 @@ public class LicenseManager {
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link LicenseManager} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private LicenseManager() {
-		throw new UninstantiableClassException(LicenseManager.class);
-	}
+	private LicenseManager() {}
 }

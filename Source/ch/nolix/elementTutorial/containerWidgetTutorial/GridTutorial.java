@@ -1,6 +1,5 @@
 package ch.nolix.elementTutorial.containerWidgetTutorial;
 
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidget.Grid;
@@ -62,10 +61,6 @@ public final class GridTutorial {
 	
 	/**
 	 * Avoids that an instance of the {@link GridTutorial} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private GridTutorial() {
-		throw new UninstantiableClassException(getClass());
-	}
+	private GridTutorial() {}
 }

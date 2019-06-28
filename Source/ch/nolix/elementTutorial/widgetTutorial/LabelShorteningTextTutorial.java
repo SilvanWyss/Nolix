@@ -1,6 +1,5 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.widget.Label;
 
@@ -38,10 +37,6 @@ public final class LabelShorteningTextTutorial {
 	
 	/**
 	 * Avoids that an instance of the {@link LabelShorteningTextTutorial} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private LabelShorteningTextTutorial() {
-		throw new UninstantiableClassException(getClass());
-	}
+	private LabelShorteningTextTutorial() {}
 }

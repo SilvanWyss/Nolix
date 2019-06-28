@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.constants;
 
-//own import
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
-
 //class
 /**
  * Of the {@link NumberCatalogue} an instance cannot be created.
@@ -25,10 +22,6 @@ public final class NumberCatalogue {
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link NumberCatalogue} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private NumberCatalogue() {
-		throw new UninstantiableClassException(NumberCatalogue.class);
-	}
+	private NumberCatalogue() {}
 }

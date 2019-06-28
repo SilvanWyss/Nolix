@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.constants;
 
-//own import
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
-
 //class
 /**
  * Of the {@link VariableNameCatalogue} an instance cannot be created.
@@ -157,10 +154,6 @@ public final class VariableNameCatalogue {
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link VariableNameCatalogue} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private VariableNameCatalogue() {
-		throw new UninstantiableClassException(VariableNameCatalogue.class);
-	}
+	private VariableNameCatalogue() {}
 }

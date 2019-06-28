@@ -1,7 +1,6 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
 import ch.nolix.core.classProvider.CentralClassProvider;
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
@@ -50,7 +49,5 @@ public final class JuliaFractalTutorial {
 		Sequencer.asLongAs(() -> frame.isAlive()).afterAllMilliseconds(100).run(() -> frame.refresh());
 	}
 	
-	private JuliaFractalTutorial() {
-		throw new UninstantiableClassException(JuliaFractalTutorial.class);
-	}
+	private JuliaFractalTutorial() {}
 }

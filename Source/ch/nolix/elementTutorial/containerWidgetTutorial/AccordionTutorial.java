@@ -1,6 +1,5 @@
 package ch.nolix.elementTutorial.containerWidgetTutorial;
 
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidget.Accordion;
@@ -52,10 +51,6 @@ public final class AccordionTutorial {
 	
 	/**
 	 * Avoids that an instance of the {@link AccordionTutorial} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private AccordionTutorial() {
-		throw new UninstantiableClassException(getClass());
-	}
+	private AccordionTutorial() {}
 }

@@ -1,6 +1,5 @@
 package ch.nolix.systemTutorial.GUIClientTutorial;
 
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.util.ShellProvider;
 import ch.nolix.element.widget.Label;
@@ -57,10 +56,6 @@ public final class NetServerTutorial {
 	
 	/**
 	 * Avoids that an instance of the {@link NetServerTutorial} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private NetServerTutorial() {
-		throw new UninstantiableClassException(getClass());
-	}
+	private NetServerTutorial() {}
 }

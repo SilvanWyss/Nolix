@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.constants;
 
-//own import
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
-
 //class
 /**
  * Of the {@link PascalCaseNameCatalogue} an instance cannot be created.
@@ -157,10 +154,6 @@ public final class PascalCaseNameCatalogue {
 	//private constructor
 	/**
 	 * Avoids that an instance of the {@link PascalCaseNameCatalogue} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private PascalCaseNameCatalogue() {
-		throw new UninstantiableClassException(PascalCaseNameCatalogue.class);
-	}
+	private PascalCaseNameCatalogue() {}
 }

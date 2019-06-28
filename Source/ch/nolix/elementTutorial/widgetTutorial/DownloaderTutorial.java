@@ -2,7 +2,6 @@ package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
-import ch.nolix.core.invalidArgumentException.UninstantiableClassException;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.Downloader;
@@ -58,10 +57,6 @@ public final class DownloaderTutorial {
 	
 	/**
 	 * Avoids that an instance of the {@link DownloaderTutorial} can be created.
-	 * 
-	 * @throws UninstantiableClassException
 	 */
-	private DownloaderTutorial() {
-		throw new UninstantiableClassException(getClass());
-	}
+	private DownloaderTutorial() {}
 }
