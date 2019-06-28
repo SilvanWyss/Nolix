@@ -3,14 +3,21 @@ package ch.nolix.core.attributeAPI;
 
 //interface
 /**
- * A {@link OptionalLabelable} is a {@link Labelable} whose info string can be removed programmatically.
+ * A {@link OptionalLabelable} can have an info string that can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 40
+ * @lines 60
  * @param <OL> The type of an {@link OptionalLabelable}.
  */
-public interface OptionalLabelable<OL extends OptionalLabelable<OL>> extends Labelable<OL> {
+public interface OptionalLabelable<OL extends OptionalLabelable<OL>> {
+	
+	//abstract method
+	/**
+	 * @return the info string of the current {@link OptionalLabelable}.
+	 * @throws Exception if the current {@link OptionalLabelable} does not have an info string.
+	 */
+	public abstract String getInfoString();
 	
 	//abstract method
 	/**
@@ -23,7 +30,6 @@ public interface OptionalLabelable<OL extends OptionalLabelable<OL>> extends Lab
 	 * @param infoString
 	 * @return true if the current {@link OptionalLabelable} object has the given info string.
 	 */
-	@Override
 	public default boolean hasInfoString(final String infoString) {
 		
 		//Handles the case that the current OptionalLabelable does not have an info string.
@@ -42,4 +48,13 @@ public interface OptionalLabelable<OL extends OptionalLabelable<OL>> extends Lab
 	 * @return the current {@link OptionalLabelable}.
 	 */
 	public abstract OL removeInfoString();
+	
+	//abstract method
+	/**
+	 * Sets the info string of the current {@link OptionalLabelable}.
+	 * 
+	 * @param infoString
+	 * @return the current {@link OptionalLabelable}.
+	 */
+	public abstract OL setInfoString(String infoString);
 }
