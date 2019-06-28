@@ -7,10 +7,17 @@ package ch.nolix.core.attributeAPI;
  * 
  * @author Silvan Wyss
  * @month 2019-02
- * @lines 60
+ * @lines 80
  * @param <OH> The type of a {@link OptionalHeaderable}.
  */
-public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> extends Headerable<OH>{
+public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> {
+	
+	//abstract method
+	/**
+	 * @return the header of the current {@link OptionalHeaderable}.
+	 * @throws Exception if the current {@link OptionalHeaderable} does not have a header.
+	 */
+	public abstract String getHeader();
 	
 	//abstract method
 	/**
@@ -23,7 +30,6 @@ public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> extends H
 	 * @param header
 	 * @return true if the current {@link OptionalHeaderable} has the given header.
 	 */
-	@Override
 	public default boolean hasHeader(final String header) {
 		
 		//Handles the case that current OptionalHeaderable does not have a header.
@@ -63,4 +69,13 @@ public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> extends H
 	 * @return the current {@link OptionalHeaderable}.
 	 */
 	public abstract OH removeHeader();
+	
+	//abstract method
+	/**
+	 * Sets the header of the current {@link OptionalHeaderable}.
+	 * 
+	 * @param header
+	 * @return the current {@link OptionalHeaderable}.
+	 */
+	public abstract OH setHeader(String header);
 }
