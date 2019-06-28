@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.core.specificationAPI;
 
-import ch.nolix.core.attributeAPI.Named;
-import ch.nolix.core.attributeAPI.Tokened;
 //own imports
+import ch.nolix.core.attributeAPI.Named;
+import ch.nolix.core.attributeAPI.OptionalNamable;
+import ch.nolix.core.attributeAPI.Tokened;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 
@@ -18,8 +19,7 @@ import ch.nolix.core.container.List;
  * @month 2015-12
  * @lines 70
  */
-public interface Configurable<C extends Configurable<C>>
-extends Named, Specifiable<C>, Tokened {
+public interface Configurable<C extends Configurable<C>> extends OptionalNamable<C>, Specifiable<C>, Tokened {
 	
 	//abstract method
 	/**

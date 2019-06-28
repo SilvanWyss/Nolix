@@ -3,15 +3,30 @@ package ch.nolix.core.attributeAPI;
 
 //interface
 /**
- * An {@link OptionalNamable} is a {@link Namable} whose name can be removed programmatically.
+ * A {@link OptionalNamable} can have a name that can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 60
+ * @lines 80
  * @param <ON> The type of a {@link OptionalNamable}.
  */
-public interface OptionalNamable<ON extends OptionalNamable<ON>> extends Namable<ON>{
+public interface OptionalNamable<ON extends OptionalNamable<ON>> {
 	
+	//abstract method
+	/**
+	 * @return the name of the current {@link OptionalNamable}.
+	 * @throws Exception if the current {@link OptionalNamable} does not have a name.
+	 */
+	public abstract String getName();
+	
+	//default method
+	/**
+	 * @return the name of the current {@link OptionalNamable} in quotes.
+	 * @throws Exception if the current {@link OptionalNamable} does not have a name.
+	 */
+	public default String getNameInQuotes() {
+		return ("'" + getName() + "'");
+	}
 	//abstract method
 	/**
 	 * @return true if the current {@link OptionalNamable} has a name.
@@ -23,7 +38,6 @@ public interface OptionalNamable<ON extends OptionalNamable<ON>> extends Namable
 	 * @param name
 	 * @return true if the current {@link OptionalNamable} has the given name.
 	 */
-	@Override
 	public default boolean hasName(final String name) {
 		
 		//Handles the case that the current OptionalNamable does not have a name.
@@ -63,4 +77,13 @@ public interface OptionalNamable<ON extends OptionalNamable<ON>> extends Namable
 	 * @return the current {@link OptionalNamable}.
 	 */
 	public abstract ON removeName();
+	
+	//abstract method
+	/**
+	 * Sets the name of the current {@link OptionalNamable}.
+	 * 
+	 * @param name
+	 * @return the current {@link OptionalNamable}.
+	 */
+	public abstract ON setName(String name);
 }
