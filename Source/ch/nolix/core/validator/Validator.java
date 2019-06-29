@@ -29,7 +29,7 @@ public final class Validator {
 	 * @return a new argument mediator for given argument.
 	 */
 	public static <A> ExtendedArgumentMediator<A> suppose(final A argument) {
-		return new ExtendedArgumentMediator<A>(argument);
+		return new ExtendedArgumentMediator<>(argument);
 	}
 	
 	//static method
@@ -38,7 +38,7 @@ public final class Validator {
 	 * @return a new extended container mediator for the given argument.
 	 */
 	public static <A> ExtendedContainerMediator<A> suppose(final A[] argument) {
-		return new ExtendedContainerMediator<A>(argument);
+		return new ExtendedContainerMediator<>(argument);
 	}
 	
 	//static method
@@ -95,7 +95,7 @@ public final class Validator {
 	 * @return a new {@link ExtendedTypeMediator} for the given argument.
 	 */
 	public static <T> ExtendedTypeMediator<T> suppose(final Class<T> argument) {
-		return new ExtendedTypeMediator<T>(argument);
+		return new ExtendedTypeMediator<>(argument);
 	}
 	
 	//static method
@@ -117,11 +117,11 @@ public final class Validator {
 		//Handles the case that the given argument is null.
 		if (argument == null) {
 			final List<Double> argumentVector = null;
-			return new ExtendedContainerMediator<Double>(argumentVector);
+			return new ExtendedContainerMediator<>(argumentVector);
 		}
 		
 		//Handles the case that the given argument is not null.
-		return new ExtendedContainerMediator<Double>(ArrayHelper.createIterable(argument));
+		return new ExtendedContainerMediator<>(ArrayHelper.createIterable(argument));
 	}
 	
 	//static method
@@ -143,11 +143,11 @@ public final class Validator {
 		//Handles the case that the given argument is null.
 		if (argument == null) {
 			final List<Long> argumentVector = null;
-			return new ExtendedContainerMediator<Long>(argumentVector);
+			return new ExtendedContainerMediator<>(argumentVector);
 		}
 		
 		//Handles the case that the given argument is not null.
-		return new ExtendedContainerMediator<Long>(ArrayHelper.createIterable(argument));
+		return new ExtendedContainerMediator<>(ArrayHelper.createIterable(argument));
 	}
 	
 	//static method
@@ -156,7 +156,7 @@ public final class Validator {
 	 * @return a new extended container mediator for the given argument.
 	 */
 	public static <A> ExtendedContainerMediator<A> suppose(final Iterable<A> argument) {
-		return new ExtendedContainerMediator<A>(argument);
+		return new ExtendedContainerMediator<>(argument);
 	}
 	
 	//static method
@@ -178,11 +178,11 @@ public final class Validator {
 		//Handles the case that the given argument is null.
 		if (argument == null) {
 			final List<Long> argumentVector = null;
-			return new ExtendedContainerMediator<Long>(argumentVector);
+			return new ExtendedContainerMediator<>(argumentVector);
 		}
 		
 		//Handles the case that the given argument is not null.
-		return new ExtendedContainerMediator<Long>(ArrayHelper.createIterable(argument));
+		return new ExtendedContainerMediator<>(ArrayHelper.createIterable(argument));
 	}
 	
 	//static method
@@ -200,7 +200,7 @@ public final class Validator {
 	 * @return a new extended container mediator for the given argument.
 	 */
 	public static ExtendedContainerMediator<String> suppose(final String[] argument) {
-		return new ExtendedContainerMediator<String>(argument);
+		return new ExtendedContainerMediator<>(argument);
 	}
 	
 	//static method
@@ -269,7 +269,7 @@ public final class Validator {
 	 * @throws NullArgumentException if the given arguments is null.
 	 */
 	public static <E> MultiArgumentMediator<E> supposeTheElements(final E[] arguments) {
-		return new MultiArgumentMediator<E>(arguments);
+		return new MultiArgumentMediator<>(arguments);
 	}
 	
 	//static method
@@ -279,7 +279,7 @@ public final class Validator {
 	 * @throws NullArgumentException if the given arguments is null.
 	 */
 	public static <E> MultiArgumentMediator<E> supposeTheElements(final Iterable<E> arguments) {
-		return new MultiArgumentMediator<E>(arguments);
+		return new MultiArgumentMediator<>(arguments);
 	}
 	
 	//static method

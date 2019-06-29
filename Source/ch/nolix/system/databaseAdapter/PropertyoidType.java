@@ -14,7 +14,7 @@ public abstract class PropertyoidType<V> implements Specified {
 	
 	//constructor
 	public PropertyoidType(final Class<V> valueClass) {
-		this.valueClassBox = new ValueClassBox<V>(valueClass);
+		this.valueClassBox = new ValueClassBox<>(valueClass);
 	}
 	
 	//abstract method
@@ -23,12 +23,7 @@ public abstract class PropertyoidType<V> implements Specified {
 	//method
 	@Override
 	public List<DocumentNode> getAttributes() {
-		return
-		new List<DocumentNode>(
-			DocumentNode.createFromString(
-				getValueTypeName()
-			)
-		);
+		return new List<>(DocumentNode.createFromString(getValueTypeName())	);
 	}
 	
 	//abstract method

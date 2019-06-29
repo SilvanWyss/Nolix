@@ -3,7 +3,6 @@ package ch.nolix.core.helper;
 
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
-import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.sequencer.Sequencer;
@@ -76,13 +75,13 @@ public final class StringHelper {
 		//Checks if the given count is not negative.
 		Validator.suppose(tabulatorCount).thatIsNamed("count").isNotNegative();
 		
-		String tabulators = StringCatalogue.EMPTY_STRING;
+		final var stringBuilder = new StringBuilder();
 		
 		for (int i = 1; i <= tabulatorCount; i++) {
-			tabulators += CharacterCatalogue.TABULATOR;
+			stringBuilder.append(CharacterCatalogue.TABULATOR);
 		}
 		
-		return tabulators;
+		return stringBuilder.toString();
 	}
 	
 	//static method

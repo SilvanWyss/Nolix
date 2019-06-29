@@ -37,7 +37,7 @@ public final class YahooDataProvider {
 	) {
 		try {
 			
-			final List<VolumeCandlestick> dailyCandleSticks = new List<VolumeCandlestick>();
+			final var dailyCandleSticks = new List<VolumeCandlestick>();
 			
 			final String URLString = "http://finance.yahoo.com/table.csv"
 				+ "?s=" + productSymbol

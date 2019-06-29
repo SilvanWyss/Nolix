@@ -39,7 +39,7 @@ public final class Column<V> implements Headered, Specified {
 	@Override
 	public List<DocumentNode> getAttributes() {
 		return
-		new List<DocumentNode>(
+		new List<>(
 			new DocumentNode(
 				PascalCaseNameCatalogue.HEADER,
 				getHeader()

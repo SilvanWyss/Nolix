@@ -33,7 +33,7 @@ public final class EntitySetSession extends HeaderedSession {
 	//method
 	@Override
 	protected List<Button> createLinkButtons() {
-		return new List<Button>(
+		return new List<>(
 			new Button("Home")
 			.setRole(ButtonRole.LinkButton)
 			.setLeftMouseButtonPressCommand(() -> openHomeSession())		

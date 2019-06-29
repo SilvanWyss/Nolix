@@ -19,14 +19,14 @@ public final class EntitySet<E extends Entity> implements Named {
 	
 	//multi-attributes
 	private final List<Column<?>> columns;
-	private final List<E> loadedAndCreatedEntities = new List<E>();
+	private final List<E> loadedAndCreatedEntities = new List<>();
 	
 	//package-visible static method
 	static EntitySet<Entity> createEntitySet(
 		final DatabaseAdapter parentDatabaseAdapter,
 		final EntityType<Entity> entityType
 	) {
-		return new EntitySet<Entity>(parentDatabaseAdapter, entityType);
+		return new EntitySet<>(parentDatabaseAdapter, entityType);
 	}
 	
 	//package-visible constructor

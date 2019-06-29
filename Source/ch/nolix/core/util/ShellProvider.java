@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.util;
 
+import java.io.IOError;
 //Java import
 import java.io.IOException;
 
@@ -25,7 +26,7 @@ public final class ShellProvider {
 			Runtime.getRuntime().exec("cmd.exe /c " + command);
 		}
 		catch (final IOException IOException) {
-			new RuntimeException(IOException);
+			throw new IOError(IOException);
 		}
 	}
 	

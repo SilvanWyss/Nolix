@@ -72,7 +72,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 */
 	@Override
 	public final ReadContainer<Configurable<?>> getRefConfigurables() {
-		return new ReadContainer<Configurable<?>>(getRefShapes());
+		return new ReadContainer<>(getRefShapes());
 	}
 	
 	//method

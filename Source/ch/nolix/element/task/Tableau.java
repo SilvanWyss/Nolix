@@ -27,7 +27,7 @@ implements Clearable<Tableau>, Namable<Tableau>, Resettable<Tableau> {
 	
 	//attribute
 	private final MutableProperty<String> name =
-	new MutableProperty<String>(
+	new MutableProperty<>(
 		VariableNameCatalogue.NAME,
 		n -> setName(n),
 		s -> s.getOneAttributeAsString(),
@@ -36,7 +36,7 @@ implements Clearable<Tableau>, Namable<Tableau>, Resettable<Tableau> {
 	
 	//attribute
 	private final MultiProperty<Task> tasks =
-	new MultiProperty<Task>(
+	new MultiProperty<>(
 		Task.TYPE_NAME,
 		t -> addTask(t),
 		s -> Task.createFromSpecification(s),

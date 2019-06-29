@@ -22,15 +22,15 @@ public final class ReadContainerTest extends Test {
 		//verification
 			expect(readContainer.getSize()).isEqualTo(9);
 			
-			expect(readContainer.getRefAt(1).toString()).isEqualTo("apple");
-			expect(readContainer.getRefAt(2).toString()).isEqualTo("banana");
-			expect(readContainer.getRefAt(3).toString()).isEqualTo("cerish");
-			expect(readContainer.getRefAt(4).toString()).isEqualTo("elephant");
-			expect(readContainer.getRefAt(5).toString()).isEqualTo("lion");
-			expect(readContainer.getRefAt(6).toString()).isEqualTo("monkey");
-			expect(readContainer.getRefAt(7).toString()).isEqualTo("flower");
-			expect(readContainer.getRefAt(8).toString()).isEqualTo("tree");
-			expect(readContainer.getRefAt(9).toString()).isEqualTo("palm");
+			expect(readContainer.getRefAt(1)).isEqualTo("apple");
+			expect(readContainer.getRefAt(2)).isEqualTo("banana");
+			expect(readContainer.getRefAt(3)).isEqualTo("cerish");
+			expect(readContainer.getRefAt(4)).isEqualTo("elephant");
+			expect(readContainer.getRefAt(5)).isEqualTo("lion");
+			expect(readContainer.getRefAt(6)).isEqualTo("monkey");
+			expect(readContainer.getRefAt(7)).isEqualTo("flower");
+			expect(readContainer.getRefAt(8)).isEqualTo("tree");
+			expect(readContainer.getRefAt(9)).isEqualTo("palm");
 	}
 	
 	//test case

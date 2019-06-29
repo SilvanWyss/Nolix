@@ -97,7 +97,7 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	private String header;
 	
 	//multi-attribute
-	private final List<DocumentNode> attributes = new List<DocumentNode>();
+	private final List<DocumentNode> attributes = new List<>();
 	
 	//constructor
 	/**
@@ -336,7 +336,7 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 	@Override
 	@SuppressWarnings("unchecked")
 	public IContainer<DocumentNode> getRefAttributes() {
-		return new ReadContainer<DocumentNode>(attributes);
+		return new ReadContainer<>(attributes);
 	}
 	
 	//method

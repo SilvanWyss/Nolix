@@ -8,7 +8,7 @@ import java.util.Iterator;
 public final class Stack<E> implements IContainer<E> {
 
 	//attribute
-	private final List<E> list = new List<E>();
+	private final List<E> list = new List<>();
 	
 	//method
 	public Stack<E> addAtEnd(final E element) {

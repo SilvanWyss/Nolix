@@ -21,7 +21,7 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	.addInstanceCreator(String.class.getSimpleName(), s -> s.toString());
 	
 	//static method
-	public final static void addValueCreator(
+	public static final void addValueCreator(
 		final String type,
 		final IElementTakerElementGetter<DocumentNodeoid, Object> valueCreator
 	) {
@@ -29,12 +29,12 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	}
 	
 	//static method
-	public final static boolean canCreateValue(final String type) {
+	public static final boolean canCreateValue(final String type) {
 		return valueFactory.canCreateInstanceOf(type);
 	}
 	
 	//static method
-	public final static Object createValue(
+	public static final Object createValue(
 		final String type,
 		final DocumentNodeoid input
 	) {
@@ -45,8 +45,8 @@ public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> 
 	private final Schema schema;
 	
 	//multi-attributes
-	private final List<EntitySet<Entity>> entitySets = new List<EntitySet<Entity>>();
-	private final List<Entity> mutatedEntitiesInOrder = new List<Entity>();
+	private final List<EntitySet<Entity>> entitySets = new List<>();
+	private final List<Entity> mutatedEntitiesInOrder = new List<>();
 	
 	//constructor
 	public DatabaseAdapter(final Schema schema) {

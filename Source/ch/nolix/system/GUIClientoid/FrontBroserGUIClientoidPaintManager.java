@@ -17,8 +17,7 @@ import ch.nolix.element.textFormat.TextFormat;
 final class FrontBroserGUIClientoidPaintManager {
 	
 	//multi-attribute
-	private final List<IElementTaker<FrontBrowserGUIClientoidPainting>> painterCommands =
-	new List<IElementTaker<FrontBrowserGUIClientoidPainting>>();
+	private final List<IElementTaker<FrontBrowserGUIClientoidPainting>> painterCommands = new List<>();
 	
 	//constructor
 	public FrontBroserGUIClientoidPaintManager() {

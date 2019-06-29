@@ -19,7 +19,7 @@ extends BorderWidgetLook<ItemMenuLook> {
 	
 	//attribute
 	private final LayerProperty<NonNegativeInteger> itemPaddingProperty =
-	new LayerProperty<NonNegativeInteger>(
+	new LayerProperty<>(
 		ITEM_PADDING_HEADER,
 		new NonNegativeInteger(),
 		s -> NonNegativeInteger.createFromSpecification(s),
@@ -28,7 +28,7 @@ extends BorderWidgetLook<ItemMenuLook> {
 	
 	//attribute
 	private final LayerProperty<ItemMenuItemLook> baseItemLookProperty =
-	new LayerProperty<ItemMenuItemLook>(
+	new LayerProperty<>(
 		NORMAL_ITEM_LOOK_HEADER,
 		new ItemMenuItemLook(),
 		s -> ItemMenuItemLook.createFromSpecification(s),
@@ -37,7 +37,7 @@ extends BorderWidgetLook<ItemMenuLook> {
 	
 	//attribute
 	private final LayerProperty<ItemMenuItemLook> hoverItemLookProperty =
-	new LayerProperty<ItemMenuItemLook>(
+	new LayerProperty<>(
 		HOVER_ITEM_LOOK_HEADER,
 		new ItemMenuItemLook(),
 		s -> ItemMenuItemLook.createFromSpecification(s),
@@ -46,7 +46,7 @@ extends BorderWidgetLook<ItemMenuLook> {
 	
 	//attribute
 	private final LayerProperty<ItemMenuItemLook> selectionItemLookProperty =
-	new LayerProperty<ItemMenuItemLook>(
+	new LayerProperty<>(
 		SELECTION_ITEM_LOOK_HEADER,
 		new ItemMenuItemLook(),
 		s -> ItemMenuItemLook.createFromSpecification(s),

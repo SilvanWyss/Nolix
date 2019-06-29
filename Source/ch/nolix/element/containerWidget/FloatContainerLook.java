@@ -19,7 +19,7 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 	
 	//attribute
 	private final LayerProperty<PositiveInteger> proposeContentWidth =
-	new LayerProperty<PositiveInteger>(
+	new LayerProperty<>(
 		PROPOSE_CONTENT_WIDTH_HEADER,
 		new PositiveInteger(DEFAULT_PROPOSE_CONTENT_WIDTH),
 		s -> PositiveInteger.createFromSpecification(s),
@@ -28,7 +28,7 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 		
 	//attribute
 	private final LayerProperty<PositiveInteger> widgetMargin =
-	new LayerProperty<PositiveInteger>(
+	new LayerProperty<>(
 		WIDGET_MARGIN_HEADER,
 		new PositiveInteger(DEFAULT_WIDGET_MARGIN),
 		s -> PositiveInteger.createFromSpecification(s),

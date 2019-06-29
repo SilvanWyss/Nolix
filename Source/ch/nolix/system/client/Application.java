@@ -33,7 +33,7 @@ public class Application<C extends Client<C>> implements Named {
 	private final Object context;
 	
 	//multi-attribute
-	private final List<C> clients = new List<C>();
+	private final List<C> clients = new List<>();
 	
 	//constructor
 	/**

@@ -39,7 +39,7 @@ public final class EntitySession extends HeaderedSession {
 	//method
 	@Override
 	protected List<Button> createLinkButtons() {
-		return new List<Button>(
+		return new List<>(
 			new Button()
 			.setText(entitySetName)
 			.setRole(ButtonRole.LinkButton)

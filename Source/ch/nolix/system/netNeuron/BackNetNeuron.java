@@ -72,7 +72,7 @@ implements Closable {
 		
 		//Creates the application of this net back neuron.
 		application
-		= new Application<StandardClient>(
+		= new Application<>(
 			APPLICATION_NAME,
 			StandardClient.class,
 			BackNetNeuronSession.class

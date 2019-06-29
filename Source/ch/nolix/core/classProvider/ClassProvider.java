@@ -15,7 +15,7 @@ import ch.nolix.core.validator.Validator;
 public final class ClassProvider {
 	
 	//multi-attribute
-	private final HashMap<Class<?>, Class<?>> classes = new HashMap<Class<?>, Class<?>>();
+	private final HashMap<Class<?>, Class<?>> classes = new HashMap<>();
 	
 	//method
 	public boolean containsClassFor(final Class<?> interface_) {

@@ -79,7 +79,7 @@ public class StringMediator extends ArgumentMediator<String> {
 			);
 		}
 		
-		return new TerminalArgumentMediator<String>(getArgumentName(), getRefArgument());
+		return new TerminalArgumentMediator<>(getArgumentName(), getRefArgument());
 	}
 	
 	//method
@@ -98,7 +98,7 @@ public class StringMediator extends ArgumentMediator<String> {
 			throw new InvalidArgumentException(getArgumentName(), getRefArgument(), "is not blank");
 		}
 		
-		return new TerminalArgumentMediator<String>(getArgumentName(), getRefArgument());
+		return new TerminalArgumentMediator<>(getArgumentName(), getRefArgument());
 	}
 	
 	//method
@@ -117,7 +117,7 @@ public class StringMediator extends ArgumentMediator<String> {
 			throw new NonEmptyArgumentException(getArgumentName(), getRefArgument());
 		}
 		
-		return new TerminalArgumentMediator<String>(getArgumentName(), getRefArgument());
+		return new TerminalArgumentMediator<>(getArgumentName(), getRefArgument());
 	}
 
 	//method
@@ -136,7 +136,7 @@ public class StringMediator extends ArgumentMediator<String> {
 			throw new EmptyArgumentException(getRefArgument());
 		}
 		
-		return new TerminalArgumentMediator<String>(getArgumentName(), getRefArgument());
+		return new TerminalArgumentMediator<>(getArgumentName(), getRefArgument());
 	}
 	
 	//method
@@ -160,7 +160,7 @@ public class StringMediator extends ArgumentMediator<String> {
 			);
 		}
 		
-		return new TerminalArgumentMediator<String>(getArgumentName(), getRefArgument());
+		return new TerminalArgumentMediator<>(getArgumentName(), getRefArgument());
 	}
 	
 	//method
@@ -186,7 +186,7 @@ public class StringMediator extends ArgumentMediator<String> {
 			);
 		}
 		
-		return new TerminalArgumentMediator<String>(getArgumentName(), getRefArgument());
+		return new TerminalArgumentMediator<>(getArgumentName(), getRefArgument());
 	}
 	
 	//method
@@ -212,7 +212,7 @@ public class StringMediator extends ArgumentMediator<String> {
 			);
 		}
 		
-		return new TerminalArgumentMediator<String>(getArgumentName(), getRefArgument());
+		return new TerminalArgumentMediator<>(getArgumentName(), getRefArgument());
 	}
 	
 	//method
@@ -260,6 +260,6 @@ public class StringMediator extends ArgumentMediator<String> {
 			);
 		}
 		
-		return new TerminalArgumentMediator<String>(getArgumentName(), getRefArgument());
+		return new TerminalArgumentMediator<>(getArgumentName(), getRefArgument());
 	}
 }

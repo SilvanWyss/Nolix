@@ -20,7 +20,7 @@ public interface IGUILayer<GL extends IGUILayer<GL>> extends Clearable<GL>, Spec
 	public default List<Widget<?, ?>> getRefTriggerableWidgetsRecursively() {
 		
 		if (isEmpty()) {
-			return new List<Widget<?, ?>>();
+			return new List<>();
 		}
 		
 		final var rootWidget = getRefRootWidget();

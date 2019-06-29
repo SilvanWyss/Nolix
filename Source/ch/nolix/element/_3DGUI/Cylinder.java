@@ -16,7 +16,7 @@ public final class Cylinder extends Prisma<Cylinder> {
 	
 	//attribute	
 	private final MutableProperty<PositiveFloatingPointNumber> radius =
-	new MutableProperty<PositiveFloatingPointNumber>(
+	new MutableProperty<>(
 		PascalCaseNameCatalogue.RADIUS,
 		r -> setRadius(r.getValue()),
 		s -> PositiveFloatingPointNumber.createFromSpecification(s),

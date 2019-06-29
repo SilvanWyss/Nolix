@@ -50,7 +50,7 @@ public final class MatrixColumn<E> implements IContainer<E> {
 	//method
 	@Override
 	public MatrixColumnIterator<E> iterator() {
-		return new MatrixColumnIterator<E>(this);
+		return new MatrixColumnIterator<>(this);
 	}
 	
 	//method

@@ -30,6 +30,6 @@ extends
 	 */
 	@SuppressWarnings("unchecked")
 	public default <T> List<T> intoListAs(final Class<T> type) {
-		return new List<T>((T)this);
+		return new List<>((T)this);
 	}
 }

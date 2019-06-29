@@ -234,7 +234,7 @@ public final class TextFormat extends Element<TextFormat> {
 	 */
 	@Override
 	public List<DocumentNode> getAttributes() {
-		return new List<DocumentNode>(
+		return new List<>(
 			textFont.getSpecificationAs(TEXT_FONT_HEADER),
 			new Boolean(getBoldFlag()).getSpecificationAs(BOLD_FLAG_HEADER),
 			new Boolean(getItalicFlag()).getSpecificationAs(ITALIC_FLAG_HEADER),

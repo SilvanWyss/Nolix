@@ -24,10 +24,8 @@ import ch.nolix.core.sequencer.Sequencer;
 public final class SequencePattern<E> {
 	
 	//multiple attributes
-	private final List<IElementTakerBooleanGetter<E>> elementConditions
-	= new List<IElementTakerBooleanGetter<E>>();
-	private final List<IElementTakerBooleanGetter<List<E>>> sequenceConditions
-	= new List<IElementTakerBooleanGetter<List<E>>>();
+	private final List<IElementTakerBooleanGetter<E>> elementConditions = new List<>();
+	private final List<IElementTakerBooleanGetter<List<E>>> sequenceConditions = new List<>();
 	
 	//method
 	/**
@@ -82,7 +80,7 @@ public final class SequencePattern<E> {
 	 * @throws NegativeArgumentException if the given count is negative.
 	 */
 	public SequencePatternNextMediator<E> forNext(final int count) {
-		return new SequencePatternNextMediator<E>(this, count);
+		return new SequencePatternNextMediator<>(this, count);
 	}
 	
 	//method
@@ -100,7 +98,7 @@ public final class SequencePattern<E> {
 	 */
 	List<List<E>> getSequences(final List<E> list) {
 		
-		final List<List<E>> sequences = new List<List<E>>();
+		final var sequences = new List<List<E>>();
 		
 		final int maxSequenceCount = list.getSize() - getSize() + 1;
 		
@@ -123,8 +121,8 @@ public final class SequencePattern<E> {
 			
 			if (sequenceFulfillsElementConditions) {
 				
-				final List<E> sequence = new List<E>();
-				final ListIterator<E> iterator3 = iterator.getCopy();
+				final var sequence = new List<E>();
+				final var iterator3 = iterator.getCopy();
 				Sequencer.forCount(getSize()).run(()->sequence.addAtEnd(iterator3.next()));
 				
 				//Checks if the current sequence fulfills the sequence conditions of this sequence pattern.

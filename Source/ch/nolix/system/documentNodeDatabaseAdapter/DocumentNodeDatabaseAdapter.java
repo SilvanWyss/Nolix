@@ -20,8 +20,7 @@ public final class DocumentNodeDatabaseAdapter extends DatabaseAdapter {
 	private final DocumentNodeoid database;
 	
 	//multi-attribute
-	private final List<EntitySetAdapter<Entity>> entitySetAdapters =
-	new List<EntitySetAdapter<Entity>>();
+	private final List<EntitySetAdapter<Entity>> entitySetAdapters = new List<>();
 	
 	//constructor
 	public DocumentNodeDatabaseAdapter(

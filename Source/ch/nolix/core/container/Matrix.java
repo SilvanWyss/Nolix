@@ -222,7 +222,6 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	public Matrix<E> clear() {
 		
 		elements = new Object[0][0];
-		System.gc();
 		
 		return this;
 	}
@@ -249,7 +248,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * if the given column index is bigger than the number of columns of the current {@link Matrix}.
 	 */
 	public MatrixColumn<E> getColumn(final int columnIndex) {
-		return new MatrixColumn<E>(this, columnIndex);
+		return new MatrixColumn<>(this, columnIndex);
 	}
 	
 	//method
@@ -400,7 +399,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 * if the given row index is bigger than the number of rows of the current {@link Matrix}.
 	 */
 	public MatrixRow<E> getRow(final int rowIndex) {
-		return new MatrixRow<E>(this, rowIndex);
+		return new MatrixRow<>(this, rowIndex);
 	}
 	
 	//method
@@ -471,7 +470,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable<Matrix<E>> {
 	 */
 	@Override
 	public MatrixIterator<E> iterator() {
-		return new MatrixIterator<E>(this);
+		return new MatrixIterator<>(this);
 	}
 	
 	//method

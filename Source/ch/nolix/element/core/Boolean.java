@@ -72,7 +72,7 @@ public final class Boolean extends Element<Boolean> {
 	@Override
 	public final List<DocumentNode> getAttributes() {
 		
-		final List<DocumentNode> attributes = new List<DocumentNode>();
+		final var attributes = new List<DocumentNode>();
 		
 		//Handles the case that this boolean is false.
 		if (isFalse()) {
@@ -108,7 +108,7 @@ public final class Boolean extends Element<Boolean> {
 	 * @return true if this boolean is false.
 	 */
 	public final boolean isFalse() {
-		return (value == false);
+		return !value;
 	}
 	
 	//method
@@ -116,6 +116,6 @@ public final class Boolean extends Element<Boolean> {
 	 * @return true if this boolean is true.
 	 */
 	public final boolean isTrue() {
-		return (value == true);
+		return value;
 	}
 }

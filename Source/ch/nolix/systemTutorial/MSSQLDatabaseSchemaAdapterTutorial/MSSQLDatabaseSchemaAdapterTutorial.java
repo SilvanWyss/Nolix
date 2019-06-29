@@ -26,10 +26,10 @@ public final class MSSQLDatabaseSchemaAdapterTutorial {
 	private static class Person extends Entity {
 		
 		@SuppressWarnings("unused")
-		private final Property<String> Surname = new Property<String>();
+		private final Property<String> Surname = new Property<>();
 		
 		@SuppressWarnings("unused")
-		private final Property<String> Name = new Property<String>();
+		private final Property<String> Name = new Property<>();
 	}
 	
 	//private constructor

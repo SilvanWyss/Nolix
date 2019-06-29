@@ -59,7 +59,7 @@ public final class FractalBuilder implements IFractalBuilder {
 	DEFAULT_SEQUENCES_NEXT_VALUE_FUNCTION;
 	
 	//attributes
-	private BigDecimal sequencesMinDivergenceMagnitude = new BigDecimal(DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE);
+	private BigDecimal sequencesMinDivergenceMagnitude = BigDecimal.valueOf(DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE);
 	private int sequencesMaxIterationCount = DEFAULT_SEQUENCE_MAX_ITERATION_COUNT;
 	private IIntTakerElementGetter<Color> colorFunction = DEFAULT_COLOR_FUNCTION;
 	private int bigDecimalScale = DEFAULT_BIG_DECIMAL_SCALE;
@@ -149,7 +149,7 @@ public final class FractalBuilder implements IFractalBuilder {
 	//method
 	@Override
 	public IFractalBuilder setSequencesMinDivergenceMagnitude(final double sequencesMinDivergenceMagnitude) {
-		return setSequencesMinDivergenceMagnitude(new BigDecimal(sequencesMinDivergenceMagnitude));
+		return setSequencesMinDivergenceMagnitude(BigDecimal.valueOf(sequencesMinDivergenceMagnitude));
 	}
 	
 	//method

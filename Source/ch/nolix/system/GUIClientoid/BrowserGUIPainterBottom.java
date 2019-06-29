@@ -14,7 +14,7 @@ final class BrowserGUIPainterBottom {
 	private int nextIndex = 1;
 	
 	//multi-attribute
-	private final List<Statement> painterCommands = new List<Statement>();
+	private final List<Statement> painterCommands = new List<>();
 	
 	//constructor
 	public BrowserGUIPainterBottom(final BackGUIClientoid<?> parentBackGUIClient) {

@@ -89,7 +89,7 @@ public final class SubDocumentNode extends DocumentNodeoid {
 	@Override
 	@SuppressWarnings("unchecked")
 	public ReadContainer<SubDocumentNode> getRefAttributes() {
-		return new ReadContainer<SubDocumentNode>(
+		return new ReadContainer<>(
 			internalSpecification.getRefAttributes().to(
 				a -> new SubDocumentNode(simplePersistentSpecification, a)
 			)

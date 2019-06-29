@@ -28,7 +28,7 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	
 	//attribute
 	private MutableProperty<Color> defaultColor
-	= new MutableProperty<Color>(
+	= new MutableProperty<>(
 		PascalCaseNameCatalogue.DEFAULT_COLOR,
 		c -> setDefaultColor(c),
 		s -> Color.createFromSpecification(s),
@@ -37,7 +37,7 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	
 	//attribute
 	private final MutableOptionalProperty<Image> defaultTexture =
-	new MutableOptionalProperty<Image>(
+	new MutableOptionalProperty<>(
 		PascalCaseNameCatalogue.DEFAULT_TEXTURE,
 		t -> setDefaultTexture(t),
 		s -> Image.createFromSpecification(s),
@@ -78,7 +78,7 @@ public abstract class BaseShape<BS extends BaseShape<BS>> extends Shape<BS> {
 	 */
 	@Override
 	public final ReadContainer<Shape<?>> getRefShapes() {
-		return new ReadContainer<Shape<?>>();
+		return new ReadContainer<>();
 	}
 	
 	//method

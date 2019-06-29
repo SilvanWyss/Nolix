@@ -24,8 +24,8 @@ public abstract class Testoid {
 	private Method afterTestCaseMethod;
 	
 	//multi-attributes
-	private final List<String> lastErrors = new List<String>();
-	private final List<AutoCloseable> closableElements = new List<AutoCloseable>();
+	private final List<String> lastErrors = new List<>();
+	private final List<AutoCloseable> closableElements = new List<>();
 	
 	//constructor
 	/**

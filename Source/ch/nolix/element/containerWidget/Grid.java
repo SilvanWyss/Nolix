@@ -19,7 +19,7 @@ import ch.nolix.element.widget.Widget;
 public final class Grid extends ContainerWidget<Grid, GridLook> {
 		
 	//multi-attribute
-	private Matrix<GridCell> cells = new Matrix<GridCell>();
+	private Matrix<GridCell> cells = new Matrix<>();
 	
 	//constructor
 	public Grid() {

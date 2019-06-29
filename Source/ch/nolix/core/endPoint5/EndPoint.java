@@ -25,7 +25,7 @@ implements IDataProviderController {
 	private IDataProviderController receiverController;
 	
 	//multiple attribute
-	private final List<String> appendedCommands = new List<String>();
+	private final List<String> appendedCommands = new List<>();
 	
 	//method
 	/**

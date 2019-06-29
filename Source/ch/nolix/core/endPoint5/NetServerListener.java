@@ -12,7 +12,7 @@ import ch.nolix.core.validator.Validator;
 final class NetServerListener implements ch.nolix.core.endPoint3.IEndPointTaker {
 
 	//name
-	private final static String NAME = "IntenralEndPointTaker";
+	private static final String NAME = "IntenralEndPointTaker";
 	
 	//attribute
 	private final NetServer netServer;

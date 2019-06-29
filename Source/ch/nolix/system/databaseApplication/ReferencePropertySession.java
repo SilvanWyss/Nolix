@@ -31,7 +31,7 @@ public final class ReferencePropertySession extends HeaderedSession {
 	//method
 	@Override
 	protected List<Button> createLinkButtons() {
-		return new List<Button>();
+		return new List<>();
 	}
 
 	//method

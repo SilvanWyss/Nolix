@@ -23,7 +23,7 @@ public class ModuleManager {
 	private final String directory;
 		
 	//multiple attribute
-	private final List<Module> modules = new List<Module>();
+	private final List<Module> modules = new List<>();
 	
 	//constructor
 	/**

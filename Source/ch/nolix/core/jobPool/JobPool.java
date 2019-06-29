@@ -21,8 +21,8 @@ public final class JobPool {
 	private static final int OPTIMAL_WORKER_COUNT = 100;
 	
 	//multi-attributes
-	private final List<JobWrapper> jobWrappers = new List<JobWrapper>();
-	private final List<Worker> workers = new List<Worker>();
+	private final List<JobWrapper> jobWrappers = new List<>();
+	private final List<Worker> workers = new List<>();
 	
 	//method
 	/**

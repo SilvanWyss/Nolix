@@ -93,7 +93,7 @@ public class ArgumentMediator<A> extends Mediator {
 			throw new NullArgumentException(getArgumentName());
 		}
 		
-		return new TerminalArgumentMediator<A>(getRefArgument());
+		return new TerminalArgumentMediator<>(getRefArgument());
 	}
 	
 	//method

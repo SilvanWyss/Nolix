@@ -99,9 +99,9 @@ public final class GoogleDataProvider {
 		final int intervalInSeconds
 	) {
 		
-		final List<VolumeCandlestick> intraDayCandleSticks = new List<VolumeCandlestick>();
+		final var intraDayCandleSticks = new List<VolumeCandlestick>();
 		
-		final int dayCount = startTime.getDaysTo(Time.createCurrentTime());
+		final var dayCount = startTime.getDaysTo(Time.createCurrentTime());
 		
 		//Creates URL.
 		final String URL =

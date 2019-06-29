@@ -27,6 +27,6 @@ implements Clearable<OptionalProperty<V>> {
 	//method
 	@Override
 	public PropertyoidType<V> getPropertyType() {
-		return new OptionalPropertyType<V>(getValueClass());
+		return new OptionalPropertyType<>(getValueClass());
 	}
 }

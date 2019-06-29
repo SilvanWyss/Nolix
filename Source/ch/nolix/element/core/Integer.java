@@ -49,10 +49,7 @@ public class Integer extends Element<Integer> {
 	 */
 	@Override
 	public final List<DocumentNode> getAttributes() {
-		return
-		new List<DocumentNode>(
-				DocumentNode.createFromString(java.lang.Integer.toString(getValue()))
-		);
+		return new List<>(DocumentNode.createFromString(java.lang.Integer.toString(getValue())));
 	}
 	
 	//method

@@ -17,8 +17,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 public final class InstanceCreator<I, O> {
 	
 	//multi-attribute
-	private final List<SingleTypeInstanceCreator<I, O>> singleTypeInstanceCreators =
-	new List<SingleTypeInstanceCreator<I, O>>();
+	private final List<SingleTypeInstanceCreator<I, O>> singleTypeInstanceCreators = new List<>();
 
 	//method
 	/**

@@ -176,7 +176,7 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	 * @throws Error if the given boolean is true
 	 */
 	protected final void expectFalse(boolean boolean_) {
-		if (boolean_ == true) {
+		if (boolean_) {
 			new TestAccessor(this).addCurrentTestCaseError("False boolean was expected, but true was received.");
 		}
 	}
@@ -231,7 +231,7 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	 * @param string
 	 * @throws Error if the given string is null or an empty string
 	 */
-	protected final void expectNonEmptyString(String string) {
+	protected final void expectNonEmptyString(final String string) {
 		
 		//Handles the case that the given string is null.
 		if (string == null) {
@@ -401,7 +401,7 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	 * @throws Error if the given boolean is false
 	 */
 	protected final void expectTrue(boolean boolean_) {
-		if (boolean_ == false) {
+		if (!boolean_) {
 			new TestAccessor(this).addCurrentTestCaseError("True boolean was expected, but false was received.");
 		}
 	}

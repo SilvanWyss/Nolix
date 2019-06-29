@@ -37,32 +37,22 @@ public final class CharacterHelper {
 			throw new InvalidArgumentException(VariableNameCatalogue.LETTER, letter, "is not valid");
 		}
 		
-		//Handles the case that the given letter is a vowel.
+		//Enumerates the given letter.
 		switch (letter) {
 			case 'A':
-				return ARTICLE_AN;
 			case 'a':
-				return ARTICLE_AN;
 			case 'E':
-				return ARTICLE_AN;
 			case 'e':
-				return ARTICLE_AN;
 			case 'I':
-				return ARTICLE_AN;
 			case 'i':
-				return ARTICLE_AN;
 			case 'O':
-				return ARTICLE_AN;
 			case 'o':
-				return ARTICLE_AN;
 			case 'U':
-				return ARTICLE_AN;
 			case 'u':
 				return ARTICLE_AN;
-		}
-		
-		//Handles the case that the given letter is a consonant.
-		return ARTICLE_A;
+			default:
+				return ARTICLE_A;
+		}	
 	}
 
 	//static method

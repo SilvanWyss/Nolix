@@ -21,8 +21,8 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	//constant
 	public static final String TYPE_NAME = "Checkbox";
 	
-	//constants
-	private final String CHECK_FLAG_HEADER = "Checked";
+	//constant
+	private static final String CHECK_FLAG_HEADER = "Checked";
 	
 	//attribute
 	private boolean checked = false;

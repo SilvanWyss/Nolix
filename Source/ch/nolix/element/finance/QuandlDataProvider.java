@@ -39,7 +39,7 @@ public final class QuandlDataProvider {
 	) {
 		try {
 			
-			final List<VolumeCandlestick> dailyCandleSticks = new List<VolumeCandlestick>();
+			final List<VolumeCandlestick> dailyCandleSticks = new List<>();
 			
 			final String URLString = "https://www.quandl.com/api/v3/datasets/WIKI/"
 				+ productSymbol

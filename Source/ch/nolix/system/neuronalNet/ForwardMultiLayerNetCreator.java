@@ -35,17 +35,17 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 	@Override
 	public NeuronalNet<IO> createNeuronalNet() {
 			
-		final List<Neuron<IO>> inputNeurons = new List<Neuron<IO>>();
+		final var inputNeurons = new List<Neuron<IO>>();
 		
-		List<Neuron<IO>> previousLayer = new List<Neuron<IO>>();
+		var previousLayer = new List<Neuron<IO>>();
 		for (int i = 1; i <= getLayerCount(); i++) {
 			
-			List<Neuron<IO>> currentLayer = new List<Neuron<IO>>();
+			var currentLayer = new List<Neuron<IO>>();
 			
 			for (int j = 1; j <= getNeuronsPerLayer(); j++) {
 				
 				//Creates the j-th neuron of the i-th layer.
-				final Neuron<IO> neuron = new Neuron<IO>();
+				final var neuron = new Neuron<IO>();
 				if (i == 1) {
 					inputNeurons.addAtEnd(neuron);
 				}
@@ -60,7 +60,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 			previousLayer = currentLayer;
 		}
 		
-		return new NeuronalNet<IO>(inputNeurons, previousLayer);
+		return new NeuronalNet<>(inputNeurons, previousLayer);
 	}
 	
 	//method
@@ -133,7 +133,7 @@ public final class ForwardMultiLayerNetCreator<IO> implements INeuronalNetCreato
 		= in -> {
 			
 			//Creates input list.
-			final List<IO> inputs = new List<IO>();
+			final var inputs = new List<IO>();
 			for (InputConnection<IO> n: in) {
 				inputs.addAtEnd(n.getRefInputNeuronOutput());
 			}

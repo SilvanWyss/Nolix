@@ -13,7 +13,7 @@ public final class Logger {
 	
 	//static attribute
 	private static final List<LogHandler> logHandlers =
-	new List<LogHandler>(new StandardConsoleLogHandler());
+	new List<>(new StandardConsoleLogHandler());
 
 	//static method
 	public static void addLogHandler(final LogHandler logHandler) {

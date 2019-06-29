@@ -23,7 +23,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	private Application<?> defaultApplication;
 	
 	//multiple attribute
-	private final List<Application<?>> applications = new List<Application<?>>();
+	private final List<Application<?>> applications = new List<>();
 	
 	public Server() {}
 	

@@ -10,7 +10,7 @@ import ch.nolix.element.painter.IPainter;
 final class FrontBrowserGUIClientoidPainting {
 	
 	//multi-attribute
-	private List<IPainter> painters = new List<IPainter>();
+	private List<IPainter> painters = new List<>();
 	
 	//constructor
 	public FrontBrowserGUIClientoidPainting(

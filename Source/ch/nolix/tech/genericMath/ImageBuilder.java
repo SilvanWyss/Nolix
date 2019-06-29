@@ -22,7 +22,7 @@ public final class ImageBuilder implements IImageBuilder {
 	private final Image image;
 	
 	//multi-attribute
-	private final List<Future> futures = new List<Future>();
+	private final List<Future> futures = new List<>();
 	
 	//constructor
 	public ImageBuilder(Fractal fractal) {
@@ -81,8 +81,8 @@ public final class ImageBuilder implements IImageBuilder {
 			final var c =
 			argument.getSum(
 				new ComplexNumber(
-						unitsPerPixel.multiply(new BigDecimal(x - 1)),
-						unitsPerPixel.multiply(new BigDecimal(y - 1)),
+						unitsPerPixel.multiply(BigDecimal.valueOf(x - 1)),
+						unitsPerPixel.multiply(BigDecimal.valueOf(y - 1)),
 						fractal.getBigDecimalScale()
 				)
 			);

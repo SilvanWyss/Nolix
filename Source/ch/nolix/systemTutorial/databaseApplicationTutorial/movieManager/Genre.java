@@ -8,5 +8,5 @@ import ch.nolix.system.databaseAdapter.Property;
 public final class Genre extends Entity {
 
 	//attribute
-	public final Property<String> Name = new Property<String>();
+	public final Property<String> Name = new Property<>();
 }

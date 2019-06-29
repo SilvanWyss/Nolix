@@ -31,7 +31,7 @@ import ch.nolix.element.widget.Widget;
  * 
  * @author Silvan Wyss
  * @month 2019-05
- * @lines 550
+ * @lines 580
  */
 public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILayer> {
 	
@@ -65,7 +65,7 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//attribute
 	private final MutableOptionalProperty<Color> backgroundColor =
-	new MutableOptionalProperty<Color>(
+	new MutableOptionalProperty<>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		bc -> setBackgroundColor(bc),
 		s -> Color.createFromSpecification(s),
@@ -74,7 +74,7 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//attribute
 	private final MutableOptionalProperty<ColorGradient> backgroundColorGradient =
-	new MutableOptionalProperty<ColorGradient>(
+	new MutableOptionalProperty<>(
 		BACKGROUND_COLOR_GRADIENT_HEADER, 
 		bcg -> setBackgroundColorGradient(bcg),
 		s -> ColorGradient.createFromSpecification(s),
@@ -83,7 +83,7 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//attribute
 	private final MutableProperty<ExtendedContentPosition> contentPosition =
-	new MutableProperty<ExtendedContentPosition>(
+	new MutableProperty<>(
 		ContentPosition.TYPE_NAME,
 		cp -> setContentPosition(cp),
 		s -> ExtendedContentPosition.createFromSpecification(s),
@@ -92,7 +92,7 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 	
 	//attribute
 	private final MutableProperty<Discrete2DPoint> freeContentPosition =
-	new MutableProperty<Discrete2DPoint>(
+	new MutableProperty<>(
 		FREE_CONTENT_POSITION_HEADER,
 		fcp -> setFreeContentPosition(fcp.getX(), fcp.getY()),
 		s -> Discrete2DPoint.createFromSpecification(s),
@@ -250,28 +250,28 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Handles the case that the current GUILayer does not have a root Widget.
 			if (rootWidget == null) {
-				return new List<Widget<?, ?>>();
+				return new List<>();
 			}
 			
 			//Handles the case that the current GUILayer has a root Widget.
-				return rootWidget.getChildWidgetsRecursively().addAtEnd(rootWidget);
+			return rootWidget.getChildWidgetsRecursively().addAtEnd(rootWidget);
 	}
 	
 	//method
 	/**
 	 * @return the triggerable {@link Widget}s of the current {@link GUILayer} recursively.
 	 */
+	@Override
 	public List<Widget<?, ?>> getRefTriggerableWidgetsRecursively() {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Handles the case that the current GUILayer does not have a root Widget.
 			if (rootWidget == null) {
-				return new List<Widget<?, ?>>();
+				return new List<>();
 			}
 			
 			//Handles the case that the current GUILayer has a root Widget.			
-				//Extracts the root Widget of the current GUILayer.
-				return rootWidget.getTriggerableChildWidgetsRecursively().addAtEnd(rootWidget);
+			return rootWidget.getTriggerableChildWidgetsRecursively().addAtEnd(rootWidget);
 	}
 	
 	//method
@@ -555,8 +555,12 @@ public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILa
 					break;
 				case Free:
 					
-					final var freeContentPosition = this.freeContentPosition.getValue();					
-					getRefRootWidget().setPositionOnParent(freeContentPosition.getX(), freeContentPosition.getY());
+					final var freeContentPositionValue = this.freeContentPosition.getValue();	
+					
+					getRefRootWidget().setPositionOnParent(
+						freeContentPositionValue.getX(),
+						freeContentPositionValue.getY()
+					);
 					
 					break;
 			}

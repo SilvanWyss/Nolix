@@ -4,9 +4,8 @@ package ch.nolix.core.util;
 //Java import
 import javax.swing.JOptionPane;
 
-//own imports
+//own import
 import ch.nolix.core.constants.CharacterCatalogue;
-import ch.nolix.core.constants.StringCatalogue;
 
 //class
 /**
@@ -48,12 +47,12 @@ public final class PopupWindowProvider {
 	public static void showErrorWindow(final Throwable error) {
 		
 		String title;
-		String text;
+		final var textStringBuilder = new StringBuilder();
 		
 		//Handles the case that the given exception is null.
 		if (error == null) {
 			title = "Exception";
-			text = "An exception, that is null, occured.";
+			textStringBuilder.append("An exception, that is null, occured.");
 		}
 		
 		//Handles the case that the given exception is not null.
@@ -63,30 +62,30 @@ public final class PopupWindowProvider {
 			title = error.getClass().getSimpleName();
 			
 			//Sets the text.
-				text = StringCatalogue.EMPTY_STRING;
-				
 				//Handles the case that the given exception has a message.
 				if (error.getMessage() != null && !error.getMessage().isEmpty()) {
-					text += error.getMessage() + CharacterCatalogue.NEW_LINE + CharacterCatalogue.NEW_LINE;
+					textStringBuilder.append(
+						error.getMessage() + CharacterCatalogue.NEW_LINE + CharacterCatalogue.NEW_LINE
+					);
 				}
 				
 				//Iterates the stack trace of the given exception.
 				for (final StackTraceElement ste : error.getStackTrace()) {
 					
 					final String[] classPath = ste.getClassName().split("\\.");
-					text += classPath[classPath.length - 1];
+					textStringBuilder.append(classPath[classPath.length - 1]);
 							
 					if (ste.getLineNumber() > 0) {
-						text += " (line " + ste.getLineNumber() + ")";
+						textStringBuilder.append(" (line " + ste.getLineNumber() + ")");
 					}
 					
-					text += CharacterCatalogue.NEW_LINE;
+					textStringBuilder.append(CharacterCatalogue.NEW_LINE);
 				}
 		}
 		
 		JOptionPane.showMessageDialog(
 			null,
-			text,
+			textStringBuilder.toString(),
 			title,
 			JOptionPane.ERROR_MESSAGE
 		);

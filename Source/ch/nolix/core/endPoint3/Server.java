@@ -23,7 +23,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	private IEndPointTaker mainEndPointTaker;
 	
 	//multi-attribute
-	private final List<IEndPointTaker> endPointTaker = new List<IEndPointTaker>();
+	private final List<IEndPointTaker> endPointTaker = new List<>();
 	
 	//method
 	/**

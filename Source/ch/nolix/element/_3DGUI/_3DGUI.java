@@ -46,7 +46,7 @@ implements Clearable<G>, Closable, Refreshable {
 
 	//attribute
 	private final MutableProperty<NonEmptyText> title =
-	new MutableProperty<NonEmptyText>(
+	new MutableProperty<>(
 		PascalCaseNameCatalogue.TITLE,
 		s -> setTitle(s.toString()),
 		s -> NonEmptyText.createFromSpecification(s),
@@ -55,7 +55,7 @@ implements Clearable<G>, Closable, Refreshable {
 	
 	//attribute
 	private final MutableProperty<Color> backgroundColor =
-	new MutableProperty<Color>(
+	new MutableProperty<>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		bc -> setBackgroundColor(bc),
 		s -> Color.createFromSpecification(s),

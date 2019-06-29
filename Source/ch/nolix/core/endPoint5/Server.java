@@ -22,8 +22,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	IEndPointTaker arbitraryDuplexControllerTaker;
 	
 	//multiple attribute
-	private final List<IEndPointTaker> endPointTaker
-	= new List<IEndPointTaker>();
+	private final List<IEndPointTaker> endPointTaker = new List<>();
 	
 	//method
 	/**

@@ -15,7 +15,7 @@ public final class SQLExecutor implements Resettable<SQLExecutor> {
 	private final SQLConnection SQLConnection;
 	
 	//multi-attribute
-	private final List<String> statements = new List<String>();
+	private final List<String> statements = new List<>();
 	
 	//package-visible constructor
 	SQLExecutor(final SQLConnection SQLConnection) {

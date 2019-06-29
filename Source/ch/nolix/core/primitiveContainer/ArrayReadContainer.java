@@ -34,6 +34,6 @@ public final class ArrayReadContainer<E> implements Iterable<E> {
 	//method
 	@Override
 	public Iterator<E> iterator() {
-		return new ArrayReadContainerIterator<E>(array);
+		return new ArrayReadContainerIterator<>(array);
 	}
 }

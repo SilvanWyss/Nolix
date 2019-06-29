@@ -38,13 +38,13 @@ public final class DeleteEntitySession extends HeaderedSession {
 
 	//method
 	protected List<Button> createFurtherNavigationButtons() {
-		return new List<Button>();
+		return new List<>();
 	}
 	
 	//method
 	@Override
 	protected List<Button> createLinkButtons() {
-		return new List<Button>();
+		return new List<>();
 	}
 	
 	//method

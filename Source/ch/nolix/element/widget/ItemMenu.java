@@ -24,7 +24,7 @@ implements Clearable<IM> {
 	
 	//attribute
 	private final MultiProperty<ItemMenuItem> items =
-	new MultiProperty<ItemMenuItem>(
+	new MultiProperty<>(
 		PascalCaseNameCatalogue.ITEM,
 		i -> addItem(i),
 		s -> ItemMenuItem.createFromSpecification(s),

@@ -51,7 +51,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C> {
 	private String infoString;
 	
 	//multi-attribute
-	private final List<Session<C>> sessions = new List<Session<C>>();
+	private final List<Session<C>> sessions = new List<>();
 	
 	//method
 	/**

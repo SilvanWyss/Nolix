@@ -124,7 +124,7 @@ public final class Fractal implements IFractal {
 		return
 		imaginaryComponentInterval
 		.getLength()
-		.multiply(new BigDecimal(getWidthInPixel()))
+		.multiply(BigDecimal.valueOf(getWidthInPixel()))
 		.divide(realComponentInterval.getLength(), RoundingMode.HALF_UP)
 		.intValue();
 	}
@@ -162,7 +162,7 @@ public final class Fractal implements IFractal {
 	//method
 	@Override
 	public BigDecimal getPixelsPerUnit() {
-		return new BigDecimal(widthInPixel).divide(realComponentInterval.getLength());
+		return BigDecimal.valueOf(widthInPixel).divide(realComponentInterval.getLength());
 	}
 	
 	//method
@@ -199,7 +199,7 @@ public final class Fractal implements IFractal {
 	//method
 	@Override
 	public BigDecimal getUnitsPerPixel() {
-		return realComponentInterval.getLength().divide(new BigDecimal(widthInPixel), RoundingMode.HALF_UP);
+		return realComponentInterval.getLength().divide(BigDecimal.valueOf(widthInPixel), RoundingMode.HALF_UP);
 	}
 	
 	//method
@@ -234,8 +234,8 @@ public final class Fractal implements IFractal {
 				final var c =
 				argument.getSum(
 					new ComplexNumber(
-							unitsPerPixel.multiply(new BigDecimal(x - 1)),
-							unitsPerPixel.multiply(new BigDecimal(y - 1)),
+							unitsPerPixel.multiply(BigDecimal.valueOf(x - 1)),
+							unitsPerPixel.multiply(BigDecimal.valueOf(y - 1)),
 							getBigDecimalScale()
 					)
 				);

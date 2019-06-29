@@ -38,7 +38,7 @@ implements Clearable<TabContainer> {
 	private Label nextMenuItemLabel;
 	
 	//multi-attribute
-	private final List<TabContainerTab> tabs = new List<TabContainerTab>();
+	private final List<TabContainerTab> tabs = new List<>();
 	
 	//constructor
 	/**
@@ -247,7 +247,7 @@ implements Clearable<TabContainer> {
 	 * @return the tabs of the current {@link TabContainer}.
 	 */
 	public ReadContainer<TabContainerTab> getRefTabs() {
-		return new ReadContainer<TabContainerTab>(tabs);
+		return new ReadContainer<>(tabs);
 	}
 	
 	//method

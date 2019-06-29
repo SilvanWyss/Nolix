@@ -32,7 +32,7 @@ extends LayerEntity<ItemMenuItemLook> {
 
 	//attribute
 	private final LayerProperty<Color> backgroundColor =
-	new LayerProperty<Color>(
+	new LayerProperty<>(
 		PascalCaseNameCatalogue.BACKGROUND_COLOR,
 		DEFAULT_BACKGROUND_COLOR,
 		s -> Color.createFromSpecification(s),
@@ -41,7 +41,7 @@ extends LayerEntity<ItemMenuItemLook> {
 	
 	//attribute
 	private final LayerProperty<Color> textColor =
-	new LayerProperty<Color>(
+	new LayerProperty<>(
 		PascalCaseNameCatalogue.TEXT_COLOR,
 		DEFAULT_TEXT_COLOR,
 		s -> Color.createFromSpecification(s),

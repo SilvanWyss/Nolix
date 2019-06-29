@@ -13,9 +13,6 @@ import ch.nolix.core.attributeAPI.Named;
  */
 public interface IEndPointTaker extends Named {
 	
-	//default name
-	public static final String DEFAULT_NAME = "Default";
-
 	//abstract method
 	/**
 	 * Lets this end point taker take the given end point.

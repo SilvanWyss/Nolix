@@ -21,7 +21,7 @@ public class NetEndPoint extends EndPoint {
 	private final ch.nolix.core.endPoint2.EndPoint internalEndPoint;
 	
 	//multiple attribute
-	private final List<Package> receivedPackages = new List<Package>();
+	private final List<Package> receivedPackages = new List<>();
 	
 	public NetEndPoint(
 		final int port
@@ -218,7 +218,7 @@ public class NetEndPoint extends EndPoint {
 				
 				try {
 					final String reply = getRefReplier().getReply(package_.getRefContent());
-					send(new Package(package_.getIndex(), MessageRole.SUCCESS_RESPONSE, reply.toString()));
+					send(new Package(package_.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
 				}
 				catch (final Exception exception) {
 					String responseMessage = exception.getMessage();
@@ -254,7 +254,7 @@ public class NetEndPoint extends EndPoint {
 	) {
 		//Sends message and receives reply.
 		final int index = getNextSentPackageIndex();
-		send(new Package(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message.toString()));
+		send(new Package(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message));
 		final Package response = waitToAndGetAndRemoveReceivedPackage(index);
 		
 		//Enumerates the response.

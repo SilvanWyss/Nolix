@@ -62,12 +62,12 @@ public final class ClosedInterval implements IClosedInterval {
 	
 	//constructor
 	public ClosedInterval(final double min, final double max) {
-		this(new BigDecimal(min), new BigDecimal(max));
+		this(BigDecimal.valueOf(min), BigDecimal.valueOf(max));
 	}
 	
 	//constructor
 	public ClosedInterval(final double min, final double max, final int bigDecimalScale) {
-		this(new BigDecimal(min), new BigDecimal(max), bigDecimalScale);
+		this(BigDecimal.valueOf(min), BigDecimal.valueOf(max), bigDecimalScale);
 	}
 	
 	//method
@@ -102,7 +102,7 @@ public final class ClosedInterval implements IClosedInterval {
 		final var midPoint = getMidPoint();
 		
 		return
-		new Pair<IClosedInterval, IClosedInterval>(
+		new Pair<>(
 			new ClosedInterval(min, midPoint, min.scale()),
 			new ClosedInterval(midPoint, max, min.scale())
 		);
@@ -129,7 +129,7 @@ public final class ClosedInterval implements IClosedInterval {
 	//method
 	@Override
 	public BigDecimal getMidPoint() {
-		return getMin().add(getMax()).divide(new BigDecimal(2.0)).setScale(min.scale());
+		return getMin().add(getMax()).divide(BigDecimal.valueOf(2.0)).setScale(min.scale());
 	}
 	
 	//method

@@ -21,7 +21,7 @@ import ch.nolix.element.widget.Widget;
 final class WidgetCreator {
 
 	//multiple attribute
-	private List<Class<?>> widgetClasses = new List<Class<?>>();
+	private List<Class<?>> widgetClasses = new List<>();
 	
 	//constructor
 	/**

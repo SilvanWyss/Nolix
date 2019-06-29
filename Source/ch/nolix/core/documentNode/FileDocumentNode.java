@@ -86,7 +86,7 @@ public final class FileDocumentNode extends DocumentNodeoid {
 	@Override
 	@SuppressWarnings("unchecked")
 	public IContainer<SubDocumentNode> getRefAttributes() {
-		return new ReadContainer<SubDocumentNode>(
+		return new ReadContainer<>(
 			internalSpecification.getRefAttributes().to(
 				a -> new SubDocumentNode(this, a)
 			)

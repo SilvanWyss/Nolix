@@ -49,7 +49,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 		requestedConnection = true;
 		
 		//Creates the counterpart of thi local end point.
-		counterpart = new LocalEndPoint<M, R>(this);
+		counterpart = new LocalEndPoint<>(this);
 		
 		//Sets the target of this local end point.
 		this.target = target.getName();
@@ -72,7 +72,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 		requestedConnection = true;
 		
 		//Creates the counterpart of this local end point.
-		counterpart = new LocalEndPoint<M, R>(this, target);
+		counterpart = new LocalEndPoint<>(this, target);
 		
 		//Clears the target of this local end point.
 		this.target = null;

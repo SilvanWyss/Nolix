@@ -39,7 +39,7 @@ public final class LicenseManagerTest extends Test {
 		//method
 		@Override
 		public IContainer<Permission> getPermissions() {
-			return new List<Permission>(new TestPermission());
+			return new List<>(new TestPermission());
 		}
 	}
 	

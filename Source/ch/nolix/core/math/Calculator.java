@@ -34,8 +34,8 @@ public final class Calculator {
 	 * This function returns the average of its input values.
 	 * This function throws an Exception if the given values are null or empty.
 	 */
-	public static IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_AVERAGE
-	= (values) -> {
+	public static final IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_AVERAGE
+	= values -> {
 		
 		//Checks the given values.
 		Validator.throwExceptionIfValueIsNull("values", values);
@@ -60,7 +60,7 @@ public final class Calculator {
 	 * This function throws an Exception if the given values are null or empty.
 	 */
 	public static IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_MAX
-	= (values) -> {
+	= values -> {
 		
 		//Checks the given values.
 		Validator.throwExceptionIfValueIsNull("values", values);
@@ -83,7 +83,7 @@ public final class Calculator {
 	 * This function returns the minimum of its input values.
 	 */
 	public static final IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_MIN
-	= (values) -> {
+	= values -> {
 		
 		//Checks the given values.
 		Validator.throwExceptionIfValueIsNull("values", values);
@@ -107,7 +107,7 @@ public final class Calculator {
 	 * The range of some values is the difference between the maximum and the minimum of the values.
 	 */
 	public static final IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_RANGE
-	= (values) -> {
+	= values -> {
 		
 		//Checks the given values.
 		Validator.throwExceptionIfValueIsNull("values", values);
@@ -136,7 +136,7 @@ public final class Calculator {
 	 * This function returns the square of its input value.
 	 */
 	public static final IElementTakerElementGetter<Double, Double> DOUBLE_SQUARE
-	= (value) -> {
+	= value -> {
 		return (value * value);
 	};
 	
@@ -145,7 +145,7 @@ public final class Calculator {
 	 * This function returns the sum of its input values.
 	 */
 	public static final IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_SUM
-	= (values) -> {
+	= values -> {
 		
 		//Checks the given values.
 		Validator.throwExceptionIfValueIsNull("values", values);
@@ -163,7 +163,7 @@ public final class Calculator {
 	 * This function returns the variance of its input values.
 	 */
 	public static final IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_VARIANCE
-	= (values) -> {
+	= values -> {
 		
 		//Checks the given values.
 		Validator.throwExceptionIfValueIsNull("values", values);
@@ -185,7 +185,7 @@ public final class Calculator {
 	
 	//function
 	public static final IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_STANDARD_DEVIATION
-	= (values) -> {
+	= values -> {
 		return Math.sqrt(DOUBLE_VARIANCE.getOutput(values));
 	};
 	
@@ -194,7 +194,7 @@ public final class Calculator {
 	 * This function returns the average of its input values.
 	 */
 	public static final IElementTakerElementGetter<Iterable<Long>, Double> LONG_AVERAGE
-	= (values) -> {
+	= values -> {
 		
 		//Checks the given values.
 		Validator.throwExceptionIfValueIsNull("values", values);
@@ -217,7 +217,7 @@ public final class Calculator {
 	 * This function returns the maximum of its input values.
 	 */
 	public static final IElementTakerElementGetter<Iterable<Long>, Long> LONG_MAX
-	= (values) -> {
+	= values -> {
 		
 		//Checks the given values.
 		Validator.throwExceptionIfValueIsNull("values", values);
@@ -241,7 +241,7 @@ public final class Calculator {
 	 * This function returns the minimum of its input values.
 	 */
 	public static final IElementTakerElementGetter<Iterable<Long>, Long> LONG_MIN
-	= (values) -> {
+	= values -> {
 		
 		//Checks the given values.
 		Validator.throwExceptionIfValueIsNull("values", values);
@@ -266,7 +266,7 @@ public final class Calculator {
 	 * The range of some values is the difference between the maximum and the minimum of the values.
 	 */
 	public static final IElementTakerElementGetter<Iterable<Long>, Double> LONG_RANGE
-	= (values) -> {
+	= values -> {
 		
 		//Checks the given values.
 		Validator.throwExceptionIfValueIsNull("values", values);
@@ -296,7 +296,7 @@ public final class Calculator {
 	 * This function returns the sum of its input values.
 	 */
 	public static final IElementTakerElementGetter<Iterable<Long>, Long> LONG_SUM
-	= (values) -> {
+	= values -> {
 	
 		//Checks the given values.
 		Validator.throwExceptionIfValueIsNull("values", values);
@@ -314,7 +314,7 @@ public final class Calculator {
 	 * This function returns the variance of its input values.
 	 */
 	public static final IElementTakerElementGetter<Iterable<Long>, Double> LONG_VARIANCE
-	= (values) -> {
+	= values -> {
 		
 		//Checks the given values.
 		Validator.throwExceptionIfValueIsNull("values", values);
@@ -331,7 +331,7 @@ public final class Calculator {
 	
 	//function
 	public static final IElementTakerElementGetter<Iterable<Long>, Double> LONG_STANDARD_DEVIATION
-	= (values) -> {
+	= values -> {
 		return Math.sqrt(LONG_VARIANCE.getOutput(values));
 	};
 	
@@ -348,7 +348,7 @@ public final class Calculator {
 		
 		Validator.throwExceptionIfValueIsNotEqual("number of y-values", xValues.length, yValues.length);
 		
-		final List<FPNPair> FPNPairs = new List<FPNPair>();
+		final var FPNPairs = new List<FPNPair>();
 		
 		for (int i = 0; i < xValues.length; i++) {
 			FPNPairs.addAtEnd(new FPNPair(xValues[i], yValues[i]));

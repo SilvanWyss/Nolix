@@ -249,13 +249,6 @@ public abstract class DocumentNodeoid implements Headered {
 		return getRefFirstAttribute().toInt();
 	}
 	
-	//abstract method
-	/**
-	 * @return the header of the current {@link DocumentNodeoid}.
-	 */
-	@Override
-	public abstract String getHeader();
-	
 	//method
 	/**
 	 * @return the boolean the one attribute of the current {@link DocumentNodeoid} represents.

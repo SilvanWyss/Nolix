@@ -62,7 +62,7 @@ public class _3DPoint extends Element<_3DPoint> {
 	@Override
 	public List<DocumentNode> getAttributes() {
 		return
-		new List<DocumentNode>(
+		new List<>(
 			DocumentNode
 			.createWithHeader(
 				DoubleHelper.toString(getX())

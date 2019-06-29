@@ -66,7 +66,7 @@ implements
 	@Override
 	public List<DocumentNode> getAttributes() {
 		
-		final List<DocumentNode> attributes = new List<DocumentNode>();
+		final var attributes = new List<DocumentNode>();
 		getRefProperties().forEach(p -> p.fillUpAttribute(attributes));
 		
 		return attributes;
@@ -83,7 +83,7 @@ implements
 			extractProperties();
 		}
 		
-		return new ReadContainer<LayerProperty<?>>(layerProperties);
+		return new ReadContainer<>(layerProperties);
 	}
 	
 	//method
@@ -163,7 +163,7 @@ implements
 			);
 		}
 		
-		layerProperties = new List<LayerProperty<?>>();
+		layerProperties = new List<>();
 		
 		//Iterates the types of this entity.
 		Class<?> cl = getClass();

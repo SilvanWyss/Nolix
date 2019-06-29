@@ -44,7 +44,7 @@ public final class ParametrizedImplicitSequenceCreator<N> implements IParametriz
 	@Override
 	public ImpliciteSequence<N> createSequence(final ArrayList<N> startValue) {
 		return
-		new ImpliciteSequence<N>(
+		new ImpliciteSequence<>(
 			sequencesStartIndex,
 			startValue,
 			sequencesNextValueFunction,

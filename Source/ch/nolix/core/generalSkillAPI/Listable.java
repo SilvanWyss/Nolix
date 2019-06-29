@@ -21,6 +21,6 @@ public interface Listable<L extends Listable<L>> {
 	 */
 	@SuppressWarnings("unchecked")
 	public default List<L> intoList() {
-		return new List<L>((L)this);
+		return new List<>((L)this);
 	}
 }

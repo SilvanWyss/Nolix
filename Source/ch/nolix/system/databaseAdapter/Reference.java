@@ -14,6 +14,6 @@ extends SingleReference<E> {
 	//method
 	@Override
 	public ReferenceType<E> getPropertyType() {
-		return new ReferenceType<E>(getValueClass());
+		return new ReferenceType<>(getValueClass());
 	}
 }

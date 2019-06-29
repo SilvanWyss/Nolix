@@ -8,7 +8,7 @@ import java.util.Iterator;
 final class MultiReadContainer<E> implements IContainer<E> {
 	
 	//attribute
-	private final List<IContainer<E>> containers = new List<IContainer<E>>();
+	private final List<IContainer<E>> containers = new List<>();
 	
 	//constructor
 	@SuppressWarnings("unchecked")
@@ -29,7 +29,7 @@ final class MultiReadContainer<E> implements IContainer<E> {
 	//method
 	@Override
 	public Iterator<E> iterator() {
-		return new MultiReadContainerIterator<E>(containers);
+		return new MultiReadContainerIterator<>(containers);
 	}
 	
 	//method

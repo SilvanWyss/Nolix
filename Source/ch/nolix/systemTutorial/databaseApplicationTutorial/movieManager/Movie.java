@@ -9,6 +9,6 @@ import ch.nolix.system.databaseAdapter.Reference;
 public final class Movie extends Entity {
 
 	//attributes
-	public final Property<String> Title = new Property<String>();
-	public final Reference<Genre> Genre = new Reference<Genre>();
+	public final Property<String> Title = new Property<>();
+	public final Reference<Genre> Genre = new Reference<>();
 }

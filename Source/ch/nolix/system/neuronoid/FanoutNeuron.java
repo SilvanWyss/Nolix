@@ -24,8 +24,7 @@ extends Neuronoid<FanoutNeuron<O>, Iterable<O>, Iterable<O>> {
 	public static final int MAX_INPUT_NEURON_COUNT = 1;
 
 	//multiple attribute
-	private final List<TransformNeuron<Iterable<O>, O>> fanNeurons =
-	new List<TransformNeuron<Iterable<O>, O>>();
+	private final List<TransformNeuron<Iterable<O>, O>> fanNeurons = new List<>();
 	
 	//method
 	/**

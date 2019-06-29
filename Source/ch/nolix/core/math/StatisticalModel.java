@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.math;
 
+import ch.nolix.core.constants.VariableNameCatalogue;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.validator.Validator;
@@ -17,7 +18,7 @@ public abstract class StatisticalModel {
 	private final int backStepCount;
 	private final double[] inputValues;
 	private double[] calculatedInputValues;
-	private final List<Double>forecasts = new List<Double>();
+	private final List<Double>forecasts = new List<>();
 	
 	//constructor
 	/**
@@ -52,8 +53,12 @@ public abstract class StatisticalModel {
 	//method
 	public final double getValueFromBack(final int index) {
 		
-		Validator.suppose(index).thatIsNamed("index").isPositive();
-		Validator.suppose(index).thatIsNamed("index").isNotBiggerThan(inputValues.length + forecasts.getSize());
+		Validator.suppose(index).thatIsNamed(VariableNameCatalogue.INDEX).isPositive();
+		
+		Validator
+		.suppose(index)
+		.thatIsNamed(VariableNameCatalogue.INDEX)
+		.isNotBiggerThan(inputValues.length + forecasts.getSize());
 		
 		if (index > forecasts.getSize()) {
 			return inputValues[getInputValuesCount() + forecasts.getSize() - index];

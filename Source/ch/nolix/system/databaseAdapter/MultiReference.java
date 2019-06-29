@@ -11,7 +11,7 @@ import ch.nolix.core.validator.Validator;
 public final class MultiReference<E extends Entity> extends Referenceoid<E> {
 
 	//multi-attribute
-	private final List<Long> referencedEntityIds = new List<Long>();
+	private final List<Long> referencedEntityIds = new List<>();
 
 	//method
 	public MultiReference<E> add(final E entity) {
@@ -72,7 +72,7 @@ public final class MultiReference<E extends Entity> extends Referenceoid<E> {
 	//method
 	@Override
 	protected List<Object> internal_getValues() {
-		return new List<Object>(referencedEntityIds);
+		return new List<>(referencedEntityIds);
 	}
 	
 	//method

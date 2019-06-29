@@ -25,7 +25,7 @@ public final class ImplicitComplexSequenceBuilder implements IImplicitComplexSeq
 	private int startIndex = DEFAULT_START_INDEX;
 	
 	//multi-attribute
-	private ArrayList<IComplexNumber> startValues = new ArrayList<IComplexNumber>();
+	private ArrayList<IComplexNumber> startValues = new ArrayList<>();
 	
 	//attribute
 	private IElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber> nextValueFunction;
@@ -39,7 +39,7 @@ public final class ImplicitComplexSequenceBuilder implements IImplicitComplexSeq
 	@Override
 	public ImpliciteSequence<IComplexNumber> build() {
 		return
-		new ImpliciteSequence<IComplexNumber>(
+		new ImpliciteSequence<>(
 			startIndex,
 			startValues,
 			nextValueFunction,

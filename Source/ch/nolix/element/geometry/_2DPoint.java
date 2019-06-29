@@ -58,7 +58,7 @@ public final class _2DPoint extends Element<_2DPoint> {
 	@Override
 	public List<DocumentNode> getAttributes() {
 		return
-		new List<DocumentNode>(
+		new List<>(
 			DocumentNode
 			.createWithHeader(
 				DoubleHelper.toString(getX())

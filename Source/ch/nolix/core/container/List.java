@@ -419,8 +419,6 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 			firstNode = null;
 			lastNode = null;
 			elementCount = 0;
-			
-			System.gc();
 		}
 		
 		return this;
@@ -500,7 +498,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 */
 	public <E2> List<List<E>> getGroups(final IElementTakerElementGetter<E, E2> norm) {
 		
-		final List<List<E>> groups = new List<List<E>>();
+		final List<List<E>> groups = new List<>();
 		
 		//Iterates the current list.
 		for (final E e : this) {
@@ -633,7 +631,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 */
 	@Override
 	public ListIterator<E> iterator() {
-		return new ListIterator<E>(firstNode);
+		return new ListIterator<>(firstNode);
 	}
 	
 	//method
@@ -1011,7 +1009,7 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	 * @throws NullArgumentException if the given extractor is null.
 	 */
 	public ListUsingMediator<E> using(final IElementTakerElementGetter<Object, E> extractor) {
-		return new ListUsingMediator<E>(this, extractor);
+		return new ListUsingMediator<>(this, extractor);
 	}
 	
 	//method
@@ -1038,13 +1036,13 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 		
 		//Handles the case when the sub list contains 1 element.
 		if (length == 1) {
-			return new List<E>(startNode.getElement());
+			return new List<>(startNode.getElement());
 		}
 		
 		//Handles the case when the sub list contains 2 elements.
 		if (length == 2) {
 			
-			final List<E> list = new List<E>();
+			final var list = new List<E>();
 
 			final Comparable element1Value = norm.getValue(startNode.getElement());
 			final Comparable element2Value = norm.getValue(startNode.getNextNode().getElement());

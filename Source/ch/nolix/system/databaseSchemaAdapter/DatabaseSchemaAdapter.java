@@ -25,8 +25,8 @@ public abstract class DatabaseSchemaAdapter<DSA extends DatabaseSchemaAdapter<DS
 implements IChangesSaver<DSA>, IFluentObject<DSA> {
 	
 	//multi-attributes
-	private final List<EntitySet> loadedAndCreatedEntitySets = new List<EntitySet>();
-	private final List<EntitySet> mutatedEntitySetsInOrder = new List<EntitySet>();
+	private final List<EntitySet> loadedAndCreatedEntitySets = new List<>();
+	private final List<EntitySet> mutatedEntitySetsInOrder = new List<>();
 	
 	//method
 	public final <E extends Entity> DSA addEntitySet(final Class<E> entityClass) {

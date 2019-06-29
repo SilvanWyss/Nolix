@@ -11,6 +11,6 @@ public final class ExtendedTypeMediator<T> extends TypeMediator<T> {
 	
 	//method
 	public TypeMediator<T> thatIsNamed(final String arguemtName) {
-		return new TypeMediator<T>(arguemtName, getRefArgument());
+		return new TypeMediator<>(arguemtName, getRefArgument());
 	}
 }

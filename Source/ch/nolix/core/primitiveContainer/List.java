@@ -25,7 +25,7 @@ public final class List<E> implements Iterable<E> {
 	//method
 	public void addAtBegin(final E element) {
 		
-		final ListNode<E> node = new ListNode<E>(element);
+		final ListNode<E> node = new ListNode<>(element);
 		
 		if (isEmpty()) {
 			beginNode = node;
@@ -42,7 +42,7 @@ public final class List<E> implements Iterable<E> {
 	//method
 	public void addAtEnd(final E element) {
 		
-		final ListNode<E> node = new ListNode<E>(element);
+		final var node = new ListNode<E>(element);
 		
 		if (isEmpty()) {
 			beginNode = node;
@@ -87,7 +87,7 @@ public final class List<E> implements Iterable<E> {
 	 */
 	@Override
 	public Iterator<E> iterator() {
-		return new ListIterator<E>(beginNode);
+		return new ListIterator<>(beginNode);
 	}
 	
 	//method

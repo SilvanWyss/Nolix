@@ -13,4 +13,7 @@ final class NetEndPointProtocol {
 	public static final char MESSAGE_PREFIX = 'M';
 	public static final char TARGET_PREFIX = 'T';
 	public static final char MAIN_TARGET_PREFIX = 'A';
+	
+	//private constructor
+	private NetEndPointProtocol() {}
 }

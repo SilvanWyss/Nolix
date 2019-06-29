@@ -157,10 +157,10 @@ abstract class SingleProperty<V> extends Propertyoid<V> {
 		
 		//Handles the case that the current SingleProperty does not have a value.
 		if (value == null) {
-			return new ReadContainer<V>();
+			return new ReadContainer<>();
 		}
 		
 		//Handles the case that the current SingleProperty has a value.
-		return new ReadContainer<V>(getValue());
+		return new ReadContainer<>(getValue());
 	}
 }

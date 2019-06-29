@@ -50,7 +50,7 @@ public final class MatrixRow<E> implements IContainer<E> {
 	//method
 	@Override
 	public MatrixRowIterator<E> iterator() {
-		return new MatrixRowIterator<E>(this);
+		return new MatrixRowIterator<>(this);
 	}
 	
 	//method

@@ -5,7 +5,6 @@ package ch.nolix.core.math;
 import java.util.Random;
 
 //own imports
-import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.helper.DoubleHelper;
@@ -92,16 +91,16 @@ public class Matrix implements ApproximativeEqualing {
 		final Matrix matrix = new Matrix(rowCount, columnCount);
 		
 		//Fills up the matrix with random values.
-		final Random random = new Random();
+		final var random = new Random();
 		
-			//Iterates the rows of the matrix.
-			for (int i = 0; i < matrix.getRowCount(); i++) {
-				
-				//Iterates the cells of the current row.
-				for (int j = 0; j < matrix.getColumnCount(); j++) {
-					matrix.values[i][j] = random.nextInt(100);
-				}
+		//Iterates the rows of the matrix.
+		for (int i = 0; i < matrix.getRowCount(); i++) {
+			
+			//Iterates the cells of the current row.
+			for (int j = 0; j < matrix.getColumnCount(); j++) {
+				matrix.values[i][j] = random.nextInt(100);
 			}
+		}
 		
 		return matrix;
 	}
@@ -763,7 +762,7 @@ public class Matrix implements ApproximativeEqualing {
 	 */
 	public Matrix removeZeroRows() {
 		
-		List<double[]> newValues = new List<double[]>();
+		List<double[]> newValues = new List<>();
 		
 		for (double[] r: values) {
 			
@@ -1080,31 +1079,29 @@ public class Matrix implements ApproximativeEqualing {
 	@Override
 	public String toString() {
 		
-		String matrix = "[";
+		final var stringBuilder = new StringBuilder();
 		
-		for (int i = 0; i < getRowCount(); i++) {
+		stringBuilder.append('[');
+		
+		for (var i = 0; i < getRowCount(); i++) {
 			
-			String line = StringCatalogue.EMPTY_STRING;
-			
-			for (int j = 0; j < getColumnCount(); j++) {
+			for (var j = 0; j < getColumnCount(); j++) {
 				
-				line += DoubleHelper.toString(values[i][j]);
+				stringBuilder.append(DoubleHelper.toString(values[i][j]));
 				
 				if (j < getColumnCount() - 1) {
-					line += ",";
+					stringBuilder.append(',');
 				}
 			}
 			
 			if (i < getRowCount() - 1) {
-				line += ";";
+				stringBuilder.append(';');
 			}
-			
-			matrix += line;
 		}
+				
+		stringBuilder.append(']');
 		
-		matrix += "]";
-		
-		return matrix;
+		return stringBuilder.toString();
 	}
 	
 	//method

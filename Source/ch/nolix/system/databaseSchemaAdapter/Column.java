@@ -41,7 +41,7 @@ public final class Column implements Headered, Specified {
 	@Override
 	public List<DocumentNode> getAttributes() {
 		return 
-		new List<DocumentNode>(
+		new List<>(
 			new DocumentNode(PascalCaseNameCatalogue.HEADER, getHeader()),
 			valueType.getSpecification()
 		);

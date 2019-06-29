@@ -9,7 +9,7 @@ import ch.nolix.system.databaseAdapter.Reference;
 public final class Flight extends Entity {
 
 	//attributes
-	public final Property<String> Code = new Property<String>();
-	public final Reference<Airport> DepartureAirport = new Reference<Airport>();
-	public final Reference<Airport> DestinationAirport = new Reference<Airport>();
+	public final Property<String> Code = new Property<>();
+	public final Reference<Airport> DepartureAirport = new Reference<>();
+	public final Reference<Airport> DestinationAirport = new Reference<>();
 }

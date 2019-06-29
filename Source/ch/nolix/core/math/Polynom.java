@@ -313,7 +313,9 @@ public class Polynom {
 	@Override
 	public String toString() {
 		
-		String string = "x->";
+		final var stringBuilder = new StringBuilder();
+		
+		stringBuilder.append("x->");
 		
 		boolean begin = true;
 		
@@ -325,16 +327,16 @@ public class Polynom {
 			if (coefficients[i] != 0) {
 				
 				if (!begin && coefficients[i] > 0) {
-					string += "+";
+					stringBuilder.append('+');
 				}
 				
 				begin = false;
 				
 				if (coefficients[i] != 1) {
-					string += DoubleHelper.toString(coefficients[i]) + "x^" + coefficientDegree;
+					stringBuilder.append(DoubleHelper.toString(coefficients[i]) + "x^" + coefficientDegree);
 				}
 				else {
-					string += "x^" + coefficientDegree;
+					stringBuilder.append("x^" + coefficientDegree);
 				}
 			}
 		}
@@ -343,29 +345,29 @@ public class Polynom {
 		if (coefficients.length > 1 && coefficients[coefficients.length - 2] != 0) {
 			
 			if (!begin && coefficients[coefficients.length - 2] > 0) {
-				string += "+";
+				stringBuilder.append('+');
 			}
 			
 			begin = false;
-			string += DoubleHelper.toString(coefficients[coefficients.length - 2]) + "x";
+			stringBuilder.append(DoubleHelper.toString(coefficients[coefficients.length - 2]) + "x");
 		}
 		
 		//Extract of the constant of this polynom.
 		if (coefficients.length > 0 && coefficients[coefficients.length - 1] != 0) {
 			
 			if (!begin && coefficients[coefficients.length - 1] > 0) {
-				string += "+";
+				stringBuilder.append('+');
 			}
 			
 			begin = false;
-			string += DoubleHelper.toString(coefficients[coefficients.length - 1]);
+			stringBuilder.append(DoubleHelper.toString(coefficients[coefficients.length - 1]));
 		}
 		
 		if (begin) {
-			string += "0";
+			stringBuilder.append('0');
 		}
 		
-		return string;
+		return stringBuilder.toString();
 	}
 	
 	//method

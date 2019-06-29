@@ -5,6 +5,7 @@ package ch.nolix.element.image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOError;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
@@ -51,7 +52,7 @@ public final class Image extends Element<Image> implements Specifiable<Image> {
 	
 	//attribute
 	private final Property<NonNegativeInteger> width =
-	new Property<NonNegativeInteger>(
+	new Property<>(
 		PascalCaseNameCatalogue.WIDTH,
 		w -> setWidth(w.getValue()),
 		s -> NonNegativeInteger.createFromSpecification(s),
@@ -60,7 +61,7 @@ public final class Image extends Element<Image> implements Specifiable<Image> {
 	
 	//attribute
 	private final Property<NonNegativeInteger> height =
-	new Property<NonNegativeInteger>(
+	new Property<>(
 		PascalCaseNameCatalogue.HEIGHT,
 		h -> setHeight(h.getValue()),
 		s -> NonNegativeInteger.createFromSpecification(s),
@@ -73,7 +74,7 @@ public final class Image extends Element<Image> implements Specifiable<Image> {
 		setWidth(width);
 		setHeight(height);
 		
-		pixels = new Matrix<Color>();
+		pixels = new Matrix<>();
 		
 		if (width > 0 && height > 0) {
 			
@@ -124,18 +125,11 @@ public final class Image extends Element<Image> implements Specifiable<Image> {
 	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = super.getAttributes();
-		
-		{
-			final var pixelArraySpecification =
-			DocumentNode.createWithHeader(PIXEL_ARRAY_HEADER);
-			
-			for (final var p : pixels) {
-				pixelArraySpecification.addAttribute(p.getHexadecimalValue(true));
-			}
-			
-			attributes.addAtEnd(pixelArraySpecification);
-		}
-		
+				
+		final var pixelArraySpecification =	DocumentNode.createWithHeader(PIXEL_ARRAY_HEADER);
+		pixels.forEach(p -> pixelArraySpecification.addAttribute(p.getHexadecimalValue(true)));
+		attributes.addAtEnd(pixelArraySpecification);
+				
 		return attributes;
 	}
 	
@@ -177,7 +171,7 @@ public final class Image extends Element<Image> implements Specifiable<Image> {
 			ImageIO.write(toBufferedImage(), "PNG", new File(StringCatalogue.EMPTY_STRING));
 		}
 		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
+			throw new IOError(IOException);
 		}
 	}
 	
@@ -220,7 +214,7 @@ public final class Image extends Element<Image> implements Specifiable<Image> {
 				
 				final var pixel = pixels.getRefAt(y + 1, x + 1);
 				
-				//raster.setSample(x, y, 0, pixel.getAlphaValue());
+				//TODO: raster.setSample(x, y, 0, pixel.getAlphaValue())
 				raster.setSample(x, y, 0, pixel.getRedValue());
 				raster.setSample(x, y, 1, pixel.getGreenValue());
 				raster.setSample(x, y, 2, pixel.getBlueValue());
@@ -270,7 +264,7 @@ public final class Image extends Element<Image> implements Specifiable<Image> {
 			return byteArrayOutputStream.toByteArray();
 		}
 		catch (final IOException IOException) {
-			throw new RuntimeException(IOException);
+			throw new IOError(IOException);
 		}
 	}
 }

@@ -26,7 +26,7 @@ extends BorderWidget<FrontBrowserGUIClientoidWidget, FrontBrowserGUIClientoidWid
 	
 	//attribute
 	private final MutableProperty<Integer> contentWidth =
-	new MutableProperty<Integer>(
+	new MutableProperty<>(
 		CONTENT_WIDTH_HEADER,
 		cw -> setContentWidth(cw),
 		s -> s.getOneAttributeAsInt(),
@@ -35,7 +35,7 @@ extends BorderWidget<FrontBrowserGUIClientoidWidget, FrontBrowserGUIClientoidWid
 	
 	//attribute
 	private final MutableProperty<Integer> contentHeight =
-	new MutableProperty<Integer>(
+	new MutableProperty<>(
 		CONTENT_HEIGHT_HEADER,
 		ch -> setContentHeight(ch),
 		s -> s.getOneAttributeAsInt(),

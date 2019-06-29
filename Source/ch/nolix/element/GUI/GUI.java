@@ -159,7 +159,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//attribute
 	private final MutableProperty<String> title =
-	new MutableProperty<String>(
+	new MutableProperty<>(
 		PascalCaseNameCatalogue.TITLE,
 		t -> setTitle(t),
 		s -> s.getOneAttributeAsString(),
@@ -168,7 +168,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//attribute
 	private final MultiProperty<IGUILayer<?>> layers =
-	new MultiProperty<IGUILayer<?>>(
+	new MultiProperty<>(
 		PascalCaseNameCatalogue.LAYER,
 		l -> addLayerOnTop(l),
 		s -> GUILayer.createFromSpecification(s),
@@ -405,7 +405,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	@Override
 	public final List<Configurable<?>> getRefConfigurables() {
-		return new List<Configurable<?>>(getRefWidgets());
+		return new List<>(getRefWidgets());
 	}
 	
 	//method
@@ -432,7 +432,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public final List<Widget<?, ?>> getRefTriggerableWidgetsRecursively() {
 		
 		if (isEmpty()) {
-			return new List<Widget<?, ?>>();
+			return new List<>();
 		}
 		
 		return topLayer.getRefTriggerableWidgetsRecursively();
@@ -480,18 +480,6 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	public abstract int getWidth();
 	
-	//abstract method
-	/**
-	 * @return the height of the content of the current GUI.
-	 */
-	public abstract int getViewAreaHeight();
-
-	//abstract method
-	/**
-	 * @return the width of the content of the current GUI.
-	 */
-	public abstract int getViewAreaWidth();
-
 	//method
 	/**
 	 * @return true if the current {@link GUI} has a controller.

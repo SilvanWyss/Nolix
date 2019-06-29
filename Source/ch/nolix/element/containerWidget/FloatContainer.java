@@ -16,7 +16,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 implements Clearable<FloatContainer> {
 	
 	//multi-attribute
-	private final List<Widget<?, ?>> widgets = new List<Widget<?, ?>>();
+	private final List<Widget<?, ?>> widgets = new List<>();
 	
 	//constructor
 	public FloatContainer() {

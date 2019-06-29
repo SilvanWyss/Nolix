@@ -31,6 +31,6 @@ public interface IdentifiedByString {
 	 * @return true if the current {@link IdentifiedByString} has the given id. 
 	 */
 	public default boolean hasId(final String id) {
-		return (getId() == id);
+		return getId().equals(id);
 	}
 }

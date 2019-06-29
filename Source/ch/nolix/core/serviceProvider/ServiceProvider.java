@@ -13,7 +13,7 @@ import ch.nolix.core.validator.Validator;
 public final class ServiceProvider {
 
 	//multi-attribute
-	private final HashMap<Class<?>, Object> services = new HashMap<Class<?>, Object>();
+	private final HashMap<Class<?>, Object> services = new HashMap<>();
 	
 	//method
 	@SuppressWarnings("unchecked")

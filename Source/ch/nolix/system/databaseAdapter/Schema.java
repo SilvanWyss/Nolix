@@ -10,7 +10,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 public abstract class Schema {
 
 	//multi-attribute
-	private final List<EntityType<Entity>> entityTypes = new List<EntityType<Entity>>();
+	private final List<EntityType<Entity>> entityTypes = new List<>();
 	
 	//constructor
 	@SuppressWarnings("unchecked")
@@ -32,7 +32,7 @@ public abstract class Schema {
 	
 	//method
 	public ReadContainer<EntityType<Entity>> getRefEntityTypes() {
-		return new ReadContainer<EntityType<Entity>>(entityTypes);
+		return new ReadContainer<>(entityTypes);
 	}
 	
 	//method

@@ -283,7 +283,7 @@ public final class Time extends Element<Time> {
 	 */
 	@Override
 	public List<DocumentNode> getAttributes() {
-		return new List<DocumentNode>(
+		return new List<>(
 			DocumentNode.createFromString(String.format(
 				"%04d-%02d-%02d-%02d-%02d-%02d-%03d",
 				getYearAsInt(),

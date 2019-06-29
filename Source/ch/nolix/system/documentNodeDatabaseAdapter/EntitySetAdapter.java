@@ -47,7 +47,7 @@ implements IEntitySetAdapter<E> {
 	//method
 	public EntitiesAdapter<E> getEntitiesAdapter() {
 		return
-		new EntitiesAdapter<E>(
+		new EntitiesAdapter<>(
 			entitySetSpecification.getRefFirstAttribute(
 				MultiPascalCaseNameCatalogue.ENTITIES
 			)

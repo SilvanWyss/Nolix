@@ -25,7 +25,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//attribute
 	private final MutableProperty<PositiveFloatingPointNumber> xLength =
-	new MutableProperty<PositiveFloatingPointNumber>(
+	new MutableProperty<>(
 		X_LENGTH_HEADER,
 		xl -> setXLength(xl.getValue()),
 		s -> PositiveFloatingPointNumber.createFromSpecification(s),
@@ -34,7 +34,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//attribute
 	private final MutableProperty<PositiveFloatingPointNumber> yLength =
-	new MutableProperty<PositiveFloatingPointNumber>(
+	new MutableProperty<>(
 		Y_LENGTH_HEADER,
 		yl -> setYLength(yl.getValue()),
 		s -> PositiveFloatingPointNumber.createFromSpecification(s),
@@ -43,7 +43,7 @@ public final class Cuboid extends BaseShape<Cuboid> {
 	
 	//attribute
 	private final MutableProperty<PositiveFloatingPointNumber> zLength =
-	new MutableProperty<PositiveFloatingPointNumber>(
+	new MutableProperty<>(
 		Z_LENGTH_HEADER,
 		zl -> setZLength(zl.getValue()),
 		s -> PositiveFloatingPointNumber.createFromSpecification(s),

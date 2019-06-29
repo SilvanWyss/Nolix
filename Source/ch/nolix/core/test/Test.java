@@ -141,7 +141,7 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	 * @return a new object mediator that belongs to this test and has the given value.
 	 */
 	protected final <V> ValueMediator<V> expect(final V value) {
-		return new ValueMediator<V>(this, value);
+		return new ValueMediator<>(this, value);
 	}
 	
 	//method
@@ -241,7 +241,7 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	protected final MultiLongMediator expectTheLongs(final long... values) {
 		
 		//Creates long vector.
-		final Vector<Long> longVectors = new Vector<Long>();
+		final var longVectors = new Vector<Long>();
 		for (long v: values) {
 			longVectors.add(v);
 		}

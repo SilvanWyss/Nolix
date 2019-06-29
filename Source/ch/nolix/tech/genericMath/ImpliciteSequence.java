@@ -21,14 +21,14 @@ public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 	private final int startIndex;
 	
 	//multi-attribute
-	private final ArrayList<N> startValues = new ArrayList<N>();
+	private final ArrayList<N> startValues = new ArrayList<>();
 	
 	//attributes
 	private final IElementTakerElementGetter<ArrayList<N>, N> nextValueFunction;
 	private final IElementTakerElementGetter<N, BigDecimal> squaredMagnitudeFunction;
 	
 	//multi-attribute
-	private final ArrayList<Pair<N, BigDecimal>> valuesAndSquaredMagnitudes = new ArrayList<Pair<N, BigDecimal>>();
+	private final ArrayList<Pair<N, BigDecimal>> valuesAndSquaredMagnitudes = new ArrayList<>();
 	
 	//constructor
 	public ImpliciteSequence(

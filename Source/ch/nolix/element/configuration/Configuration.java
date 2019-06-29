@@ -41,10 +41,8 @@ implements Freezable<C>, OptionalNamable<C>, Specifiable<C> {
 	private String name;
 	
 	//multi-attributes
-	private final List<DocumentNode> attachingAttributes
-		= new List<DocumentNode>();
-	protected final List<Configuration<?>> configurations
-		= new List<Configuration<?>>();
+	private final List<DocumentNode> attachingAttributes = new List<>();
+	protected final List<Configuration<?>> configurations = new List<>();
 	
 	//optional attributes
 	private NonEmptyText selectorType;
@@ -52,7 +50,7 @@ implements Freezable<C>, OptionalNamable<C>, Specifiable<C> {
 	private NonEmptyText selectorName;
 	
 	//multi-attribute
-	private final List<String> selectorRoles = new List<String>();
+	private final List<String> selectorRoles = new List<>();
 	
 	//method
 	/**
@@ -176,7 +174,7 @@ implements Freezable<C>, OptionalNamable<C>, Specifiable<C> {
 				setSelectorType(attribute.getOneAttributeAsString());
 				break;
 			case SELECTOR_ROLE_HEADER:
-				addSelectorRoles_(attribute.getAttributesToStrings());
+				addSelectorRoles2(attribute.getAttributesToStrings());
 				break;
 			case SELECTOR_TOKEN_HEADER:
 				setSelectorToken(attribute.getOneAttributeAsString());
@@ -771,7 +769,7 @@ implements Freezable<C>, OptionalNamable<C>, Specifiable<C> {
 	 * @throws InvalidArgumentException if this configuration contains already one of the given selector roles.
 	 * @throws InvalidArgumentException if this configuration is frozen.
 	 */
-	private void addSelectorRoles_(final Iterable<String> selectorRoles) {
+	private void addSelectorRoles2(final Iterable<String> selectorRoles) {
 		selectorRoles.forEach(sr -> addSelectorRole(sr));
 	}
 }

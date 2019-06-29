@@ -35,7 +35,7 @@ final class ListIterator<E> implements Iterator<E> {
 	 * @return a copy of the current {@link ListIterator}.
 	 */
 	public ListIterator<E> getCopy() {
-		return new ListIterator<E>(nextNode);
+		return new ListIterator<>(nextNode);
 	}
 
 	//method

@@ -32,7 +32,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	
 	//attribute
 	private final Property<NonEmptyText> text =
-	new Property<NonEmptyText>(
+	new Property<>(
 		PascalCaseNameCatalogue.TEXT,
 		t -> setText(t.getValue()),
 		s -> NonEmptyText.createFromSpecification(s),
@@ -41,7 +41,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	
 	//attribute
 	private final OptionalProperty<String> id =
-	new OptionalProperty<String>(
+	new OptionalProperty<>(
 		PascalCaseNameCatalogue.ID,
 		id -> setId(id),
 		s -> s.getOneAttributeAsString(),
@@ -53,7 +53,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	
 	//attribute
 	private final MutableProperty<Boolean> selectionFlag =
-	new MutableProperty<Boolean>(
+	new MutableProperty<>(
 		SELECTION_FLAG_HEADER,
 		sf -> setSelectionFlag(sf.getValue()),
 		s -> Boolean.createFromSpecification(s),

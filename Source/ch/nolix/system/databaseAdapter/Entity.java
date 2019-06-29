@@ -404,8 +404,8 @@ public class Entity implements Identified, Specified {
 	//method
 	private void extractPropertiesAndBackReferences() {
 		
-		properties = new List<Propertyoid<?>>();
-		backReferences = new List<BackReferenceoid<?>>();
+		properties = new List<>();
+		backReferences = new List<>();
 		
 		Class<?> cl = getClass();
 		while (cl != null) {

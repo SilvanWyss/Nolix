@@ -31,8 +31,8 @@ public abstract class Session<C extends Client<C>> {
 	private IFunction popFunction;
 
 	//multi-attribute
-	private final List<Method> userRunMethods = new List<Method>();
-	private final List<Method> userDataMethods = new List<Method>();
+	private final List<Method> userRunMethods = new List<>();
+	private final List<Method> userDataMethods = new List<>();
 	
 	//constructor
 	/**

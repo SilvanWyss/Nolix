@@ -35,7 +35,7 @@ public class FloatingPointNumber extends Element<FloatingPointNumber> {
 	 */
 	@Override
 	public final List<DocumentNode> getAttributes() {
-		return new List<DocumentNode>(DocumentNode.createFromString(DoubleHelper.toString(getValue())));
+		return new List<>(DocumentNode.createFromString(DoubleHelper.toString(getValue())));
 	}
 	
 	//method

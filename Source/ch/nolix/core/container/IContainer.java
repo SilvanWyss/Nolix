@@ -371,7 +371,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * if the current {@link IContainer} contains less element than the value of the given start index.
 	 */
 	public default IContainer<E> from(final int startIndex) {
-		return new SubContainer<E>(this, startIndex, getSize());
+		return new SubContainer<>(this, startIndex, getSize());
 	}
 	
 	//default method
@@ -390,7 +390,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * if the given end index is bigger than the number of elements of the current {@link IContainer}.
 	 */
 	public default IContainer<E> fromUntil(final int startIndex, final int endIndex) {
-		return new SubContainer<E>(this, startIndex, endIndex);
+		return new SubContainer<>(this, startIndex, endIndex);
 	}
 	
 	//default method
@@ -1102,7 +1102,7 @@ public interface IContainer<E> extends Iterable<E> {
 			final var element = getRefFirstOrNull(e2 -> selector.getOutput(e, e2));
 			
 			if (element != null) {
-				return new Pair<E, E>(e, element);
+				return new Pair<>(e, element);
 			}
 		}
 		
@@ -1167,7 +1167,7 @@ public interface IContainer<E> extends Iterable<E> {
 			final var element = getRefFirstOrNull(e2 -> selector.getOutput(e, e2));
 			
 			if (element != null) {
-				return new Pair<E, E>(e, element);
+				return new Pair<>(e, element);
 			}
 		}
 		
@@ -1887,11 +1887,11 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		//Handles the case that the current IContainer contains less than n elements.
 		if (n < elementCount) {
-			return new SubContainer<E>(this, n + 1, elementCount);
+			return new SubContainer<>(this, n + 1, elementCount);
 		}
 		
 		//Handles the case that the current IContainer contains n elements.
-		return new ReadContainer<E>();
+		return new ReadContainer<>();
 	}
 	
 	//default method
@@ -1934,10 +1934,10 @@ public interface IContainer<E> extends Iterable<E> {
 		
 		//Handles the case that the current IContainer contains less than n elements.
 		if (n < elementCount) {
-			return new SubContainer<E>(this, 0, elementCount - n);
+			return new SubContainer<>(this, 0, elementCount - n);
 		}
 		
 		//Handles the case that the current IContainer contains n elements.
-		return new ReadContainer<E>();
+		return new ReadContainer<>();
 	}
 }

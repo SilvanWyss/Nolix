@@ -750,12 +750,9 @@ public class Color extends Element<Color> {
 	public static final short MIN_COLOR_COMPONENT = 0;
 	public static final short MAX_COLOR_COMPONENT = 255;
 	
-	//static multi-attribute
-	private static final List<Color> webColors = new List<Color>();
-	
-	//static multi attribute
-	private static final List<Pair<String, java.lang.Long>> webColorPairs =
-	new List<Pair<String, java.lang.Long>>();
+	//static multi-attributes
+	private static final List<Color> webColors = new List<>();
+	private static final List<Pair<String, java.lang.Long>> webColorPairs = new List<>();
 	
 	//static method
 	/**
@@ -775,7 +772,7 @@ public class Color extends Element<Color> {
 		
 		fillUpWebColors();
 		
-		return new ReadContainer<Color>(webColors);
+		return new ReadContainer<>(webColors);
 	}
 	
 	//static method
@@ -916,7 +913,7 @@ public class Color extends Element<Color> {
 		
 		fillUpWebColorPairs();
 		
-		return new ReadContainer<Pair<String, java.lang.Long>>(webColorPairs);
+		return new ReadContainer<>(webColorPairs);
 	}
 	
 	//static method
@@ -1024,7 +1021,7 @@ public class Color extends Element<Color> {
 	 */
 	@Override
 	public List<DocumentNode> getAttributes() {
-		return new List<DocumentNode>(DocumentNode.createFromString(getStringValue()));
+		return new List<>(DocumentNode.createFromString(getStringValue()));
 	}
 	
 	//method

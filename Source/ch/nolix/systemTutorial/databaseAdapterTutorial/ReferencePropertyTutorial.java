@@ -88,14 +88,14 @@ public final class ReferencePropertyTutorial {
 	private static final class Person extends Entity {
 		
 		//attribute
-		public final Property<String> Name = new Property<String>();
+		public final Property<String> Name = new Property<>();
 	}
 	
 	//inner class
 	private static final class Cat extends Entity {
 		
 		//attributes
-		public final Property<String> Name = new Property<String>();
-		public final Reference<Person> Person = new Reference<Person>();
+		public final Property<String> Name = new Property<>();
+		public final Reference<Person> Person = new Reference<>();
 	}
 }

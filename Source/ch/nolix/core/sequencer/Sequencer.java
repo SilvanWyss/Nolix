@@ -128,7 +128,7 @@ public final class Sequencer {
 	 * @throws NullArgumentException if the given result job is null.
 	 */
 	public static <R> ResultFuture<R> runInBackground(final IElementGetter<R> resultJob) {
-		return new ResultFuture<R>(new ResultJobRunner<R>(resultJob));
+		return new ResultFuture<>(new ResultJobRunner<R>(resultJob));
 	}
 	
 	//static method

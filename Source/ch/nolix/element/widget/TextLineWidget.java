@@ -27,7 +27,7 @@ public abstract class TextLineWidget<TLW extends TextLineWidget<TLW>> extends Bo
 	
 	//attribute
 	private MutableProperty<String> text =
-	new MutableProperty<String>(
+	new MutableProperty<>(
 		PascalCaseNameCatalogue.TEXT,
 		t -> setText(t),
 		s -> s.getOneAttributeAsString(),

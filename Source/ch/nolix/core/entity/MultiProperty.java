@@ -90,7 +90,7 @@ public final class MultiProperty<V> extends Propertyoid<V> implements IContainer
 	 */
 	@Override
 	public ReadContainer<V> getRefValues() {
-		return new ReadContainer<V>(values);
+		return new ReadContainer<>(values);
 	}
 	
 	//method

@@ -20,7 +20,7 @@ public final class CalculatorTest extends Test {
 	public void testCase_doubleAverage() {
 		
 		//setup
-		final Vector<Double> vector = new Vector<Double>();
+		final var vector = new Vector<Double>();
 		vector.add(1.0);
 		vector.add(2.0);
 		vector.add(3.0);
@@ -34,7 +34,7 @@ public final class CalculatorTest extends Test {
 	public void testCase_doubleMax() {
 		
 		//setup
-		final Vector<Double> vector = new Vector<Double>();
+		final var vector = new Vector<Double>();
 		vector.add(1.0);
 		vector.add(2.0);
 		vector.add(3.0);
@@ -48,7 +48,7 @@ public final class CalculatorTest extends Test {
 	public void testCase_doubleMin() {
 		
 		//setup
-		final Vector<Double> vector = new Vector<Double>();
+		final var vector = new Vector<Double>();
 		vector.add(1.0);
 		vector.add(2.0);
 		vector.add(3.0);
@@ -62,7 +62,7 @@ public final class CalculatorTest extends Test {
 	public void testCase_doubleSum() {
 		
 		//setup
-		final Vector<Double> vector = new Vector<Double>();
+		final var vector = new Vector<Double>();
 		vector.add(1.0);
 		vector.add(2.0);
 		vector.add(3.0);

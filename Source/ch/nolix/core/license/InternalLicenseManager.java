@@ -23,8 +23,8 @@ import ch.nolix.core.validator.Validator;
 public final class InternalLicenseManager {
 	
 	//multi-attributes
-	private final List<License> licenses = new List<License>();
-	private final List<Permission> losePermissions = new List<Permission>();
+	private final List<License> licenses = new List<>();
+	private final List<Permission> losePermissions = new List<>();
 	
 	//package-visible constructor
 	InternalLicenseManager() {}

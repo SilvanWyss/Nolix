@@ -24,7 +24,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	
 	//attribute
 	private final LayerProperty<NonNegativeInteger> menuItemMargin =
-	new LayerProperty<NonNegativeInteger>(
+	new LayerProperty<>(
 		MENU_ITEM_MARGIN_HEADER,
 		new NonNegativeInteger(DEFAULT_MENU_ITEM_MARGIN),
 		s -> NonNegativeInteger.createFromSpecification(s),
@@ -33,7 +33,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	
 	//attribute
 	private final LayerProperty<NonNegativeInteger> menuMargin =
-	new LayerProperty<NonNegativeInteger>(
+	new LayerProperty<>(
 		MENU_MARGIN_HEADER,
 		new NonNegativeInteger(DEFAULT_MENU_MARGIN),
 		s -> NonNegativeInteger.createFromSpecification(s),
@@ -42,7 +42,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	
 	//attribute
 	private final LayerProperty<TabContainerMenuItemLook> baseMenuItemLook =
-	new LayerProperty<TabContainerMenuItemLook>(
+	new LayerProperty<>(
 		BASE_MENU_ITEM_LOOK_HEADER,
 		new TabContainerMenuItemLook(),
 		s -> TabContainerMenuItemLook.createFromSpecification(s),
@@ -51,7 +51,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	
 	//attribute
 	private final LayerProperty<TabContainerMenuItemLook> hoverMenuItemLook =
-	new LayerProperty<TabContainerMenuItemLook>(
+	new LayerProperty<>(
 		HOVER_MENU_ITEM_LOOK_HEADER,
 		new TabContainerMenuItemLook(),
 		s -> TabContainerMenuItemLook.createFromSpecification(s),
@@ -60,7 +60,7 @@ extends BorderWidgetLook<TabContainerLook> {
 	
 	//attribute
 	private final LayerProperty<TabContainerMenuItemLook> selectionMenuItemLook =
-	new LayerProperty<TabContainerMenuItemLook>(
+	new LayerProperty<>(
 		SELECTION_MENU_ITEM_LOOK_HEADER,
 		new TabContainerMenuItemLook(),
 		s -> TabContainerMenuItemLook.createFromSpecification(s),

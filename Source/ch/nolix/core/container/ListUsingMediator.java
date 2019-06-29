@@ -53,7 +53,7 @@ public final class ListUsingMediator<E> {
 	public <E2> List<E> addAtBegin(final E2... elements) {
 		
 		//Creates list.
-		final List<E> list = new List<E>();
+		final var list = new List<E>();
 		
 		//Iterates the given elements.
 		for (final E2 e : elements) {
@@ -76,7 +76,7 @@ public final class ListUsingMediator<E> {
 	public <E2> List<E> addAtBegin(final Iterable<E2> elements) {
 		
 		//Creates list.
-		final List<E> list = new List<E>();
+		final List<E> list = new List<>();
 		elements.forEach(e -> list.addAtBegin(extractor.getOutput(e)));
 		
 		//Adds the list at the begin of the list of this list using mediator.

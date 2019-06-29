@@ -43,7 +43,7 @@ public final class Task extends Element<Task> implements Specifiable<Task> {
 	
 	//attribute
 	private final MutableProperty<Text> title =
-	new MutableProperty<Text>(
+	new MutableProperty<>(
 		TITLE_HEADER,
 		t -> setTitle(t.getValue()),
 		s -> Text.createFromSpecification(s),
@@ -52,7 +52,7 @@ public final class Task extends Element<Task> implements Specifiable<Task> {
 	
 	//attribute
 	private final Property<Time> creationDate =
-	new Property<Time>(
+	new Property<>(
 		CREATION_DATE_HEADER,
 		cd -> setCreationDate(cd),
 		s -> Time.createFromSpecification(s),
@@ -61,7 +61,7 @@ public final class Task extends Element<Task> implements Specifiable<Task> {
 	
 	//attribute
 	private final MutableOptionalProperty<Time> solveTime =
-	new MutableOptionalProperty<Time>(
+	new MutableOptionalProperty<>(
 		SOLVE_DATE_HEADER,
 		st -> setAsSolved(st),
 		s -> Time.createFromSpecification(s),
@@ -70,7 +70,7 @@ public final class Task extends Element<Task> implements Specifiable<Task> {
 	
 	//attribute
 	private final MutableOptionalProperty<TaskSize> size =
-	new MutableOptionalProperty<TaskSize>(
+	new MutableOptionalProperty<>(
 		SIZE_HEADER,
 		s -> setSize(s),
 		s -> TaskSize.createFromSpecification(s),

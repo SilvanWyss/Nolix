@@ -52,7 +52,7 @@ public final class Discrete2DPoint extends Element<Discrete2DPoint> {
 	 */
 	@Override
 	public List<DocumentNode> getAttributes() {
-		return new List<DocumentNode>(new DocumentNode(x), new DocumentNode(y));
+		return new List<>(new DocumentNode(x), new DocumentNode(y));
 	}
 	
 	//method

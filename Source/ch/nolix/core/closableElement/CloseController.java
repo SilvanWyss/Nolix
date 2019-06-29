@@ -20,7 +20,7 @@ final class CloseController implements Closable {
 	private boolean closed = false;
 	
 	//multi-attribute
-	private final List<ClosableElement> elements = new List<ClosableElement>();
+	private final List<ClosableElement> elements = new List<>();
 	
 	//constructor
 	/**
@@ -95,7 +95,7 @@ final class CloseController implements Closable {
 	 * @return the elements of the current {@link CloseController}.
 	 */
 	public ReadContainer<ClosableElement> getRefElements() {
-		return new ReadContainer<ClosableElement>(elements);
+		return new ReadContainer<>(elements);
 	}
 	
 	//method

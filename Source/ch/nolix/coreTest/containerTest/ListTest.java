@@ -444,7 +444,7 @@ public final class ListTest extends Test {
 	public final void testCase_getVarianceByDouble() {
 		
 		//setup
-		final List<Double> list = new List<Double>(
+		final var list = new List<Double>(
 			0.0,
 			0.0,
 			0.5,

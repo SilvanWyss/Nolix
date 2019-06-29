@@ -70,7 +70,7 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
 		}
 		
 		//Creates new terminal argument mediator for the arguments of the current multi string mediator.
-		return new TerminalArgumentMediator<Iterable<String>>(getRefArguments());
+		return new TerminalArgumentMediator<>(getRefArguments());
 	}
 	
 	//method

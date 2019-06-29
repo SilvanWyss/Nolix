@@ -102,8 +102,8 @@ implements ISmartObject<N> {
 	 */
 	public void fireTransitively() {
 		
-		final List<Neuronoid<?, ?, ?>> nextNeurons = new List<Neuronoid<?, ?, ?>>(this);
-		final List<Neuronoid<?, ?, ?>> visitedNeurons = new List<Neuronoid<?, ?, ?>>();
+		final List<Neuronoid<?, ?, ?>> nextNeurons = new List<>(this);
+		final List<Neuronoid<?, ?, ?>> visitedNeurons = new List<>();
 				
 		while (nextNeurons.containsAny()) {
 			
@@ -158,7 +158,7 @@ implements ISmartObject<N> {
 	 * @return the input connections of this neuron.
 	 */
 	public final ReadContainer<InputConnection<I>> getRefInputConnections() {
-		return new ReadContainer<InputConnection<I>>(inputConnections);
+		return new ReadContainer<>(inputConnections);
 	}
 	
 	//package-visible method
@@ -174,7 +174,7 @@ implements ISmartObject<N> {
 	 * @return the inputs of this neuron.
 	 */
 	public final ReadContainer<I> getRefInputs() {
-		return new ReadContainer<I>(inputConnections.to(ic -> ic.getRefInputNeuronOutput()));
+		return new ReadContainer<>(inputConnections.to(ic -> ic.getRefInputNeuronOutput()));
 	}
 	
 	//method

@@ -43,7 +43,7 @@ implements Clearable<Console> {
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.LIGHT_GREY;
 	
 	//constant
-	private final static String LINES_HEADER = "Lines";
+	private static final String LINES_HEADER = "Lines";
 	
 	//attribute
 	private boolean editable = true;
@@ -68,7 +68,7 @@ implements Clearable<Console> {
 	private String secretEditLine;
 	
 	//multi-attribute
-	private final List<String> lines = new List<String>();
+	private final List<String> lines = new List<>();
 	
 	//constructor
 	/**
@@ -200,7 +200,7 @@ implements Clearable<Console> {
 	 * @return the lines of this console.
 	 */
 	public ReadContainer<String> getLines() {
-		return new ReadContainer<String>(lines);
+		return new ReadContainer<>(lines);
 	}
 	
 	//method

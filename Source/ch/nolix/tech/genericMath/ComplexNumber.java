@@ -67,8 +67,8 @@ public final class ComplexNumber implements IComplexNumber {
 	//constructor
 	public ComplexNumber(final double realComponent, final double imaginaryComponent) {
 		
-		final var realComponentBigDecimal = new BigDecimal(realComponent);
-		final var imaginaryComponentBigDecimal = new BigDecimal(imaginaryComponent);
+		final var realComponentBigDecimal = BigDecimal.valueOf(realComponent);
+		final var imaginaryComponentBigDecimal = BigDecimal.valueOf(imaginaryComponent);
 		
 		final var bigDecimalScale =
 		Calculator.getMax(realComponentBigDecimal.scale(), imaginaryComponentBigDecimal.scale(), 10);
@@ -89,8 +89,8 @@ public final class ComplexNumber implements IComplexNumber {
 		.thatIsNamed("big decimal scale")
 		.isPositive();
 		
-		this.realComponent = new BigDecimal(realComponent).setScale(bigDecimalScale, RoundingMode.HALF_UP);
-		this.imaginaryComponent = new BigDecimal(imaginaryComponent).setScale(bigDecimalScale, RoundingMode.HALF_UP);
+		this.realComponent = BigDecimal.valueOf(realComponent).setScale(bigDecimalScale, RoundingMode.HALF_UP);
+		this.imaginaryComponent = BigDecimal.valueOf(imaginaryComponent).setScale(bigDecimalScale, RoundingMode.HALF_UP);
 	}
 	
 	//method
@@ -198,7 +198,7 @@ public final class ComplexNumber implements IComplexNumber {
 			realComponent
 			.multiply(realComponent)
 			.subtract(imaginaryComponent.multiply(imaginaryComponent)),
-			new BigDecimal(2.0)
+			BigDecimal.valueOf(2.0)
 			.multiply(realComponent)
 			.multiply(imaginaryComponent),
 			getBigDecimalScale()
@@ -239,7 +239,7 @@ public final class ComplexNumber implements IComplexNumber {
 	//method
 	@Override
 	public IComplexNumber getSum(final double number) {
-		return getSum(new BigDecimal(number));
+		return getSum(BigDecimal.valueOf(number));
 	}
 	
 	//method

@@ -143,7 +143,7 @@ public class Candlestick extends Element<Candlestick> {
 	@Override
 	public List<DocumentNode> getAttributes() {
 		return
-		new List<DocumentNode>(
+		new List<>(
 			time.getSpecification(),
 			new FloatingPointNumber(getOpeningPrice()).getSpecificationAs(OPENING_PRICE_NAME),
 			new FloatingPointNumber(getClosingPrice()).getSpecificationAs(CLOSING_PRICE_NAME),

@@ -52,7 +52,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, Specifiable<Accord
 	
 	//attribute
 	private final MutableProperty<String> header =
-	new MutableProperty<String>(
+	new MutableProperty<>(
 		PascalCaseNameCatalogue.HEADER,
 		h -> setHeader(h),
 		s -> s.getOneAttributeAsString(),
@@ -61,7 +61,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, Specifiable<Accord
 	
 	//attribute
 	private final MutableProperty<Boolean> expanded =
-	new MutableProperty<Boolean>(
+	new MutableProperty<>(
 		EXPANDED_FLAG_HEADER,
 		e -> {
 			if (e.isTrue()) {

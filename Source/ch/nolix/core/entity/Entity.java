@@ -85,7 +85,7 @@ implements
 	@SuppressWarnings("unchecked")
 	private void extractProperties() {
 		
-		properties = new List<Propertyoid<Specified>>();
+		properties = new List<>();
 		
 		//Iterates the types of the current {@link Entity}.
 		Class<?> cl = getClass();

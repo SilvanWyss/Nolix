@@ -14,7 +14,7 @@ public final class ClosedIntervalTest extends Test {
 	
 	//test case
 	public void testCase_creation_whenTheGivenMinIsNull() {
-		expect(() -> new ClosedInterval(null, new BigDecimal(1.0)))
+		expect(() -> new ClosedInterval(null, BigDecimal.valueOf(1.0)))
 		.throwsException()
 		.ofType(NullArgumentException.class)
 		.withMessage("The given minimum is null.");
@@ -22,7 +22,7 @@ public final class ClosedIntervalTest extends Test {
 	
 	//test case
 	public void testCase_creation_whenTheGivenMaxIsNull() {
-		expect(() -> new ClosedInterval(new BigDecimal(1.0), null))
+		expect(() -> new ClosedInterval(BigDecimal.valueOf(1.0), null))
 		.throwsException()
 		.ofType(NullArgumentException.class)
 		.withMessage("The given maximum is null.");
@@ -32,9 +32,9 @@ public final class ClosedIntervalTest extends Test {
 	public void testCase_getLength() {
 		
 		//execution & verification
-		expect(new ClosedInterval(-1.0, -1.0, 10).getLength()).isEqualTo(new BigDecimal(0.0).setScale(10));
-		expect(new ClosedInterval(-1.0, 0.0, 10).getLength()).isEqualTo(new BigDecimal(1.0).setScale(10));
-		expect(new ClosedInterval(-1.0, 1.0, 10).getLength()).isEqualTo(new BigDecimal(2.0).setScale(10));
+		expect(new ClosedInterval(-1.0, -1.0, 10).getLength()).isEqualTo(BigDecimal.valueOf(0.0).setScale(10));
+		expect(new ClosedInterval(-1.0, 0.0, 10).getLength()).isEqualTo(BigDecimal.valueOf(1.0).setScale(10));
+		expect(new ClosedInterval(-1.0, 1.0, 10).getLength()).isEqualTo(BigDecimal.valueOf(2.0).setScale(10));
 	}
 	
 	//test case

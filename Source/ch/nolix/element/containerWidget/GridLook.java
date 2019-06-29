@@ -23,7 +23,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	
 	//attribute
 	private final LayerProperty<PositiveInteger> lineThickness =
-	new LayerProperty<PositiveInteger>(
+	new LayerProperty<>(
 		PascalCaseNameCatalogue.LINE_THICKNESS,
 		new PositiveInteger(DEFAULT_LINE_THICKNESS),
 		s -> PositiveInteger.createFromSpecification(s),
@@ -32,7 +32,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	
 	//attribute
 	private final LayerProperty<Color> lineColor =
-	new LayerProperty<Color>(
+	new LayerProperty<>(
 		PascalCaseNameCatalogue.COLOR,
 		DEFAULT_LINE_COLOR,
 		s -> Color.createFromSpecification(s),
@@ -41,7 +41,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	
 	//attribute
 	private final LayerProperty<PositiveInteger> elementMargin =
-	new LayerProperty<PositiveInteger>(
+	new LayerProperty<>(
 		PascalCaseNameCatalogue.ELEMENT_MARGIN,
 		new PositiveInteger(DEFAULT_ELEMENT_MARGIN),
 		s -> PositiveInteger.createFromSpecification(s),
@@ -50,7 +50,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	
 	//attribute
 	private final LayerProperty<GridLineType> lineType =
-	new LayerProperty<GridLineType>(
+	new LayerProperty<>(
 		LINE_TYPE_HEADER,
 		DEFAULT_LINE_TYPE,
 		s -> GridLineType.createFromSpecification(s),

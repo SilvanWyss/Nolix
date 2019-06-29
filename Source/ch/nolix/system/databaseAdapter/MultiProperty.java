@@ -13,7 +13,7 @@ extends DataPropertyoid<V>
 implements Clearable<MultiProperty<V>> {
 	
 	//multi-attribute
-	private final List<V> values = new List<V>();
+	private final List<V> values = new List<>();
 	
 	//method
 	public void addUntypedValue(final V value) {
@@ -62,12 +62,12 @@ implements Clearable<MultiProperty<V>> {
 	//method
 	@Override
 	public PropertyoidType<V> getPropertyType() {
-		return new MultiPropertyType<V>(getValueClass());
+		return new MultiPropertyType<>(getValueClass());
 	}
 	
 	//method
 	public ReadContainer<V> getValues() {
-		return new ReadContainer<V>(values);
+		return new ReadContainer<>(values);
 	}
 
 	//method
@@ -85,7 +85,7 @@ implements Clearable<MultiProperty<V>> {
 	//method
 	@Override
 	protected List<Object> internal_getValues() {
-		return new List<Object>(values);
+		return new List<>(values);
 	}
 	
 	//method

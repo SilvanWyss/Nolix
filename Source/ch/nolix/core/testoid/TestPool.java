@@ -24,8 +24,8 @@ import ch.nolix.core.validator.Validator;
 public abstract class TestPool implements Runnable {
 
 	//multiple attribute
-	private final List<Class<Testoid>> testClasses = new List<Class<Testoid>>();
-	private final Vector<TestPool> testPools = new Vector<TestPool>();
+	private final List<Class<Testoid>> testClasses = new List<>();
+	private final Vector<TestPool> testPools = new Vector<>();
 	
 	//method
 	/**

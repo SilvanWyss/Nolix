@@ -37,7 +37,7 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 		if (containsColumn(column.getHeader())) {
 			throw
 			new InvalidArgumentException(
-				"entity set specification",
+				ENTITY_SET_SPECIFICATION_VARIABLE_NAME,
 				"contains already a column with the header" + column.getHeaderInQuotes()
 			);
 		}

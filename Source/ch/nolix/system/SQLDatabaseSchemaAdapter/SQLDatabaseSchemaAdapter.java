@@ -51,7 +51,7 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 	@Override
 	protected List<IEntitySetAdapter> getEntitySetAdapters() {
 		//TODO: Implement.
-		return null;
+		return new List<>();
 	}
 	
 	//method

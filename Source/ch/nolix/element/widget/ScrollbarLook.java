@@ -35,7 +35,7 @@ public final class ScrollbarLook extends Element<ScrollbarLook> implements Speci
 	
 	//attribute
 	private final MutableProperty<Color> scrollbarColor =
-	new MutableProperty<Color>(
+	new MutableProperty<>(
 			SCROLLBAR_COLOR_HEADER,
 		c -> setScrollbarColor(c),
 		s -> Color.createFromSpecification(s),
@@ -44,7 +44,7 @@ public final class ScrollbarLook extends Element<ScrollbarLook> implements Speci
 	
 	//attribute
 	private final MutableProperty<Color> scrollbarCursorColor =
-	new MutableProperty<Color>(
+	new MutableProperty<>(
 		SCROLLBAR_CURSOR_COLOR_HEADER,
 		c -> setScrollbarCursorColor(c),
 		s -> Color.createFromSpecification(s),

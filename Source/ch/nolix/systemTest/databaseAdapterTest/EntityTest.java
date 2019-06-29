@@ -33,7 +33,7 @@ public final class EntityTest extends Test {
 	private static final class Cat extends Entity {
 		
 		//attributes
-		public final Property<String> Name = new Property<String>();
-		public final Property<Integer> WeightInGram = new Property<Integer>();
+		public final Property<String> Name = new Property<>();
+		public final Property<Integer> WeightInGram = new Property<>();
 	}
 }

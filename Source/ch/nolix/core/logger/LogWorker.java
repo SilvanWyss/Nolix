@@ -11,7 +11,7 @@ final class LogWorker extends Thread {
 	private boolean active = true;
 	
 	//multiple attribute
-	private final List<LogEntry> logEntries = new List<LogEntry>();
+	private final List<LogEntry> logEntries = new List<>();
 	
 	//constructor
 	public LogWorker() {

@@ -93,7 +93,7 @@ public final class SubContainer<E> implements IContainer<E> {
 	@Override
 	public Iterator<E> iterator() {
 		return
-		new SubContainerIterator<E>(
+		new SubContainerIterator<>(
 			container,
 			startIndex,
 			endIndex

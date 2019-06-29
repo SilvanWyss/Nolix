@@ -215,7 +215,7 @@ public class ColorGradient extends Element<ColorGradient> {
 	@Override
 	public List<DocumentNode> getAttributes() {
 		return 
-		new List<DocumentNode>(
+		new List<>(
 			DocumentNode.createWithHeader(getDirection().toString()),
 			DocumentNode.createWithHeader(getColor1().getStringValue()),
 			DocumentNode.createWithHeader(getColor2().getStringValue())

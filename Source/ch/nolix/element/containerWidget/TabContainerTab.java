@@ -36,7 +36,7 @@ implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, Specifiable<
 	
 	//attribute
 	private final MutableProperty<String> header =
-	new MutableProperty<String>(
+	new MutableProperty<>(
 		PascalCaseNameCatalogue.HEADER,
 		h -> setHeader(h),
 		s -> s.getOneAttributeAsString(),

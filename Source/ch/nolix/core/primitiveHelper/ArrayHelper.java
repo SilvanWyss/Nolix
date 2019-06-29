@@ -30,7 +30,7 @@ public final class ArrayHelper {
 			throw new RuntimeException("The given values is null.");
 		}
 		
-		final List<Double> valueList = new List<Double>();
+		final List<Double> valueList = new List<>();
 		
 		//Iterates the given values.
 		for (final double v : values) {
@@ -55,7 +55,7 @@ public final class ArrayHelper {
 			throw new RuntimeException("The given elements is null.");
 		}
 		
-		final List<E> elementList = new List<E>();
+		final var elementList = new List<E>();
 		
 		//Iterates the given elements.
 		for (final E e : elements) {
@@ -81,7 +81,7 @@ public final class ArrayHelper {
 			throw new RuntimeException("The given elements is null.");
 		}
 		
-		final List<E> elementList = new List<E>();
+		final List<E> elementList = new List<>();
 		
 		//Iterates the given elements.
 		for (final E e : elements) {
@@ -108,7 +108,7 @@ public final class ArrayHelper {
 			throw new RuntimeException("The given values is null.");
 		}
 		
-		final List<Long> valueList = new List<Long>();
+		final var valueList = new List<Long>();
 		
 		//Iterates the given elements.
 		for (final long v : values) {
@@ -133,7 +133,7 @@ public final class ArrayHelper {
 			throw new RuntimeException("The given values is null.");
 		}
 		
-		final List<Long> valueList = new List<Long>();
+		final var valueList = new List<Long>();
 		
 		//Iterates the given elements.
 		for (final long v : values) {
