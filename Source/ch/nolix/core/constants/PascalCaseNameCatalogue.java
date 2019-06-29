@@ -46,6 +46,7 @@ public final class PascalCaseNameCatalogue {
 	public static final String DEFAULT_SIZE = "DefaultSize";
 	public static final String DEFAULT_TEXTURE = "DefaultTexture";
 	public static final String DEFAULT_VALUE = "DefaultValue";
+	public static final String DEGREE = "Degree";
 	public static final String DESCRIPTION = "Description";
 	public static final String DIAMETER = "Diameter";
 	public static final String DISTANCE = "Distance";

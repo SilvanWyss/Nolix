@@ -46,6 +46,7 @@ public final class VariableNameCatalogue {
 	public static final String DEFAULT_SIZE = "default size";
 	public static final String DEFAULT_TEXTURE = "default texture";
 	public static final String DEFAULT_VALUE = "default value";
+	public static final String DEGREE = "degree";
 	public static final String DESCRIPTION = "description";
 	public static final String DIAMETER = "diameter";
 	public static final String DISTANCE = "distance";
