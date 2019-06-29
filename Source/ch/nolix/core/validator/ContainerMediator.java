@@ -21,7 +21,7 @@ import ch.nolix.core.primitiveContainer.ArrayReadContainer;
  * 
  * @author Silvan Wyss
  * @month 2017-08
- * @lines 210
+ * @lines 230
  * @param <E> The type of the elements of the argument of a container mediator.
  */
 public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
@@ -176,6 +176,24 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 				"contains less than " + elementCount + " elements"
 			);
 		}
+	}
+	
+	//method
+	/**
+	 * @param array
+	 * @throws NullArgumentException if the given array is null.
+	 * @throws InvalidArgumentException if the argument of this container mediator
+	 * contains less or more elements than the given array.
+	 */
+	public void hasSameSizeAs(final double[] array) {
+		
+		//Checks if the given array is not null.
+		if (array == null) {
+			throw new NullArgumentException(VariableNameCatalogue.ARRAY);
+		}
+		
+		//Calls other method.
+		hasElementCount(array.length);
 	}
 	
 	//method
