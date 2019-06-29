@@ -8,15 +8,14 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.skillAPI.Clearable;
+import ch.nolix.core.specificationAPI.Specifiable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.GUI;
-import ch.nolix.element.core.MutableElement;
+import ch.nolix.element.core.Element;
 import ch.nolix.element.widget.Widget;
 
 //package-visible class
-final class GridCell
-extends MutableElement<GridCell>
-implements Clearable<GridCell> {
+final class GridCell extends Element<GridCell> implements Clearable<GridCell>, Specifiable<GridCell> {
 
 	//optional attribute
 	private Widget<?, ?> widget;

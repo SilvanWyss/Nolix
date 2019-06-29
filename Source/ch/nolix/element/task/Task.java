@@ -8,7 +8,8 @@ import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.entity.Property;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.element.core.MutableElement;
+import ch.nolix.core.specificationAPI.Specifiable;
+import ch.nolix.element.core.Element;
 import ch.nolix.element.core.Text;
 import ch.nolix.element.core.Time;
 
@@ -18,7 +19,7 @@ import ch.nolix.element.core.Time;
  * @month 2018-01
  * @lines 370
  */
-public final class Task extends MutableElement<Task> {
+public final class Task extends Element<Task> implements Specifiable<Task> {
 	
 	//default value
 	private static final String DEFAULT_TITLE = StringCatalogue.EMPTY_STRING;
@@ -177,6 +178,17 @@ public final class Task extends MutableElement<Task> {
 	 */
 	private Task(final DocumentNodeoid specification) {
 		reset(specification);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+		
+		//Calls method of the base class.
+		super.addOrChangeAttribute(attribute);
 	}
 	
 	//method

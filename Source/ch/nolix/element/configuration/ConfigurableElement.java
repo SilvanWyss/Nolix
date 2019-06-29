@@ -12,7 +12,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.core.MutableElement;
+import ch.nolix.element.core.Element;
 
 //abstract class
 /**
@@ -23,7 +23,7 @@ import ch.nolix.element.core.MutableElement;
  * @month 2015-12
  * @lines 160
  */
-public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>> extends MutableElement<CE>
+public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>> extends Element<CE>
 implements Configurable<CE>, OptionalNamable<CE>, OptionalTokenable<CE> {
 	
 	//optional attributes

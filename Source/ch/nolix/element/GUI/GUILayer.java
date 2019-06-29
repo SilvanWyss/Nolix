@@ -15,7 +15,7 @@ import ch.nolix.core.math.Calculator;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
-import ch.nolix.element.core.MutableElement;
+import ch.nolix.element.core.Element;
 import ch.nolix.element.discreteGeometry.Discrete2DPoint;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.widget.CursorIcon;
@@ -33,7 +33,7 @@ import ch.nolix.element.widget.Widget;
  * @month 2019-05
  * @lines 550
  */
-public final class GUILayer extends MutableElement<GUILayer> implements IGUILayer<GUILayer> {
+public final class GUILayer extends Element<GUILayer> implements IGUILayer<GUILayer> {
 	
 	//default values
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;

@@ -3,13 +3,13 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
-//own imports
 import ch.nolix.core.entity.MutableProperty;
+import ch.nolix.core.specificationAPI.Specifiable;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.MutableElement;
+import ch.nolix.element.core.Element;
 
 //class
-public final class ScrollbarLook extends MutableElement<ScrollbarLook> {
+public final class ScrollbarLook extends Element<ScrollbarLook> implements Specifiable<ScrollbarLook> {
 	
 	//default values
 	public static final Color DEFAULT_SCROLLBAR_COLOR = Color.LIGHT_GREY;
@@ -54,6 +54,12 @@ public final class ScrollbarLook extends MutableElement<ScrollbarLook> {
 	//constructor
 	public ScrollbarLook() {
 		reset();
+	}
+	
+	//method
+	@Override
+	public void addOrChangeAttribute(final DocumentNodeoid attribute) {
+		super.addOrChangeAttribute(attribute);
 	}
 	
 	//method

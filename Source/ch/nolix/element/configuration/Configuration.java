@@ -13,8 +13,9 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Freezable;
 import ch.nolix.core.specificationAPI.Configurable;
+import ch.nolix.core.specificationAPI.Specifiable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.core.MutableElement;
+import ch.nolix.element.core.Element;
 import ch.nolix.element.core.NonEmptyText;
 
 //abstract class
@@ -24,8 +25,8 @@ import ch.nolix.element.core.NonEmptyText;
  * @lines 770
  * @param <C> The type of a configuration.
  */
-public abstract class Configuration<C extends Configuration<C>> extends MutableElement<C>
-implements Freezable<C>, OptionalNamable<C> {
+public abstract class Configuration<C extends Configuration<C>> extends Element<C>
+implements Freezable<C>, OptionalNamable<C>, Specifiable<C> {
 	
 	//attribute headers
 	private static final String SELECTOR_TYPE_HEADER = "SelectorType";

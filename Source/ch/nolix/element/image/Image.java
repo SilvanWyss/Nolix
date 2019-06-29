@@ -17,13 +17,14 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.entity.Property;
+import ch.nolix.core.specificationAPI.Specifiable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.MutableElement;
+import ch.nolix.element.core.Element;
 import ch.nolix.element.core.NonNegativeInteger;
 
 //class
-public final class Image extends MutableElement<Image> {
+public final class Image extends Element<Image> implements Specifiable<Image> {
 
 	//constant
 	public static final String TYPE_NAME = "Image";

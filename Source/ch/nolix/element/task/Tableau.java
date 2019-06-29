@@ -9,8 +9,9 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.entity.MultiProperty;
 import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.skillAPI.Clearable;
+import ch.nolix.core.skillAPI.Resettable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.core.MutableElement;
+import ch.nolix.element.core.Element;
 
 //class
 /**
@@ -21,7 +22,8 @@ import ch.nolix.element.core.MutableElement;
  * @month 2018-03
  * @lines 160
  */
-public final class Tableau extends MutableElement<Tableau> implements Clearable<Tableau>, Namable<Tableau> {
+public final class Tableau extends Element<Tableau>
+implements Clearable<Tableau>, Namable<Tableau>, Resettable<Tableau> {
 	
 	//attribute
 	private final MutableProperty<String> name =

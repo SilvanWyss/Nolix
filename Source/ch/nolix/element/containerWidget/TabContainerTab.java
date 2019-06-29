@@ -13,9 +13,10 @@ import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Clearable;
+import ch.nolix.core.specificationAPI.Specifiable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.GUI;
-import ch.nolix.element.core.MutableElement;
+import ch.nolix.element.core.Element;
 import ch.nolix.element.widget.CursorIcon;
 import ch.nolix.element.widget.IGUI;
 import ch.nolix.element.widget.Label;
@@ -27,8 +28,8 @@ import ch.nolix.element.widget.Widget;
  * @month 2016-04
  * @lines 350
  */
-public class TabContainerTab extends MutableElement<TabContainerTab>
-implements Clearable<TabContainerTab>, Headerable<TabContainerTab> {
+public class TabContainerTab extends Element<TabContainerTab>
+implements Clearable<TabContainerTab>, Headerable<TabContainerTab>, Specifiable<TabContainerTab> {
 
 	//default value
 	public static final String DEFAULT_HEADER = PascalCaseNameCatalogue.DEFAULT;
