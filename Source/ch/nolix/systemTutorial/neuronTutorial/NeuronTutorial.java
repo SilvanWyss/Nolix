@@ -44,8 +44,8 @@ public final class NeuronTutorial {
 		.addInputNeuron(sourceNeuron1)
 		.addInputNeuron(sourceNeuron2)
 		.addInputNeuron(sourceNeuron3)
-		.setOutputFunction(Calculator.DOUBLE_AVERAGE);
-
+		.setOutputFunction(Calculator::getAverage);
+		
 		//Fires the target neuron.
 		targetNeuron.fireTransitively();
 		

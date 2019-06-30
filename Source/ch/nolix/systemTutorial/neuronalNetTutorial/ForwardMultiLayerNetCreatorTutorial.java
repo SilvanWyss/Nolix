@@ -37,7 +37,7 @@ public final class ForwardMultiLayerNetCreatorTutorial {
 		new ForwardMultiLayerNetCreator<Double>()
 		.setLayerCount(4)
 		.setNeuronsPerLayer(5)
-		.setOutputFunction(Calculator.DOUBLE_SUM);
+		.setOutputFunction(Calculator::getSum);
 		
 		//Lets the forward multi layer net creator create a neuronal net.
 		final var neuronalNet = forwardMultiLayerNetCreator.createNeuronalNet();

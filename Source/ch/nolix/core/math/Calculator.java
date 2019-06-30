@@ -1,356 +1,44 @@
-/*
- * file:	Calculator.java
- * author:	Silvan Wyss
- * month:	2016-04
- * lines:	700
- */
-
 //package declaration
 package ch.nolix.core.math;
 
+//own imports
+import ch.nolix.core.constants.MultiVariableNameCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.tuple.FPNPair;
-import ch.nolix.core.validator2.Validator;
+import ch.nolix.core.validator.Validator;
 
 //class
 /**
- * This class provides some mathematical functions.
+ * The {@link Calculator} provides mathematical functions.
  * 
- * Most functions are provided in 2 different ways.
- * -as normal functions that can be called with suitable arguments
- * -as object that can be passed down
+ * @author Silvan Wyss
+ * @month 2016-04
+ * @lines 450
  */
 public final class Calculator {
 	
 	//constant
 	/**
-	 * Is the default max deviation, that is 10^-9.
+	 * The default maximum deviation is 10^-9.
 	 */
 	public static final double DEFAULT_MAX_DEVIATION = 0.000000001;
 	
-	//function
-	/**
-	 * This function returns the average of its input values.
-	 * This function throws an Exception if the given values are null or empty.
-	 */
-	public static final IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_AVERAGE
-	= values -> {
-		
-		//Checks the given values.
-		Validator.throwExceptionIfValueIsNull("values", values);
-		if (!values.iterator().hasNext()) {
-			throw new RuntimeException("No values are given.");
-		}
-		
-		//Calculates the number and the sum of the given values.
-		int valueCount = 0;
-		double sum = 0.0;
-		for (double d: values) {
-			valueCount++;
-			sum += d;
-		}
-		
-		return (sum / valueCount);
-	};
-	
-	//function
-	/**
-	 * This function returns the maximum of its input values.
-	 * This function throws an Exception if the given values are null or empty.
-	 */
-	public static IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_MAX
-	= values -> {
-		
-		//Checks the given values.
-		Validator.throwExceptionIfValueIsNull("values", values);
-		if (!values.iterator().hasNext()) {
-			throw new RuntimeException("No values are given.");
-		}
-		
-		double max = values.iterator().next();
-		for (Double d: values) {
-			if (d > max) {
-				max = d;
-			}
-		}
-		
-		return max;
-	};
-	
-	//function
-	/**
-	 * This function returns the minimum of its input values.
-	 */
-	public static final IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_MIN
-	= values -> {
-		
-		//Checks the given values.
-		Validator.throwExceptionIfValueIsNull("values", values);
-		if (!values.iterator().hasNext()) {
-			throw new RuntimeException("No values are given.");
-		}
-		
-		double min = values.iterator().next();
-		for (double v: values) {
-			if (v < min) {
-				min = v;
-			}
-		}
-		
-		return min;
-	};
-	
-	//function
-	/**
-	 * This function returns the range of its input values.
-	 * The range of some values is the difference between the maximum and the minimum of the values.
-	 */
-	public static final IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_RANGE
-	= values -> {
-		
-		//Checks the given values.
-		Validator.throwExceptionIfValueIsNull("values", values);
-		if (!values.iterator().hasNext()) {
-			throw new RuntimeException("No values are given.");
-		}
-		
-		double min = values.iterator().next();
-		double max = values.iterator().next();
-		for (double v: values) {
-			
-			if (v < min) {
-				min = v;
-			}
-			
-			if (v > max) {
-				max = v;
-			}
-		}
-		
-		return (max - min);
-	};
-	
-	//function
-	/**
-	 * This function returns the square of its input value.
-	 */
-	public static final IElementTakerElementGetter<Double, Double> DOUBLE_SQUARE
-	= value -> {
-		return (value * value);
-	};
-	
-	//function
-	/**
-	 * This function returns the sum of its input values.
-	 */
-	public static final IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_SUM
-	= values -> {
-		
-		//Checks the given values.
-		Validator.throwExceptionIfValueIsNull("values", values);
-		
-		double sum = 0.0;
-		for (Double v: values) {
-			sum += v;
-		}
-		
-		return sum;
-	};
-	
-	//function
-	/**
-	 * This function returns the variance of its input values.
-	 */
-	public static final IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_VARIANCE
-	= values -> {
-		
-		//Checks the given values.
-		Validator.throwExceptionIfValueIsNull("values", values);
-		if (!values.iterator().hasNext()) {
-			throw new RuntimeException("No values are given.");
-		}
-		
-		//Calculates the number and the sum of the squared differences of the given values.
-		final double average = DOUBLE_AVERAGE.getOutput(values);
-		int valueCount = 0;
-		double sumOfSquaredDifferences = 0.0;
-		for (double v: values) {
-			valueCount++;
-			sumOfSquaredDifferences += Math.pow(v - average, 2);
-		}
-		
-		return (sumOfSquaredDifferences / valueCount);
-	};
-	
-	//function
-	public static final IElementTakerElementGetter<Iterable<Double>, Double> DOUBLE_STANDARD_DEVIATION
-	= values -> {
-		return Math.sqrt(DOUBLE_VARIANCE.getOutput(values));
-	};
-	
-	//function
-	/**
-	 * This function returns the average of its input values.
-	 */
-	public static final IElementTakerElementGetter<Iterable<Long>, Double> LONG_AVERAGE
-	= values -> {
-		
-		//Checks the given values.
-		Validator.throwExceptionIfValueIsNull("values", values);
-		if (!values.iterator().hasNext()) {
-			throw new RuntimeException("No values are given.");
-		}
-		
-		int valueCount = 0;
-		long sum = 0;
-		for (Long v: values) {
-			valueCount++;
-			sum += v;
-		}
-		
-		return ((double)sum / valueCount);
-	};
-	
-	//function
-	/**
-	 * This function returns the maximum of its input values.
-	 */
-	public static final IElementTakerElementGetter<Iterable<Long>, Long> LONG_MAX
-	= values -> {
-		
-		//Checks the given values.
-		Validator.throwExceptionIfValueIsNull("values", values);
-		if (!values.iterator().hasNext()) {
-			throw new RuntimeException("No values are given.");
-		}
-		
-		long max = values.iterator().next();
-		
-		for (Long v: values) {
-			if (v > max) {
-				max = v;
-			}
-		}
-		
-		return max;
-	};
-	
-	//function
-	/**
-	 * This function returns the minimum of its input values.
-	 */
-	public static final IElementTakerElementGetter<Iterable<Long>, Long> LONG_MIN
-	= values -> {
-		
-		//Checks the given values.
-		Validator.throwExceptionIfValueIsNull("values", values);
-		if (!values.iterator().hasNext()) {
-			throw new RuntimeException("No values are given.");
-		}
-		
-		//Calculates the minimum of the given values.
-		long min = values.iterator().next();
-		for (Long v: values) {
-			if (v < min) {
-				min = v;
-			}
-		}
-		
-		return min;
-	};
-	
-	//function
-	/**
-	 * This function returns the range of its input values.
-	 * The range of some values is the difference between the maximum and the minimum of the values.
-	 */
-	public static final IElementTakerElementGetter<Iterable<Long>, Double> LONG_RANGE
-	= values -> {
-		
-		//Checks the given values.
-		Validator.throwExceptionIfValueIsNull("values", values);
-		if (!values.iterator().hasNext()) {
-			throw new RuntimeException("No values are given.");
-		}
-		
-		//Calculates the minimum and the maximum of the given values.
-		double min = values.iterator().next();
-		double max = values.iterator().next();
-		for (long v: values) {
-			
-			if (v < min) {
-				min = v;
-			}
-			
-			if (v > max) {
-				max = v;
-			}
-		}
-		
-		return (max - min);
-	};
-	
-	//function
-	/**
-	 * This function returns the sum of its input values.
-	 */
-	public static final IElementTakerElementGetter<Iterable<Long>, Long> LONG_SUM
-	= values -> {
-	
-		//Checks the given values.
-		Validator.throwExceptionIfValueIsNull("values", values);
-		
-		long sum = 0;
-		for (Long v: values) {
-			sum += v;
-		}
-		
-		return sum;
-	};
-	
-	//function
-	/**
-	 * This function returns the variance of its input values.
-	 */
-	public static final IElementTakerElementGetter<Iterable<Long>, Double> LONG_VARIANCE
-	= values -> {
-		
-		//Checks the given values.
-		Validator.throwExceptionIfValueIsNull("values", values);
-		
-		//Calculates the variance of the given values.
-		final double average = LONG_AVERAGE.getOutput(values);
-		double variance = 0.0;
-		for (long v: values) {
-			variance += Math.pow(v - average, 2);
-		}
-		
-		return variance;
-	};
-	
-	//function
-	public static final IElementTakerElementGetter<Iterable<Long>, Double> LONG_STANDARD_DEVIATION
-	= values -> {
-		return Math.sqrt(LONG_VARIANCE.getOutput(values));
-	};
-	
 	//static method
 	/**
-	 * Creates list of FPN number from the given x-values and y-values.
-	 * 
 	 * @param xValues
 	 * @param yValues
-	 * @return a newly created list of FPN-pairs created from the given x-values and y-values
-	 * @throws Exception if not as many x-values are given as y-values
+	 * @return a new {@link List} with {@link FPNPair}s created from the given xValues and yValues.
+	 * @throws InvalidArgumentException
+	 * if the count of the given yValues does not equal the count of the given xValues.
 	 */
 	public static List<FPNPair> createFPNPairs(final double[] xValues, final double[] yValues) {
 		
-		Validator.throwExceptionIfValueIsNotEqual("number of y-values", xValues.length, yValues.length);
+		//Checks if the count of the given yValues equals the count of the given xValues.
+		Validator.suppose(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
 		
 		final var FPNPairs = new List<FPNPair>();
-		
-		for (int i = 0; i < xValues.length; i++) {
+		for (var i = 0; i < xValues.length; i++) {
 			FPNPairs.addAtEnd(new FPNPair(xValues[i], yValues[i]));
 		}
 		
@@ -362,8 +50,11 @@ public final class Calculator {
 	 * @param value1
 	 * @param value2
 	 * @return true if the given values equals approximately each other
+	 * with a deviation that is not bigger than {@value #DEFAULT_MAX_DEVIATION}.
 	 */
 	public static boolean equalsApproximatively(final double value1, final double value2) {
+		
+		//For a better performance, this method does not use all comfortable methods.
 		return (Math.abs(value1 - value2) < DEFAULT_MAX_DEVIATION);
 	}
 
@@ -372,29 +63,63 @@ public final class Calculator {
 	 * @param value1
 	 * @param value2
 	 * @param maxDeviation
-	 * @return true if the given values equals approximately each other with a deviation that is not bigger than the given max deviation
-	 * @throws Exception if the given max deviation is negative
+	 * @return true if the given values equals approximately each other
+	 * with a deviation that is not bigger than the given maxDeviation.
+	 * @throws NegativeArgumentException if the given maxDeviation is negative.
 	 */
-	public static boolean equalsApproximatively(
-		final double value1,
-		final double value2,
-		final double maxDeviation) {
+	public static boolean equalsApproximatively(final double value1, final double value2, final double maxDeviation) {
 		
-		//Checks the given max deviation.
-		Validator.throwExceptionIfValueIsNegative("max deviation", maxDeviation);
+		//Checks if the given maxDeviation is not negative.
+		Validator.suppose(maxDeviation).thatIsNamed("max deviation").isNotNegative();
 		
-		return (Math.abs(value1 - value2) < maxDeviation);
+		return (Math.abs(value1 - value2) <= maxDeviation);
 	}
-		
+	
 	//static method
 	/**
 	 * @param values
-	 * @return the average of the given values
-	 * @throws Exception if the given values is empty.
+	 * @return the average of the given values.
+	 * @throws EmptyArgumentsException if the given values is empty.
 	 */
-	public static double getAverage(double... values) {
+	public static double getAverage(final double... values) {
 		
-		Validator.throwExceptionIfValueIsNotPositive("number of values", values.length);
+		//Checks if the given values is not empty.
+		Validator.suppose(values).thatIsNamed(MultiVariableNameCatalogue.VALUES).isNotEmpty();
+		
+		return (getSum(values) / values.length);
+	}
+	
+	//method
+	/**
+	 * @param values
+	 * @return the average of the given values.
+	 * @throws EmptyArgumentsException if the given values is empty.
+	 */
+	public static double getAverage(final Iterable<Double> values) {
+		
+		//Checks if the given values is not empty.
+		Validator.suppose(values).thatIsNamed(MultiVariableNameCatalogue.VALUES).isNotEmpty();
+		
+		var count = 0;
+		var sum = 0.0;
+		for (final var v : values) {
+			count++;
+			sum += v;
+		}
+		
+		return (sum / count);
+	}
+	
+	//static method
+	/**
+	 * @param values
+	 * @return the average of the given values.
+	 * @throws EmptyArgumentsException if the given values is empty.
+	 */
+	public static int getAverage(final int... values) {
+		
+		//Checks if the given values is not empty.
+		Validator.suppose(values).thatIsNamed(MultiVariableNameCatalogue.VALUES).isNotEmpty();
 		
 		return (getSum(values) / values.length);
 	}
@@ -402,30 +127,24 @@ public final class Calculator {
 	//static method
 	/**
 	 * @param values
-	 * @return the average of the given values
-	 * @throws Exception if the given values is empty.
+	 * @return the average of the given values.
+	 * @throws EmptyArgumentsException if the given values is empty.
 	 */
-	public static int getAverage(int... values) {
+	public static long getAverage(final long... values) {
 		
-		Validator.throwExceptionIfValueIsNotPositive("number of values", values.length);
+		//Checks if the given values is not empty.
+		Validator.suppose(values).thatIsNamed(MultiVariableNameCatalogue.VALUES).isNotEmpty();
 		
 		return (getSum(values) / values.length);
 	}
 	
 	//static method
 	/**
-	 * @param values
-	 * @return the average of the given values
-	 * @throws Exception if the given values is empty.
+	 * @param pOrder
+	 * @param inputValues
+	 * @return a new {@link ARModel} with the given pOrder and inputValues.
+	 * @throws NegativeArgumentException if the given pOrder is negative.
 	 */
-	public static long getAverage(long... values) {
-		
-		Validator.throwExceptionIfValueIsNotPositive("number of values", values.length);
-		
-		return (getSum(values) / values.length);
-	}
-	
-	//static method
 	public static ARModel getARModell(final int pOrder, final double[] inputValues) {
 		return new ARModel(pOrder, inputValues);
 	}
@@ -435,44 +154,48 @@ public final class Calculator {
 	 * @param degree
 	 * @param xValues
 	 * @param yValues
-	 * @return a polynom that has the given degree and fits the given values
-	 * @throws Exception if:
-	 * -the given degree is negative
-	 * -the given degree is bigger than the number of the given x-values
-	 * -not as many x-values are given as y-values
+	 * @return a new {@link Polynom} that has the given degree and fits the given values
+	 * @throws NegativeArgumentException if the given degree is negative.
+	 * @throws BiggerArgumentException if the given degree is bigger than the count of the given xValues.
+	 * @throws InvalidArgumentException
+	 * if the count of the given yValues does not equal the count of the given xValues.
 	 */
-	public static Polynom getFittingPolynom(int degree, double[] xValues, double[] yValues) {
+	public static Polynom getFittingPolynom(final int degree, final double[] xValues, final double[] yValues) {
 		
-		//Checks the given parameters.
-		Validator.throwExceptionIfValueIsNegative("degree", degree);
-		Validator.throwExceptionIfValueIsBigger("degree", xValues.length, degree);
-		Validator.throwExceptionIfValueIsNotEqual("number of y-values", xValues.length, yValues.length);
+		//Checks if the given degree is not negative.
+		Validator.suppose(degree).thatIsNamed(VariableNameCatalogue.DEGREE).isNotNegative();
 		
-		Matrix factor1 = new Matrix(xValues.length, degree + 1);
-		double[] xMatrixValues = new double[factor1.getSize()];
-		for (int i = 0; i < factor1.getRowCount(); i++) {
-			for (int j = 0; j < factor1.getColumnCount(); j++) {
-				xMatrixValues[i * factor1.getColumnCount() + j] = Math.pow(xValues[i], factor1.getColumnCount() - j - 1);
+		//Checks if the given degree is not bigger than the count of the given xValues.
+		Validator.suppose(degree).thatIsNamed(VariableNameCatalogue.DEGREE).isNotBiggerThan(xValues.length);
+		
+		//Checks if the count of the given yValues equals the count of the given xValues.
+		Validator.suppose(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
+		
+		final var factorMatrix = new Matrix(xValues.length, degree + 1);
+		final var xMatrixValues = new double[factorMatrix.getSize()];
+		for (var i = 0; i < factorMatrix.getRowCount(); i++) {
+			for (var j = 0; j < factorMatrix.getColumnCount(); j++) {
+				xMatrixValues[i * factorMatrix.getColumnCount() + j] =
+				Math.pow(xValues[i], factorMatrix.getColumnCount() - j - 1);
 			}
 		}
-		factor1.setValues(xMatrixValues);
+		factorMatrix.setValues(xMatrixValues);
 
-		Matrix solutionMatrix = new Matrix(yValues.length, 1);
+		final var solutionMatrix = new Matrix(yValues.length, 1);
 		solutionMatrix.setValues(yValues);
 		
-		return factor1.getMinimalFactorMatrix(solutionMatrix).toPolynom();
+		return factorMatrix.getMinimalFactorMatrix(solutionMatrix).toPolynom();
 	}
 	
 	//static method
 	/**
 	 * @param values
-	 * @return the biggest value of the given values
+	 * @return the biggest value of the given values.
 	 */
-	public static double getMax(double...values) {
+	public static double getMax(final double...values) {
 		
-		double max = values[0];
-		
-		for (double v: values) {
+		var max = values[0];	
+		for (final var v : values) {
 			if (v > max) {
 				max = v;
 			}
@@ -484,13 +207,12 @@ public final class Calculator {
 	//static method
 	/**
 	 * @param values
-	 * @return the biggest value of the given values
+	 * @return the biggest value of the given values.
 	 */
-	public static int getMax(int...values) {
+	public static int getMax(final int...values) {
 		
-		int max = values[0];
-		
-		for (int v: values) {
+		var max = values[0];	
+		for (final var v : values) {
 			if (v > max) {
 				max = v;
 			}
@@ -502,13 +224,12 @@ public final class Calculator {
 	//static method
 	/**
 	 * @param values
-	 * @return the biggest value of the given values
+	 * @return the biggest value of the given values.
 	 */
-	public static long getMax(long...values) {
+	public static long getMax(final long...values) {
 		
-		long max = values[0];
-		
-		for (long v: values) {
+		var max = values[0];
+		for (final var v : values) {
 			if (v > max) {
 				max = v;
 			}
@@ -520,13 +241,12 @@ public final class Calculator {
 	//static method
 	/**
 	 * @param values
-	 * @return the smallest value of the given values
+	 * @return the smallest value of the given values.
 	 */
-	public static double getMin(double... values) {
+	public static double getMin(final double... values) {
 			
-		double min = values[0];
-		
-		for (double v: values) {
+		var min = values[0];
+		for (final var v : values) {
 			if (v < min) {
 				min = v;
 			}
@@ -538,13 +258,12 @@ public final class Calculator {
 	//static method
 	/**
 	 * @param values
-	 * @return the smallest value of the given values
+	 * @return the smallest value of the given values.
 	 */
-	public static int getMin(int... values) {
+	public static int getMin(final int... values) {
 		
-		int min = values[0];
-		
-		for (int v: values) {
+		var min = values[0];	
+		for (final var v : values) {
 			if (v < min) {
 				min = v;
 			}
@@ -556,13 +275,12 @@ public final class Calculator {
 	//static method
 	/**
 	 * @param values
-	 * @return the smallest value of the given values
+	 * @return the smallest value of the given values.
 	 */
-	public static long getMin(long... values) {
+	public static long getMin(final long... values) {
 		
-		long min = values[0];
-		
-		for (long v: values) {
+		var min = values[0];
+		for (final var v : values) {
 			if (v < min) {
 				min = v;
 			}
@@ -574,7 +292,7 @@ public final class Calculator {
 	//static method
 	/**
 	 * @param value
-	 * @return the square of the given value
+	 * @return the square of the given value.
 	 */
 	public static double getSquare(final double value) {
 		return (value * value);
@@ -583,7 +301,7 @@ public final class Calculator {
 	//static method
 	/**
 	 * @param value
-	 * @return the square of the given value
+	 * @return the square of the given value.
 	 */
 	public static double getSquare(final int value) {
 		return (value * value);
@@ -592,7 +310,7 @@ public final class Calculator {
 	//static method
 	/**
 	 * @param value
-	 * @return the square of the given value
+	 * @return the square of the given value.
 	 */
 	public static double getSquare(final long value) {
 		return (value * value);
@@ -601,13 +319,12 @@ public final class Calculator {
 	//static method
 	/**
 	 * @param values
-	 * @return the sum of the given values
+	 * @return the sum of the given values.
 	 */
-	public static double getSum(double... values) {
+	public static double getSum(final double... values) {
 		
-		double sum = 0;
-		
-		for (double v: values) {
+		var sum = 0.0;
+		for (final var v : values) {
 			sum += v;
 		}
 		
@@ -617,13 +334,28 @@ public final class Calculator {
 	//static method
 	/**
 	 * @param values
-	 * @return the sum of the given values
+	 * @return the sum of the given values.
 	 */
-	public static int getSum(int... values) {
+	public static int getSum(final int... values) {
 		
-		int sum = 0;
+		var sum = 0;
+		for (final var v : values) {
+			sum += v;
+		}
 		
-		for (int v: values) {
+		return sum;
+	}
+	
+	
+	//static method
+	/**
+	 * @param values
+	 * @return the sum of the given values.
+	 */
+	public static double getSum(final Iterable<Double> values) {
+		
+		var sum = 0.0;
+		for (final var v : values) {
 			sum += v;
 		}
 		
@@ -633,13 +365,12 @@ public final class Calculator {
 	//static method
 	/**
 	 * @param values
-	 * @return the sum of the given values
+	 * @return the sum of the given values.
 	 */
-	public static long getSum(long... values) {
+	public static long getSum(final long... values) {
 		
-		long sum = 0;
-		
-		for (long v: values) {
+		var sum = 0l;
+		for (final var v : values) {
 			sum += v;
 		}
 		
@@ -649,49 +380,57 @@ public final class Calculator {
 	//static method
 	/**
 	 * @param value
-	 * @return true if the given value is approximately 1.
+	 * @return true if the given value is approximately 1.0
+	 * with a deviation that is not bigger than {@value #DEFAULT_MAX_DEVIATION}.
 	 */
 	public static boolean isApproximatelyOne(final double value) {
-		return (Math.abs(value - 1.0) < DEFAULT_MAX_DEVIATION);
+		
+		//For a better performance, this method does not use all comfortable methods.
+		return (Math.abs(value - 1.0) <= DEFAULT_MAX_DEVIATION);
 	}
 	
 	//static method
 	/**
 	 * @param value
 	 * @param maxDeviation
-	 * @return true if the given value is approximately 1 with a deviation that is not bigger than the given max deviation
-	 * @throws Exception if the given max deviation is negative
+	 * @return true if the given value is approximately 1.0
+	 * with a deviation that is not bigger than the given maxDeviation.
+	 * @throws Exception if the given maxDeviation is negative.
 	 */
 	public static boolean isApproximatelyOne(final double value, final double maxDeviation) {
 		
-		//Checks the given max deviation.
-		Validator.throwExceptionIfValueIsNegative("max deviation", maxDeviation);
+		//Checks if the given maxDeviation is not negative.
+		Validator.suppose(maxDeviation).thatIsNamed("max deviation").isNotNegative();
 		
-		return (Math.abs(value - 1.0) < maxDeviation);
+		return (Math.abs(value - 1.0) <= maxDeviation);
 	}
 	
 	//static method
 	/**
 	 * @param value
-	 * @return true if the given value is approximately 0.
+	 * @return true if the given value is approximately 0.0
+	 * with a deviation that is not bigger than {@value #DEFAULT_MAX_DEVIATION}.
 	 */
 	public static boolean isApproximatelyZero(final double value) {
-		return (Math.abs(value) < DEFAULT_MAX_DEVIATION);
+		
+		//For a better performance, this method does not use all comfortable methods.
+		return (Math.abs(value) <= DEFAULT_MAX_DEVIATION);
 	}
 	
 	//static method
 	/**
 	 * @param value
 	 * @param maxDeviation
-	 * @return true if the given value is approximately 0 with a deviation that is not bigger than the given max deviation
-	 * @throws Exception if the given max deviation is negative
+	 * @return true if the given value is approximately 0.0
+	 * with a deviation that is not bigger than the given maxDeviation.
+	 * @throws NegativeArgumentException if the given maxDeviation is negative.
 	 */
 	public static boolean isApproximatelyZero(final double value, final double maxDeviation) {
 		
-		//Checks the given max deviation.
-		Validator.throwExceptionIfValueIsNegative("max deviation", maxDeviation);
+		//Checks if the given maxDeviation is not negative.
+		Validator.suppose(maxDeviation).thatIsNamed("max deviation").isNotNegative();
 		
-		return (Math.abs(value) < maxDeviation);
+		return (Math.abs(value) <= maxDeviation);
 	}
 	
 	//static method
