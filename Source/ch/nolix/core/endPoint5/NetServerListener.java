@@ -53,7 +53,7 @@ final class NetServerListener implements ch.nolix.core.endPoint3.IEndPointTaker 
 	 */
 	@Override
 	public void takeEndPoint(final ch.nolix.core.endPoint3.EndPoint endPoint) {
-		netServer.takeDuplexController(
+		netServer.takeEndPoint(
 			new NetEndPoint((ch.nolix.core.endPoint3.NetEndPoint)endPoint)
 		);
 	}

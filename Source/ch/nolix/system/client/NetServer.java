@@ -80,7 +80,7 @@ public final class NetServer extends Server {
 		//Creates the internalNetServer of the current NetServer.
 		internalNetServer = new ch.nolix.core.endPoint5.NetServer(port, HTTP_MESSAGE);
 				
-		internalNetServer.addArbitraryDuplexControllerTaker(new NetServerSubDuplexControllerTaker(this));
+		internalNetServer.addMainEndPointTaker(new NetServerSubDuplexControllerTaker(this));
 		
 		//Creates a close dependency between the current NetServer and its internalNetServer.
 		createCloseDependency(internalNetServer);

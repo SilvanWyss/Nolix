@@ -62,7 +62,7 @@ public final class LocalEndPoint extends EndPoint {
 		this.target = null;
 		
 		//Lets the given target take the counterpart of this local duplex controller.
-		target.takeDuplexController(getRefCounterpart());
+		target.takeEndPoint(getRefCounterpart());
 	}
 	
 	//constructor

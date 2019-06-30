@@ -19,5 +19,5 @@ public interface IEndPointTaker extends Named {
 	 * 
 	 * @param endPoint
 	 */
-	public abstract void takeDuplexController(EndPoint endPoint);
+	public abstract void takeEndPoint(EndPoint endPoint);
 }
