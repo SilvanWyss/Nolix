@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.system.client;
 
-//Java import
+//Java imports
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-import ch.nolix.core.attributeAPI.Named;
 //own imports
+import ch.nolix.core.attributeAPI.Named;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
@@ -19,11 +19,11 @@ import ch.nolix.core.validator.Validator;
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 260
- * @param <C> The type of the clients of an application.
+ * @lines 330
+ * @param <C> The type of the {@link Client}s of a {@link Application}.
  */
 public class Application<C extends Client<C>> implements Named {
-
+	
 	//attributes
 	private final String name;
 	private final Class<C> clientClass;
@@ -37,103 +37,47 @@ public class Application<C extends Client<C>> implements Named {
 	
 	//constructor
 	/**
-	 * Creates a new application
-	 * with the given name, client class and initial session class.
+	 * Creates a new {@link Application} with the given name, clientClass and initialSessionClass.
 	 * 
 	 * @param name
 	 * @param clientClass
 	 * @param initialSessionClass
 	 * @throws NullArgumentException if the given name is null.
-	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given client class is null.
-	 * @throws NullArgumentException if the given initial session class is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws NullArgumentException if the given clientClass is null.
+	 * @throws NullArgumentException if the given initialSessionClass is null.
 	 */
-	public Application(
-		final String name,
-		final Class<C> clientClass,
-		final Class<?> initialSessionClass
-	) {
+	public Application(final String name, final Class<C> clientClass, final Class<?> initialSessionClass) {
 		
+		//Checks if the given name is not null or blank and sets the name of the current Application.
 		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
 		
-		//Checks if the given client class is not null.
-		Validator
-		.suppose(clientClass)
-		.thatIsNamed("client class")
-		.isNotNull();
+		//Checks if the given clientClass is not null and sets the client class of the current Application.
+		this.clientClass = Validator.suppose(clientClass).thatIsNamed("client class").isNotNull().andReturn();
 		
-		//Checks if the given initial session class is not null.
-		Validator
-		.suppose(initialSessionClass)
-		.thatIsNamed("initial session class")
-		.isNotNull();
+		//Checks if the given initialSessionClass is not null.
+		Validator.suppose(initialSessionClass).thatIsNamed("initial session class").isNotNull();
 		
-		this.clientClass = clientClass;
 		this.initialSessionClass = initialSessionClass;
 		this.context = null;
 	}
 	
 	//constructor
 	/**
-	 * Creates a new application
-	 * with the given name, client class, initial session class and context.
-	 * 
-	 * @param name
-	 * @param clientClass
-	 * @param initialSessionClass
-	 * @param context
-	 * @throws NullArgumentException if the given name is null.
-	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given client class is null.
-	 * @throws NullArgumentException if the given initial session class is null.
-	 * @throws NullArgumentException if the given context is null.
-	 */
-	public Application(
-		final String name,
-		final Class<C> clientClass,
-		final Class<?> initialSessionClass,
-		final Object context
-	) {
-		
-		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
-		
-		//Checks if the given client class is not null.
-		Validator
-		.suppose(clientClass)
-		.thatIsNamed("client class")
-		.isNotNull();
-		
-		//Checks if the given initial session class is not null.
-		Validator
-		.suppose(initialSessionClass)
-		.thatIsNamed("initial session class")
-		.isNotNull();
-		
-		//Checks if the given context is not null.
-		Validator
-		.suppose(context)
-		.thatIsNamed(VariableNameCatalogue.CONTEXT)
-		.isNotNull();
-		
-		this.clientClass = clientClass;
-		this.initialSessionClass = initialSessionClass;
-		this.context = context;
-	}
-	
-	//constructor
-	/**
-	 * Creates a new application that:
-	 * -Has the given name, client class and initial session class.
-	 * -Creates a server for itself, and for itself only, that listens to clients on the given port.
+	 * Creates a new {@link Application} that:
+	 * -Has the given name, clientClass and initialSessionClass.
+	 * -Will create a {@link NetServer} for itself, and for itself only,
+	 * that will listen to {@link Clients} on the given port.
 	 * 
 	 * @param name
 	 * @param clientClass
 	 * @param initialSessionClass
 	 * @param port
 	 * @throws NullArgumentException if the given name is null.
-	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws NullArgumentException if the given client class is null.
-	 * @throws NullArgumentException if the given initial session class is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws NullArgumentException if the given clientClass is null.
+	 * @throws NullArgumentException if the given initialSessionClass is null.
+	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
 	 */
 	@SuppressWarnings("resource")
 	public Application(
@@ -146,13 +90,84 @@ public class Application<C extends Client<C>> implements Named {
 		//Calls other constructor.
 		this(name, clientClass, initialSessionClass);
 		
-		//Creates a server for this application.
+		//Creates a NetServer for the current Application.
+		new NetServer(port).addMainApplication(this);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link Application} with the given name, clientClass, initialSessionClass and context.
+	 * 
+	 * @param name
+	 * @param clientClass
+	 * @param initialSessionClass
+	 * @param context
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blak.
+	 * @throws NullArgumentException if the given clientClass is null.
+	 * @throws NullArgumentException if the given initialSessionClass is null.
+	 * @throws NullArgumentException if the given context is null.
+	 */
+	public Application(
+		final String name,
+		final Class<C> clientClass,
+		final Class<?> initialSessionClass,
+		final Object context
+	) {
+		
+		//Checks if the given name is not null or blank and sets the name of the current Application.
+		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
+				
+		//Checks if the given clientClass is not null and sets the client class of the current Application.
+		this.clientClass = Validator.suppose(clientClass).thatIsNamed("client class").isNotNull().andReturn();
+		
+		//Checks if the given initialSessionClass is not null.
+		Validator.suppose(initialSessionClass).thatIsNamed("initial session class").isNotNull();
+		
+		//Checks if the given context is not null.
+		Validator.suppose(context).thatIsNamed(VariableNameCatalogue.CONTEXT).isNotNull();
+		
+		this.initialSessionClass = initialSessionClass;
+		this.context = context;
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link Application} that:
+	 * -Has the given name, clientClass, initialSessionClass and context.
+	 * -Will create a {@link NetServer} for itself, and for itself only,
+	 * that will listen to {@link Clients} on the given port.
+	 * 
+	 * @param name
+	 * @param clientClass
+	 * @param initialSessionClass
+	 * @param port
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws NullArgumentException if the given clientClass is null.
+	 * @throws NullArgumentException if the given initialSessionClass is null.
+	 * @throws NullArgumentException if the given context is null.
+	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
+	 */
+	@SuppressWarnings("resource")
+	public Application(
+		final String name,
+		final Class<C> clientClass,
+		final Class<?> initialSessionClass,
+		final Object context,
+		final int port
+	) {
+		
+		//Calls other constructor.
+		this(name, clientClass, initialSessionClass, context);
+		
+		//Creates a NetServer for the current Application.
 		new NetServer(port).addMainApplication(this);
 	}
 	
 	//method
 	/**
-	 * @return the class of the clients of this session.
+	 * @return the class of the {@link Client}s of the current {@link Application}.
 	 */
 	public final Class<C> getClientClass() {
 		return clientClass;
@@ -162,26 +177,27 @@ public class Application<C extends Client<C>> implements Named {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final String getName() {
 		return name;
 	}
 	
 	//method
 	/**
-	 * @return the clients of this application.
+	 * @return the {@link Client}s of the current {@link Application}.
 	 */
 	public final IContainer<C> getRefClients() {
-		return clients.removeAll(c -> c.isClosed());
+		return clients;
 	}
 	
 	//method
 	/**
-	 * @return the context of this application.
-	 * @throws ArgumentMissesAttributeException if this application does not have a context.
+	 * @return the context of the current {@link Application}.
+	 * @throws ArgumentMissesAttributeException if the current {@link Application}.does not have a context.
 	 */
 	public final Object getRefContext() {
 		
-		//Checks if this application has a context.
+		//Checks if the current Application has a context.
 		supposeHasContext();
 		
 		return context;
@@ -189,7 +205,7 @@ public class Application<C extends Client<C>> implements Named {
 	
 	//method
 	/**
-	 * @return true if this application has a context.
+	 * @return true if the current {@link Application} has a context.
 	 */
 	public final boolean hasContext() {
 		return (context != null);
@@ -197,68 +213,64 @@ public class Application<C extends Client<C>> implements Named {
 	
 	//method
 	/**
-	 * Lets this application take the given client.
+	 * Lets the current {@link Application} take the given client.
 	 * 
 	 * @param client
 	 */
 	@SuppressWarnings("unchecked")
 	public final void takeClient(final Client<?> client) {
-		
 		final var client_ = ((C)client);
-		
 		client_.setParentApplication(this);
-		final Session<C> initialSession = createInitialSession();
 		clients.addAtEnd(client_);
-		Sequencer.runInBackground(() -> client_.pushSession(initialSession));
+		Sequencer.runInBackground(() -> client_.pushSession(createInitialSession()));
 	}
 	
 	//method
 	/**
-	 * Lets this application take the given duplecx controller.
+	 * Lets the current {@link Application} take the given endPoint.
 	 * 
 	 * @param endPoint
 	 */
-	public final void takeDuplexController(final EndPoint endPoint) {
+	public final void takeEndPoint(final EndPoint endPoint) {
 		try {
-			final var constructor = getClientClass().getConstructor(EndPoint.class);
-			constructor.setAccessible(true);
-			C client = constructor.newInstance(endPoint);
-			takeClient(client);
-		} catch (final 
-			IllegalAccessException
+			takeClient(getClientConstructor().newInstance(endPoint));
+		} 
+		catch (
+			final
+			InstantiationException
+			| IllegalAccessException
 			| IllegalArgumentException
-			| InstantiationException
 			| InvocationTargetException
-			| NoSuchMethodException
-			| SecurityException
 			exception
 		) {
 			throw new RuntimeException(exception);
 		}
 	}
 	
-	//abstract method
+	//method
 	/**
-	 * @return a new initial session for a client of this application.
+	 * @return a new initial {@link Session} for a {@link Client} of the current {@link Application}.
 	 */
 	@SuppressWarnings("unchecked")
-	protected Session<C> createInitialSession() {
-		
-		//Extract the constructor of the initial session class of this standard application.
-		final Constructor<?> constructor = getRefInitialSessionClass().getDeclaredConstructors()[0];
-		constructor.setAccessible(true);
-		
+	protected final Session<C> createInitialSession() {
 		try {
-			return (Session<C>)constructor.newInstance();
+			return (Session<C>)getInitialSessionConstructor().newInstance();
 		}
-		catch (Exception e) {
-			throw new RuntimeException(e);
+		catch (
+			final
+			InstantiationException
+			| IllegalAccessException
+			| IllegalArgumentException
+			| InvocationTargetException
+			exception
+		) {
+			throw new RuntimeException(exception);
 		}
 	}
 	
 	//method
 	/**
-	 * @return the initial session class of this application.
+	 * @return the initial {@link Session} class of the current {@link Application}.
 	 */
 	protected final Class<?> getRefInitialSessionClass() {
 		return initialSessionClass;
@@ -266,17 +278,53 @@ public class Application<C extends Client<C>> implements Named {
 	
 	//method
 	/**
-	 * @throws ArgumentMissesAttributeException if this application does not have a context.
+	 * Removes the given client of the current {@link Application}.
+	 * 
+	 * @param client
+	 * @throws InvalidArgumentException if the current {@link Application} does not contain the given client.
+	 */
+	final void removeClient(final Client<C> client) {
+		clients.removeFirst(client);	
+	}
+	
+	//method
+	/**
+	 * @return the constructor of the {@link Client} class of the current {@link Application}.
+	 */
+	private Constructor<C> getClientConstructor() {		
+		try {
+			
+			//For a better performance, this implementation does not use all comfortable methods.
+			final var clientConstructor = clientClass.getConstructor(EndPoint.class);
+			
+			clientConstructor.setAccessible(true);
+			
+			return clientConstructor;
+		}
+		catch (final NoSuchMethodException | SecurityException exception) {
+			throw new RuntimeException(exception);
+		}
+	}
+	
+	//method
+	/**
+	 * @return the constructor of the initial {@link Session} class of the current {@link Application}.
+	 */
+	private Constructor<?> getInitialSessionConstructor() {
+		final var constructor = getRefInitialSessionClass().getDeclaredConstructors()[0];
+		constructor.setAccessible(true);
+		return constructor;
+	}
+	
+	//method
+	/**
+	 * @throws ArgumentMissesAttributeException if the current {@link Application} does not have a context.
 	 */
 	private void supposeHasContext() {
 		
-		//Checks if this application has a context.
+		//Checks if the current Application has a context.
 		if (!hasContext()) {
-			throw
-			new ArgumentMissesAttributeException(
-				this,
-				VariableNameCatalogue.CONTEXT
-			);
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.CONTEXT);
 		}
 	}
 }

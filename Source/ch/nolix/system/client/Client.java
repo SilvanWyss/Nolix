@@ -59,7 +59,12 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C> {
 	 */
 	@Override
 	public void close() {
+		
 		endPoint.close();
+		
+	    if (parentApplication != null) {
+	    	parentApplication.removeClient(this);
+	    }
 	}
 	
 	//method
@@ -345,7 +350,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C> {
 		internal_setDuplexController(new LocalEndPoint());
 		
 		//Connects the current client to the given application.
-		application.takeDuplexController(
+		application.takeEndPoint(
 			((LocalEndPoint)endPoint).getRefCounterpart()
 		);
 	}
@@ -397,7 +402,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C> {
 		internal_setDuplexController(new LocalEndPoint());
 		
 		//Connects the current client to the default application on the given server.
-		server.getRefMainApplication().takeDuplexController(
+		server.getRefMainApplication().takeEndPoint(
 			((LocalEndPoint)endPoint).getRefCounterpart()
 		);
 	}
@@ -417,7 +422,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C> {
 		internal_setDuplexController(new LocalEndPoint());
 		
 		//Connects the current client to the application with the given name on the given server.
-		server.getRefApplicationByName(name).takeDuplexController(
+		server.getRefApplicationByName(name).takeEndPoint(
 			((LocalEndPoint)endPoint).getRefCounterpart()
 		);
 	}

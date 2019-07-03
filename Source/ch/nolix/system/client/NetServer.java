@@ -122,12 +122,12 @@ public final class NetServer extends Server {
 		
 		//Handles the case that the given endPoint does not have a target.
 		if (!endPoint.hasTarget()) {
-			getRefMainApplication().takeDuplexController(endPoint);
+			getRefMainApplication().takeEndPoint(endPoint);
 		}
 		
 		//Handles the case that the given endPoint has a target.
 		else {
-			getRefApplicationByName(endPoint.getTarget()).takeDuplexController(endPoint);
+			getRefApplicationByName(endPoint.getTarget()).takeEndPoint(endPoint);
 		}
 	}
 }
