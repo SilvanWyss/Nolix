@@ -142,6 +142,14 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C> {
 	
 	//method
 	/**
+	 * @return the name of the target {@link Application} of the current {@link Client}.
+	 */
+	public final String getTarget() {
+		return endPoint.getTarget();
+	}
+
+	//method
+	/**
 	 * @return the type of the current {@link Client}.
 	 */
 	@Override
@@ -158,6 +166,14 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C> {
 		return (infoString != null);
 	}
 	
+	//method
+	/**
+	 * @return true if the current {@link Client} has a target.
+	 */
+	public final boolean hasTarget() {
+		return endPoint.hasTarget();
+	}
+
 	//method
 	/**
 	 * @return true if the current {@link Client} is closed.
@@ -381,7 +397,7 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C> {
 		internal_setDuplexController(new LocalEndPoint());
 		
 		//Connects the current client to the default application on the given server.
-		server.getRefDefaultApplication().takeDuplexController(
+		server.getRefMainApplication().takeDuplexController(
 			((LocalEndPoint)endPoint).getRefCounterpart()
 		);
 	}
@@ -498,14 +514,6 @@ implements Closable, OptionalLabelable<C>, ISmartObject<C> {
 		supposeContainsCurrentSession();
 		
 		return currentSession;
-	}
-	
-	//method
-	/**
-	 * @return the name of the target application of the current {@link Client}.
-	 */
-	protected final String internal_getTarget() {
-		return endPoint.getTarget();
 	}
 	
 	//method

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.client;
 
+//own imports
 import ch.nolix.core.closableElement.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
@@ -10,67 +11,61 @@ import ch.nolix.core.validator.Validator;
 
 //class
 /**
- * A server contains applications and listens to clients on a specific port.
- * A server is clearable and closable.
+ * A {@link Server} contains {@link Application}s.
+ * A {@link Server} is clearable and closable.
  * 
  * @author Silvan Wyss
  * @month 2016-10
- * @lines 100
+ * @lines 210
  */
 public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//optional attribute
-	private Application<?> defaultApplication;
+	private Application<?> mainApplication;
 	
-	//multiple attribute
+	//multi-attribute
 	private final List<Application<?>> applications = new List<>();
 	
+	//constructor
+	/**
+	 * Creates a new {@link Server}.
+	 */
 	public Server() {}
 	
 	//constructor
 	/**
-	 * Creates a new server with the given applications.
+	 * Creates a new {@link Server} with the given applications.
 	 * 
 	 * @param applications
 	 * @throws NullArgumentException if one of the given applications is null.
-	 * @throws InvalidArgumentException if the given applications contains several applications with the same name.
+	 * @throws InvalidArgumentException
+	 * if the given applications contains several {@link Application}s with the same name.
 	 */
 	public Server(final Application<?>... applications) {
 		addApplication(applications);
 	}
 	
 	//method
-	public final void addDefaultApplication(final Application<?> arbitraryApplication) {
-		
-		//Checks if this server does not contain an application.
-		if (containsAny()) {
-			throw new InvalidArgumentException(this, "contains an application");
-		}
-		
-		addApplication(arbitraryApplication);
-		
-		this.defaultApplication = arbitraryApplication;
-	}
-	
-	//method
 	/**
-	 * Adds the given application to this server.
+	 * Adds the given {@link application} to the current {@link Server}.
 	 * 
 	 * @param application
 	 * @throws NullArgumentException if the given application is null.
-	 * @throws InvalidArgumentException if this server contains already anapplication with the same name as the given application.
+	 * @throws InvalidArgumentException if the current {@link Server} contains already a {@link Application}
+	 * with the same name as the given application.
 	 */
 	public final void addApplication(final Application<?> application) {
 		
 		//Checks if the given application is not null.
 		Validator.suppose(application).isOfType(Application.class);
 		
-		//Checks if the given this server contains not already an other application with the same name as the given applicaiton.
+		//Checks if the given the current Server
+		//does not contain already an Application with the same name as the given application..
 		if (containsApplication(application.getName())) {
 			throw
 			new InvalidArgumentException(
 				this,
-				"contains already an application with the name " + application.getNameInQuotes()
+				"contains already an Application with the name " + application.getNameInQuotes()
 			);
 		}
 		
@@ -79,11 +74,34 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//method
 	/**
-	 * Adds the given applications to this server.
+	 * Adds the given mainApplication to the current {@link Server}.
+	 * A main {@link Application} will take all {@link Client}s without target.
+	 * 
+	 * @param mainApplication
+	 * @throws NullArgumentException if the given mainApplication is null.
+	 * @throws InvalidArgumentException if the current {@link Server} contains already a {@link Application}
+	 * with the same name as the given mainApplication.
+	 */
+	public final void addMainApplication(final Application<?> mainApplication) {
+		
+		//Checks if the current Server does not contain already a main Application.
+		if (containsMainApplication()) {
+			throw new InvalidArgumentException(this, "contains already a main Application");
+		}
+		
+		addApplication(mainApplication);
+		
+		this.mainApplication = mainApplication;
+	}
+		
+	//method
+	/**
+	 * Adds the given applications to the current {@link Server}.
 	 * 
 	 * @param applications
 	 * @throws NullArgumentException if one of the given applications is null.
-	 * @throws InvalidArgumentException if this server already contains an other application with the same name as one of the given applications.
+	 * @throws InvalidArgumentException if the current {@link Server}
+	 * contains already an other application with the same name as one of the given applications.
 	 */
 	public final void addApplication(final Application<?>... applications) {
 		
@@ -95,15 +113,15 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//method
 	/**
-	 * Removes all applications from this server.
+	 * Removes all applications of the current {@link Server}.
 	 * 
-	 * @return this server.
+	 * @return the current {@link Server}.
 	 */
 	@Override
 	public Server clear() {
 		
 		applications.clear();
-		defaultApplication = null;
+		mainApplication = null;
 		
 		return this;
 	}
@@ -111,7 +129,7 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	//method
 	/**
 	 * @param name
-	 * @return true if this server contains an application with the given name.
+	 * @return true if the current {@link Server} contains a {@link Application} with the given name.
 	 */
 	public final boolean containsApplication(final String name) {
 		return applications.contains(a -> a.hasName(name));
@@ -119,15 +137,15 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//method
 	/**
-	 * @return true if this server has an arbitrary application.
+	 * @return true if the current {@link Server} contains a main {@link Application}.
 	 */
-	public final boolean containsDefaultApplication() {
-		return (defaultApplication != null);
+	public final boolean containsMainApplication() {
+		return (mainApplication != null);
 	}
 	
 	//method
 	/**
-	 * @return true if this server does not contain an application.
+	 * @return true if the current {@link Server} does not contain a {@link Application}.
 	 */
 	@Override
 	public final boolean isEmpty() {
@@ -136,53 +154,56 @@ public class Server extends ClosableElement implements Clearable<Server> {
 	
 	//method
 	/**
-	 * Lets this server take the given client.
+	 * Lets the current {@link Server} take the given client.
 	 * 
 	 * @param client
+	 * @throws ArgumentMissesAttributeException
+	 * if the given client does not have a target
+	 * and if the current {@link Server} does not contain a main {@link Applicaiton}.
 	 */
 	public void takeClient(final Client<?> client) {
 		
-		//Handles the case that this server does not have an arbitrary application.
-		if (!containsDefaultApplication()) {
-			applications
-			.getRefFirst(a -> a.hasName(client.internal_getTarget()))
-			.takeClient(client);
+		//Handles the case that the given client does not have a target.
+		if (!client.hasTarget()) {
+			getRefMainApplication().takeClient(client);
 		}
 		
-		//Handles the case that this server has an arbitrary application.
+		//Handles the case that the given client has a target.
 		else {
-			getRefDefaultApplication().takeClient(client);
+			getRefApplicationByName(client.getTarget()).takeClient(client);
 		}
 	}
 	
-	//method
-	/**
-	 * @return the arbitrary application of this server.
-	 * @throws ArgumentMissesAttributeException if this server does not have an arbitrary application.
-	 */
-	protected Application<?> getRefDefaultApplication() {
-		
-		//Checks if this server has an arbitrary application.
-		if (!containsDefaultApplication()) {
-			throw new ArgumentMissesAttributeException(this, "arbitrary application");
-		}
-		
-		return defaultApplication;
-	}
-	
-	//method
+	//package-visible method
 	/**
 	 * @param name
-	 * @return the application with the given name from this server.
-	 * @throws RuntimeException if this server does not contain an application with the given name.
+	 * @return the {@link Application} with the given name from the current {@link Server}.
+	 * @throws ArgumentMissesAttributeException
+	 * if the current {@link Server} does not contain a {@link Application} with the given name.
 	 */
-	protected final Application<?> getRefApplicationByName(String name) {
+	final Application<?> getRefApplicationByName(final String name) {
 		return applications.getRefFirst(a -> a.hasName(name));
 	}
 	
+	//package-visible method
+	/**
+	 * @return the main {@link Application} of the current {@link Server}.
+	 * @throws ArgumentMissesAttributeException
+	 * if the current {@link Server} does not contain a main {@link Application}.
+	 */
+	final Application<?> getRefMainApplication() {
+		
+		//Checks if the current Server contains a main Application.
+		if (containsMainApplication()) {
+			throw new ArgumentMissesAttributeException(this, "main Application");
+		}
+		
+		return mainApplication;
+	}
+
 	//method
 	/**
-	 * Lets this server note a closing.
+	 * {@inheritDoc}
 	 */
 	@Override
 	protected final void noteClose() {}

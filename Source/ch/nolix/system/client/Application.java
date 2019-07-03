@@ -147,7 +147,7 @@ public class Application<C extends Client<C>> implements Named {
 		this(name, clientClass, initialSessionClass);
 		
 		//Creates a server for this application.
-		new NetServer(port).addDefaultApplication(this);
+		new NetServer(port).addMainApplication(this);
 	}
 	
 	//method

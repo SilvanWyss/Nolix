@@ -78,7 +78,7 @@ implements Closable {
 			BackNetNeuronSession.class
 		);
 		
-		netServer.addDefaultApplication(application);
+		netServer.addMainApplication(application);
 	}
 	
 	//method

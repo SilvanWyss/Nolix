@@ -65,7 +65,7 @@ public final class NetServer extends Server {
 		//Calls other constructor.
 		this();
 		
-		addDefaultApplication(mainApplication);
+		addMainApplication(mainApplication);
 	}
 	
 	//constructor
@@ -101,7 +101,7 @@ public final class NetServer extends Server {
 		//Calls other constructor.
 		this(port);
 		
-		addDefaultApplication(mainApplication);
+		addMainApplication(mainApplication);
 	}
 	
 	//method
@@ -120,13 +120,13 @@ public final class NetServer extends Server {
 	 */
 	void takeDuplexController(final EndPoint endPoint) {
 		
-		if (!containsDefaultApplication()) {
+		if (!containsMainApplication()) {
 			getRefApplicationByName(endPoint.getTarget())
 			.takeDuplexController(endPoint);
 		}
 		
 		else {
-			getRefDefaultApplication().takeDuplexController(endPoint);
+			getRefMainApplication().takeDuplexController(endPoint);
 		}
 	}
 }
