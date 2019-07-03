@@ -79,7 +79,7 @@ public final class NetServer extends Server {
 		
 		//Creates the internalNetServer of the current NetServer.
 		internalNetServer = new ch.nolix.core.endPoint5.NetServer(port, HTTP_MESSAGE);
-				
+		
 		internalNetServer.addMainEndPointTaker(new NetServerSubDuplexControllerTaker(this));
 		
 		//Creates a close dependency between the current NetServer and its internalNetServer.
@@ -118,15 +118,16 @@ public final class NetServer extends Server {
 	 * 
 	 * @param endPoint
 	 */
-	void takeDuplexController(final EndPoint endPoint) {
+	void takeEndPoint(final EndPoint endPoint) {
 		
-		if (!containsMainApplication()) {
-			getRefApplicationByName(endPoint.getTarget())
-			.takeDuplexController(endPoint);
+		//Handles the case that the given endPoint does not have a target.
+		if (!endPoint.hasTarget()) {
+			getRefMainApplication().takeDuplexController(endPoint);
 		}
 		
+		//Handles the case that the given endPoint has a target.
 		else {
-			getRefMainApplication().takeDuplexController(endPoint);
+			getRefApplicationByName(endPoint.getTarget()).takeDuplexController(endPoint);
 		}
 	}
 }

@@ -53,6 +53,6 @@ final class NetServerSubDuplexControllerTaker implements IEndPointTaker {
 	 */
 	@Override
 	public void takeEndPoint(final EndPoint endPoint) {
-		netServer.takeDuplexController(endPoint);
+		netServer.takeEndPoint(endPoint);
 	}
 }
