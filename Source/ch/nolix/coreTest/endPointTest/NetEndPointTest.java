@@ -4,8 +4,6 @@ package ch.nolix.coreTest.endPointTest;
 //own imports
 import ch.nolix.core.communicationAPI.IReceiver;
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.endPoint.EndPoint;
-import ch.nolix.core.endPoint.IEndPointTaker;
 import ch.nolix.core.endPoint.NetServer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.sequencer.Sequencer;
@@ -33,16 +31,7 @@ public final class NetEndPointTest extends Test {
 		//setup	
 			final ReceiverFake receiverFake = new ReceiverFake();
 		
-			final NetServer netServer
-			= new NetServer(
-				port,
-				new IEndPointTaker() {
-					@Override
-					public void takeEndPoint(final EndPoint endPoint) {
-						endPoint.setReceiver(receiverFake);
-					}
-				}
-			);
+			final NetServer netServer = new NetServer(port, ep -> ep.setReceiver(receiverFake));
 			
 			final NetEndPoint netEndPoint = new NetEndPoint(port);
 			

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.endPoint;
 
+import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -23,7 +24,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * 
 	 * @param target
 	 */
-	public LocalEndPoint(final IEndPointTaker target) {
+	public LocalEndPoint(final IElementTaker<EndPoint> target) {
 		
 		//Calls constructor of the base class.
 		super(true);
@@ -35,7 +36,7 @@ public final class LocalEndPoint extends EndPoint {
 		createCloseDependency(getCounterPart());
 		
 		//Lets the given target take the counterpart of this local end point.
-		target.takeEndPoint(getCounterPart());
+		target.run(getCounterPart());
 	}
 	
 	//constructor

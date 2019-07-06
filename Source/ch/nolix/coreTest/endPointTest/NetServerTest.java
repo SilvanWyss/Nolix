@@ -2,8 +2,6 @@
 package ch.nolix.coreTest.endPointTest;
 
 //own imports
-import ch.nolix.core.endPoint.EndPoint;
-import ch.nolix.core.endPoint.IEndPointTaker;
 import ch.nolix.core.endPoint.NetServer;
 import ch.nolix.core.test.Test;
 
@@ -27,11 +25,7 @@ public final class NetServerTest extends Test {
 		//execution
 		
 			final NetServer netServer
-			= new NetServer(
-				port,
-				new IEndPointTaker() {@Override
-				public void takeEndPoint(EndPoint endPoint) {}}
-			);
+			= new NetServer(port, ep -> {});
 			try {
 				Thread.sleep(500);
 			}
@@ -39,11 +33,7 @@ public final class NetServerTest extends Test {
 			netServer.close();
 			
 			final NetServer netServer2
-			= new NetServer(
-				port,
-				new IEndPointTaker() {@Override
-				public void takeEndPoint(EndPoint endPoint) {}}
-			);
+			= new NetServer(port, ep -> {});
 			try {
 				Thread.sleep(500);
 			}

@@ -2,6 +2,7 @@
 package ch.nolix.core.endPoint;
 
 import ch.nolix.core.closableElement.ClosableElement;
+import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -13,12 +14,10 @@ import ch.nolix.core.validator.Validator;
  * @month 2017-05
  * @lines 50
  */
-public class Server
-extends ClosableElement
-implements IEndPointTaker {
+public class Server extends ClosableElement {
 
 	//attribute
-	private final IEndPointTaker endPointTaker;
+	private final IElementTaker<EndPoint> endPointTaker;
 	
 	/**
 	 * Creates a new server with the given end point taker.
@@ -26,10 +25,10 @@ implements IEndPointTaker {
 	 * @param endPointTaker
 	 * @throws NullArgumentException if the given end point taker is null.
 	 */
-	public Server(final IEndPointTaker endPointTaker) {
+	public Server(final IElementTaker<EndPoint> endPointTaker) {
 		
 		//Checks if the given end point taker is not null.
-		Validator.suppose(endPointTaker).isOfType(IEndPointTaker.class);
+		Validator.suppose(endPointTaker).thatIsNamed("andPointTaker").isNotNull();
 		
 		//Sets the end point taker of this server.
 		this.endPointTaker = endPointTaker;
@@ -42,13 +41,12 @@ implements IEndPointTaker {
 	 * @param endPoint
 	 * @throws InvalidArgumentException if this server is aborted.
 	 */
-	@Override
 	public final void takeEndPoint(final EndPoint endPoint) {
 		
 		//Checks if this server is not aborted.
 		supposeIsAlive();
 		
-		endPointTaker.takeEndPoint(endPoint);
+		endPointTaker.run(endPoint);
 	}
 
 	//method
