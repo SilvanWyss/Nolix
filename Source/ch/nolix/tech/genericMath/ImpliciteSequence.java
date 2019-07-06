@@ -2,6 +2,7 @@
 package ch.nolix.tech.genericMath;
 
 //Java imports
+import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 	private final ArrayList<N> startValues = new ArrayList<>();
 	
 	//attributes
-	private final IElementTakerElementGetter<ArrayList<N>, N> nextValueFunction;
+	private final IElementTakerElementGetter<N[], N> nextValueFunction;
 	private final IElementTakerElementGetter<N, BigDecimal> squaredMagnitudeFunction;
 	
 	//multi-attribute
@@ -33,8 +34,8 @@ public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 	//constructor
 	public ImpliciteSequence(
 		final int startIndex,
-		final ArrayList<N> startValues,
-		final IElementTakerElementGetter<ArrayList<N>, N> nextValueFunction,
+		final N[] startValues,
+		final IElementTakerElementGetter<N[], N> nextValueFunction,
 		final IElementTakerElementGetter<N, BigDecimal> squaredMagnitudeFunction
 	) {
 		
@@ -137,18 +138,23 @@ public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 	private void calculateValuesAndSquaredMagnitudesUntil(final int index) {
 		
 		final var startValuesCount = getStartValuesCount();
-				
+		
 		while (valuesAndSquaredMagnitudes.size() < index - startIndex + 1) {
 			
-			final var previousValues = new ArrayList<N>(startValuesCount);
+			@SuppressWarnings("unchecked")
+			final var previousValues = (N[])Array.newInstance(valuesAndSquaredMagnitudes.get(0).getRefElement1().getClass(), startValuesCount);
+			
 			final var endIndex = valuesAndSquaredMagnitudes.size() - startValuesCount;
+			var j = 0;
+			
 			for (var i = valuesAndSquaredMagnitudes.size() - 1; i >= endIndex; i--) {
-				previousValues.add(valuesAndSquaredMagnitudes.get(i).getRefElement1());
+				previousValues[j] = valuesAndSquaredMagnitudes.get(i).getRefElement1();
+				j++;
 			}
 			
-			final var value = nextValueFunction.getOutput(previousValues);			
-			final var squaredMagnitude = squaredMagnitudeFunction.getOutput(value);			
-			valuesAndSquaredMagnitudes.add(new Pair<N, BigDecimal>(value, squaredMagnitude));
+			final var value = nextValueFunction.getOutput(previousValues);
+			final var squaredMagnitudeOfValue = squaredMagnitudeFunction.getOutput(value);
+			valuesAndSquaredMagnitudes.add(new Pair<N, BigDecimal>(value, squaredMagnitudeOfValue));
 		}
 	}
 }

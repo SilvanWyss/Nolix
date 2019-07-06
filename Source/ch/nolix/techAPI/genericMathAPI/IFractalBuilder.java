@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.techAPI.genericMathAPI;
 
-//Java imports
+//Java import
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 //own imports
 import ch.nolix.core.functionAPI.I3ElementTakerElementGetter;
@@ -49,7 +48,7 @@ public interface IFractalBuilder {
 	
 	//abstract method
 	public abstract IFractalBuilder setSequencesNextValueFunction(
-		I2ElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+		I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
 		sequenceNextValueFunction
 	);
 	
@@ -58,7 +57,7 @@ public interface IFractalBuilder {
 		final I2ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber>
 		sequenceNextValueFunction
 	) {
-		return setSequencesNextValueFunction((p, c) -> sequenceNextValueFunction.getOutput(p.get(0), c));
+		return setSequencesNextValueFunction((p, c) -> sequenceNextValueFunction.getOutput(p[0], c));
 	}
 	
 	//default method
@@ -66,7 +65,7 @@ public interface IFractalBuilder {
 		final I3ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber, IComplexNumber>
 		sequenceNextValueFunction
 	) {
-		return setSequencesNextValueFunction((p, c) -> sequenceNextValueFunction.getOutput(p.get(0), p.get(1), c));
+		return setSequencesNextValueFunction((p, c) -> sequenceNextValueFunction.getOutput(p[0], p[1], c));
 	}
 	
 	//default method
@@ -75,7 +74,7 @@ public interface IFractalBuilder {
 		sequenceNextValueFunction
 	) {
 		return
-		setSequencesNextValueFunction((p, c) -> sequenceNextValueFunction.getOutput(p.get(0), p.get(1), p.get(2), c));
+		setSequencesNextValueFunction((p, c) -> sequenceNextValueFunction.getOutput(p[0], p[1], p[2], c));
 	}
 	
 	//default method
@@ -92,7 +91,7 @@ public interface IFractalBuilder {
 	) {
 		return
 		setSequencesNextValueFunction(
-			(p, z) -> sequenceNextValueFunction.getOutput(p.get(0), p.get(1), p.get(2), p.get(3), z)
+			(p, z) -> sequenceNextValueFunction.getOutput(p[0], p[1], p[2], p[3], z)
 		);
 	}
 	

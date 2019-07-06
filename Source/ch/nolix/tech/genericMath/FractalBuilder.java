@@ -3,7 +3,6 @@ package ch.nolix.tech.genericMath;
 
 //Java imports
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 //own imports
 import ch.nolix.core.functionAPI.IIntTakerElementGetter;
@@ -24,9 +23,9 @@ public final class FractalBuilder implements IFractalBuilder {
 	public static final IComplexNumber DEFAULT_SEQUENCES_START_VALUE = new ComplexNumber(0.0, 0.0);
 	
 	//default value
-	public static final I2ElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+	public static final I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
 	DEFAULT_SEQUENCES_NEXT_VALUE_FUNCTION =
-	(z, c) -> z.get(0).getPower2().getSum(c);
+	(z, c) -> z[0].getPower2().getSum(c);
 	
 	//default values
 	public static final double DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE = 2.5;
@@ -46,15 +45,11 @@ public final class FractalBuilder implements IFractalBuilder {
 	private int widthInPixel = DEFAULT_WIDHT_IN_PIXEL;
 	
 	//attribute
-	private IElementTakerElementGetter<IComplexNumber, ArrayList<IComplexNumber>> sequencesStartValuesFunction
-	= c -> {
-		final var arrayList = new ArrayList<IComplexNumber>();
-		arrayList.add(DEFAULT_SEQUENCES_START_VALUE);
-		return arrayList;
-	};
+	private IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction
+	= c -> new IComplexNumber[] {DEFAULT_SEQUENCES_START_VALUE};
 	
 	//attribute
-	private I2ElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+	private I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
 	sequencesNextValueFunction =
 	DEFAULT_SEQUENCES_NEXT_VALUE_FUNCTION;
 	
@@ -155,7 +150,7 @@ public final class FractalBuilder implements IFractalBuilder {
 	//method
 	@Override
 	public IFractalBuilder setSequencesNextValueFunction(
-		final I2ElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+		final I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
 		sequenceNextValueFunction
 	) {
 		
@@ -174,19 +169,20 @@ public final class FractalBuilder implements IFractalBuilder {
 	public IFractalBuilder setSequencesStartValuesFunction(
 		IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction
 	) {
+		this.sequencesStartValuesFunction = sequencesStartValuesFunction;
 		
-		this.sequencesStartValuesFunction
-		= c -> {
-			
-			final var arrayList = new ArrayList<IComplexNumber>();
-			
-			final var sequnecesStartValues = sequencesStartValuesFunction.getOutput(c);
-			for (final var ssv : sequnecesStartValues) {
-				arrayList.add(ssv);
-			}
-			 
-			return arrayList;
-		};
+//		this.sequencesStartValuesFunction
+//		= c -> {
+//			
+//			final var arrayList = new ArrayList<IComplexNumber>();
+//			
+//			final var sequnecesStartValues = sequencesStartValuesFunction.getOutput(c);
+//			for (final var ssv : sequnecesStartValues) {
+//				arrayList.add(ssv);
+//			}
+//			 
+//			return arrayList;
+//		};
 		
 		return this;
 	}

@@ -4,7 +4,6 @@ package ch.nolix.tech.genericMath;
 //Java imports
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.ArrayList;
 
 //own imports
 import ch.nolix.core.functionAPI.IIntTakerElementGetter;
@@ -24,10 +23,10 @@ public final class Fractal implements IFractal {
 	private final IClosedInterval realComponentInterval;
 	private final IClosedInterval imaginaryComponentInterval;
 	private final int widthInPixel;
-	private final IElementTakerElementGetter<IComplexNumber, ArrayList<IComplexNumber>> sequencesStartValuesFunction;
+	private final IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction;
 	
 	//attribute
-	private final I2ElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+	private final I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
 	sequencesNextValueFunction;
 	
 	//attributes
@@ -41,8 +40,8 @@ public final class Fractal implements IFractal {
 		final IClosedInterval realComponentInterval,
 		final IClosedInterval imaginaryComponentInterval,
 		final int widthInPixel,
-		final IElementTakerElementGetter<IComplexNumber, ArrayList<IComplexNumber>> sequencesStartValuesFunction,
-		final I2ElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
+		final IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction,
+		final I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
 		sequencesNextValueFunction,
 		final BigDecimal sequencesMinDivergenceMagnitude,
 		final int sequencesMaxIterationCount,
@@ -173,26 +172,26 @@ public final class Fractal implements IFractal {
 	
 	//method
 	@Override
-	public int getSequencesMaxIterationCount() {
+	public int getMaxIterationCount() {
 		return sequencesMaxIterationCount;
 	}
 	
 	//method
 	@Override
-	public BigDecimal getSequencesMinDivergenceMagnitude() {
+	public BigDecimal getMinMagnitudeForConvergence() {
 		return sequencesMinDivergenceMagnitude;
 	}
 	
 	//method
 	@Override
-	public I2ElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
-	getSequencesNextValueFunction() {
+	public I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
+	getNextValueFunction() {
 		return sequencesNextValueFunction;
 	}
 	
 	//method
 	@Override
-	public ArrayList<IComplexNumber> getSequencesStartValues(final IComplexNumber complexNumber) {
+	public IComplexNumber[] getStartValues(final IComplexNumber complexNumber) {
 		return sequencesStartValuesFunction.getOutput(complexNumber);
 	}
 	
@@ -234,8 +233,8 @@ public final class Fractal implements IFractal {
 				final var c =
 				argument.getSum(
 					new ComplexNumber(
-							unitsPerPixel.multiply(BigDecimal.valueOf(x - 1)),
-							unitsPerPixel.multiply(BigDecimal.valueOf(y - 1)),
+							unitsPerPixel.multiply(BigDecimal.valueOf(x - 1.0)),
+							unitsPerPixel.multiply(BigDecimal.valueOf(y - 1.0)),
 							getBigDecimalScale()
 					)
 				);
@@ -251,8 +250,8 @@ public final class Fractal implements IFractal {
 							z -> z.getSquaredMagnitude()
 						)
 						.getConvergenceGrade(
-							getSequencesMinDivergenceMagnitude(),
-							getSequencesMaxIterationCount()
+							getMinMagnitudeForConvergence(),
+							getMaxIterationCount()
 						)
 					)
 				);

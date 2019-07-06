@@ -25,14 +25,14 @@ public final class ImplicitComplexSequenceBuilder implements IImplicitComplexSeq
 	private int startIndex = DEFAULT_START_INDEX;
 	
 	//multi-attribute
-	private ArrayList<IComplexNumber> startValues = new ArrayList<>();
+	private IComplexNumber[] startValues;
 	
 	//attribute
-	private IElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber> nextValueFunction;
+	private IElementTakerElementGetter<IComplexNumber[], IComplexNumber> nextValueFunction;
 	
 	//constructor
 	public ImplicitComplexSequenceBuilder() {
-		startValues.add(DEFAULT_START_VALUE);
+		startValues = new IComplexNumber[] {DEFAULT_START_VALUE};
 	}
 	
 	//method
@@ -50,7 +50,7 @@ public final class ImplicitComplexSequenceBuilder implements IImplicitComplexSeq
 	//method
 	@Override
 	public ImplicitComplexSequenceBuilder setNextValueFunction(
-		final IElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber> nextValueFunction
+		final IElementTakerElementGetter<IComplexNumber[], IComplexNumber> nextValueFunction
 	){
 		this.nextValueFunction = nextValueFunction;
 		
@@ -68,12 +68,12 @@ public final class ImplicitComplexSequenceBuilder implements IImplicitComplexSeq
 	
 	//method
 	@Override
-	public ImplicitComplexSequenceBuilder setStartValues(final Iterable<IComplexNumber> startValues) {
+	public ImplicitComplexSequenceBuilder setStartValues(final IComplexNumber... startValues) {
 		
-		this.startValues.clear();
+		this.startValues = new IComplexNumber[startValues.length];
 		
-		for (final var sv : startValues) {
-			this.startValues.add(sv);
+		for (var i = 0; i < startValues.length; i++) {
+			this.startValues[i] = startValues[i];
 		}
 		
 		return this;

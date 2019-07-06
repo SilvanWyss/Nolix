@@ -1,7 +1,6 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
 import ch.nolix.core.classProvider.CentralClassProvider;
-import ch.nolix.core.container.List;
 import ch.nolix.core.functionAPI.IIntTaker;
 import ch.nolix.tech.genericMath.GenericMathRegistrator;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumber;
@@ -16,7 +15,7 @@ public class ComplexSequenceTutorial {
 		GenericMathRegistrator.register();
 		
 		final var complexNumberFactory = CentralClassProvider.create(IComplexNumberFactory.class);
-		final var startValues = new List<IComplexNumber>(complexNumberFactory.create(0.0, 0.0));
+		final var startValues = new IComplexNumber[] { complexNumberFactory.create(0.0, 0.0) };
 		final var c = complexNumberFactory.create(0.0, 1.0);
 		
 		//Creates a Sequence.
@@ -25,7 +24,7 @@ public class ComplexSequenceTutorial {
 		.create(IImplicitComplexSequenceBuilder.class)
 		.setStartIndex(1)
 		.setStartValues(startValues)
-		.setNextValueFunction(z -> z.get(0).getPower2().getSum(c))
+		.setNextValueFunction(z -> z[0].getPower2().getSum(c))
 		.build();
 		
 		final IIntTaker function = (int i) -> System.out.println("a(" + i + ") = " + sequence.getValue(i));

@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.techAPI.genericMathAPI;
 
-//Java import
-import java.util.ArrayList;
-
 //own imports
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.skillAPI.IBuilder;
@@ -13,12 +10,12 @@ public interface IImplicitComplexSequenceBuilder extends IBuilder<IImplicitSeque
 	
 	//abstract method
 	public abstract IImplicitComplexSequenceBuilder setNextValueFunction(
-		IElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber> nextValueFunction
+		IElementTakerElementGetter<IComplexNumber[], IComplexNumber> nextValueFunction
 	);
 	
 	//abstract method
 	public abstract IImplicitComplexSequenceBuilder setStartIndex(int startIndex);
 	
 	//abstract method
-	public abstract IImplicitComplexSequenceBuilder setStartValues(Iterable<IComplexNumber> startValues);
+	public abstract IImplicitComplexSequenceBuilder setStartValues(IComplexNumber... startValues);
 }

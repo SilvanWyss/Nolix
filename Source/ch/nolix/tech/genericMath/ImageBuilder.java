@@ -81,8 +81,8 @@ public final class ImageBuilder implements IImageBuilder {
 			final var c =
 			argument.getSum(
 				new ComplexNumber(
-						unitsPerPixel.multiply(BigDecimal.valueOf(x - 1)),
-						unitsPerPixel.multiply(BigDecimal.valueOf(y - 1)),
+						unitsPerPixel.multiply(BigDecimal.valueOf(x - 1.0)),
+						unitsPerPixel.multiply(BigDecimal.valueOf(y - 1.0)),
 						fractal.getBigDecimalScale()
 				)
 			);
@@ -93,13 +93,13 @@ public final class ImageBuilder implements IImageBuilder {
 				fractal.getColor(
 					new ImpliciteSequence<IComplexNumber>(
 						1,
-						fractal.getSequencesStartValues(c),
-						z -> fractal.getSequencesNextValueFunction().getOutput(z, c),
+						fractal.getStartValues(c),
+						z -> fractal.getNextValueFunction().getOutput(z, c),
 						z -> z.getSquaredMagnitude()
 					)
 					.getConvergenceGrade(
-						fractal.getSequencesMinDivergenceMagnitude(),
-						fractal.getSequencesMaxIterationCount()
+						fractal.getMinMagnitudeForConvergence(),
+						fractal.getMaxIterationCount()
 					)
 				)
 			);

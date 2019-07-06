@@ -3,7 +3,6 @@ package ch.nolix.tech.genericMath;
 
 //Java imports
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 //own imports
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
@@ -15,13 +14,13 @@ public final class ParametrizedImplicitSequenceCreator<N> implements IParametriz
 	
 	//attributes
 	private final int sequencesStartIndex;
-	private final IElementTakerElementGetter<ArrayList<N>, N> sequencesNextValueFunction;
+	private final IElementTakerElementGetter<N[], N> sequencesNextValueFunction;
 	private final IElementTakerElementGetter<N, BigDecimal> magnitudeFunction;
 	
 	//constructor
 	public ParametrizedImplicitSequenceCreator(
 		final int sequencesStartIndex,
-		final IElementTakerElementGetter<ArrayList<N>, N> sequencesNextValueFunction,
+		final IElementTakerElementGetter<N[], N> sequencesNextValueFunction,
 		final IElementTakerElementGetter<N, BigDecimal> magnitudeFunction
 	) {
 		
@@ -42,7 +41,7 @@ public final class ParametrizedImplicitSequenceCreator<N> implements IParametriz
 	
 	//method
 	@Override
-	public ImpliciteSequence<N> createSequence(final ArrayList<N> startValue) {
+	public ImpliciteSequence<N> createSequence(final N[] startValue) {
 		return
 		new ImpliciteSequence<>(
 			sequencesStartIndex,
