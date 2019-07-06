@@ -31,7 +31,7 @@ public final class BlackWhiteJuliaFractalTutorial {
 				.setImaginaryComponentInterval(-1.5, 1.5)
 				.setWidthInPixel(800)
 				.setSequencesStartValuesFunction(c -> new IComplexNumber[]{c})
-				.setSequencesNextValueFunctionFor1Predecessor((p, c) -> p.getSquare().getSum(j))
+				.setSequencesNextValueFunctionFor1Predecessor((p, c) -> p.getPower2().getSum(j))
 				.setSequencesMinDivergenceMagnitude(2.5)
 				.setSequencesMaxIterationCount(maxIterationCount)
 				.setColorFunction(i -> i < maxIterationCount ? Color.WHITE : Color.BLACK)

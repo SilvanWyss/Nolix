@@ -25,7 +25,7 @@ public class ComplexSequenceTutorial {
 		.create(IImplicitComplexSequenceBuilder.class)
 		.setStartIndex(1)
 		.setStartValues(startValues)
-		.setNextValueFunction(z -> z.get(0).getSquare().getSum(c))
+		.setNextValueFunction(z -> z.get(0).getPower2().getSum(c))
 		.build();
 		
 		final IIntTaker function = (int i) -> System.out.println("a(" + i + ") = " + sequence.getValue(i));

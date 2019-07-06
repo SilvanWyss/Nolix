@@ -31,7 +31,7 @@ public final class CustomFractalTutorial3 {
 				.setImaginaryComponentInterval(-1.0, 1.0)
 				.setWidthInPixel(800)
 				.setSequencesStartValuesFunction(c -> new IComplexNumber[]{c})
-				.setSequencesNextValueFunctionFor1Predecessor((p, c) -> p.getSquare().getSum(j))
+				.setSequencesNextValueFunctionFor1Predecessor((p, c) -> p.getPower2().getSum(j))
 				.setSequencesMinDivergenceMagnitude(2.5)
 				.setSequencesMaxIterationCount(maxIterationCount)
 				.setColorFunction(

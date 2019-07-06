@@ -29,7 +29,7 @@ public class MandelbrotFractalTutorial {
 				.setImaginaryComponentInterval(-1.5, 1.5)
 				.setWidthInPixel(800)
 				.setSequencesStartValues(CentralClassProvider.create(IComplexNumberFactory.class).create(0.0, 0.0))
-				.setSequencesNextValueFunctionFor1Predecessor((p, c) -> p.getSquare().getSum(c))
+				.setSequencesNextValueFunctionFor1Predecessor((p, c) -> p.getPower2().getSum(c))
 				.setSequencesMinDivergenceMagnitude(2.5)
 				.setSequencesMaxIterationCount(maxIterationCount)
 				.setColorFunction(

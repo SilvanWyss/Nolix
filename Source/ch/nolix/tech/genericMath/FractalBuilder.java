@@ -26,7 +26,7 @@ public final class FractalBuilder implements IFractalBuilder {
 	//default value
 	public static final I2ElementTakerElementGetter<ArrayList<IComplexNumber>, IComplexNumber, IComplexNumber>
 	DEFAULT_SEQUENCES_NEXT_VALUE_FUNCTION =
-	(z, c) -> z.get(0).getSquare().getSum(c);
+	(z, c) -> z.get(0).getPower2().getSum(c);
 	
 	//default values
 	public static final double DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE = 2.5;

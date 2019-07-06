@@ -26,6 +26,12 @@ public interface IComplexNumber {
 	public abstract IComplexNumber getPower(int exponent);
 	
 	//abstract method
+	public abstract IComplexNumber getProduct(BigDecimal number);
+	
+	//abstract method
+	public abstract IComplexNumber getProduct(double number);
+	
+	//abstract method
 	public abstract IComplexNumber getProduct(IComplexNumber complexNumber);
 	
 	//abstract method
@@ -35,7 +41,13 @@ public interface IComplexNumber {
 	public abstract int getScale();
 	
 	//abstract method
-	public abstract IComplexNumber getSquare();
+	public abstract IComplexNumber getPower2();
+	
+	//abstract method
+	public abstract IComplexNumber getPower3();
+	
+	//abstract method
+	public abstract IComplexNumber getPower4();
 	
 	//abstract method
 	public abstract BigDecimal getSquaredMagnitude();
@@ -44,10 +56,10 @@ public interface IComplexNumber {
 	public abstract IComplexNumber getSum(BigDecimal number);
 	
 	//abstract method
-	public abstract IComplexNumber getSum(IComplexNumber complexNumber);
-	
-	//abstract method
 	public abstract IComplexNumber getSum(double number);
+
+	//abstract method
+	public abstract IComplexNumber getSum(IComplexNumber complexNumber);
 	
 	//abstract method
 	public abstract boolean isPureImaginary();
