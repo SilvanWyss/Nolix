@@ -65,7 +65,7 @@ public final class SubContainer<E> implements IContainer<E> {
 		Validator
 		.suppose(endIndex)
 		.thatIsNamed("end index")
-		.isNotSmallerThan(startIndex);
+		.isBiggerThanOrEquals(startIndex);
 		
 		Validator
 		.suppose(endIndex)

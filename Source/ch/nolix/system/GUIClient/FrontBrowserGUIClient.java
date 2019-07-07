@@ -26,9 +26,6 @@ public final class FrontBrowserGUIClient extends FrontGUIClientoid<FrontBrowserG
 	 * @throws NullArgumentException if the given application is null.
 	 */
 	public FrontBrowserGUIClient(final Application<BackGUIClient> application) {
-		
-		super(true);
-		
 		internal_connectTo(application);
 	}
 	

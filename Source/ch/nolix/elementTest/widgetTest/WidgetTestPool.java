@@ -3,11 +3,6 @@ package ch.nolix.elementTest.widgetTest;
 
 //own import
 import ch.nolix.core.testoid.TestPool;
-import ch.nolix.elementTest.widgetTest.AreaTest;
-import ch.nolix.elementTest.widgetTest.CaptionPositionTest;
-import ch.nolix.elementTest.widgetTest.CheckboxTest;
-import ch.nolix.elementTest.widgetTest.LabelTest;
-import ch.nolix.elementTest.widgetTest.TextBoxTest;
 
 //class
 /**

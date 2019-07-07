@@ -12,7 +12,7 @@ import ch.nolix.core.validator.Validator;
 public final class SQLExecutor implements Resettable<SQLExecutor> {
 	
 	//attribute
-	private final SQLConnection SQLConnection;
+	private final SQLConnection mSQLConnection;
 	
 	//multi-attribute
 	private final List<String> statements = new List<>();
@@ -22,7 +22,7 @@ public final class SQLExecutor implements Resettable<SQLExecutor> {
 		
 		Validator.suppose(SQLConnection).isOfType(SQLConnection.class);
 		
-		this.SQLConnection = SQLConnection;
+		this.mSQLConnection = SQLConnection;
 	}
 	
 	//method
@@ -46,7 +46,7 @@ public final class SQLExecutor implements Resettable<SQLExecutor> {
 	//method
 	public void execute() {
 		try {
-			SQLConnection.execute(statements.toString());
+			mSQLConnection.execute(statements.toString());
 		}
 		finally {
 			/*

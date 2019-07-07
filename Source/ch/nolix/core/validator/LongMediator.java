@@ -274,22 +274,6 @@ public class LongMediator extends Mediator {
 	//method
 	/**
 	 * @return a new {@link TerminalLongMediator} for the argument of the current {@link LongMediator}.
-	 * @param SmallerArgumentException
-	 * if the argument of this long mediator is smaller than the given value.
-	 */
-	public TerminalLongMediator isNotSmallerThan(final long value) {
-	
-		//Checks if the argument of this long mediator is not smaller than the given value.
-		if (argument < value) {
-			throw new SmallerArgumentException(getArgumentName(), argument, value);
-		}
-		
-		return new TerminalLongMediator(getArgumentName(), argument);
-	}
-	
-	//method
-	/**
-	 * @return a new {@link TerminalLongMediator} for the argument of the current {@link LongMediator}.
 	 * @throws NonPositiveArgumentException
 	 * if the argument of this long mediator is not positive.
 	 */

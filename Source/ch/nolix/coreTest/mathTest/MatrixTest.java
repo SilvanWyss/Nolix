@@ -160,7 +160,7 @@ public final class MatrixTest extends Test {
 		final double[] solution = matrix.getSolutionAsExtendedMatrix();
 		
 		//verification
-		expect(solution.length).isEqualTo(2);;
+		expect(solution.length).isEqualTo(2);
 		expect(solution[0]).isEqualTo(2.5);
 		expect(solution[1]).isEqualTo(5.0);
 	}
@@ -175,7 +175,7 @@ public final class MatrixTest extends Test {
 		final double[] solution = matrix.getSolutionAsExtendedMatrix();
 		
 		//verification
-		expect(solution.length).isEqualTo(3);;
+		expect(solution.length).isEqualTo(3);
 		expect(solution[0]).isEqualTo(1.0);
 		expect(solution[1]).isEqualTo(1.0);
 		expect(solution[2]).isEqualTo(1.0);

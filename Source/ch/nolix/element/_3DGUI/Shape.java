@@ -32,7 +32,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	private _3DPoint position = DEFAULT_POSITION;
 	
 	//optional attributes
-	private _3DGUI<?> GUI;
+	private _3DGUI<?> mGUI;
 	private ShapeRenderManager<S, ?, ?> shapeRenderManager;
 	
 	//method
@@ -40,7 +40,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 * @return true if this shape belongs to a GUI.
 	 */
 	public final boolean belongsToAGUI() {
-		return (GUI != null);
+		return (mGUI != null);
 	}
 	
 	//method
@@ -184,26 +184,26 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	/**
 	 * Sets the GUI this shape will belong to.
 	 * 
-	 * @param GUI
+	 * @param pGUI
 	 * @return this shape.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public final S setGUI(_3DGUI<?> GUI) {
+	public final S setGUI(_3DGUI<?> pGUI) {
 		
 		//Checks if the given GUI is not null.
-		Validator.suppose(GUI).thatIsNamed("GUI").isNotNull();
+		Validator.suppose(pGUI).thatIsNamed("GUI").isNotNull();
 		
 		//Checks if this shape does not belong already to a GUI.
 		if (belongsToAGUI()) {
 			throw new InvalidArgumentException(this, "belongs already to a GUI");
 		}
 		
-		this.shapeRenderManager = new ShapeRenderManager(this, GUI.getShapeRendererFor(this));
+		this.shapeRenderManager = new ShapeRenderManager(this, pGUI.getShapeRendererFor(this));
 		
 		//Sets the GUI of this shape.
-		this.GUI = GUI;
+		mGUI = pGUI;
 		
-		getRefShapes().forEach(s -> s.setGUI(GUI));
+		getRefShapes().forEach(s -> s.setGUI(pGUI));
 		getRefShapes().forEach(s -> getRefShapeRenderManager().addSubRenderObject(s));
 		
 		return asConcreteType();
@@ -304,7 +304,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 		
 		supposeBelongsToAGUI();
 		
-		return GUI;
+		return mGUI;
 	}
 
 	//method

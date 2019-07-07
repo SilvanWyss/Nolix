@@ -25,7 +25,7 @@ public final class MethodHelper {
 		
 		//Iterates the parameters of the given method.
 		for (final Parameter p : method.getParameters()) {
-			if (!p.getType().getSimpleName().equals(String.class.getSimpleName())) {
+			if (!p.getType().isAssignableFrom(String.class)) {
 				return false;
 			}
 		}

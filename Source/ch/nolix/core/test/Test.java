@@ -2,7 +2,7 @@
 package ch.nolix.core.test;
 
 //Java import
-import java.util.Vector;
+import java.util.ArrayList;
 
 //own imports
 import ch.nolix.core.functionAPI.IFunction;
@@ -241,11 +241,11 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	protected final MultiLongMediator expectTheLongs(final long... values) {
 		
 		//Creates long vector.
-		final var longVectors = new Vector<Long>();
+		final var longArrayList = new ArrayList<Long>();
 		for (long v: values) {
-			longVectors.add(v);
+			longArrayList.add(v);
 		}
 		
-		return expectTheLongs(longVectors);
+		return expectTheLongs(longArrayList);
 	}
 }

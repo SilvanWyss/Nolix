@@ -85,7 +85,7 @@ abstract class BackGUIClientoidGUI extends GUI<BackGUIClientoidGUI> {
 	
 	//method
 	public void setCursorXPosition(final int cursorXPosition) {
-		this.cursorXPosition = cursorYPosition;
+		this.cursorXPosition = cursorXPosition;
 	}
 	
 	//method

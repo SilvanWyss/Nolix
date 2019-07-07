@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementTest.containerTest;
 
+//own imports
 import ch.nolix.element.containerWidget.SingleContainer;
 import ch.nolix.element.widget.Label;
 import ch.nolix.elementTest.widgetTest.BorderWidgetTest;
@@ -16,7 +17,7 @@ import ch.nolix.elementTest.widgetTest.BorderWidgetTest;
 public class SingleContainerTest extends BorderWidgetTest<SingleContainer> {
 	
 	//test case
-	public void testCase_reset() {
+	public void testCase_reset_2() {
 		
 		//setup
 		final var singleContainer = new SingleContainer(new Label("Test"));

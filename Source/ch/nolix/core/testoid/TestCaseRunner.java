@@ -58,6 +58,7 @@ final class TestCaseRunner extends Thread {
 	}
 	
 	//method
+	@Override
 	public void run() {
 		try {
 			method.invoke(parentTest, (Object[])new Class[0]);

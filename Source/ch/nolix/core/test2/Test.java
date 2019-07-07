@@ -105,9 +105,12 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 	 * @throws Error if the given string is not a empty string
 	 */
 	protected final void expectEmptyString(String string) {
+		
 		if (string == null) {
 			new TestAccessor(this).addCurrentTestCaseError("Empty string was expected, but null was received.");
+			return;
 		}
+		
 		if (string.length() > 0) {
 			new TestAccessor(this).addCurrentTestCaseError("Empty string was expected, but '" + string + "' was received.");
 		}
@@ -236,6 +239,7 @@ public abstract class Test extends ch.nolix.core.testoid.Testoid {
 		//Handles the case that the given string is null.
 		if (string == null) {
 			new TestAccessor(this).addCurrentTestCaseError("Non-empty string was expected, but null was received.");
+			return;
 		}
 		
 		//Handles the case that the given string is empty.

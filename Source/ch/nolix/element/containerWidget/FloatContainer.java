@@ -24,7 +24,7 @@ implements Clearable<FloatContainer> {
 	}
 	
 	//constructor
-	public FloatContainer(final Iterable<Widget<?, ?>> widets) {
+	public FloatContainer(final Iterable<Widget<?, ?>> widgets) {
 		
 		resetAndApplyDefaultConfiguration();
 		

@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
-import ch.nolix.system.databaseAdapter.SingleProperty;
-
 //class
 public final class Property<V> extends SingleProperty<V> {
 	

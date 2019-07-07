@@ -9,10 +9,10 @@ public abstract class BackGUIClientoidSession<BGUIC extends BackGUIClientoid<BGU
 extends Session<BGUIC> {
 	
 	//attribute
-	private GUI<?> GUI = new BackGUIClientoidApplicationGUI();
+	private GUI<?> mGUI = new BackGUIClientoidApplicationGUI();
 	
 	//package-visible method
 	protected final GUI<?> getRefGUI() {
-		return GUI;
+		return mGUI;
 	}
 }

@@ -78,7 +78,7 @@ public final class LocalEndPoint<M, R> extends EndPoint<M, R> {
 		this.target = null;
 		
 		//Lets the given server take the counterpart of this local end point.
-		server.takeEndPoint(getRefCounterpart(), getRefCounterpart().getTarget());
+		server.takeEndPoint(getRefCounterpart());
 	}
 	
 	private LocalEndPoint(final LocalEndPoint<M, R> counterPart) {

@@ -35,10 +35,7 @@ final class FrontBroserGUIClientoidPaintManager {
 	}
 	
 	//method
-	private IElementTaker<FrontBrowserGUIClientoidPainting> createCreatePainerCommand(
-		final int painterIndex,
-		final Statement painterCommand
-	) {
+	private IElementTaker<FrontBrowserGUIClientoidPainting> createCreatePainerCommand(final Statement painterCommand) {
 		return painting -> painting.addPainter(painting.getRefPainterByIndex(1).createPainter());
 	}
 	
@@ -59,7 +56,7 @@ final class FrontBroserGUIClientoidPaintManager {
 		//Enumerates the header of the given painter command.
 		switch (painterCommand.getHeader()) {
 			case Protocol.CREATE_PAINTER_HEADER:
-				return createCreatePainerCommand(painterIndex, painterCommand);
+				return createCreatePainerCommand(painterCommand);
 			case Protocol.PAINT_FILLED_RECTANGLE_HEADER:
 				return createPaintFilledRectangleCommand(painterIndex, painterCommand);
 			case Protocol.PAINT_IMAGE_HEADER:

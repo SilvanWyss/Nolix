@@ -18,7 +18,7 @@ public abstract class WidgetTest<W extends Widget<W, ?>>
 extends ObjectTest<W> {
 	
 	//test case
-	public void testCase_collapse() {
+	public final void testCase_collapse() {
 		
 		//setup
 		final var widget = createTestObject();
@@ -31,7 +31,7 @@ extends ObjectTest<W> {
 	}
 	
 	//test case
-	public void testCase_getHeight() {
+	public final void testCase_getHeight() {
 		
 		//setup
 		final var widget = createTestObject();
@@ -44,7 +44,7 @@ extends ObjectTest<W> {
 	}
 	
 	//test case
-	public void testCase_getWidth() {
+	public final void testCase_getWidth() {
 		
 		//setup
 		final var widget = createTestObject();
@@ -57,7 +57,7 @@ extends ObjectTest<W> {
 	}
 	
 	//test case
-	public void testCase_noteAnyLeftMouseButtonPress() {
+	public final void testCase_noteAnyLeftMouseButtonPress() {
 		
 		//setup
 		final var widget = createTestObject();
@@ -74,7 +74,7 @@ extends ObjectTest<W> {
 	}
 	
 	//test case
-	public void testCase_reset() {
+	public final void testCase_reset() {
 		
 		//setup
 		final var widget = createTestObject();

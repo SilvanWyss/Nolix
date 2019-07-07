@@ -18,22 +18,22 @@ import ch.nolix.system.client.Client;
 public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> extends Client<FGC> {
 	
 	//attributes
-	private final GUI<?> GUI;
+	private final GUI<?> mGUI;
 	private final FrontBrowserGUIClientoidWidget frontBrowserGUIClientoidWidget;
 	
 	//constructor
-	public FrontGUIClientoid(final boolean browserGUI) {
+	public FrontGUIClientoid() {
 		
 		//Calls other constructor.
 		this(new Frame());
 	}
 	
 	//constructor
-	public FrontGUIClientoid(final GUI<?> GUI) {
-		this.GUI = GUI;
+	public FrontGUIClientoid(final GUI<?> rGUI) {
+		mGUI = rGUI;
 		this.frontBrowserGUIClientoidWidget = new FrontBrowserGUIClientoidWidget();
-		GUI.setController(new FrontGUIClientoidGUIController(this));
-		GUI.addLayerOnTop(frontBrowserGUIClientoidWidget);
+		rGUI.setController(new FrontGUIClientoidGUIController(this));
+		rGUI.addLayerOnTop(frontBrowserGUIClientoidWidget);
 	}
 	
 	//method
@@ -46,7 +46,7 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 		//Calls method of the base class.
 		super.close();
 		
-		GUI.close();
+		mGUI.close();
 	}
 	
 	public abstract FrontGUIClientoidType getFrontEndType();
@@ -161,7 +161,7 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 			+ Protocol.ADD_OR_CHANGE_WIDGETS_ATTRIBUTES_HEADER
 			+ '('
 			+ 
-				GUI.getInteractionAttributesOfWidgetsRecursively()
+				mGUI.getInteractionAttributesOfWidgetsRecursively()
 				.to(ias -> '(' + ias.toString() + ')')
 			+ ')',
 			
@@ -189,7 +189,7 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 			+ '.'
 			+ Protocol.RESET_HEADER
 			+ '('
-			+ GUI.getAttributes()
+			+ attributes
 			+ ')'
 		);
 	}
@@ -203,9 +203,9 @@ public abstract class FrontGUIClientoid<FGC extends FrontGUIClientoid<FGC>> exte
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
 	private void resetGUI(final Iterable<? extends DocumentNodeoid> attributes) {
-		GUI.reset(attributes);
-		GUI.updateFromConfiguration();
-		GUI.noteMouseMove();
+		mGUI.reset(attributes);
+		mGUI.updateFromConfiguration();
+		mGUI.noteMouseMove();
 	}
 	
 	//method

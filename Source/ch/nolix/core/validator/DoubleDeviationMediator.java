@@ -52,7 +52,7 @@ public final class DoubleDeviationMediator extends Mediator {
 	 * @param value
 	 * @throws UnequalArgumentException if the argument of this named double deviation mediator does not equal the given value with a deviation that is not bigger than the max deviation of this named double deviation mediator.
 	 */
-	public void equals(final double value) {
+	public void isEqualTo(final double value) {
 		
 		//Checks if the argument of this named double deviation mediator equals the given value with a deviation that is not bigger than the max deviation of this named double deviation mediator.
 		if (Math.abs(value - argument) > maxDeviation) {
@@ -65,6 +65,6 @@ public final class DoubleDeviationMediator extends Mediator {
 	 * @throws UnequalArgumentException if the argument of htis named double deviation mediator is not 0.0 with a deviation that is not bigger than the max deviatio of this named double deviation mediator.
 	 */
 	public void isZero() {
-		equals(0.0);
+		isEqualTo(0.0);
 	}
 }

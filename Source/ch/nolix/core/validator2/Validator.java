@@ -151,12 +151,6 @@ public final class Validator {
 		}
 	}
 	
-	public static final void throwExceptionIfValueIsNotOne(String name, int value) {
-		if (value != 1) {
-			
-		}
-	}
-	
 	//static method
 	/**
 	 * @param name

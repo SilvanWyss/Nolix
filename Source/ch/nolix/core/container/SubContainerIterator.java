@@ -57,7 +57,7 @@ final class SubContainerIterator<E> implements Iterator<E> {
 		Validator
 		.suppose(endIndex)
 		.thatIsNamed("end index")
-		.isNotSmallerThan(startIndex);
+		.isBiggerThanOrEquals(startIndex);
 		
 		this.endIndex = endIndex;
 		

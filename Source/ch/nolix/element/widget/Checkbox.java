@@ -250,31 +250,27 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 			
 			final var a = Calculator.getMax(1, (int)(0.75 * t));
 			
-			//Paints the line from the bottom left corner to to the top right corner of the cross.
-			{
-				final int[] xs = new int[4];
-				final int[] ys = new int[4];
+			//Paints the line from the bottom left corner to to the top right corner of the cross.	
+				final int[] bottomLeftToTopRightLineXs = new int[4];
+				final int[] bottomLeftToTopRightLineYs = new int[4];
 				
-				xs[0] = a;		ys[0] = s;
-				xs[1] = s;		ys[1] = a;
-				xs[2] = s - a;	ys[2] = 0;
-				xs[3] = 0;		ys[3] = s - a;
+				bottomLeftToTopRightLineXs[0] = a;		bottomLeftToTopRightLineYs[0] = s;
+				bottomLeftToTopRightLineXs[1] = s;		bottomLeftToTopRightLineYs[1] = a;
+				bottomLeftToTopRightLineXs[2] = s - a;	bottomLeftToTopRightLineYs[2] = 0;
+				bottomLeftToTopRightLineXs[3] = 0;		bottomLeftToTopRightLineYs[3] = s - a;
 				
-				painter.paintFilledPolygon(xs, ys);
-			}
-			
+				painter.paintFilledPolygon(bottomLeftToTopRightLineXs, bottomLeftToTopRightLineYs);
+				
 			//Paints the line from the bottom right corner to the top left corner of the cross.
-			{
-				final int[] xs = new int[4];
-				final int[] ys = new int[4];
+				final int[] bottomRightToTopLeftLineXs = new int[4];
+				final int[] bottomRightToTopLeftLineYs = new int[4];
 				
-				xs[0] = s;		ys[0] = s - a;
-				xs[1] = a;		ys[1] = 0;
-				xs[2] = 0;		ys[2] = a;
-				xs[3] = s - a;	ys[3] = s;
+				bottomRightToTopLeftLineXs[0] = s;		bottomRightToTopLeftLineYs[0] = s - a;
+				bottomRightToTopLeftLineXs[1] = a;		bottomRightToTopLeftLineYs[1] = 0;
+				bottomRightToTopLeftLineXs[2] = 0;		bottomRightToTopLeftLineYs[2] = a;
+				bottomRightToTopLeftLineXs[3] = s - a;	bottomRightToTopLeftLineYs[3] = s;
 				
-				painter.paintFilledPolygon(xs, ys);
-			}
+				painter.paintFilledPolygon(bottomRightToTopLeftLineXs, bottomRightToTopLeftLineYs);
 		}
 	}
 	

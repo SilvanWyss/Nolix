@@ -66,7 +66,7 @@ extends ClosableElement {
 	 * 
 	 * @param endPoint
 	 */
-	public final void takeEndPoint(final EndPoint<M, R> endPoint, final String target) {
+	public final void takeEndPoint(final EndPoint<M, R> endPoint) {
 		endPointTaker
 		.getRefFirst(ept -> ept.hasName(endPoint.getTarget()))
 		.takeEndPoint(endPoint);

@@ -28,7 +28,7 @@ import ch.nolix.templates.frontConsoleClientLooks.GreyBlueFrontConsoleClientLook
 public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClient> {
 
 	//attributes
-		private final GUI<?> GUI;
+		private final GUI<?> mGUI;
 		
 		private final Console infoPanel =
 		new Console()
@@ -113,19 +113,19 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	/**
 	 * /Creates new console front client with the given GUI.
 	 * 
-	 * @param GUI
+	 * @param pGUI
 	 * @throws NullArgumentException if the given GUI is null.
 	 */
-	private FrontConsoleClient(final GUI<?> GUI) {
+	private FrontConsoleClient(final GUI<?> pGUI) {
 		
 		//Checks if the given GUI is not null.
-		Validator.suppose(GUI).isOfType(GUI.class);
+		Validator.suppose(pGUI).isOfType(GUI.class);
 		
 		//Sets the GUI of this console front client.
-		this.GUI = GUI;
+		mGUI = pGUI;
 		
 		//Builds up the GUI of this console front client.					
-		GUI
+		pGUI
 		.setTitle("Console")
 		.addLayerOnTop(
 			new VerticalStack(
@@ -138,7 +138,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	}
 	
 	public void quit() {
-		((Frame)GUI).close();
+		((Frame)mGUI).close();
 	}
 	
 	//method
@@ -205,7 +205,7 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 			case Protocol.QUIT_COMMAND:
 				
 				try {
-					GUI.close();
+					mGUI.close();
 				}
 				catch (final Exception exception) {
 					throw new RuntimeException(exception);
@@ -216,24 +216,24 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 				setDesign(new StandardConfiguration(command.getRefOneAttribute().getRefAttributes()));
 				break;
 			case Protocol.SET_TITLE_COMMAND:
-				GUI.setTitle(command.getOneAttributeAsString());
+				mGUI.setTitle(command.getOneAttributeAsString());
 				break;
 		
 			//Handles console commands.
 			case Protocol.CLEAR_CONSOLE_COMMAND:
 				console.clear();
-				GUI.refresh();
+				mGUI.refresh();
 				break;
 			case Protocol.READ_ENTER_FROM_CONSOLE_COMMAND:
 				console.readEnter();
 				break;
 			case Protocol.WRITE_EMPTY_LINE_TO_CONSOLE_COMMAND:
 				console.writeEmptyLine();
-				GUI.refresh();
+				mGUI.refresh();
 				break;
 			case Protocol.WRITE_LINE_TO_CONSOLE_COMMAND:
 				console.writeLine(command.getOneAttributeAsString());
-				GUI.refresh();
+				mGUI.refresh();
 				break;
 			case Protocol.WRITE_LINES_TO_CONSOLE_COMMAND:
 				console.writeLines(command.getAttributesToStrings());
@@ -242,19 +242,19 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 			//Handles info panel commands.
 			case Protocol.CLEAR_INFO_PANEL_COMMAND:
 				infoPanel.clear();
-				GUI.refresh();
+				mGUI.refresh();
 				break;
 			case Protocol.WRITE_EMPTY_LINE_TO_INFO_PANEL_COMMAND:
 				infoPanel.writeEmptyLine();
-				GUI.refresh();
+				mGUI.refresh();
 				break;
 			case Protocol.WRITE_LINE_TO_INFO_PANEL_COMMAND:
 				infoPanel.writeLine(command.getOneAttributeAsString());
-				GUI.refresh();
+				mGUI.refresh();
 				break;
 			case Protocol.WRITE_LINES_TO_INFO_PANEL_COMMAND:
 				infoPanel.writeLines(command.getAttributesToStrings());
-				GUI.refresh();
+				mGUI.refresh();
 				break;
 				
 			default:
@@ -271,6 +271,6 @@ public final class FrontConsoleClient extends BackGUIClientoid<FrontConsoleClien
 	 * @param design
 	 */
 	private void setDesign(final StandardConfiguration design) {
-		GUI.setConfiguration(design);
+		mGUI.setConfiguration(design);
 	}
 }
