@@ -3,6 +3,7 @@ package ch.nolix.core.fileSystem;
 
 //Java imports
 import java.io.File;
+import java.io.IOError;
 import java.io.IOException;
 
 //own imports
@@ -10,7 +11,6 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.util.ShellProvider;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -46,7 +46,12 @@ public final class FileSystemAccessor {
 	 * @param path
 	 */
 	public static void openInFileExplorer(final String path) {
-		ShellProvider.run("explorer.exe" + path);
+		try {
+			Runtime.getRuntime().exec("explorer.exe /select," + path);
+		}
+		catch (final IOException IOException) {
+			throw new IOError(IOException);
+		}
 	}
 	
 	//static method
