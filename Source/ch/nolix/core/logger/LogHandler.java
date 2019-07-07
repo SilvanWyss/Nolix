@@ -55,6 +55,7 @@ public abstract class LogHandler {
 					default:
 						logSafely(logEntry);
 				}
+				break;
 			case FATAL_ERROR:
 				switch (logEntry.getHarmLevel()) {
 					case INFO:
