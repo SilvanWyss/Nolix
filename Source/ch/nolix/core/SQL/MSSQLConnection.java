@@ -53,7 +53,7 @@ public final class MSSQLConnection extends SQLConnection {
 			userPassword	
 		);
 	}
-
+	
 	//method
 	@Override
 	protected String getSQLDatabaseEngineDriverClass() {

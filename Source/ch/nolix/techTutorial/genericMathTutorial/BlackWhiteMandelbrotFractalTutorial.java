@@ -41,7 +41,7 @@ public class BlackWhiteMandelbrotFractalTutorial {
 		);
 		
 		//Refreshes the frame as long as it is alive.
-		Sequencer.asLongAs(() -> frame.isAlive()).afterAllMilliseconds(100).run(() -> frame.refresh());
+		Sequencer.asLongAs(() -> frame.isOpen()).afterAllMilliseconds(100).run(() -> frame.refresh());
 	}
 	
 	private BlackWhiteMandelbrotFractalTutorial() {}

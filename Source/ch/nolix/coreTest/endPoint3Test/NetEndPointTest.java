@@ -32,17 +32,14 @@ public final class NetEndPointTest extends Test {
 		final EndPointTakerMock endPointTakerMock
 		= new EndPointTakerMock(new ReplierMock(reply));
 		netServer.addEndPointTaker(endPointTakerMock);
-		registerToClose(netServer);
 		
 		//execution
-		final NetEndPoint netEndPoint
-		= new NetEndPoint(port, endPointTakerMock.getName());
-		registerToClose(netEndPoint);
+		new NetEndPoint(port, endPointTakerMock.getName());
 		Thread.sleep(200);
 		
 		//verification
 		expect(endPointTakerMock.hasLastEndPoint());
-		expect(endPointTakerMock.getLastEndPoint().isAlive());
+		expect(endPointTakerMock.getLastEndPoint().isOpen());
 	}
 	
 	//test case
@@ -54,19 +51,17 @@ public final class NetEndPointTest extends Test {
 		
 		//setup
 		final NetServer netServer = new NetServer(port);
-		registerToClose(netServer);
 		final EndPointTakerMock endPointTakerMock = new EndPointTakerMock(new ReplierMock(reply));
 		netServer.addEndPointTaker(endPointTakerMock);
 		
 		//execution
 		final NetEndPoint netEndPoint = new NetEndPoint(port, endPointTakerMock.getName());
-		registerToClose(netEndPoint);
 		final String received_reply = netEndPoint.sendAndGetReply("test");
 		Thread.sleep(200);
 		
 		//verification
 		expect(endPointTakerMock.hasLastEndPoint());
-		expect(endPointTakerMock.getLastEndPoint().isAlive());
+		expect(endPointTakerMock.getLastEndPoint().isOpen());
 		expect(received_reply).isEqualTo(reply);
 	}
 	

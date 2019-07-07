@@ -7,7 +7,7 @@ import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
-import ch.nolix.core.skillAPI.Closable;
+import ch.nolix.core.skillAPI.OptionalClosable;
 import ch.nolix.core.skillAPI.IRequestableContainer;
 import ch.nolix.core.skillAPI.Refreshable;
 import ch.nolix.core.specificationAPI.Specifiable;
@@ -17,7 +17,7 @@ import ch.nolix.element.configuration.IConfigurationElement;
 public interface IGUI<G extends IGUI<G>>
 extends
 	Clearable<G>,
-	Closable,
+	OptionalClosable,
 	IConfigurationElement<G>,
 	ISmartObject<G>,
 	IRequestableContainer,

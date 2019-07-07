@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.core.endPoint2;
 
-//own imports
-import ch.nolix.core.closableElement.ClosableElement;
 import ch.nolix.core.communicationAPI.IReceiver;
 import ch.nolix.core.communicationAPI.ISender;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.optionalClosableElement.OptionalClosableElement;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 
@@ -19,7 +18,7 @@ import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
  * @month 2017-04
  * @lines 160
  */
-public abstract class EndPoint extends ClosableElement implements ISender {
+public abstract class EndPoint extends OptionalClosableElement implements ISender {
 	
 	//attribute
 	private final boolean hasRequestedConnection;

@@ -1,11 +1,11 @@
 //package declaration
-package ch.nolix.core.closableElement;
+package ch.nolix.core.optionalClosableElement;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.skillAPI.Closable;
+import ch.nolix.core.skillAPI.OptionalClosable;
 import ch.nolix.core.validator.Validator;
 
 //abstract class
@@ -14,7 +14,7 @@ import ch.nolix.core.validator.Validator;
  * @month 2016-05
  * @lines 120
  */
-public abstract class ClosableElement implements Closable {
+public abstract class OptionalClosableElement implements OptionalClosable {
 	
 	//attribute
 	private CloseController parentCloseController = new CloseController(this);
@@ -27,7 +27,7 @@ public abstract class ClosableElement implements Closable {
 	public final void close() {
 		
 		//Handles the case that the current ClosableElement is alive.
-		if (isAlive()) {
+		if (isOpen()) {
 			parentCloseController.close();
 		}
 	}
@@ -35,10 +35,10 @@ public abstract class ClosableElement implements Closable {
 	//method
 	/**
 	 * @param element
-	 * @return true if the current {@link ClosableElement}
+	 * @return true if the current {@link OptionalClosableElement}
 	 * has a close dependency to the given element.
 	 */
-	public final boolean hasCloseDependencyTo(final ClosableElement element) {
+	public final boolean hasCloseDependencyTo(final OptionalClosableElement element) {
 		return parentCloseController.containsElement(element);
 	}
 	
@@ -54,17 +54,17 @@ public abstract class ClosableElement implements Closable {
 	//method
 	/**
 	 * Creates a close dependency
-	 * between the current {@link ClosableElement} and the given element.
+	 * between the current {@link OptionalClosableElement} and the given element.
 	 * 
-	 * When a {@link ClosableElement} is closed
+	 * When a {@link OptionalClosableElement} is closed
 	 * all of its close dependencies will be closed too and vice versa.
 	 * 
 	 * @param element
-	 * @throws InvalidArgumentException if the current {@link ClosableElement} is closed.
+	 * @throws InvalidArgumentException if the current {@link OptionalClosableElement} is closed.
 	 * @throws InvalidArgumentException
-	 * if the current {@link ClosableElement} has already a close dependency to the given element.
+	 * if the current {@link OptionalClosableElement} has already a close dependency to the given element.
 	 */
-	protected final void createCloseDependency(final ClosableElement element) {
+	protected final void createCloseDependency(final OptionalClosableElement element) {
 		
 		//Checks if the current ClosableElement is alive.
 		supposeIsAlive();
@@ -83,13 +83,13 @@ public abstract class ClosableElement implements Closable {
 	
 	//abstract method
 	/**
-	 * Lets the current {@link ClosableElement} note a close.
+	 * Lets the current {@link OptionalClosableElement} note a close.
 	 */
 	protected abstract void noteClose();
 	
 	//method
 	/**
-	 * @throws ClosedArgumentException if the current {@link ClosableElement} is closed.
+	 * @throws ClosedArgumentException if the current {@link OptionalClosableElement} is closed.
 	 */
 	protected final void supposeIsAlive() {
 		
@@ -101,15 +101,15 @@ public abstract class ClosableElement implements Closable {
 	
 	//package-visible method
 	/**
-	 * @return the close dependencies of the current {@link ClosableElement}.
+	 * @return the close dependencies of the current {@link OptionalClosableElement}.
 	 */
-	final ReadContainer<ClosableElement> getRefCloseDependencies() {
+	final ReadContainer<OptionalClosableElement> getRefCloseDependencies() {
 		return parentCloseController.getRefElements();
 	}
 	
 	//package-visible method.
 	/**
-	 * Sets the close controller the current {@link ClosableElement} will belong to.
+	 * Sets the close controller the current {@link OptionalClosableElement} will belong to.
 	 * 
 	 * @param parentCloseController
 	 * @throws NullArgumentException if the given parent close controller is null.

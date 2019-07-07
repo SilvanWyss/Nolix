@@ -14,7 +14,7 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.validator.Validator;
 
 //abstract class
-public abstract class SQLConnection {
+public abstract class SQLConnection implements AutoCloseable {
 	
 	//attributes
 	private final SQLDatabaseEngine SQLDatabaseEngine;
@@ -81,6 +81,17 @@ public abstract class SQLConnection {
 	}
 	
 	//method
+	@Override
+	public final void close() {
+		try {
+			connection.close();
+		}
+		catch (SQLException SQLException) {
+			throw new RuntimeException(SQLException);
+		}
+	}
+	
+	//method
 	public final SQLExecutor createSQLExecutor() {
 		return new SQLExecutor(this);
 	}
@@ -110,6 +121,7 @@ public abstract class SQLConnection {
 		try {
 			connection.createStatement().execute(SQLStatement);
 		} catch (final SQLException SQLException) {
+			close();
 			throw new RuntimeException(SQLException);
 		}
 		

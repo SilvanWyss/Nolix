@@ -20,17 +20,13 @@ public final class NetEndPointTest extends Test {
 		
 		//setup
 		final var netServer = new NetServer(port);
-		registerToClose(netServer);
 		netServer.addMainEndPointTaker(new EndPointTakerMock());
 		
 		//execution & verification
-		expect(
-			() -> {
-				final var netEndPoint = new NetEndPoint(port);
-				registerToClose(netEndPoint);
-			}
-		)
-		.doesNotThrowException();
+		expect(() -> new NetEndPoint(port)).doesNotThrowException();
+		
+		//cleanup
+		netServer.close();
 	}
 	
 	//test case
@@ -41,16 +37,12 @@ public final class NetEndPointTest extends Test {
 		
 		//setup
 		final var netServer = new NetServer(port);
-		registerToClose(netServer);
 		
 		//execution & verification
-		expect(
-			() -> {
-				final var netEndPoint = new NetEndPoint(port);
-				registerToClose(netEndPoint);
-			}
-		)
-		.throwsException();
+		expect(() -> new NetEndPoint(port)).throwsException();
+		
+		//cleanup
+		netServer.close();
 	}
 	
 	//test case
@@ -61,11 +53,9 @@ public final class NetEndPointTest extends Test {
 		
 		//setup
 		final var netServer = new NetServer(port);
-		registerToClose(netServer);
 		final var endPointTakerMock = new EndPointTakerMock();
 		netServer.addMainEndPointTaker(endPointTakerMock);
 		final var netEndPoint = new NetEndPoint(port);
-		registerToClose(netEndPoint);
 		
 		//execution
 		netEndPoint.send("TEST MESSAGE");

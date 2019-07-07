@@ -16,7 +16,7 @@ import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
-import ch.nolix.core.skillAPI.Closable;
+import ch.nolix.core.skillAPI.OptionalClosable;
 import ch.nolix.core.skillAPI.Refreshable;
 import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.tuple.Pair;
@@ -38,7 +38,7 @@ import ch.nolix.element.core.NonEmptyText;
  */
 public abstract class _3DGUI<G extends _3DGUI<G>>
 extends ConfigurationElement<G>
-implements Clearable<G>, Closable, Refreshable {
+implements Clearable<G>, OptionalClosable, Refreshable {
 	
 	//default values
 	public static final String DEFAULT_TITLE = StringCatalogue.DEFAULT_STRING;

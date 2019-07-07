@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.core.endPoint5;
 
-import ch.nolix.core.closableElement.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.controllerAPI.IDataProviderController;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.optionalClosableElement.OptionalClosableElement;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
@@ -18,7 +18,7 @@ import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
  * @lines 200
  */
 public abstract class EndPoint
-extends ClosableElement
+extends OptionalClosableElement
 implements IDataProviderController {
 	
 	//optional attribute

@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.core.endPoint4;
 
-import ch.nolix.core.closableElement.ClosableElement;
 import ch.nolix.core.communicationAPI.IGenericReplier;
 import ch.nolix.core.communicationAPI.IGenericReplyingSender;
 import ch.nolix.core.communicationAPI.IReplier;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
+import ch.nolix.core.optionalClosableElement.OptionalClosableElement;
 import ch.nolix.core.validator.Validator;
 
 //abstract class
@@ -18,7 +18,7 @@ import ch.nolix.core.validator.Validator;
  * @lines 100
  */
 public abstract class EndPoint<M, R>
-extends ClosableElement
+extends OptionalClosableElement
 implements IGenericReplyingSender<M, R> {
 	
 	//constant

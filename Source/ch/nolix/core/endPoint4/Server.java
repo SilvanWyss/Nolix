@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.core.endPoint4;
 
-import ch.nolix.core.closableElement.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.optionalClosableElement.OptionalClosableElement;
 
 //abstract class
 /**
@@ -15,7 +15,7 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
  * @lines 80
  */
 public class Server<M, R>
-extends ClosableElement {
+extends OptionalClosableElement {
 	
 	//multiple attribute
 	private final List<IEndPointTaker<M, R>> endPointTaker = new List<>();

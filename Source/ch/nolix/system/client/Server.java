@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.client;
 
-//own imports
-import ch.nolix.core.closableElement.ClosableElement;
 import ch.nolix.core.container.List;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.optionalClosableElement.OptionalClosableElement;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
@@ -18,7 +17,7 @@ import ch.nolix.core.validator.Validator;
  * @month 2016-10
  * @lines 210
  */
-public class Server extends ClosableElement implements Clearable<Server> {
+public class Server extends OptionalClosableElement implements Clearable<Server> {
 	
 	//optional attribute
 	private Application<?> mainApplication;

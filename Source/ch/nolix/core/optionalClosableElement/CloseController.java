@@ -1,10 +1,10 @@
 //package declaration
-package ch.nolix.core.closableElement;
+package ch.nolix.core.optionalClosableElement;
 
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.skillAPI.Closable;
+import ch.nolix.core.skillAPI.OptionalClosable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.core.container.List;
 
@@ -14,13 +14,13 @@ import ch.nolix.core.container.List;
  * @month 2017-06
  * @lines 120
  */
-final class CloseController implements Closable {
+final class CloseController implements OptionalClosable {
 	
 	//attribute
 	private boolean closed = false;
 	
 	//multi-attribute
-	private final List<ClosableElement> elements = new List<>();
+	private final List<OptionalClosableElement> elements = new List<>();
 	
 	//constructor
 	/**
@@ -29,7 +29,7 @@ final class CloseController implements Closable {
 	 * @param element
 	 * @throws NullArgumentException if the given element is null.
 	 */
-	public CloseController(final ClosableElement element) {
+	public CloseController(final OptionalClosableElement element) {
 		elements.addAtEnd(element);
 	}
 	
@@ -42,7 +42,7 @@ final class CloseController implements Closable {
 	 * @throws InvalidArgumentException if the current {@link CloseController} contains already the given element.
 	 * @throws InvalidArgumentException if the current {@link CloseController} is already closed.
 	 */
-	public synchronized void addElement(final ClosableElement element) {
+	public synchronized void addElement(final OptionalClosableElement element) {
 				
 		//Checks if the given element is not null.
 		Validator.suppose(element).thatIsNamed("element").isNotNull();
@@ -71,7 +71,7 @@ final class CloseController implements Closable {
 	public void close() {
 		
 		//Handles the case that the current CloseController is alive.
-		if (isAlive()) {
+		if (isOpen()) {
 			
 			//Sets the current CloseController as closed.
 			closed = true;
@@ -86,7 +86,7 @@ final class CloseController implements Closable {
 	 * @param element
 	 * @return true if the current {@link CloseController} contains the given element.
 	 */
-	public boolean containsElement(final ClosableElement element) {
+	public boolean containsElement(final OptionalClosableElement element) {
 		return elements.contains(element);
 	}
 	
@@ -94,7 +94,7 @@ final class CloseController implements Closable {
 	/**
 	 * @return the elements of the current {@link CloseController}.
 	 */
-	public ReadContainer<ClosableElement> getRefElements() {
+	public ReadContainer<OptionalClosableElement> getRefElements() {
 		return new ReadContainer<>(elements);
 	}
 	
