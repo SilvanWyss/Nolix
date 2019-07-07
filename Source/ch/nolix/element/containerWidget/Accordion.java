@@ -5,6 +5,7 @@ package ch.nolix.element.containerWidget;
 import ch.nolix.core.constants.MultiVariableNameCatalogue;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.entity.MultiProperty;
@@ -211,8 +212,8 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	/**
 	 * @return the tabs of the current {@link Accordion}.
 	 */
-	public ReadContainer<AccordionTab> getRefTabs() {
-		return tabs.getRefValues();
+	public IContainer<AccordionTab> getRefTabs() {
+		return tabs;
 	}
 	
 	//method
@@ -224,7 +225,9 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> i
 	 * @return the number of tabs of the current {@link Accordion}.
 	 */
 	public int getTabCount() {
-		return getRefTabs().getSize();
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return tabs.getSize();
 	}
 	
 	//method

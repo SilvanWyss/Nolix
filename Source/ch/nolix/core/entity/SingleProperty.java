@@ -3,8 +3,7 @@ package ch.nolix.core.entity;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
@@ -148,19 +147,17 @@ abstract class SingleProperty<V> extends Propertyoid<V> {
 		value = null;
 	}
 	
-	//method
+	//package-visible method
 	/**
-	 * @return the values of the current {@link SingleProperty}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	final IContainer<V> getRefValues() {
-		
-		//Handles the case that the current SingleProperty does not have a value.
-		if (value == null) {
-			return new ReadContainer<>();
-		}
+	final void fillUpSpecificationsOfValues(final List<DocumentNode> list) {
 		
 		//Handles the case that the current SingleProperty has a value.
-		return new ReadContainer<>(getValue());
+		//For a better performance, this implementation does not use all comfortable methods.
+		if (value != null) {
+			list.addAtEnd(specificationCreator.getOutput(value));
+		}
 	}
 }

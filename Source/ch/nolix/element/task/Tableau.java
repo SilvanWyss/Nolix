@@ -4,7 +4,7 @@ package ch.nolix.element.task;
 //own imports
 import ch.nolix.core.attributeAPI.Namable;
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.entity.MultiProperty;
 import ch.nolix.core.entity.MutableProperty;
@@ -104,8 +104,8 @@ implements Clearable<Tableau>, Namable<Tableau>, Resettable<Tableau> {
 	/**
 	 * @return the tasks of this tableau.
 	 */
-	public ReadContainer<Task> getRefTasks() {
-		return tasks.getRefValues();
+	public IContainer<Task> getRefTasks() {
+		return tasks;
 	}
 
 	//method

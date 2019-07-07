@@ -35,7 +35,7 @@ implements
 	public List<DocumentNode> getAttributes() {
 		
 		final var attributes = new List<DocumentNode>();
-		getRefProperties().forEach(p -> p.fillUpAttributes(attributes));
+		getRefProperties().forEach(p -> p.fillUpSpecificationsOfValues(attributes));
 		
 		return attributes;
 	}

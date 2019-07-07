@@ -7,7 +7,6 @@ import java.util.Iterator;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
@@ -83,16 +82,6 @@ public final class MultiProperty<V> extends Propertyoid<V> implements IContainer
 		values.clear();
 	}
 	
-	//TODO: Delete this method.
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public ReadContainer<V> getRefValues() {
-		return new ReadContainer<>(values);
-	}
-	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -147,5 +136,23 @@ public final class MultiProperty<V> extends Propertyoid<V> implements IContainer
 	@Override
 	void addOrChangeValue(final V value) {
 		adderMethod.run(value);
+	}
+
+	//package-visible method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	final void fillUpSpecificationsOfValues(final List<DocumentNode> list) {
+		
+		//Iterates the values of the current MultiProperty.
+		for (final var v : this) {
+			
+			//Creates a specification of the current value.
+			final var specification = specificationCreator.getOutput(v);
+			specification.setHeader(getName());
+			
+			list.addAtEnd(specification);
+		}
 	}
 }

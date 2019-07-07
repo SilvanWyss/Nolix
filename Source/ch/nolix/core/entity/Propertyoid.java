@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.core.entity;
 
-import ch.nolix.core.attributeAPI.Named;
 //own imports
+import ch.nolix.core.attributeAPI.Named;
 import ch.nolix.core.constants.VariableNameCatalogue;
-import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
@@ -15,37 +14,44 @@ import ch.nolix.core.validator.Validator;
 /**
 * @author Silvan Wyss
 * @month 2017-10
-* @lines 120
-* @param <V> The type of the values of a property.
+* @lines 100
+* @param <V> The type of the values of a {@link Propertyoid}.
 */
 public abstract class Propertyoid<V> implements Named {
 	
 	//attributes
 	private final String name;
 	private final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator;
-	private final IElementTakerElementGetter<V, DocumentNode> specificationCreator;
+	final IElementTakerElementGetter<V, DocumentNode> specificationCreator;
 	
 	//package-visible constructor
+	/**
+	 * Creates a new {@link Propertyoid} with the given name, valueCreator and specificationCreator.
+	 * 
+	 * @param name
+	 * @param valueCreator
+	 * @param specificationCreator
+	 * @throws NullArgumentException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws NullArgumentException if the given valueCreator is null.
+	 * @throws NullArgumentException if the given specificationCreator is null.
+	 */
 	Propertyoid(
 		final String name,
 		final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator,
 		final IElementTakerElementGetter<V, DocumentNode> specificationCreator
 	) {
 		
-		this.name = Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank().andReturn();
-		
+		//Checks if the given name is not null or blank.
+		Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();
+				
 		//Checks if the given value creator is not null.
-		Validator
-		.suppose(valueCreator)
-		.thatIsNamed("value creator")
-		.isNotNull();
+		Validator.suppose(valueCreator).thatIsNamed("value creator").isNotNull();
 		
 		//Checks if the given specification creator is not null.
-		Validator
-		.suppose(specificationCreator)
-		.thatIsNamed("specificaiton creator")
-		.isNotNull();
+		Validator.suppose(specificationCreator).thatIsNamed("specificaiton creator").isNotNull();
 		
+		this.name = name;
 		this.valueCreator = valueCreator;
 		this.specificationCreator = specificationCreator;
 	}
@@ -60,17 +66,20 @@ public abstract class Propertyoid<V> implements Named {
 	}
 	
 	//abstract method
+	/**
+	 * @return true if the current {@link Propertyoid} does not contain a value.
+	 */
 	public abstract boolean isEmpty();
 	
 	//abstract method
 	/**
-	 * @return true if this property is mutable.
+	 * @return true if the current {@link Propertyoid} is mutable.
 	 */
 	public abstract boolean isMutable();
 	
 	//package-visible abstract method
 	/**
-	 * Adds or change the given value to this property.
+	 * Adds or change the given value to the current {@link Propertyoid}.
 	 * 
 	 * @param value
 	 */
@@ -78,42 +87,19 @@ public abstract class Propertyoid<V> implements Named {
 	
 	//package-visible method
 	/**
-	 * Adds or changes the value from the given specification to this property.
+	 * Adds or changes the value from the given specification to the current {@link Propertyoid}.
 	 * 
 	 * @param specification
 	 */
-	final void addOrChangeValueFromSpecification(
-		final DocumentNodeoid specification
-	) {
+	final void addOrChangeValueFromSpecification(final DocumentNodeoid specification) {
 		addOrChangeValue(valueCreator.getOutput(specification));
-	}
-	
-	//package-visible method
-	final void fillUpAttributes(final List<DocumentNode> attributes) {
-		
-		//Iterates the values of this property.
-		for (final var v : getRefValues()) {
-			
-			//Creates a specification for the current value.
-			final var specification = specificationCreator.getOutput(v);
-			specification.setHeader(getName());
-			
-			attributes.addAtEnd(specification);
-		}
-	}
-	
-	//package-visible method
-	final List<DocumentNode> getAttributes() {
-		
-		final var attributes = new List<DocumentNode>();
-		fillUpAttributes(attributes);
-				
-		return attributes;
 	}
 	
 	//package-visible abstract method
 	/**
-	 * @return the values of this property.
+	 * Fills up the specifications of the values of the current {@link Propertyoid} into the given list.
+	 * 
+	 * @param list
 	 */
-	abstract IContainer<V> getRefValues();
+	abstract void fillUpSpecificationsOfValues(List<DocumentNode> list);
 }
