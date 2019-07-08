@@ -177,6 +177,12 @@ public final class Vector {
 	}
 	
 	//method
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+	
+	//method
 	/**
 	 * Multiplies this vector with the given factor.
 	 * 

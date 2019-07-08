@@ -394,6 +394,12 @@ public abstract class DocumentNodeoid implements Headered {
 		return getRefAttributes().getRefOne();
 	}
 	
+	//method
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+	
 	//abstract method
 	/**
 	 * @return true if the current {@link DocumentNodeoid} has a header.

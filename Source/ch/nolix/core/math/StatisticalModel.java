@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.core.math;
 
-import ch.nolix.core.constants.VariableNameCatalogue;
 //own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.validator.Validator;
 

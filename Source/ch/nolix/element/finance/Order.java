@@ -115,6 +115,12 @@ public final class Order {
 	}
 	
 	//method
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+	
+	//method
 	/**
 	 * @return a string representation of this order.
 	 */

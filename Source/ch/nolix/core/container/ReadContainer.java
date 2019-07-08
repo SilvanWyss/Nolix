@@ -147,6 +147,12 @@ public final class ReadContainer<E> implements IContainer<E> {
 	}
 	
 	//method
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+	
+	//method
 	/**
 	 * @return a new iterator of this read container.
 	 */

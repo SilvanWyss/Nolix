@@ -83,22 +83,22 @@ final class FrontBroserGUIClientoidPaintManager {
 		
 		//Enumerates the number of attributes of the given paint filled rectangle command.
 		switch (paintFilledRectangleCommand.getAttributeCount()) {
-			case 2: {
+			case 2:
+				
 				final var width = attributes.getRefAt(1).toInt();
 				final var height = attributes.getRefAt(2).toInt();
 				
 				return painting ->	painting.getRefPainterByIndex(painterIndex).paintFilledRectangle(width,	height);
-			}
 			case 4:
 				
 				final var xPosition = attributes.getRefAt(1).toInt();
 				final var yPosition = attributes.getRefAt(2).toInt();
-				final var width = attributes.getRefAt(3).toInt();
-				final var height = attributes.getRefAt(4).toInt();
+				final var width2 = attributes.getRefAt(3).toInt();
+				final var height2 = attributes.getRefAt(4).toInt();
 				
 				return
 				painting ->
-				painting.getRefPainterByIndex(painterIndex).paintFilledRectangle(xPosition, yPosition, width, height);
+				painting.getRefPainterByIndex(painterIndex).paintFilledRectangle(xPosition, yPosition, width2, height2);
 			
 			default:
 				throw

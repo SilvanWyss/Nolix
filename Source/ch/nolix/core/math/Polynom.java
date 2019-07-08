@@ -157,6 +157,12 @@ public class Polynom {
 	}
 	
 	//method
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+	
+	//method
 	/**
 	 * Integrates this polynom.
 	 * 

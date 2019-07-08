@@ -140,6 +140,12 @@ public final class ClosedInterval implements IClosedInterval {
 	
 	//method
 	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+	
+	//method
+	@Override
 	public boolean intersects(final IClosedInterval closedInterval) {
 		return 
 		(getMax().compareTo(closedInterval.getMin()) > 0)

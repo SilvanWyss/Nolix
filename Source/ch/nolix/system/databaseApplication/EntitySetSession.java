@@ -130,6 +130,8 @@ public final class EntitySetSession extends HeaderedSession {
 							columnIndex++;
 							
 							break;
+						default:
+							break;
 					}
 				}
 				

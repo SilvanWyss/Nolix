@@ -1087,7 +1087,7 @@ public class Color extends Element<Color> {
 		
 		//Handles the case that the current color has a fuel alpha value.
 		return
-		65536 * getRedValue()
+		65536l * getRedValue()
 		+ 256 * getGreenValue()
 		+ getBlueValue();
 	}

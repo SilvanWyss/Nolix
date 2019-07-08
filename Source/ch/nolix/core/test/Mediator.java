@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.test;
 
+import ch.nolix.core.invalidArgumentException.ArgumentDoesNotSupportMethodException;
 //own imports
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.testoid.TestAccessor;
@@ -43,6 +44,12 @@ public abstract class Mediator {
 		throw new RuntimeException(
 			"Do not use the equals method of a mediator. For expecting equality, use the 'isEqualTo' method."
 		);
+	}
+	
+	//method
+	@Override
+	public int hashCode() {
+		throw new ArgumentDoesNotSupportMethodException(this, "hashCode");
 	}
 	
 	//method

@@ -135,6 +135,8 @@ public final class EntitySession extends HeaderedSession {
 					rowIndex++;
 					
 					break;
+				default:
+					break;
 			}
 		}
 		
@@ -230,6 +232,8 @@ public final class EntitySession extends HeaderedSession {
 					
 					property.setUntypedValue(dataTextBox.getText());
 					
+					break;
+				default:
 					break;
 			}
 		}

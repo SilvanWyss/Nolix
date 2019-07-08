@@ -613,6 +613,12 @@ public final class List<E> implements Clearable<List<E>>, IContainer<E> {
 	}
 	
 	//method
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+	
+	//method
 	/**
 	 * @return true if the current {@link List} is empty
 	 */

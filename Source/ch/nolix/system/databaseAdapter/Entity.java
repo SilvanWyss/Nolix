@@ -390,6 +390,8 @@ public class Entity implements Identified, Specified {
 					);
 					
 					break;
+				default:
+					break;
 			}
 		}
 	}

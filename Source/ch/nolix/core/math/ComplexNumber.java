@@ -98,6 +98,12 @@ public final class ComplexNumber {
 	}
 	
 	//method
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+	
+	//method
 	public boolean isPureComplex() {
 		return (realComponent == 0.0);
 	}

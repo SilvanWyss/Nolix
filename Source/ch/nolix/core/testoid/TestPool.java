@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.core.testoid;
 
-//Java imports
+//Java import
 import java.lang.reflect.InvocationTargetException;
-import java.util.Vector;
 
 //own imports
 import ch.nolix.core.constants.VariableNameCatalogue;
@@ -25,7 +24,7 @@ public abstract class TestPool implements Runnable {
 
 	//multiple attribute
 	private final List<Class<Testoid>> testClasses = new List<>();
-	private final Vector<TestPool> testPools = new Vector<>();
+	private final List<TestPool> testPools = new List<>();
 	
 	//method
 	/**
@@ -151,7 +150,7 @@ public abstract class TestPool implements Runnable {
 			);
 		}
 		
-		testPools.add(testPool);
+		testPools.addAtEnd(testPool);
 	}
 	
 	//method

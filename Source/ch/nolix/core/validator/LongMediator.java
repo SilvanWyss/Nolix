@@ -229,6 +229,17 @@ public class LongMediator extends Mediator {
 	 * @throws BiggerArgumentException
 	 * if the argument of this long mediator is bigger than the given value.
 	 */
+	public TerminalLongMediator isNotBiggerThan(final int value) {
+		return isNotBiggerThan((long)value);
+	}
+	
+	//method
+	/**
+	 * @param value
+	 * @return a new {@link TerminalLongMediator} for the argument of the current {@link LongMediator}.
+	 * @throws BiggerArgumentException
+	 * if the argument of this long mediator is bigger than the given value.
+	 */
 	public TerminalLongMediator isNotBiggerThan(final long value) {
 		
 		//Checks if the argument of this long mediator is not bigger than the given value.

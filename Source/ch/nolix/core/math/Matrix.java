@@ -659,6 +659,12 @@ public class Matrix implements ApproximativeEqualing {
 	}
 	
 	//method
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+	
+	//method
 	/**
 	 * @param matrix
 	 * @return true if this matrix has the same size as the given matrix

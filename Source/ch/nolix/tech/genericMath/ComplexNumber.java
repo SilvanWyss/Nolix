@@ -285,6 +285,12 @@ public final class ComplexNumber implements IComplexNumber {
 	
 	//method
 	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+	
+	//method
+	@Override
 	public boolean isPureImaginary() {
 		return (realComponent.compareTo(BigDecimal.ZERO) == 0);
 	}

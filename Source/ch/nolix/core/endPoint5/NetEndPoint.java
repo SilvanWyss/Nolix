@@ -22,7 +22,7 @@ import ch.nolix.core.validator.Validator;
 public class NetEndPoint extends EndPoint {
 		
 	//attribute
-	private final ch.nolix.core.endPoint3.NetEndPoint netEndPoint;
+	private final ch.nolix.core.endPoint3.NetEndPoint internalNetEndPoint;
 		
 	//constructor
 	/**
@@ -99,7 +99,7 @@ public class NetEndPoint extends EndPoint {
 		Validator.suppose(netEndPoint).isOfType(ch.nolix.core.endPoint3.NetEndPoint.class);
 		
 		//Sets the net end point of this net duplex controller.
-		this.netEndPoint = netEndPoint;
+		this.internalNetEndPoint = netEndPoint;
 		
 		//Creates the replier of the net end point.
 		netEndPoint.setReplier(new Replier(this));
@@ -121,7 +121,7 @@ public class NetEndPoint extends EndPoint {
 		final String message = Protocol.DATA_REQUEST + '(' + request.toString() + ')';
 		
 		//Sends message and gets reply.
-		final DocumentNode reply = DocumentNode.createFromString(netEndPoint.sendAndGetReply(message));
+		final DocumentNode reply = DocumentNode.createFromString(internalNetEndPoint.sendAndGetReply(message));
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
@@ -141,7 +141,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	public String getTarget() {
-		return netEndPoint.getTarget();
+		return internalNetEndPoint.getTarget();
 	}
 
 	//method
@@ -150,7 +150,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	public boolean hasRequestedConnection() {
-		return netEndPoint.hasRequestedConnection();
+		return internalNetEndPoint.hasRequestedConnection();
 	}
 
 	//method
@@ -159,7 +159,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	public boolean hasTarget() {
-		return netEndPoint.hasTarget();
+		return internalNetEndPoint.hasTarget();
 	}
 	
 	//method
@@ -199,7 +199,7 @@ public class NetEndPoint extends EndPoint {
 		final String message = Protocol.COMMANDS + '(' + commands.toString() + ')';
 				
 		//Sends the message and gets reply.
-		final DocumentNode reply = DocumentNode.createFromString(netEndPoint.sendAndGetReply(message));
+		final DocumentNode reply = DocumentNode.createFromString(internalNetEndPoint.sendAndGetReply(message));
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {

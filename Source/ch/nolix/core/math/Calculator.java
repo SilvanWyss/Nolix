@@ -176,7 +176,7 @@ public final class Calculator {
 		for (var i = 0; i < factorMatrix.getRowCount(); i++) {
 			for (var j = 0; j < factorMatrix.getColumnCount(); j++) {
 				xMatrixValues[i * factorMatrix.getColumnCount() + j] =
-				Math.pow(xValues[i], factorMatrix.getColumnCount() - j - 1);
+				Math.pow(xValues[i], factorMatrix.getColumnCount() - j - 1.0);
 			}
 		}
 		factorMatrix.setValues(xMatrixValues);

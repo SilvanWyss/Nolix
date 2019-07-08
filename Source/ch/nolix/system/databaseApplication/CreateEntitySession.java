@@ -145,9 +145,7 @@ public final class CreateEntitySession extends HeaderedSession {
 					property.setUntypedValue(dataTextBox.getText());
 					
 					break;
-					
-				case REFERENCE:
-					
+				default:
 					break;
 			}
 		}

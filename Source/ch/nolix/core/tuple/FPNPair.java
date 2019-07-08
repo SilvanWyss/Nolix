@@ -71,6 +71,12 @@ public final class FPNPair {
 	}
 	
 	//method
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+	
+	//method
 	/**
 	 * @return a string representation of the current {@link FPNPair}.
 	 */

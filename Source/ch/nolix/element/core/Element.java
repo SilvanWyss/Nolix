@@ -81,6 +81,12 @@ public abstract class Element<E extends Element<E>> extends Entity<E> {
 	}
 	
 	//method
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+	
+	//method
 	/**
 	 * @return a string representation of this element.
 	 */
