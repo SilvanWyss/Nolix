@@ -20,7 +20,6 @@ public final class AccordionTutorial {
 	 * 
 	 * @param args
 	 */
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		

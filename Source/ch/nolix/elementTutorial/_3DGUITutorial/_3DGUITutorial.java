@@ -22,7 +22,6 @@ public final class _3DGUITutorial {
 	 * 
 	 * @param args
 	 */
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		final JMonkeyMainFrame mainFrame = new JMonkeyMainFrame();

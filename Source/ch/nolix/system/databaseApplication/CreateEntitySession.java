@@ -121,6 +121,7 @@ public final class CreateEntitySession extends HeaderedSession {
 					rowIndex++;
 					
 					break;
+				default:
 			}
 		}
 		

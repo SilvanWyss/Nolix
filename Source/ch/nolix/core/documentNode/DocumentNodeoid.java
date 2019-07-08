@@ -674,7 +674,8 @@ public abstract class DocumentNodeoid implements Headered {
                     this.addAttribute(documentNode);
                     break;            
                 case ')':
-                    return index;	
+                    return index;
+                default:
             }
         }
         

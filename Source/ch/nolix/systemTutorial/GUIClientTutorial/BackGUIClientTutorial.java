@@ -30,7 +30,6 @@ public final class BackGUIClientTutorial {
 	 * 
 	 * @param arguments
 	 */
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		//Creates an application.

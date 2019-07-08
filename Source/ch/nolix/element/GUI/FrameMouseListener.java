@@ -59,6 +59,7 @@ final class FrameMouseListener implements MouseListener {
 			case MouseEvent.BUTTON3:
 				frame.noteRightMouseButtonPress();
 				break;
+			default:
 		}
 	}
 
@@ -74,6 +75,7 @@ final class FrameMouseListener implements MouseListener {
 			case MouseEvent.BUTTON3:
 				frame.noteRightMouseButtonRelease();
 				break;
+			default:
 		}
 	}
 }

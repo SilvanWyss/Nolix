@@ -120,6 +120,7 @@ public final class Statement implements Headered {
 						nextStatement = new Statement(string.substring(i + 1, string.length()));
 						return;
 					}
+				default:
 			}
 		}
 		

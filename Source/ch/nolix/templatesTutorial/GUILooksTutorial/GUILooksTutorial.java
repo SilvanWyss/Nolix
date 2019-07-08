@@ -21,7 +21,6 @@ import ch.nolix.templates.GUILooks.WhiteGreenGUILook;
 
 public final class GUILooksTutorial {
 	
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		final var selectionMenu =

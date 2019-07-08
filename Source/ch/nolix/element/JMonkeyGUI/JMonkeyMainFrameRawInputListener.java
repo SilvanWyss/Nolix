@@ -100,6 +100,7 @@ implements RawInputListener {
 				}
 				
 				break;
+			default:
 		}
 	}
 

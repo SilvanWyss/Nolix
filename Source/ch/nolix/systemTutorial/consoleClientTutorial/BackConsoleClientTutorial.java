@@ -26,7 +26,6 @@ public final class BackConsoleClientTutorial {
 	 * 
 	 * @param arguments
 	 */
-	@SuppressWarnings("resource")
 	public static void main(final String[] arguments) {
 		
 		//Creates an application.
@@ -77,6 +76,7 @@ public final class BackConsoleClientTutorial {
 						answerIsValid = true;
 						getParentClient().writeLineToConsole("Oh sad!");
 						break;
+					default:
 				}
 			} while (!answerIsValid);
 			

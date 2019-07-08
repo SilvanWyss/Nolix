@@ -11,7 +11,6 @@ import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
 
 public class SaveFractalAsPNGTutorial {
 	
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		//Registers an implementation for the GenericMathAPI at the ClassProvider.

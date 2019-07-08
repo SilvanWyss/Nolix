@@ -1079,7 +1079,7 @@ public class Color extends Element<Color> {
 		//Handles the case that the current color does not have a full alpha value.
 		if (!hasFullAlphaValue()) {
 			return
-			16777216 * getRedValue()
+			16777216l * getRedValue()
 			+ 65536 * getGreenValue()
 			+ 256 * getBlueValue()
 			+ getAlphaValue();

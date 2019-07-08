@@ -79,7 +79,6 @@ public class Application<C extends Client<C>> implements Named {
 	 * @throws NullArgumentException if the given initialSessionClass is null.
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
 	 */
-	@SuppressWarnings("resource")
 	public Application(
 		final String name,
 		final Class<C> clientClass,
@@ -149,7 +148,6 @@ public class Application<C extends Client<C>> implements Named {
 	 * @throws NullArgumentException if the given context is null.
 	 * @throws OutOfRangeArgumentException if the given port is not in [0,65535].
 	 */
-	@SuppressWarnings("resource")
 	public Application(
 		final String name,
 		final Class<C> clientClass,

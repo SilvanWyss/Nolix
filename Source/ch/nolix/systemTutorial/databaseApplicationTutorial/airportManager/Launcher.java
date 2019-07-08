@@ -12,7 +12,6 @@ import ch.nolix.templates.GUILooks.AnthrazitGUILook;
 public final class Launcher {
 	
 	//main method
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		final var airportManagerDatabasePath = "airportManager.database";

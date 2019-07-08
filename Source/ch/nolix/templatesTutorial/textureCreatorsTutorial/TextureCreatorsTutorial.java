@@ -18,7 +18,6 @@ import ch.nolix.templates.textureCreators.JuteTextureCreator;
  */
 public final class TextureCreatorsTutorial {
 	
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		//Creates textures.

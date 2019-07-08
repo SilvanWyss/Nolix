@@ -10,7 +10,6 @@ import ch.nolix.core.util.ShellProvider;
 public final class BrowserFrontEndTutorial {
 	
 	//main method
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		//Creates net server.

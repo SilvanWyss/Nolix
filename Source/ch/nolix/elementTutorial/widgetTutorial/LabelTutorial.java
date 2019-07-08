@@ -21,7 +21,6 @@ public final class LabelTutorial {
 	 * 
 	 * @param args
 	 */
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		//Creates a Frame.

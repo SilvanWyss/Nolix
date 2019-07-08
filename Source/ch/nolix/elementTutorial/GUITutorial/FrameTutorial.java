@@ -18,7 +18,6 @@ public final class FrameTutorial {
 	/**
 	 * Creates a {@link Frame} with an alice blue background.
 	 */
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		new Frame()
 		.setTitle("Frame Tutorial")

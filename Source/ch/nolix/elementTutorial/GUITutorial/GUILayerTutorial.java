@@ -23,7 +23,6 @@ public class GUILayerTutorial {
 	 * 
 	 * @param args
 	 */
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
@@ -57,11 +56,7 @@ public class GUILayerTutorial {
 		
 		//Creates showButton.
 		final var showButton = new Button("Show");
-		showButton.setLeftMouseButtonReleaseCommand(
-			() -> {
-				frame.addLayerOnTop(dialogLayer);
-			}
-		);
+		showButton.setLeftMouseButtonReleaseCommand(() -> 	frame.addLayerOnTop(dialogLayer));
 		
 		//Adds the showButton to the frame.
 		frame.addLayerOnTop(ExtendedContentPosition.Center, showButton);

@@ -8,7 +8,6 @@ import ch.nolix.system.client.Application;
 
 public final class FrontBrowserGUIClientTutorial {
 	
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		//Creates an application.

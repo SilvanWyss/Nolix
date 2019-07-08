@@ -168,7 +168,7 @@ public class ColorGradient extends Element<ColorGradient> {
 					xPosition,
 					yPosition,
 					getColor1().createSwingColor(),
-					xPosition + width,
+					(float)xPosition + width,
 					yPosition,
 					getColor2().createSwingColor()
 				);
@@ -179,7 +179,7 @@ public class ColorGradient extends Element<ColorGradient> {
 					yPosition,
 					getColor1().createSwingColor(),
 					xPosition,
-					yPosition + height,
+					(float)yPosition + height,
 					getColor2().createSwingColor()
 				);
 			case DiagonalUp:
@@ -188,8 +188,8 @@ public class ColorGradient extends Element<ColorGradient> {
 					xPosition,
 					yPosition,
 					getColor1().createSwingColor(),
-					xPosition + width,
-					yPosition + height,
+					(float)xPosition + width,
+					(float)yPosition + height,
 					getColor2().createSwingColor()
 				);
 			case DiagonalDown:
@@ -198,8 +198,8 @@ public class ColorGradient extends Element<ColorGradient> {
 					xPosition,
 					yPosition,
 					getColor2().createSwingColor(),
-					xPosition + width,
-					yPosition + height,
+					(float)xPosition + width,
+					(float)yPosition + height,
 					getColor1().createSwingColor()
 				);
 			default:

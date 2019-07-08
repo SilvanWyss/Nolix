@@ -25,7 +25,6 @@ public final class _3DGUITutorial2 {
 	 * 
 	 * @param args
 	 */
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		final var mainFrame = new JMonkeyMainFrame("3D GUI Tutorial");
