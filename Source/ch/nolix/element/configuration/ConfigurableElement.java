@@ -9,10 +9,12 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
-import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.core.Element;
+import ch.nolix.element.element.Element;
+import ch.nolix.element.elementAPI.IConfigurableElement;
+import ch.nolix.element.elementAPI.IMutableElement;
 
 //abstract class
 /**
@@ -24,7 +26,7 @@ import ch.nolix.element.core.Element;
  * @lines 160
  */
 public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>> extends Element<CE>
-implements Configurable<CE>, OptionalNamable<CE>, OptionalTokenable<CE> {
+implements IConfigurableElement<CE>, ISmartObject<CE>, OptionalNamable<CE>, OptionalTokenable<CE>, IMutableElement<CE> {
 	
 	//optional attributes
 	private String name;
@@ -59,7 +61,6 @@ implements Configurable<CE>, OptionalNamable<CE>, OptionalTokenable<CE> {
 	@Override
 	public List<DocumentNode> getAttributes() {
 		
-		//Calls method of the base class.
 		final var attributes = super.getAttributes();
 		
 		//Handles the case that the current configurbale element has a name.
@@ -122,17 +123,6 @@ implements Configurable<CE>, OptionalNamable<CE>, OptionalTokenable<CE> {
 	@Override
 	public final boolean hasToken(String token) {
 		return OptionalTokenable.super.hasToken(token);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final boolean isOfType(final String type) {
-		
-		//Calls method of the base class.
-		return super.isOfType(type);
 	}
 	
 	//method

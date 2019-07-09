@@ -55,7 +55,6 @@ public final class EntitySetSession extends HeaderedSession {
 	}
 
 	//method
-	@SuppressWarnings({ "incomplete-switch", "unchecked" })
 	private Widget<?, ?> createEntitiesGrid() {
 		
 		final var entitiesGrid = new Grid().setRole(ContainerRole.MainContainer);
@@ -115,6 +114,7 @@ public final class EntitySetSession extends HeaderedSession {
 							break;
 						case REFERENCE:						
 							
+							@SuppressWarnings("unchecked")
 							final var referenceProperty = (Reference<Entity>)p;
 							
 							entitiesGrid.setWidget(

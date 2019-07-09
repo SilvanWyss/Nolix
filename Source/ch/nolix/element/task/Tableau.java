@@ -6,12 +6,12 @@ import ch.nolix.core.attributeAPI.Namable;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.entity.MultiProperty;
-import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.skillAPI.Resettable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.core.Element;
+import ch.nolix.element.element.Element;
+import ch.nolix.element.element.MultiProperty;
+import ch.nolix.element.element.MutableProperty;
 
 //class
 /**

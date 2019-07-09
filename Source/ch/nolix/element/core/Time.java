@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.core;
 
-//own imports
+//Java imports
 import java.util.Calendar;
-//Java import
 import java.util.GregorianCalendar;
 
 //own imports
@@ -14,6 +13,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.elementAPI.IElement;
 
 //class
 /**
@@ -28,7 +28,7 @@ import ch.nolix.core.validator.Validator;
  * @month 2016-08
  * @lines 740
  */
-public final class Time extends Element<Time> {
+public final class Time implements IElement {
 	
 	//type name
 	public static final String TYPE_NAME = "Time";

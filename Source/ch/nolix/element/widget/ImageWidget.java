@@ -3,8 +3,8 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.core.entity.MutableOptionalProperty;
 import ch.nolix.core.skillAPI.Clearable;
+import ch.nolix.element.element.MutableOptionalProperty;
 import ch.nolix.element.image.Image;
 import ch.nolix.element.painter.IPainter;
 

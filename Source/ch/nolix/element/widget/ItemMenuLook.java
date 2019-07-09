@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.element.widget;
 
-import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.element.core.NonNegativeInteger;
+import ch.nolix.element.layerElement.LayerProperty;
 
 //class
 public final class ItemMenuLook

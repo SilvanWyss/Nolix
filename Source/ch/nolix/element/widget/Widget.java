@@ -9,16 +9,17 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.functionAPI.IFunction;
+import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Recalculable;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.constants.FunctionCatalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurableElement;
+import ch.nolix.element.elementAPI.IConfigurableElement;
 import ch.nolix.element.painter.IPainter;
 
 //abstract class
@@ -34,7 +35,7 @@ import ch.nolix.element.painter.IPainter;
  * @param <WL> The type of the {@link WidgetLook} of a {@link Widget}.
  */
 public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>> extends ConfigurableElement<W>
-implements Recalculable {
+implements Recalculable, ISmartObject<W> {
 	
 	//constants
 	private static final String STATE_HEADER ="State";
@@ -583,7 +584,7 @@ implements Recalculable {
 	 */
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public final List<Configurable<?>> getRefConfigurables() {		
+	public final List<IConfigurableElement<?>> getRefConfigurables() {		
 		return (List)(getChildWidgets());
 	}
 	

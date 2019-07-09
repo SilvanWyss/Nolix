@@ -1,9 +1,9 @@
 package ch.nolix.elementTutorial.GUITutorial;
 
-import ch.nolix.core.elementEnums.ExtendedContentPosition;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.GUILayer;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.elementEnums.ExtendedContentPosition;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.HorizontalStack;
 import ch.nolix.element.widget.VerticalStack;

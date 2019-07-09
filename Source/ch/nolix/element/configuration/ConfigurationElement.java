@@ -6,6 +6,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.validator.Validator;
 
 //abstract class
@@ -17,7 +18,7 @@ import ch.nolix.core.validator.Validator;
  * @lines 120
  */
 public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> extends ConfigurableElement<CE>
-implements IConfigurationElement<CE> {
+implements IConfigurationElement<CE>, ISmartObject<CE> {
 	
 	//optional attribute
 	private StandardConfiguration configuration;

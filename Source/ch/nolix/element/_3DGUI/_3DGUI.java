@@ -12,18 +12,18 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.container.List;
-import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.skillAPI.OptionalClosable;
 import ch.nolix.core.skillAPI.Refreshable;
-import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.tuple.Pair;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurationElement;
 import ch.nolix.element.core.NonEmptyText;
+import ch.nolix.element.element.MutableProperty;
+import ch.nolix.element.elementAPI.IConfigurableElement;
 
 //abstract class
 /**
@@ -171,7 +171,7 @@ implements Clearable<G>, OptionalClosable, Refreshable {
 	 * @return the configurable objects of this 3D GUI.
 	 */
 	@Override
-	public final ReadContainer<Configurable<?>> getRefConfigurables() {
+	public final ReadContainer<IConfigurableElement<?>> getRefConfigurables() {
 		return new ReadContainer<>(getRefShapes());
 	}
 

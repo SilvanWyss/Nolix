@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.specificationAPI;
+package ch.nolix.element.elementAPI;
 
 //own imports
 import ch.nolix.core.XMLDocument.XMLNode;
@@ -10,24 +10,21 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 
 //interface
 /**
- * A {@link Specified} is a {@link TypeRequestable}
- * whose official attributes can be requested together.
- * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 130
+ * @lines 140
  */
-public interface Specified extends TypeRequestable {
-	
+public interface IElement extends TypeRequestable {
+		
 	//abstract method
 	/**
-	 * @return the attributes of the current {@link Specified}.
+	 * @return the attributes of the current {@link IElement}.
 	 */
 	public abstract List<DocumentNode> getAttributes();
 	
 	//default method
 	/**
-	 * @return the specification of the current {@link Specified}.
+	 * @return the specification of the current {@link IElement}.
 	 */
 	public default DocumentNode getSpecification() {
 		return new DocumentNode(getType(), getAttributes());
@@ -46,7 +43,7 @@ public interface Specified extends TypeRequestable {
 	
 	//default method
 	/**
-	 * @return the specification of the current {@link Specified} without header.
+	 * @return the specification of the current {@link IElement} without header.
 	 */
 	public default DocumentNode getSpecificationWithoutHeader() {
 		return new DocumentNode(getAttributes());
@@ -54,7 +51,7 @@ public interface Specified extends TypeRequestable {
 	
 	//default method
 	/**
-	 * Saves the current {@link Specified} as the given type
+	 * Saves the current {@link IElement} as the given type
 	 * to the file with the given file path.
 	 * 
 	 * @param type
@@ -72,7 +69,7 @@ public interface Specified extends TypeRequestable {
 	
 	//default method
 	/**
-	 * Saves the current {@link Specified} as the given type
+	 * Saves the current {@link IElement} as the given type
 	 * to the file with the given path.
 	 * 
 	 * @param type
@@ -93,7 +90,7 @@ public interface Specified extends TypeRequestable {
 	
 	//default method
 	/**
-	 * Saves the current {@link Specified} to the file with the given file path.
+	 * Saves the current {@link IElement} to the file with the given file path.
 	 * 
 	 * @param filePath
 	 * @throws InvalidArgumentException
@@ -107,7 +104,7 @@ public interface Specified extends TypeRequestable {
 	
 	//default method
 	/**
-	 * Saves the current {@link Specified} to the file with the given file path.
+	 * Saves the current {@link IElement} to the file with the given file path.
 	 * 
 	 * @param filePath
 	 * @param overwrite
@@ -120,7 +117,15 @@ public interface Specified extends TypeRequestable {
 	
 	//default method
 	/**
-	 * @return a XML representation of the current {@link Specified}.
+	 * @return a formated string representation of the current {@link IElement}.
+	 */
+	public default String toFormatedString() {
+		return getSpecification().toFormatedString();
+	}
+	
+	//default method
+	/**
+	 * @return a XML representation of the current {@link IElement}.
 	 */
 	public default XMLNode toXML() {
 		return getSpecification().toXML();
@@ -128,7 +133,7 @@ public interface Specified extends TypeRequestable {
 	
 	//default method
 	/**
-	 * @return a XML representation of the current {@link Specified} as the given type.
+	 * @return a XML representation of the current {@link IElement} as the given type.
 	 * @param type
 	 * @throws NullArgumentException if the given type is null.
 	 * @throws EmptyArgumentException if the given type is empty.

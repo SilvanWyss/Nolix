@@ -14,11 +14,11 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
-import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.elementAPI.IElement;
 
 //class
-public class Entity implements Identified, Specified {
+public class Entity implements Identified, IElement {
 	
 	//attribute
 	private EntityState state = EntityState.CREATED;
@@ -339,7 +339,6 @@ public class Entity implements Identified, Specified {
 	}
 	
 	//package-visible method
-	@SuppressWarnings("incomplete-switch")
 	final void setValues(final Iterable<DocumentNodeoid> valuesInOrder) {
 		
 		//Iterates the properties of the current entity and the given values in order synchronously.

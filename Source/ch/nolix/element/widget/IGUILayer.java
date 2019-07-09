@@ -4,11 +4,11 @@ package ch.nolix.element.widget;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.skillAPI.Clearable;
-import ch.nolix.core.specificationAPI.Specifiable;
+import ch.nolix.element.elementAPI.IMutableElement;
 import ch.nolix.element.painter.IPainter;
 
 //interface
-public interface IGUILayer<GL extends IGUILayer<GL>> extends Clearable<GL>, Specifiable<GL> {
+public interface IGUILayer<GL extends IGUILayer<GL>> extends Clearable<GL>, IMutableElement<GL> {
 	
 	//abstract methods
 	public abstract CursorIcon getCursorIcon();

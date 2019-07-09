@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.entity;
+package ch.nolix.element.element;
 
 //own imports
 import ch.nolix.core.attributeAPI.Named;

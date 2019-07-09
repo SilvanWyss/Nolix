@@ -8,11 +8,11 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.entity.MultiProperty;
-import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.element.MultiProperty;
+import ch.nolix.element.element.MutableProperty;
 import ch.nolix.element.widget.VerticalStack;
 import ch.nolix.element.widget.Widget;
 

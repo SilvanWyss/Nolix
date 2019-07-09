@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.entity;
+package ch.nolix.element.element;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNode;
@@ -8,24 +8,45 @@ import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.elementAPI.IElement;
 
 //abstract class
 /**
- * A {@link Entity} is specified.
+ * A {@link Element} is specified.
  * 
  * @author Silvan Wyss
  * @month 2017-10
- * @lines 120
+ * @lines 160
  */
-public abstract class Entity<E extends Entity<E>>
-implements
-	ISmartObject<E>,
-	Specified {
+public abstract class Element<E extends Element<E>> implements ISmartObject<E>, IElement {
 	
 	//multi-attribute
-	private List<Propertyoid<Specified>> properties;
+	private List<Propertyoid<IElement>> properties;
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(final Object object) {
+		
+		if (object == null) {
+			return false;
+		}		
+		
+		if (getClass() != object.getClass()) {
+			return false;
+		}
+		
+		final var entity = (Element<?>)object;
+		
+		if (!getSpecification().equals(entity.getSpecification())) {
+			return false;
+		}
+		
+		return true;
+	}
 	
 	//method
 	/**
@@ -41,8 +62,23 @@ implements
 	}
 	
 	//method
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+	
+	//method
 	/**
-	 * Adds or changes the given attribute to the current {@link Entity}.
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String toString() {
+		return getSpecification().toString();
+	}
+	
+	//method
+	/**
+	 * Adds or changes the given attribute to the current {@link Element}.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -66,9 +102,9 @@ implements
 	
 	//package-visible method
 	/**
-	 * @return the properties of the current {@link Entity}.
+	 * @return the properties of the current {@link Element}.
 	 */
-	IContainer<Propertyoid<Specified>> getRefProperties() {
+	IContainer<Propertyoid<IElement>> getRefProperties() {
 		
 		//Handles the case that the properties of the current Entity are not extracted yet.
 		if (!propertiesAreExtracted()) {
@@ -80,7 +116,7 @@ implements
 	
 	//method
 	/**
-	 * Extracts the properties of the current {@link Entity}.
+	 * Extracts the properties of the current {@link Element}.
 	 */
 	@SuppressWarnings("unchecked")
 	private void extractProperties() {
@@ -88,11 +124,11 @@ implements
 		properties = new List<>();
 		
 		//Iterates the types of the current {@link Entity}.
-		Class<?> cl = getClass();
-		while (cl != null) {
+		Class<?> lClass = getClass();
+		while (lClass != null) {
 			
 			//Iterates the fields of the current class.
-			for (final var f : cl.getDeclaredFields()) {
+			for (final var f : lClass.getDeclaredFields()) {
 				
 				//Handles the case that the current field is a property.
 				if (Propertyoid.class.isAssignableFrom(f.getType())) {
@@ -100,7 +136,7 @@ implements
 						
 						f.setAccessible(true);
 						
-						final var property = (Propertyoid<Specified>)(f.get(this));
+						final var property = (Propertyoid<IElement>)(f.get(this));
 						
 						//Checks if the current property is not null.
 						Validator.suppose(property).isOfType(MutableProperty.class);
@@ -113,13 +149,13 @@ implements
 				}
 			}
 			
-			cl = cl.getSuperclass();
+			lClass = lClass.getSuperclass();
 		}
 	}
 	
 	//method
 	/**
-	 * @return true if the properties of the current {@link Entity} are extracted.
+	 * @return true if the properties of the current {@link Element} are extracted.
 	 */
 	private boolean propertiesAreExtracted() {
 		return (properties != null);

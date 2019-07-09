@@ -4,6 +4,7 @@ package ch.nolix.element.core;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.element.elementAPI.IElement;
 
 //class
 /**
@@ -13,7 +14,7 @@ import ch.nolix.core.documentNode.DocumentNode;
  * @month 2015-12
  * @lines 80
  */
-public class Integer extends Element<Integer> {
+public class Integer implements IElement {
 	
 	//default value
 	private static final int DEFAULT_VALUE = 0;

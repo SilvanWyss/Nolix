@@ -4,14 +4,14 @@ package ch.nolix.element.task;
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.entity.MutableOptionalProperty;
-import ch.nolix.core.entity.MutableProperty;
-import ch.nolix.core.entity.Property;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.specificationAPI.Specifiable;
-import ch.nolix.element.core.Element;
 import ch.nolix.element.core.Text;
 import ch.nolix.element.core.Time;
+import ch.nolix.element.element.Element;
+import ch.nolix.element.element.MutableOptionalProperty;
+import ch.nolix.element.element.MutableProperty;
+import ch.nolix.element.element.Property;
+import ch.nolix.element.elementAPI.IMutableElement;
 
 //class
 /**
@@ -19,7 +19,7 @@ import ch.nolix.element.core.Time;
  * @month 2018-01
  * @lines 370
  */
-public final class Task extends Element<Task> implements Specifiable<Task> {
+public final class Task extends Element<Task> implements IMutableElement<Task> {
 	
 	//default value
 	private static final String DEFAULT_TITLE = StringCatalogue.EMPTY_STRING;

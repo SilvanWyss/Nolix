@@ -9,17 +9,17 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.skillAPI.Clearable;
-import ch.nolix.core.specificationAPI.Specifiable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.GUI;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
-import ch.nolix.element.core.Element;
+import ch.nolix.element.element.Element;
+import ch.nolix.element.element.MutableProperty;
+import ch.nolix.element.elementAPI.IMutableElement;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.CursorIcon;
 import ch.nolix.element.widget.HorizontalStack;
@@ -29,7 +29,7 @@ import ch.nolix.element.widget.Widget;
 
 //class
 public final class AccordionTab extends Element<AccordionTab>
-implements Clearable<AccordionTab>, Headerable<AccordionTab>, Specifiable<AccordionTab> {
+implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	
 	//default value
 	public static final String DEFAULT_HEADER = StringCatalogue.DEFAULT_STRING;

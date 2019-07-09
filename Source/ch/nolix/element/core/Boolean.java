@@ -5,6 +5,7 @@ package ch.nolix.element.core;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
+import ch.nolix.element.elementAPI.IElement;
 
 //class
 /**
@@ -14,7 +15,7 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
  * @month 2015-12
  * @lines 120
  */
-public final class Boolean extends Element<Boolean> {
+public final class Boolean implements IElement {
 	
 	//type name
 	public static final String TYPE_NAME = "Boolean";

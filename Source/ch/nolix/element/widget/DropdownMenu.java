@@ -4,10 +4,10 @@ package ch.nolix.element.widget;
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
-import ch.nolix.core.elementEnums.ExtendedContentPosition;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.element.GUI.GUILayer;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.elementEnums.ExtendedContentPosition;
 
 //class
 public final class DropdownMenu extends ItemMenu<DropdownMenu> {

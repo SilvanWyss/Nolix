@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.element.core;
 
-import ch.nolix.core.attributeAPI.Named;
 //own imports
+import ch.nolix.core.attributeAPI.Named;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.element.Element;
 
 //class
 public final class Flag extends Element<Flag> implements Named {

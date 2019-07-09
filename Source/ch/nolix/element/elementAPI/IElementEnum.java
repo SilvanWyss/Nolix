@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.specificationAPI;
+package ch.nolix.element.elementAPI;
 
 //own imports
 import ch.nolix.core.container.List;
@@ -11,7 +11,7 @@ import ch.nolix.core.documentNode.DocumentNode;
  * @month 2018-03
  * @lines 30
  */
-public interface IElementEnum extends Specified {
+public interface IElementEnum extends IElement {
 	
 	//default method
 	/**

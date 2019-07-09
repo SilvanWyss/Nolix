@@ -5,9 +5,6 @@ package ch.nolix.element.widget;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.elementEnums.ContentPosition;
-import ch.nolix.core.entity.MutableOptionalProperty;
-import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
@@ -15,6 +12,9 @@ import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.core.PositiveInteger;
+import ch.nolix.element.element.MutableOptionalProperty;
+import ch.nolix.element.element.MutableProperty;
+import ch.nolix.element.elementEnums.ContentPosition;
 import ch.nolix.element.painter.IPainter;
 
 //abstract class

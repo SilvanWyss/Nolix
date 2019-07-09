@@ -1,23 +1,23 @@
 //package declaration
-package ch.nolix.core.entity;
+package ch.nolix.element.element;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.specificationAPI.Specifiable;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.elementAPI.IMutableElement;
 
 //abstract class
 /**
  * 
- * A {@link SpecifiableEntity} is a {@link Entity} that is specifiable..
+ * A {@link SpecifiableEntity} is a {@link Element} that is specifiable..
  * 
  * @author Silvan Wyss
  * @month 2018-02
  * @lines 40
  */
 public abstract class SpecifiableEntity<SE extends SpecifiableEntity<SE>>
-extends Entity<SE>
-implements Specifiable<SE> {
+extends Element<SE>
+implements IMutableElement<SE> {
 	
 	//class
 	/**

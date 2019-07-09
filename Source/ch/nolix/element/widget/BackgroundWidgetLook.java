@@ -3,10 +3,10 @@ package ch.nolix.element.widget;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.image.Image;
+import ch.nolix.element.layerElement.LayerProperty;
 
 //abstract class
 /**

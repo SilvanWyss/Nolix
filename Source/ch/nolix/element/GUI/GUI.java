@@ -7,18 +7,13 @@ import java.awt.event.KeyEvent;
 //own imports
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.elementEnums.ContentPosition;
-import ch.nolix.core.elementEnums.ExtendedContentPosition;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.entity.MultiProperty;
-import ch.nolix.core.entity.MutableProperty;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
-import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
@@ -28,6 +23,11 @@ import ch.nolix.element.containerWidget.FloatContainer;
 import ch.nolix.element.containerWidget.Grid;
 import ch.nolix.element.containerWidget.SingleContainer;
 import ch.nolix.element.containerWidget.TabContainer;
+import ch.nolix.element.element.MultiProperty;
+import ch.nolix.element.element.MutableProperty;
+import ch.nolix.element.elementAPI.IConfigurableElement;
+import ch.nolix.element.elementEnums.ContentPosition;
+import ch.nolix.element.elementEnums.ExtendedContentPosition;
 import ch.nolix.element.painter.IPainter;
 import ch.nolix.element.widget.Area;
 import ch.nolix.element.widget.Button;
@@ -404,7 +404,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final List<Configurable<?>> getRefConfigurables() {
+	public final List<IConfigurableElement<?>> getRefConfigurables() {
 		return new List<>(getRefWidgets());
 	}
 	

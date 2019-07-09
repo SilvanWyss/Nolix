@@ -4,8 +4,8 @@ package ch.nolix.coreTest.elementEnumTest;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.elementEnums.UniDirection;
 import ch.nolix.core.test.Test;
+import ch.nolix.element.elementEnums.UniDirection;
 
 //test class
 /**

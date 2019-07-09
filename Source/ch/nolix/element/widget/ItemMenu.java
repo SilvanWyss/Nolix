@@ -8,12 +8,12 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.entity.MultiProperty;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.element.MultiProperty;
 
 //abstract class
 public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM, ItemMenuLook>

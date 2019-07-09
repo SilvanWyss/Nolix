@@ -1382,7 +1382,7 @@ extends BackgroundWidgetLook<BWL> {
 			hasLeftPadding()
 			&& hasRightPadding() && rightPadding.equals(leftPadding)
 			&& hasTopPadding() && topPadding.equals(leftPadding)
-			&& hasBottomPadding() && bottomPadding.equals(bottomPadding)
+			&& hasBottomPadding() && bottomPadding.equals(leftPadding)
 		);
 	}
 	

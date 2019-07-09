@@ -15,11 +15,7 @@ import ch.nolix.core.container.List;
  * @param <SO> The type of a {@link ISmartObject}.
  */
 public interface ISmartObject<SO extends ISmartObject<SO>>
-extends
-	Castable,
-	IFluentObject<SO>,
-	Listable<SO>,
-	TypeRequestable {
+extends Castable, IFluentObject<SO>, Listable<SO> {
 	
 	//default method
 	/**

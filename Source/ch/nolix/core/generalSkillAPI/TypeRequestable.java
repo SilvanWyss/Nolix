@@ -14,7 +14,7 @@ import ch.nolix.core.container.List;
  */
 public interface TypeRequestable {
 	
-	//abstract method
+	//default method
 	/**
 	 * @return the type of the current {@link TypeRequestable}.
 	 */
@@ -79,25 +79,27 @@ public interface TypeRequestable {
 	 * @return true if the current {@link TypeRequestable} is of the given type.
 	 */
 	public default boolean isOfType(final String type) {
+		
 		/*
 		 * For a better performance, this implementation does not use all comfortable methods.
 		 * 
 		 * shorter implementation:
 		 * 
 		 * return getTypes().contains(typeOrSuperType);
-		 */ 
-			//Iterates the classes of this type requestable object.
-			Class<?> c = getClass();
-			while (c.getSuperclass() != null) {
-				
-				//Handles the case that the current class is the given type or super type.
-				if (c.getSimpleName().equals(type)) {
-					return true;
-				}
-				
-				c = c.getSuperclass();
+		 */
+		
+		//Iterates the classes of this type requestable object.
+		Class<?> c = getClass();
+		while (c.getSuperclass() != null) {
+			
+			//Handles the case that the current class is the given type or super type.
+			if (c.getSimpleName().equals(type)) {
+				return true;
 			}
 			
-			return false;
+			c = c.getSuperclass();
+		}
+		
+		return false;
 	}
 }

@@ -6,6 +6,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
+import ch.nolix.element.element.Element;
 
 //class
 /**

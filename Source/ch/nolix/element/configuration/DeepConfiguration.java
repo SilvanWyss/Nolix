@@ -6,8 +6,8 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.element.core.PositiveInteger;
+import ch.nolix.element.elementAPI.IConfigurableElement;
 
 //class
 /**
@@ -74,7 +74,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * @param element
 	 */
 	@Override
-	public void configure(Configurable<?> element) {
+	public void configure(IConfigurableElement<?> element) {
 
 		if (!hasMaxSelectorLevel()) {
 
@@ -189,7 +189,7 @@ public final class DeepConfiguration extends Configuration<DeepConfiguration> {
 	 * @param element
 	 * @param level
 	 */
-	private void configure(Configurable<?> element, int level) {
+	private void configure(IConfigurableElement<?> element, int level) {
 		if (level > 0) {
 			
 			final var elements = element.getRefConfigurables();

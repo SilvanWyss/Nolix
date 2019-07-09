@@ -4,10 +4,10 @@ package ch.nolix.system.databaseAdapter;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.specificationAPI.Specified;
+import ch.nolix.element.elementAPI.IElement;
 
 //abstract class
-public abstract class PropertyoidType<V> implements Specified {
+public abstract class PropertyoidType<V> implements IElement {
 	
 	//attribute
 	private final ValueClassBox<V> valueClassBox;

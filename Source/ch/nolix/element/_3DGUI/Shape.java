@@ -7,9 +7,9 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specificationAPI.Configurable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.configuration.ConfigurableElement;
+import ch.nolix.element.elementAPI.IConfigurableElement;
 import ch.nolix.element.geometry._2DPoint;
 import ch.nolix.element.geometry._3DPoint;
 
@@ -71,7 +71,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 * @return the configurable elements of this shape.
 	 */
 	@Override
-	public final ReadContainer<Configurable<?>> getRefConfigurables() {
+	public final ReadContainer<IConfigurableElement<?>> getRefConfigurables() {
 		return new ReadContainer<>(getRefShapes());
 	}
 	

@@ -4,12 +4,12 @@ package ch.nolix.element.widget;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
-import ch.nolix.core.layerEntity.LayerEntity;
-import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.PositiveInteger;
+import ch.nolix.element.layerElement.LayerEntity;
+import ch.nolix.element.layerElement.LayerProperty;
 import ch.nolix.element.textFormat.Font;
 
 //abstract class

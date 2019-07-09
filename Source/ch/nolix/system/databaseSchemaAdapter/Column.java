@@ -8,13 +8,13 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.specificationAPI.Specified;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.elementAPI.IElement;
 import ch.nolix.system.databaseAdapter.PropertyKind;
 import ch.nolix.system.databaseAdapter.PropertyoidType;
 
 //class
-public final class Column implements Headered, Specified {
+public final class Column implements Headered, IElement {
 	
 	//attributes
 	private final String header;

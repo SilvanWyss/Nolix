@@ -74,7 +74,6 @@ public final class EntitySession extends HeaderedSession {
 	}
 	
 	//method
-	@SuppressWarnings({ "incomplete-switch", "unchecked" })
 	private Grid createDataGrid() {
 		
 		final var dataGrid = new Grid();
@@ -105,6 +104,7 @@ public final class EntitySession extends HeaderedSession {
 					break;
 				case REFERENCE:
 					
+					@SuppressWarnings("unchecked")
 					final var referenceProperty = (Reference<Entity>)p;
 					
 					dataGrid
@@ -215,7 +215,6 @@ public final class EntitySession extends HeaderedSession {
 	}
 	
 	//method
-	@SuppressWarnings("incomplete-switch")
 	private void save() {
 		
 		final var entity = getRefEntity();

@@ -6,15 +6,15 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.entity.MutableProperty;
-import ch.nolix.core.entity.OptionalProperty;
-import ch.nolix.core.entity.Property;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.core.Boolean;
-import ch.nolix.element.core.Element;
 import ch.nolix.element.core.NonEmptyText;
+import ch.nolix.element.element.Element;
+import ch.nolix.element.element.MutableProperty;
+import ch.nolix.element.element.OptionalProperty;
+import ch.nolix.element.element.Property;
 
 //class
 public final class ItemMenuItem extends Element<ItemMenuItem> {

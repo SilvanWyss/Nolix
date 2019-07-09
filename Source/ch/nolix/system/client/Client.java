@@ -12,6 +12,7 @@ import ch.nolix.core.endPoint5.LocalEndPoint;
 import ch.nolix.core.endPoint5.NetEndPoint;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
+import ch.nolix.core.generalSkillAPI.TypeRequestable;
 import ch.nolix.core.invalidArgumentException.ClosedArgumentException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
@@ -29,7 +30,7 @@ import ch.nolix.core.validator.Validator;
  * @param <C> The type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
-implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C> {
+implements OptionalClosable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	
 	//constants
 	protected static final String SESSION_USER_RUN_METHOD_HEADER = "SessionUserRunMethod";

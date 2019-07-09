@@ -6,4 +6,4 @@
  * @month 2019-04
  * @lines 10
  */
-package ch.nolix.core.elementEnums;
+package ch.nolix.element.elementEnums;

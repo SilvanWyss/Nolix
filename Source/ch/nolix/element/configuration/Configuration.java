@@ -12,11 +12,11 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Freezable;
-import ch.nolix.core.specificationAPI.Configurable;
-import ch.nolix.core.specificationAPI.Specifiable;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.core.Element;
 import ch.nolix.element.core.NonEmptyText;
+import ch.nolix.element.element.Element;
+import ch.nolix.element.elementAPI.IConfigurableElement;
+import ch.nolix.element.elementAPI.IMutableElement;
 
 //abstract class
 /**
@@ -26,7 +26,7 @@ import ch.nolix.element.core.NonEmptyText;
  * @param <C> The type of a configuration.
  */
 public abstract class Configuration<C extends Configuration<C>> extends Element<C>
-implements Freezable<C>, OptionalNamable<C>, Specifiable<C> {
+implements Freezable<C>, OptionalNamable<C>, IMutableElement<C> {
 	
 	//attribute headers
 	private static final String SELECTOR_TYPE_HEADER = "SelectorType";
@@ -267,7 +267,7 @@ implements Freezable<C>, OptionalNamable<C>, Specifiable<C> {
 	 * 
 	 * @param element
 	 */
-	public abstract void configure(Configurable<?> element);
+	public abstract void configure(IConfigurableElement<?> element);
 	
 	//method
 	/**
@@ -591,7 +591,7 @@ implements Freezable<C>, OptionalNamable<C>, Specifiable<C> {
 	 * @param element
 	 * @return true if this configuration selects the given element.
 	 */
-	public final boolean selects(Configurable<?> element) {
+	public final boolean selects(IConfigurableElement<?> element) {
 		
 		//Handles the case that this configuration has a selector type.
 		if (hasSelectorType() && !element.isOfType(getSelectorType())) {
@@ -705,7 +705,7 @@ implements Freezable<C>, OptionalNamable<C>, Specifiable<C> {
 	 * @throws InvalidArgumentException if an attaching attribute of this configuration
 	 * is not valid for the given element.
 	 */
-	protected final void setAttachingAttributesTo(Configurable<?> element) {
+	protected final void setAttachingAttributesTo(IConfigurableElement<?> element) {
 		for (final var aa : attachingAttributes) {
 			try {
 				element.addOrChangeAttribute(aa);

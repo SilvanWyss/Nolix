@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.layerEntity;
+package ch.nolix.element.layerElement;
 
 //Java import
 import java.lang.reflect.Field;
@@ -13,8 +13,8 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
-import ch.nolix.core.specificationAPI.Specifiable;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.elementAPI.IMutableElement;
 
 //abstract class
 /**
@@ -26,7 +26,7 @@ import ch.nolix.core.validator.Validator;
 public abstract class LayerEntity<E extends LayerEntity<E>>
 implements
 	ISmartObject<E>,
-	Specifiable<E> {
+	IMutableElement<E> {
 	
 	//attribute
 	private List<LayerProperty<?>> layerProperties;

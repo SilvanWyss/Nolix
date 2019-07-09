@@ -4,7 +4,7 @@ package ch.nolix.element.configuration;
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.specificationAPI.Configurable;
+import ch.nolix.element.elementAPI.IConfigurableElement;
 
 //class
 /**
@@ -53,7 +53,7 @@ public class StandardConfiguration extends Configuration<StandardConfiguration> 
 	 * @param element
 	 */
 	@Override
-	public final void configure(final Configurable<?> element) {
+	public final void configure(final IConfigurableElement<?> element) {
 		if (selects(element)) {
 			
 			setAttachingAttributesTo(element);

@@ -4,9 +4,9 @@ package ch.nolix.element.widget;
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.layerEntity.LayerEntity;
-import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.layerElement.LayerEntity;
+import ch.nolix.element.layerElement.LayerProperty;
 
 //class
 public final class ItemMenuItemLook

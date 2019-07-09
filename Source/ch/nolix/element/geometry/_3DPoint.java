@@ -6,7 +6,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.helper.DoubleHelper;
 import ch.nolix.core.math.Vector;
-import ch.nolix.element.core.Element;
+import ch.nolix.element.elementAPI.IElement;
 
 //class
 /**
@@ -19,7 +19,7 @@ import ch.nolix.element.core.Element;
  * @month 2016-05
  * @lines 150
  */
-public class _3DPoint extends Element<_3DPoint> {
+public class _3DPoint implements IElement {
 	
 	//default values.
 	public static final double DEFAULT_X = 0.0;

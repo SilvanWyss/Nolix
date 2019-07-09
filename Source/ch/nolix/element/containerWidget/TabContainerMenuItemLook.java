@@ -6,10 +6,10 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.layerEntity.LayerEntity;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.NonNegativeInteger;
+import ch.nolix.element.layerElement.LayerEntity;
 import ch.nolix.element.widget.ItemMenuItemLook;
 import ch.nolix.element.widget.ValueCatalogue;
 

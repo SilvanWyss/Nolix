@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.element.containerWidget;
 
-import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
+import ch.nolix.element.layerElement.LayerProperty;
 import ch.nolix.element.widget.BorderWidgetLook;
 import ch.nolix.element.widget.ValueCatalogue;
 

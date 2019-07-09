@@ -3,9 +3,9 @@ package ch.nolix.element.containerWidget;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
-import ch.nolix.core.layerEntity.LayerProperty;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.PositiveInteger;
+import ch.nolix.element.layerElement.LayerProperty;
 import ch.nolix.element.widget.BorderWidgetLook;
 import ch.nolix.element.widget.ValueCatalogue;
 

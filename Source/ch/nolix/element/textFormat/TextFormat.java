@@ -13,8 +13,8 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
-import ch.nolix.element.core.Element;
 import ch.nolix.element.core.PositiveInteger;
+import ch.nolix.element.element.Element;
 
 //class
 /**

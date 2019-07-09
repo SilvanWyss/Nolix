@@ -1,9 +1,9 @@
 package ch.nolix.elementTutorial.containerWidgetTutorial;
 
-import ch.nolix.core.elementEnums.ContentPosition;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidget.FloatContainer;
+import ch.nolix.element.elementEnums.ContentPosition;
 import ch.nolix.element.widget.Label;
 
 /**
