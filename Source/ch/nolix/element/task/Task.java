@@ -3,9 +3,9 @@ package ch.nolix.element.task;
 
 //own imports
 import ch.nolix.core.constants.StringCatalogue;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.element.core.Text;
 import ch.nolix.element.core.Time;
 import ch.nolix.element.element.Element;
 import ch.nolix.element.element.MutableOptionalProperty;
@@ -17,7 +17,7 @@ import ch.nolix.element.elementAPI.IMutableElement;
 /**
  * @author Silvan Wyss
  * @month 2018-01
- * @lines 370
+ * @lines 380
  */
 public final class Task extends Element<Task> implements IMutableElement<Task> {
 	
@@ -42,12 +42,12 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	}
 	
 	//attribute
-	private final MutableProperty<Text> title =
+	private final MutableProperty<String> title =
 	new MutableProperty<>(
 		TITLE_HEADER,
-		t -> setTitle(t.getValue()),
-		s -> Text.createFromSpecification(s),
-		t -> t.getSpecification()
+		t -> setTitle(t),
+		s -> s.getOneAttributeAsString(),
+		t -> DocumentNode.createWithOneAttribute(t)
 	);
 	
 	//attribute
@@ -226,7 +226,7 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	 * @return the title of this task.
 	 */
 	public String getTitle() {
-		return title.getValue().getValue();
+		return title.getValue();
 	}
 	
 	//method
@@ -339,7 +339,7 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	 */
 	public Task setTitle(final String title) {
 		
-		this.title.setValue(new Text(title));
+		this.title.setValue(title);
 		
 		return this;
 	}
