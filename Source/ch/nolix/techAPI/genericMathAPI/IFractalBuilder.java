@@ -32,53 +32,44 @@ public interface IFractalBuilder {
 	public abstract IFractalBuilder setImaginaryComponentInterval(IClosedInterval imaginaryComponentInterval);
 	
 	//abstract method
-	public abstract IFractalBuilder setRealComponentInterval(double min, double max);
+	public abstract IFractalBuilder setMaxIterationCount(int maxIterationCount);
+
+	//abstract method
+	public abstract IFractalBuilder setMinMagnitudeForConvergence(BigDecimal minMagnitudeForConvergence);
+
+	//abstract method
+	public abstract IFractalBuilder setMinMagnitudeForConvergence(double minMagnitudeForConvergence);
 	
 	//abstract method
-	public abstract IFractalBuilder setRealComponentInterval(IClosedInterval realComponentInterval);
-	
-	//abstract method
-	public abstract IFractalBuilder setSequencesMaxIterationCount(int sequencesMaxIterationCount);
-	
-	//abstract method
-	public abstract IFractalBuilder setSequencesMinDivergenceMagnitude(BigDecimal sequencesMinDivergenceMagnitude);
-	
-	//abstract method
-	public abstract IFractalBuilder setSequencesMinDivergenceMagnitude(double sequencesMinDivergenceMagnitude);
-	
-	//abstract method
-	public abstract IFractalBuilder setSequencesNextValueFunction(
-		I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
-		sequenceNextValueFunction
+	public abstract IFractalBuilder setNextValueFunction(
+		I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber> nextValueFunction
 	);
 	
 	//default method
-	public default IFractalBuilder setSequencesNextValueFunctionFor1Predecessor(
-		final I2ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber>
-		sequenceNextValueFunction
+	public default IFractalBuilder setNextValueFunctionFor1Predecessor(
+		final I2ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> nextValueFunction
 	) {
-		return setSequencesNextValueFunction((p, c) -> sequenceNextValueFunction.getOutput(p[0], c));
+		return setNextValueFunction((p, c) -> nextValueFunction.getOutput(p[0], c));
 	}
 	
 	//default method
-	public default IFractalBuilder setSequencesNextValueFunctionFor2Predecessor(
+	public default IFractalBuilder setNextValueFunctionFor2Predecessor(
 		final I3ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber, IComplexNumber>
-		sequenceNextValueFunction
+		nextValueFunction
 	) {
-		return setSequencesNextValueFunction((p, c) -> sequenceNextValueFunction.getOutput(p[0], p[1], c));
+		return setNextValueFunction((p, c) -> nextValueFunction.getOutput(p[0], p[1], c));
 	}
 	
 	//default method
-	public default IFractalBuilder setSequencesNextValueFunctionFor3Predecessor(
+	public default IFractalBuilder setNextValueFunctionFor3Predecessor(
 		final I4ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber, IComplexNumber, IComplexNumber>
-		sequenceNextValueFunction
+		nextValueFunction
 	) {
-		return
-		setSequencesNextValueFunction((p, c) -> sequenceNextValueFunction.getOutput(p[0], p[1], p[2], c));
+		return setNextValueFunction((p, c) -> nextValueFunction.getOutput(p[0], p[1], p[2], c));
 	}
-	
+
 	//default method
-	public default IFractalBuilder setSequencesNextValueFunctionFor4Predecessor(
+	public default IFractalBuilder setNextValueFunctionFor4Predecessor(
 		I5ElementTakerElementGetter<
 			IComplexNumber,
 			IComplexNumber,
@@ -87,20 +78,24 @@ public interface IFractalBuilder {
 			IComplexNumber,
 			IComplexNumber
 		>
-		sequenceNextValueFunction
+		nextValueFunction
 	) {
 		return
-		setSequencesNextValueFunction(
-			(p, z) -> sequenceNextValueFunction.getOutput(p[0], p[1], p[2], p[3], z)
-		);
+		setNextValueFunction((p, z) -> nextValueFunction.getOutput(p[0], p[1], p[2], p[3], z));
 	}
+
+	//abstract method
+	public abstract IFractalBuilder setRealComponentInterval(double min, double max);
+
+	//abstract method
+	public abstract IFractalBuilder setRealComponentInterval(IClosedInterval realComponentInterval);
+
+	//abstract method
+	public abstract IFractalBuilder setStartValues(IComplexNumber... startValues);
 	
 	//abstract method
-	public abstract IFractalBuilder setSequencesStartValues(IComplexNumber... sequencesStartValues);
-	
-	//abstract method
-	public abstract IFractalBuilder setSequencesStartValuesFunction(
-		IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction
+	public abstract IFractalBuilder setStartValuesFunction(
+		IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> startValuesFunction
 	);
 	
 	//abstract method

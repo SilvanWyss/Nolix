@@ -125,7 +125,7 @@ public final class FractalBuilder implements IFractalBuilder {
 	
 	//method
 	@Override
-	public IFractalBuilder setSequencesMaxIterationCount(final int sequencesMaxIterationCount) {
+	public IFractalBuilder setMaxIterationCount(final int sequencesMaxIterationCount) {
 		
 		this.sequencesMaxIterationCount = sequencesMaxIterationCount;
 		
@@ -134,7 +134,7 @@ public final class FractalBuilder implements IFractalBuilder {
 	
 	//method
 	@Override
-	public IFractalBuilder setSequencesMinDivergenceMagnitude(final BigDecimal sequencesMinDivergenceMagnitude) {
+	public IFractalBuilder setMinMagnitudeForConvergence(final BigDecimal sequencesMinDivergenceMagnitude) {
 		
 		this.sequencesMinDivergenceMagnitude = sequencesMinDivergenceMagnitude;
 		
@@ -143,13 +143,13 @@ public final class FractalBuilder implements IFractalBuilder {
 	
 	//method
 	@Override
-	public IFractalBuilder setSequencesMinDivergenceMagnitude(final double sequencesMinDivergenceMagnitude) {
-		return setSequencesMinDivergenceMagnitude(BigDecimal.valueOf(sequencesMinDivergenceMagnitude));
+	public IFractalBuilder setMinMagnitudeForConvergence(final double sequencesMinDivergenceMagnitude) {
+		return setMinMagnitudeForConvergence(BigDecimal.valueOf(sequencesMinDivergenceMagnitude));
 	}
 	
 	//method
 	@Override
-	public IFractalBuilder setSequencesNextValueFunction(
+	public IFractalBuilder setNextValueFunction(
 		final I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
 		sequenceNextValueFunction
 	) {
@@ -161,12 +161,12 @@ public final class FractalBuilder implements IFractalBuilder {
 	
 	//method
 	@Override
-	public IFractalBuilder setSequencesStartValues(final IComplexNumber... sequencesStartValues) {		
-		return setSequencesStartValuesFunction(c -> sequencesStartValues);
+	public IFractalBuilder setStartValues(final IComplexNumber... sequencesStartValues) {		
+		return setStartValuesFunction(c -> sequencesStartValues);
 	}
 	
 	//method
-	public IFractalBuilder setSequencesStartValuesFunction(
+	public IFractalBuilder setStartValuesFunction(
 		IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction
 	) {
 		this.sequencesStartValuesFunction = sequencesStartValuesFunction;

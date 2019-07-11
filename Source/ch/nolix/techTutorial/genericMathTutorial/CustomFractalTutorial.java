@@ -27,10 +27,10 @@ public class CustomFractalTutorial {
 				.setRealComponentInterval(-2.0, 1.5)
 				.setImaginaryComponentInterval(-1.5, 1.5)
 				.setWidthInPixel(800)
-				.setSequencesStartValues(CentralClassProvider.create(IComplexNumberFactory.class).create(0.0, 0.0))
-				.setSequencesNextValueFunctionFor1Predecessor((p, c) -> p.getPower(4).getSum(c))
-				.setSequencesMinDivergenceMagnitude(2.5)
-				.setSequencesMaxIterationCount(maxIterationCount)
+				.setStartValues(CentralClassProvider.create(IComplexNumberFactory.class).create(0.0, 0.0))
+				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower(4).getSum(c))
+				.setMinMagnitudeForConvergence(2.5)
+				.setMaxIterationCount(maxIterationCount)
 				.setColorFunction(
 					i ->
 					i < maxIterationCount ?	new Color(i % 256, (10 * i) % 256, (2 * i) % 256) : Color.BLACK

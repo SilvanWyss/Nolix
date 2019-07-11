@@ -29,10 +29,10 @@ public final class JuliaFractalTutorial {
 				.setRealComponentInterval(-2.0, 2.0)
 				.setImaginaryComponentInterval(-1.5, 1.5)
 				.setWidthInPixel(800)
-				.setSequencesStartValuesFunction(c -> new IComplexNumber[]{c})
-				.setSequencesNextValueFunctionFor1Predecessor((p, c) -> p.getPower2().getSum(j))
-				.setSequencesMinDivergenceMagnitude(2.5)
-				.setSequencesMaxIterationCount(maxIterationCount)
+				.setStartValuesFunction(c -> new IComplexNumber[]{c})
+				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower2().getSum(j))
+				.setMinMagnitudeForConvergence(2.5)
+				.setMaxIterationCount(maxIterationCount)
 				.setColorFunction(
 					i ->
 					i < maxIterationCount ?	new Color(i % 256, (10 * i) % 256, (2 * i) % 256) : Color.BLACK
