@@ -3,8 +3,8 @@ package ch.nolix.element.containerWidget;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.layerElement.LayerProperty;
 import ch.nolix.element.widget.BorderWidgetLook;
 import ch.nolix.element.widget.ValueCatalogue;
@@ -22,12 +22,12 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	private static final String LINE_TYPE_HEADER = "LineType";
 	
 	//attribute
-	private final LayerProperty<PositiveInteger> lineThickness =
+	private final LayerProperty<Integer> lineThickness =
 	new LayerProperty<>(
 		PascalCaseNameCatalogue.LINE_THICKNESS,
-		new PositiveInteger(DEFAULT_LINE_THICKNESS),
-		s -> PositiveInteger.createFromSpecification(s),
-		lt -> lt.getSpecification()
+		DEFAULT_LINE_THICKNESS,
+		s -> s.getOneAttributeAsInt(),
+		lt -> DocumentNode.createWithOneAttribute(lt)
 	);
 	
 	//attribute
@@ -40,12 +40,12 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	);
 	
 	//attribute
-	private final LayerProperty<PositiveInteger> elementMargin =
+	private final LayerProperty<Integer> elementMargin =
 	new LayerProperty<>(
 		PascalCaseNameCatalogue.ELEMENT_MARGIN,
-		new PositiveInteger(DEFAULT_ELEMENT_MARGIN),
-		s -> PositiveInteger.createFromSpecification(s),
-		em -> em.getSpecification()
+		DEFAULT_ELEMENT_MARGIN,
+		s -> s.getOneAttributeAsInt(),
+		em -> DocumentNode.createWithOneAttribute(em)
 	);
 	
 	//attribute
@@ -59,7 +59,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	
 	//method
 	public int getRecursiveElementMarginOrDefault() {
-		return elementMargin.getRecursiveOrDefaultValue().getValue();
+		return elementMargin.getRecursiveOrDefaultValue();
 	}
 	
 	//method
@@ -69,7 +69,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	
 	//method
 	public int getRecursiveLineThicknessOrDefault() {
-		return lineThickness.getRecursiveOrDefaultValue().getValue();
+		return lineThickness.getRecursiveOrDefaultValue();
 	}
 	
 	//method
@@ -100,7 +100,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	//method
 	public GridLook setElementMargin(final int elementMargin) {
 		
-		this.elementMargin.setValue(new PositiveInteger(elementMargin));
+		this.elementMargin.setValue(elementMargin);
 		
 		return this;
 	}
@@ -116,7 +116,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	//method
 	public GridLook setLineThickness(final int lineThickness) {
 		
-		this.lineThickness.setValue(new PositiveInteger(lineThickness));
+		this.lineThickness.setValue(lineThickness);
 		
 		return this;
 	}
