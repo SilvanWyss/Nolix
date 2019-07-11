@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.element.containerWidget;
 
-import ch.nolix.element.core.PositiveInteger;
+//own imports
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.element.layerElement.LayerProperty;
 import ch.nolix.element.widget.BorderWidgetLook;
 import ch.nolix.element.widget.ValueCatalogue;
@@ -18,31 +19,31 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 	private static final String WIDGET_MARGIN_HEADER = "WidgetMargin";
 	
 	//attribute
-	private final LayerProperty<PositiveInteger> proposeContentWidth =
+	private final LayerProperty<Integer> proposeContentWidth =
 	new LayerProperty<>(
 		PROPOSE_CONTENT_WIDTH_HEADER,
-		new PositiveInteger(DEFAULT_PROPOSE_CONTENT_WIDTH),
-		s -> PositiveInteger.createFromSpecification(s),
-		pcw -> pcw.getSpecification()
+		DEFAULT_PROPOSE_CONTENT_WIDTH,
+		s -> s.getOneAttributeAsInt(),
+		pcw -> DocumentNode.createWithOneAttribute(pcw)
 	);
 		
 	//attribute
-	private final LayerProperty<PositiveInteger> widgetMargin =
+	private final LayerProperty<Integer> widgetMargin =
 	new LayerProperty<>(
 		WIDGET_MARGIN_HEADER,
-		new PositiveInteger(DEFAULT_WIDGET_MARGIN),
-		s -> PositiveInteger.createFromSpecification(s),
-		wm -> wm.getSpecification()
+		DEFAULT_WIDGET_MARGIN,
+		s -> s.getOneAttributeAsInt(),
+		wm -> DocumentNode.createWithOneAttribute(wm)
 	);
 	
 	//method
 	public int getRecursiveOrDefaultProposeContentWidth() {
-		return proposeContentWidth.getRecursiveOrDefaultValue().getValue();
+		return proposeContentWidth.getRecursiveOrDefaultValue();
 	}
 	
 	//method
 	public int getRecursiveOrDefaultWidgetMargin() {
-		return widgetMargin.getRecursiveOrDefaultValue().getValue();
+		return widgetMargin.getRecursiveOrDefaultValue();
 	}
 	
 	//method
@@ -58,7 +59,7 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 	//method
 	public FloatContainerLook setProposeContentWidth(final int proposeContentWidth) {
 		
-		this.proposeContentWidth.setValue(new PositiveInteger(proposeContentWidth));
+		this.proposeContentWidth.setValue(proposeContentWidth);
 		
 		return this;
 	}
@@ -66,7 +67,7 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 	//method
 	public FloatContainerLook setWidgetMargin(final int widgetMargin) {
 		
-		this.widgetMargin.setValue(new PositiveInteger(widgetMargin));
+		this.widgetMargin.setValue(widgetMargin);
 		
 		return this;
 	}
