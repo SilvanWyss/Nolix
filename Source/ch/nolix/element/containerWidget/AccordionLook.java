@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.element.containerWidget;
 
+//own imports
+import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.layerElement.LayerProperty;
 import ch.nolix.element.widget.BorderWidgetLook;
 import ch.nolix.element.widget.ValueCatalogue;
@@ -32,12 +33,12 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	);
 	
 	//attribute
-	private final LayerProperty<PositiveInteger> tabHeaderTextSize =
+	private final LayerProperty<Integer> tabHeaderTextSize =
 	new LayerProperty<>(
 		TAB_HEADER_TEXT_SIZE_HEADER,
-		new PositiveInteger(DEFAULT_TAB_HEADER_TEXT_SIZE),
-		s -> PositiveInteger.createFromSpecification(s),
-		thts -> thts.getSpecification()
+		DEFAULT_TAB_HEADER_TEXT_SIZE,
+		s -> s.getOneAttributeAsInt(),
+		thts -> DocumentNode.createWithOneAttribute(thts)
 	);
 	
 	//attribute
@@ -75,7 +76,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	
 	//method
 	public int getRecursiveOrDefaultTabHeaderTextSize() {
-		return tabHeaderTextSize.getRecursiveOrDefaultValue().getValue();
+		return tabHeaderTextSize.getRecursiveOrDefaultValue();
 	}
 	
 	//method
@@ -157,7 +158,7 @@ public final class AccordionLook extends BorderWidgetLook<AccordionLook> {
 	//method
 	public AccordionLook setTabHeaderTextSize(final int tabHeaderTextSize) {
 		
-		this.tabHeaderTextSize.setValue(new PositiveInteger(tabHeaderTextSize));
+		this.tabHeaderTextSize.setValue(tabHeaderTextSize);
 		
 		return this;
 	}
