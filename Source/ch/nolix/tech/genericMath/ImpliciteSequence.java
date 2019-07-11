@@ -22,7 +22,7 @@ public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 	private final int startIndex;
 	
 	//multi-attribute
-	private final ArrayList<N> startValues = new ArrayList<>();
+	private final N[] startValues;
 	
 	//attributes
 	private final IElementTakerElementGetter<N[], N> nextValueFunction;
@@ -66,10 +66,7 @@ public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 		this.startIndex = startIndex;
 		this.nextValueFunction = nextValueFunction;
 		this.squaredMagnitudeFunction = squaredMagnitudeFunction;
-		
-		for (final var sv : startValues) {
-			this.startValues.add(sv);
-		}
+		this.startValues = startValues.clone();
 		
 		for (final var sv : startValues) {
 			valuesAndSquaredMagnitudes.add(new Pair<N, BigDecimal>(sv, squaredMagnitudeFunction.getOutput(sv)));
@@ -115,14 +112,14 @@ public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 	
 	//method
 	@Override
-	public ArrayList<N> getStartValues() {
+	public N[] getStartValues() {
 		return startValues;
 	}
 	
 	//method
 	@Override
 	public int getStartValuesCount() {
-		return startValues.size();
+		return startValues.length;
 	}
 	
 	//method
