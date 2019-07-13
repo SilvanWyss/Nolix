@@ -13,8 +13,8 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.container.SequencePattern;
 import ch.nolix.element.core.Time;
 import ch.nolix.element.finance.NYSEProductSymbolManager;
+import ch.nolix.element.finance.QuandlDataProvider;
 import ch.nolix.element.finance.VolumeCandlestick;
-import ch.nolix.element.finance.YahooDataProvider;
 
 //class
 /**
@@ -36,7 +36,7 @@ public final class CandleStickTutorial {
 		
 		//Loads the candle sticks.
 		final List<VolumeCandlestick> candleSticks
-		= new YahooDataProvider().getCandleSticksPerDay(
+		= new QuandlDataProvider().getCandleSticksPerDay(
 			NYSEProductSymbolManager.BOEING,
 			new Time(2015, 1, 1),
 			new Time(2015, 12, 31)

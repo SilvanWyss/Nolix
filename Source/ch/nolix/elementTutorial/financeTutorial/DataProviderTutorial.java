@@ -3,8 +3,8 @@ package ch.nolix.elementTutorial.financeTutorial;
 
 //own imports
 import ch.nolix.element.core.Time;
-import ch.nolix.element.finance.GoogleDataProvider;
 import ch.nolix.element.finance.NYSEProductSymbolManager;
+import ch.nolix.element.finance.QuandlDataProvider;
 
 //class
 /**
@@ -18,12 +18,12 @@ public final class DataProviderTutorial {
 	
 	//main method
 	/**
-	 * Loads and prints out to the console the candle sticks per hour of BP from 2017-2-1 until 2017-2-3.
+	 * Loads and prints out to the console the candle sticks per day of BP from 2017-2-1 until 2017-2-3.
 	 * 
 	 * @param arguments
 	 */
 	public static void main(final String[] arguments) {
-		new GoogleDataProvider().getCandleSticksPerHour(
+		new QuandlDataProvider().getCandleSticksPerDay(
 			NYSEProductSymbolManager.BP,
 			new Time(2017, 2, 1, 16, 0),
 			new Time(2017, 2, 3, 22, 0)

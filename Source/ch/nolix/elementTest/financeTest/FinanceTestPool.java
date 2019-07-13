@@ -18,8 +18,7 @@ public final class FinanceTestPool extends TestPool {
 	 */
 	public FinanceTestPool() {
 		addTestClass(
-			CandleStickTest.class,
-			GoogleDataProviderTest.class
+			CandleStickTest.class
 		);
 	}
 }
