@@ -1,42 +1,35 @@
-/*
- * file:	ARModel.java
- * author:	Silvan Wyss
- * month:	2016-07
- * lines:	130
- */
-
 //package declaration
 package ch.nolix.core.math;
 
-import ch.nolix.core.validator2.Validator;
+//own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
+import ch.nolix.core.validator.Validator;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @month 2016-07
+ * @lines 90
+ */
 public final class ARModel extends StatisticalModel {
-
-	//attributes
-	private final double[] pCoefficients;
+	
+	//attribute
 	private final double constant;
 	
+	//multi-attribute
+	private final double[] pCoefficients;
+		
 	//constructor
-	/**
-	 * Creates a new AR model with the given p-order and the given input values.
-	 * 
-	 * @param pOrder
-	 * @param inputValues
-	 * @throws Exception if:
-	 * -the given p-order is negative
-	 * -less input values are given than the given p-order+1
-	 */
 	public ARModel(final int pOrder, final double[] inputValues) {
 		
 		//Calls constructor of the base class.
 		super(pOrder, inputValues);
 				
 		//Creates factor1 matrix.
-		Matrix factor1Matrix = new Matrix(inputValues.length - pOrder, pOrder + 1);
-		for (int i = 1; i <= factor1Matrix.getRowCount(); i++) {
+		final var factor1Matrix = new Matrix(inputValues.length - pOrder, pOrder + 1);
+		for (var i = 1; i <= factor1Matrix.getRowCount(); i++) {
 			
-			for (int j = 1; j < factor1Matrix.getColumnCount(); j++) {
+			for (var j = 1; j < factor1Matrix.getColumnCount(); j++) {
 				factor1Matrix.setValue(i, j, inputValues[i + factor1Matrix.getColumnCount() - j - 2]);
 			}
 			
@@ -44,17 +37,17 @@ public final class ARModel extends StatisticalModel {
 		}
 		
 		//Creates product matrix.
-		Matrix productMatrix = new Matrix(inputValues.length - pOrder, 1);
-		for (int i = pOrder; i < inputValues.length; i++) {
+		final var productMatrix = new Matrix(inputValues.length - pOrder, 1);
+		for (var i = pOrder; i < inputValues.length; i++) {
 			productMatrix.setValue(i - pOrder + 1, 1, inputValues[i]);
 		}
 		
 		//Calculates factor2 matrix.
-		Matrix factor2Matrix = factor1Matrix.getMinimalFactorMatrix(productMatrix);
+		final var factor2Matrix = factor1Matrix.getMinimalFactorMatrix(productMatrix);
 		
 		//Sets p-coefficients.
 		pCoefficients = new double[pOrder];
-		for (int i = 0; i < pOrder; i++) {
+		for (var i = 0; i < pOrder; i++) {
 			pCoefficients[i] = factor2Matrix.getValue(i + 1, 1);
 		}
 		
@@ -62,34 +55,18 @@ public final class ARModel extends StatisticalModel {
 		constant = factor2Matrix.getValue(factor2Matrix.getSize(), 1);
 	}
 	
-	@Override
-	public final double getNextValue() {
-		
-		double nextValue = constant;
-		for (int i = 0; i < getPOrder(); i++) {
-			nextValue += pCoefficients[i] * getValueFromBack(i + 1);
-		}
-		
-		return nextValue;
-	}
-	
 	//method
 	/**
 	 * @return the constant of this AR model
 	 */
-	public final double getConstant() {
+	public double getConstant() {
 		return constant;
 	}
 	
 	//method
-	/**
-	 * @param index
-	 * @return the p-coefficient of this AR model with the given index
-	 * @throws Exception if this AR model does not have a p-coefficient with the given index
-	 */
-	public final double getPCoefficient(final int index) {
+	public double getPCoefficient(final int index) {
 	
-		Validator.throwExceptionIfValueIsNotInRange("p-coefficient index", 1, getPOrder(), index);
+		Validator.suppose(index).thatIsNamed(VariableNameCatalogue.INDEX).isBetween(1, getPOrder());
 		
 		return pCoefficients[index - 1];
 	}
@@ -98,7 +75,18 @@ public final class ARModel extends StatisticalModel {
 	/**
 	 * @return the p-order of this AR model
 	 */
-	public final int getPOrder() {
+	public int getPOrder() {
 		return pCoefficients.length;
+	}
+
+	@Override
+	protected double calculateNextValue() {
+		
+		var nextValue = constant;
+		for (var i = 0; i < getPOrder(); i++) {
+			nextValue += pCoefficients[i] * getValueFromBack(i + 1);
+		}
+		
+		return nextValue;
 	}
 }
