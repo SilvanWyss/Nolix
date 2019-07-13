@@ -63,6 +63,9 @@ public final class NetEndPointTest extends Test {
 		
 		//verification
 		expect(endPointTakerMock.getReceivedMessage()).isEqualTo("TEST MESSAGE");
+		
+		//cleanup
+		netServer.close();
 	}
 	
 	//inner class

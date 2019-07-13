@@ -40,6 +40,9 @@ public final class NetEndPointTest extends Test {
 		//verification
 		expect(endPointTakerMock.hasLastEndPoint());
 		expect(endPointTakerMock.getLastEndPoint().isOpen());
+		
+		//cleanup
+		netServer.close();
 	}
 	
 	//test case
@@ -63,6 +66,9 @@ public final class NetEndPointTest extends Test {
 		expect(endPointTakerMock.hasLastEndPoint());
 		expect(endPointTakerMock.getLastEndPoint().isOpen());
 		expect(received_reply).isEqualTo(reply);
+		
+		//cleanup
+		netServer.close();
 	}
 	
 	//mock class
