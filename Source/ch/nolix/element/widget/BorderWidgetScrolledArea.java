@@ -41,8 +41,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 	 * @return the x-position of the cursor on the current {@link BorderWidgetScrolledArea}.
 	 */
 	public int getCursorXPosition() {
-		//TODO
-		return 0;
+		return (parentBorderWidget.getCursorXPosition() - parentBorderWidget.getViewAreaXPositionOnScrolledArea());
 	}
 	
 	//method
@@ -50,8 +49,7 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 	 * @return the y-position of the cursor on the current {@link BorderWidgetScrolledArea}.
 	 */
 	public int getCursorYPosition() {
-		//TODO
-		return 0;
+		return (parentBorderWidget.getCursorYPosition() - parentBorderWidget.getViewAreaYPositionOnScrolledArea());
 	}
 	
 	//method

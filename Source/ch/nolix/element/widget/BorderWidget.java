@@ -36,7 +36,7 @@ import ch.nolix.element.painter.IPainter;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1580
+ * @lines 1460
  * @param <BW> The type of a {@link BackgroundWidget.
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget.
  */
@@ -139,7 +139,7 @@ extends BackgroundWidget<BW, BWL> {
 	
 	//attributes
 	private final BorderWidgetMainArea mainArea = new BorderWidgetMainArea(this);
-	private final BorderWidgetBorderedArea borderedArea = new BorderWidgetBorderedArea(this);
+	private final BorderWidgetBorderedArea<BW, BWL> borderedArea = new BorderWidgetBorderedArea<>(this);
 	private final BorderWidgetScrolledArea<BW, BWL> scrolledArea = new BorderWidgetScrolledArea<>(this);
 	private final BorderWidgetContentArea<BW, BWL> contentArea = new BorderWidgetContentArea<>(this);
 	private final BorderWidgetViewArea<BW, BWL> viewArea = new BorderWidgetViewArea<>(this);
@@ -211,7 +211,7 @@ extends BackgroundWidget<BW, BWL> {
 	/**
 	 * @return the bordered area of the current {@link BorderWidget}.
 	 */
-	public final BorderWidgetBorderedArea getBorderedArea() {
+	public final BorderWidgetBorderedArea<BW, BWL> getBorderedArea() {
 		return borderedArea;
 	}
 	
@@ -229,22 +229,6 @@ extends BackgroundWidget<BW, BWL> {
 	 */
 	public final ContentPosition getContentPosition() {
 		return contentPosition;
-	}
-	
-	//method
-	/**
-	 * @return the x-position of the cursor on the scroll area of the current {@link BorderWidget}.
-	 */
-	public final int getCursorXPositionOnScrolledArea() {
-		return (getCursorXPosition() - getViewAreaXPositionOnScrolledArea());
-	}
-	
-	//method
-	/**
-	 * @return the y-position of the cursor on the scroll area of the current {@link BorderWidget}.
-	 */
-	public final int getCursorYPositionOnScrolledArea() {
-		return (getCursorYPosition() - getViewAreaYPositionOnScrolledArea());
 	}
 	
 	//method
@@ -1240,7 +1224,7 @@ extends BackgroundWidget<BW, BWL> {
 		}
 		
 		//Paints the bordered area of the current border widget.
-		paintBorderedArea(
+		borderedArea.paint(
 			widgetStructure,
 			painter.createPainter(
 				borderedArea.getXPosition(),
@@ -1274,7 +1258,7 @@ extends BackgroundWidget<BW, BWL> {
 	}
 	
 	//method
-	private int getHorizontalScrollbarCursorWidth() {
+	int getHorizontalScrollbarCursorWidth() {
 		return
 		Calculator.getMax(
 			(int)(Math.pow(viewArea.getWidth(), 2) / scrolledArea.getWidth()),
@@ -1286,7 +1270,7 @@ extends BackgroundWidget<BW, BWL> {
 	/**
 	 * @return the x-position of the horizontal scrollbar cursor.
 	 */
-	private int getHorizontalScrollbarCursorXPosition() {
+	int getHorizontalScrollbarCursorXPosition() {
 		return
 		borderedArea.getXPosition()
 		+ getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar();
@@ -1297,7 +1281,7 @@ extends BackgroundWidget<BW, BWL> {
 	 * @return the x-position of the horizontal scrollbar cursor
 	 * on the horizontal scrollbar of this broder widget.
 	 */
-	private int getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar() {
+	int getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar() {
 				
 		final var viewAreaWidth = viewArea.getWidth();
 		
@@ -1311,7 +1295,7 @@ extends BackgroundWidget<BW, BWL> {
 	/**
 	 * @return the y-position of the horizontal scrollbar cursor of the current {@link BorderWidget}
 	 */
-	private int getHorizontalScrollbarCursorYPosition() {
+	int getHorizontalScrollbarCursorYPosition() {
 		return
 		borderedArea.getYPosition()
 		+ getHorizontalScrollbarYPositionOnBorderedArea();
@@ -1322,7 +1306,7 @@ extends BackgroundWidget<BW, BWL> {
 	 * @return the y-position of the horizontal scrollbar
 	 * on the bordered area of the current {@link BorderWidget}.
 	 */
-	private int getHorizontalScrollbarYPositionOnBorderedArea() {
+	int getHorizontalScrollbarYPositionOnBorderedArea() {
 		return (borderedArea.getHeight() - getHorizontalScrollbarThickness());
 	}
 	
@@ -1330,7 +1314,7 @@ extends BackgroundWidget<BW, BWL> {
 	/**
 	 * @return the height of the vertical scrollbar cursor of the current {@link BorderWidget}.
 	 */
-	private int getVerticalScrollbarCursorHeight() {
+	int getVerticalScrollbarCursorHeight() {
 		return
 		Calculator.getMax(
 			(int)(Math.pow(viewArea.getHeight(), 2) / scrolledArea.getHeight()),
@@ -1342,7 +1326,7 @@ extends BackgroundWidget<BW, BWL> {
 	/**
 	 * @return the x-position of the vertical scroll bar cursor of the current {@link BorderWidget}.
 	 */
-	private int getVerticalScrollbarCursorXPosition() {
+	int getVerticalScrollbarCursorXPosition() {
 		return
 		borderedArea.getXPosition()
 		+ getVerticalScrollbarXPositionOnBorderedArea();
@@ -1352,7 +1336,7 @@ extends BackgroundWidget<BW, BWL> {
 	/**
 	 * @return the y-position of the vertical scroll bar cursor of the current {@link BorderWidget}.
 	 */
-	private int getVerticalScrollbarCursorYPosition() {
+	int getVerticalScrollbarCursorYPosition() {
 		return
 		borderedArea.getYPosition()
 		+ getVerticalScrollbarCursorYPositionOnVerticalScrollbar();
@@ -1363,7 +1347,7 @@ extends BackgroundWidget<BW, BWL> {
 	 * @return the y-position of the vertical scrollbar cursor
 	 * on the vertical scrollbar of the current {@link BorderWidget}.
 	 */
-	private int getVerticalScrollbarCursorYPositionOnVerticalScrollbar() {
+	int getVerticalScrollbarCursorYPositionOnVerticalScrollbar() {
 		
 		final var viewAreaHeight = viewArea.getHeight();
 		
@@ -1378,7 +1362,7 @@ extends BackgroundWidget<BW, BWL> {
 	 * @return the x-position of the vertical scrollbar
 	 * on the bordered area of the current {@link BorderWidget}.
 	 */
-	private int getVerticalScrollbarXPositionOnBorderedArea() {
+	int getVerticalScrollbarXPositionOnBorderedArea() {
 		return (borderedArea.getWidth() - getVerticalScrollbarThickness());
 	}
 	
@@ -1428,79 +1412,6 @@ extends BackgroundWidget<BW, BWL> {
 			&& cursorXPosition < horizontalScrollbarCursorXPosition + viewArea.getWidth()
 			&& cursorYPosition >= horizontalScrollbarCursorYPosition
 			&& cursorYPosition < horizontalScrollbarCursorYPosition + getHorizontalScrollbarThickness();
-	}
-
-	//method
-	/**
-	 * Paints the bordered area of the current {@link BorderWidget}
-	 * using the given border widget structure and painter.
-	 * 
-	 * @param borderWidgetStructure
-	 * @param painter
-	 */
-	private void paintBorderedArea(
-		final BWL borderWidgetStructure,
-		final IPainter painter
-	) {
-		
-		//Paints the vertical scroll bar if the current border widget has a vertical scrollbar.
-		if (hasVerticalScrollbar()) {
-			
-			//Paints the vertical scrollbar.				
-				painter.setColor(getVerticalScrollbarColor());
-				
-				painter.paintFilledRectangle(
-					getVerticalScrollbarXPositionOnBorderedArea(),
-					0,
-					getVerticalScrollbarThickness(),
-					viewArea.getHeight()
-				);
-			
-			//Paints the vertical scrollbar cursor.				
-				painter.setColor(getVerticalScrollbarCursorColor());
-				
-				painter.paintFilledRectangle(
-					getVerticalScrollbarXPositionOnBorderedArea(),
-					getVerticalScrollbarCursorYPositionOnVerticalScrollbar(),
-					getVerticalScrollbarThickness(),
-					getVerticalScrollbarCursorHeight()
-				);
-		}
-		
-		//Paints the horizontal scrollbar if the current border widget has a horizontal scrollbar.
-		if (hasHorizontalScrollbar()) {
-			
-			//Paints the horizontal scrollbar.	
-				painter.setColor(getHorizontalScrollbarColor());
-				
-				painter.paintFilledRectangle(
-					0,
-					getHorizontalScrollbarYPositionOnBorderedArea(),
-					viewArea.getWidth(),
-					getHorizontalScrollbarThickness()
-				);
-			
-			//Paints the horizontal scrollbar cursor.			
-				painter.setColor(getHorizontalScrollbarCursorColor());
-				
-				painter.paintFilledRectangle(
-					getHorizontalScrollbarCursorXPositionOnHorizontalScrollbar(),
-					getHorizontalScrollbarYPositionOnBorderedArea(),
-					getHorizontalScrollbarCursorWidth(),
-					getHorizontalScrollbarThickness()
-				);
-		}
-		
-		//Paints the view area of the current border widget.
-		viewArea.paint(
-			borderWidgetStructure,
-			painter.createPainter(
-				0,
-				0,
-				viewArea.getWidth(),				
-				viewArea.getHeight()
-			)
-		);
 	}
 	
 	//method

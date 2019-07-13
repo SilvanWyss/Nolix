@@ -173,8 +173,7 @@ public final class BorderWidgetViewArea<BW extends BorderWidget<BW, BWL>, BWL ex
 	 * @return the x-position of the current {@link BorderWidgetViewArea} on the {@link BorderWidget} it belongs to.
 	 */
 	public int getXPosition() {
-		//TODO
-		return 0;
+		return parentBorderWidget.getBorderedArea().getXPosition();
 	}
 	
 	//method
@@ -182,8 +181,7 @@ public final class BorderWidgetViewArea<BW extends BorderWidget<BW, BWL>, BWL ex
 	 * @return the y-position of the current {@link BorderWidgetViewArea} on the {@link BorderWidget} it belongs to.
 	 */
 	public int getYPosition() {
-		//TODO
-		return 0;
+		return parentBorderWidget.getBorderedArea().getYPosition();
 	}
 	
 	//method
@@ -214,13 +212,13 @@ public final class BorderWidgetViewArea<BW extends BorderWidget<BW, BWL>, BWL ex
 		final var scrolledArea = parentBorderWidget.getScrolledArea();
 		
 		scrolledArea.paint(
-				borderWidgetLook,
-				painter.createPainter(
-					-parentBorderWidget.getViewAreaXPositionOnScrolledArea(),
-					-parentBorderWidget.getViewAreaYPositionOnScrolledArea(),
-					scrolledArea.getWidth(),
-					scrolledArea.getHeight()
-				)
-			);
+			borderWidgetLook,
+			painter.createPainter(
+				-parentBorderWidget.getViewAreaXPositionOnScrolledArea(),
+				-parentBorderWidget.getViewAreaYPositionOnScrolledArea(),
+				scrolledArea.getWidth(),
+				scrolledArea.getHeight()
+			)
+		);
 	}
 }
