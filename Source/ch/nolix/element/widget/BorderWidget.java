@@ -41,7 +41,7 @@ import ch.nolix.element.painter.IPainter;
  * @param <BWL> The type of the {@link BorderWidgetLook}s of a {@link BackgroundWidget.
  */
 public abstract class BorderWidget<BW extends BorderWidget<BW, BWL>,BWL extends BorderWidgetLook<BWL>>
-extends BackgroundWidget<BW, BWL> {
+extends Widget<BW, BWL> {
 	
 	//constant
 	public static final String TYPE_NAME = "Borderablewidget";
@@ -749,6 +749,17 @@ extends BackgroundWidget<BW, BWL> {
 		return asConcreteType();
 	}
 	
+	@Override
+	public BW reset() {
+		
+		super.reset();
+		
+		viewAreaXPositionOnScrolledArea.setValue(new NonNegativeInteger(1));
+		viewAreaYPositionOnScrolledArea.setValue(new NonNegativeInteger(1));
+		
+		return asConcreteType();
+	}
+	
 	//method
 	/**
 	 * Resets the configuration of the current {@link BorderWidget}.
@@ -1171,9 +1182,6 @@ extends BackgroundWidget<BW, BWL> {
 		final BWL widgetStructure,
 		final IPainter painter
 	) {
-				
-		//Calls method of the base class.
-		super.paint(widgetStructure, painter);
 		
 		//Paints the left border if the given widget structure has an active left border thickness.
 		if (widgetStructure.getRecursiveOrDefaultLeftBorderThickness() > 0) {

@@ -2,32 +2,40 @@
 package ch.nolix.element.widget;
 
 //own imports
+import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
+import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.core.NonNegativeInteger;
+import ch.nolix.element.image.Image;
 
 //class
 /**
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1420
+ * @lines 1660
  * @param <BWL> The type of a {@link BorderWidgetLook}.
  */
-public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>>
-extends BackgroundWidgetLook<BWL> {
+public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extends WidgetLook<BWL> {
 	
 	//default values
 	public static final int DEFAULT_BORDER_THICKNESS = 0;
 	public static final Color DEFAULT_BORDER_COLOR = Color.BLACK;
-	public static final int DEFAULT_PADDING = 0;
+	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	
 	//default value
-	public static final ScrollbarLook DEFAULT_BASE_SCROLLBAR_LOOK =
-	new ScrollbarLook();
+	public static final ColorGradient DEFAULT_BACKGROUND_COLOR_GRADIENT =
+	ColorGradient.VERTICAL_BLACK_WHITE_COLOR_GRADIENT;
+	
+	//default values
+	public static final Image DEFAULT_BACKGROUND_IMAGE = new Image(200, 100, Color.BLACK);
+	public static final int DEFAULT_PADDING = 0;
+	public static final ScrollbarLook DEFAULT_BASE_SCROLLBAR_LOOK = new ScrollbarLook();
 	
 	//default value
 	public static final ScrollbarLook DEFAULT_HOVER_SCROLLBAR_LOOK =
@@ -54,6 +62,10 @@ extends BackgroundWidgetLook<BWL> {
 	private static final String BOTTOM_BORDER_COLOR_HEADER = "BottomBorderColor";
 	
 	//constants
+	private static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
+	private static final String BACKGROUND_IMAGE_HEADER = "BackgroundImage";
+	
+	//constants
 	private static final String PADDING_HEADER = "Padding";
 	private static final String LEFT_PADDING_HEADER = "LeftPadding";
 	private static final String RIGHT_PADDING_HEADER = "RightPadding";
@@ -76,6 +88,12 @@ extends BackgroundWidgetLook<BWL> {
 	private Color rightBorderColor;
 	private Color topBorderColor;
 	private Color bottomBorderColor;
+	
+	//optional attributes
+	//TODO: Create Union type.
+	private Color backgroundColor;
+	private ColorGradient backgroundColorGradient;
+	private Image backgroundImage;
 	
 	//optional attributes
 	private NonNegativeInteger leftPadding;
@@ -116,19 +134,28 @@ extends BackgroundWidgetLook<BWL> {
 				setBottomBorderThickness(attribute.getOneAttributeAsInt());
 				break;
 			case BORDER_COLOR_HEADER:
-				setBorderColors(new Color(attribute.getOneAttributeAsString()));
+				setBorderColors(Color.createFromSpecification(attribute.getRefOneAttribute()));
 				break;
 			case LEFT_BORDER_COLOR_HEADER:
-				setLeftBorderColor(new Color(attribute.getOneAttributeAsString()));
+				setLeftBorderColor(Color.createFromSpecification(attribute.getRefOneAttribute()));
 				break;
 			case RIGHT_BORDER_COLOR_HEADER:
-				setRightBorderColor(new Color(attribute.getOneAttributeAsString()));
+				setRightBorderColor(Color.createFromSpecification(attribute.getRefOneAttribute()));
 				break;
 			case BOTTOM_BORDER_COLOR_HEADER:
-				setBottomBorderColor(new Color(attribute.getOneAttributeAsString()));
+				setBottomBorderColor(Color.createFromSpecification(attribute.getRefOneAttribute()));
 				break;
 			case TOP_BORDER_COLOR_HEADER:
-				setTopBorderColor(new Color(attribute.getOneAttributeAsString()));
+				setTopBorderColor(Color.createFromSpecification(attribute.getRefOneAttribute()));
+				break;
+			case PascalCaseNameCatalogue.BACKGROUND_COLOR:
+				setBackgroundColor(Color.createFromSpecification(attribute.getRefOneAttribute()));
+				break;
+			case BACKGROUND_COLOR_GRADIENT_HEADER:
+				setBackgroundColorGradient(ColorGradient.createFromSpecification(attribute.getRefOneAttribute()));
+				break;
+			case BACKGROUND_IMAGE_HEADER:
+				setBackgroundImage(Image.createFromSpecification(attribute.getRefOneAttribute()));
 				break;
 			case PADDING_HEADER:
 				setPaddings(attribute.getOneAttributeAsInt());
@@ -173,10 +200,76 @@ extends BackgroundWidgetLook<BWL> {
 		
 		fillUpBorderThicknessesSpecifications(attributes);
 		fillUpBorderColorsSpecifications(attributes);
-		fillUpPaddingSpecifications(attributes);	
+		
+		if (hasBackgroundColor()) {
+			attributes.addAtEnd(backgroundColor.getSpecificationAs(PascalCaseNameCatalogue.BACKGROUND_COLOR));
+		}
+		else if (hasBackgroundColorGradient()) {
+			attributes.addAtEnd(backgroundColorGradient.getSpecificationAs(BACKGROUND_COLOR_GRADIENT_HEADER));
+		}
+		else if (hasBackgroundImage()) {
+			attributes.addAtEnd(backgroundImage.getSpecificationAs(BACKGROUND_IMAGE_HEADER));
+		}
+		
 		fillUpScrollbarLooksSpecifications(attributes);
 		
+		fillUpPaddingSpecifications(attributes);	
+				
 		return attributes;
+	}
+	
+	 //method
+	 /**
+	 * @return the recursive or default background color
+	 * of the current {@link BorderWidgetLook}.
+	 */
+	public final Color getRecursiveOrDefaultBackgroundColor() {
+		
+		if (hasBackgroundColor()) {
+			return backgroundColor;
+		}
+		
+		if (hasBaseLook()) {
+			return getRefBaseLook().getRecursiveOrDefaultBackgroundColor();
+		}
+		
+		return DEFAULT_BACKGROUND_COLOR;
+	}
+	
+	//method
+	/**
+	 * @return the recursive or default background color gradient
+	 * of the current {@link BorderWidgetLook}.
+	 */
+	public final ColorGradient getRecursiveOrDefaultBackgroundColorGradient() {
+		
+		if (hasBackgroundColorGradient()) {
+			return backgroundColorGradient;
+		}
+		
+		if (hasBaseLook()) {
+			return getRefBaseLook().getRecursiveOrDefaultBackgroundColorGradient();
+		}
+		
+		return DEFAULT_BACKGROUND_COLOR_GRADIENT;
+	}
+	
+	//method
+	/**
+	 * @return the recursive or default background image
+	 * of the current {@link BorderWidgetLook}.
+	 */
+	public final Image getRecursiveOrDefaultBackgroundImage() {
+		
+		if (hasBackgroundImage()) {
+			return backgroundImage;
+		}
+		
+		if (hasBaseLook()) {
+			return getRefBaseLook().getRecursiveOrDefaultBackgroundImage();
+		}
+		
+		return DEFAULT_BACKGROUND_IMAGE;
 	}
 	
 	//method
@@ -511,6 +604,85 @@ extends BackgroundWidgetLook<BWL> {
 	
 	//method
 	/**
+	 * @return true if the current {@link BorderWidgetLook} has a recursive background color.
+	 */
+	public final boolean hasRecursiveBackgroundColor() {
+		
+		if (hasBackgroundColor()) {
+			return true;
+		}
+		
+		if (hasBaseLook()) {
+			return getRefBaseLook().hasRecursiveBackgroundColor();
+		}
+		
+		return false;
+	}
+	 
+	//method
+	/**
+	 * @return true if the current {@link BorderWidgetLook} has a recursive background color gradient.
+	 */
+	public final boolean hasRecursiveBackgroundColorGradient() {
+		
+		if (hasBackgroundColorGradient()) {
+			return true;
+		}
+		
+		if (hasBaseLook()) {
+			return getRefBaseLook().hasRecursiveBackgroundColorGradient();
+		}
+		
+		return false;
+	}
+	 
+	//method
+	/**
+	 * @return true if the current {@link BorderWidgetLook} has a recursive background image.
+	 */
+	public final boolean hasRecursiveBackgroundImage() {
+		
+		if (hasBackgroundImage()) {
+			return true;
+		}
+		
+		if (hasBaseLook()) {
+			return getRefBaseLook().hasRecursiveBackgroundImage();
+		}
+		
+		return false;
+	}
+	
+	//method
+	/**
+	 * Removes any background of the current {@link BorderWidgetLook}.
+	 * 
+	 * @return the current {@link BorderWidgetLook}.
+	 */
+	public final BWL removeAnyBackground() {
+		
+		backgroundColor = null;
+		backgroundColorGradient = null;
+		backgroundImage = null;
+		
+		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * Removes the base {@link ScrollbarLook} of the current {@link BorderWidgetLook}.
+	 * 
+	 * @return the current {@link BorderWidgetLook}.
+	 */
+	public final BWL removeBaseScrollbarLook() {
+		
+		baseScrollbarLook = null;
+		
+		return asConcreteType();
+	}
+	
+	//method
+	/**
 	 * Removes the border colors of the current {@link BorderWidgetLook}.
 	 * 
 	 * @return the current {@link BorderWidgetLook}.
@@ -576,6 +748,19 @@ extends BackgroundWidgetLook<BWL> {
 	public final BWL removeBottomPadding() {
 		
 		bottomPadding = null;
+		
+		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * Removes the hover {@link ScrollbarLook} of the current {@link BorderWidgetLook}.
+	 * 
+	 * @return the current {@link BorderWidgetLook}.
+	 */
+	public final BWL removeHoverScrollbarLook() {
+		
+		hoverScrollbarLook = null;
 		
 		return asConcreteType();
 	}
@@ -664,10 +849,40 @@ extends BackgroundWidgetLook<BWL> {
 	//method
 	/**
 	 * Removes the right padding of the current {@link BorderWidgetLook}.
+	 * 
+	 * @return the current {@link BorderWidgetLook}.
 	 */
 	public final BWL removeRightPadding() {
 		
 		rightPadding = null;
+		
+		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * Removes the {@link ScrollbarLook}s of the current {@link BorderWidgetLook}.
+	 * 
+	 * @return the current {@link BorderWidgetLook}.
+	 */
+	public final BWL removeScrollbarLooks() {
+		
+		removeBaseScrollbarLook();
+		removeHoverScrollbarLook();
+		removeSelectionScrollbarLook();
+		
+		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * Removes the selection {@link ScrollbarLook} of the current {@link BorderWidgetLook}.
+	 * 
+	 * @return the current {@link BorderWidgetLook}.
+	 */
+	public final BWL removeSelectionScrollbarLook() {
+		
+		selectionScrollbarLook = null;
 		
 		return asConcreteType();
 	}
@@ -723,21 +938,68 @@ extends BackgroundWidgetLook<BWL> {
 		
 		removeBorderThicknesses();
 		removeBorderColors();
+		removeAnyBackground();
+		removeScrollbarLooks();
 		removePaddings();
+				
+		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * Sets the background color of the current {@link BorderWidgetLook}.
+	 * Removes any former background of the current {@link BorderWidgetLook}.
+	 * 
+	 * @param backgroundColor
+	 * @return the current {@link BorderWidgetLook}.
+	 * @throws NullArgumentException if the given background color is null.
+	 */
+	public final BWL setBackgroundColor(final Color backgroundColor) {
 		
-		if (hasBaseScrollbarLook()) {
-			baseScrollbarLook.reset();
-		}
+		Validator.suppose(backgroundColor).thatIsNamed(VariableNameCatalogue.BACKGROUND_COLOR).isNotNull();
 		
-		if (hasHoverScrollbarLook()) {
-			hoverScrollbarLook.reset();
-		}
-		
-		if (hasSelectionScrollbarLook()) {
-			selectionScrollbarLook.reset();
-		}
+		removeAnyBackground();
+		this.backgroundColor = backgroundColor;
 		
 		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * Sets the background color gradient of the current {@link BorderWidgetLook}.
+	 * Removes any former background of the current {@link BorderWidgetLook}.
+	 * 
+	 * @param backgroundColorGradient
+	 * @return the current {@link BorderWidgetLook}.
+	 * @throws NullArgumentException if the given background color is null.
+	 */
+	public final BWL setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
+		
+		Validator.suppose(backgroundColorGradient).thatIsNamed("background color gradient").isNotNull();
+		
+		removeAnyBackground();
+		this.backgroundColorGradient = backgroundColorGradient;
+		
+		return asConcreteType();
+	}
+	
+	//method
+	/**
+	 * Sets the background image of the current {@link BorderWidgetLook}.
+	 * Removes any former background of the current {@link BorderWidgetLook}.
+	 * 
+	 * @param backgroundImage
+	 * @return the current {@link BorderWidgetLook}.
+	 * @throws NullArgumentException if the given background image is null.
+	 */
+	public final BWL setBackgroundImage(final Image backgroundImage) {
+		
+		Validator.suppose(backgroundImage).thatIsNamed("background image").isNotNull();
+		
+		removeAnyBackground();
+ 		this.backgroundImage = backgroundImage;
+ 		
+ 		return asConcreteType();
 	}
 	
 	//method
@@ -1221,6 +1483,30 @@ extends BackgroundWidgetLook<BWL> {
 			|| hasTopPadding()
 			|| hasBottomPadding()
 		);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link BorderWidgetLook} has a background color.
+	 */
+	private boolean hasBackgroundColor() {
+		return (backgroundColor != null);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link BorderWidgetLook} has a background color gradient.
+	 */
+	private boolean hasBackgroundColorGradient() {
+		return (backgroundColorGradient != null);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link BorderWidgetLook} has a background image.
+	 */
+	private boolean hasBackgroundImage() {
+		return (backgroundImage != null);
 	}
 	
 	//method

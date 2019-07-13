@@ -189,8 +189,9 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 	//package-visible method
 	void paint(final BWL borderWidgetLook, final IPainter painter) {
 		
-		final var contentArea = parentBorderWidget.getContentArea();
+		paintBackground(borderWidgetLook, painter);
 		
+		final var contentArea = parentBorderWidget.getContentArea();	
 		contentArea.paint(
 			borderWidgetLook,
 			painter.createPainter(
@@ -200,5 +201,38 @@ public final class BorderWidgetScrolledArea<BW extends BorderWidget<BW, BWL>, BW
 				getHeight()
 			)
 		);
+	}
+	
+	//method
+	private void paintBackground(BWL borderWidgetLook, IPainter painter) {
+		
+		//Handles the case that the given borderWidgetLook has a recursive background color.
+		if (borderWidgetLook.hasRecursiveBackgroundColor()) {
+			
+			painter.setColor(
+					borderWidgetLook.getRecursiveOrDefaultBackgroundColor()
+			);
+			
+			painter.paintFilledRectangle(getWidth(), getHeight());
+		}
+		
+		//Handles the case that the given borderWidgetLook has a recursive background color gradient.
+		else if (borderWidgetLook.hasRecursiveBackgroundColorGradient()) {
+			
+			painter.setColorGradient(
+				borderWidgetLook.getRecursiveOrDefaultBackgroundColorGradient()
+			);
+			
+			painter.paintFilledRectangle(getWidth(), getHeight());
+		}
+		
+		//Handles the case that the given borderWidgetLook has a recursive background image.
+		else if (borderWidgetLook.hasRecursiveBackgroundImage()) {
+			painter.paintImage(
+				borderWidgetLook.getRecursiveOrDefaultBackgroundImage(),
+				getWidth(),
+				getHeight()
+			);
+		}
 	}
 }

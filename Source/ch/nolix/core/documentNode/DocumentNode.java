@@ -232,8 +232,13 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 		//Iterates the given attributes.
 		for (final String a : attributes) {
 			
-			//Adds the current attribute to the current DocumentNode.
-			addAttribute(createWithHeader(a));
+			if (a.isEmpty()) {
+				addAttribute(new DocumentNode());
+			}
+			
+			else {
+				addAttribute(createWithHeader(a));
+			}
 		}
 	}
 

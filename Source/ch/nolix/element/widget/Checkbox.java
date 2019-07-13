@@ -16,7 +16,7 @@ import ch.nolix.element.painter.IPainter;
  * @month 2016-05
  * @lines 280
  */
-public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
+public final class Checkbox extends BorderWidget<Checkbox, CheckboxLook> {
 
 	//constant
 	public static final String TYPE_NAME = "Checkbox";
@@ -118,7 +118,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteLeftMouseButtonPress() {
+	public void noteLeftMouseButtonPressOnViewArea() {
 		setCheckFlag(!isChecked());
 	}
 	
@@ -128,6 +128,8 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	 */
 	@Override
 	public Checkbox reset() {
+		
+		super.reset();
 		
 		uncheck();
 		
@@ -205,7 +207,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected int getHeightWhenNotCollapsed() {
+	protected int getContentAreaHeight() {
 		return getRefLook().getRecursiveOrDefaultTextSize();
 	}
 	
@@ -214,7 +216,7 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected int getWidthWhenNotCollapsed() {
+	protected int getContentAreaWidth() {
 		return getRefLook().getRecursiveOrDefaultTextSize();
 	}
 	
@@ -223,10 +225,10 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paint(final CheckboxLook checkBoxLook, final IPainter painter) {
+	protected void paintContentArea(final CheckboxLook checkBoxLook, final IPainter painter) {
 		
 		//Calls method of the base class.
-		super.paint(checkBoxLook, painter);
+		super.paintContentArea(checkBoxLook, painter);
 		
 		final var s = checkBoxLook.getRecursiveOrDefaultTextSize();
 		final var t = checkBoxLook.getRecursiveOrDefaultLineThickness();
@@ -272,14 +274,5 @@ public final class Checkbox extends BackgroundWidget<Checkbox, CheckboxLook> {
 				
 				painter.paintFilledPolygon(bottomRightToTopLeftLineXs, bottomRightToTopLeftLineYs);
 		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected boolean viewAreaIsUnderCursor() {
-		return isUnderCursor();
 	}
 }

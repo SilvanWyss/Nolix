@@ -14,7 +14,7 @@ import ch.nolix.element.core.PositiveInteger;
  * @month 2016-05
  * @lines 140
  */
-public final class CheckboxLook extends BackgroundWidgetLook<CheckboxLook> {
+public final class CheckboxLook extends BorderWidgetLook<CheckboxLook> {
 	
 	//default value
 	public static final int DEFAULT_LINE_THICKNESS = 1;
