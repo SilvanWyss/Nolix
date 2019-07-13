@@ -30,22 +30,6 @@ public final class NetEndPointTest extends Test {
 	}
 	
 	//test case
-	public void testCase_creation_whenNetServerDoesNotContainAnEndPointTaker() {
-		
-		//test parameters
-		final var port = 50000;
-		
-		//setup
-		final var netServer = new NetServer(port);
-		
-		//execution & verification
-		expect(() -> new NetEndPoint(port)).throwsException();
-		
-		//cleanup
-		netServer.close();
-	}
-	
-	//test case
 	public void testCase_send() {
 		
 		//test parameters
