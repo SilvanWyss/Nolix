@@ -19,6 +19,7 @@ public final class AreaTest extends WidgetTest<Area> {
 		
 		//setup
 		final var area = new Area(500, 200);
+		area.recalculate();
 		
 		//execution & verification
 		expect(area.coversPoint(1, 1));

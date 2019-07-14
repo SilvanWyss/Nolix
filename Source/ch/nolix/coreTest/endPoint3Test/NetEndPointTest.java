@@ -34,7 +34,7 @@ public final class NetEndPointTest extends Test {
 		netServer.addEndPointTaker(endPointTakerMock);
 		
 		//execution
-		new NetEndPoint(port, endPointTakerMock.getName());
+		final var netEndPoint = new NetEndPoint(port, endPointTakerMock.getName());
 		Thread.sleep(200);
 		
 		//verification
@@ -43,6 +43,7 @@ public final class NetEndPointTest extends Test {
 		
 		//cleanup
 		netServer.close();
+		netEndPoint.close();
 	}
 	
 	//test case
@@ -69,6 +70,7 @@ public final class NetEndPointTest extends Test {
 		
 		//cleanup
 		netServer.close();
+		netEndPoint.close();
 	}
 	
 	//mock class

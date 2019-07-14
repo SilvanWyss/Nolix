@@ -119,7 +119,7 @@ implements Clearable<SingleContainer> {
 	 */
 	@Override
 	public boolean isEmpty() {
-		return (widget != null);
+		return (widget == null);
 	}
 	
 	//method

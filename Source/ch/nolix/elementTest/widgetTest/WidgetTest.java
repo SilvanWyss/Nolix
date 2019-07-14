@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.elementTest.widgetTest;
 
+//own imports
 import ch.nolix.core.test.ObjectTest;
-import ch.nolix.element.widget.CursorIcon;
 import ch.nolix.element.widget.Widget;
 
 //abstract test class
@@ -57,23 +57,6 @@ extends ObjectTest<W> {
 	}
 	
 	//test case
-	public final void testCase_noteAnyLeftMouseButtonPress() {
-		
-		//setup
-		final var widget = createTestObject();
-		widget.setParentCursorPosition(1, 1);
-		
-		//setup verification
-		expect(widget.isNormal());
-		
-		//execution
-		widget.noteAnyLeftMouseButtonPress();
-		
-		//verification
-		expect(widget.isHoverFocused());
-	}
-	
-	//test case
 	public final void testCase_reset() {
 		
 		//setup
@@ -84,7 +67,6 @@ extends ObjectTest<W> {
 		
 		//verification
 			expect(widget.isNormal());
-			expect(widget.getCustomCursorIcon()).isEqualTo(CursorIcon.Arrow);
 			
 			expectNot(
 				widget.hasLeftMouseButtonPressCommand(),

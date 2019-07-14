@@ -50,6 +50,7 @@ public final class NetEndPointTest extends Test {
 		
 		//cleanup
 		netServer.close();
+		netEndPoint.close();
 	}
 	
 	//inner class

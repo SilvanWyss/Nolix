@@ -16,8 +16,7 @@ import ch.nolix.element.widget.BorderWidget;
  * @lines 90
  * @param <BW> The type of {@link BorderWidget} of a {@link BorderWidgetTest}.
  */
-public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>>
-extends WidgetTest<BW> {
+public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends WidgetTest<BW> {
 	
 	//test case
 	public final void testCase_removeMaxWidth() {
