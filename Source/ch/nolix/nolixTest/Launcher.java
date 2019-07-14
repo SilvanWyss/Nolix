@@ -7,7 +7,7 @@ package ch.nolix.nolixTest;
  * 
  * @author Silvan Wyss
  * @month 2017-11
- * @lines 30
+ * @lines 20
  */
 public final class Launcher {
 	
@@ -23,7 +23,7 @@ public final class Launcher {
 	
 	//private constructor
 	/**
-	 * Avoids that an instance of the {@link NolixTestPool} can be created.
+	 * Avoids that an instance of the {@link Launcher} can be created.
 	 */
 	private Launcher() {}
 }
