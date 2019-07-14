@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTest.containerTest;
+package ch.nolix.elementTest.containerWidgetTest;
 
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.Label;

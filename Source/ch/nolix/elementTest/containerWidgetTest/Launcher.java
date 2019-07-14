@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTest.containerTest;
+package ch.nolix.elementTest.containerWidgetTest;
 
 //class
 /**
@@ -13,12 +13,12 @@ public final class Launcher {
 	
 	//main method
 	/**
-	 * Creates a new {@link ContainerTestPool} and runs it.
+	 * Creates a new {@link ContainerWidgetTestPool} and runs it.
 	 * 
 	 * @param args
 	 */
 	public static final void main(String[] args) {
-		new ContainerTestPool().run();
+		new ContainerWidgetTestPool().run();
 	}
 	
 	//private constructor

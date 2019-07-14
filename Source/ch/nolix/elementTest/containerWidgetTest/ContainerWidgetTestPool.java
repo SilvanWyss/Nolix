@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTest.containerTest;
+package ch.nolix.elementTest.containerWidgetTest;
 
 //own imports
 import ch.nolix.core.testoid.TestPool;
@@ -10,13 +10,13 @@ import ch.nolix.core.testoid.TestPool;
  * @month 2017-03
  * @lines 20
  */
-public final class ContainerTestPool extends TestPool {
+public final class ContainerWidgetTestPool extends TestPool {
 	
 	//constructor
 	/**
-	 * Creates a new {@link ContainerTestPool}.
+	 * Creates a new {@link ContainerWidgetTestPool}.
 	 */
-	public ContainerTestPool() {
+	public ContainerWidgetTestPool() {
 		addTestClass(
 			AccordionTest.class,
 			SingleContainerTest.class,

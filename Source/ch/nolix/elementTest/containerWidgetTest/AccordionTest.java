@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTest.containerTest;
+package ch.nolix.elementTest.containerWidgetTest;
 
 import ch.nolix.element.containerWidget.Accordion;
 import ch.nolix.element.containerWidget.AccordionExpansionBehavior;

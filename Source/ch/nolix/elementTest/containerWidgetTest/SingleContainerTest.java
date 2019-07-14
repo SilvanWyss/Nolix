@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTest.containerTest;
+package ch.nolix.elementTest.containerWidgetTest;
 
 //own imports
 import ch.nolix.element.containerWidget.SingleContainer;
