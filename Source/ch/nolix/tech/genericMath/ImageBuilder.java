@@ -23,6 +23,7 @@ public final class ImageBuilder implements IImageBuilder {
 	private final Fractal fractal;
 	private final Image image;
 	
+	//TODO: Use a JobPool.
 	//multi-attribute
 	private final List<Future> futures = new List<>();
 	
@@ -89,35 +90,25 @@ public final class ImageBuilder implements IImageBuilder {
 		Sequencer.waitUntil(() -> image != null);
 		
 		final var heightInpixel = fractal.getHeightInPixel();		
-		
-		final var argument
-		= new ComplexNumber(
-			fractal.getMinRealComponent(),
-			fractal.getMinImaginaryComponent(),
-			fractal.getBigDecimalScale()
-		);
-		
 		final var linesPerThread = 10;
 		
 		for (var y = 1; y <= heightInpixel - linesPerThread; y += linesPerThread) {
 			final var y_ = y;
-			futures.addAtEnd(Sequencer.runInBackground(() -> fillLines(y_, y_ + linesPerThread, argument)));
+			futures.addAtEnd(Sequencer.runInBackground(() -> fillLines(y_, y_ + linesPerThread - 1)));
 		}
 	}
 	
 	//method
-	private void fillLine(final int y, final ComplexNumber argument) {	
+	private void fillLine(final int y) {	
 		final var widthInPixel = fractal.getWidthInPixel();
 		final var unitsPerPixel = fractal.getUnitsPerPixel();
 		for (var x = 1; x <= widthInPixel; x++) {
-		
+			
 			final var c =
-			argument.getSum(
-				new ComplexNumber(
-						unitsPerPixel.multiply(BigDecimal.valueOf(x - 1.0)),
-						unitsPerPixel.multiply(BigDecimal.valueOf(y - 1.0)),
-						fractal.getBigDecimalScale()
-				)
+			new ComplexNumber(
+				fractal.getMinRealComponent().add(unitsPerPixel.multiply(BigDecimal.valueOf(x - 1.0))),
+				fractal.getMinImaginaryComponent().add(unitsPerPixel.multiply(BigDecimal.valueOf(y - 1.0))),
+				fractal.getBigDecimalScale()	
 			);
 			
 			image.setPixel(
@@ -140,9 +131,9 @@ public final class ImageBuilder implements IImageBuilder {
 	}
 	
 	//method
-	private void fillLines(final int y1, final int y2, final ComplexNumber argument) {
+	private void fillLines(final int y1, final int y2) {
 		for (var y = y1; y <= y2; y++) {
-			fillLine(y, argument);
+			fillLine(y);
 		}
 	}
 }

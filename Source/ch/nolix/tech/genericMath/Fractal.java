@@ -7,6 +7,7 @@ import java.math.RoundingMode;
 
 //own imports
 import ch.nolix.core.functionAPI.IIntTakerElementGetter;
+import ch.nolix.core.enums.ProcessingMode;
 import ch.nolix.core.functionAPI.I2ElementTakerElementGetter;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.validator.Validator;
@@ -215,6 +216,27 @@ public final class Fractal implements IFractal {
 	//method
 	@Override
 	public Image toImage() {
+		
+		final var imageBuilder = startImageBuild();
+		imageBuilder.waintUntilIsFinishedSuccessfully();
+		
+		return imageBuilder.getRefImage();
+	}
+	
+	//method
+	public Image toImage(final ProcessingMode processingMode) {
+		switch (processingMode) {
+			case SINGLE_THREADED:
+				return toImageSingleThreaded();
+			case MULTI_THREADED:
+				return toImage();
+			default:
+				throw new RuntimeException();
+		}
+	}
+	
+	//method
+	public Image toImageSingleThreaded() {
 		
 		final var widthInPixel = getWidthInPixel();
 		final var heightInpixel = getHeightInPixel();		
