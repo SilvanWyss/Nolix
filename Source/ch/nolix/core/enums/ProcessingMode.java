@@ -11,5 +11,5 @@ package ch.nolix.core.enums;
  */
 public enum ProcessingMode {
 	SINGLE_THREADED,
-	MULTI_THREADER
+	MULTI_THREADED
 }
