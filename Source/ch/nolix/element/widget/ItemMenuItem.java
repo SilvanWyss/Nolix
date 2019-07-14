@@ -9,12 +9,12 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.functionAPI.IElementTaker;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.base.Element;
+import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.base.OptionalProperty;
+import ch.nolix.element.base.Property;
 import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.NonEmptyText;
-import ch.nolix.element.element.Element;
-import ch.nolix.element.element.MutableProperty;
-import ch.nolix.element.element.OptionalProperty;
-import ch.nolix.element.element.Property;
 
 //class
 public final class ItemMenuItem extends Element<ItemMenuItem> {

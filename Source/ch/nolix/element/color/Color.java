@@ -14,7 +14,7 @@ import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.tuple.Pair;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.element.Element;
+import ch.nolix.element.base.Element;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.container.List;
 

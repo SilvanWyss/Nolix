@@ -10,8 +10,8 @@ import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.skillAPI.OptionalClosable;
 import ch.nolix.core.skillAPI.IRequestableContainer;
 import ch.nolix.core.skillAPI.Refreshable;
+import ch.nolix.element.baseAPI.IMutableElement;
 import ch.nolix.element.configuration.IConfigurationElement;
-import ch.nolix.element.elementAPI.IMutableElement;
 
 //interface
 public interface IGUI<G extends IGUI<G>>

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.element;
+package ch.nolix.element.base;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNode;
@@ -12,13 +12,13 @@ import ch.nolix.core.functionAPI.IElementTakerElementGetter;
  * @author Silvan Wyss
  * @month 2018-02
  * @lines 60
- * @param <V> The type of the value of a {@link MutableProperty}.
+ * @param <V> The type of the value of a {@link OptionalProperty}.
  */
-public final class MutableProperty<V> extends SingleProperty<V> {
+public final class OptionalProperty<V> extends SingleProperty<V> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link MutableProperty} with the given name, setterMethod, valueCreator and specificationCreator.
+	 * Creates a new {@link OptionalProperty} with the given name, setterMethod, valueCreator and specificationCreator.
 	 * 
 	 * @param name
 	 * @param setterMethod
@@ -29,7 +29,7 @@ public final class MutableProperty<V> extends SingleProperty<V> {
 	 * @throws NullArgumentException if the given valueCreator is null.
 	 * @throws NullArgumentException if the given specificationCreator is null.
 	 */
-	public MutableProperty(
+	public OptionalProperty(
 		final String name,
 		final IElementTaker<V> setterMethod,
 		final IElementTakerElementGetter<DocumentNodeoid, V> valueCreator,
@@ -46,7 +46,7 @@ public final class MutableProperty<V> extends SingleProperty<V> {
 	 */
 	@Override
 	public boolean isMutable() {
-		return true;
+		return false;
 	}
 	
 	//method
@@ -55,6 +55,6 @@ public final class MutableProperty<V> extends SingleProperty<V> {
 	 */
 	@Override
 	public boolean isOptional() {
-		return false;
+		return true;
 	}
 }

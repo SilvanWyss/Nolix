@@ -5,8 +5,8 @@ package ch.nolix.element._3DGUI;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.core.PositiveFloatingPointNumber;
-import ch.nolix.element.element.MutableProperty;
 
 //class
 public final class Cylinder extends Prisma<Cylinder> {

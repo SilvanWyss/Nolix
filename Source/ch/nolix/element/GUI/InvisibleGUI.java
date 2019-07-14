@@ -6,7 +6,7 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.element.MutableProperty;
+import ch.nolix.element.base.MutableProperty;
 
 //class
 public final class InvisibleGUI extends GUI<InvisibleGUI> {

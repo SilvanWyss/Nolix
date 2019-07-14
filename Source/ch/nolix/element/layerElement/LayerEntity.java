@@ -14,7 +14,7 @@ import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.elementAPI.IMutableElement;
+import ch.nolix.element.baseAPI.IMutableElement;
 
 //abstract class
 /**

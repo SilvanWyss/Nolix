@@ -5,7 +5,7 @@ package ch.nolix.element.core;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.helper.DoubleHelper;
-import ch.nolix.element.element.Element;
+import ch.nolix.element.base.Element;
 
 //class
 /**

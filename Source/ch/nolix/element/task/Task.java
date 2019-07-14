@@ -6,12 +6,12 @@ import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.element.base.Element;
+import ch.nolix.element.base.MutableOptionalProperty;
+import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.base.Property;
+import ch.nolix.element.baseAPI.IMutableElement;
 import ch.nolix.element.core.Time;
-import ch.nolix.element.element.Element;
-import ch.nolix.element.element.MutableOptionalProperty;
-import ch.nolix.element.element.MutableProperty;
-import ch.nolix.element.element.Property;
-import ch.nolix.element.elementAPI.IMutableElement;
 
 //class
 /**

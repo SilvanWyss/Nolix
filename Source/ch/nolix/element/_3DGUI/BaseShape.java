@@ -7,9 +7,9 @@ import java.awt.image.BufferedImage;
 //own imports
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.element.base.MutableOptionalProperty;
+import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.element.MutableOptionalProperty;
-import ch.nolix.element.element.MutableProperty;
 import ch.nolix.element.image.Image;
 
 //abstract class

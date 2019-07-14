@@ -12,9 +12,9 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.generalSkillAPI.ISmartObject;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.element.Element;
-import ch.nolix.element.elementAPI.IConfigurableElement;
-import ch.nolix.element.elementAPI.IMutableElement;
+import ch.nolix.element.base.Element;
+import ch.nolix.element.baseAPI.IConfigurableElement;
+import ch.nolix.element.baseAPI.IMutableElement;
 
 //abstract class
 /**

@@ -6,7 +6,7 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.helper.DoubleHelper;
 import ch.nolix.core.math.Vector;
-import ch.nolix.element.elementAPI.IElement;
+import ch.nolix.element.baseAPI.IElement;
 
 //class
 /**

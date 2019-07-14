@@ -11,7 +11,7 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.helper.ReflectionHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.elementAPI.IElement;
+import ch.nolix.element.baseAPI.IElement;
 
 //abstract class
 public abstract class Propertyoid<V>

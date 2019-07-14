@@ -19,11 +19,11 @@ import ch.nolix.core.skillAPI.OptionalClosable;
 import ch.nolix.core.skillAPI.Refreshable;
 import ch.nolix.core.tuple.Pair;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.base.MutableProperty;
+import ch.nolix.element.baseAPI.IConfigurableElement;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.configuration.ConfigurationElement;
 import ch.nolix.element.core.NonEmptyText;
-import ch.nolix.element.element.MutableProperty;
-import ch.nolix.element.elementAPI.IConfigurableElement;
 
 //abstract class
 /**

@@ -3,8 +3,8 @@ package ch.nolix.element._3DGUI;
 
 //own imports
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
+import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.core.PositiveFloatingPointNumber;
-import ch.nolix.element.element.MutableProperty;
 
 //class
 public final class Pyramid extends BaseShape<Pyramid> {

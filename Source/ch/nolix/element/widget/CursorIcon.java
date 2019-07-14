@@ -6,7 +6,7 @@ import java.awt.Cursor;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.element.elementAPI.IElementEnum;
+import ch.nolix.element.baseAPI.IElementEnum;
 
 //enum
 /**

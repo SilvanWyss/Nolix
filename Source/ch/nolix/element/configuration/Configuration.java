@@ -13,10 +13,10 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Freezable;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.base.Element;
+import ch.nolix.element.baseAPI.IConfigurableElement;
+import ch.nolix.element.baseAPI.IMutableElement;
 import ch.nolix.element.core.NonEmptyText;
-import ch.nolix.element.element.Element;
-import ch.nolix.element.elementAPI.IConfigurableElement;
-import ch.nolix.element.elementAPI.IMutableElement;
 
 //abstract class
 /**

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.element;
+package ch.nolix.element.base;
 
 //Java import
 import java.util.Iterator;
