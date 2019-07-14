@@ -14,7 +14,7 @@ import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.tuple.Pair;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.elementAPI.IElement;
+import ch.nolix.element.element.Element;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.container.List;
 
@@ -29,7 +29,7 @@ import ch.nolix.core.container.List;
  * @month 2015-12
  * @lines 1500
  */
-public class Color implements IElement {
+public class Color extends Element<Color> {
 	
 	//constant
 	public static final String TYPE_NAME = "Color";
