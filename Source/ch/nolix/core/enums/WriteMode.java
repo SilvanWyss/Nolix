@@ -3,8 +3,8 @@ package ch.nolix.core.enums;
 
 //enum
 /**
- * A {@link WriteMode} defines the behavior when something has to be written or registered
- * and there is already written resp. registered something else.
+ * A {@link WriteMode} defines how something has to be written down or registered
+ * when there something else is probably already written down resp. registered.
  * 
  * @author Silvan Wyss
  * @month 2019-04
