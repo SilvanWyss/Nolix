@@ -27,7 +27,7 @@ import ch.nolix.core.container.List;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 1500
+ * @lines 1510
  */
 public class Color extends Element<Color> {
 	
@@ -1285,6 +1285,16 @@ public class Color extends Element<Color> {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		return (redValue > 0);
+	}
+	
+	//method
+	/**
+	 * @return a new {@link Color} that is like the current {@link Color} with a full alpha value.
+	 */
+	public Color toColorWithFullAlphaValue() {
+		
+		//For a better performance, this implementation does not use all comfortable methods.
+		return new Color(redValue, greenValue, blueValue);
 	}
 	
 	//method
