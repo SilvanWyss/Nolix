@@ -5,7 +5,9 @@ package ch.nolix.tech.genericMath;
 import java.math.BigDecimal;
 
 //own imports
+import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.List;
+import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.sequencer.Future;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.core.validator.Validator;
@@ -37,6 +39,25 @@ public final class ImageBuilder implements IImageBuilder {
 	
 	//method
 	@Override
+	public boolean caughtError() {
+		return futures.contains(f -> f.caughtError());
+	}
+	
+	//method
+	@Override
+	public Throwable getError() {
+		
+		final var futureWithError = futures.getRefFirstOrNull(f -> f.caughtError());
+		
+		if (futureWithError == null) {
+			throw new ArgumentMissesAttributeException(this, VariableNameCatalogue.ERROR);
+		}
+		
+		return futureWithError.getError();
+	}
+	
+	//method
+	@Override
 	public Image getRefImage() {
 		return image;
 	}
@@ -48,6 +69,18 @@ public final class ImageBuilder implements IImageBuilder {
 		futures.removeAll(f -> f.isFinished());
 		
 		return futures.containsAny();
+	}
+	
+	//method
+	@Override
+	public void waitUntilIsFinished() {
+		futures.forEach(f -> f.waitUntilIsFinished());
+	}
+	
+	//method
+	@Override
+	public void waintUntilIsFinishedSuccessfully() {
+		futures.forEach(f -> f.waintUntilIsFinishedSuccessfully());
 	}
 	
 	//method
