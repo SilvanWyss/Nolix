@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.helper;
+package ch.nolix.core.reflection;
 
 //Java imports
 import java.lang.reflect.Method;

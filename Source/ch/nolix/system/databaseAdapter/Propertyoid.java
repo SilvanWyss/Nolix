@@ -8,8 +8,8 @@ import ch.nolix.core.attributeAPI.Headered;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.helper.ReflectionHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.reflection.ReflectionHelper;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;
 
