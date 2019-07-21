@@ -156,8 +156,8 @@ public class InvalidArgumentException extends RuntimeException {
 	 * Creates a new {@link InvalidArgumentException}
 	 * for the given argument, argument name and error predicate.
 	 * 
-	 * @param argument
 	 * @param argumentName
+	 * @param argument
 	 * @param errorPredicate
 	 * @throws RuntimeException if the given argument name is null.
 	 * @throws RuntimeException if the given argument name is blank.
