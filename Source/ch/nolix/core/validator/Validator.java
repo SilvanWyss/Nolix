@@ -5,11 +5,11 @@ package ch.nolix.core.validator;
 import java.math.BigDecimal;
 
 import ch.nolix.core.independentContainers.List;
+import ch.nolix.core.independentHelpers.ArrayHelper;
 //own imports
 import ch.nolix.core.invalidArgumentException.FalseArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.invalidArgumentException.TrueArgumentException;
-import ch.nolix.core.primitiveHelper.ArrayHelper;
 
 //class
 /**

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.primitiveHelper;
+package ch.nolix.core.independentHelpers;
 
 //Java import
 import java.util.Iterator;

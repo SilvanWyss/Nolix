@@ -7,7 +7,7 @@ import java.io.Flushable;
 import ch.nolix.core.attributeAPI.Indexed;
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.primitiveHelper.ArrayHelper;
+import ch.nolix.core.independentHelpers.ArrayHelper;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.color.ColorGradient;
 import ch.nolix.element.image.Image;

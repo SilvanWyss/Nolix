@@ -3,9 +3,9 @@ package ch.nolix.core.validator;
 
 //own imports
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
+import ch.nolix.core.independentHelpers.ArrayHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
-import ch.nolix.core.primitiveHelper.ArrayHelper;
 
 //class
 /**

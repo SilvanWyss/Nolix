@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.validator;
 
+import ch.nolix.core.independentHelpers.ArrayHelper;
 //own imports
 import ch.nolix.core.invalidArgumentException.BiggerArgumentException;
 import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
@@ -17,7 +18,6 @@ import ch.nolix.core.invalidArgumentException.OutOfRangeArgumentException;
 import ch.nolix.core.invalidArgumentException.PositiveArgumentException;
 import ch.nolix.core.invalidArgumentException.SmallerArgumentException;
 import ch.nolix.core.invalidArgumentException.UnequalArgumentException;
-import ch.nolix.core.primitiveHelper.ArrayHelper;
 
 //class
 /**

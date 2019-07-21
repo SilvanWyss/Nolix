@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.core.test;
 
+import ch.nolix.core.independentHelpers.ArrayHelper;
 //own imports
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
-import ch.nolix.core.primitiveHelper.ArrayHelper;
 
 //class
 /**
