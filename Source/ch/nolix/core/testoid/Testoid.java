@@ -6,8 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
-//own import
-import ch.nolix.core.primitiveContainer.List;
+import ch.nolix.core.independentContainers.List;
 
 //abstract class
 /**

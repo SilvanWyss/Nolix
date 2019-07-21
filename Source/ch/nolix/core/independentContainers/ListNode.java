@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.primitiveContainer;
+package ch.nolix.core.independentContainers;
 
 //package-visible class
 final class ListNode<E> {

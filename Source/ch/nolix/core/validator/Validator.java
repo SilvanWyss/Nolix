@@ -4,11 +4,11 @@ package ch.nolix.core.validator;
 //Java import
 import java.math.BigDecimal;
 
+import ch.nolix.core.independentContainers.List;
 //own imports
 import ch.nolix.core.invalidArgumentException.FalseArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.invalidArgumentException.TrueArgumentException;
-import ch.nolix.core.primitiveContainer.List;
 import ch.nolix.core.primitiveHelper.ArrayHelper;
 
 //class
