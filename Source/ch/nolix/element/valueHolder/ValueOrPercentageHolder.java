@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.core;
+package ch.nolix.element.valueHolder;
 
 import ch.nolix.core.commonTypeHelpers.StringHelper;
 //own imports
