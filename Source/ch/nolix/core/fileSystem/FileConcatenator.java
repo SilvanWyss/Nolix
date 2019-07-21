@@ -1,8 +1,6 @@
 //package declaration
-package ch.nolix.core.util;
+package ch.nolix.core.fileSystem;
 
-//own imports
-import ch.nolix.core.fileSystem.FolderAccessor;
 import ch.nolix.core.invalidArgumentException.FrozenArgumentException;
 import ch.nolix.core.skillAPI.Freezable;
 
