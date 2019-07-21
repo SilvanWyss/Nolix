@@ -9,7 +9,7 @@ import ch.nolix.core.math.Calculator;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.core.FloatingPointNumber;
-import ch.nolix.element.core.Time;
+import ch.nolix.element.time.Time;
 
 //class
 /**

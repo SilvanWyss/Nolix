@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.core;
+package ch.nolix.element.time;
 
 //Java imports
 import java.util.Calendar;

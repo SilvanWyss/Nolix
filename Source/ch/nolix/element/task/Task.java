@@ -11,7 +11,7 @@ import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.base.Property;
 import ch.nolix.element.baseAPI.IMutableElement;
-import ch.nolix.element.core.Time;
+import ch.nolix.element.time.Time;
 
 //class
 /**

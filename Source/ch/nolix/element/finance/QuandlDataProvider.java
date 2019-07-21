@@ -8,7 +8,7 @@ import java.net.URL;
 
 //own imports
 import ch.nolix.core.container.List;
-import ch.nolix.element.core.Time;
+import ch.nolix.element.time.Time;
 
 //class
 /**

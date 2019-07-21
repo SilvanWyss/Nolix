@@ -2,7 +2,7 @@
 package ch.nolix.element.finance;
 
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.core.Time;
+import ch.nolix.element.time.Time;
 
 //class
 /**

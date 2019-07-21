@@ -3,7 +3,7 @@ package ch.nolix.elementTutorial.widgetTutorial;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.Time;
+import ch.nolix.element.time.Time;
 import ch.nolix.element.widget.HorizontalStack;
 import ch.nolix.element.widget.Label;
 
