@@ -1,6 +1,6 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
-import ch.nolix.core.classProvider.CentralClassProvider;
+import ch.nolix.core.instanceProvider.CentralInstanceProvider;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Label;
@@ -22,7 +22,7 @@ public final class DefaultFractalTutorial {
 		);
 		
 		//Sets the image of a Fractal to the frame. The creation of the image may last a few seconds.
-		frame.addLayerOnTop(new ImageWidget(CentralClassProvider.create(IFractalBuilder.class).build().toImage()));
+		frame.addLayerOnTop(new ImageWidget(CentralInstanceProvider.create(IFractalBuilder.class).build().toImage()));
 	}
 	
 	private DefaultFractalTutorial() {}

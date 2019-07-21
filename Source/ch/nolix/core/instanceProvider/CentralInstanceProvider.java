@@ -1,27 +1,27 @@
 //package declaration
-package ch.nolix.core.classProvider;
+package ch.nolix.core.instanceProvider;
 
 import ch.nolix.core.processProperties.WriteMode;
 
 //class
-public final class CentralClassProvider {
+public final class CentralInstanceProvider {
 	
 	//static attribute
-	private static final ClassProvider classProvider =	new ClassProvider();
+	private static final InstanceProvider instanceProvider =	new InstanceProvider();
 	
 	//static method
 	public static boolean containsClassFor(final Class<?> _interface) {
-		return classProvider.containsClassFor(_interface);
+		return instanceProvider.containsClassFor(_interface);
 	}
 	
 	//static method
 	public static <I, C extends I> C create(final Class<I> _interface, final Object... arguments) {
-		return classProvider.create(_interface, arguments);
+		return instanceProvider.create(_interface, arguments);
 	}
 	
 	//static method
 	public static <I, C extends I> RegistrationMediator register(final Class<I> _interface,	final Class<C> _class) {		
-		return classProvider.register(_interface, _class);
+		return instanceProvider.register(_interface, _class);
 	}
 	
 	//static method
@@ -30,9 +30,9 @@ public final class CentralClassProvider {
 		final Class<C> _class,
 		final WriteMode writeMode
 	) {
-		return classProvider.register(_interface, _class, writeMode);
+		return instanceProvider.register(_interface, _class, writeMode);
 	}
 	
 	//private constructor
-	private CentralClassProvider() {}
+	private CentralInstanceProvider() {}
 }

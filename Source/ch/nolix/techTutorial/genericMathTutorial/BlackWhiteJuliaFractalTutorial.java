@@ -1,6 +1,6 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
-import ch.nolix.core.classProvider.CentralClassProvider;
+import ch.nolix.core.instanceProvider.CentralInstanceProvider;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
@@ -18,14 +18,14 @@ public final class BlackWhiteJuliaFractalTutorial {
 		GenericMathRegistrator.register();
 		
 		final var maxIterationCount = 100;
-		final var j = CentralClassProvider.create(IComplexNumberFactory.class).create(-0.8, 0.15);
+		final var j = CentralInstanceProvider.create(IComplexNumberFactory.class).create(-0.8, 0.15);
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		final var frame =
 		new Frame(
 			"Black White Julia Fractal Tutorial",
 			new ImageWidget(
-				CentralClassProvider.create(IFractalBuilder.class)
+				CentralInstanceProvider.create(IFractalBuilder.class)
 				.setRealComponentInterval(-2.0, 2.0)
 				.setImaginaryComponentInterval(-1.5, 1.5)
 				.setWidthInPixel(800)

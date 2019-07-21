@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.classProvider;
+package ch.nolix.core.instanceProvider;
 
 import ch.nolix.core.processProperties.WriteMode;
 import ch.nolix.core.validator.Validator;
@@ -8,10 +8,10 @@ import ch.nolix.core.validator.Validator;
 public final class RegistrationMediator {
 	
 	//attribute
-	private final ClassProvider parentClassProvider;
+	private final InstanceProvider parentClassProvider;
 	
 	//package-visible constructor
-	RegistrationMediator(final ClassProvider parentClassProvider) {
+	RegistrationMediator(final InstanceProvider parentClassProvider) {
 		
 		Validator.suppose(parentClassProvider).thatIsNamed("parent class provder").isNotNull();
 		

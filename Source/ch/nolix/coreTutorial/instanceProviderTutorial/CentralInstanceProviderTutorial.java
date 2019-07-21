@@ -1,17 +1,17 @@
-package ch.nolix.coreTutorial.classProviderTutorial;
+package ch.nolix.coreTutorial.instanceProviderTutorial;
 
-import ch.nolix.core.classProvider.CentralClassProvider;
+import ch.nolix.core.instanceProvider.CentralInstanceProvider;
 
-public final class CentralClassProviderTutorial {
+public final class CentralInstanceProviderTutorial {
 	
 	public static void main(String[] args) {
 		
 		//Registers the City class as the implementation of the ICity interface.
-		CentralClassProvider.register(ICity.class, City.class);
+		CentralInstanceProvider.register(ICity.class, City.class);
 		
 		//Creates instances of the City class, that is found by the ICity interface.
-		final var paris = CentralClassProvider.create(ICity.class, "Paris", 12100000);
-		final var london = CentralClassProvider.create(ICity.class, "London", 8100000);
+		final var paris = CentralInstanceProvider.create(ICity.class, "Paris", 12100000);
+		final var london = CentralInstanceProvider.create(ICity.class, "London", 8100000);
 		
 		//Prints out to the console the data of the instances.
 		System.out.println(paris.getName() + ", population: " + paris.getPopulation());
@@ -45,5 +45,5 @@ public final class CentralClassProviderTutorial {
 		}
 	}
 	
-	private CentralClassProviderTutorial() {}
+	private CentralInstanceProviderTutorial() {}
 }

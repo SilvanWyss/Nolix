@@ -1,6 +1,6 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
-import ch.nolix.core.classProvider.CentralClassProvider;
+import ch.nolix.core.instanceProvider.CentralInstanceProvider;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.widget.Downloader;
 import ch.nolix.element.widget.ImageWidget;
@@ -24,7 +24,7 @@ public class SaveFractalAsPNGTutorial {
 		);
 		
 		//Creates an image of a Fractal.
-		final var image = CentralClassProvider.create(IFractalBuilder.class).build().toImage();
+		final var image = CentralInstanceProvider.create(IFractalBuilder.class).build().toImage();
 		
 		//Lets the frame show the image.
 		frame.addLayerOnTop(

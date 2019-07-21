@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.classProvider;
+package ch.nolix.core.instanceProvider;
 
 //Java imports
 import java.lang.reflect.InvocationTargetException;
@@ -12,7 +12,7 @@ import ch.nolix.core.processProperties.WriteMode;
 import ch.nolix.core.validator.Validator;
 
 //class
-public final class ClassProvider {
+public final class InstanceProvider {
 	
 	//multi-attribute
 	private final HashMap<Class<?>, Class<?>> classes = new HashMap<>();

@@ -1,6 +1,6 @@
 package ch.nolix.techTutorial.genericMathTutorial;
 
-import ch.nolix.core.classProvider.CentralClassProvider;
+import ch.nolix.core.instanceProvider.CentralInstanceProvider;
 import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
@@ -23,11 +23,11 @@ public class BlackWhiteMandelbrotFractalTutorial {
 		new Frame(
 			"Black White Mandelrbrot Fractal Tutorial",
 			new ImageWidget(
-				CentralClassProvider.create(IFractalBuilder.class)
+				CentralInstanceProvider.create(IFractalBuilder.class)
 				.setRealComponentInterval(-2.5, 1.0)
 				.setImaginaryComponentInterval(-1.5, 1.5)
 				.setWidthInPixel(800)
-				.setStartValues(CentralClassProvider.create(IComplexNumberFactory.class).create(0.0, 0.0))
+				.setStartValues(CentralInstanceProvider.create(IComplexNumberFactory.class).create(0.0, 0.0))
 				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower2().getSum(c))
 				.setMinMagnitudeForConvergence(2.5)
 				.setMaxIterationCount(maxIterationCount)
