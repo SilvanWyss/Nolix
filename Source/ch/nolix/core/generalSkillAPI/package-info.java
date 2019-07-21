@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link generalSkillAPI} is an API that provides interfaces
- * with methods that have a general purpose and are principally suitable for all objects.
+ * The {@link ch.nolix.core.generalSkillAPI} package is an API
+ * that declares types with methods that have a general purpose. These types are principally suitable for all objects.
  * 
  * @author Silvan Wyss
  * @month 2018-11
