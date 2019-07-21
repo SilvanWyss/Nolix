@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreTest.helperTest;
+package ch.nolix.coreTest.commonTypesHelperTest;
 
 //class
 /**
@@ -13,12 +13,12 @@ public final class Launcher {
 
 	//main method
 	/**
-	 * Creates a new {@link HelperTestPool} and runs it.
+	 * Creates a new {@link CommonTypeHelpersTestPool} and runs it.
 	 * 
 	 * @param args
 	 */
 	public static final void main(String[] args) {
-		new HelperTestPool().run();
+		new CommonTypeHelpersTestPool().run();
 	}
 	
 	//private constructor

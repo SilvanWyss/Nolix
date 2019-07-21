@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreTest.helperTest;
+package ch.nolix.coreTest.commonTypesHelperTest;
 
 import ch.nolix.core.commonTypeHelpers.StringHelper;
 import ch.nolix.core.test.Test;

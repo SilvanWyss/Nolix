@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreTest.helperTest;
+package ch.nolix.coreTest.commonTypesHelperTest;
 
 //own imports
 import ch.nolix.core.testoid.TestPool;
@@ -10,13 +10,13 @@ import ch.nolix.core.testoid.TestPool;
  * @month 2018-08
  * @lines 20
  */
-public final class HelperTestPool extends TestPool {
+public final class CommonTypeHelpersTestPool extends TestPool {
 	
 	//constructor
 	/**
-	 * Creates a new {@link HelperTestPool}.
+	 * Creates a new {@link CommonTypeHelpersTestPool}.
 	 */
-	public HelperTestPool() {
+	public CommonTypeHelpersTestPool() {
 		addTestClass(
 			CharacterHelperTest.class,
 			StringHelperTest.class

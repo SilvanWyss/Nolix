@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.coreTest.helperTest;
+package ch.nolix.coreTest.commonTypesHelperTest;
 
 import ch.nolix.core.commonTypeHelpers.CharacterHelper;
 import ch.nolix.core.test2.Test;
