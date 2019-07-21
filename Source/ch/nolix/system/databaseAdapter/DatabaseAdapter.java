@@ -1,44 +1,33 @@
 //package declaration
 package ch.nolix.system.databaseAdapter;
 
+import ch.nolix.core.constants.VariableNameCatalogue;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.instanceCreator.InstanceCreator;
+import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.IChangesSaver;
 import ch.nolix.core.validator.Validator;
 
 //abstract class
 public abstract class DatabaseAdapter implements IChangesSaver<DatabaseAdapter> {
 	
-	//static attribute
-	private static final InstanceCreator<DocumentNodeoid, Object> valueFactory =
-	new InstanceCreator<DocumentNodeoid, Object>()
-	.addInstanceCreator(Boolean.class.getSimpleName(), s -> s.toBoolean())
-	.addInstanceCreator(Integer.class.getSimpleName(), s -> s.toInt())
-	.addInstanceCreator(String.class.getSimpleName(), s -> s.toString());
-	
-	//static method
-	public static final void addValueCreator(
-		final String type,
-		final IElementTakerElementGetter<DocumentNodeoid, Object> valueCreator
-	) {
-		valueFactory.addInstanceCreator(type, valueCreator);
-	}
-	
-	//static method
-	public static final boolean canCreateValue(final String type) {
-		return valueFactory.canCreateInstanceOf(type);
-	}
-	
 	//static method
 	public static final Object createValue(
 		final String type,
 		final DocumentNodeoid input
 	) {
-		return valueFactory.createInstance(type, input);
+		switch (type) {
+			case "Boolean":
+				return input.toBoolean();
+			case "Integer":
+				return input.toInt();
+			case "String":
+				return input.toString();
+			default:
+				throw new InvalidArgumentException(VariableNameCatalogue.TYPE, type, "is not known");
+		}
 	}
 	
 	//attributes
