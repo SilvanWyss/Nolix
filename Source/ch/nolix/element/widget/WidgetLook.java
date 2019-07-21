@@ -8,7 +8,7 @@ import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.PositiveInteger;
-import ch.nolix.element.layerElement.LayerEntity;
+import ch.nolix.element.layerElement.LayerElement;
 import ch.nolix.element.layerElement.LayerProperty;
 import ch.nolix.element.textFormat.Font;
 
@@ -28,7 +28,7 @@ import ch.nolix.element.textFormat.Font;
  * @lines 290
  * @param <WL> The type of a {@link WidgetLook}.
  */
-public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerEntity<WL> {
+public abstract class WidgetLook<WL extends WidgetLook<WL>> extends LayerElement<WL> {
 	
 	//default values
 	public static final Font DEFAULT_TEXT_FONT = Font.Verdana;

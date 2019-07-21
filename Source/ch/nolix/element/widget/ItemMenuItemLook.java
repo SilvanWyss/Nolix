@@ -5,12 +5,12 @@ package ch.nolix.element.widget;
 import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.layerElement.LayerEntity;
+import ch.nolix.element.layerElement.LayerElement;
 import ch.nolix.element.layerElement.LayerProperty;
 
 //class
 public final class ItemMenuItemLook
-extends LayerEntity<ItemMenuItemLook> {
+extends LayerElement<ItemMenuItemLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "ItemLook";

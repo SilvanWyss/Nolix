@@ -23,7 +23,7 @@ import ch.nolix.element.baseAPI.IMutableElement;
  * @lines 230
  * @param <E> The type of an entity.
  */
-public abstract class LayerEntity<E extends LayerEntity<E>>
+public abstract class LayerElement<E extends LayerElement<E>>
 implements
 	ISmartObject<E>,
 	IMutableElement<E> {
