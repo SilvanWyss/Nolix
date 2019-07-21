@@ -6,7 +6,7 @@
  */
 
 //package declaration
-package ch.nolix.core.util;
+package ch.nolix.core.time;
 
 //class
 public final class Timer {
