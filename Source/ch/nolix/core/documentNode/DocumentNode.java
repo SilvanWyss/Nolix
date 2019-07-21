@@ -19,7 +19,7 @@ import ch.nolix.core.container.List;
  * 
  * @author Silvan Wyss
  * @month 2015-12
- * @lines 450
+ * @lines 470
  */
 public final class DocumentNode extends DocumentNodeoid implements ISmartObject<DocumentNode> {
 	
@@ -62,6 +62,19 @@ public final class DocumentNode extends DocumentNodeoid implements ISmartObject<
 		
 		final var documentNode = new DocumentNode();
 		documentNode.setHeader(header);
+		
+		return documentNode;
+	}
+	
+	//static method
+	/**
+	 * @param attribute
+	 * @return a new {@link DocumentNode} with the given attribute.
+	 */
+	public static DocumentNode createWithOneAttribute(final boolean attribute) {
+		
+		final var documentNode = new DocumentNode();
+		documentNode.setHeader(attribute ? "True" : "False");
 		
 		return documentNode;
 	}
