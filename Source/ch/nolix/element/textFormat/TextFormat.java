@@ -13,7 +13,6 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.Boolean;
 import ch.nolix.element.core.PositiveInteger;
 
 //class
@@ -236,8 +235,8 @@ public final class TextFormat extends Element<TextFormat> {
 	public List<DocumentNode> getAttributes() {
 		return new List<>(
 			textFont.getSpecificationAs(TEXT_FONT_HEADER),
-			new Boolean(getBoldFlag()).getSpecificationAs(BOLD_FLAG_HEADER),
-			new Boolean(getItalicFlag()).getSpecificationAs(ITALIC_FLAG_HEADER),
+			new DocumentNode(BOLD_FLAG_HEADER, bold),
+			new DocumentNode(ITALIC_FLAG_HEADER, italic),
 			textSize.getSpecificationAs(TEXT_SIZE_HEADER),
 			textColor.getSpecificationAs(TEXT_COLOR_HEADER)
 		);
