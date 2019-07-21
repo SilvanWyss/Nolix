@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import ch.nolix.core.constants.MultiVariableNameCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
-import ch.nolix.core.tuple.Pair;
+import ch.nolix.core.pair.Pair;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.techAPI.genericMathAPI.IImplicitSequence;
 

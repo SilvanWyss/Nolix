@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.tuple;
+package ch.nolix.core.pair;
 
 //class
 /**

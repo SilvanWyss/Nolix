@@ -12,7 +12,7 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
-import ch.nolix.core.tuple.Pair;
+import ch.nolix.core.pair.Pair;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;

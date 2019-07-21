@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.tuple;
+package ch.nolix.core.pair;
 
 //own import
 import ch.nolix.core.validator.Validator;
