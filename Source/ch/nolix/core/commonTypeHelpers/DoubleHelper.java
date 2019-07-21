@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.helper;
+package ch.nolix.core.commonTypeHelpers;
 
 //Java imports
 import java.text.DecimalFormat;

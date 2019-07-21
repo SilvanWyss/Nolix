@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.math;
 
-//own imports
-import ch.nolix.core.helper.DoubleHelper;
+import ch.nolix.core.commonTypeHelpers.DoubleHelper;
 import ch.nolix.core.validator.Validator;
 
 //class

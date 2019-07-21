@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreTest.helperTest;
 
-//own imports
-import ch.nolix.core.helper.StringHelper;
+import ch.nolix.core.commonTypeHelpers.StringHelper;
 import ch.nolix.core.test.Test;
 
 //test class

@@ -5,12 +5,12 @@ package ch.nolix.element.core;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import ch.nolix.core.commonTypeHelpers.StringHelper;
 //own imports
 import ch.nolix.core.constants.TimeUnitCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
-import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.baseAPI.IElement;

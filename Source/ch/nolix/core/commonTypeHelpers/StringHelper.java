@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.helper;
+package ch.nolix.core.commonTypeHelpers;
 
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;

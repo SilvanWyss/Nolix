@@ -10,12 +10,12 @@ import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
-import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NonRepresentingArgumentException;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.core.XMLDocument.XMLNode;
 import ch.nolix.core.attributeAPI.Headered;
+import ch.nolix.core.commonTypeHelpers.StringHelper;
 
 //abstract class
 /**

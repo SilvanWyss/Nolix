@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.system.GUIClientoid;
 
+import ch.nolix.core.commonTypeHelpers.StringHelper;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
-import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.core.util.PopupWindowProvider;

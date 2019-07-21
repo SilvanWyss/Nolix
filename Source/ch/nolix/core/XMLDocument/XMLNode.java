@@ -3,13 +3,13 @@ package ch.nolix.core.XMLDocument;
 
 import ch.nolix.core.attributeAPI.OptionalNamable;
 import ch.nolix.core.attributeAPI.OptionalValueable;
+import ch.nolix.core.commonTypeHelpers.StringHelper;
 //own imports
 import ch.nolix.core.constants.CharacterCatalogue;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
-import ch.nolix.core.helper.StringHelper;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Freezable;
