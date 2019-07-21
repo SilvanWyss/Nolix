@@ -1,14 +1,14 @@
 //package declaration
-package ch.nolix.coreTest.XMLDocumentTest;
+package ch.nolix.coreTest.XMLTest;
 
 //own imports
 import ch.nolix.core.testoid.TestPool;
 
 //class
-public final class XMLDocumentTestPool extends TestPool {
+public final class XMLTestPool extends TestPool {
 
 	//constructor
-	public XMLDocumentTestPool() {
+	public XMLTestPool() {
 		addTestClass(XMLAttributeTest.class);
 	}
 }

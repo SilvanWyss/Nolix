@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.baseAPI;
 
-//own imports
-import ch.nolix.core.XMLDocument.XMLNode;
+import ch.nolix.core.XML.XMLNode;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.generalSkillAPI.TypeRequestable;

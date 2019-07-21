@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.coreTest.XMLDocumentTest;
+package ch.nolix.coreTest.XMLTest;
 
-//own imports
-import ch.nolix.core.XMLDocument.XMLAttribute;
+import ch.nolix.core.XML.XMLAttribute;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.test.Test;
 

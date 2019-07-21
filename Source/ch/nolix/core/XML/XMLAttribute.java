@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.XMLDocument;
+package ch.nolix.core.XML;
 
 import ch.nolix.core.attributeAPI.Named;
 import ch.nolix.core.attributeAPI.Valued;

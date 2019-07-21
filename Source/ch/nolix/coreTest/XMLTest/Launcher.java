@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.coreTest.XMLDocumentTest;
+package ch.nolix.coreTest.XMLTest;
 
 //launcher class
 public final class Launcher {
 
 	//main method
 	public static void main(String[] args) {
-		new XMLDocumentTestPool().run();
+		new XMLTestPool().run();
 	}
 	
 	//private constructor

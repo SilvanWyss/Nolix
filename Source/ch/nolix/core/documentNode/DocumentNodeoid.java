@@ -13,7 +13,7 @@ import ch.nolix.core.functionAPI.IElementTakerBooleanGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NonRepresentingArgumentException;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.core.XMLDocument.XMLNode;
+import ch.nolix.core.XML.XMLNode;
 import ch.nolix.core.attributeAPI.Headered;
 import ch.nolix.core.commonTypeHelpers.StringHelper;
 
