@@ -10,7 +10,6 @@ import ch.nolix.coreTest.licenseTest.LicenseTestPool;
 import ch.nolix.coreTest.mathTest.MathematicsTestPool;
 import ch.nolix.coreTest.sequencerTest.SequencerTestPool;
 import ch.nolix.coreTest.statementTest.StatementTestPool;
-import ch.nolix.coreTest.utilTest.UtilTestPool;
 import ch.nolix.coreTest.validatorTest.ValidatorTestPool;
 import ch.nolix.elementTest.elementEnumTest.ElementEnumTestPool;
 import ch.nolix.systemTest.databaseAdapterTest.DatabaseAdapterTestPool;
@@ -41,7 +40,6 @@ public final class CoreTestPool extends TestPool {
 			new MathematicsTestPool(),
 			new SequencerTestPool(),
 			new StatementTestPool(),
-			new UtilTestPool(),
 			new ValidatorTestPool()
 		);
 	}
