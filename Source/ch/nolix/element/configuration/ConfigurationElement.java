@@ -18,7 +18,7 @@ import ch.nolix.core.validator.Validator;
  * @lines 120
  */
 public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> extends ConfigurableElement<CE>
-implements IConfigurationElement<CE>, ISmartObject<CE> {
+implements ISmartObject<CE> {
 	
 	//optional attribute
 	private StandardConfiguration configuration;
