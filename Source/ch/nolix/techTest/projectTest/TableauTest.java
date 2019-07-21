@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.elementTest.taskTest;
+package ch.nolix.techTest.projectTest;
 
 //own imports
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.core.test.Test;
-import ch.nolix.element.task.Tableau;
-import ch.nolix.element.task.Task;
+import ch.nolix.tech.project.Project;
+import ch.nolix.tech.project.Task;
 
 //test class
 /**
@@ -22,29 +22,29 @@ public final class TableauTest extends Test {
 	public void testCase_addTask() {
 		
 		//setup
-		final Tableau tableau = new Tableau();
+		final Project project = new Project();
 		final Task task1 = new Task("Task1");
 		final Task task2 = new Task("Task2");
 		
 		//execution
-		tableau.addTask(task1, task2);
+		project.addTask(task1, task2);
 		
 		//verification
-		expect(tableau.containsAny());
-		expect(tableau.getRefTasks().getSize()).isEqualTo(2);
-		expect(tableau.getRefTasks().contains(task1));
-		expect(tableau.getRefTasks().contains(task2));
+		expect(project.containsAny());
+		expect(project.getRefTasks().getSize()).isEqualTo(2);
+		expect(project.getRefTasks().contains(task1));
+		expect(project.getRefTasks().contains(task2));
 	}
 	
 	//test case
 	public void testCase_addTask_2() {
 		
 		//setup
-		final Tableau tableau = new Tableau();
+		final Project project = new Project();
 		final Task task = null;
 		
 		//execution & verification
-		expect(() -> tableau.addTask(task))
+		expect(() -> project.addTask(task))
 		.throwsException()
 		.ofType(NullArgumentException.class);
 	}
@@ -53,12 +53,12 @@ public final class TableauTest extends Test {
 	public void testCase_addTask_3() {
 		
 		//setup
-		final Tableau tableau = new Tableau();
+		final Project project = new Project();
 		final Task task = new Task("Task");
-		tableau.addTask(task);
+		project.addTask(task);
 		
 		//execution & verification
-		expect(() -> tableau.addTask(task))
+		expect(() -> project.addTask(task))
 		.throwsException()
 		.ofType(InvalidArgumentException.class);
 	}
@@ -67,8 +67,8 @@ public final class TableauTest extends Test {
 	public void testCase_clear() {
 		
 		//setup
-		final Tableau tableau = new Tableau();
-		tableau.addTask(
+		final Project project = new Project();
+		project.addTask(
 			new Task("Task1"),
 			new Task("Task2"),
 			new Task("Task3"),
@@ -76,9 +76,9 @@ public final class TableauTest extends Test {
 		);
 		
 		//execution
-		tableau.clear();
+		project.clear();
 		
 		//verification
-		expect(() -> tableau.isEmpty());
+		expect(() -> project.isEmpty());
 	}
 }

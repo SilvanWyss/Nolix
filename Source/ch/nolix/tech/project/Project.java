@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.task;
+package ch.nolix.tech.project;
 
 //own imports
 import ch.nolix.core.attributeAPI.Namable;
@@ -22,8 +22,8 @@ import ch.nolix.element.base.MutableProperty;
  * @month 2018-03
  * @lines 160
  */
-public final class Tableau extends Element<Tableau>
-implements Clearable<Tableau>, Namable<Tableau>, Resettable<Tableau> {
+public final class Project extends Element<Project>
+implements Clearable<Project>, Namable<Project>, Resettable<Project> {
 	
 	//attribute
 	private final MutableProperty<String> name =
@@ -52,7 +52,7 @@ implements Clearable<Tableau>, Namable<Tableau>, Resettable<Tableau> {
 	 * @throws NullArgumentException
 	 * if the given task is null.
 	 */
-	public Tableau addTask(final Task task) {
+	public Project addTask(final Task task) {
 		
 		tasks.addValue(task);
 		
@@ -68,7 +68,7 @@ implements Clearable<Tableau>, Namable<Tableau>, Resettable<Tableau> {
 	 * @throws NullArgumentException
 	 * if one of the given tasks is null.
 	 */
-	public Tableau addTask(final Task...tasks) {
+	public Project addTask(final Task...tasks) {
 		
 		//Iterates the given tasks.
 		for (final Task t : tasks) {
@@ -84,7 +84,7 @@ implements Clearable<Tableau>, Namable<Tableau>, Resettable<Tableau> {
 	 * Removes all tasks of this tableau.
 	 */
 	@Override
-	public Tableau clear() {
+	public Project clear() {
 		
 		tasks.clear();
 		
@@ -136,7 +136,7 @@ implements Clearable<Tableau>, Namable<Tableau>, Resettable<Tableau> {
 	 * @return this tableau.
 	 */
 	@Override
-	public Tableau reset() {
+	public Project reset() {
 				
 		clear();
 		
@@ -153,7 +153,7 @@ implements Clearable<Tableau>, Namable<Tableau>, Resettable<Tableau> {
 	 * @throws InvalidArgumentException if the given name is blank.
 	 */
 	@Override
-	public Tableau setName(final String name) {
+	public Project setName(final String name) {
 		
 		//Checks if the given name is not blank.
 		Validator.suppose(name).thatIsNamed(VariableNameCatalogue.NAME).isNotBlank();

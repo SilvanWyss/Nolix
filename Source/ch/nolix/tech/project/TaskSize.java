@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.task;
+package ch.nolix.tech.project;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;

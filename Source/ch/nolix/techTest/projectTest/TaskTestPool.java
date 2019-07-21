@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementTest.taskTest;
+package ch.nolix.techTest.projectTest;
 
 //own imports
 import ch.nolix.core.testoid.TestPool;

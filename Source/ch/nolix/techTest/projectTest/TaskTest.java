@@ -1,8 +1,8 @@
 //package declaration
-package ch.nolix.elementTest.taskTest;
+package ch.nolix.techTest.projectTest;
 
 import ch.nolix.core.test.Test;
-import ch.nolix.element.task.Task;
+import ch.nolix.tech.project.Task;
 
 //test class
 /**
