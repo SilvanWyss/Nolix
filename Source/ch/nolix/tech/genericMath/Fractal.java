@@ -7,7 +7,7 @@ import java.math.RoundingMode;
 
 //own imports
 import ch.nolix.core.functionAPI.IIntTakerElementGetter;
-import ch.nolix.core.enums.ProcessingMode;
+import ch.nolix.core.processProperties.ProcessingMode;
 import ch.nolix.core.functionAPI.I2ElementTakerElementGetter;
 import ch.nolix.core.functionAPI.IElementTakerElementGetter;
 import ch.nolix.core.validator.Validator;

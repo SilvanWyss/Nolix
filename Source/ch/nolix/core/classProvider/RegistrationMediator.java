@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.classProvider;
 
-//own imports
-import ch.nolix.core.enums.WriteMode;
+import ch.nolix.core.processProperties.WriteMode;
 import ch.nolix.core.validator.Validator;
 
 //class
