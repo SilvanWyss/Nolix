@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreTest.elementEnumTest;
+package ch.nolix.elementTest.elementEnumTest;
 
 //class
 /**

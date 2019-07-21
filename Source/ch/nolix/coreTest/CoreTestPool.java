@@ -5,7 +5,6 @@ package ch.nolix.coreTest;
 import ch.nolix.core.testoid.TestPool;
 import ch.nolix.coreTest.containerTest.ContainerTestPool;
 import ch.nolix.coreTest.documentNodeTest.DocumentNodeTestPool;
-import ch.nolix.coreTest.elementEnumTest.ElementEnumTestPool;
 import ch.nolix.coreTest.helperTest.HelperTestPool;
 import ch.nolix.coreTest.licenseTest.LicenseTestPool;
 import ch.nolix.coreTest.mathTest.MathematicsTestPool;
@@ -13,6 +12,7 @@ import ch.nolix.coreTest.sequencerTest.SequencerTestPool;
 import ch.nolix.coreTest.statementTest.StatementTestPool;
 import ch.nolix.coreTest.utilTest.UtilTestPool;
 import ch.nolix.coreTest.validatorTest.ValidatorTestPool;
+import ch.nolix.elementTest.elementEnumTest.ElementEnumTestPool;
 import ch.nolix.systemTest.databaseAdapterTest.DatabaseAdapterTestPool;
 
 //class
