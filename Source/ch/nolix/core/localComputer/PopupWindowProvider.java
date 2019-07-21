@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.util;
+package ch.nolix.core.localComputer;
 
 //Java import
 import javax.swing.JOptionPane;

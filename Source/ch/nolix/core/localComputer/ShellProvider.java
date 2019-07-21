@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.util;
+package ch.nolix.core.localComputer;
 
 import java.io.IOError;
 //Java import

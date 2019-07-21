@@ -12,8 +12,8 @@ import ch.nolix.core.fileSystem.FileAccessor;
 import ch.nolix.core.fileSystem.FileSystemAccessor;
 import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.localComputer.PopupWindowProvider;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
-import ch.nolix.core.util.PopupWindowProvider;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 
