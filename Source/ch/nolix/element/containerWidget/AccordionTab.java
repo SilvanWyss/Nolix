@@ -19,7 +19,6 @@ import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.baseAPI.IMutableElement;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.core.Boolean;
 import ch.nolix.element.widget.Button;
 import ch.nolix.element.widget.CursorIcon;
 import ch.nolix.element.widget.HorizontalStack;
@@ -64,15 +63,15 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	new MutableProperty<>(
 		EXPANDED_FLAG_HEADER,
 		e -> {
-			if (e.isTrue()) {
+			if (e) {
 				expand();
 			}
 			else {
 				collapse();
 			}
 		},
-		s -> Boolean.createFromSpecification(s),
-		e -> e.getSpecification()
+		s -> s.getOneAttributeAsBoolean(),
+		e -> DocumentNode.createWithOneAttribute(e)
 	);
 	
 	//attributes
@@ -221,7 +220,7 @@ implements Clearable<AccordionTab>, Headerable<AccordionTab>, IMutableElement<Ac
 	
 	//method
 	public boolean isExpanded() {
-		return expanded.getValue().isTrue();
+		return expanded.getValue();
 	}
 	
 	//method
