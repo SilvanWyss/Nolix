@@ -10,8 +10,9 @@ import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.base.Property;
-import ch.nolix.element.baseAPI.IMutableElement;
 import ch.nolix.element.time.Time;
+import ch.nolix.techAPI.projectAPI.ITask;
+import ch.nolix.techAPI.projectAPI.TaskSize;
 
 //class
 /**
@@ -19,7 +20,7 @@ import ch.nolix.element.time.Time;
  * @month 2018-01
  * @lines 380
  */
-public final class Task extends Element<Task> implements IMutableElement<Task> {
+public final class Task extends Element<Task> implements ITask {
 	
 	//default value
 	private static final String DEFAULT_TITLE = StringCatalogue.EMPTY_STRING;
@@ -63,7 +64,7 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	private final MutableOptionalProperty<Time> solveTime =
 	new MutableOptionalProperty<>(
 		SOLVE_DATE_HEADER,
-		st -> setAsSolved(st),
+		st -> setSolved(st),
 		s -> Time.createFromSpecification(s),
 		st -> st.getSpecification()
 	);
@@ -139,7 +140,7 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	) {
 		setTitle(title);
 		setCreationDate(creationDate);
-		setAsSolved(solveDate);
+		setSolved(solveDate);
 	}
 	
 	//constructor
@@ -166,7 +167,7 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 		setTitle(title);
 		setSize(size);
 		setCreationDate(creationDate);
-		setAsSolved(solveDate);
+		setSolved(solveDate);
 	}
 	
 	//constructor
@@ -177,7 +178,8 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	private Task(final DocumentNodeoid specification) {
-		reset(specification);
+		reset();
+		specification.getRefAttributes().forEach(a -> addOrChangeAttribute(a));
 	}
 	
 	//method
@@ -195,6 +197,7 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	/**
 	 * @return the creation time of this task.
 	 */
+	@Override
 	public Time getCreationDate() {
 		return creationDate.getValue();
 	}
@@ -204,6 +207,7 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	 * @return the size of this task.
 	 * @throws ArgumentMissesAttributeException if this task is not assigned a size.
 	 */
+	@Override
 	public TaskSize getSize() {
 		return size.getValue();
 	}
@@ -213,6 +217,7 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	 * @return the solve date of this task.
 	 * @throws InvalidArgumentException if this task is not solved.
 	 */
+	@Override
 	public Time getSolveDate() {
 		
 		//Checks if this task is solved.
@@ -225,6 +230,7 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	/**
 	 * @return the title of this task.
 	 */
+	@Override
 	public String getTitle() {
 		return title.getValue();
 	}
@@ -233,7 +239,8 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	/**
 	 * @return true if this task is assigned a size.
 	 */
-	public boolean isAssignedSize() {
+	@Override
+	public boolean hasSize() {
 		return size.containsAny();
 	}
 	
@@ -241,6 +248,7 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	/**
 	 * @return true if this task is solved.
 	 */
+	@Override
 	public boolean isSolved() {
 		return !solveTime.isEmpty();
 	}
@@ -255,7 +263,7 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	public Task reset() {
 		
 		setTitle(DEFAULT_TITLE);
-		setAsUnsolved();
+		setUnsolved();
 		
 		return this;
 	}
@@ -267,8 +275,10 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	 * @return this task.
 	 * @throws InvalidArgumentException if this task is already solved.
 	 */
-	public Task setAsSolved() {
-		return setAsSolved(Time.createCurrentTime());
+	@Override
+	public Task setSolved() {
+		//TODO: Use UTC time.
+		return setSolved(Time.createCurrentTime());
 	}
 	
 	//method
@@ -280,7 +290,8 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	 * @throws InvalidArgumentException if the given solve time is null.
 	 * @throws InvalidArgumentException if this task is already solved.
 	 */
-	public Task setAsSolved(final Time solveTime) {
+	@Override
+	public Task setSolved(final Time solveTime) {
 		
 		//Checks if the given solve time is after the creation time of this task.
 		if (!getSolveDate().isAfter(getCreationDate())) {
@@ -307,7 +318,8 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	 * 
 	 * @return this task.
 	 */
-	public Task setAsUnsolved() {
+	@Override
+	public Task setUnsolved() {
 		
 		solveTime.clear();
 		
@@ -322,6 +334,7 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	 * @return this task.
 	 * @throws NullArgumentException if the given size is null.
 	 */
+	@Override
 	public Task setSize(final TaskSize size) {
 		
 		this.size.setValue(size);
@@ -337,6 +350,7 @@ public final class Task extends Element<Task> implements IMutableElement<Task> {
 	 * @return this task.
 	 * @throws NullArgumentException if the given title is null.
 	 */
+	@Override
 	public Task setTitle(final String title) {
 		
 		this.title.setValue(title);

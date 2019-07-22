@@ -26,7 +26,7 @@ public final class TaskTest extends Test {
 		expect(task.getCreationDate().getMinuteOfHour()).isZero();
 		expect(task.getCreationDate().getSecondOfMinute()).isZero();
 		expect(task.getCreationDate().getMillisecondOfSecond()).isZero();
-		expectNot(task.isAssignedSize());
+		expectNot(task.hasSize());
 		expectNot(task.isSolved());
 	}
 }

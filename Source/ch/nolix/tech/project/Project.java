@@ -2,16 +2,15 @@
 package ch.nolix.tech.project;
 
 //own imports
-import ch.nolix.core.attributeAPI.Namable;
 import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.documentNode.DocumentNode;
-import ch.nolix.core.skillAPI.Clearable;
-import ch.nolix.core.skillAPI.Resettable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MultiProperty;
 import ch.nolix.element.base.MutableProperty;
+import ch.nolix.techAPI.projectAPI.IProject;
+import ch.nolix.techAPI.projectAPI.ITask;
 
 //class
 /**
@@ -22,8 +21,7 @@ import ch.nolix.element.base.MutableProperty;
  * @month 2018-03
  * @lines 160
  */
-public final class Project extends Element<Project>
-implements Clearable<Project>, Namable<Project>, Resettable<Project> {
+public final class Project extends Element<Project> implements IProject {
 	
 	//attribute
 	private final MutableProperty<String> name =
@@ -35,7 +33,7 @@ implements Clearable<Project>, Namable<Project>, Resettable<Project> {
 	);
 	
 	//attribute
-	private final MultiProperty<Task> tasks =
+	private final MultiProperty<ITask> tasks =
 	new MultiProperty<>(
 		Task.TYPE_NAME,
 		t -> addTask(t),
@@ -52,7 +50,7 @@ implements Clearable<Project>, Namable<Project>, Resettable<Project> {
 	 * @throws NullArgumentException
 	 * if the given task is null.
 	 */
-	public Project addTask(final Task task) {
+	public Project addTask(final ITask task) {
 		
 		tasks.addValue(task);
 		
@@ -104,7 +102,7 @@ implements Clearable<Project>, Namable<Project>, Resettable<Project> {
 	/**
 	 * @return the tasks of this tableau.
 	 */
-	public IContainer<Task> getRefTasks() {
+	public IContainer<ITask> getRefTasks() {
 		return tasks;
 	}
 
@@ -125,8 +123,11 @@ implements Clearable<Project>, Namable<Project>, Resettable<Project> {
 	 * @throws InvalidArgumentException
 	 * if this tableau does not contain the given task.
 	 */
-	public void removeTask(final Task task) {
+	public Project removeTask(final ITask task) {
+		
 		tasks.removeValue(task);
+		
+		return this;
 	}
 	
 	//method

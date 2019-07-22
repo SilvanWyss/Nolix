@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.tech.project;
+package ch.nolix.techAPI.projectAPI;
 
 //own imports
 import ch.nolix.core.documentNode.DocumentNodeoid;
@@ -9,7 +9,7 @@ import ch.nolix.element.baseAPI.IElementEnum;
 /**
  * @author Silvan Wyss
  * @month 2018-03
- * @lines 30
+ * @lines 20
  */
 public enum TaskSize implements IElementEnum {
 	Small,
@@ -19,13 +19,10 @@ public enum TaskSize implements IElementEnum {
 	//static method
 	/**
 	 * @param specification
-	 * @return a new task size from the given specification.
-	 * @throws InvalidArgumentException
-	 * if the given specification is not valid.
+	 * @return a new {@link TaskSize} from the given specification.
+	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static TaskSize createFromSpecification(
-		final DocumentNodeoid specification
-	) {
+	public static TaskSize createFromSpecification(final DocumentNodeoid specification) {
 		return valueOf(specification.getOneAttributeAsString());
 	}
 }
