@@ -20,7 +20,8 @@ import ch.nolix.element.textFormat.TextFormat;
  * @lines 210
  * @param <TLW> The type of a {@link TextLineWidget}.
  */
-public abstract class TextLineWidget<TLW extends TextLineWidget<TLW>> extends BorderWidget<TLW, TextLineWidgetLook> {
+public abstract class TextLineWidget<TLW extends TextLineWidget<TLW, TLWL>, TLWL extends TextLineWidgetLook<TLWL>>
+extends BorderWidget<TLW, TLWL> {
 	
 	//constant
 	public static final String DEFAULT_TEXT = StringCatalogue.EMPTY_STRING;
@@ -118,15 +119,6 @@ public abstract class TextLineWidget<TLW extends TextLineWidget<TLW>> extends Bo
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final TextLineWidgetLook createWidgetLook() {
-		return new TextLineWidgetLook();
-	}
-
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected void fillUpConfigurableChildWidgets(final List<Widget<?, ?>> list) {}
 
 	//method
@@ -211,7 +203,7 @@ public abstract class TextLineWidget<TLW extends TextLineWidget<TLW>> extends Bo
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final TextLineWidgetLook textLineWidgetLook, final IPainter painter) {
+	protected void paintContentArea(final TLWL textLineWidgetLook, final IPainter painter) {
 		painter.paintText(getShownText(), getTextFormat());
 	}
 }

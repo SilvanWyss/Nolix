@@ -37,6 +37,7 @@ public final class ScrollTutorial {
 			.setBorderColors(Color.DARK_BLUE)
 			.setBackgroundColor(Color.WHITE_SMOKE)
 			.setTextSize(500)
+			.remainTextWhenLimited()
 		);
 		
 		//Adds the label to the frame.

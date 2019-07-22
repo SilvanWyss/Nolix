@@ -17,7 +17,7 @@ import ch.nolix.element.painter.IPainter;
  * @month 2016-03
  * @lines 320
  */
-public final class TextBox extends TextLineWidget<TextBox> {
+public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 
 	//constant
 	public static final String TYPE_NAME = "TextBox";
@@ -202,6 +202,15 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected TextBoxLook createWidgetLook() {
+		return new TextBoxLook();
+	}
+	
+	//method
+	/**
 	 * @return the width of the content area of current {@link TextBox}.
 	 */
 	@Override
@@ -217,27 +226,27 @@ public final class TextBox extends TextLineWidget<TextBox> {
 	/**
 	 * Paints the content area of the current {@link TextBox} using the given text line widget look and painter.
 	 * 
-	 * @param textLineWidgetLook
+	 * @param textBoxLook
 	 * @param painter
 	 */
 	@Override
 	protected final void paintContentArea(
-		final TextLineWidgetLook textLineWidgetLook,
+		final TextBoxLook textBoxLook,
 		final IPainter painter
 	) {
 		
 		//Calls method of the base class.
-		super.paintContentArea(textLineWidgetLook, painter);
+		super.paintContentArea(textBoxLook, painter);
 		
 		//Paints the text cursor if the current text box is focused or hover focused.
 		if (isFocused() || isHoverFocused()) {
-			painter.setColor(textLineWidgetLook.getRecursiveOrDefaultTextColor());
+			painter.setColor(textBoxLook.getRecursiveOrDefaultTextColor());
 			
 			painter.paintFilledRectangle(
 				getTextCursorXPositionOnContentArea(),
 				0,
 				1,
-				(int)(1.2 * textLineWidgetLook.getRecursiveOrDefaultTextSize())
+				(int)(1.2 * textBoxLook.getRecursiveOrDefaultTextSize())
 			);
 		}
 	}

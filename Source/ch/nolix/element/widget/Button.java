@@ -18,7 +18,7 @@ import ch.nolix.element.elementEnums.ContentPosition;
  * @month 2015-12
  * @lines 190
  */
-public final class Button extends TextLineWidget<Button> {
+public final class Button extends TextLineWidget<Button, ButtonLook> {
 	
 	//default value
 	public static final String DEFAULT_TEXT  = "-";
@@ -154,7 +154,7 @@ public final class Button extends TextLineWidget<Button> {
 	 */
 	@Override
 	public boolean shortensShownTextWhenHasLimitedWidth() {
-		return true;
+		return getRefLook().getRecursiveOrDefaultShortensTextWhenLimitedFlag();
 	}
 
 	//method
@@ -180,6 +180,15 @@ public final class Button extends TextLineWidget<Button> {
 		getRefHoverLook().setBackgroundColor(Color.LIGHT_GREY);
 		
 		getRefHoverFocusLook().setBackgroundColor(Color.LIGHT_GREY);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected ButtonLook createWidgetLook() {
+		return new ButtonLook();
 	}
 	
 	//method

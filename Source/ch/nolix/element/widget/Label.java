@@ -16,7 +16,7 @@ import ch.nolix.core.validator.Validator;
  * @month 2015-12
  * @lines 170
  */
-public final class Label extends TextLineWidget<Label> {
+public final class Label extends TextLineWidget<Label, LabelLook> {
 	
 	//type name
 	public static final String TYPE_NAME = "Label";
@@ -155,7 +155,7 @@ public final class Label extends TextLineWidget<Label> {
 	 */
 	@Override
 	public boolean shortensShownTextWhenHasLimitedWidth() {
-		return true;
+		return getRefLook().getRecursiveOrDefaultShortensTextWhenLimitedFlag();
 	}
 	
 	//method
@@ -164,6 +164,15 @@ public final class Label extends TextLineWidget<Label> {
 	 */
 	@Override
 	protected void applyDefaultConfigurationWhenHasBeenReset() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected LabelLook createWidgetLook() {
+		return new LabelLook();
+	}
 	
 	//method
 	/**

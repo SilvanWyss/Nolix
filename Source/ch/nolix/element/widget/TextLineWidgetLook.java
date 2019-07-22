@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.element.widget;
 
-//class
+//abstract class
 /**
  * @author Silvan Wyss
  * @month 2015-12
  * @lines 10
  */
-public final class TextLineWidgetLook
-extends BorderWidgetLook<TextLineWidgetLook> {}
+public abstract class TextLineWidgetLook<TLWL extends TextLineWidgetLook<TLWL>> extends BorderWidgetLook<TLWL> {}

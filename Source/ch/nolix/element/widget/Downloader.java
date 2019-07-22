@@ -18,7 +18,7 @@ import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 
 //class
-public final class Downloader extends TextLineWidget<Downloader> {
+public final class Downloader extends TextLineWidget<Downloader, DownloaderLook> {
 	
 	//constant
 	public static final String DEFAULT_TEXT = "Download";
@@ -176,7 +176,7 @@ public final class Downloader extends TextLineWidget<Downloader> {
 	 */
 	@Override
 	public boolean shortensShownTextWhenHasLimitedWidth() {
-		return true;
+		return getRefLook().getRecursiveOrDefaultShortensTextWhenLimitedFlag();
 	}
 	
 	//method
@@ -190,6 +190,12 @@ public final class Downloader extends TextLineWidget<Downloader> {
 		getRefHoverLook().setTextColor(Color.BLUE);
 		
 		getRefHoverFocusLook().setTextColor(Color.BLUE);
+	}
+	
+	//method
+	@Override
+	protected DownloaderLook createWidgetLook() {
+		return new DownloaderLook();
 	}
 	
 	//method
