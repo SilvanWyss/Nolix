@@ -4,7 +4,7 @@ import ch.nolix.core.instanceProvider.CentralInstanceProvider;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Label;
-import ch.nolix.tech.genericMath.GenericMathRegistrator;
+import ch.nolix.tech.genericMath.Registrator;
 import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
 
 public final class DefaultFractalTutorial {
@@ -12,7 +12,7 @@ public final class DefaultFractalTutorial {
 	public static void main(String[] args) {
 		
 		//Registers an implementation for the GenericMathAPI at the ClassProvider.
-		GenericMathRegistrator.register();
+		Registrator.register();
 		
 		//Creates a Frame.
 		final var frame =

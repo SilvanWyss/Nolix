@@ -5,7 +5,7 @@ import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.ImageWidget;
-import ch.nolix.tech.genericMath.GenericMathRegistrator;
+import ch.nolix.tech.genericMath.Registrator;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumber;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumberFactory;
 import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
@@ -15,7 +15,7 @@ public final class CustomFractalTutorial3 {
 	public static void main(String[] args) {
 		
 		//Registers an implementation for the GenericMathAPI at the ClassProvider.
-		GenericMathRegistrator.register();
+		Registrator.register();
 		
 		final var maxIterationCount = 100;
 		final var j = CentralInstanceProvider.create(IComplexNumberFactory.class).create(-0.745, 0.25);

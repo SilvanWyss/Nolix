@@ -6,7 +6,7 @@ import ch.nolix.element.widget.Downloader;
 import ch.nolix.element.widget.ImageWidget;
 import ch.nolix.element.widget.Label;
 import ch.nolix.element.widget.VerticalStack;
-import ch.nolix.tech.genericMath.GenericMathRegistrator;
+import ch.nolix.tech.genericMath.Registrator;
 import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
 
 public class SaveFractalAsPNGTutorial {
@@ -14,7 +14,7 @@ public class SaveFractalAsPNGTutorial {
 	public static void main(String[] args) {
 		
 		//Registers an implementation for the GenericMathAPI at the ClassProvider.
-		GenericMathRegistrator.register();
+		Registrator.register();
 		
 		//Creates a Frame.
 		final var frame =

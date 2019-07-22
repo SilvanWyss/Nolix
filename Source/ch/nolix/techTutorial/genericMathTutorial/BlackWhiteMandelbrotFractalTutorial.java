@@ -5,7 +5,7 @@ import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.widget.ImageWidget;
-import ch.nolix.tech.genericMath.GenericMathRegistrator;
+import ch.nolix.tech.genericMath.Registrator;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumberFactory;
 import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
 
@@ -14,7 +14,7 @@ public class BlackWhiteMandelbrotFractalTutorial {
 	public static void main(String[] args) {
 		
 		//Registers an implementation for the GenericMathAPI at the ClassProvider.
-		GenericMathRegistrator.register();
+		Registrator.register();
 		
 		final var maxIterationCount = 100;
 		

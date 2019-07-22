@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.tech.genericMath;
 
+//own imports
 import ch.nolix.core.instanceProvider.CentralInstanceProvider;
 import ch.nolix.techAPI.genericMathAPI.IClosedIntervalFactory;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumberFactory;
@@ -8,7 +9,7 @@ import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
 import ch.nolix.techAPI.genericMathAPI.IImplicitComplexSequenceBuilder;
 
 //class
-public final class GenericMathRegistrator {
+public final class Registrator {
 	
 	//static method
 	public static void register() {
@@ -20,5 +21,5 @@ public final class GenericMathRegistrator {
 	}
 	
 	//private constructor
-	private GenericMathRegistrator() {}
+	private Registrator() {}
 }

@@ -2,7 +2,7 @@ package ch.nolix.techTutorial.genericMathTutorial;
 
 import ch.nolix.core.functionAPI.IIntTaker;
 import ch.nolix.core.instanceProvider.CentralInstanceProvider;
-import ch.nolix.tech.genericMath.GenericMathRegistrator;
+import ch.nolix.tech.genericMath.Registrator;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumber;
 import ch.nolix.techAPI.genericMathAPI.IComplexNumberFactory;
 import ch.nolix.techAPI.genericMathAPI.IImplicitComplexSequenceBuilder;
@@ -12,7 +12,7 @@ public class ComplexSequenceTutorial {
 	public static void main(String[] args) {
 		
 		//Registers an implementation for the GenericMathAPI at the ClassProvider.
-		GenericMathRegistrator.register();
+		Registrator.register();
 		
 		final var complexNumberFactory = CentralInstanceProvider.create(IComplexNumberFactory.class);
 		final var startValues = new IComplexNumber[] { complexNumberFactory.create(0.0, 0.0) };
