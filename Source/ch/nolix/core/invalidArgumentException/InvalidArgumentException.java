@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.core.invalidArgumentException;
 
-//own imports
+//own import
 import ch.nolix.core.constants.CharacterCatalogue;
-import ch.nolix.core.logger.Logger;
 
 /**
  * A {@link InvalidArgumentException} is a {@link RuntimeException}
@@ -14,7 +13,7 @@ import ch.nolix.core.logger.Logger;
  * 
  * @author Silvan Wyss
  * @month 2016-11
- * @lines 210
+ * @lines 200
  */
 @SuppressWarnings("serial")
 public class InvalidArgumentException extends RuntimeException {
@@ -180,8 +179,6 @@ public class InvalidArgumentException extends RuntimeException {
 		this.argumentName = argumentName;
 		this.argument = argument;
 		this.errorPredicate = errorPredicate;
-		
-		Logger.logError(getMessage());
 	}
 	
 	//method

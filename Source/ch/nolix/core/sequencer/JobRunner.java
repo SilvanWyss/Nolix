@@ -6,6 +6,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IBooleanGetter;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
+import ch.nolix.core.logger.Logger;
 import ch.nolix.core.validator.Validator;
 
 //package-visible class
@@ -371,6 +372,7 @@ final class JobRunner extends Thread {
 			}
 			catch (final Throwable error) {
 				this.error = error;
+				Logger.logError(error);
 				break;
 			}
 		}

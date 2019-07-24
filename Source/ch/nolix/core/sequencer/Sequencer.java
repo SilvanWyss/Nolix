@@ -9,6 +9,7 @@ import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.core.functionAPI.IFunction;
 import ch.nolix.core.futureAPI.IFuture;
 import ch.nolix.core.jobPool.JobPool;
+import ch.nolix.core.logger.Logger;
 import ch.nolix.core.validator.Validator;
 
 //class
@@ -102,7 +103,9 @@ public final class Sequencer {
 			try {
 				job.run();
 			}
-			catch (final Throwable error) {}
+			catch (final Throwable error) {
+				Logger.logError(error);
+			}
 		}
 	}
 	

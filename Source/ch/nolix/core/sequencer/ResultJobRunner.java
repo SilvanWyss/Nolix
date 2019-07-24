@@ -6,6 +6,7 @@ import ch.nolix.core.constants.VariableNameCatalogue;
 import ch.nolix.core.functionAPI.IElementGetter;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
+import ch.nolix.core.logger.Logger;
 import ch.nolix.core.validator.Validator;
 
 //package-visible class
@@ -124,6 +125,7 @@ final class ResultJobRunner<R> extends Thread {
 		}
 		catch (final Throwable error) {
 			this.error = error;
+			Logger.logError(error);
 		}
 		finally {
 			running = false;

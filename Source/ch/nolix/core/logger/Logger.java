@@ -7,7 +7,7 @@ import ch.nolix.core.independentContainers.List;
 public final class Logger {
 	
 	//static attributes
-	private static boolean active = false;
+	private static boolean active = true;
 	private static LogWorker logWorker;
 	
 	//static attribute
@@ -42,6 +42,23 @@ public final class Logger {
 	//static method
 	public static boolean isActive() {
 		return active;
+	}
+	
+	//static method
+	public static void logError(final Throwable error) {
+		if (active) {
+			
+			if (logWorker == null) {
+				logWorker = new LogWorker();
+			}
+			
+			if (error.getMessage() == null || error.getMessage().isBlank()) {
+				logWorker.takeLogEntry(new LogEntry(HarmLevel.ERROR, "A " + error.getClass().getName() + " occured."));
+			}
+			else {
+				logWorker.takeLogEntry(new LogEntry(HarmLevel.ERROR, error.getMessage()));
+			}
+		}
 	}
 	
 	//static method
