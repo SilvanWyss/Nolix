@@ -11,9 +11,9 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.element.widget.Label;
-import ch.nolix.element.widget.Widget;
+import ch.nolix.element.widgets.Label;
 
 //class
 public final class Grid extends ContainerWidget<Grid, GridLook> {

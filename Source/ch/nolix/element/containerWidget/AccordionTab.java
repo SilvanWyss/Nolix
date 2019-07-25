@@ -15,16 +15,16 @@ import ch.nolix.core.math.Calculator;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.GUI_API.CursorIcon;
+import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.baseAPI.IMutableElement;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widget.Button;
-import ch.nolix.element.widget.CursorIcon;
-import ch.nolix.element.widget.HorizontalStack;
-import ch.nolix.element.widget.Label;
-import ch.nolix.element.widget.VerticalStack;
-import ch.nolix.element.widget.Widget;
+import ch.nolix.element.widgets.Button;
+import ch.nolix.element.widgets.HorizontalStack;
+import ch.nolix.element.widgets.Label;
+import ch.nolix.element.widgets.VerticalStack;
 
 //class
 public final class AccordionTab extends Element<AccordionTab>

@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.elementTest.containerWidgetTest;
 
-import ch.nolix.element.widget.Button;
-import ch.nolix.element.widget.Label;
-import ch.nolix.element.widget.TextBox;
-import ch.nolix.element.widget.VerticalStack;
-import ch.nolix.element.widget.WidgetState;
+import ch.nolix.element.GUI_API.WidgetState;
+import ch.nolix.element.widgets.Button;
+import ch.nolix.element.widgets.Label;
+import ch.nolix.element.widgets.TextBox;
+import ch.nolix.element.widgets.VerticalStack;
 import ch.nolix.elementTest.widgetTest.BorderWidgetTest;
 
 //test class

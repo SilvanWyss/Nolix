@@ -1,9 +1,9 @@
 package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.element.GUI.Frame;
+import ch.nolix.element.GUI_API.CursorIcon;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widget.Button;
-import ch.nolix.element.widget.CursorIcon;
+import ch.nolix.element.widgets.Button;
 
 /**
  * The {@link ButtonTutorial} is a tutorial for {@link Button}s.

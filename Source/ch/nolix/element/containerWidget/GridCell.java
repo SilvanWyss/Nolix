@@ -10,9 +10,9 @@ import ch.nolix.core.invalidArgumentException.EmptyArgumentException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.baseAPI.IMutableElement;
-import ch.nolix.element.widget.Widget;
 
 //package-visible class
 final class GridCell extends Element<GridCell> implements Clearable<GridCell>, IMutableElement<GridCell> {

@@ -10,11 +10,11 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.base.MultiProperty;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widget.VerticalStack;
-import ch.nolix.element.widget.Widget;
+import ch.nolix.element.widgets.VerticalStack;
 
 //class
 /**

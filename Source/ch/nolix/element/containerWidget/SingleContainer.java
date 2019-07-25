@@ -7,8 +7,8 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.element.widget.Widget;
 
 //class
 /**

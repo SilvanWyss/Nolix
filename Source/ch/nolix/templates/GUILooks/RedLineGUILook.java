@@ -4,8 +4,8 @@ package ch.nolix.templates.GUILooks;
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.StandardConfiguration;
 import ch.nolix.element.containerWidget.ContainerRole;
-import ch.nolix.element.widget.ButtonRole;
-import ch.nolix.element.widget.LabelRole;
+import ch.nolix.element.widgets.ButtonRole;
+import ch.nolix.element.widgets.LabelRole;
 
 //class
 public final class RedLineGUILook extends StandardConfiguration {

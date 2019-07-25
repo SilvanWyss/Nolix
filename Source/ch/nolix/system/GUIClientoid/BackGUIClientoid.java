@@ -12,8 +12,8 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.localComputer.PopupWindowProvider;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.element.GUI.GUI;
-import ch.nolix.element.widget.Downloader;
-import ch.nolix.element.widget.Widget;
+import ch.nolix.element.GUI_API.Widget;
+import ch.nolix.element.widgets.Downloader;
 import ch.nolix.system.GUIClient.BackGUIClientSession;
 import ch.nolix.system.client.Client;
 

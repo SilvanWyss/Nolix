@@ -13,14 +13,14 @@ import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.GUI_API.CursorIcon;
+import ch.nolix.element.GUI_API.IGUI;
+import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.baseAPI.IMutableElement;
 import ch.nolix.element.elementEnums.ContentPosition;
-import ch.nolix.element.widget.CursorIcon;
-import ch.nolix.element.widget.IGUI;
-import ch.nolix.element.widget.Label;
-import ch.nolix.element.widget.Widget;
+import ch.nolix.element.widgets.Label;
 
 //class
 /**

@@ -4,8 +4,8 @@ import ch.nolix.core.sequencer.Sequencer;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.time.Time;
-import ch.nolix.element.widget.HorizontalStack;
-import ch.nolix.element.widget.Label;
+import ch.nolix.element.widgets.HorizontalStack;
+import ch.nolix.element.widgets.Label;
 
 /**
  * The {@link LabelTutorial} is a tutorial for {@link Label}s.

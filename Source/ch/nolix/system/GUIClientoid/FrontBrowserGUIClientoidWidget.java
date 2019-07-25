@@ -7,10 +7,10 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.statement.Statement;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.element.widget.BorderWidget;
-import ch.nolix.element.widget.Widget;
+import ch.nolix.element.widgets.BorderWidget;
 
 //package-visible class
 final class FrontBrowserGUIClientoidWidget

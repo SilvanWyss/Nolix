@@ -4,7 +4,7 @@ import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.containerWidget.Accordion;
 import ch.nolix.element.containerWidget.AccordionTab;
-import ch.nolix.element.widget.ImageWidget;
+import ch.nolix.element.widgets.ImageWidget;
 import ch.nolix.templates.textureCreators.ConcreteTextureCreator;
 import ch.nolix.templates.textureCreators.JuteTextureCreator;
 

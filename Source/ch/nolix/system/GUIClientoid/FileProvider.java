@@ -4,7 +4,7 @@ package ch.nolix.system.GUIClientoid;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.widget.IFileProvider;
+import ch.nolix.element.GUI_API.IFileProvider;
 import ch.nolix.system.GUIClient.FrontGUIClient;
 
 //class

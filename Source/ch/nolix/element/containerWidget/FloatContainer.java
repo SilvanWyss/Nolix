@@ -8,8 +8,8 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.element.widget.Widget;
 
 //class
 public final class FloatContainer extends ContainerWidget<FloatContainer, FloatContainerLook>

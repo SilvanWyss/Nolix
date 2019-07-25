@@ -2,7 +2,7 @@ package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widget.DropdownMenu;
+import ch.nolix.element.widgets.DropdownMenu;
 
 /**
  * The {@link DropdownMenuTutorial} is a tutorial for {@link DropdownMenu}s.

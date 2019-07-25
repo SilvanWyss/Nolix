@@ -2,7 +2,7 @@ package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widget.Checkbox;
+import ch.nolix.element.widgets.Checkbox;
 
 /**
  * The {@link CheckboxTutorial} provides a tutorial for {@link Checkbox}s.

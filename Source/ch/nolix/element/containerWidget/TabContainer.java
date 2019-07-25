@@ -10,11 +10,11 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.element.widget.HorizontalStack;
-import ch.nolix.element.widget.Label;
-import ch.nolix.element.widget.Widget;
+import ch.nolix.element.widgets.HorizontalStack;
+import ch.nolix.element.widgets.Label;
 
 //class
 /**

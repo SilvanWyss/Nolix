@@ -2,7 +2,7 @@ package ch.nolix.elementTutorial.widgetTutorial;
 
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widget.Console;
+import ch.nolix.element.widgets.Console;
 
 /**
  * The {@link ConsoleTutorial} provides a tutorial for {@link Console}s.

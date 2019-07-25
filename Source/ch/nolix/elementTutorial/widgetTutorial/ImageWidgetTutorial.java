@@ -3,7 +3,7 @@ package ch.nolix.elementTutorial.widgetTutorial;
 import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.image.Image;
-import ch.nolix.element.widget.ImageWidget;
+import ch.nolix.element.widgets.ImageWidget;
 
 /**
  * The {@link ImageWidgetTutorial} is a tutorial for {@link ImageWidget}s.

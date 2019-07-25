@@ -4,9 +4,9 @@ import ch.nolix.element.GUI.Frame;
 import ch.nolix.element.GUI.GUILayer;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.elementEnums.ExtendedContentPosition;
-import ch.nolix.element.widget.Button;
-import ch.nolix.element.widget.HorizontalStack;
-import ch.nolix.element.widget.VerticalStack;
+import ch.nolix.element.widgets.Button;
+import ch.nolix.element.widgets.HorizontalStack;
+import ch.nolix.element.widgets.VerticalStack;
 
 /**
  * The {@link GUILayerTutorial} provides a tutorial for {@link GUILayer}s.

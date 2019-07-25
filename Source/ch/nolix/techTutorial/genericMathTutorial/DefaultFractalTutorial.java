@@ -2,8 +2,8 @@ package ch.nolix.techTutorial.genericMathTutorial;
 
 import ch.nolix.core.instanceProvider.CentralInstanceProvider;
 import ch.nolix.element.GUI.Frame;
-import ch.nolix.element.widget.ImageWidget;
-import ch.nolix.element.widget.Label;
+import ch.nolix.element.widgets.ImageWidget;
+import ch.nolix.element.widgets.Label;
 import ch.nolix.tech.genericMath.Registrator;
 import ch.nolix.techAPI.genericMathAPI.IFractalBuilder;
 

@@ -5,7 +5,7 @@ package ch.nolix.elementTest.widgetTest;
 import ch.nolix.core.invalidArgumentException.NonPositiveArgumentException;
 import ch.nolix.core.invalidArgumentException.NullArgumentException;
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widget.BorderWidget;
+import ch.nolix.element.widgets.BorderWidget;
 
 //abstract test class
 /**

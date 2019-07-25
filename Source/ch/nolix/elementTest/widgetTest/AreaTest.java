@@ -2,7 +2,7 @@
 package ch.nolix.elementTest.widgetTest;
 
 import ch.nolix.element.color.Color;
-import ch.nolix.element.widget.Area;
+import ch.nolix.element.widgets.Area;
 
 //test class
 /**

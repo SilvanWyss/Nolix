@@ -9,6 +9,10 @@ import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.InvalidArgumentException;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.GUI_API.CursorIcon;
+import ch.nolix.element.GUI_API.IGUI;
+import ch.nolix.element.GUI_API.IGUILayer;
+import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;
@@ -18,10 +22,6 @@ import ch.nolix.element.discreteGeometry.Discrete2DPoint;
 import ch.nolix.element.elementEnums.ContentPosition;
 import ch.nolix.element.elementEnums.ExtendedContentPosition;
 import ch.nolix.element.painter.IPainter;
-import ch.nolix.element.widget.CursorIcon;
-import ch.nolix.element.widget.IGUI;
-import ch.nolix.element.widget.IGUILayer;
-import ch.nolix.element.widget.Widget;
 
 //class
 /**

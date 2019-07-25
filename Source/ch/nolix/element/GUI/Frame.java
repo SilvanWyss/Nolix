@@ -8,9 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
+import ch.nolix.element.GUI_API.Widget;
 //own import
 import ch.nolix.element.painter.SwingPainter;
-import ch.nolix.element.widget.Widget;
 
 //class
 /**

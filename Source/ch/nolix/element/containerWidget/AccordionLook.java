@@ -5,8 +5,8 @@ package ch.nolix.element.containerWidget;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.layerElement.LayerProperty;
-import ch.nolix.element.widget.BorderWidgetLook;
-import ch.nolix.element.widget.ValueCatalogue;
+import ch.nolix.element.widgets.BorderWidgetLook;
+import ch.nolix.element.widgets.ValueCatalogue;
 
 //class
 public final class AccordionLook extends BorderWidgetLook<AccordionLook> {

@@ -9,8 +9,8 @@ import ch.nolix.core.skillAPI.Clearable;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.core.container.List;
 import ch.nolix.element.GUI.GUI;
+import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.core.NonNegativeInteger;
-import ch.nolix.element.widget.Widget;
 
 //abstract class
 /**

@@ -4,11 +4,11 @@ package ch.nolix.system.databaseApplication;
 //own imports
 import ch.nolix.core.container.List;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.widget.Button;
-import ch.nolix.element.widget.ButtonRole;
-import ch.nolix.element.widget.HorizontalStack;
-import ch.nolix.element.widget.Label;
-import ch.nolix.element.widget.VerticalStack;
+import ch.nolix.element.widgets.Button;
+import ch.nolix.element.widgets.ButtonRole;
+import ch.nolix.element.widgets.HorizontalStack;
+import ch.nolix.element.widgets.Label;
+import ch.nolix.element.widgets.VerticalStack;
 import ch.nolix.system.databaseAdapter.Entity;
 import ch.nolix.system.databaseAdapter.EntitySet;
 

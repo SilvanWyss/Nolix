@@ -9,8 +9,8 @@ import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator.Validator;
-import ch.nolix.element.widget.BorderWidget;
-import ch.nolix.element.widget.BorderWidgetLook;
+import ch.nolix.element.widgets.BorderWidget;
+import ch.nolix.element.widgets.BorderWidgetLook;
 
 //abstract class
 /**

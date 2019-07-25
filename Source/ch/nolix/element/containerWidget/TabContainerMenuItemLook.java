@@ -10,8 +10,8 @@ import ch.nolix.core.validator.Validator;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.layerElement.LayerElement;
-import ch.nolix.element.widget.ItemMenuItemLook;
-import ch.nolix.element.widget.ValueCatalogue;
+import ch.nolix.element.widgets.ItemMenuItemLook;
+import ch.nolix.element.widgets.ValueCatalogue;
 
 //class
 public final class TabContainerMenuItemLook
