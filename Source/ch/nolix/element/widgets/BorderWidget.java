@@ -10,6 +10,7 @@ import ch.nolix.core.math.Calculator;
 import ch.nolix.core.invalidArgumentException.ArgumentMissesAttributeException;
 import ch.nolix.core.validator.Validator;
 import ch.nolix.element.GUI_API.CursorIcon;
+import ch.nolix.element.GUI_API.ValueCatalogue;
 import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.base.MutableOptionalProperty;
 import ch.nolix.element.base.MutableProperty;

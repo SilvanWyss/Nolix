@@ -7,11 +7,11 @@ import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
 import ch.nolix.core.documentNode.DocumentNodeoid;
 import ch.nolix.core.validator.Validator;
+import ch.nolix.element.GUI_API.ValueCatalogue;
 import ch.nolix.element.color.Color;
 import ch.nolix.element.core.NonNegativeInteger;
 import ch.nolix.element.layerElement.LayerElement;
 import ch.nolix.element.widgets.ItemMenuItemLook;
-import ch.nolix.element.widgets.ValueCatalogue;
 
 //class
 public final class TabContainerMenuItemLook

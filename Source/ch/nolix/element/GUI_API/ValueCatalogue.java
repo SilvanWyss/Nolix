@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.widgets;
+package ch.nolix.element.GUI_API;
 
 //class
 /**

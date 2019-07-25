@@ -11,7 +11,6 @@ import ch.nolix.element.core.PositiveInteger;
 import ch.nolix.element.layerElement.LayerElement;
 import ch.nolix.element.layerElement.LayerProperty;
 import ch.nolix.element.textFormat.Font;
-import ch.nolix.element.widgets.ValueCatalogue;
 
 //abstract class
 /**

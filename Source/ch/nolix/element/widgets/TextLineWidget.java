@@ -6,6 +6,7 @@ import ch.nolix.core.constants.PascalCaseNameCatalogue;
 import ch.nolix.core.constants.StringCatalogue;
 import ch.nolix.core.container.List;
 import ch.nolix.core.documentNode.DocumentNode;
+import ch.nolix.element.GUI_API.ValueCatalogue;
 import ch.nolix.element.GUI_API.Widget;
 import ch.nolix.element.base.MutableProperty;
 import ch.nolix.element.color.Color;
