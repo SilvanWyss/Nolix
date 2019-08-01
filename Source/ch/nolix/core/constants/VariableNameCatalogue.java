@@ -148,6 +148,7 @@ public final class VariableNameCatalogue {
 	public static final String URL = "URL";
 	public static final String VALUE = "value";
 	public static final String VALUE_TYPE = "value type";
+	public static final String VISUALIZER = "visualizer";
 	public static final String WEIGHT = "weight";
 	public static final String WIDTH = "width";
 	public static final String YEAR = "year";
